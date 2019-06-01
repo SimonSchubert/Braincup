@@ -1,0 +1,20 @@
+<configuration>
+    <appender name="CLOUD" class="com.google.cloud.logging.logback.LoggingAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <log>application.log</log>
+        <flushLevel>WARN</flushLevel>
+    </appender>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="trace">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="CLOUD" />
+    </root>
+
+</configuration>
