@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Outlined" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24" xml:space="preserve" fill="#ebebeb">
-<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="7" y1="3" x2="7" y2="11" fill="#ebebeb"/>
-<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="3" y1="7" x2="11" y2="7" fill="#ebebeb"/>
-<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="4" y1="14" x2="10" y2="20" fill="#ebebeb"/>
-<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="4" y1="20" x2="10" y2="14" fill="#ebebeb"/>
-<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="13" y1="7" x2="21" y2="7" fill="#ebebeb"/>
-<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="13" y1="15" x2="21" y2="15" fill="#ebebeb"/>
-<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="13" y1="19" x2="21" y2="19" fill="#ebebeb"/>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" version="1.1" id="Outlined" x="0px"
+     y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24" xml:space="preserve" fill="#ebebeb">
+<line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="7" y1="3" x2="7"
+      y2="11" fill="#ebebeb"/>
+    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="3" y1="7"
+          x2="11" y2="7" fill="#ebebeb"/>
+    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="4" y1="14"
+          x2="10" y2="20" fill="#ebebeb"/>
+    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="4" y1="20"
+          x2="10" y2="14" fill="#ebebeb"/>
+    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="13" y1="7"
+          x2="21" y2="7" fill="#ebebeb"/>
+    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="13" y1="15"
+          x2="21" y2="15" fill="#ebebeb"/>
+    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10" x1="13" y1="19"
+          x2="21" y2="19" fill="#ebebeb"/>
 </svg>
