@@ -1,7 +1,7 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 buildscript {
-    val kotlin_version = "1.3.31"
+    val kotlin_version = "1.3.41"
 
     repositories {
         google()
@@ -11,7 +11,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.4.0")
+        classpath("com.android.tools.build:gradle:3.4.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
         classpath("gradle.plugin.com.wiredforcode:gradle-spawn-plugin:0.8.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlin_version")
@@ -19,7 +19,7 @@ buildscript {
 }
 
 plugins {
-    id("com.github.ben-manes.versions") version "0.21.0"
+    id("com.github.ben-manes.versions") version "0.22.0"
 }
 
 allprojects {
