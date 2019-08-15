@@ -5,7 +5,11 @@ Open source memory and focus improvement app.
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_01.png" width="300"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_02.png" width="300">
+### Terminal
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_01.png" width="400"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_02.png" width="400">
+
+### Web
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_web_01.png" width="400"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_web_02.png" width="400">
 
 ## Goal
 Build an open source memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
@@ -26,3 +30,7 @@ Build an open source memory and focus improvement app. The app itself consists o
 
 ## Contribution
 Very welcome.
+
+## Gradle build tasks
+Mac terminal client = runDebugExecutableMacosxX64
+Js web client = jsWeb
