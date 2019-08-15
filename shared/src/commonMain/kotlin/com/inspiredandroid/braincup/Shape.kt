@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup
 
-
 enum class Shape {
     SQUARE,
     TRIANGLE,

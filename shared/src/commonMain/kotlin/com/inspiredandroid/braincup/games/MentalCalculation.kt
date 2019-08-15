@@ -1,64 +1,85 @@
-package com.inspiredandroid.braincup
+package com.inspiredandroid.braincup.games
 
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-class MentalCalculation {
+class MentalCalculation : GameMode() {
 
-    var moveCount = 0
-    var number = Random.nextInt(2, 15)
-
+    var calculation = ""
+    private var moveCount = 0
+    private var number = 0
     private val divisions = arrayListOf(2, 3, 4, 5, 6, 7, 8, 9)
     private var division = -1
-    private var maxNumber = 30
+    private var maxNumber = 0
 
-    fun nextCalculation(): String {
-        var calculationString = ""
+    init {
+        reset()
+    }
 
-        when (getNextOperator()) {
-            OPERATOR_PLUS -> {
-                val addition = Random.nextInt(3, maxNumber - number)
+    override fun isCorrect(input: String): Boolean {
+        val isCorrect = number.toString() == input
+        if (!isCorrect) {
+            reset()
+        }
+        return isCorrect
+    }
+
+    override fun nextRound() {
+        calculation = if (moveCount == 0) {
+            "$number "
+        } else {
+            ""
+        }
+
+        calculation += when (getNextOperator()) {
+            Operator.PLUS -> {
+                val addition = Random.nextInt(3, max(maxNumber - number, 4))
                 number += addition
-                calculationString = "+ $addition"
+                "+ $addition"
             }
-            OPERATOR_MINUS -> {
-                val subtraction = Random.nextInt(3, number - 3)
+            Operator.MINUS -> {
+                val subtraction = Random.nextInt(3, max(number - 3, 4))
                 number -= subtraction
-                calculationString = "- $subtraction"
+                "- $subtraction"
             }
-            OPERATOR_MULTIPLY -> {
+            Operator.MULTIPLY -> {
                 val maxMulti = (maxNumber.toFloat() / number).toInt()
                 val multi = max(Random.nextInt(min(2, maxMulti - 1), maxMulti), 2)
                 number *= multi
-                calculationString = "* $multi"
+                "* $multi"
             }
-            OPERATOR_DIVIDE -> {
+            Operator.DIVIDE -> {
                 number /= division
-                calculationString = "/ $division"
+                "/ $division"
             }
         }
 
         increaseMoveCount()
-        return calculationString
     }
 
-    private fun getNextOperator(): Int {
+    private fun reset() {
+        moveCount = 0
+        number = Random.nextInt(2, 15)
+        maxNumber = 30
+    }
+
+    private fun getNextOperator(): Operator {
         when {
-            number < 10 -> return intArrayOf(OPERATOR_PLUS, OPERATOR_MULTIPLY).random()
+            number < 10 -> return arrayListOf(Operator.PLUS, Operator.MULTIPLY).random()
             number > 60 -> {
                 if (Random.nextBoolean()) {
                     divisions.shuffle()
                     divisions.forEach {
                         if (number % it == 0) {
                             division = it
-                            return OPERATOR_DIVIDE
+                            return Operator.DIVIDE
                         }
                     }
                 }
-                return OPERATOR_MINUS
+                return Operator.MINUS
             }
-            else -> return intArrayOf(OPERATOR_PLUS, OPERATOR_MULTIPLY, OPERATOR_MINUS).random()
+            else -> return arrayListOf(Operator.PLUS, Operator.MULTIPLY, Operator.MINUS).random()
         }
     }
 
@@ -72,10 +93,10 @@ class MentalCalculation {
         }
     }
 
-    companion object {
-        private const val OPERATOR_PLUS = 0
-        private const val OPERATOR_MINUS = 1
-        private const val OPERATOR_MULTIPLY = 2
-        private const val OPERATOR_DIVIDE = 3
+    enum class Operator {
+        PLUS,
+        MINUS,
+        MULTIPLY,
+        DIVIDE
     }
 }

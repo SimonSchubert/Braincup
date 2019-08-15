@@ -1,42 +1,54 @@
-package com.inspiredandroid.braincup
+package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.Color
+import com.inspiredandroid.braincup.Shape
 import kotlin.random.Random
 
-class ColorConfusion {
+class ColorConfusion : GameMode() {
 
-    data class Round(
-        val answerColor: Color,
-        val displayedColor: Color,
-        val stringColor: Color,
-        val answerShape: Shape,
-        val displayedShape: Shape
-    ) {
+    lateinit var answerColor: Color
+    lateinit var displayedColor: Color
+    lateinit var stringColor: Color
+    lateinit var answerShape: Shape
+    lateinit var displayedShape: Shape
+    var colorPoints = 0
+    var shapePoints = 0
 
-        val shapePoints: Int = Random.nextInt(2, 7)
-        val colorPoints: Int
-
-        init {
-            colorPoints = Random.nextInt(2, 10 - shapePoints)
-        }
-
-        fun isCorrect(value: String): Boolean {
-            return points() == value
-        }
-
-        fun points(): String {
-            var points = 0
-            if (answerColor == displayedColor) {
-                points += colorPoints
-            }
-            if (answerShape == displayedShape) {
-                points += shapePoints
-            }
-            return points.toString()
-        }
+    override fun isCorrect(input: String): Boolean {
+        return points() == input
     }
 
-    fun nextRound(): Round {
-        return Round(colors.random(), colors.random(), colors.random(), shapes.random(), shapes.random())
+    /**
+     * 50/50 chance that the shape is correct
+     * 50/50 chance that the color is correct
+     */
+    override fun nextRound() {
+        answerColor = colors.random()
+        displayedColor = if (Random.nextBoolean()) {
+            colors.filter { it != answerColor }.random()
+        } else {
+            answerColor
+        }
+        stringColor = colors.random()
+        answerShape = shapes.random()
+        displayedShape = if (Random.nextBoolean()) {
+            shapes.filter { it != answerShape }.random()
+        } else {
+            answerShape
+        }
+        shapePoints = Random.nextInt(2, 7)
+        colorPoints = Random.nextInt(2, 10 - shapePoints)
+    }
+
+    private fun points(): String {
+        var points = 0
+        if (answerColor == displayedColor) {
+            points += colorPoints
+        }
+        if (answerShape == displayedShape) {
+            points += shapePoints
+        }
+        return points.toString()
     }
 
     companion object {

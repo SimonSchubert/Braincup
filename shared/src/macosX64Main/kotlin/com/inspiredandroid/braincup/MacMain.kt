@@ -1,4 +1,8 @@
-import com.inspiredandroid.braincup.*
+import com.inspiredandroid.braincup.AppController
+import com.inspiredandroid.braincup.Color
+import com.inspiredandroid.braincup.Shape
+import com.inspiredandroid.braincup.games.*
+import com.inspiredandroid.braincup.getName
 import platform.posix.sleep
 import kotlin.system.getTimeMillis
 
@@ -6,26 +10,27 @@ fun main() {
     MacMain()
 }
 
-class MacMain : Gamemaster.Interface {
+class MacMain : AppController.Interface {
 
-    val gamemaster = Gamemaster(this)
+    private val gameMaster = AppController(this)
 
     init {
-        gamemaster.start()
+        gameMaster.start()
     }
 
     override fun showMainMenu(title: String, description: String, games: List<Game>, callback: (Game) -> Unit) {
-        println("-----------")
+        println("------------")
         println("- $title -")
-        println("-----------")
+        println("------------")
         println(description)
+        println()
 
         games.forEachIndexed { index, game ->
             println("${index + 1}. ${game.getName()}")
         }
 
-        val index = readLine()?.toIntOrNull() ?: -1
-        val choice = games.getOrNull(index) ?: Game.MENTAL_CALCULATION
+        val index = (readLine()?.toIntOrNull() ?: 0) + -1
+        val choice = games.getOrNull(index) ?: Game.FIND_CALCULATION
         callback(choice)
     }
 
@@ -34,106 +39,78 @@ class MacMain : Gamemaster.Interface {
         println("- $title  -")
         println("-----------------------")
         println(description)
-        println("")
-        readLine()
+        println("You can type \"quit\" and press enter at anytime to go back to the menu.")
+        println()
+        println("Press enter to start.")
+        val input = readLine() ?: ""
         start(getTimeMillis())
     }
 
     override fun showMentalCalculation(
         game: MentalCalculation,
-        title: String,
-        showValue: Boolean,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
-        println(game.nextCalculation())
+        printDivider()
+        println(game.calculation)
+        println()
+
         answer(readLine() ?: "")
-        sleep(1)
+        sleep(1u)
         next(getTimeMillis())
     }
 
     override fun showColorConfusion(
-        round: ColorConfusion.Round,
-        title: String,
+        game: ColorConfusion,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
-        when (round.displayedShape) {
-            Shape.SQUARE -> printSquare(round.displayedColor)
-            Shape.TRIANGLE -> printTriangle(round.displayedColor)
-            Shape.CIRCLE -> printCircle(round.displayedColor)
-            Shape.HEART -> printHeart(round.displayedColor)
+        printDivider()
+
+        when (game.displayedShape) {
+            Shape.SQUARE -> printSquare(game.displayedColor)
+            Shape.TRIANGLE -> printTriangle(game.displayedColor)
+            Shape.CIRCLE -> printCircle(game.displayedColor)
+            Shape.HEART -> printHeart(game.displayedColor)
         }
 
-        println("${round.shapePoints}. " + round.answerShape.getName())
-        println("${round.colorPoints}. " + round.answerColor.getName().color(round.stringColor))
+        println("${game.shapePoints} = " + game.answerShape.getName())
+        println("${game.colorPoints} = " + game.answerColor.getName().color(game.stringColor))
+        println()
 
-        answer(readLine().toString())
+        answer(readLine() ?: "")
+        sleep(1u)
         next(getTimeMillis())
     }
 
-    override fun showFinishFeedback(rank: String, title: String, plays: Int, random: () -> Unit) {
+    override fun showSherlockCalculation(
+        game: FindCalculation,
+        answer: (String) -> Unit,
+        next: (Long) -> Unit
+    ) {
+        printDivider()
+        println("Goal: ${game.result}")
+        println("Numbers: ${game.numbers.joinToString()}")
+        println()
+
+        answer(readLine() ?: "")
+        sleep(1u)
+        next(getTimeMillis())
+    }
+
+    override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
         println("")
         println("-----------------------")
         println("You scored better than $rank% of the other players.")
     }
 
-    override fun showCorrectAnswerFeedback(title: String) {
-        println("✓")
+    override fun showCorrectAnswerFeedback() {
+        println("√ :)".color(Color.GREEN))
     }
 
-    override fun showWrongAnswerFeedback(title: String) {
-        println(":(")
+    override fun showWrongAnswerFeedback() {
+        println("x :(".color(Color.RED))
     }
-
-/*
-    private fun colorConfusion() {
-        val game = ColorConfusion()
-
-        println("--------------------")
-        println("- Color confusion  -")
-        println("--------------------")
-        println("You will see a colored figure. Under the figure will be 2 statements. Summarize the values of each correct statement. Time limit is 2 minutes.")
-        readLine()
-        println("")
-
-        val startTime = getTimeMillis()
-        var running = true
-        while (running) {
-            val round = game.nextRound()
-
-            when (round.displayedShape) {
-                Shape.SQUARE -> printSquare(round.displayedColor)
-                Shape.TRIANGLE -> printTriangle(round.displayedColor)
-                Shape.CIRCLE -> printCircle(round.displayedColor)
-                Shape.HEART -> printHeart(round.displayedColor)
-            }
-
-            sleep(1)
-            println("${round.shapePoints}. " + round.answerShape.getShapeName())
-            println("${round.colorPoints}. " + round.answerColor.getColorName().color(round.stringColor))
-
-            if (round.isCorrect(readLine().toString())) {
-                println("✓")
-                points++
-            } else {
-                println(":( ")
-            }
-
-            if (getTimeMillis() - startTime > 120 * 1000) {
-                println("")
-                println("-----------------------")
-                println("You finished the game with a total of $points points.")
-                running = false
-            }
-            sleep(1)
-        }
-
-        println("")
-        println("")
-        showMainScreen()
-    }
-*/
 
     private fun printSquare(color: Color) {
         println(" _________".color(color))
@@ -167,6 +144,12 @@ class MacMain : Gamemaster.Interface {
         println("      *      ".color(color))
     }
 
+    private fun printDivider() {
+        println()
+        println("-------------------------")
+        println()
+    }
+
     companion object {
         internal const val ESCAPE = '\u001B'
         internal const val RESET = "$ESCAPE[0m"
@@ -178,7 +161,6 @@ class MacMain : Gamemaster.Interface {
             Color.GREEN -> "$ESCAPE[32m$this$RESET"
             Color.BLUE -> "$ESCAPE[34m$this$RESET"
             Color.PURPLE -> "$ESCAPE[35m$this$RESET"
-            else -> this
         }
     }
 

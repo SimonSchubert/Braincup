@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup
 
+import com.inspiredandroid.braincup.games.*
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
@@ -13,9 +14,9 @@ fun main() {
     JsMain()
 }
 
-class JsMain : Gamemaster.Interface {
+class JsMain : AppController.Interface {
 
-    val gamemaster = Gamemaster(this)
+    val gamemaster = AppController(this)
 
     init {
         gamemaster.start()

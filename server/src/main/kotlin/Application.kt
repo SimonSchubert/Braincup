@@ -10,13 +10,13 @@ import com.google.cloud.datastore.*
 import io.ktor.application.Application
 import io.ktor.application.call
 import io.ktor.application.install
-import io.ktor.features.*
+import io.ktor.features.CORS
+import io.ktor.features.CallLogging
+import io.ktor.features.ContentNegotiation
+import io.ktor.features.DefaultHeaders
 import io.ktor.gson.gson
 import io.ktor.html.respondHtml
-import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpMethod
-import io.ktor.http.HttpStatusCode
-import io.ktor.http.headersOf
 import io.ktor.response.respond
 import io.ktor.routing.get
 import io.ktor.routing.post
@@ -26,7 +26,6 @@ import kotlinx.html.body
 import kotlinx.html.h1
 import kotlinx.html.head
 import kotlinx.html.title
-import org.apache.http.auth.InvalidCredentialsException
 import kotlin.math.round
 
 var lastScoreCache = 0L
@@ -81,7 +80,7 @@ fun Application.main() {
 
                 datastore.addScore(keyFactory, score, gameId)
 
-                if(scorePercentages.isEmpty() || System.currentTimeMillis() - lastScoreCache > 120 * 60 * 1000) {
+                if (scorePercentages.isEmpty() || System.currentTimeMillis() - lastScoreCache > 120 * 60 * 1000) {
                     scorePercentages = datastore.getScores()
                     lastScoreCache = System.currentTimeMillis()
                 }
@@ -101,8 +100,8 @@ fun Datastore.getScores(): MutableMap<Long, Float> {
     val scorePercentages = mutableMapOf<Long, Float>()
 
     val query = Query.newEntityQueryBuilder()
-            .setKind("Score")
-            .build()
+        .setKind("Score")
+        .build()
 
     var totalScoresCount = 1L
 
@@ -129,9 +128,9 @@ fun Datastore.getScores(): MutableMap<Long, Float> {
 fun Datastore.addScore(keyFactory: KeyFactory, score: Long, gameId: Long) {
     val key = this.allocateId(keyFactory.newKey())
     val task = Entity.newBuilder(key)
-            .set("score", score)
-            .set("game", gameId)
-            .set("created", Timestamp.now())
-            .build()
+        .set("score", score)
+        .set("game", gameId)
+        .set("created", Timestamp.now())
+        .build()
     this.put(task)
 }
