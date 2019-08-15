@@ -14,7 +14,7 @@ class AppController(private val page: Interface) {
     var plays = 0
 
     companion object {
-        val list = listOf(Game.MENTAL_CALCULATION, Game.COLOR_CONFUSION, Game.FIND_CALCULATION)
+        val list = listOf(Game.MENTAL_CALCULATION, Game.COLOR_CONFUSION, Game.SHERLOCK_CALCULATION)
     }
 
     interface Interface {
@@ -56,7 +56,7 @@ class AppController(private val page: Interface) {
             when (game) {
                 Game.COLOR_CONFUSION -> nextRound(ColorConfusion())
                 Game.MENTAL_CALCULATION -> nextRound(MentalCalculation())
-                Game.FIND_CALCULATION -> nextRound(FindCalculation())
+                Game.SHERLOCK_CALCULATION -> nextRound(FindCalculation())
             }
         }
     }

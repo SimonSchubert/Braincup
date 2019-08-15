@@ -8,7 +8,7 @@ class MentalCalculation : GameMode() {
 
     var calculation = ""
     private var moveCount = 0
-    private var number = 0
+    internal var number = 0
     private val divisions = arrayListOf(2, 3, 4, 5, 6, 7, 8, 9)
     private var division = -1
     private var maxNumber = 0

@@ -16,13 +16,16 @@ fun main() {
 
 class JsMain : AppController.Interface {
 
-    val gamemaster = AppController(this)
+    private val appController = AppController(this)
+
+    var gameTitle = ""
 
     init {
-        gamemaster.start()
+        appController.start()
     }
 
     override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
+        gameTitle = title
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
             div {
@@ -90,8 +93,6 @@ class JsMain : AppController.Interface {
 
     override fun showMentalCalculation(
         game: MentalCalculation,
-        title: String,
-        showValue: Boolean,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -99,7 +100,7 @@ class JsMain : AppController.Interface {
             style = "text-align: center; margin: 24px"
             div {
                 classes += "mdc-typography--headline2"
-                text(title)
+                text(gameTitle)
             }
             br { }
             br { }
@@ -108,11 +109,7 @@ class JsMain : AppController.Interface {
             br {}
             div {
                 classes += "mdc-typography--headline4"
-                if (showValue) {
-                    text("${game.number} " + game.nextCalculation())
-                } else {
-                    text(game.nextCalculation())
-                }
+                text(game.calculation)
             }
             br {}
             div {
@@ -151,8 +148,7 @@ class JsMain : AppController.Interface {
     }
 
     override fun showColorConfusion(
-        round: ColorConfusion.Round,
-        title: String,
+        game: ColorConfusion,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -160,14 +156,14 @@ class JsMain : AppController.Interface {
             style = "text-align: center; margin: 24px"
             div {
                 classes += "mdc-typography--headline2"
-                text(title)
+                text(gameTitle)
             }
             br { }
             br { }
             i {
-                style = "font-size: 144px; color:${round.displayedColor.getName()};"
+                style = "font-size: 144px; color:${game.displayedColor.getName()};"
                 classes += "material-icons"
-                text(round.displayedShape.getIconResource())
+                text(game.displayedShape.getIconResource())
             }
             br { }
             br { }
@@ -177,16 +173,16 @@ class JsMain : AppController.Interface {
                 span {
                     style = "width: 200px"
                     classes += "mdc-typography--headline5"
-                    text("${round.shapePoints}: is " + round.answerShape.getName())
+                    text("${game.shapePoints}: is " + game.answerShape.getName())
                 }
                 br {}
                 span {
                     style = "width: 200px"
                     classes += "mdc-typography--headline5"
-                    text("${round.colorPoints}: is ")
+                    text("${game.colorPoints}: is ")
                     span {
-                        style = "color:${round.stringColor.getName()};"
-                        text(round.answerColor.getName())
+                        style = "color:${game.stringColor.getName()};"
+                        text(game.answerColor.getName())
                     }
                 }
             }
@@ -203,7 +199,7 @@ class JsMain : AppController.Interface {
                     onInputFunction = {
                         val input = document.getElementById("answerInput") as HTMLInputElement
                         input.focus()
-                        if (round.points().length == input.value.length) {
+                        if (game.points().length == input.value.length) {
                             answer(input.value)
                             window.setTimeout({
                                 next(currentTimeMillis())
@@ -226,13 +222,17 @@ class JsMain : AppController.Interface {
         input.focus()
     }
 
-    override fun showCorrectAnswerFeedback(title: String) {
+    override fun showSherlockCalculation(game: FindCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
+
+    }
+
+    override fun showCorrectAnswerFeedback() {
         document.body = document.create.body {
             style = "text-align: center; margin: 0px; height: 100%"
             div {
                 classes += "mdc-typography--headline2"
                 style = "padding-top: 24px;"
-                text(title)
+                text(gameTitle)
             }
             br {}
             br {}
@@ -243,13 +243,13 @@ class JsMain : AppController.Interface {
         }
     }
 
-    override fun showWrongAnswerFeedback(title: String) {
+    override fun showWrongAnswerFeedback() {
         document.body = document.create.body {
             style = "text-align: center; margin: 0px; height: 100%"
             div {
                 classes += "mdc-typography--headline2"
                 style = "padding-top: 24px;"
-                text(title)
+                text(gameTitle)
             }
             br {}
             br {}
@@ -260,12 +260,12 @@ class JsMain : AppController.Interface {
         }
     }
 
-    override fun showFinishFeedback(rank: String, title: String, plays: Int, random: () -> Unit) {
+    override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
             div {
                 classes += "mdc-typography--headline2"
-                text(title)
+                text(gameTitle)
             }
             br { }
             br { }

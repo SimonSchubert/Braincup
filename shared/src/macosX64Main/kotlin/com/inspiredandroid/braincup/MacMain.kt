@@ -30,7 +30,7 @@ class MacMain : AppController.Interface {
         }
 
         val index = (readLine()?.toIntOrNull() ?: 0) + -1
-        val choice = games.getOrNull(index) ?: Game.FIND_CALCULATION
+        val choice = games.getOrNull(index) ?: Game.SHERLOCK_CALCULATION
         callback(choice)
     }
 
