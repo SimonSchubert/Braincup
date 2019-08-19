@@ -222,7 +222,7 @@ class JsMain : AppController.Interface {
         input.focus()
     }
 
-    override fun showSherlockCalculation(game: FindCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
+    override fun showSherlockCalculation(game: SherlockCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
 
     }
 

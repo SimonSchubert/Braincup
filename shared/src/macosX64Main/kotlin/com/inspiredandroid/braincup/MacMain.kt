@@ -73,7 +73,8 @@ class MacMain : AppController.Interface {
             Shape.CIRCLE -> printCircle(game.displayedColor)
             Shape.HEART -> printHeart(game.displayedColor)
         }
-
+        
+        println()
         println("${game.shapePoints} = " + game.answerShape.getName())
         println("${game.colorPoints} = " + game.answerColor.getName().color(game.stringColor))
         println()
@@ -84,7 +85,7 @@ class MacMain : AppController.Interface {
     }
 
     override fun showSherlockCalculation(
-        game: FindCalculation,
+        game: SherlockCalculation,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {

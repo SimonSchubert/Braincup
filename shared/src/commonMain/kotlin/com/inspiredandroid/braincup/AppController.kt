@@ -33,7 +33,7 @@ class AppController(private val page: Interface) {
         )
 
         fun showSherlockCalculation(
-            game: FindCalculation,
+            game: SherlockCalculation,
             answer: (String) -> Unit,
             next: (Long) -> Unit
         )
@@ -56,7 +56,7 @@ class AppController(private val page: Interface) {
             when (game) {
                 Game.COLOR_CONFUSION -> nextRound(ColorConfusion())
                 Game.MENTAL_CALCULATION -> nextRound(MentalCalculation())
-                Game.SHERLOCK_CALCULATION -> nextRound(FindCalculation())
+                Game.SHERLOCK_CALCULATION -> nextRound(SherlockCalculation())
             }
         }
     }
@@ -66,7 +66,7 @@ class AppController(private val page: Interface) {
 
         val answer: (String) -> Unit = {
             val input = it.trim()
-            if (input == "quit") {
+            if (input == "quit" || input == "exit" || input == ":q") {
                 start()
             } else {
                 isCorrect = game.isCorrect(input)
@@ -79,7 +79,8 @@ class AppController(private val page: Interface) {
             }
         }
         val next: (Long) -> Unit = {
-            if (startTime - it > GAME_TIME_MILLIS) {
+            println("$startTime / $it / $GAME_TIME_MILLIS")
+            if (it - startTime > GAME_TIME_MILLIS) {
                 Api.postScore(1, points) { rank ->
                     page.showFinishFeedback(rank, plays) {
                         startGame(list.random())
@@ -93,7 +94,7 @@ class AppController(private val page: Interface) {
         when (game) {
             is ColorConfusion -> page.showColorConfusion(game, answer, next)
             is MentalCalculation -> page.showMentalCalculation(game, answer, next)
-            is FindCalculation -> page.showSherlockCalculation(game, answer, next)
+            is SherlockCalculation -> page.showSherlockCalculation(game, answer, next)
         }
     }
 }
