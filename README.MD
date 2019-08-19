@@ -32,5 +32,34 @@ Build an open source memory and focus improvement app. The app itself consists o
 Very welcome.
 
 ## Gradle build tasks
-Mac terminal client = runDebugExecutableMacosxX64
-Js web client = jsWeb
+- Mac terminal client = runDebugExecutableMacosxX64
+- Js web client = jsWeb
+
+## Setup Android app with Jetpack Compose
+
+Follow the instructions to download and setup Jetpack Compose: https://android.googlesource.com/platform/frameworks/support/+/androidx-master-dev/README.md
+
+Copy the content of "Braincup/shared/src/commonMain/kotlin" to "/androidx-master-dev⁩/⁨frameworks⁩/⁨support⁩/ui⁩/ui-material⁩/integration-tests⁩/material-studies⁩/⁨src⁩/⁨main"
+
+Replace Api.kt with the following:
+```
+package com.inspiredandroid.braincup
+object Api {
+    internal fun postScore(gameId: Int, score: Int, callback: (String) -> Unit) {
+        callback("99")
+    }
+}
+```
+
+Copy the MainActivity.kt and AppTheme.kt from "Braincup⁩/⁨app⁩/src⁩/main⁩/java⁩/com⁩/inspiredandroid⁩/braincup⁩" and replace it with the  from "androidx-master-dev/⁨frameworks⁩/support⁩/ui⁩/⁨ui-material⁩/integration-tests⁩/⁨material-studies⁩/⁨src⁩/main⁩/java⁩/⁨androidx/⁨ui⁩/⁨material⁩/studies⁩/MainActivity.kt"
+
+Open the AndroidManifest.xml and add ```android:theme="@android:style/Theme.Light.NoTitleBar"``` to the MainActivity definition.
+
+Open "androidx-master-dev⁩/frameworks⁩/⁨support⁩/⁨ui⁩/⁨ui-platform⁩/src⁩/main⁩/⁨java⁩/androidx⁩/ui⁩/core⁩/input/RecordingInoutConnection.kt" and replace the requestCursorUpdates function with the following:
+```
+    override fun requestCursorUpdates(cursorUpdateMode: Int): Boolean {
+        if (DEBUG) { Log.d(TAG, "requestCursorUpdates($cursorUpdateMode)") }
+        return true
+    }
+```
+
