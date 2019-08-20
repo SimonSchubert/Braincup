@@ -15,7 +15,7 @@ class SherlockCalculation : GameMode() {
 
     override fun isCorrect(input: String): Boolean {
         val matches = numbersRegex.findAll(input)
-        val userNumbers = matches.map { it.value.toInt() }.toList()
+        val userNumbers = matches.map { it.value.toIntOrNull() }.toList()
         if (!numbers.containsAll(userNumbers)) {
             return false
         }

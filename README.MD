@@ -5,6 +5,9 @@ Open source memory and focus improvement app.
 
 ## Screenshots
 
+### Android (with Jetpack Compose)
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_01.png" width="300"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_02.png" width="300">
+
 ### Terminal
 <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_01.png" width="400"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_02.png" width="400">
 
@@ -52,6 +55,8 @@ object Api {
 ```
 
 Copy the MainActivity.kt and AppTheme.kt from "Braincup⁩/⁨app⁩/src⁩/main⁩/java⁩/com⁩/inspiredandroid⁩/braincup⁩" and replace it with the  from "androidx-master-dev/⁨frameworks⁩/support⁩/ui⁩/⁨ui-material⁩/integration-tests⁩/⁨material-studies⁩/⁨src⁩/main⁩/java⁩/⁨androidx/⁨ui⁩/⁨material⁩/studies⁩/MainActivity.kt"
+
+Also copy over the following drawables: "ic_waiting.xml, ic_searching.xml, ic_success.xml"
 
 Open the AndroidManifest.xml and add ```android:theme="@android:style/Theme.Light.NoTitleBar"``` to the MainActivity definition.
 
