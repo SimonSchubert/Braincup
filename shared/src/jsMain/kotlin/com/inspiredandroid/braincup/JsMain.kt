@@ -26,6 +26,8 @@ class JsMain : AppController.Interface {
 
     override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
         gameTitle = title
+        window.history.pushState(null, "", "${gameTitle.toLowerCase().removeWhitespaces()}.html")
+        document.title = "$gameTitle - Braincup"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
             div {
@@ -50,7 +52,15 @@ class JsMain : AppController.Interface {
         }
     }
 
-    override fun showMainMenu(title: String, description: String, games: List<Game>, callback: (Game) -> Unit) {
+    override fun showMainMenu(
+        title: String,
+        description: String,
+        games: List<Game>,
+        callback: (Game) -> Unit
+    ) {
+        window.addEventListener("popstate", {
+            showMainMenu(title, description, games, callback)
+        })
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
             div {
@@ -222,7 +232,11 @@ class JsMain : AppController.Interface {
         input.focus()
     }
 
-    override fun showSherlockCalculation(game: SherlockCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
+    override fun showSherlockCalculation(
+        game: SherlockCalculation,
+        answer: (String) -> Unit,
+        next: (Long) -> Unit
+    ) {
 
     }
 
