@@ -237,7 +237,71 @@ class JsMain : AppController.Interface {
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
-
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            div {
+                classes += "mdc-typography--headline2"
+                text(gameTitle)
+            }
+            br { }
+            br { }
+            br {}
+            br {}
+            div {
+                classes += "mdc-typography--headline4"
+                text("Goal: ${game.result}")
+            }
+            div {
+                classes += "mdc-typography--headline5"
+                text("Numbers: ${game.numbers.joinToString()}")
+            }
+            br {}
+            div {
+                classes += "mdc-text-field mdc-text-field--outlined"
+                input {
+                    style = "text-align: center;font-size: 30px;width: 150px;"
+                    classes = setOf("mdc-text-field__input")
+                    id = "answerInput"
+                    autoComplete = false
+                    onInputFunction = {
+                        val input = document.getElementById("answerInput") as HTMLInputElement
+                        input.focus()
+                        console.log(input.value)
+                        if (game.isCorrect(input.value)) {
+                            answer(input.value)
+                            window.setTimeout({
+                                next(currentTimeMillis())
+                            }, 1000)
+                        }
+                    }
+                }
+                div {
+                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
+                    div {
+                        classes += "mdc-notched-outline__leading"
+                    }
+                    div {
+                        classes += "mdc-notched-outline__trailing"
+                    }
+                }
+            }
+            br {}
+            br {}
+            button {
+                style = "width: 150px"
+                classes += "mdc-button mdc-button--raised"
+                text("Give up")
+                onClickFunction = {
+                    answer("")
+                    window.setTimeout({
+                        next(currentTimeMillis())
+                    }, 1000)
+                }
+            }
+            br {}
+        }
+        val input = document.getElementById("answerInput") as HTMLInputElement
+        input.focus()
     }
 
     override fun showCorrectAnswerFeedback() {
