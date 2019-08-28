@@ -16,8 +16,16 @@ Open source memory and focus improvement app.
 
 ## Install
 
-### macOS Homebrew
+### macOS
+
+#### Homebrew
 `brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup`
+
+### Web
+https://braincup.schubert-simon.de/
+
+### Android
+Download apk from https://github.com/SimonSchubert/Braincup/releases and install manually. Play Store and F-Droid will follow.
 
 ## Goal
 Build an open source memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
