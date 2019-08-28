@@ -61,9 +61,11 @@ import androidx.ui.painting.imageFromResource
 class MainActivity : Activity(), AppController.Interface {
 
     private val gameMaster = AppController(this)
-
+    lateinit var frameLayout: FrameLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        frameLayout = FrameLayout(this)
+        setContentView(frameLayout)
         gameMaster.start()
     }
 
@@ -85,7 +87,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showMainMenu(title: String, description: String, games: List<Game>, callback: (Game) -> Unit) {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 Text(title, +themeTextStyle { h5 })
                 HeightSpacer(8.dp)
@@ -106,7 +108,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 Text(title, +themeTextStyle { h6 })
                 Padding(16.dp, 16.dp, 16.dp, 24.dp) {
@@ -125,7 +127,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showMentalCalculation(game: MentalCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 Text(game.calculation, +themeTextStyle { h3 })
                 NumberPad(onInputChange = {
@@ -139,7 +141,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showColorConfusion(game: ColorConfusion, answer: (String) -> Unit, next: (Long) -> Unit) {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 Text("${game.shapePoints} = ${game.answerShape.getName()}", +themeTextStyle { h5 })
                 Text("${game.colorPoints} = ${game.answerColor.getName()}", TextStyle(fontSize = 24.sp, color = game
@@ -161,7 +163,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showSherlockCalculation(game: SherlockCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 Text("Goal: ${game.result}", +themeTextStyle { h3 })
                 Text("Numbers: ${game.numbers.joinToString()}", +themeTextStyle { h5 })
@@ -181,7 +183,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showCorrectAnswerFeedback() {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 val vectorAsset = +vectorResource(R.drawable.ic_success)
                 Container(width = 266.dp, height = 200.dp) {
@@ -192,7 +194,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showWrongAnswerFeedback() {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 val vectorAsset = +vectorResource(R.drawable.ic_searching)
                 Container(width = 266.dp, height = 200.dp) {
@@ -203,7 +205,7 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
-        setContent {
+        frameLayout.setContent {
             BaseApp {
                 Text(rank, +themeTextStyle { h6 })
                 Button("Next game", {
