@@ -15,8 +15,8 @@ import androidx.ui.text.TextStyle
 @Composable
 fun AppTheme(children: @Composable() () -> Unit) {
     val colors = MaterialColors(
-        primary = Color(0xFFED7354.toInt()),
-        surface = Color(0xFF26282F.toInt()),
+        primary = Color(0xFFED7354),
+        surface = Color(0xFF26282F),
         onSurface = Color.White
     )
     val typography = MaterialTypography(

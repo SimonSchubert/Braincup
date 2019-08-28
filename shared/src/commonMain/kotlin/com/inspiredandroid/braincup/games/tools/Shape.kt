@@ -1,4 +1,4 @@
-package com.inspiredandroid.braincup
+package com.inspiredandroid.braincup.games.tools
 
 enum class Shape {
     SQUARE,

@@ -1,9 +1,9 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.Calculator
+import com.inspiredandroid.braincup.games.tools.Calculator
 import kotlin.random.Random
 
-class SherlockCalculation : GameMode() {
+class SherlockCalculationGame : Game() {
 
     private var moveCount = 0
     internal var result = 0
@@ -39,14 +39,15 @@ class SherlockCalculation : GameMode() {
 
         numbers.shuffle()
 
-        numbers.subList(0, Random.nextInt(minNumbersNeeded, maxNumbersNeeded)).forEachIndexed { index, i ->
-            if (index > 0) {
-                val excludeMinus = Calculator.calc(calculation) - i < 0
-                val excludeMultiply = Calculator.calc(calculation) * i > 140
-                calculation += getRandomOperator(excludeMinus, excludeMultiply)
+        numbers.subList(0, Random.nextInt(minNumbersNeeded, maxNumbersNeeded))
+            .forEachIndexed { index, i ->
+                if (index > 0) {
+                    val excludeMinus = Calculator.calc(calculation) - i < 0
+                    val excludeMultiply = Calculator.calc(calculation) * i > 140
+                    calculation += getRandomOperator(excludeMinus, excludeMultiply)
+                }
+                calculation += i.toString()
             }
-            calculation += i.toString()
-        }
         result = Calculator.calc(calculation).toInt()
 
         while (numbers.contains(result)) {
@@ -75,18 +76,22 @@ class SherlockCalculation : GameMode() {
         }
     }
 
-    private fun getRandomOperator(excludeMinus: Boolean = false, excludeMultiply: Boolean = false): String {
+    private fun getRandomOperator(
+        excludeMinus: Boolean = false,
+        excludeMultiply: Boolean = false
+    ): String {
         var operator = when (Random.nextInt(
-            0, 2)) {
+            0, 2
+        )) {
             0 -> "+"
             1 -> "-"
             2 -> "*"
             else -> "+"
         }
-        if(excludeMinus && operator == "-") {
+        if (excludeMinus && operator == "-") {
             operator = "*"
         }
-        if(excludeMultiply && operator == "*") {
+        if (excludeMultiply && operator == "*") {
             operator = "+"
         }
         return operator

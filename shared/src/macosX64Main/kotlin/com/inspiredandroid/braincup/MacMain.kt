@@ -1,8 +1,11 @@
-import com.inspiredandroid.braincup.AppController
-import com.inspiredandroid.braincup.Color
-import com.inspiredandroid.braincup.Shape
+package com.inspiredandroid.braincup
+
+import com.inspiredandroid.braincup.app.AppController
+import com.inspiredandroid.braincup.app.AppInterface
 import com.inspiredandroid.braincup.games.*
-import com.inspiredandroid.braincup.getName
+import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.getName
 import platform.posix.sleep
 import kotlin.system.getTimeMillis
 
@@ -10,7 +13,7 @@ fun main() {
     MacMain()
 }
 
-class MacMain : AppController.Interface {
+class MacMain : AppInterface {
 
     private val gameMaster = AppController(this)
 
@@ -18,7 +21,12 @@ class MacMain : AppController.Interface {
         gameMaster.start()
     }
 
-    override fun showMainMenu(title: String, description: String, games: List<Game>, callback: (Game) -> Unit) {
+    override fun showMainMenu(
+        title: String,
+        description: String,
+        games: List<Game.Type>,
+        callback: (Game.Type) -> Unit
+    ) {
         println("------------")
         println("- $title -")
         println("------------")
@@ -30,7 +38,7 @@ class MacMain : AppController.Interface {
         }
 
         val index = (readLine()?.toIntOrNull() ?: 0) + -1
-        val choice = games.getOrNull(index) ?: Game.SHERLOCK_CALCULATION
+        val choice = games.getOrNull(index) ?: Game.Type.SHERLOCK_CALCULATION
         callback(choice)
     }
 
@@ -42,12 +50,12 @@ class MacMain : AppController.Interface {
         println("You can type \"quit\" and press enter at anytime to go back to the menu.")
         println()
         println("Press enter to start.")
-        val input = readLine() ?: ""
+        readLine()
         start(getTimeMillis())
     }
 
     override fun showMentalCalculation(
-        game: MentalCalculation,
+        game: MentalCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -61,7 +69,7 @@ class MacMain : AppController.Interface {
     }
 
     override fun showColorConfusion(
-        game: ColorConfusion,
+        game: ColorConfusionGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -73,7 +81,7 @@ class MacMain : AppController.Interface {
             Shape.CIRCLE -> printCircle(game.displayedColor)
             Shape.HEART -> printHeart(game.displayedColor)
         }
-        
+
         println()
         println("${game.shapePoints} = " + game.answerShape.getName())
         println("${game.colorPoints} = " + game.answerColor.getName().color(game.stringColor))
@@ -85,7 +93,7 @@ class MacMain : AppController.Interface {
     }
 
     override fun showSherlockCalculation(
-        game: SherlockCalculation,
+        game: SherlockCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -164,5 +172,4 @@ class MacMain : AppController.Interface {
             Color.PURPLE -> "$ESCAPE[35m$this$RESET"
         }
     }
-
 }

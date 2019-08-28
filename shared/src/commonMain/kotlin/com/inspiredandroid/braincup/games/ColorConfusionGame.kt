@@ -1,10 +1,10 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.Color
-import com.inspiredandroid.braincup.Shape
+import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.Shape
 import kotlin.random.Random
 
-class ColorConfusion : GameMode() {
+class ColorConfusionGame : Game() {
 
     lateinit var answerColor: Color
     lateinit var displayedColor: Color

@@ -4,7 +4,7 @@ import kotlin.math.max
 import kotlin.math.min
 import kotlin.random.Random
 
-class MentalCalculation : GameMode() {
+class MentalCalculationGame : Game() {
 
     var calculation = ""
     private var moveCount = 0

@@ -1,4 +1,4 @@
-package com.inspiredandroid.braincup
+package com.inspiredandroid.braincup.api
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

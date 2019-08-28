@@ -1,6 +1,10 @@
 package com.inspiredandroid.braincup
 
+import com.inspiredandroid.braincup.app.AppController
+import com.inspiredandroid.braincup.app.AppInterface
 import com.inspiredandroid.braincup.games.*
+import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.getName
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
@@ -14,7 +18,7 @@ fun main() {
     JsMain()
 }
 
-class JsMain : AppController.Interface {
+class JsMain : AppInterface {
 
     private val appController = AppController(this)
 
@@ -24,39 +28,11 @@ class JsMain : AppController.Interface {
         appController.start()
     }
 
-    override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
-        gameTitle = title
-        window.history.pushState(null, "", "${gameTitle.toLowerCase().removeWhitespaces()}.html")
-        document.title = "$gameTitle - Braincup"
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
-            div {
-                classes += "mdc-typography--headline2"
-                text(title)
-            }
-            br { }
-            br { }
-            div {
-                classes += "mdc-typography--headline6"
-                text(description)
-            }
-            br { }
-            br { }
-            button {
-                classes += "mdc-button mdc-button--raised"
-                text("Start")
-                onClickFunction = {
-                    start(currentTimeMillis())
-                }
-            }
-        }
-    }
-
     override fun showMainMenu(
         title: String,
         description: String,
-        games: List<Game>,
-        callback: (Game) -> Unit
+        games: List<Game.Type>,
+        callback: (Game.Type) -> Unit
     ) {
         window.addEventListener("popstate", {
             showMainMenu(title, description, games, callback)
@@ -98,11 +74,50 @@ class JsMain : AppController.Interface {
                 src = "images/waiting.svg"
                 width = "400px"
             }
+            div {
+                classes += "mdc-typography--headline4"
+                text("Download")
+            }
+            div {
+                classes += "mdc-typography--headline5"
+                text("macOS homebrew:")
+            }
+            code {
+                text("brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup")
+            }
+        }
+    }
+
+    override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
+        gameTitle = title
+        window.history.pushState(null, "", "${gameTitle.toLowerCase().removeWhitespaces()}.html")
+        document.title = "$gameTitle - Braincup"
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            div {
+                classes += "mdc-typography--headline2"
+                text(title)
+            }
+            br { }
+            br { }
+            div {
+                classes += "mdc-typography--headline6"
+                text(description)
+            }
+            br { }
+            br { }
+            button {
+                classes += "mdc-button mdc-button--raised"
+                text("Start")
+                onClickFunction = {
+                    start(currentTimeMillis())
+                }
+            }
         }
     }
 
     override fun showMentalCalculation(
-        game: MentalCalculation,
+        game: MentalCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -158,7 +173,7 @@ class JsMain : AppController.Interface {
     }
 
     override fun showColorConfusion(
-        game: ColorConfusion,
+        game: ColorConfusionGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -233,7 +248,7 @@ class JsMain : AppController.Interface {
     }
 
     override fun showSherlockCalculation(
-        game: SherlockCalculation,
+        game: SherlockCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {

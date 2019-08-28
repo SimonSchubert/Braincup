@@ -1,4 +1,7 @@
-package com.inspiredandroid.braincup
+package com.inspiredandroid.braincup.games.tools
+
+import com.inspiredandroid.braincup.addString
+import com.inspiredandroid.braincup.removeWhitespaces
 
 /**
  * Calculates the result of an expression given as a string.
@@ -10,7 +13,8 @@ object Calculator {
     fun calc(input: String): Double {
         var expression = input.removeWhitespaces()
         expression = expression.replace("-", "+-")
-        expression = calculateInnerBrackets(expression)
+        expression =
+            calculateInnerBrackets(expression)
         return calculate(expression)
     }
 
@@ -18,9 +22,18 @@ object Calculator {
         var sum = 0.0
         expression.split(operator).forEachIndexed { index, s ->
             when {
-                s.contains("+") -> sum += calculate(s, "+")
-                s.contains("*") -> sum += calculate(s, "*")
-                s.contains("/") -> sum += calculate(s, "/")
+                s.contains("+") -> sum += calculate(
+                    s,
+                    "+"
+                )
+                s.contains("*") -> sum += calculate(
+                    s,
+                    "*"
+                )
+                s.contains("/") -> sum += calculate(
+                    s,
+                    "/"
+                )
                 else -> {
                     if (s.isNotEmpty()) {
                         if (index == 0) {
@@ -46,7 +59,8 @@ object Calculator {
             val lastCloseBracketIndex = result.indexOf(")", lastOpenBracketIndex)
             val innerBracket = result.substring(lastOpenBracketIndex + 1, lastCloseBracketIndex)
 
-            val innerBracketValue = calculate(innerBracket)
+            val innerBracketValue =
+                calculate(innerBracket)
 
             result = result.removeRange(lastOpenBracketIndex, lastCloseBracketIndex + 1)
             result = result.addString(innerBracketValue.toString(), lastOpenBracketIndex)

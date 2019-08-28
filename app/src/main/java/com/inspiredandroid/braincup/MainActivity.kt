@@ -40,25 +40,27 @@ import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.TextStyle
 import androidx.ui.text.style.TextAlign
 import androidx.ui.text.style.TextDirection
-import com.inspiredandroid.braincup.AppController
-import com.inspiredandroid.braincup.Shape
-import com.inspiredandroid.braincup.games.ColorConfusion
-import com.inspiredandroid.braincup.games.Game
-import com.inspiredandroid.braincup.games.MentalCalculation
-import com.inspiredandroid.braincup.games.SherlockCalculation
-import com.inspiredandroid.braincup.games.getName
-import com.inspiredandroid.braincup.getComposeColor
-import com.inspiredandroid.braincup.getName
 import java.lang.System.currentTimeMillis
 import android.os.AsyncTask
+import android.widget.FrameLayout
 import androidx.ui.core.WithDensity
 import androidx.ui.core.vectorgraphics.DrawVector
 import androidx.ui.core.vectorgraphics.compat.vectorResource
 import androidx.ui.foundation.SimpleImage
 import androidx.ui.painting.Image
 import androidx.ui.painting.imageFromResource
+import com.inspiredandroid.braincup.app.AppController
+import com.inspiredandroid.braincup.app.AppInterface
+import com.inspiredandroid.braincup.app.AppState
+import com.inspiredandroid.braincup.games.ColorConfusionGame
+import com.inspiredandroid.braincup.games.Game
+import com.inspiredandroid.braincup.games.MentalCalculationGame
+import com.inspiredandroid.braincup.games.SherlockCalculationGame
+import com.inspiredandroid.braincup.games.getName
+import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.getName
 
-class MainActivity : Activity(), AppController.Interface {
+class MainActivity : Activity(), AppInterface {
 
     private val gameMaster = AppController(this)
     lateinit var frameLayout: FrameLayout
@@ -86,7 +88,8 @@ class MainActivity : Activity(), AppController.Interface {
         }
     }
 
-    override fun showMainMenu(title: String, description: String, games: List<Game>, callback: (Game) -> Unit) {
+    override fun showMainMenu(title: String, description: String, games: List<Game.Type>, callback:
+        (Game.Type) -> Unit) {
         frameLayout.setContent {
             BaseApp {
                 Text(title, +themeTextStyle { h5 })
@@ -126,7 +129,8 @@ class MainActivity : Activity(), AppController.Interface {
         }
     }
 
-    override fun showMentalCalculation(game: MentalCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
+    override fun showMentalCalculation(game: MentalCalculationGame, answer: (String) -> Unit, next:
+        (Long) -> Unit) {
         frameLayout.setContent {
             BaseApp {
                 Text(game.calculation, +themeTextStyle { h3 })
@@ -140,7 +144,8 @@ class MainActivity : Activity(), AppController.Interface {
         }
     }
 
-    override fun showColorConfusion(game: ColorConfusion, answer: (String) -> Unit, next: (Long) -> Unit) {
+    override fun showColorConfusion(game: ColorConfusionGame, answer: (String) -> Unit, next: (Long)
+    -> Unit) {
         frameLayout.setContent {
             BaseApp {
                 Text("${game.shapePoints} = ${game.answerShape.getName()}", +themeTextStyle { h5 })
@@ -162,7 +167,8 @@ class MainActivity : Activity(), AppController.Interface {
         }
     }
 
-    override fun showSherlockCalculation(game: SherlockCalculation, answer: (String) -> Unit, next: (Long) -> Unit) {
+    override fun showSherlockCalculation(game: SherlockCalculationGame, answer: (String) -> Unit,
+                                         next: (Long) -> Unit) {
         frameLayout.setContent {
             BaseApp {
                 Text("Goal: ${game.result}", +themeTextStyle { h3 })
@@ -287,12 +293,21 @@ class MainActivity : Activity(), AppController.Interface {
     /**
      * Temporary solution
      */
-    fun Shape.getChar(): String {
+    private fun Shape.getChar(): String {
         return when(this) {
             Shape.SQUARE -> "■"
             Shape.TRIANGLE -> "▲"
             Shape.CIRCLE -> "◯"
             Shape.HEART -> "♥"
+        }
+    }
+
+    private fun com.inspiredandroid.braincup.games.tools.Color.getComposeColor(): androidx.ui.graphics.Color {
+        return when(this) {
+            com.inspiredandroid.braincup.games.tools.Color.RED -> Color.Red
+            com.inspiredandroid.braincup.games.tools.Color.GREEN -> Color.Green
+            com.inspiredandroid.braincup.games.tools.Color.BLUE -> Color.Blue
+            com.inspiredandroid.braincup.games.tools.Color.PURPLE -> Color.Magenta
         }
     }
 
