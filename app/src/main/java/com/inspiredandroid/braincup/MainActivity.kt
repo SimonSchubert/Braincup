@@ -68,7 +68,11 @@ class MainActivity : Activity(), AppController.Interface {
     }
 
     override fun onBackPressed() {
-        gameMaster.start()
+        if(gameMaster.state == AppState.START) {
+            super.onBackPressed()
+        } else {
+            gameMaster.start()
+        }
     }
 
     @Composable
