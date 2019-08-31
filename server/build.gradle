@@ -33,7 +33,7 @@ dependencies {
     compile "io.ktor:ktor-html-builder:$ktor_version"
     compile "io.ktor:ktor-gson:$ktor_version"
     compile "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
-    compile "com.google.cloud:google-cloud-datastore:1.88.0"
+    compile "com.google.cloud:google-cloud-datastore:1.89.0"
 
     providedCompile "com.google.appengine:appengine:$appengine_version"
 }
