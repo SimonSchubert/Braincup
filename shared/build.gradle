@@ -1,3 +1,5 @@
+import org.gradle.internal.os.OperatingSystem
+
 apply plugin: 'kotlin-multiplatform'
 apply plugin: 'kotlinx-serialization'
 
@@ -14,8 +16,7 @@ repositories {
 
 kotlin {
     targets {
-        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") \
-                              ? presets.iosArm64 : presets.iosX64
+        final def iOSTarget = System.getenv('SDK_NAME')?.startsWith("iphoneos") ? presets.iosArm64 : presets.iosX64
 
         fromPreset(iOSTarget, 'ios') {
             binaries {
@@ -26,9 +27,17 @@ kotlin {
         fromPreset(presets.jvm, 'android')
         fromPreset(presets.iosX64, 'iosX64')
         fromPreset(presets.iosArm64, 'iosArm64')
-        fromPreset(presets.macosX64, 'macosX64') {
-            binaries {
-                executable()
+        if(OperatingSystem.current() == OperatingSystem.MAC_OS) {
+            fromPreset(presets.macosX64, 'cli') {
+                binaries {
+                    executable()
+                }
+            }
+        } else if(OperatingSystem.current()== OperatingSystem.LINUX) {
+            fromPreset(presets.linuxX64, 'cli') {
+                binaries {
+                    executable()
+                }
             }
         }
         fromPreset(presets.js, 'js') {
@@ -47,7 +56,7 @@ kotlin {
         configure([iosX64, iosArm64]) {
             // compilations.main.outputKinds('FRAMEWORK')
         }
-        configure([macosX64]) {
+        configure([cli]) {
             // compilations.main.outputKinds('EXECUTABLE')
         }
     }
@@ -85,7 +94,7 @@ kotlin {
             implementation "io.ktor:ktor-client-json-js:$ktor_version"
         }
 
-        macosX64.dependencies {
+        cliMain.dependencies {
             implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
             implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
             implementation "io.ktor:ktor-client-curl:$ktor_version"

@@ -1,5 +1,3 @@
-package com.inspiredandroid.braincup
-
 import com.inspiredandroid.braincup.app.AppController
 import com.inspiredandroid.braincup.app.AppInterface
 import com.inspiredandroid.braincup.games.*
@@ -10,10 +8,10 @@ import platform.posix.sleep
 import kotlin.system.getTimeMillis
 
 fun main() {
-    MacMain()
+    CliMain()
 }
 
-class MacMain : AppInterface {
+class CliMain : AppInterface {
 
     private val gameMaster = AppController(this)
 
@@ -27,9 +25,7 @@ class MacMain : AppInterface {
         games: List<Game.Type>,
         callback: (Game.Type) -> Unit
     ) {
-        println("------------")
-        println("- $title -")
-        println("------------")
+        printTitle(title)
         println(description)
         println()
 
@@ -43,9 +39,7 @@ class MacMain : AppInterface {
     }
 
     override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
-        println("-----------------------")
-        println("- $title  -")
-        println("-----------------------")
+        printTitle(title)
         println(description)
         println("You can type \"quit\" and press enter at anytime to go back to the menu.")
         println()
@@ -108,8 +102,7 @@ class MacMain : AppInterface {
     }
 
     override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
-        println("")
-        println("-----------------------")
+        printDivider()
         println("You scored better than $rank% of the other players.")
     }
 
@@ -130,7 +123,7 @@ class MacMain : AppInterface {
     }
 
     private fun printTriangle(color: Color) {
-        println("    /\\  ".color(color))
+        println("    /\\".color(color))
         println("   /  \\".color(color))
         println("  /    \\".color(color))
         println(" /      \\".color(color))
@@ -138,25 +131,32 @@ class MacMain : AppInterface {
     }
 
     private fun printCircle(color: Color) {
-        println("    *  *    ".color(color))
-        println("  *      *  ".color(color))
-        println(" *        * ".color(color))
-        println("  *      *  ".color(color))
-        println("    *  *    ".color(color))
+        println("    *  *".color(color))
+        println("  *      *".color(color))
+        println(" *        *".color(color))
+        println("  *      *".color(color))
+        println("    *  *".color(color))
     }
 
     private fun printHeart(color: Color) {
-        println("   *     *    ".color(color))
-        println(" *    *    * ".color(color))
-        println("  *       *  ".color(color))
-        println("    *   *    ".color(color))
-        println("      *      ".color(color))
+        println("   *     *".color(color))
+        println(" *    *    *".color(color))
+        println("  *       *".color(color))
+        println("    *   *".color(color))
+        println("      * ".color(color))
     }
 
     private fun printDivider() {
         println()
         println("-------------------------")
         println()
+    }
+
+    private fun printTitle(title: String) {
+        val titleDashes = "-".repeat(title.length)
+        println("--$titleDashes--")
+        println("- $title -")
+        println("--$titleDashes--")
     }
 
     companion object {
