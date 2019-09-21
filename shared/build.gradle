@@ -2,8 +2,8 @@ apply plugin: 'kotlin-multiplatform'
 apply plugin: 'kotlinx-serialization'
 
 def kotlin_version = "1.3.50"
-def ktor_version = "1.2.3"
-def serialization_version = "0.12.0"
+def ktor_version = "1.2.4"
+def serialization_version = "0.13.0"
 
 repositories {
     maven { url "https://dl.bintray.com/kotlin/kotlinx" }
