@@ -17,6 +17,8 @@ object Api {
     }
 
     internal fun postScore(gameId: Int, score: Int, callback: (String) -> Unit) {
+        callback(score.toString())
+        /*
         GlobalScope.apply {
             launch(ApplicationDispatcher) {
                 val result: String = client.post {
@@ -27,5 +29,6 @@ object Api {
                 callback(result)
             }
         }
+        */
     }
 }

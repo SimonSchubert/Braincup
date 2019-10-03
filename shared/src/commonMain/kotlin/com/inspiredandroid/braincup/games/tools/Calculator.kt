@@ -64,6 +64,7 @@ object Calculator {
 
             result = result.removeRange(lastOpenBracketIndex, lastCloseBracketIndex + 1)
             result = result.addString(innerBracketValue.toString(), lastOpenBracketIndex)
+            result = result.replace("--", "+")
         }
         return result
     }

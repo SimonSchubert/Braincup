@@ -20,7 +20,8 @@ class AppController(private val app: AppInterface) {
         val games = listOf(
             Game.Type.MENTAL_CALCULATION,
             Game.Type.COLOR_CONFUSION,
-            Game.Type.SHERLOCK_CALCULATION
+            Game.Type.SHERLOCK_CALCULATION,
+            Game.Type.BORING_CHAIN_CALCULAITON
         )
     }
 
@@ -43,6 +44,7 @@ class AppController(private val app: AppInterface) {
                 Game.Type.COLOR_CONFUSION -> nextRound(ColorConfusionGame())
                 Game.Type.MENTAL_CALCULATION -> nextRound(MentalCalculationGame())
                 Game.Type.SHERLOCK_CALCULATION -> nextRound(SherlockCalculationGame())
+                Game.Type.BORING_CHAIN_CALCULAITON -> nextRound(BoringChainCalculation())
             }
         }
     }
@@ -80,6 +82,7 @@ class AppController(private val app: AppInterface) {
             is ColorConfusionGame -> app.showColorConfusion(game, answer, next)
             is MentalCalculationGame -> app.showMentalCalculation(game, answer, next)
             is SherlockCalculationGame -> app.showSherlockCalculation(game, answer, next)
+            is BoringChainCalculation -> app.showBoringChainCalculation(game, answer, next)
         }
     }
 }

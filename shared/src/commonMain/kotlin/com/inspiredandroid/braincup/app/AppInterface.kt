@@ -1,9 +1,6 @@
 package com.inspiredandroid.braincup.app
 
-import com.inspiredandroid.braincup.games.ColorConfusionGame
-import com.inspiredandroid.braincup.games.Game
-import com.inspiredandroid.braincup.games.MentalCalculationGame
-import com.inspiredandroid.braincup.games.SherlockCalculationGame
+import com.inspiredandroid.braincup.games.*
 
 interface AppInterface {
     fun showMainMenu(
@@ -28,6 +25,12 @@ interface AppInterface {
 
     fun showSherlockCalculation(
         game: SherlockCalculationGame,
+        answer: (String) -> Unit,
+        next: (Long) -> Unit
+    )
+
+    fun showBoringChainCalculation(
+        game: BoringChainCalculation,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     )

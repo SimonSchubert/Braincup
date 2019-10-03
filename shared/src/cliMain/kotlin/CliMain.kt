@@ -34,7 +34,7 @@ class CliMain : AppInterface {
         }
 
         val index = (readLine()?.toIntOrNull() ?: 0) + -1
-        val choice = games.getOrNull(index) ?: Game.Type.SHERLOCK_CALCULATION
+        val choice = games.getOrNull(index) ?: Game.Type.BORING_CHAIN_CALCULAITON
         callback(choice)
     }
 
@@ -50,6 +50,20 @@ class CliMain : AppInterface {
 
     override fun showMentalCalculation(
         game: MentalCalculationGame,
+        answer: (String) -> Unit,
+        next: (Long) -> Unit
+    ) {
+        printDivider()
+        println(game.calculation)
+        println()
+
+        answer(readLine() ?: "")
+        sleep(1u)
+        next(getTimeMillis())
+    }
+
+    override fun showBoringChainCalculation(
+        game: BoringChainCalculation,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -103,7 +117,7 @@ class CliMain : AppInterface {
 
     override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
         printDivider()
-        println("You scored better than $rank% of the other players.")
+        println("Score: $rank")
     }
 
     override fun showCorrectAnswerFeedback() {
