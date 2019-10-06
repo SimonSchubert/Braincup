@@ -82,7 +82,7 @@ class AppController(private val app: AppInterface) {
             is ColorConfusionGame -> app.showColorConfusion(game, answer, next)
             is MentalCalculationGame -> app.showMentalCalculation(game, answer, next)
             is SherlockCalculationGame -> app.showSherlockCalculation(game, answer, next)
-            is ChainCalculationGame -> app.showBoringChainCalculation(game, answer, next)
+            is ChainCalculationGame -> app.showChainCalculation(game, answer, next)
         }
     }
 }

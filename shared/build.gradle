@@ -26,7 +26,11 @@ kotlin {
 
         fromPreset(presets.jvm, 'android')
         fromPreset(presets.iosX64, 'iosX64')
-        fromPreset(presets.iosArm64, 'iosArm64')
+        fromPreset(presets.iosArm64, 'iosArm64') {
+            binaries {
+                framework()
+            }
+        }
         if(OperatingSystem.current() == OperatingSystem.MAC_OS) {
             fromPreset(presets.macosX64, 'cli') {
                 binaries {
@@ -54,7 +58,7 @@ kotlin {
         }
 
         configure([iosX64, iosArm64]) {
-            // compilations.main.outputKinds('FRAMEWORK')
+            // compilations.main.outputKinds("FRAMEWORK")
         }
         configure([cli]) {
             // compilations.main.outputKinds('EXECUTABLE')
@@ -72,12 +76,19 @@ kotlin {
             implementation "io.ktor:ktor-client-json:$ktor_version"
         }
 
+        commonTest.dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
+            implementation "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
+        }
+
         androidMain.dependencies {
             implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
             implementation "io.ktor:ktor-client-android:$ktor_version"
         }
 
         androidTest.dependencies {
+            implementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+            implementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
         }
 
         iosMain.dependencies {
@@ -120,6 +131,10 @@ configurations {
     compileClasspath
 }
 
+//////////////////////////////////////////////////////
+// IOS
+//////////////////////////////////////////////////////
+
 task iosTest {
     def device = project.findProperty("iosDevice")?.toString() ?: "iPhone 8"
     dependsOn 'linkTestDebugExecutableIos'
@@ -134,28 +149,33 @@ task iosTest {
     }
 }
 
+task copyFramework {
+    def buildType = project.findProperty("kotlin.build.type") ?: "DEBUG"
+    def bin = kotlin.targets.ios.compilations.main.target.binaries.findFramework("", buildType)
+    dependsOn bin.linkTask
+
+    doLast {
+        def srcFile = kotlin.targets.ios.compilations.main.target.binaries.findFramework("", buildType).outputFile
+
+        copy {
+            from srcFile.parent
+            into "$projectDir.parent/ios/framework"
+            include 'shared.framework/**'
+            include 'shared.framework.dSYM'
+        }
+    }
+}
+
 //////////////////////////////////////////////////////
 // JS
 //////////////////////////////////////////////////////
-
-def dump(obj) {
-    println("${obj.class.name}:")
-    obj.properties.each { println "$it.key : ${it?.value?.class?.name}   ->   $it.value" }
-    def names = obj.properties['names']
-    if (names != null) {
-        println(":: names: $names")
-    }
-}
 
 task jsWeb(dependsOn: [jsJar]) {
     doLast {
         copy {
             def jsCompilations = kotlin.targets.js.compilations
-            //from jsCompilations.main.output
             from jsCompilations.main.output
             from kotlin.sourceSets.jsMain.resources.srcDirs
-            //dump(kotlin.sourceSets.jsMain)
-            //dump(jsCompilations.main)
             jsCompilations.main.runtimeDependencyFiles.each {
                 if (it.exists() && !it.isDirectory()) {
                     from zipTree(it.absolutePath).matching { include '*.js' }

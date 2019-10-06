@@ -1,11 +1,7 @@
 package com.inspiredandroid.braincup.api
 
 import io.ktor.client.HttpClient
-import io.ktor.client.request.post
-import io.ktor.client.request.url
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 internal expect val ApplicationDispatcher: CoroutineDispatcher
 

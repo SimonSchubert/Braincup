@@ -29,7 +29,7 @@ interface AppInterface {
         next: (Long) -> Unit
     )
 
-    fun showBoringChainCalculation(
+    fun showChainCalculation(
         game: ChainCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit

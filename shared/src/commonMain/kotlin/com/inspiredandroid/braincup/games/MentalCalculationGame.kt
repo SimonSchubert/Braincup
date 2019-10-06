@@ -7,8 +7,8 @@ import kotlin.random.Random
 class MentalCalculationGame : Game() {
 
     var calculation = ""
+    private var number = 0
     private var moveCount = 0
-    internal var number = 0
     private val divisions = arrayListOf(2, 3, 4, 5, 6, 7, 8, 9)
     private var division = -1
     private var maxNumber = 0
@@ -91,6 +91,10 @@ class MentalCalculationGame : Game() {
             14 -> maxNumber = 100
             20 -> maxNumber = 150
         }
+    }
+
+    fun getNumberLength(): Int {
+        return number.toString().length
     }
 
     enum class Operator {

@@ -22,8 +22,8 @@ class CliMain : AppInterface {
     override fun showMainMenu(
         title: String,
         description: String,
-        games: List<Game.Type>,
-        callback: (Game.Type) -> Unit
+        games: List<GameType>,
+        callback: (GameType) -> Unit
     ) {
         printTitle(title)
         println(description)
@@ -34,7 +34,7 @@ class CliMain : AppInterface {
         }
 
         val index = (readLine()?.toIntOrNull() ?: 0) + -1
-        val choice = games.getOrNull(index) ?: Game.Type.BORING_CHAIN_CALCULAITON
+        val choice = games.getOrNull(index) ?: GameType.SHERLOCK_CALCULATION
         callback(choice)
     }
 
@@ -62,8 +62,8 @@ class CliMain : AppInterface {
         next(getTimeMillis())
     }
 
-    override fun showBoringChainCalculation(
-        game: BoringChainCalculation,
+    override fun showChainCalculation(
+        game: ChainCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     ) {
@@ -107,7 +107,7 @@ class CliMain : AppInterface {
     ) {
         printDivider()
         println("Goal: ${game.result}")
-        println("Numbers: ${game.numbers.joinToString()}")
+        println("Numbers: ${game.getNumbersString()}")
         println()
 
         answer(readLine() ?: "")

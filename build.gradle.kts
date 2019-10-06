@@ -11,7 +11,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:3.5.0")
+        classpath("com.android.tools.build:gradle:3.5.1")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
         classpath("gradle.plugin.com.wiredforcode:gradle-spawn-plugin:0.8.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlin_version")

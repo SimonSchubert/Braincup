@@ -148,7 +148,7 @@ class JsMain : AppInterface {
                         val input = document.getElementById("answerInput") as HTMLInputElement
                         input.focus()
                         console.log(input.value)
-                        if (game.number.toString().length == input.value.length) {
+                        if (game.getNumberLength() == input.value.length) {
                             answer(input.value)
                             window.setTimeout({
                                 next(currentTimeMillis())
@@ -247,7 +247,7 @@ class JsMain : AppInterface {
         input.focus()
     }
 
-    override fun showBoringChainCalculation(
+    override fun showChainCalculation(
         game: ChainCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit

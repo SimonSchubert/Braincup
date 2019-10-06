@@ -6,7 +6,10 @@ Open source memory and focus improvement app.
 ## Screenshots
 
 ### Android (with Jetpack Compose)
-<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_01.png" width="300"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_02.png" width="300">
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_02.png" width="200">
+
+### iOS (with SwiftUI)
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_ios_01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_ios_02.png" width="200">
 
 ### Terminal
 <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_01.png" width="400"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_cli_02.png" width="400">
@@ -32,24 +35,26 @@ Build an open source memory and focus improvement app. The app itself consists o
 
 ## Doing
 - Android client
+- iOS client
 - macOS terminal client
+- Linux terminal client
 - JS web client
 - High score server
 
 ## Todo
-- iOS client
-- Linux terminal client
 - Linux gui client
 - Windows terminal client
 - Windows gui client
 - macOS gui client
+- Gamification
 
 ## Contribution
 Very welcome.
 
 ## Gradle build tasks
-- Mac terminal client = runDebugExecutableMacosxX64
-- Js web client = jsWeb
+- Build and run mac terminal client = runDebugExecutableMacosxX64
+- Build and run js web client = jsWeb
+- Run unit test on android target = androidTest
 
 ## Setup Android app with Jetpack Compose
 

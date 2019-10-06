@@ -5,12 +5,12 @@ import kotlin.random.Random
 
 class SherlockCalculationGame : Game() {
 
+    var result = 0
+    private val numbers = mutableListOf<Int>()
     private var moveCount = 0
-    internal var result = 0
     private var calculation = ""
-    internal val numbers = mutableListOf<Int>()
-    var minNumbersNeeded = 2
-    var maxNumbersNeeded = 3
+    private var minNumbersNeeded = 2
+    private var maxNumbersNeeded = 3
     private val numbersRegex = Regex("(\\d+)")
 
     override fun isCorrect(input: String): Boolean {
@@ -32,10 +32,9 @@ class SherlockCalculationGame : Game() {
         numbers.clear()
         numbers.add(Random.nextInt(2, 5))
         numbers.add(Random.nextInt(2, 10))
-        numbers.add(Random.nextInt(10, 20))
-        numbers.add(Random.nextInt(10, 40))
-        numbers.add(Random.nextInt(10, 40))
-        numbers.add(Random.nextInt(20, 50))
+        for (i in 0 until maxNumbersNeeded - 3) {
+            numbers.add(Random.nextInt(10, 40))
+        }
 
         numbers.shuffle()
 
@@ -62,16 +61,19 @@ class SherlockCalculationGame : Game() {
         increaseMoveCount()
     }
 
+    fun getNumbersString(): String {
+        return numbers.joinToString()
+    }
+
     private fun increaseMoveCount() {
         moveCount++
+        maxNumbersNeeded = moveCount + 3
         when (moveCount) {
             2 -> {
                 minNumbersNeeded = 3
-                maxNumbersNeeded = 4
             }
             5 -> {
-                minNumbersNeeded = 3
-                maxNumbersNeeded = 5
+                minNumbersNeeded = 4
             }
         }
     }
@@ -89,7 +91,7 @@ class SherlockCalculationGame : Game() {
             else -> "+"
         }
         if (excludeMinus && operator == "-") {
-            operator = "*"
+            operator = "+"
         }
         if (excludeMultiply && operator == "*") {
             operator = "+"
