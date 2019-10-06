@@ -12,6 +12,7 @@ object Calculator {
 
     fun calc(input: String): Double {
         var expression = input.removeWhitespaces()
+        expression = expression.replace("--", "+")
         expression = expression.replace("-", "+-")
         expression =
             calculateInnerBrackets(expression)
