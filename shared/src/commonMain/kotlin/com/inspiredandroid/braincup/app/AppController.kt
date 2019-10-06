@@ -18,10 +18,10 @@ class AppController(private val app: AppInterface) {
 
     companion object {
         val games = listOf(
-            Game.Type.MENTAL_CALCULATION,
-            Game.Type.COLOR_CONFUSION,
-            Game.Type.SHERLOCK_CALCULATION,
-            Game.Type.BORING_CHAIN_CALCULAITON
+            GameType.MENTAL_CALCULATION,
+            GameType.COLOR_CONFUSION,
+            GameType.SHERLOCK_CALCULATION,
+            GameType.CHAIN_CALCULATION
         )
     }
 
@@ -35,16 +35,16 @@ class AppController(private val app: AppInterface) {
         }
     }
 
-    private fun startGame(game: Game.Type) {
+    private fun startGame(game: GameType) {
         state = AppState.GAME
         app.showInstructions(game.getName(), game.getDescription()) {
             startTime = it
             plays++
             when (game) {
-                Game.Type.COLOR_CONFUSION -> nextRound(ColorConfusionGame())
-                Game.Type.MENTAL_CALCULATION -> nextRound(MentalCalculationGame())
-                Game.Type.SHERLOCK_CALCULATION -> nextRound(SherlockCalculationGame())
-                Game.Type.BORING_CHAIN_CALCULAITON -> nextRound(BoringChainCalculation())
+                GameType.COLOR_CONFUSION -> nextRound(ColorConfusionGame())
+                GameType.MENTAL_CALCULATION -> nextRound(MentalCalculationGame())
+                GameType.SHERLOCK_CALCULATION -> nextRound(SherlockCalculationGame())
+                GameType.CHAIN_CALCULATION -> nextRound(ChainCalculationGame())
             }
         }
     }
@@ -82,7 +82,7 @@ class AppController(private val app: AppInterface) {
             is ColorConfusionGame -> app.showColorConfusion(game, answer, next)
             is MentalCalculationGame -> app.showMentalCalculation(game, answer, next)
             is SherlockCalculationGame -> app.showSherlockCalculation(game, answer, next)
-            is BoringChainCalculation -> app.showBoringChainCalculation(game, answer, next)
+            is ChainCalculationGame -> app.showBoringChainCalculation(game, answer, next)
         }
     }
 }

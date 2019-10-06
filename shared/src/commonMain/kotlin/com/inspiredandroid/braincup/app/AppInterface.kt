@@ -6,8 +6,8 @@ interface AppInterface {
     fun showMainMenu(
         title: String,
         description: String,
-        games: List<Game.Type>,
-        callback: (Game.Type) -> Unit
+        games: List<GameType>,
+        callback: (GameType) -> Unit
     )
 
     fun showInstructions(title: String, description: String, start: (Long) -> Unit)
@@ -30,7 +30,7 @@ interface AppInterface {
     )
 
     fun showBoringChainCalculation(
-        game: BoringChainCalculation,
+        game: ChainCalculationGame,
         answer: (String) -> Unit,
         next: (Long) -> Unit
     )

@@ -31,8 +31,8 @@ class JsMain : AppInterface {
     override fun showMainMenu(
         title: String,
         description: String,
-        games: List<Game.Type>,
-        callback: (Game.Type) -> Unit
+        games: List<GameType>,
+        callback: (GameType) -> Unit
     ) {
         window.addEventListener("popstate", {
             showMainMenu(title, description, games, callback)
@@ -247,6 +247,74 @@ class JsMain : AppInterface {
         input.focus()
     }
 
+    override fun showBoringChainCalculation(
+        game: ChainCalculationGame,
+        answer: (String) -> Unit,
+        next: (Long) -> Unit
+    ) {
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            div {
+                classes += "mdc-typography--headline2"
+                text(gameTitle)
+            }
+            br {}
+            br {}
+            br {}
+            br {}
+            div {
+                classes += "mdc-typography--headline5"
+                text(game.calculation)
+            }
+            br {}
+            div {
+                classes += "mdc-text-field mdc-text-field--outlined"
+                input {
+                    style = "text-align: center;font-size: 30px;width: 150px;"
+                    classes = setOf("mdc-text-field__input")
+                    id = "answerInput"
+                    autoComplete = false
+                    onInputFunction = {
+                        val input = document.getElementById("answerInput") as HTMLInputElement
+                        input.focus()
+                        console.log(input.value)
+                        if (game.isCorrect(input.value)) {
+                            answer(input.value)
+                            window.setTimeout({
+                                next(currentTimeMillis())
+                            }, 1000)
+                        }
+                    }
+                }
+                div {
+                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
+                    div {
+                        classes += "mdc-notched-outline__leading"
+                    }
+                    div {
+                        classes += "mdc-notched-outline__trailing"
+                    }
+                }
+            }
+            br {}
+            br {}
+            button {
+                style = "width: 150px"
+                classes += "mdc-button mdc-button--raised"
+                text("Give up")
+                onClickFunction = {
+                    answer("")
+                    window.setTimeout({
+                        next(currentTimeMillis())
+                    }, 1000)
+                }
+            }
+            br {}
+        }
+        val input = document.getElementById("answerInput") as HTMLInputElement
+        input.focus()
+    }
+
     override fun showSherlockCalculation(
         game: SherlockCalculationGame,
         answer: (String) -> Unit,
@@ -258,8 +326,8 @@ class JsMain : AppInterface {
                 classes += "mdc-typography--headline2"
                 text(gameTitle)
             }
-            br { }
-            br { }
+            br {}
+            br {}
             br {}
             br {}
             div {
@@ -268,7 +336,7 @@ class JsMain : AppInterface {
             }
             div {
                 classes += "mdc-typography--headline5"
-                text("Numbers: ${game.numbers.joinToString()}")
+                text("Numbers: ${game.getNumbersString()}")
             }
             br {}
             div {
@@ -372,17 +440,6 @@ class JsMain : AppInterface {
                 text("You scored better than $rank% of the other players.")
             }
             br { }
-            br { }
-            if (plays < 3) {
-                div {
-                    classes += "mdc-typography--headline6"
-                    text("You have ${3 - plays} more games to go to achieve your daily goal.")
-                }
-            } else {
-                div {
-                    text("Awesome! You have achieved your daily goal.")
-                }
-            }
             br { }
             button {
                 style = "width: 250px"
