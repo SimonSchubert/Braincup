@@ -38,20 +38,20 @@ class CliMain : AppInterface {
         callback(choice)
     }
 
-    override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
+    override fun showInstructions(title: String, description: String, start: () -> Unit) {
         printTitle(title)
         println(description)
         println("You can type \"quit\" and press enter at anytime to go back to the menu.")
         println()
         println("Press enter to start.")
         readLine()
-        start(getTimeMillis())
+        start()
     }
 
     override fun showMentalCalculation(
         game: MentalCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         printDivider()
         println(game.calculation)
@@ -59,13 +59,13 @@ class CliMain : AppInterface {
 
         answer(readLine() ?: "")
         sleep(1u)
-        next(getTimeMillis())
+        next()
     }
 
     override fun showChainCalculation(
         game: ChainCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         printDivider()
         println(game.calculation)
@@ -73,13 +73,13 @@ class CliMain : AppInterface {
 
         answer(readLine() ?: "")
         sleep(1u)
-        next(getTimeMillis())
+        next()
     }
 
     override fun showColorConfusion(
         game: ColorConfusionGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         printDivider()
 
@@ -97,13 +97,13 @@ class CliMain : AppInterface {
 
         answer(readLine() ?: "")
         sleep(1u)
-        next(getTimeMillis())
+        next()
     }
 
     override fun showSherlockCalculation(
         game: SherlockCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         printDivider()
         println("Goal: ${game.result}")
@@ -112,7 +112,7 @@ class CliMain : AppInterface {
 
         answer(readLine() ?: "")
         sleep(1u)
-        next(getTimeMillis())
+        next()
     }
 
     override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
