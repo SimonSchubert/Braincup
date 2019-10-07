@@ -85,10 +85,20 @@ class JsMain : AppInterface {
             code {
                 text("brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup")
             }
+            br{}
+            br{}
+            a {
+                href = "https://github.com/SimonSchubert/Braincup"
+                target = "_blank"
+                img {
+                    src = "images/github.png"
+                    width = "32px"
+                }
+            }
         }
     }
 
-    override fun showInstructions(title: String, description: String, start: (Long) -> Unit) {
+    override fun showInstructions(title: String, description: String, start: () -> Unit) {
         gameTitle = title
         window.history.pushState(null, "", "${gameTitle.toLowerCase().removeWhitespaces()}.html")
         document.title = "$gameTitle - Braincup"
@@ -110,7 +120,7 @@ class JsMain : AppInterface {
                 classes += "mdc-button mdc-button--raised"
                 text("Start")
                 onClickFunction = {
-                    start(currentTimeMillis())
+                    start()
                 }
             }
         }
@@ -119,7 +129,7 @@ class JsMain : AppInterface {
     override fun showMentalCalculation(
         game: MentalCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
@@ -147,11 +157,10 @@ class JsMain : AppInterface {
                     onInputFunction = {
                         val input = document.getElementById("answerInput") as HTMLInputElement
                         input.focus()
-                        console.log(input.value)
                         if (game.getNumberLength() == input.value.length) {
                             answer(input.value)
                             window.setTimeout({
-                                next(currentTimeMillis())
+                                next()
                             }, 1000)
                         }
                     }
@@ -175,7 +184,7 @@ class JsMain : AppInterface {
     override fun showColorConfusion(
         game: ColorConfusionGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
@@ -227,7 +236,7 @@ class JsMain : AppInterface {
                         if (game.points().length == input.value.length) {
                             answer(input.value)
                             window.setTimeout({
-                                next(currentTimeMillis())
+                                next()
                             }, 1000)
                         }
                     }
@@ -250,7 +259,7 @@ class JsMain : AppInterface {
     override fun showChainCalculation(
         game: ChainCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
@@ -277,11 +286,10 @@ class JsMain : AppInterface {
                     onInputFunction = {
                         val input = document.getElementById("answerInput") as HTMLInputElement
                         input.focus()
-                        console.log(input.value)
                         if (game.isCorrect(input.value)) {
                             answer(input.value)
                             window.setTimeout({
-                                next(currentTimeMillis())
+                                next()
                             }, 1000)
                         }
                     }
@@ -305,7 +313,7 @@ class JsMain : AppInterface {
                 onClickFunction = {
                     answer("")
                     window.setTimeout({
-                        next(currentTimeMillis())
+                        next()
                     }, 1000)
                 }
             }
@@ -318,7 +326,7 @@ class JsMain : AppInterface {
     override fun showSherlockCalculation(
         game: SherlockCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
@@ -349,11 +357,10 @@ class JsMain : AppInterface {
                     onInputFunction = {
                         val input = document.getElementById("answerInput") as HTMLInputElement
                         input.focus()
-                        console.log(input.value)
                         if (game.isCorrect(input.value)) {
                             answer(input.value)
                             window.setTimeout({
-                                next(currentTimeMillis())
+                                next()
                             }, 1000)
                         }
                     }
@@ -377,7 +384,7 @@ class JsMain : AppInterface {
                 onClickFunction = {
                     answer("")
                     window.setTimeout({
-                        next(currentTimeMillis())
+                        next()
                     }, 1000)
                 }
             }
@@ -437,7 +444,7 @@ class JsMain : AppInterface {
             br { }
             div {
                 classes += "mdc-typography--headline5"
-                text("You scored better than $rank% of the other players.")
+                text("Score: $rank")
             }
             br { }
             br { }

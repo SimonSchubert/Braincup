@@ -1,25 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px"
-     viewBox="0 0 24 24" style="enable-background:new 0 0 24 24" xml:space="preserve" fill="#464646">
-<g id="Outlined" fill="#ED7354">
-	<rect width="100%" height="100%" fill="white"/>
+<?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg style="enable-background:new 0 0 24 24" fill="#464646" version="1.1" viewBox="0 0 24 24" x="0px"
+        xmlns="http://www.w3.org/2000/svg" y="0px" xml:space="preserve">
+<g fill="#ED7354" id="Outlined">
+	<rect fill="white" height="100%" width="100%" />
     <g fill="#ED7354">
 		<g fill="#ED7354">
 			<path style="fill:none;stroke:#ED7354;stroke-width:2;stroke-miterlimit:10"
-                  d="M21,13c0-2.141-1.353-3.954-3.245-4.666     C17.904,7.915,18,7.47,18,7c0-2.209-1.791-4-4-4c-0.732,0-1.409,0.211-1.999,0.554c-1.531-0.889-3.519-0.693-4.83,0.618     C6.045,5.298,5.744,6.926,6.242,8.334C4.351,9.048,3,10.86,3,13c0,1.655,0.814,3.111,2.052,4.021C5.314,19.258,7.193,21,9.5,21     c0.925,0,1.785-0.281,2.5-0.76c0.715,0.479,1.575,0.76,2.5,0.76c2.307,0,4.186-1.742,4.448-3.979C20.186,16.111,21,14.655,21,13z     "
-                  fill="#464646"/>
+                    d="M21,13c0-2.141-1.353-3.954-3.245-4.666     C17.904,7.915,18,7.47,18,7c0-2.209-1.791-4-4-4c-0.732,0-1.409,0.211-1.999,0.554c-1.531-0.889-3.519-0.693-4.83,0.618     C6.045,5.298,5.744,6.926,6.242,8.334C4.351,9.048,3,10.86,3,13c0,1.655,0.814,3.111,2.052,4.021C5.314,19.258,7.193,21,9.5,21     c0.925,0,1.785-0.281,2.5-0.76c0.715,0.479,1.575,0.76,2.5,0.76c2.307,0,4.186-1.742,4.448-3.979C20.186,16.111,21,14.655,21,13z     "
+                    fill="#464646" />
 		</g>
 	</g>
-    <line style="fill:none;stroke:#ED7354;stroke-width:2;stroke-miterlimit:10" x1="12" y1="3" x2="12" y2="21"
-          fill="#464646"/>
+    <line style="fill:none;stroke:#ED7354;stroke-width:2;stroke-miterlimit:10" fill="#464646" x1="12"
+            x2="12" y1="3" y2="21" />
     <path style="fill:none;stroke:#ED7354;stroke-width:2;stroke-miterlimit:10"
-          d="M17.464,5c1.105,1.913,0.449,4.36-1.464,5.464" fill="#464646"/>
+            d="M17.464,5c1.105,1.913,0.449,4.36-1.464,5.464" fill="#464646" />
     <path style="fill:none;stroke:#ED7354;stroke-width:2;stroke-miterlimit:10"
-          d="M6.536,5C5.431,6.913,6.087,9.36,8,10.464" fill="#464646"/>
+            d="M6.536,5C5.431,6.913,6.087,9.36,8,10.464" fill="#464646" />
     <path style="fill:none;stroke:#ED7354;stroke-width:2;stroke-miterlimit:10"
-          d="M11.994,10c0.002,1.654-1.337,2.998-2.991,3" fill="#464646"/>
+            d="M11.994,10c0.002,1.654-1.337,2.998-2.991,3" fill="#464646" />
     <path style="fill:none;stroke:#ED7354;stroke-width:2;stroke-miterlimit:10"
-          d="M12,13c-0.002,1.654,1.337,2.998,2.991,3" fill="#464646"/>
+            d="M12,13c-0.002,1.654,1.337,2.998,2.991,3" fill="#464646" />
 </g>
 </svg>
