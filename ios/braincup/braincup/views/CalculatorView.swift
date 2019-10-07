@@ -11,16 +11,30 @@ import SwiftUI
 struct CalculatorView: View {
     var showOperators = false
     var onInputChange: (String) -> Void
-    @State var calculation = " "
+    @State var calculation = ""
     
     func changeValue(value: String) -> Void {
         calculation += value
         onInputChange(calculation)
     }
     
+    func deleteValue() -> Void {
+        if(calculation.count > 0) {
+            calculation = String(calculation.prefix(calculation.count-1))
+        }
+        onInputChange(calculation)
+    }
+    
     var body: some View {
         VStack {
-            Text(calculation)
+            HStack {
+                Text(calculation).frame(height: 50)
+                if(calculation.count > 0) {
+                    Button(action: {self.deleteValue()}) {
+                        Text("<").foregroundColor(Color(hex: 0xFFED7354))
+                    }
+                }
+            }
             HStack {
                 NumberPadButton(value: "7", onInputChange: {value in self.changeValue(value: value)})
                 NumberPadButton(value: "8", onInputChange: {value in self.changeValue(value: value)})
@@ -68,6 +82,6 @@ struct NumberPadButton: View {
     var body: some View {
         Button(action: {self.onInputChange(self.value)}) {
             Text(value)
-        }.buttonStyle(BackgroundButtonStyle())
+        }.buttonStyle(NumpadButtonStyle())
     }
 }

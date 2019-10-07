@@ -19,8 +19,7 @@ struct MentalCalculationView: View {
             VStack {
                 Text(game.calculation).font(.title).padding(.horizontal, 16)
                 CalculatorView(showOperators: false, onInputChange: {value in
-                    print("value change \(value) \(self.game.isCorrect(input: value))")
-                    if(self.game.isCorrect(input: value)) {
+                    if(self.game.getNumberLength() == value.count) {
                         self.answer(value)
                     }
                 })

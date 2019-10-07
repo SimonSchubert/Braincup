@@ -12,13 +12,17 @@ import shared
 struct FinishView: View {
     var rank: String
     var random: () -> Void
+    var back: () -> Void
     
     var body: some View {
-        VStack {
-            Text("Score: \(rank)")
-            Button(action: {self.random()}) {
-                Text("Random game")
-            }.buttonStyle(BackgroundButtonStyle())
+        NavigationView {
+            VStack {
+                Text("Score: \(rank)")
+                Button(action: {self.random()}) {
+                    Text("Random game")
+                }.buttonStyle(BackgroundButtonStyle())
+            }
+            .navigationBarItems(leading: Button(action: { self.back() }){Text("< Back")})
         }
     }
 }

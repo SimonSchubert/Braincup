@@ -183,6 +183,7 @@ __attribute__((swift_name("ColorConfusionGame")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
 - (void)nextRound __attribute__((swift_name("nextRound()")));
+- (NSString *)points __attribute__((swift_name("points()")));
 @property SharedColor *answerColor __attribute__((swift_name("answerColor")));
 @property SharedColor *displayedColor __attribute__((swift_name("displayedColor")));
 @property SharedColor *stringColor __attribute__((swift_name("stringColor")));
@@ -307,7 +308,7 @@ __attribute__((swift_name("AppController")))
 @interface SharedAppController : KotlinBase
 - (instancetype)initWithApp:(id<SharedAppInterface>)app __attribute__((swift_name("init(app:)"))) __attribute__((objc_designated_initializer));
 - (void)start __attribute__((swift_name("start()")));
-@property int64_t startTime __attribute__((swift_name("startTime")));
+@property double startTime __attribute__((swift_name("startTime")));
 @property int32_t points __attribute__((swift_name("points")));
 @property BOOL isCorrect __attribute__((swift_name("isCorrect")));
 @property int32_t plays __attribute__((swift_name("plays")));
@@ -327,11 +328,11 @@ __attribute__((swift_name("AppInterface")))
 @protocol SharedAppInterface
 @required
 - (void)showMainMenuTitle:(NSString *)title description:(NSString *)description games:(NSArray<SharedGameType *> *)games callback:(void (^)(SharedGameType *))callback __attribute__((swift_name("showMainMenu(title:description:games:callback:)")));
-- (void)showInstructionsTitle:(NSString *)title description:(NSString *)description start:(void (^)(SharedLong *))start __attribute__((swift_name("showInstructions(title:description:start:)")));
-- (void)showMentalCalculationGame:(SharedMentalCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(SharedLong *))next __attribute__((swift_name("showMentalCalculation(game:answer:next:)")));
-- (void)showColorConfusionGame:(SharedColorConfusionGame *)game answer:(void (^)(NSString *))answer next:(void (^)(SharedLong *))next __attribute__((swift_name("showColorConfusion(game:answer:next:)")));
-- (void)showSherlockCalculationGame:(SharedSherlockCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(SharedLong *))next __attribute__((swift_name("showSherlockCalculation(game:answer:next:)")));
-- (void)showBoringChainCalculationGame:(SharedChainCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(SharedLong *))next __attribute__((swift_name("showBoringChainCalculation(game:answer:next:)")));
+- (void)showInstructionsTitle:(NSString *)title description:(NSString *)description start:(void (^)(void))start __attribute__((swift_name("showInstructions(title:description:start:)")));
+- (void)showMentalCalculationGame:(SharedMentalCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showMentalCalculation(game:answer:next:)")));
+- (void)showColorConfusionGame:(SharedColorConfusionGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showColorConfusion(game:answer:next:)")));
+- (void)showSherlockCalculationGame:(SharedSherlockCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showSherlockCalculation(game:answer:next:)")));
+- (void)showChainCalculationGame:(SharedChainCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showChainCalculation(game:answer:next:)")));
 - (void)showCorrectAnswerFeedback __attribute__((swift_name("showCorrectAnswerFeedback()")));
 - (void)showWrongAnswerFeedback __attribute__((swift_name("showWrongAnswerFeedback()")));
 - (void)showFinishFeedbackRank:(NSString *)rank plays:(int32_t)plays random:(void (^)(void))random __attribute__((swift_name("showFinishFeedback(rank:plays:random:)")));

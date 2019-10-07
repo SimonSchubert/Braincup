@@ -26,7 +26,7 @@ struct SherlockCalculationView: View {
                 })
                 Button(action: {self.answer("")}) {
                     Text("Give up")
-                }.buttonStyle(BackgroundButtonStyle())
+                }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)
             }
             .navigationBarItems(leading: Button(action: { self.back() }){Text("< Back")})
         }

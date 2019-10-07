@@ -12,9 +12,20 @@ import SwiftUI
 struct BackgroundButtonStyle: ButtonStyle {
   func makeBody(configuration: Self.Configuration) -> some View {
     configuration.label
-      .padding()
-      .foregroundColor(.white)
-      .background(configuration.isPressed ? Color.red : .orange)
-      .cornerRadius(4)
+        .padding(12)
+        .foregroundColor(.white)
+        .background(configuration.isPressed ? Color.red : Color(hex: 0xFFED7354))
+        .cornerRadius(4)
+  }
+}
+
+struct NumpadButtonStyle: ButtonStyle {
+  func makeBody(configuration: Self.Configuration) -> some View {
+    configuration.label
+        .padding(16)
+        .foregroundColor(.white)
+        .background(configuration.isPressed ? Color.orange : Color(hex: 0xFFED7354))
+        .cornerRadius(4)
+        .frame(width: 50, height: 50)
   }
 }

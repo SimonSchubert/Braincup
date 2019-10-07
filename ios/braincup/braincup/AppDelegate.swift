@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftUI
 import shared
 
 @UIApplicationMain
@@ -33,8 +34,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
-extension Date {
-    var millisecondsSince1970:KotlinLong {
-        return KotlinLong(nonretainedObject: KotlinDouble(double: (self.timeIntervalSince1970 * 1000.0).rounded()))
+extension SwiftUI.Color {
+    init(hex: Int) {
+        let components = (
+            R: Double((hex >> 16) & 0xff) / 255,
+            G: Double((hex >> 08) & 0xff) / 255,
+            B: Double((hex >> 00) & 0xff) / 255
+        )
+        self.init(
+            .sRGB,
+            red: components.R,
+            green: components.G,
+            blue: components.B,
+            opacity: 1
+        )
     }
 }
+
+extension shared.Shape {
+    func getChar() -> String {
+        switch self {
+            case shared.Shape.square:
+                return "■"
+            case shared.Shape.triangle:
+                return "▲"
+            case shared.Shape.circle:
+                return "●"
+            case shared.Shape.heart:
+                return "♥"
+            default:
+                return ""
+        }
+    }
+}
+
+extension shared.Color {
+    func getColor() -> SwiftUI.Color {
+        switch self {
+            case shared.Color.red:
+                return Color.red
+            case shared.Color.green:
+                return Color.green
+            case shared.Color.blue:
+                return Color.blue
+            case shared.Color.purple:
+                return Color.purple
+            default:
+                return Color.black
+        }
+    }
+}
+
+

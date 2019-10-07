@@ -12,7 +12,7 @@ import shared
 struct InstructionsView: View {
     var title: String
     var description: String
-    var start: (KotlinLong) -> Void
+    var start: () -> Void
     var back: () -> Void
     
     var body: some View {
@@ -20,7 +20,7 @@ struct InstructionsView: View {
             VStack {
                 Text(title).font(.title)
                 Text(description).font(.body).padding(.horizontal, 16).multilineTextAlignment(.center)
-                Button(action: {self.start(Date().millisecondsSince1970)}) {
+                Button(action: {self.start()}) {
                     Text("Start")
                 }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)
             }

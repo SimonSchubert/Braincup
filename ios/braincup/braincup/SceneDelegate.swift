@@ -11,43 +11,47 @@ import SwiftUI
 import shared
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
+    
+    var window: UIWindow?
+    var appController: AppController?
+    
     func showMainMenu(title: String, description: String, games: [GameType], callback: @escaping (GameType) -> Void) {
         window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, callback: callback))
         window?.makeKeyAndVisible()
     }
     
-    func showInstructions(title: String, description: String, start: @escaping (KotlinLong) -> Void) {
-        window?.rootViewController = UIHostingController(rootView: InstructionsView(title: title, description: description, start: start, back: {self.appController?.start()}))
+    func showInstructions(title: String, description: String, start: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView:  InstructionsView(title: title, description: description, start: start, back: {self.appController?.start()}))
     }
     
-    func showMentalCalculation(game: MentalCalculationGame, answer: @escaping (String) -> Void, next: @escaping (KotlinLong) -> Void) {
+    func showMentalCalculation(game: MentalCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView: MentalCalculationView(game: game, answer: { value in answer(value)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                next(Date().millisecondsSince1970)
+                next()
             }
         }, back: {self.appController?.start()}))
     }
     
-    func showColorConfusion(game: ColorConfusionGame, answer: @escaping (String) -> Void, next: @escaping (KotlinLong) -> Void) {
+    func showColorConfusion(game: ColorConfusionGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView: ColorConfusionView(game: game, answer: { value in answer(value)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                next(Date().millisecondsSince1970)
+                next()
             }
         }, back: {self.appController?.start()}))
     }
     
-    func showSherlockCalculation(game: SherlockCalculationGame, answer: @escaping (String) -> Void, next: @escaping (KotlinLong) -> Void) {
+    func showSherlockCalculation(game: SherlockCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView: SherlockCalculationView(game: game, answer: { value in answer(value)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                next(Date().millisecondsSince1970)
+                next()
             }
         }, back: {self.appController?.start()}))
     }
     
-    func showBoringChainCalculation(game: ChainCalculationGame, answer: @escaping (String) -> Void, next: @escaping (KotlinLong) -> Void) {
+    func showChainCalculation(game: ChainCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView: ChainCalculationView(game: game, answer: { value in answer(value)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                next(Date().millisecondsSince1970)
+                next()
             }
         }, back: {self.appController?.start()}))
     }
@@ -61,11 +65,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
     }
     
     func showFinishFeedback(rank: String, plays: Int32, random: @escaping () -> Void) {
-        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, random: random))
+        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, random: random, back: {self.appController?.start()}))
     }
-    
-    var window: UIWindow?
-    var appController: AppController?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -76,6 +77,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             window = UIWindow(windowScene: windowScene)
+            window?.makeKeyAndVisible()
         }
 
         if(appController == nil) {
