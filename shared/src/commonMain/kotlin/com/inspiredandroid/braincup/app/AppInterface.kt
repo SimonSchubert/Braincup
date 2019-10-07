@@ -10,29 +10,29 @@ interface AppInterface {
         callback: (GameType) -> Unit
     )
 
-    fun showInstructions(title: String, description: String, start: (Long) -> Unit)
+    fun showInstructions(title: String, description: String, start: () -> Unit)
     fun showMentalCalculation(
         game: MentalCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     )
 
     fun showColorConfusion(
         game: ColorConfusionGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     )
 
     fun showSherlockCalculation(
         game: SherlockCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     )
 
     fun showChainCalculation(
         game: ChainCalculationGame,
         answer: (String) -> Unit,
-        next: (Long) -> Unit
+        next: () -> Unit
     )
 
     fun showCorrectAnswerFeedback()

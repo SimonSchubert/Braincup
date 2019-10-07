@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.app
 
 import com.inspiredandroid.braincup.api.Api
 import com.inspiredandroid.braincup.games.*
+import com.soywiz.klock.DateTime
 
 /**
  * Controls the flow through the app and games.
@@ -10,7 +11,7 @@ class AppController(private val app: AppInterface) {
 
     private val GAME_TIME_MILLIS = 60 * 1000
     private val exitCommands = listOf("quit", "exit", ":q")
-    var startTime = 0L
+    var startTime = 0.0
     var points = 0
     var isCorrect = false
     var plays = 0
@@ -38,7 +39,7 @@ class AppController(private val app: AppInterface) {
     private fun startGame(game: GameType) {
         state = AppState.GAME
         app.showInstructions(game.getName(), game.getDescription()) {
-            startTime = it
+            startTime = DateTime.now().unixMillis
             plays++
             when (game) {
                 GameType.COLOR_CONFUSION -> nextRound(ColorConfusionGame())
@@ -66,8 +67,9 @@ class AppController(private val app: AppInterface) {
                 }
             }
         }
-        val next: (Long) -> Unit = {
-            if (it - startTime > GAME_TIME_MILLIS) {
+        val next: () -> Unit = {
+            val currentTime = DateTime.now().unixMillis
+            if (currentTime - startTime > GAME_TIME_MILLIS) {
                 Api.postScore(1, points) { rank ->
                     app.showFinishFeedback(rank, plays) {
                         startGame(games.random())
