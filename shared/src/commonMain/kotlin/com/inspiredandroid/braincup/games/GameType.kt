@@ -18,10 +18,10 @@ fun GameType.getName(): String {
 
 fun GameType.getDescription(): String {
     return when (this) {
-        GameType.MENTAL_CALCULATION -> "Follow the mathematical expressions. Time limit is 2 minutes."
-        GameType.COLOR_CONFUSION -> "Sum up the points of the correct statements under the figure. Time limit is 2 minutes."
-        GameType.SHERLOCK_CALCULATION -> "Find out how to get the result by only using the given numbers and the following operators: + - * / ( ). Time limit is 2 minutes."
-        GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions. Time limit is 2 minutes."
+        GameType.MENTAL_CALCULATION -> "Follow the mathematical expressions. Time limit is 1 minute."
+        GameType.COLOR_CONFUSION -> "Sum up the points of the correct statements under the figure. Time limit is 1 minute."
+        GameType.SHERLOCK_CALCULATION -> "Find out how to get the result by only using the given numbers and the following operators: + - * / ( ). Time limit is 1 minute."
+        GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions. Time limit is 1 minute."
     }
 }
 

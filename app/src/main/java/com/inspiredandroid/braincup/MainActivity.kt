@@ -297,13 +297,13 @@
 //     *//*
 //
 //    private fun Shape.getChar(): String {
-//        return when(this) {
-//            Shape.SQUARE -> "■"
-//            Shape.TRIANGLE -> "▲"
-//            Shape.CIRCLE -> "◯"
-//            Shape.HEART -> "♥"
-//        }
-//    }
+////        return when(this) {
+////            Shape.SQUARE -> "■"
+////            Shape.TRIANGLE -> "▲"
+////            Shape.CIRCLE -> "◯"
+////            Shape.HEART -> "♥"
+////        }
+////    }
 //
 //    private fun com.inspiredandroid.braincup.games.tools.Color.getComposeColor(): androidx.ui.graphics.Color {
 //        return when(this) {

@@ -1,8 +1,8 @@
 package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.games.tools.Calculator
-import kotlin.test.assertTrue
 import kotlin.test.Test
+import kotlin.test.assertTrue
 
 class Tests {
 

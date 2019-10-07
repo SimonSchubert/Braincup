@@ -18,7 +18,7 @@ class MentalCalculationGame : Game() {
     }
 
     override fun isCorrect(input: String): Boolean {
-        val isCorrect = number.toString() == input
+        val isCorrect = number.toString() == input.trim()
         if (!isCorrect) {
             reset()
         }

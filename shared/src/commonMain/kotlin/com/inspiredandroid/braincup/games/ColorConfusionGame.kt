@@ -40,7 +40,7 @@ class ColorConfusionGame : Game() {
         colorPoints = Random.nextInt(2, 10 - shapePoints)
     }
 
-    internal fun points(): String {
+    fun points(): String {
         var points = 0
         if (answerColor == displayedColor) {
             points += colorPoints
