@@ -160,7 +160,7 @@ task copyFramework {
 
         copy {
             from srcFile.parent
-            into "$projectDir.parent/ios/framework"
+            into "$projectDir.parent/ios"
             include 'shared.framework/**'
             include 'shared.framework.dSYM'
         }
