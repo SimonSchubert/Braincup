@@ -29,7 +29,7 @@ class AppController(private val app: AppInterface) {
     fun start() {
         state = AppState.START
         app.showMainMenu(
-            "Braincup", "Improve your memory and focus.",
+            "Braincup", "Train your math skills, memory and focus.",
             games
         ) { game ->
             startGame(game)

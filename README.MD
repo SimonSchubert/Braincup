@@ -1,14 +1,14 @@
 [![GitHub](https://img.shields.io/github/license/SimonSchubert/Braincup.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
 # Braincup
-Open source memory and focus improvement app.
+Train your math skills, memory and focus.
 
 ## Screenshots
 
-### Android (with Jetpack Compose)
+### Android (Jetpack Compose)
 <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_02.png" width="200">
 
-### iOS (with SwiftUI)
+### iOS (SwiftUI)
 <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_ios_01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_ios_02.png" width="200">
 
 ### Terminal
