@@ -4,6 +4,7 @@ import com.inspiredandroid.braincup.app.AppController
 import com.inspiredandroid.braincup.app.AppInterface
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getName
 import kotlinx.html.*
 import kotlinx.html.dom.create
@@ -92,7 +93,7 @@ class JsMain : AppInterface {
                 target = "_blank"
                 img {
                     src = "images/github.png"
-                    width = "32px"
+                    width = "16px"
                 }
             }
         }
@@ -195,7 +196,7 @@ class JsMain : AppInterface {
             br { }
             br { }
             i {
-                style = "font-size: 144px; color:${game.displayedColor.getName()};"
+                style = "font-size: 144px; color: ${game.displayedColor.getHex()};"
                 classes += "material-icons"
                 text(game.displayedShape.getIconResource())
             }
@@ -215,7 +216,7 @@ class JsMain : AppInterface {
                     classes += "mdc-typography--headline5"
                     text("${game.colorPoints}: is ")
                     span {
-                        style = "color:${game.stringColor.getName()};"
+                        style = "color: ${game.stringColor.getHex()};"
                         text(game.answerColor.getName())
                     }
                 }

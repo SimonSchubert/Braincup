@@ -15,3 +15,12 @@ fun Color.getName(): String {
         Color.PURPLE -> "purple"
     }
 }
+
+fun Color.getHex(): String {
+    return when (this) {
+        Color.RED -> "#e74c3c"
+        Color.GREEN -> "#2ecc71"
+        Color.BLUE -> "#3498db"
+        Color.PURPLE -> "#9b59b6"
+    }
+}
