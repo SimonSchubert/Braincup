@@ -7,7 +7,8 @@ interface AppInterface {
         title: String,
         description: String,
         games: List<GameType>,
-        callback: (GameType) -> Unit
+        instructions: (GameType) -> Unit,
+        score: (GameType) -> Unit
     )
 
     fun showInstructions(title: String, description: String, start: () -> Unit)
@@ -36,6 +37,7 @@ interface AppInterface {
     )
 
     fun showCorrectAnswerFeedback()
-    fun showWrongAnswerFeedback()
-    fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit)
+    fun showWrongAnswerFeedback(solution: String)
+    fun showFinishFeedback(rank: String, newHighscore: Boolean, plays: Int, random: () -> Unit)
+    fun showScoreboard(game: GameType, highscore: Int, scores: List<Pair<String, List<Int>>>)
 }

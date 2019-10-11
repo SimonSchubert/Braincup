@@ -51,6 +51,14 @@ class ColorConfusionGame : Game() {
         return points.toString()
     }
 
+    override fun solution(): String {
+        return points()
+    }
+
+    override fun getGameType(): GameType {
+        return GameType.COLOR_CONFUSION
+    }
+
     companion object {
         val colors = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.PURPLE)
         val shapes = listOf(Shape.SQUARE, Shape.TRIANGLE, Shape.CIRCLE, Shape.HEART)

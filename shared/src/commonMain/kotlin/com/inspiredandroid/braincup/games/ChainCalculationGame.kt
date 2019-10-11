@@ -68,6 +68,14 @@ class ChainCalculationGame : Game() {
         }
     }
 
+    override fun solution(): String {
+        return result.toString()
+    }
+
+    override fun getGameType(): GameType {
+        return GameType.CHAIN_CALCULATION
+    }
+
     private fun getRandomOperator(): String {
         return when (Random.nextInt(
             0, 3

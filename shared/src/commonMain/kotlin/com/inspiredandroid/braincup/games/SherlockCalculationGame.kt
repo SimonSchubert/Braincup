@@ -61,6 +61,14 @@ class SherlockCalculationGame : Game() {
         increaseMoveCount()
     }
 
+    override fun solution(): String {
+        return calculation
+    }
+
+    override fun getGameType(): GameType {
+        return GameType.SHERLOCK_CALCULATION
+    }
+
     fun getNumbersString(): String {
         return numbers.joinToString()
     }

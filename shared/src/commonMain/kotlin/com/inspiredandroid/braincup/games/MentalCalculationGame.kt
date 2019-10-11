@@ -12,6 +12,7 @@ class MentalCalculationGame : Game() {
     private val divisions = arrayListOf(2, 3, 4, 5, 6, 7, 8, 9)
     private var division = -1
     private var maxNumber = 0
+    private var resetNextRound = false
 
     init {
         reset()
@@ -20,12 +21,16 @@ class MentalCalculationGame : Game() {
     override fun isCorrect(input: String): Boolean {
         val isCorrect = number.toString() == input.trim()
         if (!isCorrect) {
-            reset()
+            resetNextRound = true
         }
         return isCorrect
     }
 
     override fun nextRound() {
+        if (resetNextRound) {
+            reset()
+            resetNextRound = false
+        }
         calculation = if (moveCount == 0) {
             "$number "
         } else {
@@ -56,6 +61,14 @@ class MentalCalculationGame : Game() {
         }
 
         increaseMoveCount()
+    }
+
+    override fun solution(): String {
+        return number.toString()
+    }
+
+    override fun getGameType(): GameType {
+        return GameType.MENTAL_CALCULATION
     }
 
     private fun reset() {

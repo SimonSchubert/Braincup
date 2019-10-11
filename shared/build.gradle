@@ -75,6 +75,7 @@ kotlin {
             implementation "io.ktor:ktor-client-core:$ktor_version"
             implementation "io.ktor:ktor-client-json:$ktor_version"
             implementation "com.soywiz.korlibs.klock:klock:1.7.3"
+            implementation "com.russhwolf:multiplatform-settings:0.4"
         }
 
         commonTest.dependencies {

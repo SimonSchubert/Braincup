@@ -16,6 +16,37 @@ fun GameType.getName(): String {
     }
 }
 
+fun GameType.getId(): String {
+    return when (this) {
+        GameType.MENTAL_CALCULATION -> "0"
+        GameType.COLOR_CONFUSION -> "1"
+        GameType.SHERLOCK_CALCULATION -> "2"
+        GameType.CHAIN_CALCULATION -> "3"
+    }
+}
+
+fun GameType.getScoreTable(): Array<Int> {
+    return when (this) {
+        GameType.MENTAL_CALCULATION -> arrayOf(15, 8)
+        GameType.COLOR_CONFUSION -> arrayOf(7, 3)
+        GameType.SHERLOCK_CALCULATION -> arrayOf(7, 3)
+        GameType.CHAIN_CALCULATION -> arrayOf(8, 4)
+    }
+}
+
+fun GameType.getMedalResource(score: Int): String {
+    val scoreTable = this.getScoreTable()
+    return when {
+        score >= scoreTable[0] -> MEDAL_FIRST_RESOURCE
+        score >= scoreTable[1] -> MEDAL_SECOND_RESOURCE
+        else -> MEDAL_THIRD_RESOURCE
+    }
+}
+
+const val MEDAL_FIRST_RESOURCE = "icons8-medal_first_place.svg"
+const val MEDAL_SECOND_RESOURCE = "icons8-medal_second_place.svg"
+const val MEDAL_THIRD_RESOURCE = "icons8-medal_third_place.svg"
+
 fun GameType.getDescription(): String {
     return when (this) {
         GameType.MENTAL_CALCULATION -> "Follow the mathematical expressions. Time limit is 1 minute."

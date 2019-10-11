@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.app
 
 import com.inspiredandroid.braincup.api.Api
+import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.soywiz.klock.DateTime
 
@@ -29,10 +30,16 @@ class AppController(private val app: AppInterface) {
         state = AppState.START
         app.showMainMenu(
             "Braincup", "Train your math skills, memory and focus.",
-            games
-        ) { game ->
-            startGame(game)
-        }
+            games, { game ->
+                startGame(game)
+            }, { game ->
+                val storage = UserStorage()
+                app.showScoreboard(
+                    game,
+                    storage.getHighScore(game.getId()),
+                    storage.getScores(game.getId())
+                )
+            })
     }
 
     private fun startGame(game: GameType) {
@@ -65,8 +72,11 @@ class AppController(private val app: AppInterface) {
         val next: () -> Unit = {
             val currentTime = DateTime.now().unixMillis
             if (currentTime - startTime > GAME_TIME_MILLIS) {
-                Api.postScore(game.getGameType().getId(), points) { rank ->
-                    app.showFinishFeedback(rank, plays) {
+                Api.postScore(
+                    game.getGameType().getId(),
+                    points
+                ) { score: String, newHighscore: Boolean ->
+                    app.showFinishFeedback(score, newHighscore, plays) {
                         startGame(games.random())
                     }
                 }

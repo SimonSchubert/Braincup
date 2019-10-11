@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup
 
+import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.AppController
 import com.inspiredandroid.braincup.app.AppInterface
 import com.inspiredandroid.braincup.games.*
@@ -33,10 +34,11 @@ class JsMain : AppInterface {
         title: String,
         description: String,
         games: List<GameType>,
-        callback: (GameType) -> Unit
+        instructions: (GameType) -> Unit,
+        score: (GameType) -> Unit
     ) {
         window.addEventListener("popstate", {
-            showMainMenu(title, description, games, callback)
+            showMainMenu(title, description, games, instructions, score)
         })
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
@@ -50,23 +52,51 @@ class JsMain : AppInterface {
                 classes += "mdc-typography--headline6"
                 text(description)
             }
-            games.forEach { game ->
-                br { }
-                br { }
-                button {
-                    style = "width: 300px; height: 50px; font-size: 16px;"
-                    classes += "mdc-button mdc-button--raised"
-                    img {
-                        classes += "material-icons mdc-button__icon"
-                        src = game.getImageResource()
-                        style = "height: 20px; width: 20px;"
-                    }
-                    span {
-                        classes += "mdc-button__label"
-                        text(game.getName())
-                    }
-                    onClickFunction = {
-                        callback(game)
+            val storage = UserStorage()
+            table {
+                style = "margin: auto;"
+                games.forEach { game ->
+                    br { }
+                    tr {
+                        td {
+                            button {
+                                style = "width: 300px; height: 50px; font-size: 16px;"
+                                classes += "mdc-button mdc-button--raised"
+                                img {
+                                    classes += "material-icons mdc-button__icon"
+                                    src = game.getImageResource()
+                                    style = "height: 20px; width: 20px;"
+                                }
+                                span {
+                                    classes += "mdc-button__label"
+                                    text(game.getName())
+                                }
+                                onClickFunction = {
+                                    instructions(game)
+                                }
+                            }
+                        }
+                        td {
+                            val highscore = storage.getHighScore(game.getId())
+                            if (highscore > 0) {
+                                button {
+                                    style = "width: 85px; height: 50px; font-size: 16px;"
+                                    classes += "mdc-button mdc-button--raised"
+                                    img {
+                                        classes += "material-icons mdc-button__icon"
+                                        src = game.getMedalResource(highscore)
+                                        style = "height: 20px; width: 20px;"
+                                    }
+                                    span {
+                                        classes += "mdc-button__label"
+                                        text(highscore)
+                                    }
+                                    onClickFunction = {
+                                        score(game)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -86,8 +116,8 @@ class JsMain : AppInterface {
             code {
                 text("brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup")
             }
-            br{}
-            br{}
+            br {}
+            br {}
             a {
                 href = "https://github.com/SimonSchubert/Braincup"
                 target = "_blank"
@@ -412,7 +442,7 @@ class JsMain : AppInterface {
         }
     }
 
-    override fun showWrongAnswerFeedback() {
+    override fun showWrongAnswerFeedback(solution: String) {
         document.body = document.create.body {
             style = "text-align: center; margin: 0px; height: 100%"
             div {
@@ -426,10 +456,21 @@ class JsMain : AppInterface {
                 src = "images/searching.svg"
                 width = "400px"
             }
+            br {}
+            br {}
+            div {
+                classes += "mdc-typography--headline5"
+                text("the answer was $solution")
+            }
         }
     }
 
-    override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
+    override fun showFinishFeedback(
+        rank: String,
+        newHighscore: Boolean,
+        plays: Int,
+        random: () -> Unit
+    ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
             div {
@@ -441,6 +482,13 @@ class JsMain : AppInterface {
             img {
                 src = "images/success.svg"
                 width = "400px"
+            }
+            if (newHighscore) {
+                br { }
+                div {
+                    classes += "mdc-typography--headline3"
+                    text("New highscore")
+                }
             }
             br { }
             div {
@@ -455,6 +503,99 @@ class JsMain : AppInterface {
                 text("Random game")
                 onClickFunction = {
                     random()
+                }
+            }
+        }
+    }
+
+    override fun showScoreboard(
+        game: GameType,
+        highscore: Int,
+        scores: List<Pair<String, List<Int>>>
+    ) {
+        gameTitle = game.getName()
+        window.history.pushState(
+            null,
+            "",
+            "${gameTitle.toLowerCase().removeWhitespaces()}_score.html"
+        )
+        document.title = "$gameTitle score - Braincup"
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            div {
+                classes += "mdc-typography--headline2"
+                text("$gameTitle - Scores")
+            }
+            br {}
+            br {}
+
+            div {
+                classes += "mdc-typography--headline4"
+                text("Highscore: $highscore")
+            }
+
+            br {}
+
+            div {
+                style = "display: flex;margin: auto;justify-content: center;align-items: center;"
+                div {
+                    classes += "mdc-typography--headline6"
+                    text("> 0")
+                }
+                img {
+                    style = "height: 25px; width: 25px;"
+                    classes += "material-icons"
+                    src = MEDAL_THIRD_RESOURCE
+                }
+                div {
+                    style = "margin-left:16px;"
+                    classes += "mdc-typography--headline6"
+                    text("> ${game.getScoreTable()[0] - 1} ")
+                }
+                img {
+                    style = "height: 25px; width: 25px;"
+                    classes += "material-icons"
+                    src = MEDAL_SECOND_RESOURCE
+                }
+                div {
+                    style = "margin-left:16px;"
+                    classes += "mdc-typography--headline6"
+                    text("    > ${game.getScoreTable()[1] - 1} ")
+                }
+                img {
+                    style = "height: 25px; width: 25px;"
+                    classes += "material-icons"
+                    src = MEDAL_FIRST_RESOURCE
+                }
+            }
+
+            br {}
+
+            div {
+                style = "width: 600px; margin: auto;"
+
+                scores.forEach {
+                    div {
+                        classes += "mdc-typography--headline5"
+                        text(it.first)
+                    }
+                    it.second.forEach { score ->
+                        div {
+                            style =
+                                "width: ${score * 10}px; min-width: 50px; height: 30px; background: #ED7354;display: flex;align-items: center;"
+                            div {
+                                style = "color: var(--mdc-theme-on-primary, #fff);margin-left: 8px;"
+                                classes += "mdc-typography--headline6"
+                                text(score)
+                            }
+                            img {
+                                style = "height: 25px; width: 25px;"
+                                classes += "material-icons"
+                                src = game.getMedalResource(score)
+                            }
+                        }
+                        br { }
+                    }
                 }
             }
         }
