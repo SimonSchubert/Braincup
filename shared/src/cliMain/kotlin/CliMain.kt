@@ -4,6 +4,8 @@ import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.getName
+import platform.posix.exit
+import platform.posix.read
 import platform.posix.sleep
 import kotlin.system.getTimeMillis
 
@@ -13,6 +15,7 @@ fun main() {
 
 class CliMain : AppInterface {
 
+    private val exitCommands = listOf("quit", "exit", ":q")
     private val gameMaster = AppController(this)
 
     init {
@@ -33,9 +36,14 @@ class CliMain : AppInterface {
             println("${index + 1}. ${game.getName()}")
         }
 
-        val index = (readLine()?.toIntOrNull() ?: 0) + -1
-        val choice = games.getOrNull(index) ?: GameType.SHERLOCK_CALCULATION
-        callback(choice)
+        val input = readLine()
+        if(exitCommands.contains(input)) {
+            exit(0)
+        } else {
+            val index = (input?.toIntOrNull() ?: 0) + -1
+            val choice = games.getOrNull(index) ?: GameType.SHERLOCK_CALCULATION
+            callback(choice)
+        }
     }
 
     override fun showInstructions(title: String, description: String, start: () -> Unit) {
@@ -44,8 +52,12 @@ class CliMain : AppInterface {
         println("You can type \"quit\" and press enter at anytime to go back to the menu.")
         println()
         println("Press enter to start.")
-        readLine()
-        start()
+
+        if(exitCommands.contains(readLine())) {
+            gameMaster.start()
+        } else {
+            start()
+        }
     }
 
     override fun showMentalCalculation(
@@ -57,9 +69,7 @@ class CliMain : AppInterface {
         println(game.calculation)
         println()
 
-        answer(readLine() ?: "")
-        sleep(1u)
-        next()
+        readAndAnswer(answer, next)
     }
 
     override fun showChainCalculation(
@@ -71,9 +81,7 @@ class CliMain : AppInterface {
         println(game.calculation)
         println()
 
-        answer(readLine() ?: "")
-        sleep(1u)
-        next()
+        readAndAnswer(answer, next)
     }
 
     override fun showColorConfusion(
@@ -95,9 +103,7 @@ class CliMain : AppInterface {
         println("${game.colorPoints} = " + game.answerColor.getName().color(game.stringColor))
         println()
 
-        answer(readLine() ?: "")
-        sleep(1u)
-        next()
+        readAndAnswer(answer, next)
     }
 
     override fun showSherlockCalculation(
@@ -110,9 +116,7 @@ class CliMain : AppInterface {
         println("Numbers: ${game.getNumbersString()}")
         println()
 
-        answer(readLine() ?: "")
-        sleep(1u)
-        next()
+        readAndAnswer(answer, next)
     }
 
     override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
@@ -124,8 +128,19 @@ class CliMain : AppInterface {
         println("√ :)".color(Color.GREEN))
     }
 
-    override fun showWrongAnswerFeedback() {
-        println("x :(".color(Color.RED))
+    override fun showWrongAnswerFeedback(solution: String) {
+        println("x :( - the answer was: $solution".color(Color.RED))
+    }
+
+    private fun readAndAnswer(answer: (String) -> Unit, next: () -> Unit) {
+        val input = readLine() ?: ""
+        if(exitCommands.contains(input)) {
+            gameMaster.start()
+        } else {
+            answer(input)
+            sleep(1u)
+            next()
+        }
     }
 
     private fun printSquare(color: Color) {
@@ -157,7 +172,7 @@ class CliMain : AppInterface {
         println(" *    *    *".color(color))
         println("  *       *".color(color))
         println("    *   *".color(color))
-        println("      * ".color(color))
+        println("      *".color(color))
     }
 
     private fun printDivider() {
