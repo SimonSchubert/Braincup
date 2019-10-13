@@ -28,7 +28,7 @@ struct SherlockCalculationView: View {
                     Text("Give up")
                 }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)
             }
-            .navigationBarItems(leading: Button(action: { self.back()}){Image("back")})
+            .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
         }
     }
 }

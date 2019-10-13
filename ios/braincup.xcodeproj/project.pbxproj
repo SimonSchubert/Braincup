@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F478CC2B2350EB680034D5DB /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478CC2A2350EB680034D5DB /* ScoresView.swift */; };
 		F4ABF207234B4F4900E9D8B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */; };
 		F4B351EF2346156C00193E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B351EE2346156C00193E3D /* AppDelegate.swift */; };
 		F4B351F32346156C00193E3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B351F22346156C00193E3D /* ContentView.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F478CC2A2350EB680034D5DB /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4B351EB2346156C00193E3D /* Braincup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braincup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B351EE2346156C00193E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 				F4B35234234A9AA200193E3D /* MentalCalculationView.swift */,
 				F4B35236234AA4F100193E3D /* FinishView.swift */,
 				F4B35238234AA6C200193E3D /* ColorConfusionView.swift */,
+				F478CC2A2350EB680034D5DB /* ScoresView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -228,6 +231,7 @@
 				F4B35235234A9AA200193E3D /* MentalCalculationView.swift in Sources */,
 				F4B3522D234902C000193E3D /* SherlockCalculation.swift in Sources */,
 				F4B35237234AA4F100193E3D /* FinishView.swift in Sources */,
+				F478CC2B2350EB680034D5DB /* ScoresView.swift in Sources */,
 				F4B351F32346156C00193E3D /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -13,18 +13,49 @@ struct MainMenuView: View {
     var title: String
     var description: String
     var games: [GameType]
-    var callback: (GameType) -> Void
+    var instructions: (GameType) -> Void
+    var score: (GameType) -> Void
+
+    var storage = UserStorage()
     
     var body: some View {
         VStack {
             Text(title).font(.title)
             Text(description).font(.body).padding(.horizontal, 16).padding(.bottom, 16).multilineTextAlignment(.center)
             ForEach(games, id: \.name) { gameType in
-                Button(action: {self.callback(gameType)}) {
-                    Text(gameType.getName())
-                }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)
+                HStack {
+                    Button(action: {self.instructions(gameType)}) {
+                        HStack {
+                            Image(self.getImageResource(game: gameType))
+                            Text(gameType.getName()).frame(minWidth: 0, maxWidth: 160)
+                        }
+                    }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
+                    if(self.storage.getHighScore(gameId: gameType.getId()) > 0) {
+                        Button(action: {self.score(gameType)}) {
+                            HStack {
+                                Image(gameType.getMedalResource(score: self.storage.getHighScore(gameId: gameType.getId())))
+                                Text("\(self.storage.getHighScore(gameId: gameType.getId()))").frame(minWidth: 15)
+                            }
+                        }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
+                    }
+                }
             }
             Image("waiting")
+        }
+    }
+    
+    func getImageResource(game: GameType) -> String {
+        switch game {
+            case GameType.sherlockCalculation:
+                return "icons8-search"
+            case GameType.colorConfusion:
+                return "icons8-fill_color"
+            case GameType.chainCalculation:
+                return "icons8-edit_link"
+            case GameType.mentalCalculation:
+                return "icons8-math"
+            default:
+                return ""
         }
     }
 }

@@ -53,48 +53,42 @@ class JsMain : AppInterface {
                 text(description)
             }
             val storage = UserStorage()
-            table {
+            div {
                 style = "margin: auto;"
                 games.forEach { game ->
                     br { }
-                    tr {
-                        td {
-                            button {
-                                style = "width: 300px; height: 50px; font-size: 16px;"
-                                classes += "mdc-button mdc-button--raised"
-                                img {
-                                    classes += "material-icons mdc-button__icon"
-                                    src = game.getImageResource()
-                                    style = "height: 20px; width: 20px;"
-                                }
-                                span {
-                                    classes += "mdc-button__label"
-                                    text(game.getName())
-                                }
-                                onClickFunction = {
-                                    instructions(game)
-                                }
-                            }
+                    button {
+                        style = "width: 300px; height: 50px; font-size: 16px; margin-top: 16px; margin-right: 6px"
+                        classes += "mdc-button mdc-button--raised"
+                        img {
+                            classes += "material-icons mdc-button__icon"
+                            src = game.getImageResource()
+                            style = "height: 20px; width: 20px;"
                         }
-                        td {
-                            val highscore = storage.getHighScore(game.getId())
-                            if (highscore > 0) {
-                                button {
-                                    style = "width: 85px; height: 50px; font-size: 16px;"
-                                    classes += "mdc-button mdc-button--raised"
-                                    img {
-                                        classes += "material-icons mdc-button__icon"
-                                        src = game.getMedalResource(highscore)
-                                        style = "height: 20px; width: 20px;"
-                                    }
-                                    span {
-                                        classes += "mdc-button__label"
-                                        text(highscore)
-                                    }
-                                    onClickFunction = {
-                                        score(game)
-                                    }
-                                }
+                        span {
+                            classes += "mdc-button__label"
+                            text(game.getName())
+                        }
+                        onClickFunction = {
+                            instructions(game)
+                        }
+                    }
+                    val highscore = storage.getHighScore(game.getId())
+                    if (highscore > 0) {
+                        button {
+                            style = "width: 85px; height: 50px; font-size: 16px; margin-top: 16px; margin-left: 6px"
+                            classes += "mdc-button mdc-button--raised"
+                            img {
+                                classes += "material-icons mdc-button__icon"
+                                src = game.getMedalResource(highscore)
+                                style = "height: 20px; width: 20px;"
+                            }
+                            span {
+                                classes += "mdc-button__label"
+                                text(highscore)
+                            }
+                            onClickFunction = {
+                                score(game)
                             }
                         }
                     }
@@ -238,13 +232,13 @@ class JsMain : AppInterface {
                 span {
                     style = "width: 200px"
                     classes += "mdc-typography--headline5"
-                    text("${game.shapePoints}: is " + game.answerShape.getName())
+                    text("${game.shapePoints} = " + game.answerShape.getName())
                 }
                 br {}
                 span {
                     style = "width: 200px"
                     classes += "mdc-typography--headline5"
-                    text("${game.colorPoints}: is ")
+                    text("${game.colorPoints} = ")
                     span {
                         style = "color: ${game.stringColor.getHex()};"
                         text(game.answerColor.getName())
@@ -550,7 +544,7 @@ class JsMain : AppInterface {
                 div {
                     style = "margin-left:16px;"
                     classes += "mdc-typography--headline6"
-                    text("> ${game.getScoreTable()[0] - 1} ")
+                    text("> ${game.getScoreTable()[1] - 1} ")
                 }
                 img {
                     style = "height: 25px; width: 25px;"
@@ -560,7 +554,7 @@ class JsMain : AppInterface {
                 div {
                     style = "margin-left:16px;"
                     classes += "mdc-typography--headline6"
-                    text("    > ${game.getScoreTable()[1] - 1} ")
+                    text("    > ${game.getScoreTable()[0] - 1} ")
                 }
                 img {
                     style = "height: 25px; width: 25px;"

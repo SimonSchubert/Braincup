@@ -27,8 +27,8 @@ fun GameType.getId(): String {
 
 fun GameType.getScoreTable(): Array<Int> {
     return when (this) {
-        GameType.MENTAL_CALCULATION -> arrayOf(15, 8)
-        GameType.COLOR_CONFUSION -> arrayOf(7, 3)
+        GameType.MENTAL_CALCULATION -> arrayOf(16, 8)
+        GameType.COLOR_CONFUSION -> arrayOf(16, 8)
         GameType.SHERLOCK_CALCULATION -> arrayOf(7, 3)
         GameType.CHAIN_CALCULATION -> arrayOf(8, 4)
     }

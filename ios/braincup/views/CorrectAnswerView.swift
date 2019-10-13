@@ -11,9 +11,14 @@ import shared
 
 struct CorrectAnswerView: View {
     
+    var back: () -> Void
+    
     var body: some View {
-        VStack {
-            Image("success")
+        NavigationView {
+            VStack {
+                Image("success")
+            }
+            .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
         }
     }
 }

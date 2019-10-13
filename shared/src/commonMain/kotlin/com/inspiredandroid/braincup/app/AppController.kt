@@ -43,10 +43,11 @@ class AppController(private val app: AppInterface) {
     }
 
     private fun startGame(game: GameType) {
-        state = AppState.GAME
         app.showInstructions(game.getName(), game.getDescription()) {
+            state = AppState.GAME
             startTime = DateTime.now().unixMillis
             plays++
+            points = 0
             when (game) {
                 GameType.COLOR_CONFUSION -> nextRound(ColorConfusionGame())
                 GameType.MENTAL_CALCULATION -> nextRound(MentalCalculationGame())
@@ -57,6 +58,9 @@ class AppController(private val app: AppInterface) {
     }
 
     private fun nextRound(game: Game) {
+        if(state != AppState.GAME) {
+            return
+        }
         game.nextRound()
 
         val answer: (String) -> Unit = { answer ->

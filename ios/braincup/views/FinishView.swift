@@ -11,18 +11,22 @@ import shared
 
 struct FinishView: View {
     var rank: String
+    var newHighscore: Bool
     var random: () -> Void
     var back: () -> Void
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("Score: \(rank)")
+                Text("Score: \(rank)").font(.title)
+                if(newHighscore) {
+                    Text("New highscore").font(.subheadline)
+                }
                 Button(action: {self.random()}) {
                     Text("Random game")
-                }.buttonStyle(BackgroundButtonStyle())
+                }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)
             }
-            .navigationBarItems(leading: Button(action: { self.back()}){Image("back")})
+            .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
         }
     }
 }

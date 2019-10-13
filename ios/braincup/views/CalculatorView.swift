@@ -28,12 +28,13 @@ struct CalculatorView: View {
     var body: some View {
         VStack {
             HStack {
-                Text(calculation).frame(height: 50)
+                Text(calculation)
                 if(calculation.count > 0) {
                     Button(action: {self.deleteValue()}) {
-                        Text("<").foregroundColor(Color(hex: 0xFFED7354))
+                        Image("back").resizable().frame(width: 24.0, height: 24.0).foregroundColor(Color(hex: 0xFFED7354))
                     }
                 }
+                Rectangle().frame(width: 0, height: 24)
             }.padding(.top, 8)
             HStack {
                 NumberPadButton(value: "7", onInputChange: {value in self.changeValue(value: value)})

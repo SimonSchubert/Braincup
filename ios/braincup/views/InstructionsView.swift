@@ -24,7 +24,7 @@ struct InstructionsView: View {
                     Text("Start")
                 }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)
             }
-            .navigationBarItems(leading: Button(action: { self.back()}){Image("back")})
+            .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
         }
     }
 }

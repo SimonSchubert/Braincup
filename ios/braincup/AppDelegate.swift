@@ -85,4 +85,19 @@ extension shared.Color {
     }
 }
 
+extension GameType {
+    func getMedalResource(score: Int32) -> String {
+        let scoreTable = self.getScoreTable()
+        if(score > scoreTable.get(index: 0) as! Int) {
+            return "icons8-medal_first_place"
+        }
+        if(score > scoreTable.get(index: 1) as! Int) {
+            return "icons8-medal_second_place"
+        }
+        return "icons8-medal_third_place"
+    }
+}
+
+
+
 

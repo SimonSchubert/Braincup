@@ -5,9 +5,7 @@ import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.getName
 import platform.posix.exit
-import platform.posix.read
 import platform.posix.sleep
-import kotlin.system.getTimeMillis
 
 fun main() {
     CliMain()
@@ -26,7 +24,8 @@ class CliMain : AppInterface {
         title: String,
         description: String,
         games: List<GameType>,
-        callback: (GameType) -> Unit
+        instructions: (GameType) -> Unit,
+        score: (GameType) -> Unit
     ) {
         printTitle(title)
         println(description)
@@ -42,7 +41,7 @@ class CliMain : AppInterface {
         } else {
             val index = (input?.toIntOrNull() ?: 0) + -1
             val choice = games.getOrNull(index) ?: GameType.SHERLOCK_CALCULATION
-            callback(choice)
+            instructions(choice)
         }
     }
 
@@ -119,7 +118,12 @@ class CliMain : AppInterface {
         readAndAnswer(answer, next)
     }
 
-    override fun showFinishFeedback(rank: String, plays: Int, random: () -> Unit) {
+    override fun showFinishFeedback(
+        rank: String,
+        newHighscore: Boolean,
+        plays: Int,
+        random: () -> Unit
+    ) {
         printDivider()
         println("Score: $rank")
     }
@@ -130,6 +134,14 @@ class CliMain : AppInterface {
 
     override fun showWrongAnswerFeedback(solution: String) {
         println("x :( - the answer was: $solution".color(Color.RED))
+    }
+
+    override fun showScoreboard(
+        game: GameType,
+        highscore: Int,
+        scores: List<Pair<String, List<Int>>>
+    ) {
+
     }
 
     private fun readAndAnswer(answer: (String) -> Unit, next: () -> Unit) {

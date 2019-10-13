@@ -15,8 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
     var window: UIWindow?
     var appController: AppController?
     
-    func showMainMenu(title: String, description: String, games: [GameType], callback: @escaping (GameType) -> Void) {
-        window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, callback: callback))
+    func showMainMenu(title: String, description: String, games: [GameType], instructions: @escaping (GameType) -> Void, score: @escaping (GameType) -> Void) {
+        window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, instructions: instructions, score: score))
         window?.makeKeyAndVisible()
     }
     
@@ -57,15 +57,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
     }
     
     func showCorrectAnswerFeedback() {
-        window?.rootViewController = UIHostingController(rootView: CorrectAnswerView())
+        window?.rootViewController = UIHostingController(rootView: CorrectAnswerView(back: {self.appController?.start()}))
     }
     
-    func showWrongAnswerFeedback() {
-        window?.rootViewController = UIHostingController(rootView: WrongAnswerView())
+    func showWrongAnswerFeedback(solution: String) {
+        window?.rootViewController = UIHostingController(rootView: WrongAnswerView(back: {self.appController?.start()}))
     }
     
-    func showFinishFeedback(rank: String, plays: Int32, random: @escaping () -> Void) {
-        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, random: random, back: {self.appController?.start()}))
+    func showFinishFeedback(rank: String, newHighscore: Bool, plays: Int32, random: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, newHighscore: newHighscore, random: random, back: {self.appController?.start()}))
+    }
+    
+    func showScoreboard(game: GameType, highscore: Int32, scores: [KotlinPair]) {
+        window?.rootViewController = UIHostingController(rootView: ScoresView(game: game, highscore: highscore, scores: scores, back: {self.appController?.start()}))
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

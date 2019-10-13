@@ -6,9 +6,9 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class SharedGame, SharedColor, SharedShape, SharedKotlinEnum, SharedGameType, SharedMentalCalculationGameOperator, SharedAppState, SharedMentalCalculationGame, SharedColorConfusionGame, SharedSherlockCalculationGame, SharedChainCalculationGame;
+@class SharedKotlinPair, SharedGameType, SharedGame, SharedColor, SharedShape, SharedKotlinEnum, SharedMentalCalculationGameOperator, SharedAppState, SharedMentalCalculationGame, SharedColorConfusionGame, SharedSherlockCalculationGame, SharedChainCalculationGame, SharedKotlinArray;
 
-@protocol SharedKotlinComparable, SharedAppInterface;
+@protocol SharedKotlinComparable, SharedAppInterface, SharedKotlinIterator;
 
 NS_ASSUME_NONNULL_BEGIN
 #pragma clang diagnostic push
@@ -158,12 +158,24 @@ __attribute__((swift_name("Api")))
 + (instancetype)api __attribute__((swift_name("init()")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("UserStorage")))
+@interface SharedUserStorage : KotlinBase
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (int32_t)getHighScoreGameId:(NSString *)gameId __attribute__((swift_name("getHighScore(gameId:)")));
+- (BOOL)putScoreGameId:(NSString *)gameId score:(int32_t)score __attribute__((swift_name("putScore(gameId:score:)")));
+- (NSArray<SharedKotlinPair *> *)getScoresGameId:(NSString *)gameId __attribute__((swift_name("getScores(gameId:)")));
+@end;
+
 __attribute__((swift_name("Game")))
 @interface SharedGame : KotlinBase
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)nextRound __attribute__((swift_name("nextRound()")));
 - (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
+- (NSString *)solution __attribute__((swift_name("solution()")));
+- (SharedGameType *)getGameType __attribute__((swift_name("getGameType()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -173,6 +185,8 @@ __attribute__((swift_name("ChainCalculationGame")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (void)nextRound __attribute__((swift_name("nextRound()")));
 - (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
+- (NSString *)solution __attribute__((swift_name("solution()")));
+- (SharedGameType *)getGameType __attribute__((swift_name("getGameType()")));
 @property NSString *calculation __attribute__((swift_name("calculation")));
 @end;
 
@@ -184,6 +198,8 @@ __attribute__((swift_name("ColorConfusionGame")))
 - (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
 - (void)nextRound __attribute__((swift_name("nextRound()")));
 - (NSString *)points __attribute__((swift_name("points()")));
+- (NSString *)solution __attribute__((swift_name("solution()")));
+- (SharedGameType *)getGameType __attribute__((swift_name("getGameType()")));
 @property SharedColor *answerColor __attribute__((swift_name("answerColor")));
 @property SharedColor *displayedColor __attribute__((swift_name("displayedColor")));
 @property SharedColor *stringColor __attribute__((swift_name("stringColor")));
@@ -240,6 +256,8 @@ __attribute__((swift_name("MentalCalculationGame")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
 - (void)nextRound __attribute__((swift_name("nextRound()")));
+- (NSString *)solution __attribute__((swift_name("solution()")));
+- (SharedGameType *)getGameType __attribute__((swift_name("getGameType()")));
 - (int32_t)getNumberLength __attribute__((swift_name("getNumberLength()")));
 @property NSString *calculation __attribute__((swift_name("calculation")));
 @end;
@@ -264,6 +282,8 @@ __attribute__((swift_name("SherlockCalculationGame")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
 - (void)nextRound __attribute__((swift_name("nextRound()")));
+- (NSString *)solution __attribute__((swift_name("solution()")));
+- (SharedGameType *)getGameType __attribute__((swift_name("getGameType()")));
 - (NSString *)getNumbersString __attribute__((swift_name("getNumbersString()")));
 @property int32_t result __attribute__((swift_name("result")));
 @end;
@@ -327,15 +347,16 @@ __attribute__((swift_name("AppController.Companion")))
 __attribute__((swift_name("AppInterface")))
 @protocol SharedAppInterface
 @required
-- (void)showMainMenuTitle:(NSString *)title description:(NSString *)description games:(NSArray<SharedGameType *> *)games callback:(void (^)(SharedGameType *))callback __attribute__((swift_name("showMainMenu(title:description:games:callback:)")));
+- (void)showMainMenuTitle:(NSString *)title description:(NSString *)description games:(NSArray<SharedGameType *> *)games instructions:(void (^)(SharedGameType *))instructions score:(void (^)(SharedGameType *))score __attribute__((swift_name("showMainMenu(title:description:games:instructions:score:)")));
 - (void)showInstructionsTitle:(NSString *)title description:(NSString *)description start:(void (^)(void))start __attribute__((swift_name("showInstructions(title:description:start:)")));
 - (void)showMentalCalculationGame:(SharedMentalCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showMentalCalculation(game:answer:next:)")));
 - (void)showColorConfusionGame:(SharedColorConfusionGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showColorConfusion(game:answer:next:)")));
 - (void)showSherlockCalculationGame:(SharedSherlockCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showSherlockCalculation(game:answer:next:)")));
 - (void)showChainCalculationGame:(SharedChainCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showChainCalculation(game:answer:next:)")));
 - (void)showCorrectAnswerFeedback __attribute__((swift_name("showCorrectAnswerFeedback()")));
-- (void)showWrongAnswerFeedback __attribute__((swift_name("showWrongAnswerFeedback()")));
-- (void)showFinishFeedbackRank:(NSString *)rank plays:(int32_t)plays random:(void (^)(void))random __attribute__((swift_name("showFinishFeedback(rank:plays:random:)")));
+- (void)showWrongAnswerFeedbackSolution:(NSString *)solution __attribute__((swift_name("showWrongAnswerFeedback(solution:)")));
+- (void)showFinishFeedbackRank:(NSString *)rank newHighscore:(BOOL)newHighscore plays:(int32_t)plays random:(void (^)(void))random __attribute__((swift_name("showFinishFeedback(rank:newHighscore:plays:random:)")));
+- (void)showScoreboardGame:(SharedGameType *)game highscore:(int32_t)highscore scores:(NSArray<SharedKotlinPair *> *)scores __attribute__((swift_name("showScoreboard(game:highscore:scores:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -351,6 +372,9 @@ __attribute__((swift_name("AppState")))
 
 @interface SharedGameType (Extensions)
 - (NSString *)getName __attribute__((swift_name("getName()")));
+- (NSString *)getId __attribute__((swift_name("getId()")));
+- (SharedKotlinArray *)getScoreTable __attribute__((swift_name("getScoreTable()")));
+- (NSString *)getMedalResourceScore:(int32_t)score __attribute__((swift_name("getMedalResource(score:)")));
 - (NSString *)getDescription __attribute__((swift_name("getDescription()")));
 - (NSString *)getImageResource __attribute__((swift_name("getImageResource()")));
 @end;
@@ -369,6 +393,47 @@ __attribute__((swift_name("ExtensionFunctionsKt")))
 @interface SharedExtensionFunctionsKt : KotlinBase
 + (NSString *)addString:(NSString *)receiver part:(NSString *)part position:(int32_t)position __attribute__((swift_name("addString(_:part:position:)")));
 + (NSString *)removeWhitespaces:(NSString *)receiver __attribute__((swift_name("removeWhitespaces(_:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("GameTypeKt")))
+@interface SharedGameTypeKt : KotlinBase
+@property (class, readonly) NSString *MEDAL_FIRST_RESOURCE __attribute__((swift_name("MEDAL_FIRST_RESOURCE")));
+@property (class, readonly) NSString *MEDAL_SECOND_RESOURCE __attribute__((swift_name("MEDAL_SECOND_RESOURCE")));
+@property (class, readonly) NSString *MEDAL_THIRD_RESOURCE __attribute__((swift_name("MEDAL_THIRD_RESOURCE")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinPair")))
+@interface SharedKotlinPair : KotlinBase
+- (instancetype)initWithFirst:(id _Nullable)first second:(id _Nullable)second __attribute__((swift_name("init(first:second:)"))) __attribute__((objc_designated_initializer));
+- (id _Nullable)component1 __attribute__((swift_name("component1()")));
+- (id _Nullable)component2 __attribute__((swift_name("component2()")));
+- (SharedKotlinPair *)doCopyFirst:(id _Nullable)first second:(id _Nullable)second __attribute__((swift_name("doCopy(first:second:)")));
+- (BOOL)equalsOther:(id _Nullable)other __attribute__((swift_name("equals(other:)")));
+- (int32_t)hashCode __attribute__((swift_name("hashCode()")));
+- (NSString *)toString __attribute__((swift_name("toString()")));
+@property (readonly) id _Nullable first __attribute__((swift_name("first")));
+@property (readonly) id _Nullable second __attribute__((swift_name("second")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinArray")))
+@interface SharedKotlinArray : KotlinBase
++ (instancetype)arrayWithSize:(int32_t)size init:(id _Nullable (^)(SharedInt *))init __attribute__((swift_name("init(size:init:)")));
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+- (id _Nullable)getIndex:(int32_t)index __attribute__((swift_name("get(index:)")));
+- (id<SharedKotlinIterator>)iterator __attribute__((swift_name("iterator()")));
+- (void)setIndex:(int32_t)index value:(id _Nullable)value __attribute__((swift_name("set(index:value:)")));
+@property (readonly) int32_t size __attribute__((swift_name("size")));
+@end;
+
+__attribute__((swift_name("KotlinIterator")))
+@protocol SharedKotlinIterator
+@required
+- (BOOL)hasNext __attribute__((swift_name("hasNext()")));
+- (id _Nullable)next __attribute__((swift_name("next()")));
 @end;
 
 #pragma clang diagnostic pop
