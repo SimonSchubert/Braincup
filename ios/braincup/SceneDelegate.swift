@@ -17,7 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
     
     func showMainMenu(title: String, description: String, games: [GameType], instructions: @escaping (GameType) -> Void, score: @escaping (GameType) -> Void) {
         window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, instructions: instructions, score: score))
-        window?.makeKeyAndVisible()
     }
     
     func showInstructions(title: String, description: String, start: @escaping () -> Void) {

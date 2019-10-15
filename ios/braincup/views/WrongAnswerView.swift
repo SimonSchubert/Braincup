@@ -19,6 +19,6 @@ struct WrongAnswerView: View {
                 Image("searching")
             }
             .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
-        }
+        }.navigationViewStyle(StackNavigationViewStyle()) 
     }
 }
