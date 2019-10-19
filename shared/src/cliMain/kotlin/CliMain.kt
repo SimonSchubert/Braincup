@@ -36,11 +36,11 @@ class CliMain : AppInterface {
         }
 
         val input = readLine()
-        if(exitCommands.contains(input)) {
+        if (exitCommands.contains(input)) {
             exit(0)
         } else {
             val index = (input?.toIntOrNull() ?: 0) + -1
-            val choice = games.getOrNull(index) ?: GameType.SHERLOCK_CALCULATION
+            val choice = games.getOrNull(index) ?: GameType.FRACTION_CALCULATION
             instructions(choice)
         }
     }
@@ -52,7 +52,7 @@ class CliMain : AppInterface {
         println()
         println("Press enter to start.")
 
-        if(exitCommands.contains(readLine())) {
+        if (exitCommands.contains(readLine())) {
             gameMaster.start()
         } else {
             start()
@@ -118,6 +118,32 @@ class CliMain : AppInterface {
         readAndAnswer(answer, next)
     }
 
+    override fun showHeightComparison(
+        game: HeightComparisonGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+        printDivider()
+        game.answers.forEachIndexed { index, s ->
+            println("${index + 1}: $s")
+        }
+        println()
+
+        readAndAnswer(answer, next)
+    }
+
+    override fun showFractionCalculation(
+        game: FractionCalculationGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+        printDivider()
+        print(game.fractions.joinToString(") * (", "(", ")"))
+        println()
+
+        readAndAnswer(answer, next)
+    }
+
     override fun showFinishFeedback(
         rank: String,
         newHighscore: Boolean,
@@ -146,7 +172,7 @@ class CliMain : AppInterface {
 
     private fun readAndAnswer(answer: (String) -> Unit, next: () -> Unit) {
         val input = readLine() ?: ""
-        if(exitCommands.contains(input)) {
+        if (exitCommands.contains(input)) {
             gameMaster.start()
         } else {
             answer(input)
