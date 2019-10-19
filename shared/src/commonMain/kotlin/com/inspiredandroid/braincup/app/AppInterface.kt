@@ -36,6 +36,18 @@ interface AppInterface {
         next: () -> Unit
     )
 
+    fun showHeightComparison(
+        game: HeightComparisonGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    )
+
+    fun showFractionCalculation(
+        game: FractionCalculationGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    )
+
     fun showCorrectAnswerFeedback()
     fun showWrongAnswerFeedback(solution: String)
     fun showFinishFeedback(rank: String, newHighscore: Boolean, plays: Int, random: () -> Unit)

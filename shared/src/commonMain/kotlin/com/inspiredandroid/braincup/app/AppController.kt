@@ -22,7 +22,9 @@ class AppController(private val app: AppInterface) {
             GameType.MENTAL_CALCULATION,
             GameType.COLOR_CONFUSION,
             GameType.SHERLOCK_CALCULATION,
-            GameType.CHAIN_CALCULATION
+            GameType.CHAIN_CALCULATION,
+            GameType.FRACTION_CALCULATION,
+            GameType.HEIGHT_COMPARISON
         )
     }
 
@@ -42,23 +44,26 @@ class AppController(private val app: AppInterface) {
             })
     }
 
-    private fun startGame(game: GameType) {
-        app.showInstructions(game.getName(), game.getDescription()) {
+    private fun startGame(gameType: GameType) {
+        app.showInstructions(gameType.getName(), gameType.getDescription()) {
             state = AppState.GAME
             startTime = DateTime.now().unixMillis
             plays++
             points = 0
-            when (game) {
-                GameType.COLOR_CONFUSION -> nextRound(ColorConfusionGame())
-                GameType.MENTAL_CALCULATION -> nextRound(MentalCalculationGame())
-                GameType.SHERLOCK_CALCULATION -> nextRound(SherlockCalculationGame())
-                GameType.CHAIN_CALCULATION -> nextRound(ChainCalculationGame())
+            val game = when (gameType) {
+                GameType.COLOR_CONFUSION -> ColorConfusionGame()
+                GameType.MENTAL_CALCULATION -> MentalCalculationGame()
+                GameType.SHERLOCK_CALCULATION -> SherlockCalculationGame()
+                GameType.CHAIN_CALCULATION -> ChainCalculationGame()
+                GameType.HEIGHT_COMPARISON -> HeightComparisonGame()
+                GameType.FRACTION_CALCULATION -> FractionCalculationGame()
             }
+            nextRound(game)
         }
     }
 
     private fun nextRound(game: Game) {
-        if(state != AppState.GAME) {
+        if (state != AppState.GAME) {
             return
         }
         game.nextRound()
@@ -94,6 +99,8 @@ class AppController(private val app: AppInterface) {
             is MentalCalculationGame -> app.showMentalCalculation(game, answer, next)
             is SherlockCalculationGame -> app.showSherlockCalculation(game, answer, next)
             is ChainCalculationGame -> app.showChainCalculation(game, answer, next)
+            is HeightComparisonGame -> app.showHeightComparison(game, answer, next)
+            is FractionCalculationGame -> app.showFractionCalculation(game, answer, next)
         }
     }
 }
