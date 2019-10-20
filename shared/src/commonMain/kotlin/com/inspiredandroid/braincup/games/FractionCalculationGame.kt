@@ -13,7 +13,8 @@ class FractionCalculationGame : Game() {
 
     private var round = 0
     var result = 0
-    var fractions = mutableListOf<String>()
+    private var fractions = mutableListOf<String>()
+    var calculation = ""
 
     override fun nextRound() {
         fractions.clear()
@@ -24,6 +25,7 @@ class FractionCalculationGame : Game() {
         fractions.add("$upDivision/$downDivision")
         fractions.add("${up / upDivision}/${down / downDivision}")
         result = Calculator.calc("$up/$down").toInt()
+        calculation = fractions.joinToString(") * (", "(", ")")
         round++
     }
 

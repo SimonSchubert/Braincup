@@ -19,28 +19,32 @@ struct MainMenuView: View {
     var storage = UserStorage()
     
     var body: some View {
-        VStack {
-            Text(title).font(.title)
-            Text(description).font(.body).padding(.horizontal, 16).padding(.bottom, 16).multilineTextAlignment(.center)
-            ForEach(games, id: \.name) { gameType in
-                HStack {
-                    Button(action: {self.instructions(gameType)}) {
-                        HStack {
-                            Image(self.getImageResource(game: gameType))
-                            Text(gameType.getName()).frame(minWidth: 0, maxWidth: 160)
-                        }
-                    }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
-                    if(self.storage.getHighScore(gameId: gameType.getId()) > 0) {
-                        Button(action: {self.score(gameType)}) {
+        ScrollView {
+            VStack {
+                Spacer()
+                Text(title).font(.title).padding(.top, 16)
+                Text(description).font(.body).padding(.horizontal, 16).padding(.bottom, 16).multilineTextAlignment(.center)
+                ForEach(games, id: \.name) { gameType in
+                    HStack {
+                        Button(action: {self.instructions(gameType)}) {
                             HStack {
-                                Image(gameType.getMedalResource(score: self.storage.getHighScore(gameId: gameType.getId())))
-                                Text("\(self.storage.getHighScore(gameId: gameType.getId()))").frame(minWidth: 15)
+                                Image(self.getImageResource(game: gameType))
+                                Text(gameType.getName()).frame(minWidth: 0, maxWidth: 160)
                             }
                         }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
+                        if(self.storage.getHighScore(gameId: gameType.getId()) > 0) {
+                            Button(action: {self.score(gameType)}) {
+                                HStack {
+                                    Image(gameType.getMedalResource(score: self.storage.getHighScore(gameId: gameType.getId())))
+                                    Text("\(self.storage.getHighScore(gameId: gameType.getId()))").frame(minWidth: 15)
+                                }
+                            }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
+                        }
                     }
                 }
-            }
-            Image("waiting")
+                Image("waiting")
+                Spacer()
+            }.frame(minHeight: UIScreen.main.bounds.height)
         }
     }
     
@@ -54,6 +58,10 @@ struct MainMenuView: View {
                 return "icons8-edit_link"
             case GameType.mentalCalculation:
                 return "icons8-math"
+            case GameType.heightComparison:
+                return "icons8-height"
+            case GameType.fractionCalculation:
+                return "icons8-divide"
             default:
                 return ""
         }

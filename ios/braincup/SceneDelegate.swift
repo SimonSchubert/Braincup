@@ -55,6 +55,22 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
         }, back: {self.appController?.start()}))
     }
     
+    func showHeightComparison(game: HeightComparisonGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView: HeightComparisonView(game: game, answer: { value in answer(value)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                next()
+            }
+        }, back: {self.appController?.start()}))
+    }
+    
+    func showFractionCalculation(game: FractionCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView: FractionCalculationView(game: game, answer: { value in answer(value)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                next()
+            }
+        }, back: {self.appController?.start()}))
+    }
+    
     func showCorrectAnswerFeedback() {
         window?.rootViewController = UIHostingController(rootView: CorrectAnswerView(back: {self.appController?.start()}))
     }

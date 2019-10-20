@@ -22,6 +22,21 @@ fun main() {
 
 class JsMain : AppInterface {
 
+    override fun showHeightComparison(
+        game: HeightComparisonGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+
+    }
+
+    override fun showFractionCalculation(
+        game: FractionCalculationGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+    }
+
     private val appController = AppController(this)
 
     var gameTitle = ""

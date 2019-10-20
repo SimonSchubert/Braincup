@@ -37,7 +37,7 @@ fun GameType.getScoreTable(): Array<Int> {
         GameType.COLOR_CONFUSION -> arrayOf(16, 8)
         GameType.SHERLOCK_CALCULATION -> arrayOf(7, 3)
         GameType.CHAIN_CALCULATION -> arrayOf(8, 4)
-        GameType.FRACTION_CALCULATION -> arrayOf(10, 4)
+        GameType.FRACTION_CALCULATION -> arrayOf(8, 4)
         GameType.HEIGHT_COMPARISON -> arrayOf(10, 4)
     }
 }
@@ -61,7 +61,7 @@ fun GameType.getDescription(): String {
         GameType.COLOR_CONFUSION -> "Sum up the points of the correct statements under the figure. Time limit is 1 minute."
         GameType.SHERLOCK_CALCULATION -> "Find out how to get the result by only using the given numbers and the following operators: + - * / ( ). Time limit is 1 minute."
         GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions. Time limit is 1 minute."
-        GameType.FRACTION_CALCULATION -> "Solve the fractions."
+        GameType.FRACTION_CALCULATION -> "Solve the fractions. Time limit is 1 minute."
         GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result. Time limit is 1 minute."
     }
 }

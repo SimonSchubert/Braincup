@@ -6,7 +6,7 @@
 #import <Foundation/NSString.h>
 #import <Foundation/NSValue.h>
 
-@class SharedKotlinPair, SharedGameType, SharedGame, SharedColor, SharedShape, SharedKotlinEnum, SharedMentalCalculationGameOperator, SharedAppState, SharedMentalCalculationGame, SharedColorConfusionGame, SharedSherlockCalculationGame, SharedChainCalculationGame, SharedKotlinArray;
+@class SharedKotlinPair, SharedGameType, SharedGame, SharedColor, SharedShape, SharedKotlinEnum, SharedHeightComparisonGameType, SharedMentalCalculationGameOperator, SharedAppState, SharedMentalCalculationGame, SharedColorConfusionGame, SharedSherlockCalculationGame, SharedChainCalculationGame, SharedHeightComparisonGame, SharedFractionCalculationGame, SharedKotlinArray;
 
 @protocol SharedKotlinComparable, SharedAppInterface, SharedKotlinIterator;
 
@@ -219,6 +219,19 @@ __attribute__((swift_name("ColorConfusionGame.Companion")))
 @property (readonly) NSArray<SharedShape *> *shapes __attribute__((swift_name("shapes")));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FractionCalculationGame")))
+@interface SharedFractionCalculationGame : SharedGame
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)nextRound __attribute__((swift_name("nextRound()")));
+- (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
+- (NSString *)solution __attribute__((swift_name("solution()")));
+- (SharedGameType *)getGameType __attribute__((swift_name("getGameType()")));
+@property int32_t result __attribute__((swift_name("result")));
+@property NSString *calculation __attribute__((swift_name("calculation")));
+@end;
+
 __attribute__((swift_name("KotlinComparable")))
 @protocol SharedKotlinComparable
 @required
@@ -245,8 +258,36 @@ __attribute__((swift_name("GameType")))
 @property (class, readonly) SharedGameType *colorConfusion __attribute__((swift_name("colorConfusion")));
 @property (class, readonly) SharedGameType *sherlockCalculation __attribute__((swift_name("sherlockCalculation")));
 @property (class, readonly) SharedGameType *chainCalculation __attribute__((swift_name("chainCalculation")));
+@property (class, readonly) SharedGameType *fractionCalculation __attribute__((swift_name("fractionCalculation")));
+@property (class, readonly) SharedGameType *heightComparison __attribute__((swift_name("heightComparison")));
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (int32_t)compareToOther:(SharedGameType *)other __attribute__((swift_name("compareTo(other:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("HeightComparisonGame")))
+@interface SharedHeightComparisonGame : SharedGame
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (void)nextRound __attribute__((swift_name("nextRound()")));
+- (BOOL)isCorrectInput:(NSString *)input __attribute__((swift_name("isCorrect(input:)")));
+- (NSString *)solution __attribute__((swift_name("solution()")));
+- (SharedGameType *)getGameType __attribute__((swift_name("getGameType()")));
+@property int32_t round __attribute__((swift_name("round")));
+@property NSMutableArray<NSString *> *answers __attribute__((swift_name("answers")));
+@property NSArray<SharedHeightComparisonGameType *> *types __attribute__((swift_name("types")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("HeightComparisonGame.Type")))
+@interface SharedHeightComparisonGameType : SharedKotlinEnum
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+@property (class, readonly) SharedHeightComparisonGameType *addition __attribute__((swift_name("addition")));
+@property (class, readonly) SharedHeightComparisonGameType *fraction __attribute__((swift_name("fraction")));
+@property (class, readonly) SharedHeightComparisonGameType *multiplication __attribute__((swift_name("multiplication")));
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)compareToOther:(SharedHeightComparisonGameType *)other __attribute__((swift_name("compareTo(other:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -353,6 +394,8 @@ __attribute__((swift_name("AppInterface")))
 - (void)showColorConfusionGame:(SharedColorConfusionGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showColorConfusion(game:answer:next:)")));
 - (void)showSherlockCalculationGame:(SharedSherlockCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showSherlockCalculation(game:answer:next:)")));
 - (void)showChainCalculationGame:(SharedChainCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showChainCalculation(game:answer:next:)")));
+- (void)showHeightComparisonGame:(SharedHeightComparisonGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showHeightComparison(game:answer:next:)")));
+- (void)showFractionCalculationGame:(SharedFractionCalculationGame *)game answer:(void (^)(NSString *))answer next:(void (^)(void))next __attribute__((swift_name("showFractionCalculation(game:answer:next:)")));
 - (void)showCorrectAnswerFeedback __attribute__((swift_name("showCorrectAnswerFeedback()")));
 - (void)showWrongAnswerFeedbackSolution:(NSString *)solution __attribute__((swift_name("showWrongAnswerFeedback(solution:)")));
 - (void)showFinishFeedbackRank:(NSString *)rank newHighscore:(BOOL)newHighscore plays:(int32_t)plays random:(void (^)(void))random __attribute__((swift_name("showFinishFeedback(rank:newHighscore:plays:random:)")));

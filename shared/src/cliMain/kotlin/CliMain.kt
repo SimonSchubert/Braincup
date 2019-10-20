@@ -138,7 +138,7 @@ class CliMain : AppInterface {
         next: () -> Unit
     ) {
         printDivider()
-        print(game.fractions.joinToString(") * (", "(", ")"))
+        print(game.calculation)
         println()
 
         readAndAnswer(answer, next)
