@@ -22,21 +22,6 @@ fun main() {
 
 class JsMain : AppInterface {
 
-    override fun showHeightComparison(
-        game: HeightComparisonGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
-
-    }
-
-    override fun showFractionCalculation(
-        game: FractionCalculationGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
-    }
-
     private val appController = AppController(this)
 
     var gameTitle = ""
@@ -57,13 +42,9 @@ class JsMain : AppInterface {
         })
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
+            title(this, title)
             div {
-                classes += "mdc-typography--headline2"
-                text(title)
-            }
-            br { }
-            br { }
-            div {
+                style = "margin-top: 32px"
                 classes += "mdc-typography--headline6"
                 text(description)
             }
@@ -109,8 +90,8 @@ class JsMain : AppInterface {
                     }
                 }
             }
-            br {}
             img {
+                style = "margin-top: 16px"
                 src = "images/waiting.svg"
                 width = "400px"
             }
@@ -122,15 +103,16 @@ class JsMain : AppInterface {
                 classes += "mdc-typography--headline5"
                 text("macOS homebrew:")
             }
-            code {
-                text("brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup")
+            div {
+                code {
+                    text("brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup")
+                }
             }
-            br {}
-            br {}
             a {
                 href = "https://github.com/SimonSchubert/Braincup"
                 target = "_blank"
                 img {
+                    style = "margin-top: 16px"
                     src = "images/github.png"
                     width = "16px"
                 }
@@ -144,10 +126,7 @@ class JsMain : AppInterface {
         document.title = "$gameTitle - Braincup"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            div {
-                classes += "mdc-typography--headline2"
-                text(title)
-            }
+            title(this)
             br { }
             br { }
             div {
@@ -173,52 +152,23 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            div {
-                classes += "mdc-typography--headline2"
-                text(gameTitle)
-            }
-            br { }
-            br { }
-            br {}
-            br {}
-            br {}
+            title(this)
             div {
                 classes += "mdc-typography--headline4"
+                style = "margin-top: 128px"
                 text(game.calculation)
             }
             br {}
-            div {
-                classes += "mdc-text-field mdc-text-field--outlined"
-                input {
-                    style = "text-align: center;font-size: 30px;width: 150px;"
-                    classes = setOf("mdc-text-field__input")
-                    id = "answerInput"
-                    autoComplete = false
-                    onInputFunction = {
-                        val input = document.getElementById("answerInput") as HTMLInputElement
-                        input.focus()
-                        if (game.getNumberLength() == input.value.length) {
-                            answer(input.value)
-                            window.setTimeout({
-                                next()
-                            }, 1000)
-                        }
-                    }
-                }
-                div {
-                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
-                    div {
-                        classes += "mdc-notched-outline__leading"
-                    }
-                    div {
-                        classes += "mdc-notched-outline__trailing"
-                    }
+            answerInput(this) {
+                if (game.getNumberLength() == it.length) {
+                    answer(it)
+                    window.setTimeout({
+                        next()
+                    }, 1000)
                 }
             }
-            br {}
         }
-        val input = document.getElementById("answerInput") as HTMLInputElement
-        input.focus()
+        focusAnswerInput()
     }
 
     override fun showColorConfusion(
@@ -228,22 +178,17 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
+            title(this)
             div {
-                classes += "mdc-typography--headline2"
-                text(gameTitle)
+                i {
+                    style =
+                        "font-size: 144px; color: ${game.displayedColor.getHex()}; margin-top: 16px"
+                    classes += "material-icons"
+                    text(game.displayedShape.getIconResource())
+                }
             }
-            br { }
-            br { }
-            i {
-                style = "font-size: 144px; color: ${game.displayedColor.getHex()};"
-                classes += "material-icons"
-                text(game.displayedShape.getIconResource())
-            }
-            br { }
-            br { }
-
             div {
-                style = "display: inline-block; text-align: left;"
+                style = "display: inline-block; text-align: left; margin-top: 16px"
                 span {
                     style = "width: 200px"
                     classes += "mdc-typography--headline5"
@@ -262,38 +207,16 @@ class JsMain : AppInterface {
             }
             br { }
             br { }
-
-            div {
-                classes += "mdc-text-field mdc-text-field--outlined"
-                input {
-                    style = "text-align: center;font-size: 30px;width: 150px;"
-                    classes = setOf("mdc-text-field__input")
-                    id = "answerInput"
-                    autoComplete = false
-                    onInputFunction = {
-                        val input = document.getElementById("answerInput") as HTMLInputElement
-                        input.focus()
-                        if (game.points().length == input.value.length) {
-                            answer(input.value)
-                            window.setTimeout({
-                                next()
-                            }, 1000)
-                        }
-                    }
-                }
-                div {
-                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
-                    div {
-                        classes += "mdc-notched-outline__leading"
-                    }
-                    div {
-                        classes += "mdc-notched-outline__trailing"
-                    }
+            answerInput(this) {
+                if (game.points().length == it.length) {
+                    answer(it)
+                    window.setTimeout({
+                        next()
+                    }, 1000)
                 }
             }
         }
-        val input = document.getElementById("answerInput") as HTMLInputElement
-        input.focus()
+        focusAnswerInput()
     }
 
     override fun showChainCalculation(
@@ -303,64 +226,27 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
+            title(this)
             div {
-                classes += "mdc-typography--headline2"
-                text(gameTitle)
-            }
-            br {}
-            br {}
-            br {}
-            br {}
-            div {
-                classes += "mdc-typography--headline5"
+                style = "margin-top: 128px"
+                classes += "mdc-typography--headline4"
                 text(game.calculation)
             }
             br {}
-            div {
-                classes += "mdc-text-field mdc-text-field--outlined"
-                input {
-                    style = "text-align: center;font-size: 30px;width: 150px;"
-                    classes = setOf("mdc-text-field__input")
-                    id = "answerInput"
-                    autoComplete = false
-                    onInputFunction = {
-                        val input = document.getElementById("answerInput") as HTMLInputElement
-                        input.focus()
-                        if (game.isCorrect(input.value)) {
-                            answer(input.value)
-                            window.setTimeout({
-                                next()
-                            }, 1000)
-                        }
-                    }
-                }
-                div {
-                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
-                    div {
-                        classes += "mdc-notched-outline__leading"
-                    }
-                    div {
-                        classes += "mdc-notched-outline__trailing"
-                    }
-                }
-            }
-            br {}
-            br {}
-            button {
-                style = "width: 150px"
-                classes += "mdc-button mdc-button--raised"
-                text("Give up")
-                onClickFunction = {
-                    answer("")
+            answerInput(this) {
+                if (game.isCorrect(it)) {
+                    answer(it)
                     window.setTimeout({
                         next()
                     }, 1000)
                 }
             }
             br {}
+            br {}
+            giveUpButton(this, answer, next)
+            br {}
         }
-        val input = document.getElementById("answerInput") as HTMLInputElement
-        input.focus()
+        focusAnswerInput()
     }
 
     override fun showSherlockCalculation(
@@ -370,15 +256,9 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
+            title(this)
             div {
-                classes += "mdc-typography--headline2"
-                text(gameTitle)
-            }
-            br {}
-            br {}
-            br {}
-            br {}
-            div {
+                style = "margin-top: 128px"
                 classes += "mdc-typography--headline4"
                 text("Goal: ${game.result}")
             }
@@ -387,51 +267,91 @@ class JsMain : AppInterface {
                 text("Numbers: ${game.getNumbersString()}")
             }
             br {}
-            div {
-                classes += "mdc-text-field mdc-text-field--outlined"
-                input {
-                    style = "text-align: center;font-size: 30px;width: 150px;"
-                    classes = setOf("mdc-text-field__input")
-                    id = "answerInput"
-                    autoComplete = false
-                    onInputFunction = {
-                        val input = document.getElementById("answerInput") as HTMLInputElement
-                        input.focus()
-                        if (game.isCorrect(input.value)) {
-                            answer(input.value)
-                            window.setTimeout({
-                                next()
-                            }, 1000)
-                        }
-                    }
-                }
-                div {
-                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
-                    div {
-                        classes += "mdc-notched-outline__leading"
-                    }
-                    div {
-                        classes += "mdc-notched-outline__trailing"
-                    }
-                }
-            }
-            br {}
-            br {}
-            button {
-                style = "width: 150px"
-                classes += "mdc-button mdc-button--raised"
-                text("Give up")
-                onClickFunction = {
-                    answer("")
+            answerInput(this) {
+                if (game.isCorrect(it)) {
+                    answer(it)
                     window.setTimeout({
                         next()
                     }, 1000)
                 }
             }
             br {}
+            br {}
+            giveUpButton(this, answer, next)
+            br {}
         }
+        focusAnswerInput()
+    }
+
+    private fun focusAnswerInput() {
         val input = document.getElementById("answerInput") as HTMLInputElement
         input.focus()
+    }
+
+    // TODO: replace with DSL
+    private fun title(body: BODY, title: String = gameTitle) {
+        body.div {
+            classes += "mdc-typography--headline2"
+            text(title)
+        }
+    }
+
+    // TODO: replace with DSL
+    private fun giveUpButton(body: BODY, answer: (String) -> Unit,
+                             next: () -> Unit) {
+        body.button {
+            style = "width: 150px"
+            classes += "mdc-button mdc-button--raised"
+            text("Give up")
+            onClickFunction = {
+                answer("")
+                window.setTimeout({
+                    next()
+                }, 1000)
+            }
+        }
+    }
+
+    // TODO: replace with DSL
+    private fun answerInput(body: BODY, action: (String) -> Unit) {
+        body.div {
+            classes += "mdc-text-field mdc-text-field--outlined"
+            input {
+                style = "text-align: center;font-size: 30px;width: 150px;"
+                classes = setOf("mdc-text-field__input")
+                id = "answerInput"
+                autoComplete = false
+                onInputFunction = {
+                    val input = document.getElementById("answerInput") as HTMLInputElement
+                    input.focus()
+                    action(input.value)
+                }
+            }
+            div {
+                classes += "mdc-notched-outline mdc-notched-outline--no-label"
+                div {
+                    classes += "mdc-notched-outline__leading"
+                }
+                div {
+                    classes += "mdc-notched-outline__trailing"
+                }
+            }
+        }
+    }
+
+    override fun showHeightComparison(
+        game: HeightComparisonGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+
+    }
+
+    override fun showFractionCalculation(
+        game: FractionCalculationGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
     }
 
     override fun showCorrectAnswerFeedback() {
@@ -442,9 +362,8 @@ class JsMain : AppInterface {
                 style = "padding-top: 24px;"
                 text(gameTitle)
             }
-            br {}
-            br {}
             img {
+                style = "margin-top: 64px"
                 src = "images/welcome.svg"
                 width = "400px"
             }
@@ -459,15 +378,13 @@ class JsMain : AppInterface {
                 style = "padding-top: 24px;"
                 text(gameTitle)
             }
-            br {}
-            br {}
             img {
+                style = "margin-top: 64px"
                 src = "images/searching.svg"
                 width = "400px"
             }
-            br {}
-            br {}
             div {
+                style = "margin-top: 64px"
                 classes += "mdc-typography--headline5"
                 text("the answer was $solution")
             }
@@ -531,14 +448,9 @@ class JsMain : AppInterface {
         document.title = "$gameTitle score - Braincup"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
+            title(this, "$gameTitle - Scores")
             div {
-                classes += "mdc-typography--headline2"
-                text("$gameTitle - Scores")
-            }
-            br {}
-            br {}
-
-            div {
+                style = "margin-top: 64px"
                 classes += "mdc-typography--headline4"
                 text("Highscore: $highscore")
             }
