@@ -17,7 +17,7 @@ struct ChainCalculationView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(game.calculation).font(.title).padding(.horizontal, 16)
+                Text(game.calculation).font(.title).padding(.horizontal, 16).frame(minWidth: 0, maxWidth: .infinity)
                 CalculatorView(showOperators: false, onInputChange: {value in
                     if(self.game.isCorrect(input: value)) {
                         self.answer(value)
@@ -28,7 +28,7 @@ struct ChainCalculationView: View {
                 }) {
                     Text("Give up")
                 }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)
-            }
+                }
             .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
         }.navigationViewStyle(StackNavigationViewStyle()) 
     }

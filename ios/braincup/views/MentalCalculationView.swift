@@ -17,7 +17,7 @@ struct MentalCalculationView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(game.calculation).font(.title)
+                Text(game.calculation).font(.title).frame(minWidth: 0, maxWidth: .infinity)
                 CalculatorView(showOperators: false, onInputChange: {value in
                     if(self.game.getNumberLength() == value.count) {
                         self.answer(value)

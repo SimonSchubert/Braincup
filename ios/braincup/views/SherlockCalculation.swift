@@ -17,7 +17,7 @@ struct SherlockCalculationView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Goal: \(game.result)").font(.title).padding(.horizontal, 16)
+                Text("Goal: \(game.result)").font(.title).padding(.horizontal, 16).frame(minWidth: 0, maxWidth: .infinity)
                 Text("Numbers: \(game.getNumbersString())").font(.subheadline).lineLimit(nil)
                 CalculatorView(showOperators: true, onInputChange: {value in
                     if(self.game.isCorrect(input: value)) {
