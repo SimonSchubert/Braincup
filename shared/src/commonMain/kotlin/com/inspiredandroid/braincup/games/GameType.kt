@@ -72,7 +72,7 @@ fun GameType.getImageResource(): String {
         GameType.COLOR_CONFUSION -> "icons8-fill_color.svg"
         GameType.SHERLOCK_CALCULATION -> "icons8-search.svg"
         GameType.CHAIN_CALCULATION -> "icons8-chain.svg"
-        GameType.FRACTION_CALCULATION -> ""
-        GameType.HEIGHT_COMPARISON -> ""
+        GameType.FRACTION_CALCULATION -> "icons8-divide.svg"
+        GameType.HEIGHT_COMPARISON -> "icons8-height.svg"
     }
 }

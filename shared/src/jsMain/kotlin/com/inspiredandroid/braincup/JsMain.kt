@@ -344,7 +344,27 @@ class JsMain : AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title(this)
+            br {}
+            br {}
+            br {}
+            game.answers.forEachIndexed { index, s ->
+                button {
+                    style = "width: 150px; margin-top: 32px"
+                    classes += "mdc-button mdc-button--raised"
+                    text(s)
+                    onClickFunction = {
+                        answer("${index + 1}")
+                        window.setTimeout({
+                            next()
+                        }, 1000)
+                    }
+                }
+                br{}
+            }
+        }
     }
 
     override fun showFractionCalculation(
@@ -352,6 +372,29 @@ class JsMain : AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title(this)
+            div {
+                style = "margin-top: 128px"
+                classes += "mdc-typography--headline4"
+                text(game.calculation)
+            }
+            br {}
+            answerInput(this) {
+                if (game.isCorrect(it)) {
+                    answer(it)
+                    window.setTimeout({
+                        next()
+                    }, 1000)
+                }
+            }
+            br {}
+            br {}
+            giveUpButton(this, answer, next)
+            br {}
+        }
+        focusAnswerInput()
     }
 
     override fun showCorrectAnswerFeedback() {
