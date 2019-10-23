@@ -45,6 +45,7 @@ class AppController(private val app: AppInterface) {
     }
 
     private fun startGame(gameType: GameType) {
+        state = AppState.INSTRUCTIONS
         app.showInstructions(gameType.getName(), gameType.getDescription()) {
             state = AppState.GAME
             startTime = DateTime.now().unixMillis
