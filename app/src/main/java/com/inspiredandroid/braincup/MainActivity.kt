@@ -1,4 +1,4 @@
-//package androidx.ui.material.studies
+//package com.inspiredandroid.braincup
 //
 //import android.app.Activity
 //import android.os.Bundle
@@ -23,7 +23,6 @@
 //import androidx.ui.layout.TableColumnWidth
 //import androidx.ui.material.Button
 //import androidx.ui.material.studies.Scaffold
-//import androidx.ui.material.studies.rally.AppTheme
 //import androidx.ui.material.themeTextStyle
 //import androidx.ui.text.ParagraphStyle
 //import androidx.ui.text.TextStyle
@@ -33,20 +32,31 @@
 //import android.widget.FrameLayout
 //import androidx.ui.core.WithDensity
 //import androidx.ui.foundation.SimpleImage
+//import androidx.ui.foundation.VerticalScroller
 //import androidx.ui.graphics.vector.DrawVector
 //import androidx.ui.layout.CrossAxisAlignment
 //import androidx.ui.layout.Row
+//import androidx.ui.layout.WidthSpacer
 //import androidx.ui.material.TextButtonStyle
+//import androidx.ui.material.studies.R
 //import androidx.ui.res.vectorResource
+//import com.inspiredandroid.braincup.api.UserStorage
 //import com.inspiredandroid.braincup.app.AppController
 //import com.inspiredandroid.braincup.app.AppInterface
 //import com.inspiredandroid.braincup.app.AppState
 //import com.inspiredandroid.braincup.games.ChainCalculationGame
 //import com.inspiredandroid.braincup.games.ColorConfusionGame
+//import com.inspiredandroid.braincup.games.FractionCalculationGame
 //import com.inspiredandroid.braincup.games.GameType
+//import com.inspiredandroid.braincup.games.HeightComparisonGame
+//import com.inspiredandroid.braincup.games.MEDAL_FIRST_RESOURCE
+//import com.inspiredandroid.braincup.games.MEDAL_SECOND_RESOURCE
+//import com.inspiredandroid.braincup.games.MEDAL_THIRD_RESOURCE
 //import com.inspiredandroid.braincup.games.MentalCalculationGame
 //import com.inspiredandroid.braincup.games.SherlockCalculationGame
+//import com.inspiredandroid.braincup.games.getMedalResource
 //import com.inspiredandroid.braincup.games.getName
+//import com.inspiredandroid.braincup.games.getScoreTable
 //import com.inspiredandroid.braincup.games.tools.Shape
 //import com.inspiredandroid.braincup.games.tools.getName
 //
@@ -58,22 +68,24 @@
 //        super.onCreate(savedInstanceState)
 //        frameLayout = FrameLayout(this)
 //        setContentView(frameLayout)
-//        gameMaster.start()
+//        gameMaster.start(this)
 //    }
 //
 //    override fun onBackPressed() {
 //        if(gameMaster.state == AppState.START) {
 //            super.onBackPressed()
 //        } else {
-//            gameMaster.start()
+//            gameMaster.start(this)
 //        }
 //    }
 //
 //    @Composable
 //    fun BaseApp(children: @Composable() () -> Unit) {
 //        AppTheme {
-//            Column(mainAxisAlignment = MainAxisAlignment.Center, crossAxisAlignment =
-//            CrossAxisAlignment.Center) {
+//            Column(
+//                mainAxisAlignment = MainAxisAlignment.Center, crossAxisAlignment =
+//                CrossAxisAlignment.Center
+//            ) {
 //                children()
 //            }
 //        }
@@ -86,23 +98,77 @@
 //        instructions: (GameType) -> Unit,
 //        score: (GameType) -> Unit
 //    ) {
+//        val storage = UserStorage(this)
 //        frameLayout.setContent {
-//            BaseApp {
-//                Text(title, style = +themeTextStyle { h5 })
-//                HeightSpacer(8.dp)
-//                Text(description, style = +themeTextStyle { subtitle1 })
-//                HeightSpacer(16.dp)
-//                games.forEach {
+//            VerticalScroller {
+//                BaseApp {
+//                    Text(title, style = +themeTextStyle { h5 })
+//                    HeightSpacer(8.dp)
+//                    Text(description, style = +themeTextStyle { subtitle1 })
 //                    HeightSpacer(16.dp)
-//                    Button(text = it.getName(), onClick = {
-//                        instructions(it)
-//                    })
-//                }
-//                val vectorAsset = +vectorResource(R.drawable.ic_waiting)
-//                Container(width = 266.dp, height = 200.dp) {
-//                    DrawVector(vectorAsset)
+//                    games.forEach {
+//                        HeightSpacer(16.dp)
+//                        Row(crossAxisAlignment = CrossAxisAlignment.Center) {
+//                            Button(onClick = { instructions(it) }) {
+//                                Row(crossAxisAlignment = CrossAxisAlignment.Center) {
+//                                    val vectorAsset = +vectorResource(it.getAndroidDrawable())
+//                                    Container(width = 24.dp, height = 24.dp) {
+//                                        DrawVector(vectorAsset)
+//                                    }
+//                                    WidthSpacer(16.dp)
+//                                    Text(text = it.getName())
+//                                }
+//                            }
+//                            val highscore = storage.getHighScore(it.getId())
+//                            if(highscore > 0) {
+//                                WidthSpacer(8.dp)
+//                                Button(onClick = { instructions(it) }) {
+//                                    val vectorAsset = +vectorResource(it.getAndroidMedalResource
+//                                        (highscore))
+//                                    Container(width = 24.dp, height = 24.dp) {
+//                                        DrawVector(vectorAsset)
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    }
+//                    val vectorAsset = +vectorResource(R.drawable.ic_waiting)
+//                    Container(width = 266.dp, height = 200.dp) {
+//                        DrawVector(vectorAsset)
+//                    }
 //                }
 //            }
+//        }
+//    }
+//
+//    fun GameType.getAndroidMedalResource(score: Int): Int {
+//        val scoreTable = this.getScoreTable()
+//        return when {
+//            score >= scoreTable[0] -> R.drawable.ic_icons8_medal_first_place
+//            score >= scoreTable[1] -> R.drawable.ic_icons8_medal_second_place
+//            else -> R.drawable.ic_icons8_medal_third_place
+//        }
+//    }
+//
+//    fun GameType.getId(): String {
+//        return when (this) {
+//            GameType.MENTAL_CALCULATION -> "0"
+//            GameType.COLOR_CONFUSION -> "1"
+//            GameType.SHERLOCK_CALCULATION -> "2"
+//            GameType.CHAIN_CALCULATION -> "3"
+//            GameType.FRACTION_CALCULATION -> "4"
+//            GameType.HEIGHT_COMPARISON -> "5"
+//        }
+//    }
+//
+//    fun GameType.getAndroidDrawable() : Int {
+//        return when(this) {
+//            GameType.MENTAL_CALCULATION -> R.drawable.ic_icons8_math
+//            GameType.COLOR_CONFUSION -> R.drawable.ic_icons8_fill_color
+//            GameType.SHERLOCK_CALCULATION -> R.drawable.ic_icons8_search
+//            GameType.CHAIN_CALCULATION -> R.drawable.ic_icons8_chain
+//            GameType.FRACTION_CALCULATION -> R.drawable.ic_icons8_divide
+//            GameType.HEIGHT_COMPARISON -> R.drawable.ic_icons8_height
 //        }
 //    }
 //
@@ -152,7 +218,7 @@
 //                Text("${game.shapePoints} = ${game.answerShape.getName()}", style=
 //                +themeTextStyle { h5 })
 //                Text("${game.colorPoints} = ${game.answerColor.getName()}", style = TextStyle
-//                        (fontSize =
+//                    (fontSize =
 //                24.sp, color = game
 //                    .stringColor
 //                    .getComposeColor())
@@ -218,6 +284,47 @@
 //        }
 //    }
 //
+//    override fun showHeightComparison(
+//        game: HeightComparisonGame,
+//        answer: (String) -> Unit,
+//        next: () -> Unit
+//    ) {
+//        frameLayout.setContent {
+//            BaseApp {
+//                game.answers.forEachIndexed { index, s ->
+//                    HeightSpacer(16.dp)
+//                    Button(text = s, onClick = {
+//                        answer("${index+1}")
+//                        DelayedTask().execute(next)
+//                    })
+//                }
+//            }
+//        }
+//    }
+//
+//    override fun showFractionCalculation(
+//        game: FractionCalculationGame,
+//        answer: (String) -> Unit,
+//        next: () -> Unit
+//    ) {
+//        frameLayout.setContent {
+//            BaseApp {
+//                Text(game.calculation, style = +themeTextStyle { h4 })
+//                NumberPad(false, onInputChange = {
+//                    if(game.isCorrect(it)) {
+//                        answer(it)
+//                        DelayedTask().execute(next)
+//                    }
+//                })
+//                HeightSpacer(32.dp)
+//                Button("Give up", onClick = {
+//                    answer("")
+//                    DelayedTask().execute(next)
+//                })
+//            }
+//        }
+//    }
+//
 //    override fun showScoreboard(
 //        game: GameType,
 //        highscore: Int,
@@ -259,8 +366,9 @@
 //                Text("Score: $rank", style = +themeTextStyle { h3 })
 //                HeightSpacer(16.dp)
 //                if(newHighscore) {
-//                    // Text("New highscore", style = +themeTextStyle { h6 })
+//                    Text("New highscore", style = +themeTextStyle { h6 })
 //                }
+//                HeightSpacer(16.dp)
 //                Button("Next game", {
 //                    random()
 //                })
