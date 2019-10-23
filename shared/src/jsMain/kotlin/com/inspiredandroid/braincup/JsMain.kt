@@ -54,7 +54,7 @@ class JsMain : AppInterface {
                 games.forEach { game ->
                     br { }
                     button {
-                        style = "width: 300px; height: 50px; font-size: 16px; margin-top: 16px; margin-right: 6px"
+                        style = "width: 300px; max-width: 70%; height: 50px; font-size: 16px; margin-top: 16px; margin-right: 6px"
                         classes += "mdc-button mdc-button--raised"
                         img {
                             classes += "material-icons mdc-button__icon"
@@ -100,6 +100,26 @@ class JsMain : AppInterface {
                 text("Download")
             }
             div {
+                a {
+                    href = "https://apps.apple.com/us/app/braincup/id1483376887#?platform=iphone"
+                    target = "_blank"
+                    img {
+                        style = "margin-top: 16px; margin-right: 4px;"
+                        src = "images/app_store.png"
+                        height = "48px"
+                    }
+                }
+                a {
+                    href = "https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup"
+                    target = "_blank"
+                    img {
+                        style = "margin-top: 16px; margin-left: 4px;"
+                        src = "images/play_store.png"
+                        height = "48px"
+                    }
+                }
+            }
+            div {
                 classes += "mdc-typography--headline5"
                 text("macOS homebrew:")
             }
@@ -112,9 +132,18 @@ class JsMain : AppInterface {
                 href = "https://github.com/SimonSchubert/Braincup"
                 target = "_blank"
                 img {
-                    style = "margin-top: 16px"
+                    style = "margin-top: 16px; margin-bottom: 8px;"
                     src = "images/github.png"
-                    width = "16px"
+                    width = "32px"
+                }
+            }
+            a {
+                href = "https://gitlab.com/Simon_Schubert/Braincup"
+                target = "_blank"
+                img {
+                    style = "margin-top: 16px"
+                    src = "images/gitlab.svg"
+                    width = "48px"
                 }
             }
         }
