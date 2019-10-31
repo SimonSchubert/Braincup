@@ -53,7 +53,7 @@ Very welcome.
 
 ## Gradle build tasks
 - Build and run mac terminal client = runDebugExecutableMacosxX64
-- Build and run js web client = jsWeb
+- Build and run js web client = jsWebDebug, jsWebRelease
 - Run unit test on android target = androidTest
 
 ## Setup Android app with Jetpack Compose
