@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.AsyncTask
 import android.os.Bundle
 import android.widget.FrameLayout
+import androidx.annotation.ColorInt
 import androidx.compose.Composable
 import androidx.compose.State
 import androidx.compose.state
@@ -123,17 +124,6 @@ class MainActivity : Activity(), AppInterface {
             score >= scoreTable[0] -> R.drawable.ic_icons8_medal_first_place
             score >= scoreTable[1] -> R.drawable.ic_icons8_medal_second_place
             else -> R.drawable.ic_icons8_medal_third_place
-        }
-    }
-
-    private fun GameType.getId(): String {
-        return when (this) {
-            GameType.MENTAL_CALCULATION -> "0"
-            GameType.COLOR_CONFUSION -> "1"
-            GameType.SHERLOCK_CALCULATION -> "2"
-            GameType.CHAIN_CALCULATION -> "3"
-            GameType.FRACTION_CALCULATION -> "4"
-            GameType.HEIGHT_COMPARISON -> "5"
         }
     }
 
@@ -438,7 +428,6 @@ class MainActivity : Activity(), AppInterface {
     /**
      * Temporary solution
      */
-
     private fun Shape.getChar(): String {
         return when (this) {
             Shape.SQUARE -> "■"

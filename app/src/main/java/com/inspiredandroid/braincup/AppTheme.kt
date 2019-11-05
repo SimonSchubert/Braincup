@@ -14,8 +14,11 @@ import androidx.ui.text.font.FontWeight
 fun AppTheme(children: @Composable() () -> Unit) {
     val colors = MaterialColors(
         primary = Color(0xFFED7354),
+        onPrimary = Color.White,
+        background = Color.White,
+        onBackground = Color.Black,
         surface = Color.White,
-        onSurface = Color.White
+        onSurface = Color.Black
     )
     val typography = MaterialTypography(
         h1 = TextStyle(
@@ -50,7 +53,7 @@ fun AppTheme(children: @Composable() () -> Unit) {
         ),
         subtitle1 = TextStyle(
             fontFamily = FontFamily("RobotoCondensed"),
-            fontWeight = FontWeight.W700,
+            fontWeight = FontWeight.Normal,
             fontSize = 16.sp
         ),
         subtitle2 = TextStyle(
