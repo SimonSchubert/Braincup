@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.api
 
+import com.inspiredandroid.braincup.settings
 import com.soywiz.klock.DateTime
 
 class UserStorage {
