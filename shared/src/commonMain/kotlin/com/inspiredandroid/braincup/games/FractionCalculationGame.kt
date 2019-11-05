@@ -12,7 +12,7 @@ import kotlin.random.Random
 class FractionCalculationGame : Game() {
 
     private var round = 0
-    var result = 0
+    private var result = 0
     private var fractions = mutableListOf<String>()
     var calculation = ""
 
