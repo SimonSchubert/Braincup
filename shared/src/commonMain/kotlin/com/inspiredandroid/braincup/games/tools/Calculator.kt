@@ -9,13 +9,16 @@ import com.inspiredandroid.braincup.removeWhitespaces
  * Supported tokens: + - * / ( )
  */
 object Calculator {
+    private val validCalculationRegex = Regex("^[0-9+\\-*/().]*\$")
 
     fun calc(input: String): Double {
         var expression = input.removeWhitespaces()
+        if (!validCalculationRegex.matches(expression)) {
+            return 0.0
+        }
         expression = expression.replace("--", "+")
         expression = expression.replace("-", "+-")
-        expression =
-            calculateInnerBrackets(expression)
+        expression = calculateInnerBrackets(expression)
         return calculate(expression)
     }
 
@@ -58,6 +61,9 @@ object Calculator {
         while (result.lastIndexOf("(") != -1) {
             val lastOpenBracketIndex = result.lastIndexOf("(")
             val lastCloseBracketIndex = result.indexOf(")", lastOpenBracketIndex)
+            if (lastOpenBracketIndex + 1 < 0 || lastCloseBracketIndex < 0) {
+                return ""
+            }
             val innerBracket = result.substring(lastOpenBracketIndex + 1, lastCloseBracketIndex)
 
             val innerBracketValue =
@@ -67,6 +73,13 @@ object Calculator {
             result = result.addString(innerBracketValue.toString(), lastOpenBracketIndex)
             result = result.replace("--", "+")
         }
-        return result
+        // abort calculation if result has unresolved brackets
+        return if (result.indexOf("(") != -1 ||
+            result.indexOf(")") != -1
+        ) {
+            ""
+        } else {
+            return result
+        }
     }
 }
