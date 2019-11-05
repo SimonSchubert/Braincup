@@ -4,11 +4,11 @@ import android.app.Activity
 import android.os.AsyncTask
 import android.os.Bundle
 import android.widget.FrameLayout
-import androidx.annotation.ColorInt
 import androidx.compose.Composable
 import androidx.compose.State
 import androidx.compose.state
 import androidx.compose.unaryPlus
+import androidx.preference.PreferenceManager
 import androidx.ui.core.Text
 import androidx.ui.core.dp
 import androidx.ui.core.setContent
@@ -30,6 +30,7 @@ import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.getName
+import com.russhwolf.settings.AndroidSettings
 
 class MainActivity : Activity(), AppInterface {
 
@@ -38,6 +39,10 @@ class MainActivity : Activity(), AppInterface {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
+        settings = AndroidSettings(sharedPrefs)
+
         frameLayout = FrameLayout(this)
         setContentView(frameLayout)
         gameMaster.start()
@@ -84,7 +89,10 @@ class MainActivity : Activity(), AppInterface {
                         Row(crossAxisAlignment = CrossAxisAlignment.Center) {
                             Container(width = 200.dp) {
                                 Button(onClick = { instructions(it) }) {
-                                    Row(crossAxisAlignment = CrossAxisAlignment.Center, mainAxisSize = LayoutSize.Expand) {
+                                    Row(
+                                        crossAxisAlignment = CrossAxisAlignment.Center,
+                                        mainAxisSize = LayoutSize.Expand
+                                    ) {
                                         val vectorAsset = +vectorResource(it.getAndroidDrawable())
                                         Container(width = 24.dp, height = 24.dp) {
                                             DrawVector(vectorAsset)
