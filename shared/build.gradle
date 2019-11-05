@@ -87,6 +87,7 @@ kotlin {
         androidMain.dependencies {
             implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
             implementation "io.ktor:ktor-client-android:$ktor_version"
+            implementation "com.russhwolf:multiplatform-settings:0.4"
         }
 
         androidTest.dependencies {
