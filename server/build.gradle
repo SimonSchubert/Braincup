@@ -33,7 +33,7 @@ dependencies {
     implementation "io.ktor:ktor-html-builder:$ktor_version"
     implementation "io.ktor:ktor-gson:$ktor_version"
     implementation "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
-    implementation "com.google.cloud:google-cloud-datastore:1.98.0"
+    implementation "com.google.cloud:google-cloud-datastore:1.99.0"
 
     providedCompile "com.google.appengine:appengine:$appengine_version"
 }

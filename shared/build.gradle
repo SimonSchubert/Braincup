@@ -75,7 +75,7 @@ kotlin {
             implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version"
             implementation "io.ktor:ktor-client-core:$ktor_version"
             implementation "io.ktor:ktor-client-json:$ktor_version"
-            implementation "com.soywiz.korlibs.klock:klock:1.7.3"
+            implementation "com.soywiz.korlibs.klock:klock:1.7.5"
             implementation "com.russhwolf:multiplatform-settings:0.4"
         }
 
@@ -191,9 +191,7 @@ def jsFiles = ["build/kotlin-js-min/js/main/kotlin.js",
 "build/kotlin-js-min/js/main/shared.js"]
 
 task minifyJS(type: JavaExec) {
-    println("mini")
     main = '-jar'
-
     args = ["${projectDir}/tools/closure-compiler-v20190929.jar",
             "--js_output_file=$buildDir/webRelease/game.min.js"] + jsFiles
 }
