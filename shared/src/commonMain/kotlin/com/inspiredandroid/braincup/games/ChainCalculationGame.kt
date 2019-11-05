@@ -51,18 +51,18 @@ class ChainCalculationGame : Game() {
             calculation = calculation.addString(")", bracketEnd + 1)
         }
 
-        result = Calculator.calc(calculation).toInt()
+        result = Calculator.calculate(calculation).toInt()
         // replace '-' with '+' until result is positive
         while (result < 0) {
             calculation = calculation.replaceFirst("-", "+")
-            result = Calculator.calc(calculation).toInt()
+            result = Calculator.calculate(calculation).toInt()
         }
         numberCount++
     }
 
     override fun isCorrect(input: String): Boolean {
         return try {
-            result == Calculator.calc(input).toInt()
+            result == Calculator.calculate(input).toInt()
         } catch (ignore: NumberFormatException) {
             false
         }

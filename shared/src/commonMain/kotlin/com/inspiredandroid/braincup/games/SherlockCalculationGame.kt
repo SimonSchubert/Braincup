@@ -21,7 +21,7 @@ class SherlockCalculationGame : Game() {
         }
 
         return try {
-            result == Calculator.calc(input).toInt()
+            result == Calculator.calculate(input).toInt()
         } catch (ignore: NumberFormatException) {
             false
         }
@@ -41,20 +41,20 @@ class SherlockCalculationGame : Game() {
         numbers.subList(0, Random.nextInt(minNumbersNeeded, maxNumbersNeeded))
             .forEachIndexed { index, i ->
                 if (index > 0) {
-                    val excludeMinus = Calculator.calc(calculation) - i < 0
-                    val excludeMultiply = Calculator.calc(calculation) * i > 140
+                    val excludeMinus = Calculator.calculate(calculation) - i < 0
+                    val excludeMultiply = Calculator.calculate(calculation) * i > 140
                     calculation += getRandomOperator(excludeMinus, excludeMultiply)
                 }
                 calculation += i.toString()
             }
-        result = Calculator.calc(calculation).toInt()
+        result = Calculator.calculate(calculation).toInt()
 
         while (numbers.contains(result)) {
             calculation += "*"
             val number = Random.nextInt(2, 4)
             calculation += "$number"
             numbers.add(number)
-            result = Calculator.calc(calculation).toInt()
+            result = Calculator.calculate(calculation).toInt()
         }
         numbers.shuffle()
 

@@ -24,7 +24,7 @@ class FractionCalculationGame : Game() {
         val downDivision = getRandomDivisionIntegers(down)
         fractions.add("$upDivision/$downDivision")
         fractions.add("${up / upDivision}/${down / downDivision}")
-        result = Calculator.calc("$up/$down").toInt()
+        result = Calculator.calculate("$up/$down").toInt()
         calculation = fractions.joinToString(") * (", "(", ")")
         round++
     }

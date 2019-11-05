@@ -8,8 +8,8 @@ import kotlin.random.Random
  * the highest value.
  *
  * Logic:
- * - 1st round is always addition
- * - 2nd and > is always division and multiplication
+ * - Round 1 is always addition
+ * - Round 2+ is always division or multiplication
  * - Round 1-3 = 2 answers
  * - Round 4-6 = 3 answers
  * - Round >= 7 = 4 answers
@@ -48,7 +48,7 @@ class HeightComparisonGame : Game() {
                     "$n1*$n2"
                 }
             }
-            val result = Calculator.calc(answer)
+            val result = Calculator.calculate(answer)
             if (results.none { it == result }) {
                 answers.add(answer)
                 results.add(result)
