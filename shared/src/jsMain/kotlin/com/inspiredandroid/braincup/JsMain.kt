@@ -58,7 +58,7 @@ class JsMain : AppInterface {
                         classes += "mdc-button mdc-button--raised"
                         img {
                             classes += "material-icons mdc-button__icon"
-                            src = game.getImageResource()
+                            src = "images/${game.getImageResource()}"
                             style = "height: 20px; width: 20px;"
                         }
                         span {
@@ -76,7 +76,7 @@ class JsMain : AppInterface {
                             classes += "mdc-button mdc-button--raised"
                             img {
                                 classes += "material-icons mdc-button__icon"
-                                src = game.getMedalResource(highscore)
+                                src = "images/${game.getMedalResource(highscore)}"
                                 style = "height: 20px; width: 20px;"
                             }
                             span {
@@ -538,7 +538,7 @@ class JsMain : AppInterface {
                 img {
                     style = "height: 25px; width: 25px;"
                     classes += "material-icons"
-                    src = MEDAL_THIRD_RESOURCE
+                    src = "images/$MEDAL_THIRD_RESOURCE"
                 }
                 div {
                     style = "margin-left:16px;"
@@ -548,7 +548,7 @@ class JsMain : AppInterface {
                 img {
                     style = "height: 25px; width: 25px;"
                     classes += "material-icons"
-                    src = MEDAL_SECOND_RESOURCE
+                    src = "images/$MEDAL_SECOND_RESOURCE"
                 }
                 div {
                     style = "margin-left:16px;"
@@ -558,7 +558,7 @@ class JsMain : AppInterface {
                 img {
                     style = "height: 25px; width: 25px;"
                     classes += "material-icons"
-                    src = MEDAL_FIRST_RESOURCE
+                    src = "images/$MEDAL_FIRST_RESOURCE"
                 }
             }
 
@@ -584,7 +584,7 @@ class JsMain : AppInterface {
                             img {
                                 style = "height: 25px; width: 25px;"
                                 classes += "material-icons"
-                                src = game.getMedalResource(score)
+                                src = "images/${game.getMedalResource(score)}"
                             }
                         }
                         br { }
