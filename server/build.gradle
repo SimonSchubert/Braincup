@@ -1,7 +1,7 @@
 buildscript {
-    ext.kotlin_version = '1.3.50'
+    ext.kotlin_version = '1.3.60'
     ext.ktor_version = '1.2.5'
-    ext.appengine_version = '1.9.76'
+    ext.appengine_version = '1.9.77'
     ext.appengine_plugin_version = '1.3.5'
     ext.gce_logback_version = '0.60.0-alpha'
 
@@ -33,7 +33,7 @@ dependencies {
     implementation "io.ktor:ktor-html-builder:$ktor_version"
     implementation "io.ktor:ktor-gson:$ktor_version"
     implementation "com.google.cloud:google-cloud-logging-logback:$gce_logback_version"
-    implementation "com.google.cloud:google-cloud-datastore:1.100.0"
+    implementation "com.google.cloud:google-cloud-datastore:1.101.0"
 
     providedCompile "com.google.appengine:appengine:$appengine_version"
 }

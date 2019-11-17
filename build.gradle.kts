@@ -1,7 +1,7 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 
 buildscript {
-    val kotlin_version = "1.3.50"
+    val kotlin_version = "1.3.60"
 
     repositories {
         google()
@@ -11,9 +11,9 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:4.0.0-alpha02")
+        classpath("com.android.tools.build:gradle:4.0.0-alpha03")
         // classpath("com.android.tools.build:gradle:3.5.2")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.60-eap-25")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.60")
         // classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
         classpath("gradle.plugin.com.wiredforcode:gradle-spawn-plugin:0.8.2")
         classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlin_version")
