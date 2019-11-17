@@ -53,7 +53,7 @@ class HeightComparisonGame : Game() {
                 answers.add(answer)
                 results.add(result)
                 if (results.max() == result) {
-                    resultIndex = results.count()
+                    resultIndex = results.size - 1
                 }
             }
         }
@@ -62,14 +62,14 @@ class HeightComparisonGame : Game() {
 
     override fun isCorrect(input: String): Boolean {
         return try {
-            input.toInt() == resultIndex
+            input.toInt() == (resultIndex + 1)
         } catch (ignore: NumberFormatException) {
             false
         }
     }
 
     override fun solution(): String {
-        return resultIndex.toString()
+        return answers[resultIndex]
     }
 
     override fun getGameType(): GameType {

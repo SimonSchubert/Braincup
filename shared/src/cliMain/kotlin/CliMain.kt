@@ -159,7 +159,7 @@ class CliMain : AppInterface {
     }
 
     override fun showWrongAnswerFeedback(solution: String) {
-        println("x :( - the answer was: $solution".color(Color.RED))
+        println("x :( - correct was: $solution".color(Color.RED))
     }
 
     override fun showScoreboard(

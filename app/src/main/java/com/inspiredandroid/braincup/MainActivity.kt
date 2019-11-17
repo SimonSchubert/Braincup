@@ -332,6 +332,8 @@ class MainActivity : Activity(), AppInterface {
                 Container(width = 266.dp, height = 200.dp) {
                     DrawVector(vectorAsset)
                 }
+                HeightSpacer(16.dp)
+                Text("Correct was: $solution")
             }
         }
     }

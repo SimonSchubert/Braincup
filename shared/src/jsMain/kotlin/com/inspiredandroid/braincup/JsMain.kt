@@ -458,7 +458,7 @@ class JsMain : AppInterface {
             div {
                 style = "margin-top: 64px"
                 classes += "mdc-typography--headline5"
-                text("the answer was $solution")
+                text("Correct was: $solution")
             }
         }
     }
