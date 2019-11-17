@@ -52,6 +52,6 @@ class FractionCalculationGame : Game() {
     }
 
     override fun getGameType(): GameType {
-        return GameType.HEIGHT_COMPARISON
+        return GameType.FRACTION_CALCULATION
     }
 }
