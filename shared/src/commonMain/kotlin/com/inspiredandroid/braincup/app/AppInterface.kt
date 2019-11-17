@@ -8,7 +8,8 @@ interface AppInterface {
         description: String,
         games: List<GameType>,
         instructions: (GameType) -> Unit,
-        score: (GameType) -> Unit
+        score: (GameType) -> Unit,
+        achievements: () -> Unit
     )
 
     fun showInstructions(title: String, description: String, start: () -> Unit)
@@ -50,6 +51,14 @@ interface AppInterface {
 
     fun showCorrectAnswerFeedback()
     fun showWrongAnswerFeedback(solution: String)
-    fun showFinishFeedback(rank: String, newHighscore: Boolean, plays: Int, random: () -> Unit)
+    fun showFinishFeedback(
+        rank: String,
+        newHighscore: Boolean,
+        answeredAllCorrect: Boolean,
+        plays: Int,
+        random: () -> Unit
+    )
+
     fun showScoreboard(game: GameType, highscore: Int, scores: List<Pair<String, List<Int>>>)
+    fun showAchievements()
 }

@@ -13,7 +13,6 @@ class AppController(private val app: AppInterface) {
     private val GAME_TIME_MILLIS = 60 * 1000
     var startTime = 0.0
     var points = 0
-    var isCorrect = false
     var plays = 0
     var state = AppState.START
 
@@ -41,6 +40,10 @@ class AppController(private val app: AppInterface) {
                     storage.getHighScore(game.getId()),
                     storage.getScores(game.getId())
                 )
+            },
+            {
+                state = AppState.ACHIEVEMENTS
+                app.showAchievements()
             })
     }
 
@@ -71,22 +74,25 @@ class AppController(private val app: AppInterface) {
 
         val answer: (String) -> Unit = { answer ->
             val input = answer.trim()
-            isCorrect = game.isCorrect(input)
-            if (isCorrect) {
+            if (game.isCorrect(input)) {
                 app.showCorrectAnswerFeedback()
                 points++
             } else {
                 app.showWrongAnswerFeedback(game.solution())
+                game.answeredAllCorrect = false
             }
         }
         val next: () -> Unit = {
             val currentTime = DateTime.now().unixMillis
             if (currentTime - startTime > GAME_TIME_MILLIS) {
+                if (game.answeredAllCorrect) {
+                    points++
+                }
                 Api.postScore(
                     game.getGameType().getId(),
                     points
                 ) { score: String, newHighscore: Boolean ->
-                    app.showFinishFeedback(score, newHighscore, plays) {
+                    app.showFinishFeedback(score, newHighscore, game.answeredAllCorrect, plays) {
                         startGame(games.random())
                     }
                 }

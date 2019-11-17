@@ -9,11 +9,10 @@ import androidx.compose.State
 import androidx.compose.state
 import androidx.compose.unaryPlus
 import androidx.preference.PreferenceManager
-import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.core.setContent
-import androidx.ui.core.sp
+import androidx.ui.core.*
 import androidx.ui.foundation.VerticalScroller
+import androidx.ui.foundation.shape.DrawShape
+import androidx.ui.foundation.shape.RectangleShape
 import androidx.ui.graphics.Color
 import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.*
@@ -73,7 +72,8 @@ class MainActivity : Activity(), AppInterface {
         description: String,
         games: List<GameType>,
         instructions: (GameType) -> Unit,
-        score: (GameType) -> Unit
+        score: (GameType) -> Unit,
+        achievements: () -> Unit
     ) {
         val storage = UserStorage()
         frameLayout.setContent {
@@ -117,6 +117,10 @@ class MainActivity : Activity(), AppInterface {
                             }
                         }
                     }
+                    HeightSpacer(24.dp)
+                    Button(onClick = { achievements() }) {
+                        Text(text = "Achievements")
+                    }
                     val vectorAsset = +vectorResource(R.drawable.ic_waiting)
                     Container(width = 266.dp, height = 200.dp) {
                         DrawVector(vectorAsset)
@@ -143,6 +147,14 @@ class MainActivity : Activity(), AppInterface {
             GameType.CHAIN_CALCULATION -> R.drawable.ic_icons8_chain
             GameType.FRACTION_CALCULATION -> R.drawable.ic_icons8_divide
             GameType.HEIGHT_COMPARISON -> R.drawable.ic_icons8_height
+        }
+    }
+
+    private fun UserStorage.Achievements.getAndroidResource(): Int {
+        return when (this) {
+            UserStorage.Achievements.MEDAL_BRONZE -> R.drawable.ic_icons8_medal_third_place
+            UserStorage.Achievements.MEDAL_SILVER -> R.drawable.ic_icons8_medal_second_place
+            UserStorage.Achievements.MEDAL_GOLD -> R.drawable.ic_icons8_medal_first_place
         }
     }
 
@@ -189,6 +201,37 @@ class MainActivity : Activity(), AppInterface {
         scores: List<Pair<String, List<Int>>>
     ) {
 
+    }
+
+    override fun showAchievements() {
+        frameLayout.setContent {
+            BaseApp {
+                val storage = UserStorage()
+                val unlockedAchievements = storage.getAchievements()
+
+                Text(
+                    "Achievements (${unlockedAchievements.size}/${UserStorage.Achievements.values().size})",
+                    style = +themeTextStyle { h5 })
+                HeightSpacer(16.dp)
+                UserStorage.Achievements.values().forEach {
+                    HeightSpacer(16.dp)
+                    Stack {
+                        Container(width = 64.dp, height = 64.dp, alignment = Alignment.Center) {
+                            DrawShape(
+                                RectangleShape,
+                                color = if (unlockedAchievements.contains(it)) {
+                                    Color.Green
+                                } else {
+                                    Color.LightGray
+                                }
+                            )
+                            val vectorAsset = +vectorResource(it.getAndroidResource())
+                            DrawVector(vectorAsset)
+                        }
+                    }
+                }
+            }
+        }
     }
 
     override fun showColorConfusion(
@@ -341,13 +384,22 @@ class MainActivity : Activity(), AppInterface {
     override fun showFinishFeedback(
         rank: String,
         newHighscore: Boolean,
+        answeredAllCorrect: Boolean,
         plays: Int,
         random: () -> Unit
     ) {
         frameLayout.setContent {
             BaseApp {
-                Text("Score: $rank", style = +themeTextStyle { h3 })
+                Text("Score: $rank", style = +themeTextStyle { h4 })
                 HeightSpacer(16.dp)
+                if (answeredAllCorrect) {
+                    Text(
+                        "You got 1 extra point for making zero mistakes.",
+                        style = +themeTextStyle { h6 },
+                        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center)
+                    )
+                }
+                HeightSpacer(8.dp)
                 if (newHighscore) {
                     Text("New highscore", style = +themeTextStyle { h6 })
                 }
