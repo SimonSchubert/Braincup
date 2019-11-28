@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-def kotlin_version = "1.3.60"
+def kotlin_version = "1.3.61"
 
 android {
     compileSdkVersion 29
@@ -10,8 +10,8 @@ android {
         applicationId "com.inspiredandroid.braincup"
         minSdkVersion 22
         targetSdkVersion 29
-        versionCode 2
-        versionName "1.0.1"
+        versionCode 4
+        versionName "1.2.0"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -61,5 +61,5 @@ dependencies {
     implementation "com.google.android.material:material:1.0.0"
     implementation "androidx.constraintlayout:constraintlayout:1.1.3"
     implementation "androidx.preference:preference-ktx:1.1.0"
-    implementation "com.russhwolf:multiplatform-settings:0.4"
+    implementation "com.russhwolf:multiplatform-settings:0.4.1"
 }
