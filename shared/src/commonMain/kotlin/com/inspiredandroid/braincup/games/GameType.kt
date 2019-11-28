@@ -1,5 +1,7 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.api.UserStorage
+
 enum class GameType {
     MENTAL_CALCULATION,
     COLOR_CONFUSION,
@@ -28,6 +30,21 @@ fun GameType.getId(): String {
         GameType.CHAIN_CALCULATION -> "3"
         GameType.FRACTION_CALCULATION -> "4"
         GameType.HEIGHT_COMPARISON -> "5"
+    }
+}
+
+fun UserStorage.Achievements.getDescription(): String {
+    return when (this) {
+        UserStorage.Achievements.MEDAL_BRONZE -> "Win bronze in all games"
+        UserStorage.Achievements.MEDAL_SILVER -> "Win silver in all games"
+        UserStorage.Achievements.MEDAL_GOLD -> "Win gold in all games"
+        UserStorage.Achievements.SCORES_10 -> "Total points of 10"
+        UserStorage.Achievements.SCORES_100 -> "Total points of 100"
+        UserStorage.Achievements.SCORES_1000 -> "Total points of 1,000"
+        UserStorage.Achievements.SCORES_10000 -> "Total points of 10,000"
+        UserStorage.Achievements.APP_OPEN_7 -> "Train 7 days in a row"
+        UserStorage.Achievements.APP_OPEN_30 -> "Train 30 days in a row"
+        UserStorage.Achievements.APP_OPEN_356 -> "Train 356 days in a row"
     }
 }
 

@@ -35,10 +35,14 @@ class JsMain : AppInterface {
         description: String,
         games: List<GameType>,
         instructions: (GameType) -> Unit,
-        score: (GameType) -> Unit
+        score: (GameType) -> Unit,
+        achievements: () -> Unit,
+        storage: UserStorage,
+        totalScore: Int,
+        appOpenCount: Int
     ) {
         window.addEventListener("popstate", {
-            showMainMenu(title, description, games, instructions, score)
+            showMainMenu(title, description, games, instructions, score, achievements, storage, totalScore, appOpenCount)
         })
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
@@ -48,7 +52,6 @@ class JsMain : AppInterface {
                 classes += "mdc-typography--headline6"
                 text(description)
             }
-            val storage = UserStorage()
             div {
                 style = "margin: auto;"
                 games.forEach { game ->
@@ -90,6 +93,48 @@ class JsMain : AppInterface {
                     }
                 }
             }
+
+            val unlockedAchievements = storage.getUnlockedAchievements()
+            button {
+                style = "width: 85px; height: 50px; font-size: 16px; margin-top: 16px; margin-left: 6px"
+                classes += "mdc-button mdc-button--raised"
+                /*
+                img {
+                    classes += "material-icons mdc-button__icon"
+                    src = "images/${game.getMedalResource(highscore)}"
+                    style = "height: 20px; width: 20px;"
+                }
+                */
+                span {
+                    classes += "mdc-button__label"
+                    text("Achievements (${unlockedAchievements.size}/${UserStorage.Achievements.values().size})")
+                }
+                onClickFunction = {
+                    achievements()
+                }
+            }
+
+            if(totalScore > 0) {
+                span {
+                    classes += "mdc-typography--headline6"
+                    text("Total score")
+                }
+                span {
+                    classes += "mdc-typography--headline4"
+                    text(totalScore)
+                }
+            }
+            if(appOpenCount > 0) {
+                span {
+                    classes += "mdc-typography--headline6"
+                    text("Total score")
+                }
+                span {
+                    classes += "mdc-typography--headline4"
+                    text(appOpenCount)
+                }
+            }
+
             img {
                 style = "margin-top: 16px"
                 src = "images/waiting.svg"
@@ -466,6 +511,7 @@ class JsMain : AppInterface {
     override fun showFinishFeedback(
         rank: String,
         newHighscore: Boolean,
+        answeredAllCorrect: Boolean,
         plays: Int,
         random: () -> Unit
     ) {
@@ -592,6 +638,13 @@ class JsMain : AppInterface {
                 }
             }
         }
+    }
+
+    override fun showAchievements(
+        allAchievements: Array<UserStorage.Achievements>,
+        unlockedAchievements: List<UserStorage.Achievements>
+    ) {
+
     }
 
     private fun Shape.getIconResource(): String {

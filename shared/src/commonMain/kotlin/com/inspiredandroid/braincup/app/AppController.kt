@@ -15,6 +15,7 @@ class AppController(private val app: AppInterface) {
     var points = 0
     var plays = 0
     var state = AppState.START
+    val storage = UserStorage()
 
     companion object {
         val games = listOf(
@@ -29,12 +30,13 @@ class AppController(private val app: AppInterface) {
 
     fun start() {
         state = AppState.START
+        storage.putAppOpen()
         app.showMainMenu(
             "Braincup", "Train your math skills, memory and focus.",
             games, { game ->
                 startGame(game)
             }, { game ->
-                val storage = UserStorage()
+                state = AppState.SCOREBOARD
                 app.showScoreboard(
                     game,
                     storage.getHighScore(game.getId()),
@@ -43,8 +45,8 @@ class AppController(private val app: AppInterface) {
             },
             {
                 state = AppState.ACHIEVEMENTS
-                app.showAchievements()
-            })
+                app.showAchievements(UserStorage.Achievements.values().sorted(), storage.getUnlockedAchievements())
+            }, storage, storage.getTotalScore(), storage.getAppOpen())
     }
 
     private fun startGame(gameType: GameType) {

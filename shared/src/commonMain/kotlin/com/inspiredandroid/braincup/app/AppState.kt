@@ -4,5 +4,6 @@ enum class AppState {
     START,
     GAME,
     INSTRUCTIONS,
-    ACHIEVEMENTS
+    ACHIEVEMENTS,
+    SCOREBOARD
 }

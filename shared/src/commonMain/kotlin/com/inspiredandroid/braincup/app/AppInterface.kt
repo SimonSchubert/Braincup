@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.app
 
+import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 
 interface AppInterface {
@@ -9,7 +10,10 @@ interface AppInterface {
         games: List<GameType>,
         instructions: (GameType) -> Unit,
         score: (GameType) -> Unit,
-        achievements: () -> Unit
+        achievements: () -> Unit,
+        storage: UserStorage,
+        totalScore: Int,
+        appOpenCount: Int
     )
 
     fun showInstructions(title: String, description: String, start: () -> Unit)
@@ -60,5 +64,5 @@ interface AppInterface {
     )
 
     fun showScoreboard(game: GameType, highscore: Int, scores: List<Pair<String, List<Int>>>)
-    fun showAchievements()
+    fun showAchievements(allAchievements: List<UserStorage.Achievements>, unlockedAchievements: List<UserStorage.Achievements>)
 }

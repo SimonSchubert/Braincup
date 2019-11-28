@@ -86,7 +86,6 @@ fun AppTheme(children: @Composable() () -> Unit) {
             fontWeight = FontWeight.W500,
             fontSize = 10.sp
         )
-
     )
     MaterialTheme(colors = colors, typography = typography) {
         children()
