@@ -168,10 +168,10 @@ class UserStorage {
                     heighscore > 0
                 }
                 Achievements.MEDAL_SILVER -> {
-                    heighscore > it.getScoreTable()[1]
+                    heighscore >= it.getScoreTable()[1]
                 }
                 Achievements.MEDAL_GOLD -> {
-                    heighscore > it.getScoreTable()[0]
+                    heighscore >= it.getScoreTable()[0]
                 }
                 else -> true
             }

@@ -267,9 +267,9 @@ class MainActivity : Activity(), AppInterface {
                 Row {
                     ScoreboardLegend("> 0", R.drawable.ic_icons8_medal_third_place)
                     WidthSpacer(8.dp)
-                    ScoreboardLegend("> ${table[1]}", R.drawable.ic_icons8_medal_second_place)
+                    ScoreboardLegend(">= ${table[1]}", R.drawable.ic_icons8_medal_second_place)
                     WidthSpacer(8.dp)
-                    ScoreboardLegend("> ${table[0]}", R.drawable.ic_icons8_medal_first_place)
+                    ScoreboardLegend(">= ${table[0]}", R.drawable.ic_icons8_medal_first_place)
                 }
 
                 game.getScoreTable()
