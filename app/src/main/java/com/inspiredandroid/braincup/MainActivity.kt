@@ -29,7 +29,7 @@ import com.inspiredandroid.braincup.app.AppController
 import com.inspiredandroid.braincup.app.AppInterface
 import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.games.*
-import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getName
 import com.inspiredandroid.braincup.games.tools.getPaths
 import com.russhwolf.settings.AndroidSettings
@@ -130,12 +130,12 @@ class MainActivity : Activity(), AppInterface {
                     if (appOpenCount > 0) {
                         HeightSpacer(32.dp)
                         Text("Consecutive training", style = +themeTextStyle { subtitle1 })
-                        Text(appOpenCount.toString(), style = +themeTextStyle { h4 })
+                        Text(appOpenCount.toString(), style = +themeTextStyle { h6 })
                     }
                     if (totalScore > 0) {
                         HeightSpacer(16.dp)
                         Text("Total score", style = +themeTextStyle { subtitle1 })
-                        Text(totalScore.toString(), style = +themeTextStyle { h4 })
+                        Text(totalScore.toString(), style = +themeTextStyle { h6 })
                     }
                     HeightSpacer(24.dp)
                     Container(width = 200.dp) {
@@ -285,7 +285,7 @@ class MainActivity : Activity(), AppInterface {
                     val pointSize = 15
                     it.second.forEach { score ->
                         var width = (score * pointSize).dp
-                        if(width < 36.dp) {
+                        if (width < 36.dp) {
                             width = 36.dp
                         }
                         Container(
@@ -376,10 +376,8 @@ class MainActivity : Activity(), AppInterface {
                 Text(
                     "${game.colorPoints} = ${game.answerColor.getName()}", style = TextStyle
                         (
-                        fontSize =
-                        24.sp, color = game
-                        .stringColor
-                        .getComposeColor()
+                        fontSize =24.sp,
+                        color = game.stringColor.getComposeColor()
                     )
                 )
                 HeightSpacer(32.dp)
@@ -646,25 +644,8 @@ class MainActivity : Activity(), AppInterface {
         }
     }
 
-    /**
-     * Temporary solution
-     */
-    private fun Shape.getChar(): String {
-        return when (this) {
-            Shape.SQUARE -> "■"
-            Shape.TRIANGLE -> "▲"
-            Shape.CIRCLE -> "◯"
-            Shape.HEART -> "♥"
-        }
-    }
-
     private fun com.inspiredandroid.braincup.games.tools.Color.getComposeColor(): Color {
-        return when (this) {
-            com.inspiredandroid.braincup.games.tools.Color.RED -> Color.Red
-            com.inspiredandroid.braincup.games.tools.Color.GREEN -> Color.Green
-            com.inspiredandroid.braincup.games.tools.Color.BLUE -> Color.Blue
-            com.inspiredandroid.braincup.games.tools.Color.PURPLE -> Color.Magenta
-        }
+        return Color(android.graphics.Color.parseColor(this.getHex()))
     }
 
     /**
