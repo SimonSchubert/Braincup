@@ -14,6 +14,8 @@ import androidx.ui.foundation.VerticalScroller
 import androidx.ui.foundation.shape.DrawShape
 import androidx.ui.foundation.shape.RectangleShape
 import androidx.ui.graphics.Color
+import androidx.ui.graphics.Paint
+import androidx.ui.graphics.Path
 import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.*
 import androidx.ui.material.Button
@@ -29,6 +31,7 @@ import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.getName
+import com.inspiredandroid.braincup.games.tools.getPaths
 import com.russhwolf.settings.AndroidSettings
 
 class MainActivity : Activity(), AppInterface {
@@ -379,20 +382,36 @@ class MainActivity : Activity(), AppInterface {
                         .getComposeColor()
                     )
                 )
-                Text(
-                    game.displayedShape.getChar(), style = TextStyle(
-                        fontSize = 96.sp, color = game
-                            .displayedColor
-                            .getComposeColor()
-                    )
-                )
-                HeightSpacer(16.dp)
-                val numbers = listOf(0, game.shapePoints, game.colorPoints, game.shapePoints+game.colorPoints).sorted().map { it.toString() }
-                NumberRow(numbers) {
-                    if (game.points().length == it.length) {
-                        answer(it)
-                        DelayedTask().execute(next)
+                HeightSpacer(32.dp)
+                Container(width = 96.dp, height = 96.dp) {
+                    Draw { canvas, parentSize ->
+                        val paint = Paint()
+                        paint.color = game.displayedColor.getComposeColor()
+                        paint.isAntiAlias = true
+                        val path = Path()
+                        game.displayedShape.getPaths().forEachIndexed { index, pair ->
+                            val x = parentSize.width.value * pair.first
+                            val y = parentSize.width.value * pair.second
+                            if (index == 0) {
+                                path.moveTo(x, y)
+                            } else {
+                                path.lineTo(x, y)
+                            }
+                        }
+                        path.close()
+                        canvas.drawPath(path, paint)
                     }
+                }
+                HeightSpacer(32.dp)
+                val numbers = listOf(
+                    0,
+                    game.shapePoints,
+                    game.colorPoints,
+                    game.shapePoints + game.colorPoints
+                ).sorted().map { it.toString() }
+                NumberRow(numbers) {
+                    answer(it)
+                    DelayedTask().execute(next)
                 }
             }
         }

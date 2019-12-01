@@ -36,8 +36,11 @@ class ColorConfusionGame : Game() {
         } else {
             answerShape
         }
-        shapePoints = Random.nextInt(2, 7)
-        colorPoints = Random.nextInt(2, 10 - shapePoints)
+        shapePoints = Random.nextInt(2, 5)
+        colorPoints = Random.nextInt(2, 5)
+        if(shapePoints == colorPoints) {
+            shapePoints++
+        }
     }
 
     fun points(): String {
