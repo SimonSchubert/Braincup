@@ -51,11 +51,11 @@ fun UserStorage.Achievements.getDescription(): String {
 fun GameType.getScoreTable(): Array<Int> {
     return when (this) {
         GameType.MENTAL_CALCULATION -> arrayOf(16, 8)
-        GameType.COLOR_CONFUSION -> arrayOf(16, 8)
+        GameType.COLOR_CONFUSION -> arrayOf(15, 8)
         GameType.SHERLOCK_CALCULATION -> arrayOf(7, 3)
         GameType.CHAIN_CALCULATION -> arrayOf(8, 4)
-        GameType.FRACTION_CALCULATION -> arrayOf(8, 4)
-        GameType.HEIGHT_COMPARISON -> arrayOf(10, 4)
+        GameType.FRACTION_CALCULATION -> arrayOf(10, 4)
+        GameType.HEIGHT_COMPARISON -> arrayOf(14, 4)
     }
 }
 
