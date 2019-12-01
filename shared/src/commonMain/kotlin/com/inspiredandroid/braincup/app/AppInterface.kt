@@ -64,5 +64,8 @@ interface AppInterface {
     )
 
     fun showScoreboard(game: GameType, highscore: Int, scores: List<Pair<String, List<Int>>>)
-    fun showAchievements(allAchievements: List<UserStorage.Achievements>, unlockedAchievements: List<UserStorage.Achievements>)
+    fun showAchievements(
+        allAchievements: List<UserStorage.Achievements>,
+        unlockedAchievements: List<UserStorage.Achievements>
+    )
 }

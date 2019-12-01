@@ -376,7 +376,7 @@ class MainActivity : Activity(), AppInterface {
                 Text(
                     "${game.colorPoints} = ${game.answerColor.getName()}", style = TextStyle
                         (
-                        fontSize =24.sp,
+                        fontSize = 24.sp,
                         color = game.stringColor.getComposeColor()
                     )
                 )

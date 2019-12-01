@@ -45,8 +45,12 @@ class AppController(private val app: AppInterface) {
             },
             {
                 state = AppState.ACHIEVEMENTS
-                app.showAchievements(UserStorage.Achievements.values().sorted(), storage.getUnlockedAchievements())
-            }, storage, storage.getTotalScore(), storage.getAppOpen())
+                app.showAchievements(
+                    UserStorage.Achievements.values().sorted(),
+                    storage.getUnlockedAchievements()
+                )
+            }, storage, storage.getTotalScore(), storage.getAppOpen()
+        )
     }
 
     private fun startGame(gameType: GameType) {
