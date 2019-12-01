@@ -386,12 +386,14 @@ class MainActivity : Activity(), AppInterface {
                             .getComposeColor()
                     )
                 )
-                NumberPad(onInputChange = {
+                HeightSpacer(16.dp)
+                val numbers = listOf(0, game.shapePoints, game.colorPoints, game.shapePoints+game.colorPoints).sorted().map { it.toString() }
+                NumberRow(numbers) {
                     if (game.points().length == it.length) {
                         answer(it)
                         DelayedTask().execute(next)
                     }
-                })
+                }
             }
         }
     }
@@ -534,6 +536,17 @@ class MainActivity : Activity(), AppInterface {
                 Button("Next game", {
                     random()
                 })
+            }
+        }
+    }
+
+
+    @Composable
+    fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
+        val input = +state { "" }
+        Row {
+            numbers.forEach {
+                NumberPadButton(it, input, onInputChange)
             }
         }
     }
