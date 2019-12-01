@@ -11,9 +11,10 @@ import kotlin.random.Random
  * - Enabled operators = +-*
  * - Generates operators randomly
  * - Multiplier max number is 6
- * - plus and minus max number is 9
+ * - Plus and minus max number is 9
  * - Size of chain increases each round by 1
  * - Adds brackets after round 2
+ * - No multiplications in a row
  * - Result is always positive
  */
 class ChainCalculationGame : Game() {
@@ -21,12 +22,18 @@ class ChainCalculationGame : Game() {
     var calculation = ""
     private var numberCount = 2
     private var result = 0
-    private var lastOperator = ""
+    private var lastOperator = PLUS
+
+    companion object {
+        const val PLUS: Char = '+'
+        const val MINUS: Char = '-'
+        const val MULTIPLY: Char = '*'
+    }
 
     override fun nextRound() {
         calculation = ""
         for (i in 0 until numberCount) {
-            val maxNumber = if (lastOperator == "*") {
+            val maxNumber = if (lastOperator == MULTIPLY) {
                 7
             } else {
                 10
@@ -51,10 +58,23 @@ class ChainCalculationGame : Game() {
             calculation = calculation.addString(")", bracketEnd + 1)
         }
 
+        // replace consecutive multiplications with '+'
+        var previousOperator = PLUS
+        calculation.forEachIndexed { index, c ->
+            if (c == MULTIPLY || c == MINUS || c == PLUS) {
+                previousOperator = if (c == MULTIPLY && previousOperator == MULTIPLY) {
+                    calculation = calculation.replaceRange(index, index + 1, PLUS + "")
+                    PLUS
+                } else {
+                    c
+                }
+            }
+        }
+
         result = Calculator.calculate(calculation).toInt()
         // replace '-' with '+' until result is positive
         while (result < 0) {
-            calculation = calculation.replaceFirst("-", "+")
+            calculation = calculation.replaceFirst(MINUS, PLUS)
             result = Calculator.calculate(calculation).toInt()
         }
         numberCount++
@@ -76,13 +96,13 @@ class ChainCalculationGame : Game() {
         return GameType.CHAIN_CALCULATION
     }
 
-    private fun getRandomOperator(): String {
+    private fun getRandomOperator(): Char {
         return when (Random.nextInt(
             0, 3
         )) {
-            0 -> "+"
-            1 -> "-"
-            else -> "*"
+            0 -> PLUS
+            1 -> MINUS
+            else -> MULTIPLY
         }
     }
 }
