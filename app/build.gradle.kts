@@ -59,9 +59,14 @@ androidExtensions {
 dependencies {
     implementation(project(":shared"))
 
-    implementation("androidx.ui:ui-tooling:${Lib.Versions.androidxUi}")
+    implementation("androidx.compose:compose-runtime:${Lib.Versions.androidxUi}")
+    implementation("androidx.ui:ui-framework:${Lib.Versions.androidxUi}")
     implementation("androidx.ui:ui-layout:${Lib.Versions.androidxUi}")
     implementation("androidx.ui:ui-material:${Lib.Versions.androidxUi}")
+    implementation("androidx.ui:ui-foundation:${Lib.Versions.androidxUi}")
+    implementation("androidx.ui:ui-animation:${Lib.Versions.androidxUi}")
+    implementation("androidx.ui:ui-tooling:${Lib.Versions.androidxUi}")
+
     implementation("androidx.core:core-ktx:${Lib.Versions.androidxCoreKtx}")
     implementation("androidx.preference:preference-ktx:${Lib.Versions.androidxPreferenceKtx}")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Lib.Versions.kotlin}")

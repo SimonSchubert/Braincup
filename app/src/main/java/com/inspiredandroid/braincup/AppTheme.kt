@@ -3,16 +3,16 @@ package com.inspiredandroid.braincup
 import androidx.compose.Composable
 import androidx.ui.core.sp
 import androidx.ui.graphics.Color
-import androidx.ui.material.MaterialColors
+import androidx.ui.material.ColorPalette
 import androidx.ui.material.MaterialTheme
-import androidx.ui.material.MaterialTypography
+import androidx.ui.material.Typography
 import androidx.ui.text.TextStyle
 import androidx.ui.text.font.FontFamily
 import androidx.ui.text.font.FontWeight
 
 @Composable
 fun AppTheme(children: @Composable() () -> Unit) {
-    val colors = MaterialColors(
+    val colors = ColorPalette(
         primary = Color(0xFFED7354),
         onPrimary = Color.White,
         background = Color.White,
@@ -20,7 +20,7 @@ fun AppTheme(children: @Composable() () -> Unit) {
         surface = Color.White,
         onSurface = Color.Black
     )
-    val typography = MaterialTypography(
+    val typography = Typography(
         h1 = TextStyle(
             fontFamily = FontFamily("RobotoCondensed"),
             fontWeight = FontWeight.W100,

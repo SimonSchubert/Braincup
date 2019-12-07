@@ -19,7 +19,7 @@ import androidx.ui.graphics.Path
 import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.*
 import androidx.ui.material.Button
-import androidx.ui.material.themeTextStyle
+import androidx.ui.material.MaterialTheme
 import androidx.ui.res.vectorResource
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.TextStyle
@@ -64,13 +64,25 @@ class MainActivity : Activity(), AppInterface {
     }
 
     @Composable
-    fun BaseApp(children: @Composable() () -> Unit) {
+    fun BaseScrollApp(children: @Composable() ColumnScope.() -> Unit) {
         AppTheme {
-            Column(
-                mainAxisAlignment = MainAxisAlignment.Center, crossAxisAlignment =
-                CrossAxisAlignment.Center
-            ) {
-                children()
+            VerticalScroller {
+                Center {
+                    Column {
+                        children()
+                    }
+                }
+            }
+        }
+    }
+
+    @Composable
+    fun BaseApp(children: @Composable() ColumnScope.() -> Unit) {
+        AppTheme {
+            Center {
+                Column {
+                    children()
+                }
             }
         }
     }
@@ -86,133 +98,127 @@ class MainActivity : Activity(), AppInterface {
         totalScore: Int,
         appOpenCount: Int
     ) {
-        frameLayout.setContent {
-            VerticalScroller {
-                BaseApp {
-                    HeightSpacer(8.dp)
-                    Text(title, style = +themeTextStyle { h5 })
-                    HeightSpacer(8.dp)
-                    Text(description, style = +themeTextStyle { subtitle1 })
+        setContent {
+            BaseScrollApp {
+                HeightSpacer(8.dp)
+                Text(
+                    title,
+                    style = (+MaterialTheme.typography()).h5,
+                    modifier = Gravity.Center
+                )
+                HeightSpacer(8.dp)
+                Text(
+                    description,
+                    style = (+MaterialTheme.typography()).subtitle1,
+                    modifier = Gravity.Center
+                )
+                HeightSpacer(16.dp)
+                games.forEach {
                     HeightSpacer(16.dp)
-                    games.forEach {
-                        HeightSpacer(16.dp)
-                        Row(crossAxisAlignment = CrossAxisAlignment.Center) {
-                            Container(width = 200.dp) {
-                                Button(onClick = { instructions(it) }) {
-                                    Row(
-                                        crossAxisAlignment = CrossAxisAlignment.Center,
-                                        mainAxisSize = LayoutSize.Expand
-                                    ) {
-                                        val vectorAsset = +vectorResource(it.getAndroidDrawable())
-                                        Container(width = 24.dp, height = 24.dp) {
-                                            DrawVector(vectorAsset)
-                                        }
-                                        WidthSpacer(16.dp)
-                                        Text(text = it.getName())
-                                    }
-                                }
-                            }
-                            val highscore = storage.getHighScore(it.getId())
-                            if (highscore > 0) {
-                                WidthSpacer(8.dp)
-                                Button(onClick = { score(it) }) {
-                                    val vectorAsset = +vectorResource(
-                                        it.getAndroidMedalResource
-                                            (highscore)
-                                    )
-                                    Container(width = 24.dp, height = 24.dp) {
-                                        DrawVector(vectorAsset)
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    if (appOpenCount > 0) {
-                        HeightSpacer(32.dp)
-                        Text("Consecutive training", style = +themeTextStyle { subtitle1 })
-                        Text(appOpenCount.toString(), style = +themeTextStyle { h6 })
-                    }
-                    if (totalScore > 0) {
-                        HeightSpacer(16.dp)
-                        Text("Total score", style = +themeTextStyle { subtitle1 })
-                        Text(totalScore.toString(), style = +themeTextStyle { h6 })
-                    }
-                    HeightSpacer(24.dp)
-                    Container(width = 200.dp) {
-                        Button(onClick = { achievements() }) {
-                            Row(
-                                crossAxisAlignment = CrossAxisAlignment.Center,
-                                mainAxisSize = LayoutSize.Expand
-                            ) {
-                                val vectorAsset = +vectorResource(R.drawable.ic_icons8_test_passed)
+                    Row(modifier = Gravity.Center) {
+                        Button(onClick = { instructions(it) }) {
+                            Row {
+                                val vectorAsset =
+                                    +vectorResource(it.getAndroidDrawable())
                                 Container(width = 24.dp, height = 24.dp) {
                                     DrawVector(vectorAsset)
                                 }
                                 WidthSpacer(16.dp)
-                                val unlockedAchievements = storage.getUnlockedAchievements()
-                                Text(text = "Achievements (${unlockedAchievements.size}/${UserStorage.Achievements.values().size})")
+                                Text(text = it.getName())
+                            }
+                        }
+                        val highscore = storage.getHighScore(it.getId())
+                        if (highscore > 0) {
+                            WidthSpacer(8.dp)
+                            Button(onClick = { score(it) }) {
+                                val vectorAsset = +vectorResource(
+                                    it.getAndroidMedalResource
+                                        (highscore)
+                                )
+                                Container(width = 24.dp, height = 24.dp) {
+                                    DrawVector(vectorAsset)
+                                }
                             }
                         }
                     }
-                    val vectorAsset = +vectorResource(R.drawable.ic_waiting)
-                    Container(width = 266.dp, height = 200.dp) {
-                        DrawVector(vectorAsset)
+                }
+                if (appOpenCount > 0) {
+                    HeightSpacer(32.dp)
+                    Text(
+                        "Consecutive training",
+                        style = (+MaterialTheme.typography()).subtitle1,
+                        modifier = Gravity.Center
+                    )
+                    Text(
+                        appOpenCount.toString(),
+                        style = (+MaterialTheme.typography()).h6,
+                        modifier = Gravity.Center
+                    )
+                }
+                if (totalScore > 0) {
+                    HeightSpacer(16.dp)
+                    Text(
+                        "Total score",
+                        style = (+MaterialTheme.typography()).subtitle1,
+                        modifier = Gravity.Center
+                    )
+                    Text(
+                        totalScore.toString(),
+                        style = (+MaterialTheme.typography()).h6,
+                        modifier = Gravity.Center
+                    )
+                }
+                HeightSpacer(24.dp)
+                Button(onClick = { achievements() }, modifier = Gravity.Center) {
+                    Row(
+                        arrangement = Arrangement.Center
+                    ) {
+                        val vectorAsset =
+                            +vectorResource(R.drawable.ic_icons8_test_passed)
+                        Container(
+                            width = 24.dp, height = 24.dp,
+                            modifier = Gravity.Center
+                        ) {
+                            DrawVector(vectorAsset)
+                        }
+                        WidthSpacer(16.dp)
+                        val unlockedAchievements =
+                            storage.getUnlockedAchievements()
+                        Text(
+                            text = "Achievements (${unlockedAchievements.size}/${UserStorage.Achievements.values().size})"
+                        )
                     }
+                }
+                val vectorAsset = +vectorResource(R.drawable.ic_waiting)
+                Container(
+                    width = 266.dp, height = 200.dp,
+                    modifier = Gravity.Center
+                ) {
+                    DrawVector(vectorAsset)
                 }
             }
         }
     }
 
-    private fun GameType.getAndroidMedalResource(score: Int): Int {
-        val scoreTable = this.getScoreTable()
-        return when {
-            score >= scoreTable[0] -> R.drawable.ic_icons8_medal_first_place
-            score >= scoreTable[1] -> R.drawable.ic_icons8_medal_second_place
-            else -> R.drawable.ic_icons8_medal_third_place
-        }
-    }
-
-    private fun GameType.getAndroidDrawable(): Int {
-        return when (this) {
-            GameType.MENTAL_CALCULATION -> R.drawable.ic_icons8_math
-            GameType.COLOR_CONFUSION -> R.drawable.ic_icons8_fill_color
-            GameType.SHERLOCK_CALCULATION -> R.drawable.ic_icons8_search
-            GameType.CHAIN_CALCULATION -> R.drawable.ic_icons8_chain
-            GameType.FRACTION_CALCULATION -> R.drawable.ic_icons8_divide
-            GameType.HEIGHT_COMPARISON -> R.drawable.ic_icons8_height
-        }
-    }
-
-    private fun UserStorage.Achievements.getAndroidResource(): Int {
-        return when (this) {
-            UserStorage.Achievements.MEDAL_BRONZE -> R.drawable.ic_icons8_medal_third_place
-            UserStorage.Achievements.MEDAL_SILVER -> R.drawable.ic_icons8_medal_second_place
-            UserStorage.Achievements.MEDAL_GOLD -> R.drawable.ic_icons8_medal_first_place
-            UserStorage.Achievements.SCORES_10 -> R.drawable.ic_icons8_counter
-            UserStorage.Achievements.SCORES_100 -> R.drawable.ic_icons8_counter_bronze
-            UserStorage.Achievements.SCORES_1000 -> R.drawable.ic_icons8_counter_silver
-            UserStorage.Achievements.SCORES_10000 -> R.drawable.ic_icons8_counter_gold
-            UserStorage.Achievements.APP_OPEN_7 -> R.drawable.ic_icons8_counter_bronze
-            UserStorage.Achievements.APP_OPEN_30 -> R.drawable.ic_icons8_counter_bronze
-            UserStorage.Achievements.APP_OPEN_356 -> R.drawable.ic_icons8_counter_bronze
-        }
-    }
-
     override fun showInstructions(title: String, description: String, start: () -> Unit) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
-                Text(title, style = +themeTextStyle { h6 })
+                Text(
+                    title,
+                    style = (+MaterialTheme.typography()).h6,
+                    modifier = Gravity.Center
+                )
                 Padding(16.dp, 16.dp, 16.dp, 24.dp) {
                     Text(
                         description,
-                        style = +themeTextStyle {
-                            subtitle1
-                        }, paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center)
+                        style = (+MaterialTheme.typography()).subtitle1
+                        , paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center),
+                        modifier = Gravity.Center
                     )
                 }
-                Button("Start", {
+                Button("Start", onClick = {
                     start()
-                })
+                }, modifier = Gravity.Center)
             }
         }
     }
@@ -222,9 +228,12 @@ class MainActivity : Activity(), AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
-                Text(game.calculation, style = +themeTextStyle { h3 })
+                Text(
+                    game.calculation, style = (+MaterialTheme.typography()).h3,
+                    modifier = Gravity.Center
+                )
                 NumberPad(onInputChange = {
                     if (game.getNumberLength() == it.length) {
                         answer(it)
@@ -239,9 +248,8 @@ class MainActivity : Activity(), AppInterface {
     fun ScoreboardLegend(text: String, vector: Int) {
         Text(
             text,
-            style = +themeTextStyle {
-                subtitle1
-            }, paragraphStyle = ParagraphStyle(textAlign = TextAlign.Left)
+            style = (+MaterialTheme.typography()).subtitle1
+            , paragraphStyle = ParagraphStyle(textAlign = TextAlign.Left)
         )
         val vectorAsset = +vectorResource(
             vector
@@ -256,14 +264,18 @@ class MainActivity : Activity(), AppInterface {
         highscore: Int,
         scores: List<Pair<String, List<Int>>>
     ) {
-        frameLayout.setContent {
-            BaseApp {
-                Text("${game.getName()} - Scores",
-                    style = +themeTextStyle { h5 })
+        setContent {
+            BaseScrollApp {
+                Text(
+                    "${game.getName()} - Scores",
+                    style = (+MaterialTheme.typography()).h5
+                )
 
                 HeightSpacer(16.dp)
-                Text("Hightscore: $highscore",
-                    style = +themeTextStyle { h6 })
+                Text(
+                    "Hightscore: $highscore",
+                    style = (+MaterialTheme.typography()).h6
+                )
 
                 HeightSpacer(8.dp)
                 val table = game.getScoreTable()
@@ -280,7 +292,8 @@ class MainActivity : Activity(), AppInterface {
                     HeightSpacer(16.dp)
                     Text(
                         it.first,
-                        style = +themeTextStyle { h6 })
+                        style = (+MaterialTheme.typography()).h6
+                    )
                     HeightSpacer(8.dp)
                     val pointSize = 15
                     it.second.forEach { score ->
@@ -300,9 +313,8 @@ class MainActivity : Activity(), AppInterface {
                             Row {
                                 Text(
                                     score.toString(),
-                                    style = +themeTextStyle {
-                                        subtitle1
-                                    }, paragraphStyle = ParagraphStyle(textAlign = TextAlign.Left)
+                                    style = (+MaterialTheme.typography()).subtitle1
+                                    , paragraphStyle = ParagraphStyle(textAlign = TextAlign.Left)
                                 )
                                 val vectorAsset = +vectorResource(
                                     game.getAndroidMedalResource(score)
@@ -323,41 +335,36 @@ class MainActivity : Activity(), AppInterface {
         allAchievements: List<UserStorage.Achievements>,
         unlockedAchievements: List<UserStorage.Achievements>
     ) {
-        frameLayout.setContent {
-            VerticalScroller {
-                BaseApp {
-                    Text(
-                        "Achievements (${unlockedAchievements.size}/${allAchievements.size})",
-                        style = +themeTextStyle { h5 })
+        setContent {
+            BaseScrollApp {
+                Text(
+                    "Achievements (${unlockedAchievements.size}/${allAchievements.size})",
+                    style = (+MaterialTheme.typography()).h5
+                )
+                HeightSpacer(16.dp)
+                allAchievements.forEach {
                     HeightSpacer(16.dp)
-                    allAchievements.forEach {
-                        HeightSpacer(16.dp)
-                        Row(
-                            crossAxisAlignment = CrossAxisAlignment.Center,
-                            mainAxisAlignment = MainAxisAlignment.Center
-                        ) {
-                            Container(width = 64.dp, height = 64.dp, alignment = Alignment.Center) {
-                                DrawShape(
-                                    RectangleShape,
-                                    color = if (unlockedAchievements.contains(it)) {
-                                        Color(0xFF65AA69)
-                                    } else {
-                                        Color.LightGray
-                                    }
-                                )
-                                Padding(left = 16.dp, top = 16.dp, bottom = 16.dp, right = 16.dp) {
-                                    val vectorAsset = +vectorResource(it.getAndroidResource())
-                                    DrawVector(vectorAsset)
+                    Row(arrangement = Arrangement.Center) {
+                        Container(width = 64.dp, height = 64.dp, alignment = Alignment.Center) {
+                            DrawShape(
+                                RectangleShape,
+                                color = if (unlockedAchievements.contains(it)) {
+                                    Color(0xFF65AA69)
+                                } else {
+                                    Color.LightGray
                                 }
-                            }
-                            WidthSpacer(16.dp)
-                            Text(
-                                it.getDescription(),
-                                style = +themeTextStyle {
-                                    subtitle1
-                                }, paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center)
                             )
+                            Padding(left = 16.dp, top = 16.dp, bottom = 16.dp, right = 16.dp) {
+                                val vectorAsset = +vectorResource(it.getAndroidResource())
+                                DrawVector(vectorAsset)
+                            }
                         }
+                        WidthSpacer(16.dp)
+                        Text(
+                            it.getDescription(),
+                            style = (+MaterialTheme.typography()).subtitle1
+                            , paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center)
+                        )
                     }
                 }
             }
@@ -369,19 +376,26 @@ class MainActivity : Activity(), AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
-                Text("${game.shapePoints} = ${game.answerShape.getName()}", style =
-                +themeTextStyle { h5 })
+                Text(
+                    "${game.shapePoints} = ${game.answerShape.getName()}", style =
+                    (+MaterialTheme.typography()).h5,
+                    modifier = Gravity.Center
+                )
                 Text(
                     "${game.colorPoints} = ${game.answerColor.getName()}", style = TextStyle
                         (
                         fontSize = 24.sp,
                         color = game.stringColor.getComposeColor()
-                    )
+                    ),
+                    modifier = Gravity.Center
                 )
                 HeightSpacer(32.dp)
-                Container(width = 96.dp, height = 96.dp) {
+                Container(
+                    width = 96.dp, height = 96.dp,
+                    modifier = Gravity.Center
+                ) {
                     Draw { canvas, parentSize ->
                         val paint = Paint()
                         paint.color = game.displayedColor.getComposeColor()
@@ -420,10 +434,17 @@ class MainActivity : Activity(), AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
-                Text("Goal: ${game.result}", style = +themeTextStyle { h3 })
-                Text("Numbers: ${game.getNumbersString()}", style = +themeTextStyle { h5 })
+                Text(
+                    "Goal: ${game.result}",
+                    style = (+MaterialTheme.typography()).h3,
+                    modifier = Gravity.Center
+                )
+                Text(
+                    "Numbers: ${game.getNumbersString()}",
+                    style = (+MaterialTheme.typography()).h5, modifier = Gravity.Center
+                )
                 NumberPad(true, onInputChange = {
                     if (game.isCorrect(it)) {
                         answer(it)
@@ -434,7 +455,7 @@ class MainActivity : Activity(), AppInterface {
                 Button("Give up", onClick = {
                     answer("")
                     DelayedTask().execute(next)
-                })
+                }, modifier = Gravity.Center)
             }
         }
     }
@@ -444,9 +465,12 @@ class MainActivity : Activity(), AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
-                Text(game.calculation, style = +themeTextStyle { h4 })
+                Text(
+                    game.calculation, style = (+MaterialTheme.typography()).h4,
+                    modifier = Gravity.Center
+                )
                 NumberPad(false, onInputChange = {
                     if (game.isCorrect(it)) {
                         answer(it)
@@ -454,10 +478,13 @@ class MainActivity : Activity(), AppInterface {
                     }
                 })
                 HeightSpacer(32.dp)
-                Button("Give up", onClick = {
-                    answer("")
-                    DelayedTask().execute(next)
-                })
+                Button(
+                    "Give up", onClick = {
+                        answer("")
+                        DelayedTask().execute(next)
+                    },
+                    modifier = Gravity.Center
+                )
             }
         }
     }
@@ -467,14 +494,14 @@ class MainActivity : Activity(), AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
                 game.answers.forEachIndexed { index, s ->
                     HeightSpacer(16.dp)
                     Button(text = s, onClick = {
                         answer("${index + 1}")
                         DelayedTask().execute(next)
-                    })
+                    }, modifier = Gravity.Center)
                 }
             }
         }
@@ -485,9 +512,12 @@ class MainActivity : Activity(), AppInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
-                Text(game.calculation, style = +themeTextStyle { h4 })
+                Text(
+                    game.calculation, style = (+MaterialTheme.typography()).h4,
+                    modifier = Gravity.Center
+                )
                 NumberPad(false, onInputChange = {
                     if (game.isCorrect(it)) {
                         answer(it)
@@ -495,16 +525,19 @@ class MainActivity : Activity(), AppInterface {
                     }
                 })
                 HeightSpacer(32.dp)
-                Button("Give up", onClick = {
-                    answer("")
-                    DelayedTask().execute(next)
-                })
+                Button(
+                    "Give up", onClick = {
+                        answer("")
+                        DelayedTask().execute(next)
+                    },
+                    modifier = Gravity.Center
+                )
             }
         }
     }
 
     override fun showCorrectAnswerFeedback() {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
                 val vectorAsset = +vectorResource(R.drawable.ic_success)
                 Container(width = 266.dp, height = 200.dp) {
@@ -515,14 +548,17 @@ class MainActivity : Activity(), AppInterface {
     }
 
     override fun showWrongAnswerFeedback(solution: String) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
                 val vectorAsset = +vectorResource(R.drawable.ic_searching)
                 Container(width = 266.dp, height = 200.dp) {
                     DrawVector(vectorAsset)
                 }
                 HeightSpacer(16.dp)
-                Text("Correct was: $solution")
+                Text(
+                    "Correct was: $solution",
+                    modifier = Gravity.Center
+                )
             }
         }
     }
@@ -534,29 +570,28 @@ class MainActivity : Activity(), AppInterface {
         plays: Int,
         random: () -> Unit
     ) {
-        frameLayout.setContent {
+        setContent {
             BaseApp {
-                Text("Score: $rank", style = +themeTextStyle { h4 })
+                Text("Score: $rank", style = (+MaterialTheme.typography()).h4)
                 HeightSpacer(16.dp)
                 if (answeredAllCorrect) {
                     Text(
                         "You got 1 extra point for making zero mistakes.",
-                        style = +themeTextStyle { h6 },
+                        style = (+MaterialTheme.typography()).h6,
                         paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center)
                     )
                 }
                 HeightSpacer(8.dp)
                 if (newHighscore) {
-                    Text("New highscore", style = +themeTextStyle { h6 })
+                    Text("New highscore", style = (+MaterialTheme.typography()).h6)
                 }
                 HeightSpacer(16.dp)
-                Button("Next game", {
+                Button("Next game", onClick = {
                     random()
                 })
             }
         }
     }
-
 
     @Composable
     fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
@@ -571,64 +606,69 @@ class MainActivity : Activity(), AppInterface {
     @Composable
     fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
         val input = +state { "" }
-        Row(crossAxisAlignment = CrossAxisAlignment.Center) {
-            Padding(16.dp, 16.dp, 16.dp, 16.dp) {
+        Column {
+            Row(arrangement = Arrangement.End, modifier = Spacing(16.dp) wraps Gravity.Center) {
                 Text(
-                    input.value, style = TextStyle(color = Color.Black, fontSize = 32.sp)
+                    input.value,
+                    style = TextStyle(color = Color.Black, fontSize = 32.sp),
+                    modifier = Gravity.Center
                 )
-            }
-            if (input.value.isNotEmpty()) {
-                Button("◄", {
-                    input.value = input.value.substring(0, input.value.lastIndex)
-                })
-            }
-        }
-        Table(
-            columns = if (showOperators) {
-                4
-            } else {
-                3
-            }, columnWidth = {
-                TableColumnWidth.Wrap
-            }) {
-            tableRow {
-                NumberPadButton("7", input, onInputChange)
-                NumberPadButton("8", input, onInputChange)
-                NumberPadButton("9", input, onInputChange)
-                if (showOperators) {
-                    NumberPadButton("/", input, onInputChange)
+                if (input.value.isNotEmpty()) {
+                    WidthSpacer(width = 8.dp)
+                    Button(
+                        "◄", onClick = {
+                            input.value = input.value.substring(0, input.value.lastIndex)
+                        }, modifier = Gravity.Center
+                    )
                 }
             }
-            tableRow {
-                NumberPadButton("4", input, onInputChange)
-                NumberPadButton("5", input, onInputChange)
-                NumberPadButton("6", input, onInputChange)
-                if (showOperators) {
-                    NumberPadButton("*", input, onInputChange)
-                }
-            }
-            tableRow {
-                NumberPadButton("1", input, onInputChange)
-                NumberPadButton("2", input, onInputChange)
-                NumberPadButton("3", input, onInputChange)
-                if (showOperators) {
-                    NumberPadButton("-", input, onInputChange)
-                }
-            }
-            tableRow {
-                if (showOperators) {
-                    NumberPadButton("(", input, onInputChange)
+            Table(
+                columns = if (showOperators) {
+                    4
                 } else {
-                    Padding(3.dp) {}
+                    3
+                }, columnWidth = {
+                    TableColumnWidth.Wrap
+                }) {
+                tableRow {
+                    NumberPadButton("7", input, onInputChange)
+                    NumberPadButton("8", input, onInputChange)
+                    NumberPadButton("9", input, onInputChange)
+                    if (showOperators) {
+                        NumberPadButton("/", input, onInputChange)
+                    }
                 }
-                NumberPadButton("0", input, onInputChange)
-                if (showOperators) {
-                    NumberPadButton(")", input, onInputChange)
-                } else {
-                    Padding(3.dp) {}
+                tableRow {
+                    NumberPadButton("4", input, onInputChange)
+                    NumberPadButton("5", input, onInputChange)
+                    NumberPadButton("6", input, onInputChange)
+                    if (showOperators) {
+                        NumberPadButton("*", input, onInputChange)
+                    }
                 }
-                if (showOperators) {
-                    NumberPadButton("+", input, onInputChange)
+                tableRow {
+                    NumberPadButton("1", input, onInputChange)
+                    NumberPadButton("2", input, onInputChange)
+                    NumberPadButton("3", input, onInputChange)
+                    if (showOperators) {
+                        NumberPadButton("-", input, onInputChange)
+                    }
+                }
+                tableRow {
+                    if (showOperators) {
+                        NumberPadButton("(", input, onInputChange)
+                    } else {
+                        Padding(3.dp) {}
+                    }
+                    NumberPadButton("0", input, onInputChange)
+                    if (showOperators) {
+                        NumberPadButton(")", input, onInputChange)
+                    } else {
+                        Padding(3.dp) {}
+                    }
+                    if (showOperators) {
+                        NumberPadButton("+", input, onInputChange)
+                    }
                 }
             }
         }
@@ -636,16 +676,49 @@ class MainActivity : Activity(), AppInterface {
 
     @Composable
     fun NumberPadButton(value: String, input: State<String>, onInputChange: (String) -> Unit) {
-        Padding(3.dp) {
-            Button(value, {
-                input.value += value
-                onInputChange(input.value)
-            })
-        }
+        Button(value, onClick = {
+            input.value += value
+            onInputChange(input.value)
+        }, modifier = Spacing(4.dp))
     }
 
     private fun com.inspiredandroid.braincup.games.tools.Color.getComposeColor(): Color {
         return Color(android.graphics.Color.parseColor(this.getHex()))
+    }
+
+    private fun GameType.getAndroidDrawable(): Int {
+        return when (this) {
+            GameType.MENTAL_CALCULATION -> R.drawable.ic_icons8_math
+            GameType.COLOR_CONFUSION -> R.drawable.ic_icons8_fill_color
+            GameType.SHERLOCK_CALCULATION -> R.drawable.ic_icons8_search
+            GameType.CHAIN_CALCULATION -> R.drawable.ic_icons8_chain
+            GameType.FRACTION_CALCULATION -> R.drawable.ic_icons8_divide
+            GameType.HEIGHT_COMPARISON -> R.drawable.ic_icons8_height
+        }
+    }
+
+    private fun UserStorage.Achievements.getAndroidResource(): Int {
+        return when (this) {
+            UserStorage.Achievements.MEDAL_BRONZE -> R.drawable.ic_icons8_medal_third_place
+            UserStorage.Achievements.MEDAL_SILVER -> R.drawable.ic_icons8_medal_second_place
+            UserStorage.Achievements.MEDAL_GOLD -> R.drawable.ic_icons8_medal_first_place
+            UserStorage.Achievements.SCORES_10 -> R.drawable.ic_icons8_counter
+            UserStorage.Achievements.SCORES_100 -> R.drawable.ic_icons8_counter_bronze
+            UserStorage.Achievements.SCORES_1000 -> R.drawable.ic_icons8_counter_silver
+            UserStorage.Achievements.SCORES_10000 -> R.drawable.ic_icons8_counter_gold
+            UserStorage.Achievements.APP_OPEN_7 -> R.drawable.ic_icons8_counter_bronze
+            UserStorage.Achievements.APP_OPEN_30 -> R.drawable.ic_icons8_counter_bronze
+            UserStorage.Achievements.APP_OPEN_356 -> R.drawable.ic_icons8_counter_bronze
+        }
+    }
+
+    private fun GameType.getAndroidMedalResource(score: Int): Int {
+        val scoreTable = this.getScoreTable()
+        return when {
+            score >= scoreTable[0] -> R.drawable.ic_icons8_medal_first_place
+            score >= scoreTable[1] -> R.drawable.ic_icons8_medal_second_place
+            else -> R.drawable.ic_icons8_medal_third_place
+        }
     }
 
     /**
