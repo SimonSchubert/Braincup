@@ -8,7 +8,8 @@ enum class Shape {
     SQUARE,
     TRIANGLE,
     CIRCLE,
-    HEART
+    HEART,
+    STAR
 }
 
 fun Shape.getName(): String {
@@ -17,6 +18,7 @@ fun Shape.getName(): String {
         Shape.TRIANGLE -> "triangle"
         Shape.CIRCLE -> "circle"
         Shape.HEART -> "heart"
+        Shape.STAR -> "star"
     }
 }
 
@@ -37,6 +39,21 @@ val circlePath by lazy {
         path.add(Pair(x.toFloat(), y.toFloat()))
     }
     path
+}
+
+val starPath by lazy {
+    listOf(
+        0.5f to 0f,
+        0.65f to 0.32f,
+        1f to 0.38f,
+        0.75f to 0.62f,
+        0.82f to 1f,
+        0.5f to 0.82f,
+        0.18f to 1f,
+        0.25f to 0.62f,
+        0f to 0.38f,
+        0.35f to 0.32f
+    )
 }
 
 val heartPath by lazy {
@@ -67,5 +84,6 @@ fun Shape.getPaths(): List<Pair<Float, Float>> {
         Shape.TRIANGLE -> trianglePath
         Shape.CIRCLE -> circlePath
         Shape.HEART -> heartPath
+        Shape.STAR -> starPath
     }
 }

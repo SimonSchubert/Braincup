@@ -117,6 +117,20 @@ class MainActivity : Activity(), AppInterface {
         }
     }
 
+    override fun showAnomalyPuzzle(
+        game: AnomalyPuzzleGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+        setContent {
+            AnomalyPuzzleScreen(
+                game,
+                answer,
+                next
+            )
+        }
+    }
+
     override fun showColorConfusion(
         game: ColorConfusionGame,
         answer: (String) -> Unit,

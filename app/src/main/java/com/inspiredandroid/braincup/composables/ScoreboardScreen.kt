@@ -37,7 +37,7 @@ fun ScoreboardScreen(
         )
         HeightSpacer(8.dp)
         val table = game.getScoreTable()
-        Row {
+        Row(modifier = Gravity.Center) {
             ScoreboardLegend(
                 "> 0",
                 R.drawable.ic_icons8_medal_third_place
@@ -70,7 +70,7 @@ fun ScoreboardScreen(
                 Container(
                     width = width,
                     height = 24.dp,
-                    alignment = Alignment.Center
+                    modifier = Gravity.Center
                 ) {
                     DrawShape(
                         RectangleShape,

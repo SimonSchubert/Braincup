@@ -8,7 +8,8 @@ enum class GameType {
     SHERLOCK_CALCULATION,
     CHAIN_CALCULATION,
     FRACTION_CALCULATION,
-    HEIGHT_COMPARISON
+    HEIGHT_COMPARISON,
+    ANOMALY_PUZZLE
 }
 
 fun GameType.getName(): String {
@@ -19,6 +20,7 @@ fun GameType.getName(): String {
         GameType.CHAIN_CALCULATION -> "Chain calculation"
         GameType.FRACTION_CALCULATION -> "Fraction calculation"
         GameType.HEIGHT_COMPARISON -> "Height comparison"
+        GameType.ANOMALY_PUZZLE -> "Anomaly puzzle"
     }
 }
 
@@ -30,6 +32,7 @@ fun GameType.getId(): String {
         GameType.CHAIN_CALCULATION -> "3"
         GameType.FRACTION_CALCULATION -> "4"
         GameType.HEIGHT_COMPARISON -> "5"
+        GameType.ANOMALY_PUZZLE -> "6"
     }
 }
 
@@ -42,9 +45,9 @@ fun UserStorage.Achievements.getDescription(): String {
         UserStorage.Achievements.SCORES_100 -> "Total points of 100"
         UserStorage.Achievements.SCORES_1000 -> "Total points of 1,000"
         UserStorage.Achievements.SCORES_10000 -> "Total points of 10,000"
+        UserStorage.Achievements.APP_OPEN_3 -> "Train 3 days in a row"
         UserStorage.Achievements.APP_OPEN_7 -> "Train 7 days in a row"
         UserStorage.Achievements.APP_OPEN_30 -> "Train 30 days in a row"
-        UserStorage.Achievements.APP_OPEN_356 -> "Train 356 days in a row"
     }
 }
 
@@ -56,6 +59,7 @@ fun GameType.getScoreTable(): Array<Int> {
         GameType.CHAIN_CALCULATION -> arrayOf(8, 4)
         GameType.FRACTION_CALCULATION -> arrayOf(10, 4)
         GameType.HEIGHT_COMPARISON -> arrayOf(14, 4)
+        GameType.ANOMALY_PUZZLE -> arrayOf(18, 8)
     }
 }
 
@@ -81,7 +85,7 @@ fun GameType.getDescription(): String {
         GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions. $timeLimitString"
         GameType.FRACTION_CALCULATION -> "Solve the fractions. $timeLimitString"
         GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result. $timeLimitString"
-        GameType.ANOMALY -> "Find the outstanding figure. Take into account color and shape. $timeLimitString"
+        GameType.ANOMALY_PUZZLE -> "Find the outstanding figure. Take into account color and shape. $timeLimitString"
     }
 }
 
@@ -93,5 +97,6 @@ fun GameType.getImageResource(): String {
         GameType.CHAIN_CALCULATION -> "icons8-chain.svg"
         GameType.FRACTION_CALCULATION -> "icons8-divide.svg"
         GameType.HEIGHT_COMPARISON -> "icons8-height.svg"
+        GameType.ANOMALY_PUZZLE -> "icons8-telescope.svg"
     }
 }

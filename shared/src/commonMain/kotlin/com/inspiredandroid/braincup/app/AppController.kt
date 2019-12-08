@@ -24,7 +24,8 @@ class AppController(private val app: AppInterface) {
             GameType.SHERLOCK_CALCULATION,
             GameType.CHAIN_CALCULATION,
             GameType.FRACTION_CALCULATION,
-            GameType.HEIGHT_COMPARISON
+            GameType.HEIGHT_COMPARISON,
+            GameType.ANOMALY_PUZZLE
         )
     }
 
@@ -67,6 +68,7 @@ class AppController(private val app: AppInterface) {
                 GameType.CHAIN_CALCULATION -> ChainCalculationGame()
                 GameType.HEIGHT_COMPARISON -> HeightComparisonGame()
                 GameType.FRACTION_CALCULATION -> FractionCalculationGame()
+                GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
             }
             nextRound(game)
         }
@@ -114,6 +116,7 @@ class AppController(private val app: AppInterface) {
             is ChainCalculationGame -> app.showChainCalculation(game, answer, next)
             is HeightComparisonGame -> app.showHeightComparison(game, answer, next)
             is FractionCalculationGame -> app.showFractionCalculation(game, answer, next)
+            is AnomalyPuzzleGame -> app.showAnomalyPuzzle(game, answer, next)
         }
     }
 }

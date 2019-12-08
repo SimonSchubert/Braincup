@@ -68,7 +68,7 @@ class MentalCalculationGame : Game() {
     }
 
     override fun hint(): String? {
-        return if(moveCount == 1) {
+        return if (moveCount == 1) {
             "Remember $number"
         } else {
             null

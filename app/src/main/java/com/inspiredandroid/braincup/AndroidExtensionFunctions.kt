@@ -18,6 +18,7 @@ fun GameType.getAndroidDrawable(): Int {
         GameType.CHAIN_CALCULATION -> R.drawable.ic_icons8_chain
         GameType.FRACTION_CALCULATION -> R.drawable.ic_icons8_divide
         GameType.HEIGHT_COMPARISON -> R.drawable.ic_icons8_height
+        GameType.ANOMALY_PUZZLE -> R.drawable.ic_icons8_telescope
     }
 }
 
@@ -30,9 +31,9 @@ fun UserStorage.Achievements.getAndroidResource(): Int {
         UserStorage.Achievements.SCORES_100 -> R.drawable.ic_icons8_counter_bronze
         UserStorage.Achievements.SCORES_1000 -> R.drawable.ic_icons8_counter_silver
         UserStorage.Achievements.SCORES_10000 -> R.drawable.ic_icons8_counter_gold
+        UserStorage.Achievements.APP_OPEN_3 -> R.drawable.ic_icons8_counter_bronze
         UserStorage.Achievements.APP_OPEN_7 -> R.drawable.ic_icons8_counter_bronze
         UserStorage.Achievements.APP_OPEN_30 -> R.drawable.ic_icons8_counter_bronze
-        UserStorage.Achievements.APP_OPEN_356 -> R.drawable.ic_icons8_counter_bronze
     }
 }
 

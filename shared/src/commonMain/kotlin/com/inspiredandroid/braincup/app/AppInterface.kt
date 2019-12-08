@@ -53,6 +53,12 @@ interface AppInterface {
         next: () -> Unit
     )
 
+    fun showAnomalyPuzzle(
+        game: AnomalyPuzzleGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    )
+
     fun showCorrectAnswerFeedback(hint: String?)
     fun showWrongAnswerFeedback(solution: String)
     fun showFinishFeedback(

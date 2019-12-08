@@ -14,6 +14,9 @@ class ColorConfusionGame : Game() {
     var colorPoints = 0
     var shapePoints = 0
 
+    private val colors = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.PURPLE)
+    private val shapes = listOf(Shape.SQUARE, Shape.TRIANGLE, Shape.CIRCLE, Shape.HEART)
+
     override fun isCorrect(input: String): Boolean {
         return points() == input
     }
@@ -64,10 +67,5 @@ class ColorConfusionGame : Game() {
 
     override fun getGameType(): GameType {
         return GameType.COLOR_CONFUSION
-    }
-
-    companion object {
-        val colors = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.PURPLE)
-        val shapes = listOf(Shape.SQUARE, Shape.TRIANGLE, Shape.CIRCLE, Shape.HEART)
     }
 }
