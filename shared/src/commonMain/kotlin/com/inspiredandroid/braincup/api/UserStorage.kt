@@ -16,9 +16,9 @@ class UserStorage {
         SCORES_100,
         SCORES_1000,
         SCORES_10000,
+        APP_OPEN_3,
         APP_OPEN_7,
         APP_OPEN_30,
-        APP_OPEN_356,
     }
 
     private val scoreAchievements = listOf(
@@ -39,7 +39,7 @@ class UserStorage {
         listOf(Achievements.MEDAL_BRONZE, Achievements.MEDAL_SILVER, Achievements.MEDAL_GOLD)
 
     private val appOpenAchievements =
-        listOf(Achievements.APP_OPEN_7, Achievements.APP_OPEN_30, Achievements.APP_OPEN_356)
+        listOf(Achievements.APP_OPEN_3, Achievements.APP_OPEN_7, Achievements.APP_OPEN_30)
 
     fun getUnlockedAchievements(): MutableList<Achievements> {
         return settings?.getString(KEY_UNLOCKED_ACHIEVEMENTS)?.split(",")?.filter { it.isNotEmpty() }?.map {
@@ -83,14 +83,14 @@ class UserStorage {
 
     fun hasAppOpenAchievement(achievement: Achievements, appOpenDay: Int): Boolean {
         return when (achievement) {
+            Achievements.APP_OPEN_3 -> {
+                appOpenDay >= 3
+            }
             Achievements.APP_OPEN_7 -> {
                 appOpenDay >= 7
             }
             Achievements.APP_OPEN_30 -> {
                 appOpenDay >= 30
-            }
-            Achievements.APP_OPEN_356 -> {
-                appOpenDay >= 356
             }
             else -> true
         }
