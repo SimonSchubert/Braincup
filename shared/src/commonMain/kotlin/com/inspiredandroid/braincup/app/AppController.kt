@@ -81,7 +81,7 @@ class AppController(private val app: AppInterface) {
         val answer: (String) -> Unit = { answer ->
             val input = answer.trim()
             if (game.isCorrect(input)) {
-                app.showCorrectAnswerFeedback()
+                app.showCorrectAnswerFeedback(game.hint())
                 points++
             } else {
                 app.showWrongAnswerFeedback(game.solution())

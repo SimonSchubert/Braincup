@@ -92,6 +92,10 @@ class ChainCalculationGame : Game() {
         return result.toString()
     }
 
+    override fun hint(): String? {
+        return null
+    }
+
     override fun getGameType(): GameType {
         return GameType.CHAIN_CALCULATION
     }

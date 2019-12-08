@@ -6,5 +6,6 @@ abstract class Game {
     abstract fun isCorrect(input: String): Boolean
     abstract fun solution(): String
     abstract fun getGameType(): GameType
+    abstract fun hint(): String?
 }
 

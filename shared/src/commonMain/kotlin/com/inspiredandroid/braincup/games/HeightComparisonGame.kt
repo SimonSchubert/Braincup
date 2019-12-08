@@ -72,6 +72,10 @@ class HeightComparisonGame : Game() {
         return answers[resultIndex]
     }
 
+    override fun hint(): String? {
+        return null
+    }
+
     override fun getGameType(): GameType {
         return GameType.HEIGHT_COMPARISON
     }

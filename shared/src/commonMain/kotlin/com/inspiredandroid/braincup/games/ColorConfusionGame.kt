@@ -58,6 +58,10 @@ class ColorConfusionGame : Game() {
         return points()
     }
 
+    override fun hint(): String? {
+        return null
+    }
+
     override fun getGameType(): GameType {
         return GameType.COLOR_CONFUSION
     }

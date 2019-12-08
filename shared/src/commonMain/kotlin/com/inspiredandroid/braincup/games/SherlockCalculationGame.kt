@@ -65,6 +65,10 @@ class SherlockCalculationGame : Game() {
         return calculation
     }
 
+    override fun hint(): String? {
+        return null
+    }
+
     override fun getGameType(): GameType {
         return GameType.SHERLOCK_CALCULATION
     }

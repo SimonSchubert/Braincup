@@ -175,9 +175,9 @@ class MainActivity : Activity(), AppInterface {
         }
     }
 
-    override fun showCorrectAnswerFeedback() {
+    override fun showCorrectAnswerFeedback(hint: String?) {
         setContent {
-            CorrectAnswerScreen()
+            CorrectAnswerScreen(hint)
         }
     }
 

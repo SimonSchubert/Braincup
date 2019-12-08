@@ -73,13 +73,15 @@ const val MEDAL_SECOND_RESOURCE = "icons8-medal_second_place.svg"
 const val MEDAL_THIRD_RESOURCE = "icons8-medal_third_place.svg"
 
 fun GameType.getDescription(): String {
+    val timeLimitString = "Time limit is 1 minute."
     return when (this) {
-        GameType.MENTAL_CALCULATION -> "Follow the mathematical expressions. Time limit is 1 minute."
-        GameType.COLOR_CONFUSION -> "Sum up the points of the correct statements under the figure. Time limit is 1 minute."
-        GameType.SHERLOCK_CALCULATION -> "Find out how to get the result by only using the given numbers and the following operators: + - * / ( ). Time limit is 1 minute."
-        GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions. Time limit is 1 minute."
-        GameType.FRACTION_CALCULATION -> "Solve the fractions. Time limit is 1 minute."
-        GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result. Time limit is 1 minute."
+        GameType.MENTAL_CALCULATION -> "Follow the mathematical expressions. Use the result as the base for the next calculation. $timeLimitString"
+        GameType.COLOR_CONFUSION -> "Sum up the points of the correct statements. $timeLimitString"
+        GameType.SHERLOCK_CALCULATION -> "Find out how to get the result by only using the given numbers and the following operators: + - * / ( ). $timeLimitString"
+        GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions. $timeLimitString"
+        GameType.FRACTION_CALCULATION -> "Solve the fractions. $timeLimitString"
+        GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result. $timeLimitString"
+        GameType.ANOMALY -> "Find the outstanding figure. Take into account color and shape. $timeLimitString"
     }
 }
 

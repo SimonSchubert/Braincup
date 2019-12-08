@@ -53,7 +53,7 @@ interface AppInterface {
         next: () -> Unit
     )
 
-    fun showCorrectAnswerFeedback()
+    fun showCorrectAnswerFeedback(hint: String?)
     fun showWrongAnswerFeedback(solution: String)
     fun showFinishFeedback(
         rank: String,

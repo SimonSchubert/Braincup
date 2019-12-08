@@ -51,6 +51,10 @@ class FractionCalculationGame : Game() {
         return result.toString()
     }
 
+    override fun hint(): String? {
+        return null
+    }
+
     override fun getGameType(): GameType {
         return GameType.FRACTION_CALCULATION
     }

@@ -67,6 +67,14 @@ class MentalCalculationGame : Game() {
         return number.toString()
     }
 
+    override fun hint(): String? {
+        return if(moveCount == 1) {
+            "Remember $number"
+        } else {
+            null
+        }
+    }
+
     override fun getGameType(): GameType {
         return GameType.MENTAL_CALCULATION
     }
