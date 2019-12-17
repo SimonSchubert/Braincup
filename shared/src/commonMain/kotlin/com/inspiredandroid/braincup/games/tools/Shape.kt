@@ -9,7 +9,12 @@ enum class Shape {
     TRIANGLE,
     CIRCLE,
     HEART,
-    STAR
+    STAR,
+    T,
+    L,
+    DIAMOND,
+    HOUSE,
+    ABSTRACT_TRIANGLE
 }
 
 fun Shape.getName(): String {
@@ -19,11 +24,60 @@ fun Shape.getName(): String {
         Shape.CIRCLE -> "circle"
         Shape.HEART -> "heart"
         Shape.STAR -> "star"
+        Shape.T -> "T shape"
+        Shape.L -> "L shape"
+        Shape.DIAMOND -> "diamond"
+        Shape.HOUSE -> "house"
+        Shape.ABSTRACT_TRIANGLE -> "triangle"
     }
 }
 
+fun Shape.getPaths(): List<Pair<Float, Float>> {
+    return when (this) {
+        Shape.SQUARE -> squarePath
+        Shape.TRIANGLE -> trianglePath
+        Shape.HEART -> heartPath
+        Shape.STAR -> starPath
+        Shape.CIRCLE -> circlePath
+        Shape.T -> tPath
+        Shape.L -> lPath
+        Shape.DIAMOND -> diamondPath
+        Shape.HOUSE -> housePath
+        Shape.ABSTRACT_TRIANGLE -> abstractTrianglePath
+    }
+}
+
+val abstractTrianglePath by lazy {
+    listOf(0f to 1f, 0f to 0.75f, 0.75f to 0f, 1f to 0f, 1f to 1f)
+}
+
+val housePath by lazy {
+    listOf(0f to 1f, 0f to 0.5f, 0.5f to 0f, 1f to 0.5f, 1f to 1f)
+}
+
+val diamondPath by lazy {
+    listOf(0f to 1f, 0f to 0.5f, 0.5f to 0f, 1f to 0f, 1f to 0.5f, 0.5f to 1f)
+}
+
+val lPath by lazy {
+    listOf(0f to 1f, 0f to 0.5f, 0.5f to 0.5f, 0.5f to 0f, 1f to 0f, 1f to 1f)
+}
+
+val tPath by lazy {
+    listOf(
+        0f to 1f,
+        0f to 0.5f,
+        0.25f to 0.5f,
+        0.25f to 0f,
+        0.75f to 0f,
+        0.75f to 0.5f,
+        1f to 0.5f,
+        1f to 1f
+    )
+}
+
 val squarePath by lazy {
-    listOf(0f to 0f, 1f to 0f, 1f to 1f, 0f to 1f, 0f to 0f)
+    listOf(0f to 0f, 1f to 0f, 1f to 1f, 0f to 1f)
 }
 
 val trianglePath by lazy {
@@ -76,14 +130,4 @@ val heartPath by lazy {
         0.6f to 0.035f,
         0.5f to 0.135f
     )
-}
-
-fun Shape.getPaths(): List<Pair<Float, Float>> {
-    return when (this) {
-        Shape.SQUARE -> squarePath
-        Shape.TRIANGLE -> trianglePath
-        Shape.CIRCLE -> circlePath
-        Shape.HEART -> heartPath
-        Shape.STAR -> starPath
-    }
 }
