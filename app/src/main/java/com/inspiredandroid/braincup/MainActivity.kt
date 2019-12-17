@@ -206,7 +206,8 @@ class MainActivity : Activity(), AppInterface {
         newHighscore: Boolean,
         answeredAllCorrect: Boolean,
         plays: Int,
-        random: () -> Unit
+        random: () -> Unit,
+        again: () -> Unit
     ) {
         setContent {
             FinishScreen(
@@ -215,6 +216,7 @@ class MainActivity : Activity(), AppInterface {
                 answeredAllCorrect,
                 plays,
                 random,
+                again,
                 gameMaster
             )
         }

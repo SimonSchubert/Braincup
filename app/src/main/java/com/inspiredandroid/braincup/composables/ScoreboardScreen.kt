@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
 import androidx.compose.unaryPlus
-import androidx.ui.core.Alignment
 import androidx.ui.core.Text
 import androidx.ui.core.dp
 import androidx.ui.foundation.shape.DrawShape
@@ -44,12 +43,12 @@ fun ScoreboardScreen(
             )
             WidthSpacer(8.dp)
             ScoreboardLegend(
-                ">= ${table[1]}",
+                "> ${table[1] - 1}",
                 R.drawable.ic_icons8_medal_second_place
             )
             WidthSpacer(8.dp)
             ScoreboardLegend(
-                ">= ${table[0]}",
+                "> ${table[0] - 1}",
                 R.drawable.ic_icons8_medal_first_place
             )
         }
