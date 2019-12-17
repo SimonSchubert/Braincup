@@ -2,6 +2,8 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.addString
 import com.inspiredandroid.braincup.games.tools.Calculator
+import com.inspiredandroid.braincup.games.tools.Operator
+import com.inspiredandroid.braincup.games.tools.toChar
 import kotlin.random.Random
 
 /**
@@ -22,26 +24,24 @@ class ChainCalculationGame : Game() {
     var calculation = ""
     private var numberCount = 2
     private var result = 0
-    private var lastOperator = PLUS
+    private var lastOperator = Operator.PLUS
 
-    companion object {
-        const val PLUS: Char = '+'
-        const val MINUS: Char = '-'
-        const val MULTIPLY: Char = '*'
+    val availableOperators by lazy {
+        listOf(Operator.PLUS, Operator.MINUS, Operator.MULTIPLY)
     }
 
     override fun nextRound() {
         calculation = ""
         for (i in 0 until numberCount) {
-            val maxNumber = if (lastOperator == MULTIPLY) {
+            val maxNumber = if (lastOperator == Operator.MULTIPLY) {
                 7
             } else {
                 10
             }
             calculation += Random.nextInt(2, maxNumber)
             if (i != numberCount - 1) {
-                lastOperator = getRandomOperator()
-                calculation += lastOperator
+                lastOperator = availableOperators.random()
+                calculation += lastOperator.toChar()
             }
         }
         // add brackets
@@ -59,22 +59,24 @@ class ChainCalculationGame : Game() {
         }
 
         // replace consecutive multiplications with '+'
-        var previousOperator = PLUS
+        var previousOperator = ' '
         calculation.forEachIndexed { index, c ->
-            if (c == MULTIPLY || c == MINUS || c == PLUS) {
-                previousOperator = if (c == MULTIPLY && previousOperator == MULTIPLY) {
-                    calculation = calculation.replaceRange(index, index + 1, PLUS + "")
-                    PLUS
-                } else {
-                    c
-                }
+            if (c == Operator.MULTIPLY.toChar() || c == Operator.MINUS.toChar() || c == Operator.PLUS.toChar()) {
+                previousOperator =
+                    if (c == Operator.MULTIPLY.toChar() && previousOperator == Operator.MULTIPLY.toChar()) {
+                        calculation =
+                            calculation.replaceRange(index, index + 1, Operator.PLUS.toChar() + "")
+                        Operator.PLUS.toChar()
+                    } else {
+                        c
+                    }
             }
         }
 
         result = Calculator.calculate(calculation).toInt()
         // replace '-' with '+' until result is positive
         while (result < 0) {
-            calculation = calculation.replaceFirst(MINUS, PLUS)
+            calculation = calculation.replaceFirst(Operator.MINUS.toChar(), Operator.PLUS.toChar())
             result = Calculator.calculate(calculation).toInt()
         }
         numberCount++
@@ -98,15 +100,5 @@ class ChainCalculationGame : Game() {
 
     override fun getGameType(): GameType {
         return GameType.CHAIN_CALCULATION
-    }
-
-    private fun getRandomOperator(): Char {
-        return when (Random.nextInt(
-            0, 3
-        )) {
-            0 -> PLUS
-            1 -> MINUS
-            else -> MULTIPLY
-        }
     }
 }

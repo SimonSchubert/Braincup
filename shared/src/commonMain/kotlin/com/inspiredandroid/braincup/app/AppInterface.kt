@@ -66,7 +66,8 @@ interface AppInterface {
         newHighscore: Boolean,
         answeredAllCorrect: Boolean,
         plays: Int,
-        random: () -> Unit
+        random: () -> Unit,
+        again: () -> Unit
     )
 
     fun showScoreboard(game: GameType, highscore: Int, scores: List<Pair<String, List<Int>>>)

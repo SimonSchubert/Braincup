@@ -4,13 +4,21 @@ import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlin.random.Random
 
+/**
+ * Generates each round a shape and color with statements that are randomly true or false.
+ *
+ * Logic:
+ * 1. Get a random shape(displayedShape) and color(displayedColor) which will be actually shown
+ * 2. Get another random shape(answerShape) and color(answerColor) with a 50% chance of being identical to the shown shape and color
+ * 3. Get a third random color(stringColor) which will be the color of the previous generated color string
+ */
 class ColorConfusionGame : Game() {
 
-    lateinit var answerColor: Color
     lateinit var displayedColor: Color
+    lateinit var answerColor: Color
     lateinit var stringColor: Color
-    lateinit var answerShape: Shape
     lateinit var displayedShape: Shape
+    lateinit var answerShape: Shape
     var colorPoints = 0
     var shapePoints = 0
 
@@ -21,24 +29,20 @@ class ColorConfusionGame : Game() {
         return points() == input
     }
 
-    /**
-     * 50/50 chance that the shape is correct
-     * 50/50 chance that the color is correct
-     */
     override fun nextRound() {
-        answerColor = colors.random()
-        displayedColor = if (Random.nextBoolean()) {
-            colors.filter { it != answerColor }.random()
+        displayedShape = shapes.random()
+        answerShape = if (Random.nextBoolean()) {
+            shapes.filter { it != displayedShape }.random()
         } else {
-            answerColor
+            displayedShape
+        }
+        displayedColor = colors.random()
+        answerColor = if (Random.nextBoolean()) {
+            colors.filter { it != displayedColor }.random()
+        } else {
+            displayedColor
         }
         stringColor = colors.random()
-        answerShape = shapes.random()
-        displayedShape = if (Random.nextBoolean()) {
-            shapes.filter { it != answerShape }.random()
-        } else {
-            answerShape
-        }
         shapePoints = Random.nextInt(2, 5)
         colorPoints = Random.nextInt(2, 5)
         if (shapePoints == colorPoints) {

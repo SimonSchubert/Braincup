@@ -4,8 +4,7 @@ import com.inspiredandroid.braincup.games.tools.Calculator
 import kotlin.random.Random
 
 /**
- * Generates each round 2-4 mathematical formals. Pick the one with
- * the highest value.
+ * Generates each round 2-4 mathematical formals.
  *
  * Logic:
  * - Round 1 is always addition
@@ -16,7 +15,6 @@ import kotlin.random.Random
  */
 class HeightComparisonGame : Game() {
 
-    var round = 0
     private var resultIndex = 0
     var answers = mutableListOf<String>()
     var types = listOf(Type.FRACTION, Type.MULTIPLICATION)
@@ -57,7 +55,6 @@ class HeightComparisonGame : Game() {
                 }
             }
         }
-        round++
     }
 
     override fun isCorrect(input: String): Boolean {

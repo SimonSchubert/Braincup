@@ -4,14 +4,14 @@ import com.inspiredandroid.braincup.games.tools.Calculator
 import kotlin.random.Random
 
 /**
- * Generates each round 2-4 mathematical formals. Pick the one with
- * the highest value.
+ * Solve the fraction calculation.
  *
  * Logic:
+ * - Allowed operator = *
+ * - Result can't be negative
  */
 class FractionCalculationGame : Game() {
 
-    private var round = 0
     private var result = 0
     private var fractions = mutableListOf<String>()
     var calculation = ""
@@ -26,7 +26,6 @@ class FractionCalculationGame : Game() {
         fractions.add("${up / upDivision}/${down / downDivision}")
         result = Calculator.calculate("$up/$down").toInt()
         calculation = fractions.joinToString(") * (", "(", ")")
-        round++
     }
 
     private fun getRandomDivisionIntegers(value: Int): Int {

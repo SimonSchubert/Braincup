@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.games.tools
 
 import com.inspiredandroid.braincup.addString
 import com.inspiredandroid.braincup.removeWhitespaces
+import com.inspiredandroid.braincup.validCalculationRegex
 
 /**
  * Calculates the result of an expression given as a string.
@@ -9,7 +10,9 @@ import com.inspiredandroid.braincup.removeWhitespaces
  * Supported tokens: + - * / ( )
  */
 object Calculator {
-    private val validCalculationRegex = Regex("^[0-9+\\-*/().]*\$")
+
+    private const val bracketLeft = "("
+    private const val bracketRight = ")"
 
     fun calculate(input: String): Double {
         var expression = input.removeWhitespaces()
@@ -22,21 +25,21 @@ object Calculator {
         return solve(expression)
     }
 
-    private fun solve(expression: String, operator: String = "+"): Double {
+    private fun solve(expression: String, operator: Operator = Operator.PLUS): Double {
         var sum = 0.0
-        expression.split(operator).forEachIndexed { index, s ->
+        expression.split(operator.toChar()).forEachIndexed { index, s ->
             when {
-                s.contains("+") -> sum += solve(
+                s.contains(Operator.PLUS.toChar()) -> sum += solve(
                     s,
-                    "+"
+                    Operator.PLUS
                 )
-                s.contains("*") -> sum += solve(
+                s.contains(Operator.MULTIPLY.toChar()) -> sum += solve(
                     s,
-                    "*"
+                    Operator.MULTIPLY
                 )
-                s.contains("/") -> sum += solve(
+                s.contains(Operator.DIVIDE.toChar()) -> sum += solve(
                     s,
-                    "/"
+                    Operator.DIVIDE
                 )
                 else -> {
                     if (s.isNotEmpty()) {
@@ -44,9 +47,10 @@ object Calculator {
                             sum = s.toDouble()
                         } else {
                             when (operator) {
-                                "+" -> sum += s.toFloat()
-                                "*" -> sum *= s.toFloat()
-                                "/" -> sum /= s.toFloat()
+                                Operator.PLUS -> sum += s.toFloat()
+                                Operator.MULTIPLY -> sum *= s.toFloat()
+                                Operator.DIVIDE -> sum /= s.toFloat()
+                                Operator.MINUS -> sum -= s.toFloat()
                             }
                         }
                     }
@@ -58,9 +62,9 @@ object Calculator {
 
     private fun calculateInnerBrackets(input: String): String {
         var result = input
-        while (result.lastIndexOf("(") != -1) {
-            val lastOpenBracketIndex = result.lastIndexOf("(")
-            val lastCloseBracketIndex = result.indexOf(")", lastOpenBracketIndex)
+        while (result.lastIndexOf(bracketLeft) != -1) {
+            val lastOpenBracketIndex = result.lastIndexOf(bracketLeft)
+            val lastCloseBracketIndex = result.indexOf(bracketRight, lastOpenBracketIndex)
             if (lastOpenBracketIndex + 1 < 0 || lastCloseBracketIndex < 0) {
                 return ""
             }
@@ -71,11 +75,11 @@ object Calculator {
 
             result = result.removeRange(lastOpenBracketIndex, lastCloseBracketIndex + 1)
             result = result.addString(innerBracketValue.toString(), lastOpenBracketIndex)
-            result = result.replace("--", "+")
+            result = result.replace("--", Operator.PLUS.toChar().toString())
         }
         // abort calculation if result has unresolved brackets
-        return if (result.indexOf("(") != -1 ||
-            result.indexOf(")") != -1
+        return if (result.indexOf(bracketLeft) != -1 ||
+            result.indexOf(bracketRight) != -1
         ) {
             ""
         } else {

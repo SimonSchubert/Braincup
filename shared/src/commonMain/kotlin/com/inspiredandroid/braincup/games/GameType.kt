@@ -3,13 +3,13 @@ package com.inspiredandroid.braincup.games
 import com.inspiredandroid.braincup.api.UserStorage
 
 enum class GameType {
+    ANOMALY_PUZZLE,
     MENTAL_CALCULATION,
     COLOR_CONFUSION,
     SHERLOCK_CALCULATION,
     CHAIN_CALCULATION,
     FRACTION_CALCULATION,
-    HEIGHT_COMPARISON,
-    ANOMALY_PUZZLE
+    HEIGHT_COMPARISON
 }
 
 fun GameType.getName(): String {
@@ -59,7 +59,7 @@ fun GameType.getScoreTable(): Array<Int> {
         GameType.CHAIN_CALCULATION -> arrayOf(8, 4)
         GameType.FRACTION_CALCULATION -> arrayOf(10, 4)
         GameType.HEIGHT_COMPARISON -> arrayOf(14, 4)
-        GameType.ANOMALY_PUZZLE -> arrayOf(18, 8)
+        GameType.ANOMALY_PUZZLE -> arrayOf(17, 8)
     }
 }
 

@@ -1,17 +1,30 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.games.tools.Calculator
+import com.inspiredandroid.braincup.games.tools.Operator
+import com.inspiredandroid.braincup.games.tools.toChar
+import com.inspiredandroid.braincup.numbersRegex
 import kotlin.random.Random
 
+/**
+ * Generates a goal number and a bunch of random numbers which makes it possible to build a expression
+ * that will result in the goal number.
+ *
+ * Logic:
+ * - Allowed operators = +-*
+ * - Result of subtraction can't be under 0
+ * - Result of multiplication can't be over 140
+ * - Each round increases the count of available numbers by 1
+ * - Available numbers can't contain the result number
+ */
 class SherlockCalculationGame : Game() {
 
     var result = 0
     private val numbers = mutableListOf<Int>()
-    private var moveCount = 0
     private var calculation = ""
     private var minNumbersNeeded = 2
     private var maxNumbersNeeded = 3
-    private val numbersRegex = Regex("(\\d+)")
+    private val availableOperators = listOf(Operator.MINUS, Operator.PLUS, Operator.MULTIPLY)
 
     override fun isCorrect(input: String): Boolean {
         val matches = numbersRegex.findAll(input)
@@ -50,7 +63,7 @@ class SherlockCalculationGame : Game() {
         result = Calculator.calculate(calculation).toInt()
 
         while (numbers.contains(result)) {
-            calculation += "*"
+            calculation += Operator.MULTIPLY.toChar()
             val number = Random.nextInt(2, 4)
             calculation += "$number"
             numbers.add(number)
@@ -58,7 +71,7 @@ class SherlockCalculationGame : Game() {
         }
         numbers.shuffle()
 
-        increaseMoveCount()
+        updateNumberBounds()
     }
 
     override fun solution(): String {
@@ -77,37 +90,25 @@ class SherlockCalculationGame : Game() {
         return numbers.joinToString()
     }
 
-    private fun increaseMoveCount() {
-        moveCount++
-        maxNumbersNeeded = moveCount + 3
-        when (moveCount) {
-            2 -> {
-                minNumbersNeeded = 3
-            }
-            5 -> {
-                minNumbersNeeded = 4
-            }
+    private fun updateNumberBounds() {
+        maxNumbersNeeded = round + 3
+        when (round) {
+            2 -> minNumbersNeeded = 3
+            5 -> minNumbersNeeded = 4
         }
     }
 
     private fun getRandomOperator(
         excludeMinus: Boolean = false,
         excludeMultiply: Boolean = false
-    ): String {
-        var operator = when (Random.nextInt(
-            0, 2
-        )) {
-            0 -> "+"
-            1 -> "-"
-            2 -> "*"
-            else -> "+"
+    ): Char {
+        var operator = availableOperators.random()
+        if (excludeMinus && operator == Operator.DIVIDE) {
+            operator = Operator.PLUS
         }
-        if (excludeMinus && operator == "-") {
-            operator = "+"
+        if (excludeMultiply && operator == Operator.MULTIPLY) {
+            operator = Operator.PLUS
         }
-        if (excludeMultiply && operator == "*") {
-            operator = "+"
-        }
-        return operator
+        return operator.toChar()
     }
 }

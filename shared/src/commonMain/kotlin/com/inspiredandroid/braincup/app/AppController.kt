@@ -19,13 +19,13 @@ class AppController(private val app: AppInterface) {
 
     companion object {
         val games = listOf(
+            GameType.ANOMALY_PUZZLE,
             GameType.MENTAL_CALCULATION,
-            GameType.COLOR_CONFUSION,
             GameType.SHERLOCK_CALCULATION,
             GameType.CHAIN_CALCULATION,
             GameType.FRACTION_CALCULATION,
             GameType.HEIGHT_COMPARISON,
-            GameType.ANOMALY_PUZZLE
+            GameType.COLOR_CONFUSION
         )
     }
 
@@ -50,7 +50,7 @@ class AppController(private val app: AppInterface) {
                     UserStorage.Achievements.values().sorted(),
                     storage.getUnlockedAchievements()
                 )
-            }, storage, storage.getTotalScore(), storage.getAppOpen()
+            }, storage, storage.getTotalScore(), storage.getAppOpenCount()
         )
     }
 
@@ -79,6 +79,7 @@ class AppController(private val app: AppInterface) {
             return
         }
         game.nextRound()
+        game.round++
 
         val answer: (String) -> Unit = { answer ->
             val input = answer.trim()
@@ -100,9 +101,13 @@ class AppController(private val app: AppInterface) {
                     game.getGameType().getId(),
                     points
                 ) { score: String, newHighscore: Boolean ->
-                    app.showFinishFeedback(score, newHighscore, game.answeredAllCorrect, plays) {
-                        startGame(games.random())
-                    }
+                    app.showFinishFeedback(
+                        score,
+                        newHighscore,
+                        game.answeredAllCorrect,
+                        plays,
+                        { startGame(games.random()) },
+                        { startGame(game.getGameType()) })
                 }
             } else {
                 nextRound(game)
