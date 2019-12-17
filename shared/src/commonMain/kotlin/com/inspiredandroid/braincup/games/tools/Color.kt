@@ -5,7 +5,10 @@ enum class Color {
     GREEN,
     BLUE,
     PURPLE,
-    YELLOW
+    YELLOW,
+    ORANGE,
+    TURKIES,
+    ROSA
 }
 
 fun Color.getName(): String {
@@ -15,6 +18,9 @@ fun Color.getName(): String {
         Color.BLUE -> "blue"
         Color.PURPLE -> "purple"
         Color.YELLOW -> "yellow"
+        Color.ORANGE -> "orange"
+        Color.TURKIES -> "turkies"
+        Color.ROSA -> "rosa"
     }
 }
 
@@ -25,5 +31,8 @@ fun Color.getHex(): String {
         Color.BLUE -> "#3498db"
         Color.PURPLE -> "#9b59b6"
         Color.YELLOW -> "#f1c40f"
+        Color.ORANGE -> "#e67e22"
+        Color.TURKIES -> "#12CBC4"
+        Color.ROSA -> "#FDA7DF"
     }
 }
