@@ -76,7 +76,7 @@ kotlin {
             implementation "io.ktor:ktor-client-core:$ktor_version"
             implementation "io.ktor:ktor-client-json:$ktor_version"
             implementation "com.soywiz.korlibs.klock:klock:1.8.1"
-            implementation "com.russhwolf:multiplatform-settings:0.4"
+            implementation "com.russhwolf:multiplatform-settings:0.5"
         }
 
         commonTest.dependencies {
@@ -87,7 +87,7 @@ kotlin {
         androidMain.dependencies {
             implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
             implementation "io.ktor:ktor-client-android:$ktor_version"
-            implementation "com.russhwolf:multiplatform-settings:0.4"
+            implementation "com.russhwolf:multiplatform-settings:0.5"
         }
 
         androidTest.dependencies {
@@ -188,7 +188,7 @@ def jsFiles = ["build/kotlin-js-min/js/main/kotlin.js",
 "build/kotlin-js-min/js/main/ktor-ktor-client-json.js",
 "build/kotlin-js-min/js/main/kotlinx-serialization-kotlinx-serialization-runtime.js",
 "build/kotlin-js-min/js/main/klock-root-klock.js",
-"build/kotlin-js-min/js/main/MultiplatformSettings-multiplatform-settings.js",
+"build/kotlin-js-min/js/main/s-multiplatform-settings.js",
 "build/kotlin-js-min/js/main/shared.js"]
 
 task minifyJS(type: JavaExec) {
