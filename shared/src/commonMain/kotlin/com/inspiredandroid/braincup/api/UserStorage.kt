@@ -55,7 +55,7 @@ class UserStorage {
         settings?.putString(KEY_UNLOCKED_ACHIEVEMENTS, unlockedAchievements.joinToString(","))
     }
 
-    fun getAppOpen(): Int {
+    fun getAppOpenCount(): Int {
         return settings?.getInt(KEY_APP_OPEN_COMBO, -1) ?: -1
     }
 

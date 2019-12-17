@@ -11,7 +11,7 @@ import com.inspiredandroid.braincup.R
 fun CorrectAnswerScreen(hint: String?) {
     BaseApp {
         VectorImage(id = R.drawable.ic_success)
-        if(hint != null) {
+        if (hint != null) {
             HeightSpacer(16.dp)
             Text(
                 hint,
