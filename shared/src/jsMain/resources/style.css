@@ -15,3 +15,17 @@
         color: #e4e4e4 !important;
     }
 }
+
+.border_box {
+    border-width: 8px;
+    border-style: double;
+    border-color: #ed7354;
+    width: max-content;
+    margin: 32px auto;
+    padding: 8px;
+}
+
+.illustration {
+    width: 100%;
+    max-width: 400px;
+}
