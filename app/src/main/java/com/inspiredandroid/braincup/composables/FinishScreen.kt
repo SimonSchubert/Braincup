@@ -17,6 +17,7 @@ fun FinishScreen(
     answeredAllCorrect: Boolean,
     plays: Int,
     random: () -> Unit,
+    again: () -> Unit,
     gameMaster: AppController
 ) {
     BaseApp {
@@ -43,8 +44,12 @@ fun FinishScreen(
             )
         }
         HeightSpacer(16.dp)
-        Button("Next game", onClick = {
+        Button("Play random game", onClick = {
             random()
+        }, modifier = Gravity.Center)
+        HeightSpacer(8.dp)
+        Button("Play again", onClick = {
+            again()
         }, modifier = Gravity.Center)
         HeightSpacer(8.dp)
         Button("Menu", onClick = {
