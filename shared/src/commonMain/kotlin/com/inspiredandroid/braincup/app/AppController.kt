@@ -29,34 +29,48 @@ class AppController(private val app: AppInterface) {
         )
     }
 
-    fun start() {
-        state = AppState.START
+    fun start(gameType: GameType? = null, state: AppState?) {
         storage.putAppOpen()
-        app.showMainMenu(
-            "Braincup", "Train your math skills, memory and focus.",
-            games, { game ->
-                startGame(game)
-            }, { game ->
-                state = AppState.SCOREBOARD
-                app.showScoreboard(
-                    game,
-                    storage.getHighScore(game.getId()),
-                    storage.getScores(game.getId())
-                )
-            },
-            {
-                state = AppState.ACHIEVEMENTS
-                app.showAchievements(
-                    UserStorage.Achievements.values().sorted(),
-                    storage.getUnlockedAchievements()
-                )
-            }, storage, storage.getTotalScore(), storage.getAppOpenCount()
+        if (gameType == null) {
+            this.state = AppState.START
+            app.showMainMenu(
+                "Braincup", "Train your math skills, memory and focus.",
+                games, { game ->
+                    startGame(game)
+                }, { game ->
+                    startScoreboard(game)
+                }, {
+                    startAchievements()
+                }, storage, storage.getTotalScore(), storage.getAppOpenCount()
+            )
+        } else {
+            when (state) {
+                AppState.INSTRUCTIONS -> startGame(gameType)
+                AppState.SCOREBOARD -> startScoreboard(gameType)
+            }
+        }
+    }
+
+    private fun startAchievements() {
+        state = AppState.ACHIEVEMENTS
+        app.showAchievements(
+            UserStorage.Achievements.values().sorted(),
+            storage.getUnlockedAchievements()
+        )
+    }
+
+    private fun startScoreboard(gameType: GameType) {
+        state = AppState.SCOREBOARD
+        app.showScoreboard(
+            gameType,
+            storage.getHighScore(gameType.getId()),
+            storage.getScores(gameType.getId())
         )
     }
 
     private fun startGame(gameType: GameType) {
         state = AppState.INSTRUCTIONS
-        app.showInstructions(gameType.getName(), gameType.getDescription()) {
+        app.showInstructions(gameType, gameType.getName(), gameType.getDescription()) {
             state = AppState.GAME
             startTime = DateTime.now().unixMillis
             plays++
@@ -84,10 +98,10 @@ class AppController(private val app: AppInterface) {
         val answer: (String) -> Unit = { answer ->
             val input = answer.trim()
             if (game.isCorrect(input)) {
-                app.showCorrectAnswerFeedback(game.hint())
+                app.showCorrectAnswerFeedback(game.getGameType(), game.hint())
                 points++
             } else {
-                app.showWrongAnswerFeedback(game.solution())
+                app.showWrongAnswerFeedback(game.getGameType(), game.solution())
                 game.answeredAllCorrect = false
             }
         }
@@ -102,6 +116,7 @@ class AppController(private val app: AppInterface) {
                     points
                 ) { score: String, newHighscore: Boolean ->
                     app.showFinishFeedback(
+                        game.getGameType(),
                         score,
                         newHighscore,
                         game.answeredAllCorrect,

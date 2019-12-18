@@ -16,7 +16,7 @@ interface AppInterface {
         appOpenCount: Int
     )
 
-    fun showInstructions(title: String, description: String, start: () -> Unit)
+    fun showInstructions(gameType: GameType, title: String, description: String, start: () -> Unit)
     fun showMentalCalculation(
         game: MentalCalculationGame,
         answer: (String) -> Unit,
@@ -59,9 +59,10 @@ interface AppInterface {
         next: () -> Unit
     )
 
-    fun showCorrectAnswerFeedback(hint: String?)
-    fun showWrongAnswerFeedback(solution: String)
+    fun showCorrectAnswerFeedback(gameType: GameType, hint: String?)
+    fun showWrongAnswerFeedback(gameType: GameType, solution: String)
     fun showFinishFeedback(
+        gameType: GameType,
         rank: String,
         newHighscore: Boolean,
         answeredAllCorrect: Boolean,
@@ -70,7 +71,7 @@ interface AppInterface {
         again: () -> Unit
     )
 
-    fun showScoreboard(game: GameType, highscore: Int, scores: List<Pair<String, List<Int>>>)
+    fun showScoreboard(gameType: GameType, highscore: Int, scores: List<Pair<String, List<Int>>>)
     fun showAchievements(
         allAchievements: List<UserStorage.Achievements>,
         unlockedAchievements: List<UserStorage.Achievements>

@@ -19,7 +19,7 @@ class CliMain : AppInterface {
     private val gameMaster = AppController(this)
 
     init {
-        gameMaster.start()
+        gameMaster.start(state = state)
     }
 
     override fun showMainMenu(
@@ -60,7 +60,7 @@ class CliMain : AppInterface {
         println("Press enter to start.")
 
         if (exitCommands.contains(readLine())) {
-            gameMaster.start()
+            gameMaster.start(state = state)
         } else {
             start()
         }
@@ -191,13 +191,13 @@ class CliMain : AppInterface {
 
         val input = readLine() ?: ""
         if (exitCommands.contains(input)) {
-            gameMaster.start()
+            gameMaster.start(state = state)
         } else {
             when (input) {
                 "1" -> again()
                 "2" -> random()
-                "3" -> gameMaster.start()
-                else -> gameMaster.start()
+                "3" -> gameMaster.start(state = state)
+                else -> gameMaster.start(state = state)
             }
         }
     }
@@ -231,7 +231,7 @@ class CliMain : AppInterface {
     private fun readAndAnswer(answer: (String) -> Unit, next: () -> Unit) {
         val input = readLine() ?: ""
         if (exitCommands.contains(input)) {
-            gameMaster.start()
+            gameMaster.start(state = state)
         } else {
             answer(input)
             sleep(1u)

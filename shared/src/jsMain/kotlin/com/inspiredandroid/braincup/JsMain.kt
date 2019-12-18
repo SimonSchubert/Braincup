@@ -3,36 +3,37 @@ package com.inspiredandroid.braincup
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.AppController
 import com.inspiredandroid.braincup.app.AppInterface
+import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getName
-import com.inspiredandroid.braincup.games.tools.getPaths
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
 import kotlinx.html.js.onClickFunction
 import kotlinx.html.js.onInputFunction
-import org.w3c.dom.CanvasRenderingContext2D
 import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLInputElement
-import org.w3c.dom.Path2D
 import kotlin.browser.document
 import kotlin.browser.window
 import kotlin.math.min
 
+var code = 0
+
 fun main() {
-    JsMain()
+    // Workaround for dce
+    if(code != 0) {
+        referenceFunctions()
+    }
 }
 
-class JsMain : AppInterface {
+class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface {
 
     private val appController = AppController(this)
 
-    var gameTitle = ""
-
     init {
-        appController.start()
+        appController.start(gameType, state)
     }
 
     override fun showMainMenu(
@@ -46,19 +47,6 @@ class JsMain : AppInterface {
         totalScore: Int,
         appOpenCount: Int
     ) {
-        window.addEventListener("popstate", {
-            showMainMenu(
-                title,
-                description,
-                games,
-                instructions,
-                score,
-                achievements,
-                storage,
-                totalScore,
-                appOpenCount
-            )
-        })
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
             title(this, title)
@@ -85,7 +73,7 @@ class JsMain : AppInterface {
                             text(game.getName())
                         }
                         onClickFunction = {
-                            instructions(game)
+                            game.openGameHtml()
                         }
                     }
                     val highscore = storage.getHighScore(game.getId())
@@ -104,10 +92,28 @@ class JsMain : AppInterface {
                                 text(highscore)
                             }
                             onClickFunction = {
-                                score(game)
+                                game.openScoreboardHtml()
                             }
                         }
                     }
+                }
+            }
+
+            button {
+                style =
+                    "width: 300px; max-width: 70%; height: 50px; font-size: 16px; margin-top: 16px; margin-right: 6px"
+                classes += "mdc-button mdc-button--raised"
+                img {
+                    classes += "material-icons mdc-button__icon"
+                    // src = "images/${game.getImageResource()}"
+                    style = "height: 20px; width: 20px;"
+                }
+                span {
+                    classes += "mdc-button__label"
+                    text("Create challenge")
+                }
+                onClickFunction = {
+                    // game.openGameHtml()
                 }
             }
 
@@ -226,13 +232,16 @@ class JsMain : AppInterface {
         }
     }
 
-    override fun showInstructions(title: String, description: String, start: () -> Unit) {
-        gameTitle = title
-        window.history.pushState(null, "", "${gameTitle.toLowerCase().removeWhitespaces()}.html")
-        document.title = "$gameTitle - Braincup"
+    override fun showInstructions(
+        gameType: GameType,
+        title: String,
+        description: String,
+        start: () -> Unit
+    ) {
+        document.title = "$title - Braincup"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, title)
             br { }
             br { }
             div {
@@ -258,7 +267,7 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, game.getGameType().name)
             div {
                 classes += "mdc-typography--headline4"
                 style = "margin-top: 128px"
@@ -284,7 +293,7 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, game.getGameType().name)
             div {
                 style = "margin-top: 32px"
                 id = "canvas"
@@ -323,7 +332,7 @@ class JsMain : AppInterface {
 
         // TODO: there must be a better way to do that
         val canvas = document.createElement("canvas") as HTMLCanvasElement
-        canvas.drawFigure(Figure(game.displayedShape, game.displayedColor))
+        canvas.drawFigure(Figure(game.displayedShape, game.displayedColor), 120, 120)
         document.getElementById("canvas")?.appendChild(canvas)
     }
 
@@ -334,7 +343,7 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, game.getGameType().name)
             div {
                 style = "margin-top: 128px"
                 classes += "mdc-typography--headline4"
@@ -364,7 +373,7 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, game.getGameType().name)
             div {
                 style = "margin-top: 128px"
                 classes += "mdc-typography--headline4"
@@ -397,7 +406,7 @@ class JsMain : AppInterface {
     }
 
     // TODO: replace with DSL
-    private fun title(body: BODY, title: String = gameTitle) {
+    private fun title(body: BODY, title: String) {
         body.div {
             classes += "mdc-typography--headline2"
             text(title)
@@ -456,7 +465,7 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, game.getGameType().name)
             br {}
             br {}
             br {}
@@ -484,7 +493,7 @@ class JsMain : AppInterface {
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, game.getGameType().name)
             div {
                 style = "margin-top: 128px"
                 classes += "mdc-typography--headline4"
@@ -520,7 +529,7 @@ class JsMain : AppInterface {
 
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this)
+            title(this, game.getGameType().name)
 
             table {
                 style = "margin: auto; margin-top: 64px"
@@ -529,7 +538,7 @@ class JsMain : AppInterface {
                     tr {
                         it.forEach {
                             td {
-                                id = "canvas$index"
+                                id = "canvasWrapper$index"
                                 style = "padding: 8px; cursor: pointer;"
                             }
                             index++
@@ -539,26 +548,30 @@ class JsMain : AppInterface {
             }
         }
 
+        val margin = 48 + chunkSize * 16
+        val maxCanvasSize = document.body?.clientWidth?.minus(margin)?.div(chunkSize) ?: 120
+        val canvasSize = min(120, maxCanvasSize)
+
         game.figures.forEachIndexed { index, figure ->
             val canvas = document.createElement("canvas") as HTMLCanvasElement
-            canvas.drawFigure(figure)
+            canvas.drawFigure(figure, canvasSize, canvasSize)
             canvas.onclick = {
                 answer((index + 1).toString())
                 window.setTimeout({
                     next()
                 }, 1000)
             }
-            document.getElementById("canvas$index")?.appendChild(canvas)
+            document.getElementById("canvasWrapper$index")?.appendChild(canvas)
         }
     }
 
-    override fun showCorrectAnswerFeedback(hint: String?) {
+    override fun showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
         document.body = document.create.body {
             style = "text-align: center; margin: 0px; height: 100%"
             div {
                 classes += "mdc-typography--headline2"
                 style = "padding-top: 24px;"
-                text(gameTitle)
+                text(gameType.getName())
             }
             img {
                 classes += "illustration"
@@ -575,13 +588,13 @@ class JsMain : AppInterface {
         }
     }
 
-    override fun showWrongAnswerFeedback(solution: String) {
+    override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
         document.body = document.create.body {
             style = "text-align: center; margin: 0px; height: 100%"
             div {
                 classes += "mdc-typography--headline2"
                 style = "padding-top: 24px;"
-                text(gameTitle)
+                text(gameType.getName())
             }
             img {
                 classes += "illustration"
@@ -597,6 +610,7 @@ class JsMain : AppInterface {
     }
 
     override fun showFinishFeedback(
+        gameType: GameType,
         rank: String,
         newHighscore: Boolean,
         answeredAllCorrect: Boolean,
@@ -608,7 +622,7 @@ class JsMain : AppInterface {
             style = "text-align: center; margin: 24px"
             div {
                 classes += "mdc-typography--headline2"
-                text(gameTitle)
+                text(gameType.name)
             }
             br { }
             br { }
@@ -635,7 +649,7 @@ class JsMain : AppInterface {
                 classes += "mdc-button mdc-button--raised"
                 text("Again")
                 onClickFunction = {
-                    again()
+                    gameType.openGameHtml()
                 }
             }
             br { }
@@ -645,7 +659,7 @@ class JsMain : AppInterface {
                 classes += "mdc-button mdc-button--raised"
                 text("Random game")
                 onClickFunction = {
-                    random()
+                    GameType.values().random().openGameHtml()
                 }
             }
             br { }
@@ -655,27 +669,21 @@ class JsMain : AppInterface {
                 classes += "mdc-button mdc-button--raised"
                 text("Menu")
                 onClickFunction = {
-                    appController.start()
+                    openIndexHtml()
                 }
             }
         }
     }
 
     override fun showScoreboard(
-        game: GameType,
+        gameType: GameType,
         highscore: Int,
         scores: List<Pair<String, List<Int>>>
     ) {
-        gameTitle = game.getName()
-        window.history.pushState(
-            null,
-            "",
-            "${gameTitle.toLowerCase().removeWhitespaces()}_score.html"
-        )
-        document.title = "$gameTitle score - Braincup"
+        document.title = "${gameType.getName()} score - Braincup"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, "$gameTitle - Scores")
+            title(this, "${gameType.getName()} - Scores")
             div {
                 style = "margin-top: 64px"
                 classes += "mdc-typography--headline4"
@@ -699,7 +707,7 @@ class JsMain : AppInterface {
                 div {
                     style = "margin-left:16px;"
                     classes += "mdc-typography--headline6"
-                    text("> ${game.getScoreTable()[1] - 1} ")
+                    text("> ${gameType.getScoreTable()[1] - 1} ")
                 }
                 img {
                     style = "height: 25px; width: 25px;"
@@ -709,7 +717,7 @@ class JsMain : AppInterface {
                 div {
                     style = "margin-left:16px;"
                     classes += "mdc-typography--headline6"
-                    text("    > ${game.getScoreTable()[0] - 1} ")
+                    text("    > ${gameType.getScoreTable()[0] - 1} ")
                 }
                 img {
                     style = "height: 25px; width: 25px;"
@@ -719,7 +727,7 @@ class JsMain : AppInterface {
             }
 
             br {}
-            val goldMedalScore = game.getScoreTable()[0]
+            val goldMedalScore = gameType.getScoreTable()[0]
             div {
                 style = "width: 100%; max-width: 500px; margin: auto;"
 
@@ -742,7 +750,7 @@ class JsMain : AppInterface {
                             img {
                                 style = "height: 25px; width: 25px;"
                                 classes += "material-icons"
-                                src = "images/${game.getMedalResource(score)}"
+                                src = "images/${gameType.getMedalResource(score)}"
                             }
                         }
                         br { }
@@ -759,34 +767,11 @@ class JsMain : AppInterface {
 
     }
 
-    private fun HTMLCanvasElement.drawFigure(figure: Figure) {
-        val context = this.getContext("2d") as CanvasRenderingContext2D
-        context.canvas.width = 120
-        context.canvas.height = 120
+    private fun openIndexHtml() {
+        window.open("index.html", target = "_self")
+    }
 
-        val path2D = Path2D()
-        context.fillStyle = figure.color.getHex()
-        figure.shape.getPaths().forEachIndexed { index, pair ->
-            val x = (context.canvas.width * pair.first).toDouble()
-            val y = (context.canvas.height * pair.second).toDouble()
-            if (index == 0) {
-                path2D.moveTo(x, y)
-            } else {
-                path2D.lineTo(x, y)
-            }
-        }
-
-        if (figure.rotation != 0) {
-            context.translate(
-                (context.canvas.width / 2f).toDouble(),
-                (context.canvas.height / 2f).toDouble()
-            )
-            context.rotate(figure.rotation * kotlin.math.PI / 180f)
-            context.translate(
-                (-context.canvas.width / 2f).toDouble(),
-                (-context.canvas.height / 2f).toDouble()
-            )
-        }
-        context.fill(path2D)
+    private fun createChallengeHtml() {
+        window.open("create_challenge.html", target = "_self")
     }
 }
