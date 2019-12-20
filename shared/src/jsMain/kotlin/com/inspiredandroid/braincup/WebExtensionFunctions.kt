@@ -8,6 +8,7 @@ import com.inspiredandroid.braincup.games.tools.getPaths
 import org.w3c.dom.*
 import kotlin.browser.document
 import kotlin.browser.window
+import kotlin.random.Random
 
 internal fun HTMLCanvasElement.drawFigure(figure: Figure, width: Int, height: Int) {
     val context = this.getContext("2d") as CanvasRenderingContext2D
@@ -55,4 +56,8 @@ fun GameType.openGameHtml() {
 
 fun GameType.openScoreboardHtml() {
     window.open("${this.getName().toLowerCase().removeWhitespaces()}_score.html", target = "_self")
+}
+
+fun randomString(): String {
+    return Random.nextInt(100, 10000).toString()
 }

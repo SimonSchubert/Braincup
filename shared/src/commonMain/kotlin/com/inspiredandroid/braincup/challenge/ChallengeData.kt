@@ -1,18 +1,53 @@
 package com.inspiredandroid.braincup.challenge
 
-sealed class ChallengeData
+import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.getName
 
-data class SherlockCalculationChallengeData(val goal: Int, val numbers: List<Int>) :
+sealed class ChallengeData()
+
+data class SherlockCalculationChallengeData(
+    val title: String,
+    val goal: Int,
+    val numbers: List<Int>
+) :
     ChallengeData() {
     fun getUrl(): String {
         val result =
             UrlController.buildSherlockCalculationChallengeUrl(
+                title,
                 goal.toString(),
                 numbers.joinToString(",")
             )
         return when (result) {
             is ChallengeUrl -> result.url
             else -> ""
+        }
+    }
+
+    fun getTitle(): String {
+        return if (title.isNotEmpty()) {
+            title
+        } else {
+            GameType.SHERLOCK_CALCULATION.getName()
+        }
+    }
+}
+
+data class RiddleChallengeData(
+    val title: String,
+    val description: String,
+    val answers: List<String>
+) :
+    ChallengeData() {
+    fun getUrl(): String {
+        return ""
+    }
+
+    fun getTitle(): String {
+        return if (title.isNotEmpty()) {
+            title
+        } else {
+            GameType.RIDDLE.getName()
         }
     }
 }

@@ -8,10 +8,13 @@
         background-color: #444;
         color: #e4e4e4;
     }
-    .mdc-text-field--outlined .mdc-notched-outline__leading, .mdc-text-field--outlined .mdc-notched-outline__notch, .mdc-text-field--outlined .mdc-notched-outline__trailing {
+    .mdc-text-field .mdc-notched-outline__leading, .mdc-text-field .mdc-notched-outline__notch, .mdc-text-field .mdc-notched-outline__trailing {
         border-color: #e4e4e4 !important;
     }
     input {
+        color: #e4e4e4 !important;
+    }
+    textarea {
         color: #e4e4e4 !important;
     }
 }

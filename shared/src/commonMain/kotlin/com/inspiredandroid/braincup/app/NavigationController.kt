@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.app
 import com.inspiredandroid.braincup.api.Api
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.challenge.ChallengeData
+import com.inspiredandroid.braincup.challenge.RiddleChallengeData
 import com.inspiredandroid.braincup.challenge.SherlockCalculationChallengeData
 import com.inspiredandroid.braincup.games.*
 import com.soywiz.klock.DateTime
@@ -64,7 +65,16 @@ class NavigationController(private val app: NavigationInterface) {
 
     private fun startCreateChallenge() {
         state = AppState.CREATE_CHALLENGE
-        app.showCreateChallenge("Create challenge", "")
+        app.showCreateChallengeMenu(listOf(GameType.SHERLOCK_CALCULATION, GameType.RIDDLE)) {
+            when (it) {
+                GameType.SHERLOCK_CALCULATION -> {
+                    app.showCreateSherlockCalculationChallenge("Create challenge", "")
+                }
+                GameType.RIDDLE -> {
+                    app.showCreateRiddleChallenge("Create challenge")
+                }
+            }
+        }
     }
 
     private fun startChallenge(challengeData: ChallengeData) {
@@ -79,7 +89,27 @@ class NavigationController(private val app: NavigationInterface) {
                     val game = SherlockCalculationGame()
                     game.result = challengeData.goal
                     game.numbers.addAll(challengeData.numbers)
-                    app.showSherlockCalculation(game, { answer ->
+                    app.showSherlockCalculation(game, challengeData.getTitle(), { answer ->
+                        val input = answer.trim()
+                        if (game.isCorrect(input)) {
+                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.getUrl())
+                        } else {
+                            app.showWrongChallengeAnswerFeedback(challengeData.getUrl())
+                        }
+                    }, {})
+                }
+            }
+            is RiddleChallengeData -> {
+                app.showInstructions(
+                    GameType.RIDDLE,
+                    GameType.RIDDLE.getName(),
+                    GameType.RIDDLE.getDescription(false),
+                    showChallengeInfo = true
+                ) {
+                    val game = RiddleGame()
+                    game.description = challengeData.description
+                    game.answers.addAll(challengeData.answers)
+                    app.showRiddle(game, challengeData.getTitle(), { answer ->
                         val input = answer.trim()
                         if (game.isCorrect(input)) {
                             app.showCorrectChallengeAnswerFeedback(answer, challengeData.getUrl())
@@ -124,6 +154,7 @@ class NavigationController(private val app: NavigationInterface) {
                 GameType.HEIGHT_COMPARISON -> HeightComparisonGame()
                 GameType.FRACTION_CALCULATION -> FractionCalculationGame()
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
+                GameType.RIDDLE -> RiddleGame()
             }
             nextRound(game)
         }
@@ -173,7 +204,12 @@ class NavigationController(private val app: NavigationInterface) {
         when (game) {
             is ColorConfusionGame -> app.showColorConfusion(game, answer, next)
             is MentalCalculationGame -> app.showMentalCalculation(game, answer, next)
-            is SherlockCalculationGame -> app.showSherlockCalculation(game, answer, next)
+            is SherlockCalculationGame -> app.showSherlockCalculation(
+                game,
+                game.getName(),
+                answer,
+                next
+            )
             is ChainCalculationGame -> app.showChainCalculation(game, answer, next)
             is HeightComparisonGame -> app.showHeightComparison(game, answer, next)
             is FractionCalculationGame -> app.showFractionCalculation(game, answer, next)

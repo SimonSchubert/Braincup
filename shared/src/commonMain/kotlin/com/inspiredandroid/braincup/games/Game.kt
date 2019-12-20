@@ -8,5 +8,8 @@ abstract class Game {
     abstract fun solution(): String
     abstract fun getGameType(): GameType
     abstract fun hint(): String?
+    fun getName(): String {
+        return getGameType().getName()
+    }
 }
 

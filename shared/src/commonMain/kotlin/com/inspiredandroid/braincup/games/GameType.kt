@@ -9,7 +9,8 @@ enum class GameType {
     SHERLOCK_CALCULATION,
     CHAIN_CALCULATION,
     FRACTION_CALCULATION,
-    HEIGHT_COMPARISON
+    HEIGHT_COMPARISON,
+    RIDDLE
 }
 
 fun GameType.getName(): String {
@@ -21,6 +22,7 @@ fun GameType.getName(): String {
         GameType.FRACTION_CALCULATION -> "Fraction calculation"
         GameType.HEIGHT_COMPARISON -> "Height comparison"
         GameType.ANOMALY_PUZZLE -> "Anomaly puzzle"
+        GameType.RIDDLE -> "Riddle"
     }
 }
 
@@ -33,6 +35,7 @@ fun GameType.getId(): String {
         GameType.FRACTION_CALCULATION -> "4"
         GameType.HEIGHT_COMPARISON -> "5"
         GameType.ANOMALY_PUZZLE -> "6"
+        GameType.RIDDLE -> "7"
     }
 }
 
@@ -60,6 +63,7 @@ fun GameType.getScoreTable(): Array<Int> {
         GameType.FRACTION_CALCULATION -> arrayOf(10, 4)
         GameType.HEIGHT_COMPARISON -> arrayOf(14, 4)
         GameType.ANOMALY_PUZZLE -> arrayOf(17, 8)
+        GameType.RIDDLE -> arrayOf(0, 0)
     }
 }
 
@@ -86,6 +90,7 @@ fun GameType.getDescription(addTimeLimit: Boolean = true): String {
         GameType.FRACTION_CALCULATION -> "Solve the fractions."
         GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result."
         GameType.ANOMALY_PUZZLE -> "Find the outstanding figure. Take into account color and shape."
+        GameType.RIDDLE -> "Solve the riddle."
     } + if (addTimeLimit) {
         timeLimitString
     } else {
@@ -102,5 +107,6 @@ fun GameType.getImageResource(): String {
         GameType.FRACTION_CALCULATION -> "icons8-divide.svg"
         GameType.HEIGHT_COMPARISON -> "icons8-height.svg"
         GameType.ANOMALY_PUZZLE -> "icons8-telescope.svg"
+        GameType.RIDDLE -> "icons8-questions.svg"
     }
 }

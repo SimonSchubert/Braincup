@@ -1,7 +1,9 @@
 package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.app.AppState
+import com.inspiredandroid.braincup.app.NavigationController
+import com.inspiredandroid.braincup.app.NavigationInterface
 import com.inspiredandroid.braincup.challenge.ChallengeData
 import com.inspiredandroid.braincup.challenge.ChallengeUrl
 import com.inspiredandroid.braincup.challenge.ChallengeUrlError
@@ -114,7 +116,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 color = "#5c8e58",
                 imagePath = "images/icons8-create_new3.svg"
             ) {
-                createChallengeHtml()
+                openCreateChallengeHtml()
             }
 
             br {}
@@ -212,7 +214,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             margin(128)
             headline4(game.calculation)
             br {}
-            answerInput {
+            textInput {
                 if (game.getNumberLength() == it.length) {
                     answer(it)
                     window.setTimeout({
@@ -256,7 +258,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             }
             br { }
             br { }
-            answerInput {
+            textInput {
                 if (game.points().length == it.length) {
                     answer(it)
                     window.setTimeout({
@@ -284,7 +286,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             margin(128)
             headline4(game.calculation)
             br {}
-            answerInput {
+            textInput {
                 if (game.isCorrect(it)) {
                     answer(it)
                     window.setTimeout({
@@ -301,17 +303,18 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
     override fun showSherlockCalculation(
         game: SherlockCalculationGame,
+        title: String,
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(game.getGameType().getName())
+            title(title)
             margin(128)
             headline4("Goal: ${game.result}")
             headline5(game.getNumbersString())
             br {}
-            answerInput {
+            textInput {
                 if (game.isCorrect(it)) {
                     answer(it)
                     window.setTimeout({
@@ -360,7 +363,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             margin(128)
             headline4(game.calculation)
             br {}
-            answerInput {
+            textInput {
                 if (game.isCorrect(it)) {
                     answer(it)
                     window.setTimeout({
@@ -424,6 +427,29 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         }
     }
 
+    override fun showRiddle(
+        game: RiddleGame,
+        title: String,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title(title)
+            margin(32)
+            headline5(game.description)
+            margin(24)
+            textInput {
+                if (game.isCorrect(it)) {
+                    answer(it)
+                    window.setTimeout({
+                        next()
+                    }, 1000)
+                }
+            }
+        }
+    }
+
     override fun showCorrectChallengeAnswerFeedback(solution: String, url: String) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
@@ -484,9 +510,8 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
     override fun showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
         document.body = document.create.body {
-            style = "text-align: center; margin: 0px; height: 100%"
-            margin(24)
-            headline2(gameType.getName())
+            style = "text-align: center; margin: 24px"
+            title(gameType.getName())
             margin(64)
             illustration("welcome.svg")
             if (hint != null) {
@@ -501,9 +526,8 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
     override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
         document.body = document.create.body {
-            style = "text-align: center; margin: 0px; height: 100%"
-            margin(24)
-            headline2(gameType.getName())
+            style = "text-align: center; margin: 24px"
+            title(gameType.getName())
             margin(64)
             illustration("searching.svg")
             margin(64)
@@ -638,12 +662,35 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
     }
 
-    override fun showCreateChallenge(title: String, description: String) {
+    override fun showCreateChallengeMenu(games: List<GameType>, answer: (GameType) -> Unit) {
+        document.title = "Braincup - Create challenge"
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title("Create challenge")
+            margin(32)
+            headline5("Create your own challenge and share it with your friends, family and co-workers.")
+            games.forEach { game ->
+                br { }
+                textButton(
+                    text = game.getName(),
+                    width = 300,
+                    imagePath = "images/${game.getImageResource()}"
+                ) {
+                    answer(game)
+                }
+            }
+        }
+    }
+
+    override fun showCreateSherlockCalculationChallenge(title: String, description: String) {
+        var challengeTitle = ""
+        var goal = ""
+        var numbers = ""
+
         document.title = "Braincup - $title"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
             title(title)
-
             margin(32)
 
             div {
@@ -657,74 +704,94 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 text(" task. Challenges for other game types will follow.")
             }
 
-            margin(64)
-            headline4("Goal")
-            div {
-                classes += "mdc-text-field mdc-text-field--outlined"
-                style = "max-width: 100%;"
-                input {
-                    style = "text-align: center;font-size: 30px;width: 150px;"
-                    classes = setOf("mdc-text-field__input")
-                    id = "goalInput"
-                    autoComplete = false
-                    type = InputType.text
-                }
-                div {
-                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
-                    div {
-                        classes += "mdc-notched-outline__leading"
-                    }
-                    div {
-                        classes += "mdc-notched-outline__trailing"
-                    }
-                }
+            margin(48)
+            headline4("Title")
+            textInput(width = 350) {
+                challengeTitle = it
             }
+            helperText("Title of the challenge is optional")
 
             margin(48)
+            headline4("Goal")
+            textInput(width = 150) {
+                goal = it
+            }
+
+            margin(32)
             headline4("Allowed numbers")
-            div {
-                classes += "mdc-text-field mdc-text-field--outlined"
-                style = "max-width: 100%;"
-                input {
-                    style = "text-align: center;font-size: 30px;width: 350px;"
-                    classes = setOf("mdc-text-field__input")
-                    id = "numbersInput"
-                    autoComplete = false
-                    type = InputType.text
-                    placeholder = "Separated by comma or space"
-                }
-                div {
-                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
-                    div {
-                        classes += "mdc-notched-outline__leading"
-                    }
-                    div {
-                        classes += "mdc-notched-outline__trailing"
-                    }
-                }
+            textInput(width = 350) {
+                numbers = it
             }
-            div {
-                classes += "mdc-text-field-helper-line"
-                style = "display: block;"
-                div {
-                    classes += "mdc-text-field-helper-text"
-                    style = "opacity: 1;color: white;"
-                    text("Separated by comma or space")
-                }
-            }
-
-            br {}
-            br {}
+            helperText("Separated by comma or space")
             br {}
 
+            margin(48)
             textButton(
                 text = "Copy link to clipboard",
                 imagePath = "images/icons8-copy_link.svg"
             ) {
-                val goal = (document.getElementById("goalInput") as HTMLInputElement).value
-                val numbers = (document.getElementById("numbersInput") as HTMLInputElement).value
+                val result = UrlController.buildSherlockCalculationChallengeUrl(
+                    challengeTitle,
+                    goal,
+                    numbers
+                )
+                when (result) {
+                    is ChallengeUrl -> {
+                        document.copyToClipboard(result.url)
+                        showSuccessHint("Copied to clipboard")
+                    }
+                    is ChallengeUrlError -> {
+                        showErrorHint(result.errorMessage)
+                    }
+                }
+            }
+        }
+    }
 
-                val result = UrlController.buildSherlockCalculationChallengeUrl(goal, numbers)
+    override fun showCreateRiddleChallenge(title: String) {
+        var description = ""
+        var answers = ""
+        var challengeTitle = ""
+
+        document.title = "Braincup - $title"
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title(title)
+            margin(32)
+
+            div {
+                classes += "mdc-typography--headline5"
+                text("Challenge your friends with a Riddle. Challenges for other game types will follow.")
+            }
+
+            margin(48)
+            headline4("Title")
+            textInput(width = 350) {
+                challengeTitle = it
+            }
+            helperText("Title of the riddle is optional")
+
+            margin(48)
+            headline4("Description")
+            multilineTextInput(width = 350) {
+                description = it
+            }
+
+            margin(32)
+            headline4("Answers")
+            textInput(width = 350) {
+                answers = it
+            }
+            helperText("Separated by comma or space")
+            br {}
+
+            margin(48)
+            textButton(
+                text = "Copy link to clipboard",
+                imagePath = "images/icons8-copy_link.svg"
+            ) {
+                val result =
+                    UrlController.buildRiddleChallengeUrl(challengeTitle, description, answers)
                 when (result) {
                     is ChallengeUrl -> {
                         document.copyToClipboard(result.url)
@@ -742,7 +809,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         window.open("index.html", target = "_self")
     }
 
-    private fun createChallengeHtml() {
+    private fun openCreateChallengeHtml() {
         window.open("create_challenge.html", target = "_self")
     }
 

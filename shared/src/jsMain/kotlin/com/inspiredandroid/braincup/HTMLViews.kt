@@ -4,12 +4,9 @@ import kotlinx.html.*
 import kotlinx.html.js.onClickFunction
 import kotlinx.html.js.onInputFunction
 import org.w3c.dom.HTMLInputElement
+import org.w3c.dom.HTMLTextAreaElement
 import kotlin.browser.document
 import kotlin.browser.window
-
-internal fun FlowContent.title(title: String) {
-    headline2(title)
-}
 
 internal fun FlowContent.textButton(
     text: String, width: Int = -1,
@@ -63,17 +60,30 @@ internal fun FlowContent.giveUpButton(
     }
 }
 
-internal fun FlowContent.answerInput(action: (String) -> Unit) {
+internal fun FlowContent.helperText(text: String) {
+    div {
+        classes += "mdc-text-field-helper-line"
+        style = "display: block;"
+        div {
+            classes += "mdc-text-field-helper-text"
+            style = "opacity: 1;color: white;"
+            text(text)
+        }
+    }
+}
+
+internal fun FlowContent.textInput(width: Int = 150, action: (String) -> Unit) {
+    val randomId = randomString()
     div {
         classes += "mdc-text-field mdc-text-field--outlined"
         style = "max-width: 100%;"
         input {
-            style = "text-align: center;font-size: 30px;width: 150px;"
-            classes = setOf("mdc-text-field__input")
-            id = "answerInput"
+            style = "text-align: center;font-size: 30px;width: ${width}px;max-width: 100%;"
+            classes += "mdc-text-field__input"
+            id = randomId
             autoComplete = false
             onInputFunction = {
-                val input = document.getElementById("answerInput") as HTMLInputElement
+                val input = document.getElementById(randomId) as HTMLInputElement
                 input.focus()
                 action(input.value)
             }
@@ -88,6 +98,38 @@ internal fun FlowContent.answerInput(action: (String) -> Unit) {
             }
         }
     }
+}
+
+internal fun FlowContent.multilineTextInput(width: Int = 350, action: (String) -> Unit) {
+    val randomId = randomString()
+    div {
+        classes += "mdc-text-field mdc-text-field--textarea"
+        style = "max-width: 100%;"
+        textArea {
+            style = "width: ${width}px; height: 250px; max-width: 100%;"
+            classes += "mdc-text-field__input"
+            id = randomId
+            onInputFunction = {
+                val input = document.getElementById(randomId) as HTMLTextAreaElement
+                input.focus()
+                action(input.value)
+                console.log("input: ${input.value}")
+            }
+        }
+        div {
+            classes += "mdc-notched-outline mdc-notched-outline--no-label"
+            div {
+                classes += "mdc-notched-outline__leading"
+            }
+            div {
+                classes += "mdc-notched-outline__trailing"
+            }
+        }
+    }
+}
+
+internal fun FlowContent.title(title: String) {
+    headline2(title)
 }
 
 internal fun FlowContent.headline6(text: String) {

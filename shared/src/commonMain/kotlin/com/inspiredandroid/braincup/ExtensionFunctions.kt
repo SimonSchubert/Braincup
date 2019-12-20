@@ -13,3 +13,27 @@ fun String.addString(part: String, position: Int): String {
 fun String.removeWhitespaces(): String {
     return this.replace("\\s".toRegex(), "")
 }
+
+/**
+ * Comma and space as separator is allowed
+ */
+fun String.splitToIntList(): List<Int> {
+    return this.trim().split(" ").joinToString(separator = ",").split(",")
+        .mapNotNull {
+            try {
+                it.trim().toInt()
+            } catch (ignore: Exception) {
+                null
+            }
+        }
+}
+
+/**
+ * Comma and space as separator is allowed
+ */
+fun String.splitToStringList(): List<String> {
+    return this.trim().split(" ").joinToString(separator = ",").split(",")
+        .map {
+            it.trim()
+        }
+}

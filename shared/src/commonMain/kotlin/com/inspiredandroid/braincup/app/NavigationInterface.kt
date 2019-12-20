@@ -39,6 +39,7 @@ interface NavigationInterface {
 
     fun showSherlockCalculation(
         game: SherlockCalculationGame,
+        title: String,
         answer: (String) -> Unit,
         next: () -> Unit
     )
@@ -67,6 +68,13 @@ interface NavigationInterface {
         next: () -> Unit
     )
 
+    fun showRiddle(
+        game: RiddleGame,
+        title: String,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    )
+
     fun showCorrectChallengeAnswerFeedback(solution: String, url: String)
     fun showWrongChallengeAnswerFeedback(url: String)
     fun showCorrectAnswerFeedback(gameType: GameType, hint: String?)
@@ -87,5 +95,7 @@ interface NavigationInterface {
         unlockedAchievements: List<UserStorage.Achievements>
     )
 
-    fun showCreateChallenge(title: String, description: String)
+    fun showCreateChallengeMenu(games: List<GameType>, answer: (GameType) -> Unit)
+    fun showCreateSherlockCalculationChallenge(title: String, description: String)
+    fun showCreateRiddleChallenge(title: String)
 }
