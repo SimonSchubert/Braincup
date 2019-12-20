@@ -2,6 +2,8 @@ package com.inspiredandroid.braincup.app
 
 import com.inspiredandroid.braincup.api.Api
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.challenge.ChallengeData
+import com.inspiredandroid.braincup.challenge.SherlockCalculationChallengeData
 import com.inspiredandroid.braincup.games.*
 import com.soywiz.klock.DateTime
 

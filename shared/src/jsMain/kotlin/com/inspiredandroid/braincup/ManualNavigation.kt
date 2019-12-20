@@ -1,9 +1,9 @@
 package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.app.AppState
-import com.inspiredandroid.braincup.app.ChallengeData
-import com.inspiredandroid.braincup.app.ChallengeDataParseError
-import com.inspiredandroid.braincup.app.SherlockCalculationChallengeData
+import com.inspiredandroid.braincup.challenge.ChallengeData
+import com.inspiredandroid.braincup.challenge.ChallengeDataParseError
+import com.inspiredandroid.braincup.challenge.SherlockCalculationChallengeData
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import org.w3c.dom.url.URLSearchParams
@@ -57,7 +57,10 @@ fun parseChallenge(urlParams: URLSearchParams): ChallengeData {
         } catch (ignore: Exception) {
             return ChallengeDataParseError()
         }
-        SherlockCalculationChallengeData(goal, numbers)
+        SherlockCalculationChallengeData(
+            goal,
+            numbers
+        )
     } else {
         ChallengeDataParseError()
     }

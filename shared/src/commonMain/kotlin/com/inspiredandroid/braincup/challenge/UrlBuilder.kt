@@ -1,4 +1,4 @@
-package com.inspiredandroid.braincup.app
+package com.inspiredandroid.braincup.challenge
 
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
@@ -11,7 +11,7 @@ data class ChallengeUrl(val url: String) : ChallengeUrlResult()
 
 object UrlController {
 
-    fun generateSherlockCalculationChallengeUrl(
+    fun buildSherlockCalculationChallengeUrl(
         goalInput: String,
         numbersInput: String
     ): ChallengeUrlResult {

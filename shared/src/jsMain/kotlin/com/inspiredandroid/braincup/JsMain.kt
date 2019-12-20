@@ -2,6 +2,10 @@ package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.challenge.ChallengeData
+import com.inspiredandroid.braincup.challenge.ChallengeUrl
+import com.inspiredandroid.braincup.challenge.ChallengeUrlError
+import com.inspiredandroid.braincup.challenge.UrlController
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
@@ -720,7 +724,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 val goal = (document.getElementById("goalInput") as HTMLInputElement).value
                 val numbers = (document.getElementById("numbersInput") as HTMLInputElement).value
 
-                val result = UrlController.generateSherlockCalculationChallengeUrl(goal, numbers)
+                val result = UrlController.buildSherlockCalculationChallengeUrl(goal, numbers)
                 when (result) {
                     is ChallengeUrl -> {
                         document.copyToClipboard(result.url)
