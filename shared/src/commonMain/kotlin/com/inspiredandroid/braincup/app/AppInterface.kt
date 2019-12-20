@@ -8,15 +8,23 @@ interface AppInterface {
         title: String,
         description: String,
         games: List<GameType>,
-        instructions: (GameType) -> Unit,
-        score: (GameType) -> Unit,
-        achievements: () -> Unit,
+        showInstructions: (GameType) -> Unit,
+        showScore: (GameType) -> Unit,
+        showAchievements: () -> Unit,
+        createChallenge: () -> Unit,
         storage: UserStorage,
         totalScore: Int,
         appOpenCount: Int
     )
 
-    fun showInstructions(gameType: GameType, title: String, description: String, start: () -> Unit)
+    fun showInstructions(
+        gameType: GameType,
+        title: String,
+        description: String,
+        showChallengeInfo: Boolean = false,
+        start: () -> Unit
+    )
+
     fun showMentalCalculation(
         game: MentalCalculationGame,
         answer: (String) -> Unit,
@@ -59,6 +67,8 @@ interface AppInterface {
         next: () -> Unit
     )
 
+    fun showCorrectChallengeAnswerFeedback(solution: String, url: String)
+    fun showWrongChallengeAnswerFeedback(url: String)
     fun showCorrectAnswerFeedback(gameType: GameType, hint: String?)
     fun showWrongAnswerFeedback(gameType: GameType, solution: String)
     fun showFinishFeedback(
@@ -76,4 +86,6 @@ interface AppInterface {
         allAchievements: List<UserStorage.Achievements>,
         unlockedAchievements: List<UserStorage.Achievements>
     )
+
+    fun showCreateChallenge(title: String, description: String)
 }

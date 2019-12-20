@@ -29,24 +29,63 @@ class AppController(private val app: AppInterface) {
         )
     }
 
-    fun start(gameType: GameType? = null, state: AppState?) {
+    fun start(
+        state: AppState = AppState.START,
+        gameType: GameType? = null,
+        challengeData: ChallengeData? = null
+    ) {
         storage.putAppOpen()
-        if (gameType == null) {
-            this.state = AppState.START
-            app.showMainMenu(
-                "Braincup", "Train your math skills, memory and focus.",
-                games, { game ->
-                    startGame(game)
-                }, { game ->
-                    startScoreboard(game)
-                }, {
-                    startAchievements()
-                }, storage, storage.getTotalScore(), storage.getAppOpenCount()
-            )
-        } else {
-            when (state) {
-                AppState.INSTRUCTIONS -> startGame(gameType)
-                AppState.SCOREBOARD -> startScoreboard(gameType)
+        when (state) {
+            AppState.START -> startMenu()
+            AppState.INSTRUCTIONS -> gameType?.let { startInstructions(it) }
+            AppState.SCOREBOARD -> gameType?.let { startScoreboard(it) }
+            AppState.CREATE_CHALLENGE -> startCreateChallenge()
+            AppState.CHALLENGE -> challengeData?.let { startChallenge(it) }
+        }
+    }
+
+    private fun startMenu() {
+        state = AppState.START
+        app.showMainMenu(
+            "Braincup", "Train your math skills, memory and focus.",
+            games, { game ->
+                startInstructions(game)
+            }, { game ->
+                startScoreboard(game)
+            }, {
+                startAchievements()
+            }, {
+                startCreateChallenge()
+            }, storage, storage.getTotalScore(), storage.getAppOpenCount()
+        )
+    }
+
+    private fun startCreateChallenge() {
+        state = AppState.CREATE_CHALLENGE
+        app.showCreateChallenge("Create challenge", "")
+    }
+
+    private fun startChallenge(challengeData: ChallengeData) {
+        when (challengeData) {
+            is SherlockCalculationChallengeData -> {
+                app.showInstructions(
+                    GameType.SHERLOCK_CALCULATION,
+                    GameType.SHERLOCK_CALCULATION.getName(),
+                    GameType.SHERLOCK_CALCULATION.getDescription(false),
+                    showChallengeInfo = true
+                ) {
+                    val game = SherlockCalculationGame()
+                    game.result = challengeData.goal
+                    game.numbers.addAll(challengeData.numbers)
+                    app.showSherlockCalculation(game, { answer ->
+                        val input = answer.trim()
+                        if (game.isCorrect(input)) {
+                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.getUrl())
+                        } else {
+                            app.showWrongChallengeAnswerFeedback(challengeData.getUrl())
+                        }
+                    }, {})
+                }
             }
         }
     }
@@ -68,7 +107,7 @@ class AppController(private val app: AppInterface) {
         )
     }
 
-    private fun startGame(gameType: GameType) {
+    private fun startInstructions(gameType: GameType) {
         state = AppState.INSTRUCTIONS
         app.showInstructions(gameType, gameType.getName(), gameType.getDescription()) {
             state = AppState.GAME
@@ -121,8 +160,8 @@ class AppController(private val app: AppInterface) {
                         newHighscore,
                         game.answeredAllCorrect,
                         plays,
-                        { startGame(games.random()) },
-                        { startGame(game.getGameType()) })
+                        { startInstructions(games.random()) },
+                        { startInstructions(game.getGameType()) })
                 }
             } else {
                 nextRound(game)
