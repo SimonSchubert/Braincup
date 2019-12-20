@@ -1,6 +1,6 @@
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.app.AppController
-import com.inspiredandroid.braincup.app.AppInterface
+import com.inspiredandroid.braincup.app.NavigationController
+import com.inspiredandroid.braincup.app.NavigationInterface
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -13,22 +13,23 @@ fun main() {
     CliMain()
 }
 
-class CliMain : AppInterface {
+class CliMain : NavigationInterface {
 
     private val exitCommands = listOf("quit", "exit", ":q")
-    private val gameMaster = AppController(this)
+    private val gameMaster = NavigationController(this)
 
     init {
-        gameMaster.start(state = state)
+        gameMaster.start()
     }
 
     override fun showMainMenu(
         title: String,
         description: String,
         games: List<GameType>,
-        instructions: (GameType) -> Unit,
-        score: (GameType) -> Unit,
-        achievements: () -> Unit,
+        showInstructions: (GameType) -> Unit,
+        showScore: (GameType) -> Unit,
+        showAchievements: () -> Unit,
+        createChallenge: () -> Unit,
         storage: UserStorage,
         totalScore: Int,
         appOpenCount: Int
@@ -48,11 +49,16 @@ class CliMain : AppInterface {
         } else {
             val index = (input?.toIntOrNull() ?: 0) + -1
             val choice = games.getOrNull(index) ?: GameType.FRACTION_CALCULATION
-            instructions(choice)
+            showInstructions(choice)
         }
     }
 
-    override fun showInstructions(title: String, description: String, start: () -> Unit) {
+    override fun showInstructions(
+        gameType: GameType,
+        title: String,
+        description: String,
+        start: () -> Unit
+    ) {
         printTitle(title)
         println(description)
         println("You can type \"quit\" and press enter at anytime to go back to the menu.")
@@ -60,7 +66,7 @@ class CliMain : AppInterface {
         println("Press enter to start.")
 
         if (exitCommands.contains(readLine())) {
-            gameMaster.start(state = state)
+            gameMaster.start()
         } else {
             start()
         }
@@ -171,6 +177,7 @@ class CliMain : AppInterface {
     }
 
     override fun showFinishFeedback(
+        gameType: GameType,
         rank: String,
         newHighscore: Boolean,
         answeredAllCorrect: Boolean,
@@ -191,30 +198,30 @@ class CliMain : AppInterface {
 
         val input = readLine() ?: ""
         if (exitCommands.contains(input)) {
-            gameMaster.start(state = state)
+            gameMaster.start()
         } else {
             when (input) {
                 "1" -> again()
                 "2" -> random()
-                "3" -> gameMaster.start(state = state)
-                else -> gameMaster.start(state = state)
+                "3" -> gameMaster.start()
+                else -> gameMaster.start()
             }
         }
     }
 
-    override fun showCorrectAnswerFeedback(hint: String?) {
+    override fun showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
         println("√ :)".color(Color.GREEN))
         if (hint != null) {
             println(hint)
         }
     }
 
-    override fun showWrongAnswerFeedback(solution: String) {
+    override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
         println("x :( - correct was: $solution".color(Color.RED))
     }
 
     override fun showScoreboard(
-        game: GameType,
+        gameType: GameType,
         highscore: Int,
         scores: List<Pair<String, List<Int>>>
     ) {
@@ -231,7 +238,7 @@ class CliMain : AppInterface {
     private fun readAndAnswer(answer: (String) -> Unit, next: () -> Unit) {
         val input = readLine() ?: ""
         if (exitCommands.contains(input)) {
-            gameMaster.start(state = state)
+            gameMaster.start()
         } else {
             answer(input)
             sleep(1u)

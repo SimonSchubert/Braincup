@@ -10,14 +10,14 @@ import androidx.ui.material.Button
 import androidx.ui.material.MaterialTheme
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.style.TextAlign
-import com.inspiredandroid.braincup.app.AppController
+import com.inspiredandroid.braincup.app.NavigationController
 
 @Composable
 fun InstructionsScreen(
     title: String,
     description: String,
     start: () -> Unit,
-    gameMaster: AppController
+    gameMaster: NavigationController
 ) {
     BaseApp(title = title, back = { gameMaster.start() }) {
         Text(

@@ -7,14 +7,14 @@ import androidx.ui.material.Divider
 import androidx.ui.material.ListItem
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.app.AppController
+import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.games.getDescription
 
 @Composable
 fun AchievementsScreen(
     allAchievements: List<UserStorage.Achievements>,
     unlockedAchievements: List<UserStorage.Achievements>,
-    gameMaster: AppController
+    gameMaster: NavigationController
 ) {
     BaseScrollApp(
         title = "Achievements (${unlockedAchievements.size}/${allAchievements.size})",

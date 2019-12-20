@@ -3,7 +3,7 @@ package com.inspiredandroid.braincup.app
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 
-interface AppInterface {
+interface NavigationInterface {
     fun showMainMenu(
         title: String,
         description: String,

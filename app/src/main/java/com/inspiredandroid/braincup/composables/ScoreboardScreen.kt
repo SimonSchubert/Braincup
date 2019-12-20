@@ -14,7 +14,7 @@ import androidx.ui.res.vectorResource
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.style.TextAlign
 import com.inspiredandroid.braincup.R
-import com.inspiredandroid.braincup.app.AppController
+import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getName
 import com.inspiredandroid.braincup.games.getScoreTable
@@ -25,7 +25,7 @@ fun ScoreboardScreen(
     game: GameType,
     highscore: Int,
     scores: List<Pair<String, List<Int>>>,
-    gameMaster: AppController
+    gameMaster: NavigationController
 ) {
     BaseScrollApp(title = "${game.getName()} - Scores", back = { gameMaster.start() }) {
         HeightSpacer(16.dp)

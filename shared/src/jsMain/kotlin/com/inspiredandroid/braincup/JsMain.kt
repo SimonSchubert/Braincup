@@ -27,9 +27,9 @@ fun main() {
 }
 
 class JsMain(state: AppState, gameType: GameType? = null, challengeData: ChallengeData? = null) :
-    AppInterface {
+    NavigationInterface {
 
-    private val appController = AppController(this)
+    private val appController = NavigationController(this)
 
     init {
         appController.start(state, gameType, challengeData)

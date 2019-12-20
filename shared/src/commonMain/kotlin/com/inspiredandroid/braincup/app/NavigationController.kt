@@ -8,7 +8,7 @@ import com.soywiz.klock.DateTime
 /**
  * Controls the flow through the app and games.
  */
-class AppController(private val app: AppInterface) {
+class NavigationController(private val app: NavigationInterface) {
 
     private val GAME_TIME_MILLIS = 60 * 1000
     var startTime = 0.0

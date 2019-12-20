@@ -6,16 +6,16 @@ import android.widget.FrameLayout
 import androidx.preference.PreferenceManager
 import androidx.ui.core.setContent
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.app.AppController
-import com.inspiredandroid.braincup.app.AppInterface
+import com.inspiredandroid.braincup.app.NavigationController
+import com.inspiredandroid.braincup.app.NavigationInterface
 import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.composables.*
 import com.inspiredandroid.braincup.games.*
 import com.russhwolf.settings.AndroidSettings
 
-class MainActivity : Activity(), AppInterface {
+class MainActivity : Activity(), NavigationInterface {
 
-    private val gameMaster = AppController(this)
+    private val gameMaster = NavigationController(this)
     lateinit var frameLayout: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {

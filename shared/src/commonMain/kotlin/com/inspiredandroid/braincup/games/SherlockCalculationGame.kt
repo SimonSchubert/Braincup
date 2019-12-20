@@ -20,7 +20,7 @@ import kotlin.random.Random
 class SherlockCalculationGame : Game() {
 
     var result = 0
-    private val numbers = mutableListOf<Int>()
+    val numbers = mutableListOf<Int>()
     private var calculation = ""
     private var minNumbersNeeded = 2
     private var maxNumbersNeeded = 3
