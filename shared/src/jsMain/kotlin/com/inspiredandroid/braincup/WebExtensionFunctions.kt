@@ -5,9 +5,8 @@ import com.inspiredandroid.braincup.games.getName
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getPaths
-import org.w3c.dom.CanvasRenderingContext2D
-import org.w3c.dom.HTMLCanvasElement
-import org.w3c.dom.Path2D
+import org.w3c.dom.*
+import kotlin.browser.document
 import kotlin.browser.window
 
 internal fun HTMLCanvasElement.drawFigure(figure: Figure, width: Int, height: Int) {
@@ -39,6 +38,15 @@ internal fun HTMLCanvasElement.drawFigure(figure: Figure, width: Int, height: In
         )
     }
     context.fill(path2D)
+}
+
+fun Document.copyToClipboard(data: String) {
+    val te = document.createElement("textarea") as HTMLTextAreaElement
+    te.value = data
+    document.body?.appendChild(te)
+    te.select()
+    document.execCommand("copy")
+    document.body?.removeChild(te)
 }
 
 fun GameType.openGameHtml() {
