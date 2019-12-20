@@ -1,9 +1,7 @@
 package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.app.AppController
-import com.inspiredandroid.braincup.app.AppInterface
-import com.inspiredandroid.braincup.app.AppState
+import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
@@ -12,9 +10,9 @@ import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
 import kotlinx.html.js.onClickFunction
-import kotlinx.html.js.onInputFunction
 import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLInputElement
+import org.w3c.dom.HTMLParagraphElement
 import kotlin.browser.document
 import kotlin.browser.window
 import kotlin.math.min
@@ -23,97 +21,58 @@ var code = 0
 
 fun main() {
     // Workaround for dce
-    if(code != 0) {
+    if (code != 0) {
         referenceFunctions()
     }
 }
 
-class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface {
+class JsMain(state: AppState, gameType: GameType? = null, challengeData: ChallengeData? = null) :
+    AppInterface {
 
     private val appController = AppController(this)
 
     init {
-        appController.start(gameType, state)
+        appController.start(state, gameType, challengeData)
     }
 
     override fun showMainMenu(
         title: String,
         description: String,
         games: List<GameType>,
-        instructions: (GameType) -> Unit,
-        score: (GameType) -> Unit,
-        achievements: () -> Unit,
+        showInstructions: (GameType) -> Unit,
+        showScore: (GameType) -> Unit,
+        showAchievements: () -> Unit,
+        createChallenge: () -> Unit,
         storage: UserStorage,
         totalScore: Int,
         appOpenCount: Int
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, title)
-            div {
-                style = "margin-top: 32px"
-                classes += "mdc-typography--headline6"
-                text(description)
-            }
+            title(title)
+            margin(32)
+            headline6(description)
             div {
                 style = "margin: auto;"
                 games.forEach { game ->
                     br { }
-                    button {
-                        style =
-                            "width: 300px; max-width: 70%; height: 50px; font-size: 16px; margin-top: 16px; margin-right: 6px"
-                        classes += "mdc-button mdc-button--raised"
-                        img {
-                            classes += "material-icons mdc-button__icon"
-                            src = "images/${game.getImageResource()}"
-                            style = "height: 20px; width: 20px;"
-                        }
-                        span {
-                            classes += "mdc-button__label"
-                            text(game.getName())
-                        }
-                        onClickFunction = {
-                            game.openGameHtml()
-                        }
+                    textButton(
+                        text = game.getName(),
+                        width = 300,
+                        imagePath = "images/${game.getImageResource()}"
+                    ) {
+                        game.openGameHtml()
                     }
                     val highscore = storage.getHighScore(game.getId())
                     if (highscore > 0) {
-                        button {
-                            style =
-                                "width: 85px; height: 50px; font-size: 16px; margin-top: 16px; margin-left: 6px"
-                            classes += "mdc-button mdc-button--raised"
-                            img {
-                                classes += "material-icons mdc-button__icon"
-                                src = "images/${game.getMedalResource(highscore)}"
-                                style = "height: 20px; width: 20px;"
-                            }
-                            span {
-                                classes += "mdc-button__label"
-                                text(highscore)
-                            }
-                            onClickFunction = {
-                                game.openScoreboardHtml()
-                            }
+                        textButton(
+                            text = highscore.toString(),
+                            width = 85,
+                            imagePath = "images/${game.getMedalResource(highscore)}"
+                        ) {
+                            game.openScoreboardHtml()
                         }
                     }
-                }
-            }
-
-            button {
-                style =
-                    "width: 300px; max-width: 70%; height: 50px; font-size: 16px; margin-top: 16px; margin-right: 6px"
-                classes += "mdc-button mdc-button--raised"
-                img {
-                    classes += "material-icons mdc-button__icon"
-                    // src = "images/${game.getImageResource()}"
-                    style = "height: 20px; width: 20px;"
-                }
-                span {
-                    classes += "mdc-button__label"
-                    text("Create challenge")
-                }
-                onClickFunction = {
-                    // game.openGameHtml()
                 }
             }
 
@@ -135,50 +94,31 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
             }
             */
 
-            if (appOpenCount > 0) {
-                div {
-                    classes += "border_box"
-                    style = "margin-top: 32px"
-                    span {
-                        classes += "mdc-typography--headline6"
-                        text("Consecutive training")
-                    }
-                    br {}
-                    span {
-                        classes += "mdc-typography--headline4"
-                        text(appOpenCount)
-                    }
+            div {
+                if (appOpenCount > 1) {
+                    pentagonText("Training days", appOpenCount.toString())
+                }
+                if (totalScore > 0) {
+                    pentagonText("Total score", totalScore.toString())
                 }
             }
 
-            if (totalScore > 0) {
-                div {
-                    classes += "border_box"
-                    style = "margin-top: 32px"
-                    span {
-                        classes += "mdc-typography--headline6"
-                        text("Total score")
-                    }
-                    br {}
-                    span {
-                        classes += "mdc-typography--headline4"
-                        text(totalScore)
-                    }
-                }
+            textButton(
+
+                text = "Create challenge",
+                width = 300,
+                color = "#5c8e58",
+                imagePath = "images/icons8-create_new3.svg"
+            ) {
+                createChallengeHtml()
             }
 
-            img {
-                classes += "illustration"
-                src = "images/waiting.svg"
-            }
-
+            br {}
+            illustration("waiting.svg")
             div {
                 classes += "border_box"
                 style = "width: calc(100% - 32px); max-width: 500px;"
-                div {
-                    classes += "mdc-typography--headline4"
-                    text("Download")
-                }
+                headline4("Download")
                 div {
                     a {
                         href =
@@ -201,10 +141,7 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
                         }
                     }
                 }
-                div {
-                    classes += "mdc-typography--headline5"
-                    text("macOS homebrew:")
-                }
+                headline5("macOS homebrew:")
                 div {
                     code {
                         text("brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup")
@@ -236,26 +173,26 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
         gameType: GameType,
         title: String,
         description: String,
+        showChallengeInfo: Boolean,
         start: () -> Unit
     ) {
-        document.title = "$title - Braincup"
+        document.title = "Braincup - $title"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, title)
-            br { }
-            br { }
-            div {
-                classes += "mdc-typography--headline6"
-                text(description)
+            if (showChallengeInfo) {
+                title("You got challenged")
+                illustration("message-sent.svg")
+                headline3(title)
+            } else {
+                title(title)
             }
             br { }
             br { }
-            button {
-                classes += "mdc-button mdc-button--raised"
-                text("Start")
-                onClickFunction = {
-                    start()
-                }
+            headline6(description)
+            br { }
+            br { }
+            textButton(text = "Start") {
+                start()
             }
         }
     }
@@ -267,14 +204,11 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, game.getGameType().name)
-            div {
-                classes += "mdc-typography--headline4"
-                style = "margin-top: 128px"
-                text(game.calculation)
-            }
+            title(game.getGameType().getName())
+            margin(128)
+            headline4(game.calculation)
             br {}
-            answerInput(this) {
+            answerInput {
                 if (game.getNumberLength() == it.length) {
                     answer(it)
                     window.setTimeout({
@@ -293,12 +227,11 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, game.getGameType().name)
+            title(game.getGameType().getName())
+            margin(32)
             div {
-                style = "margin-top: 32px"
                 id = "canvas"
             }
-
             div {
                 style = "display: inline-block; text-align: left; margin-top: 16px"
                 span {
@@ -319,7 +252,7 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
             }
             br { }
             br { }
-            answerInput(this) {
+            answerInput {
                 if (game.points().length == it.length) {
                     answer(it)
                     window.setTimeout({
@@ -343,14 +276,11 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, game.getGameType().name)
-            div {
-                style = "margin-top: 128px"
-                classes += "mdc-typography--headline4"
-                text(game.calculation)
-            }
+            title(game.getGameType().getName())
+            margin(128)
+            headline4(game.calculation)
             br {}
-            answerInput(this) {
+            answerInput {
                 if (game.isCorrect(it)) {
                     answer(it)
                     window.setTimeout({
@@ -360,8 +290,7 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
             }
             br {}
             br {}
-            giveUpButton(this, answer, next)
-            br {}
+            giveUpButton(answer, next)
         }
         focusAnswerInput()
     }
@@ -373,18 +302,12 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, game.getGameType().name)
-            div {
-                style = "margin-top: 128px"
-                classes += "mdc-typography--headline4"
-                text("Goal: ${game.result}")
-            }
-            div {
-                classes += "mdc-typography--headline5"
-                text("Numbers: ${game.getNumbersString()}")
-            }
+            title(game.getGameType().getName())
+            margin(128)
+            headline4("Goal: ${game.result}")
+            headline5(game.getNumbersString())
             br {}
-            answerInput(this) {
+            answerInput {
                 if (game.isCorrect(it)) {
                     answer(it)
                     window.setTimeout({
@@ -394,68 +317,10 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
             }
             br {}
             br {}
-            giveUpButton(this, answer, next)
+            giveUpButton(answer, next)
             br {}
         }
         focusAnswerInput()
-    }
-
-    private fun focusAnswerInput() {
-        val input = document.getElementById("answerInput") as HTMLInputElement
-        input.focus()
-    }
-
-    // TODO: replace with DSL
-    private fun title(body: BODY, title: String) {
-        body.div {
-            classes += "mdc-typography--headline2"
-            text(title)
-        }
-    }
-
-    // TODO: replace with DSL
-    private fun giveUpButton(
-        body: BODY, answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
-        body.button {
-            style = "width: 150px"
-            classes += "mdc-button mdc-button--raised"
-            text("Give up")
-            onClickFunction = {
-                answer("")
-                window.setTimeout({
-                    next()
-                }, 1000)
-            }
-        }
-    }
-
-    // TODO: replace with DSL
-    private fun answerInput(body: BODY, action: (String) -> Unit) {
-        body.div {
-            classes += "mdc-text-field mdc-text-field--outlined"
-            input {
-                style = "text-align: center;font-size: 30px;width: 150px;"
-                classes = setOf("mdc-text-field__input")
-                id = "answerInput"
-                autoComplete = false
-                onInputFunction = {
-                    val input = document.getElementById("answerInput") as HTMLInputElement
-                    input.focus()
-                    action(input.value)
-                }
-            }
-            div {
-                classes += "mdc-notched-outline mdc-notched-outline--no-label"
-                div {
-                    classes += "mdc-notched-outline__leading"
-                }
-                div {
-                    classes += "mdc-notched-outline__trailing"
-                }
-            }
-        }
     }
 
     override fun showHeightComparison(
@@ -465,23 +330,17 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, game.getGameType().name)
-            br {}
-            br {}
+            title(game.getGameType().getName())
             br {}
             game.answers.forEachIndexed { index, s ->
-                button {
-                    style = "width: 150px; margin-top: 32px"
-                    classes += "mdc-button mdc-button--raised"
-                    text(s)
-                    onClickFunction = {
-                        answer("${index + 1}")
-                        window.setTimeout({
-                            next()
-                        }, 1000)
-                    }
-                }
                 br {}
+                br {}
+                textButton(text = s, width = 150) {
+                    answer("${index + 1}")
+                    window.setTimeout({
+                        next()
+                    }, 1000)
+                }
             }
         }
     }
@@ -493,14 +352,11 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, game.getGameType().name)
-            div {
-                style = "margin-top: 128px"
-                classes += "mdc-typography--headline4"
-                text(game.calculation)
-            }
+            title(game.getGameType().getName())
+            margin(128)
+            headline4(game.calculation)
             br {}
-            answerInput(this) {
+            answerInput {
                 if (game.isCorrect(it)) {
                     answer(it)
                     window.setTimeout({
@@ -510,8 +366,7 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
             }
             br {}
             br {}
-            giveUpButton(this, answer, next)
-            br {}
+            giveUpButton(answer, next)
         }
         focusAnswerInput()
     }
@@ -529,10 +384,10 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
 
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, game.getGameType().name)
-
+            title(game.getGameType().getName())
+            margin(64)
             table {
-                style = "margin: auto; margin-top: 64px"
+                style = "margin: auto"
                 var index = 0
                 game.figures.chunked(chunkSize).forEach {
                     tr {
@@ -565,19 +420,71 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
         }
     }
 
+    override fun showCorrectChallengeAnswerFeedback(solution: String, url: String) {
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title("Congratulation")
+            margin(24)
+            div {
+                classes += "mdc-typography--headline5"
+                text("You solution ")
+                a {
+                    style = "cursor: pointer;"
+                    text(solution)
+                    onClickFunction = {
+                        document.copyToClipboard(solution)
+                        showSuccessHint("Copied to clipboard")
+                    }
+                }
+                text(" solved the challenge.")
+            }
+            illustration("delivery.svg")
+            br {}
+            textButton(
+                text = "Share challenge",
+                width = 250,
+                imagePath = "images/icons8-copy_link.svg"
+            ) {
+                document.copyToClipboard(url)
+                showSuccessHint("Copied to clipboard")
+            }
+            br {}
+            textButton(text = "Menu", width = 250, imagePath = "images/icons8-menu.svg") {
+                openIndexHtml()
+            }
+        }
+    }
+
+    override fun showWrongChallengeAnswerFeedback(url: String) {
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title("Unsolved")
+            margin(24)
+            headline5("The challenge will stay unsolved for now.")
+            illustration("searching.svg")
+            br {}
+            textButton(
+                text = "Share challenge",
+                width = 250,
+                imagePath = "images/icons8-copy_link.svg"
+            ) {
+                document.copyToClipboard(url)
+                showSuccessHint("Copied to clipboard")
+            }
+            br {}
+            textButton(text = "Menu", width = 250, imagePath = "images/icons8-menu.svg") {
+                openIndexHtml()
+            }
+        }
+    }
+
     override fun showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
         document.body = document.create.body {
             style = "text-align: center; margin: 0px; height: 100%"
-            div {
-                classes += "mdc-typography--headline2"
-                style = "padding-top: 24px;"
-                text(gameType.getName())
-            }
-            img {
-                classes += "illustration"
-                style = "margin-top: 64px"
-                src = "images/welcome.svg"
-            }
+            margin(24)
+            headline2(gameType.getName())
+            margin(64)
+            illustration("welcome.svg")
             if (hint != null) {
                 div {
                     style = "margin-top: 64px"
@@ -591,21 +498,12 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
         document.body = document.create.body {
             style = "text-align: center; margin: 0px; height: 100%"
-            div {
-                classes += "mdc-typography--headline2"
-                style = "padding-top: 24px;"
-                text(gameType.getName())
-            }
-            img {
-                classes += "illustration"
-                style = "margin-top: 64px"
-                src = "images/searching.svg"
-            }
-            div {
-                style = "margin-top: 64px"
-                classes += "mdc-typography--headline5"
-                text("Correct was: $solution")
-            }
+            margin(24)
+            headline2(gameType.getName())
+            margin(64)
+            illustration("searching.svg")
+            margin(64)
+            headline5("Correct was: $solution")
         }
     }
 
@@ -620,57 +518,36 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
     ) {
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            div {
-                classes += "mdc-typography--headline2"
-                text(gameType.name)
-            }
+            headline2(gameType.getName())
             br { }
             br { }
-            img {
-                classes += "illustration"
-                src = "images/success.svg"
-            }
+            illustration("success.svg")
             if (newHighscore) {
                 br { }
-                div {
-                    classes += "mdc-typography--headline3"
-                    text("New highscore")
-                }
+                headline3("New highscore")
             }
             br { }
-            div {
-                classes += "mdc-typography--headline5"
-                text("Score: $rank")
+            headline5("Score: $rank")
+            br { }
+            br { }
+            textButton(
+                text = "Again",
+                width = 250,
+                imagePath = "images/icons8-recurring_appointment.svg"
+            ) {
+                gameType.openGameHtml()
             }
             br { }
-            br { }
-            button {
-                style = "width: 250px"
-                classes += "mdc-button mdc-button--raised"
-                text("Again")
-                onClickFunction = {
-                    gameType.openGameHtml()
-                }
+            textButton(
+                text = "Random game",
+                width = 250,
+                imagePath = "images/icons8-dice.svg"
+            ) {
+                GameType.values().random().openGameHtml()
             }
             br { }
-            br { }
-            button {
-                style = "width: 250px"
-                classes += "mdc-button mdc-button--raised"
-                text("Random game")
-                onClickFunction = {
-                    GameType.values().random().openGameHtml()
-                }
-            }
-            br { }
-            br { }
-            button {
-                style = "width: 250px"
-                classes += "mdc-button mdc-button--raised"
-                text("Menu")
-                onClickFunction = {
-                    openIndexHtml()
-                }
+            textButton(text = "Menu", width = 250, imagePath = "images/icons8-menu.svg") {
+                openIndexHtml()
             }
         }
     }
@@ -680,18 +557,13 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
         highscore: Int,
         scores: List<Pair<String, List<Int>>>
     ) {
-        document.title = "${gameType.getName()} score - Braincup"
+        document.title = "Braincup - ${gameType.getName()} score"
         document.body = document.create.body {
             style = "text-align: center; margin: 24px"
-            title(this, "${gameType.getName()} - Scores")
-            div {
-                style = "margin-top: 64px"
-                classes += "mdc-typography--headline4"
-                text("Highscore: $highscore")
-            }
-
+            title("${gameType.getName()} - Scores")
+            margin(64)
+            headline4("Highscore: $highscore")
             br {}
-
             div {
                 style = "display: flex;margin: auto;justify-content: center;align-items: center;"
                 classes += "border_box"
@@ -725,17 +597,12 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
                     src = "images/$MEDAL_FIRST_RESOURCE"
                 }
             }
-
             br {}
             val goldMedalScore = gameType.getScoreTable()[0]
             div {
                 style = "width: 100%; max-width: 500px; margin: auto;"
-
                 scores.forEach {
-                    div {
-                        classes += "mdc-typography--headline5"
-                        text(it.first)
-                    }
+                    headline5(it.first)
                     it.second.forEach { score ->
                         div {
                             val width = min(1f, score.toFloat() / goldMedalScore) * 100f
@@ -767,11 +634,133 @@ class JsMain(gameType: GameType? = null, state: AppState? = null) : AppInterface
 
     }
 
+    override fun showCreateChallenge(title: String, description: String) {
+        document.title = "Braincup - $title"
+        document.body = document.create.body {
+            style = "text-align: center; margin: 24px"
+            title(title)
+
+            margin(32)
+
+            div {
+                classes += "mdc-typography--headline5"
+                text("Challenge your friends with your own ")
+                a {
+                    text("Sherlock calculation")
+                    href = "sherlockcalculation.html"
+                    target = "_self"
+                }
+                text(" task. Challenges for other game types will follow.")
+            }
+
+            margin(64)
+            headline4("Goal")
+            div {
+                classes += "mdc-text-field mdc-text-field--outlined"
+                style = "max-width: 100%;"
+                input {
+                    style = "text-align: center;font-size: 30px;width: 150px;"
+                    classes = setOf("mdc-text-field__input")
+                    id = "goalInput"
+                    autoComplete = false
+                    type = InputType.text
+                }
+                div {
+                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
+                    div {
+                        classes += "mdc-notched-outline__leading"
+                    }
+                    div {
+                        classes += "mdc-notched-outline__trailing"
+                    }
+                }
+            }
+
+            margin(48)
+            headline4("Allowed numbers")
+            div {
+                classes += "mdc-text-field mdc-text-field--outlined"
+                style = "max-width: 100%;"
+                input {
+                    style = "text-align: center;font-size: 30px;width: 350px;"
+                    classes = setOf("mdc-text-field__input")
+                    id = "numbersInput"
+                    autoComplete = false
+                    type = InputType.text
+                    placeholder = "Separated by comma or space"
+                }
+                div {
+                    classes += "mdc-notched-outline mdc-notched-outline--no-label"
+                    div {
+                        classes += "mdc-notched-outline__leading"
+                    }
+                    div {
+                        classes += "mdc-notched-outline__trailing"
+                    }
+                }
+            }
+            div {
+                classes += "mdc-text-field-helper-line"
+                style = "display: block;"
+                div {
+                    classes += "mdc-text-field-helper-text"
+                    style = "opacity: 1;color: white;"
+                    text("Separated by comma or space")
+                }
+            }
+
+            br {}
+            br {}
+            br {}
+
+            textButton(
+                text = "Copy link to clipboard",
+                imagePath = "images/icons8-copy_link.svg"
+            ) {
+                val goal = (document.getElementById("goalInput") as HTMLInputElement).value
+                val numbers = (document.getElementById("numbersInput") as HTMLInputElement).value
+
+                val result = UrlController.generateSherlockCalculationChallengeUrl(goal, numbers)
+                when (result) {
+                    is ChallengeUrl -> {
+                        document.copyToClipboard(result.url)
+                        showSuccessHint("Copied to clipboard")
+                    }
+                    is ChallengeUrlError -> {
+                        showErrorHint(result.errorMessage)
+                    }
+                }
+            }
+        }
+    }
+
     private fun openIndexHtml() {
         window.open("index.html", target = "_self")
     }
 
     private fun createChallengeHtml() {
         window.open("create_challenge.html", target = "_self")
+    }
+
+    private fun focusAnswerInput() {
+        val input = document.getElementById("answerInput") as HTMLInputElement
+        input.focus()
+    }
+
+    private fun showErrorHint(message: String) {
+        showHint(message, "error")
+    }
+
+    private fun showSuccessHint(message: String) {
+        showHint(message, "success")
+    }
+
+    private fun showHint(message: String, cssClass: String) {
+        val te = document.createElement("p") as HTMLParagraphElement
+        te.innerHTML = message
+        te.classList.add("fade_in_and_out")
+        te.classList.add("hint")
+        te.classList.add(cssClass)
+        document.body?.appendChild(te)
     }
 }
