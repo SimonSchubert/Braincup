@@ -25,7 +25,7 @@ Train your math skills, memory and focus.
 `brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup`
 
 ### Web
-https://braincup.schubert-simon.de/
+https://braincup.app
 
 ### Android
 Download apk from https://github.com/SimonSchubert/Braincup/releases and install manually. Play Store and F-Droid will follow.
