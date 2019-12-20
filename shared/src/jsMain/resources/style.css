@@ -21,11 +21,71 @@
     border-style: double;
     border-color: #ed7354;
     width: max-content;
-    margin: 32px auto;
+    margin: auto;
     padding: 8px;
 }
 
 .illustration {
     width: 100%;
     max-width: 400px;
+}
+
+.hint {
+    padding: 12px;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Roboto, sans-serif;
+}
+
+.success {
+    background-color: #2ecc71;
+    color: #444444;
+}
+
+.error {
+    background-color: #e74c3c;
+    color: #e4e4e4;
+}
+
+.fade_in_and_out {
+    -webkit-animation: fadeinout 4s linear forwards;
+    animation: fadeinout 4s linear forwards;
+    opacity: 0;
+}
+
+@-webkit-keyframes fadeinout {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@keyframes fadeinout {
+  0% { opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+a, a:visited, a:hover, a:active, a:focus {
+  color:#ED7354;
+  text-decoration: none;
+}
+
+.pentagon {
+    background-image: url(images/icons8-pentagon.svg);
+    background-size: 230px;
+    width: 230px;
+    height: 200px;
+    display: table-cell;
+    vertical-align: middle;
+    padding-top: 30px;
+}
+
+.pentagonWrapper {
+    display: table;
+    margin: auto;
+    display: inline-block;
 }
