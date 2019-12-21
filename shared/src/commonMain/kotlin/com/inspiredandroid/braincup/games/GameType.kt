@@ -67,29 +67,16 @@ fun GameType.getScoreTable(): Array<Int> {
     }
 }
 
-fun GameType.getMedalResource(score: Int): String {
-    val scoreTable = this.getScoreTable()
-    return when {
-        score >= scoreTable[0] -> MEDAL_FIRST_RESOURCE
-        score >= scoreTable[1] -> MEDAL_SECOND_RESOURCE
-        else -> MEDAL_THIRD_RESOURCE
-    }
-}
-
-const val MEDAL_FIRST_RESOURCE = "icons8-medal_first_place.svg"
-const val MEDAL_SECOND_RESOURCE = "icons8-medal_second_place.svg"
-const val MEDAL_THIRD_RESOURCE = "icons8-medal_third_place.svg"
-
 fun GameType.getDescription(addTimeLimit: Boolean = true): String {
     val timeLimitString = " Time limit is 1 minute."
     return when (this) {
         GameType.MENTAL_CALCULATION -> "Follow the mathematical expressions. Use the result as the base for the next calculation."
         GameType.COLOR_CONFUSION -> "Sum up the points of the correct statements."
-        GameType.SHERLOCK_CALCULATION -> "Find out how to get the result by only using the given numbers and the following operators: + - * / ( )."
+        GameType.SHERLOCK_CALCULATION -> "Find out how to get the goal by only using the given numbers and the following operators: + - * / ( )."
         GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions."
         GameType.FRACTION_CALCULATION -> "Solve the fractions."
         GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result."
-        GameType.ANOMALY_PUZZLE -> "Find the outstanding figure. Take into account color and shape."
+        GameType.ANOMALY_PUZZLE -> "Find the outstanding figure. Take the color and shape of the figure into account."
         GameType.RIDDLE -> "Solve the riddle."
     } + if (addTimeLimit) {
         timeLimitString

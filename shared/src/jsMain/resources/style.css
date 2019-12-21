@@ -64,7 +64,7 @@
     color: #e4e4e4;
 }
 
-.fade_in_and_out {
+.fade-in-and-out {
     -webkit-animation: fadeinout 4s linear forwards;
     animation: fadeinout 4s linear forwards;
     opacity: 0;

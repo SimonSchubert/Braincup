@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getName
+import com.inspiredandroid.braincup.games.getScoreTable
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getPaths
@@ -57,6 +58,19 @@ fun GameType.openGameHtml() {
 fun GameType.openScoreboardHtml() {
     window.open("${this.getName().toLowerCase().removeWhitespaces()}_score.html", target = "_self")
 }
+
+fun GameType.getMedalResource(score: Int): String {
+    val scoreTable = this.getScoreTable()
+    return when {
+        score >= scoreTable[0] -> MEDAL_FIRST_RESOURCE
+        score >= scoreTable[1] -> MEDAL_SECOND_RESOURCE
+        else -> MEDAL_THIRD_RESOURCE
+    }
+}
+
+const val MEDAL_FIRST_RESOURCE = "icons8-medal_first_place.svg"
+const val MEDAL_SECOND_RESOURCE = "icons8-medal_second_place.svg"
+const val MEDAL_THIRD_RESOURCE = "icons8-medal_third_place.svg"
 
 fun randomString(): String {
     return Random.nextInt(100, 10000).toString()

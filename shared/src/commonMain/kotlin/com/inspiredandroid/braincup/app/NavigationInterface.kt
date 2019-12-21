@@ -22,6 +22,7 @@ interface NavigationInterface {
         title: String,
         description: String,
         showChallengeInfo: Boolean = false,
+        hasSecret: Boolean = false,
         start: () -> Unit
     )
 
@@ -75,7 +76,7 @@ interface NavigationInterface {
         next: () -> Unit
     )
 
-    fun showCorrectChallengeAnswerFeedback(solution: String, url: String)
+    fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String)
     fun showWrongChallengeAnswerFeedback(url: String)
     fun showCorrectAnswerFeedback(gameType: GameType, hint: String?)
     fun showWrongAnswerFeedback(gameType: GameType, solution: String)

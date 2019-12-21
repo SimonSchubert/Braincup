@@ -1,7 +1,5 @@
 package com.inspiredandroid.braincup
 
-import com.inspiredandroid.braincup.games.MEDAL_THIRD_RESOURCE
-import com.inspiredandroid.braincup.games.getScoreTable
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
@@ -89,7 +87,6 @@ internal fun FlowContent.textInput(width: Int = 150, action: (String) -> Unit) {
             autoComplete = false
             onInputFunction = {
                 val input = document.getElementById(randomId) as HTMLInputElement
-                input.focus()
                 action(input.value)
             }
         }
@@ -116,9 +113,7 @@ internal fun FlowContent.multilineTextInput(width: Int = 350, action: (String) -
             id = randomId
             onInputFunction = {
                 val input = document.getElementById(randomId) as HTMLTextAreaElement
-                input.focus()
                 action(input.value)
-                console.log("input: ${input.value}")
             }
         }
         div {

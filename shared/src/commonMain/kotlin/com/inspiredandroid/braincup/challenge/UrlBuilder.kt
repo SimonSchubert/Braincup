@@ -2,8 +2,16 @@ package com.inspiredandroid.braincup.challenge
 
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
+import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.splitToIntList
 import com.inspiredandroid.braincup.splitToStringList
+import io.ktor.util.InternalAPI
+import io.ktor.util.encodeBase64
+import kotlinx.serialization.ImplicitReflectionSerializer
+import kotlinx.serialization.json.*
+import kotlinx.serialization.stringify
 
 sealed class ChallengeUrlResult
 
@@ -11,15 +19,22 @@ data class ChallengeUrlError(val errorMessage: String) : ChallengeUrlResult()
 
 data class ChallengeUrl(val url: String) : ChallengeUrlResult()
 
+@UseExperimental(ImplicitReflectionSerializer::class)
 object UrlController {
 
+    @UseExperimental(InternalAPI::class)
     fun buildSherlockCalculationChallengeUrl(
         title: String,
+        secret: String,
         goalInput: String,
         numbersInput: String
     ): ChallengeUrlResult {
         val goal = try {
-            goalInput.trim().toInt()
+            if(goalInput.isEmpty()) {
+                return ChallengeUrlError("Goal is empty.")
+            } else {
+                goalInput.trim().toInt()
+            }
         } catch (ignore: Exception) {
             return ChallengeUrlError("Goal is not properly formatted.")
         }
@@ -34,10 +49,22 @@ object UrlController {
             return ChallengeUrlError("Add more numbers.")
         }
 
+        val map = mutableMapOf<String, JsonElement>()
+        if(title.isNotEmpty()) {
+            map["title"] = JsonPrimitive(title)
+        }
+        if(secret.isNotEmpty()) {
+            map["secret"] = JsonPrimitive(secret)
+        }
+        map["game"] = JsonPrimitive(GameType.SHERLOCK_CALCULATION.getId())
+        map["goal"] = JsonPrimitive(goal)
+        map["numbers"] = JsonPrimitive(numbers.joinToString(
+            ","
+        ))
+        val json = Json.stringify(map) // .plain.toJson(map).content
+
         return ChallengeUrl(
-            "https://braincup.app/challenge.html?game=${GameType.SHERLOCK_CALCULATION.getId()}&type=0&title=$title&goal=$goal&numbers=${numbers.joinToString(
-                ","
-            )}"
+            "https://braincup.app/challenge?data=${json.encodeBase64()}"
         )
     }
 
@@ -46,7 +73,6 @@ object UrlController {
         description: String,
         answersInput: String
     ): ChallengeUrlResult {
-
         if (description.trim().isEmpty()) {
             return ChallengeUrlError("Description is missing.")
         }

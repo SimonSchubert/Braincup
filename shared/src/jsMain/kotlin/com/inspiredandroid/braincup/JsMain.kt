@@ -12,13 +12,12 @@ import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getName
+import io.ktor.util.InternalAPI
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
 import kotlinx.html.js.onClickFunction
-import org.w3c.dom.HTMLCanvasElement
-import org.w3c.dom.HTMLInputElement
-import org.w3c.dom.HTMLParagraphElement
+import org.w3c.dom.*
 import kotlin.browser.document
 import kotlin.browser.window
 import kotlin.math.min
@@ -140,12 +139,17 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         title: String,
         description: String,
         showChallengeInfo: Boolean,
+        hasSecret: Boolean,
         start: () -> Unit
     ) {
         document.title = "Braincup - $title"
         document.body = base {
             if (showChallengeInfo) {
                 title("You got challenged")
+                if(hasSecret) {
+                    margin(32)
+                    headline6("The challenge will unveil a secret.")
+                }
                 illustration("message-sent.svg")
                 headline3(title)
             } else {
@@ -394,7 +398,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         }
     }
 
-    override fun showCorrectChallengeAnswerFeedback(solution: String, url: String) {
+    override fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
         document.body = base {
             title("Congratulation")
             margin(24)
@@ -410,6 +414,10 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                     }
                 }
                 text(" solved the challenge.")
+            }
+            if(secret.isNotEmpty()) {
+                margin(24)
+                headline6("Secret unveiled: $secret")
             }
             illustration("delivery.svg")
             br {}
@@ -590,6 +598,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
     override fun showCreateSherlockCalculationChallenge(title: String, description: String) {
         var challengeTitle = ""
+        var secret = ""
         var goal = ""
         var numbers = ""
 
@@ -615,36 +624,46 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textInput(width = 350) {
                 challengeTitle = it
             }
-            helperText("Title of the challenge is optional")
+            helperText("Title of the challenge. (optional)")
 
-            margin(48)
+            margin(32)
+            headline4("Secret")
+            textInput(width = 350) {
+                secret = it
+            }
+            helperText("The secret will be revealed after solving the challenge. (optional)")
+
+            margin(32)
             headline4("Goal")
             textInput(width = 150) {
                 goal = it
             }
+            helperText("The goal that has to be found.")
 
             margin(32)
             headline4("Allowed numbers")
             textInput(width = 350) {
                 numbers = it
             }
-            helperText("Separated by comma or space")
+            helperText("The allowed numbers to find the goal. (Separated by comma or space)")
             br {}
 
-            margin(48)
+            margin(16)
             textButton(
-                text = "Copy link to clipboard",
-                imagePath = "images/icons8-copy_link.svg"
+                text = "Create",
+                imagePath = "images/icons8-hammer.svg"
             ) {
                 val result = UrlController.buildSherlockCalculationChallengeUrl(
                     challengeTitle,
+                    secret,
                     goal,
                     numbers
                 )
                 when (result) {
                     is ChallengeUrl -> {
+                        createChallengeLinkBox(result.url)
                         document.copyToClipboard(result.url)
-                        showSuccessHint("Copied to clipboard")
+                        showSuccessHint("Copied link to clipboard")
                     }
                     is ChallengeUrlError -> {
                         showErrorHint(result.errorMessage)
@@ -657,6 +676,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     override fun showCreateRiddleChallenge(title: String) {
         var description = ""
         var answers = ""
+        var secret = ""
         var challengeTitle = ""
 
         document.title = "Braincup - $title"
@@ -670,10 +690,17 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textInput(width = 350) {
                 challengeTitle = it
             }
-            helperText("Title of the riddle is optional")
+            helperText("Title of the challenge. (optional)")
 
-            margin(48)
-            headline4("Description")
+            margin(32)
+            headline4("Secret")
+            textInput(width = 350) {
+                secret = it
+            }
+            helperText("The secret will be revealed after solving the challenge. (optional)")
+
+            margin(32)
+            headline4("Quest")
             multilineTextInput(width = 350) {
                 description = it
             }
@@ -707,7 +734,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     }
 
     private fun openIndexHtml() {
-        window.open("", target = "_self")
+        window.open("/", target = "_self")
     }
 
     private fun openCreateChallengeHtml() {
@@ -715,8 +742,9 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     }
 
     private fun focusAnswerInput() {
-        val input = document.getElementById("answerInput") as HTMLInputElement
-        input.focus()
+        document.getElementsByClassName("mdc-text-field__input")[0]?.let {
+            (it as HTMLInputElement).focus()
+        }
     }
 
     private fun showErrorHint(message: String) {
@@ -730,9 +758,21 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     private fun showHint(message: String, cssClass: String) {
         val te = document.createElement("p") as HTMLParagraphElement
         te.innerHTML = message
-        te.classList.add("fade_in_and_out")
+        te.classList.add("fade-in-and-out")
         te.classList.add("hint")
         te.classList.add(cssClass)
         document.body?.appendChild(te)
+    }
+
+    private fun createChallengeLinkBox(url: String) {
+        document.getElementById("challenge-link")?.remove()
+        val te = document.createElement("p") as HTMLParagraphElement
+        te.innerHTML = url
+        te.id = "challenge-link"
+        te.classList.add("border-box")
+        te.style.marginTop = "32px"
+        te.style.marginBottom = "96px"
+        document.body?.appendChild(te)
+        document.scrollingElement?.scrollBy(0.0, 300.0)
     }
 }

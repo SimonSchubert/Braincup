@@ -78,43 +78,37 @@ class NavigationController(private val app: NavigationInterface) {
     }
 
     private fun startChallenge(challengeData: ChallengeData) {
-        when (challengeData) {
-            is SherlockCalculationChallengeData -> {
-                app.showInstructions(
-                    GameType.SHERLOCK_CALCULATION,
-                    GameType.SHERLOCK_CALCULATION.getName(),
-                    GameType.SHERLOCK_CALCULATION.getDescription(false),
-                    showChallengeInfo = true
-                ) {
+        app.showInstructions(
+            challengeData.gameType,
+            challengeData.gameType.getName(),
+            challengeData.gameType.getDescription(false),
+            showChallengeInfo = true,
+            hasSecret = challengeData.challengeSecret.isNotEmpty()
+        ) {
+            when (challengeData) {
+                is SherlockCalculationChallengeData -> {
                     val game = SherlockCalculationGame()
                     game.result = challengeData.goal
                     game.numbers.addAll(challengeData.numbers)
                     app.showSherlockCalculation(game, challengeData.getTitle(), { answer ->
                         val input = answer.trim()
                         if (game.isCorrect(input)) {
-                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.getUrl())
+                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.challengeSecret, challengeData.url)
                         } else {
-                            app.showWrongChallengeAnswerFeedback(challengeData.getUrl())
+                            app.showWrongChallengeAnswerFeedback(challengeData.url)
                         }
                     }, {})
                 }
-            }
-            is RiddleChallengeData -> {
-                app.showInstructions(
-                    GameType.RIDDLE,
-                    GameType.RIDDLE.getName(),
-                    GameType.RIDDLE.getDescription(false),
-                    showChallengeInfo = true
-                ) {
+                is RiddleChallengeData -> {
                     val game = RiddleGame()
                     game.description = challengeData.description
                     game.answers.addAll(challengeData.answers)
                     app.showRiddle(game, challengeData.getTitle(), { answer ->
                         val input = answer.trim()
                         if (game.isCorrect(input)) {
-                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.getUrl())
+                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.challengeSecret, challengeData.url)
                         } else {
-                            app.showWrongChallengeAnswerFeedback(challengeData.getUrl())
+                            app.showWrongChallengeAnswerFeedback(challengeData.url)
                         }
                     }, {})
                 }
