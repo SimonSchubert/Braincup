@@ -1,8 +1,13 @@
 package com.inspiredandroid.braincup
 
+import com.inspiredandroid.braincup.games.MEDAL_THIRD_RESOURCE
+import com.inspiredandroid.braincup.games.getScoreTable
 import kotlinx.html.*
+import kotlinx.html.dom.create
+import kotlinx.html.js.body
 import kotlinx.html.js.onClickFunction
 import kotlinx.html.js.onInputFunction
+import org.w3c.dom.HTMLBodyElement
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLTextAreaElement
 import kotlin.browser.document
@@ -174,9 +179,22 @@ internal fun FlowContent.illustration(id: String) {
     }
 }
 
-internal fun FlowContent.margin(margin: Int) {
+internal fun FlowContent.margin(top: Int = 0, right: Int = 0, bottom: Int = 0, left: Int = 0) {
+    var style = ""
+    if(top != 0) {
+        style += "margin-top: ${top}px;"
+    }
+    if(right != 0) {
+        style += "margin-right: ${right}px;"
+    }
+    if(bottom != 0) {
+        style += "margin-bottom: ${bottom}px;"
+    }
+    if(left != 0) {
+        style += "margin-left: ${left}px;"
+    }
     div {
-        style = "margin-top: ${margin}px"
+        this.style = style
     }
 }
 
@@ -188,5 +206,46 @@ internal fun FlowContent.pentagonText(title: String, value: String) {
             headline6(title)
             headline4(value)
         }
+    }
+}
+
+internal fun FlowContent.icon(size: Int, path: String) {
+    img {
+        style = "height: ${size}px; width: ${size}px;"
+        classes += "material-icons"
+        src = path
+    }
+}
+
+internal fun FlowContent.downloadButton(url: String, imagePath: String) {
+    a {
+        href = url
+        target = "_blank"
+        img {
+            style = "margin-top: 16px; margin-left: 4px; margin-right: 4px;"
+            src = imagePath
+            height = "48px"
+        }
+    }
+}
+
+internal fun FlowContent.gitButton(url: String, width: Int, bottomMargin: Int, imagePath: String) {
+    a {
+        href = url
+        target = "_blank"
+        img {
+            style = "margin-top: 16px; margin-bottom: ${bottomMargin}px;"
+            src = imagePath
+            this.width = "${width}px"
+        }
+    }
+}
+
+internal fun base(
+    block: BODY.() -> Unit = {}
+): HTMLBodyElement {
+    return document.create.body {
+        style = "text-align: center; margin: 24px"
+        block()
     }
 }

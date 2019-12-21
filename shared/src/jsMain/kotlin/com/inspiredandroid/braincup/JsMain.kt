@@ -53,8 +53,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         totalScore: Int,
         appOpenCount: Int
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(title)
             margin(32)
             headline6(description)
@@ -82,24 +81,6 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 }
             }
 
-            /*
-            div {
-                val unlockedAchievements = storage.getUnlockedAchievements()
-                button {
-                    style =
-                        "width: 300px; max-width: 70%; height: 50px; font-size: 16px; margin-top: 16px; margin-right: 6px"
-                    classes += "mdc-button mdc-button--raised"
-                    span {
-                        classes += "mdc-button__label"
-                        text("Achievements (${unlockedAchievements.size}/${UserStorage.Achievements.values().size})")
-                    }
-                    onClickFunction = {
-                        achievements()
-                    }
-                }
-            }
-            */
-
             div {
                 if (appOpenCount > 1) {
                     pentagonText("Training days", appOpenCount.toString())
@@ -110,7 +91,6 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             }
 
             textButton(
-
                 text = "Create challenge",
                 width = 300,
                 color = "#5c8e58",
@@ -121,31 +101,17 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
             br {}
             illustration("waiting.svg")
-            div {
-                classes += "border_box"
-                style = "width: calc(100% - 32px); max-width: 500px;"
+            div(classes = "download-info border-box") {
                 headline4("Download")
                 div {
-                    a {
-                        href =
-                            "https://apps.apple.com/us/app/braincup/id1483376887#?platform=iphone"
-                        target = "_blank"
-                        img {
-                            style = "margin-top: 16px; margin-right: 4px;"
-                            src = "images/app_store.png"
-                            height = "48px"
-                        }
-                    }
-                    a {
-                        href =
-                            "https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup"
-                        target = "_blank"
-                        img {
-                            style = "margin-top: 16px; margin-left: 4px;"
-                            src = "images/play_store.png"
-                            height = "48px"
-                        }
-                    }
+                    downloadButton(
+                        url = "https://apps.apple.com/us/app/braincup/id1483376887#?platform=iphone",
+                        imagePath = "images/app_store.png"
+                    )
+                    downloadButton(
+                        url = "https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup",
+                        imagePath = "images/play_store.png"
+                    )
                 }
                 headline5("macOS homebrew:")
                 div {
@@ -153,24 +119,18 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                         text("brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup")
                     }
                 }
-                a {
-                    href = "https://github.com/SimonSchubert/Braincup"
-                    target = "_blank"
-                    img {
-                        style = "margin-top: 16px; margin-bottom: 8px;"
-                        src = "images/github.png"
-                        width = "32px"
-                    }
-                }
-                a {
-                    href = "https://gitlab.com/Simon_Schubert/Braincup"
-                    target = "_blank"
-                    img {
-                        style = "margin-top: 16px"
-                        src = "images/gitlab.svg"
-                        width = "48px"
-                    }
-                }
+                gitButton(
+                    url = "https://github.com/SimonSchubert/Braincup",
+                    width = 32,
+                    bottomMargin = 8,
+                    imagePath = "images/github.png"
+                )
+                gitButton(
+                    url = "https://gitlab.com/Simon_Schubert/Braincup",
+                    width = 48,
+                    bottomMargin = 0,
+                    imagePath = "images/gitlab.svg"
+                )
             }
         }
     }
@@ -183,8 +143,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         start: () -> Unit
     ) {
         document.title = "Braincup - $title"
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             if (showChallengeInfo) {
                 title("You got challenged")
                 illustration("message-sent.svg")
@@ -208,8 +167,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(game.getGameType().getName())
             margin(128)
             headline4(game.calculation)
@@ -231,23 +189,17 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(game.getGameType().getName())
             margin(32)
             div {
-                id = "canvas"
+                id = "canvasWrapper"
             }
+            margin(16)
             div {
-                style = "display: inline-block; text-align: left; margin-top: 16px"
+                style = "display: inline-block; text-align: left;"
+                headline5("${game.shapePoints} = " + game.answerShape.getName())
                 span {
-                    style = "width: 200px"
-                    classes += "mdc-typography--headline5"
-                    text("${game.shapePoints} = " + game.answerShape.getName())
-                }
-                br {}
-                span {
-                    style = "width: 200px"
                     classes += "mdc-typography--headline5"
                     text("${game.colorPoints} = ")
                     span {
@@ -272,7 +224,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         // TODO: there must be a better way to do that
         val canvas = document.createElement("canvas") as HTMLCanvasElement
         canvas.drawFigure(Figure(game.displayedShape, game.displayedColor), 120, 120)
-        document.getElementById("canvas")?.appendChild(canvas)
+        document.getElementById("canvasWrapper")?.appendChild(canvas)
     }
 
     override fun showChainCalculation(
@@ -280,8 +232,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(game.getGameType().getName())
             margin(128)
             headline4(game.calculation)
@@ -307,8 +258,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(title)
             margin(128)
             headline4("Goal: ${game.result}")
@@ -335,8 +285,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(game.getGameType().getName())
             br {}
             game.answers.forEachIndexed { index, s ->
@@ -357,8 +306,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(game.getGameType().getName())
             margin(128)
             headline4(game.calculation)
@@ -389,8 +337,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             else -> 4
         }
 
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(game.getGameType().getName())
             margin(64)
             table {
@@ -433,8 +380,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(title)
             margin(32)
             headline5(game.description)
@@ -451,8 +397,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     }
 
     override fun showCorrectChallengeAnswerFeedback(solution: String, url: String) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title("Congratulation")
             margin(24)
             div {
@@ -486,8 +431,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     }
 
     override fun showWrongChallengeAnswerFeedback(url: String) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title("Unsolved")
             margin(24)
             headline5("The challenge will stay unsolved for now.")
@@ -509,24 +453,19 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     }
 
     override fun showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(gameType.getName())
             margin(64)
             illustration("welcome.svg")
             if (hint != null) {
-                div {
-                    style = "margin-top: 64px"
-                    classes += "mdc-typography--headline5"
-                    text(hint)
-                }
+                margin(64)
+                headline5(hint)
             }
         }
     }
 
     override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(gameType.getName())
             margin(64)
             illustration("searching.svg")
@@ -544,8 +483,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         random: () -> Unit,
         again: () -> Unit
     ) {
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             headline2(gameType.getName())
             br { }
             br { }
@@ -586,44 +524,20 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         scores: List<Pair<String, List<Int>>>
     ) {
         document.title = "Braincup - ${gameType.getName()} score"
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title("${gameType.getName()} - Scores")
             margin(64)
             headline4("Highscore: $highscore")
             br {}
-            div {
-                style = "display: flex;margin: auto;justify-content: center;align-items: center;"
-                classes += "border_box"
-                div {
-                    classes += "mdc-typography--headline6"
-                    text("> 0")
-                }
-                img {
-                    style = "height: 25px; width: 25px;"
-                    classes += "material-icons"
-                    src = "images/$MEDAL_THIRD_RESOURCE"
-                }
-                div {
-                    style = "margin-left:16px;"
-                    classes += "mdc-typography--headline6"
-                    text("> ${gameType.getScoreTable()[1] - 1} ")
-                }
-                img {
-                    style = "height: 25px; width: 25px;"
-                    classes += "material-icons"
-                    src = "images/$MEDAL_SECOND_RESOURCE"
-                }
-                div {
-                    style = "margin-left:16px;"
-                    classes += "mdc-typography--headline6"
-                    text("    > ${gameType.getScoreTable()[0] - 1} ")
-                }
-                img {
-                    style = "height: 25px; width: 25px;"
-                    classes += "material-icons"
-                    src = "images/$MEDAL_FIRST_RESOURCE"
-                }
+            div(classes = "score-keys border-box") {
+                headline6("> 0")
+                icon(25, "images/$MEDAL_THIRD_RESOURCE")
+                margin(left = 16)
+                headline6("> ${gameType.getScoreTable()[1] - 1}")
+                icon(25, "images/$MEDAL_SECOND_RESOURCE")
+                margin(left = 16)
+                headline6("> ${gameType.getScoreTable()[0] - 1}")
+                icon(25, "images/$MEDAL_FIRST_RESOURCE")
             }
             br {}
             val goldMedalScore = gameType.getScoreTable()[0]
@@ -634,7 +548,6 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                     it.second.forEach { score ->
                         div {
                             val width = min(1f, score.toFloat() / goldMedalScore) * 100f
-
                             style =
                                 "width: ${width}%; min-width: 50px; height: 30px; background: #ED7354;display: flex;align-items: center;"
                             div {
@@ -642,11 +555,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                                 classes += "mdc-typography--headline6"
                                 text(score)
                             }
-                            img {
-                                style = "height: 25px; width: 25px;"
-                                classes += "material-icons"
-                                src = "images/${gameType.getMedalResource(score)}"
-                            }
+                            icon(25, "images/${gameType.getMedalResource(score)}")
                         }
                         br { }
                     }
@@ -664,8 +573,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
     override fun showCreateChallengeMenu(games: List<GameType>, answer: (GameType) -> Unit) {
         document.title = "Braincup - Create challenge"
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title("Create challenge")
             margin(32)
             headline5("Create your own challenge and share it with your friends, family and co-workers.")
@@ -754,15 +662,10 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         var challengeTitle = ""
 
         document.title = "Braincup - $title"
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(title)
             margin(32)
-
-            div {
-                classes += "mdc-typography--headline5"
-                text("Challenge your friends with a Riddle. Challenges for other game types will follow.")
-            }
+            headline5("Challenge your friends with a Riddle. Challenges for other game types will follow.")
 
             margin(48)
             headline4("Title")
@@ -806,7 +709,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     }
 
     private fun openIndexHtml() {
-        window.open("index.html", target = "_self")
+        window.open("", target = "_self")
     }
 
     private fun openCreateChallengeHtml() {

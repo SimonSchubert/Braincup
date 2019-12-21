@@ -19,7 +19,19 @@
     }
 }
 
-.border_box {
+.score-keys  {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.download-info {
+    width: calc(100% - 32px);
+    max-width: 500px;
+}
+
+.border-box {
     border-width: 8px;
     border-style: double;
     border-color: #ed7354;
