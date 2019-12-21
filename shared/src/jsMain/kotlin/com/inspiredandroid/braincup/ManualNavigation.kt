@@ -32,13 +32,11 @@ fun startMenu() {
 }
 
 fun startChallenge() {
-    val url = window.location.search
-    val urlParams = URLSearchParams(url)
+    val urlParams = URLSearchParams(window.location.search)
     urlParams.get("data")?.let {
-        val data = ChallengeData.parse(url, it)
+        val data = ChallengeData.parse(window.location.href, it)
         JsMain(
             state = AppState.CHALLENGE,
-            gameType = GameType.SHERLOCK_CALCULATION,
             challengeData = data
         )
     }

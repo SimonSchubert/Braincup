@@ -104,3 +104,9 @@ a, a:visited, a:hover, a:active, a:focus {
     margin: auto;
     display: inline-block;
 }
+
+#challenge-link {
+    width: 100%;
+    max-width: 400px;
+    word-wrap: break-word;
+}

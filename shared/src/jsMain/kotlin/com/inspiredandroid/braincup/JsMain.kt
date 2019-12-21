@@ -7,12 +7,11 @@ import com.inspiredandroid.braincup.app.NavigationInterface
 import com.inspiredandroid.braincup.challenge.ChallengeData
 import com.inspiredandroid.braincup.challenge.ChallengeUrl
 import com.inspiredandroid.braincup.challenge.ChallengeUrlError
-import com.inspiredandroid.braincup.challenge.UrlController
+import com.inspiredandroid.braincup.challenge.UrlBuilder
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getName
-import io.ktor.util.InternalAPI
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
@@ -63,18 +62,18 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                     textButton(
                         text = game.getName(),
                         width = 300,
-                        imagePath = "images/${game.getImageResource()}"
+                        imagePath = "/images/${game.getImageResource()}"
                     ) {
-                        game.openGameHtml()
+                        openGameHtml(game)
                     }
                     val highscore = storage.getHighScore(game.getId())
                     if (highscore > 0) {
                         textButton(
                             text = highscore.toString(),
                             width = 85,
-                            imagePath = "images/${game.getMedalResource(highscore)}"
+                            imagePath = "/images/${game.getMedalResource(highscore)}"
                         ) {
-                            game.openScoreboardHtml()
+                            openScoreboardHtml(game)
                         }
                     }
                 }
@@ -424,13 +423,13 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textButton(
                 text = "Share challenge",
                 width = 250,
-                imagePath = "images/icons8-copy_link.svg"
+                imagePath = "/images/icons8-copy_link.svg"
             ) {
                 document.copyToClipboard(url)
                 showSuccessHint("Copied to clipboard")
             }
             br {}
-            textButton(text = "Menu", width = 250, imagePath = "images/icons8-menu.svg") {
+            textButton(text = "Menu", width = 250, imagePath = "/images/icons8-menu.svg") {
                 openIndexHtml()
             }
         }
@@ -446,13 +445,13 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textButton(
                 text = "Share challenge",
                 width = 250,
-                imagePath = "images/icons8-copy_link.svg"
+                imagePath = "/images/icons8-copy_link.svg"
             ) {
                 document.copyToClipboard(url)
                 showSuccessHint("Copied to clipboard")
             }
             br {}
-            textButton(text = "Menu", width = 250, imagePath = "images/icons8-menu.svg") {
+            textButton(text = "Menu", width = 250, imagePath = "/images/icons8-menu.svg") {
                 openIndexHtml()
             }
         }
@@ -505,20 +504,20 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textButton(
                 text = "Again",
                 width = 250,
-                imagePath = "images/icons8-recurring_appointment.svg"
+                imagePath = "/images/icons8-recurring_appointment.svg"
             ) {
-                gameType.openGameHtml()
+                openGameHtml(gameType)
             }
             br { }
             textButton(
                 text = "Random game",
                 width = 250,
-                imagePath = "images/icons8-dice.svg"
+                imagePath = "/images/icons8-dice.svg"
             ) {
-                GameType.values().random().openGameHtml()
+                openGameHtml(GameType.values().random())
             }
             br { }
-            textButton(text = "Menu", width = 250, imagePath = "images/icons8-menu.svg") {
+            textButton(text = "Menu", width = 250, imagePath = "/images/icons8-menu.svg") {
                 openIndexHtml()
             }
         }
@@ -537,13 +536,13 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             br {}
             div(classes = "score-keys border-box") {
                 headline6("> 0")
-                icon(25, "images/$MEDAL_THIRD_RESOURCE")
+                icon(25, MEDAL_THIRD_RESOURCE)
                 margin(left = 16)
                 headline6("> ${gameType.getScoreTable()[1] - 1}")
-                icon(25, "images/$MEDAL_SECOND_RESOURCE")
+                icon(25, MEDAL_SECOND_RESOURCE)
                 margin(left = 16)
                 headline6("> ${gameType.getScoreTable()[0] - 1}")
-                icon(25, "images/$MEDAL_FIRST_RESOURCE")
+                icon(25, MEDAL_FIRST_RESOURCE)
             }
             br {}
             val goldMedalScore = gameType.getScoreTable()[0]
@@ -561,7 +560,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                                 classes += "mdc-typography--headline6"
                                 text(score)
                             }
-                            icon(25, "images/${gameType.getMedalResource(score)}")
+                            icon(25, gameType.getMedalResource(score))
                         }
                         br { }
                     }
@@ -588,7 +587,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 textButton(
                     text = game.getName(),
                     width = 300,
-                    imagePath = "images/${game.getImageResource()}"
+                    imagePath = "/images/${game.getImageResource()}"
                 ) {
                     answer(game)
                 }
@@ -613,7 +612,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 text("Challenge your friends with your own ")
                 a {
                     text("Sherlock calculation")
-                    href = "sherlockcalculation.html"
+                    href = "<!doctype html>\n<html lang=\"en\" style=\"margin: 0px; height: 100%\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta content=\"yes\" name=\"apple-mobile-web-app-capable\"/>\n    <meta content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" name=\"viewport\">\n    <link href=\"https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css\"\n          rel=\"stylesheet\">\n    <link href=\"style.css\" rel=\"stylesheet\">\n    <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n          rel=\"stylesheet\">\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"images/icon.png\">\n    <link rel=\"shortcut icon\" sizes=\"196x196\" href=\"images/icon.png\">\n    <link rel=\"apple-touch-icon\" href=\"images/icon.png\">\n\n    <meta name=\"description\" content=\"Train your math skills, memory and focus.\" />\n    <meta name=\"keywords\" content=\"brain,trainer,math,challenge\" />\n    <meta name=\"author\" content=\"Simon Schubert\" />\n    <meta name=\"application-name\" content=\"Braincup\" />\n\n    <meta property=\"og:title\" content=\"Braincup\" />\n    <meta property=\"og:type\" content=\"article\" />\n    <meta property=\"og:url\" content=\"https://braincup.app\" />\n    <meta property=\"og:image\" content=\"https://braincup.app/images/preview.png\" />\n    <meta property=\"og:description\" content=\"Train your math skills, memory and focus.\" />\n\n    <meta name=\"twitter:card\" content=\"summary\" />\n    <meta name=\"twitter:title\" content=\"Braincup\" />\n    <meta name=\"twitter:description\" content=\"Train your math skills, memory and focus.\" />\n    <meta name=\"twitter:image\" content=\"https://braincup.app/images/preview.png\" />\n</head>\n<body>\n\n<div id=\"content\"></div>\n\n<script src=\"game.min.js\" type=\"text/javascript\"></script>\n\n<script type=\"text/javascript\">\n    shared.com.inspiredandroid.braincup.startSherlockCalculation()\n</script>\n\n</body>\n\n</html>"
                     target = "_self"
                 }
                 text(" task. Challenges for other game types will follow.")
@@ -651,9 +650,9 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             margin(16)
             textButton(
                 text = "Create",
-                imagePath = "images/icons8-hammer.svg"
+                imagePath = "/images/icons8-hammer.svg"
             ) {
-                val result = UrlController.buildSherlockCalculationChallengeUrl(
+                val result = UrlBuilder.buildSherlockCalculationChallengeUrl(
                     challengeTitle,
                     secret,
                     goal,
@@ -710,20 +709,25 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textInput(width = 350) {
                 answers = it
             }
-            helperText("Separated by comma or space")
+            helperText("Separated by space")
             br {}
 
             margin(48)
             textButton(
-                text = "Copy link to clipboard",
-                imagePath = "images/icons8-copy_link.svg"
+                text = "Create",
+                imagePath = "/images/icons8-hammer.svg"
             ) {
-                val result =
-                    UrlController.buildRiddleChallengeUrl(challengeTitle, description, answers)
+                val result = UrlBuilder.buildRiddleChallengeUrl(
+                    challengeTitle,
+                    secret,
+                    description,
+                    answers
+                )
                 when (result) {
                     is ChallengeUrl -> {
+                        createChallengeLinkBox(result.url)
                         document.copyToClipboard(result.url)
-                        showSuccessHint("Copied to clipboard")
+                        showSuccessHint("Copied link to clipboard")
                     }
                     is ChallengeUrlError -> {
                         showErrorHint(result.errorMessage)
@@ -738,7 +742,15 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
     }
 
     private fun openCreateChallengeHtml() {
-        window.open("create_challenge.html", target = "_self")
+        window.open("/challenge/create", target = "_self")
+    }
+
+    fun openGameHtml(gameType: GameType) {
+        window.open("/game/${gameType.getName().toLowerCase().removeWhitespaces()}", target = "_self")
+    }
+
+    fun openScoreboardHtml(gameType: GameType) {
+        window.open("/game/${gameType.getName().toLowerCase().removeWhitespaces()}/score", target = "_self")
     }
 
     private fun focusAnswerInput() {

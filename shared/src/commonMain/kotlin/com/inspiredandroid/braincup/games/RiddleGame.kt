@@ -9,7 +9,7 @@ class RiddleGame : Game() {
     }
 
     override fun isCorrect(input: String): Boolean {
-        return answers.contains(input.trim())
+        return answers.any { it.toLowerCase() == input.trim().toLowerCase() }
     }
 
     override fun solution(): String {

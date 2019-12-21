@@ -170,7 +170,15 @@ internal fun FlowContent.headline2(text: String) {
 internal fun FlowContent.illustration(id: String) {
     img {
         classes += "illustration"
-        src = "images/$id"
+        src = "/images/$id"
+    }
+}
+
+internal fun FlowContent.icon(size: Int, id: String) {
+    img {
+        style = "height: ${size}px; width: ${size}px;"
+        classes += "material-icons"
+        src = "/images/$id"
     }
 }
 
@@ -201,14 +209,6 @@ internal fun FlowContent.pentagonText(title: String, value: String) {
             headline6(title)
             headline4(value)
         }
-    }
-}
-
-internal fun FlowContent.icon(size: Int, path: String) {
-    img {
-        style = "height: ${size}px; width: ${size}px;"
-        classes += "material-icons"
-        src = path
     }
 }
 

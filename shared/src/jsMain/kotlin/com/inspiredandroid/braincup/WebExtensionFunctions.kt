@@ -51,14 +51,6 @@ fun Document.copyToClipboard(data: String) {
     document.body?.removeChild(te)
 }
 
-fun GameType.openGameHtml() {
-    window.open("${this.getName().toLowerCase().removeWhitespaces()}.html", target = "_self")
-}
-
-fun GameType.openScoreboardHtml() {
-    window.open("${this.getName().toLowerCase().removeWhitespaces()}_score.html", target = "_self")
-}
-
 fun GameType.getMedalResource(score: Int): String {
     val scoreTable = this.getScoreTable()
     return when {
