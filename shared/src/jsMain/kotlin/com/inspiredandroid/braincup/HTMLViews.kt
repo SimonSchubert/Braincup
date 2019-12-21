@@ -241,6 +241,16 @@ internal fun FlowContent.gitButton(url: String, width: Int, bottomMargin: Int, i
     }
 }
 
+internal fun FlowContent.numberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
+    div {
+        numbers.forEach { number ->
+            textButton(number) {
+                onInputChange(number)
+            }
+        }
+    }
+}
+
 internal fun base(
     block: BODY.() -> Unit = {}
 ): HTMLBodyElement {

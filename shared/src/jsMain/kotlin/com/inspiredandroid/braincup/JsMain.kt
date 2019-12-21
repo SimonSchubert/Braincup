@@ -210,16 +210,14 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             }
             br { }
             br { }
-            textInput {
-                if (game.points().length == it.length) {
-                    answer(it)
-                    window.setTimeout({
-                        next()
-                    }, 1000)
-                }
+            val numbers = game.getPossibleAnswers()
+            numberRow(numbers) {
+                answer(it)
+                window.setTimeout({
+                    next()
+                }, 1000)
             }
         }
-        focusAnswerInput()
 
         // TODO: there must be a better way to do that
         val canvas = document.createElement("canvas") as HTMLCanvasElement

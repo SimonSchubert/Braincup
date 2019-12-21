@@ -42,12 +42,7 @@ fun ColorConfusionScreen(
             color = game.displayedColor.getComposeColor()
         )
         HeightSpacer(32.dp)
-        val numbers = listOf(
-            0,
-            game.shapePoints,
-            game.colorPoints,
-            game.shapePoints + game.colorPoints
-        ).sorted().map { it.toString() }
+        val numbers = game.getPossibleAnswers()
         NumberRow(numbers) {
             answer(it)
             DelayedTask().execute(next)

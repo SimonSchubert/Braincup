@@ -61,6 +61,15 @@ class ColorConfusionGame : Game() {
         return points.toString()
     }
 
+    fun getPossibleAnswers(): List<String> {
+        return listOf(
+            0,
+            shapePoints,
+            colorPoints,
+            shapePoints + colorPoints
+        ).sorted().map { it.toString() }
+    }
+
     override fun solution(): String {
         return points()
     }
