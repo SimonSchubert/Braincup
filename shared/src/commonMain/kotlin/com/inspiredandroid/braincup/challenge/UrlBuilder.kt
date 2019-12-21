@@ -61,7 +61,11 @@ object UrlBuilder {
         )
     }
 
-    private fun getBaseMap(title: String, secret: String, gameType: GameType): MutableMap<String, JsonElement> {
+    private fun getBaseMap(
+        title: String,
+        secret: String,
+        gameType: GameType
+    ): MutableMap<String, JsonElement> {
         val map = mutableMapOf<String, JsonElement>()
         if (title.isNotEmpty()) {
             map["title"] = JsonPrimitive(title)

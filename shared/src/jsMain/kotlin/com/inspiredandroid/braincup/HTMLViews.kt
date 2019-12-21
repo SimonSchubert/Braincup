@@ -184,16 +184,16 @@ internal fun FlowContent.icon(size: Int, id: String) {
 
 internal fun FlowContent.margin(top: Int = 0, right: Int = 0, bottom: Int = 0, left: Int = 0) {
     var style = ""
-    if(top != 0) {
+    if (top != 0) {
         style += "margin-top: ${top}px;"
     }
-    if(right != 0) {
+    if (right != 0) {
         style += "margin-right: ${right}px;"
     }
-    if(bottom != 0) {
+    if (bottom != 0) {
         style += "margin-bottom: ${bottom}px;"
     }
-    if(left != 0) {
+    if (left != 0) {
         style += "margin-left: ${left}px;"
     }
     div {

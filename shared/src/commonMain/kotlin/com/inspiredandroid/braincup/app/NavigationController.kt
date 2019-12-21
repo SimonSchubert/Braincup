@@ -93,7 +93,11 @@ class NavigationController(private val app: NavigationInterface) {
                     app.showSherlockCalculation(game, challengeData.getTitle(), { answer ->
                         val input = answer.trim()
                         if (game.isCorrect(input)) {
-                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.challengeSecret, challengeData.url)
+                            app.showCorrectChallengeAnswerFeedback(
+                                answer,
+                                challengeData.challengeSecret,
+                                challengeData.url
+                            )
                         } else {
                             app.showWrongChallengeAnswerFeedback(challengeData.url)
                         }
@@ -106,7 +110,11 @@ class NavigationController(private val app: NavigationInterface) {
                     app.showRiddle(game, challengeData.getTitle(), { answer ->
                         val input = answer.trim()
                         if (game.isCorrect(input)) {
-                            app.showCorrectChallengeAnswerFeedback(answer, challengeData.challengeSecret, challengeData.url)
+                            app.showCorrectChallengeAnswerFeedback(
+                                answer,
+                                challengeData.challengeSecret,
+                                challengeData.url
+                            )
                         } else {
                             app.showWrongChallengeAnswerFeedback(challengeData.url)
                         }

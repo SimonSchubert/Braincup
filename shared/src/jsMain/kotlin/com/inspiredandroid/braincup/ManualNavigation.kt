@@ -1,9 +1,8 @@
 package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.app.AppState
-import com.inspiredandroid.braincup.challenge.*
+import com.inspiredandroid.braincup.challenge.ChallengeData
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.games.getId
 import org.w3c.dom.url.URLSearchParams
 import kotlin.browser.window
 

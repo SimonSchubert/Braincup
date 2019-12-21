@@ -1,14 +1,12 @@
 package com.inspiredandroid.braincup
 
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.games.getName
 import com.inspiredandroid.braincup.games.getScoreTable
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getPaths
 import org.w3c.dom.*
 import kotlin.browser.document
-import kotlin.browser.window
 import kotlin.random.Random
 
 internal fun HTMLCanvasElement.drawFigure(figure: Figure, width: Int, height: Int) {
