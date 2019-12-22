@@ -108,6 +108,23 @@ a, a:visited, a:hover, a:active, a:focus {
     display: inline-block;
 }
 
+.grid {
+    font-size: 0;
+    border-width: 0;
+    border-spacing: 16px;
+    margin: auto;
+}
+
+.grid td {
+    margin: 0px;
+    padding: 0px;
+}
+
+.grid tr {
+    margin: 0px;
+    padding: 0px;
+}
+
 #challenge-link {
     width: 100%;
     max-width: 400px;

@@ -23,6 +23,7 @@ class NavigationController(private val app: NavigationInterface) {
     companion object {
         val games = listOf(
             GameType.ANOMALY_PUZZLE,
+            GameType.PATH_FINDER,
             GameType.MENTAL_CALCULATION,
             GameType.SHERLOCK_CALCULATION,
             GameType.CHAIN_CALCULATION,
@@ -44,6 +45,7 @@ class NavigationController(private val app: NavigationInterface) {
             AppState.SCOREBOARD -> gameType?.let { startScoreboard(it) }
             AppState.CREATE_CHALLENGE -> startCreateChallenge()
             AppState.CHALLENGE -> challengeData?.let { startChallenge(it) }
+            else -> throw IllegalArgumentException("App state not allowed")
         }
     }
 
@@ -67,12 +69,12 @@ class NavigationController(private val app: NavigationInterface) {
         state = AppState.CREATE_CHALLENGE
         app.showCreateChallengeMenu(listOf(GameType.SHERLOCK_CALCULATION, GameType.RIDDLE)) {
             when (it) {
-                GameType.SHERLOCK_CALCULATION -> {
-                    app.showCreateSherlockCalculationChallenge("Create challenge", "")
-                }
-                GameType.RIDDLE -> {
-                    app.showCreateRiddleChallenge("Create challenge")
-                }
+                GameType.SHERLOCK_CALCULATION -> app.showCreateSherlockCalculationChallenge(
+                    "Create challenge",
+                    ""
+                )
+                GameType.RIDDLE -> app.showCreateRiddleChallenge("Create challenge")
+                else -> throw IllegalArgumentException("Game type not allowed")
             }
         }
     }
@@ -105,7 +107,7 @@ class NavigationController(private val app: NavigationInterface) {
                 }
                 is RiddleChallengeData -> {
                     val game = RiddleGame()
-                    game.description = challengeData.description
+                    game.quest = challengeData.description
                     game.answers.addAll(challengeData.answers)
                     app.showRiddle(game, challengeData.getTitle(), { answer ->
                         val input = answer.trim()
@@ -156,6 +158,7 @@ class NavigationController(private val app: NavigationInterface) {
                 GameType.HEIGHT_COMPARISON -> HeightComparisonGame()
                 GameType.FRACTION_CALCULATION -> FractionCalculationGame()
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
+                GameType.PATH_FINDER -> PathFinderGame()
                 GameType.RIDDLE -> RiddleGame()
             }
             nextRound(game)
@@ -216,6 +219,7 @@ class NavigationController(private val app: NavigationInterface) {
             is HeightComparisonGame -> app.showHeightComparison(game, answer, next)
             is FractionCalculationGame -> app.showFractionCalculation(game, answer, next)
             is AnomalyPuzzleGame -> app.showAnomalyPuzzle(game, answer, next)
+            is PathFinderGame -> app.showPathFinder(game, answer, next)
         }
     }
 }

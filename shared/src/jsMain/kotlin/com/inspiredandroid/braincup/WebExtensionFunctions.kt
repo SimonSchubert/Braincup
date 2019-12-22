@@ -6,7 +6,6 @@ import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getHex
 import com.inspiredandroid.braincup.games.tools.getPaths
 import org.w3c.dom.*
-import kotlin.browser.document
 import kotlin.random.Random
 
 internal fun HTMLCanvasElement.drawFigure(figure: Figure, width: Int, height: Int) {
@@ -41,12 +40,12 @@ internal fun HTMLCanvasElement.drawFigure(figure: Figure, width: Int, height: In
 }
 
 fun Document.copyToClipboard(data: String) {
-    val te = document.createElement("textarea") as HTMLTextAreaElement
+    val te = this.createElement("textarea") as HTMLTextAreaElement
     te.value = data
-    document.body?.appendChild(te)
+    this.body?.appendChild(te)
     te.select()
-    document.execCommand("copy")
-    document.body?.removeChild(te)
+    this.execCommand("copy")
+    this.body?.removeChild(te)
 }
 
 fun GameType.getMedalResource(score: Int): String {

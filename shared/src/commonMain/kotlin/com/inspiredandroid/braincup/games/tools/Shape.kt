@@ -14,7 +14,8 @@ enum class Shape {
     L,
     DIAMOND,
     HOUSE,
-    ABSTRACT_TRIANGLE
+    ABSTRACT_TRIANGLE,
+    ARROW
 }
 
 fun Shape.getName(): String {
@@ -29,6 +30,7 @@ fun Shape.getName(): String {
         Shape.DIAMOND -> "diamond"
         Shape.HOUSE -> "house"
         Shape.ABSTRACT_TRIANGLE -> "triangle"
+        Shape.ARROW -> "arrow"
     }
 }
 
@@ -44,7 +46,20 @@ fun Shape.getPaths(): List<Pair<Float, Float>> {
         Shape.DIAMOND -> diamondPath
         Shape.HOUSE -> housePath
         Shape.ABSTRACT_TRIANGLE -> abstractTrianglePath
+        Shape.ARROW -> arrowPath
     }
+}
+
+val arrowPath by lazy {
+    listOf(
+        0.3f to 1f,
+        0.3f to 0.45f,
+        0f to 0.45f,
+        0.5f to 0f,
+        1f to 0.45f,
+        0.7f to 0.45f,
+        0.7f to 1f
+    )
 }
 
 val abstractTrianglePath by lazy {

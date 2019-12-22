@@ -10,7 +10,8 @@ enum class GameType {
     CHAIN_CALCULATION,
     FRACTION_CALCULATION,
     HEIGHT_COMPARISON,
-    RIDDLE
+    RIDDLE,
+    PATH_FINDER
 }
 
 fun GameType.getName(): String {
@@ -23,6 +24,7 @@ fun GameType.getName(): String {
         GameType.HEIGHT_COMPARISON -> "Height comparison"
         GameType.ANOMALY_PUZZLE -> "Anomaly puzzle"
         GameType.RIDDLE -> "Riddle"
+        GameType.PATH_FINDER -> "Path finder"
     }
 }
 
@@ -36,6 +38,7 @@ fun GameType.getId(): String {
         GameType.HEIGHT_COMPARISON -> "5"
         GameType.ANOMALY_PUZZLE -> "6"
         GameType.RIDDLE -> "7"
+        GameType.PATH_FINDER -> "8"
     }
 }
 
@@ -64,6 +67,7 @@ fun GameType.getScoreTable(): Array<Int> {
         GameType.HEIGHT_COMPARISON -> arrayOf(14, 4)
         GameType.ANOMALY_PUZZLE -> arrayOf(17, 8)
         GameType.RIDDLE -> arrayOf(0, 0)
+        GameType.PATH_FINDER -> arrayOf(14, 7)
     }
 }
 
@@ -78,6 +82,7 @@ fun GameType.getDescription(addTimeLimit: Boolean = true): String {
         GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result."
         GameType.ANOMALY_PUZZLE -> "Find the outstanding figure. Take the color and shape of the figure into account."
         GameType.RIDDLE -> "Solve the riddle."
+        GameType.PATH_FINDER -> "Start at the marked position and follow the arrow instructions to find the destination."
     } + if (addTimeLimit) {
         timeLimitString
     } else {
@@ -95,5 +100,6 @@ fun GameType.getImageResource(): String {
         GameType.HEIGHT_COMPARISON -> "icons8-height.svg"
         GameType.ANOMALY_PUZZLE -> "icons8-telescope.svg"
         GameType.RIDDLE -> "icons8-questions.svg"
+        GameType.PATH_FINDER -> "icons8-hard_to_find.svg"
     }
 }

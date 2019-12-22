@@ -22,6 +22,8 @@ fun referenceFunctions() {
     startHeightComparisonScoreboard()
     startMentalCalculationScoreboard()
     startSherlockCalculationScoreboard()
+    startPathFinder()
+    startPathFinderScoreboard()
     startCreateChallenge()
     startChallenge()
 }
@@ -43,6 +45,14 @@ fun startChallenge() {
 
 fun startCreateChallenge() {
     JsMain(state = AppState.CREATE_CHALLENGE)
+}
+
+fun startPathFinder() {
+    JsMain(AppState.INSTRUCTIONS, GameType.PATH_FINDER)
+}
+
+fun startPathFinderScoreboard() {
+    JsMain(AppState.SCOREBOARD, GameType.PATH_FINDER)
 }
 
 fun startSherlockCalculation() {

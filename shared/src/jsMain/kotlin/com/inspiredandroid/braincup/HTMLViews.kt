@@ -250,7 +250,7 @@ internal fun base(
     block: BODY.() -> Unit = {}
 ): HTMLBodyElement {
     return document.create.body {
-        style = "text-align: center; margin: 24px"
+        style = "text-align: center; margin: 24px;"
         block()
     }
 }

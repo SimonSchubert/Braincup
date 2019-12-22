@@ -9,12 +9,8 @@ import com.inspiredandroid.braincup.challenge.ChallengeUrl
 import com.inspiredandroid.braincup.challenge.ChallengeUrlError
 import com.inspiredandroid.braincup.challenge.UrlBuilder
 import com.inspiredandroid.braincup.games.*
-import com.inspiredandroid.braincup.games.tools.Figure
-import com.inspiredandroid.braincup.games.tools.getHex
-import com.inspiredandroid.braincup.games.tools.getName
+import com.inspiredandroid.braincup.games.tools.*
 import kotlinx.html.*
-import kotlinx.html.dom.create
-import kotlinx.html.js.body
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLInputElement
@@ -22,6 +18,7 @@ import org.w3c.dom.HTMLParagraphElement
 import org.w3c.dom.get
 import kotlin.browser.document
 import kotlin.browser.window
+import kotlin.math.max
 import kotlin.math.min
 
 var code = 0
@@ -290,7 +287,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         next: () -> Unit
     ) {
         document.body = base {
-            title(game.getGameType().getName())
+            title(game.getName())
             br {}
             game.answers.forEachIndexed { index, s ->
                 br {}
@@ -311,7 +308,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         next: () -> Unit
     ) {
         document.body = base {
-            title(game.getGameType().getName())
+            title(game.getName())
             margin(128)
             headline4(game.calculation)
             br {}
@@ -342,17 +339,16 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         }
 
         document.body = base {
-            title(game.getGameType().getName())
+            title(game.getName())
             margin(64)
-            table {
-                style = "margin: auto"
+            table(classes = "grid") {
                 var index = 0
                 game.figures.chunked(chunkSize).forEach {
                     tr {
                         it.forEach {
                             td {
                                 id = "canvasWrapper$index"
-                                style = "padding: 8px; cursor: pointer;"
+                                style = "cursor: pointer;"
                             }
                             index++
                         }
@@ -361,9 +357,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             }
         }
 
-        val margin = 48 + chunkSize * 16
-        val maxCanvasSize = document.body?.clientWidth?.minus(margin)?.div(chunkSize) ?: 120
-        val canvasSize = min(120, maxCanvasSize)
+        val canvasSize = calculateGridCanvasSize(chunkSize)
 
         game.figures.forEachIndexed { index, figure ->
             val canvas = document.createElement("canvas") as HTMLCanvasElement
@@ -387,7 +381,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         document.body = base {
             title(title)
             margin(32)
-            headline5(game.description)
+            headline5(game.quest)
             margin(24)
             textInput {
                 if (game.isCorrect(it)) {
@@ -398,6 +392,78 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 }
             }
         }
+    }
+
+    override fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit) {
+        document.body = base {
+            title(game.getName())
+            margin(24)
+            div {
+                repeat(game.directions.size) { index ->
+                    div {
+                        id = "directionCanvasWrapper$index"
+                        style = "display: inline-block; margin-left: 4px; margin-right: 4px;"
+                    }
+                }
+            }
+            margin(16)
+            table(classes = "grid") {
+                var index = 0
+                repeat(game.gridSize) {
+                    tr {
+                        repeat(game.gridSize) {
+                            td {
+                                id = "canvasWrapper$index"
+                                style = "cursor: pointer;"
+                            }
+                            index++
+                        }
+                    }
+                }
+            }
+        }
+
+        game.directions.forEachIndexed { index, direction ->
+            val canvas = document.createElement("canvas") as HTMLCanvasElement
+            canvas.drawFigure(direction.getFigure(), 50, 50)
+            document.getElementById("directionCanvasWrapper$index")?.appendChild(canvas)
+        }
+
+        val canvasSize = calculateGridCanvasSize(game.gridSize)
+
+        val blankFigure = Figure(Shape.SQUARE, Color.GREY_DARK)
+        val startFigure = Figure(Shape.SQUARE, Color.ORANGE)
+        repeat(game.gridSize * game.gridSize) { index ->
+            val canvas = document.createElement("canvas") as HTMLCanvasElement
+            if (index == game.startX) {
+                canvas.drawFigure(startFigure, canvasSize, canvasSize)
+            } else {
+                canvas.drawFigure(blankFigure, canvasSize, canvasSize)
+            }
+            canvas.onclick = {
+                answer((index + 1).toString())
+                window.setTimeout({
+                    next()
+                }, 1000)
+            }
+            document.getElementById("canvasWrapper$index")?.appendChild(canvas)
+        }
+    }
+
+    /**
+     * Based on the full width minus margin and the ful window height minus the current body height.
+     */
+    private fun calculateGridCanvasSize(gridSize: Int): Int {
+        val maxSize = 120
+        val minSize = 40
+        val horizontalMargin = (gridSize + 1) * 16
+        val verticalMargin = (gridSize + 1) * 16
+        val maxCanvasWidth =
+            document.body?.clientWidth?.minus(horizontalMargin)?.div(gridSize) ?: maxSize
+        val maxCanvasHeight =
+            (window.innerHeight.minus(document.body?.clientHeight ?: 0)).minus(verticalMargin)
+                .div(gridSize)
+        return max(minSize, min(maxSize, min(maxCanvasWidth, maxCanvasHeight)))
     }
 
     override fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
@@ -614,8 +680,8 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 text("Challenge your friends with your own ")
                 a {
                     text("Sherlock calculation")
-                    href = "/game/sherlockcalculation"
-                    target = "_self"
+                    style = "cursor: pointer;"
+                    onClickFunction = { openGameHtml(GameType.SHERLOCK_CALCULATION) }
                 }
                 text(" task. Challenges for other game types will follow.")
             }
@@ -747,14 +813,14 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         window.open("/challenge/create", target = "_self")
     }
 
-    fun openGameHtml(gameType: GameType) {
+    private fun openGameHtml(gameType: GameType) {
         window.open(
             "/game/${gameType.getName().toLowerCase().removeWhitespaces()}",
             target = "_self"
         )
     }
 
-    fun openScoreboardHtml(gameType: GameType) {
+    private fun openScoreboardHtml(gameType: GameType) {
         window.open(
             "/game/${gameType.getName().toLowerCase().removeWhitespaces()}/score",
             target = "_self"
