@@ -1,5 +1,7 @@
 [![GitHub](https://img.shields.io/github/license/SimonSchubert/Braincup.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/play_store_feature.png" width="350">
+
 # Braincup
 Train your math skills, memory and focus.
 
@@ -28,10 +30,13 @@ Train your math skills, memory and focus.
 https://braincup.app
 
 ### Android
-Download apk from https://github.com/SimonSchubert/Braincup/releases and install manually. Play Store and F-Droid will follow.
+[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/play_store.png" width="120">](https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup)
+
+### iOS
+[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/app_store.png" width="120">](https://apps.apple.com/us/app/braincup/id1483376887#?platform=iphone)
 
 ## Goal
-Build an open source memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
+Build an open source math, memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
 
 ## Doing
 - Android client
@@ -39,14 +44,14 @@ Build an open source memory and focus improvement app. The app itself consists o
 - macOS terminal client
 - Linux terminal client
 - JS web client
-- High score server
+- Gamification
 
 ## Todo
 - Linux gui client
 - Windows terminal client
 - Windows gui client
 - macOS gui client
-- Gamification
+- High score server
 
 ## Contribution
 Very welcome.
