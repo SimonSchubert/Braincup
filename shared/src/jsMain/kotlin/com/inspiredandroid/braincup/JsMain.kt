@@ -605,8 +605,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         var numbers = ""
 
         document.title = "Braincup - $title"
-        document.body = document.create.body {
-            style = "text-align: center; margin: 24px"
+        document.body = base {
             title(title)
             margin(32)
 
@@ -615,8 +614,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 text("Challenge your friends with your own ")
                 a {
                     text("Sherlock calculation")
-                    href =
-                        "<!doctype html>\n<html lang=\"en\" style=\"margin: 0px; height: 100%\">\n<head>\n    <meta charset=\"utf-8\">\n    <meta content=\"yes\" name=\"apple-mobile-web-app-capable\"/>\n    <meta content=\"width=device-width, initial-scale=1, shrink-to-fit=no\" name=\"viewport\">\n    <link href=\"https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css\"\n          rel=\"stylesheet\">\n    <link href=\"style.css\" rel=\"stylesheet\">\n    <link href=\"https://fonts.googleapis.com/icon?family=Material+Icons\"\n          rel=\"stylesheet\">\n    <link rel=\"shortcut icon\" type=\"image/png\" href=\"images/icon.png\">\n    <link rel=\"shortcut icon\" sizes=\"196x196\" href=\"images/icon.png\">\n    <link rel=\"apple-touch-icon\" href=\"images/icon.png\">\n\n    <meta name=\"description\" content=\"Train your math skills, memory and focus.\" />\n    <meta name=\"keywords\" content=\"brain,trainer,math,challenge\" />\n    <meta name=\"author\" content=\"Simon Schubert\" />\n    <meta name=\"application-name\" content=\"Braincup\" />\n\n    <meta property=\"og:title\" content=\"Braincup\" />\n    <meta property=\"og:type\" content=\"article\" />\n    <meta property=\"og:url\" content=\"https://braincup.app\" />\n    <meta property=\"og:image\" content=\"https://braincup.app/images/preview.png\" />\n    <meta property=\"og:description\" content=\"Train your math skills, memory and focus.\" />\n\n    <meta name=\"twitter:card\" content=\"summary\" />\n    <meta name=\"twitter:title\" content=\"Braincup\" />\n    <meta name=\"twitter:description\" content=\"Train your math skills, memory and focus.\" />\n    <meta name=\"twitter:image\" content=\"https://braincup.app/images/preview.png\" />\n</head>\n<body>\n\n<div id=\"content\"></div>\n\n<script src=\"game.min.js\" type=\"text/javascript\"></script>\n\n<script type=\"text/javascript\">\n    shared.com.inspiredandroid.braincup.startSherlockCalculation()\n</script>\n\n</body>\n\n</html>"
+                    href = "/game/sherlockcalculation"
                     target = "_self"
                 }
                 text(" task. Challenges for other game types will follow.")
