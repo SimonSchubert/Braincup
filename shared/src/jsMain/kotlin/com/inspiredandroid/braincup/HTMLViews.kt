@@ -69,7 +69,7 @@ internal fun FlowContent.helperText(text: String) {
         style = "display: block;"
         div {
             classes += "mdc-text-field-helper-text"
-            style = "opacity: 1;color: white;"
+            style = "opacity: 1;"
             text(text)
         }
     }

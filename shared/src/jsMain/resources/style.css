@@ -14,6 +14,9 @@
     input {
         color: #e4e4e4 !important;
     }
+    .mdc-text-field-helper-text {
+        color: #e4e4e4 !important;
+    }
     textarea {
         color: #e4e4e4 !important;
     }
@@ -27,7 +30,7 @@
 }
 
 .download-info {
-    width: calc(100% - 32px);
+    width: calc(100% - 32px) !important;
     max-width: 500px;
 }
 
