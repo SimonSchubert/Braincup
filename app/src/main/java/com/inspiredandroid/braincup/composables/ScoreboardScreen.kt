@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.composables
 
+import androidx.annotation.DrawableRes
 import androidx.compose.Composable
 import androidx.compose.unaryPlus
 import androidx.ui.core.Text
@@ -29,11 +30,7 @@ fun ScoreboardScreen(
 ) {
     BaseScrollApp(title = "${game.getName()} - Scores", back = { gameMaster.start() }) {
         HeightSpacer(16.dp)
-        Text(
-            "Hightscore: $highscore",
-            style = (+MaterialTheme.typography()).h6,
-            modifier = Gravity.Center
-        )
+        Headline6(text = "Hightscore: $highscore", modifier = Gravity.Center)
         HeightSpacer(8.dp)
         val table = game.getScoreTable()
         Row(modifier = Gravity.Center) {
@@ -54,11 +51,7 @@ fun ScoreboardScreen(
         }
         scores.forEach {
             HeightSpacer(16.dp)
-            Text(
-                it.first,
-                style = (+MaterialTheme.typography()).h6,
-                modifier = Gravity.Center
-            )
+            Headline6(text = it.first, modifier = Gravity.Center)
             HeightSpacer(8.dp)
             val pointSize = 15
             it.second.forEach { score ->
@@ -78,15 +71,10 @@ fun ScoreboardScreen(
                     Row {
                         Text(
                             score.toString(),
-                            style = (+MaterialTheme.typography()).subtitle1
-                            , paragraphStyle = ParagraphStyle(textAlign = TextAlign.Left)
+                            style = (+MaterialTheme.typography()).subtitle1,
+                            paragraphStyle = ParagraphStyle(textAlign = TextAlign.Left)
                         )
-                        val vectorAsset = +vectorResource(
-                            game.getAndroidMedalResource(score)
-                        )
-                        Container(width = 24.dp, height = 24.dp) {
-                            DrawVector(vectorAsset)
-                        }
+                        VectorImage(id = game.getAndroidMedalResource(score))
                     }
                 }
                 HeightSpacer(16.dp)
@@ -96,16 +84,11 @@ fun ScoreboardScreen(
 }
 
 @Composable
-fun ScoreboardLegend(text: String, vector: Int) {
+fun ScoreboardLegend(text: String, @DrawableRes drawable: Int) {
     Text(
         text,
         style = (+MaterialTheme.typography()).subtitle1
         , paragraphStyle = ParagraphStyle(textAlign = TextAlign.Left)
     )
-    val vectorAsset = +vectorResource(
-        vector
-    )
-    Container(width = 24.dp, height = 24.dp) {
-        DrawVector(vectorAsset)
-    }
+    VectorImage(id = drawable)
 }

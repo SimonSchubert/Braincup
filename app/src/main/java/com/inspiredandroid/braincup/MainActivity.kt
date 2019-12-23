@@ -2,13 +2,16 @@ package com.inspiredandroid.braincup
 
 import android.app.Activity
 import android.os.Bundle
-import android.widget.FrameLayout
 import androidx.preference.PreferenceManager
 import androidx.ui.core.setContent
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.app.NavigationInterface
+import com.inspiredandroid.braincup.challenge.ChallengeData
+import com.inspiredandroid.braincup.challenge.ChallengeDataParseError
+import com.inspiredandroid.braincup.challenge.RiddleChallengeData
+import com.inspiredandroid.braincup.challenge.SherlockCalculationChallengeData
 import com.inspiredandroid.braincup.composables.*
 import com.inspiredandroid.braincup.games.*
 import com.russhwolf.settings.AndroidSettings
@@ -16,7 +19,6 @@ import com.russhwolf.settings.AndroidSettings
 class MainActivity : Activity(), NavigationInterface {
 
     private val gameMaster = NavigationController(this)
-    lateinit var frameLayout: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,9 +26,17 @@ class MainActivity : Activity(), NavigationInterface {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
         settings = AndroidSettings(sharedPrefs)
 
-        frameLayout = FrameLayout(this)
-        setContentView(frameLayout)
-        gameMaster.start()
+        val challengeData = intent.getStringExtra("challenge")
+        if (challengeData != null) {
+            val challengeUrl = intent.getStringExtra("challengeUrl") ?: ""
+            val challenge = ChallengeData.parse(challengeUrl, challengeData)
+            gameMaster.start(
+                state = AppState.CHALLENGE,
+                challengeData = challenge
+            )
+        } else {
+            gameMaster.start()
+        }
     }
 
     override fun onBackPressed() {
@@ -82,6 +92,8 @@ class MainActivity : Activity(), NavigationInterface {
             InstructionsScreen(
                 title,
                 description,
+                showChallengeInfo,
+                hasSecret,
                 start,
                 gameMaster
             )
@@ -220,6 +232,12 @@ class MainActivity : Activity(), NavigationInterface {
         }
     }
 
+    override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
+        setContent {
+            WrongAnswerScreen(solution)
+        }
+    }
+
     override fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -234,12 +252,6 @@ class MainActivity : Activity(), NavigationInterface {
 
     override fun showCreateSherlockCalculationChallenge(title: String, description: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
-        setContent {
-            WrongAnswerScreen(solution)
-        }
     }
 
     override fun showWrongChallengeAnswerFeedback(url: String) {

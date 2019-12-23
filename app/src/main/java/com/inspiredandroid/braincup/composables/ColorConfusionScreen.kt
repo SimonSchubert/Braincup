@@ -1,13 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
 import androidx.ui.core.Text
 import androidx.ui.core.dp
 import androidx.ui.core.sp
 import androidx.ui.layout.Gravity
 import androidx.ui.layout.HeightSpacer
-import androidx.ui.material.MaterialTheme
 import androidx.ui.text.TextStyle
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.ColorConfusionGame
@@ -22,9 +20,8 @@ fun ColorConfusionScreen(
     next: () -> Unit
 ) {
     BaseApp {
-        Text(
-            "${game.shapePoints} = ${game.answerShape.getName()}", style =
-            (+MaterialTheme.typography()).h5,
+        Headline5(
+            text = "${game.shapePoints} = ${game.answerShape.getName()}",
             modifier = Gravity.Center
         )
         Text(

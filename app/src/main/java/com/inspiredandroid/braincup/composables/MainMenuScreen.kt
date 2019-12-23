@@ -1,14 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
-import androidx.ui.core.Text
 import androidx.ui.core.dp
 import androidx.ui.layout.Gravity
 import androidx.ui.layout.HeightSpacer
 import androidx.ui.layout.Row
 import androidx.ui.layout.WidthSpacer
-import androidx.ui.material.MaterialTheme
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
@@ -32,11 +29,7 @@ fun MainMenuScreen(
 ) {
     BaseScrollApp(title) {
         HeightSpacer(8.dp)
-        Text(
-            description,
-            style = (+MaterialTheme.typography()).subtitle1,
-            modifier = Gravity.Center
-        )
+        Subtitle(text = description, modifier = Gravity.Center)
         HeightSpacer(16.dp)
         games.forEach {
             HeightSpacer(16.dp)
@@ -58,29 +51,13 @@ fun MainMenuScreen(
         }
         if (appOpenCount > 0) {
             HeightSpacer(32.dp)
-            Text(
-                "Training days",
-                style = (+MaterialTheme.typography()).subtitle1,
-                modifier = Gravity.Center
-            )
-            Text(
-                appOpenCount.toString(),
-                style = (+MaterialTheme.typography()).h6,
-                modifier = Gravity.Center
-            )
+            Subtitle("Training days", modifier = Gravity.Center)
+            Headline6(text = appOpenCount.toString(), modifier = Gravity.Center)
         }
         if (totalScore > 0) {
             HeightSpacer(16.dp)
-            Text(
-                "Total score",
-                style = (+MaterialTheme.typography()).subtitle1,
-                modifier = Gravity.Center
-            )
-            Text(
-                totalScore.toString(),
-                style = (+MaterialTheme.typography()).h6,
-                modifier = Gravity.Center
-            )
+            Subtitle("Total score", modifier = Gravity.Center)
+            Headline6(text = totalScore.toString(), modifier = Gravity.Center)
         }
         HeightSpacer(24.dp)
 
