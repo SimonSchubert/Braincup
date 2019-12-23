@@ -472,7 +472,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             margin(24)
             div {
                 classes += "mdc-typography--headline5"
-                text("You solution ")
+                text("Your solution '")
                 a {
                     style = "cursor: pointer;"
                     text(solution)
@@ -481,7 +481,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                         showSuccessHint("Copied to clipboard")
                     }
                 }
-                text(" solved the challenge.")
+                text("' solved the challenge.")
             }
             if (secret.isNotEmpty()) {
                 margin(24)

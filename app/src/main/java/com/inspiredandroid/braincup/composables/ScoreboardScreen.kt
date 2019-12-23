@@ -8,10 +8,8 @@ import androidx.ui.core.dp
 import androidx.ui.foundation.shape.DrawShape
 import androidx.ui.foundation.shape.RectangleShape
 import androidx.ui.graphics.Color
-import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.*
 import androidx.ui.material.MaterialTheme
-import androidx.ui.res.vectorResource
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.style.TextAlign
 import com.inspiredandroid.braincup.R

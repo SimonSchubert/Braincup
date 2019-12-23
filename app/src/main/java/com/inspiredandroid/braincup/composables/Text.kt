@@ -4,14 +4,12 @@ import androidx.compose.Composable
 import androidx.compose.unaryPlus
 import androidx.ui.core.Modifier
 import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.layout.Spacing
 import androidx.ui.material.MaterialTheme
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.style.TextAlign
 
 @Composable
-fun Subtitle(
+fun Subtitle1(
     text: String,
     modifier: Modifier = Modifier.None
 ) {
@@ -19,7 +17,20 @@ fun Subtitle(
         text,
         style = (+MaterialTheme.typography()).subtitle1,
         paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center),
-        modifier = modifier wraps Spacing(16.dp)
+        modifier = modifier
+    )
+}
+
+@Composable
+fun Subtitle2(
+    text: String,
+    modifier: Modifier = Modifier.None
+) {
+    Text(
+        text,
+        style = (+MaterialTheme.typography()).subtitle2,
+        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center),
+        modifier = modifier
     )
 }
 

@@ -9,9 +9,6 @@ import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.app.NavigationInterface
 import com.inspiredandroid.braincup.challenge.ChallengeData
-import com.inspiredandroid.braincup.challenge.ChallengeDataParseError
-import com.inspiredandroid.braincup.challenge.RiddleChallengeData
-import com.inspiredandroid.braincup.challenge.SherlockCalculationChallengeData
 import com.inspiredandroid.braincup.composables.*
 import com.inspiredandroid.braincup.games.*
 import com.russhwolf.settings.AndroidSettings
@@ -239,7 +236,15 @@ class MainActivity : Activity(), NavigationInterface {
     }
 
     override fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setContent {
+            CorrectChallengeAnswerScreen(this, solution, secret, url, gameMaster)
+        }
+    }
+
+    override fun showWrongChallengeAnswerFeedback(url: String) {
+        setContent {
+            WrongChallengeAnswerScreen(this, url, gameMaster)
+        }
     }
 
     override fun showCreateChallengeMenu(games: List<GameType>, answer: (GameType) -> Unit) {
@@ -251,10 +256,6 @@ class MainActivity : Activity(), NavigationInterface {
     }
 
     override fun showCreateSherlockCalculationChallenge(title: String, description: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
-    override fun showWrongChallengeAnswerFeedback(url: String) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
