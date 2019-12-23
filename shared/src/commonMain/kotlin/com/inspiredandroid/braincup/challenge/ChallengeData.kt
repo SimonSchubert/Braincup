@@ -70,19 +70,19 @@ sealed class ChallengeData(
 
 data class SherlockCalculationChallengeData(
     val url: String,
-    val title: String,
+    val t: String,
     val secret: String,
     val goal: Int,
     val numbers: List<Int>
-) : ChallengeData(title, secret, GameType.SHERLOCK_CALCULATION)
+) : ChallengeData(t, secret, GameType.SHERLOCK_CALCULATION)
 
 data class RiddleChallengeData(
     val url: String,
-    val title: String,
+    val t: String,
     val secret: String,
     val description: String,
     val answers: List<String>
-) : ChallengeData(title, secret, GameType.RIDDLE)
+) : ChallengeData(t, secret, GameType.RIDDLE)
 
 data class ChallengeDataParseError(val msg: String = "Parsing error") :
     ChallengeData(gameType = GameType.HEIGHT_COMPARISON, challengeSecret = "")

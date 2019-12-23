@@ -99,7 +99,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
             br {}
             illustration("waiting.svg")
-            div(classes = "download-info border-box") {
+            div(classes = "medium-box border-box") {
                 headline4("Download")
                 div {
                     downloadButton(
@@ -856,6 +856,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         te.innerHTML = url
         te.id = "challenge-link"
         te.classList.add("border-box")
+        te.classList.add("medium-box")
         te.style.marginTop = "32px"
         te.style.marginBottom = "96px"
         document.body?.appendChild(te)

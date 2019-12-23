@@ -6,9 +6,9 @@ import android.widget.FrameLayout
 import androidx.preference.PreferenceManager
 import androidx.ui.core.setContent
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.app.NavigationInterface
-import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.composables.*
 import com.inspiredandroid.braincup.games.*
 import com.russhwolf.settings.AndroidSettings
@@ -46,9 +46,10 @@ class MainActivity : Activity(), NavigationInterface {
         title: String,
         description: String,
         games: List<GameType>,
-        instructions: (GameType) -> Unit,
-        score: (GameType) -> Unit,
-        achievements: () -> Unit,
+        showInstructions: (GameType) -> Unit,
+        showScore: (GameType) -> Unit,
+        showAchievements: () -> Unit,
+        createChallenge: () -> Unit,
         storage: UserStorage,
         totalScore: Int,
         appOpenCount: Int
@@ -58,9 +59,10 @@ class MainActivity : Activity(), NavigationInterface {
                 title,
                 description,
                 games,
-                instructions,
-                score,
-                achievements,
+                showInstructions,
+                showScore,
+                showAchievements,
+                createChallenge,
                 storage,
                 totalScore,
                 appOpenCount
@@ -68,7 +70,14 @@ class MainActivity : Activity(), NavigationInterface {
         }
     }
 
-    override fun showInstructions(title: String, description: String, start: () -> Unit) {
+    override fun showInstructions(
+        gameType: GameType,
+        title: String,
+        description: String,
+        showChallengeInfo: Boolean,
+        hasSecret: Boolean,
+        start: () -> Unit
+    ) {
         setContent {
             InstructionsScreen(
                 title,
@@ -87,6 +96,21 @@ class MainActivity : Activity(), NavigationInterface {
         setContent {
             MentalCalculationScreen(game, answer, next)
         }
+    }
+
+    override fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit) {
+        setContent {
+            PathFinderScreen(game, answer, next)
+        }
+    }
+
+    override fun showRiddle(
+        game: RiddleGame,
+        title: String,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showScoreboard(
@@ -143,6 +167,7 @@ class MainActivity : Activity(), NavigationInterface {
 
     override fun showSherlockCalculation(
         game: SherlockCalculationGame,
+        title: String,
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
@@ -189,19 +214,40 @@ class MainActivity : Activity(), NavigationInterface {
         }
     }
 
-    override fun showCorrectAnswerFeedback(hint: String?) {
+    override fun showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
         setContent {
             CorrectAnswerScreen(hint)
         }
     }
 
-    override fun showWrongAnswerFeedback(solution: String) {
+    override fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showCreateChallengeMenu(games: List<GameType>, answer: (GameType) -> Unit) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showCreateRiddleChallenge(title: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showCreateSherlockCalculationChallenge(title: String, description: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showWrongAnswerFeedback(gameType: GameType, solution: String) {
         setContent {
             WrongAnswerScreen(solution)
         }
     }
 
+    override fun showWrongChallengeAnswerFeedback(url: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun showFinishFeedback(
+        gameType: GameType,
         rank: String,
         newHighscore: Boolean,
         answeredAllCorrect: Boolean,

@@ -11,6 +11,7 @@ import androidx.ui.material.MaterialTheme
 import androidx.ui.text.TextStyle
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.ColorConfusionGame
+import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getName
 import com.inspiredandroid.braincup.getComposeColor
 
@@ -38,8 +39,10 @@ fun ColorConfusionScreen(
         ShapeCanvas(
             size = 96.dp,
             modifier = Gravity.Center,
-            shape = game.displayedShape,
-            color = game.displayedColor.getComposeColor()
+            figure = Figure(
+                shape = game.displayedShape,
+                color = game.displayedColor
+            )
         )
         HeightSpacer(32.dp)
         val numbers = game.getPossibleAnswers()
