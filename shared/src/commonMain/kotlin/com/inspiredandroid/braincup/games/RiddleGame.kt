@@ -2,7 +2,7 @@ package com.inspiredandroid.braincup.games
 
 class RiddleGame : Game() {
 
-    internal var quest = ""
+    var quest = ""
     internal var answers = mutableListOf<String>()
 
     override fun nextRound() {

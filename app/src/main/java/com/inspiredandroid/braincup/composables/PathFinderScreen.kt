@@ -31,7 +31,7 @@ fun PathFinderScreen(
             }
         }
         HeightSpacer(height = 16.dp)
-        val blankFigure = Figure(Shape.SQUARE, Color.GREY_DARK)
+        val blankFigure = Figure(Shape.SQUARE, Color.GREY_LIGHT)
         val startFigure = Figure(Shape.SQUARE, Color.ORANGE)
         repeat(game.gridSize) { y ->
             Row(modifier = Gravity.Center) {

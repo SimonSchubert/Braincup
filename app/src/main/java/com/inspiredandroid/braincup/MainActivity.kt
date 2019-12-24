@@ -119,7 +119,9 @@ class MainActivity : Activity(), NavigationInterface {
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setContent {
+            RiddleScreen(game, answer, next)
+        }
     }
 
     override fun showScoreboard(
