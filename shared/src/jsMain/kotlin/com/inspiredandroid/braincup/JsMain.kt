@@ -777,7 +777,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textInput(width = 350) {
                 answers = it
             }
-            helperText("Separated by space")
+            helperText("Separated by comma")
             br {}
 
             margin(48)
