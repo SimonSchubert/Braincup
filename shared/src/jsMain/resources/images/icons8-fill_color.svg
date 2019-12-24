@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?><!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg style="enable-background:new 0 0 24 24" fill="#ebebeb" id="Outlined" version="1.1" viewBox="0 0 24 24"
-        x="0px" xmlns="http://www.w3.org/2000/svg" y="0px"
-        xml:space="preserve">
+<svg style="enable-background:new 0 0 24 24" fill="#ebebeb" id="Outlined" version="1.1"
+    viewBox="0 0 24 24" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px" xml:space="preserve">
 <path style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-miterlimit:10"
-        d="M9.6,20.4l-5.1-5.1c-0.8-0.8-0.8-2,0-2.8L11,6.2  l6.4,6.4c0.8,0.8,0.8,2,0,2.8l-5.1,5.1C11.6,21.2,10.4,21.2,9.6,20.4z"
-        fill="#ebebeb" />
+    d="M9.6,20.4l-5.1-5.1c-0.8-0.8-0.8-2,0-2.8L11,6.2  l6.4,6.4c0.8,0.8,0.8,2,0,2.8l-5.1,5.1C11.6,21.2,10.4,21.2,9.6,20.4z"
+    fill="#ebebeb" />
     <path d="M22,20c0,1.1-0.9,2-2,2s-2-0.9-2-2s2-4,2-4S22,18.9,22,20z" fill="#ebebeb" />
-    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-miterlimit:10" fill="#ebebeb" x1="7.5"
-            x2="15.4" y1="2.7" y2="10.6" />
+    <line style="fill:none;stroke:#ebebeb;stroke-width:2;stroke-miterlimit:10" fill="#ebebeb"
+        x1="7.5" x2="15.4" y1="2.7" y2="10.6" />
     <polygon fill="#ebebeb" points="4,14 18,14 11,21 " />
 </svg>

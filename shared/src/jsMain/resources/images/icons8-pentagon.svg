@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path
         style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
         d="M 12 2.7734375 L 1.8066406 10.021484 L 5.6660156 21 L 6.375 21 L 18.333984 21 L 22.193359 10.021484 L 12 2.7734375 z M 12 5.2265625 L 19.806641 10.779297 L 16.916016 19 L 7.0839844 19 L 4.1933594 10.779297 L 12 5.2265625 z"
-        font-weight="100" font-family="sans-serif" white-space="normal" overflow="visible"
-        fill="#ED7354" />
+        fill="#ED7354" font-family="sans-serif" font-weight="100" overflow="visible"
+        white-space="normal" />
 </svg>

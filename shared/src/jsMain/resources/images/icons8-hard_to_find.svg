@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#ebebeb"><path d="M19,3H5C3.897,3,3,3.897,3,5v6h4V7h6v6h2v-3l4,4l-4,4v-3h-4V9H9v4H3v6c0,1.103,0.897,2,2,2h14c1.103,0,2-0.897,2-2V5 C21,3.897,20.103,3,19,3z" fill="#ebebeb"/></svg>
+<svg fill="#ebebeb" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M19,3H5C3.897,3,3,3.897,3,5v6h4V7h6v6h2v-3l4,4l-4,4v-3h-4V9H9v4H3v6c0,1.103,0.897,2,2,2h14c1.103,0,2-0.897,2-2V5 C21,3.897,20.103,3,19,3z"
+        fill="#ebebeb" />
+</svg>
