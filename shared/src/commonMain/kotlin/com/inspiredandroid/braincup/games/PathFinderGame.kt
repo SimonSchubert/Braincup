@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.games.tools.Direction
+import com.inspiredandroid.braincup.splitToIntList
 import kotlin.random.Random
 
 class PathFinderGame : Game() {
@@ -24,16 +25,12 @@ class PathFinderGame : Game() {
             val direction = Direction.values().random()
             when {
                 direction == Direction.UP && currentY == 0 -> {
-                    println("cancel: $direction")
                 }
                 direction == Direction.DOWN && currentY == gridSize - 1 -> {
-                    println("cancel: $direction")
                 }
                 direction == Direction.LEFT && currentX == 0 -> {
-                    println("cancel: $direction")
                 }
                 direction == Direction.RIGHT && currentX == gridSize - 1 -> {
-                    println("cancel: $direction")
                 }
                 direction != lastDirection -> {
                     lastDirection = direction
@@ -52,11 +49,21 @@ class PathFinderGame : Game() {
     private fun correctGridIndex(): Int = currentY * gridSize + currentX + 1
 
     override fun isCorrect(input: String): Boolean {
-        return input == correctGridIndex().toString()
+        return try {
+            val index = input.toInt()
+            index == correctGridIndex()
+        } catch (ignore: Exception) {
+            val coordinates = input.splitToIntList()
+            if(coordinates.count() < 2) {
+                false
+            } else {
+                coordinates[0] == currentX + 1 && coordinates[1] == currentY + 1
+            }
+        }
     }
 
     override fun solution(): String {
-        return "row ${currentY + 1} and column ${currentX + 1}"
+        return "column ${currentX + 1} and row ${currentY + 1}"
     }
 
     override fun getGameType(): GameType {

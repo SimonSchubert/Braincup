@@ -1,11 +1,12 @@
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.app.NavigationInterface
+import com.inspiredandroid.braincup.challenge.ChallengeUrl
+import com.inspiredandroid.braincup.challenge.ChallengeUrlError
+import com.inspiredandroid.braincup.challenge.ChallengeUrlResult
+import com.inspiredandroid.braincup.challenge.UrlBuilder
 import com.inspiredandroid.braincup.games.*
-import com.inspiredandroid.braincup.games.tools.Color
-import com.inspiredandroid.braincup.games.tools.Figure
-import com.inspiredandroid.braincup.games.tools.Shape
-import com.inspiredandroid.braincup.games.tools.getName
+import com.inspiredandroid.braincup.games.tools.*
 import platform.posix.exit
 import platform.posix.sleep
 
@@ -42,14 +43,26 @@ class CliMain : NavigationInterface {
             println("${index + 1}. ${game.getName()}")
         }
         println()
+        println("${games.size + 1}. Create challenge")
+        println()
 
-        val input = readLine()
-        if (exitCommands.contains(input)) {
-            exit(0)
-        } else {
-            val index = (input?.toIntOrNull() ?: 0) + -1
-            val choice = games.getOrNull(index) ?: GameType.FRACTION_CALCULATION
-            showInstructions(choice)
+        while (true) {
+            val input = readLine() ?: ""
+            if (exitCommands.contains(input)) {
+                exit(0)
+            } else {
+                val index = (input.toIntOrNull() ?: 0) - 1
+                if (index == games.size) {
+                    createChallenge()
+                    return
+                } else {
+                    val choice = games.getOrNull(index)
+                    if (choice != null) {
+                        showInstructions(choice)
+                        return
+                    }
+                }
+            }
         }
     }
 
@@ -57,6 +70,8 @@ class CliMain : NavigationInterface {
         gameType: GameType,
         title: String,
         description: String,
+        showChallengeInfo: Boolean,
+        hasSecret: Boolean,
         start: () -> Unit
     ) {
         printTitle(title)
@@ -119,6 +134,7 @@ class CliMain : NavigationInterface {
 
     override fun showSherlockCalculation(
         game: SherlockCalculationGame,
+        title: String,
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
@@ -170,10 +186,114 @@ class CliMain : NavigationInterface {
         }
 
         printFiguresRow(game.figures, chunkSize)
-
         println()
-
         readAndAnswer(answer, next)
+    }
+
+    override fun showRiddle(
+        game: RiddleGame,
+        title: String,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+        printDivider()
+
+        println(game.quest)
+
+        while (true) {
+            val input = readLine() ?: ""
+            if (exitCommands.contains(input)) {
+                gameMaster.start()
+                return
+            } else {
+                if (game.isCorrect(input)) {
+                    answer(input)
+                    next()
+                } else {
+                    println("Not quite. Try again.")
+                }
+            }
+        }
+    }
+
+    override fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit) {
+        printDivider()
+        val arrows = mutableListOf<String>()
+        game.directions.forEach {
+            arrows.merge(it.getFigure().getLines())
+        }
+        arrows.forEach {
+            println("Instructions: $it")
+        }
+        println()
+        printGrid(game.gridSize, game.startX, game.startY)
+        println()
+        println("At which x,z coordinate does the journey end?")
+        readAndAnswer(answer, next)
+    }
+
+    private fun printGrid(size: Int, startX: Int, startY: Int) {
+        val lines = mutableListOf<String>()
+
+        // Add Y coordinates to the left
+        repeat(size) {
+            lines.add("  ")
+            lines.add("${it + 1} ")
+        }
+
+        // Add 'half grid' parts
+        repeat(size) {
+            lines.merge(getGridPart(size))
+        }
+
+        // Add missing bottom line
+        val bottom = "* * ".repeat(size)
+        lines.add("  $bottom")
+
+        // Add missing tailing line
+        val tail = mutableListOf<String>()
+        repeat(size) {
+            tail.add("*")
+            tail.add("*")
+        }
+        tail.add("*")
+        lines.merge(tail)
+
+        // Add X coordinates on top
+        var xCoordinates = "  "
+        repeat(size) {
+            xCoordinates += "  ${it + 1} "
+        }
+        lines.add(0, xCoordinates)
+
+        val charArray = lines[startY * 2 + 2].toCharArray()
+        charArray[startX * 4 + 4] = '*'
+        lines[startY * 2 + 2] = String(charArray)
+
+        lines.forEach {
+            println(it)
+        }
+    }
+
+    private fun getGridPart(count: Int): List<String> {
+        val parts = mutableListOf<String>()
+        repeat(count) {
+            parts.add("* * ")
+            parts.add("*   ")
+        }
+        return parts
+    }
+
+    override fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
+        println("Your solution '$solution' solved the challenge.")
+        println("Secret unveiled: $secret")
+        waitForEnterAndContinue()
+    }
+
+    override fun showWrongChallengeAnswerFeedback(url: String) {
+        println("Unsolved")
+        println("The challenge will stay unsolved for now.")
+        waitForEnterAndContinue()
     }
 
     override fun showFinishFeedback(
@@ -233,6 +353,91 @@ class CliMain : NavigationInterface {
         unlockedAchievements: List<UserStorage.Achievements>
     ) {
 
+    }
+
+    override fun showCreateChallengeMenu(games: List<GameType>, answer: (GameType) -> Unit) {
+        println("Create your own challenge and share it with your friends, family and co-workers. You can also hide a secret message which will get unveiled after solving the challenge.")
+        println("You can type \"quit\" and press enter at anytime to go back to the menu.")
+        println()
+        games.forEachIndexed { index, game ->
+            println("${index + 1}. ${game.getName()}")
+        }
+        while (true) {
+            val input = readLine() ?: ""
+            if (exitCommands.contains(input)) {
+                gameMaster.start()
+                return
+            } else {
+                val index = (input.toIntOrNull() ?: 0) - 1
+                val choice = games.getOrNull(index)
+                if (choice != null) {
+                    answer(choice)
+                    return
+                }
+            }
+        }
+    }
+
+    override fun showCreateSherlockCalculationChallenge(title: String, description: String) {
+        println("Create your own Sherlock calculation challenge.")
+        println("Title of the challenge(optional, press enter to skip):")
+        val challengeTitle = readLine() ?: ""
+        println("The secret will be revealed after solving the challenge(optional, press enter to skip):")
+        val secret = readLine() ?: ""
+        println("The goal that has to be found:")
+        val goal = readLine() ?: ""
+        println("The allowed numbers to find the goal(separated by comma or space):")
+        val answers = readLine() ?: ""
+
+        val result = UrlBuilder.buildSherlockCalculationChallengeUrl(
+            challengeTitle,
+            secret,
+            goal,
+            answers
+        )
+        showCreateChallengeResult(result)
+    }
+
+    override fun showCreateRiddleChallenge(title: String) {
+        println("Create your own Riddle challenge.")
+        println("Title of the challenge(optional, press enter to skip):")
+        val challengeTitle = readLine() ?: ""
+        println("The secret will be revealed after solving the challenge(optional, press enter to skip):")
+        val secret = readLine() ?: ""
+        println("Riddle:")
+        val riddle = readLine() ?: ""
+        println("Answers (separated by comma):")
+        val answers = readLine() ?: ""
+
+        val result = UrlBuilder.buildRiddleChallengeUrl(
+            challengeTitle,
+            secret,
+            riddle,
+            answers
+        )
+        showCreateChallengeResult(result)
+    }
+
+    private fun showCreateChallengeResult(result: ChallengeUrlResult) {
+        when (result) {
+            is ChallengeUrl -> {
+                println()
+                println("Mobile and web url: ${result.url}")
+                println()
+                println("Command line: braincup --deeplink ${result.url}")
+            }
+            is ChallengeUrlError -> {
+                println(result.errorMessage)
+            }
+        }
+        waitForEnterAndContinue()
+    }
+
+    private fun waitForEnterAndContinue() {
+        println()
+        println("Press enter to continue")
+        readLine()
+        gameMaster.start()
     }
 
     private fun readAndAnswer(answer: (String) -> Unit, next: () -> Unit) {
@@ -413,107 +618,21 @@ class CliMain : NavigationInterface {
                     "  * * * * *  ".color(color)
                 )
             }
+            Shape.ARROW -> when (rotation) {
+                90 -> listOf(
+                    " → ".color(color)
+                )
+                180 -> listOf(
+                    " ↓ ".color(color)
+                )
+                270 -> listOf(
+                    " ← ".color(color)
+                )
+                else -> listOf(
+                    " ↑ ".color(color)
+                )
+            }
         }
-    }
-
-    private fun printAbstractDiamond(color: Color): List<String> {
-        return listOf(
-            "      * * * ".color(color),
-            "    *     * ".color(color),
-            "  *       * ".color(color),
-            "  *     *   ".color(color),
-            "  * * *     ".color(color)
-        )
-    }
-
-    private fun printAbstractHouse(color: Color): List<String> {
-        return listOf(
-            "      *      ".color(color),
-            "    *   *    ".color(color),
-            "  *       *  ".color(color),
-            "  *       *  ".color(color),
-            "  * * * * *  ".color(color)
-        )
-    }
-
-    private fun printAbstractTriangle(color: Color): List<String> {
-        return listOf(
-            "        * *  ".color(color),
-            "      *   *  ".color(color),
-            "    *     *  ".color(color),
-            "  *       *  ".color(color),
-            "  * * * * *  ".color(color)
-        )
-    }
-
-    private fun printAbstractL(color: Color): List<String> {
-        return listOf(
-            "  * * *      ".color(color),
-            "  *   *      ".color(color),
-            "  *   * * *  ".color(color),
-            "  *       *  ".color(color),
-            "  * * * * *  ".color(color)
-        )
-    }
-
-    private fun printAbstractT(color: Color): List<String> {
-        return listOf(
-            "    * * *    ".color(color),
-            "    *   *    ".color(color),
-            "  * *   * *  ".color(color),
-            "  *       *  ".color(color),
-            "  * * * * *  ".color(color)
-        )
-    }
-
-    private fun printSquare(color: Color): List<String> {
-        return listOf(
-            "  * * * * *  ".color(color),
-            "  *       *  ".color(color),
-            "  *       *  ".color(color),
-            "  *       *  ".color(color),
-            "  * * * * *  ".color(color)
-        )
-    }
-
-    private fun printTriangle(color: Color): List<String> {
-        return listOf(
-            "      *      ".color(color),
-            "     * *     ".color(color),
-            "    *   *    ".color(color),
-            "   *     *   ".color(color),
-            "  * * * * *  ".color(color)
-        )
-    }
-
-    private fun printCircle(color: Color): List<String> {
-        return listOf(
-            "    *  *     ".color(color),
-            "  *      *   ".color(color),
-            " *        *  ".color(color),
-            "  *      *   ".color(color),
-            "    *  *     ".color(color)
-        )
-    }
-
-    private fun printStar(color: Color): List<String> {
-        return listOf(
-            "  *   *    * ".color(color),
-            "    * * *    ".color(color),
-            "  * *   * *  ".color(color),
-            "    * * *    ".color(color),
-            "  *   *    * ".color(color)
-        )
-    }
-
-    private fun printHeart(color: Color): List<String> {
-        return listOf(
-            "   *     *   ".color(color),
-            " *    *    * ".color(color),
-            "  *       *  ".color(color),
-            "    *   *    ".color(color),
-            "      *      ".color(color)
-        )
     }
 
     private fun printDivider() {
@@ -544,6 +663,8 @@ class CliMain : NavigationInterface {
             Color.ORANGE -> getColoredText(33, this)
             Color.TURKIES -> getColoredText(36, this)
             Color.ROSA -> getColoredText(95, this)
+            Color.GREY_DARK -> this
+            Color.GREY_LIGHT -> this
         }
     }
 
