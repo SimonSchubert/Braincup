@@ -1,7 +1,7 @@
 object Lib {
     object Versions {
         const val kotlin = "1.3.61"
-        const val gradleBuildTools = "4.0.0-alpha06"
+        const val gradleBuildTools = "4.0.0-alpha07"
         const val gradleSpawn = "0.8.2"
         const val androidxUi = "0.1.0-dev03"
         const val androidxCoreKtx = "1.1.0"
