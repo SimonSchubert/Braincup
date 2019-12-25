@@ -1,26 +1,99 @@
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.app.NavigationInterface
-import com.inspiredandroid.braincup.challenge.ChallengeUrl
-import com.inspiredandroid.braincup.challenge.ChallengeUrlError
-import com.inspiredandroid.braincup.challenge.ChallengeUrlResult
-import com.inspiredandroid.braincup.challenge.UrlBuilder
+import com.inspiredandroid.braincup.app.Version
+import com.inspiredandroid.braincup.bold
+import com.inspiredandroid.braincup.challenge.*
+import com.inspiredandroid.braincup.color
 import com.inspiredandroid.braincup.games.*
-import com.inspiredandroid.braincup.games.tools.*
+import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.getFigure
+import com.inspiredandroid.braincup.games.tools.getName
+import com.inspiredandroid.braincup.getLines
+import com.inspiredandroid.braincup.merge
+import io.ktor.http.Url
 import platform.posix.exit
 import platform.posix.sleep
 
-fun main() {
-    CliMain()
+data class CliArgument(val id: ID, val options: List<String>, val description: String) {
+    enum class ID {
+        DEEPLINK,
+        GAME,
+        VERSION,
+        HELP
+    }
 }
 
-class CliMain : NavigationInterface {
+val arguments = listOf(
+    CliArgument(CliArgument.ID.VERSION, listOf("--version", "-v"), "Version of the application"),
+    CliArgument(CliArgument.ID.HELP, listOf("--help", "-h"), "Print help"),
+    CliArgument(CliArgument.ID.DEEPLINK, listOf("--deeplink", "-d"), "Open web deeplink"),
+    CliArgument(
+        CliArgument.ID.GAME,
+        listOf("--game", "-g"),
+        "Start game immediately\n${GameType.values().joinToString(separator = "\n") { "    ${it.getId()} = ${it.getName()}" }}"
+    )
+)
 
-    private val exitCommands = listOf("quit", "exit", ":q")
+fun main(args: Array<String>) {
+    args.forEachIndexed { index, s ->
+        if (s.startsWith("-")) {
+            when (arguments.firstOrNull { it.options.contains(s) }?.id) {
+                CliArgument.ID.DEEPLINK -> {
+                    val url = args.getOrNull(index + 1)?.trim()
+                    if (url != null) {
+                        val base64Data = Url(url).parameters["data"]
+                        if (base64Data != null) {
+                            val challengeData = ChallengeData.parse(url = url, data = base64Data)
+                            if (challengeData !is ChallengeDataParseError) {
+                                CliMain(
+                                    appState = AppState.CHALLENGE,
+                                    challengeData = challengeData
+                                )
+                                return
+                            }
+                        }
+                    }
+                }
+                CliArgument.ID.GAME -> {
+                    val gameId = args.getOrNull(index + 1)?.trim()
+                    val gameType = GameType.values().firstOrNull { it.getId() == gameId }
+                    if (gameType != null) {
+                        CliMain(AppState.INSTRUCTIONS, gameType)
+                        return
+                    }
+                }
+                CliArgument.ID.VERSION -> {
+                    println("Version ${Version.name}")
+                    return
+                }
+                CliArgument.ID.HELP -> {
+                    arguments.forEach {
+                        println()
+                        println(it.options.joinToString(separator = ",").bold())
+                        println("  ${it.description}")
+                    }
+                    return
+                }
+            }
+        }
+    }
+    CliMain(AppState.START)
+}
+
+class CliMain(
+    appState: AppState,
+    gameType: GameType? = null,
+    challengeData: ChallengeData? = null
+) : NavigationInterface {
+
+    private val exitCommands by lazy { listOf("quit", "exit", ":q") }
     private val gameMaster = NavigationController(this)
 
     init {
-        gameMaster.start()
+        gameMaster.start(appState, gameType, challengeData)
     }
 
     override fun showMainMenu(
@@ -74,6 +147,13 @@ class CliMain : NavigationInterface {
         hasSecret: Boolean,
         start: () -> Unit
     ) {
+        if (showChallengeInfo) {
+            println("You got challenged")
+            if (hasSecret) {
+                println("The challenge will unveil a secret.")
+            }
+            println()
+        }
         printTitle(title)
         println(description)
         println("You can type \"quit\" and press enter at anytime to go back to the menu.")
@@ -232,59 +312,8 @@ class CliMain : NavigationInterface {
         readAndAnswer(answer, next)
     }
 
-    private fun printGrid(size: Int, startX: Int, startY: Int) {
-        val lines = mutableListOf<String>()
-
-        // Add Y coordinates to the left
-        repeat(size) {
-            lines.add("  ")
-            lines.add("${it + 1} ")
-        }
-
-        // Add 'half grid' parts
-        repeat(size) {
-            lines.merge(getGridPart(size))
-        }
-
-        // Add missing bottom line
-        val bottom = "* * ".repeat(size)
-        lines.add("  $bottom")
-
-        // Add missing tailing line
-        val tail = mutableListOf<String>()
-        repeat(size) {
-            tail.add("*")
-            tail.add("*")
-        }
-        tail.add("*")
-        lines.merge(tail)
-
-        // Add X coordinates on top
-        var xCoordinates = "  "
-        repeat(size) {
-            xCoordinates += "  ${it + 1} "
-        }
-        lines.add(0, xCoordinates)
-
-        val charArray = lines[startY * 2 + 2].toCharArray()
-        charArray[startX * 4 + 4] = '*'
-        lines[startY * 2 + 2] = String(charArray)
-
-        lines.forEach {
-            println(it)
-        }
-    }
-
-    private fun getGridPart(count: Int): List<String> {
-        val parts = mutableListOf<String>()
-        repeat(count) {
-            parts.add("* * ")
-            parts.add("*   ")
-        }
-        return parts
-    }
-
     override fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
+        printDivider()
         println("Your solution '$solution' solved the challenge.")
         println("Secret unveiled: $secret")
         waitForEnterAndContinue()
@@ -473,13 +502,69 @@ class CliMain : NavigationInterface {
         }
     }
 
-    private fun MutableList<String>.merge(data: List<String>) {
-        data.forEachIndexed { index, line ->
-            if (index >= this.size) {
-                this.add("")
-            }
-            this[index] += line
+    private fun printDivider() {
+        println()
+        println("-------------------------")
+        println()
+    }
+
+    private fun printTitle(title: String) {
+        val titleDashes = "-".repeat(title.length)
+        println("--$titleDashes--")
+        println("- $title -")
+        println("--$titleDashes--")
+    }
+
+    private fun printGrid(size: Int, startX: Int, startY: Int) {
+        val lines = mutableListOf<String>()
+
+        // Add Y coordinates to the left
+        repeat(size) {
+            lines.add("  ")
+            lines.add("${it + 1} ")
         }
+
+        // Add 'half grid' parts
+        repeat(size) {
+            lines.merge(getGridPart(size))
+        }
+
+        // Add missing bottom line
+        val bottom = "* * ".repeat(size)
+        lines.add("  $bottom")
+
+        // Add missing tailing line
+        val tail = mutableListOf<String>()
+        repeat(size) {
+            tail.add("*")
+            tail.add("*")
+        }
+        tail.add("*")
+        lines.merge(tail)
+
+        // Add X coordinates on top
+        var xCoordinates = "  "
+        repeat(size) {
+            xCoordinates += "  ${it + 1} "
+        }
+        lines.add(0, xCoordinates)
+
+        val charArray = lines[startY * 2 + 2].toCharArray()
+        charArray[startX * 4 + 4] = '*'
+        lines[startY * 2 + 2] = String(charArray)
+
+        lines.forEach {
+            println(it)
+        }
+    }
+
+    private fun getGridPart(count: Int): List<String> {
+        val parts = mutableListOf<String>()
+        repeat(count) {
+            parts.add("* * ")
+            parts.add("*   ")
+        }
+        return parts
     }
 
     /**
@@ -494,181 +579,5 @@ class CliMain : NavigationInterface {
             "   ",
             "   "
         )
-    }
-
-    private fun Figure.getLines(): List<String> {
-        return this.shape.getLines(this.color, this.rotation)
-    }
-
-    private fun Shape.getLines(color: Color, rotation: Int = 0): List<String> {
-        return when (this) {
-            Shape.SQUARE -> listOf(
-                "  * * * * *  ".color(color),
-                "  *       *  ".color(color),
-                "  *       *  ".color(color),
-                "  *       *  ".color(color),
-                "  * * * * *  ".color(color)
-            )
-            Shape.CIRCLE -> listOf(
-                "    *  *     ".color(color),
-                "  *      *   ".color(color),
-                " *        *  ".color(color),
-                "  *      *   ".color(color),
-                "    *  *     ".color(color)
-            )
-            Shape.HEART -> listOf(
-                "   *     *   ".color(color),
-                " *    *    * ".color(color),
-                "  *       *  ".color(color),
-                "    *   *    ".color(color),
-                "      *      ".color(color)
-            )
-            Shape.STAR -> listOf(
-                "  *   *    * ".color(color),
-                "    * * *    ".color(color),
-                "  * *   * *  ".color(color),
-                "    * * *    ".color(color),
-                "  *   *    * ".color(color)
-            )
-            Shape.T -> listOf(
-                "    * * *    ".color(color),
-                "    *   *    ".color(color),
-                "  * *   * *  ".color(color),
-                "  *       *  ".color(color),
-                "  * * * * *  ".color(color)
-            )
-            Shape.DIAMOND -> listOf(
-                "      * * *  ".color(color),
-                "    *     *  ".color(color),
-                "  *       *  ".color(color),
-                "  *     *    ".color(color),
-                "  * * *      ".color(color)
-            )
-            Shape.HOUSE -> listOf(
-                "      *      ".color(color),
-                "    *   *    ".color(color),
-                "  *       *  ".color(color),
-                "  *       *  ".color(color),
-                "  * * * * *  ".color(color)
-            )
-            Shape.ABSTRACT_TRIANGLE -> listOf(
-                "        * *  ".color(color),
-                "      *   *  ".color(color),
-                "    *     *  ".color(color),
-                "  *       *  ".color(color),
-                "  * * * * *  ".color(color)
-            )
-            Shape.TRIANGLE -> when (rotation) {
-                0 -> listOf(
-                    "      *      ".color(color),
-                    "     * *     ".color(color),
-                    "    *   *    ".color(color),
-                    "   *     *   ".color(color),
-                    "  * * * * *  ".color(color)
-                )
-                90 -> listOf(
-                    "  *          ".color(color),
-                    "  *   *      ".color(color),
-                    "  *       *  ".color(color),
-                    "  *   *      ".color(color),
-                    "  *          ".color(color)
-                )
-                180 -> listOf(
-                    "  * * * * *  ".color(color),
-                    "   *     *   ".color(color),
-                    "    *   *    ".color(color),
-                    "     * *     ".color(color),
-                    "      *      ".color(color)
-                )
-                else -> listOf(
-                    "          *  ".color(color),
-                    "      *   *  ".color(color),
-                    "  *       *  ".color(color),
-                    "      *   *  ".color(color),
-                    "          *  ".color(color)
-                )
-            }
-            Shape.L -> when (rotation) {
-                90 -> listOf(
-                    "  * * * * *  ".color(color),
-                    "  *       *  ".color(color),
-                    "  *   * * *  ".color(color),
-                    "  *   *      ".color(color),
-                    "  * * *      ".color(color)
-                )
-                180 -> listOf(
-                    "  * * * * *  ".color(color),
-                    "  *       *  ".color(color),
-                    "  * * *   *  ".color(color),
-                    "      *   *  ".color(color),
-                    "      * * *  ".color(color)
-                )
-                270 -> listOf(
-                    "      * * *  ".color(color),
-                    "      *   *  ".color(color),
-                    "  * * *   *  ".color(color),
-                    "  *       *  ".color(color),
-                    "  * * * * *  ".color(color)
-                )
-                else -> listOf(
-                    "  * * *      ".color(color),
-                    "  *   *      ".color(color),
-                    "  *   * * *  ".color(color),
-                    "  *       *  ".color(color),
-                    "  * * * * *  ".color(color)
-                )
-            }
-            Shape.ARROW -> when (rotation) {
-                90 -> listOf(
-                    " → ".color(color)
-                )
-                180 -> listOf(
-                    " ↓ ".color(color)
-                )
-                270 -> listOf(
-                    " ← ".color(color)
-                )
-                else -> listOf(
-                    " ↑ ".color(color)
-                )
-            }
-        }
-    }
-
-    private fun printDivider() {
-        println()
-        println("-------------------------")
-        println()
-    }
-
-    private fun printTitle(title: String) {
-        val titleDashes = "-".repeat(title.length)
-        println("--$titleDashes--")
-        println("- $title -")
-        println("--$titleDashes--")
-    }
-
-    companion object {
-        internal const val ESCAPE = '\u001B'
-        internal const val RESET = "$ESCAPE[0m"
-    }
-
-    private fun String.color(color: Color): String {
-        return when (color) {
-            Color.RED -> getColoredText(31, this)
-            Color.GREEN -> getColoredText(32, this)
-            Color.BLUE -> getColoredText(34, this)
-            Color.PURPLE -> getColoredText(35, this)
-            Color.YELLOW -> getColoredText(93, this)
-            Color.ORANGE -> getColoredText(33, this)
-            Color.TURKIES -> getColoredText(36, this)
-            Color.ROSA -> getColoredText(95, this)
-            Color.GREY_DARK -> this
-            Color.GREY_LIGHT -> this
-        }
-    }
-
-    private fun getColoredText(code: Int, text: String): String {
-        return "$ESCAPE[${code}m$text$RESET"
     }
 }

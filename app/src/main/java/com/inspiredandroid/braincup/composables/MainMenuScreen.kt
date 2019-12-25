@@ -82,9 +82,9 @@ fun MainMenuScreen(
         HeightSpacer(16.dp)
         TextImageButton(
             text = "Create challenge",
-            drawableResource = R.drawable.ic_icons8_hammer,
+            drawableResource = R.drawable.ic_icons8_create_new3,
             modifier = Gravity.Center,
-            color = Color.GREEN.getComposeColor()
+            color = getComposeColor("#5c8e58")
         ) {
             createChallenge()
         }

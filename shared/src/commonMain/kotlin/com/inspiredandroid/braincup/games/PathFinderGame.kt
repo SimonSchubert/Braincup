@@ -54,7 +54,7 @@ class PathFinderGame : Game() {
             index == correctGridIndex()
         } catch (ignore: Exception) {
             val coordinates = input.splitToIntList()
-            if(coordinates.count() < 2) {
+            if (coordinates.count() < 2) {
                 false
             } else {
                 coordinates[0] == currentX + 1 && coordinates[1] == currentY + 1

@@ -10,6 +10,10 @@ fun com.inspiredandroid.braincup.games.tools.Color.getComposeColor(): Color {
     return Color(android.graphics.Color.parseColor(this.getHex()))
 }
 
+fun getComposeColor(hex: String): Color {
+    return Color(android.graphics.Color.parseColor(hex))
+}
+
 fun GameType.getAndroidDrawable(): Int {
     return when (this) {
         GameType.MENTAL_CALCULATION -> R.drawable.ic_icons8_math
