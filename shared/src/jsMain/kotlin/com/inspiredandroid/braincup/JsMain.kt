@@ -650,7 +650,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         document.body = base {
             title("Create challenge")
             margin(32)
-            headline5("Create your own challenge and share it with your friends, family and co-workers.")
+            headline5("Create your own challenge and share it with your friends, family and co-workers. You can hide a secret message which will get unveiled after solving the challenge.")
             games.forEach { game ->
                 br { }
                 textButton(
@@ -677,13 +677,13 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
             div {
                 classes += "mdc-typography--headline5"
-                text("Challenge your friends with your own ")
+                text("Create your own ")
                 a {
                     text("Sherlock calculation")
                     style = "cursor: pointer;"
                     onClickFunction = { openGameHtml(GameType.SHERLOCK_CALCULATION) }
                 }
-                text(" task. Challenges for other game types will follow.")
+                text(" challenge.")
             }
 
             margin(48)
@@ -750,7 +750,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         document.body = base {
             title(title)
             margin(32)
-            headline5("Challenge your friends with a Riddle. Challenges for other game types will follow.")
+            headline5("Create your own Riddle challenge.")
 
             margin(48)
             headline4("Title")
@@ -777,7 +777,7 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
             textInput(width = 350) {
                 answers = it
             }
-            helperText("Separated by comma")
+            helperText("Separated by comma.")
             br {}
 
             margin(48)

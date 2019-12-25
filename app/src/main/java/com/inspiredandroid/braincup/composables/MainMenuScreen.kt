@@ -13,8 +13,10 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getName
+import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.getAndroidDrawable
 import com.inspiredandroid.braincup.getAndroidMedalResource
+import com.inspiredandroid.braincup.getComposeColor
 
 @Composable
 fun MainMenuScreen(
@@ -51,6 +53,7 @@ fun MainMenuScreen(
                 }
             }
         }
+
         Row(modifier = Gravity.Center) {
             if (appOpenCount > 1) {
                 PentagonStatistic(
@@ -68,12 +71,22 @@ fun MainMenuScreen(
             }
         }
 
+        HeightSpacer(16.dp)
         TextImageButton(
             text = "Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.values().size})",
             drawableResource = R.drawable.ic_icons8_test_passed,
             modifier = Gravity.Center
         ) {
             showAchievements()
+        }
+        HeightSpacer(16.dp)
+        TextImageButton(
+            text = "Create challenge",
+            drawableResource = R.drawable.ic_icons8_hammer,
+            modifier = Gravity.Center,
+            color = Color.GREEN.getComposeColor()
+        ) {
+            createChallenge()
         }
 
         VectorImage(id = R.drawable.ic_waiting, modifier = Gravity.Center)

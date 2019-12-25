@@ -250,15 +250,21 @@ class MainActivity : Activity(), NavigationInterface {
     }
 
     override fun showCreateChallengeMenu(games: List<GameType>, answer: (GameType) -> Unit) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setContent {
+            CreateChallengeMenuScreen(games, answer, gameMaster)
+        }
     }
 
     override fun showCreateRiddleChallenge(title: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setContent {
+            CreateRiddleChallenge(this, title, gameMaster)
+        }
     }
 
     override fun showCreateSherlockCalculationChallenge(title: String, description: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        setContent {
+            CreateSherlockCalculationChallenge(this, title, gameMaster)
+        }
     }
 
     override fun showFinishFeedback(

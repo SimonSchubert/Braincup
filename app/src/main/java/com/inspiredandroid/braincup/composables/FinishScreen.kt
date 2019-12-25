@@ -43,13 +43,13 @@ fun FinishScreen(
             drawableResource = R.drawable.ic_icons8_dice,
             modifier = Gravity.Center,
             onClick = { random() })
-        HeightSpacer(8.dp)
+        HeightSpacer(16.dp)
         TextImageButton(
             text = "Play again",
             drawableResource = R.drawable.ic_icons8_recurring_appointment,
             modifier = Gravity.Center,
             onClick = { again() })
-        HeightSpacer(8.dp)
+        HeightSpacer(16.dp)
         TextImageButton(
             text = "Menu",
             drawableResource = R.drawable.ic_icons8_menu,

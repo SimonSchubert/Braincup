@@ -16,9 +16,9 @@ sealed class ChallengeData(
         @UseExperimental(InternalAPI::class)
         fun parse(url: String, data: String): ChallengeData {
             val json = Json.plain.parseJson(data.decodeBase64String()).jsonObject
-            val gameType = json.getPrimitive("game").content
-            val title = json.getPrimitive("title").contentOrNull ?: ""
-            val secret = json.getPrimitive("secret").contentOrNull ?: ""
+            val gameType = json.getPrimitiveOrNull("game")?.contentOrNull ?: ""
+            val title = json.getPrimitiveOrNull("title")?.contentOrNull ?: ""
+            val secret = json.getPrimitiveOrNull("secret")?.contentOrNull ?: ""
 
             return when (gameType) {
                 GameType.SHERLOCK_CALCULATION.getId() -> {
