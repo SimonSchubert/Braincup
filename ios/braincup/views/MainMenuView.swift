@@ -15,6 +15,7 @@ struct MainMenuView: View {
     var games: [GameType]
     var instructions: (GameType) -> Void
     var score: (GameType) -> Void
+    var createChallenge: () -> Void
 
     var storage = UserStorage()
     
@@ -42,6 +43,12 @@ struct MainMenuView: View {
                         }
                     }
                 }
+                Button(action: {self.createChallenge()}) {
+                    HStack {
+                        Image("icons8-create")
+                        Text("Create challenge").frame(minWidth: 0, maxWidth: 160)
+                    }
+                }.buttonStyle(GreenButtonStyle()).padding(.top, 12)
                 Image("waiting")
                 Spacer()
             }.frame(minHeight: UIScreen.main.bounds.height)

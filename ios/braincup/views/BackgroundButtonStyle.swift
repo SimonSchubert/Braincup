@@ -19,6 +19,16 @@ struct BackgroundButtonStyle: ButtonStyle {
   }
 }
 
+struct GreenButtonStyle: ButtonStyle {
+  func makeBody(configuration: Self.Configuration) -> some View {
+    configuration.label
+        .padding(12)
+        .foregroundColor(.white)
+        .background(configuration.isPressed ? Color.green : Color(hex: "#5c8e58"))
+        .cornerRadius(4)
+  }
+}
+
 struct NumpadButtonStyle: ButtonStyle {
   func makeBody(configuration: Self.Configuration) -> some View {
     configuration.label

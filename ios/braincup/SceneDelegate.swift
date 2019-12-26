@@ -19,18 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
         
     }
     
-    func showCreateChallengeMenu(games: [GameType], answer: @escaping (GameType) -> Void) {
-        
-    }
-    
-    func showCreateRiddleChallenge(title: String) {
-        
-    }
-    
-    func showCreateSherlockCalculationChallenge(title: String, description: String) {
-        
-    }
-    
     func showRiddle(game: RiddleGame, title: String, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
         
     }
@@ -44,7 +32,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     var navigationController: NavigationController?
     
     func showMainMenu(title: String, description: String, games: [GameType], showInstructions: @escaping (GameType) -> Void, showScore: @escaping (GameType) -> Void, showAchievements: @escaping () -> Void, createChallenge: @escaping () -> Void, storage: UserStorage, totalScore: Int32, appOpenCount: Int32) {
-        window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, instructions: showInstructions, score: showScore))
+        window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, instructions: showInstructions, score: showScore, createChallenge: createChallenge))
+    }
+    
+    func showCreateChallengeMenu(games: [GameType], answer: @escaping (GameType) -> Void) {
+        window?.rootViewController = UIHostingController(rootView: CreateChallengeMenuView(games: games, answer: answer, back: {self.showStartMenu()}))
+    }
+    
+    func showCreateRiddleChallenge(title: String) {
+                window?.rootViewController = UIHostingController(rootView: CreateRiddleChallengeView(title: title, description: description, back: {self.showStartMenu()}))
+    }
+    
+    func showCreateSherlockCalculationChallenge(title: String, description: String) {
+        window?.rootViewController = UIHostingController(rootView: CreateSherlockCalculationChallengeView(title: title, description: description, back: {self.showStartMenu()}))
     }
     
     func showInstructions(gameType: GameType, title: String, description: String, showChallengeInfo: Bool, hasSecret: Bool, start: @escaping () -> Void) {
@@ -130,7 +130,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     }
     
     func showFinishFeedback(gameType: GameType, rank: String, newHighscore: Bool, answeredAllCorrect: Bool, plays: Int32, random: @escaping () -> Void, again: @escaping () -> Void) {
-        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, newHighscore: newHighscore, random: random, back: {self.showStartMenu()}))
+        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, newHighscore: newHighscore, answeredAllCorrect: answeredAllCorrect, random: random, again: again, back: {self.showStartMenu()}))
     }
     
     func showScoreboard(gameType game: GameType, highscore: Int32, scores: [KotlinPair]) {
