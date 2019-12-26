@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F410703323B4DB6B002D22E7 /* AnomalyPuzzleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410703223B4DB6B002D22E7 /* AnomalyPuzzleView.swift */; };
 		F478CC2B2350EB680034D5DB /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478CC2A2350EB680034D5DB /* ScoresView.swift */; };
 		F4ABF207234B4F4900E9D8B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */; };
 		F4B351EF2346156C00193E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B351EE2346156C00193E3D /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F410703223B4DB6B002D22E7 /* AnomalyPuzzleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnomalyPuzzleView.swift; sourceTree = "<group>"; };
 		F478CC2A2350EB680034D5DB /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4B351EB2346156C00193E3D /* Braincup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braincup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +142,7 @@
 				F4B3522C234902C000193E3D /* SherlockCalculation.swift */,
 				F4B35234234A9AA200193E3D /* MentalCalculationView.swift */,
 				F4B35238234AA6C200193E3D /* ColorConfusionView.swift */,
+				F410703223B4DB6B002D22E7 /* AnomalyPuzzleView.swift */,
 				F4FB6901235D0102007F57DA /* FractionCalculationView.swift */,
 				F4FB6903235D05D2007F57DA /* HeightComparisonView.swift */,
 				F4B35232234A909D00193E3D /* CorrectAnswerView.swift */,
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F410703323B4DB6B002D22E7 /* AnomalyPuzzleView.swift in Sources */,
 				F4B352292348A6B600193E3D /* ChainCalculationView.swift in Sources */,
 				F4ABF207234B4F4900E9D8B7 /* SceneDelegate.swift in Sources */,
 				F4B3522B2349019400193E3D /* CalculatorView.swift in Sources */,

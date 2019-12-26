@@ -15,10 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
         
     }
     
-    func showAnomalyPuzzle(game: AnomalyPuzzleGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
-        
-    }
-    
     func showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
         
     }
@@ -43,10 +39,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
         
     }
     
-    func showWrongAnswerFeedback(gameType: GameType, solution: String) {
-        
-    }
-    
     func showWrongChallengeAnswerFeedback(url: String) {
         
     }
@@ -61,6 +53,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     
     func showInstructions(gameType: GameType, title: String, description: String, showChallengeInfo: Bool, hasSecret: Bool, start: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView:  InstructionsView(title: title, description: description, start: start, back: {self.showStartMenu()}))
+    }
+    
+    func showAnomalyPuzzle(game: AnomalyPuzzleGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        var chunkSize = 2
+        if(game.figures.count >= 16) {
+            chunkSize = 4
+        } else if(game.figures.count >= 9) {
+            chunkSize = 3
+        }
+        window?.rootViewController = UIHostingController(rootView: AnomalyPuzzleView(game: game, answer: { value in answer(value)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                next()
+            }
+        }, back: {self.showStartMenu()}, chunkSize: chunkSize))
     }
     
     func showMentalCalculation(game: MentalCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
@@ -112,10 +118,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     }
     
     func showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
-        window?.rootViewController = UIHostingController(rootView: CorrectAnswerView(back: {self.showStartMenu()}))
+        window?.rootViewController = UIHostingController(rootView: CorrectAnswerView(hint: hint, back: {self.showStartMenu()}))
     }
     
-    func showWrongAnswerFeedback(solution: String) {
+    func showWrongAnswerFeedback(gameType: GameType, solution: String) {
         window?.rootViewController = UIHostingController(rootView: WrongAnswerView(back: {self.showStartMenu()}))
     }
     

@@ -17,7 +17,7 @@ struct ColorConfusionView: View {
     var body: some View {
         NavigationView {
             VStack {
-                game.displayedShape.draw(size: 120, color: game.displayedColor)
+                game.displayedShape.draw(size: 120, color: game.displayedColor, rotation: 0)
                 
                 Text("\(game.shapePoints) = \(game.answerShape.getName())").font(.title).padding(.top, 16)
                 Text("\(game.colorPoints) = \(game.answerColor.getName())").font(.title).foregroundColor(game.stringColor.getColor())

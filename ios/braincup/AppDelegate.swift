@@ -87,8 +87,14 @@ extension Array {
     }
 }
 
+extension shared.Figure {
+    func draw(size: Int32) -> some View {
+        return self.shape.draw(size: size, color: self.color, rotation: self.rotation)
+    }
+}
+
 extension shared.Shape {
-    func draw(size: Int32, color: shared.Color) -> some View {
+    func draw(size: Int32, color: shared.Color, rotation: Int32) -> some View {
         return Path { p in
             var movedToStart = false
             self.getPaths().forEach { group in
@@ -102,7 +108,7 @@ extension shared.Shape {
                     p.addLine(to: point)
                 }
             }
-        }.fill(color.getColor()).frame(width: CGFloat(size), height: CGFloat(size))
+        }.fill(color.getColor()).rotationEffect(Angle(degrees: Double(rotation)), anchor: UnitPoint(x: 0.5, y: 0.5)).frame(width: CGFloat(size), height: CGFloat(size)).padding(.all, 4)
     }
 }
 
@@ -122,6 +128,31 @@ extension shared.GameType {
             return "icons8-medal_second_place"
         }
         return "icons8-medal_third_place"
+    }
+    
+    func getImageResource() -> String {
+        switch self {
+            case GameType.sherlockCalculation:
+                return "icons8-search"
+            case GameType.colorConfusion:
+                return "icons8-fill_color"
+            case GameType.chainCalculation:
+                return "icons8-edit_link"
+            case GameType.mentalCalculation:
+                return "icons8-math"
+            case GameType.heightComparison:
+                return "icons8-height"
+            case GameType.fractionCalculation:
+                return "icons8-divide"
+            case GameType.riddle:
+                return "icons8-questions"
+            case GameType.pathFinder:
+                return "icons8-hard_to_find"
+            case GameType.anomalyPuzzle:
+                return "icons8-telescope"
+            default:
+                return ""
+        }
     }
 }
 

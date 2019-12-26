@@ -28,7 +28,7 @@ struct MainMenuView: View {
                     HStack {
                         Button(action: {self.instructions(gameType)}) {
                             HStack {
-                                Image(self.getImageResource(game: gameType))
+                                Image(gameType.getImageResource())
                                 Text(gameType.getName()).frame(minWidth: 0, maxWidth: 160)
                             }
                         }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
@@ -45,25 +45,6 @@ struct MainMenuView: View {
                 Image("waiting")
                 Spacer()
             }.frame(minHeight: UIScreen.main.bounds.height)
-        }
-    }
-    
-    func getImageResource(game: GameType) -> String {
-        switch game {
-            case GameType.sherlockCalculation:
-                return "icons8-search"
-            case GameType.colorConfusion:
-                return "icons8-fill_color"
-            case GameType.chainCalculation:
-                return "icons8-edit_link"
-            case GameType.mentalCalculation:
-                return "icons8-math"
-            case GameType.heightComparison:
-                return "icons8-height"
-            case GameType.fractionCalculation:
-                return "icons8-divide"
-            default:
-                return ""
         }
     }
 }

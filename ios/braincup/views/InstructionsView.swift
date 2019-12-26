@@ -19,7 +19,7 @@ struct InstructionsView: View {
         NavigationView {
             VStack {
                 Text(title).font(.title)
-                Text(description).font(.body).padding(.horizontal, 16).multilineTextAlignment(.center)
+                Text(description).font(.body).padding(.horizontal, 16).padding(.top, 8).multilineTextAlignment(.center)
                 Button(action: {self.start()}) {
                     Text("Start")
                 }.buttonStyle(BackgroundButtonStyle()).padding(.top, 16)

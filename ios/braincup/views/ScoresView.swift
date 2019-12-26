@@ -39,7 +39,7 @@ struct ScoresView: View {
                                 ZStack {
                                     GeometryReader { geometry in
                                         Rectangle()
-                                            .fill(Color(hex: 0xFFED7354))
+                                            .fill(shared.Color.orange.getColor())
                                             .padding(.trailing, self.getScoreBarPadding(geometry: geometry, score: score))
                                         HStack(alignment: .center) {
                                             Image(self.game.getMedalResource(score: Int32(score))).padding(.leading, 8)

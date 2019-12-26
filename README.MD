@@ -30,10 +30,10 @@ Train your math skills, memory and focus.
 https://braincup.app
 
 ### Android
-[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/play_store.png" width="120">](https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup)
+[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/play_store.png" width="200">](https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup)
 
 ### iOS
-[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/app_store.png" width="120">](https://apps.apple.com/us/app/braincup/id1483376887#?platform=iphone)
+[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/app_store.png" width="200">](https://apps.apple.com/us/app/braincup/id1483376887#?platform=iphone)
 
 ## Goal
 Build an open source math, memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
@@ -61,6 +61,7 @@ Very welcome.
 - Build and run mac terminal client = runDebugExecutableCli
 - Build and run js web client = jsWebDebug, jsWebRelease
 - Run unit test on android target = androidTest
+- Build and copy ios framework to 'ios' folder = :shared:copyFramework
 
 ## Build Jetpack Compose
 
