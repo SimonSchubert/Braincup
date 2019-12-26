@@ -491,7 +491,7 @@ class CliMain(
         figures.chunked(chunkSize).forEach { chunked ->
             val rowLines = mutableListOf<String>()
             chunked.forEach { figure ->
-                rowLines.merge(getIndexLines(id))
+                rowLines.merge(getFigureIndexLines(id))
                 rowLines.merge(figure.getLines())
                 id++
             }
@@ -570,7 +570,7 @@ class CliMain(
     /**
      * Index has to be < 100
      */
-    private fun getIndexLines(index: Int): List<String> {
+    private fun getFigureIndexLines(index: Int): List<String> {
         val space = " ".repeat(2 - index.toString().length)
         return listOf(
             " $index$space",

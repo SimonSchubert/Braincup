@@ -10,17 +10,57 @@ import UIKit
 import SwiftUI
 import shared
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
-    
-    var window: UIWindow?
-    var appController: AppController?
-    
-    func showMainMenu(title: String, description: String, games: [GameType], instructions: @escaping (GameType) -> Void, score: @escaping (GameType) -> Void) {
-        window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, instructions: instructions, score: score))
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
+    func showAchievements(allAchievements: [UserStorage.Achievements], unlockedAchievements: [UserStorage.Achievements]) {
+        
     }
     
-    func showInstructions(title: String, description: String, start: @escaping () -> Void) {
-        window?.rootViewController = UIHostingController(rootView:  InstructionsView(title: title, description: description, start: start, back: {self.appController?.start()}))
+    func showAnomalyPuzzle(game: AnomalyPuzzleGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        
+    }
+    
+    func showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
+        
+    }
+    
+    func showCreateChallengeMenu(games: [GameType], answer: @escaping (GameType) -> Void) {
+        
+    }
+    
+    func showCreateRiddleChallenge(title: String) {
+        
+    }
+    
+    func showCreateSherlockCalculationChallenge(title: String, description: String) {
+        
+    }
+    
+    func showPathFinder(game: PathFinderGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        
+    }
+    
+    func showRiddle(game: RiddleGame, title: String, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        
+    }
+    
+    func showWrongAnswerFeedback(gameType: GameType, solution: String) {
+        
+    }
+    
+    func showWrongChallengeAnswerFeedback(url: String) {
+        
+    }
+    
+    
+    var window: UIWindow?
+    var navigationController: NavigationController?
+    
+    func showMainMenu(title: String, description: String, games: [GameType], showInstructions: @escaping (GameType) -> Void, showScore: @escaping (GameType) -> Void, showAchievements: @escaping () -> Void, createChallenge: @escaping () -> Void, storage: UserStorage, totalScore: Int32, appOpenCount: Int32) {
+        window?.rootViewController = UIHostingController(rootView: MainMenuView(title: title, description: description, games: games, instructions: showInstructions, score: showScore))
+    }
+    
+    func showInstructions(gameType: GameType, title: String, description: String, showChallengeInfo: Bool, hasSecret: Bool, start: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView:  InstructionsView(title: title, description: description, start: start, back: {self.showStartMenu()}))
     }
     
     func showMentalCalculation(game: MentalCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
@@ -28,7 +68,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 next()
             }
-        }, back: {self.appController?.start()}))
+        }, back: {self.showStartMenu()}))
     }
     
     func showColorConfusion(game: ColorConfusionGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
@@ -36,15 +76,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 next()
             }
-        }, back: {self.appController?.start()}))
+        }, back: {self.showStartMenu()}))
     }
     
-    func showSherlockCalculation(game: SherlockCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+    func showSherlockCalculation(game: SherlockCalculationGame, title: String, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView: SherlockCalculationView(game: game, answer: { value in answer(value)
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 next()
             }
-        }, back: {self.appController?.start()}))
+        }, back: {self.showStartMenu()}))
     }
     
     func showChainCalculation(game: ChainCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
@@ -52,7 +92,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 next()
             }
-        }, back: {self.appController?.start()}))
+        }, back: {self.showStartMenu()}))
     }
     
     func showHeightComparison(game: HeightComparisonGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
@@ -60,7 +100,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 next()
             }
-        }, back: {self.appController?.start()}))
+        }, back: {self.showStartMenu()}))
     }
     
     func showFractionCalculation(game: FractionCalculationGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
@@ -68,23 +108,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 next()
             }
-        }, back: {self.appController?.start()}))
+        }, back: {self.showStartMenu()}))
     }
     
-    func showCorrectAnswerFeedback() {
-        window?.rootViewController = UIHostingController(rootView: CorrectAnswerView(back: {self.appController?.start()}))
+    func showCorrectAnswerFeedback(gameType: GameType, hint: String?) {
+        window?.rootViewController = UIHostingController(rootView: CorrectAnswerView(back: {self.showStartMenu()}))
     }
     
     func showWrongAnswerFeedback(solution: String) {
-        window?.rootViewController = UIHostingController(rootView: WrongAnswerView(back: {self.appController?.start()}))
+        window?.rootViewController = UIHostingController(rootView: WrongAnswerView(back: {self.showStartMenu()}))
     }
     
-    func showFinishFeedback(rank: String, newHighscore: Bool, plays: Int32, random: @escaping () -> Void) {
-        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, newHighscore: newHighscore, random: random, back: {self.appController?.start()}))
+    func showFinishFeedback(gameType: GameType, rank: String, newHighscore: Bool, answeredAllCorrect: Bool, plays: Int32, random: @escaping () -> Void, again: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView: FinishView(rank: rank, newHighscore: newHighscore, random: random, back: {self.showStartMenu()}))
     }
     
-    func showScoreboard(game: GameType, highscore: Int32, scores: [KotlinPair]) {
-        window?.rootViewController = UIHostingController(rootView: ScoresView(game: game, highscore: highscore, scores: scores, back: {self.appController?.start()}))
+    func showScoreboard(gameType game: GameType, highscore: Int32, scores: [KotlinPair]) {
+        window?.rootViewController = UIHostingController(rootView: ScoresView(game: game, highscore: highscore, scores: scores, back: {self.showStartMenu()}))
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -99,10 +139,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, AppInterface {
             window?.makeKeyAndVisible()
         }
 
-        if(appController == nil) {
-            appController = AppController(app: self)
-            appController?.start()
+        if(navigationController == nil) {
+            navigationController = NavigationController(app: self)
+            showStartMenu()
         }
+    }
+    
+    func showStartMenu() {
+        navigationController?.start(state: AppState.start, gameType: nil, challengeData: nil)
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

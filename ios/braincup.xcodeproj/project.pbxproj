@@ -377,7 +377,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"braincup/Preview Content\"";
 				DEVELOPMENT_TEAM = V9BVS2Y7R6;
 				ENABLE_PREVIEWS = YES;
@@ -390,6 +390,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.inspiredandroid.braincup;
 				PRODUCT_NAME = Braincup;
 				SWIFT_VERSION = 5.0;
@@ -402,7 +403,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"braincup/Preview Content\"";
 				DEVELOPMENT_TEAM = V9BVS2Y7R6;
 				ENABLE_PREVIEWS = YES;
@@ -415,6 +416,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.4.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.inspiredandroid.braincup;
 				PRODUCT_NAME = Braincup;
 				SWIFT_VERSION = 5.0;

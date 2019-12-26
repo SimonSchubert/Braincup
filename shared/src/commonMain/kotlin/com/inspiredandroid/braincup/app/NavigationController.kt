@@ -122,6 +122,7 @@ class NavigationController(private val app: NavigationInterface) {
                         }
                     }, {})
                 }
+                else -> {}
             }
         }
     }
