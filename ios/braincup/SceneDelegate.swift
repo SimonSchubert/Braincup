@@ -158,6 +158,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     func showStartMenu() {
         navigationController?.start(state: AppState.start, gameType: nil, challengeData: nil)
     }
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+    }
+    
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if let url = userActivity.webpageURL {
+            let view = url.lastPathComponent
+            var parameters: [String: String] = [:]
+            URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems?.forEach {
+                parameters[$0.name] = $0.value
+            }
+            if(view == "challenge") {
+                guard let data = parameters["data"] else { return }
+                let challenge = ChallengeData.Companion().parse(url: url.absoluteString, data: data)
+                
+                navigationController?.start(state: AppState.challenge, gameType: nil, challengeData: challenge)
+            }
+        }
+    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

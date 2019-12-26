@@ -60,6 +60,7 @@
 		F410703A23B50535002D22E7 /* EditText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditText.swift; sourceTree = "<group>"; };
 		F410703C23B50E4E002D22E7 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		F410703E23B5110B002D22E7 /* CreateRiddleChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRiddleChallengeView.swift; sourceTree = "<group>"; };
+		F410704023B517DD002D22E7 /* Braincup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Braincup.entitlements; sourceTree = "<group>"; };
 		F478CC2A2350EB680034D5DB /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4B351EB2346156C00193E3D /* Braincup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braincup.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,6 +118,7 @@
 		F4B351ED2346156C00193E3D /* braincup */ = {
 			isa = PBXGroup;
 			children = (
+				F410704023B517DD002D22E7 /* Braincup.entitlements */,
 				F4B352232348A54000193E3D /* views */,
 				F4B351EE2346156C00193E3D /* AppDelegate.swift */,
 				F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */,
@@ -404,6 +406,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = braincup/Braincup.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"braincup/Preview Content\"";
@@ -430,6 +433,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = braincup/Braincup.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"braincup/Preview Content\"";
