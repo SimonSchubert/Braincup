@@ -31,10 +31,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
         
     }
     
-    func showPathFinder(game: PathFinderGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
-        
-    }
-    
     func showRiddle(game: RiddleGame, title: String, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
         
     }
@@ -53,6 +49,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     
     func showInstructions(gameType: GameType, title: String, description: String, showChallengeInfo: Bool, hasSecret: Bool, start: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView:  InstructionsView(title: title, description: description, start: start, back: {self.showStartMenu()}))
+    }
+    
+    func showPathFinder(game: PathFinderGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView: PathFinderView(game: game, answer: { value in answer(value)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                next()
+            }
+        }, back: {self.showStartMenu()}, gridSize: Int(game.gridSize)))
     }
     
     func showAnomalyPuzzle(game: AnomalyPuzzleGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {

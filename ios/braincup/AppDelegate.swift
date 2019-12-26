@@ -91,6 +91,15 @@ extension shared.Figure {
     func draw(size: Int32) -> some View {
         return self.shape.draw(size: size, color: self.color, rotation: self.rotation)
     }
+    
+    // Todo: this feels kinda hacky, find a better solution
+    func draw(size: Int32, isMarked: Bool) -> some View {
+        var color = self.color
+        if(isMarked) {
+            color = shared.Color.orange
+        }
+        return self.shape.draw(size: size, color: color, rotation: self.rotation)
+    }
 }
 
 extension shared.Shape {
