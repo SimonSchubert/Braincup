@@ -14,10 +14,12 @@
 		F410703B23B50535002D22E7 /* EditText.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410703A23B50535002D22E7 /* EditText.swift */; };
 		F410703D23B50E4E002D22E7 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410703C23B50E4E002D22E7 /* ActivityViewController.swift */; };
 		F410703F23B5110B002D22E7 /* CreateRiddleChallengeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410703E23B5110B002D22E7 /* CreateRiddleChallengeView.swift */; };
+		F410704223B5292A002D22E7 /* WrongChallengeAnswerFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410704123B5292A002D22E7 /* WrongChallengeAnswerFeedback.swift */; };
+		F410704623B52B39002D22E7 /* CorrectChallengeAnswerFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410704523B52B39002D22E7 /* CorrectChallengeAnswerFeedback.swift */; };
+		F410704823B5302B002D22E7 /* RiddleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F410704723B5302B002D22E7 /* RiddleView.swift */; };
 		F478CC2B2350EB680034D5DB /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F478CC2A2350EB680034D5DB /* ScoresView.swift */; };
 		F4ABF207234B4F4900E9D8B7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */; };
 		F4B351EF2346156C00193E3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B351EE2346156C00193E3D /* AppDelegate.swift */; };
-		F4B351F32346156C00193E3D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B351F22346156C00193E3D /* ContentView.swift */; };
 		F4B351F52346156F00193E3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B351F42346156F00193E3D /* Assets.xcassets */; };
 		F4B351F82346156F00193E3D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4B351F72346156F00193E3D /* Preview Assets.xcassets */; };
 		F4B351FB2346156F00193E3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4B351F92346156F00193E3D /* LaunchScreen.storyboard */; };
@@ -61,11 +63,13 @@
 		F410703C23B50E4E002D22E7 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		F410703E23B5110B002D22E7 /* CreateRiddleChallengeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRiddleChallengeView.swift; sourceTree = "<group>"; };
 		F410704023B517DD002D22E7 /* Braincup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Braincup.entitlements; sourceTree = "<group>"; };
+		F410704123B5292A002D22E7 /* WrongChallengeAnswerFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrongChallengeAnswerFeedback.swift; sourceTree = "<group>"; };
+		F410704523B52B39002D22E7 /* CorrectChallengeAnswerFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CorrectChallengeAnswerFeedback.swift; sourceTree = "<group>"; };
+		F410704723B5302B002D22E7 /* RiddleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiddleView.swift; sourceTree = "<group>"; };
 		F478CC2A2350EB680034D5DB /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F4B351EB2346156C00193E3D /* Braincup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braincup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4B351EE2346156C00193E3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F4B351F22346156C00193E3D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F4B351F42346156F00193E3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F4B351F72346156F00193E3D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F4B351FA2346156F00193E3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,7 +126,6 @@
 				F4B352232348A54000193E3D /* views */,
 				F4B351EE2346156C00193E3D /* AppDelegate.swift */,
 				F4ABF206234B4F4900E9D8B7 /* SceneDelegate.swift */,
-				F4B351F22346156C00193E3D /* ContentView.swift */,
 				F4B351F42346156F00193E3D /* Assets.xcassets */,
 				F4B351F92346156F00193E3D /* LaunchScreen.storyboard */,
 				F4B351FC2346156F00193E3D /* Info.plist */,
@@ -171,6 +174,9 @@
 				F410703A23B50535002D22E7 /* EditText.swift */,
 				F410703C23B50E4E002D22E7 /* ActivityViewController.swift */,
 				F410703E23B5110B002D22E7 /* CreateRiddleChallengeView.swift */,
+				F410704123B5292A002D22E7 /* WrongChallengeAnswerFeedback.swift */,
+				F410704523B52B39002D22E7 /* CorrectChallengeAnswerFeedback.swift */,
+				F410704723B5302B002D22E7 /* RiddleView.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 				F410703F23B5110B002D22E7 /* CreateRiddleChallengeView.swift in Sources */,
 				F410703323B4DB6B002D22E7 /* AnomalyPuzzleView.swift in Sources */,
 				F4B352292348A6B600193E3D /* ChainCalculationView.swift in Sources */,
+				F410704623B52B39002D22E7 /* CorrectChallengeAnswerFeedback.swift in Sources */,
 				F4ABF207234B4F4900E9D8B7 /* SceneDelegate.swift in Sources */,
 				F410703D23B50E4E002D22E7 /* ActivityViewController.swift in Sources */,
 				F4B3522B2349019400193E3D /* CalculatorView.swift in Sources */,
@@ -260,6 +267,7 @@
 				F4B35239234AA6C200193E3D /* ColorConfusionView.swift in Sources */,
 				F4FB6904235D05D2007F57DA /* HeightComparisonView.swift in Sources */,
 				F410703923B4FCB1002D22E7 /* CreateSherlockCalculationChallengeView.swift in Sources */,
+				F410704823B5302B002D22E7 /* RiddleView.swift in Sources */,
 				F410703523B4E86C002D22E7 /* PathFinderView.swift in Sources */,
 				F4B352252348A55500193E3D /* InstructionsView.swift in Sources */,
 				F4FB6902235D0102007F57DA /* FractionCalculationView.swift in Sources */,
@@ -270,7 +278,7 @@
 				F4B3522D234902C000193E3D /* SherlockCalculation.swift in Sources */,
 				F4B35237234AA4F100193E3D /* FinishView.swift in Sources */,
 				F478CC2B2350EB680034D5DB /* ScoresView.swift in Sources */,
-				F4B351F32346156C00193E3D /* ContentView.swift in Sources */,
+				F410704223B5292A002D22E7 /* WrongChallengeAnswerFeedback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

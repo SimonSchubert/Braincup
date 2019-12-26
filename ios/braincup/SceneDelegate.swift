@@ -15,19 +15,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
         
     }
     
-    func showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
-        
-    }
-    
-    func showRiddle(game: RiddleGame, title: String, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
-        
-    }
-    
-    func showWrongChallengeAnswerFeedback(url: String) {
-        
-    }
-    
-    
     var window: UIWindow?
     var navigationController: NavigationController?
     
@@ -39,8 +26,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
         window?.rootViewController = UIHostingController(rootView: CreateChallengeMenuView(games: games, answer: answer, back: {self.showStartMenu()}))
     }
     
+    func showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String) {
+        window?.rootViewController = UIHostingController(rootView: CorrectChallengeAnswerFeedback(solution: solution, secret: solution, url: url, back: {self.showStartMenu()}))
+    }
+    
+    func showWrongChallengeAnswerFeedback(url: String) {
+        window?.rootViewController = UIHostingController(rootView: WrongChallengeAnswerFeedback(url: url, back: {self.showStartMenu()}))
+    }
+    
     func showCreateRiddleChallenge(title: String) {
-                window?.rootViewController = UIHostingController(rootView: CreateRiddleChallengeView(title: title, description: description, back: {self.showStartMenu()}))
+        window?.rootViewController = UIHostingController(rootView: CreateRiddleChallengeView(title: title, description: description, back: {self.showStartMenu()}))
     }
     
     func showCreateSherlockCalculationChallenge(title: String, description: String) {
@@ -49,6 +44,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     
     func showInstructions(gameType: GameType, title: String, description: String, showChallengeInfo: Bool, hasSecret: Bool, start: @escaping () -> Void) {
         window?.rootViewController = UIHostingController(rootView:  InstructionsView(title: title, description: description, start: start, back: {self.showStartMenu()}))
+    }
+    
+    func showRiddle(game: RiddleGame, title: String, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
+        window?.rootViewController = UIHostingController(rootView: RiddleView(game: game, answer: { value in answer(value)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                next()
+            }
+        }, back: {self.showStartMenu()}))
     }
     
     func showPathFinder(game: PathFinderGame, answer: @escaping (String) -> Void, next: @escaping () -> Void) {
