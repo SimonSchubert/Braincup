@@ -16,9 +16,10 @@ struct ColorConfusionView: View {
     
     var body: some View {
         NavigationView {
-            VStack { Text(game.displayedShape.getChar()).foregroundColor(game.displayedColor.getColor()).font(.system(size: 100)).padding(.horizontal, 16)
+            VStack {
+                game.displayedShape.draw(size: 120, color: game.displayedColor)
                 
-                Text("\(game.shapePoints) = \(game.answerShape.getName())").font(.title)
+                Text("\(game.shapePoints) = \(game.answerShape.getName())").font(.title).padding(.top, 16)
                 Text("\(game.colorPoints) = \(game.answerColor.getName())").font(.title).foregroundColor(game.stringColor.getColor())
                 
                 HStack {

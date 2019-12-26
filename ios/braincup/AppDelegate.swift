@@ -49,43 +49,70 @@ extension SwiftUI.Color {
             opacity: 1
         )
     }
+    
+    init(hex: String) {
+        let hexSanitized = hex.replacingOccurrences(of: "#", with: "")
+
+        var rgb: UInt64 = 0
+
+        var r: CGFloat = 0.0
+        var g: CGFloat = 0.0
+        var b: CGFloat = 0.0
+        var a: CGFloat = 1.0
+
+        Scanner(string: hexSanitized).scanHexInt64(&rgb)
+        
+        let length = hexSanitized.count
+
+        if length == 6 {
+            r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
+            g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
+            b = CGFloat(rgb & 0x0000FF) / 255.0
+        } else if length == 8 {
+            r = CGFloat((rgb & 0xFF000000) >> 24) / 255.0
+            g = CGFloat((rgb & 0x00FF0000) >> 16) / 255.0
+            b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
+            a = CGFloat(rgb & 0x000000FF) / 255.0
+        }
+
+        self.init(red: Double(r), green: Double(g), blue: Double(b), opacity: Double(a))
+    }
+}
+
+extension Array {
+    func chunked(into size: Int) -> [[Element]] {
+        return stride(from: 0, to: count, by: size).map {
+            Array(self[$0 ..< Swift.min($0 + size, count)])
+        }
+    }
 }
 
 extension shared.Shape {
-    func getChar() -> String {
-        switch self {
-            case shared.Shape.square:
-                return "■"
-            case shared.Shape.triangle:
-                return "▲"
-            case shared.Shape.circle:
-                return "●"
-            case shared.Shape.heart:
-                return "♥"
-            default:
-                return ""
-        }
+    func draw(size: Int32, color: shared.Color) -> some View {
+        return Path { p in
+            var movedToStart = false
+            self.getPaths().forEach { group in
+                let x = (group.component1() as! Float32) * Float32(size)
+                let y = (group.component2() as! Float32) * Float32(size)
+                let point = CGPoint(x: Int(x), y: Int(y))
+                if(!movedToStart) {
+                    p.move(to: point)
+                    movedToStart = true
+                } else {
+                    p.addLine(to: point)
+                }
+            }
+        }.fill(color.getColor()).frame(width: CGFloat(size), height: CGFloat(size))
     }
 }
 
 extension shared.Color {
     func getColor() -> SwiftUI.Color {
-        switch self {
-            case shared.Color.red:
-                return Color.red
-            case shared.Color.green:
-                return Color.green
-            case shared.Color.blue:
-                return Color.blue
-            case shared.Color.purple:
-                return Color.purple
-            default:
-                return Color.black
-        }
+        return Color(hex: self.getHex())
     }
 }
 
-extension GameType {
+extension shared.GameType {
     func getMedalResource(score: Int32) -> String {
         let scoreTable = self.getScoreTable()
         if(score > scoreTable.get(index: 0) as! Int) {
