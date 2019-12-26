@@ -16,17 +16,16 @@ struct ColorConfusionView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Text(game.displayedShape.getChar()).foregroundColor(game.displayedColor.getColor()).font(.system(size: 100)).padding(.horizontal, 16)
+            VStack { Text(game.displayedShape.getChar()).foregroundColor(game.displayedColor.getColor()).font(.system(size: 100)).padding(.horizontal, 16)
                 
-                Text("\(game.shapePoints) = \(game.answerShape.getName())").font(.body)
-                Text("\(game.colorPoints) = \(game.answerColor.getName())").font(.body).foregroundColor(game.stringColor.getColor())
+                Text("\(game.shapePoints) = \(game.answerShape.getName())").font(.title)
+                Text("\(game.colorPoints) = \(game.answerColor.getName())").font(.title).foregroundColor(game.stringColor.getColor())
                 
-                CalculatorView(showOperators: false, onInputChange: {value in
-                    if(self.game.points().count == value.count) {
-                        self.answer(value)
+                HStack {
+                    ForEach(game.getPossibleAnswers(), id: \.hash) { number in
+                        NumberPadButton(value: number, onInputChange: {value in self.answer(value)})
                     }
-                })
+                }.padding(.top, 32)
             }
             .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
         }.navigationViewStyle(StackNavigationViewStyle()) 
