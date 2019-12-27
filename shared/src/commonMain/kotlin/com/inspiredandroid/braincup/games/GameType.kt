@@ -79,7 +79,7 @@ fun GameType.getDescription(addTimeLimit: Boolean = true): String {
         GameType.SHERLOCK_CALCULATION -> "Find out how to get the goal by only using the given numbers and the following operators: + - * / ( )."
         GameType.CHAIN_CALCULATION -> "Follow the mathematical expressions."
         GameType.FRACTION_CALCULATION -> "Solve the fractions."
-        GameType.HEIGHT_COMPARISON -> "Pick the mathematical formal with the highest result."
+        GameType.HEIGHT_COMPARISON -> "Pick the mathematical formula with the highest result."
         GameType.ANOMALY_PUZZLE -> "Find the outstanding figure. Take the color and shape of the figure into account."
         GameType.RIDDLE -> "Solve the riddle."
         GameType.PATH_FINDER -> "Start at the marked position and follow the arrow instructions to find the destination."
