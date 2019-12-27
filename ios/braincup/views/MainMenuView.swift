@@ -52,6 +52,6 @@ struct MainMenuView: View {
                     Spacer()
                 }.frame(minHeight: UIScreen.main.bounds.height)
             }.navigationBarTitle(title)
-        }
+        }.navigationViewStyle(StackNavigationViewStyle())
     }
 }
