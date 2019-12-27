@@ -22,7 +22,6 @@ struct ScoresView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text(game.getName()).font(.title)
                 Text("Highscore \(highscore)").font(.subheadline)
                 HStack{
                     Text(">0")
@@ -53,6 +52,7 @@ struct ScoresView: View {
                 }
             }
             .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
+            .navigationBarTitle(game.getName())
         }.navigationViewStyle(StackNavigationViewStyle())
     }
 }

@@ -17,7 +17,6 @@ struct CreateChallengeMenuView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Create challenge").font(.title)
                 Text("Create your own challenge and share it with your friends, family and co-workers. You can also hide a secret message which will get unveiled after solving the challenge.").font(.body).padding(.horizontal, 16).padding(.top, 8).multilineTextAlignment(.center)
                 ForEach(games, id: \.name) { gameType in
                     Button(action: {self.answer(gameType)}) {
@@ -29,6 +28,7 @@ struct CreateChallengeMenuView: View {
                 }
             }
             .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
+            .navigationBarTitle("Create challenge")
         }.navigationViewStyle(StackNavigationViewStyle()) 
     }
 }

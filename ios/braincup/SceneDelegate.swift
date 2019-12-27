@@ -35,11 +35,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     }
     
     func showCreateRiddleChallenge(title: String) {
-        window?.rootViewController = UIHostingController(rootView: CreateRiddleChallengeView(title: title, description: description, back: {self.showStartMenu()}))
+        window?.rootViewController = UIHostingController(rootView: CreateRiddleChallengeView(title: title, description: description, back: {self.showChallengeMenu()}))
     }
     
     func showCreateSherlockCalculationChallenge(title: String, description: String) {
-        window?.rootViewController = UIHostingController(rootView: CreateSherlockCalculationChallengeView(title: title, description: description, back: {self.showStartMenu()}))
+        window?.rootViewController = UIHostingController(rootView: CreateSherlockCalculationChallengeView(title: title, description: description, back: {self.showChallengeMenu()}))
     }
     
     func showInstructions(gameType: GameType, title: String, description: String, showChallengeInfo: Bool, hasSecret: Bool, start: @escaping () -> Void) {
@@ -160,6 +160,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NavigationInterface {
     
     func showStartMenu() {
         navigationController?.start(state: AppState.start, gameType: nil, challengeData: nil)
+    }
+    
+    func showChallengeMenu() {
+        navigationController?.start(state: AppState.createChallenge, gameType: nil, challengeData: nil)
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {

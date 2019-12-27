@@ -27,10 +27,8 @@ struct CreateSherlockCalculationChallengeView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView(showsIndicators: false) {
             VStack {
-                Text("Create challenge").font(.title).padding(.horizontal, 16)
-                            
                 EditText(title: "Title", helperText: "Title of the challenge. (optional)", onChange: {v in self.inputTitle = v })
                 EditText(title: "Secret", helperText: "The secret will be revealed after solving the challenge. (optional)", onChange: {v in self.inputSecret = v })
                 EditText(title: "Goal", helperText: "The goal that has to be found.", onChange: {v in self.inputGoal = v })
@@ -57,10 +55,10 @@ struct CreateSherlockCalculationChallengeView: View {
                     Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
                 }.sheet(isPresented: $isSharePresented, content: {
                     ActivityViewController(activityItems: [URL(string: self.url)!])
-                })
+                }).padding(.bottom, 64)
                 
                 }.frame(minWidth: 0, maxWidth: 300)
-            .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
+            .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))}).navigationBarTitle("Create challenge")
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }

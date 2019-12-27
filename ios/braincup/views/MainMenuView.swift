@@ -20,7 +20,7 @@ struct MainMenuView: View {
     var storage = UserStorage()
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack {
                 Spacer()
                 Text(title).font(.title).padding(.top, 16)
