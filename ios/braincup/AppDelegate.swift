@@ -12,20 +12,20 @@ import shared
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
-
+    
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
-
+    
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
@@ -51,18 +51,18 @@ extension SwiftUI.Color {
     
     init(hex: String) {
         let hexSanitized = hex.replacingOccurrences(of: "#", with: "")
-
+        
         var rgb: UInt64 = 0
-
+        
         var r: CGFloat = 0.0
         var g: CGFloat = 0.0
         var b: CGFloat = 0.0
         var a: CGFloat = 1.0
-
+        
         Scanner(string: hexSanitized).scanHexInt64(&rgb)
         
         let length = hexSanitized.count
-
+        
         if length == 6 {
             r = CGFloat((rgb & 0xFF0000) >> 16) / 255.0
             g = CGFloat((rgb & 0x00FF00) >> 8) / 255.0
@@ -73,7 +73,7 @@ extension SwiftUI.Color {
             b = CGFloat((rgb & 0x0000FF00) >> 8) / 255.0
             a = CGFloat(rgb & 0x000000FF) / 255.0
         }
-
+        
         self.init(red: Double(r), green: Double(g), blue: Double(b), opacity: Double(a))
     }
 }
@@ -140,30 +140,26 @@ extension shared.GameType {
     
     func getImageResource() -> String {
         switch self {
-            case GameType.sherlockCalculation:
-                return "icons8-search"
-            case GameType.colorConfusion:
-                return "icons8-fill_color"
-            case GameType.chainCalculation:
-                return "icons8-edit_link"
-            case GameType.mentalCalculation:
-                return "icons8-math"
-            case GameType.heightComparison:
-                return "icons8-height"
-            case GameType.fractionCalculation:
-                return "icons8-divide"
-            case GameType.riddle:
-                return "icons8-questions"
-            case GameType.pathFinder:
-                return "icons8-hard_to_find"
-            case GameType.anomalyPuzzle:
-                return "icons8-telescope"
-            default:
-                return ""
+        case GameType.sherlockCalculation:
+            return "icons8-search"
+        case GameType.colorConfusion:
+            return "icons8-fill_color"
+        case GameType.chainCalculation:
+            return "icons8-edit_link"
+        case GameType.mentalCalculation:
+            return "icons8-math"
+        case GameType.heightComparison:
+            return "icons8-height"
+        case GameType.fractionCalculation:
+            return "icons8-divide"
+        case GameType.riddle:
+            return "icons8-questions"
+        case GameType.pathFinder:
+            return "icons8-hard_to_find"
+        case GameType.anomalyPuzzle:
+            return "icons8-telescope"
+        default:
+            return ""
         }
     }
 }
-
-
-
-

@@ -28,36 +28,36 @@ struct CreateRiddleChallengeView: View {
     var body: some View {
         NavigationView {
             ScrollView(showsIndicators: false) {
-            VStack {
-                EditText(title: "Title", helperText: "Title of the challenge. (optional)", onChange: {v in self.inputTitle = v })
-                EditText(title: "Secret", helperText: "The secret will be revealed after solving the challenge. (optional)", onChange: {v in self.inputSecret = v })
-                EditText(title: "Riddle", helperText: "", onChange: {v in self.inputRiddle = v })
-                EditText(title: "Answers", helperText: "Separated by comma.", onChange: {v in self.inputAnswers = v })
-
-                Button(action: {
-                    let result = UrlBuilder().buildRiddleChallengeUrl(
-                        title: self.inputTitle,
-                        secret: self.inputSecret,
-                        description: self.inputRiddle,
-                        answersInput: self.inputAnswers
-                    )
-                    if(result is ChallengeUrl) {
-                        self.url = (result as! ChallengeUrl).url
-                        self.showingAlert = false
-                        self.isSharePresented = true
-                    } else if(result is ChallengeUrlError) {
-                        self.errorMessage = (result as! ChallengeUrlError).errorMessage
-                        self.showingAlert = true
-                    }
-                }) {
-                    Text("Create") }.buttonStyle(BackgroundButtonStyle()).padding(.top, 32).alert(isPresented: $showingAlert) {
-                    Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
-                }.sheet(isPresented: $isSharePresented, content: {
-                    ActivityViewController(activityItems: [URL(string: self.url)!])
-                }).padding(.bottom, 64)
-                
+                VStack {
+                    EditText(title: "Title", helperText: "Title of the challenge. (optional)", onChange: {v in self.inputTitle = v })
+                    EditText(title: "Secret", helperText: "The secret will be revealed after solving the challenge. (optional)", onChange: {v in self.inputSecret = v })
+                    EditText(title: "Riddle", helperText: "", onChange: {v in self.inputRiddle = v })
+                    EditText(title: "Answers", helperText: "Separated by comma.", onChange: {v in self.inputAnswers = v })
+                    
+                    Button(action: {
+                        let result = UrlBuilder().buildRiddleChallengeUrl(
+                            title: self.inputTitle,
+                            secret: self.inputSecret,
+                            description: self.inputRiddle,
+                            answersInput: self.inputAnswers
+                        )
+                        if(result is ChallengeUrl) {
+                            self.url = (result as! ChallengeUrl).url
+                            self.showingAlert = false
+                            self.isSharePresented = true
+                        } else if(result is ChallengeUrlError) {
+                            self.errorMessage = (result as! ChallengeUrlError).errorMessage
+                            self.showingAlert = true
+                        }
+                    }) {
+                        Text("Create") }.buttonStyle(BackgroundButtonStyle()).padding(.top, 32).alert(isPresented: $showingAlert) {
+                            Alert(title: Text("Error"), message: Text(errorMessage), dismissButton: .default(Text("Ok")))
+                    }.sheet(isPresented: $isSharePresented, content: {
+                        ActivityViewController(activityItems: [URL(string: self.url)!])
+                    }).padding(.bottom, 64)
+                    
                 }.frame(minWidth: 0, maxWidth: 300)
-                .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))}).navigationBarTitle("Create challenge")
+                    .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))}).navigationBarTitle("Create challenge")
             }
         }.navigationViewStyle(StackNavigationViewStyle())
     }

@@ -86,6 +86,3 @@ struct NumberPadButton: View {
         }.buttonStyle(NumpadButtonStyle())
     }
 }
-
-
-

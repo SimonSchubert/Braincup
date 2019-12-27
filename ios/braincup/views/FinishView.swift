@@ -38,7 +38,7 @@ struct FinishView: View {
                         Image("icons8-reset")
                         Text("Play again")
                     }
-           }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
+                }.buttonStyle(BackgroundButtonStyle()).padding(.top, 12)
             }
             .navigationBarItems(leading: Button(action: { self.back()}){Image("back").foregroundColor(Color(hex: 0xFFED7354))})
         }.navigationViewStyle(StackNavigationViewStyle()) 

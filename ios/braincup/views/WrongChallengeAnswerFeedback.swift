@@ -13,7 +13,7 @@ struct WrongChallengeAnswerFeedback: View {
     var back: () -> Void
     
     @State private var isSharePresented: Bool = false
-
+    
     var body: some View {
         NavigationView {
             VStack {

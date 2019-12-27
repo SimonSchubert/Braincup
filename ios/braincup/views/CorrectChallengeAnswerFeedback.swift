@@ -13,9 +13,9 @@ struct CorrectChallengeAnswerFeedback: View {
     var secret: String
     var url: String
     var back: () -> Void
-
+    
     @State private var isSharePresented: Bool = false
-
+    
     var body: some View {
         NavigationView {
             VStack {

@@ -13,7 +13,7 @@ struct EditText: View {
     var helperText: String
     var onChange: (String) -> Void
     @State private var value: String = ""
-
+    
     var body: some View {
         VStack {
             Text(title).font(.system(size: CGFloat(18))).padding(.top, 32)
@@ -24,7 +24,7 @@ struct EditText: View {
 }
 
 struct EditText_Previews: PreviewProvider {
-
+    
     static var previews: some View {
         EditText(title: "Title", helperText: "Title of the challenge. (optional)", onChange: {_ in })
     }
