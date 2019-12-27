@@ -4,7 +4,6 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:https://braincup.app</string>
 		<string>applinks:braincup.app</string>
 	</array>
 </dict>

@@ -22,7 +22,7 @@ struct AnomalyPuzzleView: View {
                     HStack {
                         ForEach(figures, id: \.self) { figure in
                             Button(action: { self.answer("\(self.game.figures.index(of: figure)+1)") }) {
-                                figure.draw(size: 80)
+                                figure.draw(size: 64)
                             }
                         }
                     }
