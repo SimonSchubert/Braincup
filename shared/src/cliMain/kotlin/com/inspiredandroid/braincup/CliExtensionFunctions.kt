@@ -9,16 +9,15 @@ internal val RESET by lazy { "$ESCAPE[0m" }
 
 fun String.color(color: Color): String {
     return when (color) {
-        Color.RED -> getEscapedText(31)
-        Color.GREEN -> getEscapedText(32)
-        Color.BLUE -> getEscapedText(34)
+        Color.RED -> getEscapedText(91)
+        Color.GREEN -> getEscapedText(92)
+        Color.BLUE -> getEscapedText(36)
         Color.PURPLE -> getEscapedText(35)
         Color.YELLOW -> getEscapedText(93)
         Color.ORANGE -> getEscapedText(33)
-        Color.TURKIES -> getEscapedText(36)
-        Color.ROSA -> getEscapedText(95)
-        Color.GREY_DARK -> this
-        Color.GREY_LIGHT -> this
+        Color.TURQUOISE -> getEscapedText(36)
+        Color.ROSA -> getEscapedText(96)
+        else -> this
     }
 }
 

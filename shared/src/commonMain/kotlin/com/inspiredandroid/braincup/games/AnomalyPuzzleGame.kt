@@ -145,7 +145,7 @@ class AnomalyPuzzleGame : Game() {
     }
 
     private fun sameShapeMaxColorRound(outstandingFigure: Figure, maxFigures: Int) {
-        val allColors = basicColors + Color.ROSA + Color.TURKIES + Color.ORANGE
+        val allColors = basicColors + Color.ROSA + Color.TURQUOISE + Color.ORANGE
         outstandingFigure.color = allColors.random()
         sameShapeRound(outstandingFigure, maxFigures, allColors)
     }
