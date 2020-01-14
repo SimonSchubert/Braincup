@@ -52,6 +52,7 @@ Build an open source math, memory and focus improvement app. The app itself cons
 - Windows gui client
 - macOS gui client
 - High score server
+- High score screen redesign(see design folder in root)
 
 ## Contribution
 Very welcome.
@@ -64,5 +65,7 @@ Very welcome.
 - Build and copy ios framework to 'ios' folder = :shared:copyFramework
 
 ## Build Jetpack Compose
-
 Get the latest Android Studio canary build in order to build the Android apk https://developer.android.com/studio/preview
+
+## Acknowledgments ♥
+https://kotlinlang.org, https://github.com/russhwolf/multiplatform-settings, https://ktor.io, https://soywiz.com, @cssinate for design suggestions and everyone else I missed to mention.
