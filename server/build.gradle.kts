@@ -30,7 +30,7 @@ dependencies {
     implementation("io.ktor:ktor-html-builder:${Lib.Versions.ktor}")
     implementation("io.ktor:ktor-gson:${Lib.Versions.ktor}")
     implementation("com.google.cloud:google-cloud-logging-logback:0.116.0-alpha")
-    implementation("com.google.cloud:google-cloud-datastore:1.101.0")
+    implementation("com.google.cloud:google-cloud-datastore:1.102.0")
     implementation("com.google.appengine:appengine:${Lib.Versions.appengineVersion}")
 }
 
