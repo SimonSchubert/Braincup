@@ -281,8 +281,8 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
         focusAnswerInput()
     }
 
-    override fun showHeightComparison(
-        game: HeightComparisonGame,
+    override fun showValueComparison(
+        game: ValueComparisonGame,
         answer: (String) -> Unit,
         next: () -> Unit
     ) {

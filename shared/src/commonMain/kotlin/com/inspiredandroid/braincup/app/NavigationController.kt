@@ -28,7 +28,7 @@ class NavigationController(private val app: NavigationInterface) {
             GameType.SHERLOCK_CALCULATION,
             GameType.CHAIN_CALCULATION,
             GameType.FRACTION_CALCULATION,
-            GameType.HEIGHT_COMPARISON,
+            GameType.VALUE_COMPARISON,
             GameType.COLOR_CONFUSION
         )
     }
@@ -156,7 +156,7 @@ class NavigationController(private val app: NavigationInterface) {
                 GameType.MENTAL_CALCULATION -> MentalCalculationGame()
                 GameType.SHERLOCK_CALCULATION -> SherlockCalculationGame()
                 GameType.CHAIN_CALCULATION -> ChainCalculationGame()
-                GameType.HEIGHT_COMPARISON -> HeightComparisonGame()
+                GameType.VALUE_COMPARISON -> ValueComparisonGame()
                 GameType.FRACTION_CALCULATION -> FractionCalculationGame()
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
                 GameType.PATH_FINDER -> PathFinderGame()
@@ -217,7 +217,7 @@ class NavigationController(private val app: NavigationInterface) {
                 next
             )
             is ChainCalculationGame -> app.showChainCalculation(game, answer, next)
-            is HeightComparisonGame -> app.showHeightComparison(game, answer, next)
+            is ValueComparisonGame -> app.showValueComparison(game, answer, next)
             is FractionCalculationGame -> app.showFractionCalculation(game, answer, next)
             is AnomalyPuzzleGame -> app.showAnomalyPuzzle(game, answer, next)
             is PathFinderGame -> app.showPathFinder(game, answer, next)

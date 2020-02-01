@@ -7,11 +7,11 @@ import androidx.ui.layout.Spacer
 import androidx.ui.material.Button
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
-import com.inspiredandroid.braincup.games.HeightComparisonGame
+import com.inspiredandroid.braincup.games.ValueComparisonGame
 
 @Composable
-fun HeightComparisonScreen(
-    game: HeightComparisonGame,
+fun ValueComparisonScreen(
+    game: ValueComparisonGame,
     answer: (String) -> Unit,
     next: () -> Unit
 ) {

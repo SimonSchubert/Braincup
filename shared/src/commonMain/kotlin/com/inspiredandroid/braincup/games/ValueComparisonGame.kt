@@ -13,7 +13,7 @@ import kotlin.random.Random
  * - Round 4-6 = 3 answers
  * - Round >= 7 = 4 answers
  */
-class HeightComparisonGame : Game() {
+class ValueComparisonGame : Game() {
 
     private var resultIndex = 0
     var answers = mutableListOf<String>()
@@ -74,7 +74,7 @@ class HeightComparisonGame : Game() {
     }
 
     override fun getGameType(): GameType {
-        return GameType.HEIGHT_COMPARISON
+        return GameType.VALUE_COMPARISON
     }
 
     private fun getExpectedAnswersCount(): Int {

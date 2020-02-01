@@ -85,4 +85,4 @@ data class RiddleChallengeData(
 ) : ChallengeData(t, secret, GameType.RIDDLE)
 
 data class ChallengeDataParseError(val msg: String = "Parsing error") :
-    ChallengeData(gameType = GameType.HEIGHT_COMPARISON, challengeSecret = "")
+    ChallengeData(gameType = GameType.VALUE_COMPARISON, challengeSecret = "")

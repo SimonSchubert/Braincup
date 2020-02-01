@@ -51,8 +51,8 @@ interface NavigationInterface {
         next: () -> Unit
     )
 
-    fun showHeightComparison(
-        game: HeightComparisonGame,
+    fun showValueComparison(
+        game: ValueComparisonGame,
         answer: (String) -> Unit,
         next: () -> Unit
     )

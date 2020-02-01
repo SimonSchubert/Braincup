@@ -205,13 +205,13 @@ class MainActivity : Activity(), NavigationInterface {
         }
     }
 
-    override fun showHeightComparison(
-        game: HeightComparisonGame,
+    override fun showValueComparison(
+        game: ValueComparisonGame,
         answer: (String) -> Unit,
         next: () -> Unit
     ) {
         setContent {
-            HeightComparisonScreen(game, answer, next)
+            ValueComparisonScreen(game, answer, next)
         }
     }
 

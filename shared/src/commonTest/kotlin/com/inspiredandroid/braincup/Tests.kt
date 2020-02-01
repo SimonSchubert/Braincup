@@ -66,7 +66,7 @@ class Tests {
 
     @Test
     fun heightComparison() {
-        val game = HeightComparisonGame()
+        val game = ValueComparisonGame()
         game.nextRound()
         var highestResult = -1
         var highestIndex = -1

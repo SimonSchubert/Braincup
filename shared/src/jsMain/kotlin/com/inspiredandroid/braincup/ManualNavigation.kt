@@ -60,7 +60,7 @@ fun startSherlockCalculation() {
 }
 
 fun startHeightComparison() {
-    JsMain(AppState.INSTRUCTIONS, GameType.HEIGHT_COMPARISON)
+    JsMain(AppState.INSTRUCTIONS, GameType.VALUE_COMPARISON)
 }
 
 fun startMentalCalculation() {
@@ -108,5 +108,5 @@ fun startFractionCalculationScoreboard() {
 }
 
 fun startHeightComparisonScoreboard() {
-    JsMain(AppState.SCOREBOARD, GameType.HEIGHT_COMPARISON)
+    JsMain(AppState.SCOREBOARD, GameType.VALUE_COMPARISON)
 }

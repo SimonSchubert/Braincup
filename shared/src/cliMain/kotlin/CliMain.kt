@@ -226,8 +226,8 @@ class CliMain(
         readAndAnswer(answer, next)
     }
 
-    override fun showHeightComparison(
-        game: HeightComparisonGame,
+    override fun showValueComparison(
+        game: ValueComparisonGame,
         answer: (String) -> Unit,
         next: () -> Unit
     ) {

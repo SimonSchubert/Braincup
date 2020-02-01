@@ -21,7 +21,7 @@ fun GameType.getAndroidDrawable(): Int {
         GameType.SHERLOCK_CALCULATION -> R.drawable.ic_icons8_search
         GameType.CHAIN_CALCULATION -> R.drawable.ic_icons8_chain
         GameType.FRACTION_CALCULATION -> R.drawable.ic_icons8_divide
-        GameType.HEIGHT_COMPARISON -> R.drawable.ic_icons8_height
+        GameType.VALUE_COMPARISON -> R.drawable.ic_icons8_height
         GameType.ANOMALY_PUZZLE -> R.drawable.ic_icons8_telescope
         GameType.RIDDLE -> R.drawable.ic_icons8_questions
         GameType.PATH_FINDER -> R.drawable.ic_icons8_hard_to_find
