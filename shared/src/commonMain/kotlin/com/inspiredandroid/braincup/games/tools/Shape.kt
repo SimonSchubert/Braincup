@@ -101,7 +101,7 @@ val trianglePath by lazy {
 
 val circlePath by lazy {
     val path = mutableListOf<Pair<Float, Float>>()
-    for (angle in 0..360 step 30) {
+    for (angle in 0..360 step 9) {
         val degree = angle * PI / 180
         val x = cos(degree) * 0.5 + 0.5
         val y = sin(degree) * 0.5 + 0.5
