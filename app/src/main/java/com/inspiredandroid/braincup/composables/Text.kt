@@ -12,6 +12,7 @@ import androidx.ui.graphics.Color
 import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.LayoutSize
+import androidx.ui.layout.LayoutWidth
 import androidx.ui.material.MaterialTheme
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.style.TextAlign
@@ -93,7 +94,6 @@ fun Headline6(
 fun Input(
     title: String? = null,
     helperText: String? = null,
-    modifier: Modifier = Modifier.None,
     onChange: ((String) -> Unit)
 ) {
     val state = state { EditorModel("") }
@@ -113,6 +113,6 @@ fun Input(
         }, modifier = LayoutPadding(8.dp))
     }
     if (helperText != null) {
-        Subtitle2(text = helperText, modifier = modifier)
+        Subtitle2(text = helperText, modifier = LayoutWidth.Fill)
     }
 }
