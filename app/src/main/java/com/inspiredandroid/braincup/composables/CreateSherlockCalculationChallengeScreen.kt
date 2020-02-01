@@ -3,8 +3,8 @@ package com.inspiredandroid.braincup.composables
 import android.content.Context
 import android.widget.Toast
 import androidx.compose.Composable
-import androidx.ui.core.dp
 import androidx.ui.layout.*
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
@@ -26,40 +26,36 @@ fun CreateSherlockCalculationChallenge(
     BaseScrollApp(title = title, back = { gameMaster.start(state = AppState.CREATE_CHALLENGE) }) {
         Subtitle1(
             text = "Create your own Sherlock Calculation challenge.",
-            modifier = Gravity.Center wraps Spacing(16.dp)
+            modifier = LayoutGravity.Center + LayoutPadding(16.dp)
         )
-        Column(modifier = Spacing(16.dp) wraps MaxWidth(300.dp)) {
+        Column(modifier = LayoutPadding(16.dp) + LayoutWidth.Max(300.dp) + LayoutGravity.Center) {
             Input(
                 title = "Title",
-                helperText = "Title of the challenge. (optional)",
-                modifier = Gravity.Center
+                helperText = "Title of the challenge. (optional)"
             ) {
                 challengeTitle = it
             }
 
-            HeightSpacer(height = 16.dp)
+            Spacer(LayoutHeight(16.dp))
             Input(
                 title = "Secret",
-                helperText = "The secret will be revealed after solving the challenge. (optional)",
-                modifier = Gravity.Center
+                helperText = "The secret will be revealed after solving the challenge. (optional)"
             ) {
                 secret = it
             }
 
-            HeightSpacer(height = 16.dp)
+            Spacer(LayoutHeight(16.dp))
             Input(
                 title = "Goal",
-                helperText = "The goal that has to be found.",
-                modifier = Gravity.Center
+                helperText = "The goal that has to be found."
             ) {
                 goal = it
             }
 
-            HeightSpacer(height = 16.dp)
+            Spacer(LayoutHeight(16.dp))
             Input(
                 title = "Allowed numbers",
-                helperText = "The allowed numbers to find the goal. (Separated by comma or space)",
-                modifier = Gravity.Center
+                helperText = "The allowed numbers to find the goal. (Separated by comma or space)"
             ) {
                 numbers = it
             }
@@ -67,7 +63,7 @@ fun CreateSherlockCalculationChallenge(
         TextImageButton(
             text = "Create",
             drawableResource = R.drawable.ic_icons8_hammer,
-            modifier = Gravity.Center wraps Spacing(16.dp),
+            modifier = LayoutGravity.Center + LayoutPadding(16.dp),
             onClick = {
                 val result = UrlBuilder.buildSherlockCalculationChallengeUrl(
                     challengeTitle,

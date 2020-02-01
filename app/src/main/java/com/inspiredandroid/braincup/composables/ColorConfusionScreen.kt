@@ -2,11 +2,12 @@ package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
 import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.core.sp
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.HeightSpacer
+import androidx.ui.layout.LayoutGravity
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.Spacer
 import androidx.ui.text.TextStyle
+import androidx.ui.unit.dp
+import androidx.ui.unit.sp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -22,7 +23,7 @@ fun ColorConfusionScreen(
     BaseApp {
         Headline5(
             text = "${game.shapePoints} = ${game.answerShape.getName()}",
-            modifier = Gravity.Center
+            modifier = LayoutGravity.Center
         )
         Text(
             "${game.colorPoints} = ${game.answerColor.getName()}", style = TextStyle
@@ -30,18 +31,18 @@ fun ColorConfusionScreen(
                 fontSize = 24.sp,
                 color = game.stringColor.getComposeColor()
             ),
-            modifier = Gravity.Center
+            modifier = LayoutGravity.Center
         )
-        HeightSpacer(32.dp)
+        Spacer(LayoutHeight(32.dp))
         ShapeCanvas(
             size = 96.dp,
-            modifier = Gravity.Center,
+            modifier = LayoutGravity.Center,
             figure = Figure(
                 shape = game.displayedShape,
                 color = game.displayedColor
             )
         )
-        HeightSpacer(32.dp)
+        Spacer(LayoutHeight(32.dp))
         val numbers = game.getPossibleAnswers()
         NumberRow(numbers) {
             answer(it)

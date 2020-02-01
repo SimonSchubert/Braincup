@@ -1,10 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.ui.core.dp
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.HeightSpacer
+import androidx.ui.layout.LayoutGravity
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.Spacer
 import androidx.ui.material.Button
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.ChainCalculationGame
 
@@ -15,20 +16,20 @@ fun ChainCalculationScreen(
     next: () -> Unit
 ) {
     BaseApp {
-        Headline4(text = game.calculation, modifier = Gravity.Center)
+        Headline4(text = game.calculation, modifier = LayoutGravity.Center)
         NumberPad(false, onInputChange = {
             if (game.isCorrect(it)) {
                 answer(it)
                 DelayedTask().execute(next)
             }
         })
-        HeightSpacer(32.dp)
+        Spacer(LayoutHeight(32.dp))
         Button(
             "Give up", onClick = {
                 answer("")
                 DelayedTask().execute(next)
             },
-            modifier = Gravity.Center
+            modifier = LayoutGravity.Center
         )
     }
 }

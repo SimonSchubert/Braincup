@@ -1,19 +1,17 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
 import androidx.ui.core.Modifier
 import androidx.ui.core.WithDensity
-import androidx.ui.core.dp
 import androidx.ui.graphics.vector.DrawVector
 import androidx.ui.layout.*
 import androidx.ui.res.vectorResource
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getName
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.getAndroidDrawable
 import com.inspiredandroid.braincup.getAndroidMedalResource
 import com.inspiredandroid.braincup.getComposeColor
@@ -32,18 +30,18 @@ fun MainMenuScreen(
     appOpenCount: Int
 ) {
     BaseScrollApp(title) {
-        HeightSpacer(8.dp)
-        Subtitle1(text = description, modifier = Gravity.Center)
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(8.dp))
+        Subtitle1(text = description, modifier = LayoutGravity.Center)
+        Spacer(LayoutHeight(16.dp))
         games.forEach {
-            HeightSpacer(16.dp)
-            Row(modifier = Gravity.Center) {
+            Spacer(LayoutHeight(16.dp))
+            Row(modifier = LayoutGravity.Center) {
                 TextImageButton(text = it.getName(), drawableResource = it.getAndroidDrawable()) {
                     showInstructions(it)
                 }
                 val highscore = storage.getHighScore(it.getId())
                 if (highscore > 0) {
-                    WidthSpacer(8.dp)
+                    Spacer(LayoutWidth(8.dp))
                     ImageButton(
                         drawableResource = it.getAndroidMedalResource
                             (highscore)
@@ -54,61 +52,62 @@ fun MainMenuScreen(
             }
         }
 
-        Row(modifier = Gravity.Center) {
+        Row(modifier = LayoutGravity.Center) {
             if (appOpenCount > 1) {
                 PentagonStatistic(
                     title = "Training days",
                     value = appOpenCount.toString(),
-                    modifier = Gravity.Center
+                    modifier = LayoutGravity.Center
                 )
             }
             if (totalScore > 0) {
                 PentagonStatistic(
                     title = "Total score",
                     value = totalScore.toString(),
-                    modifier = Gravity.Center
+                    modifier = LayoutGravity.Center
                 )
             }
         }
 
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(16.dp))
         TextImageButton(
             text = "Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.values().size})",
             drawableResource = R.drawable.ic_icons8_test_passed,
-            modifier = Gravity.Center
+            modifier = LayoutGravity.Center
         ) {
             showAchievements()
         }
-        HeightSpacer(16.dp)
+
+        Spacer(LayoutHeight(16.dp))
         TextImageButton(
             text = "Create challenge",
             drawableResource = R.drawable.ic_icons8_create_new3,
-            modifier = Gravity.Center,
+            modifier = LayoutGravity.Center,
             color = getComposeColor("#5c8e58")
         ) {
             createChallenge()
         }
 
-        VectorImage(id = R.drawable.ic_waiting, modifier = Gravity.Center)
+        VectorImage(id = R.drawable.ic_waiting, modifier = LayoutGravity.Center)
     }
 }
 
 
 @Composable
 fun PentagonStatistic(title: String, value: String, modifier: Modifier) {
-    val vector = +vectorResource(R.drawable.ic_icons8_pentagon)
+    val vector = vectorResource(R.drawable.ic_icons8_pentagon)
     WithDensity {
         Container(
-            modifier = modifier wraps Size(
-                vector.defaultWidth.toDp(),
-                vector.defaultHeight.toDp()
+            modifier = modifier + LayoutSize(
+                vector.defaultWidth,
+                vector.defaultHeight
             )
         ) {
             DrawVector(vector)
             Column {
-                HeightSpacer(height = 14.dp)
-                Subtitle1(title, modifier = Gravity.Center)
-                Headline6(text = value, modifier = Gravity.Center)
+                Spacer(LayoutHeight(14.dp))
+                Subtitle1(title, modifier = LayoutGravity.Center)
+                Headline6(text = value, modifier = LayoutGravity.Center)
             }
         }
     }

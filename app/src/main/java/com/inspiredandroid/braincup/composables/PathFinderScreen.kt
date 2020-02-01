@@ -1,11 +1,8 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.ui.core.dp
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.HeightSpacer
-import androidx.ui.layout.Row
-import androidx.ui.layout.Spacing
+import androidx.ui.layout.*
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.PathFinderGame
 import com.inspiredandroid.braincup.games.tools.Color
@@ -21,20 +18,21 @@ fun PathFinderScreen(
 ) {
     BaseApp {
         game.directions.chunked(game.gridSize + 2).forEach { directions ->
-            Row(modifier = Gravity.Center) {
+            Row(modifier = LayoutGravity.Center) {
                 directions.forEach {
                     ShapeCanvas(
                         size = 32.dp,
-                        figure = it.getFigure(), modifier = Gravity.Center wraps Spacing(4.dp)
+                        figure = it.getFigure(),
+                        modifier = LayoutGravity.Center + LayoutPadding(4.dp)
                     )
                 }
             }
         }
-        HeightSpacer(height = 16.dp)
+        Spacer(LayoutHeight(16.dp))
         val blankFigure = Figure(Shape.SQUARE, Color.GREY_LIGHT)
         val startFigure = Figure(Shape.SQUARE, Color.ORANGE)
         repeat(game.gridSize) { y ->
-            Row(modifier = Gravity.Center) {
+            Row {
                 repeat(game.gridSize) { x ->
                     val index = y * game.gridSize + x
                     val figure = if (index == game.startX) {
@@ -45,7 +43,7 @@ fun PathFinderScreen(
                     ShapeCanvasButton(
                         size = 48.dp,
                         figure = figure,
-                        modifier = Gravity.Center wraps Spacing(8.dp),
+                        modifier = LayoutGravity.Center + LayoutPadding(8.dp),
                         onClick = {
                             answer("${index + 1}")
                             DelayedTask().execute(next)

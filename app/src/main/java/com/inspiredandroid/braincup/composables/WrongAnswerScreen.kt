@@ -2,19 +2,20 @@ package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
 import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.HeightSpacer
+import androidx.ui.layout.LayoutGravity
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.Spacer
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 
 @Composable
 fun WrongAnswerScreen(solution: String) {
     BaseApp {
         VectorImage(id = R.drawable.ic_searching)
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(16.dp))
         Text(
             "Correct was: $solution",
-            modifier = Gravity.Center
+            modifier = LayoutGravity.Center
         )
     }
 }

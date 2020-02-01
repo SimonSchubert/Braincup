@@ -1,19 +1,19 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.ui.core.Dp
 import androidx.ui.core.Draw
 import androidx.ui.core.Modifier
-import androidx.ui.core.dp
 import androidx.ui.foundation.Clickable
 import androidx.ui.graphics.Paint
 import androidx.ui.graphics.Path
 import androidx.ui.layout.Column
 import androidx.ui.layout.Container
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.Spacing
+import androidx.ui.layout.LayoutGravity
+import androidx.ui.layout.LayoutPadding
 import androidx.ui.material.ripple.Ripple
 import androidx.ui.tooling.preview.Preview
+import androidx.ui.unit.Dp
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.getPaths
@@ -46,6 +46,7 @@ fun ShapeCanvas(
             path.close()
 
             if (figure.rotation != 0) {
+                canvas.save()
                 canvas.translate(
                     parentSize.width.value / 2f,
                     parentSize.height.value / 2f
@@ -55,8 +56,11 @@ fun ShapeCanvas(
                     -parentSize.width.value / 2f,
                     -parentSize.height.value / 2f
                 )
+                canvas.drawPath(path, paint)
+                canvas.restore()
+            } else {
+                canvas.drawPath(path, paint)
             }
-            canvas.drawPath(path, paint)
         }
     }
 }
@@ -91,7 +95,7 @@ fun PreviewShapes() {
         ).forEach { figure ->
             ShapeCanvasButton(
                 size = 48.dp,
-                modifier = Gravity.Center wraps Spacing(8.dp),
+                modifier = LayoutGravity.Center + LayoutPadding(8.dp),
                 figure = figure,
                 onClick = {})
         }

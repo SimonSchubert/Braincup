@@ -2,10 +2,11 @@ package com.inspiredandroid.braincup.composables
 
 import android.content.Context
 import androidx.compose.Composable
-import androidx.ui.core.dp
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.HeightSpacer
-import androidx.ui.layout.Spacing
+import androidx.ui.layout.LayoutGravity
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.LayoutPadding
+import androidx.ui.layout.Spacer
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
 
@@ -15,20 +16,23 @@ fun WrongChallengeAnswerScreen(
     gameMaster: NavigationController
 ) {
     BaseApp {
-        Headline5(text = "Unsolved", modifier = Gravity.Center wraps Spacing(16.dp))
-        Subtitle2(text = "The challenge will stay unsolved for now.", modifier = Gravity.Center)
-        VectorImage(id = R.drawable.ic_searching, modifier = Gravity.Center)
+        Headline5(text = "Unsolved", modifier = LayoutGravity.Center + LayoutPadding(16.dp))
+        Subtitle2(
+            text = "The challenge will stay unsolved for now.",
+            modifier = LayoutGravity.Center
+        )
+        VectorImage(id = R.drawable.ic_searching, modifier = LayoutGravity.Center)
         TextImageButton(
             text = "Share challenge",
             drawableResource = R.drawable.ic_icons8_copy_link,
-            onClick = { shareText(context, url) }, modifier = Gravity.Center
+            onClick = { shareText(context, url) }, modifier = LayoutGravity.Center
         )
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(16.dp))
         TextImageButton(
             text = "Menu",
             drawableResource = R.drawable.ic_icons8_menu,
             onClick = { gameMaster.start() },
-            modifier = Gravity.Center
+            modifier = LayoutGravity.Center
         )
     }
 }

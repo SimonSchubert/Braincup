@@ -1,33 +1,32 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.compose.State
+import androidx.compose.MutableState
 import androidx.compose.state
-import androidx.compose.unaryPlus
 import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.core.sp
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.material.Button
 import androidx.ui.text.TextStyle
+import androidx.ui.unit.dp
+import androidx.ui.unit.sp
 
 @Composable
 fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
-    val input = +state { "" }
+    val input = state { "" }
     Column {
-        Row(arrangement = Arrangement.End, modifier = Spacing(16.dp) wraps Gravity.Center) {
+        Row(arrangement = Arrangement.End, modifier = LayoutPadding(16.dp) + LayoutGravity.Center) {
             Text(
                 input.value,
                 style = TextStyle(color = Color.Black, fontSize = 32.sp),
-                modifier = Gravity.Center
+                modifier = LayoutGravity.Center
             )
             if (input.value.isNotEmpty()) {
-                WidthSpacer(width = 8.dp)
+                Spacer(LayoutWidth(8.dp))
                 Button(
                     "◄", onClick = {
                         input.value = input.value.substring(0, input.value.lastIndex)
-                    }, modifier = Gravity.Center
+                    }, modifier = LayoutGravity.Center
                 )
             }
         }
@@ -85,7 +84,7 @@ fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
 
 @Composable
 fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
-    val input = +state { "" }
+    val input = state { "" }
     Row {
         numbers.forEach {
             NumberPadButton(it, input, onInputChange)
@@ -94,9 +93,9 @@ fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
 }
 
 @Composable
-fun NumberPadButton(value: String, input: State<String>, onInputChange: (String) -> Unit) {
+fun NumberPadButton(value: String, input: MutableState<String>, onInputChange: (String) -> Unit) {
     Button(value, onClick = {
         input.value += value
         onInputChange(input.value)
-    }, modifier = Spacing(4.dp))
+    }, modifier = LayoutPadding(4.dp))
 }

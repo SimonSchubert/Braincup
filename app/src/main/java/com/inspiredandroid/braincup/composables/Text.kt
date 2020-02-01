@@ -2,18 +2,20 @@ package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
 import androidx.compose.state
-import androidx.compose.unaryPlus
-import androidx.ui.core.*
-import androidx.ui.foundation.shape.border.Border
-import androidx.ui.foundation.shape.border.DrawBorder
+import androidx.ui.core.EditorModel
+import androidx.ui.core.Modifier
+import androidx.ui.core.Text
+import androidx.ui.core.TextField
+import androidx.ui.foundation.Border
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.Container
-import androidx.ui.layout.MinSize
-import androidx.ui.layout.Spacing
+import androidx.ui.layout.LayoutPadding
+import androidx.ui.layout.LayoutSize
 import androidx.ui.material.MaterialTheme
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.style.TextAlign
+import androidx.ui.unit.dp
 
 @Composable
 fun Subtitle1(
@@ -22,8 +24,7 @@ fun Subtitle1(
 ) {
     Text(
         text,
-        style = (+MaterialTheme.typography()).subtitle1,
-        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center),
+        style = MaterialTheme.typography().subtitle1.merge(ParagraphStyle(textAlign = TextAlign.Center)),
         modifier = modifier
     )
 }
@@ -35,8 +36,7 @@ fun Subtitle2(
 ) {
     Text(
         text,
-        style = (+MaterialTheme.typography()).subtitle2,
-        paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center),
+        style = MaterialTheme.typography().subtitle2.merge(ParagraphStyle(textAlign = TextAlign.Center)),
         modifier = modifier
     )
 }
@@ -48,7 +48,7 @@ fun Headline3(
 ) {
     Text(
         text,
-        style = (+MaterialTheme.typography()).h3,
+        style = MaterialTheme.typography().h3,
         modifier = modifier
     )
 }
@@ -60,7 +60,7 @@ fun Headline4(
 ) {
     Text(
         text,
-        style = (+MaterialTheme.typography()).h4,
+        style = MaterialTheme.typography().h4,
         modifier = modifier
     )
 }
@@ -72,7 +72,7 @@ fun Headline5(
 ) {
     Text(
         text,
-        style = (+MaterialTheme.typography()).h5,
+        style = MaterialTheme.typography().h5,
         modifier = modifier
     )
 }
@@ -84,11 +84,10 @@ fun Headline6(
 ) {
     Text(
         text,
-        style = (+MaterialTheme.typography()).h6,
+        style = MaterialTheme.typography().h6,
         modifier = modifier
     )
 }
-
 
 @Composable
 fun Input(
@@ -97,18 +96,21 @@ fun Input(
     modifier: Modifier = Modifier.None,
     onChange: ((String) -> Unit)
 ) {
-    val state = +state { EditorModel("") }
+    val state = state { EditorModel("") }
     if (title != null) {
         Headline6(text = title)
     }
     Container(
-        modifier = modifier wraps MinSize(250.dp, 48.dp)
+        modifier = LayoutSize.Min(250.dp, 48.dp) + Border(
+            shape = RoundedCornerShape(4.dp),
+            color = Color.Gray,
+            width = 1.dp
+        )
     ) {
-        DrawBorder(shape = RoundedCornerShape(4.dp), border = Border(Color.Gray, 1.dp))
         TextField(value = state.value, onValueChange = {
             state.value = it
             onChange(it.text)
-        }, modifier = Spacing(8.dp))
+        }, modifier = LayoutPadding(8.dp))
     }
     if (helperText != null) {
         Subtitle2(text = helperText, modifier = modifier)

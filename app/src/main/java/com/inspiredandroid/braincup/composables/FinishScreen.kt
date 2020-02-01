@@ -1,14 +1,14 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.compose.unaryPlus
 import androidx.ui.core.Text
-import androidx.ui.core.dp
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.HeightSpacer
+import androidx.ui.layout.LayoutGravity
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.Spacer
 import androidx.ui.material.MaterialTheme
 import androidx.ui.text.ParagraphStyle
 import androidx.ui.text.style.TextAlign
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
 
@@ -23,37 +23,36 @@ fun FinishScreen(
     gameMaster: NavigationController
 ) {
     BaseApp {
-        Headline4(text = "Score: $rank", modifier = Gravity.Center)
-        HeightSpacer(16.dp)
+        Headline4(text = "Score: $rank", modifier = LayoutGravity.Center)
+        Spacer(LayoutHeight(16.dp))
         if (answeredAllCorrect) {
             Text(
                 "You got 1 extra point for making zero mistakes.",
-                style = (+MaterialTheme.typography()).h6,
-                paragraphStyle = ParagraphStyle(textAlign = TextAlign.Center),
-                modifier = Gravity.Center
+                style = MaterialTheme.typography().h6.merge(ParagraphStyle(textAlign = TextAlign.Center)),
+                modifier = LayoutGravity.Center
             )
         }
         if (newHighscore) {
-            HeightSpacer(8.dp)
-            Headline6(text = "New highscore", modifier = Gravity.Center)
+            Spacer(LayoutHeight(8.dp))
+            Headline6(text = "New highscore", modifier = LayoutGravity.Center)
         }
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(16.dp))
         TextImageButton(
             text = "Play random game",
             drawableResource = R.drawable.ic_icons8_dice,
-            modifier = Gravity.Center,
+            modifier = LayoutGravity.Center,
             onClick = { random() })
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(16.dp))
         TextImageButton(
             text = "Play again",
             drawableResource = R.drawable.ic_icons8_recurring_appointment,
-            modifier = Gravity.Center,
+            modifier = LayoutGravity.Center,
             onClick = { again() })
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(16.dp))
         TextImageButton(
             text = "Menu",
             drawableResource = R.drawable.ic_icons8_menu,
-            modifier = Gravity.Center,
+            modifier = LayoutGravity.Center,
             onClick = { gameMaster.start() })
     }
 }

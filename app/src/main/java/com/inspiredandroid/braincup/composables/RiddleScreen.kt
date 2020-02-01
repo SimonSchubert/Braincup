@@ -1,11 +1,12 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.ui.core.dp
-import androidx.ui.layout.Gravity
-import androidx.ui.layout.HeightSpacer
-import androidx.ui.layout.MaxWidth
+import androidx.ui.layout.LayoutGravity
+import androidx.ui.layout.LayoutHeight
+import androidx.ui.layout.LayoutWidth
+import androidx.ui.layout.Spacer
 import androidx.ui.material.Button
+import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.RiddleGame
 
@@ -16,21 +17,21 @@ fun RiddleScreen(
     next: () -> Unit
 ) {
     BaseApp {
-        Subtitle1(text = game.quest, modifier = Gravity.Center)
-        HeightSpacer(32.dp)
-        Input(modifier = Gravity.Center wraps MaxWidth(300.dp)) {
+        Subtitle1(text = game.quest, modifier = LayoutGravity.Center)
+        Spacer(LayoutHeight(16.dp))
+        Input(modifier = LayoutGravity.Center + LayoutWidth.Max(300.dp)) {
             if (game.isCorrect(it)) {
                 answer(it)
                 DelayedTask().execute(next)
             }
         }
-        HeightSpacer(16.dp)
+        Spacer(LayoutHeight(16.dp))
         Button(
             "Give up", onClick = {
                 answer("")
                 DelayedTask().execute(next)
             },
-            modifier = Gravity.Center
+            modifier = LayoutGravity.Center
         )
     }
 }
