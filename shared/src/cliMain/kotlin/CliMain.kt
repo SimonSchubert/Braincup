@@ -26,16 +26,22 @@ data class CliArgument(val id: ID, val options: List<String>, val description: S
     }
 }
 
-val arguments = listOf(
-    CliArgument(CliArgument.ID.VERSION, listOf("--version", "-v"), "Version of the application"),
-    CliArgument(CliArgument.ID.HELP, listOf("--help", "-h"), "Print help"),
-    CliArgument(CliArgument.ID.DEEPLINK, listOf("--deeplink", "-d"), "Open web deeplink"),
-    CliArgument(
-        CliArgument.ID.GAME,
-        listOf("--game", "-g"),
-        "Start game immediately\n${GameType.values().joinToString(separator = "\n") { "    ${it.getId()} = ${it.getName()}" }}"
+val arguments by lazy {
+    listOf(
+        CliArgument(
+            CliArgument.ID.VERSION,
+            listOf("--version", "-v"),
+            "Version of the application"
+        ),
+        CliArgument(CliArgument.ID.HELP, listOf("--help", "-h"), "Print help"),
+        CliArgument(CliArgument.ID.DEEPLINK, listOf("--deeplink", "-d"), "Open web deeplink"),
+        CliArgument(
+            CliArgument.ID.GAME,
+            listOf("--game", "-g"),
+            "Start game immediately\n${GameType.values().joinToString(separator = "\n") { "\t${it.getId()} = ${it.getName()}" }}"
+        )
     )
-)
+}
 
 fun main(args: Array<String>) {
     args.forEachIndexed { index, s ->
@@ -73,7 +79,7 @@ fun main(args: Array<String>) {
                     arguments.forEach {
                         println()
                         println(it.options.joinToString(separator = ",").bold())
-                        println("  ${it.description}")
+                        println("\t${it.description}")
                     }
                     return
                 }
