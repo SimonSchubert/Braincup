@@ -4,7 +4,6 @@ import androidx.compose.Composable
 import androidx.ui.layout.LayoutGravity
 import androidx.ui.layout.LayoutHeight
 import androidx.ui.layout.Spacer
-import androidx.ui.material.Button
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.SherlockCalculationGame
@@ -25,7 +24,7 @@ fun SherlockCalculationScreen(
             }
         })
         Spacer(LayoutHeight(32.dp))
-        Button("Give up", onClick = {
+        TextButton(text = "Give up", onClick = {
             answer("")
             DelayedTask().execute(next)
         }, modifier = LayoutGravity.Center)

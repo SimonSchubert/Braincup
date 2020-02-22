@@ -2,14 +2,13 @@ package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
 import androidx.compose.state
-import androidx.ui.core.EditorModel
 import androidx.ui.core.Modifier
 import androidx.ui.core.Text
 import androidx.ui.core.TextField
 import androidx.ui.foundation.Border
+import androidx.ui.foundation.Box
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.graphics.Color
-import androidx.ui.layout.Container
 import androidx.ui.layout.LayoutPadding
 import androidx.ui.layout.LayoutSize
 import androidx.ui.layout.LayoutWidth
@@ -96,20 +95,18 @@ fun Input(
     helperText: String? = null,
     onChange: ((String) -> Unit)
 ) {
-    val state = state { EditorModel("") }
+    val state = state { "" }
     if (title != null) {
         Headline6(text = title)
     }
-    Container(
-        modifier = LayoutSize.Min(250.dp, 48.dp) + Border(
-            shape = RoundedCornerShape(4.dp),
-            color = Color.Gray,
-            width = 1.dp
-        )
+    Box(
+        shape = RoundedCornerShape(4.dp),
+        border = Border(1.dp, Color.Gray),
+        modifier = LayoutSize.Min(250.dp, 48.dp)
     ) {
         TextField(value = state.value, onValueChange = {
             state.value = it
-            onChange(it.text)
+            onChange(it)
         }, modifier = LayoutPadding(8.dp))
     }
     if (helperText != null) {

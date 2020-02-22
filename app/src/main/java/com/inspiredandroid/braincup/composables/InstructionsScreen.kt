@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.composables
 import androidx.compose.Composable
 import androidx.ui.layout.LayoutGravity
 import androidx.ui.layout.LayoutPadding
-import androidx.ui.material.Button
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
@@ -33,14 +32,14 @@ fun InstructionsScreen(
             VectorImage(id = R.drawable.ic_message_sent, modifier = LayoutGravity.Center)
 
             Subtitle1(text = description, modifier = LayoutGravity.Center + LayoutPadding(16.dp))
-            Button("Start", onClick = {
+            TextButton(text = "Start", onClick = {
                 start()
             }, modifier = LayoutGravity.Center)
         }
     } else {
         BaseApp(title = title, back = { gameMaster.start() }) {
             Subtitle1(text = description, modifier = LayoutGravity.Center + LayoutPadding(16.dp))
-            Button("Start", onClick = {
+            TextButton(text = "Start", onClick = {
                 start()
             }, modifier = LayoutGravity.Center)
         }

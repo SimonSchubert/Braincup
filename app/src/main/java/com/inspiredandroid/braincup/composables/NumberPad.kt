@@ -4,9 +4,9 @@ import androidx.compose.Composable
 import androidx.compose.MutableState
 import androidx.compose.state
 import androidx.ui.core.Text
+import androidx.ui.foundation.Box
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
-import androidx.ui.material.Button
 import androidx.ui.text.TextStyle
 import androidx.ui.unit.dp
 import androidx.ui.unit.sp
@@ -23,8 +23,10 @@ fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
             )
             if (input.value.isNotEmpty()) {
                 Spacer(LayoutWidth(8.dp))
-                Button(
-                    "◄", onClick = {
+
+                TextButton(
+                    text = "◄",
+                    onClick = {
                         input.value = input.value.substring(0, input.value.lastIndex)
                     }, modifier = LayoutGravity.Center
                 )
@@ -66,13 +68,13 @@ fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
                 if (showOperators) {
                     NumberPadButton("(", input, onInputChange)
                 } else {
-                    Padding(3.dp) {}
+                    Box {}
                 }
                 NumberPadButton("0", input, onInputChange)
                 if (showOperators) {
                     NumberPadButton(")", input, onInputChange)
                 } else {
-                    Padding(3.dp) {}
+                    Box {}
                 }
                 if (showOperators) {
                     NumberPadButton("+", input, onInputChange)
@@ -94,7 +96,7 @@ fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
 
 @Composable
 fun NumberPadButton(value: String, input: MutableState<String>, onInputChange: (String) -> Unit) {
-    Button(value, onClick = {
+    TextButton(value, onClick = {
         input.value += value
         onInputChange(input.value)
     }, modifier = LayoutPadding(4.dp))

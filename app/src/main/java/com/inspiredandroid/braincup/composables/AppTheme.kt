@@ -22,67 +22,67 @@ val colors = lightColorPalette(
 
 val typography = Typography(
     h1 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W100,
         fontSize = 96.sp
     ),
     h2 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W100,
         fontSize = 60.sp
     ),
     h3 = TextStyle(
-        fontFamily = FontFamily("Eczar"),
+        fontFamily = FontFamily.SansSerif,
         fontWeight = FontWeight.W500,
         fontSize = 48.sp
     ),
     h4 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W700,
         fontSize = 34.sp
     ),
     h5 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W700,
         fontSize = 24.sp
     ),
     h6 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W700,
         fontSize = 20.sp
     ),
     subtitle1 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp
     ),
     subtitle2 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W500,
         fontSize = 14.sp
     ),
     body1 = TextStyle(
-        fontFamily = FontFamily("Eczar"),
+        fontFamily = FontFamily.SansSerif,
         fontWeight = FontWeight.W700,
         fontSize = 16.sp
     ),
     body2 = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W200,
         fontSize = 14.sp
     ),
     button = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W800,
         fontSize = 14.sp
     ),
     caption = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W500,
         fontSize = 12.sp
     ),
     overline = TextStyle(
-        fontFamily = FontFamily("RobotoCondensed"),
+        fontFamily = FontFamily.Default,
         fontWeight = FontWeight.W500,
         fontSize = 10.sp
     )
