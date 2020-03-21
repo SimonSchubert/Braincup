@@ -2,7 +2,7 @@ package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
 import androidx.ui.core.Modifier
-import androidx.ui.graphics.vector.DrawVector
+import androidx.ui.graphics.vector.drawVector
 import androidx.ui.layout.*
 import androidx.ui.res.vectorResource
 import androidx.ui.unit.dp
@@ -95,13 +95,13 @@ fun MainMenuScreen(
 @Composable
 fun PentagonStatistic(title: String, value: String, modifier: Modifier) {
     val vector = vectorResource(R.drawable.ic_icons8_pentagon)
+    val background = drawVector(vectorImage = vector)
     Container(
         modifier = modifier + LayoutSize(
             vector.defaultWidth,
             vector.defaultHeight
-        )
+        ) + background
     ) {
-        DrawVector(vector)
         Column {
             Spacer(LayoutHeight(14.dp))
             Subtitle1(title, modifier = LayoutGravity.Center)

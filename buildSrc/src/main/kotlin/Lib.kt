@@ -3,7 +3,7 @@ object Lib {
         const val kotlin = "1.3.70"
         const val gradleBuildTools = "4.1.0-alpha03"
         const val gradleSpawn = "0.8.2"
-        const val androidxUi = "0.1.0-dev05"
+        const val androidxUi = "0.1.0-dev07"
         const val androidxCoreKtx = "1.2.0"
         const val androidxPreferenceKtx = "1.1.0"
         const val multiplatformSettings = "0.5.1"

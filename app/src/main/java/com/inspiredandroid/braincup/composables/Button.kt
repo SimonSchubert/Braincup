@@ -5,7 +5,7 @@ import androidx.compose.Composable
 import androidx.ui.core.Modifier
 import androidx.ui.core.Text
 import androidx.ui.graphics.Color
-import androidx.ui.graphics.vector.DrawVector
+import androidx.ui.graphics.vector.drawVector
 import androidx.ui.layout.*
 import androidx.ui.material.Button
 import androidx.ui.material.MaterialTheme
@@ -16,7 +16,7 @@ import androidx.ui.unit.dp
 fun TextButton(
     text: String,
     modifier: Modifier = Modifier.None,
-    onClick: (() -> Unit)? = null
+    onClick: () -> Unit
 ) {
     Button(
         onClick = onClick,
@@ -31,7 +31,7 @@ fun TextImageButton(
     @DrawableRes drawableResource: Int,
     modifier: Modifier = Modifier.None,
     color: Color = MaterialTheme.colors().primary,
-    onClick: (() -> Unit)? = null
+    onClick: () -> Unit
 ) {
     Button(
         onClick = onClick,
@@ -43,9 +43,7 @@ fun TextImageButton(
     ) {
         Row {
             val vectorAsset = vectorResource(drawableResource)
-            Container(width = 24.dp, height = 24.dp) {
-                DrawVector(vectorAsset)
-            }
+            Container(width = 24.dp, height = 24.dp, modifier = drawVector(vectorAsset)) {}
             Spacer(LayoutWidth(16.dp))
             Text(text = text, modifier = LayoutGravity.Center)
         }
@@ -56,13 +54,11 @@ fun TextImageButton(
 fun ImageButton(
     @DrawableRes drawableResource: Int,
     modifier: Modifier = Modifier.None,
-    onClick: (() -> Unit)? = null
+    onClick: () -> Unit
 ) {
     Button(onClick = onClick, modifier = modifier) {
         val vectorAsset = vectorResource(drawableResource)
-        Container(width = 24.dp, height = 24.dp) {
-            DrawVector(vectorAsset)
-        }
+        Container(width = 24.dp, height = 24.dp, modifier = drawVector(vectorAsset)) {}
     }
 }
 

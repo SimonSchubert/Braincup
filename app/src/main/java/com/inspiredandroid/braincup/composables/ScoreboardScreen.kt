@@ -3,7 +3,7 @@ package com.inspiredandroid.braincup.composables
 import androidx.annotation.DrawableRes
 import androidx.compose.Composable
 import androidx.ui.core.Text
-import androidx.ui.foundation.shape.DrawShape
+import androidx.ui.foundation.Box
 import androidx.ui.foundation.shape.RectangleShape
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
@@ -27,7 +27,7 @@ fun ScoreboardScreen(
 ) {
     BaseScrollApp(title = "${game.getName()} - Scores", back = { gameMaster.start() }) {
         Spacer(LayoutHeight(16.dp))
-        Headline6(text = "Hightscore: $highscore", modifier = LayoutGravity.Center)
+        Headline6(text = "Highscore: $highscore", modifier = LayoutGravity.Center)
         Spacer(LayoutHeight(8.dp))
         val table = game.getScoreTable()
         Row(modifier = LayoutGravity.Center) {
@@ -56,15 +56,10 @@ fun ScoreboardScreen(
                 if (width < 36.dp) {
                     width = 36.dp
                 }
-                Container(
-                    width = width,
-                    height = 24.dp,
-                    modifier = LayoutGravity.Center
+                Box(
+                    modifier = LayoutSize(width = width, height = 24.dp) + LayoutGravity.Center,
+                    backgroundColor = Color(0xFFED7354)
                 ) {
-                    DrawShape(
-                        RectangleShape,
-                        color = Color(0xFFED7354)
-                    )
                     Row {
                         Text(
                             score.toString(),
