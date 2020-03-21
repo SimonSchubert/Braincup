@@ -3,16 +3,15 @@ package com.inspiredandroid.braincup.composables
 import androidx.compose.Composable
 import androidx.ui.core.Draw
 import androidx.ui.core.Modifier
+import androidx.ui.foundation.Canvas
 import androidx.ui.foundation.Clickable
 import androidx.ui.graphics.Paint
 import androidx.ui.graphics.Path
-import androidx.ui.layout.Column
-import androidx.ui.layout.Container
-import androidx.ui.layout.LayoutGravity
-import androidx.ui.layout.LayoutPadding
+import androidx.ui.layout.*
 import androidx.ui.material.ripple.Ripple
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.Dp
+import androidx.ui.unit.Size
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -29,14 +28,14 @@ fun ShapeCanvas(
         width = size, height = size,
         modifier = modifier
     ) {
-        Draw { canvas, parentSize ->
+        Canvas(modifier = LayoutSize(width = size, height = size), onCanvas = {
             val paint = Paint()
             paint.color = figure.color.getComposeColor()
             paint.isAntiAlias = true
             val path = Path()
             figure.shape.getPaths().forEachIndexed { index, pair ->
-                val x = parentSize.width.value * pair.first
-                val y = parentSize.height.value * pair.second
+                val x = this.size.width.value * pair.first
+                val y = this.size.height.value * pair.second
                 if (index == 0) {
                     path.moveTo(x, y)
                 } else {
@@ -46,22 +45,22 @@ fun ShapeCanvas(
             path.close()
 
             if (figure.rotation != 0) {
-                canvas.save()
-                canvas.translate(
-                    parentSize.width.value / 2f,
-                    parentSize.height.value / 2f
+                save()
+                translate(
+                    this.size.width.value / 2f,
+                    this.size.height.value / 2f
                 )
-                canvas.rotate(figure.rotation.toFloat())
-                canvas.translate(
-                    -parentSize.width.value / 2f,
-                    -parentSize.height.value / 2f
+                rotate(figure.rotation.toFloat())
+                translate(
+                    -this.size.width.value / 2f,
+                    -this.size.height.value / 2f
                 )
-                canvas.drawPath(path, paint)
-                canvas.restore()
+                drawPath(path, paint)
+                restore()
             } else {
-                canvas.drawPath(path, paint)
+                drawPath(path, paint)
             }
-        }
+        })
     }
 }
 
