@@ -17,10 +17,10 @@ data class ChallengeUrlError(val errorMessage: String) : ChallengeUrlResult()
 
 data class ChallengeUrl(val url: String) : ChallengeUrlResult()
 
-@UseExperimental(ImplicitReflectionSerializer::class)
+@OptIn(ImplicitReflectionSerializer::class)
 object UrlBuilder {
 
-    @UseExperimental(InternalAPI::class)
+    @OptIn(InternalAPI::class)
     fun buildSherlockCalculationChallengeUrl(
         title: String,
         secret: String,
@@ -77,7 +77,7 @@ object UrlBuilder {
         return map
     }
 
-    @UseExperimental(InternalAPI::class)
+    @OptIn(InternalAPI::class)
     fun buildRiddleChallengeUrl(
         title: String,
         secret: String,

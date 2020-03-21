@@ -13,7 +13,7 @@ sealed class ChallengeData(
     val gameType: GameType
 ) {
     companion object {
-        @UseExperimental(InternalAPI::class)
+        @OptIn(InternalAPI::class)
         fun parse(url: String, data: String): ChallengeData {
             val json = Json.plain.parseJson(data.decodeBase64String()).jsonObject
             val gameType = json.getPrimitiveOrNull("game")?.contentOrNull ?: ""
