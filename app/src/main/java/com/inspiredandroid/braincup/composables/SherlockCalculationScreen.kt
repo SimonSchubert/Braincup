@@ -1,9 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
+import android.os.Handler
 import androidx.compose.Composable
-import androidx.ui.layout.LayoutGravity
-import androidx.ui.layout.LayoutHeight
+import androidx.ui.core.Alignment
+import androidx.ui.core.Modifier
 import androidx.ui.layout.Spacer
+import androidx.ui.layout.preferredHeight
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.SherlockCalculationGame
@@ -15,18 +17,30 @@ fun SherlockCalculationScreen(
     next: () -> Unit
 ) {
     BaseApp {
-        Headline3(text = "Goal: ${game.result}", modifier = LayoutGravity.Center)
-        Headline5(text = "Numbers: ${game.getNumbersString()}", modifier = LayoutGravity.Center)
+        Headline3(
+            text = "Goal: ${game.result}",
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+        )
+        Headline5(
+            text = "Numbers: ${game.getNumbersString()}",
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+        )
         NumberPad(true, onInputChange = {
             if (game.isCorrect(it)) {
-                answer(it)
+                Handler().post {
+
+                    answer(it)
+                }
                 DelayedTask().execute(next)
             }
         })
-        Spacer(LayoutHeight(32.dp))
+        Spacer(Modifier.preferredHeight(32.dp))
         TextButton(text = "Give up", onClick = {
-            answer("")
+            Handler().post {
+
+                answer("")
+            }
             DelayedTask().execute(next)
-        }, modifier = LayoutGravity.Center)
+        }, modifier = Modifier.gravity(align = Alignment.CenterHorizontally))
     }
 }

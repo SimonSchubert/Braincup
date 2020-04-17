@@ -1,11 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.ui.core.Text
+import androidx.ui.core.Alignment
+import androidx.ui.core.Modifier
+import androidx.ui.foundation.Text
 import androidx.ui.foundation.VerticalScroller
-import androidx.ui.layout.Center
-import androidx.ui.layout.Column
-import androidx.ui.layout.ColumnScope
+import androidx.ui.layout.*
 import androidx.ui.material.TopAppBar
 import com.inspiredandroid.braincup.R
 
@@ -19,10 +19,12 @@ fun BaseScrollApp(
         Column {
             MyTopAppBar(title, back)
             VerticalScroller {
-                Center {
-                    Column {
-                        children()
-                    }
+                Column(
+                    modifier = Modifier.fillMaxWidth() + Modifier.fillMaxHeight(),
+                    horizontalGravity = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    children()
                 }
             }
         }
@@ -38,10 +40,12 @@ fun BaseApp(
     AppTheme {
         Column {
             MyTopAppBar(title, back)
-            Center {
-                Column {
-                    children()
-                }
+            Column(
+                modifier = Modifier.fillMaxWidth() + Modifier.fillMaxHeight(),
+                horizontalGravity = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                children()
             }
         }
     }

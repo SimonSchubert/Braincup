@@ -1,8 +1,9 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.ui.layout.LayoutGravity
-import androidx.ui.layout.LayoutPadding
+import androidx.ui.core.Alignment
+import androidx.ui.core.Modifier
+import androidx.ui.layout.padding
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
@@ -17,31 +18,59 @@ fun InstructionsScreen(
     gameMaster: NavigationController
 ) {
     if (showChallengeInfo) {
-        BaseScrollApp(title = title, back = { gameMaster.start() }) {
+        BaseScrollApp(title = title, back = {
+            android.os.Handler().post {
+                gameMaster.start()
+            }
+            Unit
+        }) {
             Headline5(
-                text = "You got challenged", modifier = LayoutGravity.Center + LayoutPadding(
+                text = "You got challenged",
+                modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(
                     16.dp
                 )
             )
             if (hasSecret) {
                 Subtitle2(
                     text = "The challenge will unveil a secret.",
-                    modifier = LayoutGravity.Center
+                    modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
                 )
             }
-            VectorImage(id = R.drawable.ic_message_sent, modifier = LayoutGravity.Center)
+            VectorImage(
+                id = R.drawable.ic_message_sent,
+                modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            )
 
-            Subtitle1(text = description, modifier = LayoutGravity.Center + LayoutPadding(16.dp))
+            Subtitle1(
+                text = description,
+                modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(
+                    16.dp
+                )
+            )
             TextButton(text = "Start", onClick = {
-                start()
-            }, modifier = LayoutGravity.Center)
+                android.os.Handler().post {
+                    start()
+                }
+            }, modifier = Modifier.gravity(align = Alignment.CenterHorizontally))
         }
     } else {
-        BaseApp(title = title, back = { gameMaster.start() }) {
-            Subtitle1(text = description, modifier = LayoutGravity.Center + LayoutPadding(16.dp))
+        BaseApp(title = title, back = {
+            android.os.Handler().post {
+                gameMaster.start()
+            }
+            Unit
+        }) {
+            Subtitle1(
+                text = description,
+                modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(
+                    16.dp
+                )
+            )
             TextButton(text = "Start", onClick = {
-                start()
-            }, modifier = LayoutGravity.Center)
+                android.os.Handler().post {
+                    start()
+                }
+            }, modifier = Modifier.gravity(align = Alignment.CenterHorizontally))
         }
     }
 }

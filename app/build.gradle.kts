@@ -71,6 +71,8 @@ dependencies {
     implementation("androidx.ui:ui-foundation:${Lib.Versions.androidxUi}")
     implementation("androidx.ui:ui-animation:${Lib.Versions.androidxUi}")
     implementation("androidx.ui:ui-tooling:${Lib.Versions.androidxUi}")
+    implementation("androidx.ui:ui-text-core:${Lib.Versions.androidxUi}")
+    implementation("androidx.ui:ui-text-android:${Lib.Versions.androidxUi}")
 
     implementation("androidx.core:core-ktx:${Lib.Versions.androidxCoreKtx}")
     implementation("androidx.preference:preference-ktx:${Lib.Versions.androidxPreferenceKtx}")

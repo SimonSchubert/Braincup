@@ -3,8 +3,10 @@ package com.inspiredandroid.braincup.composables
 import androidx.compose.Composable
 import androidx.compose.MutableState
 import androidx.compose.state
-import androidx.ui.core.Text
+import androidx.ui.core.Alignment
+import androidx.ui.core.Modifier
 import androidx.ui.foundation.Box
+import androidx.ui.foundation.Text
 import androidx.ui.graphics.Color
 import androidx.ui.layout.*
 import androidx.ui.text.TextStyle
@@ -15,20 +17,23 @@ import androidx.ui.unit.sp
 fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
     val input = state { "" }
     Column {
-        Row(arrangement = Arrangement.End, modifier = LayoutPadding(16.dp) + LayoutGravity.Center) {
+        Row(
+            horizontalArrangement = Arrangement.End,
+            modifier = Modifier.padding(16.dp) + Modifier.gravity(align = Alignment.CenterHorizontally)
+        ) {
             Text(
                 input.value,
                 style = TextStyle(color = Color.Black, fontSize = 32.sp),
-                modifier = LayoutGravity.Center
+                modifier = Modifier.gravity(align = Alignment.CenterVertically)
             )
             if (input.value.isNotEmpty()) {
-                Spacer(LayoutWidth(8.dp))
+                Spacer(Modifier.preferredWidth(8.dp))
 
                 TextButton(
                     text = "◄",
                     onClick = {
                         input.value = input.value.substring(0, input.value.lastIndex)
-                    }, modifier = LayoutGravity.Center
+                    }, modifier = Modifier.gravity(align = Alignment.CenterVertically)
                 )
             }
         }
@@ -99,5 +104,5 @@ fun NumberPadButton(value: String, input: MutableState<String>, onInputChange: (
     TextButton(value, onClick = {
         input.value += value
         onInputChange(input.value)
-    }, modifier = LayoutPadding(4.dp))
+    }, modifier = Modifier.padding(4.dp))
 }

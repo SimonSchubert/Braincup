@@ -3,10 +3,11 @@ package com.inspiredandroid.braincup.composables
 import android.content.Context
 import android.content.Intent
 import androidx.compose.Composable
-import androidx.ui.layout.LayoutGravity
-import androidx.ui.layout.LayoutHeight
-import androidx.ui.layout.LayoutPadding
+import androidx.ui.core.Alignment
+import androidx.ui.core.Modifier
 import androidx.ui.layout.Spacer
+import androidx.ui.layout.padding
+import androidx.ui.layout.preferredHeight
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
@@ -17,28 +18,37 @@ fun CorrectChallengeAnswerScreen(
     gameMaster: NavigationController
 ) {
     BaseScrollApp {
-        Headline5(text = "Congratulation", modifier = LayoutGravity.Center + LayoutPadding(16.dp))
+        Headline5(
+            text = "Congratulation",
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(16.dp)
+        )
         Subtitle2(
             text = "Your solution '$solution' solved the challenge.",
-            modifier = LayoutGravity.Center
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
         )
         if (secret.isNotEmpty()) {
-            Spacer(LayoutHeight(24.dp))
-            Headline6(text = "Secret unveiled: $secret", modifier = LayoutGravity.Center)
+            Spacer(Modifier.preferredHeight(24.dp))
+            Headline6(
+                text = "Secret unveiled: $secret",
+                modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            )
         }
-        VectorImage(id = R.drawable.ic_delivery, modifier = LayoutGravity.Center)
+        VectorImage(
+            id = R.drawable.ic_delivery,
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+        )
         TextImageButton(
             text = "Share challenge",
             drawableResource = R.drawable.ic_icons8_copy_link,
             onClick = { shareText(context, url) },
-            modifier = LayoutGravity.Center
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
         )
-        Spacer(LayoutHeight(16.dp))
+        Spacer(Modifier.preferredHeight(16.dp))
         TextImageButton(
             text = "Menu",
             drawableResource = R.drawable.ic_icons8_menu,
             onClick = { gameMaster.start() },
-            modifier = LayoutGravity.Center
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
         )
     }
 }

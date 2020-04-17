@@ -1,9 +1,14 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
+import androidx.ui.core.Alignment
 import androidx.ui.core.Modifier
+import androidx.ui.core.paint
+import androidx.ui.foundation.Box
+import androidx.ui.graphics.vector.VectorPainter
 import androidx.ui.graphics.vector.drawVector
 import androidx.ui.layout.*
+import androidx.ui.layout.ColumnScope.gravity
 import androidx.ui.res.vectorResource
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.R
@@ -29,65 +34,79 @@ fun MainMenuScreen(
     appOpenCount: Int
 ) {
     BaseScrollApp(title) {
-        Spacer(LayoutHeight(8.dp))
-        Subtitle1(text = description, modifier = LayoutGravity.Center)
-        Spacer(LayoutHeight(16.dp))
+        Spacer(Modifier.preferredHeight(8.dp))
+        Subtitle1(
+            text = description,
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+        )
+        Spacer(Modifier.preferredHeight(16.dp))
         games.forEach {
-            Spacer(LayoutHeight(16.dp))
-            Row(modifier = LayoutGravity.Center) {
+            Spacer(Modifier.preferredHeight(16.dp))
+            Row(modifier = Modifier.gravity(align = Alignment.CenterHorizontally)) {
                 TextImageButton(text = it.getName(), drawableResource = it.getAndroidDrawable()) {
-                    showInstructions(it)
+                    android.os.Handler().post {
+                        showInstructions(it)
+                    }
                 }
                 val highscore = storage.getHighScore(it.getId())
                 if (highscore > 0) {
-                    Spacer(LayoutWidth(8.dp))
+                    Spacer(Modifier.preferredWidth(8.dp))
                     ImageButton(
                         drawableResource = it.getAndroidMedalResource
                             (highscore)
                     ) {
-                        showScore(it)
+                        android.os.Handler().post {
+                            showScore(it)
+                        }
                     }
                 }
             }
         }
 
-        Row(modifier = LayoutGravity.Center) {
+        Row(modifier = Modifier.gravity(align = Alignment.CenterHorizontally)) {
             if (appOpenCount > 1) {
                 PentagonStatistic(
                     title = "Training days",
                     value = appOpenCount.toString(),
-                    modifier = LayoutGravity.Center
+                    modifier = Modifier.gravity(align = Alignment.CenterVertically)
                 )
             }
             if (totalScore > 0) {
                 PentagonStatistic(
                     title = "Total score",
                     value = totalScore.toString(),
-                    modifier = LayoutGravity.Center
+                    modifier = Modifier.gravity(align = Alignment.CenterVertically)
                 )
             }
         }
 
-        Spacer(LayoutHeight(16.dp))
+        Spacer(Modifier.preferredHeight(16.dp))
         TextImageButton(
             text = "Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.values().size})",
             drawableResource = R.drawable.ic_icons8_test_passed,
-            modifier = LayoutGravity.Center
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
         ) {
-            showAchievements()
+            android.os.Handler().post {
+                showAchievements()
+            }
         }
 
-        Spacer(LayoutHeight(16.dp))
+        Spacer(Modifier.preferredHeight(16.dp))
         TextImageButton(
             text = "Create challenge",
             drawableResource = R.drawable.ic_icons8_create_new3,
-            modifier = LayoutGravity.Center,
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally),
             color = getComposeColor("#5c8e58")
         ) {
-            createChallenge()
+            android.os.Handler().post {
+                createChallenge()
+            }
         }
 
-        VectorImage(id = R.drawable.ic_waiting, modifier = LayoutGravity.Center)
+        VectorImage(
+            id = R.drawable.ic_waiting,
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+        )
     }
 }
 
@@ -95,17 +114,20 @@ fun MainMenuScreen(
 @Composable
 fun PentagonStatistic(title: String, value: String, modifier: Modifier) {
     val vector = vectorResource(R.drawable.ic_icons8_pentagon)
-    val background = drawVector(vectorImage = vector)
-    Container(
-        modifier = modifier + LayoutSize(
+    val background = VectorPainter(asset = vector)
+    Box(
+        modifier = modifier + Modifier.preferredSize(
             vector.defaultWidth,
             vector.defaultHeight
-        ) + background
+        ) + Modifier.paint(background)
     ) {
         Column {
-            Spacer(LayoutHeight(14.dp))
-            Subtitle1(title, modifier = LayoutGravity.Center)
-            Headline6(text = value, modifier = LayoutGravity.Center)
+            Spacer(Modifier.preferredHeight(14.dp))
+            Subtitle1(title, modifier = Modifier.gravity(align = Alignment.CenterHorizontally))
+            Headline6(
+                text = value,
+                modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            )
         }
     }
 }

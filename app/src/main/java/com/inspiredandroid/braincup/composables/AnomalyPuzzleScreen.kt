@@ -1,9 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
+import android.os.Handler
 import androidx.compose.Composable
-import androidx.ui.layout.LayoutGravity
-import androidx.ui.layout.LayoutPadding
+import androidx.ui.core.Modifier
 import androidx.ui.layout.Row
+import androidx.ui.layout.RowAlign
+import androidx.ui.layout.padding
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.AnomalyPuzzleGame
@@ -26,10 +28,12 @@ fun AnomalyPuzzleScreen(
                     val index = y * chunkSize + x
                     ShapeCanvasButton(
                         size = 48.dp,
-                        modifier = LayoutGravity.Center + LayoutPadding(8.dp),
+                        modifier = Modifier.gravity(RowAlign.Center) + Modifier.padding(8.dp),
                         figure = figure,
                         onClick = {
-                            answer("${index + 1}")
+                            Handler().post {
+                                answer("${index + 1}")
+                            }
                             DelayedTask().execute(next)
                         })
                 }

@@ -1,7 +1,7 @@
 package com.inspiredandroid.braincup
 
-import android.app.Activity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import androidx.ui.core.setContent
 import com.inspiredandroid.braincup.api.UserStorage
@@ -13,7 +13,7 @@ import com.inspiredandroid.braincup.composables.*
 import com.inspiredandroid.braincup.games.*
 import com.russhwolf.settings.AndroidSettings
 
-class MainActivity : Activity(), NavigationInterface {
+class MainActivity : AppCompatActivity(), NavigationInterface {
 
     private val gameMaster = NavigationController(this)
 
@@ -125,13 +125,13 @@ class MainActivity : Activity(), NavigationInterface {
     }
 
     override fun showScoreboard(
-        game: GameType,
+        gameType: GameType,
         highscore: Int,
         scores: List<Pair<String, List<Int>>>
     ) {
         setContent {
             ScoreboardScreen(
-                game,
+                gameType,
                 highscore,
                 scores,
                 gameMaster

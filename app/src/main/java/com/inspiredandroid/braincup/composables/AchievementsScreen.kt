@@ -1,7 +1,8 @@
 package com.inspiredandroid.braincup.composables
 
+import android.os.Handler
 import androidx.compose.Composable
-import androidx.ui.core.Text
+import androidx.ui.foundation.Text
 import androidx.ui.graphics.Color
 import androidx.ui.material.Divider
 import androidx.ui.material.ListItem
@@ -18,7 +19,12 @@ fun AchievementsScreen(
 ) {
     BaseScrollApp(
         title = "Achievements (${unlockedAchievements.size}/${allAchievements.size})",
-        back = { gameMaster.start() }) {
+        back = {
+            Handler().post {
+                gameMaster.start()
+            }
+            Unit
+        }) {
         allAchievements.forEach {
             if (unlockedAchievements.contains(it)) {
                 ListItem(

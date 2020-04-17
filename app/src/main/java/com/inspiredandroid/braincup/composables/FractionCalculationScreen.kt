@@ -1,9 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
+import android.os.Handler
 import androidx.compose.Composable
-import androidx.ui.layout.LayoutGravity
-import androidx.ui.layout.LayoutHeight
+import androidx.ui.core.Alignment
+import androidx.ui.core.Modifier
 import androidx.ui.layout.Spacer
+import androidx.ui.layout.preferredHeight
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.FractionCalculationGame
@@ -15,20 +17,29 @@ fun FractionCalculationScreen(
     next: () -> Unit
 ) {
     BaseApp {
-        Headline4(text = game.calculation, modifier = LayoutGravity.Center)
+        Headline4(
+            text = game.calculation,
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+        )
         NumberPad(false, onInputChange = {
             if (game.isCorrect(it)) {
-                answer(it)
+                Handler().post {
+
+                    answer(it)
+                }
                 DelayedTask().execute(next)
             }
         })
-        Spacer(LayoutHeight(32.dp))
+        Spacer(Modifier.preferredHeight(32.dp))
         TextButton(
             text = "Give up", onClick = {
-                answer("")
+                Handler().post {
+
+                    answer("")
+                }
                 DelayedTask().execute(next)
             },
-            modifier = LayoutGravity.Center
+            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
         )
     }
 }

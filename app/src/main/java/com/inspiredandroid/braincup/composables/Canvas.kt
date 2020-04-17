@@ -1,17 +1,20 @@
 package com.inspiredandroid.braincup.composables
 
 import androidx.compose.Composable
-import androidx.ui.core.Draw
+import androidx.ui.core.Alignment
 import androidx.ui.core.Modifier
 import androidx.ui.foundation.Canvas
 import androidx.ui.foundation.Clickable
 import androidx.ui.graphics.Paint
 import androidx.ui.graphics.Path
-import androidx.ui.layout.*
-import androidx.ui.material.ripple.Ripple
+import androidx.ui.layout.Column
+import androidx.ui.layout.Container
+import androidx.ui.layout.RowScope.gravity
+import androidx.ui.layout.padding
+import androidx.ui.layout.preferredSize
+import androidx.ui.material.ripple.ripple
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.Dp
-import androidx.ui.unit.Size
 import androidx.ui.unit.dp
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -22,13 +25,13 @@ import com.inspiredandroid.braincup.getComposeColor
 fun ShapeCanvas(
     size: Dp,
     figure: Figure,
-    modifier: Modifier = Modifier.None
+    modifier: Modifier = Modifier
 ) {
     Container(
         width = size, height = size,
         modifier = modifier
     ) {
-        Canvas(modifier = LayoutSize(width = size, height = size), onCanvas = {
+        Canvas(modifier = Modifier.preferredSize(width = size, height = size), onCanvas = {
             val paint = Paint()
             paint.color = figure.color.getComposeColor()
             paint.isAntiAlias = true
@@ -69,16 +72,14 @@ fun ShapeCanvasButton(
     size: Dp,
     figure: Figure,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier.None
+    modifier: Modifier = Modifier
 ) {
-    Ripple(bounded = false) {
-        Clickable(onClick = onClick) {
-            ShapeCanvas(
-                size = size,
-                figure = figure,
-                modifier = modifier
-            )
-        }
+    Clickable(onClick = onClick, modifier = Modifier.ripple()) {
+        ShapeCanvas(
+            size = size,
+            figure = figure,
+            modifier = modifier
+        )
     }
 }
 
@@ -94,7 +95,7 @@ fun PreviewShapes() {
         ).forEach { figure ->
             ShapeCanvasButton(
                 size = 48.dp,
-                modifier = LayoutGravity.Center + LayoutPadding(8.dp),
+                modifier = Modifier.gravity(align = Alignment.CenterVertically) + Modifier.padding(8.dp),
                 figure = figure,
                 onClick = {})
         }
