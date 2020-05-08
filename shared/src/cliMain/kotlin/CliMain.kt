@@ -38,7 +38,8 @@ val arguments by lazy {
         CliArgument(
             CliArgument.ID.GAME,
             listOf("--game", "-g"),
-            "Start game immediately\n${GameType.values().joinToString(separator = "\n") { "\t${it.getId()} = ${it.getName()}" }}"
+            "Start game immediately\n${GameType.values()
+                .joinToString(separator = "\n") { "\t${it.getId()} = ${it.getName()}" }}"
         )
     )
 }
@@ -300,6 +301,24 @@ class CliMain(
                 }
             }
         }
+    }
+
+    override fun showGridSolver(game: GridSolverGame, answer: (String) -> Unit, next: () -> Unit) {
+        printDivider()
+        repeat(game.entries.size) {
+            println("  *" + " * *".repeat(game.entries.size))
+            println("  *" + "   *".repeat(game.entries.size) + " " + game.resultsY[it])
+        }
+        println("  *" + " * *".repeat(game.entries.size))
+        print("  ")
+        repeat(game.resultsX.size) {
+            print("  ${game.resultsX[it]} ".substring(0, 4))
+        }
+        println()
+        println()
+
+        println("Type the missing numbers from top left to bottom right separated by spaces.")
+        readAndAnswer(answer, next)
     }
 
     override fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit) {
