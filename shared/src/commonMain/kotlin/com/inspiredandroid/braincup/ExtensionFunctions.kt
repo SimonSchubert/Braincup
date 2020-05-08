@@ -37,3 +37,14 @@ fun String.splitToStringList(): List<String> {
             it.trim()
         }
 }
+
+/**
+ * Add ne entry or increase existing
+ */
+fun MutableList<Int>.addOrIncrease(index: Int, number: Int) {
+    if (size > index) {
+        set(index, get(index) + number)
+    } else {
+        add(number)
+    }
+}

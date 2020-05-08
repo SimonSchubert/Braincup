@@ -76,6 +76,8 @@ interface NavigationInterface {
         next: () -> Unit
     )
 
+    fun showGridSolver(game: GridSolverGame, answer: (String) -> Unit, next: () -> Unit)
+
     fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit)
 
     fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String)

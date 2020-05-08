@@ -29,7 +29,8 @@ class NavigationController(private val app: NavigationInterface) {
             GameType.CHAIN_CALCULATION,
             GameType.FRACTION_CALCULATION,
             GameType.VALUE_COMPARISON,
-            GameType.COLOR_CONFUSION
+            GameType.COLOR_CONFUSION,
+            GameType.GRID_SOLVER
         )
     }
 
@@ -161,6 +162,7 @@ class NavigationController(private val app: NavigationInterface) {
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
                 GameType.PATH_FINDER -> PathFinderGame()
                 GameType.RIDDLE -> RiddleGame()
+                GameType.GRID_SOLVER -> GridSolverGame()
             }
             nextRound(game)
         }
@@ -221,6 +223,7 @@ class NavigationController(private val app: NavigationInterface) {
             is FractionCalculationGame -> app.showFractionCalculation(game, answer, next)
             is AnomalyPuzzleGame -> app.showAnomalyPuzzle(game, answer, next)
             is PathFinderGame -> app.showPathFinder(game, answer, next)
+            is GridSolverGame -> app.showGridSolver(game, answer, next)
         }
     }
 }
