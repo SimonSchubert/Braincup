@@ -41,6 +41,7 @@ android {
 
         composeOptions {
             kotlinCompilerExtensionVersion = Lib.Versions.androidxUi
+            kotlinCompilerVersion = "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
         }
     }
 
