@@ -3,9 +3,10 @@ package com.inspiredandroid.braincup.challenge
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getName
-import io.ktor.util.InternalAPI
-import io.ktor.util.decodeBase64String
+import io.ktor.util.*
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
+import kotlinx.serialization.json.jsonPrimitive
 
 sealed class ChallengeData(
     private val challengeTitle: String? = null,
@@ -15,17 +16,16 @@ sealed class ChallengeData(
     companion object {
         @OptIn(InternalAPI::class)
         fun parse(url: String, data: String): ChallengeData {
-            val json = Json.plain.parseJson(data.decodeBase64String()).jsonObject
-            val gameType = json.getPrimitiveOrNull("game")?.contentOrNull ?: ""
-            val title = json.getPrimitiveOrNull("title")?.contentOrNull ?: ""
-            val secret = json.getPrimitiveOrNull("secret")?.contentOrNull ?: ""
+            val json: JsonObject = Json.parseToJsonElement(data.decodeBase64String()) as? JsonObject ?: throw Exception("Expected JsonObject")
+            val gameType = json["game"]?.jsonPrimitive?.content
+            val title = json["title"]?.jsonPrimitive?.content ?: ""
+            val secret = json["secret"]?.jsonPrimitive?.content ?: ""
 
             return when (gameType) {
                 GameType.SHERLOCK_CALCULATION.getId() -> {
                     return try {
-                        val goal = json.getPrimitive("goal").content.toInt()
-                        val numbers =
-                            json.getPrimitive("numbers").content.split(",").map { it.toInt() }
+                        val goal = json.getValue("goal").jsonPrimitive.content.toInt()
+                        val numbers = json.getValue("numbers").jsonPrimitive.content.split(",").map { it.toInt() }
                         SherlockCalculationChallengeData(
                             url,
                             title,
@@ -39,8 +39,8 @@ sealed class ChallengeData(
                 }
                 GameType.RIDDLE.getId() -> {
                     return try {
-                        val description = json.getPrimitive("description").content
-                        val answers = json.getPrimitive("answers").content.split(",").map { it }
+                        val description = json.getValue("description").jsonPrimitive.content
+                        val answers = json.getValue("answers").jsonPrimitive.content.split(",").map { it }
                         RiddleChallengeData(
                             url,
                             title,

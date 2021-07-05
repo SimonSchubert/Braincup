@@ -1,11 +1,11 @@
 package com.inspiredandroid.braincup.composables
 
 import android.os.Handler
-import androidx.compose.Composable
-import androidx.ui.foundation.Text
-import androidx.ui.graphics.Color
-import androidx.ui.material.Divider
-import androidx.ui.material.ListItem
+import androidx.compose.material.Divider
+import androidx.compose.material.ListItem
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.NavigationController

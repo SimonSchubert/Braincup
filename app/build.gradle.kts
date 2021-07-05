@@ -1,17 +1,15 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    kotlin("android.extensions")
-    id("kotlin-android-extensions")
 }
 
 android {
-    compileSdkVersion(Config.targetSDK)
+    compileSdk = Config.targetSDK
 
     defaultConfig {
         applicationId = Config.applicationId
-        minSdkVersion(Config.minSDK)
-        targetSdkVersion(Config.targetSDK)
+        minSdk = Config.minSDK
+        targetSdk = Config.targetSDK
         versionCode = Config.versionCode
         versionName = Config.versionName
 
@@ -30,7 +28,7 @@ android {
             }
         }
 
-        lintOptions {
+        lint {
             isCheckReleaseBuilds = false
         }
 
@@ -41,12 +39,15 @@ android {
 
         composeOptions {
             kotlinCompilerExtensionVersion = Lib.Versions.androidxUi
-            kotlinCompilerVersion = "1.3.70-dev-withExperimentalGoogleExtensions-20200424"
         }
     }
 
     kotlinOptions {
         jvmTarget = "1.8"
+        freeCompilerArgs += listOf(
+            "-Xopt-in=androidx.compose.material.ExperimentalMaterialApi",
+            "-Xopt-in=androidx.compose.foundation.ExperimentalFoundationApi"
+        )
     }
 
     buildFeatures {
@@ -54,30 +55,23 @@ android {
     }
 
     packagingOptions {
-        exclude("META-INF/*.kotlin_module")
+        resources.excludes += listOf(
+            "META-INF/*.kotlin_module",
+            "DebugProbesKt.bin"
+        )
     }
-}
-
-androidExtensions {
-    isExperimental = true
 }
 
 dependencies {
     implementation(project(":shared"))
-
-    implementation("androidx.compose:compose-runtime:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-framework:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-layout:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-material:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-foundation:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-animation:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-tooling:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-text-core:${Lib.Versions.androidxUi}")
-    implementation("androidx.ui:ui-text-android:${Lib.Versions.androidxUi}")
+    implementation("androidx.compose.ui:ui-tooling:${Lib.Versions.androidxUi}")
+    implementation("androidx.compose.ui:ui:${Lib.Versions.androidxUi}")
+    implementation("androidx.compose.material:material:${Lib.Versions.androidxUi}")
+    implementation("androidx.compose.material:material-ripple:${Lib.Versions.androidxUi}")
+    implementation("androidx.activity:activity-compose:1.3.0-rc01")
 
     implementation("androidx.core:core-ktx:${Lib.Versions.androidxCoreKtx}")
     implementation("androidx.preference:preference-ktx:${Lib.Versions.androidxPreferenceKtx}")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Lib.Versions.kotlin}")
     implementation("com.google.android.material:material:${Lib.Versions.materialDesign}")
     implementation("com.russhwolf:multiplatform-settings:${Lib.Versions.multiplatformSettings}")
 }

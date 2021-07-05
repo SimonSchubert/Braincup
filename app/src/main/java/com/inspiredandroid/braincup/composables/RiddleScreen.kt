@@ -1,14 +1,14 @@
 package com.inspiredandroid.braincup.composables
 
 import android.os.Handler
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.foundation.Box
-import androidx.ui.layout.Spacer
-import androidx.ui.layout.preferredHeight
-import androidx.ui.layout.preferredWidthIn
-import androidx.ui.unit.dp
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.widthIn
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.RiddleGame
 
@@ -21,10 +21,10 @@ fun RiddleScreen(
     BaseApp {
         Subtitle1(
             text = game.quest,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
-        Spacer(Modifier.preferredHeight(16.dp))
-        Box(Modifier.preferredWidthIn(maxWidth = 300.dp)) {
+        Spacer(Modifier.height(16.dp))
+        Box(Modifier.widthIn(max = 300.dp)) {
             Input {
                 if (game.isCorrect(it)) {
                     Handler().post {
@@ -34,7 +34,7 @@ fun RiddleScreen(
                 }
             }
         }
-        Spacer(Modifier.preferredHeight(16.dp))
+        Spacer(Modifier.height(16.dp))
         TextButton(
             text = "Give up", onClick = {
                 Handler().post {
@@ -43,7 +43,7 @@ fun RiddleScreen(
                 }
                 DelayedTask().execute(next)
             },
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
 }

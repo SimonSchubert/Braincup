@@ -3,9 +3,6 @@ import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
 buildscript {
     repositories {
         google()
-        maven ("https://plugins.gradle.org/m2/")
-        maven ("https://dl.bintray.com/kotlin/kotlin-eap" )
-        jcenter()
         mavenCentral()
     }
     dependencies {
@@ -22,15 +19,9 @@ plugins {
 
 allprojects {
     repositories {
-        maven ( "https://dl.bintray.com/kotlin/kotlinx" )
         google()
-        jcenter()
-        maven ( "https://dl.bintray.com/kotlin/kotlin-eap" )
+        mavenCentral()
     }
-}
-
-tasks.register("clean", Delete::class.java) {
-    delete(rootProject.buildDir)
 }
 
 tasks.named<DependencyUpdatesTask>("dependencyUpdates") {

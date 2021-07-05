@@ -3,13 +3,11 @@ package com.inspiredandroid.braincup.challenge
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.splitToIntList
-import io.ktor.util.InternalAPI
-import io.ktor.util.encodeBase64
-import kotlinx.serialization.ImplicitReflectionSerializer
+import io.ktor.util.*
+import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonPrimitive
-import kotlinx.serialization.stringify
 
 sealed class ChallengeUrlResult
 
@@ -17,7 +15,6 @@ data class ChallengeUrlError(val errorMessage: String) : ChallengeUrlResult()
 
 data class ChallengeUrl(val url: String) : ChallengeUrlResult()
 
-@OptIn(ImplicitReflectionSerializer::class)
 object UrlBuilder {
 
     @OptIn(InternalAPI::class)
@@ -54,7 +51,7 @@ object UrlBuilder {
                 ","
             )
         )
-        val json = Json.stringify(map)
+        val json = Json.encodeToString(map)
 
         return ChallengeUrl(
             "https://braincup.app/challenge?data=${json.encodeBase64()}"
@@ -105,7 +102,7 @@ object UrlBuilder {
                 it.trim()
             }
         )
-        val json = Json.stringify(map)
+        val json = Json.encodeToString(map)
 
         return ChallengeUrl(
             "https://braincup.app/challenge?data=${json.encodeBase64()}"

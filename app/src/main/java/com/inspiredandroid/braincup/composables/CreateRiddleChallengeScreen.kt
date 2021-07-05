@@ -3,11 +3,11 @@ package com.inspiredandroid.braincup.composables
 import android.content.Context
 import android.os.Handler
 import android.widget.Toast
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.layout.*
-import androidx.ui.unit.dp
+import androidx.compose.foundation.layout.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
@@ -34,11 +34,11 @@ fun CreateRiddleChallenge(
     }) {
         Subtitle1(
             text = "Create your own Riddle challenge.",
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(16.dp)
+            modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp)
         )
         Column(
-            modifier = Modifier.padding(16.dp) + Modifier.preferredWidthIn(maxWidth = 300.dp) + Modifier.gravity(
-                align = Alignment.CenterHorizontally
+            modifier = Modifier.padding(16.dp).widthIn(max = 300.dp).align(
+                Alignment.CenterHorizontally
             )
         ) {
             Input(
@@ -48,7 +48,7 @@ fun CreateRiddleChallenge(
                 challengeTitle = it
             }
 
-            Spacer(Modifier.preferredHeight(16.dp))
+            Spacer(Modifier.height(16.dp))
             Input(
                 title = "Secret",
                 helperText = "The secret will be revealed after solving the challenge. (optional)"
@@ -56,14 +56,14 @@ fun CreateRiddleChallenge(
                 secret = it
             }
 
-            Spacer(Modifier.preferredHeight(16.dp))
+            Spacer(Modifier.height(16.dp))
             Input(
                 title = "Riddle"
             ) {
                 quest = it
             }
 
-            Spacer(Modifier.preferredHeight(16.dp))
+            Spacer(Modifier.height(16.dp))
             Input(
                 title = "Answers",
                 helperText = "Separated by comma."
@@ -74,7 +74,7 @@ fun CreateRiddleChallenge(
         TextImageButton(
             text = "Create",
             drawableResource = R.drawable.ic_icons8_hammer,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(16.dp),
+            modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp),
             onClick = {
                 val result = UrlBuilder.buildRiddleChallengeUrl(
                     challengeTitle,

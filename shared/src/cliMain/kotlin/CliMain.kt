@@ -576,7 +576,7 @@ class CliMain(
 
         val charArray = lines[startY * 2 + 2].toCharArray()
         charArray[startX * 4 + 4] = '*'
-        lines[startY * 2 + 2] = String(charArray)
+        lines[startY * 2 + 2] = charArray.concatToString()
 
         lines.forEach {
             println(it)

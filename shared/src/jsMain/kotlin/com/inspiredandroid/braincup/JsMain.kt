@@ -10,14 +10,14 @@ import com.inspiredandroid.braincup.challenge.ChallengeUrlError
 import com.inspiredandroid.braincup.challenge.UrlBuilder
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.*
+import kotlinx.browser.document
+import kotlinx.browser.window
 import kotlinx.html.*
 import kotlinx.html.js.onClickFunction
 import org.w3c.dom.HTMLCanvasElement
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLParagraphElement
 import org.w3c.dom.get
-import kotlin.browser.document
-import kotlin.browser.window
 import kotlin.math.max
 import kotlin.math.min
 
@@ -392,6 +392,10 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
                 }
             }
         }
+    }
+
+    override fun showGridSolver(game: GridSolverGame, answer: (String) -> Unit, next: () -> Unit) {
+        TODO("Not yet implemented")
     }
 
     override fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit) {
@@ -815,14 +819,14 @@ class JsMain(state: AppState, gameType: GameType? = null, challengeData: Challen
 
     private fun openGameHtml(gameType: GameType) {
         window.open(
-            "/game/${gameType.getName().toLowerCase().removeWhitespaces()}",
+            "/game/${gameType.getName().lowercase().removeWhitespaces()}",
             target = "_self"
         )
     }
 
     private fun openScoreboardHtml(gameType: GameType) {
         window.open(
-            "/game/${gameType.getName().toLowerCase().removeWhitespaces()}/score",
+            "/game/${gameType.getName().lowercase().removeWhitespaces()}/score",
             target = "_self"
         )
     }
