@@ -2,8 +2,6 @@ include("app")
 include("shared")
 include("server")
 
-enableFeaturePreview("GRADLE_METADATA")
-
 pluginManagement {
     resolutionStrategy {
         eachPlugin {

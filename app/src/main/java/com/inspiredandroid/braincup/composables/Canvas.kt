@@ -1,21 +1,23 @@
 package com.inspiredandroid.braincup.composables
 
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.foundation.Canvas
-import androidx.ui.foundation.Clickable
-import androidx.ui.graphics.Paint
-import androidx.ui.graphics.Path
-import androidx.ui.layout.Column
-import androidx.ui.layout.Container
-import androidx.ui.layout.RowScope.gravity
-import androidx.ui.layout.padding
-import androidx.ui.layout.preferredSize
-import androidx.ui.material.ripple.ripple
-import androidx.ui.tooling.preview.Preview
-import androidx.ui.unit.Dp
-import androidx.ui.unit.dp
+import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.ripple.rememberRipple
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment.Companion.CenterHorizontally
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.withTransform
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
+import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.getPaths
@@ -27,18 +29,14 @@ fun ShapeCanvas(
     figure: Figure,
     modifier: Modifier = Modifier
 ) {
-    Container(
-        width = size, height = size,
-        modifier = modifier
+    Box(
+        modifier = modifier.size(size)
     ) {
-        Canvas(modifier = Modifier.preferredSize(width = size, height = size), onCanvas = {
-            val paint = Paint()
-            paint.color = figure.color.getComposeColor()
-            paint.isAntiAlias = true
+        Canvas(modifier = Modifier.size(size)) {
             val path = Path()
             figure.shape.getPaths().forEachIndexed { index, pair ->
-                val x = this.size.width.value * pair.first
-                val y = this.size.height.value * pair.second
+                val x = this.size.width * pair.first
+                val y = this.size.height * pair.second
                 if (index == 0) {
                     path.moveTo(x, y)
                 } else {
@@ -48,22 +46,15 @@ fun ShapeCanvas(
             path.close()
 
             if (figure.rotation != 0) {
-                save()
-                translate(
-                    this.size.width.value / 2f,
-                    this.size.height.value / 2f
-                )
-                rotate(figure.rotation.toFloat())
-                translate(
-                    -this.size.width.value / 2f,
-                    -this.size.height.value / 2f
-                )
-                drawPath(path, paint)
-                restore()
+                withTransform({
+                    rotate(figure.rotation.toFloat())
+                }) {
+                    drawPath(path, color = figure.color.getComposeColor())
+                }
             } else {
-                drawPath(path, paint)
+                drawPath(path, color = figure.color.getComposeColor())
             }
-        })
+        }
     }
 }
 
@@ -74,7 +65,11 @@ fun ShapeCanvasButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Clickable(onClick = onClick, modifier = Modifier.ripple()) {
+    Box(modifier = Modifier
+            .clickable(onClick = onClick,
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(bounded = true))
+    ) {
         ShapeCanvas(
             size = size,
             figure = figure,
@@ -90,12 +85,12 @@ fun PreviewShapes() {
         listOf(
             Figure(
                 shape = Shape.T,
-                color = com.inspiredandroid.braincup.games.tools.Color.GREEN
+                color = Color.GREEN
             )
         ).forEach { figure ->
             ShapeCanvasButton(
                 size = 48.dp,
-                modifier = Modifier.gravity(align = Alignment.CenterVertically) + Modifier.padding(8.dp),
+                modifier = Modifier.align(CenterHorizontally).padding(8.dp),
                 figure = figure,
                 onClick = {})
         }

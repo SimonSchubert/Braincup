@@ -1,16 +1,12 @@
 package com.inspiredandroid.braincup.composables
 
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.core.paint
-import androidx.ui.foundation.Box
-import androidx.ui.graphics.vector.VectorPainter
-import androidx.ui.graphics.vector.drawVector
-import androidx.ui.layout.*
-import androidx.ui.layout.ColumnScope.gravity
-import androidx.ui.res.vectorResource
-import androidx.ui.unit.dp
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
@@ -34,15 +30,15 @@ fun MainMenuScreen(
     appOpenCount: Int
 ) {
     BaseScrollApp(title) {
-        Spacer(Modifier.preferredHeight(8.dp))
+        Spacer(Modifier.height(8.dp))
         Subtitle1(
             text = description,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
-        Spacer(Modifier.preferredHeight(16.dp))
+        Spacer(Modifier.height(16.dp))
         games.forEach {
-            Spacer(Modifier.preferredHeight(16.dp))
-            Row(modifier = Modifier.gravity(align = Alignment.CenterHorizontally)) {
+            Spacer(Modifier.height(16.dp))
+            Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
                 TextImageButton(text = it.getName(), drawableResource = it.getAndroidDrawable()) {
                     android.os.Handler().post {
                         showInstructions(it)
@@ -50,7 +46,7 @@ fun MainMenuScreen(
                 }
                 val highscore = storage.getHighScore(it.getId())
                 if (highscore > 0) {
-                    Spacer(Modifier.preferredWidth(8.dp))
+                    Spacer(Modifier.width(8.dp))
                     ImageButton(
                         drawableResource = it.getAndroidMedalResource
                             (highscore)
@@ -63,39 +59,39 @@ fun MainMenuScreen(
             }
         }
 
-        Row(modifier = Modifier.gravity(align = Alignment.CenterHorizontally)) {
+        Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
             if (appOpenCount > 1) {
                 PentagonStatistic(
                     title = "Training days",
                     value = appOpenCount.toString(),
-                    modifier = Modifier.gravity(align = Alignment.CenterVertically)
+                    modifier = Modifier.align(Alignment.CenterVertically)
                 )
             }
             if (totalScore > 0) {
                 PentagonStatistic(
                     title = "Total score",
                     value = totalScore.toString(),
-                    modifier = Modifier.gravity(align = Alignment.CenterVertically)
+                    modifier = Modifier.align(Alignment.CenterVertically)
                 )
             }
         }
 
-        Spacer(Modifier.preferredHeight(16.dp))
+        Spacer(Modifier.height(16.dp))
         TextImageButton(
             text = "Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.values().size})",
             drawableResource = R.drawable.ic_icons8_test_passed,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         ) {
             android.os.Handler().post {
                 showAchievements()
             }
         }
 
-        Spacer(Modifier.preferredHeight(16.dp))
+        Spacer(Modifier.height(16.dp))
         TextImageButton(
             text = "Create challenge",
             drawableResource = R.drawable.ic_icons8_create_new3,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally),
+            modifier = Modifier.align(Alignment.CenterHorizontally),
             color = getComposeColor("#5c8e58")
         ) {
             android.os.Handler().post {
@@ -105,7 +101,7 @@ fun MainMenuScreen(
 
         VectorImage(
             id = R.drawable.ic_waiting,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
 }
@@ -113,20 +109,19 @@ fun MainMenuScreen(
 
 @Composable
 fun PentagonStatistic(title: String, value: String, modifier: Modifier) {
-    val vector = vectorResource(R.drawable.ic_icons8_pentagon)
-    val background = VectorPainter(asset = vector)
+    val background = painterResource(R.drawable.ic_icons8_pentagon)
     Box(
-        modifier = modifier + Modifier.preferredSize(
-            vector.defaultWidth,
-            vector.defaultHeight
-        ) + Modifier.paint(background)
+        modifier = modifier
     ) {
-        Column {
-            Spacer(Modifier.preferredHeight(14.dp))
-            Subtitle1(title, modifier = Modifier.gravity(align = Alignment.CenterHorizontally))
+        Image(painter = background,
+            contentDescription = null,
+        )
+        Column(modifier = Modifier.align(Alignment.Center).offset(0.dp, 4.dp)) {
+            Spacer(Modifier.height(14.dp))
+            Subtitle1(title, modifier = Modifier.align(Alignment.CenterHorizontally))
             Headline6(
                 text = value,
-                modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
         }
     }

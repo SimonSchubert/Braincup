@@ -76,7 +76,7 @@ class Tests {
                 highestResult = Calculator.calculate(s).toInt()
             }
         }
-        assertEquals(game.solution(), highestIndex.toString())
+        assertEquals(game.solution(), game.answers[highestIndex-1])
     }
 
     @Test

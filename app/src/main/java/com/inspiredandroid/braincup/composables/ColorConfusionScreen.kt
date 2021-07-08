@@ -1,15 +1,15 @@
 package com.inspiredandroid.braincup.composables
 
 import android.os.Handler
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.foundation.Text
-import androidx.ui.layout.Spacer
-import androidx.ui.layout.preferredHeight
-import androidx.ui.text.TextStyle
-import androidx.ui.unit.dp
-import androidx.ui.unit.sp
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -25,7 +25,7 @@ fun ColorConfusionScreen(
     BaseApp {
         Headline5(
             text = "${game.shapePoints} = ${game.answerShape.getName()}",
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         Text(
             "${game.colorPoints} = ${game.answerColor.getName()}", style = TextStyle
@@ -33,18 +33,18 @@ fun ColorConfusionScreen(
                 fontSize = 24.sp,
                 color = game.stringColor.getComposeColor()
             ),
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
-        Spacer(Modifier.preferredHeight(32.dp))
+        Spacer(Modifier.height(32.dp))
         ShapeCanvas(
             size = 96.dp,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally),
+            modifier = Modifier.align(Alignment.CenterHorizontally),
             figure = Figure(
                 shape = game.displayedShape,
                 color = game.displayedColor
             )
         )
-        Spacer(Modifier.preferredHeight(32.dp))
+        Spacer(Modifier.height(32.dp))
         val numbers = game.getPossibleAnswers()
         NumberRow(numbers) {
             Handler().post {

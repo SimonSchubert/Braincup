@@ -1,10 +1,10 @@
 package com.inspiredandroid.braincup.composables
 
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.layout.padding
-import androidx.ui.unit.dp
+import androidx.compose.foundation.layout.padding
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
 
@@ -26,24 +26,24 @@ fun InstructionsScreen(
         }) {
             Headline5(
                 text = "You got challenged",
-                modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(
+                modifier = Modifier.align(Alignment.CenterHorizontally).padding(
                     16.dp
                 )
             )
             if (hasSecret) {
                 Subtitle2(
                     text = "The challenge will unveil a secret.",
-                    modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
             }
             VectorImage(
                 id = R.drawable.ic_message_sent,
-                modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
 
             Subtitle1(
                 text = description,
-                modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(
+                modifier = Modifier.align(Alignment.CenterHorizontally).padding(
                     16.dp
                 )
             )
@@ -51,7 +51,7 @@ fun InstructionsScreen(
                 android.os.Handler().post {
                     start()
                 }
-            }, modifier = Modifier.gravity(align = Alignment.CenterHorizontally))
+            }, modifier = Modifier.align(Alignment.CenterHorizontally))
         }
     } else {
         BaseApp(title = title, back = {
@@ -62,7 +62,7 @@ fun InstructionsScreen(
         }) {
             Subtitle1(
                 text = description,
-                modifier = Modifier.gravity(align = Alignment.CenterHorizontally) + Modifier.padding(
+                modifier = Modifier.align(Alignment.CenterHorizontally).padding(
                     16.dp
                 )
             )
@@ -70,7 +70,7 @@ fun InstructionsScreen(
                 android.os.Handler().post {
                     start()
                 }
-            }, modifier = Modifier.gravity(align = Alignment.CenterHorizontally))
+            }, modifier = Modifier.align(Alignment.CenterHorizontally))
         }
     }
 }

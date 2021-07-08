@@ -1,9 +1,9 @@
 package com.inspiredandroid.braincup
 
 import android.os.Bundle
+import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
-import androidx.ui.core.setContent
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
@@ -122,6 +122,14 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
         setContent {
             RiddleScreen(game, answer, next)
         }
+    }
+
+    override fun showGridSolver(
+        game: GridSolverGame,
+        answer: (String) -> Unit,
+        next: () -> Unit
+    ) {
+        TODO("Not yet implemented")
     }
 
     override fun showScoreboard(

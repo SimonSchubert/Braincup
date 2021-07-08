@@ -1,16 +1,16 @@
 package com.inspiredandroid.braincup.composables
 
-import androidx.compose.Composable
-import androidx.ui.graphics.Color
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.Typography
-import androidx.ui.material.lightColorPalette
-import androidx.ui.text.TextStyle
-import androidx.ui.text.font.FontFamily
-import androidx.ui.text.font.FontWeight
-import androidx.ui.unit.sp
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Typography
+import androidx.compose.material.lightColors
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.sp
 
-val colors = lightColorPalette(
+val colors = lightColors(
     primary = Color(0xFFED7354),
     secondary = Color(0xFFC45C44),
     onPrimary = Color.White,

@@ -4,7 +4,7 @@ import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.challenge.ChallengeData
 import com.inspiredandroid.braincup.games.GameType
 import org.w3c.dom.url.URLSearchParams
-import kotlin.browser.window
+import kotlinx.browser.window
 
 fun referenceFunctions() {
     startMenu()
@@ -14,12 +14,12 @@ fun referenceFunctions() {
     startFractionCalculation()
     startMentalCalculation()
     startSherlockCalculation()
-    startHeightComparison()
+    startValueComparison()
     startAnomalyPuzzleScoreboard()
     startChainCalculationScoreboard()
     startColorConfusionScoreboard()
     startFractionCalculationScoreboard()
-    startHeightComparisonScoreboard()
+    startValueComparisonScoreboard()
     startMentalCalculationScoreboard()
     startSherlockCalculationScoreboard()
     startPathFinder()
@@ -59,7 +59,7 @@ fun startSherlockCalculation() {
     JsMain(AppState.INSTRUCTIONS, GameType.SHERLOCK_CALCULATION)
 }
 
-fun startHeightComparison() {
+fun startValueComparison() {
     JsMain(AppState.INSTRUCTIONS, GameType.VALUE_COMPARISON)
 }
 
@@ -107,6 +107,6 @@ fun startFractionCalculationScoreboard() {
     JsMain(AppState.SCOREBOARD, GameType.FRACTION_CALCULATION)
 }
 
-fun startHeightComparisonScoreboard() {
+fun startValueComparisonScoreboard() {
     JsMain(AppState.SCOREBOARD, GameType.VALUE_COMPARISON)
 }

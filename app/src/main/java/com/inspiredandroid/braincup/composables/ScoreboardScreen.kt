@@ -2,17 +2,17 @@ package com.inspiredandroid.braincup.composables
 
 import android.os.Handler
 import androidx.annotation.DrawableRes
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
-import androidx.ui.foundation.Box
-import androidx.ui.foundation.Text
-import androidx.ui.graphics.Color
-import androidx.ui.layout.*
-import androidx.ui.material.MaterialTheme
-import androidx.ui.text.ParagraphStyle
-import androidx.ui.text.style.TextAlign
-import androidx.ui.unit.dp
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.ParagraphStyle
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.games.GameType
@@ -33,36 +33,36 @@ fun ScoreboardScreen(
         }
         Unit
     }) {
-        Spacer(Modifier.preferredHeight(16.dp))
+        Spacer(Modifier.height(16.dp))
         Headline6(
             text = "Highscore: $highscore",
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
-        Spacer(Modifier.preferredHeight(8.dp))
+        Spacer(Modifier.height(8.dp))
         val table = game.getScoreTable()
-        Row(modifier = Modifier.gravity(align = Alignment.CenterHorizontally)) {
+        Row(modifier = Modifier.align(Alignment.CenterHorizontally)) {
             ScoreboardLegend(
                 "> 0",
                 R.drawable.ic_icons8_medal_third_place
             )
-            Spacer(Modifier.preferredWidth(8.dp))
+            Spacer(Modifier.height(8.dp))
             ScoreboardLegend(
                 "> ${table[1] - 1}",
                 R.drawable.ic_icons8_medal_second_place
             )
-            Spacer(Modifier.preferredWidth(8.dp))
+            Spacer(Modifier.height(8.dp))
             ScoreboardLegend(
                 "> ${table[0] - 1}",
                 R.drawable.ic_icons8_medal_first_place
             )
         }
         scores.forEach {
-            Spacer(Modifier.preferredHeight(16.dp))
+            Spacer(Modifier.height(16.dp))
             Headline6(
                 text = it.first,
-                modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+                modifier = Modifier.align(Alignment.CenterHorizontally)
             )
-            Spacer(Modifier.preferredHeight(8.dp))
+            Spacer(Modifier.height(8.dp))
             val pointSize = 15
             it.second.forEach { score ->
                 var width = (score * pointSize).dp
@@ -70,11 +70,11 @@ fun ScoreboardScreen(
                     width = 36.dp
                 }
                 Box(
-                    modifier = Modifier.preferredSize(
+                    modifier = Modifier.size(
                         width = width,
-                        height = 24.dp
-                    ) + Modifier.gravity(align = Alignment.CenterHorizontally),
-                    backgroundColor = Color(0xFFED7354)
+                        height = 24.dp)
+                        .align(Alignment.CenterHorizontally)
+                        .background(Color(0xFFED7354)),
                 ) {
                     Row {
                         Text(
@@ -88,7 +88,7 @@ fun ScoreboardScreen(
                         VectorImage(id = game.getAndroidMedalResource(score))
                     }
                 }
-                Spacer(Modifier.preferredHeight(16.dp))
+                Spacer(Modifier.height(16.dp))
             }
         }
     }

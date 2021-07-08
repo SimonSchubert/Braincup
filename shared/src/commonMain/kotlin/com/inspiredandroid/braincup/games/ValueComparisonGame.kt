@@ -50,7 +50,7 @@ class ValueComparisonGame : Game() {
             if (results.none { it == result }) {
                 answers.add(answer)
                 results.add(result)
-                if (results.max() == result) {
+                if (results.maxOrNull() == result) {
                     resultIndex = results.size - 1
                 }
             }

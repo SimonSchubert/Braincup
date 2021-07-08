@@ -1,9 +1,9 @@
 package com.inspiredandroid.braincup.composables
 
 import android.os.Handler
-import androidx.compose.Composable
-import androidx.ui.core.Alignment
-import androidx.ui.core.Modifier
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
 import com.inspiredandroid.braincup.DelayedTask
 import com.inspiredandroid.braincup.games.MentalCalculationGame
 
@@ -16,7 +16,7 @@ fun MentalCalculationScreen(
     BaseApp {
         Headline3(
             game.calculation,
-            modifier = Modifier.gravity(align = Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally)
         )
         NumberPad(onInputChange = {
             if (game.getNumberLength() == it.length) {
