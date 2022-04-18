@@ -29,7 +29,7 @@ android {
         }
 
         lint {
-            isCheckReleaseBuilds = false
+            checkReleaseBuilds = false
         }
 
         compileOptions {
@@ -68,7 +68,7 @@ dependencies {
     implementation("androidx.compose.ui:ui:${Lib.Versions.androidxUi}")
     implementation("androidx.compose.material:material:${Lib.Versions.androidxUi}")
     implementation("androidx.compose.material:material-ripple:${Lib.Versions.androidxUi}")
-    implementation("androidx.activity:activity-compose:1.3.0-rc01")
+    implementation("androidx.activity:activity-compose:1.4.0")
 
     implementation("androidx.core:core-ktx:${Lib.Versions.androidxCoreKtx}")
     implementation("androidx.preference:preference-ktx:${Lib.Versions.androidxPreferenceKtx}")
