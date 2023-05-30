@@ -1,5 +1,7 @@
 package com.inspiredandroid.braincup
 
+import kotlinx.browser.document
+import kotlinx.browser.window
 import kotlinx.html.*
 import kotlinx.html.dom.create
 import kotlinx.html.js.body
@@ -8,8 +10,6 @@ import kotlinx.html.js.onInputFunction
 import org.w3c.dom.HTMLBodyElement
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLTextAreaElement
-import kotlin.browser.document
-import kotlin.browser.window
 
 internal fun FlowContent.textButton(
     text: String, width: Int = -1,

@@ -4,15 +4,10 @@ apply plugin: 'kotlin-multiplatform'
 apply plugin: 'kotlinx-serialization'
 apply plugin: 'kotlin-dce-js'
 
-def kotlin_version = "1.3.72"
-def ktor_version = "1.3.2"
-def serialization_version = "0.20.0"
+def ktor_version = "1.6.8"
 
 repositories {
-    maven { url "https://dl.bintray.com/kotlin/kotlinx" }
     mavenCentral()
-    jcenter()
-    maven { url "https://jitpack.io" }
 }
 
 kotlin {
@@ -46,10 +41,18 @@ kotlin {
             }
         }
         fromPreset(presets.js, 'js') {
+            moduleName = "shared"
+
+            browser {
+                webpackTask {
+                    outputFileName = "game.min.js"
+                }
+            }
+
             compilations.main {
                 configure([compileKotlinJs, compileTestKotlinJs]) {
                     kotlinOptions {
-                        languageVersion = "1.3"
+                        languageVersion = "1.5"
                         sourceMap = true
                         metaInfo = true
                         moduleKind = "umd"
@@ -71,47 +74,31 @@ kotlin {
             dependsOn iosMain
         }
         commonMain.dependencies {
-            implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-common:$serialization_version"
             implementation "io.ktor:ktor-client-core:$ktor_version"
-            implementation "io.ktor:ktor-client-json:$ktor_version"
-            implementation "com.soywiz.korlibs.klock:klock:1.9.1"
-            implementation "com.russhwolf:multiplatform-settings:0.6"
+            implementation "io.ktor:ktor-client-serialization:$ktor_version"
+            implementation "com.soywiz.korlibs.klock:klock:2.4.13"
+            implementation "com.russhwolf:multiplatform-settings:0.8.1"
         }
 
         commonTest.dependencies {
-            implementation "org.jetbrains.kotlin:kotlin-test-common:$kotlin_version"
-            implementation "org.jetbrains.kotlin:kotlin-test-annotations-common:$kotlin_version"
+            implementation(kotlin("test"))
         }
 
         androidMain.dependencies {
-            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$serialization_version"
             implementation "io.ktor:ktor-client-android:$ktor_version"
-            implementation "com.russhwolf:multiplatform-settings:0.6"
-        }
-
-        androidTest.dependencies {
-            implementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
-            implementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
         }
 
         iosMain.dependencies {
             implementation "io.ktor:ktor-client-ios:$ktor_version"
-            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
         }
 
         jsMain.dependencies {
-            implementation "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
-            implementation "org.jetbrains.kotlinx:kotlinx-html-js:0.7.1"
-            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-js:$serialization_version"
+            implementation "org.jetbrains.kotlinx:kotlinx-html-js:0.7.5"
             implementation "io.ktor:ktor-client-js:$ktor_version"
-            implementation "io.ktor:ktor-client-core-js:$ktor_version"
             implementation "io.ktor:ktor-client-json-js:$ktor_version"
         }
 
         cliMain.dependencies {
-            implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-            implementation "org.jetbrains.kotlinx:kotlinx-serialization-runtime-native:$serialization_version"
             implementation "io.ktor:ktor-client-curl:$ktor_version"
         }
 
@@ -121,9 +108,6 @@ kotlin {
 
         iosX64Main.dependencies {
             // implementation "io.ktor:ktor-client-ios:$ktor_version"
-        }
-
-        commonTest.dependencies {
         }
 
         iosTest.dependencies {
@@ -179,20 +163,22 @@ task copyFramework {
 
 def jsFiles = ["build/kotlin-js-min/js/main/kotlin.js",
 "build/kotlin-js-min/js/main/kotlinx-html-js.js",
-"build/kotlin-js-min/js/main/kotlinx-io.js",
 "build/kotlin-js-min/js/main/kotlinx-atomicfu.js",
 "build/kotlin-js-min/js/main/kotlinx-coroutines-core.js",
-"build/kotlin-js-min/js/main/kotlinx-io-kotlinx-coroutines-io.js",
-"build/kotlin-js-min/js/main/ktor-ktor-utils.js",
-"build/kotlin-js-min/js/main/ktor-ktor-http.js",
-"build/kotlin-js-min/js/main/ktor-ktor-http-cio.js",
-"build/kotlin-js-min/js/main/ktor-ktor-client-core.js",
-"build/kotlin-js-min/js/main/ktor-ktor-client-js.js",
-"build/kotlin-js-min/js/main/ktor-ktor-client-json.js",
-"build/kotlin-js-min/js/main/kotlinx-serialization-kotlinx-serialization-runtime.js",
-"build/kotlin-js-min/js/main/klock-root-klock.js",
-"build/kotlin-js-min/js/main/s-multiplatform-settings.js",
+"build/kotlin-js-min/js/main/kotlinx-serialization-kotlinx-serialization-core-js-legacy.js",
+"build/kotlin-js-min/js/main/kotlinx-serialization-kotlinx-serialization-json-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-io-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-utils-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-http-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-http-cio-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-client-core-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-client-js-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-client-json-js-legacy.js",
+"build/kotlin-js-min/js/main/ktor-ktor-client-serialization-js-legacy.js",
+"build/kotlin-js-min/js/main/klock-root-klock-js-legacy.js",
+"build/kotlin-js-min/js/main/MultiplatformSettings-multiplatform-settings-js-legacy.js",
 "build/kotlin-js-min/js/main/shared.js"]
+
 
 task minifyJS(type: JavaExec) {
     main = '-jar'

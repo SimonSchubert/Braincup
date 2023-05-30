@@ -1,6 +1,6 @@
 package com.inspiredandroid.braincup
 
-import androidx.ui.graphics.Color
+import androidx.compose.ui.graphics.Color
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getScoreTable
@@ -25,6 +25,7 @@ fun GameType.getAndroidDrawable(): Int {
         GameType.ANOMALY_PUZZLE -> R.drawable.ic_icons8_telescope
         GameType.RIDDLE -> R.drawable.ic_icons8_questions
         GameType.PATH_FINDER -> R.drawable.ic_icons8_hard_to_find
+        GameType.GRID_SOLVER -> R.drawable.ic_icons8_dice
     }
 }
 
