@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.app
 
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
+import kotlinx.coroutines.CoroutineScope
 
 interface NavigationInterface {
     fun showMainMenu(
@@ -28,57 +29,49 @@ interface NavigationInterface {
 
     fun showMentalCalculation(
         game: MentalCalculationGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
     fun showColorConfusion(
         game: ColorConfusionGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
     fun showSherlockCalculation(
         game: SherlockCalculationGame,
         title: String,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
     fun showChainCalculation(
         game: ChainCalculationGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
     fun showValueComparison(
         game: ValueComparisonGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
     fun showFractionCalculation(
         game: FractionCalculationGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
     fun showAnomalyPuzzle(
         game: AnomalyPuzzleGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
     fun showRiddle(
         game: RiddleGame,
         title: String,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     )
 
-    fun showGridSolver(game: GridSolverGame, answer: (String) -> Unit, next: () -> Unit)
+    fun showGridSolver(game: GridSolverGame, answer: (String) -> Unit)
 
-    fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit)
+    fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit)
 
     fun showCorrectChallengeAnswerFeedback(solution: String, secret: String, url: String)
     fun showWrongChallengeAnswerFeedback(url: String)

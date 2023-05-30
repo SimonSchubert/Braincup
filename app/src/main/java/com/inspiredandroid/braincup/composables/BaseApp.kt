@@ -1,6 +1,9 @@
 package com.inspiredandroid.braincup.composables
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Text
@@ -13,6 +16,7 @@ import com.inspiredandroid.braincup.R
 @Composable
 fun BaseScrollApp(
     title: String? = null,
+    modifier: Modifier = Modifier,
     back: (() -> Unit?)? = null,
     children: @Composable() ColumnScope.() -> Unit
 ) {
@@ -20,7 +24,7 @@ fun BaseScrollApp(
         Column {
             MyTopAppBar(title, back)
             Column(
-                modifier = Modifier
+                modifier = modifier
                     .fillMaxSize()
                     .verticalScroll(rememberScrollState()),
                 horizontalAlignment = Alignment.CenterHorizontally,

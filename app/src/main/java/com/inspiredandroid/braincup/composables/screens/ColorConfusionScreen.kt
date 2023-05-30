@@ -1,6 +1,5 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
-import android.os.Handler
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.Text
@@ -10,7 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.inspiredandroid.braincup.DelayedTask
+import com.inspiredandroid.braincup.composables.BaseApp
+import com.inspiredandroid.braincup.composables.Headline5
+import com.inspiredandroid.braincup.composables.NumberRow
+import com.inspiredandroid.braincup.composables.ShapeCanvas
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.getName
@@ -19,8 +21,7 @@ import com.inspiredandroid.braincup.getComposeColor
 @Composable
 fun ColorConfusionScreen(
     game: ColorConfusionGame,
-    answer: (String) -> Unit,
-    next: () -> Unit
+    answer: (String) -> Unit
 ) {
     BaseApp {
         Headline5(
@@ -47,10 +48,7 @@ fun ColorConfusionScreen(
         Spacer(Modifier.height(32.dp))
         val numbers = game.getPossibleAnswers()
         NumberRow(numbers) {
-            Handler().post {
-                answer(it)
-            }
-            DelayedTask().execute(next)
+            answer(it)
         }
     }
 }

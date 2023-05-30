@@ -3,10 +3,15 @@ package com.inspiredandroid.braincup.composables
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.requiredSize
 import androidx.compose.foundation.layout.width
-import androidx.compose.material.*
+import androidx.compose.material.Button
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.ButtonDefaults.elevation
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,7 +27,8 @@ fun TextButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier
+            .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
         content = { Text(text) }
     )
 }
@@ -37,7 +43,7 @@ fun TextImageButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier,
+        modifier = modifier .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
         colors = ButtonDefaults.buttonColors(
             backgroundColor = color,
             contentColor = Color.White
@@ -63,10 +69,10 @@ fun ImageButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
-    Button(onClick = onClick, modifier = modifier) {
+    Button(onClick = onClick, modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)) {
         Icon(
             modifier = Modifier.requiredSize(24.dp),
-            painter=painterResource(drawableResource),
+            painter = painterResource(drawableResource),
             contentDescription = null
         )
     }

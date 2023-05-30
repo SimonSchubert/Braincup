@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
@@ -9,9 +10,39 @@ import com.inspiredandroid.braincup.app.AppState
 import com.inspiredandroid.braincup.app.NavigationController
 import com.inspiredandroid.braincup.app.NavigationInterface
 import com.inspiredandroid.braincup.challenge.ChallengeData
-import com.inspiredandroid.braincup.composables.*
-import com.inspiredandroid.braincup.games.*
-import com.russhwolf.settings.AndroidSettings
+import com.inspiredandroid.braincup.composables.screens.AchievementsScreen
+import com.inspiredandroid.braincup.composables.screens.AnomalyPuzzleScreen
+import com.inspiredandroid.braincup.composables.screens.ChainCalculationScreen
+import com.inspiredandroid.braincup.composables.screens.ColorConfusionScreen
+import com.inspiredandroid.braincup.composables.screens.CorrectAnswerScreen
+import com.inspiredandroid.braincup.composables.screens.CorrectChallengeAnswerScreen
+import com.inspiredandroid.braincup.composables.screens.CreateChallengeMenuScreen
+import com.inspiredandroid.braincup.composables.screens.CreateRiddleChallenge
+import com.inspiredandroid.braincup.composables.screens.CreateSherlockCalculationChallenge
+import com.inspiredandroid.braincup.composables.screens.FinishScreen
+import com.inspiredandroid.braincup.composables.screens.FractionCalculationScreen
+import com.inspiredandroid.braincup.composables.screens.InstructionsScreen
+import com.inspiredandroid.braincup.composables.screens.MainMenuScreen
+import com.inspiredandroid.braincup.composables.screens.MentalCalculationScreen
+import com.inspiredandroid.braincup.composables.screens.PathFinderScreen
+import com.inspiredandroid.braincup.composables.screens.RiddleScreen
+import com.inspiredandroid.braincup.composables.screens.ScoreboardScreen
+import com.inspiredandroid.braincup.composables.screens.SherlockCalculationScreen
+import com.inspiredandroid.braincup.composables.screens.ValueComparisonScreen
+import com.inspiredandroid.braincup.composables.screens.WrongAnswerScreen
+import com.inspiredandroid.braincup.composables.screens.WrongChallengeAnswerScreen
+import com.inspiredandroid.braincup.games.AnomalyPuzzleGame
+import com.inspiredandroid.braincup.games.ChainCalculationGame
+import com.inspiredandroid.braincup.games.ColorConfusionGame
+import com.inspiredandroid.braincup.games.FractionCalculationGame
+import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.GridSolverGame
+import com.inspiredandroid.braincup.games.MentalCalculationGame
+import com.inspiredandroid.braincup.games.PathFinderGame
+import com.inspiredandroid.braincup.games.RiddleGame
+import com.inspiredandroid.braincup.games.SherlockCalculationGame
+import com.inspiredandroid.braincup.games.ValueComparisonGame
+import com.russhwolf.settings.SharedPreferencesSettings
 
 class MainActivity : AppCompatActivity(), NavigationInterface {
 
@@ -21,7 +52,7 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
         super.onCreate(savedInstanceState)
 
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(applicationContext)
-        settings = AndroidSettings(sharedPrefs)
+        settings = SharedPreferencesSettings(sharedPrefs)
 
         val challengeData = intent.getStringExtra("challenge")
         if (challengeData != null) {
@@ -34,14 +65,16 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
         } else {
             gameMaster.start()
         }
-    }
 
-    override fun onBackPressed() {
-        if (gameMaster.state == AppState.START) {
-            super.onBackPressed()
-        } else {
-            gameMaster.start()
-        }
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (gameMaster.state == AppState.START) {
+                    finish()
+                } else {
+                    gameMaster.start()
+                }
+            }
+        })
     }
 
     override fun onResume() {
@@ -99,17 +132,16 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
 
     override fun showMentalCalculation(
         game: MentalCalculationGame,
-        answer: (String) -> Unit,
-        next: () -> Unit
+        answer: (String) -> Unit
     ) {
         setContent {
-            MentalCalculationScreen(game, answer, next)
+            MentalCalculationScreen(game, answer)
         }
     }
 
-    override fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit, next: () -> Unit) {
+    override fun showPathFinder(game: PathFinderGame, answer: (String) -> Unit) {
         setContent {
-            PathFinderScreen(game, answer, next)
+            PathFinderScreen(game, answer)
         }
     }
 
@@ -117,18 +149,18 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
         game: RiddleGame,
         title: String,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         setContent {
-            RiddleScreen(game, answer, next)
+            RiddleScreen(game, answer)
         }
     }
 
     override fun showGridSolver(
         game: GridSolverGame,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         TODO("Not yet implemented")
     }
 
@@ -163,13 +195,12 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
     override fun showAnomalyPuzzle(
         game: AnomalyPuzzleGame,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         setContent {
             AnomalyPuzzleScreen(
                 game,
-                answer,
-                next
+                answer
             )
         }
     }
@@ -177,10 +208,10 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
     override fun showColorConfusion(
         game: ColorConfusionGame,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         setContent {
-            ColorConfusionScreen(game, answer, next)
+            ColorConfusionScreen(game, answer)
         }
     }
 
@@ -188,13 +219,12 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
         game: SherlockCalculationGame,
         title: String,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         setContent {
             SherlockCalculationScreen(
                 game,
-                answer,
-                next
+                answer
             )
         }
     }
@@ -202,13 +232,12 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
     override fun showChainCalculation(
         game: ChainCalculationGame,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         setContent {
             ChainCalculationScreen(
                 game,
-                answer,
-                next
+                answer
             )
         }
     }
@@ -216,20 +245,20 @@ class MainActivity : AppCompatActivity(), NavigationInterface {
     override fun showValueComparison(
         game: ValueComparisonGame,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         setContent {
-            ValueComparisonScreen(game, answer, next)
+            ValueComparisonScreen(game, answer)
         }
     }
 
     override fun showFractionCalculation(
         game: FractionCalculationGame,
         answer: (String) -> Unit,
-        next: () -> Unit
-    ) {
+
+        ) {
         setContent {
-            FractionCalculationScreen(game, answer, next)
+            FractionCalculationScreen(game, answer)
         }
     }
 

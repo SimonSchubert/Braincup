@@ -1,7 +1,8 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
 import android.os.Handler
 import androidx.compose.material.Divider
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ListItem
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -9,8 +10,11 @@ import androidx.compose.ui.graphics.Color
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.NavigationController
+import com.inspiredandroid.braincup.composables.BaseScrollApp
+import com.inspiredandroid.braincup.composables.VectorImage
 import com.inspiredandroid.braincup.games.getDescription
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun AchievementsScreen(
     allAchievements: List<UserStorage.Achievements>,

@@ -1,10 +1,10 @@
 buildscript {
     repositories {
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Lib.Versions.kotlin}")
-        classpath("com.google.cloud.tools:appengine-gradle-plugin:${Lib.Versions.appenginePluginVersion}")
+        classpath("com.google.cloud.tools:appengine-gradle-plugin:2.4.5")
     }
 }
 
@@ -30,12 +30,9 @@ dependencies {
     implementation("io.ktor:ktor-html-builder:${Lib.Versions.ktor}")
     implementation("io.ktor:ktor-gson:${Lib.Versions.ktor}")
     implementation("com.google.cloud:google-cloud-logging-logback:0.116.0-alpha")
-    implementation("com.google.cloud:google-cloud-datastore:1.102.3")
-    implementation("com.google.appengine:appengine:${Lib.Versions.appengineVersion}")
+    implementation("com.google.cloud:google-cloud-datastore:2.14.7")
+    implementation("com.google.appengine:appengine:1.9.98")
 }
 
-kotlin {
-    experimental.coroutines = org.jetbrains.kotlin.gradle.dsl.Coroutines.ENABLE
-}
 
 task("run") { dependsOn("appengineRun") }

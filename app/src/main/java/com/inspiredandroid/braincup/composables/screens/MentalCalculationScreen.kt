@@ -1,17 +1,17 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
-import android.os.Handler
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import com.inspiredandroid.braincup.DelayedTask
+import com.inspiredandroid.braincup.composables.BaseApp
+import com.inspiredandroid.braincup.composables.Headline3
+import com.inspiredandroid.braincup.composables.NumberPad
 import com.inspiredandroid.braincup.games.MentalCalculationGame
 
 @Composable
 fun MentalCalculationScreen(
     game: MentalCalculationGame,
-    answer: (String) -> Unit,
-    next: () -> Unit
+    answer: (String) -> Unit
 ) {
     BaseApp {
         Headline3(
@@ -20,10 +20,7 @@ fun MentalCalculationScreen(
         )
         NumberPad(onInputChange = {
             if (game.getNumberLength() == it.length) {
-                Handler().post {
-                    answer(it)
-                }
-                DelayedTask().execute(next)
+                answer(it)
             }
         })
     }

@@ -1,9 +1,13 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
 import android.os.Handler
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -15,6 +19,9 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
+import com.inspiredandroid.braincup.composables.BaseScrollApp
+import com.inspiredandroid.braincup.composables.Headline6
+import com.inspiredandroid.braincup.composables.VectorImage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getName
 import com.inspiredandroid.braincup.games.getScoreTable
@@ -70,9 +77,11 @@ fun ScoreboardScreen(
                     width = 36.dp
                 }
                 Box(
-                    modifier = Modifier.size(
-                        width = width,
-                        height = 24.dp)
+                    modifier = Modifier
+                        .size(
+                            width = width,
+                            height = 24.dp
+                        )
                         .align(Alignment.CenterHorizontally)
                         .background(Color(0xFFED7354)),
                 ) {

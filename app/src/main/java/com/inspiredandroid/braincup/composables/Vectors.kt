@@ -15,11 +15,14 @@ import androidx.compose.ui.res.painterResource
 
 @Composable
 fun VectorImageButton(@DrawableRes id: Int, onClick: () -> Unit) {
-    Box(modifier = Modifier
-        .clickable(onClick = onClick,
-            interactionSource = remember { MutableInteractionSource() },
-            indication = rememberRipple(bounded = false)
-        )) {
+    Box(
+        modifier = Modifier
+            .clickable(
+                onClick = onClick,
+                interactionSource = remember { MutableInteractionSource() },
+                indication = rememberRipple(bounded = false)
+            )
+    ) {
         VectorImage(id = id)
     }
 }

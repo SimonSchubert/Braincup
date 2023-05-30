@@ -1,4 +1,4 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
 import android.content.Context
 import android.os.Handler
@@ -11,6 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.R
 import com.inspiredandroid.braincup.app.NavigationController
+import com.inspiredandroid.braincup.composables.BaseApp
+import com.inspiredandroid.braincup.composables.Headline5
+import com.inspiredandroid.braincup.composables.Subtitle2
+import com.inspiredandroid.braincup.composables.TextImageButton
+import com.inspiredandroid.braincup.composables.VectorImage
 
 @Composable
 fun WrongChallengeAnswerScreen(
@@ -20,7 +25,9 @@ fun WrongChallengeAnswerScreen(
     BaseApp {
         Headline5(
             text = "Unsolved",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp)
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(16.dp)
         )
         Subtitle2(
             text = "The challenge will stay unsolved for now.",

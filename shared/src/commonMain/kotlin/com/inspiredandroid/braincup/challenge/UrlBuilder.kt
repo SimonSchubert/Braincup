@@ -3,11 +3,12 @@ package com.inspiredandroid.braincup.challenge
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.splitToIntList
-import io.ktor.util.*
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonPrimitive
+import kotlin.io.encoding.Base64
+import kotlin.io.encoding.ExperimentalEncodingApi
 
 sealed class ChallengeUrlResult
 
@@ -15,9 +16,9 @@ data class ChallengeUrlError(val errorMessage: String) : ChallengeUrlResult()
 
 data class ChallengeUrl(val url: String) : ChallengeUrlResult()
 
+@OptIn(ExperimentalEncodingApi::class)
 object UrlBuilder {
 
-    @OptIn(InternalAPI::class)
     fun buildSherlockCalculationChallengeUrl(
         title: String,
         secret: String,
@@ -54,7 +55,7 @@ object UrlBuilder {
         val json = Json.encodeToString(map)
 
         return ChallengeUrl(
-            "https://braincup.app/challenge?data=${json.encodeBase64()}"
+            "https://braincup.app/challenge?data=${Base64.encode(json.toByteArray())}"
         )
     }
 
@@ -74,7 +75,6 @@ object UrlBuilder {
         return map
     }
 
-    @OptIn(InternalAPI::class)
     fun buildRiddleChallengeUrl(
         title: String,
         secret: String,
@@ -105,7 +105,7 @@ object UrlBuilder {
         val json = Json.encodeToString(map)
 
         return ChallengeUrl(
-            "https://braincup.app/challenge?data=${json.encodeBase64()}"
+            "https://braincup.app/challenge?data=${Base64.encode(json.toByteArray())}"
         )
     }
 }

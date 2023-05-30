@@ -13,9 +13,7 @@ import com.inspiredandroid.braincup.games.tools.getFigure
 import com.inspiredandroid.braincup.games.tools.getName
 import com.inspiredandroid.braincup.getLines
 import com.inspiredandroid.braincup.merge
-import io.ktor.http.Url
-import platform.posix.exit
-import platform.posix.sleep
+import kotlin.system.exitProcess
 
 data class CliArgument(val id: ID, val options: List<String>, val description: String) {
     enum class ID {
@@ -51,7 +49,7 @@ fun main(args: Array<String>) {
                 CliArgument.ID.DEEPLINK -> {
                     val url = args.getOrNull(index + 1)?.trim()
                     if (url != null) {
-                        val base64Data = Url(url).parameters["data"]
+                        val base64Data = "" // TODO: Url(url).parameters["data"]
                         if (base64Data != null) {
                             val challengeData = ChallengeData.parse(url = url, data = base64Data)
                             if (challengeData !is ChallengeDataParseError) {
@@ -84,6 +82,8 @@ fun main(args: Array<String>) {
                     }
                     return
                 }
+
+                else -> {}
             }
         }
     }
@@ -129,7 +129,7 @@ class CliMain(
         while (true) {
             val input = readLine() ?: ""
             if (exitCommands.contains(input)) {
-                exit(0)
+                exitProcess(0)
             } else {
                 val index = (input.toIntOrNull() ?: 0) - 1
                 if (index == games.size) {
@@ -500,7 +500,6 @@ class CliMain(
             gameMaster.start()
         } else {
             answer(input)
-            sleep(1u)
             next()
         }
     }

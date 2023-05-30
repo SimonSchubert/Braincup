@@ -1,12 +1,18 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
 import android.os.Handler
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.app.NavigationController
+import com.inspiredandroid.braincup.composables.BaseApp
+import com.inspiredandroid.braincup.composables.Subtitle1
+import com.inspiredandroid.braincup.composables.TextImageButton
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getName
 import com.inspiredandroid.braincup.getAndroidDrawable
@@ -25,7 +31,9 @@ fun CreateChallengeMenuScreen(
     }) {
         Subtitle1(
             text = "Create your own challenge and share it with your friends, family and co-workers. You can also hide a secret message which will get unveiled after solving the challenge.",
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp)
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(16.dp)
         )
         games.forEach {
             Spacer(Modifier.height(16.dp))

@@ -1,7 +1,19 @@
 package com.inspiredandroid.braincup.composables
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.defaultMinSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.icons.Icons
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -13,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.inspiredandroid.braincup.R
 
 @Composable
 fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
@@ -21,7 +34,8 @@ fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
         Row(
             horizontalArrangement = Arrangement.End,
             modifier = Modifier
-                .padding(16.dp)
+                .padding(12.dp)
+                .defaultMinSize(minHeight = 60.dp)
                 .align(CenterHorizontally)
         ) {
             Text(
@@ -32,12 +46,11 @@ fun NumberPad(showOperators: Boolean = false, onInputChange: (String) -> Unit) {
             if (input.value.isNotEmpty()) {
                 Spacer(Modifier.width(8.dp))
 
-                TextButton(
-                    text = "◄",
+                ImageButton(drawableResource = R.drawable.baseline_backspace_24,
                     onClick = {
                         input.value = input.value.substring(0, input.value.lastIndex)
-                    }, modifier = Modifier.align(CenterVertically)
-                )
+                    },
+                modifier = Modifier.align(CenterVertically))
             }
         }
 
@@ -97,7 +110,7 @@ fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
 }
 
 @Composable
-private fun RowScope.Cell(content: @Composable BoxScope.() -> Unit) {
+fun RowScope.Cell(content: @Composable BoxScope.() -> Unit) {
     Box(
         modifier = Modifier.weight(1f, fill = true),
         propagateMinConstraints = true
@@ -126,5 +139,7 @@ private fun NumberPadButton(
     TextButton(value, onClick = {
         input.value += value
         onInputChange(input.value)
-    }, modifier = Modifier.padding(4.dp))
+    }, modifier = Modifier
+        .padding(4.dp)
+        .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp))
 }

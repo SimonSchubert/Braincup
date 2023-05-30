@@ -65,10 +65,13 @@ fun ShapeCanvasButton(
     onClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    Box(modifier = Modifier
-            .clickable(onClick = onClick,
+    Box(
+        modifier = Modifier
+            .clickable(
+                onClick = onClick,
                 interactionSource = remember { MutableInteractionSource() },
-                indication = rememberRipple(bounded = true))
+                indication = rememberRipple(bounded = true)
+            )
     ) {
         ShapeCanvas(
             size = size,
@@ -82,15 +85,17 @@ fun ShapeCanvasButton(
 @Composable
 fun PreviewShapes() {
     Column {
-        listOf(
+        Shape.values().map { shape ->
             Figure(
-                shape = Shape.T,
+                shape = shape,
                 color = Color.GREEN
             )
-        ).forEach { figure ->
+        }.forEach { figure ->
             ShapeCanvasButton(
                 size = 48.dp,
-                modifier = Modifier.align(CenterHorizontally).padding(8.dp),
+                modifier = Modifier
+                    .align(CenterHorizontally)
+                    .padding(8.dp),
                 figure = figure,
                 onClick = {})
         }

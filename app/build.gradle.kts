@@ -4,55 +4,53 @@ plugins {
 }
 
 android {
-    compileSdk = Config.targetSDK
+    compileSdk = 33
 
     defaultConfig {
-        applicationId = Config.applicationId
-        minSdk = Config.minSDK
-        targetSdk = Config.targetSDK
-        versionCode = Config.versionCode
-        versionName = Config.versionName
+        applicationId = "com.inspiredandroid.braincup"
+        minSdk = 22
+        targetSdk = 33
+        versionCode = 12
+        versionName = "1.5.0"
 
-        testInstrumentationRunner = Config.instrumentationRunner
-
-        buildTypes {
-            getByName("debug") {
-                isShrinkResources = false
-                isMinifyEnabled = false
-                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            }
-            getByName("release") {
-                isShrinkResources = true
-                isMinifyEnabled = true
-                proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
-            }
-        }
-
-        lint {
-            checkReleaseBuilds = false
-        }
-
-        compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_1_8
-            targetCompatibility = JavaVersion.VERSION_1_8
-        }
-
-        composeOptions {
-            kotlinCompilerExtensionVersion = Lib.Versions.androidxUi
-        }
+        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    kotlinOptions {
-        jvmTarget = "1.8"
-        freeCompilerArgs += listOf(
-            "-Xopt-in=androidx.compose.material.ExperimentalMaterialApi",
-            "-Xopt-in=androidx.compose.foundation.ExperimentalFoundationApi"
-        )
+    buildTypes {
+        getByName("debug") {
+            isShrinkResources = false
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+        getByName("release") {
+            isShrinkResources = true
+            isMinifyEnabled = true
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
     }
 
     buildFeatures {
         compose = true
     }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.7"
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    lint {
+        abortOnError = false
+    }
+
+    namespace = "com.inspiredandroid.braincup"
 
     packagingOptions {
         resources.excludes += listOf(
@@ -62,16 +60,17 @@ android {
     }
 }
 
+
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui-tooling:${Lib.Versions.androidxUi}")
-    implementation("androidx.compose.ui:ui:${Lib.Versions.androidxUi}")
-    implementation("androidx.compose.material:material:${Lib.Versions.androidxUi}")
-    implementation("androidx.compose.material:material-ripple:${Lib.Versions.androidxUi}")
-    implementation("androidx.activity:activity-compose:1.4.0")
+    implementation("androidx.compose.ui:ui-tooling:1.4.3")
+    implementation("androidx.compose.ui:ui:1.4.3")
+    implementation("androidx.compose.material:material:1.4.3")
+    implementation("androidx.compose.material:material-ripple:1.4.3")
+    implementation("androidx.activity:activity-compose:1.7.2")
 
-    implementation("androidx.core:core-ktx:${Lib.Versions.androidxCoreKtx}")
-    implementation("androidx.preference:preference-ktx:${Lib.Versions.androidxPreferenceKtx}")
-    implementation("com.google.android.material:material:${Lib.Versions.materialDesign}")
-    implementation("com.russhwolf:multiplatform-settings:${Lib.Versions.multiplatformSettings}")
+    implementation("androidx.core:core-ktx:1.10.1")
+    implementation("androidx.preference:preference-ktx:1.2.0")
+    implementation("com.google.android.material:material:1.9.0")
+    implementation("com.russhwolf:multiplatform-settings:1.0.0")
 }

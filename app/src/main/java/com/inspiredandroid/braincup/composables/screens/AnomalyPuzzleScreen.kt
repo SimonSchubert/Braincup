@@ -1,22 +1,24 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
-import android.os.Handler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.inspiredandroid.braincup.DelayedTask
+import com.inspiredandroid.braincup.composables.BaseApp
+import com.inspiredandroid.braincup.composables.ShapeCanvasButton
 import com.inspiredandroid.braincup.games.AnomalyPuzzleGame
+import kotlinx.coroutines.launch
 
 @Composable
 fun AnomalyPuzzleScreen(
     game: AnomalyPuzzleGame,
-    answer: (String) -> Unit,
-    next: () -> Unit
+    answer: (String) -> Unit
 ) {
+    val scope = rememberCoroutineScope()
     BaseApp {
         val chunkSize = when {
             game.figures.size >= 16 -> 4
@@ -36,10 +38,9 @@ fun AnomalyPuzzleScreen(
                             .padding(8.dp),
                         figure = figure,
                         onClick = {
-                            Handler().post {
+                            scope.launch {
                                 answer("${index + 1}")
                             }
-                            DelayedTask().execute(next)
                         })
                 }
             }

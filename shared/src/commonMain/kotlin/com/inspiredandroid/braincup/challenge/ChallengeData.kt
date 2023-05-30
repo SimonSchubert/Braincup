@@ -1,12 +1,15 @@
+@file:OptIn(ExperimentalEncodingApi::class)
+
 package com.inspiredandroid.braincup.challenge
 
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getName
-import io.ktor.util.*
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import kotlin.io.encoding.Base64
+import kotlin.io.encoding.ExperimentalEncodingApi
 
 sealed class ChallengeData(
     private val challengeTitle: String? = null,
@@ -14,9 +17,8 @@ sealed class ChallengeData(
     val gameType: GameType
 ) {
     companion object {
-        @OptIn(InternalAPI::class)
         fun parse(url: String, data: String): ChallengeData {
-            val json: JsonObject = Json.parseToJsonElement(data.decodeBase64String()) as? JsonObject ?: throw Exception("Expected JsonObject")
+            val json: JsonObject = Json.parseToJsonElement(Base64.decode(data).decodeToString()) as? JsonObject ?: throw Exception("Expected JsonObject")
             val gameType = json["game"]?.jsonPrimitive?.content
             val title = json["title"]?.jsonPrimitive?.content ?: ""
             val secret = json["secret"]?.jsonPrimitive?.content ?: ""
@@ -60,7 +62,7 @@ sealed class ChallengeData(
     }
 
     fun getTitle(): String {
-        return if (challengeTitle != null && challengeTitle.isNotEmpty()) {
+        return if (!challengeTitle.isNullOrEmpty()) {
             challengeTitle
         } else {
             gameType.getName()

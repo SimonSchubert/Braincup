@@ -5,16 +5,19 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.challenge.ChallengeData
 import com.inspiredandroid.braincup.challenge.RiddleChallengeData
 import com.inspiredandroid.braincup.challenge.SherlockCalculationChallengeData
+import com.inspiredandroid.braincup.gCoroutineScope
 import com.inspiredandroid.braincup.games.*
-import com.soywiz.klock.DateTime
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import java.time.Clock
 
 /**
  * Controls the flow through the app and games.
  */
 class NavigationController(private val app: NavigationInterface) {
 
-    private val GAME_TIME_MILLIS = 60 * 1000
-    var startTime = 0.0
+    private val GAME_TIME_MILLIS = 60 * 1_000
+    var startTime = 0L
     var points = 0
     var plays = 0
     var state = AppState.START
@@ -93,7 +96,7 @@ class NavigationController(private val app: NavigationInterface) {
                     val game = SherlockCalculationGame()
                     game.result = challengeData.goal
                     game.numbers.addAll(challengeData.numbers)
-                    app.showSherlockCalculation(game, challengeData.getTitle(), { answer ->
+                    app.showSherlockCalculation(game, challengeData.getTitle()) { answer ->
                         val input = answer.trim()
                         if (game.isCorrect(input)) {
                             app.showCorrectChallengeAnswerFeedback(
@@ -104,13 +107,13 @@ class NavigationController(private val app: NavigationInterface) {
                         } else {
                             app.showWrongChallengeAnswerFeedback(challengeData.url)
                         }
-                    }, {})
+                    }
                 }
                 is RiddleChallengeData -> {
                     val game = RiddleGame()
                     game.quest = challengeData.description
                     game.answers.addAll(challengeData.answers)
-                    app.showRiddle(game, challengeData.getTitle(), { answer ->
+                    app.showRiddle(game, challengeData.getTitle()) { answer ->
                         val input = answer.trim()
                         if (game.isCorrect(input)) {
                             app.showCorrectChallengeAnswerFeedback(
@@ -121,7 +124,7 @@ class NavigationController(private val app: NavigationInterface) {
                         } else {
                             app.showWrongChallengeAnswerFeedback(challengeData.url)
                         }
-                    }, {})
+                    }
                 }
                 else -> {}
             }
@@ -149,7 +152,7 @@ class NavigationController(private val app: NavigationInterface) {
         state = AppState.INSTRUCTIONS
         app.showInstructions(gameType, gameType.getName(), gameType.getDescription()) {
             state = AppState.GAME
-            startTime = DateTime.now().unixMillis
+            startTime = Clock.systemUTC().millis()
             plays++
             points = 0
             val game = when (gameType) {
@@ -176,54 +179,58 @@ class NavigationController(private val app: NavigationInterface) {
         game.round++
 
         val answer: (String) -> Unit = { answer ->
-            val input = answer.trim()
-            if (game.isCorrect(input)) {
-                app.showCorrectAnswerFeedback(game.getGameType(), game.hint())
-                points++
-            } else {
-                app.showWrongAnswerFeedback(game.getGameType(), game.solution())
-                game.answeredAllCorrect = false
-            }
-        }
-        val next: () -> Unit = {
-            val currentTime = DateTime.now().unixMillis
-            if (currentTime - startTime > GAME_TIME_MILLIS) {
-                if (game.answeredAllCorrect) {
+            gCoroutineScope.launch {
+
+                val input = answer.trim()
+                if (game.isCorrect(input)) {
+                    app.showCorrectAnswerFeedback(game.getGameType(), game.hint())
                     points++
+                } else {
+                    app.showWrongAnswerFeedback(game.getGameType(), game.solution())
+                    game.answeredAllCorrect = false
                 }
-                Api.postScore(
-                    game.getGameType().getId(),
-                    points
-                ) { score: String, newHighscore: Boolean ->
-                    app.showFinishFeedback(
-                        game.getGameType(),
-                        score,
-                        newHighscore,
-                        game.answeredAllCorrect,
-                        plays,
-                        { startInstructions(games.random()) },
-                        { startInstructions(game.getGameType()) })
+
+
+                delay(1_000)
+
+                val currentTime = Clock.systemUTC().millis()
+                if (currentTime - startTime > GAME_TIME_MILLIS) {
+                    if (game.answeredAllCorrect) {
+                        points++
+                    }
+                    Api.postScore(
+                        game.getGameType().getId(),
+                        points
+                    ) { score: String, newHighscore: Boolean ->
+                        app.showFinishFeedback(
+                            game.getGameType(),
+                            score,
+                            newHighscore,
+                            game.answeredAllCorrect,
+                            plays,
+                            { startInstructions(games.random()) },
+                            { startInstructions(game.getGameType()) })
+                    }
+                } else {
+                    nextRound(game)
                 }
-            } else {
-                nextRound(game)
             }
         }
 
         when (game) {
-            is ColorConfusionGame -> app.showColorConfusion(game, answer, next)
-            is MentalCalculationGame -> app.showMentalCalculation(game, answer, next)
+            is ColorConfusionGame -> app.showColorConfusion(game, answer)
+            is MentalCalculationGame -> app.showMentalCalculation(game, answer)
             is SherlockCalculationGame -> app.showSherlockCalculation(
                 game,
                 game.getName(),
-                answer,
-                next
+                answer
             )
-            is ChainCalculationGame -> app.showChainCalculation(game, answer, next)
-            is ValueComparisonGame -> app.showValueComparison(game, answer, next)
-            is FractionCalculationGame -> app.showFractionCalculation(game, answer, next)
-            is AnomalyPuzzleGame -> app.showAnomalyPuzzle(game, answer, next)
-            is PathFinderGame -> app.showPathFinder(game, answer, next)
-            is GridSolverGame -> app.showGridSolver(game, answer, next)
+            is ChainCalculationGame -> app.showChainCalculation(game, answer)
+            is ValueComparisonGame -> app.showValueComparison(game, answer)
+            is FractionCalculationGame -> app.showFractionCalculation(game, answer)
+            is AnomalyPuzzleGame -> app.showAnomalyPuzzle(game, answer)
+            is PathFinderGame -> app.showPathFinder(game, answer)
+            is GridSolverGame -> app.showGridSolver(game, answer)
         }
     }
 }

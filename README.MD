@@ -4,6 +4,7 @@
 
 # Braincup
 Train your math skills, memory and focus.
+* Important: all targets except Android are currently under construction and not able to compile *
 
 ## Screenshots
 
@@ -63,9 +64,6 @@ Very welcome.
 - Build and run js web client = jsWebDebug, jsWebRelease
 - Run unit test on android target = androidTest
 - Build and copy ios framework to 'ios' folder = :shared:copyFramework
-
-## Build Jetpack Compose
-Get the latest Android Studio canary build in order to build the Android apk https://developer.android.com/studio/preview
 
 ## Acknowledgments ♥
 https://kotlinlang.org, https://github.com/russhwolf/multiplatform-settings, https://ktor.io, https://soywiz.com, @cssinate for design suggestions and everyone else I missed to mention.

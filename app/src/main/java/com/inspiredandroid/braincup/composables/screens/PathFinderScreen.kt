@@ -1,6 +1,5 @@
-package com.inspiredandroid.braincup.composables
+package com.inspiredandroid.braincup.composables.screens
 
-import android.os.Handler
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -9,7 +8,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.inspiredandroid.braincup.DelayedTask
+import com.inspiredandroid.braincup.composables.BaseApp
+import com.inspiredandroid.braincup.composables.ShapeCanvas
+import com.inspiredandroid.braincup.composables.ShapeCanvasButton
 import com.inspiredandroid.braincup.games.PathFinderGame
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -19,8 +20,7 @@ import com.inspiredandroid.braincup.games.tools.getFigure
 @Composable
 fun PathFinderScreen(
     game: PathFinderGame,
-    answer: (String) -> Unit,
-    next: () -> Unit
+    answer: (String) -> Unit
 ) {
     BaseApp {
         game.directions.chunked(game.gridSize + 2).forEach { directions ->
@@ -29,9 +29,11 @@ fun PathFinderScreen(
                     ShapeCanvas(
                         size = 32.dp,
                         figure = it.getFigure(),
-                        modifier = Modifier.align(Alignment.CenterVertically).padding(
-                            4.dp
-                        )
+                        modifier = Modifier
+                            .align(Alignment.CenterVertically)
+                            .padding(
+                                4.dp
+                            )
                     )
                 }
             }
@@ -51,14 +53,11 @@ fun PathFinderScreen(
                     ShapeCanvasButton(
                         size = 48.dp,
                         figure = figure,
-                        modifier = Modifier.align(Alignment.CenterVertically)
+                        modifier = Modifier
+                            .align(Alignment.CenterVertically)
                             .padding(8.dp),
                         onClick = {
-                            Handler().post {
-
-                                answer("${index + 1}")
-                            }
-                            DelayedTask().execute(next)
+                            answer("${index + 1}")
                         })
                 }
             }

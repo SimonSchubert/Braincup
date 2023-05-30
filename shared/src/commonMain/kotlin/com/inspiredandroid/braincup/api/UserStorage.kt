@@ -4,7 +4,10 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getScoreTable
 import com.inspiredandroid.braincup.settings
-import com.soywiz.klock.DateTime
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 
 class UserStorage {
 
@@ -42,7 +45,7 @@ class UserStorage {
         listOf(Achievements.APP_OPEN_3, Achievements.APP_OPEN_7, Achievements.APP_OPEN_30)
 
     fun getUnlockedAchievements(): MutableList<Achievements> {
-        return settings?.getString(KEY_UNLOCKED_ACHIEVEMENTS)?.split(",")?.filter { it.isNotEmpty() }?.map {
+        return settings?.getStringOrNull(KEY_UNLOCKED_ACHIEVEMENTS)?.split(",")?.filter { it.isNotEmpty() }?.map {
             Achievements.valueOf(
                 it
             )
@@ -56,13 +59,12 @@ class UserStorage {
     }
 
     fun getAppOpenCount(): Int {
-        return settings?.getInt(KEY_APP_OPEN_COMBO, -1) ?: -1
+        return settings?.getIntOrNull(KEY_APP_OPEN_COMBO) ?: -1
     }
 
     fun putAppOpen() {
-        val appOpenDay = settings?.getInt(KEY_APP_OPEN_DAY, -1) ?: -1
-        val dateTime = DateTime.now()
-        val todayDay = (dateTime.unixMillis / 86400000L).toInt()
+        val appOpenDay = settings?.getIntOrNull(KEY_APP_OPEN_DAY) ?: -1
+        val todayDay = (Clock.System.now().toEpochMilliseconds() / 86400000L).toInt()
         if (appOpenDay < todayDay) {
             val appOpenCombo = if (appOpenDay == todayDay - 1) {
                 settings?.getInt(KEY_APP_OPEN_COMBO, 0) ?: 0
@@ -105,7 +107,7 @@ class UserStorage {
     }
 
     fun getHighScore(gameId: String): Int {
-        return settings?.getInt(getHighscoreKey(gameId)) ?: 0
+        return settings?.getInt(getHighscoreKey(gameId), 0) ?: 0
     }
 
     fun putScore(gameId: String, score: Int): Boolean {
@@ -113,10 +115,10 @@ class UserStorage {
         if (newHighscore) {
             settings?.putInt(getHighscoreKey(gameId), score)
         }
-        val scoresRaw = settings?.getString(getScoresKey(gameId))
+        val scoresRaw = settings?.getString(getScoresKey(gameId), "")
         settings?.putString(
             getScoresKey(gameId),
-            "${DateTime.now().unixMillis}/$score,$scoresRaw"
+            "${Clock.System.now().toEpochMilliseconds()}/$score,$scoresRaw"
         )
         val updatedTotalScore = getTotalScore() + score
         settings?.putInt(KEY_TOTAL_SCORE, updatedTotalScore)
@@ -137,7 +139,7 @@ class UserStorage {
     }
 
     fun getTotalScore(): Int {
-        return settings?.getInt(KEY_TOTAL_SCORE) ?: 0
+        return settings?.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
     }
 
     private fun hasTotalScore(achievement: Achievements, totalScore: Int): Boolean {
@@ -180,11 +182,12 @@ class UserStorage {
 
     fun getScores(gameId: String): List<Pair<String, List<Int>>> {
         // val scoresRaw = "1570791440000/80,1570791440000/7,1570791440000/12,1560791440000/8,1560791440000/10,1560791440000/1"
-        val scoresRaw = settings?.getString(getScoresKey(gameId)) ?: return listOf()
+        val scoresRaw = settings?.getStringOrNull(getScoresKey(gameId)) ?: return listOf()
         return scoresRaw.split(",").filterNot { it.isEmpty() }.groupBy {
             val parts = it.split("/")
-            val timeInMillis = parts[0].toDoubleOrNull() ?: 0.0
-            DateTime(timeInMillis).format("dd MMMM yyyy")
+            val timeInMillis = parts[0].toLongOrNull() ?: 0L
+            val date = Instant.fromEpochMilliseconds(timeInMillis).toLocalDateTime(TimeZone.UTC)
+            "${date.dayOfMonth} ${date.month} ${date.year}"
         }.map {
             Pair(it.key, it.value.map { it.split("/")[1].toIntOrNull() ?: 0 })
         }
