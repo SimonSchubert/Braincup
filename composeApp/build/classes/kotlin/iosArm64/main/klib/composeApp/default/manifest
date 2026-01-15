@@ -1,0 +1,9 @@
+abi_version=1.201.0
+builtins_platform=NATIVE
+compiler_version=2.1.0
+depends=stdlib org.jetbrains.kotlinx\:atomicfu-cinterop-interop org.jetbrains.kotlinx\:atomicfu org.jetbrains.kotlinx\:kotlinx-coroutines-core androidx.annotation\:annotation androidx.collection\:collection org.jetbrains.compose.runtime\:runtime org.jetbrains.kotlin.native.platform.UIKit org.jetbrains.compose.ui\:ui-uikit-cinterop-utils org.jetbrains.compose.ui\:ui-uikit org.jetbrains.compose.ui\:ui-util org.jetbrains.compose.ui\:ui-geometry org.jetbrains.compose.ui\:ui-unit org.jetbrains.skiko\:skiko-cinterop-uikit org.jetbrains.skiko\:skiko org.jetbrains.compose.ui\:ui-graphics org.jetbrains.compose.runtime\:runtime-saveable org.jetbrains.compose.ui\:ui-text androidx.lifecycle\:lifecycle-common androidx.lifecycle\:lifecycle-runtime org.jetbrains.androidx.lifecycle\:lifecycle-runtime-compose androidx.lifecycle\:lifecycle-viewmodel org.jetbrains.compose.ui\:ui org.jetbrains.compose.animation\:animation-core org.jetbrains.compose.foundation\:foundation-layout org.jetbrains.compose.animation\:animation org.jetbrains.compose.foundation\:foundation components.resources\:library components.ui-tooling-preview\:library org.jetbrains.androidx.core\:core-bundle org.jetbrains.androidx.savedstate\:savedstate org.jetbrains.androidx.lifecycle\:lifecycle-viewmodel-savedstate org.jetbrains.androidx.lifecycle\:lifecycle-viewmodel-compose org.jetbrains.compose.material\:material-ripple org.jetbrains.compose.material\:material-icons-core org.jetbrains.kotlinx\:kotlinx-serialization-core org.jetbrains.kotlinx\:kotlinx-datetime org.jetbrains.compose.material3\:material3 org.jetbrains.kotlinx\:kotlinx-serialization-json com.russhwolf\:multiplatform-settings com.russhwolf\:multiplatform-settings-no-arg
+ir_signature_versions=1,2
+metadata_version=1.4.1
+native_targets=ios_arm64
+short_name=composeApp
+unique_name=Braincup\:composeApp

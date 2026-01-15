@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg fill="#ebebeb" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path
-        style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;isolation:auto;mix-blend-mode:normal"
-        d="M 9 3 C 7.895 3 7 3.895 7 5 L 7 19 C 7 20.105 7.895 21 9 21 L 19 21 C 20.105 21 21 20.105 21 19 L 21 5 C 21 3.895 20.105 3 19 3 L 9 3 z M 3 4 L 3 20 L 5 20 L 5 4 L 3 4 z M 14 6 C 16.504 6 18 8.034 18 10 C 18 11.816 16.858391 12.840891 16.025391 13.587891 C 15.370391 14.176891 15 14.532 15 15 L 13 15 C 13 13.617 13.936453 12.775609 14.689453 12.099609 C 15.501453 11.370609 16 10.879 16 10 C 16 9.227 15.457 8 14 8 C 12.602 8 12 9.518 12 10 L 10 10 C 10 8.564 11.337 6 14 6 z M 13 16 L 15 16 L 15 18 L 13 18 L 13 16 z"
-        fill="#ebebeb" font-family="sans-serif" font-weight="400" overflow="visible"
-        white-space="normal" />
-</svg>

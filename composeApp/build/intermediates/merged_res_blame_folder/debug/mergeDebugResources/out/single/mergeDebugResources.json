@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-xxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-xxxhdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-mdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-debug-44:/mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "/Users/simon/.gradle/daemon/8.11.1/com.inspiredandroid.braincup.composeApp-androidMain-46:/mipmap-xhdpi/ic_launcher_round.png"
+    }
+]
