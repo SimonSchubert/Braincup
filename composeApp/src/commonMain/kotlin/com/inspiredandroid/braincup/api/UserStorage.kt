@@ -4,8 +4,8 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getScoreTable
 import com.russhwolf.settings.Settings
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
+import kotlin.time.Clock
+import kotlin.time.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
@@ -162,7 +162,7 @@ class UserStorage(private val settings: Settings = Settings()) {
             val parts = it.split("/")
             val timeInMillis = parts[0].toLongOrNull() ?: 0L
             val date = Instant.fromEpochMilliseconds(timeInMillis).toLocalDateTime(TimeZone.UTC)
-            "${date.dayOfMonth} ${date.month} ${date.year}"
+            "${date.day} ${date.month.name} ${date.year}"
         }.map {
             Pair(it.key, it.value.map { score -> score.split("/")[1].toIntOrNull() ?: 0 })
         }

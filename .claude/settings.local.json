@@ -6,7 +6,9 @@
       "Bash(./gradlew :composeApp:compileKotlinDesktop:*)",
       "Bash(./gradlew :composeApp:compileKotlinAndroid:*)",
       "Bash(./gradlew :composeApp:compileDebugKotlinAndroid:*)",
-      "Bash(./gradlew:*)"
+      "Bash(./gradlew:*)",
+      "WebSearch",
+      "Bash(git ls-tree:*)"
     ]
   }
 }

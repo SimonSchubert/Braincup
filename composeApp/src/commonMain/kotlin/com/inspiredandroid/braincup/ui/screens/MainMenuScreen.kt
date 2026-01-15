@@ -1,17 +1,23 @@
 package com.inspiredandroid.braincup.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getName
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun MainMenuScreen(
@@ -24,6 +30,7 @@ fun MainMenuScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .verticalScroll(rememberScrollState())
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -90,6 +97,13 @@ private fun GameRow(
             onClick = onPlay,
             modifier = Modifier.weight(1f)
         ) {
+            Image(
+                painter = painterResource(gameType.getIcon()),
+                contentDescription = null,
+                modifier = Modifier.size(24.dp),
+                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+            )
+            Spacer(Modifier.width(8.dp))
             Text(gameType.getName())
         }
 
@@ -102,6 +116,19 @@ private fun GameRow(
             }
         }
     }
+}
+
+private fun GameType.getIcon() = when (this) {
+    GameType.MENTAL_CALCULATION -> Res.drawable.ic_mental_calculation
+    GameType.CHAIN_CALCULATION -> Res.drawable.ic_chain_calculation
+    GameType.COLOR_CONFUSION -> Res.drawable.ic_color_confusion
+    GameType.SHERLOCK_CALCULATION -> Res.drawable.ic_sherlock_calculation
+    GameType.FRACTION_CALCULATION -> Res.drawable.ic_fraction_calculation
+    GameType.ANOMALY_PUZZLE -> Res.drawable.ic_anomaly_puzzle
+    GameType.PATH_FINDER -> Res.drawable.ic_path_finder
+    GameType.VALUE_COMPARISON -> Res.drawable.ic_value_comparison
+    GameType.GRID_SOLVER -> Res.drawable.ic_grid_solver
+    GameType.RIDDLE -> Res.drawable.ic_mental_calculation // fallback
 }
 
 @Composable
