@@ -20,26 +20,28 @@ fun AppScaffold(
 ) {
     Scaffold(
         topBar = {
-            if (title != null) {
-                TopAppBar(
-                    title = { Text(title) },
-                    navigationIcon = {
-                        if (onBack != null) {
-                            IconButton(onClick = onBack) {
-                                Icon(
-                                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                    contentDescription = "Back"
-                                )
-                            }
+            TopAppBar(
+                title = {
+                    if (title != null) {
+                        Text(title)
+                    }
+                },
+                navigationIcon = {
+                    if (onBack != null) {
+                        IconButton(onClick = onBack) {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = "Back"
+                            )
                         }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.primary,
-                        titleContentColor = MaterialTheme.colorScheme.onPrimary,
-                        navigationIconContentColor = MaterialTheme.colorScheme.onPrimary
-                    )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    titleContentColor = MaterialTheme.colorScheme.primary,
+                    navigationIconContentColor = MaterialTheme.colorScheme.primary
                 )
-            }
+            )
         }
     ) { paddingValues ->
         val modifier = if (scrollable) {
@@ -71,23 +73,23 @@ fun GameScaffold(
 ) {
     Scaffold(
         topBar = {
-            if (onBack != null) {
-                TopAppBar(
-                    title = { },
-                    navigationIcon = {
+            TopAppBar(
+                title = { },
+                navigationIcon = {
+                    if (onBack != null) {
                         IconButton(onClick = onBack) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back",
-                                tint = MaterialTheme.colorScheme.primary
+                                contentDescription = "Back"
                             )
                         }
-                    },
-                    colors = TopAppBarDefaults.topAppBarColors(
-                        containerColor = MaterialTheme.colorScheme.surface
-                    )
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    navigationIconContentColor = MaterialTheme.colorScheme.primary
                 )
-            }
+            )
         }
     ) { paddingValues ->
         Column(

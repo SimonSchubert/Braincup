@@ -16,7 +16,7 @@ fun TextButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
+        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp)
     ) {
         Text(text)
     }
@@ -31,7 +31,7 @@ fun PrimaryButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
+        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
         enabled = enabled
     ) {
         Text(text)
@@ -47,7 +47,7 @@ fun SecondaryButton(
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
+        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
             contentColor = Color.White
@@ -67,6 +67,7 @@ fun OptionButton(
         onClick = onClick,
         modifier = modifier
             .fillMaxWidth()
+            .defaultMinSize(minHeight = 56.dp)
             .padding(horizontal = 24.dp, vertical = 4.dp)
     ) {
         Text(text)

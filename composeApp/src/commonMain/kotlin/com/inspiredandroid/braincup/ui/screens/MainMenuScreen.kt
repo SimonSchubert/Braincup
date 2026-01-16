@@ -30,22 +30,24 @@ fun MainMenuScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
+            .windowInsetsPadding(WindowInsets.statusBars)
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Text(
-            text = "Braincup",
-            style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier.padding(vertical = 16.dp)
-        )
+            Text(
+                text = "Braincup",
+                style = MaterialTheme.typography.headlineLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.padding(vertical = 16.dp)
+            )
 
-        Text(
-            text = "Train your math skills, memory and focus.",
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(bottom = 24.dp)
-        )
+            Text(
+                text = "Train your math skills, memory and focus.",
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(bottom = 24.dp)
+            )
 
         GameController.games.forEach { gameType ->
             GameRow(
@@ -75,7 +77,9 @@ fun MainMenuScreen(
 
         Button(
             onClick = { controller.navigateToAchievements() },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(56.dp)
         ) {
             Text("Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.entries.size})")
         }
@@ -95,22 +99,32 @@ private fun GameRow(
     ) {
         Button(
             onClick = onPlay,
-            modifier = Modifier.weight(1f)
+            modifier = Modifier
+                .weight(1f)
+                .height(56.dp),
+            contentPadding = PaddingValues(horizontal = 16.dp)
         ) {
-            Image(
-                painter = painterResource(gameType.getIcon()),
-                contentDescription = null,
-                modifier = Modifier.size(24.dp),
-                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
-            )
-            Spacer(Modifier.width(8.dp))
-            Text(gameType.getName())
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Start,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Image(
+                    painter = painterResource(gameType.getIcon()),
+                    contentDescription = null,
+                    modifier = Modifier.size(28.dp),
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+                )
+                Spacer(Modifier.width(12.dp))
+                Text(gameType.getName())
+            }
         }
 
         if (highscore > 0) {
             Spacer(Modifier.width(8.dp))
             OutlinedButton(
-                onClick = onViewScore
+                onClick = onViewScore,
+                modifier = Modifier.height(56.dp)
             ) {
                 Text("$highscore")
             }
