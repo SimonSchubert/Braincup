@@ -109,6 +109,25 @@ class GameController(
         }
     }
 
+    fun giveUp() {
+        val currentState = _currentScreen.value
+        if (currentState !is Screen.Playing) return
+
+        val game = currentState.game
+        game.answeredAllCorrect = false
+        _currentScreen.value = Screen.AnswerFeedback(
+            gameType = currentState.gameType,
+            game = game,
+            isCorrect = false,
+            message = game.solution()
+        )
+
+        scope.launch {
+            delay(1_000)
+            proceedAfterFeedback()
+        }
+    }
+
     private fun proceedAfterFeedback() {
         val currentState = _currentScreen.value
         if (currentState !is Screen.AnswerFeedback) return

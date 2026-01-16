@@ -35,6 +35,7 @@ fun App() {
                         game = screen.game,
                         timeRemaining = timeRemaining,
                         onAnswer = { controller.submitAnswer(it) },
+                        onGiveUp = { controller.giveUp() },
                         onBack = { controller.navigateToMainMenu() }
                     )
                 }

@@ -1,8 +1,11 @@
 package com.inspiredandroid.braincup.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -23,11 +26,20 @@ import com.inspiredandroid.braincup.ui.components.ShapeCanvas
 import com.inspiredandroid.braincup.ui.components.ShapeCanvasButton
 import com.inspiredandroid.braincup.ui.components.toComposeColor
 
+/**
+ * Represents a token in the Sherlock Calculation expression builder.
+ */
+sealed class ExpressionToken(val displayValue: String) {
+    data class NumberToken(val value: Int, val originalIndex: Int) : ExpressionToken(value.toString())
+    data class OperatorToken(val operator: String) : ExpressionToken(operator)
+}
+
 @Composable
 fun GameScreen(
     game: Game,
     timeRemaining: Long,
     onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
     onBack: () -> Unit
 ) {
     GameScaffold(onBack = onBack) {
@@ -49,7 +61,7 @@ fun GameScreen(
             is MentalCalculationGame -> MentalCalculationContent(game, onAnswer)
             is ChainCalculationGame -> ChainCalculationContent(game, onAnswer)
             is ColorConfusionGame -> ColorConfusionContent(game, onAnswer)
-            is SherlockCalculationGame -> SherlockCalculationContent(game, onAnswer)
+            is SherlockCalculationGame -> SherlockCalculationContent(game, onAnswer, onGiveUp)
             is FractionCalculationGame -> FractionCalculationContent(game, onAnswer)
             is AnomalyPuzzleGame -> AnomalyPuzzleContent(game, onAnswer)
             is PathFinderGame -> PathFinderContent(game, onAnswer)
@@ -142,25 +154,82 @@ private fun ColumnScope.ColorConfusionContent(
 @Composable
 private fun ColumnScope.SherlockCalculationContent(
     game: SherlockCalculationGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit
 ) {
-    Text(
-        text = "Goal: ${game.result}",
-        style = MaterialTheme.typography.headlineMedium,
-        modifier = Modifier.align(Alignment.CenterHorizontally)
-    )
-    Spacer(Modifier.height(8.dp))
-    Text(
-        text = "Numbers: ${game.numbers.joinToString(", ")}",
-        style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.align(Alignment.CenterHorizontally)
-    )
-    Spacer(Modifier.height(16.dp))
-    NumberPad(showOperators = true, onInputChange = { input ->
-        if (game.isCorrect(input)) {
-            onAnswer(input)
+    // Use key to reset state when game.result changes (new round)
+    key(game.result) {
+        var usedNumberIndices by remember { mutableStateOf(emptySet<Int>()) }
+        var expressionTokens by remember { mutableStateOf(emptyList<ExpressionToken>()) }
+
+        fun checkAnswer() {
+            val expr = expressionTokens.joinToString("") { it.displayValue }
+            if (game.isCorrect(expr)) {
+                onAnswer(expr)
+            }
         }
-    })
+
+        // Goal display
+        Text(
+            text = "Goal: ${game.result}",
+            style = MaterialTheme.typography.headlineMedium,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
+        Spacer(Modifier.height(16.dp))
+
+        // Expression row
+        ExpressionRow(
+            tokens = expressionTokens,
+            onTokenClick = { tokenIndex ->
+                val token = expressionTokens[tokenIndex]
+                expressionTokens = expressionTokens.toMutableList().apply { removeAt(tokenIndex) }
+                if (token is ExpressionToken.NumberToken) {
+                    usedNumberIndices = usedNumberIndices - token.originalIndex
+                }
+            },
+            onBackspace = {
+                if (expressionTokens.isNotEmpty()) {
+                    val lastToken = expressionTokens.last()
+                    expressionTokens = expressionTokens.dropLast(1)
+                    if (lastToken is ExpressionToken.NumberToken) {
+                        usedNumberIndices = usedNumberIndices - lastToken.originalIndex
+                    }
+                }
+            },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
+        Spacer(Modifier.height(16.dp))
+
+        // Available numbers
+        AvailableNumbersRow(
+            numbers = game.numbers,
+            usedIndices = usedNumberIndices,
+            onNumberClick = { value, index ->
+                expressionTokens = expressionTokens + ExpressionToken.NumberToken(value, index)
+                usedNumberIndices = usedNumberIndices + index
+                checkAnswer()
+            },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
+        Spacer(Modifier.height(12.dp))
+
+        // Operators
+        OperatorRow(
+            onOperatorClick = { operator ->
+                expressionTokens = expressionTokens + ExpressionToken.OperatorToken(operator)
+            },
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        )
+        Spacer(Modifier.height(16.dp))
+
+        // Give up button
+        TextButton(
+            onClick = onGiveUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally)
+        ) {
+            Text("Give Up")
+        }
+    }
 }
 
 @Composable
@@ -430,4 +499,119 @@ private fun ColumnScope.GridSolverContent(
             }
         }
     })
+}
+
+// --- Sherlock Calculation Helper Composables ---
+
+@Composable
+private fun ExpressionRow(
+    tokens: List<ExpressionToken>,
+    onTokenClick: (Int) -> Unit,
+    onBackspace: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.Center,
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        if (tokens.isEmpty()) {
+            Text(
+                text = "Tap numbers to build expression",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+        } else {
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                tokens.forEachIndexed { index, token ->
+                    when (token) {
+                        is ExpressionToken.NumberToken -> {
+                            FilterChip(
+                                selected = true,
+                                onClick = { onTokenClick(index) },
+                                label = { Text(token.displayValue) }
+                            )
+                        }
+                        is ExpressionToken.OperatorToken -> {
+                            AssistChip(
+                                onClick = { onTokenClick(index) },
+                                label = { Text(token.displayValue) },
+                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                            )
+                        }
+                    }
+                }
+            }
+        }
+        Spacer(Modifier.width(8.dp))
+        IconButton(
+            onClick = onBackspace,
+            enabled = tokens.isNotEmpty()
+        ) {
+            Icon(
+                imageVector = Icons.AutoMirrored.Filled.Backspace,
+                contentDescription = "Backspace"
+            )
+        }
+    }
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun AvailableNumbersRow(
+    numbers: List<Int>,
+    usedIndices: Set<Int>,
+    onNumberClick: (value: Int, index: Int) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    FlowRow(
+        modifier = modifier.padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+        verticalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        numbers.forEachIndexed { index, value ->
+            val isUsed = index in usedIndices
+            FilledTonalButton(
+                onClick = { onNumberClick(value, index) },
+                enabled = !isUsed,
+                modifier = Modifier.size(56.dp),
+                contentPadding = PaddingValues(0.dp)
+            ) {
+                Text(
+                    text = value.toString(),
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun OperatorRow(
+    onOperatorClick: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    val operators = listOf("+", "-", "*", "/", "(", ")")
+    Row(
+        modifier = modifier.padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        operators.forEach { operator ->
+            OutlinedButton(
+                onClick = { onOperatorClick(operator) },
+                modifier = Modifier.size(48.dp),
+                contentPadding = PaddingValues(0.dp)
+            ) {
+                Text(
+                    text = operator,
+                    style = MaterialTheme.typography.titleMedium
+                )
+            }
+        }
+    }
 }
