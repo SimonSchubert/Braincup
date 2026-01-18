@@ -8,6 +8,17 @@ Train your math skills, memory and focus.
 [![Play Store](https://raw.githubusercontent.com/SimonSchubert/Kai/main/screenshots/play_store_badge.png)](https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup)
 [![Web](https://raw.githubusercontent.com/SimonSchubert/Kai/main/screenshots/web_badge.png)](https://simonschubert.github.io/Braincup)
 
+## Downloads
+
+| Platform | Format | Download |
+|----------|--------|----------|
+| Android | APK | [Latest Release](https://github.com/SimonSchubert/Braincup/releases/latest) |
+| macOS | DMG | [Latest Release](https://github.com/SimonSchubert/Braincup/releases/latest) |
+| Windows | MSI | [Latest Release](https://github.com/SimonSchubert/Braincup/releases/latest) |
+| Linux | DEB | [Latest Release](https://github.com/SimonSchubert/Braincup/releases/latest) |
+| Linux | RPM | [Latest Release](https://github.com/SimonSchubert/Braincup/releases/latest) |
+| Linux | AppImage | [Latest Release](https://github.com/SimonSchubert/Braincup/releases/latest) |
+
 ## Screenshots
 
 ### Mobile (Android, iOS)
