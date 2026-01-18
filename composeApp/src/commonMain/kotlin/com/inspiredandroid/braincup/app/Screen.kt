@@ -1,38 +1,27 @@
 package com.inspiredandroid.braincup.app
 
-import com.inspiredandroid.braincup.games.Game
-import com.inspiredandroid.braincup.games.GameType
+import kotlinx.serialization.Serializable
 
-sealed class Screen {
-    data object MainMenu : Screen()
+// Navigation routes (serializable)
+@Serializable
+object MainMenu
 
-    data class Instructions(
-        val gameType: GameType,
-    ) : Screen()
+@Serializable
+data class Instructions(val gameTypeId: String)
 
-    data class Playing(
-        val gameType: GameType,
-        val game: Game,
-        val stateVersion: Long = 0,
-    ) : Screen()
+@Serializable
+data class Playing(val gameTypeId: String)
 
-    data class AnswerFeedback(
-        val gameType: GameType,
-        val game: Game,
-        val isCorrect: Boolean,
-        val message: String?,
-    ) : Screen()
+@Serializable
+data class Finish(
+    val gameTypeId: String,
+    val score: Int,
+    val isNewHighscore: Boolean,
+    val answeredAllCorrect: Boolean,
+)
 
-    data class Finish(
-        val gameType: GameType,
-        val score: Int,
-        val isNewHighscore: Boolean,
-        val answeredAllCorrect: Boolean,
-    ) : Screen()
+@Serializable
+data class Scoreboard(val gameTypeId: String)
 
-    data class Scoreboard(
-        val gameType: GameType,
-    ) : Screen()
-
-    data object Achievements : Screen()
-}
+@Serializable
+object Achievements

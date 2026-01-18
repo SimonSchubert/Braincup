@@ -71,6 +71,7 @@ kotlin {
             implementation(libs.kotlinx.datetime)
             implementation(libs.multiplatform.settings)
             implementation(libs.multiplatform.settings.no.arg)
+            implementation(libs.navigation.compose)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)

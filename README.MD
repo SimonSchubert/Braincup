@@ -4,7 +4,9 @@
 
 # Braincup
 Train your math skills, memory and focus.
-* Important: all targets except Android are currently under construction and not able to compile *
+
+[![Play Store](https://raw.githubusercontent.com/SimonSchubert/Kai/main/screenshots/play_store_badge.png)](https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup)
+[![Web](https://raw.githubusercontent.com/SimonSchubert/Kai/main/screenshots/web_badge.png)](https://simonschubert.github.io/Braincup)
 
 ## Screenshots
 
@@ -24,43 +26,14 @@ Train your math skills, memory and focus.
 #### Homebrew
 `brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup`
 
-### Web
-https://braincup.app
-
-### Android
-[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/play_store.png" width="200">](https://play.google.com/store/apps/details?id=com.inspiredandroid.braincup)
-
-### iOS
-[<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/app_store.png" width="200">](https://apps.apple.com/us/app/braincup/id1483376887#?platform=iphone)
-
 ## Goal
 Build an open source math, memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
 
-## Doing
-- Android client
-- iOS client
-- macOS terminal client
-- Linux terminal client
-- JS web client
-- Gamification
-
-## Todo
-- Linux gui client
-- Windows terminal client
-- Windows gui client
-- macOS gui client
-- High score server
-- High score screen redesign(see design folder in root)
+## Sponsors
+This project is open-source and maintained by a single developer. If you find this app useful, please consider sponsoring to help take it to the next level with more features and faster updates.
 
 ## Contribution
 Very welcome.
-
-## Gradle build tasks
-- Build and install Android app = :app:installDebug
-- Build and run mac terminal client = runDebugExecutableCli
-- Build and run js web client = jsWebDebug, jsWebRelease
-- Run unit test on android target = androidTest
-- Build and copy ios framework to 'ios' folder = :shared:copyFramework
 
 ## Acknowledgments ♥
 https://kotlinlang.org, https://github.com/russhwolf/multiplatform-settings, https://ktor.io, https://soywiz.com, @cssinate for design suggestions and everyone else I missed to mention.

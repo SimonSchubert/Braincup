@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.app
 
+import androidx.navigation.NavController
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import kotlinx.coroutines.CoroutineScope
@@ -13,12 +14,13 @@ import kotlinx.coroutines.launch
 import kotlin.time.Clock
 
 class GameController(
+    private val navController: NavController,
     val storage: UserStorage = UserStorage(),
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
-    private val _currentScreen = MutableStateFlow<Screen>(Screen.MainMenu)
-    val currentScreen: StateFlow<Screen> = _currentScreen.asStateFlow()
+    private val _gameState = MutableStateFlow<GameState>(GameState.Idle)
+    val gameState: StateFlow<GameState> = _gameState.asStateFlow()
 
     private val _timeRemaining = MutableStateFlow(GAME_TIME_MILLIS)
     val timeRemaining: StateFlow<Long> = _timeRemaining.asStateFlow()
@@ -42,6 +44,8 @@ class GameController(
             GameType.VALUE_COMPARISON,
             GameType.GRID_SOLVER,
         )
+
+        fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }
     }
 
     init {
@@ -49,25 +53,28 @@ class GameController(
     }
 
     fun navigateToMainMenu() {
-        _currentScreen.value = Screen.MainMenu
+        _gameState.value = GameState.Idle
+        navController.navigate(MainMenu) {
+            popUpTo(MainMenu) { inclusive = true }
+        }
     }
 
     fun navigateToInstructions(gameType: GameType) {
-        _currentScreen.value = Screen.Instructions(gameType)
+        navController.navigate(Instructions(gameType.id))
     }
 
     fun navigateToScoreboard(gameType: GameType) {
-        _currentScreen.value = Screen.Scoreboard(gameType)
+        navController.navigate(Scoreboard(gameType.id))
     }
 
     fun navigateToAchievements() {
-        _currentScreen.value = Screen.Achievements
+        navController.navigate(Achievements)
     }
 
     fun startGame(gameType: GameType) {
         // Visual Memory has special handling (no timer, round-based)
         if (gameType == GameType.VISUAL_MEMORY) {
-            startVisualMemoryGame()
+            startVisualMemoryGame(gameType)
             return
         }
 
@@ -80,13 +87,14 @@ class GameController(
         game.nextRound()
         game.round++
 
-        _currentScreen.value = Screen.Playing(gameType, game)
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
         startTimer()
     }
 
     fun submitAnswer(answer: String) {
-        val currentState = _currentScreen.value
-        if (currentState !is Screen.Playing) return
+        val currentState = _gameState.value
+        if (currentState !is GameState.Active) return
 
         val game = currentState.game
         val input = answer.trim()
@@ -94,7 +102,7 @@ class GameController(
 
         if (isCorrect) {
             points++
-            _currentScreen.value = Screen.AnswerFeedback(
+            _gameState.value = GameState.Feedback(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = true,
@@ -102,7 +110,7 @@ class GameController(
             )
         } else {
             game.answeredAllCorrect = false
-            _currentScreen.value = Screen.AnswerFeedback(
+            _gameState.value = GameState.Feedback(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = false,
@@ -117,12 +125,12 @@ class GameController(
     }
 
     fun giveUp() {
-        val currentState = _currentScreen.value
-        if (currentState !is Screen.Playing) return
+        val currentState = _gameState.value
+        if (currentState !is GameState.Active) return
 
         val game = currentState.game
         game.answeredAllCorrect = false
-        _currentScreen.value = Screen.AnswerFeedback(
+        _gameState.value = GameState.Feedback(
             gameType = currentState.gameType,
             game = game,
             isCorrect = false,
@@ -136,8 +144,8 @@ class GameController(
     }
 
     private fun proceedAfterFeedback() {
-        val currentState = _currentScreen.value
-        if (currentState !is Screen.AnswerFeedback) return
+        val currentState = _gameState.value
+        if (currentState !is GameState.Feedback) return
 
         val game = currentState.game
         val currentTime = Clock.System.now().toEpochMilliseconds()
@@ -148,7 +156,7 @@ class GameController(
         } else {
             game.nextRound()
             game.round++
-            _currentScreen.value = Screen.Playing(currentState.gameType, game)
+            _gameState.value = GameState.Active(currentState.gameType, game)
         }
     }
 
@@ -159,12 +167,17 @@ class GameController(
 
         val newHighscore = storage.putScore(gameType.id, points)
 
-        _currentScreen.value = Screen.Finish(
-            gameType = gameType,
-            score = points,
-            isNewHighscore = newHighscore,
-            answeredAllCorrect = game.answeredAllCorrect,
-        )
+        _gameState.value = GameState.Idle
+        navController.navigate(
+            Finish(
+                gameTypeId = gameType.id,
+                score = points,
+                isNewHighscore = newHighscore,
+                answeredAllCorrect = game.answeredAllCorrect,
+            ),
+        ) {
+            popUpTo(MainMenu)
+        }
     }
 
     fun playRandomGame() {
@@ -203,7 +216,7 @@ class GameController(
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
     }
 
-    fun startVisualMemoryGame() {
+    private fun startVisualMemoryGame(gameType: GameType) {
         startTime = Clock.System.now().toEpochMilliseconds()
         plays++
         points = 0
@@ -212,13 +225,14 @@ class GameController(
         game.nextRound()
         game.round++
 
-        _currentScreen.value = Screen.Playing(GameType.VISUAL_MEMORY, game)
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
         // No timer for visual memory - game is round-based, not time-based
     }
 
     fun submitVisualMemoryAnswer(answer: String) {
-        val currentState = _currentScreen.value
-        if (currentState !is Screen.Playing) return
+        val currentState = _gameState.value
+        if (currentState !is GameState.Active) return
 
         val game = currentState.game as? VisualMemoryGame ?: return
         val isCorrect = game.isCorrect(answer)
@@ -238,7 +252,7 @@ class GameController(
                     // Proceed to next round
                     game.nextRound()
                     game.round++
-                    _currentScreen.value = Screen.Playing(
+                    _gameState.value = GameState.Active(
                         gameType = GameType.VISUAL_MEMORY,
                         game = game,
                         stateVersion = game.round.toLong(),
@@ -246,7 +260,7 @@ class GameController(
                 }
             } else {
                 // More shapes to identify in this round - trigger UI update
-                _currentScreen.value = Screen.Playing(
+                _gameState.value = GameState.Active(
                     gameType = GameType.VISUAL_MEMORY,
                     game = game,
                     stateVersion = game.round * 100L + game.currentGuessIndex,
@@ -262,11 +276,16 @@ class GameController(
     private fun finishVisualMemoryGame(game: VisualMemoryGame) {
         val newHighscore = storage.putScore(GameType.VISUAL_MEMORY.id, points)
 
-        _currentScreen.value = Screen.Finish(
-            gameType = GameType.VISUAL_MEMORY,
-            score = points,
-            isNewHighscore = newHighscore,
-            answeredAllCorrect = game.answeredAllCorrect,
-        )
+        _gameState.value = GameState.Idle
+        navController.navigate(
+            Finish(
+                gameTypeId = GameType.VISUAL_MEMORY.id,
+                score = points,
+                isNewHighscore = newHighscore,
+                answeredAllCorrect = game.answeredAllCorrect,
+            ),
+        ) {
+            popUpTo(MainMenu)
+        }
     }
 }

@@ -7,76 +7,104 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import com.inspiredandroid.braincup.app.GameController
-import com.inspiredandroid.braincup.app.Screen
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 
 @Composable
 fun App() {
-    val controller = remember { GameController() }
-    val currentScreen by controller.currentScreen.collectAsState()
-    val timeRemaining by controller.timeRemaining.collectAsState()
+    val navController = rememberNavController()
+    val controller = remember(navController) { GameController(navController) }
 
     BraincupTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
-            when (val screen = currentScreen) {
-                is Screen.MainMenu -> {
+            NavHost(navController = navController, startDestination = MainMenu) {
+                composable<MainMenu> {
                     MainMenuScreen(controller = controller)
                 }
 
-                is Screen.Instructions -> {
-                    InstructionsScreen(
-                        gameType = screen.gameType,
-                        onStart = { controller.startGame(screen.gameType) },
-                        onBack = { controller.navigateToMainMenu() },
-                    )
+                composable<Instructions> { backStackEntry ->
+                    val route: Instructions = backStackEntry.toRoute()
+                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                    if (gameType != null) {
+                        InstructionsScreen(
+                            gameType = gameType,
+                            onStart = { controller.startGame(gameType) },
+                            onBack = { controller.navigateToMainMenu() },
+                        )
+                    }
                 }
 
-                is Screen.Playing -> {
-                    GameScreen(
-                        game = screen.game,
-                        timeRemaining = timeRemaining,
-                        onAnswer = {
-                            if (screen.gameType == com.inspiredandroid.braincup.games.GameType.VISUAL_MEMORY) {
-                                controller.submitVisualMemoryAnswer(it)
-                            } else {
-                                controller.submitAnswer(it)
-                            }
-                        },
-                        onGiveUp = { controller.giveUp() },
-                        onBack = { controller.navigateToMainMenu() },
-                    )
+                composable<Playing> { backStackEntry ->
+                    val route: Playing = backStackEntry.toRoute()
+                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                    val gameState by controller.gameState.collectAsState()
+                    val timeRemaining by controller.timeRemaining.collectAsState()
+
+                    when (val state = gameState) {
+                        is GameState.Active -> {
+                            GameScreen(
+                                game = state.game,
+                                timeRemaining = timeRemaining,
+                                onAnswer = {
+                                    if (gameType == GameType.VISUAL_MEMORY) {
+                                        controller.submitVisualMemoryAnswer(it)
+                                    } else {
+                                        controller.submitAnswer(it)
+                                    }
+                                },
+                                onGiveUp = { controller.giveUp() },
+                                onBack = { controller.navigateToMainMenu() },
+                            )
+                        }
+
+                        is GameState.Feedback -> {
+                            AnswerFeedbackScreen(
+                                isCorrect = state.isCorrect,
+                                message = state.message,
+                            )
+                        }
+
+                        is GameState.Idle -> {
+                            // Game not active, navigating away
+                        }
+                    }
                 }
 
-                is Screen.AnswerFeedback -> {
-                    AnswerFeedbackScreen(
-                        isCorrect = screen.isCorrect,
-                        message = screen.message,
-                    )
+                composable<Finish> { backStackEntry ->
+                    val route: Finish = backStackEntry.toRoute()
+                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                    if (gameType != null) {
+                        FinishScreen(
+                            gameType = gameType,
+                            score = route.score,
+                            isNewHighscore = route.isNewHighscore,
+                            answeredAllCorrect = route.answeredAllCorrect,
+                            onPlayRandom = { controller.playRandomGame() },
+                            onPlayAgain = { controller.playAgain(gameType) },
+                            onMenu = { controller.navigateToMainMenu() },
+                        )
+                    }
                 }
 
-                is Screen.Finish -> {
-                    FinishScreen(
-                        gameType = screen.gameType,
-                        score = screen.score,
-                        isNewHighscore = screen.isNewHighscore,
-                        answeredAllCorrect = screen.answeredAllCorrect,
-                        onPlayRandom = { controller.playRandomGame() },
-                        onPlayAgain = { controller.playAgain(screen.gameType) },
-                        onMenu = { controller.navigateToMainMenu() },
-                    )
+                composable<Scoreboard> { backStackEntry ->
+                    val route: Scoreboard = backStackEntry.toRoute()
+                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                    if (gameType != null) {
+                        ScoreboardScreen(
+                            gameType = gameType,
+                            storage = controller.storage,
+                            onBack = { controller.navigateToMainMenu() },
+                        )
+                    }
                 }
 
-                is Screen.Scoreboard -> {
-                    ScoreboardScreen(
-                        gameType = screen.gameType,
-                        storage = controller.storage,
-                        onBack = { controller.navigateToMainMenu() },
-                    )
-                }
-
-                is Screen.Achievements -> {
+                composable<Achievements> {
                     AchievementsScreen(
                         storage = controller.storage,
                         onBack = { controller.navigateToMainMenu() },
