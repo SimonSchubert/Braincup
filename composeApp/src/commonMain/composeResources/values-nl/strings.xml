@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Train je wiskundige vaardigheden, geheugen en concentratie.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Starten</string>
+    <string name="button_back">Terug</string>
+    <string name="button_play_again">Opnieuw spelen</string>
+    <string name="button_play_random">Willekeurig spel</string>
+    <string name="button_give_up">Opgeven</string>
+    <string name="button_backspace">Wissen</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Trainingsdagen</string>
+    <string name="stat_total_score">Totale score</string>
+    <string name="achievements_button">Prestaties (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Doel: %1$d</string>
+    <string name="game_follow_directions">Volg de aanwijzingen:</string>
+    <string name="game_highest_value">Welke heeft de hoogste waarde?</string>
+    <string name="game_fill_grid">Vul het raster zo in dat rijen en kolommen overeenkomen met de sommen</string>
+    <string name="game_tap_numbers">Tik op getallen om een uitdrukking te maken</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Score: %1$d</string>
+    <string name="finish_bonus_point">Je hebt 1 bonuspunt verdiend omdat je geen fouten hebt gemaakt!</string>
+    <string name="finish_new_highscore">Nieuwe highscore!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s Scorebord</string>
+    <string name="scoreboard_highscore">Highscore</string>
+    <string name="scoreboard_no_scores">Nog geen scores</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Prestaties</string>
+    <string name="achievements_unlocked">%1$d/%2$d Ontgrendeld</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Anomalie puzzel</string>
+    <string name="game_mental_calculation">Hoofdrekenen</string>
+    <string name="game_color_confusion">Kleurverwarring</string>
+    <string name="game_sherlock_calculation">Sherlock berekening</string>
+    <string name="game_chain_calculation">Kettingberekening</string>
+    <string name="game_fraction_calculation">Breukberekening</string>
+    <string name="game_value_comparison">Waardenvergelijking</string>
+    <string name="game_path_finder">Padvinder</string>
+    <string name="game_grid_solver">Raster oplosser</string>
+    <string name="game_visual_memory">Visueel geheugen</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
+    <string name="game_mental_calculation_desc">Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.</string>
+    <string name="game_color_confusion_desc">Tel de punten van de juiste uitspraken op.</string>
+    <string name="game_sherlock_calculation_desc">Vind hoe je het doel kunt bereiken met alleen de gegeven getallen en deze operatoren: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Volg de wiskundige uitdrukkingen.</string>
+    <string name="game_fraction_calculation_desc">Los de breuken op.</string>
+    <string name="game_value_comparison_desc">Selecteer de uitdrukking met de hoogste waarde.</string>
+    <string name="game_path_finder_desc">Begin op de gemarkeerde positie en volg de pijlen om de bestemming te vinden.</string>
+    <string name="game_grid_solver_desc">Vul de ontbrekende getallen in zodat elke rij en kolom optelt tot de gegeven totalen.</string>
+    <string name="game_visual_memory_desc">Onthoud de vormen op het raster en identificeer vervolgens de verborgen vorm nadat de timer is afgelopen.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Bronzen medaille</string>
+    <string name="achievement_silver_medal">Zilveren medaille</string>
+    <string name="achievement_gold_medal">Gouden medaille</string>
+    <string name="achievement_10_points">10 Punten</string>
+    <string name="achievement_100_points">100 Punten</string>
+    <string name="achievement_1000_points">1.000 Punten</string>
+    <string name="achievement_10000_points">10.000 Punten</string>
+    <string name="achievement_3_day_streak">3-daagse reeks</string>
+    <string name="achievement_7_day_streak">7-daagse reeks</string>
+    <string name="achievement_30_day_streak">30-daagse reeks</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Scoor minstens 1 punt in alle spellen</string>
+    <string name="achievement_silver_medal_desc">Bereik de zilveren score in alle spellen</string>
+    <string name="achievement_gold_medal_desc">Bereik de gouden score in alle spellen</string>
+    <string name="achievement_10_points_desc">Verzamel in totaal 10 punten</string>
+    <string name="achievement_100_points_desc">Verzamel in totaal 100 punten</string>
+    <string name="achievement_1000_points_desc">Verzamel in totaal 1.000 punten</string>
+    <string name="achievement_10000_points_desc">Verzamel in totaal 10.000 punten</string>
+    <string name="achievement_3_day_streak_desc">Train 3 dagen achter elkaar</string>
+    <string name="achievement_7_day_streak_desc">Train 7 dagen achter elkaar</string>
+    <string name="achievement_30_day_streak_desc">Train 30 dagen achter elkaar</string>
+</resources>

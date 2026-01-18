@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Trainiere deine Mathematik, dein Gedächtnis und deine Konzentration.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Starten</string>
+    <string name="button_back">Zurück</string>
+    <string name="button_play_again">Nochmal spielen</string>
+    <string name="button_play_random">Zufälliges Spiel</string>
+    <string name="button_give_up">Aufgeben</string>
+    <string name="button_backspace">Löschen</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Trainingstage</string>
+    <string name="stat_total_score">Gesamtpunktzahl</string>
+    <string name="achievements_button">Erfolge (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Ziel: %1$d</string>
+    <string name="game_follow_directions">Folge den Anweisungen:</string>
+    <string name="game_highest_value">Welches hat den höchsten Wert?</string>
+    <string name="game_fill_grid">Fülle das Gitter so aus, dass Zeilen und Spalten den Summen entsprechen</string>
+    <string name="game_tap_numbers">Tippe auf Zahlen, um einen Ausdruck zu erstellen</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Punktzahl: %1$d</string>
+    <string name="finish_bonus_point">Du hast 1 Extrapunkt für fehlerfreies Spielen erhalten!</string>
+    <string name="finish_new_highscore">Neuer Highscore!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s Bestenliste</string>
+    <string name="scoreboard_highscore">Highscore</string>
+    <string name="scoreboard_no_scores">Noch keine Punkte</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Erfolge</string>
+    <string name="achievements_unlocked">%1$d/%2$d Freigeschaltet</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Anomalie-Rätsel</string>
+    <string name="game_mental_calculation">Kopfrechnen</string>
+    <string name="game_color_confusion">Farbverwirrung</string>
+    <string name="game_sherlock_calculation">Sherlock-Rechnung</string>
+    <string name="game_chain_calculation">Kettenrechnung</string>
+    <string name="game_fraction_calculation">Bruchrechnung</string>
+    <string name="game_value_comparison">Wertevergleich</string>
+    <string name="game_path_finder">Pfadfinder</string>
+    <string name="game_grid_solver">Gitter-Löser</string>
+    <string name="game_visual_memory">Visuelles Gedächtnis</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
+    <string name="game_mental_calculation_desc">Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Grundlage für die nächste Berechnung.</string>
+    <string name="game_color_confusion_desc">Addiere die Punkte der richtigen Aussagen.</string>
+    <string name="game_sherlock_calculation_desc">Finde heraus, wie du das Ziel nur mit den gegebenen Zahlen und diesen Operatoren erreichst: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Folge den mathematischen Ausdrücken.</string>
+    <string name="game_fraction_calculation_desc">Löse die Brüche.</string>
+    <string name="game_value_comparison_desc">Wähle den Ausdruck mit dem höchsten Wert.</string>
+    <string name="game_path_finder_desc">Beginne an der markierten Position und folge den Pfeilen, um das Ziel zu finden.</string>
+    <string name="game_grid_solver_desc">Fülle die fehlenden Zahlen ein, sodass jede Zeile und Spalte die angegebenen Summen ergibt.</string>
+    <string name="game_visual_memory_desc">Merke dir die Formen im Gitter und identifiziere die versteckte Form nach Ablauf des Timers.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Bronzemedaille</string>
+    <string name="achievement_silver_medal">Silbermedaille</string>
+    <string name="achievement_gold_medal">Goldmedaille</string>
+    <string name="achievement_10_points">10 Punkte</string>
+    <string name="achievement_100_points">100 Punkte</string>
+    <string name="achievement_1000_points">1.000 Punkte</string>
+    <string name="achievement_10000_points">10.000 Punkte</string>
+    <string name="achievement_3_day_streak">3-Tage-Serie</string>
+    <string name="achievement_7_day_streak">7-Tage-Serie</string>
+    <string name="achievement_30_day_streak">30-Tage-Serie</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Erreiche mindestens 1 Punkt in allen Spielen</string>
+    <string name="achievement_silver_medal_desc">Erreiche die Silberpunktzahl in allen Spielen</string>
+    <string name="achievement_gold_medal_desc">Erreiche die Goldpunktzahl in allen Spielen</string>
+    <string name="achievement_10_points_desc">Sammle insgesamt 10 Punkte</string>
+    <string name="achievement_100_points_desc">Sammle insgesamt 100 Punkte</string>
+    <string name="achievement_1000_points_desc">Sammle insgesamt 1.000 Punkte</string>
+    <string name="achievement_10000_points_desc">Sammle insgesamt 10.000 Punkte</string>
+    <string name="achievement_3_day_streak_desc">Trainiere 3 Tage hintereinander</string>
+    <string name="achievement_7_day_streak_desc">Trainiere 7 Tage hintereinander</string>
+    <string name="achievement_30_day_streak_desc">Trainiere 30 Tage hintereinander</string>
+</resources>

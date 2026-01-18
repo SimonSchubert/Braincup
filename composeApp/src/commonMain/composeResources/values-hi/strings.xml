@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">अपनी गणित कौशल, स्मृति और एकाग्रता को प्रशिक्षित करें।</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">शुरू करें</string>
+    <string name="button_back">वापस</string>
+    <string name="button_play_again">फिर से खेलें</string>
+    <string name="button_play_random">रैंडम गेम खेलें</string>
+    <string name="button_give_up">हार मानें</string>
+    <string name="button_backspace">बैकस्पेस</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">प्रशिक्षण दिन</string>
+    <string name="stat_total_score">कुल स्कोर</string>
+    <string name="achievements_button">उपलब्धियां (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">लक्ष्य: %1$d</string>
+    <string name="game_follow_directions">निर्देशों का पालन करें:</string>
+    <string name="game_highest_value">किसका मूल्य सबसे अधिक है?</string>
+    <string name="game_fill_grid">ग्रिड को भरें ताकि पंक्तियां और स्तंभ योग से मेल खाएं</string>
+    <string name="game_tap_numbers">व्यंजक बनाने के लिए संख्याओं पर टैप करें</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">स्कोर: %1$d</string>
+    <string name="finish_bonus_point">आपने कोई गलती न करने के लिए 1 अतिरिक्त अंक अर्जित किया!</string>
+    <string name="finish_new_highscore">नया उच्च स्कोर!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s स्कोरबोर्ड</string>
+    <string name="scoreboard_highscore">उच्च स्कोर</string>
+    <string name="scoreboard_no_scores">अभी तक कोई स्कोर नहीं</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">उपलब्धियां</string>
+    <string name="achievements_unlocked">%1$d/%2$d अनलॉक</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">विसंगति पहेली</string>
+    <string name="game_mental_calculation">मानसिक गणना</string>
+    <string name="game_color_confusion">रंग भ्रम</string>
+    <string name="game_sherlock_calculation">शर्लक गणना</string>
+    <string name="game_chain_calculation">श्रृंखला गणना</string>
+    <string name="game_fraction_calculation">भिन्न गणना</string>
+    <string name="game_value_comparison">मूल्य तुलना</string>
+    <string name="game_path_finder">पथ खोजक</string>
+    <string name="game_grid_solver">ग्रिड सॉल्वर</string>
+    <string name="game_visual_memory">दृश्य स्मृति</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">उस आकृति को खोजें जो अलग दिखती है। प्रत्येक आकृति के रंग और आकार दोनों पर विचार करें।</string>
+    <string name="game_mental_calculation_desc">गणितीय व्यंजकों का पालन करें। परिणाम को अगली गणना के आधार के रूप में उपयोग करें।</string>
+    <string name="game_color_confusion_desc">सही कथनों के अंक जोड़ें।</string>
+    <string name="game_sherlock_calculation_desc">केवल दिए गए नंबरों और इन ऑपरेटरों का उपयोग करके लक्ष्य तक पहुंचने का तरीका खोजें: + - * / ( )।</string>
+    <string name="game_chain_calculation_desc">गणितीय व्यंजकों का पालन करें।</string>
+    <string name="game_fraction_calculation_desc">भिन्नों को हल करें।</string>
+    <string name="game_value_comparison_desc">सबसे अधिक मूल्य वाले व्यंजक का चयन करें।</string>
+    <string name="game_path_finder_desc">चिह्नित स्थान से शुरू करें और गंतव्य खोजने के लिए तीरों का पालन करें।</string>
+    <string name="game_grid_solver_desc">लुप्त संख्याएं भरें ताकि प्रत्येक पंक्ति और स्तंभ का योग दिए गए कुल के बराबर हो।</string>
+    <string name="game_visual_memory_desc">ग्रिड पर आकृतियों को याद करें, फिर टाइमर समाप्त होने के बाद छिपी हुई आकृति की पहचान करें।</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">कांस्य पदक</string>
+    <string name="achievement_silver_medal">रजत पदक</string>
+    <string name="achievement_gold_medal">स्वर्ण पदक</string>
+    <string name="achievement_10_points">10 अंक</string>
+    <string name="achievement_100_points">100 अंक</string>
+    <string name="achievement_1000_points">1,000 अंक</string>
+    <string name="achievement_10000_points">10,000 अंक</string>
+    <string name="achievement_3_day_streak">3-दिन की लगातार</string>
+    <string name="achievement_7_day_streak">7-दिन की लगातार</string>
+    <string name="achievement_30_day_streak">30-दिन की लगातार</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">सभी खेलों में कम से कम 1 अंक प्राप्त करें</string>
+    <string name="achievement_silver_medal_desc">सभी खेलों में रजत स्कोर प्राप्त करें</string>
+    <string name="achievement_gold_medal_desc">सभी खेलों में स्वर्ण स्कोर प्राप्त करें</string>
+    <string name="achievement_10_points_desc">कुल 10 अंक एकत्र करें</string>
+    <string name="achievement_100_points_desc">कुल 100 अंक एकत्र करें</string>
+    <string name="achievement_1000_points_desc">कुल 1,000 अंक एकत्र करें</string>
+    <string name="achievement_10000_points_desc">कुल 10,000 अंक एकत्र करें</string>
+    <string name="achievement_3_day_streak_desc">लगातार 3 दिन प्रशिक्षण करें</string>
+    <string name="achievement_7_day_streak_desc">लगातार 7 दिन प्रशिक्षण करें</string>
+    <string name="achievement_30_day_streak_desc">लगातार 30 दिन प्रशिक्षण करें</string>
+</resources>

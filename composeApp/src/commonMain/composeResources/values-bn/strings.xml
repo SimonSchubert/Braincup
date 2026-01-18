@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">আপনার গণিত দক্ষতা, স্মৃতি এবং মনোযোগ প্রশিক্ষণ করুন।</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">শুরু করুন</string>
+    <string name="button_back">ফিরে যান</string>
+    <string name="button_play_again">আবার খেলুন</string>
+    <string name="button_play_random">র‍্যান্ডম গেম খেলুন</string>
+    <string name="button_give_up">হাল ছাড়ুন</string>
+    <string name="button_backspace">ব্যাকস্পেস</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">প্রশিক্ষণের দিন</string>
+    <string name="stat_total_score">মোট স্কোর</string>
+    <string name="achievements_button">অর্জন (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">লক্ষ্য: %1$d</string>
+    <string name="game_follow_directions">নির্দেশাবলী অনুসরণ করুন:</string>
+    <string name="game_highest_value">কোনটির মান সবচেয়ে বেশি?</string>
+    <string name="game_fill_grid">গ্রিড পূরণ করুন যাতে সারি এবং কলামের যোগফল মেলে</string>
+    <string name="game_tap_numbers">একটি এক্সপ্রেশন তৈরি করতে সংখ্যাগুলিতে ট্যাপ করুন</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">স্কোর: %1$d</string>
+    <string name="finish_bonus_point">কোনো ভুল না করায় আপনি ১টি অতিরিক্ত পয়েন্ট অর্জন করেছেন!</string>
+    <string name="finish_new_highscore">নতুন সর্বোচ্চ স্কোর!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s স্কোরবোর্ড</string>
+    <string name="scoreboard_highscore">সর্বোচ্চ স্কোর</string>
+    <string name="scoreboard_no_scores">এখনও কোনো স্কোর নেই</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">অর্জনসমূহ</string>
+    <string name="achievements_unlocked">%1$d/%2$d আনলক</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">অসঙ্গতি ধাঁধা</string>
+    <string name="game_mental_calculation">মানসিক গণনা</string>
+    <string name="game_color_confusion">রঙ বিভ্রান্তি</string>
+    <string name="game_sherlock_calculation">শার্লক গণনা</string>
+    <string name="game_chain_calculation">চেইন গণনা</string>
+    <string name="game_fraction_calculation">ভগ্নাংশ গণনা</string>
+    <string name="game_value_comparison">মান তুলনা</string>
+    <string name="game_path_finder">পথ অনুসন্ধানকারী</string>
+    <string name="game_grid_solver">গ্রিড সমাধানকারী</string>
+    <string name="game_visual_memory">দৃশ্য স্মৃতি</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
+    <string name="game_mental_calculation_desc">গাণিতিক এক্সপ্রেশনগুলি অনুসরণ করুন। পরবর্তী গণনার ভিত্তি হিসাবে ফলাফল ব্যবহার করুন।</string>
+    <string name="game_color_confusion_desc">সঠিক বিবৃতির পয়েন্ট যোগ করুন।</string>
+    <string name="game_sherlock_calculation_desc">শুধুমাত্র প্রদত্ত সংখ্যা এবং এই অপারেটরগুলি ব্যবহার করে লক্ষ্যে পৌঁছানোর উপায় খুঁজুন: + - * / ( )।</string>
+    <string name="game_chain_calculation_desc">গাণিতিক এক্সপ্রেশনগুলি অনুসরণ করুন।</string>
+    <string name="game_fraction_calculation_desc">ভগ্নাংশগুলি সমাধান করুন।</string>
+    <string name="game_value_comparison_desc">সর্বোচ্চ মানের এক্সপ্রেশনটি নির্বাচন করুন।</string>
+    <string name="game_path_finder_desc">চিহ্নিত অবস্থান থেকে শুরু করুন এবং গন্তব্য খুঁজতে তীরগুলি অনুসরণ করুন।</string>
+    <string name="game_grid_solver_desc">অনুপস্থিত সংখ্যাগুলি পূরণ করুন যাতে প্রতিটি সারি এবং কলামের যোগফল প্রদত্ত মোটের সমান হয়।</string>
+    <string name="game_visual_memory_desc">গ্রিডে আকৃতিগুলি মুখস্থ করুন, তারপর টাইমার শেষ হওয়ার পরে লুকানো আকৃতিটি সনাক্ত করুন।</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">ব্রোঞ্জ পদক</string>
+    <string name="achievement_silver_medal">রৌপ্য পদক</string>
+    <string name="achievement_gold_medal">স্বর্ণ পদক</string>
+    <string name="achievement_10_points">১০ পয়েন্ট</string>
+    <string name="achievement_100_points">১০০ পয়েন্ট</string>
+    <string name="achievement_1000_points">১,০০০ পয়েন্ট</string>
+    <string name="achievement_10000_points">১০,০০০ পয়েন্ট</string>
+    <string name="achievement_3_day_streak">৩-দিনের ধারা</string>
+    <string name="achievement_7_day_streak">৭-দিনের ধারা</string>
+    <string name="achievement_30_day_streak">৩০-দিনের ধারা</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">সমস্ত গেমে কমপক্ষে ১ পয়েন্ট অর্জন করুন</string>
+    <string name="achievement_silver_medal_desc">সমস্ত গেমে রৌপ্য স্কোরে পৌঁছান</string>
+    <string name="achievement_gold_medal_desc">সমস্ত গেমে স্বর্ণ স্কোরে পৌঁছান</string>
+    <string name="achievement_10_points_desc">মোট ১০ পয়েন্ট সংগ্রহ করুন</string>
+    <string name="achievement_100_points_desc">মোট ১০০ পয়েন্ট সংগ্রহ করুন</string>
+    <string name="achievement_1000_points_desc">মোট ১,০০০ পয়েন্ট সংগ্রহ করুন</string>
+    <string name="achievement_10000_points_desc">মোট ১০,০০০ পয়েন্ট সংগ্রহ করুন</string>
+    <string name="achievement_3_day_streak_desc">পরপর ৩ দিন প্রশিক্ষণ নিন</string>
+    <string name="achievement_7_day_streak_desc">পরপর ৭ দিন প্রশিক্ষণ নিন</string>
+    <string name="achievement_30_day_streak_desc">পরপর ৩০ দিন প্রশিক্ষণ নিন</string>
+</resources>

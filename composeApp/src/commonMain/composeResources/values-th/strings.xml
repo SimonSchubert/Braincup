@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">ฝึกทักษะคณิตศาสตร์ ความจำ และสมาธิของคุณ</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">เริ่ม</string>
+    <string name="button_back">กลับ</string>
+    <string name="button_play_again">เล่นอีกครั้ง</string>
+    <string name="button_play_random">เล่นเกมสุ่ม</string>
+    <string name="button_give_up">ยอมแพ้</string>
+    <string name="button_backspace">ลบ</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">วันที่ฝึก</string>
+    <string name="stat_total_score">คะแนนรวม</string>
+    <string name="achievements_button">ความสำเร็จ (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">เป้าหมาย: %1$d</string>
+    <string name="game_follow_directions">ทำตามคำแนะนำ:</string>
+    <string name="game_highest_value">อันไหนมีค่าสูงสุด?</string>
+    <string name="game_fill_grid">เติมตารางให้แถวและคอลัมน์ตรงกับผลรวม</string>
+    <string name="game_tap_numbers">แตะตัวเลขเพื่อสร้างนิพจน์</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">คะแนน: %1$d</string>
+    <string name="finish_bonus_point">คุณได้รับ 1 คะแนนพิเศษจากการไม่ทำผิดพลาด!</string>
+    <string name="finish_new_highscore">คะแนนสูงสุดใหม่!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">กระดานคะแนน %1$s</string>
+    <string name="scoreboard_highscore">คะแนนสูงสุด</string>
+    <string name="scoreboard_no_scores">ยังไม่มีคะแนน</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">ความสำเร็จ</string>
+    <string name="achievements_unlocked">%1$d/%2$d ปลดล็อคแล้ว</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">ปริศนาความผิดปกติ</string>
+    <string name="game_mental_calculation">การคำนวณในใจ</string>
+    <string name="game_color_confusion">ความสับสนของสี</string>
+    <string name="game_sherlock_calculation">การคำนวณเชอร์ล็อค</string>
+    <string name="game_chain_calculation">การคำนวณแบบลูกโซ่</string>
+    <string name="game_fraction_calculation">การคำนวณเศษส่วน</string>
+    <string name="game_value_comparison">การเปรียบเทียบค่า</string>
+    <string name="game_path_finder">ค้นหาเส้นทาง</string>
+    <string name="game_grid_solver">แก้ปัญหาตาราง</string>
+    <string name="game_visual_memory">ความจำภาพ</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
+    <string name="game_mental_calculation_desc">ทำตามนิพจน์คณิตศาสตร์ ใช้ผลลัพธ์เป็นฐานสำหรับการคำนวณถัดไป</string>
+    <string name="game_color_confusion_desc">รวมคะแนนจากข้อความที่ถูกต้อง</string>
+    <string name="game_sherlock_calculation_desc">หาวิธีไปถึงเป้าหมายโดยใช้เฉพาะตัวเลขที่กำหนดและตัวดำเนินการเหล่านี้: + - * / ( )</string>
+    <string name="game_chain_calculation_desc">ทำตามนิพจน์คณิตศาสตร์</string>
+    <string name="game_fraction_calculation_desc">แก้เศษส่วน</string>
+    <string name="game_value_comparison_desc">เลือกนิพจน์ที่มีค่าสูงสุด</string>
+    <string name="game_path_finder_desc">เริ่มจากตำแหน่งที่ทำเครื่องหมายและตามลูกศรเพื่อหาจุดหมาย</string>
+    <string name="game_grid_solver_desc">เติมตัวเลขที่หายไปให้ผลรวมของแต่ละแถวและคอลัมน์เท่ากับยอดรวมที่กำหนด</string>
+    <string name="game_visual_memory_desc">จำรูปร่างบนตาราง แล้วระบุรูปร่างที่ซ่อนอยู่หลังจากหมดเวลา</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">เหรียญทองแดง</string>
+    <string name="achievement_silver_medal">เหรียญเงิน</string>
+    <string name="achievement_gold_medal">เหรียญทอง</string>
+    <string name="achievement_10_points">10 คะแนน</string>
+    <string name="achievement_100_points">100 คะแนน</string>
+    <string name="achievement_1000_points">1,000 คะแนน</string>
+    <string name="achievement_10000_points">10,000 คะแนน</string>
+    <string name="achievement_3_day_streak">ต่อเนื่อง 3 วัน</string>
+    <string name="achievement_7_day_streak">ต่อเนื่อง 7 วัน</string>
+    <string name="achievement_30_day_streak">ต่อเนื่อง 30 วัน</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">ได้อย่างน้อย 1 คะแนนในทุกเกม</string>
+    <string name="achievement_silver_medal_desc">ได้คะแนนระดับเงินในทุกเกม</string>
+    <string name="achievement_gold_medal_desc">ได้คะแนนระดับทองในทุกเกม</string>
+    <string name="achievement_10_points_desc">สะสมคะแนนรวม 10 คะแนน</string>
+    <string name="achievement_100_points_desc">สะสมคะแนนรวม 100 คะแนน</string>
+    <string name="achievement_1000_points_desc">สะสมคะแนนรวม 1,000 คะแนน</string>
+    <string name="achievement_10000_points_desc">สะสมคะแนนรวม 10,000 คะแนน</string>
+    <string name="achievement_3_day_streak_desc">ฝึกติดต่อกัน 3 วัน</string>
+    <string name="achievement_7_day_streak_desc">ฝึกติดต่อกัน 7 วัน</string>
+    <string name="achievement_30_day_streak_desc">ฝึกติดต่อกัน 30 วัน</string>
+</resources>

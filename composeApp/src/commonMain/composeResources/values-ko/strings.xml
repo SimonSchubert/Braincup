@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">수학 능력, 기억력, 집중력을 훈련하세요.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">시작</string>
+    <string name="button_back">뒤로</string>
+    <string name="button_play_again">다시 플레이</string>
+    <string name="button_play_random">랜덤 게임</string>
+    <string name="button_give_up">포기</string>
+    <string name="button_backspace">지우기</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">훈련 일수</string>
+    <string name="stat_total_score">총점</string>
+    <string name="achievements_button">업적 (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">목표: %1$d</string>
+    <string name="game_follow_directions">지시를 따르세요:</string>
+    <string name="game_highest_value">어떤 것이 가장 높은 값을 가지고 있나요?</string>
+    <string name="game_fill_grid">행과 열의 합이 맞도록 그리드를 채우세요</string>
+    <string name="game_tap_numbers">숫자를 탭하여 수식을 만드세요</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">점수: %1$d</string>
+    <string name="finish_bonus_point">실수 없이 플레이하여 1점의 보너스를 얻었습니다!</string>
+    <string name="finish_new_highscore">새로운 최고 점수!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s 스코어보드</string>
+    <string name="scoreboard_highscore">최고 점수</string>
+    <string name="scoreboard_no_scores">아직 점수가 없습니다</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">업적</string>
+    <string name="achievements_unlocked">%1$d/%2$d 달성</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">이상 퍼즐</string>
+    <string name="game_mental_calculation">암산</string>
+    <string name="game_color_confusion">색상 혼란</string>
+    <string name="game_sherlock_calculation">셜록 계산</string>
+    <string name="game_chain_calculation">연쇄 계산</string>
+    <string name="game_fraction_calculation">분수 계산</string>
+    <string name="game_value_comparison">값 비교</string>
+    <string name="game_path_finder">경로 찾기</string>
+    <string name="game_grid_solver">그리드 풀기</string>
+    <string name="game_visual_memory">시각 기억</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
+    <string name="game_mental_calculation_desc">수학 표현식을 따르세요. 결과를 다음 계산의 기초로 사용하세요.</string>
+    <string name="game_color_confusion_desc">올바른 문장의 점수를 합산하세요.</string>
+    <string name="game_sherlock_calculation_desc">주어진 숫자와 연산자만 사용하여 목표에 도달하는 방법을 찾으세요: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">수학 표현식을 따르세요.</string>
+    <string name="game_fraction_calculation_desc">분수를 풀어보세요.</string>
+    <string name="game_value_comparison_desc">가장 높은 값을 가진 표현식을 선택하세요.</string>
+    <string name="game_path_finder_desc">표시된 위치에서 시작하여 화살표를 따라 목적지를 찾으세요.</string>
+    <string name="game_grid_solver_desc">각 행과 열의 합이 주어진 합계와 일치하도록 빈 숫자를 채우세요.</string>
+    <string name="game_visual_memory_desc">그리드의 도형을 기억한 후 타이머가 끝나면 숨겨진 도형을 식별하세요.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">동메달</string>
+    <string name="achievement_silver_medal">은메달</string>
+    <string name="achievement_gold_medal">금메달</string>
+    <string name="achievement_10_points">10점</string>
+    <string name="achievement_100_points">100점</string>
+    <string name="achievement_1000_points">1,000점</string>
+    <string name="achievement_10000_points">10,000점</string>
+    <string name="achievement_3_day_streak">3일 연속</string>
+    <string name="achievement_7_day_streak">7일 연속</string>
+    <string name="achievement_30_day_streak">30일 연속</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">모든 게임에서 최소 1점 획득</string>
+    <string name="achievement_silver_medal_desc">모든 게임에서 실버 점수 달성</string>
+    <string name="achievement_gold_medal_desc">모든 게임에서 골드 점수 달성</string>
+    <string name="achievement_10_points_desc">총 10점 누적</string>
+    <string name="achievement_100_points_desc">총 100점 누적</string>
+    <string name="achievement_1000_points_desc">총 1,000점 누적</string>
+    <string name="achievement_10000_points_desc">총 10,000점 누적</string>
+    <string name="achievement_3_day_streak_desc">3일 연속 훈련</string>
+    <string name="achievement_7_day_streak_desc">7일 연속 훈련</string>
+    <string name="achievement_30_day_streak_desc">30일 연속 훈련</string>
+</resources>

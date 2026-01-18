@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">训练您的数学技能、记忆力和专注力。</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">开始</string>
+    <string name="button_back">返回</string>
+    <string name="button_play_again">再玩一次</string>
+    <string name="button_play_random">随机游戏</string>
+    <string name="button_give_up">放弃</string>
+    <string name="button_backspace">退格</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">训练天数</string>
+    <string name="stat_total_score">总分</string>
+    <string name="achievements_button">成就 (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">目标：%1$d</string>
+    <string name="game_follow_directions">按照指示操作：</string>
+    <string name="game_highest_value">哪个值最大？</string>
+    <string name="game_fill_grid">填充网格，使行和列的和匹配</string>
+    <string name="game_tap_numbers">点击数字来构建表达式</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">得分：%1$d</string>
+    <string name="finish_bonus_point">您因零失误获得了1个额外分数！</string>
+    <string name="finish_new_highscore">新最高分！</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s 排行榜</string>
+    <string name="scoreboard_highscore">最高分</string>
+    <string name="scoreboard_no_scores">暂无分数</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">成就</string>
+    <string name="achievements_unlocked">已解锁 %1$d/%2$d</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">异常谜题</string>
+    <string name="game_mental_calculation">心算</string>
+    <string name="game_color_confusion">颜色混淆</string>
+    <string name="game_sherlock_calculation">福尔摩斯计算</string>
+    <string name="game_chain_calculation">连锁计算</string>
+    <string name="game_fraction_calculation">分数计算</string>
+    <string name="game_value_comparison">数值比较</string>
+    <string name="game_path_finder">路径寻找</string>
+    <string name="game_grid_solver">网格求解</string>
+    <string name="game_visual_memory">视觉记忆</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
+    <string name="game_mental_calculation_desc">跟随数学表达式。将结果作为下一次计算的基础。</string>
+    <string name="game_color_confusion_desc">将正确陈述的分数相加。</string>
+    <string name="game_sherlock_calculation_desc">仅使用给定的数字和这些运算符：+ - * / ( ) 来找出如何达到目标。</string>
+    <string name="game_chain_calculation_desc">跟随数学表达式。</string>
+    <string name="game_fraction_calculation_desc">解决分数问题。</string>
+    <string name="game_value_comparison_desc">选择值最大的表达式。</string>
+    <string name="game_path_finder_desc">从标记位置开始，按照箭头找到目的地。</string>
+    <string name="game_grid_solver_desc">填入缺失的数字，使每行和每列的和等于给定的总数。</string>
+    <string name="game_visual_memory_desc">记住网格上的形状，然后在计时结束后识别隐藏的形状。</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">铜牌</string>
+    <string name="achievement_silver_medal">银牌</string>
+    <string name="achievement_gold_medal">金牌</string>
+    <string name="achievement_10_points">10分</string>
+    <string name="achievement_100_points">100分</string>
+    <string name="achievement_1000_points">1,000分</string>
+    <string name="achievement_10000_points">10,000分</string>
+    <string name="achievement_3_day_streak">连续3天</string>
+    <string name="achievement_7_day_streak">连续7天</string>
+    <string name="achievement_30_day_streak">连续30天</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">在所有游戏中至少获得1分</string>
+    <string name="achievement_silver_medal_desc">在所有游戏中达到银牌分数</string>
+    <string name="achievement_gold_medal_desc">在所有游戏中达到金牌分数</string>
+    <string name="achievement_10_points_desc">累计获得10分</string>
+    <string name="achievement_100_points_desc">累计获得100分</string>
+    <string name="achievement_1000_points_desc">累计获得1,000分</string>
+    <string name="achievement_10000_points_desc">累计获得10,000分</string>
+    <string name="achievement_3_day_streak_desc">连续训练3天</string>
+    <string name="achievement_7_day_streak_desc">连续训练7天</string>
+    <string name="achievement_30_day_streak_desc">连续训练30天</string>
+</resources>

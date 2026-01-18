@@ -41,31 +41,26 @@ fun MainMenuScreen(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Box(
-            modifier = Modifier.padding(top = 16.dp).padding(bottom = 8.dp),
-        ) {
-            Text(
-                text = stringResource(Res.string.app_name),
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.align(Alignment.TopCenter),
-            )
+        Text(
+            text = stringResource(Res.string.app_name),
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.offset(y = 16.dp),
+        )
 
-            Image(
-                painterResource(Res.drawable.ic_success),
-                contentDescription = null,
-                modifier = Modifier
-                    .height(190.dp)
-                    .align(Alignment.Center),
-            )
+        Image(
+            painterResource(Res.drawable.ic_success),
+            contentDescription = null,
+            modifier = Modifier
+                .height(190.dp),
+        )
 
-            Text(
-                text = stringResource(Res.string.app_tagline),
-                style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 16.dp),
-            )
-        }
+        Text(
+            text = stringResource(Res.string.app_tagline),
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.offset(y = -20.dp),
+        )
 
         val highscores = remember {
             GameController.games.associate { it.id to controller.storage.getHighScore(it.id) }

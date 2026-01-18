@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Treine suas habilidades matemáticas, memória e foco.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Iniciar</string>
+    <string name="button_back">Voltar</string>
+    <string name="button_play_again">Jogar novamente</string>
+    <string name="button_play_random">Jogo aleatório</string>
+    <string name="button_give_up">Desistir</string>
+    <string name="button_backspace">Apagar</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Dias de treino</string>
+    <string name="stat_total_score">Pontuação total</string>
+    <string name="achievements_button">Conquistas (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Meta: %1$d</string>
+    <string name="game_follow_directions">Siga as instruções:</string>
+    <string name="game_highest_value">Qual tem o maior valor?</string>
+    <string name="game_fill_grid">Preencha a grade para que as linhas e colunas correspondam às somas</string>
+    <string name="game_tap_numbers">Toque nos números para construir uma expressão</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Pontuação: %1$d</string>
+    <string name="finish_bonus_point">Você ganhou 1 ponto extra por não cometer erros!</string>
+    <string name="finish_new_highscore">Nova pontuação máxima!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">Placar de %1$s</string>
+    <string name="scoreboard_highscore">Pontuação máxima</string>
+    <string name="scoreboard_no_scores">Sem pontuações ainda</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Conquistas</string>
+    <string name="achievements_unlocked">%1$d/%2$d Desbloqueadas</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Quebra-cabeça de anomalia</string>
+    <string name="game_mental_calculation">Cálculo mental</string>
+    <string name="game_color_confusion">Confusão de cores</string>
+    <string name="game_sherlock_calculation">Cálculo Sherlock</string>
+    <string name="game_chain_calculation">Cálculo em cadeia</string>
+    <string name="game_fraction_calculation">Cálculo de frações</string>
+    <string name="game_value_comparison">Comparação de valores</string>
+    <string name="game_path_finder">Busca de caminhos</string>
+    <string name="game_grid_solver">Resolvedor de grade</string>
+    <string name="game_visual_memory">Memória visual</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
+    <string name="game_mental_calculation_desc">Siga as expressões matemáticas. Use o resultado como base para o próximo cálculo.</string>
+    <string name="game_color_confusion_desc">Some os pontos das afirmações corretas.</string>
+    <string name="game_sherlock_calculation_desc">Descubra como alcançar a meta usando apenas os números dados e estes operadores: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Siga as expressões matemáticas.</string>
+    <string name="game_fraction_calculation_desc">Resolva as frações.</string>
+    <string name="game_value_comparison_desc">Selecione a expressão com o maior valor.</string>
+    <string name="game_path_finder_desc">Comece na posição marcada e siga as setas para encontrar o destino.</string>
+    <string name="game_grid_solver_desc">Preencha os números que faltam para que cada linha e coluna some os totais dados.</string>
+    <string name="game_visual_memory_desc">Memorize as formas na grade e identifique a forma oculta após o término do cronômetro.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Medalha de bronze</string>
+    <string name="achievement_silver_medal">Medalha de prata</string>
+    <string name="achievement_gold_medal">Medalha de ouro</string>
+    <string name="achievement_10_points">10 Pontos</string>
+    <string name="achievement_100_points">100 Pontos</string>
+    <string name="achievement_1000_points">1.000 Pontos</string>
+    <string name="achievement_10000_points">10.000 Pontos</string>
+    <string name="achievement_3_day_streak">Sequência de 3 dias</string>
+    <string name="achievement_7_day_streak">Sequência de 7 dias</string>
+    <string name="achievement_30_day_streak">Sequência de 30 dias</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Marque pelo menos 1 ponto em todos os jogos</string>
+    <string name="achievement_silver_medal_desc">Alcance a pontuação de prata em todos os jogos</string>
+    <string name="achievement_gold_medal_desc">Alcance a pontuação de ouro em todos os jogos</string>
+    <string name="achievement_10_points_desc">Acumule 10 pontos no total</string>
+    <string name="achievement_100_points_desc">Acumule 100 pontos no total</string>
+    <string name="achievement_1000_points_desc">Acumule 1.000 pontos no total</string>
+    <string name="achievement_10000_points_desc">Acumule 10.000 pontos no total</string>
+    <string name="achievement_3_day_streak_desc">Treine por 3 dias seguidos</string>
+    <string name="achievement_7_day_streak_desc">Treine por 7 dias seguidos</string>
+    <string name="achievement_30_day_streak_desc">Treine por 30 dias seguidos</string>
+</resources>

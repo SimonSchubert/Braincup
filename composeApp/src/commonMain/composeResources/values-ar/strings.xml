@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">درّب مهاراتك الرياضية وذاكرتك وتركيزك.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">ابدأ</string>
+    <string name="button_back">رجوع</string>
+    <string name="button_play_again">العب مجدداً</string>
+    <string name="button_play_random">لعبة عشوائية</string>
+    <string name="button_give_up">استسلام</string>
+    <string name="button_backspace">مسح</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">أيام التدريب</string>
+    <string name="stat_total_score">النتيجة الإجمالية</string>
+    <string name="achievements_button">الإنجازات (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">الهدف: %1$d</string>
+    <string name="game_follow_directions">اتبع التعليمات:</string>
+    <string name="game_highest_value">أيهما له القيمة الأعلى؟</string>
+    <string name="game_fill_grid">املأ الشبكة بحيث تتطابق الصفوف والأعمدة مع المجاميع</string>
+    <string name="game_tap_numbers">اضغط على الأرقام لبناء تعبير</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">النتيجة: %1$d</string>
+    <string name="finish_bonus_point">حصلت على نقطة إضافية لعدم ارتكاب أي أخطاء!</string>
+    <string name="finish_new_highscore">رقم قياسي جديد!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">لوحة نتائج %1$s</string>
+    <string name="scoreboard_highscore">أعلى نتيجة</string>
+    <string name="scoreboard_no_scores">لا توجد نتائج بعد</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">الإنجازات</string>
+    <string name="achievements_unlocked">%1$d/%2$d مفتوحة</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">لغز الشذوذ</string>
+    <string name="game_mental_calculation">الحساب الذهني</string>
+    <string name="game_color_confusion">ارتباك الألوان</string>
+    <string name="game_sherlock_calculation">حساب شيرلوك</string>
+    <string name="game_chain_calculation">الحساب المتسلسل</string>
+    <string name="game_fraction_calculation">حساب الكسور</string>
+    <string name="game_value_comparison">مقارنة القيم</string>
+    <string name="game_path_finder">مكتشف المسار</string>
+    <string name="game_grid_solver">حل الشبكة</string>
+    <string name="game_visual_memory">الذاكرة البصرية</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
+    <string name="game_mental_calculation_desc">اتبع التعبيرات الرياضية. استخدم النتيجة كأساس للحساب التالي.</string>
+    <string name="game_color_confusion_desc">اجمع نقاط العبارات الصحيحة.</string>
+    <string name="game_sherlock_calculation_desc">اكتشف كيفية الوصول إلى الهدف باستخدام الأرقام المعطاة وهذه العمليات فقط: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">اتبع التعبيرات الرياضية.</string>
+    <string name="game_fraction_calculation_desc">حل الكسور.</string>
+    <string name="game_value_comparison_desc">اختر التعبير ذو القيمة الأعلى.</string>
+    <string name="game_path_finder_desc">ابدأ من الموقع المحدد واتبع الأسهم للوصول إلى الوجهة.</string>
+    <string name="game_grid_solver_desc">املأ الأرقام المفقودة بحيث يكون مجموع كل صف وعمود مساوياً للمجاميع المعطاة.</string>
+    <string name="game_visual_memory_desc">احفظ الأشكال على الشبكة، ثم حدد الشكل المخفي بعد انتهاء المؤقت.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">الميدالية البرونزية</string>
+    <string name="achievement_silver_medal">الميدالية الفضية</string>
+    <string name="achievement_gold_medal">الميدالية الذهبية</string>
+    <string name="achievement_10_points">10 نقاط</string>
+    <string name="achievement_100_points">100 نقطة</string>
+    <string name="achievement_1000_points">1,000 نقطة</string>
+    <string name="achievement_10000_points">10,000 نقطة</string>
+    <string name="achievement_3_day_streak">سلسلة 3 أيام</string>
+    <string name="achievement_7_day_streak">سلسلة 7 أيام</string>
+    <string name="achievement_30_day_streak">سلسلة 30 يوماً</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">احصل على نقطة واحدة على الأقل في جميع الألعاب</string>
+    <string name="achievement_silver_medal_desc">حقق النتيجة الفضية في جميع الألعاب</string>
+    <string name="achievement_gold_medal_desc">حقق النتيجة الذهبية في جميع الألعاب</string>
+    <string name="achievement_10_points_desc">اجمع 10 نقاط إجمالية</string>
+    <string name="achievement_100_points_desc">اجمع 100 نقطة إجمالية</string>
+    <string name="achievement_1000_points_desc">اجمع 1,000 نقطة إجمالية</string>
+    <string name="achievement_10000_points_desc">اجمع 10,000 نقطة إجمالية</string>
+    <string name="achievement_3_day_streak_desc">تدرب لمدة 3 أيام متتالية</string>
+    <string name="achievement_7_day_streak_desc">تدرب لمدة 7 أيام متتالية</string>
+    <string name="achievement_30_day_streak_desc">تدرب لمدة 30 يوماً متتالياً</string>
+</resources>

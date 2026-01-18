@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">数学スキル、記憶力、集中力を鍛えましょう。</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">スタート</string>
+    <string name="button_back">戻る</string>
+    <string name="button_play_again">もう一度プレイ</string>
+    <string name="button_play_random">ランダムゲーム</string>
+    <string name="button_give_up">ギブアップ</string>
+    <string name="button_backspace">バックスペース</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">トレーニング日数</string>
+    <string name="stat_total_score">合計スコア</string>
+    <string name="achievements_button">実績 (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">目標：%1$d</string>
+    <string name="game_follow_directions">指示に従ってください：</string>
+    <string name="game_highest_value">どれが最も高い値ですか？</string>
+    <string name="game_fill_grid">行と列の合計が一致するようにグリッドを埋めてください</string>
+    <string name="game_tap_numbers">数字をタップして式を作成</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">スコア：%1$d</string>
+    <string name="finish_bonus_point">ミスなしで1ポイントのボーナスを獲得しました！</string>
+    <string name="finish_new_highscore">新記録！</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s スコアボード</string>
+    <string name="scoreboard_highscore">ハイスコア</string>
+    <string name="scoreboard_no_scores">まだスコアがありません</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">実績</string>
+    <string name="achievements_unlocked">%1$d/%2$d 解除済み</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">異常パズル</string>
+    <string name="game_mental_calculation">暗算</string>
+    <string name="game_color_confusion">色の混乱</string>
+    <string name="game_sherlock_calculation">シャーロック計算</string>
+    <string name="game_chain_calculation">連鎖計算</string>
+    <string name="game_fraction_calculation">分数計算</string>
+    <string name="game_value_comparison">値の比較</string>
+    <string name="game_path_finder">パスファインダー</string>
+    <string name="game_grid_solver">グリッドソルバー</string>
+    <string name="game_visual_memory">視覚記憶</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
+    <string name="game_mental_calculation_desc">数式に従ってください。結果を次の計算の基礎として使用します。</string>
+    <string name="game_color_confusion_desc">正しい文のポイントを合計してください。</string>
+    <string name="game_sherlock_calculation_desc">与えられた数字とこれらの演算子のみを使って目標に到達する方法を見つけてください：+ - * / ( )。</string>
+    <string name="game_chain_calculation_desc">数式に従ってください。</string>
+    <string name="game_fraction_calculation_desc">分数を解いてください。</string>
+    <string name="game_value_comparison_desc">最も高い値を持つ式を選択してください。</string>
+    <string name="game_path_finder_desc">マークされた位置から始めて、矢印に従って目的地を見つけてください。</string>
+    <string name="game_grid_solver_desc">各行と列の合計が指定された値になるように、欠けている数字を埋めてください。</string>
+    <string name="game_visual_memory_desc">グリッド上の形を覚えて、タイマー終了後に隠された形を特定してください。</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">銅メダル</string>
+    <string name="achievement_silver_medal">銀メダル</string>
+    <string name="achievement_gold_medal">金メダル</string>
+    <string name="achievement_10_points">10ポイント</string>
+    <string name="achievement_100_points">100ポイント</string>
+    <string name="achievement_1000_points">1,000ポイント</string>
+    <string name="achievement_10000_points">10,000ポイント</string>
+    <string name="achievement_3_day_streak">3日連続</string>
+    <string name="achievement_7_day_streak">7日連続</string>
+    <string name="achievement_30_day_streak">30日連続</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">すべてのゲームで最低1ポイントを獲得する</string>
+    <string name="achievement_silver_medal_desc">すべてのゲームでシルバースコアに到達する</string>
+    <string name="achievement_gold_medal_desc">すべてのゲームでゴールドスコアに到達する</string>
+    <string name="achievement_10_points_desc">合計10ポイントを蓄積する</string>
+    <string name="achievement_100_points_desc">合計100ポイントを蓄積する</string>
+    <string name="achievement_1000_points_desc">合計1,000ポイントを蓄積する</string>
+    <string name="achievement_10000_points_desc">合計10,000ポイントを蓄積する</string>
+    <string name="achievement_3_day_streak_desc">3日連続でトレーニングする</string>
+    <string name="achievement_7_day_streak_desc">7日連続でトレーニングする</string>
+    <string name="achievement_30_day_streak_desc">30日連続でトレーニングする</string>
+</resources>

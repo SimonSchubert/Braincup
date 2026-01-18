@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Latih kemampuan matematika, memori, dan fokus Anda.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Mulai</string>
+    <string name="button_back">Kembali</string>
+    <string name="button_play_again">Main Lagi</string>
+    <string name="button_play_random">Permainan Acak</string>
+    <string name="button_give_up">Menyerah</string>
+    <string name="button_backspace">Hapus</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Hari latihan</string>
+    <string name="stat_total_score">Skor total</string>
+    <string name="achievements_button">Pencapaian (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Target: %1$d</string>
+    <string name="game_follow_directions">Ikuti petunjuk:</string>
+    <string name="game_highest_value">Mana yang nilainya paling tinggi?</string>
+    <string name="game_fill_grid">Isi kotak agar baris dan kolom sesuai dengan jumlahnya</string>
+    <string name="game_tap_numbers">Ketuk angka untuk membuat ekspresi</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Skor: %1$d</string>
+    <string name="finish_bonus_point">Anda mendapat 1 poin bonus karena tidak membuat kesalahan!</string>
+    <string name="finish_new_highscore">Skor Tertinggi Baru!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">Papan Skor %1$s</string>
+    <string name="scoreboard_highscore">Skor Tertinggi</string>
+    <string name="scoreboard_no_scores">Belum ada skor</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Pencapaian</string>
+    <string name="achievements_unlocked">%1$d/%2$d Terbuka</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Teka-teki Anomali</string>
+    <string name="game_mental_calculation">Hitung Mental</string>
+    <string name="game_color_confusion">Kebingungan Warna</string>
+    <string name="game_sherlock_calculation">Perhitungan Sherlock</string>
+    <string name="game_chain_calculation">Perhitungan Berantai</string>
+    <string name="game_fraction_calculation">Perhitungan Pecahan</string>
+    <string name="game_value_comparison">Perbandingan Nilai</string>
+    <string name="game_path_finder">Pencari Jalur</string>
+    <string name="game_grid_solver">Pemecah Kotak</string>
+    <string name="game_visual_memory">Memori Visual</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
+    <string name="game_mental_calculation_desc">Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.</string>
+    <string name="game_color_confusion_desc">Jumlahkan poin dari pernyataan yang benar.</string>
+    <string name="game_sherlock_calculation_desc">Temukan cara mencapai target hanya dengan angka yang diberikan dan operator ini: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Ikuti ekspresi matematika.</string>
+    <string name="game_fraction_calculation_desc">Selesaikan pecahan.</string>
+    <string name="game_value_comparison_desc">Pilih ekspresi dengan nilai tertinggi.</string>
+    <string name="game_path_finder_desc">Mulai dari posisi yang ditandai dan ikuti panah untuk menemukan tujuan.</string>
+    <string name="game_grid_solver_desc">Isi angka yang hilang agar jumlah setiap baris dan kolom sama dengan total yang diberikan.</string>
+    <string name="game_visual_memory_desc">Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah waktu habis.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Medali Perunggu</string>
+    <string name="achievement_silver_medal">Medali Perak</string>
+    <string name="achievement_gold_medal">Medali Emas</string>
+    <string name="achievement_10_points">10 Poin</string>
+    <string name="achievement_100_points">100 Poin</string>
+    <string name="achievement_1000_points">1.000 Poin</string>
+    <string name="achievement_10000_points">10.000 Poin</string>
+    <string name="achievement_3_day_streak">Streak 3 Hari</string>
+    <string name="achievement_7_day_streak">Streak 7 Hari</string>
+    <string name="achievement_30_day_streak">Streak 30 Hari</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Dapatkan minimal 1 poin di semua permainan</string>
+    <string name="achievement_silver_medal_desc">Capai skor perak di semua permainan</string>
+    <string name="achievement_gold_medal_desc">Capai skor emas di semua permainan</string>
+    <string name="achievement_10_points_desc">Kumpulkan total 10 poin</string>
+    <string name="achievement_100_points_desc">Kumpulkan total 100 poin</string>
+    <string name="achievement_1000_points_desc">Kumpulkan total 1.000 poin</string>
+    <string name="achievement_10000_points_desc">Kumpulkan total 10.000 poin</string>
+    <string name="achievement_3_day_streak_desc">Berlatih selama 3 hari berturut-turut</string>
+    <string name="achievement_7_day_streak_desc">Berlatih selama 7 hari berturut-turut</string>
+    <string name="achievement_30_day_streak_desc">Berlatih selama 30 hari berturut-turut</string>
+</resources>

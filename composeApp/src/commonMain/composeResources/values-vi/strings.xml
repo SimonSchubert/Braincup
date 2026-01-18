@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Rèn luyện kỹ năng toán học, trí nhớ và sự tập trung của bạn.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Bắt đầu</string>
+    <string name="button_back">Quay lại</string>
+    <string name="button_play_again">Chơi lại</string>
+    <string name="button_play_random">Trò chơi ngẫu nhiên</string>
+    <string name="button_give_up">Bỏ cuộc</string>
+    <string name="button_backspace">Xóa</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Ngày luyện tập</string>
+    <string name="stat_total_score">Tổng điểm</string>
+    <string name="achievements_button">Thành tích (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Mục tiêu: %1$d</string>
+    <string name="game_follow_directions">Làm theo hướng dẫn:</string>
+    <string name="game_highest_value">Cái nào có giá trị cao nhất?</string>
+    <string name="game_fill_grid">Điền vào lưới sao cho các hàng và cột khớp với tổng</string>
+    <string name="game_tap_numbers">Chạm vào các số để tạo biểu thức</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Điểm: %1$d</string>
+    <string name="finish_bonus_point">Bạn đã nhận được 1 điểm thưởng vì không mắc lỗi!</string>
+    <string name="finish_new_highscore">Điểm cao mới!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">Bảng điểm %1$s</string>
+    <string name="scoreboard_highscore">Điểm cao</string>
+    <string name="scoreboard_no_scores">Chưa có điểm</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Thành tích</string>
+    <string name="achievements_unlocked">%1$d/%2$d Đã mở khóa</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Câu đố bất thường</string>
+    <string name="game_mental_calculation">Tính nhẩm</string>
+    <string name="game_color_confusion">Nhầm lẫn màu sắc</string>
+    <string name="game_sherlock_calculation">Tính toán Sherlock</string>
+    <string name="game_chain_calculation">Tính toán chuỗi</string>
+    <string name="game_fraction_calculation">Tính toán phân số</string>
+    <string name="game_value_comparison">So sánh giá trị</string>
+    <string name="game_path_finder">Tìm đường</string>
+    <string name="game_grid_solver">Giải lưới</string>
+    <string name="game_visual_memory">Trí nhớ hình ảnh</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
+    <string name="game_mental_calculation_desc">Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.</string>
+    <string name="game_color_confusion_desc">Cộng điểm từ các phát biểu đúng.</string>
+    <string name="game_sherlock_calculation_desc">Tìm cách đạt mục tiêu chỉ bằng các số đã cho và các toán tử này: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Theo dõi các biểu thức toán học.</string>
+    <string name="game_fraction_calculation_desc">Giải các phân số.</string>
+    <string name="game_value_comparison_desc">Chọn biểu thức có giá trị cao nhất.</string>
+    <string name="game_path_finder_desc">Bắt đầu từ vị trí đánh dấu và đi theo các mũi tên để tìm đích đến.</string>
+    <string name="game_grid_solver_desc">Điền các số còn thiếu sao cho tổng của mỗi hàng và cột bằng tổng đã cho.</string>
+    <string name="game_visual_memory_desc">Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi hết giờ.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Huy chương đồng</string>
+    <string name="achievement_silver_medal">Huy chương bạc</string>
+    <string name="achievement_gold_medal">Huy chương vàng</string>
+    <string name="achievement_10_points">10 Điểm</string>
+    <string name="achievement_100_points">100 Điểm</string>
+    <string name="achievement_1000_points">1.000 Điểm</string>
+    <string name="achievement_10000_points">10.000 Điểm</string>
+    <string name="achievement_3_day_streak">Chuỗi 3 ngày</string>
+    <string name="achievement_7_day_streak">Chuỗi 7 ngày</string>
+    <string name="achievement_30_day_streak">Chuỗi 30 ngày</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Đạt ít nhất 1 điểm trong tất cả các trò chơi</string>
+    <string name="achievement_silver_medal_desc">Đạt điểm bạc trong tất cả các trò chơi</string>
+    <string name="achievement_gold_medal_desc">Đạt điểm vàng trong tất cả các trò chơi</string>
+    <string name="achievement_10_points_desc">Tích lũy 10 điểm tổng cộng</string>
+    <string name="achievement_100_points_desc">Tích lũy 100 điểm tổng cộng</string>
+    <string name="achievement_1000_points_desc">Tích lũy 1.000 điểm tổng cộng</string>
+    <string name="achievement_10000_points_desc">Tích lũy 10.000 điểm tổng cộng</string>
+    <string name="achievement_3_day_streak_desc">Luyện tập 3 ngày liên tiếp</string>
+    <string name="achievement_7_day_streak_desc">Luyện tập 7 ngày liên tiếp</string>
+    <string name="achievement_30_day_streak_desc">Luyện tập 30 ngày liên tiếp</string>
+</resources>

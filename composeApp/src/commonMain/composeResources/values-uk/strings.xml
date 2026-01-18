@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Тренуйте математичні навички, пам\'ять та концентрацію.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Почати</string>
+    <string name="button_back">Назад</string>
+    <string name="button_play_again">Грати знову</string>
+    <string name="button_play_random">Випадкова гра</string>
+    <string name="button_give_up">Здатися</string>
+    <string name="button_backspace">Видалити</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Днів тренувань</string>
+    <string name="stat_total_score">Загальний рахунок</string>
+    <string name="achievements_button">Досягнення (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Ціль: %1$d</string>
+    <string name="game_follow_directions">Дотримуйтесь інструкцій:</string>
+    <string name="game_highest_value">Що має найбільше значення?</string>
+    <string name="game_fill_grid">Заповніть сітку так, щоб суми рядків і стовпців збігалися</string>
+    <string name="game_tap_numbers">Натискайте на числа, щоб скласти вираз</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Рахунок: %1$d</string>
+    <string name="finish_bonus_point">Ви отримали 1 додаткове очко за гру без помилок!</string>
+    <string name="finish_new_highscore">Новий рекорд!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">Таблиця %1$s</string>
+    <string name="scoreboard_highscore">Рекорд</string>
+    <string name="scoreboard_no_scores">Поки що немає результатів</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Досягнення</string>
+    <string name="achievements_unlocked">%1$d/%2$d Розблоковано</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Головоломка з аномалією</string>
+    <string name="game_mental_calculation">Усний рахунок</string>
+    <string name="game_color_confusion">Плутанина кольорів</string>
+    <string name="game_sherlock_calculation">Розрахунок Шерлока</string>
+    <string name="game_chain_calculation">Ланцюговий розрахунок</string>
+    <string name="game_fraction_calculation">Розрахунок дробів</string>
+    <string name="game_value_comparison">Порівняння значень</string>
+    <string name="game_path_finder">Пошук шляху</string>
+    <string name="game_grid_solver">Розв\'язання сітки</string>
+    <string name="game_visual_memory">Візуальна пам\'ять</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
+    <string name="game_mental_calculation_desc">Слідуйте математичним виразам. Використовуйте результат як основу для наступного обчислення.</string>
+    <string name="game_color_confusion_desc">Додайте очки за правильні твердження.</string>
+    <string name="game_sherlock_calculation_desc">Знайдіть спосіб досягти цілі, використовуючи лише дані числа та оператори: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Слідуйте математичним виразам.</string>
+    <string name="game_fraction_calculation_desc">Розв\'яжіть дроби.</string>
+    <string name="game_value_comparison_desc">Виберіть вираз з найбільшим значенням.</string>
+    <string name="game_path_finder_desc">Почніть з позначеної позиції та слідуйте стрілкам, щоб знайти пункт призначення.</string>
+    <string name="game_grid_solver_desc">Заповніть відсутні числа так, щоб сума кожного рядка та стовпця дорівнювала заданим підсумкам.</string>
+    <string name="game_visual_memory_desc">Запам\'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Бронзова медаль</string>
+    <string name="achievement_silver_medal">Срібна медаль</string>
+    <string name="achievement_gold_medal">Золота медаль</string>
+    <string name="achievement_10_points">10 очок</string>
+    <string name="achievement_100_points">100 очок</string>
+    <string name="achievement_1000_points">1 000 очок</string>
+    <string name="achievement_10000_points">10 000 очок</string>
+    <string name="achievement_3_day_streak">Серія 3 дні</string>
+    <string name="achievement_7_day_streak">Серія 7 днів</string>
+    <string name="achievement_30_day_streak">Серія 30 днів</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Наберіть мінімум 1 очко в усіх іграх</string>
+    <string name="achievement_silver_medal_desc">Досягніть срібного результату в усіх іграх</string>
+    <string name="achievement_gold_medal_desc">Досягніть золотого результату в усіх іграх</string>
+    <string name="achievement_10_points_desc">Накопичте 10 очок</string>
+    <string name="achievement_100_points_desc">Накопичте 100 очок</string>
+    <string name="achievement_1000_points_desc">Накопичте 1 000 очок</string>
+    <string name="achievement_10000_points_desc">Накопичте 10 000 очок</string>
+    <string name="achievement_3_day_streak_desc">Тренуйтесь 3 дні поспіль</string>
+    <string name="achievement_7_day_streak_desc">Тренуйтесь 7 днів поспіль</string>
+    <string name="achievement_30_day_streak_desc">Тренуйтесь 30 днів поспіль</string>
+</resources>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Matematik becerilerinizi, hafızanızı ve odaklanmanızı geliştirin.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Başla</string>
+    <string name="button_back">Geri</string>
+    <string name="button_play_again">Tekrar Oyna</string>
+    <string name="button_play_random">Rastgele Oyun</string>
+    <string name="button_give_up">Vazgeç</string>
+    <string name="button_backspace">Sil</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Antrenman günleri</string>
+    <string name="stat_total_score">Toplam puan</string>
+    <string name="achievements_button">Başarılar (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Hedef: %1$d</string>
+    <string name="game_follow_directions">Yönergeleri takip edin:</string>
+    <string name="game_highest_value">Hangisinin değeri en yüksek?</string>
+    <string name="game_fill_grid">Satır ve sütunların toplamları eşleşecek şekilde ızgarayı doldurun</string>
+    <string name="game_tap_numbers">Bir ifade oluşturmak için sayılara dokunun</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Puan: %1$d</string>
+    <string name="finish_bonus_point">Hata yapmadığınız için 1 ekstra puan kazandınız!</string>
+    <string name="finish_new_highscore">Yeni Yüksek Skor!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s Skor Tablosu</string>
+    <string name="scoreboard_highscore">Yüksek Skor</string>
+    <string name="scoreboard_no_scores">Henüz skor yok</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Başarılar</string>
+    <string name="achievements_unlocked">%1$d/%2$d Açıldı</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Anomali Bulmacası</string>
+    <string name="game_mental_calculation">Zihinsel Hesaplama</string>
+    <string name="game_color_confusion">Renk Karmaşası</string>
+    <string name="game_sherlock_calculation">Sherlock Hesaplaması</string>
+    <string name="game_chain_calculation">Zincir Hesaplama</string>
+    <string name="game_fraction_calculation">Kesir Hesaplama</string>
+    <string name="game_value_comparison">Değer Karşılaştırma</string>
+    <string name="game_path_finder">Yol Bulucu</string>
+    <string name="game_grid_solver">Izgara Çözücü</string>
+    <string name="game_visual_memory">Görsel Hafıza</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
+    <string name="game_mental_calculation_desc">Matematiksel ifadeleri takip edin. Sonucu bir sonraki hesaplama için temel olarak kullanın.</string>
+    <string name="game_color_confusion_desc">Doğru ifadelerin puanlarını toplayın.</string>
+    <string name="game_sherlock_calculation_desc">Yalnızca verilen sayıları ve şu operatörleri kullanarak hedefe nasıl ulaşacağınızı bulun: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Matematiksel ifadeleri takip edin.</string>
+    <string name="game_fraction_calculation_desc">Kesirleri çözün.</string>
+    <string name="game_value_comparison_desc">En yüksek değere sahip ifadeyi seçin.</string>
+    <string name="game_path_finder_desc">İşaretli konumdan başlayın ve hedefi bulmak için okları takip edin.</string>
+    <string name="game_grid_solver_desc">Her satır ve sütunun toplamı verilen değerlere eşit olacak şekilde eksik sayıları doldurun.</string>
+    <string name="game_visual_memory_desc">Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Bronz Madalya</string>
+    <string name="achievement_silver_medal">Gümüş Madalya</string>
+    <string name="achievement_gold_medal">Altın Madalya</string>
+    <string name="achievement_10_points">10 Puan</string>
+    <string name="achievement_100_points">100 Puan</string>
+    <string name="achievement_1000_points">1.000 Puan</string>
+    <string name="achievement_10000_points">10.000 Puan</string>
+    <string name="achievement_3_day_streak">3 Günlük Seri</string>
+    <string name="achievement_7_day_streak">7 Günlük Seri</string>
+    <string name="achievement_30_day_streak">30 Günlük Seri</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Tüm oyunlarda en az 1 puan alın</string>
+    <string name="achievement_silver_medal_desc">Tüm oyunlarda gümüş skora ulaşın</string>
+    <string name="achievement_gold_medal_desc">Tüm oyunlarda altın skora ulaşın</string>
+    <string name="achievement_10_points_desc">Toplam 10 puan biriktirin</string>
+    <string name="achievement_100_points_desc">Toplam 100 puan biriktirin</string>
+    <string name="achievement_1000_points_desc">Toplam 1.000 puan biriktirin</string>
+    <string name="achievement_10000_points_desc">Toplam 10.000 puan biriktirin</string>
+    <string name="achievement_3_day_streak_desc">Üst üste 3 gün antrenman yapın</string>
+    <string name="achievement_7_day_streak_desc">Üst üste 7 gün antrenman yapın</string>
+    <string name="achievement_30_day_streak_desc">Üst üste 30 gün antrenman yapın</string>
+</resources>

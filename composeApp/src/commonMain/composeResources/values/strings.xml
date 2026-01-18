@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Train your math skills, memory, and focus.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Start</string>
+    <string name="button_back">Back</string>
+    <string name="button_play_again">Play Again</string>
+    <string name="button_play_random">Play Random Game</string>
+    <string name="button_give_up">Give Up</string>
+    <string name="button_backspace">Backspace</string>
+
+    <!-- Main menu -->
+    <string name="stat_training_days">Training days</string>
+    <string name="stat_total_score">Total score</string>
+    <string name="achievements_button">Achievements (%1$d/%2$d)</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Goal: %1$d</string>
+    <string name="game_follow_directions">Follow the directions:</string>
+    <string name="game_highest_value">Which has the highest value?</string>
+    <string name="game_fill_grid">Fill the grid so that rows and columns match the sums</string>
+    <string name="game_tap_numbers">Tap numbers to build an expression</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Score: %1$d</string>
+    <string name="finish_bonus_point">You earned 1 extra point for making no mistakes!</string>
+    <string name="finish_new_highscore">New High Score!</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s Scoreboard</string>
+    <string name="scoreboard_highscore">High Score</string>
+    <string name="scoreboard_no_scores">No scores yet</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Achievements</string>
+    <string name="achievements_unlocked">%1$d/%2$d Unlocked</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Anomaly Puzzle</string>
+    <string name="game_mental_calculation">Mental Calculation</string>
+    <string name="game_color_confusion">Color Confusion</string>
+    <string name="game_sherlock_calculation">Sherlock Calculation</string>
+    <string name="game_chain_calculation">Chain Calculation</string>
+    <string name="game_fraction_calculation">Fraction Calculation</string>
+    <string name="game_value_comparison">Value Comparison</string>
+    <string name="game_path_finder">Path Finder</string>
+    <string name="game_grid_solver">Grid Solver</string>
+    <string name="game_visual_memory">Visual Memory</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
+    <string name="game_mental_calculation_desc">Follow the mathematical expressions. Use the result as the base for the next calculation.</string>
+    <string name="game_color_confusion_desc">Add up the points from the correct statements.</string>
+    <string name="game_sherlock_calculation_desc">Find how to reach the goal using only the given numbers and these operators: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Follow the mathematical expressions.</string>
+    <string name="game_fraction_calculation_desc">Solve the fractions.</string>
+    <string name="game_value_comparison_desc">Select the expression with the highest value.</string>
+    <string name="game_path_finder_desc">Start at the marked position and follow the arrows to find the destination.</string>
+    <string name="game_grid_solver_desc">Fill in the missing numbers so that each row and column sums to the given totals.</string>
+    <string name="game_visual_memory_desc">Memorize the shapes on the grid, then identify the hidden shape after the timer ends.</string>
+
+    <!-- Achievement titles -->
+    <string name="achievement_bronze_medal">Bronze Medal</string>
+    <string name="achievement_silver_medal">Silver Medal</string>
+    <string name="achievement_gold_medal">Gold Medal</string>
+    <string name="achievement_10_points">10 Points</string>
+    <string name="achievement_100_points">100 Points</string>
+    <string name="achievement_1000_points">1,000 Points</string>
+    <string name="achievement_10000_points">10,000 Points</string>
+    <string name="achievement_3_day_streak">3-Day Streak</string>
+    <string name="achievement_7_day_streak">7-Day Streak</string>
+    <string name="achievement_30_day_streak">30-Day Streak</string>
+
+    <!-- Achievement descriptions -->
+    <string name="achievement_bronze_medal_desc">Score at least 1 point in all games</string>
+    <string name="achievement_silver_medal_desc">Reach the silver score in all games</string>
+    <string name="achievement_gold_medal_desc">Reach the gold score in all games</string>
+    <string name="achievement_10_points_desc">Accumulate 10 total points</string>
+    <string name="achievement_100_points_desc">Accumulate 100 total points</string>
+    <string name="achievement_1000_points_desc">Accumulate 1,000 total points</string>
+    <string name="achievement_10000_points_desc">Accumulate 10,000 total points</string>
+    <string name="achievement_3_day_streak_desc">Train for 3 days in a row</string>
+    <string name="achievement_7_day_streak_desc">Train for 7 days in a row</string>
+    <string name="achievement_30_day_streak_desc">Train for 30 days in a row</string>
+</resources>
