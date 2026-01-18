@@ -7,9 +7,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun FinishScreen(
@@ -22,12 +24,12 @@ fun FinishScreen(
     onMenu: () -> Unit,
 ) {
     AppScaffold(
-        title = gameType.displayName,
+        title = stringResource(gameType.displayNameRes),
         onBack = onMenu,
         scrollable = false,
     ) {
         Text(
-            text = "Score: $score",
+            text = stringResource(Res.string.finish_score, score),
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
@@ -36,7 +38,7 @@ fun FinishScreen(
 
         if (answeredAllCorrect) {
             Text(
-                text = "You got 1 extra point for making zero mistakes!",
+                text = stringResource(Res.string.finish_bonus_point),
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
                 color = MaterialTheme.colorScheme.primary,
@@ -55,7 +57,7 @@ fun FinishScreen(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             ) {
                 Text(
-                    text = "New Highscore!",
+                    text = stringResource(Res.string.finish_new_highscore),
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 )
@@ -69,7 +71,7 @@ fun FinishScreen(
             modifier = Modifier
                 .widthIn(max = 420.dp)
                 .padding(horizontal = 24.dp),
-            value = "Play Random Game",
+            value = stringResource(Res.string.button_play_random),
         )
 
         Spacer(Modifier.height(8.dp))
@@ -79,7 +81,7 @@ fun FinishScreen(
             modifier = Modifier
                 .widthIn(max = 420.dp)
                 .padding(horizontal = 24.dp),
-            value = "Play Again",
+            value = stringResource(Res.string.button_play_again),
         )
     }
 }

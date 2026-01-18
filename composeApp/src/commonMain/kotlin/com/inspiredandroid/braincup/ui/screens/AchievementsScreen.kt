@@ -8,11 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.ic_baseline_check_24
+import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun AchievementsScreen(
@@ -23,14 +23,14 @@ fun AchievementsScreen(
     val allAchievements = UserStorage.Achievements.entries.drop(3)
 
     AppScaffold(
-        title = "Achievements",
+        title = stringResource(Res.string.achievements_title),
         onBack = onBack,
         scrollable = false,
     ) {
         Spacer(Modifier.height(16.dp))
 
         Text(
-            text = "${unlockedAchievements.size}/${allAchievements.size} Unlocked",
+            text = stringResource(Res.string.achievements_unlocked, unlockedAchievements.size, allAchievements.size),
             style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.padding(horizontal = 16.dp),
         )
@@ -77,11 +77,11 @@ private fun AchievementCard(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = achievement.title,
+                    text = stringResource(achievement.titleRes),
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
-                    text = achievement.description,
+                    text = stringResource(achievement.descriptionRes),
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )

@@ -15,6 +15,14 @@ import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.button_backspace
+import braincup.composeapp.generated.resources.button_give_up
+import braincup.composeapp.generated.resources.game_fill_grid
+import braincup.composeapp.generated.resources.game_follow_directions
+import braincup.composeapp.generated.resources.game_goal
+import braincup.composeapp.generated.resources.game_highest_value
+import braincup.composeapp.generated.resources.game_tap_numbers
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -24,6 +32,7 @@ import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPad
 import com.inspiredandroid.braincup.ui.components.ShapeCanvas
 import com.inspiredandroid.braincup.ui.components.ShapeCanvasButton
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * Represents a token in the Sherlock Calculation expression builder.
@@ -164,7 +173,7 @@ private fun ColumnScope.SherlockCalculationContent(
 
         // Goal display
         Text(
-            text = "Goal: ${game.result}",
+            text = stringResource(Res.string.game_goal, game.result),
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
@@ -222,7 +231,7 @@ private fun ColumnScope.SherlockCalculationContent(
                 .align(Alignment.CenterHorizontally)
                 .pointerHoverIcon(PointerIcon.Hand),
         ) {
-            Text("Give Up")
+            Text(stringResource(Res.string.button_give_up))
         }
     }
 }
@@ -289,7 +298,7 @@ private fun ColumnScope.PathFinderContent(
     onAnswer: (String) -> Unit,
 ) {
     Text(
-        text = "Follow the directions:",
+        text = stringResource(Res.string.game_follow_directions),
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
@@ -342,7 +351,7 @@ private fun ColumnScope.ValueComparisonContent(
     onAnswer: (String) -> Unit,
 ) {
     Text(
-        text = "Which has the highest value?",
+        text = stringResource(Res.string.game_highest_value),
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
@@ -370,7 +379,7 @@ private fun ColumnScope.GridSolverContent(
     var currentIndex by remember { mutableStateOf(0) }
 
     Text(
-        text = "Fill the grid so rows and columns match the sums",
+        text = stringResource(Res.string.game_fill_grid),
         style = MaterialTheme.typography.bodyLarge,
         textAlign = TextAlign.Center,
         modifier = Modifier
@@ -493,7 +502,7 @@ private fun ExpressionRow(
     ) {
         if (tokens.isEmpty()) {
             Text(
-                text = "Tap numbers to build expression",
+                text = stringResource(Res.string.game_tap_numbers),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -532,7 +541,7 @@ private fun ExpressionRow(
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.Backspace,
-                contentDescription = "Backspace",
+                contentDescription = stringResource(Res.string.button_backspace),
             )
         }
     }

@@ -24,6 +24,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun MainMenuScreen(
@@ -44,7 +45,7 @@ fun MainMenuScreen(
             modifier = Modifier.padding(top = 16.dp).padding(bottom = 8.dp),
         ) {
             Text(
-                text = "Braincup",
+                text = stringResource(Res.string.app_name),
                 style = MaterialTheme.typography.headlineLarge,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.align(Alignment.TopCenter),
@@ -59,7 +60,7 @@ fun MainMenuScreen(
             )
 
             Text(
-                text = "Train your math skills, memory and focus.",
+                text = stringResource(Res.string.app_tagline),
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 16.dp),
@@ -87,10 +88,10 @@ fun MainMenuScreen(
             modifier = Modifier.fillMaxWidth(),
         ) {
             if (appOpenCount > 1) {
-                StatCard(title = "Training days", value = appOpenCount.toString())
+                StatCard(title = stringResource(Res.string.stat_training_days), value = appOpenCount.toString())
             }
             if (totalScore > 0) {
-                StatCard(title = "Total score", value = totalScore.toString())
+                StatCard(title = stringResource(Res.string.stat_total_score), value = totalScore.toString())
             }
         }
 
@@ -105,7 +106,7 @@ fun MainMenuScreen(
                 .widthIn(max = 420.dp)
                 .height(56.dp),
         ) {
-            Text("Achievements ($unlockedCount/${UserStorage.Achievements.entries.size})")
+            Text(stringResource(Res.string.achievements_button, unlockedCount, UserStorage.Achievements.entries.size))
         }
 
         Spacer(Modifier.height(16.dp))
@@ -139,7 +140,7 @@ private fun GameRow(
                 colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
             )
             Spacer(Modifier.width(12.dp))
-            Text(gameType.displayName)
+            Text(stringResource(gameType.displayNameRes))
 
             Spacer(Modifier.weight(1f))
 

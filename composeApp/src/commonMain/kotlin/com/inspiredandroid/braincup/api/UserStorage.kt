@@ -1,9 +1,11 @@
 package com.inspiredandroid.braincup.api
 
+import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import org.jetbrains.compose.resources.StringResource
 import kotlin.time.Clock
 import kotlin.time.Instant
 
@@ -11,48 +13,48 @@ class UserStorage(
     private val settings: Settings = Settings(),
 ) {
     enum class Achievements(
-        val title: String,
-        val description: String,
+        val titleRes: StringResource,
+        val descriptionRes: StringResource,
     ) {
         MEDAL_BRONZE(
-            title = "Bronze Medal",
-            description = "Score at least 1 point in all games",
+            titleRes = Res.string.achievement_bronze_medal,
+            descriptionRes = Res.string.achievement_bronze_medal_desc,
         ),
         MEDAL_SILVER(
-            title = "Silver Medal",
-            description = "Reach silver score in all games",
+            titleRes = Res.string.achievement_silver_medal,
+            descriptionRes = Res.string.achievement_silver_medal_desc,
         ),
         MEDAL_GOLD(
-            title = "Gold Medal",
-            description = "Reach gold score in all games",
+            titleRes = Res.string.achievement_gold_medal,
+            descriptionRes = Res.string.achievement_gold_medal_desc,
         ),
         SCORES_10(
-            title = "10 Points",
-            description = "Accumulate 10 total points",
+            titleRes = Res.string.achievement_10_points,
+            descriptionRes = Res.string.achievement_10_points_desc,
         ),
         SCORES_100(
-            title = "100 Points",
-            description = "Accumulate 100 total points",
+            titleRes = Res.string.achievement_100_points,
+            descriptionRes = Res.string.achievement_100_points_desc,
         ),
         SCORES_1000(
-            title = "1,000 Points",
-            description = "Accumulate 1,000 total points",
+            titleRes = Res.string.achievement_1000_points,
+            descriptionRes = Res.string.achievement_1000_points_desc,
         ),
         SCORES_10000(
-            title = "10,000 Points",
-            description = "Accumulate 10,000 total points",
+            titleRes = Res.string.achievement_10000_points,
+            descriptionRes = Res.string.achievement_10000_points_desc,
         ),
         APP_OPEN_3(
-            title = "3 Day Streak",
-            description = "Train 3 days in a row",
+            titleRes = Res.string.achievement_3_day_streak,
+            descriptionRes = Res.string.achievement_3_day_streak_desc,
         ),
         APP_OPEN_7(
-            title = "7 Day Streak",
-            description = "Train 7 days in a row",
+            titleRes = Res.string.achievement_7_day_streak,
+            descriptionRes = Res.string.achievement_7_day_streak_desc,
         ),
         APP_OPEN_30(
-            title = "30 Day Streak",
-            description = "Train 30 days in a row",
+            titleRes = Res.string.achievement_30_day_streak,
+            descriptionRes = Res.string.achievement_30_day_streak_desc,
         ),
     }
 

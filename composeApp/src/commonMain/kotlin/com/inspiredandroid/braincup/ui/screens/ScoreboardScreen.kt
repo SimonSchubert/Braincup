@@ -8,9 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun ScoreboardScreen(
@@ -22,7 +24,7 @@ fun ScoreboardScreen(
     val scores = storage.getScores(gameType.id)
 
     AppScaffold(
-        title = "${gameType.displayName} Scoreboard",
+        title = stringResource(Res.string.scoreboard_title, stringResource(gameType.displayNameRes)),
         onBack = onBack,
         scrollable = false,
     ) {
@@ -43,7 +45,7 @@ fun ScoreboardScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = "Highscore",
+                    text = stringResource(Res.string.scoreboard_highscore),
                     style = MaterialTheme.typography.labelLarge,
                 )
                 Text(
@@ -57,7 +59,7 @@ fun ScoreboardScreen(
 
         if (scores.isEmpty()) {
             Text(
-                text = "No scores yet",
+                text = stringResource(Res.string.scoreboard_no_scores),
                 style = MaterialTheme.typography.bodyLarge,
             )
         } else {

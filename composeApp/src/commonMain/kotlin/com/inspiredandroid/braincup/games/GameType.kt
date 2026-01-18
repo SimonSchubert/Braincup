@@ -1,104 +1,95 @@
 package com.inspiredandroid.braincup.games
 
-import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.ic_anomaly_puzzle
-import braincup.composeapp.generated.resources.ic_chain_calculation
-import braincup.composeapp.generated.resources.ic_color_confusion
-import braincup.composeapp.generated.resources.ic_fraction_calculation
-import braincup.composeapp.generated.resources.ic_grid_solver
-import braincup.composeapp.generated.resources.ic_mental_calculation
-import braincup.composeapp.generated.resources.ic_path_finder
-import braincup.composeapp.generated.resources.ic_sherlock_calculation
-import braincup.composeapp.generated.resources.ic_value_comparison
-import braincup.composeapp.generated.resources.ic_visual_memory
+import braincup.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.DrawableResource
+import org.jetbrains.compose.resources.StringResource
 
 enum class GameType(
-    val displayName: String,
+    val displayNameRes: StringResource,
     val id: String,
     val goldScore: Int,
     val silverScore: Int,
-    val description: String,
+    val descriptionRes: StringResource,
     val icon: DrawableResource,
 ) {
     ANOMALY_PUZZLE(
-        displayName = "Anomaly puzzle",
+        displayNameRes = Res.string.game_anomaly_puzzle,
         id = "6",
         goldScore = 17,
         silverScore = 8,
-        description = "Find the outstanding figure. Take the color and shape of the figure into account.",
+        descriptionRes = Res.string.game_anomaly_puzzle_desc,
         icon = Res.drawable.ic_anomaly_puzzle,
     ),
     MENTAL_CALCULATION(
-        displayName = "Mental calculation",
+        displayNameRes = Res.string.game_mental_calculation,
         id = "0",
         goldScore = 16,
         silverScore = 8,
-        description = "Follow the mathematical expressions. Use the result as the base for the next calculation.",
+        descriptionRes = Res.string.game_mental_calculation_desc,
         icon = Res.drawable.ic_mental_calculation,
     ),
     COLOR_CONFUSION(
-        displayName = "Color confusion",
+        displayNameRes = Res.string.game_color_confusion,
         id = "1",
         goldScore = 15,
         silverScore = 8,
-        description = "Sum up the points of the correct statements.",
+        descriptionRes = Res.string.game_color_confusion_desc,
         icon = Res.drawable.ic_color_confusion,
     ),
     SHERLOCK_CALCULATION(
-        displayName = "Sherlock calculation",
+        displayNameRes = Res.string.game_sherlock_calculation,
         id = "2",
         goldScore = 7,
         silverScore = 3,
-        description = "Find out how to get the goal by only using the given numbers and the following operators: + - * / ( ).",
+        descriptionRes = Res.string.game_sherlock_calculation_desc,
         icon = Res.drawable.ic_sherlock_calculation,
     ),
     CHAIN_CALCULATION(
-        displayName = "Chain calculation",
+        displayNameRes = Res.string.game_chain_calculation,
         id = "3",
         goldScore = 8,
         silverScore = 4,
-        description = "Follow the mathematical expressions.",
+        descriptionRes = Res.string.game_chain_calculation_desc,
         icon = Res.drawable.ic_chain_calculation,
     ),
     FRACTION_CALCULATION(
-        displayName = "Fraction calculation",
+        displayNameRes = Res.string.game_fraction_calculation,
         id = "4",
         goldScore = 10,
         silverScore = 4,
-        description = "Solve the fractions.",
+        descriptionRes = Res.string.game_fraction_calculation_desc,
         icon = Res.drawable.ic_fraction_calculation,
     ),
     VALUE_COMPARISON(
-        displayName = "Value comparison",
+        displayNameRes = Res.string.game_value_comparison,
         id = "5",
         goldScore = 14,
         silverScore = 4,
-        description = "Pick the mathematical formula with the highest result.",
+        descriptionRes = Res.string.game_value_comparison_desc,
         icon = Res.drawable.ic_value_comparison,
     ),
     PATH_FINDER(
-        displayName = "Path finder",
+        displayNameRes = Res.string.game_path_finder,
         id = "8",
         goldScore = 14,
         silverScore = 7,
-        description = "Start at the marked position and follow the arrow instructions to find the destination.",
+        descriptionRes = Res.string.game_path_finder_desc,
         icon = Res.drawable.ic_path_finder,
     ),
     GRID_SOLVER(
-        displayName = "Grid solver",
+        displayNameRes = Res.string.game_grid_solver,
         id = "9",
         goldScore = 3,
         silverScore = 6,
-        description = "Fill in the missing numbers so that the sum of each row and column is equal to the numbers given.",
+        descriptionRes = Res.string.game_grid_solver_desc,
         icon = Res.drawable.ic_grid_solver,
     ),
     VISUAL_MEMORY(
-        displayName = "Visual memory",
+        displayNameRes = Res.string.game_visual_memory,
         id = "10",
         goldScore = 9,
         silverScore = 6,
-        description = "Memorize the shapes on the grid. Identify the hidden shape after the timer ends.",
+        descriptionRes = Res.string.game_visual_memory_desc,
         icon = Res.drawable.ic_visual_memory,
     ),
 }
