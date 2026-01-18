@@ -9,6 +9,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.DefaultButton
 
 @Composable
 fun FinishScreen(
@@ -63,35 +64,22 @@ fun FinishScreen(
 
         Spacer(Modifier.height(32.dp))
 
-        Button(
+        DefaultButton(
             onClick = onPlayRandom,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp),
-        ) {
-            Text("Play Random Game")
-        }
+            value = "Play Random Game",
+        )
 
         Spacer(Modifier.height(8.dp))
 
-        Button(
+        DefaultButton(
             onClick = onPlayAgain,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp),
-        ) {
-            Text("Play Again")
-        }
-
-        Spacer(Modifier.height(8.dp))
-
-        OutlinedButton(
-            onClick = onMenu,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp),
-        ) {
-            Text("Menu")
-        }
+            value = "Play Again",
+        )
     }
 }

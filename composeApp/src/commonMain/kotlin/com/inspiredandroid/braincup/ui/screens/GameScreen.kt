@@ -13,8 +13,6 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.max
-import androidx.compose.ui.unit.min
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -113,9 +111,8 @@ private fun ColumnScope.ColorConfusionContent(
 ) {
     // Show actual shape with color
     ShapeCanvas(
-        size = 200.dp,
         figure = Figure(game.displayedShape, game.displayedColor),
-        modifier = Modifier.align(Alignment.CenterHorizontally),
+        modifier = Modifier.size(200.dp).align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
 
@@ -257,26 +254,24 @@ private fun ColumnScope.AnomalyPuzzleContent(
         else -> 2
     }
 
-    BoxWithConstraints(
-        Modifier.padding(horizontal = 24.dp).widthIn(max = 400.dp),
-        contentAlignment = Alignment.Center,
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 80.dp * chunkSize),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        val size = (maxWidth / (chunkSize + 1))
-        Column {
-            game.figures.chunked(chunkSize).forEachIndexed { y, figures ->
-                Row(
-                    horizontalArrangement = Arrangement.Center,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    figures.forEachIndexed { x, figure ->
-                        val index = y * chunkSize + x
-                        ShapeCanvasButton(
-                            size = min(size, 72.dp),
-                            modifier = Modifier.padding(8.dp),
-                            figure = figure,
-                            onClick = { onAnswer("${index + 1}") },
-                        )
-                    }
+        game.figures.chunked(chunkSize).forEachIndexed { y, figures ->
+            Row {
+                figures.forEachIndexed { x, figure ->
+                    val index = y * chunkSize + x
+                    ShapeCanvasButton(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(8.dp),
+                        figure = figure,
+                        onClick = { onAnswer("${index + 1}") },
+                    )
                 }
             }
         }
@@ -300,8 +295,8 @@ private fun ColumnScope.PathFinderContent(
     ) {
         game.directions.forEach {
             ShapeCanvas(
-                32.dp,
-                it.figure,
+                figure = it.figure,
+                modifier = Modifier.size(32.dp),
             )
         }
     }
@@ -311,20 +306,26 @@ private fun ColumnScope.PathFinderContent(
     val startFigure = Figure(Shape.SQUARE, Color.ORANGE)
     val blankFigure = Figure(Shape.SQUARE, Color.GREY_LIGHT)
 
-    for (row in 0 until 4) {
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        ) {
-            for (col in 0 until 4) {
-                val index = row * 4 + col + 1
-                val isStart = row == game.startY && col == game.startX
-                ShapeCanvasButton(
-                    size = 56.dp,
-                    figure = if (isStart) startFigure else blankFigure,
-                    onClick = { onAnswer(index.toString()) },
-                    modifier = Modifier.padding(4.dp),
-                )
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 64.dp * 4),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        for (row in 0 until 4) {
+            Row {
+                for (col in 0 until 4) {
+                    val index = row * 4 + col + 1
+                    val isStart = row == game.startY && col == game.startX
+                    ShapeCanvasButton(
+                        figure = if (isStart) startFigure else blankFigure,
+                        onClick = { onAnswer(index.toString()) },
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp),
+                    )
+                }
             }
         }
     }
