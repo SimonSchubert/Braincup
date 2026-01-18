@@ -81,14 +81,26 @@ kotlin {
 
 android {
     namespace = "com.inspiredandroid.braincup"
-    compileSdk = 36
+    compileSdk =
+        libs.versions.android.compileSdk
+            .get()
+            .toInt()
 
     defaultConfig {
         applicationId = "com.inspiredandroid.braincup"
-        minSdk = 24
-        targetSdk = 36
-        versionCode = 13
-        versionName = "2.0.0"
+        minSdk =
+            libs.versions.android.minSdk
+                .get()
+                .toInt()
+        targetSdk =
+            libs.versions.android.targetSdk
+                .get()
+                .toInt()
+        versionCode =
+            libs.versions.android.versionCode
+                .get()
+                .toInt()
+        versionName = libs.versions.appVersion.get()
     }
     packaging {
         resources {
@@ -118,7 +130,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "Braincup"
-            packageVersion = "2.0.0"
+            packageVersion = libs.versions.appVersion.get()
         }
     }
 }
