@@ -15,6 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -99,6 +101,7 @@ fun MainMenuScreen(
         Button(
             onClick = { controller.navigateToAchievements() },
             modifier = Modifier
+                .pointerHoverIcon(PointerIcon.Hand)
                 .widthIn(max = 420.dp)
                 .height(56.dp),
         ) {
@@ -119,6 +122,7 @@ private fun GameRow(
     Button(
         onClick = onPlay,
         modifier = Modifier
+            .pointerHoverIcon(PointerIcon.Hand)
             .widthIn(max = 420.dp)
             .height(56.dp),
         contentPadding = PaddingValues(start = 16.dp, end = 4.dp),
@@ -142,7 +146,12 @@ private fun GameRow(
             if (highscore > 0) {
                 Spacer(Modifier.width(8.dp))
                 Box(
-                    Modifier.size(48.dp).clip(CircleShape).background(Color.White).clickable(onClick = onViewScore),
+                    Modifier
+                        .size(48.dp)
+                        .clip(CircleShape)
+                        .background(Color.White)
+                        .pointerHoverIcon(PointerIcon.Hand)
+                        .clickable(onClick = onViewScore),
                     contentAlignment = Alignment.Center,
                 ) {
                     Text("$highscore", color = MaterialTheme.colorScheme.primary)

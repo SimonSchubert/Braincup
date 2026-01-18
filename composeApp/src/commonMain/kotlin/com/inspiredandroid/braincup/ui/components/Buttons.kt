@@ -8,6 +8,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -21,6 +23,7 @@ fun DefaultButton(
     Button(
         onClick = { onClick() },
         modifier = modifier
+            .pointerHoverIcon(PointerIcon.Hand)
             .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
     ) {
         Text(value)
@@ -37,6 +40,7 @@ fun CircleButton(
             .sizeIn(56.dp, 56.dp)
             .clip(CircleShape)
             .background(Primary)
+            .pointerHoverIcon(PointerIcon.Hand)
             .clickable(onClick = onClick),
         contentAlignment = androidx.compose.ui.Alignment.Center,
     ) {

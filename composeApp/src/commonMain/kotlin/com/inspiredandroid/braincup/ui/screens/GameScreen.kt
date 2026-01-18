@@ -11,6 +11,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.input.pointer.PointerIcon
+import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.games.*
@@ -216,7 +218,9 @@ private fun ColumnScope.SherlockCalculationContent(
         // Give up button
         TextButton(
             onClick = onGiveUp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .pointerHoverIcon(PointerIcon.Hand),
         ) {
             Text("Give Up")
         }
@@ -502,6 +506,7 @@ private fun ExpressionRow(
                     when (token) {
                         is ExpressionToken.NumberToken -> {
                             FilterChip(
+                                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
                                 selected = true,
                                 onClick = { onTokenClick(index) },
                                 label = { Text(token.displayValue) },
@@ -509,6 +514,7 @@ private fun ExpressionRow(
                         }
                         is ExpressionToken.OperatorToken -> {
                             AssistChip(
+                                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
                                 onClick = { onTokenClick(index) },
                                 label = { Text(token.displayValue) },
                                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
@@ -520,6 +526,7 @@ private fun ExpressionRow(
         }
         Spacer(Modifier.width(8.dp))
         IconButton(
+            modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
             onClick = onBackspace,
             enabled = tokens.isNotEmpty(),
         ) {
@@ -549,7 +556,9 @@ private fun AvailableNumbersRow(
             FilledTonalButton(
                 onClick = { onNumberClick(value, index) },
                 enabled = !isUsed,
-                modifier = Modifier.size(56.dp),
+                modifier = Modifier
+                    .size(56.dp)
+                    .pointerHoverIcon(PointerIcon.Hand),
                 contentPadding = PaddingValues(0.dp),
             ) {
                 Text(

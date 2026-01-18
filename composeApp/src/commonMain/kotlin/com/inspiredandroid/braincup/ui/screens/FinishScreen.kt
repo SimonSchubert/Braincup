@@ -67,7 +67,7 @@ fun FinishScreen(
         DefaultButton(
             onClick = onPlayRandom,
             modifier = Modifier
-                .fillMaxWidth()
+                .widthIn(max = 420.dp)
                 .padding(horizontal = 24.dp),
             value = "Play Random Game",
         )
@@ -77,7 +77,7 @@ fun FinishScreen(
         DefaultButton(
             onClick = onPlayAgain,
             modifier = Modifier
-                .fillMaxWidth()
+                .widthIn(max = 420.dp)
                 .padding(horizontal = 24.dp),
             value = "Play Again",
         )

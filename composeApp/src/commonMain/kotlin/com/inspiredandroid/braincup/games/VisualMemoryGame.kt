@@ -84,9 +84,9 @@ class VisualMemoryGame : Game() {
 
     override fun nextRound() {
         phase = Phase.MEMORIZING
-        val figureIndex = round  // Which figure (0, 1, 2...)
+        val figureIndex = round // Which figure (0, 1, 2...)
         if (figureIndex < GRID_SIZE) {
-            val gridPosition = shuffledPositions[figureIndex]  // Random position
+            val gridPosition = shuffledPositions[figureIndex] // Random position
             grid[gridPosition] = figureIndex
         }
     }
