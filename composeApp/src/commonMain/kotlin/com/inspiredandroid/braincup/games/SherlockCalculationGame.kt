@@ -18,7 +18,6 @@ import kotlin.random.Random
  * - Available numbers can't contain the result number
  */
 class SherlockCalculationGame : Game() {
-
     var result = 0
     val numbers = mutableListOf<Int>()
     private var calculation = ""
@@ -51,7 +50,8 @@ class SherlockCalculationGame : Game() {
 
         numbers.shuffle()
 
-        numbers.subList(0, Random.nextInt(minNumbersNeeded, maxNumbersNeeded))
+        numbers
+            .subList(0, Random.nextInt(minNumbersNeeded, maxNumbersNeeded))
             .forEachIndexed { index, i ->
                 if (index > 0) {
                     val excludeMinus = Calculator.calculate(calculation) - i < 0
@@ -74,21 +74,13 @@ class SherlockCalculationGame : Game() {
         updateNumberBounds()
     }
 
-    override fun solution(): String {
-        return calculation
-    }
+    override fun solution(): String = calculation
 
-    override fun hint(): String? {
-        return null
-    }
+    override fun hint(): String? = null
 
-    override fun getGameType(): GameType {
-        return GameType.SHERLOCK_CALCULATION
-    }
+    override fun getGameType(): GameType = GameType.SHERLOCK_CALCULATION
 
-    fun getNumbersString(): String {
-        return numbers.joinToString()
-    }
+    fun getNumbersString(): String = numbers.joinToString()
 
     private fun updateNumberBounds() {
         maxNumbersNeeded = round + 3
@@ -100,7 +92,7 @@ class SherlockCalculationGame : Game() {
 
     private fun getRandomOperator(
         excludeMinus: Boolean = false,
-        excludeMultiply: Boolean = false
+        excludeMultiply: Boolean = false,
     ): Char {
         var operator = availableOperators.random()
         if (excludeMinus && operator == Operator.DIVIDE) {

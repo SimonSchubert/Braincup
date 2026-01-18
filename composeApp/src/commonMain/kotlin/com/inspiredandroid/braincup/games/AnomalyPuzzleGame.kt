@@ -27,7 +27,6 @@ import com.inspiredandroid.braincup.games.tools.getName
  * Round 9+: 16 figures
  */
 class AnomalyPuzzleGame : Game() {
-
     enum class Puzzle {
         RANDOM_COLOR_AND_SHAPE,
         SAME_COLOR,
@@ -35,7 +34,7 @@ class AnomalyPuzzleGame : Game() {
         SAME_SHAPE_MAX_COLOR,
         TRIANGLE_ROTATION,
         RECTANGLE_VARIATION,
-        L_ROTATION
+        L_ROTATION,
     }
 
     val figures = mutableListOf<Figure>()
@@ -51,7 +50,7 @@ class AnomalyPuzzleGame : Game() {
             Puzzle.TRIANGLE_ROTATION,
             Puzzle.SAME_SHAPE_MAX_COLOR,
             Puzzle.RECTANGLE_VARIATION,
-            Puzzle.L_ROTATION
+            Puzzle.L_ROTATION,
         ).shuffled()
     }
 
@@ -59,9 +58,7 @@ class AnomalyPuzzleGame : Game() {
         initPuzzleQueue()
     }
 
-    override fun isCorrect(input: String): Boolean {
-        return (resultIndex + 1).toString() == input
-    }
+    override fun isCorrect(input: String): Boolean = (resultIndex + 1).toString() == input
 
     override fun nextRound() {
         puzzleType = getCurrentPuzzleType()
@@ -73,30 +70,30 @@ class AnomalyPuzzleGame : Game() {
             mutableListOf(
                 Puzzle.RANDOM_COLOR_AND_SHAPE,
                 Puzzle.SAME_COLOR,
-                Puzzle.SAME_SHAPE
-            ).shuffled()
+                Puzzle.SAME_SHAPE,
+            ).shuffled(),
         )
         puzzleQueue.add(Puzzle.TRIANGLE_ROTATION)
         puzzleQueue.addAll(
             mutableListOf(
                 Puzzle.RANDOM_COLOR_AND_SHAPE,
                 Puzzle.SAME_COLOR,
-                Puzzle.SAME_SHAPE
-            ).shuffled()
+                Puzzle.SAME_SHAPE,
+            ).shuffled(),
         )
         puzzleQueue.addAll(
             mutableListOf(
                 Puzzle.TRIANGLE_ROTATION,
                 Puzzle.RECTANGLE_VARIATION,
-                Puzzle.SAME_SHAPE_MAX_COLOR
-            ).shuffled()
+                Puzzle.SAME_SHAPE_MAX_COLOR,
+            ).shuffled(),
         )
         puzzleQueue.addAll(
             mutableListOf(
                 Puzzle.TRIANGLE_ROTATION,
                 Puzzle.SAME_SHAPE_MAX_COLOR,
-                Puzzle.RECTANGLE_VARIATION
-            ).shuffled()
+                Puzzle.RECTANGLE_VARIATION,
+            ).shuffled(),
         )
         puzzleQueue.add(Puzzle.L_ROTATION)
     }
@@ -111,32 +108,36 @@ class AnomalyPuzzleGame : Game() {
     private fun generateFigures(type: Puzzle) {
         figures.clear()
 
-        val maxFigures = when {
-            round < 2 -> 6
-            round < 8 -> 9
-            else -> 16
-        }
+        val maxFigures =
+            when {
+                round < 2 -> 6
+                round < 8 -> 9
+                else -> 16
+            }
 
-        val outstandingFigure = Figure(
-            basicShapes.random(),
-            basicColors.random()
-        )
+        val outstandingFigure =
+            Figure(
+                basicShapes.random(),
+                basicColors.random(),
+            )
         when (type) {
             Puzzle.RANDOM_COLOR_AND_SHAPE -> randomColorAndShapeRound(outstandingFigure, maxFigures)
             Puzzle.SAME_COLOR -> sameColorRound(outstandingFigure, maxFigures, basicShapes)
             Puzzle.SAME_SHAPE -> sameShapeRound(outstandingFigure, maxFigures, basicColors)
             Puzzle.SAME_SHAPE_MAX_COLOR -> sameShapeMaxColorRound(outstandingFigure, maxFigures)
-            Puzzle.TRIANGLE_ROTATION -> sameShapeRotationRound(
-                Shape.TRIANGLE,
-                outstandingFigure,
-                maxFigures
-            )
+            Puzzle.TRIANGLE_ROTATION ->
+                sameShapeRotationRound(
+                    Shape.TRIANGLE,
+                    outstandingFigure,
+                    maxFigures,
+                )
             Puzzle.RECTANGLE_VARIATION -> rectangleVariationRound(outstandingFigure, maxFigures)
-            Puzzle.L_ROTATION -> sameShapeRotationRound(
-                Shape.L,
-                outstandingFigure,
-                maxFigures
-            )
+            Puzzle.L_ROTATION ->
+                sameShapeRotationRound(
+                    Shape.L,
+                    outstandingFigure,
+                    maxFigures,
+                )
         }
         figures.add(outstandingFigure)
         figures.shuffle()
@@ -144,160 +145,193 @@ class AnomalyPuzzleGame : Game() {
         resultIndex = figures.indexOf(outstandingFigure)
     }
 
-    private fun sameShapeMaxColorRound(outstandingFigure: Figure, maxFigures: Int) {
+    private fun sameShapeMaxColorRound(
+        outstandingFigure: Figure,
+        maxFigures: Int,
+    ) {
         val allColors = basicColors + Color.ROSA + Color.TURQUOISE + Color.ORANGE
         outstandingFigure.color = allColors.random()
         sameShapeRound(outstandingFigure, maxFigures, allColors)
     }
 
-    private fun rectangleVariationRound(outstandingFigure: Figure, maxFigures: Int) {
-        val rectangleShapes = listOf(
-            Shape.T,
-            Shape.L,
-            Shape.DIAMOND,
-            Shape.HOUSE,
-            Shape.ABSTRACT_TRIANGLE
-        )
+    private fun rectangleVariationRound(
+        outstandingFigure: Figure,
+        maxFigures: Int,
+    ) {
+        val rectangleShapes =
+            listOf(
+                Shape.T,
+                Shape.L,
+                Shape.DIAMOND,
+                Shape.HOUSE,
+                Shape.ABSTRACT_TRIANGLE,
+            )
         outstandingFigure.shape = rectangleShapes.random()
         sameColorRound(outstandingFigure, maxFigures, rectangleShapes)
     }
 
-    private fun sameShapeRotationRound(shape: Shape, outstandingFigure: Figure, maxFigures: Int) {
+    private fun sameShapeRotationRound(
+        shape: Shape,
+        outstandingFigure: Figure,
+        maxFigures: Int,
+    ) {
         val rotations = mutableListOf(0, 90, 180, 270)
         outstandingFigure.shape = shape
         outstandingFigure.rotation = rotations.random()
         rotations.remove(outstandingFigure.rotation)
         val color = outstandingFigure.color
         while (figures.size < maxFigures - 2) {
-            val rotation = if (rotations.isEmpty()) {
-                figures.random().rotation
-            } else {
-                rotations.random()
-            }
+            val rotation =
+                if (rotations.isEmpty()) {
+                    figures.random().rotation
+                } else {
+                    rotations.random()
+                }
             rotations.remove(rotation)
             figures.add(
                 Figure(
                     shape,
                     color,
-                    rotation
-                )
+                    rotation,
+                ),
             )
             figures.add(
                 Figure(
                     shape,
                     color,
-                    rotation
-                )
+                    rotation,
+                ),
             )
             if (figures.size == maxFigures - 2) {
                 figures.add(
                     Figure(
                         shape,
                         color,
-                        rotation
-                    )
+                        rotation,
+                    ),
                 )
             }
         }
     }
 
-    private fun sameShapeRound(outstandingFigure: Figure, maxFigures: Int, colors: List<Color>) {
-        val availableColors = colors.filter {
-            outstandingFigure.color != it
-        }.toMutableList()
+    private fun sameShapeRound(
+        outstandingFigure: Figure,
+        maxFigures: Int,
+        colors: List<Color>,
+    ) {
+        val availableColors =
+            colors
+                .filter {
+                    outstandingFigure.color != it
+                }.toMutableList()
         while (figures.size < maxFigures - 2) {
             val shape = outstandingFigure.shape
-            val color = if (availableColors.isNotEmpty()) {
-                availableColors.removeAt(0)
-            } else {
-                figures.random().color
-            }
+            val color =
+                if (availableColors.isNotEmpty()) {
+                    availableColors.removeAt(0)
+                } else {
+                    figures.random().color
+                }
             figures.add(
                 Figure(
                     shape,
-                    color
-                )
+                    color,
+                ),
             )
             figures.add(
                 Figure(
                     shape,
-                    color
-                )
+                    color,
+                ),
             )
             if (figures.size == maxFigures - 2) {
                 figures.add(
                     Figure(
                         shape,
-                        color
-                    )
+                        color,
+                    ),
                 )
             }
         }
     }
 
-    private fun sameColorRound(outstandingFigure: Figure, maxFigures: Int, shapes: List<Shape>) {
-        val availableShapes = shapes.filter {
-            outstandingFigure.shape != it
-        }.toMutableList()
+    private fun sameColorRound(
+        outstandingFigure: Figure,
+        maxFigures: Int,
+        shapes: List<Shape>,
+    ) {
+        val availableShapes =
+            shapes
+                .filter {
+                    outstandingFigure.shape != it
+                }.toMutableList()
         while (figures.size < maxFigures - 2) {
-            val shape = if (availableShapes.isNotEmpty()) {
-                availableShapes.removeAt(0)
-            } else {
-                figures.random().shape
-            }
+            val shape =
+                if (availableShapes.isNotEmpty()) {
+                    availableShapes.removeAt(0)
+                } else {
+                    figures.random().shape
+                }
             val color = outstandingFigure.color
             figures.add(
                 Figure(
                     shape,
-                    color
-                )
+                    color,
+                ),
             )
             figures.add(
                 Figure(
                     shape,
-                    color
-                )
+                    color,
+                ),
             )
             if (figures.size == maxFigures - 2) {
                 figures.add(
                     Figure(
                         shape,
-                        color
-                    )
+                        color,
+                    ),
                 )
             }
         }
     }
 
-    private fun randomColorAndShapeRound(outstandingFigure: Figure, maxFigures: Int) {
-        val availableShapes = basicShapes.filter {
-            outstandingFigure.shape != it
-        }
-        val availableColors = basicColors.filter {
-            outstandingFigure.color != it
-        }
+    private fun randomColorAndShapeRound(
+        outstandingFigure: Figure,
+        maxFigures: Int,
+    ) {
+        val availableShapes =
+            basicShapes.filter {
+                outstandingFigure.shape != it
+            }
+        val availableColors =
+            basicColors.filter {
+                outstandingFigure.color != it
+            }
         while (figures.size < maxFigures - 2) {
             val shape = availableShapes.random()
             val color = availableColors.random()
-            if (figures.count { it.color == color && it.shape == shape } == 0 || figures.size == (availableColors.size * availableShapes.size) * 2) {
+            if (figures.count { it.color == color && it.shape == shape } == 0 ||
+                figures.size == (availableColors.size * availableShapes.size) * 2
+            ) {
                 figures.add(
                     Figure(
                         shape,
-                        color
-                    )
+                        color,
+                    ),
                 )
                 figures.add(
                     Figure(
                         shape,
-                        color
-                    )
+                        color,
+                    ),
                 )
                 if (figures.size == maxFigures - 2) {
                     figures.add(
                         Figure(
                             shape,
-                            color
-                        )
+                            color,
+                        ),
                     )
                 }
             }
@@ -315,11 +349,7 @@ class AnomalyPuzzleGame : Game() {
         return "${figure.color.getName()} ${figure.shape.getName()} $extraInfo".trim()
     }
 
-    override fun hint(): String? {
-        return null
-    }
+    override fun hint(): String? = null
 
-    override fun getGameType(): GameType {
-        return GameType.ANOMALY_PUZZLE
-    }
+    override fun getGameType(): GameType = GameType.ANOMALY_PUZZLE
 }

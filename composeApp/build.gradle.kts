@@ -9,6 +9,7 @@ plugins {
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.spotless)
 }
 
 kotlin {
@@ -21,7 +22,7 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
+        iosSimulatorArm64(),
     ).forEach { iosTarget ->
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
@@ -39,10 +40,11 @@ kotlin {
             val projectDirPath = project.projectDir.path
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
-                devServer = (devServer ?: KotlinWebpackConfig.DevServer()).apply {
-                    static(rootDirPath)
-                    static(projectDirPath)
-                }
+                devServer =
+                    (devServer ?: KotlinWebpackConfig.DevServer()).apply {
+                        static(rootDirPath)
+                        static(projectDirPath)
+                    }
             }
         }
         binaries.executable()
@@ -99,7 +101,7 @@ android {
             isShrinkResources = true
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -118,5 +120,22 @@ compose.desktop {
             packageName = "Braincup"
             packageVersion = "2.0.0"
         }
+    }
+}
+
+spotless {
+    kotlin {
+        target("src/**/*.kt")
+        ktlint("1.5.0").editorConfigOverride(
+            mapOf(
+                "ktlint_standard_no-wildcard-imports" to "disabled",
+                "ktlint_standard_function-naming" to "disabled",
+                "ktlint_standard_property-naming" to "disabled",
+            ),
+        )
+    }
+    kotlinGradle {
+        target("*.gradle.kts")
+        ktlint("1.5.0")
     }
 }

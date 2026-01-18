@@ -5,7 +5,6 @@ import com.inspiredandroid.braincup.splitToIntList
 import kotlin.random.Random
 
 class PathFinderGame : Game() {
-
     val directions = mutableListOf<Direction>()
     val gridSize = 4
     var lastDirection = Direction.UP
@@ -48,29 +47,21 @@ class PathFinderGame : Game() {
 
     private fun correctGridIndex(): Int = currentY * gridSize + currentX + 1
 
-    override fun isCorrect(input: String): Boolean {
-        return try {
-            val index = input.toInt()
-            index == correctGridIndex()
-        } catch (ignore: Exception) {
-            val coordinates = input.splitToIntList()
-            if (coordinates.count() < 2) {
-                false
-            } else {
-                coordinates[0] == currentX + 1 && coordinates[1] == currentY + 1
-            }
+    override fun isCorrect(input: String): Boolean = try {
+        val index = input.toInt()
+        index == correctGridIndex()
+    } catch (ignore: Exception) {
+        val coordinates = input.splitToIntList()
+        if (coordinates.count() < 2) {
+            false
+        } else {
+            coordinates[0] == currentX + 1 && coordinates[1] == currentY + 1
         }
     }
 
-    override fun solution(): String {
-        return "column ${currentX + 1} and row ${currentY + 1}"
-    }
+    override fun solution(): String = "column ${currentX + 1} and row ${currentY + 1}"
 
-    override fun getGameType(): GameType {
-        return GameType.PATH_FINDER
-    }
+    override fun getGameType(): GameType = GameType.PATH_FINDER
 
-    override fun hint(): String? {
-        return ""
-    }
+    override fun hint(): String? = ""
 }

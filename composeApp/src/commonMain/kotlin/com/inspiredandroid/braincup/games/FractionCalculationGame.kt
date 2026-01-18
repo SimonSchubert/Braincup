@@ -11,7 +11,6 @@ import kotlin.random.Random
  * - Result can't be negative
  */
 class FractionCalculationGame : Game() {
-
     private var result = 0
     private var fractions = mutableListOf<String>()
     var calculation = ""
@@ -42,19 +41,11 @@ class FractionCalculationGame : Game() {
         }
     }
 
-    override fun isCorrect(input: String): Boolean {
-        return input == result.toString()
-    }
+    override fun isCorrect(input: String): Boolean = input == result.toString()
 
-    override fun solution(): String {
-        return result.toString()
-    }
+    override fun solution(): String = result.toString()
 
-    override fun hint(): String? {
-        return null
-    }
+    override fun hint(): String? = null
 
-    override fun getGameType(): GameType {
-        return GameType.FRACTION_CALCULATION
-    }
+    override fun getGameType(): GameType = GameType.FRACTION_CALCULATION
 }

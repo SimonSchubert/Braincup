@@ -13,7 +13,6 @@ import kotlin.random.Random
  * 3. Get a third random color(stringColor) which will be the color of the previous generated color string
  */
 class ColorConfusionGame : Game() {
-
     lateinit var displayedColor: Color
     lateinit var answerColor: Color
     lateinit var stringColor: Color
@@ -25,23 +24,23 @@ class ColorConfusionGame : Game() {
     private val colors = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.PURPLE)
     private val shapes = listOf(Shape.SQUARE, Shape.TRIANGLE, Shape.CIRCLE, Shape.HEART)
 
-    override fun isCorrect(input: String): Boolean {
-        return points() == input
-    }
+    override fun isCorrect(input: String): Boolean = points() == input
 
     override fun nextRound() {
         displayedShape = shapes.random()
-        answerShape = if (Random.nextBoolean()) {
-            shapes.filter { it != displayedShape }.random()
-        } else {
-            displayedShape
-        }
+        answerShape =
+            if (Random.nextBoolean()) {
+                shapes.filter { it != displayedShape }.random()
+            } else {
+                displayedShape
+            }
         displayedColor = colors.random()
-        answerColor = if (Random.nextBoolean()) {
-            colors.filter { it != displayedColor }.random()
-        } else {
-            displayedColor
-        }
+        answerColor =
+            if (Random.nextBoolean()) {
+                colors.filter { it != displayedColor }.random()
+            } else {
+                displayedColor
+            }
         stringColor = colors.random()
         shapePoints = Random.nextInt(2, 5)
         colorPoints = Random.nextInt(2, 5)
@@ -61,24 +60,16 @@ class ColorConfusionGame : Game() {
         return points.toString()
     }
 
-    fun getPossibleAnswers(): List<String> {
-        return listOf(
-            0,
-            shapePoints,
-            colorPoints,
-            shapePoints + colorPoints
-        ).sorted().map { it.toString() }
-    }
+    fun getPossibleAnswers(): List<String> = listOf(
+        0,
+        shapePoints,
+        colorPoints,
+        shapePoints + colorPoints,
+    ).sorted().map { it.toString() }
 
-    override fun solution(): String {
-        return points()
-    }
+    override fun solution(): String = points()
 
-    override fun hint(): String? {
-        return null
-    }
+    override fun hint(): String? = null
 
-    override fun getGameType(): GameType {
-        return GameType.COLOR_CONFUSION
-    }
+    override fun getGameType(): GameType = GameType.COLOR_CONFUSION
 }

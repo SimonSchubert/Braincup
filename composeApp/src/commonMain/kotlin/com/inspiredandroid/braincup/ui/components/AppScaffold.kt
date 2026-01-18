@@ -16,7 +16,7 @@ fun AppScaffold(
     title: String? = null,
     onBack: (() -> Unit)? = null,
     scrollable: Boolean = true,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -31,7 +31,7 @@ fun AppScaffold(
                         IconButton(onClick = onBack) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back"
+                                contentDescription = "Back",
                             )
                         }
                     }
@@ -39,10 +39,10 @@ fun AppScaffold(
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
                     titleContentColor = MaterialTheme.colorScheme.primary,
-                    navigationIconContentColor = MaterialTheme.colorScheme.primary
-                )
+                    navigationIconContentColor = MaterialTheme.colorScheme.primary,
+                ),
             )
-        }
+        },
     ) { paddingValues ->
         val modifier = if (scrollable) {
             Modifier
@@ -58,7 +58,7 @@ fun AppScaffold(
         Column(
             modifier = modifier,
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             content()
         }
@@ -69,7 +69,7 @@ fun AppScaffold(
 @Composable
 fun GameScaffold(
     onBack: (() -> Unit)? = null,
-    content: @Composable ColumnScope.() -> Unit
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Scaffold(
         topBar = {
@@ -80,24 +80,24 @@ fun GameScaffold(
                         IconButton(onClick = onBack) {
                             Icon(
                                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                                contentDescription = "Back"
+                                contentDescription = "Back",
                             )
                         }
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.surface,
-                    navigationIconContentColor = MaterialTheme.colorScheme.primary
-                )
+                    navigationIconContentColor = MaterialTheme.colorScheme.primary,
+                ),
             )
-        }
+        },
     ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center
+            verticalArrangement = Arrangement.Center,
         ) {
             content()
         }

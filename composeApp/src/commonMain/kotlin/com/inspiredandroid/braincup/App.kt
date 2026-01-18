@@ -28,7 +28,7 @@ fun App() {
                     InstructionsScreen(
                         gameType = screen.gameType,
                         onStart = { controller.startGame(screen.gameType) },
-                        onBack = { controller.navigateToMainMenu() }
+                        onBack = { controller.navigateToMainMenu() },
                     )
                 }
 
@@ -39,14 +39,14 @@ fun App() {
                         timeRemaining = timeRemaining,
                         onAnswer = { controller.submitAnswer(it) },
                         onGiveUp = { controller.giveUp() },
-                        onBack = { controller.navigateToMainMenu() }
+                        onBack = { controller.navigateToMainMenu() },
                     )
                 }
 
                 is Screen.AnswerFeedback -> {
                     AnswerFeedbackScreen(
                         isCorrect = screen.isCorrect,
-                        message = screen.message
+                        message = screen.message,
                     )
                 }
 
@@ -59,7 +59,7 @@ fun App() {
                         answeredAllCorrect = screen.answeredAllCorrect,
                         onPlayRandom = { controller.playRandomGame() },
                         onPlayAgain = { controller.playAgain(screen.gameType) },
-                        onMenu = { controller.navigateToMainMenu() }
+                        onMenu = { controller.navigateToMainMenu() },
                     )
                 }
 
@@ -68,7 +68,7 @@ fun App() {
                     ScoreboardScreen(
                         gameType = screen.gameType,
                         storage = controller.storage,
-                        onBack = { controller.navigateToMainMenu() }
+                        onBack = { controller.navigateToMainMenu() },
                     )
                 }
 
@@ -76,7 +76,7 @@ fun App() {
                     BackHandler { controller.navigateToMainMenu() }
                     AchievementsScreen(
                         storage = controller.storage,
-                        onBack = { controller.navigateToMainMenu() }
+                        onBack = { controller.navigateToMainMenu() },
                     )
                 }
             }

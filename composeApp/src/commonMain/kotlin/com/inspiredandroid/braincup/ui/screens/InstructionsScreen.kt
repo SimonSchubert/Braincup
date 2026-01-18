@@ -16,12 +16,12 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 fun InstructionsScreen(
     gameType: GameType,
     onStart: () -> Unit,
-    onBack: () -> Unit
+    onBack: () -> Unit,
 ) {
     AppScaffold(
         title = gameType.getName(),
         onBack = onBack,
-        scrollable = false
+        scrollable = false,
     ) {
         Spacer(Modifier.height(32.dp))
 
@@ -31,14 +31,14 @@ fun InstructionsScreen(
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .padding(horizontal = 24.dp)
-                .align(Alignment.CenterHorizontally)
+                .align(Alignment.CenterHorizontally),
         )
 
         Spacer(Modifier.height(32.dp))
 
         Button(
             onClick = onStart,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         ) {
             Text("Start")
         }

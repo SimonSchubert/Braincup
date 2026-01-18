@@ -4,14 +4,12 @@ enum class Operator {
     PLUS,
     MINUS,
     MULTIPLY,
-    DIVIDE
+    DIVIDE,
 }
 
-fun Operator.toChar(): Char {
-    return when (this) {
-        Operator.PLUS -> '+'
-        Operator.MINUS -> '-'
-        Operator.MULTIPLY -> '*'
-        Operator.DIVIDE -> '/'
-    }
+fun Operator.toChar(): Char = when (this) {
+    Operator.PLUS -> '+'
+    Operator.MINUS -> '-'
+    Operator.MULTIPLY -> '*'
+    Operator.DIVIDE -> '/'
 }

@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.games.*
@@ -44,15 +43,14 @@ fun GameScreen(
     timeRemaining: Long,
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
-    onBack: () -> Unit
+    onBack: () -> Unit,
 ) {
     GameScaffold(onBack = onBack) {
-
         TimeProgressIndicator(
             progress = timeRemaining / 60000f,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp)
+                .padding(horizontal = 16.dp, vertical = 8.dp),
         )
 
         Spacer(Modifier.weight(1f))
@@ -77,12 +75,12 @@ fun GameScreen(
 @Composable
 private fun ColumnScope.MentalCalculationContent(
     game: MentalCalculationGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     Text(
         text = game.calculation,
         style = MaterialTheme.typography.displaySmall,
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
     NumberPad(onInputChange = { input ->
@@ -95,7 +93,7 @@ private fun ColumnScope.MentalCalculationContent(
 @Composable
 private fun ColumnScope.ChainCalculationContent(
     game: ChainCalculationGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     Text(
         text = "${game.calculation} = ?",
@@ -103,7 +101,7 @@ private fun ColumnScope.ChainCalculationContent(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(16.dp))
     NumberPad(onInputChange = { input ->
@@ -116,13 +114,13 @@ private fun ColumnScope.ChainCalculationContent(
 @Composable
 private fun ColumnScope.ColorConfusionContent(
     game: ColorConfusionGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     // Show actual shape with color
     ShapeCanvas(
         size = 96.dp,
         figure = Figure(game.displayedShape, game.displayedColor),
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
 
@@ -130,20 +128,20 @@ private fun ColumnScope.ColorConfusionContent(
     Text(
         text = "${game.shapePoints} = ${game.answerShape.getName()}",
         style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Text(
         text = "${game.colorPoints} = ${game.answerColor.getName()}",
         style = MaterialTheme.typography.bodyLarge,
         color = game.stringColor.toComposeColor(),
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
 
     // Answer buttons
     Row(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     ) {
         game.getPossibleAnswers().forEach { answer ->
             Button(onClick = { onAnswer(answer) }) {
@@ -157,7 +155,7 @@ private fun ColumnScope.ColorConfusionContent(
 private fun ColumnScope.SherlockCalculationContent(
     game: SherlockCalculationGame,
     onAnswer: (String) -> Unit,
-    onGiveUp: () -> Unit
+    onGiveUp: () -> Unit,
 ) {
     // Use key to reset state when game.result changes (new round)
     key(game.result) {
@@ -175,7 +173,7 @@ private fun ColumnScope.SherlockCalculationContent(
         Text(
             text = "Goal: ${game.result}",
             style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         )
         Spacer(Modifier.height(16.dp))
 
@@ -198,7 +196,7 @@ private fun ColumnScope.SherlockCalculationContent(
                     }
                 }
             },
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         )
         Spacer(Modifier.height(16.dp))
 
@@ -211,7 +209,7 @@ private fun ColumnScope.SherlockCalculationContent(
                 usedNumberIndices = usedNumberIndices + index
                 checkAnswer()
             },
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         )
         Spacer(Modifier.height(12.dp))
 
@@ -220,14 +218,14 @@ private fun ColumnScope.SherlockCalculationContent(
             onOperatorClick = { operator ->
                 expressionTokens = expressionTokens + ExpressionToken.OperatorToken(operator)
             },
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         )
         Spacer(Modifier.height(16.dp))
 
         // Give up button
         TextButton(
             onClick = onGiveUp,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         ) {
             Text("Give Up")
         }
@@ -237,7 +235,7 @@ private fun ColumnScope.SherlockCalculationContent(
 @Composable
 private fun ColumnScope.FractionCalculationContent(
     game: FractionCalculationGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     Text(
         text = game.calculation,
@@ -245,7 +243,7 @@ private fun ColumnScope.FractionCalculationContent(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(16.dp))
     NumberPad(onInputChange = { input ->
@@ -258,7 +256,7 @@ private fun ColumnScope.FractionCalculationContent(
 @Composable
 private fun ColumnScope.AnomalyPuzzleContent(
     game: AnomalyPuzzleGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     val chunkSize = when {
         game.figures.size >= 16 -> 4
@@ -269,7 +267,7 @@ private fun ColumnScope.AnomalyPuzzleContent(
     game.figures.chunked(chunkSize).forEachIndexed { y, figures ->
         Row(
             horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             figures.forEachIndexed { x, figure ->
                 val index = y * chunkSize + x
@@ -277,7 +275,7 @@ private fun ColumnScope.AnomalyPuzzleContent(
                     size = 48.dp,
                     modifier = Modifier.padding(8.dp),
                     figure = figure,
-                    onClick = { onAnswer("${index + 1}") }
+                    onClick = { onAnswer("${index + 1}") },
                 )
             }
         }
@@ -287,21 +285,22 @@ private fun ColumnScope.AnomalyPuzzleContent(
 @Composable
 private fun ColumnScope.PathFinderContent(
     game: PathFinderGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     Text(
         text = "Follow the directions:",
         style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(8.dp))
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp)
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         game.directions.forEach {
-            ShapeCanvas(32.dp,
-                it.getFigure()
+            ShapeCanvas(
+                32.dp,
+                it.getFigure(),
             )
         }
     }
@@ -314,7 +313,7 @@ private fun ColumnScope.PathFinderContent(
     for (row in 0 until 4) {
         Row(
             horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         ) {
             for (col in 0 until 4) {
                 val index = row * 4 + col + 1
@@ -323,7 +322,7 @@ private fun ColumnScope.PathFinderContent(
                     size = 56.dp,
                     figure = if (isStart) startFigure else blankFigure,
                     onClick = { onAnswer(index.toString()) },
-                    modifier = Modifier.padding(4.dp)
+                    modifier = Modifier.padding(4.dp),
                 )
             }
         }
@@ -333,19 +332,19 @@ private fun ColumnScope.PathFinderContent(
 @Composable
 private fun ColumnScope.ValueComparisonContent(
     game: ValueComparisonGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     Text(
         text = "Which has the highest value?",
         style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
 
     game.answers.forEachIndexed { index, answer ->
         OptionButton(
             text = answer,
-            onClick = { onAnswer((index + 1).toString()) }
+            onClick = { onAnswer((index + 1).toString()) },
         )
     }
 }
@@ -353,7 +352,7 @@ private fun ColumnScope.ValueComparisonContent(
 @Composable
 private fun ColumnScope.RiddleContent(
     game: RiddleGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     Text(
         text = game.quest,
@@ -361,7 +360,7 @@ private fun ColumnScope.RiddleContent(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(16.dp))
 
@@ -372,14 +371,14 @@ private fun ColumnScope.RiddleContent(
         label = { Text("Your answer") },
         keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
         keyboardActions = KeyboardActions(
-            onDone = { onAnswer(answer) }
+            onDone = { onAnswer(answer) },
         ),
-        modifier = Modifier.padding(horizontal = 16.dp)
+        modifier = Modifier.padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(8.dp))
     Button(
         onClick = { onAnswer(answer) },
-        modifier = Modifier.align(Alignment.CenterHorizontally)
+        modifier = Modifier.align(Alignment.CenterHorizontally),
     ) {
         Text("Submit")
     }
@@ -388,7 +387,7 @@ private fun ColumnScope.RiddleContent(
 @Composable
 private fun ColumnScope.GridSolverContent(
     game: GridSolverGame,
-    onAnswer: (String) -> Unit
+    onAnswer: (String) -> Unit,
 ) {
     val totalCells = game.size() * game.size()
     var inputs by remember { mutableStateOf(List(totalCells) { "" }) }
@@ -400,7 +399,7 @@ private fun ColumnScope.GridSolverContent(
         textAlign = TextAlign.Center,
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp)
+            .padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(8.dp))
 
@@ -417,19 +416,20 @@ private fun ColumnScope.GridSolverContent(
                             .padding(4.dp)
                             .size(48.dp),
                         colors = CardDefaults.cardColors(
-                            containerColor = if (isCurrentCell)
+                            containerColor = if (isCurrentCell) {
                                 MaterialTheme.colorScheme.secondaryContainer
-                            else
+                            } else {
                                 MaterialTheme.colorScheme.surface
-                        )
+                            },
+                        ),
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
-                            modifier = Modifier.fillMaxSize()
+                            modifier = Modifier.fillMaxSize(),
                         ) {
                             Text(
                                 text = cellValue.ifEmpty { "?" },
-                                style = MaterialTheme.typography.titleMedium
+                                style = MaterialTheme.typography.titleMedium,
                             )
                         }
                     }
@@ -440,16 +440,16 @@ private fun ColumnScope.GridSolverContent(
                         .padding(4.dp)
                         .size(48.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer
-                    )
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    ),
                 ) {
                     Box(
                         contentAlignment = Alignment.Center,
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
                     ) {
                         Text(
                             text = "=${game.resultsY[rowIndex]}",
-                            style = MaterialTheme.typography.titleSmall
+                            style = MaterialTheme.typography.titleSmall,
                         )
                     }
                 }
@@ -463,16 +463,16 @@ private fun ColumnScope.GridSolverContent(
                         .padding(4.dp)
                         .size(48.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer
-                    )
+                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    ),
                 ) {
                     Box(
                         contentAlignment = Alignment.Center,
-                        modifier = Modifier.fillMaxSize()
+                        modifier = Modifier.fillMaxSize(),
                     ) {
                         Text(
                             text = "=$sum",
-                            style = MaterialTheme.typography.titleSmall
+                            style = MaterialTheme.typography.titleSmall,
                         )
                     }
                 }
@@ -506,25 +506,25 @@ private fun ExpressionRow(
     tokens: List<ExpressionToken>,
     onTokenClick: (Int) -> Unit,
     onBackspace: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Row(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         if (tokens.isEmpty()) {
             Text(
                 text = "Tap numbers to build expression",
                 style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         } else {
             Row(
                 horizontalArrangement = Arrangement.spacedBy(4.dp),
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 tokens.forEachIndexed { index, token ->
                     when (token) {
@@ -532,14 +532,14 @@ private fun ExpressionRow(
                             FilterChip(
                                 selected = true,
                                 onClick = { onTokenClick(index) },
-                                label = { Text(token.displayValue) }
+                                label = { Text(token.displayValue) },
                             )
                         }
                         is ExpressionToken.OperatorToken -> {
                             AssistChip(
                                 onClick = { onTokenClick(index) },
                                 label = { Text(token.displayValue) },
-                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
                             )
                         }
                     }
@@ -549,11 +549,11 @@ private fun ExpressionRow(
         Spacer(Modifier.width(8.dp))
         IconButton(
             onClick = onBackspace,
-            enabled = tokens.isNotEmpty()
+            enabled = tokens.isNotEmpty(),
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.Backspace,
-                contentDescription = "Backspace"
+                contentDescription = "Backspace",
             )
         }
     }
@@ -565,12 +565,12 @@ private fun AvailableNumbersRow(
     numbers: List<Int>,
     usedIndices: Set<Int>,
     onNumberClick: (value: Int, index: Int) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     FlowRow(
         modifier = modifier.padding(horizontal = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
-        verticalArrangement = Arrangement.spacedBy(8.dp)
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         numbers.forEachIndexed { index, value ->
             val isUsed = index in usedIndices
@@ -578,11 +578,11 @@ private fun AvailableNumbersRow(
                 onClick = { onNumberClick(value, index) },
                 enabled = !isUsed,
                 modifier = Modifier.size(56.dp),
-                contentPadding = PaddingValues(0.dp)
+                contentPadding = PaddingValues(0.dp),
             ) {
                 Text(
                     text = value.toString(),
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
                 )
             }
         }
@@ -592,22 +592,22 @@ private fun AvailableNumbersRow(
 @Composable
 private fun OperatorRow(
     onOperatorClick: (String) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val operators = listOf("+", "-", "*", "/", "(", ")")
     Row(
         modifier = modifier.padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.spacedBy(8.dp)
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         operators.forEach { operator ->
             OutlinedButton(
                 onClick = { onOperatorClick(operator) },
                 modifier = Modifier.size(48.dp),
-                contentPadding = PaddingValues(0.dp)
+                contentPadding = PaddingValues(0.dp),
             ) {
                 Text(
                     text = operator,
-                    style = MaterialTheme.typography.titleMedium
+                    style = MaterialTheme.typography.titleMedium,
                 )
             }
         }
@@ -617,13 +617,13 @@ private fun OperatorRow(
 @Composable
 private fun TimeProgressIndicator(
     progress: Float,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     val trackColor = MaterialTheme.colorScheme.surfaceVariant
     val progressColor = MaterialTheme.colorScheme.primary
 
     Canvas(
-        modifier = modifier.height(12.dp)
+        modifier = modifier.height(12.dp),
     ) {
         val cornerRadius = CornerRadius(size.height / 2, size.height / 2)
 
@@ -631,7 +631,7 @@ private fun TimeProgressIndicator(
         drawRoundRect(
             color = trackColor,
             size = size,
-            cornerRadius = cornerRadius
+            cornerRadius = cornerRadius,
         )
 
         // Draw progress
@@ -640,7 +640,7 @@ private fun TimeProgressIndicator(
             drawRoundRect(
                 color = progressColor,
                 size = Size(progressWidth, size.height),
-                cornerRadius = cornerRadius
+                cornerRadius = cornerRadius,
             )
         }
     }

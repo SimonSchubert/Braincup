@@ -18,7 +18,7 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 fun ScoreboardScreen(
     gameType: GameType,
     storage: UserStorage,
-    onBack: () -> Unit
+    onBack: () -> Unit,
 ) {
     val highscore = storage.getHighScore(gameType.getId())
     val scores = storage.getScores(gameType.getId())
@@ -26,7 +26,7 @@ fun ScoreboardScreen(
     AppScaffold(
         title = "${gameType.getName()} Scoreboard",
         onBack = onBack,
-        scrollable = false
+        scrollable = false,
     ) {
         Spacer(Modifier.height(16.dp))
 
@@ -35,22 +35,22 @@ fun ScoreboardScreen(
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer
-            )
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+            ),
         ) {
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(16.dp),
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = "Highscore",
-                    style = MaterialTheme.typography.labelLarge
+                    style = MaterialTheme.typography.labelLarge,
                 )
                 Text(
                     text = highscore.toString(),
-                    style = MaterialTheme.typography.headlineLarge
+                    style = MaterialTheme.typography.headlineLarge,
                 )
             }
         }
@@ -60,30 +60,30 @@ fun ScoreboardScreen(
         if (scores.isEmpty()) {
             Text(
                 text = "No scores yet",
-                style = MaterialTheme.typography.bodyLarge
+                style = MaterialTheme.typography.bodyLarge,
             )
         } else {
             LazyColumn(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(horizontal = 16.dp)
+                    .padding(horizontal = 16.dp),
             ) {
                 items(scores) { (date, dayScores) ->
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 4.dp)
+                            .padding(vertical = 4.dp),
                     ) {
                         Column(
-                            modifier = Modifier.padding(12.dp)
+                            modifier = Modifier.padding(12.dp),
                         ) {
                             Text(
                                 text = date,
-                                style = MaterialTheme.typography.labelMedium
+                                style = MaterialTheme.typography.labelMedium,
                             )
                             Text(
                                 text = dayScores.joinToString(", "),
-                                style = MaterialTheme.typography.bodyMedium
+                                style = MaterialTheme.typography.bodyMedium,
                             )
                         }
                     }

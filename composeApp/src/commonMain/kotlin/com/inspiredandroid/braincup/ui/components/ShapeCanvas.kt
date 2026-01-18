@@ -18,7 +18,7 @@ import com.inspiredandroid.braincup.games.tools.getPaths
 fun ShapeCanvas(
     size: Dp,
     figure: Figure,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(modifier = modifier.size(size)) {
         Canvas(modifier = Modifier.size(size)) {
@@ -52,19 +52,19 @@ fun ShapeCanvasButton(
     size: Dp,
     figure: Figure,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
 ) {
     Box(
         modifier = Modifier.clickable(
             onClick = onClick,
             interactionSource = remember { MutableInteractionSource() },
-            indication = null
-        )
+            indication = null,
+        ),
     ) {
         ShapeCanvas(
             size = size,
             figure = figure,
-            modifier = modifier
+            modifier = modifier,
         )
     }
 }

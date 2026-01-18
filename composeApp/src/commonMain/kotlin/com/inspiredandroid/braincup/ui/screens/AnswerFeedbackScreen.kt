@@ -5,7 +5,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.ui.components.GameScaffold
@@ -15,7 +14,7 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 @Composable
 fun AnswerFeedbackScreen(
     isCorrect: Boolean,
-    message: String?
+    message: String?,
 ) {
     GameScaffold {
         val color = if (isCorrect) SuccessGreen else ErrorRed
@@ -25,7 +24,7 @@ fun AnswerFeedbackScreen(
             text = title,
             style = MaterialTheme.typography.headlineLarge,
             color = color,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         )
 
         if (message != null) {
@@ -36,13 +35,8 @@ fun AnswerFeedbackScreen(
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .padding(horizontal = 24.dp)
+                    .padding(horizontal = 24.dp),
             )
         }
-
-        Spacer(Modifier.height(16.dp))
-        CircularProgressIndicator(
-            modifier = Modifier.align(Alignment.CenterHorizontally)
-        )
     }
 }

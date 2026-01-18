@@ -14,38 +14,39 @@ import kotlin.random.Random
  * - Round >= 7 = 4 answers
  */
 class ValueComparisonGame : Game() {
-
     private var resultIndex = 0
     var answers = mutableListOf<String>()
     var types = listOf(Type.FRACTION, Type.MULTIPLICATION)
 
     override fun nextRound() {
         answers.clear()
-        val type = if (round == 0) {
-            Type.ADDITION
-        } else {
-            types.random()
-        }
+        val type =
+            if (round == 0) {
+                Type.ADDITION
+            } else {
+                types.random()
+            }
         val results = mutableListOf<Double>()
         val expectedAnswersCount = getExpectedAnswersCount()
         while (answers.count() < expectedAnswersCount) {
-            val answer = when (type) {
-                Type.ADDITION -> {
-                    val n1 = Random.nextInt(2, 12)
-                    val n2 = Random.nextInt(2, 12)
-                    "$n1+$n2"
+            val answer =
+                when (type) {
+                    Type.ADDITION -> {
+                        val n1 = Random.nextInt(2, 12)
+                        val n2 = Random.nextInt(2, 12)
+                        "$n1+$n2"
+                    }
+                    Type.FRACTION -> {
+                        val n1 = Random.nextInt(2, 12)
+                        val n2 = Random.nextInt(2, 12)
+                        "$n1/$n2"
+                    }
+                    Type.MULTIPLICATION -> {
+                        val n1 = Random.nextInt(2, 12)
+                        val n2 = Random.nextInt(2, 12)
+                        "$n1*$n2"
+                    }
                 }
-                Type.FRACTION -> {
-                    val n1 = Random.nextInt(2, 12)
-                    val n2 = Random.nextInt(2, 12)
-                    "$n1/$n2"
-                }
-                Type.MULTIPLICATION -> {
-                    val n1 = Random.nextInt(2, 12)
-                    val n2 = Random.nextInt(2, 12)
-                    "$n1*$n2"
-                }
-            }
             val result = Calculator.calculate(answer)
             if (results.none { it == result }) {
                 answers.add(answer)
@@ -57,37 +58,27 @@ class ValueComparisonGame : Game() {
         }
     }
 
-    override fun isCorrect(input: String): Boolean {
-        return try {
-            input.toInt() == (resultIndex + 1)
-        } catch (ignore: NumberFormatException) {
-            false
-        }
+    override fun isCorrect(input: String): Boolean = try {
+        input.toInt() == (resultIndex + 1)
+    } catch (ignore: NumberFormatException) {
+        false
     }
 
-    override fun solution(): String {
-        return answers[resultIndex]
-    }
+    override fun solution(): String = answers[resultIndex]
 
-    override fun hint(): String? {
-        return null
-    }
+    override fun hint(): String? = null
 
-    override fun getGameType(): GameType {
-        return GameType.VALUE_COMPARISON
-    }
+    override fun getGameType(): GameType = GameType.VALUE_COMPARISON
 
-    private fun getExpectedAnswersCount(): Int {
-        return when {
-            round > 6 -> 4
-            round > 3 -> 3
-            else -> 2
-        }
+    private fun getExpectedAnswersCount(): Int = when {
+        round > 6 -> 4
+        round > 3 -> 3
+        else -> 2
     }
 
     enum class Type {
         ADDITION,
         FRACTION,
-        MULTIPLICATION
+        MULTIPLICATION,
     }
 }

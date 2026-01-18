@@ -4,13 +4,14 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getId
 import com.inspiredandroid.braincup.games.getScoreTable
 import com.russhwolf.settings.Settings
-import kotlin.time.Clock
-import kotlin.time.Instant
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+import kotlin.time.Clock
+import kotlin.time.Instant
 
-class UserStorage(private val settings: Settings = Settings()) {
-
+class UserStorage(
+    private val settings: Settings = Settings(),
+) {
     enum class Achievements {
         MEDAL_BRONZE,
         MEDAL_SILVER,
@@ -24,12 +25,13 @@ class UserStorage(private val settings: Settings = Settings()) {
         APP_OPEN_30,
     }
 
-    private val scoreAchievements = listOf(
-        Achievements.SCORES_10,
-        Achievements.SCORES_100,
-        Achievements.SCORES_1000,
-        Achievements.SCORES_10000
-    )
+    private val scoreAchievements =
+        listOf(
+            Achievements.SCORES_10,
+            Achievements.SCORES_100,
+            Achievements.SCORES_1000,
+            Achievements.SCORES_10000,
+        )
 
     companion object {
         const val KEY_APP_OPEN_COMBO = "app_open_combo"
@@ -44,11 +46,13 @@ class UserStorage(private val settings: Settings = Settings()) {
     private val appOpenAchievements =
         listOf(Achievements.APP_OPEN_3, Achievements.APP_OPEN_7, Achievements.APP_OPEN_30)
 
-    fun getUnlockedAchievements(): MutableList<Achievements> {
-        return settings.getStringOrNull(KEY_UNLOCKED_ACHIEVEMENTS)?.split(",")?.filter { it.isNotEmpty() }?.map {
+    fun getUnlockedAchievements(): MutableList<Achievements> = settings
+        .getStringOrNull(KEY_UNLOCKED_ACHIEVEMENTS)
+        ?.split(",")
+        ?.filter { it.isNotEmpty() }
+        ?.map {
             Achievements.valueOf(it)
         }?.toMutableList() ?: mutableListOf()
-    }
 
     private fun unlockAchievement(achievement: Achievements) {
         val unlockedAchievements = getUnlockedAchievements()
@@ -56,19 +60,18 @@ class UserStorage(private val settings: Settings = Settings()) {
         settings.putString(KEY_UNLOCKED_ACHIEVEMENTS, unlockedAchievements.joinToString(","))
     }
 
-    fun getAppOpenCount(): Int {
-        return settings.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
-    }
+    fun getAppOpenCount(): Int = settings.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
 
     fun putAppOpen() {
         val appOpenDay = settings.getIntOrNull(KEY_APP_OPEN_DAY) ?: -1
         val todayDay = (Clock.System.now().toEpochMilliseconds() / 86400000L).toInt()
         if (appOpenDay < todayDay) {
-            val appOpenCombo = if (appOpenDay == todayDay - 1) {
-                settings.getInt(KEY_APP_OPEN_COMBO, 0)
-            } else {
-                0
-            }
+            val appOpenCombo =
+                if (appOpenDay == todayDay - 1) {
+                    settings.getInt(KEY_APP_OPEN_COMBO, 0)
+                } else {
+                    0
+                }
             settings.putInt(KEY_APP_OPEN_COMBO, appOpenCombo + 1)
             settings.putInt(KEY_APP_OPEN_DAY, todayDay)
 
@@ -81,28 +84,26 @@ class UserStorage(private val settings: Settings = Settings()) {
         }
     }
 
-    fun hasAppOpenAchievement(achievement: Achievements, appOpenDay: Int): Boolean {
-        return when (achievement) {
-            Achievements.APP_OPEN_3 -> appOpenDay >= 3
-            Achievements.APP_OPEN_7 -> appOpenDay >= 7
-            Achievements.APP_OPEN_30 -> appOpenDay >= 30
-            else -> true
-        }
+    fun hasAppOpenAchievement(
+        achievement: Achievements,
+        appOpenDay: Int,
+    ): Boolean = when (achievement) {
+        Achievements.APP_OPEN_3 -> appOpenDay >= 3
+        Achievements.APP_OPEN_7 -> appOpenDay >= 7
+        Achievements.APP_OPEN_30 -> appOpenDay >= 30
+        else -> true
     }
 
-    private fun getHighscoreKey(gameId: String): String {
-        return "game_${gameId}_highscore"
-    }
+    private fun getHighscoreKey(gameId: String): String = "game_${gameId}_highscore"
 
-    private fun getScoresKey(gameId: String): String {
-        return "game_${gameId}_scores"
-    }
+    private fun getScoresKey(gameId: String): String = "game_${gameId}_scores"
 
-    fun getHighScore(gameId: String): Int {
-        return settings.getInt(getHighscoreKey(gameId), 0)
-    }
+    fun getHighScore(gameId: String): Int = settings.getInt(getHighscoreKey(gameId), 0)
 
-    fun putScore(gameId: String, score: Int): Boolean {
+    fun putScore(
+        gameId: String,
+        score: Int,
+    ): Boolean {
         val newHighscore = score > getHighScore(gameId)
         if (newHighscore) {
             settings.putInt(getHighscoreKey(gameId), score)
@@ -110,7 +111,7 @@ class UserStorage(private val settings: Settings = Settings()) {
         val scoresRaw = settings.getString(getScoresKey(gameId), "")
         settings.putString(
             getScoresKey(gameId),
-            "${Clock.System.now().toEpochMilliseconds()}/$score,$scoresRaw"
+            "${Clock.System.now().toEpochMilliseconds()}/$score,$scoresRaw",
         )
         val updatedTotalScore = getTotalScore() + score
         settings.putInt(KEY_TOTAL_SCORE, updatedTotalScore)
@@ -130,41 +131,41 @@ class UserStorage(private val settings: Settings = Settings()) {
         return newHighscore
     }
 
-    fun getTotalScore(): Int {
-        return settings.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
+    fun getTotalScore(): Int = settings.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
+
+    private fun hasTotalScore(
+        achievement: Achievements,
+        totalScore: Int,
+    ): Boolean = when (achievement) {
+        Achievements.SCORES_10 -> totalScore >= 10
+        Achievements.SCORES_100 -> totalScore >= 100
+        Achievements.SCORES_1000 -> totalScore >= 1_000
+        Achievements.SCORES_10000 -> totalScore >= 10_000
+        else -> true
     }
 
-    private fun hasTotalScore(achievement: Achievements, totalScore: Int): Boolean {
-        return when (achievement) {
-            Achievements.SCORES_10 -> totalScore >= 10
-            Achievements.SCORES_100 -> totalScore >= 100
-            Achievements.SCORES_1000 -> totalScore >= 1_000
-            Achievements.SCORES_10000 -> totalScore >= 10_000
+    private fun hasMedalForAllGames(achievement: Achievements): Boolean = GameType.entries.all {
+        val highscore = getHighScore(it.getId())
+        when (achievement) {
+            Achievements.MEDAL_BRONZE -> highscore > 0
+            Achievements.MEDAL_SILVER -> highscore >= it.getScoreTable()[1]
+            Achievements.MEDAL_GOLD -> highscore >= it.getScoreTable()[0]
             else -> true
-        }
-    }
-
-    private fun hasMedalForAllGames(achievement: Achievements): Boolean {
-        return GameType.entries.all {
-            val highscore = getHighScore(it.getId())
-            when (achievement) {
-                Achievements.MEDAL_BRONZE -> highscore > 0
-                Achievements.MEDAL_SILVER -> highscore >= it.getScoreTable()[1]
-                Achievements.MEDAL_GOLD -> highscore >= it.getScoreTable()[0]
-                else -> true
-            }
         }
     }
 
     fun getScores(gameId: String): List<Pair<String, List<Int>>> {
         val scoresRaw = settings.getStringOrNull(getScoresKey(gameId)) ?: return listOf()
-        return scoresRaw.split(",").filterNot { it.isEmpty() }.groupBy {
-            val parts = it.split("/")
-            val timeInMillis = parts[0].toLongOrNull() ?: 0L
-            val date = Instant.fromEpochMilliseconds(timeInMillis).toLocalDateTime(TimeZone.UTC)
-            "${date.day} ${date.month.name} ${date.year}"
-        }.map {
-            Pair(it.key, it.value.map { score -> score.split("/")[1].toIntOrNull() ?: 0 })
-        }
+        return scoresRaw
+            .split(",")
+            .filterNot { it.isEmpty() }
+            .groupBy {
+                val parts = it.split("/")
+                val timeInMillis = parts[0].toLongOrNull() ?: 0L
+                val date = Instant.fromEpochMilliseconds(timeInMillis).toLocalDateTime(TimeZone.UTC)
+                "${date.day} ${date.month.name} ${date.year}"
+            }.map {
+                Pair(it.key, it.value.map { score -> score.split("/")[1].toIntOrNull() ?: 0 })
+            }
     }
 }

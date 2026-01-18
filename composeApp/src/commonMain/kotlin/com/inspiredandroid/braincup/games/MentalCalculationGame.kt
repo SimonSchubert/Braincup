@@ -17,7 +17,6 @@ import kotlin.random.Random
  * - Max result increases with each round up to 150
  */
 class MentalCalculationGame : Game() {
-
     var calculation = ""
     private var number = 0
     private var division = -1
@@ -28,7 +27,7 @@ class MentalCalculationGame : Game() {
         listOf(
             Operator.PLUS,
             Operator.MULTIPLY,
-            Operator.MINUS
+            Operator.MINUS,
         )
     }
     private val increaseOperators by lazy { listOf(Operator.PLUS, Operator.MULTIPLY) }
@@ -50,53 +49,49 @@ class MentalCalculationGame : Game() {
             reset()
             resetNextRound = false
         }
-        calculation = if (round == 0) {
-            "$number "
-        } else {
-            ""
-        }
+        calculation =
+            if (round == 0) {
+                "$number "
+            } else {
+                ""
+            }
 
-        calculation += when (getNextOperator()) {
-            Operator.PLUS -> {
-                val addition = Random.nextInt(3, max(maxNumber - number, 4))
-                number += addition
-                "+ $addition"
+        calculation +=
+            when (getNextOperator()) {
+                Operator.PLUS -> {
+                    val addition = Random.nextInt(3, max(maxNumber - number, 4))
+                    number += addition
+                    "+ $addition"
+                }
+                Operator.MINUS -> {
+                    val subtraction = Random.nextInt(3, max(number - 3, 4))
+                    number -= subtraction
+                    "- $subtraction"
+                }
+                Operator.MULTIPLY -> {
+                    val maxMulti = (maxNumber.toFloat() / number).toInt()
+                    val multi = max(Random.nextInt(min(2, maxMulti - 1), maxMulti), 2)
+                    number *= multi
+                    "* $multi"
+                }
+                Operator.DIVIDE -> {
+                    number /= division
+                    "/ $division"
+                }
             }
-            Operator.MINUS -> {
-                val subtraction = Random.nextInt(3, max(number - 3, 4))
-                number -= subtraction
-                "- $subtraction"
-            }
-            Operator.MULTIPLY -> {
-                val maxMulti = (maxNumber.toFloat() / number).toInt()
-                val multi = max(Random.nextInt(min(2, maxMulti - 1), maxMulti), 2)
-                number *= multi
-                "* $multi"
-            }
-            Operator.DIVIDE -> {
-                number /= division
-                "/ $division"
-            }
-        }
 
         updateMaxNumber()
     }
 
-    override fun solution(): String {
-        return number.toString()
+    override fun solution(): String = number.toString()
+
+    override fun hint(): String? = if (round == 1) {
+        "Remember $number"
+    } else {
+        null
     }
 
-    override fun hint(): String? {
-        return if (round == 1) {
-            "Remember $number"
-        } else {
-            null
-        }
-    }
-
-    override fun getGameType(): GameType {
-        return GameType.MENTAL_CALCULATION
-    }
+    override fun getGameType(): GameType = GameType.MENTAL_CALCULATION
 
     private fun reset() {
         round = 0
@@ -132,7 +127,5 @@ class MentalCalculationGame : Game() {
         }
     }
 
-    fun getNumberLength(): Int {
-        return number.toString().length
-    }
+    fun getNumberLength(): Int = number.toString().length
 }

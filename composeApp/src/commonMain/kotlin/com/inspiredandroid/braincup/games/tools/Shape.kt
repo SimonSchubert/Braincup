@@ -15,39 +15,35 @@ enum class Shape {
     DIAMOND,
     HOUSE,
     ABSTRACT_TRIANGLE,
-    ARROW
+    ARROW,
 }
 
-fun Shape.getName(): String {
-    return when (this) {
-        Shape.SQUARE -> "square"
-        Shape.TRIANGLE -> "triangle"
-        Shape.CIRCLE -> "circle"
-        Shape.HEART -> "heart"
-        Shape.STAR -> "star"
-        Shape.T -> "T shape"
-        Shape.L -> "L shape"
-        Shape.DIAMOND -> "diamond"
-        Shape.HOUSE -> "house"
-        Shape.ABSTRACT_TRIANGLE -> "triangle"
-        Shape.ARROW -> "arrow"
-    }
+fun Shape.getName(): String = when (this) {
+    Shape.SQUARE -> "square"
+    Shape.TRIANGLE -> "triangle"
+    Shape.CIRCLE -> "circle"
+    Shape.HEART -> "heart"
+    Shape.STAR -> "star"
+    Shape.T -> "T shape"
+    Shape.L -> "L shape"
+    Shape.DIAMOND -> "diamond"
+    Shape.HOUSE -> "house"
+    Shape.ABSTRACT_TRIANGLE -> "triangle"
+    Shape.ARROW -> "arrow"
 }
 
-fun Shape.getPaths(): List<Pair<Float, Float>> {
-    return when (this) {
-        Shape.SQUARE -> squarePath
-        Shape.TRIANGLE -> trianglePath
-        Shape.HEART -> heartPath
-        Shape.STAR -> starPath
-        Shape.CIRCLE -> circlePath
-        Shape.T -> tPath
-        Shape.L -> lPath
-        Shape.DIAMOND -> diamondPath
-        Shape.HOUSE -> housePath
-        Shape.ABSTRACT_TRIANGLE -> abstractTrianglePath
-        Shape.ARROW -> arrowPath
-    }
+fun Shape.getPaths(): List<Pair<Float, Float>> = when (this) {
+    Shape.SQUARE -> squarePath
+    Shape.TRIANGLE -> trianglePath
+    Shape.HEART -> heartPath
+    Shape.STAR -> starPath
+    Shape.CIRCLE -> circlePath
+    Shape.T -> tPath
+    Shape.L -> lPath
+    Shape.DIAMOND -> diamondPath
+    Shape.HOUSE -> housePath
+    Shape.ABSTRACT_TRIANGLE -> abstractTrianglePath
+    Shape.ARROW -> arrowPath
 }
 
 val arrowPath by lazy {
@@ -58,7 +54,7 @@ val arrowPath by lazy {
         0.5f to 0f,
         1f to 0.45f,
         0.7f to 0.45f,
-        0.7f to 1f
+        0.7f to 1f,
     )
 }
 
@@ -87,7 +83,7 @@ val tPath by lazy {
         0.75f to 0f,
         0.75f to 0.5f,
         1f to 0.5f,
-        1f to 1f
+        1f to 1f,
     )
 }
 
@@ -121,7 +117,7 @@ val starPath by lazy {
         0.18f to 1f,
         0.25f to 0.62f,
         0f to 0.38f,
-        0.35f to 0.32f
+        0.35f to 0.32f,
     )
 }
 
@@ -143,6 +139,6 @@ val heartPath by lazy {
         0.89f to 0.05f,
         0.75f to 0f,
         0.6f to 0.035f,
-        0.5f to 0.135f
+        0.5f to 0.135f,
     )
 }

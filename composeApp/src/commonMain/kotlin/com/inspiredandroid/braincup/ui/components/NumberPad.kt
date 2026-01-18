@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun NumberPad(
     showOperators: Boolean = false,
-    onInputChange: (String) -> Unit
+    onInputChange: (String) -> Unit,
 ) {
     var input by remember { mutableStateOf("") }
 
@@ -23,12 +23,12 @@ fun NumberPad(
             modifier = Modifier
                 .padding(12.dp)
                 .defaultMinSize(minHeight = 60.dp)
-                .align(Alignment.CenterHorizontally)
+                .align(Alignment.CenterHorizontally),
         ) {
             Text(
                 input,
                 style = TextStyle(color = Color.Black, fontSize = 32.sp),
-                modifier = Modifier.align(Alignment.CenterVertically)
+                modifier = Modifier.align(Alignment.CenterVertically),
             )
             if (input.isNotEmpty()) {
                 Spacer(Modifier.width(8.dp))
@@ -36,7 +36,7 @@ fun NumberPad(
                     onClick = {
                         input = input.substring(0, input.lastIndex)
                     },
-                    modifier = Modifier.align(Alignment.CenterVertically)
+                    modifier = Modifier.align(Alignment.CenterVertically),
                 ) {
                     Text("\u232B", style = TextStyle(fontSize = 24.sp))
                 }
@@ -46,41 +46,92 @@ fun NumberPad(
         Column(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
-                .width(IntrinsicSize.Min)
+                .width(IntrinsicSize.Min),
         ) {
             Row {
-                NumberPadButtonCell("7") { input += it; onInputChange(input) }
-                NumberPadButtonCell("8") { input += it; onInputChange(input) }
-                NumberPadButtonCell("9") { input += it; onInputChange(input) }
+                NumberPadButtonCell("7") {
+                    input += it
+                    onInputChange(input)
+                }
+                NumberPadButtonCell("8") {
+                    input += it
+                    onInputChange(input)
+                }
+                NumberPadButtonCell("9") {
+                    input += it
+                    onInputChange(input)
+                }
                 if (showOperators) {
-                    NumberPadButtonCell("/") { input += it; onInputChange(input) }
+                    NumberPadButtonCell("/") {
+                        input += it
+                        onInputChange(input)
+                    }
                 }
             }
             Row {
-                NumberPadButtonCell("4") { input += it; onInputChange(input) }
-                NumberPadButtonCell("5") { input += it; onInputChange(input) }
-                NumberPadButtonCell("6") { input += it; onInputChange(input) }
+                NumberPadButtonCell("4") {
+                    input += it
+                    onInputChange(input)
+                }
+                NumberPadButtonCell("5") {
+                    input += it
+                    onInputChange(input)
+                }
+                NumberPadButtonCell("6") {
+                    input += it
+                    onInputChange(input)
+                }
                 if (showOperators) {
-                    NumberPadButtonCell("*") { input += it; onInputChange(input) }
+                    NumberPadButtonCell("*") {
+                        input += it
+                        onInputChange(input)
+                    }
                 }
             }
             Row {
-                NumberPadButtonCell("1") { input += it; onInputChange(input) }
-                NumberPadButtonCell("2") { input += it; onInputChange(input) }
-                NumberPadButtonCell("3") { input += it; onInputChange(input) }
+                NumberPadButtonCell("1") {
+                    input += it
+                    onInputChange(input)
+                }
+                NumberPadButtonCell("2") {
+                    input += it
+                    onInputChange(input)
+                }
+                NumberPadButtonCell("3") {
+                    input += it
+                    onInputChange(input)
+                }
                 if (showOperators) {
-                    NumberPadButtonCell("-") { input += it; onInputChange(input) }
+                    NumberPadButtonCell("-") {
+                        input += it
+                        onInputChange(input)
+                    }
                 }
             }
             Row {
                 if (showOperators) {
-                    NumberPadButtonCell("(") { input += it; onInputChange(input) }
-                    NumberPadButtonCell("0") { input += it; onInputChange(input) }
-                    NumberPadButtonCell(")") { input += it; onInputChange(input) }
-                    NumberPadButtonCell("+") { input += it; onInputChange(input) }
+                    NumberPadButtonCell("(") {
+                        input += it
+                        onInputChange(input)
+                    }
+                    NumberPadButtonCell("0") {
+                        input += it
+                        onInputChange(input)
+                    }
+                    NumberPadButtonCell(")") {
+                        input += it
+                        onInputChange(input)
+                    }
+                    NumberPadButtonCell("+") {
+                        input += it
+                        onInputChange(input)
+                    }
                 } else {
                     EmptyCell()
-                    NumberPadButtonCell("0") { input += it; onInputChange(input) }
+                    NumberPadButtonCell("0") {
+                        input += it
+                        onInputChange(input)
+                    }
                     EmptyCell()
                 }
             }
@@ -100,7 +151,7 @@ fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
                 },
                 modifier = Modifier
                     .padding(4.dp)
-                    .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
+                    .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
             ) {
                 Text(number)
             }
@@ -111,17 +162,17 @@ fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
 @Composable
 private fun RowScope.NumberPadButtonCell(
     value: String,
-    onClick: (String) -> Unit
+    onClick: (String) -> Unit,
 ) {
     Box(
         modifier = Modifier.weight(1f, fill = true),
-        contentAlignment = Alignment.Center
+        contentAlignment = Alignment.Center,
     ) {
         Button(
             onClick = { onClick(value) },
             modifier = Modifier
                 .padding(4.dp)
-                .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
+                .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
         ) {
             Text(value)
         }

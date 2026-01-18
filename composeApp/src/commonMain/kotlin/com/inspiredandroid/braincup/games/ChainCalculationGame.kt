@@ -20,7 +20,6 @@ import kotlin.random.Random
  * - Result is always positive
  */
 class ChainCalculationGame : Game() {
-
     var calculation = ""
     private var numberCount = 2
     private var result = 0
@@ -33,11 +32,12 @@ class ChainCalculationGame : Game() {
     override fun nextRound() {
         calculation = ""
         for (i in 0 until numberCount) {
-            val maxNumber = if (lastOperator == Operator.MULTIPLY) {
-                7
-            } else {
-                10
-            }
+            val maxNumber =
+                if (lastOperator == Operator.MULTIPLY) {
+                    7
+                } else {
+                    10
+                }
             calculation += Random.nextInt(2, maxNumber)
             if (i != numberCount - 1) {
                 lastOperator = availableOperators.random()
@@ -82,23 +82,15 @@ class ChainCalculationGame : Game() {
         numberCount++
     }
 
-    override fun isCorrect(input: String): Boolean {
-        return try {
-            result == Calculator.calculate(input).toInt()
-        } catch (ignore: NumberFormatException) {
-            false
-        }
+    override fun isCorrect(input: String): Boolean = try {
+        result == Calculator.calculate(input).toInt()
+    } catch (ignore: NumberFormatException) {
+        false
     }
 
-    override fun solution(): String {
-        return result.toString()
-    }
+    override fun solution(): String = result.toString()
 
-    override fun hint(): String? {
-        return null
-    }
+    override fun hint(): String? = null
 
-    override fun getGameType(): GameType {
-        return GameType.CHAIN_CALCULATION
-    }
+    override fun getGameType(): GameType = GameType.CHAIN_CALCULATION
 }

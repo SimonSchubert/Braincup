@@ -19,17 +19,17 @@ fun FinishScreen(
     answeredAllCorrect: Boolean,
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
-    onMenu: () -> Unit
+    onMenu: () -> Unit,
 ) {
     AppScaffold(
         title = gameType.getName(),
         onBack = onMenu,
-        scrollable = false
+        scrollable = false,
     ) {
         Text(
             text = "Score: $score",
             style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier.align(Alignment.CenterHorizontally)
+            modifier = Modifier.align(Alignment.CenterHorizontally),
         )
 
         Spacer(Modifier.height(16.dp))
@@ -42,7 +42,7 @@ fun FinishScreen(
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .padding(horizontal = 24.dp)
+                    .padding(horizontal = 24.dp),
             )
         }
 
@@ -50,14 +50,14 @@ fun FinishScreen(
             Spacer(Modifier.height(8.dp))
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
                 ),
-                modifier = Modifier.align(Alignment.CenterHorizontally)
+                modifier = Modifier.align(Alignment.CenterHorizontally),
             ) {
                 Text(
                     text = "New Highscore!",
                     style = MaterialTheme.typography.titleMedium,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp)
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 )
             }
         }
@@ -68,7 +68,7 @@ fun FinishScreen(
             onClick = onPlayRandom,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp)
+                .padding(horizontal = 24.dp),
         ) {
             Text("Play Random Game")
         }
@@ -79,7 +79,7 @@ fun FinishScreen(
             onClick = onPlayAgain,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp)
+                .padding(horizontal = 24.dp),
         ) {
             Text("Play Again")
         }
@@ -90,7 +90,7 @@ fun FinishScreen(
             onClick = onMenu,
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(horizontal = 24.dp)
+                .padding(horizontal = 24.dp),
         ) {
             Text("Menu")
         }

@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
@@ -12,11 +11,11 @@ import androidx.compose.ui.unit.dp
 fun TextButton(
     text: String,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
-        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp)
+        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
     ) {
         Text(text)
     }
@@ -27,12 +26,12 @@ fun PrimaryButton(
     text: String,
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
         modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
-        enabled = enabled
+        enabled = enabled,
     ) {
         Text(text)
     }
@@ -43,15 +42,15 @@ fun SecondaryButton(
     text: String,
     modifier: Modifier = Modifier,
     containerColor: Color = MaterialTheme.colorScheme.secondary,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     Button(
         onClick = onClick,
         modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
         colors = ButtonDefaults.buttonColors(
             containerColor = containerColor,
-            contentColor = Color.White
-        )
+            contentColor = Color.White,
+        ),
     ) {
         Text(text)
     }
@@ -61,14 +60,14 @@ fun SecondaryButton(
 fun OptionButton(
     text: String,
     modifier: Modifier = Modifier,
-    onClick: () -> Unit
+    onClick: () -> Unit,
 ) {
     OutlinedButton(
         onClick = onClick,
         modifier = modifier
             .fillMaxWidth()
             .defaultMinSize(minHeight = 56.dp)
-            .padding(horizontal = 24.dp, vertical = 4.dp)
+            .padding(horizontal = 24.dp, vertical = 4.dp),
     ) {
         Text(text)
     }

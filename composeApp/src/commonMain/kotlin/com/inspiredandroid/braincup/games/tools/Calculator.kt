@@ -31,15 +31,15 @@ object Calculator {
             when {
                 s.contains(Operator.PLUS.toChar()) -> sum += solve(
                     s,
-                    Operator.PLUS
+                    Operator.PLUS,
                 )
                 s.contains(Operator.MULTIPLY.toChar()) -> sum += solve(
                     s,
-                    Operator.MULTIPLY
+                    Operator.MULTIPLY,
                 )
                 s.contains(Operator.DIVIDE.toChar()) -> sum += solve(
                     s,
-                    Operator.DIVIDE
+                    Operator.DIVIDE,
                 )
                 else -> {
                     if (s.isNotEmpty()) {

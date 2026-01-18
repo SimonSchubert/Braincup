@@ -5,25 +5,20 @@ import com.inspiredandroid.braincup.splitToIntList
 import kotlin.random.Random
 
 class GridSolverGame : Game() {
-
     val entries = mutableListOf<MutableList<Int>>()
     val resultsX = mutableListOf<Int>()
     val resultsY = mutableListOf<Int>()
 
-    fun size(): Int {
-        return when {
-            round > 7 -> 4
-            round > 4 -> 3
-            else -> 2
-        }
+    fun size(): Int = when {
+        round > 7 -> 4
+        round > 4 -> 3
+        else -> 2
     }
 
-    private fun maxEntryValue(): Int {
-        return when {
-            round > 5 -> 9
-            round > 3 -> 7
-            else -> 6
-        }
+    private fun maxEntryValue(): Int = when {
+        round > 5 -> 9
+        round > 3 -> 7
+        else -> 6
     }
 
     override fun nextRound() {
@@ -78,11 +73,7 @@ class GridSolverGame : Game() {
         return solution
     }
 
-    override fun getGameType(): GameType {
-        return GameType.GRID_SOLVER
-    }
+    override fun getGameType(): GameType = GameType.GRID_SOLVER
 
-    override fun hint(): String? {
-        return ""
-    }
+    override fun hint(): String? = ""
 }

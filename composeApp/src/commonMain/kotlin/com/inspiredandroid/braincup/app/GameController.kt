@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
 import kotlin.time.Clock
 
 class GameController(
-    val storage: UserStorage = UserStorage()
+    val storage: UserStorage = UserStorage(),
 ) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Main)
 
@@ -33,13 +33,13 @@ class GameController(
         val games = listOf(
             GameType.ANOMALY_PUZZLE,
             GameType.PATH_FINDER,
+            GameType.COLOR_CONFUSION,
             GameType.MENTAL_CALCULATION,
             GameType.SHERLOCK_CALCULATION,
             GameType.CHAIN_CALCULATION,
             GameType.FRACTION_CALCULATION,
             GameType.VALUE_COMPARISON,
-            GameType.COLOR_CONFUSION,
-            GameType.GRID_SOLVER
+            GameType.GRID_SOLVER,
         )
     }
 
@@ -91,7 +91,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = true,
-                message = game.hint()
+                message = game.hint(),
             )
         } else {
             game.answeredAllCorrect = false
@@ -99,7 +99,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = false,
-                message = game.solution()
+                message = game.solution(),
             )
         }
 
@@ -119,7 +119,7 @@ class GameController(
             gameType = currentState.gameType,
             game = game,
             isCorrect = false,
-            message = game.solution()
+            message = game.solution(),
         )
 
         scope.launch {
@@ -156,7 +156,7 @@ class GameController(
             gameType = gameType,
             score = points,
             isNewHighscore = newHighscore,
-            answeredAllCorrect = game.answeredAllCorrect
+            answeredAllCorrect = game.answeredAllCorrect,
         )
     }
 
@@ -183,18 +183,16 @@ class GameController(
         }
     }
 
-    private fun createGame(gameType: GameType): Game {
-        return when (gameType) {
-            GameType.COLOR_CONFUSION -> ColorConfusionGame()
-            GameType.MENTAL_CALCULATION -> MentalCalculationGame()
-            GameType.SHERLOCK_CALCULATION -> SherlockCalculationGame()
-            GameType.CHAIN_CALCULATION -> ChainCalculationGame()
-            GameType.VALUE_COMPARISON -> ValueComparisonGame()
-            GameType.FRACTION_CALCULATION -> FractionCalculationGame()
-            GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
-            GameType.PATH_FINDER -> PathFinderGame()
-            GameType.RIDDLE -> RiddleGame()
-            GameType.GRID_SOLVER -> GridSolverGame()
-        }
+    private fun createGame(gameType: GameType): Game = when (gameType) {
+        GameType.COLOR_CONFUSION -> ColorConfusionGame()
+        GameType.MENTAL_CALCULATION -> MentalCalculationGame()
+        GameType.SHERLOCK_CALCULATION -> SherlockCalculationGame()
+        GameType.CHAIN_CALCULATION -> ChainCalculationGame()
+        GameType.VALUE_COMPARISON -> ValueComparisonGame()
+        GameType.FRACTION_CALCULATION -> FractionCalculationGame()
+        GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
+        GameType.PATH_FINDER -> PathFinderGame()
+        GameType.RIDDLE -> RiddleGame()
+        GameType.GRID_SOLVER -> GridSolverGame()
     }
 }

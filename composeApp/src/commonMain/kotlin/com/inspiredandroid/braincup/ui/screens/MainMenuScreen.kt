@@ -26,7 +26,7 @@ import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun MainMenuScreen(
-    controller: GameController
+    controller: GameController,
 ) {
     val storage = controller.storage
     val totalScore = storage.getTotalScore()
@@ -38,28 +38,28 @@ fun MainMenuScreen(
             .windowInsetsPadding(WindowInsets.statusBars)
             .verticalScroll(rememberScrollState())
             .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-            Text(
-                text = "Braincup",
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.padding(vertical = 16.dp)
-            )
+        Text(
+            text = "Braincup",
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.padding(vertical = 16.dp),
+        )
 
-            Text(
-                text = "Train your math skills, memory and focus.",
-                style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.padding(bottom = 24.dp)
-            )
+        Text(
+            text = "Train your math skills, memory and focus.",
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(bottom = 24.dp),
+        )
 
         GameController.games.forEach { gameType ->
             GameRow(
                 gameType = gameType,
                 highscore = storage.getHighScore(gameType.getId()),
                 onPlay = { controller.navigateToInstructions(gameType) },
-                onViewScore = { controller.navigateToScoreboard(gameType) }
+                onViewScore = { controller.navigateToScoreboard(gameType) },
             )
             Spacer(Modifier.height(8.dp))
         }
@@ -68,7 +68,7 @@ fun MainMenuScreen(
 
         Row(
             horizontalArrangement = Arrangement.SpaceEvenly,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             if (appOpenCount > 1) {
                 StatCard(title = "Training days", value = appOpenCount.toString())
@@ -84,7 +84,7 @@ fun MainMenuScreen(
             onClick = { controller.navigateToAchievements() },
             modifier = Modifier
                 .fillMaxWidth()
-                .height(56.dp)
+                .height(56.dp),
         ) {
             Text("Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.entries.size})")
         }
@@ -96,29 +96,29 @@ private fun GameRow(
     gameType: GameType,
     highscore: Int,
     onPlay: () -> Unit,
-    onViewScore: () -> Unit
+    onViewScore: () -> Unit,
 ) {
     Row(
         modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Button(
             onClick = onPlay,
             modifier = Modifier
                 .weight(1f)
                 .height(56.dp),
-            contentPadding = PaddingValues(start = 16.dp, end = 4.dp)
+            contentPadding = PaddingValues(start = 16.dp, end = 4.dp),
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.Start,
-                verticalAlignment = Alignment.CenterVertically
+                verticalAlignment = Alignment.CenterVertically,
             ) {
                 Image(
                     painter = painterResource(gameType.getIcon()),
                     contentDescription = null,
                     modifier = Modifier.size(28.dp),
-                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary)
+                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
                 )
                 Spacer(Modifier.width(12.dp))
                 Text(gameType.getName())
@@ -129,9 +129,8 @@ private fun GameRow(
                     Spacer(Modifier.width(8.dp))
                     Box(
                         Modifier.size(48.dp).clip(CircleShape).background(Color.White).clickable(onClick = onViewScore),
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.Center,
                     ) {
-
                         Text("$highscore", color = MaterialTheme.colorScheme.primary)
                     }
                 }
@@ -156,19 +155,19 @@ private fun GameType.getIcon() = when (this) {
 @Composable
 private fun StatCard(title: String, value: String) {
     Card(
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier.padding(8.dp),
     ) {
         Column(
             modifier = Modifier.padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
                 text = title,
-                style = MaterialTheme.typography.labelMedium
+                style = MaterialTheme.typography.labelMedium,
             )
             Text(
                 text = value,
-                style = MaterialTheme.typography.headlineSmall
+                style = MaterialTheme.typography.headlineSmall,
             )
         }
     }
