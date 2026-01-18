@@ -193,17 +193,62 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Build AppImage
-        run: ./gradlew :composeApp:packageAppImage
+      - name: Install AppImage tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libfuse2 file
+          wget -q https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+          chmod +x appimagetool-x86_64.AppImage
+
+      - name: Build application distribution
+        run: ./gradlew :composeApp:createDistributable
 
       - name: Get version from tag
         id: version
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
-      - name: Rename AppImage
+      - name: Create AppDir structure
         run: |
-          mv composeApp/build/compose/binaries/main/app/*.AppImage \
-             Braincup-${{ steps.version.outputs.version }}-linux.AppImage
+          mkdir -p AppDir/usr/bin
+          mkdir -p AppDir/usr/lib
+          mkdir -p AppDir/usr/share/applications
+          mkdir -p AppDir/usr/share/icons/hicolor/256x256/apps
+
+          # Copy distributable contents
+          cp -r composeApp/build/compose/binaries/main/app/Braincup/* AppDir/usr/lib/
+
+          # Create a simple placeholder icon (1x1 transparent PNG)
+          echo 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==' | base64 -d > AppDir/usr/share/icons/hicolor/256x256/apps/braincup.png
+          cp AppDir/usr/share/icons/hicolor/256x256/apps/braincup.png AppDir/braincup.png
+
+          # Create desktop file
+          cat > AppDir/braincup.desktop << 'EOF'
+          [Desktop Entry]
+          Name=Braincup
+          Comment=Brain Training Application
+          Exec=braincup
+          Icon=braincup
+          Type=Application
+          Categories=Game;Education;
+          Terminal=false
+          EOF
+          cp AppDir/braincup.desktop AppDir/usr/share/applications/
+
+          # Create AppRun
+          cat > AppDir/AppRun << 'EOF'
+          #!/bin/bash
+          SELF=$(readlink -f "$0")
+          HERE=${SELF%/*}
+          export PATH="${HERE}/usr/lib/bin:${PATH}"
+          export LD_LIBRARY_PATH="${HERE}/usr/lib/lib/runtime/lib:${LD_LIBRARY_PATH}"
+          exec "${HERE}/usr/lib/bin/Braincup" "$@"
+          EOF
+          chmod +x AppDir/AppRun
+
+      - name: Build AppImage
+        run: |
+          ARCH=x86_64 ./appimagetool-x86_64.AppImage --appimage-extract-and-run AppDir \
+            Braincup-${{ steps.version.outputs.version }}-linux.AppImage
 
       - name: Upload AppImage artifact
         uses: actions/upload-artifact@v4
