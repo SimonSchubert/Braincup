@@ -71,6 +71,7 @@ class UserStorage(
         const val KEY_APP_OPEN_DAY = "app_open_day"
         const val KEY_UNLOCKED_ACHIEVEMENTS = "unlocked_achievements"
         const val KEY_TOTAL_SCORE = "total_score"
+        const val KEY_TOTAL_APP_OPENS = "total_app_opens"
     }
 
     private val medalAchievements =
@@ -94,6 +95,12 @@ class UserStorage(
     }
 
     fun getAppOpenCount(): Int = settings.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
+
+    fun incrementAndGetTotalAppOpens(): Int {
+        val count = settings.getInt(KEY_TOTAL_APP_OPENS, 0) + 1
+        settings.putInt(KEY_TOTAL_APP_OPENS, count)
+        return count
+    }
 
     fun putAppOpen() {
         val appOpenDay = settings.getIntOrNull(KEY_APP_OPEN_DAY) ?: -1

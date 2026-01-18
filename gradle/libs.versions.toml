@@ -1,6 +1,6 @@
 [versions]
-appVersion = "2.0.1"
-android-versionCode = "101"
+appVersion = "2.0.2"
+android-versionCode = "102"
 android-compileSdk = "36"
 android-minSdk = "26"
 android-targetSdk = "36"
@@ -15,6 +15,7 @@ kotlinx-coroutines = "1.10.2"
 kotlinx-serialization = "1.9.0"
 kotlinx-datetime = "0.7.1"
 androidx-navigation = "2.9.1"
+play-review = "2.0.2"
 
 [libraries]
 kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
@@ -26,6 +27,7 @@ androidx-lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecy
 multiplatform-settings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatform-settings" }
 multiplatform-settings-no-arg = { module = "com.russhwolf:multiplatform-settings-no-arg", version.ref = "multiplatform-settings" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
+play-review = { module = "com.google.android.play:review-ktx", version.ref = "play-review" }
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
