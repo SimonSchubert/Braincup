@@ -8,7 +8,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.games.getName
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 
 @Composable
@@ -22,7 +21,7 @@ fun FinishScreen(
     onMenu: () -> Unit,
 ) {
     AppScaffold(
-        title = gameType.getName(),
+        title = gameType.displayName,
         onBack = onMenu,
         scrollable = false,
     ) {

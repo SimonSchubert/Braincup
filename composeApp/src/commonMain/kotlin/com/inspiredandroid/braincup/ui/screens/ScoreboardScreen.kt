@@ -10,8 +10,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.games.getId
-import com.inspiredandroid.braincup.games.getName
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 
 @Composable
@@ -20,11 +18,11 @@ fun ScoreboardScreen(
     storage: UserStorage,
     onBack: () -> Unit,
 ) {
-    val highscore = storage.getHighScore(gameType.getId())
-    val scores = storage.getScores(gameType.getId())
+    val highscore = storage.getHighScore(gameType.id)
+    val scores = storage.getScores(gameType.id)
 
     AppScaffold(
-        title = "${gameType.getName()} Scoreboard",
+        title = "${gameType.displayName} Scoreboard",
         onBack = onBack,
         scrollable = false,
     ) {

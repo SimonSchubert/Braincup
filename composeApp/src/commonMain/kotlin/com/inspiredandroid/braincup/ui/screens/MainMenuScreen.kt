@@ -20,8 +20,6 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.games.getId
-import com.inspiredandroid.braincup.games.getName
 import org.jetbrains.compose.resources.painterResource
 
 @Composable
@@ -69,7 +67,7 @@ fun MainMenuScreen(
         GameController.games.forEach { gameType ->
             GameRow(
                 gameType = gameType,
-                highscore = storage.getHighScore(gameType.getId()),
+                highscore = storage.getHighScore(gameType.id),
                 onPlay = { controller.navigateToInstructions(gameType) },
                 onViewScore = { controller.navigateToScoreboard(gameType) },
             )
@@ -100,6 +98,8 @@ fun MainMenuScreen(
         ) {
             Text("Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.entries.size})")
         }
+
+        Spacer(Modifier.height(16.dp))
     }
 }
 
@@ -110,57 +110,41 @@ private fun GameRow(
     onPlay: () -> Unit,
     onViewScore: () -> Unit,
 ) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically,
+    Button(
+        onClick = onPlay,
+        modifier = Modifier
+            .fillMaxWidth()
+            .widthIn(420.dp)
+            .height(56.dp),
+        contentPadding = PaddingValues(start = 16.dp, end = 4.dp),
     ) {
-        Button(
-            onClick = onPlay,
-            modifier = Modifier
-                .weight(1f)
-                .height(56.dp),
-            contentPadding = PaddingValues(start = 16.dp, end = 4.dp),
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalArrangement = Arrangement.Start,
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Image(
-                    painter = painterResource(gameType.getIcon()),
-                    contentDescription = null,
-                    modifier = Modifier.size(28.dp),
-                    colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
-                )
-                Spacer(Modifier.width(12.dp))
-                Text(gameType.getName())
+            Image(
+                painter = painterResource(gameType.icon),
+                contentDescription = null,
+                modifier = Modifier.size(28.dp),
+                colorFilter = ColorFilter.tint(MaterialTheme.colorScheme.onPrimary),
+            )
+            Spacer(Modifier.width(12.dp))
+            Text(gameType.displayName)
 
-                Spacer(Modifier.weight(1f))
+            Spacer(Modifier.weight(1f))
 
-                if (highscore > 0) {
-                    Spacer(Modifier.width(8.dp))
-                    Box(
-                        Modifier.size(48.dp).clip(CircleShape).background(Color.White).clickable(onClick = onViewScore),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Text("$highscore", color = MaterialTheme.colorScheme.primary)
-                    }
+            if (highscore > 0) {
+                Spacer(Modifier.width(8.dp))
+                Box(
+                    Modifier.size(48.dp).clip(CircleShape).background(Color.White).clickable(onClick = onViewScore),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text("$highscore", color = MaterialTheme.colorScheme.primary)
                 }
             }
         }
     }
-}
-
-private fun GameType.getIcon() = when (this) {
-    GameType.MENTAL_CALCULATION -> Res.drawable.ic_mental_calculation
-    GameType.CHAIN_CALCULATION -> Res.drawable.ic_chain_calculation
-    GameType.COLOR_CONFUSION -> Res.drawable.ic_color_confusion
-    GameType.SHERLOCK_CALCULATION -> Res.drawable.ic_sherlock_calculation
-    GameType.FRACTION_CALCULATION -> Res.drawable.ic_fraction_calculation
-    GameType.ANOMALY_PUZZLE -> Res.drawable.ic_anomaly_puzzle
-    GameType.PATH_FINDER -> Res.drawable.ic_path_finder
-    GameType.VALUE_COMPARISON -> Res.drawable.ic_value_comparison
-    GameType.GRID_SOLVER -> Res.drawable.ic_grid_solver
 }
 
 @Composable

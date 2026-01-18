@@ -8,8 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.ic_baseline_check_24
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun AchievementsScreen(
@@ -74,48 +77,23 @@ private fun AchievementCard(
         ) {
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = achievement.getTitle(),
+                    text = achievement.title,
                     style = MaterialTheme.typography.titleMedium,
                 )
                 Text(
-                    text = achievement.getDescription(),
+                    text = achievement.description,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
             if (isUnlocked) {
-                Text(
-                    text = "\u2713",
-                    style = MaterialTheme.typography.headlineMedium,
-                    color = MaterialTheme.colorScheme.primary,
+                Icon(
+                    painterResource(Res.drawable.ic_baseline_check_24),
+                    modifier = Modifier.size(32.dp),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
                 )
             }
         }
     }
-}
-
-private fun UserStorage.Achievements.getTitle(): String = when (this) {
-    UserStorage.Achievements.MEDAL_BRONZE -> "Bronze Medal"
-    UserStorage.Achievements.MEDAL_SILVER -> "Silver Medal"
-    UserStorage.Achievements.MEDAL_GOLD -> "Gold Medal"
-    UserStorage.Achievements.SCORES_10 -> "10 Points"
-    UserStorage.Achievements.SCORES_100 -> "100 Points"
-    UserStorage.Achievements.SCORES_1000 -> "1,000 Points"
-    UserStorage.Achievements.SCORES_10000 -> "10,000 Points"
-    UserStorage.Achievements.APP_OPEN_3 -> "3 Day Streak"
-    UserStorage.Achievements.APP_OPEN_7 -> "7 Day Streak"
-    UserStorage.Achievements.APP_OPEN_30 -> "30 Day Streak"
-}
-
-private fun UserStorage.Achievements.getDescription(): String = when (this) {
-    UserStorage.Achievements.MEDAL_BRONZE -> "Score at least 1 point in all games"
-    UserStorage.Achievements.MEDAL_SILVER -> "Reach silver score in all games"
-    UserStorage.Achievements.MEDAL_GOLD -> "Reach gold score in all games"
-    UserStorage.Achievements.SCORES_10 -> "Accumulate 10 total points"
-    UserStorage.Achievements.SCORES_100 -> "Accumulate 100 total points"
-    UserStorage.Achievements.SCORES_1000 -> "Accumulate 1,000 total points"
-    UserStorage.Achievements.SCORES_10000 -> "Accumulate 10,000 total points"
-    UserStorage.Achievements.APP_OPEN_3 -> "Train 3 days in a row"
-    UserStorage.Achievements.APP_OPEN_7 -> "Train 7 days in a row"
-    UserStorage.Achievements.APP_OPEN_30 -> "Train 30 days in a row"
 }

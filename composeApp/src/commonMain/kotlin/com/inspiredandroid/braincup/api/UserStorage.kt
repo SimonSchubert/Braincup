@@ -1,8 +1,6 @@
 package com.inspiredandroid.braincup.api
 
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.games.getId
-import com.inspiredandroid.braincup.games.getScoreTable
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
@@ -12,17 +10,50 @@ import kotlin.time.Instant
 class UserStorage(
     private val settings: Settings = Settings(),
 ) {
-    enum class Achievements {
-        MEDAL_BRONZE,
-        MEDAL_SILVER,
-        MEDAL_GOLD,
-        SCORES_10,
-        SCORES_100,
-        SCORES_1000,
-        SCORES_10000,
-        APP_OPEN_3,
-        APP_OPEN_7,
-        APP_OPEN_30,
+    enum class Achievements(
+        val title: String,
+        val description: String,
+    ) {
+        MEDAL_BRONZE(
+            title = "Bronze Medal",
+            description = "Score at least 1 point in all games",
+        ),
+        MEDAL_SILVER(
+            title = "Silver Medal",
+            description = "Reach silver score in all games",
+        ),
+        MEDAL_GOLD(
+            title = "Gold Medal",
+            description = "Reach gold score in all games",
+        ),
+        SCORES_10(
+            title = "10 Points",
+            description = "Accumulate 10 total points",
+        ),
+        SCORES_100(
+            title = "100 Points",
+            description = "Accumulate 100 total points",
+        ),
+        SCORES_1000(
+            title = "1,000 Points",
+            description = "Accumulate 1,000 total points",
+        ),
+        SCORES_10000(
+            title = "10,000 Points",
+            description = "Accumulate 10,000 total points",
+        ),
+        APP_OPEN_3(
+            title = "3 Day Streak",
+            description = "Train 3 days in a row",
+        ),
+        APP_OPEN_7(
+            title = "7 Day Streak",
+            description = "Train 7 days in a row",
+        ),
+        APP_OPEN_30(
+            title = "30 Day Streak",
+            description = "Train 30 days in a row",
+        ),
     }
 
     private val scoreAchievements =
@@ -145,11 +176,11 @@ class UserStorage(
     }
 
     private fun hasMedalForAllGames(achievement: Achievements): Boolean = GameType.entries.all {
-        val highscore = getHighScore(it.getId())
+        val highscore = getHighScore(it.id)
         when (achievement) {
             Achievements.MEDAL_BRONZE -> highscore > 0
-            Achievements.MEDAL_SILVER -> highscore >= it.getScoreTable()[1]
-            Achievements.MEDAL_GOLD -> highscore >= it.getScoreTable()[0]
+            Achievements.MEDAL_SILVER -> highscore >= it.silverScore
+            Achievements.MEDAL_GOLD -> highscore >= it.goldScore
             else -> true
         }
     }

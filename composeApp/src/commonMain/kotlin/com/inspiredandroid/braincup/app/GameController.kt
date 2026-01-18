@@ -150,7 +150,7 @@ class GameController(
             points++
         }
 
-        val newHighscore = storage.putScore(gameType.getId(), points)
+        val newHighscore = storage.putScore(gameType.id, points)
 
         _currentScreen.value = Screen.Finish(
             gameType = gameType,

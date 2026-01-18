@@ -13,6 +13,4 @@ abstract class Game {
     abstract fun getGameType(): GameType
 
     abstract fun hint(): String?
-
-    fun getName(): String = getGameType().getName()
 }
