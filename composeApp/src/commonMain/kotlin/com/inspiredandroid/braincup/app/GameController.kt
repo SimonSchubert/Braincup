@@ -192,7 +192,6 @@ class GameController(
         GameType.FRACTION_CALCULATION -> FractionCalculationGame()
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
         GameType.PATH_FINDER -> PathFinderGame()
-        GameType.RIDDLE -> RiddleGame()
         GameType.GRID_SOLVER -> GridSolverGame()
     }
 }

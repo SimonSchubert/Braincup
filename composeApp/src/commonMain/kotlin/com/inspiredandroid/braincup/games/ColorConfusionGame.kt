@@ -20,6 +20,7 @@ class ColorConfusionGame : Game() {
     lateinit var answerShape: Shape
     var colorPoints = 0
     var shapePoints = 0
+    var possibleAnswers: List<String> = emptyList()
 
     private val colors = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.PURPLE)
     private val shapes = listOf(Shape.SQUARE, Shape.TRIANGLE, Shape.CIRCLE, Shape.HEART)
@@ -47,6 +48,12 @@ class ColorConfusionGame : Game() {
         if (shapePoints == colorPoints) {
             shapePoints++
         }
+        possibleAnswers = listOf(
+            0,
+            shapePoints,
+            colorPoints,
+            shapePoints + colorPoints,
+        ).shuffled().map { it.toString() }
     }
 
     fun points(): String {
@@ -59,13 +66,6 @@ class ColorConfusionGame : Game() {
         }
         return points.toString()
     }
-
-    fun getPossibleAnswers(): List<String> = listOf(
-        0,
-        shapePoints,
-        colorPoints,
-        shapePoints + colorPoints,
-    ).sorted().map { it.toString() }
 
     override fun solution(): String = points()
 

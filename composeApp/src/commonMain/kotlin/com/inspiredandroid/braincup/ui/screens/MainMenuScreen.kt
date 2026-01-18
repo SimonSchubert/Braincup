@@ -40,19 +40,31 @@ fun MainMenuScreen(
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = "Braincup",
-            style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.padding(vertical = 16.dp),
-        )
+        Box(
+            modifier = Modifier.padding(top = 16.dp).padding(bottom = 8.dp),
+        ) {
+            Text(
+                text = "Braincup",
+                style = MaterialTheme.typography.headlineLarge,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.align(Alignment.TopCenter),
+            )
 
-        Text(
-            text = "Train your math skills, memory and focus.",
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(bottom = 24.dp),
-        )
+            Image(
+                painterResource(Res.drawable.ic_success),
+                contentDescription = null,
+                modifier = Modifier
+                    .height(190.dp)
+                    .align(Alignment.Center),
+            )
+
+            Text(
+                text = "Train your math skills, memory and focus.",
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 16.dp),
+            )
+        }
 
         GameController.games.forEach { gameType ->
             GameRow(
@@ -149,7 +161,6 @@ private fun GameType.getIcon() = when (this) {
     GameType.PATH_FINDER -> Res.drawable.ic_path_finder
     GameType.VALUE_COMPARISON -> Res.drawable.ic_value_comparison
     GameType.GRID_SOLVER -> Res.drawable.ic_grid_solver
-    GameType.RIDDLE -> Res.drawable.ic_mental_calculation // fallback
 }
 
 @Composable

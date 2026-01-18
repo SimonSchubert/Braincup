@@ -3,8 +3,6 @@ package com.inspiredandroid.braincup.ui.screens
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.text.KeyboardActions
-import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material3.*
@@ -13,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.games.*
@@ -64,7 +61,6 @@ fun GameScreen(
             is AnomalyPuzzleGame -> AnomalyPuzzleContent(game, onAnswer)
             is PathFinderGame -> PathFinderContent(game, onAnswer)
             is ValueComparisonGame -> ValueComparisonContent(game, onAnswer)
-            is RiddleGame -> RiddleContent(game, onAnswer)
             is GridSolverGame -> GridSolverContent(game, onAnswer)
         }
 
@@ -126,12 +122,12 @@ private fun ColumnScope.ColorConfusionContent(
 
     // Point assignments
     Text(
-        text = "${game.shapePoints} = ${game.answerShape.getName()}",
+        text = "${game.answerShape.getName()} = ${game.shapePoints}",
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Text(
-        text = "${game.colorPoints} = ${game.answerColor.getName()}",
+        text = "${game.answerColor.getName()} = ${game.colorPoints}",
         style = MaterialTheme.typography.bodyLarge,
         color = game.stringColor.toComposeColor(),
         modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -143,7 +139,7 @@ private fun ColumnScope.ColorConfusionContent(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.align(Alignment.CenterHorizontally),
     ) {
-        game.getPossibleAnswers().forEach { answer ->
+        game.possibleAnswers.forEach { answer ->
             Button(onClick = { onAnswer(answer) }) {
                 Text(answer)
             }
@@ -346,41 +342,6 @@ private fun ColumnScope.ValueComparisonContent(
             text = answer,
             onClick = { onAnswer((index + 1).toString()) },
         )
-    }
-}
-
-@Composable
-private fun ColumnScope.RiddleContent(
-    game: RiddleGame,
-    onAnswer: (String) -> Unit,
-) {
-    Text(
-        text = game.quest,
-        style = MaterialTheme.typography.bodyLarge,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp),
-    )
-    Spacer(Modifier.height(16.dp))
-
-    var answer by remember { mutableStateOf("") }
-    OutlinedTextField(
-        value = answer,
-        onValueChange = { answer = it },
-        label = { Text("Your answer") },
-        keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
-        keyboardActions = KeyboardActions(
-            onDone = { onAnswer(answer) },
-        ),
-        modifier = Modifier.padding(horizontal = 16.dp),
-    )
-    Spacer(Modifier.height(8.dp))
-    Button(
-        onClick = { onAnswer(answer) },
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    ) {
-        Text("Submit")
     }
 }
 

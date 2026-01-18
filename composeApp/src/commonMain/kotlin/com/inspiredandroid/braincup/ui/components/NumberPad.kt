@@ -9,6 +9,9 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.baseline_backspace_24
+import org.jetbrains.compose.resources.painterResource
 
 @Composable
 fun NumberPad(
@@ -34,11 +37,15 @@ fun NumberPad(
                 Spacer(Modifier.width(8.dp))
                 IconButton(
                     onClick = {
-                        input = input.substring(0, input.lastIndex)
+                        input = input.take(input.lastIndex)
                     },
                     modifier = Modifier.align(Alignment.CenterVertically),
                 ) {
-                    Text("\u232B", style = TextStyle(fontSize = 24.sp))
+                    Icon(
+                        painterResource(Res.drawable.baseline_backspace_24),
+                        contentDescription = null,
+                        tint = Color.Black,
+                    )
                 }
             }
         }
@@ -134,26 +141,6 @@ fun NumberPad(
                     }
                     EmptyCell()
                 }
-            }
-        }
-    }
-}
-
-@Composable
-fun NumberRow(numbers: List<String>, onInputChange: (String) -> Unit) {
-    var input by remember { mutableStateOf("") }
-    Row {
-        numbers.forEach { number ->
-            Button(
-                onClick = {
-                    input += number
-                    onInputChange(input)
-                },
-                modifier = Modifier
-                    .padding(4.dp)
-                    .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
-            ) {
-                Text(number)
             }
         }
     }
