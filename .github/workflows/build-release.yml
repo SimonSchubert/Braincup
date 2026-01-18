@@ -144,8 +144,75 @@ jobs:
           name: linux-deb
           path: Braincup-${{ steps.version.outputs.version }}-linux.deb
 
+  rpm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Install RPM tools
+        run: sudo apt-get install -y rpm
+
+      - name: Build RPM
+        run: ./gradlew :composeApp:packageRpm
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename RPM
+        run: |
+          mv composeApp/build/compose/binaries/main/rpm/*.rpm \
+             Braincup-${{ steps.version.outputs.version }}-linux.rpm
+
+      - name: Upload RPM artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-rpm
+          path: Braincup-${{ steps.version.outputs.version }}-linux.rpm
+
+  appimage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build AppImage
+        run: ./gradlew :composeApp:packageAppImage
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename AppImage
+        run: |
+          mv composeApp/build/compose/binaries/main/app/*.AppImage \
+             Braincup-${{ steps.version.outputs.version }}-linux.AppImage
+
+      - name: Upload AppImage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-appimage
+          path: Braincup-${{ steps.version.outputs.version }}-linux.AppImage
+
   release:
-    needs: [apk, dmg, msi, deb]
+    needs: [apk, dmg, msi, deb, rpm, appimage]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -170,3 +237,5 @@ jobs:
             artifacts/macos-dmg/Braincup-${{ steps.version.outputs.version }}-macos.dmg
             artifacts/windows-msi/Braincup-${{ steps.version.outputs.version }}-windows.msi
             artifacts/linux-deb/Braincup-${{ steps.version.outputs.version }}-linux.deb
+            artifacts/linux-rpm/Braincup-${{ steps.version.outputs.version }}-linux.rpm
+            artifacts/linux-appimage/Braincup-${{ steps.version.outputs.version }}-linux.AppImage
