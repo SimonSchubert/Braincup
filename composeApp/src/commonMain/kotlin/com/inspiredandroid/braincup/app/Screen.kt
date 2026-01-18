@@ -13,6 +13,7 @@ sealed class Screen {
     data class Playing(
         val gameType: GameType,
         val game: Game,
+        val stateVersion: Long = 0,
     ) : Screen()
 
     data class AnswerFeedback(

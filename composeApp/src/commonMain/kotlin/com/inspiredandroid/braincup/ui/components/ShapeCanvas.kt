@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.withTransform
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -47,11 +48,12 @@ fun ShapeCanvasButton(
     figure: Figure,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    enabled: Boolean = true,
 ) {
     ShapeCanvas(
         figure = figure,
-        modifier = modifier.clickable(
-            onClick = onClick,
-        ),
+        modifier = modifier
+            .alpha(if (enabled) 1f else 0.3f)
+            .clickable(enabled = enabled, onClick = onClick),
     )
 }

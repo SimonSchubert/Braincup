@@ -37,7 +37,13 @@ fun App() {
                     GameScreen(
                         game = screen.game,
                         timeRemaining = timeRemaining,
-                        onAnswer = { controller.submitAnswer(it) },
+                        onAnswer = {
+                            if (screen.gameType == com.inspiredandroid.braincup.games.GameType.VISUAL_MEMORY) {
+                                controller.submitVisualMemoryAnswer(it)
+                            } else {
+                                controller.submitAnswer(it)
+                            }
+                        },
                         onGiveUp = { controller.giveUp() },
                         onBack = { controller.navigateToMainMenu() },
                     )

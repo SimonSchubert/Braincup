@@ -53,6 +53,7 @@ fun GameScreen(
             is AnomalyPuzzleGame -> AnomalyPuzzleContent(game, onAnswer)
             is PathFinderGame -> PathFinderContent(game, onAnswer)
             is ColorConfusionGame -> ColorConfusionContent(game, onAnswer)
+            is VisualMemoryGame -> VisualMemoryContent(game, onAnswer)
             is MentalCalculationGame -> MentalCalculationContent(game, onAnswer)
             is SherlockCalculationGame -> SherlockCalculationContent(game, onAnswer, onGiveUp)
             is ChainCalculationGame -> ChainCalculationContent(game, onAnswer)
@@ -609,6 +610,165 @@ private fun TimeProgressIndicator(
                 size = Size(progressWidth, size.height),
                 cornerRadius = cornerRadius,
             )
+        }
+    }
+}
+
+// --- Visual Memory Game Composables ---
+
+@Composable
+private fun ColumnScope.VisualMemoryContent(
+    game: VisualMemoryGame,
+    onAnswer: (String) -> Unit,
+) {
+    val memorizeDurationSeconds = (VisualMemoryGame.MEMORIZE_DURATION_MILLIS / 1000).toInt()
+
+    // Key on round to reset state when round changes
+    key(game.round) {
+        var countdown by remember { mutableStateOf(memorizeDurationSeconds) }
+        var phase by remember { mutableStateOf(game.phase) }
+
+        // Countdown timer during memorization phase
+        LaunchedEffect(game.round) {
+            countdown = memorizeDurationSeconds
+            phase = VisualMemoryGame.Phase.MEMORIZING
+
+            while (countdown > 0) {
+                kotlinx.coroutines.delay(1000L)
+                countdown--
+            }
+
+            // Transition to answer phase
+            game.startAnswerPhase()
+            phase = VisualMemoryGame.Phase.ANSWERING
+        }
+
+        // Round indicator
+        Spacer(Modifier.height(8.dp))
+
+        // Phase indicator with countdown or target shape
+        if (phase == VisualMemoryGame.Phase.MEMORIZING) {
+            Text(
+                text = "$countdown",
+                style = MaterialTheme.typography.headlineMedium,
+                color = MaterialTheme.colorScheme.primary,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+        Spacer(Modifier.height(16.dp))
+
+        // 3x3 Grid - key on currentGuessIndex to recompose when guess advances
+        key(game.currentGuessIndex) {
+            Column(
+                modifier = Modifier
+                    .padding(horizontal = 24.dp)
+                    .widthIn(max = 80.dp * 3),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                for (row in 0 until 3) {
+                    Row {
+                        for (col in 0 until 3) {
+                            val position = row * 3 + col
+                            VisualMemoryCell(
+                                game = game,
+                                position = position,
+                                phase = phase,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .aspectRatio(1f)
+                                    .padding(4.dp),
+                            )
+                        }
+                    }
+                }
+            }
+        }
+
+        Spacer(Modifier.height(24.dp))
+
+        // Answer options (only visible during answer phase)
+        if (phase == VisualMemoryGame.Phase.ANSWERING) {
+            // 3x3 grid of answer options (shuffled) - key on currentGuessIndex
+            key(game.currentGuessIndex) {
+                Column(
+                    modifier = Modifier
+                        .padding(horizontal = 24.dp)
+                        .widthIn(max = 72.dp * 3),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    game.shuffledAnswerOptions.chunked(3).forEach { rowFigures ->
+                        Row {
+                            rowFigures.forEach { figure ->
+                                // Find the original index in availableFigures for the answer
+                                val figureIndex = game.availableFigures.indexOf(figure)
+                                val isAlreadyGuessed = game.isFigureRevealed(figureIndex)
+                                ShapeCanvasButton(
+                                    figure = figure,
+                                    onClick = { onAnswer(figureIndex.toString()) },
+                                    enabled = !isAlreadyGuessed,
+                                    modifier = Modifier
+                                        .weight(1f)
+                                        .aspectRatio(1f)
+                                        .padding(4.dp),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun VisualMemoryCell(
+    game: VisualMemoryGame,
+    position: Int,
+    phase: VisualMemoryGame.Phase,
+    modifier: Modifier = Modifier,
+) {
+    val figure = game.getFigureAt(position)
+    val hasPlacedFigure = game.hasPlacedFigure(position)
+    val isEmptyCell = !hasPlacedFigure
+    // Current target shows "?" during answer phase
+    val isCurrentTarget = phase == VisualMemoryGame.Phase.ANSWERING &&
+        position == game.getCurrentTargetPosition()
+    // Hidden cells have a figure, are not revealed, and are not the current target
+    val isHiddenCell = phase == VisualMemoryGame.Phase.ANSWERING &&
+        hasPlacedFigure &&
+        position !in game.revealedPositions &&
+        !isCurrentTarget
+
+    Card(
+        modifier = modifier,
+        colors = CardDefaults.cardColors(
+            containerColor = when {
+                isCurrentTarget -> MaterialTheme.colorScheme.primaryContainer
+                isHiddenCell -> MaterialTheme.colorScheme.surfaceVariant
+                isEmptyCell -> MaterialTheme.colorScheme.surfaceVariant
+                else -> MaterialTheme.colorScheme.surface
+            },
+        ),
+    ) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            when {
+                isCurrentTarget -> {
+                    Text(
+                        text = "?",
+                        style = MaterialTheme.typography.headlineLarge,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    )
+                }
+                figure != null -> {
+                    ShapeCanvas(
+                        figure = figure,
+                        modifier = Modifier.fillMaxSize().padding(8.dp),
+                    )
+                }
+            }
         }
     }
 }

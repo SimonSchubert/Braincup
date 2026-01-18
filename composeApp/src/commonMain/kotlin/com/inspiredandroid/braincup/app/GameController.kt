@@ -34,6 +34,7 @@ class GameController(
             GameType.ANOMALY_PUZZLE,
             GameType.PATH_FINDER,
             GameType.COLOR_CONFUSION,
+            GameType.VISUAL_MEMORY,
             GameType.MENTAL_CALCULATION,
             GameType.SHERLOCK_CALCULATION,
             GameType.CHAIN_CALCULATION,
@@ -64,6 +65,12 @@ class GameController(
     }
 
     fun startGame(gameType: GameType) {
+        // Visual Memory has special handling (no timer, round-based)
+        if (gameType == GameType.VISUAL_MEMORY) {
+            startVisualMemoryGame()
+            return
+        }
+
         startTime = Clock.System.now().toEpochMilliseconds()
         plays++
         points = 0
@@ -193,5 +200,73 @@ class GameController(
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
         GameType.PATH_FINDER -> PathFinderGame()
         GameType.GRID_SOLVER -> GridSolverGame()
+        GameType.VISUAL_MEMORY -> VisualMemoryGame()
+    }
+
+    fun startVisualMemoryGame() {
+        startTime = Clock.System.now().toEpochMilliseconds()
+        plays++
+        points = 0
+
+        val game = VisualMemoryGame()
+        game.nextRound()
+        game.round++
+
+        _currentScreen.value = Screen.Playing(GameType.VISUAL_MEMORY, game)
+        // No timer for visual memory - game is round-based, not time-based
+    }
+
+    fun submitVisualMemoryAnswer(answer: String) {
+        val currentState = _currentScreen.value
+        if (currentState !is Screen.Playing) return
+
+        val game = currentState.game as? VisualMemoryGame ?: return
+        val isCorrect = game.isCorrect(answer)
+
+        if (isCorrect) {
+            // Advance to next shape in this round
+            game.advanceGuess()
+
+            if (game.isRoundComplete()) {
+                // All shapes in this round identified
+                points++
+
+                if (game.isGameComplete()) {
+                    // Win - completed all 9 rounds
+                    finishVisualMemoryGame(game)
+                } else {
+                    // Proceed to next round
+                    game.nextRound()
+                    game.round++
+                    _currentScreen.value = Screen.Playing(
+                        gameType = GameType.VISUAL_MEMORY,
+                        game = game,
+                        stateVersion = game.round.toLong(),
+                    )
+                }
+            } else {
+                // More shapes to identify in this round - trigger UI update
+                _currentScreen.value = Screen.Playing(
+                    gameType = GameType.VISUAL_MEMORY,
+                    game = game,
+                    stateVersion = game.round * 100L + game.currentGuessIndex,
+                )
+            }
+        } else {
+            // Wrong answer - game over
+            game.answeredAllCorrect = false
+            finishVisualMemoryGame(game)
+        }
+    }
+
+    private fun finishVisualMemoryGame(game: VisualMemoryGame) {
+        val newHighscore = storage.putScore(GameType.VISUAL_MEMORY.id, points)
+
+        _currentScreen.value = Screen.Finish(
+            gameType = GameType.VISUAL_MEMORY,
+            score = points,
+            isNewHighscore = newHighscore,
+            answeredAllCorrect = game.answeredAllCorrect,
+        )
     }
 }

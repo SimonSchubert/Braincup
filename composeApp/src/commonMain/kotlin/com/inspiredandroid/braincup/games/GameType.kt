@@ -10,6 +10,7 @@ import braincup.composeapp.generated.resources.ic_mental_calculation
 import braincup.composeapp.generated.resources.ic_path_finder
 import braincup.composeapp.generated.resources.ic_sherlock_calculation
 import braincup.composeapp.generated.resources.ic_value_comparison
+import braincup.composeapp.generated.resources.ic_visual_memory
 import org.jetbrains.compose.resources.DrawableResource
 
 enum class GameType(
@@ -91,5 +92,13 @@ enum class GameType(
         silverScore = 6,
         description = "Fill in the missing numbers so that the sum of each row and column is equal to the numbers given.",
         icon = Res.drawable.ic_grid_solver,
+    ),
+    VISUAL_MEMORY(
+        displayName = "Visual memory",
+        id = "10",
+        goldScore = 9,
+        silverScore = 6,
+        description = "Memorize the shapes on the grid. Identify the hidden shape after the timer ends.",
+        icon = Res.drawable.ic_visual_memory,
     ),
 }

@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -26,9 +27,8 @@ import org.jetbrains.compose.resources.painterResource
 fun MainMenuScreen(
     controller: GameController,
 ) {
-    val storage = controller.storage
-    val totalScore = storage.getTotalScore()
-    val appOpenCount = storage.getAppOpenCount()
+    val totalScore = remember { controller.storage.getTotalScore() }
+    val appOpenCount = remember { controller.storage.getAppOpenCount() }
 
     Column(
         modifier = Modifier
@@ -64,10 +64,14 @@ fun MainMenuScreen(
             )
         }
 
+        val highscores = remember {
+            GameController.games.associate { it.id to controller.storage.getHighScore(it.id) }
+        }
+
         GameController.games.forEach { gameType ->
             GameRow(
                 gameType = gameType,
-                highscore = storage.getHighScore(gameType.id),
+                highscore = highscores[gameType.id] ?: 0,
                 onPlay = { controller.navigateToInstructions(gameType) },
                 onViewScore = { controller.navigateToScoreboard(gameType) },
             )
@@ -90,13 +94,15 @@ fun MainMenuScreen(
 
         Spacer(Modifier.height(16.dp))
 
+        val unlockedCount = remember { controller.storage.getUnlockedAchievements().size }
+
         Button(
             onClick = { controller.navigateToAchievements() },
             modifier = Modifier
                 .fillMaxWidth()
                 .height(56.dp),
         ) {
-            Text("Achievements (${storage.getUnlockedAchievements().size}/${UserStorage.Achievements.entries.size})")
+            Text("Achievements ($unlockedCount/${UserStorage.Achievements.entries.size})")
         }
 
         Spacer(Modifier.height(16.dp))
