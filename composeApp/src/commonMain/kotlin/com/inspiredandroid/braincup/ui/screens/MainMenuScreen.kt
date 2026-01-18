@@ -1,13 +1,18 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -102,7 +107,7 @@ private fun GameRow(
             modifier = Modifier
                 .weight(1f)
                 .height(56.dp),
-            contentPadding = PaddingValues(horizontal = 16.dp)
+            contentPadding = PaddingValues(start = 16.dp, end = 4.dp)
         ) {
             Row(
                 modifier = Modifier.fillMaxWidth(),
@@ -117,16 +122,19 @@ private fun GameRow(
                 )
                 Spacer(Modifier.width(12.dp))
                 Text(gameType.getName())
-            }
-        }
 
-        if (highscore > 0) {
-            Spacer(Modifier.width(8.dp))
-            OutlinedButton(
-                onClick = onViewScore,
-                modifier = Modifier.height(56.dp)
-            ) {
-                Text("$highscore")
+                Spacer(Modifier.weight(1f))
+
+                if (highscore > 0) {
+                    Spacer(Modifier.width(8.dp))
+                    Box(
+                        Modifier.size(48.dp).clip(CircleShape).background(Color.White).clickable(onClick = onViewScore),
+                        contentAlignment = Alignment.Center
+                    ) {
+
+                        Text("$highscore", color = MaterialTheme.colorScheme.primary)
+                    }
+                }
             }
         }
     }

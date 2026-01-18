@@ -58,8 +58,7 @@ fun GameType.getScoreTable(): Array<Int> {
     }
 }
 
-fun GameType.getDescription(addTimeLimit: Boolean = true): String {
-    val timeLimitString = " Time limit is 1 minute."
+fun GameType.getDescription(): String {
     return when (this) {
         GameType.MENTAL_CALCULATION -> "Follow the mathematical expressions. Use the result as the base for the next calculation."
         GameType.COLOR_CONFUSION -> "Sum up the points of the correct statements."
@@ -71,10 +70,6 @@ fun GameType.getDescription(addTimeLimit: Boolean = true): String {
         GameType.RIDDLE -> "Solve the riddle."
         GameType.PATH_FINDER -> "Start at the marked position and follow the arrow instructions to find the destination."
         GameType.GRID_SOLVER -> "Fill in the missing numbers so that the sum of each row and column is equal to the numbers given."
-    } + if (addTimeLimit) {
-        timeLimitString
-    } else {
-        ""
     }
 }
 

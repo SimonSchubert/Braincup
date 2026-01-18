@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -10,6 +11,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.style.TextAlign
@@ -18,6 +21,7 @@ import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.getFigure
 import com.inspiredandroid.braincup.games.tools.getName
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPad
@@ -43,19 +47,15 @@ fun GameScreen(
     onBack: () -> Unit
 ) {
     GameScaffold(onBack = onBack) {
-        // Timer display
-        val seconds = (timeRemaining / 1000).toInt()
-        LinearProgressIndicator(
-            progress = { timeRemaining / 60000f },
+
+        TimeProgressIndicator(
+            progress = timeRemaining / 60000f,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp, vertical = 8.dp)
         )
-        Text(
-            text = "${seconds}s",
-            style = MaterialTheme.typography.labelMedium,
-            modifier = Modifier.padding(bottom = 16.dp)
-        )
+
+        Spacer(Modifier.weight(1f))
 
         when (game) {
             is MentalCalculationGame -> MentalCalculationContent(game, onAnswer)
@@ -69,6 +69,8 @@ fun GameScreen(
             is RiddleGame -> RiddleContent(game, onAnswer)
             is GridSolverGame -> GridSolverContent(game, onAnswer)
         }
+
+        Spacer(Modifier.weight(1f))
     }
 }
 
@@ -293,14 +295,16 @@ private fun ColumnScope.PathFinderContent(
         modifier = Modifier.align(Alignment.CenterHorizontally)
     )
     Spacer(Modifier.height(8.dp))
-    Text(
-        text = game.directions.joinToString(" ") { it.getName() },
-        style = MaterialTheme.typography.headlineSmall,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp)
-    )
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        game.directions.forEach {
+            ShapeCanvas(32.dp,
+                it.getFigure()
+            )
+        }
+    }
     Spacer(Modifier.height(16.dp))
 
     // 4x4 grid with orange start position and grey cells
@@ -477,12 +481,6 @@ private fun ColumnScope.GridSolverContent(
     }
 
     Spacer(Modifier.height(8.dp))
-    Text(
-        text = "Cell ${currentIndex + 1} of $totalCells",
-        style = MaterialTheme.typography.bodySmall,
-        modifier = Modifier.align(Alignment.CenterHorizontally)
-    )
-    Spacer(Modifier.height(8.dp))
 
     NumberPad(onInputChange = { input ->
         if (input.isNotEmpty()) {
@@ -612,6 +610,38 @@ private fun OperatorRow(
                     style = MaterialTheme.typography.titleMedium
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun TimeProgressIndicator(
+    progress: Float,
+    modifier: Modifier = Modifier
+) {
+    val trackColor = MaterialTheme.colorScheme.surfaceVariant
+    val progressColor = MaterialTheme.colorScheme.primary
+
+    Canvas(
+        modifier = modifier.height(12.dp)
+    ) {
+        val cornerRadius = CornerRadius(size.height / 2, size.height / 2)
+
+        // Draw track (background)
+        drawRoundRect(
+            color = trackColor,
+            size = size,
+            cornerRadius = cornerRadius
+        )
+
+        // Draw progress
+        val progressWidth = size.width * progress.coerceIn(0f, 1f)
+        if (progressWidth > 0f) {
+            drawRoundRect(
+                color = progressColor,
+                size = Size(progressWidth, size.height),
+                cornerRadius = cornerRadius
+            )
         }
     }
 }
