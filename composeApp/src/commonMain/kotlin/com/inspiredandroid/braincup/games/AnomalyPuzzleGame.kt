@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.games
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
-import com.inspiredandroid.braincup.games.tools.getName
 
 /**
  * Generate 6,9 or 16 figures with one outstanding figure that doesn't match the other shapes and colors.
@@ -346,7 +345,7 @@ class AnomalyPuzzleGame : Game() {
             } else {
                 ""
             }
-        return "${figure.color.getName()} ${figure.shape.getName()} $extraInfo".trim()
+        return "${figure.color.displayName} ${figure.shape.displayName} $extraInfo".trim()
     }
 
     override fun hint(): String? = null

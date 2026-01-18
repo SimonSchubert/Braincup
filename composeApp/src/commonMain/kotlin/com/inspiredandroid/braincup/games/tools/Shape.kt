@@ -4,46 +4,21 @@ import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
-enum class Shape {
-    SQUARE,
-    TRIANGLE,
-    CIRCLE,
-    HEART,
-    STAR,
-    T,
-    L,
-    DIAMOND,
-    HOUSE,
-    ABSTRACT_TRIANGLE,
-    ARROW,
-}
-
-fun Shape.getName(): String = when (this) {
-    Shape.SQUARE -> "square"
-    Shape.TRIANGLE -> "triangle"
-    Shape.CIRCLE -> "circle"
-    Shape.HEART -> "heart"
-    Shape.STAR -> "star"
-    Shape.T -> "T shape"
-    Shape.L -> "L shape"
-    Shape.DIAMOND -> "diamond"
-    Shape.HOUSE -> "house"
-    Shape.ABSTRACT_TRIANGLE -> "triangle"
-    Shape.ARROW -> "arrow"
-}
-
-fun Shape.getPaths(): List<Pair<Float, Float>> = when (this) {
-    Shape.SQUARE -> squarePath
-    Shape.TRIANGLE -> trianglePath
-    Shape.HEART -> heartPath
-    Shape.STAR -> starPath
-    Shape.CIRCLE -> circlePath
-    Shape.T -> tPath
-    Shape.L -> lPath
-    Shape.DIAMOND -> diamondPath
-    Shape.HOUSE -> housePath
-    Shape.ABSTRACT_TRIANGLE -> abstractTrianglePath
-    Shape.ARROW -> arrowPath
+enum class Shape(
+    val displayName: String,
+    val paths: List<Pair<Float, Float>>,
+) {
+    SQUARE(displayName = "square", paths = squarePath),
+    TRIANGLE(displayName = "triangle", paths = trianglePath),
+    CIRCLE(displayName = "circle", paths = circlePath),
+    HEART(displayName = "heart", paths = heartPath),
+    STAR(displayName = "star", paths = starPath),
+    T(displayName = "T shape", paths = tPath),
+    L(displayName = "L shape", paths = lPath),
+    DIAMOND(displayName = "diamond", paths = diamondPath),
+    HOUSE(displayName = "house", paths = housePath),
+    ABSTRACT_TRIANGLE(displayName = "triangle", paths = abstractTrianglePath),
+    ARROW(displayName = "arrow", paths = arrowPath),
 }
 
 val arrowPath by lazy {

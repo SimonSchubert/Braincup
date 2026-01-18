@@ -12,7 +12,6 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.withTransform
 import androidx.compose.ui.unit.Dp
 import com.inspiredandroid.braincup.games.tools.Figure
-import com.inspiredandroid.braincup.games.tools.getPaths
 
 @Composable
 fun ShapeCanvas(
@@ -23,7 +22,7 @@ fun ShapeCanvas(
     Box(modifier = modifier.size(size)) {
         Canvas(modifier = Modifier.size(size)) {
             val path = Path()
-            figure.shape.getPaths().forEachIndexed { index, pair ->
+            figure.shape.paths.forEachIndexed { index, pair ->
                 val x = this.size.width * pair.first
                 val y = this.size.height * pair.second
                 if (index == 0) {
@@ -38,10 +37,10 @@ fun ShapeCanvas(
                 withTransform({
                     rotate(figure.rotation.toFloat())
                 }) {
-                    drawPath(path, color = figure.color.toComposeColor())
+                    drawPath(path, color = figure.color.composeColor)
                 }
             } else {
-                drawPath(path, color = figure.color.toComposeColor())
+                drawPath(path, color = figure.color.composeColor)
             }
         }
     }

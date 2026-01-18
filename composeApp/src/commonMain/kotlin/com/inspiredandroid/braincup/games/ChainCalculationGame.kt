@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.games
 import com.inspiredandroid.braincup.addString
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Operator
-import com.inspiredandroid.braincup.games.tools.toChar
 import kotlin.random.Random
 
 /**
@@ -41,7 +40,7 @@ class ChainCalculationGame : Game() {
             calculation += Random.nextInt(2, maxNumber)
             if (i != numberCount - 1) {
                 lastOperator = availableOperators.random()
-                calculation += lastOperator.toChar()
+                calculation += lastOperator.char
             }
         }
         // add brackets
@@ -61,12 +60,12 @@ class ChainCalculationGame : Game() {
         // replace consecutive multiplications with '+'
         var previousOperator = ' '
         calculation.forEachIndexed { index, c ->
-            if (c == Operator.MULTIPLY.toChar() || c == Operator.MINUS.toChar() || c == Operator.PLUS.toChar()) {
+            if (c == Operator.MULTIPLY.char || c == Operator.MINUS.char || c == Operator.PLUS.char) {
                 previousOperator =
-                    if (c == Operator.MULTIPLY.toChar() && previousOperator == Operator.MULTIPLY.toChar()) {
+                    if (c == Operator.MULTIPLY.char && previousOperator == Operator.MULTIPLY.char) {
                         calculation =
-                            calculation.replaceRange(index, index + 1, Operator.PLUS.toChar() + "")
-                        Operator.PLUS.toChar()
+                            calculation.replaceRange(index, index + 1, Operator.PLUS.char + "")
+                        Operator.PLUS.char
                     } else {
                         c
                     }
@@ -76,7 +75,7 @@ class ChainCalculationGame : Game() {
         result = Calculator.calculate(calculation).toInt()
         // replace '-' with '+' until result is positive
         while (result < 0) {
-            calculation = calculation.replaceFirst(Operator.MINUS.toChar(), Operator.PLUS.toChar())
+            calculation = calculation.replaceFirst(Operator.MINUS.char, Operator.PLUS.char)
             result = Calculator.calculate(calculation).toInt()
         }
         numberCount++

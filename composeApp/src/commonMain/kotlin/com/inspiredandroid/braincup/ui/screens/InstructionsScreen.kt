@@ -9,6 +9,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.DefaultButton
 
 @Composable
 fun InstructionsScreen(
@@ -34,11 +35,10 @@ fun InstructionsScreen(
 
         Spacer(Modifier.height(32.dp))
 
-        Button(
-            onClick = onStart,
+        DefaultButton(
             modifier = Modifier.align(Alignment.CenterHorizontally),
-        ) {
-            Text("Start")
-        }
+            onClick = onStart,
+            value = "Start",
+        )
     }
 }

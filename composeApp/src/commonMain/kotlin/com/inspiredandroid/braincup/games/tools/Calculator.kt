@@ -27,17 +27,17 @@ object Calculator {
 
     private fun solve(expression: String, operator: Operator = Operator.PLUS): Double {
         var sum = 0.0
-        expression.split(operator.toChar()).forEachIndexed { index, s ->
+        expression.split(operator.char).forEachIndexed { index, s ->
             when {
-                s.contains(Operator.PLUS.toChar()) -> sum += solve(
+                s.contains(Operator.PLUS.char) -> sum += solve(
                     s,
                     Operator.PLUS,
                 )
-                s.contains(Operator.MULTIPLY.toChar()) -> sum += solve(
+                s.contains(Operator.MULTIPLY.char) -> sum += solve(
                     s,
                     Operator.MULTIPLY,
                 )
-                s.contains(Operator.DIVIDE.toChar()) -> sum += solve(
+                s.contains(Operator.DIVIDE.char) -> sum += solve(
                     s,
                     Operator.DIVIDE,
                 )
@@ -75,7 +75,7 @@ object Calculator {
 
             result = result.removeRange(lastOpenBracketIndex, lastCloseBracketIndex + 1)
             result = result.addString(innerBracketValue.toString(), lastOpenBracketIndex)
-            result = result.replace("--", Operator.PLUS.toChar().toString())
+            result = result.replace("--", Operator.PLUS.char.toString())
         }
         // abort calculation if result has unresolved brackets
         return if (result.indexOf(bracketLeft) != -1 ||

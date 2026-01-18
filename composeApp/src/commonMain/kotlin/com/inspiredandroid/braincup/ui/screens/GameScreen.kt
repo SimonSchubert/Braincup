@@ -13,18 +13,17 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.max
+import androidx.compose.ui.unit.min
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
-import com.inspiredandroid.braincup.games.tools.getFigure
-import com.inspiredandroid.braincup.games.tools.getName
+import com.inspiredandroid.braincup.ui.components.CircleButton
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPad
-import com.inspiredandroid.braincup.ui.components.OptionButton
 import com.inspiredandroid.braincup.ui.components.ShapeCanvas
 import com.inspiredandroid.braincup.ui.components.ShapeCanvasButton
-import com.inspiredandroid.braincup.ui.components.toComposeColor
 
 /**
  * Represents a token in the Sherlock Calculation expression builder.
@@ -53,13 +52,13 @@ fun GameScreen(
         Spacer(Modifier.weight(1f))
 
         when (game) {
-            is MentalCalculationGame -> MentalCalculationContent(game, onAnswer)
-            is ChainCalculationGame -> ChainCalculationContent(game, onAnswer)
-            is ColorConfusionGame -> ColorConfusionContent(game, onAnswer)
-            is SherlockCalculationGame -> SherlockCalculationContent(game, onAnswer, onGiveUp)
-            is FractionCalculationGame -> FractionCalculationContent(game, onAnswer)
             is AnomalyPuzzleGame -> AnomalyPuzzleContent(game, onAnswer)
             is PathFinderGame -> PathFinderContent(game, onAnswer)
+            is ColorConfusionGame -> ColorConfusionContent(game, onAnswer)
+            is MentalCalculationGame -> MentalCalculationContent(game, onAnswer)
+            is SherlockCalculationGame -> SherlockCalculationContent(game, onAnswer, onGiveUp)
+            is ChainCalculationGame -> ChainCalculationContent(game, onAnswer)
+            is FractionCalculationGame -> FractionCalculationContent(game, onAnswer)
             is ValueComparisonGame -> ValueComparisonContent(game, onAnswer)
             is GridSolverGame -> GridSolverContent(game, onAnswer)
         }
@@ -114,7 +113,7 @@ private fun ColumnScope.ColorConfusionContent(
 ) {
     // Show actual shape with color
     ShapeCanvas(
-        size = 96.dp,
+        size = 200.dp,
         figure = Figure(game.displayedShape, game.displayedColor),
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
@@ -122,14 +121,14 @@ private fun ColumnScope.ColorConfusionContent(
 
     // Point assignments
     Text(
-        text = "${game.answerShape.getName()} = ${game.shapePoints}",
+        text = "${game.answerShape.displayName} = ${game.shapePoints}",
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Text(
-        text = "${game.answerColor.getName()} = ${game.colorPoints}",
+        text = "${game.answerColor.displayName} = ${game.colorPoints}",
         style = MaterialTheme.typography.bodyLarge,
-        color = game.stringColor.toComposeColor(),
+        color = game.stringColor.composeColor,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
@@ -140,9 +139,7 @@ private fun ColumnScope.ColorConfusionContent(
         modifier = Modifier.align(Alignment.CenterHorizontally),
     ) {
         game.possibleAnswers.forEach { answer ->
-            Button(onClick = { onAnswer(answer) }) {
-                Text(answer)
-            }
+            CircleButton(onClick = { onAnswer(answer) }, value = answer)
         }
     }
 }
@@ -260,19 +257,27 @@ private fun ColumnScope.AnomalyPuzzleContent(
         else -> 2
     }
 
-    game.figures.chunked(chunkSize).forEachIndexed { y, figures ->
-        Row(
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            figures.forEachIndexed { x, figure ->
-                val index = y * chunkSize + x
-                ShapeCanvasButton(
-                    size = 48.dp,
-                    modifier = Modifier.padding(8.dp),
-                    figure = figure,
-                    onClick = { onAnswer("${index + 1}") },
-                )
+    BoxWithConstraints(
+        Modifier.padding(horizontal = 24.dp).widthIn(max = 400.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        val size = (maxWidth / (chunkSize + 1))
+        Column {
+            game.figures.chunked(chunkSize).forEachIndexed { y, figures ->
+                Row(
+                    horizontalArrangement = Arrangement.Center,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    figures.forEachIndexed { x, figure ->
+                        val index = y * chunkSize + x
+                        ShapeCanvasButton(
+                            size = min(size, 72.dp),
+                            modifier = Modifier.padding(8.dp),
+                            figure = figure,
+                            onClick = { onAnswer("${index + 1}") },
+                        )
+                    }
+                }
             }
         }
     }
@@ -296,7 +301,7 @@ private fun ColumnScope.PathFinderContent(
         game.directions.forEach {
             ShapeCanvas(
                 32.dp,
-                it.getFigure(),
+                it.figure,
             )
         }
     }
@@ -338,10 +343,14 @@ private fun ColumnScope.ValueComparisonContent(
     Spacer(Modifier.height(16.dp))
 
     game.answers.forEachIndexed { index, answer ->
-        OptionButton(
-            text = answer,
+        Button(
             onClick = { onAnswer((index + 1).toString()) },
-        )
+            modifier = Modifier
+                .padding(4.dp)
+                .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
+        ) {
+            Text(answer)
+        }
     }
 }
 
@@ -556,21 +565,17 @@ private fun OperatorRow(
     modifier: Modifier = Modifier,
 ) {
     val operators = listOf("+", "-", "*", "/", "(", ")")
-    Row(
+    FlowRow(
         modifier = modifier.padding(horizontal = 16.dp),
+        maxItemsInEachRow = 3,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         operators.forEach { operator ->
-            OutlinedButton(
+            CircleButton(
                 onClick = { onOperatorClick(operator) },
-                modifier = Modifier.size(48.dp),
-                contentPadding = PaddingValues(0.dp),
-            ) {
-                Text(
-                    text = operator,
-                    style = MaterialTheme.typography.titleMedium,
-                )
-            }
+                value = operator,
+            )
         }
     }
 }

@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Operator
-import com.inspiredandroid.braincup.games.tools.toChar
 import com.inspiredandroid.braincup.numbersRegex
 import kotlin.random.Random
 
@@ -63,7 +62,7 @@ class SherlockCalculationGame : Game() {
         result = Calculator.calculate(calculation).toInt()
 
         while (numbers.contains(result)) {
-            calculation += Operator.MULTIPLY.toChar()
+            calculation += Operator.MULTIPLY.char
             val number = Random.nextInt(2, 4)
             calculation += "$number"
             numbers.add(number)
@@ -101,6 +100,6 @@ class SherlockCalculationGame : Game() {
         if (excludeMultiply && operator == Operator.MULTIPLY) {
             operator = Operator.PLUS
         }
-        return operator.toChar()
+        return operator.char
     }
 }

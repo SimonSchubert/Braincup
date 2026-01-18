@@ -1,40 +1,18 @@
 package com.inspiredandroid.braincup.games.tools
 
-enum class Color {
-    RED,
-    GREEN,
-    BLUE,
-    PURPLE,
-    YELLOW,
-    ORANGE,
-    TURQUOISE,
-    ROSA,
-    GREY_DARK,
-    GREY_LIGHT,
-}
+import androidx.compose.ui.graphics.Color as ComposeColor
 
-fun Color.getName(): String = when (this) {
-    Color.RED -> "red"
-    Color.GREEN -> "green"
-    Color.BLUE -> "blue"
-    Color.PURPLE -> "purple"
-    Color.YELLOW -> "yellow"
-    Color.ORANGE -> "orange"
-    Color.TURQUOISE -> "turquoise"
-    Color.ROSA -> "rosa"
-    Color.GREY_DARK -> "dark grey"
-    Color.GREY_LIGHT -> "light grey"
-}
-
-fun Color.getHex(): String = when (this) {
-    Color.RED -> "#e74c3c"
-    Color.GREEN -> "#2ecc71"
-    Color.BLUE -> "#3498db"
-    Color.PURPLE -> "#9b59b6"
-    Color.YELLOW -> "#f1c40f"
-    Color.ORANGE -> "#e67e22"
-    Color.TURQUOISE -> "#12CBC4"
-    Color.ROSA -> "#FDA7DF"
-    Color.GREY_DARK -> "#262626"
-    Color.GREY_LIGHT -> "#565656"
+enum class Color(
+    val displayName: String,
+    val composeColor: ComposeColor,
+) {
+    RED(displayName = "red", composeColor = ComposeColor(0xFFE74C3C)),
+    GREEN(displayName = "green", composeColor = ComposeColor(0xFF2ECC71)),
+    BLUE(displayName = "blue", composeColor = ComposeColor(0xFF3498DB)),
+    PURPLE(displayName = "purple", composeColor = ComposeColor(0xFF9B59B6)),
+    YELLOW(displayName = "yellow", composeColor = ComposeColor(0xFFF1C40F)),
+    ORANGE(displayName = "orange", composeColor = ComposeColor(0xFFE67E22)),
+    TURQUOISE(displayName = "turquoise", composeColor = ComposeColor(0xFF12CBC4)),
+    ROSA(displayName = "rosa", composeColor = ComposeColor(0xFFFDA7DF)),
+    GREY_LIGHT(displayName = "light grey", composeColor = ComposeColor(0xFF565656)),
 }

@@ -1,74 +1,49 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import com.inspiredandroid.braincup.ui.theme.Primary
 
 @Composable
-fun TextButton(
-    text: String,
+fun DefaultButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
+    value: String,
 ) {
     Button(
-        onClick = onClick,
-        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
-    ) {
-        Text(text)
-    }
-}
-
-@Composable
-fun PrimaryButton(
-    text: String,
-    modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    onClick: () -> Unit,
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
-        enabled = enabled,
-    ) {
-        Text(text)
-    }
-}
-
-@Composable
-fun SecondaryButton(
-    text: String,
-    modifier: Modifier = Modifier,
-    containerColor: Color = MaterialTheme.colorScheme.secondary,
-    onClick: () -> Unit,
-) {
-    Button(
-        onClick = onClick,
-        modifier = modifier.defaultMinSize(minWidth = 48.dp, minHeight = 56.dp),
-        colors = ButtonDefaults.buttonColors(
-            containerColor = containerColor,
-            contentColor = Color.White,
-        ),
-    ) {
-        Text(text)
-    }
-}
-
-@Composable
-fun OptionButton(
-    text: String,
-    modifier: Modifier = Modifier,
-    onClick: () -> Unit,
-) {
-    OutlinedButton(
-        onClick = onClick,
+        onClick = { onClick() },
         modifier = modifier
-            .fillMaxWidth()
-            .defaultMinSize(minHeight = 56.dp)
-            .padding(horizontal = 24.dp, vertical = 4.dp),
+            .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
     ) {
-        Text(text)
+        Text(value)
+    }
+}
+
+@Composable
+fun CircleButton(
+    onClick: () -> Unit,
+    value: String,
+) {
+    Box(
+        modifier = Modifier
+            .sizeIn(56.dp, 56.dp)
+            .clip(CircleShape)
+            .background(Primary)
+            .clickable(onClick = onClick),
+        contentAlignment = androidx.compose.ui.Alignment.Center,
+    ) {
+        Text(
+            value,
+            color = androidx.compose.ui.graphics.Color.White,
+            fontSize = 22.sp,
+        )
     }
 }

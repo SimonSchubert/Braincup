@@ -54,8 +54,9 @@ fun NumberPad(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .width(IntrinsicSize.Min),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            Row {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 NumberPadButtonCell("7") {
                     input += it
                     onInputChange(input)
@@ -75,7 +76,7 @@ fun NumberPad(
                     }
                 }
             }
-            Row {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 NumberPadButtonCell("4") {
                     input += it
                     onInputChange(input)
@@ -95,7 +96,7 @@ fun NumberPad(
                     }
                 }
             }
-            Row {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 NumberPadButtonCell("1") {
                     input += it
                     onInputChange(input)
@@ -115,7 +116,7 @@ fun NumberPad(
                     }
                 }
             }
-            Row {
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 if (showOperators) {
                     NumberPadButtonCell("(") {
                         input += it
@@ -155,14 +156,10 @@ private fun RowScope.NumberPadButtonCell(
         modifier = Modifier.weight(1f, fill = true),
         contentAlignment = Alignment.Center,
     ) {
-        Button(
+        CircleButton(
             onClick = { onClick(value) },
-            modifier = Modifier
-                .padding(4.dp)
-                .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
-        ) {
-            Text(value)
-        }
+            value = value,
+        )
     }
 }
 

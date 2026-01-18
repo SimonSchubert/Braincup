@@ -10,7 +10,7 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 
-private val Primary = Color(0xFFED7354)
+val Primary = Color(0xFFED7354)
 private val OnPrimary = Color.White
 private val Secondary = Color(0xFFC45C44)
 private val OnSecondary = Color.White
