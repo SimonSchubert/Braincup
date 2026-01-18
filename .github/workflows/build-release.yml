@@ -1,0 +1,172 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Decode Keystore
+        env:
+          KEYSTORE_B64: ${{ secrets.KEYSTORE_B64 }}
+        run: echo "$KEYSTORE_B64" | base64 -d > keystore.jks
+
+      - name: Build APK
+        env:
+          KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+        run: ./gradlew :composeApp:assembleRelease
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename APK
+        run: |
+          mv composeApp/build/outputs/apk/release/composeApp-release.apk \
+             Braincup-${{ steps.version.outputs.version }}-android.apk
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: Braincup-${{ steps.version.outputs.version }}-android.apk
+
+  dmg:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build DMG
+        run: ./gradlew :composeApp:packageDmg
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename DMG
+        run: |
+          mv composeApp/build/compose/binaries/main/dmg/*.dmg \
+             Braincup-${{ steps.version.outputs.version }}-macos.dmg
+
+      - name: Upload DMG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: macos-dmg
+          path: Braincup-${{ steps.version.outputs.version }}-macos.dmg
+
+  msi:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build MSI
+        run: ./gradlew :composeApp:packageMsi
+
+      - name: Get version from tag
+        id: version
+        shell: bash
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename MSI
+        shell: bash
+        run: |
+          mv composeApp/build/compose/binaries/main/msi/*.msi \
+             Braincup-${{ steps.version.outputs.version }}-windows.msi
+
+      - name: Upload MSI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-msi
+          path: Braincup-${{ steps.version.outputs.version }}-windows.msi
+
+  deb:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build DEB
+        run: ./gradlew :composeApp:packageDeb
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Rename DEB
+        run: |
+          mv composeApp/build/compose/binaries/main/deb/*.deb \
+             Braincup-${{ steps.version.outputs.version }}-linux.deb
+
+      - name: Upload DEB artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-deb
+          path: Braincup-${{ steps.version.outputs.version }}-linux.deb
+
+  release:
+    needs: [apk, dmg, msi, deb]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Braincup v${{ steps.version.outputs.version }}
+          draft: false
+          prerelease: false
+          files: |
+            artifacts/android-apk/Braincup-${{ steps.version.outputs.version }}-android.apk
+            artifacts/macos-dmg/Braincup-${{ steps.version.outputs.version }}-macos.dmg
+            artifacts/windows-msi/Braincup-${{ steps.version.outputs.version }}-windows.msi
+            artifacts/linux-deb/Braincup-${{ steps.version.outputs.version }}-linux.deb

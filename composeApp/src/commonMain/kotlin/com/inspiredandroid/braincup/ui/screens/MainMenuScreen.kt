@@ -99,7 +99,7 @@ fun MainMenuScreen(
         Button(
             onClick = { controller.navigateToAchievements() },
             modifier = Modifier
-                .fillMaxWidth()
+                .widthIn(max = 420.dp)
                 .height(56.dp),
         ) {
             Text("Achievements ($unlockedCount/${UserStorage.Achievements.entries.size})")
@@ -119,8 +119,7 @@ private fun GameRow(
     Button(
         onClick = onPlay,
         modifier = Modifier
-            .fillMaxWidth()
-            .widthIn(420.dp)
+            .widthIn(max = 420.dp)
             .height(56.dp),
         contentPadding = PaddingValues(start = 16.dp, end = 4.dp),
     ) {

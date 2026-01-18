@@ -1,9 +1,11 @@
+@file:OptIn(ExperimentalComposeUiApi::class)
+
 package com.inspiredandroid.braincup
 
-import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.app.Screen
@@ -24,7 +26,6 @@ fun App() {
                 }
 
                 is Screen.Instructions -> {
-                    BackHandler { controller.navigateToMainMenu() }
                     InstructionsScreen(
                         gameType = screen.gameType,
                         onStart = { controller.startGame(screen.gameType) },
@@ -33,7 +34,6 @@ fun App() {
                 }
 
                 is Screen.Playing -> {
-                    BackHandler { controller.navigateToMainMenu() }
                     GameScreen(
                         game = screen.game,
                         timeRemaining = timeRemaining,
@@ -57,7 +57,6 @@ fun App() {
                 }
 
                 is Screen.Finish -> {
-                    BackHandler { controller.navigateToMainMenu() }
                     FinishScreen(
                         gameType = screen.gameType,
                         score = screen.score,
@@ -70,7 +69,6 @@ fun App() {
                 }
 
                 is Screen.Scoreboard -> {
-                    BackHandler { controller.navigateToMainMenu() }
                     ScoreboardScreen(
                         gameType = screen.gameType,
                         storage = controller.storage,
@@ -79,7 +77,6 @@ fun App() {
                 }
 
                 is Screen.Achievements -> {
-                    BackHandler { controller.navigateToMainMenu() }
                     AchievementsScreen(
                         storage = controller.storage,
                         onBack = { controller.navigateToMainMenu() },
