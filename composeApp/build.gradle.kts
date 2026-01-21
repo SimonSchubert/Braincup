@@ -160,3 +160,30 @@ spotless {
         ktlint("1.5.0")
     }
 }
+
+tasks.register("updateIosVersion") {
+    description = "Updates iOS version in Config.xcconfig from libs.versions.toml"
+    group = "build"
+
+    val version = libs.versions.appVersion.get()
+    val configFile = rootProject.file("iosApp/Configuration/Config.xcconfig")
+
+    inputs.property("version", version)
+    outputs.file(configFile)
+
+    doLast {
+        if (configFile.exists()) {
+            val content = configFile.readText()
+            val updatedContent = content.replace(
+                Regex("MARKETING_VERSION=.*"),
+                "MARKETING_VERSION=$version"
+            )
+            configFile.writeText(updatedContent)
+            println("Updated iOS MARKETING_VERSION to $version")
+        }
+    }
+}
+
+tasks.matching { it.name.startsWith("compileKotlinIos") }.configureEach {
+    dependsOn("updateIosVersion")
+}

@@ -9,3 +9,6 @@
 .externalNativeBuild
 /composeApp/build
 /native/Pods
+*.aab
+.claude
+xcuserdata/

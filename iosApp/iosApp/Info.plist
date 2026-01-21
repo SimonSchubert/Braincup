@@ -3,7 +3,30 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleDevelopmentRegion</key>
-    <string>$(DEVELOPMENT_LANGUAGE)</string>
+    <string>en</string>
+    <key>CFBundleLocalizations</key>
+    <array>
+        <string>en</string>
+        <string>ar</string>
+        <string>bn</string>
+        <string>de</string>
+        <string>es</string>
+        <string>fr</string>
+        <string>hi</string>
+        <string>id</string>
+        <string>it</string>
+        <string>ja</string>
+        <string>ko</string>
+        <string>nl</string>
+        <string>pl</string>
+        <string>pt</string>
+        <string>ru</string>
+        <string>th</string>
+        <string>tr</string>
+        <string>uk</string>
+        <string>vi</string>
+        <string>zh</string>
+    </array>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
     <key>CFBundleIdentifier</key>
@@ -15,9 +38,9 @@
     <key>CFBundlePackageType</key>
     <string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
     <key>CFBundleShortVersionString</key>
-    <string>2.0.0</string>
+    <string>$(MARKETING_VERSION)</string>
     <key>CFBundleVersion</key>
-    <string>13</string>
+    <string>1</string>
     <key>LSRequiresIPhoneOS</key>
     <true/>
     <key>UIApplicationSceneManifest</key>
@@ -27,6 +50,8 @@
     </dict>
     <key>UILaunchScreen</key>
     <dict/>
+    <key>CADisableMinimumFrameDurationOnPhone</key>
+    <true/>
     <key>UISupportedInterfaceOrientations</key>
     <array>
         <string>UIInterfaceOrientationPortrait</string>
