@@ -43,6 +43,7 @@ class GameController(
             GameType.FRACTION_CALCULATION,
             GameType.VALUE_COMPARISON,
             GameType.GRID_SOLVER,
+            GameType.PATTERN_SEQUENCE,
         )
 
         fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }
@@ -214,6 +215,7 @@ class GameController(
         GameType.PATH_FINDER -> PathFinderGame()
         GameType.GRID_SOLVER -> GridSolverGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
+        GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {

@@ -49,6 +49,7 @@
     <string name="game_path_finder">Path Finder</string>
     <string name="game_grid_solver">Grid Solver</string>
     <string name="game_visual_memory">Visual Memory</string>
+    <string name="game_pattern_sequence">Pattern Sequence</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Start at the marked position and follow the arrows to find the destination.</string>
     <string name="game_grid_solver_desc">Fill in the missing numbers so that each row and column sums to the given totals.</string>
     <string name="game_visual_memory_desc">Memorize the shapes on the grid, then identify the hidden shape after the timer ends.</string>
+    <string name="game_pattern_sequence_desc">Find the next figure in the pattern by looking for repeating shapes, colors, and rotations.</string>
+    <string name="game_what_comes_next">What comes next?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronze Medal</string>

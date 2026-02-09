@@ -49,6 +49,7 @@
     <string name="game_path_finder">Padvinder</string>
     <string name="game_grid_solver">Raster oplosser</string>
     <string name="game_visual_memory">Visueel geheugen</string>
+    <string name="game_pattern_sequence">Patroonreeks</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Begin op de gemarkeerde positie en volg de pijlen om de bestemming te vinden.</string>
     <string name="game_grid_solver_desc">Vul de ontbrekende getallen in zodat elke rij en kolom optelt tot de gegeven totalen.</string>
     <string name="game_visual_memory_desc">Onthoud de vormen op het raster en identificeer vervolgens de verborgen vorm nadat de timer is afgelopen.</string>
+    <string name="game_pattern_sequence_desc">Vind de volgende figuur in het patroon door te zoeken naar herhalende vormen, kleuren en rotaties.</string>
+    <string name="game_what_comes_next">Wat komt er hierna?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronzen medaille</string>

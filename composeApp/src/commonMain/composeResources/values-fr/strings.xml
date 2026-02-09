@@ -49,6 +49,7 @@
     <string name="game_path_finder">Chercheur de chemin</string>
     <string name="game_grid_solver">Résolveur de grille</string>
     <string name="game_visual_memory">Mémoire visuelle</string>
+    <string name="game_pattern_sequence">Séquence de motifs</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Commencez à la position marquée et suivez les flèches pour trouver la destination.</string>
     <string name="game_grid_solver_desc">Remplissez les nombres manquants pour que chaque ligne et colonne corresponde aux totaux donnés.</string>
     <string name="game_visual_memory_desc">Mémorisez les formes sur la grille, puis identifiez la forme cachée après la fin du chronomètre.</string>
+    <string name="game_pattern_sequence_desc">Trouvez la figure suivante dans le motif en cherchant les formes, couleurs et rotations qui se répètent.</string>
+    <string name="game_what_comes_next">Quelle est la suite ?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Médaille de bronze</string>

@@ -92,4 +92,12 @@ enum class GameType(
         descriptionRes = Res.string.game_visual_memory_desc,
         icon = Res.drawable.ic_visual_memory,
     ),
+    PATTERN_SEQUENCE(
+        displayNameRes = Res.string.game_pattern_sequence,
+        id = "11",
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_pattern_sequence_desc,
+        icon = Res.drawable.ic_pattern_sequence,
+    ),
 }

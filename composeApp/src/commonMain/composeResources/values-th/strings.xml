@@ -49,6 +49,7 @@
     <string name="game_path_finder">ค้นหาเส้นทาง</string>
     <string name="game_grid_solver">แก้ปัญหาตาราง</string>
     <string name="game_visual_memory">ความจำภาพ</string>
+    <string name="game_pattern_sequence">ลำดับรูปแบบ</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">เริ่มจากตำแหน่งที่ทำเครื่องหมายและตามลูกศรเพื่อหาจุดหมาย</string>
     <string name="game_grid_solver_desc">เติมตัวเลขที่หายไปให้ผลรวมของแต่ละแถวและคอลัมน์เท่ากับยอดรวมที่กำหนด</string>
     <string name="game_visual_memory_desc">จำรูปร่างบนตาราง แล้วระบุรูปร่างที่ซ่อนอยู่หลังจากหมดเวลา</string>
+    <string name="game_pattern_sequence_desc">ค้นหารูปถัดไปในรูปแบบโดยมองหารูปร่าง สี และการหมุนที่ซ้ำกัน</string>
+    <string name="game_what_comes_next">อะไรต่อไป?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">เหรียญทองแดง</string>

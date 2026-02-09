@@ -191,6 +191,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gamePatternSequence() {
+        paparazzi.snap {
+            GameScreen(
+                game = createPatternSequenceGame(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameVisualMemory() {
         paparazzi.snap {
             GameScreen(

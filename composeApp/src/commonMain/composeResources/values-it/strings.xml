@@ -49,6 +49,7 @@
     <string name="game_path_finder">Trova il percorso</string>
     <string name="game_grid_solver">Risolutore di griglia</string>
     <string name="game_visual_memory">Memoria visiva</string>
+    <string name="game_pattern_sequence">Sequenza di schemi</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trova la figura che si distingue. Considera sia il colore che la forma di ogni figura.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Inizia dalla posizione segnata e segui le frecce per trovare la destinazione.</string>
     <string name="game_grid_solver_desc">Inserisci i numeri mancanti in modo che ogni riga e colonna sommi ai totali indicati.</string>
     <string name="game_visual_memory_desc">Memorizza le forme sulla griglia, poi identifica la forma nascosta dopo la fine del timer.</string>
+    <string name="game_pattern_sequence_desc">Trova la figura successiva nello schema cercando forme, colori e rotazioni che si ripetono.</string>
+    <string name="game_what_comes_next">Cosa viene dopo?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medaglia di bronzo</string>

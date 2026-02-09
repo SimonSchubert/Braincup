@@ -49,6 +49,7 @@
     <string name="game_path_finder">경로 찾기</string>
     <string name="game_grid_solver">그리드 풀기</string>
     <string name="game_visual_memory">시각 기억</string>
+    <string name="game_pattern_sequence">패턴 시퀀스</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">표시된 위치에서 시작하여 화살표를 따라 목적지를 찾으세요.</string>
     <string name="game_grid_solver_desc">각 행과 열의 합이 주어진 합계와 일치하도록 빈 숫자를 채우세요.</string>
     <string name="game_visual_memory_desc">그리드의 도형을 기억한 후 타이머가 끝나면 숨겨진 도형을 식별하세요.</string>
+    <string name="game_pattern_sequence_desc">반복되는 모양, 색상, 회전을 찾아 패턴의 다음 도형을 찾으세요.</string>
+    <string name="game_what_comes_next">다음은 무엇일까요?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">동메달</string>

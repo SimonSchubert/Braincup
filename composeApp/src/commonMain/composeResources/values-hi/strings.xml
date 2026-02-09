@@ -49,6 +49,7 @@
     <string name="game_path_finder">पथ खोजक</string>
     <string name="game_grid_solver">ग्रिड सॉल्वर</string>
     <string name="game_visual_memory">दृश्य स्मृति</string>
+    <string name="game_pattern_sequence">पैटर्न अनुक्रम</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">उस आकृति को खोजें जो अलग दिखती है। प्रत्येक आकृति के रंग और आकार दोनों पर विचार करें।</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">चिह्नित स्थान से शुरू करें और गंतव्य खोजने के लिए तीरों का पालन करें।</string>
     <string name="game_grid_solver_desc">लुप्त संख्याएं भरें ताकि प्रत्येक पंक्ति और स्तंभ का योग दिए गए कुल के बराबर हो।</string>
     <string name="game_visual_memory_desc">ग्रिड पर आकृतियों को याद करें, फिर टाइमर समाप्त होने के बाद छिपी हुई आकृति की पहचान करें।</string>
+    <string name="game_pattern_sequence_desc">दोहराए जाने वाले आकार, रंग और घुमाव खोजकर पैटर्न में अगली आकृति खोजें।</string>
+    <string name="game_what_comes_next">आगे क्या आता है?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">कांस्य पदक</string>

@@ -49,6 +49,7 @@
     <string name="game_path_finder">Pfadfinder</string>
     <string name="game_grid_solver">Gitter-Löser</string>
     <string name="game_visual_memory">Visuelles Gedächtnis</string>
+    <string name="game_pattern_sequence">Mustersequenz</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Beginne an der markierten Position und folge den Pfeilen, um das Ziel zu finden.</string>
     <string name="game_grid_solver_desc">Fülle die fehlenden Zahlen ein, sodass jede Zeile und Spalte die angegebenen Summen ergibt.</string>
     <string name="game_visual_memory_desc">Merke dir die Formen im Gitter und identifiziere die versteckte Form nach Ablauf des Timers.</string>
+    <string name="game_pattern_sequence_desc">Finde die nächste Figur im Muster, indem du nach sich wiederholenden Formen, Farben und Drehungen suchst.</string>
+    <string name="game_what_comes_next">Was kommt als Nächstes?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronzemedaille</string>

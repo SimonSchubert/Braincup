@@ -49,6 +49,7 @@
     <string name="game_path_finder">مكتشف المسار</string>
     <string name="game_grid_solver">حل الشبكة</string>
     <string name="game_visual_memory">الذاكرة البصرية</string>
+    <string name="game_pattern_sequence">تسلسل الأنماط</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">ابدأ من الموقع المحدد واتبع الأسهم للوصول إلى الوجهة.</string>
     <string name="game_grid_solver_desc">املأ الأرقام المفقودة بحيث يكون مجموع كل صف وعمود مساوياً للمجاميع المعطاة.</string>
     <string name="game_visual_memory_desc">احفظ الأشكال على الشبكة، ثم حدد الشكل المخفي بعد انتهاء المؤقت.</string>
+    <string name="game_pattern_sequence_desc">اعثر على الشكل التالي في النمط من خلال البحث عن الأشكال والألوان والدورانات المتكررة.</string>
+    <string name="game_what_comes_next">ما التالي؟</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">الميدالية البرونزية</string>

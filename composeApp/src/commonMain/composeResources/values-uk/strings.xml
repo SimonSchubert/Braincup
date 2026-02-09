@@ -49,6 +49,7 @@
     <string name="game_path_finder">Пошук шляху</string>
     <string name="game_grid_solver">Розв\'язання сітки</string>
     <string name="game_visual_memory">Візуальна пам\'ять</string>
+    <string name="game_pattern_sequence">Послідовність візерунків</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Почніть з позначеної позиції та слідуйте стрілкам, щоб знайти пункт призначення.</string>
     <string name="game_grid_solver_desc">Заповніть відсутні числа так, щоб сума кожного рядка та стовпця дорівнювала заданим підсумкам.</string>
     <string name="game_visual_memory_desc">Запам\'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
+    <string name="game_pattern_sequence_desc">Знайдіть наступну фігуру у візерунку, шукаючи повторювані форми, кольори та обертання.</string>
+    <string name="game_what_comes_next">Що далі?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Бронзова медаль</string>

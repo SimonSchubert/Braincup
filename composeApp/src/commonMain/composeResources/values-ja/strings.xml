@@ -49,6 +49,7 @@
     <string name="game_path_finder">パスファインダー</string>
     <string name="game_grid_solver">グリッドソルバー</string>
     <string name="game_visual_memory">視覚記憶</string>
+    <string name="game_pattern_sequence">パターンシーケンス</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">マークされた位置から始めて、矢印に従って目的地を見つけてください。</string>
     <string name="game_grid_solver_desc">各行と列の合計が指定された値になるように、欠けている数字を埋めてください。</string>
     <string name="game_visual_memory_desc">グリッド上の形を覚えて、タイマー終了後に隠された形を特定してください。</string>
+    <string name="game_pattern_sequence_desc">繰り返される形、色、回転を見つけて、パターンの次の図形を見つけてください。</string>
+    <string name="game_what_comes_next">次は何？</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">銅メダル</string>

@@ -49,6 +49,7 @@
     <string name="game_path_finder">Tìm đường</string>
     <string name="game_grid_solver">Giải lưới</string>
     <string name="game_visual_memory">Trí nhớ hình ảnh</string>
+    <string name="game_pattern_sequence">Chuỗi mẫu</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Bắt đầu từ vị trí đánh dấu và đi theo các mũi tên để tìm đích đến.</string>
     <string name="game_grid_solver_desc">Điền các số còn thiếu sao cho tổng của mỗi hàng và cột bằng tổng đã cho.</string>
     <string name="game_visual_memory_desc">Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi hết giờ.</string>
+    <string name="game_pattern_sequence_desc">Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, màu sắc và phép quay lặp lại.</string>
+    <string name="game_what_comes_next">Tiếp theo là gì?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Huy chương đồng</string>

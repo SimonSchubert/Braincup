@@ -23,6 +23,7 @@ import braincup.composeapp.generated.resources.game_follow_directions
 import braincup.composeapp.generated.resources.game_goal
 import braincup.composeapp.generated.resources.game_highest_value
 import braincup.composeapp.generated.resources.game_tap_numbers
+import braincup.composeapp.generated.resources.game_what_comes_next
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -71,6 +72,7 @@ fun GameScreen(
             is FractionCalculationGame -> FractionCalculationContent(game, onAnswer)
             is ValueComparisonGame -> ValueComparisonContent(game, onAnswer)
             is GridSolverGame -> GridSolverContent(game, onAnswer)
+            is PatternSequenceGame -> PatternSequenceContent(game, onAnswer)
         }
 
         Spacer(Modifier.weight(1f))
@@ -784,6 +786,79 @@ private fun VisualMemoryCell(
                     ShapeCanvas(
                         figure = figure,
                         modifier = Modifier.fillMaxSize().padding(8.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+// --- Pattern Sequence Game Composables ---
+
+@Composable
+private fun ColumnScope.PatternSequenceContent(
+    game: PatternSequenceGame,
+    onAnswer: (String) -> Unit,
+) {
+    Text(
+        text = stringResource(Res.string.game_what_comes_next),
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+    Spacer(Modifier.height(16.dp))
+
+    // Sequence row with "?" at end
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .padding(horizontal = 16.dp),
+    ) {
+        game.sequence.forEach { figure ->
+            ShapeCanvas(
+                figure = figure,
+                modifier = Modifier.size(48.dp),
+            )
+        }
+        Card(
+            modifier = Modifier.size(48.dp),
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+            ),
+        ) {
+            Box(
+                contentAlignment = Alignment.Center,
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                Text(
+                    text = "?",
+                    style = MaterialTheme.typography.headlineMedium,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
+            }
+        }
+    }
+    Spacer(Modifier.height(24.dp))
+
+    // 2x2 grid of options
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 80.dp * 2),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        game.options.chunked(2).forEachIndexed { y, rowOptions ->
+            Row {
+                rowOptions.forEachIndexed { x, figure ->
+                    val index = y * 2 + x
+                    ShapeCanvasButton(
+                        figure = figure,
+                        onClick = { onAnswer(index.toString()) },
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(8.dp),
                     )
                 }
             }

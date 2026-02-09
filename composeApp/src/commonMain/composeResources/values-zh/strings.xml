@@ -49,6 +49,7 @@
     <string name="game_path_finder">路径寻找</string>
     <string name="game_grid_solver">网格求解</string>
     <string name="game_visual_memory">视觉记忆</string>
+    <string name="game_pattern_sequence">图案序列</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">从标记位置开始，按照箭头找到目的地。</string>
     <string name="game_grid_solver_desc">填入缺失的数字，使每行和每列的和等于给定的总数。</string>
     <string name="game_visual_memory_desc">记住网格上的形状，然后在计时结束后识别隐藏的形状。</string>
+    <string name="game_pattern_sequence_desc">通过寻找重复的形状、颜色和旋转，找出图案中的下一个图形。</string>
+    <string name="game_what_comes_next">下一个是什么？</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">铜牌</string>

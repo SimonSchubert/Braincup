@@ -49,6 +49,7 @@
     <string name="game_path_finder">Znajdź ścieżkę</string>
     <string name="game_grid_solver">Rozwiązywanie siatki</string>
     <string name="game_visual_memory">Pamięć wzrokowa</string>
+    <string name="game_pattern_sequence">Sekwencja wzorów</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Zacznij od zaznaczonej pozycji i podążaj za strzałkami, aby znaleźć cel.</string>
     <string name="game_grid_solver_desc">Wypełnij brakujące liczby tak, aby suma każdego wiersza i kolumny równała się podanym wartościom.</string>
     <string name="game_visual_memory_desc">Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.</string>
+    <string name="game_pattern_sequence_desc">Znajdź następną figurę we wzorze, szukając powtarzających się kształtów, kolorów i obrotów.</string>
+    <string name="game_what_comes_next">Co będzie dalej?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Brązowy medal</string>

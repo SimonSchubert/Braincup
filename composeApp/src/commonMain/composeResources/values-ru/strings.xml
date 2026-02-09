@@ -49,6 +49,7 @@
     <string name="game_path_finder">Поиск пути</string>
     <string name="game_grid_solver">Решение сетки</string>
     <string name="game_visual_memory">Визуальная память</string>
+    <string name="game_pattern_sequence">Последовательность</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Начните с отмеченной позиции и следуйте стрелкам, чтобы найти пункт назначения.</string>
     <string name="game_grid_solver_desc">Заполните недостающие числа так, чтобы сумма каждой строки и столбца равнялась заданным итогам.</string>
     <string name="game_visual_memory_desc">Запомните фигуры на сетке, затем определите скрытую фигуру после окончания таймера.</string>
+    <string name="game_pattern_sequence_desc">Найдите следующую фигуру в последовательности, ищите повторяющиеся формы, цвета и вращения.</string>
+    <string name="game_what_comes_next">Что дальше?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Бронзовая медаль</string>

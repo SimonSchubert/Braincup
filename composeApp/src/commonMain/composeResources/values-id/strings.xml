@@ -49,6 +49,7 @@
     <string name="game_path_finder">Pencari Jalur</string>
     <string name="game_grid_solver">Pemecah Kotak</string>
     <string name="game_visual_memory">Memori Visual</string>
+    <string name="game_pattern_sequence">Urutan Pola</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Mulai dari posisi yang ditandai dan ikuti panah untuk menemukan tujuan.</string>
     <string name="game_grid_solver_desc">Isi angka yang hilang agar jumlah setiap baris dan kolom sama dengan total yang diberikan.</string>
     <string name="game_visual_memory_desc">Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah waktu habis.</string>
+    <string name="game_pattern_sequence_desc">Temukan gambar berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.</string>
+    <string name="game_what_comes_next">Apa selanjutnya?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medali Perunggu</string>

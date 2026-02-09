@@ -49,6 +49,7 @@
     <string name="game_path_finder">Buscador de caminos</string>
     <string name="game_grid_solver">Resolvedor de cuadrícula</string>
     <string name="game_visual_memory">Memoria visual</string>
+    <string name="game_pattern_sequence">Secuencia de patrones</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encuentra la figura que destaca. Considera tanto el color como la forma de cada figura.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Comienza en la posición marcada y sigue las flechas para encontrar el destino.</string>
     <string name="game_grid_solver_desc">Rellena los números que faltan para que cada fila y columna sume los totales dados.</string>
     <string name="game_visual_memory_desc">Memoriza las formas en la cuadrícula, luego identifica la forma oculta cuando termine el temporizador.</string>
+    <string name="game_pattern_sequence_desc">Encuentra la siguiente figura en el patrón buscando formas, colores y rotaciones que se repiten.</string>
+    <string name="game_what_comes_next">¿Qué sigue?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medalla de bronce</string>

@@ -49,6 +49,7 @@
     <string name="game_path_finder">পথ অনুসন্ধানকারী</string>
     <string name="game_grid_solver">গ্রিড সমাধানকারী</string>
     <string name="game_visual_memory">দৃশ্য স্মৃতি</string>
+    <string name="game_pattern_sequence">প্যাটার্ন সিকোয়েন্স</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">চিহ্নিত অবস্থান থেকে শুরু করুন এবং গন্তব্য খুঁজতে তীরগুলি অনুসরণ করুন।</string>
     <string name="game_grid_solver_desc">অনুপস্থিত সংখ্যাগুলি পূরণ করুন যাতে প্রতিটি সারি এবং কলামের যোগফল প্রদত্ত মোটের সমান হয়।</string>
     <string name="game_visual_memory_desc">গ্রিডে আকৃতিগুলি মুখস্থ করুন, তারপর টাইমার শেষ হওয়ার পরে লুকানো আকৃতিটি সনাক্ত করুন।</string>
+    <string name="game_pattern_sequence_desc">পুনরাবৃত্ত আকার, রঙ এবং ঘূর্ণন খুঁজে প্যাটার্নের পরবর্তী চিত্রটি খুঁজুন।</string>
+    <string name="game_what_comes_next">পরেরটি কী?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">ব্রোঞ্জ পদক</string>

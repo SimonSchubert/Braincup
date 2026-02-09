@@ -49,6 +49,7 @@
     <string name="game_path_finder">Busca de caminhos</string>
     <string name="game_grid_solver">Resolvedor de grade</string>
     <string name="game_visual_memory">Memória visual</string>
+    <string name="game_pattern_sequence">Sequência de padrões</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">Comece na posição marcada e siga as setas para encontrar o destino.</string>
     <string name="game_grid_solver_desc">Preencha os números que faltam para que cada linha e coluna some os totais dados.</string>
     <string name="game_visual_memory_desc">Memorize as formas na grade e identifique a forma oculta após o término do cronômetro.</string>
+    <string name="game_pattern_sequence_desc">Encontre a próxima figura no padrão procurando formas, cores e rotações que se repetem.</string>
+    <string name="game_what_comes_next">O que vem a seguir?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medalha de bronze</string>

@@ -49,6 +49,7 @@
     <string name="game_path_finder">Yol Bulucu</string>
     <string name="game_grid_solver">Izgara Çözücü</string>
     <string name="game_visual_memory">Görsel Hafıza</string>
+    <string name="game_pattern_sequence">Desen Dizisi</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -61,6 +62,8 @@
     <string name="game_path_finder_desc">İşaretli konumdan başlayın ve hedefi bulmak için okları takip edin.</string>
     <string name="game_grid_solver_desc">Her satır ve sütunun toplamı verilen değerlere eşit olacak şekilde eksik sayıları doldurun.</string>
     <string name="game_visual_memory_desc">Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.</string>
+    <string name="game_pattern_sequence_desc">Tekrarlayan şekilleri, renkleri ve döndürmeleri arayarak desendeki bir sonraki şekli bulun.</string>
+    <string name="game_what_comes_next">Sıradaki ne?</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronz Madalya</string>
