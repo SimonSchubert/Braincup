@@ -30,9 +30,27 @@ import org.jetbrains.compose.resources.stringResource
 fun MainMenuScreen(
     controller: GameController,
 ) {
-    val totalScore = remember { controller.storage.getTotalScore() }
-    val appOpenCount = remember { controller.storage.getAppOpenCount() }
+    MainMenuScreenContent(
+        totalScore = remember { controller.storage.getTotalScore() },
+        appOpenCount = remember { controller.storage.getAppOpenCount() },
+        highscores = remember { GameController.games.associate { it.id to controller.storage.getHighScore(it.id) } },
+        unlockedCount = remember { controller.storage.getUnlockedAchievements().size },
+        onPlay = { controller.navigateToInstructions(it) },
+        onViewScore = { controller.navigateToScoreboard(it) },
+        onAchievements = { controller.navigateToAchievements() },
+    )
+}
 
+@Composable
+fun MainMenuScreenContent(
+    totalScore: Int,
+    appOpenCount: Int,
+    highscores: Map<String, Int>,
+    unlockedCount: Int,
+    onPlay: (GameType) -> Unit = {},
+    onViewScore: (GameType) -> Unit = {},
+    onAchievements: () -> Unit = {},
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -62,16 +80,12 @@ fun MainMenuScreen(
             modifier = Modifier.offset(y = -20.dp),
         )
 
-        val highscores = remember {
-            GameController.games.associate { it.id to controller.storage.getHighScore(it.id) }
-        }
-
         GameController.games.forEach { gameType ->
             GameRow(
                 gameType = gameType,
                 highscore = highscores[gameType.id] ?: 0,
-                onPlay = { controller.navigateToInstructions(gameType) },
-                onViewScore = { controller.navigateToScoreboard(gameType) },
+                onPlay = { onPlay(gameType) },
+                onViewScore = { onViewScore(gameType) },
             )
             Spacer(Modifier.height(8.dp))
         }
@@ -92,10 +106,8 @@ fun MainMenuScreen(
 
         Spacer(Modifier.height(16.dp))
 
-        val unlockedCount = remember { controller.storage.getUnlockedAchievements().size }
-
         Button(
-            onClick = { controller.navigateToAchievements() },
+            onClick = onAchievements,
             modifier = Modifier
                 .pointerHoverIcon(PointerIcon.Hand)
                 .widthIn(max = 420.dp)

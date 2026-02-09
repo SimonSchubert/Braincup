@@ -11,7 +11,19 @@
       "Bash(git ls-tree:*)",
       "Bash(git rm:*)",
       "Bash(grep:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(test:*)",
+      "Bash(xargs cat:*)",
+      "Bash(tree:*)",
+      "WebFetch(domain:www.jetbrains.com)",
+      "WebFetch(domain:composables.com)",
+      "WebFetch(domain:blog.jetbrains.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(xargs -I {} sh -c 'echo \"\"=== {} ===\"\" && head -100 {}')",
+      "Bash(ls:*)",
+      "WebFetch(domain:www.droidcon.com)",
+      "WebFetch(domain:proandroiddev.com)",
+      "WebFetch(domain:mixable.blog)"
     ]
   }
 }

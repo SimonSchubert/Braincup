@@ -22,7 +22,7 @@ Train your math skills, memory and focus.
 ## Screenshots
 
 ### Mobile (Android, iOS)
-<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_02.png" width="200">
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_02.png" width="200">  <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_03.png" width="200">  <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_06.png" width="200">
 
 ### Desktop
 <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_01.png" width="400"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_02.png" width="400">

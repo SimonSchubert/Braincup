@@ -8,6 +8,8 @@
 /captures
 .externalNativeBuild
 /composeApp/build
+/screenshotTests/build
+/screenshotTests/src/test/snapshots
 /native/Pods
 *.aab
 .claude

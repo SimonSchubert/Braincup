@@ -174,10 +174,11 @@ tasks.register("updateIosVersion") {
     doLast {
         if (configFile.exists()) {
             val content = configFile.readText()
-            val updatedContent = content.replace(
-                Regex("MARKETING_VERSION=.*"),
-                "MARKETING_VERSION=$version"
-            )
+            val updatedContent =
+                content.replace(
+                    Regex("MARKETING_VERSION=.*"),
+                    "MARKETING_VERSION=$version",
+                )
             configFile.writeText(updatedContent)
             println("Updated iOS MARKETING_VERSION to $version")
         }
