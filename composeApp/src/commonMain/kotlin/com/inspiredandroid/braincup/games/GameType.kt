@@ -20,13 +20,13 @@ enum class GameType(
         descriptionRes = Res.string.game_anomaly_puzzle_desc,
         icon = Res.drawable.ic_anomaly_puzzle,
     ),
-    MENTAL_CALCULATION(
-        displayNameRes = Res.string.game_mental_calculation,
-        id = "0",
-        goldScore = 16,
-        silverScore = 8,
-        descriptionRes = Res.string.game_mental_calculation_desc,
-        icon = Res.drawable.ic_mental_calculation,
+    PATH_FINDER(
+        displayNameRes = Res.string.game_path_finder,
+        id = "8",
+        goldScore = 14,
+        silverScore = 7,
+        descriptionRes = Res.string.game_path_finder_desc,
+        icon = Res.drawable.ic_path_finder,
     ),
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,
@@ -35,6 +35,22 @@ enum class GameType(
         silverScore = 8,
         descriptionRes = Res.string.game_color_confusion_desc,
         icon = Res.drawable.ic_color_confusion,
+    ),
+    VISUAL_MEMORY(
+        displayNameRes = Res.string.game_visual_memory,
+        id = "10",
+        goldScore = 9,
+        silverScore = 6,
+        descriptionRes = Res.string.game_visual_memory_desc,
+        icon = Res.drawable.ic_visual_memory,
+    ),
+    MENTAL_CALCULATION(
+        displayNameRes = Res.string.game_mental_calculation,
+        id = "0",
+        goldScore = 16,
+        silverScore = 8,
+        descriptionRes = Res.string.game_mental_calculation_desc,
+        icon = Res.drawable.ic_mental_calculation,
     ),
     SHERLOCK_CALCULATION(
         displayNameRes = Res.string.game_sherlock_calculation,
@@ -68,14 +84,6 @@ enum class GameType(
         descriptionRes = Res.string.game_value_comparison_desc,
         icon = Res.drawable.ic_value_comparison,
     ),
-    PATH_FINDER(
-        displayNameRes = Res.string.game_path_finder,
-        id = "8",
-        goldScore = 14,
-        silverScore = 7,
-        descriptionRes = Res.string.game_path_finder_desc,
-        icon = Res.drawable.ic_path_finder,
-    ),
     GRID_SOLVER(
         displayNameRes = Res.string.game_grid_solver,
         id = "9",
@@ -83,14 +91,6 @@ enum class GameType(
         silverScore = 6,
         descriptionRes = Res.string.game_grid_solver_desc,
         icon = Res.drawable.ic_grid_solver,
-    ),
-    VISUAL_MEMORY(
-        displayNameRes = Res.string.game_visual_memory,
-        id = "10",
-        goldScore = 9,
-        silverScore = 6,
-        descriptionRes = Res.string.game_visual_memory_desc,
-        icon = Res.drawable.ic_visual_memory,
     ),
     PATTERN_SEQUENCE(
         displayNameRes = Res.string.game_pattern_sequence,
@@ -101,3 +101,5 @@ enum class GameType(
         icon = Res.drawable.ic_pattern_sequence,
     ),
 }
+
+fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }

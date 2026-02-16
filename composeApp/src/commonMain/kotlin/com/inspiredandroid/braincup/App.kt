@@ -12,6 +12,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 
@@ -29,7 +30,7 @@ fun App() {
 
                 composable<Instructions> { backStackEntry ->
                     val route: Instructions = backStackEntry.toRoute()
-                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                    val gameType = getGameTypeById(route.gameTypeId)
                     if (gameType != null) {
                         InstructionsScreen(
                             gameType = gameType,
@@ -39,22 +40,20 @@ fun App() {
                     }
                 }
 
-                composable<Playing> { backStackEntry ->
-                    val route: Playing = backStackEntry.toRoute()
-                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                composable<Playing> {
                     val gameState by controller.gameState.collectAsState()
                     val timeRemaining by controller.timeRemaining.collectAsState()
                     val gameUiState by controller.gameUiState.collectAsState()
 
                     when (val state = gameState) {
                         is GameState.Active -> {
+                            val uiState = gameUiState ?: return@composable
                             GameScreen(
-                                game = state.game,
+                                gameUiState = uiState,
                                 timeRemaining = timeRemaining,
                                 onAnswer = { controller.submitAnswer(it) },
                                 onGiveUp = { controller.giveUp() },
                                 onBack = { controller.navigateToMainMenu() },
-                                gameUiState = gameUiState,
                             )
                         }
 
@@ -73,7 +72,7 @@ fun App() {
 
                 composable<Finish> { backStackEntry ->
                     val route: Finish = backStackEntry.toRoute()
-                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                    val gameType = getGameTypeById(route.gameTypeId)
                     if (gameType != null) {
                         FinishScreen(
                             gameType = gameType,
@@ -89,7 +88,7 @@ fun App() {
 
                 composable<Scoreboard> { backStackEntry ->
                     val route: Scoreboard = backStackEntry.toRoute()
-                    val gameType = GameController.getGameTypeById(route.gameTypeId)
+                    val gameType = getGameTypeById(route.gameTypeId)
                     if (gameType != null) {
                         ScoreboardScreen(
                             gameType = gameType,

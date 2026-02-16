@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -350,5 +351,15 @@ class AnomalyPuzzleGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun getGameType(): GameType = GameType.ANOMALY_PUZZLE
+    override fun toUiState(): AnomalyPuzzleUiState {
+        val columnsPerRow = when {
+            figures.size >= 16 -> 4
+            figures.size >= 9 -> 3
+            else -> 2
+        }
+        return AnomalyPuzzleUiState(
+            rows = figures.toList().chunked(columnsPerRow),
+            columnsPerRow = columnsPerRow,
+        )
+    }
 }

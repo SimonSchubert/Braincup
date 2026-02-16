@@ -91,8 +91,6 @@ class MentalCalculationGame : Game() {
         null
     }
 
-    override fun getGameType(): GameType = GameType.MENTAL_CALCULATION
-
     private fun reset() {
         round = 0
         number = Random.nextInt(2, 15)
@@ -128,4 +126,9 @@ class MentalCalculationGame : Game() {
     }
 
     fun getNumberLength(): Int = number.toString().length
+
+    override fun toUiState() = com.inspiredandroid.braincup.app.MentalCalculationUiState(
+        calculation = calculation,
+        answerLength = getNumberLength(),
+    )
 }

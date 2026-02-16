@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.screenshots
 
+import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
@@ -144,6 +145,17 @@ fun createVisualMemoryGame(): VisualMemoryGame {
     }
     return game
 }
+
+fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()
+fun createAnomalyPuzzleUiState(): GameUiState = createAnomalyPuzzleGame().toUiState()
+fun createMentalCalculationUiState(): GameUiState = createMentalCalculationGame().toUiState()
+fun createSherlockCalculationUiState(): GameUiState = createSherlockCalculationGame().toUiState()
+fun createChainCalculationUiState(): GameUiState = createChainCalculationGame().toUiState()
+fun createFractionCalculationUiState(): GameUiState = createFractionCalculationGame().toUiState()
+fun createValueComparisonUiState(): GameUiState = createValueComparisonGame().toUiState()
+fun createPathFinderUiState(): GameUiState = createPathFinderGame().toUiState()
+fun createGridSolverUiState(): GameUiState = createGridSolverGame().toUiState()
+fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 
 fun createVisualMemoryUiState(): com.inspiredandroid.braincup.app.VisualMemoryUiState {
     val game = createVisualMemoryGame()

@@ -24,9 +24,9 @@ import braincup.composeapp.generated.resources.game_goal
 import braincup.composeapp.generated.resources.game_highest_value
 import braincup.composeapp.generated.resources.game_tap_numbers
 import braincup.composeapp.generated.resources.game_what_comes_next
-import com.inspiredandroid.braincup.app.GameUiState
-import com.inspiredandroid.braincup.app.VisualMemoryUiState
-import com.inspiredandroid.braincup.games.*
+import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.games.VisualMemoryGame
+import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -47,44 +47,36 @@ sealed class ExpressionToken(val displayValue: String) {
 
 @Composable
 fun GameScreen(
-    game: Game,
+    gameUiState: GameUiState,
     timeRemaining: Long,
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
-    gameUiState: GameUiState? = null,
 ) {
     GameScaffold(onBack = onBack) {
-        // Visual Memory uses UiState-driven rendering (no timer bar)
-        val vmUiState = gameUiState as? VisualMemoryUiState
-        if (vmUiState != null) {
-            Spacer(Modifier.weight(1f))
-            VisualMemoryContent(vmUiState, onAnswer)
-            Spacer(Modifier.weight(1f))
-            return@GameScaffold
+        if (gameUiState !is VisualMemoryUiState) {
+            TimeProgressIndicator(
+                progress = timeRemaining / 60000f,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+            )
         }
-
-        TimeProgressIndicator(
-            progress = timeRemaining / 60000f,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-        )
 
         Spacer(Modifier.weight(1f))
 
-        when (game) {
-            is AnomalyPuzzleGame -> AnomalyPuzzleContent(game, onAnswer)
-            is PathFinderGame -> PathFinderContent(game, onAnswer)
-            is ColorConfusionGame -> ColorConfusionContent(game, onAnswer)
-            is VisualMemoryGame -> {} // Handled by UiState above
-            is MentalCalculationGame -> MentalCalculationContent(game, onAnswer)
-            is SherlockCalculationGame -> SherlockCalculationContent(game, onAnswer, onGiveUp)
-            is ChainCalculationGame -> ChainCalculationContent(game, onAnswer)
-            is FractionCalculationGame -> FractionCalculationContent(game, onAnswer)
-            is ValueComparisonGame -> ValueComparisonContent(game, onAnswer)
-            is GridSolverGame -> GridSolverContent(game, onAnswer)
-            is PatternSequenceGame -> PatternSequenceContent(game, onAnswer)
+        when (gameUiState) {
+            is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
+            is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer)
+            is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer)
+            is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
+            is SherlockCalculationUiState -> SherlockCalculationContent(gameUiState, onAnswer, onGiveUp)
+            is ValueComparisonUiState -> ValueComparisonContent(gameUiState, onAnswer)
+            is AnomalyPuzzleUiState -> AnomalyPuzzleContent(gameUiState, onAnswer)
+            is PathFinderUiState -> PathFinderContent(gameUiState, onAnswer)
+            is GridSolverUiState -> GridSolverContent(gameUiState, onAnswer)
+            is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
+            is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
         }
 
         Spacer(Modifier.weight(1f))
@@ -93,17 +85,17 @@ fun GameScreen(
 
 @Composable
 private fun ColumnScope.MentalCalculationContent(
-    game: MentalCalculationGame,
+    uiState: MentalCalculationUiState,
     onAnswer: (String) -> Unit,
 ) {
     Text(
-        text = game.calculation,
+        text = uiState.calculation,
         style = MaterialTheme.typography.displaySmall,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
     NumberPad(onInputChange = { input ->
-        if (game.getNumberLength() == input.length) {
+        if (uiState.answerLength == input.length) {
             onAnswer(input)
         }
     })
@@ -111,11 +103,11 @@ private fun ColumnScope.MentalCalculationContent(
 
 @Composable
 private fun ColumnScope.ChainCalculationContent(
-    game: ChainCalculationGame,
+    uiState: ChainCalculationUiState,
     onAnswer: (String) -> Unit,
 ) {
     Text(
-        text = "${game.calculation} = ?",
+        text = "${uiState.calculation} = ?",
         style = MaterialTheme.typography.displaySmall,
         textAlign = TextAlign.Center,
         modifier = Modifier
@@ -124,7 +116,7 @@ private fun ColumnScope.ChainCalculationContent(
     )
     Spacer(Modifier.height(16.dp))
     NumberPad(onInputChange = { input ->
-        if (game.isCorrect(input)) {
+        if (input.toIntOrNull() == uiState.answer) {
             onAnswer(input)
         }
     })
@@ -132,26 +124,26 @@ private fun ColumnScope.ChainCalculationContent(
 
 @Composable
 private fun ColumnScope.ColorConfusionContent(
-    game: ColorConfusionGame,
+    uiState: ColorConfusionUiState,
     onAnswer: (String) -> Unit,
 ) {
     // Show actual shape with color
     ShapeCanvas(
-        figure = Figure(game.displayedShape, game.displayedColor),
+        figure = uiState.displayedFigure,
         modifier = Modifier.size(200.dp).align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
 
     // Point assignments
     Text(
-        text = "${game.answerShape.displayName} = ${game.shapePoints}",
+        text = "${uiState.answerShape.displayName} = ${uiState.shapePoints}",
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Text(
-        text = "${game.answerColor.displayName} = ${game.colorPoints}",
+        text = "${uiState.answerColor.displayName} = ${uiState.colorPoints}",
         style = MaterialTheme.typography.bodyLarge,
-        color = game.stringColor.composeColor,
+        color = uiState.stringColor.composeColor,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
@@ -161,7 +153,7 @@ private fun ColumnScope.ColorConfusionContent(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.align(Alignment.CenterHorizontally),
     ) {
-        game.possibleAnswers.forEach { answer ->
+        uiState.possibleAnswers.forEach { answer ->
             CircleButton(onClick = { onAnswer(answer) }, value = answer)
         }
     }
@@ -169,25 +161,29 @@ private fun ColumnScope.ColorConfusionContent(
 
 @Composable
 private fun ColumnScope.SherlockCalculationContent(
-    game: SherlockCalculationGame,
+    uiState: SherlockCalculationUiState,
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    // Use key to reset state when game.result changes (new round)
-    key(game.result) {
+    // Use key to reset state when uiState.result changes (new round)
+    key(uiState.result) {
         var usedNumberIndices by remember { mutableStateOf(emptySet<Int>()) }
         var expressionTokens by remember { mutableStateOf(emptyList<ExpressionToken>()) }
 
         fun checkAnswer() {
             val expr = expressionTokens.joinToString("") { it.displayValue }
-            if (game.isCorrect(expr)) {
-                onAnswer(expr)
+            try {
+                if (Calculator.calculate(expr).toInt() == uiState.result) {
+                    onAnswer(expr)
+                }
+            } catch (_: Exception) {
+                // expression not yet valid
             }
         }
 
         // Goal display
         Text(
-            text = stringResource(Res.string.game_goal, game.result),
+            text = stringResource(Res.string.game_goal, uiState.result),
             style = MaterialTheme.typography.headlineMedium,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
@@ -218,7 +214,7 @@ private fun ColumnScope.SherlockCalculationContent(
 
         // Available numbers
         AvailableNumbersRow(
-            numbers = game.numbers,
+            numbers = uiState.numbers,
             usedIndices = usedNumberIndices,
             onNumberClick = { value, index ->
                 expressionTokens = expressionTokens + ExpressionToken.NumberToken(value, index)
@@ -252,11 +248,11 @@ private fun ColumnScope.SherlockCalculationContent(
 
 @Composable
 private fun ColumnScope.FractionCalculationContent(
-    game: FractionCalculationGame,
+    uiState: FractionCalculationUiState,
     onAnswer: (String) -> Unit,
 ) {
     Text(
-        text = game.calculation,
+        text = uiState.calculation,
         style = MaterialTheme.typography.displaySmall,
         textAlign = TextAlign.Center,
         modifier = Modifier
@@ -265,7 +261,7 @@ private fun ColumnScope.FractionCalculationContent(
     )
     Spacer(Modifier.height(16.dp))
     NumberPad(onInputChange = { input ->
-        if (game.isCorrect(input) || input.length >= 4) {
+        if (input == uiState.answerString || input.length >= 4) {
             onAnswer(input)
         }
     })
@@ -273,25 +269,19 @@ private fun ColumnScope.FractionCalculationContent(
 
 @Composable
 private fun AnomalyPuzzleContent(
-    game: AnomalyPuzzleGame,
+    uiState: AnomalyPuzzleUiState,
     onAnswer: (String) -> Unit,
 ) {
-    val chunkSize = when {
-        game.figures.size >= 16 -> 4
-        game.figures.size >= 9 -> 3
-        else -> 2
-    }
-
     Column(
         modifier = Modifier
             .padding(horizontal = 24.dp)
-            .widthIn(max = 80.dp * chunkSize),
+            .widthIn(max = 80.dp * uiState.columnsPerRow),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        game.figures.chunked(chunkSize).forEachIndexed { y, figures ->
+        uiState.rows.forEachIndexed { y, figures ->
             Row {
                 figures.forEachIndexed { x, figure ->
-                    val index = y * chunkSize + x
+                    val index = y * uiState.columnsPerRow + x
                     ShapeCanvasButton(
                         modifier = Modifier
                             .weight(1f)
@@ -308,7 +298,7 @@ private fun AnomalyPuzzleContent(
 
 @Composable
 private fun ColumnScope.PathFinderContent(
-    game: PathFinderGame,
+    uiState: PathFinderUiState,
     onAnswer: (String) -> Unit,
 ) {
     Text(
@@ -321,9 +311,9 @@ private fun ColumnScope.PathFinderContent(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        game.directions.forEach {
+        uiState.directionFigures.forEach {
             ShapeCanvas(
-                figure = it.figure,
+                figure = it,
                 modifier = Modifier.size(32.dp),
             )
         }
@@ -344,7 +334,7 @@ private fun ColumnScope.PathFinderContent(
             Row {
                 for (col in 0 until 4) {
                     val index = row * 4 + col + 1
-                    val isStart = row == game.startY && col == game.startX
+                    val isStart = row == uiState.startY && col == uiState.startX
                     ShapeCanvasButton(
                         figure = if (isStart) startFigure else blankFigure,
                         onClick = { onAnswer(index.toString()) },
@@ -361,7 +351,7 @@ private fun ColumnScope.PathFinderContent(
 
 @Composable
 private fun ColumnScope.ValueComparisonContent(
-    game: ValueComparisonGame,
+    uiState: ValueComparisonUiState,
     onAnswer: (String) -> Unit,
 ) {
     Text(
@@ -371,7 +361,7 @@ private fun ColumnScope.ValueComparisonContent(
     )
     Spacer(Modifier.height(16.dp))
 
-    game.answers.forEachIndexed { index, answer ->
+    uiState.answers.forEachIndexed { index, answer ->
         Button(
             onClick = { onAnswer((index + 1).toString()) },
             modifier = Modifier
@@ -385,10 +375,10 @@ private fun ColumnScope.ValueComparisonContent(
 
 @Composable
 private fun ColumnScope.GridSolverContent(
-    game: GridSolverGame,
+    uiState: GridSolverUiState,
     onAnswer: (String) -> Unit,
 ) {
-    val totalCells = game.size() * game.size()
+    val totalCells = uiState.gridSize * uiState.gridSize
     var inputs by remember { mutableStateOf(List(totalCells) { "" }) }
     var currentIndex by remember { mutableStateOf(0) }
 
@@ -404,10 +394,10 @@ private fun ColumnScope.GridSolverContent(
 
     // Display the grid with row and column sums (hidden answers)
     Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-        game.entries.forEachIndexed { rowIndex, row ->
+        for (rowIndex in 0 until uiState.gridSize) {
             Row {
-                row.forEachIndexed { colIndex, _ ->
-                    val cellIndex = rowIndex * game.size() + colIndex
+                for (colIndex in 0 until uiState.gridSize) {
+                    val cellIndex = rowIndex * uiState.gridSize + colIndex
                     val isCurrentCell = cellIndex == currentIndex
                     val cellValue = inputs[cellIndex]
                     Card(
@@ -447,7 +437,7 @@ private fun ColumnScope.GridSolverContent(
                         modifier = Modifier.fillMaxSize(),
                     ) {
                         Text(
-                            text = "=${game.resultsY[rowIndex]}",
+                            text = "=${uiState.resultsY[rowIndex]}",
                             style = MaterialTheme.typography.titleSmall,
                         )
                     }
@@ -456,7 +446,7 @@ private fun ColumnScope.GridSolverContent(
         }
         // Column sums row
         Row {
-            game.resultsX.forEach { sum ->
+            uiState.resultsX.forEach { sum ->
                 Card(
                     modifier = Modifier
                         .padding(4.dp)
@@ -785,7 +775,7 @@ private fun VisualMemoryCell(
 
 @Composable
 private fun ColumnScope.PatternSequenceContent(
-    game: PatternSequenceGame,
+    uiState: PatternSequenceUiState,
     onAnswer: (String) -> Unit,
 ) {
     Text(
@@ -803,7 +793,7 @@ private fun ColumnScope.PatternSequenceContent(
             .align(Alignment.CenterHorizontally)
             .padding(horizontal = 16.dp),
     ) {
-        game.sequence.forEach { figure ->
+        uiState.sequence.forEach { figure ->
             ShapeCanvas(
                 figure = figure,
                 modifier = Modifier.size(48.dp),
@@ -836,7 +826,7 @@ private fun ColumnScope.PatternSequenceContent(
             .widthIn(max = 80.dp * 2),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        game.options.chunked(2).forEachIndexed { y, rowOptions ->
+        uiState.optionRows.forEachIndexed { y, rowOptions ->
             Row {
                 rowOptions.forEachIndexed { x, figure ->
                     val index = y * 2 + x

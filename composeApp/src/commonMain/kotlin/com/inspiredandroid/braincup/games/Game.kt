@@ -1,5 +1,7 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.GameUiState
+
 abstract class Game {
     var answeredAllCorrect = true
     var round = 0
@@ -10,7 +12,7 @@ abstract class Game {
 
     abstract fun solution(): String
 
-    abstract fun getGameType(): GameType
-
     abstract fun hint(): String?
+
+    abstract fun toUiState(): GameUiState
 }

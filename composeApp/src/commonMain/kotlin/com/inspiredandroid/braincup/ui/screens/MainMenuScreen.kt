@@ -30,7 +30,7 @@ fun MainMenuScreen(
     MainMenuScreenContent(
         totalScore = remember { controller.storage.getTotalScore() },
         appOpenCount = remember { controller.storage.getAppOpenCount() },
-        highscores = remember { GameController.games.associate { it.id to controller.storage.getHighScore(it.id) } },
+        highscores = remember { GameType.entries.associate { it.id to controller.storage.getHighScore(it.id) } },
         unlockedCount = remember { controller.storage.getUnlockedAchievements().size },
         onPlay = { controller.navigateToInstructions(it) },
         onViewScore = { controller.navigateToScoreboard(it) },
@@ -83,7 +83,7 @@ fun MainMenuScreenContent(
         }
 
         // Game tiles
-        items(GameController.games, key = { it.id }) { gameType ->
+        items(GameType.entries, key = { it.id }) { gameType ->
             GameTile(
                 gameType = gameType,
                 highscore = highscores[gameType.id] ?: 0,

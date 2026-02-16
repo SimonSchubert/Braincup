@@ -73,7 +73,11 @@ class GridSolverGame : Game() {
         return solution
     }
 
-    override fun getGameType(): GameType = GameType.GRID_SOLVER
-
     override fun hint(): String? = ""
+
+    override fun toUiState() = com.inspiredandroid.braincup.app.GridSolverUiState(
+        gridSize = size(),
+        resultsX = resultsX.toList(),
+        resultsY = resultsY.toList(),
+    )
 }

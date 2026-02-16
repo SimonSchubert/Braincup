@@ -34,22 +34,6 @@ class GameController(
 
     companion object {
         const val GAME_TIME_MILLIS = 60 * 1_000L
-
-        val games = listOf(
-            GameType.ANOMALY_PUZZLE,
-            GameType.PATH_FINDER,
-            GameType.COLOR_CONFUSION,
-            GameType.VISUAL_MEMORY,
-            GameType.MENTAL_CALCULATION,
-            GameType.SHERLOCK_CALCULATION,
-            GameType.CHAIN_CALCULATION,
-            GameType.FRACTION_CALCULATION,
-            GameType.VALUE_COMPARISON,
-            GameType.GRID_SOLVER,
-            GameType.PATTERN_SEQUENCE,
-        )
-
-        fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }
     }
 
     init {
@@ -97,6 +81,7 @@ class GameController(
         game.round++
 
         _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
         navController.navigate(Playing(gameType.id))
         startTimer()
     }
@@ -171,6 +156,7 @@ class GameController(
             game.nextRound()
             game.round++
             _gameState.value = GameState.Active(currentState.gameType, game)
+            _gameUiState.value = game.toUiState()
         }
     }
 
@@ -178,24 +164,11 @@ class GameController(
         if (game.answeredAllCorrect) {
             points++
         }
-
-        val newHighscore = storage.putScore(gameType.id, points)
-
-        _gameState.value = GameState.Idle
-        navController.navigate(
-            Finish(
-                gameTypeId = gameType.id,
-                score = points,
-                isNewHighscore = newHighscore,
-                answeredAllCorrect = game.answeredAllCorrect,
-            ),
-        ) {
-            popUpTo(MainMenu)
-        }
+        finishCurrentGame(gameType, game)
     }
 
     fun playRandomGame() {
-        val randomGame = games.random()
+        val randomGame = GameType.entries.random()
         navigateToInstructions(randomGame)
     }
 
@@ -266,15 +239,19 @@ class GameController(
     }
 
     private fun finishVisualMemoryGame(game: VisualMemoryGame) {
-        game.cancelCountdown()
+        finishCurrentGame(GameType.VISUAL_MEMORY, game)
+    }
+
+    private fun finishCurrentGame(gameType: GameType, game: Game) {
+        (game as? VisualMemoryGame)?.cancelCountdown()
         _gameUiState.value = null
-
-        val newHighscore = storage.putScore(GameType.VISUAL_MEMORY.id, points)
-
         _gameState.value = GameState.Idle
+
+        val newHighscore = storage.putScore(gameType.id, points)
+
         navController.navigate(
             Finish(
-                gameTypeId = GameType.VISUAL_MEMORY.id,
+                gameTypeId = gameType.id,
                 score = points,
                 isNewHighscore = newHighscore,
                 answeredAllCorrect = game.answeredAllCorrect,

@@ -68,7 +68,9 @@ class ValueComparisonGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun getGameType(): GameType = GameType.VALUE_COMPARISON
+    override fun toUiState() = com.inspiredandroid.braincup.app.ValueComparisonUiState(
+        answers = answers.toList(),
+    )
 
     private fun getExpectedAnswersCount(): Int = when {
         round > 6 -> 4

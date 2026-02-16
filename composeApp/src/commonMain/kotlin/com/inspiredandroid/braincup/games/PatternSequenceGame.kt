@@ -88,7 +88,10 @@ class PatternSequenceGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun getGameType(): GameType = GameType.PATTERN_SEQUENCE
+    override fun toUiState() = com.inspiredandroid.braincup.app.PatternSequenceUiState(
+        sequence = sequence.toList(),
+        optionRows = options.toList().chunked(2),
+    )
 
     private fun selectPatternType(): PatternType {
         val available = when {

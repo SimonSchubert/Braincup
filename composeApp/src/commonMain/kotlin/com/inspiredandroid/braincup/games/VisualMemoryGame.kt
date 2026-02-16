@@ -200,8 +200,6 @@ class VisualMemoryGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun getGameType(): GameType = GameType.VISUAL_MEMORY
-
     fun isGameComplete(): Boolean = round >= GRID_SIZE
 
     /**
@@ -215,7 +213,7 @@ class VisualMemoryGame : Game() {
     /**
      * Creates an immutable UI state snapshot from the current game state.
      */
-    fun toUiState(): VisualMemoryUiState {
+    override fun toUiState(): VisualMemoryUiState {
         val cells = (0 until GRID_SIZE).map { position ->
             val figureIndex = grid[position]
             val hasPlaced = figureIndex != null

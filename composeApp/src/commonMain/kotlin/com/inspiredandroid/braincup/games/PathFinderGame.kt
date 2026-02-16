@@ -61,7 +61,11 @@ class PathFinderGame : Game() {
 
     override fun solution(): String = "column ${currentX + 1} and row ${currentY + 1}"
 
-    override fun getGameType(): GameType = GameType.PATH_FINDER
-
     override fun hint(): String? = ""
+
+    override fun toUiState() = com.inspiredandroid.braincup.app.PathFinderUiState(
+        directionFigures = directions.map { it.figure },
+        startX = startX,
+        startY = startY,
+    )
 }

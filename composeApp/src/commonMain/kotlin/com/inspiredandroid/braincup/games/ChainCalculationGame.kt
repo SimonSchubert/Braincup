@@ -91,5 +91,8 @@ class ChainCalculationGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun getGameType(): GameType = GameType.CHAIN_CALCULATION
+    override fun toUiState() = com.inspiredandroid.braincup.app.ChainCalculationUiState(
+        calculation = calculation,
+        answer = result,
+    )
 }

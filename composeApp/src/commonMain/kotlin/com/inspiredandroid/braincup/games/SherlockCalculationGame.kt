@@ -77,7 +77,10 @@ class SherlockCalculationGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun getGameType(): GameType = GameType.SHERLOCK_CALCULATION
+    override fun toUiState() = com.inspiredandroid.braincup.app.SherlockCalculationUiState(
+        result = result,
+        numbers = numbers.toList(),
+    )
 
     fun getNumbersString(): String = numbers.joinToString()
 

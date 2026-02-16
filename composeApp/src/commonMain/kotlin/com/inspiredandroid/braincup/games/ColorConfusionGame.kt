@@ -71,5 +71,13 @@ class ColorConfusionGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun getGameType(): GameType = GameType.COLOR_CONFUSION
+    override fun toUiState() = com.inspiredandroid.braincup.app.ColorConfusionUiState(
+        displayedFigure = com.inspiredandroid.braincup.games.tools.Figure(displayedShape, displayedColor),
+        answerShape = answerShape,
+        answerColor = answerColor,
+        stringColor = stringColor,
+        shapePoints = shapePoints,
+        colorPoints = colorPoints,
+        possibleAnswers = possibleAnswers,
+    )
 }

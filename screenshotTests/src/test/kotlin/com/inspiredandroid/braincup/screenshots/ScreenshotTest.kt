@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.screenshots
 
-import androidx.compose.material3.ColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalInspectionMode
@@ -62,7 +61,7 @@ class ScreenshotTest {
     fun gameColorConfusion() {
         paparazzi.snap {
             GameScreen(
-                game = createColorConfusionGame(),
+                gameUiState = createColorConfusionUiState(),
                 timeRemaining = 45_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -75,7 +74,7 @@ class ScreenshotTest {
     fun gameAnomalyPuzzle() {
         paparazzi.snap {
             GameScreen(
-                game = createAnomalyPuzzleGame(),
+                gameUiState = createAnomalyPuzzleUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -103,7 +102,7 @@ class ScreenshotTest {
     fun gameMentalCalculation() {
         paparazzi.snap {
             GameScreen(
-                game = createMentalCalculationGame(),
+                gameUiState = createMentalCalculationUiState(),
                 timeRemaining = 55_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -116,7 +115,7 @@ class ScreenshotTest {
     fun gameSherlockCalculation() {
         paparazzi.snap {
             GameScreen(
-                game = createSherlockCalculationGame(),
+                gameUiState = createSherlockCalculationUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -129,7 +128,7 @@ class ScreenshotTest {
     fun gameChainCalculation() {
         paparazzi.snap {
             GameScreen(
-                game = createChainCalculationGame(),
+                gameUiState = createChainCalculationUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -142,7 +141,7 @@ class ScreenshotTest {
     fun gameFractionCalculation() {
         paparazzi.snap {
             GameScreen(
-                game = createFractionCalculationGame(),
+                gameUiState = createFractionCalculationUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -155,7 +154,7 @@ class ScreenshotTest {
     fun gameValueComparison() {
         paparazzi.snap {
             GameScreen(
-                game = createValueComparisonGame(),
+                gameUiState = createValueComparisonUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -168,7 +167,7 @@ class ScreenshotTest {
     fun gamePathFinder() {
         paparazzi.snap {
             GameScreen(
-                game = createPathFinderGame(),
+                gameUiState = createPathFinderUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -181,7 +180,7 @@ class ScreenshotTest {
     fun gameGridSolver() {
         paparazzi.snap {
             GameScreen(
-                game = createGridSolverGame(),
+                gameUiState = createGridSolverUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -194,7 +193,7 @@ class ScreenshotTest {
     fun gamePatternSequence() {
         paparazzi.snap {
             GameScreen(
-                game = createPatternSequenceGame(),
+                gameUiState = createPatternSequenceUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
@@ -207,12 +206,11 @@ class ScreenshotTest {
     fun gameVisualMemory() {
         paparazzi.snap {
             GameScreen(
-                game = createVisualMemoryGame(),
+                gameUiState = createVisualMemoryUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
                 onBack = {},
-                gameUiState = createVisualMemoryUiState(),
             )
         }
     }
@@ -221,12 +219,11 @@ class ScreenshotTest {
     fun gameVisualMemoryGameOver() {
         paparazzi.snap {
             GameScreen(
-                game = createVisualMemoryGame(),
+                gameUiState = createVisualMemoryGameOverUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
                 onBack = {},
-                gameUiState = createVisualMemoryGameOverUiState(),
             )
         }
     }
