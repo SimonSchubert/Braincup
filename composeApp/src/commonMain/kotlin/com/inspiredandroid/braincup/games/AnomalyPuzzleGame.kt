@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
+import com.inspiredandroid.braincup.app.FigureCell
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -358,7 +359,7 @@ class AnomalyPuzzleGame : Game() {
             else -> 2
         }
         return AnomalyPuzzleUiState(
-            rows = figures.toList().chunked(columnsPerRow),
+            rows = figures.map { FigureCell(it) }.chunked(columnsPerRow),
             columnsPerRow = columnsPerRow,
         )
     }

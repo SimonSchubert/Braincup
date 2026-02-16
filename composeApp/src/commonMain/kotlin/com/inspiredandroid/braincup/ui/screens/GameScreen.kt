@@ -270,67 +270,43 @@ private fun ColumnScope.FractionCalculationContent(
 }
 
 @Composable
+private fun FigureCellContent(
+    cell: FigureCell,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    when (cell.state) {
+        FigureCellState.NORMAL -> ShapeCanvasButton(figure = cell.figure, onClick = onClick, modifier = modifier)
+        FigureCellState.WRONG -> Card(modifier, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer)) {
+            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
+        }
+        FigureCellState.CORRECT -> Card(modifier, colors = CardDefaults.cardColors(containerColor = SuccessGreen.copy(alpha = 0.15f)), border = BorderStroke(2.dp, SuccessGreen)) {
+            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
+        }
+        FigureCellState.DIMMED -> ShapeCanvas(figure = cell.figure, modifier = modifier.alpha(0.3f))
+    }
+}
+
+@Composable
 private fun AnomalyPuzzleContent(
     uiState: AnomalyPuzzleUiState,
     onAnswer: (String) -> Unit,
 ) {
-    val showingFeedback = uiState.wrongAnswerIndex != null
     Column(
         modifier = Modifier
             .padding(horizontal = 24.dp)
             .widthIn(max = 80.dp * uiState.columnsPerRow),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        uiState.rows.forEachIndexed { y, figures ->
+        uiState.rows.forEachIndexed { y, cells ->
             Row {
-                figures.forEachIndexed { x, figure ->
+                cells.forEachIndexed { x, cell ->
                     val index = y * uiState.columnsPerRow + x
-                    val cellModifier = Modifier
-                        .weight(1f)
-                        .aspectRatio(1f)
-                        .padding(8.dp)
-                    when {
-                        index == uiState.wrongAnswerIndex -> {
-                            Card(
-                                modifier = cellModifier,
-                                colors = CardDefaults.cardColors(
-                                    containerColor = MaterialTheme.colorScheme.errorContainer,
-                                ),
-                            ) {
-                                ShapeCanvas(
-                                    figure = figure,
-                                    modifier = Modifier.fillMaxSize().padding(8.dp),
-                                )
-                            }
-                        }
-                        index == uiState.correctAnswerIndex && showingFeedback -> {
-                            Card(
-                                modifier = cellModifier,
-                                colors = CardDefaults.cardColors(
-                                    containerColor = SuccessGreen.copy(alpha = 0.15f),
-                                ),
-                                border = BorderStroke(2.dp, SuccessGreen),
-                            ) {
-                                ShapeCanvas(
-                                    figure = figure,
-                                    modifier = Modifier.fillMaxSize().padding(8.dp),
-                                )
-                            }
-                        }
-                        showingFeedback -> {
-                            ShapeCanvas(
-                                figure = figure,
-                                modifier = cellModifier.alpha(0.3f),
-                            )
-                        }
-                        else -> {
-                            ShapeCanvasButton(
-                                modifier = cellModifier,
-                                figure = figure,
-                                onClick = { onAnswer("${index + 1}") },
-                            )
-                        }
-                    }
+                    FigureCellContent(
+                        cell = cell,
+                        onClick = { onAnswer("${index + 1}") },
+                        modifier = Modifier.weight(1f).aspectRatio(1f).padding(8.dp),
+                    )
                 }
             }
         }
@@ -869,15 +845,12 @@ private fun ColumnScope.PatternSequenceContent(
     ) {
         uiState.optionRows.forEachIndexed { y, rowOptions ->
             Row {
-                rowOptions.forEachIndexed { x, figure ->
+                rowOptions.forEachIndexed { x, cell ->
                     val index = y * 2 + x
-                    ShapeCanvasButton(
-                        figure = figure,
+                    FigureCellContent(
+                        cell = cell,
                         onClick = { onAnswer(index.toString()) },
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(8.dp),
+                        modifier = Modifier.weight(1f).aspectRatio(1f).padding(8.dp),
                     )
                 }
             }

@@ -4,6 +4,7 @@ import androidx.navigation.NavController
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.AnomalyPuzzleGame
+import com.inspiredandroid.braincup.games.PatternSequenceGame
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -96,6 +97,10 @@ class GameController(
         }
         if (game is AnomalyPuzzleGame) {
             handleAnomalyPuzzleAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is PatternSequenceGame) {
+            handlePatternSequenceAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -237,17 +242,47 @@ class GameController(
             val wrongIndex = input.toIntOrNull()?.minus(1)
             val currentUiState = _gameUiState.value as? AnomalyPuzzleUiState ?: return
             _gameUiState.value = currentUiState.copy(
-                wrongAnswerIndex = wrongIndex,
-                correctAnswerIndex = game.resultIndex,
+                rows = currentUiState.rows.withFeedbackStates(wrongIndex, game.resultIndex, currentUiState.columnsPerRow),
             )
             scope.launch {
                 delay(1_000)
-                proceedAfterAnomalyFeedback(currentState.gameType, game)
+                proceedAfterInlineFeedback(currentState.gameType, game)
             }
         }
     }
 
-    private fun proceedAfterAnomalyFeedback(gameType: GameType, game: Game) {
+    private fun handlePatternSequenceAnswer(
+        currentState: GameState.Active,
+        game: PatternSequenceGame,
+        input: String,
+    ) {
+        if (game.isCorrect(input)) {
+            points++
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = game.hint(),
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterFeedback()
+            }
+        } else {
+            game.answeredAllCorrect = false
+            val wrongIndex = input.toIntOrNull()
+            val currentUiState = _gameUiState.value as? PatternSequenceUiState ?: return
+            _gameUiState.value = currentUiState.copy(
+                optionRows = currentUiState.optionRows.withFeedbackStates(wrongIndex, game.correctOptionIndex, 2),
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun proceedAfterInlineFeedback(gameType: GameType, game: Game) {
         val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
         if (elapsed > GAME_TIME_MILLIS) {
             finishGame(gameType, game)
@@ -304,5 +339,22 @@ class GameController(
 
     private fun emitGameUiState(game: VisualMemoryGame) {
         _gameUiState.value = game.toUiState()
+    }
+
+    private fun List<List<FigureCell>>.withFeedbackStates(
+        wrongIndex: Int?,
+        correctIndex: Int,
+        columnsPerRow: Int,
+    ): List<List<FigureCell>> = mapIndexed { y, row ->
+        row.mapIndexed { x, cell ->
+            val flatIndex = y * columnsPerRow + x
+            cell.copy(
+                state = when (flatIndex) {
+                    wrongIndex -> FigureCellState.WRONG
+                    correctIndex -> FigureCellState.CORRECT
+                    else -> FigureCellState.DIMMED
+                },
+            )
+        }
     }
 }

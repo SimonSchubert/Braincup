@@ -5,6 +5,13 @@ import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 
+enum class FigureCellState { NORMAL, WRONG, CORRECT, DIMMED }
+
+data class FigureCell(
+    val figure: Figure,
+    val state: FigureCellState = FigureCellState.NORMAL,
+)
+
 sealed interface GameUiState
 
 data class MentalCalculationUiState(
@@ -42,10 +49,8 @@ data class ValueComparisonUiState(
 ) : GameUiState
 
 data class AnomalyPuzzleUiState(
-    val rows: List<List<Figure>>,
+    val rows: List<List<FigureCell>>,
     val columnsPerRow: Int,
-    val wrongAnswerIndex: Int? = null,
-    val correctAnswerIndex: Int? = null,
 ) : GameUiState
 
 data class PathFinderUiState(
@@ -62,7 +67,7 @@ data class GridSolverUiState(
 
 data class PatternSequenceUiState(
     val sequence: List<Figure>,
-    val optionRows: List<List<Figure>>,
+    val optionRows: List<List<FigureCell>>,
 ) : GameUiState
 
 data class VisualMemoryUiState(

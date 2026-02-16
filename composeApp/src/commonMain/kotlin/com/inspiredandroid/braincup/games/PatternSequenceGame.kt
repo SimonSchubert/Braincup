@@ -1,5 +1,7 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FigureCell
+import com.inspiredandroid.braincup.app.PatternSequenceUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -88,9 +90,9 @@ class PatternSequenceGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun toUiState() = com.inspiredandroid.braincup.app.PatternSequenceUiState(
+    override fun toUiState() = PatternSequenceUiState(
         sequence = sequence.toList(),
-        optionRows = options.toList().chunked(2),
+        optionRows = options.map { FigureCell(it) }.chunked(2),
     )
 
     private fun selectPatternType(): PatternType {
