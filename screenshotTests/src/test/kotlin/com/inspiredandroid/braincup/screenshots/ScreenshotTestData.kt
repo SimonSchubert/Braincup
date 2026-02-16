@@ -71,14 +71,12 @@ fun createSherlockCalculationGame(): SherlockCalculationGame {
 fun createChainCalculationGame(): ChainCalculationGame {
     val game = ChainCalculationGame()
     game.nextRound()
-    game.round++
     return game
 }
 
 fun createFractionCalculationGame(): FractionCalculationGame {
     val game = FractionCalculationGame()
     game.nextRound()
-    game.round++
     return game
 }
 
@@ -141,7 +139,6 @@ fun createVisualMemoryGame(): VisualMemoryGame {
     val game = VisualMemoryGame()
     repeat(4) {
         game.nextRound()
-        game.round++
     }
     return game
 }

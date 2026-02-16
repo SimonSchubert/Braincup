@@ -21,7 +21,7 @@ class GridSolverGame : Game() {
         else -> 6
     }
 
-    override fun nextRound() {
+    override fun generateRound() {
         entries.clear()
         resultsX.clear()
         resultsY.clear()

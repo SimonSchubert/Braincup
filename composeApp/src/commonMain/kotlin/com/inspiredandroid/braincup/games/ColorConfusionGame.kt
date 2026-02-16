@@ -27,7 +27,7 @@ class ColorConfusionGame : Game() {
 
     override fun isCorrect(input: String): Boolean = points() == input
 
-    override fun nextRound() {
+    override fun generateRound() {
         displayedShape = shapes.random()
         answerShape =
             if (Random.nextBoolean()) {

@@ -56,7 +56,7 @@ class PatternSequenceGame : Game() {
 
     override fun isCorrect(input: String): Boolean = input.toIntOrNull() == correctOptionIndex
 
-    override fun nextRound() {
+    override fun generateRound() {
         sequence.clear()
         options.clear()
 

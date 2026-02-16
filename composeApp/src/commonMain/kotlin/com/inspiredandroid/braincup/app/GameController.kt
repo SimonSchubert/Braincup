@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.app
 import androidx.navigation.NavController
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
+import com.inspiredandroid.braincup.games.AnomalyPuzzleGame
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -30,7 +31,6 @@ class GameController(
 
     private var startTime = 0L
     private var points = 0
-    private var plays = 0
 
     companion object {
         const val GAME_TIME_MILLIS = 60 * 1_000L
@@ -65,6 +65,8 @@ class GameController(
     }
 
     fun startGame(gameType: GameType) {
+        points = 0
+
         // Visual Memory has special handling (no timer, round-based)
         if (gameType == GameType.VISUAL_MEMORY) {
             startVisualMemoryGame(gameType)
@@ -72,13 +74,10 @@ class GameController(
         }
 
         startTime = Clock.System.now().toEpochMilliseconds()
-        plays++
-        points = 0
         _timeRemaining.value = GAME_TIME_MILLIS
 
         val game = createGame(gameType)
         game.nextRound()
-        game.round++
 
         _gameState.value = GameState.Active(gameType, game)
         _gameUiState.value = game.toUiState()
@@ -93,6 +92,10 @@ class GameController(
         val game = currentState.game
         if (game is VisualMemoryGame) {
             handleVisualMemoryAnswer(game, answer)
+            return
+        }
+        if (game is AnomalyPuzzleGame) {
+            handleAnomalyPuzzleAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -154,7 +157,6 @@ class GameController(
             finishGame(currentState.gameType, game)
         } else {
             game.nextRound()
-            game.round++
             _gameState.value = GameState.Active(currentState.gameType, game)
             _gameUiState.value = game.toUiState()
         }
@@ -205,16 +207,55 @@ class GameController(
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
-        plays++
-        points = 0
-
         val game = VisualMemoryGame()
         game.nextRound()
-        game.round++
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
         game.startCountdown(scope) { emitGameUiState(game) }
+    }
+
+    private fun handleAnomalyPuzzleAnswer(
+        currentState: GameState.Active,
+        game: AnomalyPuzzleGame,
+        input: String,
+    ) {
+        if (game.isCorrect(input)) {
+            points++
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = game.hint(),
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterFeedback()
+            }
+        } else {
+            game.answeredAllCorrect = false
+            val wrongIndex = input.toIntOrNull()?.minus(1)
+            val currentUiState = _gameUiState.value as? AnomalyPuzzleUiState ?: return
+            _gameUiState.value = currentUiState.copy(
+                wrongAnswerIndex = wrongIndex,
+                correctAnswerIndex = game.resultIndex,
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterAnomalyFeedback(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun proceedAfterAnomalyFeedback(gameType: GameType, game: Game) {
+        val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
+        if (elapsed > GAME_TIME_MILLIS) {
+            finishGame(gameType, game)
+        } else {
+            game.nextRound()
+            _gameState.value = GameState.Active(gameType, game)
+            _gameUiState.value = game.toUiState()
+        }
     }
 
     private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {

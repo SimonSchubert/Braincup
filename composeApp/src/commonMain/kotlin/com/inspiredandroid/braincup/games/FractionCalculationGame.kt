@@ -15,7 +15,7 @@ class FractionCalculationGame : Game() {
     private var fractions = mutableListOf<String>()
     var calculation = ""
 
-    override fun nextRound() {
+    override fun generateRound() {
         fractions.clear()
         val down = Random.nextInt(2, 8)
         val up = down * Random.nextInt(3, 7)

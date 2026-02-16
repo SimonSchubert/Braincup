@@ -28,7 +28,7 @@ class ChainCalculationGame : Game() {
         listOf(Operator.PLUS, Operator.MINUS, Operator.MULTIPLY)
     }
 
-    override fun nextRound() {
+    override fun generateRound() {
         calculation = ""
         for (i in 0 until numberCount) {
             val maxNumber =

@@ -18,7 +18,7 @@ class ValueComparisonGame : Game() {
     var answers = mutableListOf<String>()
     var types = listOf(Type.FRACTION, Type.MULTIPLICATION)
 
-    override fun nextRound() {
+    override fun generateRound() {
         answers.clear()
         val type =
             if (round == 0) {

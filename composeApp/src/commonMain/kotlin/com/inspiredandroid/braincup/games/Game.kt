@@ -6,7 +6,12 @@ abstract class Game {
     var answeredAllCorrect = true
     var round = 0
 
-    abstract fun nextRound()
+    fun nextRound() {
+        generateRound()
+        round++
+    }
+
+    protected abstract fun generateRound()
 
     abstract fun isCorrect(input: String): Boolean
 

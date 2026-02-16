@@ -44,6 +44,8 @@ data class ValueComparisonUiState(
 data class AnomalyPuzzleUiState(
     val rows: List<List<Figure>>,
     val columnsPerRow: Int,
+    val wrongAnswerIndex: Int? = null,
+    val correctAnswerIndex: Int? = null,
 ) : GameUiState
 
 data class PathFinderUiState(

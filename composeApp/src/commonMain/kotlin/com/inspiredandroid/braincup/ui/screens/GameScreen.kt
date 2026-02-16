@@ -9,6 +9,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.input.pointer.PointerIcon
@@ -35,6 +36,7 @@ import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPad
 import com.inspiredandroid.braincup.ui.components.ShapeCanvas
 import com.inspiredandroid.braincup.ui.components.ShapeCanvasButton
+import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -272,6 +274,7 @@ private fun AnomalyPuzzleContent(
     uiState: AnomalyPuzzleUiState,
     onAnswer: (String) -> Unit,
 ) {
+    val showingFeedback = uiState.wrongAnswerIndex != null
     Column(
         modifier = Modifier
             .padding(horizontal = 24.dp)
@@ -282,14 +285,52 @@ private fun AnomalyPuzzleContent(
             Row {
                 figures.forEachIndexed { x, figure ->
                     val index = y * uiState.columnsPerRow + x
-                    ShapeCanvasButton(
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(8.dp),
-                        figure = figure,
-                        onClick = { onAnswer("${index + 1}") },
-                    )
+                    val cellModifier = Modifier
+                        .weight(1f)
+                        .aspectRatio(1f)
+                        .padding(8.dp)
+                    when {
+                        index == uiState.wrongAnswerIndex -> {
+                            Card(
+                                modifier = cellModifier,
+                                colors = CardDefaults.cardColors(
+                                    containerColor = MaterialTheme.colorScheme.errorContainer,
+                                ),
+                            ) {
+                                ShapeCanvas(
+                                    figure = figure,
+                                    modifier = Modifier.fillMaxSize().padding(8.dp),
+                                )
+                            }
+                        }
+                        index == uiState.correctAnswerIndex && showingFeedback -> {
+                            Card(
+                                modifier = cellModifier,
+                                colors = CardDefaults.cardColors(
+                                    containerColor = SuccessGreen.copy(alpha = 0.15f),
+                                ),
+                                border = BorderStroke(2.dp, SuccessGreen),
+                            ) {
+                                ShapeCanvas(
+                                    figure = figure,
+                                    modifier = Modifier.fillMaxSize().padding(8.dp),
+                                )
+                            }
+                        }
+                        showingFeedback -> {
+                            ShapeCanvas(
+                                figure = figure,
+                                modifier = cellModifier.alpha(0.3f),
+                            )
+                        }
+                        else -> {
+                            ShapeCanvasButton(
+                                modifier = cellModifier,
+                                figure = figure,
+                                onClick = { onAnswer("${index + 1}") },
+                            )
+                        }
+                    }
                 }
             }
         }

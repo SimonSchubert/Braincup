@@ -101,7 +101,7 @@ class VisualMemoryGame : Game() {
         shuffledAnswerOptions = availableFigures.shuffled()
     }
 
-    override fun nextRound() {
+    override fun generateRound() {
         phase = Phase.MEMORIZING
         val figureIndex = round // Which figure (0, 1, 2...)
         if (figureIndex < GRID_SIZE) {
@@ -129,7 +129,6 @@ class VisualMemoryGame : Game() {
         if (!isRoundComplete()) return SubmitResult.CorrectContinue
         if (isGameComplete()) return SubmitResult.GameComplete
         nextRound()
-        round++
         return SubmitResult.RoundComplete
     }
 

@@ -60,7 +60,7 @@ class AnomalyPuzzleGame : Game() {
 
     override fun isCorrect(input: String): Boolean = (resultIndex + 1).toString() == input
 
-    override fun nextRound() {
+    override fun generateRound() {
         puzzleType = getCurrentPuzzleType()
         generateFigures(puzzleType)
     }

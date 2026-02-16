@@ -13,7 +13,7 @@ class PathFinderGame : Game() {
     var currentX = 0
     var currentY = 0
 
-    override fun nextRound() {
+    override fun generateRound() {
         directions.clear()
         lastDirection = Direction.UP
         startX = Random.nextInt(4)

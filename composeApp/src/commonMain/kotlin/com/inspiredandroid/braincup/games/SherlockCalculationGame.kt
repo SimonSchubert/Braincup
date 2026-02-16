@@ -38,7 +38,7 @@ class SherlockCalculationGame : Game() {
         }
     }
 
-    override fun nextRound() {
+    override fun generateRound() {
         calculation = ""
         numbers.clear()
         numbers.add(Random.nextInt(2, 5))

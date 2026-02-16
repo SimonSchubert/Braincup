@@ -44,7 +44,7 @@ class MentalCalculationGame : Game() {
         return isCorrect
     }
 
-    override fun nextRound() {
+    override fun generateRound() {
         if (resetNextRound) {
             reset()
             resetNextRound = false
