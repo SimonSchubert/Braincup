@@ -110,7 +110,7 @@ private fun AnomalyPuzzlePreview() {
         Figure(Shape.STAR, Color.RED),
         Figure(Shape.STAR, Color.RED),
         Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.BLUE)
+        Figure(Shape.STAR, Color.BLUE),
     )
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
@@ -203,7 +203,7 @@ private fun VisualMemoryPreview() {
         Figure(Shape.TRIANGLE, Color.RED),
         null,
         Figure(Shape.CIRCLE, Color.GREEN),
-        null
+        null,
     )
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
