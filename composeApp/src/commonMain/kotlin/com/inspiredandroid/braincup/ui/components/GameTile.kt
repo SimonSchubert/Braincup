@@ -110,19 +110,14 @@ private fun AnomalyPuzzlePreview() {
         Figure(Shape.STAR, Color.RED),
         Figure(Shape.STAR, Color.RED),
         Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.BLUE),
-        Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.RED),
+        Figure(Shape.STAR, Color.BLUE)
     )
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        figures.chunked(3).forEach { row ->
+        figures.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { figure ->
                     ShapeCanvas(
@@ -208,19 +203,14 @@ private fun VisualMemoryPreview() {
         Figure(Shape.TRIANGLE, Color.RED),
         null,
         Figure(Shape.CIRCLE, Color.GREEN),
-        null,
-        Figure(Shape.STAR, Color.PURPLE),
-        null,
-        Figure(Shape.SQUARE, Color.BLUE),
-        null,
-        Figure(Shape.DIAMOND, Color.YELLOW),
+        null
     )
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        figures.chunked(3).forEach { row ->
+        figures.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { figure ->
                     Box(

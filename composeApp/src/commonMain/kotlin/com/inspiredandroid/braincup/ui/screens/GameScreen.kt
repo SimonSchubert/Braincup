@@ -24,6 +24,8 @@ import braincup.composeapp.generated.resources.game_goal
 import braincup.composeapp.generated.resources.game_highest_value
 import braincup.composeapp.generated.resources.game_tap_numbers
 import braincup.composeapp.generated.resources.game_what_comes_next
+import com.inspiredandroid.braincup.app.GameUiState
+import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -50,8 +52,18 @@ fun GameScreen(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
+    gameUiState: GameUiState? = null,
 ) {
     GameScaffold(onBack = onBack) {
+        // Visual Memory uses UiState-driven rendering (no timer bar)
+        val vmUiState = gameUiState as? VisualMemoryUiState
+        if (vmUiState != null) {
+            Spacer(Modifier.weight(1f))
+            VisualMemoryContent(vmUiState, onAnswer)
+            Spacer(Modifier.weight(1f))
+            return@GameScaffold
+        }
+
         TimeProgressIndicator(
             progress = timeRemaining / 60000f,
             modifier = Modifier
@@ -65,7 +77,7 @@ fun GameScreen(
             is AnomalyPuzzleGame -> AnomalyPuzzleContent(game, onAnswer)
             is PathFinderGame -> PathFinderContent(game, onAnswer)
             is ColorConfusionGame -> ColorConfusionContent(game, onAnswer)
-            is VisualMemoryGame -> VisualMemoryContent(game, onAnswer)
+            is VisualMemoryGame -> {} // Handled by UiState above
             is MentalCalculationGame -> MentalCalculationContent(game, onAnswer)
             is SherlockCalculationGame -> SherlockCalculationContent(game, onAnswer, onGiveUp)
             is ChainCalculationGame -> ChainCalculationContent(game, onAnswer)
@@ -260,7 +272,7 @@ private fun ColumnScope.FractionCalculationContent(
 }
 
 @Composable
-private fun ColumnScope.AnomalyPuzzleContent(
+private fun AnomalyPuzzleContent(
     game: AnomalyPuzzleGame,
     onAnswer: (String) -> Unit,
 ) {
@@ -638,61 +650,77 @@ private fun TimeProgressIndicator(
 
 @Composable
 private fun ColumnScope.VisualMemoryContent(
-    game: VisualMemoryGame,
+    uiState: VisualMemoryUiState,
     onAnswer: (String) -> Unit,
 ) {
-    val memorizeDurationSeconds = (VisualMemoryGame.MEMORIZE_DURATION_MILLIS / 1000).toInt()
+    Spacer(Modifier.height(8.dp))
 
-    // Key on round to reset state when round changes
-    key(game.round) {
-        var countdown by remember { mutableStateOf(memorizeDurationSeconds) }
-        var phase by remember { mutableStateOf(game.phase) }
+    // Countdown during memorization phase
+    if (uiState.phase == VisualMemoryGame.Phase.MEMORIZING) {
+        Text(
+            text = "${uiState.countdown}",
+            style = MaterialTheme.typography.headlineMedium,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+    }
+    Spacer(Modifier.height(16.dp))
 
-        // Countdown timer during memorization phase
-        LaunchedEffect(game.round) {
-            countdown = memorizeDurationSeconds
-            phase = VisualMemoryGame.Phase.MEMORIZING
-
-            while (countdown > 0) {
-                kotlinx.coroutines.delay(1000L)
-                countdown--
+    // 3x3 Grid
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 80.dp * 3),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        uiState.cells.chunked(3).forEach { rowCells ->
+            Row {
+                rowCells.forEach { cell ->
+                    VisualMemoryCell(
+                        cell = cell,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp),
+                    )
+                }
             }
-
-            // Transition to answer phase
-            game.startAnswerPhase()
-            phase = VisualMemoryGame.Phase.ANSWERING
         }
+    }
 
-        // Round indicator
-        Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(24.dp))
 
-        // Phase indicator with countdown or target shape
-        if (phase == VisualMemoryGame.Phase.MEMORIZING) {
-            Text(
-                text = "$countdown",
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.primary,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
-        Spacer(Modifier.height(16.dp))
-
-        // 3x3 Grid - key on currentGuessIndex to recompose when guess advances
-        key(game.currentGuessIndex) {
-            Column(
-                modifier = Modifier
-                    .padding(horizontal = 24.dp)
-                    .widthIn(max = 80.dp * 3),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                for (row in 0 until 3) {
-                    Row {
-                        for (col in 0 until 3) {
-                            val position = row * 3 + col
-                            VisualMemoryCell(
-                                game = game,
-                                position = position,
-                                phase = phase,
+    // Answer options (visible during answer and game-over phases)
+    if (uiState.phase == VisualMemoryGame.Phase.ANSWERING || uiState.phase == VisualMemoryGame.Phase.GAME_OVER) {
+        Column(
+            modifier = Modifier
+                .padding(horizontal = 24.dp)
+                .widthIn(max = 72.dp * 3),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            uiState.answerOptions.chunked(3).forEach { rowOptions ->
+                Row {
+                    rowOptions.forEach { option ->
+                        if (option.isWrong) {
+                            Card(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .aspectRatio(1f)
+                                    .padding(4.dp),
+                                colors = CardDefaults.cardColors(
+                                    containerColor = MaterialTheme.colorScheme.errorContainer,
+                                ),
+                            ) {
+                                ShapeCanvas(
+                                    figure = option.figure,
+                                    modifier = Modifier.fillMaxSize().padding(8.dp),
+                                )
+                            }
+                        } else {
+                            ShapeCanvasButton(
+                                figure = option.figure,
+                                onClick = { onAnswer(option.figureIndex.toString()) },
+                                enabled = option.enabled,
                                 modifier = Modifier
                                     .weight(1f)
                                     .aspectRatio(1f)
@@ -703,70 +731,24 @@ private fun ColumnScope.VisualMemoryContent(
                 }
             }
         }
-
-        Spacer(Modifier.height(24.dp))
-
-        // Answer options (only visible during answer phase)
-        if (phase == VisualMemoryGame.Phase.ANSWERING) {
-            // 3x3 grid of answer options (shuffled) - key on currentGuessIndex
-            key(game.currentGuessIndex) {
-                Column(
-                    modifier = Modifier
-                        .padding(horizontal = 24.dp)
-                        .widthIn(max = 72.dp * 3),
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    game.shuffledAnswerOptions.chunked(3).forEach { rowFigures ->
-                        Row {
-                            rowFigures.forEach { figure ->
-                                // Find the original index in availableFigures for the answer
-                                val figureIndex = game.availableFigures.indexOf(figure)
-                                val isAlreadyGuessed = game.isFigureRevealed(figureIndex)
-                                ShapeCanvasButton(
-                                    figure = figure,
-                                    onClick = { onAnswer(figureIndex.toString()) },
-                                    enabled = !isAlreadyGuessed,
-                                    modifier = Modifier
-                                        .weight(1f)
-                                        .aspectRatio(1f)
-                                        .padding(4.dp),
-                                )
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
 
 @Composable
 private fun VisualMemoryCell(
-    game: VisualMemoryGame,
-    position: Int,
-    phase: VisualMemoryGame.Phase,
+    cell: VisualMemoryUiState.CellState,
     modifier: Modifier = Modifier,
 ) {
-    val figure = game.getFigureAt(position)
-    val hasPlacedFigure = game.hasPlacedFigure(position)
-    val isEmptyCell = !hasPlacedFigure
-    // Current target shows "?" during answer phase
-    val isCurrentTarget = phase == VisualMemoryGame.Phase.ANSWERING &&
-        position == game.getCurrentTargetPosition()
-    // Hidden cells have a figure, are not revealed, and are not the current target
-    val isHiddenCell = phase == VisualMemoryGame.Phase.ANSWERING &&
-        hasPlacedFigure &&
-        position !in game.revealedPositions &&
-        !isCurrentTarget
-
     Card(
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = when {
-                isCurrentTarget -> MaterialTheme.colorScheme.primaryContainer
-                isHiddenCell -> MaterialTheme.colorScheme.surfaceVariant
-                isEmptyCell -> MaterialTheme.colorScheme.surfaceVariant
-                else -> MaterialTheme.colorScheme.surface
+            containerColor = when (cell.type) {
+                VisualMemoryUiState.CellType.CURRENT_TARGET -> MaterialTheme.colorScheme.primaryContainer
+                VisualMemoryUiState.CellType.HIDDEN -> MaterialTheme.colorScheme.surfaceVariant
+                VisualMemoryUiState.CellType.EMPTY -> MaterialTheme.colorScheme.surfaceVariant
+                VisualMemoryUiState.CellType.MEMORIZING -> MaterialTheme.colorScheme.surface
+                VisualMemoryUiState.CellType.REVEALED -> MaterialTheme.colorScheme.surface
+                VisualMemoryUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
             },
         ),
     ) {
@@ -774,20 +756,26 @@ private fun VisualMemoryCell(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize(),
         ) {
-            when {
-                isCurrentTarget -> {
+            when (cell.type) {
+                VisualMemoryUiState.CellType.CURRENT_TARGET -> {
                     Text(
                         text = "?",
                         style = MaterialTheme.typography.headlineLarge,
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                     )
                 }
-                figure != null -> {
-                    ShapeCanvas(
-                        figure = figure,
-                        modifier = Modifier.fillMaxSize().padding(8.dp),
-                    )
+                VisualMemoryUiState.CellType.MEMORIZING,
+                VisualMemoryUiState.CellType.REVEALED,
+                VisualMemoryUiState.CellType.WRONG,
+                -> {
+                    if (cell.figure != null) {
+                        ShapeCanvas(
+                            figure = cell.figure,
+                            modifier = Modifier.fillMaxSize().padding(8.dp),
+                        )
+                    }
                 }
+                else -> {}
             }
         }
     }

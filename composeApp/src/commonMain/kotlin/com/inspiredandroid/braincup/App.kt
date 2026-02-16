@@ -12,7 +12,6 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.inspiredandroid.braincup.app.*
-import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 
@@ -45,21 +44,17 @@ fun App() {
                     val gameType = GameController.getGameTypeById(route.gameTypeId)
                     val gameState by controller.gameState.collectAsState()
                     val timeRemaining by controller.timeRemaining.collectAsState()
+                    val gameUiState by controller.gameUiState.collectAsState()
 
                     when (val state = gameState) {
                         is GameState.Active -> {
                             GameScreen(
                                 game = state.game,
                                 timeRemaining = timeRemaining,
-                                onAnswer = {
-                                    if (gameType == GameType.VISUAL_MEMORY) {
-                                        controller.submitVisualMemoryAnswer(it)
-                                    } else {
-                                        controller.submitAnswer(it)
-                                    }
-                                },
+                                onAnswer = { controller.submitAnswer(it) },
                                 onGiveUp = { controller.giveUp() },
                                 onBack = { controller.navigateToMainMenu() },
+                                gameUiState = gameUiState,
                             )
                         }
 

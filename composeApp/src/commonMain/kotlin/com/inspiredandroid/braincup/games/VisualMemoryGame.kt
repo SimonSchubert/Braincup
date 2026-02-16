@@ -1,8 +1,13 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * Visual Memory game where players memorize shape-color combinations on a 3x3 grid.
@@ -11,9 +16,17 @@ import com.inspiredandroid.braincup.games.tools.Shape
  * The player must identify ALL N shapes in a random order determined by the game.
  */
 class VisualMemoryGame : Game() {
+    sealed class SubmitResult {
+        data object CorrectContinue : SubmitResult()
+        data object RoundComplete : SubmitResult()
+        data object GameComplete : SubmitResult()
+        data object Wrong : SubmitResult()
+    }
+
     enum class Phase {
         MEMORIZING,
         ANSWERING,
+        GAME_OVER,
     }
 
     companion object {
@@ -47,6 +60,12 @@ class VisualMemoryGame : Game() {
 
     var phase: Phase = Phase.MEMORIZING
         private set
+
+    var wrongAnswerFigureIndex: Int? = null
+        private set
+
+    var countdown: Int = (MEMORIZE_DURATION_MILLIS / 1000).toInt()
+    private var countdownJob: Job? = null
 
     /** The 9 shuffled figures used for this game session */
     val availableFigures: List<Figure>
@@ -99,6 +118,42 @@ class VisualMemoryGame : Game() {
         revealedPositions.clear()
     }
 
+    fun submitAnswer(answer: String): SubmitResult {
+        if (!isCorrect(answer)) {
+            answeredAllCorrect = false
+            wrongAnswerFigureIndex = answer.toIntOrNull()
+            phase = Phase.GAME_OVER
+            return SubmitResult.Wrong
+        }
+        advanceGuess()
+        if (!isRoundComplete()) return SubmitResult.CorrectContinue
+        if (isGameComplete()) return SubmitResult.GameComplete
+        nextRound()
+        round++
+        return SubmitResult.RoundComplete
+    }
+
+    fun startCountdown(scope: CoroutineScope, onStateChanged: () -> Unit) {
+        countdownJob?.cancel()
+        countdown = (MEMORIZE_DURATION_MILLIS / 1000).toInt()
+        onStateChanged()
+
+        countdownJob = scope.launch {
+            while (countdown > 0) {
+                delay(1000L)
+                countdown--
+                onStateChanged()
+            }
+            startAnswerPhase()
+            onStateChanged()
+        }
+    }
+
+    fun cancelCountdown() {
+        countdownJob?.cancel()
+        countdownJob = null
+    }
+
     /**
      * Returns the grid position of the current shape the player needs to find.
      */
@@ -111,22 +166,6 @@ class VisualMemoryGame : Game() {
         val position = getCurrentTargetPosition()
         val figureIndex = grid[position] ?: 0
         return availableFigures[figureIndex]
-    }
-
-    /**
-     * Returns the figure at the given grid position during memorization phase.
-     * During answer phase, returns null unless the position has been revealed.
-     */
-    fun getFigureAt(position: Int): Figure? {
-        if (position < 0 || position >= GRID_SIZE) return null
-        val figureIndex = grid[position] ?: return null
-
-        // During answer phase, only show revealed positions
-        if (phase == Phase.ANSWERING && position !in revealedPositions) {
-            return null
-        }
-
-        return availableFigures.getOrNull(figureIndex)
     }
 
     /**
@@ -166,11 +205,6 @@ class VisualMemoryGame : Game() {
     fun isGameComplete(): Boolean = round >= GRID_SIZE
 
     /**
-     * Returns the grid position where a figure is placed.
-     */
-    fun getGridPositionForFigure(figureIndex: Int): Int = shuffledPositions[figureIndex]
-
-    /**
      * Check if a figure has already been revealed (correctly guessed).
      */
     fun isFigureRevealed(figureIndex: Int): Boolean {
@@ -179,7 +213,69 @@ class VisualMemoryGame : Game() {
     }
 
     /**
-     * Check if a position has a figure placed on it.
+     * Creates an immutable UI state snapshot from the current game state.
      */
-    fun hasPlacedFigure(position: Int): Boolean = grid[position] != null
+    fun toUiState(): VisualMemoryUiState {
+        val cells = (0 until GRID_SIZE).map { position ->
+            val figureIndex = grid[position]
+            val hasPlaced = figureIndex != null
+            val figure = figureIndex?.let { availableFigures.getOrNull(it) }
+
+            when {
+                !hasPlaced -> VisualMemoryUiState.CellState(
+                    type = VisualMemoryUiState.CellType.EMPTY,
+                    figure = null,
+                )
+                phase == Phase.MEMORIZING -> VisualMemoryUiState.CellState(
+                    type = VisualMemoryUiState.CellType.MEMORIZING,
+                    figure = figure,
+                )
+                phase == Phase.GAME_OVER && position == getCurrentTargetPosition() ->
+                    VisualMemoryUiState.CellState(
+                        type = VisualMemoryUiState.CellType.WRONG,
+                        figure = figure,
+                    )
+                phase == Phase.GAME_OVER && hasPlaced ->
+                    VisualMemoryUiState.CellState(
+                        type = VisualMemoryUiState.CellType.REVEALED,
+                        figure = figure,
+                    )
+                phase == Phase.ANSWERING && position == getCurrentTargetPosition() ->
+                    VisualMemoryUiState.CellState(
+                        type = VisualMemoryUiState.CellType.CURRENT_TARGET,
+                        figure = null,
+                    )
+                phase == Phase.ANSWERING && position in revealedPositions ->
+                    VisualMemoryUiState.CellState(
+                        type = VisualMemoryUiState.CellType.REVEALED,
+                        figure = figure,
+                    )
+                else -> VisualMemoryUiState.CellState(
+                    type = VisualMemoryUiState.CellType.HIDDEN,
+                    figure = null,
+                )
+            }
+        }
+
+        val answerOptions = shuffledAnswerOptions.map { figure ->
+            val figureIdx = availableFigures.indexOf(figure)
+            VisualMemoryUiState.AnswerOption(
+                figure = figure,
+                figureIndex = figureIdx,
+                enabled = phase == Phase.ANSWERING && !isFigureRevealed(figureIdx),
+                isWrong = phase == Phase.GAME_OVER && figureIdx == wrongAnswerFigureIndex,
+            )
+        }
+
+        val targetFigure = if (phase == Phase.ANSWERING || phase == Phase.GAME_OVER) getCurrentTargetFigure() else null
+
+        return VisualMemoryUiState(
+            round = round,
+            phase = phase,
+            countdown = countdown,
+            cells = cells,
+            answerOptions = answerOptions,
+            currentTargetFigure = targetFigure,
+        )
+    }
 }

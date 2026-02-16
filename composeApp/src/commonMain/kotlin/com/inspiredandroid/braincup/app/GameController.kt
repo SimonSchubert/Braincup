@@ -25,6 +25,9 @@ class GameController(
     private val _timeRemaining = MutableStateFlow(GAME_TIME_MILLIS)
     val timeRemaining: StateFlow<Long> = _timeRemaining.asStateFlow()
 
+    private val _gameUiState = MutableStateFlow<GameUiState?>(null)
+    val gameUiState: StateFlow<GameUiState?> = _gameUiState.asStateFlow()
+
     private var startTime = 0L
     private var points = 0
     private var plays = 0
@@ -54,6 +57,11 @@ class GameController(
     }
 
     fun navigateToMainMenu() {
+        val currentState = _gameState.value
+        if (currentState is GameState.Active) {
+            (currentState.game as? VisualMemoryGame)?.cancelCountdown()
+        }
+        _gameUiState.value = null
         _gameState.value = GameState.Idle
         navController.navigate(MainMenu) {
             popUpTo(MainMenu) { inclusive = true }
@@ -98,6 +106,11 @@ class GameController(
         if (currentState !is GameState.Active) return
 
         val game = currentState.game
+        if (game is VisualMemoryGame) {
+            handleVisualMemoryAnswer(game, answer)
+            return
+        }
+
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
 
@@ -219,7 +232,6 @@ class GameController(
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
-        startTime = Clock.System.now().toEpochMilliseconds()
         plays++
         points = 0
 
@@ -229,53 +241,34 @@ class GameController(
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
-        // No timer for visual memory - game is round-based, not time-based
+        game.startCountdown(scope) { emitGameUiState(game) }
     }
 
-    fun submitVisualMemoryAnswer(answer: String) {
-        val currentState = _gameState.value
-        if (currentState !is GameState.Active) return
-
-        val game = currentState.game as? VisualMemoryGame ?: return
-        val isCorrect = game.isCorrect(answer)
-
-        if (isCorrect) {
-            // Advance to next shape in this round
-            game.advanceGuess()
-
-            if (game.isRoundComplete()) {
-                // All shapes in this round identified
+    private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {
+        when (game.submitAnswer(answer)) {
+            VisualMemoryGame.SubmitResult.CorrectContinue -> emitGameUiState(game)
+            VisualMemoryGame.SubmitResult.RoundComplete -> {
                 points++
-
-                if (game.isGameComplete()) {
-                    // Win - completed all 9 rounds
-                    finishVisualMemoryGame(game)
-                } else {
-                    // Proceed to next round
-                    game.nextRound()
-                    game.round++
-                    _gameState.value = GameState.Active(
-                        gameType = GameType.VISUAL_MEMORY,
-                        game = game,
-                        stateVersion = game.round.toLong(),
-                    )
-                }
-            } else {
-                // More shapes to identify in this round - trigger UI update
-                _gameState.value = GameState.Active(
-                    gameType = GameType.VISUAL_MEMORY,
-                    game = game,
-                    stateVersion = game.round * 100L + game.currentGuessIndex,
-                )
+                game.startCountdown(scope) { emitGameUiState(game) }
             }
-        } else {
-            // Wrong answer - game over
-            game.answeredAllCorrect = false
-            finishVisualMemoryGame(game)
+            VisualMemoryGame.SubmitResult.GameComplete -> {
+                points++
+                finishVisualMemoryGame(game)
+            }
+            VisualMemoryGame.SubmitResult.Wrong -> {
+                emitGameUiState(game)
+                scope.launch {
+                    delay(2000)
+                    finishVisualMemoryGame(game)
+                }
+            }
         }
     }
 
     private fun finishVisualMemoryGame(game: VisualMemoryGame) {
+        game.cancelCountdown()
+        _gameUiState.value = null
+
         val newHighscore = storage.putScore(GameType.VISUAL_MEMORY.id, points)
 
         _gameState.value = GameState.Idle
@@ -289,5 +282,9 @@ class GameController(
         ) {
             popUpTo(MainMenu)
         }
+    }
+
+    private fun emitGameUiState(game: VisualMemoryGame) {
+        _gameUiState.value = game.toUiState()
     }
 }

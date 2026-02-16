@@ -144,3 +144,16 @@ fun createVisualMemoryGame(): VisualMemoryGame {
     }
     return game
 }
+
+fun createVisualMemoryUiState(): com.inspiredandroid.braincup.app.VisualMemoryUiState {
+    val game = createVisualMemoryGame()
+    game.countdown = 3
+    return game.toUiState()
+}
+
+fun createVisualMemoryGameOverUiState(): com.inspiredandroid.braincup.app.VisualMemoryUiState {
+    val game = createVisualMemoryGame()
+    game.startAnswerPhase()
+    game.submitAnswer("-1") // triggers GAME_OVER
+    return game.toUiState()
+}

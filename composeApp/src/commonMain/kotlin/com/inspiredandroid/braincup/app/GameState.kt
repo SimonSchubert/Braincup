@@ -13,7 +13,6 @@ sealed class GameState {
     data class Active(
         val gameType: GameType,
         val game: Game,
-        val stateVersion: Long = 0,
     ) : GameState()
 
     data class Feedback(

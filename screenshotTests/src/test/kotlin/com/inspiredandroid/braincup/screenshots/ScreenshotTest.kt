@@ -212,6 +212,21 @@ class ScreenshotTest {
                 onAnswer = {},
                 onGiveUp = {},
                 onBack = {},
+                gameUiState = createVisualMemoryUiState(),
+            )
+        }
+    }
+
+    @Test
+    fun gameVisualMemoryGameOver() {
+        paparazzi.snap {
+            GameScreen(
+                game = createVisualMemoryGame(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+                gameUiState = createVisualMemoryGameOverUiState(),
             )
         }
     }
