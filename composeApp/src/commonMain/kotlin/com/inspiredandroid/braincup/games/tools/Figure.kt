@@ -1,9 +1,9 @@
 package com.inspiredandroid.braincup.games.tools
 
-class Figure(
-    var shape: Shape,
-    var color: Color,
-    var rotation: Int = 0,
+data class Figure(
+    val shape: Shape,
+    val color: Color,
+    val rotation: Int = 0,
 ) {
     fun getRotationString(): String = when (rotation) {
         0 -> "up"

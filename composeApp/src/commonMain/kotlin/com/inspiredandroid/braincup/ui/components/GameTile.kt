@@ -6,10 +6,9 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -20,11 +19,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.ic_icons8_counter_gold
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.graphics.Color as ComposeColor
 
@@ -75,7 +77,7 @@ fun GameTile(
             if (medalTint != null) {
                 Spacer(Modifier.width(4.dp))
                 Icon(
-                    imageVector = Icons.Filled.Star,
+                    painterResource(Res.drawable.ic_icons8_counter_gold),
                     contentDescription = null,
                     tint = medalTint,
                     modifier = Modifier
@@ -112,12 +114,14 @@ private fun GamePreview(gameType: GameType) {
 
 @Composable
 private fun AnomalyPuzzlePreview() {
-    val figures = listOf(
-        Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.RED),
-        Figure(Shape.STAR, Color.BLUE),
-    )
+    val figures = remember {
+        listOf(
+            Figure(Shape.STAR, Color.RED),
+            Figure(Shape.STAR, Color.RED),
+            Figure(Shape.STAR, Color.RED),
+            Figure(Shape.STAR, Color.BLUE),
+        )
+    }
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -148,7 +152,7 @@ private fun PathFinderPreview() {
             horizontalArrangement = Arrangement.spacedBy(2.dp),
             modifier = Modifier.align(Alignment.CenterHorizontally),
         ) {
-            listOf(Direction.RIGHT, Direction.DOWN, Direction.RIGHT).forEach {
+            remember { listOf(Direction.RIGHT, Direction.DOWN, Direction.RIGHT) }.forEach {
                 ShapeCanvas(
                     figure = it.figure,
                     modifier = Modifier.size(16.dp),
@@ -205,12 +209,14 @@ private fun ColoredShapesPreview() {
 
 @Composable
 private fun VisualMemoryPreview() {
-    val figures = listOf(
-        Figure(Shape.TRIANGLE, Color.RED),
-        null,
-        Figure(Shape.CIRCLE, Color.GREEN),
-        null,
-    )
+    val figures = remember {
+        listOf(
+            Figure(Shape.TRIANGLE, Color.RED),
+            null,
+            Figure(Shape.CIRCLE, Color.GREEN),
+            null,
+        )
+    }
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -439,11 +445,13 @@ private fun PatternSequencePreview() {
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(8.dp),
     ) {
-        listOf(
-            Figure(Shape.TRIANGLE, Color.RED),
-            Figure(Shape.TRIANGLE, Color.BLUE),
-            Figure(Shape.TRIANGLE, Color.RED),
-        ).forEach { figure ->
+        remember {
+            listOf(
+                Figure(Shape.TRIANGLE, Color.RED),
+                Figure(Shape.TRIANGLE, Color.BLUE),
+                Figure(Shape.TRIANGLE, Color.RED),
+            )
+        }.forEach { figure ->
             ShapeCanvas(
                 figure = figure,
                 modifier = Modifier.size(28.dp),
@@ -495,12 +503,14 @@ private fun OrbitTrackerPreview() {
 
 @Composable
 private fun ColorConfusionPreview() {
-    val words = listOf(
-        Triple("RED", Color.RED, true),
-        Triple("BLUE", Color.GREEN, false),
-        Triple("GREEN", Color.GREEN, true),
-        Triple("PURPLE", Color.YELLOW, false),
-    )
+    val words = remember {
+        listOf(
+            Triple("RED", Color.RED, true),
+            Triple("BLUE", Color.GREEN, false),
+            Triple("GREEN", Color.GREEN, true),
+            Triple("PURPLE", Color.YELLOW, false),
+        )
+    }
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,

@@ -116,27 +116,36 @@ class AnomalyPuzzleGame : Game() {
                 else -> 16
             }
 
-        val outstandingFigure =
+        val initialFigure =
             Figure(
                 basicShapes.random(),
                 basicColors.random(),
             )
-        when (type) {
-            Puzzle.RANDOM_COLOR_AND_SHAPE -> randomColorAndShapeRound(outstandingFigure, maxFigures)
-            Puzzle.SAME_COLOR -> sameColorRound(outstandingFigure, maxFigures, basicShapes)
-            Puzzle.SAME_SHAPE -> sameShapeRound(outstandingFigure, maxFigures, basicColors)
-            Puzzle.SAME_SHAPE_MAX_COLOR -> sameShapeMaxColorRound(outstandingFigure, maxFigures)
+        val outstandingFigure = when (type) {
+            Puzzle.RANDOM_COLOR_AND_SHAPE -> {
+                randomColorAndShapeRound(initialFigure, maxFigures)
+                initialFigure
+            }
+            Puzzle.SAME_COLOR -> {
+                sameColorRound(initialFigure, maxFigures, basicShapes)
+                initialFigure
+            }
+            Puzzle.SAME_SHAPE -> {
+                sameShapeRound(initialFigure, maxFigures, basicColors)
+                initialFigure
+            }
+            Puzzle.SAME_SHAPE_MAX_COLOR -> sameShapeMaxColorRound(initialFigure, maxFigures)
             Puzzle.TRIANGLE_ROTATION ->
                 sameShapeRotationRound(
                     Shape.TRIANGLE,
-                    outstandingFigure,
+                    initialFigure,
                     maxFigures,
                 )
-            Puzzle.RECTANGLE_VARIATION -> rectangleVariationRound(outstandingFigure, maxFigures)
+            Puzzle.RECTANGLE_VARIATION -> rectangleVariationRound(initialFigure, maxFigures)
             Puzzle.L_ROTATION ->
                 sameShapeRotationRound(
                     Shape.L,
-                    outstandingFigure,
+                    initialFigure,
                     maxFigures,
                 )
         }
@@ -149,16 +158,17 @@ class AnomalyPuzzleGame : Game() {
     private fun sameShapeMaxColorRound(
         outstandingFigure: Figure,
         maxFigures: Int,
-    ) {
+    ): Figure {
         val allColors = basicColors + Color.ROSA + Color.TURQUOISE + Color.ORANGE
-        outstandingFigure.color = allColors.random()
-        sameShapeRound(outstandingFigure, maxFigures, allColors)
+        val modified = outstandingFigure.copy(color = allColors.random())
+        sameShapeRound(modified, maxFigures, allColors)
+        return modified
     }
 
     private fun rectangleVariationRound(
         outstandingFigure: Figure,
         maxFigures: Int,
-    ) {
+    ): Figure {
         val rectangleShapes =
             listOf(
                 Shape.T,
@@ -167,20 +177,20 @@ class AnomalyPuzzleGame : Game() {
                 Shape.HOUSE,
                 Shape.ABSTRACT_TRIANGLE,
             )
-        outstandingFigure.shape = rectangleShapes.random()
-        sameColorRound(outstandingFigure, maxFigures, rectangleShapes)
+        val modified = outstandingFigure.copy(shape = rectangleShapes.random())
+        sameColorRound(modified, maxFigures, rectangleShapes)
+        return modified
     }
 
     private fun sameShapeRotationRound(
         shape: Shape,
         outstandingFigure: Figure,
         maxFigures: Int,
-    ) {
+    ): Figure {
         val rotations = mutableListOf(0, 90, 180, 270)
-        outstandingFigure.shape = shape
-        outstandingFigure.rotation = rotations.random()
-        rotations.remove(outstandingFigure.rotation)
-        val color = outstandingFigure.color
+        val modified = outstandingFigure.copy(shape = shape, rotation = rotations.random())
+        rotations.remove(modified.rotation)
+        val color = modified.color
         while (figures.size < maxFigures - 2) {
             val rotation =
                 if (rotations.isEmpty()) {
@@ -213,6 +223,7 @@ class AnomalyPuzzleGame : Game() {
                 )
             }
         }
+        return modified
     }
 
     private fun sameShapeRound(

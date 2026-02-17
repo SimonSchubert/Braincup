@@ -58,7 +58,7 @@ fun MainMenuScreenContent(
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         // Header
-        item(span = { GridItemSpan(maxLineSpan) }) {
+        item(span = { GridItemSpan(maxLineSpan) }, contentType = "header") {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
                     text = stringResource(Res.string.app_name),
@@ -83,7 +83,7 @@ fun MainMenuScreenContent(
         }
 
         // Game tiles
-        items(GameType.entries, key = { it.id }) { gameType ->
+        items(GameType.entries, key = { it.id }, contentType = { "game_tile" }) { gameType ->
             GameTile(
                 gameType = gameType,
                 highscore = highscores[gameType.id] ?: 0,
@@ -93,7 +93,7 @@ fun MainMenuScreenContent(
         }
 
         // Footer
-        item(span = { GridItemSpan(maxLineSpan) }) {
+        item(span = { GridItemSpan(maxLineSpan) }, contentType = "footer") {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Spacer(Modifier.height(16.dp))
 

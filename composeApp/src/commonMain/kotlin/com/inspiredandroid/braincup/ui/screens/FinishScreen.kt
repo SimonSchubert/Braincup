@@ -1,8 +1,6 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,6 +12,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -40,7 +39,7 @@ fun FinishScreen(
 
         if (medalTint != null) {
             Icon(
-                imageVector = Icons.Filled.Star,
+                painterResource(Res.drawable.ic_icons8_counter_gold),
                 contentDescription = null,
                 tint = medalTint,
                 modifier = Modifier
