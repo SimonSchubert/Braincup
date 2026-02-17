@@ -31,7 +31,11 @@ class VisualMemoryGame : Game() {
 
     companion object {
         const val GRID_SIZE = 9
-        const val MEMORIZE_DURATION_MILLIS = 5000L
+        fun memorizeDurationMillis(round: Int): Long = when (round) {
+            1 -> 3000L
+            2 -> 4000L
+            else -> 5000L
+        }
 
         private val GAME_SHAPES = listOf(
             Shape.SQUARE,
@@ -64,7 +68,7 @@ class VisualMemoryGame : Game() {
     var wrongAnswerFigureIndex: Int? = null
         private set
 
-    var countdown: Int = (MEMORIZE_DURATION_MILLIS / 1000).toInt()
+    var countdown: Int = (memorizeDurationMillis(1) / 1000).toInt()
     private var countdownJob: Job? = null
 
     /** The 9 shuffled figures used for this game session */
@@ -134,7 +138,7 @@ class VisualMemoryGame : Game() {
 
     fun startCountdown(scope: CoroutineScope, onStateChanged: () -> Unit) {
         countdownJob?.cancel()
-        countdown = (MEMORIZE_DURATION_MILLIS / 1000).toInt()
+        countdown = (memorizeDurationMillis(round) / 1000).toInt()
         onStateChanged()
 
         countdownJob = scope.launch {
