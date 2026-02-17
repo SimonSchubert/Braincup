@@ -28,13 +28,13 @@ enum class GameType(
         descriptionRes = Res.string.game_path_finder_desc,
         icon = Res.drawable.ic_path_finder,
     ),
-    COLOR_CONFUSION(
-        displayNameRes = Res.string.game_color_confusion,
+    COLORED_SHAPES(
+        displayNameRes = Res.string.game_colored_shapes,
         id = "1",
         goldScore = 15,
         silverScore = 8,
-        descriptionRes = Res.string.game_color_confusion_desc,
-        icon = Res.drawable.ic_color_confusion,
+        descriptionRes = Res.string.game_colored_shapes_desc,
+        icon = Res.drawable.ic_colored_shapes,
     ),
     VISUAL_MEMORY(
         displayNameRes = Res.string.game_visual_memory,

@@ -21,8 +21,8 @@ val mainMenuHighscores = mapOf(
     "11" to 6,
 )
 
-fun createColorConfusionGame(): ColorConfusionGame {
-    val game = ColorConfusionGame()
+fun createColoredShapesGame(): ColoredShapesGame {
+    val game = ColoredShapesGame()
     game.displayedShape = Shape.HEART
     game.displayedColor = Color.RED
     game.answerShape = Shape.HEART
@@ -143,7 +143,7 @@ fun createVisualMemoryGame(): VisualMemoryGame {
     return game
 }
 
-fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()
+fun createColoredShapesUiState(): GameUiState = createColoredShapesGame().toUiState()
 fun createAnomalyPuzzleUiState(): GameUiState = createAnomalyPuzzleGame().toUiState()
 fun createMentalCalculationUiState(): GameUiState = createMentalCalculationGame().toUiState()
 fun createSherlockCalculationUiState(): GameUiState = createSherlockCalculationGame().toUiState()

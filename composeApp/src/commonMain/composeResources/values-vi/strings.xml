@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Câu đố bất thường</string>
     <string name="game_mental_calculation">Tính nhẩm</string>
-    <string name="game_color_confusion">Nhầm lẫn màu sắc</string>
+    <string name="game_colored_shapes">Hình dạng màu sắc</string>
     <string name="game_sherlock_calculation">Tính toán Sherlock</string>
     <string name="game_chain_calculation">Tính toán chuỗi</string>
     <string name="game_fraction_calculation">Tính toán phân số</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
     <string name="game_mental_calculation_desc">Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.</string>
-    <string name="game_color_confusion_desc">Cộng điểm từ các phát biểu đúng.</string>
+    <string name="game_colored_shapes_desc">Cộng điểm từ các phát biểu đúng.</string>
     <string name="game_sherlock_calculation_desc">Tìm cách đạt mục tiêu chỉ bằng các số đã cho và các toán tử này: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Theo dõi các biểu thức toán học.</string>
     <string name="game_fraction_calculation_desc">Giải các phân số.</string>

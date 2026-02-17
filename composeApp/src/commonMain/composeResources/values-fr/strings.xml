@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Puzzle d\'anomalie</string>
     <string name="game_mental_calculation">Calcul mental</string>
-    <string name="game_color_confusion">Confusion de couleurs</string>
+    <string name="game_colored_shapes">Formes colorées</string>
     <string name="game_sherlock_calculation">Calcul Sherlock</string>
     <string name="game_chain_calculation">Calcul en chaîne</string>
     <string name="game_fraction_calculation">Calcul de fractions</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
     <string name="game_mental_calculation_desc">Suivez les expressions mathématiques. Utilisez le résultat comme base pour le calcul suivant.</string>
-    <string name="game_color_confusion_desc">Additionnez les points des affirmations correctes.</string>
+    <string name="game_colored_shapes_desc">Additionnez les points des affirmations correctes.</string>
     <string name="game_sherlock_calculation_desc">Trouvez comment atteindre l\'objectif en utilisant uniquement les nombres donnés et ces opérateurs : + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Suivez les expressions mathématiques.</string>
     <string name="game_fraction_calculation_desc">Résolvez les fractions.</string>

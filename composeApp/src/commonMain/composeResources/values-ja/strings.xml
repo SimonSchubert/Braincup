@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">異常パズル</string>
     <string name="game_mental_calculation">暗算</string>
-    <string name="game_color_confusion">色の混乱</string>
+    <string name="game_colored_shapes">カラフルな形</string>
     <string name="game_sherlock_calculation">シャーロック計算</string>
     <string name="game_chain_calculation">連鎖計算</string>
     <string name="game_fraction_calculation">分数計算</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
     <string name="game_mental_calculation_desc">数式に従ってください。結果を次の計算の基礎として使用します。</string>
-    <string name="game_color_confusion_desc">正しい文のポイントを合計してください。</string>
+    <string name="game_colored_shapes_desc">正しい文のポイントを合計してください。</string>
     <string name="game_sherlock_calculation_desc">与えられた数字とこれらの演算子のみを使って目標に到達する方法を見つけてください：+ - * / ( )。</string>
     <string name="game_chain_calculation_desc">数式に従ってください。</string>
     <string name="game_fraction_calculation_desc">分数を解いてください。</string>

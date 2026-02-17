@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Łamigłówka anomalii</string>
     <string name="game_mental_calculation">Rachunek pamięciowy</string>
-    <string name="game_color_confusion">Zamieszanie kolorów</string>
+    <string name="game_colored_shapes">Kolorowe kształty</string>
     <string name="game_sherlock_calculation">Obliczenia Sherlocka</string>
     <string name="game_chain_calculation">Obliczenia łańcuchowe</string>
     <string name="game_fraction_calculation">Obliczenia ułamkowe</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
     <string name="game_mental_calculation_desc">Śledź wyrażenia matematyczne. Użyj wyniku jako podstawy do następnego obliczenia.</string>
-    <string name="game_color_confusion_desc">Zsumuj punkty z poprawnych stwierdzeń.</string>
+    <string name="game_colored_shapes_desc">Zsumuj punkty z poprawnych stwierdzeń.</string>
     <string name="game_sherlock_calculation_desc">Znajdź sposób na osiągnięcie celu używając tylko podanych liczb i tych operatorów: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Śledź wyrażenia matematyczne.</string>
     <string name="game_fraction_calculation_desc">Rozwiąż ułamki.</string>

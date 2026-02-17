@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">ปริศนาความผิดปกติ</string>
     <string name="game_mental_calculation">การคำนวณในใจ</string>
-    <string name="game_color_confusion">ความสับสนของสี</string>
+    <string name="game_colored_shapes">รูปทรงสี</string>
     <string name="game_sherlock_calculation">การคำนวณเชอร์ล็อค</string>
     <string name="game_chain_calculation">การคำนวณแบบลูกโซ่</string>
     <string name="game_fraction_calculation">การคำนวณเศษส่วน</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
     <string name="game_mental_calculation_desc">ทำตามนิพจน์คณิตศาสตร์ ใช้ผลลัพธ์เป็นฐานสำหรับการคำนวณถัดไป</string>
-    <string name="game_color_confusion_desc">รวมคะแนนจากข้อความที่ถูกต้อง</string>
+    <string name="game_colored_shapes_desc">รวมคะแนนจากข้อความที่ถูกต้อง</string>
     <string name="game_sherlock_calculation_desc">หาวิธีไปถึงเป้าหมายโดยใช้เฉพาะตัวเลขที่กำหนดและตัวดำเนินการเหล่านี้: + - * / ( )</string>
     <string name="game_chain_calculation_desc">ทำตามนิพจน์คณิตศาสตร์</string>
     <string name="game_fraction_calculation_desc">แก้เศษส่วน</string>

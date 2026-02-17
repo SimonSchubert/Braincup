@@ -53,7 +53,7 @@ tasks.register("updateScreenshots") {
     doLast {
         val mapping = mapOf(
             "mainMenu" to "screen_android_01.png",
-            "gameColorConfusion" to "screen_android_02.png",
+            "gameColoredShapes" to "screen_android_02.png",
             "gameAnomalyPuzzle" to "screen_android_03.png",
             "finishNewHighscore" to "screen_android_04.png",
             "gameMentalCalculation" to "screen_android_05.png",

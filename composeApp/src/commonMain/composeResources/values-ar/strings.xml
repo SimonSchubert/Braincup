@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">لغز الشذوذ</string>
     <string name="game_mental_calculation">الحساب الذهني</string>
-    <string name="game_color_confusion">ارتباك الألوان</string>
+    <string name="game_colored_shapes">أشكال ملونة</string>
     <string name="game_sherlock_calculation">حساب شيرلوك</string>
     <string name="game_chain_calculation">الحساب المتسلسل</string>
     <string name="game_fraction_calculation">حساب الكسور</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
     <string name="game_mental_calculation_desc">اتبع التعبيرات الرياضية. استخدم النتيجة كأساس للحساب التالي.</string>
-    <string name="game_color_confusion_desc">اجمع نقاط العبارات الصحيحة.</string>
+    <string name="game_colored_shapes_desc">اجمع نقاط العبارات الصحيحة.</string>
     <string name="game_sherlock_calculation_desc">اكتشف كيفية الوصول إلى الهدف باستخدام الأرقام المعطاة وهذه العمليات فقط: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">اتبع التعبيرات الرياضية.</string>
     <string name="game_fraction_calculation_desc">حل الكسور.</string>

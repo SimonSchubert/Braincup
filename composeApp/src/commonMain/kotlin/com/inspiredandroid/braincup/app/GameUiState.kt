@@ -44,7 +44,7 @@ data class FractionCalculationUiState(
     val answerString: String,
 ) : GameUiState
 
-data class ColorConfusionUiState(
+data class ColoredShapesUiState(
     val displayedFigure: Figure,
     val answerShape: Shape,
     val answerColor: Color,

@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Головоломка с аномалией</string>
     <string name="game_mental_calculation">Устный счёт</string>
-    <string name="game_color_confusion">Цветовая путаница</string>
+    <string name="game_colored_shapes">Цветные фигуры</string>
     <string name="game_sherlock_calculation">Расчёт Шерлока</string>
     <string name="game_chain_calculation">Цепной расчёт</string>
     <string name="game_fraction_calculation">Расчёт дробей</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
     <string name="game_mental_calculation_desc">Следуйте математическим выражениям. Используйте результат как основу для следующего вычисления.</string>
-    <string name="game_color_confusion_desc">Сложите очки за правильные утверждения.</string>
+    <string name="game_colored_shapes_desc">Сложите очки за правильные утверждения.</string>
     <string name="game_sherlock_calculation_desc">Найдите способ достичь цели, используя только данные числа и операторы: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Следуйте математическим выражениям.</string>
     <string name="game_fraction_calculation_desc">Решите дроби.</string>

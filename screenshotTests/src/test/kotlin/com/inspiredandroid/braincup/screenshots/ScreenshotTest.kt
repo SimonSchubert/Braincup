@@ -58,10 +58,10 @@ class ScreenshotTest {
     }
 
     @Test
-    fun gameColorConfusion() {
+    fun gameColoredShapes() {
         paparazzi.snap {
             GameScreen(
-                gameUiState = createColorConfusionUiState(),
+                gameUiState = createColoredShapesUiState(),
                 timeRemaining = 45_000L,
                 onAnswer = {},
                 onGiveUp = {},

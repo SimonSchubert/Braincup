@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Anomalie-Rätsel</string>
     <string name="game_mental_calculation">Kopfrechnen</string>
-    <string name="game_color_confusion">Farbverwirrung</string>
+    <string name="game_colored_shapes">Farbige Formen</string>
     <string name="game_sherlock_calculation">Sherlock-Rechnung</string>
     <string name="game_chain_calculation">Kettenrechnung</string>
     <string name="game_fraction_calculation">Bruchrechnung</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
     <string name="game_mental_calculation_desc">Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Grundlage für die nächste Berechnung.</string>
-    <string name="game_color_confusion_desc">Addiere die Punkte der richtigen Aussagen.</string>
+    <string name="game_colored_shapes_desc">Addiere die Punkte der richtigen Aussagen.</string>
     <string name="game_sherlock_calculation_desc">Finde heraus, wie du das Ziel nur mit den gegebenen Zahlen und diesen Operatoren erreichst: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Folge den mathematischen Ausdrücken.</string>
     <string name="game_fraction_calculation_desc">Löse die Brüche.</string>

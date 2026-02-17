@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Anomalie puzzel</string>
     <string name="game_mental_calculation">Hoofdrekenen</string>
-    <string name="game_color_confusion">Kleurverwarring</string>
+    <string name="game_colored_shapes">Gekleurde vormen</string>
     <string name="game_sherlock_calculation">Sherlock berekening</string>
     <string name="game_chain_calculation">Kettingberekening</string>
     <string name="game_fraction_calculation">Breukberekening</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
     <string name="game_mental_calculation_desc">Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.</string>
-    <string name="game_color_confusion_desc">Tel de punten van de juiste uitspraken op.</string>
+    <string name="game_colored_shapes_desc">Tel de punten van de juiste uitspraken op.</string>
     <string name="game_sherlock_calculation_desc">Vind hoe je het doel kunt bereiken met alleen de gegeven getallen en deze operatoren: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Volg de wiskundige uitdrukkingen.</string>
     <string name="game_fraction_calculation_desc">Los de breuken op.</string>

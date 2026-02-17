@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Quebra-cabeça de anomalia</string>
     <string name="game_mental_calculation">Cálculo mental</string>
-    <string name="game_color_confusion">Confusão de cores</string>
+    <string name="game_colored_shapes">Formas coloridas</string>
     <string name="game_sherlock_calculation">Cálculo Sherlock</string>
     <string name="game_chain_calculation">Cálculo em cadeia</string>
     <string name="game_fraction_calculation">Cálculo de frações</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
     <string name="game_mental_calculation_desc">Siga as expressões matemáticas. Use o resultado como base para o próximo cálculo.</string>
-    <string name="game_color_confusion_desc">Some os pontos das afirmações corretas.</string>
+    <string name="game_colored_shapes_desc">Some os pontos das afirmações corretas.</string>
     <string name="game_sherlock_calculation_desc">Descubra como alcançar a meta usando apenas os números dados e estes operadores: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Siga as expressões matemáticas.</string>
     <string name="game_fraction_calculation_desc">Resolva as frações.</string>

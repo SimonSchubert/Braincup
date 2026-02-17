@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Teka-teki Anomali</string>
     <string name="game_mental_calculation">Hitung Mental</string>
-    <string name="game_color_confusion">Kebingungan Warna</string>
+    <string name="game_colored_shapes">Bentuk Berwarna</string>
     <string name="game_sherlock_calculation">Perhitungan Sherlock</string>
     <string name="game_chain_calculation">Perhitungan Berantai</string>
     <string name="game_fraction_calculation">Perhitungan Pecahan</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
     <string name="game_mental_calculation_desc">Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.</string>
-    <string name="game_color_confusion_desc">Jumlahkan poin dari pernyataan yang benar.</string>
+    <string name="game_colored_shapes_desc">Jumlahkan poin dari pernyataan yang benar.</string>
     <string name="game_sherlock_calculation_desc">Temukan cara mencapai target hanya dengan angka yang diberikan dan operator ini: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Ikuti ekspresi matematika.</string>
     <string name="game_fraction_calculation_desc">Selesaikan pecahan.</string>

@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Anomali Bulmacası</string>
     <string name="game_mental_calculation">Zihinsel Hesaplama</string>
-    <string name="game_color_confusion">Renk Karmaşası</string>
+    <string name="game_colored_shapes">Renkli Şekiller</string>
     <string name="game_sherlock_calculation">Sherlock Hesaplaması</string>
     <string name="game_chain_calculation">Zincir Hesaplama</string>
     <string name="game_fraction_calculation">Kesir Hesaplama</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
     <string name="game_mental_calculation_desc">Matematiksel ifadeleri takip edin. Sonucu bir sonraki hesaplama için temel olarak kullanın.</string>
-    <string name="game_color_confusion_desc">Doğru ifadelerin puanlarını toplayın.</string>
+    <string name="game_colored_shapes_desc">Doğru ifadelerin puanlarını toplayın.</string>
     <string name="game_sherlock_calculation_desc">Yalnızca verilen sayıları ve şu operatörleri kullanarak hedefe nasıl ulaşacağınızı bulun: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Matematiksel ifadeleri takip edin.</string>
     <string name="game_fraction_calculation_desc">Kesirleri çözün.</string>

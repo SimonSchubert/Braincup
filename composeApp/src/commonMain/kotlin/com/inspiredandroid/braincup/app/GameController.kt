@@ -106,8 +106,8 @@ class GameController(
             handlePathFinderAnswer(currentState, game, answer.trim())
             return
         }
-        if (game is ColorConfusionGame) {
-            handleColorConfusionAnswer(currentState, game, answer.trim())
+        if (game is ColoredShapesGame) {
+            handleColoredShapesAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -216,7 +216,7 @@ class GameController(
     }
 
     private fun createGame(gameType: GameType): Game = when (gameType) {
-        GameType.COLOR_CONFUSION -> ColorConfusionGame()
+        GameType.COLORED_SHAPES -> ColoredShapesGame()
         GameType.MENTAL_CALCULATION -> MentalCalculationGame()
         GameType.SHERLOCK_CALCULATION -> SherlockCalculationGame()
         GameType.CHAIN_CALCULATION -> ChainCalculationGame()
@@ -331,9 +331,9 @@ class GameController(
         }
     }
 
-    private fun handleColorConfusionAnswer(
+    private fun handleColoredShapesAnswer(
         currentState: GameState.Active,
-        game: ColorConfusionGame,
+        game: ColoredShapesGame,
         input: String,
     ) {
         if (game.isCorrect(input)) {
@@ -351,7 +351,7 @@ class GameController(
         } else {
             game.answeredAllCorrect = false
             val correctAnswer = game.points()
-            val currentUiState = _gameUiState.value as? ColorConfusionUiState ?: return
+            val currentUiState = _gameUiState.value as? ColoredShapesUiState ?: return
             _gameUiState.value = currentUiState.copy(
                 possibleAnswers = currentUiState.possibleAnswers.map { button ->
                     button.copy(

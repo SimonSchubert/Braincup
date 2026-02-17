@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">অসঙ্গতি ধাঁধা</string>
     <string name="game_mental_calculation">মানসিক গণনা</string>
-    <string name="game_color_confusion">রঙ বিভ্রান্তি</string>
+    <string name="game_colored_shapes">রঙিন আকৃতি</string>
     <string name="game_sherlock_calculation">শার্লক গণনা</string>
     <string name="game_chain_calculation">চেইন গণনা</string>
     <string name="game_fraction_calculation">ভগ্নাংশ গণনা</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
     <string name="game_mental_calculation_desc">গাণিতিক এক্সপ্রেশনগুলি অনুসরণ করুন। পরবর্তী গণনার ভিত্তি হিসাবে ফলাফল ব্যবহার করুন।</string>
-    <string name="game_color_confusion_desc">সঠিক বিবৃতির পয়েন্ট যোগ করুন।</string>
+    <string name="game_colored_shapes_desc">সঠিক বিবৃতির পয়েন্ট যোগ করুন।</string>
     <string name="game_sherlock_calculation_desc">শুধুমাত্র প্রদত্ত সংখ্যা এবং এই অপারেটরগুলি ব্যবহার করে লক্ষ্যে পৌঁছানোর উপায় খুঁজুন: + - * / ( )।</string>
     <string name="game_chain_calculation_desc">গাণিতিক এক্সপ্রেশনগুলি অনুসরণ করুন।</string>
     <string name="game_fraction_calculation_desc">ভগ্নাংশগুলি সমাধান করুন।</string>

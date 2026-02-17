@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Головоломка з аномалією</string>
     <string name="game_mental_calculation">Усний рахунок</string>
-    <string name="game_color_confusion">Плутанина кольорів</string>
+    <string name="game_colored_shapes">Кольорові фігури</string>
     <string name="game_sherlock_calculation">Розрахунок Шерлока</string>
     <string name="game_chain_calculation">Ланцюговий розрахунок</string>
     <string name="game_fraction_calculation">Розрахунок дробів</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
     <string name="game_mental_calculation_desc">Слідуйте математичним виразам. Використовуйте результат як основу для наступного обчислення.</string>
-    <string name="game_color_confusion_desc">Додайте очки за правильні твердження.</string>
+    <string name="game_colored_shapes_desc">Додайте очки за правильні твердження.</string>
     <string name="game_sherlock_calculation_desc">Знайдіть спосіб досягти цілі, використовуючи лише дані числа та оператори: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Слідуйте математичним виразам.</string>
     <string name="game_fraction_calculation_desc">Розв\'яжіть дроби.</string>

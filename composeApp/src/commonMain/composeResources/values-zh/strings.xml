@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">异常谜题</string>
     <string name="game_mental_calculation">心算</string>
-    <string name="game_color_confusion">颜色混淆</string>
+    <string name="game_colored_shapes">彩色形状</string>
     <string name="game_sherlock_calculation">福尔摩斯计算</string>
     <string name="game_chain_calculation">连锁计算</string>
     <string name="game_fraction_calculation">分数计算</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
     <string name="game_mental_calculation_desc">跟随数学表达式。将结果作为下一次计算的基础。</string>
-    <string name="game_color_confusion_desc">将正确陈述的分数相加。</string>
+    <string name="game_colored_shapes_desc">将正确陈述的分数相加。</string>
     <string name="game_sherlock_calculation_desc">仅使用给定的数字和这些运算符：+ - * / ( ) 来找出如何达到目标。</string>
     <string name="game_chain_calculation_desc">跟随数学表达式。</string>
     <string name="game_fraction_calculation_desc">解决分数问题。</string>

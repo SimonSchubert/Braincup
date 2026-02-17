@@ -41,7 +41,7 @@
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">विसंगति पहेली</string>
     <string name="game_mental_calculation">मानसिक गणना</string>
-    <string name="game_color_confusion">रंग भ्रम</string>
+    <string name="game_colored_shapes">रंगीन आकार</string>
     <string name="game_sherlock_calculation">शर्लक गणना</string>
     <string name="game_chain_calculation">श्रृंखला गणना</string>
     <string name="game_fraction_calculation">भिन्न गणना</string>
@@ -54,7 +54,7 @@
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">उस आकृति को खोजें जो अलग दिखती है। प्रत्येक आकृति के रंग और आकार दोनों पर विचार करें।</string>
     <string name="game_mental_calculation_desc">गणितीय व्यंजकों का पालन करें। परिणाम को अगली गणना के आधार के रूप में उपयोग करें।</string>
-    <string name="game_color_confusion_desc">सही कथनों के अंक जोड़ें।</string>
+    <string name="game_colored_shapes_desc">सही कथनों के अंक जोड़ें।</string>
     <string name="game_sherlock_calculation_desc">केवल दिए गए नंबरों और इन ऑपरेटरों का उपयोग करके लक्ष्य तक पहुंचने का तरीका खोजें: + - * / ( )।</string>
     <string name="game_chain_calculation_desc">गणितीय व्यंजकों का पालन करें।</string>
     <string name="game_fraction_calculation_desc">भिन्नों को हल करें।</string>

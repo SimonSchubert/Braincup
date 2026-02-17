@@ -61,7 +61,7 @@ fun GameScreen(
             is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
             is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer)
             is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)
-            is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
+            is ColoredShapesUiState -> ColoredShapesContent(gameUiState, onAnswer)
             is SherlockCalculationUiState -> SherlockCalculationContent(gameUiState, onAnswer, onGiveUp)
             is ValueComparisonUiState -> ValueComparisonContent(gameUiState, onAnswer)
             is AnomalyPuzzleUiState -> AnomalyPuzzleContent(gameUiState, onAnswer)
@@ -115,8 +115,8 @@ private fun ColumnScope.ChainCalculationContent(
 }
 
 @Composable
-private fun ColumnScope.ColorConfusionContent(
-    uiState: ColorConfusionUiState,
+private fun ColumnScope.ColoredShapesContent(
+    uiState: ColoredShapesUiState,
     onAnswer: (String) -> Unit,
 ) {
     // Show actual shape with color

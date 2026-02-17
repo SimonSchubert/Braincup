@@ -12,7 +12,7 @@ import kotlin.random.Random
  * 2. Get another random shape(answerShape) and color(answerColor) with a 50% chance of being identical to the shown shape and color
  * 3. Get a third random color(stringColor) which will be the color of the previous generated color string
  */
-class ColorConfusionGame : Game() {
+class ColoredShapesGame : Game() {
     lateinit var displayedColor: Color
     lateinit var answerColor: Color
     lateinit var stringColor: Color
@@ -71,7 +71,7 @@ class ColorConfusionGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun toUiState() = com.inspiredandroid.braincup.app.ColorConfusionUiState(
+    override fun toUiState() = com.inspiredandroid.braincup.app.ColoredShapesUiState(
         displayedFigure = com.inspiredandroid.braincup.games.tools.Figure(displayedShape, displayedColor),
         answerShape = answerShape,
         answerColor = answerColor,

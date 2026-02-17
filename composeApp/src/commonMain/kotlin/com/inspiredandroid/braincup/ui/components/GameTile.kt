@@ -88,7 +88,7 @@ private fun GamePreview(gameType: GameType) {
     when (gameType) {
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzlePreview()
         GameType.PATH_FINDER -> PathFinderPreview()
-        GameType.COLOR_CONFUSION -> ColorConfusionPreview()
+        GameType.COLORED_SHAPES -> ColoredShapesPreview()
         GameType.VISUAL_MEMORY -> VisualMemoryPreview()
         GameType.MENTAL_CALCULATION -> MentalCalculationPreview()
         GameType.SHERLOCK_CALCULATION -> SherlockCalculationPreview()
@@ -172,7 +172,7 @@ private fun PathFinderPreview() {
 }
 
 @Composable
-private fun ColorConfusionPreview() {
+private fun ColoredShapesPreview() {
     Column(
         modifier = Modifier.padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
