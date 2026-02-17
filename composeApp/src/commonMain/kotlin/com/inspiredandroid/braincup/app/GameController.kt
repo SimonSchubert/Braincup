@@ -102,7 +102,7 @@ class GameController(
             return
         }
         if (game is GhostGridGame) {
-            handleGhostGridAnswer(game, answer)
+            handleGhostGridAnswer(currentState, game, answer)
             return
         }
         if (game is AnomalyPuzzleGame) {
@@ -462,12 +462,27 @@ class GameController(
         game.startShowSequence(scope) { emitGhostGridUiState(game) }
     }
 
-    private fun handleGhostGridAnswer(game: GhostGridGame, answer: String) {
+    private fun handleGhostGridAnswer(
+        currentState: GameState.Active,
+        game: GhostGridGame,
+        answer: String,
+    ) {
         when (game.submitAnswer(answer)) {
             GhostGridGame.SubmitResult.CorrectContinue -> emitGhostGridUiState(game)
             GhostGridGame.SubmitResult.RoundComplete -> {
                 points++
-                game.startShowSequence(scope) { emitGhostGridUiState(game) }
+                _gameState.value = GameState.Feedback(
+                    gameType = currentState.gameType,
+                    game = game,
+                    isCorrect = true,
+                    message = null,
+                )
+                scope.launch {
+                    delay(1000)
+                    game.nextRound()
+                    _gameState.value = GameState.Active(currentState.gameType, game)
+                    game.startShowSequence(scope) { emitGhostGridUiState(game) }
+                }
             }
             GhostGridGame.SubmitResult.Wrong -> {
                 emitGhostGridUiState(game)

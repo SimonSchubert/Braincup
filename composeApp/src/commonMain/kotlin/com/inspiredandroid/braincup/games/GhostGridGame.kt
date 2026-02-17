@@ -95,7 +95,6 @@ class GhostGridGame : Game() {
 
         currentTapIndex++
         if (currentTapIndex >= sequence.size) {
-            nextRound()
             return SubmitResult.RoundComplete
         }
         return SubmitResult.CorrectContinue
