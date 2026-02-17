@@ -6,12 +6,15 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
@@ -63,23 +66,23 @@ fun GameTile(
                 overflow = TextOverflow.Ellipsis,
                 modifier = Modifier.weight(1f),
             )
-            if (highscore > 0) {
+            val medalTint = when {
+                highscore >= gameType.goldScore -> ComposeColor(0xFFFFD700)
+                highscore >= gameType.silverScore -> ComposeColor(0xFFC0C0C0)
+                highscore > 0 -> ComposeColor(0xFFCD7F32)
+                else -> null
+            }
+            if (medalTint != null) {
                 Spacer(Modifier.width(4.dp))
-                Box(
+                Icon(
+                    imageVector = Icons.Filled.Star,
+                    contentDescription = null,
+                    tint = medalTint,
                     modifier = Modifier
                         .size(28.dp)
-                        .clip(CircleShape)
-                        .background(MaterialTheme.colorScheme.primary)
                         .pointerHoverIcon(PointerIcon.Hand)
                         .clickable(onClick = onViewScore),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = "$highscore",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onPrimary,
-                    )
-                }
+                )
             }
         }
     }

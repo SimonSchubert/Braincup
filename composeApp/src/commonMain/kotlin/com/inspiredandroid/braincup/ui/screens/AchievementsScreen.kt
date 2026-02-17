@@ -20,7 +20,7 @@ fun AchievementsScreen(
     onBack: () -> Unit,
 ) {
     val unlockedAchievements = storage.getUnlockedAchievements()
-    val allAchievements = UserStorage.Achievements.entries.drop(3)
+    val allAchievements = UserStorage.Achievements.entries
 
     AppScaffold(
         title = stringResource(Res.string.achievements_title),

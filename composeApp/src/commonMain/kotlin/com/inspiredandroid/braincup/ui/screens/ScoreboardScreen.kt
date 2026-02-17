@@ -3,10 +3,13 @@ package com.inspiredandroid.braincup.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
@@ -55,6 +58,31 @@ fun ScoreboardScreen(
             }
         }
 
+        Spacer(Modifier.height(12.dp))
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly,
+        ) {
+            MedalRequirement(
+                score = 1,
+                tint = Color(0xFFCD7F32),
+                highscore = highscore,
+            )
+            MedalRequirement(
+                score = gameType.silverScore,
+                tint = Color(0xFFC0C0C0),
+                highscore = highscore,
+            )
+            MedalRequirement(
+                score = gameType.goldScore,
+                tint = Color(0xFFFFD700),
+                highscore = highscore,
+            )
+        }
+
         Spacer(Modifier.height(16.dp))
 
         if (scores.isEmpty()) {
@@ -90,5 +118,33 @@ fun ScoreboardScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun MedalRequirement(
+    score: Int,
+    tint: Color,
+    highscore: Int,
+) {
+    val achieved = highscore >= score
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Icon(
+            imageVector = Icons.Filled.Star,
+            contentDescription = null,
+            tint = if (achieved) tint else MaterialTheme.colorScheme.outlineVariant,
+            modifier = Modifier.size(32.dp),
+        )
+        Text(
+            text = score.toString(),
+            style = MaterialTheme.typography.labelMedium,
+            color = if (achieved) {
+                MaterialTheme.colorScheme.onSurface
+            } else {
+                MaterialTheme.colorScheme.outlineVariant
+            },
+        )
     }
 }

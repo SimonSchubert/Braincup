@@ -120,7 +120,7 @@ private fun ColumnScope.ChainCalculationContent(
             .padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(16.dp))
-    NumberPad(onInputChange = { input ->
+    NumberPadWithInput(onInputChange = { input ->
         if (input.toIntOrNull() == uiState.answer) {
             onAnswer(input)
         }

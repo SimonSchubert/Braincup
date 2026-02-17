@@ -79,7 +79,7 @@ enum class GameType(
     FRACTION_CALCULATION(
         displayNameRes = Res.string.game_fraction_calculation,
         id = "4",
-        goldScore = 10,
+        goldScore = 12,
         silverScore = 4,
         descriptionRes = Res.string.game_fraction_calculation_desc,
         icon = Res.drawable.ic_fraction_calculation,
@@ -95,8 +95,8 @@ enum class GameType(
     GRID_SOLVER(
         displayNameRes = Res.string.game_grid_solver,
         id = "9",
-        goldScore = 3,
-        silverScore = 6,
+        goldScore = 6,
+        silverScore = 3,
         descriptionRes = Res.string.game_grid_solver_desc,
         icon = Res.drawable.ic_grid_solver,
     ),
@@ -119,8 +119,8 @@ enum class GameType(
     ORBIT_TRACKER(
         displayNameRes = Res.string.game_orbit_tracker,
         id = "14",
-        goldScore = 5,
-        silverScore = 3,
+        goldScore = 8,
+        silverScore = 4,
         descriptionRes = Res.string.game_orbit_tracker_desc,
         icon = Res.drawable.ic_orbit_tracker,
     ),

@@ -1,10 +1,13 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -28,6 +31,25 @@ fun FinishScreen(
         onBack = onMenu,
         scrollable = false,
     ) {
+        val medalTint = when {
+            score >= gameType.goldScore -> Color(0xFFFFD700)
+            score >= gameType.silverScore -> Color(0xFFC0C0C0)
+            score > 0 -> Color(0xFFCD7F32)
+            else -> null
+        }
+
+        if (medalTint != null) {
+            Icon(
+                imageVector = Icons.Filled.Star,
+                contentDescription = null,
+                tint = medalTint,
+                modifier = Modifier
+                    .size(64.dp)
+                    .align(Alignment.CenterHorizontally),
+            )
+            Spacer(Modifier.height(8.dp))
+        }
+
         Text(
             text = stringResource(Res.string.finish_score, score),
             style = MaterialTheme.typography.headlineLarge,
