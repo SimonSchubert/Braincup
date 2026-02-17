@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.games
 
 import braincup.composeapp.generated.resources.*
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.StringResource
 
 enum class GameType(
@@ -10,7 +9,6 @@ enum class GameType(
     val goldScore: Int,
     val silverScore: Int,
     val descriptionRes: StringResource,
-    val icon: DrawableResource,
 ) {
     ANOMALY_PUZZLE(
         displayNameRes = Res.string.game_anomaly_puzzle,
@@ -18,7 +16,6 @@ enum class GameType(
         goldScore = 17,
         silverScore = 8,
         descriptionRes = Res.string.game_anomaly_puzzle_desc,
-        icon = Res.drawable.ic_anomaly_puzzle,
     ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
@@ -26,7 +23,6 @@ enum class GameType(
         goldScore = 14,
         silverScore = 7,
         descriptionRes = Res.string.game_path_finder_desc,
-        icon = Res.drawable.ic_path_finder,
     ),
     GHOST_GRID(
         displayNameRes = Res.string.game_ghost_grid,
@@ -34,7 +30,6 @@ enum class GameType(
         goldScore = 8,
         silverScore = 5,
         descriptionRes = Res.string.game_ghost_grid_desc,
-        icon = Res.drawable.ic_ghost_grid,
     ),
     VISUAL_MEMORY(
         displayNameRes = Res.string.game_visual_memory,
@@ -42,7 +37,6 @@ enum class GameType(
         goldScore = 9,
         silverScore = 6,
         descriptionRes = Res.string.game_visual_memory_desc,
-        icon = Res.drawable.ic_visual_memory,
     ),
     COLORED_SHAPES(
         displayNameRes = Res.string.game_colored_shapes,
@@ -50,7 +44,6 @@ enum class GameType(
         goldScore = 15,
         silverScore = 8,
         descriptionRes = Res.string.game_colored_shapes_desc,
-        icon = Res.drawable.ic_colored_shapes,
     ),
     SHERLOCK_CALCULATION(
         displayNameRes = Res.string.game_sherlock_calculation,
@@ -58,7 +51,6 @@ enum class GameType(
         goldScore = 7,
         silverScore = 3,
         descriptionRes = Res.string.game_sherlock_calculation_desc,
-        icon = Res.drawable.ic_sherlock_calculation,
     ),
     MENTAL_CALCULATION(
         displayNameRes = Res.string.game_mental_calculation,
@@ -66,7 +58,6 @@ enum class GameType(
         goldScore = 16,
         silverScore = 8,
         descriptionRes = Res.string.game_mental_calculation_desc,
-        icon = Res.drawable.ic_mental_calculation,
     ),
     CHAIN_CALCULATION(
         displayNameRes = Res.string.game_chain_calculation,
@@ -74,7 +65,6 @@ enum class GameType(
         goldScore = 8,
         silverScore = 4,
         descriptionRes = Res.string.game_chain_calculation_desc,
-        icon = Res.drawable.ic_chain_calculation,
     ),
     FRACTION_CALCULATION(
         displayNameRes = Res.string.game_fraction_calculation,
@@ -82,7 +72,6 @@ enum class GameType(
         goldScore = 12,
         silverScore = 4,
         descriptionRes = Res.string.game_fraction_calculation_desc,
-        icon = Res.drawable.ic_fraction_calculation,
     ),
     VALUE_COMPARISON(
         displayNameRes = Res.string.game_value_comparison,
@@ -90,7 +79,6 @@ enum class GameType(
         goldScore = 14,
         silverScore = 4,
         descriptionRes = Res.string.game_value_comparison_desc,
-        icon = Res.drawable.ic_value_comparison,
     ),
     GRID_SOLVER(
         displayNameRes = Res.string.game_grid_solver,
@@ -98,7 +86,6 @@ enum class GameType(
         goldScore = 6,
         silverScore = 3,
         descriptionRes = Res.string.game_grid_solver_desc,
-        icon = Res.drawable.ic_grid_solver,
     ),
     PATTERN_SEQUENCE(
         displayNameRes = Res.string.game_pattern_sequence,
@@ -106,7 +93,6 @@ enum class GameType(
         goldScore = 10,
         silverScore = 5,
         descriptionRes = Res.string.game_pattern_sequence_desc,
-        icon = Res.drawable.ic_pattern_sequence,
     ),
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,
@@ -114,7 +100,6 @@ enum class GameType(
         goldScore = 12,
         silverScore = 6,
         descriptionRes = Res.string.game_color_confusion_desc,
-        icon = Res.drawable.ic_color_confusion,
     ),
     ORBIT_TRACKER(
         displayNameRes = Res.string.game_orbit_tracker,
@@ -122,7 +107,6 @@ enum class GameType(
         goldScore = 8,
         silverScore = 4,
         descriptionRes = Res.string.game_orbit_tracker_desc,
-        icon = Res.drawable.ic_orbit_tracker,
     ),
     FLASH_CROWD(
         displayNameRes = Res.string.game_flash_crowd,
@@ -130,7 +114,6 @@ enum class GameType(
         goldScore = 18,
         silverScore = 12,
         descriptionRes = Res.string.game_flash_crowd_desc,
-        icon = Res.drawable.ic_flash_crowd,
     ),
 }
 
