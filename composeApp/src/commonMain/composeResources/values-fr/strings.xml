@@ -11,6 +11,7 @@
     <string name="button_play_random">Jeu aléatoire</string>
     <string name="button_give_up">Abandonner</string>
     <string name="button_backspace">Retour arrière</string>
+    <string name="button_done">Terminé</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Jours d\'entraînement</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Résolveur de grille</string>
     <string name="game_visual_memory">Mémoire visuelle</string>
     <string name="game_pattern_sequence">Séquence de motifs</string>
+    <string name="game_ghost_grid">Grille Fantôme</string>
+    <string name="game_color_confusion">Confusion de Couleurs</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Remplissez les nombres manquants pour que chaque ligne et colonne corresponde aux totaux donnés.</string>
     <string name="game_visual_memory_desc">Mémorisez les formes sur la grille, puis identifiez la forme cachée après la fin du chronomètre.</string>
     <string name="game_pattern_sequence_desc">Trouvez la figure suivante dans le motif en cherchant les formes, couleurs et rotations qui se répètent.</string>
+    <string name="game_ghost_grid_desc">Regardez les cases s\'allumer une par une, puis touchez-les dans le même ordre.</string>
+    <string name="game_color_confusion_desc">Touchez toutes les cellules où le mot correspond à la couleur de la police, puis appuyez sur Terminé.</string>
     <string name="game_what_comes_next">Quelle est la suite ?</string>
+    <string name="game_tap_matching_colors">Touchez les cellules où le mot correspond à la couleur</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Médaille de bronze</string>

@@ -11,6 +11,7 @@
     <string name="button_play_random">Випадкова гра</string>
     <string name="button_give_up">Здатися</string>
     <string name="button_backspace">Видалити</string>
+    <string name="button_done">Готово</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Днів тренувань</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Розв\'язання сітки</string>
     <string name="game_visual_memory">Візуальна пам\'ять</string>
     <string name="game_pattern_sequence">Послідовність візерунків</string>
+    <string name="game_ghost_grid">Примарна сітка</string>
+    <string name="game_color_confusion">Кольорова плутанина</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Заповніть відсутні числа так, щоб сума кожного рядка та стовпця дорівнювала заданим підсумкам.</string>
     <string name="game_visual_memory_desc">Запам\'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
     <string name="game_pattern_sequence_desc">Знайдіть наступну фігуру у візерунку, шукаючи повторювані форми, кольори та обертання.</string>
+    <string name="game_ghost_grid_desc">Спостерігайте, як плитки загоряються одна за одною, потім натискайте їх у тому ж порядку.</string>
+    <string name="game_color_confusion_desc">Натисніть на всі клітинки, де слово збігається з кольором шрифту, потім натисніть Готово.</string>
     <string name="game_what_comes_next">Що далі?</string>
+    <string name="game_tap_matching_colors">Натисніть клітинки, де слово збігається з кольором</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Бронзова медаль</string>

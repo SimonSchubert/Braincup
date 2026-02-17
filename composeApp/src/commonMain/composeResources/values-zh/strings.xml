@@ -11,6 +11,7 @@
     <string name="button_play_random">随机游戏</string>
     <string name="button_give_up">放弃</string>
     <string name="button_backspace">退格</string>
+    <string name="button_done">完成</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">训练天数</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">网格求解</string>
     <string name="game_visual_memory">视觉记忆</string>
     <string name="game_pattern_sequence">图案序列</string>
+    <string name="game_ghost_grid">幽灵方格</string>
+    <string name="game_color_confusion">颜色混淆</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">填入缺失的数字，使每行和每列的和等于给定的总数。</string>
     <string name="game_visual_memory_desc">记住网格上的形状，然后在计时结束后识别隐藏的形状。</string>
     <string name="game_pattern_sequence_desc">通过寻找重复的形状、颜色和旋转，找出图案中的下一个图形。</string>
+    <string name="game_ghost_grid_desc">观察方格逐个亮起，然后按相同顺序点击它们。</string>
+    <string name="game_color_confusion_desc">点击所有文字与字体颜色匹配的单元格，然后按完成。</string>
     <string name="game_what_comes_next">下一个是什么？</string>
+    <string name="game_tap_matching_colors">点击文字与颜色匹配的单元格</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">铜牌</string>

@@ -11,6 +11,7 @@
     <string name="button_play_random">Zufälliges Spiel</string>
     <string name="button_give_up">Aufgeben</string>
     <string name="button_backspace">Löschen</string>
+    <string name="button_done">Fertig</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Trainingstage</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Gitter-Löser</string>
     <string name="game_visual_memory">Visuelles Gedächtnis</string>
     <string name="game_pattern_sequence">Mustersequenz</string>
+    <string name="game_ghost_grid">Geistergitter</string>
+    <string name="game_color_confusion">Farbverwirrung</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Fülle die fehlenden Zahlen ein, sodass jede Zeile und Spalte die angegebenen Summen ergibt.</string>
     <string name="game_visual_memory_desc">Merke dir die Formen im Gitter und identifiziere die versteckte Form nach Ablauf des Timers.</string>
     <string name="game_pattern_sequence_desc">Finde die nächste Figur im Muster, indem du nach sich wiederholenden Formen, Farben und Drehungen suchst.</string>
+    <string name="game_ghost_grid_desc">Beobachte, wie die Felder nacheinander aufleuchten, und tippe sie in der gleichen Reihenfolge an.</string>
+    <string name="game_color_confusion_desc">Tippe alle Felder an, bei denen das Wort mit seiner Schriftfarbe übereinstimmt, und drücke dann Fertig.</string>
     <string name="game_what_comes_next">Was kommt als Nächstes?</string>
+    <string name="game_tap_matching_colors">Tippe Felder an, bei denen Wort und Farbe übereinstimmen</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronzemedaille</string>

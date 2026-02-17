@@ -51,6 +51,7 @@
     <string name="game_visual_memory">Visual Memory</string>
     <string name="game_pattern_sequence">Pattern Sequence</string>
     <string name="game_ghost_grid">Ghost Grid</string>
+    <string name="game_color_confusion">Color Confusion</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -65,7 +66,10 @@
     <string name="game_visual_memory_desc">Memorize the shapes on the grid, then identify the hidden shape after the timer ends.</string>
     <string name="game_pattern_sequence_desc">Find the next figure in the pattern by looking for repeating shapes, colors, and rotations.</string>
     <string name="game_ghost_grid_desc">Watch the tiles light up one by one, then tap them back in the same order.</string>
+    <string name="game_color_confusion_desc">Tap all cells where the word matches its font color, then press Done.</string>
     <string name="game_what_comes_next">What comes next?</string>
+    <string name="game_tap_matching_colors">Tap cells where word matches color</string>
+    <string name="button_done">Done</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronze Medal</string>

@@ -11,6 +11,7 @@
     <string name="button_play_random">ランダムゲーム</string>
     <string name="button_give_up">ギブアップ</string>
     <string name="button_backspace">バックスペース</string>
+    <string name="button_done">完了</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">トレーニング日数</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">グリッドソルバー</string>
     <string name="game_visual_memory">視覚記憶</string>
     <string name="game_pattern_sequence">パターンシーケンス</string>
+    <string name="game_ghost_grid">ゴーストグリッド</string>
+    <string name="game_color_confusion">カラーコンフュージョン</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">各行と列の合計が指定された値になるように、欠けている数字を埋めてください。</string>
     <string name="game_visual_memory_desc">グリッド上の形を覚えて、タイマー終了後に隠された形を特定してください。</string>
     <string name="game_pattern_sequence_desc">繰り返される形、色、回転を見つけて、パターンの次の図形を見つけてください。</string>
+    <string name="game_ghost_grid_desc">タイルが一つずつ光るのを見て、同じ順番でタップしてください。</string>
+    <string name="game_color_confusion_desc">単語がフォントの色と一致するすべてのセルをタップし、完了を押してください。</string>
     <string name="game_what_comes_next">次は何？</string>
+    <string name="game_tap_matching_colors">単語と色が一致するセルをタップ</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">銅メダル</string>

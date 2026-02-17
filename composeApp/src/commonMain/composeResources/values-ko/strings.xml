@@ -11,6 +11,7 @@
     <string name="button_play_random">랜덤 게임</string>
     <string name="button_give_up">포기</string>
     <string name="button_backspace">지우기</string>
+    <string name="button_done">완료</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">훈련 일수</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">그리드 풀기</string>
     <string name="game_visual_memory">시각 기억</string>
     <string name="game_pattern_sequence">패턴 시퀀스</string>
+    <string name="game_ghost_grid">유령 격자</string>
+    <string name="game_color_confusion">색상 혼동</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">각 행과 열의 합이 주어진 합계와 일치하도록 빈 숫자를 채우세요.</string>
     <string name="game_visual_memory_desc">그리드의 도형을 기억한 후 타이머가 끝나면 숨겨진 도형을 식별하세요.</string>
     <string name="game_pattern_sequence_desc">반복되는 모양, 색상, 회전을 찾아 패턴의 다음 도형을 찾으세요.</string>
+    <string name="game_ghost_grid_desc">타일이 하나씩 켜지는 것을 보고, 같은 순서로 탭하세요.</string>
+    <string name="game_color_confusion_desc">단어가 글꼴 색상과 일치하는 모든 셀을 탭한 다음 완료를 누르세요.</string>
     <string name="game_what_comes_next">다음은 무엇일까요?</string>
+    <string name="game_tap_matching_colors">단어와 색상이 일치하는 셀을 탭하세요</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">동메달</string>

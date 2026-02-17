@@ -11,6 +11,7 @@
     <string name="button_play_random">Permainan Acak</string>
     <string name="button_give_up">Menyerah</string>
     <string name="button_backspace">Hapus</string>
+    <string name="button_done">Selesai</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Hari latihan</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Pemecah Kotak</string>
     <string name="game_visual_memory">Memori Visual</string>
     <string name="game_pattern_sequence">Urutan Pola</string>
+    <string name="game_ghost_grid">Grid Hantu</string>
+    <string name="game_color_confusion">Kebingungan Warna</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Isi angka yang hilang agar jumlah setiap baris dan kolom sama dengan total yang diberikan.</string>
     <string name="game_visual_memory_desc">Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah waktu habis.</string>
     <string name="game_pattern_sequence_desc">Temukan gambar berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.</string>
+    <string name="game_ghost_grid_desc">Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.</string>
+    <string name="game_color_confusion_desc">Ketuk semua sel yang katanya cocok dengan warna hurufnya, lalu tekan Selesai.</string>
     <string name="game_what_comes_next">Apa selanjutnya?</string>
+    <string name="game_tap_matching_colors">Ketuk sel yang kata dan warnanya cocok</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medali Perunggu</string>

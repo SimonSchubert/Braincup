@@ -11,6 +11,7 @@
     <string name="button_play_random">Juego aleatorio</string>
     <string name="button_give_up">Rendirse</string>
     <string name="button_backspace">Retroceso</string>
+    <string name="button_done">Listo</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Días de entrenamiento</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Resolvedor de cuadrícula</string>
     <string name="game_visual_memory">Memoria visual</string>
     <string name="game_pattern_sequence">Secuencia de patrones</string>
+    <string name="game_ghost_grid">Cuadrícula Fantasma</string>
+    <string name="game_color_confusion">Confusión de Colores</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encuentra la figura que destaca. Considera tanto el color como la forma de cada figura.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Rellena los números que faltan para que cada fila y columna sume los totales dados.</string>
     <string name="game_visual_memory_desc">Memoriza las formas en la cuadrícula, luego identifica la forma oculta cuando termine el temporizador.</string>
     <string name="game_pattern_sequence_desc">Encuentra la siguiente figura en el patrón buscando formas, colores y rotaciones que se repiten.</string>
+    <string name="game_ghost_grid_desc">Observa cómo se iluminan las casillas una por una y luego tócalas en el mismo orden.</string>
+    <string name="game_color_confusion_desc">Toca todas las celdas donde la palabra coincida con el color de la fuente y luego pulsa Listo.</string>
     <string name="game_what_comes_next">¿Qué sigue?</string>
+    <string name="game_tap_matching_colors">Toca las celdas donde la palabra coincida con el color</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medalla de bronce</string>

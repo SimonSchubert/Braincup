@@ -11,6 +11,7 @@
     <string name="button_play_random">Gioco casuale</string>
     <string name="button_give_up">Rinuncia</string>
     <string name="button_backspace">Cancella</string>
+    <string name="button_done">Fatto</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Giorni di allenamento</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Risolutore di griglia</string>
     <string name="game_visual_memory">Memoria visiva</string>
     <string name="game_pattern_sequence">Sequenza di schemi</string>
+    <string name="game_ghost_grid">Griglia Fantasma</string>
+    <string name="game_color_confusion">Confusione di Colori</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trova la figura che si distingue. Considera sia il colore che la forma di ogni figura.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Inserisci i numeri mancanti in modo che ogni riga e colonna sommi ai totali indicati.</string>
     <string name="game_visual_memory_desc">Memorizza le forme sulla griglia, poi identifica la forma nascosta dopo la fine del timer.</string>
     <string name="game_pattern_sequence_desc">Trova la figura successiva nello schema cercando forme, colori e rotazioni che si ripetono.</string>
+    <string name="game_ghost_grid_desc">Osserva le caselle illuminarsi una alla volta, poi toccale nello stesso ordine.</string>
+    <string name="game_color_confusion_desc">Tocca tutte le celle in cui la parola corrisponde al colore del carattere, poi premi Fatto.</string>
     <string name="game_what_comes_next">Cosa viene dopo?</string>
+    <string name="game_tap_matching_colors">Tocca le celle dove la parola corrisponde al colore</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medaglia di bronzo</string>

@@ -119,6 +119,10 @@ class GameController(
             handleColoredShapesAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is ColorConfusionGame) {
+            handleColorConfusionAnswer(currentState, game, answer.trim())
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -237,6 +241,7 @@ class GameController(
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
         GameType.GHOST_GRID -> GhostGridGame()
+        GameType.COLOR_CONFUSION -> ColorConfusionGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -377,6 +382,28 @@ class GameController(
                 delay(1_000)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
+        }
+    }
+
+    private fun handleColorConfusionAnswer(
+        currentState: GameState.Active,
+        game: ColorConfusionGame,
+        input: String,
+    ) {
+        if (input == "submit") {
+            val correct = game.submit()
+            _gameUiState.value = game.toUiState()
+            if (correct) {
+                points++
+            }
+            scope.launch {
+                delay(1_000)
+                proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+        } else {
+            val index = input.toIntOrNull() ?: return
+            game.toggleCell(index)
+            _gameUiState.value = game.toUiState()
         }
     }
 

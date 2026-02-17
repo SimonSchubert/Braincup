@@ -203,6 +203,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameColorConfusion() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createColorConfusionUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameGhostGrid() {
         paparazzi.snap {
             GameScreen(

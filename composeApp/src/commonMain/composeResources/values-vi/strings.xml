@@ -11,6 +11,7 @@
     <string name="button_play_random">Trò chơi ngẫu nhiên</string>
     <string name="button_give_up">Bỏ cuộc</string>
     <string name="button_backspace">Xóa</string>
+    <string name="button_done">Xong</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Ngày luyện tập</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Giải lưới</string>
     <string name="game_visual_memory">Trí nhớ hình ảnh</string>
     <string name="game_pattern_sequence">Chuỗi mẫu</string>
+    <string name="game_ghost_grid">Lưới Ma</string>
+    <string name="game_color_confusion">Nhầm lẫn Màu sắc</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Điền các số còn thiếu sao cho tổng của mỗi hàng và cột bằng tổng đã cho.</string>
     <string name="game_visual_memory_desc">Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi hết giờ.</string>
     <string name="game_pattern_sequence_desc">Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, màu sắc và phép quay lặp lại.</string>
+    <string name="game_ghost_grid_desc">Xem các ô sáng lên từng cái một, sau đó chạm vào chúng theo cùng thứ tự.</string>
+    <string name="game_color_confusion_desc">Chạm vào tất cả ô mà từ khớp với màu phông chữ, sau đó nhấn Xong.</string>
     <string name="game_what_comes_next">Tiếp theo là gì?</string>
+    <string name="game_tap_matching_colors">Chạm vào ô mà từ khớp với màu</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Huy chương đồng</string>

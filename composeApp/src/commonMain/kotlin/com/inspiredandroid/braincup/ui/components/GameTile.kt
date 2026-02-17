@@ -98,6 +98,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.GRID_SOLVER -> GridSolverPreview()
         GameType.PATTERN_SEQUENCE -> PatternSequencePreview()
         GameType.GHOST_GRID -> GhostGridPreview()
+        GameType.COLOR_CONFUSION -> ColorConfusionPreview()
     }
 }
 
@@ -456,6 +457,45 @@ private fun PatternSequencePreview() {
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
             )
+        }
+    }
+}
+
+@Composable
+private fun ColorConfusionPreview() {
+    val words = listOf(
+        Triple("RED", Color.RED, true),
+        Triple("BLUE", Color.GREEN, false),
+        Triple("GREEN", Color.GREEN, true),
+        Triple("PURPLE", Color.YELLOW, false),
+    )
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        words.chunked(2).forEach { row ->
+            Row(modifier = Modifier.fillMaxWidth()) {
+                row.forEach { (word, color, matching) ->
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(2.dp)
+                            .background(
+                                MaterialTheme.colorScheme.surface,
+                                MaterialTheme.shapes.extraSmall,
+                            ),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            text = word,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = color.composeColor,
+                        )
+                    }
+                }
+            }
         }
     }
 }

@@ -11,6 +11,7 @@
     <string name="button_play_random">Случайная игра</string>
     <string name="button_give_up">Сдаться</string>
     <string name="button_backspace">Удалить</string>
+    <string name="button_done">Готово</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Дней тренировок</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Решение сетки</string>
     <string name="game_visual_memory">Визуальная память</string>
     <string name="game_pattern_sequence">Последовательность</string>
+    <string name="game_ghost_grid">Призрачная сетка</string>
+    <string name="game_color_confusion">Цветовая путаница</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Заполните недостающие числа так, чтобы сумма каждой строки и столбца равнялась заданным итогам.</string>
     <string name="game_visual_memory_desc">Запомните фигуры на сетке, затем определите скрытую фигуру после окончания таймера.</string>
     <string name="game_pattern_sequence_desc">Найдите следующую фигуру в последовательности, ищите повторяющиеся формы, цвета и вращения.</string>
+    <string name="game_ghost_grid_desc">Наблюдайте, как плитки загораются одна за другой, затем нажимайте на них в том же порядке.</string>
+    <string name="game_color_confusion_desc">Нажмите на все ячейки, где слово совпадает с цветом шрифта, затем нажмите Готово.</string>
     <string name="game_what_comes_next">Что дальше?</string>
+    <string name="game_tap_matching_colors">Нажмите на ячейки, где слово совпадает с цветом</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Бронзовая медаль</string>

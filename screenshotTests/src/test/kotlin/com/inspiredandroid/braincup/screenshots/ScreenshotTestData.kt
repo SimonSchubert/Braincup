@@ -20,6 +20,7 @@ val mainMenuHighscores = mapOf(
     "10" to 5,
     "11" to 6,
     "12" to 4,
+    "13" to 7,
 )
 
 fun createColoredShapesGame(): ColoredShapesGame {
@@ -136,6 +137,25 @@ fun createPatternSequenceGame(): PatternSequenceGame {
     return game
 }
 
+fun createColorConfusionGame(): ColorConfusionGame {
+    val game = ColorConfusionGame()
+    game.cells = listOf(
+        ColorConfusionGame.Cell(word = Color.RED, fontColor = Color.RED),
+        ColorConfusionGame.Cell(word = Color.BLUE, fontColor = Color.GREEN),
+        ColorConfusionGame.Cell(word = Color.GREEN, fontColor = Color.GREEN),
+        ColorConfusionGame.Cell(word = Color.PURPLE, fontColor = Color.YELLOW),
+        ColorConfusionGame.Cell(word = Color.ORANGE, fontColor = Color.ORANGE),
+        ColorConfusionGame.Cell(word = Color.YELLOW, fontColor = Color.BLUE),
+        ColorConfusionGame.Cell(word = Color.RED, fontColor = Color.PURPLE),
+        ColorConfusionGame.Cell(word = Color.BLUE, fontColor = Color.BLUE),
+        ColorConfusionGame.Cell(word = Color.GREEN, fontColor = Color.RED),
+    )
+    game.selectedIndices = mutableSetOf(0, 2, 4)
+    game.feedbackState = List(9) { ColorConfusionGame.CellFeedback.NONE }
+    game.isSubmitted = false
+    return game
+}
+
 fun createGhostGridGame(): GhostGridGame {
     val game = GhostGridGame()
     game.nextRound()
@@ -160,6 +180,8 @@ fun createValueComparisonUiState(): GameUiState = createValueComparisonGame().to
 fun createPathFinderUiState(): GameUiState = createPathFinderGame().toUiState()
 fun createGridSolverUiState(): GameUiState = createGridSolverGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
+
+fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()
 
 fun createGhostGridUiState(): com.inspiredandroid.braincup.app.GhostGridUiState {
     val game = createGhostGridGame()

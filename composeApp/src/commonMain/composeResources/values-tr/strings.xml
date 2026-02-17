@@ -11,6 +11,7 @@
     <string name="button_play_random">Rastgele Oyun</string>
     <string name="button_give_up">Vazgeç</string>
     <string name="button_backspace">Sil</string>
+    <string name="button_done">Bitti</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Antrenman günleri</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Izgara Çözücü</string>
     <string name="game_visual_memory">Görsel Hafıza</string>
     <string name="game_pattern_sequence">Desen Dizisi</string>
+    <string name="game_ghost_grid">Hayalet Izgara</string>
+    <string name="game_color_confusion">Renk Karmaşası</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Her satır ve sütunun toplamı verilen değerlere eşit olacak şekilde eksik sayıları doldurun.</string>
     <string name="game_visual_memory_desc">Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.</string>
     <string name="game_pattern_sequence_desc">Tekrarlayan şekilleri, renkleri ve döndürmeleri arayarak desendeki bir sonraki şekli bulun.</string>
+    <string name="game_ghost_grid_desc">Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.</string>
+    <string name="game_color_confusion_desc">Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun, ardından Bitti\'ye basın.</string>
     <string name="game_what_comes_next">Sıradaki ne?</string>
+    <string name="game_tap_matching_colors">Kelimenin renkle eşleştiği hücrelere dokunun</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronz Madalya</string>

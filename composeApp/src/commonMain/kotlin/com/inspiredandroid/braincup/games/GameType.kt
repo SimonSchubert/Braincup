@@ -108,6 +108,14 @@ enum class GameType(
         descriptionRes = Res.string.game_pattern_sequence_desc,
         icon = Res.drawable.ic_pattern_sequence,
     ),
+    COLOR_CONFUSION(
+        displayNameRes = Res.string.game_color_confusion,
+        id = "13",
+        goldScore = 12,
+        silverScore = 6,
+        descriptionRes = Res.string.game_color_confusion_desc,
+        icon = Res.drawable.ic_color_confusion,
+    ),
 }
 
 fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }

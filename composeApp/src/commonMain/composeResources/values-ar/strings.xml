@@ -11,6 +11,7 @@
     <string name="button_play_random">لعبة عشوائية</string>
     <string name="button_give_up">استسلام</string>
     <string name="button_backspace">مسح</string>
+    <string name="button_done">تم</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">أيام التدريب</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">حل الشبكة</string>
     <string name="game_visual_memory">الذاكرة البصرية</string>
     <string name="game_pattern_sequence">تسلسل الأنماط</string>
+    <string name="game_ghost_grid">شبكة الأشباح</string>
+    <string name="game_color_confusion">ارتباك الألوان</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">املأ الأرقام المفقودة بحيث يكون مجموع كل صف وعمود مساوياً للمجاميع المعطاة.</string>
     <string name="game_visual_memory_desc">احفظ الأشكال على الشبكة، ثم حدد الشكل المخفي بعد انتهاء المؤقت.</string>
     <string name="game_pattern_sequence_desc">اعثر على الشكل التالي في النمط من خلال البحث عن الأشكال والألوان والدورانات المتكررة.</string>
+    <string name="game_ghost_grid_desc">شاهد المربعات تضيء واحدة تلو الأخرى، ثم اضغط عليها بنفس الترتيب.</string>
+    <string name="game_color_confusion_desc">اضغط على جميع الخلايا التي تتطابق فيها الكلمة مع لون الخط، ثم اضغط تم.</string>
     <string name="game_what_comes_next">ما التالي؟</string>
+    <string name="game_tap_matching_colors">اضغط على الخلايا التي تتطابق فيها الكلمة مع اللون</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">الميدالية البرونزية</string>

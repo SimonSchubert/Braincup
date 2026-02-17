@@ -98,6 +98,26 @@ data class GhostGridUiState(
     data class CellState(val type: CellType)
 }
 
+data class ColorConfusionUiState(
+    val cells: List<Cell>,
+    val isSubmitted: Boolean,
+) : GameUiState {
+    enum class CellFeedback {
+        NONE,
+        CORRECT_SELECTED,
+        WRONG_SELECTED,
+        MISSED,
+        CORRECT_UNSELECTED,
+    }
+
+    data class Cell(
+        val word: String,
+        val fontColor: Color,
+        val isSelected: Boolean,
+        val feedback: CellFeedback,
+    )
+}
+
 data class VisualMemoryUiState(
     val round: Int,
     val phase: VisualMemoryGame.Phase,

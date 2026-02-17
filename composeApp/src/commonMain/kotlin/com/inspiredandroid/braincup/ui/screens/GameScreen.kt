@@ -18,11 +18,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_backspace
+import braincup.composeapp.generated.resources.button_done
 import braincup.composeapp.generated.resources.button_give_up
 import braincup.composeapp.generated.resources.game_fill_grid
 import braincup.composeapp.generated.resources.game_follow_directions
 import braincup.composeapp.generated.resources.game_goal
 import braincup.composeapp.generated.resources.game_highest_value
+import braincup.composeapp.generated.resources.game_tap_matching_colors
 import braincup.composeapp.generated.resources.game_tap_numbers
 import braincup.composeapp.generated.resources.game_what_comes_next
 import com.inspiredandroid.braincup.app.*
@@ -71,6 +73,7 @@ fun GameScreen(
             is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
             is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
             is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
+            is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
         }
 
         Spacer(Modifier.weight(1f))
@@ -968,6 +971,100 @@ private fun ColumnScope.PatternSequenceContent(
                     )
                 }
             }
+        }
+    }
+}
+
+// --- Color Confusion Game Composables ---
+
+@Composable
+private fun ColumnScope.ColorConfusionContent(
+    uiState: ColorConfusionUiState,
+    onAnswer: (String) -> Unit,
+) {
+    Text(
+        text = stringResource(Res.string.game_tap_matching_colors),
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+    Spacer(Modifier.height(16.dp))
+
+    // 3x3 Grid
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 100.dp * 3),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        uiState.cells.chunked(3).forEachIndexed { y, rowCells ->
+            Row {
+                rowCells.forEachIndexed { x, cell ->
+                    val index = y * 3 + x
+                    ColorConfusionCell(
+                        cell = cell,
+                        onClick = {
+                            if (!uiState.isSubmitted) {
+                                onAnswer(index.toString())
+                            }
+                        },
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp),
+                    )
+                }
+            }
+        }
+    }
+
+    Spacer(Modifier.height(16.dp))
+
+    if (!uiState.isSubmitted) {
+        Button(
+            onClick = { onAnswer("submit") },
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .pointerHoverIcon(PointerIcon.Hand),
+        ) {
+            Text(stringResource(Res.string.button_done))
+        }
+    }
+}
+
+@Composable
+private fun ColorConfusionCell(
+    cell: ColorConfusionUiState.Cell,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val containerColor = when (cell.feedback) {
+        ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreen.copy(alpha = 0.15f)
+        ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
+        ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
+        else -> MaterialTheme.colorScheme.surface
+    }
+    val border = when {
+        cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> BorderStroke(2.dp, SuccessGreen)
+        cell.feedback == ColorConfusionUiState.CellFeedback.MISSED -> BorderStroke(2.dp, MaterialTheme.colorScheme.error)
+        cell.isSelected && cell.feedback == ColorConfusionUiState.CellFeedback.NONE -> BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
+        else -> null
+    }
+
+    Card(
+        onClick = onClick,
+        modifier = modifier,
+        colors = CardDefaults.cardColors(containerColor = containerColor),
+        border = border,
+    ) {
+        Box(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            Text(
+                text = cell.word,
+                style = MaterialTheme.typography.titleMedium,
+                color = cell.fontColor.composeColor,
+            )
         }
     }
 }

@@ -11,6 +11,7 @@
     <string name="button_play_random">Losowa gra</string>
     <string name="button_give_up">Poddaj się</string>
     <string name="button_backspace">Cofnij</string>
+    <string name="button_done">Gotowe</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Dni treningu</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Rozwiązywanie siatki</string>
     <string name="game_visual_memory">Pamięć wzrokowa</string>
     <string name="game_pattern_sequence">Sekwencja wzorów</string>
+    <string name="game_ghost_grid">Siatka Duchów</string>
+    <string name="game_color_confusion">Zamieszanie Kolorów</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Wypełnij brakujące liczby tak, aby suma każdego wiersza i kolumny równała się podanym wartościom.</string>
     <string name="game_visual_memory_desc">Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.</string>
     <string name="game_pattern_sequence_desc">Znajdź następną figurę we wzorze, szukając powtarzających się kształtów, kolorów i obrotów.</string>
+    <string name="game_ghost_grid_desc">Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.</string>
+    <string name="game_color_confusion_desc">Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki, a następnie naciśnij Gotowe.</string>
     <string name="game_what_comes_next">Co będzie dalej?</string>
+    <string name="game_tap_matching_colors">Dotknij komórek, gdzie słowo odpowiada kolorowi</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Brązowy medal</string>

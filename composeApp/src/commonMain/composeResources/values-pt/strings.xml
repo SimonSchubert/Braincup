@@ -11,6 +11,7 @@
     <string name="button_play_random">Jogo aleatório</string>
     <string name="button_give_up">Desistir</string>
     <string name="button_backspace">Apagar</string>
+    <string name="button_done">Pronto</string>
 
     <!-- Main menu -->
     <string name="stat_training_days">Dias de treino</string>
@@ -50,6 +51,8 @@
     <string name="game_grid_solver">Resolvedor de grade</string>
     <string name="game_visual_memory">Memória visual</string>
     <string name="game_pattern_sequence">Sequência de padrões</string>
+    <string name="game_ghost_grid">Grade Fantasma</string>
+    <string name="game_color_confusion">Confusão de Cores</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
@@ -63,7 +66,10 @@
     <string name="game_grid_solver_desc">Preencha os números que faltam para que cada linha e coluna some os totais dados.</string>
     <string name="game_visual_memory_desc">Memorize as formas na grade e identifique a forma oculta após o término do cronômetro.</string>
     <string name="game_pattern_sequence_desc">Encontre a próxima figura no padrão procurando formas, cores e rotações que se repetem.</string>
+    <string name="game_ghost_grid_desc">Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.</string>
+    <string name="game_color_confusion_desc">Toque em todas as células onde a palavra corresponde à cor da fonte e depois pressione Pronto.</string>
     <string name="game_what_comes_next">O que vem a seguir?</string>
+    <string name="game_tap_matching_colors">Toque nas células onde a palavra corresponde à cor</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medalha de bronze</string>
