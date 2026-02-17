@@ -11,9 +11,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -24,11 +28,14 @@ import braincup.composeapp.generated.resources.game_fill_grid
 import braincup.composeapp.generated.resources.game_follow_directions
 import braincup.composeapp.generated.resources.game_goal
 import braincup.composeapp.generated.resources.game_highest_value
+import braincup.composeapp.generated.resources.game_remember_targets
 import braincup.composeapp.generated.resources.game_tap_matching_colors
 import braincup.composeapp.generated.resources.game_tap_numbers
+import braincup.composeapp.generated.resources.game_tap_original_targets
 import braincup.composeapp.generated.resources.game_what_comes_next
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.GhostGridGame
+import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.ui.components.CircleButton
@@ -49,7 +56,7 @@ fun GameScreen(
     onBack: () -> Unit,
 ) {
     GameScaffold(onBack = onBack) {
-        if (gameUiState !is VisualMemoryUiState && gameUiState !is GhostGridUiState) {
+        if (gameUiState !is VisualMemoryUiState && gameUiState !is GhostGridUiState && gameUiState !is OrbitTrackerUiState) {
             TimeProgressIndicator(
                 progress = timeRemaining / 60000f,
                 modifier = Modifier
@@ -74,6 +81,7 @@ fun GameScreen(
             is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
             is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
             is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
+            is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
         }
 
         Spacer(Modifier.weight(1f))
@@ -1065,6 +1073,132 @@ private fun ColorConfusionCell(
                 style = MaterialTheme.typography.titleMedium,
                 color = cell.fontColor.composeColor,
             )
+        }
+    }
+}
+
+// --- Orbit Tracker Game Composables ---
+
+@Composable
+private fun ColumnScope.OrbitTrackerContent(
+    uiState: OrbitTrackerUiState,
+    onAnswer: (String) -> Unit,
+) {
+    val isHighlighting = uiState.phase == OrbitTrackerGame.Phase.HIGHLIGHTING
+    val isAnswering = uiState.phase == OrbitTrackerGame.Phase.ANSWERING
+
+    val instructionText = when {
+        isHighlighting -> stringResource(Res.string.game_remember_targets)
+        isAnswering -> stringResource(Res.string.game_tap_original_targets)
+        else -> ""
+    }
+    Text(
+        text = instructionText,
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+        minLines = 1,
+    )
+    Spacer(Modifier.height(8.dp))
+
+    val errorColor = MaterialTheme.colorScheme.error
+    val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
+    val outlineColor = MaterialTheme.colorScheme.outline
+    val primaryColor = MaterialTheme.colorScheme.primary
+
+    Box(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 400.dp)
+            .aspectRatio(1f)
+            .align(Alignment.CenterHorizontally),
+    ) {
+        Canvas(
+            modifier = Modifier
+                .fillMaxSize()
+                .pointerInput(uiState.phase) {
+                    if (!isAnswering) return@pointerInput
+                    awaitPointerEventScope {
+                        while (true) {
+                            val event = awaitPointerEvent()
+                            if (event.type == PointerEventType.Press) {
+                                val position = event.changes.firstOrNull()?.position ?: continue
+                                val normalizedX = position.x / size.width
+                                val normalizedY = position.y / size.height
+                                val ballRadius = 0.04f
+
+                                // Find the closest ball within tap range
+                                var closestIndex = -1
+                                var closestDist = Float.MAX_VALUE
+                                uiState.balls.forEachIndexed { index, ball ->
+                                    val dx = ball.x - normalizedX
+                                    val dy = ball.y - normalizedY
+                                    val dist = kotlin.math.sqrt(dx * dx + dy * dy)
+                                    if (dist < ballRadius * 3 && dist < closestDist) {
+                                        closestDist = dist
+                                        closestIndex = index
+                                    }
+                                }
+                                if (closestIndex >= 0) {
+                                    onAnswer(closestIndex.toString())
+                                }
+                            }
+                        }
+                    }
+                },
+        ) {
+            // Draw arena border
+            drawRect(
+                color = outlineColor,
+                style = Stroke(width = 2.dp.toPx()),
+            )
+
+            val ballRadiusPx = 0.04f * size.width
+
+            uiState.balls.forEach { ball ->
+                val cx = ball.x * size.width
+                val cy = ball.y * size.height
+                val center = Offset(cx, cy)
+
+                val isGameOver = uiState.phase == OrbitTrackerGame.Phase.GAME_OVER
+
+                val color = when {
+                    // Feedback states
+                    ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED && isGameOver -> SuccessGreen
+                    ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED -> primaryColor
+                    ball.feedback == OrbitTrackerUiState.BallFeedback.WRONG_SELECTED -> errorColor
+                    ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED -> SuccessGreen
+                    // Highlight phase: targets are blue
+                    isHighlighting && ball.isTarget -> primaryColor
+                    // Default dark grey
+                    else -> onSurfaceVariantColor
+                }
+
+                drawCircle(
+                    color = color,
+                    radius = ballRadiusPx,
+                    center = center,
+                )
+
+                // Draw outline for missed targets
+                if (ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED) {
+                    drawCircle(
+                        color = SuccessGreen,
+                        radius = ballRadiusPx + 3.dp.toPx(),
+                        center = center,
+                        style = Stroke(width = 2.dp.toPx()),
+                    )
+                }
+
+                // Draw selection ring during answering
+                if (ball.isSelected && ball.feedback == OrbitTrackerUiState.BallFeedback.NONE) {
+                    drawCircle(
+                        color = primaryColor,
+                        radius = ballRadiusPx + 3.dp.toPx(),
+                        center = center,
+                        style = Stroke(width = 2.dp.toPx()),
+                    )
+                }
+            }
         }
     }
 }

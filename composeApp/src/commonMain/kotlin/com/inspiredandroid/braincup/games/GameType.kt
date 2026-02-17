@@ -116,6 +116,14 @@ enum class GameType(
         descriptionRes = Res.string.game_color_confusion_desc,
         icon = Res.drawable.ic_color_confusion,
     ),
+    ORBIT_TRACKER(
+        displayNameRes = Res.string.game_orbit_tracker,
+        id = "14",
+        goldScore = 5,
+        silverScore = 3,
+        descriptionRes = Res.string.game_orbit_tracker_desc,
+        icon = Res.drawable.ic_orbit_tracker,
+    ),
 }
 
 fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }

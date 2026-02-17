@@ -52,6 +52,7 @@
     <string name="game_pattern_sequence">Pattern Sequence</string>
     <string name="game_ghost_grid">Ghost Grid</string>
     <string name="game_color_confusion">Color Confusion</string>
+    <string name="game_orbit_tracker">Orbit Tracker</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -67,8 +68,11 @@
     <string name="game_pattern_sequence_desc">Find the next figure in the pattern by looking for repeating shapes, colors, and rotations.</string>
     <string name="game_ghost_grid_desc">Watch the tiles light up one by one, then tap them back in the same order.</string>
     <string name="game_color_confusion_desc">Tap all cells where the word matches its font color, then press Done.</string>
+    <string name="game_orbit_tracker_desc">Watch the highlighted balls, then track them as they move. Select the original targets after they stop.</string>
     <string name="game_what_comes_next">What comes next?</string>
     <string name="game_tap_matching_colors">Tap cells where word matches color</string>
+    <string name="game_tap_original_targets">Tap the original targets</string>
+    <string name="game_remember_targets">Remember the targets</string>
     <string name="button_done">Done</string>
 
     <!-- Achievement titles -->

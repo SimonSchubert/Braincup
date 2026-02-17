@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -10,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
@@ -99,6 +101,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.PATTERN_SEQUENCE -> PatternSequencePreview()
         GameType.GHOST_GRID -> GhostGridPreview()
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
+        GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
     }
 }
 
@@ -456,6 +459,32 @@ private fun PatternSequencePreview() {
                 text = "?",
                 style = MaterialTheme.typography.labelMedium,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
+            )
+        }
+    }
+}
+
+@Composable
+private fun OrbitTrackerPreview() {
+    val primaryColor = MaterialTheme.colorScheme.primary
+    val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
+    Canvas(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+    ) {
+        val ballRadius = size.width * 0.06f
+        // Draw some balls - targets in blue, others dark grey
+        val balls = listOf(
+            Triple(0.3f, 0.25f, true),
+            Triple(0.7f, 0.4f, false),
+            Triple(0.5f, 0.7f, true),
+            Triple(0.2f, 0.6f, false),
+            Triple(0.8f, 0.75f, true),
+        )
+        balls.forEach { (x, y, isTarget) ->
+            drawCircle(
+                color = if (isTarget) primaryColor else onSurfaceVariantColor,
+                radius = ballRadius,
+                center = Offset(x * size.width, y * size.height),
             )
         }
     }

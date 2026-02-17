@@ -47,6 +47,7 @@ class GameController(
         if (currentState is GameState.Active) {
             (currentState.game as? VisualMemoryGame)?.cancelCountdown()
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
+            (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
         }
         _gameUiState.value = null
         _gameState.value = GameState.Idle
@@ -75,6 +76,10 @@ class GameController(
         }
         if (gameType == GameType.GHOST_GRID) {
             startGhostGridGame(gameType)
+            return
+        }
+        if (gameType == GameType.ORBIT_TRACKER) {
+            startOrbitTrackerGame(gameType)
             return
         }
 
@@ -121,6 +126,10 @@ class GameController(
         }
         if (game is ColorConfusionGame) {
             handleColorConfusionAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is OrbitTrackerGame) {
+            handleOrbitTrackerAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -242,6 +251,7 @@ class GameController(
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
         GameType.GHOST_GRID -> GhostGridGame()
         GameType.COLOR_CONFUSION -> ColorConfusionGame()
+        GameType.ORBIT_TRACKER -> OrbitTrackerGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -452,6 +462,56 @@ class GameController(
         _gameUiState.value = game.toUiState()
     }
 
+    private fun startOrbitTrackerGame(gameType: GameType) {
+        val game = OrbitTrackerGame()
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
+        game.startHighlightAndMove(scope) { emitOrbitTrackerUiState(game) }
+    }
+
+    private fun handleOrbitTrackerAnswer(
+        currentState: GameState.Active,
+        game: OrbitTrackerGame,
+        input: String,
+    ) {
+        val index = input.toIntOrNull() ?: return
+        when (game.selectBall(index)) {
+            OrbitTrackerGame.SubmitResult.CorrectContinue -> emitOrbitTrackerUiState(game)
+            OrbitTrackerGame.SubmitResult.RoundComplete -> {
+                points++
+                _gameState.value = GameState.Feedback(
+                    gameType = currentState.gameType,
+                    game = game,
+                    isCorrect = true,
+                    message = null,
+                )
+                scope.launch {
+                    delay(1000)
+                    game.nextRound()
+                    _gameState.value = GameState.Active(currentState.gameType, game)
+                    game.startHighlightAndMove(scope) { emitOrbitTrackerUiState(game) }
+                }
+            }
+            OrbitTrackerGame.SubmitResult.Wrong -> {
+                emitOrbitTrackerUiState(game)
+                scope.launch {
+                    delay(2000)
+                    finishOrbitTrackerGame(game)
+                }
+            }
+        }
+    }
+
+    private fun finishOrbitTrackerGame(game: OrbitTrackerGame) {
+        finishCurrentGame(GameType.ORBIT_TRACKER, game)
+    }
+
+    private fun emitOrbitTrackerUiState(game: OrbitTrackerGame) {
+        _gameUiState.value = game.toUiState()
+    }
+
     private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {
         when (game.submitAnswer(answer)) {
             VisualMemoryGame.SubmitResult.CorrectContinue -> emitGameUiState(game)
@@ -480,6 +540,7 @@ class GameController(
     private fun finishCurrentGame(gameType: GameType, game: Game) {
         (game as? VisualMemoryGame)?.cancelCountdown()
         (game as? GhostGridGame)?.cancelShowSequence()
+        (game as? OrbitTrackerGame)?.cancelAnimation()
         _gameUiState.value = null
         _gameState.value = GameState.Idle
 

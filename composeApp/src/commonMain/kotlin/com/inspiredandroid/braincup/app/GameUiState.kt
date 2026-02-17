@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.app
 
 import com.inspiredandroid.braincup.games.GhostGridGame
+import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -115,6 +116,28 @@ data class ColorConfusionUiState(
         val fontColor: Color,
         val isSelected: Boolean,
         val feedback: CellFeedback,
+    )
+}
+
+data class OrbitTrackerUiState(
+    val balls: List<BallState>,
+    val phase: OrbitTrackerGame.Phase,
+    val targetCount: Int,
+    val selectedCount: Int,
+) : GameUiState {
+    enum class BallFeedback {
+        NONE,
+        CORRECT_SELECTED,
+        WRONG_SELECTED,
+        MISSED,
+    }
+
+    data class BallState(
+        val x: Float,
+        val y: Float,
+        val isTarget: Boolean,
+        val isSelected: Boolean,
+        val feedback: BallFeedback,
     )
 }
 
