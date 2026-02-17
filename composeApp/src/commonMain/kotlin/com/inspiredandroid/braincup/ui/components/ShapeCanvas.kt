@@ -2,10 +2,14 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.indication
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.shape.GenericShape
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
@@ -79,12 +83,19 @@ fun ShapeCanvasButton(
         }
         close()
     }
+    val interactionSource = remember { MutableInteractionSource() }
     ShapeCanvas(
         figure = figure,
         modifier = modifier
             .alpha(if (enabled) 1f else 0.3f)
             .then(if (enabled) Modifier.pointerHoverIcon(PointerIcon.Hand) else Modifier)
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null,
+                enabled = enabled,
+                onClick = onClick,
+            )
             .clip(figureShape)
-            .clickable(enabled = enabled, onClick = onClick),
+            .indication(interactionSource, ripple()),
     )
 }
