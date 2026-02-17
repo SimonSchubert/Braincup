@@ -21,6 +21,7 @@ fun FinishScreen(
     score: Int,
     isNewHighscore: Boolean,
     answeredAllCorrect: Boolean,
+    highscore: Int,
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
@@ -83,6 +84,13 @@ fun FinishScreen(
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 )
             }
+        } else if (highscore > 0) {
+            Text(
+                text = stringResource(Res.string.finish_highscore, highscore),
+                style = MaterialTheme.typography.bodyLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
         }
 
         Spacer(Modifier.height(32.dp))

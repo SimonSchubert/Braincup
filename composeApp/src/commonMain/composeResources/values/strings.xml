@@ -28,6 +28,7 @@
     <string name="finish_score">Score: %1$d</string>
     <string name="finish_bonus_point">You earned 1 extra point for making no mistakes!</string>
     <string name="finish_new_highscore">New High Score!</string>
+    <string name="finish_highscore">High Score: %1$d</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Scoreboard</string>

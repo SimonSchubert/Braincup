@@ -545,6 +545,7 @@ class GameController(
         _gameState.value = GameState.Idle
 
         val newHighscore = storage.putScore(gameType.id, points)
+        val highscore = storage.getHighScore(gameType.id)
 
         navController.navigate(
             Finish(
@@ -552,6 +553,7 @@ class GameController(
                 score = points,
                 isNewHighscore = newHighscore,
                 answeredAllCorrect = game.answeredAllCorrect,
+                highscore = highscore,
             ),
         ) {
             popUpTo(MainMenu)

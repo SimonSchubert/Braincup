@@ -79,6 +79,7 @@ fun App() {
                             score = route.score,
                             isNewHighscore = route.isNewHighscore,
                             answeredAllCorrect = route.answeredAllCorrect,
+                            highscore = route.highscore,
                             onPlayRandom = { controller.playRandomGame() },
                             onPlayAgain = { controller.playAgain(gameType) },
                             onMenu = { controller.navigateToMainMenu() },

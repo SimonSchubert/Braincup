@@ -91,6 +91,23 @@ class ScreenshotTest {
                 score = 12,
                 isNewHighscore = true,
                 answeredAllCorrect = true,
+                highscore = 12,
+                onPlayRandom = {},
+                onPlayAgain = {},
+                onMenu = {},
+            )
+        }
+    }
+
+    @Test
+    fun finishNoHighscore() {
+        paparazzi.snap {
+            FinishScreen(
+                gameType = GameType.MENTAL_CALCULATION,
+                score = 5,
+                isNewHighscore = false,
+                answeredAllCorrect = false,
+                highscore = 12,
                 onPlayRandom = {},
                 onPlayAgain = {},
                 onMenu = {},

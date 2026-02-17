@@ -18,6 +18,7 @@ data class Finish(
     val score: Int,
     val isNewHighscore: Boolean,
     val answeredAllCorrect: Boolean,
+    val highscore: Int,
 )
 
 @Serializable
