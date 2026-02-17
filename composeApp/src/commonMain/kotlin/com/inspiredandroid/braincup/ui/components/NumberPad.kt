@@ -12,9 +12,94 @@ import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.baseline_backspace_24
 import org.jetbrains.compose.resources.painterResource
+import kotlin.collections.plusAssign
 
 @Composable
-fun NumberPad(
+fun ColumnScope.NumberPad(
+    showOperators: Boolean = false,
+    onInputChange: (String) -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .width(IntrinsicSize.Min),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            NumberPadButtonCell("7") {
+                onInputChange(it)
+            }
+            NumberPadButtonCell("8") {
+                onInputChange(it)
+            }
+            NumberPadButtonCell("9") {
+                onInputChange(it)
+            }
+            if (showOperators) {
+                NumberPadButtonCell("/") {
+                    onInputChange(it)
+                }
+            }
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            NumberPadButtonCell("4") {
+                onInputChange(it)
+            }
+            NumberPadButtonCell("5") {
+                onInputChange(it)
+            }
+            NumberPadButtonCell("6") {
+                onInputChange(it)
+            }
+            if (showOperators) {
+                NumberPadButtonCell("*") {
+                    onInputChange(it)
+                }
+            }
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            NumberPadButtonCell("1") {
+                onInputChange(it)
+            }
+            NumberPadButtonCell("2") {
+                onInputChange(it)
+            }
+            NumberPadButtonCell("3") {
+                onInputChange(it)
+            }
+            if (showOperators) {
+                NumberPadButtonCell("-") {
+                    onInputChange(it)
+                }
+            }
+        }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            if (showOperators) {
+                NumberPadButtonCell("(") {
+                    onInputChange(it)
+                }
+                NumberPadButtonCell("0") {
+                    onInputChange(it)
+                }
+                NumberPadButtonCell(")") {
+                    onInputChange(it)
+                }
+                NumberPadButtonCell("+") {
+                    onInputChange(it)
+                }
+            } else {
+                EmptyCell()
+                NumberPadButtonCell("0") {
+                    onInputChange(it)
+                }
+                EmptyCell()
+            }
+        }
+    }
+}
+
+@Composable
+fun NumberPadWithInput(
     showOperators: Boolean = false,
     onInputChange: (String) -> Unit,
 ) {
@@ -50,100 +135,13 @@ fun NumberPad(
             }
         }
 
-        Column(
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .width(IntrinsicSize.Min),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                NumberPadButtonCell("7") {
-                    input += it
-                    onInputChange(input)
-                }
-                NumberPadButtonCell("8") {
-                    input += it
-                    onInputChange(input)
-                }
-                NumberPadButtonCell("9") {
-                    input += it
-                    onInputChange(input)
-                }
-                if (showOperators) {
-                    NumberPadButtonCell("/") {
-                        input += it
-                        onInputChange(input)
-                    }
-                }
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                NumberPadButtonCell("4") {
-                    input += it
-                    onInputChange(input)
-                }
-                NumberPadButtonCell("5") {
-                    input += it
-                    onInputChange(input)
-                }
-                NumberPadButtonCell("6") {
-                    input += it
-                    onInputChange(input)
-                }
-                if (showOperators) {
-                    NumberPadButtonCell("*") {
-                        input += it
-                        onInputChange(input)
-                    }
-                }
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                NumberPadButtonCell("1") {
-                    input += it
-                    onInputChange(input)
-                }
-                NumberPadButtonCell("2") {
-                    input += it
-                    onInputChange(input)
-                }
-                NumberPadButtonCell("3") {
-                    input += it
-                    onInputChange(input)
-                }
-                if (showOperators) {
-                    NumberPadButtonCell("-") {
-                        input += it
-                        onInputChange(input)
-                    }
-                }
-            }
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                if (showOperators) {
-                    NumberPadButtonCell("(") {
-                        input += it
-                        onInputChange(input)
-                    }
-                    NumberPadButtonCell("0") {
-                        input += it
-                        onInputChange(input)
-                    }
-                    NumberPadButtonCell(")") {
-                        input += it
-                        onInputChange(input)
-                    }
-                    NumberPadButtonCell("+") {
-                        input += it
-                        onInputChange(input)
-                    }
-                } else {
-                    EmptyCell()
-                    NumberPadButtonCell("0") {
-                        input += it
-                        onInputChange(input)
-                    }
-                    EmptyCell()
-                }
-            }
-        }
+        NumberPad(
+            showOperators = showOperators,
+            onInputChange = {
+                input += it
+                onInputChange(input)
+            },
+        )
     }
 }
 

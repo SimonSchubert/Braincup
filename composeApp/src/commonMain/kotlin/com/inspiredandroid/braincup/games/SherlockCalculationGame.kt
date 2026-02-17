@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.ExpressionToken
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.numbersRegex
@@ -19,6 +20,8 @@ import kotlin.random.Random
 class SherlockCalculationGame : Game() {
     var result = 0
     val numbers = mutableListOf<Int>()
+    var solutionTokens = emptyList<ExpressionToken>()
+        private set
     private var calculation = ""
     private var minNumbersNeeded = 2
     private var maxNumbersNeeded = 3
@@ -70,6 +73,8 @@ class SherlockCalculationGame : Game() {
         }
         numbers.shuffle()
 
+        solutionTokens = buildSolutionTokens()
+
         updateNumberBounds()
     }
 
@@ -82,7 +87,24 @@ class SherlockCalculationGame : Game() {
         numbers = numbers.toList(),
     )
 
-    fun getNumbersString(): String = numbers.joinToString()
+    private fun buildSolutionTokens(): List<ExpressionToken> {
+        val tokens = mutableListOf<ExpressionToken>()
+        val usedIndices = mutableSetOf<Int>()
+        val regex = Regex("""(\d+)|([+\-*])""")
+        for (match in regex.findAll(calculation)) {
+            val numStr = match.groupValues[1]
+            val opStr = match.groupValues[2]
+            if (numStr.isNotEmpty()) {
+                val value = numStr.toInt()
+                val idx = numbers.indices.first { it !in usedIndices && numbers[it] == value }
+                usedIndices += idx
+                tokens += ExpressionToken.NumberToken(value, idx)
+            } else if (opStr.isNotEmpty()) {
+                tokens += ExpressionToken.OperatorToken(opStr)
+            }
+        }
+        return tokens
+    }
 
     private fun updateNumberBounds() {
         maxNumbersNeeded = round + 3

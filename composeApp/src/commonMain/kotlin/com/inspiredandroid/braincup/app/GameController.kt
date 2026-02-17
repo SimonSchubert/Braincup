@@ -5,6 +5,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.AnomalyPuzzleGame
 import com.inspiredandroid.braincup.games.PatternSequenceGame
+import com.inspiredandroid.braincup.games.SherlockCalculationGame
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -137,6 +138,17 @@ class GameController(
 
         val game = currentState.game
         game.answeredAllCorrect = false
+
+        if (game is SherlockCalculationGame) {
+            val currentUiState = _gameUiState.value as? SherlockCalculationUiState ?: return
+            _gameUiState.value = currentUiState.copy(solutionTokens = game.solutionTokens)
+            scope.launch {
+                delay(1_000)
+                proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+            return
+        }
+
         _gameState.value = GameState.Feedback(
             gameType = currentState.gameType,
             game = game,

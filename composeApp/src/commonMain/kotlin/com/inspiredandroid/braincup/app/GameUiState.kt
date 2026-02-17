@@ -14,6 +14,14 @@ data class FigureCell(
 
 sealed interface GameUiState
 
+/**
+ * Represents a token in the Sherlock Calculation expression builder.
+ */
+sealed class ExpressionToken(val displayValue: String) {
+    data class NumberToken(val value: Int, val originalIndex: Int) : ExpressionToken(value.toString())
+    data class OperatorToken(val operator: String) : ExpressionToken(operator)
+}
+
 data class MentalCalculationUiState(
     val calculation: String,
     val answerLength: Int,
@@ -42,6 +50,7 @@ data class ColorConfusionUiState(
 data class SherlockCalculationUiState(
     val result: Int,
     val numbers: List<Int>,
+    val solutionTokens: List<ExpressionToken>? = null,
 ) : GameUiState
 
 data class ValueComparisonUiState(

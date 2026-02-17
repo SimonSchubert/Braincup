@@ -34,18 +34,11 @@ import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.CircleButton
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPad
+import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.ShapeCanvas
 import com.inspiredandroid.braincup.ui.components.ShapeCanvasButton
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
-
-/**
- * Represents a token in the Sherlock Calculation expression builder.
- */
-sealed class ExpressionToken(val displayValue: String) {
-    data class NumberToken(val value: Int, val originalIndex: Int) : ExpressionToken(value.toString())
-    data class OperatorToken(val operator: String) : ExpressionToken(operator)
-}
 
 @Composable
 fun GameScreen(
@@ -70,7 +63,7 @@ fun GameScreen(
         when (gameUiState) {
             is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
             is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer)
-            is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer)
+            is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)
             is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
             is SherlockCalculationUiState -> SherlockCalculationContent(gameUiState, onAnswer, onGiveUp)
             is ValueComparisonUiState -> ValueComparisonContent(gameUiState, onAnswer)
@@ -96,7 +89,7 @@ private fun ColumnScope.MentalCalculationContent(
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Spacer(Modifier.height(16.dp))
-    NumberPad(onInputChange = { input ->
+    NumberPadWithInput(onInputChange = { input ->
         if (uiState.answerLength == input.length) {
             onAnswer(input)
         }
@@ -167,10 +160,20 @@ private fun ColumnScope.SherlockCalculationContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
+    // Goal display
+    Text(
+        text = stringResource(Res.string.game_goal, uiState.result),
+        style = MaterialTheme.typography.headlineMedium,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+    Spacer(Modifier.height(16.dp))
+
     // Use key to reset state when uiState.result changes (new round)
-    key(uiState.result) {
+    key(uiState.result, uiState.solutionTokens) {
         var usedNumberIndices by remember { mutableStateOf(emptySet<Int>()) }
         var expressionTokens by remember { mutableStateOf(emptyList<ExpressionToken>()) }
+
+        val showingSolution = uiState.solutionTokens != null
 
         fun checkAnswer() {
             val expr = expressionTokens.joinToString("") { it.displayValue }
@@ -183,26 +186,24 @@ private fun ColumnScope.SherlockCalculationContent(
             }
         }
 
-        // Goal display
-        Text(
-            text = stringResource(Res.string.game_goal, uiState.result),
-            style = MaterialTheme.typography.headlineMedium,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-        Spacer(Modifier.height(16.dp))
-
         // Expression row
         ExpressionRow(
-            tokens = expressionTokens,
+            tokens = if (showingSolution) {
+                uiState.solutionTokens
+            } else {
+                expressionTokens
+            },
             onTokenClick = { tokenIndex ->
-                val token = expressionTokens[tokenIndex]
-                expressionTokens = expressionTokens.toMutableList().apply { removeAt(tokenIndex) }
-                if (token is ExpressionToken.NumberToken) {
-                    usedNumberIndices = usedNumberIndices - token.originalIndex
+                if (!showingSolution) {
+                    val token = expressionTokens[tokenIndex]
+                    expressionTokens = expressionTokens.toMutableList().apply { removeAt(tokenIndex) }
+                    if (token is ExpressionToken.NumberToken) {
+                        usedNumberIndices = usedNumberIndices - token.originalIndex
+                    }
                 }
             },
             onBackspace = {
-                if (expressionTokens.isNotEmpty()) {
+                if (!showingSolution && expressionTokens.isNotEmpty()) {
                     val lastToken = expressionTokens.last()
                     expressionTokens = expressionTokens.dropLast(1)
                     if (lastToken is ExpressionToken.NumberToken) {
@@ -214,10 +215,10 @@ private fun ColumnScope.SherlockCalculationContent(
         )
         Spacer(Modifier.height(16.dp))
 
-        // Available numbers
+        // Available numbers — always visible, disabled when showing solution
         AvailableNumbersRow(
             numbers = uiState.numbers,
-            usedIndices = usedNumberIndices,
+            usedIndices = if (showingSolution) uiState.numbers.indices.toSet() else usedNumberIndices,
             onNumberClick = { value, index ->
                 expressionTokens = expressionTokens + ExpressionToken.NumberToken(value, index)
                 usedNumberIndices = usedNumberIndices + index
@@ -227,23 +228,27 @@ private fun ColumnScope.SherlockCalculationContent(
         )
         Spacer(Modifier.height(12.dp))
 
-        // Operators
+        // Operators — always visible, non-interactive when showing solution
         OperatorRow(
             onOperatorClick = { operator ->
-                expressionTokens = expressionTokens + ExpressionToken.OperatorToken(operator)
+                if (!showingSolution) {
+                    expressionTokens = expressionTokens + ExpressionToken.OperatorToken(operator)
+                }
             },
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
         Spacer(Modifier.height(16.dp))
 
-        // Give up button
-        TextButton(
-            onClick = onGiveUp,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .pointerHoverIcon(PointerIcon.Hand),
-        ) {
-            Text(stringResource(Res.string.button_give_up))
+        // Give up button — hidden when showing solution
+        if (!showingSolution) {
+            TextButton(
+                onClick = onGiveUp,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .pointerHoverIcon(PointerIcon.Hand),
+            ) {
+                Text(stringResource(Res.string.button_give_up))
+            }
         }
     }
 }
@@ -252,6 +257,7 @@ private fun ColumnScope.SherlockCalculationContent(
 private fun ColumnScope.FractionCalculationContent(
     uiState: FractionCalculationUiState,
     onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
 ) {
     Text(
         text = uiState.calculation,
@@ -262,11 +268,20 @@ private fun ColumnScope.FractionCalculationContent(
             .padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(16.dp))
-    NumberPad(onInputChange = { input ->
+    NumberPadWithInput(onInputChange = { input ->
         if (input == uiState.answerString || input.length >= 4) {
             onAnswer(input)
         }
     })
+    Spacer(Modifier.height(16.dp))
+    TextButton(
+        onClick = onGiveUp,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .pointerHoverIcon(PointerIcon.Hand),
+    ) {
+        Text(stringResource(Res.string.button_give_up))
+    }
 }
 
 @Composable
@@ -407,7 +422,7 @@ private fun ColumnScope.GridSolverContent(
             .align(Alignment.CenterHorizontally)
             .padding(horizontal = 16.dp),
     )
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(16.dp))
 
     // Display the grid with row and column sums (hidden answers)
     Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
@@ -486,7 +501,7 @@ private fun ColumnScope.GridSolverContent(
         }
     }
 
-    Spacer(Modifier.height(8.dp))
+    Spacer(Modifier.height(24.dp))
 
     NumberPad(onInputChange = { input ->
         if (input.isNotEmpty()) {
