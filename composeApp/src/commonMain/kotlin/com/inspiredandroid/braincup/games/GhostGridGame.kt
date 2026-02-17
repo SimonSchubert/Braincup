@@ -66,7 +66,8 @@ class GhostGridGame : Game() {
             for (i in sequence.indices) {
                 currentShowIndex = i
                 onStateChanged()
-                delay(flashDurationMillis)
+                val duration = if (i == 0) flashDurationMillis + 400L else flashDurationMillis
+                delay(duration)
                 currentShowIndex = -1
                 onStateChanged()
                 delay(200L)
