@@ -78,6 +78,6 @@ class ColorConfusionGame : Game() {
         stringColor = stringColor,
         shapePoints = shapePoints,
         colorPoints = colorPoints,
-        possibleAnswers = possibleAnswers,
+        possibleAnswers = possibleAnswers.map { com.inspiredandroid.braincup.app.AnswerButton(it) },
     )
 }

@@ -145,8 +145,38 @@ private fun ColumnScope.ColorConfusionContent(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         modifier = Modifier.align(Alignment.CenterHorizontally),
     ) {
-        uiState.possibleAnswers.forEach { answer ->
-            CircleButton(onClick = { onAnswer(answer) }, value = answer)
+        uiState.possibleAnswers.forEach { button ->
+            when (button.state) {
+                AnswerButtonState.NORMAL -> CircleButton(
+                    onClick = { onAnswer(button.value) },
+                    value = button.value,
+                )
+                AnswerButtonState.WRONG -> Card(
+                    modifier = Modifier.size(56.dp),
+                    shape = androidx.compose.foundation.shape.CircleShape,
+                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
+                ) {
+                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Text(button.value, color = MaterialTheme.colorScheme.onErrorContainer)
+                    }
+                }
+                AnswerButtonState.CORRECT -> Card(
+                    modifier = Modifier.size(56.dp),
+                    shape = androidx.compose.foundation.shape.CircleShape,
+                    colors = CardDefaults.cardColors(containerColor = SuccessGreen.copy(alpha = 0.15f)),
+                    border = BorderStroke(2.dp, SuccessGreen),
+                ) {
+                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                        Text(button.value)
+                    }
+                }
+                AnswerButtonState.DIMMED -> Box(
+                    modifier = Modifier.size(56.dp).alpha(0.3f),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    CircleButton(onClick = {}, value = button.value)
+                }
+            }
         }
     }
 }

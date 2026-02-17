@@ -106,6 +106,10 @@ class GameController(
             handlePathFinderAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is ColorConfusionGame) {
+            handleColorConfusionAnswer(currentState, game, answer.trim())
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -319,6 +323,45 @@ class GameController(
             val currentUiState = _gameUiState.value as? PathFinderUiState ?: return
             _gameUiState.value = currentUiState.copy(
                 grid = currentUiState.grid.withFeedbackStates(wrongIndex, game.correctIndex, 4),
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun handleColorConfusionAnswer(
+        currentState: GameState.Active,
+        game: ColorConfusionGame,
+        input: String,
+    ) {
+        if (game.isCorrect(input)) {
+            points++
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = game.hint(),
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterFeedback()
+            }
+        } else {
+            game.answeredAllCorrect = false
+            val correctAnswer = game.points()
+            val currentUiState = _gameUiState.value as? ColorConfusionUiState ?: return
+            _gameUiState.value = currentUiState.copy(
+                possibleAnswers = currentUiState.possibleAnswers.map { button ->
+                    button.copy(
+                        state = when (button.value) {
+                            input -> AnswerButtonState.WRONG
+                            correctAnswer -> AnswerButtonState.CORRECT
+                            else -> AnswerButtonState.DIMMED
+                        },
+                    )
+                },
             )
             scope.launch {
                 delay(1_000)

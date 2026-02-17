@@ -7,6 +7,13 @@ import com.inspiredandroid.braincup.games.tools.Shape
 
 enum class FigureCellState { NORMAL, WRONG, CORRECT, DIMMED }
 
+enum class AnswerButtonState { NORMAL, WRONG, CORRECT, DIMMED }
+
+data class AnswerButton(
+    val value: String,
+    val state: AnswerButtonState = AnswerButtonState.NORMAL,
+)
+
 data class FigureCell(
     val figure: Figure,
     val state: FigureCellState = FigureCellState.NORMAL,
@@ -44,7 +51,7 @@ data class ColorConfusionUiState(
     val stringColor: Color,
     val shapePoints: Int,
     val colorPoints: Int,
-    val possibleAnswers: List<String>,
+    val possibleAnswers: List<AnswerButton>,
 ) : GameUiState
 
 data class SherlockCalculationUiState(
