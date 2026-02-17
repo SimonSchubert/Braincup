@@ -27,9 +27,10 @@ fun ShapeCanvas(
     figure: Figure,
     modifier: Modifier = Modifier,
 ) {
+    val path = remember { Path() }
     Box(modifier = modifier) {
         Canvas(modifier = Modifier.fillMaxSize()) {
-            val path = Path()
+            path.reset()
             figure.shape.paths.forEachIndexed { index, pair ->
                 val x = this.size.width * pair.first
                 val y = this.size.height * pair.second
@@ -61,27 +62,29 @@ fun ShapeCanvasButton(
     modifier: Modifier = Modifier,
     enabled: Boolean = true,
 ) {
-    val figureShape = GenericShape { size, _ ->
-        val cx = size.width / 2f
-        val cy = size.height / 2f
-        val radians = figure.rotation.toFloat() * (PI.toFloat() / 180f)
-        val cosR = cos(radians)
-        val sinR = sin(radians)
-        figure.shape.paths.forEachIndexed { index, pair ->
-            val rawX = size.width * pair.first
-            val rawY = size.height * pair.second
-            val x: Float
-            val y: Float
-            if (figure.rotation != 0) {
-                x = cx + (rawX - cx) * cosR - (rawY - cy) * sinR
-                y = cy + (rawX - cx) * sinR + (rawY - cy) * cosR
-            } else {
-                x = rawX
-                y = rawY
+    val figureShape = remember(figure) {
+        GenericShape { size, _ ->
+            val cx = size.width / 2f
+            val cy = size.height / 2f
+            val radians = figure.rotation.toFloat() * (PI.toFloat() / 180f)
+            val cosR = cos(radians)
+            val sinR = sin(radians)
+            figure.shape.paths.forEachIndexed { index, pair ->
+                val rawX = size.width * pair.first
+                val rawY = size.height * pair.second
+                val x: Float
+                val y: Float
+                if (figure.rotation != 0) {
+                    x = cx + (rawX - cx) * cosR - (rawY - cy) * sinR
+                    y = cy + (rawX - cx) * sinR + (rawY - cy) * cosR
+                } else {
+                    x = rawX
+                    y = rawY
+                }
+                if (index == 0) moveTo(x, y) else lineTo(x, y)
             }
-            if (index == 0) moveTo(x, y) else lineTo(x, y)
+            close()
         }
-        close()
     }
     val interactionSource = remember { MutableInteractionSource() }
     ShapeCanvas(

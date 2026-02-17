@@ -42,7 +42,7 @@ fun AchievementsScreen(
                 .weight(1f)
                 .padding(horizontal = 16.dp),
         ) {
-            items(allAchievements) { achievement ->
+            items(allAchievements, key = { it.name }) { achievement ->
                 val isUnlocked = unlockedAchievements.contains(achievement)
                 AchievementCard(
                     achievement = achievement,

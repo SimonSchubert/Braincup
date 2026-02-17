@@ -164,16 +164,20 @@ private fun PathFinderPreview() {
         // 4x4 mini grid
         val startRow = 1
         val startCol = 1
+        val gridFigures = remember {
+            List(4) { row ->
+                List(4) { col ->
+                    val isStart = row == startRow && col == startCol
+                    Figure(Shape.SQUARE, if (isStart) Color.ORANGE else Color.GREY_LIGHT)
+                }
+            }
+        }
         Column(modifier = Modifier.weight(1f).aspectRatio(1f)) {
-            for (row in 0 until 4) {
+            gridFigures.forEach { row ->
                 Row(modifier = Modifier.fillMaxWidth()) {
-                    for (col in 0 until 4) {
-                        val isStart = row == startRow && col == startCol
+                    row.forEach { figure ->
                         ShapeCanvas(
-                            figure = Figure(
-                                Shape.SQUARE,
-                                if (isStart) Color.ORANGE else Color.GREY_LIGHT,
-                            ),
+                            figure = figure,
                             modifier = Modifier.weight(1f).aspectRatio(1f).padding(1.dp),
                         )
                     }
@@ -276,7 +280,7 @@ private fun SherlockCalculationPreview() {
         )
         Spacer(Modifier.height(4.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            listOf(4, 9, 3, 7, 2).forEach { num ->
+            remember { listOf(4, 9, 3, 7, 2) }.forEach { num ->
                 Box(
                     modifier = Modifier
                         .size(22.dp)
@@ -345,9 +349,9 @@ private fun GridSolverPreview() {
         modifier = Modifier.padding(8.dp),
     ) {
         // 2x2 grid + sum cards
-        val grid = listOf(listOf("?", "?"), listOf("?", "?"))
-        val rowSums = listOf(8, 6)
-        val colSums = listOf(7, 7)
+        val grid = remember { listOf(listOf("?", "?"), listOf("?", "?")) }
+        val rowSums = remember { listOf(8, 6) }
+        val colSums = remember { listOf(7, 7) }
 
         grid.forEachIndexed { rowIndex, row ->
             Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
@@ -479,18 +483,19 @@ private fun PatternSequencePreview() {
 private fun OrbitTrackerPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
     val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
-    Canvas(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
-    ) {
-        val ballRadius = size.width * 0.06f
-        // Draw some balls - targets in blue, others dark grey
-        val balls = listOf(
+    val balls = remember {
+        listOf(
             Triple(0.3f, 0.25f, true),
             Triple(0.7f, 0.4f, false),
             Triple(0.5f, 0.7f, true),
             Triple(0.2f, 0.6f, false),
             Triple(0.8f, 0.75f, true),
         )
+    }
+    Canvas(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+    ) {
+        val ballRadius = size.width * 0.06f
         balls.forEach { (x, y, isTarget) ->
             drawCircle(
                 color = if (isTarget) primaryColor else onSurfaceVariantColor,

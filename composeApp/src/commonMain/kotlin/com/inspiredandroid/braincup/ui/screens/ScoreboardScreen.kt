@@ -95,7 +95,7 @@ fun ScoreboardScreen(
                     .weight(1f)
                     .padding(horizontal = 16.dp),
             ) {
-                items(scores) { (date, dayScores) ->
+                items(scores, key = { (date, _) -> date }) { (date, dayScores) ->
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()

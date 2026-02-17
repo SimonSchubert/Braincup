@@ -656,7 +656,7 @@ private fun OperatorRow(
     onOperatorClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val operators = listOf("+", "-", "*", "/", "(", ")")
+    val operators = remember { listOf("+", "-", "*", "/", "(", ")") }
     FlowRow(
         modifier = modifier.padding(horizontal = 16.dp),
         maxItemsInEachRow = 3,
@@ -883,31 +883,27 @@ private fun GhostGridCell(
     isClickable: Boolean,
     modifier: Modifier = Modifier,
 ) {
+    val cellColor = when (cell.type) {
+        GhostGridUiState.CellType.ACTIVE -> MaterialTheme.colorScheme.primary
+        GhostGridUiState.CellType.TAPPED -> MaterialTheme.colorScheme.primary
+        GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+        GhostGridUiState.CellType.MISSED -> SuccessGreen.copy(alpha = 0.15f)
+        GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
+    }
+    val border = if (cell.type == GhostGridUiState.CellType.MISSED) {
+        BorderStroke(2.dp, SuccessGreen)
+    } else {
+        null
+    }
     Card(
         onClick = onClick,
         enabled = isClickable,
         modifier = modifier,
         colors = CardDefaults.cardColors(
-            containerColor = when (cell.type) {
-                GhostGridUiState.CellType.ACTIVE -> MaterialTheme.colorScheme.primary
-                GhostGridUiState.CellType.TAPPED -> MaterialTheme.colorScheme.primary
-                GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
-                GhostGridUiState.CellType.MISSED -> SuccessGreen.copy(alpha = 0.15f)
-                GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
-            },
-            disabledContainerColor = when (cell.type) {
-                GhostGridUiState.CellType.ACTIVE -> MaterialTheme.colorScheme.primary
-                GhostGridUiState.CellType.TAPPED -> MaterialTheme.colorScheme.primary
-                GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
-                GhostGridUiState.CellType.MISSED -> SuccessGreen.copy(alpha = 0.15f)
-                GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
-            },
+            containerColor = cellColor,
+            disabledContainerColor = cellColor,
         ),
-        border = if (cell.type == GhostGridUiState.CellType.MISSED) {
-            BorderStroke(2.dp, SuccessGreen)
-        } else {
-            null
-        },
+        border = border,
     ) {
         Box(Modifier.fillMaxSize())
     }
