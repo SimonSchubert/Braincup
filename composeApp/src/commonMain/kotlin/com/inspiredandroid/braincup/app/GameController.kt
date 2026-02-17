@@ -102,6 +102,10 @@ class GameController(
             handlePatternSequenceAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is PathFinderGame) {
+            handlePathFinderAnswer(currentState, game, answer.trim())
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -284,6 +288,37 @@ class GameController(
             val currentUiState = _gameUiState.value as? PatternSequenceUiState ?: return
             _gameUiState.value = currentUiState.copy(
                 optionRows = currentUiState.optionRows.withFeedbackStates(wrongIndex, game.correctOptionIndex, 2),
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun handlePathFinderAnswer(
+        currentState: GameState.Active,
+        game: PathFinderGame,
+        input: String,
+    ) {
+        if (game.isCorrect(input)) {
+            points++
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = game.hint(),
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterFeedback()
+            }
+        } else {
+            game.answeredAllCorrect = false
+            val wrongIndex = input.toIntOrNull()?.minus(1)
+            val currentUiState = _gameUiState.value as? PathFinderUiState ?: return
+            _gameUiState.value = currentUiState.copy(
+                grid = currentUiState.grid.withFeedbackStates(wrongIndex, game.correctIndex, 4),
             )
             scope.launch {
                 delay(1_000)

@@ -64,8 +64,7 @@ data class AnomalyPuzzleUiState(
 
 data class PathFinderUiState(
     val directionFigures: List<Figure>,
-    val startX: Int,
-    val startY: Int,
+    val grid: List<List<FigureCell>>,
 ) : GameUiState
 
 data class GridSolverUiState(

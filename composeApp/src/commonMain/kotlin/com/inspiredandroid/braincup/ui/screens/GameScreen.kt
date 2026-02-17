@@ -352,23 +352,19 @@ private fun ColumnScope.PathFinderContent(
     }
     Spacer(Modifier.height(16.dp))
 
-    // 4x4 grid with orange start position and grey cells
-    val startFigure = Figure(Shape.SQUARE, Color.ORANGE)
-    val blankFigure = Figure(Shape.SQUARE, Color.GREY_LIGHT)
-
+    // 4x4 grid
     Column(
         modifier = Modifier
             .padding(horizontal = 24.dp)
             .widthIn(max = 64.dp * 4),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        for (row in 0 until 4) {
+        uiState.grid.forEachIndexed { y, cells ->
             Row {
-                for (col in 0 until 4) {
-                    val index = row * 4 + col + 1
-                    val isStart = row == uiState.startY && col == uiState.startX
-                    ShapeCanvasButton(
-                        figure = if (isStart) startFigure else blankFigure,
+                cells.forEachIndexed { x, cell ->
+                    val index = y * 4 + x + 1
+                    FigureCellContent(
+                        cell = cell,
                         onClick = { onAnswer(index.toString()) },
                         modifier = Modifier
                             .weight(1f)

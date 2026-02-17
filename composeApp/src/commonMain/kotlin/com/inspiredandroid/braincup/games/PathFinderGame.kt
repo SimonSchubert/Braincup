@@ -1,6 +1,10 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FigureCell
+import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
+import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.splitToIntList
 import kotlin.random.Random
 
@@ -12,6 +16,8 @@ class PathFinderGame : Game() {
     val startY = 0
     var currentX = 0
     var currentY = 0
+
+    val correctIndex: Int get() = currentY * gridSize + currentX
 
     override fun generateRound() {
         directions.clear()
@@ -65,7 +71,16 @@ class PathFinderGame : Game() {
 
     override fun toUiState() = com.inspiredandroid.braincup.app.PathFinderUiState(
         directionFigures = directions.map { it.figure },
-        startX = startX,
-        startY = startY,
+        grid = List(gridSize) { row ->
+            List(gridSize) { col ->
+                val isStart = row == startY && col == startX
+                FigureCell(
+                    Figure(
+                        Shape.SQUARE,
+                        if (isStart) Color.ORANGE else Color.GREY_LIGHT,
+                    ),
+                )
+            }
+        },
     )
 }
