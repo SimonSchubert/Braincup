@@ -107,6 +107,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.GHOST_GRID -> GhostGridPreview()
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
         GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
+        GameType.FLASH_CROWD -> FlashCrowdPreview()
     }
 }
 
@@ -542,6 +543,56 @@ private fun ColorConfusionPreview() {
                         )
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun FlashCrowdPreview() {
+    val blueColor = ComposeColor(0xFF4285F4)
+    val yellowColor = ComposeColor(0xFFFBBC04)
+    val leftDots = remember {
+        listOf(
+            Triple(0.2f, 0.2f, 0.06f),
+            Triple(0.5f, 0.15f, 0.05f),
+            Triple(0.8f, 0.3f, 0.055f),
+            Triple(0.3f, 0.5f, 0.05f),
+            Triple(0.7f, 0.55f, 0.06f),
+            Triple(0.15f, 0.75f, 0.055f),
+            Triple(0.5f, 0.8f, 0.05f),
+            Triple(0.85f, 0.78f, 0.06f),
+        )
+    }
+    val rightDots = remember {
+        listOf(
+            Triple(0.3f, 0.25f, 0.09f),
+            Triple(0.7f, 0.3f, 0.085f),
+            Triple(0.5f, 0.6f, 0.09f),
+            Triple(0.25f, 0.8f, 0.08f),
+            Triple(0.75f, 0.78f, 0.085f),
+        )
+    }
+    Row(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
+            leftDots.forEach { (x, y, r) ->
+                drawCircle(
+                    color = blueColor,
+                    radius = r * size.width,
+                    center = Offset(x * size.width, y * size.height),
+                )
+            }
+        }
+        Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
+            rightDots.forEach { (x, y, r) ->
+                drawCircle(
+                    color = yellowColor,
+                    radius = r * size.width,
+                    center = Offset(x * size.width, y * size.height),
+                )
             }
         }
     }

@@ -132,6 +132,10 @@ class GameController(
             handleOrbitTrackerAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is FlashCrowdGame) {
+            handleFlashCrowdAnswer(currentState, game, answer.trim())
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -252,6 +256,7 @@ class GameController(
         GameType.GHOST_GRID -> GhostGridGame()
         GameType.COLOR_CONFUSION -> ColorConfusionGame()
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
+        GameType.FLASH_CROWD -> FlashCrowdGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -414,6 +419,29 @@ class GameController(
             val index = input.toIntOrNull() ?: return
             game.toggleCell(index)
             _gameUiState.value = game.toUiState()
+        }
+    }
+
+    private fun handleFlashCrowdAnswer(
+        currentState: GameState.Active,
+        game: FlashCrowdGame,
+        input: String,
+    ) {
+        val isCorrect = game.isCorrect(input)
+        if (isCorrect) {
+            points++
+        } else {
+            game.answeredAllCorrect = false
+        }
+        _gameState.value = GameState.Feedback(
+            gameType = currentState.gameType,
+            game = game,
+            isCorrect = isCorrect,
+            message = null,
+        )
+        scope.launch {
+            delay(1_000)
+            proceedAfterFeedback()
         }
     }
 

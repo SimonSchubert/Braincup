@@ -124,6 +124,14 @@ enum class GameType(
         descriptionRes = Res.string.game_orbit_tracker_desc,
         icon = Res.drawable.ic_orbit_tracker,
     ),
+    FLASH_CROWD(
+        displayNameRes = Res.string.game_flash_crowd,
+        id = "15",
+        goldScore = 18,
+        silverScore = 12,
+        descriptionRes = Res.string.game_flash_crowd_desc,
+        icon = Res.drawable.ic_flash_crowd,
+    ),
 }
 
 fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }

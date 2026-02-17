@@ -272,6 +272,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameFlashCrowd() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createFlashCrowdUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameVisualMemoryGameOver() {
         paparazzi.snap {
             GameScreen(

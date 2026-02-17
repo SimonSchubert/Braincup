@@ -25,6 +25,9 @@ import braincup.composeapp.generated.resources.button_backspace
 import braincup.composeapp.generated.resources.button_done
 import braincup.composeapp.generated.resources.button_give_up
 import braincup.composeapp.generated.resources.game_fill_grid
+import braincup.composeapp.generated.resources.game_flash_crowd_blue
+import braincup.composeapp.generated.resources.game_flash_crowd_which_more
+import braincup.composeapp.generated.resources.game_flash_crowd_yellow
 import braincup.composeapp.generated.resources.game_follow_directions
 import braincup.composeapp.generated.resources.game_goal
 import braincup.composeapp.generated.resources.game_highest_value
@@ -82,6 +85,7 @@ fun GameScreen(
             is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
             is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
             is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
+            is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
         }
 
         Spacer(Modifier.weight(1f))
@@ -1194,6 +1198,119 @@ private fun ColumnScope.OrbitTrackerContent(
                         style = Stroke(width = 2.dp.toPx()),
                     )
                 }
+            }
+        }
+    }
+}
+
+// --- Flash Crowd Game Composables ---
+
+@Composable
+private fun ColumnScope.FlashCrowdContent(
+    uiState: FlashCrowdUiState,
+    onAnswer: (String) -> Unit,
+) {
+    val blueColor = androidx.compose.ui.graphics.Color(0xFF4285F4)
+    val yellowColor = androidx.compose.ui.graphics.Color(0xFFFBBC04)
+
+    key(uiState.roundKey) {
+        var showingDots by remember { mutableStateOf(true) }
+
+        LaunchedEffect(Unit) {
+            kotlinx.coroutines.delay(750)
+            showingDots = false
+        }
+
+        if (showingDots) {
+            FlashCrowdDotsRow(uiState, blueColor, yellowColor, Modifier.align(Alignment.CenterHorizontally))
+        } else {
+            // Answer phase: show buttons
+            Text(
+                text = stringResource(Res.string.game_flash_crowd_which_more),
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+            Spacer(Modifier.height(24.dp))
+
+            Row(
+                modifier = Modifier
+                    .padding(horizontal = 24.dp)
+                    .widthIn(max = 400.dp)
+                    .align(Alignment.CenterHorizontally),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
+            ) {
+                Button(
+                    onClick = { onAnswer("left") },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = blueColor,
+                    ),
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(80.dp)
+                        .pointerHoverIcon(PointerIcon.Hand),
+                ) {
+                    Text(
+                        text = stringResource(Res.string.game_flash_crowd_blue),
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                }
+                Button(
+                    onClick = { onAnswer("right") },
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = yellowColor,
+                    ),
+                    modifier = Modifier
+                        .weight(1f)
+                        .height(80.dp)
+                        .pointerHoverIcon(PointerIcon.Hand),
+                ) {
+                    Text(
+                        text = stringResource(Res.string.game_flash_crowd_yellow),
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun FlashCrowdDotsRow(
+    uiState: FlashCrowdUiState,
+    blueColor: androidx.compose.ui.graphics.Color,
+    yellowColor: androidx.compose.ui.graphics.Color,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 400.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Canvas(
+            modifier = Modifier
+                .weight(1f)
+                .aspectRatio(1f),
+        ) {
+            uiState.leftDots.forEach { dot ->
+                drawCircle(
+                    color = blueColor,
+                    radius = dot.radius * size.width,
+                    center = Offset(dot.x * size.width, dot.y * size.height),
+                )
+            }
+        }
+        Canvas(
+            modifier = Modifier
+                .weight(1f)
+                .aspectRatio(1f),
+        ) {
+            uiState.rightDots.forEach { dot ->
+                drawCircle(
+                    color = yellowColor,
+                    radius = dot.radius * size.width,
+                    center = Offset(dot.x * size.width, dot.y * size.height),
+                )
             }
         }
     }

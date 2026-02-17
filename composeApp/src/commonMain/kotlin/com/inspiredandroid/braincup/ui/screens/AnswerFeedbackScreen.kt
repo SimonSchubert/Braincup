@@ -34,14 +34,16 @@ fun AnswerFeedbackScreen(
                 modifier = Modifier
                     .size(280.dp),
             )
-            Text(
-                text = "Solution: $message",
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .padding(horizontal = 24.dp),
-            )
+            if (message != null) {
+                Text(
+                    text = "Solution: $message",
+                    style = MaterialTheme.typography.bodyLarge,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(horizontal = 24.dp),
+                )
+            }
         }
     }
 }

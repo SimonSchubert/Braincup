@@ -141,6 +141,14 @@ data class OrbitTrackerUiState(
     )
 }
 
+data class FlashCrowdUiState(
+    val roundKey: Int,
+    val leftDots: List<Dot>,
+    val rightDots: List<Dot>,
+) : GameUiState {
+    data class Dot(val x: Float, val y: Float, val radius: Float)
+}
+
 data class VisualMemoryUiState(
     val round: Int,
     val phase: VisualMemoryGame.Phase,
