@@ -2,8 +2,8 @@ package com.inspiredandroid.braincup
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
 import androidx.activity.SystemBarStyle
+import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import com.google.android.play.core.review.ReviewManagerFactory
 import com.inspiredandroid.braincup.api.UserStorage
