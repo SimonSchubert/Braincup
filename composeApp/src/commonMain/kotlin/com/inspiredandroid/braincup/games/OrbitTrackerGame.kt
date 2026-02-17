@@ -5,7 +5,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.math.PI
 import kotlin.math.sqrt
+import kotlin.random.Random
 
 class OrbitTrackerGame : Game() {
     sealed class SubmitResult {
@@ -89,8 +91,8 @@ class OrbitTrackerGame : Game() {
             var y: Float
             var attempts = 0
             do {
-                x = margin + (Math.random().toFloat() * (1f - 2 * margin))
-                y = margin + (Math.random().toFloat() * (1f - 2 * margin))
+                x = margin + (Random.nextFloat() * (1f - 2 * margin))
+                y = margin + (Random.nextFloat() * (1f - 2 * margin))
                 attempts++
             } while (attempts < 100 &&
                 newBalls.any { existing ->
@@ -100,7 +102,7 @@ class OrbitTrackerGame : Game() {
                 }
             )
 
-            val angle = Math.random().toFloat() * 2 * Math.PI.toFloat()
+            val angle = Random.nextFloat() * 2 * PI.toFloat()
             val vx = kotlin.math.cos(angle) * config.speed
             val vy = kotlin.math.sin(angle) * config.speed
 
