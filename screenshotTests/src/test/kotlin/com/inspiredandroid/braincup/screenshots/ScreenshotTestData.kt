@@ -1,6 +1,9 @@
 package com.inspiredandroid.braincup.screenshots
 
 import com.inspiredandroid.braincup.app.GameUiState
+import com.inspiredandroid.braincup.app.VisualMemoryUiState
+import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
+import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellType
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
@@ -72,13 +75,13 @@ fun createSherlockCalculationGame(): SherlockCalculationGame {
 
 fun createChainCalculationGame(): ChainCalculationGame {
     val game = ChainCalculationGame()
-    game.nextRound()
+    game.calculation = "8-4"
     return game
 }
 
 fun createFractionCalculationGame(): FractionCalculationGame {
     val game = FractionCalculationGame()
-    game.nextRound()
+    game.calculation = "(2/2) * (12/3)"
     return game
 }
 
@@ -162,12 +165,24 @@ fun createGhostGridGame(): GhostGridGame {
     return game
 }
 
-fun createVisualMemoryGame(): VisualMemoryGame {
-    val game = VisualMemoryGame()
-    repeat(4) {
-        game.nextRound()
-    }
-    return game
+private val visualMemoryFigures = listOf(
+    Figure(Shape.HEART, Color.PURPLE),
+    Figure(Shape.SQUARE, Color.GREY_LIGHT),
+    Figure(Shape.STAR, Color.BLUE),
+    Figure(Shape.CIRCLE, Color.TURQUOISE),
+    Figure(Shape.L, Color.ROSA),
+    Figure(Shape.TRIANGLE, Color.YELLOW),
+    Figure(Shape.HOUSE, Color.ORANGE),
+    Figure(Shape.T, Color.GREEN),
+    Figure(Shape.DIAMOND, Color.RED),
+)
+
+private val visualMemoryAnswerOptions = visualMemoryFigures.mapIndexed { index, figure ->
+    VisualMemoryUiState.AnswerOption(
+        figure = figure,
+        figureIndex = index,
+        enabled = true,
+    )
 }
 
 fun createColoredShapesUiState(): GameUiState = createColoredShapesGame().toUiState()
@@ -200,15 +215,49 @@ fun createGhostGridGameOverUiState(): com.inspiredandroid.braincup.app.GhostGrid
     return game.toUiState()
 }
 
-fun createVisualMemoryUiState(): com.inspiredandroid.braincup.app.VisualMemoryUiState {
-    val game = createVisualMemoryGame()
-    game.countdown = 3
-    return game.toUiState()
+fun createVisualMemoryUiState(): VisualMemoryUiState {
+    return VisualMemoryUiState(
+        round = 4,
+        phase = VisualMemoryGame.Phase.MEMORIZING,
+        countdown = 3,
+        cells = listOf(
+            CellState(CellType.MEMORIZING, visualMemoryFigures[0]),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.MEMORIZING, visualMemoryFigures[2]),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.MEMORIZING, visualMemoryFigures[4]),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.MEMORIZING, visualMemoryFigures[3]),
+        ),
+        answerOptions = visualMemoryAnswerOptions,
+        currentTargetFigure = null,
+    )
 }
 
-fun createVisualMemoryGameOverUiState(): com.inspiredandroid.braincup.app.VisualMemoryUiState {
-    val game = createVisualMemoryGame()
-    game.startAnswerPhase()
-    game.submitAnswer("-1") // triggers GAME_OVER
-    return game.toUiState()
+fun createVisualMemoryGameOverUiState(): VisualMemoryUiState {
+    return VisualMemoryUiState(
+        round = 4,
+        phase = VisualMemoryGame.Phase.GAME_OVER,
+        countdown = 0,
+        cells = listOf(
+            CellState(CellType.REVEALED, visualMemoryFigures[0]),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.REVEALED, visualMemoryFigures[2]),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.WRONG, visualMemoryFigures[4]),
+            CellState(CellType.EMPTY, null),
+            CellState(CellType.REVEALED, visualMemoryFigures[3]),
+        ),
+        answerOptions = visualMemoryAnswerOptions.mapIndexed { index, option ->
+            option.copy(
+                enabled = false,
+                isWrong = index == 4,
+            )
+        },
+        currentTargetFigure = visualMemoryFigures[3],
+    )
 }
