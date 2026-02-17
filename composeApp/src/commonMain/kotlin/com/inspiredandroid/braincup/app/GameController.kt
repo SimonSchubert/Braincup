@@ -49,9 +49,7 @@ class GameController(
         }
         _gameUiState.value = null
         _gameState.value = GameState.Idle
-        navController.navigate(MainMenu) {
-            popUpTo(MainMenu) { inclusive = true }
-        }
+        navController.popBackStack(MainMenu, inclusive = false)
     }
 
     fun navigateToInstructions(gameType: GameType) {

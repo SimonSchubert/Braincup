@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,6 +15,7 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
@@ -27,58 +29,54 @@ fun GameTile(
     highscore: Int,
     onPlay: () -> Unit,
     onViewScore: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
-    Card(
-        modifier = modifier
+    Column(
+        modifier = Modifier
             .aspectRatio(1f)
+            .clip(RoundedCornerShape(12.dp))
+            .background(MaterialTheme.colorScheme.surfaceContainer)
             .pointerHoverIcon(PointerIcon.Hand)
             .clickable(onClick = onPlay),
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            // Preview area (~65%)
-            Box(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(0.65f)
-                    .background(MaterialTheme.colorScheme.surfaceVariant),
-                contentAlignment = Alignment.Center,
-            ) {
-                GamePreview(gameType)
-            }
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .weight(1f)
+                .background(MaterialTheme.colorScheme.surfaceVariant),
+            contentAlignment = Alignment.Center,
+        ) {
+            GamePreview(gameType)
+        }
 
-            // Info bar (~35%)
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(0.35f)
-                    .padding(horizontal = 8.dp, vertical = 4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(gameType.displayNameRes),
-                    style = MaterialTheme.typography.labelMedium,
-                    maxLines = 2,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.weight(1f),
-                )
-                if (highscore > 0) {
-                    Spacer(Modifier.width(4.dp))
-                    Box(
-                        modifier = Modifier
-                            .size(28.dp)
-                            .clip(CircleShape)
-                            .background(MaterialTheme.colorScheme.primary)
-                            .pointerHoverIcon(PointerIcon.Hand)
-                            .clickable(onClick = onViewScore),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Text(
-                            text = "$highscore",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onPrimary,
-                        )
-                    }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 8.dp, top = 6.dp, bottom = 6.dp, end = 6.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = stringResource(gameType.displayNameRes),
+                fontSize = 15.sp,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.weight(1f),
+            )
+            if (highscore > 0) {
+                Spacer(Modifier.width(4.dp))
+                Box(
+                    modifier = Modifier
+                        .size(28.dp)
+                        .clip(CircleShape)
+                        .background(MaterialTheme.colorScheme.primary)
+                        .pointerHoverIcon(PointerIcon.Hand)
+                        .clickable(onClick = onViewScore),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Text(
+                        text = "$highscore",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = MaterialTheme.colorScheme.onPrimary,
+                    )
                 }
             }
         }
