@@ -28,13 +28,13 @@ enum class GameType(
         descriptionRes = Res.string.game_path_finder_desc,
         icon = Res.drawable.ic_path_finder,
     ),
-    COLORED_SHAPES(
-        displayNameRes = Res.string.game_colored_shapes,
-        id = "1",
-        goldScore = 15,
-        silverScore = 8,
-        descriptionRes = Res.string.game_colored_shapes_desc,
-        icon = Res.drawable.ic_colored_shapes,
+    GHOST_GRID(
+        displayNameRes = Res.string.game_ghost_grid,
+        id = "12",
+        goldScore = 8,
+        silverScore = 5,
+        descriptionRes = Res.string.game_ghost_grid_desc,
+        icon = Res.drawable.ic_ghost_grid,
     ),
     VISUAL_MEMORY(
         displayNameRes = Res.string.game_visual_memory,
@@ -44,13 +44,13 @@ enum class GameType(
         descriptionRes = Res.string.game_visual_memory_desc,
         icon = Res.drawable.ic_visual_memory,
     ),
-    MENTAL_CALCULATION(
-        displayNameRes = Res.string.game_mental_calculation,
-        id = "0",
-        goldScore = 16,
+    COLORED_SHAPES(
+        displayNameRes = Res.string.game_colored_shapes,
+        id = "1",
+        goldScore = 15,
         silverScore = 8,
-        descriptionRes = Res.string.game_mental_calculation_desc,
-        icon = Res.drawable.ic_mental_calculation,
+        descriptionRes = Res.string.game_colored_shapes_desc,
+        icon = Res.drawable.ic_colored_shapes,
     ),
     SHERLOCK_CALCULATION(
         displayNameRes = Res.string.game_sherlock_calculation,
@@ -59,6 +59,14 @@ enum class GameType(
         silverScore = 3,
         descriptionRes = Res.string.game_sherlock_calculation_desc,
         icon = Res.drawable.ic_sherlock_calculation,
+    ),
+    MENTAL_CALCULATION(
+        displayNameRes = Res.string.game_mental_calculation,
+        id = "0",
+        goldScore = 16,
+        silverScore = 8,
+        descriptionRes = Res.string.game_mental_calculation_desc,
+        icon = Res.drawable.ic_mental_calculation,
     ),
     CHAIN_CALCULATION(
         displayNameRes = Res.string.game_chain_calculation,

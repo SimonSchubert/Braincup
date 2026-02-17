@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.app
 
+import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -84,6 +85,18 @@ data class PatternSequenceUiState(
     val sequence: List<Figure>,
     val optionRows: List<List<FigureCell>>,
 ) : GameUiState
+
+data class GhostGridUiState(
+    val gridSize: Int,
+    val round: Int,
+    val phase: GhostGridGame.Phase,
+    val cells: List<CellState>,
+    val sequenceLength: Int,
+    val tappedCount: Int,
+) : GameUiState {
+    enum class CellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
+    data class CellState(val type: CellType)
+}
 
 data class VisualMemoryUiState(
     val round: Int,

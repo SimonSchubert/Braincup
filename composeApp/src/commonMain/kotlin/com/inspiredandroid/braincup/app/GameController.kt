@@ -46,6 +46,7 @@ class GameController(
         val currentState = _gameState.value
         if (currentState is GameState.Active) {
             (currentState.game as? VisualMemoryGame)?.cancelCountdown()
+            (currentState.game as? GhostGridGame)?.cancelShowSequence()
         }
         _gameUiState.value = null
         _gameState.value = GameState.Idle
@@ -67,9 +68,13 @@ class GameController(
     fun startGame(gameType: GameType) {
         points = 0
 
-        // Visual Memory has special handling (no timer, round-based)
+        // Visual Memory and Ghost Grid have special handling (no timer, round-based)
         if (gameType == GameType.VISUAL_MEMORY) {
             startVisualMemoryGame(gameType)
+            return
+        }
+        if (gameType == GameType.GHOST_GRID) {
+            startGhostGridGame(gameType)
             return
         }
 
@@ -92,6 +97,10 @@ class GameController(
         val game = currentState.game
         if (game is VisualMemoryGame) {
             handleVisualMemoryAnswer(game, answer)
+            return
+        }
+        if (game is GhostGridGame) {
+            handleGhostGridAnswer(game, answer)
             return
         }
         if (game is AnomalyPuzzleGame) {
@@ -227,6 +236,7 @@ class GameController(
         GameType.GRID_SOLVER -> GridSolverGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
+        GameType.GHOST_GRID -> GhostGridGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -381,6 +391,40 @@ class GameController(
         }
     }
 
+    private fun startGhostGridGame(gameType: GameType) {
+        val game = GhostGridGame()
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
+        game.startShowSequence(scope) { emitGhostGridUiState(game) }
+    }
+
+    private fun handleGhostGridAnswer(game: GhostGridGame, answer: String) {
+        when (game.submitAnswer(answer)) {
+            GhostGridGame.SubmitResult.CorrectContinue -> emitGhostGridUiState(game)
+            GhostGridGame.SubmitResult.RoundComplete -> {
+                points++
+                game.startShowSequence(scope) { emitGhostGridUiState(game) }
+            }
+            GhostGridGame.SubmitResult.Wrong -> {
+                emitGhostGridUiState(game)
+                scope.launch {
+                    delay(2000)
+                    finishGhostGridGame(game)
+                }
+            }
+        }
+    }
+
+    private fun finishGhostGridGame(game: GhostGridGame) {
+        finishCurrentGame(GameType.GHOST_GRID, game)
+    }
+
+    private fun emitGhostGridUiState(game: GhostGridGame) {
+        _gameUiState.value = game.toUiState()
+    }
+
     private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {
         when (game.submitAnswer(answer)) {
             VisualMemoryGame.SubmitResult.CorrectContinue -> emitGameUiState(game)
@@ -408,6 +452,7 @@ class GameController(
 
     private fun finishCurrentGame(gameType: GameType, game: Game) {
         (game as? VisualMemoryGame)?.cancelCountdown()
+        (game as? GhostGridGame)?.cancelShowSequence()
         _gameUiState.value = null
         _gameState.value = GameState.Idle
 

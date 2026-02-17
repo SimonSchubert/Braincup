@@ -203,6 +203,32 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameGhostGrid() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createGhostGridUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameGhostGridGameOver() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createGhostGridGameOverUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameVisualMemory() {
         paparazzi.snap {
             GameScreen(

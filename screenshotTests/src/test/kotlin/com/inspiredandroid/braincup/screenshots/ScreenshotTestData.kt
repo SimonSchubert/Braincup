@@ -19,6 +19,7 @@ val mainMenuHighscores = mapOf(
     "9" to 3,
     "10" to 5,
     "11" to 6,
+    "12" to 4,
 )
 
 fun createColoredShapesGame(): ColoredShapesGame {
@@ -135,6 +136,12 @@ fun createPatternSequenceGame(): PatternSequenceGame {
     return game
 }
 
+fun createGhostGridGame(): GhostGridGame {
+    val game = GhostGridGame()
+    game.nextRound()
+    return game
+}
+
 fun createVisualMemoryGame(): VisualMemoryGame {
     val game = VisualMemoryGame()
     repeat(4) {
@@ -153,6 +160,23 @@ fun createValueComparisonUiState(): GameUiState = createValueComparisonGame().to
 fun createPathFinderUiState(): GameUiState = createPathFinderGame().toUiState()
 fun createGridSolverUiState(): GameUiState = createGridSolverGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
+
+fun createGhostGridUiState(): com.inspiredandroid.braincup.app.GhostGridUiState {
+    val game = createGhostGridGame()
+    // Set phase to ANSWERING by simulating the show sequence completing
+    // We create a game in round 1 (sequence of 3 on 4x4) and show it in answering state
+    return game.toUiState().copy(
+        phase = GhostGridGame.Phase.ANSWERING,
+    )
+}
+
+fun createGhostGridGameOverUiState(): com.inspiredandroid.braincup.app.GhostGridUiState {
+    val game = GhostGridGame()
+    game.nextRound()
+    // Submit a wrong answer to trigger game over
+    game.submitAnswer("-1")
+    return game.toUiState()
+}
 
 fun createVisualMemoryUiState(): com.inspiredandroid.braincup.app.VisualMemoryUiState {
     val game = createVisualMemoryGame()

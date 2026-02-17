@@ -97,6 +97,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.VALUE_COMPARISON -> ValueComparisonPreview()
         GameType.GRID_SOLVER -> GridSolverPreview()
         GameType.PATTERN_SEQUENCE -> PatternSequencePreview()
+        GameType.GHOST_GRID -> GhostGridPreview()
     }
 }
 
@@ -387,6 +388,39 @@ private fun GridSolverPreview() {
                 }
             }
             Spacer(Modifier.size(24.dp))
+        }
+    }
+}
+
+@Composable
+private fun GhostGridPreview() {
+    val highlighted = setOf(0, 4, 7) // diagonal cells highlighted
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        for (row in 0 until 3) {
+            Row(modifier = Modifier.fillMaxWidth()) {
+                for (col in 0 until 3) {
+                    val index = row * 3 + col
+                    val isHighlighted = index in highlighted
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(2.dp)
+                            .background(
+                                if (isHighlighted) {
+                                    MaterialTheme.colorScheme.primary
+                                } else {
+                                    MaterialTheme.colorScheme.surfaceContainerHighest
+                                },
+                                MaterialTheme.shapes.extraSmall,
+                            ),
+                    )
+                }
+            }
         }
     }
 }

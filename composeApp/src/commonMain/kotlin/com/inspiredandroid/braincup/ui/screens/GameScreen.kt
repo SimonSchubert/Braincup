@@ -26,6 +26,7 @@ import braincup.composeapp.generated.resources.game_highest_value
 import braincup.composeapp.generated.resources.game_tap_numbers
 import braincup.composeapp.generated.resources.game_what_comes_next
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.ui.components.CircleButton
@@ -46,7 +47,7 @@ fun GameScreen(
     onBack: () -> Unit,
 ) {
     GameScaffold(onBack = onBack) {
-        if (gameUiState !is VisualMemoryUiState) {
+        if (gameUiState !is VisualMemoryUiState && gameUiState !is GhostGridUiState) {
             TimeProgressIndicator(
                 progress = timeRemaining / 60000f,
                 modifier = Modifier
@@ -69,6 +70,7 @@ fun GameScreen(
             is GridSolverUiState -> GridSolverContent(gameUiState, onAnswer)
             is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
             is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
+            is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
         }
 
         Spacer(Modifier.weight(1f))
@@ -823,6 +825,80 @@ private fun VisualMemoryCell(
                 else -> {}
             }
         }
+    }
+}
+
+// --- Ghost Grid Game Composables ---
+
+@Composable
+private fun ColumnScope.GhostGridContent(
+    uiState: GhostGridUiState,
+    onAnswer: (String) -> Unit,
+) {
+    // NxN Grid
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 72.dp * uiState.gridSize),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        uiState.cells.chunked(uiState.gridSize).forEachIndexed { y, rowCells ->
+            Row {
+                rowCells.forEachIndexed { x, cell ->
+                    val position = y * uiState.gridSize + x
+                    GhostGridCell(
+                        cell = cell,
+                        onClick = {
+                            if (uiState.phase == GhostGridGame.Phase.ANSWERING) {
+                                onAnswer(position.toString())
+                            }
+                        },
+                        isClickable = uiState.phase == GhostGridGame.Phase.ANSWERING,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun GhostGridCell(
+    cell: GhostGridUiState.CellState,
+    onClick: () -> Unit,
+    isClickable: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    Card(
+        onClick = onClick,
+        enabled = isClickable,
+        modifier = modifier,
+        colors = CardDefaults.cardColors(
+            containerColor = when (cell.type) {
+                GhostGridUiState.CellType.ACTIVE -> MaterialTheme.colorScheme.primary
+                GhostGridUiState.CellType.TAPPED -> MaterialTheme.colorScheme.primary
+                GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+                GhostGridUiState.CellType.MISSED -> SuccessGreen.copy(alpha = 0.15f)
+                GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
+            },
+            disabledContainerColor = when (cell.type) {
+                GhostGridUiState.CellType.ACTIVE -> MaterialTheme.colorScheme.primary
+                GhostGridUiState.CellType.TAPPED -> MaterialTheme.colorScheme.primary
+                GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+                GhostGridUiState.CellType.MISSED -> SuccessGreen.copy(alpha = 0.15f)
+                GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
+            },
+        ),
+        border = if (cell.type == GhostGridUiState.CellType.MISSED) {
+            BorderStroke(2.dp, SuccessGreen)
+        } else {
+            null
+        },
+    ) {
+        Box(Modifier.fillMaxSize())
     }
 }
 
