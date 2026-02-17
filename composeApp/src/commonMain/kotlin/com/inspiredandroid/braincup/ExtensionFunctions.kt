@@ -30,18 +30,6 @@ fun String.splitToIntList(): List<Int> = this
     }
 
 /**
- * Comma and space as separator is allowed
- */
-fun String.splitToStringList(): List<String> = this
-    .trim()
-    .split(" ")
-    .joinToString(separator = ",")
-    .split(",")
-    .map {
-        it.trim()
-    }
-
-/**
  * Add ne entry or increase existing
  */
 fun MutableList<Int>.addOrIncrease(

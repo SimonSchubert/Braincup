@@ -3,9 +3,6 @@ package com.inspiredandroid.braincup.app
 import androidx.navigation.NavController
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
-import com.inspiredandroid.braincup.games.AnomalyPuzzleGame
-import com.inspiredandroid.braincup.games.PatternSequenceGame
-import com.inspiredandroid.braincup.games.SherlockCalculationGame
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob

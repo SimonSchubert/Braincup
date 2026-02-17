@@ -119,7 +119,7 @@ class SherlockCalculationGame : Game() {
         excludeMultiply: Boolean = false,
     ): Char {
         var operator = availableOperators.random()
-        if (excludeMinus && operator == Operator.DIVIDE) {
+        if (excludeMinus && operator == Operator.MINUS) {
             operator = Operator.PLUS
         }
         if (excludeMultiply && operator == Operator.MULTIPLY) {
