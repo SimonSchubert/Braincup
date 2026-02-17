@@ -28,9 +28,6 @@ import braincup.composeapp.generated.resources.game_what_comes_next
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Calculator
-import com.inspiredandroid.braincup.games.tools.Color
-import com.inspiredandroid.braincup.games.tools.Figure
-import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.CircleButton
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPad
