@@ -1,0 +1,50 @@
+Entraînez votre cerveau avec des mini-jeux amusants qui mettent au défi votre mémoire, votre concentration, votre logique et vos compétences en calcul. Braincup propose 15 exercices d'entraînement cérébral conçus pour aiguiser votre esprit et améliorer votre concentration.
+
+<b>Calcul mental</b> :
+Suivez les expressions mathématiques. Utilisez le résultat comme base pour le calcul suivant.
+
+<b>Calcul en chaîne</b> :
+Résolvez des formules complexes étape par étape.
+
+<b>Calcul Sherlock</b> :
+Trouvez une formule pour atteindre l'objectif en utilisant uniquement les nombres et opérateurs donnés.
+
+<b>Calcul de fractions</b> :
+Résolvez les fractions.
+
+<b>Comparaison de valeurs</b> :
+Sélectionnez l'expression ayant la valeur la plus élevée.
+
+<b>Puzzle d'anomalie</b> :
+Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.
+
+<b>Séquence de motifs</b> :
+Trouvez la figure suivante dans le motif en repérant les formes, couleurs et rotations répétitives.
+
+<b>Chercheur de chemin</b> :
+Partez de la position marquée et suivez les instructions fléchées pour trouver la destination.
+
+<b>Solveur de grille</b> :
+Remplissez les nombres manquants pour que chaque ligne et colonne atteigne les totaux donnés.
+
+<b>Mémoire visuelle</b> :
+Mémorisez les formes sur la grille, puis identifiez la forme cachée une fois le minuteur terminé.
+
+<b>Grille fantôme</b> :
+Regardez les tuiles s'illuminer une par une, puis touchez-les dans le même ordre.
+
+<b>Confusion des couleurs</b> :
+Touchez toutes les cellules où le mot correspond à sa couleur de police. Restez concentré !
+
+<b>Formes colorées</b> :
+Additionnez les points des affirmations correctes.
+
+<b>Traqueur orbital</b> :
+Observez les balles en surbrillance, puis suivez-les pendant qu'elles bougent. Sélectionnez les cibles d'origine après leur arrêt.
+
+<b>Foule éclair</b> :
+Des points apparaissent brièvement de chaque côté. Touchez le côté qui avait le plus de points. Faites confiance à votre instinct !
+
+Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour vous motiver.
+
+Aucun pistage. <b>Open source</b>.

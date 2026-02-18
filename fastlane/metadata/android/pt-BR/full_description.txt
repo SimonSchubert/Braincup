@@ -1,0 +1,50 @@
+Treine seu cérebro com mini jogos divertidos que desafiam sua memória, foco, lógica e habilidades matemáticas. O Braincup oferece 15 exercícios de treinamento cerebral projetados para aguçar sua mente e melhorar sua concentração.
+
+<b>Cálculo mental</b>:
+Acompanhe as expressões matemáticas. Use o resultado como base para o próximo cálculo.
+
+<b>Cálculo em cadeia</b>:
+Resolva fórmulas complexas passo a passo.
+
+<b>Cálculo Sherlock</b>:
+Encontre uma fórmula para alcançar o objetivo usando apenas os números e operadores fornecidos.
+
+<b>Cálculo de frações</b>:
+Resolva as frações.
+
+<b>Comparação de valores</b>:
+Selecione a expressão com o maior valor.
+
+<b>Quebra-cabeça de anomalia</b>:
+Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.
+
+<b>Sequência de padrões</b>:
+Encontre a próxima figura no padrão procurando formas, cores e rotações repetidas.
+
+<b>Encontrar caminho</b>:
+Comece na posição marcada e siga as instruções das setas para encontrar o destino.
+
+<b>Resolver grade</b>:
+Preencha os números que faltam para que cada linha e coluna some os totais dados.
+
+<b>Memória visual</b>:
+Memorize as formas na grade e depois identifique a forma escondida quando o tempo acabar.
+
+<b>Grade fantasma</b>:
+Observe os blocos acenderem um por um e depois toque neles na mesma ordem.
+
+<b>Confusão de cores</b>:
+Toque em todas as células onde a palavra corresponde à cor da fonte. Mantenha o foco!
+
+<b>Formas coloridas</b>:
+Some os pontos das afirmações corretas.
+
+<b>Rastreador orbital</b>:
+Observe as bolas destacadas e depois acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.
+
+<b>Multidão relâmpago</b>:
+Pontos aparecem brevemente em cada lado. Toque no lado que tinha mais pontos. Confie no seu instinto!
+
+O jogo tem várias <b>conquistas</b> e cada exercício tem <b>medalhas</b> para manter você motivado.
+
+Sem rastreamento. <b>Código aberto</b>.

@@ -1,0 +1,50 @@
+Trenuj swój mózg za pomocą zabawnych mini gier, które stanowią wyzwanie dla twojej pamięci, koncentracji, logiki i umiejętności matematycznych. Braincup oferuje 15 ćwiczeń treningowych dla mózgu zaprojektowanych, aby wyostrzyć umysł i poprawić koncentrację.
+
+<b>Rachunki w pamięci</b>:
+Śledź wyrażenia matematyczne. Użyj wyniku jako podstawy do następnego obliczenia.
+
+<b>Obliczenia łańcuchowe</b>:
+Rozwiązuj złożone formuły krok po kroku.
+
+<b>Obliczenia Sherlocka</b>:
+Znajdź formułę prowadzącą do celu, używając tylko podanych liczb i operatorów.
+
+<b>Obliczenia ułamkowe</b>:
+Rozwiąż ułamki.
+
+<b>Porównywanie wartości</b>:
+Wybierz wyrażenie o najwyższej wartości.
+
+<b>Puzzle anomalii</b>:
+Znajdź figurę, która się wyróżnia. Zwróć uwagę zarówno na kolor, jak i kształt każdej figury.
+
+<b>Sekwencja wzorów</b>:
+Znajdź następną figurę we wzorze, szukając powtarzających się kształtów, kolorów i obrotów.
+
+<b>Szukacz ścieżek</b>:
+Zacznij od oznaczonej pozycji i podążaj za instrukcjami strzałek, aby znaleźć cel.
+
+<b>Rozwiązywanie siatki</b>:
+Uzupełnij brakujące liczby tak, aby suma każdego wiersza i kolumny równała się podanym sumom.
+
+<b>Pamięć wzrokowa</b>:
+Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.
+
+<b>Siatka duchów</b>:
+Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.
+
+<b>Zamieszanie kolorów</b>:
+Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki. Zachowaj skupienie!
+
+<b>Kolorowe kształty</b>:
+Zsumuj punkty z prawidłowych stwierdzeń.
+
+<b>Śledzenie orbit</b>:
+Obserwuj wyróżnione kule, a następnie śledź je podczas ruchu. Wybierz pierwotne cele po zatrzymaniu.
+
+<b>Błyskawiczny tłum</b>:
+Po każdej stronie na chwilę pojawiają się kropki. Dotknij strony, która miała więcej kropek. Zaufaj swojemu instynktowi!
+
+Gra zawiera kilka <b>osiągnięć</b>, a każde ćwiczenie ma <b>medale</b>, które utrzymują twoją motywację.
+
+Bez śledzenia. <b>Open source</b>.

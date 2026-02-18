@@ -123,18 +123,18 @@ fun createPatternSequenceGame(): PatternSequenceGame {
     game.sequence.clear()
     game.sequence.addAll(
         listOf(
-            Figure(Shape.CIRCLE, Color.RED),
-            Figure(Shape.SQUARE, Color.RED),
-            Figure(Shape.CIRCLE, Color.RED),
-            Figure(Shape.SQUARE, Color.RED),
+            Figure(Shape.CIRCLE, Color.BLUE),
+            Figure(Shape.HEART, Color.ROSA),
+            Figure(Shape.CIRCLE, Color.BLUE),
+            Figure(Shape.HEART, Color.ROSA),
         ),
     )
     game.options.clear()
     game.options.addAll(
         listOf(
-            Figure(Shape.SQUARE, Color.RED),
-            Figure(Shape.CIRCLE, Color.RED),
-            Figure(Shape.TRIANGLE, Color.RED),
+            Figure(Shape.HEART, Color.BLUE),
+            Figure(Shape.CIRCLE, Color.ROSA),
+            Figure(Shape.HEART, Color.ROSA),
             Figure(Shape.CIRCLE, Color.BLUE),
         ),
     )

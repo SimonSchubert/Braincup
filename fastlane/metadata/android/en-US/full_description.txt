@@ -1,0 +1,50 @@
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 15 brain training exercises designed to sharpen your mind and improve concentration.
+
+<b>Mental calculation</b>:
+Follow the mathematical expressions. Use the result as the base for the next calculation.
+
+<b>Chain calculation</b>:
+Solve complex formulas step by step.
+
+<b>Sherlock calculation</b>:
+Find a formula to reach the goal using only the given numbers and operators.
+
+<b>Fraction calculation</b>:
+Solve the fractions.
+
+<b>Value comparison</b>:
+Select the expression with the highest value.
+
+<b>Anomaly puzzle</b>:
+Find the figure that stands out. Consider both the color and shape of each figure.
+
+<b>Pattern sequence</b>:
+Find the next figure in the pattern by looking for repeating shapes, colors and rotations.
+
+<b>Path finder</b>:
+Start at the marked position and follow the arrow instructions to find the destination.
+
+<b>Grid solver</b>:
+Fill in the missing numbers so that each row and column sums to the given totals.
+
+<b>Visual memory</b>:
+Memorize the shapes on the grid, then identify the hidden shape after the timer ends.
+
+<b>Ghost grid</b>:
+Watch the tiles light up one by one, then tap them back in the same order.
+
+<b>Color confusion</b>:
+Tap all cells where the word matches its font color. Stay focused!
+
+<b>Colored shapes</b>:
+Add up the points from the correct statements.
+
+<b>Orbit tracker</b>:
+Watch the highlighted balls, then track them as they move. Select the original targets after they stop.
+
+<b>Flash crowd</b>:
+Dots flash briefly on each side. Tap the side that had more dots. Trust your instinct!
+
+The game has several <b>achievements</b> and each exercise has <b>medals</b> to keep you motivated.
+
+No tracking. <b>Open source</b>.

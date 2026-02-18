@@ -1,0 +1,50 @@
+Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 15 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
+
+<b>Hitung mental</b>:
+Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.
+
+<b>Hitung berantai</b>:
+Selesaikan rumus kompleks langkah demi langkah.
+
+<b>Hitung Sherlock</b>:
+Temukan rumus untuk mencapai target hanya dengan angka dan operator yang tersedia.
+
+<b>Hitung pecahan</b>:
+Selesaikan pecahannya.
+
+<b>Perbandingan nilai</b>:
+Pilih ekspresi dengan nilai tertinggi.
+
+<b>Teka-teki anomali</b>:
+Temukan figur yang berbeda. Perhatikan warna dan bentuk setiap figur.
+
+<b>Urutan pola</b>:
+Temukan figur berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.
+
+<b>Pencari jalur</b>:
+Mulai dari posisi yang ditandai dan ikuti instruksi panah untuk menemukan tujuan.
+
+<b>Pemecah grid</b>:
+Isi angka yang hilang agar jumlah setiap baris dan kolom sesuai dengan total yang diberikan.
+
+<b>Memori visual</b>:
+Hafalkan bentuk-bentuk pada grid, lalu identifikasi bentuk tersembunyi setelah waktu habis.
+
+<b>Grid hantu</b>:
+Perhatikan ubin menyala satu per satu, lalu ketuk kembali dalam urutan yang sama.
+
+<b>Kebingungan warna</b>:
+Ketuk semua sel di mana kata sesuai dengan warna fontnya. Tetap fokus!
+
+<b>Bentuk berwarna</b>:
+Jumlahkan poin dari pernyataan yang benar.
+
+<b>Pelacak orbit</b>:
+Perhatikan bola yang disorot, lalu lacak pergerakannya. Pilih target awal setelah bola berhenti.
+
+<b>Kerumunan kilat</b>:
+Titik-titik muncul sekilas di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Percaya insting Anda!
+
+Game ini memiliki beberapa <b>pencapaian</b> dan setiap latihan memiliki <b>medali</b> untuk menjaga motivasi Anda.
+
+Tanpa pelacakan. <b>Open source</b>.

@@ -1,0 +1,50 @@
+Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 15 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
+
+<b>Calcolo mentale</b>:
+Segui le espressioni matematiche. Usa il risultato come base per il calcolo successivo.
+
+<b>Calcolo a catena</b>:
+Risolvi formule complesse passo dopo passo.
+
+<b>Calcolo Sherlock</b>:
+Trova una formula per raggiungere l'obiettivo usando solo i numeri e gli operatori dati.
+
+<b>Calcolo di frazioni</b>:
+Risolvi le frazioni.
+
+<b>Confronto di valori</b>:
+Seleziona l'espressione con il valore più alto.
+
+<b>Puzzle anomalia</b>:
+Trova la figura che spicca. Considera sia il colore che la forma di ogni figura.
+
+<b>Sequenza di pattern</b>:
+Trova la figura successiva nel pattern cercando forme, colori e rotazioni ripetute.
+
+<b>Cercatore di percorsi</b>:
+Parti dalla posizione contrassegnata e segui le istruzioni delle frecce per trovare la destinazione.
+
+<b>Risolutore di griglia</b>:
+Inserisci i numeri mancanti in modo che ogni riga e colonna raggiunga i totali indicati.
+
+<b>Memoria visiva</b>:
+Memorizza le forme sulla griglia, poi identifica la forma nascosta allo scadere del timer.
+
+<b>Griglia fantasma</b>:
+Osserva le caselle illuminarsi una per una, poi toccale nello stesso ordine.
+
+<b>Confusione di colori</b>:
+Tocca tutte le celle in cui la parola corrisponde al colore del carattere. Resta concentrato!
+
+<b>Forme colorate</b>:
+Somma i punti dalle affermazioni corrette.
+
+<b>Inseguitore orbitale</b>:
+Osserva le palline evidenziate, poi seguile mentre si muovono. Seleziona i bersagli originali dopo che si fermano.
+
+<b>Folla lampo</b>:
+Dei punti appaiono brevemente su ogni lato. Tocca il lato che aveva più punti. Fidati del tuo istinto!
+
+Il gioco ha diversi <b>traguardi</b> e ogni esercizio ha <b>medaglie</b> per tenerti motivato.
+
+Nessun tracciamento. <b>Open source</b>.

@@ -1,0 +1,50 @@
+Entrena tu cerebro con divertidos minijuegos que desafían tu memoria, concentración, lógica y habilidades matemáticas. Braincup ofrece 15 ejercicios de entrenamiento cerebral diseñados para agudizar tu mente y mejorar tu concentración.
+
+<b>Cálculo mental</b>:
+Sigue las expresiones matemáticas. Usa el resultado como base para el siguiente cálculo.
+
+<b>Cálculo encadenado</b>:
+Resuelve fórmulas complejas paso a paso.
+
+<b>Cálculo Sherlock</b>:
+Encuentra una fórmula para alcanzar el objetivo usando solo los números y operadores dados.
+
+<b>Cálculo de fracciones</b>:
+Resuelve las fracciones.
+
+<b>Comparación de valores</b>:
+Selecciona la expresión con el valor más alto.
+
+<b>Puzzle de anomalía</b>:
+Encuentra la figura que destaca. Considera tanto el color como la forma de cada figura.
+
+<b>Secuencia de patrones</b>:
+Encuentra la siguiente figura en el patrón buscando formas, colores y rotaciones que se repiten.
+
+<b>Buscador de rutas</b>:
+Comienza en la posición marcada y sigue las instrucciones de las flechas para encontrar el destino.
+
+<b>Resolver cuadrícula</b>:
+Completa los números que faltan para que cada fila y columna sume los totales dados.
+
+<b>Memoria visual</b>:
+Memoriza las formas en la cuadrícula y luego identifica la forma oculta cuando termine el temporizador.
+
+<b>Cuadrícula fantasma</b>:
+Observa cómo las casillas se iluminan una por una y luego tócalas en el mismo orden.
+
+<b>Confusión de colores</b>:
+Toca todas las celdas donde la palabra coincida con el color de su fuente. ¡Mantén la concentración!
+
+<b>Formas de colores</b>:
+Suma los puntos de las afirmaciones correctas.
+
+<b>Rastreador orbital</b>:
+Observa las bolas resaltadas y luego síguelas mientras se mueven. Selecciona los objetivos originales después de que se detengan.
+
+<b>Multitud relámpago</b>:
+Aparecen puntos brevemente a cada lado. Toca el lado que tenía más puntos. ¡Confía en tu instinto!
+
+El juego tiene varios <b>logros</b> y cada ejercicio tiene <b>medallas</b> para mantenerte motivado.
+
+Sin rastreo. <b>Código abierto</b>.

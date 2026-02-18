@@ -1,0 +1,50 @@
+Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 15 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
+
+<b>Hoofdrekenen</b>:
+Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.
+
+<b>Kettingberekening</b>:
+Los complexe formules stap voor stap op.
+
+<b>Sherlock-berekening</b>:
+Vind een formule om het doel te bereiken met alleen de gegeven getallen en operatoren.
+
+<b>Breukenrekenen</b>:
+Los de breuken op.
+
+<b>Waardenvergelijking</b>:
+Selecteer de uitdrukking met de hoogste waarde.
+
+<b>Anomalie-puzzel</b>:
+Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.
+
+<b>Patroonreeks</b>:
+Vind de volgende figuur in het patroon door te zoeken naar herhalende vormen, kleuren en rotaties.
+
+<b>Padvinder</b>:
+Start bij de gemarkeerde positie en volg de pijlinstructies om de bestemming te vinden.
+
+<b>Rasteroplosser</b>:
+Vul de ontbrekende getallen in zodat elke rij en kolom de opgegeven totalen bereikt.
+
+<b>Visueel geheugen</b>:
+Onthoud de vormen op het raster en identificeer daarna de verborgen vorm als de timer afloopt.
+
+<b>Spookraster</b>:
+Kijk hoe de tegels één voor één oplichten en tik ze daarna in dezelfde volgorde aan.
+
+<b>Kleurverwarring</b>:
+Tik alle cellen aan waar het woord overeenkomt met de letterkleur. Blijf gefocust!
+
+<b>Gekleurde vormen</b>:
+Tel de punten op van de juiste uitspraken.
+
+<b>Orbitvolger</b>:
+Bekijk de gemarkeerde ballen en volg ze tijdens hun beweging. Selecteer de oorspronkelijke doelen nadat ze stoppen.
+
+<b>Flitsmenigte</b>:
+Er verschijnen kort stippen aan elke kant. Tik de kant aan met meer stippen. Vertrouw op je instinct!
+
+Het spel heeft meerdere <b>prestaties</b> en elke oefening heeft <b>medailles</b> om je gemotiveerd te houden.
+
+Geen tracking. <b>Open source</b>.

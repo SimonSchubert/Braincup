@@ -1,0 +1,50 @@
+Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 15 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
+
+<b>Tính nhẩm</b>:
+Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.
+
+<b>Tính chuỗi</b>:
+Giải các công thức phức tạp từng bước một.
+
+<b>Tính kiểu Sherlock</b>:
+Tìm công thức đạt được mục tiêu chỉ bằng các số và phép toán cho sẵn.
+
+<b>Tính phân số</b>:
+Giải các phân số.
+
+<b>So sánh giá trị</b>:
+Chọn biểu thức có giá trị lớn nhất.
+
+<b>Câu đố bất thường</b>:
+Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.
+
+<b>Chuỗi mẫu</b>:
+Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, màu sắc và góc quay lặp lại.
+
+<b>Tìm đường</b>:
+Bắt đầu từ vị trí được đánh dấu và theo hướng dẫn mũi tên để tìm đích đến.
+
+<b>Giải lưới</b>:
+Điền các số còn thiếu sao cho tổng mỗi hàng và cột bằng tổng cho trước.
+
+<b>Trí nhớ hình ảnh</b>:
+Ghi nhớ các hình trên lưới, sau đó nhận diện hình ẩn khi hết thời gian.
+
+<b>Lưới ma</b>:
+Quan sát các ô sáng lên từng ô một, sau đó chạm lại theo đúng thứ tự.
+
+<b>Rối loạn màu sắc</b>:
+Chạm tất cả các ô mà từ khớp với màu chữ. Giữ tập trung!
+
+<b>Hình dạng màu sắc</b>:
+Cộng điểm từ các phát biểu đúng.
+
+<b>Theo dõi quỹ đạo</b>:
+Quan sát các quả bóng được tô sáng, rồi theo dõi khi chúng di chuyển. Chọn các mục tiêu ban đầu sau khi chúng dừng lại.
+
+<b>Đám đông chớp nhoáng</b>:
+Các chấm xuất hiện nhanh ở mỗi bên. Chạm vào bên có nhiều chấm hơn. Tin vào trực giác của bạn!
+
+Trò chơi có nhiều <b>thành tựu</b> và mỗi bài tập có <b>huy chương</b> để giữ động lực cho bạn.
+
+Không theo dõi. <b>Mã nguồn mở</b>.

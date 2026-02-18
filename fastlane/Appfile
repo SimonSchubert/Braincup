@@ -1,0 +1,2 @@
+package_name("com.inspiredandroid.braincup")
+json_key_file("fastlane/play-store-key.json")

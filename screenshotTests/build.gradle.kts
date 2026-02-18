@@ -78,6 +78,46 @@ tasks.register("updateScreenshots") {
     }
 }
 
+val fastlaneDir: Directory? = layout.projectDirectory.dir("../fastlane/metadata/android")
+
+tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
+    val task = this as Test
+    if (gradle.startParameter.taskNames.any { it.contains("generateStoreScreenshots") }) {
+        task.filter.includeTestsMatching("*.StoreScreenshotTest")
+    }
+}
+
+tasks.register("generateStoreScreenshots") {
+    dependsOn("recordPaparazziDebug")
+
+    val snapshotsDirFile = snapshotsDir.asFile
+    val fastlaneDirFile = fastlaneDir?.asFile
+
+    doLast {
+        val regex = Regex("""StoreScreenshotTest_\w+\[([^\]]+)\]_store_[a-z-]+_(\d+(?:_\w+)?)\.png""")
+        val snapshots = snapshotsDirFile.listFiles()?.filter {
+            it.name.contains("StoreScreenshotTest_") && it.name.contains("_store_") && it.extension == "png"
+        } ?: emptyList()
+
+        if (snapshots.isEmpty()) {
+            println("No store screenshots found.")
+            return@doLast
+        }
+
+        snapshots.forEach { file ->
+            val match = regex.find(file.name)
+            if (match != null) {
+                val (locale, name) = match.destructured
+                val targetDir = File(fastlaneDirFile, "$locale/images/phoneScreenshots")
+                targetDir.mkdirs()
+                val targetFile = File(targetDir, "$name.png")
+                file.copyTo(targetFile, overwrite = true)
+                println("Copied -> $locale/$name.png")
+            }
+        }
+    }
+}
+
 dependencies {
     implementation(project(":composeApp"))
     testImplementation(compose.runtime)

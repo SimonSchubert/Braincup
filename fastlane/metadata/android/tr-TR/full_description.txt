@@ -1,0 +1,50 @@
+Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 15 beyin egzersizi sunar.
+
+<b>Zihinsel hesaplama</b>:
+Matematiksel ifadeleri takip edin. Sonucu bir sonraki hesaplama için temel olarak kullanın.
+
+<b>Zincir hesaplama</b>:
+Karmaşık formülleri adım adım çözün.
+
+<b>Sherlock hesaplama</b>:
+Yalnızca verilen sayılar ve operatörleri kullanarak hedefe ulaşacak bir formül bulun.
+
+<b>Kesir hesaplama</b>:
+Kesirleri çözün.
+
+<b>Değer karşılaştırma</b>:
+En yüksek değere sahip ifadeyi seçin.
+
+<b>Anomali bulmacası</b>:
+Farklı olan şekli bulun. Her şeklin hem rengine hem de biçimine dikkat edin.
+
+<b>Desen dizisi</b>:
+Tekrarlayan şekilleri, renkleri ve dönüşleri arayarak desendeki bir sonraki şekli bulun.
+
+<b>Yol bulucu</b>:
+İşaretli konumdan başlayın ve hedefi bulmak için ok talimatlarını izleyin.
+
+<b>Izgara çözücü</b>:
+Eksik sayıları, her satır ve sütunun toplamı verilen değerlere eşit olacak şekilde doldurun.
+
+<b>Görsel hafıza</b>:
+Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.
+
+<b>Hayalet ızgara</b>:
+Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.
+
+<b>Renk karmaşası</b>:
+Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun. Odaklanmaya devam edin!
+
+<b>Renkli şekiller</b>:
+Doğru ifadelerden puanları toplayın.
+
+<b>Yörünge takipçisi</b>:
+Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.
+
+<b>Flaş kalabalık</b>:
+Her iki tarafta kısa süreliğine noktalar belirir. Daha fazla noktası olan tarafa dokunun. İçgüdünüze güvenin!
+
+Oyunda birçok <b>başarı</b> ve her egzersizde sizi motive edecek <b>madalyalar</b> bulunur.
+
+İzleme yok. <b>Açık kaynak</b>.

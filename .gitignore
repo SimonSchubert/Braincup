@@ -15,3 +15,6 @@
 *.aab
 .claude
 xcuserdata/
+fastlane/play-store-key.json
+fastlane/report.xml
+fastlane/README.md

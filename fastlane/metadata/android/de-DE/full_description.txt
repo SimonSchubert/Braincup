@@ -1,0 +1,50 @@
+Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 15 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
+
+<b>Kopfrechnen</b>:
+Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Grundlage für die nächste Berechnung.
+
+<b>Kettenrechnung</b>:
+Löse komplexe Formeln Schritt für Schritt.
+
+<b>Sherlock-Rechnung</b>:
+Finde eine Formel, um das Ziel nur mit den vorgegebenen Zahlen und Operatoren zu erreichen.
+
+<b>Bruchrechnung</b>:
+Löse die Brüche.
+
+<b>Wertevergleich</b>:
+Wähle den Ausdruck mit dem höchsten Wert.
+
+<b>Anomalie-Rätsel</b>:
+Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.
+
+<b>Mustersequenz</b>:
+Finde die nächste Figur im Muster, indem du nach wiederkehrenden Formen, Farben und Drehungen suchst.
+
+<b>Pfadfinder</b>:
+Starte an der markierten Position und folge den Pfeilanweisungen, um das Ziel zu finden.
+
+<b>Gitterlöser</b>:
+Fülle die fehlenden Zahlen ein, sodass jede Zeile und Spalte die vorgegebenen Summen ergibt.
+
+<b>Visuelles Gedächtnis</b>:
+Merke dir die Formen auf dem Gitter und identifiziere dann die versteckte Form nach Ablauf des Timers.
+
+<b>Geistergitter</b>:
+Beobachte, wie die Felder nacheinander aufleuchten, und tippe sie dann in derselben Reihenfolge an.
+
+<b>Farbverwirrung</b>:
+Tippe alle Zellen an, in denen das Wort mit seiner Schriftfarbe übereinstimmt. Bleib konzentriert!
+
+<b>Farbige Formen</b>:
+Addiere die Punkte aus den richtigen Aussagen.
+
+<b>Orbit-Tracker</b>:
+Beobachte die markierten Bälle und verfolge sie während der Bewegung. Wähle die ursprünglichen Ziele nach dem Stillstand aus.
+
+<b>Blitzmengen</b>:
+Punkte blitzen kurz auf jeder Seite auf. Tippe die Seite an, die mehr Punkte hatte. Vertrau deinem Instinkt!
+
+Das Spiel bietet mehrere <b>Erfolge</b> und jede Übung hat <b>Medaillen</b>, die dich motivieren.
+
+Kein Tracking. <b>Open Source</b>.
