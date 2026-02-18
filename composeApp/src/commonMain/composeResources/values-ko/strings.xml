@@ -29,6 +29,10 @@
     <string name="finish_score">점수: %1$d</string>
     <string name="finish_bonus_point">실수 없이 플레이하여 1점의 보너스를 얻었습니다!</string>
     <string name="finish_new_highscore">새로운 최고 점수!</string>
+    <string name="finish_highscore">최고 점수: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">정답: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s 스코어보드</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">패턴 시퀀스</string>
     <string name="game_ghost_grid">유령 격자</string>
     <string name="game_color_confusion">색상 혼동</string>
+    <string name="game_orbit_tracker">궤도 추적기</string>
+    <string name="game_flash_crowd">플래시 크라우드</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">반복되는 모양, 색상, 회전을 찾아 패턴의 다음 도형을 찾으세요.</string>
     <string name="game_ghost_grid_desc">타일이 하나씩 켜지는 것을 보고, 같은 순서로 탭하세요.</string>
     <string name="game_color_confusion_desc">단어가 글꼴 색상과 일치하는 모든 셀을 탭한 다음 완료를 누르세요.</string>
+    <string name="game_orbit_tracker_desc">강조된 공을 관찰한 후 움직임을 추적하세요. 멈춘 후 원래 목표물을 선택하세요.</string>
+    <string name="game_flash_crowd_desc">각 쪽에 점이 잠깐 깜빡입니다. 점이 더 많았던 쪽을 탭하세요. 세지 마세요 — 직감을 믿으세요!</string>
     <string name="game_what_comes_next">다음은 무엇일까요?</string>
     <string name="game_tap_matching_colors">단어와 색상이 일치하는 셀을 탭하세요</string>
+    <string name="game_tap_original_targets">원래 목표물을 탭하세요</string>
+    <string name="game_remember_targets">목표물을 기억하세요</string>
+    <string name="game_flash_crowd_which_more">어느 쪽이 더 많았나요?</string>
+    <string name="game_flash_crowd_blue">파란색</string>
+    <string name="game_flash_crowd_yellow">노란색</string>
+
+    <!-- Color names -->
+    <string name="color_red">빨강</string>
+    <string name="color_green">초록</string>
+    <string name="color_blue">파랑</string>
+    <string name="color_purple">보라</string>
+    <string name="color_yellow">노랑</string>
+    <string name="color_orange">주황</string>
+    <string name="color_turquoise">청록</string>
+    <string name="color_pink">분홍</string>
+    <string name="color_light_grey">밝은 회색</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">사각형</string>
+    <string name="shape_triangle">삼각형</string>
+    <string name="shape_circle">원</string>
+    <string name="shape_heart">하트</string>
+    <string name="shape_star">별</string>
+    <string name="shape_t_shape">T자 모양</string>
+    <string name="shape_l_shape">L자 모양</string>
+    <string name="shape_diamond">다이아몬드</string>
+    <string name="shape_house">집</string>
+    <string name="shape_arrow">화살표</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">위</string>
+    <string name="direction_right">오른쪽</string>
+    <string name="direction_down">아래</string>
+    <string name="direction_left">왼쪽</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%3$s을 가리키는 %1$s %2$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">열 %1$d 행 %2$d</string>
+    <string name="solution_left">왼쪽</string>
+    <string name="solution_right">오른쪽</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">동메달</string>

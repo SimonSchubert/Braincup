@@ -112,7 +112,7 @@ data class ColorConfusionUiState(
     }
 
     data class Cell(
-        val word: String,
+        val word: Color,
         val fontColor: Color,
         val isSelected: Boolean,
         val feedback: CellFeedback,

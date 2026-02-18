@@ -29,6 +29,10 @@
     <string name="finish_score">Score: %1$d</string>
     <string name="finish_bonus_point">Je hebt 1 bonuspunt verdiend omdat je geen fouten hebt gemaakt!</string>
     <string name="finish_new_highscore">Nieuwe highscore!</string>
+    <string name="finish_highscore">Topscore: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Oplossing: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Scorebord</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Patroonreeks</string>
     <string name="game_ghost_grid">Spookraster</string>
     <string name="game_color_confusion">Kleurverwarring</string>
+    <string name="game_orbit_tracker">Baanvolger</string>
+    <string name="game_flash_crowd">Flitsmenigte</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Vind de volgende figuur in het patroon door te zoeken naar herhalende vormen, kleuren en rotaties.</string>
     <string name="game_ghost_grid_desc">Kijk hoe de tegels één voor één oplichten en tik ze daarna in dezelfde volgorde aan.</string>
     <string name="game_color_confusion_desc">Tik alle cellen aan waar het woord overeenkomt met de letterkleur en druk dan op Klaar.</string>
+    <string name="game_orbit_tracker_desc">Kijk naar de gemarkeerde ballen en volg ze terwijl ze bewegen. Selecteer de oorspronkelijke doelen nadat ze stoppen.</string>
+    <string name="game_flash_crowd_desc">Stippen flitsen kort aan elke kant. Tik op de kant met meer stippen. Tel niet — vertrouw op je instinct!</string>
     <string name="game_what_comes_next">Wat komt er hierna?</string>
     <string name="game_tap_matching_colors">Tik cellen aan waar woord en kleur overeenkomen</string>
+    <string name="game_tap_original_targets">Tik op de oorspronkelijke doelen</string>
+    <string name="game_remember_targets">Onthoud de doelen</string>
+    <string name="game_flash_crowd_which_more">Welke kant had meer?</string>
+    <string name="game_flash_crowd_blue">Blauw</string>
+    <string name="game_flash_crowd_yellow">Geel</string>
+
+    <!-- Color names -->
+    <string name="color_red">Rood</string>
+    <string name="color_green">Groen</string>
+    <string name="color_blue">Blauw</string>
+    <string name="color_purple">Paars</string>
+    <string name="color_yellow">Geel</string>
+    <string name="color_orange">Oranje</string>
+    <string name="color_turquoise">Turkoois</string>
+    <string name="color_pink">Roze</string>
+    <string name="color_light_grey">Lichtgrijs</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Vierkant</string>
+    <string name="shape_triangle">Driehoek</string>
+    <string name="shape_circle">Cirkel</string>
+    <string name="shape_heart">Hart</string>
+    <string name="shape_star">Ster</string>
+    <string name="shape_t_shape">T-vorm</string>
+    <string name="shape_l_shape">L-vorm</string>
+    <string name="shape_diamond">Ruit</string>
+    <string name="shape_house">Huis</string>
+    <string name="shape_arrow">Pijl</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">boven</string>
+    <string name="direction_right">rechts</string>
+    <string name="direction_down">onder</string>
+    <string name="direction_left">links</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s wijzend naar %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">kolom %1$d en rij %2$d</string>
+    <string name="solution_left">Links</string>
+    <string name="solution_right">Rechts</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronzen medaille</string>

@@ -29,6 +29,10 @@
     <string name="finish_score">Счёт: %1$d</string>
     <string name="finish_bonus_point">Вы получили 1 дополнительное очко за безошибочную игру!</string>
     <string name="finish_new_highscore">Новый рекорд!</string>
+    <string name="finish_highscore">Рекорд: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Ответ: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Таблица %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Последовательность</string>
     <string name="game_ghost_grid">Призрачная сетка</string>
     <string name="game_color_confusion">Цветовая путаница</string>
+    <string name="game_orbit_tracker">Отслеживание орбит</string>
+    <string name="game_flash_crowd">Мгновенная толпа</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Найдите следующую фигуру в последовательности, ищите повторяющиеся формы, цвета и вращения.</string>
     <string name="game_ghost_grid_desc">Наблюдайте, как плитки загораются одна за другой, затем нажимайте на них в том же порядке.</string>
     <string name="game_color_confusion_desc">Нажмите на все ячейки, где слово совпадает с цветом шрифта, затем нажмите Готово.</string>
+    <string name="game_orbit_tracker_desc">Наблюдайте за выделенными шарами, а затем отслеживайте их движение. Выберите исходные цели после остановки.</string>
+    <string name="game_flash_crowd_desc">Точки ненадолго мигают с каждой стороны. Нажмите на сторону, где было больше точек. Не считайте — доверяйте интуиции!</string>
     <string name="game_what_comes_next">Что дальше?</string>
     <string name="game_tap_matching_colors">Нажмите на ячейки, где слово совпадает с цветом</string>
+    <string name="game_tap_original_targets">Нажмите на исходные цели</string>
+    <string name="game_remember_targets">Запомните цели</string>
+    <string name="game_flash_crowd_which_more">На какой стороне было больше?</string>
+    <string name="game_flash_crowd_blue">Синий</string>
+    <string name="game_flash_crowd_yellow">Жёлтый</string>
+
+    <!-- Color names -->
+    <string name="color_red">Красный</string>
+    <string name="color_green">Зелёный</string>
+    <string name="color_blue">Синий</string>
+    <string name="color_purple">Фиолетовый</string>
+    <string name="color_yellow">Жёлтый</string>
+    <string name="color_orange">Оранжевый</string>
+    <string name="color_turquoise">Бирюзовый</string>
+    <string name="color_pink">Розовый</string>
+    <string name="color_light_grey">Светло-серый</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Квадрат</string>
+    <string name="shape_triangle">Треугольник</string>
+    <string name="shape_circle">Круг</string>
+    <string name="shape_heart">Сердце</string>
+    <string name="shape_star">Звезда</string>
+    <string name="shape_t_shape">Т-образная</string>
+    <string name="shape_l_shape">Г-образная</string>
+    <string name="shape_diamond">Ромб</string>
+    <string name="shape_house">Дом</string>
+    <string name="shape_arrow">Стрелка</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">вверх</string>
+    <string name="direction_right">вправо</string>
+    <string name="direction_down">вниз</string>
+    <string name="direction_left">влево</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s направлен %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">столбец %1$d и строка %2$d</string>
+    <string name="solution_left">Левая</string>
+    <string name="solution_right">Правая</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Бронзовая медаль</string>

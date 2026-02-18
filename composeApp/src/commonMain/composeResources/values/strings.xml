@@ -30,6 +30,9 @@
     <string name="finish_new_highscore">New High Score!</string>
     <string name="finish_highscore">High Score: %1$d</string>
 
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Solution: %1$s</string>
+
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Scoreboard</string>
     <string name="scoreboard_highscore">High Score</string>
@@ -80,6 +83,45 @@
     <string name="game_flash_crowd_blue">Blue</string>
     <string name="game_flash_crowd_yellow">Yellow</string>
     <string name="button_done">Done</string>
+
+    <!-- Color names -->
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_turquoise">Turquoise</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_light_grey">Light Grey</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Square</string>
+    <string name="shape_triangle">Triangle</string>
+    <string name="shape_circle">Circle</string>
+    <string name="shape_heart">Heart</string>
+    <string name="shape_star">Star</string>
+    <string name="shape_t_shape">T Shape</string>
+    <string name="shape_l_shape">L Shape</string>
+    <string name="shape_diamond">Diamond</string>
+    <string name="shape_house">House</string>
+    <string name="shape_arrow">Arrow</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">up</string>
+    <string name="direction_right">right</string>
+    <string name="direction_down">down</string>
+    <string name="direction_left">left</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s pointing %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">column %1$d and row %2$d</string>
+    <string name="solution_left">Left</string>
+    <string name="solution_right">Right</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronze Medal</string>

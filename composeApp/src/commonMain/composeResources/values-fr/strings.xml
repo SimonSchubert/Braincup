@@ -29,6 +29,10 @@
     <string name="finish_score">Score : %1$d</string>
     <string name="finish_bonus_point">Vous avez gagné 1 point bonus pour n\'avoir fait aucune erreur !</string>
     <string name="finish_new_highscore">Nouveau meilleur score !</string>
+    <string name="finish_highscore">Meilleur score : %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Solution : %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Classement %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Séquence de motifs</string>
     <string name="game_ghost_grid">Grille Fantôme</string>
     <string name="game_color_confusion">Confusion de Couleurs</string>
+    <string name="game_orbit_tracker">Traqueur d\'Orbites</string>
+    <string name="game_flash_crowd">Foule Éclair</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Trouvez la figure suivante dans le motif en cherchant les formes, couleurs et rotations qui se répètent.</string>
     <string name="game_ghost_grid_desc">Regardez les cases s\'allumer une par une, puis touchez-les dans le même ordre.</string>
     <string name="game_color_confusion_desc">Touchez toutes les cellules où le mot correspond à la couleur de la police, puis appuyez sur Terminé.</string>
+    <string name="game_orbit_tracker_desc">Observez les balles en surbrillance, puis suivez-les pendant leur déplacement. Sélectionnez les cibles originales après l\'arrêt.</string>
+    <string name="game_flash_crowd_desc">Des points clignotent brièvement de chaque côté. Touchez le côté qui avait plus de points. Ne comptez pas — fiez-vous à votre instinct !</string>
     <string name="game_what_comes_next">Quelle est la suite ?</string>
     <string name="game_tap_matching_colors">Touchez les cellules où le mot correspond à la couleur</string>
+    <string name="game_tap_original_targets">Touchez les cibles originales</string>
+    <string name="game_remember_targets">Mémorisez les cibles</string>
+    <string name="game_flash_crowd_which_more">Quel côté en avait plus ?</string>
+    <string name="game_flash_crowd_blue">Bleu</string>
+    <string name="game_flash_crowd_yellow">Jaune</string>
+
+    <!-- Color names -->
+    <string name="color_red">Rouge</string>
+    <string name="color_green">Vert</string>
+    <string name="color_blue">Bleu</string>
+    <string name="color_purple">Violet</string>
+    <string name="color_yellow">Jaune</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_turquoise">Turquoise</string>
+    <string name="color_pink">Rose</string>
+    <string name="color_light_grey">Gris Clair</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Carré</string>
+    <string name="shape_triangle">Triangle</string>
+    <string name="shape_circle">Cercle</string>
+    <string name="shape_heart">Cœur</string>
+    <string name="shape_star">Étoile</string>
+    <string name="shape_t_shape">Forme T</string>
+    <string name="shape_l_shape">Forme L</string>
+    <string name="shape_diamond">Losange</string>
+    <string name="shape_house">Maison</string>
+    <string name="shape_arrow">Flèche</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">haut</string>
+    <string name="direction_right">droite</string>
+    <string name="direction_down">bas</string>
+    <string name="direction_left">gauche</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s pointant vers le %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">colonne %1$d et ligne %2$d</string>
+    <string name="solution_left">Gauche</string>
+    <string name="solution_right">Droite</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Médaille de bronze</string>

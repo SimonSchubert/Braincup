@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FigureCell
 import com.inspiredandroid.braincup.app.PatternSequenceUiState
 import com.inspiredandroid.braincup.games.tools.Color
@@ -86,6 +87,15 @@ class PatternSequenceGame : Game() {
             ""
         }
         return "${correct.color.displayName} ${correct.shape.displayName}$rotationInfo"
+    }
+
+    override fun solutionMessage(): FeedbackMessage {
+        val correct = options[correctOptionIndex]
+        return FeedbackMessage.FigureDescription(
+            correct.color,
+            correct.shape,
+            if (correct.rotation != 0) correct.rotation else null,
+        )
     }
 
     override fun hint(): String? = null

@@ -29,6 +29,10 @@
     <string name="finish_score">Punteggio: %1$d</string>
     <string name="finish_bonus_point">Hai guadagnato 1 punto extra per non aver commesso errori!</string>
     <string name="finish_new_highscore">Nuovo record!</string>
+    <string name="finish_highscore">Punteggio più alto: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Soluzione: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Classifica %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Sequenza di schemi</string>
     <string name="game_ghost_grid">Griglia Fantasma</string>
     <string name="game_color_confusion">Confusione di Colori</string>
+    <string name="game_orbit_tracker">Inseguitore di Orbite</string>
+    <string name="game_flash_crowd">Folla Lampo</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trova la figura che si distingue. Considera sia il colore che la forma di ogni figura.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Trova la figura successiva nello schema cercando forme, colori e rotazioni che si ripetono.</string>
     <string name="game_ghost_grid_desc">Osserva le caselle illuminarsi una alla volta, poi toccale nello stesso ordine.</string>
     <string name="game_color_confusion_desc">Tocca tutte le celle in cui la parola corrisponde al colore del carattere, poi premi Fatto.</string>
+    <string name="game_orbit_tracker_desc">Osserva le palle evidenziate, poi seguile mentre si muovono. Seleziona i bersagli originali dopo che si fermano.</string>
+    <string name="game_flash_crowd_desc">I punti lampeggiano brevemente su ogni lato. Tocca il lato che aveva più punti. Non contare — fidati del tuo istinto!</string>
     <string name="game_what_comes_next">Cosa viene dopo?</string>
     <string name="game_tap_matching_colors">Tocca le celle dove la parola corrisponde al colore</string>
+    <string name="game_tap_original_targets">Tocca i bersagli originali</string>
+    <string name="game_remember_targets">Ricorda i bersagli</string>
+    <string name="game_flash_crowd_which_more">Quale lato ne aveva di più?</string>
+    <string name="game_flash_crowd_blue">Blu</string>
+    <string name="game_flash_crowd_yellow">Giallo</string>
+
+    <!-- Color names -->
+    <string name="color_red">Rosso</string>
+    <string name="color_green">Verde</string>
+    <string name="color_blue">Blu</string>
+    <string name="color_purple">Viola</string>
+    <string name="color_yellow">Giallo</string>
+    <string name="color_orange">Arancione</string>
+    <string name="color_turquoise">Turchese</string>
+    <string name="color_pink">Rosa</string>
+    <string name="color_light_grey">Grigio Chiaro</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Quadrato</string>
+    <string name="shape_triangle">Triangolo</string>
+    <string name="shape_circle">Cerchio</string>
+    <string name="shape_heart">Cuore</string>
+    <string name="shape_star">Stella</string>
+    <string name="shape_t_shape">Forma T</string>
+    <string name="shape_l_shape">Forma L</string>
+    <string name="shape_diamond">Diamante</string>
+    <string name="shape_house">Casa</string>
+    <string name="shape_arrow">Freccia</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">su</string>
+    <string name="direction_right">destra</string>
+    <string name="direction_down">giù</string>
+    <string name="direction_left">sinistra</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s che punta verso %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">colonna %1$d e riga %2$d</string>
+    <string name="solution_left">Sinistra</string>
+    <string name="solution_right">Destra</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medaglia di bronzo</string>

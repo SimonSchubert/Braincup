@@ -19,6 +19,6 @@ sealed class GameState {
         val gameType: GameType,
         val game: Game,
         val isCorrect: Boolean,
-        val message: String?,
+        val message: FeedbackMessage?,
     ) : GameState()
 }

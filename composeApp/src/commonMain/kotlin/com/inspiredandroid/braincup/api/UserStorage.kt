@@ -194,7 +194,9 @@ class UserStorage(
         }
     }
 
-    fun getScores(gameId: String): List<Pair<String, List<Int>>> {
+    data class ScoreGroup(val day: Int, val month: Int, val year: Int, val scores: List<Int>)
+
+    fun getScores(gameId: String): List<ScoreGroup> {
         val scoresRaw = settings.getStringOrNull(getScoresKey(gameId)) ?: return listOf()
         return scoresRaw
             .split(",")
@@ -203,9 +205,10 @@ class UserStorage(
                 val parts = it.split("/")
                 val timeInMillis = parts[0].toLongOrNull() ?: 0L
                 val date = Instant.fromEpochMilliseconds(timeInMillis).toLocalDateTime(TimeZone.UTC)
-                "${date.day} ${date.month.name} ${date.year}"
-            }.map {
-                Pair(it.key, it.value.map { score -> score.split("/")[1].toIntOrNull() ?: 0 })
+                @Suppress("DEPRECATION")
+                Triple(date.dayOfMonth, date.monthNumber, date.year)
+            }.map { (key, values) ->
+                ScoreGroup(key.first, key.second, key.third, values.map { it.split("/")[1].toIntOrNull() ?: 0 })
             }
     }
 }

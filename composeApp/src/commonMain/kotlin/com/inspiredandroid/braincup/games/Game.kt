@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.GameUiState
 
 abstract class Game {
@@ -16,6 +17,8 @@ abstract class Game {
     abstract fun isCorrect(input: String): Boolean
 
     abstract fun solution(): String
+
+    open fun solutionMessage(): FeedbackMessage = FeedbackMessage.Plain(solution())
 
     abstract fun hint(): String?
 

@@ -143,7 +143,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = true,
-                message = game.hint(),
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
         } else {
             game.answeredAllCorrect = false
@@ -151,7 +151,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = false,
-                message = game.solution(),
+                message = game.solutionMessage(),
             )
         }
 
@@ -182,7 +182,7 @@ class GameController(
             gameType = currentState.gameType,
             game = game,
             isCorrect = false,
-            message = game.solution(),
+            message = game.solutionMessage(),
         )
 
         scope.launch {
@@ -276,7 +276,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = true,
-                message = game.hint(),
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
                 delay(1_000)
@@ -307,7 +307,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = true,
-                message = game.hint(),
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
                 delay(1_000)
@@ -338,7 +338,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = true,
-                message = game.hint(),
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
                 delay(1_000)
@@ -369,7 +369,7 @@ class GameController(
                 gameType = currentState.gameType,
                 game = game,
                 isCorrect = true,
-                message = game.hint(),
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
                 delay(1_000)

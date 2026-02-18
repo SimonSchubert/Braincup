@@ -29,6 +29,10 @@
     <string name="finish_score">得分：%1$d</string>
     <string name="finish_bonus_point">您因零失误获得了1个额外分数！</string>
     <string name="finish_new_highscore">新最高分！</string>
+    <string name="finish_highscore">最高分: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">答案: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s 排行榜</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">图案序列</string>
     <string name="game_ghost_grid">幽灵方格</string>
     <string name="game_color_confusion">颜色混淆</string>
+    <string name="game_orbit_tracker">轨道追踪</string>
+    <string name="game_flash_crowd">闪现人群</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">通过寻找重复的形状、颜色和旋转，找出图案中的下一个图形。</string>
     <string name="game_ghost_grid_desc">观察方格逐个亮起，然后按相同顺序点击它们。</string>
     <string name="game_color_confusion_desc">点击所有文字与字体颜色匹配的单元格，然后按完成。</string>
+    <string name="game_orbit_tracker_desc">观察高亮的球，然后在它们移动时追踪。停止后选择最初的目标。</string>
+    <string name="game_flash_crowd_desc">每侧短暂闪现圆点。点击圆点更多的一侧。不要数 — 相信你的直觉！</string>
     <string name="game_what_comes_next">下一个是什么？</string>
     <string name="game_tap_matching_colors">点击文字与颜色匹配的单元格</string>
+    <string name="game_tap_original_targets">点击最初的目标</string>
+    <string name="game_remember_targets">记住目标</string>
+    <string name="game_flash_crowd_which_more">哪边更多？</string>
+    <string name="game_flash_crowd_blue">蓝色</string>
+    <string name="game_flash_crowd_yellow">黄色</string>
+
+    <!-- Color names -->
+    <string name="color_red">红</string>
+    <string name="color_green">绿</string>
+    <string name="color_blue">蓝</string>
+    <string name="color_purple">紫</string>
+    <string name="color_yellow">黄</string>
+    <string name="color_orange">橙</string>
+    <string name="color_turquoise">青绿</string>
+    <string name="color_pink">粉红</string>
+    <string name="color_light_grey">浅灰</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">正方形</string>
+    <string name="shape_triangle">三角形</string>
+    <string name="shape_circle">圆形</string>
+    <string name="shape_heart">心形</string>
+    <string name="shape_star">星形</string>
+    <string name="shape_t_shape">T形</string>
+    <string name="shape_l_shape">L形</string>
+    <string name="shape_diamond">菱形</string>
+    <string name="shape_house">房子</string>
+    <string name="shape_arrow">箭头</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">上</string>
+    <string name="direction_right">右</string>
+    <string name="direction_down">下</string>
+    <string name="direction_left">左</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">指向%3$s的%1$s%2$s</string>
+    <string name="solution_figure">%1$s%2$s</string>
+    <string name="solution_column_row">第%1$d列第%2$d行</string>
+    <string name="solution_left">左边</string>
+    <string name="solution_right">右边</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">铜牌</string>

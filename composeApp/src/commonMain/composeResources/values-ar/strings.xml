@@ -29,6 +29,10 @@
     <string name="finish_score">النتيجة: %1$d</string>
     <string name="finish_bonus_point">حصلت على نقطة إضافية لعدم ارتكاب أي أخطاء!</string>
     <string name="finish_new_highscore">رقم قياسي جديد!</string>
+    <string name="finish_highscore">أعلى نتيجة: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">الحل: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">لوحة نتائج %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">تسلسل الأنماط</string>
     <string name="game_ghost_grid">شبكة الأشباح</string>
     <string name="game_color_confusion">ارتباك الألوان</string>
+    <string name="game_orbit_tracker">تتبع المدار</string>
+    <string name="game_flash_crowd">حشد الوميض</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">اعثر على الشكل التالي في النمط من خلال البحث عن الأشكال والألوان والدورانات المتكررة.</string>
     <string name="game_ghost_grid_desc">شاهد المربعات تضيء واحدة تلو الأخرى، ثم اضغط عليها بنفس الترتيب.</string>
     <string name="game_color_confusion_desc">اضغط على جميع الخلايا التي تتطابق فيها الكلمة مع لون الخط، ثم اضغط تم.</string>
+    <string name="game_orbit_tracker_desc">شاهد الكرات المميزة، ثم تتبعها أثناء تحركها. حدد الأهداف الأصلية بعد توقفها.</string>
+    <string name="game_flash_crowd_desc">تومض النقاط لفترة وجيزة على كل جانب. انقر على الجانب الذي يحتوي على نقاط أكثر. لا تعد — ثق بحدسك!</string>
     <string name="game_what_comes_next">ما التالي؟</string>
     <string name="game_tap_matching_colors">اضغط على الخلايا التي تتطابق فيها الكلمة مع اللون</string>
+    <string name="game_tap_original_targets">انقر على الأهداف الأصلية</string>
+    <string name="game_remember_targets">تذكر الأهداف</string>
+    <string name="game_flash_crowd_which_more">أي جانب كان أكثر؟</string>
+    <string name="game_flash_crowd_blue">أزرق</string>
+    <string name="game_flash_crowd_yellow">أصفر</string>
+
+    <!-- Color names -->
+    <string name="color_red">أحمر</string>
+    <string name="color_green">أخضر</string>
+    <string name="color_blue">أزرق</string>
+    <string name="color_purple">بنفسجي</string>
+    <string name="color_yellow">أصفر</string>
+    <string name="color_orange">برتقالي</string>
+    <string name="color_turquoise">فيروزي</string>
+    <string name="color_pink">وردي</string>
+    <string name="color_light_grey">رمادي فاتح</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">مربع</string>
+    <string name="shape_triangle">مثلث</string>
+    <string name="shape_circle">دائرة</string>
+    <string name="shape_heart">قلب</string>
+    <string name="shape_star">نجمة</string>
+    <string name="shape_t_shape">شكل T</string>
+    <string name="shape_l_shape">شكل L</string>
+    <string name="shape_diamond">معين</string>
+    <string name="shape_house">بيت</string>
+    <string name="shape_arrow">سهم</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">أعلى</string>
+    <string name="direction_right">يمين</string>
+    <string name="direction_down">أسفل</string>
+    <string name="direction_left">يسار</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s يشير %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">العمود %1$d والصف %2$d</string>
+    <string name="solution_left">يسار</string>
+    <string name="solution_right">يمين</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">ضد</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">الميدالية البرونزية</string>

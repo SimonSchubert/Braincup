@@ -27,20 +27,10 @@ fun AchievementsScreen(
         onBack = onBack,
         scrollable = false,
     ) {
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.achievements_unlocked, unlockedAchievements.size, allAchievements.size),
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.padding(horizontal = 16.dp),
-        )
-
-        Spacer(Modifier.height(16.dp))
-
         LazyColumn(
             modifier = Modifier
-                .weight(1f)
-                .padding(horizontal = 16.dp),
+                .weight(1f),
+            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         ) {
             items(allAchievements, key = { it.name }) { achievement ->
                 val isUnlocked = unlockedAchievements.contains(achievement)

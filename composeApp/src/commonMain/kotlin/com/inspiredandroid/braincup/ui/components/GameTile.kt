@@ -19,13 +19,13 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.ic_icons8_counter_gold
+import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.ui.localizedName
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.graphics.Color as ComposeColor
@@ -201,11 +201,11 @@ private fun ColoredShapesPreview() {
         )
         Spacer(Modifier.height(4.dp))
         Text(
-            text = "heart = 3",
+            text = "${Shape.HEART.localizedName()} = 3",
             style = MaterialTheme.typography.labelSmall,
         )
         Text(
-            text = "blue = 4",
+            text = "${Color.BLUE.localizedName()} = 4",
             style = MaterialTheme.typography.labelSmall,
             color = Color.BLUE.composeColor,
         )
@@ -331,7 +331,7 @@ private fun ValueComparisonPreview() {
             style = MaterialTheme.typography.titleMedium,
         )
         Text(
-            text = "vs",
+            text = stringResource(Res.string.preview_vs),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -511,10 +511,10 @@ private fun OrbitTrackerPreview() {
 private fun ColorConfusionPreview() {
     val words = remember {
         listOf(
-            Triple("RED", Color.RED, true),
-            Triple("BLUE", Color.GREEN, false),
-            Triple("GREEN", Color.GREEN, true),
-            Triple("PURPLE", Color.YELLOW, false),
+            Pair(Color.RED, Color.RED),
+            Pair(Color.BLUE, Color.GREEN),
+            Pair(Color.GREEN, Color.GREEN),
+            Pair(Color.PURPLE, Color.YELLOW),
         )
     }
     Column(
@@ -524,7 +524,7 @@ private fun ColorConfusionPreview() {
     ) {
         words.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
-                row.forEach { (word, color, matching) ->
+                row.forEach { (wordColor, fontColor) ->
                     Box(
                         modifier = Modifier
                             .weight(1f)
@@ -537,9 +537,9 @@ private fun ColorConfusionPreview() {
                         contentAlignment = Alignment.Center,
                     ) {
                         Text(
-                            text = word,
+                            text = wordColor.localizedName(),
                             style = MaterialTheme.typography.labelSmall,
-                            color = color.composeColor,
+                            color = fontColor.composeColor,
                         )
                     }
                 }

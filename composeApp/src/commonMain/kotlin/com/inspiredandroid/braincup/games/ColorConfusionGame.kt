@@ -97,7 +97,7 @@ class ColorConfusionGame : Game() {
     override fun toUiState(): ColorConfusionUiState = ColorConfusionUiState(
         cells = cells.mapIndexed { index, cell ->
             ColorConfusionUiState.Cell(
-                word = cell.word.displayName.uppercase(),
+                word = cell.word,
                 fontColor = cell.fontColor,
                 isSelected = index in selectedIndices,
                 feedback = when (feedbackState[index]) {

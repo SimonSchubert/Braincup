@@ -29,6 +29,10 @@
     <string name="finish_score">Punktzahl: %1$d</string>
     <string name="finish_bonus_point">Du hast 1 Extrapunkt für fehlerfreies Spielen erhalten!</string>
     <string name="finish_new_highscore">Neuer Highscore!</string>
+    <string name="finish_highscore">Highscore: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Lösung: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Bestenliste</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Mustersequenz</string>
     <string name="game_ghost_grid">Geistergitter</string>
     <string name="game_color_confusion">Farbverwirrung</string>
+    <string name="game_orbit_tracker">Orbit-Tracker</string>
+    <string name="game_flash_crowd">Blitzmenge</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Finde die nächste Figur im Muster, indem du nach sich wiederholenden Formen, Farben und Drehungen suchst.</string>
     <string name="game_ghost_grid_desc">Beobachte, wie die Felder nacheinander aufleuchten, und tippe sie in der gleichen Reihenfolge an.</string>
     <string name="game_color_confusion_desc">Tippe alle Felder an, bei denen das Wort mit seiner Schriftfarbe übereinstimmt, und drücke dann Fertig.</string>
+    <string name="game_orbit_tracker_desc">Beobachte die markierten Kugeln und verfolge sie während der Bewegung. Wähle die ursprünglichen Ziele nach dem Stillstand aus.</string>
+    <string name="game_flash_crowd_desc">Punkte blinken kurz auf jeder Seite auf. Tippe auf die Seite mit mehr Punkten. Zähle nicht — vertraue deinem Instinkt!</string>
     <string name="game_what_comes_next">Was kommt als Nächstes?</string>
     <string name="game_tap_matching_colors">Tippe Felder an, bei denen Wort und Farbe übereinstimmen</string>
+    <string name="game_tap_original_targets">Tippe die ursprünglichen Ziele an</string>
+    <string name="game_remember_targets">Merke dir die Ziele</string>
+    <string name="game_flash_crowd_which_more">Welche Seite hatte mehr?</string>
+    <string name="game_flash_crowd_blue">Blau</string>
+    <string name="game_flash_crowd_yellow">Gelb</string>
+
+    <!-- Color names -->
+    <string name="color_red">Rot</string>
+    <string name="color_green">Grün</string>
+    <string name="color_blue">Blau</string>
+    <string name="color_purple">Lila</string>
+    <string name="color_yellow">Gelb</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_turquoise">Türkis</string>
+    <string name="color_pink">Rosa</string>
+    <string name="color_light_grey">Hellgrau</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Quadrat</string>
+    <string name="shape_triangle">Dreieck</string>
+    <string name="shape_circle">Kreis</string>
+    <string name="shape_heart">Herz</string>
+    <string name="shape_star">Stern</string>
+    <string name="shape_t_shape">T-Form</string>
+    <string name="shape_l_shape">L-Form</string>
+    <string name="shape_diamond">Raute</string>
+    <string name="shape_house">Haus</string>
+    <string name="shape_arrow">Pfeil</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">oben</string>
+    <string name="direction_right">rechts</string>
+    <string name="direction_down">unten</string>
+    <string name="direction_left">links</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s zeigt nach %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">Spalte %1$d und Zeile %2$d</string>
+    <string name="solution_left">Links</string>
+    <string name="solution_right">Rechts</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronzemedaille</string>

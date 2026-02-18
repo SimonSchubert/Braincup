@@ -29,6 +29,10 @@
     <string name="finish_score">স্কোর: %1$d</string>
     <string name="finish_bonus_point">কোনো ভুল না করায় আপনি ১টি অতিরিক্ত পয়েন্ট অর্জন করেছেন!</string>
     <string name="finish_new_highscore">নতুন সর্বোচ্চ স্কোর!</string>
+    <string name="finish_highscore">সর্বোচ্চ স্কোর: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">সমাধান: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s স্কোরবোর্ড</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">প্যাটার্ন সিকোয়েন্স</string>
     <string name="game_ghost_grid">ভুতুড়ে গ্রিড</string>
     <string name="game_color_confusion">রঙ বিভ্রান্তি</string>
+    <string name="game_orbit_tracker">অরবিট ট্র্যাকার</string>
+    <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">পুনরাবৃত্ত আকার, রঙ এবং ঘূর্ণন খুঁজে প্যাটার্নের পরবর্তী চিত্রটি খুঁজুন।</string>
     <string name="game_ghost_grid_desc">টাইলগুলো একে একে জ্বলতে দেখুন, তারপর একই ক্রমে ট্যাপ করুন।</string>
     <string name="game_color_confusion_desc">যেসব ঘরে শব্দটি ফন্টের রঙের সাথে মেলে সেগুলোতে ট্যাপ করুন, তারপর সম্পন্ন চাপুন।</string>
+    <string name="game_orbit_tracker_desc">হাইলাইট করা বলগুলো দেখুন, তারপর সেগুলো নড়াচড়ার সময় ট্র্যাক করুন। থামার পরে মূল লক্ষ্যগুলো নির্বাচন করুন।</string>
+    <string name="game_flash_crowd_desc">প্রতিটি পাশে সংক্ষেপে বিন্দু জ্বলে। যে পাশে বেশি বিন্দু ছিল সেদিকে ট্যাপ করুন। গুনবেন না — আপনার অনুভূতিতে বিশ্বাস করুন!</string>
     <string name="game_what_comes_next">পরেরটি কী?</string>
     <string name="game_tap_matching_colors">শব্দ ও রঙ মেলে এমন ঘরে ট্যাপ করুন</string>
+    <string name="game_tap_original_targets">মূল লক্ষ্যগুলোতে ট্যাপ করুন</string>
+    <string name="game_remember_targets">লক্ষ্যগুলো মনে রাখুন</string>
+    <string name="game_flash_crowd_which_more">কোন পাশে বেশি ছিল?</string>
+    <string name="game_flash_crowd_blue">নীল</string>
+    <string name="game_flash_crowd_yellow">হলুদ</string>
+
+    <!-- Color names -->
+    <string name="color_red">লাল</string>
+    <string name="color_green">সবুজ</string>
+    <string name="color_blue">নীল</string>
+    <string name="color_purple">বেগুনি</string>
+    <string name="color_yellow">হলুদ</string>
+    <string name="color_orange">কমলা</string>
+    <string name="color_turquoise">ফিরোজা</string>
+    <string name="color_pink">গোলাপি</string>
+    <string name="color_light_grey">হালকা ধূসর</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">বর্গ</string>
+    <string name="shape_triangle">ত্রিভুজ</string>
+    <string name="shape_circle">বৃত্ত</string>
+    <string name="shape_heart">হৃদয়</string>
+    <string name="shape_star">তারা</string>
+    <string name="shape_t_shape">T আকৃতি</string>
+    <string name="shape_l_shape">L আকৃতি</string>
+    <string name="shape_diamond">হীরা</string>
+    <string name="shape_house">বাড়ি</string>
+    <string name="shape_arrow">তীর</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">উপরে</string>
+    <string name="direction_right">ডানে</string>
+    <string name="direction_down">নিচে</string>
+    <string name="direction_left">বামে</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s %3$s দিকে নির্দেশিত</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">কলাম %1$d এবং সারি %2$d</string>
+    <string name="solution_left">বাম</string>
+    <string name="solution_right">ডান</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">বনাম</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">ব্রোঞ্জ পদক</string>

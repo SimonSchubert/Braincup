@@ -20,33 +20,20 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.button_backspace
-import braincup.composeapp.generated.resources.button_done
-import braincup.composeapp.generated.resources.button_give_up
-import braincup.composeapp.generated.resources.game_fill_grid
-import braincup.composeapp.generated.resources.game_flash_crowd_blue
-import braincup.composeapp.generated.resources.game_flash_crowd_which_more
-import braincup.composeapp.generated.resources.game_flash_crowd_yellow
-import braincup.composeapp.generated.resources.game_follow_directions
-import braincup.composeapp.generated.resources.game_goal
-import braincup.composeapp.generated.resources.game_highest_value
-import braincup.composeapp.generated.resources.game_remember_targets
-import braincup.composeapp.generated.resources.game_tap_matching_colors
-import braincup.composeapp.generated.resources.game_tap_numbers
-import braincup.composeapp.generated.resources.game_tap_original_targets
-import braincup.composeapp.generated.resources.game_what_comes_next
+import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Calculator
+import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.ui.components.CircleButton
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPad
 import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.ShapeCanvas
 import com.inspiredandroid.braincup.ui.components.ShapeCanvasButton
+import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
 
@@ -145,12 +132,12 @@ private fun ColumnScope.ColoredShapesContent(
 
     // Point assignments
     Text(
-        text = "${uiState.answerShape.displayName} = ${uiState.shapePoints}",
+        text = "${uiState.answerShape.localizedName()} = ${uiState.shapePoints}",
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.align(Alignment.CenterHorizontally),
     )
     Text(
-        text = "${uiState.answerColor.displayName} = ${uiState.colorPoints}",
+        text = "${uiState.answerColor.localizedName()} = ${uiState.colorPoints}",
         style = MaterialTheme.typography.bodyLarge,
         color = uiState.stringColor.composeColor,
         modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -994,6 +981,7 @@ private fun ColumnScope.ColorConfusionContent(
         text = stringResource(Res.string.game_tap_matching_colors),
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.align(Alignment.CenterHorizontally),
+        textAlign = TextAlign.Center,
     )
     Spacer(Modifier.height(16.dp))
 
@@ -1069,7 +1057,7 @@ private fun ColorConfusionCell(
             modifier = Modifier.fillMaxSize(),
         ) {
             Text(
-                text = cell.word,
+                text = cell.word.localizedName(),
                 style = MaterialTheme.typography.titleMedium,
                 color = cell.fontColor.composeColor,
             )

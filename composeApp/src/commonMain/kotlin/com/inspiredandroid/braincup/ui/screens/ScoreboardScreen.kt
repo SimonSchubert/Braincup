@@ -95,7 +95,8 @@ fun ScoreboardScreen(
                     .weight(1f)
                     .padding(horizontal = 16.dp),
             ) {
-                items(scores, key = { (date, _) -> date }) { (date, dayScores) ->
+                items(scores, key = { "${it.day}/${it.month}/${it.year}" }) { group ->
+                    val date = "${group.day.toString().padStart(2, '0')}.${group.month.toString().padStart(2, '0')}.${group.year}"
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -109,7 +110,7 @@ fun ScoreboardScreen(
                                 style = MaterialTheme.typography.labelMedium,
                             )
                             Text(
-                                text = dayScores.joinToString(", "),
+                                text = group.scores.joinToString(", "),
                                 style = MaterialTheme.typography.bodyMedium,
                             )
                         }

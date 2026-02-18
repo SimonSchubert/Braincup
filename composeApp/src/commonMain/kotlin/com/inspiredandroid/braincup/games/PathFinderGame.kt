@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FigureCell
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
@@ -66,6 +67,8 @@ class PathFinderGame : Game() {
     }
 
     override fun solution(): String = "column ${currentX + 1} and row ${currentY + 1}"
+
+    override fun solutionMessage(): FeedbackMessage = FeedbackMessage.GridPosition(currentX + 1, currentY + 1)
 
     override fun hint(): String? = ""
 

@@ -29,6 +29,10 @@
     <string name="finish_score">Pontuação: %1$d</string>
     <string name="finish_bonus_point">Você ganhou 1 ponto extra por não cometer erros!</string>
     <string name="finish_new_highscore">Nova pontuação máxima!</string>
+    <string name="finish_highscore">Melhor Pontuação: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Solução: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Placar de %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Sequência de padrões</string>
     <string name="game_ghost_grid">Grade Fantasma</string>
     <string name="game_color_confusion">Confusão de Cores</string>
+    <string name="game_orbit_tracker">Rastreador de Órbitas</string>
+    <string name="game_flash_crowd">Multidão Relâmpago</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Encontre a próxima figura no padrão procurando formas, cores e rotações que se repetem.</string>
     <string name="game_ghost_grid_desc">Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.</string>
     <string name="game_color_confusion_desc">Toque em todas as células onde a palavra corresponde à cor da fonte e depois pressione Pronto.</string>
+    <string name="game_orbit_tracker_desc">Observe as bolas destacadas e acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.</string>
+    <string name="game_flash_crowd_desc">Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos. Não conte — confie no seu instinto!</string>
     <string name="game_what_comes_next">O que vem a seguir?</string>
     <string name="game_tap_matching_colors">Toque nas células onde a palavra corresponde à cor</string>
+    <string name="game_tap_original_targets">Toque nos alvos originais</string>
+    <string name="game_remember_targets">Lembre-se dos alvos</string>
+    <string name="game_flash_crowd_which_more">Qual lado tinha mais?</string>
+    <string name="game_flash_crowd_blue">Azul</string>
+    <string name="game_flash_crowd_yellow">Amarelo</string>
+
+    <!-- Color names -->
+    <string name="color_red">Vermelho</string>
+    <string name="color_green">Verde</string>
+    <string name="color_blue">Azul</string>
+    <string name="color_purple">Roxo</string>
+    <string name="color_yellow">Amarelo</string>
+    <string name="color_orange">Laranja</string>
+    <string name="color_turquoise">Turquesa</string>
+    <string name="color_pink">Rosa</string>
+    <string name="color_light_grey">Cinza Claro</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Quadrado</string>
+    <string name="shape_triangle">Triângulo</string>
+    <string name="shape_circle">Círculo</string>
+    <string name="shape_heart">Coração</string>
+    <string name="shape_star">Estrela</string>
+    <string name="shape_t_shape">Forma T</string>
+    <string name="shape_l_shape">Forma L</string>
+    <string name="shape_diamond">Diamante</string>
+    <string name="shape_house">Casa</string>
+    <string name="shape_arrow">Seta</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">cima</string>
+    <string name="direction_right">direita</string>
+    <string name="direction_down">baixo</string>
+    <string name="direction_left">esquerda</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s apontando para %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">coluna %1$d e linha %2$d</string>
+    <string name="solution_left">Esquerda</string>
+    <string name="solution_right">Direita</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medalha de bronze</string>

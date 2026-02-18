@@ -29,6 +29,10 @@
     <string name="finish_score">Điểm: %1$d</string>
     <string name="finish_bonus_point">Bạn đã nhận được 1 điểm thưởng vì không mắc lỗi!</string>
     <string name="finish_new_highscore">Điểm cao mới!</string>
+    <string name="finish_highscore">Điểm cao: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Đáp án: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Bảng điểm %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Chuỗi mẫu</string>
     <string name="game_ghost_grid">Lưới Ma</string>
     <string name="game_color_confusion">Nhầm lẫn Màu sắc</string>
+    <string name="game_orbit_tracker">Theo Dõi Quỹ Đạo</string>
+    <string name="game_flash_crowd">Đám Đông Chớp</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, màu sắc và phép quay lặp lại.</string>
     <string name="game_ghost_grid_desc">Xem các ô sáng lên từng cái một, sau đó chạm vào chúng theo cùng thứ tự.</string>
     <string name="game_color_confusion_desc">Chạm vào tất cả ô mà từ khớp với màu phông chữ, sau đó nhấn Xong.</string>
+    <string name="game_orbit_tracker_desc">Quan sát các quả bóng được đánh dấu, sau đó theo dõi chúng khi di chuyển. Chọn các mục tiêu ban đầu sau khi dừng lại.</string>
+    <string name="game_flash_crowd_desc">Các chấm nhấp nháy ngắn ở mỗi bên. Chạm vào bên có nhiều chấm hơn. Đừng đếm — hãy tin vào trực giác!</string>
     <string name="game_what_comes_next">Tiếp theo là gì?</string>
     <string name="game_tap_matching_colors">Chạm vào ô mà từ khớp với màu</string>
+    <string name="game_tap_original_targets">Chạm vào các mục tiêu ban đầu</string>
+    <string name="game_remember_targets">Ghi nhớ các mục tiêu</string>
+    <string name="game_flash_crowd_which_more">Bên nào nhiều hơn?</string>
+    <string name="game_flash_crowd_blue">Xanh dương</string>
+    <string name="game_flash_crowd_yellow">Vàng</string>
+
+    <!-- Color names -->
+    <string name="color_red">Đỏ</string>
+    <string name="color_green">Xanh lá</string>
+    <string name="color_blue">Xanh dương</string>
+    <string name="color_purple">Tím</string>
+    <string name="color_yellow">Vàng</string>
+    <string name="color_orange">Cam</string>
+    <string name="color_turquoise">Ngọc Lam</string>
+    <string name="color_pink">Hồng</string>
+    <string name="color_light_grey">Xám Nhạt</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Vuông</string>
+    <string name="shape_triangle">Tam Giác</string>
+    <string name="shape_circle">Tròn</string>
+    <string name="shape_heart">Trái Tim</string>
+    <string name="shape_star">Ngôi Sao</string>
+    <string name="shape_t_shape">Hình T</string>
+    <string name="shape_l_shape">Hình L</string>
+    <string name="shape_diamond">Kim Cương</string>
+    <string name="shape_house">Ngôi Nhà</string>
+    <string name="shape_arrow">Mũi Tên</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">trên</string>
+    <string name="direction_right">phải</string>
+    <string name="direction_down">dưới</string>
+    <string name="direction_left">trái</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s chỉ %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">cột %1$d và hàng %2$d</string>
+    <string name="solution_left">Trái</string>
+    <string name="solution_right">Phải</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Huy chương đồng</string>

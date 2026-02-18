@@ -29,6 +29,10 @@
     <string name="finish_score">Wynik: %1$d</string>
     <string name="finish_bonus_point">Zdobyłeś 1 dodatkowy punkt za bezbłędną grę!</string>
     <string name="finish_new_highscore">Nowy rekord!</string>
+    <string name="finish_highscore">Najlepszy wynik: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Rozwiązanie: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Tablica wyników %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Sekwencja wzorów</string>
     <string name="game_ghost_grid">Siatka Duchów</string>
     <string name="game_color_confusion">Zamieszanie Kolorów</string>
+    <string name="game_orbit_tracker">Śledzenie Orbit</string>
+    <string name="game_flash_crowd">Błyskawiczny Tłum</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Znajdź następną figurę we wzorze, szukając powtarzających się kształtów, kolorów i obrotów.</string>
     <string name="game_ghost_grid_desc">Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.</string>
     <string name="game_color_confusion_desc">Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki, a następnie naciśnij Gotowe.</string>
+    <string name="game_orbit_tracker_desc">Obserwuj podświetlone kule, a następnie śledź je podczas ruchu. Wybierz oryginalne cele po zatrzymaniu.</string>
+    <string name="game_flash_crowd_desc">Kropki migają krótko po każdej stronie. Dotknij strony, która miała więcej kropek. Nie licz — zaufaj swojemu instynktowi!</string>
     <string name="game_what_comes_next">Co będzie dalej?</string>
     <string name="game_tap_matching_colors">Dotknij komórek, gdzie słowo odpowiada kolorowi</string>
+    <string name="game_tap_original_targets">Dotknij oryginalnych celów</string>
+    <string name="game_remember_targets">Zapamiętaj cele</string>
+    <string name="game_flash_crowd_which_more">Która strona miała więcej?</string>
+    <string name="game_flash_crowd_blue">Niebieski</string>
+    <string name="game_flash_crowd_yellow">Żółty</string>
+
+    <!-- Color names -->
+    <string name="color_red">Czerwony</string>
+    <string name="color_green">Zielony</string>
+    <string name="color_blue">Niebieski</string>
+    <string name="color_purple">Fioletowy</string>
+    <string name="color_yellow">Żółty</string>
+    <string name="color_orange">Pomarańczowy</string>
+    <string name="color_turquoise">Turkusowy</string>
+    <string name="color_pink">Różowy</string>
+    <string name="color_light_grey">Jasnoszary</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Kwadrat</string>
+    <string name="shape_triangle">Trójkąt</string>
+    <string name="shape_circle">Koło</string>
+    <string name="shape_heart">Serce</string>
+    <string name="shape_star">Gwiazda</string>
+    <string name="shape_t_shape">Kształt T</string>
+    <string name="shape_l_shape">Kształt L</string>
+    <string name="shape_diamond">Diament</string>
+    <string name="shape_house">Dom</string>
+    <string name="shape_arrow">Strzałka</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">góra</string>
+    <string name="direction_right">prawo</string>
+    <string name="direction_down">dół</string>
+    <string name="direction_left">lewo</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s wskazujący %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">kolumna %1$d i wiersz %2$d</string>
+    <string name="solution_left">Lewa</string>
+    <string name="solution_right">Prawa</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Brązowy medal</string>

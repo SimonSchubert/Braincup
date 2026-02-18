@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -199,6 +200,11 @@ class VisualMemoryGame : Game() {
     override fun solution(): String {
         val target = getCurrentTargetFigure()
         return "${target.color.displayName} ${target.shape.displayName}"
+    }
+
+    override fun solutionMessage(): FeedbackMessage {
+        val target = getCurrentTargetFigure()
+        return FeedbackMessage.FigureDescription(target.color, target.shape, null)
     }
 
     override fun hint(): String? = null

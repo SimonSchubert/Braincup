@@ -29,6 +29,10 @@
     <string name="finish_score">Skor: %1$d</string>
     <string name="finish_bonus_point">Anda mendapat 1 poin bonus karena tidak membuat kesalahan!</string>
     <string name="finish_new_highscore">Skor Tertinggi Baru!</string>
+    <string name="finish_highscore">Skor Tertinggi: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Solusi: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Papan Skor %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Urutan Pola</string>
     <string name="game_ghost_grid">Grid Hantu</string>
     <string name="game_color_confusion">Kebingungan Warna</string>
+    <string name="game_orbit_tracker">Pelacak Orbit</string>
+    <string name="game_flash_crowd">Kerumunan Kilat</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Temukan gambar berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.</string>
     <string name="game_ghost_grid_desc">Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.</string>
     <string name="game_color_confusion_desc">Ketuk semua sel yang katanya cocok dengan warna hurufnya, lalu tekan Selesai.</string>
+    <string name="game_orbit_tracker_desc">Perhatikan bola-bola yang disorot, lalu lacak pergerakannya. Pilih target asli setelah berhenti.</string>
+    <string name="game_flash_crowd_desc">Titik-titik berkedip sebentar di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Jangan menghitung — percaya insting Anda!</string>
     <string name="game_what_comes_next">Apa selanjutnya?</string>
     <string name="game_tap_matching_colors">Ketuk sel yang kata dan warnanya cocok</string>
+    <string name="game_tap_original_targets">Ketuk target asli</string>
+    <string name="game_remember_targets">Ingat targetnya</string>
+    <string name="game_flash_crowd_which_more">Sisi mana yang lebih banyak?</string>
+    <string name="game_flash_crowd_blue">Biru</string>
+    <string name="game_flash_crowd_yellow">Kuning</string>
+
+    <!-- Color names -->
+    <string name="color_red">Merah</string>
+    <string name="color_green">Hijau</string>
+    <string name="color_blue">Biru</string>
+    <string name="color_purple">Ungu</string>
+    <string name="color_yellow">Kuning</string>
+    <string name="color_orange">Oranye</string>
+    <string name="color_turquoise">Pirus</string>
+    <string name="color_pink">Merah Muda</string>
+    <string name="color_light_grey">Abu-abu Muda</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Persegi</string>
+    <string name="shape_triangle">Segitiga</string>
+    <string name="shape_circle">Lingkaran</string>
+    <string name="shape_heart">Hati</string>
+    <string name="shape_star">Bintang</string>
+    <string name="shape_t_shape">Bentuk T</string>
+    <string name="shape_l_shape">Bentuk L</string>
+    <string name="shape_diamond">Berlian</string>
+    <string name="shape_house">Rumah</string>
+    <string name="shape_arrow">Panah</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">atas</string>
+    <string name="direction_right">kanan</string>
+    <string name="direction_down">bawah</string>
+    <string name="direction_left">kiri</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s menunjuk %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">kolom %1$d dan baris %2$d</string>
+    <string name="solution_left">Kiri</string>
+    <string name="solution_right">Kanan</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medali Perunggu</string>

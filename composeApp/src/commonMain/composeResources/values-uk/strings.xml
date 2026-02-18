@@ -29,6 +29,10 @@
     <string name="finish_score">Рахунок: %1$d</string>
     <string name="finish_bonus_point">Ви отримали 1 додаткове очко за гру без помилок!</string>
     <string name="finish_new_highscore">Новий рекорд!</string>
+    <string name="finish_highscore">Найкращий результат: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Відповідь: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Таблиця %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Послідовність візерунків</string>
     <string name="game_ghost_grid">Примарна сітка</string>
     <string name="game_color_confusion">Кольорова плутанина</string>
+    <string name="game_orbit_tracker">Відстеження орбіт</string>
+    <string name="game_flash_crowd">Миттєвий натовп</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Знайдіть наступну фігуру у візерунку, шукаючи повторювані форми, кольори та обертання.</string>
     <string name="game_ghost_grid_desc">Спостерігайте, як плитки загоряються одна за одною, потім натискайте їх у тому ж порядку.</string>
     <string name="game_color_confusion_desc">Натисніть на всі клітинки, де слово збігається з кольором шрифту, потім натисніть Готово.</string>
+    <string name="game_orbit_tracker_desc">Спостерігайте за виділеними кулями, а потім відстежуйте їх рух. Виберіть початкові цілі після зупинки.</string>
+    <string name="game_flash_crowd_desc">Точки ненадовго блимають з кожного боку. Натисніть на бік, де було більше точок. Не рахуйте — довіряйте інтуїції!</string>
     <string name="game_what_comes_next">Що далі?</string>
     <string name="game_tap_matching_colors">Натисніть клітинки, де слово збігається з кольором</string>
+    <string name="game_tap_original_targets">Натисніть на початкові цілі</string>
+    <string name="game_remember_targets">Запам\'ятайте цілі</string>
+    <string name="game_flash_crowd_which_more">На якому боці було більше?</string>
+    <string name="game_flash_crowd_blue">Синій</string>
+    <string name="game_flash_crowd_yellow">Жовтий</string>
+
+    <!-- Color names -->
+    <string name="color_red">Червоний</string>
+    <string name="color_green">Зелений</string>
+    <string name="color_blue">Синій</string>
+    <string name="color_purple">Фіолетовий</string>
+    <string name="color_yellow">Жовтий</string>
+    <string name="color_orange">Помаранчевий</string>
+    <string name="color_turquoise">Бірюзовий</string>
+    <string name="color_pink">Рожевий</string>
+    <string name="color_light_grey">Світло-сірий</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Квадрат</string>
+    <string name="shape_triangle">Трикутник</string>
+    <string name="shape_circle">Коло</string>
+    <string name="shape_heart">Серце</string>
+    <string name="shape_star">Зірка</string>
+    <string name="shape_t_shape">Т-подібна</string>
+    <string name="shape_l_shape">Г-подібна</string>
+    <string name="shape_diamond">Ромб</string>
+    <string name="shape_house">Будинок</string>
+    <string name="shape_arrow">Стрілка</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">вгору</string>
+    <string name="direction_right">вправо</string>
+    <string name="direction_down">вниз</string>
+    <string name="direction_left">вліво</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s спрямований %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">стовпець %1$d і рядок %2$d</string>
+    <string name="solution_left">Ліва</string>
+    <string name="solution_right">Права</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Бронзова медаль</string>

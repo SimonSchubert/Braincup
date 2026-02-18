@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import kotlin.math.sqrt
 import kotlin.random.Random
@@ -43,6 +44,11 @@ class FlashCrowdGame : Game() {
     override fun solution(): String {
         val count = if (moreSide == Side.LEFT) leftCount else rightCount
         return "${moreSide.name.lowercase().replaceFirstChar { it.uppercase() }} ($count)"
+    }
+
+    override fun solutionMessage(): FeedbackMessage {
+        val count = if (moreSide == Side.LEFT) leftCount else rightCount
+        return FeedbackMessage.SideCount(isLeft = moreSide == Side.LEFT, count = count)
     }
 
     override fun hint(): String? = null

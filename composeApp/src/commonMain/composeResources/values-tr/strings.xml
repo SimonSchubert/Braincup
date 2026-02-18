@@ -29,6 +29,10 @@
     <string name="finish_score">Puan: %1$d</string>
     <string name="finish_bonus_point">Hata yapmadığınız için 1 ekstra puan kazandınız!</string>
     <string name="finish_new_highscore">Yeni Yüksek Skor!</string>
+    <string name="finish_highscore">En Yüksek Skor: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Çözüm: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Skor Tablosu</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">Desen Dizisi</string>
     <string name="game_ghost_grid">Hayalet Izgara</string>
     <string name="game_color_confusion">Renk Karmaşası</string>
+    <string name="game_orbit_tracker">Yörünge Takipçisi</string>
+    <string name="game_flash_crowd">Flaş Kalabalık</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">Tekrarlayan şekilleri, renkleri ve döndürmeleri arayarak desendeki bir sonraki şekli bulun.</string>
     <string name="game_ghost_grid_desc">Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.</string>
     <string name="game_color_confusion_desc">Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun, ardından Bitti\'ye basın.</string>
+    <string name="game_orbit_tracker_desc">Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.</string>
+    <string name="game_flash_crowd_desc">Her iki tarafta noktalar kısa süre yanıp söner. Daha fazla noktası olan tarafa dokunun. Saymayın — içgüdünüze güvenin!</string>
     <string name="game_what_comes_next">Sıradaki ne?</string>
     <string name="game_tap_matching_colors">Kelimenin renkle eşleştiği hücrelere dokunun</string>
+    <string name="game_tap_original_targets">Orijinal hedeflere dokunun</string>
+    <string name="game_remember_targets">Hedefleri hatırlayın</string>
+    <string name="game_flash_crowd_which_more">Hangi tarafta daha fazla vardı?</string>
+    <string name="game_flash_crowd_blue">Mavi</string>
+    <string name="game_flash_crowd_yellow">Sarı</string>
+
+    <!-- Color names -->
+    <string name="color_red">Kırmızı</string>
+    <string name="color_green">Yeşil</string>
+    <string name="color_blue">Mavi</string>
+    <string name="color_purple">Mor</string>
+    <string name="color_yellow">Sarı</string>
+    <string name="color_orange">Turuncu</string>
+    <string name="color_turquoise">Turkuaz</string>
+    <string name="color_pink">Pembe</string>
+    <string name="color_light_grey">Açık Gri</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Kare</string>
+    <string name="shape_triangle">Üçgen</string>
+    <string name="shape_circle">Daire</string>
+    <string name="shape_heart">Kalp</string>
+    <string name="shape_star">Yıldız</string>
+    <string name="shape_t_shape">T Şekli</string>
+    <string name="shape_l_shape">L Şekli</string>
+    <string name="shape_diamond">Elmas</string>
+    <string name="shape_house">Ev</string>
+    <string name="shape_arrow">Ok</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">yukarı</string>
+    <string name="direction_right">sağ</string>
+    <string name="direction_down">aşağı</string>
+    <string name="direction_left">sol</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%3$s gösteren %1$s %2$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">sütun %1$d ve satır %2$d</string>
+    <string name="solution_left">Sol</string>
+    <string name="solution_right">Sağ</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Bronz Madalya</string>

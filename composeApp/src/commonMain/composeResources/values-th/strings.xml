@@ -29,6 +29,10 @@
     <string name="finish_score">คะแนน: %1$d</string>
     <string name="finish_bonus_point">คุณได้รับ 1 คะแนนพิเศษจากการไม่ทำผิดพลาด!</string>
     <string name="finish_new_highscore">คะแนนสูงสุดใหม่!</string>
+    <string name="finish_highscore">คะแนนสูงสุด: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">เฉลย: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">กระดานคะแนน %1$s</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">ลำดับรูปแบบ</string>
     <string name="game_ghost_grid">ตารางผี</string>
     <string name="game_color_confusion">สีสับสน</string>
+    <string name="game_orbit_tracker">ติดตามวงโคจร</string>
+    <string name="game_flash_crowd">ฝูงชนวาบ</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">ค้นหารูปถัดไปในรูปแบบโดยมองหารูปร่าง สี และการหมุนที่ซ้ำกัน</string>
     <string name="game_ghost_grid_desc">ดูช่องสว่างขึ้นทีละช่อง แล้วแตะตามลำดับเดิม</string>
     <string name="game_color_confusion_desc">แตะเซลล์ทั้งหมดที่คำตรงกับสีตัวอักษร แล้วกดเสร็จ</string>
+    <string name="game_orbit_tracker_desc">ดูลูกบอลที่ถูกไฮไลท์ แล้วติดตามขณะเคลื่อนที่ เลือกเป้าหมายเดิมหลังจากหยุด</string>
+    <string name="game_flash_crowd_desc">จุดจะกะพริบสั้นๆ แต่ละด้าน แตะด้านที่มีจุดมากกว่า อย่านับ — เชื่อสัญชาตญาณของคุณ!</string>
     <string name="game_what_comes_next">อะไรต่อไป?</string>
     <string name="game_tap_matching_colors">แตะเซลล์ที่คำตรงกับสี</string>
+    <string name="game_tap_original_targets">แตะเป้าหมายเดิม</string>
+    <string name="game_remember_targets">จำเป้าหมายไว้</string>
+    <string name="game_flash_crowd_which_more">ด้านไหนมีมากกว่า?</string>
+    <string name="game_flash_crowd_blue">น้ำเงิน</string>
+    <string name="game_flash_crowd_yellow">เหลือง</string>
+
+    <!-- Color names -->
+    <string name="color_red">แดง</string>
+    <string name="color_green">เขียว</string>
+    <string name="color_blue">น้ำเงิน</string>
+    <string name="color_purple">ม่วง</string>
+    <string name="color_yellow">เหลือง</string>
+    <string name="color_orange">ส้ม</string>
+    <string name="color_turquoise">เทอร์ควอยซ์</string>
+    <string name="color_pink">ชมพู</string>
+    <string name="color_light_grey">เทาอ่อน</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">สี่เหลี่ยม</string>
+    <string name="shape_triangle">สามเหลี่ยม</string>
+    <string name="shape_circle">วงกลม</string>
+    <string name="shape_heart">หัวใจ</string>
+    <string name="shape_star">ดาว</string>
+    <string name="shape_t_shape">รูปตัว T</string>
+    <string name="shape_l_shape">รูปตัว L</string>
+    <string name="shape_diamond">เพชร</string>
+    <string name="shape_house">บ้าน</string>
+    <string name="shape_arrow">ลูกศร</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">บน</string>
+    <string name="direction_right">ขวา</string>
+    <string name="direction_down">ล่าง</string>
+    <string name="direction_left">ซ้าย</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s ชี้ไปทาง%3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">คอลัมน์ %1$d และแถว %2$d</string>
+    <string name="solution_left">ซ้าย</string>
+    <string name="solution_right">ขวา</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">เหรียญทองแดง</string>

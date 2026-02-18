@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FigureCell
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -359,6 +360,16 @@ class AnomalyPuzzleGame : Game() {
                 ""
             }
         return "${figure.color.displayName} ${figure.shape.displayName} $extraInfo".trim()
+    }
+
+    override fun solutionMessage(): FeedbackMessage {
+        val figure = figures[resultIndex]
+        val degrees = if (puzzleType == Puzzle.TRIANGLE_ROTATION || puzzleType == Puzzle.L_ROTATION) {
+            figure.rotation
+        } else {
+            null
+        }
+        return FeedbackMessage.FigureDescription(figure.color, figure.shape, degrees)
     }
 
     override fun hint(): String? = null

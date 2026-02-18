@@ -29,6 +29,10 @@
     <string name="finish_score">スコア：%1$d</string>
     <string name="finish_bonus_point">ミスなしで1ポイントのボーナスを獲得しました！</string>
     <string name="finish_new_highscore">新記録！</string>
+    <string name="finish_highscore">ハイスコア: %1$d</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">解答: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s スコアボード</string>
@@ -53,6 +57,8 @@
     <string name="game_pattern_sequence">パターンシーケンス</string>
     <string name="game_ghost_grid">ゴーストグリッド</string>
     <string name="game_color_confusion">カラーコンフュージョン</string>
+    <string name="game_orbit_tracker">オービットトラッカー</string>
+    <string name="game_flash_crowd">フラッシュクラウド</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -68,8 +74,54 @@
     <string name="game_pattern_sequence_desc">繰り返される形、色、回転を見つけて、パターンの次の図形を見つけてください。</string>
     <string name="game_ghost_grid_desc">タイルが一つずつ光るのを見て、同じ順番でタップしてください。</string>
     <string name="game_color_confusion_desc">単語がフォントの色と一致するすべてのセルをタップし、完了を押してください。</string>
+    <string name="game_orbit_tracker_desc">ハイライトされたボールを見て、動きを追跡してください。停止後に元のターゲットを選択してください。</string>
+    <string name="game_flash_crowd_desc">各側で一瞬ドットが光ります。ドットが多かった側をタップしてください。数えないで — 直感を信じて！</string>
     <string name="game_what_comes_next">次は何？</string>
     <string name="game_tap_matching_colors">単語と色が一致するセルをタップ</string>
+    <string name="game_tap_original_targets">元のターゲットをタップ</string>
+    <string name="game_remember_targets">ターゲットを覚えて</string>
+    <string name="game_flash_crowd_which_more">どちらが多かった？</string>
+    <string name="game_flash_crowd_blue">青</string>
+    <string name="game_flash_crowd_yellow">黄</string>
+
+    <!-- Color names -->
+    <string name="color_red">赤</string>
+    <string name="color_green">緑</string>
+    <string name="color_blue">青</string>
+    <string name="color_purple">紫</string>
+    <string name="color_yellow">黄</string>
+    <string name="color_orange">オレンジ</string>
+    <string name="color_turquoise">ターコイズ</string>
+    <string name="color_pink">ピンク</string>
+    <string name="color_light_grey">ライトグレー</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">四角</string>
+    <string name="shape_triangle">三角</string>
+    <string name="shape_circle">丸</string>
+    <string name="shape_heart">ハート</string>
+    <string name="shape_star">星</string>
+    <string name="shape_t_shape">T字型</string>
+    <string name="shape_l_shape">L字型</string>
+    <string name="shape_diamond">ダイヤモンド</string>
+    <string name="shape_house">家</string>
+    <string name="shape_arrow">矢印</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">上</string>
+    <string name="direction_right">右</string>
+    <string name="direction_down">下</string>
+    <string name="direction_left">左</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%3$sを向いた%1$sの%2$s</string>
+    <string name="solution_figure">%1$sの%2$s</string>
+    <string name="solution_column_row">列%1$d 行%2$d</string>
+    <string name="solution_left">左</string>
+    <string name="solution_right">右</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">vs</string>
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">銅メダル</string>
