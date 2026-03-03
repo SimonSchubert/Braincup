@@ -36,8 +36,8 @@ kotlin {
     wasmJs {
         outputModuleName = "composeApp"
         browser {
-            val rootDirPath = project.rootDir.path
-            val projectDirPath = project.projectDir.path
+            val rootDirPath = rootProject.layout.projectDirectory.asFile.path
+            val projectDirPath = layout.projectDirectory.asFile.path
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
                 devServer =
@@ -111,7 +111,7 @@ android {
     }
     signingConfigs {
         create("release") {
-            val keystoreFile = rootProject.file("keystore.jks")
+            val keystoreFile = rootProject.layout.projectDirectory.file("keystore.jks").asFile
             if (keystoreFile.exists()) {
                 storeFile = keystoreFile
                 storePassword = System.getenv("KEYSTORE_PASSWORD")
@@ -125,10 +125,6 @@ android {
             isMinifyEnabled = true
             signingConfig = signingConfigs.getByName("debug")
         }
-    }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
     }
 }
 
@@ -177,7 +173,7 @@ tasks.register("updateIosVersion") {
     group = "build"
 
     val version = libs.versions.appVersion.get()
-    val configFile = rootProject.file("iosApp/Configuration/Config.xcconfig")
+    val configFile = rootProject.layout.projectDirectory.file("iosApp/Configuration/Config.xcconfig").asFile
 
     inputs.property("version", version)
     outputs.file(configFile)

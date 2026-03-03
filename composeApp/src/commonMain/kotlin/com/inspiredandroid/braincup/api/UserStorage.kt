@@ -4,6 +4,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.TimeZone
+import kotlinx.datetime.number
 import kotlinx.datetime.toLocalDateTime
 import org.jetbrains.compose.resources.StringResource
 import kotlin.time.Clock
@@ -205,8 +206,7 @@ class UserStorage(
                 val parts = it.split("/")
                 val timeInMillis = parts[0].toLongOrNull() ?: 0L
                 val date = Instant.fromEpochMilliseconds(timeInMillis).toLocalDateTime(TimeZone.UTC)
-                @Suppress("DEPRECATION")
-                Triple(date.dayOfMonth, date.monthNumber, date.year)
+                Triple(date.day, date.month.number, date.year)
             }.map { (key, values) ->
                 ScoreGroup(key.first, key.second, key.third, values.map { it.split("/")[1].toIntOrNull() ?: 0 })
             }
