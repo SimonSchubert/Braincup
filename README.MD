@@ -36,7 +36,7 @@ Train your math skills, memory and focus.
 ### macOS
 
 #### Homebrew
-`brew tap SimonSchubert/braincup && brew install SimonSchubert/braincup/braincup`
+`brew install --cask simonschubert/tap/braincup`
 
 ## Goal
 Build an open source math, memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
