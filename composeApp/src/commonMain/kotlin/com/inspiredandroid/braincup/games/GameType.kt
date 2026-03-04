@@ -9,6 +9,7 @@ enum class GameType(
     val goldScore: Int,
     val silverScore: Int,
     val descriptionRes: StringResource,
+    val accentColor: Long,
 ) {
     ANOMALY_PUZZLE(
         displayNameRes = Res.string.game_anomaly_puzzle,
@@ -16,6 +17,7 @@ enum class GameType(
         goldScore = 17,
         silverScore = 8,
         descriptionRes = Res.string.game_anomaly_puzzle_desc,
+        accentColor = 0xFFFFE4E6,
     ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
@@ -23,6 +25,7 @@ enum class GameType(
         goldScore = 14,
         silverScore = 7,
         descriptionRes = Res.string.game_path_finder_desc,
+        accentColor = 0xFFE0F2FE,
     ),
     GHOST_GRID(
         displayNameRes = Res.string.game_ghost_grid,
@@ -30,6 +33,7 @@ enum class GameType(
         goldScore = 8,
         silverScore = 5,
         descriptionRes = Res.string.game_ghost_grid_desc,
+        accentColor = 0xFFE2E8F0,
     ),
     VISUAL_MEMORY(
         displayNameRes = Res.string.game_visual_memory,
@@ -37,6 +41,7 @@ enum class GameType(
         goldScore = 9,
         silverScore = 6,
         descriptionRes = Res.string.game_visual_memory_desc,
+        accentColor = 0xFFD1FAE5,
     ),
     COLORED_SHAPES(
         displayNameRes = Res.string.game_colored_shapes,
@@ -44,6 +49,7 @@ enum class GameType(
         goldScore = 15,
         silverScore = 8,
         descriptionRes = Res.string.game_colored_shapes_desc,
+        accentColor = 0xFFFCE7F3,
     ),
     SHERLOCK_CALCULATION(
         displayNameRes = Res.string.game_sherlock_calculation,
@@ -51,6 +57,7 @@ enum class GameType(
         goldScore = 7,
         silverScore = 3,
         descriptionRes = Res.string.game_sherlock_calculation_desc,
+        accentColor = 0xFFFEF3C7,
     ),
     MENTAL_CALCULATION(
         displayNameRes = Res.string.game_mental_calculation,
@@ -58,6 +65,7 @@ enum class GameType(
         goldScore = 16,
         silverScore = 8,
         descriptionRes = Res.string.game_mental_calculation_desc,
+        accentColor = 0xFFDBEAFE,
     ),
     CHAIN_CALCULATION(
         displayNameRes = Res.string.game_chain_calculation,
@@ -65,6 +73,7 @@ enum class GameType(
         goldScore = 8,
         silverScore = 4,
         descriptionRes = Res.string.game_chain_calculation_desc,
+        accentColor = 0xFFCCFBF1,
     ),
     FRACTION_CALCULATION(
         displayNameRes = Res.string.game_fraction_calculation,
@@ -72,6 +81,7 @@ enum class GameType(
         goldScore = 12,
         silverScore = 4,
         descriptionRes = Res.string.game_fraction_calculation_desc,
+        accentColor = 0xFFE0E7FF,
     ),
     VALUE_COMPARISON(
         displayNameRes = Res.string.game_value_comparison,
@@ -79,6 +89,7 @@ enum class GameType(
         goldScore = 14,
         silverScore = 4,
         descriptionRes = Res.string.game_value_comparison_desc,
+        accentColor = 0xFFECFCCB,
     ),
     GRID_SOLVER(
         displayNameRes = Res.string.game_grid_solver,
@@ -86,6 +97,7 @@ enum class GameType(
         goldScore = 6,
         silverScore = 3,
         descriptionRes = Res.string.game_grid_solver_desc,
+        accentColor = 0xFFEDE9FE,
     ),
     PATTERN_SEQUENCE(
         displayNameRes = Res.string.game_pattern_sequence,
@@ -93,6 +105,7 @@ enum class GameType(
         goldScore = 10,
         silverScore = 5,
         descriptionRes = Res.string.game_pattern_sequence_desc,
+        accentColor = 0xFFFFEDD5,
     ),
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,
@@ -100,6 +113,7 @@ enum class GameType(
         goldScore = 12,
         silverScore = 6,
         descriptionRes = Res.string.game_color_confusion_desc,
+        accentColor = 0xFFFAE8FF,
     ),
     ORBIT_TRACKER(
         displayNameRes = Res.string.game_orbit_tracker,
@@ -107,6 +121,7 @@ enum class GameType(
         goldScore = 8,
         silverScore = 4,
         descriptionRes = Res.string.game_orbit_tracker_desc,
+        accentColor = 0xFFCFFAFE,
     ),
     FLASH_CROWD(
         displayNameRes = Res.string.game_flash_crowd,
@@ -114,6 +129,7 @@ enum class GameType(
         goldScore = 18,
         silverScore = 12,
         descriptionRes = Res.string.game_flash_crowd_desc,
+        accentColor = 0xFFFEF9C3,
     ),
 }
 
