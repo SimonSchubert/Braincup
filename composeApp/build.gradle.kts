@@ -111,7 +111,10 @@ android {
     }
     signingConfigs {
         create("release") {
-            val keystoreFile = rootProject.layout.projectDirectory.file("keystore.jks").asFile
+            val keystoreFile =
+                rootProject.layout.projectDirectory
+                    .file("keystore.jks")
+                    .asFile
             if (keystoreFile.exists()) {
                 storeFile = keystoreFile
                 storePassword = System.getenv("KEYSTORE_PASSWORD")
@@ -173,7 +176,10 @@ tasks.register("updateIosVersion") {
     group = "build"
 
     val version = libs.versions.appVersion.get()
-    val configFile = rootProject.layout.projectDirectory.file("iosApp/Configuration/Config.xcconfig").asFile
+    val configFile =
+        rootProject.layout.projectDirectory
+            .file("iosApp/Configuration/Config.xcconfig")
+            .asFile
 
     inputs.property("version", version)
     outputs.file(configFile)
