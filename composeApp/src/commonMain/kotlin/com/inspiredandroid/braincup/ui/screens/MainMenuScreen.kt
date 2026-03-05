@@ -6,6 +6,9 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.VolumeOff
+import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -26,12 +29,16 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun MainMenuScreen(
     controller: GameController,
+    isMuted: Boolean = false,
+    onToggleMute: () -> Unit = {},
 ) {
     MainMenuScreenContent(
         totalScore = remember { controller.storage.getTotalScore() },
         appOpenCount = remember { controller.storage.getAppOpenCount() },
         highscores = remember { GameType.entries.associate { it.id to controller.storage.getHighScore(it.id) } },
         unlockedCount = remember { controller.storage.getUnlockedAchievements().size },
+        isMuted = isMuted,
+        onToggleMute = onToggleMute,
         onPlay = { controller.navigateToInstructions(it) },
         onViewScore = { controller.navigateToScoreboard(it) },
         onAchievements = { controller.navigateToAchievements() },
@@ -44,6 +51,8 @@ fun MainMenuScreenContent(
     appOpenCount: Int,
     highscores: Map<String, Int>,
     unlockedCount: Int,
+    isMuted: Boolean = false,
+    onToggleMute: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
     onViewScore: (GameType) -> Unit = {},
     onAchievements: () -> Unit = {},
@@ -61,26 +70,43 @@ fun MainMenuScreenContent(
     ) {
         // Header
         item(span = { GridItemSpan(maxLineSpan) }, contentType = "header") {
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = stringResource(Res.string.app_name),
-                    style = MaterialTheme.typography.headlineLarge,
-                    color = MaterialTheme.colorScheme.primary,
-                    modifier = Modifier.offset(y = 16.dp),
-                )
+            Box(modifier = Modifier.fillMaxWidth()) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(
+                        text = stringResource(Res.string.app_name),
+                        style = MaterialTheme.typography.headlineLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.offset(y = 16.dp),
+                    )
 
-                Image(
-                    painterResource(Res.drawable.ic_success),
-                    contentDescription = null,
-                    modifier = Modifier.height(190.dp),
-                )
+                    Image(
+                        painterResource(Res.drawable.ic_success),
+                        contentDescription = null,
+                        modifier = Modifier.height(190.dp),
+                    )
 
-                Text(
-                    text = stringResource(Res.string.app_tagline),
-                    style = MaterialTheme.typography.bodyMedium,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.offset(y = -20.dp),
-                )
+                    Text(
+                        text = stringResource(Res.string.app_tagline),
+                        style = MaterialTheme.typography.bodyMedium,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.offset(y = -20.dp),
+                    )
+                }
+
+                IconButton(
+                    onClick = onToggleMute,
+                    modifier = Modifier
+                        .align(Alignment.TopEnd)
+                        .pointerHoverIcon(PointerIcon.Hand),
+                ) {
+                    Icon(
+                        imageVector = if (isMuted) Icons.AutoMirrored.Filled.VolumeOff else Icons.AutoMirrored.Filled.VolumeUp,
+                        contentDescription = if (isMuted) "Unmute" else "Mute",
+                    )
+                }
             }
         }
 

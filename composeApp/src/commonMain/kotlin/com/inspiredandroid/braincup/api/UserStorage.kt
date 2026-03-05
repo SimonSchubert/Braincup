@@ -73,6 +73,13 @@ class UserStorage(
         const val KEY_UNLOCKED_ACHIEVEMENTS = "unlocked_achievements"
         const val KEY_TOTAL_SCORE = "total_score"
         const val KEY_TOTAL_APP_OPENS = "total_app_opens"
+        const val KEY_AUDIO_MUTED = "audio_muted"
+    }
+
+    fun isAudioMuted(): Boolean = settings.getBoolean(KEY_AUDIO_MUTED, false)
+
+    fun setAudioMuted(muted: Boolean) {
+        settings.putBoolean(KEY_AUDIO_MUTED, muted)
     }
 
     private val medalAchievements =

@@ -9,23 +9,66 @@ import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
+import org.jetbrains.compose.resources.ExperimentalResourceApi
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App() {
     val navController = rememberNavController()
     val controller = remember(navController) { GameController(navController) }
+    val audioPlayer = rememberAudioPlayer()
+
+    var isMuted by remember { mutableStateOf(controller.storage.isAudioMuted()) }
+
+    var menuAudio by remember { mutableStateOf<ByteArray?>(null) }
+    var gameAudio by remember { mutableStateOf<ByteArray?>(null) }
+
+    LaunchedEffect(Unit) {
+        try {
+            menuAudio = Res.readBytes("files/menu_ambient.wav")
+        } catch (_: Exception) {
+        }
+        try {
+            gameAudio = Res.readBytes("files/game_focus.wav")
+        } catch (_: Exception) {
+        }
+    }
+
+    val currentEntry by navController.currentBackStackEntryAsState()
+    val isPlayingGame = currentEntry?.destination?.route?.contains("Playing") == true
+
+    LaunchedEffect(isPlayingGame, isMuted, menuAudio, gameAudio) {
+        if (isMuted) {
+            audioPlayer.stop()
+            return@LaunchedEffect
+        }
+        val data = if (isPlayingGame) gameAudio else menuAudio
+        if (data != null) {
+            audioPlayer.play(data, loop = true)
+        }
+    }
 
     BraincupTheme {
         Surface(modifier = Modifier.fillMaxSize()) {
             NavHost(navController = navController, startDestination = MainMenu) {
                 composable<MainMenu> {
-                    MainMenuScreen(controller = controller)
+                    MainMenuScreen(
+                        controller = controller,
+                        isMuted = isMuted,
+                        onToggleMute = {
+                            isMuted = !isMuted
+                            controller.storage.setAudioMuted(isMuted)
+                        },
+                    )
                 }
 
                 composable<Instructions> { backStackEntry ->

@@ -49,3 +49,7 @@ Very welcome.
 
 ## Acknowledgments ♥
 https://kotlinlang.org, https://github.com/russhwolf/multiplatform-settings, https://ktor.io, https://soywiz.com, @cssinate for design suggestions and everyone else I missed to mention.
+
+### Audio
+- Menu music: ["Drum and Piano Loop"](https://freesound.org/people/EEE3333E/sounds/841825/) by EEE3333E — [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+- Game music: ["Parallel Universe"](https://freesound.org/people/andrewkn/sounds/404458/) by Andrewkn — [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
