@@ -57,6 +57,7 @@ fun GameTile(
         Row(
             modifier = Modifier
                 .fillMaxWidth()
+                .heightIn(min = 40.dp)
                 .padding(start = 8.dp, top = 6.dp, bottom = 6.dp, end = 6.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
@@ -123,7 +124,7 @@ private fun AnomalyPuzzlePreview() {
         )
     }
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -143,7 +144,7 @@ private fun AnomalyPuzzlePreview() {
 @Composable
 private fun PathFinderPreview() {
     Column(
-        modifier = Modifier.fillMaxSize().padding(8.dp),
+        modifier = Modifier.fillMaxSize().padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -222,7 +223,7 @@ private fun VisualMemoryPreview() {
         )
     }
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -413,7 +414,7 @@ private fun GridSolverPreview() {
 private fun GhostGridPreview() {
     val highlighted = setOf(0, 4, 7) // diagonal cells highlighted
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
