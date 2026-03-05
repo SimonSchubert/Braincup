@@ -16,6 +16,7 @@ import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -87,6 +88,7 @@ fun App() {
                     val gameState by controller.gameState.collectAsState()
                     val timeRemaining by controller.timeRemaining.collectAsState()
                     val gameUiState by controller.gameUiState.collectAsState()
+                    val hapticSuccess = rememberHapticSuccess()
 
                     when (val state = gameState) {
                         is GameState.Active -> {
@@ -101,6 +103,9 @@ fun App() {
                         }
 
                         is GameState.Feedback -> {
+                            LaunchedEffect(state) {
+                                if (state.isCorrect) hapticSuccess()
+                            }
                             AnswerFeedbackScreen(
                                 isCorrect = state.isCorrect,
                                 message = state.message,
