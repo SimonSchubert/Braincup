@@ -7,6 +7,9 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -46,6 +49,19 @@ fun App() {
 
     val currentEntry by navController.currentBackStackEntryAsState()
     val isPlayingGame = currentEntry?.destination?.route?.contains("Playing") == true
+
+    val lifecycleOwner = LocalLifecycleOwner.current
+    DisposableEffect(lifecycleOwner, audioPlayer, isMuted) {
+        val observer = LifecycleEventObserver { _, event ->
+            when (event) {
+                Lifecycle.Event.ON_PAUSE -> if (!isMuted) audioPlayer.pause()
+                Lifecycle.Event.ON_RESUME -> if (!isMuted) audioPlayer.resume()
+                else -> {}
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
 
     LaunchedEffect(isPlayingGame, isMuted, menuAudio, gameAudio) {
         if (isMuted) {

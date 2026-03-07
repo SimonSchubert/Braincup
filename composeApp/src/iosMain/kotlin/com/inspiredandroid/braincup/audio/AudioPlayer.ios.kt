@@ -44,5 +44,13 @@ class IosAudioPlayer : AudioPlayer {
         avPlayer = null
     }
 
+    override fun pause() {
+        avPlayer?.pause()
+    }
+
+    override fun resume() {
+        avPlayer?.play()
+    }
+
     override fun release() = stop()
 }

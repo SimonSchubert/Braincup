@@ -38,5 +38,13 @@ class DesktopAudioPlayer : AudioPlayer {
         clip = null
     }
 
+    override fun pause() {
+        clip?.stop()
+    }
+
+    override fun resume() {
+        clip?.start()
+    }
+
     override fun release() = stop()
 }

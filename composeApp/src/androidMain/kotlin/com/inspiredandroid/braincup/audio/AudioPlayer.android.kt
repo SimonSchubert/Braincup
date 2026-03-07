@@ -49,5 +49,19 @@ class AndroidAudioPlayer(private val context: Context) : AudioPlayer {
         tempFile = null
     }
 
+    override fun pause() {
+        try {
+            mediaPlayer?.pause()
+        } catch (_: Exception) {
+        }
+    }
+
+    override fun resume() {
+        try {
+            mediaPlayer?.start()
+        } catch (_: Exception) {
+        }
+    }
+
     override fun release() = stop()
 }

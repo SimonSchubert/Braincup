@@ -5,6 +5,8 @@ import androidx.compose.runtime.Composable
 interface AudioPlayer {
     fun play(data: ByteArray, loop: Boolean = true)
     fun stop()
+    fun pause() {}
+    fun resume() {}
     fun release()
 }
 

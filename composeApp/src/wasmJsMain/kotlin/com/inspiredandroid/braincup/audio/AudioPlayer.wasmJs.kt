@@ -32,6 +32,9 @@ private external fun playAudio(audio: JsAny)
 @JsFun("(audio) => { audio.pause(); audio.currentTime = 0; }")
 private external fun pauseAudio(audio: JsAny)
 
+@JsFun("(audio) => { audio.pause(); }")
+private external fun suspendAudio(audio: JsAny)
+
 @JsFun("(url) => { URL.revokeObjectURL(url); }")
 private external fun revokeUrl(url: JsString)
 
@@ -68,6 +71,14 @@ class WasmAudioPlayer : AudioPlayer {
         audio = null
         blobUrl?.let { revokeUrl(it.toJsString()) }
         blobUrl = null
+    }
+
+    override fun pause() {
+        audio?.let { suspendAudio(it) }
+    }
+
+    override fun resume() {
+        audio?.let { playAudio(it) }
     }
 
     override fun release() = stop()

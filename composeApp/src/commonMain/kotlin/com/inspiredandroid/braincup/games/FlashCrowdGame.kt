@@ -72,15 +72,8 @@ class FlashCrowdGame : Game() {
     }
 
     private fun generateDots(count: Int, isMoreSide: Boolean): List<Dot> {
-        val minRadius: Float
-        val maxRadius: Float
-        if (isMoreSide) {
-            minRadius = 0.02f
-            maxRadius = 0.045f
-        } else {
-            minRadius = 0.035f
-            maxRadius = 0.065f
-        }
+        val minRadius = 0.02f
+        val maxRadius = 0.055f
 
         val dots = mutableListOf<Dot>()
         var attempts = 0
