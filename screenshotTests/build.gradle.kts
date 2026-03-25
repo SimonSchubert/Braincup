@@ -3,7 +3,6 @@ plugins {
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.paparazzi)
-    kotlin("android")
 }
 
 kotlin {
@@ -25,12 +24,12 @@ android {
     }
 
     sourceSets["main"].assets.srcDirs(
-        "${project(":composeApp").projectDir}/build/generated/assets/copyDebugComposeResourcesToAndroidAssets",
+        "${project(":composeApp").projectDir}/build/generated/compose/resourceGenerator/preparedResources/commonMain",
     )
 }
 
 val preparePaparazzi by tasks.registering {
-    dependsOn(":composeApp:copyDebugComposeResourcesToAndroidAssets")
+    dependsOn(":composeApp:prepareComposeResourcesTaskForCommonMain")
 }
 
 tasks.matching { it.name.startsWith("testDebug") }.configureEach {

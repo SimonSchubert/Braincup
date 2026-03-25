@@ -29,5 +29,6 @@ dependencyResolutionManagement {
     }
 }
 
+include(":androidApp")
 include(":composeApp")
 include(":screenshotTests")
