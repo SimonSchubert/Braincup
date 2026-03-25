@@ -1,6 +1,6 @@
 [versions]
-appVersion = "2.2.1"
-android-versionCode = "111"
+appVersion = "2.3.0"
+android-versionCode = "112"
 android-compileSdk = "36"
 android-minSdk = "26"
 android-targetSdk = "36"
