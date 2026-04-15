@@ -26,3 +26,9 @@ data class Scoreboard(val gameTypeId: String)
 
 @Serializable
 object Achievements
+
+@Serializable
+object SessionInterstitial
+
+@Serializable
+object SessionComplete

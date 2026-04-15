@@ -169,6 +169,39 @@ fun App() {
                         onBack = { controller.navigateToMainMenu() },
                     )
                 }
+
+                composable<SessionInterstitial> {
+                    val session by controller.sessionState.collectAsState()
+                    val current = session
+                    if (current != null) {
+                        val nextGameId = current.gameIds.getOrNull(current.currentIndex)
+                        val nextGame = nextGameId?.let { getGameTypeById(it) }
+                        if (nextGame != null) {
+                            SessionInterstitialScreen(
+                                nextGame = nextGame,
+                                nextGameIndex = current.currentIndex,
+                                totalGames = current.gameIds.size,
+                                runningTotal = current.scores.sum(),
+                                onContinue = { controller.playNextSessionGame() },
+                                onExit = { controller.navigateToMainMenu() },
+                            )
+                        }
+                    }
+                }
+
+                composable<SessionComplete> {
+                    val result by controller.lastCompletedSession.collectAsState()
+                    val current = result
+                    if (current != null) {
+                        SessionCompleteScreen(
+                            gameIds = current.gameIds,
+                            scores = current.scores,
+                            streakBefore = current.streakBefore,
+                            streakAfter = current.streakAfter,
+                            onDone = { controller.navigateToMainMenu() },
+                        )
+                    }
+                }
             }
         }
     }

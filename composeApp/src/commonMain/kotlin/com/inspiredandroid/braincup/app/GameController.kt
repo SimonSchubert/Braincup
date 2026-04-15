@@ -28,16 +28,40 @@ class GameController(
     private val _gameUiState = MutableStateFlow<GameUiState?>(null)
     val gameUiState: StateFlow<GameUiState?> = _gameUiState.asStateFlow()
 
+    private val _sessionState = MutableStateFlow<UserStorage.SessionState?>(null)
+    val sessionState: StateFlow<UserStorage.SessionState?> = _sessionState.asStateFlow()
+
+    private val _sessionStreak = MutableStateFlow(0)
+    val sessionStreak: StateFlow<Int> = _sessionStreak.asStateFlow()
+
+    private val _lastCompletedSession = MutableStateFlow<SessionResult?>(null)
+    val lastCompletedSession: StateFlow<SessionResult?> = _lastCompletedSession.asStateFlow()
+
     private var startTime = 0L
     private var points = 0
+    private var inSessionMode = false
+
+    data class SessionResult(
+        val gameIds: List<String>,
+        val scores: List<Int>,
+        val streakBefore: Int,
+        val streakAfter: Int,
+    )
 
     companion object {
         const val GAME_TIME_MILLIS = 60 * 1_000L
     }
 
     init {
-        storage.putAppOpen()
+        storage.migrateStreakIfNeeded()
+        _sessionStreak.value = storage.getSessionStreak()
+        _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
     }
+
+    private fun generateSessionGameIds(): List<String> = GameType.entries
+        .shuffled()
+        .take(UserStorage.SESSION_GAME_COUNT)
+        .map { it.id }
 
     fun navigateToMainMenu() {
         val currentState = _gameState.value
@@ -48,7 +72,24 @@ class GameController(
         }
         _gameUiState.value = null
         _gameState.value = GameState.Idle
+        inSessionMode = false
+        _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
         navController.popBackStack(MainMenu, inclusive = false)
+    }
+
+    fun startDailySession() {
+        if (storage.isSessionCompletedToday()) return
+        val session = storage.getOrCreateTodaySession { generateSessionGameIds() }
+        _sessionState.value = session
+        inSessionMode = true
+        navController.navigate(SessionInterstitial)
+    }
+
+    fun playNextSessionGame() {
+        val session = _sessionState.value ?: return
+        val gameId = session.gameIds.getOrNull(session.currentIndex) ?: return
+        val gameType = getGameTypeById(gameId) ?: return
+        startGame(gameType)
     }
 
     fun navigateToInstructions(gameType: GameType) {
@@ -586,6 +627,31 @@ class GameController(
 
         val newHighscore = storage.putScore(gameType.id, points)
         val highscore = storage.getHighScore(gameType.id)
+
+        if (inSessionMode) {
+            storage.appendSessionScore(points)
+            val updated = storage.getOrCreateTodaySession { generateSessionGameIds() }
+            _sessionState.value = updated
+            if (updated.currentIndex >= updated.gameIds.size) {
+                val streakBefore = _sessionStreak.value
+                val newStreak = storage.recordSessionCompleted()
+                _sessionStreak.value = newStreak
+                _lastCompletedSession.value = SessionResult(
+                    gameIds = updated.gameIds,
+                    scores = updated.scores,
+                    streakBefore = streakBefore,
+                    streakAfter = newStreak,
+                )
+                navController.navigate(SessionComplete) {
+                    popUpTo(MainMenu)
+                }
+            } else {
+                navController.navigate(SessionInterstitial) {
+                    popUpTo(MainMenu)
+                }
+            }
+            return
+        }
 
         navController.navigate(
             Finish(

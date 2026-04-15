@@ -9,6 +9,8 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.GameScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
+import com.inspiredandroid.braincup.ui.screens.SessionCompleteScreen
+import com.inspiredandroid.braincup.ui.screens.SessionInterstitialScreen
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
@@ -50,9 +52,89 @@ class ScreenshotTest {
         paparazzi.snap {
             MainMenuScreenContent(
                 totalScore = 250,
-                appOpenCount = 14,
+                sessionStreak = 14,
+                sessionProgressIndex = 0,
+                sessionTotalGames = 5,
+                sessionCompletedToday = false,
                 highscores = mainMenuHighscores,
                 unlockedCount = 5,
+            )
+        }
+    }
+
+    @Test
+    fun mainMenuSessionInProgress() {
+        paparazzi.snap {
+            MainMenuScreenContent(
+                totalScore = 250,
+                sessionStreak = 14,
+                sessionProgressIndex = 2,
+                sessionTotalGames = 5,
+                sessionCompletedToday = false,
+                highscores = mainMenuHighscores,
+                unlockedCount = 5,
+            )
+        }
+    }
+
+    @Test
+    fun mainMenuSessionCompleted() {
+        paparazzi.snap {
+            MainMenuScreenContent(
+                totalScore = 250,
+                sessionStreak = 15,
+                sessionProgressIndex = 5,
+                sessionTotalGames = 5,
+                sessionCompletedToday = true,
+                highscores = mainMenuHighscores,
+                unlockedCount = 5,
+            )
+        }
+    }
+
+    @Test
+    fun sessionInterstitialFirst() {
+        paparazzi.snap {
+            SessionInterstitialScreen(
+                nextGame = GameType.MENTAL_CALCULATION,
+                nextGameIndex = 0,
+                totalGames = 5,
+                runningTotal = 0,
+                onContinue = {},
+                onExit = {},
+            )
+        }
+    }
+
+    @Test
+    fun sessionInterstitialMid() {
+        paparazzi.snap {
+            SessionInterstitialScreen(
+                nextGame = GameType.GHOST_GRID,
+                nextGameIndex = 2,
+                totalGames = 5,
+                runningTotal = 17,
+                onContinue = {},
+                onExit = {},
+            )
+        }
+    }
+
+    @Test
+    fun sessionCompleteStreakIncreased() {
+        paparazzi.snap {
+            SessionCompleteScreen(
+                gameIds = listOf(
+                    GameType.MENTAL_CALCULATION.id,
+                    GameType.COLORED_SHAPES.id,
+                    GameType.PATH_FINDER.id,
+                    GameType.GHOST_GRID.id,
+                    GameType.FLASH_CROWD.id,
+                ),
+                scores = listOf(8, 5, 6, 4, 7),
+                streakBefore = 14,
+                streakAfter = 15,
+                onDone = {},
             )
         }
     }

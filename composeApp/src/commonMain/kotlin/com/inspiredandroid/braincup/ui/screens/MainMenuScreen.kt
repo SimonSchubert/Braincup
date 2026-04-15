@@ -11,6 +11,8 @@ import androidx.compose.material.icons.automirrored.filled.VolumeOff
 import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -22,6 +24,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -32,13 +35,24 @@ fun MainMenuScreen(
     isMuted: Boolean = false,
     onToggleMute: () -> Unit = {},
 ) {
+    val sessionState by controller.sessionState.collectAsState()
+    val sessionStreak by controller.sessionStreak.collectAsState()
+    val session = sessionState
+    val totalGames = session?.gameIds?.size ?: UserStorage.SESSION_GAME_COUNT
+    val progressIndex = session?.currentIndex ?: 0
+    val completedToday = remember(session) { controller.storage.isSessionCompletedToday() }
+
     MainMenuScreenContent(
         totalScore = remember { controller.storage.getTotalScore() },
-        appOpenCount = remember { controller.storage.getAppOpenCount() },
+        sessionStreak = sessionStreak,
+        sessionProgressIndex = progressIndex,
+        sessionTotalGames = totalGames,
+        sessionCompletedToday = completedToday,
         highscores = remember { GameType.entries.associate { it.id to controller.storage.getHighScore(it.id) } },
         unlockedCount = remember { controller.storage.getUnlockedAchievements().size },
         isMuted = isMuted,
         onToggleMute = onToggleMute,
+        onPlayDaily = { controller.startDailySession() },
         onPlay = { controller.navigateToInstructions(it) },
         onViewScore = { controller.navigateToScoreboard(it) },
         onAchievements = { controller.navigateToAchievements() },
@@ -48,11 +62,15 @@ fun MainMenuScreen(
 @Composable
 fun MainMenuScreenContent(
     totalScore: Int,
-    appOpenCount: Int,
+    sessionStreak: Int,
+    sessionProgressIndex: Int,
+    sessionTotalGames: Int,
+    sessionCompletedToday: Boolean,
     highscores: Map<String, Int>,
     unlockedCount: Int,
     isMuted: Boolean = false,
     onToggleMute: () -> Unit = {},
+    onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
     onViewScore: (GameType) -> Unit = {},
     onAchievements: () -> Unit = {},
@@ -110,6 +128,17 @@ fun MainMenuScreenContent(
             }
         }
 
+        // Daily challenge card
+        item(span = { GridItemSpan(maxLineSpan) }, contentType = "daily_challenge") {
+            DailyChallengeCard(
+                sessionStreak = sessionStreak,
+                progressIndex = sessionProgressIndex,
+                totalGames = sessionTotalGames,
+                completedToday = sessionCompletedToday,
+                onPlay = onPlayDaily,
+            )
+        }
+
         // Game tiles
         items(GameType.entries, key = { it.id }, contentType = { "game_tile" }) { gameType ->
             GameTile(
@@ -129,8 +158,8 @@ fun MainMenuScreenContent(
                     horizontalArrangement = Arrangement.SpaceEvenly,
                     modifier = Modifier.fillMaxWidth(),
                 ) {
-                    if (appOpenCount > 1) {
-                        StatCard(title = stringResource(Res.string.stat_training_days), value = appOpenCount.toString())
+                    if (sessionStreak > 0) {
+                        StatCard(title = stringResource(Res.string.stat_training_days), value = sessionStreak.toString())
                     }
                     if (totalScore > 0) {
                         StatCard(title = stringResource(Res.string.stat_total_score), value = totalScore.toString())

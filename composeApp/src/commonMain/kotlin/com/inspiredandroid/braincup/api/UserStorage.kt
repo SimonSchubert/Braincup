@@ -74,6 +74,13 @@ class UserStorage(
         const val KEY_TOTAL_SCORE = "total_score"
         const val KEY_TOTAL_APP_OPENS = "total_app_opens"
         const val KEY_AUDIO_MUTED = "audio_muted"
+        const val KEY_SESSION_DAY = "session_day"
+        const val KEY_SESSION_GAME_IDS = "session_game_ids"
+        const val KEY_SESSION_SCORES = "session_scores"
+        const val KEY_SESSION_INDEX = "session_index"
+        const val KEY_LAST_COMPLETED_SESSION_DAY = "last_completed_session_day"
+        const val KEY_STREAK_MIGRATED_V2 = "streak_migrated_v2"
+        const val SESSION_GAME_COUNT = 5
     }
 
     fun isAudioMuted(): Boolean = settings.getBoolean(KEY_AUDIO_MUTED, false)
@@ -102,7 +109,7 @@ class UserStorage(
         settings.putString(KEY_UNLOCKED_ACHIEVEMENTS, unlockedAchievements.joinToString(","))
     }
 
-    fun getAppOpenCount(): Int = settings.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
+    fun getSessionStreak(): Int = settings.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
 
     fun incrementAndGetTotalAppOpens(): Int {
         val count = settings.getInt(KEY_TOTAL_APP_OPENS, 0) + 1
@@ -110,37 +117,83 @@ class UserStorage(
         return count
     }
 
-    fun putAppOpen() {
-        val appOpenDay = settings.getIntOrNull(KEY_APP_OPEN_DAY) ?: -1
-        val todayDay = (Clock.System.now().toEpochMilliseconds() / 86400000L).toInt()
-        if (appOpenDay < todayDay) {
-            val appOpenCombo =
-                if (appOpenDay == todayDay - 1) {
-                    settings.getInt(KEY_APP_OPEN_COMBO, 0)
-                } else {
-                    0
-                }
-            settings.putInt(KEY_APP_OPEN_COMBO, appOpenCombo + 1)
-            settings.putInt(KEY_APP_OPEN_DAY, todayDay)
-
-            val unlockedAchievements = getUnlockedAchievements()
-            appOpenAchievements.forEach {
-                if (!unlockedAchievements.contains(it) && hasAppOpenAchievement(it, appOpenCombo)) {
-                    unlockAchievement(it)
-                }
-            }
-        }
+    fun migrateStreakIfNeeded() {
+        if (settings.getBoolean(KEY_STREAK_MIGRATED_V2, false)) return
+        settings.putInt(KEY_APP_OPEN_COMBO, 0)
+        settings.remove(KEY_APP_OPEN_DAY)
+        settings.putBoolean(KEY_STREAK_MIGRATED_V2, true)
     }
 
-    fun hasAppOpenAchievement(
+    fun hasStreakAchievement(
         achievement: Achievements,
-        appOpenDay: Int,
+        streak: Int,
     ): Boolean = when (achievement) {
-        Achievements.APP_OPEN_3 -> appOpenDay >= 3
-        Achievements.APP_OPEN_7 -> appOpenDay >= 7
-        Achievements.APP_OPEN_30 -> appOpenDay >= 30
+        Achievements.APP_OPEN_3 -> streak >= 3
+        Achievements.APP_OPEN_7 -> streak >= 7
+        Achievements.APP_OPEN_30 -> streak >= 30
         else -> true
     }
+
+    private fun todayEpochDay(): Int = (Clock.System.now().toEpochMilliseconds() / 86400000L).toInt()
+
+    fun getOrCreateTodaySession(generateGameIds: () -> List<String>): SessionState {
+        val today = todayEpochDay()
+        val storedDay = settings.getIntOrNull(KEY_SESSION_DAY) ?: -1
+        if (storedDay != today) {
+            val ids = generateGameIds()
+            settings.putInt(KEY_SESSION_DAY, today)
+            settings.putString(KEY_SESSION_GAME_IDS, ids.joinToString(","))
+            settings.putString(KEY_SESSION_SCORES, "")
+            settings.putInt(KEY_SESSION_INDEX, 0)
+            return SessionState(today, ids, emptyList(), 0)
+        }
+        val ids = settings.getString(KEY_SESSION_GAME_IDS, "")
+            .split(",")
+            .filter { it.isNotEmpty() }
+        val scores = settings.getString(KEY_SESSION_SCORES, "")
+            .split(",")
+            .filter { it.isNotEmpty() }
+            .mapNotNull { it.toIntOrNull() }
+        val index = settings.getInt(KEY_SESSION_INDEX, 0)
+        return SessionState(today, ids, scores, index)
+    }
+
+    fun appendSessionScore(score: Int) {
+        val scoresRaw = settings.getString(KEY_SESSION_SCORES, "")
+        val updated = if (scoresRaw.isEmpty()) score.toString() else "$scoresRaw,$score"
+        settings.putString(KEY_SESSION_SCORES, updated)
+        settings.putInt(KEY_SESSION_INDEX, settings.getInt(KEY_SESSION_INDEX, 0) + 1)
+    }
+
+    fun isSessionCompletedToday(): Boolean {
+        val today = todayEpochDay()
+        return settings.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) == today
+    }
+
+    fun recordSessionCompleted(): Int {
+        val today = todayEpochDay()
+        val lastCompleted = settings.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) ?: -1
+        if (lastCompleted == today) return getSessionStreak()
+
+        val newStreak = if (lastCompleted == today - 1) getSessionStreak() + 1 else 1
+        settings.putInt(KEY_APP_OPEN_COMBO, newStreak)
+        settings.putInt(KEY_LAST_COMPLETED_SESSION_DAY, today)
+
+        val unlockedAchievements = getUnlockedAchievements()
+        appOpenAchievements.forEach {
+            if (!unlockedAchievements.contains(it) && hasStreakAchievement(it, newStreak)) {
+                unlockAchievement(it)
+            }
+        }
+        return newStreak
+    }
+
+    data class SessionState(
+        val epochDay: Int,
+        val gameIds: List<String>,
+        val scores: List<Int>,
+        val currentIndex: Int,
+    )
 
     private fun getHighscoreKey(gameId: String): String = "game_${gameId}_highscore"
 
