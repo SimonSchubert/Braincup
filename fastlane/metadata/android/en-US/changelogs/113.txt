@@ -1,0 +1,5 @@
+Add daily challenge mode with streak tracking
+Redesign session screens with progress dots and game descriptions
+Improve hover cursors across games
+Add localizations for daily challenge and session screens
+Upgrade SDKs
