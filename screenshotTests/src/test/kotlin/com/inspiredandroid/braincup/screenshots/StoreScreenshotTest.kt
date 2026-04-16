@@ -99,9 +99,13 @@ class StoreScreenshotTest(
         snap("01") {
             MainMenuScreenContent(
                 totalScore = 250,
-                appOpenCount = 14,
+                sessionStreak = 14,
+                sessionProgressIndex = 0,
+                sessionTotalGames = 5,
+                sessionCompletedToday = false,
                 highscores = mainMenuHighscores,
                 unlockedCount = 5,
+                showDailyChallenge = false,
             )
         }
     }
