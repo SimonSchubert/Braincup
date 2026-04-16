@@ -83,6 +83,7 @@ tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
     val task = this as Test
     if (gradle.startParameter.taskNames.any { it.contains("generateStoreScreenshots") }) {
         task.filter.includeTestsMatching("*.StoreScreenshotTest")
+        task.filter.includeTestsMatching("*.TabletStoreScreenshotTest")
     }
 }
 
@@ -93,26 +94,43 @@ tasks.register("generateStoreScreenshots") {
     val fastlaneDirFile = fastlaneDir?.asFile
 
     doLast {
-        val regex = Regex("""StoreScreenshotTest_\w+\[([^\]]+)\]_store_[a-z-]+_(\d+(?:_\w+)?)\.png""")
-        val snapshots = snapshotsDirFile.listFiles()?.filter {
-            it.name.contains("StoreScreenshotTest_") && it.name.contains("_store_") && it.extension == "png"
-        } ?: emptyList()
+        val phoneRegex = Regex("""StoreScreenshotTest_\w+\[([^\]]+)\]_store_[a-z-]+_(\d+(?:_\w+)?)\.png""")
+        val tabletRegex = Regex("""TabletStoreScreenshotTest_\w+\[([^\]]+)\]_tablet_[a-z-]+_(\d+(?:_\w+)?)\.png""")
 
-        if (snapshots.isEmpty()) {
+        val allPngs = snapshotsDirFile.listFiles()?.filter { it.extension == "png" } ?: emptyList()
+
+        val phoneSnapshots = allPngs.filter {
+            it.name.contains("StoreScreenshotTest_") &&
+                !it.name.contains("TabletStoreScreenshotTest_") &&
+                it.name.contains("_store_")
+        }
+        val tabletSnapshots = allPngs.filter {
+            it.name.contains("TabletStoreScreenshotTest_") && it.name.contains("_tablet_")
+        }
+
+        if (phoneSnapshots.isEmpty() && tabletSnapshots.isEmpty()) {
             println("No store screenshots found.")
             return@doLast
         }
 
-        snapshots.forEach { file ->
-            val match = regex.find(file.name)
-            if (match != null) {
-                val (locale, name) = match.destructured
-                val targetDir = File(fastlaneDirFile, "$locale/images/phoneScreenshots")
-                targetDir.mkdirs()
-                val targetFile = File(targetDir, "$name.png")
-                file.copyTo(targetFile, overwrite = true)
-                println("Copied -> $locale/$name.png")
-            }
+        phoneSnapshots.forEach { file ->
+            val match = phoneRegex.find(file.name) ?: return@forEach
+            val (locale, name) = match.destructured
+            val targetDir = File(fastlaneDirFile, "$locale/images/phoneScreenshots")
+            targetDir.mkdirs()
+            val targetFile = File(targetDir, "$name.png")
+            file.copyTo(targetFile, overwrite = true)
+            println("Copied -> $locale/phoneScreenshots/$name.png")
+        }
+
+        tabletSnapshots.forEach { file ->
+            val match = tabletRegex.find(file.name) ?: return@forEach
+            val (locale, name) = match.destructured
+            val targetDir = File(fastlaneDirFile, "$locale/images/tenInchScreenshots")
+            targetDir.mkdirs()
+            val targetFile = File(targetDir, "$name.png")
+            file.copyTo(targetFile, overwrite = true)
+            println("Copied -> $locale/tenInchScreenshots/$name.png")
         }
     }
 }

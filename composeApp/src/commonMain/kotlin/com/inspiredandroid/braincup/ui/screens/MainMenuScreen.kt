@@ -69,6 +69,7 @@ fun MainMenuScreenContent(
     highscores: Map<String, Int>,
     unlockedCount: Int,
     isMuted: Boolean = false,
+    showDailyChallenge: Boolean = true,
     onToggleMute: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
@@ -129,14 +130,16 @@ fun MainMenuScreenContent(
         }
 
         // Daily challenge card
-        item(span = { GridItemSpan(maxLineSpan) }, contentType = "daily_challenge") {
-            DailyChallengeCard(
-                sessionStreak = sessionStreak,
-                progressIndex = sessionProgressIndex,
-                totalGames = sessionTotalGames,
-                completedToday = sessionCompletedToday,
-                onPlay = onPlayDaily,
-            )
+        if (showDailyChallenge) {
+            item(span = { GridItemSpan(maxLineSpan) }, contentType = "daily_challenge") {
+                DailyChallengeCard(
+                    sessionStreak = sessionStreak,
+                    progressIndex = sessionProgressIndex,
+                    totalGames = sessionTotalGames,
+                    completedToday = sessionCompletedToday,
+                    onPlay = onPlayDaily,
+                )
+            }
         }
 
         // Game tiles
