@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">ฝึกติดต่อกัน 3 วัน</string>
     <string name="achievement_7_day_streak_desc">ฝึกติดต่อกัน 7 วัน</string>
     <string name="achievement_30_day_streak_desc">ฝึกติดต่อกัน 30 วัน</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">ความท้าทายประจำวัน</string>
+    <string name="daily_challenge_subtitle_start">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</string>
+    <string name="daily_challenge_subtitle_progress">กำลังดำเนินการ · %1$d จาก %2$d</string>
+    <string name="daily_challenge_subtitle_done">เสร็จสิ้นสำหรับวันนี้ กลับมาพรุ่งนี้!</string>
+    <string name="daily_challenge_streak_label">วันติดต่อกัน</string>
+    <string name="daily_challenge_button_start">เริ่ม</string>
+    <string name="daily_challenge_button_resume">ทำต่อ</string>
+    <string name="daily_challenge_button_done">เสร็จวันนี้แล้ว</string>
+    <string name="session_progress">เกม %1$d จาก %2$d</string>
+    <string name="session_running_total">รวมจนถึงตอนนี้: %1$d</string>
+    <string name="session_next_up">ถัดไป</string>
+    <string name="session_continue">ดำเนินการต่อ</string>
+    <string name="session_done">กลับสู่เมนู</string>
+    <string name="session_complete_title">เซสชันเสร็จสิ้น</string>
+    <string name="session_total_score">รวม: %1$d</string>
+    <string name="session_streak_increased">สตรีค: %1$d วัน</string>
+    <string name="session_streak_current">สตรีคปัจจุบัน: %1$d วัน</string>
 </resources>

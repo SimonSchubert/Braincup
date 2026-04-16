@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">Тренуйтесь 3 дні поспіль</string>
     <string name="achievement_7_day_streak_desc">Тренуйтесь 7 днів поспіль</string>
     <string name="achievement_30_day_streak_desc">Тренуйтесь 30 днів поспіль</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">Щоденний виклик</string>
+    <string name="daily_challenge_subtitle_start">Зіграйте %1$d ігор, щоб зберегти серію</string>
+    <string name="daily_challenge_subtitle_progress">Триває · %1$d з %2$d</string>
+    <string name="daily_challenge_subtitle_done">На сьогодні все. Повертайтеся завтра!</string>
+    <string name="daily_challenge_streak_label">днів поспіль</string>
+    <string name="daily_challenge_button_start">Почати</string>
+    <string name="daily_challenge_button_resume">Продовжити</string>
+    <string name="daily_challenge_button_done">Виконано сьогодні</string>
+    <string name="session_progress">Гра %1$d з %2$d</string>
+    <string name="session_running_total">Усього: %1$d</string>
+    <string name="session_next_up">Далі</string>
+    <string name="session_continue">Продовжити</string>
+    <string name="session_done">До меню</string>
+    <string name="session_complete_title">Сесію завершено</string>
+    <string name="session_total_score">Усього: %1$d</string>
+    <string name="session_streak_increased">Серія днів: %1$d</string>
+    <string name="session_streak_current">Поточна серія: %1$d днів</string>
 </resources>

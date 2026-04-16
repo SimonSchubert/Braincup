@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">3日連続でトレーニングする</string>
     <string name="achievement_7_day_streak_desc">7日連続でトレーニングする</string>
     <string name="achievement_30_day_streak_desc">30日連続でトレーニングする</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">デイリーチャレンジ</string>
+    <string name="daily_challenge_subtitle_start">%1$dゲームをプレイして連続記録を保とう</string>
+    <string name="daily_challenge_subtitle_progress">進行中 · %1$d / %2$d</string>
+    <string name="daily_challenge_subtitle_done">今日の分は完了。また明日！</string>
+    <string name="daily_challenge_streak_label">日連続</string>
+    <string name="daily_challenge_button_start">開始</string>
+    <string name="daily_challenge_button_resume">再開</string>
+    <string name="daily_challenge_button_done">今日は完了</string>
+    <string name="session_progress">ゲーム %1$d / %2$d</string>
+    <string name="session_running_total">合計: %1$d</string>
+    <string name="session_next_up">次は</string>
+    <string name="session_continue">続ける</string>
+    <string name="session_done">メニューに戻る</string>
+    <string name="session_complete_title">セッション完了</string>
+    <string name="session_total_score">合計: %1$d</string>
+    <string name="session_streak_increased">連続日数: %1$d</string>
+    <string name="session_streak_current">現在の連続: %1$d日</string>
 </resources>

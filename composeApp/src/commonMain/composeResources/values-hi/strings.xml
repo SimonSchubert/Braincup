@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">लगातार 3 दिन प्रशिक्षण करें</string>
     <string name="achievement_7_day_streak_desc">लगातार 7 दिन प्रशिक्षण करें</string>
     <string name="achievement_30_day_streak_desc">लगातार 30 दिन प्रशिक्षण करें</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">दैनिक चुनौती</string>
+    <string name="daily_challenge_subtitle_start">अपनी स्ट्रीक बनाए रखने के लिए %1$d खेल खेलें</string>
+    <string name="daily_challenge_subtitle_progress">प्रगति में · %1$d / %2$d</string>
+    <string name="daily_challenge_subtitle_done">आज के लिए पूरा। कल फिर आएं!</string>
+    <string name="daily_challenge_streak_label">दिन की स्ट्रीक</string>
+    <string name="daily_challenge_button_start">शुरू करें</string>
+    <string name="daily_challenge_button_resume">जारी रखें</string>
+    <string name="daily_challenge_button_done">आज पूरा हुआ</string>
+    <string name="session_progress">खेल %1$d / %2$d</string>
+    <string name="session_running_total">अब तक कुल: %1$d</string>
+    <string name="session_next_up">अगला</string>
+    <string name="session_continue">जारी रखें</string>
+    <string name="session_done">मेनू पर वापस</string>
+    <string name="session_complete_title">सत्र पूरा</string>
+    <string name="session_total_score">कुल: %1$d</string>
+    <string name="session_streak_increased">दिनों की स्ट्रीक: %1$d</string>
+    <string name="session_streak_current">वर्तमान स्ट्रीक: %1$d दिन</string>
 </resources>

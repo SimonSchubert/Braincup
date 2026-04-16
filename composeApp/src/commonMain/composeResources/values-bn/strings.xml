@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">পরপর ৩ দিন প্রশিক্ষণ নিন</string>
     <string name="achievement_7_day_streak_desc">পরপর ৭ দিন প্রশিক্ষণ নিন</string>
     <string name="achievement_30_day_streak_desc">পরপর ৩০ দিন প্রশিক্ষণ নিন</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">দৈনিক চ্যালেঞ্জ</string>
+    <string name="daily_challenge_subtitle_start">আপনার স্ট্রিক বজায় রাখতে %1$dটি গেম খেলুন</string>
+    <string name="daily_challenge_subtitle_progress">চলমান · %1$d / %2$d</string>
+    <string name="daily_challenge_subtitle_done">আজকের জন্য শেষ। কাল আবার আসুন!</string>
+    <string name="daily_challenge_streak_label">দিন স্ট্রিক</string>
+    <string name="daily_challenge_button_start">শুরু করুন</string>
+    <string name="daily_challenge_button_resume">চালিয়ে যান</string>
+    <string name="daily_challenge_button_done">আজ সম্পন্ন</string>
+    <string name="session_progress">গেম %1$d / %2$d</string>
+    <string name="session_running_total">এখন পর্যন্ত মোট: %1$d</string>
+    <string name="session_next_up">পরবর্তী</string>
+    <string name="session_continue">চালিয়ে যান</string>
+    <string name="session_done">মেনুতে ফিরে যান</string>
+    <string name="session_complete_title">সেশন সম্পন্ন</string>
+    <string name="session_total_score">মোট: %1$d</string>
+    <string name="session_streak_increased">দিন স্ট্রিক: %1$d</string>
+    <string name="session_streak_current">বর্তমান স্ট্রিক: %1$d দিন</string>
 </resources>

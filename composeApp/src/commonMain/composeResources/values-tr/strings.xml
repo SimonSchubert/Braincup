@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">Üst üste 3 gün antrenman yapın</string>
     <string name="achievement_7_day_streak_desc">Üst üste 7 gün antrenman yapın</string>
     <string name="achievement_30_day_streak_desc">Üst üste 30 gün antrenman yapın</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">Günlük meydan okuma</string>
+    <string name="daily_challenge_subtitle_start">Serini sürdürmek için %1$d oyun oyna</string>
+    <string name="daily_challenge_subtitle_progress">Devam ediyor · %1$d / %2$d</string>
+    <string name="daily_challenge_subtitle_done">Bugünlük bitti. Yarın tekrar gel!</string>
+    <string name="daily_challenge_streak_label">gün üst üste</string>
+    <string name="daily_challenge_button_start">Başla</string>
+    <string name="daily_challenge_button_resume">Devam et</string>
+    <string name="daily_challenge_button_done">Bugün tamamlandı</string>
+    <string name="session_progress">Oyun %1$d / %2$d</string>
+    <string name="session_running_total">Toplam: %1$d</string>
+    <string name="session_next_up">Sırada</string>
+    <string name="session_continue">Devam et</string>
+    <string name="session_done">Menüye dön</string>
+    <string name="session_complete_title">Oturum tamamlandı</string>
+    <string name="session_total_score">Toplam: %1$d</string>
+    <string name="session_streak_increased">Gün serisi: %1$d</string>
+    <string name="session_streak_current">Mevcut seri: %1$d gün</string>
 </resources>

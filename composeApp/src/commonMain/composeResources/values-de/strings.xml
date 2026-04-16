@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">Trainiere 3 Tage hintereinander</string>
     <string name="achievement_7_day_streak_desc">Trainiere 7 Tage hintereinander</string>
     <string name="achievement_30_day_streak_desc">Trainiere 30 Tage hintereinander</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">Tägliche Herausforderung</string>
+    <string name="daily_challenge_subtitle_start">Spiele %1$d Spiele, um deine Serie zu halten</string>
+    <string name="daily_challenge_subtitle_progress">Läuft · %1$d von %2$d</string>
+    <string name="daily_challenge_subtitle_done">Für heute erledigt. Komm morgen wieder!</string>
+    <string name="daily_challenge_streak_label">Tage Serie</string>
+    <string name="daily_challenge_button_start">Starten</string>
+    <string name="daily_challenge_button_resume">Fortsetzen</string>
+    <string name="daily_challenge_button_done">Heute abgeschlossen</string>
+    <string name="session_progress">Spiel %1$d von %2$d</string>
+    <string name="session_running_total">Bisher insgesamt: %1$d</string>
+    <string name="session_next_up">Als Nächstes</string>
+    <string name="session_continue">Weiter</string>
+    <string name="session_done">Zurück zum Menü</string>
+    <string name="session_complete_title">Sitzung abgeschlossen</string>
+    <string name="session_total_score">Gesamt: %1$d</string>
+    <string name="session_streak_increased">Tage-Serie: %1$d</string>
+    <string name="session_streak_current">Aktuelle Serie: %1$d Tage</string>
 </resources>

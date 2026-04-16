@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">Berlatih selama 3 hari berturut-turut</string>
     <string name="achievement_7_day_streak_desc">Berlatih selama 7 hari berturut-turut</string>
     <string name="achievement_30_day_streak_desc">Berlatih selama 30 hari berturut-turut</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">Tantangan harian</string>
+    <string name="daily_challenge_subtitle_start">Mainkan %1$d permainan untuk menjaga streak</string>
+    <string name="daily_challenge_subtitle_progress">Sedang berlangsung · %1$d dari %2$d</string>
+    <string name="daily_challenge_subtitle_done">Selesai hari ini. Sampai jumpa besok!</string>
+    <string name="daily_challenge_streak_label">hari berturut-turut</string>
+    <string name="daily_challenge_button_start">Mulai</string>
+    <string name="daily_challenge_button_resume">Lanjutkan</string>
+    <string name="daily_challenge_button_done">Selesai hari ini</string>
+    <string name="session_progress">Permainan %1$d dari %2$d</string>
+    <string name="session_running_total">Total sejauh ini: %1$d</string>
+    <string name="session_next_up">Selanjutnya</string>
+    <string name="session_continue">Lanjutkan</string>
+    <string name="session_done">Kembali ke menu</string>
+    <string name="session_complete_title">Sesi selesai</string>
+    <string name="session_total_score">Total: %1$d</string>
+    <string name="session_streak_increased">Streak hari: %1$d</string>
+    <string name="session_streak_current">Streak saat ini: %1$d hari</string>
 </resources>

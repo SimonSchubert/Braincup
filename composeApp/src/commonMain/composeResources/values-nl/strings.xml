@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">Train 3 dagen achter elkaar</string>
     <string name="achievement_7_day_streak_desc">Train 7 dagen achter elkaar</string>
     <string name="achievement_30_day_streak_desc">Train 30 dagen achter elkaar</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">Dagelijkse uitdaging</string>
+    <string name="daily_challenge_subtitle_start">Speel %1$d spellen om je reeks te behouden</string>
+    <string name="daily_challenge_subtitle_progress">Bezig · %1$d van %2$d</string>
+    <string name="daily_challenge_subtitle_done">Klaar voor vandaag. Kom morgen terug!</string>
+    <string name="daily_challenge_streak_label">dagen reeks</string>
+    <string name="daily_challenge_button_start">Start</string>
+    <string name="daily_challenge_button_resume">Hervatten</string>
+    <string name="daily_challenge_button_done">Vandaag voltooid</string>
+    <string name="session_progress">Spel %1$d van %2$d</string>
+    <string name="session_running_total">Totaal tot nu toe: %1$d</string>
+    <string name="session_next_up">Volgende</string>
+    <string name="session_continue">Doorgaan</string>
+    <string name="session_done">Terug naar menu</string>
+    <string name="session_complete_title">Sessie voltooid</string>
+    <string name="session_total_score">Totaal: %1$d</string>
+    <string name="session_streak_increased">Dagenreeks: %1$d</string>
+    <string name="session_streak_current">Huidige reeks: %1$d dagen</string>
 </resources>

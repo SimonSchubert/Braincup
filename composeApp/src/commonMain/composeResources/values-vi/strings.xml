@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">Luyện tập 3 ngày liên tiếp</string>
     <string name="achievement_7_day_streak_desc">Luyện tập 7 ngày liên tiếp</string>
     <string name="achievement_30_day_streak_desc">Luyện tập 30 ngày liên tiếp</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">Thử thách hàng ngày</string>
+    <string name="daily_challenge_subtitle_start">Chơi %1$d trò chơi để giữ chuỗi thắng</string>
+    <string name="daily_challenge_subtitle_progress">Đang tiến hành · %1$d / %2$d</string>
+    <string name="daily_challenge_subtitle_done">Hôm nay đã xong. Hẹn gặp lại ngày mai!</string>
+    <string name="daily_challenge_streak_label">ngày liên tiếp</string>
+    <string name="daily_challenge_button_start">Bắt đầu</string>
+    <string name="daily_challenge_button_resume">Tiếp tục</string>
+    <string name="daily_challenge_button_done">Đã hoàn thành hôm nay</string>
+    <string name="session_progress">Trò chơi %1$d / %2$d</string>
+    <string name="session_running_total">Tổng đến nay: %1$d</string>
+    <string name="session_next_up">Tiếp theo</string>
+    <string name="session_continue">Tiếp tục</string>
+    <string name="session_done">Quay lại menu</string>
+    <string name="session_complete_title">Phiên hoàn thành</string>
+    <string name="session_total_score">Tổng: %1$d</string>
+    <string name="session_streak_increased">Chuỗi ngày: %1$d</string>
+    <string name="session_streak_current">Chuỗi hiện tại: %1$d ngày</string>
 </resources>

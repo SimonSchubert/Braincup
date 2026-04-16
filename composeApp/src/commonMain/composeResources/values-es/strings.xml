@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">Entrena durante 3 días seguidos</string>
     <string name="achievement_7_day_streak_desc">Entrena durante 7 días seguidos</string>
     <string name="achievement_30_day_streak_desc">Entrena durante 30 días seguidos</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">Desafío diario</string>
+    <string name="daily_challenge_subtitle_start">Juega %1$d juegos para mantener tu racha</string>
+    <string name="daily_challenge_subtitle_progress">En progreso · %1$d de %2$d</string>
+    <string name="daily_challenge_subtitle_done">Listo por hoy. ¡Vuelve mañana!</string>
+    <string name="daily_challenge_streak_label">días de racha</string>
+    <string name="daily_challenge_button_start">Empezar</string>
+    <string name="daily_challenge_button_resume">Reanudar</string>
+    <string name="daily_challenge_button_done">Completado hoy</string>
+    <string name="session_progress">Juego %1$d de %2$d</string>
+    <string name="session_running_total">Total hasta ahora: %1$d</string>
+    <string name="session_next_up">A continuación</string>
+    <string name="session_continue">Continuar</string>
+    <string name="session_done">Volver al menú</string>
+    <string name="session_complete_title">Sesión completada</string>
+    <string name="session_total_score">Total: %1$d</string>
+    <string name="session_streak_increased">Racha de días: %1$d</string>
+    <string name="session_streak_current">Racha actual: %1$d días</string>
 </resources>

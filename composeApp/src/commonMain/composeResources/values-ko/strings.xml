@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">3일 연속 훈련</string>
     <string name="achievement_7_day_streak_desc">7일 연속 훈련</string>
     <string name="achievement_30_day_streak_desc">30일 연속 훈련</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">일일 챌린지</string>
+    <string name="daily_challenge_subtitle_start">연속 기록을 유지하려면 %1$d개의 게임을 플레이하세요</string>
+    <string name="daily_challenge_subtitle_progress">진행 중 · %1$d / %2$d</string>
+    <string name="daily_challenge_subtitle_done">오늘은 완료! 내일 또 오세요!</string>
+    <string name="daily_challenge_streak_label">일 연속</string>
+    <string name="daily_challenge_button_start">시작</string>
+    <string name="daily_challenge_button_resume">계속하기</string>
+    <string name="daily_challenge_button_done">오늘 완료</string>
+    <string name="session_progress">게임 %1$d / %2$d</string>
+    <string name="session_running_total">현재까지 합계: %1$d</string>
+    <string name="session_next_up">다음</string>
+    <string name="session_continue">계속</string>
+    <string name="session_done">메뉴로 돌아가기</string>
+    <string name="session_complete_title">세션 완료</string>
+    <string name="session_total_score">합계: %1$d</string>
+    <string name="session_streak_increased">연속 일수: %1$d</string>
+    <string name="session_streak_current">현재 연속: %1$d일</string>
 </resources>

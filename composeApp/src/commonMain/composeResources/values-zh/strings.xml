@@ -146,4 +146,23 @@
     <string name="achievement_3_day_streak_desc">连续训练3天</string>
     <string name="achievement_7_day_streak_desc">连续训练7天</string>
     <string name="achievement_30_day_streak_desc">连续训练30天</string>
+
+    <!-- Daily challenge / session -->
+    <string name="daily_challenge_title">每日挑战</string>
+    <string name="daily_challenge_subtitle_start">玩 %1$d 个游戏来保持连续记录</string>
+    <string name="daily_challenge_subtitle_progress">进行中 · %1$d / %2$d</string>
+    <string name="daily_challenge_subtitle_done">今日已完成，明天再来吧！</string>
+    <string name="daily_challenge_streak_label">连续天数</string>
+    <string name="daily_challenge_button_start">开始</string>
+    <string name="daily_challenge_button_resume">继续</string>
+    <string name="daily_challenge_button_done">今日已完成</string>
+    <string name="session_progress">游戏 %1$d / %2$d</string>
+    <string name="session_running_total">目前总计: %1$d</string>
+    <string name="session_next_up">下一个</string>
+    <string name="session_continue">继续</string>
+    <string name="session_done">返回菜单</string>
+    <string name="session_complete_title">会话完成</string>
+    <string name="session_total_score">总计: %1$d</string>
+    <string name="session_streak_increased">连续天数: %1$d</string>
+    <string name="session_streak_current">当前连续: %1$d 天</string>
 </resources>
