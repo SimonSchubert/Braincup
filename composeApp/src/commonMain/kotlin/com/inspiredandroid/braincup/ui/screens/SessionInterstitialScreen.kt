@@ -32,31 +32,39 @@ fun SessionInterstitialScreen(
         onBack = onExit,
         scrollable = false,
     ) {
+        SessionProgressDots(
+            currentIndex = nextGameIndex,
+            total = totalGames,
+            accentColor = Color(nextGame.accentColor),
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+
+        Spacer(Modifier.height(12.dp))
+
         Text(
             text = stringResource(Res.string.session_progress, nextGameIndex + 1, totalGames),
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.labelMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
 
-        Spacer(Modifier.height(8.dp))
-
         if (nextGameIndex > 0) {
+            Spacer(Modifier.height(4.dp))
             Text(
                 text = stringResource(Res.string.session_running_total, runningTotal),
-                style = MaterialTheme.typography.bodyLarge,
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
-            Spacer(Modifier.height(24.dp))
-        } else {
-            Spacer(Modifier.height(16.dp))
         }
+
+        Spacer(Modifier.height(24.dp))
 
         Card(
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.surfaceContainerHigh,
+                containerColor = Color(nextGame.accentColor),
             ),
-            shape = RoundedCornerShape(16.dp),
+            shape = RoundedCornerShape(24.dp),
             modifier = Modifier
                 .widthIn(max = 420.dp)
                 .padding(horizontal = 24.dp)
@@ -65,26 +73,28 @@ fun SessionInterstitialScreen(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(24.dp),
+                    .padding(horizontal = 24.dp, vertical = 32.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = stringResource(Res.string.session_next_up),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    text = stringResource(Res.string.session_next_up).uppercase(),
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.SemiBold,
+                    color = Color.Black.copy(alpha = 0.55f),
                 )
-                Spacer(Modifier.height(12.dp))
-                Box(
-                    modifier = Modifier
-                        .size(48.dp)
-                        .background(Color(nextGame.accentColor), CircleShape),
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(nextGame.displayNameRes),
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black.copy(alpha = 0.9f),
+                    textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    text = stringResource(nextGame.displayNameRes),
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onSurface,
+                    text = stringResource(nextGame.descriptionRes),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.Black.copy(alpha = 0.7f),
                     textAlign = TextAlign.Center,
                 )
             }
@@ -99,5 +109,36 @@ fun SessionInterstitialScreen(
                 .padding(horizontal = 24.dp),
             value = stringResource(Res.string.session_continue),
         )
+    }
+}
+
+@Composable
+private fun SessionProgressDots(
+    currentIndex: Int,
+    total: Int,
+    accentColor: Color,
+    modifier: Modifier = Modifier,
+) {
+    val mutedColor = MaterialTheme.colorScheme.surfaceContainerHighest
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        repeat(total) { index ->
+            val isCurrent = index == currentIndex
+            val isCompleted = index < currentIndex
+            val size = if (isCurrent) 12.dp else 8.dp
+            val color = when {
+                isCurrent -> accentColor
+                isCompleted -> MaterialTheme.colorScheme.primary
+                else -> mutedColor
+            }
+            Box(
+                modifier = Modifier
+                    .size(size)
+                    .background(color, CircleShape),
+            )
+        }
     }
 }

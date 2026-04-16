@@ -425,7 +425,8 @@ private fun ColumnScope.ValueComparisonContent(
             onClick = { onAnswer((index + 1).toString()) },
             modifier = Modifier
                 .padding(4.dp)
-                .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
+                .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
+                .pointerHoverIcon(PointerIcon.Hand),
         ) {
             Text(answer)
         }
@@ -889,7 +890,7 @@ private fun GhostGridCell(
     Card(
         onClick = onClick,
         enabled = isClickable,
-        modifier = modifier,
+        modifier = if (isClickable) modifier.pointerHoverIcon(PointerIcon.Hand) else modifier,
         colors = CardDefaults.cardColors(
             containerColor = cellColor,
             disabledContainerColor = cellColor,
