@@ -27,12 +27,7 @@ import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Color
-import com.inspiredandroid.braincup.ui.components.CircleButton
-import com.inspiredandroid.braincup.ui.components.GameScaffold
-import com.inspiredandroid.braincup.ui.components.NumberPad
-import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
-import com.inspiredandroid.braincup.ui.components.ShapeCanvas
-import com.inspiredandroid.braincup.ui.components.ShapeCanvasButton
+import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
@@ -84,7 +79,7 @@ private fun ColumnScope.MentalCalculationContent(
     uiState: MentalCalculationUiState,
     onAnswer: (String) -> Unit,
 ) {
-    Text(
+    MathText(
         text = uiState.calculation,
         style = MaterialTheme.typography.displaySmall,
         modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -102,10 +97,9 @@ private fun ColumnScope.ChainCalculationContent(
     uiState: ChainCalculationUiState,
     onAnswer: (String) -> Unit,
 ) {
-    Text(
+    MathText(
         text = "${uiState.calculation} = ?",
         style = MaterialTheme.typography.displaySmall,
-        textAlign = TextAlign.Center,
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .padding(horizontal = 16.dp),
@@ -290,14 +284,32 @@ private fun ColumnScope.FractionCalculationContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    Text(
-        text = uiState.calculation,
-        style = MaterialTheme.typography.displaySmall,
-        textAlign = TextAlign.Center,
+    Row(
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .padding(horizontal = 16.dp),
-    )
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        val parts = uiState.calculation.split(" * ")
+        parts.forEachIndexed { index, part ->
+            val fraction = part.removeSurrounding("(", ")")
+            val fractionParts = fraction.split("/")
+            if (fractionParts.size == 2) {
+                FractionText(
+                    numerator = fractionParts[0],
+                    denominator = fractionParts[1],
+                    style = MaterialTheme.typography.displaySmall,
+                )
+            } else {
+                Text(part, style = MaterialTheme.typography.displaySmall)
+            }
+
+            if (index < parts.size - 1) {
+                Text("\u00D7", style = MaterialTheme.typography.displaySmall)
+            }
+        }
+    }
     Spacer(Modifier.height(16.dp))
     NumberPadWithInput(onInputChange = { input ->
         if (input == uiState.answerString || input.length >= 4) {
@@ -428,7 +440,17 @@ private fun ColumnScope.ValueComparisonContent(
                 .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
                 .pointerHoverIcon(PointerIcon.Hand),
         ) {
-            Text(answer)
+            if (answer.contains("/")) {
+                val parts = answer.split("/")
+                FractionText(
+                    numerator = parts[0],
+                    denominator = parts[1],
+                    style = MaterialTheme.typography.bodyLarge,
+                    color = MaterialTheme.colorScheme.onPrimary,
+                )
+            } else {
+                MathText(answer)
+            }
         }
     }
 }
@@ -589,7 +611,7 @@ private fun ExpressionRow(
                             AssistChip(
                                 modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
                                 onClick = { onTokenClick(index) },
-                                label = { Text(token.displayValue) },
+                                label = { MathText(token.displayValue) },
                                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
                             )
                         }
@@ -658,7 +680,7 @@ private fun OperatorRow(
         operators.forEach { operator ->
             CircleButton(
                 onClick = { onOperatorClick(operator) },
-                value = operator,
+                value = operator.replace("*", "\u00D7").replace("/", "\u00F7"),
             )
         }
     }
