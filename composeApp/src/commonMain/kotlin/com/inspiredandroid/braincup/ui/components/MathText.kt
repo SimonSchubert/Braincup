@@ -15,14 +15,12 @@ import androidx.compose.ui.unit.dp
 /**
  * Replace * with × and / with ÷ for better math display.
  */
-fun String.formatMathSymbols(): String {
-    return this.replace("*", " \u00D7 ")
-        .replace("/", " \u00F7 ")
-        .replace("+", " + ")
-        .replace("-", " - ")
-        .replace("  ", " ")
-        .trim()
-}
+fun String.formatMathSymbols(): String = this.replace("*", " \u00D7 ")
+    .replace("/", " \u00F7 ")
+    .replace("+", " + ")
+    .replace("-", " - ")
+    .replace("  ", " ")
+    .trim()
 
 @Composable
 fun MathText(
