@@ -8,6 +8,7 @@ class GridSolverGame : Game() {
     val entries = mutableListOf<MutableList<Int>>()
     val resultsX = mutableListOf<Int>()
     val resultsY = mutableListOf<Int>()
+    val initialValues = mutableListOf<Int?>()
 
     fun size(): Int = when {
         round > 7 -> 4
@@ -25,6 +26,7 @@ class GridSolverGame : Game() {
         entries.clear()
         resultsX.clear()
         resultsY.clear()
+        initialValues.clear()
 
         repeat(size()) { x ->
             entries.add(mutableListOf())
@@ -39,6 +41,19 @@ class GridSolverGame : Game() {
             repeat(size()) { y ->
                 resultsX.addOrIncrease(x, entries[y][x])
             }
+        }
+
+        val totalCells = size() * size()
+        repeat(totalCells) {
+            initialValues.add(null)
+        }
+
+        val revealCount = (size() - 1) * (size() - 1)
+        val indices = (0 until totalCells).shuffled().take(revealCount)
+        indices.forEach { index ->
+            val x = index / size()
+            val y = index % size()
+            initialValues[index] = entries[x][y]
         }
     }
 
@@ -79,5 +94,6 @@ class GridSolverGame : Game() {
         gridSize = size(),
         resultsX = resultsX.toList(),
         resultsY = resultsY.toList(),
+        initialValues = initialValues.toList(),
     )
 }

@@ -80,6 +80,7 @@ data class GridSolverUiState(
     val gridSize: Int,
     val resultsX: List<Int>,
     val resultsY: List<Int>,
+    val initialValues: List<Int?>,
 ) : GameUiState
 
 data class PatternSequenceUiState(

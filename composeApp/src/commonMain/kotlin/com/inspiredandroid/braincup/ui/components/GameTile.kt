@@ -360,23 +360,36 @@ private fun GridSolverPreview() {
         modifier = Modifier.padding(8.dp),
     ) {
         // 2x2 grid + sum cards
-        val grid = remember { listOf(listOf("?", "?"), listOf("?", "?")) }
+        val grid = remember { listOf(listOf("5", "?"), listOf("?", "?")) }
         val rowSums = remember { listOf(8, 6) }
         val colSums = remember { listOf(7, 7) }
 
         grid.forEachIndexed { rowIndex, row ->
             Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-                row.forEach { cell ->
+                row.forEachIndexed { colIndex, cell ->
+                    val isInitial = rowIndex == 0 && colIndex == 0
                     Box(
                         modifier = Modifier
                             .size(24.dp)
                             .background(
-                                MaterialTheme.colorScheme.surface,
+                                if (isInitial) {
+                                    MaterialTheme.colorScheme.surfaceVariant
+                                } else {
+                                    MaterialTheme.colorScheme.surface
+                                },
                                 MaterialTheme.shapes.extraSmall,
                             ),
                         contentAlignment = Alignment.Center,
                     ) {
-                        Text(text = cell, style = MaterialTheme.typography.labelSmall)
+                        Text(
+                            text = cell,
+                            style = MaterialTheme.typography.labelSmall,
+                            color = if (isInitial) {
+                                MaterialTheme.colorScheme.onSurfaceVariant
+                            } else {
+                                MaterialTheme.colorScheme.onSurface
+                            },
+                        )
                     }
                 }
                 Box(

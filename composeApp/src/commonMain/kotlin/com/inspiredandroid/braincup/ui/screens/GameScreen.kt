@@ -461,8 +461,16 @@ private fun ColumnScope.GridSolverContent(
     onAnswer: (String) -> Unit,
 ) {
     val totalCells = uiState.gridSize * uiState.gridSize
-    var inputs by remember { mutableStateOf(List(totalCells) { "" }) }
-    var currentIndex by remember { mutableStateOf(0) }
+    var inputs by remember {
+        mutableStateOf(
+            uiState.initialValues.map { it?.toString() ?: "" },
+        )
+    }
+    var currentIndex by remember {
+        mutableStateOf(
+            uiState.initialValues.indexOfFirst { it == null }.let { if (it == -1) 0 else it },
+        )
+    }
 
     Text(
         text = stringResource(Res.string.game_fill_grid),
@@ -482,15 +490,29 @@ private fun ColumnScope.GridSolverContent(
                     val cellIndex = rowIndex * uiState.gridSize + colIndex
                     val isCurrentCell = cellIndex == currentIndex
                     val cellValue = inputs[cellIndex]
+                    val isInitialValue = uiState.initialValues[cellIndex] != null
                     Card(
+                        onClick = {
+                            if (!isInitialValue) {
+                                currentIndex = cellIndex
+                            }
+                        },
+                        enabled = !isInitialValue,
                         modifier = Modifier
                             .padding(4.dp)
-                            .size(48.dp),
+                            .size(48.dp)
+                            .let {
+                                if (!isInitialValue) {
+                                    it.pointerHoverIcon(PointerIcon.Hand)
+                                } else {
+                                    it
+                                }
+                            },
                         colors = CardDefaults.cardColors(
-                            containerColor = if (isCurrentCell) {
-                                MaterialTheme.colorScheme.secondaryContainer
-                            } else {
-                                MaterialTheme.colorScheme.surface
+                            containerColor = when {
+                                isCurrentCell -> MaterialTheme.colorScheme.secondaryContainer
+                                isInitialValue -> MaterialTheme.colorScheme.surfaceVariant
+                                else -> MaterialTheme.colorScheme.surface
                             },
                         ),
                     ) {
@@ -501,6 +523,11 @@ private fun ColumnScope.GridSolverContent(
                             Text(
                                 text = cellValue.ifEmpty { "?" },
                                 style = MaterialTheme.typography.titleMedium,
+                                color = if (isInitialValue) {
+                                    MaterialTheme.colorScheme.onSurfaceVariant
+                                } else {
+                                    MaterialTheme.colorScheme.onSurface
+                                },
                             )
                         }
                     }
@@ -559,12 +586,22 @@ private fun ColumnScope.GridSolverContent(
             newInputs[currentIndex] = input.last().toString()
             inputs = newInputs
 
-            if (currentIndex < totalCells - 1) {
-                currentIndex++
-            } else {
+            // Find next empty cell index
+            var nextIndex = -1
+            for (i in 1 until totalCells) {
+                val checkIndex = (currentIndex + i) % totalCells
+                if (uiState.initialValues[checkIndex] == null) {
+                    nextIndex = checkIndex
+                    break
+                }
+            }
+
+            if (inputs.all { it.isNotEmpty() }) {
                 // All cells filled, submit answer
                 val answer = inputs.joinToString(",")
                 onAnswer(answer)
+            } else if (nextIndex != -1) {
+                currentIndex = nextIndex
             }
         }
     })
