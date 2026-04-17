@@ -303,20 +303,30 @@ private fun SherlockCalculationPreview() {
 
 @Composable
 private fun ChainCalculationPreview() {
-    Text(
-        text = "5 + 3 \u00D7 2",
+    MathText(
+        text = "5 + 3 * 2",
         style = MaterialTheme.typography.headlineSmall,
-        textAlign = TextAlign.Center,
     )
 }
 
 @Composable
 private fun FractionCalculationPreview() {
-    Text(
-        text = "(2/3) \u00D7 (4/5)",
-        style = MaterialTheme.typography.titleLarge,
-        textAlign = TextAlign.Center,
-    )
+    Row(
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        FractionText(
+            numerator = "2",
+            denominator = "3",
+            style = MaterialTheme.typography.titleLarge,
+        )
+        Text("\u00D7", style = MaterialTheme.typography.titleLarge)
+        FractionText(
+            numerator = "4",
+            denominator = "5",
+            style = MaterialTheme.typography.titleLarge,
+        )
+    }
 }
 
 @Composable
