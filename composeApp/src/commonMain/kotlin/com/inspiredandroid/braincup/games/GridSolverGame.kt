@@ -11,9 +11,8 @@ class GridSolverGame : Game() {
     val initialValues = mutableListOf<Int?>()
 
     fun size(): Int = when {
-        round > 7 -> 4
-        round > 4 -> 3
-        else -> 2
+        round > 5 -> 4
+        else -> 3
     }
 
     private fun maxEntryValue(): Int = when {
@@ -48,7 +47,7 @@ class GridSolverGame : Game() {
             initialValues.add(null)
         }
 
-        val revealCount = (size() - 1) * (size() - 1)
+        val revealCount = if (size() == 3) 3 else 5
         val indices = (0 until totalCells).shuffled().take(revealCount)
         indices.forEach { index ->
             val x = index / size()

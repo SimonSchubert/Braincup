@@ -109,14 +109,15 @@ fun createPathFinderGame(): PathFinderGame {
 fun createGridSolverGame(): GridSolverGame {
     val game = GridSolverGame()
     game.entries.clear()
-    game.entries.add(mutableListOf(3, 5))
-    game.entries.add(mutableListOf(4, 2))
+    game.entries.add(mutableListOf(3, 5, 2))
+    game.entries.add(mutableListOf(4, 2, 6))
+    game.entries.add(mutableListOf(1, 4, 3))
     game.resultsX.clear()
-    game.resultsX.addAll(listOf(7, 7))
+    game.resultsX.addAll(listOf(8, 11, 11))
     game.resultsY.clear()
-    game.resultsY.addAll(listOf(8, 6))
+    game.resultsY.addAll(listOf(10, 12, 8))
     game.initialValues.clear()
-    game.initialValues.addAll(listOf(3, null, null, null))
+    game.initialValues.addAll(listOf(3, null, null, null, 2, null, null, null, 3))
     return game
 }
 

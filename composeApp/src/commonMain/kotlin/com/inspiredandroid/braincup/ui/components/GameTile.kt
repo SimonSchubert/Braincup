@@ -359,15 +359,15 @@ private fun GridSolverPreview() {
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.padding(8.dp),
     ) {
-        // 2x2 grid + sum cards
-        val grid = remember { listOf(listOf("5", "?"), listOf("?", "?")) }
-        val rowSums = remember { listOf(8, 6) }
-        val colSums = remember { listOf(7, 7) }
+        // 3x3 grid + sum cards
+        val grid = remember { listOf(listOf("5", "?", "?"), listOf("?", "2", "?"), listOf("?", "?", "3")) }
+        val rowSums = remember { listOf(10, 12, 8) }
+        val colSums = remember { listOf(8, 11, 11) }
 
         grid.forEachIndexed { rowIndex, row ->
             Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
                 row.forEachIndexed { colIndex, cell ->
-                    val isInitial = rowIndex == 0 && colIndex == 0
+                    val isInitial = (rowIndex == 0 && colIndex == 0) || (rowIndex == 1 && colIndex == 1) || (rowIndex == 2 && colIndex == 2)
                     Box(
                         modifier = Modifier
                             .size(24.dp)
