@@ -115,6 +115,8 @@ fun createGridSolverGame(): GridSolverGame {
     game.resultsX.addAll(listOf(7, 7))
     game.resultsY.clear()
     game.resultsY.addAll(listOf(8, 6))
+    game.initialValues.clear()
+    game.initialValues.addAll(listOf(3, null, null, null))
     return game
 }
 
