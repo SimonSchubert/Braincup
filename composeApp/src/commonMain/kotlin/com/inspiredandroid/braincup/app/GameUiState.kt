@@ -81,6 +81,7 @@ data class GridSolverUiState(
     val resultsX: List<Int>,
     val resultsY: List<Int>,
     val initialValues: List<Int?>,
+    val solutionValues: List<Int>? = null,
 ) : GameUiState
 
 data class PatternSequenceUiState(

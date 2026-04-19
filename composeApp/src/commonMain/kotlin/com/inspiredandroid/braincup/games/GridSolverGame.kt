@@ -42,17 +42,25 @@ class GridSolverGame : Game() {
             }
         }
 
-        val totalCells = size() * size()
+        val gridSize = size()
+        val totalCells = gridSize * gridSize
         repeat(totalCells) {
             initialValues.add(null)
         }
 
-        val revealCount = if (size() == 3) 3 else 5
-        val indices = (0 until totalCells).shuffled().take(revealCount)
+        val revealCount = if (gridSize == 3) 3 else 5
+        // Reshuffle until clues span at least two rows AND at least two columns — a
+        // single-row/column reveal makes the remaining cells trivially derivable from the sums.
+        var indices: List<Int>
+        do {
+            indices = (0 until totalCells).shuffled().take(revealCount)
+        } while (indices.map { it / gridSize }.toSet().size < 2 ||
+            indices.map { it % gridSize }.toSet().size < 2
+        )
         indices.forEach { index ->
-            val x = index / size()
-            val y = index % size()
-            initialValues[index] = entries[x][y]
+            val row = index / gridSize
+            val col = index % gridSize
+            initialValues[index] = entries[row][col]
         }
     }
 

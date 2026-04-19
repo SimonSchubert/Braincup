@@ -174,6 +174,10 @@ class GameController(
             handleFlashCrowdAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is GridSolverGame) {
+            handleGridSolverAnswer(currentState, game, answer.trim())
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -457,6 +461,34 @@ class GameController(
             val index = input.toIntOrNull() ?: return
             game.toggleCell(index)
             _gameUiState.value = game.toUiState()
+        }
+    }
+
+    private fun handleGridSolverAnswer(
+        currentState: GameState.Active,
+        game: GridSolverGame,
+        input: String,
+    ) {
+        if (game.isCorrect(input)) {
+            points++
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
+            )
+            scope.launch {
+                delay(1_000)
+                proceedAfterFeedback()
+            }
+        } else {
+            game.answeredAllCorrect = false
+            val currentUiState = _gameUiState.value as? GridSolverUiState ?: return
+            _gameUiState.value = currentUiState.copy(solutionValues = game.entries.flatten())
+            scope.launch {
+                delay(1_500)
+                proceedAfterInlineFeedback(currentState.gameType, game)
+            }
         }
     }
 

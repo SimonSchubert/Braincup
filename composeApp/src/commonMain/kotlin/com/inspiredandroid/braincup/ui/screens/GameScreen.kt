@@ -481,33 +481,40 @@ private fun ColumnScope.GridSolverContent(
     )
     Spacer(Modifier.height(16.dp))
 
-    // Display the grid with row and column sums (hidden answers)
+    val showingSolution = uiState.solutionValues != null
     Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
         for (rowIndex in 0 until uiState.gridSize) {
             Row {
                 for (colIndex in 0 until uiState.gridSize) {
                     val cellIndex = rowIndex * uiState.gridSize + colIndex
-                    val isCurrentCell = cellIndex == currentIndex
-                    val cellValue = inputs[cellIndex]
                     val isInitialValue = uiState.initialValues[cellIndex] != null
+                    val isSolutionCell = showingSolution && !isInitialValue
+                    val isCurrentCell = cellIndex == currentIndex && !showingSolution
+                    val cellValue = when {
+                        isSolutionCell -> uiState.solutionValues[cellIndex].toString()
+                        else -> inputs[cellIndex]
+                    }
+                    val isInteractive = !isInitialValue && !showingSolution
                     Card(
                         onClick = {
-                            if (!isInitialValue) {
+                            if (isInteractive) {
                                 currentIndex = cellIndex
                             }
                         },
-                        enabled = !isInitialValue,
+                        enabled = isInteractive,
                         modifier = Modifier
                             .padding(4.dp)
                             .size(48.dp)
-                            .then(if (!isInitialValue) Modifier.pointerHoverIcon(PointerIcon.Hand) else Modifier),
+                            .then(if (isInteractive) Modifier.pointerHoverIcon(PointerIcon.Hand) else Modifier),
                         colors = CardDefaults.cardColors(
                             containerColor = when {
+                                isSolutionCell -> SuccessGreen.copy(alpha = 0.15f)
                                 isCurrentCell -> MaterialTheme.colorScheme.secondaryContainer
                                 isInitialValue -> MaterialTheme.colorScheme.surfaceVariant
                                 else -> MaterialTheme.colorScheme.surface
                             },
                         ),
+                        border = if (isSolutionCell) BorderStroke(2.dp, SuccessGreen) else null,
                     ) {
                         Box(
                             contentAlignment = Alignment.Center,
@@ -574,7 +581,7 @@ private fun ColumnScope.GridSolverContent(
     Spacer(Modifier.height(24.dp))
 
     NumberPad(onInputChange = { input ->
-        if (input.isNotEmpty()) {
+        if (input.isNotEmpty() && !showingSolution) {
             val newInputs = inputs.toMutableList()
             newInputs[currentIndex] = input.last().toString()
             inputs = newInputs

@@ -359,7 +359,6 @@ private fun GridSolverPreview() {
         verticalArrangement = Arrangement.Center,
         modifier = Modifier.padding(8.dp),
     ) {
-        // 3x3 grid + sum cards
         val grid = remember { listOf(listOf("5", "?", "?"), listOf("?", "2", "?"), listOf("?", "?", "3")) }
         val rowSums = remember { listOf(10, 12, 8) }
         val colSums = remember { listOf(8, 11, 11) }
