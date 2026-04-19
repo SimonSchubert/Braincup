@@ -461,15 +461,14 @@ private fun ColumnScope.GridSolverContent(
     onAnswer: (String) -> Unit,
 ) {
     val totalCells = uiState.gridSize * uiState.gridSize
-    var inputs by remember {
-        mutableStateOf(
-            uiState.initialValues.map { it?.toString() ?: "" },
-        )
+    // Key on uiState so state resets each new round — grid size can grow (3→4), and pre-filled
+    // clues differ every round. Without the key, the previous round's inputs persist and can
+    // index out of bounds on a larger grid.
+    var inputs by remember(uiState) {
+        mutableStateOf(uiState.initialValues.map { it?.toString() ?: "" })
     }
-    var currentIndex by remember {
-        mutableStateOf(
-            uiState.initialValues.indexOfFirst { it == null }.let { if (it == -1) 0 else it },
-        )
+    var currentIndex by remember(uiState) {
+        mutableStateOf(uiState.initialValues.indexOfFirst { it == null }.coerceAtLeast(0))
     }
 
     Text(
@@ -501,13 +500,7 @@ private fun ColumnScope.GridSolverContent(
                         modifier = Modifier
                             .padding(4.dp)
                             .size(48.dp)
-                            .let {
-                                if (!isInitialValue) {
-                                    it.pointerHoverIcon(PointerIcon.Hand)
-                                } else {
-                                    it
-                                }
-                            },
+                            .then(if (!isInitialValue) Modifier.pointerHoverIcon(PointerIcon.Hand) else Modifier),
                         colors = CardDefaults.cardColors(
                             containerColor = when {
                                 isCurrentCell -> MaterialTheme.colorScheme.secondaryContainer
@@ -586,22 +579,18 @@ private fun ColumnScope.GridSolverContent(
             newInputs[currentIndex] = input.last().toString()
             inputs = newInputs
 
-            // Find next empty cell index
-            var nextIndex = -1
-            for (i in 1 until totalCells) {
-                val checkIndex = (currentIndex + i) % totalCells
-                if (uiState.initialValues[checkIndex] == null) {
-                    nextIndex = checkIndex
-                    break
+            if (newInputs.all { it.isNotEmpty() }) {
+                onAnswer(newInputs.joinToString(","))
+            } else {
+                // Advance to the next editable cell that's still empty — skip clues and any
+                // cells the user has already filled.
+                for (i in 1..totalCells) {
+                    val checkIndex = (currentIndex + i) % totalCells
+                    if (uiState.initialValues[checkIndex] == null && newInputs[checkIndex].isEmpty()) {
+                        currentIndex = checkIndex
+                        break
+                    }
                 }
-            }
-
-            if (inputs.all { it.isNotEmpty() }) {
-                // All cells filled, submit answer
-                val answer = inputs.joinToString(",")
-                onAnswer(answer)
-            } else if (nextIndex != -1) {
-                currentIndex = nextIndex
             }
         }
     })
