@@ -115,7 +115,7 @@ fun NumberPadWithInput(
         ) {
             Text(
                 input,
-                style = TextStyle(color = Color.Black, fontSize = 32.sp),
+                style = TextStyle(color = MaterialTheme.colorScheme.onSurface, fontSize = 32.sp),
                 modifier = Modifier.align(Alignment.CenterVertically),
             )
             if (input.isNotEmpty()) {
@@ -129,7 +129,7 @@ fun NumberPadWithInput(
                     Icon(
                         painterResource(Res.drawable.baseline_backspace_24),
                         contentDescription = null,
-                        tint = Color.Black,
+                        tint = MaterialTheme.colorScheme.onSurface,
                     )
                 }
             }
