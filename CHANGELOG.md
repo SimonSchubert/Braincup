@@ -1,3 +1,15 @@
+## v2.4.1 — 2026-04-19
+
+### Features
+- Grid Solver now features pre-filled Sudoku-style clues with 3x3 and 4x4 grids
+- Failed Grid Solver rounds reveal the correct solution on the grid
+
+### Fixes
+- Fixed Grid Solver crash when advancing to a larger grid between rounds
+
+### Improvements
+- Math calculations display with proper symbols and vertical fractions
+
 ## v2.4.0 — 2026-04-16
 
 ### Features

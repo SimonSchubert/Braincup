@@ -1,0 +1,4 @@
+Grid Solver now features pre-filled Sudoku-style clues with 3x3 and 4x4 grids
+Failed Grid Solver rounds reveal the solution on the grid
+Fixed Grid Solver crash between rounds
+Math calculations display with proper symbols and vertical fractions
