@@ -1,3 +1,11 @@
+## v2.5.0 — 2026-04-19
+
+### Features
+- Dark mode that follows system appearance, with Material You dynamic color on Android 12+
+
+### Improvements
+- Crisper number pad operator buttons with perfectly centered vector icons
+
 ## v2.4.1 — 2026-04-19
 
 ### Features

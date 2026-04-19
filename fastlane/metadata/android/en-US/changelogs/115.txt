@@ -1,0 +1,3 @@
+Dark mode follows your system appearance
+Material You dynamic color on Android 12+
+Crisper, perfectly centered number pad operator icons
