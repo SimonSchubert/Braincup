@@ -26,6 +26,7 @@ import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
+import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -97,7 +98,7 @@ fun MainMenuScreenContent(
                     Text(
                         text = stringResource(Res.string.app_name),
                         style = MaterialTheme.typography.headlineLarge,
-                        color = MaterialTheme.colorScheme.primary,
+                        color = Primary,
                         modifier = Modifier.offset(y = 16.dp),
                     )
 

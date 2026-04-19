@@ -11,6 +11,8 @@ import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -24,7 +26,7 @@ fun DailyChallengeCard(
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = PrimaryContainer,
         ),
         shape = RoundedCornerShape(16.dp),
     ) {
@@ -38,7 +40,7 @@ fun DailyChallengeCard(
                         text = stringResource(Res.string.daily_challenge_title),
                         style = MaterialTheme.typography.titleLarge,
                         fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        color = OnPrimaryContainer,
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
@@ -52,7 +54,7 @@ fun DailyChallengeCard(
                             else -> stringResource(Res.string.daily_challenge_subtitle_start, totalGames)
                         },
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        color = OnPrimaryContainer,
                     )
                 }
                 if (sessionStreak > 0) {
@@ -61,12 +63,12 @@ fun DailyChallengeCard(
                             text = sessionStreak.toString(),
                             style = MaterialTheme.typography.headlineMedium,
                             fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            color = OnPrimaryContainer,
                         )
                         Text(
                             text = stringResource(Res.string.daily_challenge_streak_label),
                             style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            color = OnPrimaryContainer,
                         )
                     }
                 }

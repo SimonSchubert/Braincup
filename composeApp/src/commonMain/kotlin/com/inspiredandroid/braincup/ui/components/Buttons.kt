@@ -8,6 +8,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerIcon
 import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.unit.dp
@@ -44,10 +45,20 @@ fun CircleButton(
             .clickable(onClick = onClick),
         contentAlignment = androidx.compose.ui.Alignment.Center,
     ) {
-        Text(
-            value,
-            color = androidx.compose.ui.graphics.Color.White,
-            fontSize = 22.sp,
-        )
+        val operatorIcon = OperatorIcons[value]
+        if (operatorIcon != null) {
+            androidx.compose.material3.Icon(
+                imageVector = operatorIcon,
+                contentDescription = value,
+                tint = Color.White,
+                modifier = Modifier.size(24.dp),
+            )
+        } else {
+            Text(
+                value,
+                color = Color.White,
+                fontSize = 22.sp,
+            )
+        }
     }
 }

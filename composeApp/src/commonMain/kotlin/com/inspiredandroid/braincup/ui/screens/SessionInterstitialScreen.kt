@@ -16,6 +16,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -131,7 +132,7 @@ private fun SessionProgressDots(
             val size = if (isCurrent) 12.dp else 8.dp
             val color = when {
                 isCurrent -> accentColor
-                isCompleted -> MaterialTheme.colorScheme.primary
+                isCompleted -> Primary
                 else -> mutedColor
             }
             Box(

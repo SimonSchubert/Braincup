@@ -1,7 +1,10 @@
 package com.inspiredandroid.braincup.ui.theme
 
+import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Typography
+import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
@@ -24,7 +27,12 @@ private val OnSurfaceVariant = Color(0xFF666666)
 val SuccessGreen = Color(0xFF5C8E58)
 val ErrorRed = Color(0xFFB00020)
 
-private val LightColorScheme = lightColorScheme(
+// Brand-pinned container tones — used by banners and game-state visuals that should
+// stay consistent regardless of Material You dynamic color. Values match M3 light defaults.
+val PrimaryContainer = Color(0xFFEADDFF)
+val OnPrimaryContainer = Color(0xFF21005D)
+
+internal val LightColorScheme = lightColorScheme(
     primary = Primary,
     onPrimary = OnPrimary,
     secondary = Secondary,
@@ -35,6 +43,23 @@ private val LightColorScheme = lightColorScheme(
     onSurface = OnSurface,
     surfaceVariant = SurfaceVariant,
     onSurfaceVariant = OnSurfaceVariant,
+    error = ErrorRed,
+    onError = Color.White,
+)
+
+internal val DarkColorScheme = darkColorScheme(
+    primary = Primary,
+    onPrimary = Color.White,
+    secondary = Primary,
+    onSecondary = Color.White,
+    background = Color(0xFF121212),
+    onBackground = Color(0xFFE6E1E5),
+    surface = Color(0xFF121212),
+    onSurface = Color(0xFFE6E1E5),
+    surfaceVariant = Color(0xFF2A2A2A),
+    onSurfaceVariant = Color(0xFFB0B0B0),
+    surfaceContainer = Color(0xFF2A2A2A),
+    surfaceContainerHigh = Color(0xFF333333),
     error = ErrorRed,
     onError = Color.White,
 )
@@ -134,10 +159,11 @@ private val AppTypography = Typography(
 
 @Composable
 fun BraincupTheme(
+    colorScheme: ColorScheme = if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme,
     content: @Composable () -> Unit,
 ) {
     MaterialTheme(
-        colorScheme = LightColorScheme,
+        colorScheme = colorScheme,
         typography = AppTypography,
         content = content,
     )

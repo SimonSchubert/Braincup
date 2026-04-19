@@ -8,6 +8,7 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.graphics.Color as ComposeColor
@@ -51,7 +53,11 @@ fun GameTile(
                 .background(ComposeColor(gameType.accentColor)),
             contentAlignment = Alignment.Center,
         ) {
-            GamePreview(gameType)
+            MaterialTheme(colorScheme = LightColorScheme) {
+                CompositionLocalProvider(LocalContentColor provides LightColorScheme.onSurface) {
+                    GamePreview(gameType)
+                }
+            }
         }
 
         Row(

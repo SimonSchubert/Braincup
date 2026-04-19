@@ -29,6 +29,9 @@ import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
 
@@ -538,7 +541,7 @@ private fun ColumnScope.GridSolverContent(
                         .padding(4.dp)
                         .size(48.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        containerColor = PrimaryContainer,
                     ),
                 ) {
                     Box(
@@ -561,7 +564,7 @@ private fun ColumnScope.GridSolverContent(
                         .padding(4.dp)
                         .size(48.dp),
                     colors = CardDefaults.cardColors(
-                        containerColor = MaterialTheme.colorScheme.primaryContainer,
+                        containerColor = PrimaryContainer,
                     ),
                 ) {
                     Box(
@@ -725,7 +728,7 @@ private fun TimeProgressIndicator(
     modifier: Modifier = Modifier,
 ) {
     val trackColor = MaterialTheme.colorScheme.surfaceVariant
-    val progressColor = MaterialTheme.colorScheme.primary
+    val progressColor = Primary
 
     Canvas(
         modifier = modifier.height(12.dp),
@@ -765,7 +768,7 @@ private fun ColumnScope.VisualMemoryContent(
         Text(
             text = "${uiState.countdown}",
             style = MaterialTheme.typography.headlineMedium,
-            color = MaterialTheme.colorScheme.primary,
+            color = Primary,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
     }
@@ -848,7 +851,7 @@ private fun VisualMemoryCell(
         modifier = modifier,
         colors = CardDefaults.cardColors(
             containerColor = when (cell.type) {
-                VisualMemoryUiState.CellType.CURRENT_TARGET -> MaterialTheme.colorScheme.primaryContainer
+                VisualMemoryUiState.CellType.CURRENT_TARGET -> PrimaryContainer
                 VisualMemoryUiState.CellType.HIDDEN -> MaterialTheme.colorScheme.surfaceVariant
                 VisualMemoryUiState.CellType.EMPTY -> MaterialTheme.colorScheme.surfaceVariant
                 VisualMemoryUiState.CellType.MEMORIZING -> MaterialTheme.colorScheme.surface
@@ -866,7 +869,7 @@ private fun VisualMemoryCell(
                     Text(
                         text = "?",
                         style = MaterialTheme.typography.headlineLarge,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        color = OnPrimaryContainer,
                     )
                 }
                 VisualMemoryUiState.CellType.MEMORIZING,
@@ -931,8 +934,8 @@ private fun GhostGridCell(
     modifier: Modifier = Modifier,
 ) {
     val cellColor = when (cell.type) {
-        GhostGridUiState.CellType.ACTIVE -> MaterialTheme.colorScheme.primary
-        GhostGridUiState.CellType.TAPPED -> MaterialTheme.colorScheme.primary
+        GhostGridUiState.CellType.ACTIVE -> Primary
+        GhostGridUiState.CellType.TAPPED -> Primary
         GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
         GhostGridUiState.CellType.MISSED -> SuccessGreen.copy(alpha = 0.15f)
         GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
@@ -987,7 +990,7 @@ private fun ColumnScope.PatternSequenceContent(
         Card(
             modifier = Modifier.size(48.dp),
             colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                containerColor = PrimaryContainer,
             ),
         ) {
             Box(
@@ -997,7 +1000,7 @@ private fun ColumnScope.PatternSequenceContent(
                 Text(
                     text = "?",
                     style = MaterialTheme.typography.headlineMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    color = OnPrimaryContainer,
                 )
             }
         }
@@ -1098,7 +1101,7 @@ private fun ColorConfusionCell(
     val border = when {
         cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> BorderStroke(2.dp, SuccessGreen)
         cell.feedback == ColorConfusionUiState.CellFeedback.MISSED -> BorderStroke(2.dp, MaterialTheme.colorScheme.error)
-        cell.isSelected && cell.feedback == ColorConfusionUiState.CellFeedback.NONE -> BorderStroke(2.dp, MaterialTheme.colorScheme.primary)
+        cell.isSelected && cell.feedback == ColorConfusionUiState.CellFeedback.NONE -> BorderStroke(2.dp, Primary)
         else -> null
     }
 
@@ -1147,7 +1150,7 @@ private fun ColumnScope.OrbitTrackerContent(
     val errorColor = MaterialTheme.colorScheme.error
     val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
     val outlineColor = MaterialTheme.colorScheme.outline
-    val primaryColor = MaterialTheme.colorScheme.primary
+    val primaryColor = Primary
 
     Box(
         modifier = Modifier

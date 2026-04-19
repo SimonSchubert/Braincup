@@ -12,6 +12,8 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -63,7 +65,7 @@ fun FinishScreen(
                 text = stringResource(Res.string.finish_bonus_point),
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
-                color = MaterialTheme.colorScheme.primary,
+                color = Primary,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(horizontal = 24.dp),
@@ -74,7 +76,7 @@ fun FinishScreen(
             Spacer(Modifier.height(8.dp))
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    containerColor = PrimaryContainer,
                 ),
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             ) {

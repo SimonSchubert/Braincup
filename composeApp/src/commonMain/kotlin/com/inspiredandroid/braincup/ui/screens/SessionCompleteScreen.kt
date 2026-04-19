@@ -17,6 +17,8 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -56,7 +58,7 @@ fun SessionCompleteScreen(
         if (streakIncreased) {
             Card(
                 colors = CardDefaults.cardColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    containerColor = PrimaryContainer,
                 ),
                 shape = RoundedCornerShape(16.dp),
                 modifier = Modifier
@@ -68,7 +70,7 @@ fun SessionCompleteScreen(
                     text = stringResource(Res.string.session_streak_increased, streakAfter),
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                    color = OnPrimaryContainer,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                         .fillMaxWidth()

@@ -2,7 +2,9 @@
 
 package com.inspiredandroid.braincup
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -22,11 +24,15 @@ import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
+import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
+import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun App() {
+fun App(colorScheme: ColorScheme? = null) {
+    val resolvedColorScheme = colorScheme
+        ?: if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme
     val navController = rememberNavController()
     val controller = remember(navController) { GameController(navController) }
     val audioPlayer = rememberAudioPlayer()
@@ -74,7 +80,7 @@ fun App() {
         }
     }
 
-    BraincupTheme {
+    BraincupTheme(colorScheme = resolvedColorScheme) {
         Surface(modifier = Modifier.fillMaxSize()) {
             NavHost(navController = navController, startDestination = MainMenu) {
                 composable<MainMenu> {
