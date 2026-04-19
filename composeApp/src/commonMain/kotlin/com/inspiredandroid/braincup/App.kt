@@ -35,6 +35,9 @@ fun App(colorScheme: ColorScheme? = null) {
         ?: if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme
     val navController = rememberNavController()
     val controller = remember(navController) { GameController(navController) }
+    DisposableEffect(controller) {
+        onDispose { controller.dispose() }
+    }
     val audioPlayer = rememberAudioPlayer()
 
     var isMuted by remember { mutableStateOf(controller.storage.isAudioMuted()) }

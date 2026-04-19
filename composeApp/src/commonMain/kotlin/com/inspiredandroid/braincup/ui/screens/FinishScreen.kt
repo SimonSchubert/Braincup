@@ -5,13 +5,16 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.theme.MedalBronze
+import com.inspiredandroid.braincup.ui.theme.MedalGold
+import com.inspiredandroid.braincup.ui.theme.MedalSilver
+import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.painterResource
@@ -34,9 +37,9 @@ fun FinishScreen(
         scrollable = false,
     ) {
         val medalTint = when {
-            score >= gameType.goldScore -> Color(0xFFFFD700)
-            score >= gameType.silverScore -> Color(0xFFC0C0C0)
-            score > 0 -> Color(0xFFCD7F32)
+            score >= gameType.goldScore -> MedalGold
+            score >= gameType.silverScore -> MedalSilver
+            score > 0 -> MedalBronze
             else -> null
         }
 
@@ -83,6 +86,7 @@ fun FinishScreen(
                 Text(
                     text = stringResource(Res.string.finish_new_highscore),
                     style = MaterialTheme.typography.titleMedium,
+                    color = OnPrimaryContainer,
                     modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 )
             }

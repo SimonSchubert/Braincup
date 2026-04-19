@@ -34,6 +34,10 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
+import androidx.compose.ui.graphics.Color as ComposeColor
+
+private val FlashCrowdBlue = ComposeColor(0xFF4285F4)
+private val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
 @Composable
 fun GameScreen(
@@ -551,6 +555,7 @@ private fun ColumnScope.GridSolverContent(
                         Text(
                             text = "=${uiState.resultsY[rowIndex]}",
                             style = MaterialTheme.typography.titleSmall,
+                            color = OnPrimaryContainer,
                         )
                     }
                 }
@@ -574,6 +579,7 @@ private fun ColumnScope.GridSolverContent(
                         Text(
                             text = "=$sum",
                             style = MaterialTheme.typography.titleSmall,
+                            color = OnPrimaryContainer,
                         )
                     }
                 }
@@ -1257,9 +1263,6 @@ private fun ColumnScope.FlashCrowdContent(
     uiState: FlashCrowdUiState,
     onAnswer: (String) -> Unit,
 ) {
-    val blueColor = androidx.compose.ui.graphics.Color(0xFF4285F4)
-    val yellowColor = androidx.compose.ui.graphics.Color(0xFFFBBC04)
-
     key(uiState.roundKey) {
         var showingDots by remember { mutableStateOf(true) }
 
@@ -1269,7 +1272,7 @@ private fun ColumnScope.FlashCrowdContent(
         }
 
         if (showingDots) {
-            FlashCrowdDotsRow(uiState, blueColor, yellowColor, Modifier.align(Alignment.CenterHorizontally))
+            FlashCrowdDotsRow(uiState, FlashCrowdBlue, FlashCrowdYellow, Modifier.align(Alignment.CenterHorizontally))
         } else {
             // Answer phase: show buttons
             Text(
@@ -1289,7 +1292,7 @@ private fun ColumnScope.FlashCrowdContent(
                 Button(
                     onClick = { onAnswer("left") },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = blueColor,
+                        containerColor = FlashCrowdBlue,
                     ),
                     modifier = Modifier
                         .weight(1f)
@@ -1304,7 +1307,7 @@ private fun ColumnScope.FlashCrowdContent(
                 Button(
                     onClick = { onAnswer("right") },
                     colors = ButtonDefaults.buttonColors(
-                        containerColor = yellowColor,
+                        containerColor = FlashCrowdYellow,
                     ),
                     modifier = Modifier
                         .weight(1f)

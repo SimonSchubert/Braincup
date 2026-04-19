@@ -27,9 +27,15 @@ import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
+import com.inspiredandroid.braincup.ui.theme.MedalBronze
+import com.inspiredandroid.braincup.ui.theme.MedalGold
+import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.graphics.Color as ComposeColor
+
+private val FlashCrowdBlue = ComposeColor(0xFF4285F4)
+private val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
 @Composable
 fun GameTile(
@@ -75,9 +81,9 @@ fun GameTile(
                 modifier = Modifier.weight(1f),
             )
             val medalTint = when {
-                highscore >= gameType.goldScore -> ComposeColor(0xFFFFD700)
-                highscore >= gameType.silverScore -> ComposeColor(0xFFC0C0C0)
-                highscore > 0 -> ComposeColor(0xFFCD7F32)
+                highscore >= gameType.goldScore -> MedalGold
+                highscore >= gameType.silverScore -> MedalSilver
+                highscore > 0 -> MedalBronze
                 else -> null
             }
             if (medalTint != null) {
@@ -578,8 +584,6 @@ private fun ColorConfusionPreview() {
 
 @Composable
 private fun FlashCrowdPreview() {
-    val blueColor = ComposeColor(0xFF4285F4)
-    val yellowColor = ComposeColor(0xFFFBBC04)
     val leftDots = remember {
         listOf(
             Triple(0.2f, 0.2f, 0.06f),
@@ -608,7 +612,7 @@ private fun FlashCrowdPreview() {
         Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
             leftDots.forEach { (x, y, r) ->
                 drawCircle(
-                    color = blueColor,
+                    color = FlashCrowdBlue,
                     radius = r * size.width,
                     center = Offset(x * size.width, y * size.height),
                 )
@@ -617,7 +621,7 @@ private fun FlashCrowdPreview() {
         Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
             rightDots.forEach { (x, y, r) ->
                 drawCircle(
-                    color = yellowColor,
+                    color = FlashCrowdYellow,
                     radius = r * size.width,
                     center = Offset(x * size.width, y * size.height),
                 )

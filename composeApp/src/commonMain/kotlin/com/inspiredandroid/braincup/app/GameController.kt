@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.games.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -56,6 +57,10 @@ class GameController(
         storage.migrateStreakIfNeeded()
         _sessionStreak.value = storage.getSessionStreak()
         _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
+    }
+
+    fun dispose() {
+        scope.cancel()
     }
 
     private fun generateSessionGameIds(): List<String> = GameType.entries

@@ -32,6 +32,10 @@ val ErrorRed = Color(0xFFB00020)
 val PrimaryContainer = Color(0xFFEADDFF)
 val OnPrimaryContainer = Color(0xFF21005D)
 
+val MedalGold = Color(0xFFFFD700)
+val MedalSilver = Color(0xFFC0C0C0)
+val MedalBronze = Color(0xFFCD7F32)
+
 internal val LightColorScheme = lightColorScheme(
     primary = Primary,
     onPrimary = OnPrimary,

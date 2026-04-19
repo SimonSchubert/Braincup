@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.app
 
+import androidx.compose.runtime.Immutable
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
@@ -11,11 +12,13 @@ enum class FigureCellState { NORMAL, WRONG, CORRECT, DIMMED }
 
 enum class AnswerButtonState { NORMAL, WRONG, CORRECT, DIMMED }
 
+@Immutable
 data class AnswerButton(
     val value: String,
     val state: AnswerButtonState = AnswerButtonState.NORMAL,
 )
 
+@Immutable
 data class FigureCell(
     val figure: Figure,
     val state: FigureCellState = FigureCellState.NORMAL,
@@ -31,21 +34,25 @@ sealed class ExpressionToken(val displayValue: String) {
     data class OperatorToken(val operator: String) : ExpressionToken(operator)
 }
 
+@Immutable
 data class MentalCalculationUiState(
     val calculation: String,
     val answerLength: Int,
 ) : GameUiState
 
+@Immutable
 data class ChainCalculationUiState(
     val calculation: String,
     val answer: Int,
 ) : GameUiState
 
+@Immutable
 data class FractionCalculationUiState(
     val calculation: String,
     val answerString: String,
 ) : GameUiState
 
+@Immutable
 data class ColoredShapesUiState(
     val displayedFigure: Figure,
     val answerShape: Shape,
@@ -56,26 +63,31 @@ data class ColoredShapesUiState(
     val possibleAnswers: List<AnswerButton>,
 ) : GameUiState
 
+@Immutable
 data class SherlockCalculationUiState(
     val result: Int,
     val numbers: List<Int>,
     val solutionTokens: List<ExpressionToken>? = null,
 ) : GameUiState
 
+@Immutable
 data class ValueComparisonUiState(
     val answers: List<String>,
 ) : GameUiState
 
+@Immutable
 data class AnomalyPuzzleUiState(
     val rows: List<List<FigureCell>>,
     val columnsPerRow: Int,
 ) : GameUiState
 
+@Immutable
 data class PathFinderUiState(
     val directionFigures: List<Figure>,
     val grid: List<List<FigureCell>>,
 ) : GameUiState
 
+@Immutable
 data class GridSolverUiState(
     val gridSize: Int,
     val resultsX: List<Int>,
@@ -84,11 +96,13 @@ data class GridSolverUiState(
     val solutionValues: List<Int>? = null,
 ) : GameUiState
 
+@Immutable
 data class PatternSequenceUiState(
     val sequence: List<Figure>,
     val optionRows: List<List<FigureCell>>,
 ) : GameUiState
 
+@Immutable
 data class GhostGridUiState(
     val gridSize: Int,
     val round: Int,
@@ -98,9 +112,12 @@ data class GhostGridUiState(
     val tappedCount: Int,
 ) : GameUiState {
     enum class CellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
+
+    @Immutable
     data class CellState(val type: CellType)
 }
 
+@Immutable
 data class ColorConfusionUiState(
     val cells: List<Cell>,
     val isSubmitted: Boolean,
@@ -113,6 +130,7 @@ data class ColorConfusionUiState(
         CORRECT_UNSELECTED,
     }
 
+    @Immutable
     data class Cell(
         val word: Color,
         val fontColor: Color,
@@ -121,6 +139,7 @@ data class ColorConfusionUiState(
     )
 }
 
+@Immutable
 data class OrbitTrackerUiState(
     val balls: List<BallState>,
     val phase: OrbitTrackerGame.Phase,
@@ -134,6 +153,7 @@ data class OrbitTrackerUiState(
         MISSED,
     }
 
+    @Immutable
     data class BallState(
         val x: Float,
         val y: Float,
@@ -143,14 +163,17 @@ data class OrbitTrackerUiState(
     )
 }
 
+@Immutable
 data class FlashCrowdUiState(
     val roundKey: Int,
     val leftDots: List<Dot>,
     val rightDots: List<Dot>,
 ) : GameUiState {
+    @Immutable
     data class Dot(val x: Float, val y: Float, val radius: Float)
 }
 
+@Immutable
 data class VisualMemoryUiState(
     val round: Int,
     val phase: VisualMemoryGame.Phase,
@@ -169,11 +192,13 @@ data class VisualMemoryUiState(
         WRONG,
     }
 
+    @Immutable
     data class CellState(
         val type: CellType,
         val figure: Figure?,
     )
 
+    @Immutable
     data class AnswerOption(
         val figure: Figure,
         val figureIndex: Int,
