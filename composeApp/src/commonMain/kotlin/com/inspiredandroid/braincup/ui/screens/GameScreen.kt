@@ -1,5 +1,13 @@
 package com.inspiredandroid.braincup.ui.screens
 
+import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
@@ -803,8 +811,14 @@ private fun ColumnScope.VisualMemoryContent(
 
     Spacer(Modifier.height(24.dp))
 
-    // Answer options (visible during answer and game-over phases)
-    if (uiState.phase == VisualMemoryGame.Phase.ANSWERING || uiState.phase == VisualMemoryGame.Phase.GAME_OVER) {
+    val showAnswerOptions = uiState.phase == VisualMemoryGame.Phase.ANSWERING ||
+        uiState.phase == VisualMemoryGame.Phase.GAME_OVER
+    AnimatedVisibility(
+        visible = showAnswerOptions,
+        enter = fadeIn(animationSpec = tween(250)),
+        exit = fadeOut(animationSpec = tween(200)),
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    ) {
         Column(
             modifier = Modifier
                 .padding(horizontal = 24.dp)
@@ -1097,12 +1111,17 @@ private fun ColorConfusionCell(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val containerColor = when (cell.feedback) {
+    val targetContainerColor = when (cell.feedback) {
         ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreen.copy(alpha = 0.15f)
         ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
         ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
         else -> MaterialTheme.colorScheme.surface
     }
+    val containerColor by animateColorAsState(
+        targetValue = targetContainerColor,
+        animationSpec = tween(250),
+        label = "colorConfusionContainer",
+    )
     val border = when {
         cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> BorderStroke(2.dp, SuccessGreen)
         cell.feedback == ColorConfusionUiState.CellFeedback.MISSED -> BorderStroke(2.dp, MaterialTheme.colorScheme.error)
@@ -1144,12 +1163,20 @@ private fun ColumnScope.OrbitTrackerContent(
         isAnswering -> stringResource(Res.string.game_tap_original_targets)
         else -> ""
     }
-    Text(
-        text = instructionText,
-        style = MaterialTheme.typography.bodyLarge,
+    AnimatedContent(
+        targetState = instructionText,
+        transitionSpec = {
+            fadeIn(animationSpec = tween(200)) togetherWith fadeOut(animationSpec = tween(150))
+        },
         modifier = Modifier.align(Alignment.CenterHorizontally),
-        minLines = 1,
-    )
+        label = "orbitTrackerInstruction",
+    ) { text ->
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyLarge,
+            minLines = 1,
+        )
+    }
     Spacer(Modifier.height(8.dp))
 
     val errorColor = MaterialTheme.colorScheme.error
@@ -1264,20 +1291,37 @@ private fun ColumnScope.FlashCrowdContent(
 ) {
     key(uiState.roundKey) {
         var showingDots by remember { mutableStateOf(true) }
+        var visible by remember { mutableStateOf(true) }
+        val alpha by animateFloatAsState(
+            targetValue = if (visible) 1f else 0f,
+            animationSpec = tween(200),
+            label = "flashCrowdAlpha",
+        )
 
         LaunchedEffect(Unit) {
             kotlinx.coroutines.delay(750)
+            visible = false
+            kotlinx.coroutines.delay(200)
             showingDots = false
+            visible = true
         }
 
         if (showingDots) {
-            FlashCrowdDotsRow(uiState, FlashCrowdBlue, FlashCrowdYellow, Modifier.align(Alignment.CenterHorizontally))
+            FlashCrowdDotsRow(
+                uiState,
+                FlashCrowdBlue,
+                FlashCrowdYellow,
+                Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .alpha(alpha),
+            )
         } else {
-            // Answer phase: show buttons
             Text(
                 text = stringResource(Res.string.game_flash_crowd_which_more),
                 style = MaterialTheme.typography.bodyLarge,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .alpha(alpha),
             )
             Spacer(Modifier.height(24.dp))
 
@@ -1285,7 +1329,8 @@ private fun ColumnScope.FlashCrowdContent(
                 modifier = Modifier
                     .padding(horizontal = 24.dp)
                     .widthIn(max = 400.dp)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .alpha(alpha),
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 Button(
