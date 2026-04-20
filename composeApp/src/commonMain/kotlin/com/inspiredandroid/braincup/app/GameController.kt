@@ -545,6 +545,7 @@ class GameController(
         game: GhostGridGame,
         answer: String,
     ) {
+        if (game.phase != GhostGridGame.Phase.ANSWERING) return
         when (game.submitAnswer(answer)) {
             GhostGridGame.SubmitResult.CorrectContinue -> emitGhostGridUiState(game)
             GhostGridGame.SubmitResult.RoundComplete -> {
@@ -631,6 +632,7 @@ class GameController(
     }
 
     private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {
+        if (game.phase != VisualMemoryGame.Phase.ANSWERING) return
         when (game.submitAnswer(answer)) {
             VisualMemoryGame.SubmitResult.CorrectContinue -> emitGameUiState(game)
             VisualMemoryGame.SubmitResult.RoundComplete -> {
