@@ -17,8 +17,14 @@ class FractionCalculationGame : Game() {
 
     override fun generateRound() {
         fractions.clear()
-        val down = Random.nextInt(2, 8)
-        val up = down * Random.nextInt(3, 7)
+        val (maxDown, maxMultiplier) = when {
+            round >= 10 -> 14 to 12
+            round >= 5 -> 10 to 9
+            round >= 2 -> 8 to 7
+            else -> 7 to 6
+        }
+        val down = Random.nextInt(2, maxDown + 1)
+        val up = down * Random.nextInt(3, maxMultiplier + 1)
         val upDivision = getRandomDivisionIntegers(up)
         val downDivision = getRandomDivisionIntegers(down)
         fractions.add("$upDivision/$downDivision")
