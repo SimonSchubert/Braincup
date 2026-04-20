@@ -38,6 +38,11 @@ Train your math skills, memory and focus.
 #### Homebrew
 `brew install --cask simonschubert/tap/braincup`
 
+### Arch Linux
+
+#### AUR
+`yay -S braincup-bin`
+
 ## Goal
 Build an open source math, memory and focus improvement app. The app itself consists of a bunch of small games. Right now I try to keep the games as simple as possible to allow the implementation for the terminal client.
 
