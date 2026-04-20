@@ -29,7 +29,7 @@ jobs:
         env:
           KEYSTORE_PASSWORD: ${{ secrets.KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
-        run: ./gradlew :androidApp:assembleRelease
+        run: ./gradlew :androidApp:assembleFossRelease
 
       - name: Get version from tag
         id: version
@@ -37,7 +37,7 @@ jobs:
 
       - name: Rename APK
         run: |
-          mv androidApp/build/outputs/apk/release/androidApp-release.apk \
+          mv androidApp/build/outputs/apk/foss/release/androidApp-foss-release.apk \
              Braincup-${{ steps.version.outputs.version }}-android.apk
 
       - name: Upload APK artifact
@@ -356,7 +356,7 @@ jobs:
         run: echo "${{ secrets.PLAY_STORE_KEY_JSON }}" | base64 --decode > fastlane/play-store-key.json
 
       - name: Build signed AAB
-        run: ./gradlew :androidApp:bundleRelease --stacktrace
+        run: ./gradlew :androidApp:bundlePlayStoreRelease --stacktrace
         env:
           KEYSTORE_FILE: /tmp/keystore.jks
           KEYSTORE_PASSWORD: ${{ secrets.PLAY_STORE_KEYSTORE_PASSWORD }}

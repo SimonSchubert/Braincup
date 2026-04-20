@@ -26,6 +26,18 @@ android {
                 .toInt()
         versionName = libs.versions.appVersion.get()
     }
+
+    flavorDimensions += "distribution"
+    productFlavors {
+        create("playStore") {
+            dimension = "distribution"
+        }
+        create("foss") {
+            dimension = "distribution"
+            isDefault = true
+        }
+    }
+
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -72,5 +84,5 @@ android {
 dependencies {
     implementation(project(":composeApp"))
     implementation(libs.androidx.activity.compose)
-    implementation(libs.play.review)
+    "playStoreImplementation"(libs.play.review)
 }
