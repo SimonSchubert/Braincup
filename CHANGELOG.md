@@ -1,3 +1,8 @@
+## v2.6.1 — 2026-04-20
+
+### Improvements
+- Split Android build into `foss` and `playStore` flavors to enable F-Droid publishing
+
 ## v2.6.0 — 2026-04-20
 
 ### Fixes
