@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Braincup
+Comment=Train your math skills, memory and focus
+Exec=braincup-wrapper
+Icon=io.github.simonschubert.Braincup
+Type=Application
+Categories=Game;Education;
+Keywords=Math;Memory;Focus;Brain;Training;Game;
+StartupWMClass=compose-window
+Terminal=false

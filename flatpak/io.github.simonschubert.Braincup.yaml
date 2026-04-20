@@ -1,0 +1,66 @@
+app-id: io.github.simonschubert.Braincup
+runtime: org.freedesktop.Platform
+runtime-version: '24.08'
+sdk: org.freedesktop.Sdk
+command: braincup-wrapper
+
+finish-args:
+  - --socket=x11
+  - --socket=wayland
+  - --share=ipc
+  - --device=dri
+  - --socket=pulseaudio
+  - --persist=.braincup
+  - --persist=.java
+
+modules:
+  - name: braincup
+    buildsystem: simple
+    build-commands:
+      # Extract and install the application
+      - tar xf Braincup-linux-x86_64.tar.gz
+      - mkdir -p /app/lib/braincup
+      - cp -r Braincup/* /app/lib/braincup/
+
+      # Install wrapper script
+      - install -Dm755 braincup-wrapper.sh /app/bin/braincup-wrapper
+
+      # Install desktop file
+      - install -Dm644 io.github.simonschubert.Braincup.desktop /app/share/applications/io.github.simonschubert.Braincup.desktop
+
+      # Install metainfo
+      - install -Dm644 io.github.simonschubert.Braincup.metainfo.xml /app/share/metainfo/io.github.simonschubert.Braincup.metainfo.xml
+
+      # Install icons
+      - install -Dm644 icon.svg /app/share/icons/hicolor/scalable/apps/io.github.simonschubert.Braincup.svg
+      - install -Dm644 icon.png /app/share/icons/hicolor/512x512/apps/io.github.simonschubert.Braincup.png
+
+    sources:
+      - type: file
+        url: https://github.com/SimonSchubert/Braincup/releases/download/v2.5.0/Braincup-2.5.0-linux-x86_64.tar.gz
+        sha256: 0000000000000000000000000000000000000000000000000000000000000000
+        dest-filename: Braincup-linux-x86_64.tar.gz
+        x-checker-data:
+          type: json
+          url: https://api.github.com/repos/SimonSchubert/Braincup/releases/latest
+          version-query: .tag_name | sub("^v"; "")
+          url-query: .assets[] | select(.name | test("linux-x86_64\\.tar\\.gz$")) | .browser_download_url
+
+      - type: file
+        path: io.github.simonschubert.Braincup.desktop
+
+      - type: file
+        path: io.github.simonschubert.Braincup.metainfo.xml
+
+      - type: file
+        path: ../composeApp/icon.svg
+
+      - type: file
+        path: ../composeApp/icon.png
+
+      - type: script
+        dest-filename: braincup-wrapper.sh
+        commands:
+          - export PATH="/app/lib/braincup/bin:${PATH}"
+          - export LD_LIBRARY_PATH="/app/lib/braincup/lib/runtime/lib:${LD_LIBRARY_PATH}"
+          - exec /app/lib/braincup/bin/Braincup "$@"

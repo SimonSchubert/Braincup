@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.simonschubert.Braincup</id>
+
+  <name>Braincup</name>
+  <summary>Train your math skills, memory and focus</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+
+  <developer id="io.github.simonschubert">
+    <name>Simon Schubert</name>
+  </developer>
+
+  <description>
+    <p>
+      Braincup is a brain training app with a collection of short, focused
+      mini-games that sharpen your mental arithmetic, memory, and attention.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Math challenges that grow in difficulty as you improve</li>
+      <li>Memory games to train recall and pattern recognition</li>
+      <li>Focus and reaction exercises</li>
+      <li>Track your progress and personal high scores</li>
+      <li>Works offline — no account required</li>
+      <li>Available on Android, iOS, Desktop, and Web</li>
+    </ul>
+  </description>
+
+  <launchable type="desktop-id">io.github.simonschubert.Braincup.desktop</launchable>
+
+  <url type="homepage">https://github.com/SimonSchubert/Braincup</url>
+  <url type="bugtracker">https://github.com/SimonSchubert/Braincup/issues</url>
+  <url type="vcs-browser">https://github.com/SimonSchubert/Braincup</url>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#ede7f6</color>
+    <color type="primary" scheme_preference="dark">#311b92</color>
+  </branding>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>Home screen</caption>
+      <image>https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_01.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Training session</caption>
+      <image>https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_02.png</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1" />
+
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+
+  <releases>
+    <release version="2.5.0" date="2026-04-20">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.5.0</url>
+    </release>
+  </releases>
+</component>

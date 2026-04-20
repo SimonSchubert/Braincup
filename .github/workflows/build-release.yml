@@ -1,4 +1,4 @@
-name: Build Release
+name: Build and Release
 
 on:
   push:
@@ -256,6 +256,81 @@ jobs:
           name: linux-appimage
           path: Braincup-${{ steps.version.outputs.version }}-linux.AppImage
 
+  linux-tar:
+    name: Generate Linux Tarball
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Build application distribution
+        run: ./gradlew :composeApp:createDistributable
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create tarball
+        run: |
+          cd composeApp/build/compose/binaries/main/app
+          tar czf "$GITHUB_WORKSPACE/Braincup-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz" Braincup
+
+      - name: Upload Tarball artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-tar
+          path: Braincup-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz
+
+  flatpak:
+    name: Build Flatpak Bundle
+    needs: [linux-tar]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from tag
+        id: version
+        run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Download Linux Tarball
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-tar
+
+      - name: Install Flatpak and Builder
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y flatpak flatpak-builder
+          sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+          sudo flatpak install -y flathub org.freedesktop.Platform//24.08 org.freedesktop.Sdk//24.08
+
+      - name: Build Flatpak
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          cp "Braincup-${VERSION}-linux-x86_64.tar.gz" flatpak/Braincup-linux-x86_64.tar.gz
+          SHA256=$(sha256sum flatpak/Braincup-linux-x86_64.tar.gz | cut -d' ' -f1)
+
+          cd flatpak
+          sed -i "s|url: https://github.com/SimonSchubert/Braincup/releases/download/.*|path: Braincup-linux-x86_64.tar.gz|" io.github.simonschubert.Braincup.yaml
+          sed -i "s|sha256: .*|sha256: ${SHA256}|" io.github.simonschubert.Braincup.yaml
+
+          flatpak-builder --repo=repo --force-clean build-dir io.github.simonschubert.Braincup.yaml
+          flatpak build-bundle repo "$GITHUB_WORKSPACE/Braincup-${VERSION}-linux.flatpak" io.github.simonschubert.Braincup
+
+      - name: Upload Flatpak artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-flatpak
+          path: Braincup-${{ steps.version.outputs.version }}-linux.flatpak
+
   play-store:
     name: Upload AAB to Play Store
     runs-on: ubuntu-latest
@@ -297,7 +372,7 @@ jobs:
         run: bundle exec fastlane android deploy
 
   release:
-    needs: [apk, dmg, msi, deb, rpm, appimage]
+    needs: [apk, dmg, msi, deb, rpm, appimage, linux-tar, flatpak]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -324,3 +399,5 @@ jobs:
             artifacts/linux-deb/Braincup-${{ steps.version.outputs.version }}-linux.deb
             artifacts/linux-rpm/Braincup-${{ steps.version.outputs.version }}-linux.rpm
             artifacts/linux-appimage/Braincup-${{ steps.version.outputs.version }}-linux.AppImage
+            artifacts/linux-tar/Braincup-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz
+            artifacts/linux-flatpak/Braincup-${{ steps.version.outputs.version }}-linux.flatpak
