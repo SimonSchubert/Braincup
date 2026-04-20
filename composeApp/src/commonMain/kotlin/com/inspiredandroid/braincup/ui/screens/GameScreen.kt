@@ -271,16 +271,15 @@ private fun ColumnScope.SherlockCalculationContent(
         )
         Spacer(Modifier.height(16.dp))
 
-        // Give up button — hidden when showing solution
-        if (!showingSolution) {
-            TextButton(
-                onClick = onGiveUp,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .pointerHoverIcon(PointerIcon.Hand),
-            ) {
-                Text(stringResource(Res.string.button_give_up))
-            }
+        TextButton(
+            onClick = onGiveUp,
+            enabled = !showingSolution,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .alpha(if (showingSolution) 0f else 1f)
+                .pointerHoverIcon(PointerIcon.Hand),
+        ) {
+            Text(stringResource(Res.string.button_give_up))
         }
     }
 }
@@ -1080,15 +1079,15 @@ private fun ColumnScope.ColorConfusionContent(
 
     Spacer(Modifier.height(16.dp))
 
-    if (!uiState.isSubmitted) {
-        Button(
-            onClick = { onAnswer("submit") },
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .pointerHoverIcon(PointerIcon.Hand),
-        ) {
-            Text(stringResource(Res.string.button_done))
-        }
+    Button(
+        onClick = { onAnswer("submit") },
+        enabled = !uiState.isSubmitted,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .alpha(if (uiState.isSubmitted) 0f else 1f)
+            .pointerHoverIcon(PointerIcon.Hand),
+    ) {
+        Text(stringResource(Res.string.button_done))
     }
 }
 
