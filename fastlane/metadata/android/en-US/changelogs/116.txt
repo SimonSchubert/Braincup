@@ -1,0 +1,5 @@
+Fraction math now gets harder as you progress
+Fixed Ghost Grid and Visual Memory crash
+UI and UX polish
+Challenge card now capped for readability on large screens
+Performance improvements

@@ -1,3 +1,14 @@
+## v2.6.0 — 2026-04-20
+
+### Fixes
+- Fixed potential Ghost Grid and Visual Memory crash
+
+### Improvements
+- Fraction calculations now ramp up in difficulty as you progress
+- Polished UI and UX
+- Challenge card has a max width for better readability on large screens
+- Performance improvements
+
 ## v2.5.0 — 2026-04-19
 
 ### Features
