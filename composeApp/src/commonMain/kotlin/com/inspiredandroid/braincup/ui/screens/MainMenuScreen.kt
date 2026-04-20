@@ -133,13 +133,19 @@ fun MainMenuScreenContent(
         // Daily challenge card
         if (showDailyChallenge) {
             item(span = { GridItemSpan(maxLineSpan) }, contentType = "daily_challenge") {
-                DailyChallengeCard(
-                    sessionStreak = sessionStreak,
-                    progressIndex = sessionProgressIndex,
-                    totalGames = sessionTotalGames,
-                    completedToday = sessionCompletedToday,
-                    onPlay = onPlayDaily,
-                )
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    DailyChallengeCard(
+                        sessionStreak = sessionStreak,
+                        progressIndex = sessionProgressIndex,
+                        totalGames = sessionTotalGames,
+                        completedToday = sessionCompletedToday,
+                        onPlay = onPlayDaily,
+                        modifier = Modifier.widthIn(max = 420.dp),
+                    )
+                }
             }
         }
 

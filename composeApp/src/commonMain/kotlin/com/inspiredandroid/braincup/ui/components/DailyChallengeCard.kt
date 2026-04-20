@@ -22,9 +22,10 @@ fun DailyChallengeCard(
     totalGames: Int,
     completedToday: Boolean,
     onPlay: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Card(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
             containerColor = PrimaryContainer,
         ),
