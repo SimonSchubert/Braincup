@@ -1,0 +1,3 @@
+Pure black backgrounds for better OLED energy saving
+Smoother Visual Memory animations
+UI and UX polish
