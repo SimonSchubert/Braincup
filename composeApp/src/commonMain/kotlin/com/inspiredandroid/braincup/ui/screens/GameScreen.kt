@@ -23,8 +23,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventType
-import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -285,7 +283,7 @@ private fun ColumnScope.SherlockCalculationContent(
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .alpha(if (showingSolution) 0f else 1f)
-                .pointerHoverIcon(PointerIcon.Hand),
+                .hoverHand(),
         ) {
             Text(stringResource(Res.string.button_give_up))
         }
@@ -335,7 +333,7 @@ private fun ColumnScope.FractionCalculationContent(
         onClick = onGiveUp,
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
-            .pointerHoverIcon(PointerIcon.Hand),
+            .hoverHand(),
     ) {
         Text(stringResource(Res.string.button_give_up))
     }
@@ -452,7 +450,7 @@ private fun ColumnScope.ValueComparisonContent(
             modifier = Modifier
                 .padding(4.dp)
                 .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
-                .pointerHoverIcon(PointerIcon.Hand),
+                .hoverHand(),
         ) {
             if (answer.contains("/")) {
                 val parts = answer.split("/")
@@ -519,7 +517,7 @@ private fun ColumnScope.GridSolverContent(
                         modifier = Modifier
                             .padding(4.dp)
                             .size(48.dp)
-                            .then(if (isInteractive) Modifier.pointerHoverIcon(PointerIcon.Hand) else Modifier),
+                            .hoverHand(isInteractive),
                         colors = CardDefaults.cardColors(
                             containerColor = when {
                                 isSolutionCell -> SuccessGreen.copy(alpha = 0.15f)
@@ -650,7 +648,7 @@ private fun ExpressionRow(
                     when (token) {
                         is ExpressionToken.NumberToken -> {
                             FilterChip(
-                                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
+                                modifier = Modifier.hoverHand(),
                                 selected = true,
                                 onClick = { onTokenClick(index) },
                                 label = { Text(token.displayValue) },
@@ -658,7 +656,7 @@ private fun ExpressionRow(
                         }
                         is ExpressionToken.OperatorToken -> {
                             AssistChip(
-                                modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
+                                modifier = Modifier.hoverHand(),
                                 onClick = { onTokenClick(index) },
                                 label = { MathText(token.displayValue) },
                                 border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
@@ -670,7 +668,7 @@ private fun ExpressionRow(
         }
         Spacer(Modifier.width(8.dp))
         IconButton(
-            modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
+            modifier = Modifier.hoverHand(),
             onClick = onBackspace,
             enabled = tokens.isNotEmpty(),
         ) {
@@ -702,7 +700,7 @@ private fun AvailableNumbersRow(
                 enabled = !isUsed,
                 modifier = Modifier
                     .size(56.dp)
-                    .pointerHoverIcon(PointerIcon.Hand),
+                    .hoverHand(),
                 contentPadding = PaddingValues(0.dp),
             ) {
                 Text(
@@ -967,7 +965,7 @@ private fun GhostGridCell(
     Card(
         onClick = onClick,
         enabled = isClickable,
-        modifier = if (isClickable) modifier.pointerHoverIcon(PointerIcon.Hand) else modifier,
+        modifier = modifier.hoverHand(isClickable),
         colors = CardDefaults.cardColors(
             containerColor = cellColor,
             disabledContainerColor = cellColor,
@@ -1099,7 +1097,7 @@ private fun ColumnScope.ColorConfusionContent(
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .alpha(if (uiState.isSubmitted) 0f else 1f)
-            .pointerHoverIcon(PointerIcon.Hand),
+            .hoverHand(),
     ) {
         Text(stringResource(Res.string.button_done))
     }
@@ -1129,10 +1127,15 @@ private fun ColorConfusionCell(
         else -> null
     }
 
+    val isInteractive = cell.feedback == ColorConfusionUiState.CellFeedback.NONE
     Card(
         onClick = onClick,
-        modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = containerColor),
+        enabled = isInteractive,
+        modifier = modifier.hoverHand(isInteractive),
+        colors = CardDefaults.cardColors(
+            containerColor = containerColor,
+            disabledContainerColor = containerColor,
+        ),
         border = border,
     ) {
         Box(
@@ -1341,7 +1344,7 @@ private fun ColumnScope.FlashCrowdContent(
                     modifier = Modifier
                         .weight(1f)
                         .height(80.dp)
-                        .pointerHoverIcon(PointerIcon.Hand),
+                        .hoverHand(),
                 ) {
                     Text(
                         text = stringResource(Res.string.game_flash_crowd_blue),
@@ -1356,7 +1359,7 @@ private fun ColumnScope.FlashCrowdContent(
                     modifier = Modifier
                         .weight(1f)
                         .height(80.dp)
-                        .pointerHoverIcon(PointerIcon.Hand),
+                        .hoverHand(),
                 ) {
                     Text(
                         text = stringResource(Res.string.game_flash_crowd_yellow),

@@ -115,6 +115,10 @@ fun App(colorScheme: ColorScheme? = null) {
                     val gameUiState by controller.gameUiState.collectAsState()
                     val hapticSuccess = rememberHapticSuccess()
 
+                    LaunchedEffect(controller) {
+                        controller.intermediateCorrectEvents.collect { hapticSuccess() }
+                    }
+
                     when (val state = gameState) {
                         is GameState.Active -> {
                             val uiState = gameUiState ?: return@composable

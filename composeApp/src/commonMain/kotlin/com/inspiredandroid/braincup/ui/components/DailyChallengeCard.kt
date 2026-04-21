@@ -6,8 +6,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -80,9 +78,13 @@ fun DailyChallengeCard(
             Button(
                 onClick = onPlay,
                 enabled = !completedToday,
+                colors = ButtonDefaults.buttonColors(
+                    disabledContainerColor = OnPrimaryContainer.copy(alpha = 0.12f),
+                    disabledContentColor = OnPrimaryContainer,
+                ),
                 modifier = Modifier
                     .fillMaxWidth()
-                    .pointerHoverIcon(PointerIcon.Hand),
+                    .hoverHand(!completedToday),
             ) {
                 Text(
                     text = when {

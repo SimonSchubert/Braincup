@@ -16,8 +16,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -26,6 +24,7 @@ import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
+import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -120,7 +119,7 @@ fun MainMenuScreenContent(
                     onClick = onToggleMute,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
-                        .pointerHoverIcon(PointerIcon.Hand),
+                        .hoverHand(),
                 ) {
                     Icon(
                         imageVector = if (isMuted) Icons.AutoMirrored.Filled.VolumeOff else Icons.AutoMirrored.Filled.VolumeUp,
@@ -181,7 +180,7 @@ fun MainMenuScreenContent(
                 Button(
                     onClick = onAchievements,
                     modifier = Modifier
-                        .pointerHoverIcon(PointerIcon.Hand)
+                        .hoverHand()
                         .widthIn(max = 420.dp)
                         .height(56.dp),
                 ) {

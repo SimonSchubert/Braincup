@@ -15,8 +15,6 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.withTransform
-import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.pointerHoverIcon
 import com.inspiredandroid.braincup.games.tools.Figure
 import kotlin.math.PI
 import kotlin.math.cos
@@ -91,7 +89,7 @@ fun ShapeCanvasButton(
         figure = figure,
         modifier = modifier
             .alpha(if (enabled) 1f else 0.3f)
-            .then(if (enabled) Modifier.pointerHoverIcon(PointerIcon.Hand) else Modifier)
+            .hoverHand(enabled)
             .clickable(
                 interactionSource = interactionSource,
                 indication = null,

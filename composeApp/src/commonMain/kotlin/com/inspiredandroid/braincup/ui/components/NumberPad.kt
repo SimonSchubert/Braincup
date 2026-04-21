@@ -123,7 +123,9 @@ fun NumberPadWithInput(
                     onClick = {
                         input = input.take(input.lastIndex)
                     },
-                    modifier = Modifier.align(Alignment.CenterVertically),
+                    modifier = Modifier
+                        .align(Alignment.CenterVertically)
+                        .hoverHand(),
                 ) {
                     Icon(
                         painterResource(Res.drawable.baseline_backspace_24),

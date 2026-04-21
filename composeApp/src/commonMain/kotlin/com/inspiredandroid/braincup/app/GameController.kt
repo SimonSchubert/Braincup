@@ -8,8 +8,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlin.time.Clock
@@ -37,6 +40,9 @@ class GameController(
 
     private val _lastCompletedSession = MutableStateFlow<SessionResult?>(null)
     val lastCompletedSession: StateFlow<SessionResult?> = _lastCompletedSession.asStateFlow()
+
+    private val _intermediateCorrectEvents = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+    val intermediateCorrectEvents: SharedFlow<Unit> = _intermediateCorrectEvents.asSharedFlow()
 
     private var startTime = 0L
     private var points = 0
@@ -597,7 +603,10 @@ class GameController(
     ) {
         val index = input.toIntOrNull() ?: return
         when (game.selectBall(index)) {
-            OrbitTrackerGame.SubmitResult.CorrectContinue -> emitOrbitTrackerUiState(game)
+            OrbitTrackerGame.SubmitResult.CorrectContinue -> {
+                emitOrbitTrackerUiState(game)
+                _intermediateCorrectEvents.tryEmit(Unit)
+            }
             OrbitTrackerGame.SubmitResult.RoundComplete -> {
                 points++
                 _gameState.value = GameState.Feedback(
@@ -634,7 +643,10 @@ class GameController(
     private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {
         if (game.phase != VisualMemoryGame.Phase.ANSWERING) return
         when (game.submitAnswer(answer)) {
-            VisualMemoryGame.SubmitResult.CorrectContinue -> emitGameUiState(game)
+            VisualMemoryGame.SubmitResult.CorrectContinue -> {
+                emitGameUiState(game)
+                _intermediateCorrectEvents.tryEmit(Unit)
+            }
             VisualMemoryGame.SubmitResult.RoundComplete -> {
                 points++
                 game.startCountdown(scope) { emitGameUiState(game) }

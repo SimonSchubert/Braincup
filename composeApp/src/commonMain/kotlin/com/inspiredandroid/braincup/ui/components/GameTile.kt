@@ -14,8 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.pointerHoverIcon
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -49,7 +47,7 @@ fun GameTile(
             .aspectRatio(1f)
             .clip(RoundedCornerShape(12.dp))
             .background(MaterialTheme.colorScheme.surfaceContainer)
-            .pointerHoverIcon(PointerIcon.Hand)
+            .hoverHand()
             .clickable(onClick = onPlay),
     ) {
         Box(
@@ -94,7 +92,7 @@ fun GameTile(
                     tint = medalTint,
                     modifier = Modifier
                         .size(28.dp)
-                        .pointerHoverIcon(PointerIcon.Hand)
+                        .hoverHand()
                         .clickable(onClick = onViewScore),
                 )
             }

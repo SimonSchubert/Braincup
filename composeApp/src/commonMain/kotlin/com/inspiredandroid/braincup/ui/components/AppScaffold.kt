@@ -7,8 +7,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.input.pointer.PointerIcon
-import androidx.compose.ui.input.pointer.pointerHoverIcon
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_back
 import org.jetbrains.compose.resources.stringResource
@@ -33,7 +31,7 @@ fun AppScaffold(
                     if (onBack != null) {
                         IconButton(
                             onClick = onBack,
-                            modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
+                            modifier = Modifier.hoverHand(),
                         ) {
                             Icon(
                                 imageVector = BackIcon,
@@ -85,7 +83,7 @@ fun GameScaffold(
                     if (onBack != null) {
                         IconButton(
                             onClick = onBack,
-                            modifier = Modifier.pointerHoverIcon(PointerIcon.Hand),
+                            modifier = Modifier.hoverHand(),
                         ) {
                             Icon(
                                 imageVector = BackIcon,
