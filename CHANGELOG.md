@@ -1,3 +1,10 @@
+## v2.6.2 — 2026-04-21
+
+### Improvements
+- Pure black backgrounds for better OLED energy saving
+- Smoother Visual Memory animations
+- UI and UX polish
+
 ## v2.6.1 — 2026-04-20
 
 ### Improvements
