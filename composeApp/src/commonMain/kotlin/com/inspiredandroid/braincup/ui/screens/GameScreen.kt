@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.animation.AnimatedContent
-import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -767,91 +766,99 @@ private fun TimeProgressIndicator(
 
 // --- Visual Memory Game Composables ---
 
+private const val VisualMemoryTransitionMillis = 250
+
+private val CellTypesShowingShape = setOf(
+    VisualMemoryUiState.CellType.MEMORIZING,
+    VisualMemoryUiState.CellType.REVEALED,
+    VisualMemoryUiState.CellType.WRONG,
+)
+
 @Composable
 private fun ColumnScope.VisualMemoryContent(
     uiState: VisualMemoryUiState,
     onAnswer: (String) -> Unit,
 ) {
+    val isMemorizing = uiState.phase == VisualMemoryGame.Phase.MEMORIZING
+    val showAnswerOptions = uiState.phase == VisualMemoryGame.Phase.ANSWERING ||
+        uiState.phase == VisualMemoryGame.Phase.GAME_OVER
+
     Spacer(Modifier.height(8.dp))
 
-    // Countdown during memorization phase
-    if (uiState.phase == VisualMemoryGame.Phase.MEMORIZING) {
-        Text(
-            text = "${uiState.countdown}",
-            style = MaterialTheme.typography.headlineMedium,
-            color = Primary,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-    }
+    // Always rendered so the column height stays constant across phases —
+    // otherwise the surrounding weighted spacers would reflow during the transition.
+    VisualMemoryCountdown(
+        countdown = uiState.countdown,
+        visible = isMemorizing,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+
     Spacer(Modifier.height(16.dp))
 
-    // 3x3 Grid
-    Column(
+    VisualMemoryGrid(
+        cells = uiState.cells,
         modifier = Modifier
             .padding(horizontal = 24.dp)
             .widthIn(max = 80.dp * 3),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        uiState.cells.chunked(3).forEach { rowCells ->
-            Row {
-                rowCells.forEach { cell ->
-                    VisualMemoryCell(
-                        cell = cell,
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(4.dp),
-                    )
-                }
-            }
-        }
-    }
+    )
 
     Spacer(Modifier.height(24.dp))
 
-    val showAnswerOptions = uiState.phase == VisualMemoryGame.Phase.ANSWERING ||
-        uiState.phase == VisualMemoryGame.Phase.GAME_OVER
-    AnimatedVisibility(
+    // Always composed; alpha-animated to keep the column height stable across phases.
+    VisualMemoryAnswerOptions(
+        options = uiState.answerOptions,
         visible = showAnswerOptions,
-        enter = fadeIn(animationSpec = tween(250)),
-        exit = fadeOut(animationSpec = tween(200)),
-        modifier = Modifier.align(Alignment.CenterHorizontally),
+        onAnswer = onAnswer,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .padding(horizontal = 24.dp)
+            .widthIn(max = 72.dp * 3),
+    )
+}
+
+@Composable
+private fun VisualMemoryCountdown(
+    countdown: Int,
+    visible: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    val alpha by animateFloatAsState(
+        targetValue = if (visible) 1f else 0f,
+        animationSpec = tween(VisualMemoryTransitionMillis),
+        label = "visualMemoryCountdown",
+    )
+    // Hold the last positive countdown so the fade-out keeps showing the final value
+    // instead of "0" (which is briefly emitted when the phase flips).
+    val displayed = remember { mutableIntStateOf(countdown.coerceAtLeast(1)) }
+    if (countdown > 0) displayed.intValue = countdown
+    Text(
+        text = displayed.intValue.toString(),
+        style = MaterialTheme.typography.headlineMedium,
+        color = Primary,
+        modifier = modifier.alpha(alpha),
+    )
+}
+
+@Composable
+private fun VisualMemoryGrid(
+    cells: List<VisualMemoryUiState.CellState>,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Column(
-            modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .widthIn(max = 72.dp * 3),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            uiState.answerOptions.chunked(3).forEach { rowOptions ->
-                Row {
-                    rowOptions.forEach { option ->
-                        if (option.isWrong) {
-                            Card(
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .aspectRatio(1f)
-                                    .padding(4.dp),
-                                colors = CardDefaults.cardColors(
-                                    containerColor = MaterialTheme.colorScheme.errorContainer,
-                                ),
-                            ) {
-                                ShapeCanvas(
-                                    figure = option.figure,
-                                    modifier = Modifier.fillMaxSize().padding(8.dp),
-                                )
-                            }
-                        } else {
-                            ShapeCanvasButton(
-                                figure = option.figure,
-                                onClick = { onAnswer(option.figureIndex.toString()) },
-                                enabled = option.enabled,
-                                modifier = Modifier
-                                    .weight(1f)
-                                    .aspectRatio(1f)
-                                    .padding(4.dp),
-                            )
-                        }
+        cells.chunked(3).forEachIndexed { rowIndex, rowCells ->
+            Row {
+                rowCells.forEachIndexed { colIndex, cell ->
+                    key(rowIndex * 3 + colIndex) {
+                        VisualMemoryCell(
+                            cell = cell,
+                            modifier = Modifier
+                                .weight(1f)
+                                .aspectRatio(1f)
+                                .padding(4.dp),
+                        )
                     }
                 }
             }
@@ -860,47 +867,127 @@ private fun ColumnScope.VisualMemoryContent(
 }
 
 @Composable
+private fun VisualMemoryAnswerOptions(
+    options: List<VisualMemoryUiState.AnswerOption>,
+    visible: Boolean,
+    onAnswer: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val alpha by animateFloatAsState(
+        targetValue = if (visible) 1f else 0f,
+        animationSpec = tween(VisualMemoryTransitionMillis),
+        label = "visualMemoryAnswerOptions",
+    )
+    Column(
+        modifier = modifier.alpha(alpha),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        options.chunked(3).forEachIndexed { rowIndex, rowOptions ->
+            Row {
+                rowOptions.forEachIndexed { colIndex, option ->
+                    key(rowIndex * 3 + colIndex) {
+                        VisualMemoryAnswerOption(
+                            option = option,
+                            onAnswer = onAnswer,
+                            modifier = Modifier
+                                .weight(1f)
+                                .aspectRatio(1f)
+                                .padding(4.dp),
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun VisualMemoryAnswerOption(
+    option: VisualMemoryUiState.AnswerOption,
+    onAnswer: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    if (option.isWrong) {
+        Card(
+            modifier = modifier,
+            colors = CardDefaults.cardColors(
+                containerColor = MaterialTheme.colorScheme.errorContainer,
+            ),
+        ) {
+            ShapeCanvas(
+                figure = option.figure,
+                modifier = Modifier.fillMaxSize().padding(8.dp),
+            )
+        }
+    } else {
+        ShapeCanvasButton(
+            figure = option.figure,
+            onClick = { onAnswer(option.figureIndex.toString()) },
+            enabled = option.enabled,
+            modifier = modifier,
+        )
+    }
+}
+
+@Composable
 private fun VisualMemoryCell(
     cell: VisualMemoryUiState.CellState,
     modifier: Modifier = Modifier,
 ) {
+    val targetContainerColor = when (cell.type) {
+        VisualMemoryUiState.CellType.CURRENT_TARGET -> PrimaryContainer
+        VisualMemoryUiState.CellType.HIDDEN,
+        VisualMemoryUiState.CellType.EMPTY,
+        -> MaterialTheme.colorScheme.surfaceVariant
+        VisualMemoryUiState.CellType.MEMORIZING,
+        VisualMemoryUiState.CellType.REVEALED,
+        -> MaterialTheme.colorScheme.surface
+        VisualMemoryUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+    }
+    val containerColor by animateColorAsState(
+        targetValue = targetContainerColor,
+        animationSpec = tween(VisualMemoryTransitionMillis),
+        label = "visualMemoryCellContainer",
+    )
+    val showShape = cell.figure != null && cell.type in CellTypesShowingShape
+    val showQuestion = cell.type == VisualMemoryUiState.CellType.CURRENT_TARGET
+    val shapeAlpha by animateFloatAsState(
+        targetValue = if (showShape) 1f else 0f,
+        animationSpec = tween(VisualMemoryTransitionMillis),
+        label = "visualMemoryCellShape",
+    )
+    val questionAlpha by animateFloatAsState(
+        targetValue = if (showQuestion) 1f else 0f,
+        animationSpec = tween(VisualMemoryTransitionMillis),
+        label = "visualMemoryCellQuestion",
+    )
+    // Hold the last figure so the fade-out keeps drawing it after the cell type
+    // transitions to HIDDEN, where cell.figure is null.
+    val rememberedFigure = remember { mutableStateOf(cell.figure) }
+    if (cell.figure != null) rememberedFigure.value = cell.figure
+
     Card(
         modifier = modifier,
-        colors = CardDefaults.cardColors(
-            containerColor = when (cell.type) {
-                VisualMemoryUiState.CellType.CURRENT_TARGET -> PrimaryContainer
-                VisualMemoryUiState.CellType.HIDDEN -> MaterialTheme.colorScheme.surfaceVariant
-                VisualMemoryUiState.CellType.EMPTY -> MaterialTheme.colorScheme.surfaceVariant
-                VisualMemoryUiState.CellType.MEMORIZING -> MaterialTheme.colorScheme.surface
-                VisualMemoryUiState.CellType.REVEALED -> MaterialTheme.colorScheme.surface
-                VisualMemoryUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
-            },
-        ),
+        colors = CardDefaults.cardColors(containerColor = containerColor),
     ) {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize(),
         ) {
-            when (cell.type) {
-                VisualMemoryUiState.CellType.CURRENT_TARGET -> {
-                    Text(
-                        text = "?",
-                        style = MaterialTheme.typography.headlineLarge,
-                        color = OnPrimaryContainer,
-                    )
-                }
-                VisualMemoryUiState.CellType.MEMORIZING,
-                VisualMemoryUiState.CellType.REVEALED,
-                VisualMemoryUiState.CellType.WRONG,
-                -> {
-                    if (cell.figure != null) {
-                        ShapeCanvas(
-                            figure = cell.figure,
-                            modifier = Modifier.fillMaxSize().padding(8.dp),
-                        )
-                    }
-                }
-                else -> {}
+            if (questionAlpha > 0f) {
+                Text(
+                    text = "?",
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = OnPrimaryContainer,
+                    modifier = Modifier.alpha(questionAlpha),
+                )
+            }
+            val figure = rememberedFigure.value
+            if (shapeAlpha > 0f && figure != null) {
+                ShapeCanvas(
+                    figure = figure,
+                    modifier = Modifier.fillMaxSize().padding(8.dp).alpha(shapeAlpha),
+                )
             }
         }
     }
