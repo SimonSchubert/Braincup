@@ -66,7 +66,9 @@ tasks.register("updateScreenshots") {
         )
 
         mapping.forEach { (testName, mediaName) ->
-            val snapshot = snapshotsDirFile.listFiles()?.find { it.name.contains(testName) }
+            val snapshot = snapshotsDirFile.listFiles()?.find {
+                it.name.endsWith("_ScreenshotTest_$testName.png")
+            }
             if (snapshot != null) {
                 snapshot.copyTo(mediaDirFile.resolve(mediaName), overwrite = true)
                 println("Copied ${snapshot.name} -> media/$mediaName")
