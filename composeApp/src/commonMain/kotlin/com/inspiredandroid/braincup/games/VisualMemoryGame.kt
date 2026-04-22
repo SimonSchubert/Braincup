@@ -9,6 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.time.Duration.Companion.seconds
 
 /**
  * Visual Memory game where players memorize shape-color combinations on a 3x3 grid.
@@ -144,7 +145,7 @@ class VisualMemoryGame : Game() {
 
         countdownJob = scope.launch {
             while (countdown > 0) {
-                delay(1000L)
+                delay(1.seconds)
                 countdown--
                 onStateChanged()
             }

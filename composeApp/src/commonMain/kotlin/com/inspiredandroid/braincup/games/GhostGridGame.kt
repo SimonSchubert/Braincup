@@ -5,6 +5,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.time.Duration.Companion.milliseconds
 
 /**
  * Ghost Grid game. A sequence of tiles lights up
@@ -67,10 +68,10 @@ class GhostGridGame : Game() {
                 currentShowIndex = i
                 onStateChanged()
                 val duration = if (i == 0) flashDurationMillis + 400L else flashDurationMillis
-                delay(duration)
+                delay(duration.milliseconds)
                 currentShowIndex = -1
                 onStateChanged()
-                delay(200L)
+                delay(200.milliseconds)
             }
             phase = Phase.ANSWERING
             onStateChanged()

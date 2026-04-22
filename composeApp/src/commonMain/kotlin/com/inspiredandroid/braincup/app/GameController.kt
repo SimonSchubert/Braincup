@@ -16,6 +16,8 @@ import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlin.time.Clock
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
 
 class GameController(
     private val navController: NavController,
@@ -215,7 +217,7 @@ class GameController(
         }
 
         scope.launch {
-            delay(1_000)
+            delay(1.seconds)
             proceedAfterFeedback()
         }
     }
@@ -231,7 +233,7 @@ class GameController(
             val currentUiState = _gameUiState.value as? SherlockCalculationUiState ?: return
             _gameUiState.value = currentUiState.copy(solutionTokens = game.solutionTokens)
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
             return
@@ -245,7 +247,7 @@ class GameController(
         )
 
         scope.launch {
-            delay(1_000)
+            delay(1.seconds)
             proceedAfterFeedback()
         }
     }
@@ -292,7 +294,7 @@ class GameController(
                 _timeRemaining.value = remaining
 
                 if (remaining <= 0) break
-                delay(100)
+                delay(100.milliseconds)
             }
         }
     }
@@ -341,7 +343,7 @@ class GameController(
                 message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterFeedback()
             }
         } else {
@@ -352,7 +354,7 @@ class GameController(
                 rows = currentUiState.rows.withFeedbackStates(wrongIndex, game.resultIndex, currentUiState.columnsPerRow),
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
         }
@@ -372,7 +374,7 @@ class GameController(
                 message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterFeedback()
             }
         } else {
@@ -383,7 +385,7 @@ class GameController(
                 optionRows = currentUiState.optionRows.withFeedbackStates(wrongIndex, game.correctOptionIndex, 2),
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
         }
@@ -403,7 +405,7 @@ class GameController(
                 message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterFeedback()
             }
         } else {
@@ -414,7 +416,7 @@ class GameController(
                 grid = currentUiState.grid.withFeedbackStates(wrongIndex, game.correctIndex, 4),
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
         }
@@ -434,7 +436,7 @@ class GameController(
                 message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterFeedback()
             }
         } else {
@@ -453,7 +455,7 @@ class GameController(
                 },
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
         }
@@ -471,7 +473,7 @@ class GameController(
                 points++
             }
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
         } else {
@@ -495,7 +497,7 @@ class GameController(
                 message = game.hint()?.let { FeedbackMessage.Plain(it) },
             )
             scope.launch {
-                delay(1_000)
+                delay(1.seconds)
                 proceedAfterFeedback()
             }
         } else {
@@ -503,7 +505,7 @@ class GameController(
             val currentUiState = _gameUiState.value as? GridSolverUiState ?: return
             _gameUiState.value = currentUiState.copy(solutionValues = game.entries.flatten())
             scope.launch {
-                delay(1_500)
+                delay(1500.milliseconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
         }
@@ -527,7 +529,7 @@ class GameController(
             message = null,
         )
         scope.launch {
-            delay(1_000)
+            delay(1.seconds)
             proceedAfterFeedback()
         }
     }
@@ -572,7 +574,7 @@ class GameController(
                     message = null,
                 )
                 scope.launch {
-                    delay(1000)
+                    delay(1.seconds)
                     game.nextRound()
                     _gameState.value = GameState.Active(currentState.gameType, game)
                     game.startShowSequence(scope) { emitGhostGridUiState(game) }
@@ -581,7 +583,7 @@ class GameController(
             GhostGridGame.SubmitResult.Wrong -> {
                 emitGhostGridUiState(game)
                 scope.launch {
-                    delay(2000)
+                    delay(2.seconds)
                     finishGhostGridGame(game)
                 }
             }
@@ -628,7 +630,7 @@ class GameController(
                     message = null,
                 )
                 scope.launch {
-                    delay(1000)
+                    delay(1.seconds)
                     game.nextRound()
                     _gameState.value = GameState.Active(currentState.gameType, game)
                     game.startHighlightAndMove(scope) { emitOrbitTrackerUiState(game) }
@@ -637,7 +639,7 @@ class GameController(
             OrbitTrackerGame.SubmitResult.Wrong -> {
                 emitOrbitTrackerUiState(game)
                 scope.launch {
-                    delay(2000)
+                    delay(2.seconds)
                     finishOrbitTrackerGame(game)
                 }
             }
@@ -670,7 +672,7 @@ class GameController(
             VisualMemoryGame.SubmitResult.Wrong -> {
                 emitGameUiState(game)
                 scope.launch {
-                    delay(2000)
+                    delay(2.seconds)
                     finishVisualMemoryGame(game)
                 }
             }

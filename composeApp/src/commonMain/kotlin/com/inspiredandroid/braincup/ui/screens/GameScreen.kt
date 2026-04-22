@@ -38,7 +38,9 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
+import kotlin.time.Duration.Companion.milliseconds
 import androidx.compose.ui.graphics.Color as ComposeColor
 
 private val FlashCrowdBlue = ComposeColor(0xFF4285F4)
@@ -1389,9 +1391,9 @@ private fun ColumnScope.FlashCrowdContent(
         )
 
         LaunchedEffect(Unit) {
-            kotlinx.coroutines.delay(750)
+            delay(750.milliseconds)
             visible = false
-            kotlinx.coroutines.delay(200)
+            delay(200.milliseconds)
             showingDots = false
             visible = true
         }

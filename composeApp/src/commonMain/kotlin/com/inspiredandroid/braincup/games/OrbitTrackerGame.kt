@@ -8,6 +8,8 @@ import kotlinx.coroutines.launch
 import kotlin.math.PI
 import kotlin.math.sqrt
 import kotlin.random.Random
+import kotlin.time.Duration.Companion.milliseconds
+import kotlin.time.Duration.Companion.seconds
 
 class OrbitTrackerGame : Game() {
     sealed class SubmitResult {
@@ -76,8 +78,8 @@ class OrbitTrackerGame : Game() {
 
     companion object {
         private const val BALL_RADIUS = 0.04f
-        private const val HIGHLIGHT_DURATION_MS = 2000L
-        private const val FRAME_DELAY_MS = 16L
+        private val HIGHLIGHT_DURATION = 2.seconds
+        private val FRAME_DELAY = 16.milliseconds
     }
 
     override fun generateRound() {
@@ -121,7 +123,7 @@ class OrbitTrackerGame : Game() {
             // Highlight phase
             phase = Phase.HIGHLIGHTING
             onStateChanged()
-            delay(HIGHLIGHT_DURATION_MS)
+            delay(HIGHLIGHT_DURATION)
 
             // Moving phase
             phase = Phase.MOVING
@@ -137,7 +139,7 @@ class OrbitTrackerGame : Game() {
                 lastFrameTime = now
                 updateBallPositions(delta)
                 onStateChanged()
-                delay(FRAME_DELAY_MS)
+                delay(FRAME_DELAY)
             }
 
             // Answering phase
