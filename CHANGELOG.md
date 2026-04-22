@@ -1,3 +1,16 @@
+## v2.7.0 — 2026-04-22
+
+### Features
+- New XP level system to track your progress
+- Restored adaptive difficulty across games
+
+### Fixes
+- Improved UI responsiveness
+- Corrected translations in French, Italian, Turkish, and Ukrainian
+
+### Improvements
+- Internal refactor to replace deprecated APIs
+
 ## v2.6.2 — 2026-04-21
 
 ### Improvements

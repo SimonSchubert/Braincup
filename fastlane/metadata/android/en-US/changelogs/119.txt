@@ -1,0 +1,4 @@
+Earn XP and level up as you play
+Adaptive difficulty adjusts to your skill
+Improved UI responsiveness
+Translation fixes for French, Italian, Turkish, and Ukrainian
