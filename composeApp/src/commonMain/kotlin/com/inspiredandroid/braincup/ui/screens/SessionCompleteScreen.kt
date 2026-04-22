@@ -13,10 +13,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.LevelUpBanner
+import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.painterResource
@@ -28,6 +31,8 @@ fun SessionCompleteScreen(
     scores: List<Int>,
     streakBefore: Int,
     streakAfter: Int,
+    xpGained: Int,
+    levelChange: UserStorage.LevelChange?,
     onDone: () -> Unit,
 ) {
     val total = scores.sum()
@@ -82,6 +87,22 @@ fun SessionCompleteScreen(
                 text = stringResource(Res.string.session_streak_current, streakAfter),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        if (xpGained > 0) {
+            Spacer(Modifier.height(16.dp))
+            XpGainedChip(
+                xpGained = xpGained,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        if (levelChange != null) {
+            Spacer(Modifier.height(16.dp))
+            LevelUpBanner(
+                levelChange = levelChange,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }

@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">দৈনিক চ্যালেঞ্জ</string>
     <string name="daily_challenge_subtitle_start">আপনার স্ট্রিক বজায় রাখতে %1$dটি গেম খেলুন</string>
+    <string name="daily_challenge_subtitle_start_no_streak">আপনার স্ট্রিক শুরু করতে %1$dটি গেম খেলুন</string>
     <string name="daily_challenge_subtitle_progress">চলমান · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">আজকের জন্য শেষ। কাল আবার আসুন!</string>
     <string name="daily_challenge_streak_label">দিন স্ট্রিক</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">মোট: %1$d</string>
     <string name="session_streak_increased">দিন স্ট্রিক: %1$d</string>
     <string name="session_streak_current">বর্তমান স্ট্রিক: %1$d দিন</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">লেভেল %1$d</string>
+    <string name="level_up_title">লেভেল আপ!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">নবাগত</string>
+    <string name="title_apprentice">শিক্ষানবিস</string>
+    <string name="title_scholar">পণ্ডিত</string>
+    <string name="title_sage">ঋষি</string>
+    <string name="title_master">দক্ষ</string>
+    <string name="title_grandmaster">মহাগুরু</string>
 </resources>

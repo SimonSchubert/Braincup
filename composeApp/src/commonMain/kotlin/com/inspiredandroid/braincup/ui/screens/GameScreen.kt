@@ -68,7 +68,7 @@ fun GameScreen(
 
         when (gameUiState) {
             is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
-            is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer)
+            is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
             is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)
             is ColoredShapesUiState -> ColoredShapesContent(gameUiState, onAnswer)
             is SherlockCalculationUiState -> SherlockCalculationContent(gameUiState, onAnswer, onGiveUp)
@@ -110,12 +110,14 @@ private fun ColumnScope.MentalCalculationContent(
 private fun ColumnScope.ChainCalculationContent(
     uiState: ChainCalculationUiState,
     onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
 ) {
     MathText(
         text = "${uiState.calculation} = ?",
         style = MaterialTheme.typography.displaySmall,
+        textAlign = TextAlign.Center,
         modifier = Modifier
-            .align(Alignment.CenterHorizontally)
+            .fillMaxWidth()
             .padding(horizontal = 16.dp),
     )
     Spacer(Modifier.height(16.dp))
@@ -124,6 +126,15 @@ private fun ColumnScope.ChainCalculationContent(
             onAnswer(input)
         }
     })
+    Spacer(Modifier.height(16.dp))
+    TextButton(
+        onClick = onGiveUp,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .hoverHand(),
+    ) {
+        Text(stringResource(Res.string.button_give_up))
+    }
 }
 
 @Composable

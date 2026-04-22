@@ -1,6 +1,9 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -10,6 +13,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.stringResource
 
@@ -50,11 +54,25 @@ fun DailyChallengeCard(
                                 progressIndex,
                                 totalGames,
                             )
-                            else -> stringResource(Res.string.daily_challenge_subtitle_start, totalGames)
+                            sessionStreak > 0 -> stringResource(
+                                Res.string.daily_challenge_subtitle_start,
+                                totalGames,
+                            )
+                            else -> stringResource(
+                                Res.string.daily_challenge_subtitle_start_no_streak,
+                                totalGames,
+                            )
                         },
                         style = MaterialTheme.typography.bodyMedium,
                         color = OnPrimaryContainer,
                     )
+                    if (progressIndex > 0 && !completedToday) {
+                        Spacer(Modifier.height(8.dp))
+                        DailyChallengeProgressDots(
+                            progressIndex = progressIndex,
+                            totalGames = totalGames,
+                        )
+                    }
                 }
                 if (sessionStreak > 0) {
                     Column(horizontalAlignment = Alignment.End) {
@@ -94,6 +112,31 @@ fun DailyChallengeCard(
                     },
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun DailyChallengeProgressDots(
+    progressIndex: Int,
+    totalGames: Int,
+) {
+    Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+        repeat(totalGames) { index ->
+            val filled = index < progressIndex
+            Box(
+                modifier = Modifier
+                    .size(12.dp)
+                    .background(
+                        color = if (filled) Primary else OnPrimaryContainer.copy(alpha = 0.12f),
+                        shape = CircleShape,
+                    )
+                    .border(
+                        width = 1.5.dp,
+                        color = if (filled) Primary else OnPrimaryContainer.copy(alpha = 0.45f),
+                        shape = CircleShape,
+                    ),
+            )
         }
     }
 }

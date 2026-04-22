@@ -98,7 +98,7 @@ class StoreScreenshotTest(
     fun mainMenu() {
         snap("01") {
             MainMenuScreenContent(
-                totalScore = 250,
+                totalXp = 250,
                 sessionStreak = 14,
                 sessionProgressIndex = 0,
                 sessionTotalGames = 5,

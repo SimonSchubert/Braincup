@@ -51,7 +51,7 @@ class ScreenshotTest {
     fun mainMenu() {
         paparazzi.snap {
             MainMenuScreenContent(
-                totalScore = 250,
+                totalXp = 250,
                 sessionStreak = 14,
                 sessionProgressIndex = 0,
                 sessionTotalGames = 5,
@@ -66,7 +66,7 @@ class ScreenshotTest {
     fun mainMenuSessionInProgress() {
         paparazzi.snap {
             MainMenuScreenContent(
-                totalScore = 250,
+                totalXp = 250,
                 sessionStreak = 14,
                 sessionProgressIndex = 2,
                 sessionTotalGames = 5,
@@ -81,7 +81,7 @@ class ScreenshotTest {
     fun mainMenuSessionCompleted() {
         paparazzi.snap {
             MainMenuScreenContent(
-                totalScore = 250,
+                totalXp = 250,
                 sessionStreak = 15,
                 sessionProgressIndex = 5,
                 sessionTotalGames = 5,
@@ -134,6 +134,8 @@ class ScreenshotTest {
                 scores = listOf(8, 5, 6, 4, 7),
                 streakBefore = 14,
                 streakAfter = 15,
+                xpGained = 80,
+                levelChange = null,
                 onDone = {},
             )
         }
@@ -174,6 +176,8 @@ class ScreenshotTest {
                 isNewHighscore = true,
                 answeredAllCorrect = true,
                 highscore = 12,
+                xpGained = 12,
+                totalXpAfter = 50,
                 onPlayRandom = {},
                 onPlayAgain = {},
                 onMenu = {},
@@ -190,6 +194,8 @@ class ScreenshotTest {
                 isNewHighscore = false,
                 answeredAllCorrect = false,
                 highscore = 12,
+                xpGained = 5,
+                totalXpAfter = 205,
                 onPlayRandom = {},
                 onPlayAgain = {},
                 onMenu = {},

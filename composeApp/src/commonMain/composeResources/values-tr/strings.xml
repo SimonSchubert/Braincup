@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Günlük meydan okuma</string>
     <string name="daily_challenge_subtitle_start">Serini sürdürmek için %1$d oyun oyna</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Serini başlatmak için %1$d oyun oyna</string>
     <string name="daily_challenge_subtitle_progress">Devam ediyor · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">Bugünlük bitti. Yarın tekrar gel!</string>
     <string name="daily_challenge_streak_label">gün üst üste</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">Toplam: %1$d</string>
     <string name="session_streak_increased">Gün serisi: %1$d</string>
     <string name="session_streak_current">Mevcut seri: %1$d gün</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Seviye %1$d</string>
+    <string name="level_up_title">Seviye Atladın!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Acemi</string>
+    <string name="title_apprentice">Çırak</string>
+    <string name="title_scholar">Âlim</string>
+    <string name="title_sage">Bilge</string>
+    <string name="title_master">Usta</string>
+    <string name="title_grandmaster">Büyük Usta</string>
 </resources>

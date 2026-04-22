@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">일일 챌린지</string>
     <string name="daily_challenge_subtitle_start">연속 기록을 유지하려면 %1$d개의 게임을 플레이하세요</string>
+    <string name="daily_challenge_subtitle_start_no_streak">연속 기록을 시작하려면 %1$d개의 게임을 플레이하세요</string>
     <string name="daily_challenge_subtitle_progress">진행 중 · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">오늘은 완료! 내일 또 오세요!</string>
     <string name="daily_challenge_streak_label">일 연속</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">합계: %1$d</string>
     <string name="session_streak_increased">연속 일수: %1$d</string>
     <string name="session_streak_current">현재 연속: %1$d일</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">레벨 %1$d</string>
+    <string name="level_up_title">레벨 업!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">초보자</string>
+    <string name="title_apprentice">수습생</string>
+    <string name="title_scholar">학자</string>
+    <string name="title_sage">현자</string>
+    <string name="title_master">달인</string>
+    <string name="title_grandmaster">대가</string>
 </resources>

@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Ежедневный вызов</string>
     <string name="daily_challenge_subtitle_start">Сыграйте %1$d игр, чтобы сохранить серию</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Сыграйте %1$d игр, чтобы начать серию</string>
     <string name="daily_challenge_subtitle_progress">В процессе · %1$d из %2$d</string>
     <string name="daily_challenge_subtitle_done">На сегодня всё. Возвращайтесь завтра!</string>
     <string name="daily_challenge_streak_label">дней подряд</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">Всего: %1$d</string>
     <string name="session_streak_increased">Серия дней: %1$d</string>
     <string name="session_streak_current">Текущая серия: %1$d дней</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Уровень %1$d</string>
+    <string name="level_up_title">Новый уровень!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Новичок</string>
+    <string name="title_apprentice">Ученик</string>
+    <string name="title_scholar">Учёный</string>
+    <string name="title_sage">Мудрец</string>
+    <string name="title_master">Мастер</string>
+    <string name="title_grandmaster">Гроссмейстер</string>
 </resources>

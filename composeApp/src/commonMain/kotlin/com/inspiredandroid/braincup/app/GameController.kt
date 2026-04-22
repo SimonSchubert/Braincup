@@ -50,11 +50,17 @@ class GameController(
     private var points = 0
     private var inSessionMode = false
 
+    private val _totalXp = MutableStateFlow(0)
+    val totalXp: StateFlow<Int> = _totalXp.asStateFlow()
+
     data class SessionResult(
         val gameIds: List<String>,
         val scores: List<Int>,
         val streakBefore: Int,
         val streakAfter: Int,
+        val xpGained: Int,
+        val totalXpAfter: Int,
+        val levelChange: UserStorage.LevelChange?,
     )
 
     companion object {
@@ -65,6 +71,7 @@ class GameController(
         storage.migrateStreakIfNeeded()
         _sessionStreak.value = storage.getSessionStreak()
         _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
+        _totalXp.value = storage.getTotalXp()
     }
 
     fun dispose() {
@@ -690,11 +697,12 @@ class GameController(
         _gameUiState.value = null
         _gameState.value = GameState.Idle
 
-        val newHighscore = storage.putScore(gameType.id, points)
+        val scoreResult = storage.putScore(gameType.id, points)
         val highscore = storage.getHighScore(gameType.id)
         if (game.adaptiveDifficulty) {
             storage.putLastRound(gameType.id, game.round - 3)
         }
+        _totalXp.value = storage.getTotalXp()
 
         if (inSessionMode) {
             storage.appendSessionScore(points)
@@ -702,13 +710,32 @@ class GameController(
             _sessionState.value = updated
             if (updated.currentIndex >= updated.gameIds.size) {
                 val streakBefore = _sessionStreak.value
-                val newStreak = storage.recordSessionCompleted()
-                _sessionStreak.value = newStreak
+                val completion = storage.recordSessionCompleted()
+                _sessionStreak.value = completion.newStreak
+                val totalXpAfter = storage.getTotalXp()
+                _totalXp.value = totalXpAfter
+                val sessionXpGained = updated.scores.sum() + completion.xpGained
+                val totalXpBefore = totalXpAfter - sessionXpGained
+                val levelBefore = UserStorage.levelForXp(totalXpBefore)
+                val levelAfter = UserStorage.levelForXp(totalXpAfter)
+                val sessionLevelChange = if (levelAfter > levelBefore) {
+                    UserStorage.LevelChange(
+                        oldLevel = levelBefore,
+                        newLevel = levelAfter,
+                        totalXpBefore = totalXpBefore,
+                        totalXpAfter = totalXpAfter,
+                    )
+                } else {
+                    null
+                }
                 _lastCompletedSession.value = SessionResult(
                     gameIds = updated.gameIds,
                     scores = updated.scores,
                     streakBefore = streakBefore,
-                    streakAfter = newStreak,
+                    streakAfter = completion.newStreak,
+                    xpGained = sessionXpGained,
+                    totalXpAfter = totalXpAfter,
+                    levelChange = sessionLevelChange,
                 )
                 navController.navigate(SessionComplete) {
                     popUpTo(MainMenu)
@@ -725,9 +752,11 @@ class GameController(
             Finish(
                 gameTypeId = gameType.id,
                 score = points,
-                isNewHighscore = newHighscore,
+                isNewHighscore = scoreResult.newHighscore,
                 answeredAllCorrect = game.answeredAllCorrect,
                 highscore = highscore,
+                xpGained = scoreResult.xpGained,
+                totalXpAfter = storage.getTotalXp(),
             ),
         ) {
             popUpTo(MainMenu)

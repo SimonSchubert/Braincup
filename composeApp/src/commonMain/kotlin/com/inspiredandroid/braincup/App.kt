@@ -157,6 +157,8 @@ fun App(colorScheme: ColorScheme? = null) {
                             isNewHighscore = route.isNewHighscore,
                             answeredAllCorrect = route.answeredAllCorrect,
                             highscore = route.highscore,
+                            xpGained = route.xpGained,
+                            totalXpAfter = route.totalXpAfter,
                             onPlayRandom = { controller.playRandomGame() },
                             onPlayAgain = { controller.playAgain(gameType) },
                             onMenu = { controller.navigateToMainMenu() },
@@ -211,6 +213,8 @@ fun App(colorScheme: ColorScheme? = null) {
                             scores = current.scores,
                             streakBefore = current.streakBefore,
                             streakAfter = current.streakAfter,
+                            xpGained = current.xpGained,
+                            levelChange = current.levelChange,
                             onDone = { controller.navigateToMainMenu() },
                         )
                     }

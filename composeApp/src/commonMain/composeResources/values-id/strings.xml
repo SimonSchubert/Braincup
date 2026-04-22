@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Tantangan harian</string>
     <string name="daily_challenge_subtitle_start">Mainkan %1$d permainan untuk menjaga streak</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Mainkan %1$d permainan untuk memulai streak</string>
     <string name="daily_challenge_subtitle_progress">Sedang berlangsung · %1$d dari %2$d</string>
     <string name="daily_challenge_subtitle_done">Selesai hari ini. Sampai jumpa besok!</string>
     <string name="daily_challenge_streak_label">hari berturut-turut</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">Total: %1$d</string>
     <string name="session_streak_increased">Streak hari: %1$d</string>
     <string name="session_streak_current">Streak saat ini: %1$d hari</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Level %1$d</string>
+    <string name="level_up_title">Naik Level!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Pemula</string>
+    <string name="title_apprentice">Murid</string>
+    <string name="title_scholar">Cendekiawan</string>
+    <string name="title_sage">Bijak</string>
+    <string name="title_master">Ahli</string>
+    <string name="title_grandmaster">Maha Ahli</string>
 </resources>

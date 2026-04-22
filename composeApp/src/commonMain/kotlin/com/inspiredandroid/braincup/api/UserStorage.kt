@@ -80,7 +80,77 @@ class UserStorage(
         const val KEY_SESSION_INDEX = "session_index"
         const val KEY_LAST_COMPLETED_SESSION_DAY = "last_completed_session_day"
         const val KEY_STREAK_MIGRATED_V2 = "streak_migrated_v2"
+        const val KEY_TOTAL_XP = "total_xp"
+        const val KEY_XP_SEEDED = "xp_seeded_v1"
         const val SESSION_GAME_COUNT = 5
+        const val SESSION_COMPLETION_XP = 50
+
+        fun levelForXp(xp: Int): Int {
+            if (xp <= 0) return 1
+            var level = 1
+            while (xpThresholdForLevel(level + 1) <= xp) level++
+            return level
+        }
+
+        fun xpThresholdForLevel(level: Int): Int {
+            val n = (level - 1).coerceAtLeast(0)
+            return 50 * n * n
+        }
+
+        fun xpSpanForLevel(level: Int): Int = xpThresholdForLevel(level + 1) - xpThresholdForLevel(level)
+
+        fun xpIntoLevel(xp: Int): Int = (xp - xpThresholdForLevel(levelForXp(xp))).coerceAtLeast(0)
+
+        val MILESTONE_TITLES: List<MilestoneTitle> = listOf(
+            MilestoneTitle(1, Res.string.title_novice),
+            MilestoneTitle(5, Res.string.title_apprentice),
+            MilestoneTitle(10, Res.string.title_scholar),
+            MilestoneTitle(20, Res.string.title_sage),
+            MilestoneTitle(30, Res.string.title_master),
+            MilestoneTitle(50, Res.string.title_grandmaster),
+        )
+
+        fun currentTitleRes(level: Int): StringResource = MILESTONE_TITLES.lastOrNull { it.level <= level }?.titleRes ?: Res.string.title_novice
+
+        fun isMilestoneLevel(level: Int): Boolean = MILESTONE_TITLES.any { it.level == level }
+    }
+
+    data class MilestoneTitle(val level: Int, val titleRes: StringResource)
+
+    data class LevelChange(
+        val oldLevel: Int,
+        val newLevel: Int,
+        val totalXpBefore: Int,
+        val totalXpAfter: Int,
+    ) {
+        val isMilestone: Boolean
+            get() = (oldLevel + 1..newLevel).any { isMilestoneLevel(it) }
+    }
+
+    fun getTotalXp(): Int {
+        if (!settings.getBoolean(KEY_XP_SEEDED, false)) {
+            val seed = getTotalScore()
+            settings.putInt(KEY_TOTAL_XP, seed)
+            settings.putBoolean(KEY_XP_SEEDED, true)
+            return seed
+        }
+        return settings.getInt(KEY_TOTAL_XP, 0)
+    }
+
+    fun getLevel(): Int = levelForXp(getTotalXp())
+
+    private fun addXp(amount: Int): LevelChange? {
+        if (amount <= 0) return null
+        val before = getTotalXp()
+        val after = before + amount
+        settings.putInt(KEY_TOTAL_XP, after)
+        val oldLevel = levelForXp(before)
+        val newLevel = levelForXp(after)
+        return if (newLevel > oldLevel) {
+            LevelChange(oldLevel, newLevel, before, after)
+        } else {
+            null
+        }
     }
 
     fun isAudioMuted(): Boolean = settings.getBoolean(KEY_AUDIO_MUTED, false)
@@ -170,10 +240,18 @@ class UserStorage(
         return settings.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) == today
     }
 
-    fun recordSessionCompleted(): Int {
+    data class SessionCompletionResult(
+        val newStreak: Int,
+        val xpGained: Int,
+        val levelChange: LevelChange?,
+    )
+
+    fun recordSessionCompleted(): SessionCompletionResult {
         val today = todayEpochDay()
         val lastCompleted = settings.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) ?: -1
-        if (lastCompleted == today) return getSessionStreak()
+        if (lastCompleted == today) {
+            return SessionCompletionResult(getSessionStreak(), 0, null)
+        }
 
         val newStreak = if (lastCompleted == today - 1) getSessionStreak() + 1 else 1
         settings.putInt(KEY_APP_OPEN_COMBO, newStreak)
@@ -185,7 +263,9 @@ class UserStorage(
                 unlockAchievement(it)
             }
         }
-        return newStreak
+
+        val levelChange = addXp(SESSION_COMPLETION_XP)
+        return SessionCompletionResult(newStreak, SESSION_COMPLETION_XP, levelChange)
     }
 
     data class SessionState(
@@ -209,10 +289,16 @@ class UserStorage(
         settings.putInt(getLastRoundKey(gameId), round.coerceAtLeast(0))
     }
 
+    data class ScoreResult(
+        val newHighscore: Boolean,
+        val xpGained: Int,
+        val levelChange: LevelChange?,
+    )
+
     fun putScore(
         gameId: String,
         score: Int,
-    ): Boolean {
+    ): ScoreResult {
         val newHighscore = score > getHighScore(gameId)
         if (newHighscore) {
             settings.putInt(getHighscoreKey(gameId), score)
@@ -237,7 +323,8 @@ class UserStorage(
             }
         }
 
-        return newHighscore
+        val levelChange = addXp(score)
+        return ScoreResult(newHighscore, score, levelChange)
     }
 
     fun getTotalScore(): Int = settings.getIntOrNull(KEY_TOTAL_SCORE) ?: 0

@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">दैनिक चुनौती</string>
     <string name="daily_challenge_subtitle_start">अपनी स्ट्रीक बनाए रखने के लिए %1$d खेल खेलें</string>
+    <string name="daily_challenge_subtitle_start_no_streak">अपनी स्ट्रीक शुरू करने के लिए %1$d खेल खेलें</string>
     <string name="daily_challenge_subtitle_progress">प्रगति में · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">आज के लिए पूरा। कल फिर आएं!</string>
     <string name="daily_challenge_streak_label">दिन की स्ट्रीक</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">कुल: %1$d</string>
     <string name="session_streak_increased">दिनों की स्ट्रीक: %1$d</string>
     <string name="session_streak_current">वर्तमान स्ट्रीक: %1$d दिन</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">स्तर %1$d</string>
+    <string name="level_up_title">स्तर बढ़ा!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">नवसिखिया</string>
+    <string name="title_apprentice">प्रशिक्षु</string>
+    <string name="title_scholar">विद्वान</string>
+    <string name="title_sage">ऋषि</string>
+    <string name="title_master">उस्ताद</string>
+    <string name="title_grandmaster">महागुरु</string>
 </resources>

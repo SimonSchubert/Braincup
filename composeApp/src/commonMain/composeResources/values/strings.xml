@@ -15,11 +15,24 @@
     <!-- Main menu -->
     <string name="stat_training_days">Day streak</string>
     <string name="stat_total_score">Total score</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Level %1$d</string>
+    <string name="level_up_title">Level Up!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Novice</string>
+    <string name="title_apprentice">Apprentice</string>
+    <string name="title_scholar">Scholar</string>
+    <string name="title_sage">Sage</string>
+    <string name="title_master">Master</string>
+    <string name="title_grandmaster">Grandmaster</string>
     <string name="achievements_button">Achievements (%1$d/%2$d)</string>
 
     <!-- Daily challenge -->
     <string name="daily_challenge_title">Daily Challenge</string>
     <string name="daily_challenge_subtitle_start">Play %1$d games to keep your streak</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Play %1$d games to start your streak</string>
     <string name="daily_challenge_subtitle_progress">In progress · %1$d of %2$d</string>
     <string name="daily_challenge_subtitle_done">Done for today. Come back tomorrow!</string>
     <string name="daily_challenge_streak_label">day streak</string>

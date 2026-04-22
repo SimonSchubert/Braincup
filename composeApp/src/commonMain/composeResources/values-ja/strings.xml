@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">デイリーチャレンジ</string>
     <string name="daily_challenge_subtitle_start">%1$dゲームをプレイして連続記録を保とう</string>
+    <string name="daily_challenge_subtitle_start_no_streak">%1$dゲームをプレイして連続記録を始めよう</string>
     <string name="daily_challenge_subtitle_progress">進行中 · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">今日の分は完了。また明日！</string>
     <string name="daily_challenge_streak_label">日連続</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">合計: %1$d</string>
     <string name="session_streak_increased">連続日数: %1$d</string>
     <string name="session_streak_current">現在の連続: %1$d日</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">レベル %1$d</string>
+    <string name="level_up_title">レベルアップ!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">初心者</string>
+    <string name="title_apprentice">見習い</string>
+    <string name="title_scholar">学者</string>
+    <string name="title_sage">賢者</string>
+    <string name="title_master">達人</string>
+    <string name="title_grandmaster">大達人</string>
 </resources>

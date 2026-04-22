@@ -24,6 +24,7 @@ import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
+import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.painterResource
@@ -42,8 +43,10 @@ fun MainMenuScreen(
     val progressIndex = session?.currentIndex ?: 0
     val completedToday = remember(session) { controller.storage.isSessionCompletedToday() }
 
+    val totalXp by controller.totalXp.collectAsState()
+
     MainMenuScreenContent(
-        totalScore = remember { controller.storage.getTotalScore() },
+        totalXp = totalXp,
         sessionStreak = sessionStreak,
         sessionProgressIndex = progressIndex,
         sessionTotalGames = totalGames,
@@ -61,7 +64,7 @@ fun MainMenuScreen(
 
 @Composable
 fun MainMenuScreenContent(
-    totalScore: Int,
+    totalXp: Int,
     sessionStreak: Int,
     sessionProgressIndex: Int,
     sessionTotalGames: Int,
@@ -83,43 +86,16 @@ fun MainMenuScreenContent(
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.statusBars)
             .padding(horizontal = 16.dp),
-        contentPadding = PaddingValues(top = 16.dp, bottom = 16.dp + bottomInset),
+        contentPadding = PaddingValues(top = 0.dp, bottom = 16.dp + bottomInset),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        // Header
+        // Header — full hero layout for first-run, compact for returning users
         item(span = { GridItemSpan(maxLineSpan) }, contentType = "header") {
-            Box(modifier = Modifier.fillMaxWidth()) {
-                Column(
-                    horizontalAlignment = Alignment.CenterHorizontally,
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    Text(
-                        text = stringResource(Res.string.app_name),
-                        style = MaterialTheme.typography.headlineLarge,
-                        color = Primary,
-                        modifier = Modifier.offset(y = 16.dp),
-                    )
-
-                    Image(
-                        painterResource(Res.drawable.ic_success),
-                        contentDescription = null,
-                        modifier = Modifier.height(190.dp),
-                    )
-
-                    Text(
-                        text = stringResource(Res.string.app_tagline),
-                        style = MaterialTheme.typography.bodyMedium,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.offset(y = -20.dp),
-                    )
-                }
-
+            val muteIcon: @Composable () -> Unit = {
                 IconButton(
                     onClick = onToggleMute,
-                    modifier = Modifier
-                        .align(Alignment.TopEnd)
-                        .hoverHand(),
+                    modifier = Modifier.hoverHand(),
                 ) {
                     Icon(
                         imageVector = if (isMuted) Icons.AutoMirrored.Filled.VolumeOff else Icons.AutoMirrored.Filled.VolumeUp,
@@ -127,10 +103,71 @@ fun MainMenuScreenContent(
                     )
                 }
             }
+
+            if (totalXp > 0) {
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    Image(
+                        painter = painterResource(Res.drawable.ic_success),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .padding(top = 16.dp)
+                            .align(Alignment.Center)
+                            .height(154.dp),
+                    )
+                    Box(modifier = Modifier.align(Alignment.TopEnd)) {
+                        muteIcon()
+                    }
+                }
+            } else {
+                Box(modifier = Modifier.fillMaxWidth()) {
+                    Column(
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Spacer(Modifier.height(16.dp))
+                        Text(
+                            text = stringResource(Res.string.app_name),
+                            style = MaterialTheme.typography.headlineLarge,
+                            color = Primary,
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        Image(
+                            painterResource(Res.drawable.ic_success),
+                            contentDescription = null,
+                            modifier = Modifier.height(154.dp),
+                        )
+                        Spacer(Modifier.height(12.dp))
+                        Text(
+                            text = stringResource(Res.string.app_tagline),
+                            style = MaterialTheme.typography.bodyMedium,
+                            textAlign = TextAlign.Center,
+                        )
+                        Spacer(Modifier.height(12.dp))
+                    }
+                    Box(modifier = Modifier.align(Alignment.TopEnd)) {
+                        muteIcon()
+                    }
+                }
+            }
         }
 
-        // Daily challenge card
-        if (showDailyChallenge) {
+        // Player level card — hidden until the user has earned any XP
+        if (totalXp > 0) {
+            item(span = { GridItemSpan(maxLineSpan) }, contentType = "player_level") {
+                Box(
+                    modifier = Modifier.fillMaxWidth(),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    PlayerLevelCard(
+                        totalXp = totalXp,
+                        modifier = Modifier.widthIn(max = 420.dp),
+                    )
+                }
+            }
+        }
+
+        // Daily challenge card — hidden once today's session is done
+        if (showDailyChallenge && !sessionCompletedToday) {
             item(span = { GridItemSpan(maxLineSpan) }, contentType = "daily_challenge") {
                 Box(
                     modifier = Modifier.fillMaxWidth(),
@@ -163,20 +200,6 @@ fun MainMenuScreenContent(
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Spacer(Modifier.height(16.dp))
 
-                Row(
-                    horizontalArrangement = Arrangement.SpaceEvenly,
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    if (sessionStreak > 0) {
-                        StatCard(title = stringResource(Res.string.stat_training_days), value = sessionStreak.toString())
-                    }
-                    if (totalScore > 0) {
-                        StatCard(title = stringResource(Res.string.stat_total_score), value = totalScore.toString())
-                    }
-                }
-
-                Spacer(Modifier.height(16.dp))
-
                 Button(
                     onClick = onAchievements,
                     modifier = Modifier
@@ -189,27 +212,6 @@ fun MainMenuScreenContent(
 
                 Spacer(Modifier.height(16.dp))
             }
-        }
-    }
-}
-
-@Composable
-private fun StatCard(title: String, value: String) {
-    Card(
-        modifier = Modifier.padding(8.dp),
-    ) {
-        Column(
-            modifier = Modifier.padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.labelMedium,
-            )
-            Text(
-                text = value,
-                style = MaterialTheme.typography.headlineSmall,
-            )
         }
     }
 }

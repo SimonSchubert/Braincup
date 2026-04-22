@@ -26,14 +26,14 @@ fun AnswerFeedbackScreen(
                 painterResource(Res.drawable.ic_success),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(360.dp),
+                    .size(200.dp),
             )
         } else {
             Image(
                 painterResource(Res.drawable.ic_delivery),
                 contentDescription = null,
                 modifier = Modifier
-                    .size(280.dp),
+                    .size(200.dp),
             )
             if (message != null) {
                 Text(

@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">ความท้าทายประจำวัน</string>
     <string name="daily_challenge_subtitle_start">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</string>
+    <string name="daily_challenge_subtitle_start_no_streak">เล่น %1$d เกมเพื่อเริ่มสตรีคของคุณ</string>
     <string name="daily_challenge_subtitle_progress">กำลังดำเนินการ · %1$d จาก %2$d</string>
     <string name="daily_challenge_subtitle_done">เสร็จสิ้นสำหรับวันนี้ กลับมาพรุ่งนี้!</string>
     <string name="daily_challenge_streak_label">วันติดต่อกัน</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">รวม: %1$d</string>
     <string name="session_streak_increased">สตรีค: %1$d วัน</string>
     <string name="session_streak_current">สตรีคปัจจุบัน: %1$d วัน</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">เลเวล %1$d</string>
+    <string name="level_up_title">เลื่อนเลเวล!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">มือใหม่</string>
+    <string name="title_apprentice">ศิษย์</string>
+    <string name="title_scholar">นักวิชาการ</string>
+    <string name="title_sage">ปราชญ์</string>
+    <string name="title_master">ผู้เชี่ยวชาญ</string>
+    <string name="title_grandmaster">ปรมาจารย์</string>
 </resources>

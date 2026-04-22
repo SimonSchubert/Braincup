@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Thử thách hàng ngày</string>
     <string name="daily_challenge_subtitle_start">Chơi %1$d trò chơi để giữ chuỗi thắng</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Chơi %1$d trò chơi để bắt đầu chuỗi của bạn</string>
     <string name="daily_challenge_subtitle_progress">Đang tiến hành · %1$d / %2$d</string>
     <string name="daily_challenge_subtitle_done">Hôm nay đã xong. Hẹn gặp lại ngày mai!</string>
     <string name="daily_challenge_streak_label">ngày liên tiếp</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">Tổng: %1$d</string>
     <string name="session_streak_increased">Chuỗi ngày: %1$d</string>
     <string name="session_streak_current">Chuỗi hiện tại: %1$d ngày</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Cấp %1$d</string>
+    <string name="level_up_title">Lên Cấp!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Người Mới</string>
+    <string name="title_apprentice">Học Việc</string>
+    <string name="title_scholar">Học Giả</string>
+    <string name="title_sage">Hiền Triết</string>
+    <string name="title_master">Cao Thủ</string>
+    <string name="title_grandmaster">Đại Cao Thủ</string>
 </resources>

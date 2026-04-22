@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Desafio diário</string>
     <string name="daily_challenge_subtitle_start">Jogue %1$d jogos para manter sua sequência</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Jogue %1$d jogos para começar sua sequência</string>
     <string name="daily_challenge_subtitle_progress">Em andamento · %1$d de %2$d</string>
     <string name="daily_challenge_subtitle_done">Feito por hoje. Volte amanhã!</string>
     <string name="daily_challenge_streak_label">dias seguidos</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">Total: %1$d</string>
     <string name="session_streak_increased">Sequência de dias: %1$d</string>
     <string name="session_streak_current">Sequência atual: %1$d dias</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Nível %1$d</string>
+    <string name="level_up_title">Subiu de nível!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Novato</string>
+    <string name="title_apprentice">Aprendiz</string>
+    <string name="title_scholar">Erudito</string>
+    <string name="title_sage">Sábio</string>
+    <string name="title_master">Mestre</string>
+    <string name="title_grandmaster">Grão-Mestre</string>
 </resources>

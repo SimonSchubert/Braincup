@@ -8,9 +8,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.LevelUpBanner
+import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
@@ -27,10 +30,24 @@ fun FinishScreen(
     isNewHighscore: Boolean,
     answeredAllCorrect: Boolean,
     highscore: Int,
+    xpGained: Int,
+    totalXpAfter: Int,
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
 ) {
+    val levelAfter = UserStorage.levelForXp(totalXpAfter)
+    val levelBefore = UserStorage.levelForXp(totalXpAfter - xpGained)
+    val levelChange = if (levelAfter > levelBefore) {
+        UserStorage.LevelChange(
+            oldLevel = levelBefore,
+            newLevel = levelAfter,
+            totalXpBefore = totalXpAfter - xpGained,
+            totalXpAfter = totalXpAfter,
+        )
+    } else {
+        null
+    }
     AppScaffold(
         title = stringResource(gameType.displayNameRes),
         onBack = onMenu,
@@ -95,6 +112,22 @@ fun FinishScreen(
                 text = stringResource(Res.string.finish_highscore, highscore),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        if (xpGained > 0) {
+            Spacer(Modifier.height(16.dp))
+            XpGainedChip(
+                xpGained = xpGained,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
+
+        if (levelChange != null) {
+            Spacer(Modifier.height(16.dp))
+            LevelUpBanner(
+                levelChange = levelChange,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
         }

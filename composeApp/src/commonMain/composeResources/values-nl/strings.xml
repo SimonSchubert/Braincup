@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Dagelijkse uitdaging</string>
     <string name="daily_challenge_subtitle_start">Speel %1$d spellen om je reeks te behouden</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Speel %1$d spellen om je reeks te starten</string>
     <string name="daily_challenge_subtitle_progress">Bezig · %1$d van %2$d</string>
     <string name="daily_challenge_subtitle_done">Klaar voor vandaag. Kom morgen terug!</string>
     <string name="daily_challenge_streak_label">dagen reeks</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">Totaal: %1$d</string>
     <string name="session_streak_increased">Dagenreeks: %1$d</string>
     <string name="session_streak_current">Huidige reeks: %1$d dagen</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Level %1$d</string>
+    <string name="level_up_title">Level omhoog!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Beginner</string>
+    <string name="title_apprentice">Leerling</string>
+    <string name="title_scholar">Geleerde</string>
+    <string name="title_sage">Wijze</string>
+    <string name="title_master">Meester</string>
+    <string name="title_grandmaster">Grootmeester</string>
 </resources>

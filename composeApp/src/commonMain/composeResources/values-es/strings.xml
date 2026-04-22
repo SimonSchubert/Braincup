@@ -150,6 +150,7 @@
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Desafío diario</string>
     <string name="daily_challenge_subtitle_start">Juega %1$d juegos para mantener tu racha</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Juega %1$d juegos para empezar tu racha</string>
     <string name="daily_challenge_subtitle_progress">En progreso · %1$d de %2$d</string>
     <string name="daily_challenge_subtitle_done">Listo por hoy. ¡Vuelve mañana!</string>
     <string name="daily_challenge_streak_label">días de racha</string>
@@ -165,4 +166,16 @@
     <string name="session_total_score">Total: %1$d</string>
     <string name="session_streak_increased">Racha de días: %1$d</string>
     <string name="session_streak_current">Racha actual: %1$d días</string>
+
+    <!-- Level / XP -->
+    <string name="level_label">Nivel %1$d</string>
+    <string name="level_up_title">¡Subiste de nivel!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Novato</string>
+    <string name="title_apprentice">Aprendiz</string>
+    <string name="title_scholar">Erudito</string>
+    <string name="title_sage">Sabio</string>
+    <string name="title_master">Maestro</string>
+    <string name="title_grandmaster">Gran Maestro</string>
 </resources>
