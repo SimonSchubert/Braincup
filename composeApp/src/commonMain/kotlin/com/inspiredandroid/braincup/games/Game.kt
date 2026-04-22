@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.app.GameUiState
 abstract class Game {
     var answeredAllCorrect = true
     var round = 0
+    open val adaptiveDifficulty: Boolean = true
 
     fun nextRound() {
         generateRound()

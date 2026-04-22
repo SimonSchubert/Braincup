@@ -22,6 +22,7 @@ class MentalCalculationGame : Game() {
     private var division = -1
     private var maxNumber = 0
     private var resetNextRound = false
+    private var showSeedNextRound = true
     private val allowedDivisions by lazy { mutableListOf(2, 3, 4, 5, 6, 7, 8, 9) }
     private val defaultOperators by lazy {
         listOf(
@@ -50,7 +51,8 @@ class MentalCalculationGame : Game() {
             resetNextRound = false
         }
         calculation =
-            if (round == 0) {
+            if (showSeedNextRound) {
+                showSeedNextRound = false
                 "$number "
             } else {
                 ""
@@ -92,9 +94,9 @@ class MentalCalculationGame : Game() {
     }
 
     private fun reset() {
-        round = 0
         number = Random.nextInt(2, 15)
         maxNumber = 30
+        showSeedNextRound = true
     }
 
     private fun getNextOperator(): Operator {

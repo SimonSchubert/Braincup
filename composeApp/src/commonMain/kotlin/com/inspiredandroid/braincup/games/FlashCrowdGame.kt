@@ -6,6 +6,7 @@ import kotlin.math.sqrt
 import kotlin.random.Random
 
 class FlashCrowdGame : Game() {
+    override val adaptiveDifficulty = false
 
     enum class Side { LEFT, RIGHT }
 

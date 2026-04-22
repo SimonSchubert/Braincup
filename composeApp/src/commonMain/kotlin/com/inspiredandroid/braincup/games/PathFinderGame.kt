@@ -10,6 +10,7 @@ import com.inspiredandroid.braincup.splitToIntList
 import kotlin.random.Random
 
 class PathFinderGame : Game() {
+    override val adaptiveDifficulty = false
     val directions = mutableListOf<Direction>()
     val gridSize = 4
     var lastDirection = Direction.UP

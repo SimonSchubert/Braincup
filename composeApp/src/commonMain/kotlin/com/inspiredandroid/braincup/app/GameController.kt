@@ -136,6 +136,9 @@ class GameController(
         _timeRemaining.value = GAME_TIME_MILLIS
 
         val game = createGame(gameType)
+        if (game.adaptiveDifficulty) {
+            game.round = storage.getLastRound(gameType.id)
+        }
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
@@ -314,6 +317,9 @@ class GameController(
 
     private fun startVisualMemoryGame(gameType: GameType) {
         val game = VisualMemoryGame()
+        if (game.adaptiveDifficulty) {
+            game.round = storage.getLastRound(gameType.id)
+        }
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
@@ -539,6 +545,9 @@ class GameController(
 
     private fun startGhostGridGame(gameType: GameType) {
         val game = GhostGridGame()
+        if (game.adaptiveDifficulty) {
+            game.round = storage.getLastRound(gameType.id)
+        }
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
@@ -589,6 +598,9 @@ class GameController(
 
     private fun startOrbitTrackerGame(gameType: GameType) {
         val game = OrbitTrackerGame()
+        if (game.adaptiveDifficulty) {
+            game.round = storage.getLastRound(gameType.id)
+        }
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
@@ -678,6 +690,9 @@ class GameController(
 
         val newHighscore = storage.putScore(gameType.id, points)
         val highscore = storage.getHighScore(gameType.id)
+        if (game.adaptiveDifficulty) {
+            storage.putLastRound(gameType.id, game.round - 3)
+        }
 
         if (inSessionMode) {
             storage.appendSessionScore(points)

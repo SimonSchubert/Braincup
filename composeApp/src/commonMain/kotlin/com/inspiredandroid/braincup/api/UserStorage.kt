@@ -199,7 +199,15 @@ class UserStorage(
 
     private fun getScoresKey(gameId: String): String = "game_${gameId}_scores"
 
+    private fun getLastRoundKey(gameId: String): String = "game_${gameId}_last_round"
+
     fun getHighScore(gameId: String): Int = settings.getInt(getHighscoreKey(gameId), 0)
+
+    fun getLastRound(gameId: String): Int = settings.getInt(getLastRoundKey(gameId), 0)
+
+    fun putLastRound(gameId: String, round: Int) {
+        settings.putInt(getLastRoundKey(gameId), round.coerceAtLeast(0))
+    }
 
     fun putScore(
         gameId: String,
