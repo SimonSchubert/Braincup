@@ -12,7 +12,6 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -22,6 +21,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
+import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
@@ -85,7 +85,7 @@ fun App(colorScheme: ColorScheme? = null) {
 
     BraincupTheme(colorScheme = resolvedColorScheme) {
         Surface(modifier = Modifier.fillMaxSize()) {
-            NavHost(navController = navController, startDestination = MainMenu) {
+            AppNavHost(navController = navController, startDestination = MainMenu) {
                 composable<MainMenu> {
                     MainMenuScreen(
                         controller = controller,

@@ -13,6 +13,7 @@ plugins {
 }
 
 kotlin {
+    applyDefaultHierarchyTemplate()
     androidLibrary {
         namespace = "com.inspiredandroid.braincup"
         compileSdk =
@@ -64,6 +65,10 @@ kotlin {
 
     sourceSets {
         val desktopMain by getting
+        val nonIosMain by creating { dependsOn(commonMain.get()) }
+        androidMain.get().dependsOn(nonIosMain)
+        desktopMain.dependsOn(nonIosMain)
+        wasmJsMain.get().dependsOn(nonIosMain)
 
         androidMain.dependencies {
             implementation(compose.preview)
