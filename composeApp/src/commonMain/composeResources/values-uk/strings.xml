@@ -2,7 +2,7 @@
 <resources>
     <!-- App -->
     <string name="app_name">Braincup</string>
-    <string name="app_tagline">Тренуйте математичні навички, пам\'ять та концентрацію.</string>
+    <string name="app_tagline">Тренуйте математичні навички, пам'ять та концентрацію.</string>
 
     <!-- Common buttons and labels -->
     <string name="button_start">Почати</string>
@@ -52,8 +52,8 @@
     <string name="game_fraction_calculation">Розрахунок дробів</string>
     <string name="game_value_comparison">Порівняння значень</string>
     <string name="game_path_finder">Пошук шляху</string>
-    <string name="game_grid_solver">Розв\'язання сітки</string>
-    <string name="game_visual_memory">Візуальна пам\'ять</string>
+    <string name="game_grid_solver">Розв'язання сітки</string>
+    <string name="game_visual_memory">Візуальна пам'ять</string>
     <string name="game_pattern_sequence">Послідовність візерунків</string>
     <string name="game_ghost_grid">Примарна сітка</string>
     <string name="game_color_confusion">Кольорова плутанина</string>
@@ -66,11 +66,11 @@
     <string name="game_colored_shapes_desc">Додайте очки за правильні твердження.</string>
     <string name="game_sherlock_calculation_desc">Знайдіть спосіб досягти цілі, використовуючи лише дані числа та оператори: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Слідуйте математичним виразам.</string>
-    <string name="game_fraction_calculation_desc">Розв\'яжіть дроби.</string>
+    <string name="game_fraction_calculation_desc">Розв'яжіть дроби.</string>
     <string name="game_value_comparison_desc">Виберіть вираз з найбільшим значенням.</string>
     <string name="game_path_finder_desc">Почніть з позначеної позиції та слідуйте стрілкам, щоб знайти пункт призначення.</string>
     <string name="game_grid_solver_desc">Заповніть відсутні числа так, щоб сума кожного рядка та стовпця дорівнювала заданим підсумкам.</string>
-    <string name="game_visual_memory_desc">Запам\'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
+    <string name="game_visual_memory_desc">Запам'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
     <string name="game_pattern_sequence_desc">Знайдіть наступну фігуру у візерунку, шукаючи повторювані форми, кольори та обертання.</string>
     <string name="game_ghost_grid_desc">Спостерігайте, як плитки загоряються одна за одною, потім натискайте їх у тому ж порядку.</string>
     <string name="game_color_confusion_desc">Натисніть на всі клітинки, де слово збігається з кольором шрифту, потім натисніть Готово.</string>
@@ -79,7 +79,7 @@
     <string name="game_what_comes_next">Що далі?</string>
     <string name="game_tap_matching_colors">Натисніть клітинки, де слово збігається з кольором</string>
     <string name="game_tap_original_targets">Натисніть на початкові цілі</string>
-    <string name="game_remember_targets">Запам\'ятайте цілі</string>
+    <string name="game_remember_targets">Запам'ятайте цілі</string>
     <string name="game_flash_crowd_which_more">На якому боці було більше?</string>
     <string name="game_flash_crowd_blue">Синій</string>
     <string name="game_flash_crowd_yellow">Жовтий</string>

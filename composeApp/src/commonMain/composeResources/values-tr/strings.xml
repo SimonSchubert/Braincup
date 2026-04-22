@@ -73,7 +73,7 @@
     <string name="game_visual_memory_desc">Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.</string>
     <string name="game_pattern_sequence_desc">Tekrarlayan şekilleri, renkleri ve döndürmeleri arayarak desendeki bir sonraki şekli bulun.</string>
     <string name="game_ghost_grid_desc">Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.</string>
-    <string name="game_color_confusion_desc">Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun, ardından Bitti\'ye basın.</string>
+    <string name="game_color_confusion_desc">Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun, ardından Bitti'ye basın.</string>
     <string name="game_orbit_tracker_desc">Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.</string>
     <string name="game_flash_crowd_desc">Her iki tarafta noktalar kısa süre yanıp söner. Daha fazla noktası olan tarafa dokunun. Saymayın — içgüdünüze güvenin!</string>
     <string name="game_what_comes_next">Sıradaki ne?</string>

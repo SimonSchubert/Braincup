@@ -14,7 +14,7 @@
     <string name="button_done">Terminé</string>
 
     <!-- Main menu -->
-    <string name="stat_training_days">Jours d\'entraînement</string>
+    <string name="stat_training_days">Jours d'entraînement</string>
     <string name="stat_total_score">Score total</string>
     <string name="achievements_button">Succès (%1$d/%2$d)</string>
 
@@ -27,7 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Score : %1$d</string>
-    <string name="finish_bonus_point">Vous avez gagné 1 point bonus pour n\'avoir fait aucune erreur !</string>
+    <string name="finish_bonus_point">Vous avez gagné 1 point bonus pour n'avoir fait aucune erreur !</string>
     <string name="finish_new_highscore">Nouveau meilleur score !</string>
     <string name="finish_highscore">Meilleur score : %1$d</string>
 
@@ -44,7 +44,7 @@
     <string name="achievements_unlocked">%1$d/%2$d Débloqués</string>
 
     <!-- Game types - names -->
-    <string name="game_anomaly_puzzle">Puzzle d\'anomalie</string>
+    <string name="game_anomaly_puzzle">Puzzle d'anomalie</string>
     <string name="game_mental_calculation">Calcul mental</string>
     <string name="game_colored_shapes">Formes colorées</string>
     <string name="game_sherlock_calculation">Calcul Sherlock</string>
@@ -57,24 +57,24 @@
     <string name="game_pattern_sequence">Séquence de motifs</string>
     <string name="game_ghost_grid">Grille Fantôme</string>
     <string name="game_color_confusion">Confusion de Couleurs</string>
-    <string name="game_orbit_tracker">Traqueur d\'Orbites</string>
+    <string name="game_orbit_tracker">Traqueur d'Orbites</string>
     <string name="game_flash_crowd">Foule Éclair</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
     <string name="game_mental_calculation_desc">Suivez les expressions mathématiques. Utilisez le résultat comme base pour le calcul suivant.</string>
     <string name="game_colored_shapes_desc">Additionnez les points des affirmations correctes.</string>
-    <string name="game_sherlock_calculation_desc">Trouvez comment atteindre l\'objectif en utilisant uniquement les nombres donnés et ces opérateurs : + - * / ( ).</string>
+    <string name="game_sherlock_calculation_desc">Trouvez comment atteindre l'objectif en utilisant uniquement les nombres donnés et ces opérateurs : + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Suivez les expressions mathématiques.</string>
     <string name="game_fraction_calculation_desc">Résolvez les fractions.</string>
-    <string name="game_value_comparison_desc">Sélectionnez l\'expression ayant la valeur la plus élevée.</string>
+    <string name="game_value_comparison_desc">Sélectionnez l'expression ayant la valeur la plus élevée.</string>
     <string name="game_path_finder_desc">Commencez à la position marquée et suivez les flèches pour trouver la destination.</string>
     <string name="game_grid_solver_desc">Remplissez les nombres manquants pour que chaque ligne et colonne corresponde aux totaux donnés.</string>
     <string name="game_visual_memory_desc">Mémorisez les formes sur la grille, puis identifiez la forme cachée après la fin du chronomètre.</string>
     <string name="game_pattern_sequence_desc">Trouvez la figure suivante dans le motif en cherchant les formes, couleurs et rotations qui se répètent.</string>
-    <string name="game_ghost_grid_desc">Regardez les cases s\'allumer une par une, puis touchez-les dans le même ordre.</string>
+    <string name="game_ghost_grid_desc">Regardez les cases s'allumer une par une, puis touchez-les dans le même ordre.</string>
     <string name="game_color_confusion_desc">Touchez toutes les cellules où le mot correspond à la couleur de la police, puis appuyez sur Terminé.</string>
-    <string name="game_orbit_tracker_desc">Observez les balles en surbrillance, puis suivez-les pendant leur déplacement. Sélectionnez les cibles originales après l\'arrêt.</string>
+    <string name="game_orbit_tracker_desc">Observez les balles en surbrillance, puis suivez-les pendant leur déplacement. Sélectionnez les cibles originales après l'arrêt.</string>
     <string name="game_flash_crowd_desc">Des points clignotent brièvement de chaque côté. Touchez le côté qui avait plus de points. Ne comptez pas — fiez-vous à votre instinct !</string>
     <string name="game_what_comes_next">Quelle est la suite ?</string>
     <string name="game_tap_matching_colors">Touchez les cellules où le mot correspond à la couleur</string>
@@ -125,8 +125,8 @@
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Médaille de bronze</string>
-    <string name="achievement_silver_medal">Médaille d\'argent</string>
-    <string name="achievement_gold_medal">Médaille d\'or</string>
+    <string name="achievement_silver_medal">Médaille d'argent</string>
+    <string name="achievement_gold_medal">Médaille d'or</string>
     <string name="achievement_10_points">10 Points</string>
     <string name="achievement_100_points">100 Points</string>
     <string name="achievement_1000_points">1 000 Points</string>
@@ -151,13 +151,13 @@
     <string name="daily_challenge_title">Défi quotidien</string>
     <string name="daily_challenge_subtitle_start">Joue à %1$d jeux pour maintenir ta série</string>
     <string name="daily_challenge_subtitle_progress">En cours · %1$d sur %2$d</string>
-    <string name="daily_challenge_subtitle_done">Terminé pour aujourd\'hui. Reviens demain !</string>
+    <string name="daily_challenge_subtitle_done">Terminé pour aujourd'hui. Reviens demain !</string>
     <string name="daily_challenge_streak_label">jours de suite</string>
     <string name="daily_challenge_button_start">Commencer</string>
     <string name="daily_challenge_button_resume">Reprendre</string>
-    <string name="daily_challenge_button_done">Terminé aujourd\'hui</string>
+    <string name="daily_challenge_button_done">Terminé aujourd'hui</string>
     <string name="session_progress">Jeu %1$d sur %2$d</string>
-    <string name="session_running_total">Total jusqu\'ici : %1$d</string>
+    <string name="session_running_total">Total jusqu'ici : %1$d</string>
     <string name="session_next_up">À suivre</string>
     <string name="session_continue">Continuer</string>
     <string name="session_done">Retour au menu</string>

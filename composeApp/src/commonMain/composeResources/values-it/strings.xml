@@ -23,7 +23,7 @@
     <string name="game_follow_directions">Segui le istruzioni:</string>
     <string name="game_highest_value">Quale ha il valore più alto?</string>
     <string name="game_fill_grid">Riempi la griglia in modo che righe e colonne corrispondano alle somme</string>
-    <string name="game_tap_numbers">Tocca i numeri per costruire un\'espressione</string>
+    <string name="game_tap_numbers">Tocca i numeri per costruire un'espressione</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Punteggio: %1$d</string>
@@ -44,7 +44,7 @@
     <string name="achievements_unlocked">%1$d/%2$d Sbloccati</string>
 
     <!-- Game types - names -->
-    <string name="game_anomaly_puzzle">Puzzle dell\'anomalia</string>
+    <string name="game_anomaly_puzzle">Puzzle dell'anomalia</string>
     <string name="game_mental_calculation">Calcolo mentale</string>
     <string name="game_colored_shapes">Forme colorate</string>
     <string name="game_sherlock_calculation">Calcolo Sherlock</string>
@@ -64,10 +64,10 @@
     <string name="game_anomaly_puzzle_desc">Trova la figura che si distingue. Considera sia il colore che la forma di ogni figura.</string>
     <string name="game_mental_calculation_desc">Segui le espressioni matematiche. Usa il risultato come base per il calcolo successivo.</string>
     <string name="game_colored_shapes_desc">Somma i punti delle affermazioni corrette.</string>
-    <string name="game_sherlock_calculation_desc">Trova come raggiungere l\'obiettivo usando solo i numeri dati e questi operatori: + - * / ( ).</string>
+    <string name="game_sherlock_calculation_desc">Trova come raggiungere l'obiettivo usando solo i numeri dati e questi operatori: + - * / ( ).</string>
     <string name="game_chain_calculation_desc">Segui le espressioni matematiche.</string>
     <string name="game_fraction_calculation_desc">Risolvi le frazioni.</string>
-    <string name="game_value_comparison_desc">Seleziona l\'espressione con il valore più alto.</string>
+    <string name="game_value_comparison_desc">Seleziona l'espressione con il valore più alto.</string>
     <string name="game_path_finder_desc">Inizia dalla posizione segnata e segui le frecce per trovare la destinazione.</string>
     <string name="game_grid_solver_desc">Inserisci i numeri mancanti in modo che ogni riga e colonna sommi ai totali indicati.</string>
     <string name="game_visual_memory_desc">Memorizza le forme sulla griglia, poi identifica la forma nascosta dopo la fine del timer.</string>
@@ -125,8 +125,8 @@
 
     <!-- Achievement titles -->
     <string name="achievement_bronze_medal">Medaglia di bronzo</string>
-    <string name="achievement_silver_medal">Medaglia d\'argento</string>
-    <string name="achievement_gold_medal">Medaglia d\'oro</string>
+    <string name="achievement_silver_medal">Medaglia d'argento</string>
+    <string name="achievement_gold_medal">Medaglia d'oro</string>
     <string name="achievement_10_points">10 Punti</string>
     <string name="achievement_100_points">100 Punti</string>
     <string name="achievement_1000_points">1.000 Punti</string>
@@ -137,8 +137,8 @@
 
     <!-- Achievement descriptions -->
     <string name="achievement_bronze_medal_desc">Ottieni almeno 1 punto in tutti i giochi</string>
-    <string name="achievement_silver_medal_desc">Raggiungi il punteggio d\'argento in tutti i giochi</string>
-    <string name="achievement_gold_medal_desc">Raggiungi il punteggio d\'oro in tutti i giochi</string>
+    <string name="achievement_silver_medal_desc">Raggiungi il punteggio d'argento in tutti i giochi</string>
+    <string name="achievement_gold_medal_desc">Raggiungi il punteggio d'oro in tutti i giochi</string>
     <string name="achievement_10_points_desc">Accumula 10 punti totali</string>
     <string name="achievement_100_points_desc">Accumula 100 punti totali</string>
     <string name="achievement_1000_points_desc">Accumula 1.000 punti totali</string>
