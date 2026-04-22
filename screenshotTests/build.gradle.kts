@@ -137,9 +137,9 @@ tasks.register("generateStoreScreenshots") {
 
 dependencies {
     implementation(project(":composeApp"))
-    testImplementation(compose.runtime)
-    testImplementation(compose.material3)
-    testImplementation(compose.foundation)
-    testImplementation(compose.ui)
-    testImplementation(compose.components.resources)
+    testImplementation(libs.compose.runtime)
+    testImplementation(libs.compose.material3)
+    testImplementation(libs.compose.foundation)
+    testImplementation(libs.compose.ui)
+    testImplementation(libs.compose.components.resources)
 }
