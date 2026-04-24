@@ -37,8 +37,8 @@ modules:
 
     sources:
       - type: file
-        url: https://github.com/SimonSchubert/Braincup/releases/download/v2.7.0/Braincup-2.7.0-linux-x86_64.tar.gz
-        sha256: 5420a911566f115d60f53e60fa25edb5debe9dce4adaea24e0ed2ae8f37e1014
+        url: https://github.com/SimonSchubert/Braincup/releases/download/v2.7.1/Braincup-2.7.1-linux-x86_64.tar.gz
+        sha256: 3203a1697f73e3881761931f2f38df771ce9b1ba0c33165929643bb613e030c4
         dest-filename: Braincup-linux-x86_64.tar.gz
         x-checker-data:
           type: json
