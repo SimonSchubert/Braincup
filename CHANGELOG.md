@@ -1,3 +1,11 @@
+## v2.7.1 — 2026-04-24
+
+### Fixes
+- Fix F-Droid build by disabling the AGP "Dependency metadata" signing block
+
+### Improvements
+- Upgrade dependencies
+
 ## v2.7.0 — 2026-04-22
 
 ### Features
