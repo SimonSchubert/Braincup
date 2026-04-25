@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Bir ifade oluşturmak için sayılara dokunun</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Puan: %1$d</string>
+    <string name="finish_score">Puan: %1$s</string>
     <string name="finish_bonus_point">Hata yapmadığınız için 1 ekstra puan kazandınız!</string>
     <string name="finish_new_highscore">Yeni Yüksek Skor!</string>
-    <string name="finish_highscore">En Yüksek Skor: %1$d</string>
+    <string name="finish_highscore">En Yüksek Skor: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Çözüm: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Renk Karmaşası</string>
     <string name="game_orbit_tracker">Yörünge Takipçisi</string>
     <string name="game_flash_crowd">Flaş Kalabalık</string>
+    <string name="game_schulte_table">Schulte Tablosu</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun, ardından Bitti'ye basın.</string>
     <string name="game_orbit_tracker_desc">Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.</string>
     <string name="game_flash_crowd_desc">Her iki tarafta noktalar kısa süre yanıp söner. Daha fazla noktası olan tarafa dokunun. Saymayın — içgüdünüze güvenin!</string>
+    <string name="game_schulte_table_desc">Sayılara 1'den başlayarak sırayla mümkün olduğunca hızlı dokun.</string>
+    <string name="game_schulte_instruction">Sayılara sırayla dokun: 1, 2, 3...</string>
     <string name="game_what_comes_next">Sıradaki ne?</string>
     <string name="game_tap_matching_colors">Kelimenin renkle eşleştiği hücrelere dokunun</string>
     <string name="game_tap_original_targets">Orijinal hedeflere dokunun</string>

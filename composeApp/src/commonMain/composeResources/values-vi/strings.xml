@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Chạm vào các số để tạo biểu thức</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Điểm: %1$d</string>
+    <string name="finish_score">Điểm: %1$s</string>
     <string name="finish_bonus_point">Bạn đã nhận được 1 điểm thưởng vì không mắc lỗi!</string>
     <string name="finish_new_highscore">Điểm cao mới!</string>
-    <string name="finish_highscore">Điểm cao: %1$d</string>
+    <string name="finish_highscore">Điểm cao: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Đáp án: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Nhầm lẫn Màu sắc</string>
     <string name="game_orbit_tracker">Theo Dõi Quỹ Đạo</string>
     <string name="game_flash_crowd">Đám Đông Chớp</string>
+    <string name="game_schulte_table">Bảng Schulte</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Chạm vào tất cả ô mà từ khớp với màu phông chữ, sau đó nhấn Xong.</string>
     <string name="game_orbit_tracker_desc">Quan sát các quả bóng được đánh dấu, sau đó theo dõi chúng khi di chuyển. Chọn các mục tiêu ban đầu sau khi dừng lại.</string>
     <string name="game_flash_crowd_desc">Các chấm nhấp nháy ngắn ở mỗi bên. Chạm vào bên có nhiều chấm hơn. Đừng đếm — hãy tin vào trực giác!</string>
+    <string name="game_schulte_table_desc">Chạm các số theo thứ tự từ 1 trở lên nhanh nhất có thể.</string>
+    <string name="game_schulte_instruction">Chạm các số theo thứ tự: 1, 2, 3...</string>
     <string name="game_what_comes_next">Tiếp theo là gì?</string>
     <string name="game_tap_matching_colors">Chạm vào ô mà từ khớp với màu</string>
     <string name="game_tap_original_targets">Chạm vào các mục tiêu ban đầu</string>

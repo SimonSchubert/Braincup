@@ -10,6 +10,8 @@ enum class GameType(
     val silverScore: Int,
     val descriptionRes: StringResource,
     val category: GameCategory,
+    /** When true, score is a time (seconds). Lower beats higher; thresholds are upper bounds. */
+    val lowerScoreIsBetter: Boolean = false,
 ) {
     MINI_SUDOKU(
         displayNameRes = Res.string.game_mini_sudoku,
@@ -131,9 +133,36 @@ enum class GameType(
         descriptionRes = Res.string.game_flash_crowd_desc,
         category = GameCategory.PERCEPTION,
     ),
+    SCHULTE_TABLE(
+        displayNameRes = Res.string.game_schulte_table,
+        id = "17",
+        // Score = deciseconds (tenths of a second) to complete the 4×4 table; lower is better.
+        // 80 = 8.0s gold, 150 = 15.0s silver.
+        goldScore = 80,
+        silverScore = 150,
+        descriptionRes = Res.string.game_schulte_table_desc,
+        category = GameCategory.PERCEPTION,
+        lowerScoreIsBetter = true,
+    ),
     ;
 
     val accentColor: Long get() = category.accentColor
+
+    /** Format a stored score for display. Time-based scores are stored as deciseconds (1/10s)
+     *  and render as "12.3s". */
+    fun formatScore(score: Int): String = if (lowerScoreIsBetter) {
+        "${score / 10}.${score % 10}s"
+    } else {
+        score.toString()
+    }
+
+    /** Whether [score] meets-or-beats [threshold] under this game's scoring direction.
+     *  Threshold ≤ 1 is the "bronze / any score recorded" tier. */
+    fun meetsScore(score: Int, threshold: Int): Boolean {
+        if (score <= 0) return false
+        if (threshold <= 1) return true
+        return if (lowerScoreIsBetter) score <= threshold else score >= threshold
+    }
 }
 
 fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }

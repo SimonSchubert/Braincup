@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Toque nos números para construir uma expressão</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Pontuação: %1$d</string>
+    <string name="finish_score">Pontuação: %1$s</string>
     <string name="finish_bonus_point">Você ganhou 1 ponto extra por não cometer erros!</string>
     <string name="finish_new_highscore">Nova pontuação máxima!</string>
-    <string name="finish_highscore">Melhor Pontuação: %1$d</string>
+    <string name="finish_highscore">Melhor Pontuação: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Solução: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Confusão de Cores</string>
     <string name="game_orbit_tracker">Rastreador de Órbitas</string>
     <string name="game_flash_crowd">Multidão Relâmpago</string>
+    <string name="game_schulte_table">Tabela de Schulte</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Toque em todas as células onde a palavra corresponde à cor da fonte e depois pressione Pronto.</string>
     <string name="game_orbit_tracker_desc">Observe as bolas destacadas e acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.</string>
     <string name="game_flash_crowd_desc">Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos. Não conte — confie no seu instinto!</string>
+    <string name="game_schulte_table_desc">Toque nos números em ordem a partir de 1 o mais rápido que puder.</string>
+    <string name="game_schulte_instruction">Toque nos números em ordem: 1, 2, 3...</string>
     <string name="game_what_comes_next">O que vem a seguir?</string>
     <string name="game_tap_matching_colors">Toque nas células onde a palavra corresponde à cor</string>
     <string name="game_tap_original_targets">Toque nos alvos originais</string>

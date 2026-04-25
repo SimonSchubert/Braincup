@@ -21,6 +21,7 @@ val mainMenuHighscores = mapOf(
     "5" to 8,
     "8" to 10,
     "16" to 3,
+    "17" to 120, // 12.0s
     "10" to 5,
     "11" to 6,
     "12" to 4,
@@ -103,6 +104,24 @@ fun createPathFinderGame(): PathFinderGame {
     game.startX = 0
     game.currentX = 1
     game.currentY = 2
+    return game
+}
+
+fun createSchulteTableGame(): SchulteTableGame {
+    val game = SchulteTableGame()
+    game.nextRound() // 4×4 populated with random numbers
+    game.numbers.clear()
+    game.numbers.addAll(
+        listOf(
+            7, 12, 3, 16,
+            1, 9, 14, 5,
+            11, 6, 8, 2,
+            4, 15, 13, 10,
+        ),
+    )
+    listOf(1, 2, 3, 4).forEach { value ->
+        game.tapCell(game.numbers.indexOf(value))
+    }
     return game
 }
 
@@ -203,6 +222,7 @@ fun createFractionCalculationUiState(): GameUiState = createFractionCalculationG
 fun createValueComparisonUiState(): GameUiState = createValueComparisonGame().toUiState()
 fun createPathFinderUiState(): GameUiState = createPathFinderGame().toUiState()
 fun createMiniSudokuUiState(): GameUiState = createMiniSudokuGame().toUiState()
+fun createSchulteTableUiState(): GameUiState = createSchulteTableGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 
 fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()

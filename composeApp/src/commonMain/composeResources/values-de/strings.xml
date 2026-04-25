@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Tippe auf Zahlen, um einen Ausdruck zu erstellen</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Punktzahl: %1$d</string>
+    <string name="finish_score">Punktzahl: %1$s</string>
     <string name="finish_bonus_point">Du hast 1 Extrapunkt für fehlerfreies Spielen erhalten!</string>
     <string name="finish_new_highscore">Neuer Highscore!</string>
-    <string name="finish_highscore">Highscore: %1$d</string>
+    <string name="finish_highscore">Highscore: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Lösung: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Farbverwirrung</string>
     <string name="game_orbit_tracker">Orbit-Tracker</string>
     <string name="game_flash_crowd">Blitzmenge</string>
+    <string name="game_schulte_table">Schulte-Tabelle</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Tippe alle Felder an, bei denen das Wort mit seiner Schriftfarbe übereinstimmt, und drücke dann Fertig.</string>
     <string name="game_orbit_tracker_desc">Beobachte die markierten Kugeln und verfolge sie während der Bewegung. Wähle die ursprünglichen Ziele nach dem Stillstand aus.</string>
     <string name="game_flash_crowd_desc">Punkte blinken kurz auf jeder Seite auf. Tippe auf die Seite mit mehr Punkten. Zähle nicht — vertraue deinem Instinkt!</string>
+    <string name="game_schulte_table_desc">Tippe die Zahlen so schnell wie möglich der Reihe nach von 1 aufwärts an.</string>
+    <string name="game_schulte_instruction">Tippe die Zahlen der Reihe nach: 1, 2, 3...</string>
     <string name="game_what_comes_next">Was kommt als Nächstes?</string>
     <string name="game_tap_matching_colors">Tippe Felder an, bei denen Wort und Farbe übereinstimmen</string>
     <string name="game_tap_original_targets">Tippe die ursprünglichen Ziele an</string>

@@ -118,6 +118,17 @@ data class GhostGridUiState(
 }
 
 @Immutable
+data class SchulteTableUiState(
+    val gridSize: Int,
+    val cells: List<CellState>,
+) : GameUiState {
+    enum class CellType { NORMAL, TAPPED, WRONG }
+
+    @Immutable
+    data class CellState(val number: Int, val type: CellType)
+}
+
+@Immutable
 data class ColorConfusionUiState(
     val cells: List<Cell>,
     val isSubmitted: Boolean,

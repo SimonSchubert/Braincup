@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Dotknij liczb, aby zbudować wyrażenie</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Wynik: %1$d</string>
+    <string name="finish_score">Wynik: %1$s</string>
     <string name="finish_bonus_point">Zdobyłeś 1 dodatkowy punkt za bezbłędną grę!</string>
     <string name="finish_new_highscore">Nowy rekord!</string>
-    <string name="finish_highscore">Najlepszy wynik: %1$d</string>
+    <string name="finish_highscore">Najlepszy wynik: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Rozwiązanie: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Zamieszanie Kolorów</string>
     <string name="game_orbit_tracker">Śledzenie Orbit</string>
     <string name="game_flash_crowd">Błyskawiczny Tłum</string>
+    <string name="game_schulte_table">Tablica Schulte'a</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki, a następnie naciśnij Gotowe.</string>
     <string name="game_orbit_tracker_desc">Obserwuj podświetlone kule, a następnie śledź je podczas ruchu. Wybierz oryginalne cele po zatrzymaniu.</string>
     <string name="game_flash_crowd_desc">Kropki migają krótko po każdej stronie. Dotknij strony, która miała więcej kropek. Nie licz — zaufaj swojemu instynktowi!</string>
+    <string name="game_schulte_table_desc">Stukaj liczby w kolejności od 1 tak szybko, jak potrafisz.</string>
+    <string name="game_schulte_instruction">Stukaj liczby w kolejności: 1, 2, 3...</string>
     <string name="game_what_comes_next">Co będzie dalej?</string>
     <string name="game_tap_matching_colors">Dotknij komórek, gdzie słowo odpowiada kolorowi</string>
     <string name="game_tap_original_targets">Dotknij oryginalnych celów</string>

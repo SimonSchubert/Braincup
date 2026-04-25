@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Ketuk angka untuk membuat ekspresi</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Skor: %1$d</string>
+    <string name="finish_score">Skor: %1$s</string>
     <string name="finish_bonus_point">Anda mendapat 1 poin bonus karena tidak membuat kesalahan!</string>
     <string name="finish_new_highscore">Skor Tertinggi Baru!</string>
-    <string name="finish_highscore">Skor Tertinggi: %1$d</string>
+    <string name="finish_highscore">Skor Tertinggi: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Solusi: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Kebingungan Warna</string>
     <string name="game_orbit_tracker">Pelacak Orbit</string>
     <string name="game_flash_crowd">Kerumunan Kilat</string>
+    <string name="game_schulte_table">Tabel Schulte</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Ketuk semua sel yang katanya cocok dengan warna hurufnya, lalu tekan Selesai.</string>
     <string name="game_orbit_tracker_desc">Perhatikan bola-bola yang disorot, lalu lacak pergerakannya. Pilih target asli setelah berhenti.</string>
     <string name="game_flash_crowd_desc">Titik-titik berkedip sebentar di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Jangan menghitung — percaya insting Anda!</string>
+    <string name="game_schulte_table_desc">Ketuk angka secara berurutan dari 1 secepat mungkin.</string>
+    <string name="game_schulte_instruction">Ketuk angka secara berurutan: 1, 2, 3...</string>
     <string name="game_what_comes_next">Apa selanjutnya?</string>
     <string name="game_tap_matching_colors">Ketuk sel yang kata dan warnanya cocok</string>
     <string name="game_tap_original_targets">Ketuk target asli</string>

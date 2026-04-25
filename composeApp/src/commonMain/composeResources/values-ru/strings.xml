@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Нажимайте на числа, чтобы составить выражение</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Счёт: %1$d</string>
+    <string name="finish_score">Счёт: %1$s</string>
     <string name="finish_bonus_point">Вы получили 1 дополнительное очко за безошибочную игру!</string>
     <string name="finish_new_highscore">Новый рекорд!</string>
-    <string name="finish_highscore">Рекорд: %1$d</string>
+    <string name="finish_highscore">Рекорд: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Ответ: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Цветовая путаница</string>
     <string name="game_orbit_tracker">Отслеживание орбит</string>
     <string name="game_flash_crowd">Мгновенная толпа</string>
+    <string name="game_schulte_table">Таблица Шульте</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Нажмите на все ячейки, где слово совпадает с цветом шрифта, затем нажмите Готово.</string>
     <string name="game_orbit_tracker_desc">Наблюдайте за выделенными шарами, а затем отслеживайте их движение. Выберите исходные цели после остановки.</string>
     <string name="game_flash_crowd_desc">Точки ненадолго мигают с каждой стороны. Нажмите на сторону, где было больше точек. Не считайте — доверяйте интуиции!</string>
+    <string name="game_schulte_table_desc">Нажимайте числа по порядку, начиная с 1, как можно быстрее.</string>
+    <string name="game_schulte_instruction">Нажимайте числа по порядку: 1, 2, 3...</string>
     <string name="game_what_comes_next">Что дальше?</string>
     <string name="game_tap_matching_colors">Нажмите на ячейки, где слово совпадает с цветом</string>
     <string name="game_tap_original_targets">Нажмите на исходные цели</string>

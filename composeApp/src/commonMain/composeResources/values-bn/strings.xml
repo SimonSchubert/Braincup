@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">একটি এক্সপ্রেশন তৈরি করতে সংখ্যাগুলিতে ট্যাপ করুন</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">স্কোর: %1$d</string>
+    <string name="finish_score">স্কোর: %1$s</string>
     <string name="finish_bonus_point">কোনো ভুল না করায় আপনি ১টি অতিরিক্ত পয়েন্ট অর্জন করেছেন!</string>
     <string name="finish_new_highscore">নতুন সর্বোচ্চ স্কোর!</string>
-    <string name="finish_highscore">সর্বোচ্চ স্কোর: %1$d</string>
+    <string name="finish_highscore">সর্বোচ্চ স্কোর: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">সমাধান: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">রঙ বিভ্রান্তি</string>
     <string name="game_orbit_tracker">অরবিট ট্র্যাকার</string>
     <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
+    <string name="game_schulte_table">শুল্টে টেবিল</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">যেসব ঘরে শব্দটি ফন্টের রঙের সাথে মেলে সেগুলোতে ট্যাপ করুন, তারপর সম্পন্ন চাপুন।</string>
     <string name="game_orbit_tracker_desc">হাইলাইট করা বলগুলো দেখুন, তারপর সেগুলো নড়াচড়ার সময় ট্র্যাক করুন। থামার পরে মূল লক্ষ্যগুলো নির্বাচন করুন।</string>
     <string name="game_flash_crowd_desc">প্রতিটি পাশে সংক্ষেপে বিন্দু জ্বলে। যে পাশে বেশি বিন্দু ছিল সেদিকে ট্যাপ করুন। গুনবেন না — আপনার অনুভূতিতে বিশ্বাস করুন!</string>
+    <string name="game_schulte_table_desc">১ থেকে শুরু করে যত দ্রুত সম্ভব ক্রমানুসারে সংখ্যাগুলিতে ট্যাপ করুন।</string>
+    <string name="game_schulte_instruction">ক্রমানুসারে সংখ্যা ট্যাপ করুন: ১, ২, ৩...</string>
     <string name="game_what_comes_next">পরেরটি কী?</string>
     <string name="game_tap_matching_colors">শব্দ ও রঙ মেলে এমন ঘরে ট্যাপ করুন</string>
     <string name="game_tap_original_targets">মূল লক্ষ্যগুলোতে ট্যাপ করুন</string>

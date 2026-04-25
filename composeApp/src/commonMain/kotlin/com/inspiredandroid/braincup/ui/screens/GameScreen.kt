@@ -53,13 +53,23 @@ private val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 fun GameScreen(
     gameUiState: GameUiState,
     timeRemaining: Long,
+    elapsedTime: Long = 0L,
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
 ) {
     GameScaffold(onBack = onBack) {
-        if (gameUiState !is VisualMemoryUiState && gameUiState !is GhostGridUiState && gameUiState !is OrbitTrackerUiState) {
-            TimeProgressIndicator(
+        when {
+            gameUiState is VisualMemoryUiState ||
+                gameUiState is GhostGridUiState ||
+                gameUiState is OrbitTrackerUiState -> Unit
+            gameUiState is SchulteTableUiState -> StopwatchDisplay(
+                elapsedMillis = elapsedTime,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 8.dp),
+            )
+            else -> TimeProgressIndicator(
                 progress = timeRemaining / 60000f,
                 modifier = Modifier
                     .fillMaxWidth()
@@ -79,6 +89,7 @@ fun GameScreen(
             is AnomalyPuzzleUiState -> AnomalyPuzzleContent(gameUiState, onAnswer)
             is PathFinderUiState -> PathFinderContent(gameUiState, onAnswer)
             is MiniSudokuUiState -> MiniSudokuContent(gameUiState, onAnswer)
+            is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
             is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
             is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
             is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
@@ -662,6 +673,101 @@ private fun ColumnScope.SudokuDigitPad(
                 Text(text = digit.toString(), style = MaterialTheme.typography.titleLarge)
             }
         }
+    }
+}
+
+@Composable
+private fun StopwatchDisplay(elapsedMillis: Long, modifier: Modifier = Modifier) {
+    val seconds = elapsedMillis / 1000
+    val tenths = (elapsedMillis % 1000) / 100
+    Text(
+        text = "$seconds.${tenths}s",
+        style = MaterialTheme.typography.titleLarge,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+        modifier = modifier.wrapContentWidth(Alignment.CenterHorizontally),
+    )
+}
+
+@Composable
+private fun ColumnScope.SchulteTableContent(
+    uiState: SchulteTableUiState,
+    onAnswer: (String) -> Unit,
+) {
+    val n = uiState.gridSize
+    val cellSize = when (n) {
+        4 -> 64.dp
+        5 -> 56.dp
+        6 -> 48.dp
+        else -> 42.dp
+    }
+
+    Text(
+        text = stringResource(Res.string.game_schulte_instruction),
+        style = MaterialTheme.typography.bodyLarge,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .padding(horizontal = 16.dp),
+    )
+    Spacer(Modifier.height(16.dp))
+
+    Column(
+        verticalArrangement = Arrangement.spacedBy(2.dp),
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    ) {
+        for (row in 0 until n) {
+            Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                for (col in 0 until n) {
+                    val index = row * n + col
+                    SchulteCell(
+                        cell = uiState.cells[index],
+                        size = cellSize,
+                        onClick = { onAnswer(index.toString()) },
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SchulteCell(
+    cell: SchulteTableUiState.CellState,
+    size: androidx.compose.ui.unit.Dp,
+    onClick: () -> Unit,
+) {
+    val containerColor = when (cell.type) {
+        SchulteTableUiState.CellType.NORMAL -> MaterialTheme.colorScheme.surface
+        SchulteTableUiState.CellType.TAPPED -> MaterialTheme.colorScheme.surfaceVariant
+        SchulteTableUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+    }
+    val textColor = when (cell.type) {
+        SchulteTableUiState.CellType.TAPPED -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.4f)
+        SchulteTableUiState.CellType.WRONG -> MaterialTheme.colorScheme.onErrorContainer
+        SchulteTableUiState.CellType.NORMAL -> MaterialTheme.colorScheme.onSurface
+    }
+    val isInteractive = cell.type != SchulteTableUiState.CellType.TAPPED
+    Card(
+        onClick = onClick,
+        enabled = isInteractive,
+        modifier = Modifier
+            .size(size)
+            .hoverHand(isInteractive),
+        colors = CardDefaults.cardColors(containerColor = containerColor),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp, disabledElevation = 0.dp),
+        shape = RoundedCornerShape(0.dp),
+    ) {
+        Text(
+            text = cell.number.toString(),
+            style = MaterialTheme.typography.titleLarge,
+            fontWeight = FontWeight.Bold,
+            color = textColor,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center),
+        )
     }
 }
 

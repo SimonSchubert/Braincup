@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">数字をタップして式を作成</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">スコア：%1$d</string>
+    <string name="finish_score">スコア：%1$s</string>
     <string name="finish_bonus_point">ミスなしで1ポイントのボーナスを獲得しました！</string>
     <string name="finish_new_highscore">新記録！</string>
-    <string name="finish_highscore">ハイスコア: %1$d</string>
+    <string name="finish_highscore">ハイスコア: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">解答: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">カラーコンフュージョン</string>
     <string name="game_orbit_tracker">オービットトラッカー</string>
     <string name="game_flash_crowd">フラッシュクラウド</string>
+    <string name="game_schulte_table">シュルテ表</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">単語がフォントの色と一致するすべてのセルをタップし、完了を押してください。</string>
     <string name="game_orbit_tracker_desc">ハイライトされたボールを見て、動きを追跡してください。停止後に元のターゲットを選択してください。</string>
     <string name="game_flash_crowd_desc">各側で一瞬ドットが光ります。ドットが多かった側をタップしてください。数えないで — 直感を信じて！</string>
+    <string name="game_schulte_table_desc">1から順に、できるだけ速く数字をタップしてください。</string>
+    <string name="game_schulte_instruction">数字を順番にタップ: 1, 2, 3...</string>
     <string name="game_what_comes_next">次は何？</string>
     <string name="game_tap_matching_colors">単語と色が一致するセルをタップ</string>
     <string name="game_tap_original_targets">元のターゲットをタップ</string>

@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">व्यंजक बनाने के लिए संख्याओं पर टैप करें</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">स्कोर: %1$d</string>
+    <string name="finish_score">स्कोर: %1$s</string>
     <string name="finish_bonus_point">आपने कोई गलती न करने के लिए 1 अतिरिक्त अंक अर्जित किया!</string>
     <string name="finish_new_highscore">नया उच्च स्कोर!</string>
-    <string name="finish_highscore">उच्च स्कोर: %1$d</string>
+    <string name="finish_highscore">उच्च स्कोर: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">हल: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">रंग भ्रम</string>
     <string name="game_orbit_tracker">ऑर्बिट ट्रैकर</string>
     <string name="game_flash_crowd">फ्लैश क्राउड</string>
+    <string name="game_schulte_table">शुल्ते तालिका</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">उस आकृति को खोजें जो अलग दिखती है। प्रत्येक आकृति के रंग और आकार दोनों पर विचार करें।</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">उन सभी सेल को टैप करें जहाँ शब्द फ़ॉन्ट रंग से मेल खाता है, फिर पूर्ण दबाएँ।</string>
     <string name="game_orbit_tracker_desc">हाइलाइट की गई गेंदों को देखें, फिर उनकी गति को ट्रैक करें। रुकने के बाद मूल लक्ष्यों को चुनें।</string>
     <string name="game_flash_crowd_desc">हर तरफ कुछ देर के लिए बिंदु चमकते हैं। जिस तरफ अधिक बिंदु थे, उसे टैप करें। गिनें नहीं — अपनी अंतर्ज्ञान पर भरोसा करें!</string>
+    <string name="game_schulte_table_desc">जितनी जल्दी हो सके 1 से क्रम में संख्याओं को टैप करें।</string>
+    <string name="game_schulte_instruction">क्रम में संख्या टैप करें: 1, 2, 3...</string>
     <string name="game_what_comes_next">आगे क्या आता है?</string>
     <string name="game_tap_matching_colors">उन सेल को टैप करें जहाँ शब्द रंग से मेल खाता है</string>
     <string name="game_tap_original_targets">मूल लक्ष्यों को टैप करें</string>

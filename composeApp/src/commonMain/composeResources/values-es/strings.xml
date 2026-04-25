@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Toca los números para construir una expresión</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Puntuación: %1$d</string>
+    <string name="finish_score">Puntuación: %1$s</string>
     <string name="finish_bonus_point">¡Ganaste 1 punto extra por no cometer errores!</string>
     <string name="finish_new_highscore">¡Nueva puntuación máxima!</string>
-    <string name="finish_highscore">Puntuación más alta: %1$d</string>
+    <string name="finish_highscore">Puntuación más alta: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Solución: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Confusión de Colores</string>
     <string name="game_orbit_tracker">Rastreador de Órbitas</string>
     <string name="game_flash_crowd">Multitud Relámpago</string>
+    <string name="game_schulte_table">Tabla de Schulte</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encuentra la figura que destaca. Considera tanto el color como la forma de cada figura.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Toca todas las celdas donde la palabra coincida con el color de la fuente y luego pulsa Listo.</string>
     <string name="game_orbit_tracker_desc">Observa las bolas resaltadas y luego síguelas mientras se mueven. Selecciona los objetivos originales después de que se detengan.</string>
     <string name="game_flash_crowd_desc">Los puntos parpadean brevemente en cada lado. Toca el lado que tenía más puntos. ¡No cuentes, confía en tu instinto!</string>
+    <string name="game_schulte_table_desc">Toca los números en orden a partir del 1 lo más rápido que puedas.</string>
+    <string name="game_schulte_instruction">Toca los números en orden: 1, 2, 3...</string>
     <string name="game_what_comes_next">¿Qué sigue?</string>
     <string name="game_tap_matching_colors">Toca las celdas donde la palabra coincida con el color</string>
     <string name="game_tap_original_targets">Toca los objetivos originales</string>

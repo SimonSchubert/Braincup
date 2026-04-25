@@ -54,8 +54,8 @@ fun FinishScreen(
         scrollable = false,
     ) {
         val medalTint = when {
-            score >= gameType.goldScore -> MedalGold
-            score >= gameType.silverScore -> MedalSilver
+            gameType.meetsScore(score, gameType.goldScore) -> MedalGold
+            gameType.meetsScore(score, gameType.silverScore) -> MedalSilver
             score > 0 -> MedalBronze
             else -> null
         }
@@ -73,14 +73,14 @@ fun FinishScreen(
         }
 
         Text(
-            text = stringResource(Res.string.finish_score, score),
+            text = stringResource(Res.string.finish_score, gameType.formatScore(score)),
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
 
         Spacer(Modifier.height(16.dp))
 
-        if (answeredAllCorrect) {
+        if (answeredAllCorrect && !gameType.lowerScoreIsBetter) {
             Text(
                 text = stringResource(Res.string.finish_bonus_point),
                 style = MaterialTheme.typography.bodyLarge,
@@ -109,7 +109,7 @@ fun FinishScreen(
             }
         } else if (highscore > 0) {
             Text(
-                text = stringResource(Res.string.finish_highscore, highscore),
+                text = stringResource(Res.string.finish_highscore, gameType.formatScore(highscore)),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.align(Alignment.CenterHorizontally),

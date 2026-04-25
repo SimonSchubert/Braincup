@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">点击数字来构建表达式</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">得分：%1$d</string>
+    <string name="finish_score">得分：%1$s</string>
     <string name="finish_bonus_point">您因零失误获得了1个额外分数！</string>
     <string name="finish_new_highscore">新最高分！</string>
-    <string name="finish_highscore">最高分: %1$d</string>
+    <string name="finish_highscore">最高分: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">答案: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">颜色混淆</string>
     <string name="game_orbit_tracker">轨道追踪</string>
     <string name="game_flash_crowd">闪现人群</string>
+    <string name="game_schulte_table">舒尔特方格</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">点击所有文字与字体颜色匹配的单元格，然后按完成。</string>
     <string name="game_orbit_tracker_desc">观察高亮的球，然后在它们移动时追踪。停止后选择最初的目标。</string>
     <string name="game_flash_crowd_desc">每侧短暂闪现圆点。点击圆点更多的一侧。不要数 — 相信你的直觉！</string>
+    <string name="game_schulte_table_desc">尽快按1到N的顺序点击数字。</string>
+    <string name="game_schulte_instruction">按顺序点击数字：1、2、3……</string>
     <string name="game_what_comes_next">下一个是什么？</string>
     <string name="game_tap_matching_colors">点击文字与颜色匹配的单元格</string>
     <string name="game_tap_original_targets">点击最初的目标</string>

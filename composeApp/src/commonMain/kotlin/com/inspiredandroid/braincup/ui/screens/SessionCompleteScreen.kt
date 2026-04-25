@@ -35,7 +35,11 @@ fun SessionCompleteScreen(
     levelChange: UserStorage.LevelChange?,
     onDone: () -> Unit,
 ) {
-    val total = scores.sum()
+    // Sum only points-based scores; time-based scores (lower-is-better) are in different units
+    // and would make the total meaningless if added in.
+    val total = gameIds.zip(scores).filter { (id, _) ->
+        getGameTypeById(id)?.lowerScoreIsBetter != true
+    }.sumOf { (_, score) -> score }
     val games = gameIds.mapNotNull { getGameTypeById(it) }
     val streakIncreased = streakAfter > streakBefore
 
@@ -161,7 +165,7 @@ private fun SessionGameRow(game: GameType, score: Int) {
             modifier = Modifier.weight(1f),
         )
         Text(
-            text = score.toString(),
+            text = game.formatScore(score),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
         )

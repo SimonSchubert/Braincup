@@ -51,7 +51,7 @@ fun ScoreboardScreen(
                     style = MaterialTheme.typography.labelLarge,
                 )
                 Text(
-                    text = highscore.toString(),
+                    text = if (highscore > 0) gameType.formatScore(highscore) else "—",
                     style = MaterialTheme.typography.headlineLarge,
                 )
             }
@@ -66,17 +66,20 @@ fun ScoreboardScreen(
             horizontalArrangement = Arrangement.SpaceEvenly,
         ) {
             MedalRequirement(
-                score = 1,
+                gameType = gameType,
+                threshold = 1,
                 tint = Color(0xFFCD7F32),
                 highscore = highscore,
             )
             MedalRequirement(
-                score = gameType.silverScore,
+                gameType = gameType,
+                threshold = gameType.silverScore,
                 tint = Color(0xFFC0C0C0),
                 highscore = highscore,
             )
             MedalRequirement(
-                score = gameType.goldScore,
+                gameType = gameType,
+                threshold = gameType.goldScore,
                 tint = Color(0xFFFFD700),
                 highscore = highscore,
             )
@@ -110,7 +113,7 @@ fun ScoreboardScreen(
                                 style = MaterialTheme.typography.labelMedium,
                             )
                             Text(
-                                text = group.scores.joinToString(", "),
+                                text = group.scores.joinToString(", ") { gameType.formatScore(it) },
                                 style = MaterialTheme.typography.bodyMedium,
                             )
                         }
@@ -123,11 +126,17 @@ fun ScoreboardScreen(
 
 @Composable
 private fun MedalRequirement(
-    score: Int,
+    gameType: GameType,
+    threshold: Int,
     tint: Color,
     highscore: Int,
 ) {
-    val achieved = highscore >= score
+    val achieved = gameType.meetsScore(highscore, threshold)
+    val label = if (gameType.lowerScoreIsBetter) {
+        "≤${gameType.formatScore(threshold)}"
+    } else {
+        threshold.toString()
+    }
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -138,7 +147,7 @@ private fun MedalRequirement(
             modifier = Modifier.size(32.dp),
         )
         Text(
-            text = score.toString(),
+            text = label,
             style = MaterialTheme.typography.labelMedium,
             color = if (achieved) {
                 MaterialTheme.colorScheme.onSurface

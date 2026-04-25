@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">اضغط على الأرقام لبناء تعبير</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">النتيجة: %1$d</string>
+    <string name="finish_score">النتيجة: %1$s</string>
     <string name="finish_bonus_point">حصلت على نقطة إضافية لعدم ارتكاب أي أخطاء!</string>
     <string name="finish_new_highscore">رقم قياسي جديد!</string>
-    <string name="finish_highscore">أعلى نتيجة: %1$d</string>
+    <string name="finish_highscore">أعلى نتيجة: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">الحل: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">ارتباك الألوان</string>
     <string name="game_orbit_tracker">تتبع المدار</string>
     <string name="game_flash_crowd">حشد الوميض</string>
+    <string name="game_schulte_table">جدول شولت</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">اضغط على جميع الخلايا التي تتطابق فيها الكلمة مع لون الخط، ثم اضغط تم.</string>
     <string name="game_orbit_tracker_desc">شاهد الكرات المميزة، ثم تتبعها أثناء تحركها. حدد الأهداف الأصلية بعد توقفها.</string>
     <string name="game_flash_crowd_desc">تومض النقاط لفترة وجيزة على كل جانب. انقر على الجانب الذي يحتوي على نقاط أكثر. لا تعد — ثق بحدسك!</string>
+    <string name="game_schulte_table_desc">اضغط الأرقام بالترتيب من 1 فصاعداً بأسرع ما يمكن.</string>
+    <string name="game_schulte_instruction">اضغط الأرقام بالترتيب: 1، 2، 3...</string>
     <string name="game_what_comes_next">ما التالي؟</string>
     <string name="game_tap_matching_colors">اضغط على الخلايا التي تتطابق فيها الكلمة مع اللون</string>
     <string name="game_tap_original_targets">انقر على الأهداف الأصلية</string>

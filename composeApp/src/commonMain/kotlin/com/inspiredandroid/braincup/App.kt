@@ -112,6 +112,7 @@ fun App(colorScheme: ColorScheme? = null) {
                 composable<Playing> {
                     val gameState by controller.gameState.collectAsState()
                     val timeRemaining by controller.timeRemaining.collectAsState()
+                    val elapsedTime by controller.elapsedTime.collectAsState()
                     val gameUiState by controller.gameUiState.collectAsState()
                     val hapticSuccess = rememberHapticSuccess()
 
@@ -125,6 +126,7 @@ fun App(colorScheme: ColorScheme? = null) {
                             GameScreen(
                                 gameUiState = uiState,
                                 timeRemaining = timeRemaining,
+                                elapsedTime = elapsedTime,
                                 onAnswer = { controller.submitAnswer(it) },
                                 onGiveUp = { controller.giveUp() },
                                 onBack = { controller.navigateToMainMenu() },
@@ -196,7 +198,9 @@ fun App(colorScheme: ColorScheme? = null) {
                                 nextGame = nextGame,
                                 nextGameIndex = current.currentIndex,
                                 totalGames = current.gameIds.size,
-                                runningTotal = current.scores.sum(),
+                                runningTotal = current.gameIds.zip(current.scores).filter { (id, _) ->
+                                    getGameTypeById(id)?.lowerScoreIsBetter != true
+                                }.sumOf { (_, score) -> score },
                                 onContinue = { controller.playNextSessionGame() },
                                 onExit = { controller.navigateToMainMenu() },
                             )

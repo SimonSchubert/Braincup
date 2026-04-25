@@ -31,6 +31,9 @@ class GameController(
     private val _timeRemaining = MutableStateFlow(GAME_TIME_MILLIS)
     val timeRemaining: StateFlow<Long> = _timeRemaining.asStateFlow()
 
+    private val _elapsedTime = MutableStateFlow(0L)
+    val elapsedTime: StateFlow<Long> = _elapsedTime.asStateFlow()
+
     private val _gameUiState = MutableStateFlow<GameUiState?>(null)
     val gameUiState: StateFlow<GameUiState?> = _gameUiState.asStateFlow()
 
@@ -48,6 +51,7 @@ class GameController(
 
     private var startTime = 0L
     private var points = 0
+    private var stopwatchRunning = false
     private var inSessionMode = false
 
     private val _totalXp = MutableStateFlow(0)
@@ -140,6 +144,10 @@ class GameController(
             startOrbitTrackerGame(gameType)
             return
         }
+        if (gameType == GameType.SCHULTE_TABLE) {
+            startSchulteTableGame(gameType)
+            return
+        }
 
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -199,6 +207,10 @@ class GameController(
         }
         if (game is MiniSudokuGame) {
             handleMiniSudokuAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is SchulteTableGame) {
+            handleSchulteTableAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -316,6 +328,7 @@ class GameController(
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
         GameType.PATH_FINDER -> PathFinderGame()
         GameType.MINI_SUDOKU -> MiniSudokuGame()
+        GameType.SCHULTE_TABLE -> SchulteTableGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
         GameType.GHOST_GRID -> GhostGridGame()
@@ -514,6 +527,63 @@ class GameController(
             scope.launch {
                 delay(1500.milliseconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun startSchulteTableGame(gameType: GameType) {
+        val game = SchulteTableGame()
+        game.nextRound()
+
+        startTime = Clock.System.now().toEpochMilliseconds()
+        _elapsedTime.value = 0L
+
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+        startStopwatch()
+    }
+
+    private fun startStopwatch() {
+        stopwatchRunning = true
+        scope.launch {
+            while (stopwatchRunning && _gameState.value is GameState.Active) {
+                _elapsedTime.value = Clock.System.now().toEpochMilliseconds() - startTime
+                delay(100.milliseconds)
+            }
+        }
+    }
+
+    private fun handleSchulteTableAnswer(
+        currentState: GameState.Active,
+        game: SchulteTableGame,
+        input: String,
+    ) {
+        val index = input.toIntOrNull() ?: return
+        when (game.tapCell(index)) {
+            SchulteTableGame.TapResult.Correct -> {
+                _gameUiState.value = game.toUiState()
+            }
+            SchulteTableGame.TapResult.Complete -> {
+                val elapsedMillis = Clock.System.now().toEpochMilliseconds() - startTime
+                stopwatchRunning = false
+                _elapsedTime.value = elapsedMillis
+                // Deciseconds (1/10s), rounded; e.g. 24_300 ms → 243.
+                points = ((elapsedMillis + 50) / 100).toInt().coerceAtLeast(1)
+                _gameUiState.value = game.toUiState()
+                scope.launch {
+                    delay(500.milliseconds)
+                    finishCurrentGame(currentState.gameType, game)
+                }
+            }
+            SchulteTableGame.TapResult.Wrong -> {
+                game.answeredAllCorrect = false
+                _gameUiState.value = game.toUiState()
+                scope.launch {
+                    delay(500.milliseconds)
+                    game.clearWrongTap()
+                    _gameUiState.value = game.toUiState()
+                }
             }
         }
     }

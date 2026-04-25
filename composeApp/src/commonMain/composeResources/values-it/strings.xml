@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Tocca i numeri per costruire un'espressione</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Punteggio: %1$d</string>
+    <string name="finish_score">Punteggio: %1$s</string>
     <string name="finish_bonus_point">Hai guadagnato 1 punto extra per non aver commesso errori!</string>
     <string name="finish_new_highscore">Nuovo record!</string>
-    <string name="finish_highscore">Punteggio più alto: %1$d</string>
+    <string name="finish_highscore">Punteggio più alto: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Soluzione: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Confusione di Colori</string>
     <string name="game_orbit_tracker">Inseguitore di Orbite</string>
     <string name="game_flash_crowd">Folla Lampo</string>
+    <string name="game_schulte_table">Tabella di Schulte</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trova la figura che si distingue. Considera sia il colore che la forma di ogni figura.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Tocca tutte le celle in cui la parola corrisponde al colore del carattere, poi premi Fatto.</string>
     <string name="game_orbit_tracker_desc">Osserva le palle evidenziate, poi seguile mentre si muovono. Seleziona i bersagli originali dopo che si fermano.</string>
     <string name="game_flash_crowd_desc">I punti lampeggiano brevemente su ogni lato. Tocca il lato che aveva più punti. Non contare — fidati del tuo istinto!</string>
+    <string name="game_schulte_table_desc">Tocca i numeri in ordine dal 1 in su il più velocemente possibile.</string>
+    <string name="game_schulte_instruction">Tocca i numeri in ordine: 1, 2, 3...</string>
     <string name="game_what_comes_next">Cosa viene dopo?</string>
     <string name="game_tap_matching_colors">Tocca le celle dove la parola corrisponde al colore</string>
     <string name="game_tap_original_targets">Tocca i bersagli originali</string>

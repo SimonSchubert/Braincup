@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Appuyez sur les nombres pour construire une expression</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Score : %1$d</string>
+    <string name="finish_score">Score : %1$s</string>
     <string name="finish_bonus_point">Vous avez gagné 1 point bonus pour n'avoir fait aucune erreur !</string>
     <string name="finish_new_highscore">Nouveau meilleur score !</string>
-    <string name="finish_highscore">Meilleur score : %1$d</string>
+    <string name="finish_highscore">Meilleur score : %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Solution : %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Confusion de Couleurs</string>
     <string name="game_orbit_tracker">Traqueur d'Orbites</string>
     <string name="game_flash_crowd">Foule Éclair</string>
+    <string name="game_schulte_table">Table de Schulte</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Touchez toutes les cellules où le mot correspond à la couleur de la police, puis appuyez sur Terminé.</string>
     <string name="game_orbit_tracker_desc">Observez les balles en surbrillance, puis suivez-les pendant leur déplacement. Sélectionnez les cibles originales après l'arrêt.</string>
     <string name="game_flash_crowd_desc">Des points clignotent brièvement de chaque côté. Touchez le côté qui avait plus de points. Ne comptez pas — fiez-vous à votre instinct !</string>
+    <string name="game_schulte_table_desc">Touche les chiffres dans l'ordre à partir de 1 le plus vite possible.</string>
+    <string name="game_schulte_instruction">Touche les chiffres dans l'ordre : 1, 2, 3...</string>
     <string name="game_what_comes_next">Quelle est la suite ?</string>
     <string name="game_tap_matching_colors">Touchez les cellules où le mot correspond à la couleur</string>
     <string name="game_tap_original_targets">Touchez les cibles originales</string>

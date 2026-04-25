@@ -295,6 +295,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameSchulteTable() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createSchulteTableUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gamePatternSequence() {
         paparazzi.snap {
             GameScreen(

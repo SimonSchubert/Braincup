@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">숫자를 탭하여 수식을 만드세요</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">점수: %1$d</string>
+    <string name="finish_score">점수: %1$s</string>
     <string name="finish_bonus_point">실수 없이 플레이하여 1점의 보너스를 얻었습니다!</string>
     <string name="finish_new_highscore">새로운 최고 점수!</string>
-    <string name="finish_highscore">최고 점수: %1$d</string>
+    <string name="finish_highscore">최고 점수: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">정답: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">색상 혼동</string>
     <string name="game_orbit_tracker">궤도 추적기</string>
     <string name="game_flash_crowd">플래시 크라우드</string>
+    <string name="game_schulte_table">슐테 테이블</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">단어가 글꼴 색상과 일치하는 모든 셀을 탭한 다음 완료를 누르세요.</string>
     <string name="game_orbit_tracker_desc">강조된 공을 관찰한 후 움직임을 추적하세요. 멈춘 후 원래 목표물을 선택하세요.</string>
     <string name="game_flash_crowd_desc">각 쪽에 점이 잠깐 깜빡입니다. 점이 더 많았던 쪽을 탭하세요. 세지 마세요 — 직감을 믿으세요!</string>
+    <string name="game_schulte_table_desc">1부터 순서대로 숫자를 최대한 빠르게 탭하세요.</string>
+    <string name="game_schulte_instruction">숫자를 순서대로 탭: 1, 2, 3...</string>
     <string name="game_what_comes_next">다음은 무엇일까요?</string>
     <string name="game_tap_matching_colors">단어와 색상이 일치하는 셀을 탭하세요</string>
     <string name="game_tap_original_targets">원래 목표물을 탭하세요</string>

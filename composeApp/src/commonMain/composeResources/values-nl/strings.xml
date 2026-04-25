@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">Tik op getallen om een uitdrukking te maken</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Score: %1$d</string>
+    <string name="finish_score">Score: %1$s</string>
     <string name="finish_bonus_point">Je hebt 1 bonuspunt verdiend omdat je geen fouten hebt gemaakt!</string>
     <string name="finish_new_highscore">Nieuwe highscore!</string>
-    <string name="finish_highscore">Topscore: %1$d</string>
+    <string name="finish_highscore">Topscore: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Oplossing: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">Kleurverwarring</string>
     <string name="game_orbit_tracker">Baanvolger</string>
     <string name="game_flash_crowd">Flitsmenigte</string>
+    <string name="game_schulte_table">Schulte-tabel</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">Tik alle cellen aan waar het woord overeenkomt met de letterkleur en druk dan op Klaar.</string>
     <string name="game_orbit_tracker_desc">Kijk naar de gemarkeerde ballen en volg ze terwijl ze bewegen. Selecteer de oorspronkelijke doelen nadat ze stoppen.</string>
     <string name="game_flash_crowd_desc">Stippen flitsen kort aan elke kant. Tik op de kant met meer stippen. Tel niet — vertrouw op je instinct!</string>
+    <string name="game_schulte_table_desc">Tik de nummers zo snel mogelijk op volgorde vanaf 1.</string>
+    <string name="game_schulte_instruction">Tik de nummers op volgorde: 1, 2, 3...</string>
     <string name="game_what_comes_next">Wat komt er hierna?</string>
     <string name="game_tap_matching_colors">Tik cellen aan waar woord en kleur overeenkomen</string>
     <string name="game_tap_original_targets">Tik op de oorspronkelijke doelen</string>

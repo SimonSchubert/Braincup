@@ -59,10 +59,10 @@
     <string name="game_tap_numbers">Tap numbers to build an expression</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">Score: %1$d</string>
+    <string name="finish_score">Score: %1$s</string>
     <string name="finish_bonus_point">You earned 1 extra point for making no mistakes!</string>
     <string name="finish_new_highscore">New High Score!</string>
-    <string name="finish_highscore">High Score: %1$d</string>
+    <string name="finish_highscore">High Score: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Solution: %1$s</string>
@@ -92,6 +92,7 @@
     <string name="game_color_confusion">Color Confusion</string>
     <string name="game_orbit_tracker">Orbit Tracker</string>
     <string name="game_flash_crowd">Flash Crowd</string>
+    <string name="game_schulte_table">Schulte Table</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -109,6 +110,8 @@
     <string name="game_color_confusion_desc">Tap all cells where the word matches its font color, then press Done.</string>
     <string name="game_orbit_tracker_desc">Watch the highlighted balls, then track them as they move. Select the original targets after they stop.</string>
     <string name="game_flash_crowd_desc">Dots flash briefly on each side. Tap the side that had more dots. Don't count — trust your instinct!</string>
+    <string name="game_schulte_table_desc">Tap the numbers in order from 1 upwards as fast as you can.</string>
+    <string name="game_schulte_instruction">Tap the numbers in order: 1, 2, 3...</string>
     <string name="game_what_comes_next">What comes next?</string>
     <string name="game_tap_matching_colors">Tap cells where word matches color</string>
     <string name="game_tap_original_targets">Tap the original targets</string>

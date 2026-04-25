@@ -26,10 +26,10 @@
     <string name="game_tap_numbers">แตะตัวเลขเพื่อสร้างนิพจน์</string>
 
     <!-- Finish screen -->
-    <string name="finish_score">คะแนน: %1$d</string>
+    <string name="finish_score">คะแนน: %1$s</string>
     <string name="finish_bonus_point">คุณได้รับ 1 คะแนนพิเศษจากการไม่ทำผิดพลาด!</string>
     <string name="finish_new_highscore">คะแนนสูงสุดใหม่!</string>
-    <string name="finish_highscore">คะแนนสูงสุด: %1$d</string>
+    <string name="finish_highscore">คะแนนสูงสุด: %1$s</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">เฉลย: %1$s</string>
@@ -59,6 +59,7 @@
     <string name="game_color_confusion">สีสับสน</string>
     <string name="game_orbit_tracker">ติดตามวงโคจร</string>
     <string name="game_flash_crowd">ฝูงชนวาบ</string>
+    <string name="game_schulte_table">ตารางชูลเทอ</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -76,6 +77,8 @@
     <string name="game_color_confusion_desc">แตะเซลล์ทั้งหมดที่คำตรงกับสีตัวอักษร แล้วกดเสร็จ</string>
     <string name="game_orbit_tracker_desc">ดูลูกบอลที่ถูกไฮไลท์ แล้วติดตามขณะเคลื่อนที่ เลือกเป้าหมายเดิมหลังจากหยุด</string>
     <string name="game_flash_crowd_desc">จุดจะกะพริบสั้นๆ แต่ละด้าน แตะด้านที่มีจุดมากกว่า อย่านับ — เชื่อสัญชาตญาณของคุณ!</string>
+    <string name="game_schulte_table_desc">แตะตัวเลขตามลำดับเริ่มจาก 1 ให้เร็วที่สุดเท่าที่ทำได้</string>
+    <string name="game_schulte_instruction">แตะตัวเลขตามลำดับ: 1, 2, 3...</string>
     <string name="game_what_comes_next">อะไรต่อไป?</string>
     <string name="game_tap_matching_colors">แตะเซลล์ที่คำตรงกับสี</string>
     <string name="game_tap_original_targets">แตะเป้าหมายเดิม</string>

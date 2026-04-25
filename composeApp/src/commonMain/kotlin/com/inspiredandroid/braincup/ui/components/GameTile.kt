@@ -80,8 +80,8 @@ fun GameTile(
                 modifier = Modifier.weight(1f),
             )
             val medalTint = when {
-                highscore >= gameType.goldScore -> MedalGold
-                highscore >= gameType.silverScore -> MedalSilver
+                gameType.meetsScore(highscore, gameType.goldScore) -> MedalGold
+                gameType.meetsScore(highscore, gameType.silverScore) -> MedalSilver
                 highscore > 0 -> MedalBronze
                 else -> null
             }
@@ -114,6 +114,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.FRACTION_CALCULATION -> FractionCalculationPreview()
         GameType.VALUE_COMPARISON -> ValueComparisonPreview()
         GameType.MINI_SUDOKU -> MiniSudokuPreview()
+        GameType.SCHULTE_TABLE -> SchulteTablePreview()
         GameType.PATTERN_SEQUENCE -> PatternSequencePreview()
         GameType.GHOST_GRID -> GhostGridPreview()
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
@@ -396,6 +397,50 @@ private fun MiniSudokuPreview() {
                                 color = MaterialTheme.colorScheme.onSurface,
                             )
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SchulteTablePreview() {
+    // 3×3 grid: jumbled numbers with a couple already tapped (dimmed) to show the mechanic.
+    data class Cell(val number: Int, val tapped: Boolean)
+    val grid = listOf(
+        listOf(Cell(3, false), Cell(1, true), Cell(6, false)),
+        listOf(Cell(2, true), Cell(9, false), Cell(7, false)),
+        listOf(Cell(5, false), Cell(8, false), Cell(4, false)),
+    )
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(2.dp),
+        modifier = Modifier.padding(8.dp),
+    ) {
+        grid.forEach { row ->
+            Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+                row.forEach { cell ->
+                    Box(
+                        modifier = Modifier
+                            .size(24.dp)
+                            .background(
+                                if (cell.tapped) {
+                                    MaterialTheme.colorScheme.surfaceVariant
+                                } else {
+                                    MaterialTheme.colorScheme.surface
+                                },
+                            ),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            text = cell.number.toString(),
+                            style = MaterialTheme.typography.labelSmall,
+                            fontWeight = FontWeight.Bold,
+                            color = MaterialTheme.colorScheme.onSurface.copy(
+                                alpha = if (cell.tapped) 0.4f else 1f,
+                            ),
+                        )
                     }
                 }
             }

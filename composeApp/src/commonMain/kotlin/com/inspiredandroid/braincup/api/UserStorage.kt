@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.api
 
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.getGameTypeById
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.number
@@ -299,7 +300,13 @@ class UserStorage(
         gameId: String,
         score: Int,
     ): ScoreResult {
-        val newHighscore = score > getHighScore(gameId)
+        val gameType = getGameTypeById(gameId)
+        val previousHighscore = getHighScore(gameId)
+        val newHighscore = if (gameType?.lowerScoreIsBetter == true) {
+            score > 0 && (previousHighscore == 0 || score < previousHighscore)
+        } else {
+            score > previousHighscore
+        }
         if (newHighscore) {
             settings.putInt(getHighscoreKey(gameId), score)
         }
@@ -308,7 +315,15 @@ class UserStorage(
             getScoresKey(gameId),
             "${Clock.System.now().toEpochMilliseconds()}/$score,$scoresRaw",
         )
-        val updatedTotalScore = getTotalScore() + score
+
+        // For time-based games, awarding XP equal to the time would punish faster players.
+        // Map the result to a fixed-bandwidth XP bracket instead.
+        val xpAward = if (gameType?.lowerScoreIsBetter == true) {
+            xpForTimeScore(gameType, score)
+        } else {
+            score
+        }
+        val updatedTotalScore = getTotalScore() + xpAward
         settings.putInt(KEY_TOTAL_SCORE, updatedTotalScore)
 
         val unlockedAchievements = getUnlockedAchievements()
@@ -323,8 +338,19 @@ class UserStorage(
             }
         }
 
-        val levelChange = addXp(score)
-        return ScoreResult(newHighscore, score, levelChange)
+        val levelChange = addXp(xpAward)
+        return ScoreResult(newHighscore, xpAward, levelChange)
+    }
+
+    /** XP for a time-based result. Tiered to match the typical per-session XP yield of
+     *  points-based games (whose averages across the catalog are ~11 for gold, ~6 for silver). */
+    private fun xpForTimeScore(gameType: GameType, score: Int): Int {
+        if (score <= 0) return 0
+        return when {
+            gameType.meetsScore(score, gameType.goldScore) -> 12
+            gameType.meetsScore(score, gameType.silverScore) -> 6
+            else -> 3
+        }
     }
 
     fun getTotalScore(): Int = settings.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
@@ -340,12 +366,12 @@ class UserStorage(
         else -> true
     }
 
-    private fun hasMedalForAllGames(achievement: Achievements): Boolean = GameType.entries.all {
-        val highscore = getHighScore(it.id)
+    private fun hasMedalForAllGames(achievement: Achievements): Boolean = GameType.entries.all { gameType ->
+        val highscore = getHighScore(gameType.id)
         when (achievement) {
             Achievements.MEDAL_BRONZE -> highscore > 0
-            Achievements.MEDAL_SILVER -> highscore >= it.silverScore
-            Achievements.MEDAL_GOLD -> highscore >= it.goldScore
+            Achievements.MEDAL_SILVER -> if (gameType.lowerScoreIsBetter) highscore in 1..gameType.silverScore else highscore >= gameType.silverScore
+            Achievements.MEDAL_GOLD -> if (gameType.lowerScoreIsBetter) highscore in 1..gameType.goldScore else highscore >= gameType.goldScore
             else -> true
         }
     }
