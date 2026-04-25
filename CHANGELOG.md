@@ -1,3 +1,9 @@
+## v2.8.0 — 2026-04-25
+
+### Features
+- New Schulte table game
+- New mini Sudoku game
+
 ## v2.7.1 — 2026-04-24
 
 ### Fixes
