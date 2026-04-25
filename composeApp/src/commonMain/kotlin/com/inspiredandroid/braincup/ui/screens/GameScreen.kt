@@ -9,7 +9,9 @@ import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material3.*
@@ -23,6 +25,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -75,7 +78,7 @@ fun GameScreen(
             is ValueComparisonUiState -> ValueComparisonContent(gameUiState, onAnswer)
             is AnomalyPuzzleUiState -> AnomalyPuzzleContent(gameUiState, onAnswer)
             is PathFinderUiState -> PathFinderContent(gameUiState, onAnswer)
-            is GridSolverUiState -> GridSolverContent(gameUiState, onAnswer)
+            is MiniSudokuUiState -> MiniSudokuContent(gameUiState, onAnswer)
             is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
             is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
             is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
@@ -479,24 +482,27 @@ private fun ColumnScope.ValueComparisonContent(
     }
 }
 
+private val SudokuOuterFrame = 4.dp
+private val SudokuBlockSeparator = 4.dp
+private val SudokuCellSeparator = 2.dp
+private val SudokuCellSize = 48.dp
+
 @Composable
-private fun ColumnScope.GridSolverContent(
-    uiState: GridSolverUiState,
+private fun ColumnScope.MiniSudokuContent(
+    uiState: MiniSudokuUiState,
     onAnswer: (String) -> Unit,
 ) {
-    val totalCells = uiState.gridSize * uiState.gridSize
-    // Key on uiState so state resets each new round — grid size can grow (3→4), and pre-filled
-    // clues differ every round. Without the key, the previous round's inputs persist and can
-    // index out of bounds on a larger grid.
-    var inputs by remember(uiState) {
-        mutableStateOf(uiState.initialValues.map { it?.toString() ?: "" })
-    }
-    var currentIndex by remember(uiState) {
+    val showingSolution = uiState.solutionValues != null
+
+    // Reset state each round — grid size can grow 4→6 mid-session, so previous inputs
+    // would index out of bounds on the new grid.
+    var inputs by remember(uiState) { mutableStateOf(uiState.initialValues) }
+    var selectedIndex by remember(uiState) {
         mutableStateOf(uiState.initialValues.indexOfFirst { it == null }.coerceAtLeast(0))
     }
 
     Text(
-        text = stringResource(Res.string.game_fill_grid),
+        text = stringResource(Res.string.game_sudoku_instruction),
         style = MaterialTheme.typography.bodyLarge,
         textAlign = TextAlign.Center,
         modifier = Modifier
@@ -505,128 +511,158 @@ private fun ColumnScope.GridSolverContent(
     )
     Spacer(Modifier.height(16.dp))
 
-    val showingSolution = uiState.solutionValues != null
-    Column(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-        for (rowIndex in 0 until uiState.gridSize) {
-            Row {
-                for (colIndex in 0 until uiState.gridSize) {
-                    val cellIndex = rowIndex * uiState.gridSize + colIndex
-                    val isInitialValue = uiState.initialValues[cellIndex] != null
-                    val isSolutionCell = showingSolution && !isInitialValue
-                    val isCurrentCell = cellIndex == currentIndex && !showingSolution
-                    val cellValue = when {
-                        isSolutionCell -> uiState.solutionValues[cellIndex].toString()
-                        else -> inputs[cellIndex]
-                    }
-                    val isInteractive = !isInitialValue && !showingSolution
-                    Card(
-                        onClick = {
-                            if (isInteractive) {
-                                currentIndex = cellIndex
-                            }
-                        },
-                        enabled = isInteractive,
-                        modifier = Modifier
-                            .padding(4.dp)
-                            .size(48.dp)
-                            .hoverHand(isInteractive),
-                        colors = CardDefaults.cardColors(
-                            containerColor = when {
-                                isSolutionCell -> SuccessGreen.copy(alpha = 0.15f)
-                                isCurrentCell -> MaterialTheme.colorScheme.secondaryContainer
-                                isInitialValue -> MaterialTheme.colorScheme.surfaceVariant
-                                else -> MaterialTheme.colorScheme.surface
-                            },
-                        ),
-                        border = if (isSolutionCell) BorderStroke(2.dp, SuccessGreen) else null,
-                    ) {
-                        Box(
-                            contentAlignment = Alignment.Center,
-                            modifier = Modifier.fillMaxSize(),
-                        ) {
-                            Text(
-                                text = cellValue.ifEmpty { "?" },
-                                style = MaterialTheme.typography.titleMedium,
-                                color = if (isInitialValue) {
-                                    MaterialTheme.colorScheme.onSurfaceVariant
-                                } else {
-                                    MaterialTheme.colorScheme.onSurface
-                                },
-                            )
-                        }
-                    }
-                }
-                // Row sum
-                Card(
-                    modifier = Modifier
-                        .padding(4.dp)
-                        .size(48.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = PrimaryContainer,
-                    ),
-                ) {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier.fillMaxSize(),
-                    ) {
-                        Text(
-                            text = "=${uiState.resultsY[rowIndex]}",
-                            style = MaterialTheme.typography.titleSmall,
-                            color = OnPrimaryContainer,
-                        )
-                    }
-                }
+    SudokuGrid(
+        uiState = uiState,
+        inputs = inputs,
+        selectedIndex = selectedIndex,
+        showingSolution = showingSolution,
+        onCellClick = { selectedIndex = it },
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+
+    Spacer(Modifier.height(24.dp))
+
+    SudokuDigitPad(
+        gridSize = uiState.gridSize,
+        enabled = !showingSolution,
+        onDigit = { digit ->
+            if (selectedIndex !in inputs.indices) return@SudokuDigitPad
+            if (uiState.initialValues[selectedIndex] != null) return@SudokuDigitPad
+
+            val updated = inputs.toMutableList().apply { this[selectedIndex] = digit }
+            inputs = updated
+
+            if (updated.all { it != null }) {
+                onAnswer(updated.joinToString(",") { it.toString() })
+            } else {
+                selectedIndex = nextEmptyCell(selectedIndex, updated, uiState.initialValues)
             }
-        }
-        // Column sums row
-        Row {
-            uiState.resultsX.forEach { sum ->
-                Card(
-                    modifier = Modifier
-                        .padding(4.dp)
-                        .size(48.dp),
-                    colors = CardDefaults.cardColors(
-                        containerColor = PrimaryContainer,
-                    ),
-                ) {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = Modifier.fillMaxSize(),
-                    ) {
-                        Text(
-                            text = "=$sum",
-                            style = MaterialTheme.typography.titleSmall,
-                            color = OnPrimaryContainer,
+        },
+    )
+}
+
+/** Find the next still-empty user-editable cell after [from], wrapping around. */
+private fun nextEmptyCell(from: Int, inputs: List<Int?>, initialValues: List<Int?>): Int {
+    val total = inputs.size
+    for (step in 1..total) {
+        val idx = (from + step) % total
+        if (initialValues[idx] == null && inputs[idx] == null) return idx
+    }
+    return from
+}
+
+@Composable
+private fun SudokuGrid(
+    uiState: MiniSudokuUiState,
+    inputs: List<Int?>,
+    selectedIndex: Int,
+    showingSolution: Boolean,
+    onCellClick: (Int) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val n = uiState.gridSize
+    val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
+
+    Box(modifier = modifier.background(gridLineColor)) {
+        Column(modifier = Modifier.padding(SudokuOuterFrame)) {
+            for (row in 0 until n) {
+                Row {
+                    for (col in 0 until n) {
+                        val index = row * n + col
+                        val isClue = uiState.initialValues[index] != null
+                        val isSolution = showingSolution && !isClue
+                        val value = when {
+                            isSolution -> uiState.solutionValues!![index]
+                            else -> inputs[index]
+                        }
+                        SudokuCell(
+                            value = value?.toString().orEmpty(),
+                            isClue = isClue,
+                            isSelected = index == selectedIndex && !showingSolution,
+                            isSolution = isSolution,
+                            onClick = { onCellClick(index) },
+                            modifier = Modifier.padding(
+                                end = gapAfter(col, n, uiState.blockCols),
+                                bottom = gapAfter(row, n, uiState.blockRows),
+                            ),
                         )
                     }
                 }
             }
         }
     }
+}
 
-    Spacer(Modifier.height(24.dp))
+private fun gapAfter(index: Int, total: Int, blockSize: Int): androidx.compose.ui.unit.Dp = when {
+    index == total - 1 -> 0.dp
+    (index + 1) % blockSize == 0 -> SudokuBlockSeparator
+    else -> SudokuCellSeparator
+}
 
-    NumberPad(onInputChange = { input ->
-        if (input.isNotEmpty() && !showingSolution) {
-            val newInputs = inputs.toMutableList()
-            newInputs[currentIndex] = input.last().toString()
-            inputs = newInputs
+@Composable
+private fun SudokuCell(
+    value: String,
+    isClue: Boolean,
+    isSelected: Boolean,
+    isSolution: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val isInteractive = !isClue && !isSolution
+    val containerColor = when {
+        isSolution -> SuccessGreen.copy(alpha = 0.22f)
+        isSelected -> MaterialTheme.colorScheme.primaryContainer
+        else -> MaterialTheme.colorScheme.surface
+    }
+    Card(
+        onClick = onClick,
+        enabled = isInteractive,
+        modifier = modifier
+            .size(SudokuCellSize)
+            .hoverHand(isInteractive),
+        colors = CardDefaults.cardColors(containerColor = containerColor),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp, disabledElevation = 0.dp),
+        shape = RoundedCornerShape(0.dp),
+        border = if (isSolution) BorderStroke(2.dp, SuccessGreen) else null,
+    ) {
+        Text(
+            text = value,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = if (isSolution) SuccessGreen else MaterialTheme.colorScheme.onSurface,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxSize()
+                .wrapContentSize(Alignment.Center),
+        )
+    }
+}
 
-            if (newInputs.all { it.isNotEmpty() }) {
-                onAnswer(newInputs.joinToString(","))
-            } else {
-                // Advance to the next editable cell that's still empty — skip clues and any
-                // cells the user has already filled.
-                for (i in 1..totalCells) {
-                    val checkIndex = (currentIndex + i) % totalCells
-                    if (uiState.initialValues[checkIndex] == null && newInputs[checkIndex].isEmpty()) {
-                        currentIndex = checkIndex
-                        break
-                    }
-                }
+@Composable
+private fun ColumnScope.SudokuDigitPad(
+    gridSize: Int,
+    enabled: Boolean,
+    onDigit: (Int) -> Unit,
+) {
+    Row(
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        for (digit in 1..gridSize) {
+            FilledTonalButton(
+                onClick = { onDigit(digit) },
+                enabled = enabled,
+                modifier = Modifier
+                    .size(SudokuCellSize)
+                    .hoverHand(enabled),
+                contentPadding = PaddingValues(0.dp),
+                shape = RoundedCornerShape(12.dp),
+            ) {
+                Text(text = digit.toString(), style = MaterialTheme.typography.titleLarge)
             }
         }
-    })
+    }
 }
 
 // --- Sherlock Calculation Helper Composables ---

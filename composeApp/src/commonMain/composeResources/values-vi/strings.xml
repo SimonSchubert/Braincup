@@ -22,7 +22,7 @@
     <string name="game_goal">Mục tiêu: %1$d</string>
     <string name="game_follow_directions">Làm theo hướng dẫn:</string>
     <string name="game_highest_value">Cái nào có giá trị cao nhất?</string>
-    <string name="game_fill_grid">Điền vào lưới sao cho các hàng và cột khớp với tổng</string>
+    <string name="game_sudoku_instruction">Điền vào lưới sao cho mỗi hàng, cột và khối chứa mỗi chữ số một lần</string>
     <string name="game_tap_numbers">Chạm vào các số để tạo biểu thức</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Tính toán phân số</string>
     <string name="game_value_comparison">So sánh giá trị</string>
     <string name="game_path_finder">Tìm đường</string>
-    <string name="game_grid_solver">Giải lưới</string>
+    <string name="game_mini_sudoku">Sudoku Mini</string>
     <string name="game_visual_memory">Trí nhớ hình ảnh</string>
     <string name="game_pattern_sequence">Chuỗi mẫu</string>
     <string name="game_ghost_grid">Lưới Ma</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Giải các phân số.</string>
     <string name="game_value_comparison_desc">Chọn biểu thức có giá trị cao nhất.</string>
     <string name="game_path_finder_desc">Bắt đầu từ vị trí đánh dấu và đi theo các mũi tên để tìm đích đến.</string>
-    <string name="game_grid_solver_desc">Điền các số còn thiếu sao cho tổng của mỗi hàng và cột bằng tổng đã cho.</string>
+    <string name="game_mini_sudoku_desc">Điền vào lưới nhỏ sao cho mỗi hàng, cột và khối chứa mỗi số đúng một lần.</string>
     <string name="game_visual_memory_desc">Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi hết giờ.</string>
     <string name="game_pattern_sequence_desc">Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, màu sắc và phép quay lặp lại.</string>
     <string name="game_ghost_grid_desc">Xem các ô sáng lên từng cái một, sau đó chạm vào chúng theo cùng thứ tự.</string>

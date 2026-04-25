@@ -28,17 +28,3 @@ fun String.splitToIntList(): List<Int> = this
             null
         }
     }
-
-/**
- * Add ne entry or increase existing
- */
-fun MutableList<Int>.addOrIncrease(
-    index: Int,
-    number: Int,
-) {
-    if (size > index) {
-        set(index, get(index) + number)
-    } else {
-        add(number)
-    }
-}

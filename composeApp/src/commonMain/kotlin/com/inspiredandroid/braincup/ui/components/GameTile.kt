@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -112,7 +113,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.CHAIN_CALCULATION -> ChainCalculationPreview()
         GameType.FRACTION_CALCULATION -> FractionCalculationPreview()
         GameType.VALUE_COMPARISON -> ValueComparisonPreview()
-        GameType.GRID_SOLVER -> GridSolverPreview()
+        GameType.MINI_SUDOKU -> MiniSudokuPreview()
         GameType.PATTERN_SEQUENCE -> PatternSequencePreview()
         GameType.GHOST_GRID -> GhostGridPreview()
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
@@ -363,81 +364,41 @@ private fun ValueComparisonPreview() {
 }
 
 @Composable
-private fun GridSolverPreview() {
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(8.dp),
-    ) {
-        val grid = remember { listOf(listOf("5", "?", "?"), listOf("?", "2", "?"), listOf("?", "?", "3")) }
-        val rowSums = remember { listOf(10, 12, 8) }
-        val colSums = remember { listOf(8, 11, 11) }
+private fun MiniSudokuPreview() {
+    val grid = listOf(
+        listOf("1", "2"),
+        listOf("", "4"),
+    )
+    val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    val cellSize = 36.dp
+    val outerFrame = 3.dp
+    val blockSeparator = 3.dp
 
-        grid.forEachIndexed { rowIndex, row ->
-            Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-                row.forEachIndexed { colIndex, cell ->
-                    val isInitial = (rowIndex == 0 && colIndex == 0) || (rowIndex == 1 && colIndex == 1) || (rowIndex == 2 && colIndex == 2)
-                    Box(
-                        modifier = Modifier
-                            .size(24.dp)
-                            .background(
-                                if (isInitial) {
-                                    MaterialTheme.colorScheme.surfaceVariant
-                                } else {
-                                    MaterialTheme.colorScheme.surface
-                                },
-                                MaterialTheme.shapes.extraSmall,
-                            ),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Text(
-                            text = cell,
-                            style = MaterialTheme.typography.labelSmall,
-                            color = if (isInitial) {
-                                MaterialTheme.colorScheme.onSurfaceVariant
-                            } else {
-                                MaterialTheme.colorScheme.onSurface
-                            },
-                        )
+    Box(modifier = Modifier.background(gridLineColor)) {
+        Column(modifier = Modifier.padding(outerFrame)) {
+            grid.forEachIndexed { rowIndex, row ->
+                Row {
+                    row.forEachIndexed { colIndex, cell ->
+                        Box(
+                            modifier = Modifier
+                                .padding(
+                                    end = if (colIndex == 0) blockSeparator else 0.dp,
+                                    bottom = if (rowIndex == 0) blockSeparator else 0.dp,
+                                )
+                                .size(cellSize)
+                                .background(MaterialTheme.colorScheme.surface),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Text(
+                                text = cell,
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = MaterialTheme.colorScheme.onSurface,
+                            )
+                        }
                     }
                 }
-                Box(
-                    modifier = Modifier
-                        .size(24.dp)
-                        .background(
-                            MaterialTheme.colorScheme.primaryContainer,
-                            MaterialTheme.shapes.extraSmall,
-                        ),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = "=${rowSums[rowIndex]}",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    )
-                }
             }
-            Spacer(Modifier.height(2.dp))
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
-            colSums.forEach { sum ->
-                Box(
-                    modifier = Modifier
-                        .size(24.dp)
-                        .background(
-                            MaterialTheme.colorScheme.primaryContainer,
-                            MaterialTheme.shapes.extraSmall,
-                        ),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = "=$sum",
-                        style = MaterialTheme.typography.labelSmall,
-                        color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    )
-                }
-            }
-            Spacer(Modifier.size(24.dp))
         }
     }
 }

@@ -22,7 +22,7 @@
     <string name="game_goal">Ziel: %1$d</string>
     <string name="game_follow_directions">Folge den Anweisungen:</string>
     <string name="game_highest_value">Welches hat den höchsten Wert?</string>
-    <string name="game_fill_grid">Fülle das Gitter so aus, dass Zeilen und Spalten den Summen entsprechen</string>
+    <string name="game_sudoku_instruction">Fülle das Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Ziffer einmal enthält</string>
     <string name="game_tap_numbers">Tippe auf Zahlen, um einen Ausdruck zu erstellen</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Bruchrechnung</string>
     <string name="game_value_comparison">Wertevergleich</string>
     <string name="game_path_finder">Pfadfinder</string>
-    <string name="game_grid_solver">Gitter-Löser</string>
+    <string name="game_mini_sudoku">Mini-Sudoku</string>
     <string name="game_visual_memory">Visuelles Gedächtnis</string>
     <string name="game_pattern_sequence">Mustersequenz</string>
     <string name="game_ghost_grid">Geistergitter</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Löse die Brüche.</string>
     <string name="game_value_comparison_desc">Wähle den Ausdruck mit dem höchsten Wert.</string>
     <string name="game_path_finder_desc">Beginne an der markierten Position und folge den Pfeilen, um das Ziel zu finden.</string>
-    <string name="game_grid_solver_desc">Fülle die fehlenden Zahlen ein, sodass jede Zeile und Spalte die angegebenen Summen ergibt.</string>
+    <string name="game_mini_sudoku_desc">Fülle das kleine Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Zahl genau einmal enthält.</string>
     <string name="game_visual_memory_desc">Merke dir die Formen im Gitter und identifiziere die versteckte Form nach Ablauf des Timers.</string>
     <string name="game_pattern_sequence_desc">Finde die nächste Figur im Muster, indem du nach sich wiederholenden Formen, Farben und Drehungen suchst.</string>
     <string name="game_ghost_grid_desc">Beobachte, wie die Felder nacheinander aufleuchten, und tippe sie in der gleichen Reihenfolge an.</string>

@@ -22,7 +22,7 @@
     <string name="game_goal">Hedef: %1$d</string>
     <string name="game_follow_directions">Yönergeleri takip edin:</string>
     <string name="game_highest_value">Hangisinin değeri en yüksek?</string>
-    <string name="game_fill_grid">Satır ve sütunların toplamları eşleşecek şekilde ızgarayı doldurun</string>
+    <string name="game_sudoku_instruction">Izgarayı her satır, sütun ve bloğun her rakamı bir kez içerecek şekilde doldurun</string>
     <string name="game_tap_numbers">Bir ifade oluşturmak için sayılara dokunun</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Kesir Hesaplama</string>
     <string name="game_value_comparison">Değer Karşılaştırma</string>
     <string name="game_path_finder">Yol Bulucu</string>
-    <string name="game_grid_solver">Izgara Çözücü</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Görsel Hafıza</string>
     <string name="game_pattern_sequence">Desen Dizisi</string>
     <string name="game_ghost_grid">Hayalet Izgara</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Kesirleri çözün.</string>
     <string name="game_value_comparison_desc">En yüksek değere sahip ifadeyi seçin.</string>
     <string name="game_path_finder_desc">İşaretli konumdan başlayın ve hedefi bulmak için okları takip edin.</string>
-    <string name="game_grid_solver_desc">Her satır ve sütunun toplamı verilen değerlere eşit olacak şekilde eksik sayıları doldurun.</string>
+    <string name="game_mini_sudoku_desc">Küçük ızgarayı her satır, sütun ve bloğun her sayıyı tam olarak bir kez içerecek şekilde doldurun.</string>
     <string name="game_visual_memory_desc">Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.</string>
     <string name="game_pattern_sequence_desc">Tekrarlayan şekilleri, renkleri ve döndürmeleri arayarak desendeki bir sonraki şekli bulun.</string>
     <string name="game_ghost_grid_desc">Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.</string>

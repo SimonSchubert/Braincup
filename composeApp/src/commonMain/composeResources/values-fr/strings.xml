@@ -22,7 +22,7 @@
     <string name="game_goal">Objectif : %1$d</string>
     <string name="game_follow_directions">Suivez les instructions :</string>
     <string name="game_highest_value">Lequel a la valeur la plus élevée ?</string>
-    <string name="game_fill_grid">Remplissez la grille pour que les lignes et colonnes correspondent aux sommes</string>
+    <string name="game_sudoku_instruction">Remplis la grille pour que chaque ligne, colonne et bloc contienne chaque chiffre une fois</string>
     <string name="game_tap_numbers">Appuyez sur les nombres pour construire une expression</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Calcul de fractions</string>
     <string name="game_value_comparison">Comparaison de valeurs</string>
     <string name="game_path_finder">Chercheur de chemin</string>
-    <string name="game_grid_solver">Résolveur de grille</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Mémoire visuelle</string>
     <string name="game_pattern_sequence">Séquence de motifs</string>
     <string name="game_ghost_grid">Grille Fantôme</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Résolvez les fractions.</string>
     <string name="game_value_comparison_desc">Sélectionnez l'expression ayant la valeur la plus élevée.</string>
     <string name="game_path_finder_desc">Commencez à la position marquée et suivez les flèches pour trouver la destination.</string>
-    <string name="game_grid_solver_desc">Remplissez les nombres manquants pour que chaque ligne et colonne corresponde aux totaux donnés.</string>
+    <string name="game_mini_sudoku_desc">Remplis la petite grille pour que chaque ligne, colonne et bloc contienne chaque chiffre exactement une fois.</string>
     <string name="game_visual_memory_desc">Mémorisez les formes sur la grille, puis identifiez la forme cachée après la fin du chronomètre.</string>
     <string name="game_pattern_sequence_desc">Trouvez la figure suivante dans le motif en cherchant les formes, couleurs et rotations qui se répètent.</string>
     <string name="game_ghost_grid_desc">Regardez les cases s'allumer une par une, puis touchez-les dans le même ordre.</string>

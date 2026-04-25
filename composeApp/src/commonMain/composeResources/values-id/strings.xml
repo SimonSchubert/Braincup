@@ -22,7 +22,7 @@
     <string name="game_goal">Target: %1$d</string>
     <string name="game_follow_directions">Ikuti petunjuk:</string>
     <string name="game_highest_value">Mana yang nilainya paling tinggi?</string>
-    <string name="game_fill_grid">Isi kotak agar baris dan kolom sesuai dengan jumlahnya</string>
+    <string name="game_sudoku_instruction">Isi kotak agar setiap baris, kolom dan blok berisi setiap angka satu kali</string>
     <string name="game_tap_numbers">Ketuk angka untuk membuat ekspresi</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Perhitungan Pecahan</string>
     <string name="game_value_comparison">Perbandingan Nilai</string>
     <string name="game_path_finder">Pencari Jalur</string>
-    <string name="game_grid_solver">Pemecah Kotak</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Memori Visual</string>
     <string name="game_pattern_sequence">Urutan Pola</string>
     <string name="game_ghost_grid">Grid Hantu</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Selesaikan pecahan.</string>
     <string name="game_value_comparison_desc">Pilih ekspresi dengan nilai tertinggi.</string>
     <string name="game_path_finder_desc">Mulai dari posisi yang ditandai dan ikuti panah untuk menemukan tujuan.</string>
-    <string name="game_grid_solver_desc">Isi angka yang hilang agar jumlah setiap baris dan kolom sama dengan total yang diberikan.</string>
+    <string name="game_mini_sudoku_desc">Isi kotak kecil agar setiap baris, kolom dan blok berisi setiap angka tepat satu kali.</string>
     <string name="game_visual_memory_desc">Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah waktu habis.</string>
     <string name="game_pattern_sequence_desc">Temukan gambar berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.</string>
     <string name="game_ghost_grid_desc">Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.</string>

@@ -22,7 +22,7 @@
     <string name="game_goal">目标：%1$d</string>
     <string name="game_follow_directions">按照指示操作：</string>
     <string name="game_highest_value">哪个值最大？</string>
-    <string name="game_fill_grid">填充网格，使行和列的和匹配</string>
+    <string name="game_sudoku_instruction">填充网格，使每行、列和方块都包含每个数字一次</string>
     <string name="game_tap_numbers">点击数字来构建表达式</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">分数计算</string>
     <string name="game_value_comparison">数值比较</string>
     <string name="game_path_finder">路径寻找</string>
-    <string name="game_grid_solver">网格求解</string>
+    <string name="game_mini_sudoku">迷你数独</string>
     <string name="game_visual_memory">视觉记忆</string>
     <string name="game_pattern_sequence">图案序列</string>
     <string name="game_ghost_grid">幽灵方格</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">解决分数问题。</string>
     <string name="game_value_comparison_desc">选择值最大的表达式。</string>
     <string name="game_path_finder_desc">从标记位置开始，按照箭头找到目的地。</string>
-    <string name="game_grid_solver_desc">填入缺失的数字，使每行和每列的和等于给定的总数。</string>
+    <string name="game_mini_sudoku_desc">填充小网格，使每一行、列和方块都恰好包含每个数字一次。</string>
     <string name="game_visual_memory_desc">记住网格上的形状，然后在计时结束后识别隐藏的形状。</string>
     <string name="game_pattern_sequence_desc">通过寻找重复的形状、颜色和旋转，找出图案中的下一个图形。</string>
     <string name="game_ghost_grid_desc">观察方格逐个亮起，然后按相同顺序点击它们。</string>

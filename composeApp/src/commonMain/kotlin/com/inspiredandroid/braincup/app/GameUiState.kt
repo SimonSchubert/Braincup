@@ -88,10 +88,10 @@ data class PathFinderUiState(
 ) : GameUiState
 
 @Immutable
-data class GridSolverUiState(
+data class MiniSudokuUiState(
     val gridSize: Int,
-    val resultsX: List<Int>,
-    val resultsY: List<Int>,
+    val blockRows: Int,
+    val blockCols: Int,
     val initialValues: List<Int?>,
     val solutionValues: List<Int>? = null,
 ) : GameUiState

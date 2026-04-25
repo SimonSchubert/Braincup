@@ -22,7 +22,7 @@
     <string name="game_goal">Ціль: %1$d</string>
     <string name="game_follow_directions">Дотримуйтесь інструкцій:</string>
     <string name="game_highest_value">Що має найбільше значення?</string>
-    <string name="game_fill_grid">Заповніть сітку так, щоб суми рядків і стовпців збігалися</string>
+    <string name="game_sudoku_instruction">Заповніть сітку так, щоб кожен рядок, стовпець і блок містили кожну цифру один раз</string>
     <string name="game_tap_numbers">Натискайте на числа, щоб скласти вираз</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Розрахунок дробів</string>
     <string name="game_value_comparison">Порівняння значень</string>
     <string name="game_path_finder">Пошук шляху</string>
-    <string name="game_grid_solver">Розв'язання сітки</string>
+    <string name="game_mini_sudoku">Міні-судоку</string>
     <string name="game_visual_memory">Візуальна пам'ять</string>
     <string name="game_pattern_sequence">Послідовність візерунків</string>
     <string name="game_ghost_grid">Примарна сітка</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Розв'яжіть дроби.</string>
     <string name="game_value_comparison_desc">Виберіть вираз з найбільшим значенням.</string>
     <string name="game_path_finder_desc">Почніть з позначеної позиції та слідуйте стрілкам, щоб знайти пункт призначення.</string>
-    <string name="game_grid_solver_desc">Заповніть відсутні числа так, щоб сума кожного рядка та стовпця дорівнювала заданим підсумкам.</string>
+    <string name="game_mini_sudoku_desc">Заповніть маленьку сітку так, щоб кожен рядок, стовпець і блок містили кожне число рівно один раз.</string>
     <string name="game_visual_memory_desc">Запам'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
     <string name="game_pattern_sequence_desc">Знайдіть наступну фігуру у візерунку, шукаючи повторювані форми, кольори та обертання.</string>
     <string name="game_ghost_grid_desc">Спостерігайте, як плитки загоряються одна за одною, потім натискайте їх у тому ж порядку.</string>

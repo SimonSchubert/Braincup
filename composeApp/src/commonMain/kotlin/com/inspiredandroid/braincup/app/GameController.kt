@@ -197,8 +197,8 @@ class GameController(
             handleFlashCrowdAnswer(currentState, game, answer.trim())
             return
         }
-        if (game is GridSolverGame) {
-            handleGridSolverAnswer(currentState, game, answer.trim())
+        if (game is MiniSudokuGame) {
+            handleMiniSudokuAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -315,7 +315,7 @@ class GameController(
         GameType.FRACTION_CALCULATION -> FractionCalculationGame()
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
         GameType.PATH_FINDER -> PathFinderGame()
-        GameType.GRID_SOLVER -> GridSolverGame()
+        GameType.MINI_SUDOKU -> MiniSudokuGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
         GameType.GHOST_GRID -> GhostGridGame()
@@ -490,9 +490,9 @@ class GameController(
         }
     }
 
-    private fun handleGridSolverAnswer(
+    private fun handleMiniSudokuAnswer(
         currentState: GameState.Active,
-        game: GridSolverGame,
+        game: MiniSudokuGame,
         input: String,
     ) {
         if (game.isCorrect(input)) {
@@ -509,8 +509,8 @@ class GameController(
             }
         } else {
             game.answeredAllCorrect = false
-            val currentUiState = _gameUiState.value as? GridSolverUiState ?: return
-            _gameUiState.value = currentUiState.copy(solutionValues = game.entries.flatten())
+            val currentUiState = _gameUiState.value as? MiniSudokuUiState ?: return
+            _gameUiState.value = currentUiState.copy(solutionValues = game.flatSolution())
             scope.launch {
                 delay(1500.milliseconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)

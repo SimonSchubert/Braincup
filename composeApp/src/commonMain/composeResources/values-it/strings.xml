@@ -22,7 +22,7 @@
     <string name="game_goal">Obiettivo: %1$d</string>
     <string name="game_follow_directions">Segui le istruzioni:</string>
     <string name="game_highest_value">Quale ha il valore più alto?</string>
-    <string name="game_fill_grid">Riempi la griglia in modo che righe e colonne corrispondano alle somme</string>
+    <string name="game_sudoku_instruction">Riempi la griglia in modo che ogni riga, colonna e blocco contenga ogni cifra una volta</string>
     <string name="game_tap_numbers">Tocca i numeri per costruire un'espressione</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Calcolo di frazioni</string>
     <string name="game_value_comparison">Confronto di valori</string>
     <string name="game_path_finder">Trova il percorso</string>
-    <string name="game_grid_solver">Risolutore di griglia</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Memoria visiva</string>
     <string name="game_pattern_sequence">Sequenza di schemi</string>
     <string name="game_ghost_grid">Griglia Fantasma</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Risolvi le frazioni.</string>
     <string name="game_value_comparison_desc">Seleziona l'espressione con il valore più alto.</string>
     <string name="game_path_finder_desc">Inizia dalla posizione segnata e segui le frecce per trovare la destinazione.</string>
-    <string name="game_grid_solver_desc">Inserisci i numeri mancanti in modo che ogni riga e colonna sommi ai totali indicati.</string>
+    <string name="game_mini_sudoku_desc">Riempi la piccola griglia in modo che ogni riga, colonna e blocco contenga ogni numero esattamente una volta.</string>
     <string name="game_visual_memory_desc">Memorizza le forme sulla griglia, poi identifica la forma nascosta dopo la fine del timer.</string>
     <string name="game_pattern_sequence_desc">Trova la figura successiva nello schema cercando forme, colori e rotazioni che si ripetono.</string>
     <string name="game_ghost_grid_desc">Osserva le caselle illuminarsi una alla volta, poi toccale nello stesso ordine.</string>

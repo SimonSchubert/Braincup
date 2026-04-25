@@ -282,10 +282,10 @@ class ScreenshotTest {
     }
 
     @Test
-    fun gameGridSolver() {
+    fun gameMiniSudoku() {
         paparazzi.snap {
             GameScreen(
-                gameUiState = createGridSolverUiState(),
+                gameUiState = createMiniSudokuUiState(),
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},

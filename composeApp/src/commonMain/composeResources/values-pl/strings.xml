@@ -22,7 +22,7 @@
     <string name="game_goal">Cel: %1$d</string>
     <string name="game_follow_directions">Postępuj zgodnie z instrukcjami:</string>
     <string name="game_highest_value">Która ma najwyższą wartość?</string>
-    <string name="game_fill_grid">Wypełnij siatkę tak, aby wiersze i kolumny odpowiadały sumom</string>
+    <string name="game_sudoku_instruction">Wypełnij siatkę tak, aby każdy wiersz, kolumna i blok zawierały każdą cyfrę raz</string>
     <string name="game_tap_numbers">Dotknij liczb, aby zbudować wyrażenie</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Obliczenia ułamkowe</string>
     <string name="game_value_comparison">Porównanie wartości</string>
     <string name="game_path_finder">Znajdź ścieżkę</string>
-    <string name="game_grid_solver">Rozwiązywanie siatki</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Pamięć wzrokowa</string>
     <string name="game_pattern_sequence">Sekwencja wzorów</string>
     <string name="game_ghost_grid">Siatka Duchów</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Rozwiąż ułamki.</string>
     <string name="game_value_comparison_desc">Wybierz wyrażenie o najwyższej wartości.</string>
     <string name="game_path_finder_desc">Zacznij od zaznaczonej pozycji i podążaj za strzałkami, aby znaleźć cel.</string>
-    <string name="game_grid_solver_desc">Wypełnij brakujące liczby tak, aby suma każdego wiersza i kolumny równała się podanym wartościom.</string>
+    <string name="game_mini_sudoku_desc">Wypełnij małą siatkę tak, aby każdy wiersz, kolumna i blok zawierały każdą liczbę dokładnie raz.</string>
     <string name="game_visual_memory_desc">Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.</string>
     <string name="game_pattern_sequence_desc">Znajdź następną figurę we wzorze, szukając powtarzających się kształtów, kolorów i obrotów.</string>
     <string name="game_ghost_grid_desc">Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.</string>

@@ -22,7 +22,7 @@
     <string name="game_goal">লক্ষ্য: %1$d</string>
     <string name="game_follow_directions">নির্দেশাবলী অনুসরণ করুন:</string>
     <string name="game_highest_value">কোনটির মান সবচেয়ে বেশি?</string>
-    <string name="game_fill_grid">গ্রিড পূরণ করুন যাতে সারি এবং কলামের যোগফল মেলে</string>
+    <string name="game_sudoku_instruction">প্রতিটি সারি, কলাম এবং ব্লকে প্রতিটি অঙ্ক একবার করে থাকে এমনভাবে গ্রিড পূরণ করুন</string>
     <string name="game_tap_numbers">একটি এক্সপ্রেশন তৈরি করতে সংখ্যাগুলিতে ট্যাপ করুন</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">ভগ্নাংশ গণনা</string>
     <string name="game_value_comparison">মান তুলনা</string>
     <string name="game_path_finder">পথ অনুসন্ধানকারী</string>
-    <string name="game_grid_solver">গ্রিড সমাধানকারী</string>
+    <string name="game_mini_sudoku">মিনি সুডোকু</string>
     <string name="game_visual_memory">দৃশ্য স্মৃতি</string>
     <string name="game_pattern_sequence">প্যাটার্ন সিকোয়েন্স</string>
     <string name="game_ghost_grid">ভুতুড়ে গ্রিড</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">ভগ্নাংশগুলি সমাধান করুন।</string>
     <string name="game_value_comparison_desc">সর্বোচ্চ মানের এক্সপ্রেশনটি নির্বাচন করুন।</string>
     <string name="game_path_finder_desc">চিহ্নিত অবস্থান থেকে শুরু করুন এবং গন্তব্য খুঁজতে তীরগুলি অনুসরণ করুন।</string>
-    <string name="game_grid_solver_desc">অনুপস্থিত সংখ্যাগুলি পূরণ করুন যাতে প্রতিটি সারি এবং কলামের যোগফল প্রদত্ত মোটের সমান হয়।</string>
+    <string name="game_mini_sudoku_desc">ছোট গ্রিডটি পূরণ করুন যাতে প্রতিটি সারি, কলাম এবং ব্লকে প্রতিটি সংখ্যা ঠিক একবার থাকে।</string>
     <string name="game_visual_memory_desc">গ্রিডে আকৃতিগুলি মুখস্থ করুন, তারপর টাইমার শেষ হওয়ার পরে লুকানো আকৃতিটি সনাক্ত করুন।</string>
     <string name="game_pattern_sequence_desc">পুনরাবৃত্ত আকার, রঙ এবং ঘূর্ণন খুঁজে প্যাটার্নের পরবর্তী চিত্রটি খুঁজুন।</string>
     <string name="game_ghost_grid_desc">টাইলগুলো একে একে জ্বলতে দেখুন, তারপর একই ক্রমে ট্যাপ করুন।</string>

@@ -22,7 +22,7 @@
     <string name="game_goal">Цель: %1$d</string>
     <string name="game_follow_directions">Следуйте инструкциям:</string>
     <string name="game_highest_value">Что имеет наибольшее значение?</string>
-    <string name="game_fill_grid">Заполните сетку так, чтобы суммы строк и столбцов совпадали</string>
+    <string name="game_sudoku_instruction">Заполните сетку так, чтобы каждая строка, столбец и блок содержал каждую цифру один раз</string>
     <string name="game_tap_numbers">Нажимайте на числа, чтобы составить выражение</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Расчёт дробей</string>
     <string name="game_value_comparison">Сравнение значений</string>
     <string name="game_path_finder">Поиск пути</string>
-    <string name="game_grid_solver">Решение сетки</string>
+    <string name="game_mini_sudoku">Мини-судоку</string>
     <string name="game_visual_memory">Визуальная память</string>
     <string name="game_pattern_sequence">Последовательность</string>
     <string name="game_ghost_grid">Призрачная сетка</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Решите дроби.</string>
     <string name="game_value_comparison_desc">Выберите выражение с наибольшим значением.</string>
     <string name="game_path_finder_desc">Начните с отмеченной позиции и следуйте стрелкам, чтобы найти пункт назначения.</string>
-    <string name="game_grid_solver_desc">Заполните недостающие числа так, чтобы сумма каждой строки и столбца равнялась заданным итогам.</string>
+    <string name="game_mini_sudoku_desc">Заполните маленькую сетку так, чтобы каждая строка, столбец и блок содержали каждое число ровно один раз.</string>
     <string name="game_visual_memory_desc">Запомните фигуры на сетке, затем определите скрытую фигуру после окончания таймера.</string>
     <string name="game_pattern_sequence_desc">Найдите следующую фигуру в последовательности, ищите повторяющиеся формы, цвета и вращения.</string>
     <string name="game_ghost_grid_desc">Наблюдайте, как плитки загораются одна за другой, затем нажимайте на них в том же порядке.</string>

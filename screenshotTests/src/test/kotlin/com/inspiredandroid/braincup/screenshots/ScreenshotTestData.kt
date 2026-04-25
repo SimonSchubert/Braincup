@@ -20,7 +20,7 @@ val mainMenuHighscores = mapOf(
     "4" to 6,
     "5" to 8,
     "8" to 10,
-    "9" to 3,
+    "16" to 3,
     "10" to 5,
     "11" to 6,
     "12" to 4,
@@ -106,18 +106,22 @@ fun createPathFinderGame(): PathFinderGame {
     return game
 }
 
-fun createGridSolverGame(): GridSolverGame {
-    val game = GridSolverGame()
-    game.entries.clear()
-    game.entries.add(mutableListOf(3, 5, 2))
-    game.entries.add(mutableListOf(4, 2, 6))
-    game.entries.add(mutableListOf(1, 4, 3))
-    game.resultsX.clear()
-    game.resultsX.addAll(listOf(8, 11, 11))
-    game.resultsY.clear()
-    game.resultsY.addAll(listOf(10, 12, 8))
+fun createMiniSudokuGame(): MiniSudokuGame {
+    val game = MiniSudokuGame()
+    game.solutionGrid.clear()
+    game.solutionGrid.add(mutableListOf(1, 2, 3, 4))
+    game.solutionGrid.add(mutableListOf(3, 4, 1, 2))
+    game.solutionGrid.add(mutableListOf(2, 1, 4, 3))
+    game.solutionGrid.add(mutableListOf(4, 3, 2, 1))
     game.initialValues.clear()
-    game.initialValues.addAll(listOf(3, null, null, null, 2, null, null, null, 3))
+    game.initialValues.addAll(
+        listOf(
+            1, null, null, 4,
+            null, 4, 1, null,
+            null, 1, 4, null,
+            4, null, null, 1,
+        ),
+    )
     return game
 }
 
@@ -198,7 +202,7 @@ fun createChainCalculationUiState(): GameUiState = createChainCalculationGame().
 fun createFractionCalculationUiState(): GameUiState = createFractionCalculationGame().toUiState()
 fun createValueComparisonUiState(): GameUiState = createValueComparisonGame().toUiState()
 fun createPathFinderUiState(): GameUiState = createPathFinderGame().toUiState()
-fun createGridSolverUiState(): GameUiState = createGridSolverGame().toUiState()
+fun createMiniSudokuUiState(): GameUiState = createMiniSudokuGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 
 fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()

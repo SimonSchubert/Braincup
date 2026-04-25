@@ -185,8 +185,12 @@ fun MainMenuScreenContent(
             }
         }
 
-        // Game tiles
-        items(GameType.entries, key = { it.id }, contentType = { "game_tile" }) { gameType ->
+        // Game tiles, grouped by category
+        items(
+            GameType.entries.sortedBy { it.category.ordinal },
+            key = { it.id },
+            contentType = { "game_tile" },
+        ) { gameType ->
             GameTile(
                 gameType = gameType,
                 highscore = highscores[gameType.id] ?: 0,

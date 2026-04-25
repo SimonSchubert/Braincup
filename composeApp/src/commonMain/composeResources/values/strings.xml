@@ -55,7 +55,7 @@
     <string name="game_goal">Goal: %1$d</string>
     <string name="game_follow_directions">Follow the directions:</string>
     <string name="game_highest_value">Which has the highest value?</string>
-    <string name="game_fill_grid">Fill the grid so that rows and columns match the sums</string>
+    <string name="game_sudoku_instruction">Fill the grid so each row, column and block contains every digit once</string>
     <string name="game_tap_numbers">Tap numbers to build an expression</string>
 
     <!-- Finish screen -->
@@ -85,7 +85,7 @@
     <string name="game_fraction_calculation">Fraction Calculation</string>
     <string name="game_value_comparison">Value Comparison</string>
     <string name="game_path_finder">Path Finder</string>
-    <string name="game_grid_solver">Grid Solver</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Visual Memory</string>
     <string name="game_pattern_sequence">Pattern Sequence</string>
     <string name="game_ghost_grid">Ghost Grid</string>
@@ -102,7 +102,7 @@
     <string name="game_fraction_calculation_desc">Solve the fractions.</string>
     <string name="game_value_comparison_desc">Select the expression with the highest value.</string>
     <string name="game_path_finder_desc">Start at the marked position and follow the arrows to find the destination.</string>
-    <string name="game_grid_solver_desc">Fill in the missing numbers so that each row and column sums to the given totals.</string>
+    <string name="game_mini_sudoku_desc">Fill the small grid so every row, column and block contains each number exactly once.</string>
     <string name="game_visual_memory_desc">Memorize the shapes on the grid, then identify the hidden shape after the timer ends.</string>
     <string name="game_pattern_sequence_desc">Find the next figure in the pattern by looking for repeating shapes, colors, and rotations.</string>
     <string name="game_ghost_grid_desc">Watch the tiles light up one by one, then tap them back in the same order.</string>

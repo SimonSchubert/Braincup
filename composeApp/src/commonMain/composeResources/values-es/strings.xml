@@ -22,7 +22,7 @@
     <string name="game_goal">Meta: %1$d</string>
     <string name="game_follow_directions">Sigue las instrucciones:</string>
     <string name="game_highest_value">¿Cuál tiene el valor más alto?</string>
-    <string name="game_fill_grid">Rellena la cuadrícula para que las filas y columnas coincidan con las sumas</string>
+    <string name="game_sudoku_instruction">Rellena la cuadrícula para que cada fila, columna y bloque contenga cada dígito una vez</string>
     <string name="game_tap_numbers">Toca los números para construir una expresión</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Cálculo de fracciones</string>
     <string name="game_value_comparison">Comparación de valores</string>
     <string name="game_path_finder">Buscador de caminos</string>
-    <string name="game_grid_solver">Resolvedor de cuadrícula</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Memoria visual</string>
     <string name="game_pattern_sequence">Secuencia de patrones</string>
     <string name="game_ghost_grid">Cuadrícula Fantasma</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Resuelve las fracciones.</string>
     <string name="game_value_comparison_desc">Selecciona la expresión con el valor más alto.</string>
     <string name="game_path_finder_desc">Comienza en la posición marcada y sigue las flechas para encontrar el destino.</string>
-    <string name="game_grid_solver_desc">Rellena los números que faltan para que cada fila y columna sume los totales dados.</string>
+    <string name="game_mini_sudoku_desc">Rellena la pequeña cuadrícula para que cada fila, columna y bloque contenga cada número exactamente una vez.</string>
     <string name="game_visual_memory_desc">Memoriza las formas en la cuadrícula, luego identifica la forma oculta cuando termine el temporizador.</string>
     <string name="game_pattern_sequence_desc">Encuentra la siguiente figura en el patrón buscando formas, colores y rotaciones que se repiten.</string>
     <string name="game_ghost_grid_desc">Observa cómo se iluminan las casillas una por una y luego tócalas en el mismo orden.</string>

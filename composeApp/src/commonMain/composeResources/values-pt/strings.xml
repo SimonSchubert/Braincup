@@ -22,7 +22,7 @@
     <string name="game_goal">Meta: %1$d</string>
     <string name="game_follow_directions">Siga as instruções:</string>
     <string name="game_highest_value">Qual tem o maior valor?</string>
-    <string name="game_fill_grid">Preencha a grade para que as linhas e colunas correspondam às somas</string>
+    <string name="game_sudoku_instruction">Preencha a grade para que cada linha, coluna e bloco contenha cada dígito uma vez</string>
     <string name="game_tap_numbers">Toque nos números para construir uma expressão</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Cálculo de frações</string>
     <string name="game_value_comparison">Comparação de valores</string>
     <string name="game_path_finder">Busca de caminhos</string>
-    <string name="game_grid_solver">Resolvedor de grade</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Memória visual</string>
     <string name="game_pattern_sequence">Sequência de padrões</string>
     <string name="game_ghost_grid">Grade Fantasma</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Resolva as frações.</string>
     <string name="game_value_comparison_desc">Selecione a expressão com o maior valor.</string>
     <string name="game_path_finder_desc">Comece na posição marcada e siga as setas para encontrar o destino.</string>
-    <string name="game_grid_solver_desc">Preencha os números que faltam para que cada linha e coluna some os totais dados.</string>
+    <string name="game_mini_sudoku_desc">Preencha a pequena grade para que cada linha, coluna e bloco contenha cada número exatamente uma vez.</string>
     <string name="game_visual_memory_desc">Memorize as formas na grade e identifique a forma oculta após o término do cronômetro.</string>
     <string name="game_pattern_sequence_desc">Encontre a próxima figura no padrão procurando formas, cores e rotações que se repetem.</string>
     <string name="game_ghost_grid_desc">Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.</string>

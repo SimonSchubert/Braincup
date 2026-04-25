@@ -22,7 +22,7 @@
     <string name="game_goal">Doel: %1$d</string>
     <string name="game_follow_directions">Volg de aanwijzingen:</string>
     <string name="game_highest_value">Welke heeft de hoogste waarde?</string>
-    <string name="game_fill_grid">Vul het raster zo in dat rijen en kolommen overeenkomen met de sommen</string>
+    <string name="game_sudoku_instruction">Vul het raster in zodat elke rij, kolom en blok elk cijfer één keer bevat</string>
     <string name="game_tap_numbers">Tik op getallen om een uitdrukking te maken</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">Breukberekening</string>
     <string name="game_value_comparison">Waardenvergelijking</string>
     <string name="game_path_finder">Padvinder</string>
-    <string name="game_grid_solver">Raster oplosser</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
     <string name="game_visual_memory">Visueel geheugen</string>
     <string name="game_pattern_sequence">Patroonreeks</string>
     <string name="game_ghost_grid">Spookraster</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">Los de breuken op.</string>
     <string name="game_value_comparison_desc">Selecteer de uitdrukking met de hoogste waarde.</string>
     <string name="game_path_finder_desc">Begin op de gemarkeerde positie en volg de pijlen om de bestemming te vinden.</string>
-    <string name="game_grid_solver_desc">Vul de ontbrekende getallen in zodat elke rij en kolom optelt tot de gegeven totalen.</string>
+    <string name="game_mini_sudoku_desc">Vul het kleine raster in zodat elke rij, kolom en blok elk getal precies één keer bevat.</string>
     <string name="game_visual_memory_desc">Onthoud de vormen op het raster en identificeer vervolgens de verborgen vorm nadat de timer is afgelopen.</string>
     <string name="game_pattern_sequence_desc">Vind de volgende figuur in het patroon door te zoeken naar herhalende vormen, kleuren en rotaties.</string>
     <string name="game_ghost_grid_desc">Kijk hoe de tegels één voor één oplichten en tik ze daarna in dezelfde volgorde aan.</string>

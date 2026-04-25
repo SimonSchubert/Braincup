@@ -22,7 +22,7 @@
     <string name="game_goal">目標：%1$d</string>
     <string name="game_follow_directions">指示に従ってください：</string>
     <string name="game_highest_value">どれが最も高い値ですか？</string>
-    <string name="game_fill_grid">行と列の合計が一致するようにグリッドを埋めてください</string>
+    <string name="game_sudoku_instruction">各行、列、ブロックが各数字を1回ずつ含むようにグリッドを埋めてください</string>
     <string name="game_tap_numbers">数字をタップして式を作成</string>
 
     <!-- Finish screen -->
@@ -52,7 +52,7 @@
     <string name="game_fraction_calculation">分数計算</string>
     <string name="game_value_comparison">値の比較</string>
     <string name="game_path_finder">パスファインダー</string>
-    <string name="game_grid_solver">グリッドソルバー</string>
+    <string name="game_mini_sudoku">ミニ数独</string>
     <string name="game_visual_memory">視覚記憶</string>
     <string name="game_pattern_sequence">パターンシーケンス</string>
     <string name="game_ghost_grid">ゴーストグリッド</string>
@@ -69,7 +69,7 @@
     <string name="game_fraction_calculation_desc">分数を解いてください。</string>
     <string name="game_value_comparison_desc">最も高い値を持つ式を選択してください。</string>
     <string name="game_path_finder_desc">マークされた位置から始めて、矢印に従って目的地を見つけてください。</string>
-    <string name="game_grid_solver_desc">各行と列の合計が指定された値になるように、欠けている数字を埋めてください。</string>
+    <string name="game_mini_sudoku_desc">小さなグリッドを埋めて、各行、列、ブロックがそれぞれの数字を正確に1回ずつ含むようにします。</string>
     <string name="game_visual_memory_desc">グリッド上の形を覚えて、タイマー終了後に隠された形を特定してください。</string>
     <string name="game_pattern_sequence_desc">繰り返される形、色、回転を見つけて、パターンの次の図形を見つけてください。</string>
     <string name="game_ghost_grid_desc">タイルが一つずつ光るのを見て、同じ順番でタップしてください。</string>
