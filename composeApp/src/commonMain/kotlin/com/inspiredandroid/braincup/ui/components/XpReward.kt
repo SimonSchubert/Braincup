@@ -12,12 +12,11 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -30,6 +29,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
+import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -40,22 +40,19 @@ fun XpGainedChip(
     if (xpGained <= 0) return
     val inInspection = LocalInspectionMode.current
     val alpha = remember { Animatable(if (inInspection) 1f else 0f) }
-    val offset = remember { Animatable(if (inInspection) 0f else 12f) }
+    val offsetDp = remember { Animatable(if (inInspection) 0f else 12f) }
     LaunchedEffect(xpGained) {
-        if (!inInspection) {
-            alpha.animateTo(1f, tween(400, easing = LinearOutSlowInEasing))
-        }
+        if (inInspection) return@LaunchedEffect
+        launch { alpha.animateTo(1f, tween(400, easing = LinearOutSlowInEasing)) }
+        launch { offsetDp.animateTo(0f, tween(400, easing = FastOutSlowInEasing)) }
     }
-    LaunchedEffect(xpGained) {
-        if (!inInspection) {
-            offset.animateTo(0f, tween(400, easing = FastOutSlowInEasing))
-        }
-    }
+    val density = LocalDensity.current
 
     Card(
-        modifier = modifier
-            .alpha(alpha.value)
-            .offset(y = offset.value.dp),
+        modifier = modifier.graphicsLayer {
+            this.alpha = alpha.value
+            translationY = with(density) { offsetDp.value.dp.toPx() }
+        },
         colors = CardDefaults.cardColors(containerColor = PrimaryContainer),
         shape = RoundedCornerShape(20.dp),
     ) {
@@ -78,12 +75,9 @@ fun LevelUpBanner(
     val scale = remember { Animatable(if (inInspection) 1f else 0.6f) }
     val alpha = remember { Animatable(if (inInspection) 1f else 0f) }
     LaunchedEffect(levelChange) {
-        if (!inInspection) {
-            alpha.animateTo(1f, tween(250))
-        }
-    }
-    LaunchedEffect(levelChange) {
-        if (!inInspection) {
+        if (inInspection) return@LaunchedEffect
+        launch { alpha.animateTo(1f, tween(250)) }
+        launch {
             scale.animateTo(1.15f, tween(260, easing = FastOutSlowInEasing))
             scale.animateTo(1f, tween(220, easing = FastOutSlowInEasing))
         }
@@ -93,9 +87,11 @@ fun LevelUpBanner(
     val showMilestoneTitle = levelChange.isMilestone
 
     Card(
-        modifier = modifier
-            .alpha(alpha.value)
-            .scale(scale.value),
+        modifier = modifier.graphicsLayer {
+            this.alpha = alpha.value
+            scaleX = scale.value
+            scaleY = scale.value
+        },
         colors = CardDefaults.cardColors(containerColor = Primary),
         shape = RoundedCornerShape(20.dp),
     ) {

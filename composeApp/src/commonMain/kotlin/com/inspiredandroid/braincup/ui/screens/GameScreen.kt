@@ -23,6 +23,7 @@ import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
@@ -866,19 +867,20 @@ private fun AvailableNumbersRow(
     }
 }
 
+private val SherlockOperators = listOf("+", "-", "*", "/", "(", ")")
+
 @Composable
 private fun OperatorRow(
     onOperatorClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val operators = remember { listOf("+", "-", "*", "/", "(", ")") }
     FlowRow(
         modifier = modifier.padding(horizontal = 16.dp),
         maxItemsInEachRow = 3,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        operators.forEach { operator ->
+        SherlockOperators.forEach { operator ->
             CircleButton(
                 onClick = { onOperatorClick(operator) },
                 value = operator.replace("*", "\u00D7").replace("/", "\u00F7"),
@@ -977,20 +979,22 @@ private fun VisualMemoryCountdown(
     visible: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val alpha by animateFloatAsState(
+    val alpha = animateFloatAsState(
         targetValue = if (visible) 1f else 0f,
         animationSpec = tween(VisualMemoryTransitionMillis),
         label = "visualMemoryCountdown",
     )
     // Hold the last positive countdown so the fade-out keeps showing the final value
     // instead of "0" (which is briefly emitted when the phase flips).
-    val displayed = remember { mutableIntStateOf(countdown.coerceAtLeast(1)) }
-    if (countdown > 0) displayed.intValue = countdown
+    var displayed by remember { mutableIntStateOf(countdown.coerceAtLeast(1)) }
+    SideEffect {
+        if (countdown > 0) displayed = countdown
+    }
     Text(
-        text = displayed.intValue.toString(),
+        text = displayed.toString(),
         style = MaterialTheme.typography.headlineMedium,
         color = Primary,
-        modifier = modifier.alpha(alpha),
+        modifier = modifier.graphicsLayer { this.alpha = alpha.value },
     )
 }
 
@@ -1003,18 +1007,16 @@ private fun VisualMemoryGrid(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        cells.chunked(3).forEachIndexed { rowIndex, rowCells ->
+        cells.chunked(3).forEach { rowCells ->
             Row {
-                rowCells.forEachIndexed { colIndex, cell ->
-                    key(rowIndex * 3 + colIndex) {
-                        VisualMemoryCell(
-                            cell = cell,
-                            modifier = Modifier
-                                .weight(1f)
-                                .aspectRatio(1f)
-                                .padding(4.dp),
-                        )
-                    }
+                rowCells.forEach { cell ->
+                    VisualMemoryCell(
+                        cell = cell,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp),
+                    )
                 }
             }
         }
@@ -1028,28 +1030,26 @@ private fun VisualMemoryAnswerOptions(
     onAnswer: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val alpha by animateFloatAsState(
+    val alpha = animateFloatAsState(
         targetValue = if (visible) 1f else 0f,
         animationSpec = tween(VisualMemoryTransitionMillis),
         label = "visualMemoryAnswerOptions",
     )
     Column(
-        modifier = modifier.alpha(alpha),
+        modifier = modifier.graphicsLayer { this.alpha = alpha.value },
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        options.chunked(3).forEachIndexed { rowIndex, rowOptions ->
+        options.chunked(3).forEach { rowOptions ->
             Row {
-                rowOptions.forEachIndexed { colIndex, option ->
-                    key(rowIndex * 3 + colIndex) {
-                        VisualMemoryAnswerOption(
-                            option = option,
-                            onAnswer = onAnswer,
-                            modifier = Modifier
-                                .weight(1f)
-                                .aspectRatio(1f)
-                                .padding(4.dp),
-                        )
-                    }
+                rowOptions.forEach { option ->
+                    VisualMemoryAnswerOption(
+                        option = option,
+                        onAnswer = onAnswer,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp),
+                    )
                 }
             }
         }
@@ -1106,20 +1106,24 @@ private fun VisualMemoryCell(
     )
     val showShape = cell.figure != null && cell.type in CellTypesShowingShape
     val showQuestion = cell.type == VisualMemoryUiState.CellType.CURRENT_TARGET
-    val shapeAlpha by animateFloatAsState(
+    val shapeAlpha = animateFloatAsState(
         targetValue = if (showShape) 1f else 0f,
         animationSpec = tween(VisualMemoryTransitionMillis),
         label = "visualMemoryCellShape",
     )
-    val questionAlpha by animateFloatAsState(
+    val questionAlpha = animateFloatAsState(
         targetValue = if (showQuestion) 1f else 0f,
         animationSpec = tween(VisualMemoryTransitionMillis),
         label = "visualMemoryCellQuestion",
     )
+    val questionVisible by remember { derivedStateOf { questionAlpha.value > 0f } }
+    val shapeVisible by remember { derivedStateOf { shapeAlpha.value > 0f } }
     // Hold the last figure so the fade-out keeps drawing it after the cell type
     // transitions to HIDDEN, where cell.figure is null.
-    val rememberedFigure = remember { mutableStateOf(cell.figure) }
-    if (cell.figure != null) rememberedFigure.value = cell.figure
+    var rememberedFigure by remember { mutableStateOf(cell.figure) }
+    SideEffect {
+        if (cell.figure != null) rememberedFigure = cell.figure
+    }
 
     Card(
         modifier = modifier,
@@ -1129,19 +1133,22 @@ private fun VisualMemoryCell(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize(),
         ) {
-            if (questionAlpha > 0f) {
+            if (questionVisible) {
                 Text(
                     text = "?",
                     style = MaterialTheme.typography.headlineLarge,
                     color = OnPrimaryContainer,
-                    modifier = Modifier.alpha(questionAlpha),
+                    modifier = Modifier.graphicsLayer { alpha = questionAlpha.value },
                 )
             }
-            val figure = rememberedFigure.value
-            if (shapeAlpha > 0f && figure != null) {
+            val figure = rememberedFigure
+            if (shapeVisible && figure != null) {
                 ShapeCanvas(
                     figure = figure,
-                    modifier = Modifier.fillMaxSize().padding(8.dp).alpha(shapeAlpha),
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(8.dp)
+                        .graphicsLayer { alpha = shapeAlpha.value },
                 )
             }
         }
@@ -1537,7 +1544,7 @@ private fun ColumnScope.FlashCrowdContent(
     key(uiState.roundKey) {
         var showingDots by remember { mutableStateOf(true) }
         var visible by remember { mutableStateOf(true) }
-        val alpha by animateFloatAsState(
+        val alpha = animateFloatAsState(
             targetValue = if (visible) 1f else 0f,
             animationSpec = tween(200),
             label = "flashCrowdAlpha",
@@ -1558,7 +1565,7 @@ private fun ColumnScope.FlashCrowdContent(
                 FlashCrowdYellow,
                 Modifier
                     .align(Alignment.CenterHorizontally)
-                    .alpha(alpha),
+                    .graphicsLayer { this.alpha = alpha.value },
             )
         } else {
             Text(
@@ -1566,7 +1573,7 @@ private fun ColumnScope.FlashCrowdContent(
                 style = MaterialTheme.typography.bodyLarge,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
-                    .alpha(alpha),
+                    .graphicsLayer { this.alpha = alpha.value },
             )
             Spacer(Modifier.height(24.dp))
 
@@ -1575,7 +1582,7 @@ private fun ColumnScope.FlashCrowdContent(
                     .padding(horizontal = 24.dp)
                     .widthIn(max = 400.dp)
                     .align(Alignment.CenterHorizontally)
-                    .alpha(alpha),
+                    .graphicsLayer { this.alpha = alpha.value },
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 Button(

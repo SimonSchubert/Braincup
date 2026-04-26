@@ -29,12 +29,14 @@ fun MathText(
     modifier: Modifier = Modifier,
     style: TextStyle = LocalTextStyle.current,
     textAlign: TextAlign? = null,
+    color: Color = Color.Unspecified,
 ) {
     Text(
         text = text.formatMathSymbols(),
         modifier = modifier,
         style = style,
         textAlign = textAlign,
+        color = color,
     )
 }
 

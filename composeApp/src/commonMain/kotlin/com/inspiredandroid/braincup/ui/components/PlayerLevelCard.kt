@@ -48,18 +48,19 @@ fun PlayerLevelCard(
     val inInspection = LocalInspectionMode.current
     val target = targetProgress.coerceIn(0f, 1f)
     var lastAnimatedXp by rememberSaveable { mutableIntStateOf(Int.MIN_VALUE) }
-    val shouldAnimate = !inInspection && lastAnimatedXp != totalXp
-    val animatedProgress = remember(totalXp) {
-        Animatable(if (shouldAnimate) 0f else target)
+    // First-ever render starts the bar at 0 so it can sweep up to the current value.
+    // Subsequent renders animate from the previous progress to the new one.
+    val animatedProgress = remember {
+        Animatable(if (inInspection || lastAnimatedXp == totalXp) target else 0f)
     }
     LaunchedEffect(totalXp) {
-        if (shouldAnimate) {
+        if (inInspection) {
+            animatedProgress.snapTo(target)
+        } else {
             animatedProgress.animateTo(
                 targetValue = target,
                 animationSpec = tween(durationMillis = 900, easing = FastOutSlowInEasing),
             )
-        } else {
-            animatedProgress.snapTo(target)
         }
         lastAnimatedXp = totalXp
     }

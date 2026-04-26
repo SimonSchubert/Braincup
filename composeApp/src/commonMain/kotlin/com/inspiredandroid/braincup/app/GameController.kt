@@ -57,6 +57,12 @@ class GameController(
     private val _totalXp = MutableStateFlow(0)
     val totalXp: StateFlow<Int> = _totalXp.asStateFlow()
 
+    private val _highscores = MutableStateFlow<Map<String, Int>>(emptyMap())
+    val highscores: StateFlow<Map<String, Int>> = _highscores.asStateFlow()
+
+    private val _unlockedAchievementCount = MutableStateFlow(0)
+    val unlockedAchievementCount: StateFlow<Int> = _unlockedAchievementCount.asStateFlow()
+
     data class SessionResult(
         val gameIds: List<String>,
         val scores: List<Int>,
@@ -76,6 +82,12 @@ class GameController(
         _sessionStreak.value = storage.getSessionStreak()
         _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
         _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
+    }
+
+    private fun refreshDerivedStorageState() {
+        _highscores.value = GameType.entries.associate { it.id to storage.getHighScore(it.id) }
+        _unlockedAchievementCount.value = storage.getUnlockedAchievements().size
     }
 
     fun dispose() {
@@ -773,6 +785,7 @@ class GameController(
             storage.putLastRound(gameType.id, game.round - 3)
         }
         _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
 
         if (inSessionMode) {
             storage.appendSessionScore(points)
@@ -784,6 +797,7 @@ class GameController(
                 _sessionStreak.value = completion.newStreak
                 val totalXpAfter = storage.getTotalXp()
                 _totalXp.value = totalXpAfter
+                refreshDerivedStorageState()
                 val sessionXpGained = updated.scores.sum() + completion.xpGained
                 val totalXpBefore = totalXpAfter - sessionXpGained
                 val levelBefore = UserStorage.levelForXp(totalXpBefore)

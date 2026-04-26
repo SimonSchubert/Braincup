@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
@@ -57,7 +58,7 @@ fun App(colorScheme: ColorScheme? = null) {
     }
 
     val currentEntry by navController.currentBackStackEntryAsState()
-    val isPlayingGame = currentEntry?.destination?.route?.contains("Playing") == true
+    val isPlayingGame = currentEntry?.destination?.hasRoute<Playing>() == true
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner, audioPlayer, isMuted) {

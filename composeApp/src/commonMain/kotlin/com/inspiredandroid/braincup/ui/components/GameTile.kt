@@ -8,8 +8,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.CompositionLocalProvider
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,6 +34,79 @@ import androidx.compose.ui.graphics.Color as ComposeColor
 private val FlashCrowdBlue = ComposeColor(0xFF4285F4)
 private val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
+// Tile previews always render on light pastel backgrounds (gameType.accentColor),
+// so set text colors explicitly rather than inheriting from the surrounding (possibly dark) theme.
+private val PreviewTextColor = LightColorScheme.onSurface
+
+private val AnomalyPuzzlePreviewFigures = listOf(
+    Figure(Shape.STAR, Color.RED),
+    Figure(Shape.STAR, Color.RED),
+    Figure(Shape.STAR, Color.RED),
+    Figure(Shape.STAR, Color.BLUE),
+)
+
+private val PathFinderPreviewDirections = listOf(Direction.RIGHT, Direction.DOWN, Direction.RIGHT)
+
+private val PathFinderPreviewGrid: List<List<Figure>> = run {
+    val startRow = 1
+    val startCol = 1
+    List(4) { row ->
+        List(4) { col ->
+            val isStart = row == startRow && col == startCol
+            Figure(Shape.SQUARE, if (isStart) Color.ORANGE else Color.GREY_LIGHT)
+        }
+    }
+}
+
+private val VisualMemoryPreviewFigures: List<Figure?> = listOf(
+    Figure(Shape.TRIANGLE, Color.RED),
+    null,
+    Figure(Shape.CIRCLE, Color.GREEN),
+    null,
+)
+
+private val SherlockPreviewNumbers = listOf(4, 9, 3, 7, 2)
+
+private val PatternSequencePreviewFigures = listOf(
+    Figure(Shape.TRIANGLE, Color.RED),
+    Figure(Shape.TRIANGLE, Color.BLUE),
+    Figure(Shape.TRIANGLE, Color.RED),
+)
+
+private val OrbitTrackerPreviewBalls = listOf(
+    Triple(0.3f, 0.25f, true),
+    Triple(0.7f, 0.4f, false),
+    Triple(0.5f, 0.7f, true),
+    Triple(0.2f, 0.6f, false),
+    Triple(0.8f, 0.75f, true),
+)
+
+private val ColorConfusionPreviewWords = listOf(
+    Color.RED to Color.RED,
+    Color.BLUE to Color.GREEN,
+    Color.GREEN to Color.GREEN,
+    Color.PURPLE to Color.YELLOW,
+)
+
+private val FlashCrowdPreviewLeftDots = listOf(
+    Triple(0.2f, 0.2f, 0.06f),
+    Triple(0.5f, 0.15f, 0.05f),
+    Triple(0.8f, 0.3f, 0.055f),
+    Triple(0.3f, 0.5f, 0.05f),
+    Triple(0.7f, 0.55f, 0.06f),
+    Triple(0.15f, 0.75f, 0.055f),
+    Triple(0.5f, 0.8f, 0.05f),
+    Triple(0.85f, 0.78f, 0.06f),
+)
+
+private val FlashCrowdPreviewRightDots = listOf(
+    Triple(0.3f, 0.25f, 0.09f),
+    Triple(0.7f, 0.3f, 0.085f),
+    Triple(0.5f, 0.6f, 0.09f),
+    Triple(0.25f, 0.8f, 0.08f),
+    Triple(0.75f, 0.78f, 0.085f),
+)
+
 @Composable
 fun GameTile(
     gameType: GameType,
@@ -59,9 +130,7 @@ fun GameTile(
             contentAlignment = Alignment.Center,
         ) {
             MaterialTheme(colorScheme = LightColorScheme) {
-                CompositionLocalProvider(LocalContentColor provides LightColorScheme.onSurface) {
-                    GamePreview(gameType)
-                }
+                GamePreview(gameType)
             }
         }
 
@@ -127,20 +196,12 @@ private fun GamePreview(gameType: GameType) {
 
 @Composable
 private fun AnomalyPuzzlePreview() {
-    val figures = remember {
-        listOf(
-            Figure(Shape.STAR, Color.RED),
-            Figure(Shape.STAR, Color.RED),
-            Figure(Shape.STAR, Color.RED),
-            Figure(Shape.STAR, Color.BLUE),
-        )
-    }
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        figures.chunked(2).forEach { row ->
+        AnomalyPuzzlePreviewFigures.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { figure ->
                     ShapeCanvas(
@@ -165,7 +226,7 @@ private fun PathFinderPreview() {
             horizontalArrangement = Arrangement.spacedBy(2.dp),
             modifier = Modifier.align(Alignment.CenterHorizontally),
         ) {
-            remember { listOf(Direction.RIGHT, Direction.DOWN, Direction.RIGHT) }.forEach {
+            PathFinderPreviewDirections.forEach {
                 ShapeCanvas(
                     figure = it.figure,
                     modifier = Modifier.size(16.dp),
@@ -175,18 +236,8 @@ private fun PathFinderPreview() {
         Spacer(Modifier.height(4.dp))
 
         // 4x4 mini grid
-        val startRow = 1
-        val startCol = 1
-        val gridFigures = remember {
-            List(4) { row ->
-                List(4) { col ->
-                    val isStart = row == startRow && col == startCol
-                    Figure(Shape.SQUARE, if (isStart) Color.ORANGE else Color.GREY_LIGHT)
-                }
-            }
-        }
         Column(modifier = Modifier.weight(1f).aspectRatio(1f)) {
-            gridFigures.forEach { row ->
+            PathFinderPreviewGrid.forEach { row ->
                 Row(modifier = Modifier.fillMaxWidth()) {
                     row.forEach { figure ->
                         ShapeCanvas(
@@ -215,6 +266,7 @@ private fun ColoredShapesPreview() {
         Text(
             text = "${Shape.HEART.localizedName()} = 3",
             style = MaterialTheme.typography.labelSmall,
+            color = PreviewTextColor,
         )
         Text(
             text = "${Color.BLUE.localizedName()} = 4",
@@ -226,20 +278,12 @@ private fun ColoredShapesPreview() {
 
 @Composable
 private fun VisualMemoryPreview() {
-    val figures = remember {
-        listOf(
-            Figure(Shape.TRIANGLE, Color.RED),
-            null,
-            Figure(Shape.CIRCLE, Color.GREEN),
-            null,
-        )
-    }
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        figures.chunked(2).forEach { row ->
+        VisualMemoryPreviewFigures.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { figure ->
                     Box(
@@ -276,6 +320,7 @@ private fun MentalCalculationPreview() {
         text = "+15",
         style = MaterialTheme.typography.headlineSmall,
         textAlign = TextAlign.Center,
+        color = PreviewTextColor,
     )
 }
 
@@ -293,7 +338,7 @@ private fun SherlockCalculationPreview() {
         )
         Spacer(Modifier.height(4.dp))
         Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            remember { listOf(4, 9, 3, 7, 2) }.forEach { num ->
+            SherlockPreviewNumbers.forEach { num ->
                 Box(
                     modifier = Modifier
                         .size(22.dp)
@@ -306,6 +351,7 @@ private fun SherlockCalculationPreview() {
                     Text(
                         text = "$num",
                         style = MaterialTheme.typography.labelSmall,
+                        color = LightColorScheme.onSecondaryContainer,
                     )
                 }
             }
@@ -318,6 +364,7 @@ private fun ChainCalculationPreview() {
     MathText(
         text = "5 + 3 * 2",
         style = MaterialTheme.typography.headlineSmall,
+        color = PreviewTextColor,
     )
 }
 
@@ -331,12 +378,14 @@ private fun FractionCalculationPreview() {
             numerator = "2",
             denominator = "3",
             style = MaterialTheme.typography.titleLarge,
+            color = PreviewTextColor,
         )
-        Text("\u00D7", style = MaterialTheme.typography.titleLarge)
+        Text("\u00D7", style = MaterialTheme.typography.titleLarge, color = PreviewTextColor)
         FractionText(
             numerator = "4",
             denominator = "5",
             style = MaterialTheme.typography.titleLarge,
+            color = PreviewTextColor,
         )
     }
 }
@@ -351,6 +400,7 @@ private fun ValueComparisonPreview() {
         Text(
             text = "3 + 8",
             style = MaterialTheme.typography.titleMedium,
+            color = PreviewTextColor,
         )
         Text(
             text = stringResource(Res.string.preview_vs),
@@ -360,6 +410,7 @@ private fun ValueComparisonPreview() {
         Text(
             text = "5 + 4",
             style = MaterialTheme.typography.titleMedium,
+            color = PreviewTextColor,
         )
     }
 }
@@ -488,13 +539,7 @@ private fun PatternSequencePreview() {
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier.padding(8.dp),
     ) {
-        remember {
-            listOf(
-                Figure(Shape.TRIANGLE, Color.RED),
-                Figure(Shape.TRIANGLE, Color.BLUE),
-                Figure(Shape.TRIANGLE, Color.RED),
-            )
-        }.forEach { figure ->
+        PatternSequencePreviewFigures.forEach { figure ->
             ShapeCanvas(
                 figure = figure,
                 modifier = Modifier.size(28.dp),
@@ -522,20 +567,11 @@ private fun PatternSequencePreview() {
 private fun OrbitTrackerPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
     val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
-    val balls = remember {
-        listOf(
-            Triple(0.3f, 0.25f, true),
-            Triple(0.7f, 0.4f, false),
-            Triple(0.5f, 0.7f, true),
-            Triple(0.2f, 0.6f, false),
-            Triple(0.8f, 0.75f, true),
-        )
-    }
     Canvas(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
     ) {
         val ballRadius = size.width * 0.06f
-        balls.forEach { (x, y, isTarget) ->
+        OrbitTrackerPreviewBalls.forEach { (x, y, isTarget) ->
             drawCircle(
                 color = if (isTarget) primaryColor else onSurfaceVariantColor,
                 radius = ballRadius,
@@ -547,20 +583,12 @@ private fun OrbitTrackerPreview() {
 
 @Composable
 private fun ColorConfusionPreview() {
-    val words = remember {
-        listOf(
-            Pair(Color.RED, Color.RED),
-            Pair(Color.BLUE, Color.GREEN),
-            Pair(Color.GREEN, Color.GREEN),
-            Pair(Color.PURPLE, Color.YELLOW),
-        )
-    }
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        words.chunked(2).forEach { row ->
+        ColorConfusionPreviewWords.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { (wordColor, fontColor) ->
                     Box(
@@ -588,33 +616,12 @@ private fun ColorConfusionPreview() {
 
 @Composable
 private fun FlashCrowdPreview() {
-    val leftDots = remember {
-        listOf(
-            Triple(0.2f, 0.2f, 0.06f),
-            Triple(0.5f, 0.15f, 0.05f),
-            Triple(0.8f, 0.3f, 0.055f),
-            Triple(0.3f, 0.5f, 0.05f),
-            Triple(0.7f, 0.55f, 0.06f),
-            Triple(0.15f, 0.75f, 0.055f),
-            Triple(0.5f, 0.8f, 0.05f),
-            Triple(0.85f, 0.78f, 0.06f),
-        )
-    }
-    val rightDots = remember {
-        listOf(
-            Triple(0.3f, 0.25f, 0.09f),
-            Triple(0.7f, 0.3f, 0.085f),
-            Triple(0.5f, 0.6f, 0.09f),
-            Triple(0.25f, 0.8f, 0.08f),
-            Triple(0.75f, 0.78f, 0.085f),
-        )
-    }
     Row(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
-            leftDots.forEach { (x, y, r) ->
+            FlashCrowdPreviewLeftDots.forEach { (x, y, r) ->
                 drawCircle(
                     color = FlashCrowdBlue,
                     radius = r * size.width,
@@ -623,7 +630,7 @@ private fun FlashCrowdPreview() {
             }
         }
         Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
-            rightDots.forEach { (x, y, r) ->
+            FlashCrowdPreviewRightDots.forEach { (x, y, r) ->
                 drawCircle(
                     color = FlashCrowdYellow,
                     radius = r * size.width,

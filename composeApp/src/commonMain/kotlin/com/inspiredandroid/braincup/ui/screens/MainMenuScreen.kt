@@ -44,6 +44,8 @@ fun MainMenuScreen(
     val completedToday = remember(session) { controller.storage.isSessionCompletedToday() }
 
     val totalXp by controller.totalXp.collectAsState()
+    val highscores by controller.highscores.collectAsState()
+    val unlockedCount by controller.unlockedAchievementCount.collectAsState()
 
     MainMenuScreenContent(
         totalXp = totalXp,
@@ -51,8 +53,8 @@ fun MainMenuScreen(
         sessionProgressIndex = progressIndex,
         sessionTotalGames = totalGames,
         sessionCompletedToday = completedToday,
-        highscores = remember { GameType.entries.associate { it.id to controller.storage.getHighScore(it.id) } },
-        unlockedCount = remember { controller.storage.getUnlockedAchievements().size },
+        highscores = highscores,
+        unlockedCount = unlockedCount,
         isMuted = isMuted,
         onToggleMute = onToggleMute,
         onPlayDaily = { controller.startDailySession() },
