@@ -471,24 +471,42 @@ private fun ColumnScope.ValueComparisonContent(
     )
     Spacer(Modifier.height(16.dp))
 
-    uiState.answers.forEachIndexed { index, answer ->
+    uiState.answers.forEachIndexed { index, button ->
+        val colors = when (button.state) {
+            AnswerButtonState.WRONG -> ButtonDefaults.buttonColors(
+                containerColor = MaterialTheme.colorScheme.errorContainer,
+                contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                disabledContainerColor = MaterialTheme.colorScheme.errorContainer,
+                disabledContentColor = MaterialTheme.colorScheme.onErrorContainer,
+            )
+            AnswerButtonState.CORRECT -> ButtonDefaults.buttonColors(
+                containerColor = SuccessGreen,
+                contentColor = ComposeColor.White,
+                disabledContainerColor = SuccessGreen,
+                disabledContentColor = ComposeColor.White,
+            )
+            else -> ButtonDefaults.buttonColors()
+        }
+        val isInteractive = button.state == AnswerButtonState.NORMAL
         Button(
             onClick = { onAnswer((index + 1).toString()) },
+            enabled = isInteractive,
+            colors = colors,
             modifier = Modifier
                 .padding(4.dp)
                 .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
-                .hoverHand(),
+                .then(if (button.state == AnswerButtonState.DIMMED) Modifier.alpha(0.3f) else Modifier)
+                .then(if (isInteractive) Modifier.hoverHand() else Modifier),
         ) {
-            if (answer.contains("/")) {
-                val parts = answer.split("/")
+            if (button.value.contains("/")) {
+                val parts = button.value.split("/")
                 FractionText(
                     numerator = parts[0],
                     denominator = parts[1],
                     style = MaterialTheme.typography.bodyLarge,
-                    color = MaterialTheme.colorScheme.onPrimary,
                 )
             } else {
-                MathText(answer)
+                MathText(button.value)
             }
         }
     }

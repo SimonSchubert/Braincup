@@ -14,7 +14,8 @@ import kotlin.random.Random
  * - Round >= 7 = 4 answers
  */
 class ValueComparisonGame : Game() {
-    private var resultIndex = 0
+    var resultIndex = 0
+        private set
     var answers = mutableListOf<String>()
     var types = listOf(Type.FRACTION, Type.MULTIPLICATION)
 
@@ -69,7 +70,7 @@ class ValueComparisonGame : Game() {
     override fun hint(): String? = null
 
     override fun toUiState() = com.inspiredandroid.braincup.app.ValueComparisonUiState(
-        answers = answers.toList(),
+        answers = answers.map { com.inspiredandroid.braincup.app.AnswerButton(value = it) },
     )
 
     private fun getExpectedAnswersCount(): Int = when {

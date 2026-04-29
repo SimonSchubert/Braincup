@@ -225,6 +225,10 @@ class GameController(
             handleSchulteTableAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is ValueComparisonGame) {
+            handleValueComparisonAnswer(currentState, game, answer.trim())
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -481,6 +485,46 @@ class GameController(
                         state = when (button.value) {
                             input -> AnswerButtonState.WRONG
                             correctAnswer -> AnswerButtonState.CORRECT
+                            else -> AnswerButtonState.DIMMED
+                        },
+                    )
+                },
+            )
+            scope.launch {
+                delay(1.seconds)
+                proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun handleValueComparisonAnswer(
+        currentState: GameState.Active,
+        game: ValueComparisonGame,
+        input: String,
+    ) {
+        if (game.isCorrect(input)) {
+            points++
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
+            )
+            scope.launch {
+                delay(1.seconds)
+                proceedAfterFeedback()
+            }
+        } else {
+            game.answeredAllCorrect = false
+            val selectedIndex = (input.toIntOrNull() ?: return) - 1
+            val correctIndex = game.resultIndex
+            val currentUiState = _gameUiState.value as? ValueComparisonUiState ?: return
+            _gameUiState.value = currentUiState.copy(
+                answers = currentUiState.answers.mapIndexed { i, button ->
+                    button.copy(
+                        state = when (i) {
+                            selectedIndex -> AnswerButtonState.WRONG
+                            correctIndex -> AnswerButtonState.CORRECT
                             else -> AnswerButtonState.DIMMED
                         },
                     )

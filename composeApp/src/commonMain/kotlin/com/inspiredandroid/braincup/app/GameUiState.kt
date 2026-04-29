@@ -72,7 +72,7 @@ data class SherlockCalculationUiState(
 
 @Immutable
 data class ValueComparisonUiState(
-    val answers: List<String>,
+    val answers: List<AnswerButton>,
 ) : GameUiState
 
 @Immutable
