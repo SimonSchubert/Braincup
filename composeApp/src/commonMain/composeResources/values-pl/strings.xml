@@ -60,6 +60,7 @@
     <string name="game_orbit_tracker">Śledzenie Orbit</string>
     <string name="game_flash_crowd">Błyskawiczny Tłum</string>
     <string name="game_schulte_table">Tablica Schulte'a</string>
+    <string name="game_mini_chess">Mini Chess</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -79,6 +80,23 @@
     <string name="game_flash_crowd_desc">Kropki migają krótko po każdej stronie. Dotknij strony, która miała więcej kropek. Nie licz — zaufaj swojemu instynktowi!</string>
     <string name="game_schulte_table_desc">Stukaj liczby w kolejności od 1 tak szybko, jak potrafisz.</string>
     <string name="game_schulte_instruction">Stukaj liczby w kolejności: 1, 2, 3...</string>
+    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
+    <string name="mini_chess_thinking">CPU is thinking…</string>
+    <string name="mini_chess_round_won">Checkmate</string>
+    <string name="mini_chess_round_lost">CPU mated you</string>
+    <string name="mini_chess_round_draw">Draw</string>
+    <string name="mini_chess_reset">Reset</string>
+    <string name="mini_chess_xp_gained">+%1$d XP</string>
+    <string name="mini_chess_play_again">Play again</string>
+    <string name="mini_chess_difficulty">Difficulty</string>
+    <string name="mini_chess_difficulty_easy">Easy</string>
+    <string name="mini_chess_difficulty_medium">Medium</string>
+    <string name="mini_chess_difficulty_hard">Hard</string>
+    <string name="mini_chess_round_label">Game %1$d</string>
+    <string name="mini_chess_restart">New game</string>
+    <string name="mini_chess_continue">Continue</string>
+    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
     <string name="game_what_comes_next">Co będzie dalej?</string>
     <string name="game_tap_matching_colors">Dotknij komórek, gdzie słowo odpowiada kolorowi</string>
     <string name="game_tap_original_targets">Dotknij oryginalnych celów</string>

@@ -83,6 +83,7 @@ class UserStorage(
         const val KEY_STREAK_MIGRATED_V2 = "streak_migrated_v2"
         const val KEY_TOTAL_XP = "total_xp"
         const val KEY_XP_SEEDED = "xp_seeded_v1"
+        const val KEY_MINI_CHESS_DIFFICULTY = "mini_chess_difficulty"
         const val SESSION_GAME_COUNT = 5
         const val SESSION_COMPLETION_XP = 50
 
@@ -158,6 +159,13 @@ class UserStorage(
 
     fun setAudioMuted(muted: Boolean) {
         settings.putBoolean(KEY_AUDIO_MUTED, muted)
+    }
+
+    /** Mini Chess AI search depth chosen on the instructions screen. Defaults to 3 (Medium). */
+    fun getMiniChessDifficulty(): Int = settings.getInt(KEY_MINI_CHESS_DIFFICULTY, 3)
+
+    fun setMiniChessDifficulty(depth: Int) {
+        settings.putInt(KEY_MINI_CHESS_DIFFICULTY, depth)
     }
 
     private val medalAchievements =

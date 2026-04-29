@@ -60,6 +60,7 @@
     <string name="game_orbit_tracker">অরবিট ট্র্যাকার</string>
     <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
     <string name="game_schulte_table">শুল্টে টেবিল</string>
+    <string name="game_mini_chess">Mini Chess</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -79,6 +80,23 @@
     <string name="game_flash_crowd_desc">প্রতিটি পাশে সংক্ষেপে বিন্দু জ্বলে। যে পাশে বেশি বিন্দু ছিল সেদিকে ট্যাপ করুন। গুনবেন না — আপনার অনুভূতিতে বিশ্বাস করুন!</string>
     <string name="game_schulte_table_desc">১ থেকে শুরু করে যত দ্রুত সম্ভব ক্রমানুসারে সংখ্যাগুলিতে ট্যাপ করুন।</string>
     <string name="game_schulte_instruction">ক্রমানুসারে সংখ্যা ট্যাপ করুন: ১, ২, ৩...</string>
+    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
+    <string name="mini_chess_thinking">CPU is thinking…</string>
+    <string name="mini_chess_round_won">Checkmate</string>
+    <string name="mini_chess_round_lost">CPU mated you</string>
+    <string name="mini_chess_round_draw">Draw</string>
+    <string name="mini_chess_reset">Reset</string>
+    <string name="mini_chess_xp_gained">+%1$d XP</string>
+    <string name="mini_chess_play_again">Play again</string>
+    <string name="mini_chess_difficulty">Difficulty</string>
+    <string name="mini_chess_difficulty_easy">Easy</string>
+    <string name="mini_chess_difficulty_medium">Medium</string>
+    <string name="mini_chess_difficulty_hard">Hard</string>
+    <string name="mini_chess_round_label">Game %1$d</string>
+    <string name="mini_chess_restart">New game</string>
+    <string name="mini_chess_continue">Continue</string>
+    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
     <string name="game_what_comes_next">পরেরটি কী?</string>
     <string name="game_tap_matching_colors">শব্দ ও রঙ মেলে এমন ঘরে ট্যাপ করুন</string>
     <string name="game_tap_original_targets">মূল লক্ষ্যগুলোতে ট্যাপ করুন</string>

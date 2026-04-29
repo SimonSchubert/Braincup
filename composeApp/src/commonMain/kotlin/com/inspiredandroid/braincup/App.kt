@@ -104,6 +104,7 @@ fun App(colorScheme: ColorScheme? = null) {
                     if (gameType != null) {
                         InstructionsScreen(
                             gameType = gameType,
+                            storage = controller.storage,
                             onStart = { controller.startGame(gameType) },
                             onBack = { controller.navigateToMainMenu() },
                         )

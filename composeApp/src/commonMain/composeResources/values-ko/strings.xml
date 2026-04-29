@@ -60,6 +60,7 @@
     <string name="game_orbit_tracker">궤도 추적기</string>
     <string name="game_flash_crowd">플래시 크라우드</string>
     <string name="game_schulte_table">슐테 테이블</string>
+    <string name="game_mini_chess">Mini Chess</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -79,6 +80,23 @@
     <string name="game_flash_crowd_desc">각 쪽에 점이 잠깐 깜빡입니다. 점이 더 많았던 쪽을 탭하세요. 세지 마세요 — 직감을 믿으세요!</string>
     <string name="game_schulte_table_desc">1부터 순서대로 숫자를 최대한 빠르게 탭하세요.</string>
     <string name="game_schulte_instruction">숫자를 순서대로 탭: 1, 2, 3...</string>
+    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
+    <string name="mini_chess_thinking">CPU is thinking…</string>
+    <string name="mini_chess_round_won">Checkmate</string>
+    <string name="mini_chess_round_lost">CPU mated you</string>
+    <string name="mini_chess_round_draw">Draw</string>
+    <string name="mini_chess_reset">Reset</string>
+    <string name="mini_chess_xp_gained">+%1$d XP</string>
+    <string name="mini_chess_play_again">Play again</string>
+    <string name="mini_chess_difficulty">Difficulty</string>
+    <string name="mini_chess_difficulty_easy">Easy</string>
+    <string name="mini_chess_difficulty_medium">Medium</string>
+    <string name="mini_chess_difficulty_hard">Hard</string>
+    <string name="mini_chess_round_label">Game %1$d</string>
+    <string name="mini_chess_restart">New game</string>
+    <string name="mini_chess_continue">Continue</string>
+    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
     <string name="game_what_comes_next">다음은 무엇일까요?</string>
     <string name="game_tap_matching_colors">단어와 색상이 일치하는 셀을 탭하세요</string>
     <string name="game_tap_original_targets">원래 목표물을 탭하세요</string>

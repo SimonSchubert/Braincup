@@ -12,6 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -27,6 +29,7 @@ import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
+import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.graphics.Color as ComposeColor
@@ -189,6 +192,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
         GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
         GameType.FLASH_CROWD -> FlashCrowdPreview()
+        GameType.MINI_CHESS -> MiniChessPreview()
     }
 }
 
@@ -638,5 +642,74 @@ private fun FlashCrowdPreview() {
                 )
             }
         }
+    }
+}
+
+@Composable
+private fun MiniChessPreview() {
+    val light = ComposeColor(0xFFEEEED2)
+    val dark = ComposeColor(0xFF769656)
+    val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    val cellSize = 26.dp
+    val outerFrame = 3.dp
+
+    data class PreviewPiece(val drawable: DrawableResource, val isWhite: Boolean)
+    val pieces = mapOf(
+        0 to PreviewPiece(Res.drawable.ic_chess_king, isWhite = true), // a1
+        4 to PreviewPiece(Res.drawable.ic_chess_pawn, isWhite = false), // b2
+        8 to PreviewPiece(Res.drawable.ic_chess_queen, isWhite = false), // c3
+    )
+
+    // Frame the board with a thin border, mirroring the Mini Sudoku tile preview.
+    Box(modifier = Modifier.background(borderColor)) {
+        Column(modifier = Modifier.padding(outerFrame)) {
+            for (row in 2 downTo 0) {
+                Row {
+                    for (col in 0..2) {
+                        val isLight = (row + col) % 2 == 0
+                        val flatIndex = row * 3 + col
+                        Box(
+                            modifier = Modifier
+                                .size(cellSize)
+                                .background(if (isLight) light else dark),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            pieces[flatIndex]?.let { piece ->
+                                MiniChessPreviewPiece(piece.drawable, piece.isWhite)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MiniChessPreviewPiece(drawable: DrawableResource, isWhite: Boolean) {
+    val painter = painterResource(drawable)
+    val outline = ColorFilter.tint(ComposeColor.Black)
+    val fill = ColorFilter.tint(if (isWhite) ComposeColor.White else ComposeColor.Black)
+    Canvas(modifier = Modifier.size(20.dp)) {
+        if (isWhite) {
+            // 8-direction halo for a clean black outline so the white silhouette stands
+            // out on the light tile.
+            val deltas = listOf(
+                -1f to -1f,
+                0f to -1f,
+                1f to -1f,
+                -1f to 0f,
+                1f to 0f,
+                -1f to 1f,
+                0f to 1f,
+                1f to 1f,
+            )
+            for ((dx, dy) in deltas) {
+                translate(left = dx, top = dy) {
+                    with(painter) { draw(size = this@Canvas.size, colorFilter = outline) }
+                }
+            }
+        }
+        with(painter) { draw(size = size, colorFilter = fill) }
     }
 }

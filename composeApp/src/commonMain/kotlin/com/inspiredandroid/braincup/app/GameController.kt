@@ -3,8 +3,10 @@ package com.inspiredandroid.braincup.app
 import androidx.navigation.NavController
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
+import com.inspiredandroid.braincup.games.minichess.ChessAi
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
@@ -15,6 +17,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import kotlin.time.Clock
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
@@ -53,6 +56,7 @@ class GameController(
     private var points = 0
     private var stopwatchRunning = false
     private var inSessionMode = false
+    private var miniChessAiJob: Job? = null
 
     private val _totalXp = MutableStateFlow(0)
     val totalXp: StateFlow<Int> = _totalXp.asStateFlow()
@@ -105,6 +109,7 @@ class GameController(
             (currentState.game as? VisualMemoryGame)?.cancelCountdown()
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
+            if (currentState.game is MiniChessGame) cancelMiniChessAi()
         }
         _gameUiState.value = null
         _gameState.value = GameState.Idle
@@ -158,6 +163,10 @@ class GameController(
         }
         if (gameType == GameType.SCHULTE_TABLE) {
             startSchulteTableGame(gameType)
+            return
+        }
+        if (gameType == GameType.MINI_CHESS) {
+            startMiniChessGame(gameType)
             return
         }
 
@@ -229,6 +238,10 @@ class GameController(
             handleValueComparisonAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is MiniChessGame) {
+            handleMiniChessAnswer(currentState, game, answer.trim())
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -263,6 +276,13 @@ class GameController(
 
         val game = currentState.game
         game.answeredAllCorrect = false
+
+        if (game is MiniChessGame) {
+            cancelMiniChessAi()
+            game.markGiveUp()
+            finishCurrentGame(currentState.gameType, game)
+            return
+        }
 
         if (game is SherlockCalculationGame) {
             val currentUiState = _gameUiState.value as? SherlockCalculationUiState ?: return
@@ -351,6 +371,7 @@ class GameController(
         GameType.COLOR_CONFUSION -> ColorConfusionGame()
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
         GameType.FLASH_CROWD -> FlashCrowdGame()
+        GameType.MINI_CHESS -> MiniChessGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -910,5 +931,91 @@ class GameController(
                 },
             )
         }
+    }
+
+    private fun startMiniChessGame(gameType: GameType) {
+        val game = MiniChessGame(difficultyDepth = storage.getMiniChessDifficulty())
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+    }
+
+    private fun handleMiniChessAnswer(
+        currentState: GameState.Active,
+        game: MiniChessGame,
+        input: String,
+    ) {
+        if (input == "restart" || input == "reset") {
+            cancelMiniChessAi()
+            // Any score from the just-finished round was already recorded in
+            // handleMiniChessRoundOver, so reset the per-attempt counters before either
+            // restoring the initial position or rolling a fresh scenario.
+            points = 0
+            game.answeredAllCorrect = true
+            if (input == "reset") game.resetScenario() else game.restartScenario()
+            _gameUiState.value = game.toUiState()
+            return
+        }
+        if (game.phase != MiniChessGame.Phase.PLAYER_TURN) return
+        val move = game.parseMove(input) ?: return
+        val result = game.applyPlayerMove(move)
+        _gameUiState.value = game.toUiState()
+
+        when (result) {
+            MiniChessGame.PlayerMoveResult.RoundOver ->
+                handleMiniChessRoundOver(currentState, game)
+            MiniChessGame.PlayerMoveResult.AiToMove ->
+                scheduleMiniChessAi(currentState, game)
+        }
+    }
+
+    private fun scheduleMiniChessAi(
+        currentState: GameState.Active,
+        game: MiniChessGame,
+    ) {
+        miniChessAiJob?.cancel()
+        miniChessAiJob = scope.launch {
+            val started = Clock.System.now().toEpochMilliseconds()
+            val ai = ChessAi(game.aiDepth())
+            val move = withContext(Dispatchers.Default) { ai.bestMove(game.board) }
+                ?: return@launch
+            // Enforce a minimum think time so the CPU's response always feels deliberate,
+            // even when alpha-beta returns instantly on shallow positions.
+            val elapsed = Clock.System.now().toEpochMilliseconds() - started
+            val minThinkMs = 800L
+            if (elapsed < minThinkMs) delay((minThinkMs - elapsed).milliseconds)
+            game.applyAiMove(move)
+            _gameUiState.value = game.toUiState()
+            if (game.phase == MiniChessGame.Phase.ROUND_OVER) {
+                handleMiniChessRoundOver(currentState, game)
+            }
+        }
+    }
+
+    private fun handleMiniChessRoundOver(
+        currentState: GameState.Active,
+        game: MiniChessGame,
+    ) {
+        when (game.outcome) {
+            MiniChessOutcome.PLAYER_WIN -> points = game.winPoints()
+            MiniChessOutcome.PLAYER_LOSS, MiniChessOutcome.DRAW -> points = 0
+            null -> return
+        }
+        // Chess has no per-round bonus; suppress the "extra point for making no mistakes"
+        // message on the finish screen (used as fallback if the user navigates back).
+        game.answeredAllCorrect = false
+
+        // Record the score immediately so it counts even if the player taps Back instead of
+        // Play Again. The finish screen is bypassed for chess — Play Again resets the board
+        // in place rather than going through it.
+        storage.putScore(currentState.gameType.id, points)
+        _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
+    }
+
+    private fun cancelMiniChessAi() {
+        miniChessAiJob?.cancel()
+        miniChessAiJob = null
     }
 }

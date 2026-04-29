@@ -21,6 +21,17 @@ enum class GameType(
         descriptionRes = Res.string.game_mini_sudoku_desc,
         category = GameCategory.LOGIC,
     ),
+    MINI_CHESS(
+        displayNameRes = Res.string.game_mini_chess,
+        id = "18",
+        // Win points scale with chosen difficulty: Easy=5, Medium=10, Hard=15. The medal
+        // tiers below map directly to that: any win = bronze, Medium win = silver, Hard
+        // win = gold. See MiniChessGame.winPointsForDepth.
+        goldScore = 15,
+        silverScore = 10,
+        descriptionRes = Res.string.game_mini_chess_desc,
+        category = GameCategory.LOGIC,
+    ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
         id = "8",

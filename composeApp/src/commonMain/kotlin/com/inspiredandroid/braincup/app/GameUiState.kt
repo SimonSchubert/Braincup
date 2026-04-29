@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
+import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -217,3 +218,31 @@ data class VisualMemoryUiState(
         val isWrong: Boolean = false,
     )
 }
+
+enum class MiniChessOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }
+
+@Immutable
+data class MiniChessCell(
+    val pieceType: PieceType?,
+    val isWhite: Boolean,
+)
+
+@Immutable
+data class MiniChessUiState(
+    val cells: List<MiniChessCell>,
+    val legalMovesByFrom: Map<Int, Set<Int>>,
+    /** Subset of [legalMovesByFrom] entries (same keys) whose move would immediately
+     *  stalemate the CPU — i.e. the resulting position has no legal CPU response and the
+     *  CPU is not in check. Players can use this to avoid accidental draws. */
+    val stalematingMovesByFrom: Map<Int, Set<Int>>,
+    val lastMoveFromIndex: Int?,
+    val lastMoveToIndex: Int?,
+    val whiteInCheck: Boolean,
+    val blackInCheck: Boolean,
+    val isAiThinking: Boolean,
+    val outcome: MiniChessOutcome?,
+    val halfMoveCount: Int,
+    val halfMoveCap: Int,
+    /** Points awarded for a win at the current difficulty (drives the +N XP label). */
+    val pointsForWin: Int,
+) : GameUiState

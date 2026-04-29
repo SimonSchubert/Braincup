@@ -10,7 +10,10 @@ import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Backspace
@@ -22,7 +25,9 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
@@ -34,6 +39,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
+import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.ui.components.*
@@ -43,6 +49,7 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import kotlin.time.Duration.Companion.milliseconds
 import androidx.compose.ui.graphics.Color as ComposeColor
@@ -63,7 +70,8 @@ fun GameScreen(
         when {
             gameUiState is VisualMemoryUiState ||
                 gameUiState is GhostGridUiState ||
-                gameUiState is OrbitTrackerUiState -> Unit
+                gameUiState is OrbitTrackerUiState ||
+                gameUiState is MiniChessUiState -> Unit
             gameUiState is SchulteTableUiState -> StopwatchDisplay(
                 elapsedMillis = elapsedTime,
                 modifier = Modifier
@@ -97,6 +105,7 @@ fun GameScreen(
             is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
             is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
             is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
+            is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
         }
 
         Spacer(Modifier.weight(1f))
@@ -1678,4 +1687,283 @@ private fun FlashCrowdDotsRow(
             }
         }
     }
+}
+
+private val MiniChessLightSquare = ComposeColor(0xFFEEEED2)
+private val MiniChessDarkSquare = ComposeColor(0xFF769656)
+private val MiniChessSelected = ComposeColor(0xFFB9CAFF)
+private val MiniChessLastMove = ComposeColor(0x66FFD54F)
+private val MiniChessLegalDot = ComposeColor(0x66000000)
+private val MiniChessCaptureTint = ComposeColor(0x55E53935)
+private val MiniChessDrawDot = ComposeColor(0xCCFBC02D)
+private val MiniChessDrawTint = ComposeColor(0x66FBC02D)
+private val MiniChessCheckTint = ComposeColor(0x88E53935)
+private val MiniChessWarning = ComposeColor(0xFFE65100)
+
+@Composable
+private fun ColumnScope.MiniChessContent(
+    uiState: MiniChessUiState,
+    onAnswer: (String) -> Unit,
+) {
+    var selectedFrom by remember(uiState.cells, uiState.legalMovesByFrom) {
+        mutableStateOf<Int?>(null)
+    }
+    val highlights = uiState.legalMovesByFrom[selectedFrom].orEmpty()
+    val drawHighlights = uiState.stalematingMovesByFrom[selectedFrom].orEmpty()
+    val interactive = uiState.outcome == null && !uiState.isAiThinking
+    val selectedHasDrawMove = drawHighlights.isNotEmpty()
+    val movesLeft = uiState.halfMoveCap - uiState.halfMoveCount
+    val movesNearCap = uiState.outcome == null && movesLeft in 1..6
+
+    Column(
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Box(
+            modifier = Modifier
+                .padding(top = 8.dp)
+                .height(20.dp),
+            contentAlignment = Alignment.Center,
+        ) {
+            when {
+                uiState.outcome != null -> Unit
+                uiState.isAiThinking -> Text(
+                    text = stringResource(Res.string.mini_chess_thinking),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                selectedHasDrawMove -> Row(verticalAlignment = Alignment.CenterVertically) {
+                    Box(
+                        modifier = Modifier
+                            .size(14.dp)
+                            .background(MiniChessDrawDot, CircleShape),
+                    )
+                    Spacer(Modifier.width(8.dp))
+                    Text(
+                        text = stringResource(Res.string.mini_chess_draw_warning),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MiniChessWarning,
+                        fontWeight = FontWeight.Bold,
+                    )
+                }
+                else -> Text(
+                    text = stringResource(
+                        Res.string.mini_chess_move_counter,
+                        uiState.halfMoveCount,
+                        uiState.halfMoveCap,
+                    ),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = if (movesNearCap) MiniChessWarning else MaterialTheme.colorScheme.onSurface,
+                    fontWeight = if (movesNearCap) FontWeight.Bold else FontWeight.Normal,
+                )
+            }
+        }
+        Spacer(Modifier.height(8.dp))
+
+        for (row in 4 downTo 0) {
+            Row {
+                for (col in 0..4) {
+                    val index = row * 5 + col
+                    val cell = uiState.cells[index]
+                    val showCheckRing = cell.pieceType == PieceType.KING && (
+                        (cell.isWhite && uiState.whiteInCheck) ||
+                            (!cell.isWhite && uiState.blackInCheck)
+                        )
+                    MiniChessCellView(
+                        cell = cell,
+                        isLight = (row + col) % 2 == 0,
+                        isSelected = selectedFrom == index,
+                        isLegalTarget = index in highlights,
+                        isStalemateTarget = index in drawHighlights,
+                        isLastMove = index == uiState.lastMoveFromIndex || index == uiState.lastMoveToIndex,
+                        showCheckRing = showCheckRing,
+                        enabled = interactive,
+                        onClick = {
+                            val from = selectedFrom
+                            if (from != null && uiState.legalMovesByFrom[from]?.contains(index) == true) {
+                                onAnswer("$from>$index")
+                                selectedFrom = null
+                            } else if (uiState.legalMovesByFrom.containsKey(index)) {
+                                selectedFrom = index
+                            } else {
+                                selectedFrom = null
+                            }
+                        },
+                    )
+                }
+            }
+        }
+
+        Spacer(Modifier.height(12.dp))
+
+        if (uiState.outcome == null) {
+            // During play: Reset (restore initial position) and New Game (fresh scenario).
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                OutlinedButton(
+                    onClick = { onAnswer("reset") },
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.mini_chess_reset))
+                }
+                Button(
+                    onClick = { onAnswer("restart") },
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.mini_chess_restart))
+                }
+            }
+        } else {
+            // Persistent end-of-game state: outcome, XP earned (only on win), then actions.
+            Text(
+                text = when (uiState.outcome) {
+                    MiniChessOutcome.PLAYER_WIN -> stringResource(Res.string.mini_chess_round_won)
+                    MiniChessOutcome.PLAYER_LOSS -> stringResource(Res.string.mini_chess_round_lost)
+                    MiniChessOutcome.DRAW -> stringResource(Res.string.mini_chess_round_draw)
+                },
+                style = MaterialTheme.typography.titleMedium,
+                fontWeight = FontWeight.Bold,
+                color = when (uiState.outcome) {
+                    MiniChessOutcome.PLAYER_WIN -> SuccessGreen
+                    else -> MaterialTheme.colorScheme.onSurface
+                },
+            )
+            if (uiState.outcome == MiniChessOutcome.PLAYER_WIN) {
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(Res.string.mini_chess_xp_gained, uiState.pointsForWin),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = SuccessGreen,
+                )
+            }
+            Spacer(Modifier.height(12.dp))
+            // Same actions as during play: Reset replays the same scenario; New game rolls
+            // a fresh one. The just-finished result was already recorded, so both buttons
+            // simply transition the UI.
+            Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+                OutlinedButton(
+                    onClick = { onAnswer("reset") },
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.mini_chess_reset))
+                }
+                Button(
+                    onClick = { onAnswer("restart") },
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.mini_chess_restart))
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun MiniChessCellView(
+    cell: MiniChessCell,
+    isLight: Boolean,
+    isSelected: Boolean,
+    isLegalTarget: Boolean,
+    isStalemateTarget: Boolean,
+    isLastMove: Boolean,
+    showCheckRing: Boolean,
+    enabled: Boolean,
+    onClick: () -> Unit,
+) {
+    val baseColor = if (isLight) MiniChessLightSquare else MiniChessDarkSquare
+    Box(
+        modifier = Modifier
+            .size(56.dp)
+            .background(if (isSelected) MiniChessSelected else baseColor)
+            .clickable(enabled = enabled, onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        if (isLastMove && !isSelected) {
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .background(MiniChessLastMove),
+            )
+        }
+        // King-in-check tint: solid red over the whole square so the player can spot the
+        // attacked king at a glance.
+        if (showCheckRing) {
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .background(MiniChessCheckTint),
+            )
+        }
+        // Capture tint: red square highlight when the move takes an opposing piece. Skipped
+        // for stalemate moves — those use the orange dot instead so the indicator matches
+        // the legend in the warning text.
+        if (isLegalTarget && cell.pieceType != null && !isStalemateTarget) {
+            Box(
+                modifier = Modifier
+                    .matchParentSize()
+                    .background(MiniChessCaptureTint),
+            )
+        }
+        cell.pieceType?.let { type ->
+            Box(
+                modifier = Modifier.size(52.dp),
+                contentAlignment = Alignment.Center,
+            ) {
+                ChessPieceIcon(type = type, isWhite = cell.isWhite)
+            }
+        }
+        // Move indicators rendered last so they sit on top of any piece silhouette.
+        if (isLegalTarget) {
+            when {
+                isStalemateTarget -> Box(
+                    modifier = Modifier
+                        .size(20.dp)
+                        .background(MiniChessDrawDot, CircleShape)
+                        .border(BorderStroke(1.5.dp, ComposeColor.Black.copy(alpha = 0.55f)), CircleShape),
+                )
+                cell.pieceType == null -> Box(
+                    modifier = Modifier
+                        .size(16.dp)
+                        .background(MiniChessLegalDot, CircleShape),
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun ChessPieceIcon(type: PieceType, isWhite: Boolean) {
+    val painter = painterResource(chessPieceResource(type))
+    val outline = ColorFilter.tint(ComposeColor.Black)
+    val fill = ColorFilter.tint(if (isWhite) ComposeColor.White else ComposeColor.Black)
+
+    Canvas(modifier = Modifier.size(44.dp)) {
+        if (isWhite) {
+            // 8-direction halo of the silhouette in black creates a clean outline that
+            // follows every detail of the path, then the white fill renders on top.
+            val deltas = listOf(
+                -1f to -1f,
+                0f to -1f,
+                1f to -1f,
+                -1f to 0f,
+                1f to 0f,
+                -1f to 1f,
+                0f to 1f,
+                1f to 1f,
+            )
+            for ((dx, dy) in deltas) {
+                translate(left = dx, top = dy) {
+                    with(painter) { draw(size = this@Canvas.size, colorFilter = outline) }
+                }
+            }
+        }
+        with(painter) { draw(size = size, colorFilter = fill) }
+    }
+}
+
+private fun chessPieceResource(type: PieceType) = when (type) {
+    PieceType.KING -> Res.drawable.ic_chess_king
+    PieceType.QUEEN -> Res.drawable.ic_chess_queen
+    PieceType.ROOK -> Res.drawable.ic_chess_rook
+    PieceType.BISHOP -> Res.drawable.ic_chess_bishop
+    PieceType.KNIGHT -> Res.drawable.ic_chess_knight
+    PieceType.PAWN -> Res.drawable.ic_chess_pawn
 }
