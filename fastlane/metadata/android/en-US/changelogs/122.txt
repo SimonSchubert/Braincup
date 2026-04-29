@@ -1,0 +1,4 @@
+New mini chess game
+Themed icon support on Android
+Polished value comparison UI
+Performance improvements

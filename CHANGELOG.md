@@ -1,3 +1,13 @@
+## v2.9.0 — 2026-04-29
+
+### Features
+- New mini chess game
+- Themed icon support on Android
+
+### Improvements
+- Polished value comparison UI
+- Performance improvements
+
 ## v2.8.0 — 2026-04-25
 
 ### Features
