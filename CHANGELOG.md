@@ -1,3 +1,16 @@
+## v2.10.0 — 2026-04-30
+
+### Features
+- New Lights Out game
+- New Sliding Puzzle game
+
+### Improvements
+- Improved Compose rendering performance
+- Aligned game preview styles
+- Upgraded SDK dependencies
+- Polished achievements UI
+- Faster audio player startup
+
 ## v2.9.0 — 2026-04-29
 
 ### Features

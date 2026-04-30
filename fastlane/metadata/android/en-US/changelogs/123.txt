@@ -1,0 +1,5 @@
+New Lights Out game
+New Sliding Puzzle game
+Polished achievements UI
+Faster audio player startup
+Performance improvements
