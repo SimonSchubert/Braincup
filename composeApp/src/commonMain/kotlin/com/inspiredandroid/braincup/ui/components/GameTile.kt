@@ -110,6 +110,45 @@ private val FlashCrowdPreviewRightDots = listOf(
     Triple(0.75f, 0.78f, 0.085f),
 )
 
+private val MiniSudokuPreviewGrid: List<List<String>> = listOf(
+    listOf("1", "2"),
+    listOf("", "4"),
+)
+
+private data class SchulteCell(val number: Int, val tapped: Boolean)
+
+private val SchulteTablePreviewGrid: List<List<SchulteCell>> = listOf(
+    listOf(SchulteCell(3, false), SchulteCell(1, true), SchulteCell(6, false)),
+    listOf(SchulteCell(2, true), SchulteCell(9, false), SchulteCell(7, false)),
+    listOf(SchulteCell(5, false), SchulteCell(8, false), SchulteCell(4, false)),
+)
+
+private val GhostGridPreviewHighlighted: Set<Int> = setOf(0, 4, 7)
+
+private val MiniChessLightSquare = ComposeColor(0xFFEEEED2)
+private val MiniChessDarkSquare = ComposeColor(0xFF769656)
+
+private data class MiniChessPreviewPlacement(val drawable: DrawableResource, val isWhite: Boolean)
+
+private val MiniChessPreviewPieces: Map<Int, MiniChessPreviewPlacement> = mapOf(
+    0 to MiniChessPreviewPlacement(Res.drawable.ic_chess_king, isWhite = true),
+    4 to MiniChessPreviewPlacement(Res.drawable.ic_chess_pawn, isWhite = false),
+    8 to MiniChessPreviewPlacement(Res.drawable.ic_chess_queen, isWhite = false),
+)
+
+private val ChessHaloDeltas: List<Pair<Float, Float>> = listOf(
+    -1f to -1f,
+    0f to -1f,
+    1f to -1f,
+    -1f to 0f,
+    1f to 0f,
+    -1f to 1f,
+    0f to 1f,
+    1f to 1f,
+)
+
+private val ChessOutlineFilter = ColorFilter.tint(ComposeColor.Black)
+
 @Composable
 fun GameTile(
     gameType: GameType,
@@ -423,10 +462,6 @@ private fun ValueComparisonPreview() {
 
 @Composable
 private fun MiniSudokuPreview() {
-    val grid = listOf(
-        listOf("1", "2"),
-        listOf("", "4"),
-    )
     val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
     Box(
         modifier = Modifier
@@ -439,7 +474,7 @@ private fun MiniSudokuPreview() {
             modifier = Modifier.fillMaxSize().padding(2.dp),
             verticalArrangement = Arrangement.spacedBy(2.dp),
         ) {
-            grid.forEach { row ->
+            MiniSudokuPreviewGrid.forEach { row ->
                 Row(
                     modifier = Modifier.fillMaxWidth().weight(1f),
                     horizontalArrangement = Arrangement.spacedBy(2.dp),
@@ -468,19 +503,12 @@ private fun MiniSudokuPreview() {
 
 @Composable
 private fun SchulteTablePreview() {
-    // 3×3 grid: jumbled numbers with a couple already tapped (dimmed) to show the mechanic.
-    data class Cell(val number: Int, val tapped: Boolean)
-    val grid = listOf(
-        listOf(Cell(3, false), Cell(1, true), Cell(6, false)),
-        listOf(Cell(2, true), Cell(9, false), Cell(7, false)),
-        listOf(Cell(5, false), Cell(8, false), Cell(4, false)),
-    )
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        grid.forEach { row ->
+        SchulteTablePreviewGrid.forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { cell ->
                     Box(
@@ -515,7 +543,6 @@ private fun SchulteTablePreview() {
 
 @Composable
 private fun GhostGridPreview() {
-    val highlighted = setOf(0, 4, 7) // diagonal cells highlighted
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -525,7 +552,7 @@ private fun GhostGridPreview() {
             Row(modifier = Modifier.fillMaxWidth()) {
                 for (col in 0 until 3) {
                     val index = row * 3 + col
-                    val isHighlighted = index in highlighted
+                    val isHighlighted = index in GhostGridPreviewHighlighted
                     Box(
                         modifier = Modifier
                             .weight(1f)
@@ -676,18 +703,8 @@ private fun FlashCrowdPreview() {
 
 @Composable
 private fun MiniChessPreview() {
-    val light = ComposeColor(0xFFEEEED2)
-    val dark = ComposeColor(0xFF769656)
     val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
 
-    data class PreviewPiece(val drawable: DrawableResource, val isWhite: Boolean)
-    val pieces = mapOf(
-        0 to PreviewPiece(Res.drawable.ic_chess_king, isWhite = true), // a1
-        4 to PreviewPiece(Res.drawable.ic_chess_pawn, isWhite = false), // b2
-        8 to PreviewPiece(Res.drawable.ic_chess_queen, isWhite = false), // c3
-    )
-
-    // Frame the board with a thin border, mirroring the Mini Sudoku tile preview.
     Box(
         modifier = Modifier
             .fillMaxHeight()
@@ -705,10 +722,10 @@ private fun MiniChessPreview() {
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxHeight()
-                                .background(if (isLight) light else dark),
+                                .background(if (isLight) MiniChessLightSquare else MiniChessDarkSquare),
                             contentAlignment = Alignment.Center,
                         ) {
-                            pieces[flatIndex]?.let { piece ->
+                            MiniChessPreviewPieces[flatIndex]?.let { piece ->
                                 MiniChessPreviewPiece(
                                     drawable = piece.drawable,
                                     isWhite = piece.isWhite,
@@ -730,27 +747,14 @@ private fun MiniChessPreviewPiece(
     modifier: Modifier = Modifier,
 ) {
     val painter = painterResource(drawable)
-    val outline = ColorFilter.tint(ComposeColor.Black)
     val fill = ColorFilter.tint(if (isWhite) ComposeColor.White else ComposeColor.Black)
     Canvas(modifier = modifier) {
         if (isWhite) {
-            // 8-direction halo for a clean black outline so the white silhouette stands
-            // out on the light tile. Offset scales with canvas size so the outline
-            // stays proportional regardless of tile size.
+            // Halo offset scales with canvas size so the outline stays proportional.
             val haloOffset = size.minDimension * 0.02f
-            val deltas = listOf(
-                -1f to -1f,
-                0f to -1f,
-                1f to -1f,
-                -1f to 0f,
-                1f to 0f,
-                -1f to 1f,
-                0f to 1f,
-                1f to 1f,
-            )
-            for ((dx, dy) in deltas) {
+            for ((dx, dy) in ChessHaloDeltas) {
                 translate(left = dx * haloOffset, top = dy * haloOffset) {
-                    with(painter) { draw(size = this@Canvas.size, colorFilter = outline) }
+                    with(painter) { draw(size = this@Canvas.size, colorFilter = ChessOutlineFilter) }
                 }
             }
         }

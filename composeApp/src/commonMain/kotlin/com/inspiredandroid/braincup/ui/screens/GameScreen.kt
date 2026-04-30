@@ -57,6 +57,19 @@ import androidx.compose.ui.graphics.Color as ComposeColor
 private val FlashCrowdBlue = ComposeColor(0xFF4285F4)
 private val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
+private val ChessHaloDeltas: List<Pair<Float, Float>> = listOf(
+    -1f to -1f,
+    0f to -1f,
+    1f to -1f,
+    -1f to 0f,
+    1f to 0f,
+    -1f to 1f,
+    0f to 1f,
+    1f to 1f,
+)
+
+private val ChessOutlineFilter = ColorFilter.tint(ComposeColor.Black)
+
 @Composable
 fun GameScreen(
     gameUiState: GameUiState,
@@ -1933,26 +1946,13 @@ private fun MiniChessCellView(
 @Composable
 private fun ChessPieceIcon(type: PieceType, isWhite: Boolean) {
     val painter = painterResource(chessPieceResource(type))
-    val outline = ColorFilter.tint(ComposeColor.Black)
     val fill = ColorFilter.tint(if (isWhite) ComposeColor.White else ComposeColor.Black)
 
     Canvas(modifier = Modifier.size(44.dp)) {
         if (isWhite) {
-            // 8-direction halo of the silhouette in black creates a clean outline that
-            // follows every detail of the path, then the white fill renders on top.
-            val deltas = listOf(
-                -1f to -1f,
-                0f to -1f,
-                1f to -1f,
-                -1f to 0f,
-                1f to 0f,
-                -1f to 1f,
-                0f to 1f,
-                1f to 1f,
-            )
-            for ((dx, dy) in deltas) {
+            for ((dx, dy) in ChessHaloDeltas) {
                 translate(left = dx, top = dy) {
-                    with(painter) { draw(size = this@Canvas.size, colorFilter = outline) }
+                    with(painter) { draw(size = this@Canvas.size, colorFilter = ChessOutlineFilter) }
                 }
             }
         }

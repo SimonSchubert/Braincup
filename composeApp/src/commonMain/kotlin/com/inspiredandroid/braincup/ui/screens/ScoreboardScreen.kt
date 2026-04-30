@@ -13,6 +13,9 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.theme.MedalBronze
+import com.inspiredandroid.braincup.ui.theme.MedalGold
+import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -68,19 +71,19 @@ fun ScoreboardScreen(
             MedalRequirement(
                 gameType = gameType,
                 threshold = 1,
-                tint = Color(0xFFCD7F32),
+                tint = MedalBronze,
                 highscore = highscore,
             )
             MedalRequirement(
                 gameType = gameType,
                 threshold = gameType.silverScore,
-                tint = Color(0xFFC0C0C0),
+                tint = MedalSilver,
                 highscore = highscore,
             )
             MedalRequirement(
                 gameType = gameType,
                 threshold = gameType.goldScore,
-                tint = Color(0xFFFFD700),
+                tint = MedalGold,
                 highscore = highscore,
             )
         }
