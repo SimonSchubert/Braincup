@@ -1,0 +1,3 @@
+Horizontal phone layout support
+Improved Compose reusability
+Added splashscreen

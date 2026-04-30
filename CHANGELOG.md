@@ -1,3 +1,12 @@
+## v2.11.0 — 2026-05-01
+
+### Features
+- Horizontal phone layout support
+
+### Improvements
+- Improved Compose reusability
+- Added splashscreen dependency
+
 ## v2.10.0 — 2026-04-30
 
 ### Features
