@@ -258,7 +258,7 @@ private fun PathFinderPreview() {
 @Composable
 private fun ColoredShapesPreview() {
     Column(
-        modifier = Modifier.padding(8.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -331,9 +331,9 @@ private fun MentalCalculationPreview() {
 @Composable
 private fun SherlockCalculationPreview() {
     Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(8.dp),
     ) {
         Text(
             text = "= 26",
@@ -341,11 +341,13 @@ private fun SherlockCalculationPreview() {
             color = MaterialTheme.colorScheme.primary,
         )
         Spacer(Modifier.height(4.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+        Row(modifier = Modifier.fillMaxWidth()) {
             SherlockPreviewNumbers.forEach { num ->
                 Box(
                     modifier = Modifier
-                        .size(22.dp)
+                        .weight(1f)
+                        .aspectRatio(1f)
+                        .padding(2.dp)
                         .background(
                             MaterialTheme.colorScheme.secondaryContainer,
                             CircleShape,
@@ -397,9 +399,9 @@ private fun FractionCalculationPreview() {
 @Composable
 private fun ValueComparisonPreview() {
     Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
-        modifier = Modifier.padding(8.dp),
     ) {
         Text(
             text = "3 + 8",
@@ -426,22 +428,27 @@ private fun MiniSudokuPreview() {
         listOf("", "4"),
     )
     val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
-    val cellSize = 36.dp
-    val outerFrame = 3.dp
-    val blockSeparator = 3.dp
-
-    Box(modifier = Modifier.background(gridLineColor)) {
-        Column(modifier = Modifier.padding(outerFrame)) {
-            grid.forEachIndexed { rowIndex, row ->
-                Row {
-                    row.forEachIndexed { colIndex, cell ->
+    Box(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp)
+            .background(gridLineColor),
+    ) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(2.dp),
+            verticalArrangement = Arrangement.spacedBy(2.dp),
+        ) {
+            grid.forEach { row ->
+                Row(
+                    modifier = Modifier.fillMaxWidth().weight(1f),
+                    horizontalArrangement = Arrangement.spacedBy(2.dp),
+                ) {
+                    row.forEach { cell ->
                         Box(
                             modifier = Modifier
-                                .padding(
-                                    end = if (colIndex == 0) blockSeparator else 0.dp,
-                                    bottom = if (rowIndex == 0) blockSeparator else 0.dp,
-                                )
-                                .size(cellSize)
+                                .weight(1f)
+                                .fillMaxHeight()
                                 .background(MaterialTheme.colorScheme.surface),
                             contentAlignment = Alignment.Center,
                         ) {
@@ -469,22 +476,25 @@ private fun SchulteTablePreview() {
         listOf(Cell(5, false), Cell(8, false), Cell(4, false)),
     )
     Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(2.dp),
-        modifier = Modifier.padding(8.dp),
+        verticalArrangement = Arrangement.Center,
     ) {
         grid.forEach { row ->
-            Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
+            Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { cell ->
                     Box(
                         modifier = Modifier
-                            .size(24.dp)
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(2.dp)
                             .background(
                                 if (cell.tapped) {
                                     MaterialTheme.colorScheme.surfaceVariant
                                 } else {
                                     MaterialTheme.colorScheme.surface
                                 },
+                                MaterialTheme.shapes.extraSmall,
                             ),
                         contentAlignment = Alignment.Center,
                     ) {
@@ -538,31 +548,38 @@ private fun GhostGridPreview() {
 
 @Composable
 private fun PatternSequencePreview() {
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier.padding(8.dp),
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
     ) {
-        PatternSequencePreviewFigures.forEach { figure ->
-            ShapeCanvas(
-                figure = figure,
-                modifier = Modifier.size(28.dp),
-            )
-        }
-        Box(
-            modifier = Modifier
-                .size(28.dp)
-                .background(
-                    MaterialTheme.colorScheme.primaryContainer,
-                    MaterialTheme.shapes.small,
-                ),
-            contentAlignment = Alignment.Center,
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
-            Text(
-                text = "?",
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
-            )
+            PatternSequencePreviewFigures.forEach { figure ->
+                ShapeCanvas(
+                    figure = figure,
+                    modifier = Modifier.weight(1f).aspectRatio(1f).padding(2.dp),
+                )
+            }
+            Box(
+                modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(1f)
+                    .padding(2.dp)
+                    .background(
+                        MaterialTheme.colorScheme.primaryContainer,
+                        MaterialTheme.shapes.small,
+                    ),
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    text = "?",
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                )
+            }
         }
     }
 }
@@ -571,16 +588,28 @@ private fun PatternSequencePreview() {
 private fun OrbitTrackerPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
     val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
-    Canvas(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+    val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    Box(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp)
+            .background(borderColor),
     ) {
-        val ballRadius = size.width * 0.06f
-        OrbitTrackerPreviewBalls.forEach { (x, y, isTarget) ->
-            drawCircle(
-                color = if (isTarget) primaryColor else onSurfaceVariantColor,
-                radius = ballRadius,
-                center = Offset(x * size.width, y * size.height),
-            )
+        Canvas(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(2.dp)
+                .background(MaterialTheme.colorScheme.surface),
+        ) {
+            val ballRadius = size.width * 0.06f
+            OrbitTrackerPreviewBalls.forEach { (x, y, isTarget) ->
+                drawCircle(
+                    color = if (isTarget) primaryColor else onSurfaceVariantColor,
+                    radius = ballRadius,
+                    center = Offset(x * size.width, y * size.height),
+                )
+            }
         }
     }
 }
@@ -588,7 +617,7 @@ private fun OrbitTrackerPreview() {
 @Composable
 private fun ColorConfusionPreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -621,7 +650,7 @@ private fun ColorConfusionPreview() {
 @Composable
 private fun FlashCrowdPreview() {
     Row(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(8.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
@@ -650,8 +679,6 @@ private fun MiniChessPreview() {
     val light = ComposeColor(0xFFEEEED2)
     val dark = ComposeColor(0xFF769656)
     val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
-    val cellSize = 26.dp
-    val outerFrame = 3.dp
 
     data class PreviewPiece(val drawable: DrawableResource, val isWhite: Boolean)
     val pieces = mapOf(
@@ -661,21 +688,32 @@ private fun MiniChessPreview() {
     )
 
     // Frame the board with a thin border, mirroring the Mini Sudoku tile preview.
-    Box(modifier = Modifier.background(borderColor)) {
-        Column(modifier = Modifier.padding(outerFrame)) {
+    Box(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp)
+            .background(borderColor),
+    ) {
+        Column(modifier = Modifier.fillMaxSize().padding(2.dp)) {
             for (row in 2 downTo 0) {
-                Row {
+                Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
                     for (col in 0..2) {
                         val isLight = (row + col) % 2 == 0
                         val flatIndex = row * 3 + col
                         Box(
                             modifier = Modifier
-                                .size(cellSize)
+                                .weight(1f)
+                                .fillMaxHeight()
                                 .background(if (isLight) light else dark),
                             contentAlignment = Alignment.Center,
                         ) {
                             pieces[flatIndex]?.let { piece ->
-                                MiniChessPreviewPiece(piece.drawable, piece.isWhite)
+                                MiniChessPreviewPiece(
+                                    drawable = piece.drawable,
+                                    isWhite = piece.isWhite,
+                                    modifier = Modifier.fillMaxSize().padding(2.dp),
+                                )
                             }
                         }
                     }
@@ -686,14 +724,20 @@ private fun MiniChessPreview() {
 }
 
 @Composable
-private fun MiniChessPreviewPiece(drawable: DrawableResource, isWhite: Boolean) {
+private fun MiniChessPreviewPiece(
+    drawable: DrawableResource,
+    isWhite: Boolean,
+    modifier: Modifier = Modifier,
+) {
     val painter = painterResource(drawable)
     val outline = ColorFilter.tint(ComposeColor.Black)
     val fill = ColorFilter.tint(if (isWhite) ComposeColor.White else ComposeColor.Black)
-    Canvas(modifier = Modifier.size(20.dp)) {
+    Canvas(modifier = modifier) {
         if (isWhite) {
             // 8-direction halo for a clean black outline so the white silhouette stands
-            // out on the light tile.
+            // out on the light tile. Offset scales with canvas size so the outline
+            // stays proportional regardless of tile size.
+            val haloOffset = size.minDimension * 0.02f
             val deltas = listOf(
                 -1f to -1f,
                 0f to -1f,
@@ -705,7 +749,7 @@ private fun MiniChessPreviewPiece(drawable: DrawableResource, isWhite: Boolean) 
                 1f to 1f,
             )
             for ((dx, dy) in deltas) {
-                translate(left = dx, top = dy) {
+                translate(left = dx * haloOffset, top = dy * haloOffset) {
                     with(painter) { draw(size = this@Canvas.size, colorFilter = outline) }
                 }
             }
