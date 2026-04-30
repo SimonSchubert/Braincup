@@ -51,14 +51,19 @@ fun App(colorScheme: ColorScheme? = null) {
             menuAudio = Res.readBytes("files/menu_ambient.wav")
         } catch (_: Exception) {
         }
-        try {
-            gameAudio = Res.readBytes("files/game_focus.wav")
-        } catch (_: Exception) {
-        }
     }
 
     val currentEntry by navController.currentBackStackEntryAsState()
     val isPlayingGame = currentEntry?.destination?.hasRoute<Playing>() == true
+
+    LaunchedEffect(isPlayingGame) {
+        if (isPlayingGame && gameAudio == null) {
+            try {
+                gameAudio = Res.readBytes("files/game_focus.wav")
+            } catch (_: Exception) {
+            }
+        }
+    }
 
     val lifecycleOwner = LocalLifecycleOwner.current
     DisposableEffect(lifecycleOwner, audioPlayer, isMuted) {
