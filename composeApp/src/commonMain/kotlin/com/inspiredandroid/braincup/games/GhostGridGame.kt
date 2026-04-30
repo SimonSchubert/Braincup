@@ -5,13 +5,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 import kotlin.time.Duration.Companion.milliseconds
 
 /**
  * Ghost Grid game. A sequence of tiles lights up
  * one at a time on a grid, and the player must tap them back in the same order.
  */
-class GhostGridGame : Game() {
+class GhostGridGame(private val random: Random = Random.Default) : Game() {
     sealed class SubmitResult {
         data object CorrectContinue : SubmitResult()
         data object RoundComplete : SubmitResult()
@@ -53,7 +54,7 @@ class GhostGridGame : Game() {
         flashDurationMillis = if (sequenceLength >= 9) 450L else 600L
 
         val totalCells = gridSize * gridSize
-        sequence = (0 until totalCells).shuffled().take(sequenceLength)
+        sequence = (0 until totalCells).shuffled(random).take(sequenceLength)
 
         phase = Phase.SHOWING
         currentShowIndex = -1

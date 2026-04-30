@@ -10,6 +10,7 @@ import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlin.random.Random
 
 val mainMenuHighscores = mapOf(
     "6" to 12,
@@ -188,7 +189,7 @@ fun createColorConfusionGame(): ColorConfusionGame {
 }
 
 fun createGhostGridGame(): GhostGridGame {
-    val game = GhostGridGame()
+    val game = GhostGridGame(random = Random(42L))
     game.nextRound()
     return game
 }
@@ -268,7 +269,7 @@ fun createGhostGridUiState(): com.inspiredandroid.braincup.app.GhostGridUiState 
 }
 
 fun createGhostGridGameOverUiState(): com.inspiredandroid.braincup.app.GhostGridUiState {
-    val game = GhostGridGame()
+    val game = GhostGridGame(random = Random(42L))
     game.nextRound()
     // Submit a wrong answer to trigger game over
     game.submitAnswer("-1")
