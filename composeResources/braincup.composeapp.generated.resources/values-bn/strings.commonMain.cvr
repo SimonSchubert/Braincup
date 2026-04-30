@@ -21,7 +21,6 @@ string|achievement_silver_medal_desc|4Ka44Kau4Ka44KeN4KakIOCml+Cnh+CmruCnhyDgprD
 string|achievement_silver_medal|4Kaw4KeM4Kaq4KeN4KavIOCmquCmpuCmlQ==
 string|achievements_button|4KaF4Kaw4KeN4Kac4KaoICglMSRkLyUyJGQp
 string|achievements_title|4KaF4Kaw4KeN4Kac4Kao4Ka44Kau4KeC4Ka5
-string|achievements_unlocked|JTEkZC8lMiRkIOCmhuCmqOCmsuCmlQ==
 string|app_name|QnJhaW5jdXA=
 string|app_tagline|4KaG4Kaq4Kao4Ka+4KawIOCml+Cmo+Cmv+CmpCDgpqbgppXgp43gprfgpqTgpr4sIOCmuOCnjeCmruCng+CmpOCmvyDgpo/gpqzgpoIg4Kau4Kao4KeL4Kav4KeL4KaXIOCmquCnjeCmsOCmtuCmv+CmleCnjeCmt+CmoyDgppXgprDgp4HgpqjgpaQ=
 string|button_backspace|4Kas4KeN4Kav4Ka+4KaV4Ka44KeN4Kaq4KeH4Ka4
@@ -107,18 +106,15 @@ string|game_visual_memory|4Kam4KeD4Ka24KeN4KavIOCmuOCnjeCmruCng+CmpOCmvw==
 string|game_what_comes_next|4Kaq4Kaw4KeH4Kaw4Kaf4Ka/IOCmleCngD8=
 string|level_label|4Kay4KeH4Kat4KeH4KayICUxJGQ=
 string|level_up_title|4Kay4KeH4Kat4KeH4KayIOCmhuCmqiE=
-string|mini_chess_continue|Q29udGludWU=
 string|mini_chess_difficulty_easy|RWFzeQ==
 string|mini_chess_difficulty_hard|SGFyZA==
 string|mini_chess_difficulty_medium|TWVkaXVt
 string|mini_chess_difficulty|RGlmZmljdWx0eQ==
 string|mini_chess_draw_warning|PSBzdGFsZW1hdGUgKGRyYXcsIG5vdCBhIHdpbik=
 string|mini_chess_move_counter|TW92ZSAlMSRkIC8gJTIkZA==
-string|mini_chess_play_again|UGxheSBhZ2Fpbg==
 string|mini_chess_reset|UmVzZXQ=
 string|mini_chess_restart|TmV3IGdhbWU=
 string|mini_chess_round_draw|RHJhdw==
-string|mini_chess_round_label|R2FtZSAlMSRk
 string|mini_chess_round_lost|Q1BVIG1hdGVkIHlvdQ==
 string|mini_chess_round_won|Q2hlY2ttYXRl
 string|mini_chess_thinking|Q1BVIGlzIHRoaW5raW5n4oCm
@@ -151,8 +147,6 @@ string|solution_figure|JTEkcyAlMiRz
 string|solution_left|4Kas4Ka+4Kau
 string|solution_pointing|JTEkcyAlMiRzICUzJHMg4Kam4Ka/4KaV4KeHIOCmqOCmv+CmsOCnjeCmpuCnh+CmtuCmv+CmpA==
 string|solution_right|4Kah4Ka+4Kao
-string|stat_total_score|4Kau4KeL4KafIOCmuOCnjeCmleCni+CmsA==
-string|stat_training_days|4Kaq4KeN4Kaw4Ka24Ka/4KaV4KeN4Ka34Kaj4KeH4KawIOCmpuCmv+CmqA==
 string|title_apprentice|4Ka24Ka/4KaV4KeN4Ka34Ka+4Kao4Kas4Ka/4Ka4
 string|title_grandmaster|4Kau4Ka54Ka+4KaX4KeB4Kaw4KeB
 string|title_master|4Kam4KaV4KeN4Ka3

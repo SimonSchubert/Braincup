@@ -21,7 +21,6 @@ string|achievement_silver_medal_desc|UmFnZ2l1bmdpIGlsIHB1bnRlZ2dpbyBkJ2FyZ2VudG8
 string|achievement_silver_medal|TWVkYWdsaWEgZCdhcmdlbnRv
 string|achievements_button|T2JpZXR0aXZpICglMSRkLyUyJGQp
 string|achievements_title|T2JpZXR0aXZp
-string|achievements_unlocked|JTEkZC8lMiRkIFNibG9jY2F0aQ==
 string|app_name|QnJhaW5jdXA=
 string|app_tagline|QWxsZW5hIGxlIHR1ZSBhYmlsaXTDoCBtYXRlbWF0aWNoZSwgbGEgbWVtb3JpYSBlIGxhIGNvbmNlbnRyYXppb25lLg==
 string|button_backspace|Q2FuY2VsbGE=
@@ -107,18 +106,15 @@ string|game_visual_memory|TWVtb3JpYSB2aXNpdmE=
 string|game_what_comes_next|Q29zYSB2aWVuZSBkb3BvPw==
 string|level_label|TGl2ZWxsbyAlMSRk
 string|level_up_title|TGl2ZWxsbyBhdW1lbnRhdG8h
-string|mini_chess_continue|Q29udGludWU=
 string|mini_chess_difficulty_easy|RWFzeQ==
 string|mini_chess_difficulty_hard|SGFyZA==
 string|mini_chess_difficulty_medium|TWVkaXVt
 string|mini_chess_difficulty|RGlmZmljdWx0eQ==
 string|mini_chess_draw_warning|PSBzdGFsZW1hdGUgKGRyYXcsIG5vdCBhIHdpbik=
 string|mini_chess_move_counter|TW92ZSAlMSRkIC8gJTIkZA==
-string|mini_chess_play_again|UGxheSBhZ2Fpbg==
 string|mini_chess_reset|UmVzZXQ=
 string|mini_chess_restart|TmV3IGdhbWU=
 string|mini_chess_round_draw|RHJhdw==
-string|mini_chess_round_label|R2FtZSAlMSRk
 string|mini_chess_round_lost|Q1BVIG1hdGVkIHlvdQ==
 string|mini_chess_round_won|Q2hlY2ttYXRl
 string|mini_chess_thinking|Q1BVIGlzIHRoaW5raW5n4oCm
@@ -151,8 +147,6 @@ string|solution_figure|JTEkcyAlMiRz
 string|solution_left|U2luaXN0cmE=
 string|solution_pointing|JTEkcyAlMiRzIGNoZSBwdW50YSB2ZXJzbyAlMyRz
 string|solution_right|RGVzdHJh
-string|stat_total_score|UHVudGVnZ2lvIHRvdGFsZQ==
-string|stat_training_days|R2lvcm5pIGRpIGFsbGVuYW1lbnRv
 string|title_apprentice|QXBwcmVuZGlzdGE=
 string|title_grandmaster|R3JhbiBNYWVzdHJv
 string|title_master|TWFlc3Rybw==
