@@ -48,6 +48,10 @@ tasks
 
 tasks.withType<Test>().configureEach {
     reports.html.required.set(false)
+    // Recycle the JVM periodically so Paparazzi's native ImageReader buffers don't
+    // exhaust when running the full Store/Tablet locale matrix in one fork.
+    forkEvery = 50
+    maxHeapSize = "4g"
 }
 
 val snapshotsDir = layout.projectDirectory.dir("src/test/snapshots/images")

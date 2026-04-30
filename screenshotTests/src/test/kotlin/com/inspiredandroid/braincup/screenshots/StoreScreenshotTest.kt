@@ -1,7 +1,10 @@
 package com.inspiredandroid.braincup.screenshots
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalInspectionMode
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
@@ -10,6 +13,8 @@ import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.GameScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
+import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
+import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
 import org.junit.After
@@ -82,13 +87,16 @@ class StoreScreenshotTest(
 
     private fun snap(
         name: String,
+        darkTheme: Boolean,
         content: @Composable () -> Unit,
     ) {
         paparazzi.unsafeUpdateConfig(theme = "android:Theme.Material.Light.NoActionBar")
         paparazzi.snapshot(name = "store_${playStoreLocale}_$name") {
             CompositionLocalProvider(LocalInspectionMode provides true) {
-                BraincupTheme {
-                    content()
+                BraincupTheme(colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme) {
+                    Surface(modifier = Modifier.fillMaxSize()) {
+                        content()
+                    }
                 }
             }
         }
@@ -96,7 +104,7 @@ class StoreScreenshotTest(
 
     @Test
     fun mainMenu() {
-        snap("01") {
+        snap("01", darkTheme = true) {
             MainMenuScreenContent(
                 totalXp = 250,
                 sessionStreak = 14,
@@ -112,7 +120,7 @@ class StoreScreenshotTest(
 
     @Test
     fun gameColoredShapes() {
-        snap("02") {
+        snap("02", darkTheme = false) {
             GameScreen(
                 gameUiState = createColoredShapesUiState(),
                 timeRemaining = 45_000L,
@@ -125,7 +133,7 @@ class StoreScreenshotTest(
 
     @Test
     fun gameAnomalyPuzzle() {
-        snap("03") {
+        snap("03", darkTheme = true) {
             GameScreen(
                 gameUiState = createAnomalyPuzzleUiState(),
                 timeRemaining = 50_000L,
@@ -138,7 +146,7 @@ class StoreScreenshotTest(
 
     @Test
     fun gameSherlockCalculation() {
-        snap("04") {
+        snap("04", darkTheme = false) {
             GameScreen(
                 gameUiState = createSherlockCalculationUiState(),
                 timeRemaining = 40_000L,
@@ -151,7 +159,7 @@ class StoreScreenshotTest(
 
     @Test
     fun gamePathFinder() {
-        snap("05") {
+        snap("05", darkTheme = true) {
             GameScreen(
                 gameUiState = createPathFinderUiState(),
                 timeRemaining = 30_000L,
@@ -164,7 +172,7 @@ class StoreScreenshotTest(
 
     @Test
     fun gamePatternSequence() {
-        snap("06") {
+        snap("06", darkTheme = false) {
             GameScreen(
                 gameUiState = createPatternSequenceUiState(),
                 timeRemaining = 20_000L,

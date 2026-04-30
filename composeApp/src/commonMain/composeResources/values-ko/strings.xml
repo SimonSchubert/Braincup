@@ -14,8 +14,6 @@
     <string name="button_done">완료</string>
 
     <!-- Main menu -->
-    <string name="stat_training_days">훈련 일수</string>
-    <string name="stat_total_score">총점</string>
     <string name="achievements_button">업적 (%1$d/%2$d)</string>
 
     <!-- Game screen -->
@@ -41,7 +39,6 @@
 
     <!-- Achievements screen -->
     <string name="achievements_title">업적</string>
-    <string name="achievements_unlocked">%1$d/%2$d 달성</string>
 
     <!-- Game types - names -->
     <string name="game_anomaly_puzzle">이상 퍼즐</string>
@@ -87,14 +84,11 @@
     <string name="mini_chess_round_draw">Draw</string>
     <string name="mini_chess_reset">Reset</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_play_again">Play again</string>
     <string name="mini_chess_difficulty">Difficulty</string>
     <string name="mini_chess_difficulty_easy">Easy</string>
     <string name="mini_chess_difficulty_medium">Medium</string>
     <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_round_label">Game %1$d</string>
     <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_continue">Continue</string>
     <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
     <string name="game_what_comes_next">다음은 무엇일까요?</string>

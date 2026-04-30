@@ -36,7 +36,7 @@ val MedalGold = Color(0xFFFFD700)
 val MedalSilver = Color(0xFFC0C0C0)
 val MedalBronze = Color(0xFFCD7F32)
 
-internal val LightColorScheme = lightColorScheme(
+val LightColorScheme = lightColorScheme(
     primary = Primary,
     onPrimary = OnPrimary,
     secondary = Secondary,
@@ -51,7 +51,7 @@ internal val LightColorScheme = lightColorScheme(
     onError = Color.White,
 )
 
-internal val DarkColorScheme = darkColorScheme(
+val DarkColorScheme = darkColorScheme(
     primary = Primary,
     onPrimary = Color.White,
     secondary = Primary,

@@ -1,7 +1,10 @@
 package com.inspiredandroid.braincup.screenshots
 
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalInspectionMode
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
@@ -12,6 +15,8 @@ import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.SessionCompleteScreen
 import com.inspiredandroid.braincup.ui.screens.SessionInterstitialScreen
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
+import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
+import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
 import org.junit.Before
@@ -33,14 +38,17 @@ class ScreenshotTest {
     }
 
     fun Paparazzi.snap(
+        darkTheme: Boolean = false,
         content: @Composable () -> Unit,
     ) {
         unsafeUpdateConfig(theme = "android:Theme.Material.Light.NoActionBar")
 
         snapshot {
             CompositionLocalProvider(LocalInspectionMode provides true) {
-                BraincupTheme {
-                    content()
+                BraincupTheme(colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme) {
+                    Surface(modifier = Modifier.fillMaxSize()) {
+                        content()
+                    }
                 }
             }
         }
@@ -49,7 +57,7 @@ class ScreenshotTest {
 
     @Test
     fun mainMenu() {
-        paparazzi.snap {
+        paparazzi.snap(darkTheme = true) {
             MainMenuScreenContent(
                 totalXp = 250,
                 sessionStreak = 14,
@@ -156,7 +164,7 @@ class ScreenshotTest {
 
     @Test
     fun gameAnomalyPuzzle() {
-        paparazzi.snap {
+        paparazzi.snap(darkTheme = true) {
             GameScreen(
                 gameUiState = createAnomalyPuzzleUiState(),
                 timeRemaining = 50_000L,
@@ -205,7 +213,7 @@ class ScreenshotTest {
 
     @Test
     fun gameMentalCalculation() {
-        paparazzi.snap {
+        paparazzi.snap(darkTheme = true) {
             GameScreen(
                 gameUiState = createMentalCalculationUiState(),
                 timeRemaining = 55_000L,
@@ -231,7 +239,7 @@ class ScreenshotTest {
 
     @Test
     fun gameChainCalculation() {
-        paparazzi.snap {
+        paparazzi.snap(darkTheme = true) {
             GameScreen(
                 gameUiState = createChainCalculationUiState(),
                 timeRemaining = 50_000L,
@@ -257,7 +265,7 @@ class ScreenshotTest {
 
     @Test
     fun gameValueComparison() {
-        paparazzi.snap {
+        paparazzi.snap(darkTheme = true) {
             GameScreen(
                 gameUiState = createValueComparisonUiState(),
                 timeRemaining = 50_000L,
