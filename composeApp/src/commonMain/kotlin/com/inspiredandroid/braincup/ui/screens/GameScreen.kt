@@ -82,30 +82,60 @@ fun GameScreen(
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
 ) {
-    GameScaffold(onBack = onBack) {
-        when {
-            gameUiState is VisualMemoryUiState ||
-                gameUiState is GhostGridUiState ||
-                gameUiState is OrbitTrackerUiState ||
-                gameUiState is MiniChessUiState ||
-                gameUiState is LightsOutUiState ||
-                gameUiState is SlidingPuzzleUiState -> Unit
-            gameUiState is SchulteTableUiState -> StopwatchDisplay(
-                elapsedMillis = elapsedTime,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-            )
-            else -> TimeProgressIndicator(
-                progress = timeRemaining / 60000f,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 8.dp),
-            )
+    val progressBar: (@Composable () -> Unit)? = when {
+        gameUiState is VisualMemoryUiState &&
+            gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING -> {
+            val round = gameUiState.round
+            val bar: @Composable () -> Unit = {
+                val totalMillis = VisualMemoryGame.memorizeDurationMillis(round)
+                var progress by remember(round) { mutableStateOf(1f) }
+                LaunchedEffect(round) {
+                    val startNanos = withFrameNanos { it }
+                    while (progress > 0f) {
+                        val nowNanos = withFrameNanos { it }
+                        val elapsedMillis = (nowNanos - startNanos) / 1_000_000f
+                        progress = (1f - elapsedMillis / totalMillis).coerceAtLeast(0f)
+                    }
+                }
+                TimeProgressIndicator(
+                    progress = progress,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
+            bar
         }
-
-        Spacer(Modifier.weight(1f))
-
+        gameUiState is VisualMemoryUiState ||
+            gameUiState is GhostGridUiState ||
+            gameUiState is OrbitTrackerUiState ||
+            gameUiState is MiniChessUiState ||
+            gameUiState is LightsOutUiState ||
+            gameUiState is SlidingPuzzleUiState -> null
+        gameUiState is SchulteTableUiState -> {
+            val bar: @Composable () -> Unit = {
+                StopwatchDisplay(
+                    elapsedMillis = elapsedTime,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
+            bar
+        }
+        else -> {
+            val bar: @Composable () -> Unit = {
+                TimeProgressIndicator(
+                    progress = timeRemaining / 60000f,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
+            bar
+        }
+    }
+    GameScaffold(onBack = onBack, progressBar = progressBar) {
         when (gameUiState) {
             is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
             is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
@@ -127,8 +157,6 @@ fun GameScreen(
             is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
             is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
         }
-
-        Spacer(Modifier.weight(1f))
     }
 }
 
@@ -137,17 +165,42 @@ private fun ColumnScope.MentalCalculationContent(
     uiState: MentalCalculationUiState,
     onAnswer: (String) -> Unit,
 ) {
-    MathText(
-        text = uiState.calculation,
-        style = MaterialTheme.typography.displaySmall,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(16.dp))
-    NumberPadWithInput(onInputChange = { input ->
-        if (uiState.answerLength == input.length) {
-            onAnswer(input)
+    if (LocalIsCompactHeight.current) {
+        var input by remember(uiState.calculation) { mutableStateOf("") }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            MathText(
+                text = "${uiState.calculation} = ${input.ifEmpty { "?" }}",
+                style = MaterialTheme.typography.displaySmall,
+            )
+            Column {
+                NumberPad(onInputChange = { typed ->
+                    val next = input + typed
+                    input = next
+                    if (uiState.answerLength == next.length) {
+                        onAnswer(next)
+                    }
+                })
+            }
         }
-    })
+    } else {
+        MathText(
+            text = uiState.calculation,
+            style = MaterialTheme.typography.displaySmall,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(16.dp))
+        NumberPadWithInput(onInputChange = { typed ->
+            if (uiState.answerLength == typed.length) {
+                onAnswer(typed)
+            }
+        })
+    }
 }
 
 @Composable
@@ -156,28 +209,66 @@ private fun ColumnScope.ChainCalculationContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    MathText(
-        text = "${uiState.calculation} = ?",
-        style = MaterialTheme.typography.displaySmall,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp),
-    )
-    Spacer(Modifier.height(16.dp))
-    NumberPadWithInput(onInputChange = { input ->
+    val onInputChange: (String) -> Unit = { input ->
         if (input.toIntOrNull() == uiState.answer) {
             onAnswer(input)
         }
-    })
-    Spacer(Modifier.height(16.dp))
-    TextButton(
-        onClick = onGiveUp,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .hoverHand(),
-    ) {
-        Text(stringResource(Res.string.button_give_up))
+    }
+    if (LocalIsCompactHeight.current) {
+        var input by remember(uiState.calculation) { mutableStateOf("") }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                MathText(
+                    text = "${uiState.calculation} = ${input.ifEmpty { "?" }}",
+                    style = MaterialTheme.typography.displaySmall,
+                    textAlign = TextAlign.Center,
+                )
+                Spacer(Modifier.height(8.dp))
+                TextButton(
+                    onClick = onGiveUp,
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.button_give_up))
+                }
+            }
+            Column {
+                NumberPad(onInputChange = { typed ->
+                    val next = input + typed
+                    input = next
+                    if (next.toIntOrNull() == uiState.answer) {
+                        onAnswer(next)
+                    }
+                })
+            }
+        }
+    } else {
+        MathText(
+            text = "${uiState.calculation} = ?",
+            style = MaterialTheme.typography.displaySmall,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+        )
+        Spacer(Modifier.height(16.dp))
+        NumberPadWithInput(onInputChange = onInputChange)
+        Spacer(Modifier.height(16.dp))
+        TextButton(
+            onClick = onGiveUp,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .hoverHand(),
+        ) {
+            Text(stringResource(Res.string.button_give_up))
+        }
     }
 }
 
@@ -186,64 +277,104 @@ private fun ColumnScope.ColoredShapesContent(
     uiState: ColoredShapesUiState,
     onAnswer: (String) -> Unit,
 ) {
-    // Show actual shape with color
-    ShapeCanvas(
-        figure = uiState.displayedFigure,
-        modifier = Modifier.size(200.dp).align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(16.dp))
+    val compact = LocalIsCompactHeight.current
 
-    // Point assignments
-    Text(
-        text = "${uiState.answerShape.localizedName()} = ${uiState.shapePoints}",
-        style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Text(
-        text = "${uiState.answerColor.localizedName()} = ${uiState.colorPoints}",
-        style = MaterialTheme.typography.bodyLarge,
-        color = uiState.stringColor.composeColor,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(16.dp))
+    val shape: @Composable (Modifier) -> Unit = { mod ->
+        ShapeCanvas(
+            figure = uiState.displayedFigure,
+            modifier = mod,
+        )
+    }
 
-    // Answer buttons
-    Row(
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    ) {
-        uiState.possibleAnswers.forEach { button ->
-            when (button.state) {
-                AnswerButtonState.NORMAL -> CircleButton(
-                    onClick = { onAnswer(button.value) },
-                    value = button.value,
-                )
-                AnswerButtonState.WRONG -> Card(
-                    modifier = Modifier.size(56.dp),
-                    shape = androidx.compose.foundation.shape.CircleShape,
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
-                ) {
-                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Text(button.value, color = MaterialTheme.colorScheme.onErrorContainer)
-                    }
-                }
-                AnswerButtonState.CORRECT -> Card(
-                    modifier = Modifier.size(56.dp),
-                    shape = androidx.compose.foundation.shape.CircleShape,
-                    colors = CardDefaults.cardColors(containerColor = SuccessGreenSoft),
-                    border = BorderStroke(2.dp, SuccessGreen),
-                ) {
-                    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                        Text(button.value)
-                    }
-                }
-                AnswerButtonState.DIMMED -> Box(
-                    modifier = Modifier.size(56.dp).alpha(0.3f),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    CircleButton(onClick = {}, value = button.value)
+    val pointLabels: @Composable ColumnScope.() -> Unit = {
+        Text(
+            text = "${uiState.answerShape.localizedName()} = ${uiState.shapePoints}",
+            style = MaterialTheme.typography.bodyLarge,
+        )
+        Text(
+            text = "${uiState.answerColor.localizedName()} = ${uiState.colorPoints}",
+            style = MaterialTheme.typography.bodyLarge,
+            color = uiState.stringColor.composeColor,
+        )
+    }
+
+    @Composable
+    fun answerButton(button: AnswerButton) {
+        when (button.state) {
+            AnswerButtonState.NORMAL -> CircleButton(
+                onClick = { onAnswer(button.value) },
+                value = button.value,
+            )
+            AnswerButtonState.WRONG -> Card(
+                modifier = Modifier.size(56.dp),
+                shape = CircleShape,
+                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
+            ) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(button.value, color = MaterialTheme.colorScheme.onErrorContainer)
                 }
             }
+            AnswerButtonState.CORRECT -> Card(
+                modifier = Modifier.size(56.dp),
+                shape = CircleShape,
+                colors = CardDefaults.cardColors(containerColor = SuccessGreenSoft),
+                border = BorderStroke(2.dp, SuccessGreen),
+            ) {
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Text(button.value)
+                }
+            }
+            AnswerButtonState.DIMMED -> Box(
+                modifier = Modifier.size(56.dp).alpha(0.3f),
+                contentAlignment = Alignment.Center,
+            ) {
+                CircleButton(onClick = {}, value = button.value)
+            }
+        }
+    }
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            shape(Modifier.size(160.dp))
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                pointLabels()
+                Spacer(Modifier.height(12.dp))
+                Column(
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    uiState.possibleAnswers.chunked(2).forEach { rowButtons ->
+                        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                            rowButtons.forEach { answerButton(it) }
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        shape(Modifier.size(200.dp).align(Alignment.CenterHorizontally))
+        Spacer(Modifier.height(16.dp))
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        ) {
+            pointLabels()
+        }
+        Spacer(Modifier.height(16.dp))
+
+        Row(
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        ) {
+            uiState.possibleAnswers.forEach { answerButton(it) }
         }
     }
 }
@@ -254,13 +385,7 @@ private fun ColumnScope.SherlockCalculationContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    // Goal display
-    Text(
-        text = stringResource(Res.string.game_goal, uiState.result),
-        style = MaterialTheme.typography.headlineMedium,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(16.dp))
+    val compact = LocalIsCompactHeight.current
 
     // Use key to reset state when uiState.result changes (new round)
     key(uiState.result, uiState.solutionTokens) {
@@ -280,66 +405,109 @@ private fun ColumnScope.SherlockCalculationContent(
             }
         }
 
-        // Expression row
-        ExpressionRow(
-            tokens = if (showingSolution) {
-                uiState.solutionTokens
-            } else {
-                expressionTokens
-            },
-            onTokenClick = { tokenIndex ->
-                if (!showingSolution) {
-                    val token = expressionTokens.removeAt(tokenIndex)
-                    if (token is ExpressionToken.NumberToken) {
-                        usedNumberIndices.remove(token.originalIndex)
+        val goalText: @Composable (Modifier) -> Unit = { mod ->
+            Text(
+                text = stringResource(Res.string.game_goal, uiState.result),
+                style = MaterialTheme.typography.headlineMedium,
+                modifier = mod,
+            )
+        }
+
+        val expressionRow: @Composable (Modifier) -> Unit = { mod ->
+            ExpressionRow(
+                tokens = if (showingSolution) uiState.solutionTokens else expressionTokens,
+                onTokenClick = { tokenIndex ->
+                    if (!showingSolution) {
+                        val token = expressionTokens.removeAt(tokenIndex)
+                        if (token is ExpressionToken.NumberToken) {
+                            usedNumberIndices.remove(token.originalIndex)
+                        }
                     }
-                }
-            },
-            onBackspace = {
-                if (!showingSolution && expressionTokens.isNotEmpty()) {
-                    val lastToken = expressionTokens.removeAt(expressionTokens.lastIndex)
-                    if (lastToken is ExpressionToken.NumberToken) {
-                        usedNumberIndices.remove(lastToken.originalIndex)
+                },
+                onBackspace = {
+                    if (!showingSolution && expressionTokens.isNotEmpty()) {
+                        val lastToken = expressionTokens.removeAt(expressionTokens.lastIndex)
+                        if (lastToken is ExpressionToken.NumberToken) {
+                            usedNumberIndices.remove(lastToken.originalIndex)
+                        }
                     }
+                },
+                modifier = mod,
+            )
+        }
+
+        val giveUpButton: @Composable (Modifier) -> Unit = { mod ->
+            TextButton(
+                onClick = onGiveUp,
+                enabled = !showingSolution,
+                modifier = mod
+                    .alpha(if (showingSolution) 0f else 1f)
+                    .hoverHand(),
+            ) {
+                Text(stringResource(Res.string.button_give_up))
+            }
+        }
+
+        val numbersRow: @Composable (Modifier) -> Unit = { mod ->
+            AvailableNumbersRow(
+                numbers = uiState.numbers,
+                usedIndices = if (showingSolution) uiState.numbers.indices.toSet() else usedNumberIndices,
+                onNumberClick = { value, index ->
+                    expressionTokens.add(ExpressionToken.NumberToken(value, index))
+                    usedNumberIndices.add(index)
+                    checkAnswer()
+                },
+                modifier = mod,
+            )
+        }
+
+        val operatorRow: @Composable (Modifier) -> Unit = { mod ->
+            OperatorRow(
+                onOperatorClick = { operator ->
+                    if (!showingSolution) {
+                        expressionTokens.add(ExpressionToken.OperatorToken(operator))
+                    }
+                },
+                modifier = mod,
+            )
+        }
+
+        if (compact) {
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    goalText(Modifier)
+                    Spacer(Modifier.height(8.dp))
+                    expressionRow(Modifier)
+                    Spacer(Modifier.height(8.dp))
+                    giveUpButton(Modifier)
                 }
-            },
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-        Spacer(Modifier.height(16.dp))
-
-        // Available numbers — always visible, disabled when showing solution
-        AvailableNumbersRow(
-            numbers = uiState.numbers,
-            usedIndices = if (showingSolution) uiState.numbers.indices.toSet() else usedNumberIndices,
-            onNumberClick = { value, index ->
-                expressionTokens.add(ExpressionToken.NumberToken(value, index))
-                usedNumberIndices.add(index)
-                checkAnswer()
-            },
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-        Spacer(Modifier.height(12.dp))
-
-        // Operators — always visible, non-interactive when showing solution
-        OperatorRow(
-            onOperatorClick = { operator ->
-                if (!showingSolution) {
-                    expressionTokens.add(ExpressionToken.OperatorToken(operator))
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    numbersRow(Modifier)
+                    operatorRow(Modifier)
                 }
-            },
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-        Spacer(Modifier.height(16.dp))
-
-        TextButton(
-            onClick = onGiveUp,
-            enabled = !showingSolution,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .alpha(if (showingSolution) 0f else 1f)
-                .hoverHand(),
-        ) {
-            Text(stringResource(Res.string.button_give_up))
+            }
+        } else {
+            val centered = Modifier.align(Alignment.CenterHorizontally)
+            goalText(centered)
+            Spacer(Modifier.height(16.dp))
+            expressionRow(centered)
+            Spacer(Modifier.height(16.dp))
+            numbersRow(centered)
+            Spacer(Modifier.height(12.dp))
+            operatorRow(centered)
+            Spacer(Modifier.height(16.dp))
+            giveUpButton(centered)
         }
     }
 }
@@ -350,46 +518,94 @@ private fun ColumnScope.FractionCalculationContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    Row(
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-    ) {
-        val parts = uiState.calculation.split(" * ")
-        parts.forEachIndexed { index, part ->
-            val fraction = part.removeSurrounding("(", ")")
-            val fractionParts = fraction.split("/")
-            if (fractionParts.size == 2) {
-                FractionText(
-                    numerator = fractionParts[0],
-                    denominator = fractionParts[1],
-                    style = MaterialTheme.typography.displaySmall,
-                )
-            } else {
-                Text(part, style = MaterialTheme.typography.displaySmall)
-            }
-
-            if (index < parts.size - 1) {
-                Text("\u00D7", style = MaterialTheme.typography.displaySmall)
-            }
-        }
-    }
-    Spacer(Modifier.height(16.dp))
-    NumberPadWithInput(onInputChange = { input ->
+    val onInputChange: (String) -> Unit = { input ->
         if (input == uiState.answerString || input.length >= 4) {
             onAnswer(input)
         }
-    })
-    Spacer(Modifier.height(16.dp))
-    TextButton(
-        onClick = onGiveUp,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .hoverHand(),
-    ) {
-        Text(stringResource(Res.string.button_give_up))
+    }
+    val expression: @Composable () -> Unit = {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            val parts = uiState.calculation.split(" * ")
+            parts.forEachIndexed { index, part ->
+                val fraction = part.removeSurrounding("(", ")")
+                val fractionParts = fraction.split("/")
+                if (fractionParts.size == 2) {
+                    FractionText(
+                        numerator = fractionParts[0],
+                        denominator = fractionParts[1],
+                        style = MaterialTheme.typography.displaySmall,
+                    )
+                } else {
+                    Text(part, style = MaterialTheme.typography.displaySmall)
+                }
+
+                if (index < parts.size - 1) {
+                    Text("\u00D7", style = MaterialTheme.typography.displaySmall)
+                }
+            }
+        }
+    }
+
+    if (LocalIsCompactHeight.current) {
+        var input by remember(uiState.calculation) { mutableStateOf("") }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                expression()
+                if (input.isNotEmpty()) {
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = "= $input",
+                        style = MaterialTheme.typography.headlineSmall,
+                    )
+                }
+                Spacer(Modifier.height(8.dp))
+                TextButton(
+                    onClick = onGiveUp,
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.button_give_up))
+                }
+            }
+            Column {
+                NumberPad(onInputChange = { typed ->
+                    val next = input + typed
+                    input = next
+                    if (next == uiState.answerString || next.length >= 4) {
+                        onAnswer(next)
+                    }
+                })
+            }
+        }
+    } else {
+        Box(
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 16.dp),
+        ) {
+            expression()
+        }
+        Spacer(Modifier.height(16.dp))
+        NumberPadWithInput(onInputChange = onInputChange)
+        Spacer(Modifier.height(16.dp))
+        TextButton(
+            onClick = onGiveUp,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .hoverHand(),
+        ) {
+            Text(stringResource(Res.string.button_give_up))
+        }
     }
 }
 
@@ -442,47 +658,80 @@ private fun ColumnScope.PathFinderContent(
     uiState: PathFinderUiState,
     onAnswer: (String) -> Unit,
 ) {
-    Text(
-        text = stringResource(Res.string.game_follow_directions),
-        style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(8.dp))
-    FlowRow(
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        uiState.directionFigures.forEach {
-            ShapeCanvas(
-                figure = it,
-                modifier = Modifier.size(32.dp),
-            )
+    val compact = LocalIsCompactHeight.current
+
+    val instructionText: @Composable () -> Unit = {
+        Text(
+            text = stringResource(Res.string.game_follow_directions),
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center,
+        )
+    }
+
+    val directions: @Composable () -> Unit = {
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            uiState.directionFigures.forEach {
+                ShapeCanvas(
+                    figure = it,
+                    modifier = Modifier.size(if (compact) 24.dp else 32.dp),
+                )
+            }
         }
     }
-    Spacer(Modifier.height(16.dp))
 
-    // 4x4 grid
-    Column(
-        modifier = Modifier
-            .padding(horizontal = 24.dp)
-            .widthIn(max = 64.dp * 4),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        uiState.grid.forEachIndexed { y, cells ->
-            Row {
-                cells.forEachIndexed { x, cell ->
-                    val index = y * 4 + x + 1
-                    FigureCellContent(
-                        cell = cell,
-                        onClick = { onAnswer(index.toString()) },
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(4.dp),
-                    )
+    val grid: @Composable (Modifier) -> Unit = { mod ->
+        Column(
+            modifier = mod,
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            uiState.grid.forEachIndexed { y, cells ->
+                Row {
+                    cells.forEachIndexed { x, cell ->
+                        val index = y * 4 + x + 1
+                        FigureCellContent(
+                            cell = cell,
+                            onClick = { onAnswer(index.toString()) },
+                            modifier = Modifier
+                                .weight(1f)
+                                .aspectRatio(1f)
+                                .padding(4.dp),
+                        )
+                    }
                 }
             }
         }
+    }
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                instructionText()
+                Spacer(Modifier.height(8.dp))
+                directions()
+            }
+            grid(Modifier.widthIn(max = 48.dp * 4))
+        }
+    } else {
+        instructionText()
+        Spacer(Modifier.height(8.dp))
+        directions()
+        Spacer(Modifier.height(16.dp))
+        grid(
+            Modifier
+                .padding(horizontal = 24.dp)
+                .widthIn(max = 64.dp * 4),
+        )
     }
 }
 
@@ -558,44 +807,98 @@ private fun ColumnScope.MiniSudokuContent(
         mutableStateOf(uiState.initialValues.indexOfFirst { it == null }.coerceAtLeast(0))
     }
 
-    Text(
-        text = stringResource(Res.string.game_sudoku_instruction),
-        style = MaterialTheme.typography.bodyLarge,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp),
-    )
-    Spacer(Modifier.height(16.dp))
-
-    SudokuGrid(
-        uiState = uiState,
-        inputs = inputs,
-        selectedIndex = selectedIndex,
-        showingSolution = showingSolution,
-        onCellClick = { selectedIndex = it },
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-
-    Spacer(Modifier.height(24.dp))
-
-    SudokuDigitPad(
-        gridSize = uiState.gridSize,
-        enabled = !showingSolution,
-        onDigit = { digit ->
-            if (selectedIndex !in inputs.indices) return@SudokuDigitPad
-            if (uiState.initialValues[selectedIndex] != null) return@SudokuDigitPad
-
+    val onDigit: (Int) -> Unit = { digit ->
+        if (selectedIndex in inputs.indices && uiState.initialValues[selectedIndex] == null) {
             val updated = inputs.toMutableList().apply { this[selectedIndex] = digit }
             inputs = updated
-
             if (updated.all { it != null }) {
                 onAnswer(updated.joinToString(",") { it.toString() })
             } else {
                 selectedIndex = nextEmptyCell(selectedIndex, updated, uiState.initialValues)
             }
-        },
-    )
+        }
+    }
+
+    if (LocalIsCompactHeight.current) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            SudokuGrid(
+                uiState = uiState,
+                inputs = inputs,
+                selectedIndex = selectedIndex,
+                showingSolution = showingSolution,
+                onCellClick = { selectedIndex = it },
+            )
+            SudokuDigitPadGrid(
+                gridSize = uiState.gridSize,
+                columns = 2,
+                enabled = !showingSolution,
+                onDigit = onDigit,
+            )
+        }
+    } else {
+        Text(
+            text = stringResource(Res.string.game_sudoku_instruction),
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 16.dp),
+        )
+        Spacer(Modifier.height(16.dp))
+
+        SudokuGrid(
+            uiState = uiState,
+            inputs = inputs,
+            selectedIndex = selectedIndex,
+            showingSolution = showingSolution,
+            onCellClick = { selectedIndex = it },
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+
+        Spacer(Modifier.height(24.dp))
+
+        SudokuDigitPad(
+            gridSize = uiState.gridSize,
+            enabled = !showingSolution,
+            onDigit = onDigit,
+        )
+    }
+}
+
+@Composable
+private fun SudokuDigitPadGrid(
+    gridSize: Int,
+    columns: Int,
+    enabled: Boolean,
+    onDigit: (Int) -> Unit,
+) {
+    Column(
+        verticalArrangement = Arrangement.spacedBy(6.dp),
+    ) {
+        (1..gridSize).chunked(columns).forEach { rowDigits ->
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                rowDigits.forEach { digit ->
+                    FilledTonalButton(
+                        onClick = { onDigit(digit) },
+                        enabled = enabled,
+                        modifier = Modifier
+                            .size(SudokuCellSize)
+                            .hoverHand(enabled),
+                        contentPadding = PaddingValues(0.dp),
+                        shape = RoundedCornerShape(12.dp),
+                    ) {
+                        Text(text = digit.toString(), style = MaterialTheme.typography.titleLarge)
+                    }
+                }
+            }
+        }
+    }
 }
 
 /** Find the next still-empty user-editable cell after [from], wrapping around. */
@@ -824,62 +1127,94 @@ private fun ColumnScope.LightsOutContent(
     onGiveUp: () -> Unit,
 ) {
     val n = uiState.gridSize
-    val cellSize = when (n) {
-        3 -> 72.dp
-        4 -> 60.dp
+    val compact = LocalIsCompactHeight.current
+    val cellSize = when {
+        compact -> if (n <= 4) 48.dp else 40.dp
+        n == 3 -> 72.dp
+        n == 4 -> 60.dp
         else -> 52.dp
     }
 
-    Text(
-        text = stringResource(Res.string.level_label, uiState.level),
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.Bold,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(4.dp))
-    Text(
-        text = stringResource(Res.string.game_lights_out_instruction),
-        style = MaterialTheme.typography.bodyLarge,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp),
-    )
-    Spacer(Modifier.height(4.dp))
-    Text(
-        text = stringResource(Res.string.moves_label, uiState.moves),
-        style = MaterialTheme.typography.labelLarge,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(16.dp))
-
-    Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    ) {
-        for (row in 0 until n) {
-            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                for (col in 0 until n) {
-                    val index = row * n + col
-                    LightsOutCell(
-                        on = uiState.cells[index],
-                        size = cellSize,
-                        onClick = { onAnswer(index.toString()) },
-                    )
+    val board: @Composable () -> Unit = {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            for (row in 0 until n) {
+                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                    for (col in 0 until n) {
+                        val index = row * n + col
+                        LightsOutCell(
+                            on = uiState.cells[index],
+                            size = cellSize,
+                            onClick = { onAnswer(index.toString()) },
+                        )
+                    }
                 }
             }
         }
     }
-    Spacer(Modifier.height(16.dp))
-    TextButton(
-        onClick = onGiveUp,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .hoverHand(),
-    ) {
-        Text(stringResource(Res.string.button_give_up))
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            board()
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = stringResource(Res.string.level_label, uiState.level),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(Res.string.moves_label, uiState.moves),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(8.dp))
+                TextButton(
+                    onClick = onGiveUp,
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.button_give_up))
+                }
+            }
+        }
+    } else {
+        Text(
+            text = stringResource(Res.string.level_label, uiState.level),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(Res.string.moves_label, uiState.moves),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            board()
+        }
+        Spacer(Modifier.height(16.dp))
+        TextButton(
+            onClick = onGiveUp,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .hoverHand(),
+        ) {
+            Text(stringResource(Res.string.button_give_up))
+        }
     }
 }
 
@@ -908,63 +1243,95 @@ private fun ColumnScope.SlidingPuzzleContent(
     onGiveUp: () -> Unit,
 ) {
     val n = uiState.gridSize
-    val cellSize = when (n) {
-        3 -> 72.dp
-        4 -> 60.dp
+    val compact = LocalIsCompactHeight.current
+    val cellSize = when {
+        compact -> if (n <= 4) 48.dp else 40.dp
+        n == 3 -> 72.dp
+        n == 4 -> 60.dp
         else -> 52.dp
     }
 
-    Text(
-        text = stringResource(Res.string.level_label, uiState.level),
-        style = MaterialTheme.typography.titleMedium,
-        fontWeight = FontWeight.Bold,
-        color = MaterialTheme.colorScheme.primary,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(4.dp))
-    Text(
-        text = stringResource(Res.string.game_sliding_puzzle_instruction),
-        style = MaterialTheme.typography.bodyLarge,
-        textAlign = TextAlign.Center,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 16.dp),
-    )
-    Spacer(Modifier.height(4.dp))
-    Text(
-        text = stringResource(Res.string.moves_label, uiState.moves),
-        style = MaterialTheme.typography.labelLarge,
-        color = MaterialTheme.colorScheme.onSurfaceVariant,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    Spacer(Modifier.height(16.dp))
-
-    Column(
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    ) {
-        for (row in 0 until n) {
-            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                for (col in 0 until n) {
-                    val index = row * n + col
-                    val tile = uiState.tiles[index]
-                    SlidingPuzzleCell(
-                        label = tile,
-                        size = cellSize,
-                        onClick = { if (tile != 0) onAnswer(index.toString()) },
-                    )
+    val board: @Composable () -> Unit = {
+        Column(
+            verticalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            for (row in 0 until n) {
+                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                    for (col in 0 until n) {
+                        val index = row * n + col
+                        val tile = uiState.tiles[index]
+                        SlidingPuzzleCell(
+                            label = tile,
+                            size = cellSize,
+                            onClick = { if (tile != 0) onAnswer(index.toString()) },
+                        )
+                    }
                 }
             }
         }
     }
-    Spacer(Modifier.height(16.dp))
-    TextButton(
-        onClick = onGiveUp,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .hoverHand(),
-    ) {
-        Text(stringResource(Res.string.button_give_up))
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            board()
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = stringResource(Res.string.level_label, uiState.level),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(Res.string.moves_label, uiState.moves),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(8.dp))
+                TextButton(
+                    onClick = onGiveUp,
+                    modifier = Modifier.hoverHand(),
+                ) {
+                    Text(stringResource(Res.string.button_give_up))
+                }
+            }
+        }
+    } else {
+        Text(
+            text = stringResource(Res.string.level_label, uiState.level),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(Res.string.moves_label, uiState.moves),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            board()
+        }
+        Spacer(Modifier.height(16.dp))
+        TextButton(
+            onClick = onGiveUp,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .hoverHand(),
+        ) {
+            Text(stringResource(Res.string.button_give_up))
+        }
     }
 }
 
@@ -1172,66 +1539,49 @@ private fun ColumnScope.VisualMemoryContent(
     uiState: VisualMemoryUiState,
     onAnswer: (String) -> Unit,
 ) {
-    val isMemorizing = uiState.phase == VisualMemoryGame.Phase.MEMORIZING
     val showAnswerOptions = uiState.phase == VisualMemoryGame.Phase.ANSWERING ||
         uiState.phase == VisualMemoryGame.Phase.GAME_OVER
 
-    Spacer(Modifier.height(8.dp))
+    if (LocalIsCompactHeight.current) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            VisualMemoryGrid(
+                cells = uiState.cells,
+                modifier = Modifier.widthIn(max = 200.dp),
+            )
+            VisualMemoryAnswerOptions(
+                options = uiState.answerOptions,
+                visible = showAnswerOptions,
+                onAnswer = onAnswer,
+                modifier = Modifier.widthIn(max = 180.dp),
+            )
+        }
+    } else {
+        VisualMemoryGrid(
+            cells = uiState.cells,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 24.dp)
+                .widthIn(max = 80.dp * 3),
+        )
 
-    // Always rendered so the column height stays constant across phases —
-    // otherwise the surrounding weighted spacers would reflow during the transition.
-    VisualMemoryCountdown(
-        countdown = uiState.countdown,
-        visible = isMemorizing,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
+        Spacer(Modifier.height(24.dp))
 
-    Spacer(Modifier.height(16.dp))
-
-    VisualMemoryGrid(
-        cells = uiState.cells,
-        modifier = Modifier
-            .padding(horizontal = 24.dp)
-            .widthIn(max = 80.dp * 3),
-    )
-
-    Spacer(Modifier.height(24.dp))
-
-    // Always composed; alpha-animated to keep the column height stable across phases.
-    VisualMemoryAnswerOptions(
-        options = uiState.answerOptions,
-        visible = showAnswerOptions,
-        onAnswer = onAnswer,
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .padding(horizontal = 24.dp)
-            .widthIn(max = 72.dp * 3),
-    )
-}
-
-@Composable
-private fun VisualMemoryCountdown(
-    countdown: Int,
-    visible: Boolean,
-    modifier: Modifier = Modifier,
-) {
-    val alpha = animateFloatAsState(
-        targetValue = if (visible) 1f else 0f,
-        animationSpec = tween(VisualMemoryTransitionMillis),
-        label = "visualMemoryCountdown",
-    )
-    // Hold the last positive countdown so the fade-out keeps showing the final value
-    // instead of "0" (which is briefly emitted when the phase flips).
-    var displayed by remember { mutableIntStateOf(countdown.coerceAtLeast(1)) }
-    SideEffect {
-        if (countdown > 0) displayed = countdown
+        VisualMemoryAnswerOptions(
+            options = uiState.answerOptions,
+            visible = showAnswerOptions,
+            onAnswer = onAnswer,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 24.dp)
+                .widthIn(max = 72.dp * 3),
+        )
     }
-    Text(
-        text = displayed.toString(),
-        style = MaterialTheme.typography.headlineMedium,
-        color = Primary,
-        modifier = modifier.graphicsLayer { this.alpha = alpha.value },
-    )
 }
 
 @Composable
@@ -1398,11 +1748,12 @@ private fun ColumnScope.GhostGridContent(
     uiState: GhostGridUiState,
     onAnswer: (String) -> Unit,
 ) {
-    // NxN Grid
+    val cellMax = if (LocalIsCompactHeight.current) 56.dp else 72.dp
     Column(
         modifier = Modifier
             .padding(horizontal = 24.dp)
-            .widthIn(max = 72.dp * uiState.gridSize),
+            .widthIn(max = cellMax * uiState.gridSize)
+            .align(Alignment.CenterHorizontally),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         uiState.cells.chunked(uiState.gridSize).forEachIndexed { y, rowCells ->
@@ -1538,19 +1889,15 @@ private fun ColumnScope.ColorConfusionContent(
     uiState: ColorConfusionUiState,
     onAnswer: (String) -> Unit,
 ) {
-    Text(
-        text = stringResource(Res.string.game_tap_matching_colors),
-        style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-        textAlign = TextAlign.Center,
-    )
-    Spacer(Modifier.height(16.dp))
+    val compact = LocalIsCompactHeight.current
+    val cellMax = if (compact) 72.dp else 100.dp
 
     // 3x3 Grid
     Column(
         modifier = Modifier
             .padding(horizontal = 24.dp)
-            .widthIn(max = 100.dp * 3),
+            .widthIn(max = cellMax * 3)
+            .align(Alignment.CenterHorizontally),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         uiState.cells.chunked(3).forEachIndexed { y, rowCells ->
@@ -1574,7 +1921,7 @@ private fun ColumnScope.ColorConfusionContent(
         }
     }
 
-    Spacer(Modifier.height(16.dp))
+    Spacer(Modifier.height(if (compact) 8.dp else 16.dp))
 
     Button(
         onClick = { onAnswer("submit") },
@@ -1672,11 +2019,19 @@ private fun ColumnScope.OrbitTrackerContent(
     val outlineColor = MaterialTheme.colorScheme.outline
     val primaryColor = Primary
 
-    Box(
-        modifier = Modifier
+    val canvasSizeModifier = if (LocalIsCompactHeight.current) {
+        Modifier
+            .padding(horizontal = 24.dp)
+            .heightIn(max = 240.dp)
+            .aspectRatio(1f)
+    } else {
+        Modifier
             .padding(horizontal = 24.dp)
             .widthIn(max = 400.dp)
             .aspectRatio(1f)
+    }
+    Box(
+        modifier = canvasSizeModifier
             .align(Alignment.CenterHorizontally),
     ) {
         Canvas(
@@ -1924,14 +2279,9 @@ private fun ColumnScope.MiniChessContent(
     val movesLeft = uiState.halfMoveCap - uiState.halfMoveCount
     val movesNearCap = uiState.outcome == null && movesLeft in 1..6
 
-    Column(
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
+    val statusBox: @Composable () -> Unit = {
         Box(
-            modifier = Modifier
-                .padding(top = 8.dp)
-                .height(20.dp),
+            modifier = Modifier.height(20.dp),
             contentAlignment = Alignment.Center,
         ) {
             when {
@@ -1966,47 +2316,49 @@ private fun ColumnScope.MiniChessContent(
                 )
             }
         }
-        Spacer(Modifier.height(8.dp))
+    }
 
-        for (row in 4 downTo 0) {
-            Row {
-                for (col in 0..4) {
-                    val index = row * 5 + col
-                    val cell = uiState.cells[index]
-                    val showCheckRing = cell.pieceType == PieceType.KING &&
-                        (
-                            (cell.isWhite && uiState.whiteInCheck) ||
-                                (!cell.isWhite && uiState.blackInCheck)
-                            )
-                    MiniChessCellView(
-                        cell = cell,
-                        isLight = (row + col) % 2 == 0,
-                        isSelected = selectedFrom == index,
-                        isLegalTarget = index in highlights,
-                        isStalemateTarget = index in drawHighlights,
-                        isLastMove = index == uiState.lastMoveFromIndex || index == uiState.lastMoveToIndex,
-                        showCheckRing = showCheckRing,
-                        enabled = interactive,
-                        onClick = {
-                            val from = selectedFrom
-                            if (from != null && uiState.legalMovesByFrom[from]?.contains(index) == true) {
-                                onAnswer("$from>$index")
-                                selectedFrom = null
-                            } else if (uiState.legalMovesByFrom.containsKey(index)) {
-                                selectedFrom = index
-                            } else {
-                                selectedFrom = null
-                            }
-                        },
-                    )
+    val board: @Composable () -> Unit = {
+        Column {
+            for (row in 4 downTo 0) {
+                Row {
+                    for (col in 0..4) {
+                        val index = row * 5 + col
+                        val cell = uiState.cells[index]
+                        val showCheckRing = cell.pieceType == PieceType.KING &&
+                            (
+                                (cell.isWhite && uiState.whiteInCheck) ||
+                                    (!cell.isWhite && uiState.blackInCheck)
+                                )
+                        MiniChessCellView(
+                            cell = cell,
+                            isLight = (row + col) % 2 == 0,
+                            isSelected = selectedFrom == index,
+                            isLegalTarget = index in highlights,
+                            isStalemateTarget = index in drawHighlights,
+                            isLastMove = index == uiState.lastMoveFromIndex || index == uiState.lastMoveToIndex,
+                            showCheckRing = showCheckRing,
+                            enabled = interactive,
+                            onClick = {
+                                val from = selectedFrom
+                                if (from != null && uiState.legalMovesByFrom[from]?.contains(index) == true) {
+                                    onAnswer("$from>$index")
+                                    selectedFrom = null
+                                } else if (uiState.legalMovesByFrom.containsKey(index)) {
+                                    selectedFrom = index
+                                } else {
+                                    selectedFrom = null
+                                }
+                            },
+                        )
+                    }
                 }
             }
         }
+    }
 
-        Spacer(Modifier.height(12.dp))
-
+    val outcomeAndActions: @Composable ColumnScope.() -> Unit = {
         if (uiState.outcome == null) {
-            // During play: Reset (restore initial position) and New Game (fresh scenario).
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedButton(
                     onClick = { onAnswer("reset") },
@@ -2022,7 +2374,6 @@ private fun ColumnScope.MiniChessContent(
                 }
             }
         } else {
-            // Persistent end-of-game state: outcome, XP earned (only on win), then actions.
             Text(
                 text = when (uiState.outcome) {
                     MiniChessOutcome.PLAYER_WIN -> stringResource(Res.string.mini_chess_round_won)
@@ -2045,9 +2396,6 @@ private fun ColumnScope.MiniChessContent(
                 )
             }
             Spacer(Modifier.height(12.dp))
-            // Same actions as during play: Reset replays the same scenario; New game rolls
-            // a fresh one. The just-finished result was already recorded, so both buttons
-            // simply transition the UI.
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedButton(
                     onClick = { onAnswer("reset") },
@@ -2062,6 +2410,37 @@ private fun ColumnScope.MiniChessContent(
                     Text(stringResource(Res.string.mini_chess_restart))
                 }
             }
+        }
+    }
+
+    if (LocalIsCompactHeight.current) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            board()
+            Column(
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                statusBox()
+                Spacer(Modifier.height(12.dp))
+                outcomeAndActions()
+            }
+        }
+    } else {
+        Column(
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Spacer(Modifier.height(8.dp))
+            statusBox()
+            Spacer(Modifier.height(8.dp))
+            board()
+            Spacer(Modifier.height(12.dp))
+            outcomeAndActions()
         }
     }
 }

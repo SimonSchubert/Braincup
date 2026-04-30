@@ -81,9 +81,7 @@
     <string name="game_schulte_instruction">Tocca i numeri in ordine: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
     <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_lights_out_instruction">Turn off all the lights</string>
     <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="game_sliding_puzzle_instruction">Tap a tile next to the empty cell to slide it</string>
     <string name="moves_label">Moves: %1$d</string>
     <string name="mini_chess_thinking">CPU is thinking…</string>
     <string name="mini_chess_round_won">Checkmate</string>
@@ -99,7 +97,6 @@
     <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
     <string name="game_what_comes_next">Cosa viene dopo?</string>
-    <string name="game_tap_matching_colors">Tocca le celle dove la parola corrisponde al colore</string>
     <string name="game_tap_original_targets">Tocca i bersagli originali</string>
     <string name="game_remember_targets">Ricorda i bersagli</string>
     <string name="game_flash_crowd_which_more">Quale lato ne aveva di più?</string>

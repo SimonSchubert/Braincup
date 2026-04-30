@@ -2,8 +2,8 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.LocalTextStyle
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -53,7 +53,7 @@ fun FractionText(
     } else if (style.color != Color.Unspecified) {
         style.color
     } else {
-        MaterialTheme.colorScheme.onSurface
+        LocalContentColor.current
     }
 
     Column(
