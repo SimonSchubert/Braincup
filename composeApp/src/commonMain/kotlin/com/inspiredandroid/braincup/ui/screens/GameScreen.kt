@@ -50,6 +50,7 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -229,7 +230,7 @@ private fun ColumnScope.ColoredShapesContent(
                 AnswerButtonState.CORRECT -> Card(
                     modifier = Modifier.size(56.dp),
                     shape = androidx.compose.foundation.shape.CircleShape,
-                    colors = CardDefaults.cardColors(containerColor = SuccessGreen.copy(alpha = 0.15f)),
+                    colors = CardDefaults.cardColors(containerColor = SuccessGreenSoft),
                     border = BorderStroke(2.dp, SuccessGreen),
                 ) {
                     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
@@ -263,8 +264,8 @@ private fun ColumnScope.SherlockCalculationContent(
 
     // Use key to reset state when uiState.result changes (new round)
     key(uiState.result, uiState.solutionTokens) {
-        var usedNumberIndices by remember { mutableStateOf(emptySet<Int>()) }
-        var expressionTokens by remember { mutableStateOf(emptyList<ExpressionToken>()) }
+        val usedNumberIndices = remember { mutableStateSetOf<Int>() }
+        val expressionTokens = remember { mutableStateListOf<ExpressionToken>() }
 
         val showingSolution = uiState.solutionTokens != null
 
@@ -288,19 +289,17 @@ private fun ColumnScope.SherlockCalculationContent(
             },
             onTokenClick = { tokenIndex ->
                 if (!showingSolution) {
-                    val token = expressionTokens[tokenIndex]
-                    expressionTokens = expressionTokens.toMutableList().apply { removeAt(tokenIndex) }
+                    val token = expressionTokens.removeAt(tokenIndex)
                     if (token is ExpressionToken.NumberToken) {
-                        usedNumberIndices = usedNumberIndices - token.originalIndex
+                        usedNumberIndices.remove(token.originalIndex)
                     }
                 }
             },
             onBackspace = {
                 if (!showingSolution && expressionTokens.isNotEmpty()) {
-                    val lastToken = expressionTokens.last()
-                    expressionTokens = expressionTokens.dropLast(1)
+                    val lastToken = expressionTokens.removeAt(expressionTokens.lastIndex)
                     if (lastToken is ExpressionToken.NumberToken) {
-                        usedNumberIndices = usedNumberIndices - lastToken.originalIndex
+                        usedNumberIndices.remove(lastToken.originalIndex)
                     }
                 }
             },
@@ -313,8 +312,8 @@ private fun ColumnScope.SherlockCalculationContent(
             numbers = uiState.numbers,
             usedIndices = if (showingSolution) uiState.numbers.indices.toSet() else usedNumberIndices,
             onNumberClick = { value, index ->
-                expressionTokens = expressionTokens + ExpressionToken.NumberToken(value, index)
-                usedNumberIndices = usedNumberIndices + index
+                expressionTokens.add(ExpressionToken.NumberToken(value, index))
+                usedNumberIndices.add(index)
                 checkAnswer()
             },
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -325,7 +324,7 @@ private fun ColumnScope.SherlockCalculationContent(
         OperatorRow(
             onOperatorClick = { operator ->
                 if (!showingSolution) {
-                    expressionTokens = expressionTokens + ExpressionToken.OperatorToken(operator)
+                    expressionTokens.add(ExpressionToken.OperatorToken(operator))
                 }
             },
             modifier = Modifier.align(Alignment.CenterHorizontally),
@@ -405,7 +404,7 @@ private fun FigureCellContent(
         FigureCellState.WRONG -> Card(modifier, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer)) {
             ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
         }
-        FigureCellState.CORRECT -> Card(modifier, colors = CardDefaults.cardColors(containerColor = SuccessGreen.copy(alpha = 0.15f)), border = BorderStroke(2.dp, SuccessGreen)) {
+        FigureCellState.CORRECT -> Card(modifier, colors = CardDefaults.cardColors(containerColor = SuccessGreenSoft), border = BorderStroke(2.dp, SuccessGreen)) {
             ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
         }
         FigureCellState.DIMMED -> ShapeCanvas(figure = cell.figure, modifier = modifier.alpha(0.3f))
@@ -1440,7 +1439,7 @@ private fun GhostGridCell(
         GhostGridUiState.CellType.ACTIVE -> Primary
         GhostGridUiState.CellType.TAPPED -> Primary
         GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
-        GhostGridUiState.CellType.MISSED -> SuccessGreen.copy(alpha = 0.15f)
+        GhostGridUiState.CellType.MISSED -> SuccessGreenSoft
         GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
     }
     val border = if (cell.type == GhostGridUiState.CellType.MISSED) {
@@ -1596,7 +1595,7 @@ private fun ColorConfusionCell(
     modifier: Modifier = Modifier,
 ) {
     val targetContainerColor = when (cell.feedback) {
-        ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreen.copy(alpha = 0.15f)
+        ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
         ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
         ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
         else -> MaterialTheme.colorScheme.surface

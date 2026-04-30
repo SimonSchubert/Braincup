@@ -29,6 +29,26 @@ fun DefaultButton(
     }
 }
 
+/**
+ * A primary action button intended as the bottom CTA on result/interstitial screens.
+ * Caps width at 420.dp on wide layouts and adds 24.dp horizontal insets so the touch
+ * target stays comfortable across phones, tablets, and desktop.
+ */
+@Composable
+fun PrimaryActionButton(
+    onClick: () -> Unit,
+    value: String,
+    modifier: Modifier = Modifier,
+) {
+    DefaultButton(
+        onClick = onClick,
+        value = value,
+        modifier = modifier
+            .widthIn(max = 420.dp)
+            .padding(horizontal = 24.dp),
+    )
+}
+
 @Composable
 fun CircleButton(
     onClick: () -> Unit,

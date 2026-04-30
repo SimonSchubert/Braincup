@@ -32,6 +32,12 @@ val ErrorRed = Color(0xFFB00020)
 val PrimaryContainer = Color(0xFFEADDFF)
 val OnPrimaryContainer = Color(0xFF21005D)
 
+// Pre-baked alpha variants of brand colors that recur across screens.
+val SuccessGreenSoft = Color(0xFF5C8E58).copy(alpha = 0.15f)
+val OnPrimaryContainerSubtle = OnPrimaryContainer.copy(alpha = 0.15f)
+val OnPrimaryContainerDisabled = OnPrimaryContainer.copy(alpha = 0.12f)
+val OnPrimaryContainerOutline = OnPrimaryContainer.copy(alpha = 0.45f)
+
 val MedalGold = Color(0xFFFFD700)
 val MedalSilver = Color(0xFFC0C0C0)
 val MedalBronze = Color(0xFFCD7F32)

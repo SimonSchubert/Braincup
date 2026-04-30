@@ -5,9 +5,6 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.LinearOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -48,20 +45,19 @@ fun XpGainedChip(
     }
     val density = LocalDensity.current
 
-    Card(
+    BrandedCard(
         modifier = modifier.graphicsLayer {
             this.alpha = alpha.value
             translationY = with(density) { offsetDp.value.dp.toPx() }
         },
-        colors = CardDefaults.cardColors(containerColor = PrimaryContainer),
-        shape = RoundedCornerShape(20.dp),
+        cornerRadius = 20,
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
     ) {
         Text(
             text = stringResource(Res.string.xp_gained, xpGained),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = OnPrimaryContainer,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
         )
     }
 }
@@ -86,42 +82,65 @@ fun LevelUpBanner(
     val titleRes = UserStorage.currentTitleRes(levelChange.newLevel)
     val showMilestoneTitle = levelChange.isMilestone
 
-    Card(
+    BrandedCard(
         modifier = modifier.graphicsLayer {
             this.alpha = alpha.value
             scaleX = scale.value
             scaleY = scale.value
         },
-        colors = CardDefaults.cardColors(containerColor = Primary),
-        shape = RoundedCornerShape(20.dp),
+        containerColor = Primary,
+        cornerRadius = 20,
+        contentPadding = PaddingValues(horizontal = 24.dp, vertical = 16.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.padding(horizontal = 24.dp, vertical = 16.dp),
-        ) {
+        Text(
+            text = stringResource(Res.string.level_up_title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = PrimaryContainer,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(Res.string.level_label, levelChange.newLevel),
+            style = MaterialTheme.typography.displaySmall,
+            fontWeight = FontWeight.Bold,
+            color = PrimaryContainer,
+        )
+        if (showMilestoneTitle) {
+            Spacer(Modifier.height(4.dp))
             Text(
-                text = stringResource(Res.string.level_up_title),
+                text = stringResource(titleRes),
                 style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold,
                 color = PrimaryContainer,
                 textAlign = TextAlign.Center,
             )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(Res.string.level_label, levelChange.newLevel),
-                style = MaterialTheme.typography.displaySmall,
-                fontWeight = FontWeight.Bold,
-                color = PrimaryContainer,
-            )
-            if (showMilestoneTitle) {
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = stringResource(titleRes),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = PrimaryContainer,
-                    textAlign = TextAlign.Center,
-                )
-            }
         }
+    }
+}
+
+/**
+ * The XP-gained chip and level-up banner pair shown after a game finishes or a session completes.
+ * Renders nothing when there's no XP to display and no level change.
+ */
+@Composable
+fun ColumnScope.XpAndLevelDisplay(
+    xpGained: Int,
+    levelChange: UserStorage.LevelChange?,
+    spacing: androidx.compose.ui.unit.Dp = 16.dp,
+) {
+    if (xpGained > 0) {
+        Spacer(Modifier.height(spacing))
+        XpGainedChip(
+            xpGained = xpGained,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+    }
+    if (levelChange != null) {
+        Spacer(Modifier.height(spacing))
+        LevelUpBanner(
+            levelChange = levelChange,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
     }
 }

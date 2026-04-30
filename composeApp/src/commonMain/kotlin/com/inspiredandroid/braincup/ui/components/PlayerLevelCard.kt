@@ -5,9 +5,6 @@ import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -30,8 +27,8 @@ import braincup.composeapp.generated.resources.level_label
 import braincup.composeapp.generated.resources.xp_progress
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainerSubtle
 import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -65,47 +62,41 @@ fun PlayerLevelCard(
         lastAnimatedXp = totalXp
     }
 
-    Card(
-        modifier = modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(containerColor = PrimaryContainer),
-        shape = RoundedCornerShape(16.dp),
-    ) {
-        Column(modifier = Modifier.padding(16.dp)) {
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth(),
-            ) {
-                Text(
-                    text = stringResource(Res.string.level_label, level),
-                    style = MaterialTheme.typography.titleLarge,
-                    fontWeight = FontWeight.Bold,
-                    color = OnPrimaryContainer,
-                    modifier = Modifier.weight(1f),
-                )
-                Text(
-                    text = stringResource(titleRes),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = OnPrimaryContainer,
-                )
-            }
-
-            Spacer(Modifier.height(10.dp))
-
-            XpProgressBar(
-                progress = animatedProgress.value,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(10.dp),
-            )
-
-            Spacer(Modifier.height(6.dp))
-
+    BrandedCard(modifier = modifier.fillMaxWidth()) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
             Text(
-                text = stringResource(Res.string.xp_progress, xpIntoLevel, xpSpan),
-                style = MaterialTheme.typography.labelSmall,
+                text = stringResource(Res.string.level_label, level),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = OnPrimaryContainer,
+                modifier = Modifier.weight(1f),
+            )
+            Text(
+                text = stringResource(titleRes),
+                style = MaterialTheme.typography.titleMedium,
                 color = OnPrimaryContainer,
             )
         }
+
+        Spacer(Modifier.height(10.dp))
+
+        XpProgressBar(
+            progress = animatedProgress.value,
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(10.dp),
+        )
+
+        Spacer(Modifier.height(6.dp))
+
+        Text(
+            text = stringResource(Res.string.xp_progress, xpIntoLevel, xpSpan),
+            style = MaterialTheme.typography.labelSmall,
+            color = OnPrimaryContainer,
+        )
     }
 }
 
@@ -114,7 +105,7 @@ fun XpProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
 ) {
-    val track = OnPrimaryContainer.copy(alpha = 0.15f)
+    val track = OnPrimaryContainerSubtle
     val fill = Primary
     Canvas(modifier = modifier) {
         val corner = CornerRadius(size.height / 2f, size.height / 2f)

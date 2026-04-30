@@ -17,11 +17,10 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.DefaultButton
-import com.inspiredandroid.braincup.ui.components.LevelUpBanner
-import com.inspiredandroid.braincup.ui.components.XpGainedChip
+import com.inspiredandroid.braincup.ui.components.BrandedCard
+import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
+import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
-import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -65,15 +64,13 @@ fun SessionCompleteScreen(
         Spacer(Modifier.height(16.dp))
 
         if (streakIncreased) {
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = PrimaryContainer,
-                ),
-                shape = RoundedCornerShape(16.dp),
+            BrandedCard(
                 modifier = Modifier
                     .widthIn(max = 420.dp)
                     .padding(horizontal = 24.dp)
-                    .align(Alignment.CenterHorizontally),
+                    .align(Alignment.CenterHorizontally)
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = stringResource(Res.string.session_streak_increased, streakAfter),
@@ -81,9 +78,7 @@ fun SessionCompleteScreen(
                     fontWeight = FontWeight.Bold,
                     color = OnPrimaryContainer,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(16.dp),
+                    modifier = Modifier.fillMaxWidth(),
                 )
             }
         } else if (streakAfter > 0) {
@@ -95,21 +90,7 @@ fun SessionCompleteScreen(
             )
         }
 
-        if (xpGained > 0) {
-            Spacer(Modifier.height(16.dp))
-            XpGainedChip(
-                xpGained = xpGained,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
-
-        if (levelChange != null) {
-            Spacer(Modifier.height(16.dp))
-            LevelUpBanner(
-                levelChange = levelChange,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
+        XpAndLevelDisplay(xpGained = xpGained, levelChange = levelChange)
 
         Spacer(Modifier.height(24.dp))
 
@@ -132,11 +113,8 @@ fun SessionCompleteScreen(
 
         Spacer(Modifier.height(32.dp))
 
-        DefaultButton(
+        PrimaryActionButton(
             onClick = onDone,
-            modifier = Modifier
-                .widthIn(max = 420.dp)
-                .padding(horizontal = 24.dp),
             value = stringResource(Res.string.session_done),
         )
     }

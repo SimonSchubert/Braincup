@@ -11,15 +11,14 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.DefaultButton
-import com.inspiredandroid.braincup.ui.components.LevelUpBanner
-import com.inspiredandroid.braincup.ui.components.XpGainedChip
+import com.inspiredandroid.braincup.ui.components.BrandedCard
+import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
+import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -94,17 +93,14 @@ fun FinishScreen(
 
         if (isNewHighscore) {
             Spacer(Modifier.height(8.dp))
-            Card(
-                colors = CardDefaults.cardColors(
-                    containerColor = PrimaryContainer,
-                ),
+            BrandedCard(
                 modifier = Modifier.align(Alignment.CenterHorizontally),
+                contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
             ) {
                 Text(
                     text = stringResource(Res.string.finish_new_highscore),
                     style = MaterialTheme.typography.titleMedium,
                     color = OnPrimaryContainer,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
                 )
             }
         } else if (highscore > 0) {
@@ -116,39 +112,19 @@ fun FinishScreen(
             )
         }
 
-        if (xpGained > 0) {
-            Spacer(Modifier.height(16.dp))
-            XpGainedChip(
-                xpGained = xpGained,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
-
-        if (levelChange != null) {
-            Spacer(Modifier.height(16.dp))
-            LevelUpBanner(
-                levelChange = levelChange,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-            )
-        }
+        XpAndLevelDisplay(xpGained = xpGained, levelChange = levelChange)
 
         Spacer(Modifier.height(32.dp))
 
-        DefaultButton(
+        PrimaryActionButton(
             onClick = onPlayRandom,
-            modifier = Modifier
-                .widthIn(max = 420.dp)
-                .padding(horizontal = 24.dp),
             value = stringResource(Res.string.button_play_random),
         )
 
         Spacer(Modifier.height(8.dp))
 
-        DefaultButton(
+        PrimaryActionButton(
             onClick = onPlayAgain,
-            modifier = Modifier
-                .widthIn(max = 420.dp)
-                .padding(horizontal = 24.dp),
             value = stringResource(Res.string.button_play_again),
         )
     }
