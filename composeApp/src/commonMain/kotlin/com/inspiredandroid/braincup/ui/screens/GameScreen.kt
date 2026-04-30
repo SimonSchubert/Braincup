@@ -1764,10 +1764,11 @@ private fun ColumnScope.MiniChessContent(
                 for (col in 0..4) {
                     val index = row * 5 + col
                     val cell = uiState.cells[index]
-                    val showCheckRing = cell.pieceType == PieceType.KING && (
-                        (cell.isWhite && uiState.whiteInCheck) ||
-                            (!cell.isWhite && uiState.blackInCheck)
-                        )
+                    val showCheckRing = cell.pieceType == PieceType.KING &&
+                        (
+                            (cell.isWhite && uiState.whiteInCheck) ||
+                                (!cell.isWhite && uiState.blackInCheck)
+                            )
                     MiniChessCellView(
                         cell = cell,
                         isLight = (row + col) % 2 == 0,
