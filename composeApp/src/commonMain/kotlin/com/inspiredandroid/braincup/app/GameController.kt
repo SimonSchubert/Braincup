@@ -99,6 +99,7 @@ class GameController(
     }
 
     private fun generateSessionGameIds(): List<String> = GameType.entries
+        .filterNot { it == GameType.LIGHTS_OUT || it == GameType.SLIDING_PUZZLE }
         .shuffled()
         .take(UserStorage.SESSION_GAME_COUNT)
         .map { it.id }
@@ -169,6 +170,14 @@ class GameController(
             startMiniChessGame(gameType)
             return
         }
+        if (gameType == GameType.LIGHTS_OUT) {
+            startLightsOutGame(gameType)
+            return
+        }
+        if (gameType == GameType.SLIDING_PUZZLE) {
+            startSlidingPuzzleGame(gameType)
+            return
+        }
 
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -230,6 +239,14 @@ class GameController(
             handleMiniSudokuAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is LightsOutGame) {
+            handleLightsOutAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is SlidingPuzzleGame) {
+            handleSlidingPuzzleAnswer(currentState, game, answer.trim())
+            return
+        }
         if (game is SchulteTableGame) {
             handleSchulteTableAnswer(currentState, game, answer.trim())
             return
@@ -280,6 +297,24 @@ class GameController(
         if (game is MiniChessGame) {
             cancelMiniChessAi()
             game.markGiveUp()
+            finishCurrentGame(currentState.gameType, game)
+            return
+        }
+        if (game is LightsOutGame) {
+            points = 0
+            storage.putLastRound(
+                currentState.gameType.id,
+                (game.level - 1).coerceAtLeast(1),
+            )
+            finishCurrentGame(currentState.gameType, game)
+            return
+        }
+        if (game is SlidingPuzzleGame) {
+            points = 0
+            storage.putLastRound(
+                currentState.gameType.id,
+                (game.level - 1).coerceAtLeast(1),
+            )
             finishCurrentGame(currentState.gameType, game)
             return
         }
@@ -364,6 +399,8 @@ class GameController(
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
         GameType.PATH_FINDER -> PathFinderGame()
         GameType.MINI_SUDOKU -> MiniSudokuGame()
+        GameType.LIGHTS_OUT -> LightsOutGame()
+        GameType.SLIDING_PUZZLE -> SlidingPuzzleGame()
         GameType.SCHULTE_TABLE -> SchulteTableGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
@@ -604,6 +641,72 @@ class GameController(
             scope.launch {
                 delay(1500.milliseconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun startLightsOutGame(gameType: GameType) {
+        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
+        val game = LightsOutGame(level = level)
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+    }
+
+    private fun startSlidingPuzzleGame(gameType: GameType) {
+        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
+        val game = SlidingPuzzleGame(level = level)
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+    }
+
+    private fun handleLightsOutAnswer(
+        currentState: GameState.Active,
+        game: LightsOutGame,
+        input: String,
+    ) {
+        val index = input.toIntOrNull() ?: return
+        val solved = game.press(index)
+        _gameUiState.value = game.toUiState()
+        if (solved) {
+            points = game.level
+            storage.putLastRound(currentState.gameType.id, game.level + 1)
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = null,
+            )
+            scope.launch {
+                delay(700.milliseconds)
+                finishCurrentGame(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun handleSlidingPuzzleAnswer(
+        currentState: GameState.Active,
+        game: SlidingPuzzleGame,
+        input: String,
+    ) {
+        val index = input.toIntOrNull() ?: return
+        val solved = game.slideTile(index)
+        _gameUiState.value = game.toUiState()
+        if (solved) {
+            points = game.level
+            storage.putLastRound(currentState.gameType.id, game.level + 1)
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = null,
+            )
+            scope.launch {
+                delay(700.milliseconds)
+                finishCurrentGame(currentState.gameType, game)
             }
         }
     }

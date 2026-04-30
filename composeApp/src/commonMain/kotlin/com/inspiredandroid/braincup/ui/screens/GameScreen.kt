@@ -44,6 +44,8 @@ import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
+import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
@@ -84,7 +86,9 @@ fun GameScreen(
             gameUiState is VisualMemoryUiState ||
                 gameUiState is GhostGridUiState ||
                 gameUiState is OrbitTrackerUiState ||
-                gameUiState is MiniChessUiState -> Unit
+                gameUiState is MiniChessUiState ||
+                gameUiState is LightsOutUiState ||
+                gameUiState is SlidingPuzzleUiState -> Unit
             gameUiState is SchulteTableUiState -> StopwatchDisplay(
                 elapsedMillis = elapsedTime,
                 modifier = Modifier
@@ -111,6 +115,8 @@ fun GameScreen(
             is AnomalyPuzzleUiState -> AnomalyPuzzleContent(gameUiState, onAnswer)
             is PathFinderUiState -> PathFinderContent(gameUiState, onAnswer)
             is MiniSudokuUiState -> MiniSudokuContent(gameUiState, onAnswer)
+            is LightsOutUiState -> LightsOutContent(gameUiState, onAnswer, onGiveUp)
+            is SlidingPuzzleUiState -> SlidingPuzzleContent(gameUiState, onAnswer, onGiveUp)
             is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
             is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
             is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
@@ -809,6 +815,197 @@ private fun SchulteCell(
                 .fillMaxSize()
                 .wrapContentSize(Alignment.Center),
         )
+    }
+}
+
+@Composable
+private fun ColumnScope.LightsOutContent(
+    uiState: LightsOutUiState,
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+) {
+    val n = uiState.gridSize
+    val cellSize = when (n) {
+        3 -> 72.dp
+        4 -> 60.dp
+        else -> 52.dp
+    }
+
+    Text(
+        text = stringResource(Res.string.level_label, uiState.level),
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+    Spacer(Modifier.height(4.dp))
+    Text(
+        text = stringResource(Res.string.game_lights_out_instruction),
+        style = MaterialTheme.typography.bodyLarge,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .padding(horizontal = 16.dp),
+    )
+    Spacer(Modifier.height(4.dp))
+    Text(
+        text = stringResource(Res.string.moves_label, uiState.moves),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+    Spacer(Modifier.height(16.dp))
+
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    ) {
+        for (row in 0 until n) {
+            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                for (col in 0 until n) {
+                    val index = row * n + col
+                    LightsOutCell(
+                        on = uiState.cells[index],
+                        size = cellSize,
+                        onClick = { onAnswer(index.toString()) },
+                    )
+                }
+            }
+        }
+    }
+    Spacer(Modifier.height(16.dp))
+    TextButton(
+        onClick = onGiveUp,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .hoverHand(),
+    ) {
+        Text(stringResource(Res.string.button_give_up))
+    }
+}
+
+@Composable
+private fun LightsOutCell(
+    on: Boolean,
+    size: androidx.compose.ui.unit.Dp,
+    onClick: () -> Unit,
+) {
+    val containerColor by animateColorAsState(if (on) LightsOutOnColor else LightsOutOffColor)
+    Card(
+        onClick = onClick,
+        modifier = Modifier
+            .size(size)
+            .hoverHand(),
+        colors = CardDefaults.cardColors(containerColor = containerColor),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
+        shape = CircleShape,
+    ) {}
+}
+
+@Composable
+private fun ColumnScope.SlidingPuzzleContent(
+    uiState: SlidingPuzzleUiState,
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+) {
+    val n = uiState.gridSize
+    val cellSize = when (n) {
+        3 -> 72.dp
+        4 -> 60.dp
+        else -> 52.dp
+    }
+
+    Text(
+        text = stringResource(Res.string.level_label, uiState.level),
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+    Spacer(Modifier.height(4.dp))
+    Text(
+        text = stringResource(Res.string.game_sliding_puzzle_instruction),
+        style = MaterialTheme.typography.bodyLarge,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .padding(horizontal = 16.dp),
+    )
+    Spacer(Modifier.height(4.dp))
+    Text(
+        text = stringResource(Res.string.moves_label, uiState.moves),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    )
+    Spacer(Modifier.height(16.dp))
+
+    Column(
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+    ) {
+        for (row in 0 until n) {
+            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                for (col in 0 until n) {
+                    val index = row * n + col
+                    val tile = uiState.tiles[index]
+                    SlidingPuzzleCell(
+                        label = tile,
+                        size = cellSize,
+                        onClick = { if (tile != 0) onAnswer(index.toString()) },
+                    )
+                }
+            }
+        }
+    }
+    Spacer(Modifier.height(16.dp))
+    TextButton(
+        onClick = onGiveUp,
+        modifier = Modifier
+            .align(Alignment.CenterHorizontally)
+            .hoverHand(),
+    ) {
+        Text(stringResource(Res.string.button_give_up))
+    }
+}
+
+@Composable
+private fun SlidingPuzzleCell(
+    label: Int,
+    size: androidx.compose.ui.unit.Dp,
+    onClick: () -> Unit,
+) {
+    val isEmpty = label == 0
+    val containerColor = if (isEmpty) {
+        MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
+    } else {
+        MaterialTheme.colorScheme.primaryContainer
+    }
+    Card(
+        onClick = onClick,
+        enabled = !isEmpty,
+        modifier = Modifier
+            .size(size)
+            .hoverHand(!isEmpty),
+        colors = CardDefaults.cardColors(
+            containerColor = containerColor,
+            disabledContainerColor = containerColor,
+        ),
+        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp, disabledElevation = 0.dp),
+        shape = RoundedCornerShape(8.dp),
+    ) {
+        if (!isEmpty) {
+            Text(
+                text = label.toString(),
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .wrapContentSize(Alignment.Center),
+            )
+        }
     }
 }
 

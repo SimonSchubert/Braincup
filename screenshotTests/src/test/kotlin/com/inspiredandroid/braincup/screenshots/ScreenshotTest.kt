@@ -303,6 +303,32 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameLightsOut() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createLightsOutUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameSlidingPuzzle() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createSlidingPuzzleUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSchulteTable() {
         paparazzi.snap {
             GameScreen(

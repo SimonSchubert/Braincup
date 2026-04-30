@@ -223,6 +223,12 @@ fun createFractionCalculationUiState(): GameUiState = createFractionCalculationG
 fun createValueComparisonUiState(): GameUiState = createValueComparisonGame().toUiState()
 fun createPathFinderUiState(): GameUiState = createPathFinderGame().toUiState()
 fun createMiniSudokuUiState(): GameUiState = createMiniSudokuGame().toUiState()
+fun createLightsOutUiState(): GameUiState = LightsOutGame(level = 3, random = Random(42L))
+    .apply { nextRound() }
+    .toUiState()
+fun createSlidingPuzzleUiState(): GameUiState = SlidingPuzzleGame(level = 3, random = Random(42L))
+    .apply { nextRound() }
+    .toUiState()
 fun createSchulteTableUiState(): GameUiState = createSchulteTableGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 

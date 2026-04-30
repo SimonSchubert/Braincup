@@ -58,6 +58,8 @@
     <string name="game_flash_crowd">フラッシュクラウド</string>
     <string name="game_schulte_table">シュルテ表</string>
     <string name="game_mini_chess">Mini Chess</string>
+    <string name="game_lights_out">Lights Out</string>
+    <string name="game_sliding_puzzle">Sliding Puzzle</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -78,6 +80,11 @@
     <string name="game_schulte_table_desc">1から順に、できるだけ速く数字をタップしてください。</string>
     <string name="game_schulte_instruction">数字を順番にタップ: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
+    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
+    <string name="game_lights_out_instruction">Turn off all the lights</string>
+    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
+    <string name="game_sliding_puzzle_instruction">Tap a tile next to the empty cell to slide it</string>
+    <string name="moves_label">Moves: %1$d</string>
     <string name="mini_chess_thinking">CPU is thinking…</string>
     <string name="mini_chess_round_won">Checkmate</string>
     <string name="mini_chess_round_lost">CPU mated you</string>

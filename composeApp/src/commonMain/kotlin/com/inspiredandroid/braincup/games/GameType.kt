@@ -32,6 +32,24 @@ enum class GameType(
         descriptionRes = Res.string.game_mini_chess_desc,
         category = GameCategory.LOGIC,
     ),
+    LIGHTS_OUT(
+        displayNameRes = Res.string.game_lights_out,
+        id = "19",
+        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_lights_out_desc,
+        category = GameCategory.LOGIC,
+    ),
+    SLIDING_PUZZLE(
+        displayNameRes = Res.string.game_sliding_puzzle,
+        id = "20",
+        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_sliding_puzzle_desc,
+        category = GameCategory.LOGIC,
+    ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
         id = "8",

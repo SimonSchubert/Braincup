@@ -98,6 +98,22 @@ data class MiniSudokuUiState(
 ) : GameUiState
 
 @Immutable
+data class LightsOutUiState(
+    val gridSize: Int,
+    val cells: List<Boolean>,
+    val moves: Int,
+    val level: Int,
+) : GameUiState
+
+@Immutable
+data class SlidingPuzzleUiState(
+    val gridSize: Int,
+    val tiles: List<Int>,
+    val moves: Int,
+    val level: Int,
+) : GameUiState
+
+@Immutable
 data class PatternSequenceUiState(
     val sequence: List<Figure>,
     val optionRows: List<List<FigureCell>>,

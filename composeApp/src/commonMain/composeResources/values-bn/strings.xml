@@ -58,6 +58,8 @@
     <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
     <string name="game_schulte_table">শুল্টে টেবিল</string>
     <string name="game_mini_chess">Mini Chess</string>
+    <string name="game_lights_out">Lights Out</string>
+    <string name="game_sliding_puzzle">Sliding Puzzle</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -78,6 +80,11 @@
     <string name="game_schulte_table_desc">১ থেকে শুরু করে যত দ্রুত সম্ভব ক্রমানুসারে সংখ্যাগুলিতে ট্যাপ করুন।</string>
     <string name="game_schulte_instruction">ক্রমানুসারে সংখ্যা ট্যাপ করুন: ১, ২, ৩...</string>
     <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
+    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
+    <string name="game_lights_out_instruction">Turn off all the lights</string>
+    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
+    <string name="game_sliding_puzzle_instruction">Tap a tile next to the empty cell to slide it</string>
+    <string name="moves_label">Moves: %1$d</string>
     <string name="mini_chess_thinking">CPU is thinking…</string>
     <string name="mini_chess_round_won">Checkmate</string>
     <string name="mini_chess_round_lost">CPU mated you</string>

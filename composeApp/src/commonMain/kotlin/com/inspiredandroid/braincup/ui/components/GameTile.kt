@@ -26,6 +26,8 @@ import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
+import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
+import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
@@ -124,6 +126,10 @@ private val SchulteTablePreviewGrid: List<List<SchulteCell>> = listOf(
 )
 
 private val GhostGridPreviewHighlighted: Set<Int> = setOf(0, 4, 7)
+
+private val LightsOutPreviewOn: Set<Int> = setOf(1, 3, 4, 5, 7)
+
+private val SlidingPuzzlePreviewLabels: List<Int> = listOf(1, 2, 3, 4, 0, 5, 7, 8, 6)
 
 private val MiniChessLightSquare = ComposeColor(0xFFEEEED2)
 private val MiniChessDarkSquare = ComposeColor(0xFF769656)
@@ -232,6 +238,8 @@ private fun GamePreview(gameType: GameType) {
         GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
         GameType.FLASH_CROWD -> FlashCrowdPreview()
         GameType.MINI_CHESS -> MiniChessPreview()
+        GameType.LIGHTS_OUT -> LightsOutPreview()
+        GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
     }
 }
 
@@ -567,6 +575,77 @@ private fun GhostGridPreview() {
                                 MaterialTheme.shapes.extraSmall,
                             ),
                     )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun LightsOutPreview() {
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        for (row in 0 until 3) {
+            Row(modifier = Modifier.fillMaxWidth()) {
+                for (col in 0 until 3) {
+                    val index = row * 3 + col
+                    val isOn = index in LightsOutPreviewOn
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp)
+                            .background(
+                                if (isOn) LightsOutOnColor else LightsOutOffColor,
+                                CircleShape,
+                            ),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SlidingPuzzlePreview() {
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        for (row in 0 until 3) {
+            Row(modifier = Modifier.fillMaxWidth()) {
+                for (col in 0 until 3) {
+                    val index = row * 3 + col
+                    val label = SlidingPuzzlePreviewLabels[index]
+                    val isEmpty = label == 0
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(2.dp)
+                            .background(
+                                if (isEmpty) {
+                                    MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
+                                } else {
+                                    MaterialTheme.colorScheme.primaryContainer
+                                },
+                                MaterialTheme.shapes.extraSmall,
+                            ),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        if (!isEmpty) {
+                            Text(
+                                text = label.toString(),
+                                style = MaterialTheme.typography.labelMedium,
+                                fontWeight = FontWeight.Bold,
+                                color = LightColorScheme.onPrimaryContainer,
+                            )
+                        }
+                    }
                 }
             }
         }

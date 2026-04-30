@@ -36,6 +36,9 @@ val MedalGold = Color(0xFFFFD700)
 val MedalSilver = Color(0xFFC0C0C0)
 val MedalBronze = Color(0xFFCD7F32)
 
+val LightsOutOnColor = Color(0xFFFFC107)
+val LightsOutOffColor = Color(0xFF424242)
+
 val LightColorScheme = lightColorScheme(
     primary = Primary,
     onPrimary = OnPrimary,
