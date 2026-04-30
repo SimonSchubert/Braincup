@@ -3,6 +3,8 @@ package com.inspiredandroid.braincup.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -11,7 +13,6 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -49,14 +50,16 @@ private fun AchievementCard(
     achievement: UserStorage.Achievements,
     isUnlocked: Boolean,
 ) {
+    val containerColor = if (isUnlocked) {
+        MaterialTheme.colorScheme.primaryContainer
+    } else {
+        MaterialTheme.colorScheme.surfaceVariant
+    }
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(
-            containerColor = if (isUnlocked) {
-                MaterialTheme.colorScheme.primaryContainer
-            } else {
-                MaterialTheme.colorScheme.surfaceVariant
-            },
+            containerColor = containerColor,
+            contentColor = contentColorFor(containerColor),
         ),
     ) {
         Row(
@@ -73,12 +76,11 @@ private fun AchievementCard(
                 Text(
                     text = stringResource(achievement.descriptionRes),
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
             if (isUnlocked) {
                 Icon(
-                    painterResource(Res.drawable.ic_baseline_check_24),
+                    imageVector = Icons.Filled.EmojiEvents,
                     modifier = Modifier.size(32.dp),
                     contentDescription = null,
                     tint = MaterialTheme.colorScheme.primary,
