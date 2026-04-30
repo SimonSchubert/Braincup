@@ -90,5 +90,6 @@ android {
 dependencies {
     implementation(project(":composeApp"))
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.core.splashscreen)
     "playStoreImplementation"(libs.play.review)
 }
