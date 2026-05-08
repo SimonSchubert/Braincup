@@ -1,12 +1,8 @@
 package com.inspiredandroid.braincup.ui.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -33,9 +29,6 @@ fun ProgressDots(
     mutedColor: Color = MaterialTheme.colorScheme.surfaceContainerHighest,
     activeSize: Dp = 12.dp,
     inactiveSize: Dp = 8.dp,
-    completedBorder: Color = Color.Unspecified,
-    mutedBorder: Color = Color.Unspecified,
-    borderWidth: Dp = 1.5.dp,
 ) {
     Row(
         modifier = modifier,
@@ -50,22 +43,12 @@ fun ProgressDots(
                 isCurrent -> currentColor
                 else -> mutedColor
             }
-            val borderColor = when {
-                isCompleted -> completedBorder
-                else -> mutedBorder
-            }
             val size = if (isCurrent) activeSize else inactiveSize
-            val base = Modifier
-                .size(size)
-                .background(fill, CircleShape)
-            val withBorder = if (borderColor.isSpecified()) {
-                base.border(borderWidth, borderColor, CircleShape)
-            } else {
-                base
-            }
-            Box(modifier = withBorder)
+            ColorPrismCell(
+                face = fill,
+                facet = 1.5.dp,
+                modifier = Modifier.size(size),
+            )
         }
     }
 }
-
-private fun Color.isSpecified(): Boolean = this != Color.Unspecified

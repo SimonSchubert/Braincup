@@ -66,7 +66,6 @@ fun SessionInterstitialScreen(
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth(),
             containerColor = Color(nextGame.accentColor),
-            cornerRadius = 24,
             contentPadding = PaddingValues(horizontal = 24.dp, vertical = 32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {

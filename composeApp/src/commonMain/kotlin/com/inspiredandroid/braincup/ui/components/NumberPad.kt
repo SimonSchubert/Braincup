@@ -119,18 +119,21 @@ fun NumberPadWithInput(
             )
             if (input.isNotEmpty()) {
                 Spacer(Modifier.width(8.dp))
-                IconButton(
+                PrismTile(
+                    face = MaterialTheme.colorScheme.surfaceVariant,
+                    modifier = Modifier
+                        .size(48.dp)
+                        .align(Alignment.CenterVertically)
+                        .hoverHand(),
                     onClick = {
                         input = input.take(input.lastIndex)
                     },
-                    modifier = Modifier
-                        .align(Alignment.CenterVertically)
-                        .hoverHand(),
                 ) {
                     Icon(
                         painterResource(Res.drawable.baseline_backspace_24),
                         contentDescription = null,
-                        tint = MaterialTheme.colorScheme.onSurface,
+                        tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.size(20.dp),
                     )
                 }
             }

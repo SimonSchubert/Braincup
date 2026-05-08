@@ -1,11 +1,10 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,6 +18,7 @@ import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
+import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import org.jetbrains.compose.resources.painterResource
@@ -36,10 +36,12 @@ fun SessionCompleteScreen(
 ) {
     // Sum only points-based scores; time-based scores (lower-is-better) are in different units
     // and would make the total meaningless if added in.
-    val total = gameIds.zip(scores).filter { (id, _) ->
-        getGameTypeById(id)?.lowerScoreIsBetter != true
-    }.sumOf { (_, score) -> score }
-    val games = gameIds.mapNotNull { getGameTypeById(it) }
+    val total = remember(gameIds, scores) {
+        gameIds.zip(scores).filter { (id, _) ->
+            getGameTypeById(id)?.lowerScoreIsBetter != true
+        }.sumOf { (_, score) -> score }
+    }
+    val games = remember(gameIds) { gameIds.mapNotNull { getGameTypeById(it) } }
     val streakIncreased = streakAfter > streakBefore
 
     AppScaffold(
@@ -128,13 +130,9 @@ private fun SessionGameRow(game: GameType, score: Int) {
             .fillMaxWidth()
             .padding(vertical = 4.dp),
     ) {
-        Box(
-            modifier = Modifier
-                .size(28.dp)
-                .background(
-                    color = Color(game.accentColor),
-                    shape = RoundedCornerShape(6.dp),
-                ),
+        ColorPrismCell(
+            face = Color(game.accentColor),
+            modifier = Modifier.size(28.dp),
         )
         Spacer(Modifier.width(12.dp))
         Text(

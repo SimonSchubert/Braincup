@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.PrismCard
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -30,7 +31,9 @@ fun AchievementsScreen(
     ) {
         LazyColumn(
             modifier = Modifier
-                .weight(1f),
+                .weight(1f)
+                .widthIn(max = 420.dp)
+                .fillMaxWidth(),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         ) {
             items(allAchievements, key = { it.name }) { achievement ->
@@ -55,12 +58,10 @@ private fun AchievementCard(
     } else {
         MaterialTheme.colorScheme.surfaceVariant
     }
-    Card(
+    val contentColor = contentColorFor(containerColor)
+    PrismCard(
+        face = containerColor,
         modifier = Modifier.fillMaxWidth(),
-        colors = CardDefaults.cardColors(
-            containerColor = containerColor,
-            contentColor = contentColorFor(containerColor),
-        ),
     ) {
         Row(
             modifier = Modifier
@@ -72,10 +73,12 @@ private fun AchievementCard(
                 Text(
                     text = stringResource(achievement.titleRes),
                     style = MaterialTheme.typography.titleMedium,
+                    color = contentColor,
                 )
                 Text(
                     text = stringResource(achievement.descriptionRes),
                     style = MaterialTheme.typography.bodySmall,
+                    color = contentColor,
                 )
             }
             if (isUnlocked) {

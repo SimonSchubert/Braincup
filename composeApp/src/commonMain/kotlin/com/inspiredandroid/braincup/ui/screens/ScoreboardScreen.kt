@@ -13,6 +13,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
@@ -35,13 +36,12 @@ fun ScoreboardScreen(
     ) {
         Spacer(Modifier.height(16.dp))
 
-        Card(
+        PrismCard(
+            face = MaterialTheme.colorScheme.primaryContainer,
             modifier = Modifier
+                .widthIn(max = 420.dp)
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-            ),
         ) {
             Column(
                 modifier = Modifier
@@ -64,6 +64,7 @@ fun ScoreboardScreen(
 
         Row(
             modifier = Modifier
+                .widthIn(max = 420.dp)
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -99,17 +100,22 @@ fun ScoreboardScreen(
             LazyColumn(
                 modifier = Modifier
                     .weight(1f)
+                    .widthIn(max = 420.dp)
+                    .fillMaxWidth()
                     .padding(horizontal = 16.dp),
             ) {
                 items(scores, key = { "${it.day}/${it.month}/${it.year}" }) { group ->
                     val date = "${group.day.toString().padStart(2, '0')}.${group.month.toString().padStart(2, '0')}.${group.year}"
-                    Card(
+                    PrismCard(
+                        face = MaterialTheme.colorScheme.surfaceContainer,
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 4.dp),
                     ) {
                         Column(
-                            modifier = Modifier.padding(12.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(12.dp),
                         ) {
                             Text(
                                 text = date,

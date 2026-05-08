@@ -16,6 +16,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -25,10 +26,14 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
+import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+
+private val SortedGameTypes: List<GameType> =
+    GameType.entries.sortedBy { it.category.ordinal }
 
 @Composable
 fun MainMenuScreen(
@@ -189,7 +194,7 @@ fun MainMenuScreenContent(
 
         // Game tiles, grouped by category
         items(
-            GameType.entries.sortedBy { it.category.ordinal },
+            SortedGameTypes,
             key = { it.id },
             contentType = { "game_tile" },
         ) { gameType ->
@@ -206,14 +211,19 @@ fun MainMenuScreenContent(
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Spacer(Modifier.height(16.dp))
 
-                Button(
-                    onClick = onAchievements,
+                PrismTile(
+                    face = Primary,
                     modifier = Modifier
                         .hoverHand()
                         .widthIn(max = 420.dp)
+                        .fillMaxWidth()
                         .height(56.dp),
+                    onClick = onAchievements,
                 ) {
-                    Text(stringResource(Res.string.achievements_button, unlockedCount, UserStorage.Achievements.entries.size))
+                    Text(
+                        stringResource(Res.string.achievements_button, unlockedCount, UserStorage.Achievements.entries.size),
+                        color = Color.White,
+                    )
                 }
 
                 Spacer(Modifier.height(16.dp))

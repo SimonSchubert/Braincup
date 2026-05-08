@@ -5,12 +5,12 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainerDisabled
-import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainerOutline
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
 
@@ -66,8 +66,6 @@ fun DailyChallengeCard(
                         mutedColor = OnPrimaryContainerDisabled,
                         activeSize = 12.dp,
                         inactiveSize = 12.dp,
-                        completedBorder = Primary,
-                        mutedBorder = OnPrimaryContainerOutline,
                     )
                 }
             }
@@ -90,16 +88,15 @@ fun DailyChallengeCard(
 
         Spacer(Modifier.height(12.dp))
 
-        Button(
-            onClick = onPlay,
-            enabled = !completedToday,
-            colors = ButtonDefaults.buttonColors(
-                disabledContainerColor = OnPrimaryContainerDisabled,
-                disabledContentColor = OnPrimaryContainer,
-            ),
+        PrismTile(
+            face = Primary,
             modifier = Modifier
                 .fillMaxWidth()
-                .hoverHand(!completedToday),
+                .heightIn(min = 48.dp)
+                .hoverHand(!completedToday)
+                .alpha(if (completedToday) 0.6f else 1f),
+            isClickable = !completedToday,
+            onClick = onPlay,
         ) {
             Text(
                 text = when {
@@ -107,6 +104,7 @@ fun DailyChallengeCard(
                     progressIndex > 0 -> stringResource(Res.string.daily_challenge_button_resume)
                     else -> stringResource(Res.string.daily_challenge_button_start)
                 },
+                color = androidx.compose.ui.graphics.Color.White,
             )
         }
     }

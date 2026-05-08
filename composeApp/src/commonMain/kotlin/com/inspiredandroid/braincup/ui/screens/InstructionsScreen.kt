@@ -9,6 +9,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -22,7 +23,9 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -88,27 +91,39 @@ private fun MiniChessDifficultySelector(
             fontWeight = FontWeight.Bold,
         )
         Spacer(Modifier.height(8.dp))
-        SingleChoiceSegmentedButtonRow {
-            // Spread depth widely so users feel a real strength jump:
-            //   Easy=1 (no opponent-response prediction → easy to trap)
-            //   Medium=3 (sees player + own follow-up)
-            //   Hard=5 (deep tactical calculation; slower thinks)
-            val options = listOf(
-                1 to stringResource(Res.string.mini_chess_difficulty_easy),
-                3 to stringResource(Res.string.mini_chess_difficulty_medium),
-                5 to stringResource(Res.string.mini_chess_difficulty_hard),
-            )
-            options.forEachIndexed { index, (depth, label) ->
-                SegmentedButton(
-                    selected = selected == depth,
+        // Spread depth widely so users feel a real strength jump:
+        //   Easy=1 (no opponent-response prediction → easy to trap)
+        //   Medium=3 (sees player + own follow-up)
+        //   Hard=5 (deep tactical calculation; slower thinks)
+        val options = listOf(
+            1 to stringResource(Res.string.mini_chess_difficulty_easy),
+            3 to stringResource(Res.string.mini_chess_difficulty_medium),
+            5 to stringResource(Res.string.mini_chess_difficulty_hard),
+        )
+        Row(
+            modifier = Modifier
+                .widthIn(max = 420.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            options.forEach { (depth, label) ->
+                val isSelected = selected == depth
+                PrismTile(
+                    face = if (isSelected) Primary else MaterialTheme.colorScheme.surfaceVariant,
+                    modifier = Modifier
+                        .weight(1f)
+                        .hoverHand()
+                        .defaultMinSize(minHeight = 48.dp),
                     onClick = {
                         selected = depth
                         onSelected(depth)
                     },
-                    shape = SegmentedButtonDefaults.itemShape(index, options.size),
-                    modifier = Modifier.hoverHand(),
                 ) {
-                    Text(label)
+                    Text(
+                        text = label,
+                        color = if (isSelected) Color.White else MaterialTheme.colorScheme.onSurfaceVariant,
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp),
+                    )
                 }
             }
         }

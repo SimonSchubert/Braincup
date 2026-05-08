@@ -4,13 +4,10 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.translate
@@ -31,6 +28,7 @@ import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
+import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -162,57 +160,59 @@ fun GameTile(
     onPlay: () -> Unit,
     onViewScore: () -> Unit,
 ) {
-    Column(
+    PrismTile(
+        face = Primary,
         modifier = Modifier
             .aspectRatio(1f)
-            .clip(RoundedCornerShape(12.dp))
-            .background(MaterialTheme.colorScheme.surfaceContainer)
-            .hoverHand()
-            .clickable(onClick = onPlay),
+            .hoverHand(),
+        onClick = onPlay,
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .weight(1f)
-                .background(ComposeColor(gameType.accentColor)),
-            contentAlignment = Alignment.Center,
-        ) {
-            MaterialTheme(colorScheme = LightColorScheme) {
-                GamePreview(gameType)
+        Column(modifier = Modifier.fillMaxSize()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .background(ComposeColor(gameType.accentColor)),
+                contentAlignment = Alignment.Center,
+            ) {
+                MaterialTheme(colorScheme = LightColorScheme) {
+                    GamePreview(gameType)
+                }
             }
-        }
 
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(min = 40.dp)
-                .padding(start = 8.dp, top = 6.dp, bottom = 6.dp, end = 6.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Text(
-                text = stringResource(gameType.displayNameRes),
-                style = MaterialTheme.typography.labelLarge,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-                modifier = Modifier.weight(1f),
-            )
-            val medalTint = when {
-                gameType.meetsScore(highscore, gameType.goldScore) -> MedalGold
-                gameType.meetsScore(highscore, gameType.silverScore) -> MedalSilver
-                highscore > 0 -> MedalBronze
-                else -> null
-            }
-            if (medalTint != null) {
-                Spacer(Modifier.width(4.dp))
-                Icon(
-                    painterResource(Res.drawable.ic_icons8_counter_gold),
-                    contentDescription = null,
-                    tint = medalTint,
-                    modifier = Modifier
-                        .size(28.dp)
-                        .hoverHand()
-                        .clickable(onClick = onViewScore),
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 40.dp)
+                    .padding(start = 8.dp, top = 6.dp, bottom = 6.dp, end = 6.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = stringResource(gameType.displayNameRes),
+                    style = MaterialTheme.typography.labelLarge,
+                    color = ComposeColor.White,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
                 )
+                val medalTint = when {
+                    gameType.meetsScore(highscore, gameType.goldScore) -> MedalGold
+                    gameType.meetsScore(highscore, gameType.silverScore) -> MedalSilver
+                    highscore > 0 -> MedalBronze
+                    else -> null
+                }
+                if (medalTint != null) {
+                    Spacer(Modifier.width(4.dp))
+                    Icon(
+                        painterResource(Res.drawable.ic_icons8_counter_gold),
+                        contentDescription = null,
+                        tint = medalTint,
+                        modifier = Modifier
+                            .size(28.dp)
+                            .hoverHand()
+                            .clickable(onClick = onViewScore),
+                    )
+                }
             }
         }
     }
@@ -291,8 +291,9 @@ private fun PathFinderPreview() {
             PathFinderPreviewGrid.forEach { row ->
                 Row(modifier = Modifier.fillMaxWidth()) {
                     row.forEach { figure ->
-                        ShapeCanvas(
-                            figure = figure,
+                        ColorPrismCell(
+                            face = figure.color.composeColor,
+                            facet = 1.5.dp,
                             modifier = Modifier.weight(1f).aspectRatio(1f).padding(1.dp),
                         )
                     }
@@ -337,26 +338,28 @@ private fun VisualMemoryPreview() {
         VisualMemoryPreviewFigures.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { figure ->
-                    Box(
+                    PrismCard(
+                        face = if (figure != null) {
+                            MaterialTheme.colorScheme.surface
+                        } else {
+                            MaterialTheme.colorScheme.surfaceContainerHighest
+                        },
+                        facet = 2.dp,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
-                            .padding(2.dp)
-                            .background(
-                                if (figure != null) {
-                                    MaterialTheme.colorScheme.surface
-                                } else {
-                                    MaterialTheme.colorScheme.surfaceContainerHighest
-                                },
-                                MaterialTheme.shapes.extraSmall,
-                            ),
-                        contentAlignment = Alignment.Center,
+                            .padding(2.dp),
                     ) {
-                        if (figure != null) {
-                            ShapeCanvas(
-                                figure = figure,
-                                modifier = Modifier.fillMaxSize().padding(4.dp),
-                            )
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            if (figure != null) {
+                                ShapeCanvas(
+                                    figure = figure,
+                                    modifier = Modifier.fillMaxSize().padding(4.dp),
+                                )
+                            }
                         }
                     }
                 }
@@ -390,16 +393,13 @@ private fun SherlockCalculationPreview() {
         Spacer(Modifier.height(4.dp))
         Row(modifier = Modifier.fillMaxWidth()) {
             SherlockPreviewNumbers.forEach { num ->
-                Box(
+                PrismCard(
+                    face = MaterialTheme.colorScheme.secondaryContainer,
+                    facet = 1.5.dp,
                     modifier = Modifier
                         .weight(1f)
                         .aspectRatio(1f)
-                        .padding(2.dp)
-                        .background(
-                            MaterialTheme.colorScheme.secondaryContainer,
-                            CircleShape,
-                        ),
-                    contentAlignment = Alignment.Center,
+                        .padding(2.dp),
                 ) {
                     Text(
                         text = "$num",
@@ -519,20 +519,17 @@ private fun SchulteTablePreview() {
         SchulteTablePreviewGrid.forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { cell ->
-                    Box(
+                    PrismCard(
+                        face = if (cell.tapped) {
+                            MaterialTheme.colorScheme.surfaceVariant
+                        } else {
+                            MaterialTheme.colorScheme.surface
+                        },
+                        facet = 2.dp,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
-                            .padding(2.dp)
-                            .background(
-                                if (cell.tapped) {
-                                    MaterialTheme.colorScheme.surfaceVariant
-                                } else {
-                                    MaterialTheme.colorScheme.surface
-                                },
-                                MaterialTheme.shapes.extraSmall,
-                            ),
-                        contentAlignment = Alignment.Center,
+                            .padding(2.dp),
                     ) {
                         Text(
                             text = cell.number.toString(),
@@ -561,19 +558,16 @@ private fun GhostGridPreview() {
                 for (col in 0 until 3) {
                     val index = row * 3 + col
                     val isHighlighted = index in GhostGridPreviewHighlighted
-                    Box(
+                    ColorPrismCell(
+                        face = if (isHighlighted) {
+                            MaterialTheme.colorScheme.primary
+                        } else {
+                            MaterialTheme.colorScheme.surfaceContainerHighest
+                        },
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
-                            .padding(2.dp)
-                            .background(
-                                if (isHighlighted) {
-                                    MaterialTheme.colorScheme.primary
-                                } else {
-                                    MaterialTheme.colorScheme.surfaceContainerHighest
-                                },
-                                MaterialTheme.shapes.extraSmall,
-                            ),
+                            .padding(2.dp),
                     )
                 }
             }
@@ -593,15 +587,12 @@ private fun LightsOutPreview() {
                 for (col in 0 until 3) {
                     val index = row * 3 + col
                     val isOn = index in LightsOutPreviewOn
-                    Box(
+                    ColorPrismCell(
+                        face = if (isOn) LightsOutOnColor else LightsOutOffColor,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
-                            .padding(4.dp)
-                            .background(
-                                if (isOn) LightsOutOnColor else LightsOutOffColor,
-                                CircleShape,
-                            ),
+                            .padding(2.dp),
                     )
                 }
             }
@@ -622,25 +613,22 @@ private fun SlidingPuzzlePreview() {
                     val index = row * 3 + col
                     val label = SlidingPuzzlePreviewLabels[index]
                     val isEmpty = label == 0
-                    Box(
+                    PrismCard(
+                        face = if (isEmpty) {
+                            MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
+                        } else {
+                            MaterialTheme.colorScheme.primaryContainer
+                        },
+                        facet = 2.dp,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
-                            .padding(2.dp)
-                            .background(
-                                if (isEmpty) {
-                                    MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
-                                } else {
-                                    MaterialTheme.colorScheme.primaryContainer
-                                },
-                                MaterialTheme.shapes.extraSmall,
-                            ),
-                        contentAlignment = Alignment.Center,
+                            .padding(2.dp),
                     ) {
                         if (!isEmpty) {
                             Text(
                                 text = label.toString(),
-                                style = MaterialTheme.typography.labelMedium,
+                                style = MaterialTheme.typography.labelSmall,
                                 fontWeight = FontWeight.Bold,
                                 color = LightColorScheme.onPrimaryContainer,
                             )
@@ -669,16 +657,13 @@ private fun PatternSequencePreview() {
                     modifier = Modifier.weight(1f).aspectRatio(1f).padding(2.dp),
                 )
             }
-            Box(
+            PrismCard(
+                face = MaterialTheme.colorScheme.primaryContainer,
+                facet = 2.dp,
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
-                    .padding(2.dp)
-                    .background(
-                        MaterialTheme.colorScheme.primaryContainer,
-                        MaterialTheme.shapes.small,
-                    ),
-                contentAlignment = Alignment.Center,
+                    .padding(2.dp),
             ) {
                 Text(
                     text = "?",
@@ -730,21 +715,19 @@ private fun ColorConfusionPreview() {
         ColorConfusionPreviewWords.chunked(2).forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { (wordColor, fontColor) ->
-                    Box(
+                    PrismCard(
+                        face = MaterialTheme.colorScheme.surface,
+                        facet = 2.dp,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
-                            .padding(2.dp)
-                            .background(
-                                MaterialTheme.colorScheme.surface,
-                                MaterialTheme.shapes.extraSmall,
-                            ),
-                        contentAlignment = Alignment.Center,
+                            .padding(2.dp),
                     ) {
                         Text(
                             text = wordColor.localizedName(),
                             style = MaterialTheme.typography.labelSmall,
                             color = fontColor.composeColor,
+                            textAlign = TextAlign.Center
                         )
                     }
                 }

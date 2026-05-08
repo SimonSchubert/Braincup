@@ -1,17 +1,16 @@
 package com.inspiredandroid.braincup.ui.components
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.button_give_up
 import com.inspiredandroid.braincup.ui.theme.Primary
+import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DefaultButton(
@@ -19,14 +18,57 @@ fun DefaultButton(
     onClick: () -> Unit,
     value: String,
 ) {
-    Button(
-        onClick = { onClick() },
+    PrismTile(
+        face = Primary,
         modifier = modifier
             .hoverHand()
             .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),
+        onClick = onClick,
     ) {
-        Text(value)
+        Text(
+            value,
+            color = Color.White,
+            modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
+        )
     }
+}
+
+@Composable
+fun TextPrismButton(
+    onClick: () -> Unit,
+    value: String,
+    modifier: Modifier = Modifier,
+    isClickable: Boolean = true,
+) {
+    PrismTile(
+        face = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = modifier
+            .hoverHand(isClickable)
+            .defaultMinSize(minHeight = 36.dp),
+        isClickable = isClickable,
+        onClick = onClick,
+    ) {
+        Text(
+            value,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            style = MaterialTheme.typography.labelLarge,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+        )
+    }
+}
+
+@Composable
+fun GiveUpButton(
+    onGiveUp: () -> Unit,
+    modifier: Modifier = Modifier,
+    isClickable: Boolean = true,
+) {
+    TextPrismButton(
+        onClick = onGiveUp,
+        value = stringResource(Res.string.button_give_up),
+        modifier = modifier,
+        isClickable = isClickable,
+    )
 }
 
 /**
@@ -54,18 +96,16 @@ fun CircleButton(
     onClick: () -> Unit,
     value: String,
 ) {
-    Box(
+    PrismTile(
+        face = Primary,
         modifier = Modifier
             .sizeIn(56.dp, 56.dp)
-            .clip(CircleShape)
-            .background(Primary)
-            .hoverHand()
-            .clickable(onClick = onClick),
-        contentAlignment = androidx.compose.ui.Alignment.Center,
+            .hoverHand(),
+        onClick = onClick,
     ) {
         val operatorIcon = OperatorIcons[value]
         if (operatorIcon != null) {
-            androidx.compose.material3.Icon(
+            Icon(
                 imageVector = operatorIcon,
                 contentDescription = value,
                 tint = Color.White,

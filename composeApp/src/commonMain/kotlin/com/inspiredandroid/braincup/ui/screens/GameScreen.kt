@@ -7,14 +7,10 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material3.*
@@ -232,12 +228,7 @@ private fun ColumnScope.ChainCalculationContent(
                     textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(8.dp))
-                TextButton(
-                    onClick = onGiveUp,
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.button_give_up))
-                }
+                GiveUpButton(onGiveUp = onGiveUp)
             }
             Column {
                 NumberPad(onInputChange = { typed ->
@@ -261,14 +252,10 @@ private fun ColumnScope.ChainCalculationContent(
         Spacer(Modifier.height(16.dp))
         NumberPadWithInput(onInputChange = onInputChange)
         Spacer(Modifier.height(16.dp))
-        TextButton(
-            onClick = onGiveUp,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .hoverHand(),
-        ) {
-            Text(stringResource(Res.string.button_give_up))
-        }
+        GiveUpButton(
+            onGiveUp = onGiveUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
     }
 }
 
@@ -305,24 +292,21 @@ private fun ColumnScope.ColoredShapesContent(
                 onClick = { onAnswer(button.value) },
                 value = button.value,
             )
-            AnswerButtonState.WRONG -> Card(
+            AnswerButtonState.WRONG -> PrismTile(
+                face = MaterialTheme.colorScheme.errorContainer,
                 modifier = Modifier.size(56.dp),
-                shape = CircleShape,
-                colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer),
+                isClickable = false,
+                onClick = {},
             ) {
-                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(button.value, color = MaterialTheme.colorScheme.onErrorContainer)
-                }
+                Text(button.value, color = MaterialTheme.colorScheme.onErrorContainer)
             }
-            AnswerButtonState.CORRECT -> Card(
+            AnswerButtonState.CORRECT -> PrismTile(
+                face = SuccessGreen,
                 modifier = Modifier.size(56.dp),
-                shape = CircleShape,
-                colors = CardDefaults.cardColors(containerColor = SuccessGreenSoft),
-                border = BorderStroke(2.dp, SuccessGreen),
+                isClickable = false,
+                onClick = {},
             ) {
-                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Text(button.value)
-                }
+                Text(button.value, color = ComposeColor.White)
             }
             AnswerButtonState.DIMMED -> Box(
                 modifier = Modifier.size(56.dp).alpha(0.3f),
@@ -437,15 +421,11 @@ private fun ColumnScope.SherlockCalculationContent(
         }
 
         val giveUpButton: @Composable (Modifier) -> Unit = { mod ->
-            TextButton(
-                onClick = onGiveUp,
-                enabled = !showingSolution,
-                modifier = mod
-                    .alpha(if (showingSolution) 0f else 1f)
-                    .hoverHand(),
-            ) {
-                Text(stringResource(Res.string.button_give_up))
-            }
+            GiveUpButton(
+                onGiveUp = onGiveUp,
+                modifier = mod.alpha(if (showingSolution) 0f else 1f),
+                isClickable = !showingSolution,
+            )
         }
 
         val numbersRow: @Composable (Modifier) -> Unit = { mod ->
@@ -570,12 +550,7 @@ private fun ColumnScope.FractionCalculationContent(
                     )
                 }
                 Spacer(Modifier.height(8.dp))
-                TextButton(
-                    onClick = onGiveUp,
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.button_give_up))
-                }
+                GiveUpButton(onGiveUp = onGiveUp)
             }
             Column {
                 NumberPad(onInputChange = { typed ->
@@ -598,15 +573,33 @@ private fun ColumnScope.FractionCalculationContent(
         Spacer(Modifier.height(16.dp))
         NumberPadWithInput(onInputChange = onInputChange)
         Spacer(Modifier.height(16.dp))
-        TextButton(
-            onClick = onGiveUp,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .hoverHand(),
-        ) {
-            Text(stringResource(Res.string.button_give_up))
-        }
+        GiveUpButton(
+            onGiveUp = onGiveUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
     }
+}
+
+@Composable
+private fun PathFinderCell(
+    cell: FigureCell,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val face = when (cell.state) {
+        FigureCellState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        FigureCellState.CORRECT -> SuccessGreenSoft
+        else -> cell.figure.color.composeColor
+    }
+    val isClickable = cell.state == FigureCellState.NORMAL
+    val cellModifier = if (cell.state == FigureCellState.DIMMED) modifier.alpha(0.3f) else modifier
+    PrismTile(
+        face = face,
+        modifier = cellModifier,
+        isClickable = isClickable,
+        isSelected = cell.state == FigureCellState.DIMMED,
+        onClick = onClick,
+    ) {}
 }
 
 @Composable
@@ -616,14 +609,38 @@ private fun FigureCellContent(
     modifier: Modifier = Modifier,
 ) {
     when (cell.state) {
-        FigureCellState.NORMAL -> ShapeCanvasButton(figure = cell.figure, onClick = onClick, modifier = modifier)
-        FigureCellState.WRONG -> Card(modifier, colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.errorContainer)) {
+        FigureCellState.NORMAL -> PrismTile(
+            face = MaterialTheme.colorScheme.surfaceContainer,
+            modifier = modifier,
+            onClick = onClick,
+        ) {
             ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
         }
-        FigureCellState.CORRECT -> Card(modifier, colors = CardDefaults.cardColors(containerColor = SuccessGreenSoft), border = BorderStroke(2.dp, SuccessGreen)) {
+        FigureCellState.WRONG -> PrismTile(
+            face = MaterialTheme.colorScheme.errorContainer,
+            modifier = modifier,
+            isClickable = false,
+            onClick = {},
+        ) {
             ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
         }
-        FigureCellState.DIMMED -> ShapeCanvas(figure = cell.figure, modifier = modifier.alpha(0.3f))
+        FigureCellState.CORRECT -> PrismTile(
+            face = SuccessGreenSoft,
+            modifier = modifier,
+            isClickable = false,
+            onClick = {},
+        ) {
+            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
+        }
+        FigureCellState.DIMMED -> PrismTile(
+            face = MaterialTheme.colorScheme.surfaceContainer,
+            modifier = modifier.alpha(0.3f),
+            isClickable = false,
+            isSelected = true,
+            onClick = {},
+        ) {
+            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
+        }
     }
 }
 
@@ -691,7 +708,7 @@ private fun ColumnScope.PathFinderContent(
                 Row {
                     cells.forEachIndexed { x, cell ->
                         val index = y * 4 + x + 1
-                        FigureCellContent(
+                        PathFinderCell(
                             cell = cell,
                             onClick = { onAnswer(index.toString()) },
                             modifier = Modifier
@@ -748,26 +765,20 @@ private fun ColumnScope.ValueComparisonContent(
     Spacer(Modifier.height(16.dp))
 
     uiState.answers.forEachIndexed { index, button ->
-        val colors = when (button.state) {
-            AnswerButtonState.WRONG -> ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.errorContainer,
-                contentColor = MaterialTheme.colorScheme.onErrorContainer,
-                disabledContainerColor = MaterialTheme.colorScheme.errorContainer,
-                disabledContentColor = MaterialTheme.colorScheme.onErrorContainer,
-            )
-            AnswerButtonState.CORRECT -> ButtonDefaults.buttonColors(
-                containerColor = SuccessGreen,
-                contentColor = ComposeColor.White,
-                disabledContainerColor = SuccessGreen,
-                disabledContentColor = ComposeColor.White,
-            )
-            else -> ButtonDefaults.buttonColors()
+        val faceColor = when (button.state) {
+            AnswerButtonState.WRONG -> MaterialTheme.colorScheme.errorContainer
+            AnswerButtonState.CORRECT -> SuccessGreen
+            else -> Primary
+        }
+        val contentColor = when (button.state) {
+            AnswerButtonState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
+            else -> ComposeColor.White
         }
         val isInteractive = button.state == AnswerButtonState.NORMAL
-        Button(
+        PrismTile(
+            face = faceColor,
+            isClickable = isInteractive,
             onClick = { onAnswer((index + 1).toString()) },
-            enabled = isInteractive,
-            colors = colors,
             modifier = Modifier
                 .padding(4.dp)
                 .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
@@ -780,9 +791,15 @@ private fun ColumnScope.ValueComparisonContent(
                     numerator = parts[0],
                     denominator = parts[1],
                     style = MaterialTheme.typography.bodyLarge,
+                    color = contentColor,
+                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
                 )
             } else {
-                MathText(button.value)
+                MathText(
+                    button.value,
+                    color = contentColor,
+                    modifier = Modifier.padding(horizontal = 24.dp, vertical = 12.dp),
+                )
             }
         }
     }
@@ -884,16 +901,20 @@ private fun SudokuDigitPadGrid(
         (1..gridSize).chunked(columns).forEach { rowDigits ->
             Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                 rowDigits.forEach { digit ->
-                    FilledTonalButton(
-                        onClick = { onDigit(digit) },
-                        enabled = enabled,
+                    PrismTile(
+                        face = MaterialTheme.colorScheme.primaryContainer,
                         modifier = Modifier
                             .size(SudokuCellSize)
-                            .hoverHand(enabled),
-                        contentPadding = PaddingValues(0.dp),
-                        shape = RoundedCornerShape(12.dp),
+                            .hoverHand(enabled)
+                            .alpha(if (enabled) 1f else 0.6f),
+                        isClickable = enabled,
+                        onClick = { onDigit(digit) },
                     ) {
-                        Text(text = digit.toString(), style = MaterialTheme.typography.titleLarge)
+                        Text(
+                            text = digit.toString(),
+                            style = MaterialTheme.typography.titleLarge,
+                            color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        )
                     }
                 }
             }
@@ -974,16 +995,14 @@ private fun SudokuCell(
         isSelected -> MaterialTheme.colorScheme.primaryContainer
         else -> MaterialTheme.colorScheme.surface
     }
-    Card(
-        onClick = onClick,
-        enabled = isInteractive,
+    PrismTile(
+        face = containerColor,
+        isClickable = isInteractive,
+        isSelected = isSelected,
         modifier = modifier
             .size(SudokuCellSize)
             .hoverHand(isInteractive),
-        colors = CardDefaults.cardColors(containerColor = containerColor),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp, disabledElevation = 0.dp),
-        shape = RoundedCornerShape(0.dp),
-        border = if (isSolution) BorderStroke(2.dp, SuccessGreen) else null,
+        onClick = onClick,
     ) {
         Text(
             text = value,
@@ -991,9 +1010,6 @@ private fun SudokuCell(
             fontWeight = FontWeight.Bold,
             color = if (isSolution) SuccessGreen else MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxSize()
-                .wrapContentSize(Alignment.Center),
         )
     }
 }
@@ -1010,16 +1026,20 @@ private fun ColumnScope.SudokuDigitPad(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         for (digit in 1..gridSize) {
-            FilledTonalButton(
-                onClick = { onDigit(digit) },
-                enabled = enabled,
+            PrismTile(
+                face = MaterialTheme.colorScheme.primaryContainer,
                 modifier = Modifier
                     .size(SudokuCellSize)
-                    .hoverHand(enabled),
-                contentPadding = PaddingValues(0.dp),
-                shape = RoundedCornerShape(12.dp),
+                    .hoverHand(enabled)
+                    .alpha(if (enabled) 1f else 0.6f),
+                isClickable = enabled,
+                onClick = { onDigit(digit) },
             ) {
-                Text(text = digit.toString(), style = MaterialTheme.typography.titleLarge)
+                Text(
+                    text = digit.toString(),
+                    style = MaterialTheme.typography.titleLarge,
+                    color = OnPrimaryContainer,
+                )
             }
         }
     }
@@ -1086,8 +1106,8 @@ private fun SchulteCell(
     size: androidx.compose.ui.unit.Dp,
     onClick: () -> Unit,
 ) {
-    val containerColor = when (cell.type) {
-        SchulteTableUiState.CellType.NORMAL -> MaterialTheme.colorScheme.surface
+    val face = when (cell.type) {
+        SchulteTableUiState.CellType.NORMAL -> MaterialTheme.colorScheme.surfaceContainer
         SchulteTableUiState.CellType.TAPPED -> MaterialTheme.colorScheme.surfaceVariant
         SchulteTableUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
     }
@@ -1096,16 +1116,15 @@ private fun SchulteCell(
         SchulteTableUiState.CellType.WRONG -> MaterialTheme.colorScheme.onErrorContainer
         SchulteTableUiState.CellType.NORMAL -> MaterialTheme.colorScheme.onSurface
     }
-    val isInteractive = cell.type != SchulteTableUiState.CellType.TAPPED
-    Card(
-        onClick = onClick,
-        enabled = isInteractive,
+    val isInteractive = cell.type == SchulteTableUiState.CellType.NORMAL
+    PrismTile(
+        face = face,
         modifier = Modifier
             .size(size)
             .hoverHand(isInteractive),
-        colors = CardDefaults.cardColors(containerColor = containerColor),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp, disabledElevation = 0.dp),
-        shape = RoundedCornerShape(0.dp),
+        isClickable = isInteractive,
+        isSelected = cell.type == SchulteTableUiState.CellType.TAPPED,
+        onClick = onClick,
     ) {
         Text(
             text = cell.number.toString(),
@@ -1113,9 +1132,6 @@ private fun SchulteCell(
             fontWeight = FontWeight.Bold,
             color = textColor,
             textAlign = TextAlign.Center,
-            modifier = Modifier
-                .fillMaxSize()
-                .wrapContentSize(Alignment.Center),
         )
     }
 }
@@ -1179,12 +1195,7 @@ private fun ColumnScope.LightsOutContent(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Spacer(Modifier.height(8.dp))
-                TextButton(
-                    onClick = onGiveUp,
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.button_give_up))
-                }
+                GiveUpButton(onGiveUp = onGiveUp)
             }
         }
     } else {
@@ -1207,14 +1218,10 @@ private fun ColumnScope.LightsOutContent(
             board()
         }
         Spacer(Modifier.height(16.dp))
-        TextButton(
-            onClick = onGiveUp,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .hoverHand(),
-        ) {
-            Text(stringResource(Res.string.button_give_up))
-        }
+        GiveUpButton(
+            onGiveUp = onGiveUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
     }
 }
 
@@ -1224,15 +1231,13 @@ private fun LightsOutCell(
     size: androidx.compose.ui.unit.Dp,
     onClick: () -> Unit,
 ) {
-    val containerColor by animateColorAsState(if (on) LightsOutOnColor else LightsOutOffColor)
-    Card(
-        onClick = onClick,
+    PrismTile(
+        face = if (on) LightsOutOnColor else LightsOutOffColor,
         modifier = Modifier
             .size(size)
             .hoverHand(),
-        colors = CardDefaults.cardColors(containerColor = containerColor),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp),
-        shape = CircleShape,
+        isSelected = !on,
+        onClick = onClick,
     ) {}
 }
 
@@ -1296,12 +1301,7 @@ private fun ColumnScope.SlidingPuzzleContent(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Spacer(Modifier.height(8.dp))
-                TextButton(
-                    onClick = onGiveUp,
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.button_give_up))
-                }
+                GiveUpButton(onGiveUp = onGiveUp)
             }
         }
     } else {
@@ -1324,14 +1324,10 @@ private fun ColumnScope.SlidingPuzzleContent(
             board()
         }
         Spacer(Modifier.height(16.dp))
-        TextButton(
-            onClick = onGiveUp,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .hoverHand(),
-        ) {
-            Text(stringResource(Res.string.button_give_up))
-        }
+        GiveUpButton(
+            onGiveUp = onGiveUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
     }
 }
 
@@ -1347,18 +1343,13 @@ private fun SlidingPuzzleCell(
     } else {
         MaterialTheme.colorScheme.primaryContainer
     }
-    Card(
-        onClick = onClick,
-        enabled = !isEmpty,
+    PrismTile(
+        face = containerColor,
+        isClickable = !isEmpty,
         modifier = Modifier
             .size(size)
             .hoverHand(!isEmpty),
-        colors = CardDefaults.cardColors(
-            containerColor = containerColor,
-            disabledContainerColor = containerColor,
-        ),
-        elevation = CardDefaults.cardElevation(defaultElevation = 0.dp, disabledElevation = 0.dp),
-        shape = RoundedCornerShape(8.dp),
+        onClick = onClick,
     ) {
         if (!isEmpty) {
             Text(
@@ -1367,9 +1358,6 @@ private fun SlidingPuzzleCell(
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .fillMaxSize()
-                    .wrapContentSize(Alignment.Center),
             )
         }
     }
@@ -1405,34 +1393,55 @@ private fun ExpressionRow(
                 tokens.forEachIndexed { index, token ->
                     when (token) {
                         is ExpressionToken.NumberToken -> {
-                            FilterChip(
-                                modifier = Modifier.hoverHand(),
-                                selected = true,
+                            PrismTile(
+                                face = MaterialTheme.colorScheme.primaryContainer,
+                                modifier = Modifier
+                                    .defaultMinSize(40.dp, 40.dp)
+                                    .hoverHand(),
+                                isSelected = true,
                                 onClick = { onTokenClick(index) },
-                                label = { Text(token.displayValue) },
-                            )
+                            ) {
+                                Text(
+                                    token.displayValue,
+                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                    modifier = Modifier.padding(horizontal = 12.dp),
+                                )
+                            }
                         }
                         is ExpressionToken.OperatorToken -> {
-                            AssistChip(
-                                modifier = Modifier.hoverHand(),
+                            PrismTile(
+                                face = MaterialTheme.colorScheme.surfaceVariant,
+                                modifier = Modifier
+                                    .defaultMinSize(40.dp, 40.dp)
+                                    .hoverHand(),
+                                isSelected = true,
                                 onClick = { onTokenClick(index) },
-                                label = { MathText(token.displayValue) },
-                                border = BorderStroke(1.dp, MaterialTheme.colorScheme.outline),
-                            )
+                            ) {
+                                MathText(
+                                    token.displayValue,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(horizontal = 12.dp),
+                                )
+                            }
                         }
                     }
                 }
             }
         }
         Spacer(Modifier.width(8.dp))
-        IconButton(
-            modifier = Modifier.hoverHand(),
+        PrismTile(
+            face = MaterialTheme.colorScheme.surfaceVariant,
+            modifier = Modifier
+                .size(40.dp)
+                .hoverHand(tokens.isNotEmpty()),
+            isClickable = tokens.isNotEmpty(),
             onClick = onBackspace,
-            enabled = tokens.isNotEmpty(),
         ) {
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.Backspace,
                 contentDescription = stringResource(Res.string.button_backspace),
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(20.dp),
             )
         }
     }
@@ -1453,17 +1462,19 @@ private fun AvailableNumbersRow(
     ) {
         numbers.forEachIndexed { index, value ->
             val isUsed = index in usedIndices
-            FilledTonalButton(
-                onClick = { onNumberClick(value, index) },
-                enabled = !isUsed,
+            PrismTile(
+                face = MaterialTheme.colorScheme.primaryContainer,
                 modifier = Modifier
                     .size(56.dp)
-                    .hoverHand(),
-                contentPadding = PaddingValues(0.dp),
+                    .hoverHand(!isUsed),
+                isClickable = !isUsed,
+                isSelected = isUsed,
+                onClick = { onNumberClick(value, index) },
             ) {
                 Text(
                     text = value.toString(),
                     style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
             }
         }
@@ -1648,24 +1659,21 @@ private fun VisualMemoryAnswerOption(
     onAnswer: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    if (option.isWrong) {
-        Card(
-            modifier = modifier,
-            colors = CardDefaults.cardColors(
-                containerColor = MaterialTheme.colorScheme.errorContainer,
-            ),
-        ) {
-            ShapeCanvas(
-                figure = option.figure,
-                modifier = Modifier.fillMaxSize().padding(8.dp),
-            )
-        }
+    val face = if (option.isWrong) {
+        MaterialTheme.colorScheme.errorContainer
     } else {
-        ShapeCanvasButton(
+        MaterialTheme.colorScheme.surfaceContainer
+    }
+    val cellModifier = if (option.enabled || option.isWrong) modifier else modifier.alpha(0.3f)
+    PrismTile(
+        face = face,
+        modifier = cellModifier,
+        isClickable = option.enabled && !option.isWrong,
+        onClick = { onAnswer(option.figureIndex.toString()) },
+    ) {
+        ShapeCanvas(
             figure = option.figure,
-            onClick = { onAnswer(option.figureIndex.toString()) },
-            enabled = option.enabled,
-            modifier = modifier,
+            modifier = Modifier.fillMaxSize().padding(8.dp),
         )
     }
 }
@@ -1682,7 +1690,7 @@ private fun VisualMemoryCell(
         -> MaterialTheme.colorScheme.surfaceVariant
         VisualMemoryUiState.CellType.MEMORIZING,
         VisualMemoryUiState.CellType.REVEALED,
-        -> MaterialTheme.colorScheme.surface
+        -> MaterialTheme.colorScheme.surfaceContainer
         VisualMemoryUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
     }
     val containerColor by animateColorAsState(
@@ -1711,9 +1719,14 @@ private fun VisualMemoryCell(
         if (cell.figure != null) rememberedFigure = cell.figure
     }
 
-    Card(
+    val isPocket = cell.type == VisualMemoryUiState.CellType.HIDDEN ||
+        cell.type == VisualMemoryUiState.CellType.EMPTY
+    PrismTile(
+        face = containerColor,
         modifier = modifier,
-        colors = CardDefaults.cardColors(containerColor = containerColor),
+        isClickable = false,
+        isSelected = isPocket,
+        onClick = {},
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -1723,7 +1736,7 @@ private fun VisualMemoryCell(
                 Text(
                     text = "?",
                     style = MaterialTheme.typography.headlineLarge,
-                    color = OnPrimaryContainer,
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
                     modifier = Modifier.graphicsLayer { alpha = questionAlpha.value },
                 )
             }
@@ -1786,30 +1799,20 @@ private fun GhostGridCell(
     isClickable: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val cellColor = when (cell.type) {
+    val face = when (cell.type) {
         GhostGridUiState.CellType.ACTIVE -> Primary
         GhostGridUiState.CellType.TAPPED -> Primary
         GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
         GhostGridUiState.CellType.MISSED -> SuccessGreenSoft
         GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
     }
-    val border = if (cell.type == GhostGridUiState.CellType.MISSED) {
-        BorderStroke(2.dp, SuccessGreen)
-    } else {
-        null
-    }
-    Card(
-        onClick = onClick,
-        enabled = isClickable,
+    PrismTile(
+        face = face,
         modifier = modifier.hoverHand(isClickable),
-        colors = CardDefaults.cardColors(
-            containerColor = cellColor,
-            disabledContainerColor = cellColor,
-        ),
-        border = border,
-    ) {
-        Box(Modifier.fillMaxSize())
-    }
+        isClickable = isClickable,
+        isSelected = cell.type == GhostGridUiState.CellType.TAPPED,
+        onClick = onClick,
+    ) {}
 }
 
 // --- Pattern Sequence Game Composables ---
@@ -1840,11 +1843,9 @@ private fun ColumnScope.PatternSequenceContent(
                 modifier = Modifier.size(48.dp),
             )
         }
-        Card(
+        PrismCard(
+            face = PrimaryContainer,
             modifier = Modifier.size(48.dp),
-            colors = CardDefaults.cardColors(
-                containerColor = PrimaryContainer,
-            ),
         ) {
             Box(
                 contentAlignment = Alignment.Center,
@@ -1923,15 +1924,20 @@ private fun ColumnScope.ColorConfusionContent(
 
     Spacer(Modifier.height(if (compact) 8.dp else 16.dp))
 
-    Button(
+    PrismTile(
+        face = Primary,
+        isClickable = !uiState.isSubmitted,
         onClick = { onAnswer("submit") },
-        enabled = !uiState.isSubmitted,
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
+            .defaultMinSize(minWidth = 96.dp, minHeight = 48.dp)
             .alpha(if (uiState.isSubmitted) 0f else 1f)
             .hoverHand(),
     ) {
-        Text(stringResource(Res.string.button_done))
+        Text(
+            stringResource(Res.string.button_done),
+            color = ComposeColor.White,
+        )
     }
 }
 
@@ -1945,30 +1951,24 @@ private fun ColorConfusionCell(
         ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
         ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
         ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
-        else -> MaterialTheme.colorScheme.surface
+        else -> MaterialTheme.colorScheme.surfaceContainer
     }
     val containerColor by animateColorAsState(
         targetValue = targetContainerColor,
         animationSpec = tween(250),
         label = "colorConfusionContainer",
     )
-    val border = when {
-        cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> BorderStroke(2.dp, SuccessGreen)
-        cell.feedback == ColorConfusionUiState.CellFeedback.MISSED -> BorderStroke(2.dp, MaterialTheme.colorScheme.error)
-        cell.isSelected && cell.feedback == ColorConfusionUiState.CellFeedback.NONE -> BorderStroke(2.dp, Primary)
-        else -> null
-    }
 
     val isInteractive = cell.feedback == ColorConfusionUiState.CellFeedback.NONE
-    Card(
-        onClick = onClick,
-        enabled = isInteractive,
+    val isPressed = cell.isSelected ||
+        cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED ||
+        cell.feedback == ColorConfusionUiState.CellFeedback.WRONG_SELECTED
+    PrismTile(
+        face = containerColor,
         modifier = modifier.hoverHand(isInteractive),
-        colors = CardDefaults.cardColors(
-            containerColor = containerColor,
-            disabledContainerColor = containerColor,
-        ),
-        border = border,
+        isClickable = isInteractive,
+        isSelected = isPressed,
+        onClick = onClick,
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -2176,11 +2176,9 @@ private fun ColumnScope.FlashCrowdContent(
                     .graphicsLayer { this.alpha = alpha.value },
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
-                Button(
+                PrismTile(
+                    face = FlashCrowdBlue,
                     onClick = { onAnswer("left") },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = FlashCrowdBlue,
-                    ),
                     modifier = Modifier
                         .weight(1f)
                         .height(80.dp)
@@ -2189,13 +2187,14 @@ private fun ColumnScope.FlashCrowdContent(
                     Text(
                         text = stringResource(Res.string.game_flash_crowd_blue),
                         style = MaterialTheme.typography.titleLarge,
+                        color = ComposeColor.White,
                     )
                 }
-                Button(
+                PrismTile(
+                    face = FlashCrowdYellow,
+                    side = FlashCrowdYellow.darken(0.85f),
+                    bottom = FlashCrowdYellow.darken(0.7f),
                     onClick = { onAnswer("right") },
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = FlashCrowdYellow,
-                    ),
                     modifier = Modifier
                         .weight(1f)
                         .height(80.dp)
@@ -2204,6 +2203,7 @@ private fun ColumnScope.FlashCrowdContent(
                     Text(
                         text = stringResource(Res.string.game_flash_crowd_yellow),
                         style = MaterialTheme.typography.titleLarge,
+                        color = ComposeColor.Black,
                     )
                 }
             }
@@ -2291,10 +2291,10 @@ private fun ColumnScope.MiniChessContent(
                     style = MaterialTheme.typography.bodyMedium,
                 )
                 selectedHasDrawMove -> Row(verticalAlignment = Alignment.CenterVertically) {
-                    Box(
-                        modifier = Modifier
-                            .size(14.dp)
-                            .background(MiniChessDrawDot, CircleShape),
+                    ColorPrismCell(
+                        face = MiniChessDrawDot,
+                        facet = 1.5.dp,
+                        modifier = Modifier.size(14.dp),
                     )
                     Spacer(Modifier.width(8.dp))
                     Text(
@@ -2360,18 +2360,14 @@ private fun ColumnScope.MiniChessContent(
     val outcomeAndActions: @Composable ColumnScope.() -> Unit = {
         if (uiState.outcome == null) {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                OutlinedButton(
+                DefaultButton(
                     onClick = { onAnswer("reset") },
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.mini_chess_reset))
-                }
-                Button(
+                    value = stringResource(Res.string.mini_chess_reset),
+                )
+                DefaultButton(
                     onClick = { onAnswer("restart") },
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.mini_chess_restart))
-                }
+                    value = stringResource(Res.string.mini_chess_restart),
+                )
             }
         } else {
             Text(
@@ -2397,18 +2393,14 @@ private fun ColumnScope.MiniChessContent(
             }
             Spacer(Modifier.height(12.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                OutlinedButton(
+                DefaultButton(
                     onClick = { onAnswer("reset") },
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.mini_chess_reset))
-                }
-                Button(
+                    value = stringResource(Res.string.mini_chess_reset),
+                )
+                DefaultButton(
                     onClick = { onAnswer("restart") },
-                    modifier = Modifier.hoverHand(),
-                ) {
-                    Text(stringResource(Res.string.mini_chess_restart))
-                }
+                    value = stringResource(Res.string.mini_chess_restart),
+                )
             }
         }
     }
@@ -2502,16 +2494,16 @@ private fun MiniChessCellView(
         // Move indicators rendered last so they sit on top of any piece silhouette.
         if (isLegalTarget) {
             when {
-                isStalemateTarget -> Box(
-                    modifier = Modifier
-                        .size(20.dp)
-                        .background(MiniChessDrawDot, CircleShape)
-                        .border(BorderStroke(1.5.dp, ComposeColor.Black.copy(alpha = 0.55f)), CircleShape),
+                isStalemateTarget -> ColorPrismCell(
+                    face = MiniChessDrawDot,
+                    side = ComposeColor.Black.copy(alpha = 0.55f),
+                    bottom = ComposeColor.Black.copy(alpha = 0.55f),
+                    modifier = Modifier.size(20.dp),
                 )
-                cell.pieceType == null -> Box(
-                    modifier = Modifier
-                        .size(16.dp)
-                        .background(MiniChessLegalDot, CircleShape),
+                cell.pieceType == null -> ColorPrismCell(
+                    face = MiniChessLegalDot,
+                    facet = 1.5.dp,
+                    modifier = Modifier.size(16.dp),
                 )
             }
         }

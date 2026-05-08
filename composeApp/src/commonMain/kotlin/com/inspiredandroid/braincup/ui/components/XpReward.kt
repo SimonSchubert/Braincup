@@ -50,7 +50,6 @@ fun XpGainedChip(
             this.alpha = alpha.value
             translationY = with(density) { offsetDp.value.dp.toPx() }
         },
-        cornerRadius = 20,
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
     ) {
         Text(
@@ -89,7 +88,6 @@ fun LevelUpBanner(
             scaleY = scale.value
         },
         containerColor = Primary,
-        cornerRadius = 20,
         contentPadding = PaddingValues(horizontal = 24.dp, vertical = 16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
