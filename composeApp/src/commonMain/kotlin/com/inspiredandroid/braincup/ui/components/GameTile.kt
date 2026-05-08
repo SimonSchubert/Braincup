@@ -727,7 +727,7 @@ private fun ColorConfusionPreview() {
                             text = wordColor.localizedName(),
                             style = MaterialTheme.typography.labelSmall,
                             color = fontColor.composeColor,
-                            textAlign = TextAlign.Center
+                            textAlign = TextAlign.Center,
                         )
                     }
                 }
