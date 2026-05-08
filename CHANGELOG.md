@@ -1,3 +1,8 @@
+## v2.12.0 — 2026-05-08
+
+### Improvements
+- Refactored UI from Material design to Prism design system
+
 ## v2.11.0 — 2026-05-01
 
 ### Features
