@@ -99,7 +99,7 @@ class GameController(
     }
 
     private fun generateSessionGameIds(): List<String> = GameType.entries
-        .filterNot { it == GameType.LIGHTS_OUT || it == GameType.SLIDING_PUZZLE }
+        .filterNot { it == GameType.LIGHTS_OUT || it == GameType.SLIDING_PUZZLE || it == GameType.MINI_CHESS }
         .shuffled()
         .take(UserStorage.SESSION_GAME_COUNT)
         .map { it.id }
