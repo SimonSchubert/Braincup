@@ -12,6 +12,9 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.bungee
+import org.jetbrains.compose.resources.Font
 
 val Primary = Color(0xFFED7354)
 private val OnPrimary = Color.White
@@ -77,98 +80,102 @@ val DarkColorScheme = darkColorScheme(
     onError = Color.White,
 )
 
-private val AppTypography = Typography(
-    displayLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W100,
-        fontSize = 57.sp,
-        lineHeight = 64.sp,
-    ),
-    displayMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W100,
-        fontSize = 45.sp,
-        lineHeight = 52.sp,
-    ),
-    displaySmall = TextStyle(
-        fontFamily = FontFamily.SansSerif,
-        fontWeight = FontWeight.W500,
-        fontSize = 36.sp,
-        lineHeight = 44.sp,
-    ),
-    headlineLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W700,
-        fontSize = 32.sp,
-        lineHeight = 40.sp,
-    ),
-    headlineMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W700,
-        fontSize = 28.sp,
-        lineHeight = 36.sp,
-    ),
-    headlineSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W700,
-        fontSize = 24.sp,
-        lineHeight = 32.sp,
-    ),
-    titleLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W700,
-        fontSize = 22.sp,
-        lineHeight = 28.sp,
-    ),
-    titleMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-    ),
-    titleSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-    ),
-    bodyLarge = TextStyle(
-        fontFamily = FontFamily.SansSerif,
-        fontWeight = FontWeight.W700,
-        fontSize = 16.sp,
-        lineHeight = 24.sp,
-    ),
-    bodyMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W200,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-    ),
-    bodySmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
-    ),
-    labelLarge = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W800,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
-    ),
-    labelMedium = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 12.sp,
-        lineHeight = 16.sp,
-    ),
-    labelSmall = TextStyle(
-        fontFamily = FontFamily.Default,
-        fontWeight = FontWeight.W500,
-        fontSize = 11.sp,
-        lineHeight = 16.sp,
-    ),
-)
+@Composable
+private fun appTypography(): Typography {
+    val bungee = FontFamily(Font(Res.font.bungee))
+    return Typography(
+        displayLarge = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W100,
+            fontSize = 57.sp,
+            lineHeight = 64.sp,
+        ),
+        displayMedium = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W100,
+            fontSize = 45.sp,
+            lineHeight = 52.sp,
+        ),
+        displaySmall = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W500,
+            fontSize = 36.sp,
+            lineHeight = 44.sp,
+        ),
+        headlineLarge = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W700,
+            fontSize = 32.sp,
+            lineHeight = 40.sp,
+        ),
+        headlineMedium = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W700,
+            fontSize = 28.sp,
+            lineHeight = 36.sp,
+        ),
+        headlineSmall = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W700,
+            fontSize = 24.sp,
+            lineHeight = 32.sp,
+        ),
+        titleLarge = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W700,
+            fontSize = 22.sp,
+            lineHeight = 28.sp,
+        ),
+        titleMedium = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W500,
+            fontSize = 16.sp,
+            lineHeight = 24.sp,
+        ),
+        titleSmall = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W500,
+            fontSize = 14.sp,
+            lineHeight = 20.sp,
+        ),
+        bodyLarge = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W700,
+            fontSize = 16.sp,
+            lineHeight = 24.sp,
+        ),
+        bodyMedium = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W200,
+            fontSize = 14.sp,
+            lineHeight = 20.sp,
+        ),
+        bodySmall = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W500,
+            fontSize = 12.sp,
+            lineHeight = 16.sp,
+        ),
+        labelLarge = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W800,
+            fontSize = 14.sp,
+            lineHeight = 20.sp,
+        ),
+        labelMedium = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W500,
+            fontSize = 12.sp,
+            lineHeight = 16.sp,
+        ),
+        labelSmall = TextStyle(
+            fontFamily = bungee,
+            fontWeight = FontWeight.W500,
+            fontSize = 11.sp,
+            lineHeight = 16.sp,
+        ),
+    )
+}
 
 @Composable
 fun BraincupTheme(
@@ -177,7 +184,7 @@ fun BraincupTheme(
 ) {
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = AppTypography,
+        typography = appTypography(),
         content = content,
     )
 }
