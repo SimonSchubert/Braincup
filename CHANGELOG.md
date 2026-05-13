@@ -1,3 +1,13 @@
+## v2.13.0 — 2026-05-13
+
+### Features
+- New Flag guessing game
+- Google Play Services achievements
+
+### Improvements
+- Upgraded Compose Multiplatform
+- Switched to Bungee font
+
 ## v2.12.1 — 2026-05-13
 
 ### Fixes
