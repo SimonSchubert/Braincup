@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -16,9 +15,6 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -105,19 +101,10 @@ fun XpProgressBar(
     progress: Float,
     modifier: Modifier = Modifier,
 ) {
-    val track = OnPrimaryContainerSubtle
-    val fill = Primary
-    Canvas(modifier = modifier) {
-        val corner = CornerRadius(size.height / 2f, size.height / 2f)
-        drawRoundRect(color = track, size = size, cornerRadius = corner)
-        val filledWidth = size.width * progress.coerceIn(0f, 1f)
-        if (filledWidth > 0f) {
-            drawRoundRect(
-                color = fill,
-                topLeft = Offset.Zero,
-                size = Size(filledWidth, size.height),
-                cornerRadius = corner,
-            )
-        }
-    }
+    PrismProgressBar(
+        progress = progress,
+        trackColor = OnPrimaryContainerSubtle,
+        fillColor = Primary,
+        modifier = modifier,
+    )
 }

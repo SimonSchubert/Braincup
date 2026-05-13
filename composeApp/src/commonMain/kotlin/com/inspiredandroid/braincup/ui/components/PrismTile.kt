@@ -13,8 +13,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.clipPath
 import androidx.compose.ui.hapticfeedback.HapticFeedbackType
 import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.unit.Dp
@@ -136,6 +138,45 @@ fun ColorPrismCell(
         facet = facet,
         modifier = modifier,
     )
+}
+
+/**
+ * Horizontal progress bar whose silhouette matches [PrismShape] — chamfered top-right
+ * and bottom-left corners — so it sits visually next to other prism-styled surfaces.
+ */
+@Composable
+fun PrismProgressBar(
+    progress: Float,
+    trackColor: Color,
+    fillColor: Color,
+    modifier: Modifier = Modifier,
+    facet: Dp = PrismCardFacet,
+) {
+    val barPath = remember { Path() }
+    Canvas(modifier) {
+        val w = size.width
+        val h = size.height
+        val f = facet.toPx().coerceAtMost(minOf(w, h) / 2f)
+
+        barPath.reset()
+        barPath.apply {
+            moveTo(0f, 0f)
+            lineTo(w - f, 0f)
+            lineTo(w, f)
+            lineTo(w, h)
+            lineTo(f, h)
+            lineTo(0f, h - f)
+            close()
+        }
+
+        clipPath(barPath) {
+            drawRect(color = trackColor, size = size)
+            val filledWidth = w * progress.coerceIn(0f, 1f)
+            if (filledWidth > 0f) {
+                drawRect(color = fillColor, size = Size(filledWidth, h))
+            }
+        }
+    }
 }
 
 @Composable
