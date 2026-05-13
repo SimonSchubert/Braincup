@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">Yörünge Takipçisi</string>
     <string name="game_flash_crowd">Flaş Kalabalık</string>
     <string name="game_schulte_table">Schulte Tablosu</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">Mini Satranç</string>
+    <string name="game_lights_out">Işıkları Söndür</string>
+    <string name="game_sliding_puzzle">Kaydırma Bulmacası</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">Her iki tarafta noktalar kısa süre yanıp söner. Daha fazla noktası olan tarafa dokunun. Saymayın — içgüdünüze güvenin!</string>
     <string name="game_schulte_table_desc">Sayılara 1'den başlayarak sırayla mümkün olduğunca hızlı dokun.</string>
     <string name="game_schulte_instruction">Sayılara sırayla dokun: 1, 2, 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">Beyazlarla satranç senaryosunu bitir. CPU sana mat etmeden önce ona mat et.</string>
+    <string name="game_lights_out_desc">Tüm ışıkları söndür. Her dokunuş, hücreyi ve dört komşusunu değiştirir.</string>
+    <string name="game_sliding_puzzle_desc">Karoları boş alana kaydırarak sıraya diz.</string>
+    <string name="moves_label">Hamle: %1$d</string>
+    <string name="mini_chess_thinking">CPU düşünüyor…</string>
+    <string name="mini_chess_round_won">Şah Mat</string>
+    <string name="mini_chess_round_lost">CPU sana mat etti</string>
+    <string name="mini_chess_round_draw">Berabere</string>
+    <string name="mini_chess_reset">Sıfırla</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">Zorluk</string>
+    <string name="mini_chess_difficulty_easy">Kolay</string>
+    <string name="mini_chess_difficulty_medium">Orta</string>
+    <string name="mini_chess_difficulty_hard">Zor</string>
+    <string name="mini_chess_restart">Yeni Oyun</string>
+    <string name="mini_chess_move_counter">Hamle %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= pat (berabere, galibiyet değil)</string>
     <string name="game_what_comes_next">Sıradaki ne?</string>
     <string name="game_tap_original_targets">Orijinal hedeflere dokunun</string>
     <string name="game_remember_targets">Hedefleri hatırlayın</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">Bronz Madalya</string>
-    <string name="achievement_silver_medal">Gümüş Madalya</string>
-    <string name="achievement_gold_medal">Altın Madalya</string>
-    <string name="achievement_10_points">10 Puan</string>
-    <string name="achievement_100_points">100 Puan</string>
-    <string name="achievement_1000_points">1.000 Puan</string>
-    <string name="achievement_10000_points">10.000 Puan</string>
-    <string name="achievement_3_day_streak">3 Günlük Seri</string>
-    <string name="achievement_7_day_streak">7 Günlük Seri</string>
-    <string name="achievement_30_day_streak">30 Günlük Seri</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">Tüm oyunlarda en az 1 puan alın</string>
-    <string name="achievement_silver_medal_desc">Tüm oyunlarda gümüş skora ulaşın</string>
-    <string name="achievement_gold_medal_desc">Tüm oyunlarda altın skora ulaşın</string>
-    <string name="achievement_10_points_desc">Toplam 10 puan biriktirin</string>
-    <string name="achievement_100_points_desc">Toplam 100 puan biriktirin</string>
-    <string name="achievement_1000_points_desc">Toplam 1.000 puan biriktirin</string>
-    <string name="achievement_10000_points_desc">Toplam 10.000 puan biriktirin</string>
-    <string name="achievement_3_day_streak_desc">Üst üste 3 gün antrenman yapın</string>
-    <string name="achievement_7_day_streak_desc">Üst üste 7 gün antrenman yapın</string>
-    <string name="achievement_30_day_streak_desc">Üst üste 30 gün antrenman yapın</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Günlük meydan okuma</string>
     <string name="daily_challenge_subtitle_start">Serini sürdürmek için %1$d oyun oyna</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">Bilge</string>
     <string name="title_master">Usta</string>
     <string name="title_grandmaster">Büyük Usta</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">Sudoku Bilgesi</string>
+    <string name="achievement_gold_mini_chess">Oyunsonu Virtüözü</string>
+    <string name="achievement_gold_lights_out">Tam Karartma</string>
+    <string name="achievement_gold_sliding_puzzle">Akıcı Operatör</string>
+    <string name="achievement_gold_path_finder">İz Sürücü</string>
+    <string name="achievement_gold_anomaly_puzzle">Tuhaflık Avcısı</string>
+    <string name="achievement_gold_colored_shapes">Şekil Değiştiren</string>
+    <string name="achievement_gold_sherlock_calculation">Basit, sevgili dostum</string>
+    <string name="achievement_gold_mental_calculation">İnsan Hesap Makinesi</string>
+    <string name="achievement_gold_chain_calculation">Kopmaz Zincir</string>
+    <string name="achievement_gold_fraction_calculation">Kesir Patronu</string>
+    <string name="achievement_gold_value_comparison">Hepsinden Büyük</string>
+    <string name="achievement_gold_ghost_grid">Hayalet Fısıldayıcı</string>
+    <string name="achievement_gold_visual_memory">Fotografik Hafıza</string>
+    <string name="achievement_gold_orbit_tracker">Astronom</string>
+    <string name="achievement_gold_pattern_sequence">Desen Kâhini</string>
+    <string name="achievement_gold_color_confusion">Gerçek Renkler</string>
+    <string name="achievement_gold_flash_crowd">Kalabalık Sayar</string>
+    <string name="achievement_gold_schulte_table">Şimşek Bakış</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">Zihin Maratoncusu</string>
+    <string name="achievement_iron_streak">Demir Seri</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">Mini Sudoku oyununda altın madalya kazan</string>
+    <string name="achievement_gold_mini_chess_desc">Mini Chess oyununda altın madalya kazan</string>
+    <string name="achievement_gold_lights_out_desc">Lights Out oyununda altın madalya kazan</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle oyununda altın madalya kazan</string>
+    <string name="achievement_gold_path_finder_desc">Yol Bulucu oyununda altın madalya kazan</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">Anomali Bulmacası oyununda altın madalya kazan</string>
+    <string name="achievement_gold_colored_shapes_desc">Renkli Şekiller oyununda altın madalya kazan</string>
+    <string name="achievement_gold_sherlock_calculation_desc">Sherlock Hesaplaması oyununda altın madalya kazan</string>
+    <string name="achievement_gold_mental_calculation_desc">Zihinsel Hesaplama oyununda altın madalya kazan</string>
+    <string name="achievement_gold_chain_calculation_desc">Zincir Hesaplama oyununda altın madalya kazan</string>
+    <string name="achievement_gold_fraction_calculation_desc">Kesir Hesaplama oyununda altın madalya kazan</string>
+    <string name="achievement_gold_value_comparison_desc">Değer Karşılaştırma oyununda altın madalya kazan</string>
+    <string name="achievement_gold_ghost_grid_desc">Hayalet Izgara oyununda altın madalya kazan</string>
+    <string name="achievement_gold_visual_memory_desc">Görsel Hafıza oyununda altın madalya kazan</string>
+    <string name="achievement_gold_orbit_tracker_desc">Yörünge Takipçisi oyununda altın madalya kazan</string>
+    <string name="achievement_gold_pattern_sequence_desc">Desen Dizisi oyununda altın madalya kazan</string>
+    <string name="achievement_gold_color_confusion_desc">Renk Karmaşası oyununda altın madalya kazan</string>
+    <string name="achievement_gold_flash_crowd_desc">Flaş Kalabalık oyununda altın madalya kazan</string>
+    <string name="achievement_gold_schulte_table_desc">Schulte Tablosu oyununda altın madalya kazan</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">Toplam 10.000 puan biriktir</string>
+    <string name="achievement_iron_streak_desc">30 gün üst üste antren</string>
 </resources>

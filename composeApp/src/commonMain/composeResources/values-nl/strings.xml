@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">Baanvolger</string>
     <string name="game_flash_crowd">Flitsmenigte</string>
     <string name="game_schulte_table">Schulte-tabel</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">Mini-Schaak</string>
+    <string name="game_lights_out">Lichten uit</string>
+    <string name="game_sliding_puzzle">Schuifpuzzel</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">Stippen flitsen kort aan elke kant. Tik op de kant met meer stippen. Tel niet — vertrouw op je instinct!</string>
     <string name="game_schulte_table_desc">Tik de nummers zo snel mogelijk op volgorde vanaf 1.</string>
     <string name="game_schulte_instruction">Tik de nummers op volgorde: 1, 2, 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">Voltooi het schaakscenario als wit. Geef de CPU schaakmat voordat hij jou schaakmat geeft.</string>
+    <string name="game_lights_out_desc">Schakel alle lichten uit. Elke tik wisselt de cel en zijn vier buren om.</string>
+    <string name="game_sliding_puzzle_desc">Schuif tegels in de lege ruimte om ze op volgorde te zetten.</string>
+    <string name="moves_label">Zetten: %1$d</string>
+    <string name="mini_chess_thinking">CPU denkt na…</string>
+    <string name="mini_chess_round_won">Schaakmat</string>
+    <string name="mini_chess_round_lost">CPU heeft je schaakmat gezet</string>
+    <string name="mini_chess_round_draw">Gelijkspel</string>
+    <string name="mini_chess_reset">Resetten</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">Moeilijkheid</string>
+    <string name="mini_chess_difficulty_easy">Makkelijk</string>
+    <string name="mini_chess_difficulty_medium">Gemiddeld</string>
+    <string name="mini_chess_difficulty_hard">Moeilijk</string>
+    <string name="mini_chess_restart">Nieuw spel</string>
+    <string name="mini_chess_move_counter">Zet %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= patstelling (gelijkspel, geen winst)</string>
     <string name="game_what_comes_next">Wat komt er hierna?</string>
     <string name="game_tap_original_targets">Tik op de oorspronkelijke doelen</string>
     <string name="game_remember_targets">Onthoud de doelen</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">Bronzen medaille</string>
-    <string name="achievement_silver_medal">Zilveren medaille</string>
-    <string name="achievement_gold_medal">Gouden medaille</string>
-    <string name="achievement_10_points">10 Punten</string>
-    <string name="achievement_100_points">100 Punten</string>
-    <string name="achievement_1000_points">1.000 Punten</string>
-    <string name="achievement_10000_points">10.000 Punten</string>
-    <string name="achievement_3_day_streak">3-daagse reeks</string>
-    <string name="achievement_7_day_streak">7-daagse reeks</string>
-    <string name="achievement_30_day_streak">30-daagse reeks</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">Scoor minstens 1 punt in alle spellen</string>
-    <string name="achievement_silver_medal_desc">Bereik de zilveren score in alle spellen</string>
-    <string name="achievement_gold_medal_desc">Bereik de gouden score in alle spellen</string>
-    <string name="achievement_10_points_desc">Verzamel in totaal 10 punten</string>
-    <string name="achievement_100_points_desc">Verzamel in totaal 100 punten</string>
-    <string name="achievement_1000_points_desc">Verzamel in totaal 1.000 punten</string>
-    <string name="achievement_10000_points_desc">Verzamel in totaal 10.000 punten</string>
-    <string name="achievement_3_day_streak_desc">Train 3 dagen achter elkaar</string>
-    <string name="achievement_7_day_streak_desc">Train 7 dagen achter elkaar</string>
-    <string name="achievement_30_day_streak_desc">Train 30 dagen achter elkaar</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Dagelijkse uitdaging</string>
     <string name="daily_challenge_subtitle_start">Speel %1$d spellen om je reeks te behouden</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">Wijze</string>
     <string name="title_master">Meester</string>
     <string name="title_grandmaster">Grootmeester</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">Sudoku-wijze</string>
+    <string name="achievement_gold_mini_chess">Eindspelvirtuoos</string>
+    <string name="achievement_gold_lights_out">Totale duisternis</string>
+    <string name="achievement_gold_sliding_puzzle">Soepele schuiver</string>
+    <string name="achievement_gold_path_finder">Padvinder</string>
+    <string name="achievement_gold_anomaly_puzzle">Anomaliespeurder</string>
+    <string name="achievement_gold_colored_shapes">Vormveranderaar</string>
+    <string name="achievement_gold_sherlock_calculation">Elementair, beste</string>
+    <string name="achievement_gold_mental_calculation">Menselijke rekenmachine</string>
+    <string name="achievement_gold_chain_calculation">Onverbroken keten</string>
+    <string name="achievement_gold_fraction_calculation">Breukbaas</string>
+    <string name="achievement_gold_value_comparison">Groter dan de rest</string>
+    <string name="achievement_gold_ghost_grid">Spookfluisteraar</string>
+    <string name="achievement_gold_visual_memory">Fotografisch geheugen</string>
+    <string name="achievement_gold_orbit_tracker">Sterrenkundige</string>
+    <string name="achievement_gold_pattern_sequence">Patroonprofeet</string>
+    <string name="achievement_gold_color_confusion">Ware kleuren</string>
+    <string name="achievement_gold_flash_crowd">Mensenteller</string>
+    <string name="achievement_gold_schulte_table">Bliksemblik</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">Geest-marathonloper</string>
+    <string name="achievement_iron_streak">IJzeren reeks</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">Win de gouden medaille in Mini Sudoku</string>
+    <string name="achievement_gold_mini_chess_desc">Win de gouden medaille in Mini Chess</string>
+    <string name="achievement_gold_lights_out_desc">Win de gouden medaille in Lights Out</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Win de gouden medaille in Sliding Puzzle</string>
+    <string name="achievement_gold_path_finder_desc">Win de gouden medaille in Padvinder</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">Win de gouden medaille in Anomalie puzzel</string>
+    <string name="achievement_gold_colored_shapes_desc">Win de gouden medaille in Gekleurde vormen</string>
+    <string name="achievement_gold_sherlock_calculation_desc">Win de gouden medaille in Sherlock berekening</string>
+    <string name="achievement_gold_mental_calculation_desc">Win de gouden medaille in Hoofdrekenen</string>
+    <string name="achievement_gold_chain_calculation_desc">Win de gouden medaille in Kettingberekening</string>
+    <string name="achievement_gold_fraction_calculation_desc">Win de gouden medaille in Breukberekening</string>
+    <string name="achievement_gold_value_comparison_desc">Win de gouden medaille in Waardenvergelijking</string>
+    <string name="achievement_gold_ghost_grid_desc">Win de gouden medaille in Spookraster</string>
+    <string name="achievement_gold_visual_memory_desc">Win de gouden medaille in Visueel geheugen</string>
+    <string name="achievement_gold_orbit_tracker_desc">Win de gouden medaille in Baanvolger</string>
+    <string name="achievement_gold_pattern_sequence_desc">Win de gouden medaille in Patroonreeks</string>
+    <string name="achievement_gold_color_confusion_desc">Win de gouden medaille in Kleurverwarring</string>
+    <string name="achievement_gold_flash_crowd_desc">Win de gouden medaille in Flitsmenigte</string>
+    <string name="achievement_gold_schulte_table_desc">Win de gouden medaille in Schulte-tabel</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">Verzamel in totaal 10.000 punten</string>
+    <string name="achievement_iron_streak_desc">Train 30 dagen op rij</string>
 </resources>

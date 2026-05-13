@@ -18,57 +18,38 @@ class UserStorage(
         val titleRes: StringResource,
         val descriptionRes: StringResource,
     ) {
-        MEDAL_BRONZE(
-            titleRes = Res.string.achievement_bronze_medal,
-            descriptionRes = Res.string.achievement_bronze_medal_desc,
-        ),
-        MEDAL_SILVER(
-            titleRes = Res.string.achievement_silver_medal,
-            descriptionRes = Res.string.achievement_silver_medal_desc,
-        ),
-        MEDAL_GOLD(
-            titleRes = Res.string.achievement_gold_medal,
-            descriptionRes = Res.string.achievement_gold_medal_desc,
-        ),
-        SCORES_10(
-            titleRes = Res.string.achievement_10_points,
-            descriptionRes = Res.string.achievement_10_points_desc,
-        ),
-        SCORES_100(
-            titleRes = Res.string.achievement_100_points,
-            descriptionRes = Res.string.achievement_100_points_desc,
-        ),
-        SCORES_1000(
-            titleRes = Res.string.achievement_1000_points,
-            descriptionRes = Res.string.achievement_1000_points_desc,
-        ),
-        SCORES_10000(
-            titleRes = Res.string.achievement_10000_points,
-            descriptionRes = Res.string.achievement_10000_points_desc,
-        ),
-        APP_OPEN_3(
-            titleRes = Res.string.achievement_3_day_streak,
-            descriptionRes = Res.string.achievement_3_day_streak_desc,
-        ),
-        APP_OPEN_7(
-            titleRes = Res.string.achievement_7_day_streak,
-            descriptionRes = Res.string.achievement_7_day_streak_desc,
-        ),
-        APP_OPEN_30(
-            titleRes = Res.string.achievement_30_day_streak,
-            descriptionRes = Res.string.achievement_30_day_streak_desc,
-        ),
+        GOLD_MINI_SUDOKU(Res.string.achievement_gold_mini_sudoku, Res.string.achievement_gold_mini_sudoku_desc),
+        GOLD_MINI_CHESS(Res.string.achievement_gold_mini_chess, Res.string.achievement_gold_mini_chess_desc),
+        GOLD_LIGHTS_OUT(Res.string.achievement_gold_lights_out, Res.string.achievement_gold_lights_out_desc),
+        GOLD_SLIDING_PUZZLE(Res.string.achievement_gold_sliding_puzzle, Res.string.achievement_gold_sliding_puzzle_desc),
+        GOLD_PATH_FINDER(Res.string.achievement_gold_path_finder, Res.string.achievement_gold_path_finder_desc),
+        GOLD_ANOMALY_PUZZLE(Res.string.achievement_gold_anomaly_puzzle, Res.string.achievement_gold_anomaly_puzzle_desc),
+        GOLD_GHOST_GRID(Res.string.achievement_gold_ghost_grid, Res.string.achievement_gold_ghost_grid_desc),
+        GOLD_VISUAL_MEMORY(Res.string.achievement_gold_visual_memory, Res.string.achievement_gold_visual_memory_desc),
+        GOLD_COLORED_SHAPES(Res.string.achievement_gold_colored_shapes, Res.string.achievement_gold_colored_shapes_desc),
+        GOLD_SHERLOCK_CALCULATION(Res.string.achievement_gold_sherlock_calculation, Res.string.achievement_gold_sherlock_calculation_desc),
+        GOLD_MENTAL_CALCULATION(Res.string.achievement_gold_mental_calculation, Res.string.achievement_gold_mental_calculation_desc),
+        GOLD_CHAIN_CALCULATION(Res.string.achievement_gold_chain_calculation, Res.string.achievement_gold_chain_calculation_desc),
+        GOLD_FRACTION_CALCULATION(Res.string.achievement_gold_fraction_calculation, Res.string.achievement_gold_fraction_calculation_desc),
+        GOLD_VALUE_COMPARISON(Res.string.achievement_gold_value_comparison, Res.string.achievement_gold_value_comparison_desc),
+        GOLD_PATTERN_SEQUENCE(Res.string.achievement_gold_pattern_sequence, Res.string.achievement_gold_pattern_sequence_desc),
+        GOLD_COLOR_CONFUSION(Res.string.achievement_gold_color_confusion, Res.string.achievement_gold_color_confusion_desc),
+        GOLD_ORBIT_TRACKER(Res.string.achievement_gold_orbit_tracker, Res.string.achievement_gold_orbit_tracker_desc),
+        GOLD_FLASH_CROWD(Res.string.achievement_gold_flash_crowd, Res.string.achievement_gold_flash_crowd_desc),
+        GOLD_SCHULTE_TABLE(Res.string.achievement_gold_schulte_table, Res.string.achievement_gold_schulte_table_desc),
+        TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc),
+        STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc),
+        ;
+
+        companion object {
+            fun forGameGold(gameType: GameType): Achievements? = entries.firstOrNull { it.name == "GOLD_${gameType.name}" }
+        }
     }
 
-    private val scoreAchievements =
-        listOf(
-            Achievements.SCORES_10,
-            Achievements.SCORES_100,
-            Achievements.SCORES_1000,
-            Achievements.SCORES_10000,
-        )
-
     companion object {
+        const val TOTAL_SCORE_10K_TARGET = 10_000
+        const val STREAK_30_TARGET = 30
+
         const val KEY_APP_OPEN_COMBO = "app_open_combo"
         const val KEY_APP_OPEN_DAY = "app_open_day"
         const val KEY_UNLOCKED_ACHIEVEMENTS = "unlocked_achievements"
@@ -168,24 +149,30 @@ class UserStorage(
         settings.putInt(KEY_MINI_CHESS_DIFFICULTY, depth)
     }
 
-    private val medalAchievements =
-        listOf(Achievements.MEDAL_BRONZE, Achievements.MEDAL_SILVER, Achievements.MEDAL_GOLD)
-
-    private val appOpenAchievements =
-        listOf(Achievements.APP_OPEN_3, Achievements.APP_OPEN_7, Achievements.APP_OPEN_30)
-
     fun getUnlockedAchievements(): MutableList<Achievements> = settings
         .getStringOrNull(KEY_UNLOCKED_ACHIEVEMENTS)
         ?.split(",")
         ?.filter { it.isNotEmpty() }
-        ?.map {
-            Achievements.valueOf(it)
-        }?.toMutableList() ?: mutableListOf()
+        ?.mapNotNull { name -> runCatching { Achievements.valueOf(name) }.getOrNull() }
+        ?.toMutableList()
+        ?: mutableListOf()
 
     private fun unlockAchievement(achievement: Achievements) {
         val unlockedAchievements = getUnlockedAchievements()
+        if (unlockedAchievements.contains(achievement)) return
         unlockedAchievements.add(achievement)
-        settings.putString(KEY_UNLOCKED_ACHIEVEMENTS, unlockedAchievements.joinToString(","))
+        settings.putString(KEY_UNLOCKED_ACHIEVEMENTS, unlockedAchievements.joinToString(",") { it.name })
+    }
+
+    /** Merge unlocked achievements from an external source (e.g. Play Games sync on the playStore flavor). */
+    fun restoreUnlockedAchievements(achievements: Set<Achievements>) {
+        if (achievements.isEmpty()) return
+        val current = getUnlockedAchievements().toMutableSet()
+        val before = current.size
+        current.addAll(achievements)
+        if (current.size > before) {
+            settings.putString(KEY_UNLOCKED_ACHIEVEMENTS, current.joinToString(",") { it.name })
+        }
     }
 
     fun getSessionStreak(): Int = settings.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
@@ -201,16 +188,6 @@ class UserStorage(
         settings.putInt(KEY_APP_OPEN_COMBO, 0)
         settings.remove(KEY_APP_OPEN_DAY)
         settings.putBoolean(KEY_STREAK_MIGRATED_V2, true)
-    }
-
-    fun hasStreakAchievement(
-        achievement: Achievements,
-        streak: Int,
-    ): Boolean = when (achievement) {
-        Achievements.APP_OPEN_3 -> streak >= 3
-        Achievements.APP_OPEN_7 -> streak >= 7
-        Achievements.APP_OPEN_30 -> streak >= 30
-        else -> true
     }
 
     private fun todayEpochDay(): Int = (Clock.System.now().toEpochMilliseconds() / 86400000L).toInt()
@@ -265,12 +242,10 @@ class UserStorage(
         val newStreak = if (lastCompleted == today - 1) getSessionStreak() + 1 else 1
         settings.putInt(KEY_APP_OPEN_COMBO, newStreak)
         settings.putInt(KEY_LAST_COMPLETED_SESSION_DAY, today)
+        PlayGamesBridge.onStreak?.invoke(newStreak)
 
-        val unlockedAchievements = getUnlockedAchievements()
-        appOpenAchievements.forEach {
-            if (!unlockedAchievements.contains(it) && hasStreakAchievement(it, newStreak)) {
-                unlockAchievement(it)
-            }
+        if (newStreak >= STREAK_30_TARGET) {
+            unlockAchievement(Achievements.STREAK_30)
         }
 
         val levelChange = addXp(SESSION_COMPLETION_XP)
@@ -334,16 +309,13 @@ class UserStorage(
         val updatedTotalScore = getTotalScore() + xpAward
         settings.putInt(KEY_TOTAL_SCORE, updatedTotalScore)
 
-        val unlockedAchievements = getUnlockedAchievements()
-        medalAchievements.forEach {
-            if (!unlockedAchievements.contains(it) && hasMedalForAllGames(it)) {
-                unlockAchievement(it)
-            }
+        PlayGamesBridge.onTotalScore?.invoke(updatedTotalScore)
+        if (gameType != null && gameType.meetsScore(score, gameType.goldScore)) {
+            PlayGamesBridge.onGoldMedal?.invoke(gameType)
+            Achievements.forGameGold(gameType)?.let { unlockAchievement(it) }
         }
-        scoreAchievements.forEach {
-            if (!unlockedAchievements.contains(it) && hasTotalScore(it, updatedTotalScore)) {
-                unlockAchievement(it)
-            }
+        if (updatedTotalScore >= TOTAL_SCORE_10K_TARGET) {
+            unlockAchievement(Achievements.TOTAL_SCORE_10K)
         }
 
         val levelChange = addXp(xpAward)
@@ -362,27 +334,6 @@ class UserStorage(
     }
 
     fun getTotalScore(): Int = settings.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
-
-    private fun hasTotalScore(
-        achievement: Achievements,
-        totalScore: Int,
-    ): Boolean = when (achievement) {
-        Achievements.SCORES_10 -> totalScore >= 10
-        Achievements.SCORES_100 -> totalScore >= 100
-        Achievements.SCORES_1000 -> totalScore >= 1_000
-        Achievements.SCORES_10000 -> totalScore >= 10_000
-        else -> true
-    }
-
-    private fun hasMedalForAllGames(achievement: Achievements): Boolean = GameType.entries.all { gameType ->
-        val highscore = getHighScore(gameType.id)
-        when (achievement) {
-            Achievements.MEDAL_BRONZE -> highscore > 0
-            Achievements.MEDAL_SILVER -> if (gameType.lowerScoreIsBetter) highscore in 1..gameType.silverScore else highscore >= gameType.silverScore
-            Achievements.MEDAL_GOLD -> if (gameType.lowerScoreIsBetter) highscore in 1..gameType.goldScore else highscore >= gameType.goldScore
-            else -> true
-        }
-    }
 
     data class ScoreGroup(val day: Int, val month: Int, val year: Int, val scores: List<Int>)
 

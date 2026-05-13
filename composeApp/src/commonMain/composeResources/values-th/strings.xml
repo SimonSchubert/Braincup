@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">ติดตามวงโคจร</string>
     <string name="game_flash_crowd">ฝูงชนวาบ</string>
     <string name="game_schulte_table">ตารางชูลเทอ</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">หมากรุกย่อ</string>
+    <string name="game_lights_out">ปิดไฟ</string>
+    <string name="game_sliding_puzzle">ปริศนาเลื่อน</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">จุดจะกะพริบสั้นๆ แต่ละด้าน แตะด้านที่มีจุดมากกว่า อย่านับ — เชื่อสัญชาตญาณของคุณ!</string>
     <string name="game_schulte_table_desc">แตะตัวเลขตามลำดับเริ่มจาก 1 ให้เร็วที่สุดเท่าที่ทำได้</string>
     <string name="game_schulte_instruction">แตะตัวเลขตามลำดับ: 1, 2, 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">จบสถานการณ์หมากรุกในฐานะฝ่ายขาว รุกฆาตซีพียูก่อนที่มันจะรุกฆาตคุณ</string>
+    <string name="game_lights_out_desc">ปิดไฟทุกดวง การแตะแต่ละครั้งจะสลับช่องและช่องเพื่อนบ้านทั้งสี่</string>
+    <string name="game_sliding_puzzle_desc">เลื่อนแผ่นเข้าไปในช่องว่างเพื่อเรียงให้เป็นลำดับ</string>
+    <string name="moves_label">การเดิน: %1$d</string>
+    <string name="mini_chess_thinking">ซีพียูกำลังคิด…</string>
+    <string name="mini_chess_round_won">รุกฆาต</string>
+    <string name="mini_chess_round_lost">ซีพียูรุกฆาตคุณ</string>
+    <string name="mini_chess_round_draw">เสมอ</string>
+    <string name="mini_chess_reset">รีเซ็ต</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">ระดับความยาก</string>
+    <string name="mini_chess_difficulty_easy">ง่าย</string>
+    <string name="mini_chess_difficulty_medium">ปานกลาง</string>
+    <string name="mini_chess_difficulty_hard">ยาก</string>
+    <string name="mini_chess_restart">เกมใหม่</string>
+    <string name="mini_chess_move_counter">การเดิน %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= อับ (เสมอ ไม่ใช่ชนะ)</string>
     <string name="game_what_comes_next">อะไรต่อไป?</string>
     <string name="game_tap_original_targets">แตะเป้าหมายเดิม</string>
     <string name="game_remember_targets">จำเป้าหมายไว้</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">เหรียญทองแดง</string>
-    <string name="achievement_silver_medal">เหรียญเงิน</string>
-    <string name="achievement_gold_medal">เหรียญทอง</string>
-    <string name="achievement_10_points">10 คะแนน</string>
-    <string name="achievement_100_points">100 คะแนน</string>
-    <string name="achievement_1000_points">1,000 คะแนน</string>
-    <string name="achievement_10000_points">10,000 คะแนน</string>
-    <string name="achievement_3_day_streak">ต่อเนื่อง 3 วัน</string>
-    <string name="achievement_7_day_streak">ต่อเนื่อง 7 วัน</string>
-    <string name="achievement_30_day_streak">ต่อเนื่อง 30 วัน</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">ได้อย่างน้อย 1 คะแนนในทุกเกม</string>
-    <string name="achievement_silver_medal_desc">ได้คะแนนระดับเงินในทุกเกม</string>
-    <string name="achievement_gold_medal_desc">ได้คะแนนระดับทองในทุกเกม</string>
-    <string name="achievement_10_points_desc">สะสมคะแนนรวม 10 คะแนน</string>
-    <string name="achievement_100_points_desc">สะสมคะแนนรวม 100 คะแนน</string>
-    <string name="achievement_1000_points_desc">สะสมคะแนนรวม 1,000 คะแนน</string>
-    <string name="achievement_10000_points_desc">สะสมคะแนนรวม 10,000 คะแนน</string>
-    <string name="achievement_3_day_streak_desc">ฝึกติดต่อกัน 3 วัน</string>
-    <string name="achievement_7_day_streak_desc">ฝึกติดต่อกัน 7 วัน</string>
-    <string name="achievement_30_day_streak_desc">ฝึกติดต่อกัน 30 วัน</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">ความท้าทายประจำวัน</string>
     <string name="daily_challenge_subtitle_start">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">ปราชญ์</string>
     <string name="title_master">ผู้เชี่ยวชาญ</string>
     <string name="title_grandmaster">ปรมาจารย์</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">ปราชญ์ซูโดกุ</string>
+    <string name="achievement_gold_mini_chess">นักหมากรุกตอนจบ</string>
+    <string name="achievement_gold_lights_out">ดับสนิท</string>
+    <string name="achievement_gold_sliding_puzzle">นักเลื่อนชั้นเซียน</string>
+    <string name="achievement_gold_path_finder">นักหาทาง</string>
+    <string name="achievement_gold_anomaly_puzzle">นักล่าสิ่งผิดปกติ</string>
+    <string name="achievement_gold_colored_shapes">ผู้เปลี่ยนรูป</string>
+    <string name="achievement_gold_sherlock_calculation">ง่ายมาก เพื่อนรัก</string>
+    <string name="achievement_gold_mental_calculation">เครื่องคิดเลขมนุษย์</string>
+    <string name="achievement_gold_chain_calculation">ลูกโซ่ไม่ขาด</string>
+    <string name="achievement_gold_fraction_calculation">เจ้าแห่งเศษส่วน</string>
+    <string name="achievement_gold_value_comparison">ใหญ่กว่าทั้งหมด</string>
+    <string name="achievement_gold_ghost_grid">ผู้กระซิบผี</string>
+    <string name="achievement_gold_visual_memory">ความจำถ่ายภาพ</string>
+    <string name="achievement_gold_orbit_tracker">นักดาราศาสตร์</string>
+    <string name="achievement_gold_pattern_sequence">ผู้พยากรณ์รูปแบบ</string>
+    <string name="achievement_gold_color_confusion">สีที่แท้จริง</string>
+    <string name="achievement_gold_flash_crowd">ผู้นับฝูงชน</string>
+    <string name="achievement_gold_schulte_table">สายตาฟ้าผ่า</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">นักวิ่งมาราธอนสมอง</string>
+    <string name="achievement_iron_streak">ต่อเนื่องเหล็ก</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">ชนะเหรียญทองในมินิซูโดกุ</string>
+    <string name="achievement_gold_mini_chess_desc">ชนะเหรียญทองในMini Chess</string>
+    <string name="achievement_gold_lights_out_desc">ชนะเหรียญทองในLights Out</string>
+    <string name="achievement_gold_sliding_puzzle_desc">ชนะเหรียญทองในSliding Puzzle</string>
+    <string name="achievement_gold_path_finder_desc">ชนะเหรียญทองในค้นหาเส้นทาง</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">ชนะเหรียญทองในปริศนาความผิดปกติ</string>
+    <string name="achievement_gold_colored_shapes_desc">ชนะเหรียญทองในรูปทรงสี</string>
+    <string name="achievement_gold_sherlock_calculation_desc">ชนะเหรียญทองในการคำนวณเชอร์ล็อค</string>
+    <string name="achievement_gold_mental_calculation_desc">ชนะเหรียญทองในการคำนวณในใจ</string>
+    <string name="achievement_gold_chain_calculation_desc">ชนะเหรียญทองในการคำนวณแบบลูกโซ่</string>
+    <string name="achievement_gold_fraction_calculation_desc">ชนะเหรียญทองในการคำนวณเศษส่วน</string>
+    <string name="achievement_gold_value_comparison_desc">ชนะเหรียญทองในการเปรียบเทียบค่า</string>
+    <string name="achievement_gold_ghost_grid_desc">ชนะเหรียญทองในตารางผี</string>
+    <string name="achievement_gold_visual_memory_desc">ชนะเหรียญทองในความจำภาพ</string>
+    <string name="achievement_gold_orbit_tracker_desc">ชนะเหรียญทองในติดตามวงโคจร</string>
+    <string name="achievement_gold_pattern_sequence_desc">ชนะเหรียญทองในลำดับรูปแบบ</string>
+    <string name="achievement_gold_color_confusion_desc">ชนะเหรียญทองในสีสับสน</string>
+    <string name="achievement_gold_flash_crowd_desc">ชนะเหรียญทองในฝูงชนวาบ</string>
+    <string name="achievement_gold_schulte_table_desc">ชนะเหรียญทองในตารางชูลเทอ</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">สะสมแต้มรวม 10,000 แต้ม</string>
+    <string name="achievement_iron_streak_desc">ฝึก 30 วันติดต่อกัน</string>
 </resources>

@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">轨道追踪</string>
     <string name="game_flash_crowd">闪现人群</string>
     <string name="game_schulte_table">舒尔特方格</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">迷你国际象棋</string>
+    <string name="game_lights_out">熄灯</string>
+    <string name="game_sliding_puzzle">华容道</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">每侧短暂闪现圆点。点击圆点更多的一侧。不要数 — 相信你的直觉！</string>
     <string name="game_schulte_table_desc">尽快按1到N的顺序点击数字。</string>
     <string name="game_schulte_instruction">按顺序点击数字：1、2、3……</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">以白方完成棋局。在 CPU 将死你之前将死它。</string>
+    <string name="game_lights_out_desc">关掉所有灯。每次点击会切换该格和四个相邻格。</string>
+    <string name="game_sliding_puzzle_desc">将方块滑入空格,使它们按顺序排列。</string>
+    <string name="moves_label">步数:%1$d</string>
+    <string name="mini_chess_thinking">电脑思考中…</string>
+    <string name="mini_chess_round_won">将死</string>
+    <string name="mini_chess_round_lost">电脑将死了你</string>
+    <string name="mini_chess_round_draw">和棋</string>
+    <string name="mini_chess_reset">重置</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">难度</string>
+    <string name="mini_chess_difficulty_easy">简单</string>
+    <string name="mini_chess_difficulty_medium">中等</string>
+    <string name="mini_chess_difficulty_hard">困难</string>
+    <string name="mini_chess_restart">新游戏</string>
+    <string name="mini_chess_move_counter">第 %1$d / %2$d 步</string>
+    <string name="mini_chess_draw_warning">= 逼和(平局,非胜利)</string>
     <string name="game_what_comes_next">下一个是什么？</string>
     <string name="game_tap_original_targets">点击最初的目标</string>
     <string name="game_remember_targets">记住目标</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">铜牌</string>
-    <string name="achievement_silver_medal">银牌</string>
-    <string name="achievement_gold_medal">金牌</string>
-    <string name="achievement_10_points">10分</string>
-    <string name="achievement_100_points">100分</string>
-    <string name="achievement_1000_points">1,000分</string>
-    <string name="achievement_10000_points">10,000分</string>
-    <string name="achievement_3_day_streak">连续3天</string>
-    <string name="achievement_7_day_streak">连续7天</string>
-    <string name="achievement_30_day_streak">连续30天</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">在所有游戏中至少获得1分</string>
-    <string name="achievement_silver_medal_desc">在所有游戏中达到银牌分数</string>
-    <string name="achievement_gold_medal_desc">在所有游戏中达到金牌分数</string>
-    <string name="achievement_10_points_desc">累计获得10分</string>
-    <string name="achievement_100_points_desc">累计获得100分</string>
-    <string name="achievement_1000_points_desc">累计获得1,000分</string>
-    <string name="achievement_10000_points_desc">累计获得10,000分</string>
-    <string name="achievement_3_day_streak_desc">连续训练3天</string>
-    <string name="achievement_7_day_streak_desc">连续训练7天</string>
-    <string name="achievement_30_day_streak_desc">连续训练30天</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">每日挑战</string>
     <string name="daily_challenge_subtitle_start">玩 %1$d 个游戏来保持连续记录</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">贤者</string>
     <string name="title_master">大师</string>
     <string name="title_grandmaster">宗师</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">数独贤者</string>
+    <string name="achievement_gold_mini_chess">残局大师</string>
+    <string name="achievement_gold_lights_out">全场熄灯</string>
+    <string name="achievement_gold_sliding_puzzle">滑动高手</string>
+    <string name="achievement_gold_path_finder">寻路者</string>
+    <string name="achievement_gold_anomaly_puzzle">异常猎手</string>
+    <string name="achievement_gold_colored_shapes">变形者</string>
+    <string name="achievement_gold_sherlock_calculation">小事一桩,亲爱的</string>
+    <string name="achievement_gold_mental_calculation">人体计算机</string>
+    <string name="achievement_gold_chain_calculation">不断之链</string>
+    <string name="achievement_gold_fraction_calculation">分数之王</string>
+    <string name="achievement_gold_value_comparison">大于其余</string>
+    <string name="achievement_gold_ghost_grid">幽灵低语者</string>
+    <string name="achievement_gold_visual_memory">过目不忘</string>
+    <string name="achievement_gold_orbit_tracker">天文学家</string>
+    <string name="achievement_gold_pattern_sequence">图案先知</string>
+    <string name="achievement_gold_color_confusion">本色</string>
+    <string name="achievement_gold_flash_crowd">群众计数器</string>
+    <string name="achievement_gold_schulte_table">闪电之眼</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">心智马拉松</string>
+    <string name="achievement_iron_streak">铁血连胜</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">在迷你数独中赢得金牌</string>
+    <string name="achievement_gold_mini_chess_desc">在Mini Chess中赢得金牌</string>
+    <string name="achievement_gold_lights_out_desc">在Lights Out中赢得金牌</string>
+    <string name="achievement_gold_sliding_puzzle_desc">在Sliding Puzzle中赢得金牌</string>
+    <string name="achievement_gold_path_finder_desc">在路径寻找中赢得金牌</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">在异常谜题中赢得金牌</string>
+    <string name="achievement_gold_colored_shapes_desc">在彩色形状中赢得金牌</string>
+    <string name="achievement_gold_sherlock_calculation_desc">在福尔摩斯计算中赢得金牌</string>
+    <string name="achievement_gold_mental_calculation_desc">在心算中赢得金牌</string>
+    <string name="achievement_gold_chain_calculation_desc">在连锁计算中赢得金牌</string>
+    <string name="achievement_gold_fraction_calculation_desc">在分数计算中赢得金牌</string>
+    <string name="achievement_gold_value_comparison_desc">在数值比较中赢得金牌</string>
+    <string name="achievement_gold_ghost_grid_desc">在幽灵方格中赢得金牌</string>
+    <string name="achievement_gold_visual_memory_desc">在视觉记忆中赢得金牌</string>
+    <string name="achievement_gold_orbit_tracker_desc">在轨道追踪中赢得金牌</string>
+    <string name="achievement_gold_pattern_sequence_desc">在图案序列中赢得金牌</string>
+    <string name="achievement_gold_color_confusion_desc">在颜色混淆中赢得金牌</string>
+    <string name="achievement_gold_flash_crowd_desc">在闪现人群中赢得金牌</string>
+    <string name="achievement_gold_schulte_table_desc">在舒尔特方格中赢得金牌</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">累计获得10000分</string>
+    <string name="achievement_iron_streak_desc">连续训练30天</string>
 </resources>

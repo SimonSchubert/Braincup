@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">Theo Dõi Quỹ Đạo</string>
     <string name="game_flash_crowd">Đám Đông Chớp</string>
     <string name="game_schulte_table">Bảng Schulte</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">Cờ Vua Mini</string>
+    <string name="game_lights_out">Tắt Đèn</string>
+    <string name="game_sliding_puzzle">Câu Đố Trượt</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">Các chấm nhấp nháy ngắn ở mỗi bên. Chạm vào bên có nhiều chấm hơn. Đừng đếm — hãy tin vào trực giác!</string>
     <string name="game_schulte_table_desc">Chạm các số theo thứ tự từ 1 trở lên nhanh nhất có thể.</string>
     <string name="game_schulte_instruction">Chạm các số theo thứ tự: 1, 2, 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">Hoàn thành ván cờ với quân trắng. Chiếu hết CPU trước khi nó chiếu hết bạn.</string>
+    <string name="game_lights_out_desc">Tắt mọi đèn. Mỗi cú chạm sẽ đổi trạng thái ô đó và bốn ô lân cận.</string>
+    <string name="game_sliding_puzzle_desc">Trượt các ô vào chỗ trống để xếp chúng theo thứ tự.</string>
+    <string name="moves_label">Lượt đi: %1$d</string>
+    <string name="mini_chess_thinking">CPU đang suy nghĩ…</string>
+    <string name="mini_chess_round_won">Chiếu hết</string>
+    <string name="mini_chess_round_lost">CPU đã chiếu hết bạn</string>
+    <string name="mini_chess_round_draw">Hòa</string>
+    <string name="mini_chess_reset">Đặt lại</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">Độ khó</string>
+    <string name="mini_chess_difficulty_easy">Dễ</string>
+    <string name="mini_chess_difficulty_medium">Trung bình</string>
+    <string name="mini_chess_difficulty_hard">Khó</string>
+    <string name="mini_chess_restart">Trò chơi mới</string>
+    <string name="mini_chess_move_counter">Lượt %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= hết nước đi (hòa, không phải thắng)</string>
     <string name="game_what_comes_next">Tiếp theo là gì?</string>
     <string name="game_tap_original_targets">Chạm vào các mục tiêu ban đầu</string>
     <string name="game_remember_targets">Ghi nhớ các mục tiêu</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">Huy chương đồng</string>
-    <string name="achievement_silver_medal">Huy chương bạc</string>
-    <string name="achievement_gold_medal">Huy chương vàng</string>
-    <string name="achievement_10_points">10 Điểm</string>
-    <string name="achievement_100_points">100 Điểm</string>
-    <string name="achievement_1000_points">1.000 Điểm</string>
-    <string name="achievement_10000_points">10.000 Điểm</string>
-    <string name="achievement_3_day_streak">Chuỗi 3 ngày</string>
-    <string name="achievement_7_day_streak">Chuỗi 7 ngày</string>
-    <string name="achievement_30_day_streak">Chuỗi 30 ngày</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">Đạt ít nhất 1 điểm trong tất cả các trò chơi</string>
-    <string name="achievement_silver_medal_desc">Đạt điểm bạc trong tất cả các trò chơi</string>
-    <string name="achievement_gold_medal_desc">Đạt điểm vàng trong tất cả các trò chơi</string>
-    <string name="achievement_10_points_desc">Tích lũy 10 điểm tổng cộng</string>
-    <string name="achievement_100_points_desc">Tích lũy 100 điểm tổng cộng</string>
-    <string name="achievement_1000_points_desc">Tích lũy 1.000 điểm tổng cộng</string>
-    <string name="achievement_10000_points_desc">Tích lũy 10.000 điểm tổng cộng</string>
-    <string name="achievement_3_day_streak_desc">Luyện tập 3 ngày liên tiếp</string>
-    <string name="achievement_7_day_streak_desc">Luyện tập 7 ngày liên tiếp</string>
-    <string name="achievement_30_day_streak_desc">Luyện tập 30 ngày liên tiếp</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Thử thách hàng ngày</string>
     <string name="daily_challenge_subtitle_start">Chơi %1$d trò chơi để giữ chuỗi thắng</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">Hiền Triết</string>
     <string name="title_master">Cao Thủ</string>
     <string name="title_grandmaster">Đại Cao Thủ</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">Hiền nhân Sudoku</string>
+    <string name="achievement_gold_mini_chess">Bậc thầy cờ tàn</string>
+    <string name="achievement_gold_lights_out">Tắt đèn toàn bộ</string>
+    <string name="achievement_gold_sliding_puzzle">Người trượt khéo</string>
+    <string name="achievement_gold_path_finder">Người dò đường</string>
+    <string name="achievement_gold_anomaly_puzzle">Thợ săn dị vật</string>
+    <string name="achievement_gold_colored_shapes">Kẻ biến hình</string>
+    <string name="achievement_gold_sherlock_calculation">Đơn giản, bạn ơi</string>
+    <string name="achievement_gold_mental_calculation">Máy tính người</string>
+    <string name="achievement_gold_chain_calculation">Chuỗi không đứt</string>
+    <string name="achievement_gold_fraction_calculation">Vua phân số</string>
+    <string name="achievement_gold_value_comparison">Lớn hơn tất cả</string>
+    <string name="achievement_gold_ghost_grid">Người thì thầm với ma</string>
+    <string name="achievement_gold_visual_memory">Trí nhớ chụp ảnh</string>
+    <string name="achievement_gold_orbit_tracker">Nhà thiên văn</string>
+    <string name="achievement_gold_pattern_sequence">Nhà tiên tri hoa văn</string>
+    <string name="achievement_gold_color_confusion">Màu sắc thật</string>
+    <string name="achievement_gold_flash_crowd">Người đếm đám đông</string>
+    <string name="achievement_gold_schulte_table">Tia nhìn chớp nhoáng</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">Vận động viên Marathon Trí tuệ</string>
+    <string name="achievement_iron_streak">Chuỗi Sắt</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">Giành huy chương vàng trong Sudoku Mini</string>
+    <string name="achievement_gold_mini_chess_desc">Giành huy chương vàng trong Mini Chess</string>
+    <string name="achievement_gold_lights_out_desc">Giành huy chương vàng trong Lights Out</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Giành huy chương vàng trong Sliding Puzzle</string>
+    <string name="achievement_gold_path_finder_desc">Giành huy chương vàng trong Tìm đường</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">Giành huy chương vàng trong Câu đố bất thường</string>
+    <string name="achievement_gold_colored_shapes_desc">Giành huy chương vàng trong Hình dạng màu sắc</string>
+    <string name="achievement_gold_sherlock_calculation_desc">Giành huy chương vàng trong Tính toán Sherlock</string>
+    <string name="achievement_gold_mental_calculation_desc">Giành huy chương vàng trong Tính nhẩm</string>
+    <string name="achievement_gold_chain_calculation_desc">Giành huy chương vàng trong Tính toán chuỗi</string>
+    <string name="achievement_gold_fraction_calculation_desc">Giành huy chương vàng trong Tính toán phân số</string>
+    <string name="achievement_gold_value_comparison_desc">Giành huy chương vàng trong So sánh giá trị</string>
+    <string name="achievement_gold_ghost_grid_desc">Giành huy chương vàng trong Lưới Ma</string>
+    <string name="achievement_gold_visual_memory_desc">Giành huy chương vàng trong Trí nhớ hình ảnh</string>
+    <string name="achievement_gold_orbit_tracker_desc">Giành huy chương vàng trong Theo Dõi Quỹ Đạo</string>
+    <string name="achievement_gold_pattern_sequence_desc">Giành huy chương vàng trong Chuỗi mẫu</string>
+    <string name="achievement_gold_color_confusion_desc">Giành huy chương vàng trong Nhầm lẫn Màu sắc</string>
+    <string name="achievement_gold_flash_crowd_desc">Giành huy chương vàng trong Đám Đông Chớp</string>
+    <string name="achievement_gold_schulte_table_desc">Giành huy chương vàng trong Bảng Schulte</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">Tích lũy tổng cộng 10.000 điểm</string>
+    <string name="achievement_iron_streak_desc">Luyện tập 30 ngày liên tiếp</string>
 </resources>

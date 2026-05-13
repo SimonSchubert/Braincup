@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="play_games_app_id" translatable="false">743664291129</string>
+
+    <string name="achievementSudokuSage" translatable="false">CgkIuZrirtIVEAIQAg</string>
+    <string name="achievementEndgameVirtuoso" translatable="false">CgkIuZrirtIVEAIQAw</string>
+    <string name="achievementTotalBlackout" translatable="false">CgkIuZrirtIVEAIQBA</string>
+    <string name="achievementSmoothOperator" translatable="false">CgkIuZrirtIVEAIQBQ</string>
+    <string name="achievementTrailblazer" translatable="false">CgkIuZrirtIVEAIQBg</string>
+    <string name="achievementOddOneSpotted" translatable="false">CgkIuZrirtIVEAIQBw</string>
+    <string name="achievementShapeShifter" translatable="false">CgkIuZrirtIVEAIQCA</string>
+    <string name="achievementElementaryMyDear" translatable="false">CgkIuZrirtIVEAIQCQ</string>
+    <string name="achievementHumanCalculator" translatable="false">CgkIuZrirtIVEAIQCg</string>
+    <string name="achievementUnbrokenChain" translatable="false">CgkIuZrirtIVEAIQCw</string>
+    <string name="achievementFractionBoss" translatable="false">CgkIuZrirtIVEAIQDA</string>
+    <string name="achievementGreaterThanTheRest" translatable="false">CgkIuZrirtIVEAIQDQ</string>
+    <string name="achievementGhostWhisperer" translatable="false">CgkIuZrirtIVEAIQDg</string>
+    <string name="achievementPhotographicMind" translatable="false">CgkIuZrirtIVEAIQDw</string>
+    <string name="achievementAstronomer" translatable="false">CgkIuZrirtIVEAIQEA</string>
+    <string name="achievementPatternProphet" translatable="false">CgkIuZrirtIVEAIQEQ</string>
+    <string name="achievementTrueColors" translatable="false">CgkIuZrirtIVEAIQEg</string>
+    <string name="achievementCrowdCounter" translatable="false">CgkIuZrirtIVEAIQEw</string>
+    <string name="achievementLightningGaze" translatable="false">CgkIuZrirtIVEAIQFA</string>
+
+    <!-- Cross-game milestones -->
+    <!-- Incremental, max steps = 10000 -->
+    <string name="achievementMindMarathoner" translatable="false">CgkIuZrirtIVEAIQFQ</string>
+    <!-- Standard -->
+    <string name="achievementIronStreak" translatable="false">CgkIuZrirtIVEAIQFg</string>
+</resources>

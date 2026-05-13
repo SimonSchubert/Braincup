@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">オービットトラッカー</string>
     <string name="game_flash_crowd">フラッシュクラウド</string>
     <string name="game_schulte_table">シュルテ表</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">ミニチェス</string>
+    <string name="game_lights_out">ライトアウト</string>
+    <string name="game_sliding_puzzle">スライドパズル</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">各側で一瞬ドットが光ります。ドットが多かった側をタップしてください。数えないで — 直感を信じて！</string>
     <string name="game_schulte_table_desc">1から順に、できるだけ速く数字をタップしてください。</string>
     <string name="game_schulte_instruction">数字を順番にタップ: 1, 2, 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">白でチェスのシナリオを完成させましょう。CPUに詰まされる前に詰みに持ち込みます。</string>
+    <string name="game_lights_out_desc">すべての光を消しましょう。タップごとに、そのセルと隣接4セルが切り替わります。</string>
+    <string name="game_sliding_puzzle_desc">タイルを空きスペースに滑らせて順番に並べましょう。</string>
+    <string name="moves_label">手数: %1$d</string>
+    <string name="mini_chess_thinking">CPUが思考中…</string>
+    <string name="mini_chess_round_won">チェックメイト</string>
+    <string name="mini_chess_round_lost">CPUに詰まされた</string>
+    <string name="mini_chess_round_draw">引き分け</string>
+    <string name="mini_chess_reset">リセット</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">難易度</string>
+    <string name="mini_chess_difficulty_easy">簡単</string>
+    <string name="mini_chess_difficulty_medium">普通</string>
+    <string name="mini_chess_difficulty_hard">難しい</string>
+    <string name="mini_chess_restart">新しいゲーム</string>
+    <string name="mini_chess_move_counter">手 %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= ステイルメイト(引き分け、勝ちではない)</string>
     <string name="game_what_comes_next">次は何？</string>
     <string name="game_tap_original_targets">元のターゲットをタップ</string>
     <string name="game_remember_targets">ターゲットを覚えて</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">銅メダル</string>
-    <string name="achievement_silver_medal">銀メダル</string>
-    <string name="achievement_gold_medal">金メダル</string>
-    <string name="achievement_10_points">10ポイント</string>
-    <string name="achievement_100_points">100ポイント</string>
-    <string name="achievement_1000_points">1,000ポイント</string>
-    <string name="achievement_10000_points">10,000ポイント</string>
-    <string name="achievement_3_day_streak">3日連続</string>
-    <string name="achievement_7_day_streak">7日連続</string>
-    <string name="achievement_30_day_streak">30日連続</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">すべてのゲームで最低1ポイントを獲得する</string>
-    <string name="achievement_silver_medal_desc">すべてのゲームでシルバースコアに到達する</string>
-    <string name="achievement_gold_medal_desc">すべてのゲームでゴールドスコアに到達する</string>
-    <string name="achievement_10_points_desc">合計10ポイントを蓄積する</string>
-    <string name="achievement_100_points_desc">合計100ポイントを蓄積する</string>
-    <string name="achievement_1000_points_desc">合計1,000ポイントを蓄積する</string>
-    <string name="achievement_10000_points_desc">合計10,000ポイントを蓄積する</string>
-    <string name="achievement_3_day_streak_desc">3日連続でトレーニングする</string>
-    <string name="achievement_7_day_streak_desc">7日連続でトレーニングする</string>
-    <string name="achievement_30_day_streak_desc">30日連続でトレーニングする</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">デイリーチャレンジ</string>
     <string name="daily_challenge_subtitle_start">%1$dゲームをプレイして連続記録を保とう</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">賢者</string>
     <string name="title_master">達人</string>
     <string name="title_grandmaster">大達人</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">数独の達人</string>
+    <string name="achievement_gold_mini_chess">終盤の名手</string>
+    <string name="achievement_gold_lights_out">完全消灯</string>
+    <string name="achievement_gold_sliding_puzzle">スライド名人</string>
+    <string name="achievement_gold_path_finder">道しるべ</string>
+    <string name="achievement_gold_anomaly_puzzle">異常発見者</string>
+    <string name="achievement_gold_colored_shapes">形変化師</string>
+    <string name="achievement_gold_sherlock_calculation">初歩的だよ</string>
+    <string name="achievement_gold_mental_calculation">人間計算機</string>
+    <string name="achievement_gold_chain_calculation">途切れぬ連鎖</string>
+    <string name="achievement_gold_fraction_calculation">分数の主</string>
+    <string name="achievement_gold_value_comparison">誰よりも大きく</string>
+    <string name="achievement_gold_ghost_grid">幽霊使い</string>
+    <string name="achievement_gold_visual_memory">写真記憶</string>
+    <string name="achievement_gold_orbit_tracker">天文学者</string>
+    <string name="achievement_gold_pattern_sequence">パターン預言者</string>
+    <string name="achievement_gold_color_confusion">真の色</string>
+    <string name="achievement_gold_flash_crowd">群衆カウンター</string>
+    <string name="achievement_gold_schulte_table">稲妻の視線</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">脳のマラソンランナー</string>
+    <string name="achievement_iron_streak">鉄の連続記録</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">ミニ数独で金メダルを獲得</string>
+    <string name="achievement_gold_mini_chess_desc">Mini Chessで金メダルを獲得</string>
+    <string name="achievement_gold_lights_out_desc">Lights Outで金メダルを獲得</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzleで金メダルを獲得</string>
+    <string name="achievement_gold_path_finder_desc">パスファインダーで金メダルを獲得</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">異常パズルで金メダルを獲得</string>
+    <string name="achievement_gold_colored_shapes_desc">カラフルな形で金メダルを獲得</string>
+    <string name="achievement_gold_sherlock_calculation_desc">シャーロック計算で金メダルを獲得</string>
+    <string name="achievement_gold_mental_calculation_desc">暗算で金メダルを獲得</string>
+    <string name="achievement_gold_chain_calculation_desc">連鎖計算で金メダルを獲得</string>
+    <string name="achievement_gold_fraction_calculation_desc">分数計算で金メダルを獲得</string>
+    <string name="achievement_gold_value_comparison_desc">値の比較で金メダルを獲得</string>
+    <string name="achievement_gold_ghost_grid_desc">ゴーストグリッドで金メダルを獲得</string>
+    <string name="achievement_gold_visual_memory_desc">視覚記憶で金メダルを獲得</string>
+    <string name="achievement_gold_orbit_tracker_desc">オービットトラッカーで金メダルを獲得</string>
+    <string name="achievement_gold_pattern_sequence_desc">パターンシーケンスで金メダルを獲得</string>
+    <string name="achievement_gold_color_confusion_desc">カラーコンフュージョンで金メダルを獲得</string>
+    <string name="achievement_gold_flash_crowd_desc">フラッシュクラウドで金メダルを獲得</string>
+    <string name="achievement_gold_schulte_table_desc">シュルテ表で金メダルを獲得</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">累計10,000ポイントを獲得</string>
+    <string name="achievement_iron_streak_desc">30日連続で訓練</string>
 </resources>

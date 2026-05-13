@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">Отслеживание орбит</string>
     <string name="game_flash_crowd">Мгновенная толпа</string>
     <string name="game_schulte_table">Таблица Шульте</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">Мини-шахматы</string>
+    <string name="game_lights_out">Погаси свет</string>
+    <string name="game_sliding_puzzle">Пятнашки</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">Точки ненадолго мигают с каждой стороны. Нажмите на сторону, где было больше точек. Не считайте — доверяйте интуиции!</string>
     <string name="game_schulte_table_desc">Нажимайте числа по порядку, начиная с 1, как можно быстрее.</string>
     <string name="game_schulte_instruction">Нажимайте числа по порядку: 1, 2, 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">Заверши шахматный сценарий за белых. Поставь мат компьютеру раньше, чем он тебе.</string>
+    <string name="game_lights_out_desc">Выключи все огни. Каждое касание переключает клетку и её четырёх соседей.</string>
+    <string name="game_sliding_puzzle_desc">Перемещай плитки в пустое место, чтобы расположить их по порядку.</string>
+    <string name="moves_label">Ходов: %1$d</string>
+    <string name="mini_chess_thinking">Компьютер думает…</string>
+    <string name="mini_chess_round_won">Шах и мат</string>
+    <string name="mini_chess_round_lost">Компьютер поставил тебе мат</string>
+    <string name="mini_chess_round_draw">Ничья</string>
+    <string name="mini_chess_reset">Сбросить</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">Сложность</string>
+    <string name="mini_chess_difficulty_easy">Лёгкий</string>
+    <string name="mini_chess_difficulty_medium">Средний</string>
+    <string name="mini_chess_difficulty_hard">Сложный</string>
+    <string name="mini_chess_restart">Новая игра</string>
+    <string name="mini_chess_move_counter">Ход %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= пат (ничья, не победа)</string>
     <string name="game_what_comes_next">Что дальше?</string>
     <string name="game_tap_original_targets">Нажмите на исходные цели</string>
     <string name="game_remember_targets">Запомните цели</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">Бронзовая медаль</string>
-    <string name="achievement_silver_medal">Серебряная медаль</string>
-    <string name="achievement_gold_medal">Золотая медаль</string>
-    <string name="achievement_10_points">10 очков</string>
-    <string name="achievement_100_points">100 очков</string>
-    <string name="achievement_1000_points">1 000 очков</string>
-    <string name="achievement_10000_points">10 000 очков</string>
-    <string name="achievement_3_day_streak">Серия 3 дня</string>
-    <string name="achievement_7_day_streak">Серия 7 дней</string>
-    <string name="achievement_30_day_streak">Серия 30 дней</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">Наберите минимум 1 очко во всех играх</string>
-    <string name="achievement_silver_medal_desc">Достигните серебряного результата во всех играх</string>
-    <string name="achievement_gold_medal_desc">Достигните золотого результата во всех играх</string>
-    <string name="achievement_10_points_desc">Накопите 10 очков</string>
-    <string name="achievement_100_points_desc">Накопите 100 очков</string>
-    <string name="achievement_1000_points_desc">Накопите 1 000 очков</string>
-    <string name="achievement_10000_points_desc">Накопите 10 000 очков</string>
-    <string name="achievement_3_day_streak_desc">Тренируйтесь 3 дня подряд</string>
-    <string name="achievement_7_day_streak_desc">Тренируйтесь 7 дней подряд</string>
-    <string name="achievement_30_day_streak_desc">Тренируйтесь 30 дней подряд</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Ежедневный вызов</string>
     <string name="daily_challenge_subtitle_start">Сыграйте %1$d игр, чтобы сохранить серию</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">Мудрец</string>
     <string name="title_master">Мастер</string>
     <string name="title_grandmaster">Гроссмейстер</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">Мудрец судоку</string>
+    <string name="achievement_gold_mini_chess">Виртуоз эндшпиля</string>
+    <string name="achievement_gold_lights_out">Полное затемнение</string>
+    <string name="achievement_gold_sliding_puzzle">Мастер скольжения</string>
+    <string name="achievement_gold_path_finder">Следопыт</string>
+    <string name="achievement_gold_anomaly_puzzle">Охотник за аномалиями</string>
+    <string name="achievement_gold_colored_shapes">Перевёртыш</string>
+    <string name="achievement_gold_sherlock_calculation">Элементарно, мой друг</string>
+    <string name="achievement_gold_mental_calculation">Человек-калькулятор</string>
+    <string name="achievement_gold_chain_calculation">Непрерывная цепь</string>
+    <string name="achievement_gold_fraction_calculation">Босс дробей</string>
+    <string name="achievement_gold_value_comparison">Больше остальных</string>
+    <string name="achievement_gold_ghost_grid">Шепчущий с призраками</string>
+    <string name="achievement_gold_visual_memory">Фотографическая память</string>
+    <string name="achievement_gold_orbit_tracker">Астроном</string>
+    <string name="achievement_gold_pattern_sequence">Пророк узоров</string>
+    <string name="achievement_gold_color_confusion">Истинные цвета</string>
+    <string name="achievement_gold_flash_crowd">Счётчик толпы</string>
+    <string name="achievement_gold_schulte_table">Молниеносный взгляд</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">Марафонец разума</string>
+    <string name="achievement_iron_streak">Железная серия</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">Получи золотую медаль в Мини-судоку</string>
+    <string name="achievement_gold_mini_chess_desc">Получи золотую медаль в Mini Chess</string>
+    <string name="achievement_gold_lights_out_desc">Получи золотую медаль в Lights Out</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Получи золотую медаль в Sliding Puzzle</string>
+    <string name="achievement_gold_path_finder_desc">Получи золотую медаль в Поиск пути</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">Получи золотую медаль в Головоломка с аномалией</string>
+    <string name="achievement_gold_colored_shapes_desc">Получи золотую медаль в Цветные фигуры</string>
+    <string name="achievement_gold_sherlock_calculation_desc">Получи золотую медаль в Расчёт Шерлока</string>
+    <string name="achievement_gold_mental_calculation_desc">Получи золотую медаль в Устный счёт</string>
+    <string name="achievement_gold_chain_calculation_desc">Получи золотую медаль в Цепной расчёт</string>
+    <string name="achievement_gold_fraction_calculation_desc">Получи золотую медаль в Расчёт дробей</string>
+    <string name="achievement_gold_value_comparison_desc">Получи золотую медаль в Сравнение значений</string>
+    <string name="achievement_gold_ghost_grid_desc">Получи золотую медаль в Призрачная сетка</string>
+    <string name="achievement_gold_visual_memory_desc">Получи золотую медаль в Визуальная память</string>
+    <string name="achievement_gold_orbit_tracker_desc">Получи золотую медаль в Отслеживание орбит</string>
+    <string name="achievement_gold_pattern_sequence_desc">Получи золотую медаль в Последовательность</string>
+    <string name="achievement_gold_color_confusion_desc">Получи золотую медаль в Цветовая путаница</string>
+    <string name="achievement_gold_flash_crowd_desc">Получи золотую медаль в Мгновенная толпа</string>
+    <string name="achievement_gold_schulte_table_desc">Получи золотую медаль в Таблица Шульте</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">Накопи 10 000 очков в сумме</string>
+    <string name="achievement_iron_streak_desc">Тренируйся 30 дней подряд</string>
 </resources>

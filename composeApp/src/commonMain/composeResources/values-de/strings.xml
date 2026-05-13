@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">Orbit-Tracker</string>
     <string name="game_flash_crowd">Blitzmenge</string>
     <string name="game_schulte_table">Schulte-Tabelle</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">Mini-Schach</string>
+    <string name="game_lights_out">Lichter aus</string>
+    <string name="game_sliding_puzzle">Schiebepuzzle</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">Punkte blinken kurz auf jeder Seite auf. Tippe auf die Seite mit mehr Punkten. Zähle nicht — vertraue deinem Instinkt!</string>
     <string name="game_schulte_table_desc">Tippe die Zahlen so schnell wie möglich der Reihe nach von 1 aufwärts an.</string>
     <string name="game_schulte_instruction">Tippe die Zahlen der Reihe nach: 1, 2, 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">Beende das Schachszenario als Weiß. Setze die CPU schachmatt, bevor sie dich mattsetzt.</string>
+    <string name="game_lights_out_desc">Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre vier Nachbarn um.</string>
+    <string name="game_sliding_puzzle_desc">Schiebe Kacheln in den leeren Raum, um sie in die richtige Reihenfolge zu bringen.</string>
+    <string name="moves_label">Züge: %1$d</string>
+    <string name="mini_chess_thinking">CPU denkt nach…</string>
+    <string name="mini_chess_round_won">Schachmatt</string>
+    <string name="mini_chess_round_lost">CPU hat dich mattgesetzt</string>
+    <string name="mini_chess_round_draw">Unentschieden</string>
+    <string name="mini_chess_reset">Zurücksetzen</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">Schwierigkeit</string>
+    <string name="mini_chess_difficulty_easy">Einfach</string>
+    <string name="mini_chess_difficulty_medium">Mittel</string>
+    <string name="mini_chess_difficulty_hard">Schwer</string>
+    <string name="mini_chess_restart">Neues Spiel</string>
+    <string name="mini_chess_move_counter">Zug %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
     <string name="game_what_comes_next">Was kommt als Nächstes?</string>
     <string name="game_tap_original_targets">Tippe die ursprünglichen Ziele an</string>
     <string name="game_remember_targets">Merke dir die Ziele</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">Bronzemedaille</string>
-    <string name="achievement_silver_medal">Silbermedaille</string>
-    <string name="achievement_gold_medal">Goldmedaille</string>
-    <string name="achievement_10_points">10 Punkte</string>
-    <string name="achievement_100_points">100 Punkte</string>
-    <string name="achievement_1000_points">1.000 Punkte</string>
-    <string name="achievement_10000_points">10.000 Punkte</string>
-    <string name="achievement_3_day_streak">3-Tage-Serie</string>
-    <string name="achievement_7_day_streak">7-Tage-Serie</string>
-    <string name="achievement_30_day_streak">30-Tage-Serie</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">Erreiche mindestens 1 Punkt in allen Spielen</string>
-    <string name="achievement_silver_medal_desc">Erreiche die Silberpunktzahl in allen Spielen</string>
-    <string name="achievement_gold_medal_desc">Erreiche die Goldpunktzahl in allen Spielen</string>
-    <string name="achievement_10_points_desc">Sammle insgesamt 10 Punkte</string>
-    <string name="achievement_100_points_desc">Sammle insgesamt 100 Punkte</string>
-    <string name="achievement_1000_points_desc">Sammle insgesamt 1.000 Punkte</string>
-    <string name="achievement_10000_points_desc">Sammle insgesamt 10.000 Punkte</string>
-    <string name="achievement_3_day_streak_desc">Trainiere 3 Tage hintereinander</string>
-    <string name="achievement_7_day_streak_desc">Trainiere 7 Tage hintereinander</string>
-    <string name="achievement_30_day_streak_desc">Trainiere 30 Tage hintereinander</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Tägliche Herausforderung</string>
     <string name="daily_challenge_subtitle_start">Spiele %1$d Spiele, um deine Serie zu halten</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">Weiser</string>
     <string name="title_master">Meister</string>
     <string name="title_grandmaster">Großmeister</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">Sudoku-Weiser</string>
+    <string name="achievement_gold_mini_chess">Endspiel-Virtuose</string>
+    <string name="achievement_gold_lights_out">Totale Finsternis</string>
+    <string name="achievement_gold_sliding_puzzle">Schiebekünstler</string>
+    <string name="achievement_gold_path_finder">Pfadfinder</string>
+    <string name="achievement_gold_anomaly_puzzle">Ausnahmespürer</string>
+    <string name="achievement_gold_colored_shapes">Formenwandler</string>
+    <string name="achievement_gold_sherlock_calculation">Elementar, mein Lieber</string>
+    <string name="achievement_gold_mental_calculation">Menschlicher Rechner</string>
+    <string name="achievement_gold_chain_calculation">Ungebrochene Kette</string>
+    <string name="achievement_gold_fraction_calculation">Bruch-Boss</string>
+    <string name="achievement_gold_value_comparison">Größer als der Rest</string>
+    <string name="achievement_gold_ghost_grid">Geisterflüsterer</string>
+    <string name="achievement_gold_visual_memory">Fotografisches Gedächtnis</string>
+    <string name="achievement_gold_orbit_tracker">Sternenforscher</string>
+    <string name="achievement_gold_pattern_sequence">Musterprophet</string>
+    <string name="achievement_gold_color_confusion">Wahre Farben</string>
+    <string name="achievement_gold_flash_crowd">Mengenzähler</string>
+    <string name="achievement_gold_schulte_table">Blitzblick</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">Denk-Marathonläufer</string>
+    <string name="achievement_iron_streak">Eiserne Serie</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">Gewinne die Goldmedaille in Mini-Sudoku</string>
+    <string name="achievement_gold_mini_chess_desc">Gewinne die Goldmedaille in Mini Chess</string>
+    <string name="achievement_gold_lights_out_desc">Gewinne die Goldmedaille in Lights Out</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Sliding Puzzle</string>
+    <string name="achievement_gold_path_finder_desc">Gewinne die Goldmedaille in Pfadfinder</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">Gewinne die Goldmedaille in Anomalie-Rätsel</string>
+    <string name="achievement_gold_colored_shapes_desc">Gewinne die Goldmedaille in Farbige Formen</string>
+    <string name="achievement_gold_sherlock_calculation_desc">Gewinne die Goldmedaille in Sherlock-Rechnung</string>
+    <string name="achievement_gold_mental_calculation_desc">Gewinne die Goldmedaille in Kopfrechnen</string>
+    <string name="achievement_gold_chain_calculation_desc">Gewinne die Goldmedaille in Kettenrechnung</string>
+    <string name="achievement_gold_fraction_calculation_desc">Gewinne die Goldmedaille in Bruchrechnung</string>
+    <string name="achievement_gold_value_comparison_desc">Gewinne die Goldmedaille in Wertevergleich</string>
+    <string name="achievement_gold_ghost_grid_desc">Gewinne die Goldmedaille in Geistergitter</string>
+    <string name="achievement_gold_visual_memory_desc">Gewinne die Goldmedaille in Visuelles Gedächtnis</string>
+    <string name="achievement_gold_orbit_tracker_desc">Gewinne die Goldmedaille in Orbit-Tracker</string>
+    <string name="achievement_gold_pattern_sequence_desc">Gewinne die Goldmedaille in Mustersequenz</string>
+    <string name="achievement_gold_color_confusion_desc">Gewinne die Goldmedaille in Farbverwirrung</string>
+    <string name="achievement_gold_flash_crowd_desc">Gewinne die Goldmedaille in Blitzmenge</string>
+    <string name="achievement_gold_schulte_table_desc">Gewinne die Goldmedaille in Schulte-Tabelle</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">Sammle insgesamt 10.000 Punkte</string>
+    <string name="achievement_iron_streak_desc">Trainiere 30 Tage hintereinander</string>
 </resources>

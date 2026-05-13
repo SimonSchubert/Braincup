@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">অরবিট ট্র্যাকার</string>
     <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
     <string name="game_schulte_table">শুল্টে টেবিল</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">মিনি দাবা</string>
+    <string name="game_lights_out">লাইটস আউট</string>
+    <string name="game_sliding_puzzle">স্লাইডিং পাজল</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">প্রতিটি পাশে সংক্ষেপে বিন্দু জ্বলে। যে পাশে বেশি বিন্দু ছিল সেদিকে ট্যাপ করুন। গুনবেন না — আপনার অনুভূতিতে বিশ্বাস করুন!</string>
     <string name="game_schulte_table_desc">১ থেকে শুরু করে যত দ্রুত সম্ভব ক্রমানুসারে সংখ্যাগুলিতে ট্যাপ করুন।</string>
     <string name="game_schulte_instruction">ক্রমানুসারে সংখ্যা ট্যাপ করুন: ১, ২, ৩...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">সাদা হিসেবে দাবার পরিস্থিতি শেষ করুন। সিপিইউ আপনাকে কিস্তিমাত করার আগে তাকে কিস্তিমাত করুন।</string>
+    <string name="game_lights_out_desc">প্রতিটি আলো বন্ধ করুন। প্রতিটি ট্যাপ সেল ও তার চারটি প্রতিবেশীকে পরিবর্তন করে।</string>
+    <string name="game_sliding_puzzle_desc">টাইলগুলিকে ক্রমে সাজাতে খালি জায়গায় স্লাইড করুন।</string>
+    <string name="moves_label">চাল: %1$d</string>
+    <string name="mini_chess_thinking">সিপিইউ ভাবছে…</string>
+    <string name="mini_chess_round_won">কিস্তিমাত</string>
+    <string name="mini_chess_round_lost">সিপিইউ আপনাকে কিস্তিমাত করেছে</string>
+    <string name="mini_chess_round_draw">ড্র</string>
+    <string name="mini_chess_reset">রিসেট</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">কঠিনতা</string>
+    <string name="mini_chess_difficulty_easy">সহজ</string>
+    <string name="mini_chess_difficulty_medium">মাঝারি</string>
+    <string name="mini_chess_difficulty_hard">কঠিন</string>
+    <string name="mini_chess_restart">নতুন গেম</string>
+    <string name="mini_chess_move_counter">চাল %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= অচলাবস্থা (ড্র, জয় নয়)</string>
     <string name="game_what_comes_next">পরেরটি কী?</string>
     <string name="game_tap_original_targets">মূল লক্ষ্যগুলোতে ট্যাপ করুন</string>
     <string name="game_remember_targets">লক্ষ্যগুলো মনে রাখুন</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">বনাম</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">ব্রোঞ্জ পদক</string>
-    <string name="achievement_silver_medal">রৌপ্য পদক</string>
-    <string name="achievement_gold_medal">স্বর্ণ পদক</string>
-    <string name="achievement_10_points">১০ পয়েন্ট</string>
-    <string name="achievement_100_points">১০০ পয়েন্ট</string>
-    <string name="achievement_1000_points">১,০০০ পয়েন্ট</string>
-    <string name="achievement_10000_points">১০,০০০ পয়েন্ট</string>
-    <string name="achievement_3_day_streak">৩-দিনের ধারা</string>
-    <string name="achievement_7_day_streak">৭-দিনের ধারা</string>
-    <string name="achievement_30_day_streak">৩০-দিনের ধারা</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">সমস্ত গেমে কমপক্ষে ১ পয়েন্ট অর্জন করুন</string>
-    <string name="achievement_silver_medal_desc">সমস্ত গেমে রৌপ্য স্কোরে পৌঁছান</string>
-    <string name="achievement_gold_medal_desc">সমস্ত গেমে স্বর্ণ স্কোরে পৌঁছান</string>
-    <string name="achievement_10_points_desc">মোট ১০ পয়েন্ট সংগ্রহ করুন</string>
-    <string name="achievement_100_points_desc">মোট ১০০ পয়েন্ট সংগ্রহ করুন</string>
-    <string name="achievement_1000_points_desc">মোট ১,০০০ পয়েন্ট সংগ্রহ করুন</string>
-    <string name="achievement_10000_points_desc">মোট ১০,০০০ পয়েন্ট সংগ্রহ করুন</string>
-    <string name="achievement_3_day_streak_desc">পরপর ৩ দিন প্রশিক্ষণ নিন</string>
-    <string name="achievement_7_day_streak_desc">পরপর ৭ দিন প্রশিক্ষণ নিন</string>
-    <string name="achievement_30_day_streak_desc">পরপর ৩০ দিন প্রশিক্ষণ নিন</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">দৈনিক চ্যালেঞ্জ</string>
     <string name="daily_challenge_subtitle_start">আপনার স্ট্রিক বজায় রাখতে %1$dটি গেম খেলুন</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">ঋষি</string>
     <string name="title_master">দক্ষ</string>
     <string name="title_grandmaster">মহাগুরু</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">সুডোকু জ্ঞানী</string>
+    <string name="achievement_gold_mini_chess">শেষ-খেলার ওস্তাদ</string>
+    <string name="achievement_gold_lights_out">সম্পূর্ণ অন্ধকার</string>
+    <string name="achievement_gold_sliding_puzzle">দক্ষ সরানোকারী</string>
+    <string name="achievement_gold_path_finder">পথপ্রদর্শক</string>
+    <string name="achievement_gold_anomaly_puzzle">অস্বাভাবিকতা শিকারী</string>
+    <string name="achievement_gold_colored_shapes">আকার পরিবর্তনকারী</string>
+    <string name="achievement_gold_sherlock_calculation">সাধারণ, প্রিয়</string>
+    <string name="achievement_gold_mental_calculation">মানব ক্যালকুলেটর</string>
+    <string name="achievement_gold_chain_calculation">অখণ্ড শৃঙ্খল</string>
+    <string name="achievement_gold_fraction_calculation">ভগ্নাংশের রাজা</string>
+    <string name="achievement_gold_value_comparison">সবার থেকে বড়</string>
+    <string name="achievement_gold_ghost_grid">ভূত ফিসফিসকারী</string>
+    <string name="achievement_gold_visual_memory">ফটোগ্রাফিক স্মৃতি</string>
+    <string name="achievement_gold_orbit_tracker">জ্যোতির্বিদ</string>
+    <string name="achievement_gold_pattern_sequence">প্যাটার্ন ভবিষ্যদ্বক্তা</string>
+    <string name="achievement_gold_color_confusion">সত্যিকারের রং</string>
+    <string name="achievement_gold_flash_crowd">ভিড় গণনাকারী</string>
+    <string name="achievement_gold_schulte_table">বিদ্যুৎ দৃষ্টি</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">মস্তিষ্কের ম্যারাথন রানার</string>
+    <string name="achievement_iron_streak">লোহার ধারাবাহিকতা</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">মিনি সুডোকু-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_mini_chess_desc">Mini Chess-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_lights_out_desc">Lights Out-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_path_finder_desc">পথ অনুসন্ধানকারী-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">অসঙ্গতি ধাঁধা-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_colored_shapes_desc">রঙিন আকৃতি-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_sherlock_calculation_desc">শার্লক গণনা-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_mental_calculation_desc">মানসিক গণনা-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_chain_calculation_desc">চেইন গণনা-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_fraction_calculation_desc">ভগ্নাংশ গণনা-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_value_comparison_desc">মান তুলনা-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_ghost_grid_desc">ভুতুড়ে গ্রিড-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_visual_memory_desc">দৃশ্য স্মৃতি-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_orbit_tracker_desc">অরবিট ট্র্যাকার-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_pattern_sequence_desc">প্যাটার্ন সিকোয়েন্স-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_color_confusion_desc">রঙ বিভ্রান্তি-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_flash_crowd_desc">ফ্ল্যাশ ক্রাউড-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_schulte_table_desc">শুল্টে টেবিল-এ স্বর্ণপদক জিতুন</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">মোট ১০,০০০ পয়েন্ট সংগ্রহ করুন</string>
+    <string name="achievement_iron_streak_desc">টানা ৩০ দিন অনুশীলন করুন</string>
 </resources>

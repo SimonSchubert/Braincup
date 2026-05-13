@@ -57,9 +57,9 @@
     <string name="game_orbit_tracker">تتبع المدار</string>
     <string name="game_flash_crowd">حشد الوميض</string>
     <string name="game_schulte_table">جدول شولت</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_mini_chess">شطرنج مصغر</string>
+    <string name="game_lights_out">إطفاء الأنوار</string>
+    <string name="game_sliding_puzzle">لغز الانزلاق</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -79,23 +79,23 @@
     <string name="game_flash_crowd_desc">تومض النقاط لفترة وجيزة على كل جانب. انقر على الجانب الذي يحتوي على نقاط أكثر. لا تعد — ثق بحدسك!</string>
     <string name="game_schulte_table_desc">اضغط الأرقام بالترتيب من 1 فصاعداً بأسرع ما يمكن.</string>
     <string name="game_schulte_instruction">اضغط الأرقام بالترتيب: 1، 2، 3...</string>
-    <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
-    <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
-    <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
-    <string name="moves_label">Moves: %1$d</string>
-    <string name="mini_chess_thinking">CPU is thinking…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
-    <string name="mini_chess_round_lost">CPU mated you</string>
-    <string name="mini_chess_round_draw">Draw</string>
-    <string name="mini_chess_reset">Reset</string>
+    <string name="game_mini_chess_desc">أنه سيناريو الشطرنج بالأبيض. أوقع كش ملك على الحاسوب قبل أن يوقعه عليك.</string>
+    <string name="game_lights_out_desc">أطفئ كل ضوء. كل نقرة تقلب الخلية وجيرانها الأربعة.</string>
+    <string name="game_sliding_puzzle_desc">حرّك القطع إلى المساحة الفارغة لترتيبها.</string>
+    <string name="moves_label">النقلات: %1$d</string>
+    <string name="mini_chess_thinking">الحاسوب يفكّر…</string>
+    <string name="mini_chess_round_won">كش ملك</string>
+    <string name="mini_chess_round_lost">الحاسوب أوقع عليك كش ملك</string>
+    <string name="mini_chess_round_draw">تعادل</string>
+    <string name="mini_chess_reset">إعادة تعيين</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Difficulty</string>
-    <string name="mini_chess_difficulty_easy">Easy</string>
-    <string name="mini_chess_difficulty_medium">Medium</string>
-    <string name="mini_chess_difficulty_hard">Hard</string>
-    <string name="mini_chess_restart">New game</string>
-    <string name="mini_chess_move_counter">Move %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stalemate (draw, not a win)</string>
+    <string name="mini_chess_difficulty">الصعوبة</string>
+    <string name="mini_chess_difficulty_easy">سهل</string>
+    <string name="mini_chess_difficulty_medium">متوسط</string>
+    <string name="mini_chess_difficulty_hard">صعب</string>
+    <string name="mini_chess_restart">لعبة جديدة</string>
+    <string name="mini_chess_move_counter">نقلة %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= جمود (تعادل وليس فوزًا)</string>
     <string name="game_what_comes_next">ما التالي؟</string>
     <string name="game_tap_original_targets">انقر على الأهداف الأصلية</string>
     <string name="game_remember_targets">تذكر الأهداف</string>
@@ -142,30 +142,6 @@
     <!-- Other UI -->
     <string name="preview_vs">ضد</string>
 
-    <!-- Achievement titles -->
-    <string name="achievement_bronze_medal">الميدالية البرونزية</string>
-    <string name="achievement_silver_medal">الميدالية الفضية</string>
-    <string name="achievement_gold_medal">الميدالية الذهبية</string>
-    <string name="achievement_10_points">10 نقاط</string>
-    <string name="achievement_100_points">100 نقطة</string>
-    <string name="achievement_1000_points">1,000 نقطة</string>
-    <string name="achievement_10000_points">10,000 نقطة</string>
-    <string name="achievement_3_day_streak">سلسلة 3 أيام</string>
-    <string name="achievement_7_day_streak">سلسلة 7 أيام</string>
-    <string name="achievement_30_day_streak">سلسلة 30 يوماً</string>
-
-    <!-- Achievement descriptions -->
-    <string name="achievement_bronze_medal_desc">احصل على نقطة واحدة على الأقل في جميع الألعاب</string>
-    <string name="achievement_silver_medal_desc">حقق النتيجة الفضية في جميع الألعاب</string>
-    <string name="achievement_gold_medal_desc">حقق النتيجة الذهبية في جميع الألعاب</string>
-    <string name="achievement_10_points_desc">اجمع 10 نقاط إجمالية</string>
-    <string name="achievement_100_points_desc">اجمع 100 نقطة إجمالية</string>
-    <string name="achievement_1000_points_desc">اجمع 1,000 نقطة إجمالية</string>
-    <string name="achievement_10000_points_desc">اجمع 10,000 نقطة إجمالية</string>
-    <string name="achievement_3_day_streak_desc">تدرب لمدة 3 أيام متتالية</string>
-    <string name="achievement_7_day_streak_desc">تدرب لمدة 7 أيام متتالية</string>
-    <string name="achievement_30_day_streak_desc">تدرب لمدة 30 يوماً متتالياً</string>
-
     <!-- Daily challenge / session -->
     <string name="daily_challenge_title">التحدي اليومي</string>
     <string name="daily_challenge_subtitle_start">العب %1$d ألعاب للحفاظ على سلسلتك</string>
@@ -197,4 +173,54 @@
     <string name="title_sage">حكيم</string>
     <string name="title_master">خبير</string>
     <string name="title_grandmaster">كبير الخبراء</string>
+
+    <!-- Per-game Gold achievement titles -->
+    <string name="achievement_gold_mini_sudoku">حكيم السودوكو</string>
+    <string name="achievement_gold_mini_chess">بارع نهاية اللعبة</string>
+    <string name="achievement_gold_lights_out">إطفاء كامل</string>
+    <string name="achievement_gold_sliding_puzzle">خبير التحريك</string>
+    <string name="achievement_gold_path_finder">كشاف المسار</string>
+    <string name="achievement_gold_anomaly_puzzle">صياد الشذوذ</string>
+    <string name="achievement_gold_colored_shapes">متبدل الأشكال</string>
+    <string name="achievement_gold_sherlock_calculation">بسيط، يا عزيزي</string>
+    <string name="achievement_gold_mental_calculation">آلة حاسبة بشرية</string>
+    <string name="achievement_gold_chain_calculation">سلسلة لا تنقطع</string>
+    <string name="achievement_gold_fraction_calculation">ملك الكسور</string>
+    <string name="achievement_gold_value_comparison">أكبر من البقية</string>
+    <string name="achievement_gold_ghost_grid">همّاس الأشباح</string>
+    <string name="achievement_gold_visual_memory">ذاكرة فوتوغرافية</string>
+    <string name="achievement_gold_orbit_tracker">عالم الفلك</string>
+    <string name="achievement_gold_pattern_sequence">نبي الأنماط</string>
+    <string name="achievement_gold_color_confusion">الألوان الحقيقية</string>
+    <string name="achievement_gold_flash_crowd">عدّاد الحشود</string>
+    <string name="achievement_gold_schulte_table">نظرة برق</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">عدّاء ماراثون العقل</string>
+    <string name="achievement_iron_streak">سلسلة حديدية</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">اربح الميدالية الذهبية في سودوكو مصغر</string>
+    <string name="achievement_gold_mini_chess_desc">اربح الميدالية الذهبية في Mini Chess</string>
+    <string name="achievement_gold_lights_out_desc">اربح الميدالية الذهبية في Lights Out</string>
+    <string name="achievement_gold_sliding_puzzle_desc">اربح الميدالية الذهبية في Sliding Puzzle</string>
+    <string name="achievement_gold_path_finder_desc">اربح الميدالية الذهبية في مكتشف المسار</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">اربح الميدالية الذهبية في لغز الشذوذ</string>
+    <string name="achievement_gold_colored_shapes_desc">اربح الميدالية الذهبية في أشكال ملونة</string>
+    <string name="achievement_gold_sherlock_calculation_desc">اربح الميدالية الذهبية في حساب شيرلوك</string>
+    <string name="achievement_gold_mental_calculation_desc">اربح الميدالية الذهبية في الحساب الذهني</string>
+    <string name="achievement_gold_chain_calculation_desc">اربح الميدالية الذهبية في الحساب المتسلسل</string>
+    <string name="achievement_gold_fraction_calculation_desc">اربح الميدالية الذهبية في حساب الكسور</string>
+    <string name="achievement_gold_value_comparison_desc">اربح الميدالية الذهبية في مقارنة القيم</string>
+    <string name="achievement_gold_ghost_grid_desc">اربح الميدالية الذهبية في شبكة الأشباح</string>
+    <string name="achievement_gold_visual_memory_desc">اربح الميدالية الذهبية في الذاكرة البصرية</string>
+    <string name="achievement_gold_orbit_tracker_desc">اربح الميدالية الذهبية في تتبع المدار</string>
+    <string name="achievement_gold_pattern_sequence_desc">اربح الميدالية الذهبية في تسلسل الأنماط</string>
+    <string name="achievement_gold_color_confusion_desc">اربح الميدالية الذهبية في ارتباك الألوان</string>
+    <string name="achievement_gold_flash_crowd_desc">اربح الميدالية الذهبية في حشد الوميض</string>
+    <string name="achievement_gold_schulte_table_desc">اربح الميدالية الذهبية في جدول شولت</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">اجمع ١٠٬٠٠٠ نقطة في المجموع</string>
+    <string name="achievement_iron_streak_desc">تدرّب ٣٠ يومًا متتاليًا</string>
 </resources>

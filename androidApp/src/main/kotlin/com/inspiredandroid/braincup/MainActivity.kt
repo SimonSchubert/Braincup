@@ -27,6 +27,7 @@ class MainActivity : ComponentActivity() {
             AndroidApp()
         }
 
+        initPlayGames(this)
         checkAndRequestReview()
     }
 
