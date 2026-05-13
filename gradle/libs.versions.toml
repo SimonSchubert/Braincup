@@ -20,6 +20,7 @@ kotlinx-datetime = "0.8.0"
 androidx-navigation = "2.9.2"
 play-review = "2.0.2"
 play-games = "21.0.0"
+play-ads = "25.2.0"
 paparazzi = "2.0.0-alpha04"
 
 [libraries]
@@ -44,6 +45,7 @@ androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycl
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 play-review = { module = "com.google.android.play:review-ktx", version.ref = "play-review" }
 play-games = { module = "com.google.android.gms:play-services-games-v2", version.ref = "play-games" }
+play-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "play-ads" }
 
 [plugins]
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }

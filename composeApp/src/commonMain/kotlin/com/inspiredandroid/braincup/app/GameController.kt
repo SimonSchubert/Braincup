@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.app
 
 import androidx.navigation.NavController
+import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.minichess.ChessAi
@@ -57,6 +58,7 @@ class GameController(
     private var stopwatchRunning = false
     private var inSessionMode = false
     private var miniChessAiJob: Job? = null
+    private var flagsTimerJob: Job? = null
 
     private val _totalXp = MutableStateFlow(0)
     val totalXp: StateFlow<Int> = _totalXp.asStateFlow()
@@ -79,6 +81,7 @@ class GameController(
 
     companion object {
         const val GAME_TIME_MILLIS = 60 * 1_000L
+        const val FLAGS_ROUND_TIME_MILLIS = FlagsGame.ROUND_TIME_MILLIS
     }
 
     init {
@@ -111,6 +114,7 @@ class GameController(
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
             if (currentState.game is MiniChessGame) cancelMiniChessAi()
+            if (currentState.game is FlagsGame) cancelFlagsTimer()
         }
         _gameUiState.value = null
         _gameState.value = GameState.Idle
@@ -136,6 +140,10 @@ class GameController(
 
     fun navigateToInstructions(gameType: GameType) {
         navController.navigate(Instructions(gameType.id))
+    }
+
+    fun showLeaderboard(gameType: GameType) {
+        PlayGamesBridge.onShowLeaderboard?.invoke(gameType)
     }
 
     fun navigateToScoreboard(gameType: GameType) {
@@ -176,6 +184,10 @@ class GameController(
         }
         if (gameType == GameType.SLIDING_PUZZLE) {
             startSlidingPuzzleGame(gameType)
+            return
+        }
+        if (gameType == GameType.FLAGS) {
+            startFlagsGame(gameType)
             return
         }
 
@@ -257,6 +269,10 @@ class GameController(
         }
         if (game is MiniChessGame) {
             handleMiniChessAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is FlagsGame) {
+            handleFlagsAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -409,6 +425,7 @@ class GameController(
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
         GameType.FLASH_CROWD -> FlashCrowdGame()
         GameType.MINI_CHESS -> MiniChessGame()
+        GameType.FLAGS -> FlagsGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -944,6 +961,7 @@ class GameController(
         (game as? VisualMemoryGame)?.cancelCountdown()
         (game as? GhostGridGame)?.cancelShowSequence()
         (game as? OrbitTrackerGame)?.cancelAnimation()
+        if (game is FlagsGame) cancelFlagsTimer()
         _gameUiState.value = null
         _gameState.value = GameState.Idle
 
@@ -1120,5 +1138,105 @@ class GameController(
     private fun cancelMiniChessAi() {
         miniChessAiJob?.cancel()
         miniChessAiJob = null
+    }
+
+    private fun startFlagsGame(gameType: GameType) {
+        val game = FlagsGame().apply { answeredAllCorrect = false }
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = buildFlagsUiState(gameType, game)
+        navController.navigate(Playing(gameType.id))
+        startFlagsRoundTimer(gameType, game)
+    }
+
+    private fun buildFlagsUiState(
+        gameType: GameType,
+        game: FlagsGame,
+        overrideAnswers: List<AnswerButton>? = null,
+    ): FlagsUiState {
+        val base = game.toUiState() as FlagsUiState
+        return base.copy(
+            possibleAnswers = overrideAnswers ?: base.possibleAnswers,
+            currentScore = points,
+            bestScore = storage.getHighScore(gameType.id),
+        )
+    }
+
+    private fun startFlagsRoundTimer(gameType: GameType, game: FlagsGame) {
+        flagsTimerJob?.cancel()
+        startTime = Clock.System.now().toEpochMilliseconds()
+        _timeRemaining.value = FLAGS_ROUND_TIME_MILLIS
+        flagsTimerJob = scope.launch {
+            while (true) {
+                val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
+                val remaining = (FLAGS_ROUND_TIME_MILLIS - elapsed).coerceAtLeast(0)
+                _timeRemaining.value = remaining
+                if (remaining <= 0) {
+                    finishCurrentGame(gameType, game)
+                    return@launch
+                }
+                delay(100.milliseconds)
+            }
+        }
+    }
+
+    private fun cancelFlagsTimer() {
+        flagsTimerJob?.cancel()
+        flagsTimerJob = null
+    }
+
+    private fun handleFlagsAnswer(
+        currentState: GameState.Active,
+        game: FlagsGame,
+        input: String,
+    ) {
+        val correctAnswer = game.correctCountry
+        val currentUiState = _gameUiState.value as? FlagsUiState ?: return
+        val isCorrect = game.isCorrect(input)
+
+        // Freeze the timer during feedback so the 1s delay isn't counted against the player
+        // (correct case) or the timeout doesn't race the game-over transition (wrong case).
+        cancelFlagsTimer()
+
+        if (isCorrect) {
+            points++
+            val highlightedAnswers = currentUiState.possibleAnswers.map { button ->
+                button.copy(
+                    state = when (button.value) {
+                        input -> AnswerButtonState.CORRECT
+                        else -> AnswerButtonState.DIMMED
+                    },
+                )
+            }
+            _gameUiState.value = buildFlagsUiState(currentState.gameType, game, highlightedAnswers)
+            scope.launch {
+                delay(1.seconds)
+                if (_gameState.value !is GameState.Active) return@launch
+                if (game.isComplete()) {
+                    finishCurrentGame(currentState.gameType, game)
+                    return@launch
+                }
+                game.nextRound()
+                _gameState.value = GameState.Active(currentState.gameType, game)
+                _gameUiState.value = buildFlagsUiState(currentState.gameType, game)
+                startFlagsRoundTimer(currentState.gameType, game)
+            }
+        } else {
+            game.answeredAllCorrect = false
+            val highlightedAnswers = currentUiState.possibleAnswers.map { button ->
+                button.copy(
+                    state = when (button.value) {
+                        input -> AnswerButtonState.WRONG
+                        correctAnswer -> AnswerButtonState.CORRECT
+                        else -> AnswerButtonState.DIMMED
+                    },
+                )
+            }
+            _gameUiState.value = buildFlagsUiState(currentState.gameType, game, highlightedAnswers)
+            scope.launch {
+                delay(1.seconds)
+                finishCurrentGame(currentState.gameType, game)
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup
 
+import android.util.Log
 import androidx.activity.ComponentActivity
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.PlayGamesSdk
@@ -9,6 +10,8 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.R
 import com.inspiredandroid.braincup.games.GameType
 import java.lang.ref.WeakReference
+
+private const val TAG = "PlayGamesBridge"
 
 private var activityRef: WeakReference<ComponentActivity>? = null
 
@@ -51,6 +54,61 @@ fun initPlayGames(activity: ComponentActivity) {
         if (id.isBlank()) return
         PlayGames.getAchievementsClient(current).unlock(id)
     }
+
+    PlayGamesBridge.onSubmitScore = fun(gameType: GameType, score: Int) {
+        val current = activityRef?.get() ?: return
+        val resId = leaderboardResIdFor(gameType) ?: return
+        val id = current.getString(resId)
+        if (id.isBlank()) return
+        PlayGames.getLeaderboardsClient(current).submitScore(id, score.toLong())
+    }
+
+    PlayGamesBridge.onShowLeaderboard = fun(gameType: GameType) {
+        val current = activityRef?.get() ?: run {
+            Log.w(TAG, "showLeaderboard: activity ref is null")
+            return
+        }
+        val resId = leaderboardResIdFor(gameType) ?: run {
+            Log.w(TAG, "showLeaderboard: no leaderboard mapping for $gameType")
+            return
+        }
+        val id = current.getString(resId)
+        if (id.isBlank()) {
+            Log.w(TAG, "showLeaderboard: leaderboard id resource is blank")
+            return
+        }
+        // Re-check sign-in: on FOSS-less builds the initial sign-in can still fail
+        // (no Play Games account on the device, parental controls, etc.), and the
+        // leaderboard intent only resolves when signed in.
+        PlayGames.getGamesSignInClient(current).isAuthenticated
+            .addOnCompleteListener { authTask ->
+                val signedIn = authTask.isSuccessful && authTask.result?.isAuthenticated == true
+                if (!signedIn) {
+                    Log.w(TAG, "showLeaderboard: not signed in to Play Games; attempting sign-in")
+                    PlayGames.getGamesSignInClient(current).signIn()
+                        .addOnSuccessListener { launchLeaderboard(current, id) }
+                        .addOnFailureListener { e ->
+                            Log.e(TAG, "showLeaderboard: sign-in failed", e)
+                        }
+                } else {
+                    launchLeaderboard(current, id)
+                }
+            }
+    }
+}
+
+private fun launchLeaderboard(activity: ComponentActivity, id: String) {
+    PlayGames.getLeaderboardsClient(activity).getLeaderboardIntent(id)
+        .addOnSuccessListener { intent ->
+            try {
+                activity.startActivity(intent)
+            } catch (e: Exception) {
+                Log.e(TAG, "startActivity for leaderboard $id failed", e)
+            }
+        }
+        .addOnFailureListener { e ->
+            Log.e(TAG, "getLeaderboardIntent($id) failed", e)
+        }
 }
 
 private const val MIND_MARATHONER_TARGET = 10_000
@@ -108,4 +166,10 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.COLOR_CONFUSION -> R.string.achievementTrueColors
     GameType.FLASH_CROWD -> R.string.achievementCrowdCounter
     GameType.SCHULTE_TABLE -> R.string.achievementLightningGaze
+    GameType.FLAGS -> null
+}
+
+private fun leaderboardResIdFor(gameType: GameType): Int? = when (gameType) {
+    GameType.FLAGS -> R.string.leaderboardFlagMaster
+    else -> null
 }

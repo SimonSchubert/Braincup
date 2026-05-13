@@ -18,6 +18,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import braincup.composeapp.generated.resources.Res
+import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
@@ -31,7 +32,10 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
-fun App(colorScheme: ColorScheme? = null) {
+fun App(
+    colorScheme: ColorScheme? = null,
+    finishScreenAdSlot: @Composable (Modifier) -> Unit = {},
+) {
     val resolvedColorScheme = colorScheme
         ?: if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme
     val navController = rememberNavController()
@@ -112,6 +116,14 @@ fun App(colorScheme: ColorScheme? = null) {
                             storage = controller.storage,
                             onStart = { controller.startGame(gameType) },
                             onBack = { controller.navigateToMainMenu() },
+                            onShowLeaderboard = if (
+                                gameType.hasLeaderboard &&
+                                PlayGamesBridge.onShowLeaderboard != null
+                            ) {
+                                { controller.showLeaderboard(gameType) }
+                            } else {
+                                null
+                            },
                         )
                     }
                 }
@@ -171,6 +183,7 @@ fun App(colorScheme: ColorScheme? = null) {
                             onPlayRandom = { controller.playRandomGame() },
                             onPlayAgain = { controller.playAgain(gameType) },
                             onMenu = { controller.navigateToMainMenu() },
+                            adSlot = finishScreenAdSlot,
                         )
                     }
                 }

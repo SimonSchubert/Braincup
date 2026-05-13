@@ -13,4 +13,10 @@ object PlayGamesBridge {
     var onGoldMedal: ((GameType) -> Unit)? = null
     var onTotalScore: ((Int) -> Unit)? = null
     var onStreak: ((Int) -> Unit)? = null
+
+    /** Submit a final score to the per-game leaderboard. No-op if the game has none. */
+    var onSubmitScore: ((GameType, Int) -> Unit)? = null
+
+    /** Launch the per-game leaderboard UI. No-op if the game has none. */
+    var onShowLeaderboard: ((GameType) -> Unit)? = null
 }

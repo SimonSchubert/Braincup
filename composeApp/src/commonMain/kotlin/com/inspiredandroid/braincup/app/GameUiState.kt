@@ -202,6 +202,14 @@ data class FlashCrowdUiState(
 }
 
 @Immutable
+data class FlagsUiState(
+    val countrySlug: String,
+    val possibleAnswers: List<AnswerButton>,
+    val currentScore: Int,
+    val bestScore: Int,
+) : GameUiState
+
+@Immutable
 data class VisualMemoryUiState(
     val round: Int,
     val phase: VisualMemoryGame.Phase,

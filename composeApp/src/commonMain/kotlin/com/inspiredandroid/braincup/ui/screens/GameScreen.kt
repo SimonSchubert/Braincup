@@ -8,6 +8,7 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -117,6 +118,17 @@ fun GameScreen(
             }
             bar
         }
+        gameUiState is FlagsUiState -> {
+            val bar: @Composable () -> Unit = {
+                TimeProgressIndicator(
+                    progress = timeRemaining / GameController.FLAGS_ROUND_TIME_MILLIS.toFloat(),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
+            bar
+        }
         else -> {
             val bar: @Composable () -> Unit = {
                 TimeProgressIndicator(
@@ -150,6 +162,7 @@ fun GameScreen(
             is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
             is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
             is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
+            is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
         }
     }
 }
@@ -2513,4 +2526,149 @@ private fun chessPieceResource(type: PieceType) = when (type) {
     PieceType.BISHOP -> Res.drawable.ic_chess_bishop
     PieceType.KNIGHT -> Res.drawable.ic_chess_knight
     PieceType.PAWN -> Res.drawable.ic_chess_pawn
+}
+
+@Composable
+private fun ColumnScope.FlagsContent(
+    uiState: FlagsUiState,
+    onAnswer: (String) -> Unit,
+) {
+    val compact = LocalIsCompactHeight.current
+    val flagSize = if (compact) 120.dp else 180.dp
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Image(
+                    painter = painterResource(flagResource(uiState.countrySlug)),
+                    contentDescription = null,
+                    modifier = Modifier.size(flagSize),
+                )
+                Spacer(Modifier.height(8.dp))
+                FlagsScoreRow(uiState.currentScore, uiState.bestScore)
+            }
+            FlagAnswerButtons(
+                uiState = uiState,
+                onAnswer = onAnswer,
+                modifier = Modifier
+                    .weight(1f, fill = false)
+                    .widthIn(max = 280.dp),
+            )
+        }
+    } else {
+        FlagsScoreRow(
+            currentScore = uiState.currentScore,
+            bestScore = uiState.bestScore,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(bottom = 8.dp),
+        )
+        Text(
+            text = stringResource(Res.string.game_flags_question),
+            style = MaterialTheme.typography.titleMedium,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(16.dp))
+        Image(
+            painter = painterResource(flagResource(uiState.countrySlug)),
+            contentDescription = null,
+            modifier = Modifier
+                .size(flagSize)
+                .align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(24.dp))
+        FlagAnswerButtons(
+            uiState = uiState,
+            onAnswer = onAnswer,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 24.dp)
+                .widthIn(max = 480.dp)
+                .align(Alignment.CenterHorizontally),
+        )
+    }
+}
+
+@Composable
+private fun FlagsScoreRow(
+    currentScore: Int,
+    bestScore: Int,
+    modifier: Modifier = Modifier,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = stringResource(Res.string.game_flags_score, currentScore),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+        Text(
+            text = stringResource(Res.string.game_flags_best, bestScore),
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+@Composable
+private fun FlagAnswerButtons(
+    uiState: FlagsUiState,
+    onAnswer: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    FlowColumn(
+        modifier = modifier,
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        uiState.possibleAnswers.forEach { button ->
+            FlagAnswerButton(button = button, onAnswer = onAnswer)
+        }
+    }
+}
+
+@Composable
+private fun FlagAnswerButton(
+    button: AnswerButton,
+    onAnswer: (String) -> Unit,
+) {
+    val label = stringResource(countryNameRes(button.value))
+    val face = when (button.state) {
+        AnswerButtonState.NORMAL, AnswerButtonState.DIMMED -> Primary
+        AnswerButtonState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        AnswerButtonState.CORRECT -> SuccessGreen
+    }
+    val textColor = when (button.state) {
+        AnswerButtonState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
+        else -> ComposeColor.White
+    }
+    val isClickable = button.state == AnswerButtonState.NORMAL
+    val containerModifier = Modifier
+        .fillMaxWidth()
+        .defaultMinSize(minHeight = 52.dp)
+        .hoverHand(isClickable)
+        .alpha(if (button.state == AnswerButtonState.DIMMED) 0.4f else 1f)
+
+    PrismTile(
+        face = face,
+        modifier = containerModifier,
+        isClickable = isClickable,
+        onClick = { onAnswer(button.value) },
+    ) {
+        Text(
+            text = label,
+            color = textColor,
+            style = MaterialTheme.typography.titleMedium,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp),
+        )
+    }
 }

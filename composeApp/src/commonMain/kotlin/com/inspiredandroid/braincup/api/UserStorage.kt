@@ -310,6 +310,9 @@ class UserStorage(
         settings.putInt(KEY_TOTAL_SCORE, updatedTotalScore)
 
         PlayGamesBridge.onTotalScore?.invoke(updatedTotalScore)
+        if (gameType != null) {
+            PlayGamesBridge.onSubmitScore?.invoke(gameType, score)
+        }
         if (gameType != null && gameType.meetsScore(score, gameType.goldScore)) {
             PlayGamesBridge.onGoldMedal?.invoke(gameType)
             Achievements.forGameGold(gameType)?.let { unlockAchievement(it) }

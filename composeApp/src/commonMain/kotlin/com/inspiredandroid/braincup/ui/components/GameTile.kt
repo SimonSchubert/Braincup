@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -240,6 +241,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.MINI_CHESS -> MiniChessPreview()
         GameType.LIGHTS_OUT -> LightsOutPreview()
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
+        GameType.FLAGS -> FlagsPreview()
     }
 }
 
@@ -821,5 +823,34 @@ private fun MiniChessPreviewPiece(
             }
         }
         with(painter) { draw(size = size, colorFilter = fill) }
+    }
+}
+
+private val FlagsPreviewDrawables: List<DrawableResource> = listOf(
+    Res.drawable.flag_japan_50,
+    Res.drawable.flag_brazil_50,
+    Res.drawable.flag_france_50,
+)
+
+@Composable
+private fun FlagsPreview() {
+    val borderColor = LightColorScheme.outlineVariant
+    Row(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        FlagsPreviewDrawables.forEach { drawable ->
+            Image(
+                painter = painterResource(drawable),
+                contentDescription = null,
+                modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(1f),
+            )
+        }
     }
 }

@@ -34,6 +34,7 @@ fun FinishScreen(
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
+    adSlot: @Composable (Modifier) -> Unit = {},
 ) {
     val levelAfter = UserStorage.levelForXp(totalXpAfter)
     val levelBefore = UserStorage.levelForXp(totalXpAfter - xpGained)
@@ -50,7 +51,6 @@ fun FinishScreen(
     AppScaffold(
         title = stringResource(gameType.displayNameRes),
         onBack = onMenu,
-        scrollable = false,
     ) {
         val medalTint = when {
             gameType.meetsScore(score, gameType.goldScore) -> MedalGold
@@ -114,7 +114,11 @@ fun FinishScreen(
 
         XpAndLevelDisplay(xpGained = xpGained, levelChange = levelChange)
 
-        Spacer(Modifier.height(32.dp))
+        Spacer(Modifier.height(16.dp))
+
+        adSlot(Modifier)
+
+        Spacer(Modifier.height(16.dp))
 
         PrimaryActionButton(
             onClick = onPlayRandom,

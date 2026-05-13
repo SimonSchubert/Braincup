@@ -15,6 +15,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_start
+import braincup.composeapp.generated.resources.instructions_best_score
+import braincup.composeapp.generated.resources.instructions_leaderboard
 import braincup.composeapp.generated.resources.mini_chess_difficulty
 import braincup.composeapp.generated.resources.mini_chess_difficulty_easy
 import braincup.composeapp.generated.resources.mini_chess_difficulty_hard
@@ -24,6 +26,7 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
@@ -34,6 +37,7 @@ fun InstructionsScreen(
     storage: UserStorage,
     onStart: () -> Unit,
     onBack: () -> Unit,
+    onShowLeaderboard: (() -> Unit)? = null,
 ) {
     AppScaffold(
         title = stringResource(gameType.displayNameRes),
@@ -62,6 +66,22 @@ fun InstructionsScreen(
             )
         }
 
+        if (gameType.hasLeaderboard) {
+            val highscore = storage.getHighScore(gameType.id)
+            if (highscore > 0) {
+                Spacer(Modifier.height(24.dp))
+                Text(
+                    text = stringResource(
+                        Res.string.instructions_best_score,
+                        gameType.formatScore(highscore),
+                    ),
+                    style = MaterialTheme.typography.titleMedium,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                )
+            }
+        }
+
         Spacer(Modifier.height(32.dp))
 
         DefaultButton(
@@ -69,6 +89,15 @@ fun InstructionsScreen(
             onClick = onStart,
             value = stringResource(Res.string.button_start),
         )
+
+        if (gameType.hasLeaderboard && onShowLeaderboard != null) {
+            Spacer(Modifier.height(16.dp))
+            TextPrismButton(
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+                onClick = onShowLeaderboard,
+                value = stringResource(Res.string.instructions_leaderboard),
+            )
+        }
     }
 }
 

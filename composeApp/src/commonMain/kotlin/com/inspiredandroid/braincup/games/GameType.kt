@@ -173,9 +173,21 @@ enum class GameType(
         category = GameCategory.PERCEPTION,
         lowerScoreIsBetter = true,
     ),
+    FLAGS(
+        displayNameRes = Res.string.game_flags,
+        id = "21",
+        // Score = rounds completed. Initial thresholds; tune after playtest.
+        goldScore = 30,
+        silverScore = 15,
+        descriptionRes = Res.string.game_flags_desc,
+        category = GameCategory.PERCEPTION,
+    ),
     ;
 
     val accentColor: Long get() = category.accentColor
+
+    /** Whether this game has a Play Games leaderboard wired up. */
+    val hasLeaderboard: Boolean get() = this == FLAGS
 
     /** Format a stored score for display. Time-based scores are stored as deciseconds (1/10s)
      *  and render as "12.3s". */

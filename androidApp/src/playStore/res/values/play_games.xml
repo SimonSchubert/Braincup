@@ -27,4 +27,7 @@
     <string name="achievementMindMarathoner" translatable="false">CgkIuZrirtIVEAIQFQ</string>
     <!-- Standard -->
     <string name="achievementIronStreak" translatable="false">CgkIuZrirtIVEAIQFg</string>
+
+    <!-- Leaderboards -->
+    <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>
 </resources>

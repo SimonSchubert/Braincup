@@ -23,11 +23,23 @@ class MainActivity : ComponentActivity() {
             ),
         )
         super.onCreate(savedInstanceState)
+
+        val canRequestAds = !isConsentRequiredRegion(this)
+
         setContent {
-            AndroidApp()
+            AndroidApp(
+                finishScreenAdSlot = if (canRequestAds) {
+                    { modifier -> NativeAdSlot(modifier) }
+                } else {
+                    {}
+                },
+            )
         }
 
         initPlayGames(this)
+        if (canRequestAds) {
+            initMobileAds(this)
+        }
         checkAndRequestReview()
     }
 
