@@ -1,0 +1,3 @@
+Excluded chess from daily challenges
+Refined UI alignment
+Upgraded dependencies

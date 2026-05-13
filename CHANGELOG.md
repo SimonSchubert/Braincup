@@ -1,3 +1,12 @@
+## v2.12.1 — 2026-05-13
+
+### Fixes
+- Excluded chess from daily challenges
+
+### Improvements
+- Refined UI alignment
+- Upgraded dependencies
+
 ## v2.12.0 — 2026-05-08
 
 ### Improvements
