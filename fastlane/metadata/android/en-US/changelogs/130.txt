@@ -1,0 +1,3 @@
+Fixed leaderboard open action
+Restored XP on fresh installs
+Fixed ProGuard crash

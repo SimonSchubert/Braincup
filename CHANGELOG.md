@@ -1,3 +1,10 @@
+## v2.14.1 — 2026-05-14
+
+### Fixes
+- Leaderboard open action now works correctly
+- Restored XP on fresh installs
+- Fixed ProGuard-related crash
+
 ## v2.14.0 — 2026-05-14
 
 ### Features
