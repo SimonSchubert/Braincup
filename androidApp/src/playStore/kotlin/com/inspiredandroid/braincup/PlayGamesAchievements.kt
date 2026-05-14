@@ -74,81 +74,55 @@ fun initPlayGames(activity: ComponentActivity) {
     }
 
     PlayGamesBridge.onShowBrainCup = fun() {
-        val current = activityRef?.get() ?: run {
-            Log.w(TAG, "showBrainCup: activity ref is null")
-            return
-        }
+        val current = activityRef?.get() ?: return
         val id = current.getString(R.string.leaderboardBrainCup)
-        if (id.isBlank()) {
-            Log.w(TAG, "showBrainCup: leaderboard id resource is blank")
-            return
-        }
-        PlayGames.getGamesSignInClient(current).isAuthenticated
-            .addOnCompleteListener { authTask ->
-                val signedIn = authTask.isSuccessful && authTask.result?.isAuthenticated == true
-                if (!signedIn) {
-                    Log.w(TAG, "showBrainCup: not signed in to Play Games; attempting sign-in")
-                    PlayGames.getGamesSignInClient(current).signIn()
-                        .addOnSuccessListener { launchLeaderboard(current, id) }
-                        .addOnFailureListener { e ->
-                            Log.e(TAG, "showBrainCup: sign-in failed", e)
-                        }
-                } else {
-                    launchLeaderboard(current, id)
-                }
-            }
+        if (id.isBlank()) return
+        ensureSignedInAndLaunch(current, id)
     }
 
     PlayGamesBridge.onShowLeaderboard = fun(gameType: GameType) {
-        val current = activityRef?.get() ?: run {
-            Log.w(TAG, "showLeaderboard: activity ref is null")
-            return
-        }
-        val resId = leaderboardResIdFor(gameType) ?: run {
-            Log.w(TAG, "showLeaderboard: no leaderboard mapping for $gameType")
-            return
-        }
+        val current = activityRef?.get() ?: return
+        val resId = leaderboardResIdFor(gameType) ?: return
         val id = current.getString(resId)
-        if (id.isBlank()) {
-            Log.w(TAG, "showLeaderboard: leaderboard id resource is blank")
-            return
-        }
-        // Re-check sign-in: on FOSS-less builds the initial sign-in can still fail
-        // (no Play Games account on the device, parental controls, etc.), and the
-        // leaderboard intent only resolves when signed in.
-        PlayGames.getGamesSignInClient(current).isAuthenticated
-            .addOnCompleteListener { authTask ->
-                val signedIn = authTask.isSuccessful && authTask.result?.isAuthenticated == true
-                if (!signedIn) {
-                    Log.w(TAG, "showLeaderboard: not signed in to Play Games; attempting sign-in")
-                    PlayGames.getGamesSignInClient(current).signIn()
-                        .addOnSuccessListener { launchLeaderboard(current, id) }
-                        .addOnFailureListener { e ->
-                            Log.e(TAG, "showLeaderboard: sign-in failed", e)
-                        }
-                } else {
-                    launchLeaderboard(current, id)
-                }
-            }
+        if (id.isBlank()) return
+        ensureSignedInAndLaunch(current, id)
     }
+}
+
+private fun ensureSignedInAndLaunch(activity: ComponentActivity, id: String) {
+    PlayGames.getGamesSignInClient(activity).isAuthenticated
+        .addOnCompleteListener { authTask ->
+            val signedIn = authTask.isSuccessful && authTask.result?.isAuthenticated == true
+            if (signedIn) {
+                launchLeaderboard(activity, id)
+            } else {
+                PlayGames.getGamesSignInClient(activity).signIn()
+                    .addOnSuccessListener { launchLeaderboard(activity, id) }
+                    .addOnFailureListener { e -> Log.w(TAG, "Play Games sign-in failed", e) }
+            }
+        }
 }
 
 private fun launchLeaderboard(activity: ComponentActivity, id: String) {
     PlayGames.getLeaderboardsClient(activity).getLeaderboardIntent(id)
         .addOnSuccessListener { intent ->
+            if (intent == null) return@addOnSuccessListener
             try {
-                activity.startActivity(intent)
+                // startActivityForResult (not startActivity): on Android 16 with intent
+                // redirect hardening, the cross-package leaderboard intent is silently
+                // dropped when launched without a result channel.
+                @Suppress("DEPRECATION")
+                activity.startActivityForResult(intent, LEADERBOARD_REQUEST_CODE)
             } catch (e: Exception) {
-                Log.e(TAG, "startActivity for leaderboard $id failed", e)
+                Log.w(TAG, "startActivityForResult for leaderboard $id failed", e)
             }
         }
-        .addOnFailureListener { e ->
-            Log.e(TAG, "getLeaderboardIntent($id) failed", e)
-        }
+        .addOnFailureListener { e -> Log.w(TAG, "getLeaderboardIntent($id) failed", e) }
 }
 
 private const val MIND_MARATHONER_TARGET = 10_000
 private const val IRON_STREAK_TARGET = 30
+private const val LEADERBOARD_REQUEST_CODE = 9001
 
 /**
  * Two-way sync of cumulative XP with the Brain Cup leaderboard:
