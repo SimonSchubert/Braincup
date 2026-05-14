@@ -52,8 +52,11 @@ import org.jetbrains.compose.resources.stringResource
 import kotlin.time.Duration.Companion.milliseconds
 import androidx.compose.ui.graphics.Color as ComposeColor
 
-private val FlashCrowdBlue = ComposeColor(0xFF4285F4)
-private val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
+internal val FlashCrowdBlue = ComposeColor(0xFF4285F4)
+internal val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
+// Yellow needs a lighter darken than the prism default (0.7/0.5) so the facets read on a light hue.
+internal val FlashCrowdYellowSide = FlashCrowdYellow.darken(0.85f)
+internal val FlashCrowdYellowBottom = FlashCrowdYellow.darken(0.7f)
 
 private val ChessHaloDeltas: List<Pair<Float, Float>> = listOf(
     -1f to -1f,
@@ -2087,10 +2090,10 @@ private fun ColumnScope.OrbitTrackerContent(
                     else -> onSurfaceVariantColor
                 }
 
-                drawCircle(
-                    color = color,
-                    radius = ballRadiusPx,
+                drawPrismCircle(
                     center = center,
+                    radius = ballRadiusPx,
+                    face = color,
                 )
 
                 // Draw outline for missed targets
@@ -2184,8 +2187,8 @@ private fun ColumnScope.FlashCrowdContent(
                 }
                 PrismTile(
                     face = FlashCrowdYellow,
-                    side = FlashCrowdYellow.darken(0.85f),
-                    bottom = FlashCrowdYellow.darken(0.7f),
+                    side = FlashCrowdYellowSide,
+                    bottom = FlashCrowdYellowBottom,
                     onClick = { onAnswer("right") },
                     modifier = Modifier
                         .weight(1f)
@@ -2206,8 +2209,8 @@ private fun ColumnScope.FlashCrowdContent(
 @Composable
 private fun FlashCrowdDotsRow(
     uiState: FlashCrowdUiState,
-    blueColor: androidx.compose.ui.graphics.Color,
-    yellowColor: androidx.compose.ui.graphics.Color,
+    blueColor: ComposeColor,
+    yellowColor: ComposeColor,
     modifier: Modifier = Modifier,
 ) {
     Row(
@@ -2222,10 +2225,10 @@ private fun FlashCrowdDotsRow(
                 .aspectRatio(1f),
         ) {
             uiState.leftDots.forEach { dot ->
-                drawCircle(
-                    color = blueColor,
-                    radius = dot.radius * size.width,
+                drawPrismCircle(
                     center = Offset(dot.x * size.width, dot.y * size.height),
+                    radius = dot.radius * size.width,
+                    face = blueColor,
                 )
             }
         }
@@ -2235,10 +2238,12 @@ private fun FlashCrowdDotsRow(
                 .aspectRatio(1f),
         ) {
             uiState.rightDots.forEach { dot ->
-                drawCircle(
-                    color = yellowColor,
-                    radius = dot.radius * size.width,
+                drawPrismCircle(
                     center = Offset(dot.x * size.width, dot.y * size.height),
+                    radius = dot.radius * size.width,
+                    face = yellowColor,
+                    side = FlashCrowdYellowSide,
+                    bottom = FlashCrowdYellowBottom,
                 )
             }
         }

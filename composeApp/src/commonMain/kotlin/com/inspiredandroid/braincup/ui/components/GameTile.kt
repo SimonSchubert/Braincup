@@ -33,10 +33,11 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
 import androidx.compose.ui.graphics.Color as ComposeColor
-
-private val FlashCrowdBlue = ComposeColor(0xFF4285F4)
-private val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
 // Tile previews always render on light pastel backgrounds (gameType.accentColor),
 // so set text colors explicitly rather than inheriting from the surrounding (possibly dark) theme.
@@ -697,10 +698,10 @@ private fun OrbitTrackerPreview() {
         ) {
             val ballRadius = size.width * 0.06f
             OrbitTrackerPreviewBalls.forEach { (x, y, isTarget) ->
-                drawCircle(
-                    color = if (isTarget) primaryColor else onSurfaceVariantColor,
-                    radius = ballRadius,
+                drawPrismCircle(
                     center = Offset(x * size.width, y * size.height),
+                    radius = ballRadius,
+                    face = if (isTarget) primaryColor else onSurfaceVariantColor,
                 )
             }
         }
@@ -746,19 +747,21 @@ private fun FlashCrowdPreview() {
     ) {
         Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
             FlashCrowdPreviewLeftDots.forEach { (x, y, r) ->
-                drawCircle(
-                    color = FlashCrowdBlue,
-                    radius = r * size.width,
+                drawPrismCircle(
                     center = Offset(x * size.width, y * size.height),
+                    radius = r * size.width,
+                    face = FlashCrowdBlue,
                 )
             }
         }
         Canvas(modifier = Modifier.weight(1f).fillMaxHeight()) {
             FlashCrowdPreviewRightDots.forEach { (x, y, r) ->
-                drawCircle(
-                    color = FlashCrowdYellow,
-                    radius = r * size.width,
+                drawPrismCircle(
                     center = Offset(x * size.width, y * size.height),
+                    radius = r * size.width,
+                    face = FlashCrowdYellow,
+                    side = FlashCrowdYellowSide,
+                    bottom = FlashCrowdYellowBottom,
                 )
             }
         }

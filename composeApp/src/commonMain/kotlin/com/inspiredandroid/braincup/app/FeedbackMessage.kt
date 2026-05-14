@@ -1,8 +1,10 @@
 package com.inspiredandroid.braincup.app
 
+import androidx.compose.runtime.Immutable
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Shape
 
+@Immutable
 sealed interface FeedbackMessage {
     data class Plain(val text: String) : FeedbackMessage
     data class FigureDescription(

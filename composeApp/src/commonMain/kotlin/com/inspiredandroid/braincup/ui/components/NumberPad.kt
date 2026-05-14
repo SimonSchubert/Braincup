@@ -5,9 +5,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.baseline_backspace_24
 import org.jetbrains.compose.resources.painterResource
@@ -114,7 +112,9 @@ fun NumberPadWithInput(
         ) {
             Text(
                 input,
-                style = TextStyle(color = MaterialTheme.colorScheme.onSurface, fontSize = 32.sp),
+                style = MaterialTheme.typography.headlineLarge.copy(
+                    color = MaterialTheme.colorScheme.onSurface,
+                ),
                 modifier = Modifier.align(Alignment.CenterVertically),
             )
             if (input.isNotEmpty()) {
