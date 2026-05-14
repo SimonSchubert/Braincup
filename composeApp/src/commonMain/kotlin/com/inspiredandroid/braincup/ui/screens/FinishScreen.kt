@@ -13,13 +13,13 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
+import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -60,9 +60,7 @@ fun FinishScreen(
         }
 
         if (medalTint != null) {
-            Icon(
-                painterResource(Res.drawable.ic_icons8_counter_gold),
-                contentDescription = null,
+            PrismTrophy(
                 tint = medalTint,
                 modifier = Modifier
                     .size(64.dp)

@@ -36,7 +36,6 @@ import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.games.tools.Calculator
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
@@ -54,6 +53,7 @@ import androidx.compose.ui.graphics.Color as ComposeColor
 
 internal val FlashCrowdBlue = ComposeColor(0xFF4285F4)
 internal val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
+
 // Yellow needs a lighter darken than the prism default (0.7/0.5) so the facets read on a light hue.
 internal val FlashCrowdYellowSide = FlashCrowdYellow.darken(0.85f)
 internal val FlashCrowdYellowBottom = FlashCrowdYellow.darken(0.7f)

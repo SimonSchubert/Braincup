@@ -14,10 +14,10 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
+import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
-import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -149,9 +149,7 @@ private fun MedalRequirement(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Icon(
-            painterResource(Res.drawable.ic_icons8_counter_gold),
-            contentDescription = null,
+        PrismTrophy(
             tint = if (achieved) tint else MaterialTheme.colorScheme.outlineVariant,
             modifier = Modifier.size(32.dp),
         )

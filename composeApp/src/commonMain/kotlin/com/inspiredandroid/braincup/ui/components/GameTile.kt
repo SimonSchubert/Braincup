@@ -23,6 +23,10 @@ import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
@@ -33,10 +37,6 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
 import androidx.compose.ui.graphics.Color as ComposeColor
 
 // Tile previews always render on light pastel backgrounds (gameType.accentColor),
@@ -205,9 +205,7 @@ fun GameTile(
                 }
                 if (medalTint != null) {
                     Spacer(Modifier.width(4.dp))
-                    Icon(
-                        painterResource(Res.drawable.ic_icons8_counter_gold),
-                        contentDescription = null,
+                    PrismTrophy(
                         tint = medalTint,
                         modifier = Modifier
                             .size(28.dp)
