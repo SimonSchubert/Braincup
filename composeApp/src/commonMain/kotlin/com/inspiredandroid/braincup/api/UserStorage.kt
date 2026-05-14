@@ -122,6 +122,28 @@ class UserStorage(
 
     fun getLevel(): Int = levelForXp(getTotalXp())
 
+    /**
+     * Raise local XP to [remoteXp] if it's higher than the current value (e.g. restoring
+     * progress from the Brain Cup leaderboard on a fresh install).
+     *
+     * Returns true if the local value was changed.
+     */
+    fun restoreTotalXpIfHigher(remoteXp: Int): Boolean {
+        if (remoteXp <= 0) return false
+        val current = if (settings.getBoolean(KEY_XP_SEEDED, false)) {
+            settings.getInt(KEY_TOTAL_XP, 0)
+        } else {
+            getTotalScore()
+        }
+        if (remoteXp <= current) return false
+        settings.putInt(KEY_TOTAL_XP, remoteXp)
+        settings.putBoolean(KEY_XP_SEEDED, true)
+        if (remoteXp >= TOTAL_SCORE_10K_TARGET) {
+            unlockAchievement(Achievements.TOTAL_SCORE_10K)
+        }
+        return true
+    }
+
     private fun addXp(amount: Int): LevelChange? {
         if (amount <= 0) return null
         val before = getTotalXp()

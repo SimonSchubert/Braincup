@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.PlayGamesSdk
 import com.google.android.gms.games.achievement.Achievement
+import com.google.android.gms.games.leaderboard.LeaderboardVariant
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.R
@@ -24,13 +25,13 @@ fun initPlayGames(activity: ComponentActivity) {
         val authed = task.isSuccessful && task.result.isAuthenticated
         if (authed) {
             restoreAchievementsFromPlayGames(activity)
-            submitCurrentTotalXp(activity)
+            syncTotalXpWithLeaderboard(activity)
         } else {
             signInClient.signIn().addOnCompleteListener { signInTask ->
                 val signedIn = signInTask.isSuccessful && signInTask.result?.isAuthenticated == true
                 if (signedIn) {
                     restoreAchievementsFromPlayGames(activity)
-                    submitCurrentTotalXp(activity)
+                    syncTotalXpWithLeaderboard(activity)
                 }
             }
         }
@@ -149,12 +150,37 @@ private fun launchLeaderboard(activity: ComponentActivity, id: String) {
 private const val MIND_MARATHONER_TARGET = 10_000
 private const val IRON_STREAK_TARGET = 30
 
-private fun submitCurrentTotalXp(activity: ComponentActivity) {
+/**
+ * Two-way sync of cumulative XP with the Brain Cup leaderboard:
+ *  - If the player's remote score is higher than local (fresh install, reinstall, multi-device),
+ *    restore local XP up to the remote value.
+ *  - Submit the (possibly restored) local XP back. Play Games keeps the max, so a smaller submit
+ *    can never overwrite a larger remote score.
+ */
+private fun syncTotalXpWithLeaderboard(activity: ComponentActivity) {
     val id = activity.getString(R.string.leaderboardBrainCup)
     if (id.isBlank()) return
-    val xp = UserStorage().getTotalXp()
-    if (xp <= 0) return
-    PlayGames.getLeaderboardsClient(activity).submitScore(id, xp.toLong())
+    val storage = UserStorage()
+    val leaderboardsClient = PlayGames.getLeaderboardsClient(activity)
+    leaderboardsClient.loadCurrentPlayerLeaderboardScore(
+        id,
+        LeaderboardVariant.TIME_SPAN_ALL_TIME,
+        LeaderboardVariant.COLLECTION_PUBLIC,
+    ).addOnCompleteListener { task ->
+        val remoteXp = if (task.isSuccessful) {
+            task.result?.get()?.rawScore?.toInt() ?: 0
+        } else {
+            Log.w(TAG, "loadCurrentPlayerLeaderboardScore failed", task.exception)
+            0
+        }
+        if (remoteXp > 0 && storage.restoreTotalXpIfHigher(remoteXp)) {
+            PlayGamesBridge.onTotalXpRestored?.invoke(remoteXp)
+        }
+        val xp = storage.getTotalXp()
+        if (xp > 0) {
+            leaderboardsClient.submitScore(id, xp.toLong())
+        }
+    }
 }
 
 private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {

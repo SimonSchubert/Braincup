@@ -91,6 +91,7 @@ class GameController(
         _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
         _totalXp.value = storage.getTotalXp()
         refreshDerivedStorageState()
+        PlayGamesBridge.onTotalXpRestored = { restored -> _totalXp.value = restored }
     }
 
     private fun refreshDerivedStorageState() {
@@ -99,6 +100,7 @@ class GameController(
     }
 
     fun dispose() {
+        PlayGamesBridge.onTotalXpRestored = null
         scope.cancel()
     }
 

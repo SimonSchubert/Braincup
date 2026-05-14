@@ -25,4 +25,7 @@ object PlayGamesBridge {
 
     /** Launch the Brain Cup (cross-game XP) leaderboard UI. */
     var onShowBrainCup: (() -> Unit)? = null
+
+    /** Fired when local XP was raised to match a higher value from the Brain Cup leaderboard. */
+    var onTotalXpRestored: ((Int) -> Unit)? = null
 }
