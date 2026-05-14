@@ -71,6 +71,10 @@ android {
         getByName("release") {
             isMinifyEnabled = true
             isShrinkResources = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
             val hasReleaseKeystore =
                 System.getenv("KEYSTORE_FILE") != null ||
                     rootProject.layout.projectDirectory
