@@ -19,4 +19,10 @@ object PlayGamesBridge {
 
     /** Launch the per-game leaderboard UI. No-op if the game has none. */
     var onShowLeaderboard: ((GameType) -> Unit)? = null
+
+    /** Submit cumulative XP to the cross-game Brain Cup leaderboard. */
+    var onSubmitTotalXp: ((Int) -> Unit)? = null
+
+    /** Launch the Brain Cup (cross-game XP) leaderboard UI. */
+    var onShowBrainCup: (() -> Unit)? = null
 }

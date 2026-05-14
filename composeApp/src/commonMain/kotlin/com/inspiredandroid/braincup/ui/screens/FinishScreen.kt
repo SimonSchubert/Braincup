@@ -92,8 +92,13 @@ fun FinishScreen(
         if (isNewHighscore) {
             Spacer(Modifier.height(8.dp))
             BrandedCard(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier
+                    .widthIn(max = 420.dp)
+                    .padding(horizontal = 24.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .fillMaxWidth(),
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = stringResource(Res.string.finish_new_highscore),

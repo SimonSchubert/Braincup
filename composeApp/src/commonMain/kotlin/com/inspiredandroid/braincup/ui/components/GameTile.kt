@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -24,6 +25,8 @@ import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueBottom
+import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueSide
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
@@ -681,6 +684,10 @@ private fun OrbitTrackerPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
     val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
     val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    val primarySide = remember(primaryColor) { primaryColor.darken(0.7f) }
+    val primaryBottom = remember(primaryColor) { primaryColor.darken(0.5f) }
+    val variantSide = remember(onSurfaceVariantColor) { onSurfaceVariantColor.darken(0.7f) }
+    val variantBottom = remember(onSurfaceVariantColor) { onSurfaceVariantColor.darken(0.5f) }
     Box(
         modifier = Modifier
             .fillMaxHeight()
@@ -700,6 +707,8 @@ private fun OrbitTrackerPreview() {
                     center = Offset(x * size.width, y * size.height),
                     radius = ballRadius,
                     face = if (isTarget) primaryColor else onSurfaceVariantColor,
+                    side = if (isTarget) primarySide else variantSide,
+                    bottom = if (isTarget) primaryBottom else variantBottom,
                 )
             }
         }
@@ -749,6 +758,8 @@ private fun FlashCrowdPreview() {
                     center = Offset(x * size.width, y * size.height),
                     radius = r * size.width,
                     face = FlashCrowdBlue,
+                    side = FlashCrowdBlueSide,
+                    bottom = FlashCrowdBlueBottom,
                 )
             }
         }

@@ -24,11 +24,13 @@ fun initPlayGames(activity: ComponentActivity) {
         val authed = task.isSuccessful && task.result.isAuthenticated
         if (authed) {
             restoreAchievementsFromPlayGames(activity)
+            submitCurrentTotalXp(activity)
         } else {
             signInClient.signIn().addOnCompleteListener { signInTask ->
                 val signedIn = signInTask.isSuccessful && signInTask.result?.isAuthenticated == true
                 if (signedIn) {
                     restoreAchievementsFromPlayGames(activity)
+                    submitCurrentTotalXp(activity)
                 }
             }
         }
@@ -61,6 +63,39 @@ fun initPlayGames(activity: ComponentActivity) {
         val id = current.getString(resId)
         if (id.isBlank()) return
         PlayGames.getLeaderboardsClient(current).submitScore(id, score.toLong())
+    }
+
+    PlayGamesBridge.onSubmitTotalXp = fun(totalXp: Int) {
+        val current = activityRef?.get() ?: return
+        val id = current.getString(R.string.leaderboardBrainCup)
+        if (id.isBlank()) return
+        PlayGames.getLeaderboardsClient(current).submitScore(id, totalXp.toLong())
+    }
+
+    PlayGamesBridge.onShowBrainCup = fun() {
+        val current = activityRef?.get() ?: run {
+            Log.w(TAG, "showBrainCup: activity ref is null")
+            return
+        }
+        val id = current.getString(R.string.leaderboardBrainCup)
+        if (id.isBlank()) {
+            Log.w(TAG, "showBrainCup: leaderboard id resource is blank")
+            return
+        }
+        PlayGames.getGamesSignInClient(current).isAuthenticated
+            .addOnCompleteListener { authTask ->
+                val signedIn = authTask.isSuccessful && authTask.result?.isAuthenticated == true
+                if (!signedIn) {
+                    Log.w(TAG, "showBrainCup: not signed in to Play Games; attempting sign-in")
+                    PlayGames.getGamesSignInClient(current).signIn()
+                        .addOnSuccessListener { launchLeaderboard(current, id) }
+                        .addOnFailureListener { e ->
+                            Log.e(TAG, "showBrainCup: sign-in failed", e)
+                        }
+                } else {
+                    launchLeaderboard(current, id)
+                }
+            }
     }
 
     PlayGamesBridge.onShowLeaderboard = fun(gameType: GameType) {
@@ -113,6 +148,14 @@ private fun launchLeaderboard(activity: ComponentActivity, id: String) {
 
 private const val MIND_MARATHONER_TARGET = 10_000
 private const val IRON_STREAK_TARGET = 30
+
+private fun submitCurrentTotalXp(activity: ComponentActivity) {
+    val id = activity.getString(R.string.leaderboardBrainCup)
+    if (id.isBlank()) return
+    val xp = UserStorage().getTotalXp()
+    if (xp <= 0) return
+    PlayGames.getLeaderboardsClient(activity).submitScore(id, xp.toLong())
+}
 
 private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
     PlayGames.getAchievementsClient(activity).load(true).addOnSuccessListener { annotatedData ->

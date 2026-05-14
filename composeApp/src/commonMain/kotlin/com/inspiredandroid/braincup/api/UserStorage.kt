@@ -127,6 +127,7 @@ class UserStorage(
         val before = getTotalXp()
         val after = before + amount
         settings.putInt(KEY_TOTAL_XP, after)
+        PlayGamesBridge.onSubmitTotalXp?.invoke(after)
         val oldLevel = levelForXp(before)
         val newLevel = levelForXp(after)
         return if (newLevel > oldLevel) {

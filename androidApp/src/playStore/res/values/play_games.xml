@@ -30,4 +30,5 @@
 
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>
+    <string name="leaderboardBrainCup" translatable="false">CgkIuZrirtIVEAIQGA</string>
 </resources>

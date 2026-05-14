@@ -17,8 +17,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
-import androidx.compose.ui.hapticfeedback.HapticFeedbackType
-import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 
@@ -49,7 +47,6 @@ fun PrismTile(
 
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
-    val hapticFeedback = LocalHapticFeedback.current
 
     val sunken = isPressed || isSelected
     val shift by animateDpAsState(
@@ -65,7 +62,6 @@ fun PrismTile(
             enabled = isClickable,
         ) {
             onClick()
-            hapticFeedback.performHapticFeedback(HapticFeedbackType.LongPress)
         },
         contentAlignment = Alignment.Center,
     ) {

@@ -6,9 +6,6 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.VolumeOff
-import androidx.compose.material.icons.automirrored.filled.VolumeUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -20,12 +17,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
+import com.inspiredandroid.braincup.ui.components.PrismSpeaker
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -66,6 +65,11 @@ fun MainMenuScreen(
         onPlay = { controller.navigateToInstructions(it) },
         onViewScore = { controller.navigateToScoreboard(it) },
         onAchievements = { controller.navigateToAchievements() },
+        onShowBrainCup = if (PlayGamesBridge.onShowBrainCup != null) {
+            { controller.showBrainCup() }
+        } else {
+            null
+        },
     )
 }
 
@@ -85,6 +89,7 @@ fun MainMenuScreenContent(
     onPlay: (GameType) -> Unit = {},
     onViewScore: (GameType) -> Unit = {},
     onAchievements: () -> Unit = {},
+    onShowBrainCup: (() -> Unit)? = null,
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     LazyVerticalGrid(
@@ -104,9 +109,10 @@ fun MainMenuScreenContent(
                     onClick = onToggleMute,
                     modifier = Modifier.hoverHand(),
                 ) {
-                    Icon(
-                        imageVector = if (isMuted) Icons.AutoMirrored.Filled.VolumeOff else Icons.AutoMirrored.Filled.VolumeUp,
-                        contentDescription = if (isMuted) "Unmute" else "Mute",
+                    PrismSpeaker(
+                        tint = Primary,
+                        muted = isMuted,
+                        modifier = Modifier.size(24.dp),
                     )
                 }
             }
@@ -167,6 +173,7 @@ fun MainMenuScreenContent(
                 ) {
                     PlayerLevelCard(
                         totalXp = totalXp,
+                        onShowBrainCup = onShowBrainCup,
                         modifier = Modifier.widthIn(max = 420.dp),
                     )
                 }

@@ -59,6 +59,7 @@ class GameController(
     private var inSessionMode = false
     private var miniChessAiJob: Job? = null
     private var flagsTimerJob: Job? = null
+    private var timerJob: Job? = null
 
     private val _totalXp = MutableStateFlow(0)
     val totalXp: StateFlow<Int> = _totalXp.asStateFlow()
@@ -116,6 +117,7 @@ class GameController(
             if (currentState.game is MiniChessGame) cancelMiniChessAi()
             if (currentState.game is FlagsGame) cancelFlagsTimer()
         }
+        cancelTimer()
         _gameUiState.value = null
         _gameState.value = GameState.Idle
         inSessionMode = false
@@ -144,6 +146,10 @@ class GameController(
 
     fun showLeaderboard(gameType: GameType) {
         PlayGamesBridge.onShowLeaderboard?.invoke(gameType)
+    }
+
+    fun showBrainCup() {
+        PlayGamesBridge.onShowBrainCup?.invoke()
     }
 
     fun navigateToScoreboard(gameType: GameType) {
@@ -392,7 +398,8 @@ class GameController(
     }
 
     private fun startTimer() {
-        scope.launch {
+        timerJob?.cancel()
+        timerJob = scope.launch {
             while (true) {
                 val currentTime = Clock.System.now().toEpochMilliseconds()
                 val elapsed = currentTime - startTime
@@ -403,6 +410,11 @@ class GameController(
                 delay(100.milliseconds)
             }
         }
+    }
+
+    private fun cancelTimer() {
+        timerJob?.cancel()
+        timerJob = null
     }
 
     private fun createGame(gameType: GameType): Game = when (gameType) {
@@ -962,6 +974,7 @@ class GameController(
         (game as? GhostGridGame)?.cancelShowSequence()
         (game as? OrbitTrackerGame)?.cancelAnimation()
         if (game is FlagsGame) cancelFlagsTimer()
+        cancelTimer()
         _gameUiState.value = null
         _gameState.value = GameState.Idle
 
@@ -1164,6 +1177,7 @@ class GameController(
 
     private fun startFlagsRoundTimer(gameType: GameType, game: FlagsGame) {
         flagsTimerJob?.cancel()
+        cancelTimer()
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = FLAGS_ROUND_TIME_MILLIS
         flagsTimerJob = scope.launch {
@@ -1200,6 +1214,7 @@ class GameController(
 
         if (isCorrect) {
             points++
+            _intermediateCorrectEvents.tryEmit(Unit)
             val highlightedAnswers = currentUiState.possibleAnswers.map { button ->
                 button.copy(
                     state = when (button.value) {

@@ -54,6 +54,9 @@ import androidx.compose.ui.graphics.Color as ComposeColor
 internal val FlashCrowdBlue = ComposeColor(0xFF4285F4)
 internal val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
+internal val FlashCrowdBlueSide = FlashCrowdBlue.darken(0.7f)
+internal val FlashCrowdBlueBottom = FlashCrowdBlue.darken(0.5f)
+
 // Yellow needs a lighter darken than the prism default (0.7/0.5) so the facets read on a light hue.
 internal val FlashCrowdYellowSide = FlashCrowdYellow.darken(0.85f)
 internal val FlashCrowdYellowBottom = FlashCrowdYellow.darken(0.7f)

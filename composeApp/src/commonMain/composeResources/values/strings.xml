@@ -233,6 +233,7 @@
     <string name="game_flags_best">Best: %1$d</string>
     <string name="instructions_best_score">Best score: %1$s</string>
     <string name="instructions_leaderboard">View leaderboard</string>
+    <string name="brain_cup_button">Brain Cup leaderboard</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Åland Islands</string>

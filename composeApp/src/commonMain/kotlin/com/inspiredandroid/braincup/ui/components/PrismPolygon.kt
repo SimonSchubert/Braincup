@@ -1,8 +1,10 @@
 package com.inspiredandroid.braincup.ui.components
 
-import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
@@ -26,84 +28,71 @@ fun PrismPolygon(
     bottom: Color? = null,
     facet: Dp? = null,
 ) {
-    Canvas(modifier) {
-        if (points.size < 3) return@Canvas
-        val w = size.width
-        val h = size.height
-        val d = facet?.toPx() ?: (min(w, h) * 0.08f).coerceAtMost(10.dp.toPx())
-        val availW = w - d
-        val availH = h - d
-        val theta = (rotationDegrees * PI / 180.0).toFloat()
-        val cosT = cos(theta)
-        val sinT = sin(theta)
+    val resolvedSide = remember(face, side) { side ?: face.darken(0.7f) }
+    val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(0.5f) }
+    Spacer(
+        modifier = modifier.drawWithCache {
+            if (points.size < 3) return@drawWithCache onDrawBehind { }
 
-        val front = List(points.size) { i ->
-            val (nx, ny) = points[i]
-            val rx = (nx - 0.5f) * cosT - (ny - 0.5f) * sinT + 0.5f
-            val ry = (nx - 0.5f) * sinT + (ny - 0.5f) * cosT + 0.5f
-            Offset(rx * availW, ry * availH)
-        }
-        drawPrismPolygon(
-            points = front,
-            face = face,
-            side = side ?: face.darken(0.7f),
-            bottom = bottom ?: face.darken(0.5f),
-            depth = d,
-        )
-    }
-}
+            val w = size.width
+            val h = size.height
+            val d = facet?.toPx() ?: (min(w, h) * 0.08f).coerceAtMost(10.dp.toPx())
+            val availW = w - d
+            val availH = h - d
+            val theta = (rotationDegrees * PI / 180.0).toFloat()
+            val cosT = cos(theta)
+            val sinT = sin(theta)
 
-/**
- * Draws a prism polygon: the front face translated by ([depth], [depth]) as the shadow,
- * side facets only for edges whose outward normal projects positively onto the offset
- * direction, then the front face on top.
- */
-fun DrawScope.drawPrismPolygon(
-    points: List<Offset>,
-    face: Color,
-    side: Color,
-    bottom: Color,
-    depth: Float,
-) {
-    if (points.size < 3) return
+            val front = List(points.size) { i ->
+                val (nx, ny) = points[i]
+                val rx = (nx - 0.5f) * cosT - (ny - 0.5f) * sinT + 0.5f
+                val ry = (nx - 0.5f) * sinT + (ny - 0.5f) * cosT + 0.5f
+                Offset(rx * availW, ry * availH)
+            }
 
-    val path = Path()
-    path.buildPolygon(points)
-    translate(depth, depth) { drawPath(path, bottom) }
+            val polygonPath = Path().apply { buildPolygon(front) }
 
-    var sumX = 0f
-    var sumY = 0f
-    for (p in points) {
-        sumX += p.x
-        sumY += p.y
-    }
-    val cx = sumX / points.size
-    val cy = sumY / points.size
+            var sumX = 0f
+            var sumY = 0f
+            for (p in front) {
+                sumX += p.x
+                sumY += p.y
+            }
+            val cx = sumX / front.size
+            val cy = sumY / front.size
 
-    for (i in points.indices) {
-        val j = (i + 1) % points.size
-        val p1 = points[i]
-        val p2 = points[j]
-        val ex = p2.x - p1.x
-        val ey = p2.y - p1.y
-        val toMidX = (p1.x + p2.x) * 0.5f - cx
-        val toMidY = (p1.y + p2.y) * 0.5f - cy
-        val flip = -ey * toMidX + ex * toMidY < 0f
-        val nx = if (flip) ey else -ey
-        val ny = if (flip) -ex else ex
-        if ((nx + ny) * depth > 0f) {
-            path.reset()
-            path.moveTo(p1.x, p1.y)
-            path.lineTo(p2.x, p2.y)
-            path.lineTo(p2.x + depth, p2.y + depth)
-            path.lineTo(p1.x + depth, p1.y + depth)
-            path.close()
-            drawPath(path, side)
-        }
-    }
+            val sidePaths = mutableListOf<Path>()
+            for (i in front.indices) {
+                val j = (i + 1) % front.size
+                val p1 = front[i]
+                val p2 = front[j]
+                val ex = p2.x - p1.x
+                val ey = p2.y - p1.y
+                val toMidX = (p1.x + p2.x) * 0.5f - cx
+                val toMidY = (p1.y + p2.y) * 0.5f - cy
+                val flip = -ey * toMidX + ex * toMidY < 0f
+                val nx = if (flip) ey else -ey
+                val ny = if (flip) -ex else ex
+                if ((nx + ny) * d > 0f) {
+                    sidePaths.add(
+                        Path().apply {
+                            moveTo(p1.x, p1.y)
+                            lineTo(p2.x, p2.y)
+                            lineTo(p2.x + d, p2.y + d)
+                            lineTo(p1.x + d, p1.y + d)
+                            close()
+                        },
+                    )
+                }
+            }
 
-    path.buildPolygon(points)
-    drawPath(path, face)
+            onDrawBehind {
+                translate(d, d) { drawPath(polygonPath, resolvedBottom) }
+                for (p in sidePaths) drawPath(p, resolvedSide)
+                drawPath(polygonPath, face)
+            }
+        },
+    )
 }
 
 /** Prism-styled disc. Front and back are true circles; only the down-right facet ring is polygonal. */

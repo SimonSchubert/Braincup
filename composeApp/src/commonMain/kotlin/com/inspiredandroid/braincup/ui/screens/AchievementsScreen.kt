@@ -3,8 +3,6 @@ package com.inspiredandroid.braincup.ui.screens
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -15,6 +13,8 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
+import com.inspiredandroid.braincup.ui.components.PrismTrophy
+import com.inspiredandroid.braincup.ui.theme.MedalGold
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -87,11 +87,9 @@ private fun AchievementCard(
                 )
             }
             if (isUnlocked) {
-                Icon(
-                    imageVector = Icons.Filled.EmojiEvents,
+                PrismTrophy(
+                    tint = MedalGold,
                     modifier = Modifier.size(32.dp),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.primary,
                 )
             }
         }

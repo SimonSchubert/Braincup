@@ -127,18 +127,23 @@ fun ColumnScope.XpAndLevelDisplay(
     levelChange: UserStorage.LevelChange?,
     spacing: androidx.compose.ui.unit.Dp = 16.dp,
 ) {
+    val constrainedModifier = Modifier
+        .widthIn(max = 420.dp)
+        .padding(horizontal = 24.dp)
+        .align(Alignment.CenterHorizontally)
+        .fillMaxWidth()
     if (xpGained > 0) {
         Spacer(Modifier.height(spacing))
         XpGainedChip(
             xpGained = xpGained,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = constrainedModifier,
         )
     }
     if (levelChange != null) {
         Spacer(Modifier.height(spacing))
         LevelUpBanner(
             levelChange = levelChange,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            modifier = constrainedModifier,
         )
     }
 }

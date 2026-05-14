@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -16,9 +17,12 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.brain_cup_button
 import braincup.composeapp.generated.resources.level_label
 import braincup.composeapp.generated.resources.xp_progress
 import com.inspiredandroid.braincup.api.UserStorage
@@ -31,6 +35,7 @@ import org.jetbrains.compose.resources.stringResource
 fun PlayerLevelCard(
     totalXp: Int,
     modifier: Modifier = Modifier,
+    onShowBrainCup: (() -> Unit)? = null,
 ) {
     val level = UserStorage.levelForXp(totalXp)
     val xpIntoLevel = UserStorage.xpIntoLevel(totalXp)
@@ -75,6 +80,18 @@ fun PlayerLevelCard(
                 style = MaterialTheme.typography.titleMedium,
                 color = OnPrimaryContainer,
             )
+            if (onShowBrainCup != null) {
+                Spacer(Modifier.width(8.dp))
+                val brainCupLabel = stringResource(Res.string.brain_cup_button)
+                PrismPodium(
+                    tint = Primary,
+                    modifier = Modifier
+                        .size(28.dp)
+                        .hoverHand()
+                        .semantics { contentDescription = brainCupLabel }
+                        .clickable(onClick = onShowBrainCup),
+                )
+            }
         }
 
         Spacer(Modifier.height(10.dp))
