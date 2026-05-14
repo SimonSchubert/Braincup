@@ -1,3 +1,13 @@
+## v2.14.0 — 2026-05-14
+
+### Features
+- XP leaderboard
+- Prism trophies
+
+### Improvements
+- Custom shapes now displayed as prisms
+- General UX refinements
+
 ## v2.13.0 — 2026-05-13
 
 ### Features
