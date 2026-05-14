@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -26,8 +27,8 @@ fun ScoreboardScreen(
     storage: UserStorage,
     onBack: () -> Unit,
 ) {
-    val highscore = storage.getHighScore(gameType.id)
-    val scores = storage.getScores(gameType.id)
+    val highscore = remember(storage, gameType) { storage.getHighScore(gameType.id) }
+    val scores = remember(storage, gameType) { storage.getScores(gameType.id) }
 
     AppScaffold(
         title = stringResource(Res.string.scoreboard_title, stringResource(gameType.displayNameRes)),
@@ -100,15 +101,16 @@ fun ScoreboardScreen(
             LazyColumn(
                 modifier = Modifier
                     .weight(1f)
-                    .widthIn(max = 420.dp)
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
+                    .fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                contentPadding = PaddingValues(horizontal = 16.dp),
             ) {
                 items(scores, key = { "${it.day}/${it.month}/${it.year}" }) { group ->
                     val date = "${group.day.toString().padStart(2, '0')}.${group.month.toString().padStart(2, '0')}.${group.year}"
                     PrismCard(
                         face = MaterialTheme.colorScheme.surfaceContainer,
                         modifier = Modifier
+                            .widthIn(max = 420.dp)
                             .fillMaxWidth()
                             .padding(vertical = 4.dp),
                     ) {

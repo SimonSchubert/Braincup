@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.EmojiEvents
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -21,7 +22,7 @@ fun AchievementsScreen(
     storage: UserStorage,
     onBack: () -> Unit,
 ) {
-    val unlockedAchievements = storage.getUnlockedAchievements()
+    val unlockedAchievements = remember(storage) { storage.getUnlockedAchievements() }
     val allAchievements = UserStorage.Achievements.entries
 
     AppScaffold(
@@ -32,8 +33,8 @@ fun AchievementsScreen(
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
-                .widthIn(max = 420.dp)
                 .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
         ) {
             items(allAchievements, key = { it.name }) { achievement ->
@@ -41,6 +42,9 @@ fun AchievementsScreen(
                 AchievementCard(
                     achievement = achievement,
                     isUnlocked = isUnlocked,
+                    modifier = Modifier
+                        .widthIn(max = 420.dp)
+                        .fillMaxWidth(),
                 )
                 Spacer(Modifier.height(8.dp))
             }
@@ -52,6 +56,7 @@ fun AchievementsScreen(
 private fun AchievementCard(
     achievement: UserStorage.Achievements,
     isUnlocked: Boolean,
+    modifier: Modifier = Modifier,
 ) {
     val containerColor = if (isUnlocked) {
         MaterialTheme.colorScheme.primaryContainer
@@ -61,7 +66,7 @@ private fun AchievementCard(
     val contentColor = contentColorFor(containerColor)
     PrismCard(
         face = containerColor,
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier,
     ) {
         Row(
             modifier = Modifier
