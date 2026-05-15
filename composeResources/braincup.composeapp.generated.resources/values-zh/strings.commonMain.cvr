@@ -312,6 +312,7 @@ string|finish_bonus_point|5oKo5Zug6Zu25aSx6K+v6I635b6X5LqGMeS4qumineWkluWIhuaVsO
 string|finish_highscore|5pyA6auY5YiGOiAlMSRz
 string|finish_new_highscore|5paw5pyA6auY5YiG77yB
 string|finish_score|5b6X5YiG77yaJTEkcw==
+string|format_seconds|JTEkc3M=
 string|game_anomaly_puzzle_desc|5om+5Ye65LiO5LyX5LiN5ZCM55qE5Zu+5b2i44CC6ICD6JmR5q+P5Liq5Zu+5b2i55qE6aKc6Imy5ZKM5b2i54q244CC
 string|game_anomaly_puzzle|5byC5bi46LCc6aKY
 string|game_chain_calculation_desc|6Lef6ZqP5pWw5a2m6KGo6L6+5byP44CC
@@ -398,6 +399,14 @@ string|session_running_total|55uu5YmN5oC76K6hOiAlMSRk
 string|session_streak_current|5b2T5YmN6L+e57utOiAlMSRkIOWkqQ==
 string|session_streak_increased|6L+e57ut5aSp5pWwOiAlMSRk
 string|session_total_score|5oC76K6hOiAlMSRk
+string|settings_colorblind_desc|5L2/55So5a+55pyA5bi46KeB55qE6Imy55uy57G75Z6L5LuN54S25Y+v5Yy65YiG55qE6YWN6Imy44CC
+string|settings_colorblind|6Imy55uy5Y+L5aW96YWN6Imy
+string|settings_haptic_desc|562U5a+55pe255+t5pqC6ZyH5Yqo44CC
+string|settings_haptic|6Kem6KeJ5Y+N6aaI
+string|settings_open|5omT5byA6K6+572u
+string|settings_sound_desc|5pKt5pS+6Z+z5LmQ5ZKM6Z+z5pWI44CC
+string|settings_sound|5aOw6Z+z
+string|settings_title|6K6+572u
 string|shape_arrow|566t5aS0
 string|shape_circle|5ZyG5b2i
 string|shape_diamond|6I+x5b2i
