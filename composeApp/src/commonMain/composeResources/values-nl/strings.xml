@@ -22,6 +22,7 @@
     <string name="game_highest_value">Welke heeft de hoogste waarde?</string>
     <string name="game_sudoku_instruction">Vul het raster in zodat elke rij, kolom en blok elk cijfer één keer bevat</string>
     <string name="game_tap_numbers">Tik op getallen om een uitdrukking te maken</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Score: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">Jemen</string>
     <string name="country_zambia">Zambia</string>
     <string name="country_zimbabwe">Zimbabwe</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Instellingen</string>
+    <string name="settings_open">Instellingen openen</string>
+    <string name="settings_sound">Geluid</string>
+    <string name="settings_sound_desc">Muziek en geluidseffecten afspelen.</string>
+    <string name="settings_colorblind">Kleurenblind-vriendelijke kleuren</string>
+    <string name="settings_colorblind_desc">Gebruikt een palet dat onderscheidbaar blijft voor de meest voorkomende vormen van kleurenblindheid.</string>
+    <string name="settings_haptic">Haptische feedback</string>
+    <string name="settings_haptic_desc">Trilt kort bij juiste antwoorden.</string>
 </resources>

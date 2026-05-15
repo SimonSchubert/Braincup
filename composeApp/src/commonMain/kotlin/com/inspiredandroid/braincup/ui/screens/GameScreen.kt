@@ -36,6 +36,7 @@ import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.games.tools.Calculator
+import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
@@ -298,7 +299,7 @@ private fun ColumnScope.ColoredShapesContent(
         Text(
             text = "${uiState.answerColor.localizedName()} = ${uiState.colorPoints}",
             style = MaterialTheme.typography.bodyLarge,
-            color = uiState.stringColor.composeColor,
+            color = uiState.stringColor.composeColor(),
         )
     }
 
@@ -606,7 +607,7 @@ private fun PathFinderCell(
     val face = when (cell.state) {
         FigureCellState.WRONG -> MaterialTheme.colorScheme.errorContainer
         FigureCellState.CORRECT -> SuccessGreenSoft
-        else -> cell.figure.color.composeColor
+        else -> cell.figure.color.composeColor()
     }
     val isClickable = cell.state == FigureCellState.NORMAL
     val cellModifier = if (cell.state == FigureCellState.DIMMED) modifier.alpha(0.3f) else modifier
@@ -1067,7 +1068,7 @@ private fun StopwatchDisplay(elapsedMillis: Long, modifier: Modifier = Modifier)
     val seconds = elapsedMillis / 1000
     val tenths = (elapsedMillis % 1000) / 100
     Text(
-        text = "$seconds.${tenths}s",
+        text = stringResource(Res.string.format_seconds, "$seconds.$tenths"),
         style = MaterialTheme.typography.titleLarge,
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.Center,
@@ -1975,7 +1976,7 @@ private fun ColorConfusionCell(
             Text(
                 text = cell.word.localizedName(),
                 style = MaterialTheme.typography.titleMedium,
-                color = cell.fontColor.composeColor,
+                color = cell.fontColor.composeColor(),
             )
         }
     }

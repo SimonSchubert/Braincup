@@ -6,6 +6,8 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -24,9 +26,9 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
-import com.inspiredandroid.braincup.ui.components.PrismSpeaker
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -37,8 +39,7 @@ private val SortedGameTypes: List<GameType> =
 @Composable
 fun MainMenuScreen(
     controller: GameController,
-    isMuted: Boolean = false,
-    onToggleMute: () -> Unit = {},
+    onOpenSettings: () -> Unit = {},
 ) {
     val sessionState by controller.sessionState.collectAsState()
     val sessionStreak by controller.sessionStreak.collectAsState()
@@ -59,8 +60,7 @@ fun MainMenuScreen(
         sessionCompletedToday = completedToday,
         highscores = highscores,
         unlockedCount = unlockedCount,
-        isMuted = isMuted,
-        onToggleMute = onToggleMute,
+        onOpenSettings = onOpenSettings,
         onPlayDaily = { controller.startDailySession() },
         onPlay = { controller.navigateToInstructions(it) },
         onViewScore = { controller.navigateToScoreboard(it) },
@@ -82,9 +82,8 @@ fun MainMenuScreenContent(
     sessionCompletedToday: Boolean,
     highscores: Map<String, Int>,
     unlockedCount: Int,
-    isMuted: Boolean = false,
     showDailyChallenge: Boolean = true,
-    onToggleMute: () -> Unit = {},
+    onOpenSettings: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
     onViewScore: (GameType) -> Unit = {},
@@ -92,6 +91,14 @@ fun MainMenuScreenContent(
     onShowBrainCup: (() -> Unit)? = null,
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    val colorblindEnabled = LocalAccessiblePalette.current
+    val visibleGameTypes = remember(colorblindEnabled) {
+        if (colorblindEnabled) {
+            SortedGameTypes.filterNot { it.requiresColorVision }
+        } else {
+            SortedGameTypes
+        }
+    }
     LazyVerticalGrid(
         columns = GridCells.Adaptive(minSize = 150.dp),
         modifier = Modifier
@@ -104,14 +111,19 @@ fun MainMenuScreenContent(
     ) {
         // Header — full hero layout for first-run, compact for returning users
         item(span = { GridItemSpan(maxLineSpan) }, contentType = "header") {
-            val muteIcon: @Composable () -> Unit = {
-                IconButton(
-                    onClick = onToggleMute,
-                    modifier = Modifier.hoverHand(),
+            val settingsIcon: @Composable () -> Unit = {
+                PrismTile(
+                    face = Primary,
+                    onClick = onOpenSettings,
+                    modifier = Modifier
+                        .padding(top = 12.dp)
+                        .hoverHand()
+                        .size(48.dp),
                 ) {
-                    PrismSpeaker(
-                        tint = Primary,
-                        muted = isMuted,
+                    Icon(
+                        imageVector = Icons.Filled.Settings,
+                        contentDescription = stringResource(Res.string.settings_open),
+                        tint = Color.White,
                         modifier = Modifier.size(24.dp),
                     )
                 }
@@ -128,7 +140,7 @@ fun MainMenuScreenContent(
                             .height(154.dp),
                     )
                     Box(modifier = Modifier.align(Alignment.TopEnd)) {
-                        muteIcon()
+                        settingsIcon()
                     }
                 }
             } else {
@@ -158,7 +170,7 @@ fun MainMenuScreenContent(
                         Spacer(Modifier.height(12.dp))
                     }
                     Box(modifier = Modifier.align(Alignment.TopEnd)) {
-                        muteIcon()
+                        settingsIcon()
                     }
                 }
             }
@@ -201,7 +213,7 @@ fun MainMenuScreenContent(
 
         // Game tiles, grouped by category
         items(
-            SortedGameTypes,
+            visibleGameTypes,
             key = { it.id },
             contentType = { "game_tile" },
         ) { gameType ->

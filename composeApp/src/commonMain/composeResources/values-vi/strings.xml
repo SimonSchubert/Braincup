@@ -22,6 +22,7 @@
     <string name="game_highest_value">Cái nào có giá trị cao nhất?</string>
     <string name="game_sudoku_instruction">Điền vào lưới sao cho mỗi hàng, cột và khối chứa mỗi chữ số một lần</string>
     <string name="game_tap_numbers">Chạm vào các số để tạo biểu thức</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Điểm: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">Yemen</string>
     <string name="country_zambia">Zambia</string>
     <string name="country_zimbabwe">Zimbabwe</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Cài đặt</string>
+    <string name="settings_open">Mở cài đặt</string>
+    <string name="settings_sound">Âm thanh</string>
+    <string name="settings_sound_desc">Phát nhạc và hiệu ứng âm thanh.</string>
+    <string name="settings_colorblind">Màu thân thiện với mù màu</string>
+    <string name="settings_colorblind_desc">Sử dụng bảng màu vẫn phân biệt được cho các dạng mù màu phổ biến nhất.</string>
+    <string name="settings_haptic">Phản hồi rung</string>
+    <string name="settings_haptic_desc">Rung nhẹ khi trả lời đúng.</string>
 </resources>

@@ -27,6 +27,16 @@
     <string name="title_grandmaster">Grandmaster</string>
     <string name="achievements_button">Achievements (%1$d/%2$d)</string>
 
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_open">Open settings</string>
+    <string name="settings_sound">Sound</string>
+    <string name="settings_sound_desc">Play music and sound effects.</string>
+    <string name="settings_colorblind">Color-blind friendly colors</string>
+    <string name="settings_colorblind_desc">Use a palette that stays distinguishable for the most common forms of color blindness.</string>
+    <string name="settings_haptic">Haptic feedback</string>
+    <string name="settings_haptic_desc">Vibrate briefly on correct answers.</string>
+
     <!-- Daily challenge -->
     <string name="daily_challenge_title">Daily Challenge</string>
     <string name="daily_challenge_subtitle_start">Play %1$d games to keep your streak</string>
@@ -55,6 +65,7 @@
     <string name="game_highest_value">Which has the highest value?</string>
     <string name="game_sudoku_instruction">Fill the grid so each row, column and block contains every digit once</string>
     <string name="game_tap_numbers">Tap numbers to build an expression</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Score: %1$s</string>

@@ -13,6 +13,8 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.formattedScore
+import com.inspiredandroid.braincup.games.secondsTemplate
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
@@ -55,7 +57,7 @@ fun ScoreboardScreen(
                     style = MaterialTheme.typography.labelLarge,
                 )
                 Text(
-                    text = if (highscore > 0) gameType.formatScore(highscore) else "—",
+                    text = if (highscore > 0) gameType.formattedScore(highscore) else "—",
                     style = MaterialTheme.typography.headlineLarge,
                 )
             }
@@ -98,6 +100,7 @@ fun ScoreboardScreen(
                 style = MaterialTheme.typography.bodyLarge,
             )
         } else {
+            val template = if (gameType.lowerScoreIsBetter) secondsTemplate() else null
             LazyColumn(
                 modifier = Modifier
                     .weight(1f)
@@ -124,7 +127,10 @@ fun ScoreboardScreen(
                                 style = MaterialTheme.typography.labelMedium,
                             )
                             Text(
-                                text = group.scores.joinToString(", ") { gameType.formatScore(it) },
+                                text = group.scores.joinToString(", ") { score ->
+                                    val raw = gameType.formatScore(score)
+                                    template?.replace("%1\$s", raw) ?: raw
+                                },
                                 style = MaterialTheme.typography.bodyMedium,
                             )
                         }
@@ -144,7 +150,7 @@ private fun MedalRequirement(
 ) {
     val achieved = gameType.meetsScore(highscore, threshold)
     val label = if (gameType.lowerScoreIsBetter) {
-        "≤${gameType.formatScore(threshold)}"
+        "≤${gameType.formattedScore(threshold)}"
     } else {
         threshold.toString()
     }

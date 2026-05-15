@@ -22,6 +22,7 @@
     <string name="game_highest_value">어떤 것이 가장 높은 값을 가지고 있나요?</string>
     <string name="game_sudoku_instruction">각 행, 열, 블록에 각 숫자가 한 번씩 들어가도록 그리드를 채우세요</string>
     <string name="game_tap_numbers">숫자를 탭하여 수식을 만드세요</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">점수: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">예멘</string>
     <string name="country_zambia">잠비아</string>
     <string name="country_zimbabwe">짐바브웨</string>
+
+    <!-- Settings -->
+    <string name="settings_title">설정</string>
+    <string name="settings_open">설정 열기</string>
+    <string name="settings_sound">사운드</string>
+    <string name="settings_sound_desc">음악과 효과음을 재생합니다.</string>
+    <string name="settings_colorblind">색각 친화적 색상</string>
+    <string name="settings_colorblind_desc">가장 흔한 색맹 유형에서도 구별 가능한 팔레트를 사용합니다.</string>
+    <string name="settings_haptic">햅틱 피드백</string>
+    <string name="settings_haptic_desc">정답 시 짧게 진동합니다.</string>
 </resources>

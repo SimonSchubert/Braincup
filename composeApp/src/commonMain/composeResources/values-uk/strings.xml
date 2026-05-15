@@ -22,6 +22,7 @@
     <string name="game_highest_value">Що має найбільше значення?</string>
     <string name="game_sudoku_instruction">Заповніть сітку так, щоб кожен рядок, стовпець і блок містили кожну цифру один раз</string>
     <string name="game_tap_numbers">Натискайте на числа, щоб скласти вираз</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Рахунок: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">Ємен</string>
     <string name="country_zambia">Замбія</string>
     <string name="country_zimbabwe">Зімбабве</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Налаштування</string>
+    <string name="settings_open">Відкрити налаштування</string>
+    <string name="settings_sound">Звук</string>
+    <string name="settings_sound_desc">Відтворювати музику та звукові ефекти.</string>
+    <string name="settings_colorblind">Кольори для дальтоніків</string>
+    <string name="settings_colorblind_desc">Використовується палітра, яка залишається помітною за найпоширеніших форм дальтонізму.</string>
+    <string name="settings_haptic">Тактильний відгук</string>
+    <string name="settings_haptic_desc">Коротка вібрація на правильні відповіді.</string>
 </resources>

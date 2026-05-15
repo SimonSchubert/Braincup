@@ -22,6 +22,7 @@
     <string name="game_highest_value">Qual tem o maior valor?</string>
     <string name="game_sudoku_instruction">Preencha a grade para que cada linha, coluna e bloco contenha cada dígito uma vez</string>
     <string name="game_tap_numbers">Toque nos números para construir uma expressão</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Pontuação: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">Iêmen</string>
     <string name="country_zambia">Zâmbia</string>
     <string name="country_zimbabwe">Zimbábue</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Configurações</string>
+    <string name="settings_open">Abrir configurações</string>
+    <string name="settings_sound">Som</string>
+    <string name="settings_sound_desc">Reproduzir música e efeitos sonoros.</string>
+    <string name="settings_colorblind">Cores adequadas para daltonismo</string>
+    <string name="settings_colorblind_desc">Usa uma paleta que permanece distinguível para as formas mais comuns de daltonismo.</string>
+    <string name="settings_haptic">Resposta tátil</string>
+    <string name="settings_haptic_desc">Vibra brevemente nas respostas corretas.</string>
 </resources>

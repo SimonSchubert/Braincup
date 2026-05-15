@@ -28,6 +28,7 @@ import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
+import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
@@ -46,6 +47,10 @@ fun App(
     val audioPlayer = rememberAudioPlayer()
 
     var isMuted by remember { mutableStateOf(controller.storage.isAudioMuted()) }
+    var colorblindPaletteEnabled by remember {
+        mutableStateOf(controller.storage.isColorblindPaletteEnabled())
+    }
+    var hapticEnabled by remember { mutableStateOf(controller.storage.isHapticEnabled()) }
 
     var menuAudio by remember { mutableStateOf<ByteArray?>(null) }
     var gameAudio by remember { mutableStateOf<ByteArray?>(null) }
@@ -95,152 +100,173 @@ fun App(
 
     BraincupTheme(colorScheme = resolvedColorScheme) {
         Surface(modifier = Modifier.fillMaxSize()) {
-            AppNavHost(navController = navController, startDestination = MainMenu) {
-                composable<MainMenu> {
-                    MainMenuScreen(
-                        controller = controller,
-                        isMuted = isMuted,
-                        onToggleMute = {
-                            isMuted = !isMuted
-                            controller.storage.setAudioMuted(isMuted)
-                        },
-                    )
-                }
-
-                composable<Instructions> { backStackEntry ->
-                    val route: Instructions = backStackEntry.toRoute()
-                    val gameType = getGameTypeById(route.gameTypeId)
-                    if (gameType != null) {
-                        InstructionsScreen(
-                            gameType = gameType,
-                            storage = controller.storage,
-                            onStart = { controller.startGame(gameType) },
-                            onBack = { controller.navigateToMainMenu() },
-                            onShowLeaderboard = if (
-                                gameType.hasLeaderboard &&
-                                PlayGamesBridge.onShowLeaderboard != null
-                            ) {
-                                { controller.showLeaderboard(gameType) }
-                            } else {
-                                null
-                            },
+            CompositionLocalProvider(LocalAccessiblePalette provides colorblindPaletteEnabled) {
+                AppNavHost(navController = navController, startDestination = MainMenu) {
+                    composable<MainMenu> {
+                        MainMenuScreen(
+                            controller = controller,
+                            onOpenSettings = { controller.navigateToSettings() },
                         )
                     }
-                }
 
-                composable<Playing> {
-                    val gameState by controller.gameState.collectAsState()
-                    val timeRemaining by controller.timeRemaining.collectAsState()
-                    val elapsedTime by controller.elapsedTime.collectAsState()
-                    val gameUiState by controller.gameUiState.collectAsState()
-                    val hapticSuccess = rememberHapticSuccess()
-
-                    LaunchedEffect(controller) {
-                        controller.intermediateCorrectEvents.collect { hapticSuccess() }
+                    composable<Settings> {
+                        SettingsScreen(
+                            isMuted = isMuted,
+                            onToggleMute = {
+                                isMuted = !isMuted
+                                controller.storage.setAudioMuted(isMuted)
+                            },
+                            isColorblindPaletteEnabled = colorblindPaletteEnabled,
+                            onToggleColorblindPalette = {
+                                colorblindPaletteEnabled = !colorblindPaletteEnabled
+                                controller.storage.setColorblindPaletteEnabled(colorblindPaletteEnabled)
+                            },
+                            isHapticEnabled = hapticEnabled,
+                            onToggleHaptic = {
+                                hapticEnabled = !hapticEnabled
+                                controller.storage.setHapticEnabled(hapticEnabled)
+                            },
+                            onBack = { controller.navigateToMainMenu() },
+                        )
                     }
 
-                    when (val state = gameState) {
-                        is GameState.Active -> {
-                            val uiState = gameUiState ?: return@composable
-                            GameScreen(
-                                gameUiState = uiState,
-                                timeRemaining = timeRemaining,
-                                elapsedTime = elapsedTime,
-                                onAnswer = { controller.submitAnswer(it) },
-                                onGiveUp = { controller.giveUp() },
+                    composable<Instructions> { backStackEntry ->
+                        val route: Instructions = backStackEntry.toRoute()
+                        val gameType = getGameTypeById(route.gameTypeId)
+                        if (gameType != null) {
+                            InstructionsScreen(
+                                gameType = gameType,
+                                storage = controller.storage,
+                                onStart = { controller.startGame(gameType) },
+                                onBack = { controller.navigateToMainMenu() },
+                                onShowLeaderboard = if (
+                                    gameType.hasLeaderboard &&
+                                    PlayGamesBridge.onShowLeaderboard != null
+                                ) {
+                                    { controller.showLeaderboard(gameType) }
+                                } else {
+                                    null
+                                },
+                            )
+                        }
+                    }
+
+                    composable<Playing> {
+                        val gameState by controller.gameState.collectAsState()
+                        val timeRemaining by controller.timeRemaining.collectAsState()
+                        val elapsedTime by controller.elapsedTime.collectAsState()
+                        val gameUiState by controller.gameUiState.collectAsState()
+                        val hapticSuccess = rememberHapticSuccess()
+
+                        LaunchedEffect(controller) {
+                            controller.intermediateCorrectEvents.collect {
+                                if (hapticEnabled) hapticSuccess()
+                            }
+                        }
+
+                        when (val state = gameState) {
+                            is GameState.Active -> {
+                                val uiState = gameUiState ?: return@composable
+                                GameScreen(
+                                    gameUiState = uiState,
+                                    timeRemaining = timeRemaining,
+                                    elapsedTime = elapsedTime,
+                                    onAnswer = { controller.submitAnswer(it) },
+                                    onGiveUp = { controller.giveUp() },
+                                    onBack = { controller.navigateToMainMenu() },
+                                )
+                            }
+
+                            is GameState.Feedback -> {
+                                LaunchedEffect(state) {
+                                    if (state.isCorrect && hapticEnabled) hapticSuccess()
+                                }
+                                AnswerFeedbackScreen(
+                                    isCorrect = state.isCorrect,
+                                    message = state.message,
+                                )
+                            }
+
+                            is GameState.Idle -> {
+                                // Game not active, navigating away
+                            }
+                        }
+                    }
+
+                    composable<Finish> { backStackEntry ->
+                        val route: Finish = backStackEntry.toRoute()
+                        val gameType = getGameTypeById(route.gameTypeId)
+                        if (gameType != null) {
+                            FinishScreen(
+                                gameType = gameType,
+                                score = route.score,
+                                isNewHighscore = route.isNewHighscore,
+                                answeredAllCorrect = route.answeredAllCorrect,
+                                highscore = route.highscore,
+                                xpGained = route.xpGained,
+                                totalXpAfter = route.totalXpAfter,
+                                onPlayRandom = { controller.playRandomGame() },
+                                onPlayAgain = { controller.playAgain(gameType) },
+                                onMenu = { controller.navigateToMainMenu() },
+                                adSlot = finishScreenAdSlot,
+                            )
+                        }
+                    }
+
+                    composable<Scoreboard> { backStackEntry ->
+                        val route: Scoreboard = backStackEntry.toRoute()
+                        val gameType = getGameTypeById(route.gameTypeId)
+                        if (gameType != null) {
+                            ScoreboardScreen(
+                                gameType = gameType,
+                                storage = controller.storage,
                                 onBack = { controller.navigateToMainMenu() },
                             )
                         }
-
-                        is GameState.Feedback -> {
-                            LaunchedEffect(state) {
-                                if (state.isCorrect) hapticSuccess()
-                            }
-                            AnswerFeedbackScreen(
-                                isCorrect = state.isCorrect,
-                                message = state.message,
-                            )
-                        }
-
-                        is GameState.Idle -> {
-                            // Game not active, navigating away
-                        }
                     }
-                }
 
-                composable<Finish> { backStackEntry ->
-                    val route: Finish = backStackEntry.toRoute()
-                    val gameType = getGameTypeById(route.gameTypeId)
-                    if (gameType != null) {
-                        FinishScreen(
-                            gameType = gameType,
-                            score = route.score,
-                            isNewHighscore = route.isNewHighscore,
-                            answeredAllCorrect = route.answeredAllCorrect,
-                            highscore = route.highscore,
-                            xpGained = route.xpGained,
-                            totalXpAfter = route.totalXpAfter,
-                            onPlayRandom = { controller.playRandomGame() },
-                            onPlayAgain = { controller.playAgain(gameType) },
-                            onMenu = { controller.navigateToMainMenu() },
-                            adSlot = finishScreenAdSlot,
-                        )
-                    }
-                }
-
-                composable<Scoreboard> { backStackEntry ->
-                    val route: Scoreboard = backStackEntry.toRoute()
-                    val gameType = getGameTypeById(route.gameTypeId)
-                    if (gameType != null) {
-                        ScoreboardScreen(
-                            gameType = gameType,
+                    composable<Achievements> {
+                        AchievementsScreen(
                             storage = controller.storage,
                             onBack = { controller.navigateToMainMenu() },
                         )
                     }
-                }
 
-                composable<Achievements> {
-                    AchievementsScreen(
-                        storage = controller.storage,
-                        onBack = { controller.navigateToMainMenu() },
-                    )
-                }
-
-                composable<SessionInterstitial> {
-                    val session by controller.sessionState.collectAsState()
-                    val current = session
-                    if (current != null) {
-                        val nextGameId = current.gameIds.getOrNull(current.currentIndex)
-                        val nextGame = nextGameId?.let { getGameTypeById(it) }
-                        if (nextGame != null) {
-                            SessionInterstitialScreen(
-                                nextGame = nextGame,
-                                nextGameIndex = current.currentIndex,
-                                totalGames = current.gameIds.size,
-                                runningTotal = current.gameIds.zip(current.scores).filter { (id, _) ->
-                                    getGameTypeById(id)?.lowerScoreIsBetter != true
-                                }.sumOf { (_, score) -> score },
-                                onContinue = { controller.playNextSessionGame() },
-                                onExit = { controller.navigateToMainMenu() },
-                            )
+                    composable<SessionInterstitial> {
+                        val session by controller.sessionState.collectAsState()
+                        val current = session
+                        if (current != null) {
+                            val nextGameId = current.gameIds.getOrNull(current.currentIndex)
+                            val nextGame = nextGameId?.let { getGameTypeById(it) }
+                            if (nextGame != null) {
+                                SessionInterstitialScreen(
+                                    nextGame = nextGame,
+                                    nextGameIndex = current.currentIndex,
+                                    totalGames = current.gameIds.size,
+                                    runningTotal = current.gameIds.zip(current.scores).filter { (id, _) ->
+                                        getGameTypeById(id)?.lowerScoreIsBetter != true
+                                    }.sumOf { (_, score) -> score },
+                                    onContinue = { controller.playNextSessionGame() },
+                                    onExit = { controller.navigateToMainMenu() },
+                                )
+                            }
                         }
                     }
-                }
 
-                composable<SessionComplete> {
-                    val result by controller.lastCompletedSession.collectAsState()
-                    val current = result
-                    if (current != null) {
-                        SessionCompleteScreen(
-                            gameIds = current.gameIds,
-                            scores = current.scores,
-                            streakBefore = current.streakBefore,
-                            streakAfter = current.streakAfter,
-                            xpGained = current.xpGained,
-                            levelChange = current.levelChange,
-                            onDone = { controller.navigateToMainMenu() },
-                        )
+                    composable<SessionComplete> {
+                        val result by controller.lastCompletedSession.collectAsState()
+                        val current = result
+                        if (current != null) {
+                            SessionCompleteScreen(
+                                gameIds = current.gameIds,
+                                scores = current.scores,
+                                streakBefore = current.streakBefore,
+                                streakAfter = current.streakAfter,
+                                xpGained = current.xpGained,
+                                levelChange = current.levelChange,
+                                onDone = { controller.navigateToMainMenu() },
+                            )
+                        }
                     }
                 }
             }

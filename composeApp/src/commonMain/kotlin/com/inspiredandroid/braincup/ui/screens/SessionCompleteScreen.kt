@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BrandedCard
@@ -141,7 +142,7 @@ private fun SessionGameRow(game: GameType, score: Int) {
             modifier = Modifier.weight(1f),
         )
         Text(
-            text = game.formatScore(score),
+            text = game.formattedScore(score),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
         )

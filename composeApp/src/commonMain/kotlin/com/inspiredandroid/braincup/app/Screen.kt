@@ -30,6 +30,9 @@ data class Scoreboard(val gameTypeId: String)
 object Achievements
 
 @Serializable
+object Settings
+
+@Serializable
 object SessionInterstitial
 
 @Serializable

@@ -22,6 +22,7 @@
     <string name="game_highest_value">どれが最も高い値ですか？</string>
     <string name="game_sudoku_instruction">各行、列、ブロックが各数字を1回ずつ含むようにグリッドを埋めてください</string>
     <string name="game_tap_numbers">数字をタップして式を作成</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">スコア：%1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">イエメン</string>
     <string name="country_zambia">ザンビア</string>
     <string name="country_zimbabwe">ジンバブエ</string>
+
+    <!-- Settings -->
+    <string name="settings_title">設定</string>
+    <string name="settings_open">設定を開く</string>
+    <string name="settings_sound">サウンド</string>
+    <string name="settings_sound_desc">音楽と効果音を再生します。</string>
+    <string name="settings_colorblind">色覚に配慮した色</string>
+    <string name="settings_colorblind_desc">一般的な色覚障害でも見分けやすいパレットを使用します。</string>
+    <string name="settings_haptic">触覚フィードバック</string>
+    <string name="settings_haptic_desc">正解時に短く振動します。</string>
 </resources>

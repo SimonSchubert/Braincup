@@ -22,6 +22,7 @@
     <string name="game_highest_value">Hangisinin değeri en yüksek?</string>
     <string name="game_sudoku_instruction">Izgarayı her satır, sütun ve bloğun her rakamı bir kez içerecek şekilde doldurun</string>
     <string name="game_tap_numbers">Bir ifade oluşturmak için sayılara dokunun</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Puan: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">Yemen</string>
     <string name="country_zambia">Zambiya</string>
     <string name="country_zimbabwe">Zimbabve</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_open">Ayarları aç</string>
+    <string name="settings_sound">Ses</string>
+    <string name="settings_sound_desc">Müzik ve ses efektlerini çal.</string>
+    <string name="settings_colorblind">Renk körlüğüne uygun renkler</string>
+    <string name="settings_colorblind_desc">En yaygın renk körlüğü türleri için ayırt edilebilir kalan bir palet kullanır.</string>
+    <string name="settings_haptic">Dokunsal geri bildirim</string>
+    <string name="settings_haptic_desc">Doğru yanıtlarda kısa süreli titreşir.</string>
 </resources>

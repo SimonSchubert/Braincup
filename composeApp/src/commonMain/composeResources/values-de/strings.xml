@@ -22,6 +22,7 @@
     <string name="game_highest_value">Welches hat den höchsten Wert?</string>
     <string name="game_sudoku_instruction">Fülle das Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Ziffer einmal enthält</string>
     <string name="game_tap_numbers">Tippe auf Zahlen, um einen Ausdruck zu erstellen</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">Punktzahl: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">Jemen</string>
     <string name="country_zambia">Sambia</string>
     <string name="country_zimbabwe">Simbabwe</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_open">Einstellungen öffnen</string>
+    <string name="settings_sound">Ton</string>
+    <string name="settings_sound_desc">Musik und Soundeffekte abspielen.</string>
+    <string name="settings_colorblind">Farbenblind-freundliche Farben</string>
+    <string name="settings_colorblind_desc">Verwendet eine Palette, die für die häufigsten Formen der Farbenblindheit unterscheidbar bleibt.</string>
+    <string name="settings_haptic">Haptisches Feedback</string>
+    <string name="settings_haptic_desc">Vibriert kurz bei richtigen Antworten.</string>
 </resources>

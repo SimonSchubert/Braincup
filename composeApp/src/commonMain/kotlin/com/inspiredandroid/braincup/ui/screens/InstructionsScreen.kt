@@ -23,6 +23,7 @@ import braincup.composeapp.generated.resources.mini_chess_difficulty_hard
 import braincup.composeapp.generated.resources.mini_chess_difficulty_medium
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.PrismTile
@@ -73,7 +74,7 @@ fun InstructionsScreen(
                 Text(
                     text = stringResource(
                         Res.string.instructions_best_score,
-                        gameType.formatScore(highscore),
+                        gameType.formattedScore(highscore),
                     ),
                     style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center,

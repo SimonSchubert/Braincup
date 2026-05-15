@@ -1,7 +1,9 @@
 package com.inspiredandroid.braincup.games
 
+import androidx.compose.runtime.Composable
 import braincup.composeapp.generated.resources.*
 import org.jetbrains.compose.resources.StringResource
+import org.jetbrains.compose.resources.stringResource
 
 enum class GameType(
     val displayNameRes: StringResource,
@@ -189,10 +191,15 @@ enum class GameType(
     /** Whether this game has a Play Games leaderboard wired up. */
     val hasLeaderboard: Boolean get() = this == FLAGS
 
-    /** Format a stored score for display. Time-based scores are stored as deciseconds (1/10s)
-     *  and render as "12.3s". */
+    /** Hidden from menus and daily challenges while the color-blind palette is on —
+     *  the mechanic depends on naming specific hues and remains unfair under any palette. */
+    val requiresColorVision: Boolean
+        get() = this == COLOR_CONFUSION || this == COLORED_SHAPES
+
+    /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
+     *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */
     fun formatScore(score: Int): String = if (lowerScoreIsBetter) {
-        "${score / 10}.${score % 10}s"
+        "${score / 10}.${score % 10}"
     } else {
         score.toString()
     }
@@ -207,3 +214,15 @@ enum class GameType(
 }
 
 fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }
+
+/** Localized score display (adds the seconds unit for time-based games). */
+@Composable
+fun GameType.formattedScore(score: Int): String {
+    val raw = formatScore(score)
+    return if (lowerScoreIsBetter) stringResource(Res.string.format_seconds, raw) else raw
+}
+
+/** Pre-resolved seconds template for use in non-Composable lambdas (e.g. joinToString).
+ *  Substitute `%1$s` with the numeric value from [GameType.formatScore]. */
+@Composable
+fun secondsTemplate(): String = stringResource(Res.string.format_seconds, "%1\$s")

@@ -23,6 +23,7 @@ import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueBottom
@@ -296,7 +297,7 @@ private fun PathFinderPreview() {
                 Row(modifier = Modifier.fillMaxWidth()) {
                     row.forEach { figure ->
                         ColorPrismCell(
-                            face = figure.color.composeColor,
+                            face = figure.color.composeColor(),
                             facet = 1.5.dp,
                             modifier = Modifier.weight(1f).aspectRatio(1f).padding(1.dp),
                         )
@@ -327,7 +328,7 @@ private fun ColoredShapesPreview() {
         Text(
             text = "${Color.BLUE.localizedName()} = 4",
             style = MaterialTheme.typography.labelSmall,
-            color = Color.BLUE.composeColor,
+            color = Color.BLUE.composeColor(),
         )
     }
 }
@@ -736,7 +737,7 @@ private fun ColorConfusionPreview() {
                         Text(
                             text = wordColor.localizedName(),
                             style = MaterialTheme.typography.labelSmall,
-                            color = fontColor.composeColor,
+                            color = fontColor.composeColor(),
                             textAlign = TextAlign.Center,
                         )
                     }

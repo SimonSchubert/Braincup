@@ -106,6 +106,7 @@ class GameController(
 
     private fun generateSessionGameIds(): List<String> = GameType.entries
         .filterNot { it == GameType.LIGHTS_OUT || it == GameType.SLIDING_PUZZLE || it == GameType.MINI_CHESS }
+        .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
         .shuffled()
         .take(UserStorage.SESSION_GAME_COUNT)
         .map { it.id }
@@ -160,6 +161,10 @@ class GameController(
 
     fun navigateToAchievements() {
         navController.navigate(Achievements)
+    }
+
+    fun navigateToSettings() {
+        navController.navigate(Settings)
     }
 
     fun startGame(gameType: GameType) {
@@ -391,7 +396,9 @@ class GameController(
     }
 
     fun playRandomGame() {
-        val randomGame = GameType.entries.random()
+        val randomGame = GameType.entries
+            .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
+            .random()
         navigateToInstructions(randomGame)
     }
 

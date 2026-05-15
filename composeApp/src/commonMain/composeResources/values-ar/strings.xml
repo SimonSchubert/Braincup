@@ -22,6 +22,7 @@
     <string name="game_highest_value">أيهما له القيمة الأعلى؟</string>
     <string name="game_sudoku_instruction">املأ الشبكة بحيث يحتوي كل صف وعمود وكتلة على كل رقم مرة واحدة</string>
     <string name="game_tap_numbers">اضغط على الأرقام لبناء تعبير</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">النتيجة: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">اليمن</string>
     <string name="country_zambia">زامبيا</string>
     <string name="country_zimbabwe">زيمبابوي</string>
+
+    <!-- Settings -->
+    <string name="settings_title">الإعدادات</string>
+    <string name="settings_open">فتح الإعدادات</string>
+    <string name="settings_sound">الصوت</string>
+    <string name="settings_sound_desc">تشغيل الموسيقى والمؤثرات الصوتية.</string>
+    <string name="settings_colorblind">ألوان مناسبة لعمى الألوان</string>
+    <string name="settings_colorblind_desc">استخدم لوحة ألوان تبقى مميزة لأكثر أشكال عمى الألوان شيوعًا.</string>
+    <string name="settings_haptic">ردود فعل لمسية</string>
+    <string name="settings_haptic_desc">اهتزاز قصير عند الإجابات الصحيحة.</string>
 </resources>

@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
@@ -70,7 +71,7 @@ fun FinishScreen(
         }
 
         Text(
-            text = stringResource(Res.string.finish_score, gameType.formatScore(score)),
+            text = stringResource(Res.string.finish_score, gameType.formattedScore(score)),
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
@@ -108,7 +109,7 @@ fun FinishScreen(
             }
         } else if (highscore > 0) {
             Text(
-                text = stringResource(Res.string.finish_highscore, gameType.formatScore(highscore)),
+                text = stringResource(Res.string.finish_highscore, gameType.formattedScore(highscore)),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.align(Alignment.CenterHorizontally),

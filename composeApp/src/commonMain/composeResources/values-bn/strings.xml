@@ -22,6 +22,7 @@
     <string name="game_highest_value">কোনটির মান সবচেয়ে বেশি?</string>
     <string name="game_sudoku_instruction">প্রতিটি সারি, কলাম এবং ব্লকে প্রতিটি অঙ্ক একবার করে থাকে এমনভাবে গ্রিড পূরণ করুন</string>
     <string name="game_tap_numbers">একটি এক্সপ্রেশন তৈরি করতে সংখ্যাগুলিতে ট্যাপ করুন</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">স্কোর: %1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">ইয়েমেন</string>
     <string name="country_zambia">জাম্বিয়া</string>
     <string name="country_zimbabwe">জিম্বাবুয়ে</string>
+
+    <!-- Settings -->
+    <string name="settings_title">সেটিংস</string>
+    <string name="settings_open">সেটিংস খুলুন</string>
+    <string name="settings_sound">শব্দ</string>
+    <string name="settings_sound_desc">সঙ্গীত এবং সাউন্ড ইফেক্ট চালান।</string>
+    <string name="settings_colorblind">বর্ণান্ধতা-বান্ধব রং</string>
+    <string name="settings_colorblind_desc">এমন একটি প্যালেট ব্যবহার করুন যা বর্ণান্ধতার সবচেয়ে সাধারণ ধরনের জন্য আলাদা থাকে।</string>
+    <string name="settings_haptic">হ্যাপ্টিক ফিডব্যাক</string>
+    <string name="settings_haptic_desc">সঠিক উত্তরে সংক্ষিপ্ত কম্পন।</string>
 </resources>

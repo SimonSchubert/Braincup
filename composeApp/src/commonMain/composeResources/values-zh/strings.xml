@@ -22,6 +22,7 @@
     <string name="game_highest_value">哪个值最大？</string>
     <string name="game_sudoku_instruction">填充网格，使每行、列和方块都包含每个数字一次</string>
     <string name="game_tap_numbers">点击数字来构建表达式</string>
+    <string name="format_seconds">%1$ss</string>
 
     <!-- Finish screen -->
     <string name="finish_score">得分：%1$s</string>
@@ -465,4 +466,14 @@
     <string name="country_yemen">也门</string>
     <string name="country_zambia">赞比亚</string>
     <string name="country_zimbabwe">津巴布韦</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+    <string name="settings_open">打开设置</string>
+    <string name="settings_sound">声音</string>
+    <string name="settings_sound_desc">播放音乐和音效。</string>
+    <string name="settings_colorblind">色盲友好配色</string>
+    <string name="settings_colorblind_desc">使用对最常见的色盲类型仍然可区分的配色。</string>
+    <string name="settings_haptic">触觉反馈</string>
+    <string name="settings_haptic_desc">答对时短暂震动。</string>
 </resources>

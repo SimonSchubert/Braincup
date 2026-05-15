@@ -24,6 +24,25 @@ class ChessAi(
         return best
     }
 
+    /** Score the position from the side-to-move's perspective using the same negamax
+     *  search as [bestMove]. Mate scores follow the `MATE - ply` convention, so a
+     *  returned score close to [MATE] indicates a short forced mate is available. */
+    fun scorePosition(board: ChessBoard, searchDepth: Int = depth): Int {
+        val moves = board.legalMoves()
+        if (moves.isEmpty()) {
+            return if (board.isInCheck(board.sideToMove)) -(MATE) else 0
+        }
+        var bestScore = -INF
+        var alpha = -INF
+        val beta = INF
+        for (m in moves) {
+            val score = -search(board.apply(m), searchDepth - 1, -beta, -alpha, ply = 1)
+            if (score > bestScore) bestScore = score
+            if (score > alpha) alpha = score
+        }
+        return bestScore
+    }
+
     private fun search(board: ChessBoard, depth: Int, alphaIn: Int, beta: Int, ply: Int): Int {
         if (depth == 0) return evaluate(board)
         val moves = board.legalMoves()
