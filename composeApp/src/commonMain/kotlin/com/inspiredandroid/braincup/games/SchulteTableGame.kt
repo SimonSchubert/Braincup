@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.SchulteTableUiState
+import kotlinx.collections.immutable.toImmutableList
 
 class SchulteTableGame : Game() {
     sealed class TapResult {
@@ -57,6 +58,6 @@ class SchulteTableGame : Game() {
             }
             SchulteTableUiState.CellState(number = value, type = type)
         }
-        return SchulteTableUiState(gridSize = gridSize, cells = cells)
+        return SchulteTableUiState(gridSize = gridSize, cells = cells.toImmutableList())
     }
 }

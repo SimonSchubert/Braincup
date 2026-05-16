@@ -4,6 +4,7 @@ import com.inspiredandroid.braincup.app.ExpressionToken
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.numbersRegex
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 /**
@@ -84,7 +85,7 @@ class SherlockCalculationGame : Game() {
 
     override fun toUiState() = com.inspiredandroid.braincup.app.SherlockCalculationUiState(
         result = result,
-        numbers = numbers.toList(),
+        numbers = numbers.toImmutableList(),
     )
 
     private fun buildSolutionTokens(): List<ExpressionToken> {

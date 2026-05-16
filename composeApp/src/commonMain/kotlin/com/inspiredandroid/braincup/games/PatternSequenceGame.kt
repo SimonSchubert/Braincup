@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.app.PatternSequenceUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlinx.collections.immutable.toImmutableList
 
 class PatternSequenceGame : Game() {
     enum class PatternType {
@@ -101,8 +102,8 @@ class PatternSequenceGame : Game() {
     override fun hint(): String? = null
 
     override fun toUiState() = PatternSequenceUiState(
-        sequence = sequence.toList(),
-        optionRows = options.map { FigureCell(it) }.chunked(2),
+        sequence = sequence.toImmutableList(),
+        optionRows = options.map { FigureCell(it) }.chunked(2).map { it.toImmutableList() }.toImmutableList(),
     )
 
     private fun selectPatternType(): PatternType {

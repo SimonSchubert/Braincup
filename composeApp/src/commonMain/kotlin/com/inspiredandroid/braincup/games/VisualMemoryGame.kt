@@ -5,6 +5,7 @@ import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -281,8 +282,8 @@ class VisualMemoryGame : Game() {
             round = round,
             phase = phase,
             countdown = countdown,
-            cells = cells,
-            answerOptions = answerOptions,
+            cells = cells.toImmutableList(),
+            answerOptions = answerOptions.toImmutableList(),
             currentTargetFigure = targetFigure,
         )
     }

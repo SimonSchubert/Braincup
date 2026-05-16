@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.ReviewBridge
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
+import kotlinx.collections.immutable.toImmutableList
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
@@ -263,8 +264,8 @@ fun App(
                         val current = result
                         if (current != null) {
                             SessionCompleteScreen(
-                                gameIds = current.gameIds,
-                                scores = current.scores,
+                                gameIds = current.gameIds.toImmutableList(),
+                                scores = current.scores.toImmutableList(),
                                 streakBefore = current.streakBefore,
                                 streakAfter = current.streakAfter,
                                 xpGained = current.xpGained,

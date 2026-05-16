@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.games.tools.Calculator
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 /**
@@ -70,7 +71,7 @@ class ValueComparisonGame : Game() {
     override fun hint(): String? = null
 
     override fun toUiState() = com.inspiredandroid.braincup.app.ValueComparisonUiState(
-        answers = answers.map { com.inspiredandroid.braincup.app.AnswerButton(value = it) },
+        answers = answers.map { com.inspiredandroid.braincup.app.AnswerButton(value = it) }.toImmutableList(),
     )
 
     private fun getExpectedAnswersCount(): Int = when {

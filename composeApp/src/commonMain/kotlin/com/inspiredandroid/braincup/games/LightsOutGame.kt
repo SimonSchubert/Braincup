@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.LightsOutUiState
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 class LightsOutGame(
@@ -60,7 +61,7 @@ class LightsOutGame(
 
     override fun toUiState(): LightsOutUiState = LightsOutUiState(
         gridSize = gridSize,
-        cells = cells.toList(),
+        cells = cells.toList().toImmutableList(),
         moves = moves,
         level = level,
     )

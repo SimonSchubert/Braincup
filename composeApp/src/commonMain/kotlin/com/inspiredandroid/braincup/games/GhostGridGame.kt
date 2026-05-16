@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.GhostGridUiState
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -142,7 +143,7 @@ class GhostGridGame(private val random: Random = Random.Default) : Game() {
             gridSize = gridSize,
             round = round,
             phase = phase,
-            cells = cells,
+            cells = cells.toImmutableList(),
             sequenceLength = sequence.size,
             tappedCount = currentTapIndex,
         )

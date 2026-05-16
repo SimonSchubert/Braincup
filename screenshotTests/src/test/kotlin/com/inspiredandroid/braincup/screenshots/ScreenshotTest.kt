@@ -17,6 +17,7 @@ import com.inspiredandroid.braincup.ui.screens.SessionInterstitialScreen
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
+import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
 import org.junit.Before
@@ -132,14 +133,14 @@ class ScreenshotTest {
     fun sessionCompleteStreakIncreased() {
         paparazzi.snap {
             SessionCompleteScreen(
-                gameIds = listOf(
+                gameIds = persistentListOf(
                     GameType.MENTAL_CALCULATION.id,
                     GameType.COLORED_SHAPES.id,
                     GameType.PATH_FINDER.id,
                     GameType.GHOST_GRID.id,
                     GameType.FLASH_CROWD.id,
                 ),
-                scores = listOf(8, 5, 6, 4, 7),
+                scores = persistentListOf(8, 5, 6, 4, 7),
                 streakBefore = 14,
                 streakAfter = 15,
                 xpGained = 80,

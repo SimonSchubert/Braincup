@@ -19,6 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.toImmutableMap
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
@@ -58,7 +60,7 @@ fun MainMenuScreen(
         sessionProgressIndex = progressIndex,
         sessionTotalGames = totalGames,
         sessionCompletedToday = completedToday,
-        highscores = highscores,
+        highscores = highscores.toImmutableMap(),
         unlockedCount = unlockedCount,
         onOpenSettings = onOpenSettings,
         onPlayDaily = { controller.startDailySession() },
@@ -80,7 +82,7 @@ fun MainMenuScreenContent(
     sessionProgressIndex: Int,
     sessionTotalGames: Int,
     sessionCompletedToday: Boolean,
-    highscores: Map<String, Int>,
+    highscores: ImmutableMap<String, Int>,
     unlockedCount: Int,
     showDailyChallenge: Boolean = true,
     onOpenSettings: () -> Unit = {},

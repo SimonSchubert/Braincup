@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.splitToIntList
+import kotlinx.collections.immutable.toImmutableList
 
 class MiniSudokuGame : Game() {
     var gridSize: Int = 4
@@ -91,7 +92,7 @@ class MiniSudokuGame : Game() {
         gridSize = gridSize,
         blockRows = blockRows,
         blockCols = blockCols,
-        initialValues = initialValues.toList(),
+        initialValues = initialValues.toImmutableList(),
         solutionValues = null,
     )
 

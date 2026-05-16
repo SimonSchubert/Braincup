@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.app.FigureCell
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlinx.collections.immutable.toImmutableList
 
 /**
  * Generate 6,9 or 16 figures with one outstanding figure that doesn't match the other shapes and colors.
@@ -381,7 +382,7 @@ class AnomalyPuzzleGame : Game() {
             else -> 2
         }
         return AnomalyPuzzleUiState(
-            rows = figures.map { FigureCell(it) }.chunked(columnsPerRow),
+            rows = figures.map { FigureCell(it) }.chunked(columnsPerRow).map { it.toImmutableList() }.toImmutableList(),
             columnsPerRow = columnsPerRow,
         )
     }

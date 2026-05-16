@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.math.sqrt
 import kotlin.random.Random
 
@@ -56,8 +57,8 @@ class FlashCrowdGame : Game() {
 
     override fun toUiState() = FlashCrowdUiState(
         roundKey = roundKey,
-        leftDots = leftDots.map { FlashCrowdUiState.Dot(it.x, it.y, it.radius) },
-        rightDots = rightDots.map { FlashCrowdUiState.Dot(it.x, it.y, it.radius) },
+        leftDots = leftDots.map { FlashCrowdUiState.Dot(it.x, it.y, it.radius) }.toImmutableList(),
+        rightDots = rightDots.map { FlashCrowdUiState.Dot(it.x, it.y, it.radius) }.toImmutableList(),
     )
 
     private fun getDifficultyRatio(): Double = when {

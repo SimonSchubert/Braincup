@@ -1,6 +1,9 @@
 package com.inspiredandroid.braincup.app
 
 import androidx.compose.runtime.Immutable
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.ImmutableSet
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
@@ -61,31 +64,31 @@ data class ColoredShapesUiState(
     val stringColor: Color,
     val shapePoints: Int,
     val colorPoints: Int,
-    val possibleAnswers: List<AnswerButton>,
+    val possibleAnswers: ImmutableList<AnswerButton>,
 ) : GameUiState
 
 @Immutable
 data class SherlockCalculationUiState(
     val result: Int,
-    val numbers: List<Int>,
-    val solutionTokens: List<ExpressionToken>? = null,
+    val numbers: ImmutableList<Int>,
+    val solutionTokens: ImmutableList<ExpressionToken>? = null,
 ) : GameUiState
 
 @Immutable
 data class ValueComparisonUiState(
-    val answers: List<AnswerButton>,
+    val answers: ImmutableList<AnswerButton>,
 ) : GameUiState
 
 @Immutable
 data class AnomalyPuzzleUiState(
-    val rows: List<List<FigureCell>>,
+    val rows: ImmutableList<ImmutableList<FigureCell>>,
     val columnsPerRow: Int,
 ) : GameUiState
 
 @Immutable
 data class PathFinderUiState(
-    val directionFigures: List<Figure>,
-    val grid: List<List<FigureCell>>,
+    val directionFigures: ImmutableList<Figure>,
+    val grid: ImmutableList<ImmutableList<FigureCell>>,
 ) : GameUiState
 
 @Immutable
@@ -93,14 +96,14 @@ data class MiniSudokuUiState(
     val gridSize: Int,
     val blockRows: Int,
     val blockCols: Int,
-    val initialValues: List<Int?>,
-    val solutionValues: List<Int>? = null,
+    val initialValues: ImmutableList<Int?>,
+    val solutionValues: ImmutableList<Int>? = null,
 ) : GameUiState
 
 @Immutable
 data class LightsOutUiState(
     val gridSize: Int,
-    val cells: List<Boolean>,
+    val cells: ImmutableList<Boolean>,
     val moves: Int,
     val level: Int,
 ) : GameUiState
@@ -108,15 +111,15 @@ data class LightsOutUiState(
 @Immutable
 data class SlidingPuzzleUiState(
     val gridSize: Int,
-    val tiles: List<Int>,
+    val tiles: ImmutableList<Int>,
     val moves: Int,
     val level: Int,
 ) : GameUiState
 
 @Immutable
 data class PatternSequenceUiState(
-    val sequence: List<Figure>,
-    val optionRows: List<List<FigureCell>>,
+    val sequence: ImmutableList<Figure>,
+    val optionRows: ImmutableList<ImmutableList<FigureCell>>,
 ) : GameUiState
 
 @Immutable
@@ -124,7 +127,7 @@ data class GhostGridUiState(
     val gridSize: Int,
     val round: Int,
     val phase: GhostGridGame.Phase,
-    val cells: List<CellState>,
+    val cells: ImmutableList<CellState>,
     val sequenceLength: Int,
     val tappedCount: Int,
 ) : GameUiState {
@@ -137,7 +140,7 @@ data class GhostGridUiState(
 @Immutable
 data class SchulteTableUiState(
     val gridSize: Int,
-    val cells: List<CellState>,
+    val cells: ImmutableList<CellState>,
 ) : GameUiState {
     enum class CellType { NORMAL, TAPPED, WRONG }
 
@@ -147,7 +150,7 @@ data class SchulteTableUiState(
 
 @Immutable
 data class ColorConfusionUiState(
-    val cells: List<Cell>,
+    val cells: ImmutableList<Cell>,
     val isSubmitted: Boolean,
 ) : GameUiState {
     enum class CellFeedback {
@@ -169,7 +172,7 @@ data class ColorConfusionUiState(
 
 @Immutable
 data class OrbitTrackerUiState(
-    val balls: List<BallState>,
+    val balls: ImmutableList<BallState>,
     val phase: OrbitTrackerGame.Phase,
     val targetCount: Int,
     val selectedCount: Int,
@@ -194,8 +197,8 @@ data class OrbitTrackerUiState(
 @Immutable
 data class FlashCrowdUiState(
     val roundKey: Int,
-    val leftDots: List<Dot>,
-    val rightDots: List<Dot>,
+    val leftDots: ImmutableList<Dot>,
+    val rightDots: ImmutableList<Dot>,
 ) : GameUiState {
     @Immutable
     data class Dot(val x: Float, val y: Float, val radius: Float)
@@ -204,7 +207,7 @@ data class FlashCrowdUiState(
 @Immutable
 data class FlagsUiState(
     val countrySlug: String,
-    val possibleAnswers: List<AnswerButton>,
+    val possibleAnswers: ImmutableList<AnswerButton>,
     val currentScore: Int,
     val bestScore: Int,
 ) : GameUiState
@@ -214,8 +217,8 @@ data class VisualMemoryUiState(
     val round: Int,
     val phase: VisualMemoryGame.Phase,
     val countdown: Int,
-    val cells: List<CellState>,
-    val answerOptions: List<AnswerOption>,
+    val cells: ImmutableList<CellState>,
+    val answerOptions: ImmutableList<AnswerOption>,
     val currentTargetFigure: Figure?,
 ) : GameUiState {
 
@@ -253,12 +256,12 @@ data class MiniChessCell(
 
 @Immutable
 data class MiniChessUiState(
-    val cells: List<MiniChessCell>,
-    val legalMovesByFrom: Map<Int, Set<Int>>,
+    val cells: ImmutableList<MiniChessCell>,
+    val legalMovesByFrom: ImmutableMap<Int, ImmutableSet<Int>>,
     /** Subset of [legalMovesByFrom] entries (same keys) whose move would immediately
      *  stalemate the CPU — i.e. the resulting position has no legal CPU response and the
      *  CPU is not in check. Players can use this to avoid accidental draws. */
-    val stalematingMovesByFrom: Map<Int, Set<Int>>,
+    val stalematingMovesByFrom: ImmutableMap<Int, ImmutableSet<Int>>,
     val lastMoveFromIndex: Int?,
     val lastMoveToIndex: Int?,
     val whiteInCheck: Boolean,

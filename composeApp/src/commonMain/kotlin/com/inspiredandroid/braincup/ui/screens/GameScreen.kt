@@ -30,6 +30,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.toImmutableList
+import kotlinx.collections.immutable.toImmutableSet
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
@@ -417,7 +421,11 @@ private fun ColumnScope.SherlockCalculationContent(
 
         val expressionRow: @Composable (Modifier) -> Unit = { mod ->
             ExpressionRow(
-                tokens = if (showingSolution) uiState.solutionTokens else expressionTokens,
+                tokens = if (showingSolution) {
+                    uiState.solutionTokens
+                } else {
+                    expressionTokens.toImmutableList()
+                },
                 onTokenClick = { tokenIndex ->
                     if (!showingSolution) {
                         val token = expressionTokens.removeAt(tokenIndex)
@@ -449,7 +457,11 @@ private fun ColumnScope.SherlockCalculationContent(
         val numbersRow: @Composable (Modifier) -> Unit = { mod ->
             AvailableNumbersRow(
                 numbers = uiState.numbers,
-                usedIndices = if (showingSolution) uiState.numbers.indices.toSet() else usedNumberIndices,
+                usedIndices = if (showingSolution) {
+                    uiState.numbers.indices.toImmutableSet()
+                } else {
+                    usedNumberIndices.toImmutableSet()
+                },
                 onNumberClick = { value, index ->
                     expressionTokens.add(ExpressionToken.NumberToken(value, index))
                     usedNumberIndices.add(index)
@@ -845,7 +857,7 @@ private fun ColumnScope.MiniSudokuContent(
     val onDigit: (Int) -> Unit = { digit ->
         if (selectedIndex in inputs.indices && uiState.initialValues[selectedIndex] == null) {
             val updated = inputs.toMutableList().apply { this[selectedIndex] = digit }
-            inputs = updated
+            inputs = updated.toImmutableList()
             if (updated.all { it != null }) {
                 onAnswer(updated.joinToString(",") { it.toString() })
             } else {
@@ -953,7 +965,7 @@ private fun nextEmptyCell(from: Int, inputs: List<Int?>, initialValues: List<Int
 @Composable
 private fun SudokuGrid(
     uiState: MiniSudokuUiState,
-    inputs: List<Int?>,
+    inputs: ImmutableList<Int?>,
     selectedIndex: Int,
     showingSolution: Boolean,
     onCellClick: (Int) -> Unit,
@@ -1386,7 +1398,7 @@ private fun SlidingPuzzleCell(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ExpressionRow(
-    tokens: List<ExpressionToken>,
+    tokens: ImmutableList<ExpressionToken>,
     onTokenClick: (Int) -> Unit,
     onBackspace: () -> Unit,
     modifier: Modifier = Modifier,
@@ -1465,8 +1477,8 @@ private fun ExpressionRow(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun AvailableNumbersRow(
-    numbers: List<Int>,
-    usedIndices: Set<Int>,
+    numbers: ImmutableList<Int>,
+    usedIndices: ImmutableSet<Int>,
     onNumberClick: (value: Int, index: Int) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -1593,7 +1605,7 @@ private fun ColumnScope.VisualMemoryContent(
 
 @Composable
 private fun VisualMemoryGrid(
-    cells: List<VisualMemoryUiState.CellState>,
+    cells: ImmutableList<VisualMemoryUiState.CellState>,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -1618,7 +1630,7 @@ private fun VisualMemoryGrid(
 
 @Composable
 private fun VisualMemoryAnswerOptions(
-    options: List<VisualMemoryUiState.AnswerOption>,
+    options: ImmutableList<VisualMemoryUiState.AnswerOption>,
     visible: Boolean,
     onAnswer: (String) -> Unit,
     modifier: Modifier = Modifier,

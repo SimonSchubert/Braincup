@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.min
@@ -20,7 +21,7 @@ import kotlin.math.sin
 /** Renders an arbitrary normalized polygon with the same 3D faceted look as [PrismCard]. */
 @Composable
 fun PrismPolygon(
-    points: List<Pair<Float, Float>>,
+    points: ImmutableList<Pair<Float, Float>>,
     face: Color,
     modifier: Modifier = Modifier,
     rotationDegrees: Float = 0f,

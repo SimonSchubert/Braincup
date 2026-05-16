@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.SlidingPuzzleUiState
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 class SlidingPuzzleGame(
@@ -83,7 +84,7 @@ class SlidingPuzzleGame(
 
     override fun toUiState(): SlidingPuzzleUiState = SlidingPuzzleUiState(
         gridSize = gridSize,
-        tiles = tiles.toList(),
+        tiles = tiles.toList().toImmutableList(),
         moves = moves,
         level = level,
     )

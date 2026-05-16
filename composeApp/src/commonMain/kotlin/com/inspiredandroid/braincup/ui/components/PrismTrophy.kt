@@ -3,8 +3,9 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import kotlinx.collections.immutable.persistentListOf
 
-private val TrophyPath = listOf(
+private val TrophyPath = persistentListOf(
     0.25f to 0.00f,
     0.75f to 0.00f,
     0.78f to 0.10f,

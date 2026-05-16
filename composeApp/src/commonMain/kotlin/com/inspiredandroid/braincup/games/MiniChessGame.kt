@@ -8,6 +8,12 @@ import com.inspiredandroid.braincup.games.minichess.BOARD_SIZE
 import com.inspiredandroid.braincup.games.minichess.ChessBoard
 import com.inspiredandroid.braincup.games.minichess.Color
 import com.inspiredandroid.braincup.games.minichess.Move
+import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentMapOf
+import kotlinx.collections.immutable.toImmutableList
+import kotlinx.collections.immutable.toImmutableMap
+import kotlinx.collections.immutable.toImmutableSet
 import com.inspiredandroid.braincup.games.minichess.ScenarioGenerator
 import com.inspiredandroid.braincup.games.minichess.Square
 
@@ -145,26 +151,28 @@ class MiniChessGame(
         val cells = snapshot.map { piece ->
             MiniChessCell(pieceType = piece?.type, isWhite = piece?.color == Color.WHITE)
         }
-        val legalByFrom: Map<Int, Set<Int>>
-        val stalematingByFrom: Map<Int, Set<Int>>
+        val legalByFrom: ImmutableMap<Int, ImmutableSet<Int>>
+        val stalematingByFrom: ImmutableMap<Int, ImmutableSet<Int>>
         if (phase == Phase.PLAYER_TURN) {
             val legalMoves = board.legalMoves()
             legalByFrom = legalMoves
                 .groupBy({ it.from.toIndex() }, { it.to.toIndex() })
-                .mapValues { it.value.toSet() }
+                .mapValues { it.value.toImmutableSet() }
+                .toImmutableMap()
             stalematingByFrom = legalMoves
                 .filter { move ->
                     val after = board.apply(move)
                     after.legalMoves().isEmpty() && !after.isInCheck(Color.BLACK)
                 }
                 .groupBy({ it.from.toIndex() }, { it.to.toIndex() })
-                .mapValues { it.value.toSet() }
+                .mapValues { it.value.toImmutableSet() }
+                .toImmutableMap()
         } else {
-            legalByFrom = emptyMap()
-            stalematingByFrom = emptyMap()
+            legalByFrom = persistentMapOf()
+            stalematingByFrom = persistentMapOf()
         }
         return MiniChessUiState(
-            cells = cells,
+            cells = cells.toImmutableList(),
             legalMovesByFrom = legalByFrom,
             stalematingMovesByFrom = stalematingByFrom,
             lastMoveFromIndex = lastMoveFrom?.toIndex(),

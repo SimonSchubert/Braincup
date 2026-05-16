@@ -1,12 +1,15 @@
 package com.inspiredandroid.braincup.games.tools
 
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
 enum class Shape(
     val displayName: String,
-    val paths: List<Pair<Float, Float>>,
+    val paths: ImmutableList<Pair<Float, Float>>,
 ) {
     SQUARE(displayName = "square", paths = squarePath),
     TRIANGLE(displayName = "triangle", paths = trianglePath),
@@ -21,8 +24,8 @@ enum class Shape(
     ARROW(displayName = "arrow", paths = arrowPath),
 }
 
-val arrowPath by lazy {
-    listOf(
+private val arrowPath by lazy {
+    persistentListOf(
         0.3f to 1f,
         0.3f to 0.45f,
         0f to 0.45f,
@@ -33,24 +36,24 @@ val arrowPath by lazy {
     )
 }
 
-val abstractTrianglePath by lazy {
-    listOf(0f to 1f, 0f to 0.75f, 0.75f to 0f, 1f to 0f, 1f to 1f)
+private val abstractTrianglePath by lazy {
+    persistentListOf(0f to 1f, 0f to 0.75f, 0.75f to 0f, 1f to 0f, 1f to 1f)
 }
 
-val housePath by lazy {
-    listOf(0f to 1f, 0f to 0.5f, 0.5f to 0f, 1f to 0.5f, 1f to 1f)
+private val housePath by lazy {
+    persistentListOf(0f to 1f, 0f to 0.5f, 0.5f to 0f, 1f to 0.5f, 1f to 1f)
 }
 
-val diamondPath by lazy {
-    listOf(0f to 1f, 0f to 0.5f, 0.5f to 0f, 1f to 0f, 1f to 0.5f, 0.5f to 1f)
+private val diamondPath by lazy {
+    persistentListOf(0f to 1f, 0f to 0.5f, 0.5f to 0f, 1f to 0f, 1f to 0.5f, 0.5f to 1f)
 }
 
-val lPath by lazy {
-    listOf(0f to 1f, 0f to 0.5f, 0.5f to 0.5f, 0.5f to 0f, 1f to 0f, 1f to 1f)
+private val lPath by lazy {
+    persistentListOf(0f to 1f, 0f to 0.5f, 0.5f to 0.5f, 0.5f to 0f, 1f to 0f, 1f to 1f)
 }
 
-val tPath by lazy {
-    listOf(
+private val tPath by lazy {
+    persistentListOf(
         0f to 1f,
         0f to 0.5f,
         0.25f to 0.5f,
@@ -62,15 +65,15 @@ val tPath by lazy {
     )
 }
 
-val squarePath by lazy {
-    listOf(0f to 0f, 1f to 0f, 1f to 1f, 0f to 1f)
+private val squarePath by lazy {
+    persistentListOf(0f to 0f, 1f to 0f, 1f to 1f, 0f to 1f)
 }
 
-val trianglePath by lazy {
-    listOf(0.5f to 0f, 1f to 1f, 0f to 1f)
+private val trianglePath by lazy {
+    persistentListOf(0.5f to 0f, 1f to 1f, 0f to 1f)
 }
 
-val circlePath by lazy {
+private val circlePath by lazy {
     val path = mutableListOf<Pair<Float, Float>>()
     for (angle in 0 until 360 step 9) {
         val degree = angle * PI / 180
@@ -78,11 +81,11 @@ val circlePath by lazy {
         val y = sin(degree) * 0.5 + 0.5
         path.add(Pair(x.toFloat(), y.toFloat()))
     }
-    path
+    path.toImmutableList()
 }
 
-val starPath by lazy {
-    listOf(
+private val starPath by lazy {
+    persistentListOf(
         0.5f to 0f,
         0.65f to 0.32f,
         1f to 0.38f,
@@ -96,8 +99,8 @@ val starPath by lazy {
     )
 }
 
-val heartPath by lazy {
-    listOf(
+private val heartPath by lazy {
+    persistentListOf(
         0.5f to 0.135f,
         0.4f to 0.035f,
         0.25f to 0f,

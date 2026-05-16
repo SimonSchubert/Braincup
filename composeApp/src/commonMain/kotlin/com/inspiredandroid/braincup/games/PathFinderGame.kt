@@ -7,6 +7,7 @@ import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.splitToIntList
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 class PathFinderGame : Game() {
@@ -74,7 +75,7 @@ class PathFinderGame : Game() {
     override fun hint(): String? = ""
 
     override fun toUiState() = com.inspiredandroid.braincup.app.PathFinderUiState(
-        directionFigures = directions.map { it.figure },
+        directionFigures = directions.map { it.figure }.toImmutableList(),
         grid = List(gridSize) { row ->
             List(gridSize) { col ->
                 val isStart = row == startY && col == startX
@@ -84,7 +85,7 @@ class PathFinderGame : Game() {
                         if (isStart) Color.ORANGE else Color.GREY_LIGHT,
                     ),
                 )
-            }
-        },
+            }.toImmutableList()
+        }.toImmutableList(),
     )
 }

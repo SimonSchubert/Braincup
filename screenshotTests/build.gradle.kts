@@ -158,4 +158,5 @@ dependencies {
     testImplementation(libs.compose.foundation)
     testImplementation(libs.compose.ui)
     testImplementation(libs.compose.components.resources)
+    testImplementation(libs.kotlinx.collections.immutable)
 }

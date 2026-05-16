@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.ColorConfusionUiState
 import com.inspiredandroid.braincup.games.tools.Color
+import kotlinx.collections.immutable.toImmutableList
 
 class ColorConfusionGame : Game() {
     enum class CellFeedback {
@@ -108,7 +109,7 @@ class ColorConfusionGame : Game() {
                     CellFeedback.CORRECT_UNSELECTED -> ColorConfusionUiState.CellFeedback.CORRECT_UNSELECTED
                 },
             )
-        },
+        }.toImmutableList(),
         isSubmitted = isSubmitted,
     )
 }

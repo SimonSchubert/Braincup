@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.games
 import com.inspiredandroid.braincup.app.AnswerButton
 import com.inspiredandroid.braincup.app.FlagsUiState
 import com.inspiredandroid.braincup.app.GameUiState
+import kotlinx.collections.immutable.toImmutableList
 
 class FlagsGame : Game() {
     override val adaptiveDifficulty: Boolean = false
@@ -42,7 +43,7 @@ class FlagsGame : Game() {
 
     override fun toUiState(): GameUiState = FlagsUiState(
         countrySlug = correctCountry,
-        possibleAnswers = possibleAnswers.map { AnswerButton(it) },
+        possibleAnswers = possibleAnswers.map { AnswerButton(it) }.toImmutableList(),
         currentScore = 0,
         bestScore = 0,
     )

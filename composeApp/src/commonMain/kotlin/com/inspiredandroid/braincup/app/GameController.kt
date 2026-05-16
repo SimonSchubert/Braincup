@@ -9,6 +9,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -350,7 +352,7 @@ class GameController(
 
         if (game is SherlockCalculationGame) {
             val currentUiState = _gameUiState.value as? SherlockCalculationUiState ?: return
-            _gameUiState.value = currentUiState.copy(solutionTokens = game.solutionTokens)
+            _gameUiState.value = currentUiState.copy(solutionTokens = game.solutionTokens.toImmutableList())
             scope.launch {
                 delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
@@ -584,7 +586,7 @@ class GameController(
                             else -> AnswerButtonState.DIMMED
                         },
                     )
-                },
+                }.toImmutableList(),
             )
             scope.launch {
                 delay(1.seconds)
@@ -624,7 +626,7 @@ class GameController(
                             else -> AnswerButtonState.DIMMED
                         },
                     )
-                },
+                }.toImmutableList(),
             )
             scope.launch {
                 delay(1.seconds)
@@ -675,7 +677,7 @@ class GameController(
         } else {
             game.answeredAllCorrect = false
             val currentUiState = _gameUiState.value as? MiniSudokuUiState ?: return
-            _gameUiState.value = currentUiState.copy(solutionValues = game.flatSolution())
+            _gameUiState.value = currentUiState.copy(solutionValues = game.flatSolution().toImmutableList())
             scope.launch {
                 delay(1500.milliseconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
@@ -1059,11 +1061,11 @@ class GameController(
         _gameUiState.value = game.toUiState()
     }
 
-    private fun List<List<FigureCell>>.withFeedbackStates(
+    private fun ImmutableList<ImmutableList<FigureCell>>.withFeedbackStates(
         wrongIndex: Int?,
         correctIndex: Int,
         columnsPerRow: Int,
-    ): List<List<FigureCell>> = mapIndexed { y, row ->
+    ): ImmutableList<ImmutableList<FigureCell>> = mapIndexed { y, row ->
         row.mapIndexed { x, cell ->
             val flatIndex = y * columnsPerRow + x
             cell.copy(
@@ -1073,8 +1075,8 @@ class GameController(
                     else -> FigureCellState.DIMMED
                 },
             )
-        }
-    }
+        }.toImmutableList()
+    }.toImmutableList()
 
     private fun startMiniChessGame(gameType: GameType) {
         val game = MiniChessGame(difficultyDepth = storage.getMiniChessDifficulty())
@@ -1174,7 +1176,7 @@ class GameController(
     private fun buildFlagsUiState(
         gameType: GameType,
         game: FlagsGame,
-        overrideAnswers: List<AnswerButton>? = null,
+        overrideAnswers: ImmutableList<AnswerButton>? = null,
     ): FlagsUiState {
         val base = game.toUiState() as FlagsUiState
         return base.copy(
@@ -1231,7 +1233,7 @@ class GameController(
                         else -> AnswerButtonState.DIMMED
                     },
                 )
-            }
+            }.toImmutableList()
             _gameUiState.value = buildFlagsUiState(currentState.gameType, game, highlightedAnswers)
             scope.launch {
                 delay(1.seconds)
@@ -1255,7 +1257,7 @@ class GameController(
                         else -> AnswerButtonState.DIMMED
                     },
                 )
-            }
+            }.toImmutableList()
             _gameUiState.value = buildFlagsUiState(currentState.gameType, game, highlightedAnswers)
             scope.launch {
                 delay(1.seconds)

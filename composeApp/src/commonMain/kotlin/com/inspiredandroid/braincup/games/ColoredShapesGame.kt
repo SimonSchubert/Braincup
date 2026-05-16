@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 /**
@@ -78,6 +79,6 @@ class ColoredShapesGame : Game() {
         stringColor = stringColor,
         shapePoints = shapePoints,
         colorPoints = colorPoints,
-        possibleAnswers = possibleAnswers.map { com.inspiredandroid.braincup.app.AnswerButton(it) },
+        possibleAnswers = possibleAnswers.map { com.inspiredandroid.braincup.app.AnswerButton(it) }.toImmutableList(),
     )
 }

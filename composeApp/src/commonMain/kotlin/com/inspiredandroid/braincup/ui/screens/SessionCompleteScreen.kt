@@ -12,6 +12,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import kotlinx.collections.immutable.ImmutableList
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.formattedScore
@@ -27,8 +28,8 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun SessionCompleteScreen(
-    gameIds: List<String>,
-    scores: List<Int>,
+    gameIds: ImmutableList<String>,
+    scores: ImmutableList<Int>,
     streakBefore: Int,
     streakAfter: Int,
     xpGained: Int,

@@ -10,9 +10,11 @@ import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
+import kotlinx.collections.immutable.persistentMapOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
-val mainMenuHighscores = mapOf(
+val mainMenuHighscores = persistentMapOf(
     "6" to 12,
     "0" to 9,
     "1" to 7,
@@ -212,7 +214,7 @@ private val visualMemoryAnswerOptions = visualMemoryFigures.mapIndexed { index, 
         figureIndex = index,
         enabled = true,
     )
-}
+}.toImmutableList()
 
 fun createColoredShapesUiState(): GameUiState = createColoredShapesGame().toUiState()
 fun createAnomalyPuzzleUiState(): GameUiState = createAnomalyPuzzleGame().toUiState()
@@ -252,7 +254,7 @@ fun createFlashCrowdUiState(): FlashCrowdUiState = FlashCrowdUiState(
         FlashCrowdUiState.Dot(0.80f, 0.85f, 0.022f),
         FlashCrowdUiState.Dot(0.45f, 0.92f, 0.030f),
         FlashCrowdUiState.Dot(0.90f, 0.15f, 0.025f),
-    ),
+    ).toImmutableList(),
     rightDots = listOf(
         FlashCrowdUiState.Dot(0.20f, 0.15f, 0.050f),
         FlashCrowdUiState.Dot(0.65f, 0.12f, 0.045f),
@@ -262,7 +264,7 @@ fun createFlashCrowdUiState(): FlashCrowdUiState = FlashCrowdUiState(
         FlashCrowdUiState.Dot(0.55f, 0.65f, 0.045f),
         FlashCrowdUiState.Dot(0.30f, 0.85f, 0.050f),
         FlashCrowdUiState.Dot(0.75f, 0.80f, 0.048f),
-    ),
+    ).toImmutableList(),
 )
 
 fun createGhostGridUiState(): com.inspiredandroid.braincup.app.GhostGridUiState {
@@ -297,7 +299,7 @@ fun createVisualMemoryUiState(): VisualMemoryUiState {
             CellState(CellType.MEMORIZING, visualMemoryFigures[4]),
             CellState(CellType.EMPTY, null),
             CellState(CellType.MEMORIZING, visualMemoryFigures[3]),
-        ),
+        ).toImmutableList(),
         answerOptions = visualMemoryAnswerOptions,
         currentTargetFigure = null,
     )
@@ -318,13 +320,13 @@ fun createVisualMemoryGameOverUiState(): VisualMemoryUiState {
             CellState(CellType.WRONG, visualMemoryFigures[4]),
             CellState(CellType.EMPTY, null),
             CellState(CellType.REVEALED, visualMemoryFigures[3]),
-        ),
+        ).toImmutableList(),
         answerOptions = visualMemoryAnswerOptions.mapIndexed { index, option ->
             option.copy(
                 enabled = false,
                 isWrong = index == 4,
             )
-        },
+        }.toImmutableList(),
         currentTargetFigure = visualMemoryFigures[3],
     )
 }

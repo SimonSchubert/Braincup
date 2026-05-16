@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.OrbitTrackerUiState
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -291,7 +292,7 @@ class OrbitTrackerGame : Game() {
                         BallFeedback.MISSED -> OrbitTrackerUiState.BallFeedback.MISSED
                     },
                 )
-            },
+            }.toImmutableList(),
             phase = phase,
             targetCount = targetCount,
             selectedCount = selectedIndices.size,
