@@ -1946,10 +1946,11 @@ private fun ColorConfusionCell(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val targetContainerColor = when (cell.feedback) {
-        ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
-        ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
-        ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
+    val targetContainerColor = when {
+        cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
+        cell.feedback == ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
+        cell.feedback == ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
+        cell.isSelected -> MaterialTheme.colorScheme.surfaceContainerHigh
         else -> MaterialTheme.colorScheme.surfaceContainer
     }
     val containerColor by animateColorAsState(
@@ -1962,8 +1963,14 @@ private fun ColorConfusionCell(
     val isPressed = cell.isSelected ||
         cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED ||
         cell.feedback == ColorConfusionUiState.CellFeedback.WRONG_SELECTED
+    val sideColor = if (cell.isSelected && cell.feedback == ColorConfusionUiState.CellFeedback.NONE) {
+        containerColor
+    } else {
+        null
+    }
     PrismTile(
         face = containerColor,
+        side = sideColor,
         modifier = modifier.hoverHand(isInteractive),
         isClickable = isInteractive,
         isSelected = isPressed,
