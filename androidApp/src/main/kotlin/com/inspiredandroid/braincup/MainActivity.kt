@@ -6,7 +6,7 @@ import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.api.ReviewBridge
 
 class MainActivity : ComponentActivity() {
 
@@ -26,6 +26,8 @@ class MainActivity : ComponentActivity() {
 
         val canRequestAds = !isConsentRequiredRegion(this)
 
+        ReviewBridge.requestInAppReview = { requestInAppReview(this) }
+
         setContent {
             AndroidApp(
                 finishScreenAdSlot = if (canRequestAds) {
@@ -39,16 +41,6 @@ class MainActivity : ComponentActivity() {
         initPlayGames(this)
         if (canRequestAds) {
             initMobileAds(this)
-        }
-        checkAndRequestReview()
-    }
-
-    private fun checkAndRequestReview() {
-        val userStorage = UserStorage()
-        val appStartCount = userStorage.incrementAndGetTotalAppOpens()
-
-        if (appStartCount % 5 == 0) {
-            requestInAppReview(this)
         }
     }
 }
