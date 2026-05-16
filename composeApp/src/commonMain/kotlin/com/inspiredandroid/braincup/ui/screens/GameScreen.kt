@@ -1383,6 +1383,7 @@ private fun SlidingPuzzleCell(
 
 // --- Sherlock Calculation Helper Composables ---
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun ExpressionRow(
     tokens: List<ExpressionToken>,
@@ -1390,66 +1391,62 @@ private fun ExpressionRow(
     onBackspace: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
+    FlowRow(
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
-        horizontalArrangement = Arrangement.Center,
-        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp, Alignment.CenterHorizontally),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         if (tokens.isEmpty()) {
             Text(
                 text = stringResource(Res.string.game_tap_numbers),
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.align(Alignment.CenterVertically),
             )
         } else {
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                tokens.forEachIndexed { index, token ->
-                    when (token) {
-                        is ExpressionToken.NumberToken -> {
-                            PrismTile(
-                                face = MaterialTheme.colorScheme.primaryContainer,
-                                modifier = Modifier
-                                    .defaultMinSize(40.dp, 40.dp)
-                                    .hoverHand(),
-                                isSelected = true,
-                                onClick = { onTokenClick(index) },
-                            ) {
-                                Text(
-                                    token.displayValue,
-                                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                                    modifier = Modifier.padding(horizontal = 12.dp),
-                                )
-                            }
+            tokens.forEachIndexed { index, token ->
+                when (token) {
+                    is ExpressionToken.NumberToken -> {
+                        PrismTile(
+                            face = MaterialTheme.colorScheme.primaryContainer,
+                            modifier = Modifier
+                                .defaultMinSize(40.dp, 40.dp)
+                                .hoverHand(),
+                            isSelected = true,
+                            onClick = { onTokenClick(index) },
+                        ) {
+                            Text(
+                                token.displayValue,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                                modifier = Modifier.padding(horizontal = 12.dp),
+                            )
                         }
-                        is ExpressionToken.OperatorToken -> {
-                            PrismTile(
-                                face = MaterialTheme.colorScheme.surfaceVariant,
-                                modifier = Modifier
-                                    .defaultMinSize(40.dp, 40.dp)
-                                    .hoverHand(),
-                                isSelected = true,
-                                onClick = { onTokenClick(index) },
-                            ) {
-                                MathText(
-                                    token.displayValue,
-                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    modifier = Modifier.padding(horizontal = 12.dp),
-                                )
-                            }
+                    }
+                    is ExpressionToken.OperatorToken -> {
+                        PrismTile(
+                            face = MaterialTheme.colorScheme.surfaceVariant,
+                            modifier = Modifier
+                                .defaultMinSize(40.dp, 40.dp)
+                                .hoverHand(),
+                            isSelected = true,
+                            onClick = { onTokenClick(index) },
+                        ) {
+                            MathText(
+                                token.displayValue,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                modifier = Modifier.padding(horizontal = 12.dp),
+                            )
                         }
                     }
                 }
             }
         }
-        Spacer(Modifier.width(8.dp))
         PrismTile(
             face = MaterialTheme.colorScheme.surfaceVariant,
             modifier = Modifier
+                .padding(start = 4.dp)
                 .size(40.dp)
                 .hoverHand(tokens.isNotEmpty()),
             isClickable = tokens.isNotEmpty(),
