@@ -1,0 +1,6 @@
+Added color-blind mode
+New chess scenarios
+Improved color confusion button contrast
+Fixed Sherlock calculation screen width
+Performance improvements
+UI alignment refinements

@@ -1,3 +1,17 @@
+## v2.15.0 — 2026-05-16
+
+### Features
+- Color-blind mode
+
+### Fixes
+- Sherlock calculation screen width issue
+
+### Improvements
+- Performance improvements
+- Improved color confusion button contrast
+- New chess scenarios
+- UI alignment refinements
+
 ## v2.14.1 — 2026-05-14
 
 ### Fixes
