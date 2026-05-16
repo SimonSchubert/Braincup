@@ -22,7 +22,6 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.ReviewBridge
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
-import kotlinx.collections.immutable.toImmutableList
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
@@ -31,6 +30,7 @@ import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
+import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
