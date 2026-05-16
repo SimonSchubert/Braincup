@@ -310,25 +310,13 @@ private fun PathFinderPreview() {
 
 @Composable
 private fun ColoredShapesPreview() {
-    Column(
+    Box(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        contentAlignment = Alignment.Center,
     ) {
         ShapeCanvas(
             figure = Figure(Shape.HEART, Color.BLUE),
             modifier = Modifier.size(48.dp),
-        )
-        Spacer(Modifier.height(4.dp))
-        Text(
-            text = "${Shape.HEART.localizedName()} = 3",
-            style = MaterialTheme.typography.labelSmall,
-            color = PreviewTextColor,
-        )
-        Text(
-            text = "${Color.BLUE.localizedName()} = 4",
-            style = MaterialTheme.typography.labelSmall,
-            color = Color.BLUE.composeColor(),
         )
     }
 }

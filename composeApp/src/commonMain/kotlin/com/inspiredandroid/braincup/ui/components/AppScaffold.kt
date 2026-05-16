@@ -35,15 +35,12 @@ fun AppScaffold(
                 },
                 navigationIcon = {
                     if (onBack != null) {
-                        IconButton(
+                        BackPrism(
+                            color = MaterialTheme.colorScheme.primary,
+                            contentDescription = stringResource(Res.string.button_back),
                             onClick = onBack,
                             modifier = Modifier.hoverHand(),
-                        ) {
-                            Icon(
-                                imageVector = BackIcon,
-                                contentDescription = stringResource(Res.string.button_back),
-                            )
-                        }
+                        )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -101,15 +98,12 @@ fun GameScaffold(
                         },
                         navigationIcon = {
                             if (onBack != null) {
-                                IconButton(
+                                BackPrism(
+                                    color = MaterialTheme.colorScheme.primary,
+                                    contentDescription = stringResource(Res.string.button_back),
                                     onClick = onBack,
                                     modifier = Modifier.hoverHand(),
-                                ) {
-                                    Icon(
-                                        imageVector = BackIcon,
-                                        contentDescription = stringResource(Res.string.button_back),
-                                    )
-                                }
+                                )
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(

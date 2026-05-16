@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.api.PlayGamesBridge
+import com.inspiredandroid.braincup.api.ReviewBridge
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
@@ -59,6 +60,10 @@ fun App(
         try {
             menuAudio = Res.readBytes("files/menu_ambient.wav")
         } catch (_: Exception) {
+        }
+        val opens = controller.storage.incrementAndGetTotalAppOpens()
+        if (opens % 5 == 0) {
+            ReviewBridge.requestInAppReview?.invoke()
         }
     }
 
