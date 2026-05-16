@@ -8,14 +8,14 @@ import com.inspiredandroid.braincup.games.minichess.BOARD_SIZE
 import com.inspiredandroid.braincup.games.minichess.ChessBoard
 import com.inspiredandroid.braincup.games.minichess.Color
 import com.inspiredandroid.braincup.games.minichess.Move
+import com.inspiredandroid.braincup.games.minichess.ScenarioGenerator
+import com.inspiredandroid.braincup.games.minichess.Square
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableMap
 import kotlinx.collections.immutable.toImmutableSet
-import com.inspiredandroid.braincup.games.minichess.ScenarioGenerator
-import com.inspiredandroid.braincup.games.minichess.Square
 
 class MiniChessGame(
     /** AI search depth. Driven by the user's selection on the instructions screen.
