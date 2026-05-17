@@ -19,6 +19,10 @@ import kotlin.time.Duration.Companion.seconds
  * The player must identify ALL N shapes in a random order determined by the game.
  */
 class VisualMemoryGame : Game() {
+    // Must always start at round 0: generateRound() places one figure per round, so resuming at
+    // a higher round leaves earlier figures unplaced while the answer phase still asks for them.
+    override val adaptiveDifficulty: Boolean = false
+
     sealed class SubmitResult {
         data object CorrectContinue : SubmitResult()
         data object RoundComplete : SubmitResult()
@@ -35,8 +39,9 @@ class VisualMemoryGame : Game() {
     companion object {
         const val GRID_SIZE = 9
         fun memorizeDurationMillis(round: Int): Long = when (round) {
-            1 -> 3000L
-            2 -> 4000L
+            1 -> 2000L
+            2 -> 3000L
+            3 -> 4000L
             else -> 5000L
         }
 

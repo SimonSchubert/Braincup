@@ -453,9 +453,6 @@ class GameController(
 
     private fun startVisualMemoryGame(gameType: GameType) {
         val game = VisualMemoryGame()
-        if (game.adaptiveDifficulty) {
-            game.round = storage.getLastRound(gameType.id)
-        }
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
