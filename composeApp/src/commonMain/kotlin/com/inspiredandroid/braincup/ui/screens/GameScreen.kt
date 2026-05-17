@@ -2636,11 +2636,13 @@ private fun FlagsScoreRow(
             style = MaterialTheme.typography.labelLarge,
             color = MaterialTheme.colorScheme.onSurface,
         )
-        Text(
-            text = stringResource(Res.string.game_flags_best, bestScore),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
+        if (bestScore > 0) {
+            Text(
+                text = stringResource(Res.string.game_flags_best, bestScore),
+                style = MaterialTheme.typography.labelLarge,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
     }
 }
 

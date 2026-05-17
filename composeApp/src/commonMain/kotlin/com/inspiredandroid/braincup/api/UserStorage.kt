@@ -125,6 +125,31 @@ class UserStorage(
     fun getLevel(): Int = levelForXp(getTotalXp())
 
     /**
+     * Raise the per-game high score to [remoteScore] if it beats the current local value
+     * under the game's scoring direction (e.g. restoring from a Play Games leaderboard on a
+     * fresh install). Total XP is restored separately via [restoreTotalXpIfHigher], so this
+     * intentionally does not award XP.
+     *
+     * Returns true if the local value was changed.
+     */
+    fun restoreHighScoreIfHigher(gameId: String, remoteScore: Int): Boolean {
+        if (remoteScore <= 0) return false
+        val gameType = getGameTypeById(gameId)
+        val current = getHighScore(gameId)
+        val isBetter = if (gameType?.lowerScoreIsBetter == true) {
+            current == 0 || remoteScore < current
+        } else {
+            remoteScore > current
+        }
+        if (!isBetter) return false
+        settings.putInt(getHighscoreKey(gameId), remoteScore)
+        if (gameType != null && gameType.meetsScore(remoteScore, gameType.goldScore)) {
+            Achievements.forGameGold(gameType)?.let { unlockAchievement(it) }
+        }
+        return true
+    }
+
+    /**
      * Raise local XP to [remoteXp] if it's higher than the current value (e.g. restoring
      * progress from the Brain Cup leaderboard on a fresh install).
      *

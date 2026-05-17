@@ -26,12 +26,14 @@ fun initPlayGames(activity: ComponentActivity) {
         if (authed) {
             restoreAchievementsFromPlayGames(activity)
             syncTotalXpWithLeaderboard(activity)
+            syncPerGameLeaderboards(activity)
         } else {
             signInClient.signIn().addOnCompleteListener { signInTask ->
                 val signedIn = signInTask.isSuccessful && signInTask.result?.isAuthenticated == true
                 if (signedIn) {
                     restoreAchievementsFromPlayGames(activity)
                     syncTotalXpWithLeaderboard(activity)
+                    syncPerGameLeaderboards(activity)
                 }
             }
         }
@@ -153,6 +155,36 @@ private fun syncTotalXpWithLeaderboard(activity: ComponentActivity) {
         val xp = storage.getTotalXp()
         if (xp > 0) {
             leaderboardsClient.submitScore(id, xp.toLong())
+        }
+    }
+}
+
+/**
+ * Restore per-game high scores from their Play Games leaderboards. Mirrors
+ * [syncTotalXpWithLeaderboard] but for games with a dedicated leaderboard (currently FLAGS).
+ * Play Games keeps the max, so a smaller resubmit can never overwrite a larger remote score.
+ */
+private fun syncPerGameLeaderboards(activity: ComponentActivity) {
+    val storage = UserStorage()
+    val leaderboardsClient = PlayGames.getLeaderboardsClient(activity)
+    for (gameType in GameType.entries) {
+        val resId = leaderboardResIdFor(gameType) ?: continue
+        val leaderboardId = activity.getString(resId)
+        if (leaderboardId.isBlank()) continue
+        leaderboardsClient.loadCurrentPlayerLeaderboardScore(
+            leaderboardId,
+            LeaderboardVariant.TIME_SPAN_ALL_TIME,
+            LeaderboardVariant.COLLECTION_PUBLIC,
+        ).addOnCompleteListener { task ->
+            val remoteScore = if (task.isSuccessful) {
+                task.result?.get()?.rawScore?.toInt() ?: 0
+            } else {
+                Log.w(TAG, "loadCurrentPlayerLeaderboardScore($leaderboardId) failed", task.exception)
+                0
+            }
+            if (remoteScore > 0) {
+                storage.restoreHighScoreIfHigher(gameType.id, remoteScore)
+            }
         }
     }
 }
