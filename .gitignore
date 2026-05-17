@@ -20,3 +20,4 @@ fastlane/play-store-key.json
 fastlane/report.xml
 fastlane/README.md
 media/achievements
+fastlane/play-bulk-bucket
