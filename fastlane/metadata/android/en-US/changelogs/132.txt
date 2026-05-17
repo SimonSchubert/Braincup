@@ -1,0 +1,3 @@
+iOS Game Center achievements and leaderboard support
+Restore flag score on re-reinstall
+Fix visual memory difficulty bug

@@ -1,3 +1,12 @@
+## v2.15.1 — 2026-05-17
+
+### Features
+- iOS Game Center achievements and leaderboard support
+
+### Fixes
+- Restore flag score on re-reinstall
+- Fix visual memory difficulty bug
+
 ## v2.15.0 — 2026-05-16
 
 ### Features
