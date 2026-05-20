@@ -1445,11 +1445,23 @@ private fun ExpressionRow(
                             isSelected = true,
                             onClick = { onTokenClick(index) },
                         ) {
-                            MathText(
-                                token.displayValue,
-                                color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                modifier = Modifier.padding(horizontal = 12.dp),
-                            )
+                            val operatorIcon = OperatorIcons[token.displayValue]
+                            if (operatorIcon != null) {
+                                Icon(
+                                    imageVector = operatorIcon,
+                                    contentDescription = token.displayValue,
+                                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier
+                                        .padding(horizontal = 6.dp)
+                                        .size(28.dp),
+                                )
+                            } else {
+                                MathText(
+                                    token.displayValue,
+                                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                    modifier = Modifier.padding(horizontal = 12.dp),
+                                )
+                            }
                         }
                     }
                 }

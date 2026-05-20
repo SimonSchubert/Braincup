@@ -9,7 +9,7 @@ import androidx.compose.ui.graphics.vector.PathBuilder
 import androidx.compose.ui.graphics.vector.path
 import androidx.compose.ui.unit.dp
 
-private const val STROKE_WIDTH = 3f
+private const val STROKE_WIDTH = 5f
 
 private fun operator(
     strokeOnly: Boolean = true,
@@ -50,20 +50,20 @@ private val Multiply = operator {
 
 private val Divide = operator(strokeOnly = false) {
     // Horizontal bar
-    moveTo(5f, 10.5f)
+    moveTo(5f, 9.5f)
     horizontalLineTo(19f)
-    verticalLineTo(13.5f)
+    verticalLineTo(14.5f)
     horizontalLineTo(5f)
     close()
     // Upper dot
-    moveTo(12f, 5.5f)
-    arcTo(2f, 2f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 9.5f)
-    arcTo(2f, 2f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 5.5f)
+    moveTo(12f, 3f)
+    arcTo(2.5f, 2.5f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 8f)
+    arcTo(2.5f, 2.5f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 3f)
     close()
     // Lower dot
-    moveTo(12f, 14.5f)
-    arcTo(2f, 2f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 18.5f)
-    arcTo(2f, 2f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 14.5f)
+    moveTo(12f, 16f)
+    arcTo(2.5f, 2.5f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 21f)
+    arcTo(2.5f, 2.5f, 0f, isMoreThanHalf = true, isPositiveArc = true, 12f, 16f)
     close()
 }
 
