@@ -1,3 +1,9 @@
+## v2.15.2 (2026-05-21)
+
+### Improvements
+- Polish division and addition screen UI
+- Update dependencies
+
 ## v2.15.1 — 2026-05-17
 
 ### Features

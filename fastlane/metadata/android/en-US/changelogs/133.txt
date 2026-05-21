@@ -1,0 +1,2 @@
+Polish division and addition screen UI
+Update dependencies
