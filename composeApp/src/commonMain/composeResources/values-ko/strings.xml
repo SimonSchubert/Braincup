@@ -230,8 +230,21 @@
     <string name="game_flags_question">이건 어느 나라 국기일까요?</string>
     <string name="game_flags_score">점수: %1$d</string>
     <string name="game_flags_best">최고: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">숫자 기억</string>
+    <string name="game_digit_memory_desc">숫자 순서를 외우고, 간단한 수학 문제를 풀고, 숫자를 다시 떠올리세요.</string>
+    <string name="digit_memory_memorize">외우기</string>
+    <string name="digit_memory_solve">풀기</string>
+    <string name="digit_memory_recall">떠올리기</string>
+    <string name="achievement_gold_digit_memory">숫자 천재</string>
+    <string name="achievement_gold_digit_memory_desc">숫자 기억에서 금메달 획득</string>
     <string name="instructions_best_score">최고 점수: %1$s</string>
     <string name="instructions_leaderboard">순위표 보기</string>
+    <string name="brain_cup_button">Brain Cup 순위표</string>
+    <string name="sponsors_title">후원자</string>
+    <string name="sponsors_monthly">월간</string>
+    <string name="sponsors_previous">이전 후원자</string>
+    <string name="sponsors_become">후원자 되기</string>
     <!-- Country names -->
     <string name="country_afghanistan">아프가니스탄</string>
     <string name="country_aland_islands">올란드 제도</string>

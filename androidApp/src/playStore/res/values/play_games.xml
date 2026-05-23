@@ -21,6 +21,7 @@
     <string name="achievementTrueColors" translatable="false">CgkIuZrirtIVEAIQEg</string>
     <string name="achievementCrowdCounter" translatable="false">CgkIuZrirtIVEAIQEw</string>
     <string name="achievementLightningGaze" translatable="false">CgkIuZrirtIVEAIQFA</string>
+    <string name="achievementDigitMemory" translatable="false">CgkIuZrirtIVEAIQGQ</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

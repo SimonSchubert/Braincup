@@ -184,6 +184,15 @@ enum class GameType(
         descriptionRes = Res.string.game_flags_desc,
         category = GameCategory.PERCEPTION,
     ),
+    DIGIT_MEMORY(
+        displayNameRes = Res.string.game_digit_memory,
+        id = "22",
+        // Score = sequences recalled in 60s. Initial thresholds; tune after playtest.
+        goldScore = 6,
+        silverScore = 3,
+        descriptionRes = Res.string.game_digit_memory_desc,
+        category = GameCategory.MEMORY,
+    ),
     ;
 
     val accentColor: Long get() = category.accentColor

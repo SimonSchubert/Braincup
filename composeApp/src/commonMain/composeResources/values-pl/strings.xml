@@ -230,8 +230,21 @@
     <string name="game_flags_question">Jaka to flaga?</string>
     <string name="game_flags_score">Wynik: %1$d</string>
     <string name="game_flags_best">Najlepszy: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">Pamięć Cyfr</string>
+    <string name="game_digit_memory_desc">Zapamiętaj ciąg cyfr, rozwiąż krótkie zadanie matematyczne, a następnie przypomnij sobie cyfry.</string>
+    <string name="digit_memory_memorize">Zapamiętaj</string>
+    <string name="digit_memory_solve">Rozwiąż</string>
+    <string name="digit_memory_recall">Przypomnij</string>
+    <string name="achievement_gold_digit_memory">Mistrz Cyfr</string>
+    <string name="achievement_gold_digit_memory_desc">Zdobądź złoty medal w Pamięci Cyfr</string>
     <string name="instructions_best_score">Najlepszy wynik: %1$s</string>
     <string name="instructions_leaderboard">Zobacz ranking</string>
+    <string name="brain_cup_button">Ranking Brain Cup</string>
+    <string name="sponsors_title">Sponsorzy</string>
+    <string name="sponsors_monthly">Miesięczni</string>
+    <string name="sponsors_previous">Poprzedni</string>
+    <string name="sponsors_become">Zostań sponsorem</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afganistan</string>
     <string name="country_aland_islands">Wyspy Alandzkie</string>

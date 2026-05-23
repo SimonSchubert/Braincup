@@ -230,8 +230,21 @@
     <string name="game_flags_question">এটি কোন দেশের পতাকা?</string>
     <string name="game_flags_score">স্কোর: %1$d</string>
     <string name="game_flags_best">সেরা: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">অঙ্ক স্মৃতি</string>
+    <string name="game_digit_memory_desc">একটি সংখ্যার ক্রম মুখস্থ করুন, একটি দ্রুত গণিতের সমস্যা সমাধান করুন, তারপর সংখ্যাগুলি মনে করুন।</string>
+    <string name="digit_memory_memorize">মুখস্থ করুন</string>
+    <string name="digit_memory_solve">সমাধান করুন</string>
+    <string name="digit_memory_recall">মনে করুন</string>
+    <string name="achievement_gold_digit_memory">সংখ্যা বিশারদ</string>
+    <string name="achievement_gold_digit_memory_desc">অঙ্ক স্মৃতিতে সোনার পদক জিতুন</string>
     <string name="instructions_best_score">সেরা স্কোর: %1$s</string>
     <string name="instructions_leaderboard">লিডারবোর্ড দেখুন</string>
+    <string name="brain_cup_button">Brain Cup লিডারবোর্ড</string>
+    <string name="sponsors_title">স্পনসর</string>
+    <string name="sponsors_monthly">মাসিক</string>
+    <string name="sponsors_previous">পূর্ববর্তী</string>
+    <string name="sponsors_become">স্পনসর হন</string>
     <!-- Country names -->
     <string name="country_afghanistan">আফগানিস্তান</string>
     <string name="country_aland_islands">অলান্ড দ্বীপপুঞ্জ</string>

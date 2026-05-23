@@ -13,6 +13,7 @@ import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 @Composable
 fun AndroidApp(
     finishScreenAdSlot: @Composable (Modifier) -> Unit = {},
+    mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
     val isDarkTheme = isSystemInDarkTheme()
     val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
@@ -24,5 +25,5 @@ fun AndroidApp(
         else -> LightColorScheme
     }
 
-    App(colorScheme = colorScheme, finishScreenAdSlot = finishScreenAdSlot)
+    App(colorScheme = colorScheme, finishScreenAdSlot = finishScreenAdSlot, mainMenuSponsorsSlot = mainMenuSponsorsSlot)
 }

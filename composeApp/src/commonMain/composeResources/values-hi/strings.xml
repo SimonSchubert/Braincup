@@ -230,8 +230,21 @@
     <string name="game_flags_question">यह कौन सा झंडा है?</string>
     <string name="game_flags_score">स्कोर: %1$d</string>
     <string name="game_flags_best">सर्वश्रेष्ठ: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">अंक स्मृति</string>
+    <string name="game_digit_memory_desc">अंकों की एक श्रृंखला याद करें, एक त्वरित गणित समस्या हल करें, फिर अंकों को याद करें।</string>
+    <string name="digit_memory_memorize">याद करें</string>
+    <string name="digit_memory_solve">हल करें</string>
+    <string name="digit_memory_recall">स्मरण करें</string>
+    <string name="achievement_gold_digit_memory">अंक ज्ञाता</string>
+    <string name="achievement_gold_digit_memory_desc">अंक स्मृति में स्वर्ण पदक जीतें</string>
     <string name="instructions_best_score">सर्वश्रेष्ठ स्कोर: %1$s</string>
     <string name="instructions_leaderboard">लीडरबोर्ड देखें</string>
+    <string name="brain_cup_button">Brain Cup लीडरबोर्ड</string>
+    <string name="sponsors_title">प्रायोजक</string>
+    <string name="sponsors_monthly">मासिक</string>
+    <string name="sponsors_previous">पूर्व</string>
+    <string name="sponsors_become">प्रायोजक बनें</string>
     <!-- Country names -->
     <string name="country_afghanistan">अफ़ग़ानिस्तान</string>
     <string name="country_aland_islands">आलैंड द्वीप समूह</string>

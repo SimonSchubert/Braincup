@@ -242,9 +242,22 @@
     <string name="game_flags_question">What flag is this?</string>
     <string name="game_flags_score">Score: %1$d</string>
     <string name="game_flags_best">Best: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">Digit Memory</string>
+    <string name="game_digit_memory_desc">Memorize a digit sequence, solve a quick math problem, then recall the digits.</string>
+    <string name="digit_memory_memorize">Memorize</string>
+    <string name="digit_memory_solve">Solve</string>
+    <string name="digit_memory_recall">Recall</string>
+    <string name="achievement_gold_digit_memory">Digit Savant</string>
+    <string name="achievement_gold_digit_memory_desc">Win gold medal in Digit Memory</string>
     <string name="instructions_best_score">Best score: %1$s</string>
     <string name="instructions_leaderboard">View leaderboard</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>
+    <!-- Sponsors section -->
+    <string name="sponsors_title">Sponsors</string>
+    <string name="sponsors_monthly">Monthly</string>
+    <string name="sponsors_previous">Previous</string>
+    <string name="sponsors_become">Become a Sponsor</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Åland Islands</string>

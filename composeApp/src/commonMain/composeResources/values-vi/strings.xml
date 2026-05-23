@@ -230,8 +230,21 @@
     <string name="game_flags_question">Đây là cờ nước nào?</string>
     <string name="game_flags_score">Điểm: %1$d</string>
     <string name="game_flags_best">Cao nhất: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">Trí Nhớ Số</string>
+    <string name="game_digit_memory_desc">Ghi nhớ một dãy số, giải một bài toán nhanh, rồi nhớ lại các số.</string>
+    <string name="digit_memory_memorize">Ghi nhớ</string>
+    <string name="digit_memory_solve">Giải</string>
+    <string name="digit_memory_recall">Nhớ lại</string>
+    <string name="achievement_gold_digit_memory">Bậc Thầy Số</string>
+    <string name="achievement_gold_digit_memory_desc">Giành huy chương vàng trong Trí Nhớ Số</string>
     <string name="instructions_best_score">Điểm cao nhất: %1$s</string>
     <string name="instructions_leaderboard">Xem bảng xếp hạng</string>
+    <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>
+    <string name="sponsors_title">Nhà tài trợ</string>
+    <string name="sponsors_monthly">Hàng tháng</string>
+    <string name="sponsors_previous">Trước đây</string>
+    <string name="sponsors_become">Trở thành nhà tài trợ</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Quần đảo Aland</string>

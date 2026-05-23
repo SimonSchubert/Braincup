@@ -230,8 +230,21 @@
     <string name="game_flags_question">Який це прапор?</string>
     <string name="game_flags_score">Очки: %1$d</string>
     <string name="game_flags_best">Найкращий: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">Пам\'ять на цифри</string>
+    <string name="game_digit_memory_desc">Запам\'ятайте послідовність цифр, розв\'яжіть коротку математичну задачу, а потім пригадайте цифри.</string>
+    <string name="digit_memory_memorize">Запам\'ятати</string>
+    <string name="digit_memory_solve">Вирішити</string>
+    <string name="digit_memory_recall">Пригадати</string>
+    <string name="achievement_gold_digit_memory">Майстер цифр</string>
+    <string name="achievement_gold_digit_memory_desc">Здобудь золоту медаль у Пам\'яті на цифри</string>
     <string name="instructions_best_score">Найкращий результат: %1$s</string>
     <string name="instructions_leaderboard">Переглянути таблицю лідерів</string>
+    <string name="brain_cup_button">Таблиця лідерів Brain Cup</string>
+    <string name="sponsors_title">Спонсори</string>
+    <string name="sponsors_monthly">Щомісячні</string>
+    <string name="sponsors_previous">Колишні</string>
+    <string name="sponsors_become">Стати спонсором</string>
     <!-- Country names -->
     <string name="country_afghanistan">Афганістан</string>
     <string name="country_aland_islands">Аландські острови</string>

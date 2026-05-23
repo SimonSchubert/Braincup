@@ -119,6 +119,7 @@ class GameController(
             (currentState.game as? VisualMemoryGame)?.cancelCountdown()
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
+            (currentState.game as? DigitMemoryGame)?.cancelShowing()
             if (currentState.game is MiniChessGame) cancelMiniChessAi()
             if (currentState.game is FlagsGame) cancelFlagsTimer()
         }
@@ -205,6 +206,10 @@ class GameController(
             startFlagsGame(gameType)
             return
         }
+        if (gameType == GameType.DIGIT_MEMORY) {
+            startDigitMemoryGame(gameType)
+            return
+        }
 
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -288,6 +293,10 @@ class GameController(
         }
         if (game is FlagsGame) {
             handleFlagsAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is DigitMemoryGame) {
+            handleDigitMemoryAnswer(currentState, game, answer.trim())
             return
         }
 
@@ -449,6 +458,7 @@ class GameController(
         GameType.FLASH_CROWD -> FlashCrowdGame()
         GameType.MINI_CHESS -> MiniChessGame()
         GameType.FLAGS -> FlagsGame()
+        GameType.DIGIT_MEMORY -> DigitMemoryGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -981,6 +991,7 @@ class GameController(
         (game as? VisualMemoryGame)?.cancelCountdown()
         (game as? GhostGridGame)?.cancelShowSequence()
         (game as? OrbitTrackerGame)?.cancelAnimation()
+        (game as? DigitMemoryGame)?.cancelShowing()
         if (game is FlagsGame) cancelFlagsTimer()
         cancelTimer()
         _gameUiState.value = null
@@ -1056,6 +1067,66 @@ class GameController(
 
     private fun emitGameUiState(game: VisualMemoryGame) {
         _gameUiState.value = game.toUiState()
+    }
+
+    private fun startDigitMemoryGame(gameType: GameType) {
+        startTime = Clock.System.now().toEpochMilliseconds()
+        _timeRemaining.value = GAME_TIME_MILLIS
+
+        val game = DigitMemoryGame()
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
+        startTimer()
+        game.startShowing(scope) { _gameUiState.value = game.toUiState() }
+    }
+
+    private fun handleDigitMemoryAnswer(
+        currentState: GameState.Active,
+        game: DigitMemoryGame,
+        input: String,
+    ) {
+        when (game.phase) {
+            DigitMemoryGame.Phase.SOLVING -> {
+                if (game.submitMath(input)) {
+                    game.advanceToRecall()
+                    _gameUiState.value = game.toUiState()
+                } else {
+                    // Wrong math forfeits the round: flash the answer, then start a fresh memorize
+                    // round at the same difficulty (no recall, no point).
+                    _gameUiState.value = game.toUiState()
+                    scope.launch {
+                        delay(1.seconds)
+                        advanceDigitMemory(currentState.gameType, game, advanceDifficulty = false)
+                    }
+                }
+            }
+            DigitMemoryGame.Phase.RECALL -> {
+                // Only a correct recall makes the next sequence longer; a wrong recall (like a wrong
+                // math answer) replays at the same length with a fresh sequence.
+                val correct = game.submitRecall(input)
+                if (correct) points++
+                _gameUiState.value = game.toUiState()
+                scope.launch {
+                    delay(1.seconds)
+                    advanceDigitMemory(currentState.gameType, game, advanceDifficulty = correct)
+                }
+            }
+            DigitMemoryGame.Phase.SHOWING -> Unit // ignore input while memorizing
+        }
+    }
+
+    private fun advanceDigitMemory(gameType: GameType, game: DigitMemoryGame, advanceDifficulty: Boolean) {
+        if (_gameState.value !is GameState.Active) return
+        val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
+        if (elapsed > GAME_TIME_MILLIS) {
+            finishCurrentGame(gameType, game)
+        } else {
+            if (advanceDifficulty) game.nextRound() else game.repeatRound()
+            _gameState.value = GameState.Active(gameType, game)
+            game.startShowing(scope) { _gameUiState.value = game.toUiState() }
+        }
     }
 
     private fun ImmutableList<ImmutableList<FigureCell>>.withFeedbackStates(

@@ -245,6 +245,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.LIGHTS_OUT -> LightsOutPreview()
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
         GameType.FLAGS -> FlagsPreview()
+        GameType.DIGIT_MEMORY -> DigitMemoryPreview()
     }
 }
 
@@ -365,6 +366,16 @@ private fun VisualMemoryPreview() {
 private fun MentalCalculationPreview() {
     Text(
         text = "+15",
+        style = MaterialTheme.typography.headlineSmall,
+        textAlign = TextAlign.Center,
+        color = PreviewTextColor,
+    )
+}
+
+@Composable
+private fun DigitMemoryPreview() {
+    Text(
+        text = "4 9 2 8",
         style = MaterialTheme.typography.headlineSmall,
         textAlign = TextAlign.Center,
         color = PreviewTextColor,

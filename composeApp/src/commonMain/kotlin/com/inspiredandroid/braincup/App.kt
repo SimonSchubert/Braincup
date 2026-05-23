@@ -38,6 +38,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 fun App(
     colorScheme: ColorScheme? = null,
     finishScreenAdSlot: @Composable (Modifier) -> Unit = {},
+    mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
     val resolvedColorScheme = colorScheme
         ?: if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme
@@ -112,6 +113,7 @@ fun App(
                         MainMenuScreen(
                             controller = controller,
                             onOpenSettings = { controller.navigateToSettings() },
+                            sponsorsSlot = mainMenuSponsorsSlot,
                         )
                     }
 

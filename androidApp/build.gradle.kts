@@ -102,4 +102,10 @@ dependencies {
     "playStoreImplementation"(libs.compose.foundation)
     "playStoreImplementation"(libs.compose.material3)
     "playStoreImplementation"(libs.compose.ui)
+    "fossImplementation"(libs.coil.compose)
+    "fossImplementation"(libs.coil.network.okhttp)
+    "fossImplementation"(libs.compose.runtime)
+    "fossImplementation"(libs.compose.foundation)
+    "fossImplementation"(libs.compose.material3)
+    "fossImplementation"(libs.compose.ui)
 }

@@ -230,8 +230,21 @@
     <string name="game_flags_question">ما هذا العلم؟</string>
     <string name="game_flags_score">النتيجة: %1$d</string>
     <string name="game_flags_best">الأفضل: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">ذاكرة الأرقام</string>
+    <string name="game_digit_memory_desc">احفظ تسلسل أرقام، وحل مسألة رياضية سريعة، ثم تذكر الأرقام.</string>
+    <string name="digit_memory_memorize">احفظ</string>
+    <string name="digit_memory_solve">حل</string>
+    <string name="digit_memory_recall">تذكر</string>
+    <string name="achievement_gold_digit_memory">عبقري الأرقام</string>
+    <string name="achievement_gold_digit_memory_desc">اربح الميدالية الذهبية في ذاكرة الأرقام</string>
     <string name="instructions_best_score">أفضل نتيجة: %1$s</string>
     <string name="instructions_leaderboard">عرض لوحة المتصدرين</string>
+    <string name="brain_cup_button">لوحة متصدري Brain Cup</string>
+    <string name="sponsors_title">الرعاة</string>
+    <string name="sponsors_monthly">شهري</string>
+    <string name="sponsors_previous">سابقون</string>
+    <string name="sponsors_become">كن راعياً</string>
     <!-- Country names -->
     <string name="country_afghanistan">أفغانستان</string>
     <string name="country_aland_islands">جزر أولاند</string>

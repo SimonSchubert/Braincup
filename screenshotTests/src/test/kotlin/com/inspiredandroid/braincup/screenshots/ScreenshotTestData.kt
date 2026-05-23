@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.screenshots
 
+import com.inspiredandroid.braincup.app.DigitMemoryUiState
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
@@ -283,6 +284,36 @@ fun createGhostGridGameOverUiState(): com.inspiredandroid.braincup.app.GhostGrid
     game.submitAnswer("-1")
     return game.toUiState()
 }
+
+fun createDigitMemoryShowingUiState(): DigitMemoryUiState = DigitMemoryUiState(
+    phase = DigitMemoryGame.Phase.SHOWING,
+    sequence = "5441754",
+    sequenceLength = 7,
+    problem = "3 + 4",
+    answerLength = 1,
+    revealedMathAnswer = null,
+    recallResult = null,
+)
+
+fun createDigitMemorySolvingUiState(): DigitMemoryUiState = DigitMemoryUiState(
+    phase = DigitMemoryGame.Phase.SOLVING,
+    sequence = "5441754",
+    sequenceLength = 7,
+    problem = "6 * 7",
+    answerLength = 2,
+    revealedMathAnswer = null,
+    recallResult = null,
+)
+
+fun createDigitMemoryRecallUiState(): DigitMemoryUiState = DigitMemoryUiState(
+    phase = DigitMemoryGame.Phase.RECALL,
+    sequence = "5441754",
+    sequenceLength = 7,
+    problem = "6 * 7",
+    answerLength = 2,
+    revealedMathAnswer = null,
+    recallResult = null,
+)
 
 fun createVisualMemoryUiState(): VisualMemoryUiState {
     return VisualMemoryUiState(

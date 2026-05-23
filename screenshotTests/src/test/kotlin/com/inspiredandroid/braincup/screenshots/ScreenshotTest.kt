@@ -177,6 +177,45 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameDigitMemoryShowing() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createDigitMemoryShowingUiState(),
+                timeRemaining = 52_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameDigitMemorySolving() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createDigitMemorySolvingUiState(),
+                timeRemaining = 48_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameDigitMemoryRecall() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createDigitMemoryRecallUiState(),
+                timeRemaining = 44_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun finishNewHighscore() {
         paparazzi.snap {
             FinishScreen(

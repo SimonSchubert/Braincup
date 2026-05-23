@@ -230,8 +230,21 @@
     <string name="game_flags_question">这是哪个国家的国旗？</string>
     <string name="game_flags_score">得分：%1$d</string>
     <string name="game_flags_best">最佳：%1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">数字记忆</string>
+    <string name="game_digit_memory_desc">记住一串数字，完成一道简单数学题，然后回忆数字。</string>
+    <string name="digit_memory_memorize">记忆</string>
+    <string name="digit_memory_solve">解题</string>
+    <string name="digit_memory_recall">回忆</string>
+    <string name="achievement_gold_digit_memory">数字天才</string>
+    <string name="achievement_gold_digit_memory_desc">在数字记忆中获得金牌</string>
     <string name="instructions_best_score">最高分：%1$s</string>
     <string name="instructions_leaderboard">查看排行榜</string>
+    <string name="brain_cup_button">Brain Cup 排行榜</string>
+    <string name="sponsors_title">赞助商</string>
+    <string name="sponsors_monthly">月度</string>
+    <string name="sponsors_previous">往期</string>
+    <string name="sponsors_become">成为赞助商</string>
     <!-- Country names -->
     <string name="country_afghanistan">阿富汗</string>
     <string name="country_aland_islands">奥兰群岛</string>

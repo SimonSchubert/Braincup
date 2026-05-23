@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sponsors_title">Спонсори</string>
+    <string name="sponsors_monthly">Щомісячні</string>
+    <string name="sponsors_previous">Колишні</string>
+    <string name="sponsors_become">Стати спонсором</string>
+</resources>

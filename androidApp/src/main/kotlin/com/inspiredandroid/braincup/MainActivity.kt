@@ -35,6 +35,7 @@ class MainActivity : ComponentActivity() {
                 } else {
                     {}
                 },
+                mainMenuSponsorsSlot = { MainMenuSponsors() },
             )
         }
 

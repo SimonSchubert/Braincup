@@ -42,6 +42,7 @@ private val SortedGameTypes: List<GameType> =
 fun MainMenuScreen(
     controller: GameController,
     onOpenSettings: () -> Unit = {},
+    sponsorsSlot: @Composable () -> Unit = {},
 ) {
     val sessionState by controller.sessionState.collectAsState()
     val sessionStreak by controller.sessionStreak.collectAsState()
@@ -72,6 +73,7 @@ fun MainMenuScreen(
         } else {
             null
         },
+        sponsorsSlot = sponsorsSlot,
     )
 }
 
@@ -91,6 +93,7 @@ fun MainMenuScreenContent(
     onViewScore: (GameType) -> Unit = {},
     onAchievements: () -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
+    sponsorsSlot: @Composable () -> Unit = {},
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val colorblindEnabled = LocalAccessiblePalette.current
@@ -249,6 +252,10 @@ fun MainMenuScreenContent(
 
                 Spacer(Modifier.height(16.dp))
             }
+        }
+
+        item(span = { GridItemSpan(maxLineSpan) }, contentType = "sponsors") {
+            sponsorsSlot()
         }
     }
 }

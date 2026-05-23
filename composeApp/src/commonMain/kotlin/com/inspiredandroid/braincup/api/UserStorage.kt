@@ -37,6 +37,7 @@ class UserStorage(
         GOLD_ORBIT_TRACKER(Res.string.achievement_gold_orbit_tracker, Res.string.achievement_gold_orbit_tracker_desc),
         GOLD_FLASH_CROWD(Res.string.achievement_gold_flash_crowd, Res.string.achievement_gold_flash_crowd_desc),
         GOLD_SCHULTE_TABLE(Res.string.achievement_gold_schulte_table, Res.string.achievement_gold_schulte_table_desc),
+        GOLD_DIGIT_MEMORY(Res.string.achievement_gold_digit_memory, Res.string.achievement_gold_digit_memory_desc),
         TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc),
         STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc),
         ;

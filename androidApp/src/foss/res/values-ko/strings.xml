@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="sponsors_title">후원자</string>
+    <string name="sponsors_monthly">월간</string>
+    <string name="sponsors_previous">이전 후원자</string>
+    <string name="sponsors_become">후원자 되기</string>
+</resources>

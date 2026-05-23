@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.app
 
 import androidx.compose.runtime.Immutable
+import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
@@ -245,6 +246,23 @@ data class VisualMemoryUiState(
         val isWrong: Boolean = false,
     )
 }
+
+@Immutable
+data class DigitMemoryUiState(
+    val phase: DigitMemoryGame.Phase,
+    /** The digits to memorize; shown during SHOWING and during the recall reveal. */
+    val sequence: String,
+    /** Expected recall length (drives auto-submit). */
+    val sequenceLength: Int,
+    /** Distraction problem text shown during SOLVING, e.g. "3 + 4". */
+    val problem: String,
+    /** Expected math answer length (drives auto-submit). */
+    val answerLength: Int,
+    /** Non-null => flash the correct math answer after a wrong attempt. */
+    val revealedMathAnswer: String?,
+    /** Non-null => reveal the sequence colored by correct/wrong. */
+    val recallResult: DigitMemoryGame.RecallResult?,
+) : GameUiState
 
 enum class MiniChessOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }
 
