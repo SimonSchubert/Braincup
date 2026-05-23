@@ -7,6 +7,8 @@ string|achievement_gold_color_confusion_desc|TWVuYW5na2FuIG1lZGFsaSBlbWFzIGRpIEt
 string|achievement_gold_color_confusion|V2FybmEgU2VqYXRp
 string|achievement_gold_colored_shapes_desc|TWVuYW5na2FuIG1lZGFsaSBlbWFzIGRpIEJlbnR1ayBCZXJ3YXJuYQ==
 string|achievement_gold_colored_shapes|UGVuZ3ViYWggQmVudHVr
+string|achievement_gold_digit_memory_desc|TWVuYW5na2FuIG1lZGFsaSBlbWFzIGRpIE1lbW9yaSBBbmdrYQ==
+string|achievement_gold_digit_memory|UGFrYXIgQW5na2E=
 string|achievement_gold_flash_crowd_desc|TWVuYW5na2FuIG1lZGFsaSBlbWFzIGRpIEtlcnVtdW5hbiBLaWxhdA==
 string|achievement_gold_flash_crowd|UGVuZ2hpdHVuZyBLZXJ1bXVuYW4=
 string|achievement_gold_fraction_calculation_desc|TWVuYW5na2FuIG1lZGFsaSBlbWFzIGRpIFBlcmhpdHVuZ2FuIFBlY2FoYW4=
@@ -45,6 +47,7 @@ string|achievements_button|UGVuY2FwYWlhbiAoJTEkZC8lMiRkKQ==
 string|achievements_title|UGVuY2FwYWlhbg==
 string|app_name|QnJhaW5jdXA=
 string|app_tagline|TGF0aWgga2VtYW1wdWFuIG1hdGVtYXRpa2EsIG1lbW9yaSwgZGFuIGZva3VzIEFuZGEu
+string|brain_cup_button|UGFwYW4gcGVyaW5na2F0IEJyYWluIEN1cA==
 string|button_backspace|SGFwdXM=
 string|button_back|S2VtYmFsaQ==
 string|button_done|U2VsZXNhaQ==
@@ -303,6 +306,9 @@ string|daily_challenge_subtitle_progress|U2VkYW5nIGJlcmxhbmdzdW5nIMK3ICUxJGQgZGF
 string|daily_challenge_subtitle_start_no_streak|TWFpbmthbiAlMSRkIHBlcm1haW5hbiB1bnR1ayBtZW11bGFpIHN0cmVhaw==
 string|daily_challenge_subtitle_start|TWFpbmthbiAlMSRkIHBlcm1haW5hbiB1bnR1ayBtZW5qYWdhIHN0cmVhaw==
 string|daily_challenge_title|VGFudGFuZ2FuIGhhcmlhbg==
+string|digit_memory_memorize|SGFmYWxrYW4=
+string|digit_memory_recall|SW5nYXQga2VtYmFsaQ==
+string|digit_memory_solve|U2VsZXNhaWthbg==
 string|direction_down|YmF3YWg=
 string|direction_left|a2lyaQ==
 string|direction_right|a2FuYW4=
@@ -321,6 +327,8 @@ string|game_color_confusion_desc|S2V0dWsgc2VtdWEgc2VsIHlhbmcga2F0YW55YSBjb2NvayB
 string|game_color_confusion|S2ViaW5ndW5nYW4gV2FybmE=
 string|game_colored_shapes_desc|SnVtbGFoa2FuIHBvaW4gZGFyaSBwZXJueWF0YWFuIHlhbmcgYmVuYXIu
 string|game_colored_shapes|QmVudHVrIEJlcndhcm5h
+string|game_digit_memory_desc|SGFmYWxrYW4gdXJ1dGFuIGFuZ2thLCBzZWxlc2Fpa2FuIHNvYWwgbWF0ZW1hdGlrYSBjZXBhdCwgbGFsdSBpbmdhdCBrZW1iYWxpIGFuZ2thbnlhLg==
+string|game_digit_memory|TWVtb3JpIEFuZ2th
 string|game_flags_best|VGVyYmFpazogJTEkZA==
 string|game_flags_desc|VGViYWsgbmVnYXJhIGRhcmkgYmVuZGVyYW55YS4gU2V0aWFwIHJvbmRlIG1lbmFtYmFoa2FuIGxlYmloIGJhbnlhayBwaWxpaGFuIGRhbiB3YWt0dSB0ZXJ1cyBiZXJqYWxhbi4=
 string|game_flags_question|QmVuZGVyYSBhcGEgaW5pPw==
@@ -422,6 +430,10 @@ string|solution_figure|JTEkcyAlMiRz
 string|solution_left|S2lyaQ==
 string|solution_pointing|JTEkcyAlMiRzIG1lbnVuanVrICUzJHM=
 string|solution_right|S2FuYW4=
+string|sponsors_become|SmFkaWxhaCBTcG9uc29y
+string|sponsors_monthly|QnVsYW5hbg==
+string|sponsors_previous|U2ViZWx1bW55YQ==
+string|sponsors_title|U3BvbnNvcg==
 string|title_apprentice|TXVyaWQ=
 string|title_grandmaster|TWFoYSBBaGxp
 string|title_master|QWhsaQ==

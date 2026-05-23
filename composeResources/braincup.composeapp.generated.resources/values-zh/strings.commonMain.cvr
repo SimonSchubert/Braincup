@@ -7,6 +7,8 @@ string|achievement_gold_color_confusion_desc|5Zyo6aKc6Imy5re35reG5Lit6LWi5b6X6Ye
 string|achievement_gold_color_confusion|5pys6Imy
 string|achievement_gold_colored_shapes_desc|5Zyo5b2p6Imy5b2i54q25Lit6LWi5b6X6YeR54mM
 string|achievement_gold_colored_shapes|5Y+Y5b2i6ICF
+string|achievement_gold_digit_memory_desc|5Zyo5pWw5a2X6K6w5b+G5Lit6I635b6X6YeR54mM
+string|achievement_gold_digit_memory|5pWw5a2X5aSp5omN
 string|achievement_gold_flash_crowd_desc|5Zyo6Zeq546w5Lq6576k5Lit6LWi5b6X6YeR54mM
 string|achievement_gold_flash_crowd|576k5LyX6K6h5pWw5Zmo
 string|achievement_gold_fraction_calculation_desc|5Zyo5YiG5pWw6K6h566X5Lit6LWi5b6X6YeR54mM
@@ -45,6 +47,7 @@ string|achievements_button|5oiQ5bCxICglMSRkLyUyJGQp
 string|achievements_title|5oiQ5bCx
 string|app_name|QnJhaW5jdXA=
 string|app_tagline|6K6t57uD5oKo55qE5pWw5a2m5oqA6IO944CB6K6w5b+G5Yqb5ZKM5LiT5rOo5Yqb44CC
+string|brain_cup_button|QnJhaW4gQ3VwIOaOkuihjOamnA==
 string|button_backspace|6YCA5qC8
 string|button_back|6L+U5Zue
 string|button_done|5a6M5oiQ
@@ -303,6 +306,9 @@ string|daily_challenge_subtitle_progress|6L+b6KGM5LitIMK3ICUxJGQgLyAlMiRk
 string|daily_challenge_subtitle_start_no_streak|546pICUxJGQg5Liq5ri45oiP5p2l5byA5aeL5L2g55qE6L+e57ut6K6w5b2V
 string|daily_challenge_subtitle_start|546pICUxJGQg5Liq5ri45oiP5p2l5L+d5oyB6L+e57ut6K6w5b2V
 string|daily_challenge_title|5q+P5pel5oyR5oiY
+string|digit_memory_memorize|6K6w5b+G
+string|digit_memory_recall|5Zue5b+G
+string|digit_memory_solve|6Kej6aKY
 string|direction_down|5LiL
 string|direction_left|5bem
 string|direction_right|5Y+z
@@ -321,6 +327,8 @@ string|game_color_confusion_desc|54K55Ye75omA5pyJ5paH5a2X5LiO5a2X5L2T6aKc6Imy5Yy
 string|game_color_confusion|6aKc6Imy5re35reG
 string|game_colored_shapes_desc|5bCG5q2j56Gu6ZmI6L+w55qE5YiG5pWw55u45Yqg44CC
 string|game_colored_shapes|5b2p6Imy5b2i54q2
+string|game_digit_memory_desc|6K6w5L2P5LiA5Liy5pWw5a2X77yM5a6M5oiQ5LiA6YGT566A5Y2V5pWw5a2m6aKY77yM54S25ZCO5Zue5b+G5pWw5a2X44CC
+string|game_digit_memory|5pWw5a2X6K6w5b+G
 string|game_flags_best|5pyA5L2z77yaJTEkZA==
 string|game_flags_desc|6YCa6L+H5Zu95peX6L6o6K6k5Zu95a6244CC5q+P5LiA6L2u6YCJ6aG55pu05aSa77yM5pe26Ze05Lmf5Zyo5rWB6YCd44CC
 string|game_flags_question|6L+Z5piv5ZOq5Liq5Zu95a6255qE5Zu95peX77yf
@@ -422,6 +430,10 @@ string|solution_figure|JTEkcyUyJHM=
 string|solution_left|5bem6L65
 string|solution_pointing|5oyH5ZCRJTMkc+eahCUxJHMlMiRz
 string|solution_right|5Y+z6L65
+string|sponsors_become|5oiQ5Li66LWe5Yqp5ZWG
+string|sponsors_monthly|5pyI5bqm
+string|sponsors_previous|5b6A5pyf
+string|sponsors_title|6LWe5Yqp5ZWG
 string|title_apprentice|5a2m5b6S
 string|title_grandmaster|5a6X5biI
 string|title_master|5aSn5biI
