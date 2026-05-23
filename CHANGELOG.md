@@ -1,3 +1,8 @@
+## v2.15.3 — 2026-05-24
+
+### Features
+- Add digit memory game
+
 ## v2.15.2 (2026-05-21)
 
 ### Improvements
