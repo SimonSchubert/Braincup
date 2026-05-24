@@ -1,3 +1,8 @@
+## v2.16.0 — 2026-05-24
+
+### Features
+- Add Spot the New game
+
 ## v2.15.3 — 2026-05-24
 
 ### Features
