@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Пригадати</string>
     <string name="achievement_gold_digit_memory">Майстер цифр</string>
     <string name="achievement_gold_digit_memory_desc">Здобудь золоту медаль у Пам\'яті на цифри</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Знайди нове</string>
+    <string name="game_spot_the_new_desc">Натисніть на тварину, яку ви ще не бачили. Одна помилка завершує гру.</string>
+    <string name="achievement_gold_spot_the_new">Свіжий погляд</string>
+    <string name="achievement_gold_spot_the_new_desc">Здобудь золоту медаль у Знайди нове</string>
     <string name="instructions_best_score">Найкращий результат: %1$s</string>
     <string name="instructions_leaderboard">Переглянути таблицю лідерів</string>
     <string name="brain_cup_button">Таблиця лідерів Brain Cup</string>

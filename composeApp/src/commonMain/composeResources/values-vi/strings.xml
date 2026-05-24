@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Nhớ lại</string>
     <string name="achievement_gold_digit_memory">Bậc Thầy Số</string>
     <string name="achievement_gold_digit_memory_desc">Giành huy chương vàng trong Trí Nhớ Số</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Tìm Cái Mới</string>
+    <string name="game_spot_the_new_desc">Chạm vào con vật mà bạn chưa từng thấy. Một lỗi sai sẽ kết thúc trò chơi.</string>
+    <string name="achievement_gold_spot_the_new">Mắt Tinh</string>
+    <string name="achievement_gold_spot_the_new_desc">Giành huy chương vàng trong Tìm Cái Mới</string>
     <string name="instructions_best_score">Điểm cao nhất: %1$s</string>
     <string name="instructions_leaderboard">Xem bảng xếp hạng</string>
     <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>

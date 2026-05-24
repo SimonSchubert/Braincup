@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">떠올리기</string>
     <string name="achievement_gold_digit_memory">숫자 천재</string>
     <string name="achievement_gold_digit_memory_desc">숫자 기억에서 금메달 획득</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">새로운 것 찾기</string>
+    <string name="game_spot_the_new_desc">이전에 본 적 없는 동물을 탭하세요. 한 번 틀리면 게임이 끝납니다.</string>
+    <string name="achievement_gold_spot_the_new">예리한 눈</string>
+    <string name="achievement_gold_spot_the_new_desc">새로운 것 찾기에서 금메달 획득</string>
     <string name="instructions_best_score">최고 점수: %1$s</string>
     <string name="instructions_leaderboard">순위표 보기</string>
     <string name="brain_cup_button">Brain Cup 순위표</string>

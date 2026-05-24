@@ -56,13 +56,17 @@ fun PrismTile(
     val faceColor = if (sunken) resolvedSide else face
 
     Box(
-        modifier = modifier.clickable(
-            interactionSource = interactionSource,
-            indication = null,
-            enabled = isClickable,
-        ) {
-            onClick()
-        },
+        modifier = modifier
+            .clickable(
+                interactionSource = interactionSource,
+                indication = null,
+                enabled = isClickable,
+            ) {
+                onClick()
+            }
+            // Show the hand cursor whenever the tile is interactive, so every PrismTile-based
+            // control gets the hover affordance without each caller having to remember it.
+            .hoverHand(isClickable),
         contentAlignment = Alignment.Center,
     ) {
         PrismShape(

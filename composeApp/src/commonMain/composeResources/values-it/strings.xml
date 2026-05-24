@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Ricorda</string>
     <string name="achievement_gold_digit_memory">Esperto di Cifre</string>
     <string name="achievement_gold_digit_memory_desc">Vinci la medaglia d'oro in Memoria delle Cifre</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Trova il Nuovo</string>
+    <string name="game_spot_the_new_desc">Tocca l'animale che non hai mai visto. Un errore termina il gioco.</string>
+    <string name="achievement_gold_spot_the_new">Occhio Nuovo</string>
+    <string name="achievement_gold_spot_the_new_desc">Vinci la medaglia d'oro in Trova il Nuovo</string>
     <string name="instructions_best_score">Miglior punteggio: %1$s</string>
     <string name="instructions_leaderboard">Vedi classifica</string>
     <string name="brain_cup_button">Classifica Brain Cup</string>

@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Recordar</string>
     <string name="achievement_gold_digit_memory">Sabio de los Dígitos</string>
     <string name="achievement_gold_digit_memory_desc">Gana la medalla de oro en Memoria de Dígitos</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Detecta lo Nuevo</string>
+    <string name="game_spot_the_new_desc">Toca el animal que no hayas visto antes. Un error termina el juego.</string>
+    <string name="achievement_gold_spot_the_new">Ojos Frescos</string>
+    <string name="achievement_gold_spot_the_new_desc">Gana la medalla de oro en Detecta lo Nuevo</string>
     <string name="instructions_best_score">Mejor puntuación: %1$s</string>
     <string name="instructions_leaderboard">Ver clasificación</string>
     <string name="brain_cup_button">Clasificación Brain Cup</string>

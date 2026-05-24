@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Przypomnij</string>
     <string name="achievement_gold_digit_memory">Mistrz Cyfr</string>
     <string name="achievement_gold_digit_memory_desc">Zdobądź złoty medal w Pamięci Cyfr</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Znajdź Nowy</string>
+    <string name="game_spot_the_new_desc">Dotknij zwierzęcia, którego wcześniej nie widziałeś. Jeden błąd kończy grę.</string>
+    <string name="achievement_gold_spot_the_new">Świeże Oko</string>
+    <string name="achievement_gold_spot_the_new_desc">Zdobądź złoty medal w Znajdź Nowy</string>
     <string name="instructions_best_score">Najlepszy wynik: %1$s</string>
     <string name="instructions_leaderboard">Zobacz ranking</string>
     <string name="brain_cup_button">Ranking Brain Cup</string>

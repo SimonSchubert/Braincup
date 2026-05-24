@@ -193,6 +193,15 @@ enum class GameType(
         descriptionRes = Res.string.game_digit_memory_desc,
         category = GameCategory.MEMORY,
     ),
+    SPOT_THE_NEW(
+        displayNameRes = Res.string.game_spot_the_new,
+        id = "23",
+        // Score = rounds survived. Initial thresholds; tune after playtest.
+        goldScore = 12,
+        silverScore = 6,
+        descriptionRes = Res.string.game_spot_the_new_desc,
+        category = GameCategory.MEMORY,
+    ),
     ;
 
     val accentColor: Long get() = category.accentColor

@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.animation.AnimatedContent
+import androidx.compose.animation.EnterExitState
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -39,6 +40,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
+import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.games.tools.Calculator
@@ -59,6 +61,8 @@ import kotlinx.collections.immutable.toImmutableSet
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import kotlin.math.ceil
+import kotlin.math.sqrt
 import kotlin.time.Duration.Companion.milliseconds
 import androidx.compose.ui.graphics.Color as ComposeColor
 
@@ -118,6 +122,29 @@ fun GameScreen(
             }
             bar
         }
+        gameUiState is SpotTheNewUiState &&
+            gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING -> {
+            val bar: @Composable () -> Unit = {
+                val totalMillis = SpotTheNewGame.MEMORIZE_MILLIS.toFloat()
+                var progress by remember { mutableStateOf(1f) }
+                LaunchedEffect(Unit) {
+                    val startNanos = withFrameNanos { it }
+                    while (progress > 0f) {
+                        val nowNanos = withFrameNanos { it }
+                        val elapsedMillis = (nowNanos - startNanos) / 1_000_000f
+                        progress = (1f - elapsedMillis / totalMillis).coerceAtLeast(0f)
+                    }
+                }
+                TimeProgressIndicator(
+                    progress = progress,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp, vertical = 8.dp),
+                )
+            }
+            bar
+        }
+        gameUiState is SpotTheNewUiState -> null
         gameUiState is VisualMemoryUiState ||
             gameUiState is GhostGridUiState ||
             gameUiState is OrbitTrackerUiState ||
@@ -174,6 +201,7 @@ fun GameScreen(
             is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
             is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
             is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
+            is SpotTheNewUiState -> SpotTheNewContent(gameUiState, onAnswer)
             is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
             is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
             is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
@@ -1693,7 +1721,8 @@ private fun DigitSlots(
                         .border(BorderStroke(2.dp, borderColor), shape)
                         .then(
                             if (clickable) Modifier.clickable { onRemoveAt!!(index) } else Modifier,
-                        ),
+                        )
+                        .hoverHand(clickable),
                     contentAlignment = Alignment.Center,
                 ) {
                     Text(
@@ -2060,6 +2089,104 @@ private fun VisualMemoryCell(
     }
 }
 
+// --- Spot the New Game Composables ---
+
+private const val SpotTheNewFadeMillis = 420
+
+@Composable
+private fun ColumnScope.SpotTheNewContent(
+    uiState: SpotTheNewUiState,
+    onAnswer: (String) -> Unit,
+) {
+    // Each round fades out, then the next round fades in. Keying on the round number means the
+    // in-place game-over reveal (same round, only tile colors change) is not faded.
+    AnimatedContent(
+        targetState = uiState,
+        contentKey = { it.round },
+        transitionSpec = {
+            fadeIn(animationSpec = tween(SpotTheNewFadeMillis, delayMillis = SpotTheNewFadeMillis)) togetherWith
+                fadeOut(animationSpec = tween(SpotTheNewFadeMillis))
+        },
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+        label = "spotTheNewRound",
+    ) { state ->
+        // Only the fully settled, visible round accepts taps, so the outgoing grid can't be
+        // tapped against the already-advanced game state during the fade.
+        val settled = transition.currentState == EnterExitState.Visible &&
+            transition.targetState == EnterExitState.Visible
+        SpotTheNewGrid(
+            uiState = state,
+            interactive = settled,
+            onAnswer = onAnswer,
+        )
+    }
+}
+
+@Composable
+private fun SpotTheNewGrid(
+    uiState: SpotTheNewUiState,
+    interactive: Boolean,
+    onAnswer: (String) -> Unit,
+) {
+    val count = uiState.displayedCount.coerceAtLeast(1)
+    val columns = ceil(sqrt(count.toDouble())).toInt().coerceAtLeast(1)
+    val clickable = interactive && uiState.phase == SpotTheNewGame.Phase.ANSWERING
+    val maxTileWidth = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+
+    Column(
+        modifier = Modifier
+            .padding(horizontal = 24.dp)
+            .widthIn(max = maxTileWidth * columns),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        uiState.cells.chunked(columns).forEach { rowCells ->
+            Row {
+                rowCells.forEach { cell ->
+                    SpotTheNewTile(
+                        cell = cell,
+                        clickable = clickable,
+                        onAnswer = onAnswer,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(4.dp),
+                    )
+                }
+                // Pad the final short row so its tiles keep the same square size.
+                repeat(columns - rowCells.size) { Spacer(Modifier.weight(1f)) }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SpotTheNewTile(
+    cell: SpotTheNewUiState.CellState,
+    clickable: Boolean,
+    onAnswer: (String) -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val face = when (cell.type) {
+        SpotTheNewGame.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+        SpotTheNewGame.CellType.CORRECT -> PrimaryContainer
+        SpotTheNewGame.CellType.NORMAL -> MaterialTheme.colorScheme.surfaceContainer
+    }
+    PrismTile(
+        face = face,
+        modifier = modifier,
+        isClickable = clickable,
+        onClick = { onAnswer(cell.index.toString()) },
+    ) {
+        Image(
+            painter = painterResource(cell.animal.resource),
+            contentDescription = null,
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp),
+        )
+    }
+}
+
 // --- Ghost Grid Game Composables ---
 
 @Composable
@@ -2350,6 +2477,7 @@ private fun ColumnScope.OrbitTrackerContent(
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
+                .hoverHand(isAnswering)
                 .pointerInput(uiState.phase) {
                     if (!isAnswering) return@pointerInput
                     awaitPointerEventScope {
@@ -2769,7 +2897,8 @@ private fun MiniChessCellView(
         modifier = Modifier
             .size(56.dp)
             .background(if (isSelected) MiniChessSelected else baseColor)
-            .clickable(enabled = enabled, onClick = onClick),
+            .clickable(enabled = enabled, onClick = onClick)
+            .hoverHand(enabled),
         contentAlignment = Alignment.Center,
     ) {
         if (isLastMove && !isSelected) {

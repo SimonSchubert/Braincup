@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Ingat kembali</string>
     <string name="achievement_gold_digit_memory">Pakar Angka</string>
     <string name="achievement_gold_digit_memory_desc">Menangkan medali emas di Memori Angka</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Temukan yang Baru</string>
+    <string name="game_spot_the_new_desc">Ketuk hewan yang belum pernah kamu lihat. Satu kesalahan mengakhiri permainan.</string>
+    <string name="achievement_gold_spot_the_new">Mata Jeli</string>
+    <string name="achievement_gold_spot_the_new_desc">Menangkan medali emas di Temukan yang Baru</string>
     <string name="instructions_best_score">Skor terbaik: %1$s</string>
     <string name="instructions_leaderboard">Lihat papan peringkat</string>
     <string name="brain_cup_button">Papan peringkat Brain Cup</string>

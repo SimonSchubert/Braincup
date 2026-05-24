@@ -4,8 +4,10 @@ import androidx.compose.runtime.Immutable
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
+import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
+import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -244,6 +246,22 @@ data class VisualMemoryUiState(
         val figureIndex: Int,
         val enabled: Boolean,
         val isWrong: Boolean = false,
+    )
+}
+
+@Immutable
+data class SpotTheNewUiState(
+    val round: Int,
+    val phase: SpotTheNewGame.Phase,
+    val displayedCount: Int,
+    val cells: ImmutableList<CellState>,
+) : GameUiState {
+    @Immutable
+    data class CellState(
+        val animal: Animal,
+        /** Position in the displayed list; the value passed back on tap. */
+        val index: Int,
+        val type: SpotTheNewGame.CellType,
     )
 }
 

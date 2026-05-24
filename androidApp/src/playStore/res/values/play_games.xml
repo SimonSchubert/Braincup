@@ -22,6 +22,7 @@
     <string name="achievementCrowdCounter" translatable="false">CgkIuZrirtIVEAIQEw</string>
     <string name="achievementLightningGaze" translatable="false">CgkIuZrirtIVEAIQFA</string>
     <string name="achievementDigitMemory" translatable="false">CgkIuZrirtIVEAIQGQ</string>
+    <string name="achievementSpotTheNew" translatable="false">CgkIuZrirtIVEAIQGg</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

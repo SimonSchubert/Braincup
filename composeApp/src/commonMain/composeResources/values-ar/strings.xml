@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">تذكر</string>
     <string name="achievement_gold_digit_memory">عبقري الأرقام</string>
     <string name="achievement_gold_digit_memory_desc">اربح الميدالية الذهبية في ذاكرة الأرقام</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">اكتشف الجديد</string>
+    <string name="game_spot_the_new_desc">انقر على الحيوان الذي لم تره من قبل. خطأ واحد ينهي اللعبة.</string>
+    <string name="achievement_gold_spot_the_new">عين ثاقبة</string>
+    <string name="achievement_gold_spot_the_new_desc">اربح الميدالية الذهبية في اكتشف الجديد</string>
     <string name="instructions_best_score">أفضل نتيجة: %1$s</string>
     <string name="instructions_leaderboard">عرض لوحة المتصدرين</string>
     <string name="brain_cup_button">لوحة متصدري Brain Cup</string>

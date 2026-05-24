@@ -250,6 +250,11 @@
     <string name="digit_memory_recall">Recall</string>
     <string name="achievement_gold_digit_memory">Digit Savant</string>
     <string name="achievement_gold_digit_memory_desc">Win gold medal in Digit Memory</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Spot the New</string>
+    <string name="game_spot_the_new_desc">Tap the animal you have not seen before. One mistake ends the game.</string>
+    <string name="achievement_gold_spot_the_new">Fresh Eyes</string>
+    <string name="achievement_gold_spot_the_new_desc">Win gold medal in Spot the New</string>
     <string name="instructions_best_score">Best score: %1$s</string>
     <string name="instructions_leaderboard">View leaderboard</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>

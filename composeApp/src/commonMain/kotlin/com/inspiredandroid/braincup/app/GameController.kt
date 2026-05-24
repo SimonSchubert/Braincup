@@ -117,6 +117,7 @@ class GameController(
         val currentState = _gameState.value
         if (currentState is GameState.Active) {
             (currentState.game as? VisualMemoryGame)?.cancelCountdown()
+            (currentState.game as? SpotTheNewGame)?.cancelCountdown()
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
             (currentState.game as? DigitMemoryGame)?.cancelShowing()
@@ -210,6 +211,10 @@ class GameController(
             startDigitMemoryGame(gameType)
             return
         }
+        if (gameType == GameType.SPOT_THE_NEW) {
+            startSpotTheNewGame(gameType)
+            return
+        }
 
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -297,6 +302,10 @@ class GameController(
         }
         if (game is DigitMemoryGame) {
             handleDigitMemoryAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is SpotTheNewGame) {
+            handleSpotTheNewAnswer(game, answer.trim())
             return
         }
 
@@ -459,6 +468,7 @@ class GameController(
         GameType.MINI_CHESS -> MiniChessGame()
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
+        GameType.SPOT_THE_NEW -> SpotTheNewGame()
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -468,6 +478,41 @@ class GameController(
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
         game.startCountdown(scope) { emitGameUiState(game) }
+    }
+
+    private fun startSpotTheNewGame(gameType: GameType) {
+        val game = SpotTheNewGame()
+        game.startMemorizing()
+
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+        // Memorize phase runs for a fixed countdown, then the answering rounds begin.
+        // No global timer: the game runs until a wrong tap.
+        game.startMemorizeCountdown(scope) { _gameUiState.value = game.toUiState() }
+    }
+
+    private fun handleSpotTheNewAnswer(game: SpotTheNewGame, answer: String) {
+        if (game.phase != SpotTheNewGame.Phase.ANSWERING) return
+        when (game.submitAnswer(answer)) {
+            SpotTheNewGame.SubmitResult.Correct -> {
+                points++
+                _gameUiState.value = game.toUiState()
+                _intermediateCorrectEvents.tryEmit(Unit)
+            }
+            SpotTheNewGame.SubmitResult.PoolExhausted -> {
+                // Player beat every unique combo; count the final tap and finish gracefully.
+                points++
+                finishCurrentGame(GameType.SPOT_THE_NEW, game)
+            }
+            SpotTheNewGame.SubmitResult.Wrong -> {
+                _gameUiState.value = game.toUiState()
+                scope.launch {
+                    delay(2.seconds)
+                    finishCurrentGame(GameType.SPOT_THE_NEW, game)
+                }
+            }
+        }
     }
 
     private fun handleAnomalyPuzzleAnswer(
@@ -989,6 +1034,7 @@ class GameController(
 
     private fun finishCurrentGame(gameType: GameType, game: Game) {
         (game as? VisualMemoryGame)?.cancelCountdown()
+        (game as? SpotTheNewGame)?.cancelCountdown()
         (game as? GhostGridGame)?.cancelShowSequence()
         (game as? OrbitTrackerGame)?.cancelAnimation()
         (game as? DigitMemoryGame)?.cancelShowing()

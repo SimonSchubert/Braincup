@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">स्मरण करें</string>
     <string name="achievement_gold_digit_memory">अंक ज्ञाता</string>
     <string name="achievement_gold_digit_memory_desc">अंक स्मृति में स्वर्ण पदक जीतें</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">नया पहचानें</string>
+    <string name="game_spot_the_new_desc">वह जानवर टैप करें जिसे आपने पहले नहीं देखा। एक गलती से खेल समाप्त हो जाता है।</string>
+    <string name="achievement_gold_spot_the_new">ताज़ी नज़र</string>
+    <string name="achievement_gold_spot_the_new_desc">नया पहचानें में स्वर्ण पदक जीतें</string>
     <string name="instructions_best_score">सर्वश्रेष्ठ स्कोर: %1$s</string>
     <string name="instructions_leaderboard">लीडरबोर्ड देखें</string>
     <string name="brain_cup_button">Brain Cup लीडरबोर्ड</string>

@@ -19,6 +19,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -72,6 +73,14 @@ private val VisualMemoryPreviewFigures: List<Figure?> = listOf(
     null,
     Figure(Shape.CIRCLE, Color.GREEN),
     null,
+)
+
+// The last animal is the "new" one and is highlighted in the preview.
+private val SpotTheNewPreviewAnimals: List<Animal> = listOf(
+    Animal.CRAB,
+    Animal.FISH,
+    Animal.TURTLE,
+    Animal.OCTOPUS,
 )
 
 private val SherlockPreviewNumbers = listOf(4, 9, 3, 7, 2)
@@ -246,6 +255,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
+        GameType.SPOT_THE_NEW -> SpotTheNewPreview()
     }
 }
 
@@ -319,6 +329,46 @@ private fun ColoredShapesPreview() {
             figure = Figure(Shape.HEART, Color.BLUE),
             modifier = Modifier.size(48.dp),
         )
+    }
+}
+
+@Composable
+private fun SpotTheNewPreview() {
+    val newAnimal = SpotTheNewPreviewAnimals.last()
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        SpotTheNewPreviewAnimals.chunked(2).forEach { row ->
+            Row(modifier = Modifier.fillMaxWidth()) {
+                row.forEach { animal ->
+                    PrismCard(
+                        face = if (animal == newAnimal) {
+                            MaterialTheme.colorScheme.primaryContainer
+                        } else {
+                            MaterialTheme.colorScheme.surface
+                        },
+                        facet = 2.dp,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(2.dp),
+                    ) {
+                        Box(
+                            modifier = Modifier.fillMaxSize(),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            Image(
+                                painter = painterResource(animal.resource),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize().padding(4.dp),
+                            )
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

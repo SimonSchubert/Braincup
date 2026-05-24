@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Erinnern</string>
     <string name="achievement_gold_digit_memory">Zahlenkenner</string>
     <string name="achievement_gold_digit_memory_desc">Gewinne die Goldmedaille in Zifferngedächtnis</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Finde das Neue</string>
+    <string name="game_spot_the_new_desc">Tippe auf das Tier, das du noch nie gesehen hast. Ein Fehler beendet das Spiel.</string>
+    <string name="achievement_gold_spot_the_new">Frischer Blick</string>
+    <string name="achievement_gold_spot_the_new_desc">Gewinne die Goldmedaille in Finde das Neue</string>
     <string name="instructions_best_score">Beste Punktzahl: %1$s</string>
     <string name="instructions_leaderboard">Bestenliste anzeigen</string>
     <string name="brain_cup_button">Brain Cup Bestenliste</string>

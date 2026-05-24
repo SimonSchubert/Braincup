@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Вспомнить</string>
     <string name="achievement_gold_digit_memory">Мастер цифр</string>
     <string name="achievement_gold_digit_memory_desc">Завоюй золотую медаль в Памяти на цифры</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Найди новое</string>
+    <string name="game_spot_the_new_desc">Нажмите на животное, которое вы ещё не видели. Одна ошибка завершает игру.</string>
+    <string name="achievement_gold_spot_the_new">Свежий взгляд</string>
+    <string name="achievement_gold_spot_the_new_desc">Завоюй золотую медаль в Найди новое</string>
     <string name="instructions_best_score">Лучший результат: %1$s</string>
     <string name="instructions_leaderboard">Посмотреть таблицу лидеров</string>
     <string name="brain_cup_button">Таблица лидеров Brain Cup</string>

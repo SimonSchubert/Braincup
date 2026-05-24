@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Hatırla</string>
     <string name="achievement_gold_digit_memory">Rakam Ustası</string>
     <string name="achievement_gold_digit_memory_desc">Rakam Hafızası\'nda altın madalya kazan</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Yeniyi Bul</string>
+    <string name="game_spot_the_new_desc">Daha önce görmediğin hayvana dokun. Tek bir hata oyunu bitirir.</string>
+    <string name="achievement_gold_spot_the_new">Keskin Göz</string>
+    <string name="achievement_gold_spot_the_new_desc">Yeniyi Bul\'da altın madalya kazan</string>
     <string name="instructions_best_score">En iyi puan: %1$s</string>
     <string name="instructions_leaderboard">Skor tablosunu gör</string>
     <string name="brain_cup_button">Brain Cup skor tablosu</string>

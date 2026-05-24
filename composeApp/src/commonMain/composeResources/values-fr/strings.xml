@@ -238,6 +238,11 @@
     <string name="digit_memory_recall">Rappeler</string>
     <string name="achievement_gold_digit_memory">Génie des Chiffres</string>
     <string name="achievement_gold_digit_memory_desc">Gagnez la médaille d'or en Mémoire des Chiffres</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Repère le Nouveau</string>
+    <string name="game_spot_the_new_desc">Touchez l'animal que vous n'avez jamais vu. Une erreur met fin au jeu.</string>
+    <string name="achievement_gold_spot_the_new">Œil Neuf</string>
+    <string name="achievement_gold_spot_the_new_desc">Gagnez la médaille d'or en Repère le Nouveau</string>
     <string name="instructions_best_score">Meilleur score : %1$s</string>
     <string name="instructions_leaderboard">Voir le classement</string>
     <string name="brain_cup_button">Classement Brain Cup</string>
