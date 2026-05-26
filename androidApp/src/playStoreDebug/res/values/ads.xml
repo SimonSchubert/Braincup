@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Google's official test IDs. Debug builds use these to avoid invalid-traffic flags. -->
-    <string name="admob_app_id" translatable="false">ca-app-pub-3940256099942544~3347511713</string>
-    <string name="admob_native_ad_unit_id" translatable="false">ca-app-pub-3940256099942544/2247696110</string>
-</resources>

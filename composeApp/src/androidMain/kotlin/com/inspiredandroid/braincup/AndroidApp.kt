@@ -5,14 +5,12 @@ import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 
 @Composable
 fun AndroidApp(
-    finishScreenAdSlot: @Composable (Modifier) -> Unit = {},
     mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
     val isDarkTheme = isSystemInDarkTheme()
@@ -25,5 +23,5 @@ fun AndroidApp(
         else -> LightColorScheme
     }
 
-    App(colorScheme = colorScheme, finishScreenAdSlot = finishScreenAdSlot, mainMenuSponsorsSlot = mainMenuSponsorsSlot)
+    App(colorScheme = colorScheme, mainMenuSponsorsSlot = mainMenuSponsorsSlot)
 }

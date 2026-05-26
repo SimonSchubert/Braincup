@@ -97,7 +97,6 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     "playStoreImplementation"(libs.play.review)
     "playStoreImplementation"(libs.play.games)
-    "playStoreImplementation"(libs.play.ads)
     "playStoreImplementation"(libs.compose.runtime)
     "playStoreImplementation"(libs.compose.foundation)
     "playStoreImplementation"(libs.compose.material3)

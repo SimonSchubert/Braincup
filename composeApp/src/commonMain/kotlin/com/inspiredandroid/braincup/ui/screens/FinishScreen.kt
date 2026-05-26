@@ -35,7 +35,6 @@ fun FinishScreen(
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
-    adSlot: @Composable (Modifier) -> Unit = {},
 ) {
     val levelAfter = UserStorage.levelForXp(totalXpAfter)
     val levelBefore = UserStorage.levelForXp(totalXpAfter - xpGained)
@@ -117,10 +116,6 @@ fun FinishScreen(
         }
 
         XpAndLevelDisplay(xpGained = xpGained, levelChange = levelChange)
-
-        Spacer(Modifier.height(16.dp))
-
-        adSlot(Modifier)
 
         Spacer(Modifier.height(16.dp))
 

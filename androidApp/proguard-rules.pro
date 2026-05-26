@@ -4,7 +4,7 @@
 -keepclassmembers class androidx.room.RoomDatabase { ** getOpenHelper(); }
 -dontwarn androidx.room.paging.**
 
-# WorkManager (pulled in transitively by play-services-ads/games, auto-inits via androidx.startup)
+# WorkManager (pulled in transitively by play-services-games, auto-inits via androidx.startup)
 -keep class androidx.work.impl.** { *; }
 -keep class * extends androidx.work.Worker
 -keep class * extends androidx.work.ListenableWorker { <init>(...); }

@@ -24,24 +24,14 @@ class MainActivity : ComponentActivity() {
         )
         super.onCreate(savedInstanceState)
 
-        val canRequestAds = !isConsentRequiredRegion(this)
-
         ReviewBridge.requestInAppReview = { requestInAppReview(this) }
 
         setContent {
             AndroidApp(
-                finishScreenAdSlot = if (canRequestAds) {
-                    { modifier -> NativeAdSlot(modifier) }
-                } else {
-                    {}
-                },
                 mainMenuSponsorsSlot = { MainMenuSponsors() },
             )
         }
 
         initPlayGames(this)
-        if (canRequestAds) {
-            initMobileAds(this)
-        }
     }
 }

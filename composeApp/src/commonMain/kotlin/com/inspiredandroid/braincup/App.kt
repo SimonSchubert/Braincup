@@ -37,7 +37,6 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 @Composable
 fun App(
     colorScheme: ColorScheme? = null,
-    finishScreenAdSlot: @Composable (Modifier) -> Unit = {},
     mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
     val resolvedColorScheme = colorScheme
@@ -216,7 +215,6 @@ fun App(
                                 onPlayRandom = { controller.playRandomGame() },
                                 onPlayAgain = { controller.playAgain(gameType) },
                                 onMenu = { controller.navigateToMainMenu() },
-                                adSlot = finishScreenAdSlot,
                             )
                         }
                     }

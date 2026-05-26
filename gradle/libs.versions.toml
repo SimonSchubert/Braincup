@@ -21,7 +21,6 @@ kotlinx-collections-immutable = "0.4.0"
 androidx-navigation = "2.9.2"
 play-review = "2.0.2"
 play-games = "21.0.0"
-play-ads = "25.3.0"
 paparazzi = "2.0.0-alpha05"
 coil = "3.4.0"
 
@@ -48,7 +47,6 @@ androidx-lifecycle-runtime-compose = { module = "org.jetbrains.androidx.lifecycl
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "androidx-navigation" }
 play-review = { module = "com.google.android.play:review-ktx", version.ref = "play-review" }
 play-games = { module = "com.google.android.gms:play-services-games-v2", version.ref = "play-games" }
-play-ads = { module = "com.google.android.gms:play-services-ads", version.ref = "play-ads" }
 coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coil" }
 coil-network-okhttp = { module = "io.coil-kt.coil3:coil-network-okhttp", version.ref = "coil" }
 
