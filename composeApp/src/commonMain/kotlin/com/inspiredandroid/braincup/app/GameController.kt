@@ -739,7 +739,9 @@ class GameController(
 
     private fun startLightsOutGame(gameType: GameType) {
         val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        val game = LightsOutGame(level = level)
+        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
+        // bonus message on the finish screen wouldn't make sense here.
+        val game = LightsOutGame(level = level).apply { answeredAllCorrect = false }
         game.nextRound()
         _gameState.value = GameState.Active(gameType, game)
         _gameUiState.value = game.toUiState()

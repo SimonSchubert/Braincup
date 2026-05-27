@@ -59,8 +59,8 @@ enum class Color(
     ),
     GREY_LIGHT(
         displayName = "light grey",
-        standardColor = ComposeColor(0xFF565656),
-        accessibleColor = ComposeColor(0xFF565656), // achromatic — already CVD-safe
+        standardColor = ComposeColor(0xFF999999),
+        accessibleColor = ComposeColor(0xFF999999), // achromatic, already CVD-safe; lifted from 0x56 so it stays legible on dark cell backgrounds
     ),
     ;
 

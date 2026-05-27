@@ -14,6 +14,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -52,8 +53,11 @@ import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceDark
+import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceLight
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
+import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.toImmutableList
@@ -2380,12 +2384,15 @@ private fun ColorConfusionCell(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    val isDark = isSystemInDarkTheme()
+    val selectedFace = if (isDark) SelectedTileFaceDark else SelectedTileFaceLight
+    val unselectedFace = if (isDark) UnselectedTileFaceDark else MaterialTheme.colorScheme.surfaceContainer
     val targetContainerColor = when {
         cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
         cell.feedback == ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
         cell.feedback == ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
-        cell.isSelected -> MaterialTheme.colorScheme.surfaceContainerHigh
-        else -> MaterialTheme.colorScheme.surfaceContainer
+        cell.isSelected -> selectedFace
+        else -> unselectedFace
     }
     val containerColor by animateColorAsState(
         targetValue = targetContainerColor,
@@ -2394,20 +2401,16 @@ private fun ColorConfusionCell(
     )
 
     val isInteractive = cell.feedback == ColorConfusionUiState.CellFeedback.NONE
-    val isPressed = cell.isSelected ||
-        cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED ||
+    // Only sink the tile for finalized feedback states. Sinking the mid-play selection would dim
+    // the bright selected face to its side color and erase the very contrast that distinguishes
+    // selected from unselected in bright sunlight.
+    val isLockedIn = cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED ||
         cell.feedback == ColorConfusionUiState.CellFeedback.WRONG_SELECTED
-    val sideColor = if (cell.isSelected && cell.feedback == ColorConfusionUiState.CellFeedback.NONE) {
-        containerColor
-    } else {
-        null
-    }
     PrismTile(
         face = containerColor,
-        side = sideColor,
         modifier = modifier.hoverHand(isInteractive),
         isClickable = isInteractive,
-        isSelected = isPressed,
+        isSelected = isLockedIn,
         onClick = onClick,
     ) {
         Box(

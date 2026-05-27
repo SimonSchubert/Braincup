@@ -47,6 +47,14 @@ val MedalBronze = Color(0xFFCD7F32)
 val LightsOutOnColor = Color(0xFFFFC107)
 val LightsOutOffColor = Color(0xFF424242)
 
+// Color Confusion cell faces. Tuned so toggle state stays unambiguous under bright-sunlight glare
+// without the bright selected face looking harsh in normal viewing conditions. In dark mode the
+// unselected face is also lifted off the very dark surface tone for the same reason; light mode
+// keeps the theme's surfaceContainer since it's already bright enough.
+val SelectedTileFaceLight = Color(0xFF6E6E6E)
+val SelectedTileFaceDark = Color(0xFFA8A8A8)
+val UnselectedTileFaceDark = Color(0xFF454545)
+
 val LightColorScheme = lightColorScheme(
     primary = Primary,
     onPrimary = OnPrimary,
