@@ -1,0 +1,7 @@
+New standard Sudoku game
+Theme switcher with Light, Dark, and OLED modes
+Improved right-to-left layout
+Improved color contrast
+Better spacing on small screens
+Added missing localizations
+Updated dependencies

@@ -1,3 +1,16 @@
+## v2.17.0 — 2026-05-28
+
+### Features
+- New standard Sudoku game
+- Theme switcher with Light, Dark, and OLED modes
+
+### Improvements
+- Improved right-to-left layout support
+- Improved color contrast for readability
+- Better spacing on small screens
+- Added missing localizations
+- Updated dependencies
+
 ## v2.16.0 — 2026-05-24
 
 ### Features
