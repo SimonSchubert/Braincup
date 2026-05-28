@@ -430,6 +430,12 @@ string|settings_haptic|SGFwdGljIGZlZWRiYWNr
 string|settings_open|T3BlbiBzZXR0aW5ncw==
 string|settings_sound_desc|UGxheSBtdXNpYyBhbmQgc291bmQgZWZmZWN0cy4=
 string|settings_sound|U291bmQ=
+string|settings_theme_dark|RGFyaw==
+string|settings_theme_desc|Q2hvb3NlIGhvdyBCcmFpbiBDdXAgbG9va3Mu
+string|settings_theme_light|TGlnaHQ=
+string|settings_theme_oled|T0xFRA==
+string|settings_theme_system|U3lzdGVt
+string|settings_theme|VGhlbWU=
 string|settings_title|U2V0dGluZ3M=
 string|shape_arrow|QXJyb3c=
 string|shape_circle|Q2lyY2xl
