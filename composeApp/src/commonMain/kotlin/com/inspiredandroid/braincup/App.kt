@@ -30,17 +30,17 @@ import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
+import com.inspiredandroid.braincup.ui.theme.OledColorScheme
+import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
 fun App(
-    colorScheme: ColorScheme? = null,
+    systemColorSchemeProvider: ((dark: Boolean) -> ColorScheme)? = null,
     mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
-    val resolvedColorScheme = colorScheme
-        ?: if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme
     val navController = rememberNavController()
     val controller = remember(navController) { GameController(navController) }
     DisposableEffect(controller) {
@@ -53,6 +53,16 @@ fun App(
         mutableStateOf(controller.storage.isColorblindPaletteEnabled())
     }
     var hapticEnabled by remember { mutableStateOf(controller.storage.isHapticEnabled()) }
+    var themeMode by remember { mutableStateOf(controller.storage.getThemeMode()) }
+
+    val systemDark = isSystemInDarkTheme()
+    val resolvedColorScheme = when (themeMode) {
+        ThemeMode.SYSTEM -> systemColorSchemeProvider?.invoke(systemDark)
+            ?: if (systemDark) DarkColorScheme else LightColorScheme
+        ThemeMode.LIGHT -> LightColorScheme
+        ThemeMode.DARK -> DarkColorScheme
+        ThemeMode.OLED -> OledColorScheme
+    }
 
     var menuAudio by remember { mutableStateOf<ByteArray?>(null) }
     var gameAudio by remember { mutableStateOf<ByteArray?>(null) }
@@ -132,6 +142,11 @@ fun App(
                             onToggleHaptic = {
                                 hapticEnabled = !hapticEnabled
                                 controller.storage.setHapticEnabled(hapticEnabled)
+                            },
+                            themeMode = themeMode,
+                            onThemeSelected = { mode ->
+                                themeMode = mode
+                                controller.storage.setThemeMode(mode)
                             },
                             onBack = { controller.navigateToMainMenu() },
                         )

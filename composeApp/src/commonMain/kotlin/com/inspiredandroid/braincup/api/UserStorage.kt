@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.api
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.number
@@ -69,6 +70,7 @@ class UserStorage(
         const val KEY_TOTAL_XP = "total_xp"
         const val KEY_XP_SEEDED = "xp_seeded_v1"
         const val KEY_MINI_CHESS_DIFFICULTY = "mini_chess_difficulty"
+        const val KEY_THEME_MODE = "theme_mode"
         const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
         const val SESSION_GAME_COUNT = 5
         const val SESSION_COMPLETION_XP = 50
@@ -205,6 +207,14 @@ class UserStorage(
 
     fun setHapticEnabled(enabled: Boolean) {
         settings.putBoolean(KEY_HAPTIC_ENABLED, enabled)
+    }
+
+    /** Selected app theme. Defaults to [ThemeMode.SYSTEM]. */
+    fun getThemeMode(): ThemeMode = runCatching { ThemeMode.valueOf(settings.getString(KEY_THEME_MODE, ThemeMode.SYSTEM.name)) }
+        .getOrDefault(ThemeMode.SYSTEM)
+
+    fun setThemeMode(mode: ThemeMode) {
+        settings.putString(KEY_THEME_MODE, mode.name)
     }
 
     /** Mini Chess AI search depth chosen on the instructions screen. Defaults to 3 (Medium). */

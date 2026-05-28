@@ -70,7 +70,28 @@ val LightColorScheme = lightColorScheme(
     onError = Color.White,
 )
 
+// Warm dark: near-black tones biased toward the orange brand instead of neutral gray, so the
+// dark theme feels warm rather than clinical. OLED below keeps the pure-black variant.
 val DarkColorScheme = darkColorScheme(
+    primary = Primary,
+    onPrimary = Color.White,
+    secondary = Primary,
+    onSecondary = Color.White,
+    background = Color(0xFF1B1614),
+    onBackground = Color(0xFFE6E1E5),
+    surface = Color(0xFF1B1614),
+    onSurface = Color(0xFFE6E1E5),
+    surfaceVariant = Color(0xFF2E2622),
+    onSurfaceVariant = Color(0xFFB0A8A2),
+    surfaceContainer = Color(0xFF241D1A),
+    surfaceContainerHigh = Color(0xFF332A25),
+    error = ErrorRed,
+    onError = Color.White,
+)
+
+// OLED: pure black background to save power on OLED panels. Container tones are lifted off pure
+// black so the PrismTile bevel (which darkens the face color for its sides) stays visible on cards.
+val OledColorScheme = darkColorScheme(
     primary = Primary,
     onPrimary = Color.White,
     secondary = Primary,
@@ -79,10 +100,10 @@ val DarkColorScheme = darkColorScheme(
     onBackground = Color(0xFFE6E1E5),
     surface = Color.Black,
     onSurface = Color(0xFFE6E1E5),
-    surfaceVariant = Color(0xFF2A2A2A),
+    surfaceVariant = Color(0xFF161616),
     onSurfaceVariant = Color(0xFFB0B0B0),
-    surfaceContainer = Color(0xFF2A2A2A),
-    surfaceContainerHigh = Color(0xFF333333),
+    surfaceContainer = Color(0xFF121212),
+    surfaceContainerHigh = Color(0xFF1E1E1E),
     error = ErrorRed,
     onError = Color.White,
 )
