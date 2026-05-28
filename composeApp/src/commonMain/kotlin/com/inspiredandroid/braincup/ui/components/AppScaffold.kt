@@ -77,6 +77,7 @@ fun AppScaffold(
 fun GameScaffold(
     onBack: (() -> Unit)? = null,
     progressBar: (@Composable () -> Unit)? = null,
+    fillContent: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     BoxWithConstraints(Modifier.fillMaxSize()) {
@@ -141,9 +142,13 @@ fun GameScaffold(
                         if (progressBar != null) {
                             progressBar()
                         }
-                        Spacer(Modifier.weight(1f))
-                        content()
-                        Spacer(Modifier.weight(1f))
+                        if (fillContent) {
+                            content()
+                        } else {
+                            Spacer(Modifier.weight(1f))
+                            content()
+                            Spacer(Modifier.weight(1f))
+                        }
                     }
                 }
             }

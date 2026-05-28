@@ -189,7 +189,11 @@ fun GameScreen(
             bar
         }
     }
-    GameScaffold(onBack = onBack, progressBar = progressBar) {
+    GameScaffold(
+        onBack = onBack,
+        progressBar = progressBar,
+        fillContent = gameUiState is FlagsUiState,
+    ) {
         when (gameUiState) {
             is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
             is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
@@ -3017,36 +3021,51 @@ private fun ColumnScope.FlagsContent(
             )
         }
     } else {
-        FlagsScoreRow(
-            currentScore = uiState.currentScore,
-            bestScore = uiState.bestScore,
+        BoxWithConstraints(
             modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(bottom = 8.dp),
-        )
-        Text(
-            text = stringResource(Res.string.game_flags_question),
-            style = MaterialTheme.typography.titleMedium,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
-        Spacer(Modifier.height(16.dp))
-        Image(
-            painter = painterResource(flagResource(uiState.countrySlug)),
-            contentDescription = null,
-            modifier = Modifier
-                .size(flagSize)
-                .align(Alignment.CenterHorizontally),
-        )
-        Spacer(Modifier.height(24.dp))
-        FlagAnswerButtons(
-            uiState = uiState,
-            onAnswer = onAnswer,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 24.dp)
-                .widthIn(max = 480.dp)
-                .align(Alignment.CenterHorizontally),
-        )
+                .weight(1f)
+                .fillMaxWidth(),
+        ) {
+            val numAnswers = uiState.possibleAnswers.size
+            val buttonsApprox = (52.dp * numAnswers) +
+                (8.dp * (numAnswers - 1).coerceAtLeast(0))
+            val headerApprox = 72.dp
+            val minBreathingRoom = 16.dp
+            val dynamicFlagSize = (maxHeight - buttonsApprox - headerApprox - minBreathingRoom)
+                .coerceIn(80.dp, flagSize)
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                FlagsScoreRow(
+                    currentScore = uiState.currentScore,
+                    bestScore = uiState.bestScore,
+                    modifier = Modifier.padding(bottom = 4.dp),
+                )
+                Text(
+                    text = stringResource(Res.string.game_flags_question),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+                Spacer(Modifier.weight(1f))
+                Image(
+                    painter = painterResource(flagResource(uiState.countrySlug)),
+                    contentDescription = null,
+                    modifier = Modifier.size(dynamicFlagSize),
+                )
+                Spacer(Modifier.weight(1f))
+                FlagAnswerButtons(
+                    uiState = uiState,
+                    onAnswer = onAnswer,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 8.dp)
+                        .widthIn(max = 480.dp),
+                )
+            }
+        }
     }
 }
 
