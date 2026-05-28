@@ -71,6 +71,14 @@ kotlin {
 
         androidMain.dependencies {
             implementation(libs.compose.ui.tooling.preview)
+            implementation(libs.ktor.client.android)
+        }
+        nonIosMain.dependencies {
+            implementation(libs.coil.compose)
+            implementation(libs.coil.network.ktor3)
+            implementation(libs.ktor.client.core)
+            implementation(libs.ktor.client.content.negotiation)
+            implementation(libs.ktor.serialization.kotlinx.json)
         }
         commonMain.dependencies {
             implementation(libs.compose.runtime)
@@ -93,6 +101,10 @@ kotlin {
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
+            implementation(libs.ktor.client.java)
+        }
+        wasmJsMain.dependencies {
+            implementation(libs.ktor.client.js)
         }
         commonTest.dependencies {
             implementation(kotlin("test"))
