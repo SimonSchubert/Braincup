@@ -494,4 +494,23 @@
     <string name="settings_colorblind_desc">Gunakan palet yang tetap dapat dibedakan untuk bentuk buta warna paling umum.</string>
     <string name="settings_haptic">Umpan balik haptik</string>
     <string name="settings_haptic_desc">Bergetar singkat saat jawaban benar.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_desc">Pilih tampilan Brain Cup.</string>
+    <string name="settings_theme_system">Sistem</string>
+    <string name="settings_theme_light">Terang</string>
+    <string name="settings_theme_dark">Gelap</string>
+    <string name="settings_theme_oled">OLED</string>
+    <!-- Normal Sudoku -->
+    <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">Pemula</string>
+    <string name="normal_sudoku_difficulty_easy">Mudah</string>
+    <string name="normal_sudoku_difficulty_medium">Sedang</string>
+    <string name="normal_sudoku_difficulty_hard">Sulit</string>
+    <string name="normal_sudoku_difficulty_expert">Ahli</string>
+    <string name="normal_sudoku_erase">Hapus</string>
+    <string name="normal_sudoku_not_solved">Belum tepat</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">Terpecahkan!</string>
+    <string name="normal_sudoku_title">Sudoku</string>
 </resources>

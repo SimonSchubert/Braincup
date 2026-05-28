@@ -494,4 +494,24 @@
     <string name="settings_colorblind_desc">Usa una palette che rimane distinguibile per le forme più comuni di daltonismo.</string>
     <string name="settings_haptic">Feedback aptico</string>
     <string name="settings_haptic_desc">Vibra brevemente alle risposte corrette.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_desc">Scegli l\'aspetto di Brain Cup.</string>
+    <string name="settings_theme_system">Sistema</string>
+    <string name="settings_theme_light">Chiaro</string>
+    <string name="settings_theme_dark">Scuro</string>
+    <string name="settings_theme_oled">OLED</string>
+
+    <!-- Normal Sudoku -->
+    <string name="normal_sudoku_button">Sudoku normale (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">Principiante</string>
+    <string name="normal_sudoku_difficulty_easy">Facile</string>
+    <string name="normal_sudoku_difficulty_medium">Medio</string>
+    <string name="normal_sudoku_difficulty_hard">Difficile</string>
+    <string name="normal_sudoku_difficulty_expert">Esperto</string>
+    <string name="normal_sudoku_erase">Cancella</string>
+    <string name="normal_sudoku_not_solved">Non proprio giusto</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">Risolto!</string>
+    <string name="normal_sudoku_title">Sudoku</string>
 </resources>

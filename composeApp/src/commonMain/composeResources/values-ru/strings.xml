@@ -494,4 +494,23 @@
     <string name="settings_colorblind_desc">Используется палитра, остающаяся различимой при самых распространённых формах дальтонизма.</string>
     <string name="settings_haptic">Тактильная отдача</string>
     <string name="settings_haptic_desc">Короткая вибрация при правильных ответах.</string>
+    <string name="settings_theme">Тема</string>
+    <string name="settings_theme_desc">Выберите внешний вид Brain Cup.</string>
+    <string name="settings_theme_system">Системная</string>
+    <string name="settings_theme_light">Светлая</string>
+    <string name="settings_theme_dark">Тёмная</string>
+    <string name="settings_theme_oled">OLED</string>
+    <!-- Normal Sudoku -->
+    <string name="normal_sudoku_button">Обычное судоку (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">Начинающий</string>
+    <string name="normal_sudoku_difficulty_easy">Лёгкий</string>
+    <string name="normal_sudoku_difficulty_medium">Средний</string>
+    <string name="normal_sudoku_difficulty_hard">Сложный</string>
+    <string name="normal_sudoku_difficulty_expert">Эксперт</string>
+    <string name="normal_sudoku_erase">Стереть</string>
+    <string name="normal_sudoku_not_solved">Не совсем верно</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">Решено!</string>
+    <string name="normal_sudoku_title">Судоку</string>
 </resources>

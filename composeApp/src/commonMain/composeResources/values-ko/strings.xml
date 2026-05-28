@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">가장 흔한 색맹 유형에서도 구별 가능한 팔레트를 사용합니다.</string>
     <string name="settings_haptic">햅틱 피드백</string>
     <string name="settings_haptic_desc">정답 시 짧게 진동합니다.</string>
+    <string name="settings_theme">테마</string>
+    <string name="settings_theme_desc">Brain Cup의 외관을 선택하세요.</string>
+    <string name="settings_theme_system">시스템</string>
+    <string name="settings_theme_light">라이트</string>
+    <string name="settings_theme_dark">다크</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">스도쿠 (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">입문</string>
+    <string name="normal_sudoku_difficulty_easy">쉬움</string>
+    <string name="normal_sudoku_difficulty_medium">보통</string>
+    <string name="normal_sudoku_difficulty_hard">어려움</string>
+    <string name="normal_sudoku_difficulty_expert">전문가</string>
+    <string name="normal_sudoku_erase">지우기</string>
+    <string name="normal_sudoku_not_solved">아직 맞지 않습니다</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">정답!</string>
+    <string name="normal_sudoku_title">스도쿠</string>
 </resources>

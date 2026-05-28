@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">一般的な色覚障害でも見分けやすいパレットを使用します。</string>
     <string name="settings_haptic">触覚フィードバック</string>
     <string name="settings_haptic_desc">正解時に短く振動します。</string>
+    <string name="settings_theme">テーマ</string>
+    <string name="settings_theme_desc">Brain Cup の外観を選択してください。</string>
+    <string name="settings_theme_system">システム</string>
+    <string name="settings_theme_light">ライト</string>
+    <string name="settings_theme_dark">ダーク</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">入門</string>
+    <string name="normal_sudoku_difficulty_easy">簡単</string>
+    <string name="normal_sudoku_difficulty_medium">普通</string>
+    <string name="normal_sudoku_difficulty_hard">難しい</string>
+    <string name="normal_sudoku_difficulty_expert">上級</string>
+    <string name="normal_sudoku_erase">消去</string>
+    <string name="normal_sudoku_not_solved">まだ正解ではありません</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">正解！</string>
+    <string name="normal_sudoku_title">数独</string>
 </resources>

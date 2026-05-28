@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">Gebruikt een palet dat onderscheidbaar blijft voor de meest voorkomende vormen van kleurenblindheid.</string>
     <string name="settings_haptic">Haptische feedback</string>
     <string name="settings_haptic_desc">Trilt kort bij juiste antwoorden.</string>
+    <string name="settings_theme">Weergave</string>
+    <string name="settings_theme_desc">Kies hoe Brain Cup eruitziet.</string>
+    <string name="settings_theme_system">Systeem</string>
+    <string name="settings_theme_light">Licht</string>
+    <string name="settings_theme_dark">Donker</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">Normaal Sudoku (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">Beginner</string>
+    <string name="normal_sudoku_difficulty_easy">Makkelijk</string>
+    <string name="normal_sudoku_difficulty_medium">Gemiddeld</string>
+    <string name="normal_sudoku_difficulty_hard">Moeilijk</string>
+    <string name="normal_sudoku_difficulty_expert">Expert</string>
+    <string name="normal_sudoku_erase">Wissen</string>
+    <string name="normal_sudoku_not_solved">Nog niet helemaal goed</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">Opgelost!</string>
+    <string name="normal_sudoku_title">Sudoku</string>
 </resources>

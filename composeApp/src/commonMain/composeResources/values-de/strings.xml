@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">Verwendet eine Palette, die für die häufigsten Formen der Farbenblindheit unterscheidbar bleibt.</string>
     <string name="settings_haptic">Haptisches Feedback</string>
     <string name="settings_haptic_desc">Vibriert kurz bei richtigen Antworten.</string>
+    <string name="settings_theme">Erscheinungsbild</string>
+    <string name="settings_theme_desc">Wähle, wie Brain Cup aussieht.</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_theme_light">Hell</string>
+    <string name="settings_theme_dark">Dunkel</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">Normal-Sudoku (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">Anfänger</string>
+    <string name="normal_sudoku_difficulty_easy">Einfach</string>
+    <string name="normal_sudoku_difficulty_medium">Mittel</string>
+    <string name="normal_sudoku_difficulty_hard">Schwer</string>
+    <string name="normal_sudoku_difficulty_expert">Experte</string>
+    <string name="normal_sudoku_erase">Löschen</string>
+    <string name="normal_sudoku_not_solved">Noch nicht ganz richtig</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">Gelöst!</string>
+    <string name="normal_sudoku_title">Sudoku</string>
 </resources>

@@ -2,9 +2,6 @@ package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Clear
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -29,6 +26,7 @@ import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
@@ -340,7 +338,10 @@ private fun DigitTile(
     BoxWithConstraints(modifier = modifier) {
         val size = minOf(maxWidth, maxHeight)
         PrismTile(
-            face = MaterialTheme.colorScheme.primaryContainer,
+            // Brand-pinned light-purple face paired with the dark-purple OnPrimaryContainer text so
+            // the digits stay high-contrast in every theme. Using colorScheme.primaryContainer here
+            // resolved to a dark purple in dark mode, leaving dark text on a dark tile.
+            face = PrimaryContainer,
             modifier = Modifier
                 .size(size)
                 .hoverHand(enabled)
@@ -378,12 +379,6 @@ private fun EraseTile(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
             modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
         ) {
-            Icon(
-                imageVector = Icons.Filled.Clear,
-                contentDescription = null,
-                tint = MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.size(18.dp),
-            )
             Text(
                 text = stringResource(Res.string.normal_sudoku_erase),
                 style = MaterialTheme.typography.bodyMedium,

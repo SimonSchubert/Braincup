@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">استخدم لوحة ألوان تبقى مميزة لأكثر أشكال عمى الألوان شيوعًا.</string>
     <string name="settings_haptic">ردود فعل لمسية</string>
     <string name="settings_haptic_desc">اهتزاز قصير عند الإجابات الصحيحة.</string>
+    <string name="settings_theme">المظهر</string>
+    <string name="settings_theme_desc">اختر كيف يبدو Brain Cup.</string>
+    <string name="settings_theme_system">النظام</string>
+    <string name="settings_theme_light">فاتح</string>
+    <string name="settings_theme_dark">داكن</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">سودوكو عادي (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">مبتدئ</string>
+    <string name="normal_sudoku_difficulty_easy">سهل</string>
+    <string name="normal_sudoku_difficulty_medium">متوسط</string>
+    <string name="normal_sudoku_difficulty_hard">صعب</string>
+    <string name="normal_sudoku_difficulty_expert">خبير</string>
+    <string name="normal_sudoku_erase">مسح</string>
+    <string name="normal_sudoku_not_solved">ليس صحيحاً تماماً</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">تم الحل!</string>
+    <string name="normal_sudoku_title">سودوكو</string>
 </resources>

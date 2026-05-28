@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">使用对最常见的色盲类型仍然可区分的配色。</string>
     <string name="settings_haptic">触觉反馈</string>
     <string name="settings_haptic_desc">答对时短暂震动。</string>
+    <string name="settings_theme">主题</string>
+    <string name="settings_theme_desc">选择 Brain Cup 的外观。</string>
+    <string name="settings_theme_system">跟随系统</string>
+    <string name="settings_theme_light">浅色</string>
+    <string name="settings_theme_dark">深色</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">入门</string>
+    <string name="normal_sudoku_difficulty_easy">简单</string>
+    <string name="normal_sudoku_difficulty_medium">中等</string>
+    <string name="normal_sudoku_difficulty_hard">困难</string>
+    <string name="normal_sudoku_difficulty_expert">专家</string>
+    <string name="normal_sudoku_erase">清除</string>
+    <string name="normal_sudoku_not_solved">还不正确</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">完成！</string>
+    <string name="normal_sudoku_title">数独</string>
 </resources>

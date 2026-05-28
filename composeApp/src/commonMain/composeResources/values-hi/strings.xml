@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">एक ऐसी पैलेट का उपयोग करें जो रंगांधता के सबसे सामान्य रूपों में भी अलग दिखाई दे।</string>
     <string name="settings_haptic">हैप्टिक फीडबैक</string>
     <string name="settings_haptic_desc">सही उत्तरों पर थोड़ा कंपन।</string>
+    <string name="settings_theme">थीम</string>
+    <string name="settings_theme_desc">Brain Cup का रूप चुनें।</string>
+    <string name="settings_theme_system">सिस्टम</string>
+    <string name="settings_theme_light">हल्का</string>
+    <string name="settings_theme_dark">गहरा</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">सामान्य सुडोकू (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">शुरुआती</string>
+    <string name="normal_sudoku_difficulty_easy">आसान</string>
+    <string name="normal_sudoku_difficulty_medium">मध्यम</string>
+    <string name="normal_sudoku_difficulty_hard">कठिन</string>
+    <string name="normal_sudoku_difficulty_expert">विशेषज्ञ</string>
+    <string name="normal_sudoku_erase">मिटाएँ</string>
+    <string name="normal_sudoku_not_solved">बिल्कुल सही नहीं</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">हल हो गया!</string>
+    <string name="normal_sudoku_title">सुडोकू</string>
 </resources>

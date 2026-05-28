@@ -494,4 +494,23 @@
     <string name="settings_colorblind_desc">En yaygın renk körlüğü türleri için ayırt edilebilir kalan bir palet kullanır.</string>
     <string name="settings_haptic">Dokunsal geri bildirim</string>
     <string name="settings_haptic_desc">Doğru yanıtlarda kısa süreli titreşir.</string>
+    <string name="settings_theme">Tema</string>
+    <string name="settings_theme_desc">Brain Cup\'un görünümünü seçin.</string>
+    <string name="settings_theme_system">Sistem</string>
+    <string name="settings_theme_light">Açık</string>
+    <string name="settings_theme_dark">Koyu</string>
+    <string name="settings_theme_oled">OLED</string>
+    <!-- Normal Sudoku -->
+    <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">Başlangıç</string>
+    <string name="normal_sudoku_difficulty_easy">Kolay</string>
+    <string name="normal_sudoku_difficulty_medium">Orta</string>
+    <string name="normal_sudoku_difficulty_hard">Zor</string>
+    <string name="normal_sudoku_difficulty_expert">Uzman</string>
+    <string name="normal_sudoku_erase">Sil</string>
+    <string name="normal_sudoku_not_solved">Tam olarak doğru değil</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">Çözüldü!</string>
+    <string name="normal_sudoku_title">Sudoku</string>
 </resources>

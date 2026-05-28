@@ -1,20 +1,20 @@
 package com.inspiredandroid.braincup.ui.screens
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -23,6 +23,7 @@ import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzle
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -134,30 +135,52 @@ private fun PuzzleTile(
                 fontWeight = FontWeight.SemiBold,
             )
             if (isCompleted) {
-                Icon(
-                    imageVector = Icons.Filled.Check,
-                    contentDescription = null,
-                    tint = Color.White,
+                ChunkyCheck(
+                    color = Color.White,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(6.dp)
-                        .size(16.dp),
+                        .size(14.dp),
                 )
             } else if (hasProgress) {
-                Box(
+                ColorPrismCell(
+                    face = Primary,
+                    facet = 2.dp,
                     modifier = Modifier
                         .align(Alignment.TopEnd)
                         .padding(8.dp)
-                        .size(8.dp),
-                ) {
-                    Text(
-                        text = "•",
-                        color = Primary,
-                        style = MaterialTheme.typography.titleSmall,
-                    )
-                }
+                        .size(9.dp),
+                )
             }
         }
+    }
+}
+
+/**
+ * A bold, round-capped checkmark drawn by hand so its weight matches the chunky Bungee
+ * typography and prism tiles, rather than the thin Material vector icon.
+ */
+@Composable
+private fun ChunkyCheck(color: Color, modifier: Modifier = Modifier) {
+    Canvas(modifier) {
+        val w = size.width
+        val h = size.height
+        val stroke = (minOf(w, h) * 0.22f)
+        val elbow = Offset(w * 0.40f, h * 0.78f)
+        drawLine(
+            color = color,
+            start = Offset(w * 0.08f, h * 0.50f),
+            end = elbow,
+            strokeWidth = stroke,
+            cap = StrokeCap.Round,
+        )
+        drawLine(
+            color = color,
+            start = elbow,
+            end = Offset(w * 0.92f, h * 0.20f),
+            strokeWidth = stroke,
+            cap = StrokeCap.Round,
+        )
     }
 }
 

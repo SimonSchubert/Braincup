@@ -494,4 +494,22 @@
     <string name="settings_colorblind_desc">ใช้ชุดสีที่ยังแยกออกจากกันได้สำหรับตาบอดสีที่พบบ่อยที่สุด</string>
     <string name="settings_haptic">การตอบสนองแบบสัมผัส</string>
     <string name="settings_haptic_desc">สั่นสั้น ๆ เมื่อตอบถูก</string>
+    <string name="settings_theme">ธีม</string>
+    <string name="settings_theme_desc">เลือกรูปแบบของ Brain Cup</string>
+    <string name="settings_theme_system">ระบบ</string>
+    <string name="settings_theme_light">สว่าง</string>
+    <string name="settings_theme_dark">มืด</string>
+    <string name="settings_theme_oled">OLED</string>
+    <string name="normal_sudoku_button">ซูโดกุปกติ (%1$d/%2$d)</string>
+    <string name="normal_sudoku_difficulty_beginner">เริ่มต้น</string>
+    <string name="normal_sudoku_difficulty_easy">ง่าย</string>
+    <string name="normal_sudoku_difficulty_medium">ปานกลาง</string>
+    <string name="normal_sudoku_difficulty_hard">ยาก</string>
+    <string name="normal_sudoku_difficulty_expert">ผู้เชี่ยวชาญ</string>
+    <string name="normal_sudoku_erase">ลบ</string>
+    <string name="normal_sudoku_not_solved">ยังไม่ถูกต้อง</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_solved">แก้ได้แล้ว!</string>
+    <string name="normal_sudoku_title">ซูโดกุ</string>
 </resources>
