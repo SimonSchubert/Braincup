@@ -89,7 +89,13 @@ class TabletStoreScreenshotTest(
         darkTheme: Boolean,
         content: @Composable () -> Unit,
     ) {
-        paparazzi.unsafeUpdateConfig(theme = "android:Theme.Material.Light.NoActionBar")
+        paparazzi.unsafeUpdateConfig(
+            theme = if (darkTheme) {
+                "android:Theme.Material.NoActionBar"
+            } else {
+                "android:Theme.Material.Light.NoActionBar"
+            },
+        )
         paparazzi.snapshot(name = "tablet_${playStoreLocale}_$name") {
             CompositionLocalProvider(LocalInspectionMode provides true) {
                 BraincupTheme(colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme) {

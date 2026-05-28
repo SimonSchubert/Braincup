@@ -42,7 +42,13 @@ class ScreenshotTest {
         darkTheme: Boolean = false,
         content: @Composable () -> Unit,
     ) {
-        unsafeUpdateConfig(theme = "android:Theme.Material.Light.NoActionBar")
+        unsafeUpdateConfig(
+            theme = if (darkTheme) {
+                "android:Theme.Material.NoActionBar"
+            } else {
+                "android:Theme.Material.Light.NoActionBar"
+            },
+        )
 
         snapshot {
             CompositionLocalProvider(LocalInspectionMode provides true) {
