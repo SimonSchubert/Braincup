@@ -9,13 +9,17 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
 private val BackPrismFacet = 6.dp
@@ -55,63 +59,74 @@ fun BackPrism(
             ),
         contentAlignment = Alignment.Center,
     ) {
-        Canvas(Modifier.size(32.dp)) {
-            val w = size.width
-            val h = size.height
-            val f = BackPrismFacet.toPx()
-            val s = shiftDp.toPx()
-            val d = f - s
+        // Compute the prism geometry in LTR space, then mirror the entire button on RTL so
+        // the back arrow points along the reading direction (toward the previous screen).
+        // Unlike the other prism surfaces this one is a directional affordance, so the
+        // extrusion travels with the arrow.
+        val mirrorScale = if (LocalLayoutDirection.current == LayoutDirection.Rtl) -1f else 1f
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+            Canvas(
+                Modifier
+                    .size(32.dp)
+                    .scale(scaleX = mirrorScale, scaleY = 1f),
+            ) {
+                val w = size.width
+                val h = size.height
+                val f = BackPrismFacet.toPx()
+                val s = shiftDp.toPx()
+                val d = f - s
 
-            // Face (front triangle), shifts diagonally by (s, s) when pressed.
-            val faceTopX = w - d
-            val faceTopY = s
-            val faceTipX = s
-            val faceTipY = (h - f) / 2f + s
-            val faceBottomX = w - d
-            val faceBottomY = h - d
+                // Face (front triangle), shifts diagonally by (s, s) when pressed.
+                val faceTopX = w - d
+                val faceTopY = s
+                val faceTipX = s
+                val faceTipY = (h - f) / 2f + s
+                val faceBottomX = w - d
+                val faceBottomY = h - d
 
-            // Outer chamfer vertices (fixed): mirror PrismShape's (w, f) and (f, h) corners.
-            val topChamferX = w
-            val topChamferY = f
-            val tipChamferX = f
-            val tipChamferY = (h + f) / 2f
-            val outerBottomX = w
-            val outerBottomY = h
+                // Outer chamfer vertices (fixed): mirror PrismShape's (w, f) and (f, h) corners.
+                val topChamferX = w
+                val topChamferY = f
+                val tipChamferX = f
+                val tipChamferY = (h + f) / 2f
+                val outerBottomX = w
+                val outerBottomY = h
 
-            // Silhouette: chamfered pentagon (face + extruded right edge + extruded bottom hypotenuse).
-            silhouettePath.reset()
-            silhouettePath.apply {
-                moveTo(faceTopX, faceTopY)
-                lineTo(topChamferX, topChamferY)
-                lineTo(outerBottomX, outerBottomY)
-                lineTo(tipChamferX, tipChamferY)
-                lineTo(faceTipX, faceTipY)
-                close()
+                // Silhouette: chamfered pentagon (face + extruded right edge + extruded bottom hypotenuse).
+                silhouettePath.reset()
+                silhouettePath.apply {
+                    moveTo(faceTopX, faceTopY)
+                    lineTo(topChamferX, topChamferY)
+                    lineTo(outerBottomX, outerBottomY)
+                    lineTo(tipChamferX, tipChamferY)
+                    lineTo(faceTipX, faceTipY)
+                    close()
+                }
+
+                // faceAndSide: cut off the bottom rim with a diagonal from the outer bottom corner
+                // to the face's bottom-right corner.
+                faceAndSidePath.reset()
+                faceAndSidePath.apply {
+                    moveTo(faceTopX, faceTopY)
+                    lineTo(topChamferX, topChamferY)
+                    lineTo(outerBottomX, outerBottomY)
+                    lineTo(faceBottomX, faceBottomY)
+                    lineTo(faceTipX, faceTipY)
+                    close()
+                }
+
+                frontPath.reset()
+                frontPath.apply {
+                    moveTo(faceTopX, faceTopY)
+                    lineTo(faceBottomX, faceBottomY)
+                    lineTo(faceTipX, faceTipY)
+                    close()
+                }
+
+                drawPath(silhouettePath, bottom)
+                drawPath(faceAndSidePath, side)
+                drawPath(frontPath, faceColor)
             }
-
-            // faceAndSide: cut off the bottom rim with a diagonal from the outer bottom corner
-            // to the face's bottom-right corner.
-            faceAndSidePath.reset()
-            faceAndSidePath.apply {
-                moveTo(faceTopX, faceTopY)
-                lineTo(topChamferX, topChamferY)
-                lineTo(outerBottomX, outerBottomY)
-                lineTo(faceBottomX, faceBottomY)
-                lineTo(faceTipX, faceTipY)
-                close()
-            }
-
-            frontPath.reset()
-            frontPath.apply {
-                moveTo(faceTopX, faceTopY)
-                lineTo(faceBottomX, faceBottomY)
-                lineTo(faceTipX, faceTipY)
-                close()
-            }
-
-            drawPath(silhouettePath, bottom)
-            drawPath(faceAndSidePath, side)
-            drawPath(frontPath, faceColor)
         }
     }
 }

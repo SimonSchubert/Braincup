@@ -47,12 +47,10 @@ fun MainMenuSponsors() {
 @Composable
 fun SponsorsSection() {
     var currentSponsors by remember { mutableStateOf<List<Sponsor>>(emptyList()) }
-    var pastSponsors by remember { mutableStateOf<List<Sponsor>>(emptyList()) }
 
     LaunchedEffect(Unit) {
         val (current, past) = withContext(Dispatchers.IO) { fetchSponsors() }
         currentSponsors = current
-        pastSponsors = past
     }
 
     val uriHandler = LocalUriHandler.current

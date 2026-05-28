@@ -9,6 +9,7 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -17,7 +18,9 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 
 fun Color.darken(darkenBy: Float = 0.3f): Color = copy(
@@ -55,38 +58,46 @@ fun PrismTile(
     )
     val faceColor = if (sunken) resolvedSide else face
 
-    Box(
-        modifier = modifier
-            .clickable(
-                interactionSource = interactionSource,
-                indication = null,
-                enabled = isClickable,
-            ) {
-                onClick()
-            }
-            // Show the hand cursor whenever the tile is interactive, so every PrismTile-based
-            // control gets the hover affordance without each caller having to remember it.
-            .hoverHand(isClickable),
-        contentAlignment = Alignment.Center,
-    ) {
-        PrismShape(
-            face = faceColor,
-            side = resolvedSide,
-            bottom = resolvedBottom,
-            shift = shift,
-            facet = PrismFacet,
-            modifier = Modifier.matchParentSize(),
-        )
+    // Keep the prism geometry oriented as LTR (chamfer + bottom-right shadow) regardless of
+    // the system layout direction, while letting the inner content slot follow the parent's
+    // direction so labels still flow correctly in RTL.
+    val parentDirection = LocalLayoutDirection.current
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Box(
-            modifier = Modifier.padding(
-                start = shift,
-                top = shift,
-                end = PrismFacet - shift,
-                bottom = PrismFacet - shift,
-            ),
+            modifier = modifier
+                .clickable(
+                    interactionSource = interactionSource,
+                    indication = null,
+                    enabled = isClickable,
+                ) {
+                    onClick()
+                }
+                // Show the hand cursor whenever the tile is interactive, so every PrismTile-based
+                // control gets the hover affordance without each caller having to remember it.
+                .hoverHand(isClickable),
             contentAlignment = Alignment.Center,
         ) {
-            content()
+            PrismShape(
+                face = faceColor,
+                side = resolvedSide,
+                bottom = resolvedBottom,
+                shift = shift,
+                facet = PrismFacet,
+                modifier = Modifier.matchParentSize(),
+            )
+            Box(
+                modifier = Modifier.padding(
+                    start = shift,
+                    top = shift,
+                    end = PrismFacet - shift,
+                    bottom = PrismFacet - shift,
+                ),
+                contentAlignment = Alignment.Center,
+            ) {
+                CompositionLocalProvider(LocalLayoutDirection provides parentDirection) {
+                    content()
+                }
+            }
         }
     }
 }
@@ -102,22 +113,27 @@ fun PrismCard(
 ) {
     val resolvedSide = remember(face, side) { side ?: face.darken(0.7f) }
     val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(0.5f) }
-    Box(
-        modifier = modifier,
-        contentAlignment = Alignment.Center,
-    ) {
-        PrismShape(
-            face = face,
-            side = resolvedSide,
-            bottom = resolvedBottom,
-            shift = 0.dp,
-            facet = facet,
-            modifier = Modifier.matchParentSize(),
-        )
+    val parentDirection = LocalLayoutDirection.current
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Box(
-            modifier = Modifier.padding(end = facet, bottom = facet),
+            modifier = modifier,
+            contentAlignment = Alignment.Center,
         ) {
-            content()
+            PrismShape(
+                face = face,
+                side = resolvedSide,
+                bottom = resolvedBottom,
+                shift = 0.dp,
+                facet = facet,
+                modifier = Modifier.matchParentSize(),
+            )
+            Box(
+                modifier = Modifier.padding(end = facet, bottom = facet),
+            ) {
+                CompositionLocalProvider(LocalLayoutDirection provides parentDirection) {
+                    content()
+                }
+            }
         }
     }
 }
@@ -153,27 +169,31 @@ fun PrismProgressBar(
     facet: Dp = PrismCardFacet,
 ) {
     val barPath = remember { Path() }
-    Canvas(modifier) {
-        val w = size.width
-        val h = size.height
-        val f = facet.toPx().coerceAtMost(minOf(w, h) / 2f)
+    // Keep the chamfered prism silhouette and left-to-right fill aligned regardless of the
+    // system layout direction, so the bar matches every other PrismCard's bevel orientation.
+    CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+        Canvas(modifier) {
+            val w = size.width
+            val h = size.height
+            val f = facet.toPx().coerceAtMost(minOf(w, h) / 2f)
 
-        barPath.reset()
-        barPath.apply {
-            moveTo(0f, 0f)
-            lineTo(w - f, 0f)
-            lineTo(w, f)
-            lineTo(w, h)
-            lineTo(f, h)
-            lineTo(0f, h - f)
-            close()
-        }
+            barPath.reset()
+            barPath.apply {
+                moveTo(0f, 0f)
+                lineTo(w - f, 0f)
+                lineTo(w, f)
+                lineTo(w, h)
+                lineTo(f, h)
+                lineTo(0f, h - f)
+                close()
+            }
 
-        clipPath(barPath) {
-            drawRect(color = trackColor, size = size)
-            val filledWidth = w * progress.coerceIn(0f, 1f)
-            if (filledWidth > 0f) {
-                drawRect(color = fillColor, size = Size(filledWidth, h))
+            clipPath(barPath) {
+                drawRect(color = trackColor, size = size)
+                val filledWidth = w * progress.coerceIn(0f, 1f)
+                if (filledWidth > 0f) {
+                    drawRect(color = fillColor, size = Size(filledWidth, h))
+                }
             }
         }
     }

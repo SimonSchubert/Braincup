@@ -32,8 +32,10 @@ import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.*
@@ -194,29 +196,34 @@ fun GameScreen(
         progressBar = progressBar,
         fillContent = gameUiState is FlagsUiState,
     ) {
-        when (gameUiState) {
-            is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
-            is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
-            is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)
-            is ColoredShapesUiState -> ColoredShapesContent(gameUiState, onAnswer)
-            is SherlockCalculationUiState -> SherlockCalculationContent(gameUiState, onAnswer, onGiveUp)
-            is ValueComparisonUiState -> ValueComparisonContent(gameUiState, onAnswer)
-            is AnomalyPuzzleUiState -> AnomalyPuzzleContent(gameUiState, onAnswer)
-            is PathFinderUiState -> PathFinderContent(gameUiState, onAnswer)
-            is MiniSudokuUiState -> MiniSudokuContent(gameUiState, onAnswer)
-            is LightsOutUiState -> LightsOutContent(gameUiState, onAnswer, onGiveUp)
-            is SlidingPuzzleUiState -> SlidingPuzzleContent(gameUiState, onAnswer, onGiveUp)
-            is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
-            is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
-            is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
-            is SpotTheNewUiState -> SpotTheNewContent(gameUiState, onAnswer)
-            is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
-            is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
-            is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
-            is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
-            is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
-            is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
-            is DigitMemoryUiState -> DigitMemoryContent(gameUiState, onAnswer)
+        // Force LTR for gameplay content: math expressions, digit sequences, directional
+        // arrows, and asymmetric shapes carry semantic meaning that breaks under RTL
+        // mirroring. Bidi text rendering inside Text composables is unaffected.
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
+            when (gameUiState) {
+                is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
+                is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
+                is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)
+                is ColoredShapesUiState -> ColoredShapesContent(gameUiState, onAnswer)
+                is SherlockCalculationUiState -> SherlockCalculationContent(gameUiState, onAnswer, onGiveUp)
+                is ValueComparisonUiState -> ValueComparisonContent(gameUiState, onAnswer)
+                is AnomalyPuzzleUiState -> AnomalyPuzzleContent(gameUiState, onAnswer)
+                is PathFinderUiState -> PathFinderContent(gameUiState, onAnswer)
+                is MiniSudokuUiState -> MiniSudokuContent(gameUiState, onAnswer)
+                is LightsOutUiState -> LightsOutContent(gameUiState, onAnswer, onGiveUp)
+                is SlidingPuzzleUiState -> SlidingPuzzleContent(gameUiState, onAnswer, onGiveUp)
+                is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
+                is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
+                is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
+                is SpotTheNewUiState -> SpotTheNewContent(gameUiState, onAnswer)
+                is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
+                is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
+                is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
+                is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
+                is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
+                is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
+                is DigitMemoryUiState -> DigitMemoryContent(gameUiState, onAnswer)
+            }
         }
     }
 }
