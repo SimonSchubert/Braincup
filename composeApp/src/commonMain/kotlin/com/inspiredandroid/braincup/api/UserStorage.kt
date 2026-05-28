@@ -69,6 +69,7 @@ class UserStorage(
         const val KEY_TOTAL_XP = "total_xp"
         const val KEY_XP_SEEDED = "xp_seeded_v1"
         const val KEY_MINI_CHESS_DIFFICULTY = "mini_chess_difficulty"
+        const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
         const val SESSION_GAME_COUNT = 5
         const val SESSION_COMPLETION_XP = 50
 
@@ -211,6 +212,35 @@ class UserStorage(
 
     fun setMiniChessDifficulty(depth: Int) {
         settings.putInt(KEY_MINI_CHESS_DIFFICULTY, depth)
+    }
+
+    private fun normalSudokuProgressKey(id: String): String = "normal_sudoku_progress_$id"
+
+    fun getCompletedNormalSudokuIds(): Set<String> = settings
+        .getStringOrNull(KEY_NORMAL_SUDOKU_COMPLETED)
+        ?.split(",")
+        ?.filter { it.isNotEmpty() }
+        ?.toSet()
+        ?: emptySet()
+
+    fun markNormalSudokuCompleted(id: String) {
+        val current = getCompletedNormalSudokuIds()
+        if (id in current) return
+        val updated = current + id
+        settings.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
+        settings.remove(normalSudokuProgressKey(id))
+    }
+
+    /** Resume state: 81-char board where '0' = empty user cell, '1'..'9' = entered digit. */
+    fun getNormalSudokuProgress(id: String): String? = settings.getStringOrNull(normalSudokuProgressKey(id))?.takeIf { it.length == 81 }
+
+    fun saveNormalSudokuProgress(id: String, board: String) {
+        if (board.length != 81) return
+        settings.putString(normalSudokuProgressKey(id), board)
+    }
+
+    fun clearNormalSudokuProgress(id: String) {
+        settings.remove(normalSudokuProgressKey(id))
     }
 
     fun getUnlockedAchievements(): MutableList<Achievements> = settings

@@ -238,6 +238,28 @@ fun App(
                         )
                     }
 
+                    composable<NormalSudokuMenu> {
+                        NormalSudokuMenuScreen(
+                            storage = controller.storage,
+                            onPuzzleSelected = { controller.navigateToNormalSudokuPlay(it) },
+                            onBack = { controller.navigateToMainMenu() },
+                        )
+                    }
+
+                    composable<NormalSudokuPlay> { backStackEntry ->
+                        val route: NormalSudokuPlay = backStackEntry.toRoute()
+                        NormalSudokuPlayScreen(
+                            puzzleId = route.puzzleId,
+                            storage = controller.storage,
+                            onCompleted = {
+                                navController.popBackStack(NormalSudokuMenu, inclusive = false)
+                            },
+                            onBack = {
+                                navController.popBackStack(NormalSudokuMenu, inclusive = false)
+                            },
+                        )
+                    }
+
                     composable<SessionInterstitial> {
                         val session by controller.sessionState.collectAsState()
                         val current = session

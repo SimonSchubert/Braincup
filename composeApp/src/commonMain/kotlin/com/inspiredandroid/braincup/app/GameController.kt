@@ -171,6 +171,14 @@ class GameController(
         navController.navigate(Settings)
     }
 
+    fun navigateToNormalSudokuMenu() {
+        navController.navigate(NormalSudokuMenu)
+    }
+
+    fun navigateToNormalSudokuPlay(puzzleId: String) {
+        navController.navigate(NormalSudokuPlay(puzzleId))
+    }
+
     fun startGame(gameType: GameType) {
         points = 0
 

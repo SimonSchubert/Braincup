@@ -37,3 +37,9 @@ object SessionInterstitial
 
 @Serializable
 object SessionComplete
+
+@Serializable
+object NormalSudokuMenu
+
+@Serializable
+data class NormalSudokuPlay(val puzzleId: String)

@@ -54,6 +54,9 @@ fun MainMenuScreen(
     val totalXp by controller.totalXp.collectAsState()
     val highscores by controller.highscores.collectAsState()
     val unlockedCount by controller.unlockedAchievementCount.collectAsState()
+    val normalSudokuCompleted = remember(controller) {
+        controller.storage.getCompletedNormalSudokuIds().size
+    }
 
     MainMenuScreenContent(
         totalXp = totalXp,
@@ -63,11 +66,13 @@ fun MainMenuScreen(
         sessionCompletedToday = completedToday,
         highscores = highscores.toImmutableMap(),
         unlockedCount = unlockedCount,
+        normalSudokuCompleted = normalSudokuCompleted,
         onOpenSettings = onOpenSettings,
         onPlayDaily = { controller.startDailySession() },
         onPlay = { controller.navigateToInstructions(it) },
         onViewScore = { controller.navigateToScoreboard(it) },
         onAchievements = { controller.navigateToAchievements() },
+        onNormalSudoku = { controller.navigateToNormalSudokuMenu() },
         onShowBrainCup = if (PlayGamesBridge.onShowBrainCup != null) {
             { controller.showBrainCup() }
         } else {
@@ -86,12 +91,14 @@ fun MainMenuScreenContent(
     sessionCompletedToday: Boolean,
     highscores: ImmutableMap<String, Int>,
     unlockedCount: Int,
+    normalSudokuCompleted: Int = 0,
     showDailyChallenge: Boolean = true,
     onOpenSettings: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
     onViewScore: (GameType) -> Unit = {},
     onAchievements: () -> Unit = {},
+    onNormalSudoku: () -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     sponsorsSlot: @Composable () -> Unit = {},
 ) {
@@ -246,6 +253,23 @@ fun MainMenuScreenContent(
                 ) {
                     Text(
                         stringResource(Res.string.achievements_button, unlockedCount, UserStorage.Achievements.entries.size),
+                        color = Color.White,
+                    )
+                }
+
+                Spacer(Modifier.height(12.dp))
+
+                PrismTile(
+                    face = Primary,
+                    modifier = Modifier
+                        .hoverHand()
+                        .widthIn(max = 420.dp)
+                        .fillMaxWidth()
+                        .height(56.dp),
+                    onClick = onNormalSudoku,
+                ) {
+                    Text(
+                        stringResource(Res.string.normal_sudoku_button, normalSudokuCompleted, 50),
                         color = Color.White,
                     )
                 }

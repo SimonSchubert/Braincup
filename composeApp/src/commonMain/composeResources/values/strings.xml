@@ -26,6 +26,18 @@
     <string name="title_master">Master</string>
     <string name="title_grandmaster">Grandmaster</string>
     <string name="achievements_button">Achievements (%1$d/%2$d)</string>
+    <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
+    <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_sudoku_difficulty_beginner">Beginner</string>
+    <string name="normal_sudoku_difficulty_easy">Easy</string>
+    <string name="normal_sudoku_difficulty_medium">Medium</string>
+    <string name="normal_sudoku_difficulty_hard">Hard</string>
+    <string name="normal_sudoku_difficulty_expert">Expert</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_solved">Solved!</string>
+    <string name="normal_sudoku_not_solved">Not quite right</string>
+    <string name="normal_sudoku_erase">Erase</string>
 
     <!-- Settings -->
     <string name="settings_title">Settings</string>

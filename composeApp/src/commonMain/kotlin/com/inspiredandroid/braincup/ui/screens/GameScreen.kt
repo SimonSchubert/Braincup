@@ -3052,10 +3052,6 @@ private fun ColumnScope.FlagsContent(
                     bestScore = uiState.bestScore,
                     modifier = Modifier.padding(bottom = 4.dp),
                 )
-                Text(
-                    text = stringResource(Res.string.game_flags_question),
-                    style = MaterialTheme.typography.titleMedium,
-                )
                 Spacer(Modifier.weight(1f))
                 Image(
                     painter = painterResource(flagResource(uiState.countrySlug)),
@@ -3071,6 +3067,7 @@ private fun ColumnScope.FlagsContent(
                         .padding(horizontal = 8.dp)
                         .widthIn(max = 480.dp),
                 )
+                Spacer(Modifier.weight(1f))
             }
         }
     }
