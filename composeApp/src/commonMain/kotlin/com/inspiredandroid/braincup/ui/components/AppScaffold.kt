@@ -9,6 +9,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_back
@@ -43,8 +44,13 @@ fun AppScaffold(
                         )
                     }
                 },
+                // Transparent so the bar shows the Scaffold background (same value as surface) and
+                // changes in lockstep with the rest of the screen on a theme switch. A fixed
+                // containerColor would animate independently via TopAppBar's internal color
+                // transition and lag behind the instant background change, which looks glitchy.
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
+                    containerColor = Color.Transparent,
+                    scrolledContainerColor = Color.Transparent,
                     titleContentColor = MaterialTheme.colorScheme.primary,
                     navigationIconContentColor = MaterialTheme.colorScheme.primary,
                 ),
@@ -108,7 +114,8 @@ fun GameScaffold(
                             }
                         },
                         colors = TopAppBarDefaults.topAppBarColors(
-                            containerColor = MaterialTheme.colorScheme.surface,
+                            containerColor = Color.Transparent,
+                            scrolledContainerColor = Color.Transparent,
                             navigationIconContentColor = MaterialTheme.colorScheme.primary,
                         ),
                     )

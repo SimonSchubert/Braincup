@@ -39,6 +39,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 @Composable
 fun App(
     systemColorSchemeProvider: ((dark: Boolean) -> ColorScheme)? = null,
+    systemBarAppearance: @Composable (darkTheme: Boolean) -> Unit = {},
     mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
     val navController = rememberNavController()
@@ -62,6 +63,15 @@ fun App(
         ThemeMode.LIGHT -> LightColorScheme
         ThemeMode.DARK -> DarkColorScheme
         ThemeMode.OLED -> OledColorScheme
+    }
+
+    // Drive the system bar icon brightness from the resolved theme rather than the OS setting, so an
+    // explicit Light/Dark/OLED choice that differs from the device's dark-mode state still gets
+    // legible status/navigation bar icons.
+    val isDarkTheme = when (themeMode) {
+        ThemeMode.SYSTEM -> systemDark
+        ThemeMode.LIGHT -> false
+        ThemeMode.DARK, ThemeMode.OLED -> true
     }
 
     var menuAudio by remember { mutableStateOf<ByteArray?>(null) }
@@ -115,6 +125,7 @@ fun App(
     }
 
     BraincupTheme(colorScheme = resolvedColorScheme) {
+        systemBarAppearance(isDarkTheme)
         Surface(modifier = Modifier.fillMaxSize()) {
             CompositionLocalProvider(LocalAccessiblePalette provides colorblindPaletteEnabled) {
                 AppNavHost(navController = navController, startDestination = MainMenu) {
