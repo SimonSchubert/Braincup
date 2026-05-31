@@ -2714,7 +2714,8 @@ private fun FlashCrowdDotsRow(
 }
 
 private val MiniChessLightSquare = ComposeColor(0xFFEEEED2)
-private val MiniChessDarkSquare = ComposeColor(0xFF769656)
+private val MiniChessDarkSquare = ComposeColor(0xFF6FA055)
+private val MiniChessBoardFrame = ComposeColor(0xFF3F5E2F)
 private val MiniChessSelected = ComposeColor(0xFFB9CAFF)
 private val MiniChessLastMove = ComposeColor(0x66FFD54F)
 private val MiniChessLegalDot = ComposeColor(0x66000000)
@@ -2779,38 +2780,43 @@ private fun ColumnScope.MiniChessContent(
     }
 
     val board: @Composable () -> Unit = {
-        Column {
-            for (row in 4 downTo 0) {
-                Row {
-                    for (col in 0..4) {
-                        val index = row * 5 + col
-                        val cell = uiState.cells[index]
-                        val showCheckRing = cell.pieceType == PieceType.KING &&
-                            (
-                                (cell.isWhite && uiState.whiteInCheck) ||
-                                    (!cell.isWhite && uiState.blackInCheck)
-                                )
-                        MiniChessCellView(
-                            cell = cell,
-                            isLight = (row + col) % 2 == 0,
-                            isSelected = selectedFrom == index,
-                            isLegalTarget = index in highlights,
-                            isStalemateTarget = index in drawHighlights,
-                            isLastMove = index == uiState.lastMoveFromIndex || index == uiState.lastMoveToIndex,
-                            showCheckRing = showCheckRing,
-                            enabled = interactive,
-                            onClick = {
-                                val from = selectedFrom
-                                if (from != null && uiState.legalMovesByFrom[from]?.contains(index) == true) {
-                                    onAnswer("$from>$index")
-                                    selectedFrom = null
-                                } else if (uiState.legalMovesByFrom.containsKey(index)) {
-                                    selectedFrom = index
-                                } else {
-                                    selectedFrom = null
-                                }
-                            },
-                        )
+        PrismCard(
+            face = MiniChessBoardFrame,
+            facet = 6.dp,
+        ) {
+            Column {
+                for (row in 4 downTo 0) {
+                    Row {
+                        for (col in 0..4) {
+                            val index = row * 5 + col
+                            val cell = uiState.cells[index]
+                            val showCheckRing = cell.pieceType == PieceType.KING &&
+                                (
+                                    (cell.isWhite && uiState.whiteInCheck) ||
+                                        (!cell.isWhite && uiState.blackInCheck)
+                                    )
+                            MiniChessCellView(
+                                cell = cell,
+                                isLight = (row + col) % 2 == 0,
+                                isSelected = selectedFrom == index,
+                                isLegalTarget = index in highlights,
+                                isStalemateTarget = index in drawHighlights,
+                                isLastMove = index == uiState.lastMoveFromIndex || index == uiState.lastMoveToIndex,
+                                showCheckRing = showCheckRing,
+                                enabled = interactive,
+                                onClick = {
+                                    val from = selectedFrom
+                                    if (from != null && uiState.legalMovesByFrom[from]?.contains(index) == true) {
+                                        onAnswer("$from>$index")
+                                        selectedFrom = null
+                                    } else if (uiState.legalMovesByFrom.containsKey(index)) {
+                                        selectedFrom = index
+                                    } else {
+                                        selectedFrom = null
+                                    }
+                                },
+                            )
+                        }
                     }
                 }
             }
@@ -2925,8 +2931,6 @@ private fun MiniChessCellView(
                     .background(MiniChessLastMove),
             )
         }
-        // King-in-check tint: solid red over the whole square so the player can spot the
-        // attacked king at a glance.
         if (showCheckRing) {
             Box(
                 modifier = Modifier
@@ -2934,9 +2938,6 @@ private fun MiniChessCellView(
                     .background(MiniChessCheckTint),
             )
         }
-        // Capture tint: red square highlight when the move takes an opposing piece. Skipped
-        // for stalemate moves — those use the orange dot instead so the indicator matches
-        // the legend in the warning text.
         if (isLegalTarget && cell.pieceType != null && !isStalemateTarget) {
             Box(
                 modifier = Modifier
@@ -2952,7 +2953,6 @@ private fun MiniChessCellView(
                 ChessPieceIcon(type = type, isWhite = cell.isWhite)
             }
         }
-        // Move indicators rendered last so they sit on top of any piece silhouette.
         if (isLegalTarget) {
             when {
                 isStalemateTarget -> ColorPrismCell(

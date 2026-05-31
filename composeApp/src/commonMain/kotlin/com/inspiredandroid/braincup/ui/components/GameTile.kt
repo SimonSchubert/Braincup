@@ -145,7 +145,8 @@ private val LightsOutPreviewOn: Set<Int> = setOf(1, 3, 4, 5, 7)
 private val SlidingPuzzlePreviewLabels: List<Int> = listOf(1, 2, 3, 4, 0, 5, 7, 8, 6)
 
 private val MiniChessLightSquare = ComposeColor(0xFFEEEED2)
-private val MiniChessDarkSquare = ComposeColor(0xFF769656)
+private val MiniChessDarkSquare = ComposeColor(0xFF6FA055)
+private val MiniChessBoardFrame = ComposeColor(0xFF3F5E2F)
 
 private data class MiniChessPreviewPlacement(val drawable: DrawableResource, val isWhite: Boolean)
 
@@ -829,16 +830,15 @@ private fun FlashCrowdPreview() {
 
 @Composable
 private fun MiniChessPreview() {
-    val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
-
-    Box(
+    PrismCard(
+        face = MiniChessBoardFrame,
+        facet = 4.dp,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
-            .padding(24.dp)
-            .background(borderColor),
+            .padding(24.dp),
     ) {
-        Column(modifier = Modifier.fillMaxSize().padding(2.dp)) {
+        Column(modifier = Modifier.fillMaxSize()) {
             for (row in 2 downTo 0) {
                 Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
                     for (col in 0..2) {
