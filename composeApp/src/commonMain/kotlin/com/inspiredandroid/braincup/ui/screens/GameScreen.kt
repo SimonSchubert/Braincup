@@ -482,6 +482,7 @@ private fun ColumnScope.SherlockCalculationContent(
                         if (token is ExpressionToken.NumberToken) {
                             usedNumberIndices.remove(token.originalIndex)
                         }
+                        checkAnswer()
                     }
                 },
                 onBackspace = {
@@ -490,6 +491,7 @@ private fun ColumnScope.SherlockCalculationContent(
                         if (lastToken is ExpressionToken.NumberToken) {
                             usedNumberIndices.remove(lastToken.originalIndex)
                         }
+                        checkAnswer()
                     }
                 },
                 modifier = mod,
@@ -526,6 +528,7 @@ private fun ColumnScope.SherlockCalculationContent(
                 onOperatorClick = { operator ->
                     if (!showingSolution) {
                         expressionTokens.add(ExpressionToken.OperatorToken(operator))
+                        checkAnswer()
                     }
                 },
                 modifier = mod,
