@@ -55,6 +55,7 @@ string|button_back|0J3QsNC30LDQtA==
 string|button_done|0JPQvtGC0L7QstC+
 string|button_give_up|0KHQtNCw0YLRjNGB0Y8=
 string|button_play_again|0JjQs9GA0LDRgtGMINGB0L3QvtCy0LA=
+string|button_play_next_level|0KHQu9C10LTRg9GO0YnQuNC5INGD0YDQvtCy0LXQvdGM
 string|button_play_random|0KHQu9GD0YfQsNC50L3QsNGPINC40LPRgNCw
 string|button_start|0J3QsNGH0LDRgtGM
 string|color_blue|0KHQuNC90LjQuQ==
@@ -318,6 +319,7 @@ string|direction_up|0LLQstC10YDRhQ==
 string|feedback_solution|0J7RgtCy0LXRgjogJTEkcw==
 string|finish_bonus_point|0JLRiyDQv9C+0LvRg9GH0LjQu9C4IDEg0LTQvtC/0L7Qu9C90LjRgtC10LvRjNC90L7QtSDQvtGH0LrQviDQt9CwINCx0LXQt9C+0YjQuNCx0L7Rh9C90YPRjiDQuNCz0YDRgyE=
 string|finish_highscore|0KDQtdC60L7RgNC0OiAlMSRz
+string|finish_level|0KPRgNC+0LLQtdC90Yw6ICUxJHM=
 string|finish_new_highscore|0J3QvtCy0YvQuSDRgNC10LrQvtGA0LQh
 string|finish_score|0KHRh9GR0YI6ICUxJHM=
 string|format_seconds|JTEkc3M=
@@ -411,6 +413,7 @@ string|normal_sudoku_section_progress|JTEkZCAvICUyJGQ=
 string|normal_sudoku_solved|0KDQtdGI0LXQvdC+IQ==
 string|normal_sudoku_title|0KHRg9C00L7QutGD
 string|preview_vs|dnM=
+string|scoreboard_best_level|0JvRg9GH0YjQuNC5INGD0YDQvtCy0LXQvdGM
 string|scoreboard_highscore|0KDQtdC60L7RgNC0
 string|scoreboard_no_scores|0J/QvtC60LAg0L3QtdGCINGA0LXQt9GD0LvRjNGC0LDRgtC+0LI=
 string|scoreboard_title|0KLQsNCx0LvQuNGG0LAgJTEkcw==

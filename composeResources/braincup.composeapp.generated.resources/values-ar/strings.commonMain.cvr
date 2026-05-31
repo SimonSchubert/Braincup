@@ -55,6 +55,7 @@ string|button_back|2LHYrNmI2Lk=
 string|button_done|2KrZhQ==
 string|button_give_up|2KfYs9iq2LPZhNin2YU=
 string|button_play_again|2KfZhNi52Kgg2YXYrNiv2K/Yp9mL
+string|button_play_next_level|2KfZhNmF2LPYqtmI2Ykg2KfZhNiq2KfZhNmK
 string|button_play_random|2YTYudio2Kkg2LnYtNmI2KfYptmK2Kk=
 string|button_start|2KfYqNiv2KM=
 string|color_blue|2KPYstix2YI=
@@ -318,6 +319,7 @@ string|direction_up|2KPYudmE2Yk=
 string|feedback_solution|2KfZhNit2YQ6ICUxJHM=
 string|finish_bonus_point|2K3YtdmE2Kog2LnZhNmJINmG2YLYt9ipINil2LbYp9mB2YrYqSDZhNi52K/ZhSDYp9ix2KrZg9in2Kgg2KPZiiDYo9iu2LfYp9ihIQ==
 string|finish_highscore|2KPYudmE2Ykg2YbYqtmK2KzYqTogJTEkcw==
+string|finish_level|2KfZhNmF2LPYqtmI2Yk6ICUxJHM=
 string|finish_new_highscore|2LHZgtmFINmC2YrYp9iz2Yog2KzYr9mK2K8h
 string|finish_score|2KfZhNmG2KrZitis2Kk6ICUxJHM=
 string|format_seconds|JTEkc3M=
@@ -411,6 +413,7 @@ string|normal_sudoku_section_progress|JTEkZCAvICUyJGQ=
 string|normal_sudoku_solved|2KrZhSDYp9mE2K3ZhCE=
 string|normal_sudoku_title|2LPZiNiv2YjZg9mI
 string|preview_vs|2LbYrw==
+string|scoreboard_best_level|2KPZgdi22YQg2YXYs9iq2YjZiQ==
 string|scoreboard_highscore|2KPYudmE2Ykg2YbYqtmK2KzYqQ==
 string|scoreboard_no_scores|2YTYpyDYqtmI2KzYryDZhtiq2KfYptisINio2LnYrw==
 string|scoreboard_title|2YTZiNit2Kkg2YbYqtin2KbYrCAlMSRz

@@ -55,6 +55,7 @@ string|button_back|4Kar4Ka/4Kaw4KeHIOCmr+CmvuCmqA==
 string|button_done|4Ka44Kau4KeN4Kaq4Kao4KeN4Kao
 string|button_give_up|4Ka54Ka+4KayIOCmm+CmvuCmoeCmvOCngeCmqA==
 string|button_play_again|4KaG4Kas4Ka+4KawIOCmluCnh+CmsuCngeCmqA==
+string|button_play_next_level|4Kaq4Kaw4Kas4Kaw4KeN4Kak4KeAIOCmsuCnh+CmreCnh+CmsiDgppbgp4fgprLgp4Hgpqg=
 string|button_play_random|4Kaw4oCN4KeN4Kav4Ka+4Kao4KeN4Kah4KauIOCml+Cnh+CmriDgppbgp4fgprLgp4Hgpqg=
 string|button_start|4Ka24KeB4Kaw4KeBIOCmleCmsOCngeCmqA==
 string|color_blue|4Kao4KeA4Kay
@@ -318,6 +319,7 @@ string|direction_up|4KaJ4Kaq4Kaw4KeH
 string|feedback_solution|4Ka44Kau4Ka+4Kan4Ka+4KaoOiAlMSRz
 string|finish_bonus_point|4KaV4KeL4Kao4KeLIOCmreCngeCmsiDgpqjgpr4g4KaV4Kaw4Ka+4Kav4Ka8IOCmhuCmquCmqOCmvyDgp6fgpp/gpr8g4KaF4Kak4Ka/4Kaw4Ka/4KaV4KeN4KakIOCmquCmr+CmvOCnh+CmqOCnjeCmnyDgpoXgprDgp43gppzgpqgg4KaV4Kaw4KeH4Kab4KeH4KaoIQ==
 string|finish_highscore|4Ka44Kaw4KeN4Kas4KeL4Kaa4KeN4KaaIOCmuOCnjeCmleCni+CmsDogJTEkcw==
+string|finish_level|4Kay4KeH4Kat4KeH4KayOiAlMSRz
 string|finish_new_highscore|4Kao4Kak4KeB4KaoIOCmuOCmsOCnjeCmrOCni+CmmuCnjeCmmiDgprjgp43gppXgp4vgprAh
 string|finish_score|4Ka44KeN4KaV4KeL4KawOiAlMSRz
 string|format_seconds|JTEkc3M=
@@ -411,6 +413,7 @@ string|normal_sudoku_section_progress|JTEkZCAvICUyJGQ=
 string|normal_sudoku_solved|4Ka44Kau4Ka+4Kan4Ka+4KaoIOCmueCmr+CmvOCnh+Cmm+CnhyE=
 string|normal_sudoku_title|4Ka44KeB4Kah4KeL4KaV4KeB
 string|preview_vs|4Kas4Kao4Ka+4Kau
+string|scoreboard_best_level|4Ka44Kaw4KeN4Kas4KeL4Kaa4KeN4KaaIOCmsuCnh+CmreCnh+Cmsg==
 string|scoreboard_highscore|4Ka44Kaw4KeN4Kas4KeL4Kaa4KeN4KaaIOCmuOCnjeCmleCni+CmsA==
 string|scoreboard_no_scores|4KaP4KaW4Kao4KaTIOCmleCni+CmqOCniyDgprjgp43gppXgp4vgprAg4Kao4KeH4KaH
 string|scoreboard_title|JTEkcyDgprjgp43gppXgp4vgprDgpqzgp4vgprDgp43gpqE=
