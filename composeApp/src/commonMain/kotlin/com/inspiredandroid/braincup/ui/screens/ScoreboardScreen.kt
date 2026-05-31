@@ -52,8 +52,13 @@ fun ScoreboardScreen(
                     .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                val highscoreLabelRes = if (gameType.usesLevelLabel) {
+                    Res.string.scoreboard_best_level
+                } else {
+                    Res.string.scoreboard_highscore
+                }
                 Text(
-                    text = stringResource(Res.string.scoreboard_highscore),
+                    text = stringResource(highscoreLabelRes),
                     style = MaterialTheme.typography.labelLarge,
                 )
                 Text(

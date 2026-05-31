@@ -8,6 +8,7 @@
     <string name="button_start">Mulai</string>
     <string name="button_back">Kembali</string>
     <string name="button_play_again">Main Lagi</string>
+    <string name="button_play_next_level">Mainkan level berikutnya</string>
     <string name="button_play_random">Permainan Acak</string>
     <string name="button_give_up">Menyerah</string>
     <string name="button_backspace">Hapus</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Skor: %1$s</string>
+    <string name="finish_level">Level: %1$s</string>
     <string name="finish_bonus_point">Anda mendapat 1 poin bonus karena tidak membuat kesalahan!</string>
     <string name="finish_new_highscore">Skor Tertinggi Baru!</string>
     <string name="finish_highscore">Skor Tertinggi: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Papan Skor %1$s</string>
     <string name="scoreboard_highscore">Skor Tertinggi</string>
+    <string name="scoreboard_best_level">Level Terbaik</string>
     <string name="scoreboard_no_scores">Belum ada skor</string>
 
     <!-- Achievements screen -->

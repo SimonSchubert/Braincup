@@ -8,6 +8,7 @@
     <string name="button_start">Почати</string>
     <string name="button_back">Назад</string>
     <string name="button_play_again">Грати знову</string>
+    <string name="button_play_next_level">Наступний рівень</string>
     <string name="button_play_random">Випадкова гра</string>
     <string name="button_give_up">Здатися</string>
     <string name="button_backspace">Видалити</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Рахунок: %1$s</string>
+    <string name="finish_level">Рівень: %1$s</string>
     <string name="finish_bonus_point">Ви отримали 1 додаткове очко за гру без помилок!</string>
     <string name="finish_new_highscore">Новий рекорд!</string>
     <string name="finish_highscore">Найкращий результат: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Таблиця %1$s</string>
     <string name="scoreboard_highscore">Рекорд</string>
+    <string name="scoreboard_best_level">Найкращий рівень</string>
     <string name="scoreboard_no_scores">Поки що немає результатів</string>
 
     <!-- Achievements screen -->

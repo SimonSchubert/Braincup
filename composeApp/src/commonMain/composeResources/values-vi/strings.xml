@@ -8,6 +8,7 @@
     <string name="button_start">Bắt đầu</string>
     <string name="button_back">Quay lại</string>
     <string name="button_play_again">Chơi lại</string>
+    <string name="button_play_next_level">Chơi cấp tiếp theo</string>
     <string name="button_play_random">Trò chơi ngẫu nhiên</string>
     <string name="button_give_up">Bỏ cuộc</string>
     <string name="button_backspace">Xóa</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Điểm: %1$s</string>
+    <string name="finish_level">Cấp: %1$s</string>
     <string name="finish_bonus_point">Bạn đã nhận được 1 điểm thưởng vì không mắc lỗi!</string>
     <string name="finish_new_highscore">Điểm cao mới!</string>
     <string name="finish_highscore">Điểm cao: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Bảng điểm %1$s</string>
     <string name="scoreboard_highscore">Điểm cao</string>
+    <string name="scoreboard_best_level">Cấp cao nhất</string>
     <string name="scoreboard_no_scores">Chưa có điểm</string>
 
     <!-- Achievements screen -->

@@ -8,6 +8,7 @@
     <string name="button_start">Starten</string>
     <string name="button_back">Terug</string>
     <string name="button_play_again">Opnieuw spelen</string>
+    <string name="button_play_next_level">Volgend level spelen</string>
     <string name="button_play_random">Willekeurig spel</string>
     <string name="button_give_up">Opgeven</string>
     <string name="button_backspace">Wissen</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Score: %1$s</string>
+    <string name="finish_level">Level: %1$s</string>
     <string name="finish_bonus_point">Je hebt 1 bonuspunt verdiend omdat je geen fouten hebt gemaakt!</string>
     <string name="finish_new_highscore">Nieuwe highscore!</string>
     <string name="finish_highscore">Topscore: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Scorebord</string>
     <string name="scoreboard_highscore">Highscore</string>
+    <string name="scoreboard_best_level">Hoogste level</string>
     <string name="scoreboard_no_scores">Nog geen scores</string>
 
     <!-- Achievements screen -->

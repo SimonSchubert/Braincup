@@ -8,6 +8,7 @@
     <string name="button_start">ابدأ</string>
     <string name="button_back">رجوع</string>
     <string name="button_play_again">العب مجدداً</string>
+    <string name="button_play_next_level">المستوى التالي</string>
     <string name="button_play_random">لعبة عشوائية</string>
     <string name="button_give_up">استسلام</string>
     <string name="button_backspace">مسح</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">النتيجة: %1$s</string>
+    <string name="finish_level">المستوى: %1$s</string>
     <string name="finish_bonus_point">حصلت على نقطة إضافية لعدم ارتكاب أي أخطاء!</string>
     <string name="finish_new_highscore">رقم قياسي جديد!</string>
     <string name="finish_highscore">أعلى نتيجة: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">لوحة نتائج %1$s</string>
     <string name="scoreboard_highscore">أعلى نتيجة</string>
+    <string name="scoreboard_best_level">أفضل مستوى</string>
     <string name="scoreboard_no_scores">لا توجد نتائج بعد</string>
 
     <!-- Achievements screen -->

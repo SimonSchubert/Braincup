@@ -8,6 +8,7 @@
     <string name="button_start">Commencer</string>
     <string name="button_back">Retour</string>
     <string name="button_play_again">Rejouer</string>
+    <string name="button_play_next_level">Niveau suivant</string>
     <string name="button_play_random">Jeu aléatoire</string>
     <string name="button_give_up">Abandonner</string>
     <string name="button_backspace">Retour arrière</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Score : %1$s</string>
+    <string name="finish_level">Niveau : %1$s</string>
     <string name="finish_bonus_point">Vous avez gagné 1 point bonus pour n'avoir fait aucune erreur !</string>
     <string name="finish_new_highscore">Nouveau meilleur score !</string>
     <string name="finish_highscore">Meilleur score : %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">Classement %1$s</string>
     <string name="scoreboard_highscore">Meilleur score</string>
+    <string name="scoreboard_best_level">Meilleur niveau</string>
     <string name="scoreboard_no_scores">Pas encore de scores</string>
 
     <!-- Achievements screen -->

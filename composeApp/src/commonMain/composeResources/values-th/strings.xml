@@ -8,6 +8,7 @@
     <string name="button_start">เริ่ม</string>
     <string name="button_back">กลับ</string>
     <string name="button_play_again">เล่นอีกครั้ง</string>
+    <string name="button_play_next_level">เล่นระดับถัดไป</string>
     <string name="button_play_random">เล่นเกมสุ่ม</string>
     <string name="button_give_up">ยอมแพ้</string>
     <string name="button_backspace">ลบ</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">คะแนน: %1$s</string>
+    <string name="finish_level">ระดับ: %1$s</string>
     <string name="finish_bonus_point">คุณได้รับ 1 คะแนนพิเศษจากการไม่ทำผิดพลาด!</string>
     <string name="finish_new_highscore">คะแนนสูงสุดใหม่!</string>
     <string name="finish_highscore">คะแนนสูงสุด: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">กระดานคะแนน %1$s</string>
     <string name="scoreboard_highscore">คะแนนสูงสุด</string>
+    <string name="scoreboard_best_level">ระดับสูงสุด</string>
     <string name="scoreboard_no_scores">ยังไม่มีคะแนน</string>
 
     <!-- Achievements screen -->

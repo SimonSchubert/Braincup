@@ -8,6 +8,7 @@
     <string name="button_start">Başla</string>
     <string name="button_back">Geri</string>
     <string name="button_play_again">Tekrar Oyna</string>
+    <string name="button_play_next_level">Sonraki seviye</string>
     <string name="button_play_random">Rastgele Oyun</string>
     <string name="button_give_up">Vazgeç</string>
     <string name="button_backspace">Sil</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Puan: %1$s</string>
+    <string name="finish_level">Seviye: %1$s</string>
     <string name="finish_bonus_point">Hata yapmadığınız için 1 ekstra puan kazandınız!</string>
     <string name="finish_new_highscore">Yeni Yüksek Skor!</string>
     <string name="finish_highscore">En Yüksek Skor: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Skor Tablosu</string>
     <string name="scoreboard_highscore">Yüksek Skor</string>
+    <string name="scoreboard_best_level">En İyi Seviye</string>
     <string name="scoreboard_no_scores">Henüz skor yok</string>
 
     <!-- Achievements screen -->

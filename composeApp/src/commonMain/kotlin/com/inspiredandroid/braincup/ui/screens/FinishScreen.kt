@@ -69,13 +69,19 @@ fun FinishScreen(
             Spacer(Modifier.height(8.dp))
         }
 
-        Text(
-            text = stringResource(Res.string.finish_score, gameType.formattedScore(score)),
-            style = MaterialTheme.typography.headlineLarge,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        // Level-based games suppress the score/highscore lines on give-up (score == 0),
+        // since "Level: 0" / "Best Level: N" reads as misleading status info.
+        val gaveUpLevelGame = gameType.usesLevelLabel && score <= 0
+        if (!gaveUpLevelGame) {
+            val scoreLabelRes = if (gameType.usesLevelLabel) Res.string.finish_level else Res.string.finish_score
+            Text(
+                text = stringResource(scoreLabelRes, gameType.formattedScore(score)),
+                style = MaterialTheme.typography.headlineLarge,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
 
-        Spacer(Modifier.height(16.dp))
+            Spacer(Modifier.height(16.dp))
+        }
 
         if (answeredAllCorrect && !gameType.lowerScoreIsBetter) {
             Text(
@@ -106,7 +112,7 @@ fun FinishScreen(
                     color = OnPrimaryContainer,
                 )
             }
-        } else if (highscore > 0) {
+        } else if (highscore > 0 && !gameType.usesLevelLabel) {
             Text(
                 text = stringResource(Res.string.finish_highscore, gameType.formattedScore(highscore)),
                 style = MaterialTheme.typography.bodyLarge,
@@ -126,9 +132,14 @@ fun FinishScreen(
 
         Spacer(Modifier.height(8.dp))
 
+        val playAgainLabelRes = if (gameType.usesLevelLabel && !gaveUpLevelGame) {
+            Res.string.button_play_next_level
+        } else {
+            Res.string.button_play_again
+        }
         PrimaryActionButton(
             onClick = onPlayAgain,
-            value = stringResource(Res.string.button_play_again),
+            value = stringResource(playAgainLabelRes),
         )
     }
 }

@@ -214,6 +214,11 @@ enum class GameType(
     val requiresColorVision: Boolean
         get() = this == COLOR_CONFUSION || this == COLORED_SHAPES
 
+    /** Games whose score is the highest level reached, not a count of correct answers.
+     *  UI shows "Level N" / "Play next level" instead of "Score: N" / "Play Again". */
+    val usesLevelLabel: Boolean
+        get() = this == LIGHTS_OUT || this == SLIDING_PUZZLE
+
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */
     fun formatScore(score: Int): String = if (lowerScoreIsBetter) {

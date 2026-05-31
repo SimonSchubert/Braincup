@@ -8,6 +8,7 @@
     <string name="button_start">スタート</string>
     <string name="button_back">戻る</string>
     <string name="button_play_again">もう一度プレイ</string>
+    <string name="button_play_next_level">次のレベルをプレイ</string>
     <string name="button_play_random">ランダムゲーム</string>
     <string name="button_give_up">ギブアップ</string>
     <string name="button_backspace">バックスペース</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">スコア：%1$s</string>
+    <string name="finish_level">レベル：%1$s</string>
     <string name="finish_bonus_point">ミスなしで1ポイントのボーナスを獲得しました！</string>
     <string name="finish_new_highscore">新記録！</string>
     <string name="finish_highscore">ハイスコア: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s スコアボード</string>
     <string name="scoreboard_highscore">ハイスコア</string>
+    <string name="scoreboard_best_level">最高レベル</string>
     <string name="scoreboard_no_scores">まだスコアがありません</string>
 
     <!-- Achievements screen -->

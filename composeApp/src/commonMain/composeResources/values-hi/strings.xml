@@ -8,6 +8,7 @@
     <string name="button_start">शुरू करें</string>
     <string name="button_back">वापस</string>
     <string name="button_play_again">फिर से खेलें</string>
+    <string name="button_play_next_level">अगला स्तर खेलें</string>
     <string name="button_play_random">रैंडम गेम खेलें</string>
     <string name="button_give_up">हार मानें</string>
     <string name="button_backspace">बैकस्पेस</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">स्कोर: %1$s</string>
+    <string name="finish_level">स्तर: %1$s</string>
     <string name="finish_bonus_point">आपने कोई गलती न करने के लिए 1 अतिरिक्त अंक अर्जित किया!</string>
     <string name="finish_new_highscore">नया उच्च स्कोर!</string>
     <string name="finish_highscore">उच्च स्कोर: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s स्कोरबोर्ड</string>
     <string name="scoreboard_highscore">उच्च स्कोर</string>
+    <string name="scoreboard_best_level">सर्वश्रेष्ठ स्तर</string>
     <string name="scoreboard_no_scores">अभी तक कोई स्कोर नहीं</string>
 
     <!-- Achievements screen -->

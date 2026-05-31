@@ -8,6 +8,7 @@
     <string name="button_start">开始</string>
     <string name="button_back">返回</string>
     <string name="button_play_again">再玩一次</string>
+    <string name="button_play_next_level">玩下一关</string>
     <string name="button_play_random">随机游戏</string>
     <string name="button_give_up">放弃</string>
     <string name="button_backspace">退格</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">得分：%1$s</string>
+    <string name="finish_level">关卡：%1$s</string>
     <string name="finish_bonus_point">您因零失误获得了1个额外分数！</string>
     <string name="finish_new_highscore">新最高分！</string>
     <string name="finish_highscore">最高分: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s 排行榜</string>
     <string name="scoreboard_highscore">最高分</string>
+    <string name="scoreboard_best_level">最高关卡</string>
     <string name="scoreboard_no_scores">暂无分数</string>
 
     <!-- Achievements screen -->

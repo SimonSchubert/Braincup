@@ -8,6 +8,7 @@
     <string name="button_start">শুরু করুন</string>
     <string name="button_back">ফিরে যান</string>
     <string name="button_play_again">আবার খেলুন</string>
+    <string name="button_play_next_level">পরবর্তী লেভেল খেলুন</string>
     <string name="button_play_random">র‍্যান্ডম গেম খেলুন</string>
     <string name="button_give_up">হাল ছাড়ুন</string>
     <string name="button_backspace">ব্যাকস্পেস</string>
@@ -26,6 +27,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">স্কোর: %1$s</string>
+    <string name="finish_level">লেভেল: %1$s</string>
     <string name="finish_bonus_point">কোনো ভুল না করায় আপনি ১টি অতিরিক্ত পয়েন্ট অর্জন করেছেন!</string>
     <string name="finish_new_highscore">নতুন সর্বোচ্চ স্কোর!</string>
     <string name="finish_highscore">সর্বোচ্চ স্কোর: %1$s</string>
@@ -36,6 +38,7 @@
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s স্কোরবোর্ড</string>
     <string name="scoreboard_highscore">সর্বোচ্চ স্কোর</string>
+    <string name="scoreboard_best_level">সর্বোচ্চ লেভেল</string>
     <string name="scoreboard_no_scores">এখনও কোনো স্কোর নেই</string>
 
     <!-- Achievements screen -->
