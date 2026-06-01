@@ -516,4 +516,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Решено!</string>
     <string name="normal_sudoku_title">Судоку</string>
+    <string name="normal_chess_button">Обычные шахматы</string>
+    <string name="normal_chess_title">Шахматы</string>
+    <string name="normal_chess_mode_cpu">Игра против компьютера</string>
+    <string name="normal_chess_mode_human">Игра против человека</string>
+    <string name="normal_chess_mode_human_subtitle">По очереди на одном устройстве</string>
+    <string name="normal_chess_difficulty">Сложность</string>
+    <string name="normal_chess_difficulty_easy">Лёгкий</string>
+    <string name="normal_chess_difficulty_medium">Средний</string>
+    <string name="normal_chess_difficulty_hard">Сложный</string>
+    <string name="normal_chess_start">Начать игру</string>
+    <string name="normal_chess_thinking">Компьютер думает…</string>
+    <string name="normal_chess_checkmate_white">Мат. Победа белых.</string>
+    <string name="normal_chess_checkmate_black">Мат. Победа чёрных.</string>
+    <string name="normal_chess_stalemate">Пат. Ничья.</string>
+    <string name="normal_chess_draw_50">Ничья по правилу пятидесяти ходов.</string>
+    <string name="normal_chess_draw_material">Ничья из-за недостатка материала.</string>
+    <string name="normal_chess_resign">Сдаться</string>
+    <string name="normal_chess_quit">Выйти</string>
+    <string name="normal_chess_new_game">Новая игра</string>
+    <string name="normal_chess_turn_white">Ход белых</string>
+    <string name="normal_chess_turn_black">Ход чёрных</string>
+    <string name="normal_chess_promotion_title">Превратить в</string>
+    <string name="normal_chess_promotion_queen">Ферзь</string>
+    <string name="normal_chess_promotion_rook">Ладья</string>
+    <string name="normal_chess_promotion_bishop">Слон</string>
+    <string name="normal_chess_promotion_knight">Конь</string>
+    <string name="normal_chess_draw_warning">= пат (ничья, не победа)</string>
 </resources>

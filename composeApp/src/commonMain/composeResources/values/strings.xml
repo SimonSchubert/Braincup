@@ -39,6 +39,35 @@
     <string name="normal_sudoku_not_solved">Not quite right</string>
     <string name="normal_sudoku_erase">Erase</string>
 
+    <!-- Normal Chess -->
+    <string name="normal_chess_button">Normal Chess</string>
+    <string name="normal_chess_title">Chess</string>
+    <string name="normal_chess_mode_cpu">Play vs CPU</string>
+    <string name="normal_chess_mode_human">Play vs Human</string>
+    <string name="normal_chess_mode_human_subtitle">Pass and play on one device</string>
+    <string name="normal_chess_difficulty">Difficulty</string>
+    <string name="normal_chess_difficulty_easy">Easy</string>
+    <string name="normal_chess_difficulty_medium">Medium</string>
+    <string name="normal_chess_difficulty_hard">Hard</string>
+    <string name="normal_chess_start">Start game</string>
+    <string name="normal_chess_thinking">CPU is thinking…</string>
+    <string name="normal_chess_checkmate_white">Checkmate. White wins.</string>
+    <string name="normal_chess_checkmate_black">Checkmate. Black wins.</string>
+    <string name="normal_chess_stalemate">Stalemate. Draw.</string>
+    <string name="normal_chess_draw_50">Draw by fifty-move rule.</string>
+    <string name="normal_chess_draw_material">Draw by insufficient material.</string>
+    <string name="normal_chess_resign">Resign</string>
+    <string name="normal_chess_quit">Quit</string>
+    <string name="normal_chess_new_game">New game</string>
+    <string name="normal_chess_turn_white">White to move</string>
+    <string name="normal_chess_turn_black">Black to move</string>
+    <string name="normal_chess_promotion_title">Promote to</string>
+    <string name="normal_chess_promotion_queen">Queen</string>
+    <string name="normal_chess_promotion_rook">Rook</string>
+    <string name="normal_chess_promotion_bishop">Bishop</string>
+    <string name="normal_chess_promotion_knight">Knight</string>
+    <string name="normal_chess_draw_warning">= stalemate (draw, not a win)</string>
+
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_open">Open settings</string>

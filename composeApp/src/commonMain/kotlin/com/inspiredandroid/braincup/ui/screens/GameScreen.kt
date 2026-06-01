@@ -26,9 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
@@ -81,19 +79,6 @@ internal val FlashCrowdBlueBottom = FlashCrowdBlue.darken(0.5f)
 // Yellow needs a lighter darken than the prism default (0.7/0.5) so the facets read on a light hue.
 internal val FlashCrowdYellowSide = FlashCrowdYellow.darken(0.85f)
 internal val FlashCrowdYellowBottom = FlashCrowdYellow.darken(0.7f)
-
-private val ChessHaloDeltas: List<Pair<Float, Float>> = listOf(
-    -1f to -1f,
-    0f to -1f,
-    1f to -1f,
-    -1f to 0f,
-    1f to 0f,
-    -1f to 1f,
-    0f to 1f,
-    1f to 1f,
-)
-
-private val ChessOutlineFilter = ColorFilter.tint(ComposeColor.Black)
 
 @Composable
 fun GameScreen(
@@ -2713,17 +2698,17 @@ private fun FlashCrowdDotsRow(
     }
 }
 
-private val MiniChessLightSquare = ComposeColor(0xFFEEEED2)
-private val MiniChessDarkSquare = ComposeColor(0xFF6FA055)
-private val MiniChessBoardFrame = ComposeColor(0xFF3F5E2F)
-private val MiniChessSelected = ComposeColor(0xFFB9CAFF)
-private val MiniChessLastMove = ComposeColor(0x66FFD54F)
-private val MiniChessLegalDot = ComposeColor(0x66000000)
-private val MiniChessCaptureTint = ComposeColor(0x55E53935)
-private val MiniChessDrawDot = ComposeColor(0xCCFBC02D)
-private val MiniChessDrawTint = ComposeColor(0x66FBC02D)
-private val MiniChessCheckTint = ComposeColor(0x88E53935)
-private val MiniChessWarning = ComposeColor(0xFFE65100)
+private val MiniChessLightSquare = ChessLightSquare
+private val MiniChessDarkSquare = ChessDarkSquare
+private val MiniChessBoardFrame = ChessBoardFrame
+private val MiniChessSelected = ChessSelected
+private val MiniChessLastMove = ChessLastMove
+private val MiniChessLegalDot = ChessLegalDot
+private val MiniChessCaptureTint = ChessCaptureTint
+private val MiniChessDrawDot = ChessDrawDot
+private val MiniChessDrawTint = ChessDrawTint
+private val MiniChessCheckTint = ChessCheckTint
+private val MiniChessWarning = ChessWarning
 
 @Composable
 private fun ColumnScope.MiniChessContent(
@@ -2950,7 +2935,7 @@ private fun MiniChessCellView(
                 modifier = Modifier.size(52.dp),
                 contentAlignment = Alignment.Center,
             ) {
-                ChessPieceIcon(type = type, isWhite = cell.isWhite)
+                MiniChessPieceIcon(type = type, isWhite = cell.isWhite)
             }
         }
         if (isLegalTarget) {
@@ -2972,23 +2957,11 @@ private fun MiniChessCellView(
 }
 
 @Composable
-private fun ChessPieceIcon(type: PieceType, isWhite: Boolean) {
-    val painter = painterResource(chessPieceResource(type))
-    val fill = ColorFilter.tint(if (isWhite) ComposeColor.White else ComposeColor.Black)
-
-    Canvas(modifier = Modifier.size(44.dp)) {
-        if (isWhite) {
-            for ((dx, dy) in ChessHaloDeltas) {
-                translate(left = dx, top = dy) {
-                    with(painter) { draw(size = this@Canvas.size, colorFilter = ChessOutlineFilter) }
-                }
-            }
-        }
-        with(painter) { draw(size = size, colorFilter = fill) }
-    }
+private fun MiniChessPieceIcon(type: PieceType, isWhite: Boolean) {
+    ChessPieceIcon(resource = miniChessPieceResource(type), isWhite = isWhite)
 }
 
-private fun chessPieceResource(type: PieceType) = when (type) {
+private fun miniChessPieceResource(type: PieceType) = when (type) {
     PieceType.KING -> Res.drawable.ic_chess_king
     PieceType.QUEEN -> Res.drawable.ic_chess_queen
     PieceType.ROOK -> Res.drawable.ic_chess_rook

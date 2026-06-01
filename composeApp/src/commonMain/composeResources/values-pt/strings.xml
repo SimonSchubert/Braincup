@@ -517,4 +517,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Resolvido!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Xadrez normal</string>
+    <string name="normal_chess_title">Xadrez</string>
+    <string name="normal_chess_mode_cpu">Jogar contra CPU</string>
+    <string name="normal_chess_mode_human">Jogar contra humano</string>
+    <string name="normal_chess_mode_human_subtitle">Passar e jogar num só dispositivo</string>
+    <string name="normal_chess_difficulty">Dificuldade</string>
+    <string name="normal_chess_difficulty_easy">Fácil</string>
+    <string name="normal_chess_difficulty_medium">Médio</string>
+    <string name="normal_chess_difficulty_hard">Difícil</string>
+    <string name="normal_chess_start">Iniciar partida</string>
+    <string name="normal_chess_thinking">A CPU está pensando…</string>
+    <string name="normal_chess_checkmate_white">Xeque-mate. As brancas vencem.</string>
+    <string name="normal_chess_checkmate_black">Xeque-mate. As pretas vencem.</string>
+    <string name="normal_chess_stalemate">Empate. Afogamento.</string>
+    <string name="normal_chess_draw_50">Empate pela regra dos cinquenta lances.</string>
+    <string name="normal_chess_draw_material">Empate por material insuficiente.</string>
+    <string name="normal_chess_resign">Desistir</string>
+    <string name="normal_chess_quit">Sair</string>
+    <string name="normal_chess_new_game">Nova partida</string>
+    <string name="normal_chess_turn_white">Vez das brancas</string>
+    <string name="normal_chess_turn_black">Vez das pretas</string>
+    <string name="normal_chess_promotion_title">Promover para</string>
+    <string name="normal_chess_promotion_queen">Dama</string>
+    <string name="normal_chess_promotion_rook">Torre</string>
+    <string name="normal_chess_promotion_bishop">Bispo</string>
+    <string name="normal_chess_promotion_knight">Cavalo</string>
+    <string name="normal_chess_draw_warning">= afogamento (empate, não vitória)</string>
 </resources>

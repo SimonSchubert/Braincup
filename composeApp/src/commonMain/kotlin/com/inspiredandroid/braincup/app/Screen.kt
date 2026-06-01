@@ -43,3 +43,9 @@ object NormalSudokuMenu
 
 @Serializable
 data class NormalSudokuPlay(val puzzleId: String)
+
+@Serializable
+object NormalChessMenu
+
+@Serializable
+data class NormalChessPlay(val mode: String, val difficulty: String)

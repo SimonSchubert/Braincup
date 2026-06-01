@@ -31,6 +31,7 @@ data class FigureCell(
     val state: FigureCellState = FigureCellState.NORMAL,
 )
 
+@Immutable
 sealed interface GameUiState
 
 /**

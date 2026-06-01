@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">完成！</string>
     <string name="normal_sudoku_title">数独</string>
+    <string name="normal_chess_button">普通国际象棋</string>
+    <string name="normal_chess_title">国际象棋</string>
+    <string name="normal_chess_mode_cpu">对战电脑</string>
+    <string name="normal_chess_mode_human">双人对战</string>
+    <string name="normal_chess_mode_human_subtitle">在一台设备上轮流游戏</string>
+    <string name="normal_chess_difficulty">难度</string>
+    <string name="normal_chess_difficulty_easy">简单</string>
+    <string name="normal_chess_difficulty_medium">中等</string>
+    <string name="normal_chess_difficulty_hard">困难</string>
+    <string name="normal_chess_start">开始游戏</string>
+    <string name="normal_chess_thinking">电脑思考中…</string>
+    <string name="normal_chess_checkmate_white">将杀。白方胜。</string>
+    <string name="normal_chess_checkmate_black">将杀。黑方胜。</string>
+    <string name="normal_chess_stalemate">逼和。平局。</string>
+    <string name="normal_chess_draw_50">五十步规则平局。</string>
+    <string name="normal_chess_draw_material">子力不足平局。</string>
+    <string name="normal_chess_resign">认输</string>
+    <string name="normal_chess_quit">退出</string>
+    <string name="normal_chess_new_game">新游戏</string>
+    <string name="normal_chess_turn_white">白方走</string>
+    <string name="normal_chess_turn_black">黑方走</string>
+    <string name="normal_chess_promotion_title">升变为</string>
+    <string name="normal_chess_promotion_queen">皇后</string>
+    <string name="normal_chess_promotion_rook">车</string>
+    <string name="normal_chess_promotion_bishop">象</string>
+    <string name="normal_chess_promotion_knight">马</string>
+    <string name="normal_chess_draw_warning">= 逼和（平局，非胜利）</string>
 </resources>

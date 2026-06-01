@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">সমাধান হয়েছে!</string>
     <string name="normal_sudoku_title">সুডোকু</string>
+    <string name="normal_chess_button">সাধারণ দাবা</string>
+    <string name="normal_chess_title">দাবা</string>
+    <string name="normal_chess_mode_cpu">CPU-এর বিরুদ্ধে খেলুন</string>
+    <string name="normal_chess_mode_human">মানুষের বিরুদ্ধে খেলুন</string>
+    <string name="normal_chess_mode_human_subtitle">একটি ডিভাইসে পালা বদল করে খেলুন</string>
+    <string name="normal_chess_difficulty">কঠিনতা</string>
+    <string name="normal_chess_difficulty_easy">সহজ</string>
+    <string name="normal_chess_difficulty_medium">মাঝারি</string>
+    <string name="normal_chess_difficulty_hard">কঠিন</string>
+    <string name="normal_chess_start">খেলা শুরু</string>
+    <string name="normal_chess_thinking">CPU চিন্তা করছে…</string>
+    <string name="normal_chess_checkmate_white">কিস্তিমাত। সাদা জিতেছে।</string>
+    <string name="normal_chess_checkmate_black">কিস্তিমাত। কালো জিতেছে।</string>
+    <string name="normal_chess_stalemate">স্টেলমেট। ড্র।</string>
+    <string name="normal_chess_draw_50">পঞ্চাশ-চাল নিয়মে ড্র।</string>
+    <string name="normal_chess_draw_material">অপর্যাপ্ত উপকরণে ড্র।</string>
+    <string name="normal_chess_resign">আত্মসমর্পণ</string>
+    <string name="normal_chess_quit">প্রস্থান</string>
+    <string name="normal_chess_new_game">নতুন খেলা</string>
+    <string name="normal_chess_turn_white">সাদার চাল</string>
+    <string name="normal_chess_turn_black">কালোর চাল</string>
+    <string name="normal_chess_promotion_title">উত্তীর্ণ করুন</string>
+    <string name="normal_chess_promotion_queen">মন্ত্রী</string>
+    <string name="normal_chess_promotion_rook">নৌকা</string>
+    <string name="normal_chess_promotion_bishop">গজ</string>
+    <string name="normal_chess_promotion_knight">ঘোড়া</string>
+    <string name="normal_chess_draw_warning">= স্টেলমেট (ড্র, জয় নয়)</string>
 </resources>

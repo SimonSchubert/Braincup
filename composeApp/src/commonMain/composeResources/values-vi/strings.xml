@@ -516,4 +516,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Hoàn thành!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Cờ vua thường</string>
+    <string name="normal_chess_title">Cờ vua</string>
+    <string name="normal_chess_mode_cpu">Chơi với máy tính</string>
+    <string name="normal_chess_mode_human">Chơi với người</string>
+    <string name="normal_chess_mode_human_subtitle">Chơi luân phiên trên một thiết bị</string>
+    <string name="normal_chess_difficulty">Độ khó</string>
+    <string name="normal_chess_difficulty_easy">Dễ</string>
+    <string name="normal_chess_difficulty_medium">Vừa</string>
+    <string name="normal_chess_difficulty_hard">Khó</string>
+    <string name="normal_chess_start">Bắt đầu</string>
+    <string name="normal_chess_thinking">Máy tính đang suy nghĩ…</string>
+    <string name="normal_chess_checkmate_white">Chiếu hết. Bên trắng thắng.</string>
+    <string name="normal_chess_checkmate_black">Chiếu hết. Bên đen thắng.</string>
+    <string name="normal_chess_stalemate">Hết nước đi. Hòa.</string>
+    <string name="normal_chess_draw_50">Hòa theo luật năm mươi nước.</string>
+    <string name="normal_chess_draw_material">Hòa do không đủ quân.</string>
+    <string name="normal_chess_resign">Đầu hàng</string>
+    <string name="normal_chess_quit">Thoát</string>
+    <string name="normal_chess_new_game">Ván mới</string>
+    <string name="normal_chess_turn_white">Lượt bên trắng</string>
+    <string name="normal_chess_turn_black">Lượt bên đen</string>
+    <string name="normal_chess_promotion_title">Phong cấp</string>
+    <string name="normal_chess_promotion_queen">Hậu</string>
+    <string name="normal_chess_promotion_rook">Xe</string>
+    <string name="normal_chess_promotion_bishop">Tượng</string>
+    <string name="normal_chess_promotion_knight">Mã</string>
+    <string name="normal_chess_draw_warning">= hết nước đi (hòa, không phải thắng)</string>
 </resources>

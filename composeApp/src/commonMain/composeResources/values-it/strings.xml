@@ -517,4 +517,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Risolto!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Scacchi normali</string>
+    <string name="normal_chess_title">Scacchi</string>
+    <string name="normal_chess_mode_cpu">Gioca contro CPU</string>
+    <string name="normal_chess_mode_human">Gioca contro umano</string>
+    <string name="normal_chess_mode_human_subtitle">A turno sullo stesso dispositivo</string>
+    <string name="normal_chess_difficulty">Difficoltà</string>
+    <string name="normal_chess_difficulty_easy">Facile</string>
+    <string name="normal_chess_difficulty_medium">Medio</string>
+    <string name="normal_chess_difficulty_hard">Difficile</string>
+    <string name="normal_chess_start">Inizia partita</string>
+    <string name="normal_chess_thinking">La CPU sta pensando…</string>
+    <string name="normal_chess_checkmate_white">Scacco matto. Vince il bianco.</string>
+    <string name="normal_chess_checkmate_black">Scacco matto. Vince il nero.</string>
+    <string name="normal_chess_stalemate">Stallo. Patta.</string>
+    <string name="normal_chess_draw_50">Patta per la regola delle cinquanta mosse.</string>
+    <string name="normal_chess_draw_material">Patta per materiale insufficiente.</string>
+    <string name="normal_chess_resign">Abbandono</string>
+    <string name="normal_chess_quit">Esci</string>
+    <string name="normal_chess_new_game">Nuova partita</string>
+    <string name="normal_chess_turn_white">Tocca al bianco</string>
+    <string name="normal_chess_turn_black">Tocca al nero</string>
+    <string name="normal_chess_promotion_title">Promuovi a</string>
+    <string name="normal_chess_promotion_queen">Donna</string>
+    <string name="normal_chess_promotion_rook">Torre</string>
+    <string name="normal_chess_promotion_bishop">Alfiere</string>
+    <string name="normal_chess_promotion_knight">Cavallo</string>
+    <string name="normal_chess_draw_warning">= stallo (patta, non vittoria)</string>
 </resources>

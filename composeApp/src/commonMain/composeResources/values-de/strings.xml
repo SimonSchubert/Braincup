@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Gelöst!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Normales Schach</string>
+    <string name="normal_chess_title">Schach</string>
+    <string name="normal_chess_mode_cpu">Gegen CPU spielen</string>
+    <string name="normal_chess_mode_human">Gegen Mensch spielen</string>
+    <string name="normal_chess_mode_human_subtitle">Abwechselnd auf einem Gerät</string>
+    <string name="normal_chess_difficulty">Schwierigkeit</string>
+    <string name="normal_chess_difficulty_easy">Einfach</string>
+    <string name="normal_chess_difficulty_medium">Mittel</string>
+    <string name="normal_chess_difficulty_hard">Schwer</string>
+    <string name="normal_chess_start">Spiel starten</string>
+    <string name="normal_chess_thinking">CPU denkt nach…</string>
+    <string name="normal_chess_checkmate_white">Schachmatt. Weiß gewinnt.</string>
+    <string name="normal_chess_checkmate_black">Schachmatt. Schwarz gewinnt.</string>
+    <string name="normal_chess_stalemate">Patt. Unentschieden.</string>
+    <string name="normal_chess_draw_50">Unentschieden nach Fünfzig-Züge-Regel.</string>
+    <string name="normal_chess_draw_material">Unentschieden wegen unzureichendem Material.</string>
+    <string name="normal_chess_resign">Aufgeben</string>
+    <string name="normal_chess_quit">Beenden</string>
+    <string name="normal_chess_new_game">Neues Spiel</string>
+    <string name="normal_chess_turn_white">Weiß am Zug</string>
+    <string name="normal_chess_turn_black">Schwarz am Zug</string>
+    <string name="normal_chess_promotion_title">Umwandeln in</string>
+    <string name="normal_chess_promotion_queen">Dame</string>
+    <string name="normal_chess_promotion_rook">Turm</string>
+    <string name="normal_chess_promotion_bishop">Läufer</string>
+    <string name="normal_chess_promotion_knight">Springer</string>
+    <string name="normal_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
 </resources>

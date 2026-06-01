@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">हल हो गया!</string>
     <string name="normal_sudoku_title">सुडोकू</string>
+    <string name="normal_chess_button">सामान्य शतरंज</string>
+    <string name="normal_chess_title">शतरंज</string>
+    <string name="normal_chess_mode_cpu">CPU से खेलें</string>
+    <string name="normal_chess_mode_human">इंसान से खेलें</string>
+    <string name="normal_chess_mode_human_subtitle">एक ही डिवाइस पर बारी-बारी से</string>
+    <string name="normal_chess_difficulty">कठिनाई</string>
+    <string name="normal_chess_difficulty_easy">आसान</string>
+    <string name="normal_chess_difficulty_medium">मध्यम</string>
+    <string name="normal_chess_difficulty_hard">कठिन</string>
+    <string name="normal_chess_start">खेल शुरू करें</string>
+    <string name="normal_chess_thinking">CPU सोच रहा है…</string>
+    <string name="normal_chess_checkmate_white">शह और मात। सफेद जीता।</string>
+    <string name="normal_chess_checkmate_black">शह और मात। काला जीता।</string>
+    <string name="normal_chess_stalemate">गतिरोध। ड्रॉ।</string>
+    <string name="normal_chess_draw_50">पचास-चाल नियम से ड्रॉ।</string>
+    <string name="normal_chess_draw_material">अपर्याप्त सामग्री से ड्रॉ।</string>
+    <string name="normal_chess_resign">हार स्वीकार करें</string>
+    <string name="normal_chess_quit">बाहर निकलें</string>
+    <string name="normal_chess_new_game">नया खेल</string>
+    <string name="normal_chess_turn_white">सफेद की बारी</string>
+    <string name="normal_chess_turn_black">काले की बारी</string>
+    <string name="normal_chess_promotion_title">पदोन्नति</string>
+    <string name="normal_chess_promotion_queen">वज़ीर</string>
+    <string name="normal_chess_promotion_rook">हाथी</string>
+    <string name="normal_chess_promotion_bishop">ऊँट</string>
+    <string name="normal_chess_promotion_knight">घोड़ा</string>
+    <string name="normal_chess_draw_warning">= गतिरोध (ड्रॉ, जीत नहीं)</string>
 </resources>

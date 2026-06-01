@@ -516,4 +516,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Çözüldü!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Normal satranç</string>
+    <string name="normal_chess_title">Satranç</string>
+    <string name="normal_chess_mode_cpu">CPU'ya karşı oyna</string>
+    <string name="normal_chess_mode_human">İnsana karşı oyna</string>
+    <string name="normal_chess_mode_human_subtitle">Aynı cihazda sırayla oynayın</string>
+    <string name="normal_chess_difficulty">Zorluk</string>
+    <string name="normal_chess_difficulty_easy">Kolay</string>
+    <string name="normal_chess_difficulty_medium">Orta</string>
+    <string name="normal_chess_difficulty_hard">Zor</string>
+    <string name="normal_chess_start">Oyuna başla</string>
+    <string name="normal_chess_thinking">CPU düşünüyor…</string>
+    <string name="normal_chess_checkmate_white">Şah mat. Beyaz kazandı.</string>
+    <string name="normal_chess_checkmate_black">Şah mat. Siyah kazandı.</string>
+    <string name="normal_chess_stalemate">Pat. Berabere.</string>
+    <string name="normal_chess_draw_50">Elli hamle kuralıyla berabere.</string>
+    <string name="normal_chess_draw_material">Yetersiz materyalle berabere.</string>
+    <string name="normal_chess_resign">Teslim ol</string>
+    <string name="normal_chess_quit">Çık</string>
+    <string name="normal_chess_new_game">Yeni oyun</string>
+    <string name="normal_chess_turn_white">Beyazın sırası</string>
+    <string name="normal_chess_turn_black">Siyahın sırası</string>
+    <string name="normal_chess_promotion_title">Terfi et</string>
+    <string name="normal_chess_promotion_queen">Vezir</string>
+    <string name="normal_chess_promotion_rook">Kale</string>
+    <string name="normal_chess_promotion_bishop">Fil</string>
+    <string name="normal_chess_promotion_knight">At</string>
+    <string name="normal_chess_draw_warning">= pat (berabere, galibiyet değil)</string>
 </resources>

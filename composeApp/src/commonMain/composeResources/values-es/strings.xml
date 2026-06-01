@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">¡Resuelto!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Ajedrez normal</string>
+    <string name="normal_chess_title">Ajedrez</string>
+    <string name="normal_chess_mode_cpu">Jugar contra CPU</string>
+    <string name="normal_chess_mode_human">Jugar contra humano</string>
+    <string name="normal_chess_mode_human_subtitle">Pasar y jugar en un dispositivo</string>
+    <string name="normal_chess_difficulty">Dificultad</string>
+    <string name="normal_chess_difficulty_easy">Fácil</string>
+    <string name="normal_chess_difficulty_medium">Medio</string>
+    <string name="normal_chess_difficulty_hard">Difícil</string>
+    <string name="normal_chess_start">Empezar partida</string>
+    <string name="normal_chess_thinking">La CPU está pensando…</string>
+    <string name="normal_chess_checkmate_white">Jaque mate. Ganan las blancas.</string>
+    <string name="normal_chess_checkmate_black">Jaque mate. Ganan las negras.</string>
+    <string name="normal_chess_stalemate">Ahogado. Tablas.</string>
+    <string name="normal_chess_draw_50">Tablas por regla de los cincuenta movimientos.</string>
+    <string name="normal_chess_draw_material">Tablas por material insuficiente.</string>
+    <string name="normal_chess_resign">Rendirse</string>
+    <string name="normal_chess_quit">Salir</string>
+    <string name="normal_chess_new_game">Nueva partida</string>
+    <string name="normal_chess_turn_white">Mueven las blancas</string>
+    <string name="normal_chess_turn_black">Mueven las negras</string>
+    <string name="normal_chess_promotion_title">Promocionar a</string>
+    <string name="normal_chess_promotion_queen">Dama</string>
+    <string name="normal_chess_promotion_rook">Torre</string>
+    <string name="normal_chess_promotion_bishop">Alfil</string>
+    <string name="normal_chess_promotion_knight">Caballo</string>
+    <string name="normal_chess_draw_warning">= ahogado (tablas, no victoria)</string>
 </resources>

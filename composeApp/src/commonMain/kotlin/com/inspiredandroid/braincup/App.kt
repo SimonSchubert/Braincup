@@ -25,6 +25,8 @@ import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
+import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
+import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
@@ -282,6 +284,32 @@ fun App(
                             },
                             onBack = {
                                 navController.popBackStack(NormalSudokuMenu, inclusive = false)
+                            },
+                        )
+                    }
+
+                    composable<NormalChessMenu> {
+                        NormalChessMenuScreen(
+                            storage = controller.storage,
+                            onStart = { mode, difficulty ->
+                                controller.navigateToNormalChessPlay(mode, difficulty)
+                            },
+                            onBack = { controller.navigateToMainMenu() },
+                        )
+                    }
+
+                    composable<NormalChessPlay> { backStackEntry ->
+                        val route: NormalChessPlay = backStackEntry.toRoute()
+                        val mode = NormalChessMode.entries.firstOrNull { it.name == route.mode }
+                            ?: NormalChessMode.VS_CPU
+                        val difficulty = NormalChessDifficulty.entries.firstOrNull { it.name == route.difficulty }
+                            ?: NormalChessDifficulty.MEDIUM
+                        NormalChessPlayScreen(
+                            mode = mode,
+                            difficulty = difficulty,
+                            storage = controller.storage,
+                            onBack = {
+                                navController.popBackStack(NormalChessMenu, inclusive = false)
                             },
                         )
                     }

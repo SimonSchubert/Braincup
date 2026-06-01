@@ -3,6 +3,9 @@ package com.inspiredandroid.braincup.api
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
+import com.inspiredandroid.braincup.normalchess.NormalChessMode
+import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.TimeZone
@@ -72,6 +75,8 @@ class UserStorage(
         const val KEY_MINI_CHESS_DIFFICULTY = "mini_chess_difficulty"
         const val KEY_THEME_MODE = "theme_mode"
         const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
+        const val KEY_NORMAL_CHESS_DIFFICULTY = "normal_chess_difficulty"
+        const val KEY_NORMAL_CHESS_MODE = "normal_chess_mode"
         const val SESSION_GAME_COUNT = 5
         const val SESSION_COMPLETION_XP = 50
 
@@ -103,6 +108,25 @@ class UserStorage(
         fun currentTitleRes(level: Int): StringResource = MILESTONE_TITLES.lastOrNull { it.level <= level }?.titleRes ?: Res.string.title_novice
 
         fun isMilestoneLevel(level: Int): Boolean = MILESTONE_TITLES.any { it.level == level }
+
+        /** XP for a Normal Chess win against the CPU. Scaled by AI difficulty. Calibrated
+         *  against the GameType reward range (5-50 XP per game): Normal Chess is a full
+         *  8x8 game so a Hard win is worth a strong session. */
+        fun normalChessWinXp(difficulty: NormalChessDifficulty): Int = when (difficulty) {
+            NormalChessDifficulty.EASY -> 10
+            NormalChessDifficulty.MEDIUM -> 20
+            NormalChessDifficulty.HARD -> 40
+        }
+
+        /** XP for first-time completion of a Normal Sudoku puzzle. Scaled by clue count
+         *  (fewer clues = harder = more XP). Expert is the same as a gold session medal. */
+        fun normalSudokuCompletionXp(difficulty: SudokuDifficulty): Int = when (difficulty) {
+            SudokuDifficulty.BEGINNER -> 5
+            SudokuDifficulty.EASY -> 10
+            SudokuDifficulty.MEDIUM -> 20
+            SudokuDifficulty.HARD -> 35
+            SudokuDifficulty.EXPERT -> 50
+        }
     }
 
     data class MilestoneTitle(val level: Int, val titleRes: StringResource)
@@ -222,6 +246,47 @@ class UserStorage(
 
     fun setMiniChessDifficulty(depth: Int) {
         settings.putInt(KEY_MINI_CHESS_DIFFICULTY, depth)
+    }
+
+    /** Normal Chess CPU difficulty. Defaults to MEDIUM. */
+    fun getNormalChessDifficulty(): NormalChessDifficulty {
+        val name = settings.getStringOrNull(KEY_NORMAL_CHESS_DIFFICULTY)
+        return NormalChessDifficulty.entries.firstOrNull { it.name == name } ?: NormalChessDifficulty.MEDIUM
+    }
+
+    fun setNormalChessDifficulty(difficulty: NormalChessDifficulty) {
+        settings.putString(KEY_NORMAL_CHESS_DIFFICULTY, difficulty.name)
+    }
+
+    /** Normal Chess play mode. Defaults to VS_CPU. */
+    fun getNormalChessMode(): NormalChessMode {
+        val name = settings.getStringOrNull(KEY_NORMAL_CHESS_MODE)
+        return NormalChessMode.entries.firstOrNull { it.name == name } ?: NormalChessMode.VS_CPU
+    }
+
+    fun setNormalChessMode(mode: NormalChessMode) {
+        settings.putString(KEY_NORMAL_CHESS_MODE, mode.name)
+    }
+
+    data class XpAward(val xpGained: Int, val levelChange: LevelChange?)
+
+    /** Award XP for a Normal Chess win against the CPU. Caller passes the AI difficulty that
+     *  was beaten so we can scale the reward. Returns the amount granted and any level-up. */
+    fun awardNormalChessWinXp(difficulty: NormalChessDifficulty): XpAward {
+        val amount = normalChessWinXp(difficulty)
+        val levelChange = addXp(amount)
+        return XpAward(amount, levelChange)
+    }
+
+    /** Award XP for completing a Normal Sudoku puzzle. No-ops if the puzzle was already
+     *  completed before (we mark completion via [markNormalSudokuCompleted] separately) so
+     *  replays don't farm XP. Must be called BEFORE [markNormalSudokuCompleted] for the
+     *  dedup check to work. */
+    fun awardNormalSudokuCompletionXp(puzzleId: String, difficulty: SudokuDifficulty): XpAward {
+        if (puzzleId in getCompletedNormalSudokuIds()) return XpAward(0, null)
+        val amount = normalSudokuCompletionXp(difficulty)
+        val levelChange = addXp(amount)
+        return XpAward(amount, levelChange)
     }
 
     private fun normalSudokuProgressKey(id: String): String = "normal_sudoku_progress_$id"

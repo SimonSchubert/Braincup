@@ -5,6 +5,8 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.minichess.ChessAi
+import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
+import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
@@ -177,6 +179,14 @@ class GameController(
 
     fun navigateToNormalSudokuPlay(puzzleId: String) {
         navController.navigate(NormalSudokuPlay(puzzleId))
+    }
+
+    fun navigateToNormalChessMenu() {
+        navController.navigate(NormalChessMenu)
+    }
+
+    fun navigateToNormalChessPlay(mode: NormalChessMode, difficulty: NormalChessDifficulty) {
+        navController.navigate(NormalChessPlay(mode = mode.name, difficulty = difficulty.name))
     }
 
     fun startGame(gameType: GameType) {

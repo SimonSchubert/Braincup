@@ -73,6 +73,7 @@ fun MainMenuScreen(
         onViewScore = { controller.navigateToScoreboard(it) },
         onAchievements = { controller.navigateToAchievements() },
         onNormalSudoku = { controller.navigateToNormalSudokuMenu() },
+        onNormalChess = { controller.navigateToNormalChessMenu() },
         onShowBrainCup = if (PlayGamesBridge.onShowBrainCup != null) {
             { controller.showBrainCup() }
         } else {
@@ -99,6 +100,7 @@ fun MainMenuScreenContent(
     onViewScore: (GameType) -> Unit = {},
     onAchievements: () -> Unit = {},
     onNormalSudoku: () -> Unit = {},
+    onNormalChess: () -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     sponsorsSlot: @Composable () -> Unit = {},
 ) {
@@ -270,6 +272,23 @@ fun MainMenuScreenContent(
                 ) {
                     Text(
                         stringResource(Res.string.normal_sudoku_button, normalSudokuCompleted, 50),
+                        color = Color.White,
+                    )
+                }
+
+                Spacer(Modifier.height(12.dp))
+
+                PrismTile(
+                    face = Primary,
+                    modifier = Modifier
+                        .hoverHand()
+                        .widthIn(max = 420.dp)
+                        .fillMaxWidth()
+                        .height(56.dp),
+                    onClick = onNormalChess,
+                ) {
+                    Text(
+                        stringResource(Res.string.normal_chess_button),
                         color = Color.White,
                     )
                 }

@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Opgelost!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Gewoon schaken</string>
+    <string name="normal_chess_title">Schaken</string>
+    <string name="normal_chess_mode_cpu">Speel tegen CPU</string>
+    <string name="normal_chess_mode_human">Speel tegen mens</string>
+    <string name="normal_chess_mode_human_subtitle">Om de beurt op één apparaat</string>
+    <string name="normal_chess_difficulty">Moeilijkheid</string>
+    <string name="normal_chess_difficulty_easy">Makkelijk</string>
+    <string name="normal_chess_difficulty_medium">Gemiddeld</string>
+    <string name="normal_chess_difficulty_hard">Moeilijk</string>
+    <string name="normal_chess_start">Spel starten</string>
+    <string name="normal_chess_thinking">CPU denkt na…</string>
+    <string name="normal_chess_checkmate_white">Schaakmat. Wit wint.</string>
+    <string name="normal_chess_checkmate_black">Schaakmat. Zwart wint.</string>
+    <string name="normal_chess_stalemate">Pat. Remise.</string>
+    <string name="normal_chess_draw_50">Remise door de vijftig-zetten-regel.</string>
+    <string name="normal_chess_draw_material">Remise door onvoldoende materiaal.</string>
+    <string name="normal_chess_resign">Opgeven</string>
+    <string name="normal_chess_quit">Stoppen</string>
+    <string name="normal_chess_new_game">Nieuw spel</string>
+    <string name="normal_chess_turn_white">Wit aan zet</string>
+    <string name="normal_chess_turn_black">Zwart aan zet</string>
+    <string name="normal_chess_promotion_title">Promoveren naar</string>
+    <string name="normal_chess_promotion_queen">Dame</string>
+    <string name="normal_chess_promotion_rook">Toren</string>
+    <string name="normal_chess_promotion_bishop">Loper</string>
+    <string name="normal_chess_promotion_knight">Paard</string>
+    <string name="normal_chess_draw_warning">= pat (remise, geen winst)</string>
 </resources>

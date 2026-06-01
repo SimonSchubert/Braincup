@@ -516,4 +516,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">Terpecahkan!</string>
     <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_chess_button">Catur biasa</string>
+    <string name="normal_chess_title">Catur</string>
+    <string name="normal_chess_mode_cpu">Main lawan CPU</string>
+    <string name="normal_chess_mode_human">Main lawan orang</string>
+    <string name="normal_chess_mode_human_subtitle">Gantian di satu perangkat</string>
+    <string name="normal_chess_difficulty">Tingkat kesulitan</string>
+    <string name="normal_chess_difficulty_easy">Mudah</string>
+    <string name="normal_chess_difficulty_medium">Sedang</string>
+    <string name="normal_chess_difficulty_hard">Sulit</string>
+    <string name="normal_chess_start">Mulai permainan</string>
+    <string name="normal_chess_thinking">CPU sedang berpikir…</string>
+    <string name="normal_chess_checkmate_white">Sekakmat. Putih menang.</string>
+    <string name="normal_chess_checkmate_black">Sekakmat. Hitam menang.</string>
+    <string name="normal_chess_stalemate">Pat. Seri.</string>
+    <string name="normal_chess_draw_50">Seri karena aturan lima puluh langkah.</string>
+    <string name="normal_chess_draw_material">Seri karena materi tidak cukup.</string>
+    <string name="normal_chess_resign">Menyerah</string>
+    <string name="normal_chess_quit">Keluar</string>
+    <string name="normal_chess_new_game">Permainan baru</string>
+    <string name="normal_chess_turn_white">Giliran putih</string>
+    <string name="normal_chess_turn_black">Giliran hitam</string>
+    <string name="normal_chess_promotion_title">Promosi menjadi</string>
+    <string name="normal_chess_promotion_queen">Menteri</string>
+    <string name="normal_chess_promotion_rook">Benteng</string>
+    <string name="normal_chess_promotion_bishop">Gajah</string>
+    <string name="normal_chess_promotion_knight">Kuda</string>
+    <string name="normal_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
 </resources>

@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">정답!</string>
     <string name="normal_sudoku_title">스도쿠</string>
+    <string name="normal_chess_button">일반 체스</string>
+    <string name="normal_chess_title">체스</string>
+    <string name="normal_chess_mode_cpu">CPU와 대결</string>
+    <string name="normal_chess_mode_human">사람과 대결</string>
+    <string name="normal_chess_mode_human_subtitle">한 기기에서 번갈아 플레이</string>
+    <string name="normal_chess_difficulty">난이도</string>
+    <string name="normal_chess_difficulty_easy">쉬움</string>
+    <string name="normal_chess_difficulty_medium">보통</string>
+    <string name="normal_chess_difficulty_hard">어려움</string>
+    <string name="normal_chess_start">게임 시작</string>
+    <string name="normal_chess_thinking">CPU가 생각 중…</string>
+    <string name="normal_chess_checkmate_white">체크메이트. 백 승리.</string>
+    <string name="normal_chess_checkmate_black">체크메이트. 흑 승리.</string>
+    <string name="normal_chess_stalemate">스테일메이트. 무승부.</string>
+    <string name="normal_chess_draw_50">50수 규칙에 의한 무승부.</string>
+    <string name="normal_chess_draw_material">기물 부족으로 인한 무승부.</string>
+    <string name="normal_chess_resign">기권</string>
+    <string name="normal_chess_quit">나가기</string>
+    <string name="normal_chess_new_game">새 게임</string>
+    <string name="normal_chess_turn_white">백 차례</string>
+    <string name="normal_chess_turn_black">흑 차례</string>
+    <string name="normal_chess_promotion_title">승격</string>
+    <string name="normal_chess_promotion_queen">퀸</string>
+    <string name="normal_chess_promotion_rook">룩</string>
+    <string name="normal_chess_promotion_bishop">비숍</string>
+    <string name="normal_chess_promotion_knight">나이트</string>
+    <string name="normal_chess_draw_warning">= 스테일메이트 (승리가 아닌 무승부)</string>
 </resources>

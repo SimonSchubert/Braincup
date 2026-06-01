@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">正解！</string>
     <string name="normal_sudoku_title">数独</string>
+    <string name="normal_chess_button">通常のチェス</string>
+    <string name="normal_chess_title">チェス</string>
+    <string name="normal_chess_mode_cpu">CPUと対戦</string>
+    <string name="normal_chess_mode_human">人と対戦</string>
+    <string name="normal_chess_mode_human_subtitle">1台の端末で交互にプレイ</string>
+    <string name="normal_chess_difficulty">難易度</string>
+    <string name="normal_chess_difficulty_easy">かんたん</string>
+    <string name="normal_chess_difficulty_medium">ふつう</string>
+    <string name="normal_chess_difficulty_hard">むずかしい</string>
+    <string name="normal_chess_start">対局開始</string>
+    <string name="normal_chess_thinking">CPUが考えています…</string>
+    <string name="normal_chess_checkmate_white">チェックメイト。白の勝ち。</string>
+    <string name="normal_chess_checkmate_black">チェックメイト。黒の勝ち。</string>
+    <string name="normal_chess_stalemate">ステイルメイト。引き分け。</string>
+    <string name="normal_chess_draw_50">50手ルールにより引き分け。</string>
+    <string name="normal_chess_draw_material">駒不足により引き分け。</string>
+    <string name="normal_chess_resign">投了</string>
+    <string name="normal_chess_quit">終了</string>
+    <string name="normal_chess_new_game">新しい対局</string>
+    <string name="normal_chess_turn_white">白の手番</string>
+    <string name="normal_chess_turn_black">黒の手番</string>
+    <string name="normal_chess_promotion_title">昇格する駒</string>
+    <string name="normal_chess_promotion_queen">クイーン</string>
+    <string name="normal_chess_promotion_rook">ルーク</string>
+    <string name="normal_chess_promotion_bishop">ビショップ</string>
+    <string name="normal_chess_promotion_knight">ナイト</string>
+    <string name="normal_chess_draw_warning">= ステイルメイト（勝ちではなく引き分け）</string>
 </resources>

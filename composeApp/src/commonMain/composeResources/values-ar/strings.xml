@@ -515,4 +515,31 @@
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
     <string name="normal_sudoku_solved">تم الحل!</string>
     <string name="normal_sudoku_title">سودوكو</string>
+    <string name="normal_chess_button">شطرنج عادي</string>
+    <string name="normal_chess_title">شطرنج</string>
+    <string name="normal_chess_mode_cpu">العب ضد الحاسوب</string>
+    <string name="normal_chess_mode_human">العب ضد إنسان</string>
+    <string name="normal_chess_mode_human_subtitle">العب بالتناوب على نفس الجهاز</string>
+    <string name="normal_chess_difficulty">المستوى</string>
+    <string name="normal_chess_difficulty_easy">سهل</string>
+    <string name="normal_chess_difficulty_medium">متوسط</string>
+    <string name="normal_chess_difficulty_hard">صعب</string>
+    <string name="normal_chess_start">ابدأ المباراة</string>
+    <string name="normal_chess_thinking">الحاسوب يفكر…</string>
+    <string name="normal_chess_checkmate_white">كش ملك. فاز الأبيض.</string>
+    <string name="normal_chess_checkmate_black">كش ملك. فاز الأسود.</string>
+    <string name="normal_chess_stalemate">طريق مسدود. تعادل.</string>
+    <string name="normal_chess_draw_50">تعادل بقاعدة الخمسين نقلة.</string>
+    <string name="normal_chess_draw_material">تعادل بسبب نقص المواد.</string>
+    <string name="normal_chess_resign">استسلام</string>
+    <string name="normal_chess_quit">خروج</string>
+    <string name="normal_chess_new_game">مباراة جديدة</string>
+    <string name="normal_chess_turn_white">دور الأبيض</string>
+    <string name="normal_chess_turn_black">دور الأسود</string>
+    <string name="normal_chess_promotion_title">ترقية إلى</string>
+    <string name="normal_chess_promotion_queen">ملكة</string>
+    <string name="normal_chess_promotion_rook">قلعة</string>
+    <string name="normal_chess_promotion_bishop">فيل</string>
+    <string name="normal_chess_promotion_knight">حصان</string>
+    <string name="normal_chess_draw_warning">= طريق مسدود (تعادل، ليس فوزاً)</string>
 </resources>

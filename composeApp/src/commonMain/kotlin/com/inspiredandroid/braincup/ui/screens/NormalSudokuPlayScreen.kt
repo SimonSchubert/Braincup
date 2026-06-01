@@ -23,6 +23,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -62,6 +63,7 @@ fun NormalSudokuPlayScreen(
     }
     var lastWrongFlash by remember(puzzle) { mutableStateOf(0L) }
     var solved by remember(puzzle) { mutableStateOf(false) }
+    var xpGained by remember(puzzle) { mutableStateOf(0) }
 
     fun persist() {
         if (solved) return
@@ -78,6 +80,9 @@ fun NormalSudokuPlayScreen(
         if (board.none { it == 0 }) {
             val asString = board.joinToString("") { it.toString() }
             if (asString == puzzle.solution) {
+                // Award XP first; awardNormalSudokuCompletionXp dedupes by checking the
+                // completed set BEFORE we add to it via markNormalSudokuCompleted.
+                xpGained = storage.awardNormalSudokuCompletionXp(puzzle.id, puzzle.difficulty).xpGained
                 solved = true
                 storage.markNormalSudokuCompleted(puzzle.id)
             } else {
@@ -90,7 +95,8 @@ fun NormalSudokuPlayScreen(
 
     LaunchedEffect(solved) {
         if (solved) {
-            delay(1200)
+            // Give the XP chip animation time to land before we navigate away.
+            delay(if (xpGained > 0) 2200 else 1200)
             onCompleted()
         }
     }
@@ -178,7 +184,7 @@ fun NormalSudokuPlayScreen(
             }
         }
 
-        StatusBanner(solved = solved, wrongFlashKey = lastWrongFlash)
+        StatusBanner(solved = solved, wrongFlashKey = lastWrongFlash, xpGained = xpGained)
     }
 }
 
@@ -389,7 +395,7 @@ private fun EraseTile(
 }
 
 @Composable
-private fun StatusBanner(solved: Boolean, wrongFlashKey: Long) {
+private fun StatusBanner(solved: Boolean, wrongFlashKey: Long, xpGained: Int) {
     var showWrong by remember { mutableStateOf(false) }
     LaunchedEffect(wrongFlashKey) {
         if (wrongFlashKey > 0L) {
@@ -404,11 +410,11 @@ private fun StatusBanner(solved: Boolean, wrongFlashKey: Long) {
         else -> null
     }
     val color: Color = if (solved) SuccessGreen else Primary
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 8.dp),
-        contentAlignment = Alignment.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (message != null) {
             Text(
@@ -418,6 +424,10 @@ private fun StatusBanner(solved: Boolean, wrongFlashKey: Long) {
                 fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.Center,
             )
+        }
+        if (solved && xpGained > 0) {
+            Spacer(Modifier.height(8.dp))
+            XpGainedChip(xpGained = xpGained)
         }
     }
 }
