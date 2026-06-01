@@ -1,3 +1,16 @@
+## v2.18.0 — 2026-06-01
+
+### Features
+- New chess game
+
+### Fixes
+- Sherlock auto-check no longer triggers on non-numeric input
+- Fix HTTP requests on desktop
+
+### Improvements
+- Level-based scoring for Sliding Puzzle and Lights Out
+- Polished chess board styling
+
 ## v2.17.0 — 2026-05-28
 
 ### Features
