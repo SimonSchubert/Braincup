@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Color
@@ -25,6 +26,7 @@ import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.composeColor
+import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueBottom
@@ -39,10 +41,14 @@ import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.WordleAbsent
+import com.inspiredandroid.braincup.ui.theme.WordleCorrect
+import com.inspiredandroid.braincup.ui.theme.WordlePresent
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.graphics.Color as ComposeColor
+import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 // Tile previews always render on light pastel backgrounds (gameType.accentColor),
 // so set text colors explicitly rather than inheriting from the surrounding (possibly dark) theme.
@@ -240,6 +246,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
+        GameType.WORDLE -> WordlePreview()
     }
 }
 
@@ -635,6 +642,69 @@ private fun LightsOutPreview() {
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun WordlePreview() {
+    val puzzle = remember(ComposeLocale.current.language) {
+        WordlePreviewPuzzles.forTag(ComposeLocale.current.language)
+            ?: WordlePreviewPuzzles.forTag("en")
+    } ?: return
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        puzzle.guesses.forEach { guess ->
+            val states = puzzle.statesFor(guess)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(3.dp),
+            ) {
+                guess.forEachIndexed { index, char ->
+                    WordlePreviewCell(
+                        char = char,
+                        state = states[index],
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f),
+                    )
+                }
+            }
+            Spacer(Modifier.height(3.dp))
+        }
+    }
+}
+
+@Composable
+private fun WordlePreviewCell(
+    char: Char,
+    state: WordleLetterState,
+    modifier: Modifier = Modifier,
+) {
+    val face = when (state) {
+        WordleLetterState.CORRECT -> WordleCorrect
+        WordleLetterState.PRESENT -> WordlePresent
+        WordleLetterState.ABSENT -> WordleAbsent
+        WordleLetterState.EMPTY, WordleLetterState.PENDING -> ComposeColor(0xFFD3D6DA)
+    }
+    val textColor = when (state) {
+        WordleLetterState.CORRECT, WordleLetterState.PRESENT -> ComposeColor.White
+        else -> ComposeColor(0xFF1A1A1B)
+    }
+    Box(modifier = modifier, contentAlignment = Alignment.Center) {
+        ColorPrismCell(
+            face = face,
+            modifier = Modifier.fillMaxSize(),
+        )
+        Text(
+            text = char.toString(),
+            color = textColor,
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            maxLines = 1,
+        )
     }
 }
 

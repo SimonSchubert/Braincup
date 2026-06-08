@@ -202,6 +202,16 @@ enum class GameType(
         descriptionRes = Res.string.game_spot_the_new_desc,
         category = GameCategory.MEMORY,
     ),
+    WORDLE(
+        displayNameRes = Res.string.game_wordle,
+        id = "24",
+        // Score = 7 - guesses used on a win (1 guess = 6 … 6 guesses = 1), 0 on a loss.
+        // Gold = solved in ≤2 guesses, silver = solved in ≤4, bronze = any solve.
+        goldScore = 5,
+        silverScore = 3,
+        descriptionRes = Res.string.game_wordle_desc,
+        category = GameCategory.LOGIC,
+    ),
     ;
 
     val accentColor: Long get() = category.accentColor

@@ -15,7 +15,9 @@ class NormalChessAi(
         // Skip when there's only one legal move (would be the same) and when in check (the
         // random move might be the only saving move — picking a wrong one looks broken,
         // not casual).
-        if (blunderChance > 0 && moves.size > 1 && !board.isInCheck(board.sideToMove) &&
+        if (blunderChance > 0 &&
+            moves.size > 1 &&
+            !board.isInCheck(board.sideToMove) &&
             random.nextDouble() < blunderChance
         ) {
             return moves.first()

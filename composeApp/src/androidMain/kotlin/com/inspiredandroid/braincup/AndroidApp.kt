@@ -9,6 +9,7 @@ import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.inspiredandroid.braincup.games.wordle.WordleAppContext
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 
@@ -18,6 +19,8 @@ fun AndroidApp(
 ) {
     val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
     val context = LocalContext.current
+    // Wordle reads the app Configuration locale; init before App() composes the main menu.
+    WordleAppContext.applicationContext = context.applicationContext
 
     // Material You dynamic colors apply only to the "System" theme; explicit Light/Dark/OLED choices
     // resolve to the fixed brand schemes inside App().

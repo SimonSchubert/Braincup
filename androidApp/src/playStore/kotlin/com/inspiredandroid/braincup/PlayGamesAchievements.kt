@@ -244,6 +244,9 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.DIGIT_MEMORY -> R.string.achievementDigitMemory
     GameType.SPOT_THE_NEW -> R.string.achievementSpotTheNew
     GameType.FLAGS -> null
+    // No Play Games server achievement is configured for Wordle yet; the local GOLD_WORDLE
+    // achievement still unlocks. Add a Play Console achievement + mapping here later if wanted.
+    GameType.WORDLE -> null
 }
 
 private fun leaderboardResIdFor(gameType: GameType): Int? = when (gameType) {

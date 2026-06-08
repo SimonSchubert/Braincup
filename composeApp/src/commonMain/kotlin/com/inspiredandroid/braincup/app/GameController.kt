@@ -1,10 +1,15 @@
 package com.inspiredandroid.braincup.app
 
 import androidx.navigation.NavController
+import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.minichess.ChessAi
+import com.inspiredandroid.braincup.games.wordle.WordleGame
+import com.inspiredandroid.braincup.games.wordle.WordleLanguage
+import com.inspiredandroid.braincup.games.wordle.WordleLanguages
+import com.inspiredandroid.braincup.games.wordle.deviceLanguageTag
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
@@ -61,9 +66,16 @@ class GameController(
     private var points = 0
     private var stopwatchRunning = false
     private var inSessionMode = false
+    val isInSessionMode: Boolean get() = inSessionMode
     private var miniChessAiJob: Job? = null
     private var flagsTimerJob: Job? = null
     private var timerJob: Job? = null
+
+    private data class WordleWordLists(val answers: List<String>, val guesses: Set<String>)
+
+    /** Wordle word lists keyed by language tag; each bundled file is read at most once. */
+    private val wordListCache = mutableMapOf<String, WordleWordLists>()
+    private var wordleScoreRecorded = false
 
     private val _totalXp = MutableStateFlow(0)
     val totalXp: StateFlow<Int> = _totalXp.asStateFlow()
@@ -87,6 +99,14 @@ class GameController(
     companion object {
         const val GAME_TIME_MILLIS = 60 * 1_000L
         const val FLAGS_ROUND_TIME_MILLIS = FlagsGame.ROUND_TIME_MILLIS
+
+        // Sentinel inputs the Wordle keyboard sends through the shared onAnswer(String) channel;
+        // anything else is treated as a single typed letter.
+        const val WORDLE_ENTER = "ENTER"
+        const val WORDLE_DELETE = "DEL"
+        private const val WORDLE_CLEAR_PREFIX = "CLEAR"
+
+        fun wordleClearAt(index: Int): String = "$WORDLE_CLEAR_PREFIX$index"
     }
 
     init {
@@ -109,7 +129,12 @@ class GameController(
     }
 
     private fun generateSessionGameIds(): List<String> = GameType.entries
-        .filterNot { it == GameType.LIGHTS_OUT || it == GameType.SLIDING_PUZZLE || it == GameType.MINI_CHESS }
+        .filterNot {
+            it == GameType.LIGHTS_OUT ||
+                it == GameType.SLIDING_PUZZLE ||
+                it == GameType.MINI_CHESS ||
+                it == GameType.WORDLE
+        }
         .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
         .shuffled()
         .take(UserStorage.SESSION_GAME_COUNT)
@@ -233,6 +258,10 @@ class GameController(
             startSpotTheNewGame(gameType)
             return
         }
+        if (gameType == GameType.WORDLE) {
+            startWordleGame(gameType)
+            return
+        }
 
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -292,6 +321,10 @@ class GameController(
         }
         if (game is MiniSudokuGame) {
             handleMiniSudokuAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is WordleGame) {
+            handleWordleAnswer(currentState, game, answer)
             return
         }
         if (game is LightsOutGame) {
@@ -367,6 +400,13 @@ class GameController(
             finishCurrentGame(currentState.gameType, game)
             return
         }
+        if (game is WordleGame) {
+            game.giveUp()
+            points = 0
+            _gameUiState.value = game.toUiState()
+            recordWordleScore(currentState.gameType)
+            return
+        }
         if (game is LightsOutGame) {
             points = 0
             finishCurrentGame(currentState.gameType, game)
@@ -428,12 +468,22 @@ class GameController(
     fun playRandomGame() {
         val randomGame = GameType.entries
             .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
+            .filterNot { it == GameType.WORDLE && !WordleLanguages.isAvailable() }
             .random()
         navigateToInstructions(randomGame)
     }
 
     fun playAgain(gameType: GameType) {
         navigateToInstructions(gameType)
+    }
+
+    /** Play Again from the Wordle result screen, or Continue during a daily challenge. */
+    fun wordleFinishedAction() {
+        if (inSessionMode) {
+            continueWordleInDailyChallenge()
+        } else {
+            restartWordleInPlace()
+        }
     }
 
     private fun startTimer() {
@@ -479,6 +529,8 @@ class GameController(
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
+        // Wordle needs an async-loaded, locale-specific word list, so it is built in startWordleGame.
+        GameType.WORDLE -> error("WordleGame is created in startWordleGame")
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
@@ -817,6 +869,158 @@ class GameController(
         }
     }
 
+    private fun startWordleGame(gameType: GameType) {
+        val language = WordleLanguages.resolve(deviceLanguageTag())
+        if (language == null) {
+            // The tile is hidden for unsupported locales, so this is just a safety net.
+            navigateToMainMenu()
+            return
+        }
+        points = 0
+        wordleScoreRecorded = false
+        scope.launch {
+            if (!launchWordleGame(gameType, language, navigateToPlaying = true)) {
+                navigateToMainMenu()
+            }
+        }
+    }
+
+    private fun restartWordleInPlace() {
+        val currentState = _gameState.value as? GameState.Active ?: return
+        if (currentState.gameType != GameType.WORDLE) return
+        val language = WordleLanguages.resolve(deviceLanguageTag()) ?: return
+        points = 0
+        wordleScoreRecorded = false
+        scope.launch {
+            launchWordleGame(currentState.gameType, language, navigateToPlaying = false)
+        }
+    }
+
+    private fun continueWordleInDailyChallenge() {
+        if (_gameState.value !is GameState.Active) return
+        _gameUiState.value = null
+        _gameState.value = GameState.Idle
+        advanceDailyChallenge()
+    }
+
+    private suspend fun launchWordleGame(
+        gameType: GameType,
+        language: WordleLanguage,
+        navigateToPlaying: Boolean,
+    ): Boolean {
+        val lists = loadWordleLists(language)
+        if (lists.answers.isEmpty()) return false
+        val game = WordleGame(language, lists.answers.random(), lists.guesses)
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        if (navigateToPlaying) {
+            navController.navigate(Playing(gameType.id))
+        }
+        return true
+    }
+
+    private suspend fun loadWordleLists(language: WordleLanguage): WordleWordLists {
+        wordListCache[language.tag]?.let { return it }
+        val answers = loadWordleFile(language, language.answersPath)
+        val guesses = loadWordleFile(language, language.guessesPath).toMutableSet()
+        guesses.addAll(answers)
+        val lists = WordleWordLists(answers = answers, guesses = guesses)
+        wordListCache[language.tag] = lists
+        return lists
+    }
+
+    private suspend fun loadWordleFile(language: WordleLanguage, path: String): List<String> = try {
+        Res.readBytes(path)
+            .decodeToString()
+            .lineSequence()
+            .map { it.trim().uppercase() }
+            .filter { word ->
+                word.length == language.wordLength && word.all { it in language.alphabet }
+            }
+            .distinct()
+            .toList()
+    } catch (_: Exception) {
+        emptyList()
+    }
+
+    private fun handleWordleAnswer(
+        currentState: GameState.Active,
+        game: WordleGame,
+        input: String,
+    ) {
+        val guessSubmitted = when {
+            input == WORDLE_ENTER -> game.submitGuess()
+            input == WORDLE_DELETE -> {
+                game.backspace()
+                false
+            }
+            input.startsWith(WORDLE_CLEAR_PREFIX) -> {
+                input.removePrefix(WORDLE_CLEAR_PREFIX).toIntOrNull()?.let { game.clearFrom(it) }
+                false
+            }
+            else -> input.firstOrNull()?.let { game.typeLetter(it) } ?: false
+        }
+        _gameUiState.value = game.toUiState()
+        if (guessSubmitted && game.finished) {
+            points = game.score
+            recordWordleScore(currentState.gameType)
+        }
+    }
+
+    private fun advanceDailyChallenge() {
+        storage.appendSessionScore(points)
+        val updated = storage.getOrCreateTodaySession { generateSessionGameIds() }
+        _sessionState.value = updated
+        if (updated.currentIndex >= updated.gameIds.size) {
+            val streakBefore = _sessionStreak.value
+            val completion = storage.recordSessionCompleted()
+            _sessionStreak.value = completion.newStreak
+            val totalXpAfter = storage.getTotalXp()
+            _totalXp.value = totalXpAfter
+            refreshDerivedStorageState()
+            val sessionXpGained = updated.scores.sum() + completion.xpGained
+            val totalXpBefore = totalXpAfter - sessionXpGained
+            val levelBefore = UserStorage.levelForXp(totalXpBefore)
+            val levelAfter = UserStorage.levelForXp(totalXpAfter)
+            val sessionLevelChange = if (levelAfter > levelBefore) {
+                UserStorage.LevelChange(
+                    oldLevel = levelBefore,
+                    newLevel = levelAfter,
+                    totalXpBefore = totalXpBefore,
+                    totalXpAfter = totalXpAfter,
+                )
+            } else {
+                null
+            }
+            _lastCompletedSession.value = SessionResult(
+                gameIds = updated.gameIds,
+                scores = updated.scores,
+                streakBefore = streakBefore,
+                streakAfter = completion.newStreak,
+                xpGained = sessionXpGained,
+                totalXpAfter = totalXpAfter,
+                levelChange = sessionLevelChange,
+            )
+            navController.navigate(SessionComplete) {
+                popUpTo(MainMenu)
+            }
+        } else {
+            navController.navigate(SessionInterstitial) {
+                popUpTo(MainMenu)
+            }
+        }
+    }
+
+    /** Persist the Wordle result while staying on the board; the player leaves via Back. */
+    private fun recordWordleScore(gameType: GameType) {
+        if (wordleScoreRecorded) return
+        wordleScoreRecorded = true
+        storage.putScore(gameType.id, points)
+        _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
+    }
+
     private fun startSchulteTableGame(gameType: GameType) {
         val game = SchulteTableGame()
         game.nextRound()
@@ -1066,47 +1270,7 @@ class GameController(
         refreshDerivedStorageState()
 
         if (inSessionMode) {
-            storage.appendSessionScore(points)
-            val updated = storage.getOrCreateTodaySession { generateSessionGameIds() }
-            _sessionState.value = updated
-            if (updated.currentIndex >= updated.gameIds.size) {
-                val streakBefore = _sessionStreak.value
-                val completion = storage.recordSessionCompleted()
-                _sessionStreak.value = completion.newStreak
-                val totalXpAfter = storage.getTotalXp()
-                _totalXp.value = totalXpAfter
-                refreshDerivedStorageState()
-                val sessionXpGained = updated.scores.sum() + completion.xpGained
-                val totalXpBefore = totalXpAfter - sessionXpGained
-                val levelBefore = UserStorage.levelForXp(totalXpBefore)
-                val levelAfter = UserStorage.levelForXp(totalXpAfter)
-                val sessionLevelChange = if (levelAfter > levelBefore) {
-                    UserStorage.LevelChange(
-                        oldLevel = levelBefore,
-                        newLevel = levelAfter,
-                        totalXpBefore = totalXpBefore,
-                        totalXpAfter = totalXpAfter,
-                    )
-                } else {
-                    null
-                }
-                _lastCompletedSession.value = SessionResult(
-                    gameIds = updated.gameIds,
-                    scores = updated.scores,
-                    streakBefore = streakBefore,
-                    streakAfter = completion.newStreak,
-                    xpGained = sessionXpGained,
-                    totalXpAfter = totalXpAfter,
-                    levelChange = sessionLevelChange,
-                )
-                navController.navigate(SessionComplete) {
-                    popUpTo(MainMenu)
-                }
-            } else {
-                navController.navigate(SessionInterstitial) {
-                    popUpTo(MainMenu)
-                }
-            }
+            advanceDailyChallenge()
             return
         }
 

@@ -209,6 +209,8 @@ fun App(
                                     onAnswer = { controller.submitAnswer(it) },
                                     onGiveUp = { controller.giveUp() },
                                     onBack = { controller.navigateToMainMenu() },
+                                    inSessionMode = controller.isInSessionMode,
+                                    onWordleFinishedAction = { controller.wordleFinishedAction() },
                                 )
                             }
 

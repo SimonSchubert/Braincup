@@ -542,4 +542,16 @@
     <string name="normal_chess_promotion_bishop">Fou</string>
     <string name="normal_chess_promotion_knight">Cavalier</string>
     <string name="normal_chess_draw_warning">= pat (nul, pas une victoire)</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Devinez le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.</string>
+    <string name="achievement_gold_wordle">Maître des mots</string>
+    <string name="achievement_gold_wordle_desc">Gagnez une médaille d\'or à Wordle</string>
+    <string name="wordle_not_enough_letters">Pas assez de lettres</string>
+    <string name="wordle_not_in_word_list">Absent de la liste</string>
+    <string name="wordle_answer_was">Le mot était %1$s</string>
+    <string name="wordle_enter">Entrée</string>
+    <string name="wordle_backspace">Supprimer la lettre</string>
+    <string name="wordle_legend_correct">Bonne lettre, bonne place</string>
+    <string name="wordle_legend_present">Bonne lettre, mauvaise place</string>
+    <string name="wordle_legend_absent">Absente du mot</string>
 </resources>

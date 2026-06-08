@@ -283,6 +283,46 @@ data class DigitMemoryUiState(
     val recallResult: DigitMemoryGame.RecallResult?,
 ) : GameUiState
 
+/** Per-tile state for a Wordle letter. */
+enum class WordleLetterState {
+    /** No letter typed yet. */
+    EMPTY,
+
+    /** Typed into the current row but not yet submitted. */
+    PENDING,
+
+    /** Submitted and not in the word. */
+    ABSENT,
+
+    /** Submitted, in the word, wrong position. */
+    PRESENT,
+
+    /** Submitted, correct position. */
+    CORRECT,
+}
+
+@Immutable
+data class WordleLetter(val char: Char, val state: WordleLetterState)
+
+@Immutable
+data class WordleUiState(
+    /** Always [WordleGame.MAX_GUESSES] rows of [wordLength] letters: submitted, in-progress, then empty. */
+    val rows: ImmutableList<ImmutableList<WordleLetter>>,
+    /** On-screen keyboard layout (rows of UPPERCASE letters). */
+    val keyboardRows: ImmutableList<String>,
+    /** Best state seen per letter across guesses; drives keyboard key colors. */
+    val keyStates: ImmutableMap<Char, WordleLetterState>,
+    val wordLength: Int,
+    val solved: Boolean,
+    val finished: Boolean,
+    /** The answer to reveal under the board when the game ends; null while playing. */
+    val answer: String?,
+    /** True when the last submit was rejected for being too short; cleared on the next keypress. */
+    val notEnoughLetters: Boolean,
+    /** True when the last submit was not in the word list; cleared on the next keypress. */
+    val notInWordList: Boolean,
+) : GameUiState
+
 enum class MiniChessOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }
 
 @Immutable

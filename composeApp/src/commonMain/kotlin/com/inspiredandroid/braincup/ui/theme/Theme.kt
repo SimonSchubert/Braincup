@@ -47,6 +47,13 @@ val MedalBronze = Color(0xFFCD7F32)
 val LightsOutOnColor = Color(0xFFFFC107)
 val LightsOutOffColor = Color(0xFF424242)
 
+// Wordle tile feedback. The three classic hues, kept constant across light/dark/OLED so the
+// green/yellow/gray meaning never shifts; white text reads on all three. Empty/pending tiles use
+// theme surface tones instead so they recede.
+val WordleCorrect = Color(0xFF6AAA64)
+val WordlePresent = Color(0xFFC9B458)
+val WordleAbsent = Color(0xFF787C7E)
+
 // Color Confusion cell faces. Tuned so toggle state stays unambiguous under bright-sunlight glare
 // without the bright selected face looking harsh in normal viewing conditions. In dark mode the
 // unselected face is also lifted off the very dark surface tone for the same reason; light mode

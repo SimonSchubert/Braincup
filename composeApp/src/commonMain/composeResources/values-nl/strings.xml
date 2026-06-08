@@ -542,4 +542,16 @@
     <string name="normal_chess_promotion_bishop">Loper</string>
     <string name="normal_chess_promotion_knight">Paard</string>
     <string name="normal_chess_draw_warning">= pat (remise, geen winst)</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Raad het verborgen woord van vijf letters in zes pogingen. Het antwoord is altijd een zelfstandig naamwoord.</string>
+    <string name="achievement_gold_wordle">Woordkunstenaar</string>
+    <string name="achievement_gold_wordle_desc">Win een gouden medaille in Wordle</string>
+    <string name="wordle_not_enough_letters">Niet genoeg letters</string>
+    <string name="wordle_not_in_word_list">Niet in de woordenlijst</string>
+    <string name="wordle_answer_was">Het woord was %1$s</string>
+    <string name="wordle_enter">Enter</string>
+    <string name="wordle_backspace">Letter verwijderen</string>
+    <string name="wordle_legend_correct">Juiste letter, juiste plek</string>
+    <string name="wordle_legend_present">Juiste letter, verkeerde plek</string>
+    <string name="wordle_legend_absent">Niet in het woord</string>
 </resources>

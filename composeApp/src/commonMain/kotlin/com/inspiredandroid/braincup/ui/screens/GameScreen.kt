@@ -88,6 +88,8 @@ fun GameScreen(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
+    inSessionMode: Boolean = false,
+    onWordleFinishedAction: () -> Unit = {},
 ) {
     val progressBar: (@Composable () -> Unit)? = when {
         gameUiState is VisualMemoryUiState &&
@@ -141,7 +143,8 @@ fun GameScreen(
             gameUiState is OrbitTrackerUiState ||
             gameUiState is MiniChessUiState ||
             gameUiState is LightsOutUiState ||
-            gameUiState is SlidingPuzzleUiState -> null
+            gameUiState is SlidingPuzzleUiState ||
+            gameUiState is WordleUiState -> null
         gameUiState is SchulteTableUiState -> {
             val bar: @Composable () -> Unit = {
                 StopwatchDisplay(
@@ -208,6 +211,13 @@ fun GameScreen(
                 is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
                 is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
                 is DigitMemoryUiState -> DigitMemoryContent(gameUiState, onAnswer)
+                is WordleUiState -> WordleContent(
+                    uiState = gameUiState,
+                    onAnswer = onAnswer,
+                    onGiveUp = onGiveUp,
+                    inSessionMode = inSessionMode,
+                    onFinishedAction = onWordleFinishedAction,
+                )
             }
         }
     }

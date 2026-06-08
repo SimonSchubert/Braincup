@@ -542,4 +542,16 @@
     <string name="normal_chess_promotion_bishop">Läufer</string>
     <string name="normal_chess_promotion_knight">Springer</string>
     <string name="normal_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen. Die Lösung ist immer ein Substantiv.</string>
+    <string name="achievement_gold_wordle">Wortkünstler</string>
+    <string name="achievement_gold_wordle_desc">Gewinne eine Goldmedaille in Wordle</string>
+    <string name="wordle_not_enough_letters">Nicht genug Buchstaben</string>
+    <string name="wordle_not_in_word_list">Nicht in der Wortliste</string>
+    <string name="wordle_answer_was">Das Wort war %1$s</string>
+    <string name="wordle_enter">Eingabe</string>
+    <string name="wordle_backspace">Buchstabe löschen</string>
+    <string name="wordle_legend_correct">Richtiger Buchstabe, richtige Stelle</string>
+    <string name="wordle_legend_present">Richtiger Buchstabe, falsche Stelle</string>
+    <string name="wordle_legend_absent">Nicht im Wort</string>
 </resources>

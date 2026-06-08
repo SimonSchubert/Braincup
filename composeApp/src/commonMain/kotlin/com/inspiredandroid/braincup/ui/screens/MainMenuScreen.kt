@@ -23,6 +23,7 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
@@ -34,6 +35,7 @@ import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.toImmutableMap
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 private val SortedGameTypes: List<GameType> =
     GameType.entries.sortedBy { it.category.ordinal }
@@ -106,11 +108,12 @@ fun MainMenuScreenContent(
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val colorblindEnabled = LocalAccessiblePalette.current
-    val visibleGameTypes = remember(colorblindEnabled) {
-        if (colorblindEnabled) {
-            SortedGameTypes.filterNot { it.requiresColorVision }
-        } else {
-            SortedGameTypes
+    // Match Compose's UI locale (same source as stringResource), not a one-shot cached JVM default.
+    val wordleAvailable = WordleLanguages.resolve(ComposeLocale.current.language) != null
+    val visibleGameTypes = remember(colorblindEnabled, wordleAvailable) {
+        SortedGameTypes.filterNot {
+            (colorblindEnabled && it.requiresColorVision) ||
+                (it == GameType.WORDLE && !wordleAvailable)
         }
     }
     LazyVerticalGrid(
