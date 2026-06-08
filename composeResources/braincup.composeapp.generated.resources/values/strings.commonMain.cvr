@@ -41,6 +41,8 @@ string|achievement_gold_value_comparison_desc|V2luIGdvbGQgbWVkYWwgaW4gVmFsdWUgQ2
 string|achievement_gold_value_comparison|R3JlYXRlciBUaGFuIHRoZSBSZXN0
 string|achievement_gold_visual_memory_desc|V2luIGdvbGQgbWVkYWwgaW4gVmlzdWFsIE1lbW9yeQ==
 string|achievement_gold_visual_memory|UGhvdG9ncmFwaGljIE1pbmQ=
+string|achievement_gold_wordle_desc|V2luIGdvbGQgbWVkYWwgaW4gV29yZGxl
+string|achievement_gold_wordle|V29yZHNtaXRo
 string|achievement_iron_streak_desc|VHJhaW4gZm9yIDMwIGRheXMgaW4gYSByb3c=
 string|achievement_iron_streak|SXJvbiBTdHJlYWs=
 string|achievement_mind_marathoner_desc|QWNjdW11bGF0ZSAxMCwwMDAgdG90YWwgcG9pbnRz
@@ -382,6 +384,8 @@ string|game_value_comparison|VmFsdWUgQ29tcGFyaXNvbg==
 string|game_visual_memory_desc|TWVtb3JpemUgdGhlIHNoYXBlcyBvbiB0aGUgZ3JpZCwgdGhlbiBpZGVudGlmeSB0aGUgaGlkZGVuIHNoYXBlIGFmdGVyIHRoZSB0aW1lciBlbmRzLg==
 string|game_visual_memory|VmlzdWFsIE1lbW9yeQ==
 string|game_what_comes_next|V2hhdCBjb21lcyBuZXh0Pw==
+string|game_wordle_desc|R3Vlc3MgdGhlIGhpZGRlbiBmaXZlLWxldHRlciB3b3JkIGluIHNpeCB0cmllcy4gVGhlIGFuc3dlciBpcyBhbHdheXMgYSBub3VuLg==
+string|game_wordle|V29yZGxl
 string|instructions_best_score|QmVzdCBzY29yZTogJTEkcw==
 string|instructions_leaderboard|VmlldyBsZWFkZXJib2FyZA==
 string|level_label|TGV2ZWwgJTEkZA==
@@ -492,5 +496,13 @@ string|title_master|TWFzdGVy
 string|title_novice|Tm92aWNl
 string|title_sage|U2FnZQ==
 string|title_scholar|U2Nob2xhcg==
+string|wordle_answer_was|VGhlIHdvcmQgd2FzICUxJHM=
+string|wordle_backspace|RGVsZXRlIGxldHRlcg==
+string|wordle_enter|RW50ZXI=
+string|wordle_legend_absent|Tm90IGluIHRoZSB3b3Jk
+string|wordle_legend_correct|UmlnaHQgbGV0dGVyLCByaWdodCBzcG90
+string|wordle_legend_present|UmlnaHQgbGV0dGVyLCB3cm9uZyBzcG90
+string|wordle_not_enough_letters|Tm90IGVub3VnaCBsZXR0ZXJz
+string|wordle_not_in_word_list|Tm90IGluIHdvcmQgbGlzdA==
 string|xp_gained|KyUxJGQgWFA=
 string|xp_progress|JTEkZCAvICUyJGQgWFA=
