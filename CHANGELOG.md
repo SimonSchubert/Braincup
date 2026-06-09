@@ -1,3 +1,11 @@
+## v2.19.0 — 2026-06-09
+
+### Features
+- New Wordle game
+
+### Improvements
+- Updated dependencies
+
 ## v2.18.0 — 2026-06-01
 
 ### Features
