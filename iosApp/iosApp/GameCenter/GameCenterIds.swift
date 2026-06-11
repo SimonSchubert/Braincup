@@ -24,6 +24,9 @@ enum GameCenterIds {
         "COLOR_CONFUSION":       "achievement.true_colors",
         "FLASH_CROWD":           "achievement.crowd_counter",
         "SCHULTE_TABLE":         "achievement.lightning_gaze",
+        "DIGIT_MEMORY":          "achievement.digit_savant",
+        "SPOT_THE_NEW":          "achievement.fresh_eyes",
+        "WORDLE":                "achievement.wordsmith",
         // FLAGS has no per-game achievement — it has a leaderboard instead.
     ]
 
@@ -70,6 +73,9 @@ enum GameCenterIds {
         case "achievement.true_colors":           return UserStorage.Achievements.goldColorConfusion
         case "achievement.crowd_counter":         return UserStorage.Achievements.goldFlashCrowd
         case "achievement.lightning_gaze":        return UserStorage.Achievements.goldSchulteTable
+        case "achievement.digit_savant":          return UserStorage.Achievements.goldDigitMemory
+        case "achievement.fresh_eyes":            return UserStorage.Achievements.goldSpotTheNew
+        case "achievement.wordsmith":             return UserStorage.Achievements.goldWordle
         default: return nil
         }
     }

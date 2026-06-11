@@ -241,12 +241,10 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.COLOR_CONFUSION -> R.string.achievementTrueColors
     GameType.FLASH_CROWD -> R.string.achievementCrowdCounter
     GameType.SCHULTE_TABLE -> R.string.achievementLightningGaze
-    GameType.DIGIT_MEMORY -> R.string.achievementDigitMemory
-    GameType.SPOT_THE_NEW -> R.string.achievementSpotTheNew
+    GameType.DIGIT_MEMORY -> R.string.achievementDigitSavant
+    GameType.SPOT_THE_NEW -> R.string.achievementFreshEyes
     GameType.FLAGS -> null
-    // No Play Games server achievement is configured for Wordle yet; the local GOLD_WORDLE
-    // achievement still unlocks. Add a Play Console achievement + mapping here later if wanted.
-    GameType.WORDLE -> null
+    GameType.WORDLE -> R.string.achievementWordsmith
 }
 
 private fun leaderboardResIdFor(gameType: GameType): Int? = when (gameType) {
