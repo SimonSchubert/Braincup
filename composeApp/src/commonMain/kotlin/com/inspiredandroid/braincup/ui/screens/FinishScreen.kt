@@ -21,7 +21,6 @@ import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -76,7 +75,7 @@ fun FinishScreen(
         if (!gaveUpLevelGame) {
             val scoreLabelRes = if (gameType.usesLevelLabel) Res.string.finish_level else Res.string.finish_score
             Text(
-                text = annotateNumbers(stringResource(scoreLabelRes, gameType.formattedScore(score))),
+                text = stringResource(scoreLabelRes, gameType.formattedScore(score)),
                 style = MaterialTheme.typography.headlineLarge,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
@@ -115,7 +114,7 @@ fun FinishScreen(
             }
         } else if (highscore > 0 && !gameType.usesLevelLabel) {
             Text(
-                text = annotateNumbers(stringResource(Res.string.finish_highscore, gameType.formattedScore(highscore))),
+                text = stringResource(Res.string.finish_highscore, gameType.formattedScore(highscore)),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.align(Alignment.CenterHorizontally),

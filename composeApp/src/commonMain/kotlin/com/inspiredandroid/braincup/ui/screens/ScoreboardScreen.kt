@@ -21,7 +21,6 @@ import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
-import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -70,7 +69,6 @@ fun ScoreboardScreen(
                 Text(
                     text = if (highscore > 0) gameType.formattedScore(highscore) else "—",
                     style = MaterialTheme.typography.headlineLarge,
-                    fontFamily = numberFontFamily(),
                 )
             }
         }

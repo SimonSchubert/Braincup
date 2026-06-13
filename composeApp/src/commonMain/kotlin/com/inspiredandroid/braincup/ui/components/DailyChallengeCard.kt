@@ -12,7 +12,6 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainerDisabled
 import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -75,7 +74,6 @@ fun DailyChallengeCard(
                     Text(
                         text = sessionStreak.toString(),
                         style = MaterialTheme.typography.headlineMedium,
-                        fontFamily = numberFontFamily(),
                         fontWeight = FontWeight.Bold,
                         color = OnPrimaryContainer,
                     )
