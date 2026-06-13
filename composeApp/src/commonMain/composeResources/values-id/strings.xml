@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">Gunakan palet yang tetap dapat dibedakan untuk bentuk buta warna paling umum.</string>
     <string name="settings_haptic">Umpan balik haptik</string>
     <string name="settings_haptic_desc">Bergetar singkat saat jawaban benar.</string>
+    <string name="settings_keypad">Papan angka gaya ponsel</string>
+    <string name="settings_keypad_desc">Letakkan 1, 2, 3 di baris atas, bukan 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_theme_desc">Pilih tampilan Brain Cup.</string>
     <string name="settings_theme_system">Sistem</string>

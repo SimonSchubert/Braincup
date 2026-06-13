@@ -29,6 +29,8 @@ fun SettingsScreen(
     onToggleColorblindPalette: () -> Unit,
     isHapticEnabled: Boolean,
     onToggleHaptic: () -> Unit,
+    isNumberPadAscending: Boolean,
+    onToggleNumberPadAscending: () -> Unit,
     themeMode: ThemeMode,
     onThemeSelected: (ThemeMode) -> Unit,
     onBack: () -> Unit,
@@ -65,6 +67,12 @@ fun SettingsScreen(
                 description = stringResource(Res.string.settings_colorblind_desc),
                 checked = isColorblindPaletteEnabled,
                 onToggle = onToggleColorblindPalette,
+            )
+            SettingsToggleRow(
+                title = stringResource(Res.string.settings_keypad),
+                description = stringResource(Res.string.settings_keypad_desc),
+                checked = isNumberPadAscending,
+                onToggle = onToggleNumberPadAscending,
             )
         }
     }

@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">使用对最常见的色盲类型仍然可区分的配色。</string>
     <string name="settings_haptic">触觉反馈</string>
     <string name="settings_haptic_desc">答对时短暂震动。</string>
+    <string name="settings_keypad">电话式数字键盘</string>
+    <string name="settings_keypad_desc">将 1、2、3 置于顶行，而不是 7、8、9。</string>
     <string name="settings_theme">主题</string>
     <string name="settings_theme_desc">选择 Brain Cup 的外观。</string>
     <string name="settings_theme_system">跟随系统</string>

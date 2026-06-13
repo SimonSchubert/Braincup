@@ -74,6 +74,7 @@ class UserStorage(
         const val KEY_AUDIO_MUTED = "audio_muted"
         const val KEY_COLORBLIND_PALETTE = "colorblind_palette"
         const val KEY_HAPTIC_ENABLED = "haptic_enabled"
+        const val KEY_NUMBER_PAD_ASCENDING = "number_pad_ascending"
         const val KEY_SESSION_DAY = "session_day"
         const val KEY_SESSION_GAME_IDS = "session_game_ids"
         const val KEY_SESSION_SCORES = "session_scores"
@@ -241,6 +242,14 @@ class UserStorage(
 
     fun setHapticEnabled(enabled: Boolean) {
         settings.putBoolean(KEY_HAPTIC_ENABLED, enabled)
+    }
+
+    /** Number pad layout. When true the keypad shows 1-2-3 on the top row (phone style);
+     *  when false it shows 7-8-9 on top (calculator style). Defaults to calculator style. */
+    fun isNumberPadAscending(): Boolean = settings.getBoolean(KEY_NUMBER_PAD_ASCENDING, false)
+
+    fun setNumberPadAscending(ascending: Boolean) {
+        settings.putBoolean(KEY_NUMBER_PAD_ASCENDING, ascending)
     }
 
     /** Selected app theme. Defaults to [ThemeMode.SYSTEM]. */

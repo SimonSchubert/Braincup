@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">Використовується палітра, яка залишається помітною за найпоширеніших форм дальтонізму.</string>
     <string name="settings_haptic">Тактильний відгук</string>
     <string name="settings_haptic_desc">Коротка вібрація на правильні відповіді.</string>
+    <string name="settings_keypad">Цифрова клавіатура як на телефоні</string>
+    <string name="settings_keypad_desc">Розміщує 1, 2, 3 у верхньому рядку замість 7, 8, 9.</string>
     <string name="settings_theme">Тема</string>
     <string name="settings_theme_desc">Оберіть вигляд Brain Cup.</string>
     <string name="settings_theme_system">Системна</string>

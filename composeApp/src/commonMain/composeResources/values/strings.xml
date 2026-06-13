@@ -79,6 +79,8 @@
     <string name="settings_colorblind_desc">Use a palette that stays distinguishable for the most common forms of color blindness.</string>
     <string name="settings_haptic">Haptic feedback</string>
     <string name="settings_haptic_desc">Vibrate briefly on correct answers.</string>
+    <string name="settings_keypad">Phone-style number pad</string>
+    <string name="settings_keypad_desc">Put 1, 2, 3 on the top row instead of 7, 8, 9.</string>
     <string name="settings_theme">Theme</string>
     <string name="settings_theme_desc">Choose how Brain Cup looks.</string>
     <string name="settings_theme_system">System</string>

@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">En yaygın renk körlüğü türleri için ayırt edilebilir kalan bir palet kullanır.</string>
     <string name="settings_haptic">Dokunsal geri bildirim</string>
     <string name="settings_haptic_desc">Doğru yanıtlarda kısa süreli titreşir.</string>
+    <string name="settings_keypad">Telefon tarzı sayı tuş takımı</string>
+    <string name="settings_keypad_desc">Üst sıraya 7, 8, 9 yerine 1, 2, 3 koyar.</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_theme_desc">Brain Cup\'un görünümünü seçin.</string>
     <string name="settings_theme_system">Sistem</string>

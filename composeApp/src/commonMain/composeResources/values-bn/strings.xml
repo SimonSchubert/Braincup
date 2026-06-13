@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">এমন একটি প্যালেট ব্যবহার করুন যা বর্ণান্ধতার সবচেয়ে সাধারণ ধরনের জন্য আলাদা থাকে।</string>
     <string name="settings_haptic">হ্যাপ্টিক ফিডব্যাক</string>
     <string name="settings_haptic_desc">সঠিক উত্তরে সংক্ষিপ্ত কম্পন।</string>
+    <string name="settings_keypad">ফোনের মতো নম্বর প্যাড</string>
+    <string name="settings_keypad_desc">উপরের সারিতে 7, 8, 9-এর বদলে 1, 2, 3 রাখুন।</string>
     <string name="settings_theme">থিম</string>
     <string name="settings_theme_desc">Brain Cup কেমন দেখাবে তা বেছে নিন।</string>
     <string name="settings_theme_system">সিস্টেম</string>

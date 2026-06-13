@@ -92,17 +92,17 @@ fun PrismDialog(
                         horizontalArrangement = Arrangement.spacedBy(12.dp),
                     ) {
                         PrismDialogButton(
-                            label = secondaryLabel,
+                            label = primaryLabel,
+                            onClick = onPrimary,
                             face = MaterialTheme.colorScheme.surfaceVariant,
                             textColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                            onClick = onSecondary,
                             modifier = Modifier.weight(1f),
                         )
                         PrismDialogButton(
-                            label = primaryLabel,
+                            label = secondaryLabel,
                             face = Primary,
                             textColor = Color.White,
-                            onClick = onPrimary,
+                            onClick = onSecondary,
                             modifier = Modifier.weight(1f),
                         )
                     }

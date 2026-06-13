@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">Używa palety, która pozostaje rozróżnialna w najczęstszych postaciach daltonizmu.</string>
     <string name="settings_haptic">Wibracje dotykowe</string>
     <string name="settings_haptic_desc">Krótka wibracja po poprawnych odpowiedziach.</string>
+    <string name="settings_keypad">Klawiatura numeryczna w stylu telefonu</string>
+    <string name="settings_keypad_desc">Umieszcza 1, 2, 3 w górnym wierszu zamiast 7, 8, 9.</string>
     <string name="settings_theme">Motyw</string>
     <string name="settings_theme_desc">Wybierz wygląd Brain Cup.</string>
     <string name="settings_theme_system">Systemowy</string>

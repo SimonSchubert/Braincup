@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">Usa uma paleta que permanece distinguível para as formas mais comuns de daltonismo.</string>
     <string name="settings_haptic">Resposta tátil</string>
     <string name="settings_haptic_desc">Vibra brevemente nas respostas corretas.</string>
+    <string name="settings_keypad">Teclado numérico estilo telefone</string>
+    <string name="settings_keypad_desc">Coloca 1, 2, 3 na linha de cima em vez de 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_theme_desc">Escolha a aparência do Brain Cup.</string>
     <string name="settings_theme_system">Sistema</string>

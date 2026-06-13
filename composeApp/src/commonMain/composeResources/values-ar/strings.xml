@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">استخدم لوحة ألوان تبقى مميزة لأكثر أشكال عمى الألوان شيوعًا.</string>
     <string name="settings_haptic">ردود فعل لمسية</string>
     <string name="settings_haptic_desc">اهتزاز قصير عند الإجابات الصحيحة.</string>
+    <string name="settings_keypad">لوحة أرقام بأسلوب الهاتف</string>
+    <string name="settings_keypad_desc">ضع 1, 2, 3 في الصف العلوي بدلاً من 7, 8, 9.</string>
     <string name="settings_theme">المظهر</string>
     <string name="settings_theme_desc">اختر كيف يبدو Brain Cup.</string>
     <string name="settings_theme_system">النظام</string>

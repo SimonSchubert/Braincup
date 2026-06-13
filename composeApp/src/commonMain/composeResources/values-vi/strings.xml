@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">Sử dụng bảng màu vẫn phân biệt được cho các dạng mù màu phổ biến nhất.</string>
     <string name="settings_haptic">Phản hồi rung</string>
     <string name="settings_haptic_desc">Rung nhẹ khi trả lời đúng.</string>
+    <string name="settings_keypad">Bàn phím kiểu điện thoại</string>
+    <string name="settings_keypad_desc">Đặt 1, 2, 3 ở hàng trên thay vì 7, 8, 9.</string>
     <string name="settings_theme">Giao diện</string>
     <string name="settings_theme_desc">Chọn cách Brain Cup hiển thị.</string>
     <string name="settings_theme_system">Hệ thống</string>

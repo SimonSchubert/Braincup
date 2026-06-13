@@ -503,6 +503,8 @@
     <string name="settings_colorblind_desc">Utilise une palette qui reste distinguable pour les formes les plus courantes de daltonisme.</string>
     <string name="settings_haptic">Retour haptique</string>
     <string name="settings_haptic_desc">Vibre brièvement aux bonnes réponses.</string>
+    <string name="settings_keypad">Pavé numérique style téléphone</string>
+    <string name="settings_keypad_desc">Place 1, 2, 3 en haut à la place de 7, 8, 9.</string>
     <string name="settings_theme">Apparence</string>
     <string name="settings_theme_desc">Choisis l\'apparence de Brain Cup.</string>
     <string name="settings_theme_system">Système</string>

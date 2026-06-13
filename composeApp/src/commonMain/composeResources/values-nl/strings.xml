@@ -503,6 +503,8 @@
     <string name="settings_colorblind_desc">Gebruikt een palet dat onderscheidbaar blijft voor de meest voorkomende vormen van kleurenblindheid.</string>
     <string name="settings_haptic">Haptische feedback</string>
     <string name="settings_haptic_desc">Trilt kort bij juiste antwoorden.</string>
+    <string name="settings_keypad">Telefoon-stijl cijfertoetsen</string>
+    <string name="settings_keypad_desc">Plaatst 1, 2, 3 bovenaan in plaats van 7, 8, 9.</string>
     <string name="settings_theme">Weergave</string>
     <string name="settings_theme_desc">Kies hoe Brain Cup eruitziet.</string>
     <string name="settings_theme_system">Systeem</string>

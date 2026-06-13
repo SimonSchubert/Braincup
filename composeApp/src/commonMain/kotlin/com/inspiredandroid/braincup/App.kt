@@ -28,6 +28,7 @@ import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
+import com.inspiredandroid.braincup.ui.components.LocalNumberPadAscending
 import com.inspiredandroid.braincup.ui.components.QuitGameDialog
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
@@ -58,6 +59,9 @@ fun App(
         mutableStateOf(controller.storage.isColorblindPaletteEnabled())
     }
     var hapticEnabled by remember { mutableStateOf(controller.storage.isHapticEnabled()) }
+    var numberPadAscending by remember {
+        mutableStateOf(controller.storage.isNumberPadAscending())
+    }
     var themeMode by remember { mutableStateOf(controller.storage.getThemeMode()) }
 
     val systemDark = isSystemInDarkTheme()
@@ -131,7 +135,10 @@ fun App(
     BraincupTheme(colorScheme = resolvedColorScheme) {
         systemBarAppearance(isDarkTheme)
         Surface(modifier = Modifier.fillMaxSize()) {
-            CompositionLocalProvider(LocalAccessiblePalette provides colorblindPaletteEnabled) {
+            CompositionLocalProvider(
+                LocalAccessiblePalette provides colorblindPaletteEnabled,
+                LocalNumberPadAscending provides numberPadAscending,
+            ) {
                 AppNavHost(navController = navController, startDestination = MainMenu) {
                     composable<MainMenu> {
                         MainMenuScreen(
@@ -157,6 +164,11 @@ fun App(
                             onToggleHaptic = {
                                 hapticEnabled = !hapticEnabled
                                 controller.storage.setHapticEnabled(hapticEnabled)
+                            },
+                            isNumberPadAscending = numberPadAscending,
+                            onToggleNumberPadAscending = {
+                                numberPadAscending = !numberPadAscending
+                                controller.storage.setNumberPadAscending(numberPadAscending)
                             },
                             themeMode = themeMode,
                             onThemeSelected = { mode ->

@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">一般的な色覚障害でも見分けやすいパレットを使用します。</string>
     <string name="settings_haptic">触覚フィードバック</string>
     <string name="settings_haptic_desc">正解時に短く振動します。</string>
+    <string name="settings_keypad">電話型テンキー</string>
+    <string name="settings_keypad_desc">7、8、9の代わりに1、2、3を上の行に表示します。</string>
     <string name="settings_theme">テーマ</string>
     <string name="settings_theme_desc">Brain Cup の外観を選択してください。</string>
     <string name="settings_theme_system">システム</string>

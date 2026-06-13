@@ -503,6 +503,8 @@
     <string name="settings_colorblind_desc">Verwendet eine Palette, die für die häufigsten Formen der Farbenblindheit unterscheidbar bleibt.</string>
     <string name="settings_haptic">Haptisches Feedback</string>
     <string name="settings_haptic_desc">Vibriert kurz bei richtigen Antworten.</string>
+    <string name="settings_keypad">Telefon-Ziffernblock</string>
+    <string name="settings_keypad_desc">1, 2, 3 oben statt 7, 8, 9 (wie bei einem Telefon).</string>
     <string name="settings_theme">Erscheinungsbild</string>
     <string name="settings_theme_desc">Wähle, wie Brain Cup aussieht.</string>
     <string name="settings_theme_system">System</string>

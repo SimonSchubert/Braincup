@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">एक ऐसी पैलेट का उपयोग करें जो रंगांधता के सबसे सामान्य रूपों में भी अलग दिखाई दे।</string>
     <string name="settings_haptic">हैप्टिक फीडबैक</string>
     <string name="settings_haptic_desc">सही उत्तरों पर थोड़ा कंपन।</string>
+    <string name="settings_keypad">फ़ोन-शैली नंबर पैड</string>
+    <string name="settings_keypad_desc">ऊपरी पंक्ति में 7, 8, 9 की जगह 1, 2, 3 रखें।</string>
     <string name="settings_theme">थीम</string>
     <string name="settings_theme_desc">Brain Cup का रूप चुनें।</string>
     <string name="settings_theme_system">सिस्टम</string>

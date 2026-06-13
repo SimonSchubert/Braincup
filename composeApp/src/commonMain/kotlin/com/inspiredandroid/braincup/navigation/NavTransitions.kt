@@ -13,14 +13,10 @@ import androidx.compose.animation.slideOutHorizontally
  * slides back in from the left while the current one slides out to the right.
  */
 
-internal fun forwardEnterTransition(): EnterTransition =
-    slideInHorizontally(initialOffsetX = { it })
+internal fun forwardEnterTransition(): EnterTransition = slideInHorizontally(initialOffsetX = { it })
 
-internal fun forwardExitTransition(): ExitTransition =
-    slideOutHorizontally(targetOffsetX = { -it })
+internal fun forwardExitTransition(): ExitTransition = slideOutHorizontally(targetOffsetX = { -it })
 
-internal fun backEnterTransition(): EnterTransition =
-    slideInHorizontally(initialOffsetX = { -it })
+internal fun backEnterTransition(): EnterTransition = slideInHorizontally(initialOffsetX = { -it })
 
-internal fun backExitTransition(): ExitTransition =
-    slideOutHorizontally(targetOffsetX = { it })
+internal fun backExitTransition(): ExitTransition = slideOutHorizontally(targetOffsetX = { it })

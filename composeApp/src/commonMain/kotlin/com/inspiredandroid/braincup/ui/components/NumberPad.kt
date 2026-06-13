@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -12,62 +13,50 @@ import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.painterResource
 import kotlin.collections.plusAssign
 
+/** Layout order for [NumberPad]. When true the keypad shows 1-2-3 on the top row (phone style);
+ *  when false it shows 7-8-9 on top (calculator style). Provided from the app's settings. */
+val LocalNumberPadAscending = staticCompositionLocalOf { false }
+
 @Composable
 fun ColumnScope.NumberPad(
     showOperators: Boolean = false,
     onInputChange: (String) -> Unit,
 ) {
+    // Number rows from top to bottom in the default (calculator) layout. Each row pairs its
+    // digits with the operator anchored to that row position (top to bottom: / * -).
+    val numberRows = listOf(
+        Triple("7", "8", "9") to "/",
+        Triple("4", "5", "6") to "*",
+        Triple("1", "2", "3") to "-",
+    )
+    // Phone style flips the digits while the operators stay anchored to their row position.
+    val orderedRows = if (LocalNumberPadAscending.current) {
+        numberRows.map { it.first }.reversed().zip(numberRows.map { it.second })
+    } else {
+        numberRows.map { it.first to it.second }
+    }
+
     Column(
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .width(IntrinsicSize.Min),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            NumberPadButtonCell("7") {
-                onInputChange(it)
-            }
-            NumberPadButtonCell("8") {
-                onInputChange(it)
-            }
-            NumberPadButtonCell("9") {
-                onInputChange(it)
-            }
-            if (showOperators) {
-                NumberPadButtonCell("/") {
+        orderedRows.forEach { (digits, operator) ->
+            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                NumberPadButtonCell(digits.first) {
                     onInputChange(it)
                 }
-            }
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            NumberPadButtonCell("4") {
-                onInputChange(it)
-            }
-            NumberPadButtonCell("5") {
-                onInputChange(it)
-            }
-            NumberPadButtonCell("6") {
-                onInputChange(it)
-            }
-            if (showOperators) {
-                NumberPadButtonCell("*") {
+                NumberPadButtonCell(digits.second) {
                     onInputChange(it)
                 }
-            }
-        }
-        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            NumberPadButtonCell("1") {
-                onInputChange(it)
-            }
-            NumberPadButtonCell("2") {
-                onInputChange(it)
-            }
-            NumberPadButtonCell("3") {
-                onInputChange(it)
-            }
-            if (showOperators) {
-                NumberPadButtonCell("-") {
+                NumberPadButtonCell(digits.third) {
                     onInputChange(it)
+                }
+                if (showOperators) {
+                    NumberPadButtonCell(operator) {
+                        onInputChange(it)
+                    }
                 }
             }
         }

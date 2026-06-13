@@ -501,6 +501,8 @@
     <string name="settings_colorblind_desc">ใช้ชุดสีที่ยังแยกออกจากกันได้สำหรับตาบอดสีที่พบบ่อยที่สุด</string>
     <string name="settings_haptic">การตอบสนองแบบสัมผัส</string>
     <string name="settings_haptic_desc">สั่นสั้น ๆ เมื่อตอบถูก</string>
+    <string name="settings_keypad">แป้นตัวเลขแบบโทรศัพท์</string>
+    <string name="settings_keypad_desc">วาง 1, 2, 3 ไว้แถวบนแทน 7, 8, 9</string>
     <string name="settings_theme">ธีม</string>
     <string name="settings_theme_desc">เลือกรูปแบบของ Brain Cup</string>
     <string name="settings_theme_system">ระบบ</string>
