@@ -198,6 +198,7 @@
     <string name="achievement_gold_color_confusion">Vraies couleurs</string>
     <string name="achievement_gold_flash_crowd">Compteur de foule</string>
     <string name="achievement_gold_schulte_table">Regard éclair</string>
+    <string name="achievement_gold_flags">Porte-drapeau</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Marathonien de l'esprit</string>
@@ -223,6 +224,7 @@
     <string name="achievement_gold_color_confusion_desc">Gagne la médaille d'or en Confusion de Couleurs</string>
     <string name="achievement_gold_flash_crowd_desc">Gagne la médaille d'or en Foule Éclair</string>
     <string name="achievement_gold_schulte_table_desc">Gagne la médaille d'or en Table de Schulte</string>
+    <string name="achievement_gold_flags_desc">Gagne la médaille d'or à Drapeaux</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Accumule 10 000 points au total</string>

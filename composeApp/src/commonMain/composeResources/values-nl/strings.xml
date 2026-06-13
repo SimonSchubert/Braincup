@@ -198,6 +198,7 @@
     <string name="achievement_gold_color_confusion">Ware kleuren</string>
     <string name="achievement_gold_flash_crowd">Mensenteller</string>
     <string name="achievement_gold_schulte_table">Bliksemblik</string>
+    <string name="achievement_gold_flags">Vlagdrager</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Geest-marathonloper</string>
@@ -223,6 +224,7 @@
     <string name="achievement_gold_color_confusion_desc">Win de gouden medaille in Kleurverwarring</string>
     <string name="achievement_gold_flash_crowd_desc">Win de gouden medaille in Flitsmenigte</string>
     <string name="achievement_gold_schulte_table_desc">Win de gouden medaille in Schulte-tabel</string>
+    <string name="achievement_gold_flags_desc">Win een gouden medaille in Vlaggen</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Verzamel in totaal 10.000 punten</string>

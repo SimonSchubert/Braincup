@@ -198,6 +198,7 @@
     <string name="achievement_gold_color_confusion">Wahre Farben</string>
     <string name="achievement_gold_flash_crowd">Mengenzähler</string>
     <string name="achievement_gold_schulte_table">Blitzblick</string>
+    <string name="achievement_gold_flags">Flaggenträger</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Denk-Marathonläufer</string>
@@ -205,9 +206,9 @@
 
     <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Gewinne die Goldmedaille in Mini-Sudoku</string>
-    <string name="achievement_gold_mini_chess_desc">Gewinne die Goldmedaille in Mini Chess</string>
-    <string name="achievement_gold_lights_out_desc">Gewinne die Goldmedaille in Lights Out</string>
-    <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Sliding Puzzle</string>
+    <string name="achievement_gold_mini_chess_desc">Gewinne die Goldmedaille in Mini-Schach</string>
+    <string name="achievement_gold_lights_out_desc">Gewinne die Goldmedaille in Lichter aus</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Schiebepuzzle</string>
     <string name="achievement_gold_path_finder_desc">Gewinne die Goldmedaille in Pfadfinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Gewinne die Goldmedaille in Anomalie-Rätsel</string>
     <string name="achievement_gold_colored_shapes_desc">Gewinne die Goldmedaille in Farbige Formen</string>
@@ -223,6 +224,7 @@
     <string name="achievement_gold_color_confusion_desc">Gewinne die Goldmedaille in Farbverwirrung</string>
     <string name="achievement_gold_flash_crowd_desc">Gewinne die Goldmedaille in Blitzmenge</string>
     <string name="achievement_gold_schulte_table_desc">Gewinne die Goldmedaille in Schulte-Tabelle</string>
+    <string name="achievement_gold_flags_desc">Gewinne die Goldmedaille in Flaggen</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Sammle insgesamt 10.000 Punkte</string>

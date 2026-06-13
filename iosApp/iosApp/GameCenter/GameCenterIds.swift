@@ -27,7 +27,7 @@ enum GameCenterIds {
         "DIGIT_MEMORY":          "achievement.digit_savant",
         "SPOT_THE_NEW":          "achievement.fresh_eyes",
         "WORDLE":                "achievement.wordsmith",
-        // FLAGS has no per-game achievement — it has a leaderboard instead.
+        "FLAGS":                 "achievement.flag_bearer",
     ]
 
     private static let leaderboardsByGameName: [String: String] = [
@@ -76,6 +76,7 @@ enum GameCenterIds {
         case "achievement.digit_savant":          return UserStorage.Achievements.goldDigitMemory
         case "achievement.fresh_eyes":            return UserStorage.Achievements.goldSpotTheNew
         case "achievement.wordsmith":             return UserStorage.Achievements.goldWordle
+        case "achievement.flag_bearer":           return UserStorage.Achievements.goldFlags
         default: return nil
         }
     }

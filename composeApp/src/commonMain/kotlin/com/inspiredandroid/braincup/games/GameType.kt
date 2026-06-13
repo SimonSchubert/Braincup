@@ -214,6 +214,11 @@ enum class GameType(
     ),
     ;
 
+    companion object {
+        /** Games in the order shown on the main menu (by category, then enum order within category). */
+        val displayOrder: List<GameType> = entries.sortedBy { it.category.ordinal }
+    }
+
     val accentColor: Long get() = category.accentColor
 
     /** Whether this game has a Play Games leaderboard wired up. */

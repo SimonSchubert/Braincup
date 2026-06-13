@@ -257,6 +257,7 @@
     <string name="achievement_gold_color_confusion">True Colors</string>
     <string name="achievement_gold_flash_crowd">Crowd Counter</string>
     <string name="achievement_gold_schulte_table">Lightning Gaze</string>
+    <string name="achievement_gold_flags">Flag Bearer</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Mind Marathoner</string>
@@ -282,6 +283,7 @@
     <string name="achievement_gold_color_confusion_desc">Win gold medal in Color Confusion</string>
     <string name="achievement_gold_flash_crowd_desc">Win gold medal in Flash Crowd</string>
     <string name="achievement_gold_schulte_table_desc">Win gold medal in Schulte Table</string>
+    <string name="achievement_gold_flags_desc">Win gold medal in Flags</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Accumulate 10,000 total points</string>

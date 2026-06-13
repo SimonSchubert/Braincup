@@ -15,6 +15,7 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.theme.MedalGold
+import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -23,7 +24,7 @@ fun AchievementsScreen(
     onBack: () -> Unit,
 ) {
     val unlockedAchievements = remember(storage) { storage.getUnlockedAchievements() }
-    val allAchievements = UserStorage.Achievements.entries
+    val allAchievements = UserStorage.Achievements.displayOrder
 
     AppScaffold(
         title = stringResource(Res.string.achievements_title),
@@ -58,12 +59,17 @@ private fun AchievementCard(
     isUnlocked: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val containerColor = if (isUnlocked) {
-        MaterialTheme.colorScheme.primaryContainer
-    } else {
-        MaterialTheme.colorScheme.surfaceVariant
+    val containerColor = when {
+        achievement.isMilestone && isUnlocked -> MaterialTheme.colorScheme.secondaryContainer
+        achievement.isMilestone -> Primary.copy(alpha = 0.12f)
+        isUnlocked -> MaterialTheme.colorScheme.primaryContainer
+        else -> MaterialTheme.colorScheme.surfaceVariant
     }
-    val contentColor = contentColorFor(containerColor)
+    val contentColor = if (achievement.isMilestone && !isUnlocked) {
+        MaterialTheme.colorScheme.onSurface
+    } else {
+        contentColorFor(containerColor)
+    }
     PrismCard(
         face = containerColor,
         modifier = modifier,

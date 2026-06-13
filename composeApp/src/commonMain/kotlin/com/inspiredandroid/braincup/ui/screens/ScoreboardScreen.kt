@@ -30,7 +30,12 @@ fun ScoreboardScreen(
     onBack: () -> Unit,
 ) {
     val highscore = remember(storage, gameType) { storage.getHighScore(gameType.id) }
-    val scores = remember(storage, gameType) { storage.getScores(gameType.id) }
+    val scores = remember(storage, gameType) {
+        storage.getScores(gameType.id).mapNotNull { group ->
+            val nonZero = group.scores.filter { it > 0 }
+            nonZero.takeIf { it.isNotEmpty() }?.let { group.copy(scores = it) }
+        }
+    }
 
     AppScaffold(
         title = stringResource(Res.string.scoreboard_title, stringResource(gameType.displayNameRes)),

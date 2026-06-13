@@ -21,6 +21,7 @@ class UserStorage(
     enum class Achievements(
         val titleRes: StringResource,
         val descriptionRes: StringResource,
+        val isMilestone: Boolean = false,
     ) {
         GOLD_MINI_SUDOKU(Res.string.achievement_gold_mini_sudoku, Res.string.achievement_gold_mini_sudoku_desc),
         GOLD_MINI_CHESS(Res.string.achievement_gold_mini_chess, Res.string.achievement_gold_mini_chess_desc),
@@ -41,15 +42,23 @@ class UserStorage(
         GOLD_ORBIT_TRACKER(Res.string.achievement_gold_orbit_tracker, Res.string.achievement_gold_orbit_tracker_desc),
         GOLD_FLASH_CROWD(Res.string.achievement_gold_flash_crowd, Res.string.achievement_gold_flash_crowd_desc),
         GOLD_SCHULTE_TABLE(Res.string.achievement_gold_schulte_table, Res.string.achievement_gold_schulte_table_desc),
+        GOLD_FLAGS(Res.string.achievement_gold_flags, Res.string.achievement_gold_flags_desc),
         GOLD_DIGIT_MEMORY(Res.string.achievement_gold_digit_memory, Res.string.achievement_gold_digit_memory_desc),
         GOLD_SPOT_THE_NEW(Res.string.achievement_gold_spot_the_new, Res.string.achievement_gold_spot_the_new_desc),
         GOLD_WORDLE(Res.string.achievement_gold_wordle, Res.string.achievement_gold_wordle_desc),
-        TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc),
-        STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc),
+        TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc, isMilestone = true),
+        STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc, isMilestone = true),
         ;
 
         companion object {
             fun forGameGold(gameType: GameType): Achievements? = entries.firstOrNull { it.name == "GOLD_${gameType.name}" }
+
+            /** Achievements in display order: per-game gold medals follow [GameType.displayOrder], then milestones. */
+            val displayOrder: List<Achievements> = buildList {
+                addAll(GameType.displayOrder.mapNotNull { forGameGold(it) })
+                add(TOTAL_SCORE_10K)
+                add(STREAK_30)
+            }
         }
     }
 

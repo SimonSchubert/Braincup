@@ -37,9 +37,6 @@ import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
-private val SortedGameTypes: List<GameType> =
-    GameType.entries.sortedBy { it.category.ordinal }
-
 @Composable
 fun MainMenuScreen(
     controller: GameController,
@@ -111,7 +108,7 @@ fun MainMenuScreenContent(
     // Match Compose's UI locale (same source as stringResource), not a one-shot cached JVM default.
     val wordleAvailable = WordleLanguages.resolve(ComposeLocale.current.language) != null
     val visibleGameTypes = remember(colorblindEnabled, wordleAvailable) {
-        SortedGameTypes.filterNot {
+        GameType.displayOrder.filterNot {
             (colorblindEnabled && it.requiresColorVision) ||
                 (it == GameType.WORDLE && !wordleAvailable)
         }

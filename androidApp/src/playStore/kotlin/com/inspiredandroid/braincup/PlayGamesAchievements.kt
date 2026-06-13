@@ -42,7 +42,9 @@ fun initPlayGames(activity: ComponentActivity) {
     PlayGamesBridge.onGoldMedal = fun(gameType: GameType) {
         val current = activityRef?.get() ?: return
         val resId = achievementResIdFor(gameType) ?: return
-        PlayGames.getAchievementsClient(current).unlock(current.getString(resId))
+        val id = current.getString(resId)
+        if (id.isBlank()) return
+        PlayGames.getAchievementsClient(current).unlock(id)
     }
 
     PlayGamesBridge.onTotalScore = fun(total: Int) {
@@ -243,7 +245,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.SCHULTE_TABLE -> R.string.achievementLightningGaze
     GameType.DIGIT_MEMORY -> R.string.achievementDigitSavant
     GameType.SPOT_THE_NEW -> R.string.achievementFreshEyes
-    GameType.FLAGS -> null
+    GameType.FLAGS -> R.string.achievementFlagBearer
     GameType.WORDLE -> R.string.achievementWordsmith
 }
 

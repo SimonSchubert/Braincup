@@ -24,6 +24,7 @@
     <string name="achievementDigitSavant" translatable="false">CgkIuZrirtIVEAIQGQ</string>
     <string name="achievementFreshEyes" translatable="false">CgkIuZrirtIVEAIQGg</string>
     <string name="achievementWordsmith" translatable="false">CgkIuZrirtIVEAIQGw</string>
+    <string name="achievementFlagBearer" translatable="false">CgkIuZrirtIVEAIQHA</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->
