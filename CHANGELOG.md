@@ -1,3 +1,19 @@
+## v2.20.0 — 2026-06-13
+
+### Features
+- Number pad input settings
+- Confirmation dialog when quitting a game
+- New achievements
+
+### Fixes
+- Correct rounding when chaining sub-expressions
+
+### Improvements
+- New navigation animations
+- More readable number font
+- Polished achievements screen
+- Updated dependencies
+
 ## v2.19.0 — 2026-06-09
 
 ### Features
