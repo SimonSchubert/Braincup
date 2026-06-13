@@ -26,38 +26,36 @@ object Calculator {
     }
 
     private fun solve(expression: String, operator: Operator = Operator.PLUS): Double {
-        var sum = 0.0
-        expression.split(operator.char).forEachIndexed { index, s ->
-            when {
-                s.contains(Operator.PLUS.char) -> sum += solve(
-                    s,
-                    Operator.PLUS,
-                )
-                s.contains(Operator.MULTIPLY.char) -> sum += solve(
-                    s,
-                    Operator.MULTIPLY,
-                )
-                s.contains(Operator.DIVIDE.char) -> sum += solve(
-                    s,
-                    Operator.DIVIDE,
-                )
-                else -> {
-                    if (s.isNotEmpty()) {
-                        if (index == 0) {
-                            sum = s.toDouble()
-                        } else {
-                            when (operator) {
-                                Operator.PLUS -> sum += s.toFloat()
-                                Operator.MULTIPLY -> sum *= s.toFloat()
-                                Operator.DIVIDE -> sum /= s.toFloat()
-                                Operator.MINUS -> sum -= s.toFloat()
-                            }
-                        }
-                    }
-                }
-            }
+        if (expression.isEmpty()) {
+            return 0.0
         }
-        return sum
+        return when (operator) {
+            Operator.PLUS -> {
+                var sum = 0.0
+                expression.split(Operator.PLUS.char).forEachIndexed { index, term ->
+                    val value = solve(term, Operator.MULTIPLY)
+                    sum = if (index == 0) value else sum + value
+                }
+                sum
+            }
+            Operator.MULTIPLY -> {
+                var product = 0.0
+                expression.split(Operator.MULTIPLY.char).forEachIndexed { index, factor ->
+                    val value = solve(factor, Operator.DIVIDE)
+                    product = if (index == 0) value else product * value
+                }
+                product
+            }
+            Operator.DIVIDE -> {
+                var quotient = 0.0
+                expression.split(Operator.DIVIDE.char).forEachIndexed { index, divisor ->
+                    val value = divisor.toDouble()
+                    quotient = if (index == 0) value else quotient / value
+                }
+                quotient
+            }
+            Operator.MINUS -> expression.toDouble()
+        }
     }
 
     private fun calculateInnerBrackets(input: String): String {
