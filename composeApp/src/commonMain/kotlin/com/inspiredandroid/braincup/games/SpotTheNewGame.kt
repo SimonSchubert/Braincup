@@ -8,6 +8,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlin.time.Clock
+import kotlin.time.Duration.Companion.milliseconds
 
 /**
  * Recognition-memory survival game.
@@ -84,6 +86,8 @@ class SpotTheNewGame : Game() {
         private set
 
     private var countdownJob: Job? = null
+    private var memorizeDeadlineMillis: Long = 0L
+    private var countdownPaused = false
 
     /** Seeds the initial animals and enters the memorize phase. */
     fun startMemorizing() {
@@ -96,6 +100,8 @@ class SpotTheNewGame : Game() {
     /** Runs the memorize countdown, then transitions to the first answering round. */
     fun startMemorizeCountdown(scope: CoroutineScope, onStateChanged: () -> Unit) {
         countdownJob?.cancel()
+        countdownPaused = false
+        memorizeDeadlineMillis = Clock.System.now().toEpochMilliseconds() + MEMORIZE_MILLIS
         countdownJob = scope.launch {
             delay(MEMORIZE_MILLIS)
             startAnswering()
@@ -104,8 +110,29 @@ class SpotTheNewGame : Game() {
     }
 
     fun cancelCountdown() {
+        countdownPaused = false
         countdownJob?.cancel()
         countdownJob = null
+    }
+
+    fun pauseCountdown() {
+        if (countdownJob == null) return
+        countdownPaused = true
+        val remaining = (memorizeDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
+        memorizeDeadlineMillis = Clock.System.now().toEpochMilliseconds() + remaining
+        countdownJob?.cancel()
+        countdownJob = null
+    }
+
+    fun resumeCountdown(scope: CoroutineScope, onStateChanged: () -> Unit) {
+        if (!countdownPaused) return
+        countdownPaused = false
+        val remaining = (memorizeDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
+        countdownJob = scope.launch {
+            delay(remaining.milliseconds)
+            startAnswering()
+            onStateChanged()
+        }
     }
 
     /** Transitions from the memorize phase into the first answering round. */

@@ -89,6 +89,7 @@ fun GameScreen(
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
     inSessionMode: Boolean = false,
+    isTimerPaused: Boolean = false,
     onWordleFinishedAction: () -> Unit = {},
 ) {
     val progressBar: (@Composable () -> Unit)? = when {
@@ -96,18 +97,10 @@ fun GameScreen(
             gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING -> {
             val round = gameUiState.round
             val bar: @Composable () -> Unit = {
-                val totalMillis = VisualMemoryGame.memorizeDurationMillis(round)
-                var progress by remember(round) { mutableStateOf(1f) }
-                LaunchedEffect(round) {
-                    val startNanos = withFrameNanos { it }
-                    while (progress > 0f) {
-                        val nowNanos = withFrameNanos { it }
-                        val elapsedMillis = (nowNanos - startNanos) / 1_000_000f
-                        progress = (1f - elapsedMillis / totalMillis).coerceAtLeast(0f)
-                    }
-                }
-                TimeProgressIndicator(
-                    progress = progress,
+                MemorizeTimeProgressBar(
+                    totalMillis = VisualMemoryGame.memorizeDurationMillis(round).toFloat(),
+                    isTimerPaused = isTimerPaused,
+                    restartKey = round,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 8.dp),
@@ -118,18 +111,9 @@ fun GameScreen(
         gameUiState is SpotTheNewUiState &&
             gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING -> {
             val bar: @Composable () -> Unit = {
-                val totalMillis = SpotTheNewGame.MEMORIZE_MILLIS.toFloat()
-                var progress by remember { mutableStateOf(1f) }
-                LaunchedEffect(Unit) {
-                    val startNanos = withFrameNanos { it }
-                    while (progress > 0f) {
-                        val nowNanos = withFrameNanos { it }
-                        val elapsedMillis = (nowNanos - startNanos) / 1_000_000f
-                        progress = (1f - elapsedMillis / totalMillis).coerceAtLeast(0f)
-                    }
-                }
-                TimeProgressIndicator(
-                    progress = progress,
+                MemorizeTimeProgressBar(
+                    totalMillis = SpotTheNewGame.MEMORIZE_MILLIS.toFloat(),
+                    isTimerPaused = isTimerPaused,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp, vertical = 8.dp),
@@ -1601,6 +1585,36 @@ private fun TimeProgressIndicator(
         fillColor = Primary,
         modifier = modifier.height(12.dp),
     )
+}
+
+@Composable
+private fun MemorizeTimeProgressBar(
+    totalMillis: Float,
+    isTimerPaused: Boolean,
+    modifier: Modifier = Modifier,
+    restartKey: Any? = Unit,
+) {
+    var progress by remember(restartKey) { mutableFloatStateOf(1f) }
+    val paused by rememberUpdatedState(isTimerPaused)
+    LaunchedEffect(restartKey) {
+        val startNanos = withFrameNanos { it }
+        var pausedAccumulationNanos = 0L
+        while (progress > 0f) {
+            if (paused) {
+                val pauseStart = withFrameNanos { it }
+                while (paused) {
+                    withFrameNanos { it }
+                }
+                pausedAccumulationNanos += withFrameNanos { it } - pauseStart
+                continue
+            }
+            val nowNanos = withFrameNanos { it }
+            val elapsedMillis = (nowNanos - startNanos - pausedAccumulationNanos) / 1_000_000f
+            progress = (1f - elapsedMillis / totalMillis).coerceAtLeast(0f)
+            withFrameNanos { it }
+        }
+    }
+    TimeProgressIndicator(progress = progress, modifier = modifier)
 }
 
 // --- Visual Memory Game Composables ---

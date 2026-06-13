@@ -11,6 +11,8 @@
     <string name="button_play_next_level">Chơi cấp tiếp theo</string>
     <string name="button_play_random">Trò chơi ngẫu nhiên</string>
     <string name="button_give_up">Bỏ cuộc</string>
+    <string name="button_stay">Ở lại</string>
+    <string name="button_quit_game">Thoát</string>
     <string name="button_backspace">Xóa</string>
     <string name="button_done">Xong</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">Thành tích (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Thoát trò chơi?</string>
+    <string name="quit_game_message">Tiến trình của bạn trong trò chơi này sẽ không được lưu.</string>
     <string name="game_goal">Mục tiêu: %1$d</string>
     <string name="game_follow_directions">Làm theo hướng dẫn:</string>
     <string name="game_highest_value">Cái nào có giá trị cao nhất?</string>

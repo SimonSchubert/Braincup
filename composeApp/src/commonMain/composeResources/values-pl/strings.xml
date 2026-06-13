@@ -11,6 +11,8 @@
     <string name="button_play_next_level">Zagraj następny poziom</string>
     <string name="button_play_random">Losowa gra</string>
     <string name="button_give_up">Poddaj się</string>
+    <string name="button_stay">Zostań</string>
+    <string name="button_quit_game">Wyjdź</string>
     <string name="button_backspace">Cofnij</string>
     <string name="button_done">Gotowe</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">Osiągnięcia (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Wyjść z gry?</string>
+    <string name="quit_game_message">Twój postęp w tej grze nie zostanie zapisany.</string>
     <string name="game_goal">Cel: %1$d</string>
     <string name="game_follow_directions">Postępuj zgodnie z instrukcjami:</string>
     <string name="game_highest_value">Która ma najwyższą wartość?</string>

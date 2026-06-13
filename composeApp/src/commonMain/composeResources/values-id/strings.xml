@@ -11,6 +11,8 @@
     <string name="button_play_next_level">Mainkan level berikutnya</string>
     <string name="button_play_random">Permainan Acak</string>
     <string name="button_give_up">Menyerah</string>
+    <string name="button_stay">Tetap</string>
+    <string name="button_quit_game">Keluar</string>
     <string name="button_backspace">Hapus</string>
     <string name="button_done">Selesai</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">Pencapaian (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Keluar dari permainan?</string>
+    <string name="quit_game_message">Kemajuanmu di permainan ini tidak akan disimpan.</string>
     <string name="game_goal">Target: %1$d</string>
     <string name="game_follow_directions">Ikuti petunjuk:</string>
     <string name="game_highest_value">Mana yang nilainya paling tinggi?</string>

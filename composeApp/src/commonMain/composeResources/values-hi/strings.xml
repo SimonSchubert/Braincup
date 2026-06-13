@@ -11,6 +11,8 @@
     <string name="button_play_next_level">अगला स्तर खेलें</string>
     <string name="button_play_random">रैंडम गेम खेलें</string>
     <string name="button_give_up">हार मानें</string>
+    <string name="button_stay">रुकें</string>
+    <string name="button_quit_game">छोड़ें</string>
     <string name="button_backspace">बैकस्पेस</string>
     <string name="button_done">पूर्ण</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">उपलब्धियां (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">गेम छोड़ें?</string>
+    <string name="quit_game_message">इस गेम की प्रगति सहेजी नहीं जाएगी।</string>
     <string name="game_goal">लक्ष्य: %1$d</string>
     <string name="game_follow_directions">निर्देशों का पालन करें:</string>
     <string name="game_highest_value">किसका मूल्य सबसे अधिक है?</string>

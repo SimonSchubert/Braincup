@@ -78,6 +78,7 @@ class VisualMemoryGame : Game() {
 
     var countdown: Int = (memorizeDurationMillis(1) / 1000).toInt()
     private var countdownJob: Job? = null
+    private var countdownPaused = false
 
     /** The 9 shuffled figures used for this game session */
     val availableFigures: List<Figure>
@@ -161,8 +162,30 @@ class VisualMemoryGame : Game() {
     }
 
     fun cancelCountdown() {
+        countdownPaused = false
         countdownJob?.cancel()
         countdownJob = null
+    }
+
+    fun pauseCountdown() {
+        if (countdownJob == null) return
+        countdownPaused = true
+        countdownJob?.cancel()
+        countdownJob = null
+    }
+
+    fun resumeCountdown(scope: CoroutineScope, onStateChanged: () -> Unit) {
+        if (!countdownPaused) return
+        countdownPaused = false
+        countdownJob = scope.launch {
+            while (countdown > 0) {
+                delay(1.seconds)
+                countdown--
+                onStateChanged()
+            }
+            startAnswerPhase()
+            onStateChanged()
+        }
     }
 
     /**

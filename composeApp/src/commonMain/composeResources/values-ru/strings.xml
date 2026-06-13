@@ -11,6 +11,8 @@
     <string name="button_play_next_level">Следующий уровень</string>
     <string name="button_play_random">Случайная игра</string>
     <string name="button_give_up">Сдаться</string>
+    <string name="button_stay">Остаться</string>
+    <string name="button_quit_game">Выйти</string>
     <string name="button_backspace">Удалить</string>
     <string name="button_done">Готово</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">Достижения (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Выйти из игры?</string>
+    <string name="quit_game_message">Ваш прогресс в этой игре не будет сохранён.</string>
     <string name="game_goal">Цель: %1$d</string>
     <string name="game_follow_directions">Следуйте инструкциям:</string>
     <string name="game_highest_value">Что имеет наибольшее значение?</string>

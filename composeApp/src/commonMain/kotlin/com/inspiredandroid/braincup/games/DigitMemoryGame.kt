@@ -7,6 +7,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.random.Random
+import kotlin.time.Clock
+import kotlin.time.Duration.Companion.milliseconds
 
 /**
  * Digit Memory: a working-memory game played against the global 60s timer.
@@ -53,6 +55,8 @@ class DigitMemoryGame : Game() {
         private set
 
     private var showJob: Job? = null
+    private var showDeadlineMillis: Long = 0L
+    private var showingPaused = false
 
     override fun generateRound() {
         phase = Phase.SHOWING
@@ -101,18 +105,42 @@ class DigitMemoryGame : Game() {
     /** Show the sequence, then auto-advance to the solving phase after the memorize window. */
     fun startShowing(scope: CoroutineScope, onChange: () -> Unit) {
         showJob?.cancel()
+        showingPaused = false
         phase = Phase.SHOWING
         onChange()
+        val duration = showDurationMillis(sequence.length)
+        showDeadlineMillis = Clock.System.now().toEpochMilliseconds() + duration
         showJob = scope.launch {
-            delay(showDurationMillis(sequence.length))
+            delay(duration)
             phase = Phase.SOLVING
             onChange()
         }
     }
 
     fun cancelShowing() {
+        showingPaused = false
         showJob?.cancel()
         showJob = null
+    }
+
+    fun pauseShowing() {
+        if (showJob == null || phase != Phase.SHOWING) return
+        showingPaused = true
+        val remaining = (showDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
+        showDeadlineMillis = Clock.System.now().toEpochMilliseconds() + remaining
+        showJob?.cancel()
+        showJob = null
+    }
+
+    fun resumeShowing(scope: CoroutineScope, onChange: () -> Unit) {
+        if (!showingPaused) return
+        showingPaused = false
+        val remaining = (showDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
+        showJob = scope.launch {
+            delay(remaining.milliseconds)
+            phase = Phase.SOLVING
+            onChange()
+        }
     }
 
     /**

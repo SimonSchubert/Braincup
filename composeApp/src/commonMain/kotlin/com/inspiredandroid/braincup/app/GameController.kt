@@ -70,6 +70,14 @@ class GameController(
     private var miniChessAiJob: Job? = null
     private var flagsTimerJob: Job? = null
     private var timerJob: Job? = null
+    private var stopwatchJob: Job? = null
+
+    private var timersPaused = false
+    private var pausedTimerKind: TimerKind? = null
+    private var pausedRemainingMillis: Long = 0L
+    private var pausedElapsedMillis: Long = 0L
+
+    private enum class TimerKind { GAME_COUNTDOWN, FLAGS_COUNTDOWN, STOPWATCH }
 
     private data class WordleWordLists(val answers: List<String>, val guesses: Set<String>)
 
@@ -151,6 +159,11 @@ class GameController(
             if (currentState.game is MiniChessGame) cancelMiniChessAi()
             if (currentState.game is FlagsGame) cancelFlagsTimer()
         }
+        timersPaused = false
+        pausedTimerKind = null
+        stopwatchRunning = false
+        stopwatchJob?.cancel()
+        stopwatchJob = null
         cancelTimer()
         _gameUiState.value = null
         _gameState.value = GameState.Idle
@@ -504,6 +517,87 @@ class GameController(
     private fun cancelTimer() {
         timerJob?.cancel()
         timerJob = null
+    }
+
+    /** Pauses countdown/stopwatch timers and in-game memorize phases while a modal is open. */
+    fun pauseTimers() {
+        if (timersPaused) return
+        val state = _gameState.value as? GameState.Active ?: return
+
+        timersPaused = true
+        when {
+            flagsTimerJob != null -> {
+                pausedTimerKind = TimerKind.FLAGS_COUNTDOWN
+                pausedRemainingMillis = _timeRemaining.value
+                cancelFlagsTimer()
+            }
+            stopwatchRunning -> {
+                pausedTimerKind = TimerKind.STOPWATCH
+                pausedElapsedMillis = _elapsedTime.value
+                stopwatchRunning = false
+                stopwatchJob?.cancel()
+                stopwatchJob = null
+            }
+            timerJob != null -> {
+                pausedTimerKind = TimerKind.GAME_COUNTDOWN
+                pausedRemainingMillis = _timeRemaining.value
+                cancelTimer()
+            }
+        }
+
+        when (val game = state.game) {
+            is VisualMemoryGame ->
+                if (game.phase == VisualMemoryGame.Phase.MEMORIZING) game.pauseCountdown()
+            is SpotTheNewGame ->
+                if (game.phase == SpotTheNewGame.Phase.MEMORIZING) game.pauseCountdown()
+            is DigitMemoryGame ->
+                if (game.phase == DigitMemoryGame.Phase.SHOWING) game.pauseShowing()
+        }
+    }
+
+    /** Resumes timers paused by [pauseTimers]; no-op if nothing was paused. */
+    fun resumeTimers() {
+        if (!timersPaused) return
+        timersPaused = false
+        val state = _gameState.value as? GameState.Active ?: return
+
+        when (pausedTimerKind) {
+            TimerKind.GAME_COUNTDOWN -> {
+                startTime = Clock.System.now().toEpochMilliseconds() -
+                    (GAME_TIME_MILLIS - pausedRemainingMillis)
+                _timeRemaining.value = pausedRemainingMillis
+                startTimer()
+            }
+            TimerKind.FLAGS_COUNTDOWN -> {
+                val game = state.game as? FlagsGame ?: return
+                startTime = Clock.System.now().toEpochMilliseconds() -
+                    (FLAGS_ROUND_TIME_MILLIS - pausedRemainingMillis)
+                _timeRemaining.value = pausedRemainingMillis
+                startFlagsRoundTimer(state.gameType, game)
+            }
+            TimerKind.STOPWATCH -> {
+                startTime = Clock.System.now().toEpochMilliseconds() - pausedElapsedMillis
+                _elapsedTime.value = pausedElapsedMillis
+                startStopwatch()
+            }
+            null -> Unit
+        }
+        pausedTimerKind = null
+
+        when (val game = state.game) {
+            is VisualMemoryGame ->
+                if (game.phase == VisualMemoryGame.Phase.MEMORIZING) {
+                    game.resumeCountdown(scope) { emitGameUiState(game) }
+                }
+            is SpotTheNewGame ->
+                if (game.phase == SpotTheNewGame.Phase.MEMORIZING) {
+                    game.resumeCountdown(scope) { _gameUiState.value = game.toUiState() }
+                }
+            is DigitMemoryGame ->
+                if (game.phase == DigitMemoryGame.Phase.SHOWING) {
+                    game.resumeShowing(scope) { _gameUiState.value = game.toUiState() }
+                }
+        }
     }
 
     private fun createGame(gameType: GameType): Game = when (gameType) {
@@ -1035,8 +1129,9 @@ class GameController(
     }
 
     private fun startStopwatch() {
+        stopwatchJob?.cancel()
         stopwatchRunning = true
-        scope.launch {
+        stopwatchJob = scope.launch {
             while (stopwatchRunning && _gameState.value is GameState.Active) {
                 _elapsedTime.value = Clock.System.now().toEpochMilliseconds() - startTime
                 delay(100.milliseconds)

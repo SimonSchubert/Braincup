@@ -11,6 +11,8 @@
     <string name="button_play_next_level">เล่นระดับถัดไป</string>
     <string name="button_play_random">เล่นเกมสุ่ม</string>
     <string name="button_give_up">ยอมแพ้</string>
+    <string name="button_stay">อยู่ต่อ</string>
+    <string name="button_quit_game">ออก</string>
     <string name="button_backspace">ลบ</string>
     <string name="button_done">เสร็จ</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">ความสำเร็จ (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">ออกจากเกม?</string>
+    <string name="quit_game_message">ความคืบหน้าในเกมนี้จะไม่ถูกบันทึก</string>
     <string name="game_goal">เป้าหมาย: %1$d</string>
     <string name="game_follow_directions">ทำตามคำแนะนำ:</string>
     <string name="game_highest_value">อันไหนมีค่าสูงสุด?</string>

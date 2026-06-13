@@ -10,6 +10,8 @@
     <string name="button_play_again">Play Again</string>
     <string name="button_play_random">Play Random Game</string>
     <string name="button_give_up">Give Up</string>
+    <string name="button_stay">Stay</string>
+    <string name="button_quit_game">Quit</string>
     <string name="button_backspace">Backspace</string>
 
     <!-- Main menu -->
@@ -107,6 +109,8 @@
     <string name="session_streak_current">Current streak: %1$d days</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Quit game?</string>
+    <string name="quit_game_message">Your progress in this game will not be saved.</string>
     <string name="game_goal">Goal: %1$d</string>
     <string name="game_follow_directions">Follow the directions:</string>
     <string name="game_highest_value">Which has the highest value?</string>

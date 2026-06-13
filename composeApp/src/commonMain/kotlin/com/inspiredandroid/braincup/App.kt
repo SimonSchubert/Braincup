@@ -9,6 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.backhandler.BackHandler
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -27,6 +28,7 @@ import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
+import com.inspiredandroid.braincup.ui.components.QuitGameDialog
 import com.inspiredandroid.braincup.ui.screens.*
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
@@ -202,16 +204,53 @@ fun App(
                         when (val state = gameState) {
                             is GameState.Active -> {
                                 val uiState = gameUiState ?: return@composable
+                                var showQuitDialog by remember { mutableStateOf(false) }
+                                val confirmBeforeQuit = shouldConfirmQuit(uiState)
+                                val onBackFromGame: () -> Unit = {
+                                    if (confirmBeforeQuit) {
+                                        showQuitDialog = true
+                                    } else {
+                                        controller.navigateToMainMenu()
+                                    }
+                                }
+
+                                BackHandler {
+                                    if (showQuitDialog) {
+                                        showQuitDialog = false
+                                    } else {
+                                        onBackFromGame()
+                                    }
+                                }
+
+                                LaunchedEffect(showQuitDialog) {
+                                    if (showQuitDialog) {
+                                        controller.pauseTimers()
+                                    } else {
+                                        controller.resumeTimers()
+                                    }
+                                }
+
                                 GameScreen(
                                     gameUiState = uiState,
                                     timeRemaining = timeRemaining,
                                     elapsedTime = elapsedTime,
                                     onAnswer = { controller.submitAnswer(it) },
                                     onGiveUp = { controller.giveUp() },
-                                    onBack = { controller.navigateToMainMenu() },
+                                    onBack = onBackFromGame,
                                     inSessionMode = controller.isInSessionMode,
+                                    isTimerPaused = showQuitDialog,
                                     onWordleFinishedAction = { controller.wordleFinishedAction() },
                                 )
+
+                                if (showQuitDialog) {
+                                    QuitGameDialog(
+                                        onDismiss = { showQuitDialog = false },
+                                        onQuit = {
+                                            showQuitDialog = false
+                                            controller.navigateToMainMenu()
+                                        },
+                                    )
+                                }
                             }
 
                             is GameState.Feedback -> {
@@ -357,3 +396,6 @@ fun App(
         }
     }
 }
+
+/** Wordle records the score as soon as the puzzle ends, so back can leave without a prompt. */
+private fun shouldConfirmQuit(gameUiState: GameUiState): Boolean = gameUiState !is WordleUiState || !gameUiState.finished

@@ -11,6 +11,8 @@
     <string name="button_play_next_level">Sonraki seviye</string>
     <string name="button_play_random">Rastgele Oyun</string>
     <string name="button_give_up">Vazgeç</string>
+    <string name="button_stay">Kal</string>
+    <string name="button_quit_game">Çık</string>
     <string name="button_backspace">Sil</string>
     <string name="button_done">Bitti</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">Başarılar (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Oyundan çık?</string>
+    <string name="quit_game_message">Bu oyundaki ilerlemen kaydedilmeyecek.</string>
     <string name="game_goal">Hedef: %1$d</string>
     <string name="game_follow_directions">Yönergeleri takip edin:</string>
     <string name="game_highest_value">Hangisinin değeri en yüksek?</string>

@@ -11,6 +11,8 @@
     <string name="button_play_next_level">Nächstes Level spielen</string>
     <string name="button_play_random">Zufälliges Spiel</string>
     <string name="button_give_up">Aufgeben</string>
+    <string name="button_stay">Bleiben</string>
+    <string name="button_quit_game">Beenden</string>
     <string name="button_backspace">Löschen</string>
     <string name="button_done">Fertig</string>
 
@@ -18,6 +20,8 @@
     <string name="achievements_button">Erfolge (%1$d/%2$d)</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Spiel beenden?</string>
+    <string name="quit_game_message">Dein Fortschritt in diesem Spiel wird nicht gespeichert.</string>
     <string name="game_goal">Ziel: %1$d</string>
     <string name="game_follow_directions">Folge den Anweisungen:</string>
     <string name="game_highest_value">Welches hat den höchsten Wert?</string>
