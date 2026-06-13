@@ -61,7 +61,9 @@ string|button_give_up|QXVmZ2ViZW4=
 string|button_play_again|Tm9jaG1hbCBzcGllbGVu
 string|button_play_next_level|TsOkY2hzdGVzIExldmVsIHNwaWVsZW4=
 string|button_play_random|WnVmw6RsbGlnZXMgU3BpZWw=
+string|button_quit_game|QmVlbmRlbg==
 string|button_start|U3RhcnRlbg==
+string|button_stay|QmxlaWJlbg==
 string|color_blue|QmxhdQ==
 string|color_green|R3LDvG4=
 string|color_light_grey|SGVsbGdyYXU=
@@ -446,6 +448,8 @@ string|normal_sudoku_section_progress|JTEkZCAvICUyJGQ=
 string|normal_sudoku_solved|R2Vsw7ZzdCE=
 string|normal_sudoku_title|U3Vkb2t1
 string|preview_vs|dnM=
+string|quit_game_message|RGVpbiBGb3J0c2Nocml0dCBpbiBkaWVzZW0gU3BpZWwgd2lyZCBuaWNodCBnZXNwZWljaGVydC4=
+string|quit_game_title|U3BpZWwgYmVlbmRlbj8=
 string|scoreboard_best_level|QmVzdGVzIExldmVs
 string|scoreboard_highscore|SGlnaHNjb3Jl
 string|scoreboard_no_scores|Tm9jaCBrZWluZSBQdW5rdGU=
