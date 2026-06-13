@@ -58,6 +58,8 @@ import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceLight
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
+import com.inspiredandroid.braincup.ui.theme.annotateNumbers
+import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.toImmutableList
@@ -349,7 +351,11 @@ private fun ColumnScope.ColoredShapesContent(
                 isClickable = false,
                 onClick = {},
             ) {
-                Text(button.value, color = MaterialTheme.colorScheme.onErrorContainer)
+                Text(
+                    button.value,
+                    fontFamily = numberFontFamily(),
+                    color = MaterialTheme.colorScheme.onErrorContainer,
+                )
             }
             AnswerButtonState.CORRECT -> PrismTile(
                 face = SuccessGreen,
@@ -357,7 +363,11 @@ private fun ColumnScope.ColoredShapesContent(
                 isClickable = false,
                 onClick = {},
             ) {
-                Text(button.value, color = ComposeColor.White)
+                Text(
+                    button.value,
+                    fontFamily = numberFontFamily(),
+                    color = ComposeColor.White,
+                )
             }
             AnswerButtonState.DIMMED -> Box(
                 modifier = Modifier.size(56.dp).alpha(0.3f),
@@ -442,7 +452,7 @@ private fun ColumnScope.SherlockCalculationContent(
 
         val goalText: @Composable (Modifier) -> Unit = { mod ->
             Text(
-                text = stringResource(Res.string.game_goal, uiState.result),
+                text = annotateNumbers(stringResource(Res.string.game_goal, uiState.result)),
                 style = MaterialTheme.typography.headlineMedium,
                 modifier = mod,
             )
@@ -581,11 +591,19 @@ private fun ColumnScope.FractionCalculationContent(
                         style = MaterialTheme.typography.displaySmall,
                     )
                 } else {
-                    Text(part, style = MaterialTheme.typography.displaySmall)
+                    Text(
+                        part,
+                        style = MaterialTheme.typography.displaySmall,
+                        fontFamily = numberFontFamily(),
+                    )
                 }
 
                 if (index < parts.size - 1) {
-                    Text("\u00D7", style = MaterialTheme.typography.displaySmall)
+                    Text(
+                        "\u00D7",
+                        style = MaterialTheme.typography.displaySmall,
+                        fontFamily = numberFontFamily(),
+                    )
                 }
             }
         }
@@ -609,6 +627,7 @@ private fun ColumnScope.FractionCalculationContent(
                     Text(
                         text = "= $input",
                         style = MaterialTheme.typography.headlineSmall,
+                        fontFamily = numberFontFamily(),
                     )
                 }
                 Spacer(Modifier.height(8.dp))
@@ -872,6 +891,10 @@ private val SudokuBlockSeparator = 4.dp
 private val SudokuCellSeparator = 2.dp
 private val SudokuCellSize = 48.dp
 
+// Digit-pad buttons mirror the Sherlock number tiles (56.dp) and carry a larger numeral than the
+// grid cells so the tap targets read clearly.
+private val SudokuDigitPadButtonSize = 56.dp
+
 @Composable
 private fun ColumnScope.MiniSudokuContent(
     uiState: MiniSudokuUiState,
@@ -966,7 +989,7 @@ private fun SudokuDigitPadGrid(
                     PrismTile(
                         face = MaterialTheme.colorScheme.primaryContainer,
                         modifier = Modifier
-                            .size(SudokuCellSize)
+                            .size(SudokuDigitPadButtonSize)
                             .hoverHand(enabled)
                             .alpha(if (enabled) 1f else 0.6f),
                         isClickable = enabled,
@@ -974,7 +997,8 @@ private fun SudokuDigitPadGrid(
                     ) {
                         Text(
                             text = digit.toString(),
-                            style = MaterialTheme.typography.titleLarge,
+                            style = MaterialTheme.typography.headlineMedium,
+                            fontFamily = numberFontFamily(),
                             color = MaterialTheme.colorScheme.onPrimaryContainer,
                         )
                     }
@@ -1069,6 +1093,7 @@ private fun SudokuCell(
         Text(
             text = value,
             style = MaterialTheme.typography.titleMedium,
+            fontFamily = numberFontFamily(),
             fontWeight = FontWeight.Bold,
             color = if (isSolution) SuccessGreen else MaterialTheme.colorScheme.onSurface,
             textAlign = TextAlign.Center,
@@ -1091,7 +1116,7 @@ private fun ColumnScope.SudokuDigitPad(
             PrismTile(
                 face = MaterialTheme.colorScheme.primaryContainer,
                 modifier = Modifier
-                    .size(SudokuCellSize)
+                    .size(SudokuDigitPadButtonSize)
                     .hoverHand(enabled)
                     .alpha(if (enabled) 1f else 0.6f),
                 isClickable = enabled,
@@ -1099,8 +1124,9 @@ private fun ColumnScope.SudokuDigitPad(
             ) {
                 Text(
                     text = digit.toString(),
-                    style = MaterialTheme.typography.titleLarge,
-                    color = OnPrimaryContainer,
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontFamily = numberFontFamily(),
+                    color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
             }
         }
@@ -1114,6 +1140,7 @@ private fun StopwatchDisplay(elapsedMillis: Long, modifier: Modifier = Modifier)
     Text(
         text = stringResource(Res.string.format_seconds, "$seconds.$tenths"),
         style = MaterialTheme.typography.titleLarge,
+        fontFamily = numberFontFamily(),
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.Center,
         modifier = modifier.wrapContentWidth(Alignment.CenterHorizontally),
@@ -1191,6 +1218,7 @@ private fun SchulteCell(
         Text(
             text = cell.number.toString(),
             style = MaterialTheme.typography.titleLarge,
+            fontFamily = numberFontFamily(),
             fontWeight = FontWeight.Bold,
             color = textColor,
             textAlign = TextAlign.Center,
@@ -1417,6 +1445,7 @@ private fun SlidingPuzzleCell(
             Text(
                 text = label.toString(),
                 style = MaterialTheme.typography.titleLarge,
+                fontFamily = numberFontFamily(),
                 fontWeight = FontWeight.Bold,
                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                 textAlign = TextAlign.Center,
@@ -1463,6 +1492,7 @@ private fun ExpressionRow(
                         ) {
                             Text(
                                 token.displayValue,
+                                fontFamily = numberFontFamily(),
                                 color = MaterialTheme.colorScheme.onPrimaryContainer,
                                 modifier = Modifier.padding(horizontal = 12.dp),
                             )
@@ -1544,7 +1574,8 @@ private fun AvailableNumbersRow(
             ) {
                 Text(
                     text = value.toString(),
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.headlineMedium,
+                    fontFamily = numberFontFamily(),
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                 )
             }
@@ -1756,6 +1787,7 @@ private fun DigitSlots(
                         text = digit,
                         style = MaterialTheme.typography.headlineSmall,
                         fontSize = fontSize,
+                        fontFamily = numberFontFamily(),
                         fontWeight = FontWeight.Bold,
                         color = textColor,
                     )

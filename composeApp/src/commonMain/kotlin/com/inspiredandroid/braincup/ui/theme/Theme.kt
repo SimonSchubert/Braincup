@@ -8,12 +8,20 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.bungee
+import braincup.composeapp.generated.resources.rubik_bold
+import braincup.composeapp.generated.resources.rubik_medium
+import braincup.composeapp.generated.resources.rubik_regular
+import braincup.composeapp.generated.resources.rubik_semibold
 import org.jetbrains.compose.resources.Font
 
 val Primary = Color(0xFFED7354)
@@ -222,4 +230,57 @@ fun BraincupTheme(
         typography = appTypography(),
         content = content,
     )
+}
+
+/**
+ * Rubik: a geometric sans used for number-heavy gameplay content (math problems, grids,
+ * scores, timers). Far more legible than the Bungee display font while still fitting the
+ * playful look. Bundles the weights the number widgets use so existing FontWeight values
+ * resolve correctly.
+ */
+@Composable
+fun numberFontFamily(): FontFamily = FontFamily(
+    Font(Res.font.rubik_regular, FontWeight.W400),
+    Font(Res.font.rubik_medium, FontWeight.W500),
+    Font(Res.font.rubik_semibold, FontWeight.W600),
+    Font(Res.font.rubik_bold, FontWeight.W700),
+)
+
+/** Swap a theme TextStyle's font to the readable number font for gameplay numbers. */
+@Composable
+fun TextStyle.numeric(): TextStyle = copy(fontFamily = numberFontFamily())
+
+/**
+ * Render only the digit runs of [text] in the readable number font, leaving words and other
+ * characters in the surrounding (Bungee) style. Use for mixed label+number strings like
+ * "Level 4" or "Score: 12" so the word stays on-brand while the number is legible.
+ *
+ * Only ASCII digits 0-9 (with internal grouping/decimal separators) are restyled, since that is
+ * the range the number font ships; localized non-Latin numerals fall through to the base style.
+ */
+@Composable
+fun annotateNumbers(text: String): AnnotatedString {
+    val family = numberFontFamily()
+    return buildAnnotatedString {
+        var i = 0
+        while (i < text.length) {
+            if (text[i] in '0'..'9') {
+                val start = i
+                while (i < text.length &&
+                    (
+                        text[i] in '0'..'9' ||
+                            ((text[i] == '.' || text[i] == ',') && i + 1 < text.length && text[i + 1] in '0'..'9')
+                        )
+                ) {
+                    i++
+                }
+                withStyle(SpanStyle(fontFamily = family)) {
+                    append(text.substring(start, i))
+                }
+            } else {
+                append(text[i])
+                i++
+            }
+        }
+    }
 }

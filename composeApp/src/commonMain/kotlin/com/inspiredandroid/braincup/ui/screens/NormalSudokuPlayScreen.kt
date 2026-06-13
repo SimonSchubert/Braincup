@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -283,6 +284,7 @@ private fun SudokuCell(
                 Text(
                     text = value,
                     fontSize = (size.value * 0.45f).sp,
+                    fontFamily = numberFontFamily(),
                     fontWeight = if (isClue) FontWeight.Bold else FontWeight.SemiBold,
                     color = textColor,
                     textAlign = TextAlign.Center,
@@ -358,6 +360,7 @@ private fun DigitTile(
             Text(
                 text = label,
                 fontSize = (size.value * 0.5f).sp,
+                fontFamily = numberFontFamily(),
                 fontWeight = FontWeight.Bold,
                 color = OnPrimaryContainer,
             )

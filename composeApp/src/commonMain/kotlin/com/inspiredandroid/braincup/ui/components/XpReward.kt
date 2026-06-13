@@ -26,6 +26,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 
@@ -53,7 +54,7 @@ fun XpGainedChip(
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
     ) {
         Text(
-            text = stringResource(Res.string.xp_gained, xpGained),
+            text = annotateNumbers(stringResource(Res.string.xp_gained, xpGained)),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = OnPrimaryContainer,
@@ -100,7 +101,7 @@ fun LevelUpBanner(
         )
         Spacer(Modifier.height(4.dp))
         Text(
-            text = stringResource(Res.string.level_label, levelChange.newLevel),
+            text = annotateNumbers(stringResource(Res.string.level_label, levelChange.newLevel)),
             style = MaterialTheme.typography.displaySmall,
             fontWeight = FontWeight.Bold,
             color = PrimaryContainer,

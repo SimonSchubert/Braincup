@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.baseline_backspace_24
+import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.painterResource
 import kotlin.collections.plusAssign
 
@@ -115,6 +116,7 @@ fun NumberPadWithInput(
                 style = MaterialTheme.typography.headlineLarge.copy(
                     color = MaterialTheme.colorScheme.onSurface,
                 ),
+                fontFamily = numberFontFamily(),
                 modifier = Modifier.align(Alignment.CenterVertically),
             )
             if (input.isNotEmpty()) {

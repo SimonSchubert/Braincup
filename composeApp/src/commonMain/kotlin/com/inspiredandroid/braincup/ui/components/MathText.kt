@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.inspiredandroid.braincup.ui.theme.numeric
 
 /**
  * Replace * with × and / with ÷ for better math display.
@@ -34,7 +35,7 @@ fun MathText(
     Text(
         text = text.formatMathSymbols(),
         modifier = modifier,
-        style = style,
+        style = style.numeric(),
         textAlign = textAlign,
         color = color,
     )
@@ -48,6 +49,7 @@ fun FractionText(
     style: TextStyle = LocalTextStyle.current,
     color: Color = Color.Unspecified,
 ) {
+    val numericStyle = style.numeric()
     val barColor = if (color != Color.Unspecified) {
         color
     } else if (style.color != Color.Unspecified) {
@@ -63,7 +65,7 @@ fun FractionText(
     ) {
         Text(
             text = numerator,
-            style = style,
+            style = numericStyle,
             color = color,
             maxLines = 1,
         )
@@ -75,7 +77,7 @@ fun FractionText(
         )
         Text(
             text = denominator,
-            style = style,
+            style = numericStyle,
             color = color,
             maxLines = 1,
         )

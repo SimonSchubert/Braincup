@@ -10,6 +10,7 @@ import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_give_up
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -115,6 +116,7 @@ fun CircleButton(
             Text(
                 value,
                 color = Color.White,
+                fontFamily = numberFontFamily(),
                 fontSize = 22.sp,
             )
         }

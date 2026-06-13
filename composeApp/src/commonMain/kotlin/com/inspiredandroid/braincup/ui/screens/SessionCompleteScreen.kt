@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import kotlinx.collections.immutable.ImmutableList
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -60,7 +61,7 @@ fun SessionCompleteScreen(
         )
 
         Text(
-            text = stringResource(Res.string.session_total_score, total),
+            text = annotateNumbers(stringResource(Res.string.session_total_score, total)),
             style = MaterialTheme.typography.headlineLarge,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )

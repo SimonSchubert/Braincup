@@ -44,6 +44,7 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.WordleCorrect
 import com.inspiredandroid.braincup.ui.theme.WordlePresent
+import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -408,6 +409,7 @@ private fun MentalCalculationPreview() {
     Text(
         text = "+15",
         style = MaterialTheme.typography.headlineSmall,
+        fontFamily = numberFontFamily(),
         textAlign = TextAlign.Center,
         color = PreviewTextColor,
     )
@@ -418,6 +420,7 @@ private fun DigitMemoryPreview() {
     Text(
         text = "4 9 2 8",
         style = MaterialTheme.typography.headlineSmall,
+        fontFamily = numberFontFamily(),
         textAlign = TextAlign.Center,
         color = PreviewTextColor,
     )
@@ -433,6 +436,7 @@ private fun SherlockCalculationPreview() {
         Text(
             text = "= 26",
             style = MaterialTheme.typography.titleMedium,
+            fontFamily = numberFontFamily(),
             color = MaterialTheme.colorScheme.primary,
         )
         Spacer(Modifier.height(4.dp))
@@ -449,6 +453,7 @@ private fun SherlockCalculationPreview() {
                     Text(
                         text = "$num",
                         style = MaterialTheme.typography.labelSmall,
+                        fontFamily = numberFontFamily(),
                         color = LightColorScheme.onSecondaryContainer,
                     )
                 }
@@ -478,7 +483,12 @@ private fun FractionCalculationPreview() {
             style = MaterialTheme.typography.titleLarge,
             color = PreviewTextColor,
         )
-        Text("\u00D7", style = MaterialTheme.typography.titleLarge, color = PreviewTextColor)
+        Text(
+            "\u00D7",
+            style = MaterialTheme.typography.titleLarge,
+            fontFamily = numberFontFamily(),
+            color = PreviewTextColor,
+        )
         FractionText(
             numerator = "4",
             denominator = "5",
@@ -498,6 +508,7 @@ private fun ValueComparisonPreview() {
         Text(
             text = "3 + 8",
             style = MaterialTheme.typography.titleMedium,
+            fontFamily = numberFontFamily(),
             color = PreviewTextColor,
         )
         Text(
@@ -508,6 +519,7 @@ private fun ValueComparisonPreview() {
         Text(
             text = "5 + 4",
             style = MaterialTheme.typography.titleMedium,
+            fontFamily = numberFontFamily(),
             color = PreviewTextColor,
         )
     }
@@ -543,6 +555,7 @@ private fun MiniSudokuPreview() {
                             Text(
                                 text = cell,
                                 style = MaterialTheme.typography.titleMedium,
+                                fontFamily = numberFontFamily(),
                                 fontWeight = FontWeight.Bold,
                                 color = MaterialTheme.colorScheme.onSurface,
                             )
@@ -579,6 +592,7 @@ private fun SchulteTablePreview() {
                         Text(
                             text = cell.number.toString(),
                             style = MaterialTheme.typography.labelSmall,
+                            fontFamily = numberFontFamily(),
                             fontWeight = FontWeight.Bold,
                             color = MaterialTheme.colorScheme.onSurface.copy(
                                 alpha = if (cell.tapped) 0.4f else 1f,
@@ -737,6 +751,7 @@ private fun SlidingPuzzlePreview() {
                             Text(
                                 text = label.toString(),
                                 style = MaterialTheme.typography.labelSmall,
+                                fontFamily = numberFontFamily(),
                                 fontWeight = FontWeight.Bold,
                                 color = LightColorScheme.onPrimaryContainer,
                             )

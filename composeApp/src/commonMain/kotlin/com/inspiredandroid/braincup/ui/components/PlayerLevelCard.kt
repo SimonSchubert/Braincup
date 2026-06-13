@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainerSubtle
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -69,7 +70,7 @@ fun PlayerLevelCard(
             modifier = Modifier.fillMaxWidth(),
         ) {
             Text(
-                text = stringResource(Res.string.level_label, level),
+                text = annotateNumbers(stringResource(Res.string.level_label, level)),
                 style = MaterialTheme.typography.titleLarge,
                 fontWeight = FontWeight.Bold,
                 color = OnPrimaryContainer,
@@ -106,7 +107,7 @@ fun PlayerLevelCard(
         Spacer(Modifier.height(6.dp))
 
         Text(
-            text = stringResource(Res.string.xp_progress, xpIntoLevel, xpSpan),
+            text = annotateNumbers(stringResource(Res.string.xp_progress, xpIntoLevel, xpSpan)),
             style = MaterialTheme.typography.labelSmall,
             color = OnPrimaryContainer,
         )
