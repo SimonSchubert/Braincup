@@ -1534,8 +1534,7 @@ private fun ColumnScope.ShikakuContent(
             val cellH = size.height / rows
 
             fun rectTopLeft(top: Int, left: Int) = Offset(left * cellW, top * cellH)
-            fun rectSize(top: Int, left: Int, bottom: Int, right: Int) =
-                Size((right - left + 1) * cellW, (bottom - top + 1) * cellH)
+            fun rectSize(top: Int, left: Int, bottom: Int, right: Int) = Size((right - left + 1) * cellW, (bottom - top + 1) * cellH)
 
             drawRect(color = cellColor)
 
