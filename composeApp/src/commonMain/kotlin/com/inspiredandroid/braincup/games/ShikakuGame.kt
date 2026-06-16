@@ -47,8 +47,7 @@ class ShikakuGame(
 
         fun contains(r: Int, c: Int): Boolean = r in top..bottom && c in left..right
 
-        fun intersects(other: Rect): Boolean =
-            top <= other.bottom && bottom >= other.top && left <= other.right && right >= other.left
+        fun intersects(other: Rect): Boolean = top <= other.bottom && bottom >= other.top && left <= other.right && right >= other.left
     }
 
     private data class Difficulty(

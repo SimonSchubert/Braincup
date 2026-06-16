@@ -22,8 +22,7 @@ class ShikakuGameTest {
 
     @Test
     fun gridGrowsWithLevel() {
-        fun gridOf(level: Int): Pair<Int, Int> =
-            ShikakuGame(level = level).apply { nextRound() }.let { it.rows to it.cols }
+        fun gridOf(level: Int): Pair<Int, Int> = ShikakuGame(level = level).apply { nextRound() }.let { it.rows to it.cols }
 
         assertEquals(4 to 4, gridOf(1))
         assertEquals(5 to 5, gridOf(5))
@@ -143,29 +142,41 @@ class ShikakuGameTest {
             clues.clear()
             clues.putAll(
                 mapOf(
-                    0 * 4 + 0 to 2, 1 * 4 + 1 to 2, // top-left quadrant
-                    0 * 4 + 2 to 2, 1 * 4 + 3 to 2, // top-right quadrant
-                    2 * 4 + 0 to 2, 3 * 4 + 1 to 2, // bottom-left quadrant
-                    2 * 4 + 2 to 2, 3 * 4 + 3 to 2, // bottom-right quadrant
+                    0 * 4 + 0 to 2,
+                    1 * 4 + 1 to 2, // top-left quadrant
+                    0 * 4 + 2 to 2,
+                    1 * 4 + 3 to 2, // top-right quadrant
+                    2 * 4 + 0 to 2,
+                    3 * 4 + 1 to 2, // bottom-left quadrant
+                    2 * 4 + 2 to 2,
+                    3 * 4 + 3 to 2, // bottom-right quadrant
                 ),
             )
         }
 
         val horizontal = fixture()
         listOf(
-            intArrayOf(0, 0, 0, 1), intArrayOf(1, 0, 1, 1),
-            intArrayOf(0, 2, 0, 3), intArrayOf(1, 2, 1, 3),
-            intArrayOf(2, 0, 2, 1), intArrayOf(3, 0, 3, 1),
-            intArrayOf(2, 2, 2, 3), intArrayOf(3, 2, 3, 3),
+            intArrayOf(0, 0, 0, 1),
+            intArrayOf(1, 0, 1, 1),
+            intArrayOf(0, 2, 0, 3),
+            intArrayOf(1, 2, 1, 3),
+            intArrayOf(2, 0, 2, 1),
+            intArrayOf(3, 0, 3, 1),
+            intArrayOf(2, 2, 2, 3),
+            intArrayOf(3, 2, 3, 3),
         ).forEach { horizontal.commitRectangle(it[0], it[1], it[2], it[3]) }
         assertTrue(horizontal.isCorrect(""), "horizontal partition rejected")
 
         val vertical = fixture()
         listOf(
-            intArrayOf(0, 0, 1, 0), intArrayOf(0, 1, 1, 1),
-            intArrayOf(0, 2, 1, 2), intArrayOf(0, 3, 1, 3),
-            intArrayOf(2, 0, 3, 0), intArrayOf(2, 1, 3, 1),
-            intArrayOf(2, 2, 3, 2), intArrayOf(2, 3, 3, 3),
+            intArrayOf(0, 0, 1, 0),
+            intArrayOf(0, 1, 1, 1),
+            intArrayOf(0, 2, 1, 2),
+            intArrayOf(0, 3, 1, 3),
+            intArrayOf(2, 0, 3, 0),
+            intArrayOf(2, 1, 3, 1),
+            intArrayOf(2, 2, 3, 2),
+            intArrayOf(2, 3, 3, 3),
         ).forEach { vertical.commitRectangle(it[0], it[1], it[2], it[3]) }
         assertTrue(vertical.isCorrect(""), "vertical partition rejected")
     }
