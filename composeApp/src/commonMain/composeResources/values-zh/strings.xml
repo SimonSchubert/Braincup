@@ -68,6 +68,7 @@
     <string name="game_mini_chess">迷你国际象棋</string>
     <string name="game_lights_out">熄灯</string>
     <string name="game_sliding_puzzle">华容道</string>
+    <string name="game_shikaku">数方</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">以白方完成棋局。在 CPU 将死你之前将死它。</string>
     <string name="game_lights_out_desc">关掉所有灯。每次点击会切换该格和四个相邻格。</string>
     <string name="game_sliding_puzzle_desc">将方块滑入空格,使它们按顺序排列。</string>
+    <string name="game_shikaku_desc">将整个网格划分为矩形。每个矩形必须正好包含一个数字,且等于它的面积。</string>
+    <string name="game_shikaku_howto">拖动以绘制矩形。点按矩形即可移除。</string>
     <string name="moves_label">步数:%1$d</string>
     <string name="mini_chess_thinking">电脑思考中…</string>
     <string name="mini_chess_round_won">将死</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">残局大师</string>
     <string name="achievement_gold_lights_out">全场熄灯</string>
     <string name="achievement_gold_sliding_puzzle">滑动高手</string>
+    <string name="achievement_gold_shikaku">矩形大师</string>
     <string name="achievement_gold_path_finder">寻路者</string>
     <string name="achievement_gold_anomaly_puzzle">异常猎手</string>
     <string name="achievement_gold_colored_shapes">变形者</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">在Mini Chess中赢得金牌</string>
     <string name="achievement_gold_lights_out_desc">在Lights Out中赢得金牌</string>
     <string name="achievement_gold_sliding_puzzle_desc">在Sliding Puzzle中赢得金牌</string>
+    <string name="achievement_gold_shikaku_desc">在Shikaku中赢得金牌</string>
     <string name="achievement_gold_path_finder_desc">在路径寻找中赢得金牌</string>
     <string name="achievement_gold_anomaly_puzzle_desc">在异常谜题中赢得金牌</string>
     <string name="achievement_gold_colored_shapes_desc">在彩色形状中赢得金牌</string>

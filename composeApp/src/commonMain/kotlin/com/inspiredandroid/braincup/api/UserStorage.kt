@@ -27,6 +27,7 @@ class UserStorage(
         GOLD_MINI_CHESS(Res.string.achievement_gold_mini_chess, Res.string.achievement_gold_mini_chess_desc),
         GOLD_LIGHTS_OUT(Res.string.achievement_gold_lights_out, Res.string.achievement_gold_lights_out_desc),
         GOLD_SLIDING_PUZZLE(Res.string.achievement_gold_sliding_puzzle, Res.string.achievement_gold_sliding_puzzle_desc),
+        GOLD_SHIKAKU(Res.string.achievement_gold_shikaku, Res.string.achievement_gold_shikaku_desc),
         GOLD_PATH_FINDER(Res.string.achievement_gold_path_finder, Res.string.achievement_gold_path_finder_desc),
         GOLD_ANOMALY_PUZZLE(Res.string.achievement_gold_anomaly_puzzle, Res.string.achievement_gold_anomaly_puzzle_desc),
         GOLD_GHOST_GRID(Res.string.achievement_gold_ghost_grid, Res.string.achievement_gold_ghost_grid_desc),

@@ -68,6 +68,7 @@
     <string name="game_mini_chess">Mini Catur</string>
     <string name="game_lights_out">Padamkan Lampu</string>
     <string name="game_sliding_puzzle">Teka-teki Geser</string>
+    <string name="game_shikaku">Shikaku</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">Selesaikan skenario catur sebagai putih. Skakmat CPU sebelum ia melakukannya padamu.</string>
     <string name="game_lights_out_desc">Padamkan setiap lampu. Setiap ketukan mengubah sel itu dan empat tetangganya.</string>
     <string name="game_sliding_puzzle_desc">Geser ubin ke ruang kosong untuk menyusunnya berurutan.</string>
+    <string name="game_shikaku_desc">Bagi seluruh kisi menjadi persegi panjang. Setiap persegi panjang harus berisi tepat satu angka, sama dengan luasnya.</string>
+    <string name="game_shikaku_howto">Seret untuk menggambar persegi panjang. Ketuk persegi panjang untuk menghapusnya.</string>
     <string name="moves_label">Gerakan: %1$d</string>
     <string name="mini_chess_thinking">CPU sedang berpikir…</string>
     <string name="mini_chess_round_won">Skakmat</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">Maestro Akhir Permainan</string>
     <string name="achievement_gold_lights_out">Pemadaman Total</string>
     <string name="achievement_gold_sliding_puzzle">Operator Mulus</string>
+    <string name="achievement_gold_shikaku">Master Persegi Panjang</string>
     <string name="achievement_gold_path_finder">Perintis Jalan</string>
     <string name="achievement_gold_anomaly_puzzle">Pencari Anomali</string>
     <string name="achievement_gold_colored_shapes">Pengubah Bentuk</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">Menangkan medali emas di Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Menangkan medali emas di Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Menangkan medali emas di Sliding Puzzle</string>
+    <string name="achievement_gold_shikaku_desc">Menangkan medali emas di Shikaku</string>
     <string name="achievement_gold_path_finder_desc">Menangkan medali emas di Pencari Jalur</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Menangkan medali emas di Teka-teki Anomali</string>
     <string name="achievement_gold_colored_shapes_desc">Menangkan medali emas di Bentuk Berwarna</string>

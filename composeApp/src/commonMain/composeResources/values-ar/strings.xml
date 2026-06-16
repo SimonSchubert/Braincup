@@ -68,6 +68,7 @@
     <string name="game_mini_chess">شطرنج مصغر</string>
     <string name="game_lights_out">إطفاء الأنوار</string>
     <string name="game_sliding_puzzle">لغز الانزلاق</string>
+    <string name="game_shikaku">شيكاكو</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">أنه سيناريو الشطرنج بالأبيض. أوقع كش ملك على الحاسوب قبل أن يوقعه عليك.</string>
     <string name="game_lights_out_desc">أطفئ كل ضوء. كل نقرة تقلب الخلية وجيرانها الأربعة.</string>
     <string name="game_sliding_puzzle_desc">حرّك القطع إلى المساحة الفارغة لترتيبها.</string>
+    <string name="game_shikaku_desc">قسّم الشبكة كاملةً إلى مستطيلات. يجب أن يحتوي كل مستطيل على رقم واحد فقط يساوي مساحته.</string>
+    <string name="game_shikaku_howto">اسحب لرسم مستطيل. انقر على مستطيل لإزالته.</string>
     <string name="moves_label">النقلات: %1$d</string>
     <string name="mini_chess_thinking">الحاسوب يفكّر…</string>
     <string name="mini_chess_round_won">كش ملك</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">بارع نهاية اللعبة</string>
     <string name="achievement_gold_lights_out">إطفاء كامل</string>
     <string name="achievement_gold_sliding_puzzle">خبير التحريك</string>
+    <string name="achievement_gold_shikaku">سيد المستطيلات</string>
     <string name="achievement_gold_path_finder">كشاف المسار</string>
     <string name="achievement_gold_anomaly_puzzle">صياد الشذوذ</string>
     <string name="achievement_gold_colored_shapes">متبدل الأشكال</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">اربح الميدالية الذهبية في Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">اربح الميدالية الذهبية في Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">اربح الميدالية الذهبية في Sliding Puzzle</string>
+    <string name="achievement_gold_shikaku_desc">اربح الميدالية الذهبية في Shikaku</string>
     <string name="achievement_gold_path_finder_desc">اربح الميدالية الذهبية في مكتشف المسار</string>
     <string name="achievement_gold_anomaly_puzzle_desc">اربح الميدالية الذهبية في لغز الشذوذ</string>
     <string name="achievement_gold_colored_shapes_desc">اربح الميدالية الذهبية في أشكال ملونة</string>

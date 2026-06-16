@@ -375,6 +375,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameShikaku() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createShikakuUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSchulteTable() {
         paparazzi.snap {
             GameScreen(

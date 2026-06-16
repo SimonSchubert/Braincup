@@ -68,6 +68,7 @@
     <string name="game_mini_chess">หมากรุกย่อ</string>
     <string name="game_lights_out">ปิดไฟ</string>
     <string name="game_sliding_puzzle">ปริศนาเลื่อน</string>
+    <string name="game_shikaku">ชิกะกุ</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">จบสถานการณ์หมากรุกในฐานะฝ่ายขาว รุกฆาตซีพียูก่อนที่มันจะรุกฆาตคุณ</string>
     <string name="game_lights_out_desc">ปิดไฟทุกดวง การแตะแต่ละครั้งจะสลับช่องและช่องเพื่อนบ้านทั้งสี่</string>
     <string name="game_sliding_puzzle_desc">เลื่อนแผ่นเข้าไปในช่องว่างเพื่อเรียงให้เป็นลำดับ</string>
+    <string name="game_shikaku_desc">แบ่งทั้งตารางออกเป็นสี่เหลี่ยมผืนผ้า แต่ละรูปต้องมีตัวเลขเพียงตัวเดียวที่เท่ากับพื้นที่ของรูปนั้น</string>
+    <string name="game_shikaku_howto">ลากเพื่อวาดสี่เหลี่ยมผืนผ้า แตะที่สี่เหลี่ยมเพื่อลบออก</string>
     <string name="moves_label">การเดิน: %1$d</string>
     <string name="mini_chess_thinking">ซีพียูกำลังคิด…</string>
     <string name="mini_chess_round_won">รุกฆาต</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">นักหมากรุกตอนจบ</string>
     <string name="achievement_gold_lights_out">ดับสนิท</string>
     <string name="achievement_gold_sliding_puzzle">นักเลื่อนชั้นเซียน</string>
+    <string name="achievement_gold_shikaku">เซียนสี่เหลี่ยม</string>
     <string name="achievement_gold_path_finder">นักหาทาง</string>
     <string name="achievement_gold_anomaly_puzzle">นักล่าสิ่งผิดปกติ</string>
     <string name="achievement_gold_colored_shapes">ผู้เปลี่ยนรูป</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">ชนะเหรียญทองในMini Chess</string>
     <string name="achievement_gold_lights_out_desc">ชนะเหรียญทองในLights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">ชนะเหรียญทองในSliding Puzzle</string>
+    <string name="achievement_gold_shikaku_desc">ชนะเหรียญทองในShikaku</string>
     <string name="achievement_gold_path_finder_desc">ชนะเหรียญทองในค้นหาเส้นทาง</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ชนะเหรียญทองในปริศนาความผิดปกติ</string>
     <string name="achievement_gold_colored_shapes_desc">ชนะเหรียญทองในรูปทรงสี</string>

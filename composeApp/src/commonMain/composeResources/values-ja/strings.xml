@@ -68,6 +68,7 @@
     <string name="game_mini_chess">ミニチェス</string>
     <string name="game_lights_out">ライトアウト</string>
     <string name="game_sliding_puzzle">スライドパズル</string>
+    <string name="game_shikaku">シカク</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">白でチェスのシナリオを完成させましょう。CPUに詰まされる前に詰みに持ち込みます。</string>
     <string name="game_lights_out_desc">すべての光を消しましょう。タップごとに、そのセルと隣接4セルが切り替わります。</string>
     <string name="game_sliding_puzzle_desc">タイルを空きスペースに滑らせて順番に並べましょう。</string>
+    <string name="game_shikaku_desc">グリッド全体を長方形に分割しましょう。各長方形には面積と同じ数字がちょうど1つ入ります。</string>
+    <string name="game_shikaku_howto">ドラッグして長方形を描きます。長方形をタップすると削除できます。</string>
     <string name="moves_label">手数: %1$d</string>
     <string name="mini_chess_thinking">CPUが思考中…</string>
     <string name="mini_chess_round_won">チェックメイト</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">終盤の名手</string>
     <string name="achievement_gold_lights_out">完全消灯</string>
     <string name="achievement_gold_sliding_puzzle">スライド名人</string>
+    <string name="achievement_gold_shikaku">長方形の達人</string>
     <string name="achievement_gold_path_finder">道しるべ</string>
     <string name="achievement_gold_anomaly_puzzle">異常発見者</string>
     <string name="achievement_gold_colored_shapes">形変化師</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chessで金メダルを獲得</string>
     <string name="achievement_gold_lights_out_desc">Lights Outで金メダルを獲得</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzleで金メダルを獲得</string>
+    <string name="achievement_gold_shikaku_desc">Shikakuで金メダルを獲得</string>
     <string name="achievement_gold_path_finder_desc">パスファインダーで金メダルを獲得</string>
     <string name="achievement_gold_anomaly_puzzle_desc">異常パズルで金メダルを獲得</string>
     <string name="achievement_gold_colored_shapes_desc">カラフルな形で金メダルを獲得</string>

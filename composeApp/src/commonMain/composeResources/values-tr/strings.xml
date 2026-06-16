@@ -68,6 +68,7 @@
     <string name="game_mini_chess">Mini Satranç</string>
     <string name="game_lights_out">Işıkları Söndür</string>
     <string name="game_sliding_puzzle">Kaydırma Bulmacası</string>
+    <string name="game_shikaku">Shikaku</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">Beyazlarla satranç senaryosunu bitir. CPU sana mat etmeden önce ona mat et.</string>
     <string name="game_lights_out_desc">Tüm ışıkları söndür. Her dokunuş, hücreyi ve dört komşusunu değiştirir.</string>
     <string name="game_sliding_puzzle_desc">Karoları boş alana kaydırarak sıraya diz.</string>
+    <string name="game_shikaku_desc">Tüm ızgarayı dikdörtgenlere böl. Her dikdörtgende, alanına eşit tam olarak bir sayı bulunmalıdır.</string>
+    <string name="game_shikaku_howto">Dikdörtgen çizmek için sürükle. Kaldırmak için bir dikdörtgene dokun.</string>
     <string name="moves_label">Hamle: %1$d</string>
     <string name="mini_chess_thinking">CPU düşünüyor…</string>
     <string name="mini_chess_round_won">Şah Mat</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">Oyunsonu Virtüözü</string>
     <string name="achievement_gold_lights_out">Tam Karartma</string>
     <string name="achievement_gold_sliding_puzzle">Akıcı Operatör</string>
+    <string name="achievement_gold_shikaku">Dikdörtgen Ustası</string>
     <string name="achievement_gold_path_finder">İz Sürücü</string>
     <string name="achievement_gold_anomaly_puzzle">Tuhaflık Avcısı</string>
     <string name="achievement_gold_colored_shapes">Şekil Değiştiren</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chess oyununda altın madalya kazan</string>
     <string name="achievement_gold_lights_out_desc">Lights Out oyununda altın madalya kazan</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle oyununda altın madalya kazan</string>
+    <string name="achievement_gold_shikaku_desc">Shikaku oyununda altın madalya kazan</string>
     <string name="achievement_gold_path_finder_desc">Yol Bulucu oyununda altın madalya kazan</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Anomali Bulmacası oyununda altın madalya kazan</string>
     <string name="achievement_gold_colored_shapes_desc">Renkli Şekiller oyununda altın madalya kazan</string>

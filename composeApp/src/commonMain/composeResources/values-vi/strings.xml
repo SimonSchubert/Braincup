@@ -68,6 +68,7 @@
     <string name="game_mini_chess">Cờ Vua Mini</string>
     <string name="game_lights_out">Tắt Đèn</string>
     <string name="game_sliding_puzzle">Câu Đố Trượt</string>
+    <string name="game_shikaku">Shikaku</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">Hoàn thành ván cờ với quân trắng. Chiếu hết CPU trước khi nó chiếu hết bạn.</string>
     <string name="game_lights_out_desc">Tắt mọi đèn. Mỗi cú chạm sẽ đổi trạng thái ô đó và bốn ô lân cận.</string>
     <string name="game_sliding_puzzle_desc">Trượt các ô vào chỗ trống để xếp chúng theo thứ tự.</string>
+    <string name="game_shikaku_desc">Chia toàn bộ lưới thành các hình chữ nhật. Mỗi hình chữ nhật phải chứa đúng một số, bằng diện tích của nó.</string>
+    <string name="game_shikaku_howto">Kéo để vẽ một hình chữ nhật. Chạm vào hình chữ nhật để xóa nó.</string>
     <string name="moves_label">Lượt đi: %1$d</string>
     <string name="mini_chess_thinking">CPU đang suy nghĩ…</string>
     <string name="mini_chess_round_won">Chiếu hết</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">Bậc thầy cờ tàn</string>
     <string name="achievement_gold_lights_out">Tắt đèn toàn bộ</string>
     <string name="achievement_gold_sliding_puzzle">Người trượt khéo</string>
+    <string name="achievement_gold_shikaku">Bậc thầy hình chữ nhật</string>
     <string name="achievement_gold_path_finder">Người dò đường</string>
     <string name="achievement_gold_anomaly_puzzle">Thợ săn dị vật</string>
     <string name="achievement_gold_colored_shapes">Kẻ biến hình</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">Giành huy chương vàng trong Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Giành huy chương vàng trong Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Giành huy chương vàng trong Sliding Puzzle</string>
+    <string name="achievement_gold_shikaku_desc">Giành huy chương vàng trong Shikaku</string>
     <string name="achievement_gold_path_finder_desc">Giành huy chương vàng trong Tìm đường</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Giành huy chương vàng trong Câu đố bất thường</string>
     <string name="achievement_gold_colored_shapes_desc">Giành huy chương vàng trong Hình dạng màu sắc</string>

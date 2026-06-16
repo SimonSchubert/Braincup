@@ -68,6 +68,7 @@
     <string name="game_mini_chess">Mini Xadrez</string>
     <string name="game_lights_out">Apagar as luzes</string>
     <string name="game_sliding_puzzle">Quebra-cabeça deslizante</string>
+    <string name="game_shikaku">Shikaku</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">Termine o cenário de xadrez como brancas. Dê xeque-mate à CPU antes que ela dê em você.</string>
     <string name="game_lights_out_desc">Apague todas as luzes. Cada toque alterna a célula e seus quatro vizinhos.</string>
     <string name="game_sliding_puzzle_desc">Deslize as peças para o espaço vazio para colocá-las em ordem.</string>
+    <string name="game_shikaku_desc">Divida toda a grade em retângulos. Cada retângulo deve conter exatamente um número, igual à sua área.</string>
+    <string name="game_shikaku_howto">Arraste para desenhar um retângulo. Toque em um retângulo para removê-lo.</string>
     <string name="moves_label">Movimentos: %1$d</string>
     <string name="mini_chess_thinking">A CPU está pensando…</string>
     <string name="mini_chess_round_won">Xeque-mate</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">Virtuoso do final</string>
     <string name="achievement_gold_lights_out">Apagão total</string>
     <string name="achievement_gold_sliding_puzzle">Operador hábil</string>
+    <string name="achievement_gold_shikaku">Mestre dos retângulos</string>
     <string name="achievement_gold_path_finder">Explorador</string>
     <string name="achievement_gold_anomaly_puzzle">Caçador de anomalias</string>
     <string name="achievement_gold_colored_shapes">Trocador de formas</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">Ganhe a medalha de ouro em Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Ganhe a medalha de ouro em Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Ganhe a medalha de ouro em Sliding Puzzle</string>
+    <string name="achievement_gold_shikaku_desc">Ganhe a medalha de ouro em Shikaku</string>
     <string name="achievement_gold_path_finder_desc">Ganhe a medalha de ouro em Busca de caminhos</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Ganhe a medalha de ouro em Quebra-cabeça de anomalia</string>
     <string name="achievement_gold_colored_shapes_desc">Ganhe a medalha de ouro em Formas coloridas</string>

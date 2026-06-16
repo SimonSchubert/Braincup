@@ -140,6 +140,7 @@ class GameController(
         .filterNot {
             it == GameType.LIGHTS_OUT ||
                 it == GameType.SLIDING_PUZZLE ||
+                it == GameType.SHIKAKU ||
                 it == GameType.MINI_CHESS ||
                 it == GameType.WORDLE
         }
@@ -259,6 +260,10 @@ class GameController(
             startSlidingPuzzleGame(gameType)
             return
         }
+        if (gameType == GameType.SHIKAKU) {
+            startShikakuGame(gameType)
+            return
+        }
         if (gameType == GameType.FLAGS) {
             startFlagsGame(gameType)
             return
@@ -348,6 +353,10 @@ class GameController(
             handleSlidingPuzzleAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is ShikakuGame) {
+            handleShikakuAnswer(currentState, game, answer.trim())
+            return
+        }
         if (game is SchulteTableGame) {
             handleSchulteTableAnswer(currentState, game, answer.trim())
             return
@@ -426,6 +435,11 @@ class GameController(
             return
         }
         if (game is SlidingPuzzleGame) {
+            points = 0
+            finishCurrentGame(currentState.gameType, game)
+            return
+        }
+        if (game is ShikakuGame) {
             points = 0
             finishCurrentGame(currentState.gameType, game)
             return
@@ -612,6 +626,7 @@ class GameController(
         GameType.MINI_SUDOKU -> MiniSudokuGame()
         GameType.LIGHTS_OUT -> LightsOutGame()
         GameType.SLIDING_PUZZLE -> SlidingPuzzleGame()
+        GameType.SHIKAKU -> ShikakuGame()
         GameType.SCHULTE_TABLE -> SchulteTableGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
@@ -946,6 +961,54 @@ class GameController(
     ) {
         val index = input.toIntOrNull() ?: return
         val solved = game.slideTile(index)
+        _gameUiState.value = game.toUiState()
+        if (solved) {
+            points = game.level
+            storage.putLastRound(currentState.gameType.id, game.level + 1)
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = null,
+            )
+            scope.launch {
+                delay(700.milliseconds)
+                finishCurrentGame(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun startShikakuGame(gameType: GameType) {
+        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
+        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
+        // bonus message on the finish screen wouldn't make sense here.
+        val game = ShikakuGame(level = level).apply { answeredAllCorrect = false }
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+    }
+
+    private fun handleShikakuAnswer(
+        currentState: GameState.Active,
+        game: ShikakuGame,
+        input: String,
+    ) {
+        // The UI encodes drawing/erasing over the shared onAnswer(String) channel:
+        //   "draw:r1,c1,r2,c2" commits a rectangle, "del:r,c" removes the one under a cell.
+        val solved = when {
+            input.startsWith("draw:") -> {
+                val parts = input.removePrefix("draw:").split(",").mapNotNull { it.toIntOrNull() }
+                if (parts.size != 4) return
+                game.commitRectangle(parts[0], parts[1], parts[2], parts[3])
+            }
+            input.startsWith("del:") -> {
+                val parts = input.removePrefix("del:").split(",").mapNotNull { it.toIntOrNull() }
+                if (parts.size != 2) return
+                game.deleteRectangleAt(parts[0], parts[1])
+            }
+            else -> return
+        }
         _gameUiState.value = game.toUiState()
         if (solved) {
             points = game.level

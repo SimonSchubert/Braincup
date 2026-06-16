@@ -68,6 +68,7 @@
     <string name="game_mini_chess">Mini-Schaak</string>
     <string name="game_lights_out">Lichten uit</string>
     <string name="game_sliding_puzzle">Schuifpuzzel</string>
+    <string name="game_shikaku">Shikaku</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">Voltooi het schaakscenario als wit. Geef de CPU schaakmat voordat hij jou schaakmat geeft.</string>
     <string name="game_lights_out_desc">Schakel alle lichten uit. Elke tik wisselt de cel en zijn vier buren om.</string>
     <string name="game_sliding_puzzle_desc">Schuif tegels in de lege ruimte om ze op volgorde te zetten.</string>
+    <string name="game_shikaku_desc">Verdeel het hele raster in rechthoeken. Elke rechthoek moet precies één getal bevatten, gelijk aan zijn oppervlakte.</string>
+    <string name="game_shikaku_howto">Sleep om een rechthoek te tekenen. Tik op een rechthoek om hem te verwijderen.</string>
     <string name="moves_label">Zetten: %1$d</string>
     <string name="mini_chess_thinking">CPU denkt na…</string>
     <string name="mini_chess_round_won">Schaakmat</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">Eindspelvirtuoos</string>
     <string name="achievement_gold_lights_out">Totale duisternis</string>
     <string name="achievement_gold_sliding_puzzle">Soepele schuiver</string>
+    <string name="achievement_gold_shikaku">Rechthoekmeester</string>
     <string name="achievement_gold_path_finder">Padvinder</string>
     <string name="achievement_gold_anomaly_puzzle">Anomaliespeurder</string>
     <string name="achievement_gold_colored_shapes">Vormveranderaar</string>
@@ -213,6 +217,7 @@
     <string name="achievement_gold_mini_chess_desc">Win de gouden medaille in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Win de gouden medaille in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Win de gouden medaille in Sliding Puzzle</string>
+    <string name="achievement_gold_shikaku_desc">Win de gouden medaille in Shikaku</string>
     <string name="achievement_gold_path_finder_desc">Win de gouden medaille in Padvinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win de gouden medaille in Anomalie puzzel</string>
     <string name="achievement_gold_colored_shapes_desc">Win de gouden medaille in Gekleurde vormen</string>

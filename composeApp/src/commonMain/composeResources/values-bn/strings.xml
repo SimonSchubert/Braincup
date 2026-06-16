@@ -68,6 +68,7 @@
     <string name="game_mini_chess">মিনি দাবা</string>
     <string name="game_lights_out">লাইটস আউট</string>
     <string name="game_sliding_puzzle">স্লাইডিং পাজল</string>
+    <string name="game_shikaku">শিকাকু</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">সাদা হিসেবে দাবার পরিস্থিতি শেষ করুন। সিপিইউ আপনাকে কিস্তিমাত করার আগে তাকে কিস্তিমাত করুন।</string>
     <string name="game_lights_out_desc">প্রতিটি আলো বন্ধ করুন। প্রতিটি ট্যাপ সেল ও তার চারটি প্রতিবেশীকে পরিবর্তন করে।</string>
     <string name="game_sliding_puzzle_desc">টাইলগুলিকে ক্রমে সাজাতে খালি জায়গায় স্লাইড করুন।</string>
+    <string name="game_shikaku_desc">পুরো গ্রিডটিকে আয়তক্ষেত্রে ভাগ করুন। প্রতিটি আয়তক্ষেত্রে ঠিক একটি সংখ্যা থাকতে হবে, যা তার ক্ষেত্রফলের সমান।</string>
+    <string name="game_shikaku_howto">আয়তক্ষেত্র আঁকতে টেনে আনুন। সরাতে আয়তক্ষেত্রে ট্যাপ করুন।</string>
     <string name="moves_label">চাল: %1$d</string>
     <string name="mini_chess_thinking">সিপিইউ ভাবছে…</string>
     <string name="mini_chess_round_won">কিস্তিমাত</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">শেষ-খেলার ওস্তাদ</string>
     <string name="achievement_gold_lights_out">সম্পূর্ণ অন্ধকার</string>
     <string name="achievement_gold_sliding_puzzle">দক্ষ সরানোকারী</string>
+    <string name="achievement_gold_shikaku">আয়তক্ষেত্রের ওস্তাদ</string>
     <string name="achievement_gold_path_finder">পথপ্রদর্শক</string>
     <string name="achievement_gold_anomaly_puzzle">অস্বাভাবিকতা শিকারী</string>
     <string name="achievement_gold_colored_shapes">আকার পরিবর্তনকারী</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chess-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_lights_out_desc">Lights Out-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_shikaku_desc">Shikaku-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_path_finder_desc">পথ অনুসন্ধানকারী-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_anomaly_puzzle_desc">অসঙ্গতি ধাঁধা-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_colored_shapes_desc">রঙিন আকৃতি-এ স্বর্ণপদক জিতুন</string>

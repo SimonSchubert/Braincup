@@ -11,9 +11,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -151,6 +157,25 @@ private val LightsOutPreviewOn: Set<Int> = setOf(1, 3, 4, 5, 7)
 
 private val SlidingPuzzlePreviewLabels: List<Int> = listOf(1, 2, 3, 4, 0, 5, 7, 8, 6)
 
+private const val ShikakuPreviewSize = 3
+
+/** A solved 3x3 Shikaku: a 2x2 (4), a 2x1 (2), and a 1x3 (3). clueRow/clueCol mark the number. */
+private data class ShikakuPreviewRect(
+    val top: Int,
+    val left: Int,
+    val bottom: Int,
+    val right: Int,
+    val clue: Int,
+    val clueRow: Int,
+    val clueCol: Int,
+)
+
+private val ShikakuPreviewRects: List<ShikakuPreviewRect> = listOf(
+    ShikakuPreviewRect(top = 0, left = 0, bottom = 1, right = 1, clue = 4, clueRow = 0, clueCol = 0),
+    ShikakuPreviewRect(top = 0, left = 2, bottom = 1, right = 2, clue = 2, clueRow = 0, clueCol = 2),
+    ShikakuPreviewRect(top = 2, left = 0, bottom = 2, right = 2, clue = 3, clueRow = 2, clueCol = 0),
+)
+
 private data class MiniChessPreviewPlacement(val drawable: DrawableResource, val isWhite: Boolean)
 
 private val MiniChessPreviewPieces: Map<Int, MiniChessPreviewPlacement> = mapOf(
@@ -244,6 +269,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.MINI_CHESS -> MiniChessPreview()
         GameType.LIGHTS_OUT -> LightsOutPreview()
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
+        GameType.SHIKAKU -> ShikakuPreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
@@ -655,6 +681,54 @@ private fun LightsOutPreview() {
                     )
                 }
             }
+        }
+    }
+}
+
+@Composable
+private fun ShikakuPreview() {
+    val gridLineColor = PreviewTextColor.copy(alpha = 0.3f)
+    val borderColor = Primary
+    val numberFont = numberFontFamily()
+    val textMeasurer = rememberTextMeasurer()
+    val n = ShikakuPreviewSize
+    Canvas(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        val cellW = size.width / n
+        val cellH = size.height / n
+
+        for (i in 0..n) {
+            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
+            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
+        }
+
+        ShikakuPreviewRects.forEach { rect ->
+            drawRect(
+                color = borderColor,
+                topLeft = Offset(rect.left * cellW, rect.top * cellH),
+                size = Size((rect.right - rect.left + 1) * cellW, (rect.bottom - rect.top + 1) * cellH),
+                style = Stroke(width = 3.dp.toPx()),
+            )
+        }
+
+        val clueStyle = TextStyle(
+            color = PreviewTextColor,
+            fontSize = (cellH * 0.4f).toSp(),
+            fontFamily = numberFont,
+            fontWeight = FontWeight.Bold,
+        )
+        ShikakuPreviewRects.forEach { rect ->
+            val measured = textMeasurer.measure(AnnotatedString(rect.clue.toString()), style = clueStyle)
+            val centerX = rect.clueCol * cellW + cellW / 2f
+            val centerY = rect.clueRow * cellH + cellH / 2f
+            drawText(
+                measured,
+                topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+            )
         }
     }
 }

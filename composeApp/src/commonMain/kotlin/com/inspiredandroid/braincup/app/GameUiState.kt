@@ -121,6 +121,27 @@ data class SlidingPuzzleUiState(
 ) : GameUiState
 
 @Immutable
+data class ShikakuUiState(
+    val rows: Int,
+    val cols: Int,
+    /** cellIndex (row*cols+col) -> clue value; absent keys are blank cells. */
+    val clues: ImmutableMap<Int, Int>,
+    val rectangles: ImmutableList<RectState>,
+    val level: Int,
+) : GameUiState {
+    /** A player-drawn rectangle with inclusive grid bounds and live validity. */
+    @Immutable
+    data class RectState(
+        val top: Int,
+        val left: Int,
+        val bottom: Int,
+        val right: Int,
+        /** True when this rectangle contains exactly one clue equal to its area. */
+        val isValid: Boolean,
+    )
+}
+
+@Immutable
 data class PatternSequenceUiState(
     val sequence: ImmutableList<Figure>,
     val optionRows: ImmutableList<ImmutableList<FigureCell>>,

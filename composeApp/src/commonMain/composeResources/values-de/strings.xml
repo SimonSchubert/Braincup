@@ -68,6 +68,7 @@
     <string name="game_mini_chess">Mini-Schach</string>
     <string name="game_lights_out">Lichter aus</string>
     <string name="game_sliding_puzzle">Schiebepuzzle</string>
+    <string name="game_shikaku">Shikaku</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">Beende das Schachszenario als Weiß. Setze die CPU schachmatt, bevor sie dich mattsetzt.</string>
     <string name="game_lights_out_desc">Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre vier Nachbarn um.</string>
     <string name="game_sliding_puzzle_desc">Schiebe Kacheln in den leeren Raum, um sie in die richtige Reihenfolge zu bringen.</string>
+    <string name="game_shikaku_desc">Teile das gesamte Gitter in Rechtecke. Jedes Rechteck muss genau eine Zahl enthalten, die seiner Fläche entspricht.</string>
+    <string name="game_shikaku_howto">Ziehe, um ein Rechteck zu zeichnen. Tippe auf ein Rechteck, um es zu entfernen.</string>
     <string name="moves_label">Züge: %1$d</string>
     <string name="mini_chess_thinking">CPU denkt nach…</string>
     <string name="mini_chess_round_won">Schachmatt</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">Endspiel-Virtuose</string>
     <string name="achievement_gold_lights_out">Totale Finsternis</string>
     <string name="achievement_gold_sliding_puzzle">Schiebekünstler</string>
+    <string name="achievement_gold_shikaku">Rechteck-Meister</string>
     <string name="achievement_gold_path_finder">Pfadfinder</string>
     <string name="achievement_gold_anomaly_puzzle">Ausnahmespürer</string>
     <string name="achievement_gold_colored_shapes">Formenwandler</string>
@@ -213,6 +217,7 @@
     <string name="achievement_gold_mini_chess_desc">Gewinne die Goldmedaille in Mini-Schach</string>
     <string name="achievement_gold_lights_out_desc">Gewinne die Goldmedaille in Lichter aus</string>
     <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Schiebepuzzle</string>
+    <string name="achievement_gold_shikaku_desc">Gewinne die Goldmedaille in Shikaku</string>
     <string name="achievement_gold_path_finder_desc">Gewinne die Goldmedaille in Pfadfinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Gewinne die Goldmedaille in Anomalie-Rätsel</string>
     <string name="achievement_gold_colored_shapes_desc">Gewinne die Goldmedaille in Farbige Formen</string>

@@ -68,6 +68,7 @@
     <string name="game_mini_chess">미니 체스</string>
     <string name="game_lights_out">라이트 아웃</string>
     <string name="game_sliding_puzzle">슬라이드 퍼즐</string>
+    <string name="game_shikaku">시카쿠</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -90,6 +91,8 @@
     <string name="game_mini_chess_desc">백을 잡고 체스 시나리오를 완료하세요. CPU가 당신을 메이트하기 전에 메이트하세요.</string>
     <string name="game_lights_out_desc">모든 빛을 끄세요. 탭할 때마다 해당 셀과 인접한 네 셀이 토글됩니다.</string>
     <string name="game_sliding_puzzle_desc">타일을 빈 공간으로 밀어 순서대로 정렬하세요.</string>
+    <string name="game_shikaku_desc">격자 전체를 직사각형으로 나누세요. 각 직사각형에는 그 넓이와 같은 숫자가 정확히 하나 있어야 합니다.</string>
+    <string name="game_shikaku_howto">드래그하여 직사각형을 그리세요. 직사각형을 탭하면 삭제됩니다.</string>
     <string name="moves_label">이동: %1$d</string>
     <string name="mini_chess_thinking">CPU가 생각 중…</string>
     <string name="mini_chess_round_won">체크메이트</string>
@@ -187,6 +190,7 @@
     <string name="achievement_gold_mini_chess">종반의 거장</string>
     <string name="achievement_gold_lights_out">완전한 암흑</string>
     <string name="achievement_gold_sliding_puzzle">유려한 슬라이더</string>
+    <string name="achievement_gold_shikaku">직사각형 마스터</string>
     <string name="achievement_gold_path_finder">길잡이</string>
     <string name="achievement_gold_anomaly_puzzle">이상 발견자</string>
     <string name="achievement_gold_colored_shapes">변신술사</string>
@@ -212,6 +216,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chess에서 금메달 획득</string>
     <string name="achievement_gold_lights_out_desc">Lights Out에서 금메달 획득</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle에서 금메달 획득</string>
+    <string name="achievement_gold_shikaku_desc">Shikaku에서 금메달 획득</string>
     <string name="achievement_gold_path_finder_desc">경로 찾기에서 금메달 획득</string>
     <string name="achievement_gold_anomaly_puzzle_desc">이상 퍼즐에서 금메달 획득</string>
     <string name="achievement_gold_colored_shapes_desc">색깔 도형에서 금메달 획득</string>

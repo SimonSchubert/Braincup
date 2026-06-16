@@ -160,6 +160,7 @@
     <string name="game_mini_chess">Mini Chess</string>
     <string name="game_lights_out">Lights Out</string>
     <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_shikaku">Shikaku</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -182,6 +183,8 @@
     <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
     <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
     <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
+    <string name="game_shikaku_desc">Divide the whole grid into rectangles. Each rectangle must contain exactly one number, equal to its area.</string>
+    <string name="game_shikaku_howto">Drag to draw a rectangle. Tap a rectangle to remove it.</string>
     <string name="moves_label">Moves: %1$d</string>
     <string name="mini_chess_thinking">CPU is thinking…</string>
     <string name="mini_chess_round_won">Checkmate</string>
@@ -248,6 +251,7 @@
     <string name="achievement_gold_mini_chess">Endgame Virtuoso</string>
     <string name="achievement_gold_lights_out">Total Blackout</string>
     <string name="achievement_gold_sliding_puzzle">Smooth Operator</string>
+    <string name="achievement_gold_shikaku">Rectangle Master</string>
     <string name="achievement_gold_path_finder">Trailblazer</string>
     <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
     <string name="achievement_gold_colored_shapes">Shape Shifter</string>
@@ -274,6 +278,7 @@
     <string name="achievement_gold_mini_chess_desc">Win gold medal in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Win gold medal in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Win gold medal in Sliding Puzzle</string>
+    <string name="achievement_gold_shikaku_desc">Win gold medal in Shikaku</string>
     <string name="achievement_gold_path_finder_desc">Win gold medal in Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win gold medal in Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Win gold medal in Colored Shapes</string>
