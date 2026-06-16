@@ -267,7 +267,10 @@ class NurikabeGame(
             while (stack.isNotEmpty()) {
                 val cell = stack.removeLast()
                 size++
-                clues[cell]?.let { clueCount++; clueValue = it }
+                clues[cell]?.let {
+                    clueCount++
+                    clueValue = it
+                }
                 for (n in neighbors(cell)) {
                     if (n !in walls && !visited[n]) {
                         visited[n] = true
@@ -470,7 +473,10 @@ class NurikabeGame(
             while (stack.isNotEmpty()) {
                 val cell = stack.removeLast()
                 region.add(cell)
-                clues[cell]?.let { clueCount++; clueValue = it }
+                clues[cell]?.let {
+                    clueCount++
+                    clueValue = it
+                }
                 for (n in neighbors(cell)) {
                     if (n !in walls && !visited[n]) {
                         visited[n] = true
@@ -480,8 +486,11 @@ class NurikabeGame(
             }
             // Only single-clue regions get a verdict; multi-clue regions are still in progress.
             if (clueCount == 1) {
-                if (region.size == clueValue) satisfied.addAll(region)
-                else if (region.size > clueValue) invalid.addAll(region)
+                if (region.size == clueValue) {
+                    satisfied.addAll(region)
+                } else if (region.size > clueValue) {
+                    invalid.addAll(region)
+                }
             }
         }
 

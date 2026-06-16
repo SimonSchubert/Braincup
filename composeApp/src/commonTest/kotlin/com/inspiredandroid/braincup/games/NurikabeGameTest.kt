@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.app.NurikabeUiState
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -23,8 +22,7 @@ class NurikabeGameTest {
 
     @Test
     fun gridGrowsWithLevel() {
-        fun gridOf(level: Int): Pair<Int, Int> =
-            NurikabeGame(level = level).apply { nextRound() }.let { it.rows to it.cols }
+        fun gridOf(level: Int): Pair<Int, Int> = NurikabeGame(level = level).apply { nextRound() }.let { it.rows to it.cols }
 
         assertEquals(5 to 5, gridOf(1))
         assertEquals(6 to 6, gridOf(4))
