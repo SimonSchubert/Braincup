@@ -235,6 +235,9 @@ fun createSlidingPuzzleUiState(): GameUiState = SlidingPuzzleGame(level = 3, ran
 fun createShikakuUiState(): GameUiState = ShikakuGame(level = 3, random = Random(42L))
     .apply { nextRound() }
     .toUiState()
+fun createNurikabeUiState(): GameUiState = NurikabeGame(level = 3, random = Random(42L))
+    .apply { nextRound() }
+    .toUiState()
 fun createSchulteTableUiState(): GameUiState = createSchulteTableGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 

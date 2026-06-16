@@ -388,6 +388,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameNurikabe() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createNurikabeUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSchulteTable() {
         paparazzi.snap {
             GameScreen(

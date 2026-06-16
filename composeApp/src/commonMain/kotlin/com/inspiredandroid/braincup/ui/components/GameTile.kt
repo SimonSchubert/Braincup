@@ -176,6 +176,14 @@ private val ShikakuPreviewRects: List<ShikakuPreviewRect> = listOf(
     ShikakuPreviewRect(top = 2, left = 0, bottom = 2, right = 2, clue = 3, clueRow = 2, clueCol = 0),
 )
 
+private const val NurikabePreviewSize = 5
+
+/** A solved 5x5 Nurikabe: a size-5 island down the left, four 2-cell islands, a thin connected sea. */
+private val NurikabePreviewSea: Set<Int> = setOf(1, 3, 6, 8, 11, 12, 13, 14, 16, 18, 21, 23)
+
+/** cellIndex (row*5+col) -> island size. */
+private val NurikabePreviewClues: Map<Int, Int> = mapOf(0 to 5, 2 to 2, 4 to 2, 22 to 2, 24 to 2)
+
 private data class MiniChessPreviewPlacement(val drawable: DrawableResource, val isWhite: Boolean)
 
 private val MiniChessPreviewPieces: Map<Int, MiniChessPreviewPlacement> = mapOf(
@@ -270,6 +278,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.LIGHTS_OUT -> LightsOutPreview()
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
         GameType.SHIKAKU -> ShikakuPreview()
+        GameType.NURIKABE -> NurikabePreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
@@ -725,6 +734,53 @@ private fun ShikakuPreview() {
             val measured = textMeasurer.measure(AnnotatedString(rect.clue.toString()), style = clueStyle)
             val centerX = rect.clueCol * cellW + cellW / 2f
             val centerY = rect.clueRow * cellH + cellH / 2f
+            drawText(
+                measured,
+                topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+            )
+        }
+    }
+}
+
+@Composable
+private fun NurikabePreview() {
+    val gridLineColor = PreviewTextColor.copy(alpha = 0.3f)
+    val seaColor = PreviewTextColor
+    val numberFont = numberFontFamily()
+    val textMeasurer = rememberTextMeasurer()
+    val n = NurikabePreviewSize
+    Canvas(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        val cellW = size.width / n
+        val cellH = size.height / n
+
+        NurikabePreviewSea.forEach { index ->
+            drawRect(
+                color = seaColor,
+                topLeft = Offset((index % n) * cellW, (index / n) * cellH),
+                size = Size(cellW, cellH),
+            )
+        }
+
+        for (i in 0..n) {
+            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
+            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
+        }
+
+        val clueStyle = TextStyle(
+            color = PreviewTextColor,
+            fontSize = (cellH * 0.4f).toSp(),
+            fontFamily = numberFont,
+            fontWeight = FontWeight.Bold,
+        )
+        NurikabePreviewClues.forEach { (index, value) ->
+            val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
+            val centerX = (index % n) * cellW + cellW / 2f
+            val centerY = (index / n) * cellH + cellH / 2f
             drawText(
                 measured,
                 topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),

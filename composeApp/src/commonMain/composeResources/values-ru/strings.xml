@@ -69,6 +69,7 @@
     <string name="game_lights_out">Погаси свет</string>
     <string name="game_sliding_puzzle">Пятнашки</string>
     <string name="game_shikaku">Сикаку</string>
+    <string name="game_nurikabe">Нурикабэ</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -93,6 +94,8 @@
     <string name="game_sliding_puzzle_desc">Перемещай плитки в пустое место, чтобы расположить их по порядку.</string>
     <string name="game_shikaku_desc">Раздели всю сетку на прямоугольники. В каждом прямоугольнике должно быть ровно одно число, равное его площади.</string>
     <string name="game_shikaku_howto">Проведи, чтобы нарисовать прямоугольник. Нажми на прямоугольник, чтобы удалить его.</string>
+    <string name="game_nurikabe_desc">Закрашивайте клетки, образуя море вокруг пронумерованных островов. Каждый остров должен состоять из стольких связанных клеток, сколько указано его числом, море должно быть связным и не содержать ни одного блока 2x2.</string>
+    <string name="game_nurikabe_howto">Нажмите или проведите, чтобы закрасить море. Нажмите на закрашенную клетку, чтобы очистить её.</string>
     <string name="moves_label">Ходов: %1$d</string>
     <string name="mini_chess_thinking">Компьютер думает…</string>
     <string name="mini_chess_round_won">Шах и мат</string>
@@ -191,6 +194,7 @@
     <string name="achievement_gold_lights_out">Полное затемнение</string>
     <string name="achievement_gold_sliding_puzzle">Мастер скольжения</string>
     <string name="achievement_gold_shikaku">Мастер прямоугольников</string>
+    <string name="achievement_gold_nurikabe">Мастер стен</string>
     <string name="achievement_gold_path_finder">Следопыт</string>
     <string name="achievement_gold_anomaly_puzzle">Охотник за аномалиями</string>
     <string name="achievement_gold_colored_shapes">Перевёртыш</string>
@@ -217,6 +221,7 @@
     <string name="achievement_gold_lights_out_desc">Получи золотую медаль в Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Получи золотую медаль в Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Получи золотую медаль в Shikaku</string>
+    <string name="achievement_gold_nurikabe_desc">Получи золотую медаль в Nurikabe</string>
     <string name="achievement_gold_path_finder_desc">Получи золотую медаль в Поиск пути</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Получи золотую медаль в Головоломка с аномалией</string>
     <string name="achievement_gold_colored_shapes_desc">Получи золотую медаль в Цветные фигуры</string>

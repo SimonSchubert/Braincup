@@ -142,6 +142,23 @@ data class ShikakuUiState(
 }
 
 @Immutable
+data class NurikabeUiState(
+    val rows: Int,
+    val cols: Int,
+    /** cellIndex (row*cols+col) -> island size; absent keys are blank cells. */
+    val clues: ImmutableMap<Int, Int>,
+    /** Player-painted sea cells, by cellIndex. */
+    val walls: ImmutableSet<Int>,
+    /** White cells of islands that are complete and correct (one clue, exact size). */
+    val satisfiedCells: ImmutableSet<Int>,
+    /** White cells of islands that are already wrong (one clue but too many cells). */
+    val invalidCells: ImmutableSet<Int>,
+    /** Sea cells that form a 2x2 pool, which Nurikabe forbids. */
+    val poolCells: ImmutableSet<Int>,
+    val level: Int,
+) : GameUiState
+
+@Immutable
 data class PatternSequenceUiState(
     val sequence: ImmutableList<Figure>,
     val optionRows: ImmutableList<ImmutableList<FigureCell>>,

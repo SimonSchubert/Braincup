@@ -138,6 +138,7 @@ fun GameScreen(
             gameUiState is LightsOutUiState ||
             gameUiState is SlidingPuzzleUiState ||
             gameUiState is ShikakuUiState ||
+            gameUiState is NurikabeUiState ||
             gameUiState is WordleUiState -> null
         gameUiState is SchulteTableUiState -> {
             val bar: @Composable () -> Unit = {
@@ -195,6 +196,7 @@ fun GameScreen(
                 is LightsOutUiState -> LightsOutContent(gameUiState, onAnswer, onGiveUp)
                 is SlidingPuzzleUiState -> SlidingPuzzleContent(gameUiState, onAnswer, onGiveUp)
                 is ShikakuUiState -> ShikakuContent(gameUiState, onAnswer, onGiveUp)
+                is NurikabeUiState -> NurikabeContent(gameUiState, onAnswer, onGiveUp)
                 is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
                 is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
                 is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
@@ -1668,6 +1670,211 @@ private fun cellAt(offset: Offset, width: Int, height: Int, rows: Int, cols: Int
     val col = (offset.x / width * cols).toInt().coerceIn(0, cols - 1)
     val row = (offset.y / height * rows).toInt().coerceIn(0, rows - 1)
     return row to col
+}
+
+@Composable
+private fun ColumnScope.NurikabeContent(
+    uiState: NurikabeUiState,
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+) {
+    val rows = uiState.rows
+    val cols = uiState.cols
+    val compact = LocalIsCompactHeight.current
+
+    val gridLineColor = MaterialTheme.colorScheme.outlineVariant
+    val islandColor = MaterialTheme.colorScheme.surfaceContainerHighest
+    val seaColor = MaterialTheme.colorScheme.onSurface
+    val previewColor = Primary
+    val clueColor = MaterialTheme.colorScheme.onSurface
+    val satisfiedFill = SuccessGreenSoft
+    val satisfiedColor = SuccessGreen
+    val invalidFill = MaterialTheme.colorScheme.error.copy(alpha = 0.15f)
+    val invalidColor = MaterialTheme.colorScheme.error
+    val poolColor = MaterialTheme.colorScheme.error.copy(alpha = 0.55f)
+    val numberFont = numberFontFamily()
+    val textMeasurer = rememberTextMeasurer()
+
+    // Drag paints a whole stroke at once; only the committed cells are sent on release so the
+    // gesture (keyed on uiState) is never cancelled mid-stroke. The first touched cell fixes the
+    // mode: an empty cell fills sea, a sea cell erases it.
+    var dragCells by remember(uiState) { mutableStateOf(emptySet<Int>()) }
+    var dragFills by remember(uiState) { mutableStateOf(true) }
+
+    val boardModifier = if (compact) {
+        Modifier.heightIn(max = 260.dp).aspectRatio(cols.toFloat() / rows)
+    } else {
+        Modifier.widthIn(max = 340.dp).aspectRatio(cols.toFloat() / rows)
+    }
+
+    val board: @Composable () -> Unit = {
+        Canvas(
+            modifier = boardModifier
+                .pointerInput(uiState) {
+                    detectDragGestures(
+                        onDragStart = { offset ->
+                            val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
+                            val index = r * cols + c
+                            if (index in uiState.clues) {
+                                dragFills = true
+                                dragCells = emptySet()
+                            } else {
+                                dragFills = index !in uiState.walls
+                                dragCells = setOf(index)
+                            }
+                        },
+                        onDrag = { change, _ ->
+                            change.consume()
+                            val (r, c) = cellAt(change.position, size.width, size.height, rows, cols)
+                            val index = r * cols + c
+                            if (index !in uiState.clues) dragCells = dragCells + index
+                        },
+                        onDragEnd = {
+                            val cells = dragCells
+                            if (cells.isNotEmpty()) {
+                                onAnswer("paint:${if (dragFills) 1 else 0}:${cells.joinToString(",")}")
+                            }
+                            dragCells = emptySet()
+                        },
+                        onDragCancel = { dragCells = emptySet() },
+                    )
+                }
+                .pointerInput(uiState) {
+                    detectTapGestures { offset ->
+                        val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
+                        onAnswer("toggle:${r * cols + c}")
+                    }
+                },
+        ) {
+            val cellW = size.width / cols
+            val cellH = size.height / rows
+
+            fun cellTopLeft(index: Int) = Offset((index % cols) * cellW, (index / cols) * cellH)
+            val cellSize = Size(cellW, cellH)
+
+            drawRect(color = islandColor)
+
+            // Live island feedback: a completed island reads green, an over-filled one red.
+            uiState.satisfiedCells.forEach { index ->
+                drawRect(color = satisfiedFill, topLeft = cellTopLeft(index), size = cellSize)
+            }
+            uiState.invalidCells.forEach { index ->
+                drawRect(color = invalidFill, topLeft = cellTopLeft(index), size = cellSize)
+            }
+
+            uiState.walls.forEach { index ->
+                drawRect(color = seaColor, topLeft = cellTopLeft(index), size = cellSize)
+            }
+
+            // Flag forbidden 2x2 sea pools in red over the painted sea.
+            uiState.poolCells.forEach { index ->
+                drawRect(color = poolColor, topLeft = cellTopLeft(index), size = cellSize)
+            }
+
+            // Live stroke preview: filled cells turn into sea, erased cells back to island, each
+            // outlined so the affected cells read clearly under either mode.
+            dragCells.forEach { index ->
+                drawRect(
+                    color = if (dragFills) seaColor.copy(alpha = 0.55f) else islandColor,
+                    topLeft = cellTopLeft(index),
+                    size = cellSize,
+                )
+                drawRect(
+                    color = previewColor,
+                    topLeft = cellTopLeft(index),
+                    size = cellSize,
+                    style = Stroke(width = 2.dp.toPx()),
+                )
+            }
+
+            for (c in 0..cols) {
+                val x = c * cellW
+                drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.dp.toPx())
+            }
+            for (r in 0..rows) {
+                val y = r * cellH
+                drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.dp.toPx())
+            }
+
+            val clueFontSize = (cellH * 0.42f).toSp()
+            uiState.clues.forEach { (index, value) ->
+                val color = when (index) {
+                    in uiState.satisfiedCells -> satisfiedColor
+                    in uiState.invalidCells -> invalidColor
+                    else -> clueColor
+                }
+                val style = TextStyle(
+                    color = color,
+                    fontSize = clueFontSize,
+                    fontFamily = numberFont,
+                    fontWeight = FontWeight.Bold,
+                )
+                val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = style)
+                val centerX = (index % cols) * cellW + cellW / 2f
+                val centerY = (index / cols) * cellH + cellH / 2f
+                drawText(
+                    measured,
+                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+                )
+            }
+        }
+    }
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            board()
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = stringResource(Res.string.level_label, uiState.level),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(Res.string.game_nurikabe_howto),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                )
+                Spacer(Modifier.height(8.dp))
+                GiveUpButton(onGiveUp = onGiveUp)
+            }
+        }
+    } else {
+        Text(
+            text = stringResource(Res.string.level_label, uiState.level),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(Res.string.game_nurikabe_howto),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 24.dp),
+        )
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            board()
+        }
+        Spacer(Modifier.height(16.dp))
+        GiveUpButton(
+            onGiveUp = onGiveUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+    }
 }
 
 // --- Sherlock Calculation Helper Composables ---

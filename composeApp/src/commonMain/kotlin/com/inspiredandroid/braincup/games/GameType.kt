@@ -61,6 +61,15 @@ enum class GameType(
         descriptionRes = Res.string.game_shikaku_desc,
         category = GameCategory.LOGIC,
     ),
+    NURIKABE(
+        displayNameRes = Res.string.game_nurikabe,
+        id = "26",
+        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_nurikabe_desc,
+        category = GameCategory.LOGIC,
+    ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
         id = "8",
@@ -241,7 +250,7 @@ enum class GameType(
     /** Games whose score is the highest level reached, not a count of correct answers.
      *  UI shows "Level N" / "Play next level" instead of "Score: N" / "Play Again". */
     val usesLevelLabel: Boolean
-        get() = this == LIGHTS_OUT || this == SLIDING_PUZZLE || this == SHIKAKU
+        get() = this == LIGHTS_OUT || this == SLIDING_PUZZLE || this == SHIKAKU || this == NURIKABE
 
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */

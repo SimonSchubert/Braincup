@@ -69,6 +69,7 @@
     <string name="game_lights_out">Spegni le luci</string>
     <string name="game_sliding_puzzle">Puzzle scorrevole</string>
     <string name="game_shikaku">Shikaku</string>
+    <string name="game_nurikabe">Nurikabe</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trova la figura che si distingue. Considera sia il colore che la forma di ogni figura.</string>
@@ -93,6 +94,8 @@
     <string name="game_sliding_puzzle_desc">Fai scorrere le tessere nello spazio vuoto per metterle in ordine.</string>
     <string name="game_shikaku_desc">Dividi l'intera griglia in rettangoli. Ogni rettangolo deve contenere esattamente un numero, uguale alla sua area.</string>
     <string name="game_shikaku_howto">Trascina per disegnare un rettangolo. Tocca un rettangolo per rimuoverlo.</string>
+    <string name="game_nurikabe_desc">Colora le celle per formare il mare attorno alle isole numerate. Ogni isola deve avere tante celle collegate quanto il suo numero, il mare deve essere collegato e non deve contenere alcun blocco 2x2.</string>
+    <string name="game_nurikabe_howto">Tocca o trascina per colorare il mare. Tocca una cella colorata per cancellarla.</string>
     <string name="moves_label">Mosse: %1$d</string>
     <string name="mini_chess_thinking">La CPU sta pensando…</string>
     <string name="mini_chess_round_won">Scacco matto</string>
@@ -191,6 +194,7 @@
     <string name="achievement_gold_lights_out">Blackout totale</string>
     <string name="achievement_gold_sliding_puzzle">Operatore fluido</string>
     <string name="achievement_gold_shikaku">Maestro dei rettangoli</string>
+    <string name="achievement_gold_nurikabe">Maestro dei muri</string>
     <string name="achievement_gold_path_finder">Esploratore</string>
     <string name="achievement_gold_anomaly_puzzle">Cacciatore di anomalie</string>
     <string name="achievement_gold_colored_shapes">Mutaforma</string>
@@ -217,6 +221,7 @@
     <string name="achievement_gold_lights_out_desc">Vinci la medaglia d'oro in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Vinci la medaglia d'oro in Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Vinci la medaglia d'oro in Shikaku</string>
+    <string name="achievement_gold_nurikabe_desc">Vinci la medaglia d'oro in Nurikabe</string>
     <string name="achievement_gold_path_finder_desc">Vinci la medaglia d'oro in Trova il percorso</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Vinci la medaglia d'oro in Puzzle dell'anomalia</string>
     <string name="achievement_gold_colored_shapes_desc">Vinci la medaglia d'oro in Forme colorate</string>

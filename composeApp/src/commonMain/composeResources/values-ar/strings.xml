@@ -69,6 +69,7 @@
     <string name="game_lights_out">إطفاء الأنوار</string>
     <string name="game_sliding_puzzle">لغز الانزلاق</string>
     <string name="game_shikaku">شيكاكو</string>
+    <string name="game_nurikabe">نوريكابي</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -93,6 +94,8 @@
     <string name="game_sliding_puzzle_desc">حرّك القطع إلى المساحة الفارغة لترتيبها.</string>
     <string name="game_shikaku_desc">قسّم الشبكة كاملةً إلى مستطيلات. يجب أن يحتوي كل مستطيل على رقم واحد فقط يساوي مساحته.</string>
     <string name="game_shikaku_howto">اسحب لرسم مستطيل. انقر على مستطيل لإزالته.</string>
+    <string name="game_nurikabe_desc">لوّن الخلايا لبناء البحر حول الجزر المرقّمة. يجب أن تحتوي كل جزيرة على عدد من الخلايا المتصلة يساوي رقمها، ويجب أن يكون البحر متصلاً وألا يحتوي على أي مربع 2x2.</string>
+    <string name="game_nurikabe_howto">انقر أو اسحب لتلوين البحر. انقر على خلية ملوّنة لمسحها.</string>
     <string name="moves_label">النقلات: %1$d</string>
     <string name="mini_chess_thinking">الحاسوب يفكّر…</string>
     <string name="mini_chess_round_won">كش ملك</string>
@@ -191,6 +194,7 @@
     <string name="achievement_gold_lights_out">إطفاء كامل</string>
     <string name="achievement_gold_sliding_puzzle">خبير التحريك</string>
     <string name="achievement_gold_shikaku">سيد المستطيلات</string>
+    <string name="achievement_gold_nurikabe">بنّاء الجدران</string>
     <string name="achievement_gold_path_finder">كشاف المسار</string>
     <string name="achievement_gold_anomaly_puzzle">صياد الشذوذ</string>
     <string name="achievement_gold_colored_shapes">متبدل الأشكال</string>
@@ -217,6 +221,7 @@
     <string name="achievement_gold_lights_out_desc">اربح الميدالية الذهبية في Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">اربح الميدالية الذهبية في Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">اربح الميدالية الذهبية في Shikaku</string>
+    <string name="achievement_gold_nurikabe_desc">اربح الميدالية الذهبية في Nurikabe</string>
     <string name="achievement_gold_path_finder_desc">اربح الميدالية الذهبية في مكتشف المسار</string>
     <string name="achievement_gold_anomaly_puzzle_desc">اربح الميدالية الذهبية في لغز الشذوذ</string>
     <string name="achievement_gold_colored_shapes_desc">اربح الميدالية الذهبية في أشكال ملونة</string>

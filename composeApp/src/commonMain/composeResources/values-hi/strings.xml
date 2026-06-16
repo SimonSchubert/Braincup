@@ -69,6 +69,7 @@
     <string name="game_lights_out">लाइट्स आउट</string>
     <string name="game_sliding_puzzle">स्लाइडिंग पहेली</string>
     <string name="game_shikaku">शिकाकू</string>
+    <string name="game_nurikabe">नुरिकाबे</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">उस आकृति को खोजें जो अलग दिखती है। प्रत्येक आकृति के रंग और आकार दोनों पर विचार करें।</string>
@@ -93,6 +94,8 @@
     <string name="game_sliding_puzzle_desc">टाइलों को खाली जगह में सरकाएँ ताकि उन्हें क्रम में रखा जा सके।</string>
     <string name="game_shikaku_desc">पूरे ग्रिड को आयतों में बाँटें। प्रत्येक आयत में ठीक एक संख्या होनी चाहिए, जो उसके क्षेत्रफल के बराबर हो।</string>
     <string name="game_shikaku_howto">आयत बनाने के लिए खींचें। हटाने के लिए आयत पर टैप करें।</string>
+    <string name="game_nurikabe_desc">संख्या वाले द्वीपों के चारों ओर समुद्र बनाने के लिए कोशिकाओं को रंगें। प्रत्येक द्वीप में उसकी संख्या के बराबर जुड़ी हुई कोशिकाएँ होनी चाहिए, समुद्र जुड़ा हुआ होना चाहिए और उसमें कोई 2x2 ब्लॉक नहीं होना चाहिए।</string>
+    <string name="game_nurikabe_howto">समुद्र रंगने के लिए टैप करें या खींचें। भरी हुई कोशिका को साफ़ करने के लिए उस पर टैप करें।</string>
     <string name="moves_label">चालें: %1$d</string>
     <string name="mini_chess_thinking">CPU सोच रहा है…</string>
     <string name="mini_chess_round_won">शह-मात</string>
@@ -191,6 +194,7 @@
     <string name="achievement_gold_lights_out">पूर्ण अंधकार</string>
     <string name="achievement_gold_sliding_puzzle">कुशल खिसकाने वाला</string>
     <string name="achievement_gold_shikaku">आयत मास्टर</string>
+    <string name="achievement_gold_nurikabe">दीवार निर्माता</string>
     <string name="achievement_gold_path_finder">पथप्रदर्शक</string>
     <string name="achievement_gold_anomaly_puzzle">विसंगति शिकारी</string>
     <string name="achievement_gold_colored_shapes">आकार बदलने वाला</string>
@@ -217,6 +221,7 @@
     <string name="achievement_gold_lights_out_desc">Lights Out में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_shikaku_desc">Shikaku में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_nurikabe_desc">Nurikabe में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_path_finder_desc">पथ खोजक में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_anomaly_puzzle_desc">विसंगति पहेली में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_colored_shapes_desc">रंगीन आकार में स्वर्ण पदक जीतें</string>

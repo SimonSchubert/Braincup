@@ -69,6 +69,7 @@
     <string name="game_lights_out">Tắt Đèn</string>
     <string name="game_sliding_puzzle">Câu Đố Trượt</string>
     <string name="game_shikaku">Shikaku</string>
+    <string name="game_nurikabe">Nurikabe</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -93,6 +94,8 @@
     <string name="game_sliding_puzzle_desc">Trượt các ô vào chỗ trống để xếp chúng theo thứ tự.</string>
     <string name="game_shikaku_desc">Chia toàn bộ lưới thành các hình chữ nhật. Mỗi hình chữ nhật phải chứa đúng một số, bằng diện tích của nó.</string>
     <string name="game_shikaku_howto">Kéo để vẽ một hình chữ nhật. Chạm vào hình chữ nhật để xóa nó.</string>
+    <string name="game_nurikabe_desc">Tô các ô để tạo biển bao quanh các đảo có số. Mỗi đảo phải có số ô liền kề đúng bằng số của nó, biển phải liền nhau và không được chứa khối 2x2 nào.</string>
+    <string name="game_nurikabe_howto">Chạm hoặc kéo để tô biển. Chạm vào ô đã tô để xóa.</string>
     <string name="moves_label">Lượt đi: %1$d</string>
     <string name="mini_chess_thinking">CPU đang suy nghĩ…</string>
     <string name="mini_chess_round_won">Chiếu hết</string>
@@ -191,6 +194,7 @@
     <string name="achievement_gold_lights_out">Tắt đèn toàn bộ</string>
     <string name="achievement_gold_sliding_puzzle">Người trượt khéo</string>
     <string name="achievement_gold_shikaku">Bậc thầy hình chữ nhật</string>
+    <string name="achievement_gold_nurikabe">Bậc thầy xây tường</string>
     <string name="achievement_gold_path_finder">Người dò đường</string>
     <string name="achievement_gold_anomaly_puzzle">Thợ săn dị vật</string>
     <string name="achievement_gold_colored_shapes">Kẻ biến hình</string>
@@ -217,6 +221,7 @@
     <string name="achievement_gold_lights_out_desc">Giành huy chương vàng trong Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Giành huy chương vàng trong Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Giành huy chương vàng trong Shikaku</string>
+    <string name="achievement_gold_nurikabe_desc">Giành huy chương vàng trong Nurikabe</string>
     <string name="achievement_gold_path_finder_desc">Giành huy chương vàng trong Tìm đường</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Giành huy chương vàng trong Câu đố bất thường</string>
     <string name="achievement_gold_colored_shapes_desc">Giành huy chương vàng trong Hình dạng màu sắc</string>

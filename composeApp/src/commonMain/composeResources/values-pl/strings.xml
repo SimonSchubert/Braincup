@@ -69,6 +69,7 @@
     <string name="game_lights_out">Wyłącz światła</string>
     <string name="game_sliding_puzzle">Układanka przesuwna</string>
     <string name="game_shikaku">Shikaku</string>
+    <string name="game_nurikabe">Nurikabe</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -93,6 +94,8 @@
     <string name="game_sliding_puzzle_desc">Przesuwaj kafelki na puste pole, aby ułożyć je po kolei.</string>
     <string name="game_shikaku_desc">Podziel całą siatkę na prostokąty. Każdy prostokąt musi zawierać dokładnie jedną liczbę, równą jego polu.</string>
     <string name="game_shikaku_howto">Przeciągnij, aby narysować prostokąt. Dotknij prostokąta, aby go usunąć.</string>
+    <string name="game_nurikabe_desc">Maluj komórki, aby utworzyć morze wokół ponumerowanych wysp. Każda wyspa musi mieć tyle połączonych komórek, ile wynosi jej liczba, morze musi być połączone i nie może zawierać żadnego bloku 2x2.</string>
+    <string name="game_nurikabe_howto">Dotknij lub przeciągnij, aby malować morze. Dotknij wypełnionej komórki, aby ją wyczyścić.</string>
     <string name="moves_label">Ruchy: %1$d</string>
     <string name="mini_chess_thinking">CPU myśli…</string>
     <string name="mini_chess_round_won">Mat</string>
@@ -191,6 +194,7 @@
     <string name="achievement_gold_lights_out">Całkowite zaciemnienie</string>
     <string name="achievement_gold_sliding_puzzle">Sprawny układacz</string>
     <string name="achievement_gold_shikaku">Mistrz prostokątów</string>
+    <string name="achievement_gold_nurikabe">Mistrz murów</string>
     <string name="achievement_gold_path_finder">Tropiciel</string>
     <string name="achievement_gold_anomaly_puzzle">Łowca anomalii</string>
     <string name="achievement_gold_colored_shapes">Zmiennokształtny</string>
@@ -217,6 +221,7 @@
     <string name="achievement_gold_lights_out_desc">Zdobądź złoty medal w Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Zdobądź złoty medal w Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Zdobądź złoty medal w Shikaku</string>
+    <string name="achievement_gold_nurikabe_desc">Zdobądź złoty medal w Nurikabe</string>
     <string name="achievement_gold_path_finder_desc">Zdobądź złoty medal w Znajdź ścieżkę</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Zdobądź złoty medal w Łamigłówka anomalii</string>
     <string name="achievement_gold_colored_shapes_desc">Zdobądź złoty medal w Kolorowe kształty</string>
