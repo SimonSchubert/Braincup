@@ -1,3 +1,9 @@
+## v2.21.0 — 2026-06-16
+
+### Features
+- Nurikabe puzzle game
+- Shikaku puzzle game
+
 ## v2.20.0 — 2026-06-13
 
 ### Features
