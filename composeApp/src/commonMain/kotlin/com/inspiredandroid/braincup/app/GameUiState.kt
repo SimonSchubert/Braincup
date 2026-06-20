@@ -142,6 +142,23 @@ data class ShikakuUiState(
 }
 
 @Immutable
+data class CatQueensUiState(
+    /** Side length of the square board; also the cat / column / region count. */
+    val size: Int,
+    /** region id (0 until size) for each cell, indexed by row*size+col. */
+    val regions: ImmutableList<Int>,
+    /** Cells with a cat placed on them. */
+    val cats: ImmutableSet<Int>,
+    /** Placed cats that currently break a rule; shown with a warning ring. */
+    val invalidCats: ImmutableSet<Int>,
+    val level: Int,
+    /** The rule the current placement breaks, if any; drives the contextual error message. */
+    val violation: Violation? = null,
+) : GameUiState {
+    enum class Violation { ROW, COLUMN, ZONE, TOUCHING }
+}
+
+@Immutable
 data class NurikabeUiState(
     val rows: Int,
     val cols: Int,

@@ -15,6 +15,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
@@ -33,6 +34,7 @@ import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
+import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueBottom
@@ -40,6 +42,7 @@ import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueSide
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
+import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
@@ -184,6 +187,15 @@ private val NurikabePreviewSea: Set<Int> = setOf(1, 3, 6, 8, 11, 12, 13, 14, 16,
 /** cellIndex (row*5+col) -> island size. */
 private val NurikabePreviewClues: Map<Int, Int> = mapOf(0 to 5, 2 to 2, 4 to 2, 22 to 2, 24 to 2)
 
+private const val CatQueensPreviewSize = 4
+private val CatQueensPreviewRegions: List<Int> = listOf(
+    0, 0, 1, 1,
+    0, 1, 1, 2,
+    3, 3, 1, 2,
+    3, 3, 2, 2,
+)
+private val CatQueensPreviewCats: Set<Int> = setOf(1, 7, 8, 10)
+
 private data class MiniChessPreviewPlacement(val drawable: DrawableResource, val isWhite: Boolean)
 
 private val MiniChessPreviewPieces: Map<Int, MiniChessPreviewPlacement> = mapOf(
@@ -279,6 +291,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
         GameType.SHIKAKU -> ShikakuPreview()
         GameType.NURIKABE -> NurikabePreview()
+        GameType.CAT_QUEENS -> CatQueensPreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
@@ -785,6 +798,68 @@ private fun NurikabePreview() {
                 measured,
                 topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
             )
+        }
+    }
+}
+
+@Composable
+private fun CatQueensPreview() {
+    val gridLineColor = PreviewTextColor.copy(alpha = 0.25f)
+    val borderColor = PreviewTextColor
+    val catPainter = rememberVectorPainter(CatFace)
+    val n = CatQueensPreviewSize
+    Canvas(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(20.dp),
+    ) {
+        val cellW = size.width / n
+        val cellH = size.height / n
+        val cellSize = Size(cellW, cellH)
+        fun topLeft(index: Int) = Offset((index % n) * cellW, (index / n) * cellH)
+
+        for (index in 0 until n * n) {
+            val color = CatRegionColors[CatQueensPreviewRegions[index] % CatRegionColors.size]
+            drawRect(color = color, topLeft = topLeft(index), size = cellSize)
+        }
+
+        for (i in 0..n) {
+            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
+            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
+        }
+
+        val bold = 2.5f.dp.toPx()
+        for (r in 0 until n) {
+            for (c in 0 until n) {
+                val index = r * n + c
+                val region = CatQueensPreviewRegions[index]
+                val x0 = c * cellW
+                val y0 = r * cellH
+                val x1 = x0 + cellW
+                val y1 = y0 + cellH
+                if (r == 0 || CatQueensPreviewRegions[index - n] != region) {
+                    drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
+                }
+                if (r == n - 1 || CatQueensPreviewRegions[index + n] != region) {
+                    drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
+                }
+                if (c == 0 || CatQueensPreviewRegions[index - 1] != region) {
+                    drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
+                }
+                if (c == n - 1 || CatQueensPreviewRegions[index + 1] != region) {
+                    drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
+                }
+            }
+        }
+
+        val pad = cellW * 0.14f
+        val catSize = Size(cellW - 2 * pad, cellH - 2 * pad)
+        CatQueensPreviewCats.forEach { index ->
+            val tl = topLeft(index)
+            translate(left = tl.x + pad, top = tl.y + pad) {
+                with(catPainter) { draw(catSize) }
+            }
         }
     }
 }

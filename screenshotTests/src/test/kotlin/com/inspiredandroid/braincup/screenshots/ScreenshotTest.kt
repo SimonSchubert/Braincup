@@ -401,6 +401,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameCatQueens() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createCatQueensUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSchulteTable() {
         paparazzi.snap {
             GameScreen(

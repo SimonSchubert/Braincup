@@ -142,6 +142,7 @@ class GameController(
                 it == GameType.SLIDING_PUZZLE ||
                 it == GameType.SHIKAKU ||
                 it == GameType.NURIKABE ||
+                it == GameType.CAT_QUEENS ||
                 it == GameType.MINI_CHESS ||
                 it == GameType.WORDLE
         }
@@ -269,6 +270,10 @@ class GameController(
             startNurikabeGame(gameType)
             return
         }
+        if (gameType == GameType.CAT_QUEENS) {
+            startCatQueensGame(gameType)
+            return
+        }
         if (gameType == GameType.FLAGS) {
             startFlagsGame(gameType)
             return
@@ -366,6 +371,10 @@ class GameController(
             handleNurikabeAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is CatQueensGame) {
+            handleCatQueensAnswer(currentState, game, answer.trim())
+            return
+        }
         if (game is SchulteTableGame) {
             handleSchulteTableAnswer(currentState, game, answer.trim())
             return
@@ -454,6 +463,11 @@ class GameController(
             return
         }
         if (game is NurikabeGame) {
+            points = 0
+            finishCurrentGame(currentState.gameType, game)
+            return
+        }
+        if (game is CatQueensGame) {
             points = 0
             finishCurrentGame(currentState.gameType, game)
             return
@@ -642,6 +656,7 @@ class GameController(
         GameType.SLIDING_PUZZLE -> SlidingPuzzleGame()
         GameType.SHIKAKU -> ShikakuGame()
         GameType.NURIKABE -> NurikabeGame()
+        GameType.CAT_QUEENS -> CatQueensGame()
         GameType.SCHULTE_TABLE -> SchulteTableGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
@@ -1075,6 +1090,42 @@ class GameController(
             }
             else -> return
         }
+        _gameUiState.value = game.toUiState()
+        if (solved) {
+            points = game.level
+            storage.putLastRound(currentState.gameType.id, game.level + 1)
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = null,
+            )
+            scope.launch {
+                delay(700.milliseconds)
+                finishCurrentGame(currentState.gameType, game)
+            }
+        }
+    }
+
+    private fun startCatQueensGame(gameType: GameType) {
+        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
+        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
+        // bonus message on the finish screen wouldn't make sense here.
+        val game = CatQueensGame(level = level).apply { answeredAllCorrect = false }
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+    }
+
+    private fun handleCatQueensAnswer(
+        currentState: GameState.Active,
+        game: CatQueensGame,
+        input: String,
+    ) {
+        // The UI sends the tapped cell index over the shared onAnswer(String) channel.
+        val index = input.toIntOrNull() ?: return
+        val solved = game.toggle(index)
         _gameUiState.value = game.toUiState()
         if (solved) {
             points = game.level

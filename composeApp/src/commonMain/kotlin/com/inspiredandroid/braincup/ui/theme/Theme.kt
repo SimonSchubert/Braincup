@@ -55,6 +55,19 @@ val MedalBronze = Color(0xFFCD7F32)
 val LightsOutOnColor = Color(0xFFFFC107)
 val LightsOutOffColor = Color(0xFF424242)
 
+/** Vibrant pastel zone colors for Cat Queens, by region id (boards use up to 8 regions). The board
+ *  also draws bold region borders, so the puzzle stays solvable when hues are hard to tell apart. */
+val CatRegionColors = listOf(
+    Color(0xFF6EC6E6), // sky blue
+    Color(0xFFB39DDB), // lavender
+    Color(0xFFFFD54F), // sunflower
+    Color(0xFFE57399), // rose
+    Color(0xFF4DB6AC), // teal
+    Color(0xFFAED581), // leaf green
+    Color(0xFFFFB074), // peach
+    Color(0xFFF48FB1), // blossom pink
+)
+
 // Wordle tile feedback. The three classic hues, kept constant across light/dark/OLED so the
 // green/yellow/gray meaning never shifts; white text reads on all three. Empty/pending tiles use
 // theme surface tones instead so they recede.

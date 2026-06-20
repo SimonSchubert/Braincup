@@ -238,6 +238,16 @@ fun createShikakuUiState(): GameUiState = ShikakuGame(level = 3, random = Random
 fun createNurikabeUiState(): GameUiState = NurikabeGame(level = 3, random = Random(42L))
     .apply { nextRound() }
     .toUiState()
+fun createCatQueensUiState(): GameUiState = CatQueensGame(level = 3, random = Random(42L))
+    .apply {
+        nextRound()
+        // A non-conflicting trio on this fixed 5x5 board, so the snapshot exercises cat rendering
+        // and the green "valid" feedback rings.
+        toggle(0)
+        toggle(12)
+        toggle(24)
+    }
+    .toUiState()
 fun createSchulteTableUiState(): GameUiState = createSchulteTableGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 
