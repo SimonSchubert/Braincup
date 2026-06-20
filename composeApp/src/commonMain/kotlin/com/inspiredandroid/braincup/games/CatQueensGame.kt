@@ -181,10 +181,22 @@ class CatQueensGame(
         fun addNeighbors(cell: Int, reg: Int) {
             val r = cell / n
             val c = cell % n
-            if (r > 0 && region[cell - n] == -1) { frontierCell.add(cell - n); frontierRegion.add(reg) }
-            if (r < n - 1 && region[cell + n] == -1) { frontierCell.add(cell + n); frontierRegion.add(reg) }
-            if (c > 0 && region[cell - 1] == -1) { frontierCell.add(cell - 1); frontierRegion.add(reg) }
-            if (c < n - 1 && region[cell + 1] == -1) { frontierCell.add(cell + 1); frontierRegion.add(reg) }
+            if (r > 0 && region[cell - n] == -1) {
+                frontierCell.add(cell - n)
+                frontierRegion.add(reg)
+            }
+            if (r < n - 1 && region[cell + n] == -1) {
+                frontierCell.add(cell + n)
+                frontierRegion.add(reg)
+            }
+            if (c > 0 && region[cell - 1] == -1) {
+                frontierCell.add(cell - 1)
+                frontierRegion.add(reg)
+            }
+            if (c < n - 1 && region[cell + 1] == -1) {
+                frontierCell.add(cell + 1)
+                frontierRegion.add(reg)
+            }
         }
 
         for (r in 0 until n) {
