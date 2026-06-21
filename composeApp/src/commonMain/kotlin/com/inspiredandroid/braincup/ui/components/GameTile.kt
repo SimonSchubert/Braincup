@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
@@ -727,56 +726,56 @@ private fun ShikakuPreview() {
             .aspectRatio(1f)
             .padding(24.dp),
     ) {
-    Canvas(
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        val cellW = size.width / n
-        val cellH = size.height / n
+        Canvas(
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            val cellW = size.width / n
+            val cellH = size.height / n
 
-        // Each rectangle gets a distinct region color (like Cat Queens regions).
-        ShikakuPreviewRects.forEachIndexed { idx, rect ->
-            drawRect(
-                color = CatRegionColors[idx % CatRegionColors.size],
-                topLeft = Offset(rect.left * cellW, rect.top * cellH),
-                size = Size((rect.right - rect.left + 1) * cellW, (rect.bottom - rect.top + 1) * cellH),
+            // Each rectangle gets a distinct region color (like Cat Queens regions).
+            ShikakuPreviewRects.forEachIndexed { idx, rect ->
+                drawRect(
+                    color = CatRegionColors[idx % CatRegionColors.size],
+                    topLeft = Offset(rect.left * cellW, rect.top * cellH),
+                    size = Size((rect.right - rect.left + 1) * cellW, (rect.bottom - rect.top + 1) * cellH),
+                )
+            }
+
+            // Thin grid lines over the fills.
+            for (i in 0..n) {
+                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
+                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
+            }
+
+            // Bold dark border around each rectangle (like Cat Queens region borders).
+            val bold = 3.dp.toPx()
+            ShikakuPreviewRects.forEach { rect ->
+                val x0 = rect.left * cellW
+                val y0 = rect.top * cellH
+                val x1 = (rect.right + 1) * cellW
+                val y1 = (rect.bottom + 1) * cellH
+                drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
+                drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
+                drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
+                drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
+            }
+
+            val clueStyle = TextStyle(
+                color = PreviewTextColor,
+                fontSize = (cellH * 0.4f).toSp(),
+                fontFamily = numberFont,
+                fontWeight = FontWeight.Bold,
             )
+            ShikakuPreviewRects.forEach { rect ->
+                val measured = textMeasurer.measure(AnnotatedString(rect.clue.toString()), style = clueStyle)
+                val centerX = rect.clueCol * cellW + cellW / 2f
+                val centerY = rect.clueRow * cellH + cellH / 2f
+                drawText(
+                    measured,
+                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+                )
+            }
         }
-
-        // Thin grid lines over the fills.
-        for (i in 0..n) {
-            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
-            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
-        }
-
-        // Bold dark border around each rectangle (like Cat Queens region borders).
-        val bold = 3.dp.toPx()
-        ShikakuPreviewRects.forEach { rect ->
-            val x0 = rect.left * cellW
-            val y0 = rect.top * cellH
-            val x1 = (rect.right + 1) * cellW
-            val y1 = (rect.bottom + 1) * cellH
-            drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
-            drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
-            drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
-            drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
-        }
-
-        val clueStyle = TextStyle(
-            color = PreviewTextColor,
-            fontSize = (cellH * 0.4f).toSp(),
-            fontFamily = numberFont,
-            fontWeight = FontWeight.Bold,
-        )
-        ShikakuPreviewRects.forEach { rect ->
-            val measured = textMeasurer.measure(AnnotatedString(rect.clue.toString()), style = clueStyle)
-            val centerX = rect.clueCol * cellW + cellW / 2f
-            val centerY = rect.clueRow * cellH + cellH / 2f
-            drawText(
-                measured,
-                topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-            )
-        }
-    }
     }
 }
 
@@ -794,42 +793,42 @@ private fun NurikabePreview() {
             .aspectRatio(1f)
             .padding(24.dp),
     ) {
-    Canvas(
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        val cellW = size.width / n
-        val cellH = size.height / n
-        fun topLeft(index: Int) = Offset((index % n) * cellW, (index / n) * cellH)
-        val cellSize = Size(cellW, cellH)
+        Canvas(
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            val cellW = size.width / n
+            val cellH = size.height / n
+            fun topLeft(index: Int) = Offset((index % n) * cellW, (index / n) * cellH)
+            val cellSize = Size(cellW, cellH)
 
-        // Island cells are light; sea cells are dark — the classic Nurikabe look.
-        drawRect(color = NurikabeIslandColor)
-        NurikabePreviewSea.forEach { index ->
-            drawRect(color = NurikabeSeaColor, topLeft = topLeft(index), size = cellSize)
-        }
+            // Island cells are light; sea cells are dark — the classic Nurikabe look.
+            drawRect(color = NurikabeIslandColor)
+            NurikabePreviewSea.forEach { index ->
+                drawRect(color = NurikabeSeaColor, topLeft = topLeft(index), size = cellSize)
+            }
 
-        // Dark grid lines, slightly thicker than the sea preview to match Shikaku / Cat Queens.
-        for (i in 0..n) {
-            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.5.dp.toPx())
-            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.5.dp.toPx())
-        }
+            // Dark grid lines, slightly thicker than the sea preview to match Shikaku / Cat Queens.
+            for (i in 0..n) {
+                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.5.dp.toPx())
+                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.5.dp.toPx())
+            }
 
-        val clueStyle = TextStyle(
-            color = PreviewTextColor,
-            fontSize = (cellH * 0.4f).toSp(),
-            fontFamily = numberFont,
-            fontWeight = FontWeight.Bold,
-        )
-        NurikabePreviewClues.forEach { (index, value) ->
-            val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
-            val centerX = (index % n) * cellW + cellW / 2f
-            val centerY = (index / n) * cellH + cellH / 2f
-            drawText(
-                measured,
-                topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+            val clueStyle = TextStyle(
+                color = PreviewTextColor,
+                fontSize = (cellH * 0.4f).toSp(),
+                fontFamily = numberFont,
+                fontWeight = FontWeight.Bold,
             )
+            NurikabePreviewClues.forEach { (index, value) ->
+                val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
+                val centerX = (index % n) * cellW + cellW / 2f
+                val centerY = (index / n) * cellH + cellH / 2f
+                drawText(
+                    measured,
+                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+                )
+            }
         }
-    }
     }
 }
 
@@ -847,57 +846,57 @@ private fun CatQueensPreview() {
             .aspectRatio(1f)
             .padding(20.dp),
     ) {
-    Canvas(
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        val cellW = size.width / n
-        val cellH = size.height / n
-        val cellSize = Size(cellW, cellH)
-        fun topLeft(index: Int) = Offset((index % n) * cellW, (index / n) * cellH)
+        Canvas(
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            val cellW = size.width / n
+            val cellH = size.height / n
+            val cellSize = Size(cellW, cellH)
+            fun topLeft(index: Int) = Offset((index % n) * cellW, (index / n) * cellH)
 
-        for (index in 0 until n * n) {
-            val color = CatRegionColors[CatQueensPreviewRegions[index] % CatRegionColors.size]
-            drawRect(color = color, topLeft = topLeft(index), size = cellSize)
-        }
+            for (index in 0 until n * n) {
+                val color = CatRegionColors[CatQueensPreviewRegions[index] % CatRegionColors.size]
+                drawRect(color = color, topLeft = topLeft(index), size = cellSize)
+            }
 
-        for (i in 0..n) {
-            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
-            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
-        }
+            for (i in 0..n) {
+                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
+                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
+            }
 
-        val bold = 2.5f.dp.toPx()
-        for (r in 0 until n) {
-            for (c in 0 until n) {
-                val index = r * n + c
-                val region = CatQueensPreviewRegions[index]
-                val x0 = c * cellW
-                val y0 = r * cellH
-                val x1 = x0 + cellW
-                val y1 = y0 + cellH
-                if (r == 0 || CatQueensPreviewRegions[index - n] != region) {
-                    drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
+            val bold = 2.5f.dp.toPx()
+            for (r in 0 until n) {
+                for (c in 0 until n) {
+                    val index = r * n + c
+                    val region = CatQueensPreviewRegions[index]
+                    val x0 = c * cellW
+                    val y0 = r * cellH
+                    val x1 = x0 + cellW
+                    val y1 = y0 + cellH
+                    if (r == 0 || CatQueensPreviewRegions[index - n] != region) {
+                        drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
+                    }
+                    if (r == n - 1 || CatQueensPreviewRegions[index + n] != region) {
+                        drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
+                    }
+                    if (c == 0 || CatQueensPreviewRegions[index - 1] != region) {
+                        drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
+                    }
+                    if (c == n - 1 || CatQueensPreviewRegions[index + 1] != region) {
+                        drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
+                    }
                 }
-                if (r == n - 1 || CatQueensPreviewRegions[index + n] != region) {
-                    drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
-                }
-                if (c == 0 || CatQueensPreviewRegions[index - 1] != region) {
-                    drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
-                }
-                if (c == n - 1 || CatQueensPreviewRegions[index + 1] != region) {
-                    drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
+            }
+
+            val pad = cellW * 0.14f
+            val catSize = Size(cellW - 2 * pad, cellH - 2 * pad)
+            CatQueensPreviewCats.forEach { index ->
+                val tl = topLeft(index)
+                translate(left = tl.x + pad, top = tl.y + pad) {
+                    with(catPainter) { draw(catSize) }
                 }
             }
         }
-
-        val pad = cellW * 0.14f
-        val catSize = Size(cellW - 2 * pad, cellH - 2 * pad)
-        CatQueensPreviewCats.forEach { index ->
-            val tl = topLeft(index)
-            translate(left = tl.x + pad, top = tl.y + pad) {
-                with(catPainter) { draw(catSize) }
-            }
-        }
-    }
     }
 }
 

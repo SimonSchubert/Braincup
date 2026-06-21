@@ -89,13 +89,17 @@ internal val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
 // Neutral graphite tray for the Cat Queens board, so the pastel zones pop off the prism frame.
 internal val CatQueensBoardFrame = ComposeColor(0xFF4A4754)
+
 // Dark slate tray for the Shikaku grid — matches the neutral prism-frame aesthetic.
 internal val ShikakuBoardFrame = ComposeColor(0xFF3E4450)
+
 // Dark ocean-slate tray for the Nurikabe grid — subtly blue-tinted to echo the sea theme.
 internal val NurikabeBoardFrame = ComposeColor(0xFF3A4858)
+
 // Fixed cell colors shared by both the game board and the tile preview.
 internal val NurikabeIslandColor = ComposeColor(0xFFE8E8E8)
 internal val NurikabeSeaColor = ComposeColor(0xFF546E7A)
+
 // Light cell background for the Shikaku board — gives cells contrast against the dark tray frame.
 internal val ShikakuCellColor = ComposeColor(0xFFDDE3EA)
 
@@ -1516,128 +1520,128 @@ private fun ColumnScope.ShikakuContent(
 
     val board: @Composable () -> Unit = {
         PrismCard(face = ShikakuBoardFrame, facet = 6.dp, modifier = boardModifier) {
-        Canvas(
-            modifier = Modifier
-                .fillMaxSize()
-                .pointerInput(uiState) {
-                    detectDragGestures(
-                        onDragStart = { offset ->
-                            val cell = cellAt(offset, size.width, size.height, rows, cols)
-                            dragStart = cell
-                            dragCurrent = cell
-                        },
-                        onDrag = { change, _ ->
-                            change.consume()
-                            dragCurrent = cellAt(change.position, size.width, size.height, rows, cols)
-                        },
-                        onDragEnd = {
-                            val start = dragStart
-                            val end = dragCurrent
-                            if (start != null && end != null) {
-                                onAnswer("draw:${start.first},${start.second},${end.first},${end.second}")
-                            }
-                            dragStart = null
-                            dragCurrent = null
-                        },
-                        onDragCancel = {
-                            dragStart = null
-                            dragCurrent = null
-                        },
-                    )
-                }
-                .pointerInput(uiState) {
-                    detectTapGestures { offset ->
-                        val (row, col) = cellAt(offset, size.width, size.height, rows, cols)
-                        onAnswer("del:$row,$col")
+            Canvas(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(uiState) {
+                        detectDragGestures(
+                            onDragStart = { offset ->
+                                val cell = cellAt(offset, size.width, size.height, rows, cols)
+                                dragStart = cell
+                                dragCurrent = cell
+                            },
+                            onDrag = { change, _ ->
+                                change.consume()
+                                dragCurrent = cellAt(change.position, size.width, size.height, rows, cols)
+                            },
+                            onDragEnd = {
+                                val start = dragStart
+                                val end = dragCurrent
+                                if (start != null && end != null) {
+                                    onAnswer("draw:${start.first},${start.second},${end.first},${end.second}")
+                                }
+                                dragStart = null
+                                dragCurrent = null
+                            },
+                            onDragCancel = {
+                                dragStart = null
+                                dragCurrent = null
+                            },
+                        )
                     }
-                },
-        ) {
-            val cellW = size.width / cols
-            val cellH = size.height / rows
+                    .pointerInput(uiState) {
+                        detectTapGestures { offset ->
+                            val (row, col) = cellAt(offset, size.width, size.height, rows, cols)
+                            onAnswer("del:$row,$col")
+                        }
+                    },
+            ) {
+                val cellW = size.width / cols
+                val cellH = size.height / rows
 
-            fun rectTopLeft(top: Int, left: Int) = Offset(left * cellW, top * cellH)
-            fun rectSize(top: Int, left: Int, bottom: Int, right: Int) = Size((right - left + 1) * cellW, (bottom - top + 1) * cellH)
+                fun rectTopLeft(top: Int, left: Int) = Offset(left * cellW, top * cellH)
+                fun rectSize(top: Int, left: Int, bottom: Int, right: Int) = Size((right - left + 1) * cellW, (bottom - top + 1) * cellH)
 
-            drawRect(color = cellColor)
+                drawRect(color = cellColor)
 
-            // Committed rectangles: color fills first so grid lines and borders draw on top.
-            uiState.rectangles.forEachIndexed { idx, rect ->
-                val regionColor = CatRegionColors[idx % CatRegionColors.size]
-                drawRect(
-                    color = regionColor.copy(alpha = 0.65f),
-                    topLeft = rectTopLeft(rect.top, rect.left),
-                    size = rectSize(rect.top, rect.left, rect.bottom, rect.right),
-                )
-                if (!rect.isValid) {
+                // Committed rectangles: color fills first so grid lines and borders draw on top.
+                uiState.rectangles.forEachIndexed { idx, rect ->
+                    val regionColor = CatRegionColors[idx % CatRegionColors.size]
                     drawRect(
-                        color = invalidOverlay,
+                        color = regionColor.copy(alpha = 0.65f),
                         topLeft = rectTopLeft(rect.top, rect.left),
                         size = rectSize(rect.top, rect.left, rect.bottom, rect.right),
                     )
+                    if (!rect.isValid) {
+                        drawRect(
+                            color = invalidOverlay,
+                            topLeft = rectTopLeft(rect.top, rect.left),
+                            size = rectSize(rect.top, rect.left, rect.bottom, rect.right),
+                        )
+                    }
+                }
+
+                for (c in 0..cols) {
+                    val x = c * cellW
+                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
+                }
+                for (r in 0..rows) {
+                    val y = r * cellH
+                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
+                }
+
+                // Bold border around each rectangle: dark for valid (like Cat Queens), red for invalid.
+                uiState.rectangles.forEach { rect ->
+                    val borderColor = if (rect.isValid) regionBorderColor else invalidBorder
+                    val x0 = rectTopLeft(rect.top, rect.left).x
+                    val y0 = rectTopLeft(rect.top, rect.left).y
+                    val x1 = x0 + rectSize(rect.top, rect.left, rect.bottom, rect.right).width
+                    val y1 = y0 + rectSize(rect.top, rect.left, rect.bottom, rect.right).height
+                    val bold = 3.dp.toPx()
+                    drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
+                    drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
+                    drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
+                    drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
+                }
+
+                val start = dragStart
+                val end = dragCurrent
+                if (start != null && end != null) {
+                    val top = minOf(start.first, end.first)
+                    val bottom = maxOf(start.first, end.first)
+                    val left = minOf(start.second, end.second)
+                    val right = maxOf(start.second, end.second)
+                    drawRect(
+                        color = previewColor.copy(alpha = 0.25f),
+                        topLeft = rectTopLeft(top, left),
+                        size = rectSize(top, left, bottom, right),
+                    )
+                    drawRect(
+                        color = previewColor,
+                        topLeft = rectTopLeft(top, left),
+                        size = rectSize(top, left, bottom, right),
+                        style = Stroke(width = 3.dp.toPx()),
+                    )
+                }
+
+                val clueStyle = TextStyle(
+                    color = clueColor,
+                    fontSize = (cellH * 0.42f).toSp(),
+                    fontFamily = numberFont,
+                    fontWeight = FontWeight.Bold,
+                )
+                uiState.clues.forEach { (index, value) ->
+                    val r = index / cols
+                    val c = index % cols
+                    val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
+                    val centerX = c * cellW + cellW / 2f
+                    val centerY = r * cellH + cellH / 2f
+                    drawText(
+                        measured,
+                        topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+                    )
                 }
             }
-
-            for (c in 0..cols) {
-                val x = c * cellW
-                drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
-            }
-            for (r in 0..rows) {
-                val y = r * cellH
-                drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
-            }
-
-            // Bold border around each rectangle: dark for valid (like Cat Queens), red for invalid.
-            uiState.rectangles.forEach { rect ->
-                val borderColor = if (rect.isValid) regionBorderColor else invalidBorder
-                val x0 = rectTopLeft(rect.top, rect.left).x
-                val y0 = rectTopLeft(rect.top, rect.left).y
-                val x1 = x0 + rectSize(rect.top, rect.left, rect.bottom, rect.right).width
-                val y1 = y0 + rectSize(rect.top, rect.left, rect.bottom, rect.right).height
-                val bold = 3.dp.toPx()
-                drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
-                drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
-                drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
-                drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
-            }
-
-            val start = dragStart
-            val end = dragCurrent
-            if (start != null && end != null) {
-                val top = minOf(start.first, end.first)
-                val bottom = maxOf(start.first, end.first)
-                val left = minOf(start.second, end.second)
-                val right = maxOf(start.second, end.second)
-                drawRect(
-                    color = previewColor.copy(alpha = 0.25f),
-                    topLeft = rectTopLeft(top, left),
-                    size = rectSize(top, left, bottom, right),
-                )
-                drawRect(
-                    color = previewColor,
-                    topLeft = rectTopLeft(top, left),
-                    size = rectSize(top, left, bottom, right),
-                    style = Stroke(width = 3.dp.toPx()),
-                )
-            }
-
-            val clueStyle = TextStyle(
-                color = clueColor,
-                fontSize = (cellH * 0.42f).toSp(),
-                fontFamily = numberFont,
-                fontWeight = FontWeight.Bold,
-            )
-            uiState.clues.forEach { (index, value) ->
-                val r = index / cols
-                val c = index % cols
-                val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
-                val centerX = c * cellW + cellW / 2f
-                val centerY = r * cellH + cellH / 2f
-                drawText(
-                    measured,
-                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                )
-            }
-        }
         }
     }
 
@@ -1742,117 +1746,117 @@ private fun ColumnScope.NurikabeContent(
 
     val board: @Composable () -> Unit = {
         PrismCard(face = NurikabeBoardFrame, facet = 6.dp, modifier = boardModifier) {
-        Canvas(
-            modifier = Modifier
-                .fillMaxSize()
-                .pointerInput(uiState) {
-                    detectDragGestures(
-                        onDragStart = { offset ->
-                            val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
-                            val index = r * cols + c
-                            if (index in uiState.clues) {
-                                dragFills = true
+            Canvas(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(uiState) {
+                        detectDragGestures(
+                            onDragStart = { offset ->
+                                val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
+                                val index = r * cols + c
+                                if (index in uiState.clues) {
+                                    dragFills = true
+                                    dragCells = emptySet()
+                                } else {
+                                    dragFills = index !in uiState.walls
+                                    dragCells = setOf(index)
+                                }
+                            },
+                            onDrag = { change, _ ->
+                                change.consume()
+                                val (r, c) = cellAt(change.position, size.width, size.height, rows, cols)
+                                val index = r * cols + c
+                                if (index !in uiState.clues) dragCells = dragCells + index
+                            },
+                            onDragEnd = {
+                                val cells = dragCells
+                                if (cells.isNotEmpty()) {
+                                    onAnswer("paint:${if (dragFills) 1 else 0}:${cells.joinToString(",")}")
+                                }
                                 dragCells = emptySet()
-                            } else {
-                                dragFills = index !in uiState.walls
-                                dragCells = setOf(index)
-                            }
-                        },
-                        onDrag = { change, _ ->
-                            change.consume()
-                            val (r, c) = cellAt(change.position, size.width, size.height, rows, cols)
-                            val index = r * cols + c
-                            if (index !in uiState.clues) dragCells = dragCells + index
-                        },
-                        onDragEnd = {
-                            val cells = dragCells
-                            if (cells.isNotEmpty()) {
-                                onAnswer("paint:${if (dragFills) 1 else 0}:${cells.joinToString(",")}")
-                            }
-                            dragCells = emptySet()
-                        },
-                        onDragCancel = { dragCells = emptySet() },
+                            },
+                            onDragCancel = { dragCells = emptySet() },
+                        )
+                    }
+                    .pointerInput(uiState) {
+                        detectTapGestures { offset ->
+                            val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
+                            onAnswer("toggle:${r * cols + c}")
+                        }
+                    },
+            ) {
+                val cellW = size.width / cols
+                val cellH = size.height / rows
+
+                fun cellTopLeft(index: Int) = Offset((index % cols) * cellW, (index / cols) * cellH)
+                val cellSize = Size(cellW, cellH)
+
+                drawRect(color = islandColor)
+
+                // Live island feedback: a completed island reads green, an over-filled one red.
+                uiState.satisfiedCells.forEach { index ->
+                    drawRect(color = satisfiedFill, topLeft = cellTopLeft(index), size = cellSize)
+                }
+                uiState.invalidCells.forEach { index ->
+                    drawRect(color = invalidFill, topLeft = cellTopLeft(index), size = cellSize)
+                }
+
+                uiState.walls.forEach { index ->
+                    drawRect(color = seaColor, topLeft = cellTopLeft(index), size = cellSize)
+                }
+
+                // Flag forbidden 2x2 sea pools in red over the painted sea.
+                uiState.poolCells.forEach { index ->
+                    drawRect(color = poolColor, topLeft = cellTopLeft(index), size = cellSize)
+                }
+
+                // Live stroke preview: filled cells turn into sea, erased cells back to island, each
+                // outlined so the affected cells read clearly under either mode.
+                dragCells.forEach { index ->
+                    drawRect(
+                        color = if (dragFills) seaColor.copy(alpha = 0.55f) else islandColor,
+                        topLeft = cellTopLeft(index),
+                        size = cellSize,
+                    )
+                    drawRect(
+                        color = previewColor,
+                        topLeft = cellTopLeft(index),
+                        size = cellSize,
+                        style = Stroke(width = 2.dp.toPx()),
                     )
                 }
-                .pointerInput(uiState) {
-                    detectTapGestures { offset ->
-                        val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
-                        onAnswer("toggle:${r * cols + c}")
-                    }
-                },
-        ) {
-            val cellW = size.width / cols
-            val cellH = size.height / rows
 
-            fun cellTopLeft(index: Int) = Offset((index % cols) * cellW, (index / cols) * cellH)
-            val cellSize = Size(cellW, cellH)
-
-            drawRect(color = islandColor)
-
-            // Live island feedback: a completed island reads green, an over-filled one red.
-            uiState.satisfiedCells.forEach { index ->
-                drawRect(color = satisfiedFill, topLeft = cellTopLeft(index), size = cellSize)
-            }
-            uiState.invalidCells.forEach { index ->
-                drawRect(color = invalidFill, topLeft = cellTopLeft(index), size = cellSize)
-            }
-
-            uiState.walls.forEach { index ->
-                drawRect(color = seaColor, topLeft = cellTopLeft(index), size = cellSize)
-            }
-
-            // Flag forbidden 2x2 sea pools in red over the painted sea.
-            uiState.poolCells.forEach { index ->
-                drawRect(color = poolColor, topLeft = cellTopLeft(index), size = cellSize)
-            }
-
-            // Live stroke preview: filled cells turn into sea, erased cells back to island, each
-            // outlined so the affected cells read clearly under either mode.
-            dragCells.forEach { index ->
-                drawRect(
-                    color = if (dragFills) seaColor.copy(alpha = 0.55f) else islandColor,
-                    topLeft = cellTopLeft(index),
-                    size = cellSize,
-                )
-                drawRect(
-                    color = previewColor,
-                    topLeft = cellTopLeft(index),
-                    size = cellSize,
-                    style = Stroke(width = 2.dp.toPx()),
-                )
-            }
-
-            for (c in 0..cols) {
-                val x = c * cellW
-                drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
-            }
-            for (r in 0..rows) {
-                val y = r * cellH
-                drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
-            }
-
-            val clueFontSize = (cellH * 0.42f).toSp()
-            uiState.clues.forEach { (index, value) ->
-                val color = when (index) {
-                    in uiState.satisfiedCells -> satisfiedColor
-                    in uiState.invalidCells -> invalidColor
-                    else -> clueColor
+                for (c in 0..cols) {
+                    val x = c * cellW
+                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
                 }
-                val style = TextStyle(
-                    color = color,
-                    fontSize = clueFontSize,
-                    fontFamily = numberFont,
-                    fontWeight = FontWeight.Bold,
-                )
-                val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = style)
-                val centerX = (index % cols) * cellW + cellW / 2f
-                val centerY = (index / cols) * cellH + cellH / 2f
-                drawText(
-                    measured,
-                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                )
+                for (r in 0..rows) {
+                    val y = r * cellH
+                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
+                }
+
+                val clueFontSize = (cellH * 0.42f).toSp()
+                uiState.clues.forEach { (index, value) ->
+                    val color = when (index) {
+                        in uiState.satisfiedCells -> satisfiedColor
+                        in uiState.invalidCells -> invalidColor
+                        else -> clueColor
+                    }
+                    val style = TextStyle(
+                        color = color,
+                        fontSize = clueFontSize,
+                        fontFamily = numberFont,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = style)
+                    val centerX = (index % cols) * cellW + cellW / 2f
+                    val centerY = (index / cols) * cellH + cellH / 2f
+                    drawText(
+                        measured,
+                        topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+                    )
+                }
             }
-        }
         }
     }
 
