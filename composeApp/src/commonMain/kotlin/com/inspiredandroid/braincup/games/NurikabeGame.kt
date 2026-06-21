@@ -111,7 +111,7 @@ class NurikabeGame(
             if (solutionCount(limit = 2) == 1) chosen = solution
         }
 
-        val solution = chosen ?: fallback ?: degenerateFallback()
+        val solution = chosen ?: fallback ?: relaxedSolution(difficulty) ?: degenerateFallback()
         applySolution(solution)
         generatedSea = solution.sea
         generatedIslands = solution.islands
@@ -221,10 +221,41 @@ class NurikabeGame(
         return components
     }
 
-    /** Single-island, sea-less board used only if sampling never yields a structurally valid board. */
+    /**
+     * Last resort before [degenerateFallback]: loosen the clean-island cap one step at a time so the
+     * smallest workable cap wins. Islands stay modest (and the resulting boards have several clues),
+     * which keeps them readable and keeps the candidate enumeration in [solutionCount] bounded. A
+     * board with a slightly oversized island is still a valid, solvable puzzle, far better than the
+     * degenerate floor. Reached only on the rare seed where no board met the difficulty's bound in
+     * [MAX_GENERATION_ATTEMPTS] tries.
+     */
+    private fun relaxedSolution(base: Difficulty): Solution? {
+        val ceiling = (base.maxIslandSize + RELAXED_FALLBACK_SLACK).coerceAtMost(rows * cols)
+        for (cap in (base.maxIslandSize + 1)..ceiling) {
+            val relaxed = base.copy(maxIslandSize = cap)
+            repeat(RELAXED_FALLBACK_ATTEMPTS) {
+                buildSolution(relaxed)?.let { return it }
+            }
+        }
+        return null
+    }
+
+    /**
+     * Guaranteed-valid board used only if sampling never yields any structurally valid board. Every
+     * cell on the even/even lattice is its own size-1 island; the rest is sea. Every 2x2 block holds
+     * exactly one lattice cell, so the sea never forms a pool and stays connected, and no two islands
+     * touch. Trivial but always solvable, and its size-1 clues keep [solutionCount] cheap.
+     */
     private fun degenerateFallback(): Solution {
-        val all = (0 until rows * cols).toSet()
-        return Solution(listOf(all), emptySet(), mapOf(0 to all.size))
+        val islands = ArrayList<Set<Int>>()
+        val sea = HashSet<Int>()
+        for (cell in 0 until rows * cols) {
+            val r = cell / cols
+            val c = cell % cols
+            if (r % 2 == 0 && c % 2 == 0) islands.add(setOf(cell)) else sea.add(cell)
+        }
+        val clues = islands.associate { it.first() to it.size }
+        return Solution(islands, sea, clues)
     }
 
     /**
@@ -461,6 +492,9 @@ class NurikabeGame(
     override fun toUiState(): NurikabeUiState {
         val satisfied = HashSet<Int>()
         val invalid = HashSet<Int>()
+        // Tracks whether every white region is already a correct single-clue island, i.e. the board
+        // would be solved but for the sea possibly being disconnected.
+        var allIslandsSatisfied = true
         val visited = BooleanArray(rows * cols)
         for (start in 0 until rows * cols) {
             if (start in walls || visited[start]) continue
@@ -485,13 +519,13 @@ class NurikabeGame(
                 }
             }
             // Only single-clue regions get a verdict; multi-clue regions are still in progress.
-            if (clueCount == 1) {
-                if (region.size == clueValue) {
-                    satisfied.addAll(region)
-                } else if (region.size > clueValue) {
-                    invalid.addAll(region)
-                }
+            val regionSatisfied = clueCount == 1 && region.size == clueValue
+            if (regionSatisfied) {
+                satisfied.addAll(region)
+            } else if (clueCount == 1 && region.size > clueValue) {
+                invalid.addAll(region)
             }
+            if (!regionSatisfied) allIslandsSatisfied = false
         }
 
         val pool = HashSet<Int>()
@@ -511,6 +545,20 @@ class NurikabeGame(
             }
         }
 
+        // When every island is already correct and there is no pool, the only thing standing between
+        // the player and a win is the sea being a single region. If it is in pieces, flag every cell
+        // outside the largest piece so the player can see what still needs to be joined.
+        val disconnectedSea = HashSet<Int>()
+        if (allIslandsSatisfied && pool.isEmpty() && walls.isNotEmpty()) {
+            val components = wallComponents()
+            if (components.size > 1) {
+                val largest = components.maxByOrNull { it.size }
+                for (component in components) {
+                    if (component !== largest) disconnectedSea.addAll(component)
+                }
+            }
+        }
+
         return NurikabeUiState(
             rows = rows,
             cols = cols,
@@ -519,8 +567,33 @@ class NurikabeGame(
             satisfiedCells = satisfied.toImmutableSet(),
             invalidCells = invalid.toImmutableSet(),
             poolCells = pool.toImmutableSet(),
+            disconnectedSeaCells = disconnectedSea.toImmutableSet(),
             level = level,
         )
+    }
+
+    /** Connected components of the painted sea ([walls]); used to flag a disconnected sea. */
+    private fun wallComponents(): List<Set<Int>> {
+        val visited = HashSet<Int>(walls.size)
+        val components = ArrayList<Set<Int>>()
+        for (start in walls) {
+            if (!visited.add(start)) continue
+            val component = HashSet<Int>()
+            val stack = ArrayDeque<Int>()
+            stack.addLast(start)
+            component.add(start)
+            while (stack.isNotEmpty()) {
+                val cell = stack.removeLast()
+                for (n in neighbors(cell)) {
+                    if (n in walls && visited.add(n)) {
+                        component.add(n)
+                        stack.addLast(n)
+                    }
+                }
+            }
+            components.add(component)
+        }
+        return components
     }
 
     companion object {
@@ -531,6 +604,12 @@ class NurikabeGame(
 
         /** How many valid candidates to run the uniqueness solver on before accepting any valid one. */
         private const val UNIQUENESS_TRIES = 8
+
+        /** Board samples to try per relaxed island-size cap before loosening it further. */
+        private const val RELAXED_FALLBACK_ATTEMPTS = 200
+
+        /** How far above the difficulty's cap the relaxed fallback may grow islands. */
+        private const val RELAXED_FALLBACK_SLACK = 3
 
         /** Upper bound on solver nodes per uniqueness check, so generation can never stall. */
         private const val SOLUTION_NODE_BUDGET = 20_000

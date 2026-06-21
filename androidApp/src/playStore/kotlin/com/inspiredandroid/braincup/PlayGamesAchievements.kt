@@ -230,6 +230,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.SLIDING_PUZZLE -> R.string.achievementSmoothOperator
     GameType.SHIKAKU -> R.string.achievementRectangleMaster
     GameType.NURIKABE -> R.string.achievementWallBuilder
+    GameType.CAT_QUEENS -> R.string.achievementCatHerder
     GameType.PATH_FINDER -> R.string.achievementTrailblazer
     GameType.ANOMALY_PUZZLE -> R.string.achievementOddOneSpotted
     GameType.COLORED_SHAPES -> R.string.achievementShapeShifter

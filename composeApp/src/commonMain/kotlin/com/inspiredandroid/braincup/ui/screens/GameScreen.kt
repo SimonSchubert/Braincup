@@ -1810,6 +1810,18 @@ private fun ColumnScope.NurikabeContent(
                     drawRect(color = poolColor, topLeft = cellTopLeft(index), size = cellSize)
                 }
 
+                // All islands correct but the sea is in pieces: flag the stranded sea so the player
+                // knows it still needs to be joined into one region.
+                uiState.disconnectedSeaCells.forEach { index ->
+                    drawRect(color = previewColor.copy(alpha = 0.4f), topLeft = cellTopLeft(index), size = cellSize)
+                    drawRect(
+                        color = previewColor,
+                        topLeft = cellTopLeft(index),
+                        size = cellSize,
+                        style = Stroke(width = 2.dp.toPx()),
+                    )
+                }
+
                 // Live stroke preview: filled cells turn into sea, erased cells back to island, each
                 // outlined so the affected cells read clearly under either mode.
                 dragCells.forEach { index ->

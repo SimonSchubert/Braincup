@@ -89,6 +89,65 @@ class NurikabeGameTest {
     }
 
     @Test
+    fun generationNeverProducesDegenerateBoard() {
+        // Regression for the "single 49 clue" board: when sampling could not find a clean board the
+        // generator used to emit one whole-board island, which is unsolvable. Generation must always
+        // yield a real multi-island board with a real sea.
+        for (seed in 0L until 120L) {
+            for (level in listOf(7, 12)) {
+                val game = NurikabeGame(level = level, random = Random(seed)).apply { nextRound() }
+                val total = game.rows * game.cols
+                assertTrue(game.generatedIslands.size >= 2, "single-island board seed=$seed level=$level")
+                assertTrue(game.generatedSea.isNotEmpty(), "empty sea seed=$seed level=$level")
+                assertTrue(game.clues.values.none { it == total }, "whole-board clue seed=$seed level=$level")
+            }
+        }
+    }
+
+    @Test
+    fun uiStateFlagsDisconnectedSea() {
+        // 3x3, clue "3" on the middle column: painting the two outer columns satisfies the island but
+        // splits the sea into two strips that only touch diagonally. The smaller-or-equal piece is
+        // flagged so the player sees the sea must still be joined.
+        val split = NurikabeGame().apply {
+            rows = 3
+            cols = 3
+            clues.clear()
+            walls.clear()
+            clues[4] = 3
+        }
+        split.setWalls(listOf(0, 3, 6, 2, 5, 8), true)
+        val splitUi = split.toUiState()
+        assertTrue(splitUi.disconnectedSeaCells.isNotEmpty(), "split sea should be flagged")
+        assertTrue(
+            splitUi.disconnectedSeaCells == setOf(0, 3, 6) || splitUi.disconnectedSeaCells == setOf(2, 5, 8),
+            "exactly one sea strip should be flagged, was ${splitUi.disconnectedSeaCells}",
+        )
+
+        // A connected sea around a satisfied island is not flagged.
+        val connected = NurikabeGame().apply {
+            rows = 3
+            cols = 3
+            clues.clear()
+            walls.clear()
+            clues[4] = 1
+        }
+        connected.setWalls(listOf(0, 1, 2, 3, 5, 6, 7, 8), true)
+        assertTrue(connected.toUiState().disconnectedSeaCells.isEmpty(), "connected sea must not be flagged")
+
+        // An unfinished board (islands not all correct) is never flagged, however the sea is painted.
+        val unfinished = NurikabeGame().apply {
+            rows = 3
+            cols = 3
+            clues.clear()
+            walls.clear()
+            clues[4] = 3
+        }
+        unfinished.setWalls(listOf(0, 3, 6), true)
+        assertTrue(unfinished.toUiState().disconnectedSeaCells.isEmpty(), "unfinished board must not be flagged")
+    }
+
+    @Test
     fun rebuildingGeneratedSolutionSolvesTheBoard() {
         for (seed in 0L until 50L) {
             for (level in listOf(1, 4, 7, 10)) {
@@ -218,7 +277,7 @@ class NurikabeGameTest {
     @Test
     fun uiStateReportsLiveFeedback() {
         // 3x3, clue "2" at the centre. A correct 2-cell island reads satisfied; an over-grown one
-        // reads invalid; the untouched board reports neither.
+        // reads invalid.
         fun fixture(): NurikabeGame = NurikabeGame().apply {
             rows = 3
             cols = 3
@@ -227,7 +286,16 @@ class NurikabeGameTest {
             clues[4] = 2
         }
 
-        val fresh = fixture().toUiState()
+        // An untouched board reports neither verdict: with no sea every clue sits in one big region,
+        // so no single-clue island has been formed to judge yet (the state a real board starts in).
+        val fresh = NurikabeGame().apply {
+            rows = 3
+            cols = 3
+            clues.clear()
+            walls.clear()
+            clues[0] = 1
+            clues[8] = 1
+        }.toUiState()
         assertTrue(fresh.satisfiedCells.isEmpty())
         assertTrue(fresh.invalidCells.isEmpty())
 

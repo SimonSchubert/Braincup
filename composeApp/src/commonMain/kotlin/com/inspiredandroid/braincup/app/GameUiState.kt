@@ -172,6 +172,8 @@ data class NurikabeUiState(
     val invalidCells: ImmutableSet<Int>,
     /** Sea cells that form a 2x2 pool, which Nurikabe forbids. */
     val poolCells: ImmutableSet<Int>,
+    /** Sea cells stranded in a non-main component while every island is already correct. */
+    val disconnectedSeaCells: ImmutableSet<Int>,
     val level: Int,
 ) : GameUiState
 
