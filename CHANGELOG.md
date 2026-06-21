@@ -1,3 +1,20 @@
+## v2.22.0 — 2026-06-21
+
+### Features
+- Cat Queens puzzle game
+- Achievements on iOS via Game Center
+- Achievements on Android via Play Games
+
+### Fixes
+- Skip quit confirmation when the game is already finished
+
+### Improvements
+- Refreshed game previews
+- Consistent game styling
+- Tuned achievement difficulty
+- Added missing localizations
+- Updated dependencies
+
 ## v2.21.0 — 2026-06-16
 
 ### Features
