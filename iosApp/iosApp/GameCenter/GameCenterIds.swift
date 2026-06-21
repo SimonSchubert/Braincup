@@ -9,6 +9,9 @@ enum GameCenterIds {
         "MINI_CHESS":            "achievement.endgame_virtuoso",
         "LIGHTS_OUT":            "achievement.total_blackout",
         "SLIDING_PUZZLE":        "achievement.smooth_operator",
+        "SHIKAKU":               "achievement.rectangle_master",
+        "NURIKABE":              "achievement.wall_builder",
+        "CAT_QUEENS":            "achievement.cat_herder",
         "PATH_FINDER":           "achievement.trailblazer",
         "ANOMALY_PUZZLE":        "achievement.odd_one_spotted",
         "COLORED_SHAPES":        "achievement.shape_shifter",
@@ -58,6 +61,9 @@ enum GameCenterIds {
         case "achievement.endgame_virtuoso":      return UserStorage.Achievements.goldMiniChess
         case "achievement.total_blackout":        return UserStorage.Achievements.goldLightsOut
         case "achievement.smooth_operator":       return UserStorage.Achievements.goldSlidingPuzzle
+        case "achievement.rectangle_master":      return UserStorage.Achievements.goldShikaku
+        case "achievement.wall_builder":          return UserStorage.Achievements.goldNurikabe
+        case "achievement.cat_herder":            return UserStorage.Achievements.goldCatQueens
         case "achievement.trailblazer":           return UserStorage.Achievements.goldPathFinder
         case "achievement.odd_one_spotted":       return UserStorage.Achievements.goldAnomalyPuzzle
         case "achievement.shape_shifter":         return UserStorage.Achievements.goldColoredShapes
