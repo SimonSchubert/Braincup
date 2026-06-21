@@ -409,5 +409,12 @@ fun App(
     }
 }
 
-/** Wordle records the score as soon as the puzzle ends, so back can leave without a prompt. */
-private fun shouldConfirmQuit(gameUiState: GameUiState): Boolean = gameUiState !is WordleUiState || !gameUiState.finished
+/**
+ * Games that record the score as soon as they end can leave without a prompt once finished:
+ * Wordle when the puzzle is over, MiniChess when the game has an outcome.
+ */
+private fun shouldConfirmQuit(gameUiState: GameUiState): Boolean = when (gameUiState) {
+    is WordleUiState -> !gameUiState.finished
+    is MiniChessUiState -> gameUiState.outcome == null
+    else -> true
+}
