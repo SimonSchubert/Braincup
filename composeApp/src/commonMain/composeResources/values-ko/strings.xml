@@ -264,7 +264,7 @@
     <string name="digit_memory_memorize">외우기</string>
     <string name="digit_memory_solve">풀기</string>
     <string name="digit_memory_recall">떠올리기</string>
-    <string name="achievement_gold_digit_memory">숫자 천재</string>
+    <string name="achievement_gold_digit_memory">코드 캐처</string>
     <string name="achievement_gold_digit_memory_desc">숫자 기억에서 금메달 획득</string>
     <!-- Spot the New game -->
     <string name="game_spot_the_new">새로운 것 찾기</string>

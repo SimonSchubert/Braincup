@@ -264,7 +264,7 @@
     <string name="digit_memory_memorize">Hafalkan</string>
     <string name="digit_memory_solve">Selesaikan</string>
     <string name="digit_memory_recall">Ingat kembali</string>
-    <string name="achievement_gold_digit_memory">Pakar Angka</string>
+    <string name="achievement_gold_digit_memory">Penangkap Kode</string>
     <string name="achievement_gold_digit_memory_desc">Menangkan medali emas di Memori Angka</string>
     <!-- Spot the New game -->
     <string name="game_spot_the_new">Temukan yang Baru</string>

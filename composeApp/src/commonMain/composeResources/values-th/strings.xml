@@ -264,7 +264,7 @@
     <string name="digit_memory_memorize">จำ</string>
     <string name="digit_memory_solve">แก้โจทย์</string>
     <string name="digit_memory_recall">นึกกลับ</string>
-    <string name="achievement_gold_digit_memory">อัจฉริยะตัวเลข</string>
+    <string name="achievement_gold_digit_memory">นักจับรหัส</string>
     <string name="achievement_gold_digit_memory_desc">ชนะเหรียญทองในความจำตัวเลข</string>
     <!-- Spot the New game -->
     <string name="game_spot_the_new">หาสิ่งใหม่</string>

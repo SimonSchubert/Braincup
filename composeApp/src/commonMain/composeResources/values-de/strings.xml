@@ -264,7 +264,7 @@
     <string name="digit_memory_memorize">Einprägen</string>
     <string name="digit_memory_solve">Lösen</string>
     <string name="digit_memory_recall">Erinnern</string>
-    <string name="achievement_gold_digit_memory">Zahlenkenner</string>
+    <string name="achievement_gold_digit_memory">Code-Fänger</string>
     <string name="achievement_gold_digit_memory_desc">Gewinne die Goldmedaille in Zifferngedächtnis</string>
     <!-- Spot the New game -->
     <string name="game_spot_the_new">Finde das Neue</string>

@@ -264,7 +264,7 @@
     <string name="digit_memory_memorize">記憶</string>
     <string name="digit_memory_solve">解く</string>
     <string name="digit_memory_recall">想起</string>
-    <string name="achievement_gold_digit_memory">数字の達人</string>
+    <string name="achievement_gold_digit_memory">コードキャッチャー</string>
     <string name="achievement_gold_digit_memory_desc">数字記憶でゴールドメダルを獲得</string>
     <!-- Spot the New game -->
     <string name="game_spot_the_new">新しいものを探せ</string>

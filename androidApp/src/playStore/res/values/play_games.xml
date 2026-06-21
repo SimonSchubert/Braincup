@@ -25,12 +25,9 @@
     <string name="achievementFreshEyes" translatable="false">CgkIuZrirtIVEAIQGg</string>
     <string name="achievementWordsmith" translatable="false">CgkIuZrirtIVEAIQGw</string>
     <string name="achievementFlagBearer" translatable="false">CgkIuZrirtIVEAIQHA</string>
-    <!-- Create in Play Console as a Standard achievement ("Rectangle Master", "Win gold medal in
-         Shikaku"); the next sequential id is 29. Verify this matches the console-assigned id. -->
     <string name="achievementRectangleMaster" translatable="false">CgkIuZrirtIVEAIQHQ</string>
-    <!-- Create in Play Console as a Standard achievement ("Wall Builder", "Win gold medal in
-         Nurikabe"); the next sequential id is 30. Verify this matches the console-assigned id. -->
     <string name="achievementWallBuilder" translatable="false">CgkIuZrirtIVEAIQHg</string>
+    <string name="achievementCatHerder" translatable="false">CgkIuZrirtIVEAIQHw</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

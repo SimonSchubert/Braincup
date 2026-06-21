@@ -264,7 +264,7 @@
     <string name="digit_memory_memorize">याद करें</string>
     <string name="digit_memory_solve">हल करें</string>
     <string name="digit_memory_recall">स्मरण करें</string>
-    <string name="achievement_gold_digit_memory">अंक ज्ञाता</string>
+    <string name="achievement_gold_digit_memory">कोड कैचर</string>
     <string name="achievement_gold_digit_memory_desc">अंक स्मृति में स्वर्ण पदक जीतें</string>
     <!-- Spot the New game -->
     <string name="game_spot_the_new">नया पहचानें</string>

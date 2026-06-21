@@ -264,7 +264,7 @@
     <string name="digit_memory_memorize">মুখস্থ করুন</string>
     <string name="digit_memory_solve">সমাধান করুন</string>
     <string name="digit_memory_recall">মনে করুন</string>
-    <string name="achievement_gold_digit_memory">সংখ্যা বিশারদ</string>
+    <string name="achievement_gold_digit_memory">কোড শিকারি</string>
     <string name="achievement_gold_digit_memory_desc">অঙ্ক স্মৃতিতে সোনার পদক জিতুন</string>
     <!-- Spot the New game -->
     <string name="game_spot_the_new">নতুনটি খুঁজুন</string>
