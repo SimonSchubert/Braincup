@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Câu Đố Trượt</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Mèo Hoàng Hậu</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Kéo để vẽ một hình chữ nhật. Chạm vào hình chữ nhật để xóa nó.</string>
     <string name="game_nurikabe_desc">Tô các ô để tạo biển bao quanh các đảo có số. Mỗi đảo phải có số ô liền kề đúng bằng số của nó, biển phải liền nhau và không được chứa khối 2x2 nào.</string>
     <string name="game_nurikabe_howto">Chạm hoặc kéo để tô biển. Chạm vào ô đã tô để xóa.</string>
+    <string name="game_cat_queens_desc">Đặt một con mèo vào mỗi hàng, mỗi cột và mỗi vùng màu. Không có hai con mèo nào được chạm nhau, kể cả theo đường chéo.</string>
+    <string name="game_cat_queens_howto">Chạm vào ô để đặt hoặc xóa mèo.</string>
+    <string name="cat_queens_error_row">Chỉ một con mèo mỗi hàng</string>
+    <string name="cat_queens_error_column">Chỉ một con mèo mỗi cột</string>
+    <string name="cat_queens_error_zone">Chỉ một con mèo mỗi vùng màu</string>
+    <string name="cat_queens_error_touch">2 con mèo không được chạm vào nhau</string>
     <string name="moves_label">Lượt đi: %1$d</string>
     <string name="mini_chess_thinking">CPU đang suy nghĩ…</string>
     <string name="mini_chess_round_won">Chiếu hết</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Người trượt khéo</string>
     <string name="achievement_gold_shikaku">Bậc thầy hình chữ nhật</string>
     <string name="achievement_gold_nurikabe">Bậc thầy xây tường</string>
+    <string name="achievement_gold_cat_queens">Người chăn mèo</string>
     <string name="achievement_gold_path_finder">Người dò đường</string>
     <string name="achievement_gold_anomaly_puzzle">Thợ săn dị vật</string>
     <string name="achievement_gold_colored_shapes">Kẻ biến hình</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">Màu sắc thật</string>
     <string name="achievement_gold_flash_crowd">Người đếm đám đông</string>
     <string name="achievement_gold_schulte_table">Tia nhìn chớp nhoáng</string>
+    <string name="achievement_gold_flags">Người cầm cờ</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Vận động viên Marathon Trí tuệ</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Giành huy chương vàng trong Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Giành huy chương vàng trong Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Giành huy chương vàng trong Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Giành huy chương vàng trong Mèo Hoàng Hậu</string>
     <string name="achievement_gold_path_finder_desc">Giành huy chương vàng trong Tìm đường</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Giành huy chương vàng trong Câu đố bất thường</string>
     <string name="achievement_gold_colored_shapes_desc">Giành huy chương vàng trong Hình dạng màu sắc</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">Giành huy chương vàng trong Nhầm lẫn Màu sắc</string>
     <string name="achievement_gold_flash_crowd_desc">Giành huy chương vàng trong Đám Đông Chớp</string>
     <string name="achievement_gold_schulte_table_desc">Giành huy chương vàng trong Bảng Schulte</string>
+    <string name="achievement_gold_flags_desc">Giành huy chương vàng trong Cờ</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Tích lũy tổng cộng 10.000 điểm</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">Chạm vào con vật mà bạn chưa từng thấy. Một lỗi sai sẽ kết thúc trò chơi.</string>
     <string name="achievement_gold_spot_the_new">Mắt Tinh</string>
     <string name="achievement_gold_spot_the_new_desc">Giành huy chương vàng trong Tìm Cái Mới</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Đoán từ năm chữ cái ẩn trong sáu lần thử. Đáp án luôn là danh từ.</string>
+    <string name="achievement_gold_wordle">Bậc Thầy Ngôn Từ</string>
+    <string name="achievement_gold_wordle_desc">Giành huy chương vàng trong Wordle</string>
+    <string name="wordle_not_enough_letters">Chưa đủ chữ cái</string>
+    <string name="wordle_not_in_word_list">Không có trong danh sách từ</string>
+    <string name="wordle_answer_was">Từ đúng là %1$s</string>
+    <string name="wordle_enter">Xác nhận</string>
+    <string name="wordle_backspace">Xóa chữ cái</string>
+    <string name="wordle_legend_correct">Đúng chữ, đúng vị trí</string>
+    <string name="wordle_legend_present">Đúng chữ, sai vị trí</string>
+    <string name="wordle_legend_absent">Không có trong từ</string>
     <string name="instructions_best_score">Điểm cao nhất: %1$s</string>
     <string name="instructions_leaderboard">Xem bảng xếp hạng</string>
     <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>

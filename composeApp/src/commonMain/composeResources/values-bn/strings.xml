@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">স্লাইডিং পাজল</string>
     <string name="game_shikaku">শিকাকু</string>
     <string name="game_nurikabe">নুরিকাবে</string>
+    <string name="game_cat_queens">বিড়াল রানি</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">আয়তক্ষেত্র আঁকতে টেনে আনুন। সরাতে আয়তক্ষেত্রে ট্যাপ করুন।</string>
     <string name="game_nurikabe_desc">সংখ্যাযুক্ত দ্বীপগুলোর চারপাশে সমুদ্র তৈরি করতে ঘর রং করুন। প্রতিটি দ্বীপে তার সংখ্যার সমান সংখ্যক সংযুক্ত ঘর থাকতে হবে, সমুদ্র সংযুক্ত থাকতে হবে এবং কোনো 2x2 ব্লক থাকতে পারবে না।</string>
     <string name="game_nurikabe_howto">সমুদ্র রং করতে ট্যাপ করুন বা টেনে আনুন। রং করা ঘর মুছতে সেটিতে ট্যাপ করুন।</string>
+    <string name="game_cat_queens_desc">প্রতিটি সারি, প্রতিটি কলাম এবং প্রতিটি রঙ অঞ্চলে একটি করে বিড়াল রাখুন। কোনো দুটি বিড়াল একে অপরকে স্পর্শ করতে পারবে না, এমনকি কোণাকোণিভাবেও না।</string>
+    <string name="game_cat_queens_howto">একটি ঘরে বিড়াল রাখতে বা সরাতে ট্যাপ করুন।</string>
+    <string name="cat_queens_error_row">প্রতি সারিতে শুধু একটি বিড়াল</string>
+    <string name="cat_queens_error_column">প্রতি কলামে শুধু একটি বিড়াল</string>
+    <string name="cat_queens_error_zone">প্রতি রঙ অঞ্চলে শুধু একটি বিড়াল</string>
+    <string name="cat_queens_error_touch">২টি বিড়াল একে অপরকে স্পর্শ করতে পারবে না</string>
     <string name="moves_label">চাল: %1$d</string>
     <string name="mini_chess_thinking">সিপিইউ ভাবছে…</string>
     <string name="mini_chess_round_won">কিস্তিমাত</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">দক্ষ সরানোকারী</string>
     <string name="achievement_gold_shikaku">আয়তক্ষেত্রের ওস্তাদ</string>
     <string name="achievement_gold_nurikabe">প্রাচীর নির্মাতা</string>
+    <string name="achievement_gold_cat_queens">বিড়াল পালক</string>
     <string name="achievement_gold_path_finder">পথপ্রদর্শক</string>
     <string name="achievement_gold_anomaly_puzzle">অস্বাভাবিকতা শিকারী</string>
     <string name="achievement_gold_colored_shapes">আকার পরিবর্তনকারী</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">সত্যিকারের রং</string>
     <string name="achievement_gold_flash_crowd">ভিড় গণনাকারী</string>
     <string name="achievement_gold_schulte_table">বিদ্যুৎ দৃষ্টি</string>
+    <string name="achievement_gold_flags">পতাকাবাহী</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">মস্তিষ্কের ম্যারাথন রানার</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_shikaku_desc">Shikaku-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_cat_queens_desc">বিড়াল রানি-তে স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_path_finder_desc">পথ অনুসন্ধানকারী-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_anomaly_puzzle_desc">অসঙ্গতি ধাঁধা-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_colored_shapes_desc">রঙিন আকৃতি-এ স্বর্ণপদক জিতুন</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">রঙ বিভ্রান্তি-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_flash_crowd_desc">ফ্ল্যাশ ক্রাউড-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_schulte_table_desc">শুল্টে টেবিল-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_flags_desc">পতাকা-এ স্বর্ণপদক জিতুন</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">মোট ১০,০০০ পয়েন্ট সংগ্রহ করুন</string>
@@ -558,4 +569,16 @@
     <string name="normal_chess_promotion_bishop">গজ</string>
     <string name="normal_chess_promotion_knight">ঘোড়া</string>
     <string name="normal_chess_draw_warning">= স্টেলমেট (ড্র, জয় নয়)</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">ছয়টি চেষ্টায় লুকানো পাঁচ-অক্ষরের শব্দটি অনুমান করুন। উত্তর সবসময় একটি বিশেষ্য।</string>
+    <string name="achievement_gold_wordle">শব্দকারিগর</string>
+    <string name="achievement_gold_wordle_desc">Wordle-এ স্বর্ণপদক জিতুন</string>
+    <string name="wordle_not_enough_letters">যথেষ্ট অক্ষর নেই</string>
+    <string name="wordle_not_in_word_list">শব্দ তালিকায় নেই</string>
+    <string name="wordle_answer_was">শব্দটি ছিল %1$s</string>
+    <string name="wordle_enter">এন্টার</string>
+    <string name="wordle_backspace">অক্ষর মুছুন</string>
+    <string name="wordle_legend_correct">সঠিক অক্ষর, সঠিক স্থান</string>
+    <string name="wordle_legend_present">সঠিক অক্ষর, ভুল স্থান</string>
+    <string name="wordle_legend_absent">শব্দে নেই</string>
 </resources>

@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Puzzle coulissant</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Reines Chats</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Fais glisser pour dessiner un rectangle. Touche un rectangle pour le supprimer.</string>
     <string name="game_nurikabe_desc">Peignez des cases pour former la mer autour des îles numérotées. Chaque île doit avoir autant de cases connectées que son nombre, la mer doit être connectée et ne contenir aucun bloc de 2x2.</string>
     <string name="game_nurikabe_howto">Touchez ou glissez pour peindre la mer. Touchez une case peinte pour l'effacer.</string>
+    <string name="game_cat_queens_desc">Place un chat dans chaque ligne, chaque colonne et chaque zone de couleur. Deux chats ne peuvent pas se toucher, même en diagonale.</string>
+    <string name="game_cat_queens_howto">Touche une case pour placer ou retirer un chat.</string>
+    <string name="cat_queens_error_row">Un seul chat par ligne</string>
+    <string name="cat_queens_error_column">Un seul chat par colonne</string>
+    <string name="cat_queens_error_zone">Un seul chat par zone de couleur</string>
+    <string name="cat_queens_error_touch">2 chats ne peuvent pas se toucher</string>
     <string name="moves_label">Coups : %1$d</string>
     <string name="mini_chess_thinking">La CPU réfléchit…</string>
     <string name="mini_chess_round_won">Échec et mat</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Glisseur expert</string>
     <string name="achievement_gold_shikaku">Maître des rectangles</string>
     <string name="achievement_gold_nurikabe">Maître des murs</string>
+    <string name="achievement_gold_cat_queens">Gardienne de chats</string>
     <string name="achievement_gold_path_finder">Pisteur</string>
     <string name="achievement_gold_anomaly_puzzle">Détecteur d'anomalies</string>
     <string name="achievement_gold_colored_shapes">Changeur de formes</string>
@@ -223,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Gagne la médaille d'or en Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Gagne la médaille d'or en Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Gagne la médaille d'or en Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Gagne la médaille d'or en Reines Chats</string>
     <string name="achievement_gold_path_finder_desc">Gagne la médaille d'or en Chercheur de chemin</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Gagne la médaille d'or en Puzzle d'anomalie</string>
     <string name="achievement_gold_colored_shapes_desc">Gagne la médaille d'or en Formes colorées</string>

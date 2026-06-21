@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">П'ятнашки</string>
     <string name="game_shikaku">Сікаку</string>
     <string name="game_nurikabe">Нурікабе</string>
+    <string name="game_cat_queens">Котячі Королеви</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Проведи, щоб намалювати прямокутник. Торкнися прямокутника, щоб видалити його.</string>
     <string name="game_nurikabe_desc">Зафарбовуйте клітинки, утворюючи море навколо пронумерованих островів. Кожен острів має складатися зі стількох з'єднаних клітинок, скільки вказано його числом, море має бути зв'язним і не містити жодного блоку 2x2.</string>
     <string name="game_nurikabe_howto">Натисніть або проведіть, щоб зафарбувати море. Натисніть на зафарбовану клітинку, щоб очистити її.</string>
+    <string name="game_cat_queens_desc">Розмісти одну кішку в кожному рядку, кожному стовпці та кожній кольоровій зоні. Жодні дві кішки не можуть торкатися одна одної, навіть по діагоналі.</string>
+    <string name="game_cat_queens_howto">Торкніться клітинки, щоб поставити або прибрати кішку.</string>
+    <string name="cat_queens_error_row">Лише одна кішка на рядок</string>
+    <string name="cat_queens_error_column">Лише одна кішка на стовпець</string>
+    <string name="cat_queens_error_zone">Лише одна кішка на кольорову зону</string>
+    <string name="cat_queens_error_touch">2 кішки не можуть торкатися одна одної</string>
     <string name="moves_label">Ходів: %1$d</string>
     <string name="mini_chess_thinking">Комп'ютер думає…</string>
     <string name="mini_chess_round_won">Шах і мат</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Майстер ковзання</string>
     <string name="achievement_gold_shikaku">Майстер прямокутників</string>
     <string name="achievement_gold_nurikabe">Майстер стін</string>
+    <string name="achievement_gold_cat_queens">Пастух кішок</string>
     <string name="achievement_gold_path_finder">Слідопит</string>
     <string name="achievement_gold_anomaly_puzzle">Мисливець за аномаліями</string>
     <string name="achievement_gold_colored_shapes">Перевертень</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">Справжні кольори</string>
     <string name="achievement_gold_flash_crowd">Лічильник натовпу</string>
     <string name="achievement_gold_schulte_table">Блискавичний погляд</string>
+    <string name="achievement_gold_flags">Прапороносець</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Марафонець розуму</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Здобудь золоту медаль у Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Здобудь золоту медаль у Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Здобудь золоту медаль у Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Здобудь золоту медаль у Котячі Королеви</string>
     <string name="achievement_gold_path_finder_desc">Здобудь золоту медаль у Пошук шляху</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Здобудь золоту медаль у Головоломка з аномалією</string>
     <string name="achievement_gold_colored_shapes_desc">Здобудь золоту медаль у Кольорові фігури</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">Здобудь золоту медаль у Кольорова плутанина</string>
     <string name="achievement_gold_flash_crowd_desc">Здобудь золоту медаль у Миттєвий натовп</string>
     <string name="achievement_gold_schulte_table_desc">Здобудь золоту медаль у Таблиця Шульте</string>
+    <string name="achievement_gold_flags_desc">Здобудь золоту медаль у Прапори</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Набери в сумі 10 000 очок</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">Натисніть на тварину, яку ви ще не бачили. Одна помилка завершує гру.</string>
     <string name="achievement_gold_spot_the_new">Свіжий погляд</string>
     <string name="achievement_gold_spot_the_new_desc">Здобудь золоту медаль у Знайди нове</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Вгадай приховане п\'ятилітерне слово за шість спроб. Відповідь завжди іменник.</string>
+    <string name="achievement_gold_wordle">Майстер слова</string>
+    <string name="achievement_gold_wordle_desc">Здобудь золоту медаль у Wordle</string>
+    <string name="wordle_not_enough_letters">Недостатньо літер</string>
+    <string name="wordle_not_in_word_list">Немає в списку слів</string>
+    <string name="wordle_answer_was">Слово було %1$s</string>
+    <string name="wordle_enter">Підтвердити</string>
+    <string name="wordle_backspace">Видалити літеру</string>
+    <string name="wordle_legend_correct">Правильна літера, правильна позиція</string>
+    <string name="wordle_legend_present">Правильна літера, неправильна позиція</string>
+    <string name="wordle_legend_absent">Немає в слові</string>
     <string name="instructions_best_score">Найкращий результат: %1$s</string>
     <string name="instructions_leaderboard">Переглянути таблицю лідерів</string>
     <string name="brain_cup_button">Таблиця лідерів Brain Cup</string>

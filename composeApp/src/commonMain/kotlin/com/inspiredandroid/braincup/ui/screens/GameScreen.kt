@@ -89,6 +89,15 @@ internal val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
 
 // Neutral graphite tray for the Cat Queens board, so the pastel zones pop off the prism frame.
 internal val CatQueensBoardFrame = ComposeColor(0xFF4A4754)
+// Dark slate tray for the Shikaku grid — matches the neutral prism-frame aesthetic.
+internal val ShikakuBoardFrame = ComposeColor(0xFF3E4450)
+// Dark ocean-slate tray for the Nurikabe grid — subtly blue-tinted to echo the sea theme.
+internal val NurikabeBoardFrame = ComposeColor(0xFF3A4858)
+// Fixed cell colors shared by both the game board and the tile preview.
+internal val NurikabeIslandColor = ComposeColor(0xFFE8E8E8)
+internal val NurikabeSeaColor = ComposeColor(0xFF546E7A)
+// Light cell background for the Shikaku board — gives cells contrast against the dark tray frame.
+internal val ShikakuCellColor = ComposeColor(0xFFDDE3EA)
 
 internal val FlashCrowdBlueSide = FlashCrowdBlue.darken(0.7f)
 internal val FlashCrowdBlueBottom = FlashCrowdBlue.darken(0.5f)
@@ -1485,14 +1494,13 @@ private fun ColumnScope.ShikakuContent(
     val cols = uiState.cols
     val compact = LocalIsCompactHeight.current
 
-    val gridLineColor = MaterialTheme.colorScheme.outlineVariant
-    val cellColor = MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
-    val validBorder = SuccessGreen
-    val validFill = SuccessGreenSoft
+    val gridLineColor = ComposeColor(0xFF1A1A1A).copy(alpha = 0.2f)
+    val cellColor = ShikakuCellColor
+    val regionBorderColor = ComposeColor(0xFF1A1A1A)
     val invalidBorder = MaterialTheme.colorScheme.error
-    val invalidFill = MaterialTheme.colorScheme.error.copy(alpha = 0.12f)
+    val invalidOverlay = MaterialTheme.colorScheme.error.copy(alpha = 0.25f)
     val previewColor = Primary
-    val clueColor = MaterialTheme.colorScheme.onSurface
+    val clueColor = ComposeColor(0xFF1A1A1A)
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
 
@@ -1507,8 +1515,10 @@ private fun ColumnScope.ShikakuContent(
     }
 
     val board: @Composable () -> Unit = {
+        PrismCard(face = ShikakuBoardFrame, facet = 6.dp, modifier = boardModifier) {
         Canvas(
-            modifier = boardModifier
+            modifier = Modifier
+                .fillMaxSize()
                 .pointerInput(uiState) {
                     detectDragGestures(
                         onDragStart = { offset ->
@@ -1550,31 +1560,44 @@ private fun ColumnScope.ShikakuContent(
 
             drawRect(color = cellColor)
 
-            // Committed rectangles: fills first so grid lines and borders draw on top.
-            uiState.rectangles.forEach { rect ->
+            // Committed rectangles: color fills first so grid lines and borders draw on top.
+            uiState.rectangles.forEachIndexed { idx, rect ->
+                val regionColor = CatRegionColors[idx % CatRegionColors.size]
                 drawRect(
-                    color = if (rect.isValid) validFill else invalidFill,
+                    color = regionColor.copy(alpha = 0.65f),
                     topLeft = rectTopLeft(rect.top, rect.left),
                     size = rectSize(rect.top, rect.left, rect.bottom, rect.right),
                 )
+                if (!rect.isValid) {
+                    drawRect(
+                        color = invalidOverlay,
+                        topLeft = rectTopLeft(rect.top, rect.left),
+                        size = rectSize(rect.top, rect.left, rect.bottom, rect.right),
+                    )
+                }
             }
 
             for (c in 0..cols) {
                 val x = c * cellW
-                drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.dp.toPx())
+                drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
             }
             for (r in 0..rows) {
                 val y = r * cellH
-                drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.dp.toPx())
+                drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
             }
 
+            // Bold border around each rectangle: dark for valid (like Cat Queens), red for invalid.
             uiState.rectangles.forEach { rect ->
-                drawRect(
-                    color = if (rect.isValid) validBorder else invalidBorder,
-                    topLeft = rectTopLeft(rect.top, rect.left),
-                    size = rectSize(rect.top, rect.left, rect.bottom, rect.right),
-                    style = Stroke(width = 3.dp.toPx()),
-                )
+                val borderColor = if (rect.isValid) regionBorderColor else invalidBorder
+                val x0 = rectTopLeft(rect.top, rect.left).x
+                val y0 = rectTopLeft(rect.top, rect.left).y
+                val x1 = x0 + rectSize(rect.top, rect.left, rect.bottom, rect.right).width
+                val y1 = y0 + rectSize(rect.top, rect.left, rect.bottom, rect.right).height
+                val bold = 3.dp.toPx()
+                drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
+                drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
+                drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
+                drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
             }
 
             val start = dragStart
@@ -1614,6 +1637,7 @@ private fun ColumnScope.ShikakuContent(
                     topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
                 )
             }
+        }
         }
     }
 
@@ -1691,11 +1715,11 @@ private fun ColumnScope.NurikabeContent(
     val cols = uiState.cols
     val compact = LocalIsCompactHeight.current
 
-    val gridLineColor = MaterialTheme.colorScheme.outlineVariant
-    val islandColor = MaterialTheme.colorScheme.surfaceContainerHighest
-    val seaColor = MaterialTheme.colorScheme.onSurface
+    val gridLineColor = ComposeColor(0xFF1A1A1A).copy(alpha = 0.4f)
+    val islandColor = NurikabeIslandColor
+    val seaColor = NurikabeSeaColor
     val previewColor = Primary
-    val clueColor = MaterialTheme.colorScheme.onSurface
+    val clueColor = ComposeColor(0xFF1A1A1A)
     val satisfiedFill = SuccessGreenSoft
     val satisfiedColor = SuccessGreen
     val invalidFill = MaterialTheme.colorScheme.error.copy(alpha = 0.15f)
@@ -1717,8 +1741,10 @@ private fun ColumnScope.NurikabeContent(
     }
 
     val board: @Composable () -> Unit = {
+        PrismCard(face = NurikabeBoardFrame, facet = 6.dp, modifier = boardModifier) {
         Canvas(
-            modifier = boardModifier
+            modifier = Modifier
+                .fillMaxSize()
                 .pointerInput(uiState) {
                     detectDragGestures(
                         onDragStart = { offset ->
@@ -1798,11 +1824,11 @@ private fun ColumnScope.NurikabeContent(
 
             for (c in 0..cols) {
                 val x = c * cellW
-                drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.dp.toPx())
+                drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
             }
             for (r in 0..rows) {
                 val y = r * cellH
-                drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.dp.toPx())
+                drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
             }
 
             val clueFontSize = (cellH * 0.42f).toSp()
@@ -1826,6 +1852,7 @@ private fun ColumnScope.NurikabeContent(
                     topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
                 )
             }
+        }
         }
     }
 
@@ -1895,22 +1922,26 @@ private fun ColumnScope.CatQueensContent(
     val n = uiState.size
     val compact = LocalIsCompactHeight.current
 
-    val gridLineColor = MaterialTheme.colorScheme.outlineVariant
-    val borderColor = MaterialTheme.colorScheme.onSurface
+    val gridLineColor = ComposeColor(0xFF000000).copy(alpha = 0.15f)
+    val borderColor = ComposeColor(0xFF1A1A1A)
     val invalidColor = MaterialTheme.colorScheme.error
     val validColor = SuccessGreen
     val catPainter = rememberVectorPainter(CatFace)
 
     val placed = uiState.cats.size
     val solvedLook = placed == n && uiState.invalidCats.isEmpty()
-    val boardDimension = if (compact) 240.dp else 320.dp
+    val boardModifier = if (compact) {
+        Modifier.heightIn(max = 260.dp).aspectRatio(1f)
+    } else {
+        Modifier.widthIn(max = 340.dp).aspectRatio(1f)
+    }
 
     // The board sits on a beveled prism tray, matching the Mini Chess board's raised look.
     val board: @Composable () -> Unit = {
-        PrismCard(face = CatQueensBoardFrame, facet = 6.dp) {
+        PrismCard(face = CatQueensBoardFrame, facet = 6.dp, modifier = boardModifier) {
             Canvas(
                 modifier = Modifier
-                    .size(boardDimension)
+                    .fillMaxSize()
                     .pointerInput(uiState) {
                         detectTapGestures { offset ->
                             val (r, c) = cellAt(offset, size.width, size.height, n, n)

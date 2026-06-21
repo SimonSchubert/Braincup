@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Quebra-cabeça deslizante</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Rainhas Gato</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Arraste para desenhar um retângulo. Toque em um retângulo para removê-lo.</string>
     <string name="game_nurikabe_desc">Pinte células para formar o mar ao redor das ilhas numeradas. Cada ilha deve ter tantas células conectadas quanto o seu número, o mar deve estar conectado e não pode conter nenhum bloco 2x2.</string>
     <string name="game_nurikabe_howto">Toque ou arraste para pintar o mar. Toque numa célula pintada para apagá-la.</string>
+    <string name="game_cat_queens_desc">Coloque um gato em cada linha, cada coluna e cada zona de cor. Dois gatos não podem se tocar, nem mesmo na diagonal.</string>
+    <string name="game_cat_queens_howto">Toque numa célula para colocar ou remover um gato.</string>
+    <string name="cat_queens_error_row">Apenas um gato por linha</string>
+    <string name="cat_queens_error_column">Apenas um gato por coluna</string>
+    <string name="cat_queens_error_zone">Apenas um gato por zona de cor</string>
+    <string name="cat_queens_error_touch">2 gatos não podem se tocar</string>
     <string name="moves_label">Movimentos: %1$d</string>
     <string name="mini_chess_thinking">A CPU está pensando…</string>
     <string name="mini_chess_round_won">Xeque-mate</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Operador hábil</string>
     <string name="achievement_gold_shikaku">Mestre dos retângulos</string>
     <string name="achievement_gold_nurikabe">Mestre dos muros</string>
+    <string name="achievement_gold_cat_queens">Domador de gatos</string>
     <string name="achievement_gold_path_finder">Explorador</string>
     <string name="achievement_gold_anomaly_puzzle">Caçador de anomalias</string>
     <string name="achievement_gold_colored_shapes">Trocador de formas</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">Cores verdadeiras</string>
     <string name="achievement_gold_flash_crowd">Contador de multidões</string>
     <string name="achievement_gold_schulte_table">Olhar relâmpago</string>
+    <string name="achievement_gold_flags">Porta-bandeira</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Maratonista da mente</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Ganhe a medalha de ouro em Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Ganhe a medalha de ouro em Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Ganhe a medalha de ouro em Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Ganhe a medalha de ouro em Rainhas Gato</string>
     <string name="achievement_gold_path_finder_desc">Ganhe a medalha de ouro em Busca de caminhos</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Ganhe a medalha de ouro em Quebra-cabeça de anomalia</string>
     <string name="achievement_gold_colored_shapes_desc">Ganhe a medalha de ouro em Formas coloridas</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">Ganhe a medalha de ouro em Confusão de Cores</string>
     <string name="achievement_gold_flash_crowd_desc">Ganhe a medalha de ouro em Multidão Relâmpago</string>
     <string name="achievement_gold_schulte_table_desc">Ganhe a medalha de ouro em Tabela de Schulte</string>
+    <string name="achievement_gold_flags_desc">Ganhe a medalha de ouro em Bandeiras</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Acumule 10.000 pontos no total</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">Toque no animal que você nunca viu antes. Um erro encerra o jogo.</string>
     <string name="achievement_gold_spot_the_new">Olhos Atentos</string>
     <string name="achievement_gold_spot_the_new_desc">Ganhe a medalha de ouro em Encontre o Novo</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Adivinhe a palavra oculta de cinco letras em seis tentativas. A resposta é sempre um substantivo.</string>
+    <string name="achievement_gold_wordle">Mestre das Palavras</string>
+    <string name="achievement_gold_wordle_desc">Ganhe a medalha de ouro em Wordle</string>
+    <string name="wordle_not_enough_letters">Letras insuficientes</string>
+    <string name="wordle_not_in_word_list">Não está na lista de palavras</string>
+    <string name="wordle_answer_was">A palavra era %1$s</string>
+    <string name="wordle_enter">Confirmar</string>
+    <string name="wordle_backspace">Apagar letra</string>
+    <string name="wordle_legend_correct">Letra certa, posição certa</string>
+    <string name="wordle_legend_present">Letra certa, posição errada</string>
+    <string name="wordle_legend_absent">Não está na palavra</string>
     <string name="instructions_best_score">Melhor pontuação: %1$s</string>
     <string name="instructions_leaderboard">Ver ranking</string>
     <string name="brain_cup_button">Ranking Brain Cup</string>

@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Пятнашки</string>
     <string name="game_shikaku">Сикаку</string>
     <string name="game_nurikabe">Нурикабэ</string>
+    <string name="game_cat_queens">Кошачьи ферзи</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Проведи, чтобы нарисовать прямоугольник. Нажми на прямоугольник, чтобы удалить его.</string>
     <string name="game_nurikabe_desc">Закрашивайте клетки, образуя море вокруг пронумерованных островов. Каждый остров должен состоять из стольких связанных клеток, сколько указано его числом, море должно быть связным и не содержать ни одного блока 2x2.</string>
     <string name="game_nurikabe_howto">Нажмите или проведите, чтобы закрасить море. Нажмите на закрашенную клетку, чтобы очистить её.</string>
+    <string name="game_cat_queens_desc">Поставь по одной кошке в каждую строку, каждый столбец и каждую цветовую зону. Две кошки не могут соседствовать, даже по диагонали.</string>
+    <string name="game_cat_queens_howto">Нажми на клетку, чтобы поставить или убрать кошку.</string>
+    <string name="cat_queens_error_row">Только одна кошка в строке</string>
+    <string name="cat_queens_error_column">Только одна кошка в столбце</string>
+    <string name="cat_queens_error_zone">Только одна кошка в цветовой зоне</string>
+    <string name="cat_queens_error_touch">2 кошки не могут соседствовать</string>
     <string name="moves_label">Ходов: %1$d</string>
     <string name="mini_chess_thinking">Компьютер думает…</string>
     <string name="mini_chess_round_won">Шах и мат</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Мастер скольжения</string>
     <string name="achievement_gold_shikaku">Мастер прямоугольников</string>
     <string name="achievement_gold_nurikabe">Мастер стен</string>
+    <string name="achievement_gold_cat_queens">Повелитель кошек</string>
     <string name="achievement_gold_path_finder">Следопыт</string>
     <string name="achievement_gold_anomaly_puzzle">Охотник за аномалиями</string>
     <string name="achievement_gold_colored_shapes">Перевёртыш</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">Истинные цвета</string>
     <string name="achievement_gold_flash_crowd">Счётчик толпы</string>
     <string name="achievement_gold_schulte_table">Молниеносный взгляд</string>
+    <string name="achievement_gold_flags">Знаменосец</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Марафонец разума</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Получи золотую медаль в Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Получи золотую медаль в Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Получи золотую медаль в Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Получи золотую медаль в Кошачьи ферзи</string>
     <string name="achievement_gold_path_finder_desc">Получи золотую медаль в Поиск пути</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Получи золотую медаль в Головоломка с аномалией</string>
     <string name="achievement_gold_colored_shapes_desc">Получи золотую медаль в Цветные фигуры</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">Получи золотую медаль в Цветовая путаница</string>
     <string name="achievement_gold_flash_crowd_desc">Получи золотую медаль в Мгновенная толпа</string>
     <string name="achievement_gold_schulte_table_desc">Получи золотую медаль в Таблица Шульте</string>
+    <string name="achievement_gold_flags_desc">Получи золотую медаль в Флаги</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Накопи 10 000 очков в сумме</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">Нажмите на животное, которое вы ещё не видели. Одна ошибка завершает игру.</string>
     <string name="achievement_gold_spot_the_new">Свежий взгляд</string>
     <string name="achievement_gold_spot_the_new_desc">Завоюй золотую медаль в Найди новое</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Угадай скрытое пятибуквенное слово за шесть попыток. Ответ всегда существительное.</string>
+    <string name="achievement_gold_wordle">Мастер слова</string>
+    <string name="achievement_gold_wordle_desc">Получи золотую медаль в Wordle</string>
+    <string name="wordle_not_enough_letters">Недостаточно букв</string>
+    <string name="wordle_not_in_word_list">Нет в списке слов</string>
+    <string name="wordle_answer_was">Слово было %1$s</string>
+    <string name="wordle_enter">Ввод</string>
+    <string name="wordle_backspace">Удалить букву</string>
+    <string name="wordle_legend_correct">Верная буква, верная позиция</string>
+    <string name="wordle_legend_present">Верная буква, неверная позиция</string>
+    <string name="wordle_legend_absent">Нет в слове</string>
     <string name="instructions_best_score">Лучший результат: %1$s</string>
     <string name="instructions_leaderboard">Посмотреть таблицу лидеров</string>
     <string name="brain_cup_button">Таблица лидеров Brain Cup</string>

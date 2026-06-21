@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">スライドパズル</string>
     <string name="game_shikaku">シカク</string>
     <string name="game_nurikabe">ヌリカベ</string>
+    <string name="game_cat_queens">ネコクイーン</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">ドラッグして長方形を描きます。長方形をタップすると削除できます。</string>
     <string name="game_nurikabe_desc">数字の島の周りに海を塗りましょう。各島は数字と同じ数の連結したマスでできていなければならず、海はひとつにつながり、2x2のかたまりがあってはいけません。</string>
     <string name="game_nurikabe_howto">タップまたはドラッグして海を塗ります。塗ったマスをタップすると消せます。</string>
+    <string name="game_cat_queens_desc">すべての行、列、カラーゾーンにネコを1匹ずつ置きましょう。2匹のネコは斜めも含めて隣接できません。</string>
+    <string name="game_cat_queens_howto">セルをタップしてネコを置いたり取り除いたりします。</string>
+    <string name="cat_queens_error_row">1行に1匹のネコのみ</string>
+    <string name="cat_queens_error_column">1列に1匹のネコのみ</string>
+    <string name="cat_queens_error_zone">1ゾーンに1匹のネコのみ</string>
+    <string name="cat_queens_error_touch">2匹のネコは隣接できません</string>
     <string name="moves_label">手数: %1$d</string>
     <string name="mini_chess_thinking">CPUが思考中…</string>
     <string name="mini_chess_round_won">チェックメイト</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">スライド名人</string>
     <string name="achievement_gold_shikaku">長方形の達人</string>
     <string name="achievement_gold_nurikabe">壁づくりの達人</string>
+    <string name="achievement_gold_cat_queens">ネコ使い</string>
     <string name="achievement_gold_path_finder">道しるべ</string>
     <string name="achievement_gold_anomaly_puzzle">異常発見者</string>
     <string name="achievement_gold_colored_shapes">形変化師</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">真の色</string>
     <string name="achievement_gold_flash_crowd">群衆カウンター</string>
     <string name="achievement_gold_schulte_table">稲妻の視線</string>
+    <string name="achievement_gold_flags">旗手</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">脳のマラソンランナー</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzleで金メダルを獲得</string>
     <string name="achievement_gold_shikaku_desc">Shikakuで金メダルを獲得</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabeで金メダルを獲得</string>
+    <string name="achievement_gold_cat_queens_desc">ネコクイーンで金メダルを獲得</string>
     <string name="achievement_gold_path_finder_desc">パスファインダーで金メダルを獲得</string>
     <string name="achievement_gold_anomaly_puzzle_desc">異常パズルで金メダルを獲得</string>
     <string name="achievement_gold_colored_shapes_desc">カラフルな形で金メダルを獲得</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">カラーコンフュージョンで金メダルを獲得</string>
     <string name="achievement_gold_flash_crowd_desc">フラッシュクラウドで金メダルを獲得</string>
     <string name="achievement_gold_schulte_table_desc">シュルテ表で金メダルを獲得</string>
+    <string name="achievement_gold_flags_desc">国旗で金メダルを獲得</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">累計10,000ポイントを獲得</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">今まで見たことのない動物をタップしてください。一度間違えるとゲーム終了です。</string>
     <string name="achievement_gold_spot_the_new">新鮮な目</string>
     <string name="achievement_gold_spot_the_new_desc">新しいものを探せでゴールドメダルを獲得</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">6回以内に隠された5文字の単語を当てましょう。答えは常に名詞です。</string>
+    <string name="achievement_gold_wordle">言葉の達人</string>
+    <string name="achievement_gold_wordle_desc">Wordleで金メダルを獲得</string>
+    <string name="wordle_not_enough_letters">文字が足りません</string>
+    <string name="wordle_not_in_word_list">単語リストにありません</string>
+    <string name="wordle_answer_was">答えは %1$s でした</string>
+    <string name="wordle_enter">決定</string>
+    <string name="wordle_backspace">文字を削除</string>
+    <string name="wordle_legend_correct">正しい文字、正しい位置</string>
+    <string name="wordle_legend_present">正しい文字、違う位置</string>
+    <string name="wordle_legend_absent">単語に含まれない</string>
     <string name="instructions_best_score">ベストスコア: %1$s</string>
     <string name="instructions_leaderboard">ランキングを見る</string>
     <string name="brain_cup_button">Brain Cup ランキング</string>

@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">स्लाइडिंग पहेली</string>
     <string name="game_shikaku">शिकाकू</string>
     <string name="game_nurikabe">नुरिकाबे</string>
+    <string name="game_cat_queens">बिल्ली रानियां</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">उस आकृति को खोजें जो अलग दिखती है। प्रत्येक आकृति के रंग और आकार दोनों पर विचार करें।</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">आयत बनाने के लिए खींचें। हटाने के लिए आयत पर टैप करें।</string>
     <string name="game_nurikabe_desc">संख्या वाले द्वीपों के चारों ओर समुद्र बनाने के लिए कोशिकाओं को रंगें। प्रत्येक द्वीप में उसकी संख्या के बराबर जुड़ी हुई कोशिकाएँ होनी चाहिए, समुद्र जुड़ा हुआ होना चाहिए और उसमें कोई 2x2 ब्लॉक नहीं होना चाहिए।</string>
     <string name="game_nurikabe_howto">समुद्र रंगने के लिए टैप करें या खींचें। भरी हुई कोशिका को साफ़ करने के लिए उस पर टैप करें।</string>
+    <string name="game_cat_queens_desc">हर पंक्ति, हर स्तंभ और हर रंग क्षेत्र में एक बिल्ली रखें। कोई दो बिल्लियां एक-दूसरे को स्पर्श नहीं कर सकतीं, यहां तक कि विकर्ण रूप से भी नहीं।</string>
+    <string name="game_cat_queens_howto">बिल्ली रखने या हटाने के लिए किसी सेल पर टैप करें।</string>
+    <string name="cat_queens_error_row">प्रति पंक्ति केवल एक बिल्ली</string>
+    <string name="cat_queens_error_column">प्रति स्तंभ केवल एक बिल्ली</string>
+    <string name="cat_queens_error_zone">प्रति रंग क्षेत्र केवल एक बिल्ली</string>
+    <string name="cat_queens_error_touch">2 बिल्लियां एक-दूसरे को स्पर्श नहीं कर सकतीं</string>
     <string name="moves_label">चालें: %1$d</string>
     <string name="mini_chess_thinking">CPU सोच रहा है…</string>
     <string name="mini_chess_round_won">शह-मात</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">कुशल खिसकाने वाला</string>
     <string name="achievement_gold_shikaku">आयत मास्टर</string>
     <string name="achievement_gold_nurikabe">दीवार निर्माता</string>
+    <string name="achievement_gold_cat_queens">बिल्ली चरवाहा</string>
     <string name="achievement_gold_path_finder">पथप्रदर्शक</string>
     <string name="achievement_gold_anomaly_puzzle">विसंगति शिकारी</string>
     <string name="achievement_gold_colored_shapes">आकार बदलने वाला</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">असली रंग</string>
     <string name="achievement_gold_flash_crowd">भीड़ गिनने वाला</string>
     <string name="achievement_gold_schulte_table">बिजली नज़र</string>
+    <string name="achievement_gold_flags">ध्वजवाहक</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">मस्तिष्क मैराथन धावक</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_shikaku_desc">Shikaku में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_cat_queens_desc">बिल्ली रानियां में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_path_finder_desc">पथ खोजक में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_anomaly_puzzle_desc">विसंगति पहेली में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_colored_shapes_desc">रंगीन आकार में स्वर्ण पदक जीतें</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">रंग भ्रम में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_flash_crowd_desc">फ्लैश क्राउड में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_schulte_table_desc">शुल्ते तालिका में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_flags_desc">झंडे में स्वर्ण पदक जीतें</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">कुल 10,000 अंक जमा करें</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">वह जानवर टैप करें जिसे आपने पहले नहीं देखा। एक गलती से खेल समाप्त हो जाता है।</string>
     <string name="achievement_gold_spot_the_new">ताज़ी नज़र</string>
     <string name="achievement_gold_spot_the_new_desc">नया पहचानें में स्वर्ण पदक जीतें</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">छह प्रयासों में छिपे पांच-अक्षर वाले शब्द का अनुमान लगाएं। उत्तर हमेशा एक संज्ञा होती है।</string>
+    <string name="achievement_gold_wordle">शब्द उस्ताद</string>
+    <string name="achievement_gold_wordle_desc">Wordle में स्वर्ण पदक जीतें</string>
+    <string name="wordle_not_enough_letters">पर्याप्त अक्षर नहीं</string>
+    <string name="wordle_not_in_word_list">शब्द सूची में नहीं है</string>
+    <string name="wordle_answer_was">शब्द था %1$s</string>
+    <string name="wordle_enter">दर्ज करें</string>
+    <string name="wordle_backspace">अक्षर मिटाएं</string>
+    <string name="wordle_legend_correct">सही अक्षर, सही जगह</string>
+    <string name="wordle_legend_present">सही अक्षर, गलत जगह</string>
+    <string name="wordle_legend_absent">शब्द में नहीं है</string>
     <string name="instructions_best_score">सर्वश्रेष्ठ स्कोर: %1$s</string>
     <string name="instructions_leaderboard">लीडरबोर्ड देखें</string>
     <string name="brain_cup_button">Brain Cup लीडरबोर्ड</string>

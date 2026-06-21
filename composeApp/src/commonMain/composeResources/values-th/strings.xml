@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">ปริศนาเลื่อน</string>
     <string name="game_shikaku">ชิกะกุ</string>
     <string name="game_nurikabe">นูริคาเบะ</string>
+    <string name="game_cat_queens">ราชินีแมว</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">ลากเพื่อวาดสี่เหลี่ยมผืนผ้า แตะที่สี่เหลี่ยมเพื่อลบออก</string>
     <string name="game_nurikabe_desc">ระบายช่องเพื่อสร้างทะเลรอบ ๆ เกาะที่มีตัวเลข แต่ละเกาะต้องมีช่องที่เชื่อมต่อกันเท่ากับตัวเลขของมัน ทะเลต้องเชื่อมต่อกันทั้งหมดและต้องไม่มีบล็อก 2x2</string>
     <string name="game_nurikabe_howto">แตะหรือลากเพื่อระบายทะเล แตะช่องที่ระบายแล้วเพื่อลบออก</string>
+    <string name="game_cat_queens_desc">วางแมวหนึ่งตัวในทุกแถว ทุกคอลัมน์ และทุกโซนสี ห้ามสองตัวสัมผัสกัน แม้แต่ในแนวทแยง</string>
+    <string name="game_cat_queens_howto">แตะเซลล์เพื่อวางหรือเอาแมวออก</string>
+    <string name="cat_queens_error_row">มีแมวได้เพียงตัวเดียวต่อแถว</string>
+    <string name="cat_queens_error_column">มีแมวได้เพียงตัวเดียวต่อคอลัมน์</string>
+    <string name="cat_queens_error_zone">มีแมวได้เพียงตัวเดียวต่อโซนสี</string>
+    <string name="cat_queens_error_touch">แมว 2 ตัวห้ามสัมผัสกัน</string>
     <string name="moves_label">การเดิน: %1$d</string>
     <string name="mini_chess_thinking">ซีพียูกำลังคิด…</string>
     <string name="mini_chess_round_won">รุกฆาต</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">นักเลื่อนชั้นเซียน</string>
     <string name="achievement_gold_shikaku">เซียนสี่เหลี่ยม</string>
     <string name="achievement_gold_nurikabe">เซียนกำแพง</string>
+    <string name="achievement_gold_cat_queens">นายฝูงแมว</string>
     <string name="achievement_gold_path_finder">นักหาทาง</string>
     <string name="achievement_gold_anomaly_puzzle">นักล่าสิ่งผิดปกติ</string>
     <string name="achievement_gold_colored_shapes">ผู้เปลี่ยนรูป</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">สีที่แท้จริง</string>
     <string name="achievement_gold_flash_crowd">ผู้นับฝูงชน</string>
     <string name="achievement_gold_schulte_table">สายตาฟ้าผ่า</string>
+    <string name="achievement_gold_flags">ผู้ถือธง</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">นักวิ่งมาราธอนสมอง</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">ชนะเหรียญทองในSliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">ชนะเหรียญทองในShikaku</string>
     <string name="achievement_gold_nurikabe_desc">ชนะเหรียญทองในNurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">ชนะเหรียญทองในราชินีแมว</string>
     <string name="achievement_gold_path_finder_desc">ชนะเหรียญทองในค้นหาเส้นทาง</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ชนะเหรียญทองในปริศนาความผิดปกติ</string>
     <string name="achievement_gold_colored_shapes_desc">ชนะเหรียญทองในรูปทรงสี</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">ชนะเหรียญทองในสีสับสน</string>
     <string name="achievement_gold_flash_crowd_desc">ชนะเหรียญทองในฝูงชนวาบ</string>
     <string name="achievement_gold_schulte_table_desc">ชนะเหรียญทองในตารางชูลเทอ</string>
+    <string name="achievement_gold_flags_desc">ชนะเหรียญทองในธง</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">สะสมแต้มรวม 10,000 แต้ม</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">แตะสัตว์ที่คุณไม่เคยเห็นมาก่อน ผิดครั้งเดียวเกมจบ</string>
     <string name="achievement_gold_spot_the_new">สายตาเฉียบคม</string>
     <string name="achievement_gold_spot_the_new_desc">ชนะเหรียญทองในหาสิ่งใหม่</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">เดาคำห้าตัวอักษรที่ซ่อนอยู่ภายในหกครั้ง คำตอบเป็นคำนามเสมอ</string>
+    <string name="achievement_gold_wordle">นักประพันธ์คำ</string>
+    <string name="achievement_gold_wordle_desc">ชนะเหรียญทองใน Wordle</string>
+    <string name="wordle_not_enough_letters">ตัวอักษรไม่เพียงพอ</string>
+    <string name="wordle_not_in_word_list">ไม่อยู่ในรายการคำ</string>
+    <string name="wordle_answer_was">คำคือ %1$s</string>
+    <string name="wordle_enter">ยืนยัน</string>
+    <string name="wordle_backspace">ลบตัวอักษร</string>
+    <string name="wordle_legend_correct">ตัวอักษรถูก ตำแหน่งถูก</string>
+    <string name="wordle_legend_present">ตัวอักษรถูก ตำแหน่งผิด</string>
+    <string name="wordle_legend_absent">ไม่มีในคำ</string>
     <string name="instructions_best_score">คะแนนสูงสุด: %1$s</string>
     <string name="instructions_leaderboard">ดูตารางอันดับ</string>
     <string name="brain_cup_button">ตารางอันดับ Brain Cup</string>

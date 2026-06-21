@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Układanka przesuwna</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Koci Gambit</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Przeciągnij, aby narysować prostokąt. Dotknij prostokąta, aby go usunąć.</string>
     <string name="game_nurikabe_desc">Maluj komórki, aby utworzyć morze wokół ponumerowanych wysp. Każda wyspa musi mieć tyle połączonych komórek, ile wynosi jej liczba, morze musi być połączone i nie może zawierać żadnego bloku 2x2.</string>
     <string name="game_nurikabe_howto">Dotknij lub przeciągnij, aby malować morze. Dotknij wypełnionej komórki, aby ją wyczyścić.</string>
+    <string name="game_cat_queens_desc">Umieść jednego kota w każdym wierszu, każdej kolumnie i każdej strefie kolorów. Dwa koty nie mogą się stykać, nawet po przekątnej.</string>
+    <string name="game_cat_queens_howto">Dotknij komórki, aby postawić lub usunąć kota.</string>
+    <string name="cat_queens_error_row">Tylko jeden kot w wierszu</string>
+    <string name="cat_queens_error_column">Tylko jeden kot w kolumnie</string>
+    <string name="cat_queens_error_zone">Tylko jeden kot w strefie kolorów</string>
+    <string name="cat_queens_error_touch">2 koty nie mogą się stykać</string>
     <string name="moves_label">Ruchy: %1$d</string>
     <string name="mini_chess_thinking">CPU myśli…</string>
     <string name="mini_chess_round_won">Mat</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Sprawny układacz</string>
     <string name="achievement_gold_shikaku">Mistrz prostokątów</string>
     <string name="achievement_gold_nurikabe">Mistrz murów</string>
+    <string name="achievement_gold_cat_queens">Koci Poganiacz</string>
     <string name="achievement_gold_path_finder">Tropiciel</string>
     <string name="achievement_gold_anomaly_puzzle">Łowca anomalii</string>
     <string name="achievement_gold_colored_shapes">Zmiennokształtny</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">Prawdziwe barwy</string>
     <string name="achievement_gold_flash_crowd">Liczyciel tłumu</string>
     <string name="achievement_gold_schulte_table">Błyskawiczne spojrzenie</string>
+    <string name="achievement_gold_flags">Chorąży</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Maratończyk umysłu</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Zdobądź złoty medal w Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Zdobądź złoty medal w Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Zdobądź złoty medal w Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Zdobądź złoty medal w Koci Gambit</string>
     <string name="achievement_gold_path_finder_desc">Zdobądź złoty medal w Znajdź ścieżkę</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Zdobądź złoty medal w Łamigłówka anomalii</string>
     <string name="achievement_gold_colored_shapes_desc">Zdobądź złoty medal w Kolorowe kształty</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">Zdobądź złoty medal w Zamieszanie Kolorów</string>
     <string name="achievement_gold_flash_crowd_desc">Zdobądź złoty medal w Błyskawiczny Tłum</string>
     <string name="achievement_gold_schulte_table_desc">Zdobądź złoty medal w Tablica Schulte'a</string>
+    <string name="achievement_gold_flags_desc">Zdobądź złoty medal w Flagi</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Zdobądź łącznie 10 000 punktów</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">Dotknij zwierzęcia, którego wcześniej nie widziałeś. Jeden błąd kończy grę.</string>
     <string name="achievement_gold_spot_the_new">Świeże Oko</string>
     <string name="achievement_gold_spot_the_new_desc">Zdobądź złoty medal w Znajdź Nowy</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Zgadnij ukryte pięcioliterowe słowo w sześciu próbach. Odpowiedź to zawsze rzeczownik.</string>
+    <string name="achievement_gold_wordle">Mistrz słów</string>
+    <string name="achievement_gold_wordle_desc">Zdobądź złoty medal w Wordle</string>
+    <string name="wordle_not_enough_letters">Za mało liter</string>
+    <string name="wordle_not_in_word_list">Nie ma w liście słów</string>
+    <string name="wordle_answer_was">Słowem było %1$s</string>
+    <string name="wordle_enter">Zatwierdź</string>
+    <string name="wordle_backspace">Usuń literę</string>
+    <string name="wordle_legend_correct">Dobra litera, dobre miejsce</string>
+    <string name="wordle_legend_present">Dobra litera, złe miejsce</string>
+    <string name="wordle_legend_absent">Nie ma w słowie</string>
     <string name="instructions_best_score">Najlepszy wynik: %1$s</string>
     <string name="instructions_leaderboard">Zobacz ranking</string>
     <string name="brain_cup_button">Ranking Brain Cup</string>

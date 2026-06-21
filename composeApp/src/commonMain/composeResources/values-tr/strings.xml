@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Kaydırma Bulmacası</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Kedi Kraliçeleri</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Dikdörtgen çizmek için sürükle. Kaldırmak için bir dikdörtgene dokun.</string>
     <string name="game_nurikabe_desc">Numaralı adaların çevresinde denizi oluşturmak için hücreleri boyayın. Her ada, sayısı kadar bağlı hücreye sahip olmalı, deniz bağlantılı olmalı ve hiçbir 2x2 blok içermemelidir.</string>
     <string name="game_nurikabe_howto">Denizi boyamak için dokunun veya sürükleyin. Boyalı bir hücreyi temizlemek için ona dokunun.</string>
+    <string name="game_cat_queens_desc">Her satıra, her sütuna ve her renk bölgesine bir kedi yerleştir. İki kedi birbirine dokunamaz, çapraz olarak da.</string>
+    <string name="game_cat_queens_howto">Kedi yerleştirmek veya kaldırmak için bir hücreye dokun.</string>
+    <string name="cat_queens_error_row">Satır başına yalnızca bir kedi</string>
+    <string name="cat_queens_error_column">Sütun başına yalnızca bir kedi</string>
+    <string name="cat_queens_error_zone">Renk bölgesi başına yalnızca bir kedi</string>
+    <string name="cat_queens_error_touch">2 kedi birbirine dokunamaz</string>
     <string name="moves_label">Hamle: %1$d</string>
     <string name="mini_chess_thinking">CPU düşünüyor…</string>
     <string name="mini_chess_round_won">Şah Mat</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Akıcı Operatör</string>
     <string name="achievement_gold_shikaku">Dikdörtgen Ustası</string>
     <string name="achievement_gold_nurikabe">Duvar Ustası</string>
+    <string name="achievement_gold_cat_queens">Kedi Çobanı</string>
     <string name="achievement_gold_path_finder">İz Sürücü</string>
     <string name="achievement_gold_anomaly_puzzle">Tuhaflık Avcısı</string>
     <string name="achievement_gold_colored_shapes">Şekil Değiştiren</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">Gerçek Renkler</string>
     <string name="achievement_gold_flash_crowd">Kalabalık Sayar</string>
     <string name="achievement_gold_schulte_table">Şimşek Bakış</string>
+    <string name="achievement_gold_flags">Bayrak Taşıyıcı</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Zihin Maratoncusu</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle oyununda altın madalya kazan</string>
     <string name="achievement_gold_shikaku_desc">Shikaku oyununda altın madalya kazan</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe oyununda altın madalya kazan</string>
+    <string name="achievement_gold_cat_queens_desc">Kedi Kraliçeleri oyununda altın madalya kazan</string>
     <string name="achievement_gold_path_finder_desc">Yol Bulucu oyununda altın madalya kazan</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Anomali Bulmacası oyununda altın madalya kazan</string>
     <string name="achievement_gold_colored_shapes_desc">Renkli Şekiller oyununda altın madalya kazan</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">Renk Karmaşası oyununda altın madalya kazan</string>
     <string name="achievement_gold_flash_crowd_desc">Flaş Kalabalık oyununda altın madalya kazan</string>
     <string name="achievement_gold_schulte_table_desc">Schulte Tablosu oyununda altın madalya kazan</string>
+    <string name="achievement_gold_flags_desc">Bayraklar oyununda altın madalya kazan</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Toplam 10.000 puan biriktir</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">Daha önce görmediğin hayvana dokun. Tek bir hata oyunu bitirir.</string>
     <string name="achievement_gold_spot_the_new">Keskin Göz</string>
     <string name="achievement_gold_spot_the_new_desc">Yeniyi Bul\'da altın madalya kazan</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Altı denemede gizli beş harfli kelimeyi tahmin et. Cevap her zaman bir isimdir.</string>
+    <string name="achievement_gold_wordle">Kelime Ustası</string>
+    <string name="achievement_gold_wordle_desc">Wordle oyununda altın madalya kazan</string>
+    <string name="wordle_not_enough_letters">Yeterli harf yok</string>
+    <string name="wordle_not_in_word_list">Kelime listesinde yok</string>
+    <string name="wordle_answer_was">Kelime %1$s idi</string>
+    <string name="wordle_enter">Gir</string>
+    <string name="wordle_backspace">Harf sil</string>
+    <string name="wordle_legend_correct">Doğru harf, doğru yer</string>
+    <string name="wordle_legend_present">Doğru harf, yanlış yer</string>
+    <string name="wordle_legend_absent">Kelimede yok</string>
     <string name="instructions_best_score">En iyi puan: %1$s</string>
     <string name="instructions_leaderboard">Skor tablosunu gör</string>
     <string name="brain_cup_button">Brain Cup skor tablosu</string>

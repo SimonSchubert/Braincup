@@ -36,12 +36,17 @@ import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.screens.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueBottom
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueSide
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
+import com.inspiredandroid.braincup.ui.screens.NurikabeBoardFrame
+import com.inspiredandroid.braincup.ui.screens.NurikabeIslandColor
+import com.inspiredandroid.braincup.ui.screens.NurikabeSeaColor
+import com.inspiredandroid.braincup.ui.screens.ShikakuBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
@@ -179,13 +184,13 @@ private val ShikakuPreviewRects: List<ShikakuPreviewRect> = listOf(
     ShikakuPreviewRect(top = 2, left = 0, bottom = 2, right = 2, clue = 3, clueRow = 2, clueCol = 0),
 )
 
-private const val NurikabePreviewSize = 5
+private const val NurikabePreviewSize = 4
 
-/** A solved 5x5 Nurikabe: a size-5 island down the left, four 2-cell islands, a thin connected sea. */
-private val NurikabePreviewSea: Set<Int> = setOf(1, 3, 6, 8, 11, 12, 13, 14, 16, 18, 21, 23)
+/** Sea (wall) cells in the 4x4 preview grid. All other cells are island (white). */
+private val NurikabePreviewSea: Set<Int> = setOf(1, 2, 5, 6, 10, 11, 12, 14, 15)
 
-/** cellIndex (row*5+col) -> island size. */
-private val NurikabePreviewClues: Map<Int, Int> = mapOf(0 to 5, 2 to 2, 4 to 2, 22 to 2, 24 to 2)
+/** cellIndex -> island clue size. Clues sit in island cells. */
+private val NurikabePreviewClues: Map<Int, Int> = mapOf(0 to 3, 3 to 2, 9 to 2)
 
 private const val CatQueensPreviewSize = 4
 private val CatQueensPreviewRegions: List<Int> = listOf(
@@ -709,32 +714,51 @@ private fun LightsOutPreview() {
 
 @Composable
 private fun ShikakuPreview() {
-    val gridLineColor = PreviewTextColor.copy(alpha = 0.3f)
-    val borderColor = Primary
+    val gridLineColor = PreviewTextColor.copy(alpha = 0.15f)
+    val borderColor = PreviewTextColor
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
     val n = ShikakuPreviewSize
-    Canvas(
+    PrismCard(
+        face = ShikakuBoardFrame,
+        facet = 4.dp,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
             .padding(24.dp),
     ) {
+    Canvas(
+        modifier = Modifier.fillMaxSize(),
+    ) {
         val cellW = size.width / n
         val cellH = size.height / n
 
+        // Each rectangle gets a distinct region color (like Cat Queens regions).
+        ShikakuPreviewRects.forEachIndexed { idx, rect ->
+            drawRect(
+                color = CatRegionColors[idx % CatRegionColors.size],
+                topLeft = Offset(rect.left * cellW, rect.top * cellH),
+                size = Size((rect.right - rect.left + 1) * cellW, (rect.bottom - rect.top + 1) * cellH),
+            )
+        }
+
+        // Thin grid lines over the fills.
         for (i in 0..n) {
             drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
             drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
         }
 
+        // Bold dark border around each rectangle (like Cat Queens region borders).
+        val bold = 3.dp.toPx()
         ShikakuPreviewRects.forEach { rect ->
-            drawRect(
-                color = borderColor,
-                topLeft = Offset(rect.left * cellW, rect.top * cellH),
-                size = Size((rect.right - rect.left + 1) * cellW, (rect.bottom - rect.top + 1) * cellH),
-                style = Stroke(width = 3.dp.toPx()),
-            )
+            val x0 = rect.left * cellW
+            val y0 = rect.top * cellH
+            val x1 = (rect.right + 1) * cellW
+            val y1 = (rect.bottom + 1) * cellH
+            drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
+            drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
+            drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
+            drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
         }
 
         val clueStyle = TextStyle(
@@ -753,35 +777,41 @@ private fun ShikakuPreview() {
             )
         }
     }
+    }
 }
 
 @Composable
 private fun NurikabePreview() {
-    val gridLineColor = PreviewTextColor.copy(alpha = 0.3f)
-    val seaColor = PreviewTextColor
+    val gridLineColor = PreviewTextColor.copy(alpha = 0.5f)
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
     val n = NurikabePreviewSize
-    Canvas(
+    PrismCard(
+        face = NurikabeBoardFrame,
+        facet = 4.dp,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
             .padding(24.dp),
     ) {
+    Canvas(
+        modifier = Modifier.fillMaxSize(),
+    ) {
         val cellW = size.width / n
         val cellH = size.height / n
+        fun topLeft(index: Int) = Offset((index % n) * cellW, (index / n) * cellH)
+        val cellSize = Size(cellW, cellH)
 
+        // Island cells are light; sea cells are dark — the classic Nurikabe look.
+        drawRect(color = NurikabeIslandColor)
         NurikabePreviewSea.forEach { index ->
-            drawRect(
-                color = seaColor,
-                topLeft = Offset((index % n) * cellW, (index / n) * cellH),
-                size = Size(cellW, cellH),
-            )
+            drawRect(color = NurikabeSeaColor, topLeft = topLeft(index), size = cellSize)
         }
 
+        // Dark grid lines, slightly thicker than the sea preview to match Shikaku / Cat Queens.
         for (i in 0..n) {
-            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
-            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
+            drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.5.dp.toPx())
+            drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.5.dp.toPx())
         }
 
         val clueStyle = TextStyle(
@@ -800,6 +830,7 @@ private fun NurikabePreview() {
             )
         }
     }
+    }
 }
 
 @Composable
@@ -808,11 +839,16 @@ private fun CatQueensPreview() {
     val borderColor = PreviewTextColor
     val catPainter = rememberVectorPainter(CatFace)
     val n = CatQueensPreviewSize
-    Canvas(
+    PrismCard(
+        face = CatQueensBoardFrame,
+        facet = 4.dp,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
             .padding(20.dp),
+    ) {
+    Canvas(
+        modifier = Modifier.fillMaxSize(),
     ) {
         val cellW = size.width / n
         val cellH = size.height / n
@@ -861,6 +897,7 @@ private fun CatQueensPreview() {
                 with(catPainter) { draw(catSize) }
             }
         }
+    }
     }
 }
 

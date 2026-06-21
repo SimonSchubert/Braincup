@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">슬라이드 퍼즐</string>
     <string name="game_shikaku">시카쿠</string>
     <string name="game_nurikabe">누리카베</string>
+    <string name="game_cat_queens">고양이 퀸</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">드래그하여 직사각형을 그리세요. 직사각형을 탭하면 삭제됩니다.</string>
     <string name="game_nurikabe_desc">숫자가 있는 섬 주위에 바다를 칠하세요. 각 섬은 숫자와 같은 수의 연결된 칸으로 이루어져야 하고, 바다는 하나로 연결되어야 하며, 2x2 블록이 없어야 합니다.</string>
     <string name="game_nurikabe_howto">탭하거나 드래그하여 바다를 칠하세요. 칠한 칸을 탭하면 지워집니다.</string>
+    <string name="game_cat_queens_desc">모든 행, 열, 색상 구역에 고양이를 하나씩 놓으세요. 두 마리의 고양이는 대각선 방향으로도 서로 닿을 수 없습니다.</string>
+    <string name="game_cat_queens_howto">셀을 탭하여 고양이를 놓거나 제거하세요.</string>
+    <string name="cat_queens_error_row">행마다 고양이 한 마리만 가능합니다</string>
+    <string name="cat_queens_error_column">열마다 고양이 한 마리만 가능합니다</string>
+    <string name="cat_queens_error_zone">색상 구역마다 고양이 한 마리만 가능합니다</string>
+    <string name="cat_queens_error_touch">고양이 2마리는 서로 닿을 수 없습니다</string>
     <string name="moves_label">이동: %1$d</string>
     <string name="mini_chess_thinking">CPU가 생각 중…</string>
     <string name="mini_chess_round_won">체크메이트</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">유려한 슬라이더</string>
     <string name="achievement_gold_shikaku">직사각형 마스터</string>
     <string name="achievement_gold_nurikabe">벽 쌓기 달인</string>
+    <string name="achievement_gold_cat_queens">고양이 조련사</string>
     <string name="achievement_gold_path_finder">길잡이</string>
     <string name="achievement_gold_anomaly_puzzle">이상 발견자</string>
     <string name="achievement_gold_colored_shapes">변신술사</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">진짜 색깔</string>
     <string name="achievement_gold_flash_crowd">군중 계수기</string>
     <string name="achievement_gold_schulte_table">번개 시선</string>
+    <string name="achievement_gold_flags">기수</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">마인드 마라토너</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle에서 금메달 획득</string>
     <string name="achievement_gold_shikaku_desc">Shikaku에서 금메달 획득</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe에서 금메달 획득</string>
+    <string name="achievement_gold_cat_queens_desc">고양이 퀸에서 금메달 획득</string>
     <string name="achievement_gold_path_finder_desc">경로 찾기에서 금메달 획득</string>
     <string name="achievement_gold_anomaly_puzzle_desc">이상 퍼즐에서 금메달 획득</string>
     <string name="achievement_gold_colored_shapes_desc">색깔 도형에서 금메달 획득</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">색상 혼동에서 금메달 획득</string>
     <string name="achievement_gold_flash_crowd_desc">플래시 크라우드에서 금메달 획득</string>
     <string name="achievement_gold_schulte_table_desc">슐테 테이블에서 금메달 획득</string>
+    <string name="achievement_gold_flags_desc">국기에서 금메달 획득</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">총 10,000점 누적</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">이전에 본 적 없는 동물을 탭하세요. 한 번 틀리면 게임이 끝납니다.</string>
     <string name="achievement_gold_spot_the_new">예리한 눈</string>
     <string name="achievement_gold_spot_the_new_desc">새로운 것 찾기에서 금메달 획득</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">여섯 번 안에 숨겨진 다섯 글자 단어를 맞혀 보세요. 정답은 항상 명사입니다.</string>
+    <string name="achievement_gold_wordle">언어의 달인</string>
+    <string name="achievement_gold_wordle_desc">Wordle에서 금메달 획득</string>
+    <string name="wordle_not_enough_letters">글자가 부족합니다</string>
+    <string name="wordle_not_in_word_list">단어 목록에 없습니다</string>
+    <string name="wordle_answer_was">정답은 %1$s 이었습니다</string>
+    <string name="wordle_enter">입력</string>
+    <string name="wordle_backspace">글자 삭제</string>
+    <string name="wordle_legend_correct">정확한 글자, 정확한 위치</string>
+    <string name="wordle_legend_present">정확한 글자, 잘못된 위치</string>
+    <string name="wordle_legend_absent">단어에 없는 글자</string>
     <string name="instructions_best_score">최고 점수: %1$s</string>
     <string name="instructions_leaderboard">순위표 보기</string>
     <string name="brain_cup_button">Brain Cup 순위표</string>

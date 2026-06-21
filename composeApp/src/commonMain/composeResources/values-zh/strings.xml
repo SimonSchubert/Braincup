@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">华容道</string>
     <string name="game_shikaku">数方</string>
     <string name="game_nurikabe">数墙</string>
+    <string name="game_cat_queens">猫皇后</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">拖动以绘制矩形。点按矩形即可移除。</string>
     <string name="game_nurikabe_desc">涂格子在带数字的岛屿周围筑成海。每个岛屿的相连格子数必须等于它的数字，海必须连成一片，且不能有任何2x2的方块。</string>
     <string name="game_nurikabe_howto">点按或拖动来涂海。点按已涂的格子可清除。</string>
+    <string name="game_cat_queens_desc">在每一行、每一列和每个颜色区域中各放一只猫。任意两只猫不能相邻，连对角线也不行。</string>
+    <string name="game_cat_queens_howto">点按格子来放置或移除猫。</string>
+    <string name="cat_queens_error_row">每行只能有一只猫</string>
+    <string name="cat_queens_error_column">每列只能有一只猫</string>
+    <string name="cat_queens_error_zone">每个颜色区域只能有一只猫</string>
+    <string name="cat_queens_error_touch">两只猫不能相互接触</string>
     <string name="moves_label">步数:%1$d</string>
     <string name="mini_chess_thinking">电脑思考中…</string>
     <string name="mini_chess_round_won">将死</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">滑动高手</string>
     <string name="achievement_gold_shikaku">矩形大师</string>
     <string name="achievement_gold_nurikabe">筑墙大师</string>
+    <string name="achievement_gold_cat_queens">猫咪管家</string>
     <string name="achievement_gold_path_finder">寻路者</string>
     <string name="achievement_gold_anomaly_puzzle">异常猎手</string>
     <string name="achievement_gold_colored_shapes">变形者</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">本色</string>
     <string name="achievement_gold_flash_crowd">群众计数器</string>
     <string name="achievement_gold_schulte_table">闪电之眼</string>
+    <string name="achievement_gold_flags">旗手</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">心智马拉松</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">在Sliding Puzzle中赢得金牌</string>
     <string name="achievement_gold_shikaku_desc">在Shikaku中赢得金牌</string>
     <string name="achievement_gold_nurikabe_desc">在Nurikabe中赢得金牌</string>
+    <string name="achievement_gold_cat_queens_desc">在猫皇后中赢得金牌</string>
     <string name="achievement_gold_path_finder_desc">在路径寻找中赢得金牌</string>
     <string name="achievement_gold_anomaly_puzzle_desc">在异常谜题中赢得金牌</string>
     <string name="achievement_gold_colored_shapes_desc">在彩色形状中赢得金牌</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">在颜色混淆中赢得金牌</string>
     <string name="achievement_gold_flash_crowd_desc">在闪现人群中赢得金牌</string>
     <string name="achievement_gold_schulte_table_desc">在舒尔特方格中赢得金牌</string>
+    <string name="achievement_gold_flags_desc">在国旗中赢得金牌</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">累计获得10000分</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">点击你从未见过的动物。一次错误就结束游戏。</string>
     <string name="achievement_gold_spot_the_new">火眼金睛</string>
     <string name="achievement_gold_spot_the_new_desc">在找出新的中获得金牌</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">在六次猜测中找出隐藏的五字词。答案始终是名词。</string>
+    <string name="achievement_gold_wordle">文字大师</string>
+    <string name="achievement_gold_wordle_desc">在Wordle中赢得金牌</string>
+    <string name="wordle_not_enough_letters">字母不够</string>
+    <string name="wordle_not_in_word_list">不在词库中</string>
+    <string name="wordle_answer_was">答案是 %1$s</string>
+    <string name="wordle_enter">确认</string>
+    <string name="wordle_backspace">删除字母</string>
+    <string name="wordle_legend_correct">字母正确，位置正确</string>
+    <string name="wordle_legend_present">字母正确，位置错误</string>
+    <string name="wordle_legend_absent">不在词中</string>
     <string name="instructions_best_score">最高分：%1$s</string>
     <string name="instructions_leaderboard">查看排行榜</string>
     <string name="brain_cup_button">Brain Cup 排行榜</string>

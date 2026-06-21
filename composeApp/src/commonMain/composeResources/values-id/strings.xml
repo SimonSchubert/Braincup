@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Teka-teki Geser</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Ratu Kucing</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Seret untuk menggambar persegi panjang. Ketuk persegi panjang untuk menghapusnya.</string>
     <string name="game_nurikabe_desc">Warnai sel untuk membentuk laut di sekitar pulau-pulau bernomor. Setiap pulau harus memiliki sel terhubung sebanyak angkanya, laut harus terhubung, dan tidak boleh ada blok 2x2.</string>
     <string name="game_nurikabe_howto">Ketuk atau seret untuk mewarnai laut. Ketuk sel yang terisi untuk menghapusnya.</string>
+    <string name="game_cat_queens_desc">Tempatkan satu kucing di setiap baris, setiap kolom, dan setiap zona warna. Tidak ada dua kucing yang boleh saling bersentuhan, bahkan secara diagonal.</string>
+    <string name="game_cat_queens_howto">Ketuk sel untuk menempatkan atau menghapus kucing.</string>
+    <string name="cat_queens_error_row">Hanya satu kucing per baris</string>
+    <string name="cat_queens_error_column">Hanya satu kucing per kolom</string>
+    <string name="cat_queens_error_zone">Hanya satu kucing per zona warna</string>
+    <string name="cat_queens_error_touch">2 kucing tidak boleh saling bersentuhan</string>
     <string name="moves_label">Gerakan: %1$d</string>
     <string name="mini_chess_thinking">CPU sedang berpikir…</string>
     <string name="mini_chess_round_won">Skakmat</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Operator Mulus</string>
     <string name="achievement_gold_shikaku">Master Persegi Panjang</string>
     <string name="achievement_gold_nurikabe">Master Tembok</string>
+    <string name="achievement_gold_cat_queens">Penggembala Kucing</string>
     <string name="achievement_gold_path_finder">Perintis Jalan</string>
     <string name="achievement_gold_anomaly_puzzle">Pencari Anomali</string>
     <string name="achievement_gold_colored_shapes">Pengubah Bentuk</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">Warna Sejati</string>
     <string name="achievement_gold_flash_crowd">Penghitung Kerumunan</string>
     <string name="achievement_gold_schulte_table">Tatapan Kilat</string>
+    <string name="achievement_gold_flags">Pembawa Bendera</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Pelari Maraton Pikiran</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Menangkan medali emas di Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">Menangkan medali emas di Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Menangkan medali emas di Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Menangkan medali emas di Ratu Kucing</string>
     <string name="achievement_gold_path_finder_desc">Menangkan medali emas di Pencari Jalur</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Menangkan medali emas di Teka-teki Anomali</string>
     <string name="achievement_gold_colored_shapes_desc">Menangkan medali emas di Bentuk Berwarna</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">Menangkan medali emas di Kebingungan Warna</string>
     <string name="achievement_gold_flash_crowd_desc">Menangkan medali emas di Kerumunan Kilat</string>
     <string name="achievement_gold_schulte_table_desc">Menangkan medali emas di Tabel Schulte</string>
+    <string name="achievement_gold_flags_desc">Menangkan medali emas di Bendera</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Kumpulkan total 10.000 poin</string>
@@ -260,6 +271,18 @@
     <string name="game_spot_the_new_desc">Ketuk hewan yang belum pernah kamu lihat. Satu kesalahan mengakhiri permainan.</string>
     <string name="achievement_gold_spot_the_new">Mata Jeli</string>
     <string name="achievement_gold_spot_the_new_desc">Menangkan medali emas di Temukan yang Baru</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Tebak kata lima huruf yang tersembunyi dalam enam percobaan. Jawabannya selalu berupa kata benda.</string>
+    <string name="achievement_gold_wordle">Ahli Kata</string>
+    <string name="achievement_gold_wordle_desc">Menangkan medali emas di Wordle</string>
+    <string name="wordle_not_enough_letters">Huruf belum cukup</string>
+    <string name="wordle_not_in_word_list">Tidak ada dalam daftar kata</string>
+    <string name="wordle_answer_was">Kata yang benar adalah %1$s</string>
+    <string name="wordle_enter">Masukkan</string>
+    <string name="wordle_backspace">Hapus huruf</string>
+    <string name="wordle_legend_correct">Huruf benar, posisi benar</string>
+    <string name="wordle_legend_present">Huruf benar, posisi salah</string>
+    <string name="wordle_legend_absent">Tidak ada dalam kata</string>
     <string name="instructions_best_score">Skor terbaik: %1$s</string>
     <string name="instructions_leaderboard">Lihat papan peringkat</string>
     <string name="brain_cup_button">Papan peringkat Brain Cup</string>

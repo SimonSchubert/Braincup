@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">Schiebepuzzle</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Katzen-Damen</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">Ziehe, um ein Rechteck zu zeichnen. Tippe auf ein Rechteck, um es zu entfernen.</string>
     <string name="game_nurikabe_desc">Male Zellen aus, um das Meer rund um die nummerierten Inseln zu bilden. Jede Insel muss aus so vielen verbundenen Zellen bestehen wie ihre Zahl, das Meer muss zusammenhängend sein und darf keinen 2x2-Block enthalten.</string>
     <string name="game_nurikabe_howto">Tippe oder ziehe, um das Meer zu malen. Tippe auf eine gefüllte Zelle, um sie zu leeren.</string>
+    <string name="game_cat_queens_desc">Platziere eine Katze in jeder Zeile, jeder Spalte und jeder Farbzone. Keine zwei Katzen dürfen sich berühren, auch nicht diagonal.</string>
+    <string name="game_cat_queens_howto">Tippe auf eine Zelle, um eine Katze zu platzieren oder zu entfernen.</string>
+    <string name="cat_queens_error_row">Nur eine Katze pro Zeile</string>
+    <string name="cat_queens_error_column">Nur eine Katze pro Spalte</string>
+    <string name="cat_queens_error_zone">Nur eine Katze pro Farbzone</string>
+    <string name="cat_queens_error_touch">2 Katzen dürfen sich nicht berühren</string>
     <string name="moves_label">Züge: %1$d</string>
     <string name="mini_chess_thinking">CPU denkt nach…</string>
     <string name="mini_chess_round_won">Schachmatt</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">Schiebekünstler</string>
     <string name="achievement_gold_shikaku">Rechteck-Meister</string>
     <string name="achievement_gold_nurikabe">Mauermeister</string>
+    <string name="achievement_gold_cat_queens">Katzenhüterin</string>
     <string name="achievement_gold_path_finder">Pfadfinder</string>
     <string name="achievement_gold_anomaly_puzzle">Ausnahmespürer</string>
     <string name="achievement_gold_colored_shapes">Formenwandler</string>
@@ -223,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Schiebepuzzle</string>
     <string name="achievement_gold_shikaku_desc">Gewinne die Goldmedaille in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Gewinne die Goldmedaille in Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Gewinne die Goldmedaille in Katzen-Damen</string>
     <string name="achievement_gold_path_finder_desc">Gewinne die Goldmedaille in Pfadfinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Gewinne die Goldmedaille in Anomalie-Rätsel</string>
     <string name="achievement_gold_colored_shapes_desc">Gewinne die Goldmedaille in Farbige Formen</string>

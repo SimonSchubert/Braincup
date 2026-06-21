@@ -70,6 +70,7 @@
     <string name="game_sliding_puzzle">لغز الانزلاق</string>
     <string name="game_shikaku">شيكاكو</string>
     <string name="game_nurikabe">نوريكابي</string>
+    <string name="game_cat_queens">ملكات القطط</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -96,6 +97,12 @@
     <string name="game_shikaku_howto">اسحب لرسم مستطيل. انقر على مستطيل لإزالته.</string>
     <string name="game_nurikabe_desc">لوّن الخلايا لبناء البحر حول الجزر المرقّمة. يجب أن تحتوي كل جزيرة على عدد من الخلايا المتصلة يساوي رقمها، ويجب أن يكون البحر متصلاً وألا يحتوي على أي مربع 2x2.</string>
     <string name="game_nurikabe_howto">انقر أو اسحب لتلوين البحر. انقر على خلية ملوّنة لمسحها.</string>
+    <string name="game_cat_queens_desc">ضع قطة واحدة في كل صف وكل عمود وكل منطقة لونية. لا يجوز أن تتلامس قطتان، حتى بشكل قطري.</string>
+    <string name="game_cat_queens_howto">انقر على خلية لوضع قطة أو إزالتها.</string>
+    <string name="cat_queens_error_row">قطة واحدة فقط في كل صف</string>
+    <string name="cat_queens_error_column">قطة واحدة فقط في كل عمود</string>
+    <string name="cat_queens_error_zone">قطة واحدة فقط في كل منطقة لونية</string>
+    <string name="cat_queens_error_touch">لا يمكن أن تتلامس قطتان</string>
     <string name="moves_label">النقلات: %1$d</string>
     <string name="mini_chess_thinking">الحاسوب يفكّر…</string>
     <string name="mini_chess_round_won">كش ملك</string>
@@ -195,6 +202,7 @@
     <string name="achievement_gold_sliding_puzzle">خبير التحريك</string>
     <string name="achievement_gold_shikaku">سيد المستطيلات</string>
     <string name="achievement_gold_nurikabe">بنّاء الجدران</string>
+    <string name="achievement_gold_cat_queens">راعية القطط</string>
     <string name="achievement_gold_path_finder">كشاف المسار</string>
     <string name="achievement_gold_anomaly_puzzle">صياد الشذوذ</string>
     <string name="achievement_gold_colored_shapes">متبدل الأشكال</string>
@@ -210,6 +218,7 @@
     <string name="achievement_gold_color_confusion">الألوان الحقيقية</string>
     <string name="achievement_gold_flash_crowd">عدّاد الحشود</string>
     <string name="achievement_gold_schulte_table">نظرة برق</string>
+    <string name="achievement_gold_flags">حامل الراية</string>
 
     <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">عدّاء ماراثون العقل</string>
@@ -222,6 +231,7 @@
     <string name="achievement_gold_sliding_puzzle_desc">اربح الميدالية الذهبية في Sliding Puzzle</string>
     <string name="achievement_gold_shikaku_desc">اربح الميدالية الذهبية في Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">اربح الميدالية الذهبية في Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">اربح الميدالية الذهبية في ملكات القطط</string>
     <string name="achievement_gold_path_finder_desc">اربح الميدالية الذهبية في مكتشف المسار</string>
     <string name="achievement_gold_anomaly_puzzle_desc">اربح الميدالية الذهبية في لغز الشذوذ</string>
     <string name="achievement_gold_colored_shapes_desc">اربح الميدالية الذهبية في أشكال ملونة</string>
@@ -237,6 +247,7 @@
     <string name="achievement_gold_color_confusion_desc">اربح الميدالية الذهبية في ارتباك الألوان</string>
     <string name="achievement_gold_flash_crowd_desc">اربح الميدالية الذهبية في حشد الوميض</string>
     <string name="achievement_gold_schulte_table_desc">اربح الميدالية الذهبية في جدول شولت</string>
+    <string name="achievement_gold_flags_desc">اربح الميدالية الذهبية في الأعلام</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">اجمع ١٠٬٠٠٠ نقطة في المجموع</string>
@@ -558,4 +569,16 @@
     <string name="normal_chess_promotion_bishop">فيل</string>
     <string name="normal_chess_promotion_knight">حصان</string>
     <string name="normal_chess_draw_warning">= طريق مسدود (تعادل، ليس فوزاً)</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">خمّن الكلمة المخفية المؤلفة من خمسة أحرف في ست محاولات. الإجابة دائما اسم.</string>
+    <string name="achievement_gold_wordle">صانع الكلمات</string>
+    <string name="achievement_gold_wordle_desc">اربح الميدالية الذهبية في Wordle</string>
+    <string name="wordle_not_enough_letters">حروف غير كافية</string>
+    <string name="wordle_not_in_word_list">غير موجودة في قائمة الكلمات</string>
+    <string name="wordle_answer_was">الكلمة كانت %1$s</string>
+    <string name="wordle_enter">إدخال</string>
+    <string name="wordle_backspace">حذف حرف</string>
+    <string name="wordle_legend_correct">الحرف صحيح والمكان صحيح</string>
+    <string name="wordle_legend_present">الحرف صحيح والمكان خاطئ</string>
+    <string name="wordle_legend_absent">غير موجود في الكلمة</string>
 </resources>
