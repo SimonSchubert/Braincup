@@ -186,10 +186,10 @@ private val ShikakuPreviewRects: List<ShikakuPreviewRect> = listOf(
 private const val NurikabePreviewSize = 4
 
 /** Sea (wall) cells in the 4x4 preview grid. All other cells are island (white). */
-private val NurikabePreviewSea: Set<Int> = setOf(1, 2, 5, 6, 10, 11, 12, 14, 15)
+private val NurikabePreviewSea: Set<Int> = setOf(1, 3, 5, 7, 9, 10, 11, 12, 13)
 
 /** cellIndex -> island clue size. Clues sit in island cells. */
-private val NurikabePreviewClues: Map<Int, Int> = mapOf(0 to 3, 3 to 2, 9 to 2)
+private val NurikabePreviewClues: Map<Int, Int> = mapOf(0 to 3, 2 to 2, 15 to 2)
 
 private const val CatQueensPreviewSize = 4
 private val CatQueensPreviewRegions: List<Int> = listOf(
@@ -198,7 +198,7 @@ private val CatQueensPreviewRegions: List<Int> = listOf(
     3, 3, 1, 2,
     3, 3, 2, 2,
 )
-private val CatQueensPreviewCats: Set<Int> = setOf(1, 7, 8, 10)
+private val CatQueensPreviewCats: Set<Int> = setOf(2, 4, 11, 13)
 
 private data class MiniChessPreviewPlacement(val drawable: DrawableResource, val isWhite: Boolean)
 
