@@ -1,4 +1,4 @@
-Trenuj swój mózg za pomocą zabawnych mini gier, które stanowią wyzwanie dla twojej pamięci, koncentracji, logiki i umiejętności matematycznych. Braincup oferuje 15 ćwiczeń treningowych dla mózgu zaprojektowanych, aby wyostrzyć umysł i poprawić koncentrację.
+Trenuj swój mózg za pomocą zabawnych mini gier, które stanowią wyzwanie dla twojej pamięci, koncentracji, logiki i umiejętności matematycznych. Braincup oferuje 26 ćwiczeń treningowych dla mózgu zaprojektowanych, aby wyostrzyć umysł i poprawić koncentrację.
 
 <b>Rachunki w pamięci</b>:
 Śledź wyrażenia matematyczne. Użyj wyniku jako podstawy do następnego obliczenia.
@@ -24,9 +24,6 @@ Znajdź następną figurę we wzorze, szukając powtarzających się kształtów
 <b>Szukacz ścieżek</b>:
 Zacznij od oznaczonej pozycji i podążaj za instrukcjami strzałek, aby znaleźć cel.
 
-<b>Rozwiązywanie siatki</b>:
-Uzupełnij brakujące liczby tak, aby suma każdego wiersza i kolumny równała się podanym sumom.
-
 <b>Pamięć wzrokowa</b>:
 Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.
 
@@ -44,6 +41,42 @@ Obserwuj wyróżnione kule, a następnie śledź je podczas ruchu. Wybierz pierw
 
 <b>Błyskawiczny tłum</b>:
 Po każdej stronie na chwilę pojawiają się kropki. Dotknij strony, która miała więcej kropek. Zaufaj swojemu instynktowi!
+
+<b>Mini Sudoku</b>:
+Wypełnij małą siatkę tak, aby każdy wiersz, kolumna i blok zawierały każdą liczbę dokładnie raz.
+
+<b>Mini Szachy</b>:
+Zakończ scenariusz szachowy jako białe. Daj mata CPU, zanim ona da mata tobie.
+
+<b>Wyłącz światła</b>:
+Wyłącz wszystkie światła. Każde dotknięcie przełącza komórkę i jej czterech sąsiadów.
+
+<b>Układanka przesuwna</b>:
+Przesuwaj kafelki na puste pole, aby ułożyć je po kolei.
+
+<b>Shikaku</b>:
+Podziel całą siatkę na prostokąty. Każdy prostokąt musi zawierać dokładnie jedną liczbę, równą jego polu.
+
+<b>Nurikabe</b>:
+Maluj komórki, aby utworzyć morze wokół ponumerowanych wysp. Każda wyspa musi mieć tyle połączonych komórek, ile wynosi jej liczba, morze musi być połączone i nie może zawierać żadnego bloku 2x2.
+
+<b>Koci Gambit</b>:
+Umieść jednego kota w każdym wierszu, każdej kolumnie i każdej strefie kolorów. Dwa koty nie mogą się stykać, nawet po przekątnej.
+
+<b>Tablica Schulte'a</b>:
+Stukaj liczby w kolejności od 1 tak szybko, jak potrafisz.
+
+<b>Flagi</b>:
+Rozpoznaj kraj po jego fladze. Każda runda dodaje więcej opcji, a czas ucieka.
+
+<b>Pamięć Cyfr</b>:
+Zapamiętaj ciąg cyfr, rozwiąż krótkie zadanie matematyczne, a następnie przypomnij sobie cyfry.
+
+<b>Znajdź Nowy</b>:
+Dotknij zwierzęcia, którego wcześniej nie widziałeś. Jeden błąd kończy grę.
+
+<b>Wordle</b>:
+Zgadnij ukryte pięcioliterowe słowo w sześciu próbach. Odpowiedź to zawsze rzeczownik.
 
 Gra zawiera kilka <b>osiągnięć</b>, a każde ćwiczenie ma <b>medale</b>, które utrzymują twoją motywację.
 

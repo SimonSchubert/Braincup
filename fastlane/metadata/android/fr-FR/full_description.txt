@@ -1,50 +1,83 @@
-Entraînez votre cerveau avec des mini-jeux amusants qui mettent au défi votre mémoire, votre concentration, votre logique et vos compétences en calcul. Braincup propose 15 exercices d'entraînement cérébral conçus pour aiguiser votre esprit et améliorer votre concentration.
+Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 26 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
 
 <b>Calcul mental</b> :
-Suivez les expressions mathématiques. Utilisez le résultat comme base pour le calcul suivant.
+Suis les expressions mathématiques. Utilise le résultat comme base pour le calcul suivant.
 
 <b>Calcul en chaîne</b> :
-Résolvez des formules complexes étape par étape.
+Résous des formules complexes étape par étape.
 
 <b>Calcul Sherlock</b> :
-Trouvez une formule pour atteindre l'objectif en utilisant uniquement les nombres et opérateurs donnés.
+Trouve une formule pour atteindre l'objectif en utilisant uniquement les nombres et opérateurs donnés.
 
 <b>Calcul de fractions</b> :
-Résolvez les fractions.
+Résous les fractions.
 
 <b>Comparaison de valeurs</b> :
-Sélectionnez l'expression ayant la valeur la plus élevée.
+Sélectionne l'expression ayant la valeur la plus élevée.
 
 <b>Puzzle d'anomalie</b> :
-Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.
+Trouve la figure qui se démarque. Considère à la fois la couleur et la forme de chaque figure.
 
 <b>Séquence de motifs</b> :
-Trouvez la figure suivante dans le motif en repérant les formes, couleurs et rotations répétitives.
+Trouve la figure suivante dans le motif en repérant les formes, couleurs et rotations répétitives.
 
 <b>Chercheur de chemin</b> :
-Partez de la position marquée et suivez les instructions fléchées pour trouver la destination.
-
-<b>Solveur de grille</b> :
-Remplissez les nombres manquants pour que chaque ligne et colonne atteigne les totaux donnés.
+Pars de la position marquée et suis les instructions fléchées pour trouver la destination.
 
 <b>Mémoire visuelle</b> :
-Mémorisez les formes sur la grille, puis identifiez la forme cachée une fois le minuteur terminé.
+Mémorise les formes sur la grille, puis identifie la forme cachée une fois le minuteur terminé.
 
 <b>Grille fantôme</b> :
-Regardez les tuiles s'illuminer une par une, puis touchez-les dans le même ordre.
+Regarde les tuiles s'illuminer une par une, puis touche-les dans le même ordre.
 
 <b>Confusion des couleurs</b> :
-Touchez toutes les cellules où le mot correspond à sa couleur de police. Restez concentré !
+Touche toutes les cellules où le mot correspond à sa couleur de police. Reste concentré !
 
 <b>Formes colorées</b> :
-Additionnez les points des affirmations correctes.
+Additionne les points des affirmations correctes.
 
 <b>Traqueur orbital</b> :
-Observez les balles en surbrillance, puis suivez-les pendant qu'elles bougent. Sélectionnez les cibles d'origine après leur arrêt.
+Observe les balles en surbrillance, puis suis-les pendant qu'elles bougent. Sélectionne les cibles d'origine après leur arrêt.
 
 <b>Foule éclair</b> :
-Des points apparaissent brièvement de chaque côté. Touchez le côté qui avait le plus de points. Faites confiance à votre instinct !
+Des points apparaissent brièvement de chaque côté. Touche le côté qui avait le plus de points. Fais confiance à ton instinct !
 
-Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour vous motiver.
+<b>Mini Sudoku</b> :
+Remplis la petite grille pour que chaque ligne, colonne et bloc contienne chaque chiffre exactement une fois.
+
+<b>Mini Échecs</b> :
+Termine le scénario d'échecs avec les blancs. Mets la CPU échec et mat avant qu'elle ne te mette.
+
+<b>Éteins les lumières</b> :
+Éteins toutes les lumières. Chaque tap inverse la cellule et ses quatre voisines.
+
+<b>Puzzle coulissant</b> :
+Glisse les tuiles dans l'espace vide pour les mettre en ordre.
+
+<b>Shikaku</b> :
+Divise toute la grille en rectangles. Chaque rectangle doit contenir exactement un nombre, égal à son aire.
+
+<b>Nurikabe</b> :
+Peins des cases pour former la mer autour des îles numérotées. Chaque île doit avoir autant de cases connectées que son nombre, la mer doit être connectée et ne contenir aucun bloc de 2x2.
+
+<b>Reines Chats</b> :
+Place un chat dans chaque ligne, chaque colonne et chaque zone de couleur. Deux chats ne peuvent pas se toucher, même en diagonale.
+
+<b>Table de Schulte</b> :
+Touche les chiffres dans l'ordre à partir de 1 le plus vite possible.
+
+<b>Drapeaux</b> :
+Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d'options et le temps s'écoule.
+
+<b>Mémoire des Chiffres</b> :
+Mémorise une séquence de chiffres, résous un problème mathématique rapide, puis rappelle-toi les chiffres.
+
+<b>Repère le Nouveau</b> :
+Touche l'animal que tu n'as jamais vu. Une erreur met fin au jeu.
+
+<b>Wordle</b> :
+Devine le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.
+
+Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour te motiver.
 
 Aucun pistage. <b>Open source</b>.

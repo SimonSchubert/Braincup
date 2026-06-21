@@ -1,4 +1,4 @@
-Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 15 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
+Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 26 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
 
 <b>Calcolo mentale</b>:
 Segui le espressioni matematiche. Usa il risultato come base per il calcolo successivo.
@@ -24,9 +24,6 @@ Trova la figura successiva nel pattern cercando forme, colori e rotazioni ripetu
 <b>Cercatore di percorsi</b>:
 Parti dalla posizione contrassegnata e segui le istruzioni delle frecce per trovare la destinazione.
 
-<b>Risolutore di griglia</b>:
-Inserisci i numeri mancanti in modo che ogni riga e colonna raggiunga i totali indicati.
-
 <b>Memoria visiva</b>:
 Memorizza le forme sulla griglia, poi identifica la forma nascosta allo scadere del timer.
 
@@ -44,6 +41,42 @@ Osserva le palline evidenziate, poi seguile mentre si muovono. Seleziona i bersa
 
 <b>Folla lampo</b>:
 Dei punti appaiono brevemente su ogni lato. Tocca il lato che aveva più punti. Fidati del tuo istinto!
+
+<b>Mini Sudoku</b>:
+Riempi la piccola griglia in modo che ogni riga, colonna e blocco contenga ogni numero esattamente una volta.
+
+<b>Mini Scacchi</b>:
+Concludi lo scenario di scacchi con il bianco. Dai scacco matto alla CPU prima che lo dia a te.
+
+<b>Spegni le luci</b>:
+Spegni tutte le luci. Ogni tocco inverte la cella e i suoi quattro vicini.
+
+<b>Puzzle scorrevole</b>:
+Fai scorrere le tessere nello spazio vuoto per metterle in ordine.
+
+<b>Shikaku</b>:
+Dividi l'intera griglia in rettangoli. Ogni rettangolo deve contenere esattamente un numero, uguale alla sua area.
+
+<b>Nurikabe</b>:
+Colora le celle per formare il mare attorno alle isole numerate. Ogni isola deve avere tante celle collegate quanto il suo numero, il mare deve essere collegato e non deve contenere alcun blocco 2x2.
+
+<b>Regine Gatto</b>:
+Posiziona un gatto in ogni riga, ogni colonna e ogni zona di colore. Due gatti non possono toccarsi, nemmeno in diagonale.
+
+<b>Tabella di Schulte</b>:
+Tocca i numeri in ordine dal 1 in su il più velocemente possibile.
+
+<b>Bandiere</b>:
+Identifica il paese dalla sua bandiera. Ogni round aggiunge più opzioni e il tempo scorre.
+
+<b>Memoria delle Cifre</b>:
+Memorizza una sequenza di cifre, risolvi un rapido problema matematico, poi ricorda le cifre.
+
+<b>Trova il Nuovo</b>:
+Tocca l'animale che non hai mai visto. Un errore termina il gioco.
+
+<b>Wordle</b>:
+Indovina la parola di cinque lettere nascosta in sei tentativi. La risposta è sempre un sostantivo.
 
 Il gioco ha diversi <b>traguardi</b> e ogni esercizio ha <b>medaglie</b> per tenerti motivato.
 

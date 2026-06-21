@@ -1,4 +1,4 @@
-Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 15 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
+Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 26 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
 
 <b>Tính nhẩm</b>:
 Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.
@@ -24,9 +24,6 @@ Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, m
 <b>Tìm đường</b>:
 Bắt đầu từ vị trí được đánh dấu và theo hướng dẫn mũi tên để tìm đích đến.
 
-<b>Giải lưới</b>:
-Điền các số còn thiếu sao cho tổng mỗi hàng và cột bằng tổng cho trước.
-
 <b>Trí nhớ hình ảnh</b>:
 Ghi nhớ các hình trên lưới, sau đó nhận diện hình ẩn khi hết thời gian.
 
@@ -44,6 +41,42 @@ Quan sát các quả bóng được tô sáng, rồi theo dõi khi chúng di chu
 
 <b>Đám đông chớp nhoáng</b>:
 Các chấm xuất hiện nhanh ở mỗi bên. Chạm vào bên có nhiều chấm hơn. Tin vào trực giác của bạn!
+
+<b>Sudoku Mini</b>:
+Điền vào lưới nhỏ sao cho mỗi hàng, cột và khối chứa mỗi số đúng một lần.
+
+<b>Cờ Vua Mini</b>:
+Hoàn thành ván cờ với quân trắng. Chiếu hết CPU trước khi nó chiếu hết bạn.
+
+<b>Tắt Đèn</b>:
+Tắt mọi đèn. Mỗi cú chạm sẽ đổi trạng thái ô đó và bốn ô lân cận.
+
+<b>Câu Đố Trượt</b>:
+Trượt các ô vào chỗ trống để xếp chúng theo thứ tự.
+
+<b>Shikaku</b>:
+Chia toàn bộ lưới thành các hình chữ nhật. Mỗi hình chữ nhật phải chứa đúng một số, bằng diện tích của nó.
+
+<b>Nurikabe</b>:
+Tô các ô để tạo biển bao quanh các đảo có số. Mỗi đảo phải có số ô liền kề đúng bằng số của nó, biển phải liền nhau và không được chứa khối 2x2 nào.
+
+<b>Mèo Hoàng Hậu</b>:
+Đặt một con mèo vào mỗi hàng, mỗi cột và mỗi vùng màu. Không có hai con mèo nào được chạm nhau, kể cả theo đường chéo.
+
+<b>Bảng Schulte</b>:
+Chạm các số theo thứ tự từ 1 trở lên nhanh nhất có thể.
+
+<b>Cờ</b>:
+Nhận diện quốc gia qua lá cờ của nó. Mỗi vòng thêm nhiều lựa chọn và thời gian đang trôi.
+
+<b>Trí Nhớ Số</b>:
+Ghi nhớ một dãy số, giải một bài toán nhanh, rồi nhớ lại các số.
+
+<b>Tìm Cái Mới</b>:
+Chạm vào con vật mà bạn chưa từng thấy. Một lỗi sai sẽ kết thúc trò chơi.
+
+<b>Wordle</b>:
+Đoán từ năm chữ cái ẩn trong sáu lần thử. Đáp án luôn là danh từ.
 
 Trò chơi có nhiều <b>thành tựu</b> và mỗi bài tập có <b>huy chương</b> để giữ động lực cho bạn.
 

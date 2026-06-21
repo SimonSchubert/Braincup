@@ -1,4 +1,4 @@
-Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 15 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
+Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 26 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
 
 <b>Hoofdrekenen</b>:
 Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.
@@ -24,9 +24,6 @@ Vind de volgende figuur in het patroon door te zoeken naar herhalende vormen, kl
 <b>Padvinder</b>:
 Start bij de gemarkeerde positie en volg de pijlinstructies om de bestemming te vinden.
 
-<b>Rasteroplosser</b>:
-Vul de ontbrekende getallen in zodat elke rij en kolom de opgegeven totalen bereikt.
-
 <b>Visueel geheugen</b>:
 Onthoud de vormen op het raster en identificeer daarna de verborgen vorm als de timer afloopt.
 
@@ -44,6 +41,42 @@ Bekijk de gemarkeerde ballen en volg ze tijdens hun beweging. Selecteer de oorsp
 
 <b>Flitsmenigte</b>:
 Er verschijnen kort stippen aan elke kant. Tik de kant aan met meer stippen. Vertrouw op je instinct!
+
+<b>Mini Sudoku</b>:
+Vul het kleine raster in zodat elke rij, kolom en blok elk getal precies één keer bevat.
+
+<b>Mini-Schaak</b>:
+Voltooi het schaakscenario als wit. Geef de CPU schaakmat voordat hij jou schaakmat geeft.
+
+<b>Lichten uit</b>:
+Schakel alle lichten uit. Elke tik wisselt de cel en zijn vier buren om.
+
+<b>Schuifpuzzel</b>:
+Schuif tegels in de lege ruimte om ze op volgorde te zetten.
+
+<b>Shikaku</b>:
+Verdeel het hele raster in rechthoeken. Elke rechthoek moet precies één getal bevatten, gelijk aan zijn oppervlakte.
+
+<b>Nurikabe</b>:
+Kleur cellen in om de zee rond de genummerde eilanden te vormen. Elk eiland moet evenveel verbonden cellen hebben als zijn getal, de zee moet aaneengesloten zijn en mag geen 2x2-blok bevatten.
+
+<b>Kattenkoninginnen</b>:
+Plaats een kat in elke rij, elke kolom en elke kleurzone. Geen twee katten mogen elkaar raken, ook niet diagonaal.
+
+<b>Schulte-tabel</b>:
+Tik de nummers zo snel mogelijk op volgorde vanaf 1.
+
+<b>Vlaggen</b>:
+Herken het land aan zijn vlag. Elke ronde voegt meer opties toe en de klok tikt.
+
+<b>Cijfergeheugen</b>:
+Onthoud een reeks cijfers, los een snel rekensommetje op en onthoud dan de cijfers.
+
+<b>Spot het Nieuwe</b>:
+Tik op het dier dat je nog niet eerder hebt gezien. Eén fout beëindigt het spel.
+
+<b>Wordle</b>:
+Raad het verborgen woord van vijf letters in zes pogingen. Het antwoord is altijd een zelfstandig naamwoord.
 
 Het spel heeft meerdere <b>prestaties</b> en elke oefening heeft <b>medailles</b> om je gemotiveerd te houden.
 

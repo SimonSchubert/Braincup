@@ -1,4 +1,4 @@
-Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 15 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
+Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 26 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
 
 <b>Hitung mental</b>:
 Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.
@@ -24,9 +24,6 @@ Temukan figur berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yan
 <b>Pencari jalur</b>:
 Mulai dari posisi yang ditandai dan ikuti instruksi panah untuk menemukan tujuan.
 
-<b>Pemecah grid</b>:
-Isi angka yang hilang agar jumlah setiap baris dan kolom sesuai dengan total yang diberikan.
-
 <b>Memori visual</b>:
 Hafalkan bentuk-bentuk pada grid, lalu identifikasi bentuk tersembunyi setelah waktu habis.
 
@@ -44,6 +41,42 @@ Perhatikan bola yang disorot, lalu lacak pergerakannya. Pilih target awal setela
 
 <b>Kerumunan kilat</b>:
 Titik-titik muncul sekilas di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Percaya insting Anda!
+
+<b>Mini Sudoku</b>:
+Isi kotak kecil agar setiap baris, kolom dan blok berisi setiap angka tepat satu kali.
+
+<b>Mini Catur</b>:
+Selesaikan skenario catur sebagai putih. Skakmat CPU sebelum ia melakukannya padamu.
+
+<b>Padamkan Lampu</b>:
+Padamkan setiap lampu. Setiap ketukan mengubah sel itu dan empat tetangganya.
+
+<b>Teka-teki Geser</b>:
+Geser ubin ke ruang kosong untuk menyusunnya berurutan.
+
+<b>Shikaku</b>:
+Bagi seluruh kisi menjadi persegi panjang. Setiap persegi panjang harus berisi tepat satu angka, sama dengan luasnya.
+
+<b>Nurikabe</b>:
+Warnai sel untuk membentuk laut di sekitar pulau-pulau bernomor. Setiap pulau harus memiliki sel terhubung sebanyak angkanya, laut harus terhubung, dan tidak boleh ada blok 2x2.
+
+<b>Ratu Kucing</b>:
+Tempatkan satu kucing di setiap baris, setiap kolom, dan setiap zona warna. Tidak ada dua kucing yang boleh saling bersentuhan, bahkan secara diagonal.
+
+<b>Tabel Schulte</b>:
+Ketuk angka secara berurutan dari 1 secepat mungkin.
+
+<b>Bendera</b>:
+Tebak negara dari benderanya. Setiap ronde menambahkan lebih banyak pilihan dan waktu terus berjalan.
+
+<b>Memori Angka</b>:
+Hafalkan urutan angka, selesaikan soal matematika cepat, lalu ingat kembali angkanya.
+
+<b>Temukan yang Baru</b>:
+Ketuk hewan yang belum pernah kamu lihat. Satu kesalahan mengakhiri permainan.
+
+<b>Wordle</b>:
+Tebak kata lima huruf yang tersembunyi dalam enam percobaan. Jawabannya selalu berupa kata benda.
 
 Game ini memiliki beberapa <b>pencapaian</b> dan setiap latihan memiliki <b>medali</b> untuk menjaga motivasi Anda.
 

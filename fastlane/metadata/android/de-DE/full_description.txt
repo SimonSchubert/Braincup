@@ -1,4 +1,4 @@
-Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 15 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
+Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 26 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
 
 <b>Kopfrechnen</b>:
 Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Grundlage für die nächste Berechnung.
@@ -24,9 +24,6 @@ Finde die nächste Figur im Muster, indem du nach wiederkehrenden Formen, Farben
 <b>Pfadfinder</b>:
 Starte an der markierten Position und folge den Pfeilanweisungen, um das Ziel zu finden.
 
-<b>Gitterlöser</b>:
-Fülle die fehlenden Zahlen ein, sodass jede Zeile und Spalte die vorgegebenen Summen ergibt.
-
 <b>Visuelles Gedächtnis</b>:
 Merke dir die Formen auf dem Gitter und identifiziere dann die versteckte Form nach Ablauf des Timers.
 
@@ -44,6 +41,42 @@ Beobachte die markierten Bälle und verfolge sie während der Bewegung. Wähle d
 
 <b>Blitzmengen</b>:
 Punkte blitzen kurz auf jeder Seite auf. Tippe die Seite an, die mehr Punkte hatte. Vertrau deinem Instinkt!
+
+<b>Mini-Sudoku</b>:
+Fülle das kleine Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Zahl genau einmal enthält.
+
+<b>Mini-Schach</b>:
+Beende das Schachszenario als Weiß. Setze die CPU schachmatt, bevor sie dich mattsetzt.
+
+<b>Lichter aus</b>:
+Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre vier Nachbarn um.
+
+<b>Schiebepuzzle</b>:
+Schiebe Kacheln in den leeren Raum, um sie in die richtige Reihenfolge zu bringen.
+
+<b>Shikaku</b>:
+Teile das gesamte Gitter in Rechtecke. Jedes Rechteck muss genau eine Zahl enthalten, die seiner Fläche entspricht.
+
+<b>Nurikabe</b>:
+Male Zellen aus, um das Meer rund um die nummerierten Inseln zu bilden. Jede Insel muss aus so vielen verbundenen Zellen bestehen wie ihre Zahl, das Meer muss zusammenhängend sein und darf keinen 2x2-Block enthalten.
+
+<b>Katzen-Damen</b>:
+Platziere eine Katze in jeder Zeile, jeder Spalte und jeder Farbzone. Keine zwei Katzen dürfen sich berühren, auch nicht diagonal.
+
+<b>Schulte-Tabelle</b>:
+Tippe die Zahlen so schnell wie möglich der Reihe nach von 1 aufwärts an.
+
+<b>Flaggen</b>:
+Erkenne das Land an seiner Flagge. Jede Runde bringt mehr Optionen und die Uhr tickt.
+
+<b>Zifferngedächtnis</b>:
+Merke dir eine Ziffernfolge, löse ein kurzes Rechenproblem und erinnere dich dann an die Ziffern.
+
+<b>Finde das Neue</b>:
+Tippe auf das Tier, das du noch nie gesehen hast. Ein Fehler beendet das Spiel.
+
+<b>Wordle</b>:
+Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen. Die Lösung ist immer ein Substantiv.
 
 Das Spiel bietet mehrere <b>Erfolge</b> und jede Übung hat <b>Medaillen</b>, die dich motivieren.
 

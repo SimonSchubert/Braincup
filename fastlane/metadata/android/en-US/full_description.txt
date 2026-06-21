@@ -1,4 +1,4 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 15 brain training exercises designed to sharpen your mind and improve concentration.
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 26 brain training exercises designed to sharpen your mind and improve concentration.
 
 <b>Mental calculation</b>:
 Follow the mathematical expressions. Use the result as the base for the next calculation.
@@ -24,9 +24,6 @@ Find the next figure in the pattern by looking for repeating shapes, colors and 
 <b>Path finder</b>:
 Start at the marked position and follow the arrow instructions to find the destination.
 
-<b>Grid solver</b>:
-Fill in the missing numbers so that each row and column sums to the given totals.
-
 <b>Visual memory</b>:
 Memorize the shapes on the grid, then identify the hidden shape after the timer ends.
 
@@ -44,6 +41,42 @@ Watch the highlighted balls, then track them as they move. Select the original t
 
 <b>Flash crowd</b>:
 Dots flash briefly on each side. Tap the side that had more dots. Trust your instinct!
+
+<b>Mini sudoku</b>:
+Fill the small grid so every row, column and block contains each number exactly once.
+
+<b>Mini chess</b>:
+Finish the chess scenario as white. Checkmate the CPU before it checkmates you.
+
+<b>Lights out</b>:
+Turn off every light. Each tap toggles the cell and its four neighbours.
+
+<b>Sliding puzzle</b>:
+Slide tiles into the empty space to put them back in order.
+
+<b>Shikaku</b>:
+Divide the whole grid into rectangles. Each rectangle holds exactly one number, equal to its area.
+
+<b>Nurikabe</b>:
+Paint cells to build the sea around numbered islands without forming any 2x2 block.
+
+<b>Cat queens</b>:
+Place one cat in every row, column and color zone. No two cats may touch, not even diagonally.
+
+<b>Schulte table</b>:
+Tap the numbers in order from 1 upwards as fast as you can.
+
+<b>Flags</b>:
+Identify the country by its flag. Each round adds more options and the clock is ticking.
+
+<b>Digit memory</b>:
+Memorize a digit sequence, solve a quick math problem, then recall the digits.
+
+<b>Spot the new</b>:
+Tap the animal you have not seen before. One mistake ends the game.
+
+<b>Wordle</b>:
+Guess the hidden five-letter word in six tries.
 
 The game has several <b>achievements</b> and each exercise has <b>medals</b> to keep you motivated.
 
