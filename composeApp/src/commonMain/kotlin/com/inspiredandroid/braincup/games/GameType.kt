@@ -82,7 +82,7 @@ enum class GameType(
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
         id = "8",
-        goldScore = 14,
+        goldScore = 13,
         silverScore = 7,
         descriptionRes = Res.string.game_path_finder_desc,
         category = GameCategory.LOGIC,
@@ -90,7 +90,7 @@ enum class GameType(
     ANOMALY_PUZZLE(
         displayNameRes = Res.string.game_anomaly_puzzle,
         id = "6",
-        goldScore = 17,
+        goldScore = 16,
         silverScore = 8,
         descriptionRes = Res.string.game_anomaly_puzzle_desc,
         category = GameCategory.LOGIC,
@@ -98,7 +98,7 @@ enum class GameType(
     GHOST_GRID(
         displayNameRes = Res.string.game_ghost_grid,
         id = "12",
-        goldScore = 8,
+        goldScore = 7,
         silverScore = 5,
         descriptionRes = Res.string.game_ghost_grid_desc,
         category = GameCategory.MEMORY,
@@ -170,7 +170,7 @@ enum class GameType(
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,
         id = "13",
-        goldScore = 12,
+        goldScore = 11,
         silverScore = 6,
         descriptionRes = Res.string.game_color_confusion_desc,
         category = GameCategory.PERCEPTION,
