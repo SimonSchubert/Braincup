@@ -30,8 +30,12 @@ import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.GhostGridDemo
+import com.inspiredandroid.braincup.ui.components.NurikabeDemo
+import com.inspiredandroid.braincup.ui.components.PathFinderDemo
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.ShikakuDemo
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -57,14 +61,16 @@ fun InstructionsScreen(
     ) {
         Spacer(Modifier.height(32.dp))
 
-        if (hasAnimatedInstructions(gameType)) {
-            ChessMoveDemo(
-                modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .align(Alignment.CenterHorizontally),
-            )
-        } else {
-            Text(
+        val demoModifier = Modifier
+            .padding(horizontal = 16.dp)
+            .align(Alignment.CenterHorizontally)
+        when (gameType) {
+            GameType.MINI_CHESS -> ChessMoveDemo(modifier = demoModifier)
+            GameType.GHOST_GRID -> GhostGridDemo(modifier = demoModifier)
+            GameType.PATH_FINDER -> PathFinderDemo(modifier = demoModifier)
+            GameType.SHIKAKU -> ShikakuDemo(modifier = demoModifier)
+            GameType.NURIKABE -> NurikabeDemo(modifier = demoModifier)
+            else -> Text(
                 text = stringResource(gameType.descriptionRes),
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
@@ -131,7 +137,12 @@ fun InstructionsScreen(
 
 // Games listed here replace their text description with an animated demo on the instructions
 // screen. Add a game's branch (and its demo composable) here to opt it in.
-private fun hasAnimatedInstructions(gameType: GameType): Boolean = gameType == GameType.MINI_CHESS
+private fun hasAnimatedInstructions(gameType: GameType): Boolean = when (gameType) {
+    GameType.MINI_CHESS, GameType.GHOST_GRID, GameType.PATH_FINDER,
+    GameType.SHIKAKU, GameType.NURIKABE,
+    -> true
+    else -> false
+}
 
 @Composable
 private fun WordleColorLegend(modifier: Modifier = Modifier) {

@@ -61,8 +61,10 @@ private val DemoDotSize = 16.dp
 
 // How long the piece rests on a square (showing its legal moves) before flowing to the next one.
 private const val RestMillis = 700L
+
 // How long the promoted queen is shown before the pawn demo restarts.
 private const val PromotionHoldMillis = 1200L
+
 // One piece demos for this long before the board auto-advances to the next piece.
 private const val AutoAdvanceMillis = 6000L
 
@@ -85,8 +87,14 @@ private val BishopDirs = listOf(1 to 1, 1 to -1, -1 to 1, -1 to -1)
 private val QueenDirs = RookDirs + BishopDirs
 private val KingDeltas = QueenDirs
 private val KnightDeltas = listOf(
-    1 to 2, 2 to 1, -1 to 2, -2 to 1,
-    1 to -2, 2 to -1, -1 to -2, -2 to -1,
+    1 to 2,
+    2 to 1,
+    -1 to 2,
+    -2 to 1,
+    1 to -2,
+    2 to -1,
+    -1 to -2,
+    -2 to -1,
 )
 
 // Pawn path: start, the enemy pawn it captures diagonally, then two forward steps onto the last rank.
@@ -97,8 +105,7 @@ private fun DemoCell.inBounds() = col in 0 until DemoBoardSize && row in 0 until
 private fun DemoCell.isLastRank() = row == DemoBoardSize - 1
 
 /** All squares reachable by stepping once per delta (king, knight). */
-private fun steps(from: DemoCell, deltas: List<Pair<Int, Int>>): List<DemoCell> =
-    deltas.map { (dc, dr) -> DemoCell(from.col + dc, from.row + dr) }.filter { it.inBounds() }
+private fun steps(from: DemoCell, deltas: List<Pair<Int, Int>>): List<DemoCell> = deltas.map { (dc, dr) -> DemoCell(from.col + dc, from.row + dr) }.filter { it.inBounds() }
 
 /** Every square along each ray until the board edge (rook, bishop, queen). */
 private fun slide(from: DemoCell, dirs: List<Pair<Int, Int>>): List<DemoCell> {
@@ -355,8 +362,7 @@ fun ChessMoveDemo(modifier: Modifier = Modifier) {
     }
 }
 
-private fun cellOffset(cell: DemoCell, cellPx: Float) =
-    IntOffset((cell.col * cellPx).roundToInt(), ((DemoBoardSize - 1 - cell.row) * cellPx).roundToInt())
+private fun cellOffset(cell: DemoCell, cellPx: Float) = IntOffset((cell.col * cellPx).roundToInt(), ((DemoBoardSize - 1 - cell.row) * cellPx).roundToInt())
 
 @Composable
 private fun BoxScope.MoveDot(cell: DemoCell, cellPx: Float) {
