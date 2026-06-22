@@ -28,6 +28,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
@@ -51,18 +52,27 @@ fun InstructionsScreen(
     AppScaffold(
         title = stringResource(gameType.displayNameRes),
         onBack = onBack,
-        scrollable = false,
+        // The animated demos are taller than a text blurb, so let the screen scroll for them.
+        scrollable = hasAnimatedInstructions(gameType),
     ) {
         Spacer(Modifier.height(32.dp))
 
-        Text(
-            text = stringResource(gameType.descriptionRes),
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .align(Alignment.CenterHorizontally),
-        )
+        if (hasAnimatedInstructions(gameType)) {
+            ChessMoveDemo(
+                modifier = Modifier
+                    .padding(horizontal = 16.dp)
+                    .align(Alignment.CenterHorizontally),
+            )
+        } else {
+            Text(
+                text = stringResource(gameType.descriptionRes),
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center,
+                modifier = Modifier
+                    .padding(horizontal = 24.dp)
+                    .align(Alignment.CenterHorizontally),
+            )
+        }
 
         if (gameType == GameType.WORDLE) {
             Spacer(Modifier.height(24.dp))
@@ -118,6 +128,10 @@ fun InstructionsScreen(
         }
     }
 }
+
+// Games listed here replace their text description with an animated demo on the instructions
+// screen. Add a game's branch (and its demo composable) here to opt it in.
+private fun hasAnimatedInstructions(gameType: GameType): Boolean = gameType == GameType.MINI_CHESS
 
 @Composable
 private fun WordleColorLegend(modifier: Modifier = Modifier) {

@@ -8,6 +8,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.unit.dp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.ic_chess_bishop
+import braincup.composeapp.generated.resources.ic_chess_king
+import braincup.composeapp.generated.resources.ic_chess_knight
+import braincup.composeapp.generated.resources.ic_chess_pawn
+import braincup.composeapp.generated.resources.ic_chess_queen
+import braincup.composeapp.generated.resources.ic_chess_rook
+import com.inspiredandroid.braincup.games.minichess.PieceType
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 
@@ -35,6 +43,15 @@ val ChessHaloDeltas: List<Pair<Float, Float>> = listOf(
 )
 
 val ChessOutlineFilter = ColorFilter.tint(Color.Black)
+
+fun chessPieceResource(type: PieceType): DrawableResource = when (type) {
+    PieceType.KING -> Res.drawable.ic_chess_king
+    PieceType.QUEEN -> Res.drawable.ic_chess_queen
+    PieceType.ROOK -> Res.drawable.ic_chess_rook
+    PieceType.BISHOP -> Res.drawable.ic_chess_bishop
+    PieceType.KNIGHT -> Res.drawable.ic_chess_knight
+    PieceType.PAWN -> Res.drawable.ic_chess_pawn
+}
 
 @Composable
 fun ChessPieceIcon(resource: DrawableResource, isWhite: Boolean) {

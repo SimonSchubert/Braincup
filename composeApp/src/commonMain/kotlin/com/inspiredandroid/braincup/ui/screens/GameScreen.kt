@@ -3170,25 +3170,10 @@ private fun ColumnScope.OrbitTrackerContent(
     val isHighlighting = uiState.phase == OrbitTrackerGame.Phase.HIGHLIGHTING
     val isAnswering = uiState.phase == OrbitTrackerGame.Phase.ANSWERING
 
-    val instructionText = when {
-        isHighlighting -> stringResource(Res.string.game_remember_targets)
-        isAnswering -> stringResource(Res.string.game_tap_original_targets)
-        else -> ""
-    }
-    AnimatedContent(
-        targetState = instructionText,
-        transitionSpec = {
-            fadeIn(animationSpec = tween(200)) togetherWith fadeOut(animationSpec = tween(150))
-        },
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-        label = "orbitTrackerInstruction",
-    ) { text ->
-        Text(
-            text = text,
-            style = MaterialTheme.typography.bodyLarge,
-            minLines = 1,
-        )
-    }
+    // The instruction header depends only on the phase, which is constant while the balls
+    // animate. Keeping it in its own composable lets it skip the 60fps recomposition the moving
+    // balls trigger, so the AnimatedContent and string lookups only run on a real phase change.
+    OrbitTrackerInstruction(uiState.phase)
     Spacer(Modifier.height(8.dp))
 
     val errorColor = MaterialTheme.colorScheme.error
@@ -3196,16 +3181,19 @@ private fun ColumnScope.OrbitTrackerContent(
     val outlineColor = MaterialTheme.colorScheme.outline
     val primaryColor = Primary
 
-    val canvasSizeModifier = if (LocalIsCompactHeight.current) {
-        Modifier
-            .padding(horizontal = 24.dp)
-            .heightIn(max = 240.dp)
-            .aspectRatio(1f)
-    } else {
-        Modifier
-            .padding(horizontal = 24.dp)
-            .widthIn(max = 400.dp)
-            .aspectRatio(1f)
+    val compact = LocalIsCompactHeight.current
+    val canvasSizeModifier = remember(compact) {
+        if (compact) {
+            Modifier
+                .padding(horizontal = 24.dp)
+                .heightIn(max = 240.dp)
+                .aspectRatio(1f)
+        } else {
+            Modifier
+                .padding(horizontal = 24.dp)
+                .widthIn(max = 400.dp)
+                .aspectRatio(1f)
+        }
     }
     Box(
         modifier = canvasSizeModifier
@@ -3300,6 +3288,29 @@ private fun ColumnScope.OrbitTrackerContent(
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun ColumnScope.OrbitTrackerInstruction(phase: OrbitTrackerGame.Phase) {
+    val instructionText = when (phase) {
+        OrbitTrackerGame.Phase.HIGHLIGHTING -> stringResource(Res.string.game_remember_targets)
+        OrbitTrackerGame.Phase.ANSWERING -> stringResource(Res.string.game_tap_original_targets)
+        else -> ""
+    }
+    AnimatedContent(
+        targetState = instructionText,
+        transitionSpec = {
+            fadeIn(animationSpec = tween(200)) togetherWith fadeOut(animationSpec = tween(150))
+        },
+        modifier = Modifier.align(Alignment.CenterHorizontally),
+        label = "orbitTrackerInstruction",
+    ) { text ->
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyLarge,
+            minLines = 1,
+        )
     }
 }
 
@@ -3693,16 +3704,7 @@ private fun MiniChessCellView(
 
 @Composable
 private fun MiniChessPieceIcon(type: PieceType, isWhite: Boolean) {
-    ChessPieceIcon(resource = miniChessPieceResource(type), isWhite = isWhite)
-}
-
-private fun miniChessPieceResource(type: PieceType) = when (type) {
-    PieceType.KING -> Res.drawable.ic_chess_king
-    PieceType.QUEEN -> Res.drawable.ic_chess_queen
-    PieceType.ROOK -> Res.drawable.ic_chess_rook
-    PieceType.BISHOP -> Res.drawable.ic_chess_bishop
-    PieceType.KNIGHT -> Res.drawable.ic_chess_knight
-    PieceType.PAWN -> Res.drawable.ic_chess_pawn
+    ChessPieceIcon(resource = chessPieceResource(type), isWhite = isWhite)
 }
 
 @Composable
