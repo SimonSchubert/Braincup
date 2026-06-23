@@ -27,9 +27,12 @@ import braincup.composeapp.generated.resources.wordle_legend_present
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.formattedScore
+import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.CatQueensDemo
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.FlashCrowdDemo
 import com.inspiredandroid.braincup.ui.components.GhostGridDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.NurikabeDemo
@@ -78,6 +81,9 @@ fun InstructionsScreen(
             GameType.SCHULTE_TABLE -> SchulteTableDemo(modifier = demoModifier)
             GameType.SPOT_THE_NEW -> SpotTheNewDemo(modifier = demoModifier)
             GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
+            GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
+            GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
+            GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
             else -> Text(
                 text = stringResource(gameType.descriptionRes),
                 style = MaterialTheme.typography.bodyLarge,
@@ -149,6 +155,7 @@ private fun hasAnimatedInstructions(gameType: GameType): Boolean = when (gameTyp
     GameType.MINI_CHESS, GameType.GHOST_GRID, GameType.PATH_FINDER,
     GameType.SHIKAKU, GameType.NURIKABE, GameType.SCHULTE_TABLE,
     GameType.SPOT_THE_NEW, GameType.LIGHTS_OUT, GameType.ORBIT_TRACKER,
+    GameType.CAT_QUEENS, GameType.FLASH_CROWD, GameType.ANOMALY_PUZZLE,
     -> true
     else -> false
 }
