@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <!-- App -->
+    <string name="app_name">Braincup</string>
+    <string name="app_tagline">Εξασκήστε τα μαθηματικά σας, τη μνήμη και τη συγκέντρωσή σας.</string>
+
+    <!-- Common buttons and labels -->
+    <string name="button_start">Εναρξη</string>
+    <string name="button_back">Πίσω</string>
+    <string name="button_play_again">Παίξτε ξανά</string>
+    <string name="button_play_random">Παίξτε τυχαίο παιχνίδι</string>
+    <string name="button_give_up">Παραίτηση</string>
+    <string name="button_backspace">Επιστροφή</string>
+
+    <!-- Main menu -->
+
+    <!-- Level / XP -->
+    <string name="level_label">Επίπεδο %1$d</string>
+    <string name="level_up_title">Level Up!</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
+    <string name="title_novice">Αρχάριος</string>
+    <string name="title_apprentice">Μαθητευόμενος</string>
+    <string name="title_scholar">Σπουδαστής</string>
+    <string name="title_sage">Σοφός</string>
+    <string name="title_master">Διδάσκαλος</string>
+    <string name="title_grandmaster">Μέγας Διδάσκαλος</string>
+    <string name="achievements_button">Επιτεύγματα (%1$d/%2$d)</string>
+    <string name="normal_sudoku_button">Κανονικό Sudoku (%1$d/%2$d)</string>
+    <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_sudoku_difficulty_beginner">Αρχάριος</string>
+    <string name="normal_sudoku_difficulty_easy">Εύκολο</string>
+    <string name="normal_sudoku_difficulty_medium">Μέτριο</string>
+    <string name="normal_sudoku_difficulty_hard">Δύσκολο</string>
+    <string name="normal_sudoku_difficulty_expert">Υπερβολικό</string>
+    <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
+    <string name="normal_sudoku_puzzle_label">%1$d</string>
+    <string name="normal_sudoku_solved">Λύθηκε!</string>
+    <string name="normal_sudoku_not_solved">Οχι ακριβώς σωστό</string>
+    <string name="normal_sudoku_erase">Διαγραφή</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Επιλογές</string>
+    <string name="settings_open">Ανοιγμα επιλογών</string>
+    <string name="settings_sound">Ηχος</string>
+    <string name="settings_sound_desc">Μουσική και ηχητικά εφφέ.</string>
+    <string name="settings_colorblind">Χρώματα για αχρωματοψία</string>
+    <string name="settings_colorblind_desc">Χρήση ευδιάκριτης παλέτας ώστε να είναι δυνατή η λύση από άτομα με αχρωματοψία.</string>
+    <string name="settings_haptic">Ανάδραση αφής</string>
+    <string name="settings_haptic_desc">Σύντομη δόνηση για σωστές απαντήσεις.</string>
+    <string name="settings_theme">Θέμα</string>
+    <string name="settings_theme_desc">Επιλέξτε την εμφάνιση του Brain Cup.</string>
+    <string name="settings_theme_system">Συστήματος</string>
+    <string name="settings_theme_light">Φωτεινό</string>
+    <string name="settings_theme_dark">Σκοτεινό</string>
+    <string name="settings_theme_oled">OLED</string>
+
+    <!-- Daily challenge -->
+    <string name="daily_challenge_title">Πρόκληση Ημέρας</string>
+    <string name="daily_challenge_subtitle_start">Παίξτε %1$d παιχνίδια ώστε να διατηρήσετε το σερί σας</string>
+    <string name="daily_challenge_subtitle_start_no_streak">Παίξτε %1$d παιχνίδια για να αρχίσετε το σερί σας</string>
+    <string name="daily_challenge_subtitle_progress">Σε εξέλιξη · %1$d από %2$d</string>
+    <string name="daily_challenge_subtitle_done">Τελειώσαμε για σήμερα. Ελάτε πάλι αύριο!</string>
+    <string name="daily_challenge_streak_label">ημέρες σερί</string>
+    <string name="daily_challenge_button_start">Εναρξη</string>
+    <string name="daily_challenge_button_resume">Συνέχεια</string>
+    <string name="daily_challenge_button_done">Σήμερα ολοκληρώθηκαν</string>
+
+    <!-- Session screens -->
+    <string name="session_progress">Παιχνίδι %1$d από %2$d</string>
+    <string name="session_running_total">Σύνολο έως τώρα: %1$d</string>
+    <string name="session_next_up">Ακολουθεί</string>
+    <string name="session_continue">Συνέχεια</string>
+    <string name="session_done">Επιστροφή στο μενού</string>
+    <string name="session_complete_title">Η σύνοδος ολοκληρώθηκε</string>
+    <string name="session_total_score">Σύνολο: %1$d</string>
+    <string name="session_streak_increased">Σερί ημερών: %1$d</string>
+    <string name="session_streak_current">Τρέχον σερί: %1$d days</string>
+
+    <!-- Game screen -->
+    <string name="game_goal">Στόχος: %1$d</string>
+    <string name="game_follow_directions">Ακολουθήστε τις οδηγίες:</string>
+    <string name="game_highest_value">Ποια είναι η υψηλότερη αξία;</string>
+    <string name="game_sudoku_instruction">Γεμίστε το πλέγμα έτσι ώστε κάθε γραμμή, στήλη και μπλοκ να περιέχει κάθε ψηφίο μία φορά</string>
+    <string name="game_tap_numbers">Πατήστε αριθμούς για να δημιουργήσετε μια παράσταση</string>
+    <string name="format_seconds">%1$ss</string>
+
+    <!-- Finish screen -->
+    <string name="finish_score">Σκορ: %1$s</string>
+    <string name="finish_bonus_point">Κερδίσατε 1 επιπλέον πόντο γιατί δεν κάνατε λάθη!</string>
+    <string name="finish_new_highscore">Νέο High Score!</string>
+    <string name="finish_highscore">High Score: %1$s</string>
+
+    <!-- Answer feedback -->
+    <string name="feedback_solution">Λύση: %1$s</string>
+
+    <!-- Scoreboard screen -->
+    <string name="scoreboard_title">%1$s Πίνακας σκορ</string>
+    <string name="scoreboard_highscore">High Score</string>
+    <string name="scoreboard_no_scores">Δεν υπάρχουν σκορ</string>
+
+    <!-- Achievements screen -->
+    <string name="achievements_title">Επιτεύγματα</string>
+
+    <!-- Game types - names -->
+    <string name="game_anomaly_puzzle">Anomaly Puzzle</string>
+    <string name="game_mental_calculation">Mental Calculation</string>
+    <string name="game_colored_shapes">Colored Shapes</string>
+    <string name="game_sherlock_calculation">Sherlock Calculation</string>
+    <string name="game_chain_calculation">Chain Calculation</string>
+    <string name="game_fraction_calculation">Fraction Calculation</string>
+    <string name="game_value_comparison">Value Comparison</string>
+    <string name="game_path_finder">Path Finder</string>
+    <string name="game_mini_sudoku">Mini Sudoku</string>
+    <string name="game_visual_memory">Visual Memory</string>
+    <string name="game_pattern_sequence">Pattern Sequence</string>
+    <string name="game_ghost_grid">Ghost Grid</string>
+    <string name="game_color_confusion">Color Confusion</string>
+    <string name="game_orbit_tracker">Orbit Tracker</string>
+    <string name="game_flash_crowd">Flash Crowd</string>
+    <string name="game_schulte_table">Schulte Table</string>
+    <string name="game_mini_chess">Mini Chess</string>
+    <string name="game_lights_out">Lights Out</string>
+    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+
+    <!-- Game types - descriptions -->
+    <string name="game_anomaly_puzzle_desc">Βρείτε το σχήμα που ξεχωρίζει. Λάβετε υπόψη τόσο το χρώμα όσο και το σχήμα κάθε πλακιδίου.</string>
+    <string name="game_mental_calculation_desc">Ακολουθήστε τις μαθηματικές παραστάσεις. Χρησιμοποιήστε το αποτέλεσμα ως βάση για τον επόμενο υπολογισμό.</string>
+    <string name="game_colored_shapes_desc">Προσθέστε τους βαθμούς από τις σωστές παραστάσεις.</string>
+    <string name="game_sherlock_calculation_desc">Βρείτε πώς να φτάσετε στο στόχο χρησιμοποιώντας μόνο τους δεδομένους αριθμούς και αυτούς τους τελεστές: + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Ακολουθήστε τις μαθηματικές παραστάσεις.</string>
+    <string name="game_fraction_calculation_desc">Λύστε τα κλάσματα.</string>
+    <string name="game_value_comparison_desc">Επιλέξτε την παράσταση με την υψηλότερη τιμή.</string>
+    <string name="game_path_finder_desc">Ξεκινήστε από τη σημειωμένη θέση και ακολουθήστε τα βέλη για να βρείτε τον προορισμό.</string>
+    <string name="game_mini_sudoku_desc">Γεμίστε το μικρό πλέγμα έτσι ώστε κάθε γραμμή, στήλη και μπλοκ να περιέχει κάθε αριθμό ακριβώς μία φορά.</string>
+    <string name="game_visual_memory_desc">Απομνημονεύστε τα σχήματα στο πλέγμα, και μετά εντοπίστε το κρυμμένο σχήμα μετά τη λήξη της διορίας.</string>
+    <string name="game_pattern_sequence_desc">Βρείτε το επόμενο σχήμα στο μοτίβο αναζητώντας επαναλαμβανόμενα σχήματα, χρώματα και περιστροφές.</string>
+    <string name="game_ghost_grid_desc">Παρακολουθήστε τα πλακίδια να φωτίζονται ένα προς ένα, και μετά πατήστε τα ξανά με την ίδια σειρά.</string>
+    <string name="game_color_confusion_desc">Πατήστε όλα τα κελιά όπου η λέξη ταιριάζει με το χρώμα της γραμματοσειράς της, και μετά πατήστε Τέλος.</string>
+    <string name="game_orbit_tracker_desc">Παρακολουθήστε τις φωτεινές μπάλες και μετά το πώς κινούνται. Επιλέξτε τους αρχικούς στόχους αφού σταματήσουν.</string>
+    <string name="game_flash_crowd_desc">Κουκκίδες αναβοσβήνουν για λίγο σε κάθε πλευρά. Πατήστε την πλευρά που είχε περισσότερες κουκκίδες. Μην μετράτε - μόνο ένστικτο!</string>
+    <string name="game_schulte_table_desc">Πατήστε τους αριθμούς με τη σειρά από το 1 και μετά, όσο πιο γρήγορα μπορείτε.</string>
+    <string name="game_schulte_instruction">Πατήστε τους αριθμούς με τη σειρά: 1, 2, 3...</string>
+    <string name="game_mini_chess_desc">Ολοκληρώστε το σενάριο σκακιού με τα λευκά. Κάντε ματ στη CPU πριν σας κάνει ματ εκείνη.</string>
+    <string name="game_lights_out_desc">Σβήστε όλα τα φώτα. Κάθε πάτημα εναλλάσσει το κελί και τα τέσσερα γειτονικά του.</string>
+    <string name="game_sliding_puzzle_desc">Σύρετε τα πλακίδια στον κενό χώρο για να τα τοποθετήσετε στη σειρά.</string>
+    <string name="moves_label">Κινήσεις: %1$d</string>
+    <string name="mini_chess_thinking">Η CPU σκέφτεται…</string>
+    <string name="mini_chess_round_won">Ματ</string>
+    <string name="mini_chess_round_lost">Η CPU σας έκανε ματ</string>
+    <string name="mini_chess_round_draw">Ισοπαλία</string>
+    <string name="mini_chess_reset">Επαναφορά</string>
+    <string name="mini_chess_xp_gained">+%1$d XP</string>
+    <string name="mini_chess_difficulty">Δυσκολία</string>
+    <string name="mini_chess_difficulty_easy">Εύκολο</string>
+    <string name="mini_chess_difficulty_medium">Μέτριο</string>
+    <string name="mini_chess_difficulty_hard">Δύσκολο</string>
+    <string name="mini_chess_restart">Νέο παιχνίδι</string>
+    <string name="mini_chess_move_counter">Κίνηση %1$d / %2$d</string>
+    <string name="mini_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
+    <string name="game_what_comes_next">Τι ακολουθεί;</string>
+    <string name="game_tap_original_targets">Πατήστε τους αρχικούς στόχους</string>
+    <string name="game_remember_targets">Θυμηθείτε τους στόχους</string>
+    <string name="game_flash_crowd_which_more">Ποια πλευρά έχει περισσότερα;</string>
+    <string name="game_flash_crowd_blue">Μπλε</string>
+    <string name="game_flash_crowd_yellow">Κίτρινη</string>
+    <string name="button_done">Τέλος</string>
+
+    <!-- Color names -->
+    <string name="color_red">Κόκκινο</string>
+    <string name="color_green">Πράσινο</string>
+    <string name="color_blue">Μπλε</string>
+    <string name="color_purple">Μωβ</string>
+    <string name="color_yellow">Κίτρινο</string>
+    <string name="color_orange">Πορτοκαλί</string>
+    <string name="color_turquoise">Τιρκουάζ</string>
+    <string name="color_pink">Ροζ</string>
+    <string name="color_light_grey">Ανοιχτό Γκρι</string>
+
+    <!-- Shape names -->
+    <string name="shape_square">Τετράγωνο</string>
+    <string name="shape_triangle">Τρίγωνο</string>
+    <string name="shape_circle">Κύκλος</string>
+    <string name="shape_heart">Καρδιά</string>
+    <string name="shape_star">Αστέρι</string>
+    <string name="shape_t_shape">Σχήμα T</string>
+    <string name="shape_l_shape">Σχήμα L</string>
+    <string name="shape_diamond">Διαμάντι</string>
+    <string name="shape_house">Σπίτι</string>
+    <string name="shape_arrow">Βελάκι</string>
+
+    <!-- Direction words -->
+    <string name="direction_up">πάνω</string>
+    <string name="direction_right">δεξιά</string>
+    <string name="direction_down">κάτω</string>
+    <string name="direction_left">αριστερά</string>
+
+    <!-- Solution templates -->
+    <string name="solution_pointing">%1$s %2$s που δείχνει %3$s</string>
+    <string name="solution_figure">%1$s %2$s</string>
+    <string name="solution_column_row">στήλη %1$d και γραμμή %2$d</string>
+    <string name="solution_left">Αριστερά</string>
+    <string name="solution_right">Δεξιά</string>
+
+    <!-- Other UI -->
+    <string name="preview_vs">εναντίον</string>
+
+    <!-- Per-game Gold achievement titles (mirror Google Play Games titles) -->
+    <string name="achievement_gold_mini_sudoku">Sudoku Sage</string>
+    <string name="achievement_gold_mini_chess">Endgame Virtuoso</string>
+    <string name="achievement_gold_lights_out">Total Blackout</string>
+    <string name="achievement_gold_sliding_puzzle">Smooth Operator</string>
+    <string name="achievement_gold_path_finder">Trailblazer</string>
+    <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
+    <string name="achievement_gold_colored_shapes">Shape Shifter</string>
+    <string name="achievement_gold_sherlock_calculation">Elementary, My Dear</string>
+    <string name="achievement_gold_mental_calculation">Human Calculator</string>
+    <string name="achievement_gold_chain_calculation">Unbroken Chain</string>
+    <string name="achievement_gold_fraction_calculation">Fraction Boss</string>
+    <string name="achievement_gold_value_comparison">Greater Than the Rest</string>
+    <string name="achievement_gold_ghost_grid">Ghost Whisperer</string>
+    <string name="achievement_gold_visual_memory">Photographic Mind</string>
+    <string name="achievement_gold_orbit_tracker">Astronomer</string>
+    <string name="achievement_gold_pattern_sequence">Pattern Prophet</string>
+    <string name="achievement_gold_color_confusion">True Colors</string>
+    <string name="achievement_gold_flash_crowd">Crowd Counter</string>
+    <string name="achievement_gold_schulte_table">Lightning Gaze</string>
+
+    <!-- Milestone achievement titles -->
+    <string name="achievement_mind_marathoner">Mind Marathoner</string>
+    <string name="achievement_iron_streak">Iron Streak</string>
+
+    <!-- Per-game Gold achievement descriptions -->
+    <string name="achievement_gold_mini_sudoku_desc">Κερδίστε χρυσό μετάλλιο στο Mini Sudoku</string>
+    <string name="achievement_gold_mini_chess_desc">Κερδίστε χρυσό μετάλλιο στο Mini Chess</string>
+    <string name="achievement_gold_lights_out_desc">Κερδίστε χρυσό μετάλλιο στο Lights Out</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο  Sliding Puzzle</string>
+    <string name="achievement_gold_path_finder_desc">Κερδίστε χρυσό μετάλλιο στο Path Finder</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο Anomaly Puzzle</string>
+    <string name="achievement_gold_colored_shapes_desc">Κερδίστε χρυσό μετάλλιο στο Colored Shapes</string>
+    <string name="achievement_gold_sherlock_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Sherlock Calculation</string>
+    <string name="achievement_gold_mental_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Mental Calculation</string>
+    <string name="achievement_gold_chain_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Chain Calculation</string>
+    <string name="achievement_gold_fraction_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Fraction Calculation</string>
+    <string name="achievement_gold_value_comparison_desc">Κερδίστε χρυσό μετάλλιο στο Value Comparison</string>
+    <string name="achievement_gold_ghost_grid_desc">Κερδίστε χρυσό μετάλλιο στο Ghost Grid</string>
+    <string name="achievement_gold_visual_memory_desc">Κερδίστε χρυσό μετάλλιο στο Visual Memory</string>
+    <string name="achievement_gold_orbit_tracker_desc">Κερδίστε χρυσό μετάλλιο στο Orbit Tracker</string>
+    <string name="achievement_gold_pattern_sequence_desc">Κερδίστε χρυσό μετάλλιο στο Pattern Sequence</string>
+    <string name="achievement_gold_color_confusion_desc">Κερδίστε χρυσό μετάλλιο στο Color Confusion</string>
+    <string name="achievement_gold_flash_crowd_desc">Κερδίστε χρυσό μετάλλιο στο Flash Crowd</string>
+    <string name="achievement_gold_schulte_table_desc">Κερδίστε χρυσό μετάλλιο στο Schulte Table</string>
+
+    <!-- Milestone achievement descriptions -->
+    <string name="achievement_mind_marathoner_desc">Συγκεντρώστε συνολικά 10,000 πόντους</string>
+    <string name="achievement_iron_streak_desc">Εκπαιδευτείτε 30 μέρες σερί</string>
+    <!-- Flags game -->
+    <string name="game_flags">Flags</string>
+    <string name="game_flags_desc">Βρείτε τη χώρα από τη σημαία της. Κάθε γύρος προσθέτει περισσότερες επιλογές και ο χρόνος κυλάει..</string>
+    <string name="game_flags_question">Ποια σημαία είναι αυτή;</string>
+    <string name="game_flags_score">Σκορ: %1$d</string>
+    <string name="game_flags_best">Ρεκόρ: %1$d</string>
+    <!-- Digit Memory game -->
+    <string name="game_digit_memory">Digit Memory</string>
+    <string name="game_digit_memory_desc">Απομνημονεύστε μια ακολουθία αριθμών, λύστε ένα γρήγορο μαθηματικό πρόβλημα και μετά θυμηθείτε τα ψηφία.</string>
+    <string name="digit_memory_memorize">Απομνημονεύστε</string>
+    <string name="digit_memory_solve">Λύστε</string>
+    <string name="digit_memory_recall">Θυμηθείτε</string>
+    <string name="achievement_gold_digit_memory">Digit Savant</string>
+    <string name="achievement_gold_digit_memory_desc">Κερδίστε χρυσό μετάλλιο στο Digit Memory</string>
+    <!-- Spot the New game -->
+    <string name="game_spot_the_new">Spot the New</string>
+    <string name="game_spot_the_new_desc">Πατήστε το ζώο που δεν έχετε ξαναδεί. Ένα λάθος τερματίζει το παιχνίδι.</string>
+    <string name="achievement_gold_spot_the_new">Fresh Eyes</string>
+    <string name="achievement_gold_spot_the_new_desc">Κερδίστε χρυσό μετάλλιο στο Spot the New</string>
+    <string name="instructions_best_score">Καλύτερο σκορ: %1$s</string>
+    <string name="instructions_leaderboard">Προβολή πίνακα κατάταξης</string>
+    <string name="brain_cup_button">Brain Cup leaderboard</string>
+    <!-- Sponsors section -->
+    <string name="sponsors_title">Σπόνσορας</string>
+    <string name="sponsors_monthly">Μηνός</string>
+    <string name="sponsors_previous">Προηγούμενοι</string>
+    <string name="sponsors_become">Γίνετε σπόνσορας</string>
+    <!-- Country names -->
+    <string name="country_afghanistan">Αφγανιστάν</string>
+    <string name="country_aland_islands">Νήσοι Ωλαντ</string>
+    <string name="country_albania">Αλβανία</string>
+    <string name="country_algeria">Αλγερία</string>
+    <string name="country_andorra">Ανδόρρα</string>
+    <string name="country_angola">Αγκόλα</string>
+    <string name="country_anguilla">Ανγκουίλα</string>
+    <string name="country_antarctica">Ανταρκτική</string>
+    <string name="country_antigua_and_barbuda">Αντίγκουα κ Μπαρμπούντα</string>
+    <string name="country_argentina">Αργεντινή</string>
+    <string name="country_armenia">Αρμενία</string>
+    <string name="country_aruba">Αρούμπα</string>
+    <string name="country_australia">Αυστραλία</string>
+    <string name="country_austria">Αυστρία</string>
+    <string name="country_azerbaijan">Αζερμπαϊτζάν</string>
+    <string name="country_bahamas">Μπαχάμες</string>
+    <string name="country_bahrain">Μπαχρέιν</string>
+    <string name="country_bangladesh">Μπαγκλαντές</string>
+    <string name="country_barbados">Μπαρμπάντος</string>
+    <string name="country_belarus">Λευκορωσία</string>
+    <string name="country_belgium">Βέλγιο</string>
+    <string name="country_belize">Μπελίζε</string>
+    <string name="country_benin">Μπενίν</string>
+    <string name="country_bermuda">Βερμούδα</string>
+    <string name="country_bhutan">Μπουτάν</string>
+    <string name="country_bolivia">Βολιβία</string>
+    <string name="country_bosnia_and_herzegovina">Βοσνία Ερζεγοβίνη</string>
+    <string name="country_botswana">Μποτσουάνα</string>
+    <string name="country_brazil">Βραζιλία</string>
+    <string name="country_british_indian_ocean_territory">Βρετανικά Εδάφη Ινδικού Ωκεανού</string>
+    <string name="country_british_virgin_islands">Βρετανικές Παρθένοι Νήσοι</string>
+    <string name="country_brunei_darussalam">Μπρουνέι</string>
+    <string name="country_bulgaria">Βουλγαρία</string>
+    <string name="country_burkina_faso">Μπουργκίνα Φάσο</string>
+    <string name="country_burundi">Μπουρούντι</string>
+    <string name="country_cambodia">Καμπότζη</string>
+    <string name="country_cameroon">Καμερούν</string>
+    <string name="country_canada">Καναδάς</string>
+    <string name="country_cape_verde">Πράσινο Ακρωτήρι</string>
+    <string name="country_catalonia_flag">Καταλονία</string>
+    <string name="country_cayman_islands">Νησιά Κέυμαν</string>
+    <string name="country_central_african_republic">Κεντροαφρικανική Δημοκρατία</string>
+    <string name="country_chad">Τσαντ</string>
+    <string name="country_chile">Χιλή</string>
+    <string name="country_china">Κίνα</string>
+    <string name="country_christmas_island">Νήσοι Χριστουγέννων</string>
+    <string name="country_cocos_keeling_islands">Νήσοι Κόκος (Κίλινγκ)</string>
+    <string name="country_colombia">Κολομβία</string>
+    <string name="country_comoros">Κομόρες</string>
+    <string name="country_congo">Κονγκό</string>
+    <string name="country_cook_islands">Νήσοι Κουκ</string>
+    <string name="country_costa_rica">Κόστα Ρίκα</string>
+    <string name="country_croatia">Κροατία</string>
+    <string name="country_cuba">Κούβα</string>
+    <string name="country_curacao">Κουρακάο</string>
+    <string name="country_cyprus">Κύπρος</string>
+    <string name="country_czech_republic">Τσεχία</string>
+    <string name="country_democratic_republic_of_the_congo">Δημοκρατία του Κογκό</string>
+    <string name="country_denmark">Δανία</string>
+    <string name="country_djibouti">Τζιμπουτί</string>
+    <string name="country_dominica">Ντομίνικα</string>
+    <string name="country_dominican_republic">Δομινικανή Δημοκρατία</string>
+    <string name="country_ecuador">Εκουαδόρ</string>
+    <string name="country_egypt">Αίγυπτος</string>
+    <string name="country_el_salvador">Ελ Σαλβαδόρ</string>
+    <string name="country_england">Αγγλία</string>
+    <string name="country_equatorial_guinea">Ισημερινή Γουινέα</string>
+    <string name="country_eritrea">Ερυθραία</string>
+    <string name="country_esperanto_flag">Εσπεράντο</string>
+    <string name="country_estonia">Εσθονία</string>
+    <string name="country_eswatini">Εσουατίνι</string>
+    <string name="country_ethiopia">Αιθιοπία</string>
+    <string name="country_falkland_islands">Νησιά Φώκλαντ</string>
+    <string name="country_faroe_islands">Νησιά Φερόες</string>
+    <string name="country_fiji">Φίτζι</string>
+    <string name="country_finland">Φινλανδία</string>
+    <string name="country_france">Γαλλία</string>
+    <string name="country_french_polynesia">Γαλλική Πολυνησία</string>
+    <string name="country_french_southern_territories">Γαλλικά Νότια Εδάφη</string>
+    <string name="country_gabon">Γκαμπόν</string>
+    <string name="country_gambia">Γκάμπια</string>
+    <string name="country_georgia">Γεωργία</string>
+    <string name="country_germany">Γερμανία</string>
+    <string name="country_ghana">Γκάνα</string>
+    <string name="country_gibraltar">Γιβραλτάρ</string>
+    <string name="country_great_britain">Μεγάλη Βρετανία</string>
+    <string name="country_greece">Ελλάδα</string>
+    <string name="country_greenland">Γροιλανδία</string>
+    <string name="country_grenada">Γρανάδα</string>
+    <string name="country_guam">Γκουάμ</string>
+    <string name="country_guatemala">Γουατεμάλα</string>
+    <string name="country_guernsey">Γκέρνσεϊ</string>
+    <string name="country_guinea">Γουινέα</string>
+    <string name="country_guinea_bissau">Γουινέα-Μπισάου</string>
+    <string name="country_guyana">Γουιάνα</string>
+    <string name="country_haiti">Αϊτή</string>
+    <string name="country_honduras">Ονδούρα</string>
+    <string name="country_hong_kong">Χονγκ Κονγκ</string>
+    <string name="country_hungary">Ουγγαρία</string>
+    <string name="country_iceland">Ισλανδία</string>
+    <string name="country_india">Ινδία</string>
+    <string name="country_indonesia">Ινδονησία</string>
+    <string name="country_iran">Ιράν</string>
+    <string name="country_iraq">Ιράκ</string>
+    <string name="country_ireland">Ιρλανδία</string>
+    <string name="country_isle_of_man">Νήσος του Μαν</string>
+    <string name="country_israel">Ισραήλ</string>
+    <string name="country_italy">Ιταλία</string>
+    <string name="country_ivory_coast">Ακτή Ελεφαντοστού</string>
+    <string name="country_jamaica">Τζαμάικα</string>
+    <string name="country_japan">Ιαπωνία</string>
+    <string name="country_jersey">Τζέρσεϊ</string>
+    <string name="country_jordan">Ιορδανία</string>
+    <string name="country_kazakhstan">Καζακστάν</string>
+    <string name="country_kenya">Κένυα</string>
+    <string name="country_kiribati">Κιριμπάτι</string>
+    <string name="country_kuwait">Κουβέιτ</string>
+    <string name="country_kyrgyzstan">Κιργιστάν</string>
+    <string name="country_laos">Λάος</string>
+    <string name="country_latvia">Λάτβια</string>
+    <string name="country_lebanon">Λίβανος</string>
+    <string name="country_lesotho">Λεσότο</string>
+    <string name="country_liberia">Λιβερία</string>
+    <string name="country_libya">Λιβύη</string>
+    <string name="country_liechtenstein">Λιχτενστάιν</string>
+    <string name="country_lithuania">Λιθουανία</string>
+    <string name="country_luxembourg">Λουξεμβούργο</string>
+    <string name="country_macao">Μακάο</string>
+    <string name="country_macedonia">Βόρεια Μακεδονία</string>
+    <string name="country_madagascar">Μαδαγασκάρη</string>
+    <string name="country_malawi">Μαλάουι</string>
+    <string name="country_malaysia">Μαλαισία</string>
+    <string name="country_maldives">Μαλδίβες</string>
+    <string name="country_mali">Μαλί</string>
+    <string name="country_malta">Μάλτα</string>
+    <string name="country_marshall_islands">Νήσοι Μάρσαλ</string>
+    <string name="country_mauritania">Μαυριτανία</string>
+    <string name="country_mauritius">Μαυρίτιος</string>
+    <string name="country_mexico">Μεξικό</string>
+    <string name="country_micronesia">Μικρονησία</string>
+    <string name="country_moldova">Μολδαβία</string>
+    <string name="country_monaco">Μονακό</string>
+    <string name="country_mongolia">Μογγολία</string>
+    <string name="country_montenegro">Μαυροβούνιο</string>
+    <string name="country_montserrat">Μοντσεράτ</string>
+    <string name="country_morocco">Μαρόκο</string>
+    <string name="country_mozambique">Μοζαμβίκη</string>
+    <string name="country_myanmar">Μυανμάρ</string>
+    <string name="country_namibia">Ναμίμπια</string>
+    <string name="country_nauru">Ναούρου</string>
+    <string name="country_nepal">Νεπάλ</string>
+    <string name="country_netherlands">Ολλανδία</string>
+    <string name="country_new_zealand">Νέα Ζηλανδία</string>
+    <string name="country_nicaragua">Νικαράγουα</string>
+    <string name="country_niger">Νίγηρας</string>
+    <string name="country_nigeria">Νιγηρία</string>
+    <string name="country_niue">Νιούε</string>
+    <string name="country_norfolk_island">Νήσοι Νόρφολκ</string>
+    <string name="country_north_korea">Βόρεια Κορέα</string>
+    <string name="country_northern_mariana_islands">Βόρειοι Νήσοι Μαριάννας</string>
+    <string name="country_norway">Νορβηγία</string>
+    <string name="country_oman">Ομάν</string>
+    <string name="country_pakistan">Πακιστάν</string>
+    <string name="country_panama">Παναμάς</string>
+    <string name="country_papua_new_guinea">Παπούα Νέα Γουινέα</string>
+    <string name="country_paraguay">Παραγουάη</string>
+    <string name="country_peru">Περού</string>
+    <string name="country_philippines">Φιλιππίνες</string>
+    <string name="country_pitcairn_islands">Νήσοι Πιτκαϊρν</string>
+    <string name="country_poland">Πολωνία</string>
+    <string name="country_portugal">Πορτογαλία</string>
+    <string name="country_puerto_rico">Πουέρτο Ρίκο</string>
+    <string name="country_qatar">Κατάρ</string>
+    <string name="country_romania">Ρουμανία</string>
+    <string name="country_russian_federation">Ρωσία</string>
+    <string name="country_rwanda">Ρουάντα</string>
+    <string name="country_saint_kitts_and_nevis">Αγιος Κιτς και Νέβις</string>
+    <string name="country_saint_lucia">Αγία Λουκία</string>
+    <string name="country_saint_vincent_and_the_grenadines">Αγιος Βικέντιος και Γρεναδίνες</string>
+    <string name="country_samoa">Σαμόα</string>
+    <string name="country_san_marino">Σαν Μαρίνο</string>
+    <string name="country_sao_tome_and_principe">Σάο Τόμε και Πρινσίπε</string>
+    <string name="country_saudi_arabia">Σαουδική Αραβία</string>
+    <string name="country_scotland">Σκωτία</string>
+    <string name="country_senegal">Σενεγάλη</string>
+    <string name="country_serbia">Σερβία</string>
+    <string name="country_seychelles">Σευχέλλες</string>
+    <string name="country_sierra_leone">Σιέρα Λεόνε</string>
+    <string name="country_singapore">Σιγκαπούρη</string>
+    <string name="country_slovakia">Σλοβακία</string>
+    <string name="country_slovenia">Σλοβενία</string>
+    <string name="country_solomon_islands">Νήσοι Σολoμώντα</string>
+    <string name="country_somalia">Σομαλία</string>
+    <string name="country_south_africa">Νότια Αφρική</string>
+    <string name="country_south_georgia_and_the_south_sandwich_islands">Νότια Γεωργία και Νότιες Νήσοι Σάντουιτς</string>
+    <string name="country_south_korea">Νότια Κορέα</string>
+    <string name="country_south_sudan">Νότιο Σουδάν</string>
+    <string name="country_spain">Ισπανία</string>
+    <string name="country_sri_lanka">Σρι Λάνκα</string>
+    <string name="country_sudan">Σουδάν</string>
+    <string name="country_suriname">Σουρινάμ</string>
+    <string name="country_sweden">Σουηδία</string>
+    <string name="country_switzerland">Ελβετία</string>
+    <string name="country_syria">Συρία</string>
+    <string name="country_tajikistan">Τατζικιστάν</string>
+    <string name="country_tanzania">Τανζανία</string>
+    <string name="country_thailand">Ταϊλάνδη</string>
+    <string name="country_timor_leste">Τιμόρ-Λέστε</string>
+    <string name="country_togo">Τόγκο</string>
+    <string name="country_tokelau">Τοκελάου</string>
+    <string name="country_tonga">Τόγκα</string>
+    <string name="country_trinidad_and_tobago">Τρινιντάντ και Τομπάγκο</string>
+    <string name="country_tunisia">Τυνησία</string>
+    <string name="country_turkey">Τουρκία</string>
+    <string name="country_turkmenistan">Τουρκμενιστάν</string>
+    <string name="country_turks_and_caicos_islands">Νήσοι Τερκς και Κάικος</string>
+    <string name="country_tuvalu">Τουβαλού</string>
+    <string name="country_uganda">Ουγκάντα</string>
+    <string name="country_ukraine">Ουκρανία</string>
+    <string name="country_united_arab_emirates">Ηνωμένα Αραβικά Εμιράτα</string>
+    <string name="country_united_states_virgin_islands">Παρθένοι Νήσοι ΗΠΑ</string>
+    <string name="country_uruguay">Ουρουγουάη</string>
+    <string name="country_usa">Ηνωμένες Πολιτείες Αμερικής</string>
+    <string name="country_ussr">Σοβιετική Ενωση</string>
+    <string name="country_uzbekistan">Ουζμπεκιστάν</string>
+    <string name="country_vanuatu">Βανουάτου</string>
+    <string name="country_vatican_city">Βατικανό</string>
+    <string name="country_venezuela">Βενεζουέλα</string>
+    <string name="country_vietnam">Βιετνάμ</string>
+    <string name="country_western_sahara">Δυτική Σαχάρα</string>
+    <string name="country_yemen">Υεμένη</string>
+    <string name="country_zambia">Ζάμπια</string>
+    <string name="country_zimbabwe">Ζιμπάμπουε</string>
+
+</resources>
