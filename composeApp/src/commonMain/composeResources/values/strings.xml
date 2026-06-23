@@ -227,6 +227,11 @@
     <string name="ghost_grid_demo_repeat">Now tap them back in the same order.</string>
     <string name="path_finder_demo_title">Follow the arrows</string>
     <string name="path_finder_demo_caption">Start on the orange tile and follow the arrows to the destination.</string>
+    <string name="schulte_demo_title">Tap them in order</string>
+    <string name="lights_out_demo_title">Switch them all off</string>
+    <string name="orbit_tracker_demo_title">Track the moving targets</string>
+    <string name="orbit_tracker_demo_watch">Keep your eyes on them as they move.</string>
+    <string name="orbit_tracker_demo_correct">You found every target.</string>
     <string name="game_what_comes_next">What comes next?</string>
     <string name="game_tap_original_targets">Tap the original targets</string>
     <string name="game_remember_targets">Remember the targets</string>
@@ -350,6 +355,11 @@
     <string name="game_spot_the_new_desc">Tap the animal you have not seen before. One mistake ends the game.</string>
     <string name="achievement_gold_spot_the_new">Fresh Eyes</string>
     <string name="achievement_gold_spot_the_new_desc">Win gold medal in Spot the New</string>
+    <string name="spot_the_new_demo_title">Spot the new one</string>
+    <string name="spot_the_new_demo_seen_label">Seen so far</string>
+    <string name="spot_the_new_demo_new">Tap the animal you have not seen before.</string>
+    <string name="spot_the_new_demo_seen">You saw this one before. It sat out a round, but it still counts as seen.</string>
+    <string name="spot_the_new_demo_correct">Correct. It joins the ones you have seen.</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Guess the hidden five-letter word in six tries. The answer is always a noun.</string>
     <string name="achievement_gold_wordle">Wordsmith</string>

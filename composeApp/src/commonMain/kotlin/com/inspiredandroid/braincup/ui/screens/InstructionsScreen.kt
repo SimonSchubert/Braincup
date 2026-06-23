@@ -31,11 +31,15 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.GhostGridDemo
+import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.NurikabeDemo
+import com.inspiredandroid.braincup.ui.components.OrbitTrackerDemo
 import com.inspiredandroid.braincup.ui.components.PathFinderDemo
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
 import com.inspiredandroid.braincup.ui.components.ShikakuDemo
+import com.inspiredandroid.braincup.ui.components.SpotTheNewDemo
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -67,9 +71,13 @@ fun InstructionsScreen(
         when (gameType) {
             GameType.MINI_CHESS -> ChessMoveDemo(modifier = demoModifier)
             GameType.GHOST_GRID -> GhostGridDemo(modifier = demoModifier)
+            GameType.LIGHTS_OUT -> LightsOutDemo(modifier = demoModifier)
             GameType.PATH_FINDER -> PathFinderDemo(modifier = demoModifier)
             GameType.SHIKAKU -> ShikakuDemo(modifier = demoModifier)
             GameType.NURIKABE -> NurikabeDemo(modifier = demoModifier)
+            GameType.SCHULTE_TABLE -> SchulteTableDemo(modifier = demoModifier)
+            GameType.SPOT_THE_NEW -> SpotTheNewDemo(modifier = demoModifier)
+            GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
             else -> Text(
                 text = stringResource(gameType.descriptionRes),
                 style = MaterialTheme.typography.bodyLarge,
@@ -139,7 +147,8 @@ fun InstructionsScreen(
 // screen. Add a game's branch (and its demo composable) here to opt it in.
 private fun hasAnimatedInstructions(gameType: GameType): Boolean = when (gameType) {
     GameType.MINI_CHESS, GameType.GHOST_GRID, GameType.PATH_FINDER,
-    GameType.SHIKAKU, GameType.NURIKABE,
+    GameType.SHIKAKU, GameType.NURIKABE, GameType.SCHULTE_TABLE,
+    GameType.SPOT_THE_NEW, GameType.LIGHTS_OUT, GameType.ORBIT_TRACKER,
     -> true
     else -> false
 }

@@ -2905,7 +2905,8 @@ private fun SpotTheNewTile(
     modifier: Modifier = Modifier,
 ) {
     val face = when (cell.type) {
-        SpotTheNewGame.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+        // Strong red (not the pale errorContainer) so the tile the player got wrong is unmistakable.
+        SpotTheNewGame.CellType.WRONG -> MaterialTheme.colorScheme.error
         SpotTheNewGame.CellType.CORRECT -> PrimaryContainer
         SpotTheNewGame.CellType.NORMAL -> MaterialTheme.colorScheme.surfaceContainer
     }
