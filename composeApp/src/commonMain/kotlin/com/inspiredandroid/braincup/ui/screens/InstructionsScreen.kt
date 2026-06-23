@@ -30,19 +30,33 @@ import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CatQueensDemo
+import com.inspiredandroid.braincup.ui.components.ChainCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
+import com.inspiredandroid.braincup.ui.components.ColorConfusionDemo
+import com.inspiredandroid.braincup.ui.components.ColoredShapesDemo
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.DigitMemoryDemo
+import com.inspiredandroid.braincup.ui.components.FlagsDemo
 import com.inspiredandroid.braincup.ui.components.FlashCrowdDemo
+import com.inspiredandroid.braincup.ui.components.FractionCalculationDemo
 import com.inspiredandroid.braincup.ui.components.GhostGridDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
+import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
+import com.inspiredandroid.braincup.ui.components.MiniSudokuDemo
 import com.inspiredandroid.braincup.ui.components.NurikabeDemo
 import com.inspiredandroid.braincup.ui.components.OrbitTrackerDemo
 import com.inspiredandroid.braincup.ui.components.PathFinderDemo
+import com.inspiredandroid.braincup.ui.components.PatternSequenceDemo
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
+import com.inspiredandroid.braincup.ui.components.SherlockCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ShikakuDemo
+import com.inspiredandroid.braincup.ui.components.SlidingPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.SpotTheNewDemo
+import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
+import com.inspiredandroid.braincup.ui.components.VisualMemoryDemo
+import com.inspiredandroid.braincup.ui.components.WordleDemo
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -84,6 +98,20 @@ fun InstructionsScreen(
             GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
             GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
             GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
+            GameType.SLIDING_PUZZLE -> SlidingPuzzleDemo(modifier = demoModifier)
+            GameType.MINI_SUDOKU -> MiniSudokuDemo(modifier = demoModifier)
+            GameType.COLORED_SHAPES -> ColoredShapesDemo(modifier = demoModifier)
+            GameType.WORDLE -> WordleDemo(modifier = demoModifier)
+            GameType.VISUAL_MEMORY -> VisualMemoryDemo(modifier = demoModifier)
+            GameType.DIGIT_MEMORY -> DigitMemoryDemo(modifier = demoModifier)
+            GameType.PATTERN_SEQUENCE -> PatternSequenceDemo(modifier = demoModifier)
+            GameType.COLOR_CONFUSION -> ColorConfusionDemo(modifier = demoModifier)
+            GameType.FLAGS -> FlagsDemo(modifier = demoModifier)
+            GameType.MENTAL_CALCULATION -> MentalCalculationDemo(modifier = demoModifier)
+            GameType.CHAIN_CALCULATION -> ChainCalculationDemo(modifier = demoModifier)
+            GameType.FRACTION_CALCULATION -> FractionCalculationDemo(modifier = demoModifier)
+            GameType.SHERLOCK_CALCULATION -> SherlockCalculationDemo(modifier = demoModifier)
+            GameType.VALUE_COMPARISON -> ValueComparisonDemo(modifier = demoModifier)
             else -> Text(
                 text = stringResource(gameType.descriptionRes),
                 style = MaterialTheme.typography.bodyLarge,
@@ -156,6 +184,11 @@ private fun hasAnimatedInstructions(gameType: GameType): Boolean = when (gameTyp
     GameType.SHIKAKU, GameType.NURIKABE, GameType.SCHULTE_TABLE,
     GameType.SPOT_THE_NEW, GameType.LIGHTS_OUT, GameType.ORBIT_TRACKER,
     GameType.CAT_QUEENS, GameType.FLASH_CROWD, GameType.ANOMALY_PUZZLE,
+    GameType.SLIDING_PUZZLE, GameType.MINI_SUDOKU, GameType.COLORED_SHAPES,
+    GameType.WORDLE, GameType.VISUAL_MEMORY, GameType.DIGIT_MEMORY,
+    GameType.PATTERN_SEQUENCE, GameType.COLOR_CONFUSION, GameType.FLAGS,
+    GameType.MENTAL_CALCULATION, GameType.CHAIN_CALCULATION, GameType.FRACTION_CALCULATION,
+    GameType.SHERLOCK_CALCULATION, GameType.VALUE_COMPARISON,
     -> true
     else -> false
 }
