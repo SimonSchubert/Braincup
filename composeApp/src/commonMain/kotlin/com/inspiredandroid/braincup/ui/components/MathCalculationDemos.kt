@@ -207,7 +207,10 @@ fun MentalCalculationDemo(modifier: Modifier = Modifier) {
                         fontWeight = FontWeight.Bold,
                         color = if (line.carried) Primary else MaterialTheme.colorScheme.onSurface,
                         modifier = if (line.carried) {
-                            Modifier.graphicsLayer { scaleX = carryPulse.value; scaleY = carryPulse.value }
+                            Modifier.graphicsLayer {
+                                scaleX = carryPulse.value
+                                scaleY = carryPulse.value
+                            }
                         } else {
                             Modifier
                         },
@@ -410,7 +413,10 @@ private fun FractionPart(
     style: androidx.compose.ui.text.TextStyle,
 ) {
     val numberStyle = style.copy(fontFamily = numberFontFamily())
-    val popModifier = Modifier.graphicsLayer { scaleX = scale; scaleY = scale }
+    val popModifier = Modifier.graphicsLayer {
+        scaleX = scale
+        scaleY = scale
+    }
     if (merged != null) {
         Text(text = merged, style = numberStyle, modifier = popModifier)
     } else {

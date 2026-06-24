@@ -46,8 +46,8 @@ import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
-import kotlin.math.max
 import org.jetbrains.compose.resources.stringResource
+import kotlin.math.max
 
 private const val GlanceMillis = 900L
 private const val FadeMillis = 200L

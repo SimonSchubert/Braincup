@@ -33,11 +33,11 @@ import braincup.composeapp.generated.resources.orbit_tracker_demo_watch
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.stringResource
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
-import org.jetbrains.compose.resources.stringResource
 
 // Normalized 0..1 arena. These mirror OrbitTrackerGame exactly so the demo moves with the same
 // physics as the real game: BALL_RADIUS, a per-second speed, and a 16ms frame.
