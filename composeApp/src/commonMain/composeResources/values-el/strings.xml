@@ -10,13 +10,15 @@
     <string name="button_play_again">Παίξτε ξανά</string>
     <string name="button_play_random">Παίξτε τυχαίο παιχνίδι</string>
     <string name="button_give_up">Παραίτηση</string>
+    <string name="button_stay">Παραμονή</string>
+    <string name="button_quit_game">Έξοδος</string>
     <string name="button_backspace">Επιστροφή</string>
 
     <!-- Main menu -->
 
     <!-- Level / XP -->
     <string name="level_label">Επίπεδο %1$d</string>
-    <string name="level_up_title">Level Up!</string>
+    <string name="level_up_title">Νέο επίπεδο!</string>
     <string name="xp_gained">+%1$d XP</string>
     <string name="xp_progress">%1$d / %2$d XP</string>
     <string name="title_novice">Αρχάριος</string>
@@ -39,6 +41,35 @@
     <string name="normal_sudoku_not_solved">Οχι ακριβώς σωστό</string>
     <string name="normal_sudoku_erase">Διαγραφή</string>
 
+    <!-- Normal Chess -->
+    <string name="normal_chess_button">Κανονικό Σκάκι</string>
+    <string name="normal_chess_title">Σκάκι</string>
+    <string name="normal_chess_mode_cpu">Παίξτε εναντίον CPU</string>
+    <string name="normal_chess_mode_human">Παίξτε εναντίον ανθρώπου</string>
+    <string name="normal_chess_mode_human_subtitle">Εναλλάξ παιχνίδι στην ίδια συσκευή</string>
+    <string name="normal_chess_difficulty">Δυσκολία</string>
+    <string name="normal_chess_difficulty_easy">Εύκολο</string>
+    <string name="normal_chess_difficulty_medium">Μέτριο</string>
+    <string name="normal_chess_difficulty_hard">Δύσκολο</string>
+    <string name="normal_chess_start">Έναρξη παιχνιδιού</string>
+    <string name="normal_chess_thinking">Η CPU σκέφτεται…</string>
+    <string name="normal_chess_checkmate_white">Ματ. Κερδίζουν τα λευκά.</string>
+    <string name="normal_chess_checkmate_black">Ματ. Κερδίζουν τα μαύρα.</string>
+    <string name="normal_chess_stalemate">Πατ. Ισοπαλία.</string>
+    <string name="normal_chess_draw_50">Ισοπαλία με τον κανόνα των πενήντα κινήσεων.</string>
+    <string name="normal_chess_draw_material">Ισοπαλία λόγω ανεπαρκούς υλικού.</string>
+    <string name="normal_chess_resign">Παραίτηση</string>
+    <string name="normal_chess_quit">Έξοδος</string>
+    <string name="normal_chess_new_game">Νέο παιχνίδι</string>
+    <string name="normal_chess_turn_white">Σειρά των λευκών</string>
+    <string name="normal_chess_turn_black">Σειρά των μαύρων</string>
+    <string name="normal_chess_promotion_title">Προαγωγή σε</string>
+    <string name="normal_chess_promotion_queen">Βασίλισσα</string>
+    <string name="normal_chess_promotion_rook">Πύργος</string>
+    <string name="normal_chess_promotion_bishop">Αξιωματικός</string>
+    <string name="normal_chess_promotion_knight">Ίππος</string>
+    <string name="normal_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
+
     <!-- Settings -->
     <string name="settings_title">Επιλογές</string>
     <string name="settings_open">Ανοιγμα επιλογών</string>
@@ -48,6 +79,8 @@
     <string name="settings_colorblind_desc">Χρήση ευδιάκριτης παλέτας ώστε να είναι δυνατή η λύση από άτομα με αχρωματοψία.</string>
     <string name="settings_haptic">Ανάδραση αφής</string>
     <string name="settings_haptic_desc">Σύντομη δόνηση για σωστές απαντήσεις.</string>
+    <string name="settings_keypad">Αριθμητικό πληκτρολόγιο τηλεφώνου</string>
+    <string name="settings_keypad_desc">Τοποθετήστε το 1, 2, 3 στην πάνω σειρά αντί για το 7, 8, 9.</string>
     <string name="settings_theme">Θέμα</string>
     <string name="settings_theme_desc">Επιλέξτε την εμφάνιση του Brain Cup.</string>
     <string name="settings_theme_system">Συστήματος</string>
@@ -75,9 +108,11 @@
     <string name="session_complete_title">Η σύνοδος ολοκληρώθηκε</string>
     <string name="session_total_score">Σύνολο: %1$d</string>
     <string name="session_streak_increased">Σερί ημερών: %1$d</string>
-    <string name="session_streak_current">Τρέχον σερί: %1$d days</string>
+    <string name="session_streak_current">Τρέχον σερί: %1$d ημέρες</string>
 
     <!-- Game screen -->
+    <string name="quit_game_title">Έξοδος από το παιχνίδι;</string>
+    <string name="quit_game_message">Η πρόοδός σας σε αυτό το παιχνίδι δεν θα αποθηκευτεί.</string>
     <string name="game_goal">Στόχος: %1$d</string>
     <string name="game_follow_directions">Ακολουθήστε τις οδηγίες:</string>
     <string name="game_highest_value">Ποια είναι η υψηλότερη αξία;</string>
@@ -87,41 +122,47 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Σκορ: %1$s</string>
+    <string name="finish_level">Επίπεδο: %1$s</string>
     <string name="finish_bonus_point">Κερδίσατε 1 επιπλέον πόντο γιατί δεν κάνατε λάθη!</string>
-    <string name="finish_new_highscore">Νέο High Score!</string>
-    <string name="finish_highscore">High Score: %1$s</string>
+    <string name="finish_new_highscore">Νέο ρεκόρ!</string>
+    <string name="finish_highscore">Ρεκόρ: %1$s</string>
+    <string name="button_play_next_level">Επόμενο επίπεδο</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Λύση: %1$s</string>
 
     <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Πίνακας σκορ</string>
-    <string name="scoreboard_highscore">High Score</string>
+    <string name="scoreboard_highscore">Ρεκόρ</string>
+    <string name="scoreboard_best_level">Καλύτερο επίπεδο</string>
     <string name="scoreboard_no_scores">Δεν υπάρχουν σκορ</string>
 
     <!-- Achievements screen -->
     <string name="achievements_title">Επιτεύγματα</string>
 
     <!-- Game types - names -->
-    <string name="game_anomaly_puzzle">Anomaly Puzzle</string>
-    <string name="game_mental_calculation">Mental Calculation</string>
-    <string name="game_colored_shapes">Colored Shapes</string>
-    <string name="game_sherlock_calculation">Sherlock Calculation</string>
-    <string name="game_chain_calculation">Chain Calculation</string>
-    <string name="game_fraction_calculation">Fraction Calculation</string>
-    <string name="game_value_comparison">Value Comparison</string>
-    <string name="game_path_finder">Path Finder</string>
-    <string name="game_mini_sudoku">Mini Sudoku</string>
-    <string name="game_visual_memory">Visual Memory</string>
-    <string name="game_pattern_sequence">Pattern Sequence</string>
-    <string name="game_ghost_grid">Ghost Grid</string>
-    <string name="game_color_confusion">Color Confusion</string>
-    <string name="game_orbit_tracker">Orbit Tracker</string>
-    <string name="game_flash_crowd">Flash Crowd</string>
-    <string name="game_schulte_table">Schulte Table</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_anomaly_puzzle">Παζλ Ανωμαλίας</string>
+    <string name="game_mental_calculation">Νοερός Υπολογισμός</string>
+    <string name="game_colored_shapes">Χρωματιστά Σχήματα</string>
+    <string name="game_sherlock_calculation">Υπολογισμός Σέρλοκ</string>
+    <string name="game_chain_calculation">Αλυσιδωτός Υπολογισμός</string>
+    <string name="game_fraction_calculation">Υπολογισμός Κλασμάτων</string>
+    <string name="game_value_comparison">Σύγκριση Τιμών</string>
+    <string name="game_path_finder">Εύρεση Διαδρομής</string>
+    <string name="game_mini_sudoku">Μίνι Sudoku</string>
+    <string name="game_visual_memory">Οπτική Μνήμη</string>
+    <string name="game_pattern_sequence">Ακολουθία Μοτίβου</string>
+    <string name="game_ghost_grid">Πλέγμα Φαντασμάτων</string>
+    <string name="game_color_confusion">Σύγχυση Χρωμάτων</string>
+    <string name="game_orbit_tracker">Ιχνηλάτης Τροχιάς</string>
+    <string name="game_flash_crowd">Αστραπιαίο Πλήθος</string>
+    <string name="game_schulte_table">Πίνακας Σούλτε</string>
+    <string name="game_mini_chess">Μίνι Σκάκι</string>
+    <string name="game_lights_out">Σβήσε τα Φώτα</string>
+    <string name="game_sliding_puzzle">Συρόμενο Παζλ</string>
+    <string name="game_shikaku">Shikaku</string>
+    <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_cat_queens">Βασίλισσες Γάτες</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Βρείτε το σχήμα που ξεχωρίζει. Λάβετε υπόψη τόσο το χρώμα όσο και το σχήμα κάθε πλακιδίου.</string>
@@ -144,6 +185,16 @@
     <string name="game_mini_chess_desc">Ολοκληρώστε το σενάριο σκακιού με τα λευκά. Κάντε ματ στη CPU πριν σας κάνει ματ εκείνη.</string>
     <string name="game_lights_out_desc">Σβήστε όλα τα φώτα. Κάθε πάτημα εναλλάσσει το κελί και τα τέσσερα γειτονικά του.</string>
     <string name="game_sliding_puzzle_desc">Σύρετε τα πλακίδια στον κενό χώρο για να τα τοποθετήσετε στη σειρά.</string>
+    <string name="game_shikaku_desc">Χωρίστε ολόκληρο το πλέγμα σε ορθογώνια. Κάθε ορθογώνιο πρέπει να περιέχει ακριβώς έναν αριθμό, ίσο με το εμβαδόν του.</string>
+    <string name="game_shikaku_howto">Σύρετε για να σχεδιάσετε ένα ορθογώνιο. Πατήστε ένα ορθογώνιο για να το αφαιρέσετε.</string>
+    <string name="game_nurikabe_desc">Βάψτε κελιά για να χτίσετε τη θάλασσα γύρω από αριθμημένα νησιά. Κάθε νησί πρέπει να έχει τόσα συνδεδεμένα κελιά όσο ο αριθμός του, η θάλασσα πρέπει να είναι συνεχόμενη και να μην περιέχει τετράγωνο 2x2.</string>
+    <string name="game_nurikabe_howto">Πατήστε ή σύρετε για να βάψετε τη θάλασσα. Πατήστε ένα γεμάτο κελί για να το καθαρίσετε.</string>
+    <string name="game_cat_queens_desc">Τοποθετήστε μία γάτα σε κάθε γραμμή, κάθε στήλη και κάθε χρωματική ζώνη. Καμία γάτα δεν επιτρέπεται να αγγίζει άλλη, ούτε διαγώνια.</string>
+    <string name="game_cat_queens_howto">Πατήστε ένα κελί για να τοποθετήσετε ή να αφαιρέσετε μια γάτα.</string>
+    <string name="cat_queens_error_row">Μόνο μία γάτα ανά γραμμή</string>
+    <string name="cat_queens_error_column">Μόνο μία γάτα ανά στήλη</string>
+    <string name="cat_queens_error_zone">Μόνο μία γάτα ανά χρωματική ζώνη</string>
+    <string name="cat_queens_error_touch">2 γάτες δεν μπορούν να αγγίζονται</string>
     <string name="moves_label">Κινήσεις: %1$d</string>
     <string name="mini_chess_thinking">Η CPU σκέφτεται…</string>
     <string name="mini_chess_round_won">Ματ</string>
@@ -158,6 +209,55 @@
     <string name="mini_chess_restart">Νέο παιχνίδι</string>
     <string name="mini_chess_move_counter">Κίνηση %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
+    <string name="mini_chess_moves_title">Πώς κινούνται τα κομμάτια</string>
+    <string name="chess_piece_king">Βασιλιάς</string>
+    <string name="chess_piece_queen">Βασίλισσα</string>
+    <string name="chess_piece_rook">Πύργος</string>
+    <string name="chess_piece_bishop">Αξιωματικός</string>
+    <string name="chess_piece_knight">Ίππος</string>
+    <string name="chess_piece_pawn">Πιόνι</string>
+    <string name="chess_move_king">Κινείται ένα τετράγωνο προς οποιαδήποτε κατεύθυνση.</string>
+    <string name="chess_move_queen">Κινείται όσα τετράγωνα θέλει σε ευθεία ή διαγώνια γραμμή.</string>
+    <string name="chess_move_rook">Κινείται όσα τετράγωνα θέλει σε ευθεία γραμμή.</string>
+    <string name="chess_move_bishop">Κινείται όσα τετράγωνα θέλει διαγώνια.</string>
+    <string name="chess_move_knight">Πηδά σε σχήμα L: δύο τετράγωνα και μετά ένα στο πλάι.</string>
+    <string name="chess_move_pawn">Προχωρά μπροστά, αιχμαλωτίζει διαγώνια και προάγεται σε βασίλισσα στην απέναντι πλευρά.</string>
+    <string name="ghost_grid_demo_title">Παρακολουθήστε, μετά επαναλάβετε</string>
+    <string name="ghost_grid_demo_watch">Παρακολουθήστε τη σειρά με την οποία φωτίζονται τα πλακίδια.</string>
+    <string name="ghost_grid_demo_repeat">Τώρα πατήστε τα ξανά με την ίδια σειρά.</string>
+    <string name="path_finder_demo_title">Ακολουθήστε τα βέλη</string>
+    <string name="path_finder_demo_caption">Ξεκινήστε από το πορτοκαλί πλακίδιο και ακολουθήστε τα βέλη μέχρι τον προορισμό.</string>
+    <string name="schulte_demo_title">Πατήστε τα με τη σειρά</string>
+    <string name="lights_out_demo_title">Σβήστε τα όλα</string>
+    <string name="orbit_tracker_demo_title">Παρακολουθήστε τους κινούμενους στόχους</string>
+    <string name="orbit_tracker_demo_watch">Κρατήστε τα μάτια σας πάνω τους καθώς κινούνται.</string>
+    <string name="orbit_tracker_demo_correct">Βρήκατε όλους τους στόχους.</string>
+    <string name="flash_crowd_demo_title">Εντοπίστε το μεγαλύτερο πλήθος</string>
+    <string name="flash_crowd_demo_glance">Κουκκίδες αναβοσβήνουν σε κάθε πλευρά.</string>
+    <string name="flash_crowd_demo_answer">Η κίτρινη είχε περισσότερες.</string>
+    <string name="anomaly_demo_title">Βρείτε αυτό που ξεχωρίζει</string>
+    <string name="anomaly_demo_color">Αυτά έχουν κοινό σχήμα. Πατήστε αυτό με διαφορετικό χρώμα.</string>
+    <string name="anomaly_demo_shape">Αυτά έχουν κοινό χρώμα. Πατήστε αυτό με διαφορετικό σχήμα.</string>
+    <string name="anomaly_demo_correct">Σωστά. Αυτή είναι η ανωμαλία.</string>
+    <string name="sliding_puzzle_demo_title">Σύρετέ τα στη σειρά</string>
+    <string name="mini_sudoku_demo_title">Συμπληρώστε τους αριθμούς που λείπουν</string>
+    <string name="mini_sudoku_demo_mistake">Δύο 1 στην ίδια γραμμή δεν επιτρέπονται.</string>
+    <string name="mini_sudoku_demo_complete">Αυτή η γραμμή περιέχει το 1 έως το 4.</string>
+    <string name="mini_sudoku_demo_column">Και αυτή η στήλη περιέχει το 1 έως το 4.</string>
+    <string name="mini_sudoku_demo_box">Και αυτό το μπλοκ περιέχει το 1 έως το 4.</string>
+    <string name="colored_shapes_demo_title">Προσθέστε τις σωστές δηλώσεις</string>
+    <string name="wordle_demo_title">Μαντέψτε την κρυφή λέξη</string>
+    <string name="visual_memory_demo_title">Θυμηθείτε τι πάει πού</string>
+    <string name="digit_memory_demo_title">Απομνημονεύστε, αποσπαστείτε, ανακαλέστε</string>
+    <string name="pattern_sequence_demo_unit">Το μοτίβο επαναλαμβάνεται: κύκλος, τρίγωνο.</string>
+    <string name="color_confusion_demo_title">Πατήστε τις λέξεις που ταιριάζουν</string>
+    <string name="flags_demo_title">Ονομάστε τη χώρα</string>
+    <string name="mental_calculation_demo_title">Μεταφέρετε το αποτέλεσμα παρακάτω</string>
+    <string name="mental_calculation_demo_keep">%1$d μεταφέρεται από το προηγούμενο αποτέλεσμα.</string>
+    <string name="chain_calculation_demo_title">Προσοχή στη σειρά των πράξεων</string>
+    <string name="fraction_calculation_demo_title">Πολλαπλασιάστε τα κλάσματα</string>
+    <string name="sherlock_calculation_demo_title">Φτάστε στον αριθμό-στόχο</string>
+    <string name="value_comparison_demo_title">Διαλέξτε τη μεγαλύτερη τιμή</string>
     <string name="game_what_comes_next">Τι ακολουθεί;</string>
     <string name="game_tap_original_targets">Πατήστε τους αρχικούς στόχους</string>
     <string name="game_remember_targets">Θυμηθείτε τους στόχους</string>
@@ -206,81 +306,105 @@
     <string name="preview_vs">εναντίον</string>
 
     <!-- Per-game Gold achievement titles (mirror Google Play Games titles) -->
-    <string name="achievement_gold_mini_sudoku">Sudoku Sage</string>
-    <string name="achievement_gold_mini_chess">Endgame Virtuoso</string>
-    <string name="achievement_gold_lights_out">Total Blackout</string>
-    <string name="achievement_gold_sliding_puzzle">Smooth Operator</string>
-    <string name="achievement_gold_path_finder">Trailblazer</string>
-    <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
-    <string name="achievement_gold_colored_shapes">Shape Shifter</string>
-    <string name="achievement_gold_sherlock_calculation">Elementary, My Dear</string>
-    <string name="achievement_gold_mental_calculation">Human Calculator</string>
-    <string name="achievement_gold_chain_calculation">Unbroken Chain</string>
-    <string name="achievement_gold_fraction_calculation">Fraction Boss</string>
-    <string name="achievement_gold_value_comparison">Greater Than the Rest</string>
-    <string name="achievement_gold_ghost_grid">Ghost Whisperer</string>
-    <string name="achievement_gold_visual_memory">Photographic Mind</string>
-    <string name="achievement_gold_orbit_tracker">Astronomer</string>
-    <string name="achievement_gold_pattern_sequence">Pattern Prophet</string>
-    <string name="achievement_gold_color_confusion">True Colors</string>
-    <string name="achievement_gold_flash_crowd">Crowd Counter</string>
-    <string name="achievement_gold_schulte_table">Lightning Gaze</string>
+    <string name="achievement_gold_mini_sudoku">Σοφός του Sudoku</string>
+    <string name="achievement_gold_mini_chess">Δεξιοτέχνης του Φινάλε</string>
+    <string name="achievement_gold_lights_out">Απόλυτο Σκοτάδι</string>
+    <string name="achievement_gold_sliding_puzzle">Μάστορας της Ολίσθησης</string>
+    <string name="achievement_gold_shikaku">Δάσκαλος των Ορθογωνίων</string>
+    <string name="achievement_gold_nurikabe">Χτίστης Τειχών</string>
+    <string name="achievement_gold_cat_queens">Βοσκός Γατών</string>
+    <string name="achievement_gold_path_finder">Πρωτοπόρος</string>
+    <string name="achievement_gold_anomaly_puzzle">Εντοπιστής Ανωμαλιών</string>
+    <string name="achievement_gold_colored_shapes">Μεταμορφωτής Σχημάτων</string>
+    <string name="achievement_gold_sherlock_calculation">Στοιχειώδες, Αγαπητέ μου</string>
+    <string name="achievement_gold_mental_calculation">Ανθρώπινος Υπολογιστής</string>
+    <string name="achievement_gold_chain_calculation">Άθραυστη Αλυσίδα</string>
+    <string name="achievement_gold_fraction_calculation">Αφέντης των Κλασμάτων</string>
+    <string name="achievement_gold_value_comparison">Μεγαλύτερος από Όλους</string>
+    <string name="achievement_gold_ghost_grid">Ψιθυριστής Φαντασμάτων</string>
+    <string name="achievement_gold_visual_memory">Φωτογραφικό Μυαλό</string>
+    <string name="achievement_gold_orbit_tracker">Αστρονόμος</string>
+    <string name="achievement_gold_pattern_sequence">Προφήτης των Μοτίβων</string>
+    <string name="achievement_gold_color_confusion">Αληθινά Χρώματα</string>
+    <string name="achievement_gold_flash_crowd">Μετρητής Πλήθους</string>
+    <string name="achievement_gold_schulte_table">Αστραπιαίο Βλέμμα</string>
+    <string name="achievement_gold_flags">Σημαιοφόρος</string>
 
     <!-- Milestone achievement titles -->
-    <string name="achievement_mind_marathoner">Mind Marathoner</string>
-    <string name="achievement_iron_streak">Iron Streak</string>
+    <string name="achievement_mind_marathoner">Μαραθωνοδρόμος του Νου</string>
+    <string name="achievement_iron_streak">Σιδερένιο Σερί</string>
 
     <!-- Per-game Gold achievement descriptions -->
-    <string name="achievement_gold_mini_sudoku_desc">Κερδίστε χρυσό μετάλλιο στο Mini Sudoku</string>
-    <string name="achievement_gold_mini_chess_desc">Κερδίστε χρυσό μετάλλιο στο Mini Chess</string>
-    <string name="achievement_gold_lights_out_desc">Κερδίστε χρυσό μετάλλιο στο Lights Out</string>
-    <string name="achievement_gold_sliding_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο  Sliding Puzzle</string>
-    <string name="achievement_gold_path_finder_desc">Κερδίστε χρυσό μετάλλιο στο Path Finder</string>
-    <string name="achievement_gold_anomaly_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο Anomaly Puzzle</string>
-    <string name="achievement_gold_colored_shapes_desc">Κερδίστε χρυσό μετάλλιο στο Colored Shapes</string>
-    <string name="achievement_gold_sherlock_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Sherlock Calculation</string>
-    <string name="achievement_gold_mental_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Mental Calculation</string>
-    <string name="achievement_gold_chain_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Chain Calculation</string>
-    <string name="achievement_gold_fraction_calculation_desc">Κερδίστε χρυσό μετάλλιο στο Fraction Calculation</string>
-    <string name="achievement_gold_value_comparison_desc">Κερδίστε χρυσό μετάλλιο στο Value Comparison</string>
-    <string name="achievement_gold_ghost_grid_desc">Κερδίστε χρυσό μετάλλιο στο Ghost Grid</string>
-    <string name="achievement_gold_visual_memory_desc">Κερδίστε χρυσό μετάλλιο στο Visual Memory</string>
-    <string name="achievement_gold_orbit_tracker_desc">Κερδίστε χρυσό μετάλλιο στο Orbit Tracker</string>
-    <string name="achievement_gold_pattern_sequence_desc">Κερδίστε χρυσό μετάλλιο στο Pattern Sequence</string>
-    <string name="achievement_gold_color_confusion_desc">Κερδίστε χρυσό μετάλλιο στο Color Confusion</string>
-    <string name="achievement_gold_flash_crowd_desc">Κερδίστε χρυσό μετάλλιο στο Flash Crowd</string>
-    <string name="achievement_gold_schulte_table_desc">Κερδίστε χρυσό μετάλλιο στο Schulte Table</string>
+    <string name="achievement_gold_mini_sudoku_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μίνι Sudoku</string>
+    <string name="achievement_gold_mini_chess_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μίνι Σκάκι</string>
+    <string name="achievement_gold_lights_out_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σβήσε τα Φώτα</string>
+    <string name="achievement_gold_sliding_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Συρόμενο Παζλ</string>
+    <string name="achievement_gold_shikaku_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Shikaku</string>
+    <string name="achievement_gold_nurikabe_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Nurikabe</string>
+    <string name="achievement_gold_cat_queens_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Βασίλισσες Γάτες</string>
+    <string name="achievement_gold_path_finder_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Εύρεση Διαδρομής</string>
+    <string name="achievement_gold_anomaly_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Παζλ Ανωμαλίας</string>
+    <string name="achievement_gold_colored_shapes_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Χρωματιστά Σχήματα</string>
+    <string name="achievement_gold_sherlock_calculation_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Υπολογισμός Σέρλοκ</string>
+    <string name="achievement_gold_mental_calculation_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Νοερός Υπολογισμός</string>
+    <string name="achievement_gold_chain_calculation_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Αλυσιδωτός Υπολογισμός</string>
+    <string name="achievement_gold_fraction_calculation_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Υπολογισμός Κλασμάτων</string>
+    <string name="achievement_gold_value_comparison_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σύγκριση Τιμών</string>
+    <string name="achievement_gold_ghost_grid_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Πλέγμα Φαντασμάτων</string>
+    <string name="achievement_gold_visual_memory_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Οπτική Μνήμη</string>
+    <string name="achievement_gold_orbit_tracker_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Ιχνηλάτης Τροχιάς</string>
+    <string name="achievement_gold_pattern_sequence_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Ακολουθία Μοτίβου</string>
+    <string name="achievement_gold_color_confusion_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σύγχυση Χρωμάτων</string>
+    <string name="achievement_gold_flash_crowd_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Αστραπιαίο Πλήθος</string>
+    <string name="achievement_gold_schulte_table_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Πίνακας Σούλτε</string>
+    <string name="achievement_gold_flags_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σημαίες</string>
 
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Συγκεντρώστε συνολικά 10,000 πόντους</string>
     <string name="achievement_iron_streak_desc">Εκπαιδευτείτε 30 μέρες σερί</string>
     <!-- Flags game -->
-    <string name="game_flags">Flags</string>
+    <string name="game_flags">Σημαίες</string>
     <string name="game_flags_desc">Βρείτε τη χώρα από τη σημαία της. Κάθε γύρος προσθέτει περισσότερες επιλογές και ο χρόνος κυλάει..</string>
     <string name="game_flags_question">Ποια σημαία είναι αυτή;</string>
     <string name="game_flags_score">Σκορ: %1$d</string>
     <string name="game_flags_best">Ρεκόρ: %1$d</string>
     <!-- Digit Memory game -->
-    <string name="game_digit_memory">Digit Memory</string>
+    <string name="game_digit_memory">Μνήμη Ψηφίων</string>
     <string name="game_digit_memory_desc">Απομνημονεύστε μια ακολουθία αριθμών, λύστε ένα γρήγορο μαθηματικό πρόβλημα και μετά θυμηθείτε τα ψηφία.</string>
     <string name="digit_memory_memorize">Απομνημονεύστε</string>
     <string name="digit_memory_solve">Λύστε</string>
     <string name="digit_memory_recall">Θυμηθείτε</string>
-    <string name="achievement_gold_digit_memory">Digit Savant</string>
-    <string name="achievement_gold_digit_memory_desc">Κερδίστε χρυσό μετάλλιο στο Digit Memory</string>
+    <string name="achievement_gold_digit_memory">Λόγιος των Ψηφίων</string>
+    <string name="achievement_gold_digit_memory_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μνήμη Ψηφίων</string>
     <!-- Spot the New game -->
-    <string name="game_spot_the_new">Spot the New</string>
+    <string name="game_spot_the_new">Βρες το Νέο</string>
     <string name="game_spot_the_new_desc">Πατήστε το ζώο που δεν έχετε ξαναδεί. Ένα λάθος τερματίζει το παιχνίδι.</string>
-    <string name="achievement_gold_spot_the_new">Fresh Eyes</string>
-    <string name="achievement_gold_spot_the_new_desc">Κερδίστε χρυσό μετάλλιο στο Spot the New</string>
+    <string name="achievement_gold_spot_the_new">Φρέσκο Μάτι</string>
+    <string name="achievement_gold_spot_the_new_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Βρες το Νέο</string>
+    <string name="spot_the_new_demo_title">Εντοπίστε το νέο</string>
+    <string name="spot_the_new_demo_seen_label">Έχουν εμφανιστεί</string>
+    <string name="spot_the_new_demo_new">Πατήστε το ζώο που δεν έχετε ξαναδεί.</string>
+    <string name="spot_the_new_demo_seen">Αυτό το έχετε ξαναδεί. Παρέλειψε έναν γύρο, αλλά μετράει ακόμη ως ιδωμένο.</string>
+    <string name="spot_the_new_demo_correct">Σωστά. Προστίθεται σε αυτά που έχετε δει.</string>
+    <string name="game_wordle">Wordle</string>
+    <string name="game_wordle_desc">Μαντέψτε την κρυφή πεντάγραμμη λέξη σε έξι προσπάθειες. Η απάντηση είναι πάντα ουσιαστικό.</string>
+    <string name="achievement_gold_wordle">Λεξιτέχνης</string>
+    <string name="achievement_gold_wordle_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Wordle</string>
+    <string name="wordle_not_enough_letters">Δεν υπάρχουν αρκετά γράμματα</string>
+    <string name="wordle_not_in_word_list">Δεν υπάρχει στη λίστα λέξεων</string>
+    <string name="wordle_answer_was">Η λέξη ήταν %1$s</string>
+    <string name="wordle_enter">Καταχώρηση</string>
+    <string name="wordle_backspace">Διαγραφή γράμματος</string>
+    <string name="wordle_legend_correct">Σωστό γράμμα, σωστή θέση</string>
+    <string name="wordle_legend_present">Σωστό γράμμα, λάθος θέση</string>
+    <string name="wordle_legend_absent">Δεν υπάρχει στη λέξη</string>
     <string name="instructions_best_score">Καλύτερο σκορ: %1$s</string>
     <string name="instructions_leaderboard">Προβολή πίνακα κατάταξης</string>
-    <string name="brain_cup_button">Brain Cup leaderboard</string>
+    <string name="brain_cup_button">Πίνακας Brain Cup</string>
     <!-- Sponsors section -->
-    <string name="sponsors_title">Σπόνσορας</string>
-    <string name="sponsors_monthly">Μηνός</string>
-    <string name="sponsors_previous">Προηγούμενοι</string>
-    <string name="sponsors_become">Γίνετε σπόνσορας</string>
+    <string name="sponsors_title">Χορηγοί</string>
+    <string name="sponsors_subtitle">Στηρίξτε τη δωρεάν εκπαίδευση για όλους</string>
+    <string name="sponsors_become">Γίνετε χορηγός</string>
     <!-- Country names -->
     <string name="country_afghanistan">Αφγανιστάν</string>
     <string name="country_aland_islands">Νήσοι Ωλαντ</string>
