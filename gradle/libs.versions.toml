@@ -1,9 +1,9 @@
 [versions]
 appVersion = "2.22.0"
 android-versionCode = "141"
-android-compileSdk = "36"
+android-compileSdk = "37"
 android-minSdk = "26"
-android-targetSdk = "36"
+android-targetSdk = "37"
 kotlin = "2.4.0"
 spotless = "8.7.0"
 compose-multiplatform = "1.11.1"
