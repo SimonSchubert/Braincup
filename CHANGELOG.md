@@ -1,3 +1,15 @@
+## v2.23.0 — 2026-06-24
+
+### Features
+- Animated instructions for game tutorials
+
+### Fixes
+- Fixed dialog status bar theme
+
+### Improvements
+- Updated localizations
+- Updated dependencies
+
 ## v2.22.0 — 2026-06-21
 
 ### Features
