@@ -24,7 +24,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
-import androidx.compose.ui.window.DialogProperties
 import com.inspiredandroid.braincup.ui.theme.Primary
 
 @Composable
@@ -39,12 +38,9 @@ fun PrismDialog(
 ) {
     Dialog(
         onDismissRequest = onDismissRequest,
-        properties = DialogProperties(
-            dismissOnBackPress = true,
-            dismissOnClickOutside = true,
-            usePlatformDefaultWidth = false,
-        ),
+        properties = prismDialogProperties(),
     ) {
+        DialogWindowEdgeToEdgeTweaks()
         Box(
             modifier = Modifier
                 .fillMaxSize()
