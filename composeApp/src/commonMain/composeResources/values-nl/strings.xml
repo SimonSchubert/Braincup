@@ -275,6 +275,7 @@
     <string name="instructions_leaderboard">Bekijk klassement</string>
     <string name="brain_cup_button">Brain Cup klassement</string>
     <string name="sponsors_title">Sponsors</string>
+    <string name="sponsors_subtitle">Steun gratis onderwijs voor iedereen</string>
     <string name="sponsors_monthly">Maandelijks</string>
     <string name="sponsors_previous">Vorige</string>
     <string name="sponsors_become">Word sponsor</string>

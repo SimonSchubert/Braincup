@@ -287,6 +287,7 @@
     <string name="instructions_leaderboard">ดูตารางอันดับ</string>
     <string name="brain_cup_button">ตารางอันดับ Brain Cup</string>
     <string name="sponsors_title">ผู้สนับสนุน</string>
+    <string name="sponsors_subtitle">สนับสนุนการศึกษาฟรีสำหรับทุกคน</string>
     <string name="sponsors_monthly">รายเดือน</string>
     <string name="sponsors_previous">ก่อนหน้า</string>
     <string name="sponsors_become">เป็นผู้สนับสนุน</string>

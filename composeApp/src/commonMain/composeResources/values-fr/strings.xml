@@ -275,6 +275,7 @@
     <string name="instructions_leaderboard">Voir le classement</string>
     <string name="brain_cup_button">Classement Brain Cup</string>
     <string name="sponsors_title">Sponsors</string>
+    <string name="sponsors_subtitle">Soutenez l'éducation gratuite pour tous</string>
     <string name="sponsors_monthly">Mensuel</string>
     <string name="sponsors_previous">Anciens</string>
     <string name="sponsors_become">Devenir sponsor</string>

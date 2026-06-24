@@ -26,7 +26,7 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.sponsors_become
-import braincup.composeapp.generated.resources.sponsors_monthly
+import braincup.composeapp.generated.resources.sponsors_subtitle
 import braincup.composeapp.generated.resources.sponsors_title
 import coil3.ImageLoader
 import coil3.compose.AsyncImage
@@ -43,6 +43,11 @@ import kotlinx.serialization.json.Json
 import org.jetbrains.compose.resources.stringResource
 
 data class Sponsor(val username: String, val avatar: String)
+
+data class Sponsors(
+    val current: List<Sponsor> = emptyList(),
+    val past: List<Sponsor> = emptyList(),
+)
 
 @Serializable
 private data class SponsorsResponse(val sponsors: SponsorList)
@@ -65,10 +70,10 @@ fun SponsorsSection() {
             .build()
     }
 
-    var currentSponsors by remember { mutableStateOf<List<Sponsor>>(emptyList()) }
+    var sponsors by remember { mutableStateOf(Sponsors()) }
 
     LaunchedEffect(Unit) {
-        currentSponsors = fetchSponsors()
+        sponsors = fetchSponsors()
     }
 
     val uriHandler = LocalUriHandler.current
@@ -79,20 +84,21 @@ fun SponsorsSection() {
             text = stringResource(Res.string.sponsors_title),
             style = MaterialTheme.typography.titleMedium,
         )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(Res.string.sponsors_subtitle),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
 
-        if (currentSponsors.isNotEmpty()) {
-            Spacer(Modifier.height(8.dp))
-            Text(
-                text = stringResource(Res.string.sponsors_monthly),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(Modifier.height(8.dp))
+        val allSponsors = sponsors.current + sponsors.past
+        if (allSponsors.isNotEmpty()) {
+            Spacer(Modifier.height(12.dp))
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
-                currentSponsors.forEach { sponsor ->
+                allSponsors.forEach { sponsor ->
                     AsyncImage(
                         model = sponsor.avatar,
                         contentDescription = sponsor.username,
@@ -123,11 +129,14 @@ private val sponsorsClient by lazy {
     }
 }
 
-private suspend fun fetchSponsors(): List<Sponsor> = try {
+private suspend fun fetchSponsors(): Sponsors = try {
     val response: SponsorsResponse = sponsorsClient
         .get("https://ghs.vercel.app/v3/sponsors/SimonSchubert")
         .body()
-    response.sponsors.current.map { Sponsor(it.username, it.avatar) }
+    Sponsors(
+        current = response.sponsors.current.map { Sponsor(it.username, it.avatar) },
+        past = response.sponsors.past.map { Sponsor(it.username, it.avatar) },
+    )
 } catch (e: Exception) {
-    emptyList()
+    Sponsors()
 }

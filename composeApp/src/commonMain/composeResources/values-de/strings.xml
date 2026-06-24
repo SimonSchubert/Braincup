@@ -275,6 +275,7 @@
     <string name="instructions_leaderboard">Bestenliste anzeigen</string>
     <string name="brain_cup_button">Brain Cup Bestenliste</string>
     <string name="sponsors_title">Sponsoren</string>
+    <string name="sponsors_subtitle">Unterstütze kostenlose Bildung für alle</string>
     <string name="sponsors_monthly">Monatlich</string>
     <string name="sponsors_previous">Ehemalige</string>
     <string name="sponsors_become">Sponsor werden</string>

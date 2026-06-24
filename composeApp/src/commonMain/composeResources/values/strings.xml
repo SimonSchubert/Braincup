@@ -403,8 +403,7 @@
     <string name="brain_cup_button">Brain Cup leaderboard</string>
     <!-- Sponsors section -->
     <string name="sponsors_title">Sponsors</string>
-    <string name="sponsors_monthly">Monthly</string>
-    <string name="sponsors_previous">Previous</string>
+    <string name="sponsors_subtitle">Support free education for everyone</string>
     <string name="sponsors_become">Become a Sponsor</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>

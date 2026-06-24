@@ -287,6 +287,7 @@
     <string name="instructions_leaderboard">Посмотреть таблицу лидеров</string>
     <string name="brain_cup_button">Таблица лидеров Brain Cup</string>
     <string name="sponsors_title">Спонсоры</string>
+    <string name="sponsors_subtitle">Поддержите бесплатное образование для всех</string>
     <string name="sponsors_monthly">Ежемесячные</string>
     <string name="sponsors_previous">Бывшие</string>
     <string name="sponsors_become">Стать спонсором</string>
