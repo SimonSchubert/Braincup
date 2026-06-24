@@ -307,7 +307,7 @@ fun ChessMoveDemo(modifier: Modifier = Modifier) {
                     onClick = { selectedIndex = index },
                     modifier = Modifier.size(52.dp).hoverHand(),
                 ) {
-                    ChessPieceIcon(resource = chessPieceResource(pieceType), isWhite = true)
+                    ChessPieceIcon(resource = chessPieceResource(pieceType), isWhite = true, figureSize = 34.dp)
                 }
             }
         }

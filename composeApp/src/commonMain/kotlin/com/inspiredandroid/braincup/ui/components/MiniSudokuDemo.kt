@@ -75,6 +75,15 @@ private val OuterFrame = 4.dp
 private val BlockSeparator = 4.dp
 private val CellSeparator = 2.dp
 
+// Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
+private val DemoCaptions = listOf(
+    Res.string.game_mini_sudoku_desc,
+    Res.string.mini_sudoku_demo_mistake,
+    Res.string.mini_sudoku_demo_complete,
+    Res.string.mini_sudoku_demo_column,
+    Res.string.mini_sudoku_demo_box,
+)
+
 /**
  * Animated tutorial for Mini Sudoku on a 4x4 grid with a single open cell. The demo first tries a
  * duplicate (a 1 beside the 1 already in that row, with that one clashing cell highlighted), then
@@ -189,12 +198,7 @@ fun MiniSudokuDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
-            text = stringResource(captionRes),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        DemoCaption(current = captionRes, all = DemoCaptions)
     }
 }
 

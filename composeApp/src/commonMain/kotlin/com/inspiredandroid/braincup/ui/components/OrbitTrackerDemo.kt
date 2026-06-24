@@ -158,6 +158,14 @@ private fun step(current: List<DemoBall>, delta: Float): List<DemoBall> {
     return balls
 }
 
+// Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
+private val DemoCaptions = listOf(
+    Res.string.game_remember_targets,
+    Res.string.orbit_tracker_demo_watch,
+    Res.string.game_tap_original_targets,
+    Res.string.orbit_tracker_demo_correct,
+)
+
 /**
  * Animated tutorial for Orbit Tracker: a small arena that highlights two target balls, drifts all of
  * them around with the real game's physics (wall and ball-to-ball collisions) while the targets blink
@@ -259,11 +267,6 @@ fun OrbitTrackerDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
-            text = stringResource(captionRes),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        DemoCaption(current = captionRes, all = DemoCaptions)
     }
 }

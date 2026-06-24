@@ -1,6 +1,8 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,6 +23,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
@@ -28,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_sliding_puzzle_desc
 import braincup.composeapp.generated.resources.sliding_puzzle_demo_title
+import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
@@ -50,6 +55,10 @@ private const val StepGapMillis = 320L
 private const val SolvedHoldMillis = 1400L
 private const val ResetPauseMillis = 600L
 
+// Finish flourish: once solved, count 1..8 in order, lighting each tile green to confirm the order.
+private const val CountStepMillis = 200L
+private const val PulseScale = 1.18f
+
 /**
  * Animated tutorial board for Sliding Puzzle: a 3x3 grid that solves itself in three slides. Each
  * step glides a tile into the empty space (mirroring SlidingPuzzleGame.slideTile) until 1..8 are in
@@ -62,11 +71,16 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
     // Direction (cols, rows) the sliding tile travels toward the gap; one component is ±1.
     var slideDir by remember { mutableStateOf(IntOffset.Zero) }
     val slideProgress = remember { Animatable(0f) }
+    // Board indices confirmed green during the finish count, and the one currently popping.
+    var litCells by remember { mutableStateOf(emptySet<Int>()) }
+    var pulseIndex by remember { mutableIntStateOf(-1) }
 
     LaunchedEffect(Unit) {
         while (true) {
             tiles = StartTiles
             slidingIndex = -1
+            litCells = emptySet()
+            pulseIndex = -1
             slideProgress.snapTo(0f)
             delay(ResetPauseMillis)
 
@@ -87,6 +101,16 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
                 slideProgress.snapTo(0f)
                 delay(StepGapMillis)
             }
+
+            // Finish flourish: walk 1..8 in order, lighting each tile green with a travelling pop so
+            // it's clear the numbers are now in the correct sequence.
+            for (value in 1 until DemoGridSize * DemoGridSize) {
+                val cellIndex = tiles.indexOf(value)
+                litCells = litCells + cellIndex
+                pulseIndex = cellIndex
+                delay(CountStepMillis)
+            }
+            pulseIndex = -1
             delay(SolvedHoldMillis)
         }
     }
@@ -106,6 +130,9 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
         )
         Spacer(Modifier.height(16.dp))
 
+        val emptyFace = MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
+        val tileFace = MaterialTheme.colorScheme.primaryContainer
+        val tileText = MaterialTheme.colorScheme.onPrimaryContainer
         Column(verticalArrangement = Arrangement.spacedBy(gap)) {
             for (row in 0 until DemoGridSize) {
                 Row(horizontalArrangement = Arrangement.spacedBy(gap)) {
@@ -114,11 +141,39 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
                         val isSliding = index == slidingIndex
                         val dx = if (isSliding) step * slideDir.x * slideProgress.value else 0.dp
                         val dy = if (isSliding) step * slideDir.y * slideProgress.value else 0.dp
+                        // Once counted in the finish flourish, the tile settles to green; the most
+                        // recently counted one pops to draw the eye along the sequence.
+                        val isLit = index in litCells
+                        val face by animateColorAsState(
+                            targetValue = when {
+                                tiles[index] == 0 -> emptyFace
+                                isLit -> SuccessGreen
+                                else -> tileFace
+                            },
+                            animationSpec = tween(220),
+                            label = "slideFace",
+                        )
+                        val textColor by animateColorAsState(
+                            targetValue = if (isLit) Color.White else tileText,
+                            animationSpec = tween(220),
+                            label = "slideText",
+                        )
+                        val scale by animateFloatAsState(
+                            targetValue = if (index == pulseIndex) PulseScale else 1f,
+                            animationSpec = tween(180),
+                            label = "slidePulse",
+                        )
                         DemoPuzzleCell(
                             label = tiles[index],
+                            face = face,
+                            textColor = textColor,
                             modifier = Modifier
                                 .size(cell)
-                                .offset { IntOffset(dx.roundToPx(), dy.roundToPx()) },
+                                .offset { IntOffset(dx.roundToPx(), dy.roundToPx()) }
+                                .graphicsLayer {
+                                    scaleX = scale
+                                    scaleY = scale
+                                },
                         )
                     }
                 }
@@ -136,27 +191,27 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun DemoPuzzleCell(label: Int, modifier: Modifier = Modifier) {
-    // Match the real SlidingPuzzleCell colors so the demo reads as gameplay.
-    val isEmpty = label == 0
-    val face = if (isEmpty) {
-        MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
-    } else {
-        MaterialTheme.colorScheme.primaryContainer
-    }
+private fun DemoPuzzleCell(
+    label: Int,
+    face: Color,
+    textColor: Color,
+    modifier: Modifier = Modifier,
+) {
+    // Colors are resolved by the caller so the tile can animate to its solved/green state. Empty
+    // (0) tiles draw no number, matching the real SlidingPuzzleCell.
     PrismTile(
         face = face,
         modifier = modifier,
         isClickable = false,
         onClick = {},
     ) {
-        if (!isEmpty) {
+        if (label != 0) {
             Text(
                 text = label.toString(),
                 style = MaterialTheme.typography.titleLarge,
                 fontFamily = numberFontFamily(),
                 fontWeight = FontWeight.Bold,
-                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                color = textColor,
                 textAlign = TextAlign.Center,
             )
         }

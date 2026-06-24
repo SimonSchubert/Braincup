@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.translate
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.ic_chess_bishop
@@ -54,10 +55,10 @@ fun chessPieceResource(type: PieceType): DrawableResource = when (type) {
 }
 
 @Composable
-fun ChessPieceIcon(resource: DrawableResource, isWhite: Boolean) {
+fun ChessPieceIcon(resource: DrawableResource, isWhite: Boolean, figureSize: Dp = 44.dp) {
     val painter = painterResource(resource)
     val fill = ColorFilter.tint(if (isWhite) Color.White else Color.Black)
-    Canvas(modifier = Modifier.size(44.dp)) {
+    Canvas(modifier = Modifier.size(figureSize)) {
         if (isWhite) {
             for ((dx, dy) in ChessHaloDeltas) {
                 translate(left = dx, top = dy) {

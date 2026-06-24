@@ -18,9 +18,10 @@ fun DefaultButton(
     modifier: Modifier = Modifier,
     onClick: () -> Unit,
     value: String,
+    face: Color = Primary,
 ) {
     PrismTile(
-        face = Primary,
+        face = face,
         modifier = modifier
             .hoverHand()
             .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp),

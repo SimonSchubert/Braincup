@@ -20,6 +20,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
@@ -100,6 +101,21 @@ fun NurikabeDemo(modifier: Modifier = Modifier) {
     val previewColor = Primary
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
+    val density = LocalDensity.current
+    // Clue glyphs are static (fixed values on a fixed-size board), so measure each distinct value
+    // once instead of re-measuring on every animation frame inside the Canvas. The colour is applied
+    // at draw time so a clue can still flip to green when its island is satisfied.
+    val clueLayouts = remember(textMeasurer, numberFont, density) {
+        val cellPx = with(density) { NurikabeCellSize.toPx() }
+        val clueStyle = TextStyle(
+            fontSize = with(density) { (cellPx * 0.42f).toSp() },
+            fontFamily = numberFont,
+            fontWeight = FontWeight.Bold,
+        )
+        NurikabeClues.values.distinct().associateWith { value ->
+            textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
+        }
+    }
 
     // walls = committed sea; painting = cells of the current stroke being previewed; satisfied = green islands.
     var walls by remember { mutableStateOf(emptySet<Int>()) }
@@ -167,20 +183,14 @@ fun NurikabeDemo(modifier: Modifier = Modifier) {
                     drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
                 }
 
-                val clueFontSize = (cellH * 0.42f).toSp()
                 NurikabeClues.forEach { (index, value) ->
                     val color = if (index in satisfied) satisfiedColor else clueColor
-                    val style = TextStyle(
-                        color = color,
-                        fontSize = clueFontSize,
-                        fontFamily = numberFont,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = style)
+                    val measured = clueLayouts.getValue(value)
                     val centerX = (index % NurikabeCols) * cellW + cellW / 2f
                     val centerY = (index / NurikabeCols) * cellH + cellH / 2f
                     drawText(
                         measured,
+                        color = color,
                         topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
                     )
                 }

@@ -61,6 +61,13 @@ private const val ResetPauseMillis = 400L
 
 private enum class AnomalyTileState { NORMAL, CORRECT, DIMMED }
 
+// Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
+private val DemoCaptions = listOf(
+    Res.string.anomaly_demo_color,
+    Res.string.anomaly_demo_shape,
+    Res.string.anomaly_demo_correct,
+)
+
 /**
  * Animated tutorial board for Anomaly Puzzle: a fixed 3x3 grid of figures that all share a trait
  * except one. It plays two rounds on a loop, first finding the odd colour then the odd shape: the
@@ -151,12 +158,7 @@ fun AnomalyPuzzleDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
-            text = stringResource(captionRes),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        DemoCaption(current = captionRes, all = DemoCaptions)
     }
 }
 

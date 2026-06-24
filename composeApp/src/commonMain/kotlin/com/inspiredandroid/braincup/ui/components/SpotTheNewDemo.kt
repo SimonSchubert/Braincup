@@ -75,6 +75,13 @@ private val Round3Grid = listOf(Animal.OCTOPUS, Animal.TURTLE, Animal.JELLYFISH)
 private val Round3New = Animal.JELLYFISH
 private val Round3Recalled = Animal.OCTOPUS
 
+// Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
+private val DemoCaptions = listOf(
+    Res.string.spot_the_new_demo_new,
+    Res.string.spot_the_new_demo_seen,
+    Res.string.spot_the_new_demo_correct,
+)
+
 /** A tile in flight from its grid slot up into the "Seen so far" shelf. */
 private data class Flyer(val animal: Animal, val fromIndex: Int, val destSlot: Int, val face: Color)
 
@@ -334,12 +341,7 @@ fun SpotTheNewDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
-            text = stringResource(captionRes),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        DemoCaption(current = captionRes, all = DemoCaptions)
     }
 }
 

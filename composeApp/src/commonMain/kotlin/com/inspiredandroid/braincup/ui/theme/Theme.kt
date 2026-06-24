@@ -38,6 +38,11 @@ private val OnSurfaceVariant = Color(0xFF666666)
 val SuccessGreen = Color(0xFF5C8E58)
 val ErrorRed = Color(0xFFB00020)
 
+// Start CTA on the instructions screen. A cool teal that contrasts the warm orange brand and is
+// never used by demo tiles, so the real "Start" action never blends into the orange animation.
+// Brand-pinned (constant across light/dark/OLED) and dark enough for white bold text to read.
+val StartAccent = Color(0xFF14857A)
+
 // Brand-pinned container tones — used by banners and game-state visuals that should
 // stay consistent regardless of Material You dynamic color. Values match M3 light defaults.
 val PrimaryContainer = Color(0xFFEADDFF)

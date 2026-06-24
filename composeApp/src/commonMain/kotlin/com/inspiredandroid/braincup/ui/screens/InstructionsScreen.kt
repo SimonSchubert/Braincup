@@ -60,6 +60,7 @@ import com.inspiredandroid.braincup.ui.components.VisualMemoryDemo
 import com.inspiredandroid.braincup.ui.components.WordleDemo
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.StartAccent
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.WordleCorrect
 import com.inspiredandroid.braincup.ui.theme.WordlePresent
@@ -77,120 +78,131 @@ fun InstructionsScreen(
     AppScaffold(
         title = stringResource(gameType.displayNameRes),
         onBack = onBack,
-        // The animated demos are taller than a text blurb, so let the screen scroll for them.
-        scrollable = hasAnimatedInstructions(gameType),
+        // Body scrolls under a pinned footer so the Start button stays on screen, and
+        // provideCompactHeight lets the demos shrink to their compact sizing on short screens.
+        provideCompactHeight = true,
+        bottomBar = {
+            InstructionsFooter(
+                gameType = gameType,
+                onStart = onStart,
+                onShowLeaderboard = onShowLeaderboard,
+            )
+        },
     ) {
-        Spacer(Modifier.height(32.dp))
+        // Cap the column on wide layouts (tablet/desktop) so the instructions read as a tidy
+        // centered block instead of stretching edge to edge.
+        Column(
+            modifier = Modifier
+                .widthIn(max = 480.dp)
+                .fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Spacer(Modifier.height(16.dp))
 
-        val demoModifier = Modifier
-            .padding(horizontal = 16.dp)
-            .align(Alignment.CenterHorizontally)
-        when (gameType) {
-            GameType.MINI_CHESS -> ChessMoveDemo(modifier = demoModifier)
-            GameType.GHOST_GRID -> GhostGridDemo(modifier = demoModifier)
-            GameType.LIGHTS_OUT -> LightsOutDemo(modifier = demoModifier)
-            GameType.PATH_FINDER -> PathFinderDemo(modifier = demoModifier)
-            GameType.SHIKAKU -> ShikakuDemo(modifier = demoModifier)
-            GameType.NURIKABE -> NurikabeDemo(modifier = demoModifier)
-            GameType.SCHULTE_TABLE -> SchulteTableDemo(modifier = demoModifier)
-            GameType.SPOT_THE_NEW -> SpotTheNewDemo(modifier = demoModifier)
-            GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
-            GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
-            GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
-            GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
-            GameType.SLIDING_PUZZLE -> SlidingPuzzleDemo(modifier = demoModifier)
-            GameType.MINI_SUDOKU -> MiniSudokuDemo(modifier = demoModifier)
-            GameType.COLORED_SHAPES -> ColoredShapesDemo(modifier = demoModifier)
-            GameType.WORDLE -> WordleDemo(modifier = demoModifier)
-            GameType.VISUAL_MEMORY -> VisualMemoryDemo(modifier = demoModifier)
-            GameType.DIGIT_MEMORY -> DigitMemoryDemo(modifier = demoModifier)
-            GameType.PATTERN_SEQUENCE -> PatternSequenceDemo(modifier = demoModifier)
-            GameType.COLOR_CONFUSION -> ColorConfusionDemo(modifier = demoModifier)
-            GameType.FLAGS -> FlagsDemo(modifier = demoModifier)
-            GameType.MENTAL_CALCULATION -> MentalCalculationDemo(modifier = demoModifier)
-            GameType.CHAIN_CALCULATION -> ChainCalculationDemo(modifier = demoModifier)
-            GameType.FRACTION_CALCULATION -> FractionCalculationDemo(modifier = demoModifier)
-            GameType.SHERLOCK_CALCULATION -> SherlockCalculationDemo(modifier = demoModifier)
-            GameType.VALUE_COMPARISON -> ValueComparisonDemo(modifier = demoModifier)
-            else -> Text(
-                text = stringResource(gameType.descriptionRes),
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center,
-                modifier = Modifier
-                    .padding(horizontal = 24.dp)
-                    .align(Alignment.CenterHorizontally),
-            )
-        }
-
-        if (gameType == GameType.WORDLE) {
-            Spacer(Modifier.height(24.dp))
-            WordleColorLegend(
-                modifier = Modifier
-                    .padding(horizontal = 24.dp)
-                    .align(Alignment.CenterHorizontally),
-            )
-        }
-
-        if (gameType == GameType.MINI_CHESS) {
-            Spacer(Modifier.height(32.dp))
-            MiniChessDifficultySelector(
-                modifier = Modifier
-                    .padding(horizontal = 24.dp)
-                    .align(Alignment.CenterHorizontally),
-                initial = storage.getMiniChessDifficulty(),
-                onSelected = { storage.setMiniChessDifficulty(it) },
-            )
-        }
-
-        if (gameType.hasLeaderboard) {
-            val highscore = storage.getHighScore(gameType.id)
-            if (highscore > 0) {
-                Spacer(Modifier.height(24.dp))
-                Text(
-                    text = stringResource(
-                        Res.string.instructions_best_score,
-                        gameType.formattedScore(highscore),
-                    ),
-                    style = MaterialTheme.typography.titleMedium,
+            val demoModifier = Modifier.padding(horizontal = 16.dp)
+            when (gameType) {
+                GameType.MINI_CHESS -> ChessMoveDemo(modifier = demoModifier)
+                GameType.GHOST_GRID -> GhostGridDemo(modifier = demoModifier)
+                GameType.LIGHTS_OUT -> LightsOutDemo(modifier = demoModifier)
+                GameType.PATH_FINDER -> PathFinderDemo(modifier = demoModifier)
+                GameType.SHIKAKU -> ShikakuDemo(modifier = demoModifier)
+                GameType.NURIKABE -> NurikabeDemo(modifier = demoModifier)
+                GameType.SCHULTE_TABLE -> SchulteTableDemo(modifier = demoModifier)
+                GameType.SPOT_THE_NEW -> SpotTheNewDemo(modifier = demoModifier)
+                GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
+                GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
+                GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
+                GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
+                GameType.SLIDING_PUZZLE -> SlidingPuzzleDemo(modifier = demoModifier)
+                GameType.MINI_SUDOKU -> MiniSudokuDemo(modifier = demoModifier)
+                GameType.COLORED_SHAPES -> ColoredShapesDemo(modifier = demoModifier)
+                GameType.WORDLE -> WordleDemo(modifier = demoModifier)
+                GameType.VISUAL_MEMORY -> VisualMemoryDemo(modifier = demoModifier)
+                GameType.DIGIT_MEMORY -> DigitMemoryDemo(modifier = demoModifier)
+                GameType.PATTERN_SEQUENCE -> PatternSequenceDemo(modifier = demoModifier)
+                GameType.COLOR_CONFUSION -> ColorConfusionDemo(modifier = demoModifier)
+                GameType.FLAGS -> FlagsDemo(modifier = demoModifier)
+                GameType.MENTAL_CALCULATION -> MentalCalculationDemo(modifier = demoModifier)
+                GameType.CHAIN_CALCULATION -> ChainCalculationDemo(modifier = demoModifier)
+                GameType.FRACTION_CALCULATION -> FractionCalculationDemo(modifier = demoModifier)
+                GameType.SHERLOCK_CALCULATION -> SherlockCalculationDemo(modifier = demoModifier)
+                GameType.VALUE_COMPARISON -> ValueComparisonDemo(modifier = demoModifier)
+                else -> Text(
+                    text = stringResource(gameType.descriptionRes),
+                    style = MaterialTheme.typography.bodyLarge,
                     textAlign = TextAlign.Center,
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                    modifier = Modifier.padding(horizontal = 24.dp),
                 )
             }
-        }
 
-        Spacer(Modifier.height(32.dp))
+            if (gameType == GameType.WORDLE) {
+                Spacer(Modifier.height(16.dp))
+                WordleColorLegend(modifier = Modifier.padding(horizontal = 24.dp))
+            }
 
-        DefaultButton(
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-            onClick = onStart,
-            value = stringResource(Res.string.button_start),
-        )
+            if (gameType == GameType.MINI_CHESS) {
+                Spacer(Modifier.height(24.dp))
+                MiniChessDifficultySelector(
+                    modifier = Modifier.padding(horizontal = 24.dp),
+                    initial = storage.getMiniChessDifficulty(),
+                    onSelected = { storage.setMiniChessDifficulty(it) },
+                )
+            }
 
-        if (gameType.hasLeaderboard && onShowLeaderboard != null) {
+            if (gameType.hasLeaderboard) {
+                val highscore = storage.getHighScore(gameType.id)
+                if (highscore > 0) {
+                    Spacer(Modifier.height(16.dp))
+                    Text(
+                        text = stringResource(
+                            Res.string.instructions_best_score,
+                            gameType.formattedScore(highscore),
+                        ),
+                        style = MaterialTheme.typography.titleMedium,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
+
             Spacer(Modifier.height(16.dp))
-            TextPrismButton(
-                modifier = Modifier.align(Alignment.CenterHorizontally),
-                onClick = onShowLeaderboard,
-                value = stringResource(Res.string.instructions_leaderboard),
-            )
         }
     }
 }
 
-// Games listed here replace their text description with an animated demo on the instructions
-// screen. Add a game's branch (and its demo composable) here to opt it in.
-private fun hasAnimatedInstructions(gameType: GameType): Boolean = when (gameType) {
-    GameType.MINI_CHESS, GameType.GHOST_GRID, GameType.PATH_FINDER,
-    GameType.SHIKAKU, GameType.NURIKABE, GameType.SCHULTE_TABLE,
-    GameType.SPOT_THE_NEW, GameType.LIGHTS_OUT, GameType.ORBIT_TRACKER,
-    GameType.CAT_QUEENS, GameType.FLASH_CROWD, GameType.ANOMALY_PUZZLE,
-    GameType.SLIDING_PUZZLE, GameType.MINI_SUDOKU, GameType.COLORED_SHAPES,
-    GameType.WORDLE, GameType.VISUAL_MEMORY, GameType.DIGIT_MEMORY,
-    GameType.PATTERN_SEQUENCE, GameType.COLOR_CONFUSION, GameType.FLAGS,
-    GameType.MENTAL_CALCULATION, GameType.CHAIN_CALCULATION, GameType.FRACTION_CALCULATION,
-    GameType.SHERLOCK_CALCULATION, GameType.VALUE_COMPARISON,
-    -> true
-    else -> false
+// Pinned bottom bar so the Start action is always visible while the demo scrolls. Start uses the
+// teal [StartAccent] so it never matches the orange tiles inside the demos; the optional Leaderboard
+// sits below it as a secondary action.
+@Composable
+private fun InstructionsFooter(
+    gameType: GameType,
+    onStart: () -> Unit,
+    onShowLeaderboard: (() -> Unit)?,
+) {
+    // No separator: the footer shares the page background so it reads as part of the screen, with
+    // only whitespace and the teal Start button setting it apart. The opaque surface keeps any
+    // scrolled content from bleeding through behind the buttons.
+    Surface(color = MaterialTheme.colorScheme.surface) {
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .navigationBarsPadding()
+                .padding(horizontal = 16.dp, vertical = 12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            DefaultButton(
+                onClick = onStart,
+                value = stringResource(Res.string.button_start),
+                face = StartAccent,
+            )
+            if (gameType.hasLeaderboard && onShowLeaderboard != null) {
+                Spacer(Modifier.height(8.dp))
+                TextPrismButton(
+                    onClick = onShowLeaderboard,
+                    value = stringResource(Res.string.instructions_leaderboard),
+                )
+            }
+        }
+    }
 }
 
 @Composable

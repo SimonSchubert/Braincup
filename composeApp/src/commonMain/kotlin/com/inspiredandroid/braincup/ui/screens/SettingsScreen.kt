@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.ui.screens
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Switch
@@ -16,6 +15,7 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.noRippleClickable
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import org.jetbrains.compose.resources.StringResource
@@ -151,7 +151,7 @@ private fun SettingsToggleRow(
         face = MaterialTheme.colorScheme.surfaceContainer,
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onToggle() }
+            .noRippleClickable { onToggle() }
             .hoverHand(),
     ) {
         Row(

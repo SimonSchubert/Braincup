@@ -85,6 +85,13 @@ private val YellowDots = listOf(
     Triple(0.50f, 0.85f, 0.045f),
 )
 
+// Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
+private val DemoCaptions = listOf(
+    Res.string.flash_crowd_demo_glance,
+    Res.string.game_flash_crowd_which_more,
+    Res.string.flash_crowd_demo_answer,
+)
+
 /**
  * Animated tutorial for Flash Crowd, in the self-playing style of [OrbitTrackerDemo]. It loops four
  * steps: (1) the dots flash on each side as they do in the game (Yellow has more), (2) both clusters
@@ -187,12 +194,7 @@ fun FlashCrowdDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
-            text = stringResource(captionRes),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        DemoCaption(current = captionRes, all = DemoCaptions)
     }
 }
 

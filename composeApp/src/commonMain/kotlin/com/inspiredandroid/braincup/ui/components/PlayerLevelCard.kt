@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -89,7 +88,7 @@ fun PlayerLevelCard(
                         .size(28.dp)
                         .hoverHand()
                         .semantics { contentDescription = brainCupLabel }
-                        .clickable(onClick = onShowBrainCup),
+                        .noRippleClickable(onClick = onShowBrainCup),
                 )
             }
         }

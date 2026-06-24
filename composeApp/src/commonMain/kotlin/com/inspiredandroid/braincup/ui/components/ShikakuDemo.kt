@@ -22,6 +22,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
@@ -85,6 +86,21 @@ fun ShikakuDemo(modifier: Modifier = Modifier) {
     val previewColor = Primary
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
+    val density = LocalDensity.current
+    // Clue glyphs are static (fixed areas on a fixed-size board), so measure each distinct value once
+    // instead of re-measuring on every frame of the grow animation inside the Canvas draw scope.
+    val clueLayouts = remember(textMeasurer, numberFont, density, clueColor) {
+        val cellPx = with(density) { ShikakuCellSize.toPx() }
+        val clueStyle = TextStyle(
+            color = clueColor,
+            fontSize = with(density) { (cellPx * 0.42f).toSp() },
+            fontFamily = numberFont,
+            fontWeight = FontWeight.Bold,
+        )
+        ShikakuSolution.map { it.area }.distinct().associateWith { area ->
+            textMeasurer.measure(AnnotatedString(area.toString()), style = clueStyle)
+        }
+    }
 
     // committed = rectangles already placed; activeIndex = the one currently growing (-1 = none).
     var committed by remember { mutableStateOf(listOf<ShikakuRect>()) }
@@ -170,14 +186,8 @@ fun ShikakuDemo(modifier: Modifier = Modifier) {
                     )
                 }
 
-                val clueStyle = TextStyle(
-                    color = clueColor,
-                    fontSize = (cellH * 0.42f).toSp(),
-                    fontFamily = numberFont,
-                    fontWeight = FontWeight.Bold,
-                )
                 ShikakuSolution.forEach { rect ->
-                    val measured = textMeasurer.measure(AnnotatedString(rect.area.toString()), style = clueStyle)
+                    val measured = clueLayouts.getValue(rect.area)
                     val centerX = rect.clueCol * cellW + cellW / 2f
                     val centerY = rect.clueRow * cellH + cellH / 2f
                     drawText(

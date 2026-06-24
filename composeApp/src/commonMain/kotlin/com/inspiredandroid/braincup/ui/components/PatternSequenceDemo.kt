@@ -69,6 +69,12 @@ private const val RevealMillis = 700L
 private const val SolvedHoldMillis = 1600L
 private const val ResetPauseMillis = 500L
 
+// Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
+private val DemoCaptions = listOf(
+    Res.string.game_pattern_sequence_desc,
+    Res.string.pattern_sequence_demo_unit,
+)
+
 /**
  * Animated tutorial for Pattern Sequence. The sequence is drawn in cycle-sized groups; the demo
  * highlights each repeating "circle, triangle" unit in turn to make the pattern obvious, then the
@@ -166,12 +172,7 @@ fun PatternSequenceDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
-            text = stringResource(captionRes),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        DemoCaption(current = captionRes, all = DemoCaptions)
     }
 }
 

@@ -24,6 +24,8 @@ fun AppScaffold(
     title: String? = null,
     onBack: (() -> Unit)? = null,
     scrollable: Boolean = true,
+    bottomBar: (@Composable () -> Unit)? = null,
+    provideCompactHeight: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Scaffold(
@@ -56,24 +58,51 @@ fun AppScaffold(
                 ),
             )
         },
+        bottomBar = { bottomBar?.invoke() },
     ) { paddingValues ->
-        val modifier = if (scrollable) {
-            Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .verticalScroll(rememberScrollState())
+        if (provideCompactHeight) {
+            // Measure the body viewport (Scaffold already subtracts the top/bottom bars from
+            // paddingValues) so demos can switch to their compact sizing on short screens, and so
+            // the scrolled content still centers when it fits. Mirrors GameScaffold's compact path.
+            BoxWithConstraints(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues),
+            ) {
+                val compact = maxHeight < CompactHeightThreshold
+                val bodyHeight = maxHeight
+                CompositionLocalProvider(LocalIsCompactHeight provides compact) {
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .verticalScroll(rememberScrollState())
+                            .heightIn(min = bodyHeight),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                    ) {
+                        content()
+                    }
+                }
+            }
         } else {
-            Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-        }
+            val modifier = if (scrollable) {
+                Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .verticalScroll(rememberScrollState())
+            } else {
+                Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+            }
 
-        Column(
-            modifier = modifier,
-            horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center,
-        ) {
-            content()
+            Column(
+                modifier = modifier,
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+            ) {
+                content()
+            }
         }
     }
 }
