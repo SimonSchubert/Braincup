@@ -582,4 +582,61 @@
     <string name="normal_chess_promotion_bishop">Слон</string>
     <string name="normal_chess_promotion_knight">Конь</string>
     <string name="normal_chess_draw_warning">= пат (ничья, не победа)</string>
+
+    <!-- Animated instruction demos -->
+    <string name="mini_chess_moves_title">Как ходят фигуры</string>
+    <string name="chess_piece_king">Король</string>
+    <string name="chess_piece_queen">Ферзь</string>
+    <string name="chess_piece_rook">Ладья</string>
+    <string name="chess_piece_bishop">Слон</string>
+    <string name="chess_piece_knight">Конь</string>
+    <string name="chess_piece_pawn">Пешка</string>
+    <string name="chess_move_king">Ходит на одну клетку в любом направлении.</string>
+    <string name="chess_move_queen">Ходит на любое количество клеток по прямой или диагонали.</string>
+    <string name="chess_move_rook">Ходит на любое количество клеток по прямой.</string>
+    <string name="chess_move_bishop">Ходит на любое количество клеток по диагонали.</string>
+    <string name="chess_move_knight">Ходит буквой Г: две клетки, затем одна в сторону.</string>
+    <string name="chess_move_pawn">Идёт вперёд, бьёт по диагонали и превращается в ферзя на противоположном конце.</string>
+    <string name="ghost_grid_demo_title">Смотри, затем повтори</string>
+    <string name="ghost_grid_demo_watch">Запомни порядок, в котором загораются клетки.</string>
+    <string name="ghost_grid_demo_repeat">Теперь нажми их в том же порядке.</string>
+    <string name="path_finder_demo_title">Следуй стрелкам</string>
+    <string name="path_finder_demo_caption">Начни с оранжевой клетки и следуй стрелкам до цели.</string>
+    <string name="schulte_demo_title">Нажимай по порядку</string>
+    <string name="lights_out_demo_title">Выключи все огни</string>
+    <string name="orbit_tracker_demo_title">Следи за движущимися целями</string>
+    <string name="orbit_tracker_demo_watch">Не теряй их из виду, пока они движутся.</string>
+    <string name="orbit_tracker_demo_correct">Ты нашёл все цели.</string>
+    <string name="flash_crowd_demo_title">Угадай, где больше точек</string>
+    <string name="flash_crowd_demo_glance">Точки мелькают с каждой стороны.</string>
+    <string name="flash_crowd_demo_answer">Жёлтых было больше.</string>
+    <string name="anomaly_demo_title">Найди лишнее</string>
+    <string name="anomaly_demo_color">У этих одинаковая форма. Нажми на ту, что отличается цветом.</string>
+    <string name="anomaly_demo_shape">У этих одинаковый цвет. Нажми на ту, что отличается формой.</string>
+    <string name="anomaly_demo_correct">Верно. Это и есть аномалия.</string>
+    <string name="sliding_puzzle_demo_title">Расставь плитки по порядку</string>
+    <string name="mini_sudoku_demo_title">Заполни пропущенные числа</string>
+    <string name="mini_sudoku_demo_mistake">Две единицы в одной строке — не допускается.</string>
+    <string name="mini_sudoku_demo_complete">В этой строке числа от 1 до 4.</string>
+    <string name="mini_sudoku_demo_column">В этом столбце тоже числа от 1 до 4.</string>
+    <string name="mini_sudoku_demo_box">В этом блоке тоже числа от 1 до 4.</string>
+    <string name="colored_shapes_demo_title">Сложи верные утверждения</string>
+    <string name="wordle_demo_title">Угадай скрытое слово</string>
+    <string name="visual_memory_demo_title">Запомни, что где находится</string>
+    <string name="digit_memory_demo_title">Запомни, отвлекись, вспомни</string>
+    <string name="pattern_sequence_demo_unit">Паттерн повторяется: круг, треугольник.</string>
+    <string name="color_confusion_demo_title">Нажимай на совпадающие слова</string>
+    <string name="flags_demo_title">Назови страну</string>
+    <string name="mental_calculation_demo_title">Переноси результат дальше</string>
+    <string name="mental_calculation_demo_keep">%1$d переносится из предыдущего результата.</string>
+    <string name="chain_calculation_demo_title">Соблюдай порядок действий</string>
+    <string name="fraction_calculation_demo_title">Перемножь дроби</string>
+    <string name="sherlock_calculation_demo_title">Достигни нужного числа</string>
+    <string name="value_comparison_demo_title">Выбери наибольшее значение</string>
+    <string name="spot_the_new_demo_title">Найди новое</string>
+    <string name="spot_the_new_demo_seen_label">Уже видел</string>
+    <string name="spot_the_new_demo_new">Нажми на животное, которое ты ещё не видел.</string>
+    <string name="spot_the_new_demo_seen">Это ты уже видел. Оно пропустило раунд, но всё равно считается увиденным.</string>
+    <string name="spot_the_new_demo_correct">Верно. Оно присоединяется к тем, что ты уже видел.</string>
 </resources>
+
