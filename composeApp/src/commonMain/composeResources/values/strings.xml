@@ -163,6 +163,7 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Cat Queens</string>
+    <string name="game_knot">Knot</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -191,6 +192,8 @@
     <string name="game_nurikabe_howto">Tap or drag to paint the sea. Tap a filled cell to clear it.</string>
     <string name="game_cat_queens_desc">Place one cat in every row, every column and every color zone. No two cats may touch, not even diagonally.</string>
     <string name="game_cat_queens_howto">Tap a cell to place or remove a cat.</string>
+    <string name="game_knot_desc">Connect each pair of colored dots with a path. Paths may not cross, and together they must cover every cell.</string>
+    <string name="game_knot_howto">Drag from a dot to draw its path. Tap a path to clear it.</string>
     <string name="cat_queens_error_row">Only one cat per row</string>
     <string name="cat_queens_error_column">Only one cat per column</string>
     <string name="cat_queens_error_zone">Only one cat per color zone</string>
@@ -313,6 +316,7 @@
     <string name="achievement_gold_shikaku">Rectangle Master</string>
     <string name="achievement_gold_nurikabe">Wall Builder</string>
     <string name="achievement_gold_cat_queens">Cat Herder</string>
+    <string name="achievement_gold_knot">Untangler</string>
     <string name="achievement_gold_path_finder">Trailblazer</string>
     <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
     <string name="achievement_gold_colored_shapes">Shape Shifter</string>
@@ -342,6 +346,7 @@
     <string name="achievement_gold_shikaku_desc">Win gold medal in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Win gold medal in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Win gold medal in Cat Queens</string>
+    <string name="achievement_gold_knot_desc">Win gold medal in Knot</string>
     <string name="achievement_gold_path_finder_desc">Win gold medal in Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win gold medal in Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Win gold medal in Colored Shapes</string>

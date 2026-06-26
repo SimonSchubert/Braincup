@@ -79,6 +79,15 @@ enum class GameType(
         descriptionRes = Res.string.game_cat_queens_desc,
         category = GameCategory.LOGIC,
     ),
+    KNOT(
+        displayNameRes = Res.string.game_knot,
+        id = "28",
+        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_knot_desc,
+        category = GameCategory.LOGIC,
+    ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
         id = "8",
@@ -254,12 +263,13 @@ enum class GameType(
     /** Hidden from menus and daily challenges while the color-blind palette is on —
      *  the mechanic depends on naming specific hues and remains unfair under any palette. */
     val requiresColorVision: Boolean
-        get() = this == COLOR_CONFUSION || this == COLORED_SHAPES
+        get() = this == COLOR_CONFUSION || this == COLORED_SHAPES || this == KNOT
 
     /** Games whose score is the highest level reached, not a count of correct answers.
      *  UI shows "Level N" / "Play next level" instead of "Score: N" / "Play Again". */
     val usesLevelLabel: Boolean
-        get() = this == LIGHTS_OUT || this == SLIDING_PUZZLE || this == SHIKAKU || this == NURIKABE || this == CAT_QUEENS
+        get() = this == LIGHTS_OUT || this == SLIDING_PUZZLE || this == SHIKAKU || this == NURIKABE ||
+            this == CAT_QUEENS || this == KNOT
 
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */

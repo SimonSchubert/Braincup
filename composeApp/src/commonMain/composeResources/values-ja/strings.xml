@@ -71,6 +71,7 @@
     <string name="game_shikaku">シカク</string>
     <string name="game_nurikabe">ヌリカベ</string>
     <string name="game_cat_queens">ネコクイーン</string>
+    <string name="game_knot">結び目</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
@@ -99,6 +100,8 @@
     <string name="game_nurikabe_howto">タップまたはドラッグして海を塗ります。塗ったマスをタップすると消せます。</string>
     <string name="game_cat_queens_desc">すべての行、列、カラーゾーンにネコを1匹ずつ置きましょう。2匹のネコは斜めも含めて隣接できません。</string>
     <string name="game_cat_queens_howto">セルをタップしてネコを置いたり取り除いたりします。</string>
+    <string name="game_knot_desc">色のついた点のペアを線でつなぎましょう。線は交差してはならず、すべてのマスを埋める必要があります。</string>
+    <string name="game_knot_howto">点からドラッグして線を引きます。線をタップすると消えます。</string>
     <string name="cat_queens_error_row">1行に1匹のネコのみ</string>
     <string name="cat_queens_error_column">1列に1匹のネコのみ</string>
     <string name="cat_queens_error_zone">1ゾーンに1匹のネコのみ</string>
@@ -203,6 +206,7 @@
     <string name="achievement_gold_shikaku">長方形の達人</string>
     <string name="achievement_gold_nurikabe">壁づくりの達人</string>
     <string name="achievement_gold_cat_queens">ネコ使い</string>
+    <string name="achievement_gold_knot">結びほどきの達人</string>
     <string name="achievement_gold_path_finder">道しるべ</string>
     <string name="achievement_gold_anomaly_puzzle">異常発見者</string>
     <string name="achievement_gold_colored_shapes">形変化師</string>
@@ -232,6 +236,7 @@
     <string name="achievement_gold_shikaku_desc">Shikakuで金メダルを獲得</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabeで金メダルを獲得</string>
     <string name="achievement_gold_cat_queens_desc">ネコクイーンで金メダルを獲得</string>
+    <string name="achievement_gold_knot_desc">結び目で金メダルを獲得</string>
     <string name="achievement_gold_path_finder_desc">パスファインダーで金メダルを獲得</string>
     <string name="achievement_gold_anomaly_puzzle_desc">異常パズルで金メダルを獲得</string>
     <string name="achievement_gold_colored_shapes_desc">カラフルな形で金メダルを獲得</string>

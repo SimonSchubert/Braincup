@@ -71,6 +71,7 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Ratu Kucing</string>
+    <string name="game_knot">Simpul</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
@@ -99,6 +100,8 @@
     <string name="game_nurikabe_howto">Ketuk atau seret untuk mewarnai laut. Ketuk sel yang terisi untuk menghapusnya.</string>
     <string name="game_cat_queens_desc">Tempatkan satu kucing di setiap baris, setiap kolom, dan setiap zona warna. Tidak ada dua kucing yang boleh saling bersentuhan, bahkan secara diagonal.</string>
     <string name="game_cat_queens_howto">Ketuk sel untuk menempatkan atau menghapus kucing.</string>
+    <string name="game_knot_desc">Hubungkan setiap pasang titik berwarna dengan jalur. Jalur tidak boleh bersilangan, dan bersama-sama harus menutupi setiap sel.</string>
+    <string name="game_knot_howto">Seret dari titik untuk menggambar jalurnya. Ketuk jalur untuk menghapusnya.</string>
     <string name="cat_queens_error_row">Hanya satu kucing per baris</string>
     <string name="cat_queens_error_column">Hanya satu kucing per kolom</string>
     <string name="cat_queens_error_zone">Hanya satu kucing per zona warna</string>
@@ -203,6 +206,7 @@
     <string name="achievement_gold_shikaku">Master Persegi Panjang</string>
     <string name="achievement_gold_nurikabe">Master Tembok</string>
     <string name="achievement_gold_cat_queens">Penggembala Kucing</string>
+    <string name="achievement_gold_knot">Pengurai Simpul</string>
     <string name="achievement_gold_path_finder">Perintis Jalan</string>
     <string name="achievement_gold_anomaly_puzzle">Pencari Anomali</string>
     <string name="achievement_gold_colored_shapes">Pengubah Bentuk</string>
@@ -232,6 +236,7 @@
     <string name="achievement_gold_shikaku_desc">Menangkan medali emas di Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Menangkan medali emas di Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Menangkan medali emas di Ratu Kucing</string>
+    <string name="achievement_gold_knot_desc">Menangkan medali emas di Simpul</string>
     <string name="achievement_gold_path_finder_desc">Menangkan medali emas di Pencari Jalur</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Menangkan medali emas di Teka-teki Anomali</string>
     <string name="achievement_gold_colored_shapes_desc">Menangkan medali emas di Bentuk Berwarna</string>

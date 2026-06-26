@@ -71,6 +71,7 @@
     <string name="game_shikaku">शिकाकू</string>
     <string name="game_nurikabe">नुरिकाबे</string>
     <string name="game_cat_queens">बिल्ली रानियां</string>
+    <string name="game_knot">गांठ</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">उस आकृति को खोजें जो अलग दिखती है। प्रत्येक आकृति के रंग और आकार दोनों पर विचार करें।</string>
@@ -99,6 +100,8 @@
     <string name="game_nurikabe_howto">समुद्र रंगने के लिए टैप करें या खींचें। भरी हुई कोशिका को साफ़ करने के लिए उस पर टैप करें।</string>
     <string name="game_cat_queens_desc">हर पंक्ति, हर स्तंभ और हर रंग क्षेत्र में एक बिल्ली रखें। कोई दो बिल्लियां एक-दूसरे को स्पर्श नहीं कर सकतीं, यहां तक कि विकर्ण रूप से भी नहीं।</string>
     <string name="game_cat_queens_howto">बिल्ली रखने या हटाने के लिए किसी सेल पर टैप करें।</string>
+    <string name="game_knot_desc">हर जोड़ी रंगीन बिंदुओं को एक मार्ग से जोड़ें। मार्ग एक-दूसरे को काट नहीं सकते, और मिलकर उन्हें हर खाना भरना होगा।</string>
+    <string name="game_knot_howto">मार्ग खींचने के लिए किसी बिंदु से खींचें। उसे मिटाने के लिए मार्ग पर टैप करें।</string>
     <string name="cat_queens_error_row">प्रति पंक्ति केवल एक बिल्ली</string>
     <string name="cat_queens_error_column">प्रति स्तंभ केवल एक बिल्ली</string>
     <string name="cat_queens_error_zone">प्रति रंग क्षेत्र केवल एक बिल्ली</string>
@@ -203,6 +206,7 @@
     <string name="achievement_gold_shikaku">आयत मास्टर</string>
     <string name="achievement_gold_nurikabe">दीवार निर्माता</string>
     <string name="achievement_gold_cat_queens">बिल्ली चरवाहा</string>
+    <string name="achievement_gold_knot">गांठ सुलझाने वाला</string>
     <string name="achievement_gold_path_finder">पथप्रदर्शक</string>
     <string name="achievement_gold_anomaly_puzzle">विसंगति शिकारी</string>
     <string name="achievement_gold_colored_shapes">आकार बदलने वाला</string>
@@ -232,6 +236,7 @@
     <string name="achievement_gold_shikaku_desc">Shikaku में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_cat_queens_desc">बिल्ली रानियां में स्वर्ण पदक जीतें</string>
+    <string name="achievement_gold_knot_desc">गांठ में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_path_finder_desc">पथ खोजक में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_anomaly_puzzle_desc">विसंगति पहेली में स्वर्ण पदक जीतें</string>
     <string name="achievement_gold_colored_shapes_desc">रंगीन आकार में स्वर्ण पदक जीतें</string>

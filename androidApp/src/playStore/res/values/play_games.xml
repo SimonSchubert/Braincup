@@ -28,6 +28,8 @@
     <string name="achievementRectangleMaster" translatable="false">CgkIuZrirtIVEAIQHQ</string>
     <string name="achievementWallBuilder" translatable="false">CgkIuZrirtIVEAIQHg</string>
     <string name="achievementCatHerder" translatable="false">CgkIuZrirtIVEAIQHw</string>
+    <!-- Placeholder: fill in the console-assigned ID once the Knot achievement is created in Play console. -->
+    <string name="achievementUntangler" translatable="false"></string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

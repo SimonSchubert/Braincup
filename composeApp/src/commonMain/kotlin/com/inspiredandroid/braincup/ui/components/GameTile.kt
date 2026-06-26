@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
@@ -41,6 +42,8 @@ import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueSide
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
 import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
+import com.inspiredandroid.braincup.ui.screens.KnotBoardFrame
+import com.inspiredandroid.braincup.ui.screens.KnotCellColor
 import com.inspiredandroid.braincup.ui.screens.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.screens.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.screens.NurikabeSeaColor
@@ -199,6 +202,16 @@ private val CatQueensPreviewRegions: List<Int> = listOf(
 )
 private val CatQueensPreviewCats: Set<Int> = setOf(2, 4, 11, 13)
 
+private const val KnotPreviewSize = 4
+private data class KnotPreviewPath(val color: Int, val cells: List<Int>)
+
+/** A solved 4x4 Knot: three colored paths that together cover every cell without crossing. */
+private val KnotPreviewPaths: List<KnotPreviewPath> = listOf(
+    KnotPreviewPath(color = 0, cells = listOf(0, 4, 8, 12, 13, 14, 15, 11)),
+    KnotPreviewPath(color = 1, cells = listOf(1, 5, 9, 10)),
+    KnotPreviewPath(color = 2, cells = listOf(2, 3, 7, 6)),
+)
+
 private data class MiniChessPreviewPlacement(val drawable: DrawableResource, val isWhite: Boolean)
 
 private val MiniChessPreviewPieces: Map<Int, MiniChessPreviewPlacement> = mapOf(
@@ -295,6 +308,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.SHIKAKU -> ShikakuPreview()
         GameType.NURIKABE -> NurikabePreview()
         GameType.CAT_QUEENS -> CatQueensPreview()
+        GameType.KNOT -> KnotPreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
@@ -894,6 +908,43 @@ private fun CatQueensPreview() {
                 translate(left = tl.x + pad, top = tl.y + pad) {
                     with(catPainter) { draw(catSize) }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun KnotPreview() {
+    val gridLineColor = PreviewTextColor.copy(alpha = 0.15f)
+    val n = KnotPreviewSize
+    PrismCard(
+        face = KnotBoardFrame,
+        facet = 4.dp,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Canvas(modifier = Modifier.fillMaxSize()) {
+            val cellW = size.width / n
+            val cellH = size.height / n
+            fun center(cell: Int) = Offset((cell % n + 0.5f) * cellW, (cell / n + 0.5f) * cellH)
+
+            drawRect(color = KnotCellColor)
+            for (i in 0..n) {
+                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
+                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
+            }
+
+            val stroke = minOf(cellW, cellH) * 0.34f
+            val dotRadius = minOf(cellW, cellH) * 0.30f
+            KnotPreviewPaths.forEach { path ->
+                val color = CatRegionColors[path.color % CatRegionColors.size]
+                for (i in 1 until path.cells.size) {
+                    drawLine(color, center(path.cells[i - 1]), center(path.cells[i]), strokeWidth = stroke, cap = StrokeCap.Round)
+                }
+                drawCircle(color, radius = dotRadius, center = center(path.cells.first()))
+                drawCircle(color, radius = dotRadius, center = center(path.cells.last()))
             }
         }
     }

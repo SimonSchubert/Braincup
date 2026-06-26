@@ -178,6 +178,20 @@ data class NurikabeUiState(
 ) : GameUiState
 
 @Immutable
+data class KnotUiState(
+    val rows: Int,
+    val cols: Int,
+    /** The colored endpoint pairs; color id drives the palette index. */
+    val endpoints: ImmutableList<Endpoint>,
+    /** color id -> ordered cells the player has drawn so far (first cell is an endpoint). */
+    val paths: ImmutableMap<Int, ImmutableList<Int>>,
+    val level: Int,
+) : GameUiState {
+    @Immutable
+    data class Endpoint(val color: Int, val a: Int, val b: Int)
+}
+
+@Immutable
 data class PatternSequenceUiState(
     val sequence: ImmutableList<Figure>,
     val optionRows: ImmutableList<ImmutableList<FigureCell>>,

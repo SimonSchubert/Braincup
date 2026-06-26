@@ -71,6 +71,7 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Kattenkoninginnen</string>
+    <string name="game_knot">Knoop</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
@@ -99,6 +100,8 @@
     <string name="game_nurikabe_howto">Tik of sleep om de zee te kleuren. Tik op een gevulde cel om die te wissen.</string>
     <string name="game_cat_queens_desc">Plaats een kat in elke rij, elke kolom en elke kleurzone. Geen twee katten mogen elkaar raken, ook niet diagonaal.</string>
     <string name="game_cat_queens_howto">Tik op een cel om een kat te plaatsen of te verwijderen.</string>
+    <string name="game_knot_desc">Verbind elk paar gekleurde stippen met een pad. Paden mogen elkaar niet kruisen en moeten samen elke cel bedekken.</string>
+    <string name="game_knot_howto">Sleep vanaf een stip om het pad te tekenen. Tik op een pad om het te wissen.</string>
     <string name="cat_queens_error_row">Slechts één kat per rij</string>
     <string name="cat_queens_error_column">Slechts één kat per kolom</string>
     <string name="cat_queens_error_zone">Slechts één kat per kleurzone</string>
@@ -203,6 +206,7 @@
     <string name="achievement_gold_shikaku">Rechthoekmeester</string>
     <string name="achievement_gold_nurikabe">Muurmeester</string>
     <string name="achievement_gold_cat_queens">Kattenhoedster</string>
+    <string name="achievement_gold_knot">Ontwarrer</string>
     <string name="achievement_gold_path_finder">Padvinder</string>
     <string name="achievement_gold_anomaly_puzzle">Anomaliespeurder</string>
     <string name="achievement_gold_colored_shapes">Vormveranderaar</string>
@@ -232,6 +236,7 @@
     <string name="achievement_gold_shikaku_desc">Win de gouden medaille in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Win de gouden medaille in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Win de gouden medaille in Kattenkoninginnen</string>
+    <string name="achievement_gold_knot_desc">Win de gouden medaille in Knoop</string>
     <string name="achievement_gold_path_finder_desc">Win de gouden medaille in Padvinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win de gouden medaille in Anomalie puzzel</string>
     <string name="achievement_gold_colored_shapes_desc">Win de gouden medaille in Gekleurde vormen</string>

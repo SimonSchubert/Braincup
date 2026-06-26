@@ -71,6 +71,7 @@
     <string name="game_shikaku">ชิกะกุ</string>
     <string name="game_nurikabe">นูริคาเบะ</string>
     <string name="game_cat_queens">ราชินีแมว</string>
+    <string name="game_knot">ปม</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -99,6 +100,8 @@
     <string name="game_nurikabe_howto">แตะหรือลากเพื่อระบายทะเล แตะช่องที่ระบายแล้วเพื่อลบออก</string>
     <string name="game_cat_queens_desc">วางแมวหนึ่งตัวในทุกแถว ทุกคอลัมน์ และทุกโซนสี ห้ามสองตัวสัมผัสกัน แม้แต่ในแนวทแยง</string>
     <string name="game_cat_queens_howto">แตะเซลล์เพื่อวางหรือเอาแมวออก</string>
+    <string name="game_knot_desc">เชื่อมจุดสีแต่ละคู่ด้วยเส้น เส้นต้องไม่ตัดกัน และต้องเติมเต็มทุกช่องร่วมกัน</string>
+    <string name="game_knot_howto">ลากจากจุดเพื่อวาดเส้น แตะที่เส้นเพื่อลบ</string>
     <string name="cat_queens_error_row">มีแมวได้เพียงตัวเดียวต่อแถว</string>
     <string name="cat_queens_error_column">มีแมวได้เพียงตัวเดียวต่อคอลัมน์</string>
     <string name="cat_queens_error_zone">มีแมวได้เพียงตัวเดียวต่อโซนสี</string>
@@ -203,6 +206,7 @@
     <string name="achievement_gold_shikaku">เซียนสี่เหลี่ยม</string>
     <string name="achievement_gold_nurikabe">เซียนกำแพง</string>
     <string name="achievement_gold_cat_queens">นายฝูงแมว</string>
+    <string name="achievement_gold_knot">เซียนแก้ปม</string>
     <string name="achievement_gold_path_finder">นักหาทาง</string>
     <string name="achievement_gold_anomaly_puzzle">นักล่าสิ่งผิดปกติ</string>
     <string name="achievement_gold_colored_shapes">ผู้เปลี่ยนรูป</string>
@@ -232,6 +236,7 @@
     <string name="achievement_gold_shikaku_desc">ชนะเหรียญทองในShikaku</string>
     <string name="achievement_gold_nurikabe_desc">ชนะเหรียญทองในNurikabe</string>
     <string name="achievement_gold_cat_queens_desc">ชนะเหรียญทองในราชินีแมว</string>
+    <string name="achievement_gold_knot_desc">ชนะเหรียญทองในปม</string>
     <string name="achievement_gold_path_finder_desc">ชนะเหรียญทองในค้นหาเส้นทาง</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ชนะเหรียญทองในปริศนาความผิดปกติ</string>
     <string name="achievement_gold_colored_shapes_desc">ชนะเหรียญทองในรูปทรงสี</string>

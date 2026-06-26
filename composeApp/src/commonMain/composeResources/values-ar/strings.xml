@@ -71,6 +71,7 @@
     <string name="game_shikaku">شيكاكو</string>
     <string name="game_nurikabe">نوريكابي</string>
     <string name="game_cat_queens">ملكات القطط</string>
+    <string name="game_knot">عقدة</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
@@ -99,6 +100,8 @@
     <string name="game_nurikabe_howto">انقر أو اسحب لتلوين البحر. انقر على خلية ملوّنة لمسحها.</string>
     <string name="game_cat_queens_desc">ضع قطة واحدة في كل صف وكل عمود وكل منطقة لونية. لا يجوز أن تتلامس قطتان، حتى بشكل قطري.</string>
     <string name="game_cat_queens_howto">انقر على خلية لوضع قطة أو إزالتها.</string>
+    <string name="game_knot_desc">صِل كل زوج من النقاط الملونة بمسار. لا يجوز أن تتقاطع المسارات، وعليها معاً أن تغطي كل خلية.</string>
+    <string name="game_knot_howto">اسحب من نقطة لرسم مسارها. انقر على مسار لمسحه.</string>
     <string name="cat_queens_error_row">قطة واحدة فقط في كل صف</string>
     <string name="cat_queens_error_column">قطة واحدة فقط في كل عمود</string>
     <string name="cat_queens_error_zone">قطة واحدة فقط في كل منطقة لونية</string>
@@ -203,6 +206,7 @@
     <string name="achievement_gold_shikaku">سيد المستطيلات</string>
     <string name="achievement_gold_nurikabe">بنّاء الجدران</string>
     <string name="achievement_gold_cat_queens">راعية القطط</string>
+    <string name="achievement_gold_knot">فاكّ العقد</string>
     <string name="achievement_gold_path_finder">كشاف المسار</string>
     <string name="achievement_gold_anomaly_puzzle">صياد الشذوذ</string>
     <string name="achievement_gold_colored_shapes">متبدل الأشكال</string>
@@ -232,6 +236,7 @@
     <string name="achievement_gold_shikaku_desc">اربح الميدالية الذهبية في Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">اربح الميدالية الذهبية في Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">اربح الميدالية الذهبية في ملكات القطط</string>
+    <string name="achievement_gold_knot_desc">اربح الميدالية الذهبية في عقدة</string>
     <string name="achievement_gold_path_finder_desc">اربح الميدالية الذهبية في مكتشف المسار</string>
     <string name="achievement_gold_anomaly_puzzle_desc">اربح الميدالية الذهبية في لغز الشذوذ</string>
     <string name="achievement_gold_colored_shapes_desc">اربح الميدالية الذهبية في أشكال ملونة</string>

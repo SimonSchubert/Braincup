@@ -12,6 +12,7 @@ enum GameCenterIds {
         "SHIKAKU":               "achievement.rectangle_master",
         "NURIKABE":              "achievement.wall_builder",
         "CAT_QUEENS":            "achievement.cat_herder",
+        "KNOT":                  "achievement.untangler",
         "PATH_FINDER":           "achievement.trailblazer",
         "ANOMALY_PUZZLE":        "achievement.odd_one_spotted",
         "COLORED_SHAPES":        "achievement.shape_shifter",
@@ -64,6 +65,7 @@ enum GameCenterIds {
         case "achievement.rectangle_master":      return UserStorage.Achievements.goldShikaku
         case "achievement.wall_builder":          return UserStorage.Achievements.goldNurikabe
         case "achievement.cat_herder":            return UserStorage.Achievements.goldCatQueens
+        case "achievement.untangler":             return UserStorage.Achievements.goldKnot
         case "achievement.trailblazer":           return UserStorage.Achievements.goldPathFinder
         case "achievement.odd_one_spotted":       return UserStorage.Achievements.goldAnomalyPuzzle
         case "achievement.shape_shifter":         return UserStorage.Achievements.goldColoredShapes

@@ -414,6 +414,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameKnot() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createKnotUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSchulteTable() {
         paparazzi.snap {
             GameScreen(
