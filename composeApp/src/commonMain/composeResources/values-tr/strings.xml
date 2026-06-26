@@ -71,6 +71,8 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Kedi Kraliçeleri</string>
+    <string name="game_knot">Düğüm</string>
+    <string name="game_solo_chess">Tek Kişilik Satranç</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
@@ -99,6 +101,13 @@
     <string name="game_nurikabe_howto">Denizi boyamak için dokunun veya sürükleyin. Boyalı bir hücreyi temizlemek için ona dokunun.</string>
     <string name="game_cat_queens_desc">Her satıra, her sütuna ve her renk bölgesine bir kedi yerleştir. İki kedi birbirine dokunamaz, çapraz olarak da.</string>
     <string name="game_cat_queens_howto">Kedi yerleştirmek veya kaldırmak için bir hücreye dokun.</string>
+    <string name="game_knot_desc">Her renkli nokta çiftini bir yolla bağla. Yollar birbirini kesmemeli ve birlikte her hücreyi kapsamalıdır.</string>
+    <string name="game_knot_howto">Yolu çizmek için bir noktadan sürükle. Yolu silmek için üzerine dokun.</string>
+    <string name="game_solo_chess_desc">Yalnızca şah kalana kadar taşları teker teker al. Her hamle bir taş almalı ve hiçbir taş ikiden fazla alamaz.</string>
+    <string name="game_solo_chess_howto">Bir taşa, sonra alabileceği bir taşa dokun. Şah alınamaz ve son kalan taş olmalıdır.</string>
+    <string name="solo_chess_pieces_left">Kalan taş: %1$d</string>
+    <string name="solo_chess_restart">Yeniden başlat</string>
+    <string name="solo_chess_stuck">Alınacak taş kalmadı. Bu seviyeyi tekrar denemek için Yeniden başlat'a dokun.</string>
     <string name="cat_queens_error_row">Satır başına yalnızca bir kedi</string>
     <string name="cat_queens_error_column">Sütun başına yalnızca bir kedi</string>
     <string name="cat_queens_error_zone">Renk bölgesi başına yalnızca bir kedi</string>
@@ -203,6 +212,8 @@
     <string name="achievement_gold_shikaku">Dikdörtgen Ustası</string>
     <string name="achievement_gold_nurikabe">Duvar Ustası</string>
     <string name="achievement_gold_cat_queens">Kedi Çobanı</string>
+    <string name="achievement_gold_knot">Düğüm Çözücü</string>
+    <string name="achievement_gold_solo_chess">Son Taş</string>
     <string name="achievement_gold_path_finder">İz Sürücü</string>
     <string name="achievement_gold_anomaly_puzzle">Tuhaflık Avcısı</string>
     <string name="achievement_gold_colored_shapes">Şekil Değiştiren</string>
@@ -232,6 +243,8 @@
     <string name="achievement_gold_shikaku_desc">Shikaku oyununda altın madalya kazan</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe oyununda altın madalya kazan</string>
     <string name="achievement_gold_cat_queens_desc">Kedi Kraliçeleri oyununda altın madalya kazan</string>
+    <string name="achievement_gold_knot_desc">Düğüm oyununda altın madalya kazan</string>
+    <string name="achievement_gold_solo_chess_desc">Tek Kişilik Satranç oyununda altın madalya kazan</string>
     <string name="achievement_gold_path_finder_desc">Yol Bulucu oyununda altın madalya kazan</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Anomali Bulmacası oyununda altın madalya kazan</string>
     <string name="achievement_gold_colored_shapes_desc">Renkli Şekiller oyununda altın madalya kazan</string>

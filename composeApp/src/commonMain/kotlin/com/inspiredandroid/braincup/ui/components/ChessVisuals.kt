@@ -32,6 +32,12 @@ val ChessDrawTint = Color(0x66FBC02D)
 val ChessCheckTint = Color(0x88E53935)
 val ChessWarning = Color(0xFFE65100)
 
+// Solo Chess capture-charge pips and the "spent piece" grey, shared by the board and its tutorial.
+val SoloChessSpentTint = Color(0xFF9AA0A6) // muted grey for a piece with no captures left
+val SoloChessPipTray = Color(0x66000000)
+val SoloChessPipFilled = Color(0xFFFFCA28) // an amber "charge" = one capture remaining
+val SoloChessPipEmpty = Color(0x55FFFFFF) // a used-up capture slot
+
 val ChessHaloDeltas: List<Pair<Float, Float>> = listOf(
     -1f to -1f,
     0f to -1f,
@@ -55,11 +61,17 @@ fun chessPieceResource(type: PieceType): DrawableResource = when (type) {
 }
 
 @Composable
-fun ChessPieceIcon(resource: DrawableResource, isWhite: Boolean, figureSize: Dp = 44.dp) {
+fun ChessPieceIcon(
+    resource: DrawableResource,
+    isWhite: Boolean,
+    figureSize: Dp = 44.dp,
+    /** Overrides the fill color (e.g. a gray for a "spent" piece). A black outline is still drawn. */
+    tint: Color? = null,
+) {
     val painter = painterResource(resource)
-    val fill = ColorFilter.tint(if (isWhite) Color.White else Color.Black)
+    val fill = ColorFilter.tint(tint ?: if (isWhite) Color.White else Color.Black)
     Canvas(modifier = Modifier.size(figureSize)) {
-        if (isWhite) {
+        if (isWhite || tint != null) {
             for ((dx, dy) in ChessHaloDeltas) {
                 translate(left = dx, top = dy) {
                     with(painter) { draw(size = this@Canvas.size, colorFilter = ChessOutlineFilter) }

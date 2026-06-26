@@ -71,6 +71,8 @@
     <string name="game_shikaku">ชิกะกุ</string>
     <string name="game_nurikabe">นูริคาเบะ</string>
     <string name="game_cat_queens">ราชินีแมว</string>
+    <string name="game_knot">ปม</string>
+    <string name="game_solo_chess">หมากรุกเดี่ยว</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
@@ -99,6 +101,13 @@
     <string name="game_nurikabe_howto">แตะหรือลากเพื่อระบายทะเล แตะช่องที่ระบายแล้วเพื่อลบออก</string>
     <string name="game_cat_queens_desc">วางแมวหนึ่งตัวในทุกแถว ทุกคอลัมน์ และทุกโซนสี ห้ามสองตัวสัมผัสกัน แม้แต่ในแนวทแยง</string>
     <string name="game_cat_queens_howto">แตะเซลล์เพื่อวางหรือเอาแมวออก</string>
+    <string name="game_knot_desc">เชื่อมจุดสีแต่ละคู่ด้วยเส้น เส้นต้องไม่ตัดกัน และต้องเติมเต็มทุกช่องร่วมกัน</string>
+    <string name="game_knot_howto">ลากจากจุดเพื่อวาดเส้น แตะที่เส้นเพื่อลบ</string>
+    <string name="game_solo_chess_desc">จับหมากทีละตัวจนเหลือเพียงขุน ทุกตาเดินต้องเป็นการจับ และหมากแต่ละตัวจับได้ไม่เกินสองครั้ง</string>
+    <string name="game_solo_chess_howto">แตะที่หมากตัวหนึ่ง แล้วแตะหมากที่มันจับได้ ขุนจับไม่ได้และต้องเป็นหมากตัวสุดท้ายที่เหลือ</string>
+    <string name="solo_chess_pieces_left">หมากที่เหลือ: %1$d</string>
+    <string name="solo_chess_restart">เริ่มใหม่</string>
+    <string name="solo_chess_stuck">ไม่มีการจับเหลือแล้ว แตะเริ่มใหม่เพื่อลองด่านนี้อีกครั้ง</string>
     <string name="cat_queens_error_row">มีแมวได้เพียงตัวเดียวต่อแถว</string>
     <string name="cat_queens_error_column">มีแมวได้เพียงตัวเดียวต่อคอลัมน์</string>
     <string name="cat_queens_error_zone">มีแมวได้เพียงตัวเดียวต่อโซนสี</string>
@@ -203,6 +212,8 @@
     <string name="achievement_gold_shikaku">เซียนสี่เหลี่ยม</string>
     <string name="achievement_gold_nurikabe">เซียนกำแพง</string>
     <string name="achievement_gold_cat_queens">นายฝูงแมว</string>
+    <string name="achievement_gold_knot">เซียนแก้ปม</string>
+    <string name="achievement_gold_solo_chess">หมากตัวสุดท้าย</string>
     <string name="achievement_gold_path_finder">นักหาทาง</string>
     <string name="achievement_gold_anomaly_puzzle">นักล่าสิ่งผิดปกติ</string>
     <string name="achievement_gold_colored_shapes">ผู้เปลี่ยนรูป</string>
@@ -232,6 +243,8 @@
     <string name="achievement_gold_shikaku_desc">ชนะเหรียญทองในShikaku</string>
     <string name="achievement_gold_nurikabe_desc">ชนะเหรียญทองในNurikabe</string>
     <string name="achievement_gold_cat_queens_desc">ชนะเหรียญทองในราชินีแมว</string>
+    <string name="achievement_gold_knot_desc">ชนะเหรียญทองในปม</string>
+    <string name="achievement_gold_solo_chess_desc">ชนะเหรียญทองในหมากรุกเดี่ยว</string>
     <string name="achievement_gold_path_finder_desc">ชนะเหรียญทองในค้นหาเส้นทาง</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ชนะเหรียญทองในปริศนาความผิดปกติ</string>
     <string name="achievement_gold_colored_shapes_desc">ชนะเหรียญทองในรูปทรงสี</string>

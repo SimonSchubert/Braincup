@@ -30,6 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.graphicsLayer
@@ -51,6 +52,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
+import com.inspiredandroid.braincup.games.SoloChessGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
@@ -102,6 +104,10 @@ internal val NurikabeSeaColor = ComposeColor(0xFF546E7A)
 
 // Light cell background for the Shikaku board — gives cells contrast against the dark tray frame.
 internal val ShikakuCellColor = ComposeColor(0xFFDDE3EA)
+
+// Dark slate tray for the Knot board, and the light cell background the colored paths read against.
+internal val KnotBoardFrame = ComposeColor(0xFF3E4450)
+internal val KnotCellColor = ComposeColor(0xFFDDE3EA)
 
 internal val FlashCrowdBlueSide = FlashCrowdBlue.darken(0.7f)
 internal val FlashCrowdBlueBottom = FlashCrowdBlue.darken(0.5f)
@@ -161,6 +167,8 @@ fun GameScreen(
             gameUiState is ShikakuUiState ||
             gameUiState is NurikabeUiState ||
             gameUiState is CatQueensUiState ||
+            gameUiState is KnotUiState ||
+            gameUiState is SoloChessUiState ||
             gameUiState is WordleUiState -> null
         gameUiState is SchulteTableUiState -> {
             val bar: @Composable () -> Unit = {
@@ -220,6 +228,8 @@ fun GameScreen(
                 is ShikakuUiState -> ShikakuContent(gameUiState, onAnswer, onGiveUp)
                 is NurikabeUiState -> NurikabeContent(gameUiState, onAnswer, onGiveUp)
                 is CatQueensUiState -> CatQueensContent(gameUiState, onAnswer, onGiveUp)
+                is KnotUiState -> KnotContent(gameUiState, onAnswer, onGiveUp)
+                is SoloChessUiState -> SoloChessContent(gameUiState, onAnswer, onGiveUp)
                 is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
                 is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
                 is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
@@ -1910,6 +1920,221 @@ private fun ColumnScope.NurikabeContent(
         Spacer(Modifier.height(4.dp))
         Text(
             text = stringResource(Res.string.game_nurikabe_howto),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 24.dp),
+        )
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            board()
+        }
+        Spacer(Modifier.height(16.dp))
+        GiveUpButton(
+            onGiveUp = onGiveUp,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+    }
+}
+
+@Composable
+private fun ColumnScope.KnotContent(
+    uiState: KnotUiState,
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+) {
+    val rows = uiState.rows
+    val cols = uiState.cols
+    val compact = LocalIsCompactHeight.current
+
+    val gridLineColor = ComposeColor(0xFF1A1A1A).copy(alpha = 0.2f)
+    val cellColor = KnotCellColor
+
+    // Endpoint and committed-path lookups, so a drag can tell which color it should draw.
+    val endpointColorByCell = remember(uiState) {
+        HashMap<Int, Int>().apply {
+            uiState.endpoints.forEach {
+                put(it.a, it.color)
+                put(it.b, it.color)
+            }
+        }
+    }
+    val pathColorByCell = remember(uiState) {
+        HashMap<Int, Int>().apply {
+            uiState.paths.forEach { (color, cells) -> cells.forEach { put(it, color) } }
+        }
+    }
+
+    // Drag state in grid coordinates; only the committed path is sent to the game on release.
+    var dragColor by remember(uiState) { mutableStateOf<Int?>(null) }
+    var dragCells by remember(uiState) { mutableStateOf<List<Int>>(emptyList()) }
+
+    val boardModifier = if (compact) {
+        Modifier.heightIn(max = 260.dp).aspectRatio(cols.toFloat() / rows)
+    } else {
+        Modifier.widthIn(max = 340.dp).aspectRatio(cols.toFloat() / rows)
+    }
+
+    val board: @Composable () -> Unit = {
+        PrismCard(face = KnotBoardFrame, facet = 6.dp, modifier = boardModifier) {
+            Canvas(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .pointerInput(uiState) {
+                        detectDragGestures(
+                            onDragStart = { offset ->
+                                val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
+                                val cell = r * cols + c
+                                val color = endpointColorByCell[cell] ?: pathColorByCell[cell]
+                                if (color != null) {
+                                    dragColor = color
+                                    val existing = uiState.paths[color]
+                                    // Grabbing a dot draws fresh; grabbing a path cell continues from
+                                    // the endpoint up to that cell.
+                                    dragCells = when {
+                                        cell in endpointColorByCell -> listOf(cell)
+                                        existing != null -> {
+                                            val idx = existing.indexOf(cell)
+                                            if (idx >= 0) existing.subList(0, idx + 1).toList() else listOf(cell)
+                                        }
+                                        else -> listOf(cell)
+                                    }
+                                } else {
+                                    dragColor = null
+                                    dragCells = emptyList()
+                                }
+                            },
+                            onDrag = { change, _ ->
+                                change.consume()
+                                if (dragColor != null) {
+                                    val (r, c) = cellAt(change.position, size.width, size.height, rows, cols)
+                                    val cell = r * cols + c
+                                    if (dragCells.isEmpty() || dragCells.last() != cell) {
+                                        dragCells = dragCells + cell
+                                    }
+                                }
+                            },
+                            onDragEnd = {
+                                val color = dragColor
+                                val cells = dragCells
+                                if (color != null && cells.isNotEmpty()) {
+                                    onAnswer("path:$color:${cells.joinToString(",")}")
+                                }
+                                dragColor = null
+                                dragCells = emptyList()
+                            },
+                            onDragCancel = {
+                                dragColor = null
+                                dragCells = emptyList()
+                            },
+                        )
+                    }
+                    .pointerInput(uiState) {
+                        detectTapGestures { offset ->
+                            val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
+                            val cell = r * cols + c
+                            val color = endpointColorByCell[cell] ?: pathColorByCell[cell]
+                            if (color != null) onAnswer("clear:$color")
+                        }
+                    },
+            ) {
+                val cellW = size.width / cols
+                val cellH = size.height / rows
+                fun center(cell: Int) = Offset((cell % cols + 0.5f) * cellW, (cell / cols + 0.5f) * cellH)
+
+                drawRect(color = cellColor)
+
+                for (c in 0..cols) {
+                    val x = c * cellW
+                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
+                }
+                for (r in 0..rows) {
+                    val y = r * cellH
+                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
+                }
+
+                val pathStroke = minOf(cellW, cellH) * 0.34f
+                val dotRadius = minOf(cellW, cellH) * 0.30f
+
+                // Committed paths: thick rounded lines through cell centers.
+                uiState.paths.forEach { (color, cells) ->
+                    val display = CatRegionColors[color % CatRegionColors.size]
+                    for (i in 1 until cells.size) {
+                        drawLine(
+                            display,
+                            center(cells[i - 1]),
+                            center(cells[i]),
+                            strokeWidth = pathStroke,
+                            cap = StrokeCap.Round,
+                        )
+                    }
+                }
+
+                // Live drag preview on top, slightly translucent.
+                val previewColor = dragColor
+                if (previewColor != null && dragCells.size >= 2) {
+                    val display = CatRegionColors[previewColor % CatRegionColors.size].copy(alpha = 0.55f)
+                    for (i in 1 until dragCells.size) {
+                        drawLine(
+                            display,
+                            center(dragCells[i - 1]),
+                            center(dragCells[i]),
+                            strokeWidth = pathStroke,
+                            cap = StrokeCap.Round,
+                        )
+                    }
+                }
+
+                // Endpoint dots last so they sit above the paths that meet them.
+                uiState.endpoints.forEach { endpoint ->
+                    val display = CatRegionColors[endpoint.color % CatRegionColors.size]
+                    drawCircle(color = display, radius = dotRadius, center = center(endpoint.a))
+                    drawCircle(color = display, radius = dotRadius, center = center(endpoint.b))
+                }
+            }
+        }
+    }
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            board()
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = stringResource(Res.string.level_label, uiState.level),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(Res.string.game_knot_howto),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    textAlign = TextAlign.Center,
+                )
+                Spacer(Modifier.height(8.dp))
+                GiveUpButton(onGiveUp = onGiveUp)
+            }
+        }
+    } else {
+        Text(
+            text = stringResource(Res.string.level_label, uiState.level),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(4.dp))
+        Text(
+            text = stringResource(Res.string.game_knot_howto),
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
             textAlign = TextAlign.Center,
@@ -3706,6 +3931,210 @@ private fun MiniChessCellView(
 @Composable
 private fun MiniChessPieceIcon(type: PieceType, isWhite: Boolean) {
     ChessPieceIcon(resource = chessPieceResource(type), isWhite = isWhite)
+}
+
+@Composable
+private fun ColumnScope.SoloChessContent(
+    uiState: SoloChessUiState,
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+) {
+    val n = uiState.size
+    val compact = LocalIsCompactHeight.current
+    // Fit the whole board into a fixed target so 4x4 isn't tiny and 6x6 isn't oversized.
+    val cellSize = ((if (compact) 248f else 312f) / n).dp
+
+    val board: @Composable () -> Unit = {
+        PrismCard(face = ChessBoardFrame, facet = 6.dp) {
+            Column {
+                for (row in 0 until n) {
+                    Row {
+                        for (col in 0 until n) {
+                            val index = row * n + col
+                            SoloChessCellView(
+                                type = uiState.pieces[index],
+                                size = cellSize,
+                                isLight = (row + col) % 2 == 0,
+                                isKing = index == uiState.kingCell,
+                                isSelected = uiState.selected == index,
+                                isTarget = index in uiState.targets,
+                                captures = uiState.capturesLeft[index] ?: 0,
+                                onClick = { onAnswer("tap:$index") },
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    val progress: @Composable () -> Unit = {
+        Text(
+            text = stringResource(Res.string.solo_chess_pieces_left, uiState.pieces.size),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+    }
+
+    // The how-to line is replaced by a restart nudge when no capture is possible (a dead-end line).
+    val instruction = if (uiState.stuck) {
+        stringResource(Res.string.solo_chess_stuck)
+    } else {
+        stringResource(Res.string.game_solo_chess_howto)
+    }
+    val instructionColor = if (uiState.stuck) {
+        MaterialTheme.colorScheme.error
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    val instructionWeight = if (uiState.stuck) FontWeight.Bold else FontWeight.Normal
+
+    val actions: @Composable () -> Unit = {
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            DefaultButton(
+                onClick = { onAnswer("restart") },
+                value = stringResource(Res.string.solo_chess_restart),
+            )
+            GiveUpButton(onGiveUp = onGiveUp)
+        }
+    }
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            board()
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = stringResource(Res.string.level_label, uiState.level),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(6.dp))
+                progress()
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    text = instruction,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = instructionColor,
+                    fontWeight = instructionWeight,
+                    textAlign = TextAlign.Center,
+                )
+                Spacer(Modifier.height(8.dp))
+                actions()
+            }
+        }
+    } else {
+        Text(
+            text = stringResource(Res.string.level_label, uiState.level),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(6.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            progress()
+        }
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = instruction,
+            style = MaterialTheme.typography.bodyMedium,
+            color = instructionColor,
+            fontWeight = instructionWeight,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 24.dp),
+        )
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            board()
+        }
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            actions()
+        }
+    }
+}
+
+@Composable
+private fun SoloChessCellView(
+    type: PieceType?,
+    size: androidx.compose.ui.unit.Dp,
+    isLight: Boolean,
+    isKing: Boolean,
+    isSelected: Boolean,
+    isTarget: Boolean,
+    captures: Int,
+    onClick: () -> Unit,
+) {
+    val baseColor = if (isLight) ChessLightSquare else ChessDarkSquare
+    // A piece that has used both captures is "spent": it can no longer move. The king is never spent
+    // (it can't be captured and always remains), so it is never greyed.
+    val spent = type != null && captures <= 0 && !isKing
+    Box(
+        modifier = Modifier
+            .size(size)
+            .background(if (isSelected) ChessSelected else baseColor)
+            .clickable(onClick = onClick)
+            .hoverHand(),
+        contentAlignment = Alignment.Center,
+    ) {
+        // A translucent gold underlay marks the king: it can never be captured and must be the last
+        // piece standing.
+        if (isKing && !isSelected) {
+            Box(modifier = Modifier.matchParentSize().background(ChessDrawTint))
+        }
+        if (isTarget) {
+            Box(modifier = Modifier.matchParentSize().background(ChessCaptureTint))
+        }
+        type?.let {
+            Box(
+                modifier = Modifier.size(size * 0.82f),
+                contentAlignment = Alignment.Center,
+            ) {
+                ChessPieceIcon(
+                    resource = chessPieceResource(it),
+                    isWhite = true,
+                    figureSize = size * 0.78f,
+                    tint = if (spent) SoloChessSpentTint else null,
+                )
+            }
+            // Capture "charges": one amber pip per remaining capture (max two). This makes the
+            // "no piece may capture more than twice" rule visible — a spent piece shows two empty pips.
+            SoloChessCapturePips(
+                remaining = captures.coerceIn(0, SoloChessGame.MAX_CAPTURES),
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(size * 0.05f)
+                    .size(width = size * 0.46f, height = size * 0.22f),
+            )
+        }
+    }
+}
+
+@Composable
+private fun SoloChessCapturePips(remaining: Int, modifier: Modifier) {
+    Canvas(modifier = modifier) {
+        drawRoundRect(color = SoloChessPipTray, cornerRadius = CornerRadius(size.height / 2f))
+        val radius = size.height * 0.3f
+        val slots = SoloChessGame.MAX_CAPTURES
+        val step = size.width / (slots + 1)
+        for (i in 0 until slots) {
+            drawCircle(
+                color = if (i < remaining) SoloChessPipFilled else SoloChessPipEmpty,
+                radius = radius,
+                center = Offset(step * (i + 1), size.height / 2f),
+            )
+        }
+    }
 }
 
 @Composable

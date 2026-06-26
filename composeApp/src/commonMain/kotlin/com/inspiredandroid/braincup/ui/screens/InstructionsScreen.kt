@@ -40,6 +40,7 @@ import com.inspiredandroid.braincup.ui.components.FlagsDemo
 import com.inspiredandroid.braincup.ui.components.FlashCrowdDemo
 import com.inspiredandroid.braincup.ui.components.FractionCalculationDemo
 import com.inspiredandroid.braincup.ui.components.GhostGridDemo
+import com.inspiredandroid.braincup.ui.components.KnotDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
 import com.inspiredandroid.braincup.ui.components.MiniSudokuDemo
@@ -53,6 +54,7 @@ import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
 import com.inspiredandroid.braincup.ui.components.SherlockCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ShikakuDemo
 import com.inspiredandroid.braincup.ui.components.SlidingPuzzleDemo
+import com.inspiredandroid.braincup.ui.components.SoloChessDemo
 import com.inspiredandroid.braincup.ui.components.SpotTheNewDemo
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
@@ -111,6 +113,8 @@ fun InstructionsScreen(
                 GameType.SPOT_THE_NEW -> SpotTheNewDemo(modifier = demoModifier)
                 GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
                 GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
+                GameType.KNOT -> KnotDemo(modifier = demoModifier)
+                GameType.SOLO_CHESS -> SoloChessDemo(modifier = demoModifier)
                 GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
                 GameType.SLIDING_PUZZLE -> SlidingPuzzleDemo(modifier = demoModifier)
@@ -127,12 +131,6 @@ fun InstructionsScreen(
                 GameType.FRACTION_CALCULATION -> FractionCalculationDemo(modifier = demoModifier)
                 GameType.SHERLOCK_CALCULATION -> SherlockCalculationDemo(modifier = demoModifier)
                 GameType.VALUE_COMPARISON -> ValueComparisonDemo(modifier = demoModifier)
-                else -> Text(
-                    text = stringResource(gameType.descriptionRes),
-                    style = MaterialTheme.typography.bodyLarge,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.padding(horizontal = 24.dp),
-                )
             }
 
             if (gameType == GameType.WORDLE) {

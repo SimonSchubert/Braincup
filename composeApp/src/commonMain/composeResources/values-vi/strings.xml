@@ -71,6 +71,8 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Mèo Hoàng Hậu</string>
+    <string name="game_knot">Nút Thắt</string>
+    <string name="game_solo_chess">Cờ vua Solo</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
@@ -99,6 +101,13 @@
     <string name="game_nurikabe_howto">Chạm hoặc kéo để tô biển. Chạm vào ô đã tô để xóa.</string>
     <string name="game_cat_queens_desc">Đặt một con mèo vào mỗi hàng, mỗi cột và mỗi vùng màu. Không có hai con mèo nào được chạm nhau, kể cả theo đường chéo.</string>
     <string name="game_cat_queens_howto">Chạm vào ô để đặt hoặc xóa mèo.</string>
+    <string name="game_knot_desc">Nối từng cặp chấm cùng màu bằng một đường. Các đường không được cắt nhau và cùng nhau phải phủ kín mọi ô.</string>
+    <string name="game_knot_howto">Kéo từ một chấm để vẽ đường của nó. Chạm vào một đường để xóa.</string>
+    <string name="game_solo_chess_desc">Bắt các quân lần lượt cho đến khi chỉ còn lại vua. Mỗi nước đi phải ăn quân, và không quân nào được ăn quá hai lần.</string>
+    <string name="game_solo_chess_howto">Chạm vào một quân, rồi chạm vào quân nó có thể ăn. Vua không thể bị bắt và phải là quân cuối cùng.</string>
+    <string name="solo_chess_pieces_left">Quân còn lại: %1$d</string>
+    <string name="solo_chess_restart">Chơi lại</string>
+    <string name="solo_chess_stuck">Không còn nước ăn nào. Chạm Chơi lại để thử lại màn này.</string>
     <string name="cat_queens_error_row">Chỉ một con mèo mỗi hàng</string>
     <string name="cat_queens_error_column">Chỉ một con mèo mỗi cột</string>
     <string name="cat_queens_error_zone">Chỉ một con mèo mỗi vùng màu</string>
@@ -203,6 +212,8 @@
     <string name="achievement_gold_shikaku">Bậc thầy hình chữ nhật</string>
     <string name="achievement_gold_nurikabe">Bậc thầy xây tường</string>
     <string name="achievement_gold_cat_queens">Người chăn mèo</string>
+    <string name="achievement_gold_knot">Bậc thầy gỡ nút</string>
+    <string name="achievement_gold_solo_chess">Quân cờ cuối cùng</string>
     <string name="achievement_gold_path_finder">Người dò đường</string>
     <string name="achievement_gold_anomaly_puzzle">Thợ săn dị vật</string>
     <string name="achievement_gold_colored_shapes">Kẻ biến hình</string>
@@ -232,6 +243,8 @@
     <string name="achievement_gold_shikaku_desc">Giành huy chương vàng trong Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Giành huy chương vàng trong Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Giành huy chương vàng trong Mèo Hoàng Hậu</string>
+    <string name="achievement_gold_knot_desc">Giành huy chương vàng trong Nút Thắt</string>
+    <string name="achievement_gold_solo_chess_desc">Giành huy chương vàng trong Cờ vua Solo</string>
     <string name="achievement_gold_path_finder_desc">Giành huy chương vàng trong Tìm đường</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Giành huy chương vàng trong Câu đố bất thường</string>
     <string name="achievement_gold_colored_shapes_desc">Giành huy chương vàng trong Hình dạng màu sắc</string>

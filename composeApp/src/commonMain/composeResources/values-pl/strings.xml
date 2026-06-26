@@ -71,6 +71,8 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Koci Gambit</string>
+    <string name="game_knot">Węzeł</string>
+    <string name="game_solo_chess">Szachy solo</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.</string>
@@ -99,6 +101,13 @@
     <string name="game_nurikabe_howto">Dotknij lub przeciągnij, aby malować morze. Dotknij wypełnionej komórki, aby ją wyczyścić.</string>
     <string name="game_cat_queens_desc">Umieść jednego kota w każdym wierszu, każdej kolumnie i każdej strefie kolorów. Dwa koty nie mogą się stykać, nawet po przekątnej.</string>
     <string name="game_cat_queens_howto">Dotknij komórki, aby postawić lub usunąć kota.</string>
+    <string name="game_knot_desc">Połącz każdą parę kolorowych kropek ścieżką. Ścieżki nie mogą się krzyżować i razem muszą pokryć każde pole.</string>
+    <string name="game_knot_howto">Przeciągnij od kropki, aby narysować jej ścieżkę. Dotknij ścieżki, aby ją wyczyścić.</string>
+    <string name="game_solo_chess_desc">Bij figury jedna po drugiej, aż zostanie tylko król. Każdy ruch musi bić, a żadna figura nie może bić więcej niż dwa razy.</string>
+    <string name="game_solo_chess_howto">Dotknij figury, a potem tej, którą może zbić. Króla nie można zbić i musi zostać ostatnią figurą.</string>
+    <string name="solo_chess_pieces_left">Pozostało figur: %1$d</string>
+    <string name="solo_chess_restart">Od nowa</string>
+    <string name="solo_chess_stuck">Brak możliwych bić. Dotknij Od nowa, aby spróbować ten poziom ponownie.</string>
     <string name="cat_queens_error_row">Tylko jeden kot w wierszu</string>
     <string name="cat_queens_error_column">Tylko jeden kot w kolumnie</string>
     <string name="cat_queens_error_zone">Tylko jeden kot w strefie kolorów</string>
@@ -203,6 +212,8 @@
     <string name="achievement_gold_shikaku">Mistrz prostokątów</string>
     <string name="achievement_gold_nurikabe">Mistrz murów</string>
     <string name="achievement_gold_cat_queens">Koci Poganiacz</string>
+    <string name="achievement_gold_knot">Rozplątywacz</string>
+    <string name="achievement_gold_solo_chess">Ostatnia figura</string>
     <string name="achievement_gold_path_finder">Tropiciel</string>
     <string name="achievement_gold_anomaly_puzzle">Łowca anomalii</string>
     <string name="achievement_gold_colored_shapes">Zmiennokształtny</string>
@@ -232,6 +243,8 @@
     <string name="achievement_gold_shikaku_desc">Zdobądź złoty medal w Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Zdobądź złoty medal w Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Zdobądź złoty medal w Koci Gambit</string>
+    <string name="achievement_gold_knot_desc">Zdobądź złoty medal w Węźle</string>
+    <string name="achievement_gold_solo_chess_desc">Zdobądź złoty medal w Szachach solo</string>
     <string name="achievement_gold_path_finder_desc">Zdobądź złoty medal w Znajdź ścieżkę</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Zdobądź złoty medal w Łamigłówka anomalii</string>
     <string name="achievement_gold_colored_shapes_desc">Zdobądź złoty medal w Kolorowe kształty</string>

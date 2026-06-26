@@ -30,6 +30,8 @@ class UserStorage(
         GOLD_SHIKAKU(Res.string.achievement_gold_shikaku, Res.string.achievement_gold_shikaku_desc),
         GOLD_NURIKABE(Res.string.achievement_gold_nurikabe, Res.string.achievement_gold_nurikabe_desc),
         GOLD_CAT_QUEENS(Res.string.achievement_gold_cat_queens, Res.string.achievement_gold_cat_queens_desc),
+        GOLD_KNOT(Res.string.achievement_gold_knot, Res.string.achievement_gold_knot_desc),
+        GOLD_SOLO_CHESS(Res.string.achievement_gold_solo_chess, Res.string.achievement_gold_solo_chess_desc),
         GOLD_PATH_FINDER(Res.string.achievement_gold_path_finder, Res.string.achievement_gold_path_finder_desc),
         GOLD_ANOMALY_PUZZLE(Res.string.achievement_gold_anomaly_puzzle, Res.string.achievement_gold_anomaly_puzzle_desc),
         GOLD_GHOST_GRID(Res.string.achievement_gold_ghost_grid, Res.string.achievement_gold_ghost_grid_desc),

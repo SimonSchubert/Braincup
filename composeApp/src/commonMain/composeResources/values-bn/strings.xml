@@ -71,6 +71,8 @@
     <string name="game_shikaku">শিকাকু</string>
     <string name="game_nurikabe">নুরিকাবে</string>
     <string name="game_cat_queens">বিড়াল রানি</string>
+    <string name="game_knot">গিঁট</string>
+    <string name="game_solo_chess">একক দাবা</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
@@ -99,6 +101,13 @@
     <string name="game_nurikabe_howto">সমুদ্র রং করতে ট্যাপ করুন বা টেনে আনুন। রং করা ঘর মুছতে সেটিতে ট্যাপ করুন।</string>
     <string name="game_cat_queens_desc">প্রতিটি সারি, প্রতিটি কলাম এবং প্রতিটি রঙ অঞ্চলে একটি করে বিড়াল রাখুন। কোনো দুটি বিড়াল একে অপরকে স্পর্শ করতে পারবে না, এমনকি কোণাকোণিভাবেও না।</string>
     <string name="game_cat_queens_howto">একটি ঘরে বিড়াল রাখতে বা সরাতে ট্যাপ করুন।</string>
+    <string name="game_knot_desc">প্রতিটি জোড়া রঙিন বিন্দুকে একটি পথ দিয়ে সংযুক্ত করুন। পথগুলো পরস্পর অতিক্রম করতে পারবে না এবং একসাথে প্রতিটি ঘর ঢেকে ফেলতে হবে।</string>
+    <string name="game_knot_howto">একটি বিন্দু থেকে টেনে তার পথ আঁকুন। পথ মুছতে সেটিতে ট্যাপ করুন।</string>
+    <string name="game_solo_chess_desc">কেবল রাজা না থাকা পর্যন্ত একে একে গুটি দখল করুন। প্রতিটি চাল অবশ্যই গুটি দখল করবে, এবং কোনো গুটি দুবারের বেশি দখল করতে পারবে না।</string>
+    <string name="game_solo_chess_howto">একটি গুটিতে চাপ দিন, তারপর এটি যে গুটি দখল করতে পারে তাতে চাপ দিন। রাজাকে দখল করা যায় না এবং সে-ই শেষ গুটি হতে হবে।</string>
+    <string name="solo_chess_pieces_left">অবশিষ্ট গুটি: %1$d</string>
+    <string name="solo_chess_restart">পুনরায় শুরু</string>
+    <string name="solo_chess_stuck">আর কোনো দখল সম্ভব নয়। এই স্তরটি আবার চেষ্টা করতে পুনরায় শুরু-এ চাপ দিন।</string>
     <string name="cat_queens_error_row">প্রতি সারিতে শুধু একটি বিড়াল</string>
     <string name="cat_queens_error_column">প্রতি কলামে শুধু একটি বিড়াল</string>
     <string name="cat_queens_error_zone">প্রতি রঙ অঞ্চলে শুধু একটি বিড়াল</string>
@@ -203,6 +212,8 @@
     <string name="achievement_gold_shikaku">আয়তক্ষেত্রের ওস্তাদ</string>
     <string name="achievement_gold_nurikabe">প্রাচীর নির্মাতা</string>
     <string name="achievement_gold_cat_queens">বিড়াল পালক</string>
+    <string name="achievement_gold_knot">গিঁট মোচনকারী</string>
+    <string name="achievement_gold_solo_chess">শেষ গুটি</string>
     <string name="achievement_gold_path_finder">পথপ্রদর্শক</string>
     <string name="achievement_gold_anomaly_puzzle">অস্বাভাবিকতা শিকারী</string>
     <string name="achievement_gold_colored_shapes">আকার পরিবর্তনকারী</string>
@@ -232,6 +243,8 @@
     <string name="achievement_gold_shikaku_desc">Shikaku-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_cat_queens_desc">বিড়াল রানি-তে স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_knot_desc">গিঁট-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_solo_chess_desc">একক দাবা-তে স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_path_finder_desc">পথ অনুসন্ধানকারী-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_anomaly_puzzle_desc">অসঙ্গতি ধাঁধা-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_colored_shapes_desc">রঙিন আকৃতি-এ স্বর্ণপদক জিতুন</string>

@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.screenshots
 import com.inspiredandroid.braincup.app.DigitMemoryUiState
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.GameUiState
+import com.inspiredandroid.braincup.app.KnotUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellType
@@ -248,6 +249,35 @@ fun createCatQueensUiState(): GameUiState = CatQueensGame(level = 3, random = Ra
         toggle(24)
     }
     .toUiState()
+// A fixed 4x4 Knot board: two pairs connected, one pair (color 2) still just dots, so the snapshot
+// exercises both the drawn-path rendering and the bare endpoints.
+fun createKnotUiState(): GameUiState = KnotUiState(
+    rows = 4,
+    cols = 4,
+    endpoints = listOf(
+        KnotUiState.Endpoint(color = 0, a = 0, b = 11),
+        KnotUiState.Endpoint(color = 1, a = 1, b = 10),
+        KnotUiState.Endpoint(color = 2, a = 2, b = 6),
+    ).toImmutableList(),
+    paths = persistentMapOf(
+        0 to listOf(0, 4, 8, 12, 13, 14, 15, 11).toImmutableList(),
+        1 to listOf(1, 5, 9, 10).toImmutableList(),
+    ),
+    level = 3,
+)
+
+// A deterministic Solo Chess board with a piece selected so the snapshot shows a capture highlight.
+// Built from the public API only (the screenshot module can't see internal members).
+fun createSoloChessUiState(): GameUiState {
+    val game = SoloChessGame(level = 3, random = Random(42L)).apply { nextRound() }
+    for (cell in game.toUiState().pieces.keys) {
+        game.tap(cell)
+        if (game.toUiState().targets.isNotEmpty()) break
+        game.tap(cell) // nothing to capture from here; deselect and try the next piece
+    }
+    return game.toUiState()
+}
+
 fun createSchulteTableUiState(): GameUiState = createSchulteTableGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 

@@ -71,6 +71,8 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Rainhas Gato</string>
+    <string name="game_knot">Nó</string>
+    <string name="game_solo_chess">Xadrez Solo</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.</string>
@@ -99,6 +101,13 @@
     <string name="game_nurikabe_howto">Toque ou arraste para pintar o mar. Toque numa célula pintada para apagá-la.</string>
     <string name="game_cat_queens_desc">Coloque um gato em cada linha, cada coluna e cada zona de cor. Dois gatos não podem se tocar, nem mesmo na diagonal.</string>
     <string name="game_cat_queens_howto">Toque numa célula para colocar ou remover um gato.</string>
+    <string name="game_knot_desc">Conecte cada par de pontos coloridos com um caminho. Os caminhos não podem se cruzar e juntos devem cobrir todas as células.</string>
+    <string name="game_knot_howto">Arraste a partir de um ponto para desenhar o seu caminho. Toque num caminho para apagá-lo.</string>
+    <string name="game_solo_chess_desc">Capture as peças uma a uma até sobrar apenas o rei. Cada jogada deve capturar, e nenhuma peça pode capturar mais de duas vezes.</string>
+    <string name="game_solo_chess_howto">Toque numa peça e depois numa que ela possa capturar. O rei não pode ser capturado e deve ser a última peça.</string>
+    <string name="solo_chess_pieces_left">Peças restantes: %1$d</string>
+    <string name="solo_chess_restart">Reiniciar</string>
+    <string name="solo_chess_stuck">Sem capturas possíveis. Toque em Reiniciar para tentar este nível de novo.</string>
     <string name="cat_queens_error_row">Apenas um gato por linha</string>
     <string name="cat_queens_error_column">Apenas um gato por coluna</string>
     <string name="cat_queens_error_zone">Apenas um gato por zona de cor</string>
@@ -203,6 +212,8 @@
     <string name="achievement_gold_shikaku">Mestre dos retângulos</string>
     <string name="achievement_gold_nurikabe">Mestre dos muros</string>
     <string name="achievement_gold_cat_queens">Domador de gatos</string>
+    <string name="achievement_gold_knot">Desembaraçador</string>
+    <string name="achievement_gold_solo_chess">Última peça</string>
     <string name="achievement_gold_path_finder">Explorador</string>
     <string name="achievement_gold_anomaly_puzzle">Caçador de anomalias</string>
     <string name="achievement_gold_colored_shapes">Trocador de formas</string>
@@ -232,6 +243,8 @@
     <string name="achievement_gold_shikaku_desc">Ganhe a medalha de ouro em Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Ganhe a medalha de ouro em Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Ganhe a medalha de ouro em Rainhas Gato</string>
+    <string name="achievement_gold_knot_desc">Ganhe a medalha de ouro em Nó</string>
+    <string name="achievement_gold_solo_chess_desc">Ganhe a medalha de ouro em Xadrez Solo</string>
     <string name="achievement_gold_path_finder_desc">Ganhe a medalha de ouro em Busca de caminhos</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Ganhe a medalha de ouro em Quebra-cabeça de anomalia</string>
     <string name="achievement_gold_colored_shapes_desc">Ganhe a medalha de ouro em Formas coloridas</string>

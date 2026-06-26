@@ -226,11 +226,13 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
 private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.MINI_SUDOKU -> R.string.achievementSudokuSage
     GameType.MINI_CHESS -> R.string.achievementEndgameVirtuoso
+    GameType.SOLO_CHESS -> R.string.achievementLastPieceStanding
     GameType.LIGHTS_OUT -> R.string.achievementTotalBlackout
     GameType.SLIDING_PUZZLE -> R.string.achievementSmoothOperator
     GameType.SHIKAKU -> R.string.achievementRectangleMaster
     GameType.NURIKABE -> R.string.achievementWallBuilder
     GameType.CAT_QUEENS -> R.string.achievementCatHerder
+    GameType.KNOT -> R.string.achievementUntangler
     GameType.PATH_FINDER -> R.string.achievementTrailblazer
     GameType.ANOMALY_PUZZLE -> R.string.achievementOddOneSpotted
     GameType.COLORED_SHAPES -> R.string.achievementShapeShifter

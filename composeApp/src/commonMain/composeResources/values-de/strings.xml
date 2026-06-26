@@ -71,6 +71,8 @@
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Katzen-Damen</string>
+    <string name="game_knot">Knoten</string>
+    <string name="game_solo_chess">Solo-Schach</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
@@ -99,6 +101,13 @@
     <string name="game_nurikabe_howto">Tippe oder ziehe, um das Meer zu malen. Tippe auf eine gefüllte Zelle, um sie zu leeren.</string>
     <string name="game_cat_queens_desc">Platziere eine Katze in jeder Zeile, jeder Spalte und jeder Farbzone. Keine zwei Katzen dürfen sich berühren, auch nicht diagonal.</string>
     <string name="game_cat_queens_howto">Tippe auf eine Zelle, um eine Katze zu platzieren oder zu entfernen.</string>
+    <string name="game_knot_desc">Verbinde jedes Paar farbiger Punkte mit einem Pfad. Pfade dürfen sich nicht kreuzen und müssen gemeinsam jede Zelle abdecken.</string>
+    <string name="game_knot_howto">Ziehe von einem Punkt, um seinen Pfad zu zeichnen. Tippe auf einen Pfad, um ihn zu löschen.</string>
+    <string name="game_solo_chess_desc">Schlage die Figuren eine nach der anderen, bis nur noch der König übrig ist. Jeder Zug muss schlagen, und keine Figur darf mehr als zweimal schlagen.</string>
+    <string name="game_solo_chess_howto">Tippe auf eine Figur, dann auf eine, die sie schlagen kann. Der König kann nicht geschlagen werden und muss als letzte Figur übrig bleiben.</string>
+    <string name="solo_chess_pieces_left">Verbleibend: %1$d</string>
+    <string name="solo_chess_restart">Neustart</string>
+    <string name="solo_chess_stuck">Keine Schläge mehr möglich. Tippe auf Neustart, um dieses Level erneut zu versuchen.</string>
     <string name="cat_queens_error_row">Nur eine Katze pro Zeile</string>
     <string name="cat_queens_error_column">Nur eine Katze pro Spalte</string>
     <string name="cat_queens_error_zone">Nur eine Katze pro Farbzone</string>
@@ -203,6 +212,8 @@
     <string name="achievement_gold_shikaku">Rechteck-Meister</string>
     <string name="achievement_gold_nurikabe">Mauermeister</string>
     <string name="achievement_gold_cat_queens">Katzenhüterin</string>
+    <string name="achievement_gold_knot">Knotenknacker</string>
+    <string name="achievement_gold_solo_chess">Letzte Figur</string>
     <string name="achievement_gold_path_finder">Pfadfinder</string>
     <string name="achievement_gold_anomaly_puzzle">Ausnahmespürer</string>
     <string name="achievement_gold_colored_shapes">Formenwandler</string>
@@ -232,6 +243,8 @@
     <string name="achievement_gold_shikaku_desc">Gewinne die Goldmedaille in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Gewinne die Goldmedaille in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Gewinne die Goldmedaille in Katzen-Damen</string>
+    <string name="achievement_gold_knot_desc">Gewinne die Goldmedaille in Knoten</string>
+    <string name="achievement_gold_solo_chess_desc">Gewinne die Goldmedaille in Solo-Schach</string>
     <string name="achievement_gold_path_finder_desc">Gewinne die Goldmedaille in Pfadfinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Gewinne die Goldmedaille in Anomalie-Rätsel</string>
     <string name="achievement_gold_colored_shapes_desc">Gewinne die Goldmedaille in Farbige Formen</string>
