@@ -23,7 +23,7 @@ play-review = "2.0.2"
 play-games = "21.0.0"
 paparazzi = "2.0.0-alpha05"
 coil = "3.5.0"
-ktor = "3.5.0"
+ktor = "3.5.1"
 
 [libraries]
 compose-runtime = { module = "org.jetbrains.compose.runtime:runtime", version.ref = "compose-multiplatform" }
