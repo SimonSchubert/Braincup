@@ -1,3 +1,14 @@
+## v2.24.0 — 2026-06-26
+
+### Features
+- Solo chess puzzle game
+- Knot untangling puzzle game
+- Greek translation
+
+### Improvements
+- Lower Android minimum SDK to 24 (Android 7.0 support)
+- Updated dependencies
+
 ## v2.23.0 — 2026-06-24
 
 ### Features
