@@ -72,6 +72,7 @@
     <string name="game_nurikabe">Нурікабе</string>
     <string name="game_cat_queens">Котячі Королеви</string>
     <string name="game_knot">Вузол</string>
+    <string name="game_solo_chess">Соло-шахи</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
@@ -102,6 +103,11 @@
     <string name="game_cat_queens_howto">Торкніться клітинки, щоб поставити або прибрати кішку.</string>
     <string name="game_knot_desc">З'єднай кожну пару кольорових точок доріжкою. Доріжки не можуть перетинатися і разом мають покривати кожну клітинку.</string>
     <string name="game_knot_howto">Проведи від точки, щоб намалювати її доріжку. Торкнися доріжки, щоб очистити її.</string>
+    <string name="game_solo_chess_desc">Бийте фігури одну за одною, доки не залишиться лише король. Кожен хід має бути взяттям, і жодна фігура не може бити більш ніж двічі.</string>
+    <string name="game_solo_chess_howto">Торкніться фігури, а потім тієї, яку вона може побити. Короля побити не можна — він має лишитися останнім.</string>
+    <string name="solo_chess_pieces_left">Залишилось фігур: %1$d</string>
+    <string name="solo_chess_restart">Заново</string>
+    <string name="solo_chess_stuck">Більше немає взять. Натисніть «Заново», щоб пройти рівень знову.</string>
     <string name="cat_queens_error_row">Лише одна кішка на рядок</string>
     <string name="cat_queens_error_column">Лише одна кішка на стовпець</string>
     <string name="cat_queens_error_zone">Лише одна кішка на кольорову зону</string>
@@ -207,6 +213,7 @@
     <string name="achievement_gold_nurikabe">Майстер стін</string>
     <string name="achievement_gold_cat_queens">Пастух кішок</string>
     <string name="achievement_gold_knot">Розплутувач</string>
+    <string name="achievement_gold_solo_chess">Остання фігура</string>
     <string name="achievement_gold_path_finder">Слідопит</string>
     <string name="achievement_gold_anomaly_puzzle">Мисливець за аномаліями</string>
     <string name="achievement_gold_colored_shapes">Перевертень</string>
@@ -237,6 +244,7 @@
     <string name="achievement_gold_nurikabe_desc">Здобудь золоту медаль у Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Здобудь золоту медаль у Котячі Королеви</string>
     <string name="achievement_gold_knot_desc">Здобудь золоту медаль у Вузлі</string>
+    <string name="achievement_gold_solo_chess_desc">Здобудь золоту медаль у Соло-шахах</string>
     <string name="achievement_gold_path_finder_desc">Здобудь золоту медаль у Пошук шляху</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Здобудь золоту медаль у Головоломка з аномалією</string>
     <string name="achievement_gold_colored_shapes_desc">Здобудь золоту медаль у Кольорові фігури</string>

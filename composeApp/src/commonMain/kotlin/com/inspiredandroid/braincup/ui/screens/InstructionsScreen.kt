@@ -54,6 +54,7 @@ import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
 import com.inspiredandroid.braincup.ui.components.SherlockCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ShikakuDemo
 import com.inspiredandroid.braincup.ui.components.SlidingPuzzleDemo
+import com.inspiredandroid.braincup.ui.components.SoloChessDemo
 import com.inspiredandroid.braincup.ui.components.SpotTheNewDemo
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
@@ -113,6 +114,7 @@ fun InstructionsScreen(
                 GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
                 GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
                 GameType.KNOT -> KnotDemo(modifier = demoModifier)
+                GameType.SOLO_CHESS -> SoloChessDemo(modifier = demoModifier)
                 GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
                 GameType.SLIDING_PUZZLE -> SlidingPuzzleDemo(modifier = demoModifier)

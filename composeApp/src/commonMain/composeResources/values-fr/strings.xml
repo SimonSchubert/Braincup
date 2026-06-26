@@ -72,6 +72,7 @@
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Reines Chats</string>
     <string name="game_knot">Nœud</string>
+    <string name="game_solo_chess">Échecs solo</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
@@ -102,6 +103,11 @@
     <string name="game_cat_queens_howto">Touche une case pour placer ou retirer un chat.</string>
     <string name="game_knot_desc">Relie chaque paire de points colorés par un chemin. Les chemins ne peuvent pas se croiser et doivent ensemble couvrir chaque case.</string>
     <string name="game_knot_howto">Fais glisser depuis un point pour tracer son chemin. Touche un chemin pour l'effacer.</string>
+    <string name="game_solo_chess_desc">Capture les pièces une à une jusqu'à ce qu'il ne reste que le roi. Chaque coup doit capturer, et aucune pièce ne peut capturer plus de deux fois.</string>
+    <string name="game_solo_chess_howto">Touche une pièce, puis une qu'elle peut capturer. Le roi ne peut pas être capturé et doit être la dernière pièce.</string>
+    <string name="solo_chess_pieces_left">Pièces restantes : %1$d</string>
+    <string name="solo_chess_restart">Recommencer</string>
+    <string name="solo_chess_stuck">Plus aucune capture possible. Touche Recommencer pour réessayer ce niveau.</string>
     <string name="cat_queens_error_row">Un seul chat par ligne</string>
     <string name="cat_queens_error_column">Un seul chat par colonne</string>
     <string name="cat_queens_error_zone">Un seul chat par zone de couleur</string>
@@ -207,6 +213,7 @@
     <string name="achievement_gold_nurikabe">Maître des murs</string>
     <string name="achievement_gold_cat_queens">Gardienne de chats</string>
     <string name="achievement_gold_knot">Dénoueur</string>
+    <string name="achievement_gold_solo_chess">Dernière pièce</string>
     <string name="achievement_gold_path_finder">Pisteur</string>
     <string name="achievement_gold_anomaly_puzzle">Détecteur d'anomalies</string>
     <string name="achievement_gold_colored_shapes">Changeur de formes</string>
@@ -237,6 +244,7 @@
     <string name="achievement_gold_nurikabe_desc">Gagne la médaille d'or en Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Gagne la médaille d'or en Reines Chats</string>
     <string name="achievement_gold_knot_desc">Gagne la médaille d'or en Nœud</string>
+    <string name="achievement_gold_solo_chess_desc">Gagne la médaille d'or en Échecs solo</string>
     <string name="achievement_gold_path_finder_desc">Gagne la médaille d'or en Chercheur de chemin</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Gagne la médaille d'or en Puzzle d'anomalie</string>
     <string name="achievement_gold_colored_shapes_desc">Gagne la médaille d'or en Formes colorées</string>

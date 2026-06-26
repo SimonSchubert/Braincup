@@ -427,6 +427,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameSoloChess() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createSoloChessUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSchulteTable() {
         paparazzi.snap {
             GameScreen(

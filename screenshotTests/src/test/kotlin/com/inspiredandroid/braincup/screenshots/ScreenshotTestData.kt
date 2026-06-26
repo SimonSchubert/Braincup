@@ -266,6 +266,18 @@ fun createKnotUiState(): GameUiState = KnotUiState(
     level = 3,
 )
 
+// A deterministic Solo Chess board with a piece selected so the snapshot shows a capture highlight.
+// Built from the public API only (the screenshot module can't see internal members).
+fun createSoloChessUiState(): GameUiState {
+    val game = SoloChessGame(level = 3, random = Random(42L)).apply { nextRound() }
+    for (cell in game.toUiState().pieces.keys) {
+        game.tap(cell)
+        if (game.toUiState().targets.isNotEmpty()) break
+        game.tap(cell) // nothing to capture from here; deselect and try the next piece
+    }
+    return game.toUiState()
+}
+
 fun createSchulteTableUiState(): GameUiState = createSchulteTableGame().toUiState()
 fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
 

@@ -72,6 +72,7 @@
     <string name="game_nurikabe">Нурикабэ</string>
     <string name="game_cat_queens">Кошачьи ферзи</string>
     <string name="game_knot">Узел</string>
+    <string name="game_solo_chess">Соло-шахматы</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Найдите фигуру, которая выделяется. Учитывайте как цвет, так и форму каждой фигуры.</string>
@@ -102,6 +103,11 @@
     <string name="game_cat_queens_howto">Нажми на клетку, чтобы поставить или убрать кошку.</string>
     <string name="game_knot_desc">Соедини каждую пару цветных точек дорожкой. Дорожки не должны пересекаться, и вместе они должны покрыть каждую клетку.</string>
     <string name="game_knot_howto">Проведи от точки, чтобы нарисовать её дорожку. Нажми на дорожку, чтобы очистить её.</string>
+    <string name="game_solo_chess_desc">Бейте фигуры одну за другой, пока не останется только король. Каждый ход должен быть взятием, и ни одна фигура не может бить больше двух раз.</string>
+    <string name="game_solo_chess_howto">Коснитесь фигуры, затем той, которую она может побить. Короля побить нельзя — он должен остаться последним.</string>
+    <string name="solo_chess_pieces_left">Осталось фигур: %1$d</string>
+    <string name="solo_chess_restart">Заново</string>
+    <string name="solo_chess_stuck">Взятий больше нет. Нажмите «Заново», чтобы пройти уровень снова.</string>
     <string name="cat_queens_error_row">Только одна кошка в строке</string>
     <string name="cat_queens_error_column">Только одна кошка в столбце</string>
     <string name="cat_queens_error_zone">Только одна кошка в цветовой зоне</string>
@@ -207,6 +213,7 @@
     <string name="achievement_gold_nurikabe">Мастер стен</string>
     <string name="achievement_gold_cat_queens">Повелитель кошек</string>
     <string name="achievement_gold_knot">Распутыватель узлов</string>
+    <string name="achievement_gold_solo_chess">Последняя фигура</string>
     <string name="achievement_gold_path_finder">Следопыт</string>
     <string name="achievement_gold_anomaly_puzzle">Охотник за аномалиями</string>
     <string name="achievement_gold_colored_shapes">Перевёртыш</string>
@@ -237,6 +244,7 @@
     <string name="achievement_gold_nurikabe_desc">Получи золотую медаль в Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Получи золотую медаль в Кошачьи ферзи</string>
     <string name="achievement_gold_knot_desc">Получи золотую медаль в Узле</string>
+    <string name="achievement_gold_solo_chess_desc">Получи золотую медаль в Соло-шахматах</string>
     <string name="achievement_gold_path_finder_desc">Получи золотую медаль в Поиск пути</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Получи золотую медаль в Головоломка с аномалией</string>
     <string name="achievement_gold_colored_shapes_desc">Получи золотую медаль в Цветные фигуры</string>

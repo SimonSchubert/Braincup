@@ -72,6 +72,7 @@
     <string name="game_nurikabe">누리카베</string>
     <string name="game_cat_queens">고양이 퀸</string>
     <string name="game_knot">매듭</string>
+    <string name="game_solo_chess">솔로 체스</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
@@ -102,6 +103,11 @@
     <string name="game_cat_queens_howto">셀을 탭하여 고양이를 놓거나 제거하세요.</string>
     <string name="game_knot_desc">색깔 점 쌍을 길로 연결하세요. 길은 서로 교차할 수 없으며, 모든 칸을 채워야 합니다.</string>
     <string name="game_knot_howto">점에서 드래그하여 길을 그리세요. 길을 탭하면 지워집니다.</string>
+    <string name="game_solo_chess_desc">킹만 남을 때까지 기물을 하나씩 잡으세요. 모든 수는 기물을 잡아야 하며, 어떤 기물도 두 번을 넘겨 잡을 수 없습니다.</string>
+    <string name="game_solo_chess_howto">기물을 누른 다음 잡을 수 있는 기물을 누르세요. 킹은 잡을 수 없으며 마지막에 남아야 합니다.</string>
+    <string name="solo_chess_pieces_left">남은 기물: %1$d</string>
+    <string name="solo_chess_restart">다시 시작</string>
+    <string name="solo_chess_stuck">잡을 수 있는 기물이 없습니다. 다시 시작을 눌러 이 레벨을 다시 시도하세요.</string>
     <string name="cat_queens_error_row">행마다 고양이 한 마리만 가능합니다</string>
     <string name="cat_queens_error_column">열마다 고양이 한 마리만 가능합니다</string>
     <string name="cat_queens_error_zone">색상 구역마다 고양이 한 마리만 가능합니다</string>
@@ -207,6 +213,7 @@
     <string name="achievement_gold_nurikabe">벽 쌓기 달인</string>
     <string name="achievement_gold_cat_queens">고양이 조련사</string>
     <string name="achievement_gold_knot">매듭 푸는 달인</string>
+    <string name="achievement_gold_solo_chess">마지막 기물</string>
     <string name="achievement_gold_path_finder">길잡이</string>
     <string name="achievement_gold_anomaly_puzzle">이상 발견자</string>
     <string name="achievement_gold_colored_shapes">변신술사</string>
@@ -237,6 +244,7 @@
     <string name="achievement_gold_nurikabe_desc">Nurikabe에서 금메달 획득</string>
     <string name="achievement_gold_cat_queens_desc">고양이 퀸에서 금메달 획득</string>
     <string name="achievement_gold_knot_desc">매듭에서 금메달 획득</string>
+    <string name="achievement_gold_solo_chess_desc">솔로 체스에서 금메달 획득</string>
     <string name="achievement_gold_path_finder_desc">경로 찾기에서 금메달 획득</string>
     <string name="achievement_gold_anomaly_puzzle_desc">이상 퍼즐에서 금메달 획득</string>
     <string name="achievement_gold_colored_shapes_desc">색깔 도형에서 금메달 획득</string>

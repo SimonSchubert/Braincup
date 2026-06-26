@@ -7,6 +7,7 @@ enum GameCenterIds {
     private static let achievementsByGameName: [String: String] = [
         "MINI_SUDOKU":           "achievement.sudoku_sage",
         "MINI_CHESS":            "achievement.endgame_virtuoso",
+        "SOLO_CHESS":            "achievement.last_piece_standing",
         "LIGHTS_OUT":            "achievement.total_blackout",
         "SLIDING_PUZZLE":        "achievement.smooth_operator",
         "SHIKAKU":               "achievement.rectangle_master",
@@ -60,6 +61,7 @@ enum GameCenterIds {
         case achievementIronStreak:     return UserStorage.Achievements.streak30
         case "achievement.sudoku_sage":           return UserStorage.Achievements.goldMiniSudoku
         case "achievement.endgame_virtuoso":      return UserStorage.Achievements.goldMiniChess
+        case "achievement.last_piece_standing":   return UserStorage.Achievements.goldSoloChess
         case "achievement.total_blackout":        return UserStorage.Achievements.goldLightsOut
         case "achievement.smooth_operator":       return UserStorage.Achievements.goldSlidingPuzzle
         case "achievement.rectangle_master":      return UserStorage.Achievements.goldShikaku

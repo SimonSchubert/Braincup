@@ -192,6 +192,25 @@ data class KnotUiState(
 }
 
 @Immutable
+data class SoloChessUiState(
+    /** Side length of the square board; cells are indexed row * size + col. */
+    val size: Int,
+    /** cell index -> piece type currently on that cell. */
+    val pieces: ImmutableMap<Int, PieceType>,
+    /** cell index -> captures the piece may still make; 0 means it can no longer move. */
+    val capturesLeft: ImmutableMap<Int, Int>,
+    /** The king's cell; the king can never be captured, so it is the last piece standing. */
+    val kingCell: Int?,
+    /** The currently selected piece's cell, if any. */
+    val selected: Int?,
+    /** Cells the selected piece may capture (highlighted). */
+    val targets: ImmutableSet<Int>,
+    val level: Int,
+    /** True when no piece can capture and the board is unsolved: only a restart helps. */
+    val stuck: Boolean,
+) : GameUiState
+
+@Immutable
 data class PatternSequenceUiState(
     val sequence: ImmutableList<Figure>,
     val optionRows: ImmutableList<ImmutableList<FigureCell>>,

@@ -52,6 +52,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
+import com.inspiredandroid.braincup.games.SoloChessGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
@@ -167,6 +168,7 @@ fun GameScreen(
             gameUiState is NurikabeUiState ||
             gameUiState is CatQueensUiState ||
             gameUiState is KnotUiState ||
+            gameUiState is SoloChessUiState ||
             gameUiState is WordleUiState -> null
         gameUiState is SchulteTableUiState -> {
             val bar: @Composable () -> Unit = {
@@ -227,6 +229,7 @@ fun GameScreen(
                 is NurikabeUiState -> NurikabeContent(gameUiState, onAnswer, onGiveUp)
                 is CatQueensUiState -> CatQueensContent(gameUiState, onAnswer, onGiveUp)
                 is KnotUiState -> KnotContent(gameUiState, onAnswer, onGiveUp)
+                is SoloChessUiState -> SoloChessContent(gameUiState, onAnswer, onGiveUp)
                 is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
                 is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
                 is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
@@ -3925,6 +3928,210 @@ private fun MiniChessCellView(
 @Composable
 private fun MiniChessPieceIcon(type: PieceType, isWhite: Boolean) {
     ChessPieceIcon(resource = chessPieceResource(type), isWhite = isWhite)
+}
+
+@Composable
+private fun ColumnScope.SoloChessContent(
+    uiState: SoloChessUiState,
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+) {
+    val n = uiState.size
+    val compact = LocalIsCompactHeight.current
+    // Fit the whole board into a fixed target so 4x4 isn't tiny and 6x6 isn't oversized.
+    val cellSize = ((if (compact) 248f else 312f) / n).dp
+
+    val board: @Composable () -> Unit = {
+        PrismCard(face = ChessBoardFrame, facet = 6.dp) {
+            Column {
+                for (row in 0 until n) {
+                    Row {
+                        for (col in 0 until n) {
+                            val index = row * n + col
+                            SoloChessCellView(
+                                type = uiState.pieces[index],
+                                size = cellSize,
+                                isLight = (row + col) % 2 == 0,
+                                isKing = index == uiState.kingCell,
+                                isSelected = uiState.selected == index,
+                                isTarget = index in uiState.targets,
+                                captures = uiState.capturesLeft[index] ?: 0,
+                                onClick = { onAnswer("tap:$index") },
+                            )
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    val progress: @Composable () -> Unit = {
+        Text(
+            text = stringResource(Res.string.solo_chess_pieces_left, uiState.pieces.size),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+    }
+
+    // The how-to line is replaced by a restart nudge when no capture is possible (a dead-end line).
+    val instruction = if (uiState.stuck) {
+        stringResource(Res.string.solo_chess_stuck)
+    } else {
+        stringResource(Res.string.game_solo_chess_howto)
+    }
+    val instructionColor = if (uiState.stuck) {
+        MaterialTheme.colorScheme.error
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
+    val instructionWeight = if (uiState.stuck) FontWeight.Bold else FontWeight.Normal
+
+    val actions: @Composable () -> Unit = {
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+            DefaultButton(
+                onClick = { onAnswer("restart") },
+                value = stringResource(Res.string.solo_chess_restart),
+            )
+            GiveUpButton(onGiveUp = onGiveUp)
+        }
+    }
+
+    if (compact) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
+            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            board()
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                Text(
+                    text = stringResource(Res.string.level_label, uiState.level),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.height(6.dp))
+                progress()
+                Spacer(Modifier.height(6.dp))
+                Text(
+                    text = instruction,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = instructionColor,
+                    fontWeight = instructionWeight,
+                    textAlign = TextAlign.Center,
+                )
+                Spacer(Modifier.height(8.dp))
+                actions()
+            }
+        }
+    } else {
+        Text(
+            text = stringResource(Res.string.level_label, uiState.level),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        Spacer(Modifier.height(6.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            progress()
+        }
+        Spacer(Modifier.height(6.dp))
+        Text(
+            text = instruction,
+            style = MaterialTheme.typography.bodyMedium,
+            color = instructionColor,
+            fontWeight = instructionWeight,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(horizontal = 24.dp),
+        )
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            board()
+        }
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+            actions()
+        }
+    }
+}
+
+@Composable
+private fun SoloChessCellView(
+    type: PieceType?,
+    size: androidx.compose.ui.unit.Dp,
+    isLight: Boolean,
+    isKing: Boolean,
+    isSelected: Boolean,
+    isTarget: Boolean,
+    captures: Int,
+    onClick: () -> Unit,
+) {
+    val baseColor = if (isLight) ChessLightSquare else ChessDarkSquare
+    // A piece that has used both captures is "spent": it can no longer move. The king is never spent
+    // (it can't be captured and always remains), so it is never greyed.
+    val spent = type != null && captures <= 0 && !isKing
+    Box(
+        modifier = Modifier
+            .size(size)
+            .background(if (isSelected) ChessSelected else baseColor)
+            .clickable(onClick = onClick)
+            .hoverHand(),
+        contentAlignment = Alignment.Center,
+    ) {
+        // A translucent gold underlay marks the king: it can never be captured and must be the last
+        // piece standing.
+        if (isKing && !isSelected) {
+            Box(modifier = Modifier.matchParentSize().background(ChessDrawTint))
+        }
+        if (isTarget) {
+            Box(modifier = Modifier.matchParentSize().background(ChessCaptureTint))
+        }
+        type?.let {
+            Box(
+                modifier = Modifier.size(size * 0.82f),
+                contentAlignment = Alignment.Center,
+            ) {
+                ChessPieceIcon(
+                    resource = chessPieceResource(it),
+                    isWhite = true,
+                    figureSize = size * 0.78f,
+                    tint = if (spent) SoloChessSpentTint else null,
+                )
+            }
+            // Capture "charges": one amber pip per remaining capture (max two). This makes the
+            // "no piece may capture more than twice" rule visible — a spent piece shows two empty pips.
+            SoloChessCapturePips(
+                remaining = captures.coerceIn(0, SoloChessGame.MAX_CAPTURES),
+                modifier = Modifier
+                    .align(Alignment.TopEnd)
+                    .padding(size * 0.05f)
+                    .size(width = size * 0.46f, height = size * 0.22f),
+            )
+        }
+    }
+}
+
+@Composable
+private fun SoloChessCapturePips(remaining: Int, modifier: Modifier) {
+    Canvas(modifier = modifier) {
+        drawRoundRect(color = SoloChessPipTray, cornerRadius = CornerRadius(size.height / 2f))
+        val radius = size.height * 0.3f
+        val slots = SoloChessGame.MAX_CAPTURES
+        val step = size.width / (slots + 1)
+        for (i in 0 until slots) {
+            drawCircle(
+                color = if (i < remaining) SoloChessPipFilled else SoloChessPipEmpty,
+                radius = radius,
+                center = Offset(step * (i + 1), size.height / 2f),
+            )
+        }
+    }
 }
 
 @Composable

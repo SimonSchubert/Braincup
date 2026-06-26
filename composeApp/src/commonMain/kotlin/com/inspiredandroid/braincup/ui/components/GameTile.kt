@@ -309,6 +309,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.NURIKABE -> NurikabePreview()
         GameType.CAT_QUEENS -> CatQueensPreview()
         GameType.KNOT -> KnotPreview()
+        GameType.SOLO_CHESS -> SoloChessPreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
@@ -1244,6 +1245,52 @@ private fun MiniChessPreviewPiece(
             }
         }
         with(painter) { draw(size = size, colorFilter = fill) }
+    }
+}
+
+// A small 3x3 Solo Chess board: all one color (the hallmark of the puzzle), the king plus two pieces
+// it will whittle down to itself.
+private val SoloChessPreviewPieces: Map<Int, DrawableResource> = mapOf(
+    0 to Res.drawable.ic_chess_queen,
+    2 to Res.drawable.ic_chess_knight,
+    4 to Res.drawable.ic_chess_king,
+)
+
+@Composable
+private fun SoloChessPreview() {
+    PrismCard(
+        face = ChessBoardFrame,
+        facet = 4.dp,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            for (row in 0..2) {
+                Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    for (col in 0..2) {
+                        val isLight = (row + col) % 2 == 0
+                        val flatIndex = row * 3 + col
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight()
+                                .background(if (isLight) ChessLightSquare else ChessDarkSquare),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            SoloChessPreviewPieces[flatIndex]?.let { drawable ->
+                                MiniChessPreviewPiece(
+                                    drawable = drawable,
+                                    isWhite = true,
+                                    modifier = Modifier.fillMaxSize().padding(2.dp),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

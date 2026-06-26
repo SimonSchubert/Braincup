@@ -30,6 +30,8 @@
     <string name="achievementCatHerder" translatable="false">CgkIuZrirtIVEAIQHw</string>
     <!-- Placeholder: fill in the console-assigned ID once the Knot achievement is created in Play console. -->
     <string name="achievementUntangler" translatable="false"></string>
+    <!-- Placeholder: fill in the console-assigned ID once the Solo Chess achievement is created in Play console. -->
+    <string name="achievementLastPieceStanding" translatable="false"></string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

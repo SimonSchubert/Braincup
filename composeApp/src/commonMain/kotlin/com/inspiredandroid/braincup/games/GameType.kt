@@ -34,6 +34,15 @@ enum class GameType(
         descriptionRes = Res.string.game_mini_chess_desc,
         category = GameCategory.LOGIC,
     ),
+    SOLO_CHESS(
+        displayNameRes = Res.string.game_solo_chess,
+        id = "29",
+        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_solo_chess_desc,
+        category = GameCategory.LOGIC,
+    ),
     LIGHTS_OUT(
         displayNameRes = Res.string.game_lights_out,
         id = "19",
@@ -269,7 +278,7 @@ enum class GameType(
      *  UI shows "Level N" / "Play next level" instead of "Score: N" / "Play Again". */
     val usesLevelLabel: Boolean
         get() = this == LIGHTS_OUT || this == SLIDING_PUZZLE || this == SHIKAKU || this == NURIKABE ||
-            this == CAT_QUEENS || this == KNOT
+            this == CAT_QUEENS || this == KNOT || this == SOLO_CHESS
 
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */

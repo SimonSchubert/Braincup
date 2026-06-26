@@ -72,6 +72,7 @@
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Reinas Felinas</string>
     <string name="game_knot">Nudo</string>
+    <string name="game_solo_chess">Ajedrez en solitario</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Encuentra la figura que destaca. Considera tanto el color como la forma de cada figura.</string>
@@ -102,6 +103,11 @@
     <string name="game_cat_queens_howto">Toca una celda para colocar o quitar un gato.</string>
     <string name="game_knot_desc">Conecta cada par de puntos de color con un camino. Los caminos no pueden cruzarse y juntos deben cubrir cada celda.</string>
     <string name="game_knot_howto">Arrastra desde un punto para trazar su camino. Toca un camino para borrarlo.</string>
+    <string name="game_solo_chess_desc">Captura las piezas una a una hasta que solo quede el rey. Cada movimiento debe capturar, y ninguna pieza puede capturar más de dos veces.</string>
+    <string name="game_solo_chess_howto">Toca una pieza y luego una que pueda capturar. El rey no puede ser capturado y debe ser la última pieza.</string>
+    <string name="solo_chess_pieces_left">Piezas restantes: %1$d</string>
+    <string name="solo_chess_restart">Reiniciar</string>
+    <string name="solo_chess_stuck">No quedan capturas. Toca Reiniciar para intentar este nivel de nuevo.</string>
     <string name="cat_queens_error_row">Solo un gato por fila</string>
     <string name="cat_queens_error_column">Solo un gato por columna</string>
     <string name="cat_queens_error_zone">Solo un gato por zona de color</string>
@@ -207,6 +213,7 @@
     <string name="achievement_gold_nurikabe">Maestro del muro</string>
     <string name="achievement_gold_cat_queens">Pastor de gatos</string>
     <string name="achievement_gold_knot">Desenredador</string>
+    <string name="achievement_gold_solo_chess">Última pieza</string>
     <string name="achievement_gold_path_finder">Explorador de caminos</string>
     <string name="achievement_gold_anomaly_puzzle">Cazador de anomalías</string>
     <string name="achievement_gold_colored_shapes">Cambiaformas</string>
@@ -237,6 +244,7 @@
     <string name="achievement_gold_nurikabe_desc">Gana la medalla de oro en Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Gana la medalla de oro en Reinas Felinas</string>
     <string name="achievement_gold_knot_desc">Gana la medalla de oro en Nudo</string>
+    <string name="achievement_gold_solo_chess_desc">Gana la medalla de oro en Ajedrez en solitario</string>
     <string name="achievement_gold_path_finder_desc">Gana la medalla de oro en Buscador de caminos</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Gana la medalla de oro en Puzzle de anomalías</string>
     <string name="achievement_gold_colored_shapes_desc">Gana la medalla de oro en Formas de colores</string>

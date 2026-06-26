@@ -164,6 +164,7 @@
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Βασίλισσες Γάτες</string>
     <string name="game_knot">Κόμπος</string>
+    <string name="game_solo_chess">Σόλο Σκάκι</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Βρείτε το σχήμα που ξεχωρίζει. Λάβετε υπόψη τόσο το χρώμα όσο και το σχήμα κάθε πλακιδίου.</string>
@@ -194,6 +195,11 @@
     <string name="game_cat_queens_howto">Πατήστε ένα κελί για να τοποθετήσετε ή να αφαιρέσετε μια γάτα.</string>
     <string name="game_knot_desc">Συνδέστε κάθε ζεύγος χρωματιστών κουκκίδων με μια διαδρομή. Οι διαδρομές δεν επιτρέπεται να διασταυρώνονται και μαζί πρέπει να καλύπτουν κάθε κελί.</string>
     <string name="game_knot_howto">Σύρετε από μια κουκκίδα για να σχεδιάσετε τη διαδρομή της. Πατήστε μια διαδρομή για να την καθαρίσετε.</string>
+    <string name="game_solo_chess_desc">Αιχμαλώτισε τα κομμάτια ένα προς ένα μέχρι να μείνει μόνο ο βασιλιάς. Κάθε κίνηση πρέπει να αιχμαλωτίζει και κανένα κομμάτι δεν μπορεί να αιχμαλωτίσει πάνω από δύο φορές.</string>
+    <string name="game_solo_chess_howto">Πάτησε ένα κομμάτι και μετά ένα που μπορεί να αιχμαλωτίσει. Ο βασιλιάς δεν αιχμαλωτίζεται και πρέπει να μείνει τελευταίος.</string>
+    <string name="solo_chess_pieces_left">Κομμάτια που μένουν: %1$d</string>
+    <string name="solo_chess_restart">Επανεκκίνηση</string>
+    <string name="solo_chess_stuck">Δεν υπάρχουν άλλες αιχμαλωσίες. Πάτησε Επανεκκίνηση για να ξαναδοκιμάσεις αυτό το επίπεδο.</string>
     <string name="cat_queens_error_row">Μόνο μία γάτα ανά γραμμή</string>
     <string name="cat_queens_error_column">Μόνο μία γάτα ανά στήλη</string>
     <string name="cat_queens_error_zone">Μόνο μία γάτα ανά χρωματική ζώνη</string>
@@ -317,6 +323,7 @@
     <string name="achievement_gold_nurikabe">Χτίστης Τειχών</string>
     <string name="achievement_gold_cat_queens">Βοσκός Γατών</string>
     <string name="achievement_gold_knot">Λύτης Κόμπων</string>
+    <string name="achievement_gold_solo_chess">Τελευταίο Κομμάτι</string>
     <string name="achievement_gold_path_finder">Πρωτοπόρος</string>
     <string name="achievement_gold_anomaly_puzzle">Εντοπιστής Ανωμαλιών</string>
     <string name="achievement_gold_colored_shapes">Μεταμορφωτής Σχημάτων</string>
@@ -347,6 +354,7 @@
     <string name="achievement_gold_nurikabe_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Βασίλισσες Γάτες</string>
     <string name="achievement_gold_knot_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Κόμπος</string>
+    <string name="achievement_gold_solo_chess_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σόλο Σκάκι</string>
     <string name="achievement_gold_path_finder_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Εύρεση Διαδρομής</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Παζλ Ανωμαλίας</string>
     <string name="achievement_gold_colored_shapes_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Χρωματιστά Σχήματα</string>

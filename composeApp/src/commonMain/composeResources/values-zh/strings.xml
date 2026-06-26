@@ -72,6 +72,7 @@
     <string name="game_nurikabe">数墙</string>
     <string name="game_cat_queens">猫皇后</string>
     <string name="game_knot">绳结</string>
+    <string name="game_solo_chess">单人象棋</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
@@ -102,6 +103,11 @@
     <string name="game_cat_queens_howto">点按格子来放置或移除猫。</string>
     <string name="game_knot_desc">用线把每一对同色圆点连接起来。线不能交叉，且必须填满每个格子。</string>
     <string name="game_knot_howto">从圆点拖动来画出线条。点按线条可清除。</string>
+    <string name="game_solo_chess_desc">逐个吃掉棋子，直到只剩下王。每一步都必须吃子，且任何棋子吃子不能超过两次。</string>
+    <string name="game_solo_chess_howto">先点一个棋子，再点它能吃的棋子。王不能被吃掉，必须是最后剩下的棋子。</string>
+    <string name="solo_chess_pieces_left">剩余棋子：%1$d</string>
+    <string name="solo_chess_restart">重新开始</string>
+    <string name="solo_chess_stuck">没有可吃的棋子了。点击重新开始再次挑战本关。</string>
     <string name="cat_queens_error_row">每行只能有一只猫</string>
     <string name="cat_queens_error_column">每列只能有一只猫</string>
     <string name="cat_queens_error_zone">每个颜色区域只能有一只猫</string>
@@ -207,6 +213,7 @@
     <string name="achievement_gold_nurikabe">筑墙大师</string>
     <string name="achievement_gold_cat_queens">猫咪管家</string>
     <string name="achievement_gold_knot">解结大师</string>
+    <string name="achievement_gold_solo_chess">最后一子</string>
     <string name="achievement_gold_path_finder">寻路者</string>
     <string name="achievement_gold_anomaly_puzzle">异常猎手</string>
     <string name="achievement_gold_colored_shapes">变形者</string>
@@ -237,6 +244,7 @@
     <string name="achievement_gold_nurikabe_desc">在Nurikabe中赢得金牌</string>
     <string name="achievement_gold_cat_queens_desc">在猫皇后中赢得金牌</string>
     <string name="achievement_gold_knot_desc">在绳结中赢得金牌</string>
+    <string name="achievement_gold_solo_chess_desc">在单人象棋中赢得金牌</string>
     <string name="achievement_gold_path_finder_desc">在路径寻找中赢得金牌</string>
     <string name="achievement_gold_anomaly_puzzle_desc">在异常谜题中赢得金牌</string>
     <string name="achievement_gold_colored_shapes_desc">在彩色形状中赢得金牌</string>
