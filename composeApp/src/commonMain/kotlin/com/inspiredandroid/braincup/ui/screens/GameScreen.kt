@@ -1955,7 +1955,10 @@ private fun ColumnScope.KnotContent(
     // Endpoint and committed-path lookups, so a drag can tell which color it should draw.
     val endpointColorByCell = remember(uiState) {
         HashMap<Int, Int>().apply {
-            uiState.endpoints.forEach { put(it.a, it.color); put(it.b, it.color) }
+            uiState.endpoints.forEach {
+                put(it.a, it.color)
+                put(it.b, it.color)
+            }
         }
     }
     val pathColorByCell = remember(uiState) {

@@ -237,8 +237,14 @@ class KnotGame(
 
             var blocked = false
             for (step in steps) {
-                if (step in result) { blocked = true; break }
-                if (step != other && isForeignEndpoint(color, step)) { blocked = true; break }
+                if (step in result) {
+                    blocked = true
+                    break
+                }
+                if (step != other && isForeignEndpoint(color, step)) {
+                    blocked = true
+                    break
+                }
                 result.add(step)
                 if (step == other) break
             }
@@ -262,8 +268,14 @@ class KnotGame(
         val cells = ArrayList<Int>()
         var r = fr
         var c = fc
-        while (c != tc) { c += if (tc > c) 1 else -1; cells.add(r * cols + c) }
-        while (r != tr) { r += if (tr > r) 1 else -1; cells.add(r * cols + c) }
+        while (c != tc) {
+            c += if (tc > c) 1 else -1
+            cells.add(r * cols + c)
+        }
+        while (r != tr) {
+            r += if (tr > r) 1 else -1
+            cells.add(r * cols + c)
+        }
         return cells
     }
 
@@ -362,7 +374,10 @@ class KnotGame(
                 var reachable = false
                 for (nb in neighbors(cell)) {
                     val o = owner[nb]
-                    if (o == UNASSIGNED || o >= completedBelow) { reachable = true; break }
+                    if (o == UNASSIGNED || o >= completedBelow) {
+                        reachable = true
+                        break
+                    }
                 }
                 if (!reachable) return true
             }
@@ -375,7 +390,10 @@ class KnotGame(
 
         fun extend(colorIndex: Int, color: Int, target: Int, head: Int) {
             if (count >= limit) return
-            if (budget-- <= 0) { count = limit; return }
+            if (budget-- <= 0) {
+                count = limit
+                return
+            }
             for (nb in neighbors(head)) {
                 if (nb == target) {
                     solveColor(colorIndex + 1)
@@ -390,7 +408,10 @@ class KnotGame(
 
         solveColor = solveColor@{ colorIndex ->
             if (count >= limit) return@solveColor
-            if (budget-- <= 0) { count = limit; return@solveColor }
+            if (budget-- <= 0) {
+                count = limit
+                return@solveColor
+            }
             if (colorIndex > 0 && hasFrozenStrandedEmpty(colorIndex)) return@solveColor
             if (colorIndex == colors.size) {
                 if (owner.none { it == UNASSIGNED }) count++

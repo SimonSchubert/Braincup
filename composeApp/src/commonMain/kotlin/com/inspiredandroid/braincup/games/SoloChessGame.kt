@@ -160,8 +160,7 @@ class SoloChessGame(
         return Built(board, king, forwardMoves.asReversed().toList())
     }
 
-    private fun randomCapturablePiece(): PieceType =
-        CAPTURABLE_TYPES[random.nextInt(CAPTURABLE_TYPES.size)]
+    private fun randomCapturablePiece(): PieceType = CAPTURABLE_TYPES[random.nextInt(CAPTURABLE_TYPES.size)]
 
     /**
      * Empty cells from which a piece of [type] could legally capture onto [from] (i.e. squares the
@@ -315,8 +314,7 @@ class SoloChessGame(
     private fun isSolved(): Boolean = pieces.size == 1
 
     /** True when the board is unsolved yet no piece has any legal capture, so only a restart helps. */
-    private fun isStuck(): Boolean =
-        pieces.size > 1 && pieces.keys.none { captureTargets(it).isNotEmpty() }
+    private fun isStuck(): Boolean = pieces.size > 1 && pieces.keys.none { captureTargets(it).isNotEmpty() }
 
     override fun isCorrect(input: String): Boolean = isSolved()
 
@@ -355,18 +353,36 @@ class SoloChessGame(
         )
 
         private val KNIGHT_OFFSETS = arrayOf(
-            intArrayOf(1, 2), intArrayOf(2, 1), intArrayOf(2, -1), intArrayOf(1, -2),
-            intArrayOf(-1, -2), intArrayOf(-2, -1), intArrayOf(-2, 1), intArrayOf(-1, 2),
+            intArrayOf(1, 2),
+            intArrayOf(2, 1),
+            intArrayOf(2, -1),
+            intArrayOf(1, -2),
+            intArrayOf(-1, -2),
+            intArrayOf(-2, -1),
+            intArrayOf(-2, 1),
+            intArrayOf(-1, 2),
         )
         private val KING_OFFSETS = arrayOf(
-            intArrayOf(1, 0), intArrayOf(-1, 0), intArrayOf(0, 1), intArrayOf(0, -1),
-            intArrayOf(1, 1), intArrayOf(-1, 1), intArrayOf(1, -1), intArrayOf(-1, -1),
+            intArrayOf(1, 0),
+            intArrayOf(-1, 0),
+            intArrayOf(0, 1),
+            intArrayOf(0, -1),
+            intArrayOf(1, 1),
+            intArrayOf(-1, 1),
+            intArrayOf(1, -1),
+            intArrayOf(-1, -1),
         )
         private val ROOK_DIRECTIONS = arrayOf(
-            intArrayOf(1, 0), intArrayOf(-1, 0), intArrayOf(0, 1), intArrayOf(0, -1),
+            intArrayOf(1, 0),
+            intArrayOf(-1, 0),
+            intArrayOf(0, 1),
+            intArrayOf(0, -1),
         )
         private val BISHOP_DIRECTIONS = arrayOf(
-            intArrayOf(1, 1), intArrayOf(-1, 1), intArrayOf(1, -1), intArrayOf(-1, -1),
+            intArrayOf(1, 1),
+            intArrayOf(-1, 1),
+            intArrayOf(1, -1),
+            intArrayOf(-1, -1),
         )
     }
 }
