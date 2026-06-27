@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -14,6 +13,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.PrismToggle
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -173,10 +173,7 @@ private fun SettingsToggleRow(
                 )
             }
             Spacer(Modifier.width(16.dp))
-            Switch(
-                checked = checked,
-                onCheckedChange = { onToggle() },
-            )
+            PrismToggle(checked = checked)
         }
     }
 }
