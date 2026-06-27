@@ -12,20 +12,22 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzle
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.PrismTile
-import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.StringResource
@@ -57,6 +59,11 @@ fun NormalSudokuMenuScreen(
         ) {
             grouped.forEach { (difficulty, list) ->
                 val tierCompleted = list.count { it.id in completed }
+                // Puzzles in a tier must be played in order: only completed puzzles and the next
+                // unsolved one are unlocked; everything past it stays locked, so you can't skip
+                // ahead. This also keeps the completed set a contiguous prefix, which is exactly
+                // what the incremental tier achievement counts and restores.
+                val firstUnsolved = list.indexOfFirst { it.id !in completed }
                 item(span = { GridItemSpan(maxLineSpan) }, key = "header-${difficulty.name}") {
                     DifficultyHeader(
                         label = stringResource(difficulty.labelRes()),
@@ -65,13 +72,18 @@ fun NormalSudokuMenuScreen(
                     )
                 }
                 items(list, key = { it.id }, span = { GridItemSpan(1) }) { puzzle ->
+                    val index = list.indexOf(puzzle)
+                    val isCompleted = puzzle.id in completed
+                    // Already-solved puzzles stay replayable; only not-yet-solved ones past the
+                    // next playable puzzle are locked (handles legacy non-prefix completion too).
+                    val isLocked = !isCompleted && firstUnsolved != -1 && index > firstUnsolved
                     PuzzleTile(
-                        puzzle = puzzle,
-                        indexInTier = list.indexOf(puzzle) + 1,
-                        isCompleted = puzzle.id in completed,
-                        hasProgress = puzzle.id !in completed &&
+                        indexInTier = index + 1,
+                        isCompleted = isCompleted,
+                        isLocked = isLocked,
+                        hasProgress = !isCompleted && !isLocked &&
                             storage.getNormalSudokuProgress(puzzle.id) != null,
-                        onClick = { onPuzzleSelected(puzzle.id) },
+                        onClick = { if (!isLocked) onPuzzleSelected(puzzle.id) },
                     )
                 }
             }
@@ -104,9 +116,9 @@ private fun DifficultyHeader(label: String, completed: Int, total: Int) {
 
 @Composable
 private fun PuzzleTile(
-    puzzle: NormalSudokuPuzzle,
     indexInTier: Int,
     isCompleted: Boolean,
+    isLocked: Boolean,
     hasProgress: Boolean,
     onClick: () -> Unit,
 ) {
@@ -121,19 +133,27 @@ private fun PuzzleTile(
     }
     PrismTile(
         face = face,
+        isClickable = !isLocked,
         modifier = Modifier
-            .hoverHand()
             .fillMaxWidth()
-            .height(72.dp),
+            .height(72.dp)
+            .alpha(if (isLocked) 0.5f else 1f),
         onClick = onClick,
     ) {
         Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
-            Text(
-                text = stringResource(Res.string.normal_sudoku_puzzle_label, indexInTier),
-                style = MaterialTheme.typography.titleMedium,
-                color = contentColor,
-                fontWeight = FontWeight.SemiBold,
-            )
+            if (isLocked) {
+                ChunkyLock(
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.size(22.dp),
+                )
+            } else {
+                Text(
+                    text = stringResource(Res.string.normal_sudoku_puzzle_label, indexInTier),
+                    style = MaterialTheme.typography.titleMedium,
+                    color = contentColor,
+                    fontWeight = FontWeight.SemiBold,
+                )
+            }
             if (isCompleted) {
                 ChunkyCheck(
                     color = Color.White,
@@ -180,6 +200,38 @@ private fun ChunkyCheck(color: Color, modifier: Modifier = Modifier) {
             end = Offset(w * 0.92f, h * 0.20f),
             strokeWidth = stroke,
             cap = StrokeCap.Round,
+        )
+    }
+}
+
+/**
+ * A hand-drawn padlock that matches the chunky check above, marking a puzzle still locked
+ * behind an earlier one in its tier.
+ */
+@Composable
+private fun ChunkyLock(color: Color, modifier: Modifier = Modifier) {
+    Canvas(modifier) {
+        val w = size.width
+        val h = size.height
+        val stroke = minOf(w, h) * 0.15f
+        val shackleW = w * 0.42f
+        val shackleLeft = (w - shackleW) / 2f
+        // Shackle: the top semicircle; its endpoints tuck behind the body.
+        drawArc(
+            color = color,
+            startAngle = 180f,
+            sweepAngle = 180f,
+            useCenter = false,
+            topLeft = Offset(shackleLeft, h * 0.10f),
+            size = Size(shackleW, h * 0.70f),
+            style = Stroke(width = stroke, cap = StrokeCap.Round),
+        )
+        // Body.
+        drawRoundRect(
+            color = color,
+            topLeft = Offset(w * 0.20f, h * 0.45f),
+            size = Size(w * 0.60f, h * 0.45f),
+            cornerRadius = CornerRadius(w * 0.12f, w * 0.12f),
         )
     }
 }

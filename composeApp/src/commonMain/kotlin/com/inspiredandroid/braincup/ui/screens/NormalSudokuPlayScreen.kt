@@ -85,7 +85,7 @@ fun NormalSudokuPlayScreen(
                 // completed set BEFORE we add to it via markNormalSudokuCompleted.
                 xpGained = storage.awardNormalSudokuCompletionXp(puzzle.id, puzzle.difficulty).xpGained
                 solved = true
-                storage.markNormalSudokuCompleted(puzzle.id)
+                storage.markNormalSudokuCompleted(puzzle.id, puzzle.difficulty)
             } else {
                 lastWrongFlash = currentTimeMillis()
             }

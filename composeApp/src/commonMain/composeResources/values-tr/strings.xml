@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Toplam 10.000 puan biriktir</string>
     <string name="achievement_iron_streak_desc">30 gün üst üste antren</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Sudoku Filizi</string>
+    <string name="achievement_sudoku_beginner_desc">Başlangıç seviyesindeki 10 bulmacanın tümünü çöz</string>
+    <string name="achievement_sudoku_easy">Sudoku Bilgini</string>
+    <string name="achievement_sudoku_easy_desc">Kolay seviyesindeki 10 bulmacanın tümünü çöz</string>
+    <string name="achievement_sudoku_medium">Sudoku Stratejisti</string>
+    <string name="achievement_sudoku_medium_desc">Orta seviyesindeki 10 bulmacanın tümünü çöz</string>
+    <string name="achievement_sudoku_hard">Sudoku Avcısı</string>
+    <string name="achievement_sudoku_hard_desc">Zor seviyesindeki 10 bulmacanın tümünü çöz</string>
+    <string name="achievement_sudoku_expert">Sudoku Hükümdarı</string>
+    <string name="achievement_sudoku_expert_desc">Uzman seviyesindeki 10 bulmacanın tümünü çöz</string>
     <!-- Flags game -->
     <string name="game_flags">Bayraklar</string>
     <string name="game_flags_desc">Bayrağına bakarak ülkeyi tahmin et. Her tur daha fazla seçenek ekler ve süre işliyor.</string>

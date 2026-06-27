@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">สะสมแต้มรวม 10,000 แต้ม</string>
     <string name="achievement_iron_streak_desc">ฝึก 30 วันติดต่อกัน</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">หน่อซูโดกุ</string>
+    <string name="achievement_sudoku_beginner_desc">ไขปริศนาระดับเริ่มต้นครบทั้ง 10 ข้อ</string>
+    <string name="achievement_sudoku_easy">นักปราชญ์ซูโดกุ</string>
+    <string name="achievement_sudoku_easy_desc">ไขปริศนาระดับง่ายครบทั้ง 10 ข้อ</string>
+    <string name="achievement_sudoku_medium">นักวางแผนซูโดกุ</string>
+    <string name="achievement_sudoku_medium_desc">ไขปริศนาระดับปานกลางครบทั้ง 10 ข้อ</string>
+    <string name="achievement_sudoku_hard">นักปราบซูโดกุ</string>
+    <string name="achievement_sudoku_hard_desc">ไขปริศนาระดับยากครบทั้ง 10 ข้อ</string>
+    <string name="achievement_sudoku_expert">เจ้าแห่งซูโดกุ</string>
+    <string name="achievement_sudoku_expert_desc">ไขปริศนาระดับผู้เชี่ยวชาญครบทั้ง 10 ข้อ</string>
     <!-- Flags game -->
     <string name="game_flags">ธง</string>
     <string name="game_flags_desc">ทายประเทศจากธงของมัน แต่ละรอบมีตัวเลือกเพิ่มขึ้นและเวลากำลังนับถอยหลัง</string>

@@ -28,16 +28,23 @@
     <string name="achievementRectangleMaster" translatable="false">CgkIuZrirtIVEAIQHQ</string>
     <string name="achievementWallBuilder" translatable="false">CgkIuZrirtIVEAIQHg</string>
     <string name="achievementCatHerder" translatable="false">CgkIuZrirtIVEAIQHw</string>
-    <!-- Placeholder: fill in the console-assigned ID once the Knot achievement is created in Play console. -->
-    <string name="achievementUntangler" translatable="false"></string>
-    <!-- Placeholder: fill in the console-assigned ID once the Solo Chess achievement is created in Play console. -->
-    <string name="achievementLastPieceStanding" translatable="false"></string>
+    <!-- achievement Untangler (Knot) -->
+    <string name="achievementUntangler" translatable="false">CgkIuZrirtIVEAIQIA</string>
+    <!-- achievement Last Piece Standing (Solo Chess) -->
+    <string name="achievementLastPieceStanding" translatable="false">CgkIuZrirtIVEAIQIQ</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->
     <string name="achievementMindMarathoner" translatable="false">CgkIuZrirtIVEAIQFQ</string>
     <!-- Standard -->
     <string name="achievementIronStreak" translatable="false">CgkIuZrirtIVEAIQFg</string>
+
+    <!-- Normal Sudoku per-difficulty tiers (incremental, max steps = 10). -->
+    <string name="achievementSudokuBeginner" translatable="false">CgkIuZrirtIVEAIQIg</string>
+    <string name="achievementSudokuEasy" translatable="false">CgkIuZrirtIVEAIQIw</string>
+    <string name="achievementSudokuMedium" translatable="false">CgkIuZrirtIVEAIQJA</string>
+    <string name="achievementSudokuHard" translatable="false">CgkIuZrirtIVEAIQJQ</string>
+    <string name="achievementSudokuExpert" translatable="false">CgkIuZrirtIVEAIQJg</string>
 
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>

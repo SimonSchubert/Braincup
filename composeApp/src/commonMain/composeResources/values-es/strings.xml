@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Acumula 10.000 puntos en total</string>
     <string name="achievement_iron_streak_desc">Entrena 30 días seguidos</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Brote de Sudoku</string>
+    <string name="achievement_sudoku_beginner_desc">Resuelve los 10 puzzles del nivel Principiante</string>
+    <string name="achievement_sudoku_easy">Erudito del Sudoku</string>
+    <string name="achievement_sudoku_easy_desc">Resuelve los 10 puzzles del nivel Fácil</string>
+    <string name="achievement_sudoku_medium">Estratega del Sudoku</string>
+    <string name="achievement_sudoku_medium_desc">Resuelve los 10 puzzles del nivel Medio</string>
+    <string name="achievement_sudoku_hard">Verdugo del Sudoku</string>
+    <string name="achievement_sudoku_hard_desc">Resuelve los 10 puzzles del nivel Difícil</string>
+    <string name="achievement_sudoku_expert">Soberano del Sudoku</string>
+    <string name="achievement_sudoku_expert_desc">Resuelve los 10 puzzles del nivel Experto</string>
     <!-- Flags game -->
     <string name="game_flags">Banderas</string>
     <string name="game_flags_desc">Identifica el país por su bandera. Cada ronda añade más opciones y el reloj corre.</string>

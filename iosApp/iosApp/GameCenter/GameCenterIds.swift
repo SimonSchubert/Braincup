@@ -39,11 +39,24 @@ enum GameCenterIds {
         "FLAGS": "leaderboard.flag_master",
     ]
 
+    // Normal Sudoku per-difficulty incremental tiers. Keyed by SudokuDifficulty `name`
+    // (e.g. "BEGINNER") for the same reason as the per-game map above.
+    private static let sudokuTiersByName: [String: String] = [
+        // NB: the Beginner tier was registered on Game Center as "sudoku_beginner"
+        // (not "sudoku_sprout"); IDs are immutable, so the code matches the store.
+        "BEGINNER": "achievement.sudoku_beginner",
+        "EASY":     "achievement.sudoku_scholar",
+        "MEDIUM":   "achievement.sudoku_strategist",
+        "HARD":     "achievement.sudoku_slayer",
+        "EXPERT":   "achievement.sudoku_sovereign",
+    ]
+
     static let achievementMindMarathoner = "achievement.mind_marathoner"
     static let achievementIronStreak     = "achievement.iron_streak"
     static let leaderboardBrainCup       = "leaderboard.brain_cup"
 
     static let mindMarathonerTarget = 10_000
+    static let sudokuTierTarget = 10
 
     static func achievement(for game: GameType) -> String? {
         achievementsByGameName[game.name]
@@ -51,6 +64,22 @@ enum GameCenterIds {
 
     static func leaderboard(for game: GameType) -> String? {
         leaderboardsByGameName[game.name]
+    }
+
+    static func sudokuTierAchievement(forName name: String) -> String? {
+        sudokuTiersByName[name]
+    }
+
+    /// Maps a Game Center sudoku-tier ID back to its Kotlin `SudokuDifficulty` (for restore).
+    static func sudokuTier(forGameCenterId id: String) -> SudokuDifficulty? {
+        switch id {
+        case "achievement.sudoku_beginner":   return SudokuDifficulty.beginner
+        case "achievement.sudoku_scholar":    return SudokuDifficulty.easy
+        case "achievement.sudoku_strategist": return SudokuDifficulty.medium
+        case "achievement.sudoku_slayer":     return SudokuDifficulty.hard
+        case "achievement.sudoku_sovereign":  return SudokuDifficulty.expert
+        default: return nil
+        }
     }
 
     /// Inverse of `achievement(for:)` — maps a Game Center ID back to the Kotlin

@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Набери в сумі 10 000 очок</string>
     <string name="achievement_iron_streak_desc">Тренуйся 30 днів поспіль</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Паросток судоку</string>
+    <string name="achievement_sudoku_beginner_desc">Розв'яжіть усі 10 головоломок рівня «Початківець»</string>
+    <string name="achievement_sudoku_easy">Знавець судоку</string>
+    <string name="achievement_sudoku_easy_desc">Розв'яжіть усі 10 головоломок рівня «Легкий»</string>
+    <string name="achievement_sudoku_medium">Стратег судоку</string>
+    <string name="achievement_sudoku_medium_desc">Розв'яжіть усі 10 головоломок рівня «Середній»</string>
+    <string name="achievement_sudoku_hard">Підкорювач судоку</string>
+    <string name="achievement_sudoku_hard_desc">Розв'яжіть усі 10 головоломок рівня «Складний»</string>
+    <string name="achievement_sudoku_expert">Володар судоку</string>
+    <string name="achievement_sudoku_expert_desc">Розв'яжіть усі 10 головоломок рівня «Експерт»</string>
     <!-- Flags game -->
     <string name="game_flags">Прапори</string>
     <string name="game_flags_desc">Вгадай країну за її прапором. Кожен раунд додає більше варіантів, а час спливає.</string>

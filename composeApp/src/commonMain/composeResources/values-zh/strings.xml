@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">累计获得10000分</string>
     <string name="achievement_iron_streak_desc">连续训练30天</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">数独新芽</string>
+    <string name="achievement_sudoku_beginner_desc">解开全部10个入门难度数独</string>
+    <string name="achievement_sudoku_easy">数独学者</string>
+    <string name="achievement_sudoku_easy_desc">解开全部10个简单难度数独</string>
+    <string name="achievement_sudoku_medium">数独策士</string>
+    <string name="achievement_sudoku_medium_desc">解开全部10个中等难度数独</string>
+    <string name="achievement_sudoku_hard">数独征服者</string>
+    <string name="achievement_sudoku_hard_desc">解开全部10个困难难度数独</string>
+    <string name="achievement_sudoku_expert">数独霸主</string>
+    <string name="achievement_sudoku_expert_desc">解开全部10个专家难度数独</string>
     <!-- Flags game -->
     <string name="game_flags">国旗</string>
     <string name="game_flags_desc">通过国旗辨认国家。每一轮选项更多，时间也在流逝。</string>

@@ -5,6 +5,7 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
+import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import com.russhwolf.settings.Settings
@@ -51,6 +52,11 @@ class UserStorage(
         GOLD_DIGIT_MEMORY(Res.string.achievement_gold_digit_memory, Res.string.achievement_gold_digit_memory_desc),
         GOLD_SPOT_THE_NEW(Res.string.achievement_gold_spot_the_new, Res.string.achievement_gold_spot_the_new_desc),
         GOLD_WORDLE(Res.string.achievement_gold_wordle, Res.string.achievement_gold_wordle_desc),
+        SUDOKU_BEGINNER(Res.string.achievement_sudoku_beginner, Res.string.achievement_sudoku_beginner_desc, isMilestone = true),
+        SUDOKU_EASY(Res.string.achievement_sudoku_easy, Res.string.achievement_sudoku_easy_desc, isMilestone = true),
+        SUDOKU_MEDIUM(Res.string.achievement_sudoku_medium, Res.string.achievement_sudoku_medium_desc, isMilestone = true),
+        SUDOKU_HARD(Res.string.achievement_sudoku_hard, Res.string.achievement_sudoku_hard_desc, isMilestone = true),
+        SUDOKU_EXPERT(Res.string.achievement_sudoku_expert, Res.string.achievement_sudoku_expert_desc, isMilestone = true),
         TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc, isMilestone = true),
         STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc, isMilestone = true),
         ;
@@ -58,9 +64,19 @@ class UserStorage(
         companion object {
             fun forGameGold(gameType: GameType): Achievements? = entries.firstOrNull { it.name == "GOLD_${gameType.name}" }
 
+            /** The per-tier "solve all 10" achievement for a Normal Sudoku difficulty. */
+            fun forSudokuTier(difficulty: SudokuDifficulty): Achievements = when (difficulty) {
+                SudokuDifficulty.BEGINNER -> SUDOKU_BEGINNER
+                SudokuDifficulty.EASY -> SUDOKU_EASY
+                SudokuDifficulty.MEDIUM -> SUDOKU_MEDIUM
+                SudokuDifficulty.HARD -> SUDOKU_HARD
+                SudokuDifficulty.EXPERT -> SUDOKU_EXPERT
+            }
+
             /** Achievements in display order: per-game gold medals follow [GameType.displayOrder], then milestones. */
             val displayOrder: List<Achievements> = buildList {
                 addAll(GameType.displayOrder.mapNotNull { forGameGold(it) })
+                addAll(SudokuDifficulty.entries.map { forSudokuTier(it) })
                 add(TOTAL_SCORE_10K)
                 add(STREAK_30)
             }
@@ -70,6 +86,9 @@ class UserStorage(
     companion object {
         const val TOTAL_SCORE_10K_TARGET = 10_000
         const val STREAK_30_TARGET = 30
+
+        /** Puzzles per Normal Sudoku difficulty tier, and the step target of each tier achievement. */
+        const val SUDOKU_TIER_TARGET = 10
 
         const val KEY_APP_OPEN_COMBO = "app_open_combo"
         const val KEY_APP_OPEN_DAY = "app_open_day"
@@ -322,12 +341,50 @@ class UserStorage(
         ?.toSet()
         ?: emptySet()
 
-    fun markNormalSudokuCompleted(id: String) {
+    fun markNormalSudokuCompleted(id: String, difficulty: SudokuDifficulty) {
         val current = getCompletedNormalSudokuIds()
         if (id in current) return
         val updated = current + id
         settings.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
         settings.remove(normalSudokuProgressKey(id))
+        reportSudokuTierProgress(difficulty, updated)
+    }
+
+    /** Solved puzzle count for a difficulty tier, derived from the completed set. */
+    private fun solvedCountInTier(difficulty: SudokuDifficulty, completed: Set<String>): Int {
+        val tierIds = NormalSudokuPuzzles.byDifficulty(difficulty).map { it.id }.toSet()
+        return completed.count { it in tierIds }
+    }
+
+    /** Push the tier's solved count to the store achievement and unlock it once the tier is complete. */
+    private fun reportSudokuTierProgress(difficulty: SudokuDifficulty, completed: Set<String>) {
+        val solvedInTier = solvedCountInTier(difficulty, completed)
+        PlayGamesBridge.onSudokuTierProgress?.invoke(difficulty, solvedInTier)
+        if (solvedInTier >= SUDOKU_TIER_TARGET) {
+            unlockAchievement(Achievements.forSudokuTier(difficulty))
+        }
+    }
+
+    /**
+     * Raise a Normal Sudoku tier's solved count to [remoteCount] if it beats the local count
+     * (e.g. restoring incremental achievement progress from Play Games / Game Center on a fresh
+     * install). Only the count is recoverable from an achievement, so the first [remoteCount]
+     * puzzles of the tier are marked completed. Keeps the menu badge, per-puzzle checkmarks, XP
+     * dedup, and the next progress-report baseline consistent.
+     *
+     * Returns true if the local value was changed.
+     */
+    fun restoreSudokuTierProgressIfHigher(difficulty: SudokuDifficulty, remoteCount: Int): Boolean {
+        if (remoteCount <= 0) return false
+        val current = getCompletedNormalSudokuIds()
+        if (remoteCount <= solvedCountInTier(difficulty, current)) return false
+        val tierIds = NormalSudokuPuzzles.byDifficulty(difficulty).map { it.id }
+        val updated = current + tierIds.take(remoteCount)
+        settings.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
+        if (remoteCount >= SUDOKU_TIER_TARGET) {
+            unlockAchievement(Achievements.forSudokuTier(difficulty))
+        }
+        return true
     }
 
     /** Resume state: 81-char board where '0' = empty user cell, '1'..'9' = entered digit. */

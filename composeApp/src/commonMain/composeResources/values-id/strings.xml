@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Kumpulkan total 10.000 poin</string>
     <string name="achievement_iron_streak_desc">Berlatih 30 hari berturut-turut</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Tunas Sudoku</string>
+    <string name="achievement_sudoku_beginner_desc">Selesaikan semua 10 teka-teki level Pemula</string>
+    <string name="achievement_sudoku_easy">Cendekiawan Sudoku</string>
+    <string name="achievement_sudoku_easy_desc">Selesaikan semua 10 teka-teki level Mudah</string>
+    <string name="achievement_sudoku_medium">Ahli Strategi Sudoku</string>
+    <string name="achievement_sudoku_medium_desc">Selesaikan semua 10 teka-teki level Sedang</string>
+    <string name="achievement_sudoku_hard">Penakluk Sudoku</string>
+    <string name="achievement_sudoku_hard_desc">Selesaikan semua 10 teka-teki level Sulit</string>
+    <string name="achievement_sudoku_expert">Penguasa Sudoku</string>
+    <string name="achievement_sudoku_expert_desc">Selesaikan semua 10 teka-teki level Ahli</string>
     <!-- Flags game -->
     <string name="game_flags">Bendera</string>
     <string name="game_flags_desc">Tebak negara dari benderanya. Setiap ronde menambahkan lebih banyak pilihan dan waktu terus berjalan.</string>

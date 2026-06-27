@@ -10,6 +10,7 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.R
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import java.lang.ref.WeakReference
 
 private const val TAG = "PlayGamesBridge"
@@ -60,6 +61,13 @@ fun initPlayGames(activity: ComponentActivity) {
         val id = current.getString(R.string.achievementIronStreak)
         if (id.isBlank()) return
         PlayGames.getAchievementsClient(current).unlock(id)
+    }
+
+    PlayGamesBridge.onSudokuTierProgress = fun(difficulty: SudokuDifficulty, solved: Int) {
+        val current = activityRef?.get() ?: return
+        val id = current.getString(sudokuTierAchievementResIdFor(difficulty))
+        if (id.isBlank()) return
+        PlayGames.getAchievementsClient(current).setSteps(id, solved.coerceAtMost(UserStorage.SUDOKU_TIER_TARGET))
     }
 
     PlayGamesBridge.onSubmitScore = fun(gameType: GameType, score: Int) {
@@ -196,11 +204,18 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
         val buffer = annotatedData.get() ?: return@addOnSuccessListener
         try {
             val unlockedIds = mutableSetOf<String>()
+            // Current step count of incremental achievements (e.g. the Sudoku tiers), so we can
+            // restore partial progress, not just the all-or-nothing unlocked state.
+            val incrementalSteps = mutableMapOf<String, Int>()
             for (ach in buffer) {
                 if (ach.state == Achievement.STATE_UNLOCKED) {
                     unlockedIds.add(ach.achievementId)
                 }
+                if (ach.type == Achievement.TYPE_INCREMENTAL) {
+                    incrementalSteps[ach.achievementId] = ach.currentSteps
+                }
             }
+            val storage = UserStorage()
             val toRestore = mutableSetOf<UserStorage.Achievements>()
             for (gameType in GameType.entries) {
                 val resId = achievementResIdFor(gameType) ?: continue
@@ -216,7 +231,16 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
             if (streakId.isNotBlank() && streakId in unlockedIds) {
                 toRestore.add(UserStorage.Achievements.STREAK_30)
             }
-            UserStorage().restoreUnlockedAchievements(toRestore)
+            storage.restoreUnlockedAchievements(toRestore)
+
+            for (difficulty in SudokuDifficulty.entries) {
+                val tierId = activity.getString(sudokuTierAchievementResIdFor(difficulty))
+                if (tierId.isBlank()) continue
+                val steps = incrementalSteps[tierId] ?: continue
+                if (steps > 0) {
+                    storage.restoreSudokuTierProgressIfHigher(difficulty, steps)
+                }
+            }
         } finally {
             buffer.release()
         }
@@ -252,6 +276,14 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.SPOT_THE_NEW -> R.string.achievementFreshEyes
     GameType.FLAGS -> R.string.achievementFlagBearer
     GameType.WORDLE -> R.string.achievementWordsmith
+}
+
+private fun sudokuTierAchievementResIdFor(difficulty: SudokuDifficulty): Int = when (difficulty) {
+    SudokuDifficulty.BEGINNER -> R.string.achievementSudokuBeginner
+    SudokuDifficulty.EASY -> R.string.achievementSudokuEasy
+    SudokuDifficulty.MEDIUM -> R.string.achievementSudokuMedium
+    SudokuDifficulty.HARD -> R.string.achievementSudokuHard
+    SudokuDifficulty.EXPERT -> R.string.achievementSudokuExpert
 }
 
 private fun leaderboardResIdFor(gameType: GameType): Int? = when (gameType) {

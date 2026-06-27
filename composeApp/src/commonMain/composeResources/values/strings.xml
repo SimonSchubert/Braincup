@@ -375,6 +375,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Accumulate 10,000 total points</string>
     <string name="achievement_iron_streak_desc">Train for 30 days in a row</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Sudoku Sprout</string>
+    <string name="achievement_sudoku_beginner_desc">Solve all 10 Beginner puzzles</string>
+    <string name="achievement_sudoku_easy">Sudoku Scholar</string>
+    <string name="achievement_sudoku_easy_desc">Solve all 10 Easy puzzles</string>
+    <string name="achievement_sudoku_medium">Sudoku Strategist</string>
+    <string name="achievement_sudoku_medium_desc">Solve all 10 Medium puzzles</string>
+    <string name="achievement_sudoku_hard">Sudoku Slayer</string>
+    <string name="achievement_sudoku_hard_desc">Solve all 10 Hard puzzles</string>
+    <string name="achievement_sudoku_expert">Sudoku Sovereign</string>
+    <string name="achievement_sudoku_expert_desc">Solve all 10 Expert puzzles</string>
     <!-- Flags game -->
     <string name="game_flags">Flags</string>
     <string name="game_flags_desc">Identify the country by its flag. Each round adds more options and the clock is ticking.</string>

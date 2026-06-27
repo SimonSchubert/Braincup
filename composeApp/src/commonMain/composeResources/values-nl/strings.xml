@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Verzamel in totaal 10.000 punten</string>
     <string name="achievement_iron_streak_desc">Train 30 dagen op rij</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Sudoku-spruit</string>
+    <string name="achievement_sudoku_beginner_desc">Los alle 10 puzzels van niveau Beginner op</string>
+    <string name="achievement_sudoku_easy">Sudoku-geleerde</string>
+    <string name="achievement_sudoku_easy_desc">Los alle 10 puzzels van niveau Makkelijk op</string>
+    <string name="achievement_sudoku_medium">Sudoku-strateeg</string>
+    <string name="achievement_sudoku_medium_desc">Los alle 10 puzzels van niveau Gemiddeld op</string>
+    <string name="achievement_sudoku_hard">Sudoku-beul</string>
+    <string name="achievement_sudoku_hard_desc">Los alle 10 puzzels van niveau Moeilijk op</string>
+    <string name="achievement_sudoku_expert">Sudoku-soeverein</string>
+    <string name="achievement_sudoku_expert_desc">Los alle 10 puzzels van niveau Expert op</string>
     <!-- Flags game -->
     <string name="game_flags">Vlaggen</string>
     <string name="game_flags_desc">Herken het land aan zijn vlag. Elke ronde voegt meer opties toe en de klok tikt.</string>

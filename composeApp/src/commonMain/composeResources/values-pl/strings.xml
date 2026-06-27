@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Zdobądź łącznie 10 000 punktów</string>
     <string name="achievement_iron_streak_desc">Trenuj przez 30 dni z rzędu</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Kiełek Sudoku</string>
+    <string name="achievement_sudoku_beginner_desc">Rozwiąż wszystkie 10 łamigłówek na poziomie Początkujący</string>
+    <string name="achievement_sudoku_easy">Uczony Sudoku</string>
+    <string name="achievement_sudoku_easy_desc">Rozwiąż wszystkie 10 łamigłówek na poziomie Łatwy</string>
+    <string name="achievement_sudoku_medium">Strateg Sudoku</string>
+    <string name="achievement_sudoku_medium_desc">Rozwiąż wszystkie 10 łamigłówek na poziomie Średni</string>
+    <string name="achievement_sudoku_hard">Pogromca Sudoku</string>
+    <string name="achievement_sudoku_hard_desc">Rozwiąż wszystkie 10 łamigłówek na poziomie Trudny</string>
+    <string name="achievement_sudoku_expert">Władca Sudoku</string>
+    <string name="achievement_sudoku_expert_desc">Rozwiąż wszystkie 10 łamigłówek na poziomie Ekspert</string>
     <!-- Flags game -->
     <string name="game_flags">Flagi</string>
     <string name="game_flags_desc">Rozpoznaj kraj po jego fladze. Każda runda dodaje więcej opcji, a czas ucieka.</string>

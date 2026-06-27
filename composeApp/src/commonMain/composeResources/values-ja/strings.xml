@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">累計10,000ポイントを獲得</string>
     <string name="achievement_iron_streak_desc">30日連続で訓練</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">数独の芽</string>
+    <string name="achievement_sudoku_beginner_desc">入門レベルのパズルを10問すべて解く</string>
+    <string name="achievement_sudoku_easy">数独の学者</string>
+    <string name="achievement_sudoku_easy_desc">簡単レベルのパズルを10問すべて解く</string>
+    <string name="achievement_sudoku_medium">数独の戦略家</string>
+    <string name="achievement_sudoku_medium_desc">普通レベルのパズルを10問すべて解く</string>
+    <string name="achievement_sudoku_hard">数独の征服者</string>
+    <string name="achievement_sudoku_hard_desc">難しいレベルのパズルを10問すべて解く</string>
+    <string name="achievement_sudoku_expert">数独の覇者</string>
+    <string name="achievement_sudoku_expert_desc">上級レベルのパズルを10問すべて解く</string>
     <!-- Flags game -->
     <string name="game_flags">国旗</string>
     <string name="game_flags_desc">国旗から国を当てよう。ラウンドごとに選択肢が増え、時間も限られています。</string>

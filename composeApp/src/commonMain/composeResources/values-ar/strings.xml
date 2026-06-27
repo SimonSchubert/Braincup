@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">اجمع ١٠٬٠٠٠ نقطة في المجموع</string>
     <string name="achievement_iron_streak_desc">تدرّب ٣٠ يومًا متتاليًا</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">برعم سودوكو</string>
+    <string name="achievement_sudoku_beginner_desc">حل جميع الألغاز العشرة لمستوى مبتدئ</string>
+    <string name="achievement_sudoku_easy">عالم سودوكو</string>
+    <string name="achievement_sudoku_easy_desc">حل جميع الألغاز العشرة لمستوى سهل</string>
+    <string name="achievement_sudoku_medium">خبير خطط سودوكو</string>
+    <string name="achievement_sudoku_medium_desc">حل جميع الألغاز العشرة لمستوى متوسط</string>
+    <string name="achievement_sudoku_hard">قاهر سودوكو</string>
+    <string name="achievement_sudoku_hard_desc">حل جميع الألغاز العشرة لمستوى صعب</string>
+    <string name="achievement_sudoku_expert">سيد سودوكو</string>
+    <string name="achievement_sudoku_expert_desc">حل جميع الألغاز العشرة لمستوى خبير</string>
     <!-- Flags game -->
     <string name="game_flags">الأعلام</string>
     <string name="game_flags_desc">تعرّف على الدولة من علمها. كل جولة تضيف المزيد من الخيارات والوقت يمضي.</string>

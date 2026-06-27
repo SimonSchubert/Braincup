@@ -57,6 +57,17 @@ final class GameCenterBridge: NSObject {
             self?.reportAchievement(id: GameCenterIds.achievementIronStreak, percent: 100)
         }
 
+        bridge.onSudokuTierProgress = { [weak self] difficulty, solved in
+            let count = Double(Int(truncating: solved))
+            let target = Double(GameCenterIds.sudokuTierTarget)
+            let percent = min(100.0, count * 100.0 / target)
+            self?.reportAchievement(
+                id: GameCenterIds.sudokuTierAchievement(forName: difficulty.name),
+                percent: percent,
+                showsBanner: percent >= 100
+            )
+        }
+
         bridge.onSubmitScore = { [weak self] gameType, score in
             guard let id = GameCenterIds.leaderboard(for: gameType) else { return }
             self?.submitScore(Int(truncating: score), leaderboardID: id)
@@ -86,14 +97,28 @@ final class GameCenterBridge: NSObject {
     private func restoreAchievements() {
         GKAchievement.loadAchievements { achievements, error in
             guard error == nil, let achievements = achievements else { return }
+            let storage = MainViewControllerKt.createUserStorage()
+
             var toRestore = Set<UserStorage.Achievements>()
             for a in achievements where a.percentComplete >= 100 {
                 if let mapped = GameCenterIds.userStorageAchievement(forGameCenterId: a.identifier) {
                     toRestore.insert(mapped)
                 }
             }
-            guard !toRestore.isEmpty else { return }
-            MainViewControllerKt.createUserStorage().restoreUnlockedAchievements(achievements: toRestore)
+            if !toRestore.isEmpty {
+                storage.restoreUnlockedAchievements(achievements: toRestore)
+            }
+
+            // Restore partial Normal Sudoku tier progress: only the count is recoverable, so
+            // convert percentComplete back to a solved count and seed local progress.
+            let target = Double(GameCenterIds.sudokuTierTarget)
+            for a in achievements {
+                guard let difficulty = GameCenterIds.sudokuTier(forGameCenterId: a.identifier) else { continue }
+                let count = Int((a.percentComplete / 100.0 * target).rounded())
+                if count > 0 {
+                    storage.restoreSudokuTierProgressIfHigher(difficulty: difficulty, remoteCount: Int32(count))
+                }
+            }
         }
     }
 

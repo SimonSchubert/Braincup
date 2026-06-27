@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">총 10,000점 누적</string>
     <string name="achievement_iron_streak_desc">30일 연속 훈련</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">스도쿠 새싹</string>
+    <string name="achievement_sudoku_beginner_desc">입문 난이도 퍼즐 10개를 모두 풀기</string>
+    <string name="achievement_sudoku_easy">스도쿠 학자</string>
+    <string name="achievement_sudoku_easy_desc">쉬움 난이도 퍼즐 10개를 모두 풀기</string>
+    <string name="achievement_sudoku_medium">스도쿠 전략가</string>
+    <string name="achievement_sudoku_medium_desc">보통 난이도 퍼즐 10개를 모두 풀기</string>
+    <string name="achievement_sudoku_hard">스도쿠 정복자</string>
+    <string name="achievement_sudoku_hard_desc">어려움 난이도 퍼즐 10개를 모두 풀기</string>
+    <string name="achievement_sudoku_expert">스도쿠 군주</string>
+    <string name="achievement_sudoku_expert_desc">전문가 난이도 퍼즐 10개를 모두 풀기</string>
     <!-- Flags game -->
     <string name="game_flags">국기</string>
     <string name="game_flags_desc">국기를 보고 나라를 맞혀보세요. 라운드마다 선택지가 늘어나고 시간이 흘러갑니다.</string>

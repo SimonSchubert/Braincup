@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Accumule 10 000 points au total</string>
     <string name="achievement_iron_streak_desc">Entraîne-toi 30 jours d'affilée</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Pousse de Sudoku</string>
+    <string name="achievement_sudoku_beginner_desc">Résous les 10 grilles du niveau Débutant</string>
+    <string name="achievement_sudoku_easy">Érudit du Sudoku</string>
+    <string name="achievement_sudoku_easy_desc">Résous les 10 grilles du niveau Facile</string>
+    <string name="achievement_sudoku_medium">Stratège du Sudoku</string>
+    <string name="achievement_sudoku_medium_desc">Résous les 10 grilles du niveau Moyen</string>
+    <string name="achievement_sudoku_hard">Tueur de Sudoku</string>
+    <string name="achievement_sudoku_hard_desc">Résous les 10 grilles du niveau Difficile</string>
+    <string name="achievement_sudoku_expert">Souverain du Sudoku</string>
+    <string name="achievement_sudoku_expert_desc">Résous les 10 grilles du niveau Expert</string>
     <!-- Flags game -->
     <string name="game_flags">Drapeaux</string>
     <string name="game_flags_desc">Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d\'options et le temps s\'écoule.</string>

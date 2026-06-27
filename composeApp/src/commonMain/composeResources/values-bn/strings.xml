@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">মোট ১০,০০০ পয়েন্ট সংগ্রহ করুন</string>
     <string name="achievement_iron_streak_desc">টানা ৩০ দিন অনুশীলন করুন</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">সুডোকু অঙ্কুর</string>
+    <string name="achievement_sudoku_beginner_desc">শিক্ষানবিস স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
+    <string name="achievement_sudoku_easy">সুডোকু পণ্ডিত</string>
+    <string name="achievement_sudoku_easy_desc">সহজ স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
+    <string name="achievement_sudoku_medium">সুডোকু কৌশলী</string>
+    <string name="achievement_sudoku_medium_desc">মাঝারি স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
+    <string name="achievement_sudoku_hard">সুডোকু বিজয়ী</string>
+    <string name="achievement_sudoku_hard_desc">কঠিন স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
+    <string name="achievement_sudoku_expert">সুডোকু সম্রাট</string>
+    <string name="achievement_sudoku_expert_desc">বিশেষজ্ঞ স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
     <!-- Flags game -->
     <string name="game_flags">পতাকা</string>
     <string name="game_flags_desc">পতাকা দেখে দেশ শনাক্ত করুন। প্রতিটি রাউন্ডে আরও বিকল্প যোগ হয় এবং সময় চলতে থাকে।</string>

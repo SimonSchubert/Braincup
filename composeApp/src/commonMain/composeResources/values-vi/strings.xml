@@ -265,6 +265,18 @@
     <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Tích lũy tổng cộng 10.000 điểm</string>
     <string name="achievement_iron_streak_desc">Luyện tập 30 ngày liên tiếp</string>
+
+    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
+    <string name="achievement_sudoku_beginner">Mầm Sudoku</string>
+    <string name="achievement_sudoku_beginner_desc">Giải tất cả 10 câu đố cấp Mới bắt đầu</string>
+    <string name="achievement_sudoku_easy">Học giả Sudoku</string>
+    <string name="achievement_sudoku_easy_desc">Giải tất cả 10 câu đố cấp Dễ</string>
+    <string name="achievement_sudoku_medium">Chiến lược gia Sudoku</string>
+    <string name="achievement_sudoku_medium_desc">Giải tất cả 10 câu đố cấp Trung bình</string>
+    <string name="achievement_sudoku_hard">Sát thủ Sudoku</string>
+    <string name="achievement_sudoku_hard_desc">Giải tất cả 10 câu đố cấp Khó</string>
+    <string name="achievement_sudoku_expert">Bá chủ Sudoku</string>
+    <string name="achievement_sudoku_expert_desc">Giải tất cả 10 câu đố cấp Chuyên gia</string>
     <!-- Flags game -->
     <string name="game_flags">Cờ</string>
     <string name="game_flags_desc">Nhận diện quốc gia qua lá cờ của nó. Mỗi vòng thêm nhiều lựa chọn và thời gian đang trôi.</string>
