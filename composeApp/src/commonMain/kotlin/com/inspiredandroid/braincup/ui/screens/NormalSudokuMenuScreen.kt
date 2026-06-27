@@ -81,7 +81,8 @@ fun NormalSudokuMenuScreen(
                         indexInTier = index + 1,
                         isCompleted = isCompleted,
                         isLocked = isLocked,
-                        hasProgress = !isCompleted && !isLocked &&
+                        hasProgress = !isCompleted &&
+                            !isLocked &&
                             storage.getNormalSudokuProgress(puzzle.id) != null,
                         onClick = { if (!isLocked) onPuzzleSelected(puzzle.id) },
                     )
