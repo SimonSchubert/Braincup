@@ -26,10 +26,14 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
+import com.inspiredandroid.braincup.ui.components.NormalChessTile
+import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
+import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.toImmutableMap
@@ -239,6 +243,28 @@ fun MainMenuScreenContent(
             )
         }
 
+        // Divider separating the mini games from the full-size "normal" games below.
+        item(span = { GridItemSpan(maxLineSpan) }, contentType = "normal_divider") {
+            HorizontalDivider(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                thickness = 2.dp,
+                color = Primary.copy(alpha = 0.5f),
+            )
+        }
+
+        // Full-size "normal" game entries, shown as square tiles alongside the mini games.
+        item(contentType = "normal_sudoku") {
+            NormalSudokuTile(
+                completedCount = normalSudokuCompleted,
+                onClick = onNormalSudoku,
+            )
+        }
+        item(contentType = "normal_chess") {
+            NormalChessTile(onClick = onNormalChess)
+        }
+
         // Footer
         item(span = { GridItemSpan(maxLineSpan) }, contentType = "footer") {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -248,49 +274,28 @@ fun MainMenuScreenContent(
                     face = Primary,
                     modifier = Modifier
                         .hoverHand()
-                        .widthIn(max = 420.dp)
-                        .fillMaxWidth()
                         .height(56.dp),
                     onClick = onAchievements,
                 ) {
-                    Text(
-                        stringResource(Res.string.achievements_button, unlockedCount, UserStorage.Achievements.entries.size),
-                        color = Color.White,
-                    )
-                }
-
-                Spacer(Modifier.height(12.dp))
-
-                PrismTile(
-                    face = Primary,
-                    modifier = Modifier
-                        .hoverHand()
-                        .widthIn(max = 420.dp)
-                        .fillMaxWidth()
-                        .height(56.dp),
-                    onClick = onNormalSudoku,
-                ) {
-                    Text(
-                        stringResource(Res.string.normal_sudoku_button, normalSudokuCompleted, 50),
-                        color = Color.White,
-                    )
-                }
-
-                Spacer(Modifier.height(12.dp))
-
-                PrismTile(
-                    face = Primary,
-                    modifier = Modifier
-                        .hoverHand()
-                        .widthIn(max = 420.dp)
-                        .fillMaxWidth()
-                        .height(56.dp),
-                    onClick = onNormalChess,
-                ) {
-                    Text(
-                        stringResource(Res.string.normal_chess_button),
-                        color = Color.White,
-                    )
+                    Row(
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        modifier = Modifier.padding(horizontal = 12.dp),
+                    ) {
+                        PrismTrophy(
+                            tint = MedalGold,
+                            modifier = Modifier
+                                .size(28.dp),
+                        )
+                        Text(
+                            stringResource(Res.string.achievements_button, unlockedCount, UserStorage.Achievements.entries.size),
+                            color = Color.White,
+                        )
+                        PrismTrophy(
+                            tint = MedalGold,
+                            modifier = Modifier
+                                .size(28.dp),
+                        )
+                    }
                 }
 
                 Spacer(Modifier.height(16.dp))

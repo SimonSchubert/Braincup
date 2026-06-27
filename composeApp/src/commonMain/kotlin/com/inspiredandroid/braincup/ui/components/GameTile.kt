@@ -283,6 +283,80 @@ fun GameTile(
     }
 }
 
+/**
+ * A square tile matching [GameTile]'s look, but for the "normal" (full-size) game entries that are
+ * not real [GameType]s and have no per-game highscore/medal. Caller supplies the label, accent color
+ * and a [preview] drawn the same way as the mini-game previews.
+ */
+/** The full-size 9x9 Sudoku entry, shown as a square tile alongside the mini games. */
+@Composable
+fun NormalSudokuTile(completedCount: Int, onClick: () -> Unit) {
+    NormalGameTile(
+        label = stringResource(Res.string.normal_sudoku_button, completedCount, 50),
+        accentColor = GameType.MINI_SUDOKU.accentColor,
+        onClick = onClick,
+    ) { NormalSudokuPreview() }
+}
+
+/** The full-size 8x8 Chess entry, shown as a square tile alongside the mini games. */
+@Composable
+fun NormalChessTile(onClick: () -> Unit) {
+    NormalGameTile(
+        label = stringResource(Res.string.normal_chess_button),
+        accentColor = GameType.MINI_CHESS.accentColor,
+        onClick = onClick,
+    ) { NormalChessPreview() }
+}
+
+@Composable
+private fun NormalGameTile(
+    label: String,
+    accentColor: Long,
+    onClick: () -> Unit,
+    preview: @Composable () -> Unit,
+) {
+    PrismTile(
+        face = Primary,
+        modifier = Modifier
+            .aspectRatio(1f)
+            .hoverHand(),
+        onClick = onClick,
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .background(ComposeColor(accentColor)),
+                contentAlignment = Alignment.Center,
+            ) {
+                MaterialTheme(colorScheme = LightColorScheme) {
+                    preview()
+                }
+            }
+
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .heightIn(min = 40.dp)
+                    .padding(start = 8.dp, top = 6.dp, bottom = 6.dp, end = 6.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.labelLarge,
+                    color = ComposeColor.White,
+                    // Allow two lines so a longer label with a progress count (e.g. "Normal
+                    // Sudoku (0/50)") stays readable at tile width instead of truncating.
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = Modifier.weight(1f),
+                )
+            }
+        }
+    }
+}
+
 @Composable
 private fun GamePreview(gameType: GameType) {
     when (gameType) {
@@ -628,6 +702,68 @@ private fun MiniSudokuPreview() {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+// A sparse set of givens for the full 9x9 sudoku preview (row to col -> digit).
+private val NormalSudokuGivens: Map<Pair<Int, Int>, Int> = mapOf(
+    (0 to 0) to 5, (0 to 3) to 3, (0 to 7) to 9,
+    (1 to 1) to 8, (1 to 5) to 1,
+    (2 to 4) to 6, (2 to 8) to 2,
+    (3 to 2) to 7, (3 to 6) to 4,
+    (4 to 0) to 9, (4 to 4) to 5, (4 to 8) to 1,
+    (5 to 2) to 4, (5 to 6) to 8,
+    (6 to 0) to 2, (6 to 4) to 7,
+    (7 to 3) to 6, (7 to 7) to 3,
+    (8 to 1) to 1, (8 to 5) to 9, (8 to 8) to 4,
+)
+
+// The full 9x9 board (with bold 3x3 box dividers) reads as "normal" sudoku, distinct from the
+// 2x2 [MiniSudokuPreview].
+@Composable
+private fun NormalSudokuPreview() {
+    val numberFont = numberFontFamily()
+    val textMeasurer = rememberTextMeasurer()
+    val cellColor = LightColorScheme.surface
+    val thinLine = PreviewTextColor.copy(alpha = 0.2f)
+    val boldLine = PreviewTextColor
+    PrismCard(
+        face = PreviewTextColor,
+        facet = 4.dp,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Canvas(modifier = Modifier.fillMaxSize().background(cellColor)) {
+            val n = 9
+            val cell = size.width / n
+            for (i in 0..n) {
+                drawLine(thinLine, Offset(i * cell, 0f), Offset(i * cell, size.height), strokeWidth = 1.dp.toPx())
+                drawLine(thinLine, Offset(0f, i * cell), Offset(size.width, i * cell), strokeWidth = 1.dp.toPx())
+            }
+            val bold = 2.dp.toPx()
+            for (i in 0..n step 3) {
+                drawLine(boldLine, Offset(i * cell, 0f), Offset(i * cell, size.height), strokeWidth = bold)
+                drawLine(boldLine, Offset(0f, i * cell), Offset(size.width, i * cell), strokeWidth = bold)
+            }
+            val style = TextStyle(
+                color = PreviewTextColor,
+                fontSize = (cell * 0.62f).toSp(),
+                fontFamily = numberFont,
+                fontWeight = FontWeight.Bold,
+            )
+            NormalSudokuGivens.forEach { (pos, digit) ->
+                val (row, col) = pos
+                val measured = textMeasurer.measure(AnnotatedString(digit.toString()), style = style)
+                val centerX = col * cell + cell / 2f
+                val centerY = row * cell + cell / 2f
+                drawText(
+                    measured,
+                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+                )
             }
         }
     }
@@ -1245,6 +1381,63 @@ private fun MiniChessPreviewPiece(
             }
         }
         with(painter) { draw(size = size, colorFilter = fill) }
+    }
+}
+
+private val ChessBackRank: List<DrawableResource> = listOf(
+    Res.drawable.ic_chess_rook,
+    Res.drawable.ic_chess_knight,
+    Res.drawable.ic_chess_bishop,
+    Res.drawable.ic_chess_queen,
+    Res.drawable.ic_chess_king,
+    Res.drawable.ic_chess_bishop,
+    Res.drawable.ic_chess_knight,
+    Res.drawable.ic_chess_rook,
+)
+
+// A full 8x8 board in the starting position reads as "normal" chess, distinct from the 3x3
+// [MiniChessPreview]. Reuses [MiniChessPreviewPiece] for the haloed pieces.
+@Composable
+private fun NormalChessPreview() {
+    PrismCard(
+        face = ChessBoardFrame,
+        facet = 4.dp,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Column(modifier = Modifier.fillMaxSize()) {
+            for (row in 0..7) {
+                Row(modifier = Modifier.fillMaxWidth().weight(1f)) {
+                    for (col in 0..7) {
+                        val isLight = (row + col) % 2 == 0
+                        val placement: Pair<DrawableResource, Boolean>? = when (row) {
+                            0 -> ChessBackRank[col] to false
+                            1 -> Res.drawable.ic_chess_pawn to false
+                            6 -> Res.drawable.ic_chess_pawn to true
+                            7 -> ChessBackRank[col] to true
+                            else -> null
+                        }
+                        Box(
+                            modifier = Modifier
+                                .weight(1f)
+                                .fillMaxHeight()
+                                .background(if (isLight) ChessLightSquare else ChessDarkSquare),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            placement?.let { (drawable, isWhite) ->
+                                MiniChessPreviewPiece(
+                                    drawable = drawable,
+                                    isWhite = isWhite,
+                                    modifier = Modifier.fillMaxSize().padding(1.dp),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
