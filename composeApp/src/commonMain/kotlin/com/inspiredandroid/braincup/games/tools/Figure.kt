@@ -1,5 +1,8 @@
 package com.inspiredandroid.braincup.games.tools
 
+import androidx.compose.runtime.Immutable
+
+@Immutable
 data class Figure(
     val shape: Shape,
     val color: Color,

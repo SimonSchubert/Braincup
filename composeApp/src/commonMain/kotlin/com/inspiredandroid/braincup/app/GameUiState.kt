@@ -37,6 +37,7 @@ sealed interface GameUiState
 /**
  * Represents a token in the Sherlock Calculation expression builder.
  */
+@Immutable
 sealed class ExpressionToken(val displayValue: String) {
     data class NumberToken(val value: Int, val originalIndex: Int) : ExpressionToken(value.toString())
     data class OperatorToken(val operator: String) : ExpressionToken(operator)

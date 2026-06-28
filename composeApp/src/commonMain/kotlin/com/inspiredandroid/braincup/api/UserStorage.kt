@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.api
 
+import androidx.compose.runtime.Immutable
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
@@ -170,6 +171,7 @@ class UserStorage(
 
     data class MilestoneTitle(val level: Int, val titleRes: StringResource)
 
+    @Immutable
     data class LevelChange(
         val oldLevel: Int,
         val newLevel: Int,
