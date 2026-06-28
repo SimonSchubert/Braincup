@@ -81,30 +81,32 @@ fun MatchstickRiddlesPlayScreen(
         onBack = onBack,
         scrollable = false,
     ) {
-        val movesLeft = (riddle.moves - occupied.count { it !in riddle.initial }).coerceAtLeast(0)
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
-            Text(
-                text = stringResource(riddle.promptRes),
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.SemiBold,
-                color = MaterialTheme.colorScheme.onSurface,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.fillMaxWidth(),
-            )
-            Spacer(modifier = Modifier.height(12.dp))
-            MovesIndicator(budget = riddle.moves, movesLeft = movesLeft)
+        if (!solved) {
+            val movesLeft =
+                (riddle.moves - occupied.count { it !in riddle.initial }).coerceAtLeast(0)
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = stringResource(riddle.promptRes),
+                    style = MaterialTheme.typography.titleMedium,
+                    fontWeight = FontWeight.SemiBold,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Spacer(modifier = Modifier.height(12.dp))
+                MovesIndicator(budget = riddle.moves, movesLeft = movesLeft)
+            }
         }
 
         Box(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+                .fillMaxWidth(),
             contentAlignment = Alignment.Center,
         ) {
             MatchstickBoard(
