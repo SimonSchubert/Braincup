@@ -20,12 +20,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.PlayGamesBridge
-import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
+import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
