@@ -45,6 +45,7 @@ import org.jetbrains.compose.resources.ExperimentalResourceApi
 fun App(
     systemColorSchemeProvider: ((dark: Boolean) -> ColorScheme)? = null,
     systemBarAppearance: @Composable (darkTheme: Boolean) -> Unit = {},
+    useBuiltInSponsors: Boolean = false,
     mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
     val navController = rememberNavController()
@@ -144,6 +145,7 @@ fun App(
                         MainMenuScreen(
                             controller = controller,
                             onOpenSettings = { controller.navigateToSettings() },
+                            useBuiltInSponsors = useBuiltInSponsors,
                             sponsorsSlot = mainMenuSponsorsSlot,
                         )
                     }

@@ -65,18 +65,35 @@ private data class SponsorDto(val username: String, val avatar: String)
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun SponsorsSection() {
+    ensureSponsorsImageLoader()
+    SponsorsSectionContent(sponsors = rememberLoadedSponsors())
+}
+
+@Composable
+internal fun ensureSponsorsImageLoader() {
     setSingletonImageLoaderFactory { context ->
         ImageLoader.Builder(context)
             .components { add(KtorNetworkFetcherFactory()) }
             .build()
     }
+}
 
-    var sponsors by remember { mutableStateOf(Sponsors()) }
+@Composable
+private fun rememberLoadedSponsors(): Sponsors {
+    var sponsors by remember { mutableStateOf<Sponsors?>(null) }
 
     LaunchedEffect(Unit) {
-        sponsors = fetchSponsors()
+        if (sponsors == null) {
+            sponsors = fetchSponsors()
+        }
     }
 
+    return sponsors ?: Sponsors()
+}
+
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+internal fun SponsorsSectionContent(sponsors: Sponsors) {
     val uriHandler = LocalUriHandler.current
 
     Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
@@ -131,7 +148,7 @@ private val sponsorsClient by lazy {
     }
 }
 
-private suspend fun fetchSponsors(): Sponsors = try {
+internal suspend fun fetchSponsors(): Sponsors = try {
     val response: SponsorsResponse = sponsorsClient
         .get("https://ghs.vercel.app/v3/sponsors/SimonSchubert")
         .body()

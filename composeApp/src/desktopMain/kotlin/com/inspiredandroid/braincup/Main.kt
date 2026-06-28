@@ -10,7 +10,7 @@ fun main() {
             onCloseRequest = ::exitApplication,
             title = "Braincup",
         ) {
-            App(mainMenuSponsorsSlot = { SponsorsSection() })
+            App(useBuiltInSponsors = true)
         }
     }
 }

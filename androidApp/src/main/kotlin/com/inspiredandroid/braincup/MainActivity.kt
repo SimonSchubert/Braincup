@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             AndroidApp(
+                useBuiltInSponsors = useBuiltInSponsors,
                 mainMenuSponsorsSlot = { MainMenuSponsors() },
             )
         }

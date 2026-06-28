@@ -20,6 +20,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.PlayGamesBridge
+import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
@@ -47,6 +48,7 @@ import androidx.compose.ui.text.intl.Locale as ComposeLocale
 fun MainMenuScreen(
     controller: GameController,
     onOpenSettings: () -> Unit = {},
+    useBuiltInSponsors: Boolean = false,
     sponsorsSlot: @Composable () -> Unit = {},
 ) {
     val sessionState by controller.sessionState.collectAsState()
@@ -91,6 +93,7 @@ fun MainMenuScreen(
         } else {
             null
         },
+        useBuiltInSponsors = useBuiltInSponsors,
         sponsorsSlot = sponsorsSlot,
     )
 }
@@ -117,8 +120,10 @@ fun MainMenuScreenContent(
     onNormalChess: () -> Unit = {},
     onMatchstickRiddles: () -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
+    useBuiltInSponsors: Boolean = false,
     sponsorsSlot: @Composable () -> Unit = {},
 ) {
+    val builtInSponsorsSection = if (useBuiltInSponsors) rememberMainMenuSponsorsSection() else null
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     val colorblindEnabled = LocalAccessiblePalette.current
     // Match Compose's UI locale (same source as stringResource), not a one-shot cached JVM default.
@@ -321,8 +326,15 @@ fun MainMenuScreenContent(
             }
         }
 
-        item(span = { GridItemSpan(maxLineSpan) }, contentType = "sponsors") {
-            sponsorsSlot()
+        item(
+            key = "sponsors",
+            span = { GridItemSpan(maxLineSpan) },
+            contentType = "sponsors",
+        ) {
+            when {
+                builtInSponsorsSection != null -> builtInSponsorsSection()
+                else -> sponsorsSlot()
+            }
         }
     }
 }
