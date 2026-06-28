@@ -146,6 +146,7 @@ fun NormalSudokuPlayScreen(
                     )
                     DigitPad(
                         columns = 3,
+                        board = board,
                         enabled = !solved,
                         modifier = Modifier.width(padWidth),
                         onDigit = ::applyDigit,
@@ -176,6 +177,7 @@ fun NormalSudokuPlayScreen(
                     )
                     DigitPad(
                         columns = 9,
+                        board = board,
                         enabled = !solved,
                         modifier = Modifier.width(boardSize),
                         onDigit = ::applyDigit,
@@ -297,11 +299,14 @@ private fun SudokuCell(
 @Composable
 private fun DigitPad(
     columns: Int,
+    board: List<Int>,
     enabled: Boolean,
     modifier: Modifier = Modifier,
     onDigit: (Int) -> Unit,
     onErase: () -> Unit,
 ) {
+    val digitCounts = IntArray(10)
+    board.forEach { if (it in 1..9) digitCounts[it]++ }
     val digits = (1..9).toList()
     Column(
         modifier = modifier,
@@ -316,7 +321,7 @@ private fun DigitPad(
                 rowDigits.forEach { digit ->
                     DigitTile(
                         label = digit.toString(),
-                        enabled = enabled,
+                        enabled = enabled && digitCounts[digit] < GRID,
                         onClick = { onDigit(digit) },
                         modifier = Modifier
                             .weight(1f)
