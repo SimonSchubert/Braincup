@@ -1,3 +1,16 @@
+## v2.25.0 — 2026-06-28
+
+### Features
+- Match stick puzzle game
+- Prism style toggle
+
+### Improvements
+- Clearer distinction between normal games and mini games
+- Normal sudoku progress persists across sessions
+
+### Fixes
+- Fix web build dependency
+
 ## v2.24.0 — 2026-06-26
 
 ### Features
