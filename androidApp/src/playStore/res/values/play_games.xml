@@ -46,10 +46,9 @@
     <string name="achievementSudokuHard" translatable="false">CgkIuZrirtIVEAIQJQ</string>
     <string name="achievementSudokuExpert" translatable="false">CgkIuZrirtIVEAIQJg</string>
 
-    <!-- Matchstick Riddles set-completion (incremental, max steps = MatchstickRiddles.count, currently 13).
-         TODO: create this incremental achievement in Play Console and paste its ID here. Left blank so the
-         bridge no-ops until it exists. Bump the step total here AND in App Store Connect when riddles are added. -->
-    <string name="achievementMatchstickMaster" translatable="false"></string>
+    <!-- Matchstick Riddles progress (incremental, max steps = MatchstickRiddles.storeProgressMax = 50).
+         Reports solved count via setSteps only; in-app MATCHSTICK_MASTER unlock is separate. -->
+    <string name="achievementMatchstickMaster" translatable="false">CgkIuZrirtIVEAIQJw</string>
 
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>

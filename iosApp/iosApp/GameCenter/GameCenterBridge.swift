@@ -70,12 +70,13 @@ final class GameCenterBridge: NSObject {
 
         bridge.onMatchstickRiddlesProgress = { [weak self] solved in
             let count = Double(Int(truncating: solved))
-            let target = Double(Int(MatchstickRiddles.shared.count))
+            let target = Double(Int(MatchstickRiddles.shared.storeProgressMax))
             let percent = min(100.0, count * 100.0 / target)
+            // Progress only on Game Center; in-app MATCHSTICK_MASTER unlock is separate.
             self?.reportAchievement(
                 id: GameCenterIds.achievementMatchstickMaster,
                 percent: percent,
-                showsBanner: percent >= 100
+                showsBanner: false
             )
         }
 
@@ -131,8 +132,8 @@ final class GameCenterBridge: NSObject {
                 }
             }
 
-            // Restore Matchstick Riddles progress the same way: percentComplete back to a solved count.
-            let matchstickTarget = Double(Int(MatchstickRiddles.shared.count))
+            // Restore Matchstick Riddles progress: percentComplete is toward storeProgressMax.
+            let matchstickTarget = Double(Int(MatchstickRiddles.shared.storeProgressMax))
             for a in achievements where a.identifier == GameCenterIds.achievementMatchstickMaster {
                 let count = Int((a.percentComplete / 100.0 * matchstickTarget).rounded())
                 if count > 0 {

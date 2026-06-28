@@ -376,9 +376,9 @@ class UserStorage(
     }
 
     /**
-     * Push the solved-riddle count to the incremental store achievement and unlock it once every
-     * riddle is solved. The target is [MatchstickRiddles.count] (the whole set), so it grows
-     * automatically when riddles are appended; only the store's step total needs a manual bump.
+     * Report solved-riddle count to the store (as steps toward [MatchstickRiddles.storeProgressMax])
+     * and unlock [Achievements.MATCHSTICK_MASTER] in-app once every catalog riddle is solved. The
+     * Play Games / Game Center achievement stays in progress until the store max is reached.
      */
     private fun reportMatchstickProgress(solved: Set<String>) {
         val count = solvedMatchstickCount(solved)

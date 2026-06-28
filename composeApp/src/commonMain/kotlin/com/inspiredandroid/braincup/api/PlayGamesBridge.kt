@@ -23,10 +23,10 @@ object PlayGamesBridge {
     var onSudokuTierProgress: ((SudokuDifficulty, Int) -> Unit)? = null
 
     /**
-     * Report the number of solved Matchstick Riddles to the set-completion incremental achievement.
+     * Report the number of solved Matchstick Riddles to the store incremental achievement.
      * Wired to `setSteps` (Play Games) / `percentComplete` (Game Center); null off-store so it stays
-     * a no-op. The target is the catalog size ([MatchstickRiddles.count]), so the store step total
-     * must be bumped to match when riddles are added.
+     * a no-op. Progress is reported toward [MatchstickRiddles.storeProgressMax]; in-app completion
+     * is handled separately in [UserStorage].
      */
     var onMatchstickRiddlesProgress: ((Int) -> Unit)? = null
 

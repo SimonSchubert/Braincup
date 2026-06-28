@@ -548,7 +548,7 @@ class ScreenshotTest {
     fun matchstickRiddlesMenu() {
         paparazzi.snap {
             MatchstickRiddlesMenuScreenContent(
-                solved = setOf("one_plus_one", "four_plus_two", "nine_minus_four"),
+                solved = setOf("one_plus_one", "nine_minus_four", "nine_minus_three"),
                 onRiddleSelected = {},
                 onBack = {},
             )

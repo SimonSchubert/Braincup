@@ -75,6 +75,7 @@ fun initPlayGames(activity: ComponentActivity) {
         val current = activityRef?.get() ?: return
         val id = current.getString(R.string.achievementMatchstickMaster)
         if (id.isBlank()) return
+        // Steps toward storeProgressMax (50 in Play Console). In-app unlock is separate; no unlock() here.
         PlayGames.getAchievementsClient(current).setSteps(id, solved.coerceAtMost(MatchstickRiddles.count))
     }
 

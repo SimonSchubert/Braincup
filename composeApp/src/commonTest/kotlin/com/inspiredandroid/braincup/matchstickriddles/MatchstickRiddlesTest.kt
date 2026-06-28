@@ -59,21 +59,6 @@ class MatchstickRiddlesTest {
     }
 
     @Test
-    fun classicFourToNineOpenLoopFormIsAccepted() {
-        // "4+2=7": move the + upright onto the first digit's top bar, turning + into - and 4 into an
-        // open-bottom matchstick 9, giving "9-2=7" (true) in a single conserved move.
-        val riddle = MatchstickRiddles.byId("four_plus_two")
-        assertNotNull(riddle)
-        val plusUpright = riddle.slots.indexOfFirst { it.ax == it.bx && it.ax > 1f && it.ax < 3f }
-        val firstDigitTop = riddle.slots.indexOfFirst { it.ay == 0f && it.by == 0f && it.ax < 1f }
-        assertTrue(plusUpright in riddle.initial, "the + upright should start lit")
-        assertTrue(firstDigitTop !in riddle.initial, "the 4 has no top bar to start")
-        val board = riddle.initial - plusUpright + firstDigitTop
-        assertEquals(riddle.initial.size, board.size, "it must be a single conserved move")
-        assertTrue(riddle.isSolved(board), "9-2=7 with an open-bottom 9 must count")
-    }
-
-    @Test
     fun draggingEachMovedStickOntoItsTargetSlotSolves() {
         for (riddle in MatchstickRiddles.all) {
             val solution = riddle.solutions.first()
@@ -152,6 +137,14 @@ class MatchstickRiddlesTest {
         assertNotNull(riddle)
         assertTrue(riddle.isSolved(occupiedForEquation("7+7+7=21")), "1+1+1=23 -> 7+7+7=21 must count")
         assertFalse(riddle.isSolved(occupiedForEquation("1+7+7=21")), "a false chain must not count")
+    }
+
+    @Test
+    fun storeProgressMaxLeavesHeadroomBeyondTheLiveCatalog() {
+        assertTrue(
+            MatchstickRiddles.storeProgressMax > MatchstickRiddles.count,
+            "store progress must exceed the catalog so Play/GC never auto-complete when the set is cleared",
+        )
     }
 
     @Test

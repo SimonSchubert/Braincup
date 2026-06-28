@@ -78,7 +78,6 @@ object MatchstickRiddles {
     val all: List<MatchstickRiddle> = listOf(
         // Tier 1: relocate a single stick within one digit (result, then each operand).
         riddle("one_plus_one", initial = "1+1=3", solution = "1+1=2"),
-        riddle("four_plus_two", initial = "4+2=7", solution = "4+3=7"),
         riddle("nine_minus_four", initial = "9-4=2", solution = "6-4=2"),
         riddle("nine_minus_three", initial = "9-3=0", solution = "9-3=6"),
         riddle("six_plus_three", initial = "6+3=6", solution = "6+3=9"),
@@ -92,7 +91,6 @@ object MatchstickRiddles {
         riddle("nine_plus_three", initial = "9+3=0", solution = "9-9=0"),
         // Tier 4: two-stick moves.
         riddle("two_plus_two_six", initial = "2+2=6", solution = "3+3=6"),
-        riddle("two_plus_two_three", initial = "2+2=3", solution = "3+2=5"),
         riddle("two_plus_three_eight", initial = "2+3=8", solution = "3+5=8"),
         // Tier 5: two-stick moves on longer sums (three addends).
         riddle("three_addends_swap", initial = "1+1+2=7", solution = "1+1+5=7"),
@@ -108,10 +106,14 @@ object MatchstickRiddles {
     fun byId(id: String): MatchstickRiddle? = all.firstOrNull { it.id == id }
 
     /**
-     * Total riddle count. This is the target ("solve them all") for the incremental store
-     * achievement, derived from the catalog so the code never needs editing when riddles are
-     * appended; only the Play Console / App Store Connect step total has to be bumped to match.
+     * Fixed ceiling for Play Games / Game Center progress (e.g. 19/50). Must match the incremental
+     * step total set once in Play Console / App Store Connect; it cannot be changed later, so leave
+     * headroom for future riddles. In-app completion uses [count] instead; the store achievement
+     * never auto-unlocks.
      */
+    const val storeProgressMax: Int = 50
+
+    /** Live catalog size — the in-app "solve them all" target and menu progress denominator. */
     val count: Int get() = all.size
 }
 
