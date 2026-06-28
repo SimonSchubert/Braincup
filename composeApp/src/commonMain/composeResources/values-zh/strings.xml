@@ -313,9 +313,7 @@
     <string name="brain_cup_button">Brain Cup 排行榜</string>
     <string name="sponsors_title">赞助商</string>
     <string name="sponsors_subtitle">支持人人享有免费教育</string>
-    <string name="sponsors_monthly">月度</string>
-    <string name="sponsors_previous">往期</string>
-    <string name="sponsors_become">成为赞助商</string>
+<string name="sponsors_become">成为赞助商</string>
     <!-- Country names -->
     <string name="country_afghanistan">阿富汗</string>
     <string name="country_aland_islands">奥兰群岛</string>

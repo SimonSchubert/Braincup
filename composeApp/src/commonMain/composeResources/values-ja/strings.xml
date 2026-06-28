@@ -313,9 +313,7 @@
     <string name="brain_cup_button">Brain Cup ランキング</string>
     <string name="sponsors_title">スポンサー</string>
     <string name="sponsors_subtitle">すべての人のための無料教育を支援しよう</string>
-    <string name="sponsors_monthly">月額</string>
-    <string name="sponsors_previous">過去のスポンサー</string>
-    <string name="sponsors_become">スポンサーになる</string>
+<string name="sponsors_become">スポンサーになる</string>
     <!-- Country names -->
     <string name="country_afghanistan">アフガニスタン</string>
     <string name="country_aland_islands">オーランド諸島</string>

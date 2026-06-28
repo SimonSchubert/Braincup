@@ -313,9 +313,7 @@
     <string name="brain_cup_button">Brain Cup skor tablosu</string>
     <string name="sponsors_title">Sponsorlar</string>
     <string name="sponsors_subtitle">Herkes için ücretsiz eğitimi destekleyin</string>
-    <string name="sponsors_monthly">Aylık</string>
-    <string name="sponsors_previous">Önceki</string>
-    <string name="sponsors_become">Sponsor ol</string>
+<string name="sponsors_become">Sponsor ol</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afganistan</string>
     <string name="country_aland_islands">Åland Adaları</string>

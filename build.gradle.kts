@@ -8,3 +8,13 @@ plugins {
     alias(libs.plugins.kotlinx.serialization) apply false
     alias(libs.plugins.spotless) apply false
 }
+
+tasks.register<Exec>("checkLocalizations") {
+    group = "verification"
+    description =
+        "Checks that all composeResources string keys exist for every supported locale"
+    commandLine(
+        "python3",
+        layout.projectDirectory.file("scripts/check_localizations.py").asFile.absolutePath,
+    )
+}

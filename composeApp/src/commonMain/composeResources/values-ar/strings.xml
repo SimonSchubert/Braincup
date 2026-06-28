@@ -301,9 +301,7 @@
     <string name="brain_cup_button">لوحة متصدري Brain Cup</string>
     <string name="sponsors_title">الرعاة</string>
     <string name="sponsors_subtitle">ادعم التعليم المجاني للجميع</string>
-    <string name="sponsors_monthly">شهري</string>
-    <string name="sponsors_previous">سابقون</string>
-    <string name="sponsors_become">كن راعياً</string>
+<string name="sponsors_become">كن راعياً</string>
     <!-- Country names -->
     <string name="country_afghanistan">أفغانستان</string>
     <string name="country_aland_islands">جزر أولاند</string>

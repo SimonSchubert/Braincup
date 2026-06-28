@@ -313,9 +313,7 @@
     <string name="brain_cup_button">Papan peringkat Brain Cup</string>
     <string name="sponsors_title">Sponsor</string>
     <string name="sponsors_subtitle">Dukung pendidikan gratis untuk semua</string>
-    <string name="sponsors_monthly">Bulanan</string>
-    <string name="sponsors_previous">Sebelumnya</string>
-    <string name="sponsors_become">Jadilah Sponsor</string>
+<string name="sponsors_become">Jadilah Sponsor</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afganistan</string>
     <string name="country_aland_islands">Kepulauan Aland</string>

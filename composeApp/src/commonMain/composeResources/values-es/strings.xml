@@ -313,9 +313,7 @@
     <string name="brain_cup_button">Clasificación Brain Cup</string>
     <string name="sponsors_title">Patrocinadores</string>
     <string name="sponsors_subtitle">Apoya la educación gratuita para todos</string>
-    <string name="sponsors_monthly">Mensual</string>
-    <string name="sponsors_previous">Anteriores</string>
-    <string name="sponsors_become">Conviértete en patrocinador</string>
+<string name="sponsors_become">Conviértete en patrocinador</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afganistán</string>
     <string name="country_aland_islands">Islas Åland</string>

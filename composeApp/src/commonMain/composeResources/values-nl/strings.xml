@@ -301,9 +301,7 @@
     <string name="brain_cup_button">Brain Cup klassement</string>
     <string name="sponsors_title">Sponsors</string>
     <string name="sponsors_subtitle">Steun gratis onderwijs voor iedereen</string>
-    <string name="sponsors_monthly">Maandelijks</string>
-    <string name="sponsors_previous">Vorige</string>
-    <string name="sponsors_become">Word sponsor</string>
+<string name="sponsors_become">Word sponsor</string>
     <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Ålandseilanden</string>

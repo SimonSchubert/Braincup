@@ -313,9 +313,7 @@
     <string name="brain_cup_button">Brain Cup 순위표</string>
     <string name="sponsors_title">후원자</string>
     <string name="sponsors_subtitle">모두를 위한 무료 교육을 지원하세요</string>
-    <string name="sponsors_monthly">월간</string>
-    <string name="sponsors_previous">이전 후원자</string>
-    <string name="sponsors_become">후원자 되기</string>
+<string name="sponsors_become">후원자 되기</string>
     <!-- Country names -->
     <string name="country_afghanistan">아프가니스탄</string>
     <string name="country_aland_islands">올란드 제도</string>

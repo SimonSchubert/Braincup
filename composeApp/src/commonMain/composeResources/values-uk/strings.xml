@@ -313,9 +313,7 @@
     <string name="brain_cup_button">Таблиця лідерів Brain Cup</string>
     <string name="sponsors_title">Спонсори</string>
     <string name="sponsors_subtitle">Підтримайте безкоштовну освіту для всіх</string>
-    <string name="sponsors_monthly">Щомісячні</string>
-    <string name="sponsors_previous">Колишні</string>
-    <string name="sponsors_become">Стати спонсором</string>
+<string name="sponsors_become">Стати спонсором</string>
     <!-- Country names -->
     <string name="country_afghanistan">Афганістан</string>
     <string name="country_aland_islands">Аландські острови</string>
