@@ -26,6 +26,7 @@ fun AppScaffold(
     scrollable: Boolean = true,
     bottomBar: (@Composable () -> Unit)? = null,
     provideCompactHeight: Boolean = false,
+    actions: (@Composable RowScope.() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Scaffold(
@@ -45,6 +46,9 @@ fun AppScaffold(
                             modifier = Modifier.hoverHand(),
                         )
                     }
+                },
+                actions = {
+                    actions?.invoke(this)
                 },
                 // Transparent so the bar shows the Scaffold background (same value as surface) and
                 // changes in lockstep with the rest of the screen on a theme switch. A fixed

@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.matchstickriddles.pointToSegmentDistance
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.boardTransform
 import com.inspiredandroid.braincup.ui.components.drawStick
 import com.inspiredandroid.braincup.ui.components.drawStickOutline
@@ -77,82 +78,135 @@ fun MatchstickRiddlesPlayScreen(
         }
     }
 
-    AppScaffold(
-        title = stringResource(Res.string.matchstick_riddles_title),
-        onBack = onBack,
-        scrollable = false,
-    ) {
-        if (!solved) {
-            val movesLeft =
-                (riddle.moves - occupied.count { it !in riddle.initial }).coerceAtLeast(0)
+    fun resetBoard() {
+        occupied.clear()
+        occupied.addAll(riddle.initial)
+    }
+
+    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+        val landscape = maxWidth > maxHeight
+
+        AppScaffold(
+            title = stringResource(Res.string.matchstick_riddles_title),
+            onBack = onBack,
+            scrollable = false,
+            actions = if (landscape && !solved) {
+                {
+                    MatchstickResetAction(onClick = ::resetBoard)
+                }
+            } else {
+                null
+            },
+        ) {
             Column(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp, vertical = 12.dp),
+                modifier = Modifier.fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(
-                    text = stringResource(riddle.promptRes),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.SemiBold,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    textAlign = TextAlign.Center,
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                Spacer(modifier = Modifier.height(12.dp))
-                MovesIndicator(budget = riddle.moves, movesLeft = movesLeft)
-            }
-        }
+                if (!solved) {
+                    val movesLeft =
+                        (riddle.moves - occupied.count { it !in riddle.initial }).coerceAtLeast(0)
+                    if (landscape) {
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 8.dp),
+                            verticalAlignment = Alignment.CenterVertically,
+                            horizontalArrangement = Arrangement.spacedBy(12.dp),
+                        ) {
+                            Text(
+                                text = stringResource(riddle.promptRes),
+                                style = MaterialTheme.typography.titleSmall,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                modifier = Modifier.weight(1f),
+                            )
+                            MovesIndicator(budget = riddle.moves, movesLeft = movesLeft)
+                        }
+                    } else {
+                        Column(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp, vertical = 12.dp),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                        ) {
+                            Text(
+                                text = stringResource(riddle.promptRes),
+                                style = MaterialTheme.typography.titleMedium,
+                                fontWeight = FontWeight.SemiBold,
+                                color = MaterialTheme.colorScheme.onSurface,
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier.fillMaxWidth(),
+                            )
+                            Spacer(modifier = Modifier.height(12.dp))
+                            MovesIndicator(budget = riddle.moves, movesLeft = movesLeft)
+                        }
+                    }
+                }
 
-        Box(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth(),
-            contentAlignment = Alignment.Center,
-        ) {
-            MatchstickBoard(
-                riddle = riddle,
-                occupied = occupied,
-                solved = solved,
-                onMove = ::move,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .aspectRatio(riddle.boardWidth / riddle.boardHeight),
-            )
-        }
-
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
-            contentAlignment = Alignment.Center,
-        ) {
-            if (solved) {
-                Text(
-                    text = stringResource(Res.string.matchstick_riddles_solved),
-                    style = MaterialTheme.typography.titleMedium,
-                    color = SuccessGreen,
-                    fontWeight = FontWeight.SemiBold,
-                )
-            } else {
-                PrismTile(
-                    face = Primary,
-                    onClick = {
-                        occupied.clear()
-                        occupied.addAll(riddle.initial)
-                    },
-                    modifier = Modifier.widthIn(min = 120.dp),
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
+                    contentAlignment = Alignment.Center,
                 ) {
-                    Text(
-                        text = stringResource(Res.string.matchstick_riddles_reset),
-                        style = MaterialTheme.typography.titleMedium,
-                        color = Color.White,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
+                    MatchstickBoard(
+                        riddle = riddle,
+                        occupied = occupied,
+                        solved = solved,
+                        onMove = ::move,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .aspectRatio(riddle.boardWidth / riddle.boardHeight),
                     )
+                }
+
+                if (!landscape || solved) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(horizontal = 16.dp, vertical = 8.dp),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        if (solved) {
+                            Text(
+                                text = stringResource(Res.string.matchstick_riddles_solved),
+                                style = MaterialTheme.typography.titleMedium,
+                                color = SuccessGreen,
+                                fontWeight = FontWeight.SemiBold,
+                            )
+                        } else {
+                            MatchstickResetButton(onClick = ::resetBoard)
+                        }
+                    }
                 }
             }
         }
+    }
+}
+
+@Composable
+private fun MatchstickResetAction(onClick: () -> Unit) {
+    TextPrismButton(
+        onClick = onClick,
+        value = stringResource(Res.string.matchstick_riddles_reset),
+        modifier = Modifier.padding(end = 8.dp),
+    )
+}
+
+@Composable
+private fun MatchstickResetButton(onClick: () -> Unit) {
+    PrismTile(
+        face = Primary,
+        onClick = onClick,
+        modifier = Modifier.widthIn(min = 120.dp),
+    ) {
+        Text(
+            text = stringResource(Res.string.matchstick_riddles_reset),
+            style = MaterialTheme.typography.titleMedium,
+            color = Color.White,
+            fontWeight = FontWeight.SemiBold,
+            modifier = Modifier.padding(horizontal = 20.dp, vertical = 10.dp),
+        )
     }
 }
 
