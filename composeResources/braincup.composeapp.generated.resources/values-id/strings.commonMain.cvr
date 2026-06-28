@@ -529,6 +529,9 @@ string|normal_sudoku_difficulty_hard|U3VsaXQ=
 string|normal_sudoku_difficulty_medium|U2VkYW5n
 string|normal_sudoku_erase|SGFwdXM=
 string|normal_sudoku_not_solved|QmVsdW0gdGVwYXQ=
+string|normal_sudoku_notes_mode|Q2F0YXRhbg==
+string|normal_sudoku_notes_toggle|QWxpaGthbiBtb2RlIGNhdGF0YW4=
+string|normal_sudoku_pen_mode|UGVuYQ==
 string|normal_sudoku_puzzle_label|JTEkZA==
 string|normal_sudoku_section_progress|JTEkZCAvICUyJGQ=
 string|normal_sudoku_solved|VGVycGVjYWhrYW4h
