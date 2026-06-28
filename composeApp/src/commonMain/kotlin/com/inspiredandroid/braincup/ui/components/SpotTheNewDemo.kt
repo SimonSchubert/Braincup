@@ -39,16 +39,11 @@ import braincup.composeapp.generated.resources.spot_the_new_demo_seen
 import braincup.composeapp.generated.resources.spot_the_new_demo_seen_label
 import braincup.composeapp.generated.resources.spot_the_new_demo_title
 import com.inspiredandroid.braincup.games.tools.Animal
+import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.roundToInt
-
-// Light tints so the dark animal artwork stays legible on top, the same way the real game uses
-// light container fills for cell states (see SpotTheNewTile in GameScreen).
-private val NewFill = Color(0xFFFAD9CC) // soft peach: the answer to tap (brand-orange family)
-private val AcceptedFill = Color(0xFFBFE0BC) // soft green: the new one once it has been tapped
-private val SeenAccent = Color(0xFF9FD3E8) // calm blue: "you have seen this", clearly not the answer
 
 // Choreography timings, tuned to read like the real game while staying watchable on a loop.
 private const val ResetPauseMillis = 600L
@@ -123,10 +118,11 @@ fun SpotTheNewDemo(modifier: Modifier = Modifier) {
     val gridAlpha = remember { Animatable(0f) }
     val flyProgress = remember { Animatable(0f) }
 
-    val surfaceVariant = MaterialTheme.colorScheme.surfaceVariant
-    val surfaceContainer = MaterialTheme.colorScheme.surfaceContainer
-    // Same strong red the real game uses for a wrong tap (see SpotTheNewTile in GameScreen).
-    val errorColor = MaterialTheme.colorScheme.error
+    // Exception: shelf tiles use surfaceVariant — demo-only chrome not present in the real game.
+    val shelfFace = MaterialTheme.colorScheme.surfaceVariant
+    val highlightFace = SpotTheNewColors.highlightFace()
+    val normalFace = SpotTheNewColors.normalFace()
+    val wrongFace = SpotTheNewColors.wrongFace()
 
     val compact = LocalIsCompactHeight.current
     val gridCell = if (compact) 56.dp else 64.dp
@@ -218,7 +214,7 @@ fun SpotTheNewDemo(modifier: Modifier = Modifier) {
             accepted = true
             captionRes = Res.string.spot_the_new_demo_correct
             delay(AcceptFlashMillis)
-            flyToShelf(newOne, AcceptedFill)
+            flyToShelf(newOne, highlightFace)
         }
 
         while (true) {
@@ -281,7 +277,7 @@ fun SpotTheNewDemo(modifier: Modifier = Modifier) {
                         } else {
                             AnimalTile(
                                 animal = animal,
-                                face = if (animal == recalled) SeenAccent else surfaceVariant,
+                                face = if (animal == recalled) highlightFace else shelfFace,
                                 contentPadding = 4.dp,
                                 modifier = Modifier.size(shelfCell),
                             )
@@ -300,10 +296,9 @@ fun SpotTheNewDemo(modifier: Modifier = Modifier) {
                             Spacer(Modifier.size(gridCell))
                         } else {
                             val face = when {
-                                animal == wrongMarked -> errorColor
-                                animal == newAnimal && accepted -> AcceptedFill
-                                animal == newAnimal -> NewFill
-                                else -> surfaceContainer
+                                animal == wrongMarked -> wrongFace
+                                animal == newAnimal -> highlightFace
+                                else -> normalFace
                             }
                             AnimalTile(
                                 animal = animal,

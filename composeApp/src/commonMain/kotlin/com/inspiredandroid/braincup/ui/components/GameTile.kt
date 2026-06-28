@@ -35,31 +35,33 @@ import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
-import com.inspiredandroid.braincup.ui.screens.CatQueensBoardFrame
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueBottom
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlueSide
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
-import com.inspiredandroid.braincup.ui.screens.KnotBoardFrame
-import com.inspiredandroid.braincup.ui.screens.KnotCellColor
-import com.inspiredandroid.braincup.ui.screens.NurikabeBoardFrame
-import com.inspiredandroid.braincup.ui.screens.NurikabeIslandColor
-import com.inspiredandroid.braincup.ui.screens.NurikabeSeaColor
-import com.inspiredandroid.braincup.ui.screens.ShikakuBoardFrame
+import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlue
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlueBottom
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlueSide
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellow
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowBottom
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowSide
+import com.inspiredandroid.braincup.ui.theme.KnotBoardFrame
+import com.inspiredandroid.braincup.ui.theme.KnotCellColor
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
+import com.inspiredandroid.braincup.ui.theme.MatchstickColors
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
+import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
+import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
+import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
 import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.WordleAbsent
-import com.inspiredandroid.braincup.ui.theme.WordleCorrect
-import com.inspiredandroid.braincup.ui.theme.WordlePresent
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
+import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import com.inspiredandroid.braincup.ui.theme.tileFace
+import com.inspiredandroid.braincup.ui.theme.tileTextColor
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -313,7 +315,7 @@ fun NormalChessTile(onClick: () -> Unit) {
 fun MatchstickRiddlesTile(solvedCount: Int, total: Int, onClick: () -> Unit) {
     NormalGameTile(
         label = stringResource(Res.string.matchstick_riddles_button, solvedCount, total),
-        accentColor = 0xFFCB8A43,
+        accentColor = MatchstickColors.TileAccentArgb,
         onClick = onClick,
     ) { MatchstickRiddlesPreview() }
 }
@@ -451,7 +453,7 @@ private fun PathFinderPreview() {
                     row.forEach { figure ->
                         ColorPrismCell(
                             face = figure.color.composeColor(),
-                            facet = 1.5.dp,
+                            facet = PrismFacet.Dot,
                             modifier = Modifier.weight(1f).aspectRatio(1f).padding(1.dp),
                         )
                     }
@@ -487,11 +489,11 @@ private fun SpotTheNewPreview() {
                 row.forEach { animal ->
                     PrismCard(
                         face = if (animal == newAnimal) {
-                            MaterialTheme.colorScheme.primaryContainer
+                            SpotTheNewColors.highlightFace()
                         } else {
-                            MaterialTheme.colorScheme.surface
+                            SpotTheNewColors.normalFace()
                         },
-                        facet = 2.dp,
+                        facet = PrismFacet.Cell,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -530,7 +532,7 @@ private fun VisualMemoryPreview() {
                         } else {
                             MaterialTheme.colorScheme.surfaceContainerHighest
                         },
-                        facet = 2.dp,
+                        facet = PrismFacet.Cell,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -594,7 +596,7 @@ private fun SherlockCalculationPreview() {
             SherlockPreviewNumbers.forEach { num ->
                 PrismCard(
                     face = MaterialTheme.colorScheme.secondaryContainer,
-                    facet = 1.5.dp,
+                    facet = PrismFacet.Dot,
                     modifier = Modifier
                         .weight(1f)
                         .aspectRatio(1f)
@@ -741,7 +743,7 @@ private fun NormalSudokuPreview() {
     val boldLine = PreviewTextColor
     PrismCard(
         face = PreviewTextColor,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -781,11 +783,11 @@ private fun NormalSudokuPreview() {
 
 @Composable
 private fun MatchstickRiddlesPreview() {
-    val body = ComposeColor(0xFFE0A85B)
-    val head = ComposeColor(0xFF4C9A52)
+    val body = MatchstickColors.WoodBody
+    val head = MatchstickColors.WoodHead
     PrismCard(
         face = PreviewTextColor,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -826,7 +828,7 @@ private fun SchulteTablePreview() {
                         } else {
                             MaterialTheme.colorScheme.surface
                         },
-                        facet = 2.dp,
+                        facet = PrismFacet.Cell,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -911,7 +913,7 @@ private fun ShikakuPreview() {
     val n = ShikakuPreviewSize
     PrismCard(
         face = ShikakuBoardFrame,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -978,7 +980,7 @@ private fun NurikabePreview() {
     val n = NurikabePreviewSize
     PrismCard(
         face = NurikabeBoardFrame,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -1031,7 +1033,7 @@ private fun CatQueensPreview() {
     val n = CatQueensPreviewSize
     PrismCard(
         face = CatQueensBoardFrame,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -1097,7 +1099,7 @@ private fun KnotPreview() {
     val n = KnotPreviewSize
     PrismCard(
         face = KnotBoardFrame,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -1166,16 +1168,8 @@ private fun WordlePreviewCell(
     state: WordleLetterState,
     modifier: Modifier = Modifier,
 ) {
-    val face = when (state) {
-        WordleLetterState.CORRECT -> WordleCorrect
-        WordleLetterState.PRESENT -> WordlePresent
-        WordleLetterState.ABSENT -> WordleAbsent
-        WordleLetterState.EMPTY, WordleLetterState.PENDING -> ComposeColor(0xFFD3D6DA)
-    }
-    val textColor = when (state) {
-        WordleLetterState.CORRECT, WordleLetterState.PRESENT -> ComposeColor.White
-        else -> ComposeColor(0xFF1A1A1B)
-    }
+    val face = state.tileFace()
+    val textColor = state.tileTextColor()
     Box(modifier = modifier, contentAlignment = Alignment.Center) {
         ColorPrismCell(
             face = face,
@@ -1210,7 +1204,7 @@ private fun SlidingPuzzlePreview() {
                         } else {
                             MaterialTheme.colorScheme.primaryContainer
                         },
-                        facet = 2.dp,
+                        facet = PrismFacet.Cell,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -1251,7 +1245,7 @@ private fun PatternSequencePreview() {
             }
             PrismCard(
                 face = MaterialTheme.colorScheme.primaryContainer,
-                facet = 2.dp,
+                facet = PrismFacet.Cell,
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f)
@@ -1315,7 +1309,7 @@ private fun ColorConfusionPreview() {
                 row.forEach { (wordColor, fontColor) ->
                     PrismCard(
                         face = MaterialTheme.colorScheme.surface,
-                        facet = 2.dp,
+                        facet = PrismFacet.Cell,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f)
@@ -1369,7 +1363,7 @@ private fun FlashCrowdPreview() {
 private fun MiniChessPreview() {
     PrismCard(
         face = ChessBoardFrame,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -1442,7 +1436,7 @@ private val ChessBackRank: List<DrawableResource> = listOf(
 private fun NormalChessPreview() {
     PrismCard(
         face = ChessBoardFrame,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
@@ -1494,7 +1488,7 @@ private val SoloChessPreviewPieces: Map<Int, DrawableResource> = mapOf(
 private fun SoloChessPreview() {
     PrismCard(
         face = ChessBoardFrame,
-        facet = 4.dp,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)

@@ -8,11 +8,9 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
@@ -26,7 +24,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -61,19 +58,35 @@ import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlue
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellow
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowBottom
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowSide
+import com.inspiredandroid.braincup.ui.theme.KnotBoardFrame
+import com.inspiredandroid.braincup.ui.theme.KnotCellColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
+import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
+import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
+import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceDark
 import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceLight
+import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
+import com.inspiredandroid.braincup.ui.theme.ShikakuCellColor
+import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
 import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import com.inspiredandroid.braincup.ui.theme.puzzleGridLine
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.toImmutableList
@@ -85,36 +98,6 @@ import kotlin.math.ceil
 import kotlin.math.sqrt
 import kotlin.time.Duration.Companion.milliseconds
 import androidx.compose.ui.graphics.Color as ComposeColor
-
-internal val FlashCrowdBlue = ComposeColor(0xFF4285F4)
-internal val FlashCrowdYellow = ComposeColor(0xFFFBBC04)
-
-// Neutral graphite tray for the Cat Queens board, so the pastel zones pop off the prism frame.
-internal val CatQueensBoardFrame = ComposeColor(0xFF4A4754)
-
-// Dark slate tray for the Shikaku grid — matches the neutral prism-frame aesthetic.
-internal val ShikakuBoardFrame = ComposeColor(0xFF3E4450)
-
-// Dark ocean-slate tray for the Nurikabe grid — subtly blue-tinted to echo the sea theme.
-internal val NurikabeBoardFrame = ComposeColor(0xFF3A4858)
-
-// Fixed cell colors shared by both the game board and the tile preview.
-internal val NurikabeIslandColor = ComposeColor(0xFFE8E8E8)
-internal val NurikabeSeaColor = ComposeColor(0xFF546E7A)
-
-// Light cell background for the Shikaku board — gives cells contrast against the dark tray frame.
-internal val ShikakuCellColor = ComposeColor(0xFFDDE3EA)
-
-// Dark slate tray for the Knot board, and the light cell background the colored paths read against.
-internal val KnotBoardFrame = ComposeColor(0xFF3E4450)
-internal val KnotCellColor = ComposeColor(0xFFDDE3EA)
-
-internal val FlashCrowdBlueSide = FlashCrowdBlue.darken(0.7f)
-internal val FlashCrowdBlueBottom = FlashCrowdBlue.darken(0.5f)
-
-// Yellow needs a lighter darken than the prism default (0.7/0.5) so the facets read on a light hue.
-internal val FlashCrowdYellowSide = FlashCrowdYellow.darken(0.85f)
-internal val FlashCrowdYellowBottom = FlashCrowdYellow.darken(0.7f)
 
 @Composable
 fun GameScreen(
@@ -1508,13 +1491,13 @@ private fun ColumnScope.ShikakuContent(
     val cols = uiState.cols
     val compact = LocalIsCompactHeight.current
 
-    val gridLineColor = ComposeColor(0xFF1A1A1A).copy(alpha = 0.2f)
+    val gridLineColor = puzzleGridLine()
     val cellColor = ShikakuCellColor
-    val regionBorderColor = ComposeColor(0xFF1A1A1A)
+    val regionBorderColor = PuzzleGridInk
     val invalidBorder = MaterialTheme.colorScheme.error
     val invalidOverlay = MaterialTheme.colorScheme.error.copy(alpha = 0.25f)
     val previewColor = Primary
-    val clueColor = ComposeColor(0xFF1A1A1A)
+    val clueColor = PuzzleGridInk
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
 
@@ -1529,7 +1512,7 @@ private fun ColumnScope.ShikakuContent(
     }
 
     val board: @Composable () -> Unit = {
-        PrismCard(face = ShikakuBoardFrame, facet = 6.dp, modifier = boardModifier) {
+        PrismCard(face = ShikakuBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {
             Canvas(
                 modifier = Modifier
                     .fillMaxSize()
@@ -1729,11 +1712,11 @@ private fun ColumnScope.NurikabeContent(
     val cols = uiState.cols
     val compact = LocalIsCompactHeight.current
 
-    val gridLineColor = ComposeColor(0xFF1A1A1A).copy(alpha = 0.4f)
+    val gridLineColor = puzzleGridLine(alpha = 0.4f)
     val islandColor = NurikabeIslandColor
     val seaColor = NurikabeSeaColor
     val previewColor = Primary
-    val clueColor = ComposeColor(0xFF1A1A1A)
+    val clueColor = PuzzleGridInk
     val satisfiedFill = SuccessGreenSoft
     val satisfiedColor = SuccessGreen
     val invalidFill = MaterialTheme.colorScheme.error.copy(alpha = 0.15f)
@@ -1755,7 +1738,7 @@ private fun ColumnScope.NurikabeContent(
     }
 
     val board: @Composable () -> Unit = {
-        PrismCard(face = NurikabeBoardFrame, facet = 6.dp, modifier = boardModifier) {
+        PrismCard(face = NurikabeBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {
             Canvas(
                 modifier = Modifier
                     .fillMaxSize()
@@ -1949,7 +1932,7 @@ private fun ColumnScope.KnotContent(
     val cols = uiState.cols
     val compact = LocalIsCompactHeight.current
 
-    val gridLineColor = ComposeColor(0xFF1A1A1A).copy(alpha = 0.2f)
+    val gridLineColor = puzzleGridLine()
     val cellColor = KnotCellColor
 
     // Endpoint and committed-path lookups, so a drag can tell which color it should draw.
@@ -1978,7 +1961,7 @@ private fun ColumnScope.KnotContent(
     }
 
     val board: @Composable () -> Unit = {
-        PrismCard(face = KnotBoardFrame, facet = 6.dp, modifier = boardModifier) {
+        PrismCard(face = KnotBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {
             Canvas(
                 modifier = Modifier
                     .fillMaxSize()
@@ -2164,7 +2147,7 @@ private fun ColumnScope.CatQueensContent(
     val compact = LocalIsCompactHeight.current
 
     val gridLineColor = ComposeColor(0xFF000000).copy(alpha = 0.15f)
-    val borderColor = ComposeColor(0xFF1A1A1A)
+    val borderColor = PuzzleGridInk
     val invalidColor = MaterialTheme.colorScheme.error
     val validColor = SuccessGreen
     val catPainter = rememberVectorPainter(CatFace)
@@ -2179,7 +2162,7 @@ private fun ColumnScope.CatQueensContent(
 
     // The board sits on a beveled prism tray, matching the Mini Chess board's raised look.
     val board: @Composable () -> Unit = {
-        PrismCard(face = CatQueensBoardFrame, facet = 6.dp, modifier = boardModifier) {
+        PrismCard(face = CatQueensBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {
             Canvas(
                 modifier = Modifier
                     .fillMaxSize()
@@ -2580,7 +2563,7 @@ private fun ColumnScope.DigitMemoryContent(
                     accent = MaterialTheme.colorScheme.primary,
                 )
                 Spacer(Modifier.height(20.dp))
-                DigitSlots(
+                DigitMemorySlots(
                     length = uiState.sequenceLength,
                     value = uiState.sequence,
                     accent = MaterialTheme.colorScheme.primary,
@@ -2606,7 +2589,7 @@ private fun ColumnScope.DigitMemoryContent(
                 revealed = result != null,
                 onAnswer = onAnswer,
                 display = { typed, onRemoveAt ->
-                    DigitSlots(
+                    DigitMemorySlots(
                         length = uiState.sequenceLength,
                         value = if (result != null) uiState.sequence else typed,
                         accent = MaterialTheme.colorScheme.primary,
@@ -2636,69 +2619,6 @@ private fun DigitMemoryPhaseLabel(text: String, accent: ComposeColor) {
         color = accent,
         letterSpacing = 3.sp,
     )
-}
-
-/**
- * A single row of per-digit boxes that shrink to fit the available width (always one line). Empty
- * boxes act as input slots that fill as the player types; the next slot to fill is highlighted with
- * [accent]. When [onRemoveAt] is set, tapping a filled box deletes that digit. When [revealColor] is
- * set the whole sequence is shown in that color (used for the memorize phase and the recall reveal).
- */
-@Composable
-private fun DigitSlots(
-    length: Int,
-    value: String,
-    accent: ComposeColor,
-    revealColor: ComposeColor?,
-    onRemoveAt: ((Int) -> Unit)? = null,
-    modifier: Modifier = Modifier,
-) {
-    BoxWithConstraints(modifier = modifier) {
-        val spacing = 6.dp
-        val maxSlot = 48.dp
-        val slotWidth = ((maxWidth - spacing * (length - 1)) / length).coerceIn(18.dp, maxSlot)
-        val slotHeight = slotWidth * 1.3f
-        val fontSize = (slotWidth.value * 0.46f).sp
-        val shape = RoundedCornerShape(10.dp)
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(spacing, Alignment.CenterHorizontally),
-        ) {
-            repeat(length) { index ->
-                val digit = value.getOrNull(index)?.toString() ?: ""
-                val isActive = revealColor == null && index == value.length
-                val borderColor = when {
-                    revealColor != null -> revealColor
-                    isActive -> accent
-                    digit.isNotEmpty() -> accent.copy(alpha = 0.5f)
-                    else -> MaterialTheme.colorScheme.outlineVariant
-                }
-                val textColor = revealColor ?: MaterialTheme.colorScheme.onSurface
-                val clickable = onRemoveAt != null && digit.isNotEmpty()
-                Box(
-                    modifier = Modifier
-                        .size(width = slotWidth, height = slotHeight)
-                        .clip(shape)
-                        .background(MaterialTheme.colorScheme.surfaceContainer)
-                        .border(BorderStroke(2.dp, borderColor), shape)
-                        .then(
-                            if (clickable) Modifier.clickable { onRemoveAt!!(index) } else Modifier,
-                        )
-                        .hoverHand(clickable),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    Text(
-                        text = digit,
-                        style = MaterialTheme.typography.headlineSmall,
-                        fontSize = fontSize,
-                        fontFamily = numberFontFamily(),
-                        fontWeight = FontWeight.Bold,
-                        color = textColor,
-                    )
-                }
-            }
-        }
-    }
 }
 
 /**
@@ -3131,9 +3051,9 @@ private fun SpotTheNewTile(
 ) {
     val face = when (cell.type) {
         // Strong red (not the pale errorContainer) so the tile the player got wrong is unmistakable.
-        SpotTheNewGame.CellType.WRONG -> MaterialTheme.colorScheme.error
-        SpotTheNewGame.CellType.CORRECT -> PrimaryContainer
-        SpotTheNewGame.CellType.NORMAL -> MaterialTheme.colorScheme.surfaceContainer
+        SpotTheNewGame.CellType.WRONG -> SpotTheNewColors.wrongFace()
+        SpotTheNewGame.CellType.CORRECT -> SpotTheNewColors.highlightFace()
+        SpotTheNewGame.CellType.NORMAL -> SpotTheNewColors.normalFace()
     }
     PrismTile(
         face = face,
@@ -3711,7 +3631,7 @@ private fun ColumnScope.MiniChessContent(
                 selectedHasDrawMove -> Row(verticalAlignment = Alignment.CenterVertically) {
                     ColorPrismCell(
                         face = MiniChessDrawDot,
-                        facet = 1.5.dp,
+                        facet = PrismFacet.Dot,
                         modifier = Modifier.size(14.dp),
                     )
                     Spacer(Modifier.width(8.dp))
@@ -3739,7 +3659,7 @@ private fun ColumnScope.MiniChessContent(
     val board: @Composable () -> Unit = {
         PrismCard(
             face = MiniChessBoardFrame,
-            facet = 6.dp,
+            facet = PrismFacet.Board,
         ) {
             Column {
                 for (row in 4 downTo 0) {
@@ -3920,7 +3840,7 @@ private fun MiniChessCellView(
                 )
                 cell.pieceType == null -> ColorPrismCell(
                     face = MiniChessLegalDot,
-                    facet = 1.5.dp,
+                    facet = PrismFacet.Dot,
                     modifier = Modifier.size(16.dp),
                 )
             }
@@ -3945,7 +3865,7 @@ private fun ColumnScope.SoloChessContent(
     val cellSize = ((if (compact) 248f else 312f) / n).dp
 
     val board: @Composable () -> Unit = {
-        PrismCard(face = ChessBoardFrame, facet = 6.dp) {
+        PrismCard(face = ChessBoardFrame, facet = PrismFacet.Board) {
             Column {
                 for (row in 0 until n) {
                     Row {
@@ -4115,23 +4035,6 @@ private fun SoloChessCellView(
                     .align(Alignment.TopEnd)
                     .padding(size * 0.05f)
                     .size(width = size * 0.46f, height = size * 0.22f),
-            )
-        }
-    }
-}
-
-@Composable
-private fun SoloChessCapturePips(remaining: Int, modifier: Modifier) {
-    Canvas(modifier = modifier) {
-        drawRoundRect(color = SoloChessPipTray, cornerRadius = CornerRadius(size.height / 2f))
-        val radius = size.height * 0.3f
-        val slots = SoloChessGame.MAX_CAPTURES
-        val step = size.width / (slots + 1)
-        for (i in 0 until slots) {
-            drawCircle(
-                color = if (i < remaining) SoloChessPipFilled else SoloChessPipEmpty,
-                radius = radius,
-                center = Offset(step * (i + 1), size.height / 2f),
             )
         }
     }

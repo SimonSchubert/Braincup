@@ -17,15 +17,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_knot_desc
-import com.inspiredandroid.braincup.ui.screens.KnotBoardFrame
-import com.inspiredandroid.braincup.ui.screens.KnotCellColor
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
+import com.inspiredandroid.braincup.ui.theme.KnotBoardFrame
+import com.inspiredandroid.braincup.ui.theme.KnotCellColor
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.puzzleGridLine
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -56,7 +57,7 @@ private val KnotDemoPaths = listOf(
 @Composable
 fun KnotDemo(modifier: Modifier = Modifier) {
     val cellColor = KnotCellColor
-    val gridLineColor = Color(0xFF1A1A1A).copy(alpha = 0.2f)
+    val gridLineColor = puzzleGridLine()
 
     // committed = paths already fully drawn; activeColor/drawing = the path currently being drawn.
     var committed by remember { mutableStateOf(listOf<KnotDemoPath>()) }
@@ -87,7 +88,7 @@ fun KnotDemo(modifier: Modifier = Modifier) {
     }
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        PrismCard(face = KnotBoardFrame, facet = 6.dp) {
+        PrismCard(face = KnotBoardFrame, facet = PrismFacet.Board) {
             Canvas(modifier = Modifier.size(KnotCellSize * KnotCols, KnotCellSize * KnotRows)) {
                 val cellW = size.width / KnotCols
                 val cellH = size.height / KnotRows

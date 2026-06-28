@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -186,7 +185,7 @@ private fun CycleGroup(figures: List<Figure>, highlighted: Boolean, cell: Dp) {
     val frame = Primary.copy(alpha = 0.16f * highlightAlpha)
     Row(
         modifier = Modifier
-            .clip(RoundedCornerShape(10.dp))
+            .clip(com.inspiredandroid.braincup.ui.theme.RoundedSlot)
             .background(frame)
             .padding(horizontal = 4.dp, vertical = 4.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),

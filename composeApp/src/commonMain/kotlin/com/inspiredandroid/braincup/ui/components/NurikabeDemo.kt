@@ -18,7 +18,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
@@ -30,13 +29,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_nurikabe_desc
-import com.inspiredandroid.braincup.ui.screens.NurikabeBoardFrame
-import com.inspiredandroid.braincup.ui.screens.NurikabeIslandColor
-import com.inspiredandroid.braincup.ui.screens.NurikabeSeaColor
+import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
+import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
+import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import com.inspiredandroid.braincup.ui.theme.puzzleGridLine
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -94,8 +96,8 @@ private val NurikabeStrokes = listOf(
 fun NurikabeDemo(modifier: Modifier = Modifier) {
     val islandColor = NurikabeIslandColor
     val seaColor = NurikabeSeaColor
-    val gridLineColor = Color(0xFF1A1A1A).copy(alpha = 0.4f)
-    val clueColor = Color(0xFF1A1A1A)
+    val gridLineColor = puzzleGridLine(alpha = 0.4f)
+    val clueColor = PuzzleGridInk
     val satisfiedFill = SuccessGreenSoft
     val satisfiedColor = SuccessGreen
     val previewColor = Primary
@@ -145,7 +147,7 @@ fun NurikabeDemo(modifier: Modifier = Modifier) {
     }
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        PrismCard(face = NurikabeBoardFrame, facet = 6.dp) {
+        PrismCard(face = NurikabeBoardFrame, facet = PrismFacet.Board) {
             Canvas(modifier = Modifier.size(NurikabeCellSize * NurikabeCols, NurikabeCellSize * NurikabeRows)) {
                 val cellW = size.width / NurikabeCols
                 val cellH = size.height / NurikabeRows

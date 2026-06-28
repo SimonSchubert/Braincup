@@ -17,7 +17,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -36,9 +35,10 @@ import com.inspiredandroid.braincup.ui.components.GiveUpButton
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
-import com.inspiredandroid.braincup.ui.theme.WordleAbsent
-import com.inspiredandroid.braincup.ui.theme.WordleCorrect
-import com.inspiredandroid.braincup.ui.theme.WordlePresent
+import com.inspiredandroid.braincup.ui.theme.keyFace
+import com.inspiredandroid.braincup.ui.theme.keyTextColor
+import com.inspiredandroid.braincup.ui.theme.tileFace
+import com.inspiredandroid.braincup.ui.theme.tileTextColor
 import org.jetbrains.compose.resources.stringResource
 
 private val TileSpacing = 6.dp
@@ -233,35 +233,4 @@ private fun LetterKey(
             maxLines = 1,
         )
     }
-}
-
-// --- Color mapping -----------------------------------------------------------------------------
-
-@Composable
-private fun WordleLetterState.tileFace(): Color = when (this) {
-    WordleLetterState.EMPTY -> MaterialTheme.colorScheme.surfaceVariant
-    WordleLetterState.PENDING -> MaterialTheme.colorScheme.surfaceContainerHighest
-    WordleLetterState.ABSENT -> WordleAbsent
-    WordleLetterState.PRESENT -> WordlePresent
-    WordleLetterState.CORRECT -> WordleCorrect
-}
-
-@Composable
-private fun WordleLetterState.tileTextColor(): Color = when (this) {
-    WordleLetterState.EMPTY, WordleLetterState.PENDING -> MaterialTheme.colorScheme.onSurface
-    else -> Color.White
-}
-
-@Composable
-private fun WordleLetterState?.keyFace(): Color = when (this) {
-    WordleLetterState.CORRECT -> WordleCorrect
-    WordleLetterState.PRESENT -> WordlePresent
-    WordleLetterState.ABSENT -> WordleAbsent
-    else -> MaterialTheme.colorScheme.surfaceVariant
-}
-
-@Composable
-private fun WordleLetterState?.keyTextColor(): Color = when (this) {
-    WordleLetterState.CORRECT, WordleLetterState.PRESENT, WordleLetterState.ABSENT -> Color.White
-    else -> MaterialTheme.colorScheme.onSurface
 }

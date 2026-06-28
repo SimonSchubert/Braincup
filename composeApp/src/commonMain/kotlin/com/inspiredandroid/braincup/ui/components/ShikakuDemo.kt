@@ -20,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
@@ -32,11 +31,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_shikaku_desc
-import com.inspiredandroid.braincup.ui.screens.ShikakuBoardFrame
-import com.inspiredandroid.braincup.ui.screens.ShikakuCellColor
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
+import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
+import com.inspiredandroid.braincup.ui.theme.ShikakuCellColor
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import com.inspiredandroid.braincup.ui.theme.puzzleGridLine
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -80,9 +82,9 @@ private fun lerp(a: Float, b: Float, t: Float) = a + (b - a) * t
 @Composable
 fun ShikakuDemo(modifier: Modifier = Modifier) {
     val cellColor = ShikakuCellColor
-    val gridLineColor = Color(0xFF1A1A1A).copy(alpha = 0.2f)
-    val borderColor = Color(0xFF1A1A1A)
-    val clueColor = Color(0xFF1A1A1A)
+    val gridLineColor = puzzleGridLine()
+    val borderColor = PuzzleGridInk
+    val clueColor = PuzzleGridInk
     val previewColor = Primary
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
@@ -126,7 +128,7 @@ fun ShikakuDemo(modifier: Modifier = Modifier) {
     }
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        PrismCard(face = ShikakuBoardFrame, facet = 6.dp) {
+        PrismCard(face = ShikakuBoardFrame, facet = PrismFacet.Board) {
             Canvas(modifier = Modifier.size(ShikakuCellSize * ShikakuCols, ShikakuCellSize * ShikakuRows)) {
                 val cellW = size.width / ShikakuCols
                 val cellH = size.height / ShikakuRows

@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.ui.components
 
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -19,8 +18,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.CornerRadius
-import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -73,7 +70,7 @@ fun SoloChessDemo(modifier: Modifier = Modifier) {
     }
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        PrismCard(face = ChessBoardFrame, facet = 6.dp) {
+        PrismCard(face = ChessBoardFrame, facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Board) {
             Column {
                 for (row in 0 until SoloChessDemoSize) {
                     Row {
@@ -106,26 +103,13 @@ fun SoloChessDemo(modifier: Modifier = Modifier) {
                                         isWhite = true,
                                         figureSize = 42.dp,
                                     )
-                                    // Charge pips show how many captures the piece has left (max two).
-                                    Canvas(
+                                    SoloChessCapturePips(
+                                        remaining = (frame.captures[index] ?: 0).coerceIn(0, SoloChessGame.MAX_CAPTURES),
                                         modifier = Modifier
                                             .align(Alignment.TopEnd)
                                             .padding(3.dp)
                                             .size(width = 24.dp, height = 11.dp),
-                                    ) {
-                                        drawRoundRect(color = SoloChessPipTray, cornerRadius = CornerRadius(size.height / 2f))
-                                        val remaining = frame.captures[index] ?: 0
-                                        val radius = size.height * 0.3f
-                                        val slots = SoloChessGame.MAX_CAPTURES
-                                        val step = size.width / (slots + 1)
-                                        for (i in 0 until slots) {
-                                            drawCircle(
-                                                color = if (i < remaining) SoloChessPipFilled else SoloChessPipEmpty,
-                                                radius = radius,
-                                                center = Offset(step * (i + 1), size.height / 2f),
-                                            )
-                                        }
-                                    }
+                                    )
                                 }
                             }
                         }

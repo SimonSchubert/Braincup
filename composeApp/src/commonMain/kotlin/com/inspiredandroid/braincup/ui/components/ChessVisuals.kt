@@ -4,6 +4,8 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.drawscope.translate
@@ -16,6 +18,7 @@ import braincup.composeapp.generated.resources.ic_chess_knight
 import braincup.composeapp.generated.resources.ic_chess_pawn
 import braincup.composeapp.generated.resources.ic_chess_queen
 import braincup.composeapp.generated.resources.ic_chess_rook
+import com.inspiredandroid.braincup.games.SoloChessGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
@@ -79,5 +82,23 @@ fun ChessPieceIcon(
             }
         }
         with(painter) { draw(size = size, colorFilter = fill) }
+    }
+}
+
+/** Capture "charges": one amber pip per remaining capture (max two). */
+@Composable
+fun SoloChessCapturePips(remaining: Int, modifier: Modifier = Modifier) {
+    Canvas(modifier = modifier) {
+        drawRoundRect(color = SoloChessPipTray, cornerRadius = CornerRadius(size.height / 2f))
+        val radius = size.height * 0.3f
+        val slots = SoloChessGame.MAX_CAPTURES
+        val step = size.width / (slots + 1)
+        for (i in 0 until slots) {
+            drawCircle(
+                color = if (i < remaining) SoloChessPipFilled else SoloChessPipEmpty,
+                radius = radius,
+                center = Offset(step * (i + 1), size.height / 2f),
+            )
+        }
     }
 }

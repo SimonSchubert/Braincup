@@ -33,6 +33,7 @@ import com.inspiredandroid.braincup.ui.components.boardTransform
 import com.inspiredandroid.braincup.ui.components.drawStick
 import com.inspiredandroid.braincup.ui.components.drawStickOutline
 import com.inspiredandroid.braincup.ui.theme.ErrorRed
+import com.inspiredandroid.braincup.ui.theme.MatchstickColors
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
@@ -168,14 +169,14 @@ private fun MatchstickBoard(
     var pointer by remember(riddle) { mutableStateOf(Offset.Zero) }
     var snapTarget by remember(riddle) { mutableStateOf<Int?>(null) }
 
-    val woodBody = Color(0xFFE0A85B)
-    val woodSide = Color(0xFFB07E3C)
-    val headColor = if (solved) SuccessGreen else Color(0xFF4C9A52)
+    val woodBody = MatchstickColors.WoodBody
+    val woodSide = MatchstickColors.WoodSide
+    val headColor = MatchstickColors.woodHead(solved)
     // Sticks that can no longer be picked up (the move budget is spent) stay readable but lose the
     // vivid green head and are muted, so the still-movable stick stands out.
-    val lockedBody = Color(0xFFC9A877)
-    val lockedSide = Color(0xFF9B8052)
-    val lockedHead = Color(0xFF8F8A79)
+    val lockedBody = MatchstickColors.LockedBody
+    val lockedSide = MatchstickColors.LockedSide
+    val lockedHead = MatchstickColors.LockedHead
     val emptyColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.10f)
     val snapColor = Primary.copy(alpha = 0.45f)
 
@@ -339,9 +340,9 @@ private fun MovesIndicator(
 /** A single matchstick token used by [MovesIndicator]; greyed out once the move it stands for is spent. */
 @Composable
 private fun MatchstickPip(spent: Boolean) {
-    val body by animateColorAsState(if (spent) Color(0xFFCDC4B6) else Color(0xFFE0A85B), label = "pipBody")
-    val side by animateColorAsState(if (spent) Color(0xFFAFA591) else Color(0xFFB07E3C), label = "pipSide")
-    val head by animateColorAsState(if (spent) Color(0xFF9E978B) else Color(0xFF4C9A52), label = "pipHead")
+    val body by animateColorAsState(if (spent) MatchstickColors.PipSpentBody else MatchstickColors.WoodBody, label = "pipBody")
+    val side by animateColorAsState(if (spent) MatchstickColors.PipSpentSide else MatchstickColors.WoodSide, label = "pipSide")
+    val head by animateColorAsState(if (spent) MatchstickColors.PipSpentHead else MatchstickColors.WoodHead, label = "pipHead")
     Canvas(modifier = Modifier.size(width = 13.dp, height = 34.dp)) {
         val cx = size.width / 2f
         val top = Offset(cx, size.height * 0.16f)

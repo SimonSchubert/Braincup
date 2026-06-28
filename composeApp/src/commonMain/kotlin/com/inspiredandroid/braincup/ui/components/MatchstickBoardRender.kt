@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddle
 import com.inspiredandroid.braincup.matchstickriddles.Stick
-import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.MatchstickColors
 
 /**
  * A static, non-interactive rendering of a riddle's starting (unsolved) equation, used as a glanceable
@@ -24,9 +24,9 @@ fun MatchstickBoardPreview(
     solved: Boolean,
     modifier: Modifier = Modifier,
 ) {
-    val woodBody = Color(0xFFE0A85B)
-    val woodSide = Color(0xFFB07E3C)
-    val headColor = if (solved) SuccessGreen else Color(0xFF4C9A52)
+    val woodBody = MatchstickColors.WoodBody
+    val woodSide = MatchstickColors.WoodSide
+    val headColor = MatchstickColors.woodHead(solved)
     Canvas(modifier = modifier.fillMaxSize()) {
         val t = boardTransform(size.width, size.height, riddle)
         riddle.initial.forEach { i ->

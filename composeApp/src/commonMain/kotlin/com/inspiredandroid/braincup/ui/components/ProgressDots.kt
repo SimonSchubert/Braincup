@@ -46,7 +46,7 @@ fun ProgressDots(
             val size = if (isCurrent) activeSize else inactiveSize
             ColorPrismCell(
                 face = fill,
-                facet = 1.5.dp,
+                facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Dot,
                 modifier = Modifier.size(size),
             )
         }

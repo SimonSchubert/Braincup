@@ -21,9 +21,9 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-
-private val BackPrismFacet = 6.dp
-private val BackPrismPressShift = 3.dp
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PrismPress
+import com.inspiredandroid.braincup.ui.theme.PrismShade
 
 @Composable
 fun BackPrism(
@@ -32,13 +32,13 @@ fun BackPrism(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val side = remember(color) { color.darken(0.7f) }
-    val bottom = remember(color) { color.darken(0.5f) }
+    val side = remember(color) { color.darken(PrismShade.Side) }
+    val bottom = remember(color) { color.darken(PrismShade.Bottom) }
 
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
     val shiftDp by animateDpAsState(
-        targetValue = if (isPressed) BackPrismPressShift else 0.dp,
+        targetValue = if (isPressed) PrismPress.BackShift else 0.dp,
         animationSpec = tween(durationMillis = 120),
     )
     val faceColor = if (isPressed) side else color
@@ -72,7 +72,7 @@ fun BackPrism(
             ) {
                 val w = size.width
                 val h = size.height
-                val f = BackPrismFacet.toPx()
+                val f = PrismFacet.Board.toPx()
                 val s = shiftDp.toPx()
                 val d = f - s
 

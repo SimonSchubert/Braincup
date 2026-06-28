@@ -22,6 +22,9 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PrismPress
+import com.inspiredandroid.braincup.ui.theme.PrismShade
 
 fun Color.darken(darkenBy: Float = 0.3f): Color = copy(
     red = red * darkenBy,
@@ -29,10 +32,6 @@ fun Color.darken(darkenBy: Float = 0.3f): Color = copy(
     blue = blue * darkenBy,
     alpha = alpha,
 )
-
-private val PrismFacet = 8.dp
-private val PrismCardFacet = 3.dp
-private val PressShift = 4.dp
 
 @Composable
 fun PrismTile(
@@ -45,15 +44,15 @@ fun PrismTile(
     onClick: () -> Unit,
     content: @Composable () -> Unit,
 ) {
-    val resolvedSide = remember(face, side) { side ?: face.darken(0.7f) }
-    val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(0.5f) }
+    val resolvedSide = remember(face, side) { side ?: face.darken(PrismShade.Side) }
+    val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(PrismShade.Bottom) }
 
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
 
     val sunken = isPressed || isSelected
     val shift by animateDpAsState(
-        targetValue = if (sunken) PressShift else 0.dp,
+        targetValue = if (sunken) PrismPress.TileShift else 0.dp,
         animationSpec = tween(durationMillis = 120),
     )
     val faceColor = if (sunken) resolvedSide else face
@@ -82,15 +81,15 @@ fun PrismTile(
                 side = resolvedSide,
                 bottom = resolvedBottom,
                 shift = shift,
-                facet = PrismFacet,
+                facet = PrismFacet.Tile,
                 modifier = Modifier.matchParentSize(),
             )
             Box(
                 modifier = Modifier.padding(
                     start = shift,
                     top = shift,
-                    end = PrismFacet - shift,
-                    bottom = PrismFacet - shift,
+                    end = PrismFacet.Tile - shift,
+                    bottom = PrismFacet.Tile - shift,
                 ),
                 contentAlignment = Alignment.Center,
             ) {
@@ -108,11 +107,11 @@ fun PrismCard(
     side: Color? = null,
     bottom: Color? = null,
     modifier: Modifier = Modifier,
-    facet: Dp = PrismCardFacet,
+    facet: Dp = PrismFacet.Card,
     content: @Composable () -> Unit = {},
 ) {
-    val resolvedSide = remember(face, side) { side ?: face.darken(0.7f) }
-    val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(0.5f) }
+    val resolvedSide = remember(face, side) { side ?: face.darken(PrismShade.Side) }
+    val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(PrismShade.Bottom) }
     val parentDirection = LocalLayoutDirection.current
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Box(
@@ -143,7 +142,7 @@ fun PrismCard(
 fun ColorPrismCell(
     face: Color,
     modifier: Modifier = Modifier,
-    facet: Dp = 2.dp,
+    facet: Dp = PrismFacet.Cell,
     side: Color? = null,
     bottom: Color? = null,
 ) {
@@ -166,7 +165,7 @@ fun PrismProgressBar(
     trackColor: Color,
     fillColor: Color,
     modifier: Modifier = Modifier,
-    facet: Dp = PrismCardFacet,
+    facet: Dp = PrismFacet.Card,
 ) {
     val barPath = remember { Path() }
     // Keep the chamfered prism silhouette and left-to-right fill aligned regardless of the

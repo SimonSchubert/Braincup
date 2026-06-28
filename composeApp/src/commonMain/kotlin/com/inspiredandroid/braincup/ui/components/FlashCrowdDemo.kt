@@ -38,10 +38,10 @@ import braincup.composeapp.generated.resources.flash_crowd_demo_title
 import braincup.composeapp.generated.resources.game_flash_crowd_blue
 import braincup.composeapp.generated.resources.game_flash_crowd_which_more
 import braincup.composeapp.generated.resources.game_flash_crowd_yellow
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdBlue
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellow
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowBottom
-import com.inspiredandroid.braincup.ui.screens.FlashCrowdYellowSide
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlue
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellow
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowBottom
+import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowSide
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay

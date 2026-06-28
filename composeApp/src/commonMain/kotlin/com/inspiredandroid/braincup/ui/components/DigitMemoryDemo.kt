@@ -1,17 +1,10 @@
 package com.inspiredandroid.braincup.ui.components
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,11 +16,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
@@ -137,7 +127,7 @@ fun DigitMemoryDemo(modifier: Modifier = Modifier) {
                 )
                 else -> {
                     val display = if (phase == DemoPhase.MEMORIZE) Sequence else Sequence.take(typed)
-                    DigitSlotRow(
+                    DigitMemorySlots(
                         length = Sequence.length,
                         value = display,
                         accent = accent,
@@ -155,46 +145,5 @@ fun DigitMemoryDemo(modifier: Modifier = Modifier) {
             textAlign = TextAlign.Center,
             modifier = Modifier.padding(horizontal = 24.dp),
         )
-    }
-}
-
-// A row of per-digit boxes mirroring DigitSlots: empty slots show an outline, the next slot to fill
-// is accented, filled slots stay accented, and a reveal colour tints the whole sequence.
-@Composable
-private fun DigitSlotRow(
-    length: Int,
-    value: String,
-    accent: Color,
-    revealColor: Color?,
-    slotWidth: Dp,
-) {
-    val shape = RoundedCornerShape(10.dp)
-    Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-        repeat(length) { index ->
-            val digit = value.getOrNull(index)?.toString() ?: ""
-            val isActive = revealColor == null && index == value.length
-            val borderColor = when {
-                revealColor != null -> revealColor
-                isActive -> accent
-                digit.isNotEmpty() -> accent.copy(alpha = 0.5f)
-                else -> MaterialTheme.colorScheme.outlineVariant
-            }
-            Box(
-                modifier = Modifier
-                    .size(width = slotWidth, height = slotWidth * 1.3f)
-                    .clip(shape)
-                    .background(MaterialTheme.colorScheme.surfaceContainer)
-                    .border(BorderStroke(2.dp, borderColor), shape),
-                contentAlignment = Alignment.Center,
-            ) {
-                Text(
-                    text = digit,
-                    fontSize = (slotWidth.value * 0.46f).sp,
-                    fontFamily = numberFontFamily(),
-                    fontWeight = FontWeight.Bold,
-                    color = revealColor ?: MaterialTheme.colorScheme.onSurface,
-                )
-            }
-        }
     }
 }

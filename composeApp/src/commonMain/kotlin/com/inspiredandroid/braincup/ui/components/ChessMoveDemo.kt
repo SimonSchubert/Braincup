@@ -313,7 +313,7 @@ fun ChessMoveDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        PrismCard(face = ChessBoardFrame, facet = 6.dp) {
+        PrismCard(face = ChessBoardFrame, facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Board) {
             Box(Modifier.size(DemoCellSize * DemoBoardSize)) {
                 Column {
                     for (row in (DemoBoardSize - 1) downTo 0) {
@@ -372,7 +372,7 @@ private fun BoxScope.MoveDot(cell: DemoCell, cellPx: Float) {
             .offset { cellOffset(cell, cellPx) },
         contentAlignment = Alignment.Center,
     ) {
-        ColorPrismCell(face = ChessLegalDot, facet = 1.5.dp, modifier = Modifier.size(DemoDotSize))
+        ColorPrismCell(face = ChessLegalDot, facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Dot, modifier = Modifier.size(DemoDotSize))
     }
 }
 

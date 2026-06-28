@@ -32,9 +32,11 @@ import braincup.composeapp.generated.resources.cat_queens_error_column
 import braincup.composeapp.generated.resources.cat_queens_error_touch
 import braincup.composeapp.generated.resources.game_cat_queens_desc
 import com.inspiredandroid.braincup.ui.icons.CatFace
-import com.inspiredandroid.braincup.ui.screens.CatQueensBoardFrame
+import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.StringResource
@@ -96,7 +98,7 @@ private data class CatQueensLine(val index: Int, val row: Boolean, val col: Bool
 fun CatQueensDemo(modifier: Modifier = Modifier) {
     val n = CatQueensDemoSize
     val gridLineColor = Color(0xFF000000).copy(alpha = 0.15f)
-    val borderColor = Color(0xFF1A1A1A)
+    val borderColor = PuzzleGridInk
     val invalidColor = MaterialTheme.colorScheme.error
     val validColor = SuccessGreen
     val accentColor = Primary
@@ -174,7 +176,7 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
     }
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        PrismCard(face = CatQueensBoardFrame, facet = 6.dp) {
+        PrismCard(face = CatQueensBoardFrame, facet = PrismFacet.Board) {
             Canvas(modifier = Modifier.size(CatQueensDemoCellSize * n, CatQueensDemoCellSize * n)) {
                 val cellW = size.width / n
                 val cellH = size.height / n

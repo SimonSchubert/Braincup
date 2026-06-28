@@ -400,7 +400,7 @@ private fun BoardView(
     val blackInCheck = board.isInCheck(ChessColor.BLACK)
     PrismCard(
         face = ChessBoardFrame,
-        facet = 6.dp,
+        facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Board,
     ) {
         Column {
             for (row in NORMAL_CHESS_SIZE - 1 downTo 0) {
