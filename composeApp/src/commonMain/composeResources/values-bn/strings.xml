@@ -561,6 +561,9 @@
     <string name="normal_sudoku_difficulty_hard">কঠিন</string>
     <string name="normal_sudoku_difficulty_expert">বিশেষজ্ঞ</string>
     <string name="normal_sudoku_erase">মুছুন</string>
+    <string name="normal_sudoku_notes_mode">নোট</string>
+    <string name="normal_sudoku_pen_mode">কলম</string>
+    <string name="normal_sudoku_notes_toggle">নোট মোড টগল করুন</string>
     <string name="normal_sudoku_not_solved">পুরোপুরি সঠিক নয়</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>

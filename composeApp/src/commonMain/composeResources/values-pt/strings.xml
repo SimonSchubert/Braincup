@@ -575,6 +575,9 @@
     <string name="normal_sudoku_difficulty_hard">Difícil</string>
     <string name="normal_sudoku_difficulty_expert">Especialista</string>
     <string name="normal_sudoku_erase">Apagar</string>
+    <string name="normal_sudoku_notes_mode">Notas</string>
+    <string name="normal_sudoku_pen_mode">Caneta</string>
+    <string name="normal_sudoku_notes_toggle">Alternar modo de notas</string>
     <string name="normal_sudoku_not_solved">Não está certo</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>

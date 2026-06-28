@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.ui.screens
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
@@ -9,18 +10,31 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.ic_pencil_notes
 import braincup.composeapp.generated.resources.normal_sudoku_erase
 import braincup.composeapp.generated.resources.normal_sudoku_not_solved
+import braincup.composeapp.generated.resources.normal_sudoku_notes_mode
+import braincup.composeapp.generated.resources.normal_sudoku_notes_toggle
+import braincup.composeapp.generated.resources.normal_sudoku_pen_mode
 import braincup.composeapp.generated.resources.normal_sudoku_solved
 import braincup.composeapp.generated.resources.normal_sudoku_title
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
+import com.inspiredandroid.braincup.normalsudoku.NoteMask
+import com.inspiredandroid.braincup.normalsudoku.autoEliminateNote
+import com.inspiredandroid.braincup.normalsudoku.decodeSudokuNotes
+import com.inspiredandroid.braincup.normalsudoku.emptySudokuNotes
+import com.inspiredandroid.braincup.normalsudoku.encodeSudokuNotes
+import com.inspiredandroid.braincup.normalsudoku.noteMaskHas
+import com.inspiredandroid.braincup.normalsudoku.noteMaskToText
+import com.inspiredandroid.braincup.normalsudoku.noteMaskToggle
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
@@ -31,6 +45,7 @@ import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 private const val GRID = 9
@@ -58,10 +73,17 @@ fun NormalSudokuPlayScreen(
         MutableList(81) { source[it].digitToInt() }
     }
     val board = remember(puzzle) { mutableStateListOf<Int>().apply { addAll(initial) } }
+    val notes = remember(puzzle) {
+        mutableStateListOf<NoteMask>().apply {
+            val savedNotes = storage.getNormalSudokuNotes(puzzle.id)
+            addAll(decodeSudokuNotes(savedNotes ?: "") ?: emptySudokuNotes())
+        }
+    }
     var selectedIndex by remember(puzzle) {
         val firstEmpty = clueDigits.indexOfFirst { it == 0 }
         mutableStateOf(if (firstEmpty == -1) 0 else firstEmpty)
     }
+    var notesMode by remember(puzzle) { mutableStateOf(false) }
     var lastWrongFlash by remember(puzzle) { mutableStateOf(0L) }
     var solved by remember(puzzle) { mutableStateOf(false) }
     var xpGained by remember(puzzle) { mutableStateOf(0) }
@@ -69,20 +91,27 @@ fun NormalSudokuPlayScreen(
     fun persist() {
         if (solved) return
         storage.saveNormalSudokuProgress(puzzle.id, board.joinToString("") { it.toString() })
+        storage.saveNormalSudokuNotes(puzzle.id, encodeSudokuNotes(notes))
     }
 
-    fun applyDigit(digit: Int) {
+    fun toggleNote(pos: Int, digit: Int) {
+        if (solved || digit !in 1..9) return
+        if (pos !in board.indices || clueDigits[pos] != 0 || board[pos] != 0) return
+        notes[pos] = noteMaskToggle(notes[pos], digit)
+        persist()
+    }
+
+    fun placeDigit(pos: Int, digit: Int) {
         if (solved) return
-        val pos = selectedIndex
         if (pos !in board.indices) return
         if (clueDigits[pos] != 0) return
         board[pos] = digit
+        notes[pos] = 0
+        if (digit in 1..9) autoEliminateNote(notes, digit, pos)
         persist()
         if (board.none { it == 0 }) {
             val asString = board.joinToString("") { it.toString() }
             if (asString == puzzle.solution) {
-                // Award XP first; awardNormalSudokuCompletionXp dedupes by checking the
-                // completed set BEFORE we add to it via markNormalSudokuCompleted.
                 xpGained = storage.awardNormalSudokuCompletionXp(puzzle.id, puzzle.difficulty).xpGained
                 solved = true
                 storage.markNormalSudokuCompleted(puzzle.id, puzzle.difficulty)
@@ -94,9 +123,21 @@ fun NormalSudokuPlayScreen(
         }
     }
 
+    fun applyDigit(digit: Int) {
+        if (notesMode) toggleNote(selectedIndex, digit) else placeDigit(selectedIndex, digit)
+    }
+
+    fun applyErase() {
+        if (solved) return
+        val pos = selectedIndex
+        if (pos !in board.indices || clueDigits[pos] != 0) return
+        board[pos] = 0
+        notes[pos] = 0
+        persist()
+    }
+
     LaunchedEffect(solved) {
         if (solved) {
-            // Give the XP chip animation time to land before we navigate away.
             delay(if (xpGained > 0) 2200 else 1200)
             onCompleted()
         }
@@ -106,6 +147,13 @@ fun NormalSudokuPlayScreen(
         title = stringResource(Res.string.normal_sudoku_title),
         onBack = onBack,
         scrollable = false,
+        actions = {
+            NotesModeToggle(
+                notesMode = notesMode,
+                enabled = !solved,
+                onToggle = { notesMode = !notesMode },
+            )
+        },
     ) {
         BoxWithConstraints(
             modifier = Modifier
@@ -136,6 +184,7 @@ fun NormalSudokuPlayScreen(
                 ) {
                     SudokuBoard9x9(
                         board = board,
+                        notes = notes,
                         clueDigits = clueDigits,
                         selectedIndex = selectedIndex,
                         solved = solved,
@@ -147,10 +196,12 @@ fun NormalSudokuPlayScreen(
                     DigitPad(
                         columns = 3,
                         board = board,
+                        notesMode = notesMode,
+                        selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
                         modifier = Modifier.width(padWidth),
                         onDigit = ::applyDigit,
-                        onErase = { applyDigit(0) },
+                        onErase = ::applyErase,
                     )
                 }
             } else {
@@ -167,6 +218,7 @@ fun NormalSudokuPlayScreen(
                 ) {
                     SudokuBoard9x9(
                         board = board,
+                        notes = notes,
                         clueDigits = clueDigits,
                         selectedIndex = selectedIndex,
                         solved = solved,
@@ -178,10 +230,12 @@ fun NormalSudokuPlayScreen(
                     DigitPad(
                         columns = 9,
                         board = board,
+                        notesMode = notesMode,
+                        selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
                         modifier = Modifier.width(boardSize),
                         onDigit = ::applyDigit,
-                        onErase = { applyDigit(0) },
+                        onErase = ::applyErase,
                     )
                 }
             }
@@ -192,8 +246,53 @@ fun NormalSudokuPlayScreen(
 }
 
 @Composable
+private fun NotesModeToggle(
+    notesMode: Boolean,
+    enabled: Boolean,
+    onToggle: () -> Unit,
+) {
+    val label = if (notesMode) {
+        stringResource(Res.string.normal_sudoku_notes_mode)
+    } else {
+        stringResource(Res.string.normal_sudoku_pen_mode)
+    }
+    val face = if (notesMode) PrimaryContainer else MaterialTheme.colorScheme.surfaceVariant
+    val contentColor = if (notesMode) OnPrimaryContainer else MaterialTheme.colorScheme.onSurface
+    PrismTile(
+        face = face,
+        modifier = Modifier
+            .padding(end = 8.dp)
+            .hoverHand(enabled)
+            .alpha(if (enabled) 1f else 0.6f),
+        isClickable = enabled,
+        isSelected = notesMode,
+        onClick = onToggle,
+    ) {
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 6.dp),
+        ) {
+            Image(
+                painter = painterResource(Res.drawable.ic_pencil_notes),
+                contentDescription = stringResource(Res.string.normal_sudoku_notes_toggle),
+                colorFilter = ColorFilter.tint(contentColor),
+                modifier = Modifier.size(18.dp),
+            )
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelLarge,
+                fontWeight = FontWeight.SemiBold,
+                color = contentColor,
+            )
+        }
+    }
+}
+
+@Composable
 private fun SudokuBoard9x9(
     board: List<Int>,
+    notes: List<NoteMask>,
     clueDigits: List<Int>,
     selectedIndex: Int,
     solved: Boolean,
@@ -219,9 +318,10 @@ private fun SudokuBoard9x9(
                     for (col in 0 until GRID) {
                         val index = row * GRID + col
                         val isClue = clueDigits[index] != 0
-                        val value = board[index]
+                        val committed = board[index]
                         SudokuCell(
-                            value = if (value == 0) "" else value.toString(),
+                            committedValue = committed,
+                            noteMask = if (committed == 0) notes[index] else 0,
                             isClue = isClue,
                             isSelected = !solved && index == selectedIndex,
                             isSolved = solved,
@@ -253,7 +353,8 @@ private fun SudokuBoard9x9(
 
 @Composable
 private fun SudokuCell(
-    value: String,
+    committedValue: Int,
+    noteMask: NoteMask,
     isClue: Boolean,
     isSelected: Boolean,
     isSolved: Boolean,
@@ -262,7 +363,8 @@ private fun SudokuCell(
 ) {
     val containerColor = when {
         isSolved -> SuccessGreen.copy(alpha = 0.22f)
-        isSelected -> MaterialTheme.colorScheme.primaryContainer
+        // Brand-pinned lavender so notes use OnPrimaryContainer with proper contrast in every theme.
+        isSelected -> PrimaryContainer
         isClue -> MaterialTheme.colorScheme.surfaceVariant
         else -> MaterialTheme.colorScheme.surface
     }
@@ -273,26 +375,65 @@ private fun SudokuCell(
     }
     BoxWithConstraints(modifier = modifier) {
         val size = minOf(maxWidth, maxHeight)
+        val showingNotes = committedValue == 0 && noteMask != 0
         PrismTile(
             face = containerColor,
             isClickable = !isClue && !isSolved,
-            isSelected = isSelected,
+            // Keep notes legible: sunken prism inset shrinks the content slot too much.
+            isSelected = isSelected && !showingNotes,
             modifier = Modifier
                 .size(size)
                 .hoverHand(!isClue && !isSolved),
             onClick = onClick,
         ) {
-            if (value.isNotEmpty()) {
-                Text(
-                    text = value,
-                    fontSize = (size.value * 0.45f).sp,
-                    fontFamily = numberFontFamily(),
-                    fontWeight = if (isClue) FontWeight.Bold else FontWeight.SemiBold,
-                    color = textColor,
-                    textAlign = TextAlign.Center,
-                )
+            when {
+                committedValue != 0 -> {
+                    Text(
+                        text = committedValue.toString(),
+                        fontSize = (size.value * 0.5f).sp,
+                        fontFamily = numberFontFamily(),
+                        fontWeight = if (isClue) FontWeight.Bold else FontWeight.SemiBold,
+                        color = textColor,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+                noteMask != 0 -> {
+                    CellNotesText(
+                        noteMask = noteMask,
+                        cellSize = size,
+                        isSelected = isSelected,
+                    )
+                }
             }
         }
+    }
+}
+
+@Composable
+private fun CellNotesText(
+    noteMask: NoteMask,
+    cellSize: Dp,
+    isSelected: Boolean,
+) {
+    val noteColor = if (isSelected) OnPrimaryContainer else Primary
+    val noteCount = noteMaskToText(noteMask).length
+    val scale = if (noteCount > 6) 0.22f else 0.3f
+    val fontSize = (cellSize.value * scale).sp
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 3.dp, vertical = 2.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = noteMaskToText(noteMask),
+            fontSize = fontSize,
+            lineHeight = fontSize,
+            fontFamily = numberFontFamily(),
+            fontWeight = FontWeight.Medium,
+            color = noteColor,
+            textAlign = TextAlign.Center,
+        )
     }
 }
 
@@ -300,6 +441,8 @@ private fun SudokuCell(
 private fun DigitPad(
     columns: Int,
     board: List<Int>,
+    notesMode: Boolean,
+    selectedNotes: NoteMask,
     enabled: Boolean,
     modifier: Modifier = Modifier,
     onDigit: (Int) -> Unit,
@@ -308,20 +451,32 @@ private fun DigitPad(
     val digitCounts = IntArray(10)
     board.forEach { if (it in 1..9) digitCounts[it]++ }
     val digits = (1..9).toList()
+    val modeLabel = if (notesMode) {
+        stringResource(Res.string.normal_sudoku_notes_mode)
+    } else {
+        stringResource(Res.string.normal_sudoku_pen_mode)
+    }
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.spacedBy(PadGap),
     ) {
+        Text(
+            text = modeLabel,
+            style = MaterialTheme.typography.labelMedium,
+            color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f),
+        )
         digits.chunked(columns).forEach { rowDigits ->
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.spacedBy(PadGap),
             ) {
                 rowDigits.forEach { digit ->
+                    val digitEnabled = enabled && (notesMode || digitCounts[digit] < GRID)
                     DigitTile(
                         label = digit.toString(),
-                        enabled = enabled && digitCounts[digit] < GRID,
+                        enabled = digitEnabled,
+                        highlighted = notesMode && noteMaskHas(selectedNotes, digit),
                         onClick = { onDigit(digit) },
                         modifier = Modifier
                             .weight(1f)
@@ -345,21 +500,20 @@ private fun DigitPad(
 private fun DigitTile(
     label: String,
     enabled: Boolean,
+    highlighted: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     BoxWithConstraints(modifier = modifier) {
         val size = minOf(maxWidth, maxHeight)
         PrismTile(
-            // Brand-pinned light-purple face paired with the dark-purple OnPrimaryContainer text so
-            // the digits stay high-contrast in every theme. Using colorScheme.primaryContainer here
-            // resolved to a dark purple in dark mode, leaving dark text on a dark tile.
-            face = PrimaryContainer,
+            face = if (highlighted) Primary.copy(alpha = 0.18f) else PrimaryContainer,
             modifier = Modifier
                 .size(size)
                 .hoverHand(enabled)
                 .alpha(if (enabled) 1f else 0.6f),
             isClickable = enabled,
+            isSelected = highlighted,
             onClick = onClick,
         ) {
             Text(

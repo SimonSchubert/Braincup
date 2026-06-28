@@ -575,6 +575,9 @@
     <string name="normal_sudoku_difficulty_hard">Trudny</string>
     <string name="normal_sudoku_difficulty_expert">Ekspert</string>
     <string name="normal_sudoku_erase">Wymaż</string>
+    <string name="normal_sudoku_notes_mode">Notatki</string>
+    <string name="normal_sudoku_pen_mode">Pióro</string>
+    <string name="normal_sudoku_notes_toggle">Przełącz tryb notatek</string>
     <string name="normal_sudoku_not_solved">Nie do końca</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>

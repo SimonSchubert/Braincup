@@ -573,6 +573,9 @@
     <string name="normal_sudoku_difficulty_hard">困难</string>
     <string name="normal_sudoku_difficulty_expert">专家</string>
     <string name="normal_sudoku_erase">清除</string>
+    <string name="normal_sudoku_notes_mode">笔记</string>
+    <string name="normal_sudoku_pen_mode">笔</string>
+    <string name="normal_sudoku_notes_toggle">切换笔记模式</string>
     <string name="normal_sudoku_not_solved">还不正确</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>

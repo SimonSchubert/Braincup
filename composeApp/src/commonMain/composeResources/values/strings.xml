@@ -40,6 +40,9 @@
     <string name="normal_sudoku_solved">Solved!</string>
     <string name="normal_sudoku_not_solved">Not quite right</string>
     <string name="normal_sudoku_erase">Erase</string>
+    <string name="normal_sudoku_notes_mode">Notes</string>
+    <string name="normal_sudoku_pen_mode">Pen</string>
+    <string name="normal_sudoku_notes_toggle">Toggle notes mode</string>
 
     <!-- Normal Chess -->
     <string name="normal_chess_button">Normal Chess</string>

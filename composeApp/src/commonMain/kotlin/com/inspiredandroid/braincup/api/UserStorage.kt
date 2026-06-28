@@ -339,6 +339,7 @@ class UserStorage(
     }
 
     private fun normalSudokuProgressKey(id: String): String = "normal_sudoku_progress_$id"
+    private fun normalSudokuNotesKey(id: String): String = "normal_sudoku_notes_$id"
 
     fun getCompletedNormalSudokuIds(): Set<String> = settings
         .getStringOrNull(KEY_NORMAL_SUDOKU_COMPLETED)
@@ -353,6 +354,7 @@ class UserStorage(
         val updated = current + id
         settings.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
         settings.remove(normalSudokuProgressKey(id))
+        settings.remove(normalSudokuNotesKey(id))
         reportSudokuTierProgress(difficulty, updated)
     }
 
@@ -462,6 +464,18 @@ class UserStorage(
 
     fun clearNormalSudokuProgress(id: String) {
         settings.remove(normalSudokuProgressKey(id))
+    }
+
+    /** Resume state: 81-char encoded pencil-mark bitmasks per cell. */
+    fun getNormalSudokuNotes(id: String): String? = settings.getStringOrNull(normalSudokuNotesKey(id))?.takeIf { it.length == 81 }
+
+    fun saveNormalSudokuNotes(id: String, notes: String) {
+        if (notes.length != 81) return
+        settings.putString(normalSudokuNotesKey(id), notes)
+    }
+
+    fun clearNormalSudokuNotes(id: String) {
+        settings.remove(normalSudokuNotesKey(id))
     }
 
     fun getUnlockedAchievements(): MutableList<Achievements> = settings

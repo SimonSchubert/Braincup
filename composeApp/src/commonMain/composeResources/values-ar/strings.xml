@@ -561,6 +561,9 @@
     <string name="normal_sudoku_difficulty_hard">صعب</string>
     <string name="normal_sudoku_difficulty_expert">خبير</string>
     <string name="normal_sudoku_erase">مسح</string>
+    <string name="normal_sudoku_notes_mode">ملاحظات</string>
+    <string name="normal_sudoku_pen_mode">قلم</string>
+    <string name="normal_sudoku_notes_toggle">تبديل وضع الملاحظات</string>
     <string name="normal_sudoku_not_solved">ليس صحيحاً تماماً</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>

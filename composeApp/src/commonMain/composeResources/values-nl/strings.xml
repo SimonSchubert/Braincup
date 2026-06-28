@@ -561,6 +561,9 @@
     <string name="normal_sudoku_difficulty_hard">Moeilijk</string>
     <string name="normal_sudoku_difficulty_expert">Expert</string>
     <string name="normal_sudoku_erase">Wissen</string>
+    <string name="normal_sudoku_notes_mode">Notities</string>
+    <string name="normal_sudoku_pen_mode">Pen</string>
+    <string name="normal_sudoku_notes_toggle">Notitiemodus wisselen</string>
     <string name="normal_sudoku_not_solved">Nog niet helemaal goed</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>

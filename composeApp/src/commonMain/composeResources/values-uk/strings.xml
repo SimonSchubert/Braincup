@@ -575,6 +575,9 @@
     <string name="normal_sudoku_difficulty_hard">Складний</string>
     <string name="normal_sudoku_difficulty_expert">Експерт</string>
     <string name="normal_sudoku_erase">Стерти</string>
+    <string name="normal_sudoku_notes_mode">Нотатки</string>
+    <string name="normal_sudoku_pen_mode">Ручка</string>
+    <string name="normal_sudoku_notes_toggle">Перемкнути режим нотаток</string>
     <string name="normal_sudoku_not_solved">Не зовсім правильно</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
