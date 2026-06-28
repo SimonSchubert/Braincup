@@ -609,6 +609,17 @@
     <string name="normal_chess_promotion_knight">Kuda</string>
     <string name="normal_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Teka-teki korek api (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Teka-teki korek api</string>
+    <string name="matchstick_riddles_puzzle_label">Teka-teki %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Pindahkan 1 korek api untuk memperbaiki persamaan.</string>
+    <string name="matchstick_riddle_prompt_move_two">Pindahkan 2 korek api untuk memperbaiki persamaan.</string>
+    <string name="matchstick_riddle_prompt_move_three">Pindahkan 3 korek api untuk memperbaiki persamaan.</string>
+    <string name="matchstick_riddles_solved">Terpecahkan!</string>
+    <string name="matchstick_riddles_reset">Atur Ulang</string>
+    <string name="achievement_matchstick_master">Master korek api</string>
+    <string name="achievement_matchstick_master_desc">Selesaikan setiap teka-teki korek api</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cara buah catur bergerak</string>
     <string name="chess_piece_king">Raja</string>

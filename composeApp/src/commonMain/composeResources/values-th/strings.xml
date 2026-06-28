@@ -608,6 +608,17 @@
     <string name="normal_chess_promotion_knight">ม้า</string>
     <string name="normal_chess_draw_warning">= เสมอตาย (เสมอ ไม่ใช่ชนะ)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">ปริศนาไม้ขีดไฟ (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">ปริศนาไม้ขีดไฟ</string>
+    <string name="matchstick_riddles_puzzle_label">ปริศนา %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">เลื่อนไม้ขีดไฟ 1 แท่งเพื่อแก้สมการ</string>
+    <string name="matchstick_riddle_prompt_move_two">เลื่อนไม้ขีดไฟ 2 แท่งเพื่อแก้สมการ</string>
+    <string name="matchstick_riddle_prompt_move_three">เลื่อนไม้ขีดไฟ 3 แท่งเพื่อแก้สมการ</string>
+    <string name="matchstick_riddles_solved">แก้ได้แล้ว!</string>
+    <string name="matchstick_riddles_reset">รีเซ็ต</string>
+    <string name="achievement_matchstick_master">ปรมาจารย์ไม้ขีดไฟ</string>
+    <string name="achievement_matchstick_master_desc">แก้ปริศนาไม้ขีดไฟทุกข้อ</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">วิธีที่หมากเคลื่อนที่</string>
     <string name="chess_piece_king">คิง</string>

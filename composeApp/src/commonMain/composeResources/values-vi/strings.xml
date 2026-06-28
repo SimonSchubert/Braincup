@@ -609,6 +609,17 @@
     <string name="normal_chess_promotion_knight">Mã</string>
     <string name="normal_chess_draw_warning">= hết nước đi (hòa, không phải thắng)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Câu đố que diêm (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Câu đố que diêm</string>
+    <string name="matchstick_riddles_puzzle_label">Câu đố %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Di chuyển 1 que diêm để sửa phương trình.</string>
+    <string name="matchstick_riddle_prompt_move_two">Di chuyển 2 que diêm để sửa phương trình.</string>
+    <string name="matchstick_riddle_prompt_move_three">Di chuyển 3 que diêm để sửa phương trình.</string>
+    <string name="matchstick_riddles_solved">Đã giải!</string>
+    <string name="matchstick_riddles_reset">Đặt lại</string>
+    <string name="achievement_matchstick_master">Bậc thầy que diêm</string>
+    <string name="achievement_matchstick_master_desc">Giải mọi câu đố que diêm</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cách các quân cờ di chuyển</string>
     <string name="chess_piece_king">Vua</string>

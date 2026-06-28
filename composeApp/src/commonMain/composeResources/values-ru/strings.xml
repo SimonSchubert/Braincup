@@ -609,6 +609,17 @@
     <string name="normal_chess_promotion_knight">Конь</string>
     <string name="normal_chess_draw_warning">= пат (ничья, не победа)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Головоломки со спичками (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Головоломки со спичками</string>
+    <string name="matchstick_riddles_puzzle_label">Загадка %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Переместите 1 спичку, чтобы исправить уравнение.</string>
+    <string name="matchstick_riddle_prompt_move_two">Переместите 2 спички, чтобы исправить уравнение.</string>
+    <string name="matchstick_riddle_prompt_move_three">Переместите 3 спички, чтобы исправить уравнение.</string>
+    <string name="matchstick_riddles_solved">Решено!</string>
+    <string name="matchstick_riddles_reset">Сбросить</string>
+    <string name="achievement_matchstick_master">Мастер спичек</string>
+    <string name="achievement_matchstick_master_desc">Решите каждую головоломку со спичками</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Как ходят фигуры</string>
     <string name="chess_piece_king">Король</string>

@@ -595,6 +595,18 @@
     <string name="normal_chess_promotion_bishop">Loper</string>
     <string name="normal_chess_promotion_knight">Paard</string>
     <string name="normal_chess_draw_warning">= pat (remise, geen winst)</string>
+
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Luciferpuzzels (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Luciferpuzzels</string>
+    <string name="matchstick_riddles_puzzle_label">Puzzel %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Verplaats 1 lucifer om de vergelijking te corrigeren.</string>
+    <string name="matchstick_riddle_prompt_move_two">Verplaats 2 lucifers om de vergelijking te corrigeren.</string>
+    <string name="matchstick_riddle_prompt_move_three">Verplaats 3 lucifers om de vergelijking te corrigeren.</string>
+    <string name="matchstick_riddles_solved">Opgelost!</string>
+    <string name="matchstick_riddles_reset">Resetten</string>
+    <string name="achievement_matchstick_master">Lucifermeester</string>
+    <string name="achievement_matchstick_master_desc">Los elke luciferpuzzel op</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Raad het verborgen woord van vijf letters in zes pogingen. Het antwoord is altijd een zelfstandig naamwoord.</string>
     <string name="achievement_gold_wordle">Woordkunstenaar</string>

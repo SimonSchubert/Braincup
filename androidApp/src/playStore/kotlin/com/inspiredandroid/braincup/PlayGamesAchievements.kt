@@ -10,6 +10,7 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.R
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import java.lang.ref.WeakReference
 
@@ -68,6 +69,13 @@ fun initPlayGames(activity: ComponentActivity) {
         val id = current.getString(sudokuTierAchievementResIdFor(difficulty))
         if (id.isBlank()) return
         PlayGames.getAchievementsClient(current).setSteps(id, solved.coerceAtMost(UserStorage.SUDOKU_TIER_TARGET))
+    }
+
+    PlayGamesBridge.onMatchstickRiddlesProgress = fun(solved: Int) {
+        val current = activityRef?.get() ?: return
+        val id = current.getString(R.string.achievementMatchstickMaster)
+        if (id.isBlank()) return
+        PlayGames.getAchievementsClient(current).setSteps(id, solved.coerceAtMost(MatchstickRiddles.count))
     }
 
     PlayGamesBridge.onSubmitScore = fun(gameType: GameType, score: Int) {
@@ -239,6 +247,14 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
                 val steps = incrementalSteps[tierId] ?: continue
                 if (steps > 0) {
                     storage.restoreSudokuTierProgressIfHigher(difficulty, steps)
+                }
+            }
+
+            val matchstickId = activity.getString(R.string.achievementMatchstickMaster)
+            if (matchstickId.isNotBlank()) {
+                val steps = incrementalSteps[matchstickId] ?: 0
+                if (steps > 0) {
+                    storage.restoreMatchstickRiddlesProgressIfHigher(steps)
                 }
             }
         } finally {

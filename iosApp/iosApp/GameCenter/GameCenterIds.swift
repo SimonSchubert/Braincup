@@ -53,6 +53,10 @@ enum GameCenterIds {
 
     static let achievementMindMarathoner = "achievement.mind_marathoner"
     static let achievementIronStreak     = "achievement.iron_streak"
+    // Matchstick Riddles set-completion (incremental). Its target is the catalog size, read live
+    // from Kotlin (MatchstickRiddles.count), so only the App Store Connect step total needs bumping
+    // when riddles are added.
+    static let achievementMatchstickMaster = "achievement.matchstick_master"
     static let leaderboardBrainCup       = "leaderboard.brain_cup"
 
     static let mindMarathonerTarget = 10_000

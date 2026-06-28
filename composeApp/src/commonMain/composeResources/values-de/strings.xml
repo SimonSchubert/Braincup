@@ -595,6 +595,18 @@
     <string name="normal_chess_promotion_bishop">Läufer</string>
     <string name="normal_chess_promotion_knight">Springer</string>
     <string name="normal_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
+
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Streichholz-Rätsel (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Streichholz-Rätsel</string>
+    <string name="matchstick_riddles_puzzle_label">Rätsel %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Verschiebe 1 Streichholz, um die Gleichung zu korrigieren.</string>
+    <string name="matchstick_riddle_prompt_move_two">Verschiebe 2 Streichhölzer, um die Gleichung zu korrigieren.</string>
+    <string name="matchstick_riddle_prompt_move_three">Verschiebe 3 Streichhölzer, um die Gleichung zu korrigieren.</string>
+    <string name="matchstick_riddles_solved">Gelöst!</string>
+    <string name="matchstick_riddles_reset">Zurücksetzen</string>
+    <string name="achievement_matchstick_master">Streichholz-Meister</string>
+    <string name="achievement_matchstick_master_desc">Löse jedes Streichholz-Rätsel</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen. Die Lösung ist immer ein Substantiv.</string>
     <string name="achievement_gold_wordle">Wortkünstler</string>

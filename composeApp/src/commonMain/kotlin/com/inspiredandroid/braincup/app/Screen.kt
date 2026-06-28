@@ -49,3 +49,9 @@ object NormalChessMenu
 
 @Serializable
 data class NormalChessPlay(val mode: String, val difficulty: String)
+
+@Serializable
+object MatchstickRiddlesMenu
+
+@Serializable
+data class MatchstickRiddlesPlay(val riddleId: String)

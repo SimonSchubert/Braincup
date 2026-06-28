@@ -68,6 +68,17 @@ final class GameCenterBridge: NSObject {
             )
         }
 
+        bridge.onMatchstickRiddlesProgress = { [weak self] solved in
+            let count = Double(Int(truncating: solved))
+            let target = Double(Int(MatchstickRiddles.shared.count))
+            let percent = min(100.0, count * 100.0 / target)
+            self?.reportAchievement(
+                id: GameCenterIds.achievementMatchstickMaster,
+                percent: percent,
+                showsBanner: percent >= 100
+            )
+        }
+
         bridge.onSubmitScore = { [weak self] gameType, score in
             guard let id = GameCenterIds.leaderboard(for: gameType) else { return }
             self?.submitScore(Int(truncating: score), leaderboardID: id)
@@ -117,6 +128,15 @@ final class GameCenterBridge: NSObject {
                 let count = Int((a.percentComplete / 100.0 * target).rounded())
                 if count > 0 {
                     storage.restoreSudokuTierProgressIfHigher(difficulty: difficulty, remoteCount: Int32(count))
+                }
+            }
+
+            // Restore Matchstick Riddles progress the same way: percentComplete back to a solved count.
+            let matchstickTarget = Double(Int(MatchstickRiddles.shared.count))
+            for a in achievements where a.identifier == GameCenterIds.achievementMatchstickMaster {
+                let count = Int((a.percentComplete / 100.0 * matchstickTarget).rounded())
+                if count > 0 {
+                    storage.restoreMatchstickRiddlesProgressIfHigher(remoteCount: Int32(count))
                 }
             }
         }

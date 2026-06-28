@@ -610,6 +610,17 @@
     <string name="normal_chess_promotion_knight">Skoczek</string>
     <string name="normal_chess_draw_warning">= pat (remis, nie wygrana)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Łamigłówki z zapałkami (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Łamigłówki z zapałkami</string>
+    <string name="matchstick_riddles_puzzle_label">Łamigłówka %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Przesuń 1 zapałkę, aby poprawić równanie.</string>
+    <string name="matchstick_riddle_prompt_move_two">Przesuń 2 zapałki, aby poprawić równanie.</string>
+    <string name="matchstick_riddle_prompt_move_three">Przesuń 3 zapałki, aby poprawić równanie.</string>
+    <string name="matchstick_riddles_solved">Rozwiązano!</string>
+    <string name="matchstick_riddles_reset">Zresetuj</string>
+    <string name="achievement_matchstick_master">Mistrz zapałek</string>
+    <string name="achievement_matchstick_master_desc">Rozwiąż każdą łamigłówkę z zapałkami</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Jak poruszają się bierki</string>
     <string name="chess_piece_king">Król</string>

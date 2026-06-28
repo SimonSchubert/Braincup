@@ -608,6 +608,17 @@
     <string name="normal_chess_promotion_knight">घोड़ा</string>
     <string name="normal_chess_draw_warning">= गतिरोध (ड्रॉ, जीत नहीं)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">माचिस की पहेलियाँ (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">माचिस की पहेलियाँ</string>
+    <string name="matchstick_riddles_puzzle_label">पहेली %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">समीकरण ठीक करने के लिए 1 माचिस की तीली हटाएँ।</string>
+    <string name="matchstick_riddle_prompt_move_two">समीकरण ठीक करने के लिए 2 माचिस की तीलियाँ हटाएँ।</string>
+    <string name="matchstick_riddle_prompt_move_three">समीकरण ठीक करने के लिए 3 माचिस की तीलियाँ हटाएँ।</string>
+    <string name="matchstick_riddles_solved">हल हो गया!</string>
+    <string name="matchstick_riddles_reset">रीसेट</string>
+    <string name="achievement_matchstick_master">माचिस मास्टर</string>
+    <string name="achievement_matchstick_master_desc">हर माचिस की पहेली हल करें</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">मोहरे कैसे चलते हैं</string>
     <string name="chess_piece_king">राजा</string>

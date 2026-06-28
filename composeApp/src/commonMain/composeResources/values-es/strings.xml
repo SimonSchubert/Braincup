@@ -608,6 +608,17 @@
     <string name="normal_chess_promotion_knight">Caballo</string>
     <string name="normal_chess_draw_warning">= ahogado (tablas, no victoria)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Acertijos de fósforos (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Acertijos de fósforos</string>
+    <string name="matchstick_riddles_puzzle_label">Acertijo %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Mueve 1 fósforo para corregir la ecuación.</string>
+    <string name="matchstick_riddle_prompt_move_two">Mueve 2 fósforos para corregir la ecuación.</string>
+    <string name="matchstick_riddle_prompt_move_three">Mueve 3 fósforos para corregir la ecuación.</string>
+    <string name="matchstick_riddles_solved">¡Resuelto!</string>
+    <string name="matchstick_riddles_reset">Reiniciar</string>
+    <string name="achievement_matchstick_master">Maestro de fósforos</string>
+    <string name="achievement_matchstick_master_desc">Resuelve todos los acertijos de fósforos</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cómo se mueven las piezas</string>
     <string name="chess_piece_king">Rey</string>

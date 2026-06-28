@@ -70,6 +70,17 @@
     <string name="normal_chess_promotion_knight">Ίππος</string>
     <string name="normal_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Γρίφοι με σπίρτα (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Γρίφοι με σπίρτα</string>
+    <string name="matchstick_riddles_puzzle_label">Γρίφος %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Μετακινήστε 1 σπίρτο για να διορθώσετε την εξίσωση.</string>
+    <string name="matchstick_riddle_prompt_move_two">Μετακινήστε 2 σπίρτα για να διορθώσετε την εξίσωση.</string>
+    <string name="matchstick_riddle_prompt_move_three">Μετακινήστε 3 σπίρτα για να διορθώσετε την εξίσωση.</string>
+    <string name="matchstick_riddles_solved">Λύθηκε!</string>
+    <string name="matchstick_riddles_reset">Επαναφορά</string>
+    <string name="achievement_matchstick_master">Δάσκαλος σπίρτων</string>
+    <string name="achievement_matchstick_master_desc">Λύσε κάθε γρίφο με σπίρτα</string>
     <!-- Settings -->
     <string name="settings_title">Επιλογές</string>
     <string name="settings_open">Ανοιγμα επιλογών</string>

@@ -595,6 +595,18 @@
     <string name="normal_chess_promotion_bishop">Fou</string>
     <string name="normal_chess_promotion_knight">Cavalier</string>
     <string name="normal_chess_draw_warning">= pat (nul, pas une victoire)</string>
+
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Énigmes d\'allumettes (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Énigmes d\'allumettes</string>
+    <string name="matchstick_riddles_puzzle_label">Énigme %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Déplacez 1 allumette pour corriger l\'équation.</string>
+    <string name="matchstick_riddle_prompt_move_two">Déplacez 2 allumettes pour corriger l\'équation.</string>
+    <string name="matchstick_riddle_prompt_move_three">Déplacez 3 allumettes pour corriger l\'équation.</string>
+    <string name="matchstick_riddles_solved">Résolu !</string>
+    <string name="matchstick_riddles_reset">Réinitialiser</string>
+    <string name="achievement_matchstick_master">Maître des allumettes</string>
+    <string name="achievement_matchstick_master_desc">Résous chaque énigme d\'allumettes</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Devinez le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.</string>
     <string name="achievement_gold_wordle">Maître des mots</string>

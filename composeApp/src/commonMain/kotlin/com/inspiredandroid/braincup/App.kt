@@ -367,6 +367,28 @@ fun App(
                         )
                     }
 
+                    composable<MatchstickRiddlesMenu> {
+                        MatchstickRiddlesMenuScreen(
+                            storage = controller.storage,
+                            onRiddleSelected = { controller.navigateToMatchstickRiddlesPlay(it) },
+                            onBack = { controller.navigateToMainMenu() },
+                        )
+                    }
+
+                    composable<MatchstickRiddlesPlay> { backStackEntry ->
+                        val route: MatchstickRiddlesPlay = backStackEntry.toRoute()
+                        MatchstickRiddlesPlayScreen(
+                            riddleId = route.riddleId,
+                            storage = controller.storage,
+                            onCompleted = {
+                                navController.popBackStack(MatchstickRiddlesMenu, inclusive = false)
+                            },
+                            onBack = {
+                                navController.popBackStack(MatchstickRiddlesMenu, inclusive = false)
+                            },
+                        )
+                    }
+
                     composable<SessionInterstitial> {
                         val session by controller.sessionState.collectAsState()
                         val current = session

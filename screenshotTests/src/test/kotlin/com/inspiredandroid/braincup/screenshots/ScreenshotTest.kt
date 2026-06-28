@@ -10,6 +10,7 @@ import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
+import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.GameScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.SessionCompleteScreen
@@ -538,6 +539,17 @@ class ScreenshotTest {
                 timeRemaining = 50_000L,
                 onAnswer = {},
                 onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun matchstickRiddlesMenu() {
+        paparazzi.snap {
+            MatchstickRiddlesMenuScreenContent(
+                solved = setOf("one_plus_one", "four_plus_two", "nine_minus_four"),
+                onRiddleSelected = {},
                 onBack = {},
             )
         }

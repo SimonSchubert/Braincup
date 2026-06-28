@@ -610,6 +610,17 @@
     <string name="normal_chess_promotion_knight">Cavalo</string>
     <string name="normal_chess_draw_warning">= afogamento (empate, não vitória)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Enigmas de palitos (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Enigmas de palitos</string>
+    <string name="matchstick_riddles_puzzle_label">Enigma %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Mova 1 palito para corrigir a equação.</string>
+    <string name="matchstick_riddle_prompt_move_two">Mova 2 palitos para corrigir a equação.</string>
+    <string name="matchstick_riddle_prompt_move_three">Mova 3 palitos para corrigir a equação.</string>
+    <string name="matchstick_riddles_solved">Resolvido!</string>
+    <string name="matchstick_riddles_reset">Reiniciar</string>
+    <string name="achievement_matchstick_master">Mestre dos palitos</string>
+    <string name="achievement_matchstick_master_desc">Resolva todos os enigmas de palitos</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Como as peças se movem</string>
     <string name="chess_piece_king">Rei</string>

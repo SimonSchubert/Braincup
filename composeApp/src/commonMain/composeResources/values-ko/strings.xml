@@ -608,6 +608,17 @@
     <string name="normal_chess_promotion_knight">나이트</string>
     <string name="normal_chess_draw_warning">= 스테일메이트 (승리가 아닌 무승부)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">성냥개비 퍼즐 (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">성냥개비 퍼즐</string>
+    <string name="matchstick_riddles_puzzle_label">퍼즐 %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">성냥개비 1개를 옮겨 식을 맞추세요.</string>
+    <string name="matchstick_riddle_prompt_move_two">성냥개비 2개를 옮겨 식을 맞추세요.</string>
+    <string name="matchstick_riddle_prompt_move_three">성냥개비 3개를 옮겨 식을 맞추세요.</string>
+    <string name="matchstick_riddles_solved">해결!</string>
+    <string name="matchstick_riddles_reset">초기화</string>
+    <string name="achievement_matchstick_master">성냥개비 마스터</string>
+    <string name="achievement_matchstick_master_desc">모든 성냥개비 퍼즐을 풀기</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">기물이 움직이는 방법</string>
     <string name="chess_piece_king">킹</string>

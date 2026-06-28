@@ -24,8 +24,10 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
+import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
+import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
 import com.inspiredandroid.braincup.ui.components.NormalChessTile
 import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
@@ -60,6 +62,10 @@ fun MainMenuScreen(
     val normalSudokuCompleted = remember(controller) {
         controller.storage.getCompletedNormalSudokuIds().size
     }
+    val matchstickRiddlesSolved = remember(controller) {
+        controller.storage.getSolvedMatchstickRiddleIds().size
+    }
+    val matchstickRiddlesTotal = remember { MatchstickRiddles.all.size }
 
     MainMenuScreenContent(
         totalXp = totalXp,
@@ -70,6 +76,8 @@ fun MainMenuScreen(
         highscores = highscores.toImmutableMap(),
         unlockedCount = unlockedCount,
         normalSudokuCompleted = normalSudokuCompleted,
+        matchstickRiddlesSolved = matchstickRiddlesSolved,
+        matchstickRiddlesTotal = matchstickRiddlesTotal,
         onOpenSettings = onOpenSettings,
         onPlayDaily = { controller.startDailySession() },
         onPlay = { controller.navigateToInstructions(it) },
@@ -77,6 +85,7 @@ fun MainMenuScreen(
         onAchievements = { controller.navigateToAchievements() },
         onNormalSudoku = { controller.navigateToNormalSudokuMenu() },
         onNormalChess = { controller.navigateToNormalChessMenu() },
+        onMatchstickRiddles = { controller.navigateToMatchstickRiddlesMenu() },
         onShowBrainCup = if (PlayGamesBridge.onShowBrainCup != null) {
             { controller.showBrainCup() }
         } else {
@@ -96,6 +105,8 @@ fun MainMenuScreenContent(
     highscores: ImmutableMap<String, Int>,
     unlockedCount: Int,
     normalSudokuCompleted: Int = 0,
+    matchstickRiddlesSolved: Int = 0,
+    matchstickRiddlesTotal: Int = 0,
     showDailyChallenge: Boolean = true,
     onOpenSettings: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
@@ -104,6 +115,7 @@ fun MainMenuScreenContent(
     onAchievements: () -> Unit = {},
     onNormalSudoku: () -> Unit = {},
     onNormalChess: () -> Unit = {},
+    onMatchstickRiddles: () -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     sponsorsSlot: @Composable () -> Unit = {},
 ) {
@@ -263,6 +275,13 @@ fun MainMenuScreenContent(
         }
         item(contentType = "normal_chess") {
             NormalChessTile(onClick = onNormalChess)
+        }
+        item(contentType = "matchstick_riddles") {
+            MatchstickRiddlesTile(
+                solvedCount = matchstickRiddlesSolved,
+                total = matchstickRiddlesTotal,
+                onClick = onMatchstickRiddles,
+            )
         }
 
         // Footer

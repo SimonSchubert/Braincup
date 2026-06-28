@@ -610,6 +610,17 @@
     <string name="normal_chess_promotion_knight">Кінь</string>
     <string name="normal_chess_draw_warning">= пат (нічия, не перемога)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Головоломки з сірниками (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Головоломки з сірниками</string>
+    <string name="matchstick_riddles_puzzle_label">Загадка %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Перемістіть 1 сірник, щоб виправити рівняння.</string>
+    <string name="matchstick_riddle_prompt_move_two">Перемістіть 2 сірники, щоб виправити рівняння.</string>
+    <string name="matchstick_riddle_prompt_move_three">Перемістіть 3 сірники, щоб виправити рівняння.</string>
+    <string name="matchstick_riddles_solved">Розв\'язано!</string>
+    <string name="matchstick_riddles_reset">Скинути</string>
+    <string name="achievement_matchstick_master">Майстер сірників</string>
+    <string name="achievement_matchstick_master_desc">Розв\'яжіть кожну головоломку з сірниками</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Як ходять фігури</string>
     <string name="chess_piece_king">Король</string>

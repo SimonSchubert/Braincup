@@ -595,6 +595,18 @@
     <string name="normal_chess_promotion_bishop">فيل</string>
     <string name="normal_chess_promotion_knight">حصان</string>
     <string name="normal_chess_draw_warning">= طريق مسدود (تعادل، ليس فوزاً)</string>
+
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">ألغاز أعواد الثقاب (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">ألغاز أعواد الثقاب</string>
+    <string name="matchstick_riddles_puzzle_label">لغز %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">انقل عود ثقاب واحداً لتصحيح المعادلة.</string>
+    <string name="matchstick_riddle_prompt_move_two">انقل عودَي ثقاب لتصحيح المعادلة.</string>
+    <string name="matchstick_riddle_prompt_move_three">انقل 3 أعواد ثقاب لتصحيح المعادلة.</string>
+    <string name="matchstick_riddles_solved">تم الحل!</string>
+    <string name="matchstick_riddles_reset">إعادة تعيين</string>
+    <string name="achievement_matchstick_master">سيد أعواد الثقاب</string>
+    <string name="achievement_matchstick_master_desc">حل كل ألغاز أعواد الثقاب</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">خمّن الكلمة المخفية المؤلفة من خمسة أحرف في ست محاولات. الإجابة دائما اسم.</string>
     <string name="achievement_gold_wordle">صانع الكلمات</string>

@@ -608,6 +608,17 @@
     <string name="normal_chess_promotion_knight">马</string>
     <string name="normal_chess_draw_warning">= 逼和（平局，非胜利）</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">火柴谜题 (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">火柴谜题</string>
+    <string name="matchstick_riddles_puzzle_label">谜题 %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">移动 1 根火柴来修正等式。</string>
+    <string name="matchstick_riddle_prompt_move_two">移动 2 根火柴来修正等式。</string>
+    <string name="matchstick_riddle_prompt_move_three">移动 3 根火柴来修正等式。</string>
+    <string name="matchstick_riddles_solved">完成！</string>
+    <string name="matchstick_riddles_reset">重置</string>
+    <string name="achievement_matchstick_master">火柴大师</string>
+    <string name="achievement_matchstick_master_desc">解开所有火柴谜题</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">棋子走法</string>
     <string name="chess_piece_king">王</string>

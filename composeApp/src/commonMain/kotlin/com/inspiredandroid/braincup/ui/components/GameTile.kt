@@ -308,6 +308,16 @@ fun NormalChessTile(onClick: () -> Unit) {
     ) { NormalChessPreview() }
 }
 
+/** The Matchstick Riddles entry, shown as a square tile alongside the mini games. */
+@Composable
+fun MatchstickRiddlesTile(solvedCount: Int, total: Int, onClick: () -> Unit) {
+    NormalGameTile(
+        label = stringResource(Res.string.matchstick_riddles_button, solvedCount, total),
+        accentColor = 0xFFCB8A43,
+        onClick = onClick,
+    ) { MatchstickRiddlesPreview() }
+}
+
 @Composable
 private fun NormalGameTile(
     label: String,
@@ -765,6 +775,37 @@ private fun NormalSudokuPreview() {
                     topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
                 )
             }
+        }
+    }
+}
+
+@Composable
+private fun MatchstickRiddlesPreview() {
+    val body = ComposeColor(0xFFE0A85B)
+    val head = ComposeColor(0xFF4C9A52)
+    PrismCard(
+        face = PreviewTextColor,
+        facet = 4.dp,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Canvas(modifier = Modifier.fillMaxSize().background(LightColorScheme.surface)) {
+            val w = size.width
+            val h = size.height
+            val stroke = w * 0.07f
+            val headR = w * 0.05f
+            fun stick(ax: Float, ay: Float, bx: Float, by: Float) {
+                val a = Offset(ax * w, ay * h)
+                drawLine(body, a, Offset(bx * w, by * h), strokeWidth = stroke, cap = StrokeCap.Round)
+                drawCircle(head, radius = headR, center = a)
+            }
+            // A small matchstick "+" and "=" so the tile reads as a matchstick equation.
+            stick(0.16f, 0.50f, 0.42f, 0.50f)
+            stick(0.29f, 0.35f, 0.29f, 0.65f)
+            stick(0.58f, 0.40f, 0.84f, 0.40f)
+            stick(0.58f, 0.60f, 0.84f, 0.60f)
         }
     }
 }

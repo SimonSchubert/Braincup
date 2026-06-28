@@ -70,6 +70,20 @@
     <string name="normal_chess_promotion_knight">Knight</string>
     <string name="normal_chess_draw_warning">= stalemate (draw, not a win)</string>
 
+    <!-- Matchstick Riddles -->
+    <string name="matchstick_riddles_button">Matchstick Riddles (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Matchstick Riddles</string>
+    <string name="matchstick_riddles_puzzle_label">Riddle %1$d</string>
+    <string name="matchstick_riddle_prompt_move_one">Move 1 matchstick to fix the equation.</string>
+    <string name="matchstick_riddle_prompt_move_two">Move 2 matchsticks to fix the equation.</string>
+    <string name="matchstick_riddle_prompt_move_three">Move 3 matchsticks to fix the equation.</string>
+    <string name="matchstick_riddles_solved">Solved!</string>
+    <string name="matchstick_riddles_reset">Reset</string>
+    <!-- Set-completion achievement (incremental: solve every riddle). Description is count-free so
+         adding riddles later needs no string change. -->
+    <string name="achievement_matchstick_master">Matchstick Master</string>
+    <string name="achievement_matchstick_master_desc">Solve every matchstick riddle</string>
+
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_open">Open settings</string>

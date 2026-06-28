@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.api
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
@@ -57,6 +58,7 @@ class UserStorage(
         SUDOKU_MEDIUM(Res.string.achievement_sudoku_medium, Res.string.achievement_sudoku_medium_desc, isMilestone = true),
         SUDOKU_HARD(Res.string.achievement_sudoku_hard, Res.string.achievement_sudoku_hard_desc, isMilestone = true),
         SUDOKU_EXPERT(Res.string.achievement_sudoku_expert, Res.string.achievement_sudoku_expert_desc, isMilestone = true),
+        MATCHSTICK_MASTER(Res.string.achievement_matchstick_master, Res.string.achievement_matchstick_master_desc, isMilestone = true),
         TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc, isMilestone = true),
         STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc, isMilestone = true),
         ;
@@ -77,6 +79,7 @@ class UserStorage(
             val displayOrder: List<Achievements> = buildList {
                 addAll(GameType.displayOrder.mapNotNull { forGameGold(it) })
                 addAll(SudokuDifficulty.entries.map { forSudokuTier(it) })
+                add(MATCHSTICK_MASTER)
                 add(TOTAL_SCORE_10K)
                 add(STREAK_30)
             }
@@ -112,6 +115,7 @@ class UserStorage(
         const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
         const val KEY_NORMAL_CHESS_DIFFICULTY = "normal_chess_difficulty"
         const val KEY_NORMAL_CHESS_MODE = "normal_chess_mode"
+        const val KEY_MATCHSTICK_RIDDLES_SOLVED = "matchstick_riddles_solved"
         const val SESSION_GAME_COUNT = 5
         const val SESSION_COMPLETION_XP = 50
 
@@ -348,6 +352,65 @@ class UserStorage(
         settings.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
         settings.remove(normalSudokuProgressKey(id))
         reportSudokuTierProgress(difficulty, updated)
+    }
+
+    fun getSolvedMatchstickRiddleIds(): Set<String> = settings
+        .getStringOrNull(KEY_MATCHSTICK_RIDDLES_SOLVED)
+        ?.split(",")
+        ?.filter { it.isNotEmpty() }
+        ?.toSet()
+        ?: emptySet()
+
+    fun markMatchstickRiddleSolved(id: String) {
+        val current = getSolvedMatchstickRiddleIds()
+        if (id in current) return
+        val updated = current + id
+        settings.putString(KEY_MATCHSTICK_RIDDLES_SOLVED, updated.joinToString(","))
+        reportMatchstickProgress(updated)
+    }
+
+    /** Solved riddle count restricted to riddles still in the catalog (ignores stale stored ids). */
+    private fun solvedMatchstickCount(solved: Set<String>): Int {
+        val catalogIds = MatchstickRiddles.all.map { it.id }.toSet()
+        return solved.count { it in catalogIds }
+    }
+
+    /**
+     * Push the solved-riddle count to the incremental store achievement and unlock it once every
+     * riddle is solved. The target is [MatchstickRiddles.count] (the whole set), so it grows
+     * automatically when riddles are appended; only the store's step total needs a manual bump.
+     */
+    private fun reportMatchstickProgress(solved: Set<String>) {
+        val count = solvedMatchstickCount(solved)
+        PlayGamesBridge.onMatchstickRiddlesProgress?.invoke(count)
+        if (count >= MatchstickRiddles.count) {
+            unlockAchievement(Achievements.MATCHSTICK_MASTER)
+        }
+    }
+
+    /**
+     * Raise Matchstick Riddles progress to [remoteCount] solved if it beats the local count (e.g.
+     * restoring incremental achievement progress from Play Games / Game Center on a fresh install).
+     * Only the count is recoverable from an achievement, so the first [remoteCount] riddles of the
+     * catalog are marked solved. Because restore maps a count back to "the first N riddles",
+     * [MatchstickRiddles.all] must stay append-only (never reorder or insert) or a restore would
+     * mark the wrong riddles. The count is clamped to the catalog so a store total left over from a
+     * larger past catalog can't overshoot. Keeps the menu badge and full-set unlock consistent.
+     *
+     * Returns true if the local value was changed.
+     */
+    fun restoreMatchstickRiddlesProgressIfHigher(remoteCount: Int): Boolean {
+        if (remoteCount <= 0) return false
+        val catalogIds = MatchstickRiddles.all.map { it.id }
+        val clamped = remoteCount.coerceAtMost(catalogIds.size)
+        val current = getSolvedMatchstickRiddleIds()
+        if (clamped <= solvedMatchstickCount(current)) return false
+        val updated = current + catalogIds.take(clamped)
+        settings.putString(KEY_MATCHSTICK_RIDDLES_SOLVED, updated.joinToString(","))
+        if (clamped >= MatchstickRiddles.count) {
+            unlockAchievement(Achievements.MATCHSTICK_MASTER)
+        }
+        return true
     }
 
     /** Solved puzzle count for a difficulty tier, derived from the completed set. */

@@ -232,6 +232,14 @@ class GameController(
         navController.navigate(NormalChessPlay(mode = mode.name, difficulty = difficulty.name))
     }
 
+    fun navigateToMatchstickRiddlesMenu() {
+        navController.navigate(MatchstickRiddlesMenu)
+    }
+
+    fun navigateToMatchstickRiddlesPlay(riddleId: String) {
+        navController.navigate(MatchstickRiddlesPlay(riddleId))
+    }
+
     fun startGame(gameType: GameType) {
         points = 0
 
