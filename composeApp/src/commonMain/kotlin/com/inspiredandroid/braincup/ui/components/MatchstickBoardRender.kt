@@ -43,9 +43,10 @@ internal class BoardTransform(val scale: Float, val offsetX: Float, val offsetY:
 }
 
 internal fun boardTransform(width: Float, height: Float, riddle: MatchstickRiddle): BoardTransform {
-    val pad = 0.6f
-    val totalW = riddle.boardWidth + 2 * pad
-    val totalH = riddle.boardHeight + 2 * pad
+    val padW = 0.1f
+    val padH = 0.4f
+    val totalW = riddle.boardWidth + 2 * padW
+    val totalH = riddle.boardHeight + 2 * padH
     val scale = minOf(width / totalW, height / totalH)
     val offsetX = (width - riddle.boardWidth * scale) / 2f
     val offsetY = (height - riddle.boardHeight * scale) / 2f
