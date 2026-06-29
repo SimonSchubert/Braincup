@@ -20,7 +20,7 @@ Regenerate with `python3 scripts/generate_wordle_lists.py`.
 | Tag | Answers | Guesses | Source |
 |-----|---------|---------|--------|
 | en | 1,510 | 12,167 | NYT Wordle lists (cfreshman gists) filtered to [WordNet](https://wordnet.princeton.edu/) nouns + [en_50k](https://github.com/hermitdave/FrequencyWords) frequency ≥200 |
-| de | 944 | 4,713 | [wordle-de](https://github.com/caco3/wordle-de) targets that are common nouns ([german-nouns](https://github.com/gambolputty/german-nouns) + [german-categorized-wordlist](https://github.com/ynsrc/german-categorized-wordlist)), [de_50k](https://github.com/hermitdave/FrequencyWords) frequency ≥200; other words for guesses |
+| de | 944 | 4,880 | [wordle-de](https://github.com/caco3/wordle-de) targets that are common nouns ([german-nouns](https://github.com/gambolputty/german-nouns) + [german-categorized-wordlist](https://github.com/ynsrc/german-categorized-wordlist)), [de_50k](https://github.com/hermitdave/FrequencyWords) frequency ≥200; other words for guesses |
 | fr | 1,144 | 7,980 | [wordle_solver_french](https://github.com/cestpasphoto/wordle_solver_french) words filtered to dominant nouns ([french-words](https://github.com/frodonh/french-words)) + [fr_50k](https://github.com/hermitdave/FrequencyWords) frequency ≥200 |
 | nl | 1,229 | 9,723 | [OpenTaal wordlist](https://github.com/OpenTaal/opentaal-wordlist) filtered to nouns ([dutch-plurals](https://github.com/CentreForDigitalHumanities/dutch-plurals)) + [nl_50k](https://github.com/hermitdave/FrequencyWords) frequency ≥200 (BSD-3-Clause) |
 

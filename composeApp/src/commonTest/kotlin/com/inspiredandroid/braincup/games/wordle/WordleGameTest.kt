@@ -179,4 +179,15 @@ class WordleGameTest {
         assertNull(WordleLanguages.resolve("ja")) // hidden script
         assertNull(WordleLanguages.resolve("es")) // not in first iteration
     }
+
+    @Test
+    fun germanUmlautTargetMatchesExactly() {
+        val de = WordleLanguages.resolve("de")!!
+        val words = setOf("KÄFIG", "KAFER")
+        val game = WordleGame(de, "KÄFIG", words)
+        "KÄFI".forEach { assertFalse(game.typeLetter(it)) }
+        assertTrue(game.typeLetter('G'))
+        assertTrue(game.solved)
+        assertEquals(1, game.guessesUsed)
+    }
 }

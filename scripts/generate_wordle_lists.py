@@ -149,8 +149,24 @@ def fetch_bytes(url: str) -> bytes:
 
 
 def strip_accents(text: str) -> str:
+    """Strip combining marks via NFD. Do not use directly for German — Ä/Ö/Ü decompose to Mn."""
     normalized = unicodedata.normalize("NFD", text)
     return "".join(c for c in normalized if unicodedata.category(c) != "Mn")
+
+
+_UMLAUT_MARKERS = (("\uE000", "Ä"), ("\uE001", "Ö"), ("\uE002", "Ü"))
+
+
+def _shield_german_umlauts(text: str) -> str:
+    for marker, letter in _UMLAUT_MARKERS:
+        text = text.replace(letter, marker)
+    return text
+
+
+def _unshield_german_umlauts(text: str) -> str:
+    for marker, letter in _UMLAUT_MARKERS:
+        text = text.replace(marker, letter)
+    return text
 
 
 def write_list(path: Path, words: set[str]) -> None:
@@ -158,7 +174,8 @@ def write_list(path: Path, words: set[str]) -> None:
 
 
 def normalize_de(word: str) -> str | None:
-    w = strip_accents(word).upper().replace("ß", "SS")
+    w = word.upper().replace("ß", "SS")
+    w = _unshield_german_umlauts(strip_accents(_shield_german_umlauts(w)))
     alphabet = set("ABCDEFGHIJKLMNOPQRSTUVWXYZÄÖÜ")
     if len(w) != 5 or not all(c in alphabet for c in w):
         return None
