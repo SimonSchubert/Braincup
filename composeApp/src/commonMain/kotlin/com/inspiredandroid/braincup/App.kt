@@ -13,6 +13,7 @@ import androidx.compose.ui.backhandler.BackHandler
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -47,6 +48,7 @@ fun App(
     systemBarAppearance: @Composable (darkTheme: Boolean) -> Unit = {},
     useBuiltInSponsors: Boolean = false,
     mainMenuSponsorsSlot: @Composable () -> Unit = {},
+    onNavHostReady: suspend (NavController) -> Unit = {},
 ) {
     val navController = rememberNavController()
     val controller = remember(navController) { GameController(navController) }
@@ -430,6 +432,10 @@ fun App(
                 }
             }
         }
+    }
+
+    LaunchedEffect(navController) {
+        onNavHostReady(navController)
     }
 }
 

@@ -259,9 +259,17 @@ enum class GameType(
     ),
     ;
 
+    /** URL path segment for web navigation, e.g. CAT_QUEENS → "CatQueens". */
+    val urlSlug: String
+        get() = name.split('_').joinToString("") { part ->
+            part.lowercase().replaceFirstChar { it.uppercase() }
+        }
+
     companion object {
         /** Games in the order shown on the main menu (by category, then enum order within category). */
         val displayOrder: List<GameType> = entries.sortedBy { it.category.ordinal }
+
+        fun fromUrlSlug(slug: String): GameType? = entries.find { it.urlSlug == slug }
     }
 
     val accentColor: Long get() = category.accentColor

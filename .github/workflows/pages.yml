@@ -48,6 +48,7 @@ jobs:
         run: |
           DIST=composeApp/build/dist/wasmJs/productionExecutable
           test -f "$DIST/index.html" || { echo "FATAL: index.html missing"; exit 1; }
+          test -f "$DIST/404.html" || { echo "FATAL: 404.html missing (required for SPA deep links)"; exit 1; }
           ls "$DIST"/*.wasm >/dev/null 2>&1 || { echo "FATAL: WASM bundle missing"; exit 1; }
           echo "All checks passed"
 
