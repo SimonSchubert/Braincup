@@ -23,8 +23,7 @@ import com.inspiredandroid.braincup.games.getGameTypeById
 
 const val GITHUB_PAGES_BASE_PATH = "/Braincup"
 
-fun detectWebBasePath(pathname: String): String =
-    if (pathname.startsWith(GITHUB_PAGES_BASE_PATH)) GITHUB_PAGES_BASE_PATH else ""
+fun detectWebBasePath(pathname: String): String = if (pathname.startsWith(GITHUB_PAGES_BASE_PATH)) GITHUB_PAGES_BASE_PATH else ""
 
 fun navRouteToPathSuffix(route: Any): String = when (route) {
     is MainMenu -> ""
@@ -106,8 +105,7 @@ private fun parseParameterizedPath(suffix: String): Any? {
     return Instructions(gameType.id)
 }
 
-private fun gamePathSuffix(gameTypeId: String): String =
-    getGameTypeById(gameTypeId)?.urlSlug.orEmpty()
+private fun gamePathSuffix(gameTypeId: String): String = getGameTypeById(gameTypeId)?.urlSlug.orEmpty()
 
 private fun gameScoreboardPathSuffix(gameTypeId: String): String {
     val slug = getGameTypeById(gameTypeId)?.urlSlug ?: return ""
