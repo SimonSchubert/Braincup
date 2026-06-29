@@ -56,6 +56,7 @@ import braincup.composeapp.generated.resources.value_comparison_demo_title
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -230,16 +231,17 @@ fun MentalCalculationDemo(modifier: Modifier = Modifier) {
         Spacer(Modifier.height(20.dp))
 
         // Spell out that the leading number is the previous result.
-        Text(
-            text = if (line.carried) {
-                stringResource(Res.string.mental_calculation_demo_keep, line.lead)
-            } else {
-                stringResource(Res.string.game_mental_calculation_desc)
-            },
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        val captionText = if (line.carried) {
+            stringResource(Res.string.mental_calculation_demo_keep, line.lead)
+        } else {
+            stringResource(Res.string.game_mental_calculation_desc)
+        }
+        val descReserve = stringResource(Res.string.game_mental_calculation_desc)
+        val keepReserve = stringResource(Res.string.mental_calculation_demo_keep, MentalLines.maxOf { it.lead })
+        val captionReserve = remember(descReserve, keepReserve) {
+            persistentListOf(descReserve, keepReserve)
+        }
+        DemoCaptionText(text = captionText, reserveTexts = captionReserve)
     }
 }
 

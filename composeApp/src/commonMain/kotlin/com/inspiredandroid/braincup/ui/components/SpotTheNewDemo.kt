@@ -40,6 +40,7 @@ import braincup.composeapp.generated.resources.spot_the_new_demo_seen_label
 import braincup.composeapp.generated.resources.spot_the_new_demo_title
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -70,7 +71,7 @@ private val Round3New = Animal.JELLYFISH
 private val Round3Recalled = Animal.OCTOPUS
 
 // Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
-private val DemoCaptions = listOf(
+private val DemoCaptions = persistentListOf(
     Res.string.spot_the_new_demo_new,
     Res.string.spot_the_new_demo_seen,
     Res.string.spot_the_new_demo_correct,

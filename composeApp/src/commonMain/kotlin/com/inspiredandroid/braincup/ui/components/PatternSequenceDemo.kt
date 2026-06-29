@@ -38,6 +38,7 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -68,7 +69,7 @@ private const val SolvedHoldMillis = 1600L
 private const val ResetPauseMillis = 500L
 
 // Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
-private val DemoCaptions = listOf(
+private val DemoCaptions = persistentListOf(
     Res.string.game_pattern_sequence_desc,
     Res.string.pattern_sequence_demo_unit,
 )

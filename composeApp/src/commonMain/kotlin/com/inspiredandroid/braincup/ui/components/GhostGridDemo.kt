@@ -19,13 +19,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.ghost_grid_demo_repeat
 import braincup.composeapp.generated.resources.ghost_grid_demo_title
 import braincup.composeapp.generated.resources.ghost_grid_demo_watch
 import com.inspiredandroid.braincup.ui.theme.Primary
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -39,6 +39,11 @@ private const val ReplayStepMillis = 500L
 // A hand-picked sequence on the 3x3 board (clockwise diamond); the demo numbers these tiles 1..4
 // so the order is spelled out instead of relying on memory.
 private val DemoSequence = listOf(1, 5, 7, 3)
+
+private val DemoCaptions = persistentListOf(
+    Res.string.ghost_grid_demo_watch,
+    Res.string.ghost_grid_demo_repeat,
+)
 
 /**
  * Animated tutorial board for Ghost Grid: a 4x4 grid that flashes a fixed sequence one tile at a
@@ -121,13 +126,9 @@ fun GhostGridDemo(modifier: Modifier = Modifier) {
         }
         Spacer(Modifier.height(16.dp))
 
-        Text(
-            text = stringResource(
-                if (repeating) Res.string.ghost_grid_demo_repeat else Res.string.ghost_grid_demo_watch,
-            ),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
+        DemoCaption(
+            current = if (repeating) Res.string.ghost_grid_demo_repeat else Res.string.ghost_grid_demo_watch,
+            all = DemoCaptions,
         )
     }
 }

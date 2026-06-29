@@ -32,6 +32,7 @@ import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -61,7 +62,7 @@ private const val ResetPauseMillis = 400L
 private enum class AnomalyTileState { NORMAL, CORRECT, DIMMED }
 
 // Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
-private val DemoCaptions = listOf(
+private val DemoCaptions = persistentListOf(
     Res.string.anomaly_demo_color,
     Res.string.anomaly_demo_shape,
     Res.string.anomaly_demo_correct,

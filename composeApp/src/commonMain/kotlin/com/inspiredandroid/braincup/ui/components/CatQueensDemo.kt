@@ -4,10 +4,8 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -24,8 +22,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.cat_queens_error_column
@@ -38,9 +34,10 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.persistentSetOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.StringResource
-import org.jetbrains.compose.resources.stringResource
 
 private const val CatQueensDemoSize = 4
 
@@ -83,6 +80,16 @@ private const val CorrectionRestMillis = 320L
 private const val SolvedHoldMillis = 1500L
 private const val ResetPauseMillis = 500L
 
+private val DemoCaptions = persistentListOf(
+    Res.string.game_cat_queens_desc,
+    Res.string.cat_queens_error_touch,
+    Res.string.cat_queens_error_column,
+)
+private val DemoCaptionEmphasis = persistentSetOf(
+    Res.string.cat_queens_error_touch,
+    Res.string.cat_queens_error_column,
+)
+
 // The lit row/column guide: a valid placement lights the cat's row and column in the accent colour;
 // a line violation lights just the shared line in red.
 private data class CatQueensLine(val index: Int, val row: Boolean, val col: Boolean, val warn: Boolean)
@@ -105,12 +112,12 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
     val catPainter = rememberVectorPainter(CatFace)
 
     // cats = placed; invalid = cats flashing red during a conflict; active = cell being tapped;
-    // line = the row/column guide currently lit; errorRes = the rule message shown under the board.
+    // line = the row/column guide currently lit; captionRes = the rule message shown under the board.
     var cats by remember { mutableStateOf(emptySet<Int>()) }
     var invalid by remember { mutableStateOf(emptySet<Int>()) }
     var active by remember { mutableIntStateOf(-1) }
     var line by remember { mutableStateOf<CatQueensLine?>(null) }
-    var errorRes by remember { mutableStateOf<StringResource?>(null) }
+    var captionRes by remember { mutableStateOf(Res.string.game_cat_queens_desc) }
 
     LaunchedEffect(Unit) {
         suspend fun tapPlace(index: Int) {
@@ -130,12 +137,12 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
             active = -1
             invalid = setOf(clashesWith, cell)
             line = hint
-            errorRes = error
+            captionRes = error
             delay(ConflictHoldMillis)
             cats = cats - cell
             invalid = emptySet()
             line = null
-            errorRes = null
+            captionRes = Res.string.game_cat_queens_desc
             delay(CorrectionRestMillis)
         }
         while (true) {
@@ -143,7 +150,7 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
             invalid = emptySet()
             active = -1
             line = null
-            errorRes = null
+            captionRes = Res.string.game_cat_queens_desc
             delay(ResetPauseMillis)
 
             tapPlace(CatQueensCat0)
@@ -293,13 +300,10 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
             }
         }
         Spacer(Modifier.height(16.dp))
-        Text(
-            text = stringResource(errorRes ?: Res.string.game_cat_queens_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            color = if (errorRes != null) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant,
-            fontWeight = if (errorRes != null) FontWeight.Bold else FontWeight.Normal,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
+        DemoCaption(
+            current = captionRes,
+            all = DemoCaptions,
+            emphasis = DemoCaptionEmphasis,
         )
     }
 }

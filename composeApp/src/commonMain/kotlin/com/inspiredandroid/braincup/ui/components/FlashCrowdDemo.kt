@@ -44,6 +44,7 @@ import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowBottom
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowSide
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.max
@@ -85,7 +86,7 @@ private val YellowDots = listOf(
 )
 
 // Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
-private val DemoCaptions = listOf(
+private val DemoCaptions = persistentListOf(
     Res.string.flash_crowd_demo_glance,
     Res.string.game_flash_crowd_which_more,
     Res.string.flash_crowd_demo_answer,

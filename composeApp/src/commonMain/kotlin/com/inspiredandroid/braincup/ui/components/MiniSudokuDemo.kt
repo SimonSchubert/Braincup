@@ -36,6 +36,7 @@ import braincup.composeapp.generated.resources.mini_sudoku_demo_mistake
 import braincup.composeapp.generated.resources.mini_sudoku_demo_title
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -76,7 +77,7 @@ private val BlockSeparator = 4.dp
 private val CellSeparator = 2.dp
 
 // Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
-private val DemoCaptions = listOf(
+private val DemoCaptions = persistentListOf(
     Res.string.game_mini_sudoku_desc,
     Res.string.mini_sudoku_demo_mistake,
     Res.string.mini_sudoku_demo_complete,

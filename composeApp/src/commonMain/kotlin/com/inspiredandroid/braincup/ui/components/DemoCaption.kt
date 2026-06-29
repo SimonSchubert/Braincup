@@ -8,8 +8,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.persistentSetOf
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -23,21 +29,62 @@ import org.jetbrains.compose.resources.stringResource
 @Composable
 fun DemoCaption(
     current: StringResource,
-    all: List<StringResource>,
+    all: ImmutableList<StringResource>,
     modifier: Modifier = Modifier,
+    emphasis: ImmutableSet<StringResource> = persistentSetOf(),
 ) {
+    val defaultColor = MaterialTheme.colorScheme.onSurfaceVariant
+    val emphasisColor = MaterialTheme.colorScheme.error
     Box(
         modifier = modifier.padding(horizontal = 24.dp),
         contentAlignment = Alignment.Center,
     ) {
         all.forEach { res ->
+            val isCurrent = res == current
+            val isEmphasis = res in emphasis
             Text(
                 text = stringResource(res),
                 style = MaterialTheme.typography.bodyMedium,
+                color = if (isCurrent && isEmphasis) emphasisColor else defaultColor,
+                fontWeight = if (isCurrent && isEmphasis) FontWeight.Bold else FontWeight.Normal,
                 textAlign = TextAlign.Center,
                 // Only the active caption is drawn; the rest are invisible and exist to hold space.
-                modifier = Modifier.alpha(if (res == current) 1f else 0f),
+                modifier = Modifier.alpha(if (isCurrent) 1f else 0f),
             )
         }
+    }
+}
+
+/**
+ * Like [DemoCaption] for captions that need format args or other runtime text. [reserveTexts] lists
+ * every variant (use the widest formatting up front) so the box keeps the tallest line count.
+ */
+@Composable
+fun DemoCaptionText(
+    text: String,
+    reserveTexts: ImmutableList<String>,
+    modifier: Modifier = Modifier,
+    color: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+    fontWeight: FontWeight = FontWeight.Normal,
+) {
+    Box(
+        modifier = modifier.padding(horizontal = 24.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        reserveTexts.forEach { reserve ->
+            Text(
+                text = reserve,
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.alpha(0f),
+            )
+        }
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium,
+            color = color,
+            fontWeight = fontWeight,
+            textAlign = TextAlign.Center,
+        )
     }
 }

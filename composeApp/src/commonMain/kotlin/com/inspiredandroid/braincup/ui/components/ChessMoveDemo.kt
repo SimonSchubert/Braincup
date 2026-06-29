@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -30,7 +29,6 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -49,6 +47,7 @@ import braincup.composeapp.generated.resources.chess_piece_rook
 import braincup.composeapp.generated.resources.mini_chess_moves_title
 import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.ui.theme.Primary
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -161,6 +160,15 @@ private fun moveDescRes(type: PieceType): StringResource = when (type) {
     PieceType.KNIGHT -> Res.string.chess_move_knight
     PieceType.PAWN -> Res.string.chess_move_pawn
 }
+
+private val MoveDemoCaptions = persistentListOf(
+    Res.string.chess_move_king,
+    Res.string.chess_move_queen,
+    Res.string.chess_move_rook,
+    Res.string.chess_move_bishop,
+    Res.string.chess_move_knight,
+    Res.string.chess_move_pawn,
+)
 
 private fun glideDuration(from: DemoCell, to: DemoCell): Int {
     val distance = maxOf(abs(from.col - to.col), abs(from.row - to.row))
@@ -353,12 +361,7 @@ fun ChessMoveDemo(modifier: Modifier = Modifier) {
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
         )
-        Text(
-            text = stringResource(moveDescRes(type)),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
+        DemoCaption(current = moveDescRes(type), all = MoveDemoCaptions)
     }
 }
 

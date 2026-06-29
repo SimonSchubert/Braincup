@@ -30,6 +30,7 @@ import braincup.composeapp.generated.resources.orbit_tracker_demo_title
 import braincup.composeapp.generated.resources.orbit_tracker_demo_watch
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.PI
@@ -157,7 +158,7 @@ private fun step(current: List<DemoBall>, delta: Float): List<DemoBall> {
 }
 
 // Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
-private val DemoCaptions = listOf(
+private val DemoCaptions = persistentListOf(
     Res.string.game_remember_targets,
     Res.string.orbit_tracker_demo_watch,
     Res.string.game_tap_original_targets,
