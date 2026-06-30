@@ -1,3 +1,22 @@
+## v2.26.0 — 2026-06-30
+
+### Features
+- Sudoku notes (pencil marks)
+- Browser URL navigation with a dedicated 404 page on web
+
+### Fixes
+- Fix text jiggle on the instructions screen
+- Fix German Wordle umlaut normalization
+
+### Improvements
+- Sudoku dims numbers once all of them are placed
+- Improve overall UI performance
+- Improve matchstick puzzle horizontal layout
+- Persistent sponsors section
+- Polish UI styles and clean up localizations
+- Improve web SEO
+- Upgrade dependencies
+
 ## v2.25.0 — 2026-06-28
 
 ### Features

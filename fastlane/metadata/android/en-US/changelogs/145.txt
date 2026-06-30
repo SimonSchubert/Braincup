@@ -1,8 +1,10 @@
 Add Sudoku notes (pencil marks)
 Dim Sudoku numbers once all are placed
+Add browser URL navigation and a 404 page on web
 Fix German Wordle umlaut handling
 Fix text jiggle on the instructions screen
 Improve UI performance
 Improve matchstick puzzle layout
+Improve web SEO
 Polish UI styles and localizations
 Upgrade dependencies
