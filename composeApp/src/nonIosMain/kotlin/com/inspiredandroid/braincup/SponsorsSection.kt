@@ -14,11 +14,6 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -62,13 +57,6 @@ private data class SponsorList(
 @Serializable
 private data class SponsorDto(val username: String, val avatar: String)
 
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-fun SponsorsSection() {
-    ensureSponsorsImageLoader()
-    SponsorsSectionContent(sponsors = rememberLoadedSponsors())
-}
-
 @Composable
 internal fun ensureSponsorsImageLoader() {
     setSingletonImageLoaderFactory { context ->
@@ -76,19 +64,6 @@ internal fun ensureSponsorsImageLoader() {
             .components { add(KtorNetworkFetcherFactory()) }
             .build()
     }
-}
-
-@Composable
-private fun rememberLoadedSponsors(): Sponsors {
-    var sponsors by remember { mutableStateOf<Sponsors?>(null) }
-
-    LaunchedEffect(Unit) {
-        if (sponsors == null) {
-            sponsors = fetchSponsors()
-        }
-    }
-
-    return sponsors ?: Sponsors()
 }
 
 @OptIn(ExperimentalLayoutApi::class)

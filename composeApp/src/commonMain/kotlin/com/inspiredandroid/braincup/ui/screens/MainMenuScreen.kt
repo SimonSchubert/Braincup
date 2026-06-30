@@ -49,7 +49,6 @@ fun MainMenuScreen(
     controller: GameController,
     onOpenSettings: () -> Unit = {},
     useBuiltInSponsors: Boolean = false,
-    sponsorsSlot: @Composable () -> Unit = {},
 ) {
     val sessionState by controller.sessionState.collectAsState()
     val sessionStreak by controller.sessionStreak.collectAsState()
@@ -94,7 +93,6 @@ fun MainMenuScreen(
             null
         },
         useBuiltInSponsors = useBuiltInSponsors,
-        sponsorsSlot = sponsorsSlot,
     )
 }
 
@@ -121,7 +119,6 @@ fun MainMenuScreenContent(
     onMatchstickRiddles: () -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     useBuiltInSponsors: Boolean = false,
-    sponsorsSlot: @Composable () -> Unit = {},
 ) {
     val builtInSponsorsSection = if (useBuiltInSponsors) rememberMainMenuSponsorsSection() else null
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
@@ -331,10 +328,7 @@ fun MainMenuScreenContent(
             span = { GridItemSpan(maxLineSpan) },
             contentType = "sponsors",
         ) {
-            when {
-                builtInSponsorsSection != null -> builtInSponsorsSection()
-                else -> sponsorsSlot()
-            }
+            builtInSponsorsSection?.invoke()
         }
     }
 }

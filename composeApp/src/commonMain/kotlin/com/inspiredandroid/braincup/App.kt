@@ -47,7 +47,6 @@ fun App(
     systemColorSchemeProvider: ((dark: Boolean) -> ColorScheme)? = null,
     systemBarAppearance: @Composable (darkTheme: Boolean) -> Unit = {},
     useBuiltInSponsors: Boolean = false,
-    mainMenuSponsorsSlot: @Composable () -> Unit = {},
     onNavHostReady: suspend (NavController) -> Unit = {},
 ) {
     val navController = rememberNavController()
@@ -148,7 +147,6 @@ fun App(
                             controller = controller,
                             onOpenSettings = { controller.navigateToSettings() },
                             useBuiltInSponsors = useBuiltInSponsors,
-                            sponsorsSlot = mainMenuSponsorsSlot,
                         )
                     }
 

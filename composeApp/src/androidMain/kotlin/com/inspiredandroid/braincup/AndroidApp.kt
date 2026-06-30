@@ -16,7 +16,6 @@ import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 @Composable
 fun AndroidApp(
     useBuiltInSponsors: Boolean = false,
-    mainMenuSponsorsSlot: @Composable () -> Unit = {},
 ) {
     val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
     val context = LocalContext.current
@@ -48,6 +47,5 @@ fun AndroidApp(
             }
         },
         useBuiltInSponsors = useBuiltInSponsors,
-        mainMenuSponsorsSlot = mainMenuSponsorsSlot,
     )
 }
