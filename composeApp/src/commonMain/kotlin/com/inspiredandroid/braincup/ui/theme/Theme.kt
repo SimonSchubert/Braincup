@@ -14,7 +14,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.intl.Locale as ComposeLocale
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
@@ -25,6 +24,7 @@ import braincup.composeapp.generated.resources.rubik_regular
 import braincup.composeapp.generated.resources.rubik_semibold
 import braincup.composeapp.generated.resources.tektur
 import org.jetbrains.compose.resources.Font
+import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 val Primary = Color(0xFFED7354)
 private val OnPrimary = Color.White
@@ -151,12 +151,11 @@ private val nonLatinDisplayLanguages =
     setOf("el", "ru", "uk", "ja", "ko", "zh", "th", "hi", "bn", "ar")
 
 @Composable
-private fun displayFontFamily(): FontFamily =
-    if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
-        FontFamily(Font(Res.font.tektur))
-    } else {
-        FontFamily(Font(Res.font.bungee))
-    }
+private fun displayFontFamily(): FontFamily = if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
+    FontFamily(Font(Res.font.tektur))
+} else {
+    FontFamily(Font(Res.font.bungee))
+}
 
 @Composable
 private fun appTypography(): Typography {
