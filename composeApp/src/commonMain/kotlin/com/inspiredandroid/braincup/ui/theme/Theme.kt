@@ -14,6 +14,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.intl.Locale as ComposeLocale
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
@@ -22,6 +23,7 @@ import braincup.composeapp.generated.resources.rubik_bold
 import braincup.composeapp.generated.resources.rubik_medium
 import braincup.composeapp.generated.resources.rubik_regular
 import braincup.composeapp.generated.resources.rubik_semibold
+import braincup.composeapp.generated.resources.tektur
 import org.jetbrains.compose.resources.Font
 
 val Primary = Color(0xFFED7354)
@@ -141,96 +143,111 @@ val OledColorScheme = darkColorScheme(
     onError = Color.White,
 )
 
+// Locales whose scripts Bungee cannot render. Bungee only partially covers Greek (just
+// μ, π, Δ, Ω) which produces a jarring mix, and has no Cyrillic/CJK/Thai/Arabic/Indic
+// glyphs at all. These locales use Tektur instead (full Greek + Cyrillic, a heavy blocky
+// look close to Bungee); Latin locales keep the Bungee brand, which covers their accents.
+private val nonLatinDisplayLanguages =
+    setOf("el", "ru", "uk", "ja", "ko", "zh", "th", "hi", "bn", "ar")
+
+@Composable
+private fun displayFontFamily(): FontFamily =
+    if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
+        FontFamily(Font(Res.font.tektur))
+    } else {
+        FontFamily(Font(Res.font.bungee))
+    }
+
 @Composable
 private fun appTypography(): Typography {
-    val bungee = FontFamily(Font(Res.font.bungee))
+    val display = displayFontFamily()
     return Typography(
         displayLarge = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W100,
             fontSize = 57.sp,
             lineHeight = 64.sp,
         ),
         displayMedium = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W100,
             fontSize = 45.sp,
             lineHeight = 52.sp,
         ),
         displaySmall = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W500,
             fontSize = 36.sp,
             lineHeight = 44.sp,
         ),
         headlineLarge = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W700,
             fontSize = 32.sp,
             lineHeight = 40.sp,
         ),
         headlineMedium = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W700,
             fontSize = 28.sp,
             lineHeight = 36.sp,
         ),
         headlineSmall = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W700,
             fontSize = 24.sp,
             lineHeight = 32.sp,
         ),
         titleLarge = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W700,
             fontSize = 22.sp,
             lineHeight = 28.sp,
         ),
         titleMedium = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W500,
             fontSize = 16.sp,
             lineHeight = 24.sp,
         ),
         titleSmall = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W500,
             fontSize = 14.sp,
             lineHeight = 20.sp,
         ),
         bodyLarge = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W700,
             fontSize = 16.sp,
             lineHeight = 24.sp,
         ),
         bodyMedium = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W200,
             fontSize = 14.sp,
             lineHeight = 20.sp,
         ),
         bodySmall = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W500,
             fontSize = 12.sp,
             lineHeight = 16.sp,
         ),
         labelLarge = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W800,
             fontSize = 14.sp,
             lineHeight = 20.sp,
         ),
         labelMedium = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W500,
             fontSize = 12.sp,
             lineHeight = 16.sp,
         ),
         labelSmall = TextStyle(
-            fontFamily = bungee,
+            fontFamily = display,
             fontWeight = FontWeight.W500,
             fontSize = 11.sp,
             lineHeight = 16.sp,
