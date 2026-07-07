@@ -1,3 +1,13 @@
+## v2.26.1 — 2026-07-07
+
+### Fixes
+- Add a fallback font so non-Latin languages render correctly
+
+### Improvements
+- Improve daily challenges rotation
+- Disable lenient 9 and 6 answer forms
+- Upgrade dependencies
+
 ## v2.26.0 — 2026-06-30
 
 ### Features
