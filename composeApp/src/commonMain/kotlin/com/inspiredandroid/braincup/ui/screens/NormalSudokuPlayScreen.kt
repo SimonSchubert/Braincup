@@ -370,8 +370,7 @@ private fun SudokuCell(
     }
     val textColor = when {
         isSolved -> SuccessGreen
-        isClue -> MaterialTheme.colorScheme.onSurface
-        else -> Primary
+        else -> MaterialTheme.colorScheme.onSurface
     }
     BoxWithConstraints(modifier = modifier) {
         val size = minOf(maxWidth, maxHeight)

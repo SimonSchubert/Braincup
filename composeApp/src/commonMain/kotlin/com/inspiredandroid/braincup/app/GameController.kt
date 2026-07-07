@@ -136,22 +136,26 @@ class GameController(
         scope.cancel()
     }
 
-    private fun generateSessionGameIds(): List<String> = GameType.entries
-        .filterNot {
-            it == GameType.LIGHTS_OUT ||
-                it == GameType.SLIDING_PUZZLE ||
-                it == GameType.SHIKAKU ||
-                it == GameType.NURIKABE ||
-                it == GameType.CAT_QUEENS ||
-                it == GameType.KNOT ||
-                it == GameType.SOLO_CHESS ||
-                it == GameType.MINI_CHESS ||
-                it == GameType.WORDLE
-        }
-        .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
-        .shuffled()
-        .take(UserStorage.SESSION_GAME_COUNT)
-        .map { it.id }
+    private fun generateSessionGameIds(): List<String> {
+        val eligibleByCategory = GameType.entries
+            .filterNot {
+                it == GameType.LIGHTS_OUT ||
+                    it == GameType.SLIDING_PUZZLE ||
+                    it == GameType.SHIKAKU ||
+                    it == GameType.NURIKABE ||
+                    it == GameType.CAT_QUEENS ||
+                    it == GameType.KNOT ||
+                    it == GameType.SOLO_CHESS ||
+                    it == GameType.MINI_CHESS ||
+                    it == GameType.WORDLE
+            }
+            .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
+            .groupBy { it.category.name }                        // one bucket per GameCategory
+            .mapValues { (_, games) -> games.map { it.id } }
+        // Draw one game per category via a per-category shuffle bag so games rotate without
+        // repeating until the category's pool is exhausted; then randomize the play order.
+        return storage.drawDailySessionGameIds(eligibleByCategory).shuffled()
+    }
 
     fun navigateToMainMenu() {
         val currentState = _gameState.value

@@ -108,6 +108,9 @@ class UserStorage(
         const val KEY_SESSION_SCORES = "session_scores"
         const val KEY_SESSION_INDEX = "session_index"
         const val KEY_LAST_COMPLETED_SESSION_DAY = "last_completed_session_day"
+        // Per-category shuffle bags: the games not yet drawn in the current rotation cycle,
+        // encoded as "CATEGORY=id,id;CATEGORY2=id,id". See drawDailySessionGameIds.
+        const val KEY_SESSION_BAGS = "session_bags"
         const val KEY_STREAK_MIGRATED_V2 = "streak_migrated_v2"
         const val KEY_TOTAL_XP = "total_xp"
         const val KEY_XP_SEEDED = "xp_seeded_v1"
@@ -117,7 +120,7 @@ class UserStorage(
         const val KEY_NORMAL_CHESS_DIFFICULTY = "normal_chess_difficulty"
         const val KEY_NORMAL_CHESS_MODE = "normal_chess_mode"
         const val KEY_MATCHSTICK_RIDDLES_SOLVED = "matchstick_riddles_solved"
-        const val SESSION_GAME_COUNT = 5
+        const val SESSION_GAME_COUNT = 4 // one game per GameCategory (MEMORY, LOGIC, PERCEPTION, MATH)
         const val SESSION_COMPLETION_XP = 50
 
         fun levelForXp(xp: Int): Int {
@@ -541,6 +544,60 @@ class UserStorage(
             .mapNotNull { it.toIntOrNull() }
         val index = settings.getInt(KEY_SESSION_INDEX, 0)
         return SessionState(today, ids, scores, index)
+    }
+
+    /**
+     * Draws one game per category for a new daily challenge using a per-category shuffle bag
+     * (random draw without replacement): every eligible game in a category is used once before
+     * any repeat, in randomized order. Advances and persists the bags, so call exactly once per
+     * new day (it is invoked from [getOrCreateTodaySession]'s generator on day rollover).
+     *
+     * [eligibleByCategory] maps a category key to the ids currently eligible for it; bagged ids
+     * that are no longer eligible (e.g. after toggling the color-blind palette) are skipped, and
+     * an emptied bag is refilled so the just-picked game is never drawn first again next cycle.
+     */
+    fun drawDailySessionGameIds(eligibleByCategory: Map<String, List<String>>): List<String> {
+        val bags = loadSessionBags().toMutableMap()
+        val picks = mutableListOf<String>()
+        for ((category, eligible) in eligibleByCategory) {
+            if (eligible.isEmpty()) continue
+            val remaining = (bags[category] ?: emptyList())
+                .filter { it in eligible }
+                .ifEmpty { eligible.shuffled() }
+            val pick = remaining.first()
+            var rest = remaining.drop(1)
+            if (rest.isEmpty()) {
+                val reshuffled = eligible.shuffled()
+                rest = if (reshuffled.size > 1 && reshuffled.first() == pick) {
+                    reshuffled.drop(1) + reshuffled.first()
+                } else {
+                    reshuffled
+                }
+            }
+            picks.add(pick)
+            bags[category] = rest
+        }
+        saveSessionBags(bags)
+        return picks
+    }
+
+    private fun loadSessionBags(): Map<String, List<String>> {
+        val raw = settings.getString(KEY_SESSION_BAGS, "")
+        if (raw.isEmpty()) return emptyMap()
+        return raw.split(";").filter { it.isNotEmpty() }.mapNotNull { entry ->
+            val separator = entry.indexOf('=')
+            if (separator < 0) return@mapNotNull null
+            val category = entry.substring(0, separator)
+            val ids = entry.substring(separator + 1).split(",").filter { it.isNotEmpty() }
+            category to ids
+        }.toMap()
+    }
+
+    private fun saveSessionBags(bags: Map<String, List<String>>) {
+        val encoded = bags.entries.joinToString(";") { (category, ids) ->
+            "$category=${ids.joinToString(",")}"
+        }
+        settings.putString(KEY_SESSION_BAGS, encoded)
     }
 
     fun appendSessionScore(score: Int) {
