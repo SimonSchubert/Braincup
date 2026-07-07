@@ -108,6 +108,7 @@ class UserStorage(
         const val KEY_SESSION_SCORES = "session_scores"
         const val KEY_SESSION_INDEX = "session_index"
         const val KEY_LAST_COMPLETED_SESSION_DAY = "last_completed_session_day"
+
         // Per-category shuffle bags: the games not yet drawn in the current rotation cycle,
         // encoded as "CATEGORY=id,id;CATEGORY2=id,id". See drawDailySessionGameIds.
         const val KEY_SESSION_BAGS = "session_bags"

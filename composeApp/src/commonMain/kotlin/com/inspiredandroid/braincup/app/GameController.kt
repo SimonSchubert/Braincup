@@ -150,7 +150,7 @@ class GameController(
                     it == GameType.WORDLE
             }
             .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
-            .groupBy { it.category.name }                        // one bucket per GameCategory
+            .groupBy { it.category.name } // one bucket per GameCategory
             .mapValues { (_, games) -> games.map { it.id } }
         // Draw one game per category via a per-category shuffle bag so games rotate without
         // repeating until the category's pool is exhausted; then randomize the play order.
