@@ -121,28 +121,21 @@ object MatchstickRiddles {
 private enum class Seg { TOP, TOP_LEFT, TOP_RIGHT, MID, BOTTOM_LEFT, BOTTOM_RIGHT, BOTTOM }
 
 /**
- * Accepted seven-segment shapes for each digit glyph. The first form is canonical (used when
- * building a board); the extras are the common "open-loop" matchstick variants so that classic
- * moves are recognized: a `4` plus a top bar reads as a `9` even without the bottom bar, and the
- * mirror form for `6` without its top bar.
+ * The one canonical seven-segment shape for each digit glyph. Boards are built from these shapes and
+ * decoded against them, so only an exact, well-formed digit counts: a player must land on the full
+ * glyph, not an "open-loop" near-miss (e.g. a `4` plus a top bar does NOT read as a `9`).
  */
-private val DIGIT_FORMS: Map<Char, List<Set<Seg>>> = mapOf(
-    '0' to listOf(setOf(Seg.TOP, Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.BOTTOM_LEFT, Seg.BOTTOM_RIGHT, Seg.BOTTOM)),
-    '1' to listOf(setOf(Seg.TOP_RIGHT, Seg.BOTTOM_RIGHT)),
-    '2' to listOf(setOf(Seg.TOP, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_LEFT, Seg.BOTTOM)),
-    '3' to listOf(setOf(Seg.TOP, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_RIGHT, Seg.BOTTOM)),
-    '4' to listOf(setOf(Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_RIGHT)),
-    '5' to listOf(setOf(Seg.TOP, Seg.TOP_LEFT, Seg.MID, Seg.BOTTOM_RIGHT, Seg.BOTTOM)),
-    '6' to listOf(
-        setOf(Seg.TOP, Seg.TOP_LEFT, Seg.MID, Seg.BOTTOM_LEFT, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
-        setOf(Seg.TOP_LEFT, Seg.MID, Seg.BOTTOM_LEFT, Seg.BOTTOM_RIGHT, Seg.BOTTOM), // open-top
-    ),
-    '7' to listOf(setOf(Seg.TOP, Seg.TOP_RIGHT, Seg.BOTTOM_RIGHT)),
-    '8' to listOf(setOf(Seg.TOP, Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_LEFT, Seg.BOTTOM_RIGHT, Seg.BOTTOM)),
-    '9' to listOf(
-        setOf(Seg.TOP, Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
-        setOf(Seg.TOP, Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_RIGHT), // open-bottom (4 + top bar)
-    ),
+private val DIGIT_FORMS: Map<Char, Set<Seg>> = mapOf(
+    '0' to setOf(Seg.TOP, Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.BOTTOM_LEFT, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
+    '1' to setOf(Seg.TOP_RIGHT, Seg.BOTTOM_RIGHT),
+    '2' to setOf(Seg.TOP, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_LEFT, Seg.BOTTOM),
+    '3' to setOf(Seg.TOP, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
+    '4' to setOf(Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_RIGHT),
+    '5' to setOf(Seg.TOP, Seg.TOP_LEFT, Seg.MID, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
+    '6' to setOf(Seg.TOP, Seg.TOP_LEFT, Seg.MID, Seg.BOTTOM_LEFT, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
+    '7' to setOf(Seg.TOP, Seg.TOP_RIGHT, Seg.BOTTOM_RIGHT),
+    '8' to setOf(Seg.TOP, Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_LEFT, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
+    '9' to setOf(Seg.TOP, Seg.TOP_LEFT, Seg.TOP_RIGHT, Seg.MID, Seg.BOTTOM_RIGHT, Seg.BOTTOM),
 )
 
 /** Decodes the lit slots of one cell back to its character, or null when the cell is malformed. */
@@ -153,7 +146,7 @@ sealed interface CellLayout {
 private class DigitLayout(private val segToSlot: Map<Seg, Int>) : CellLayout {
     override fun decode(occupied: Set<Int>): Char? {
         val lit: Set<Seg> = segToSlot.filterValues { it in occupied }.keys
-        return DIGIT_FORMS.entries.firstOrNull { (_, forms) -> forms.any { it == lit } }?.key
+        return DIGIT_FORMS.entries.firstOrNull { (_, form) -> form == lit }?.key
     }
 }
 
@@ -331,7 +324,7 @@ private class BoardBuilder {
             Seg.BOTTOM_RIGHT to Stick(ox + u, u, ox + u, 2 * u),
             Seg.BOTTOM to Stick(ox, 2 * u, ox + u, 2 * u),
         )
-        val lit = DIGIT_FORMS.getValue(glyph).first()
+        val lit = DIGIT_FORMS.getValue(glyph)
         val segToSlot = LinkedHashMap<Seg, Int>()
         for ((seg, stick) in segments) segToSlot[seg] = add(stick, seg in lit)
         return DigitLayout(segToSlot)

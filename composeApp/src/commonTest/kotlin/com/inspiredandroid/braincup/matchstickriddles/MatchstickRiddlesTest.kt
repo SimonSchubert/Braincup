@@ -47,6 +47,25 @@ class MatchstickRiddlesTest {
     }
 
     @Test
+    fun anOpenLoopNineDoesNotCountAsNine() {
+        // Regression for issue #32: "9-3=0" has a one-stick move that wins only because a nine
+        // missing its bottom bar ("4 with a top bar") used to decode as a nine. Lift the left nine's
+        // bottom stick onto the middle three's top-left slot: the three becomes a full nine and the
+        // left nine is left malformed, reading "9-9=0". That must no longer count as solved.
+        val riddle = MatchstickRiddles.byId("nine_minus_three")
+        assertNotNull(riddle)
+        val destination = (occupiedForEquation("9-9=0") - riddle.initial).single()
+        val leftNineBottom = riddle.slots.indices
+            .filter { riddle.slots[it].midX < 1f && riddle.slots[it].ay == riddle.slots[it].by }
+            .maxByOrNull { riddle.slots[it].midY }
+        assertNotNull(leftNineBottom)
+        val malformed = riddle.initial - leftNineBottom + destination
+        assertEquals(riddle.initial.size, malformed.size, "the reproduction must be a real one-stick move")
+        assertFalse(riddle.isSolved(malformed), "an open-bottom nine (issue #32) must not be accepted")
+        assertTrue(riddle.isSolved(riddle.solutions.first()), "the intended 9-3=6 answer must still count")
+    }
+
+    @Test
     fun anAlternativeTrueEquationIsAlsoAccepted() {
         // "9+3=0" is intended to become "9-9=0", but "6-6=0" is another true equation with the same
         // matchstick count, so it must count too (the player reached a valid answer, not THE answer).
