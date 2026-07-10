@@ -14,6 +14,8 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
@@ -99,5 +101,14 @@ private fun AchievementCard(
                 )
             }
         }
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun AchievementsScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        AchievementsScreen(storage = storage, onBack = {})
     }
 }

@@ -208,7 +208,7 @@ private fun SoloChessCellView(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun SoloChessContentPreview() {
     GamePreviewHost {

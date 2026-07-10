@@ -21,6 +21,8 @@ import com.inspiredandroid.braincup.ui.components.ChunkyCheck
 import com.inspiredandroid.braincup.ui.components.ChunkyLock
 import com.inspiredandroid.braincup.ui.components.MatchstickBoardPreview
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
 
@@ -119,5 +121,17 @@ private fun RiddleTile(
                 )
             }
         }
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun MatchstickRiddlesMenuScreenPreview() {
+    ScreenPreviewHost {
+        MatchstickRiddlesMenuScreenContent(
+            solved = emptySet(),
+            onRiddleSelected = {},
+            onBack = {},
+        )
     }
 }

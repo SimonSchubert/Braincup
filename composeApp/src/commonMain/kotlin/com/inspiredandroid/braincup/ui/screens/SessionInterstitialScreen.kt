@@ -13,8 +13,11 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BrandedCard
+import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.ProgressDots
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -26,11 +29,22 @@ fun SessionInterstitialScreen(
     onContinue: () -> Unit,
     onExit: () -> Unit,
 ) {
+    // provideCompactHeight: scroll when needed and expose LocalIsCompactHeight so landscape
+    // can tighten spacing instead of clipping the continue button (scrollable=false + Center).
     AppScaffold(
         title = stringResource(Res.string.daily_challenge_title),
         onBack = onExit,
-        scrollable = false,
+        provideCompactHeight = true,
     ) {
+        val compact = LocalIsCompactHeight.current
+        val sectionGap = if (compact) 12.dp else 24.dp
+        val ctaGap = if (compact) 16.dp else 32.dp
+        val cardPadding = if (compact) {
+            PaddingValues(horizontal = 20.dp, vertical = 16.dp)
+        } else {
+            PaddingValues(horizontal = 24.dp, vertical = 32.dp)
+        }
+
         ProgressDots(
             currentIndex = nextGameIndex,
             total = totalGames,
@@ -38,7 +52,7 @@ fun SessionInterstitialScreen(
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
 
-        Spacer(Modifier.height(12.dp))
+        Spacer(Modifier.height(if (compact) 6.dp else 12.dp))
 
         Text(
             text = stringResource(Res.string.session_progress, nextGameIndex + 1, totalGames),
@@ -57,16 +71,16 @@ fun SessionInterstitialScreen(
             )
         }
 
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(sectionGap))
 
         BrandedCard(
             modifier = Modifier
                 .widthIn(max = 420.dp)
-                .padding(horizontal = 24.dp)
+                .padding(horizontal = if (compact) 16.dp else 24.dp)
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth(),
             containerColor = Color(nextGame.accentColor),
-            contentPadding = PaddingValues(horizontal = 24.dp, vertical = 32.dp),
+            contentPadding = cardPadding,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Text(
@@ -75,15 +89,19 @@ fun SessionInterstitialScreen(
                 fontWeight = FontWeight.SemiBold,
                 color = NextUpLabelColor,
             )
-            Spacer(Modifier.height(8.dp))
+            Spacer(Modifier.height(if (compact) 4.dp else 8.dp))
             Text(
                 text = stringResource(nextGame.displayNameRes),
-                style = MaterialTheme.typography.headlineMedium,
+                style = if (compact) {
+                    MaterialTheme.typography.headlineSmall
+                } else {
+                    MaterialTheme.typography.headlineMedium
+                },
                 fontWeight = FontWeight.Bold,
                 color = NextUpTitleColor,
                 textAlign = TextAlign.Center,
             )
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(if (compact) 6.dp else 12.dp))
             Text(
                 text = stringResource(nextGame.descriptionRes),
                 style = MaterialTheme.typography.bodyMedium,
@@ -92,7 +110,7 @@ fun SessionInterstitialScreen(
             )
         }
 
-        Spacer(Modifier.height(32.dp))
+        Spacer(Modifier.height(ctaGap))
 
         PrimaryActionButton(
             onClick = onContinue,
@@ -104,3 +122,18 @@ fun SessionInterstitialScreen(
 private val NextUpLabelColor = Color.Black.copy(alpha = 0.55f)
 private val NextUpTitleColor = Color.Black.copy(alpha = 0.9f)
 private val NextUpDescriptionColor = Color.Black.copy(alpha = 0.7f)
+
+@DevicePreviews
+@Composable
+private fun SessionInterstitialScreenPreview() {
+    ScreenPreviewHost {
+        SessionInterstitialScreen(
+            nextGame = GameType.MINI_SUDOKU,
+            nextGameIndex = 1,
+            totalGames = 4,
+            runningTotal = 12,
+            onContinue = {},
+            onExit = {},
+        )
+    }
+}

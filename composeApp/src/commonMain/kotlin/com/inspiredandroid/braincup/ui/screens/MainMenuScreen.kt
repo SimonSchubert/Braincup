@@ -35,10 +35,13 @@ import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.toImmutableMap
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -330,5 +333,25 @@ fun MainMenuScreenContent(
         ) {
             builtInSponsorsSection?.invoke()
         }
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun MainMenuScreenPreview() {
+    ScreenPreviewHost {
+        MainMenuScreenContent(
+            totalXp = 1250,
+            sessionStreak = 3,
+            sessionProgressIndex = 1,
+            sessionTotalGames = 4,
+            sessionCompletedToday = false,
+            highscores = persistentMapOf(),
+            unlockedCount = 4,
+            normalSudokuCompleted = 2,
+            matchstickRiddlesSolved = 1,
+            matchstickRiddlesTotal = 18,
+            showDailyChallenge = true,
+        )
     }
 }

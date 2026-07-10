@@ -109,7 +109,7 @@ internal fun ColumnScope.FractionCalculationContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun FractionCalculationContentPreview() {
     GamePreviewHost {

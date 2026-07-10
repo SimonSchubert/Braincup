@@ -12,6 +12,8 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -72,5 +74,24 @@ private fun FeedbackMessage.toLocalizedString(): String = when (this) {
     is FeedbackMessage.SideCount -> {
         val side = if (isLeft) stringResource(Res.string.solution_left) else stringResource(Res.string.solution_right)
         "$side ($count)"
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun AnswerFeedbackCorrectPreview() {
+    ScreenPreviewHost {
+        AnswerFeedbackScreen(isCorrect = true, message = null)
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun AnswerFeedbackWrongPreview() {
+    ScreenPreviewHost {
+        AnswerFeedbackScreen(
+            isCorrect = false,
+            message = FeedbackMessage.Plain("42"),
+        )
     }
 }

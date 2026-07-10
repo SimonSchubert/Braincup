@@ -123,7 +123,7 @@ private fun SpotTheNewTile(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun SpotTheNewContentPreview() {
     GamePreviewHost {

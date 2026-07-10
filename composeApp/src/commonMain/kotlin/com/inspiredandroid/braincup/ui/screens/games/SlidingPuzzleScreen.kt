@@ -140,7 +140,7 @@ private fun SlidingPuzzleCell(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun SlidingPuzzleContentPreview() {
     GamePreviewHost {

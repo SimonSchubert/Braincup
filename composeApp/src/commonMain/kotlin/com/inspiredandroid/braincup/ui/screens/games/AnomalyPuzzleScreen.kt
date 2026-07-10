@@ -41,7 +41,7 @@ internal fun AnomalyPuzzleContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun AnomalyPuzzleContentPreview() {
     val fig = Figure(Shape.SQUARE, Color.BLUE)

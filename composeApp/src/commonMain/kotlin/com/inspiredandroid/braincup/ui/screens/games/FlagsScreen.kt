@@ -181,7 +181,7 @@ private fun FlagAnswerButton(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun FlagsContentPreview() {
     GamePreviewHost {

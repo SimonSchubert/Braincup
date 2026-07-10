@@ -16,6 +16,8 @@ import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.PrismToggle
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import org.jetbrains.compose.resources.StringResource
@@ -175,5 +177,25 @@ private fun SettingsToggleRow(
             Spacer(Modifier.width(16.dp))
             PrismToggle(checked = checked)
         }
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun SettingsScreenPreview() {
+    ScreenPreviewHost {
+        SettingsScreen(
+            isMuted = false,
+            onToggleMute = {},
+            isColorblindPaletteEnabled = false,
+            onToggleColorblindPalette = {},
+            isHapticEnabled = true,
+            onToggleHaptic = {},
+            isNumberPadAscending = true,
+            onToggleNumberPadAscending = {},
+            themeMode = ThemeMode.SYSTEM,
+            onThemeSelected = {},
+            onBack = {},
+        )
     }
 }

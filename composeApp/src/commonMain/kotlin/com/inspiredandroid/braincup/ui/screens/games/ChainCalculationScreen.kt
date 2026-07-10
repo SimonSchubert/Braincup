@@ -72,7 +72,7 @@ internal fun ColumnScope.ChainCalculationContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun ChainCalculationContentPreview() {
     GamePreviewHost {

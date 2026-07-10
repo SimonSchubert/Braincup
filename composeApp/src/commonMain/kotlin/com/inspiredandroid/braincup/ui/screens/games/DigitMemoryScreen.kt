@@ -223,7 +223,7 @@ private fun DigitMemoryInputArea(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun DigitMemoryContentPreview() {
     GamePreviewHost {

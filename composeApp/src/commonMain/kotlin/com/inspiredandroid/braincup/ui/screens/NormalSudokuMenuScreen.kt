@@ -24,6 +24,8 @@ import com.inspiredandroid.braincup.ui.components.ChunkyCheck
 import com.inspiredandroid.braincup.ui.components.ChunkyLock
 import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -180,4 +182,17 @@ private fun SudokuDifficulty.labelRes(): StringResource = when (this) {
     SudokuDifficulty.MEDIUM -> Res.string.normal_sudoku_difficulty_medium
     SudokuDifficulty.HARD -> Res.string.normal_sudoku_difficulty_hard
     SudokuDifficulty.EXPERT -> Res.string.normal_sudoku_difficulty_expert
+}
+
+@DevicePreviews
+@Composable
+private fun NormalSudokuMenuScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        NormalSudokuMenuScreen(
+            storage = storage,
+            onPuzzleSelected = {},
+            onBack = {},
+        )
+    }
 }

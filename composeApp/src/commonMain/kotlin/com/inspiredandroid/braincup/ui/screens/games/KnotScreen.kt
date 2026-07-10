@@ -243,7 +243,7 @@ internal fun ColumnScope.KnotContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun KnotContentPreview() {
     GamePreviewHost {

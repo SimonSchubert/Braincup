@@ -268,7 +268,7 @@ private fun ColumnScope.SudokuDigitPad(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun MiniSudokuContentPreview() {
     GamePreviewHost {

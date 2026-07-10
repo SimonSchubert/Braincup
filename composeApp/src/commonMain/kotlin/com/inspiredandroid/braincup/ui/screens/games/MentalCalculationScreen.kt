@@ -54,7 +54,7 @@ internal fun ColumnScope.MentalCalculationContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun MentalCalculationContentPreview() {
     GamePreviewHost {

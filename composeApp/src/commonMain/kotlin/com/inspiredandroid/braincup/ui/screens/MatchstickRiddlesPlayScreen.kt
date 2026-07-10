@@ -33,6 +33,8 @@ import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.boardTransform
 import com.inspiredandroid.braincup.ui.components.drawStick
 import com.inspiredandroid.braincup.ui.components.drawStickOutline
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.MatchstickColors
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -405,5 +407,19 @@ private fun MatchstickPip(spent: Boolean) {
         drawLine(side, top, bottom, strokeWidth = w * 1.3f, cap = StrokeCap.Round)
         drawLine(body, top, bottom, strokeWidth = w, cap = StrokeCap.Round)
         drawCircle(head, radius = w * 1.05f, center = top)
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun MatchstickRiddlesPlayScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        MatchstickRiddlesPlayScreen(
+            riddleId = MatchstickRiddles.all.first().id,
+            storage = storage,
+            onCompleted = {},
+            onBack = {},
+        )
     }
 }

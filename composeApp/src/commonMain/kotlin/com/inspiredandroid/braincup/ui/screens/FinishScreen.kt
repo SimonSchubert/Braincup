@@ -16,6 +16,8 @@ import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
@@ -140,6 +142,25 @@ fun FinishScreen(
         PrimaryActionButton(
             onClick = onPlayAgain,
             value = stringResource(playAgainLabelRes),
+        )
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun FinishScreenPreview() {
+    ScreenPreviewHost {
+        FinishScreen(
+            gameType = GameType.MENTAL_CALCULATION,
+            score = 12,
+            isNewHighscore = true,
+            answeredAllCorrect = false,
+            highscore = 12,
+            xpGained = 40,
+            totalXpAfter = 240,
+            onPlayRandom = {},
+            onPlayAgain = {},
+            onMenu = {},
         )
     }
 }

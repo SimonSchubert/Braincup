@@ -30,6 +30,8 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -170,4 +172,17 @@ private fun NormalChessDifficulty.labelRes(): StringResource = when (this) {
     NormalChessDifficulty.EASY -> Res.string.normal_chess_difficulty_easy
     NormalChessDifficulty.MEDIUM -> Res.string.normal_chess_difficulty_medium
     NormalChessDifficulty.HARD -> Res.string.normal_chess_difficulty_hard
+}
+
+@DevicePreviews
+@Composable
+private fun NormalChessMenuScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        NormalChessMenuScreen(
+            storage = storage,
+            onStart = { _, _ -> },
+            onBack = {},
+        )
+    }
 }

@@ -96,7 +96,7 @@ private fun SchulteCell(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun SchulteTableContentPreview() {
     GamePreviewHost {

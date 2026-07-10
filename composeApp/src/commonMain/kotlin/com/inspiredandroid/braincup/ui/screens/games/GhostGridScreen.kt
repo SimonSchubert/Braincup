@@ -74,7 +74,7 @@ private fun GhostGridCell(
     ) {}
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun GhostGridContentPreview() {
     GamePreviewHost {

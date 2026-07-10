@@ -258,7 +258,7 @@ internal fun ColumnScope.NurikabeContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun NurikabeContentPreview() {
     GamePreviewHost {

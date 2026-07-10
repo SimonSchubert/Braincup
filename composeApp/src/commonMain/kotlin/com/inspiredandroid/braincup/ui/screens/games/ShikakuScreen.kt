@@ -250,7 +250,7 @@ internal fun ColumnScope.ShikakuContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun ShikakuContentPreview() {
     GamePreviewHost {

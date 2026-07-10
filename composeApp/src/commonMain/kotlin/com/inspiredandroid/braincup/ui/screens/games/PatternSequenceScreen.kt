@@ -84,7 +84,7 @@ internal fun ColumnScope.PatternSequenceContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun PatternSequenceContentPreview() {
     val fig = Figure(Shape.CIRCLE, Color.BLUE)

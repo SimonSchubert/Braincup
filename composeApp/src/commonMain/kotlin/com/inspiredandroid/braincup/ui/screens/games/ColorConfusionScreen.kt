@@ -130,7 +130,7 @@ private fun ColorConfusionCell(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun ColorConfusionContentPreview() {
     GamePreviewHost {

@@ -67,6 +67,8 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.currentCoroutineContext
@@ -569,4 +571,18 @@ private fun pieceResource(type: PieceType): DrawableResource = when (type) {
     PieceType.BISHOP -> Res.drawable.ic_chess_bishop
     PieceType.KNIGHT -> Res.drawable.ic_chess_knight
     PieceType.PAWN -> Res.drawable.ic_chess_pawn
+}
+
+@DevicePreviews
+@Composable
+private fun NormalChessPlayScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        NormalChessPlayScreen(
+            mode = NormalChessMode.VS_CPU,
+            difficulty = NormalChessDifficulty.EASY,
+            storage = storage,
+            onBack = {},
+        )
+    }
 }

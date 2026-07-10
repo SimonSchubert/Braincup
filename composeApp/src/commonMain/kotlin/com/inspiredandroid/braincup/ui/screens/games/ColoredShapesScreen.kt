@@ -133,7 +133,7 @@ internal fun ColumnScope.ColoredShapesContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun ColoredShapesContentPreview() {
     GamePreviewHost {

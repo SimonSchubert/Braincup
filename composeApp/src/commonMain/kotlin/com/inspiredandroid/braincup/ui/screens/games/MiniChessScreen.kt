@@ -295,7 +295,7 @@ private fun MiniChessPieceIcon(type: PieceType, isWhite: Boolean) {
     ChessPieceIcon(resource = chessPieceResource(type), isWhite = isWhite)
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun MiniChessContentPreview() {
     GamePreviewHost {

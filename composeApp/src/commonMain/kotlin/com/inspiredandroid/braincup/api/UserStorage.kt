@@ -10,6 +10,7 @@ import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
+import com.russhwolf.settings.MapSettings
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.number
@@ -135,6 +136,14 @@ class UserStorage(
             val n = (level - 1).coerceAtLeast(0)
             return 50 * n * n
         }
+
+        /**
+         * In-memory storage for Compose previews and unit tests.
+         *
+         * The default no-arg [Settings] factory uses SharedPreferences / NSUserDefaults and
+         * crashes in the IDE preview sandbox (no app process). [MapSettings] is pure memory.
+         */
+        fun forPreview(configure: UserStorage.() -> Unit = {}): UserStorage = UserStorage(MapSettings()).apply(configure)
 
         fun xpSpanForLevel(level: Int): Int = xpThresholdForLevel(level + 1) - xpThresholdForLevel(level)
 

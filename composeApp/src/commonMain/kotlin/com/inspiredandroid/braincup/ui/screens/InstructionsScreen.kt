@@ -61,6 +61,8 @@ import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
 import com.inspiredandroid.braincup.ui.components.VisualMemoryDemo
 import com.inspiredandroid.braincup.ui.components.WordleDemo
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.StartAccent
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
@@ -299,5 +301,19 @@ private fun MiniChessDifficultySelector(
                 }
             }
         }
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun InstructionsScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        InstructionsScreen(
+            gameType = GameType.MENTAL_CALCULATION,
+            storage = storage,
+            onStart = {},
+            onBack = {},
+        )
     }
 }

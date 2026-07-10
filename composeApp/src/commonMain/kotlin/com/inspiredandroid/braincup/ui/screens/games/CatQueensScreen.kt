@@ -238,7 +238,7 @@ internal fun ColumnScope.CatQueensContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun CatQueensContentPreview() {
     GamePreviewHost {

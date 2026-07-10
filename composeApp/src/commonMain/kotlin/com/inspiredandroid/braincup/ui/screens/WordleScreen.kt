@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,10 +33,11 @@ import com.inspiredandroid.braincup.app.WordleLetter
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.app.WordleUiState
 import com.inspiredandroid.braincup.ui.components.GiveUpButton
+import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
-import com.inspiredandroid.braincup.ui.screens.games.GameDevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.GamePreviewHost
 import com.inspiredandroid.braincup.ui.theme.keyFace
 import com.inspiredandroid.braincup.ui.theme.keyTextColor
@@ -46,9 +48,14 @@ import kotlinx.collections.immutable.persistentMapOf
 import org.jetbrains.compose.resources.stringResource
 
 private val TileSpacing = 6.dp
+private val CompactTileSpacing = 4.dp
 private val KeySpacing = 4.dp
 private val MaxTileSize = 52.dp
+
+/** Cap so a 6-row board still leaves room for status + give-up in landscape. */
+private val CompactMaxTileSize = 36.dp
 private val KeyHeight = 46.dp
+private val CompactKeyHeight = 34.dp
 
 @Composable
 internal fun ColumnScope.WordleContent(
@@ -58,34 +65,88 @@ internal fun ColumnScope.WordleContent(
     inSessionMode: Boolean,
     onFinishedAction: () -> Unit,
 ) {
-    Spacer(Modifier.height(8.dp))
-    WordleBoard(
-        uiState = uiState,
-        onTileClear = { index -> onAnswer(GameController.wordleClearAt(index)) },
-        modifier = Modifier.align(Alignment.CenterHorizontally),
+    val compact = LocalIsCompactHeight.current
+    val onTileClear: (Int) -> Unit = { index -> onAnswer(GameController.wordleClearAt(index)) }
+    val finishedActionLabel = stringResource(
+        if (inSessionMode) Res.string.session_continue else Res.string.button_play_again,
     )
-    Spacer(Modifier.height(8.dp))
-    WordleStatusLine(
-        uiState = uiState,
-        modifier = Modifier.align(Alignment.CenterHorizontally),
-    )
-    if (!uiState.finished) {
-        Spacer(Modifier.height(8.dp))
-        WordleKeyboard(uiState = uiState, onKey = onAnswer)
-        Spacer(Modifier.height(12.dp))
-        GiveUpButton(
-            onGiveUp = onGiveUp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+
+    if (compact) {
+        // Side-by-side: board on the left, keyboard on the right. Stacking them vertically
+        // overflows phone landscape and pushes the keyboard off-screen.
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 12.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                WordleBoard(
+                    uiState = uiState,
+                    onTileClear = onTileClear,
+                    maxTileSize = CompactMaxTileSize,
+                    tileSpacing = CompactTileSpacing,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+                Spacer(Modifier.height(6.dp))
+                WordleStatusLine(uiState = uiState)
+                Spacer(Modifier.height(6.dp))
+                if (!uiState.finished) {
+                    GiveUpButton(onGiveUp = onGiveUp)
+                } else {
+                    PrimaryActionButton(
+                        onClick = onFinishedAction,
+                        value = finishedActionLabel,
+                    )
+                }
+            }
+            if (!uiState.finished) {
+                WordleKeyboard(
+                    uiState = uiState,
+                    onKey = onAnswer,
+                    keyHeight = CompactKeyHeight,
+                    modifier = Modifier
+                        .weight(1.15f)
+                        .widthIn(max = 420.dp),
+                )
+            }
+        }
     } else {
-        Spacer(Modifier.height(16.dp))
-        PrimaryActionButton(
-            onClick = onFinishedAction,
-            value = stringResource(
-                if (inSessionMode) Res.string.session_continue else Res.string.button_play_again,
-            ),
+        Spacer(Modifier.height(8.dp))
+        WordleBoard(
+            uiState = uiState,
+            onTileClear = onTileClear,
             modifier = Modifier.align(Alignment.CenterHorizontally),
         )
+        Spacer(Modifier.height(8.dp))
+        WordleStatusLine(
+            uiState = uiState,
+            modifier = Modifier.align(Alignment.CenterHorizontally),
+        )
+        if (!uiState.finished) {
+            Spacer(Modifier.height(8.dp))
+            WordleKeyboard(
+                uiState = uiState,
+                onKey = onAnswer,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+            Spacer(Modifier.height(12.dp))
+            GiveUpButton(
+                onGiveUp = onGiveUp,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        } else {
+            Spacer(Modifier.height(16.dp))
+            PrimaryActionButton(
+                onClick = onFinishedAction,
+                value = finishedActionLabel,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
+        }
     }
 }
 
@@ -94,21 +155,25 @@ private fun WordleBoard(
     uiState: WordleUiState,
     onTileClear: (Int) -> Unit,
     modifier: Modifier = Modifier,
+    maxTileSize: Dp = MaxTileSize,
+    tileSpacing: Dp = TileSpacing,
 ) {
     BoxWithConstraints(
         modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = 8.dp),
         contentAlignment = Alignment.Center,
     ) {
         val n = uiState.wordLength
-        val tile = ((maxWidth - TileSpacing * (n - 1)) / n).coerceAtMost(MaxTileSize)
+        val tile = ((maxWidth - tileSpacing * (n - 1)) / n)
+            .coerceAtMost(maxTileSize)
+            .coerceAtLeast(24.dp)
         val currentRowIndex = uiState.rows.indexOfFirst { row ->
             row.any { it.state == WordleLetterState.PENDING }
         }
-        Column(verticalArrangement = Arrangement.spacedBy(TileSpacing)) {
+        Column(verticalArrangement = Arrangement.spacedBy(tileSpacing)) {
             uiState.rows.forEachIndexed { rowIndex, row ->
-                Row(horizontalArrangement = Arrangement.spacedBy(TileSpacing)) {
+                Row(horizontalArrangement = Arrangement.spacedBy(tileSpacing)) {
                     row.forEachIndexed { colIndex, letter ->
                         val isCurrentRow = rowIndex == currentRowIndex
                         val canClear = isCurrentRow &&
@@ -187,14 +252,19 @@ private fun WordleStatusLine(uiState: WordleUiState, modifier: Modifier = Modifi
 }
 
 @Composable
-private fun ColumnScope.WordleKeyboard(uiState: WordleUiState, onKey: (String) -> Unit) {
+private fun WordleKeyboard(
+    uiState: WordleUiState,
+    onKey: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    keyHeight: Dp = KeyHeight,
+) {
     BoxWithConstraints(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
-            .padding(horizontal = 6.dp),
+            .padding(horizontal = 4.dp),
     ) {
         val maxKeys = uiState.keyboardRows.maxOf { it.length }
-        val keyWidth = (maxWidth - KeySpacing * (maxKeys - 1)) / maxKeys
+        val keyWidth = ((maxWidth - KeySpacing * (maxKeys - 1)) / maxKeys).coerceAtLeast(20.dp)
         Column(verticalArrangement = Arrangement.spacedBy(KeySpacing)) {
             uiState.keyboardRows.forEach { row ->
                 Row(
@@ -206,6 +276,7 @@ private fun ColumnScope.WordleKeyboard(uiState: WordleUiState, onKey: (String) -
                             char = c,
                             state = uiState.keyStates[c],
                             width = keyWidth,
+                            height = keyHeight,
                             onClick = { onKey(c.toString()) },
                         )
                     }
@@ -220,26 +291,31 @@ private fun LetterKey(
     char: Char,
     state: WordleLetterState?,
     width: Dp,
+    height: Dp,
     onClick: () -> Unit,
 ) {
     PrismTile(
         face = state.keyFace(),
         modifier = Modifier
             .width(width)
-            .height(KeyHeight),
+            .height(height),
         onClick = onClick,
     ) {
         Text(
             text = char.toString(),
             color = state.keyTextColor(),
-            style = MaterialTheme.typography.titleMedium,
+            style = if (height < 40.dp) {
+                MaterialTheme.typography.titleSmall
+            } else {
+                MaterialTheme.typography.titleMedium
+            },
             fontWeight = FontWeight.Bold,
             maxLines = 1,
         )
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun WordleContentPreview() {
     val emptyRow = persistentListOf(

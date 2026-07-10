@@ -69,7 +69,7 @@ internal fun ColumnScope.ValueComparisonContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun ValueComparisonContentPreview() {
     GamePreviewHost {

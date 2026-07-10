@@ -178,7 +178,7 @@ private fun ColumnScope.OrbitTrackerInstruction(phase: OrbitTrackerGame.Phase) {
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun OrbitTrackerContentPreview() {
     GamePreviewHost {

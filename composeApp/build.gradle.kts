@@ -99,6 +99,8 @@ kotlin {
             implementation(libs.kotlinx.collections.immutable)
             implementation(libs.multiplatform.settings)
             implementation(libs.multiplatform.settings.no.arg)
+            // MapSettings for UserStorage.forPreview() (Compose previews + shared test helpers).
+            implementation(libs.multiplatform.settings.test)
             implementation(libs.navigation.compose)
         }
         desktopMain.dependencies {

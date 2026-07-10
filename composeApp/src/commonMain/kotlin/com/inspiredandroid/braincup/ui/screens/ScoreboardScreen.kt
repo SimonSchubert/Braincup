@@ -18,6 +18,8 @@ import com.inspiredandroid.braincup.games.secondsTemplate
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
@@ -179,6 +181,19 @@ private fun MedalRequirement(
             } else {
                 MaterialTheme.colorScheme.outlineVariant
             },
+        )
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun ScoreboardScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        ScoreboardScreen(
+            gameType = GameType.MENTAL_CALCULATION,
+            storage = storage,
+            onBack = {},
         )
     }
 }

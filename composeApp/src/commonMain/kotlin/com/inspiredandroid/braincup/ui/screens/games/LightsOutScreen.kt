@@ -121,7 +121,7 @@ private fun LightsOutCell(
     ) {}
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun LightsOutContentPreview() {
     GamePreviewHost {

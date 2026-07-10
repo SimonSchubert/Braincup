@@ -99,7 +99,7 @@ internal fun ColumnScope.PathFinderContent(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun PathFinderContentPreview() {
     val fig = Figure(Shape.TRIANGLE, Color.GREEN)

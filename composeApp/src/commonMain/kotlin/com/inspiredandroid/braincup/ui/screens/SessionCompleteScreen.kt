@@ -21,9 +21,12 @@ import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -147,6 +150,32 @@ private fun SessionGameRow(game: GameType, score: Int) {
             text = game.formattedScore(score),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
+        )
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun SessionCompleteScreenPreview() {
+    ScreenPreviewHost {
+        SessionCompleteScreen(
+            gameIds = persistentListOf(
+                GameType.MENTAL_CALCULATION.id,
+                GameType.MINI_SUDOKU.id,
+                GameType.FLAGS.id,
+                GameType.SCHULTE_TABLE.id,
+            ),
+            scores = persistentListOf(12, 4, 8, 15),
+            streakBefore = 2,
+            streakAfter = 3,
+            xpGained = 80,
+            levelChange = UserStorage.LevelChange(
+                oldLevel = 3,
+                newLevel = 4,
+                totalXpBefore = 280,
+                totalXpAfter = 360,
+            ),
+            onDone = {},
         )
     }
 }

@@ -153,7 +153,7 @@ private fun FlashCrowdDotsRow(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun FlashCrowdContentPreview() {
     GamePreviewHost {

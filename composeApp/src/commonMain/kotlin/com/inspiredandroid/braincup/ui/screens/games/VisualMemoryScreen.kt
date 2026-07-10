@@ -240,7 +240,7 @@ private fun VisualMemoryCell(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun VisualMemoryContentPreview() {
     val fig = Figure(Shape.SQUARE, Color.RED)

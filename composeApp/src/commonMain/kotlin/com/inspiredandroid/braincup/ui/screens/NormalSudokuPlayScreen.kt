@@ -39,6 +39,8 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
@@ -603,3 +605,17 @@ private fun nextEmpty(from: Int, board: List<Int>, clueDigits: List<Int>): Int {
 }
 
 private fun currentTimeMillis(): Long = kotlin.time.Clock.System.now().toEpochMilliseconds()
+
+@DevicePreviews
+@Composable
+private fun NormalSudokuPlayScreenPreview() {
+    ScreenPreviewHost {
+        val storage = remember { UserStorage.forPreview() }
+        NormalSudokuPlayScreen(
+            puzzleId = NormalSudokuPuzzles.all.first().id,
+            storage = storage,
+            onCompleted = {},
+            onBack = {},
+        )
+    }
+}
