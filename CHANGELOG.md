@@ -1,3 +1,17 @@
+## v2.27.0 — 2026-07-11
+
+### Features
+- Achievements now take difficulty level into account
+
+### Fixes
+- Fix Wordle and session start landscape UI
+- Fix Sherlock calculation landscape layout
+
+### Improvements
+- Improve app performance
+- Unclutter game screens
+- Clean up deprecated APIs
+
 ## v2.26.1 — 2026-07-07
 
 ### Fixes
