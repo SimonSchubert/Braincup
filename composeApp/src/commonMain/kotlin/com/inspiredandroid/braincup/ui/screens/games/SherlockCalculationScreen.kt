@@ -124,14 +124,19 @@ internal fun ColumnScope.SherlockCalculationContent(
         }
 
         if (compact) {
+            // Weight the goal/expression side so it only takes leftover space after the
+            // numbers/operators pad measures to its intrinsic width. Without weight,
+            // ExpressionRow's fillMaxWidth() expands the left column to the full Row
+            // width and squeezes the pad off-screen.
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(horizontal = 16.dp),
-                horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+                horizontalArrangement = Arrangement.spacedBy(16.dp),
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 Column(
+                    modifier = Modifier.weight(1f),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     goalText(Modifier)
@@ -144,6 +149,8 @@ internal fun ColumnScope.SherlockCalculationContent(
                     horizontalAlignment = Alignment.CenterHorizontally,
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
+                    // No extra horizontal padding — the Row already insets 16.dp and the
+                    // pad must keep an intrinsic width so it is not clipped.
                     numbersRow(Modifier)
                     operatorRow(Modifier)
                 }
@@ -154,9 +161,9 @@ internal fun ColumnScope.SherlockCalculationContent(
             Spacer(Modifier.height(16.dp))
             expressionRow(centered)
             Spacer(Modifier.height(16.dp))
-            numbersRow(centered)
+            numbersRow(centered.padding(horizontal = 16.dp))
             Spacer(Modifier.height(12.dp))
-            operatorRow(centered)
+            operatorRow(centered.padding(horizontal = 16.dp))
             Spacer(Modifier.height(16.dp))
             giveUpButton(centered)
         }
@@ -172,6 +179,8 @@ private fun ExpressionRow(
     modifier: Modifier = Modifier,
 ) {
     FlowRow(
+        // fillMaxWidth so the empty-state hint + backspace center; in compact layout the
+        // parent Column is weight-constrained so this no longer steals the pad's space.
         modifier = modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp),
@@ -264,7 +273,7 @@ private fun AvailableNumbersRow(
     modifier: Modifier = Modifier,
 ) {
     FlowRow(
-        modifier = modifier.padding(horizontal = 16.dp),
+        modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
@@ -298,7 +307,7 @@ private fun OperatorRow(
     modifier: Modifier = Modifier,
 ) {
     FlowRow(
-        modifier = modifier.padding(horizontal = 16.dp),
+        modifier = modifier,
         maxItemsInEachRow = 3,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -312,7 +321,7 @@ private fun OperatorRow(
     }
 }
 
-@GameDevicePreviews
+@DevicePreviews
 @Composable
 private fun SherlockCalculationContentPreview() {
     GamePreviewHost {
