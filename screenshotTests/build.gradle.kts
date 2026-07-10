@@ -25,18 +25,23 @@ android {
 
     sourceSets {
         getByName("main") {
-            assets.srcDirs(
-                "${project(":composeApp").projectDir}/build/generated/compose/resourceGenerator/preparedResources/commonMain",
+            // Generated compose multiplatform resources from :composeApp (prepared for Paparazzi).
+            assets.directories.add(
+                rootProject.layout.projectDirectory
+                    .dir("composeApp/build/generated/compose/resourceGenerator/preparedResources/commonMain")
+                    .asFile
+                    .path,
             )
         }
     }
 }
 
-val preparePaparazzi by tasks.registering {
-    dependsOn(":composeApp:prepareComposeResourcesTaskForCommonMain")
-    dependsOn(":composeApp:copyNonXmlValueResourcesForCommonMain")
-    dependsOn(":composeApp:convertXmlValueResourcesForCommonMain")
-}
+val preparePaparazzi =
+    tasks.register("preparePaparazzi") {
+        dependsOn(":composeApp:prepareComposeResourcesTaskForCommonMain")
+        dependsOn(":composeApp:copyNonXmlValueResourcesForCommonMain")
+        dependsOn(":composeApp:convertXmlValueResourcesForCommonMain")
+    }
 
 tasks
     .matching {
@@ -152,7 +157,7 @@ tasks.register("generateStoreScreenshots") {
 }
 
 dependencies {
-    implementation(project(":composeApp"))
+    implementation(projects.composeApp)
     testImplementation(libs.compose.runtime)
     testImplementation(libs.compose.material3)
     testImplementation(libs.compose.foundation)

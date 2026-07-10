@@ -63,8 +63,8 @@ kotlin {
     }
 
     sourceSets {
-        val desktopMain by getting
-        val nonIosMain by creating { dependsOn(commonMain.get()) }
+        val desktopMain = getByName("desktopMain")
+        val nonIosMain = create("nonIosMain") { dependsOn(commonMain.get()) }
         androidMain.get().dependsOn(nonIosMain)
         desktopMain.dependsOn(nonIosMain)
         wasmJsMain.get().dependsOn(nonIosMain)
@@ -85,7 +85,6 @@ kotlin {
             implementation(libs.compose.runtime)
             implementation(libs.compose.foundation)
             implementation(libs.compose.material3)
-            implementation(libs.compose.material.icons.extended)
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.backhandler)
             implementation(libs.compose.components.resources)

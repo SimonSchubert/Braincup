@@ -2,8 +2,6 @@ package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.Backspace
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -21,6 +19,7 @@ import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableSet
+import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -255,7 +254,7 @@ private fun ExpressionRow(
             onClick = onBackspace,
         ) {
             Icon(
-                imageVector = Icons.AutoMirrored.Filled.Backspace,
+                painter = painterResource(Res.drawable.baseline_backspace_24),
                 contentDescription = stringResource(Res.string.button_backspace),
                 tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.size(20.dp),

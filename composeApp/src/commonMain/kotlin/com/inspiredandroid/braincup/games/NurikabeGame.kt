@@ -98,7 +98,7 @@ class NurikabeGame(
             val solution = buildSolution(difficulty) ?: continue
             val preferred = solution.islands.size in difficulty.islandCount
             // Keep the first valid board, then upgrade to one with a preferred island count.
-            if (fallback == null || (preferred && fallback!!.islands.size !in difficulty.islandCount)) {
+            if (fallback == null || (preferred && fallback.islands.size !in difficulty.islandCount)) {
                 fallback = solution
             }
             if (!preferred) continue
