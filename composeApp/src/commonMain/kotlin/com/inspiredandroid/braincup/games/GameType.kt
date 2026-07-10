@@ -18,8 +18,8 @@ enum class GameType(
     MINI_SUDOKU(
         displayNameRes = Res.string.game_mini_sudoku,
         id = "16",
-        goldScore = 5,
-        silverScore = 2,
+        goldScore = 6,
+        silverScore = 3,
         descriptionRes = Res.string.game_mini_sudoku_desc,
         category = GameCategory.LOGIC,
     ),
@@ -100,112 +100,112 @@ enum class GameType(
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
         id = "8",
-        goldScore = 13,
-        silverScore = 7,
+        goldScore = 15,
+        silverScore = 8,
         descriptionRes = Res.string.game_path_finder_desc,
         category = GameCategory.LOGIC,
     ),
     ANOMALY_PUZZLE(
         displayNameRes = Res.string.game_anomaly_puzzle,
         id = "6",
-        goldScore = 16,
-        silverScore = 8,
+        goldScore = 18,
+        silverScore = 9,
         descriptionRes = Res.string.game_anomaly_puzzle_desc,
         category = GameCategory.LOGIC,
     ),
     GHOST_GRID(
         displayNameRes = Res.string.game_ghost_grid,
         id = "12",
-        goldScore = 7,
-        silverScore = 5,
+        goldScore = 9,
+        silverScore = 6,
         descriptionRes = Res.string.game_ghost_grid_desc,
         category = GameCategory.MEMORY,
     ),
     VISUAL_MEMORY(
         displayNameRes = Res.string.game_visual_memory,
         id = "10",
-        goldScore = 9,
-        silverScore = 6,
+        goldScore = 11,
+        silverScore = 7,
         descriptionRes = Res.string.game_visual_memory_desc,
         category = GameCategory.MEMORY,
     ),
     COLORED_SHAPES(
         displayNameRes = Res.string.game_colored_shapes,
         id = "1",
-        goldScore = 15,
-        silverScore = 8,
+        goldScore = 17,
+        silverScore = 9,
         descriptionRes = Res.string.game_colored_shapes_desc,
         category = GameCategory.LOGIC,
     ),
     SHERLOCK_CALCULATION(
         displayNameRes = Res.string.game_sherlock_calculation,
         id = "2",
-        goldScore = 7,
-        silverScore = 3,
+        goldScore = 9,
+        silverScore = 4,
         descriptionRes = Res.string.game_sherlock_calculation_desc,
         category = GameCategory.MATH,
     ),
     MENTAL_CALCULATION(
         displayNameRes = Res.string.game_mental_calculation,
         id = "0",
-        goldScore = 16,
-        silverScore = 8,
+        goldScore = 18,
+        silverScore = 9,
         descriptionRes = Res.string.game_mental_calculation_desc,
         category = GameCategory.MATH,
     ),
     CHAIN_CALCULATION(
         displayNameRes = Res.string.game_chain_calculation,
         id = "3",
-        goldScore = 8,
-        silverScore = 4,
+        goldScore = 10,
+        silverScore = 5,
         descriptionRes = Res.string.game_chain_calculation_desc,
         category = GameCategory.MATH,
     ),
     FRACTION_CALCULATION(
         displayNameRes = Res.string.game_fraction_calculation,
         id = "4",
-        goldScore = 12,
-        silverScore = 4,
+        goldScore = 14,
+        silverScore = 6,
         descriptionRes = Res.string.game_fraction_calculation_desc,
         category = GameCategory.MATH,
     ),
     VALUE_COMPARISON(
         displayNameRes = Res.string.game_value_comparison,
         id = "5",
-        goldScore = 14,
-        silverScore = 4,
+        goldScore = 16,
+        silverScore = 6,
         descriptionRes = Res.string.game_value_comparison_desc,
         category = GameCategory.MATH,
     ),
     PATTERN_SEQUENCE(
         displayNameRes = Res.string.game_pattern_sequence,
         id = "11",
-        goldScore = 10,
-        silverScore = 5,
+        goldScore = 12,
+        silverScore = 6,
         descriptionRes = Res.string.game_pattern_sequence_desc,
         category = GameCategory.PERCEPTION,
     ),
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,
         id = "13",
-        goldScore = 11,
-        silverScore = 6,
+        goldScore = 13,
+        silverScore = 7,
         descriptionRes = Res.string.game_color_confusion_desc,
         category = GameCategory.PERCEPTION,
     ),
     ORBIT_TRACKER(
         displayNameRes = Res.string.game_orbit_tracker,
         id = "14",
-        goldScore = 8,
-        silverScore = 4,
+        goldScore = 10,
+        silverScore = 5,
         descriptionRes = Res.string.game_orbit_tracker_desc,
         category = GameCategory.MEMORY,
     ),
     FLASH_CROWD(
         displayNameRes = Res.string.game_flash_crowd,
         id = "15",
-        goldScore = 18,
-        silverScore = 12,
+        goldScore = 20,
+        silverScore = 13,
         descriptionRes = Res.string.game_flash_crowd_desc,
         category = GameCategory.PERCEPTION,
     ),
@@ -224,8 +224,8 @@ enum class GameType(
         displayNameRes = Res.string.game_flags,
         id = "21",
         // Score = rounds completed. Initial thresholds; tune after playtest.
-        goldScore = 30,
-        silverScore = 15,
+        goldScore = 32,
+        silverScore = 16,
         descriptionRes = Res.string.game_flags_desc,
         category = GameCategory.PERCEPTION,
     ),
@@ -233,8 +233,8 @@ enum class GameType(
         displayNameRes = Res.string.game_digit_memory,
         id = "22",
         // Score = sequences recalled in 60s. Initial thresholds; tune after playtest.
-        goldScore = 6,
-        silverScore = 3,
+        goldScore = 7,
+        silverScore = 4,
         descriptionRes = Res.string.game_digit_memory_desc,
         category = GameCategory.MEMORY,
     ),
@@ -242,8 +242,8 @@ enum class GameType(
         displayNameRes = Res.string.game_spot_the_new,
         id = "23",
         // Score = rounds survived. Initial thresholds; tune after playtest.
-        goldScore = 12,
-        silverScore = 6,
+        goldScore = 14,
+        silverScore = 7,
         descriptionRes = Res.string.game_spot_the_new_desc,
         category = GameCategory.MEMORY,
     ),
@@ -307,6 +307,16 @@ enum class GameType(
         if (score <= 0) return false
         if (threshold <= 1) return true
         return if (lowerScoreIsBetter) score <= threshold else score >= threshold
+    }
+
+    /**
+     * Bonus added to the base (correct-answer) score when a session started mid adaptive ramp.
+     * Zero when not adaptive, lower-is-better, or no correct answers this run — so resume alone
+     * never awards free points toward medals.
+     */
+    fun difficultyBonus(startRound: Int, baseScore: Int, adaptiveDifficulty: Boolean): Int {
+        if (!adaptiveDifficulty || lowerScoreIsBetter || baseScore <= 0) return 0
+        return startRound.coerceAtLeast(0)
     }
 }
 

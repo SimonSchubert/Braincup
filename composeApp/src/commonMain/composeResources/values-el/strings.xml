@@ -136,6 +136,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Σκορ: %1$s</string>
+    <string name="finish_difficulty_bonus">Μπόνους δυσκολίας: +%1$s</string>
     <string name="finish_level">Επίπεδο: %1$s</string>
     <string name="finish_bonus_point">Κερδίσατε 1 επιπλέον πόντο γιατί δεν κάνατε λάθη!</string>
     <string name="finish_new_highscore">Νέο ρεκόρ!</string>

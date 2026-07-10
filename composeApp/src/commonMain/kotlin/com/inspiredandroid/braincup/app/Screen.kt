@@ -21,6 +21,8 @@ data class Finish(
     val highscore: Int,
     val xpGained: Int,
     val totalXpAfter: Int,
+    /** Adaptive start-round credit included in [score]; 0 when none. */
+    val difficultyBonus: Int = 0,
 )
 
 @Serializable

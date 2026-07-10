@@ -31,6 +31,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">得分：%1$s</string>
+    <string name="finish_difficulty_bonus">难度奖励：+%1$s</string>
     <string name="finish_level">关卡：%1$s</string>
     <string name="finish_bonus_point">您因零失误获得了1个额外分数！</string>
     <string name="finish_new_highscore">新最高分！</string>

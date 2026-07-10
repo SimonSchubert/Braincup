@@ -31,6 +31,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Punktzahl: %1$s</string>
+    <string name="finish_difficulty_bonus">Schwierigkeitsbonus: +%1$s</string>
     <string name="finish_level">Level: %1$s</string>
     <string name="finish_bonus_point">Du hast 1 Extrapunkt für fehlerfreies Spielen erhalten!</string>
     <string name="finish_new_highscore">Neuer Highscore!</string>

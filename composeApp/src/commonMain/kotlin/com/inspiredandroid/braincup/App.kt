@@ -313,6 +313,7 @@ fun App(
                                 highscore = route.highscore,
                                 xpGained = route.xpGained,
                                 totalXpAfter = route.totalXpAfter,
+                                difficultyBonus = route.difficultyBonus,
                                 onPlayRandom = onPlayRandom,
                                 onPlayAgain = onPlayAgain,
                                 onMenu = onMenu,

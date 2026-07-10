@@ -31,6 +31,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Wynik: %1$s</string>
+    <string name="finish_difficulty_bonus">Premia za trudność: +%1$s</string>
     <string name="finish_level">Poziom: %1$s</string>
     <string name="finish_bonus_point">Zdobyłeś 1 dodatkowy punkt za bezbłędną grę!</string>
     <string name="finish_new_highscore">Nowy rekord!</string>

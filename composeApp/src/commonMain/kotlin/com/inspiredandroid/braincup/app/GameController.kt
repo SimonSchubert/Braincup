@@ -72,6 +72,8 @@ class GameController(
 
     private var startTime = 0L
     private var points = 0
+    /** Adaptive start round for the current session; used as difficulty bonus on finish. */
+    private var sessionStartRound = 0
     private var stopwatchRunning = false
     private var inSessionMode = false
     val isInSessionMode: Boolean get() = inSessionMode
@@ -254,6 +256,7 @@ class GameController(
 
     fun startGame(gameType: GameType) {
         points = 0
+        sessionStartRound = 0
 
         // Visual Memory and Ghost Grid have special handling (no timer, round-based)
         if (gameType == GameType.VISUAL_MEMORY) {
@@ -326,7 +329,8 @@ class GameController(
 
         val game = createGame(gameType)
         if (game.adaptiveDifficulty) {
-            game.round = storage.getLastRound(gameType.id)
+            sessionStartRound = storage.getLastRound(gameType.id)
+            game.round = sessionStartRound
         }
         game.nextRound()
 
@@ -1540,7 +1544,8 @@ class GameController(
     private fun startGhostGridGame(gameType: GameType) {
         val game = GhostGridGame()
         if (game.adaptiveDifficulty) {
-            game.round = storage.getLastRound(gameType.id)
+            sessionStartRound = storage.getLastRound(gameType.id)
+            game.round = sessionStartRound
         }
         game.nextRound()
 
@@ -1593,7 +1598,8 @@ class GameController(
     private fun startOrbitTrackerGame(gameType: GameType) {
         val game = OrbitTrackerGame()
         if (game.adaptiveDifficulty) {
-            game.round = storage.getLastRound(gameType.id)
+            sessionStartRound = storage.getLastRound(gameType.id)
+            game.round = sessionStartRound
         }
         game.nextRound()
 
@@ -1699,7 +1705,15 @@ class GameController(
         _gameUiState.value = null
         _gameState.value = GameState.Idle
 
-        val scoreResult = storage.putScore(gameType.id, points)
+        val baseScore = points
+        val difficultyBonus = gameType.difficultyBonus(
+            startRound = sessionStartRound,
+            baseScore = baseScore,
+            adaptiveDifficulty = game.adaptiveDifficulty,
+        )
+        val totalScore = baseScore + difficultyBonus
+
+        val scoreResult = storage.putScore(gameType.id, totalScore)
         val highscore = storage.getHighScore(gameType.id)
         if (game.adaptiveDifficulty) {
             storage.putLastRound(gameType.id, game.round - 3)
@@ -1715,12 +1729,13 @@ class GameController(
         navController.navigate(
             Finish(
                 gameTypeId = gameType.id,
-                score = points,
+                score = totalScore,
                 isNewHighscore = scoreResult.newHighscore,
                 answeredAllCorrect = game.answeredAllCorrect,
                 highscore = highscore,
                 xpGained = scoreResult.xpGained,
                 totalXpAfter = storage.getTotalXp(),
+                difficultyBonus = difficultyBonus,
             ),
         ) {
             popUpTo(MainMenu)

@@ -31,6 +31,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">স্কোর: %1$s</string>
+    <string name="finish_difficulty_bonus">কঠিনতার বোনাস: +%1$s</string>
     <string name="finish_level">লেভেল: %1$s</string>
     <string name="finish_bonus_point">কোনো ভুল না করায় আপনি ১টি অতিরিক্ত পয়েন্ট অর্জন করেছেন!</string>
     <string name="finish_new_highscore">নতুন সর্বোচ্চ স্কোর!</string>

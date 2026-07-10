@@ -31,6 +31,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">คะแนน: %1$s</string>
+    <string name="finish_difficulty_bonus">โบนัสความยาก: +%1$s</string>
     <string name="finish_level">ระดับ: %1$s</string>
     <string name="finish_bonus_point">คุณได้รับ 1 คะแนนพิเศษจากการไม่ทำผิดพลาด!</string>
     <string name="finish_new_highscore">คะแนนสูงสุดใหม่!</string>

@@ -31,6 +31,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Puan: %1$s</string>
+    <string name="finish_difficulty_bonus">Zorluk bonusu: +%1$s</string>
     <string name="finish_level">Seviye: %1$s</string>
     <string name="finish_bonus_point">Hata yapmadığınız için 1 ekstra puan kazandınız!</string>
     <string name="finish_new_highscore">Yeni Yüksek Skor!</string>

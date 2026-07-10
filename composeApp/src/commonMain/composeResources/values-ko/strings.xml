@@ -31,6 +31,7 @@
 
     <!-- Finish screen -->
     <string name="finish_score">점수: %1$s</string>
+    <string name="finish_difficulty_bonus">난이도 보너스: +%1$s</string>
     <string name="finish_level">레벨: %1$s</string>
     <string name="finish_bonus_point">실수 없이 플레이하여 1점의 보너스를 얻었습니다!</string>
     <string name="finish_new_highscore">새로운 최고 점수!</string>

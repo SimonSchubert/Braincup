@@ -34,6 +34,8 @@ fun FinishScreen(
     highscore: Int,
     xpGained: Int,
     totalXpAfter: Int,
+    /** Adaptive start-round credit included in [score]; shown as a separate line when > 0. */
+    difficultyBonus: Int = 0,
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
@@ -75,12 +77,25 @@ fun FinishScreen(
         // since "Level: 0" / "Best Level: N" reads as misleading status info.
         val gaveUpLevelGame = gameType.usesLevelLabel && score <= 0
         if (!gaveUpLevelGame) {
+            val baseScore = (score - difficultyBonus).coerceAtLeast(0)
             val scoreLabelRes = if (gameType.usesLevelLabel) Res.string.finish_level else Res.string.finish_score
             Text(
-                text = stringResource(scoreLabelRes, gameType.formattedScore(score)),
+                text = stringResource(scoreLabelRes, gameType.formattedScore(baseScore)),
                 style = MaterialTheme.typography.headlineLarge,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
+            if (difficultyBonus > 0) {
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = stringResource(
+                        Res.string.finish_difficulty_bonus,
+                        gameType.formattedScore(difficultyBonus),
+                    ),
+                    style = MaterialTheme.typography.titleMedium,
+                    color = Primary,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                )
+            }
 
             Spacer(Modifier.height(16.dp))
         }
