@@ -357,7 +357,10 @@ fun App(
                     composable<NormalSudokuPlay> { backStackEntry ->
                         val route: NormalSudokuPlay = backStackEntry.toRoute()
                         val popSudokuMenu = remember(navController) {
-                            { navController.popBackStack(NormalSudokuMenu, inclusive = false); Unit }
+                            {
+                                navController.popBackStack(NormalSudokuMenu, inclusive = false)
+                                Unit
+                            }
                         }
                         NormalSudokuPlayScreen(
                             puzzleId = route.puzzleId,
@@ -388,7 +391,10 @@ fun App(
                         val difficulty = NormalChessDifficulty.entries.firstOrNull { it.name == route.difficulty }
                             ?: NormalChessDifficulty.MEDIUM
                         val onBackChessPlay = remember(navController) {
-                            { navController.popBackStack(NormalChessMenu, inclusive = false); Unit }
+                            {
+                                navController.popBackStack(NormalChessMenu, inclusive = false)
+                                Unit
+                            }
                         }
                         NormalChessPlayScreen(
                             mode = mode,
@@ -413,7 +419,10 @@ fun App(
                     composable<MatchstickRiddlesPlay> { backStackEntry ->
                         val route: MatchstickRiddlesPlay = backStackEntry.toRoute()
                         val popMatchstickMenu = remember(navController) {
-                            { navController.popBackStack(MatchstickRiddlesMenu, inclusive = false); Unit }
+                            {
+                                navController.popBackStack(MatchstickRiddlesMenu, inclusive = false)
+                                Unit
+                            }
                         }
                         MatchstickRiddlesPlayScreen(
                             riddleId = route.riddleId,
