@@ -72,6 +72,7 @@ class GameController(
 
     private var startTime = 0L
     private var points = 0
+
     /** Adaptive start round for the current session; used as difficulty bonus on finish. */
     private var sessionStartRound = 0
     private var stopwatchRunning = false
