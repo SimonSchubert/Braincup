@@ -47,6 +47,14 @@ class GameController(
     private val _elapsedTime = MutableStateFlow(0L)
     val elapsedTime: StateFlow<Long> = _elapsedTime.asStateFlow()
 
+    /**
+     * Lightweight Orbit Tracker ball positions updated every animation frame during MOVING.
+     * Phase / selection / feedback still flow through [gameUiState] so the full game tree does
+     * not recompose at 60fps.
+     */
+    private val _orbitBallPositions = MutableStateFlow<List<Pair<Float, Float>>>(emptyList())
+    val orbitBallPositions: StateFlow<List<Pair<Float, Float>>> = _orbitBallPositions.asStateFlow()
+
     private val _gameUiState = MutableStateFlow<GameUiState?>(null)
     val gameUiState: StateFlow<GameUiState?> = _gameUiState.asStateFlow()
 
@@ -1591,7 +1599,15 @@ class GameController(
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
-        game.startHighlightAndMove(scope) { emitOrbitTrackerUiState(game) }
+        startOrbitTrackerAnimation(game)
+    }
+
+    private fun startOrbitTrackerAnimation(game: OrbitTrackerGame) {
+        game.startHighlightAndMove(
+            scope = scope,
+            onPhaseChanged = { emitOrbitTrackerUiState(game) },
+            onFrame = { emitOrbitTrackerFrame(game) },
+        )
     }
 
     private fun handleOrbitTrackerAnswer(
@@ -1617,7 +1633,7 @@ class GameController(
                     delay(1.seconds)
                     game.nextRound()
                     _gameState.value = GameState.Active(currentState.gameType, game)
-                    game.startHighlightAndMove(scope) { emitOrbitTrackerUiState(game) }
+                    startOrbitTrackerAnimation(game)
                 }
             }
             OrbitTrackerGame.SubmitResult.Wrong -> {
@@ -1636,6 +1652,11 @@ class GameController(
 
     private fun emitOrbitTrackerUiState(game: OrbitTrackerGame) {
         _gameUiState.value = game.toUiState()
+        emitOrbitTrackerFrame(game)
+    }
+
+    private fun emitOrbitTrackerFrame(game: OrbitTrackerGame) {
+        _orbitBallPositions.value = game.balls.map { it.x to it.y }
     }
 
     private fun handleVisualMemoryAnswer(game: VisualMemoryGame, answer: String) {

@@ -16,6 +16,7 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.PointerEventType
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
@@ -23,16 +24,19 @@ import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import org.jetbrains.compose.resources.stringResource
-import kotlin.math.sqrt
 
 @Composable
 internal fun ColumnScope.OrbitTrackerContent(
     uiState: OrbitTrackerUiState,
     onAnswer: (String) -> Unit,
+    livePositions: StateFlow<List<Pair<Float, Float>>>? = null,
 ) {
     val isHighlighting = uiState.phase == OrbitTrackerGame.Phase.HIGHLIGHTING
     val isAnswering = uiState.phase == OrbitTrackerGame.Phase.ANSWERING
+    val isMoving = uiState.phase == OrbitTrackerGame.Phase.MOVING
 
     // The instruction header depends only on the phase, which is constant while the balls
     // animate. Keeping it in its own composable lets it skip the 60fps recomposition the moving
@@ -63,93 +67,123 @@ internal fun ColumnScope.OrbitTrackerContent(
         modifier = canvasSizeModifier
             .align(Alignment.CenterHorizontally),
     ) {
-        Canvas(
-            modifier = Modifier
-                .fillMaxSize()
-                .hoverHand(isAnswering)
-                .pointerInput(uiState.phase) {
-                    if (!isAnswering) return@pointerInput
-                    awaitPointerEventScope {
-                        while (true) {
-                            val event = awaitPointerEvent()
-                            if (event.type == PointerEventType.Press) {
-                                val position = event.changes.firstOrNull()?.position ?: continue
-                                val normalizedX = position.x / size.width
-                                val normalizedY = position.y / size.height
-                                val ballRadius = 0.04f
+        // Positions are collected only in this leaf so MOVING frames do not recompose
+        // instructions or the surrounding GameScreen tree.
+        OrbitTrackerArena(
+            uiState = uiState,
+            livePositions = livePositions,
+            isHighlighting = isHighlighting,
+            isAnswering = isAnswering,
+            isMoving = isMoving,
+            errorColor = errorColor,
+            onSurfaceVariantColor = onSurfaceVariantColor,
+            outlineColor = outlineColor,
+            primaryColor = primaryColor,
+            onAnswer = onAnswer,
+        )
+    }
+}
 
-                                // Find the closest ball within tap range
-                                var closestIndex = -1
-                                var closestDist = Float.MAX_VALUE
-                                uiState.balls.forEachIndexed { index, ball ->
-                                    val dx = ball.x - normalizedX
-                                    val dy = ball.y - normalizedY
-                                    val dist = kotlin.math.sqrt(dx * dx + dy * dy)
-                                    if (dist < ballRadius * 3 && dist < closestDist) {
-                                        closestDist = dist
-                                        closestIndex = index
-                                    }
+@Composable
+private fun OrbitTrackerArena(
+    uiState: OrbitTrackerUiState,
+    livePositions: StateFlow<List<Pair<Float, Float>>>?,
+    isHighlighting: Boolean,
+    isAnswering: Boolean,
+    isMoving: Boolean,
+    errorColor: androidx.compose.ui.graphics.Color,
+    onSurfaceVariantColor: androidx.compose.ui.graphics.Color,
+    outlineColor: androidx.compose.ui.graphics.Color,
+    primaryColor: androidx.compose.ui.graphics.Color,
+    onAnswer: (String) -> Unit,
+) {
+    val emptyPositions = remember { MutableStateFlow(emptyList<Pair<Float, Float>>()) }
+    val live by (livePositions ?: emptyPositions).collectAsStateWithLifecycle()
+    val staticPositions = remember(uiState.balls) { uiState.balls.map { it.x to it.y } }
+    // Prefer live frame positions during MOVING; fall back to uiState for other phases / previews.
+    val positions: List<Pair<Float, Float>> =
+        if (isMoving && live.isNotEmpty()) live else staticPositions
+    val positionsForTap by rememberUpdatedState(positions)
+    val onAnswerState by rememberUpdatedState(onAnswer)
+
+    Canvas(
+        modifier = Modifier
+            .fillMaxSize()
+            .hoverHand(isAnswering)
+            // Key only on phase so MOVING frames do not restart the pointer coroutine.
+            .pointerInput(uiState.phase) {
+                if (!isAnswering) return@pointerInput
+                awaitPointerEventScope {
+                    while (true) {
+                        val event = awaitPointerEvent()
+                        if (event.type == PointerEventType.Press) {
+                            val position = event.changes.firstOrNull()?.position ?: continue
+                            val normalizedX = position.x / size.width
+                            val normalizedY = position.y / size.height
+                            val ballRadius = 0.04f
+
+                            var closestIndex = -1
+                            var closestDist = Float.MAX_VALUE
+                            positionsForTap.forEachIndexed { index, (bx, by) ->
+                                val dx = bx - normalizedX
+                                val dy = by - normalizedY
+                                val dist = kotlin.math.sqrt(dx * dx + dy * dy)
+                                if (dist < ballRadius * 3 && dist < closestDist) {
+                                    closestDist = dist
+                                    closestIndex = index
                                 }
-                                if (closestIndex >= 0) {
-                                    onAnswer(closestIndex.toString())
-                                }
+                            }
+                            if (closestIndex >= 0) {
+                                onAnswerState(closestIndex.toString())
                             }
                         }
                     }
-                },
-        ) {
-            // Draw arena border
-            drawRect(
-                color = outlineColor,
-                style = Stroke(width = 2.dp.toPx()),
+                }
+            },
+    ) {
+        drawRect(
+            color = outlineColor,
+            style = Stroke(width = 2.dp.toPx()),
+        )
+
+        val ballRadiusPx = 0.04f * size.width
+        val isGameOver = uiState.phase == OrbitTrackerGame.Phase.GAME_OVER
+
+        uiState.balls.forEachIndexed { index, ball ->
+            val (px, py) = positions.getOrElse(index) { ball.x to ball.y }
+            val center = Offset(px * size.width, py * size.height)
+
+            val color = when {
+                ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED && isGameOver -> SuccessGreen
+                ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED -> primaryColor
+                ball.feedback == OrbitTrackerUiState.BallFeedback.WRONG_SELECTED -> errorColor
+                ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED -> SuccessGreen
+                isHighlighting && ball.isTarget -> primaryColor
+                else -> onSurfaceVariantColor
+            }
+
+            drawPrismCircle(
+                center = center,
+                radius = ballRadiusPx,
+                face = color,
             )
 
-            val ballRadiusPx = 0.04f * size.width
-
-            uiState.balls.forEach { ball ->
-                val cx = ball.x * size.width
-                val cy = ball.y * size.height
-                val center = Offset(cx, cy)
-
-                val isGameOver = uiState.phase == OrbitTrackerGame.Phase.GAME_OVER
-
-                val color = when {
-                    // Feedback states
-                    ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED && isGameOver -> SuccessGreen
-                    ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED -> primaryColor
-                    ball.feedback == OrbitTrackerUiState.BallFeedback.WRONG_SELECTED -> errorColor
-                    ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED -> SuccessGreen
-                    // Highlight phase: targets are blue
-                    isHighlighting && ball.isTarget -> primaryColor
-                    // Default dark grey
-                    else -> onSurfaceVariantColor
-                }
-
-                drawPrismCircle(
+            if (ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED) {
+                drawCircle(
+                    color = SuccessGreen,
+                    radius = ballRadiusPx + 3.dp.toPx(),
                     center = center,
-                    radius = ballRadiusPx,
-                    face = color,
+                    style = Stroke(width = 2.dp.toPx()),
                 )
+            }
 
-                // Draw outline for missed targets
-                if (ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED) {
-                    drawCircle(
-                        color = SuccessGreen,
-                        radius = ballRadiusPx + 3.dp.toPx(),
-                        center = center,
-                        style = Stroke(width = 2.dp.toPx()),
-                    )
-                }
-
-                // Draw selection ring during answering
-                if (ball.isSelected && ball.feedback == OrbitTrackerUiState.BallFeedback.NONE) {
-                    drawCircle(
-                        color = primaryColor,
-                        radius = ballRadiusPx + 3.dp.toPx(),
-                        center = center,
-                        style = Stroke(width = 2.dp.toPx()),
-                    )
-                }
+            if (ball.isSelected && ball.feedback == OrbitTrackerUiState.BallFeedback.NONE) {
+                drawCircle(
+                    color = primaryColor,
+                    radius = ballRadiusPx + 3.dp.toPx(),
+                    center = center,
+                    style = Stroke(width = 2.dp.toPx()),
+                )
             }
         }
     }

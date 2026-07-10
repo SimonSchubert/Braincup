@@ -4,10 +4,14 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
 import com.inspiredandroid.braincup.app.CatQueensUiState
 import com.inspiredandroid.braincup.app.ChainCalculationUiState
@@ -71,98 +75,66 @@ import com.inspiredandroid.braincup.ui.screens.games.StopwatchDisplay
 import com.inspiredandroid.braincup.ui.screens.games.TimeProgressIndicator
 import com.inspiredandroid.braincup.ui.screens.games.ValueComparisonContent
 import com.inspiredandroid.braincup.ui.screens.games.VisualMemoryContent
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
+/**
+ * Live game host. Timer values are taken as [StateFlow]s and collected only inside the progress
+ * bar so a 100ms countdown does not restart game content.
+ *
+ * For previews/screenshots, prefer the overload that accepts fixed [Long] values.
+ */
 @Composable
 fun GameScreen(
     gameUiState: GameUiState,
-    timeRemaining: Long,
-    elapsedTime: Long = 0L,
+    timeRemaining: StateFlow<Long>,
+    elapsedTime: StateFlow<Long>,
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
     inSessionMode: Boolean = false,
     isTimerPaused: Boolean = false,
     onWordleFinishedAction: () -> Unit = {},
+    /** Live ball positions during Orbit Tracker MOVING; ignored for other games. */
+    orbitBallPositions: StateFlow<List<Pair<Float, Float>>>? = null,
 ) {
-    val progressBar: (@Composable () -> Unit)? = when {
-        gameUiState is VisualMemoryUiState &&
-            gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING -> {
-            val round = gameUiState.round
-            val bar: @Composable () -> Unit = {
-                MemorizeTimeProgressBar(
-                    totalMillis = VisualMemoryGame.memorizeDurationMillis(round).toFloat(),
-                    isTimerPaused = isTimerPaused,
-                    restartKey = round,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                )
-            }
-            bar
-        }
-        gameUiState is SpotTheNewUiState &&
-            gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING -> {
-            val bar: @Composable () -> Unit = {
-                MemorizeTimeProgressBar(
-                    totalMillis = SpotTheNewGame.MEMORIZE_MILLIS.toFloat(),
-                    isTimerPaused = isTimerPaused,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                )
-            }
-            bar
-        }
-        gameUiState is SpotTheNewUiState -> null
-        gameUiState is VisualMemoryUiState ||
-            gameUiState is GhostGridUiState ||
-            gameUiState is OrbitTrackerUiState ||
-            gameUiState is MiniChessUiState ||
-            gameUiState is LightsOutUiState ||
-            gameUiState is SlidingPuzzleUiState ||
-            gameUiState is ShikakuUiState ||
-            gameUiState is NurikabeUiState ||
-            gameUiState is CatQueensUiState ||
-            gameUiState is KnotUiState ||
-            gameUiState is SoloChessUiState ||
-            gameUiState is WordleUiState -> null
-        gameUiState is SchulteTableUiState -> {
-            val bar: @Composable () -> Unit = {
-                StopwatchDisplay(
-                    elapsedMillis = elapsedTime,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                )
-            }
-            bar
-        }
-        gameUiState is FlagsUiState -> {
-            val bar: @Composable () -> Unit = {
-                TimeProgressIndicator(
-                    progress = timeRemaining / GameController.FLAGS_ROUND_TIME_MILLIS.toFloat(),
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                )
-            }
-            bar
-        }
-        else -> {
-            val bar: @Composable () -> Unit = {
-                TimeProgressIndicator(
-                    progress = timeRemaining / 60000f,
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 16.dp, vertical = 8.dp),
-                )
-            }
-            bar
-        }
+    val progressBarModifier = Modifier
+        .fillMaxWidth()
+        .padding(horizontal = 16.dp, vertical = 8.dp)
+
+    val needsProgressBar = when (gameUiState) {
+        is VisualMemoryUiState -> gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING
+        is SpotTheNewUiState -> gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING
+        is GhostGridUiState,
+        is OrbitTrackerUiState,
+        is MiniChessUiState,
+        is LightsOutUiState,
+        is SlidingPuzzleUiState,
+        is ShikakuUiState,
+        is NurikabeUiState,
+        is CatQueensUiState,
+        is KnotUiState,
+        is SoloChessUiState,
+        is WordleUiState,
+        -> false
+        else -> true
     }
+
     GameScaffold(
         onBack = onBack,
-        progressBar = progressBar,
+        progressBar = if (needsProgressBar) {
+            {
+                GameProgressBar(
+                    gameUiState = gameUiState,
+                    timeRemaining = timeRemaining,
+                    elapsedTime = elapsedTime,
+                    isTimerPaused = isTimerPaused,
+                    modifier = progressBarModifier,
+                )
+            }
+        } else {
+            null
+        },
         fillContent = gameUiState is FlagsUiState,
     ) {
         // Force LTR for gameplay content: math expressions, digit sequences, directional
@@ -192,7 +164,11 @@ fun GameScreen(
                 is SpotTheNewUiState -> SpotTheNewContent(gameUiState, onAnswer)
                 is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
                 is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
-                is OrbitTrackerUiState -> OrbitTrackerContent(gameUiState, onAnswer)
+                is OrbitTrackerUiState -> OrbitTrackerContent(
+                    uiState = gameUiState,
+                    livePositions = orbitBallPositions,
+                    onAnswer = onAnswer,
+                )
                 is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
                 is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
                 is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
@@ -205,6 +181,89 @@ fun GameScreen(
                     onFinishedAction = onWordleFinishedAction,
                 )
             }
+        }
+    }
+}
+
+/**
+ * Preview/screenshot overload with fixed timer values. Wraps them in remembered flows so the
+ * production path always isolates timer collection to the progress bar.
+ */
+@Composable
+fun GameScreen(
+    gameUiState: GameUiState,
+    timeRemaining: Long,
+    elapsedTime: Long = 0L,
+    onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+    onBack: () -> Unit,
+    inSessionMode: Boolean = false,
+    isTimerPaused: Boolean = false,
+    onWordleFinishedAction: () -> Unit = {},
+) {
+    val timeFlow = remember { MutableStateFlow(timeRemaining) }
+    val elapsedFlow = remember { MutableStateFlow(elapsedTime) }
+    LaunchedEffect(timeRemaining) { timeFlow.value = timeRemaining }
+    LaunchedEffect(elapsedTime) { elapsedFlow.value = elapsedTime }
+    GameScreen(
+        gameUiState = gameUiState,
+        timeRemaining = timeFlow,
+        elapsedTime = elapsedFlow,
+        onAnswer = onAnswer,
+        onGiveUp = onGiveUp,
+        onBack = onBack,
+        inSessionMode = inSessionMode,
+        isTimerPaused = isTimerPaused,
+        onWordleFinishedAction = onWordleFinishedAction,
+    )
+}
+
+/**
+ * Collects timer flows here only so the rest of [GameScreen] can skip while the bar ticks.
+ */
+@Composable
+private fun GameProgressBar(
+    gameUiState: GameUiState,
+    timeRemaining: StateFlow<Long>,
+    elapsedTime: StateFlow<Long>,
+    isTimerPaused: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    when {
+        gameUiState is VisualMemoryUiState &&
+            gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING -> {
+            MemorizeTimeProgressBar(
+                totalMillis = VisualMemoryGame.memorizeDurationMillis(gameUiState.round).toFloat(),
+                isTimerPaused = isTimerPaused,
+                restartKey = gameUiState.round,
+                modifier = modifier,
+            )
+        }
+        gameUiState is SpotTheNewUiState &&
+            gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING -> {
+            MemorizeTimeProgressBar(
+                totalMillis = SpotTheNewGame.MEMORIZE_MILLIS.toFloat(),
+                isTimerPaused = isTimerPaused,
+                modifier = modifier,
+            )
+        }
+        gameUiState is SchulteTableUiState -> {
+            val elapsed by elapsedTime.collectAsStateWithLifecycle()
+            StopwatchDisplay(elapsedMillis = elapsed, modifier = modifier)
+        }
+        gameUiState is FlagsUiState -> {
+            val remaining by timeRemaining.collectAsStateWithLifecycle()
+            TimeProgressIndicator(
+                progress = remaining / GameController.FLAGS_ROUND_TIME_MILLIS.toFloat(),
+                modifier = modifier,
+            )
+        }
+        else -> {
+            val remaining by timeRemaining.collectAsStateWithLifecycle()
+            TimeProgressIndicator(
+                progress = remaining / 60_000f,
+                modifier = modifier,
+            )
         }
     }
 }

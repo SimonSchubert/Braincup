@@ -118,17 +118,26 @@ class OrbitTrackerGame : Game() {
         phase = Phase.HIGHLIGHTING
     }
 
-    fun startHighlightAndMove(scope: CoroutineScope, onStateChanged: () -> Unit) {
+    /**
+     * Runs highlight → move → answer. Phase transitions call [onPhaseChanged] (full UI state).
+     * During the moving loop only [onFrame] is invoked so callers can push lightweight position
+     * updates without rebuilding [OrbitTrackerUiState] at 60fps.
+     */
+    fun startHighlightAndMove(
+        scope: CoroutineScope,
+        onPhaseChanged: () -> Unit,
+        onFrame: () -> Unit = onPhaseChanged,
+    ) {
         animationJob?.cancel()
         animationJob = scope.launch {
             // Highlight phase
             phase = Phase.HIGHLIGHTING
-            onStateChanged()
+            onPhaseChanged()
             delay(HIGHLIGHT_DURATION)
 
             // Moving phase
             phase = Phase.MOVING
-            onStateChanged()
+            onPhaseChanged()
 
             val moveDuration = moveDurationMillis()
             val startTime = currentTimeMillis()
@@ -139,13 +148,13 @@ class OrbitTrackerGame : Game() {
                 val delta = ((now - lastFrameTime) / 1000f).coerceAtMost(0.05f)
                 lastFrameTime = now
                 updateBallPositions(delta)
-                onStateChanged()
+                onFrame()
                 delay(FRAME_DELAY)
             }
 
             // Answering phase
             phase = Phase.ANSWERING
-            onStateChanged()
+            onPhaseChanged()
         }
     }
 

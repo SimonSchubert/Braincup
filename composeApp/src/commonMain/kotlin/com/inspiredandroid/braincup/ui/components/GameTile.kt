@@ -226,15 +226,15 @@ private val MiniChessPreviewPieces: Map<Int, MiniChessPreviewPlacement> = mapOf(
 fun GameTile(
     gameType: GameType,
     highscore: Int,
-    onPlay: () -> Unit,
-    onViewScore: () -> Unit,
+    onPlay: (GameType) -> Unit,
+    onViewScore: (GameType) -> Unit,
 ) {
     PrismTile(
         face = Primary,
         modifier = Modifier
             .aspectRatio(1f)
             .hoverHand(),
-        onClick = onPlay,
+        onClick = { onPlay(gameType) },
     ) {
         Column(modifier = Modifier.fillMaxSize()) {
             Box(
@@ -277,7 +277,7 @@ fun GameTile(
                         modifier = Modifier
                             .size(28.dp)
                             .hoverHand()
-                            .noRippleClickable(onClick = onViewScore),
+                            .noRippleClickable(onClick = { onViewScore(gameType) }),
                     )
                 }
             }

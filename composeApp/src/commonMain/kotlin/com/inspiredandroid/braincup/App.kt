@@ -13,6 +13,7 @@ import androidx.compose.ui.backhandler.BackHandler
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.compose.composable
@@ -143,14 +144,16 @@ fun App(
             ) {
                 AppNavHost(navController = navController, startDestination = MainMenu) {
                     composable<MainMenu> {
+                        val onOpenSettings = remember(controller) { { controller.navigateToSettings() } }
                         MainMenuScreen(
                             controller = controller,
-                            onOpenSettings = { controller.navigateToSettings() },
+                            onOpenSettings = onOpenSettings,
                             useBuiltInSponsors = useBuiltInSponsors,
                         )
                     }
 
                     composable<Settings> {
+                        val onBackSettings = remember(controller) { { controller.navigateToMainMenu() } }
                         SettingsScreen(
                             isMuted = isMuted,
                             onToggleMute = {
@@ -177,7 +180,7 @@ fun App(
                                 themeMode = mode
                                 controller.storage.setThemeMode(mode)
                             },
-                            onBack = { controller.navigateToMainMenu() },
+                            onBack = onBackSettings,
                         )
                     }
 
@@ -185,31 +188,40 @@ fun App(
                         val route: Instructions = backStackEntry.toRoute()
                         val gameType = getGameTypeById(route.gameTypeId)
                         if (gameType != null) {
-                            InstructionsScreen(
-                                gameType = gameType,
-                                storage = controller.storage,
-                                onStart = { controller.startGame(gameType) },
-                                onBack = { controller.navigateToMainMenu() },
-                                onShowLeaderboard = if (
+                            val onStart = remember(controller, gameType) { { controller.startGame(gameType) } }
+                            val onBackInstructions = remember(controller) { { controller.navigateToMainMenu() } }
+                            val onShowLeaderboard = remember(controller, gameType) {
+                                if (
                                     gameType.hasLeaderboard &&
                                     PlayGamesBridge.onShowLeaderboard != null
                                 ) {
                                     { controller.showLeaderboard(gameType) }
                                 } else {
                                     null
-                                },
+                                }
+                            }
+                            InstructionsScreen(
+                                gameType = gameType,
+                                storage = controller.storage,
+                                onStart = onStart,
+                                onBack = onBackInstructions,
+                                onShowLeaderboard = onShowLeaderboard,
                             )
                         }
                     }
 
                     composable<Playing> {
-                        val gameState by controller.gameState.collectAsState()
-                        val timeRemaining by controller.timeRemaining.collectAsState()
-                        val elapsedTime by controller.elapsedTime.collectAsState()
-                        val gameUiState by controller.gameUiState.collectAsState()
+                        // Intentionally do NOT collect timeRemaining/elapsedTime here: the progress
+                        // bar collects those flows so a 100ms tick cannot restart game content.
+                        val gameState by controller.gameState.collectAsStateWithLifecycle()
+                        val gameUiState by controller.gameUiState.collectAsStateWithLifecycle()
                         val hapticSuccess = rememberHapticSuccess()
+                        val onAnswer = remember(controller) { { answer: String -> controller.submitAnswer(answer) } }
+                        val onGiveUp = remember(controller) { { controller.giveUp() } }
+                        val onWordleFinished = remember(controller) { { controller.wordleFinishedAction() } }
+                        val navigateHome = remember(controller) { { controller.navigateToMainMenu() } }
 
-                        LaunchedEffect(controller) {
+                        LaunchedEffect(controller, hapticEnabled) {
                             controller.intermediateCorrectEvents.collect {
                                 if (hapticEnabled) hapticSuccess()
                             }
@@ -220,11 +232,13 @@ fun App(
                                 val uiState = gameUiState ?: return@composable
                                 var showQuitDialog by remember { mutableStateOf(false) }
                                 val confirmBeforeQuit = shouldConfirmQuit(uiState)
-                                val onBackFromGame: () -> Unit = {
-                                    if (confirmBeforeQuit) {
-                                        showQuitDialog = true
-                                    } else {
-                                        controller.navigateToMainMenu()
+                                val onBackFromGame = remember(confirmBeforeQuit, navigateHome) {
+                                    {
+                                        if (confirmBeforeQuit) {
+                                            showQuitDialog = true
+                                        } else {
+                                            navigateHome()
+                                        }
                                     }
                                 }
 
@@ -246,14 +260,15 @@ fun App(
 
                                 GameScreen(
                                     gameUiState = uiState,
-                                    timeRemaining = timeRemaining,
-                                    elapsedTime = elapsedTime,
-                                    onAnswer = { controller.submitAnswer(it) },
-                                    onGiveUp = { controller.giveUp() },
+                                    timeRemaining = controller.timeRemaining,
+                                    elapsedTime = controller.elapsedTime,
+                                    onAnswer = onAnswer,
+                                    onGiveUp = onGiveUp,
                                     onBack = onBackFromGame,
                                     inSessionMode = controller.isInSessionMode,
                                     isTimerPaused = showQuitDialog,
-                                    onWordleFinishedAction = { controller.wordleFinishedAction() },
+                                    onWordleFinishedAction = onWordleFinished,
+                                    orbitBallPositions = controller.orbitBallPositions,
                                 )
 
                                 if (showQuitDialog) {
@@ -261,7 +276,7 @@ fun App(
                                         onDismiss = { showQuitDialog = false },
                                         onQuit = {
                                             showQuitDialog = false
-                                            controller.navigateToMainMenu()
+                                            navigateHome()
                                         },
                                     )
                                 }
@@ -287,6 +302,9 @@ fun App(
                         val route: Finish = backStackEntry.toRoute()
                         val gameType = getGameTypeById(route.gameTypeId)
                         if (gameType != null) {
+                            val onPlayRandom = remember(controller) { { controller.playRandomGame() } }
+                            val onPlayAgain = remember(controller, gameType) { { controller.playAgain(gameType) } }
+                            val onMenu = remember(controller) { { controller.navigateToMainMenu() } }
                             FinishScreen(
                                 gameType = gameType,
                                 score = route.score,
@@ -295,9 +313,9 @@ fun App(
                                 highscore = route.highscore,
                                 xpGained = route.xpGained,
                                 totalXpAfter = route.totalXpAfter,
-                                onPlayRandom = { controller.playRandomGame() },
-                                onPlayAgain = { controller.playAgain(gameType) },
-                                onMenu = { controller.navigateToMainMenu() },
+                                onPlayRandom = onPlayRandom,
+                                onPlayAgain = onPlayAgain,
+                                onMenu = onMenu,
                             )
                         }
                     }
@@ -306,50 +324,59 @@ fun App(
                         val route: Scoreboard = backStackEntry.toRoute()
                         val gameType = getGameTypeById(route.gameTypeId)
                         if (gameType != null) {
+                            val onBackScoreboard = remember(controller) { { controller.navigateToMainMenu() } }
                             ScoreboardScreen(
                                 gameType = gameType,
                                 storage = controller.storage,
-                                onBack = { controller.navigateToMainMenu() },
+                                onBack = onBackScoreboard,
                             )
                         }
                     }
 
                     composable<Achievements> {
+                        val onBackAchievements = remember(controller) { { controller.navigateToMainMenu() } }
                         AchievementsScreen(
                             storage = controller.storage,
-                            onBack = { controller.navigateToMainMenu() },
+                            onBack = onBackAchievements,
                         )
                     }
 
                     composable<NormalSudokuMenu> {
+                        val onPuzzleSelected = remember(controller) {
+                            { id: String -> controller.navigateToNormalSudokuPlay(id) }
+                        }
+                        val onBackSudokuMenu = remember(controller) { { controller.navigateToMainMenu() } }
                         NormalSudokuMenuScreen(
                             storage = controller.storage,
-                            onPuzzleSelected = { controller.navigateToNormalSudokuPlay(it) },
-                            onBack = { controller.navigateToMainMenu() },
+                            onPuzzleSelected = onPuzzleSelected,
+                            onBack = onBackSudokuMenu,
                         )
                     }
 
                     composable<NormalSudokuPlay> { backStackEntry ->
                         val route: NormalSudokuPlay = backStackEntry.toRoute()
+                        val popSudokuMenu = remember(navController) {
+                            { navController.popBackStack(NormalSudokuMenu, inclusive = false); Unit }
+                        }
                         NormalSudokuPlayScreen(
                             puzzleId = route.puzzleId,
                             storage = controller.storage,
-                            onCompleted = {
-                                navController.popBackStack(NormalSudokuMenu, inclusive = false)
-                            },
-                            onBack = {
-                                navController.popBackStack(NormalSudokuMenu, inclusive = false)
-                            },
+                            onCompleted = popSudokuMenu,
+                            onBack = popSudokuMenu,
                         )
                     }
 
                     composable<NormalChessMenu> {
+                        val onStartChess = remember(controller) {
+                            { mode: NormalChessMode, difficulty: NormalChessDifficulty ->
+                                controller.navigateToNormalChessPlay(mode, difficulty)
+                            }
+                        }
+                        val onBackChessMenu = remember(controller) { { controller.navigateToMainMenu() } }
                         NormalChessMenuScreen(
                             storage = controller.storage,
-                            onStart = { mode, difficulty ->
-                                controller.navigateToNormalChessPlay(mode, difficulty)
-                            },
-                            onBack = { controller.navigateToMainMenu() },
+                            onStart = onStartChess,
+                            onBack = onBackChessMenu,
                         )
                     }
 
@@ -359,45 +386,51 @@ fun App(
                             ?: NormalChessMode.VS_CPU
                         val difficulty = NormalChessDifficulty.entries.firstOrNull { it.name == route.difficulty }
                             ?: NormalChessDifficulty.MEDIUM
+                        val onBackChessPlay = remember(navController) {
+                            { navController.popBackStack(NormalChessMenu, inclusive = false); Unit }
+                        }
                         NormalChessPlayScreen(
                             mode = mode,
                             difficulty = difficulty,
                             storage = controller.storage,
-                            onBack = {
-                                navController.popBackStack(NormalChessMenu, inclusive = false)
-                            },
+                            onBack = onBackChessPlay,
                         )
                     }
 
                     composable<MatchstickRiddlesMenu> {
+                        val onRiddleSelected = remember(controller) {
+                            { id: String -> controller.navigateToMatchstickRiddlesPlay(id) }
+                        }
+                        val onBackMatchstickMenu = remember(controller) { { controller.navigateToMainMenu() } }
                         MatchstickRiddlesMenuScreen(
                             storage = controller.storage,
-                            onRiddleSelected = { controller.navigateToMatchstickRiddlesPlay(it) },
-                            onBack = { controller.navigateToMainMenu() },
+                            onRiddleSelected = onRiddleSelected,
+                            onBack = onBackMatchstickMenu,
                         )
                     }
 
                     composable<MatchstickRiddlesPlay> { backStackEntry ->
                         val route: MatchstickRiddlesPlay = backStackEntry.toRoute()
+                        val popMatchstickMenu = remember(navController) {
+                            { navController.popBackStack(MatchstickRiddlesMenu, inclusive = false); Unit }
+                        }
                         MatchstickRiddlesPlayScreen(
                             riddleId = route.riddleId,
                             storage = controller.storage,
-                            onCompleted = {
-                                navController.popBackStack(MatchstickRiddlesMenu, inclusive = false)
-                            },
-                            onBack = {
-                                navController.popBackStack(MatchstickRiddlesMenu, inclusive = false)
-                            },
+                            onCompleted = popMatchstickMenu,
+                            onBack = popMatchstickMenu,
                         )
                     }
 
                     composable<SessionInterstitial> {
-                        val session by controller.sessionState.collectAsState()
+                        val session by controller.sessionState.collectAsStateWithLifecycle()
                         val current = session
                         if (current != null) {
                             val nextGameId = current.gameIds.getOrNull(current.currentIndex)
                             val nextGame = nextGameId?.let { getGameTypeById(it) }
                             if (nextGame != null) {
+                                val onContinue = remember(controller) { { controller.playNextSessionGame() } }
+                                val onExit = remember(controller) { { controller.navigateToMainMenu() } }
                                 SessionInterstitialScreen(
                                     nextGame = nextGame,
                                     nextGameIndex = current.currentIndex,
@@ -405,17 +438,18 @@ fun App(
                                     runningTotal = current.gameIds.zip(current.scores).filter { (id, _) ->
                                         getGameTypeById(id)?.lowerScoreIsBetter != true
                                     }.sumOf { (_, score) -> score },
-                                    onContinue = { controller.playNextSessionGame() },
-                                    onExit = { controller.navigateToMainMenu() },
+                                    onContinue = onContinue,
+                                    onExit = onExit,
                                 )
                             }
                         }
                     }
 
                     composable<SessionComplete> {
-                        val result by controller.lastCompletedSession.collectAsState()
+                        val result by controller.lastCompletedSession.collectAsStateWithLifecycle()
                         val current = result
                         if (current != null) {
+                            val onDone = remember(controller) { { controller.navigateToMainMenu() } }
                             SessionCompleteScreen(
                                 gameIds = current.gameIds.toImmutableList(),
                                 scores = current.scores.toImmutableList(),
@@ -423,7 +457,7 @@ fun App(
                                 streakAfter = current.streakAfter,
                                 xpGained = current.xpGained,
                                 levelChange = current.levelChange,
-                                onDone = { controller.navigateToMainMenu() },
+                                onDone = onDone,
                             )
                         }
                     }

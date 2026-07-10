@@ -168,6 +168,14 @@ fun NormalSudokuPlayScreen(
             val outerFrame = if (compact) 6.dp else 8.dp
             val screenPadding = if (compact) 6.dp else 8.dp
 
+            val onCellClick = remember(solved, clueDigits) {
+                { idx: Int ->
+                    if (!solved && clueDigits[idx] == 0) selectedIndex = idx
+                }
+            }
+            val onDigit = remember { { digit: Int -> applyDigit(digit) } }
+            val onErase = remember { { applyErase() } }
+
             if (landscape) {
                 val boardSize = minOf(
                     maxHeight - screenPadding * 2,
@@ -193,7 +201,7 @@ fun NormalSudokuPlayScreen(
                         outerFrame = outerFrame,
                         blockSep = blockSep,
                         modifier = Modifier.size(boardSize),
-                        onCellClick = { idx -> if (!solved && clueDigits[idx] == 0) selectedIndex = idx },
+                        onCellClick = onCellClick,
                     )
                     DigitPad(
                         columns = 3,
@@ -202,8 +210,8 @@ fun NormalSudokuPlayScreen(
                         selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
                         modifier = Modifier.width(padWidth),
-                        onDigit = ::applyDigit,
-                        onErase = ::applyErase,
+                        onDigit = onDigit,
+                        onErase = onErase,
                     )
                 }
             } else {
@@ -227,7 +235,7 @@ fun NormalSudokuPlayScreen(
                         outerFrame = outerFrame,
                         blockSep = blockSep,
                         modifier = Modifier.size(boardSize),
-                        onCellClick = { idx -> if (!solved && clueDigits[idx] == 0) selectedIndex = idx },
+                        onCellClick = onCellClick,
                     )
                     DigitPad(
                         columns = 9,
@@ -236,8 +244,8 @@ fun NormalSudokuPlayScreen(
                         selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
                         modifier = Modifier.width(boardSize),
-                        onDigit = ::applyDigit,
-                        onErase = ::applyErase,
+                        onDigit = onDigit,
+                        onErase = onErase,
                     )
                 }
             }
@@ -305,32 +313,39 @@ private fun SudokuBoard9x9(
 ) {
     val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.35f)
 
-    Box(modifier = modifier.background(gridLineColor)) {
+    // Measure the board once and derive a uniform cell size so 81 cells do not each run
+    // BoxWithConstraints. Block separators stay thicker than cell separators.
+    BoxWithConstraints(modifier = modifier.background(gridLineColor)) {
+        val innerW = maxWidth - outerFrame * 2
+        val innerH = maxHeight - outerFrame * 2
+        val hSepTotal = blockSep * 2 + CellSeparator * 6
+        val vSepTotal = blockSep * 2 + CellSeparator * 6
+        val cellSize = minOf(
+            (innerW - hSepTotal) / GRID,
+            (innerH - vSepTotal) / GRID,
+        )
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(outerFrame),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             for (row in 0 until GRID) {
-                Row(
-                    modifier = Modifier
-                        .weight(1f)
-                        .fillMaxWidth(),
-                ) {
+                Row {
                     for (col in 0 until GRID) {
                         val index = row * GRID + col
                         val isClue = clueDigits[index] != 0
                         val committed = board[index]
                         SudokuCell(
+                            index = index,
                             committedValue = committed,
                             noteMask = if (committed == 0) notes[index] else 0,
                             isClue = isClue,
                             isSelected = !solved && index == selectedIndex,
                             isSolved = solved,
-                            onClick = { onCellClick(index) },
-                            modifier = Modifier
-                                .weight(1f)
-                                .fillMaxHeight(),
+                            cellSize = cellSize,
+                            onCellClick = onCellClick,
                         )
                         if (col < GRID - 1) {
                             Spacer(
@@ -355,13 +370,14 @@ private fun SudokuBoard9x9(
 
 @Composable
 private fun SudokuCell(
+    index: Int,
     committedValue: Int,
     noteMask: NoteMask,
     isClue: Boolean,
     isSelected: Boolean,
     isSolved: Boolean,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
+    cellSize: Dp,
+    onCellClick: (Int) -> Unit,
 ) {
     val containerColor = when {
         isSolved -> SuccessGreen.copy(alpha = 0.22f)
@@ -374,37 +390,35 @@ private fun SudokuCell(
         isSolved -> SuccessGreen
         else -> MaterialTheme.colorScheme.onSurface
     }
-    BoxWithConstraints(modifier = modifier) {
-        val size = minOf(maxWidth, maxHeight)
-        val showingNotes = committedValue == 0 && noteMask != 0
-        PrismTile(
-            face = containerColor,
-            isClickable = !isClue && !isSolved,
-            // Keep notes legible: sunken prism inset shrinks the content slot too much.
-            isSelected = isSelected && !showingNotes,
-            modifier = Modifier
-                .size(size)
-                .hoverHand(!isClue && !isSolved),
-            onClick = onClick,
-        ) {
-            when {
-                committedValue != 0 -> {
-                    Text(
-                        text = committedValue.toString(),
-                        fontSize = (size.value * 0.5f).sp,
-                        fontFamily = numberFontFamily(),
-                        fontWeight = if (isClue) FontWeight.Bold else FontWeight.SemiBold,
-                        color = textColor,
-                        textAlign = TextAlign.Center,
-                    )
-                }
-                noteMask != 0 -> {
-                    CellNotesText(
-                        noteMask = noteMask,
-                        cellSize = size,
-                        isSelected = isSelected,
-                    )
-                }
+    val showingNotes = committedValue == 0 && noteMask != 0
+    val interactive = !isClue && !isSolved
+    PrismTile(
+        face = containerColor,
+        isClickable = interactive,
+        // Keep notes legible: sunken prism inset shrinks the content slot too much.
+        isSelected = isSelected && !showingNotes,
+        modifier = Modifier
+            .size(cellSize)
+            .hoverHand(interactive),
+        onClick = { onCellClick(index) },
+    ) {
+        when {
+            committedValue != 0 -> {
+                Text(
+                    text = committedValue.toString(),
+                    fontSize = (cellSize.value * 0.5f).sp,
+                    fontFamily = numberFontFamily(),
+                    fontWeight = if (isClue) FontWeight.Bold else FontWeight.SemiBold,
+                    color = textColor,
+                    textAlign = TextAlign.Center,
+                )
+            }
+            noteMask != 0 -> {
+                CellNotesText(
+                    noteMask = noteMask,
+                    cellSize = cellSize,
+                    isSelected = isSelected,
+                )
             }
         }
     }

@@ -2,11 +2,11 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawWithCache
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
@@ -158,6 +159,9 @@ fun ColorPrismCell(
 /**
  * Horizontal progress bar whose silhouette matches [PrismShape] — chamfered top-right
  * and bottom-left corners — so it sits visually next to other prism-styled surfaces.
+ *
+ * Uses [drawWithCache] so the chamfer path is rebuilt only when size/facet change; the fill
+ * width still redraws every progress tick.
  */
 @Composable
 fun PrismProgressBar(
@@ -167,37 +171,42 @@ fun PrismProgressBar(
     modifier: Modifier = Modifier,
     facet: Dp = PrismFacet.Card,
 ) {
-    val barPath = remember { Path() }
+    val clamped = progress.coerceIn(0f, 1f)
     // Keep the chamfered prism silhouette and left-to-right fill aligned regardless of the
     // system layout direction, so the bar matches every other PrismCard's bevel orientation.
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-        Canvas(modifier) {
-            val w = size.width
-            val h = size.height
-            val f = facet.toPx().coerceAtMost(minOf(w, h) / 2f)
-
-            barPath.reset()
-            barPath.apply {
-                moveTo(0f, 0f)
-                lineTo(w - f, 0f)
-                lineTo(w, f)
-                lineTo(w, h)
-                lineTo(f, h)
-                lineTo(0f, h - f)
-                close()
-            }
-
-            clipPath(barPath) {
-                drawRect(color = trackColor, size = size)
-                val filledWidth = w * progress.coerceIn(0f, 1f)
-                if (filledWidth > 0f) {
-                    drawRect(color = fillColor, size = Size(filledWidth, h))
+        Spacer(
+            modifier = modifier.drawWithCache {
+                val w = size.width
+                val h = size.height
+                val f = facet.toPx().coerceAtMost(minOf(w, h) / 2f)
+                val barPath = Path().apply {
+                    moveTo(0f, 0f)
+                    lineTo(w - f, 0f)
+                    lineTo(w, f)
+                    lineTo(w, h)
+                    lineTo(f, h)
+                    lineTo(0f, h - f)
+                    close()
                 }
-            }
-        }
+                onDrawBehind {
+                    clipPath(barPath) {
+                        drawRect(color = trackColor, size = size)
+                        val filledWidth = w * clamped
+                        if (filledWidth > 0f) {
+                            drawRect(color = fillColor, size = Size(filledWidth, h))
+                        }
+                    }
+                }
+            },
+        )
     }
 }
 
+/**
+ * Prism tile/card geometry. Paths are cached via [drawWithCache] and only rebuilt when size,
+ * facet, or press-shift change — critical because every [PrismTile] draws this.
+ */
 @Composable
 private fun PrismShape(
     face: Color,
@@ -207,47 +216,45 @@ private fun PrismShape(
     facet: Dp,
     modifier: Modifier = Modifier,
 ) {
-    val silhouettePath = remember { Path() }
-    val faceAndSidePath = remember { Path() }
-    val frontPath = remember { Path() }
-    Canvas(modifier) {
-        val w = size.width
-        val h = size.height
-        val f = facet.toPx()
-        val s = shift.toPx()
-        val d = f - s
+    Spacer(
+        modifier = modifier.drawWithCache {
+            val w = size.width
+            val h = size.height
+            val f = facet.toPx()
+            val s = shift.toPx()
+            val d = f - s
 
-        silhouettePath.reset()
-        silhouettePath.apply {
-            moveTo(w - d, s)
-            lineTo(w, s + d)
-            lineTo(w, h)
-            lineTo(s + d, h)
-            lineTo(s, h - d)
-            lineTo(s, s)
-            close()
-        }
-        faceAndSidePath.reset()
-        faceAndSidePath.apply {
-            moveTo(w - d, s)
-            lineTo(w, s + d)
-            lineTo(w, h)
-            lineTo(w - d, h - d)
-            lineTo(s, h - d)
-            lineTo(s, s)
-            close()
-        }
-        frontPath.reset()
-        frontPath.apply {
-            moveTo(s, s)
-            lineTo(w - d, s)
-            lineTo(w - d, h - d)
-            lineTo(s, h - d)
-            close()
-        }
+            val silhouettePath = Path().apply {
+                moveTo(w - d, s)
+                lineTo(w, s + d)
+                lineTo(w, h)
+                lineTo(s + d, h)
+                lineTo(s, h - d)
+                lineTo(s, s)
+                close()
+            }
+            val faceAndSidePath = Path().apply {
+                moveTo(w - d, s)
+                lineTo(w, s + d)
+                lineTo(w, h)
+                lineTo(w - d, h - d)
+                lineTo(s, h - d)
+                lineTo(s, s)
+                close()
+            }
+            val frontPath = Path().apply {
+                moveTo(s, s)
+                lineTo(w - d, s)
+                lineTo(w - d, h - d)
+                lineTo(s, h - d)
+                close()
+            }
 
-        drawPath(silhouettePath, bottom)
-        drawPath(faceAndSidePath, side)
-        drawPath(frontPath, face)
-    }
+            onDrawBehind {
+                drawPath(silhouettePath, bottom)
+                drawPath(faceAndSidePath, side)
+                drawPath(frontPath, face)
+            }
+        },
+    )
 }

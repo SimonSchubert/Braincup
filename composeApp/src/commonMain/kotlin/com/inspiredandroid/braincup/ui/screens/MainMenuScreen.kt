@@ -8,7 +8,6 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -16,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
@@ -51,16 +51,16 @@ fun MainMenuScreen(
     onOpenSettings: () -> Unit = {},
     useBuiltInSponsors: Boolean = false,
 ) {
-    val sessionState by controller.sessionState.collectAsState()
-    val sessionStreak by controller.sessionStreak.collectAsState()
+    val sessionState by controller.sessionState.collectAsStateWithLifecycle()
+    val sessionStreak by controller.sessionStreak.collectAsStateWithLifecycle()
     val session = sessionState
     val totalGames = session?.gameIds?.size ?: UserStorage.SESSION_GAME_COUNT
     val progressIndex = session?.currentIndex ?: 0
     val completedToday = remember(session) { controller.storage.isSessionCompletedToday() }
 
-    val totalXp by controller.totalXp.collectAsState()
-    val highscores by controller.highscores.collectAsState()
-    val unlockedCount by controller.unlockedAchievementCount.collectAsState()
+    val totalXp by controller.totalXp.collectAsStateWithLifecycle()
+    val highscores by controller.highscores.collectAsStateWithLifecycle()
+    val unlockedCount by controller.unlockedAchievementCount.collectAsStateWithLifecycle()
     val normalSudokuCompleted = remember(controller) {
         controller.storage.getCompletedNormalSudokuIds().size
     }
@@ -68,6 +68,21 @@ fun MainMenuScreen(
         controller.storage.getSolvedMatchstickRiddleIds().size
     }
     val matchstickRiddlesTotal = remember { MatchstickRiddles.all.size }
+
+    val onPlayDaily = remember(controller) { { controller.startDailySession() } }
+    val onPlay = remember(controller) { { gameType: GameType -> controller.navigateToInstructions(gameType) } }
+    val onViewScore = remember(controller) { { gameType: GameType -> controller.navigateToScoreboard(gameType) } }
+    val onAchievements = remember(controller) { { controller.navigateToAchievements() } }
+    val onNormalSudoku = remember(controller) { { controller.navigateToNormalSudokuMenu() } }
+    val onNormalChess = remember(controller) { { controller.navigateToNormalChessMenu() } }
+    val onMatchstickRiddles = remember(controller) { { controller.navigateToMatchstickRiddlesMenu() } }
+    val onShowBrainCup = remember(controller) {
+        if (PlayGamesBridge.onShowBrainCup != null) {
+            { controller.showBrainCup() }
+        } else {
+            null
+        }
+    }
 
     MainMenuScreenContent(
         totalXp = totalXp,
@@ -81,18 +96,14 @@ fun MainMenuScreen(
         matchstickRiddlesSolved = matchstickRiddlesSolved,
         matchstickRiddlesTotal = matchstickRiddlesTotal,
         onOpenSettings = onOpenSettings,
-        onPlayDaily = { controller.startDailySession() },
-        onPlay = { controller.navigateToInstructions(it) },
-        onViewScore = { controller.navigateToScoreboard(it) },
-        onAchievements = { controller.navigateToAchievements() },
-        onNormalSudoku = { controller.navigateToNormalSudokuMenu() },
-        onNormalChess = { controller.navigateToNormalChessMenu() },
-        onMatchstickRiddles = { controller.navigateToMatchstickRiddlesMenu() },
-        onShowBrainCup = if (PlayGamesBridge.onShowBrainCup != null) {
-            { controller.showBrainCup() }
-        } else {
-            null
-        },
+        onPlayDaily = onPlayDaily,
+        onPlay = onPlay,
+        onViewScore = onViewScore,
+        onAchievements = onAchievements,
+        onNormalSudoku = onNormalSudoku,
+        onNormalChess = onNormalChess,
+        onMatchstickRiddles = onMatchstickRiddles,
+        onShowBrainCup = onShowBrainCup,
         useBuiltInSponsors = useBuiltInSponsors,
     )
 }
@@ -250,11 +261,13 @@ fun MainMenuScreenContent(
             key = { it.id },
             contentType = { "game_tile" },
         ) { gameType ->
+            // Pass stable parent lambdas of type (GameType) -> Unit so tiles skip when only
+            // unrelated menu state changes (identity-stable callbacks).
             GameTile(
                 gameType = gameType,
                 highscore = highscores[gameType.id] ?: 0,
-                onPlay = { onPlay(gameType) },
-                onViewScore = { onViewScore(gameType) },
+                onPlay = onPlay,
+                onViewScore = onViewScore,
             )
         }
 
