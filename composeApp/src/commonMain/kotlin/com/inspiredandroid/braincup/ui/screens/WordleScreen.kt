@@ -35,10 +35,14 @@ import com.inspiredandroid.braincup.ui.components.GiveUpButton
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.screens.games.GameDevicePreviews
+import com.inspiredandroid.braincup.ui.screens.games.GamePreviewHost
 import com.inspiredandroid.braincup.ui.theme.keyFace
 import com.inspiredandroid.braincup.ui.theme.keyTextColor
 import com.inspiredandroid.braincup.ui.theme.tileFace
 import com.inspiredandroid.braincup.ui.theme.tileTextColor
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.persistentMapOf
 import org.jetbrains.compose.resources.stringResource
 
 private val TileSpacing = 6.dp
@@ -231,6 +235,44 @@ private fun LetterKey(
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             maxLines = 1,
+        )
+    }
+}
+
+@GameDevicePreviews
+@Composable
+private fun WordleContentPreview() {
+    val emptyRow = persistentListOf(
+        WordleLetter(' ', WordleLetterState.EMPTY),
+        WordleLetter(' ', WordleLetterState.EMPTY),
+        WordleLetter(' ', WordleLetterState.EMPTY),
+        WordleLetter(' ', WordleLetterState.EMPTY),
+        WordleLetter(' ', WordleLetterState.EMPTY),
+    )
+    val pendingRow = persistentListOf(
+        WordleLetter('B', WordleLetterState.PENDING),
+        WordleLetter('R', WordleLetterState.PENDING),
+        WordleLetter('A', WordleLetterState.PENDING),
+        WordleLetter('I', WordleLetterState.PENDING),
+        WordleLetter('N', WordleLetterState.PENDING),
+    )
+    GamePreviewHost {
+        WordleContent(
+            uiState = WordleUiState(
+                rows = persistentListOf(pendingRow, emptyRow, emptyRow, emptyRow, emptyRow, emptyRow),
+                keyboardRows = persistentListOf("QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"),
+                keyStates = persistentMapOf(),
+                wordLength = 5,
+                solved = false,
+                finished = false,
+                answer = null,
+                notEnoughLetters = false,
+                notInWordList = false,
+            ),
+            onAnswer = {},
+            onGiveUp = {},
+            inSessionMode = false,
+            onFinishedAction = {},
         )
     }
 }

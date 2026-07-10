@@ -70,8 +70,9 @@ kotlin {
         wasmJsMain.get().dependsOn(nonIosMain)
 
         androidMain.dependencies {
-            implementation(libs.compose.ui.tooling.preview)
             implementation(libs.ktor.client.android)
+            // Required for interactive device previews in the IDE.
+            implementation(libs.compose.ui.tooling)
         }
         nonIosMain.dependencies {
             implementation(libs.coil.compose)
@@ -88,7 +89,8 @@ kotlin {
             implementation(libs.compose.ui)
             implementation(libs.compose.ui.backhandler)
             implementation(libs.compose.components.resources)
-            implementation(libs.compose.components.ui.tooling.preview)
+            // Full multiplatform @Preview (device frames, showSystemUi, multipreview).
+            implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.lifecycle.viewmodel.compose)
             implementation(libs.androidx.lifecycle.runtime.compose)
             implementation(libs.kotlinx.coroutines.core)
