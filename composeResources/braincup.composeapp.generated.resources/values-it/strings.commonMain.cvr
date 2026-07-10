@@ -370,6 +370,7 @@ string|direction_right|ZGVzdHJh
 string|direction_up|c3U=
 string|feedback_solution|U29sdXppb25lOiAlMSRz
 string|finish_bonus_point|SGFpIGd1YWRhZ25hdG8gMSBwdW50byBleHRyYSBwZXIgbm9uIGF2ZXIgY29tbWVzc28gZXJyb3JpIQ==
+string|finish_difficulty_bonus|Qm9udXMgZGlmZmljb2x0w6A6ICslMSRz
 string|finish_highscore|UHVudGVnZ2lvIHBpw7kgYWx0bzogJTEkcw==
 string|finish_level|TGl2ZWxsbzogJTEkcw==
 string|finish_new_highscore|TnVvdm8gcmVjb3JkIQ==

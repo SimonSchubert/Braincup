@@ -370,6 +370,7 @@ string|direction_right|cmlnaHQ=
 string|direction_up|dXA=
 string|feedback_solution|U29sdXRpb246ICUxJHM=
 string|finish_bonus_point|WW91IGVhcm5lZCAxIGV4dHJhIHBvaW50IGZvciBtYWtpbmcgbm8gbWlzdGFrZXMh
+string|finish_difficulty_bonus|RGlmZmljdWx0eSBib251czogKyUxJHM=
 string|finish_highscore|SGlnaCBTY29yZTogJTEkcw==
 string|finish_level|TGV2ZWw6ICUxJHM=
 string|finish_new_highscore|TmV3IEhpZ2ggU2NvcmUh
