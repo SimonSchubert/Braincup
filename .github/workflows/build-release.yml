@@ -377,6 +377,11 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - name: Get version from tag
         id: version
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
@@ -386,10 +391,26 @@ jobs:
         with:
           path: artifacts
 
+      - name: Extract changelog
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          if [ -f CHANGELOG.md ]; then
+            sed -n "/^## v${VERSION}/,/^## v/{ /^## v${VERSION}/d; /^## v/d; p; }" CHANGELOG.md > changelog.txt
+          fi
+          if [ ! -s changelog.txt ]; then
+            PREVIOUS_TAG=$(git tag --sort=-creatordate | grep -v "^${GITHUB_REF_NAME}$" | head -n1)
+            if [ -z "$PREVIOUS_TAG" ]; then
+              git log --pretty=format:"- %s" "${GITHUB_REF_NAME}" > changelog.txt
+            else
+              git log --pretty=format:"- %s" "${PREVIOUS_TAG}..${GITHUB_REF_NAME}" --no-merges > changelog.txt
+            fi
+          fi
+
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
           name: Braincup v${{ steps.version.outputs.version }}
+          body_path: changelog.txt
           draft: false
           prerelease: false
           files: |
