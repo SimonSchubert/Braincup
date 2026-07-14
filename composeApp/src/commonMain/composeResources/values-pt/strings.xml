@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Mini Xadrez</string>
     <string name="game_lights_out">Apagar as luzes</string>
     <string name="game_sliding_puzzle">Quebra-cabeça deslizante</string>
+    <string name="game_tower_of_hanoi">Torres de Hanói</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Rainhas Gato</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Termine o cenário de xadrez como brancas. Dê xeque-mate à CPU antes que ela dê em você.</string>
     <string name="game_lights_out_desc">Apague todas as luzes. Cada toque alterna a célula e seus quatro vizinhos.</string>
     <string name="game_sliding_puzzle_desc">Deslize as peças para o espaço vazio para colocá-las em ordem.</string>
+    <string name="game_tower_of_hanoi_desc">Mova a pilha inteira para o pino direito. Apenas um disco de cada vez e nunca um maior sobre um menor.</string>
     <string name="game_shikaku_desc">Divida toda a grade em retângulos. Cada retângulo deve conter exatamente um número, igual à sua área.</string>
     <string name="game_shikaku_howto">Arraste para desenhar um retângulo. Toque em um retângulo para removê-lo.</string>
     <string name="game_nurikabe_desc">Pinte células para formar o mar ao redor das ilhas numeradas. Cada ilha deve ter tantas células conectadas quanto o seu número, o mar deve estar conectado e não pode conter nenhum bloco 2x2.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Virtuoso do final</string>
     <string name="achievement_gold_lights_out">Apagão total</string>
     <string name="achievement_gold_sliding_puzzle">Operador hábil</string>
+    <string name="achievement_gold_tower_of_hanoi">Mestre das torres</string>
     <string name="achievement_gold_shikaku">Mestre dos retângulos</string>
     <string name="achievement_gold_nurikabe">Mestre dos muros</string>
     <string name="achievement_gold_cat_queens">Domador de gatos</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Ganhe a medalha de ouro em Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Ganhe a medalha de ouro em Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Ganhe a medalha de ouro em Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Ganhe a medalha de ouro em Torres de Hanói</string>
     <string name="achievement_gold_shikaku_desc">Ganhe a medalha de ouro em Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Ganhe a medalha de ouro em Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Ganhe a medalha de ouro em Rainhas Gato</string>
@@ -656,6 +660,7 @@
     <string name="anomaly_demo_shape">Estas compartilham a mesma cor. Toque na que tem forma diferente.</string>
     <string name="anomaly_demo_correct">Correto. Essa é a anomalia.</string>
     <string name="sliding_puzzle_demo_title">Deslize as peças em ordem</string>
+    <string name="tower_of_hanoi_invalid_move">Discos maiores não podem ir sobre menores</string>
     <string name="mini_sudoku_demo_title">Preencha os números em falta</string>
     <string name="mini_sudoku_demo_mistake">Dois 1s na mesma linha não é permitido.</string>
     <string name="mini_sudoku_demo_complete">Esta linha contém de 1 a 4.</string>

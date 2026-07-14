@@ -69,6 +69,7 @@
     <string name="game_mini_chess">মিনি দাবা</string>
     <string name="game_lights_out">লাইটস আউট</string>
     <string name="game_sliding_puzzle">স্লাইডিং পাজল</string>
+    <string name="game_tower_of_hanoi">হ্যানয়ের টাওয়ার</string>
     <string name="game_shikaku">শিকাকু</string>
     <string name="game_nurikabe">নুরিকাবে</string>
     <string name="game_cat_queens">বিড়াল রানি</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">সাদা হিসেবে দাবার পরিস্থিতি শেষ করুন। সিপিইউ আপনাকে কিস্তিমাত করার আগে তাকে কিস্তিমাত করুন।</string>
     <string name="game_lights_out_desc">প্রতিটি আলো বন্ধ করুন। প্রতিটি ট্যাপ সেল ও তার চারটি প্রতিবেশীকে পরিবর্তন করে।</string>
     <string name="game_sliding_puzzle_desc">টাইলগুলিকে ক্রমে সাজাতে খালি জায়গায় স্লাইড করুন।</string>
+    <string name="game_tower_of_hanoi_desc">পুরো স্তূপ ডান খুঁটিতে সরিয়ে নিন। একবারে একটি ডিস্ক, এবং বড়কে ছোটের ওপরে রাখা যাবে না।</string>
     <string name="game_shikaku_desc">পুরো গ্রিডটিকে আয়তক্ষেত্রে ভাগ করুন। প্রতিটি আয়তক্ষেত্রে ঠিক একটি সংখ্যা থাকতে হবে, যা তার ক্ষেত্রফলের সমান।</string>
     <string name="game_shikaku_howto">আয়তক্ষেত্র আঁকতে টেনে আনুন। সরাতে আয়তক্ষেত্রে ট্যাপ করুন।</string>
     <string name="game_nurikabe_desc">সংখ্যাযুক্ত দ্বীপগুলোর চারপাশে সমুদ্র তৈরি করতে ঘর রং করুন। প্রতিটি দ্বীপে তার সংখ্যার সমান সংখ্যক সংযুক্ত ঘর থাকতে হবে, সমুদ্র সংযুক্ত থাকতে হবে এবং কোনো 2x2 ব্লক থাকতে পারবে না।</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">শেষ-খেলার ওস্তাদ</string>
     <string name="achievement_gold_lights_out">সম্পূর্ণ অন্ধকার</string>
     <string name="achievement_gold_sliding_puzzle">দক্ষ সরানোকারী</string>
+    <string name="achievement_gold_tower_of_hanoi">টাওয়ার মাস্টার</string>
     <string name="achievement_gold_shikaku">আয়তক্ষেত্রের ওস্তাদ</string>
     <string name="achievement_gold_nurikabe">প্রাচীর নির্মাতা</string>
     <string name="achievement_gold_cat_queens">বিড়াল পালক</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chess-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_lights_out_desc">Lights Out-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle-এ স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">হ্যানয়ের টাওয়ারে স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_shikaku_desc">Shikaku-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_cat_queens_desc">বিড়াল রানি-তে স্বর্ণপদক জিতুন</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">এগুলো একই রঙের। ভিন্ন আকৃতিরটিতে ট্যাপ করুন।</string>
     <string name="anomaly_demo_correct">সঠিক। এটিই অসঙ্গতি।</string>
     <string name="sliding_puzzle_demo_title">সরিয়ে ক্রমে সাজান</string>
+    <string name="tower_of_hanoi_invalid_move">বড় ডিস্ক ছোটের উপর রাখা যায় না</string>
     <string name="mini_sudoku_demo_title">অনুপস্থিত সংখ্যাগুলো পূরণ করুন</string>
     <string name="mini_sudoku_demo_mistake">একই সারিতে দুটি ১ থাকা অনুমোদিত নয়।</string>
     <string name="mini_sudoku_demo_complete">এই সারিতে ১ থেকে ৪ আছে।</string>

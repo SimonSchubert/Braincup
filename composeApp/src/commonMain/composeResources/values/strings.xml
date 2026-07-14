@@ -179,6 +179,7 @@
     <string name="game_mini_chess">Mini Chess</string>
     <string name="game_lights_out">Lights Out</string>
     <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_tower_of_hanoi">Tower of Hanoi</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Cat Queens</string>
@@ -206,6 +207,7 @@
     <string name="game_mini_chess_desc">Finish the chess scenario as white. Checkmate the CPU before it checkmates you.</string>
     <string name="game_lights_out_desc">Turn off every light. Each tap toggles the cell and its four neighbours.</string>
     <string name="game_sliding_puzzle_desc">Slide tiles into the empty space to put them in order.</string>
+    <string name="game_tower_of_hanoi_desc">Move the full stack to the right peg. Only one disk at a time, and never a larger disk on a smaller one.</string>
     <string name="game_shikaku_desc">Divide the whole grid into rectangles. Each rectangle must contain exactly one number, equal to its area.</string>
     <string name="game_shikaku_howto">Drag to draw a rectangle. Tap a rectangle to remove it.</string>
     <string name="game_nurikabe_desc">Paint cells to build the sea around numbered islands. Each island must have as many connected cells as its number, the sea must be connected, and it must contain no 2x2 block.</string>
@@ -268,6 +270,7 @@
     <string name="anomaly_demo_shape">These share a color. Tap the one with a different shape.</string>
     <string name="anomaly_demo_correct">Correct. That is the anomaly.</string>
     <string name="sliding_puzzle_demo_title">Slide them into order</string>
+    <string name="tower_of_hanoi_invalid_move">Larger disks can't go on smaller ones</string>
     <string name="mini_sudoku_demo_title">Fill in the missing numbers</string>
     <string name="mini_sudoku_demo_mistake">Two 1s in the same row is not allowed.</string>
     <string name="mini_sudoku_demo_complete">This row holds 1 to 4.</string>
@@ -338,6 +341,7 @@
     <string name="achievement_gold_mini_chess">Endgame Virtuoso</string>
     <string name="achievement_gold_lights_out">Total Blackout</string>
     <string name="achievement_gold_sliding_puzzle">Smooth Operator</string>
+    <string name="achievement_gold_tower_of_hanoi">Tower Master</string>
     <string name="achievement_gold_shikaku">Rectangle Master</string>
     <string name="achievement_gold_nurikabe">Wall Builder</string>
     <string name="achievement_gold_cat_queens">Cat Herder</string>
@@ -369,6 +373,7 @@
     <string name="achievement_gold_mini_chess_desc">Win gold medal in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Win gold medal in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Win gold medal in Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Win gold medal in Tower of Hanoi</string>
     <string name="achievement_gold_shikaku_desc">Win gold medal in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Win gold medal in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Win gold medal in Cat Queens</string>

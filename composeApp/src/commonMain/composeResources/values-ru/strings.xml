@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Мини-шахматы</string>
     <string name="game_lights_out">Погаси свет</string>
     <string name="game_sliding_puzzle">Пятнашки</string>
+    <string name="game_tower_of_hanoi">Ханойские башни</string>
     <string name="game_shikaku">Сикаку</string>
     <string name="game_nurikabe">Нурикабэ</string>
     <string name="game_cat_queens">Кошачьи ферзи</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Заверши шахматный сценарий за белых. Поставь мат компьютеру раньше, чем он тебе.</string>
     <string name="game_lights_out_desc">Выключи все огни. Каждое касание переключает клетку и её четырёх соседей.</string>
     <string name="game_sliding_puzzle_desc">Перемещай плитки в пустое место, чтобы расположить их по порядку.</string>
+    <string name="game_tower_of_hanoi_desc">Переложите всю пирамиду на правый стержень. Только один диск за раз и никогда больший на меньший.</string>
     <string name="game_shikaku_desc">Раздели всю сетку на прямоугольники. В каждом прямоугольнике должно быть ровно одно число, равное его площади.</string>
     <string name="game_shikaku_howto">Проведи, чтобы нарисовать прямоугольник. Нажми на прямоугольник, чтобы удалить его.</string>
     <string name="game_nurikabe_desc">Закрашивайте клетки, образуя море вокруг пронумерованных островов. Каждый остров должен состоять из стольких связанных клеток, сколько указано его числом, море должно быть связным и не содержать ни одного блока 2x2.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Виртуоз эндшпиля</string>
     <string name="achievement_gold_lights_out">Полное затемнение</string>
     <string name="achievement_gold_sliding_puzzle">Мастер скольжения</string>
+    <string name="achievement_gold_tower_of_hanoi">Мастер башен</string>
     <string name="achievement_gold_shikaku">Мастер прямоугольников</string>
     <string name="achievement_gold_nurikabe">Мастер стен</string>
     <string name="achievement_gold_cat_queens">Повелитель кошек</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Получи золотую медаль в Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Получи золотую медаль в Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Получи золотую медаль в Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Завоюйте золотую медаль в Ханойских башнях</string>
     <string name="achievement_gold_shikaku_desc">Получи золотую медаль в Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Получи золотую медаль в Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Получи золотую медаль в Кошачьи ферзи</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">У этих одинаковый цвет. Нажми на ту, что отличается формой.</string>
     <string name="anomaly_demo_correct">Верно. Это и есть аномалия.</string>
     <string name="sliding_puzzle_demo_title">Расставь плитки по порядку</string>
+    <string name="tower_of_hanoi_invalid_move">Больший диск нельзя класть на меньший</string>
     <string name="mini_sudoku_demo_title">Заполни пропущенные числа</string>
     <string name="mini_sudoku_demo_mistake">Две единицы в одной строке — не допускается.</string>
     <string name="mini_sudoku_demo_complete">В этой строке числа от 1 до 4.</string>

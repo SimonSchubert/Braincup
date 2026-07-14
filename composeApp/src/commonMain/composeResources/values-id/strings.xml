@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Mini Catur</string>
     <string name="game_lights_out">Padamkan Lampu</string>
     <string name="game_sliding_puzzle">Teka-teki Geser</string>
+    <string name="game_tower_of_hanoi">Menara Hanoi</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Ratu Kucing</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Selesaikan skenario catur sebagai putih. Skakmat CPU sebelum ia melakukannya padamu.</string>
     <string name="game_lights_out_desc">Padamkan setiap lampu. Setiap ketukan mengubah sel itu dan empat tetangganya.</string>
     <string name="game_sliding_puzzle_desc">Geser ubin ke ruang kosong untuk menyusunnya berurutan.</string>
+    <string name="game_tower_of_hanoi_desc">Pindahkan seluruh tumpukan ke pasak kanan. Hanya satu cakram sekaligus, dan jangan taruh yang lebih besar di atas yang lebih kecil.</string>
     <string name="game_shikaku_desc">Bagi seluruh kisi menjadi persegi panjang. Setiap persegi panjang harus berisi tepat satu angka, sama dengan luasnya.</string>
     <string name="game_shikaku_howto">Seret untuk menggambar persegi panjang. Ketuk persegi panjang untuk menghapusnya.</string>
     <string name="game_nurikabe_desc">Warnai sel untuk membentuk laut di sekitar pulau-pulau bernomor. Setiap pulau harus memiliki sel terhubung sebanyak angkanya, laut harus terhubung, dan tidak boleh ada blok 2x2.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Maestro Akhir Permainan</string>
     <string name="achievement_gold_lights_out">Pemadaman Total</string>
     <string name="achievement_gold_sliding_puzzle">Operator Mulus</string>
+    <string name="achievement_gold_tower_of_hanoi">Master Menara</string>
     <string name="achievement_gold_shikaku">Master Persegi Panjang</string>
     <string name="achievement_gold_nurikabe">Master Tembok</string>
     <string name="achievement_gold_cat_queens">Penggembala Kucing</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Menangkan medali emas di Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Menangkan medali emas di Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Menangkan medali emas di Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Raih medali emas di Menara Hanoi</string>
     <string name="achievement_gold_shikaku_desc">Menangkan medali emas di Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Menangkan medali emas di Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Menangkan medali emas di Ratu Kucing</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">Ini memiliki warna yang sama. Ketuk yang bentuknya berbeda.</string>
     <string name="anomaly_demo_correct">Benar. Itulah anomalinya.</string>
     <string name="sliding_puzzle_demo_title">Geser hingga berurutan</string>
+    <string name="tower_of_hanoi_invalid_move">Cakram lebih besar tidak boleh di atas yang lebih kecil</string>
     <string name="mini_sudoku_demo_title">Isi angka yang hilang</string>
     <string name="mini_sudoku_demo_mistake">Dua angka 1 dalam satu baris tidak diperbolehkan.</string>
     <string name="mini_sudoku_demo_complete">Baris ini berisi 1 sampai 4.</string>

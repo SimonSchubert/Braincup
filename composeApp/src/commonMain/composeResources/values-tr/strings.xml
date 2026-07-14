@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Mini Satranç</string>
     <string name="game_lights_out">Işıkları Söndür</string>
     <string name="game_sliding_puzzle">Kaydırma Bulmacası</string>
+    <string name="game_tower_of_hanoi">Hanoi Kuleleri</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Kedi Kraliçeleri</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Beyazlarla satranç senaryosunu bitir. CPU sana mat etmeden önce ona mat et.</string>
     <string name="game_lights_out_desc">Tüm ışıkları söndür. Her dokunuş, hücreyi ve dört komşusunu değiştirir.</string>
     <string name="game_sliding_puzzle_desc">Karoları boş alana kaydırarak sıraya diz.</string>
+    <string name="game_tower_of_hanoi_desc">Tüm yığını sağ çubuğa taşı. Her seferinde yalnızca bir disk ve asla büyüğünü küçüğünün üstüne koyma.</string>
     <string name="game_shikaku_desc">Tüm ızgarayı dikdörtgenlere böl. Her dikdörtgende, alanına eşit tam olarak bir sayı bulunmalıdır.</string>
     <string name="game_shikaku_howto">Dikdörtgen çizmek için sürükle. Kaldırmak için bir dikdörtgene dokun.</string>
     <string name="game_nurikabe_desc">Numaralı adaların çevresinde denizi oluşturmak için hücreleri boyayın. Her ada, sayısı kadar bağlı hücreye sahip olmalı, deniz bağlantılı olmalı ve hiçbir 2x2 blok içermemelidir.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Oyunsonu Virtüözü</string>
     <string name="achievement_gold_lights_out">Tam Karartma</string>
     <string name="achievement_gold_sliding_puzzle">Akıcı Operatör</string>
+    <string name="achievement_gold_tower_of_hanoi">Kule Ustası</string>
     <string name="achievement_gold_shikaku">Dikdörtgen Ustası</string>
     <string name="achievement_gold_nurikabe">Duvar Ustası</string>
     <string name="achievement_gold_cat_queens">Kedi Çobanı</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chess oyununda altın madalya kazan</string>
     <string name="achievement_gold_lights_out_desc">Lights Out oyununda altın madalya kazan</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle oyununda altın madalya kazan</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Hanoi Kuleleri'nde altın madalya kazan</string>
     <string name="achievement_gold_shikaku_desc">Shikaku oyununda altın madalya kazan</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe oyununda altın madalya kazan</string>
     <string name="achievement_gold_cat_queens_desc">Kedi Kraliçeleri oyununda altın madalya kazan</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">Bunların rengi aynı. Farklı şekilli olana dokun.</string>
     <string name="anomaly_demo_correct">Doğru. İşte bu anomali.</string>
     <string name="sliding_puzzle_demo_title">Kaydırarak sırala</string>
+    <string name="tower_of_hanoi_invalid_move">Büyük diskler küçüklerin üstüne konamaz</string>
     <string name="mini_sudoku_demo_title">Eksik sayıları doldur</string>
     <string name="mini_sudoku_demo_mistake">Aynı satırda iki 1 olamaz.</string>
     <string name="mini_sudoku_demo_complete">Bu satır 1'den 4'e kadar sayıları içerir.</string>

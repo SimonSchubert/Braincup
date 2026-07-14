@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Mini Scacchi</string>
     <string name="game_lights_out">Spegni le luci</string>
     <string name="game_sliding_puzzle">Puzzle scorrevole</string>
+    <string name="game_tower_of_hanoi">Torri di Hanoi</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Regine Gatto</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Concludi lo scenario di scacchi con il bianco. Dai scacco matto alla CPU prima che lo dia a te.</string>
     <string name="game_lights_out_desc">Spegni tutte le luci. Ogni tocco inverte la cella e i suoi quattro vicini.</string>
     <string name="game_sliding_puzzle_desc">Fai scorrere le tessere nello spazio vuoto per metterle in ordine.</string>
+    <string name="game_tower_of_hanoi_desc">Sposta l'intera pila sul piolo di destra. Solo un disco alla volta e mai uno più grande su uno più piccolo.</string>
     <string name="game_shikaku_desc">Dividi l'intera griglia in rettangoli. Ogni rettangolo deve contenere esattamente un numero, uguale alla sua area.</string>
     <string name="game_shikaku_howto">Trascina per disegnare un rettangolo. Tocca un rettangolo per rimuoverlo.</string>
     <string name="game_nurikabe_desc">Colora le celle per formare il mare attorno alle isole numerate. Ogni isola deve avere tante celle collegate quanto il suo numero, il mare deve essere collegato e non deve contenere alcun blocco 2x2.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Virtuoso del finale</string>
     <string name="achievement_gold_lights_out">Blackout totale</string>
     <string name="achievement_gold_sliding_puzzle">Operatore fluido</string>
+    <string name="achievement_gold_tower_of_hanoi">Maestro delle torri</string>
     <string name="achievement_gold_shikaku">Maestro dei rettangoli</string>
     <string name="achievement_gold_nurikabe">Maestro dei muri</string>
     <string name="achievement_gold_cat_queens">Conduttore di gatti</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Vinci la medaglia d'oro in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Vinci la medaglia d'oro in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Vinci la medaglia d'oro in Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Vinci la medaglia d'oro alle Torri di Hanoi</string>
     <string name="achievement_gold_shikaku_desc">Vinci la medaglia d'oro in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Vinci la medaglia d'oro in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Vinci la medaglia d'oro in Regine Gatto</string>
@@ -656,6 +660,7 @@
     <string name="anomaly_demo_shape">Questi condividono il colore. Tocca quello con una forma diversa.</string>
     <string name="anomaly_demo_correct">Corretto. Questa è l'anomalia.</string>
     <string name="sliding_puzzle_demo_title">Scorri i pezzi in ordine</string>
+    <string name="tower_of_hanoi_invalid_move">I dischi più grandi non vanno su quelli più piccoli</string>
     <string name="mini_sudoku_demo_title">Inserisci i numeri mancanti</string>
     <string name="mini_sudoku_demo_mistake">Due 1 nella stessa riga non è consentito.</string>
     <string name="mini_sudoku_demo_complete">Questa riga contiene da 1 a 4.</string>

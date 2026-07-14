@@ -69,6 +69,7 @@
     <string name="game_mini_chess">شطرنج مصغر</string>
     <string name="game_lights_out">إطفاء الأنوار</string>
     <string name="game_sliding_puzzle">لغز الانزلاق</string>
+    <string name="game_tower_of_hanoi">أبراج هانوي</string>
     <string name="game_shikaku">شيكاكو</string>
     <string name="game_nurikabe">نوريكابي</string>
     <string name="game_cat_queens">ملكات القطط</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">أنه سيناريو الشطرنج بالأبيض. أوقع كش ملك على الحاسوب قبل أن يوقعه عليك.</string>
     <string name="game_lights_out_desc">أطفئ كل ضوء. كل نقرة تقلب الخلية وجيرانها الأربعة.</string>
     <string name="game_sliding_puzzle_desc">حرّك القطع إلى المساحة الفارغة لترتيبها.</string>
+    <string name="game_tower_of_hanoi_desc">انقل الكومة كاملة إلى الوتد الأيمن. قرص واحد فقط في كل مرة، ولا تضع قرصًا أكبر على أصغر.</string>
     <string name="game_shikaku_desc">قسّم الشبكة كاملةً إلى مستطيلات. يجب أن يحتوي كل مستطيل على رقم واحد فقط يساوي مساحته.</string>
     <string name="game_shikaku_howto">اسحب لرسم مستطيل. انقر على مستطيل لإزالته.</string>
     <string name="game_nurikabe_desc">لوّن الخلايا لبناء البحر حول الجزر المرقّمة. يجب أن تحتوي كل جزيرة على عدد من الخلايا المتصلة يساوي رقمها، ويجب أن يكون البحر متصلاً وألا يحتوي على أي مربع 2x2.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">بارع نهاية اللعبة</string>
     <string name="achievement_gold_lights_out">إطفاء كامل</string>
     <string name="achievement_gold_sliding_puzzle">خبير التحريك</string>
+    <string name="achievement_gold_tower_of_hanoi">سيد الأبراج</string>
     <string name="achievement_gold_shikaku">سيد المستطيلات</string>
     <string name="achievement_gold_nurikabe">بنّاء الجدران</string>
     <string name="achievement_gold_cat_queens">راعية القطط</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">اربح الميدالية الذهبية في Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">اربح الميدالية الذهبية في Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">اربح الميدالية الذهبية في Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">اربح الميدالية الذهبية في أبراج هانوي</string>
     <string name="achievement_gold_shikaku_desc">اربح الميدالية الذهبية في Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">اربح الميدالية الذهبية في Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">اربح الميدالية الذهبية في ملكات القطط</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">هذه تشترك في اللون. انقر على الواحدة ذات الشكل المختلف.</string>
     <string name="anomaly_demo_correct">صحيح. هذا هو الشذوذ.</string>
     <string name="sliding_puzzle_demo_title">رتّبها بالتحريك</string>
+    <string name="tower_of_hanoi_invalid_move">لا يمكن وضع قرص أكبر على أصغر</string>
     <string name="mini_sudoku_demo_title">أكمل الأرقام المفقودة</string>
     <string name="mini_sudoku_demo_mistake">وجود رقمَي 1 في نفس الصف غير مسموح.</string>
     <string name="mini_sudoku_demo_complete">هذا الصف يحتوي على 1 إلى 4.</string>

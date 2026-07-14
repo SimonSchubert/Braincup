@@ -69,6 +69,7 @@
     <string name="game_mini_chess">ミニチェス</string>
     <string name="game_lights_out">ライトアウト</string>
     <string name="game_sliding_puzzle">スライドパズル</string>
+    <string name="game_tower_of_hanoi">ハノイの塔</string>
     <string name="game_shikaku">シカク</string>
     <string name="game_nurikabe">ヌリカベ</string>
     <string name="game_cat_queens">ネコクイーン</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">白でチェスのシナリオを完成させましょう。CPUに詰まされる前に詰みに持ち込みます。</string>
     <string name="game_lights_out_desc">すべての光を消しましょう。タップごとに、そのセルと隣接4セルが切り替わります。</string>
     <string name="game_sliding_puzzle_desc">タイルを空きスペースに滑らせて順番に並べましょう。</string>
+    <string name="game_tower_of_hanoi_desc">すべての円盤を右の棒へ移しましょう。一度に1枚だけ、大きい円盤を小さい円盤の上に置いてはいけません。</string>
     <string name="game_shikaku_desc">グリッド全体を長方形に分割しましょう。各長方形には面積と同じ数字がちょうど1つ入ります。</string>
     <string name="game_shikaku_howto">ドラッグして長方形を描きます。長方形をタップすると削除できます。</string>
     <string name="game_nurikabe_desc">数字の島の周りに海を塗りましょう。各島は数字と同じ数の連結したマスでできていなければならず、海はひとつにつながり、2x2のかたまりがあってはいけません。</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">終盤の名手</string>
     <string name="achievement_gold_lights_out">完全消灯</string>
     <string name="achievement_gold_sliding_puzzle">スライド名人</string>
+    <string name="achievement_gold_tower_of_hanoi">塔の達人</string>
     <string name="achievement_gold_shikaku">長方形の達人</string>
     <string name="achievement_gold_nurikabe">壁づくりの達人</string>
     <string name="achievement_gold_cat_queens">ネコ使い</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chessで金メダルを獲得</string>
     <string name="achievement_gold_lights_out_desc">Lights Outで金メダルを獲得</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzleで金メダルを獲得</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">ハノイの塔で金メダルを獲得</string>
     <string name="achievement_gold_shikaku_desc">Shikakuで金メダルを獲得</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabeで金メダルを獲得</string>
     <string name="achievement_gold_cat_queens_desc">ネコクイーンで金メダルを獲得</string>
@@ -654,6 +658,7 @@
     <string name="anomaly_demo_shape">同じ色をしています。形が違うものをタップしてください。</string>
     <string name="anomaly_demo_correct">正解。それが異常です。</string>
     <string name="sliding_puzzle_demo_title">順番に並べ替える</string>
+    <string name="tower_of_hanoi_invalid_move">大きい円盤を小さい円盤の上には置けません</string>
     <string name="mini_sudoku_demo_title">足りない数字を入れる</string>
     <string name="mini_sudoku_demo_mistake">同じ行に1が2つあってはいけません。</string>
     <string name="mini_sudoku_demo_complete">この行には1から4が入ります。</string>

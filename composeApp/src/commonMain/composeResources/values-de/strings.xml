@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Mini-Schach</string>
     <string name="game_lights_out">Lichter aus</string>
     <string name="game_sliding_puzzle">Schiebepuzzle</string>
+    <string name="game_tower_of_hanoi">Türme von Hanoi</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Katzen-Damen</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Beende das Schachszenario als Weiß. Setze die CPU schachmatt, bevor sie dich mattsetzt.</string>
     <string name="game_lights_out_desc">Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre vier Nachbarn um.</string>
     <string name="game_sliding_puzzle_desc">Schiebe Kacheln in den leeren Raum, um sie in die richtige Reihenfolge zu bringen.</string>
+    <string name="game_tower_of_hanoi_desc">Verschiebe den ganzen Stapel auf den rechten Stab. Nur eine Scheibe auf einmal und nie eine größere auf eine kleinere.</string>
     <string name="game_shikaku_desc">Teile das gesamte Gitter in Rechtecke. Jedes Rechteck muss genau eine Zahl enthalten, die seiner Fläche entspricht.</string>
     <string name="game_shikaku_howto">Ziehe, um ein Rechteck zu zeichnen. Tippe auf ein Rechteck, um es zu entfernen.</string>
     <string name="game_nurikabe_desc">Male Zellen aus, um das Meer rund um die nummerierten Inseln zu bilden. Jede Insel muss aus so vielen verbundenen Zellen bestehen wie ihre Zahl, das Meer muss zusammenhängend sein und darf keinen 2x2-Block enthalten.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Endspiel-Virtuose</string>
     <string name="achievement_gold_lights_out">Totale Finsternis</string>
     <string name="achievement_gold_sliding_puzzle">Schiebekünstler</string>
+    <string name="achievement_gold_tower_of_hanoi">Turmmeister</string>
     <string name="achievement_gold_shikaku">Rechteck-Meister</string>
     <string name="achievement_gold_nurikabe">Mauermeister</string>
     <string name="achievement_gold_cat_queens">Katzenhüterin</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Gewinne die Goldmedaille in Mini-Schach</string>
     <string name="achievement_gold_lights_out_desc">Gewinne die Goldmedaille in Lichter aus</string>
     <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Schiebepuzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Gewinne die Goldmedaille bei Türme von Hanoi</string>
     <string name="achievement_gold_shikaku_desc">Gewinne die Goldmedaille in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Gewinne die Goldmedaille in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Gewinne die Goldmedaille in Katzen-Damen</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">Diese teilen eine Farbe. Tippe auf die mit einer anderen Form.</string>
     <string name="anomaly_demo_correct">Richtig. Das ist die Anomalie.</string>
     <string name="sliding_puzzle_demo_title">Schiebe sie in die richtige Reihenfolge</string>
+    <string name="tower_of_hanoi_invalid_move">Größere Scheiben dürfen nicht auf kleinere</string>
     <string name="mini_sudoku_demo_title">Fehlende Zahlen ergänzen</string>
     <string name="mini_sudoku_demo_mistake">Zwei Einsen in derselben Zeile sind nicht erlaubt.</string>
     <string name="mini_sudoku_demo_complete">Diese Zeile enthält 1 bis 4.</string>

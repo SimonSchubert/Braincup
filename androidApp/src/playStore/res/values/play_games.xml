@@ -32,6 +32,8 @@
     <string name="achievementUntangler" translatable="false">CgkIuZrirtIVEAIQIA</string>
     <!-- achievement Last Piece Standing (Solo Chess) -->
     <string name="achievementLastPieceStanding" translatable="false">CgkIuZrirtIVEAIQIQ</string>
+    <!-- achievement Tower Master (Tower of Hanoi) -->
+    <string name="achievementTowerMaster" translatable="false">CgkIuZrirtIVEAIQKA</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

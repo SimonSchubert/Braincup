@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Cờ Vua Mini</string>
     <string name="game_lights_out">Tắt Đèn</string>
     <string name="game_sliding_puzzle">Câu Đố Trượt</string>
+    <string name="game_tower_of_hanoi">Tháp Hà Nội</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Mèo Hoàng Hậu</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Hoàn thành ván cờ với quân trắng. Chiếu hết CPU trước khi nó chiếu hết bạn.</string>
     <string name="game_lights_out_desc">Tắt mọi đèn. Mỗi cú chạm sẽ đổi trạng thái ô đó và bốn ô lân cận.</string>
     <string name="game_sliding_puzzle_desc">Trượt các ô vào chỗ trống để xếp chúng theo thứ tự.</string>
+    <string name="game_tower_of_hanoi_desc">Chuyển cả chồng đĩa sang cọc bên phải. Mỗi lần chỉ một đĩa, và không được đặt đĩa lớn lên đĩa nhỏ.</string>
     <string name="game_shikaku_desc">Chia toàn bộ lưới thành các hình chữ nhật. Mỗi hình chữ nhật phải chứa đúng một số, bằng diện tích của nó.</string>
     <string name="game_shikaku_howto">Kéo để vẽ một hình chữ nhật. Chạm vào hình chữ nhật để xóa nó.</string>
     <string name="game_nurikabe_desc">Tô các ô để tạo biển bao quanh các đảo có số. Mỗi đảo phải có số ô liền kề đúng bằng số của nó, biển phải liền nhau và không được chứa khối 2x2 nào.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Bậc thầy cờ tàn</string>
     <string name="achievement_gold_lights_out">Tắt đèn toàn bộ</string>
     <string name="achievement_gold_sliding_puzzle">Người trượt khéo</string>
+    <string name="achievement_gold_tower_of_hanoi">Bậc thầy tháp</string>
     <string name="achievement_gold_shikaku">Bậc thầy hình chữ nhật</string>
     <string name="achievement_gold_nurikabe">Bậc thầy xây tường</string>
     <string name="achievement_gold_cat_queens">Người chăn mèo</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Giành huy chương vàng trong Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Giành huy chương vàng trong Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Giành huy chương vàng trong Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Giành huy chương vàng trong Tháp Hà Nội</string>
     <string name="achievement_gold_shikaku_desc">Giành huy chương vàng trong Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Giành huy chương vàng trong Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Giành huy chương vàng trong Mèo Hoàng Hậu</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">Chúng có cùng màu. Chạm vào cái có hình dạng khác.</string>
     <string name="anomaly_demo_correct">Đúng rồi. Đó là điểm bất thường.</string>
     <string name="sliding_puzzle_demo_title">Trượt để sắp xếp</string>
+    <string name="tower_of_hanoi_invalid_move">Không được đặt đĩa lớn lên đĩa nhỏ</string>
     <string name="mini_sudoku_demo_title">Điền số còn thiếu</string>
     <string name="mini_sudoku_demo_mistake">Không được có hai số 1 trong cùng một hàng.</string>
     <string name="mini_sudoku_demo_complete">Hàng này chứa 1 đến 4.</string>

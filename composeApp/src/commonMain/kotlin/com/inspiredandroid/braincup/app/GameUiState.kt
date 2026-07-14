@@ -122,6 +122,22 @@ data class SlidingPuzzleUiState(
 ) : GameUiState
 
 @Immutable
+data class TowerOfHanoiUiState(
+    val diskCount: Int,
+    /** Disks bottom→top on each of the three pegs (larger size = larger disk). */
+    val pegs: ImmutableList<ImmutableList<Int>>,
+    val selectedPeg: Int?,
+    /** Target peg of the latest illegal drop (larger on smaller), if any. */
+    val rejectedPeg: Int? = null,
+    /** Source peg of the latest illegal drop (disk that failed to move). */
+    val rejectFromPeg: Int? = null,
+    /** Bumps on every illegal drop so the UI can re-trigger reject feedback. */
+    val rejectNonce: Int = 0,
+    val moves: Int,
+    val level: Int,
+) : GameUiState
+
+@Immutable
 data class ShikakuUiState(
     val rows: Int,
     val cols: Int,

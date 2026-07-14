@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Mini Szachy</string>
     <string name="game_lights_out">Wyłącz światła</string>
     <string name="game_sliding_puzzle">Układanka przesuwna</string>
+    <string name="game_tower_of_hanoi">Wieże Hanoi</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Koci Gambit</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Zakończ scenariusz szachowy jako białe. Daj mata CPU, zanim ona da mata tobie.</string>
     <string name="game_lights_out_desc">Wyłącz wszystkie światła. Każde dotknięcie przełącza komórkę i jej czterech sąsiadów.</string>
     <string name="game_sliding_puzzle_desc">Przesuwaj kafelki na puste pole, aby ułożyć je po kolei.</string>
+    <string name="game_tower_of_hanoi_desc">Przenieś cały stos na prawy kołek. Tylko jeden krążek na raz i nigdy większy na mniejszy.</string>
     <string name="game_shikaku_desc">Podziel całą siatkę na prostokąty. Każdy prostokąt musi zawierać dokładnie jedną liczbę, równą jego polu.</string>
     <string name="game_shikaku_howto">Przeciągnij, aby narysować prostokąt. Dotknij prostokąta, aby go usunąć.</string>
     <string name="game_nurikabe_desc">Maluj komórki, aby utworzyć morze wokół ponumerowanych wysp. Każda wyspa musi mieć tyle połączonych komórek, ile wynosi jej liczba, morze musi być połączone i nie może zawierać żadnego bloku 2x2.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Wirtuoz końcówki</string>
     <string name="achievement_gold_lights_out">Całkowite zaciemnienie</string>
     <string name="achievement_gold_sliding_puzzle">Sprawny układacz</string>
+    <string name="achievement_gold_tower_of_hanoi">Mistrz wież</string>
     <string name="achievement_gold_shikaku">Mistrz prostokątów</string>
     <string name="achievement_gold_nurikabe">Mistrz murów</string>
     <string name="achievement_gold_cat_queens">Koci Poganiacz</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Zdobądź złoty medal w Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Zdobądź złoty medal w Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Zdobądź złoty medal w Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Zdobyj złoty medal w Wieżach Hanoi</string>
     <string name="achievement_gold_shikaku_desc">Zdobądź złoty medal w Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Zdobądź złoty medal w Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Zdobądź złoty medal w Koci Gambit</string>
@@ -656,6 +660,7 @@
     <string name="anomaly_demo_shape">Te mają ten sam kolor. Dotknij tego o innym kształcie.</string>
     <string name="anomaly_demo_correct">Poprawnie. To jest anomalia.</string>
     <string name="sliding_puzzle_demo_title">Ułóż je po kolei</string>
+    <string name="tower_of_hanoi_invalid_move">Większe krążki nie mogą leżeć na mniejszych</string>
     <string name="mini_sudoku_demo_title">Uzupełnij brakujące liczby</string>
     <string name="mini_sudoku_demo_mistake">Dwa 1 w tym samym wierszu są niedozwolone.</string>
     <string name="mini_sudoku_demo_complete">Ten wiersz zawiera liczby od 1 do 4.</string>

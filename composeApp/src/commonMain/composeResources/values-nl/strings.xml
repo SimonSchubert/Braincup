@@ -69,6 +69,7 @@
     <string name="game_mini_chess">Mini-Schaak</string>
     <string name="game_lights_out">Lichten uit</string>
     <string name="game_sliding_puzzle">Schuifpuzzel</string>
+    <string name="game_tower_of_hanoi">Torens van Hanoi</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Kattenkoninginnen</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">Voltooi het schaakscenario als wit. Geef de CPU schaakmat voordat hij jou schaakmat geeft.</string>
     <string name="game_lights_out_desc">Schakel alle lichten uit. Elke tik wisselt de cel en zijn vier buren om.</string>
     <string name="game_sliding_puzzle_desc">Schuif tegels in de lege ruimte om ze op volgorde te zetten.</string>
+    <string name="game_tower_of_hanoi_desc">Verplaats de hele stapel naar de rechter pen. Slechts één schijf tegelijk en nooit een grotere op een kleinere.</string>
     <string name="game_shikaku_desc">Verdeel het hele raster in rechthoeken. Elke rechthoek moet precies één getal bevatten, gelijk aan zijn oppervlakte.</string>
     <string name="game_shikaku_howto">Sleep om een rechthoek te tekenen. Tik op een rechthoek om hem te verwijderen.</string>
     <string name="game_nurikabe_desc">Kleur cellen in om de zee rond de genummerde eilanden te vormen. Elk eiland moet evenveel verbonden cellen hebben als zijn getal, de zee moet aaneengesloten zijn en mag geen 2x2-blok bevatten.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">Eindspelvirtuoos</string>
     <string name="achievement_gold_lights_out">Totale duisternis</string>
     <string name="achievement_gold_sliding_puzzle">Soepele schuiver</string>
+    <string name="achievement_gold_tower_of_hanoi">Torenmeester</string>
     <string name="achievement_gold_shikaku">Rechthoekmeester</string>
     <string name="achievement_gold_nurikabe">Muurmeester</string>
     <string name="achievement_gold_cat_queens">Kattenhoedster</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Win de gouden medaille in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Win de gouden medaille in Lights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">Win de gouden medaille in Sliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Win de gouden medaille bij Torens van Hanoi</string>
     <string name="achievement_gold_shikaku_desc">Win de gouden medaille in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Win de gouden medaille in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Win de gouden medaille in Kattenkoninginnen</string>
@@ -655,6 +659,7 @@
     <string name="anomaly_demo_shape">Deze delen een kleur. Tik op de met een andere vorm.</string>
     <string name="anomaly_demo_correct">Juist. Dat is de anomalie.</string>
     <string name="sliding_puzzle_demo_title">Schuif ze op volgorde</string>
+    <string name="tower_of_hanoi_invalid_move">Grotere schijven mogen niet op kleinere</string>
     <string name="mini_sudoku_demo_title">Vul de ontbrekende getallen in</string>
     <string name="mini_sudoku_demo_mistake">Twee 1en in dezelfde rij is niet toegestaan.</string>
     <string name="mini_sudoku_demo_complete">Deze rij bevat 1 tot en met 4.</string>

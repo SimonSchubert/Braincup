@@ -10,6 +10,7 @@ enum GameCenterIds {
         "SOLO_CHESS":            "achievement.last_piece_standing",
         "LIGHTS_OUT":            "achievement.total_blackout",
         "SLIDING_PUZZLE":        "achievement.smooth_operator",
+        "TOWER_OF_HANOI":        "achievement.tower_master",
         "SHIKAKU":               "achievement.rectangle_master",
         "NURIKABE":              "achievement.wall_builder",
         "CAT_QUEENS":            "achievement.cat_herder",
@@ -96,6 +97,7 @@ enum GameCenterIds {
         case "achievement.last_piece_standing":   return UserStorage.Achievements.goldSoloChess
         case "achievement.total_blackout":        return UserStorage.Achievements.goldLightsOut
         case "achievement.smooth_operator":       return UserStorage.Achievements.goldSlidingPuzzle
+        case "achievement.tower_master":          return UserStorage.Achievements.goldTowerOfHanoi
         case "achievement.rectangle_master":      return UserStorage.Achievements.goldShikaku
         case "achievement.wall_builder":          return UserStorage.Achievements.goldNurikabe
         case "achievement.cat_herder":            return UserStorage.Achievements.goldCatQueens

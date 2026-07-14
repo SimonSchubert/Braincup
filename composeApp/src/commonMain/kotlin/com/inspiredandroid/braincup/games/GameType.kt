@@ -97,6 +97,15 @@ enum class GameType(
         descriptionRes = Res.string.game_knot_desc,
         category = GameCategory.LOGIC,
     ),
+    TOWER_OF_HANOI(
+        displayNameRes = Res.string.game_tower_of_hanoi,
+        id = "30",
+        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_tower_of_hanoi_desc,
+        category = GameCategory.LOGIC,
+    ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
         id = "8",
@@ -291,7 +300,8 @@ enum class GameType(
             this == NURIKABE ||
             this == CAT_QUEENS ||
             this == KNOT ||
-            this == SOLO_CHESS
+            this == SOLO_CHESS ||
+            this == TOWER_OF_HANOI
 
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */

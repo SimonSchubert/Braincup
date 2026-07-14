@@ -270,6 +270,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.SOLO_CHESS -> R.string.achievementLastPieceStanding
     GameType.LIGHTS_OUT -> R.string.achievementTotalBlackout
     GameType.SLIDING_PUZZLE -> R.string.achievementSmoothOperator
+    GameType.TOWER_OF_HANOI -> R.string.achievementTowerMaster
     GameType.SHIKAKU -> R.string.achievementRectangleMaster
     GameType.NURIKABE -> R.string.achievementWallBuilder
     GameType.CAT_QUEENS -> R.string.achievementCatHerder

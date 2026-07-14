@@ -4,6 +4,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -43,6 +44,9 @@ import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlueSide
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellow
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowBottom
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowSide
+import com.inspiredandroid.braincup.ui.theme.HanoiBaseColor
+import com.inspiredandroid.braincup.ui.theme.HanoiDiskColors
+import com.inspiredandroid.braincup.ui.theme.HanoiPegColor
 import com.inspiredandroid.braincup.ui.theme.KnotBoardFrame
 import com.inspiredandroid.braincup.ui.theme.KnotCellColor
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
@@ -167,6 +171,13 @@ private val GhostGridPreviewHighlighted: Set<Int> = setOf(0, 4, 7)
 private val LightsOutPreviewOn: Set<Int> = setOf(1, 3, 4, 5, 7)
 
 private val SlidingPuzzlePreviewLabels: List<Int> = listOf(1, 2, 3, 4, 0, 5, 7, 8, 6)
+
+/** Mid-solve 3-disk Hanoi: two on left, one on middle. */
+private val TowerOfHanoiPreviewPegs: List<List<Int>> = listOf(
+    listOf(3, 2),
+    listOf(1),
+    emptyList(),
+)
 
 private const val ShikakuPreviewSize = 3
 
@@ -391,6 +402,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.MINI_CHESS -> MiniChessPreview()
         GameType.LIGHTS_OUT -> LightsOutPreview()
         GameType.SLIDING_PUZZLE -> SlidingPuzzlePreview()
+        GameType.TOWER_OF_HANOI -> TowerOfHanoiPreview()
         GameType.SHIKAKU -> ShikakuPreview()
         GameType.NURIKABE -> NurikabePreview()
         GameType.CAT_QUEENS -> CatQueensPreview()
@@ -1221,6 +1233,67 @@ private fun SlidingPuzzlePreview() {
                         }
                     }
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun TowerOfHanoiPreview() {
+    Row(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(20.dp),
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalAlignment = Alignment.Bottom,
+    ) {
+        TowerOfHanoiPreviewPegs.forEach { disks ->
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .fillMaxWidth(),
+                    contentAlignment = Alignment.BottomCenter,
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .width(6.dp)
+                            .fillMaxHeight(0.85f)
+                            .align(Alignment.BottomCenter)
+                            .background(HanoiPegColor, shape = RoundedCornerShape(3.dp)),
+                    )
+                    Column(
+                        modifier = Modifier.align(Alignment.BottomCenter),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.spacedBy(2.dp),
+                    ) {
+                        disks.asReversed().forEach { size ->
+                            val fraction = (size - 1).toFloat() / 2f
+                            val widthFraction = 0.4f + 0.55f * fraction
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth(widthFraction)
+                                    .height(10.dp)
+                                    .background(
+                                        HanoiDiskColors[(size - 1).coerceIn(0, HanoiDiskColors.lastIndex)],
+                                        shape = RoundedCornerShape(5.dp),
+                                    ),
+                            )
+                        }
+                    }
+                }
+                Box(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(6.dp)
+                        .background(HanoiBaseColor, shape = RoundedCornerShape(2.dp)),
+                )
             }
         }
     }

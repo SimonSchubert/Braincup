@@ -57,6 +57,7 @@ import com.inspiredandroid.braincup.ui.components.SlidingPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.SoloChessDemo
 import com.inspiredandroid.braincup.ui.components.SpotTheNewDemo
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
+import com.inspiredandroid.braincup.ui.components.TowerOfHanoiDemo
 import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
 import com.inspiredandroid.braincup.ui.components.VisualMemoryDemo
 import com.inspiredandroid.braincup.ui.components.WordleDemo
@@ -120,6 +121,7 @@ fun InstructionsScreen(
                 GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
                 GameType.SLIDING_PUZZLE -> SlidingPuzzleDemo(modifier = demoModifier)
+                GameType.TOWER_OF_HANOI -> TowerOfHanoiDemo(modifier = demoModifier)
                 GameType.MINI_SUDOKU -> MiniSudokuDemo(modifier = demoModifier)
                 GameType.COLORED_SHAPES -> ColoredShapesDemo(modifier = demoModifier)
                 GameType.WORDLE -> WordleDemo(modifier = demoModifier)

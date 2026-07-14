@@ -31,6 +31,24 @@ val NurikabeSeaColor = Color(0xFF546E7A)
 val KnotBoardFrame = PuzzleSlateFrame
 val KnotCellColor = PuzzleLightCell
 
+/** Peg pole / base for Tower of Hanoi. */
+val HanoiPegColor = Color(0xFF6B7280)
+val HanoiBaseColor = Color(0xFF4B5563)
+
+/**
+ * Disk face colors by size rank (1 = smallest … 7 = largest). Warm spectrum so stacks read
+ * clearly in light and dark themes.
+ */
+val HanoiDiskColors: List<Color> = listOf(
+    Color(0xFF60A5FA), // 1 blue
+    Color(0xFF34D399), // 2 green
+    Color(0xFFFBBF24), // 3 amber
+    Color(0xFFF97316), // 4 orange
+    Color(0xFFF43F5E), // 5 rose
+    Color(0xFFA78BFA), // 6 violet
+    Color(0xFF2DD4BF), // 7 teal
+)
+
 val FlashCrowdBlueSide = FlashCrowdBlue.darken(0.7f)
 val FlashCrowdBlueBottom = FlashCrowdBlue.darken(0.5f)
 

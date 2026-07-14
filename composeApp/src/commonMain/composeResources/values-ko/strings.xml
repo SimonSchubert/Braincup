@@ -69,6 +69,7 @@
     <string name="game_mini_chess">미니 체스</string>
     <string name="game_lights_out">라이트 아웃</string>
     <string name="game_sliding_puzzle">슬라이드 퍼즐</string>
+    <string name="game_tower_of_hanoi">하노이 탑</string>
     <string name="game_shikaku">시카쿠</string>
     <string name="game_nurikabe">누리카베</string>
     <string name="game_cat_queens">고양이 퀸</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">백을 잡고 체스 시나리오를 완료하세요. CPU가 당신을 메이트하기 전에 메이트하세요.</string>
     <string name="game_lights_out_desc">모든 빛을 끄세요. 탭할 때마다 해당 셀과 인접한 네 셀이 토글됩니다.</string>
     <string name="game_sliding_puzzle_desc">타일을 빈 공간으로 밀어 순서대로 정렬하세요.</string>
+    <string name="game_tower_of_hanoi_desc">모든 원반을 오른쪽 기둥으로 옮기세요. 한 번에 하나만, 큰 원반을 작은 원반 위에 올리면 안 됩니다.</string>
     <string name="game_shikaku_desc">격자 전체를 직사각형으로 나누세요. 각 직사각형에는 그 넓이와 같은 숫자가 정확히 하나 있어야 합니다.</string>
     <string name="game_shikaku_howto">드래그하여 직사각형을 그리세요. 직사각형을 탭하면 삭제됩니다.</string>
     <string name="game_nurikabe_desc">숫자가 있는 섬 주위에 바다를 칠하세요. 각 섬은 숫자와 같은 수의 연결된 칸으로 이루어져야 하고, 바다는 하나로 연결되어야 하며, 2x2 블록이 없어야 합니다.</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">종반의 거장</string>
     <string name="achievement_gold_lights_out">완전한 암흑</string>
     <string name="achievement_gold_sliding_puzzle">유려한 슬라이더</string>
+    <string name="achievement_gold_tower_of_hanoi">탑의 달인</string>
     <string name="achievement_gold_shikaku">직사각형 마스터</string>
     <string name="achievement_gold_nurikabe">벽 쌓기 달인</string>
     <string name="achievement_gold_cat_queens">고양이 조련사</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">Mini Chess에서 금메달 획득</string>
     <string name="achievement_gold_lights_out_desc">Lights Out에서 금메달 획득</string>
     <string name="achievement_gold_sliding_puzzle_desc">Sliding Puzzle에서 금메달 획득</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">하노이 탑에서 금메달 획득</string>
     <string name="achievement_gold_shikaku_desc">Shikaku에서 금메달 획득</string>
     <string name="achievement_gold_nurikabe_desc">Nurikabe에서 금메달 획득</string>
     <string name="achievement_gold_cat_queens_desc">고양이 퀸에서 금메달 획득</string>
@@ -654,6 +658,7 @@
     <string name="anomaly_demo_shape">같은 색입니다. 모양이 다른 것을 탭하세요.</string>
     <string name="anomaly_demo_correct">정답. 그것이 이상한 것입니다.</string>
     <string name="sliding_puzzle_demo_title">순서대로 밀어 맞추기</string>
+    <string name="tower_of_hanoi_invalid_move">큰 원반은 작은 원반 위에 올릴 수 없습니다</string>
     <string name="mini_sudoku_demo_title">빠진 숫자 채우기</string>
     <string name="mini_sudoku_demo_mistake">같은 행에 1이 두 개 있으면 안 됩니다.</string>
     <string name="mini_sudoku_demo_complete">이 행에는 1부터 4가 들어갑니다.</string>

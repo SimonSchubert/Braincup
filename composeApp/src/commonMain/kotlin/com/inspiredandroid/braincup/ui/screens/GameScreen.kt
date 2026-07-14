@@ -39,6 +39,7 @@ import com.inspiredandroid.braincup.app.ShikakuUiState
 import com.inspiredandroid.braincup.app.SlidingPuzzleUiState
 import com.inspiredandroid.braincup.app.SoloChessUiState
 import com.inspiredandroid.braincup.app.SpotTheNewUiState
+import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
 import com.inspiredandroid.braincup.app.ValueComparisonUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.WordleUiState
@@ -73,6 +74,7 @@ import com.inspiredandroid.braincup.ui.screens.games.SoloChessContent
 import com.inspiredandroid.braincup.ui.screens.games.SpotTheNewContent
 import com.inspiredandroid.braincup.ui.screens.games.StopwatchDisplay
 import com.inspiredandroid.braincup.ui.screens.games.TimeProgressIndicator
+import com.inspiredandroid.braincup.ui.screens.games.TowerOfHanoiContent
 import com.inspiredandroid.braincup.ui.screens.games.ValueComparisonContent
 import com.inspiredandroid.braincup.ui.screens.games.VisualMemoryContent
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -110,6 +112,7 @@ fun GameScreen(
         is MiniChessUiState,
         is LightsOutUiState,
         is SlidingPuzzleUiState,
+        is TowerOfHanoiUiState,
         is ShikakuUiState,
         is NurikabeUiState,
         is CatQueensUiState,
@@ -153,6 +156,7 @@ fun GameScreen(
                 is MiniSudokuUiState -> MiniSudokuContent(gameUiState, onAnswer)
                 is LightsOutUiState -> LightsOutContent(gameUiState, onAnswer, onGiveUp)
                 is SlidingPuzzleUiState -> SlidingPuzzleContent(gameUiState, onAnswer, onGiveUp)
+                is TowerOfHanoiUiState -> TowerOfHanoiContent(gameUiState, onAnswer, onGiveUp)
                 is ShikakuUiState -> ShikakuContent(gameUiState, onAnswer, onGiveUp)
                 is NurikabeUiState -> NurikabeContent(gameUiState, onAnswer, onGiveUp)
                 is CatQueensUiState -> CatQueensContent(gameUiState, onAnswer, onGiveUp)

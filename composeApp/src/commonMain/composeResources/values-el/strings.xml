@@ -176,6 +176,7 @@
     <string name="game_mini_chess">Μίνι Σκάκι</string>
     <string name="game_lights_out">Σβήσε τα Φώτα</string>
     <string name="game_sliding_puzzle">Συρόμενο Παζλ</string>
+    <string name="game_tower_of_hanoi">Πύργοι του Ανόι</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
     <string name="game_cat_queens">Βασίλισσες Γάτες</string>
@@ -203,6 +204,7 @@
     <string name="game_mini_chess_desc">Ολοκληρώστε το σενάριο σκακιού με τα λευκά. Κάντε ματ στη CPU πριν σας κάνει ματ εκείνη.</string>
     <string name="game_lights_out_desc">Σβήστε όλα τα φώτα. Κάθε πάτημα εναλλάσσει το κελί και τα τέσσερα γειτονικά του.</string>
     <string name="game_sliding_puzzle_desc">Σύρετε τα πλακίδια στον κενό χώρο για να τα τοποθετήσετε στη σειρά.</string>
+    <string name="game_tower_of_hanoi_desc">Μετακινήστε ολόκληρη τη στοίβα στον δεξιό πάσσαλο. Μόνο ένας δίσκος κάθε φορά και ποτέ μεγαλύτερος πάνω σε μικρότερο.</string>
     <string name="game_shikaku_desc">Χωρίστε ολόκληρο το πλέγμα σε ορθογώνια. Κάθε ορθογώνιο πρέπει να περιέχει ακριβώς έναν αριθμό, ίσο με το εμβαδόν του.</string>
     <string name="game_shikaku_howto">Σύρετε για να σχεδιάσετε ένα ορθογώνιο. Πατήστε ένα ορθογώνιο για να το αφαιρέσετε.</string>
     <string name="game_nurikabe_desc">Βάψτε κελιά για να χτίσετε τη θάλασσα γύρω από αριθμημένα νησιά. Κάθε νησί πρέπει να έχει τόσα συνδεδεμένα κελιά όσο ο αριθμός του, η θάλασσα πρέπει να είναι συνεχόμενη και να μην περιέχει τετράγωνο 2x2.</string>
@@ -265,6 +267,7 @@
     <string name="anomaly_demo_shape">Αυτά έχουν κοινό χρώμα. Πατήστε αυτό με διαφορετικό σχήμα.</string>
     <string name="anomaly_demo_correct">Σωστά. Αυτή είναι η ανωμαλία.</string>
     <string name="sliding_puzzle_demo_title">Σύρετέ τα στη σειρά</string>
+    <string name="tower_of_hanoi_invalid_move">Οι μεγαλύτεροι δίσκοι δεν μπαίνουν πάνω σε μικρότερους</string>
     <string name="mini_sudoku_demo_title">Συμπληρώστε τους αριθμούς που λείπουν</string>
     <string name="mini_sudoku_demo_mistake">Δύο 1 στην ίδια γραμμή δεν επιτρέπονται.</string>
     <string name="mini_sudoku_demo_complete">Αυτή η γραμμή περιέχει το 1 έως το 4.</string>
@@ -335,6 +338,7 @@
     <string name="achievement_gold_mini_chess">Δεξιοτέχνης του Φινάλε</string>
     <string name="achievement_gold_lights_out">Απόλυτο Σκοτάδι</string>
     <string name="achievement_gold_sliding_puzzle">Μάστορας της Ολίσθησης</string>
+    <string name="achievement_gold_tower_of_hanoi">Δάσκαλος πύργων</string>
     <string name="achievement_gold_shikaku">Δάσκαλος των Ορθογωνίων</string>
     <string name="achievement_gold_nurikabe">Χτίστης Τειχών</string>
     <string name="achievement_gold_cat_queens">Βοσκός Γατών</string>
@@ -366,6 +370,7 @@
     <string name="achievement_gold_mini_chess_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μίνι Σκάκι</string>
     <string name="achievement_gold_lights_out_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σβήσε τα Φώτα</string>
     <string name="achievement_gold_sliding_puzzle_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Συρόμενο Παζλ</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Κερδίστε το χρυσό μετάλλιο στους Πύργους του Ανόι</string>
     <string name="achievement_gold_shikaku_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Βασίλισσες Γάτες</string>

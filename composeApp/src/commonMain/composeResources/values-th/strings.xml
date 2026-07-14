@@ -69,6 +69,7 @@
     <string name="game_mini_chess">หมากรุกย่อ</string>
     <string name="game_lights_out">ปิดไฟ</string>
     <string name="game_sliding_puzzle">ปริศนาเลื่อน</string>
+    <string name="game_tower_of_hanoi">หอคอยฮานอย</string>
     <string name="game_shikaku">ชิกะกุ</string>
     <string name="game_nurikabe">นูริคาเบะ</string>
     <string name="game_cat_queens">ราชินีแมว</string>
@@ -96,6 +97,7 @@
     <string name="game_mini_chess_desc">จบสถานการณ์หมากรุกในฐานะฝ่ายขาว รุกฆาตซีพียูก่อนที่มันจะรุกฆาตคุณ</string>
     <string name="game_lights_out_desc">ปิดไฟทุกดวง การแตะแต่ละครั้งจะสลับช่องและช่องเพื่อนบ้านทั้งสี่</string>
     <string name="game_sliding_puzzle_desc">เลื่อนแผ่นเข้าไปในช่องว่างเพื่อเรียงให้เป็นลำดับ</string>
+    <string name="game_tower_of_hanoi_desc">ย้ายกองจานทั้งหมดไปยังหลักขวา ครั้งละหนึ่งจานเท่านั้น และห้ามวางจานใหญ่บนจานเล็ก</string>
     <string name="game_shikaku_desc">แบ่งทั้งตารางออกเป็นสี่เหลี่ยมผืนผ้า แต่ละรูปต้องมีตัวเลขเพียงตัวเดียวที่เท่ากับพื้นที่ของรูปนั้น</string>
     <string name="game_shikaku_howto">ลากเพื่อวาดสี่เหลี่ยมผืนผ้า แตะที่สี่เหลี่ยมเพื่อลบออก</string>
     <string name="game_nurikabe_desc">ระบายช่องเพื่อสร้างทะเลรอบ ๆ เกาะที่มีตัวเลข แต่ละเกาะต้องมีช่องที่เชื่อมต่อกันเท่ากับตัวเลขของมัน ทะเลต้องเชื่อมต่อกันทั้งหมดและต้องไม่มีบล็อก 2x2</string>
@@ -210,6 +212,7 @@
     <string name="achievement_gold_mini_chess">นักหมากรุกตอนจบ</string>
     <string name="achievement_gold_lights_out">ดับสนิท</string>
     <string name="achievement_gold_sliding_puzzle">นักเลื่อนชั้นเซียน</string>
+    <string name="achievement_gold_tower_of_hanoi">ปรมาจารย์หอคอย</string>
     <string name="achievement_gold_shikaku">เซียนสี่เหลี่ยม</string>
     <string name="achievement_gold_nurikabe">เซียนกำแพง</string>
     <string name="achievement_gold_cat_queens">นายฝูงแมว</string>
@@ -241,6 +244,7 @@
     <string name="achievement_gold_mini_chess_desc">ชนะเหรียญทองในMini Chess</string>
     <string name="achievement_gold_lights_out_desc">ชนะเหรียญทองในLights Out</string>
     <string name="achievement_gold_sliding_puzzle_desc">ชนะเหรียญทองในSliding Puzzle</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">คว้าเหรียญทองในหอคอยฮานอย</string>
     <string name="achievement_gold_shikaku_desc">ชนะเหรียญทองในShikaku</string>
     <string name="achievement_gold_nurikabe_desc">ชนะเหรียญทองในNurikabe</string>
     <string name="achievement_gold_cat_queens_desc">ชนะเหรียญทองในราชินีแมว</string>
@@ -654,6 +658,7 @@
     <string name="anomaly_demo_shape">พวกมันมีสีเหมือนกัน แตะตัวที่มีรูปร่างต่างออกไป</string>
     <string name="anomaly_demo_correct">ถูกต้อง นั่นคือตัวที่ผิดปกติ</string>
     <string name="sliding_puzzle_demo_title">เลื่อนให้เรียงลำดับ</string>
+    <string name="tower_of_hanoi_invalid_move">วางจานใหญ่บนจานเล็กไม่ได้</string>
     <string name="mini_sudoku_demo_title">เติมตัวเลขที่หายไป</string>
     <string name="mini_sudoku_demo_mistake">ห้ามมี 1 สองตัวในแถวเดียวกัน</string>
     <string name="mini_sudoku_demo_complete">แถวนี้มีเลข 1 ถึง 4</string>
