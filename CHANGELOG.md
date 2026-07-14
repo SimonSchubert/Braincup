@@ -1,3 +1,18 @@
+## v2.28.0 — 2026-07-14
+
+### Features
+- Add Tower of Hanoi game
+- Chess draws by threefold repetition
+
+### Fixes
+- Fix web crash on nested routes
+- Fix chess grid colors
+- Fix French strings that showed backslash escapes in-game
+
+### Improvements
+- Reduce how often triangles rotate in the anomaly puzzle
+- Upgrade dependencies
+
 ## v2.27.0 — 2026-07-11
 
 ### Features
