@@ -586,6 +586,7 @@
     <string name="normal_chess_stalemate">Pat. Remise.</string>
     <string name="normal_chess_draw_50">Remise door de vijftig-zetten-regel.</string>
     <string name="normal_chess_draw_material">Remise door onvoldoende materiaal.</string>
+    <string name="normal_chess_draw_repetition">Remise door herhaling.</string>
     <string name="normal_chess_resign">Opgeven</string>
     <string name="normal_chess_quit">Stoppen</string>
     <string name="normal_chess_new_game">Nieuw spel</string>

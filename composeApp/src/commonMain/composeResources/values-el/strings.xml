@@ -61,6 +61,7 @@
     <string name="normal_chess_stalemate">Πατ. Ισοπαλία.</string>
     <string name="normal_chess_draw_50">Ισοπαλία με τον κανόνα των πενήντα κινήσεων.</string>
     <string name="normal_chess_draw_material">Ισοπαλία λόγω ανεπαρκούς υλικού.</string>
+    <string name="normal_chess_draw_repetition">Ισοπαλία λόγω επανάληψης.</string>
     <string name="normal_chess_resign">Παραίτηση</string>
     <string name="normal_chess_quit">Έξοδος</string>
     <string name="normal_chess_new_game">Νέο παιχνίδι</string>

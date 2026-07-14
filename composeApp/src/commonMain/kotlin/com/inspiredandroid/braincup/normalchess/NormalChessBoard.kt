@@ -29,7 +29,15 @@ data class CastlingRights(
     val blackQueenside: Boolean = true,
 )
 
-enum class GameResult { ONGOING, WHITE_WINS, BLACK_WINS, DRAW_STALEMATE, DRAW_FIFTY_MOVE, DRAW_INSUFFICIENT_MATERIAL }
+enum class GameResult {
+    ONGOING,
+    WHITE_WINS,
+    BLACK_WINS,
+    DRAW_STALEMATE,
+    DRAW_FIFTY_MOVE,
+    DRAW_INSUFFICIENT_MATERIAL,
+    DRAW_REPETITION,
+}
 
 class NormalChessBoard private constructor(
     private val grid: Array<Array<Piece?>>,
@@ -38,6 +46,9 @@ class NormalChessBoard private constructor(
     val enPassantTarget: Square?,
     val halfmoveClock: Int,
     val fullmoveNumber: Int,
+    /** Keys of every position since the game started, including the current one. Used for
+     *  threefold-repetition detection (auto-draw on the third occurrence). */
+    private val positionKeys: List<Long>,
 ) {
     fun pieceAt(square: Square): Piece? = grid[square.row][square.file]
     fun pieceAt(file: Int, row: Int): Piece? = grid[row][file]
@@ -79,14 +90,22 @@ class NormalChessBoard private constructor(
         val newCastling = updateCastlingRights(piece, move)
         val newHalfmove = if (isPawn || isCapture || isEnPassant) 0 else halfmoveClock + 1
         val newFullmove = if (sideToMove == Color.BLACK) fullmoveNumber + 1 else fullmoveNumber
+        val newSide = sideToMove.opposite()
+        val nextKey = positionKey(
+            grid = newGrid,
+            sideToMove = newSide,
+            castling = newCastling,
+            enPassantTarget = newEnPassant,
+        )
 
         return NormalChessBoard(
             grid = newGrid,
-            sideToMove = sideToMove.opposite(),
+            sideToMove = newSide,
             castling = newCastling,
             enPassantTarget = newEnPassant,
             halfmoveClock = newHalfmove,
             fullmoveNumber = newFullmove,
+            positionKeys = positionKeys + nextKey,
         )
     }
 
@@ -191,6 +210,12 @@ class NormalChessBoard private constructor(
     fun isCheckmate(): Boolean = isInCheck(sideToMove) && legalMoves().isEmpty()
     fun isStalemate(): Boolean = !isInCheck(sideToMove) && legalMoves().isEmpty()
 
+    /** Current position has occurred at least three times (FIDE threefold; auto-draw here). */
+    fun isThreefoldRepetition(): Boolean {
+        val key = positionKeys.lastOrNull() ?: return false
+        return positionKeys.count { it == key } >= 3
+    }
+
     fun isInsufficientMaterial(): Boolean {
         val pieces = snapshot().filterNotNull()
         if (pieces.any { it.type == PieceType.QUEEN || it.type == PieceType.ROOK || it.type == PieceType.PAWN }) return false
@@ -234,6 +259,7 @@ class NormalChessBoard private constructor(
         }
         if (halfmoveClock >= 100) return GameResult.DRAW_FIFTY_MOVE
         if (isInsufficientMaterial()) return GameResult.DRAW_INSUFFICIENT_MATERIAL
+        if (isThreefoldRepetition()) return GameResult.DRAW_REPETITION
         return GameResult.ONGOING
     }
 
@@ -416,6 +442,62 @@ class NormalChessBoard private constructor(
             intArrayOf(-1, -1),
         )
 
+        /** Hash of piece placement + side to move + castling + en passant (FIDE position identity). */
+        fun positionKey(
+            grid: Array<Array<Piece?>>,
+            sideToMove: Color,
+            castling: CastlingRights,
+            enPassantTarget: Square?,
+        ): Long {
+            var h = 0L
+            for (r in 0 until NORMAL_CHESS_SIZE) {
+                for (c in 0 until NORMAL_CHESS_SIZE) {
+                    val p = grid[r][c]
+                    val code = if (p == null) {
+                        0
+                    } else {
+                        (p.type.ordinal + 1) * 2 + p.color.ordinal + 1
+                    }
+                    h = h * 31 + code
+                }
+            }
+            h = h * 31 + sideToMove.ordinal
+            h = h * 31 + castlingBits(castling)
+            h = h * 31 + (
+                enPassantTarget?.let { 1 + it.file + it.row * NORMAL_CHESS_SIZE } ?: 0
+                )
+            return h
+        }
+
+        private fun castlingBits(c: CastlingRights): Int {
+            var bits = 0
+            if (c.whiteKingside) bits = bits or 1
+            if (c.whiteQueenside) bits = bits or 2
+            if (c.blackKingside) bits = bits or 4
+            if (c.blackQueenside) bits = bits or 8
+            return bits
+        }
+
+        private fun create(
+            grid: Array<Array<Piece?>>,
+            sideToMove: Color,
+            castling: CastlingRights,
+            enPassantTarget: Square?,
+            halfmoveClock: Int,
+            fullmoveNumber: Int,
+        ): NormalChessBoard {
+            val key = positionKey(grid, sideToMove, castling, enPassantTarget)
+            return NormalChessBoard(
+                grid = grid,
+                sideToMove = sideToMove,
+                castling = castling,
+                enPassantTarget = enPassantTarget,
+                halfmoveClock = halfmoveClock,
+                fullmoveNumber = fullmoveNumber,
+                positionKeys = listOf(key),
+            )
+        }
+
         fun startingPosition(): NormalChessBoard {
             val grid = Array(NORMAL_CHESS_SIZE) { Array<Piece?>(NORMAL_CHESS_SIZE) { null } }
             val backRank = arrayOf(
@@ -434,7 +516,7 @@ class NormalChessBoard private constructor(
                 grid[6][c] = Piece(PieceType.PAWN, Color.BLACK)
                 grid[7][c] = Piece(backRank[c], Color.BLACK)
             }
-            return NormalChessBoard(
+            return create(
                 grid = grid,
                 sideToMove = Color.WHITE,
                 castling = CastlingRights(),
@@ -454,7 +536,7 @@ class NormalChessBoard private constructor(
         ): NormalChessBoard {
             val grid = Array(NORMAL_CHESS_SIZE) { Array<Piece?>(NORMAL_CHESS_SIZE) { null } }
             for ((sq, p) in pieces) grid[sq.row][sq.file] = p
-            return NormalChessBoard(grid, sideToMove, castling, enPassantTarget, halfmoveClock, fullmoveNumber)
+            return create(grid, sideToMove, castling, enPassantTarget, halfmoveClock, fullmoveNumber)
         }
     }
 }

@@ -600,6 +600,7 @@
     <string name="normal_chess_stalemate">Stallo. Patta.</string>
     <string name="normal_chess_draw_50">Patta per la regola delle cinquanta mosse.</string>
     <string name="normal_chess_draw_material">Patta per materiale insufficiente.</string>
+    <string name="normal_chess_draw_repetition">Patta per ripetizione.</string>
     <string name="normal_chess_resign">Abbandono</string>
     <string name="normal_chess_quit">Esci</string>
     <string name="normal_chess_new_game">Nuova partita</string>

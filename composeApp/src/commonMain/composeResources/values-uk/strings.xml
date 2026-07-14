@@ -600,6 +600,7 @@
     <string name="normal_chess_stalemate">Пат. Нічия.</string>
     <string name="normal_chess_draw_50">Нічия за правилом п'ятдесяти ходів.</string>
     <string name="normal_chess_draw_material">Нічия через недостатній матеріал.</string>
+    <string name="normal_chess_draw_repetition">Нічия через повторення позиції.</string>
     <string name="normal_chess_resign">Здатися</string>
     <string name="normal_chess_quit">Вийти</string>
     <string name="normal_chess_new_game">Нова гра</string>

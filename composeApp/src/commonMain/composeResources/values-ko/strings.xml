@@ -598,6 +598,7 @@
     <string name="normal_chess_stalemate">스테일메이트. 무승부.</string>
     <string name="normal_chess_draw_50">50수 규칙에 의한 무승부.</string>
     <string name="normal_chess_draw_material">기물 부족으로 인한 무승부.</string>
+    <string name="normal_chess_draw_repetition">반복으로 인한 무승부.</string>
     <string name="normal_chess_resign">기권</string>
     <string name="normal_chess_quit">나가기</string>
     <string name="normal_chess_new_game">새 게임</string>

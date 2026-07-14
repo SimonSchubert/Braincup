@@ -25,6 +25,7 @@ import braincup.composeapp.generated.resources.normal_chess_checkmate_black
 import braincup.composeapp.generated.resources.normal_chess_checkmate_white
 import braincup.composeapp.generated.resources.normal_chess_draw_50
 import braincup.composeapp.generated.resources.normal_chess_draw_material
+import braincup.composeapp.generated.resources.normal_chess_draw_repetition
 import braincup.composeapp.generated.resources.normal_chess_draw_warning
 import braincup.composeapp.generated.resources.normal_chess_new_game
 import braincup.composeapp.generated.resources.normal_chess_promotion_bishop
@@ -174,11 +175,14 @@ fun NormalChessPlayScreen(
     val stalematingTargets: Set<Square> = selected?.let { sel ->
         legalByFrom[sel].orEmpty()
             .filter { move ->
-                val after = board.apply(move)
-                val opponentMated = after.legalMoves().isEmpty() && !after.isInCheck(after.sideToMove)
-                val drawByMaterial = after.isInsufficientMaterial()
-                val drawByClock = after.halfmoveClock >= 100
-                opponentMated || drawByMaterial || drawByClock
+                when (board.apply(move).result()) {
+                    GameResult.DRAW_STALEMATE,
+                    GameResult.DRAW_FIFTY_MOVE,
+                    GameResult.DRAW_INSUFFICIENT_MATERIAL,
+                    GameResult.DRAW_REPETITION,
+                    -> true
+                    else -> false
+                }
             }
             .map { it.to }
             .toSet()
@@ -356,6 +360,10 @@ private fun TurnHeader(
             text = stringResource(Res.string.normal_chess_draw_material)
             color = MaterialTheme.colorScheme.onSurface
         }
+        result == GameResult.DRAW_REPETITION -> {
+            text = stringResource(Res.string.normal_chess_draw_repetition)
+            color = MaterialTheme.colorScheme.onSurface
+        }
         aiThinking -> {
             text = stringResource(Res.string.normal_chess_thinking)
             color = MaterialTheme.colorScheme.onSurfaceVariant
@@ -410,7 +418,8 @@ private fun BoardView(
                     for (col in 0 until NORMAL_CHESS_SIZE) {
                         val square = Square(col, row)
                         val piece = board.pieceAt(square)
-                        val isLight = (row + col) % 2 == 0
+                        // a1 (file 0, row 0) is dark in standard chess; queen on d1 is light.
+                        val isLight = (row + col) % 2 == 1
                         val isSelected = selected == square
                         val isTarget = square in highlightedTargets
                         val isStalemateTarget = square in stalematingTargets

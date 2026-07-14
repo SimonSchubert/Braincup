@@ -586,6 +586,7 @@
     <string name="normal_chess_stalemate">Patt. Unentschieden.</string>
     <string name="normal_chess_draw_50">Unentschieden nach Fünfzig-Züge-Regel.</string>
     <string name="normal_chess_draw_material">Unentschieden wegen unzureichendem Material.</string>
+    <string name="normal_chess_draw_repetition">Remis durch Stellungswiederholung.</string>
     <string name="normal_chess_resign">Aufgeben</string>
     <string name="normal_chess_quit">Beenden</string>
     <string name="normal_chess_new_game">Neues Spiel</string>

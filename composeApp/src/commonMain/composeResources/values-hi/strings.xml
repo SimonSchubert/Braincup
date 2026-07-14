@@ -598,6 +598,7 @@
     <string name="normal_chess_stalemate">गतिरोध। ड्रॉ।</string>
     <string name="normal_chess_draw_50">पचास-चाल नियम से ड्रॉ।</string>
     <string name="normal_chess_draw_material">अपर्याप्त सामग्री से ड्रॉ।</string>
+    <string name="normal_chess_draw_repetition">पुनरावृत्ति द्वारा ड्रॉ।</string>
     <string name="normal_chess_resign">हार स्वीकार करें</string>
     <string name="normal_chess_quit">बाहर निकलें</string>
     <string name="normal_chess_new_game">नया खेल</string>

@@ -598,6 +598,7 @@
     <string name="normal_chess_stalemate">ステイルメイト。引き分け。</string>
     <string name="normal_chess_draw_50">50手ルールにより引き分け。</string>
     <string name="normal_chess_draw_material">駒不足により引き分け。</string>
+    <string name="normal_chess_draw_repetition">千日手による引き分け。</string>
     <string name="normal_chess_resign">投了</string>
     <string name="normal_chess_quit">終了</string>
     <string name="normal_chess_new_game">新しい対局</string>

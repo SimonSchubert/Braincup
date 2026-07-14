@@ -599,6 +599,7 @@
     <string name="normal_chess_stalemate">Pat. Berabere.</string>
     <string name="normal_chess_draw_50">Elli hamle kuralıyla berabere.</string>
     <string name="normal_chess_draw_material">Yetersiz materyalle berabere.</string>
+    <string name="normal_chess_draw_repetition">Tekrar nedeniyle berabere.</string>
     <string name="normal_chess_resign">Teslim ol</string>
     <string name="normal_chess_quit">Çık</string>
     <string name="normal_chess_new_game">Yeni oyun</string>

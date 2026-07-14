@@ -18,6 +18,17 @@ class NormalChessBoardTest {
     }
 
     @Test
+    fun startingPositionPlacesQueensOnDFileAndKingsOnEFile() {
+        // Standard chess: queen on d, king on e. Do not "swap" them to fix square colors;
+        // square coloring is a UI concern (a1 must be dark so queens sit on their own color).
+        val b = NormalChessBoard.startingPosition()
+        assertEquals(Piece(PieceType.QUEEN, Color.WHITE), b.pieceAt(Square(3, 0)))
+        assertEquals(Piece(PieceType.KING, Color.WHITE), b.pieceAt(Square(4, 0)))
+        assertEquals(Piece(PieceType.QUEEN, Color.BLACK), b.pieceAt(Square(3, 7)))
+        assertEquals(Piece(PieceType.KING, Color.BLACK), b.pieceAt(Square(4, 7)))
+    }
+
+    @Test
     fun pawnDoubleAdvanceFromStartRankOnly() {
         val b = NormalChessBoard.startingPosition()
         val pawnMoves = b.legalMoves().filter { it.from == Square(4, 1) }
@@ -304,5 +315,33 @@ class NormalChessBoardTest {
         val after = b.apply(capture)
         assertFalse(after.castling.whiteKingside)
         assertTrue(after.castling.whiteQueenside)
+    }
+
+    @Test
+    fun twofoldRepetitionIsNotYetADraw() {
+        // Knight shuffle once back to the start: second occurrence, still ongoing.
+        var b = NormalChessBoard.startingPosition()
+        b = b.apply(Move(Square(6, 0), Square(5, 2))) // Nf3
+        b = b.apply(Move(Square(6, 7), Square(5, 5))) // Nf6
+        b = b.apply(Move(Square(5, 2), Square(6, 0))) // Ng1
+        b = b.apply(Move(Square(5, 5), Square(6, 7))) // Ng8
+        assertEquals(Color.WHITE, b.sideToMove)
+        assertFalse(b.isThreefoldRepetition())
+        assertEquals(GameResult.ONGOING, b.result())
+    }
+
+    @Test
+    fun threefoldRepetitionIsAnAutomaticDraw() {
+        // Knight shuffle twice back to the start: third occurrence of the initial position.
+        var b = NormalChessBoard.startingPosition()
+        repeat(2) {
+            b = b.apply(Move(Square(6, 0), Square(5, 2))) // Nf3
+            b = b.apply(Move(Square(6, 7), Square(5, 5))) // Nf6
+            b = b.apply(Move(Square(5, 2), Square(6, 0))) // Ng1
+            b = b.apply(Move(Square(5, 5), Square(6, 7))) // Ng8
+        }
+        assertEquals(Color.WHITE, b.sideToMove)
+        assertTrue(b.isThreefoldRepetition())
+        assertEquals(GameResult.DRAW_REPETITION, b.result())
     }
 }

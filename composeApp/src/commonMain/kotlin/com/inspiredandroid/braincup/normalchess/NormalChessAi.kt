@@ -48,7 +48,12 @@ class NormalChessAi(
         // Easy mode disables quiescence so it plays like a beginner who doesn't read
         // recaptures.
         if (depth == 0) return if (useQuiescence) quiescence(board, alphaIn, beta) else evaluate(board)
-        if (board.halfmoveClock >= 100 || board.isInsufficientMaterial()) return 0
+        if (board.halfmoveClock >= 100 ||
+            board.isInsufficientMaterial() ||
+            board.isThreefoldRepetition()
+        ) {
+            return 0
+        }
         var alpha = alphaIn
         var best = -INF
         for (m in moves) {

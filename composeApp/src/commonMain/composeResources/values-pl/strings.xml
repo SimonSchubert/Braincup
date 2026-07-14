@@ -600,6 +600,7 @@
     <string name="normal_chess_stalemate">Pat. Remis.</string>
     <string name="normal_chess_draw_50">Remis z reguły pięćdziesięciu posunięć.</string>
     <string name="normal_chess_draw_material">Remis z powodu niewystarczającego materiału.</string>
+    <string name="normal_chess_draw_repetition">Remis przez powtórzenie pozycji.</string>
     <string name="normal_chess_resign">Poddaj się</string>
     <string name="normal_chess_quit">Zakończ</string>
     <string name="normal_chess_new_game">Nowa gra</string>

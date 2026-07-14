@@ -598,6 +598,7 @@
     <string name="normal_chess_stalemate">Ahogado. Tablas.</string>
     <string name="normal_chess_draw_50">Tablas por regla de los cincuenta movimientos.</string>
     <string name="normal_chess_draw_material">Tablas por material insuficiente.</string>
+    <string name="normal_chess_draw_repetition">Tablas por repetición.</string>
     <string name="normal_chess_resign">Rendirse</string>
     <string name="normal_chess_quit">Salir</string>
     <string name="normal_chess_new_game">Nueva partida</string>

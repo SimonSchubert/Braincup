@@ -586,6 +586,7 @@
     <string name="normal_chess_stalemate">স্টেলমেট। ড্র।</string>
     <string name="normal_chess_draw_50">পঞ্চাশ-চাল নিয়মে ড্র।</string>
     <string name="normal_chess_draw_material">অপর্যাপ্ত উপকরণে ড্র।</string>
+    <string name="normal_chess_draw_repetition">পুনরাবৃত্তির কারণে ড্র।</string>
     <string name="normal_chess_resign">আত্মসমর্পণ</string>
     <string name="normal_chess_quit">প্রস্থান</string>
     <string name="normal_chess_new_game">নতুন খেলা</string>

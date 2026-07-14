@@ -599,6 +599,7 @@
     <string name="normal_chess_stalemate">Hết nước đi. Hòa.</string>
     <string name="normal_chess_draw_50">Hòa theo luật năm mươi nước.</string>
     <string name="normal_chess_draw_material">Hòa do không đủ quân.</string>
+    <string name="normal_chess_draw_repetition">Hòa do lặp lại thế cờ.</string>
     <string name="normal_chess_resign">Đầu hàng</string>
     <string name="normal_chess_quit">Thoát</string>
     <string name="normal_chess_new_game">Ván mới</string>

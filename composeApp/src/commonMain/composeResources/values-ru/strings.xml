@@ -599,6 +599,7 @@
     <string name="normal_chess_stalemate">Пат. Ничья.</string>
     <string name="normal_chess_draw_50">Ничья по правилу пятидесяти ходов.</string>
     <string name="normal_chess_draw_material">Ничья из-за недостатка материала.</string>
+    <string name="normal_chess_draw_repetition">Ничья из-за повторения позиции.</string>
     <string name="normal_chess_resign">Сдаться</string>
     <string name="normal_chess_quit">Выйти</string>
     <string name="normal_chess_new_game">Новая игра</string>

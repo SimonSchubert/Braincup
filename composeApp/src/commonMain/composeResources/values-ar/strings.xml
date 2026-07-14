@@ -586,6 +586,7 @@
     <string name="normal_chess_stalemate">طريق مسدود. تعادل.</string>
     <string name="normal_chess_draw_50">تعادل بقاعدة الخمسين نقلة.</string>
     <string name="normal_chess_draw_material">تعادل بسبب نقص المواد.</string>
+    <string name="normal_chess_draw_repetition">تعادل بالتكرار.</string>
     <string name="normal_chess_resign">استسلام</string>
     <string name="normal_chess_quit">خروج</string>
     <string name="normal_chess_new_game">مباراة جديدة</string>

@@ -600,6 +600,7 @@
     <string name="normal_chess_stalemate">Empate. Afogamento.</string>
     <string name="normal_chess_draw_50">Empate pela regra dos cinquenta lances.</string>
     <string name="normal_chess_draw_material">Empate por material insuficiente.</string>
+    <string name="normal_chess_draw_repetition">Empate por repetição.</string>
     <string name="normal_chess_resign">Desistir</string>
     <string name="normal_chess_quit">Sair</string>
     <string name="normal_chess_new_game">Nova partida</string>

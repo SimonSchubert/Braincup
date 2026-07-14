@@ -599,6 +599,7 @@
     <string name="normal_chess_stalemate">Pat. Seri.</string>
     <string name="normal_chess_draw_50">Seri karena aturan lima puluh langkah.</string>
     <string name="normal_chess_draw_material">Seri karena materi tidak cukup.</string>
+    <string name="normal_chess_draw_repetition">Seri karena pengulangan.</string>
     <string name="normal_chess_resign">Menyerah</string>
     <string name="normal_chess_quit">Keluar</string>
     <string name="normal_chess_new_game">Permainan baru</string>

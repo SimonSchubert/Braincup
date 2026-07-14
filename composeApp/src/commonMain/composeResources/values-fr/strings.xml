@@ -586,6 +586,7 @@
     <string name="normal_chess_stalemate">Pat. Match nul.</string>
     <string name="normal_chess_draw_50">Nul par la règle des cinquante coups.</string>
     <string name="normal_chess_draw_material">Nul par matériel insuffisant.</string>
+    <string name="normal_chess_draw_repetition">Partie nulle par répétition.</string>
     <string name="normal_chess_resign">Abandonner</string>
     <string name="normal_chess_quit">Quitter</string>
     <string name="normal_chess_new_game">Nouvelle partie</string>

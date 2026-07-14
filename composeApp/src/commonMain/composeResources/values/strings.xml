@@ -61,6 +61,7 @@
     <string name="normal_chess_stalemate">Stalemate. Draw.</string>
     <string name="normal_chess_draw_50">Draw by fifty-move rule.</string>
     <string name="normal_chess_draw_material">Draw by insufficient material.</string>
+    <string name="normal_chess_draw_repetition">Draw by repetition.</string>
     <string name="normal_chess_resign">Resign</string>
     <string name="normal_chess_quit">Quit</string>
     <string name="normal_chess_new_game">New game</string>
