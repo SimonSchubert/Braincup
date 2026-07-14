@@ -50,7 +50,6 @@ class AnomalyPuzzleGame : Game() {
     private val basicColors = listOf(Color.GREEN, Color.BLUE, Color.PURPLE, Color.RED, Color.YELLOW)
     private val fallbackPuzzles by lazy {
         listOf(
-            Puzzle.TRIANGLE_ROTATION,
             Puzzle.SAME_SHAPE_MAX_COLOR,
             Puzzle.RECTANGLE_VARIATION,
             Puzzle.L_ROTATION,
@@ -76,6 +75,7 @@ class AnomalyPuzzleGame : Game() {
                 Puzzle.SAME_SHAPE,
             ).shuffled(),
         )
+        // At most one triangle-rotation (arrows up/right/down/left) per game.
         puzzleQueue.add(Puzzle.TRIANGLE_ROTATION)
         puzzleQueue.addAll(
             mutableListOf(
@@ -86,14 +86,12 @@ class AnomalyPuzzleGame : Game() {
         )
         puzzleQueue.addAll(
             mutableListOf(
-                Puzzle.TRIANGLE_ROTATION,
                 Puzzle.RECTANGLE_VARIATION,
                 Puzzle.SAME_SHAPE_MAX_COLOR,
             ).shuffled(),
         )
         puzzleQueue.addAll(
             mutableListOf(
-                Puzzle.TRIANGLE_ROTATION,
                 Puzzle.SAME_SHAPE_MAX_COLOR,
                 Puzzle.RECTANGLE_VARIATION,
             ).shuffled(),
