@@ -280,7 +280,7 @@
     <string name="achievement_sudoku_expert_desc">Résous les 10 grilles du niveau Expert</string>
     <!-- Flags game -->
     <string name="game_flags">Drapeaux</string>
-    <string name="game_flags_desc">Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d\'options et le temps s\'écoule.</string>
+    <string name="game_flags_desc">Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d'options et le temps s'écoule.</string>
     <string name="game_flags_question">Quel est ce drapeau ?</string>
     <string name="game_flags_score">Score : %1$d</string>
     <string name="game_flags_best">Meilleur : %1$d</string>
@@ -333,7 +333,7 @@
     <string name="country_bosnia_and_herzegovina">Bosnie-Herzégovine</string>
     <string name="country_botswana">Botswana</string>
     <string name="country_brazil">Brésil</string>
-    <string name="country_british_indian_ocean_territory">Territoire britannique de l\'océan Indien</string>
+    <string name="country_british_indian_ocean_territory">Territoire britannique de l'océan Indien</string>
     <string name="country_british_virgin_islands">Îles Vierges britanniques</string>
     <string name="country_brunei_darussalam">Brunei</string>
     <string name="country_bulgaria">Bulgarie</string>
@@ -412,7 +412,7 @@
     <string name="country_isle_of_man">Île de Man</string>
     <string name="country_israel">Israel</string>
     <string name="country_italy">Italie</string>
-    <string name="country_ivory_coast">Côte d\'Ivoire</string>
+    <string name="country_ivory_coast">Côte d'Ivoire</string>
     <string name="country_jamaica">Jamaïque</string>
     <string name="country_japan">Japon</string>
     <string name="country_jersey">Jersey</string>
@@ -550,7 +550,7 @@
     <string name="settings_keypad">Pavé numérique style téléphone</string>
     <string name="settings_keypad_desc">Place 1, 2, 3 en haut à la place de 7, 8, 9.</string>
     <string name="settings_theme">Apparence</string>
-    <string name="settings_theme_desc">Choisis l\'apparence de Brain Cup.</string>
+    <string name="settings_theme_desc">Choisis l'apparence de Brain Cup.</string>
     <string name="settings_theme_system">Système</string>
     <string name="settings_theme_light">Clair</string>
     <string name="settings_theme_dark">Sombre</string>
@@ -599,20 +599,20 @@
     <string name="normal_chess_draw_warning">= pat (nul, pas une victoire)</string>
 
     <!-- Matchstick Riddles -->
-    <string name="matchstick_riddles_button">Énigmes d\'allumettes (%1$d/%2$d)</string>
-    <string name="matchstick_riddles_title">Énigmes d\'allumettes</string>
+    <string name="matchstick_riddles_button">Énigmes d'allumettes (%1$d/%2$d)</string>
+    <string name="matchstick_riddles_title">Énigmes d'allumettes</string>
     <string name="matchstick_riddles_puzzle_label">Énigme %1$d</string>
-    <string name="matchstick_riddle_prompt_move_one">Déplacez 1 allumette pour corriger l\'équation.</string>
-    <string name="matchstick_riddle_prompt_move_two">Déplacez 2 allumettes pour corriger l\'équation.</string>
-    <string name="matchstick_riddle_prompt_move_three">Déplacez 3 allumettes pour corriger l\'équation.</string>
+    <string name="matchstick_riddle_prompt_move_one">Déplacez 1 allumette pour corriger l'équation.</string>
+    <string name="matchstick_riddle_prompt_move_two">Déplacez 2 allumettes pour corriger l'équation.</string>
+    <string name="matchstick_riddle_prompt_move_three">Déplacez 3 allumettes pour corriger l'équation.</string>
     <string name="matchstick_riddles_solved">Résolu !</string>
     <string name="matchstick_riddles_reset">Réinitialiser</string>
     <string name="achievement_matchstick_master">Maître des allumettes</string>
-    <string name="achievement_matchstick_master_desc">Résous chaque énigme d\'allumettes</string>
+    <string name="achievement_matchstick_master_desc">Résous chaque énigme d'allumettes</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Devinez le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.</string>
     <string name="achievement_gold_wordle">Maître des mots</string>
-    <string name="achievement_gold_wordle_desc">Gagnez une médaille d\'or à Wordle</string>
+    <string name="achievement_gold_wordle_desc">Gagnez une médaille d'or à Wordle</string>
     <string name="wordle_not_enough_letters">Pas assez de lettres</string>
     <string name="wordle_not_in_word_list">Absent de la liste</string>
     <string name="wordle_answer_was">Le mot était %1$s</string>
