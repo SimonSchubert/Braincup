@@ -79,6 +79,18 @@
         <p><a href="https://github.com/SimonSchubert/Braincup">View source on GitHub</a></p>
     </div>
 </noscript>
-<script src="composeApp.js"></script>
+<script>
+    // 404.html is served for any unknown path, so the document URL can be a nested route such as
+    // /Braincup/matchstick/one_plus_one. A relative script src would resolve against that nested
+    // path and 404, so pin the bundle to the app root. Webpack derives its public path from
+    // currentScript.src, which keeps the wasm chunks resolving from the same root.
+    // Mirrors detectWebBasePath in AppUrlRoutes.kt.
+    (function () {
+        var base = location.pathname.indexOf('/Braincup') === 0 ? '/Braincup/' : '/';
+        var script = document.createElement('script');
+        script.src = base + 'composeApp.js';
+        document.body.appendChild(script);
+    })();
+</script>
 </body>
 </html>
