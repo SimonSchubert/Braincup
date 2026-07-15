@@ -271,6 +271,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameBubbleSum() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createBubbleSumUiState(),
+                timeRemaining = 55_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSherlockCalculation() {
         paparazzi.snap {
             GameScreen(

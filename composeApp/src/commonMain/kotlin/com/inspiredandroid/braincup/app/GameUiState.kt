@@ -50,6 +50,16 @@ data class MentalCalculationUiState(
 ) : GameUiState
 
 @Immutable
+data class BubbleSumUiState(
+    val bubbles: ImmutableList<BubbleState>,
+    val answerLength: Int,
+    val roundKey: Int,
+) : GameUiState {
+    @Immutable
+    data class BubbleState(val value: Int)
+}
+
+@Immutable
 data class ChainCalculationUiState(
     val calculation: String,
     val answer: Int,

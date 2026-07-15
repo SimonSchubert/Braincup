@@ -174,6 +174,7 @@
     <string name="game_ghost_grid">Ghost Grid</string>
     <string name="game_color_confusion">Color Confusion</string>
     <string name="game_orbit_tracker">Orbit Tracker</string>
+    <string name="game_bubble_sum">Bubble Sum</string>
     <string name="game_flash_crowd">Flash Crowd</string>
     <string name="game_schulte_table">Schulte Table</string>
     <string name="game_mini_chess">Mini Chess</string>
@@ -201,6 +202,11 @@
     <string name="game_ghost_grid_desc">Watch the tiles light up one by one, then tap them back in the same order.</string>
     <string name="game_color_confusion_desc">Tap all cells where the word matches its font color, then press Done.</string>
     <string name="game_orbit_tracker_desc">Watch the highlighted balls, then track them as they move. Select the original targets after they stop.</string>
+    <string name="game_bubble_sum_desc">Add the numbers on the floating bubbles. Later, numbers blink — remember them.</string>
+    <string name="bubble_sum_instruction">What is the sum?</string>
+    <string name="bubble_sum_demo_title">Add the floating numbers</string>
+    <string name="bubble_sum_demo_blink">Remember the values when they blink away.</string>
+    <string name="bubble_sum_demo_correct">That's the sum.</string>
     <string name="game_flash_crowd_desc">Dots flash briefly on each side. Tap the side that had more dots. Don't count — trust your instinct!</string>
     <string name="game_schulte_table_desc">Tap the numbers in order from 1 upwards as fast as you can.</string>
     <string name="game_schulte_instruction">Tap the numbers in order: 1, 2, 3...</string>
@@ -352,6 +358,7 @@
     <string name="achievement_gold_colored_shapes">Shape Shifter</string>
     <string name="achievement_gold_sherlock_calculation">Elementary, My Dear</string>
     <string name="achievement_gold_mental_calculation">Human Calculator</string>
+    <string name="achievement_gold_bubble_sum">Bubble Accountant</string>
     <string name="achievement_gold_chain_calculation">Unbroken Chain</string>
     <string name="achievement_gold_fraction_calculation">Fraction Boss</string>
     <string name="achievement_gold_value_comparison">Greater Than the Rest</string>
@@ -384,6 +391,7 @@
     <string name="achievement_gold_colored_shapes_desc">Win gold medal in Colored Shapes</string>
     <string name="achievement_gold_sherlock_calculation_desc">Win gold medal in Sherlock Calculation</string>
     <string name="achievement_gold_mental_calculation_desc">Win gold medal in Mental Calculation</string>
+    <string name="achievement_gold_bubble_sum_desc">Win gold medal in Bubble Sum</string>
     <string name="achievement_gold_chain_calculation_desc">Win gold medal in Chain Calculation</string>
     <string name="achievement_gold_fraction_calculation_desc">Win gold medal in Fraction Calculation</string>
     <string name="achievement_gold_value_comparison_desc">Win gold medal in Value Comparison</string>

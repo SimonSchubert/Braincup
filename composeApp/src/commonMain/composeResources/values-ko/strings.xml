@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">유령 격자</string>
     <string name="game_color_confusion">색상 혼동</string>
     <string name="game_orbit_tracker">궤도 추적기</string>
+    <string name="game_bubble_sum">버블 합계</string>
+    <string name="game_bubble_sum_desc">떠다니는 버블의 숫자를 더하세요. 나중에는 숫자가 깜빡입니다. 기억하세요.</string>
+    <string name="bubble_sum_instruction">합은 얼마인가요?</string>
+    <string name="bubble_sum_demo_title">떠다니는 숫자를 더하세요</string>
+    <string name="bubble_sum_demo_blink">사라질 때 값을 기억하세요.</string>
+    <string name="bubble_sum_demo_correct">그게 합입니다.</string>
+    <string name="achievement_gold_bubble_sum">버블 회계사</string>
+    <string name="achievement_gold_bubble_sum_desc">버블 합계에서 금메달 획득</string>
     <string name="game_flash_crowd">플래시 크라우드</string>
     <string name="game_schulte_table">슐테 테이블</string>
     <string name="game_mini_chess">미니 체스</string>

@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Siatka Duchów</string>
     <string name="game_color_confusion">Zamieszanie Kolorów</string>
     <string name="game_orbit_tracker">Śledzenie Orbit</string>
+    <string name="game_bubble_sum">Suma baniek</string>
+    <string name="game_bubble_sum_desc">Dodaj liczby na unoszących się bańkach. Później liczby mrugają — zapamiętaj je.</string>
+    <string name="bubble_sum_instruction">Jaka jest suma?</string>
+    <string name="bubble_sum_demo_title">Dodaj unoszące się liczby</string>
+    <string name="bubble_sum_demo_blink">Zapamiętaj wartości, gdy znikają.</string>
+    <string name="bubble_sum_demo_correct">To jest suma.</string>
+    <string name="achievement_gold_bubble_sum">Księgowy baniek</string>
+    <string name="achievement_gold_bubble_sum_desc">Zdobądź złoty medal w Suma baniek</string>
     <string name="game_flash_crowd">Błyskawiczny Tłum</string>
     <string name="game_schulte_table">Tablica Schulte'a</string>
     <string name="game_mini_chess">Mini Szachy</string>

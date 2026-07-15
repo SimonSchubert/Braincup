@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.BubbleSumDemo
 import com.inspiredandroid.braincup.ui.components.CatQueensDemo
 import com.inspiredandroid.braincup.ui.components.ChainCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
@@ -115,6 +116,7 @@ fun InstructionsScreen(
                 GameType.SCHULTE_TABLE -> SchulteTableDemo(modifier = demoModifier)
                 GameType.SPOT_THE_NEW -> SpotTheNewDemo(modifier = demoModifier)
                 GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
+                GameType.BUBBLE_SUM -> BubbleSumDemo(modifier = demoModifier)
                 GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
                 GameType.KNOT -> KnotDemo(modifier = demoModifier)
                 GameType.SOLO_CHESS -> SoloChessDemo(modifier = demoModifier)

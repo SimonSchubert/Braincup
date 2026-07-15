@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Hayalet Izgara</string>
     <string name="game_color_confusion">Renk Karmaşası</string>
     <string name="game_orbit_tracker">Yörünge Takipçisi</string>
+    <string name="game_bubble_sum">Baloncuk Toplamı</string>
+    <string name="game_bubble_sum_desc">Yüzen baloncuklardaki sayıları topla. Sonra sayılar yanıp söner — ezberle.</string>
+    <string name="bubble_sum_instruction">Toplam nedir?</string>
+    <string name="bubble_sum_demo_title">Yüzen sayıları topla</string>
+    <string name="bubble_sum_demo_blink">Kaybolduklarında değerleri hatırla.</string>
+    <string name="bubble_sum_demo_correct">Bu toplam.</string>
+    <string name="achievement_gold_bubble_sum">Baloncuk Muhasebecisi</string>
+    <string name="achievement_gold_bubble_sum_desc">Baloncuk Toplamı'nda altın madalya kazan</string>
     <string name="game_flash_crowd">Flaş Kalabalık</string>
     <string name="game_schulte_table">Schulte Tablosu</string>
     <string name="game_mini_chess">Mini Satranç</string>

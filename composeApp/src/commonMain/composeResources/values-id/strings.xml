@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Grid Hantu</string>
     <string name="game_color_confusion">Kebingungan Warna</string>
     <string name="game_orbit_tracker">Pelacak Orbit</string>
+    <string name="game_bubble_sum">Jumlah Gelembung</string>
+    <string name="game_bubble_sum_desc">Jumlahkan angka di gelembung mengambang. Nanti angka berkedip — ingatlah.</string>
+    <string name="bubble_sum_instruction">Berapa jumlahnya?</string>
+    <string name="bubble_sum_demo_title">Jumlahkan angka mengambang</string>
+    <string name="bubble_sum_demo_blink">Ingat nilainya saat menghilang.</string>
+    <string name="bubble_sum_demo_correct">Itulah jumlahnya.</string>
+    <string name="achievement_gold_bubble_sum">Akuntan Gelembung</string>
+    <string name="achievement_gold_bubble_sum_desc">Raih medali emas di Jumlah Gelembung</string>
     <string name="game_flash_crowd">Kerumunan Kilat</string>
     <string name="game_schulte_table">Tabel Schulte</string>
     <string name="game_mini_chess">Mini Catur</string>

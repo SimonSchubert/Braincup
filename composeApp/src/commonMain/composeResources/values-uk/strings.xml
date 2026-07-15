@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Примарна сітка</string>
     <string name="game_color_confusion">Кольорова плутанина</string>
     <string name="game_orbit_tracker">Відстеження орбіт</string>
+    <string name="game_bubble_sum">Сума бульбашок</string>
+    <string name="game_bubble_sum_desc">Додай числа на плавучих бульбашках. Пізніше числа блимають — запамʼятай їх.</string>
+    <string name="bubble_sum_instruction">Яка сума?</string>
+    <string name="bubble_sum_demo_title">Додай плавучі числа</string>
+    <string name="bubble_sum_demo_blink">Запамʼятай значення, коли вони зникають.</string>
+    <string name="bubble_sum_demo_correct">Це сума.</string>
+    <string name="achievement_gold_bubble_sum">Бульбашковий бухгалтер</string>
+    <string name="achievement_gold_bubble_sum_desc">Здобудь золоту медаль у Сума бульбашок</string>
     <string name="game_flash_crowd">Миттєвий натовп</string>
     <string name="game_schulte_table">Таблиця Шульте</string>
     <string name="game_mini_chess">Міні-шахи</string>

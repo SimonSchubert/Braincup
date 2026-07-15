@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Lưới Ma</string>
     <string name="game_color_confusion">Nhầm lẫn Màu sắc</string>
     <string name="game_orbit_tracker">Theo Dõi Quỹ Đạo</string>
+    <string name="game_bubble_sum">Tổng bong bóng</string>
+    <string name="game_bubble_sum_desc">Cộng các số trên bong bóng bay. Sau đó số nhấp nháy — hãy nhớ chúng.</string>
+    <string name="bubble_sum_instruction">Tổng là bao nhiêu?</string>
+    <string name="bubble_sum_demo_title">Cộng các số bay</string>
+    <string name="bubble_sum_demo_blink">Nhớ các giá trị khi chúng biến mất.</string>
+    <string name="bubble_sum_demo_correct">Đó là tổng.</string>
+    <string name="achievement_gold_bubble_sum">Kế toán bong bóng</string>
+    <string name="achievement_gold_bubble_sum_desc">Giành huy chương vàng ở Tổng bong bóng</string>
     <string name="game_flash_crowd">Đám Đông Chớp</string>
     <string name="game_schulte_table">Bảng Schulte</string>
     <string name="game_mini_chess">Cờ Vua Mini</string>

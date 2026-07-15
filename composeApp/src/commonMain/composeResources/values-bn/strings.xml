@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">ভুতুড়ে গ্রিড</string>
     <string name="game_color_confusion">রঙ বিভ্রান্তি</string>
     <string name="game_orbit_tracker">অরবিট ট্র্যাকার</string>
+    <string name="game_bubble_sum">বুদবুদ যোগফল</string>
+    <string name="game_bubble_sum_desc">ভাসমান বুদবুদের সংখ্যা যোগ করুন। পরে সংখ্যাগুলো ঝলকায় — মনে রাখুন।</string>
+    <string name="bubble_sum_instruction">যোগফল কত?</string>
+    <string name="bubble_sum_demo_title">ভাসমান সংখ্যা যোগ করুন</string>
+    <string name="bubble_sum_demo_blink">হারিয়ে গেলে মান মনে রাখুন।</string>
+    <string name="bubble_sum_demo_correct">এটাই যোগফল।</string>
+    <string name="achievement_gold_bubble_sum">বুদবুদ হিসাবরক্ষক</string>
+    <string name="achievement_gold_bubble_sum_desc">বুদবুদ যোগফলে স্বর্ণপদক জিতুন</string>
     <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
     <string name="game_schulte_table">শুল্টে টেবিল</string>
     <string name="game_mini_chess">মিনি দাবা</string>

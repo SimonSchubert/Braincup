@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">幽灵方格</string>
     <string name="game_color_confusion">颜色混淆</string>
     <string name="game_orbit_tracker">轨道追踪</string>
+    <string name="game_bubble_sum">气泡求和</string>
+    <string name="game_bubble_sum_desc">把漂浮气泡上的数字相加。之后数字会闪烁——要记住它们。</string>
+    <string name="bubble_sum_instruction">总和是多少？</string>
+    <string name="bubble_sum_demo_title">把漂浮的数字相加</string>
+    <string name="bubble_sum_demo_blink">数字消失时记住它们。</string>
+    <string name="bubble_sum_demo_correct">这就是总和。</string>
+    <string name="achievement_gold_bubble_sum">气泡会计</string>
+    <string name="achievement_gold_bubble_sum_desc">在气泡求和中赢得金牌</string>
     <string name="game_flash_crowd">闪现人群</string>
     <string name="game_schulte_table">舒尔特方格</string>
     <string name="game_mini_chess">迷你国际象棋</string>

@@ -171,6 +171,14 @@
     <string name="game_ghost_grid">Πλέγμα Φαντασμάτων</string>
     <string name="game_color_confusion">Σύγχυση Χρωμάτων</string>
     <string name="game_orbit_tracker">Ιχνηλάτης Τροχιάς</string>
+    <string name="game_bubble_sum">Άθροισμα φυσαλίδων</string>
+    <string name="game_bubble_sum_desc">Πρόσθεσε τους αριθμούς στις αιωρούμενες φυσαλίδες. Αργότερα αναβοσβήνουν — θυμήσου τους.</string>
+    <string name="bubble_sum_instruction">Ποιο είναι το άθροισμα;</string>
+    <string name="bubble_sum_demo_title">Πρόσθεσε τους αιωρούμενους αριθμούς</string>
+    <string name="bubble_sum_demo_blink">Θυμήσου τις τιμές όταν εξαφανίζονται.</string>
+    <string name="bubble_sum_demo_correct">Αυτό είναι το άθροισμα.</string>
+    <string name="achievement_gold_bubble_sum">Λογιστής φυσαλίδων</string>
+    <string name="achievement_gold_bubble_sum_desc">Κέρδισε χρυσό μετάλλιο στο Άθροισμα φυσαλίδων</string>
     <string name="game_flash_crowd">Αστραπιαίο Πλήθος</string>
     <string name="game_schulte_table">Πίνακας Σούλτε</string>
     <string name="game_mini_chess">Μίνι Σκάκι</string>

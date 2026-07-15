@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Призрачная сетка</string>
     <string name="game_color_confusion">Цветовая путаница</string>
     <string name="game_orbit_tracker">Отслеживание орбит</string>
+    <string name="game_bubble_sum">Сумма пузырей</string>
+    <string name="game_bubble_sum_desc">Сложите числа на плывущих пузырях. Позже числа мигают — запомните их.</string>
+    <string name="bubble_sum_instruction">Чему равна сумма?</string>
+    <string name="bubble_sum_demo_title">Сложите плывущие числа</string>
+    <string name="bubble_sum_demo_blink">Запомните значения, когда они исчезают.</string>
+    <string name="bubble_sum_demo_correct">Это сумма.</string>
+    <string name="achievement_gold_bubble_sum">Пузырьковый бухгалтер</string>
+    <string name="achievement_gold_bubble_sum_desc">Завоюй золотую медаль в Сумма пузырей</string>
     <string name="game_flash_crowd">Мгновенная толпа</string>
     <string name="game_schulte_table">Таблица Шульте</string>
     <string name="game_mini_chess">Мини-шахматы</string>

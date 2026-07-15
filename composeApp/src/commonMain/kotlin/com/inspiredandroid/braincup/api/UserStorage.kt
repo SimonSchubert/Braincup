@@ -44,6 +44,7 @@ class UserStorage(
         GOLD_COLORED_SHAPES(Res.string.achievement_gold_colored_shapes, Res.string.achievement_gold_colored_shapes_desc),
         GOLD_SHERLOCK_CALCULATION(Res.string.achievement_gold_sherlock_calculation, Res.string.achievement_gold_sherlock_calculation_desc),
         GOLD_MENTAL_CALCULATION(Res.string.achievement_gold_mental_calculation, Res.string.achievement_gold_mental_calculation_desc),
+        GOLD_BUBBLE_SUM(Res.string.achievement_gold_bubble_sum, Res.string.achievement_gold_bubble_sum_desc),
         GOLD_CHAIN_CALCULATION(Res.string.achievement_gold_chain_calculation, Res.string.achievement_gold_chain_calculation_desc),
         GOLD_FRACTION_CALCULATION(Res.string.achievement_gold_fraction_calculation, Res.string.achievement_gold_fraction_calculation_desc),
         GOLD_VALUE_COMPARISON(Res.string.achievement_gold_value_comparison, Res.string.achievement_gold_value_comparison_desc),

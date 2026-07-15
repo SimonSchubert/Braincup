@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">ตารางผี</string>
     <string name="game_color_confusion">สีสับสน</string>
     <string name="game_orbit_tracker">ติดตามวงโคจร</string>
+    <string name="game_bubble_sum">ผลรวมฟอง</string>
+    <string name="game_bubble_sum_desc">บวกตัวเลขบนฟองที่ลอย ภายหลังตัวเลขจะกะพริบ — จำไว้</string>
+    <string name="bubble_sum_instruction">ผลรวมคือเท่าไร?</string>
+    <string name="bubble_sum_demo_title">บวกตัวเลขที่ลอย</string>
+    <string name="bubble_sum_demo_blink">จำค่าเมื่อมันหายไป</string>
+    <string name="bubble_sum_demo_correct">นั่นคือผลรวม</string>
+    <string name="achievement_gold_bubble_sum">นักบัญชีฟอง</string>
+    <string name="achievement_gold_bubble_sum_desc">ชนะเหรียญทองในผลรวมฟอง</string>
     <string name="game_flash_crowd">ฝูงชนวาบ</string>
     <string name="game_schulte_table">ตารางชูลเทอ</string>
     <string name="game_mini_chess">หมากรุกย่อ</string>

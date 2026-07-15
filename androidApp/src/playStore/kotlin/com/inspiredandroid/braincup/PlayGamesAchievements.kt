@@ -280,6 +280,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.COLORED_SHAPES -> R.string.achievementShapeShifter
     GameType.SHERLOCK_CALCULATION -> R.string.achievementElementaryMyDear
     GameType.MENTAL_CALCULATION -> R.string.achievementHumanCalculator
+    GameType.BUBBLE_SUM -> null // GPGS achievement ID pending console setup
     GameType.CHAIN_CALCULATION -> R.string.achievementUnbrokenChain
     GameType.FRACTION_CALCULATION -> R.string.achievementFractionBoss
     GameType.VALUE_COMPARISON -> R.string.achievementGreaterThanTheRest

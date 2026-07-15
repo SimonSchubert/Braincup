@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">شبكة الأشباح</string>
     <string name="game_color_confusion">ارتباك الألوان</string>
     <string name="game_orbit_tracker">تتبع المدار</string>
+    <string name="game_bubble_sum">مجموع الفقاعات</string>
+    <string name="game_bubble_sum_desc">اجمع الأرقام على الفقاعات العائمة. لاحقًا تومض الأرقام — احفظها.</string>
+    <string name="bubble_sum_instruction">ما هو المجموع؟</string>
+    <string name="bubble_sum_demo_title">اجمع الأرقام العائمة</string>
+    <string name="bubble_sum_demo_blink">احفظ القيم عندما تختفي.</string>
+    <string name="bubble_sum_demo_correct">هذا هو المجموع.</string>
+    <string name="achievement_gold_bubble_sum">محاسب الفقاعات</string>
+    <string name="achievement_gold_bubble_sum_desc">افز بالميدالية الذهبية في مجموع الفقاعات</string>
     <string name="game_flash_crowd">حشد الوميض</string>
     <string name="game_schulte_table">جدول شولت</string>
     <string name="game_mini_chess">شطرنج مصغر</string>

@@ -388,6 +388,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.COLORED_SHAPES -> ColoredShapesPreview()
         GameType.VISUAL_MEMORY -> VisualMemoryPreview()
         GameType.MENTAL_CALCULATION -> MentalCalculationPreview()
+        GameType.BUBBLE_SUM -> BubbleSumPreview()
         GameType.SHERLOCK_CALCULATION -> SherlockCalculationPreview()
         GameType.CHAIN_CALCULATION -> ChainCalculationPreview()
         GameType.FRACTION_CALCULATION -> FractionCalculationPreview()
@@ -1364,6 +1365,62 @@ private fun OrbitTrackerPreview() {
                     face = if (isTarget) primaryColor else onSurfaceVariantColor,
                     side = if (isTarget) primarySide else variantSide,
                     bottom = if (isTarget) primaryBottom else variantBottom,
+                )
+            }
+        }
+    }
+}
+
+private val BubbleSumPreviewBubbles = listOf(
+    Triple(0.30f, 0.32f, 3),
+    Triple(0.70f, 0.30f, 7),
+    Triple(0.50f, 0.68f, 2),
+)
+
+@Composable
+private fun BubbleSumPreview() {
+    val primaryColor = MaterialTheme.colorScheme.primary
+    val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
+    val primarySide = remember(primaryColor) { primaryColor.darken(0.7f) }
+    val primaryBottom = remember(primaryColor) { primaryColor.darken(0.5f) }
+    val textMeasurer = rememberTextMeasurer()
+    val digitStyle = MaterialTheme.typography.labelSmall.copy(
+        color = androidx.compose.ui.graphics.Color.White,
+        fontWeight = FontWeight.Bold,
+    )
+    Box(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp)
+            .background(borderColor),
+    ) {
+        Canvas(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(2.dp)
+                .background(MaterialTheme.colorScheme.surface),
+        ) {
+            val ballRadius = size.width * 0.12f
+            BubbleSumPreviewBubbles.forEach { (x, y, value) ->
+                val center = Offset(x * size.width, y * size.height)
+                drawPrismCircle(
+                    center = center,
+                    radius = ballRadius,
+                    face = primaryColor,
+                    side = primarySide,
+                    bottom = primaryBottom,
+                )
+                val measured = textMeasurer.measure(
+                    text = AnnotatedString(value.toString()),
+                    style = digitStyle,
+                )
+                drawText(
+                    textLayoutResult = measured,
+                    topLeft = Offset(
+                        center.x - measured.size.width / 2f,
+                        center.y - measured.size.height / 2f,
+                    ),
                 )
             }
         }

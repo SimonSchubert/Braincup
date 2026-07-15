@@ -13,6 +13,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
+import com.inspiredandroid.braincup.app.BubbleSumUiState
 import com.inspiredandroid.braincup.app.CatQueensUiState
 import com.inspiredandroid.braincup.app.ChainCalculationUiState
 import com.inspiredandroid.braincup.app.ColorConfusionUiState
@@ -43,10 +44,12 @@ import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
 import com.inspiredandroid.braincup.app.ValueComparisonUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.WordleUiState
+import com.inspiredandroid.braincup.games.BubbleSumGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.screens.games.AnomalyPuzzleContent
+import com.inspiredandroid.braincup.ui.screens.games.BubbleSumContent
 import com.inspiredandroid.braincup.ui.screens.games.CatQueensContent
 import com.inspiredandroid.braincup.ui.screens.games.ChainCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.ColorConfusionContent
@@ -99,6 +102,8 @@ fun GameScreen(
     onWordleFinishedAction: () -> Unit = {},
     /** Live ball positions during Orbit Tracker MOVING; ignored for other games. */
     orbitBallPositions: StateFlow<List<Pair<Float, Float>>>? = null,
+    /** Live Bubble Sum frames (position + visibility); ignored for other games. */
+    bubbleSumFrames: StateFlow<List<BubbleSumGame.BubbleFrame>>? = null,
 ) {
     val progressBarModifier = Modifier
         .fillMaxWidth()
@@ -138,7 +143,7 @@ fun GameScreen(
         } else {
             null
         },
-        fillContent = gameUiState is FlagsUiState,
+        fillContent = gameUiState is FlagsUiState || gameUiState is BubbleSumUiState,
     ) {
         // Force LTR for gameplay content: math expressions, digit sequences, directional
         // arrows, and asymmetric shapes carry semantic meaning that breaks under RTL
@@ -146,6 +151,11 @@ fun GameScreen(
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
             when (gameUiState) {
                 is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
+                is BubbleSumUiState -> BubbleSumContent(
+                    uiState = gameUiState,
+                    liveFrames = bubbleSumFrames,
+                    onAnswer = onAnswer,
+                )
                 is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
                 is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)
                 is ColoredShapesUiState -> ColoredShapesContent(gameUiState, onAnswer)

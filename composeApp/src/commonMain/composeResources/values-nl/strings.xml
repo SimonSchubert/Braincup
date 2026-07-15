@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Spookraster</string>
     <string name="game_color_confusion">Kleurverwarring</string>
     <string name="game_orbit_tracker">Baanvolger</string>
+    <string name="game_bubble_sum">Bellensom</string>
+    <string name="game_bubble_sum_desc">Tel de getallen op de zwevende bellen op. Later knipperen de getallen — onthoud ze.</string>
+    <string name="bubble_sum_instruction">Wat is de som?</string>
+    <string name="bubble_sum_demo_title">Tel de zwevende getallen op</string>
+    <string name="bubble_sum_demo_blink">Onthoud de waarden als ze verdwijnen.</string>
+    <string name="bubble_sum_demo_correct">Dat is de som.</string>
+    <string name="achievement_gold_bubble_sum">Bellenaccountant</string>
+    <string name="achievement_gold_bubble_sum_desc">Win gouden medaille in Bellensom</string>
     <string name="game_flash_crowd">Flitsmenigte</string>
     <string name="game_schulte_table">Schulte-tabel</string>
     <string name="game_mini_chess">Mini-Schaak</string>

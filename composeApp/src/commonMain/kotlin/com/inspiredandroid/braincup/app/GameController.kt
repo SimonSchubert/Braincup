@@ -55,6 +55,15 @@ class GameController(
     private val _orbitBallPositions = MutableStateFlow<List<Pair<Float, Float>>>(emptyList())
     val orbitBallPositions: StateFlow<List<Pair<Float, Float>>> = _orbitBallPositions.asStateFlow()
 
+    /**
+     * Lightweight Bubble Sum frames (position + visibility) updated every animation frame.
+     * Values and answer length stay on [gameUiState] so only the arena leaf recomposes at 60fps.
+     */
+    private val _bubbleSumFrames =
+        MutableStateFlow<List<BubbleSumGame.BubbleFrame>>(emptyList())
+    val bubbleSumFrames: StateFlow<List<BubbleSumGame.BubbleFrame>> =
+        _bubbleSumFrames.asStateFlow()
+
     private val _gameUiState = MutableStateFlow<GameUiState?>(null)
     val gameUiState: StateFlow<GameUiState?> = _gameUiState.asStateFlow()
 
@@ -176,6 +185,7 @@ class GameController(
             (currentState.game as? SpotTheNewGame)?.cancelCountdown()
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
+            (currentState.game as? BubbleSumGame)?.cancelAnimation()
             (currentState.game as? DigitMemoryGame)?.cancelShowing()
             if (currentState.game is MiniChessGame) cancelMiniChessAi()
             if (currentState.game is FlagsGame) cancelFlagsTimer()
@@ -321,6 +331,10 @@ class GameController(
             startDigitMemoryGame(gameType)
             return
         }
+        if (gameType == GameType.BUBBLE_SUM) {
+            startBubbleSumGame(gameType)
+            return
+        }
         if (gameType == GameType.SPOT_THE_NEW) {
             startSpotTheNewGame(gameType)
             return
@@ -455,6 +469,9 @@ class GameController(
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
 
+        // Stop continuous motion while the feedback screen is up; proceedAfterFeedback restarts it.
+        (game as? BubbleSumGame)?.cancelAnimation()
+
         if (isCorrect) {
             points++
             _gameState.value = GameState.Feedback(
@@ -577,6 +594,9 @@ class GameController(
             game.nextRound()
             _gameState.value = GameState.Active(currentState.gameType, game)
             _gameUiState.value = game.toUiState()
+            if (game is BubbleSumGame) {
+                startBubbleSumMotion(game)
+            }
         }
     }
 
@@ -736,6 +756,7 @@ class GameController(
         GameType.GHOST_GRID -> GhostGridGame()
         GameType.COLOR_CONFUSION -> ColorConfusionGame()
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
+        GameType.BUBBLE_SUM -> BubbleSumGame()
         GameType.FLASH_CROWD -> FlashCrowdGame()
         GameType.MINI_CHESS -> MiniChessGame()
         GameType.FLAGS -> FlagsGame()
@@ -1750,6 +1771,7 @@ class GameController(
         (game as? SpotTheNewGame)?.cancelCountdown()
         (game as? GhostGridGame)?.cancelShowSequence()
         (game as? OrbitTrackerGame)?.cancelAnimation()
+        (game as? BubbleSumGame)?.cancelAnimation()
         (game as? DigitMemoryGame)?.cancelShowing()
         if (game is FlagsGame) cancelFlagsTimer()
         cancelTimer()
@@ -1808,6 +1830,33 @@ class GameController(
         navController.navigate(Playing(gameType.id))
         startTimer()
         game.startShowing(scope) { _gameUiState.value = game.toUiState() }
+    }
+
+    private fun startBubbleSumGame(gameType: GameType) {
+        startTime = Clock.System.now().toEpochMilliseconds()
+        _timeRemaining.value = GAME_TIME_MILLIS
+
+        val game = BubbleSumGame()
+        if (game.adaptiveDifficulty) {
+            sessionStartRound = storage.getLastRound(gameType.id)
+            game.round = sessionStartRound
+        }
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+        startTimer()
+        startBubbleSumMotion(game)
+    }
+
+    private fun startBubbleSumMotion(game: BubbleSumGame) {
+        emitBubbleSumFrame(game)
+        game.startMotion(scope) { emitBubbleSumFrame(game) }
+    }
+
+    private fun emitBubbleSumFrame(game: BubbleSumGame) {
+        _bubbleSumFrames.value = game.frames()
     }
 
     private fun handleDigitMemoryAnswer(

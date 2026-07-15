@@ -6,6 +6,7 @@
 .DS_Store
 /build
 /.kotlin
+AGENTS.md
 /captures
 .externalNativeBuild
 /ort-results

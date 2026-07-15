@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">ゴーストグリッド</string>
     <string name="game_color_confusion">カラーコンフュージョン</string>
     <string name="game_orbit_tracker">オービットトラッカー</string>
+    <string name="game_bubble_sum">バブル合計</string>
+    <string name="game_bubble_sum_desc">浮かぶバブルの数字を足しましょう。後で数字が点滅します。覚えておいてください。</string>
+    <string name="bubble_sum_instruction">合計は？</string>
+    <string name="bubble_sum_demo_title">浮かぶ数字を足す</string>
+    <string name="bubble_sum_demo_blink">消えたときの数字を覚えて。</string>
+    <string name="bubble_sum_demo_correct">これが合計です。</string>
+    <string name="achievement_gold_bubble_sum">バブル会計士</string>
+    <string name="achievement_gold_bubble_sum_desc">バブル合計で金メダルを獲得</string>
     <string name="game_flash_crowd">フラッシュクラウド</string>
     <string name="game_schulte_table">シュルテ表</string>
     <string name="game_mini_chess">ミニチェス</string>

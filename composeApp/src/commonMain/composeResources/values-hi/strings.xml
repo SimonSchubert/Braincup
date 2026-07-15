@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">भूत ग्रिड</string>
     <string name="game_color_confusion">रंग भ्रम</string>
     <string name="game_orbit_tracker">ऑर्बिट ट्रैकर</string>
+    <string name="game_bubble_sum">बुलबुला योग</string>
+    <string name="game_bubble_sum_desc">तैरते बुलबुलों पर संख्याएँ जोड़ें। बाद में संख्याएँ झपकेंगी — याद रखें।</string>
+    <string name="bubble_sum_instruction">योग क्या है?</string>
+    <string name="bubble_sum_demo_title">तैरती संख्याएँ जोड़ें</string>
+    <string name="bubble_sum_demo_blink">गायब होने पर मान याद रखें।</string>
+    <string name="bubble_sum_demo_correct">यह योग है।</string>
+    <string name="achievement_gold_bubble_sum">बुलबुला लेखाकार</string>
+    <string name="achievement_gold_bubble_sum_desc">बुलबुला योग में स्वर्ण पदक जीतें</string>
     <string name="game_flash_crowd">फ्लैश क्राउड</string>
     <string name="game_schulte_table">शुल्ते तालिका</string>
     <string name="game_mini_chess">मिनी शतरंज</string>

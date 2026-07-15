@@ -64,6 +64,14 @@
     <string name="game_ghost_grid">Grade Fantasma</string>
     <string name="game_color_confusion">Confusão de Cores</string>
     <string name="game_orbit_tracker">Rastreador de Órbitas</string>
+    <string name="game_bubble_sum">Soma bolhas</string>
+    <string name="game_bubble_sum_desc">Some os números nas bolhas flutuantes. Depois os números piscam — memorize-os.</string>
+    <string name="bubble_sum_instruction">Qual é a soma?</string>
+    <string name="bubble_sum_demo_title">Some os números flutuantes</string>
+    <string name="bubble_sum_demo_blink">Memorize os valores quando desaparecem.</string>
+    <string name="bubble_sum_demo_correct">Essa é a soma.</string>
+    <string name="achievement_gold_bubble_sum">Contador de bolhas</string>
+    <string name="achievement_gold_bubble_sum_desc">Ganhe a medalha de ouro em Soma bolhas</string>
     <string name="game_flash_crowd">Multidão Relâmpago</string>
     <string name="game_schulte_table">Tabela de Schulte</string>
     <string name="game_mini_chess">Mini Xadrez</string>

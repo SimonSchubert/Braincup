@@ -269,6 +269,7 @@ fun App(
                                     isTimerPaused = showQuitDialog,
                                     onWordleFinishedAction = onWordleFinished,
                                     orbitBallPositions = controller.orbitBallPositions,
+                                    bubbleSumFrames = controller.bubbleSumFrames,
                                 )
 
                                 if (showQuitDialog) {

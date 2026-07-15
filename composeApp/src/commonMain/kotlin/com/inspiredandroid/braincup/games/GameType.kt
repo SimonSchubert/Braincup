@@ -162,6 +162,15 @@ enum class GameType(
         descriptionRes = Res.string.game_mental_calculation_desc,
         category = GameCategory.MATH,
     ),
+    BUBBLE_SUM(
+        displayNameRes = Res.string.game_bubble_sum,
+        id = "31",
+        // Score = rounds summed correctly in 60s. Initial thresholds; tune after playtest.
+        goldScore = 12,
+        silverScore = 6,
+        descriptionRes = Res.string.game_bubble_sum_desc,
+        category = GameCategory.MATH,
+    ),
     CHAIN_CALCULATION(
         displayNameRes = Res.string.game_chain_calculation,
         id = "3",

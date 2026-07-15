@@ -73,6 +73,12 @@ fun createMentalCalculationGame(): MentalCalculationGame {
     return game
 }
 
+fun createBubbleSumUiState(): GameUiState {
+    val game = BubbleSumGame()
+    game.nextRound()
+    return game.toUiState()
+}
+
 fun createSherlockCalculationGame(): SherlockCalculationGame {
     val game = SherlockCalculationGame()
     game.result = 26
