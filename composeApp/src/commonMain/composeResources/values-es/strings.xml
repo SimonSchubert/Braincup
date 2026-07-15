@@ -634,6 +634,19 @@
     <string name="matchstick_riddles_reset">Reiniciar</string>
     <string name="achievement_matchstick_master">Maestro de fósforos</string>
     <string name="achievement_matchstick_master_desc">Resuelve todos los acertijos de fósforos</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitario</string>
+    <string name="peg_solitaire_title">Solitario</string>
+    <string name="peg_solitaire_pegs_left">Fichas restantes: %1$d</string>
+    <string name="peg_solitaire_howto">Salta una ficha sobre otra a un agujero vacío. Deja solo una ficha en el tablero.</string>
+    <string name="peg_solitaire_won">¡Resuelto! Queda una ficha.</string>
+    <string name="peg_solitaire_won_perfect">¡Perfecto! Última ficha en el centro.</string>
+    <string name="peg_solitaire_stuck">No quedan movimientos.</string>
+    <string name="peg_solitaire_undo">Deshacer</string>
+    <string name="peg_solitaire_restart">Reiniciar</string>
+    <string name="achievement_peg_solitaire_perfect">Maestro del solitario</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Termina el solitario inglés con una ficha en el centro</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cómo se mueven las piezas</string>
     <string name="chess_piece_king">Rey</string>

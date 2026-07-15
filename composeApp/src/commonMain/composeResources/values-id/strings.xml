@@ -635,6 +635,19 @@
     <string name="matchstick_riddles_reset">Atur Ulang</string>
     <string name="achievement_matchstick_master">Master korek api</string>
     <string name="achievement_matchstick_master_desc">Selesaikan setiap teka-teki korek api</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitaire</string>
+    <string name="peg_solitaire_title">Solitaire</string>
+    <string name="peg_solitaire_pegs_left">Bidak tersisa: %1$d</string>
+    <string name="peg_solitaire_howto">Lompati bidak lewat bidak lain ke lubang kosong. Sisakan satu bidak di papan.</string>
+    <string name="peg_solitaire_won">Selesai! Satu bidak tersisa.</string>
+    <string name="peg_solitaire_won_perfect">Sempurna! Bidak terakhir di tengah.</string>
+    <string name="peg_solitaire_stuck">Tidak ada langkah lagi.</string>
+    <string name="peg_solitaire_undo">Urungkan</string>
+    <string name="peg_solitaire_restart">Mulai ulang</string>
+    <string name="achievement_peg_solitaire_perfect">Master Solitaire</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Selesaikan solitaire Inggris dengan satu bidak di tengah</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cara buah catur bergerak</string>
     <string name="chess_piece_king">Raja</string>

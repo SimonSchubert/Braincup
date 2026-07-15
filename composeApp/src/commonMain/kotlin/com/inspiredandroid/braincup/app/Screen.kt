@@ -57,3 +57,6 @@ object MatchstickRiddlesMenu
 
 @Serializable
 data class MatchstickRiddlesPlay(val riddleId: String)
+
+@Serializable
+object PegSolitaire

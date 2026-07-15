@@ -622,6 +622,19 @@
     <string name="matchstick_riddles_reset">إعادة تعيين</string>
     <string name="achievement_matchstick_master">سيد أعواد الثقاب</string>
     <string name="achievement_matchstick_master_desc">حل كل ألغاز أعواد الثقاب</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">سوليتير الأوتاد</string>
+    <string name="peg_solitaire_title">سوليتير الأوتاد</string>
+    <string name="peg_solitaire_pegs_left">الأوتاد المتبقية: %1$d</string>
+    <string name="peg_solitaire_howto">اقفز بوتد فوق آخر إلى حفرة فارغة. اترك وتداً واحداً فقط.</string>
+    <string name="peg_solitaire_won">تم! بقي وتد واحد.</string>
+    <string name="peg_solitaire_won_perfect">ممتاز! الوتد الأخير في الوسط.</string>
+    <string name="peg_solitaire_stuck">لا حركات متبقية.</string>
+    <string name="peg_solitaire_undo">تراجع</string>
+    <string name="peg_solitaire_restart">إعادة</string>
+    <string name="achievement_peg_solitaire_perfect">سيد السوليتير</string>
+    <string name="achievement_peg_solitaire_perfect_desc">أنهِ سوليتير الأوتاد الإنجليزي بوتد واحد في الوسط</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">خمّن الكلمة المخفية المؤلفة من خمسة أحرف في ست محاولات. الإجابة دائما اسم.</string>
     <string name="achievement_gold_wordle">صانع الكلمات</string>

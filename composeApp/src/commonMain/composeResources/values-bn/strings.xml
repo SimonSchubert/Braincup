@@ -622,6 +622,19 @@
     <string name="matchstick_riddles_reset">রিসেট</string>
     <string name="achievement_matchstick_master">ম্যাচস্টিক মাস্টার</string>
     <string name="achievement_matchstick_master_desc">প্রতিটি ম্যাচস্টিক ধাঁধা সমাধান করুন</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">পেগ সলিটেয়ার</string>
+    <string name="peg_solitaire_title">পেগ সলিটেয়ার</string>
+    <string name="peg_solitaire_pegs_left">বাকি গুটি: %1$d</string>
+    <string name="peg_solitaire_howto">একটি গুটি অন্যটির ওপর দিয়ে খালি গর্তে লাফান। বোর্ডে একটি গুটি রাখুন।</string>
+    <string name="peg_solitaire_won">সমাধান! একটি গুটি বাকি।</string>
+    <string name="peg_solitaire_won_perfect">পারফেক্ট! শেষ গুটি মাঝখানে।</string>
+    <string name="peg_solitaire_stuck">কোনো চাল নেই।</string>
+    <string name="peg_solitaire_undo">পূর্বাবস্থা</string>
+    <string name="peg_solitaire_restart">আবার</string>
+    <string name="achievement_peg_solitaire_perfect">পেগ মাস্টার</string>
+    <string name="achievement_peg_solitaire_perfect_desc">ইংরেজি পেগ সলিটেয়ার মাঝখানে একটি গুটি দিয়ে শেষ করুন</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">ছয়টি চেষ্টায় লুকানো পাঁচ-অক্ষরের শব্দটি অনুমান করুন। উত্তর সবসময় একটি বিশেষ্য।</string>
     <string name="achievement_gold_wordle">শব্দকারিগর</string>

@@ -88,6 +88,19 @@
     <string name="achievement_matchstick_master">Matchstick Master</string>
     <string name="achievement_matchstick_master_desc">Solve every matchstick riddle</string>
 
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Peg Solitaire</string>
+    <string name="peg_solitaire_title">Peg Solitaire</string>
+    <string name="peg_solitaire_pegs_left">Pegs left: %1$d</string>
+    <string name="peg_solitaire_howto">Jump a peg over another into an empty hole. Clear the board to one peg.</string>
+    <string name="peg_solitaire_won">Solved! One peg left.</string>
+    <string name="peg_solitaire_won_perfect">Perfect! Last peg in the center.</string>
+    <string name="peg_solitaire_stuck">No moves left.</string>
+    <string name="peg_solitaire_undo">Undo</string>
+    <string name="peg_solitaire_restart">Restart</string>
+    <string name="achievement_peg_solitaire_perfect">Peg Master</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Finish English peg solitaire with one peg in the center</string>
+
     <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_open">Open settings</string>

@@ -636,6 +636,19 @@
     <string name="matchstick_riddles_reset">Reimposta</string>
     <string name="achievement_matchstick_master">Maestro dei fiammiferi</string>
     <string name="achievement_matchstick_master_desc">Risolvi ogni indovinello con fiammiferi</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitario</string>
+    <string name="peg_solitaire_title">Solitario</string>
+    <string name="peg_solitaire_pegs_left">Pedine rimaste: %1$d</string>
+    <string name="peg_solitaire_howto">Salta una pedina sopra un'altra in un buco vuoto. Lascia una sola pedina sul tavoliere.</string>
+    <string name="peg_solitaire_won">Risolto! Una pedina rimasta.</string>
+    <string name="peg_solitaire_won_perfect">Perfetto! Ultima pedina al centro.</string>
+    <string name="peg_solitaire_stuck">Nessuna mossa rimasta.</string>
+    <string name="peg_solitaire_undo">Annulla</string>
+    <string name="peg_solitaire_restart">Ricomincia</string>
+    <string name="achievement_peg_solitaire_perfect">Maestro del solitario</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Finisci il solitario inglese con una pedina al centro</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Come si muovono i pezzi</string>
     <string name="chess_piece_king">Re</string>

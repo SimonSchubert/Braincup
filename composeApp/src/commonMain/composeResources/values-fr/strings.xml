@@ -622,6 +622,19 @@
     <string name="matchstick_riddles_reset">Réinitialiser</string>
     <string name="achievement_matchstick_master">Maître des allumettes</string>
     <string name="achievement_matchstick_master_desc">Résous chaque énigme d'allumettes</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitaire</string>
+    <string name="peg_solitaire_title">Solitaire</string>
+    <string name="peg_solitaire_pegs_left">Pions restants : %1$d</string>
+    <string name="peg_solitaire_howto">Saute un pion par-dessus un autre dans un trou vide. Réduis le plateau à un pion.</string>
+    <string name="peg_solitaire_won">Résolu ! Un pion restant.</string>
+    <string name="peg_solitaire_won_perfect">Parfait ! Dernier pion au centre.</string>
+    <string name="peg_solitaire_stuck">Plus de coups possibles.</string>
+    <string name="peg_solitaire_undo">Annuler</string>
+    <string name="peg_solitaire_restart">Recommencer</string>
+    <string name="achievement_peg_solitaire_perfect">Maître du solitaire</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Termine le solitaire anglais avec un pion au centre</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Devinez le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.</string>
     <string name="achievement_gold_wordle">Maître des mots</string>

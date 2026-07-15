@@ -636,6 +636,19 @@
     <string name="matchstick_riddles_reset">Скинути</string>
     <string name="achievement_matchstick_master">Майстер сірників</string>
     <string name="achievement_matchstick_master_desc">Розв\'яжіть кожну головоломку з сірниками</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Солітер</string>
+    <string name="peg_solitaire_title">Солітер</string>
+    <string name="peg_solitaire_pegs_left">Фішок лишилось: %1$d</string>
+    <string name="peg_solitaire_howto">Перестрибніть фішкою через іншу в порожню лунку. Залиште одну фішку на дошці.</string>
+    <string name="peg_solitaire_won">Розв'язано! Лишилась одна фішка.</string>
+    <string name="peg_solitaire_won_perfect">Ідеально! Остання фішка в центрі.</string>
+    <string name="peg_solitaire_stuck">Ходів більше немає.</string>
+    <string name="peg_solitaire_undo">Скасувати</string>
+    <string name="peg_solitaire_restart">Спочатку</string>
+    <string name="achievement_peg_solitaire_perfect">Майстер солітера</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Завершіть англійський солітер з однією фішкою в центрі</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Як ходять фігури</string>
     <string name="chess_piece_king">Король</string>

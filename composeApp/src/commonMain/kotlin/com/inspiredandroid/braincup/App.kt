@@ -433,6 +433,14 @@ fun App(
                         )
                     }
 
+                    composable<PegSolitaire> {
+                        val onBackPegSolitaire = remember(controller) { { controller.navigateToMainMenu() } }
+                        PegSolitairePlayScreen(
+                            storage = controller.storage,
+                            onBack = onBackPegSolitaire,
+                        )
+                    }
+
                     composable<SessionInterstitial> {
                         val session by controller.sessionState.collectAsStateWithLifecycle()
                         val current = session

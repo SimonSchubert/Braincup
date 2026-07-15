@@ -636,6 +636,19 @@
     <string name="matchstick_riddles_reset">Reiniciar</string>
     <string name="achievement_matchstick_master">Mestre dos palitos</string>
     <string name="achievement_matchstick_master_desc">Resolva todos os enigmas de palitos</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Resta Um</string>
+    <string name="peg_solitaire_title">Resta Um</string>
+    <string name="peg_solitaire_pegs_left">Pinos restantes: %1$d</string>
+    <string name="peg_solitaire_howto">Pule um pino sobre outro para um buraco vazio. Deixe só um pino no tabuleiro.</string>
+    <string name="peg_solitaire_won">Resolvido! Um pino restante.</string>
+    <string name="peg_solitaire_won_perfect">Perfeito! Último pino no centro.</string>
+    <string name="peg_solitaire_stuck">Sem movimentos.</string>
+    <string name="peg_solitaire_undo">Desfazer</string>
+    <string name="peg_solitaire_restart">Reiniciar</string>
+    <string name="achievement_peg_solitaire_perfect">Mestre do Resta Um</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Termine o resta um inglês com um pino no centro</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Como as peças se movem</string>
     <string name="chess_piece_king">Rei</string>

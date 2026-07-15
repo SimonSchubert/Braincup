@@ -636,6 +636,19 @@
     <string name="matchstick_riddles_reset">Zresetuj</string>
     <string name="achievement_matchstick_master">Mistrz zapałek</string>
     <string name="achievement_matchstick_master_desc">Rozwiąż każdą łamigłówkę z zapałkami</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitaire</string>
+    <string name="peg_solitaire_title">Solitaire</string>
+    <string name="peg_solitaire_pegs_left">Pionki: %1$d</string>
+    <string name="peg_solitaire_howto">Przeskocz pionkiem nad innym do pustego otworu. Zostaw jeden pionek na planszy.</string>
+    <string name="peg_solitaire_won">Rozwiązane! Został jeden pionek.</string>
+    <string name="peg_solitaire_won_perfect">Idealnie! Ostatni pionek na środku.</string>
+    <string name="peg_solitaire_stuck">Brak ruchów.</string>
+    <string name="peg_solitaire_undo">Cofnij</string>
+    <string name="peg_solitaire_restart">Od nowa</string>
+    <string name="achievement_peg_solitaire_perfect">Mistrz solitaire</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Ukończ angielski solitaire z jednym pionkiem na środku</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Jak poruszają się bierki</string>
     <string name="chess_piece_king">Król</string>

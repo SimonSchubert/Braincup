@@ -63,6 +63,11 @@ class UserStorage(
         SUDOKU_HARD(Res.string.achievement_sudoku_hard, Res.string.achievement_sudoku_hard_desc, isMilestone = true),
         SUDOKU_EXPERT(Res.string.achievement_sudoku_expert, Res.string.achievement_sudoku_expert_desc, isMilestone = true),
         MATCHSTICK_MASTER(Res.string.achievement_matchstick_master, Res.string.achievement_matchstick_master_desc, isMilestone = true),
+        PEG_SOLITAIRE_PERFECT(
+            Res.string.achievement_peg_solitaire_perfect,
+            Res.string.achievement_peg_solitaire_perfect_desc,
+            isMilestone = true,
+        ),
         TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc, isMilestone = true),
         STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc, isMilestone = true),
         ;
@@ -84,6 +89,7 @@ class UserStorage(
                 addAll(GameType.displayOrder.mapNotNull { forGameGold(it) })
                 addAll(SudokuDifficulty.entries.map { forSudokuTier(it) })
                 add(MATCHSTICK_MASTER)
+                add(PEG_SOLITAIRE_PERFECT)
                 add(TOTAL_SCORE_10K)
                 add(STREAK_30)
             }
@@ -124,8 +130,13 @@ class UserStorage(
         const val KEY_NORMAL_CHESS_DIFFICULTY = "normal_chess_difficulty"
         const val KEY_NORMAL_CHESS_MODE = "normal_chess_mode"
         const val KEY_MATCHSTICK_RIDDLES_SOLVED = "matchstick_riddles_solved"
+        const val KEY_PEG_SOLITAIRE_SOLVED = "peg_solitaire_solved"
+        const val KEY_PEG_SOLITAIRE_PERFECT = "peg_solitaire_perfect"
         const val SESSION_GAME_COUNT = 4 // one game per GameCategory (MEMORY, LOGIC, PERCEPTION, MATH)
         const val SESSION_COMPLETION_XP = 50
+
+        /** First-time win XP for English peg solitaire (any one-peg finish). */
+        const val PEG_SOLITAIRE_WIN_XP = 30
 
         fun levelForXp(xp: Int): Int {
             if (xp <= 0) return 1
@@ -351,6 +362,28 @@ class UserStorage(
         val amount = normalSudokuCompletionXp(difficulty)
         val levelChange = addXp(amount)
         return XpAward(amount, levelChange)
+    }
+
+    fun hasSolvedPegSolitaire(): Boolean = settings.getBoolean(KEY_PEG_SOLITAIRE_SOLVED, false)
+
+    fun hasPerfectPegSolitaire(): Boolean = settings.getBoolean(KEY_PEG_SOLITAIRE_PERFECT, false)
+
+    /**
+     * Award first-time XP for any one-peg finish. No-ops on replay. Marks the puzzle solved.
+     * Call when [com.inspiredandroid.braincup.pegsolitaire.PegSolitaireResult] is WON or WON_PERFECT.
+     */
+    fun awardPegSolitaireWinXp(): XpAward {
+        if (hasSolvedPegSolitaire()) return XpAward(0, null)
+        settings.putBoolean(KEY_PEG_SOLITAIRE_SOLVED, true)
+        val levelChange = addXp(PEG_SOLITAIRE_WIN_XP)
+        return XpAward(PEG_SOLITAIRE_WIN_XP, levelChange)
+    }
+
+    /** Unlock the perfect-center milestone the first time the last peg is in the center. */
+    fun markPegSolitairePerfect() {
+        if (hasPerfectPegSolitaire()) return
+        settings.putBoolean(KEY_PEG_SOLITAIRE_PERFECT, true)
+        unlockAchievement(Achievements.PEG_SOLITAIRE_PERFECT)
     }
 
     private fun normalSudokuProgressKey(id: String): String = "normal_sudoku_progress_$id"

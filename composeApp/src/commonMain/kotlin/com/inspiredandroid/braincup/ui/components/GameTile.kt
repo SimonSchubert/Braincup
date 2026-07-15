@@ -331,6 +331,18 @@ fun MatchstickRiddlesTile(solvedCount: Int, total: Int, onClick: () -> Unit) {
     ) { MatchstickRiddlesPreview() }
 }
 
+/** English peg solitaire entry under the full-size games divider. */
+@Composable
+fun PegSolitaireTile(onClick: () -> Unit) {
+    NormalGameTile(
+        label = stringResource(Res.string.peg_solitaire_button),
+        accentColor = PegSolitaireTileAccentArgb,
+        onClick = onClick,
+    ) { PegSolitairePreview() }
+}
+
+private const val PegSolitaireTileAccentArgb = 0xFF8D6E63L
+
 @Composable
 private fun NormalGameTile(
     label: String,
@@ -821,6 +833,58 @@ private fun MatchstickRiddlesPreview() {
             stick(0.29f, 0.35f, 0.29f, 0.65f)
             stick(0.58f, 0.40f, 0.84f, 0.40f)
             stick(0.58f, 0.60f, 0.84f, 0.60f)
+        }
+    }
+}
+
+@Composable
+private fun PegSolitairePreview() {
+    val frame = ComposeColor(0xFF5D4037)
+    val surface = ComposeColor(0xFFD7CCC8)
+    val hole = ComposeColor(0xFF8D6E63)
+    PrismCard(
+        face = frame,
+        facet = PrismFacet.Preview,
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+    ) {
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(surface)
+                .padding(6.dp),
+        ) {
+            for (row in 0 until 7) {
+                Row(modifier = Modifier.weight(1f).fillMaxWidth()) {
+                    for (col in 0 until 7) {
+                        // English cross
+                        if (!(row in 2..4 || col in 2..4)) {
+                            Spacer(Modifier.weight(1f).fillMaxHeight())
+                            continue
+                        }
+                        val isEmpty = (row == 3 && col == 3) || (row == 2 && col == 3)
+                        Box(
+                            modifier = Modifier.weight(1f).fillMaxHeight(),
+                            contentAlignment = Alignment.Center,
+                        ) {
+                            ColorPrismCell(
+                                face = hole.darken(0.7f),
+                                facet = PrismFacet.Dot,
+                                modifier = Modifier.fillMaxSize(0.72f),
+                            )
+                            if (!isEmpty) {
+                                ColorPrismCell(
+                                    face = Primary,
+                                    facet = PrismFacet.Dot,
+                                    modifier = Modifier.fillMaxSize(0.62f),
+                                )
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

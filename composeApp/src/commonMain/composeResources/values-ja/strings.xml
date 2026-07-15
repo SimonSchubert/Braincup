@@ -634,6 +634,19 @@
     <string name="matchstick_riddles_reset">リセット</string>
     <string name="achievement_matchstick_master">マッチ棒マスター</string>
     <string name="achievement_matchstick_master_desc">すべてのマッチ棒パズルを解く</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">ペグソリティア</string>
+    <string name="peg_solitaire_title">ペグソリティア</string>
+    <string name="peg_solitaire_pegs_left">残り駒: %1$d</string>
+    <string name="peg_solitaire_howto">駒を隣接する駒の向こうの空き穴に飛ばして取ります。最後に1個残しましょう。</string>
+    <string name="peg_solitaire_won">クリア！駒が1個残りました。</string>
+    <string name="peg_solitaire_won_perfect">完璧！最後の駒が中央です。</string>
+    <string name="peg_solitaire_stuck">打てる手がありません。</string>
+    <string name="peg_solitaire_undo">戻す</string>
+    <string name="peg_solitaire_restart">やり直す</string>
+    <string name="achievement_peg_solitaire_perfect">ペグマスター</string>
+    <string name="achievement_peg_solitaire_perfect_desc">英語式ペグソリティアを中央1個でクリアする</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">駒の動き方</string>
     <string name="chess_piece_king">キング</string>

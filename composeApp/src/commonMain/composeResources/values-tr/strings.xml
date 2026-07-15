@@ -635,6 +635,19 @@
     <string name="matchstick_riddles_reset">Sıfırla</string>
     <string name="achievement_matchstick_master">Kibrit ustası</string>
     <string name="achievement_matchstick_master_desc">Her kibrit bulmacasını çöz</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitaire</string>
+    <string name="peg_solitaire_title">Solitaire</string>
+    <string name="peg_solitaire_pegs_left">Kalan taş: %1$d</string>
+    <string name="peg_solitaire_howto">Bir taşı diğerinin üzerinden boş deliğe atlat. Tahtada bir taş kalsın.</string>
+    <string name="peg_solitaire_won">Çözüldü! Bir taş kaldı.</string>
+    <string name="peg_solitaire_won_perfect">Mükemmel! Son taş ortada.</string>
+    <string name="peg_solitaire_stuck">Hamle kalmadı.</string>
+    <string name="peg_solitaire_undo">Geri al</string>
+    <string name="peg_solitaire_restart">Yeniden</string>
+    <string name="achievement_peg_solitaire_perfect">Solitaire ustası</string>
+    <string name="achievement_peg_solitaire_perfect_desc">İngiliz solitaire'i ortada bir taşla bitir</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Taşlar nasıl hareket eder</string>
     <string name="chess_piece_king">Şah</string>

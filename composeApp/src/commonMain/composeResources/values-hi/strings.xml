@@ -634,6 +634,19 @@
     <string name="matchstick_riddles_reset">रीसेट</string>
     <string name="achievement_matchstick_master">माचिस मास्टर</string>
     <string name="achievement_matchstick_master_desc">हर माचिस की पहेली हल करें</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">पेग सॉलिटेयर</string>
+    <string name="peg_solitaire_title">पेग सॉलिटेयर</string>
+    <string name="peg_solitaire_pegs_left">बचे मोहरे: %1$d</string>
+    <string name="peg_solitaire_howto">एक मोहरे को दूसरे के ऊपर से खाली छेद में कूदाएँ। बोर्ड पर एक मोहरा छोड़ें।</string>
+    <string name="peg_solitaire_won">हल! एक मोहरा बचा।</string>
+    <string name="peg_solitaire_won_perfect">बिल्कुल सही! आखिरी मोहरा बीच में।</string>
+    <string name="peg_solitaire_stuck">कोई चाल नहीं बची।</string>
+    <string name="peg_solitaire_undo">पूर्ववत</string>
+    <string name="peg_solitaire_restart">फिर से</string>
+    <string name="achievement_peg_solitaire_perfect">पेग मास्टर</string>
+    <string name="achievement_peg_solitaire_perfect_desc">अंग्रेज़ी पेग सॉलिटेयर बीच में एक मोहरे के साथ पूरा करें</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">मोहरे कैसे चलते हैं</string>
     <string name="chess_piece_king">राजा</string>

@@ -634,6 +634,19 @@
     <string name="matchstick_riddles_reset">重置</string>
     <string name="achievement_matchstick_master">火柴大师</string>
     <string name="achievement_matchstick_master_desc">解开所有火柴谜题</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">孔明棋</string>
+    <string name="peg_solitaire_title">孔明棋</string>
+    <string name="peg_solitaire_pegs_left">剩余棋子：%1$d</string>
+    <string name="peg_solitaire_howto">将棋子跳过相邻棋子落到空位，并移除被跳过的棋子。最终只留一枚。</string>
+    <string name="peg_solitaire_won">完成！只剩一枚棋子。</string>
+    <string name="peg_solitaire_won_perfect">完美！最后一枚在中心。</string>
+    <string name="peg_solitaire_stuck">没有可走的步了。</string>
+    <string name="peg_solitaire_undo">撤销</string>
+    <string name="peg_solitaire_restart">重来</string>
+    <string name="achievement_peg_solitaire_perfect">孔明棋大师</string>
+    <string name="achievement_peg_solitaire_perfect_desc">以中心一枚棋子完成英式孔明棋</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">棋子走法</string>
     <string name="chess_piece_king">王</string>

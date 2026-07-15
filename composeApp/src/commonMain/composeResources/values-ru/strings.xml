@@ -635,6 +635,19 @@
     <string name="matchstick_riddles_reset">Сбросить</string>
     <string name="achievement_matchstick_master">Мастер спичек</string>
     <string name="achievement_matchstick_master_desc">Решите каждую головоломку со спичками</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Солитер</string>
+    <string name="peg_solitaire_title">Солитер</string>
+    <string name="peg_solitaire_pegs_left">Фишек осталось: %1$d</string>
+    <string name="peg_solitaire_howto">Перепрыгните фишкой через другую в пустую лунку. Оставьте одну фишку на доске.</string>
+    <string name="peg_solitaire_won">Решено! Осталась одна фишка.</string>
+    <string name="peg_solitaire_won_perfect">Идеально! Последняя фишка в центре.</string>
+    <string name="peg_solitaire_stuck">Ходов больше нет.</string>
+    <string name="peg_solitaire_undo">Отменить</string>
+    <string name="peg_solitaire_restart">Заново</string>
+    <string name="achievement_peg_solitaire_perfect">Мастер солитера</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Завершите английский солитер с одной фишкой в центре</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Как ходят фигуры</string>
     <string name="chess_piece_king">Король</string>

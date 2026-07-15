@@ -85,6 +85,19 @@
     <string name="matchstick_riddles_reset">Επαναφορά</string>
     <string name="achievement_matchstick_master">Δάσκαλος σπίρτων</string>
     <string name="achievement_matchstick_master_desc">Λύσε κάθε γρίφο με σπίρτα</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Σολιτέρ</string>
+    <string name="peg_solitaire_title">Σολιτέρ</string>
+    <string name="peg_solitaire_pegs_left">Πιόνια: %1$d</string>
+    <string name="peg_solitaire_howto">Πήδα ένα πιόνι πάνω από άλλο σε άδεια τρύπα. Άφησε ένα πιόνι στο ταμπλό.</string>
+    <string name="peg_solitaire_won">Λύθηκε! Έμεινε ένα πιόνι.</string>
+    <string name="peg_solitaire_won_perfect">Τέλεια! Τελευταίο πιόνι στο κέντρο.</string>
+    <string name="peg_solitaire_stuck">Δεν υπάρχουν κινήσεις.</string>
+    <string name="peg_solitaire_undo">Αναίρεση</string>
+    <string name="peg_solitaire_restart">Επανεκκίνηση</string>
+    <string name="achievement_peg_solitaire_perfect">Μάστερ σολιτέρ</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Ολοκλήρωσε το αγγλικό σολιτέρ με ένα πιόνι στο κέντρο</string>
     <!-- Settings -->
     <string name="settings_title">Επιλογές</string>
     <string name="settings_open">Ανοιγμα επιλογών</string>

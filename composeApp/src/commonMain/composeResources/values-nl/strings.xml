@@ -622,6 +622,19 @@
     <string name="matchstick_riddles_reset">Resetten</string>
     <string name="achievement_matchstick_master">Lucifermeester</string>
     <string name="achievement_matchstick_master_desc">Los elke luciferpuzzel op</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitaire</string>
+    <string name="peg_solitaire_title">Solitaire</string>
+    <string name="peg_solitaire_pegs_left">Pinnen over: %1$d</string>
+    <string name="peg_solitaire_howto">Spring met een pin over een andere in een leeg gat. Ruim het bord leeg tot één pin.</string>
+    <string name="peg_solitaire_won">Opgelost! Eén pin over.</string>
+    <string name="peg_solitaire_won_perfect">Perfect! Laatste pin in het midden.</string>
+    <string name="peg_solitaire_stuck">Geen zetten meer.</string>
+    <string name="peg_solitaire_undo">Ongedaan</string>
+    <string name="peg_solitaire_restart">Opnieuw</string>
+    <string name="achievement_peg_solitaire_perfect">Solitaire-meester</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Voltooi Engels solitaire met één pin in het midden</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Raad het verborgen woord van vijf letters in zes pogingen. Het antwoord is altijd een zelfstandig naamwoord.</string>
     <string name="achievement_gold_wordle">Woordkunstenaar</string>

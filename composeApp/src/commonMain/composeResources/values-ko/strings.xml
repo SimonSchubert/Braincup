@@ -634,6 +634,19 @@
     <string name="matchstick_riddles_reset">초기화</string>
     <string name="achievement_matchstick_master">성냥개비 마스터</string>
     <string name="achievement_matchstick_master_desc">모든 성냥개비 퍼즐을 풀기</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">페그 솔리테어</string>
+    <string name="peg_solitaire_title">페그 솔리테어</string>
+    <string name="peg_solitaire_pegs_left">남은 말: %1$d</string>
+    <string name="peg_solitaire_howto">말을 다른 말 너머 빈 구멍으로 뛰어넘으세요. 보드에 말 하나만 남기세요.</string>
+    <string name="peg_solitaire_won">완료! 말이 하나 남았습니다.</string>
+    <string name="peg_solitaire_won_perfect">완벽! 마지막 말이 중앙에 있습니다.</string>
+    <string name="peg_solitaire_stuck">둘 수 있는 수가 없습니다.</string>
+    <string name="peg_solitaire_undo">실행 취소</string>
+    <string name="peg_solitaire_restart">다시 시작</string>
+    <string name="achievement_peg_solitaire_perfect">페그 마스터</string>
+    <string name="achievement_peg_solitaire_perfect_desc">영어식 페그 솔리테어를 중앙 한 개로 완료하기</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">기물이 움직이는 방법</string>
     <string name="chess_piece_king">킹</string>

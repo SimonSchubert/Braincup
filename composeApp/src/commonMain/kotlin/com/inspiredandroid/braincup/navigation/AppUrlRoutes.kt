@@ -13,6 +13,7 @@ import com.inspiredandroid.braincup.app.NormalChessMenu
 import com.inspiredandroid.braincup.app.NormalChessPlay
 import com.inspiredandroid.braincup.app.NormalSudokuMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
+import com.inspiredandroid.braincup.app.PegSolitaire
 import com.inspiredandroid.braincup.app.Playing
 import com.inspiredandroid.braincup.app.Scoreboard
 import com.inspiredandroid.braincup.app.SessionComplete
@@ -37,6 +38,7 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is NormalChessPlay -> "chess/${route.mode}/${route.difficulty}"
     is MatchstickRiddlesMenu -> "matchstick"
     is MatchstickRiddlesPlay -> "matchstick/${route.riddleId}"
+    is PegSolitaire -> "peg-solitaire"
     is Instructions -> gamePathSuffix(route.gameTypeId)
     is Playing -> gamePathSuffix(route.gameTypeId)
     is Finish -> gamePathSuffix(route.gameTypeId)
@@ -54,6 +56,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "sudoku" -> NormalSudokuMenu
         "chess" -> NormalChessMenu
         "matchstick" -> MatchstickRiddlesMenu
+        "peg-solitaire" -> PegSolitaire
         else -> parseParameterizedPath(suffix)
     }
 }
@@ -72,6 +75,7 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<NormalChessPlay>() -> navRouteToPathSuffix(toRoute<NormalChessPlay>())
         destination.hasRoute<MatchstickRiddlesMenu>() -> "matchstick"
         destination.hasRoute<MatchstickRiddlesPlay>() -> navRouteToPathSuffix(toRoute<MatchstickRiddlesPlay>())
+        destination.hasRoute<PegSolitaire>() -> "peg-solitaire"
         destination.hasRoute<Instructions>() -> gamePathSuffix(toRoute<Instructions>().gameTypeId)
         destination.hasRoute<Playing>() -> gamePathSuffix(toRoute<Playing>().gameTypeId)
         destination.hasRoute<Finish>() -> gamePathSuffix(toRoute<Finish>().gameTypeId)

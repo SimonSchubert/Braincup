@@ -635,6 +635,19 @@
     <string name="matchstick_riddles_reset">Đặt lại</string>
     <string name="achievement_matchstick_master">Bậc thầy que diêm</string>
     <string name="achievement_matchstick_master_desc">Giải mọi câu đố que diêm</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Cờ nhảy</string>
+    <string name="peg_solitaire_title">Cờ nhảy</string>
+    <string name="peg_solitaire_pegs_left">Quân còn lại: %1$d</string>
+    <string name="peg_solitaire_howto">Nhảy một quân qua quân khác vào lỗ trống. Chỉ còn một quân trên bàn.</string>
+    <string name="peg_solitaire_won">Xong! Còn một quân.</string>
+    <string name="peg_solitaire_won_perfect">Hoàn hảo! Quân cuối ở giữa.</string>
+    <string name="peg_solitaire_stuck">Hết nước đi.</string>
+    <string name="peg_solitaire_undo">Hoàn tác</string>
+    <string name="peg_solitaire_restart">Chơi lại</string>
+    <string name="achievement_peg_solitaire_perfect">Bậc thầy cờ nhảy</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Hoàn thành cờ nhảy kiểu Anh với một quân ở giữa</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cách các quân cờ di chuyển</string>
     <string name="chess_piece_king">Vua</string>

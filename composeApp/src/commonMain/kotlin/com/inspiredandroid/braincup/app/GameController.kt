@@ -266,6 +266,10 @@ class GameController(
         navController.navigate(MatchstickRiddlesPlay(riddleId))
     }
 
+    fun navigateToPegSolitaire() {
+        navController.navigate(PegSolitaire)
+    }
+
     fun startGame(gameType: GameType) {
         points = 0
         sessionStartRound = 0

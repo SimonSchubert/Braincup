@@ -634,6 +634,19 @@
     <string name="matchstick_riddles_reset">รีเซ็ต</string>
     <string name="achievement_matchstick_master">ปรมาจารย์ไม้ขีดไฟ</string>
     <string name="achievement_matchstick_master_desc">แก้ปริศนาไม้ขีดไฟทุกข้อ</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">หมากกลัด</string>
+    <string name="peg_solitaire_title">หมากกลัด</string>
+    <string name="peg_solitaire_pegs_left">หมุดที่เหลือ: %1$d</string>
+    <string name="peg_solitaire_howto">กระโดดหมุดข้ามอีกหมุดลงรูว่าง เหลือหมุดเพียงตัวเดียวบนกระดาน</string>
+    <string name="peg_solitaire_won">สำเร็จ! เหลือหมุดหนึ่งตัว</string>
+    <string name="peg_solitaire_won_perfect">สมบูรณ์แบบ! หมุดสุดท้ายอยู่ตรงกลาง</string>
+    <string name="peg_solitaire_stuck">ไม่มีตาเดินแล้ว</string>
+    <string name="peg_solitaire_undo">เลิกทำ</string>
+    <string name="peg_solitaire_restart">เริ่มใหม่</string>
+    <string name="achievement_peg_solitaire_perfect">ปรมาจารย์หมากกลัด</string>
+    <string name="achievement_peg_solitaire_perfect_desc">จบหมากกลัดแบบอังกฤษด้วยหมุดหนึ่งตัวตรงกลาง</string>
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">วิธีที่หมากเคลื่อนที่</string>
     <string name="chess_piece_king">คิง</string>

@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
 import com.inspiredandroid.braincup.ui.components.NormalChessTile
 import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
+import com.inspiredandroid.braincup.ui.components.PegSolitaireTile
 import com.inspiredandroid.braincup.ui.components.PlayerLevelCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
@@ -76,6 +77,7 @@ fun MainMenuScreen(
     val onNormalSudoku = remember(controller) { { controller.navigateToNormalSudokuMenu() } }
     val onNormalChess = remember(controller) { { controller.navigateToNormalChessMenu() } }
     val onMatchstickRiddles = remember(controller) { { controller.navigateToMatchstickRiddlesMenu() } }
+    val onPegSolitaire = remember(controller) { { controller.navigateToPegSolitaire() } }
     val onShowBrainCup = remember(controller) {
         if (PlayGamesBridge.onShowBrainCup != null) {
             { controller.showBrainCup() }
@@ -103,6 +105,7 @@ fun MainMenuScreen(
         onNormalSudoku = onNormalSudoku,
         onNormalChess = onNormalChess,
         onMatchstickRiddles = onMatchstickRiddles,
+        onPegSolitaire = onPegSolitaire,
         onShowBrainCup = onShowBrainCup,
         useBuiltInSponsors = useBuiltInSponsors,
     )
@@ -129,6 +132,7 @@ fun MainMenuScreenContent(
     onNormalSudoku: () -> Unit = {},
     onNormalChess: () -> Unit = {},
     onMatchstickRiddles: () -> Unit = {},
+    onPegSolitaire: () -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     useBuiltInSponsors: Boolean = false,
 ) {
@@ -298,6 +302,9 @@ fun MainMenuScreenContent(
                 total = matchstickRiddlesTotal,
                 onClick = onMatchstickRiddles,
             )
+        }
+        item(contentType = "peg_solitaire") {
+            PegSolitaireTile(onClick = onPegSolitaire)
         }
 
         // Footer

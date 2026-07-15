@@ -25,8 +25,10 @@ class BubbleSumGame : Game() {
     enum class VisibilityPhase {
         /** Number shown in the normal face color. */
         VISIBLE,
+
         /** Number still shown, but face color changes to warn the player it will hide soon. */
         WARNING,
+
         /** Number hidden (bubble shell remains). */
         HIDDEN,
     }
@@ -59,6 +61,7 @@ class BubbleSumGame : Game() {
 
     private enum class BlinkMode {
         ALWAYS_ON,
+
         /** Per-bubble phase offsets so numbers never all hide at once. */
         STAGGERED,
     }
@@ -146,6 +149,7 @@ class BubbleSumGame : Game() {
 
     companion object {
         const val BALL_RADIUS = 0.068f
+
         /** Face stays in warning color this long immediately before the number hides. */
         const val WARNING_MS = 3000L
         private val FRAME_DELAY = 16.milliseconds
@@ -175,11 +179,11 @@ class BubbleSumGame : Game() {
                 attempts++
             } while (
                 attempts < 100 &&
-                    newBubbles.any { existing ->
-                        val dx = existing.x - x
-                        val dy = existing.y - y
-                        sqrt(dx * dx + dy * dy) < BALL_RADIUS * 3
-                    }
+                newBubbles.any { existing ->
+                    val dx = existing.x - x
+                    val dy = existing.y - y
+                    sqrt(dx * dx + dy * dy) < BALL_RADIUS * 3
+                }
             )
 
             val angle = Random.nextFloat() * 2 * PI.toFloat()
@@ -387,8 +391,7 @@ class BubbleSumGame : Game() {
         return config.blinkMode == BlinkMode.STAGGERED
     }
 
-    override fun isCorrect(input: String): Boolean =
-        input.trim() == targetSum().toString()
+    override fun isCorrect(input: String): Boolean = input.trim() == targetSum().toString()
 
     override fun solution(): String = targetSum().toString()
 
@@ -400,6 +403,5 @@ class BubbleSumGame : Game() {
         roundKey = roundKey,
     )
 
-    private fun currentTimeMillis(): Long =
-        kotlin.time.Clock.System.now().toEpochMilliseconds()
+    private fun currentTimeMillis(): Long = kotlin.time.Clock.System.now().toEpochMilliseconds()
 }

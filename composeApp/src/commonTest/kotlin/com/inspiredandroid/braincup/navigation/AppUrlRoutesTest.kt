@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.navigation
 import com.inspiredandroid.braincup.app.Instructions
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
+import com.inspiredandroid.braincup.app.PegSolitaire
 import com.inspiredandroid.braincup.app.Playing
 import com.inspiredandroid.braincup.app.Scoreboard
 import com.inspiredandroid.braincup.app.Settings
@@ -75,6 +76,16 @@ class AppUrlRoutesTest {
     @Test
     fun pathSuffixToNavRoute_sudokuPlay() {
         assertEquals(NormalSudokuPlay("easy-1"), pathSuffixToNavRoute("sudoku/easy-1"))
+    }
+
+    @Test
+    fun navRouteToPathSuffix_pegSolitaire() {
+        assertEquals("peg-solitaire", navRouteToPathSuffix(PegSolitaire))
+    }
+
+    @Test
+    fun pathSuffixToNavRoute_pegSolitaire() {
+        assertEquals(PegSolitaire, pathSuffixToNavRoute("peg-solitaire"))
     }
 
     @Test

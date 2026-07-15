@@ -622,6 +622,19 @@
     <string name="matchstick_riddles_reset">Zurücksetzen</string>
     <string name="achievement_matchstick_master">Streichholz-Meister</string>
     <string name="achievement_matchstick_master_desc">Löse jedes Streichholz-Rätsel</string>
+
+    <!-- Peg Solitaire -->
+    <string name="peg_solitaire_button">Solitär</string>
+    <string name="peg_solitaire_title">Solitär</string>
+    <string name="peg_solitaire_pegs_left">Stifte übrig: %1$d</string>
+    <string name="peg_solitaire_howto">Springe mit einem Stift über einen anderen in ein freies Loch. Räume das Brett bis auf einen Stift ab.</string>
+    <string name="peg_solitaire_won">Geschafft! Ein Stift übrig.</string>
+    <string name="peg_solitaire_won_perfect">Perfekt! Letzter Stift in der Mitte.</string>
+    <string name="peg_solitaire_stuck">Keine Züge mehr.</string>
+    <string name="peg_solitaire_undo">Rückgängig</string>
+    <string name="peg_solitaire_restart">Neustart</string>
+    <string name="achievement_peg_solitaire_perfect">Stift-Meister</string>
+    <string name="achievement_peg_solitaire_perfect_desc">Beende englisches Solitär mit einem Stift in der Mitte</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen. Die Lösung ist immer ein Substantiv.</string>
     <string name="achievement_gold_wordle">Wortkünstler</string>
