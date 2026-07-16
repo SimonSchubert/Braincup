@@ -10,11 +10,17 @@ on:
   workflow_run:
     workflows: ["Build and Release"]
     types: [completed]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (without v prefix, e.g. 2.29.0)'
+        required: true
+        type: string
 
 jobs:
   validate:
     name: Validate PKGBUILD
-    if: github.event_name != 'workflow_run'
+    if: github.event_name != 'workflow_run' && github.event_name != 'workflow_dispatch'
     runs-on: ubuntu-latest
     container: archlinux:base-devel
     steps:
@@ -42,7 +48,9 @@ jobs:
 
   publish:
     name: Publish to AUR
-    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
+    if: >-
+      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
+      github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     container: archlinux:base-devel
     steps:
@@ -59,7 +67,12 @@ jobs:
 
       - name: Get version from release
         id: version
-        run: echo "version=$(echo '${{ github.event.workflow_run.head_branch }}' | sed 's/^v//')" >> $GITHUB_OUTPUT
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "version=${{ inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "version=$(echo '${{ github.event.workflow_run.head_branch }}' | sed 's/^v//')" >> $GITHUB_OUTPUT
+          fi
 
       - name: Update PKGBUILD version and checksum
         run: |
