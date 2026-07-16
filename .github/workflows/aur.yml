@@ -54,6 +54,11 @@ jobs:
     runs-on: ubuntu-latest
     container: archlinux:base-devel
     steps:
+      # Install git before checkout so actions/checkout uses git clone
+      # instead of the GitHub archive REST API (which is flakier during outages).
+      - name: Install dependencies
+        run: pacman -Sy --noconfirm openssh git
+
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -61,9 +66,6 @@ jobs:
         run: |
           useradd -m builder
           echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
-
-      - name: Install dependencies
-        run: pacman -Sy --noconfirm openssh git
 
       - name: Get version from release
         id: version
