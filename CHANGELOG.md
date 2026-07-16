@@ -1,3 +1,10 @@
+## v2.29.0 — 2026-07-17
+
+### Features
+- Add Bubble Sum game
+- Add Peg Solitaire game
+- Add Quick Sum game
+
 ## v2.28.0 — 2026-07-14
 
 ### Features
