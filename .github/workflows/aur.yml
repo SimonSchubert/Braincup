@@ -10,17 +10,11 @@ on:
   workflow_run:
     workflows: ["Build and Release"]
     types: [completed]
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'Version to publish (without v prefix, e.g. 2.29.0)'
-        required: true
-        type: string
 
 jobs:
   validate:
     name: Validate PKGBUILD
-    if: github.event_name != 'workflow_run' && github.event_name != 'workflow_dispatch'
+    if: github.event_name != 'workflow_run'
     runs-on: ubuntu-latest
     container: archlinux:base-devel
     steps:
@@ -48,17 +42,10 @@ jobs:
 
   publish:
     name: Publish to AUR
-    if: >-
-      (github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success') ||
-      github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     container: archlinux:base-devel
     steps:
-      # Install git before checkout so actions/checkout uses git clone
-      # instead of the GitHub archive REST API (which is flakier during outages).
-      - name: Install dependencies
-        run: pacman -Sy --noconfirm openssh git
-
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -67,14 +54,12 @@ jobs:
           useradd -m builder
           echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
+      - name: Install dependencies
+        run: pacman -Sy --noconfirm openssh git
+
       - name: Get version from release
         id: version
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            echo "version=${{ inputs.version }}" >> $GITHUB_OUTPUT
-          else
-            echo "version=$(echo '${{ github.event.workflow_run.head_branch }}' | sed 's/^v//')" >> $GITHUB_OUTPUT
-          fi
+        run: echo "version=$(echo '${{ github.event.workflow_run.head_branch }}' | sed 's/^v//')" >> $GITHUB_OUTPUT
 
       - name: Update PKGBUILD version and checksum
         run: |
