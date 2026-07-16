@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Це сума.</string>
     <string name="achievement_gold_bubble_sum">Бульбашковий бухгалтер</string>
     <string name="achievement_gold_bubble_sum_desc">Здобудь золоту медаль у Сума бульбашок</string>
+    <string name="game_quick_sum">Швидка сума</string>
+    <string name="game_quick_sum_desc">Числа з'являються по одному. Додайте їх і введіть суму.</string>
+    <string name="quick_sum_instruction">Чому дорівнює сума?</string>
+    <string name="quick_sum_watch">Дивіться</string>
+    <string name="quick_sum_demo_title">Числа з'являються по одному</string>
+    <string name="quick_sum_demo_flash">Рахуйте подумки на ходу.</string>
+    <string name="quick_sum_demo_total">Введіть суму.</string>
+    <string name="achievement_gold_quick_sum">Блискавичні рахівниці</string>
+    <string name="achievement_gold_quick_sum_desc">Здобудь золоту медаль у Швидка сума</string>
     <string name="game_flash_crowd">Миттєвий натовп</string>
     <string name="game_schulte_table">Таблиця Шульте</string>
     <string name="game_mini_chess">Міні-шахи</string>

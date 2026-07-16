@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">यह योग है।</string>
     <string name="achievement_gold_bubble_sum">बुलबुला लेखाकार</string>
     <string name="achievement_gold_bubble_sum_desc">बुलबुला योग में स्वर्ण पदक जीतें</string>
+    <string name="game_quick_sum">तेज़ जोड़</string>
+    <string name="game_quick_sum_desc">संख्याएँ एक-एक करके चमकती हैं। उन्हें जोड़ें और कुल दर्ज करें।</string>
+    <string name="quick_sum_instruction">कुल कितना है?</string>
+    <string name="quick_sum_watch">देखें</string>
+    <string name="quick_sum_demo_title">संख्याएँ एक-एक करके चमकती हैं</string>
+    <string name="quick_sum_demo_flash">मन ही मन जोड़ते रहें।</string>
+    <string name="quick_sum_demo_total">कुल दर्ज करें।</string>
+    <string name="achievement_gold_quick_sum">बिजली अबेकस</string>
+    <string name="achievement_gold_quick_sum_desc">तेज़ जोड़ में स्वर्ण पदक जीतें</string>
     <string name="game_flash_crowd">फ्लैश क्राउड</string>
     <string name="game_schulte_table">शुल्ते तालिका</string>
     <string name="game_mini_chess">मिनी शतरंज</string>

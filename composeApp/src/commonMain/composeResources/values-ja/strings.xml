@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">これが合計です。</string>
     <string name="achievement_gold_bubble_sum">バブル会計士</string>
     <string name="achievement_gold_bubble_sum_desc">バブル合計で金メダルを獲得</string>
+    <string name="game_quick_sum">フラッシュ暗算</string>
+    <string name="game_quick_sum_desc">数字が一つずつ表示されます。足して合計を入力しましょう。</string>
+    <string name="quick_sum_instruction">合計は？</string>
+    <string name="quick_sum_watch">見る</string>
+    <string name="quick_sum_demo_title">数字が一つずつ表示されます</string>
+    <string name="quick_sum_demo_flash">頭の中で足していって。</string>
+    <string name="quick_sum_demo_total">合計を入力。</string>
+    <string name="achievement_gold_quick_sum">フラッシュそろばん</string>
+    <string name="achievement_gold_quick_sum_desc">フラッシュ暗算で金メダルを獲得</string>
     <string name="game_flash_crowd">フラッシュクラウド</string>
     <string name="game_schulte_table">シュルテ表</string>
     <string name="game_mini_chess">ミニチェス</string>

@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Esa es la suma.</string>
     <string name="achievement_gold_bubble_sum">Contable de burbujas</string>
     <string name="achievement_gold_bubble_sum_desc">Gana la medalla de oro en Suma burbujas</string>
+    <string name="game_quick_sum">Suma rápida</string>
+    <string name="game_quick_sum_desc">Los números aparecen de uno en uno. Súmalos e introduce el total.</string>
+    <string name="quick_sum_instruction">¿Cuál es el total?</string>
+    <string name="quick_sum_watch">Observa</string>
+    <string name="quick_sum_demo_title">Los números aparecen de uno en uno</string>
+    <string name="quick_sum_demo_flash">Lleva la cuenta mentalmente.</string>
+    <string name="quick_sum_demo_total">Introduce el total.</string>
+    <string name="achievement_gold_quick_sum">Ábaco relámpago</string>
+    <string name="achievement_gold_quick_sum_desc">Gana la medalla de oro en Suma rápida</string>
     <string name="game_flash_crowd">Multitud Relámpago</string>
     <string name="game_schulte_table">Tabla de Schulte</string>
     <string name="game_mini_chess">Mini Ajedrez</string>

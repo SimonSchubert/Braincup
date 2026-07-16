@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
+import com.inspiredandroid.braincup.games.QuickSumGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
@@ -58,6 +59,19 @@ data class BubbleSumUiState(
     @Immutable
     data class BubbleState(val value: Int)
 }
+
+@Immutable
+data class QuickSumUiState(
+    val phase: QuickSumGame.Phase,
+    /** The term on screen, or null during the blank gap between terms. */
+    val currentTerm: Int?,
+    val termIndex: Int,
+    val termCount: Int,
+    val answerLength: Int,
+    /** Non-null while revealing the total after a submission. */
+    val revealedSum: String?,
+    val answerResult: QuickSumGame.AnswerResult?,
+) : GameUiState
 
 @Immutable
 data class ChainCalculationUiState(

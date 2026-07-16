@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Это сумма.</string>
     <string name="achievement_gold_bubble_sum">Пузырьковый бухгалтер</string>
     <string name="achievement_gold_bubble_sum_desc">Завоюй золотую медаль в Сумма пузырей</string>
+    <string name="game_quick_sum">Быстрая сумма</string>
+    <string name="game_quick_sum_desc">Числа появляются по одному. Сложите их и введите сумму.</string>
+    <string name="quick_sum_instruction">Чему равна сумма?</string>
+    <string name="quick_sum_watch">Смотрите</string>
+    <string name="quick_sum_demo_title">Числа появляются по одному</string>
+    <string name="quick_sum_demo_flash">Считайте в уме по ходу.</string>
+    <string name="quick_sum_demo_total">Введите сумму.</string>
+    <string name="achievement_gold_quick_sum">Молниеносные счёты</string>
+    <string name="achievement_gold_quick_sum_desc">Завоюй золотую медаль в Быстрая сумма</string>
     <string name="game_flash_crowd">Мгновенная толпа</string>
     <string name="game_schulte_table">Таблица Шульте</string>
     <string name="game_mini_chess">Мини-шахматы</string>

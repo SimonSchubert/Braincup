@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Đó là tổng.</string>
     <string name="achievement_gold_bubble_sum">Kế toán bong bóng</string>
     <string name="achievement_gold_bubble_sum_desc">Giành huy chương vàng ở Tổng bong bóng</string>
+    <string name="game_quick_sum">Tổng Nhanh</string>
+    <string name="game_quick_sum_desc">Các số lần lượt hiện ra. Cộng chúng lại và nhập tổng.</string>
+    <string name="quick_sum_instruction">Tổng là bao nhiêu?</string>
+    <string name="quick_sum_watch">Quan sát</string>
+    <string name="quick_sum_demo_title">Các số lần lượt hiện ra</string>
+    <string name="quick_sum_demo_flash">Nhẩm tổng trong đầu.</string>
+    <string name="quick_sum_demo_total">Nhập tổng.</string>
+    <string name="achievement_gold_quick_sum">Bàn Tính Chớp</string>
+    <string name="achievement_gold_quick_sum_desc">Giành huy chương vàng trong Tổng Nhanh</string>
     <string name="game_flash_crowd">Đám Đông Chớp</string>
     <string name="game_schulte_table">Bảng Schulte</string>
     <string name="game_mini_chess">Cờ Vua Mini</string>

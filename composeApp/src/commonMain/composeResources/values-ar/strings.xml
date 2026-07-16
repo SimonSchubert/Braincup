@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">هذا هو المجموع.</string>
     <string name="achievement_gold_bubble_sum">محاسب الفقاعات</string>
     <string name="achievement_gold_bubble_sum_desc">افز بالميدالية الذهبية في مجموع الفقاعات</string>
+    <string name="game_quick_sum">الجمع السريع</string>
+    <string name="game_quick_sum_desc">تظهر الأرقام واحدًا تلو الآخر. اجمعها وأدخل المجموع.</string>
+    <string name="quick_sum_instruction">ما هو المجموع؟</string>
+    <string name="quick_sum_watch">راقب</string>
+    <string name="quick_sum_demo_title">تظهر الأرقام واحدًا تلو الآخر</string>
+    <string name="quick_sum_demo_flash">اجمع في ذهنك أولًا بأول.</string>
+    <string name="quick_sum_demo_total">أدخل المجموع.</string>
+    <string name="achievement_gold_quick_sum">المعداد الخاطف</string>
+    <string name="achievement_gold_quick_sum_desc">احصل على الميدالية الذهبية في الجمع السريع</string>
     <string name="game_flash_crowd">حشد الوميض</string>
     <string name="game_schulte_table">جدول شولت</string>
     <string name="game_mini_chess">شطرنج مصغر</string>

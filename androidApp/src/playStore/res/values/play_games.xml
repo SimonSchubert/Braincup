@@ -11,6 +11,10 @@
     <string name="achievementShapeShifter" translatable="false">CgkIuZrirtIVEAIQCA</string>
     <string name="achievementElementaryMyDear" translatable="false">CgkIuZrirtIVEAIQCQ</string>
     <string name="achievementHumanCalculator" translatable="false">CgkIuZrirtIVEAIQCg</string>
+    <!-- achievement Bubble Accountant (Bubble Sum) -->
+    <string name="achievementBubbleAccountant" translatable="false">CgkIuZrirtIVEAIQKQ</string>
+    <!-- achievement Flash Abacus (Quick Sum) -->
+    <string name="achievementFlashAbacus" translatable="false">CgkIuZrirtIVEAIQKg</string>
     <string name="achievementUnbrokenChain" translatable="false">CgkIuZrirtIVEAIQCw</string>
     <string name="achievementFractionBoss" translatable="false">CgkIuZrirtIVEAIQDA</string>
     <string name="achievementGreaterThanTheRest" translatable="false">CgkIuZrirtIVEAIQDQ</string>
@@ -51,6 +55,9 @@
     <!-- Matchstick Riddles progress (incremental, max steps = MatchstickRiddles.storeProgressMax = 50).
          Reports solved count via setSteps only; in-app MATCHSTICK_MASTER unlock is separate. -->
     <string name="achievementMatchstickMaster" translatable="false">CgkIuZrirtIVEAIQJw</string>
+
+    <!-- Peg Solitaire Perfect ("Peg Master"), standard (non-incremental). -->
+    <string name="achievementPegMaster" translatable="false">CgkIuZrirtIVEAIQKw</string>
 
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>

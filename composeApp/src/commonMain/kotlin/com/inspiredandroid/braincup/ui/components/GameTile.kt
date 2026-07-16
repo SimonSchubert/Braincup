@@ -4,12 +4,14 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.ColorFilter
@@ -401,6 +403,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.VISUAL_MEMORY -> VisualMemoryPreview()
         GameType.MENTAL_CALCULATION -> MentalCalculationPreview()
         GameType.BUBBLE_SUM -> BubbleSumPreview()
+        GameType.QUICK_SUM -> QuickSumPreview()
         GameType.SHERLOCK_CALCULATION -> SherlockCalculationPreview()
         GameType.CHAIN_CALCULATION -> ChainCalculationPreview()
         GameType.FRACTION_CALCULATION -> FractionCalculationPreview()
@@ -590,6 +593,34 @@ private fun MentalCalculationPreview() {
         textAlign = TextAlign.Center,
         color = PreviewTextColor,
     )
+}
+
+@Composable
+private fun QuickSumPreview() {
+    // Mirrors the arena: one term lit, the rest of the sequence still to come.
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Text(
+            text = "7",
+            style = MaterialTheme.typography.headlineLarge,
+            fontFamily = numberFontFamily(),
+            textAlign = TextAlign.Center,
+            color = PreviewTextColor,
+        )
+        Spacer(Modifier.height(8.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            repeat(4) { i ->
+                Box(
+                    modifier = Modifier
+                        .size(5.dp)
+                        .clip(CircleShape)
+                        .background(PreviewTextColor.copy(alpha = if (i <= 1) 1f else 0.25f)),
+                )
+            }
+        }
+    }
 }
 
 @Composable

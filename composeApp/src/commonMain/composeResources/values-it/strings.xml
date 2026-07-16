@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Questa è la somma.</string>
     <string name="achievement_gold_bubble_sum">Contabile delle bolle</string>
     <string name="achievement_gold_bubble_sum_desc">Vinci la medaglia d'oro in Somma bolle</string>
+    <string name="game_quick_sum">Somma lampo</string>
+    <string name="game_quick_sum_desc">I numeri appaiono uno alla volta. Sommali e inserisci il totale.</string>
+    <string name="quick_sum_instruction">Qual è il totale?</string>
+    <string name="quick_sum_watch">Osserva</string>
+    <string name="quick_sum_demo_title">I numeri appaiono uno alla volta</string>
+    <string name="quick_sum_demo_flash">Tieni il totale a mente.</string>
+    <string name="quick_sum_demo_total">Inserisci il totale.</string>
+    <string name="achievement_gold_quick_sum">Abaco lampo</string>
+    <string name="achievement_gold_quick_sum_desc">Vinci la medaglia d'oro in Somma lampo</string>
     <string name="game_flash_crowd">Folla Lampo</string>
     <string name="game_schulte_table">Tabella di Schulte</string>
     <string name="game_mini_chess">Mini Scacchi</string>

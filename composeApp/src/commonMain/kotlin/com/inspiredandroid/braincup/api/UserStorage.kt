@@ -45,6 +45,7 @@ class UserStorage(
         GOLD_SHERLOCK_CALCULATION(Res.string.achievement_gold_sherlock_calculation, Res.string.achievement_gold_sherlock_calculation_desc),
         GOLD_MENTAL_CALCULATION(Res.string.achievement_gold_mental_calculation, Res.string.achievement_gold_mental_calculation_desc),
         GOLD_BUBBLE_SUM(Res.string.achievement_gold_bubble_sum, Res.string.achievement_gold_bubble_sum_desc),
+        GOLD_QUICK_SUM(Res.string.achievement_gold_quick_sum, Res.string.achievement_gold_quick_sum_desc),
         GOLD_CHAIN_CALCULATION(Res.string.achievement_gold_chain_calculation, Res.string.achievement_gold_chain_calculation_desc),
         GOLD_FRACTION_CALCULATION(Res.string.achievement_gold_fraction_calculation, Res.string.achievement_gold_fraction_calculation_desc),
         GOLD_VALUE_COMPARISON(Res.string.achievement_gold_value_comparison, Res.string.achievement_gold_value_comparison_desc),
@@ -383,6 +384,7 @@ class UserStorage(
     fun markPegSolitairePerfect() {
         if (hasPerfectPegSolitaire()) return
         settings.putBoolean(KEY_PEG_SOLITAIRE_PERFECT, true)
+        PlayGamesBridge.onPegSolitairePerfect?.invoke()
         unlockAchievement(Achievements.PEG_SOLITAIRE_PERFECT)
     }
 

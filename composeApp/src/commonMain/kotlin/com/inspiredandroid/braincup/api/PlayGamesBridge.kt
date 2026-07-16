@@ -15,6 +15,9 @@ object PlayGamesBridge {
     var onTotalScore: ((Int) -> Unit)? = null
     var onStreak: ((Int) -> Unit)? = null
 
+    /** Fired the first time English peg solitaire is finished with the last peg in the center. */
+    var onPegSolitairePerfect: (() -> Unit)? = null
+
     /**
      * Report the number of solved puzzles in a Normal Sudoku difficulty tier (0..10) to the
      * tier's incremental store achievement. Wired to `setSteps` (Play Games) /

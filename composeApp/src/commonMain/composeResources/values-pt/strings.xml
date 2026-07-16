@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Essa é a soma.</string>
     <string name="achievement_gold_bubble_sum">Contador de bolhas</string>
     <string name="achievement_gold_bubble_sum_desc">Ganhe a medalha de ouro em Soma bolhas</string>
+    <string name="game_quick_sum">Soma rápida</string>
+    <string name="game_quick_sum_desc">Os números aparecem um de cada vez. Some-os e introduza o total.</string>
+    <string name="quick_sum_instruction">Qual é o total?</string>
+    <string name="quick_sum_watch">Observe</string>
+    <string name="quick_sum_demo_title">Os números aparecem um de cada vez</string>
+    <string name="quick_sum_demo_flash">Mantenha o total na cabeça.</string>
+    <string name="quick_sum_demo_total">Introduza o total.</string>
+    <string name="achievement_gold_quick_sum">Ábaco relâmpago</string>
+    <string name="achievement_gold_quick_sum_desc">Ganhe a medalha de ouro em Soma rápida</string>
     <string name="game_flash_crowd">Multidão Relâmpago</string>
     <string name="game_schulte_table">Tabela de Schulte</string>
     <string name="game_mini_chess">Mini Xadrez</string>

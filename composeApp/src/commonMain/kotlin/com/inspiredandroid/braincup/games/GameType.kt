@@ -171,6 +171,16 @@ enum class GameType(
         descriptionRes = Res.string.game_bubble_sum_desc,
         category = GameCategory.MATH,
     ),
+    QUICK_SUM(
+        displayNameRes = Res.string.game_quick_sum,
+        id = "32",
+        // Score = sequences summed correctly in 60s. Flash time is ~4s at every tier, so the
+        // pacing matches DIGIT_MEMORY; its thresholds are borrowed. Tune after playtest.
+        goldScore = 7,
+        silverScore = 4,
+        descriptionRes = Res.string.game_quick_sum_desc,
+        category = GameCategory.MATH,
+    ),
     CHAIN_CALCULATION(
         displayNameRes = Res.string.game_chain_calculation,
         id = "3",

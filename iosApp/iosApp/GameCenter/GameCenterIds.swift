@@ -20,6 +20,8 @@ enum GameCenterIds {
         "COLORED_SHAPES":        "achievement.shape_shifter",
         "SHERLOCK_CALCULATION":  "achievement.elementary_my_dear",
         "MENTAL_CALCULATION":    "achievement.human_calculator",
+        "BUBBLE_SUM":            "achievement.bubble_accountant",
+        "QUICK_SUM":             "achievement.flash_abacus",
         "CHAIN_CALCULATION":     "achievement.unbroken_chain",
         "FRACTION_CALCULATION":  "achievement.fraction_boss",
         "VALUE_COMPARISON":      "achievement.greater_than_the_rest",
@@ -57,6 +59,8 @@ enum GameCenterIds {
     // Matchstick Riddles store progress (incremental toward MatchstickRiddles.storeProgressMax).
     // In-app MATCHSTICK_MASTER unlock is separate; Game Center never shows a completion banner.
     static let achievementMatchstickMaster = "achievement.matchstick_master"
+    // Peg Solitaire Perfect ("Peg Master"), standard (non-incremental).
+    static let achievementPegMaster       = "achievement.peg_master"
     static let leaderboardBrainCup       = "leaderboard.brain_cup"
 
     static let mindMarathonerTarget = 10_000
@@ -107,6 +111,8 @@ enum GameCenterIds {
         case "achievement.shape_shifter":         return UserStorage.Achievements.goldColoredShapes
         case "achievement.elementary_my_dear":    return UserStorage.Achievements.goldSherlockCalculation
         case "achievement.human_calculator":      return UserStorage.Achievements.goldMentalCalculation
+        case "achievement.bubble_accountant":     return UserStorage.Achievements.goldBubbleSum
+        case "achievement.flash_abacus":          return UserStorage.Achievements.goldQuickSum
         case "achievement.unbroken_chain":        return UserStorage.Achievements.goldChainCalculation
         case "achievement.fraction_boss":         return UserStorage.Achievements.goldFractionCalculation
         case "achievement.greater_than_the_rest": return UserStorage.Achievements.goldValueComparison
@@ -121,6 +127,7 @@ enum GameCenterIds {
         case "achievement.fresh_eyes":            return UserStorage.Achievements.goldSpotTheNew
         case "achievement.wordsmith":             return UserStorage.Achievements.goldWordle
         case "achievement.flag_bearer":           return UserStorage.Achievements.goldFlags
+        case achievementPegMaster:                return UserStorage.Achievements.pegSolitairePerfect
         default: return nil
         }
     }

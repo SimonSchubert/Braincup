@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Das ist die Summe.</string>
     <string name="achievement_gold_bubble_sum">Blasenbuchhalter</string>
     <string name="achievement_gold_bubble_sum_desc">Goldmedaille in Blasensumme gewinnen</string>
+    <string name="game_quick_sum">Blitzsumme</string>
+    <string name="game_quick_sum_desc">Zahlen blitzen nacheinander auf. Addiere sie und gib die Summe ein.</string>
+    <string name="quick_sum_instruction">Wie lautet die Summe?</string>
+    <string name="quick_sum_watch">Aufgepasst</string>
+    <string name="quick_sum_demo_title">Zahlen blitzen nacheinander auf</string>
+    <string name="quick_sum_demo_flash">Zähle im Kopf mit.</string>
+    <string name="quick_sum_demo_total">Gib die Summe ein.</string>
+    <string name="achievement_gold_quick_sum">Blitzrechner</string>
+    <string name="achievement_gold_quick_sum_desc">Goldmedaille in Blitzsumme gewinnen</string>
     <string name="game_flash_crowd">Blitzmenge</string>
     <string name="game_schulte_table">Schulte-Tabelle</string>
     <string name="game_mini_chess">Mini-Schach</string>

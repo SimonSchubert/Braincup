@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Itulah jumlahnya.</string>
     <string name="achievement_gold_bubble_sum">Akuntan Gelembung</string>
     <string name="achievement_gold_bubble_sum_desc">Raih medali emas di Jumlah Gelembung</string>
+    <string name="game_quick_sum">Jumlah Kilat</string>
+    <string name="game_quick_sum_desc">Angka muncul satu per satu. Jumlahkan dan masukkan totalnya.</string>
+    <string name="quick_sum_instruction">Berapa totalnya?</string>
+    <string name="quick_sum_watch">Perhatikan</string>
+    <string name="quick_sum_demo_title">Angka muncul satu per satu</string>
+    <string name="quick_sum_demo_flash">Hitung terus dalam kepala.</string>
+    <string name="quick_sum_demo_total">Masukkan totalnya.</string>
+    <string name="achievement_gold_quick_sum">Sempoa Kilat</string>
+    <string name="achievement_gold_quick_sum_desc">Menangkan medali emas di Jumlah Kilat</string>
     <string name="game_flash_crowd">Kerumunan Kilat</string>
     <string name="game_schulte_table">Tabel Schulte</string>
     <string name="game_mini_chess">Mini Catur</string>

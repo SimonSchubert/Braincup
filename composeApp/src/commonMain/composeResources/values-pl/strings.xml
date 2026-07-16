@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">To jest suma.</string>
     <string name="achievement_gold_bubble_sum">Księgowy baniek</string>
     <string name="achievement_gold_bubble_sum_desc">Zdobądź złoty medal w Suma baniek</string>
+    <string name="game_quick_sum">Szybka suma</string>
+    <string name="game_quick_sum_desc">Liczby pojawiają się pojedynczo. Dodaj je i wpisz sumę.</string>
+    <string name="quick_sum_instruction">Ile wynosi suma?</string>
+    <string name="quick_sum_watch">Uwaga</string>
+    <string name="quick_sum_demo_title">Liczby pojawiają się pojedynczo</string>
+    <string name="quick_sum_demo_flash">Licz w pamięci na bieżąco.</string>
+    <string name="quick_sum_demo_total">Wpisz sumę.</string>
+    <string name="achievement_gold_quick_sum">Błyskawiczne liczydło</string>
+    <string name="achievement_gold_quick_sum_desc">Zdobądź złoty medal w Szybkiej sumie</string>
     <string name="game_flash_crowd">Błyskawiczny Tłum</string>
     <string name="game_schulte_table">Tablica Schulte'a</string>
     <string name="game_mini_chess">Mini Szachy</string>

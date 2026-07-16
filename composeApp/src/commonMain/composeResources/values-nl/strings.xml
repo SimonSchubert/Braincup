@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Dat is de som.</string>
     <string name="achievement_gold_bubble_sum">Bellenaccountant</string>
     <string name="achievement_gold_bubble_sum_desc">Win gouden medaille in Bellensom</string>
+    <string name="game_quick_sum">Snelle som</string>
+    <string name="game_quick_sum_desc">Getallen flitsen een voor een voorbij. Tel ze op en voer het totaal in.</string>
+    <string name="quick_sum_instruction">Wat is het totaal?</string>
+    <string name="quick_sum_watch">Kijk</string>
+    <string name="quick_sum_demo_title">Getallen flitsen een voor een voorbij</string>
+    <string name="quick_sum_demo_flash">Houd het totaal in je hoofd bij.</string>
+    <string name="quick_sum_demo_total">Voer het totaal in.</string>
+    <string name="achievement_gold_quick_sum">Bliksemrekenaar</string>
+    <string name="achievement_gold_quick_sum_desc">Win een gouden medaille in Snelle som</string>
     <string name="game_flash_crowd">Flitsmenigte</string>
     <string name="game_schulte_table">Schulte-tabel</string>
     <string name="game_mini_chess">Mini-Schaak</string>

@@ -64,6 +64,13 @@ fun initPlayGames(activity: ComponentActivity) {
         PlayGames.getAchievementsClient(current).unlock(id)
     }
 
+    PlayGamesBridge.onPegSolitairePerfect = fun() {
+        val current = activityRef?.get() ?: return
+        val id = current.getString(R.string.achievementPegMaster)
+        if (id.isBlank()) return
+        PlayGames.getAchievementsClient(current).unlock(id)
+    }
+
     PlayGamesBridge.onSudokuTierProgress = fun(difficulty: SudokuDifficulty, solved: Int) {
         val current = activityRef?.get() ?: return
         val id = current.getString(sudokuTierAchievementResIdFor(difficulty))
@@ -240,6 +247,10 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
             if (streakId.isNotBlank() && streakId in unlockedIds) {
                 toRestore.add(UserStorage.Achievements.STREAK_30)
             }
+            val pegMasterId = activity.getString(R.string.achievementPegMaster)
+            if (pegMasterId.isNotBlank() && pegMasterId in unlockedIds) {
+                toRestore.add(UserStorage.Achievements.PEG_SOLITAIRE_PERFECT)
+            }
             storage.restoreUnlockedAchievements(toRestore)
 
             for (difficulty in SudokuDifficulty.entries) {
@@ -280,7 +291,8 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.COLORED_SHAPES -> R.string.achievementShapeShifter
     GameType.SHERLOCK_CALCULATION -> R.string.achievementElementaryMyDear
     GameType.MENTAL_CALCULATION -> R.string.achievementHumanCalculator
-    GameType.BUBBLE_SUM -> null // GPGS achievement ID pending console setup
+    GameType.BUBBLE_SUM -> R.string.achievementBubbleAccountant
+    GameType.QUICK_SUM -> R.string.achievementFlashAbacus
     GameType.CHAIN_CALCULATION -> R.string.achievementUnbrokenChain
     GameType.FRACTION_CALCULATION -> R.string.achievementFractionBoss
     GameType.VALUE_COMPARISON -> R.string.achievementGreaterThanTheRest

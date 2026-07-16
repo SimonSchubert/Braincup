@@ -51,6 +51,7 @@ import com.inspiredandroid.braincup.ui.components.PathFinderDemo
 import com.inspiredandroid.braincup.ui.components.PatternSequenceDemo
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.QuickSumDemo
 import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
 import com.inspiredandroid.braincup.ui.components.SherlockCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ShikakuDemo
@@ -117,6 +118,7 @@ fun InstructionsScreen(
                 GameType.SPOT_THE_NEW -> SpotTheNewDemo(modifier = demoModifier)
                 GameType.ORBIT_TRACKER -> OrbitTrackerDemo(modifier = demoModifier)
                 GameType.BUBBLE_SUM -> BubbleSumDemo(modifier = demoModifier)
+                GameType.QUICK_SUM -> QuickSumDemo(modifier = demoModifier)
                 GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
                 GameType.KNOT -> KnotDemo(modifier = demoModifier)
                 GameType.SOLO_CHESS -> SoloChessDemo(modifier = demoModifier)

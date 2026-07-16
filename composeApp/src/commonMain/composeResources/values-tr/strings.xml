@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">Bu toplam.</string>
     <string name="achievement_gold_bubble_sum">Baloncuk Muhasebecisi</string>
     <string name="achievement_gold_bubble_sum_desc">Baloncuk Toplamı'nda altın madalya kazan</string>
+    <string name="game_quick_sum">Hızlı Toplam</string>
+    <string name="game_quick_sum_desc">Sayılar teker teker belirir. Onları topla ve toplamı gir.</string>
+    <string name="quick_sum_instruction">Toplam kaç?</string>
+    <string name="quick_sum_watch">İzle</string>
+    <string name="quick_sum_demo_title">Sayılar teker teker belirir</string>
+    <string name="quick_sum_demo_flash">Toplamı aklında tut.</string>
+    <string name="quick_sum_demo_total">Toplamı gir.</string>
+    <string name="achievement_gold_quick_sum">Şimşek Abaküs</string>
+    <string name="achievement_gold_quick_sum_desc">Hızlı Toplam oyununda altın madalya kazan</string>
     <string name="game_flash_crowd">Flaş Kalabalık</string>
     <string name="game_schulte_table">Schulte Tablosu</string>
     <string name="game_mini_chess">Mini Satranç</string>

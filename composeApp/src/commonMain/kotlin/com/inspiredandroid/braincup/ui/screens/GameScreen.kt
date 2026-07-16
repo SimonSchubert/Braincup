@@ -34,6 +34,7 @@ import com.inspiredandroid.braincup.app.NurikabeUiState
 import com.inspiredandroid.braincup.app.OrbitTrackerUiState
 import com.inspiredandroid.braincup.app.PathFinderUiState
 import com.inspiredandroid.braincup.app.PatternSequenceUiState
+import com.inspiredandroid.braincup.app.QuickSumUiState
 import com.inspiredandroid.braincup.app.SchulteTableUiState
 import com.inspiredandroid.braincup.app.SherlockCalculationUiState
 import com.inspiredandroid.braincup.app.ShikakuUiState
@@ -69,6 +70,7 @@ import com.inspiredandroid.braincup.ui.screens.games.NurikabeContent
 import com.inspiredandroid.braincup.ui.screens.games.OrbitTrackerContent
 import com.inspiredandroid.braincup.ui.screens.games.PathFinderContent
 import com.inspiredandroid.braincup.ui.screens.games.PatternSequenceContent
+import com.inspiredandroid.braincup.ui.screens.games.QuickSumContent
 import com.inspiredandroid.braincup.ui.screens.games.SchulteTableContent
 import com.inspiredandroid.braincup.ui.screens.games.SherlockCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.ShikakuContent
@@ -153,6 +155,7 @@ fun GameScreen(
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
             when (gameUiState) {
                 is MentalCalculationUiState -> MentalCalculationContent(gameUiState, onAnswer)
+                is QuickSumUiState -> QuickSumContent(gameUiState, onAnswer)
                 is BubbleSumUiState -> BubbleSumContent(
                     uiState = gameUiState,
                     liveFrames = bubbleSumFrames,

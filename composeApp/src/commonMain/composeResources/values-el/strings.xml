@@ -192,6 +192,15 @@
     <string name="bubble_sum_demo_correct">Αυτό είναι το άθροισμα.</string>
     <string name="achievement_gold_bubble_sum">Λογιστής φυσαλίδων</string>
     <string name="achievement_gold_bubble_sum_desc">Κέρδισε χρυσό μετάλλιο στο Άθροισμα φυσαλίδων</string>
+    <string name="game_quick_sum">Γρήγορο άθροισμα</string>
+    <string name="game_quick_sum_desc">Οι αριθμοί εμφανίζονται ένας-ένας. Πρόσθεσέ τους και δώσε το σύνολο.</string>
+    <string name="quick_sum_instruction">Ποιο είναι το σύνολο;</string>
+    <string name="quick_sum_watch">Πρόσεχε</string>
+    <string name="quick_sum_demo_title">Οι αριθμοί εμφανίζονται ένας-ένας</string>
+    <string name="quick_sum_demo_flash">Κράτα το άθροισμα στο μυαλό σου.</string>
+    <string name="quick_sum_demo_total">Δώσε το σύνολο.</string>
+    <string name="achievement_gold_quick_sum">Άβακας αστραπή</string>
+    <string name="achievement_gold_quick_sum_desc">Κέρδισε χρυσό μετάλλιο στο Γρήγορο άθροισμα</string>
     <string name="game_flash_crowd">Αστραπιαίο Πλήθος</string>
     <string name="game_schulte_table">Πίνακας Σούλτε</string>
     <string name="game_mini_chess">Μίνι Σκάκι</string>

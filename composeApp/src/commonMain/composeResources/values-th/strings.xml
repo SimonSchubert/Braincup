@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">นั่นคือผลรวม</string>
     <string name="achievement_gold_bubble_sum">นักบัญชีฟอง</string>
     <string name="achievement_gold_bubble_sum_desc">ชนะเหรียญทองในผลรวมฟอง</string>
+    <string name="game_quick_sum">บวกเร็ว</string>
+    <string name="game_quick_sum_desc">ตัวเลขจะปรากฏทีละตัว บวกทั้งหมดแล้วใส่ผลรวม</string>
+    <string name="quick_sum_instruction">ผลรวมคือเท่าไร?</string>
+    <string name="quick_sum_watch">ดูให้ดี</string>
+    <string name="quick_sum_demo_title">ตัวเลขปรากฏทีละตัว</string>
+    <string name="quick_sum_demo_flash">บวกสะสมไว้ในใจ</string>
+    <string name="quick_sum_demo_total">ใส่ผลรวม</string>
+    <string name="achievement_gold_quick_sum">ลูกคิดสายฟ้า</string>
+    <string name="achievement_gold_quick_sum_desc">ชนะเหรียญทองในบวกเร็ว</string>
     <string name="game_flash_crowd">ฝูงชนวาบ</string>
     <string name="game_schulte_table">ตารางชูลเทอ</string>
     <string name="game_mini_chess">หมากรุกย่อ</string>

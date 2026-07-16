@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">এটাই যোগফল।</string>
     <string name="achievement_gold_bubble_sum">বুদবুদ হিসাবরক্ষক</string>
     <string name="achievement_gold_bubble_sum_desc">বুদবুদ যোগফলে স্বর্ণপদক জিতুন</string>
+    <string name="game_quick_sum">দ্রুত যোগ</string>
+    <string name="game_quick_sum_desc">সংখ্যাগুলো একে একে ভেসে ওঠে। সেগুলো যোগ করে মোট লিখুন।</string>
+    <string name="quick_sum_instruction">মোট কত?</string>
+    <string name="quick_sum_watch">লক্ষ্য করুন</string>
+    <string name="quick_sum_demo_title">সংখ্যাগুলো একে একে ভেসে ওঠে</string>
+    <string name="quick_sum_demo_flash">মনে মনে যোগ করতে থাকুন।</string>
+    <string name="quick_sum_demo_total">মোট লিখুন।</string>
+    <string name="achievement_gold_quick_sum">বিদ্যুৎ অ্যাবাকাস</string>
+    <string name="achievement_gold_quick_sum_desc">দ্রুত যোগ-এ স্বর্ণপদক জিতুন</string>
     <string name="game_flash_crowd">ফ্ল্যাশ ক্রাউড</string>
     <string name="game_schulte_table">শুল্টে টেবিল</string>
     <string name="game_mini_chess">মিনি দাবা</string>

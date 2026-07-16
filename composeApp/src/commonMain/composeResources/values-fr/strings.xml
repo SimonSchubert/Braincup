@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">C'est la somme.</string>
     <string name="achievement_gold_bubble_sum">Comptable des bulles</string>
     <string name="achievement_gold_bubble_sum_desc">Gagne la médaille d'or à Somme bulles</string>
+    <string name="game_quick_sum">Somme éclair</string>
+    <string name="game_quick_sum_desc">Les nombres apparaissent un par un. Additionne-les et saisis le total.</string>
+    <string name="quick_sum_instruction">Quel est le total ?</string>
+    <string name="quick_sum_watch">Observe</string>
+    <string name="quick_sum_demo_title">Les nombres apparaissent un par un</string>
+    <string name="quick_sum_demo_flash">Garde le total en tête.</string>
+    <string name="quick_sum_demo_total">Saisis le total.</string>
+    <string name="achievement_gold_quick_sum">Boulier éclair</string>
+    <string name="achievement_gold_quick_sum_desc">Gagne la médaille d'or à Somme éclair</string>
     <string name="game_flash_crowd">Foule Éclair</string>
     <string name="game_schulte_table">Table de Schulte</string>
     <string name="game_mini_chess">Mini Échecs</string>

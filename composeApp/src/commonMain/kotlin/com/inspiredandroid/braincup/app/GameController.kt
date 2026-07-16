@@ -187,6 +187,7 @@ class GameController(
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
             (currentState.game as? BubbleSumGame)?.cancelAnimation()
             (currentState.game as? DigitMemoryGame)?.cancelShowing()
+            (currentState.game as? QuickSumGame)?.cancelFlashing()
             if (currentState.game is MiniChessGame) cancelMiniChessAi()
             if (currentState.game is FlagsGame) cancelFlagsTimer()
         }
@@ -335,6 +336,10 @@ class GameController(
             startDigitMemoryGame(gameType)
             return
         }
+        if (gameType == GameType.QUICK_SUM) {
+            startQuickSumGame(gameType)
+            return
+        }
         if (gameType == GameType.BUBBLE_SUM) {
             startBubbleSumGame(gameType)
             return
@@ -463,6 +468,10 @@ class GameController(
         }
         if (game is DigitMemoryGame) {
             handleDigitMemoryAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is QuickSumGame) {
+            handleQuickSumAnswer(currentState, game, answer.trim())
             return
         }
         if (game is SpotTheNewGame) {
@@ -688,6 +697,8 @@ class GameController(
                 if (game.phase == SpotTheNewGame.Phase.MEMORIZING) game.pauseCountdown()
             is DigitMemoryGame ->
                 if (game.phase == DigitMemoryGame.Phase.SHOWING) game.pauseShowing()
+            is QuickSumGame ->
+                if (game.phase == QuickSumGame.Phase.FLASHING) game.pauseFlashing()
         }
     }
 
@@ -733,6 +744,10 @@ class GameController(
                 if (game.phase == DigitMemoryGame.Phase.SHOWING) {
                     game.resumeShowing(scope) { _gameUiState.value = game.toUiState() }
                 }
+            is QuickSumGame ->
+                if (game.phase == QuickSumGame.Phase.FLASHING) {
+                    game.resumeFlashing(scope) { _gameUiState.value = game.toUiState() }
+                }
         }
     }
 
@@ -765,6 +780,7 @@ class GameController(
         GameType.MINI_CHESS -> MiniChessGame()
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
+        GameType.QUICK_SUM -> QuickSumGame()
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
         // Wordle needs an async-loaded, locale-specific word list, so it is built in startWordleGame.
         GameType.WORDLE -> error("WordleGame is created in startWordleGame")
@@ -1777,6 +1793,7 @@ class GameController(
         (game as? OrbitTrackerGame)?.cancelAnimation()
         (game as? BubbleSumGame)?.cancelAnimation()
         (game as? DigitMemoryGame)?.cancelShowing()
+        (game as? QuickSumGame)?.cancelFlashing()
         if (game is FlagsGame) cancelFlagsTimer()
         cancelTimer()
         _gameUiState.value = null
@@ -1834,6 +1851,19 @@ class GameController(
         navController.navigate(Playing(gameType.id))
         startTimer()
         game.startShowing(scope) { _gameUiState.value = game.toUiState() }
+    }
+
+    private fun startQuickSumGame(gameType: GameType) {
+        startTime = Clock.System.now().toEpochMilliseconds()
+        _timeRemaining.value = GAME_TIME_MILLIS
+
+        val game = QuickSumGame()
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
+        startTimer()
+        game.startFlashing(scope) { _gameUiState.value = game.toUiState() }
     }
 
     private fun startBubbleSumGame(gameType: GameType) {
@@ -1917,6 +1947,37 @@ class GameController(
             if (advanceDifficulty) game.nextRound() else game.repeatRound()
             _gameState.value = GameState.Active(gameType, game)
             game.startShowing(scope) { _gameUiState.value = game.toUiState() }
+        }
+    }
+
+    private fun handleQuickSumAnswer(
+        currentState: GameState.Active,
+        game: QuickSumGame,
+        input: String,
+    ) {
+        // Input during the flash is ignored: the pad is not shown yet.
+        if (game.phase != QuickSumGame.Phase.ANSWER) return
+
+        // Only a correct total advances the ramp; a wrong one replays the same tier with fresh
+        // terms, so the pace never runs ahead of the player.
+        val correct = game.submitSum(input)
+        if (correct) points++
+        _gameUiState.value = game.toUiState()
+        scope.launch {
+            delay(1.seconds)
+            advanceQuickSum(currentState.gameType, game, advanceDifficulty = correct)
+        }
+    }
+
+    private fun advanceQuickSum(gameType: GameType, game: QuickSumGame, advanceDifficulty: Boolean) {
+        if (_gameState.value !is GameState.Active) return
+        val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
+        if (elapsed > GAME_TIME_MILLIS) {
+            finishCurrentGame(gameType, game)
+        } else {
+            if (advanceDifficulty) game.nextRound() else game.repeatRound()
+            _gameState.value = GameState.Active(gameType, game)
+            game.startFlashing(scope) { _gameUiState.value = game.toUiState() }
         }
     }
 

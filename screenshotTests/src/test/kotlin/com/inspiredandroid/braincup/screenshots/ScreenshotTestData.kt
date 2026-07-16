@@ -4,6 +4,7 @@ import com.inspiredandroid.braincup.app.DigitMemoryUiState
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
+import com.inspiredandroid.braincup.app.QuickSumUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellType
@@ -78,6 +79,17 @@ fun createBubbleSumUiState(): GameUiState {
     game.nextRound()
     return game.toUiState()
 }
+
+/** Built directly rather than from a game: the terms are random, and a snapshot needs a fixed one. */
+fun createQuickSumUiState(): GameUiState = QuickSumUiState(
+    phase = QuickSumGame.Phase.FLASHING,
+    currentTerm = 7,
+    termIndex = 1,
+    termCount = 4,
+    answerLength = 2,
+    revealedSum = null,
+    answerResult = null,
+)
 
 fun createSherlockCalculationGame(): SherlockCalculationGame {
     val game = SherlockCalculationGame()

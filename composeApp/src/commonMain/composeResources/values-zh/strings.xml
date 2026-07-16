@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">这就是总和。</string>
     <string name="achievement_gold_bubble_sum">气泡会计</string>
     <string name="achievement_gold_bubble_sum_desc">在气泡求和中赢得金牌</string>
+    <string name="game_quick_sum">快速求和</string>
+    <string name="game_quick_sum_desc">数字逐个闪现。把它们相加并输入总和。</string>
+    <string name="quick_sum_instruction">总和是多少？</string>
+    <string name="quick_sum_watch">注意看</string>
+    <string name="quick_sum_demo_title">数字逐个闪现</string>
+    <string name="quick_sum_demo_flash">在心里累加。</string>
+    <string name="quick_sum_demo_total">输入总和。</string>
+    <string name="achievement_gold_quick_sum">闪电算盘</string>
+    <string name="achievement_gold_quick_sum_desc">在快速求和中赢得金牌</string>
     <string name="game_flash_crowd">闪现人群</string>
     <string name="game_schulte_table">舒尔特方格</string>
     <string name="game_mini_chess">迷你国际象棋</string>

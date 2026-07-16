@@ -188,6 +188,7 @@
     <string name="game_color_confusion">Color Confusion</string>
     <string name="game_orbit_tracker">Orbit Tracker</string>
     <string name="game_bubble_sum">Bubble Sum</string>
+    <string name="game_quick_sum">Quick Sum</string>
     <string name="game_flash_crowd">Flash Crowd</string>
     <string name="game_schulte_table">Schulte Table</string>
     <string name="game_mini_chess">Mini Chess</string>
@@ -220,6 +221,12 @@
     <string name="bubble_sum_demo_title">Add the floating numbers</string>
     <string name="bubble_sum_demo_blink">Remember the values when they blink away.</string>
     <string name="bubble_sum_demo_correct">That's the sum.</string>
+    <string name="game_quick_sum_desc">Numbers flash one at a time. Add them up and enter the total.</string>
+    <string name="quick_sum_instruction">What is the total?</string>
+    <string name="quick_sum_watch">Watch</string>
+    <string name="quick_sum_demo_title">Numbers flash one by one</string>
+    <string name="quick_sum_demo_flash">Keep a running total in your head.</string>
+    <string name="quick_sum_demo_total">Enter the total.</string>
     <string name="game_flash_crowd_desc">Dots flash briefly on each side. Tap the side that had more dots. Don't count — trust your instinct!</string>
     <string name="game_schulte_table_desc">Tap the numbers in order from 1 upwards as fast as you can.</string>
     <string name="game_schulte_instruction">Tap the numbers in order: 1, 2, 3...</string>
@@ -372,6 +379,7 @@
     <string name="achievement_gold_sherlock_calculation">Elementary, My Dear</string>
     <string name="achievement_gold_mental_calculation">Human Calculator</string>
     <string name="achievement_gold_bubble_sum">Bubble Accountant</string>
+    <string name="achievement_gold_quick_sum">Flash Abacus</string>
     <string name="achievement_gold_chain_calculation">Unbroken Chain</string>
     <string name="achievement_gold_fraction_calculation">Fraction Boss</string>
     <string name="achievement_gold_value_comparison">Greater Than the Rest</string>
@@ -405,6 +413,7 @@
     <string name="achievement_gold_sherlock_calculation_desc">Win gold medal in Sherlock Calculation</string>
     <string name="achievement_gold_mental_calculation_desc">Win gold medal in Mental Calculation</string>
     <string name="achievement_gold_bubble_sum_desc">Win gold medal in Bubble Sum</string>
+    <string name="achievement_gold_quick_sum_desc">Win gold medal in Quick Sum</string>
     <string name="achievement_gold_chain_calculation_desc">Win gold medal in Chain Calculation</string>
     <string name="achievement_gold_fraction_calculation_desc">Win gold medal in Fraction Calculation</string>
     <string name="achievement_gold_value_comparison_desc">Win gold medal in Value Comparison</string>

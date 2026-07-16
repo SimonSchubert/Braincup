@@ -72,6 +72,15 @@
     <string name="bubble_sum_demo_correct">그게 합입니다.</string>
     <string name="achievement_gold_bubble_sum">버블 회계사</string>
     <string name="achievement_gold_bubble_sum_desc">버블 합계에서 금메달 획득</string>
+    <string name="game_quick_sum">빠른 덧셈</string>
+    <string name="game_quick_sum_desc">숫자가 하나씩 나타납니다. 모두 더해 합계를 입력하세요.</string>
+    <string name="quick_sum_instruction">합계는?</string>
+    <string name="quick_sum_watch">보기</string>
+    <string name="quick_sum_demo_title">숫자가 하나씩 나타납니다</string>
+    <string name="quick_sum_demo_flash">머릿속으로 계속 더하세요.</string>
+    <string name="quick_sum_demo_total">합계를 입력하세요.</string>
+    <string name="achievement_gold_quick_sum">번개 주판</string>
+    <string name="achievement_gold_quick_sum_desc">빠른 덧셈에서 금메달 획득</string>
     <string name="game_flash_crowd">플래시 크라우드</string>
     <string name="game_schulte_table">슐테 테이블</string>
     <string name="game_mini_chess">미니 체스</string>

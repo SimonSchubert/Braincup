@@ -57,6 +57,10 @@ final class GameCenterBridge: NSObject {
             self?.reportAchievement(id: GameCenterIds.achievementIronStreak, percent: 100)
         }
 
+        bridge.onPegSolitairePerfect = { [weak self] in
+            self?.reportAchievement(id: GameCenterIds.achievementPegMaster, percent: 100)
+        }
+
         bridge.onSudokuTierProgress = { [weak self] difficulty, solved in
             let count = Double(Int(truncating: solved))
             let target = Double(GameCenterIds.sudokuTierTarget)
