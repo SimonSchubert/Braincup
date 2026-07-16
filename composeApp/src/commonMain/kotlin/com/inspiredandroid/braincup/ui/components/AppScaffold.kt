@@ -10,12 +10,21 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_back
 import org.jetbrains.compose.resources.stringResource
 
 internal val LocalIsCompactHeight = staticCompositionLocalOf { false }
+
+/**
+ * Height of the scaffold body (viewport minus the top bar), provided on the compact paths only.
+ * Those paths wrap the content in a vertical scroll, so content is measured with unbounded height
+ * and cannot read the real viewport from its own constraints. Null when nothing measured it.
+ */
+internal val LocalScaffoldBodyHeight = staticCompositionLocalOf<Dp?> { null }
+
 private val CompactHeightThreshold = 480.dp
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -75,7 +84,10 @@ fun AppScaffold(
             ) {
                 val compact = maxHeight < CompactHeightThreshold
                 val bodyHeight = maxHeight
-                CompositionLocalProvider(LocalIsCompactHeight provides compact) {
+                CompositionLocalProvider(
+                    LocalIsCompactHeight provides compact,
+                    LocalScaffoldBodyHeight provides bodyHeight,
+                ) {
                     Column(
                         modifier = Modifier
                             .fillMaxWidth()
@@ -161,15 +173,17 @@ fun GameScaffold(
                             .padding(paddingValues),
                     ) {
                         val bodyHeight = this.maxHeight
-                        Column(
-                            modifier = Modifier
-                                .fillMaxWidth()
-                                .verticalScroll(rememberScrollState())
-                                .heightIn(min = bodyHeight),
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center,
-                        ) {
-                            content()
+                        CompositionLocalProvider(LocalScaffoldBodyHeight provides bodyHeight) {
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .verticalScroll(rememberScrollState())
+                                    .heightIn(min = bodyHeight),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center,
+                            ) {
+                                content()
+                            }
                         }
                     }
                 } else {

@@ -7,7 +7,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.PI
+import kotlin.math.abs
 import kotlin.math.cos
+import kotlin.math.min
 import kotlin.math.sin
 import kotlin.math.sqrt
 import kotlin.random.Random
@@ -53,6 +55,17 @@ class BubbleSumGame : Game() {
     )
 
     var bubbles: List<Bubble> = emptyList()
+        private set
+
+    /**
+     * Arena extents in short-edge units: the shorter axis is always 1f and the longer one grows
+     * past it, so [BALL_RADIUS] stays the same fraction of the short edge whatever shape the
+     * layout hands us, and a taller arena simply gives the bubbles more room to travel.
+     * Defaults to a square until the UI reports its canvas.
+     */
+    var arenaWidth: Float = 1f
+        private set
+    var arenaHeight: Float = 1f
         private set
 
     private var animationJob: Job? = null
@@ -107,8 +120,8 @@ class BubbleSumGame : Game() {
             maxValue = 9,
             speed = 0.16f,
             blinkMode = BlinkMode.STAGGERED,
-            visibleMs = 1800,
-            hiddenMs = 800,
+            visibleMs = 5000,
+            hiddenMs = 900,
             sumMin = 10,
             sumMax = 50,
         )
@@ -118,7 +131,7 @@ class BubbleSumGame : Game() {
             maxValue = 12,
             speed = 0.18f,
             blinkMode = BlinkMode.STAGGERED,
-            visibleMs = 1400,
+            visibleMs = 4500,
             hiddenMs = 1000,
             sumMin = 15,
             sumMax = 80,
@@ -129,8 +142,8 @@ class BubbleSumGame : Game() {
             maxValue = 15,
             speed = 0.20f,
             blinkMode = BlinkMode.STAGGERED,
-            visibleMs = 1200,
-            hiddenMs = 1000,
+            visibleMs = 4000,
+            hiddenMs = 1100,
             sumMin = 20,
             sumMax = 100,
         )
@@ -140,18 +153,24 @@ class BubbleSumGame : Game() {
             maxValue = 20,
             speed = 0.22f,
             blinkMode = BlinkMode.STAGGERED,
-            visibleMs = 1000,
-            hiddenMs = 1200,
+            visibleMs = 3500,
+            hiddenMs = 1300,
             sumMin = 25,
             sumMax = 150,
         )
     }
 
     companion object {
+        /** Bubble radius in short-edge units, matching [arenaWidth] / [arenaHeight]. */
         const val BALL_RADIUS = 0.068f
 
-        /** Face stays in warning color this long immediately before the number hides. */
-        const val WARNING_MS = 3000L
+        /**
+         * Face stays in warning color this long immediately before the number hides. Keep it
+         * short next to a round's visible window: the warning is a heads-up to read the number,
+         * and when it grows to a large share of the cycle most bubbles sit yellow at once, which
+         * reads as hectic rather than urgent.
+         */
+        const val WARNING_MS = 1500L
         private val FRAME_DELAY = 16.milliseconds
         private const val VISIBILITY_GRACE_MS = 500L
         private const val MAX_VALUE_ATTEMPTS = 80
@@ -160,6 +179,27 @@ class BubbleSumGame : Game() {
     private fun blinkCycleMs(config: DifficultyConfig): Long {
         if (config.blinkMode == BlinkMode.ALWAYS_ON) return 0L
         return config.visibleMs + WARNING_MS + config.hiddenMs
+    }
+
+    /**
+     * Reports the arena's pixel size. Positions are remapped in proportion so bubbles keep
+     * filling the arena across a rotation or window resize instead of bunching into the old shape.
+     */
+    fun setArenaSize(widthPx: Float, heightPx: Float) {
+        if (widthPx <= 0f || heightPx <= 0f) return
+        val shortEdge = min(widthPx, heightPx)
+        val newWidth = widthPx / shortEdge
+        val newHeight = heightPx / shortEdge
+        if (abs(newWidth - arenaWidth) < 0.001f && abs(newHeight - arenaHeight) < 0.001f) return
+
+        val scaleX = newWidth / arenaWidth
+        val scaleY = newHeight / arenaHeight
+        arenaWidth = newWidth
+        arenaHeight = newHeight
+        for (bubble in bubbles) {
+            bubble.x = (bubble.x * scaleX).coerceIn(BALL_RADIUS, newWidth - BALL_RADIUS)
+            bubble.y = (bubble.y * scaleY).coerceIn(BALL_RADIUS, newHeight - BALL_RADIUS)
+        }
     }
 
     override fun generateRound() {
@@ -174,8 +214,8 @@ class BubbleSumGame : Game() {
             var y: Float
             var attempts = 0
             do {
-                x = margin + (Random.nextFloat() * (1f - 2 * margin))
-                y = margin + (Random.nextFloat() * (1f - 2 * margin))
+                x = margin + (Random.nextFloat() * (arenaWidth - 2 * margin))
+                y = margin + (Random.nextFloat() * (arenaHeight - 2 * margin))
                 attempts++
             } while (
                 attempts < 100 &&
@@ -278,16 +318,16 @@ class BubbleSumGame : Game() {
                 bubble.x = BALL_RADIUS
                 bubble.vx = -bubble.vx
             }
-            if (bubble.x + BALL_RADIUS > 1f) {
-                bubble.x = 1f - BALL_RADIUS
+            if (bubble.x + BALL_RADIUS > arenaWidth) {
+                bubble.x = arenaWidth - BALL_RADIUS
                 bubble.vx = -bubble.vx
             }
             if (bubble.y - BALL_RADIUS < 0f) {
                 bubble.y = BALL_RADIUS
                 bubble.vy = -bubble.vy
             }
-            if (bubble.y + BALL_RADIUS > 1f) {
-                bubble.y = 1f - BALL_RADIUS
+            if (bubble.y + BALL_RADIUS > arenaHeight) {
+                bubble.y = arenaHeight - BALL_RADIUS
                 bubble.vy = -bubble.vy
             }
         }
@@ -384,6 +424,9 @@ class BubbleSumGame : Game() {
         val config = difficultyForRound(round.coerceAtLeast(1) - 1)
         return config.blinkMode != BlinkMode.ALWAYS_ON
     }
+
+    /** Exposed for tests: how long a number stays fully visible before the warning starts. */
+    fun visibleWindowMs(): Long = difficultyForRound(round.coerceAtLeast(1) - 1).visibleMs
 
     /** Exposed for tests: whether blink offsets differ across bubbles. */
     fun usesStaggeredBlink(): Boolean {

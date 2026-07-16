@@ -270,6 +270,7 @@ fun App(
                                     onWordleFinishedAction = onWordleFinished,
                                     orbitBallPositions = controller.orbitBallPositions,
                                     bubbleSumFrames = controller.bubbleSumFrames,
+                                    onBubbleSumArenaSize = controller::setBubbleSumArenaSize,
                                 )
 
                                 if (showQuitDialog) {

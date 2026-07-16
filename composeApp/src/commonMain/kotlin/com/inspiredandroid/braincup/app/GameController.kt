@@ -1859,6 +1859,16 @@ class GameController(
         game.startMotion(scope) { emitBubbleSumFrame(game) }
     }
 
+    /**
+     * The arena is laid out to fill whatever space the screen has, so only the UI knows its shape.
+     * Reported from the canvas; the game rescales its bounds and positions to match.
+     */
+    fun setBubbleSumArenaSize(widthPx: Float, heightPx: Float) {
+        val game = (_gameState.value as? GameState.Active)?.game as? BubbleSumGame ?: return
+        game.setArenaSize(widthPx, heightPx)
+        emitBubbleSumFrame(game)
+    }
+
     private fun emitBubbleSumFrame(game: BubbleSumGame) {
         _bubbleSumFrames.value = game.frames()
     }

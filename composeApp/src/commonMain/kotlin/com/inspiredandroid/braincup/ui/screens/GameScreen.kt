@@ -104,6 +104,8 @@ fun GameScreen(
     orbitBallPositions: StateFlow<List<Pair<Float, Float>>>? = null,
     /** Live Bubble Sum frames (position + visibility); ignored for other games. */
     bubbleSumFrames: StateFlow<List<BubbleSumGame.BubbleFrame>>? = null,
+    /** Reports the measured Bubble Sum arena size in pixels; ignored for other games. */
+    onBubbleSumArenaSize: (Float, Float) -> Unit = { _, _ -> },
 ) {
     val progressBarModifier = Modifier
         .fillMaxWidth()
@@ -155,6 +157,7 @@ fun GameScreen(
                     uiState = gameUiState,
                     liveFrames = bubbleSumFrames,
                     onAnswer = onAnswer,
+                    onArenaSize = onBubbleSumArenaSize,
                 )
                 is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
                 is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)

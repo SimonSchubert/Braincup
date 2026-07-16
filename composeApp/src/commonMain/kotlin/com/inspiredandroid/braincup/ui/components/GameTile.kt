@@ -1441,6 +1441,9 @@ private val BubbleSumPreviewBubbles = listOf(
     Triple(0.50f, 0.68f, 2),
 )
 
+/** Bubble shown mid-warning, so the tile carries the mechanic the game is built around. */
+private const val BubbleSumPreviewWarningBubble = 0
+
 @Composable
 private fun BubbleSumPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
@@ -1452,6 +1455,7 @@ private fun BubbleSumPreview() {
         color = androidx.compose.ui.graphics.Color.White,
         fontWeight = FontWeight.Bold,
     )
+    val warningDigitStyle = digitStyle.copy(color = ComposeColor(0xFF1A1A1A))
     Box(
         modifier = Modifier
             .fillMaxHeight()
@@ -1466,18 +1470,28 @@ private fun BubbleSumPreview() {
                 .background(MaterialTheme.colorScheme.surface),
         ) {
             val ballRadius = size.width * 0.12f
-            BubbleSumPreviewBubbles.forEach { (x, y, value) ->
+            BubbleSumPreviewBubbles.forEachIndexed { index, (x, y, value) ->
+                val warning = index == BubbleSumPreviewWarningBubble
                 val center = Offset(x * size.width, y * size.height)
-                drawPrismCircle(
-                    center = center,
-                    radius = ballRadius,
-                    face = primaryColor,
-                    side = primarySide,
-                    bottom = primaryBottom,
-                )
+                if (warning) {
+                    // Let drawPrismCircle shade the yellow itself, the way the arena draws it.
+                    drawPrismCircle(
+                        center = center,
+                        radius = ballRadius,
+                        face = FlashCrowdYellow,
+                    )
+                } else {
+                    drawPrismCircle(
+                        center = center,
+                        radius = ballRadius,
+                        face = primaryColor,
+                        side = primarySide,
+                        bottom = primaryBottom,
+                    )
+                }
                 val measured = textMeasurer.measure(
                     text = AnnotatedString(value.toString()),
-                    style = digitStyle,
+                    style = if (warning) warningDigitStyle else digitStyle,
                 )
                 drawText(
                     textLayoutResult = measured,

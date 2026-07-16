@@ -47,12 +47,17 @@ private const val Radius = 0.068f
 private const val DemoSpeed = 0.14f
 private const val FrameDelayMillis = 16L
 private const val FrameDeltaSeconds = FrameDelayMillis / 1000f
-private const val VisibleMillis = 1200L
-private const val WarningMillis = 3000L
-private const val HiddenMillis = 700L
-private const val IntroMillis = 1200L
-private const val BlinkCycles = 2
-private const val RevealHoldMillis = 1400L
+private const val VisibleMillis = 300L
+private const val WarningMillis = 1500L
+private const val HiddenMillis = 900L
+private const val IntroMillis = 700L
+private const val RevealHoldMillis = 1600L
+
+/**
+ * Only this bubble's number warns and hides. The real game staggers the blink so numbers never
+ * all vanish at once, and a single blinking bubble also keeps the rest readable as an example.
+ */
+private const val BlinkingBubble = 0
 
 private enum class BubbleDemoPhase { INTRO, BLINK, REVEAL }
 private enum class DemoNumberState { VISIBLE, WARNING, HIDDEN }
@@ -167,25 +172,25 @@ fun BubbleSumDemo(modifier: Modifier = Modifier) {
             delay(FrameDelayMillis)
         }
         phase = BubbleDemoPhase.BLINK
-        repeat(BlinkCycles) {
-            numberState = DemoNumberState.VISIBLE
-            val onFrames = (VisibleMillis / FrameDelayMillis).toInt()
-            repeat(onFrames) {
-                bubbles = step(bubbles, FrameDeltaSeconds)
-                delay(FrameDelayMillis)
-            }
-            numberState = DemoNumberState.WARNING
-            val warnFrames = (WarningMillis / FrameDelayMillis).toInt()
-            repeat(warnFrames) {
-                bubbles = step(bubbles, FrameDeltaSeconds)
-                delay(FrameDelayMillis)
-            }
-            numberState = DemoNumberState.HIDDEN
-            val offFrames = (HiddenMillis / FrameDelayMillis).toInt()
-            repeat(offFrames) {
-                bubbles = step(bubbles, FrameDeltaSeconds)
-                delay(FrameDelayMillis)
-            }
+        // One cycle only: the point lands as soon as the number warns and goes, and holding the
+        // loop longer just delays the sum the demo is there to show.
+        numberState = DemoNumberState.VISIBLE
+        val onFrames = (VisibleMillis / FrameDelayMillis).toInt()
+        repeat(onFrames) {
+            bubbles = step(bubbles, FrameDeltaSeconds)
+            delay(FrameDelayMillis)
+        }
+        numberState = DemoNumberState.WARNING
+        val warnFrames = (WarningMillis / FrameDelayMillis).toInt()
+        repeat(warnFrames) {
+            bubbles = step(bubbles, FrameDeltaSeconds)
+            delay(FrameDelayMillis)
+        }
+        numberState = DemoNumberState.HIDDEN
+        val offFrames = (HiddenMillis / FrameDelayMillis).toInt()
+        repeat(offFrames) {
+            bubbles = step(bubbles, FrameDeltaSeconds)
+            delay(FrameDelayMillis)
         }
         phase = BubbleDemoPhase.REVEAL
         numberState = DemoNumberState.VISIBLE
@@ -226,18 +231,23 @@ fun BubbleSumDemo(modifier: Modifier = Modifier) {
         ) {
             drawRect(color = outlineColor, style = Stroke(width = 2.dp.toPx()))
             val radiusPx = Radius * size.width
-            bubbles.forEach { bubble ->
+            bubbles.forEachIndexed { index, bubble ->
                 val center = Offset(bubble.x * size.width, bubble.y * size.height)
+                val state = if (index == BlinkingBubble) {
+                    numberState
+                } else {
+                    DemoNumberState.VISIBLE
+                }
                 val face = when {
                     phase == BubbleDemoPhase.REVEAL -> SuccessGreen
-                    numberState == DemoNumberState.VISIBLE -> Primary
-                    numberState == DemoNumberState.WARNING -> FlashCrowdYellow
+                    state == DemoNumberState.VISIBLE -> Primary
+                    state == DemoNumberState.WARNING -> FlashCrowdYellow
                     else -> mutedFace
                 }
                 drawPrismCircle(center = center, radius = radiusPx, face = face)
-                if (numberState != DemoNumberState.HIDDEN) {
+                if (state != DemoNumberState.HIDDEN) {
                     val style =
-                        if (numberState == DemoNumberState.WARNING) warningDigitStyle else digitStyle
+                        if (state == DemoNumberState.WARNING) warningDigitStyle else digitStyle
                     val measured = textMeasurer.measure(
                         text = bubble.value.toString(),
                         style = style,

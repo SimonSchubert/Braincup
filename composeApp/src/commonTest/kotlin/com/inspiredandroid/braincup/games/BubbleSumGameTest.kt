@@ -97,6 +97,91 @@ class BubbleSumGameTest {
     }
 
     @Test
+    fun arenaDefaultsToSquareAndTracksReportedShape() {
+        val game = BubbleSumGame()
+        assertEquals(1f, game.arenaWidth)
+        assertEquals(1f, game.arenaHeight)
+
+        // Short edge is always 1f, so a 300x600 canvas is twice as tall as it is wide.
+        game.setArenaSize(300f, 600f)
+        assertEquals(1f, game.arenaWidth)
+        assertEquals(2f, game.arenaHeight)
+
+        game.setArenaSize(800f, 400f)
+        assertEquals(2f, game.arenaWidth)
+        assertEquals(1f, game.arenaHeight)
+    }
+
+    @Test
+    fun ignoresEmptyArenaSize() {
+        val game = BubbleSumGame()
+        game.setArenaSize(300f, 600f)
+        game.setArenaSize(0f, 0f)
+        assertEquals(1f, game.arenaWidth)
+        assertEquals(2f, game.arenaHeight)
+    }
+
+    @Test
+    fun bubblesSpawnInsideATallArena() {
+        val game = BubbleSumGame()
+        game.setArenaSize(300f, 600f)
+        repeat(10) {
+            game.nextRound()
+            assertTrue(
+                game.bubbles.all { it.x in BubbleSumGame.BALL_RADIUS..(game.arenaWidth - BubbleSumGame.BALL_RADIUS) },
+                "bubbles should spawn within the arena width",
+            )
+            assertTrue(
+                game.bubbles.all { it.y in BubbleSumGame.BALL_RADIUS..(game.arenaHeight - BubbleSumGame.BALL_RADIUS) },
+                "bubbles should spawn within the arena height",
+            )
+        }
+    }
+
+    @Test
+    fun bubblesUseTheFullHeightOfATallArena() {
+        val game = BubbleSumGame()
+        game.setArenaSize(300f, 600f)
+        game.round = 9
+        game.nextRound()
+        // Positions are random, so assert over a long run rather than a single spawn: bubbles
+        // must reach the half of the arena that would not exist under the old square.
+        var reachedLowerHalf = false
+        repeat(600) {
+            game.updateBallPositions(0.016f)
+            if (game.bubbles.any { it.y > 1f }) reachedLowerHalf = true
+            assertTrue(
+                game.bubbles.all { it.y <= game.arenaHeight + 0.01f && it.y >= -0.01f },
+                "bubbles must stay inside the arena height",
+            )
+            assertTrue(
+                game.bubbles.all { it.x <= game.arenaWidth + 0.01f && it.x >= -0.01f },
+                "bubbles must stay inside the arena width",
+            )
+        }
+        assertTrue(reachedLowerHalf, "bubbles should travel into the space a square arena lacked")
+    }
+
+    @Test
+    fun resizingKeepsBubblesInsideTheNewArena() {
+        val game = BubbleSumGame()
+        game.setArenaSize(300f, 600f)
+        game.nextRound()
+        repeat(60) { game.updateBallPositions(0.016f) }
+
+        // Rotate: the tall arena becomes a wide one.
+        game.setArenaSize(600f, 300f)
+        assertTrue(
+            game.bubbles.all { it.x in BubbleSumGame.BALL_RADIUS..(game.arenaWidth - BubbleSumGame.BALL_RADIUS) },
+            "bubbles should be remapped inside the rotated arena width",
+        )
+        assertTrue(
+            game.bubbles.all { it.y in BubbleSumGame.BALL_RADIUS..(game.arenaHeight - BubbleSumGame.BALL_RADIUS) },
+            "bubbles should be remapped inside the rotated arena height",
+        )
+    }
+
+    @Test
     fun visibilityGraceKeepsNumbersVisibleAtStart() {
         val game = BubbleSumGame()
         // Blink round
@@ -110,12 +195,12 @@ class BubbleSumGameTest {
     @Test
     fun warningPhaseComesBeforeHidden() {
         val game = BubbleSumGame()
-        // Blink round: generateRound with r=4 after 5 nextRound calls (visibleMs = 1800)
+        // Blink round: generateRound with r=4 after 5 nextRound calls.
         repeat(5) { game.nextRound() }
         assertTrue(game.usesBlink())
-        assertEquals(3000L, BubbleSumGame.WARNING_MS)
+        val visible = game.visibleWindowMs()
 
-        // Zero-offset bubble (first in stagger layout) — phases relative to cycle timeline.
+        // Zero-offset bubble (first in stagger layout): phases relative to cycle timeline.
         val zeroOffset = game.bubbles.minBy { it.blinkPhaseOffsetMs }
         val offset = zeroOffset.blinkPhaseOffsetMs
 
@@ -127,15 +212,61 @@ class BubbleSumGameTest {
         )
 
         // Warning window: t in [visibleMs, visibleMs + WARNING_MS)
-        game.applyVisibilityElapsed(1800L + 100L - offset)
+        game.applyVisibilityElapsed(visible + 100L - offset)
         val warningBubble = game.bubbles.first { it.blinkPhaseOffsetMs == offset }
         assertEquals(BubbleSumGame.VisibilityPhase.WARNING, warningBubble.phase)
         assertTrue(warningBubble.showsNumber)
 
         // Hidden after warning ends
-        game.applyVisibilityElapsed(1800L + BubbleSumGame.WARNING_MS + 50L - offset)
+        game.applyVisibilityElapsed(visible + BubbleSumGame.WARNING_MS + 50L - offset)
         val hiddenBubble = game.bubbles.first { it.blinkPhaseOffsetMs == offset }
         assertEquals(BubbleSumGame.VisibilityPhase.HIDDEN, hiddenBubble.phase)
         assertFalse(hiddenBubble.showsNumber)
+    }
+
+    @Test
+    fun blinkStaysCalmAcrossTheCycle() {
+        // Warning and hidden are events against a calm background, not the resting state. Sweeping
+        // whole cycles, only a minority of bubbles may be warning or hidden at any instant: when
+        // the warning grows to a large share of the cycle most bubbles sit yellow at once and the
+        // board reads as hectic.
+        for (roundIndex in listOf(4, 6, 8, 12)) {
+            val game = BubbleSumGame()
+            game.round = roundIndex
+            game.nextRound()
+            assertTrue(game.usesStaggeredBlink(), "round $roundIndex should blink")
+
+            val count = game.bubbles.size
+            for (elapsed in 1000L..30_000L step 50L) {
+                game.applyVisibilityElapsed(elapsed)
+                val warning = game.bubbles.count { it.phase == BubbleSumGame.VisibilityPhase.WARNING }
+                val hidden = game.bubbles.count { it.phase == BubbleSumGame.VisibilityPhase.HIDDEN }
+                assertTrue(
+                    warning * 2 < count,
+                    "round $roundIndex had $warning of $count bubbles yellow at once (${elapsed}ms)",
+                )
+                assertTrue(
+                    hidden * 2 < count,
+                    "round $roundIndex hid $hidden of $count numbers at once (${elapsed}ms)",
+                )
+            }
+        }
+    }
+
+    @Test
+    fun everyBubbleStillHidesWithinAReasonableWindow() {
+        // The calm background must not turn the mechanic off: each number still has to disappear,
+        // and often enough to matter inside a 60s game.
+        val game = BubbleSumGame()
+        game.round = 12
+        game.nextRound()
+        val hidAtLeastOnce = game.bubbles.map { false }.toMutableList()
+        for (elapsed in 1000L..12_000L step 50L) {
+            game.applyVisibilityElapsed(elapsed)
+            game.bubbles.forEachIndexed { index, bubble ->
+                if (bubble.phase == BubbleSumGame.VisibilityPhase.HIDDEN) hidAtLeastOnce[index] = true
+            }
+        }
+        assertTrue(hidAtLeastOnce.all { it }, "every bubble should hide at least once within 12s")
     }
 }
