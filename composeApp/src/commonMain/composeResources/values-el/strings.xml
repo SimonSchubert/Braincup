@@ -474,6 +474,14 @@
     <string name="wordle_legend_correct">Σωστό γράμμα, σωστή θέση</string>
     <string name="wordle_legend_present">Σωστό γράμμα, λάθος θέση</string>
     <string name="wordle_legend_absent">Δεν υπάρχει στη λέξη</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Δες τα σχήματα και μετά πάτησε αυτό στη ζητούμενη θέση.</string>
+    <string name="n_back_prompt">Ποιο σχήμα ήταν στη θέση %1$d;</string>
+    <string name="n_back_demo_stream">Δες τα σχήματα να αναβοσβήνουν.</string>
+    <string name="n_back_demo_recall">Πάτησε το σχήμα στη θέση 1.</string>
+    <string name="achievement_gold_n_back">Κυλιόμενη μνήμη</string>
+    <string name="achievement_gold_n_back_desc">Κέρδισε χρυσό μετάλλιο στο N-Back</string>
     <string name="instructions_best_score">Καλύτερο σκορ: %1$s</string>
     <string name="instructions_leaderboard">Προβολή πίνακα κατάταξης</string>
     <string name="brain_cup_button">Πίνακας Brain Cup</string>

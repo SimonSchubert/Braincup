@@ -4,6 +4,7 @@ import com.inspiredandroid.braincup.app.DigitMemoryUiState
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
+import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
@@ -89,6 +90,18 @@ fun createQuickSumUiState(): GameUiState = QuickSumUiState(
     answerLength = 2,
     revealedSum = null,
     answerResult = null,
+)
+
+// Built directly rather than from a game: the sequence is random, and a snapshot needs a fixed one.
+fun createNBackUiState(): GameUiState = NBackUiState(
+    phase = NBackGame.Phase.RECALL,
+    currentShape = null,
+    showIndex = 3,
+    sequenceLength = 4,
+    askPosition = 2,
+    options = NBackGame.PALETTE.toImmutableList(),
+    revealAnswer = null,
+    recallResult = null,
 )
 
 fun createSherlockCalculationGame(): SherlockCalculationGame {

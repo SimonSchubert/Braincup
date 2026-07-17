@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">सही अक्षर, सही जगह</string>
     <string name="wordle_legend_present">सही अक्षर, गलत जगह</string>
     <string name="wordle_legend_absent">शब्द में नहीं है</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">आकृतियों को देखें, फिर पूछी गई स्थिति वाली आकृति पर टैप करें।</string>
+    <string name="n_back_prompt">स्थिति %1$d पर कौन सी आकृति थी?</string>
+    <string name="n_back_demo_stream">आकृतियों को चमकते हुए देखें।</string>
+    <string name="n_back_demo_recall">स्थिति 1 वाली आकृति पर टैप करें।</string>
+    <string name="achievement_gold_n_back">घूमती स्मृति</string>
+    <string name="achievement_gold_n_back_desc">N-Back में स्वर्ण पदक जीतें</string>
     <string name="instructions_best_score">सर्वश्रेष्ठ स्कोर: %1$s</string>
     <string name="instructions_leaderboard">लीडरबोर्ड देखें</string>
     <string name="brain_cup_button">Brain Cup लीडरबोर्ड</string>

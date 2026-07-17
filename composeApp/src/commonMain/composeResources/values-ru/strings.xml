@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">Верная буква, верная позиция</string>
     <string name="wordle_legend_present">Верная буква, неверная позиция</string>
     <string name="wordle_legend_absent">Нет в слове</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Смотри на фигуры, затем нажми ту, что была на нужной позиции.</string>
+    <string name="n_back_prompt">Какая фигура была на позиции %1$d?</string>
+    <string name="n_back_demo_stream">Следи за мелькающими фигурами.</string>
+    <string name="n_back_demo_recall">Нажми на фигуру на позиции 1.</string>
+    <string name="achievement_gold_n_back">Скользящая память</string>
+    <string name="achievement_gold_n_back_desc">Получи золотую медаль в N-Back</string>
     <string name="instructions_best_score">Лучший результат: %1$s</string>
     <string name="instructions_leaderboard">Посмотреть таблицу лидеров</string>
     <string name="brain_cup_button">Таблица лидеров Brain Cup</string>

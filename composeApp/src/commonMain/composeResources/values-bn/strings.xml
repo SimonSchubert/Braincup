@@ -656,6 +656,14 @@
     <string name="wordle_legend_correct">সঠিক অক্ষর, সঠিক স্থান</string>
     <string name="wordle_legend_present">সঠিক অক্ষর, ভুল স্থান</string>
     <string name="wordle_legend_absent">শব্দে নেই</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">আকৃতিগুলো দেখুন, তারপর জিজ্ঞাসিত অবস্থানের আকৃতিতে ট্যাপ করুন।</string>
+    <string name="n_back_prompt">%1$d নম্বর অবস্থানে কোন আকৃতি ছিল?</string>
+    <string name="n_back_demo_stream">আকৃতিগুলো ঝলকে যেতে দেখুন।</string>
+    <string name="n_back_demo_recall">1 নম্বর অবস্থানের আকৃতিতে ট্যাপ করুন।</string>
+    <string name="achievement_gold_n_back">চলমান স্মৃতি</string>
+    <string name="achievement_gold_n_back_desc">N-Back-এ স্বর্ণপদক জিতুন</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">ঘুঁটিগুলো কীভাবে চলে</string>

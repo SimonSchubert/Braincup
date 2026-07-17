@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">Dobra litera, dobre miejsce</string>
     <string name="wordle_legend_present">Dobra litera, złe miejsce</string>
     <string name="wordle_legend_absent">Nie ma w słowie</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Obserwuj kształty, a potem dotknij tego na wskazanej pozycji.</string>
+    <string name="n_back_prompt">Który kształt był na pozycji %1$d?</string>
+    <string name="n_back_demo_stream">Obserwuj migające kształty.</string>
+    <string name="n_back_demo_recall">Dotknij kształtu na pozycji 1.</string>
+    <string name="achievement_gold_n_back">Ruchoma pamięć</string>
+    <string name="achievement_gold_n_back_desc">Zdobądź złoty medal w N-Back</string>
     <string name="instructions_best_score">Najlepszy wynik: %1$s</string>
     <string name="instructions_leaderboard">Zobacz ranking</string>
     <string name="brain_cup_button">Ranking Brain Cup</string>

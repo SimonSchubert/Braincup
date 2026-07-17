@@ -477,6 +477,14 @@
     <string name="wordle_legend_correct">Right letter, right spot</string>
     <string name="wordle_legend_present">Right letter, wrong spot</string>
     <string name="wordle_legend_absent">Not in the word</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Watch the shapes flash by, then tap the one at the position asked.</string>
+    <string name="n_back_prompt">Which shape was at position %1$d?</string>
+    <string name="n_back_demo_stream">Watch the shapes flash by.</string>
+    <string name="n_back_demo_recall">Tap the shape that was in position 1.</string>
+    <string name="achievement_gold_n_back">Rolling Recall</string>
+    <string name="achievement_gold_n_back_desc">Win gold medal in N-Back</string>
     <string name="instructions_best_score">Best score: %1$s</string>
     <string name="instructions_leaderboard">View leaderboard</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>

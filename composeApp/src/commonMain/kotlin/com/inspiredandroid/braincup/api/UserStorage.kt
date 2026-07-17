@@ -57,6 +57,7 @@ class UserStorage(
         GOLD_FLAGS(Res.string.achievement_gold_flags, Res.string.achievement_gold_flags_desc),
         GOLD_DIGIT_MEMORY(Res.string.achievement_gold_digit_memory, Res.string.achievement_gold_digit_memory_desc),
         GOLD_SPOT_THE_NEW(Res.string.achievement_gold_spot_the_new, Res.string.achievement_gold_spot_the_new_desc),
+        GOLD_N_BACK(Res.string.achievement_gold_n_back, Res.string.achievement_gold_n_back_desc),
         GOLD_WORDLE(Res.string.achievement_gold_wordle, Res.string.achievement_gold_wordle_desc),
         SUDOKU_BEGINNER(Res.string.achievement_sudoku_beginner, Res.string.achievement_sudoku_beginner_desc, isMilestone = true),
         SUDOKU_EASY(Res.string.achievement_sudoku_easy, Res.string.achievement_sudoku_easy_desc, isMilestone = true),

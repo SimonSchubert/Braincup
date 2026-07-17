@@ -656,6 +656,14 @@
     <string name="wordle_legend_correct">Richtiger Buchstabe, richtige Stelle</string>
     <string name="wordle_legend_present">Richtiger Buchstabe, falsche Stelle</string>
     <string name="wordle_legend_absent">Nicht im Wort</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Sieh dir die Formen an, dann tippe auf die an der gefragten Position.</string>
+    <string name="n_back_prompt">Welche Form war an Position %1$d?</string>
+    <string name="n_back_demo_stream">Sieh dir die Formen an, wie sie aufblitzen.</string>
+    <string name="n_back_demo_recall">Tippe auf die Form an Position 1.</string>
+    <string name="achievement_gold_n_back">Rollendes Gedächtnis</string>
+    <string name="achievement_gold_n_back_desc">Gewinne eine Goldmedaille in N-Back</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">So ziehen die Figuren</string>

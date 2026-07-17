@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">字母正确，位置正确</string>
     <string name="wordle_legend_present">字母正确，位置错误</string>
     <string name="wordle_legend_absent">不在词中</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">观察图形，然后点击所问位置上的图形。</string>
+    <string name="n_back_prompt">第 %1$d 个位置是哪个图形？</string>
+    <string name="n_back_demo_stream">观察闪现的图形。</string>
+    <string name="n_back_demo_recall">点击第 1 个位置的图形。</string>
+    <string name="achievement_gold_n_back">滚动记忆</string>
+    <string name="achievement_gold_n_back_desc">在N-Back中赢得金牌</string>
     <string name="instructions_best_score">最高分：%1$s</string>
     <string name="instructions_leaderboard">查看排行榜</string>
     <string name="brain_cup_button">Brain Cup 排行榜</string>

@@ -128,6 +128,9 @@ class GameController(
         const val GAME_TIME_MILLIS = 60 * 1_000L
         const val FLAGS_ROUND_TIME_MILLIS = FlagsGame.ROUND_TIME_MILLIS
 
+        /** How long the correct shape stays revealed after a recall before the next trial. */
+        private const val NBACK_REVEAL_HOLD_MILLIS = 900L
+
         // Sentinel inputs the Wordle keyboard sends through the shared onAnswer(String) channel;
         // anything else is treated as a single typed letter.
         const val WORDLE_ENTER = "ENTER"
@@ -188,6 +191,7 @@ class GameController(
             (currentState.game as? BubbleSumGame)?.cancelAnimation()
             (currentState.game as? DigitMemoryGame)?.cancelShowing()
             (currentState.game as? QuickSumGame)?.cancelFlashing()
+            (currentState.game as? NBackGame)?.cancelShowing()
             if (currentState.game is MiniChessGame) cancelMiniChessAi()
             if (currentState.game is FlagsGame) cancelFlagsTimer()
         }
@@ -340,6 +344,10 @@ class GameController(
             startQuickSumGame(gameType)
             return
         }
+        if (gameType == GameType.N_BACK) {
+            startNBackGame(gameType)
+            return
+        }
         if (gameType == GameType.BUBBLE_SUM) {
             startBubbleSumGame(gameType)
             return
@@ -472,6 +480,10 @@ class GameController(
         }
         if (game is QuickSumGame) {
             handleQuickSumAnswer(currentState, game, answer.trim())
+            return
+        }
+        if (game is NBackGame) {
+            handleNBackAnswer(currentState, game, answer.trim())
             return
         }
         if (game is SpotTheNewGame) {
@@ -699,6 +711,8 @@ class GameController(
                 if (game.phase == DigitMemoryGame.Phase.SHOWING) game.pauseShowing()
             is QuickSumGame ->
                 if (game.phase == QuickSumGame.Phase.FLASHING) game.pauseFlashing()
+            is NBackGame ->
+                if (game.phase == NBackGame.Phase.MEMORIZE) game.pauseShowing()
         }
     }
 
@@ -748,6 +762,10 @@ class GameController(
                 if (game.phase == QuickSumGame.Phase.FLASHING) {
                     game.resumeFlashing(scope) { _gameUiState.value = game.toUiState() }
                 }
+            is NBackGame ->
+                if (game.phase == NBackGame.Phase.MEMORIZE && game.wasPaused()) {
+                    game.resumeShowing(scope) { _gameUiState.value = game.toUiState() }
+                }
         }
     }
 
@@ -781,6 +799,7 @@ class GameController(
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
         GameType.QUICK_SUM -> QuickSumGame()
+        GameType.N_BACK -> NBackGame()
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
         // Wordle needs an async-loaded, locale-specific word list, so it is built in startWordleGame.
         GameType.WORDLE -> error("WordleGame is created in startWordleGame")
@@ -1794,6 +1813,7 @@ class GameController(
         (game as? BubbleSumGame)?.cancelAnimation()
         (game as? DigitMemoryGame)?.cancelShowing()
         (game as? QuickSumGame)?.cancelFlashing()
+        (game as? NBackGame)?.cancelShowing()
         if (game is FlagsGame) cancelFlagsTimer()
         cancelTimer()
         _gameUiState.value = null
@@ -1864,6 +1884,19 @@ class GameController(
         navController.navigate(Playing(gameType.id))
         startTimer()
         game.startFlashing(scope) { _gameUiState.value = game.toUiState() }
+    }
+
+    private fun startNBackGame(gameType: GameType) {
+        startTime = Clock.System.now().toEpochMilliseconds()
+        _timeRemaining.value = GAME_TIME_MILLIS
+
+        val game = NBackGame()
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
+        startTimer()
+        game.startShowing(scope) { _gameUiState.value = game.toUiState() }
     }
 
     private fun startBubbleSumGame(gameType: GameType) {
@@ -1979,6 +2012,34 @@ class GameController(
             _gameState.value = GameState.Active(gameType, game)
             game.startFlashing(scope) { _gameUiState.value = game.toUiState() }
         }
+    }
+
+    private fun handleNBackAnswer(currentState: GameState.Active, game: NBackGame, input: String) {
+        // Only a tap during recall counts; ignore anything while shapes are still flashing or revealing.
+        if (game.phase != NBackGame.Phase.RECALL || game.recallResult != null) return
+
+        val correct = game.submitRecall(input)
+        if (correct) {
+            points++
+            _intermediateCorrectEvents.tryEmit(Unit)
+        }
+        _gameUiState.value = game.toUiState()
+        scope.launch {
+            delay(NBACK_REVEAL_HOLD_MILLIS)
+            advanceNBack(currentState.gameType, game, advanceDifficulty = correct)
+        }
+    }
+
+    private fun advanceNBack(gameType: GameType, game: NBackGame, advanceDifficulty: Boolean) {
+        if (_gameState.value !is GameState.Active) return
+        if (Clock.System.now().toEpochMilliseconds() - startTime > GAME_TIME_MILLIS) {
+            finishCurrentGame(gameType, game)
+            return
+        }
+        // Correct lengthens the next sequence; wrong replays the same length with fresh shapes.
+        if (advanceDifficulty) game.nextRound() else game.repeatRound()
+        _gameState.value = GameState.Active(gameType, game)
+        game.startShowing(scope) { _gameUiState.value = game.toUiState() }
     }
 
     private fun ImmutableList<ImmutableList<FigureCell>>.withFeedbackStates(

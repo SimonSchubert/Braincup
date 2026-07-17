@@ -426,6 +426,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.SOLO_CHESS -> SoloChessPreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
+        GameType.N_BACK -> NBackPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
         GameType.WORDLE -> WordlePreview()
     }
@@ -632,6 +633,31 @@ private fun DigitMemoryPreview() {
         textAlign = TextAlign.Center,
         color = PreviewTextColor,
     )
+}
+
+@Composable
+private fun NBackPreview() {
+    // Mirrors the arena: one shape lit, the rest of the stream still to come.
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        ShapeCanvas(
+            figure = Figure(Shape.STAR, Color.BLUE),
+            modifier = Modifier.size(44.dp),
+        )
+        Spacer(Modifier.height(10.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+            repeat(4) { i ->
+                Box(
+                    modifier = Modifier
+                        .size(5.dp)
+                        .clip(CircleShape)
+                        .background(PreviewTextColor.copy(alpha = if (i <= 1) 1f else 0.25f)),
+                )
+            }
+        }
+    }
 }
 
 @Composable

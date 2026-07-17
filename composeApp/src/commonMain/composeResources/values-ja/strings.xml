@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">正しい文字、正しい位置</string>
     <string name="wordle_legend_present">正しい文字、違う位置</string>
     <string name="wordle_legend_absent">単語に含まれない</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">図形を見て、指定された位置の図形をタップします。</string>
+    <string name="n_back_prompt">位置 %1$d の図形は？</string>
+    <string name="n_back_demo_stream">光る図形を見てください。</string>
+    <string name="n_back_demo_recall">位置 1 の図形をタップします。</string>
+    <string name="achievement_gold_n_back">回転する記憶</string>
+    <string name="achievement_gold_n_back_desc">N-Backで金メダルを獲得</string>
     <string name="instructions_best_score">ベストスコア: %1$s</string>
     <string name="instructions_leaderboard">ランキングを見る</string>
     <string name="brain_cup_button">Brain Cup ランキング</string>

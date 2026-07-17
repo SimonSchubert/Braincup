@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">Lettera giusta, posizione giusta</string>
     <string name="wordle_legend_present">Lettera giusta, posizione sbagliata</string>
     <string name="wordle_legend_absent">Non è nella parola</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Guarda le forme, poi tocca quella nella posizione richiesta.</string>
+    <string name="n_back_prompt">Quale forma era nella posizione %1$d?</string>
+    <string name="n_back_demo_stream">Guarda le forme lampeggiare.</string>
+    <string name="n_back_demo_recall">Tocca la forma nella posizione 1.</string>
+    <string name="achievement_gold_n_back">Memoria in movimento</string>
+    <string name="achievement_gold_n_back_desc">Vinci la medaglia d'oro in N-Back</string>
     <string name="instructions_best_score">Miglior punteggio: %1$s</string>
     <string name="instructions_leaderboard">Vedi classifica</string>
     <string name="brain_cup_button">Classifica Brain Cup</string>

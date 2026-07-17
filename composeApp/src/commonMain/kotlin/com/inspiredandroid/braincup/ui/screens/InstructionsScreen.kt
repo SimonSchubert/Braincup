@@ -45,6 +45,7 @@ import com.inspiredandroid.braincup.ui.components.KnotDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
 import com.inspiredandroid.braincup.ui.components.MiniSudokuDemo
+import com.inspiredandroid.braincup.ui.components.NBackDemo
 import com.inspiredandroid.braincup.ui.components.NurikabeDemo
 import com.inspiredandroid.braincup.ui.components.OrbitTrackerDemo
 import com.inspiredandroid.braincup.ui.components.PathFinderDemo
@@ -131,6 +132,7 @@ fun InstructionsScreen(
                 GameType.WORDLE -> WordleDemo(modifier = demoModifier)
                 GameType.VISUAL_MEMORY -> VisualMemoryDemo(modifier = demoModifier)
                 GameType.DIGIT_MEMORY -> DigitMemoryDemo(modifier = demoModifier)
+                GameType.N_BACK -> NBackDemo(modifier = demoModifier)
                 GameType.PATTERN_SEQUENCE -> PatternSequenceDemo(modifier = demoModifier)
                 GameType.COLOR_CONFUSION -> ColorConfusionDemo(modifier = demoModifier)
                 GameType.FLAGS -> FlagsDemo(modifier = demoModifier)

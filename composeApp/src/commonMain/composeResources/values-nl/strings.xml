@@ -656,6 +656,14 @@
     <string name="wordle_legend_correct">Juiste letter, juiste plek</string>
     <string name="wordle_legend_present">Juiste letter, verkeerde plek</string>
     <string name="wordle_legend_absent">Niet in het woord</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Kijk naar de vormen en tik op die op de gevraagde positie.</string>
+    <string name="n_back_prompt">Welke vorm stond op positie %1$d?</string>
+    <string name="n_back_demo_stream">Kijk hoe de vormen oplichten.</string>
+    <string name="n_back_demo_recall">Tik op de vorm op positie 1.</string>
+    <string name="achievement_gold_n_back">Rollend geheugen</string>
+    <string name="achievement_gold_n_back_desc">Win een gouden medaille in N-Back</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Zo bewegen de stukken</string>

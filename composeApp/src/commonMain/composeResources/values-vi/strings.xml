@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">Đúng chữ, đúng vị trí</string>
     <string name="wordle_legend_present">Đúng chữ, sai vị trí</string>
     <string name="wordle_legend_absent">Không có trong từ</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Quan sát các hình, rồi chạm vào hình ở vị trí được hỏi.</string>
+    <string name="n_back_prompt">Hình nào ở vị trí %1$d?</string>
+    <string name="n_back_demo_stream">Quan sát các hình nhấp nháy.</string>
+    <string name="n_back_demo_recall">Chạm vào hình ở vị trí 1.</string>
+    <string name="achievement_gold_n_back">Trí Nhớ Cuộn</string>
+    <string name="achievement_gold_n_back_desc">Giành huy chương vàng trong N-Back</string>
     <string name="instructions_best_score">Điểm cao nhất: %1$s</string>
     <string name="instructions_leaderboard">Xem bảng xếp hạng</string>
     <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>

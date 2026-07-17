@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">정확한 글자, 정확한 위치</string>
     <string name="wordle_legend_present">정확한 글자, 잘못된 위치</string>
     <string name="wordle_legend_absent">단어에 없는 글자</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">도형을 본 뒤, 물어본 위치의 도형을 탭하세요.</string>
+    <string name="n_back_prompt">%1$d번 위치의 도형은?</string>
+    <string name="n_back_demo_stream">번쩍이는 도형을 지켜보세요.</string>
+    <string name="n_back_demo_recall">1번 위치의 도형을 탭하세요.</string>
+    <string name="achievement_gold_n_back">굴러가는 기억</string>
+    <string name="achievement_gold_n_back_desc">N-Back에서 금메달 획득</string>
     <string name="instructions_best_score">최고 점수: %1$s</string>
     <string name="instructions_leaderboard">순위표 보기</string>
     <string name="brain_cup_button">Brain Cup 순위표</string>

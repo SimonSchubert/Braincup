@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.app
 import androidx.compose.runtime.Immutable
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
+import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.QuickSumGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
@@ -71,6 +72,24 @@ data class QuickSumUiState(
     /** Non-null while revealing the total after a submission. */
     val revealedSum: String?,
     val answerResult: QuickSumGame.AnswerResult?,
+) : GameUiState
+
+@Immutable
+data class NBackUiState(
+    val phase: NBackGame.Phase,
+    /** The shape flashing during MEMORIZE, or null during the blank gap / RECALL. */
+    val currentShape: Shape?,
+    /** Position (0-based) of the flashing shape; drives the memorize progress dots. */
+    val showIndex: Int,
+    val sequenceLength: Int,
+    /** Position (0-based) the player is asked to recall; the prompt shows it 1-based. */
+    val askPosition: Int,
+    /** The fixed palette of shape buttons shown during RECALL. */
+    val options: ImmutableList<Shape>,
+    /** The correct shape, revealed (highlighted green) only after an answer. */
+    val revealAnswer: Shape?,
+    /** Set while revealing the answer, so the tapped button can flash green/red. */
+    val recallResult: NBackGame.RecallResult?,
 ) : GameUiState
 
 @Immutable

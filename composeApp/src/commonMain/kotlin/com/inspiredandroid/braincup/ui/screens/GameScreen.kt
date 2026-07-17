@@ -30,6 +30,7 @@ import com.inspiredandroid.braincup.app.LightsOutUiState
 import com.inspiredandroid.braincup.app.MentalCalculationUiState
 import com.inspiredandroid.braincup.app.MiniChessUiState
 import com.inspiredandroid.braincup.app.MiniSudokuUiState
+import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.NurikabeUiState
 import com.inspiredandroid.braincup.app.OrbitTrackerUiState
 import com.inspiredandroid.braincup.app.PathFinderUiState
@@ -66,6 +67,7 @@ import com.inspiredandroid.braincup.ui.screens.games.MemorizeTimeProgressBar
 import com.inspiredandroid.braincup.ui.screens.games.MentalCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.MiniChessContent
 import com.inspiredandroid.braincup.ui.screens.games.MiniSudokuContent
+import com.inspiredandroid.braincup.ui.screens.games.NBackContent
 import com.inspiredandroid.braincup.ui.screens.games.NurikabeContent
 import com.inspiredandroid.braincup.ui.screens.games.OrbitTrackerContent
 import com.inspiredandroid.braincup.ui.screens.games.PathFinderContent
@@ -193,6 +195,7 @@ fun GameScreen(
                 is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
                 is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
                 is DigitMemoryUiState -> DigitMemoryContent(gameUiState, onAnswer)
+                is NBackUiState -> NBackContent(gameUiState, onAnswer)
                 is WordleUiState -> WordleContent(
                     uiState = gameUiState,
                     onAnswer = onAnswer,

@@ -297,6 +297,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameNBack() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createNBackUiState(),
+                timeRemaining = 55_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameSherlockCalculation() {
         paparazzi.snap {
             GameScreen(

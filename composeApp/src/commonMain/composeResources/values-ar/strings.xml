@@ -656,6 +656,14 @@
     <string name="wordle_legend_correct">الحرف صحيح والمكان صحيح</string>
     <string name="wordle_legend_present">الحرف صحيح والمكان خاطئ</string>
     <string name="wordle_legend_absent">غير موجود في الكلمة</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">راقب الأشكال، ثم اضغط على الشكل في الموضع المطلوب.</string>
+    <string name="n_back_prompt">أي شكل كان في الموضع %1$d؟</string>
+    <string name="n_back_demo_stream">راقب الأشكال وهي تومض.</string>
+    <string name="n_back_demo_recall">اضغط على الشكل في الموضع 1.</string>
+    <string name="achievement_gold_n_back">ذاكرة متجددة</string>
+    <string name="achievement_gold_n_back_desc">اربح الميدالية الذهبية في N-Back</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">كيف تتحرك القطع</string>

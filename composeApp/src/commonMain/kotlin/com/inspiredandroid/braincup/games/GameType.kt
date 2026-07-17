@@ -275,6 +275,16 @@ enum class GameType(
         descriptionRes = Res.string.game_spot_the_new_desc,
         category = GameCategory.MEMORY,
     ),
+    N_BACK(
+        displayNameRes = Res.string.game_n_back,
+        id = "33",
+        // Score = correct hits in 60s; perfect play is ~4 blocks x 3 hits.
+        // Initial thresholds; tune after playtest.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_n_back_desc,
+        category = GameCategory.MEMORY,
+    ),
     WORDLE(
         displayNameRes = Res.string.game_wordle,
         id = "24",

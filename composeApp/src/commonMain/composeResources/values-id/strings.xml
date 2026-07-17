@@ -330,6 +330,14 @@
     <string name="wordle_legend_correct">Huruf benar, posisi benar</string>
     <string name="wordle_legend_present">Huruf benar, posisi salah</string>
     <string name="wordle_legend_absent">Tidak ada dalam kata</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Perhatikan bentuk-bentuknya, lalu ketuk yang ada di posisi yang diminta.</string>
+    <string name="n_back_prompt">Bentuk mana yang ada di posisi %1$d?</string>
+    <string name="n_back_demo_stream">Perhatikan bentuk-bentuk berkedip.</string>
+    <string name="n_back_demo_recall">Ketuk bentuk di posisi 1.</string>
+    <string name="achievement_gold_n_back">Memori Bergulir</string>
+    <string name="achievement_gold_n_back_desc">Menangkan medali emas di N-Back</string>
     <string name="instructions_best_score">Skor terbaik: %1$s</string>
     <string name="instructions_leaderboard">Lihat papan peringkat</string>
     <string name="brain_cup_button">Papan peringkat Brain Cup</string>

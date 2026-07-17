@@ -656,6 +656,14 @@
     <string name="wordle_legend_correct">Bonne lettre, bonne place</string>
     <string name="wordle_legend_present">Bonne lettre, mauvaise place</string>
     <string name="wordle_legend_absent">Absente du mot</string>
+    <!-- N-Back game -->
+    <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_desc">Regardez défiler les formes, puis touchez celle à la position demandée.</string>
+    <string name="n_back_prompt">Quelle forme était à la position %1$d ?</string>
+    <string name="n_back_demo_stream">Regardez les formes défiler.</string>
+    <string name="n_back_demo_recall">Touchez la forme à la position 1.</string>
+    <string name="achievement_gold_n_back">Mémoire glissante</string>
+    <string name="achievement_gold_n_back_desc">Gagnez une médaille d'or à N-Back</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Comment les pièces se déplacent</string>
