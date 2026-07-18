@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">Ruchoma pamięć</string>
     <string name="achievement_gold_n_back_desc">Zdobądź złoty medal w N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Obserwuj, jak przyciski zapalają się po kolei, a następnie dotknij ich w tej samej kolejności. Sekwencja wydłuża się o jeden co rundę.</string>
+    <string name="game_simon_says_desc">W każdej rundzie zapala się jeden nowy przycisk. Dotknij całej sekwencji od początku, razem z przyciskami z poprzednich rund.</string>
     <string name="simon_says_demo_title">Obserwuj, potem powtórz</string>
-    <string name="simon_says_demo_watch">Obserwuj, jak zapalają się przyciski, od początku co rundę.</string>
-    <string name="simon_says_demo_repeat">Teraz dotknij ich w tej samej kolejności.</string>
+    <string name="simon_says_demo_watch">W każdej rundzie zapala się tylko nowy przycisk.</string>
+    <string name="simon_says_demo_repeat">Teraz dotknij całej sekwencji, od pierwszego przycisku.</string>
     <string name="achievement_gold_simon_says">Strażnik Wzorów</string>
     <string name="achievement_gold_simon_says_desc">Zdobądź złoty medal w Simon Says</string>
     <string name="instructions_best_score">Najlepszy wynik: %1$s</string>

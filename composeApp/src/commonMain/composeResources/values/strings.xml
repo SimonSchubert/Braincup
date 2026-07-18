@@ -487,10 +487,10 @@
     <string name="achievement_gold_n_back_desc">Win gold medal in N-Back</string>
     <!-- Simon Says game -->
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Watch the pads light up in order, then tap them back the same way. The sequence grows by one every round.</string>
+    <string name="game_simon_says_desc">Each round lights up one new pad. Tap the whole sequence back from the start, earlier pads included.</string>
     <string name="simon_says_demo_title">Watch, then repeat</string>
-    <string name="simon_says_demo_watch">Watch the pads light up, from the start every round.</string>
-    <string name="simon_says_demo_repeat">Now tap them back in the same order.</string>
+    <string name="simon_says_demo_watch">Each round only the new pad lights up.</string>
+    <string name="simon_says_demo_repeat">Now tap back the whole sequence, from the very first pad.</string>
     <string name="achievement_gold_simon_says">Pattern Keeper</string>
     <string name="achievement_gold_simon_says_desc">Win gold medal in Simon Says</string>
     <string name="instructions_best_score">Best score: %1$s</string>

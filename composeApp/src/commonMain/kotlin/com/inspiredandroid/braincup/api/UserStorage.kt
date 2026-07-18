@@ -59,6 +59,7 @@ class UserStorage(
         GOLD_SPOT_THE_NEW(Res.string.achievement_gold_spot_the_new, Res.string.achievement_gold_spot_the_new_desc),
         GOLD_N_BACK(Res.string.achievement_gold_n_back, Res.string.achievement_gold_n_back_desc),
         GOLD_WORDLE(Res.string.achievement_gold_wordle, Res.string.achievement_gold_wordle_desc),
+        GOLD_SIMON_SAYS(Res.string.achievement_gold_simon_says, Res.string.achievement_gold_simon_says_desc),
         SUDOKU_BEGINNER(Res.string.achievement_sudoku_beginner, Res.string.achievement_sudoku_beginner_desc, isMilestone = true),
         SUDOKU_EASY(Res.string.achievement_sudoku_easy, Res.string.achievement_sudoku_easy_desc, isMilestone = true),
         SUDOKU_MEDIUM(Res.string.achievement_sudoku_medium, Res.string.achievement_sudoku_medium_desc, isMilestone = true),

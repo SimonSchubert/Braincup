@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">Memori Bergulir</string>
     <string name="achievement_gold_n_back_desc">Menangkan medali emas di N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Perhatikan tombol menyala secara berurutan, lalu ketuk dalam urutan yang sama. Urutannya bertambah satu setiap ronde.</string>
+    <string name="game_simon_says_desc">Setiap ronde satu tombol baru menyala. Ketuk seluruh urutan dari awal, termasuk tombol dari ronde sebelumnya.</string>
     <string name="simon_says_demo_title">Perhatikan, lalu ulangi</string>
-    <string name="simon_says_demo_watch">Perhatikan tombol menyala, dari awal setiap ronde.</string>
-    <string name="simon_says_demo_repeat">Sekarang ketuk dalam urutan yang sama.</string>
+    <string name="simon_says_demo_watch">Setiap ronde hanya tombol baru yang menyala.</string>
+    <string name="simon_says_demo_repeat">Sekarang ketuk seluruh urutan, mulai dari tombol pertama.</string>
     <string name="achievement_gold_simon_says">Penjaga Pola</string>
     <string name="achievement_gold_simon_says_desc">Menangkan medali emas di Simon Says</string>
     <string name="instructions_best_score">Skor terbaik: %1$s</string>

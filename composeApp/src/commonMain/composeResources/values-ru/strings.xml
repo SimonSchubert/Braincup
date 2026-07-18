@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">Скользящая память</string>
     <string name="achievement_gold_n_back_desc">Получи золотую медаль в N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Наблюдай, как кнопки загораются по порядку, затем нажимай их в том же порядке. Последовательность увеличивается на один шаг каждый раунд.</string>
+    <string name="game_simon_says_desc">В каждом раунде загорается одна новая кнопка. Нажми всю последовательность с начала, включая кнопки из прошлых раундов.</string>
     <string name="simon_says_demo_title">Смотри, затем повтори</string>
-    <string name="simon_says_demo_watch">Смотри, как загораются кнопки, с начала в каждом раунде.</string>
-    <string name="simon_says_demo_repeat">Теперь нажми их в том же порядке.</string>
+    <string name="simon_says_demo_watch">В каждом раунде загорается только новая кнопка.</string>
+    <string name="simon_says_demo_repeat">Теперь нажми всю последовательность, с самой первой кнопки.</string>
     <string name="achievement_gold_simon_says">Хранитель узоров</string>
     <string name="achievement_gold_simon_says_desc">Получи золотую медаль в Simon Says</string>
     <string name="instructions_best_score">Лучший результат: %1$s</string>

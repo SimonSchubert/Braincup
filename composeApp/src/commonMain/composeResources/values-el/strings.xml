@@ -483,10 +483,10 @@
     <string name="achievement_gold_n_back">Κυλιόμενη μνήμη</string>
     <string name="achievement_gold_n_back_desc">Κέρδισε χρυσό μετάλλιο στο N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Παρακολουθήστε τα πλήκτρα να φωτίζονται με τη σειρά, και μετά πατήστε τα ξανά με την ίδια σειρά. Η ακολουθία μεγαλώνει κατά ένα σε κάθε γύρο.</string>
+    <string name="game_simon_says_desc">Σε κάθε γύρο ανάβει ένα νέο πλήκτρο. Πατήστε ολόκληρη τη σειρά από την αρχή, μαζί με τα πλήκτρα των προηγούμενων γύρων.</string>
     <string name="simon_says_demo_title">Παρακολουθήστε, μετά επαναλάβετε</string>
-    <string name="simon_says_demo_watch">Παρακολουθήστε τα πλήκτρα να φωτίζονται, από την αρχή σε κάθε γύρο.</string>
-    <string name="simon_says_demo_repeat">Τώρα πατήστε τα ξανά με την ίδια σειρά.</string>
+    <string name="simon_says_demo_watch">Σε κάθε γύρο ανάβει μόνο το νέο πλήκτρο.</string>
+    <string name="simon_says_demo_repeat">Τώρα πατήστε ολόκληρη τη σειρά, από το πρώτο πλήκτρο.</string>
     <string name="achievement_gold_simon_says">Φύλακας Μοτίβων</string>
     <string name="achievement_gold_simon_says_desc">Κέρδισε χρυσό μετάλλιο στο Simon Says</string>
     <string name="instructions_best_score">Καλύτερο σκορ: %1$s</string>

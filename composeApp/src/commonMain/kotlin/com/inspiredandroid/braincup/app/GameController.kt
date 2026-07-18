@@ -187,7 +187,7 @@ class GameController(
             (currentState.game as? VisualMemoryGame)?.cancelCountdown()
             (currentState.game as? SpotTheNewGame)?.cancelCountdown()
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
-            (currentState.game as? SimonSaysGame)?.cancelShowSequence()
+            (currentState.game as? SimonSaysGame)?.cancelShowNewPad()
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
             (currentState.game as? BubbleSumGame)?.cancelAnimation()
             (currentState.game as? DigitMemoryGame)?.cancelShowing()
@@ -1720,10 +1720,14 @@ class GameController(
         val game = SimonSaysGame()
         // adaptiveDifficulty is false, so no storage.getLastRound() resume block here.
         game.nextRound()
+        // Paint the fresh (all dark) board before the lead-in delay. Without this _gameUiState
+        // still holds the previous Simon session's final board, so replaying flashes the old
+        // game-over marks for a moment before the first pad lights.
+        emitSimonSaysUiState(game)
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
-        game.startShowSequence(scope) { emitSimonSaysUiState(game) }
+        game.startShowNewPad(scope) { emitSimonSaysUiState(game) }
     }
 
     private fun handleSimonSaysAnswer(
@@ -1736,6 +1740,9 @@ class GameController(
             SimonSaysGame.SubmitResult.CorrectContinue -> emitSimonSaysUiState(game)
             SimonSaysGame.SubmitResult.RoundComplete -> {
                 points++
+                // The final tap of the round never emitted, so without this the board still shows
+                // the *second to last* pad lit all the way through the feedback beat.
+                emitSimonSaysUiState(game)
                 _gameState.value = GameState.Feedback(
                     gameType = currentState.gameType,
                     game = game,
@@ -1745,8 +1752,11 @@ class GameController(
                 scope.launch {
                     delay(1.seconds)
                     game.nextRound()
+                    // Clear the board as the new round opens. Otherwise the pad tapped last round
+                    // stays lit through the lead-in and reads as a pad the game just flashed.
+                    emitSimonSaysUiState(game)
                     _gameState.value = GameState.Active(currentState.gameType, game)
-                    game.startShowSequence(scope) { emitSimonSaysUiState(game) }
+                    game.startShowNewPad(scope) { emitSimonSaysUiState(game) }
                 }
             }
             SimonSaysGame.SubmitResult.Wrong -> {
@@ -1870,7 +1880,7 @@ class GameController(
         (game as? VisualMemoryGame)?.cancelCountdown()
         (game as? SpotTheNewGame)?.cancelCountdown()
         (game as? GhostGridGame)?.cancelShowSequence()
-        (game as? SimonSaysGame)?.cancelShowSequence()
+        (game as? SimonSaysGame)?.cancelShowNewPad()
         (game as? OrbitTrackerGame)?.cancelAnimation()
         (game as? BubbleSumGame)?.cancelAnimation()
         (game as? DigitMemoryGame)?.cancelShowing()

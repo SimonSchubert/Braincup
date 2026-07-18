@@ -665,10 +665,10 @@
     <string name="achievement_gold_n_back">Rollend geheugen</string>
     <string name="achievement_gold_n_back_desc">Win een gouden medaille in N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Kijk hoe de knoppen op volgorde oplichten en tik ze daarna in dezelfde volgorde aan. De reeks wordt elke ronde één langer.</string>
+    <string name="game_simon_says_desc">Elke ronde licht er één nieuwe knop op. Tik de hele reeks vanaf het begin terug, inclusief de knoppen uit eerdere rondes.</string>
     <string name="simon_says_demo_title">Kijk, dan herhaal</string>
-    <string name="simon_says_demo_watch">Kijk hoe de knoppen oplichten, elke ronde vanaf het begin.</string>
-    <string name="simon_says_demo_repeat">Tik ze nu in dezelfde volgorde aan.</string>
+    <string name="simon_says_demo_watch">Elke ronde licht alleen de nieuwe knop op.</string>
+    <string name="simon_says_demo_repeat">Tik nu de hele reeks terug, vanaf de allereerste knop.</string>
     <string name="achievement_gold_simon_says">Patroonbewaker</string>
     <string name="achievement_gold_simon_says_desc">Win een gouden medaille in Simon Says</string>
 

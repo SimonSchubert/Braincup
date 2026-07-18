@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">굴러가는 기억</string>
     <string name="achievement_gold_n_back_desc">N-Back에서 금메달 획득</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">패드가 순서대로 켜지는 것을 보고, 같은 순서로 탭하세요. 라운드마다 순서가 하나씩 늘어납니다.</string>
+    <string name="game_simon_says_desc">라운드마다 새 패드가 하나씩 켜집니다. 이전 라운드의 패드까지 포함해 전체 순서를 처음부터 눌러 주세요.</string>
     <string name="simon_says_demo_title">보고, 따라하기</string>
-    <string name="simon_says_demo_watch">패드가 켜지는 것을 보세요, 매 라운드 처음부터.</string>
-    <string name="simon_says_demo_repeat">이제 같은 순서로 탭하세요.</string>
+    <string name="simon_says_demo_watch">라운드마다 새 패드만 켜집니다.</string>
+    <string name="simon_says_demo_repeat">이제 첫 패드부터 전체 순서를 탭하세요.</string>
     <string name="achievement_gold_simon_says">패턴 수호자</string>
     <string name="achievement_gold_simon_says_desc">Simon Says에서 금메달 획득</string>
     <string name="instructions_best_score">최고 점수: %1$s</string>

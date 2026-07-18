@@ -665,10 +665,10 @@
     <string name="achievement_gold_n_back">চলমান স্মৃতি</string>
     <string name="achievement_gold_n_back_desc">N-Back-এ স্বর্ণপদক জিতুন</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">প্যাডগুলো ক্রমানুসারে জ্বলতে দেখুন, তারপর একই ক্রমে সেগুলোতে ট্যাপ করুন। প্রতি রাউন্ডে ক্রমটি একটি করে বাড়ে।</string>
+    <string name="game_simon_says_desc">প্রতি রাউন্ডে একটি নতুন প্যাড জ্বলে ওঠে। আগের রাউন্ডগুলোর প্যাডসহ পুরো ক্রমটি শুরু থেকে ট্যাপ করুন।</string>
     <string name="simon_says_demo_title">দেখুন, তারপর পুনরায় করুন</string>
-    <string name="simon_says_demo_watch">প্যাডগুলো জ্বলতে দেখুন, প্রতি রাউন্ডে শুরু থেকে।</string>
-    <string name="simon_says_demo_repeat">এখন একই ক্রমে সেগুলোতে ট্যাপ করুন।</string>
+    <string name="simon_says_demo_watch">প্রতি রাউন্ডে শুধু নতুন প্যাডটিই জ্বলে ওঠে।</string>
+    <string name="simon_says_demo_repeat">এখন প্রথম প্যাড থেকে পুরো ক্রমটি ট্যাপ করুন।</string>
     <string name="achievement_gold_simon_says">প্যাটার্ন রক্ষক</string>
     <string name="achievement_gold_simon_says_desc">Simon Says-এ স্বর্ণপদক জিতুন</string>
 

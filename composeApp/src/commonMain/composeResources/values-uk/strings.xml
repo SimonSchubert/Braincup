@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">Рухомий слід</string>
     <string name="achievement_gold_n_back_desc">Здобудь золоту медаль у N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Дивись, як кнопки загоряються по черзі, потім натискай їх у тому ж порядку. Послідовність зростає на один крок щораунду.</string>
+    <string name="game_simon_says_desc">У кожному раунді загоряється одна нова кнопка. Натисни всю послідовність з початку, разом із кнопками з попередніх раундів.</string>
     <string name="simon_says_demo_title">Дивись, потім повтори</string>
-    <string name="simon_says_demo_watch">Дивись, як загоряються кнопки, з початку щораунду.</string>
-    <string name="simon_says_demo_repeat">Тепер натисни їх у тому ж порядку.</string>
+    <string name="simon_says_demo_watch">У кожному раунді загоряється лише нова кнопка.</string>
+    <string name="simon_says_demo_repeat">Тепер натисни всю послідовність, від найпершої кнопки.</string>
     <string name="achievement_gold_simon_says">Охоронець візерунків</string>
     <string name="achievement_gold_simon_says_desc">Здобудь золоту медаль у Simon Says</string>
     <string name="instructions_best_score">Найкращий результат: %1$s</string>

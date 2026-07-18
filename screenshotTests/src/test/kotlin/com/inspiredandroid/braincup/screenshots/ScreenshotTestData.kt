@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
 import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
+import com.inspiredandroid.braincup.app.SimonSaysUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellType
@@ -366,20 +367,31 @@ fun createGhostGridGameOverUiState(): com.inspiredandroid.braincup.app.GhostGrid
     return game.toUiState()
 }
 
-fun createSimonSaysGame(): SimonSaysGame {
-    val game = SimonSaysGame(random = Random(42L))
-    game.nextRound()
-    return game
-}
-
-fun createSimonSaysUiState(): com.inspiredandroid.braincup.app.SimonSaysUiState {
-    val game = createSimonSaysGame()
-    return game.toUiState().copy(
+// Built from the public constructor rather than game.toUiState().copy(phase = ANSWERING): the
+// game only leaves SHOWING from inside startShowSequence's coroutine, so a copy() after the fact
+// relabels the phase but leaves every pad INACTIVE, giving an all-dark golden that can never
+// catch a regression in how a tapped pad renders.
+fun createSimonSaysUiState(): SimonSaysUiState {
+    val tapped = SimonSaysGame.PADS.first()
+    return SimonSaysUiState(
+        round = 1,
         phase = SimonSaysGame.Phase.ANSWERING,
+        pads = SimonSaysGame.PADS.map { color ->
+            SimonSaysUiState.PadState(
+                color = color,
+                type = if (color == tapped) {
+                    SimonSaysUiState.CellType.TAPPED
+                } else {
+                    SimonSaysUiState.CellType.INACTIVE
+                },
+            )
+        }.toImmutableList(),
+        sequenceLength = 3,
+        tappedCount = 1,
     )
 }
 
-fun createSimonSaysGameOverUiState(): com.inspiredandroid.braincup.app.SimonSaysUiState {
+fun createSimonSaysGameOverUiState(): SimonSaysUiState {
     val game = SimonSaysGame(random = Random(42L))
     game.nextRound()
     // Submit a color that is guaranteed to mismatch the actual first pad, whatever the seed

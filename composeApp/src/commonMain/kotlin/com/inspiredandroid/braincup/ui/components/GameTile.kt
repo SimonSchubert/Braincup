@@ -29,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
@@ -1016,29 +1017,20 @@ private fun GhostGridPreview() {
 
 @Composable
 private fun SimonSaysPreview() {
-    val litColor = MaterialTheme.colorScheme.primary
-    val dimColor = MaterialTheme.colorScheme.surfaceContainerHighest
-    Column(
+    // All four pads at full colour rather than one lit and three dark. A tile is an identity mark,
+    // not a snapshot of play: the unlit face is near-black by design, and three near-black wedges
+    // go muddy against the pale mint MEMORY accent. Four bright quadrants read as the Simon disc
+    // at a glance, which is what the tile has to do.
+    SimonDisc(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        verticalArrangement = Arrangement.spacedBy(4.dp),
-    ) {
-        for (row in 0 until 2) {
-            Row(
-                modifier = Modifier.weight(1f).fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-            ) {
-                for (col in 0 until 2) {
-                    val isLit = row == 0 && col == 0
-                    Box(
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .clip(CircleShape)
-                            .background(if (isLit) litColor else dimColor),
-                    )
-                }
-            }
-        }
+        // The hub reads as a hole punched through to the tile's accent background.
+        hubColor = ComposeColor(GameType.SIMON_SAYS.accentColor),
+    ) { index, quadrant, padModifier ->
+        Box(
+            modifier = padModifier
+                .clip(simonQuadrantShape(quadrant))
+                .background(SimonSaysGame.PADS[index].composeColor()),
+        )
     }
 }
 

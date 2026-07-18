@@ -665,10 +665,10 @@
     <string name="achievement_gold_n_back">ذاكرة متجددة</string>
     <string name="achievement_gold_n_back_desc">اربح الميدالية الذهبية في N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">شاهد الأزرار تضيء بالترتيب، ثم اضغط عليها بنفس الترتيب. يزداد التسلسل بواحد في كل جولة.</string>
+    <string name="game_simon_says_desc">في كل جولة يضيء زر جديد واحد فقط. اضغط التسلسل كاملاً من البداية، بما في ذلك أزرار الجولات السابقة.</string>
     <string name="simon_says_demo_title">شاهد ثم كرر</string>
-    <string name="simon_says_demo_watch">شاهد الأزرار تضيء، من البداية في كل جولة.</string>
-    <string name="simon_says_demo_repeat">الآن اضغط عليها بنفس الترتيب.</string>
+    <string name="simon_says_demo_watch">في كل جولة يضيء الزر الجديد فقط.</string>
+    <string name="simon_says_demo_repeat">الآن اضغط التسلسل كاملاً من الزر الأول.</string>
     <string name="achievement_gold_simon_says">حافظ النمط</string>
     <string name="achievement_gold_simon_says_desc">اربح الميدالية الذهبية في Simon Says</string>
 

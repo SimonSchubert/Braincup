@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">Akan Hafıza</string>
     <string name="achievement_gold_n_back_desc">N-Back oyununda altın madalya kazan</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Düğmelerin sırayla yanmasını izle, ardından aynı sırayla onlara dokun. Dizi her turda bir artar.</string>
+    <string name="game_simon_says_desc">Her turda yeni bir düğme yanar. Önceki turların düğmeleri dahil, tüm diziye baştan dokun.</string>
     <string name="simon_says_demo_title">İzle, sonra tekrarla</string>
-    <string name="simon_says_demo_watch">Düğmelerin yanmasını izle, her turda baştan.</string>
-    <string name="simon_says_demo_repeat">Şimdi aynı sırayla onlara dokun.</string>
+    <string name="simon_says_demo_watch">Her turda yalnızca yeni düğme yanar.</string>
+    <string name="simon_says_demo_repeat">Şimdi tüm diziye, en baştaki düğmeden itibaren dokun.</string>
     <string name="achievement_gold_simon_says">Desen Bekçisi</string>
     <string name="achievement_gold_simon_says_desc">Simon Says oyununda altın madalya kazan</string>
     <string name="instructions_best_score">En iyi puan: %1$s</string>

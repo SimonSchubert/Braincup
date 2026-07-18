@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">घूमती स्मृति</string>
     <string name="achievement_gold_n_back_desc">N-Back में स्वर्ण पदक जीतें</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">पैड को क्रम में जलते हुए देखें, फिर उन्हें उसी क्रम में टैप करें। हर राउंड में क्रम एक-एक करके बढ़ता है।</string>
+    <string name="game_simon_says_desc">हर राउंड में एक नया पैड जलता है। पिछले राउंड के पैड सहित पूरा क्रम शुरुआत से टैप करें।</string>
     <string name="simon_says_demo_title">देखें, फिर दोहराएँ</string>
-    <string name="simon_says_demo_watch">पैड को जलते हुए देखें, हर राउंड में शुरुआत से।</string>
-    <string name="simon_says_demo_repeat">अब उन्हें उसी क्रम में टैप करें।</string>
+    <string name="simon_says_demo_watch">हर राउंड में सिर्फ़ नया पैड जलता है।</string>
+    <string name="simon_says_demo_repeat">अब पहले पैड से पूरा क्रम टैप करें।</string>
     <string name="achievement_gold_simon_says">पैटर्न रक्षक</string>
     <string name="achievement_gold_simon_says_desc">Simon Says में स्वर्ण पदक जीतें</string>
     <string name="instructions_best_score">सर्वश्रेष्ठ स्कोर: %1$s</string>

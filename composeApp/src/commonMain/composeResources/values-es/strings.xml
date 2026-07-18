@@ -339,10 +339,10 @@
     <string name="achievement_gold_n_back">Memoria en movimiento</string>
     <string name="achievement_gold_n_back_desc">Gana la medalla de oro en N-Back</string>
     <string name="game_simon_says">Simon Says</string>
-    <string name="game_simon_says_desc">Observa cómo se iluminan los botones en orden y luego tócalos en el mismo orden. La secuencia crece uno en cada ronda.</string>
+    <string name="game_simon_says_desc">En cada ronda se ilumina un botón nuevo. Toca toda la secuencia desde el principio, incluidos los botones de las rondas anteriores.</string>
     <string name="simon_says_demo_title">Observa y repite</string>
-    <string name="simon_says_demo_watch">Observa cómo se iluminan los botones, desde el principio en cada ronda.</string>
-    <string name="simon_says_demo_repeat">Ahora tócalos en el mismo orden.</string>
+    <string name="simon_says_demo_watch">En cada ronda solo se ilumina el botón nuevo.</string>
+    <string name="simon_says_demo_repeat">Ahora toca toda la secuencia, desde el primer botón.</string>
     <string name="achievement_gold_simon_says">Guardián de Patrones</string>
     <string name="achievement_gold_simon_says_desc">Gana la medalla de oro en Simon Says</string>
     <string name="instructions_best_score">Mejor puntuación: %1$s</string>
