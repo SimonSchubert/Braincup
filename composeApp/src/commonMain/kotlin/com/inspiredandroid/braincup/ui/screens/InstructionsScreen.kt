@@ -56,6 +56,7 @@ import com.inspiredandroid.braincup.ui.components.QuickSumDemo
 import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
 import com.inspiredandroid.braincup.ui.components.SherlockCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ShikakuDemo
+import com.inspiredandroid.braincup.ui.components.SimonSaysDemo
 import com.inspiredandroid.braincup.ui.components.SlidingPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.SoloChessDemo
 import com.inspiredandroid.braincup.ui.components.SpotTheNewDemo
@@ -111,6 +112,7 @@ fun InstructionsScreen(
             when (gameType) {
                 GameType.MINI_CHESS -> ChessMoveDemo(modifier = demoModifier)
                 GameType.GHOST_GRID -> GhostGridDemo(modifier = demoModifier)
+                GameType.SIMON_SAYS -> SimonSaysDemo(modifier = demoModifier)
                 GameType.LIGHTS_OUT -> LightsOutDemo(modifier = demoModifier)
                 GameType.PATH_FINDER -> PathFinderDemo(modifier = demoModifier)
                 GameType.SHIKAKU -> ShikakuDemo(modifier = demoModifier)

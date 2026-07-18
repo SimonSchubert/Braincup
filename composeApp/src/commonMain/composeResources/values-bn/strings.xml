@@ -664,6 +664,13 @@
     <string name="n_back_demo_recall">1 নম্বর অবস্থানের আকৃতিতে ট্যাপ করুন।</string>
     <string name="achievement_gold_n_back">চলমান স্মৃতি</string>
     <string name="achievement_gold_n_back_desc">N-Back-এ স্বর্ণপদক জিতুন</string>
+    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says_desc">প্যাডগুলো ক্রমানুসারে জ্বলতে দেখুন, তারপর একই ক্রমে সেগুলোতে ট্যাপ করুন। প্রতি রাউন্ডে ক্রমটি একটি করে বাড়ে।</string>
+    <string name="simon_says_demo_title">দেখুন, তারপর পুনরায় করুন</string>
+    <string name="simon_says_demo_watch">প্যাডগুলো জ্বলতে দেখুন, প্রতি রাউন্ডে শুরু থেকে।</string>
+    <string name="simon_says_demo_repeat">এখন একই ক্রমে সেগুলোতে ট্যাপ করুন।</string>
+    <string name="achievement_gold_simon_says">প্যাটার্ন রক্ষক</string>
+    <string name="achievement_gold_simon_says_desc">Simon Says-এ স্বর্ণপদক জিতুন</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">ঘুঁটিগুলো কীভাবে চলে</string>

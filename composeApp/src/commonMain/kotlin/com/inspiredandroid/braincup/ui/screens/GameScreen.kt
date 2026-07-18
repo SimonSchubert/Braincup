@@ -39,6 +39,7 @@ import com.inspiredandroid.braincup.app.QuickSumUiState
 import com.inspiredandroid.braincup.app.SchulteTableUiState
 import com.inspiredandroid.braincup.app.SherlockCalculationUiState
 import com.inspiredandroid.braincup.app.ShikakuUiState
+import com.inspiredandroid.braincup.app.SimonSaysUiState
 import com.inspiredandroid.braincup.app.SlidingPuzzleUiState
 import com.inspiredandroid.braincup.app.SoloChessUiState
 import com.inspiredandroid.braincup.app.SpotTheNewUiState
@@ -76,6 +77,7 @@ import com.inspiredandroid.braincup.ui.screens.games.QuickSumContent
 import com.inspiredandroid.braincup.ui.screens.games.SchulteTableContent
 import com.inspiredandroid.braincup.ui.screens.games.SherlockCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.ShikakuContent
+import com.inspiredandroid.braincup.ui.screens.games.SimonSaysContent
 import com.inspiredandroid.braincup.ui.screens.games.SlidingPuzzleContent
 import com.inspiredandroid.braincup.ui.screens.games.SoloChessContent
 import com.inspiredandroid.braincup.ui.screens.games.SpotTheNewContent
@@ -119,6 +121,7 @@ fun GameScreen(
         is VisualMemoryUiState -> gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING
         is SpotTheNewUiState -> gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING
         is GhostGridUiState,
+        is SimonSaysUiState,
         is OrbitTrackerUiState,
         is MiniChessUiState,
         is LightsOutUiState,
@@ -185,6 +188,7 @@ fun GameScreen(
                 is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)
                 is SpotTheNewUiState -> SpotTheNewContent(gameUiState, onAnswer)
                 is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
+                is SimonSaysUiState -> SimonSaysContent(gameUiState, onAnswer)
                 is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
                 is OrbitTrackerUiState -> OrbitTrackerContent(
                     uiState = gameUiState,

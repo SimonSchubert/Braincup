@@ -338,6 +338,13 @@
     <string name="n_back_demo_recall">Chạm vào hình ở vị trí 1.</string>
     <string name="achievement_gold_n_back">Trí Nhớ Cuộn</string>
     <string name="achievement_gold_n_back_desc">Giành huy chương vàng trong N-Back</string>
+    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says_desc">Xem các nút sáng lên theo thứ tự, sau đó chạm vào chúng theo cùng thứ tự. Chuỗi dài thêm một bước mỗi vòng.</string>
+    <string name="simon_says_demo_title">Xem, rồi lặp lại</string>
+    <string name="simon_says_demo_watch">Xem các nút sáng lên, từ đầu mỗi vòng.</string>
+    <string name="simon_says_demo_repeat">Bây giờ chạm vào chúng theo cùng thứ tự.</string>
+    <string name="achievement_gold_simon_says">Người Giữ Khuôn Mẫu</string>
+    <string name="achievement_gold_simon_says_desc">Giành huy chương vàng trong Simon Says</string>
     <string name="instructions_best_score">Điểm cao nhất: %1$s</string>
     <string name="instructions_leaderboard">Xem bảng xếp hạng</string>
     <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>

@@ -124,6 +124,11 @@ fun MainMenuScreenContent(
     matchstickRiddlesSolved: Int = 0,
     matchstickRiddlesTotal: Int = 0,
     showDailyChallenge: Boolean = true,
+    /**
+     * Optional override for which mini-game tiles appear (and in which order).
+     * Used by store screenshots to hand-pick a compact portrait lineup; null = full menu.
+     */
+    gameTypes: List<GameType>? = null,
     onOpenSettings: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
@@ -141,8 +146,9 @@ fun MainMenuScreenContent(
     val colorblindEnabled = LocalAccessiblePalette.current
     // Match Compose's UI locale (same source as stringResource), not a one-shot cached JVM default.
     val wordleAvailable = WordleLanguages.resolve(ComposeLocale.current.language) != null
-    val visibleGameTypes = remember(colorblindEnabled, wordleAvailable) {
-        GameType.displayOrder.filterNot {
+    val visibleGameTypes = remember(colorblindEnabled, wordleAvailable, gameTypes) {
+        val base = gameTypes ?: GameType.displayOrder
+        base.filterNot {
             (colorblindEnabled && it.requiresColorVision) ||
                 (it == GameType.WORDLE && !wordleAvailable)
         }

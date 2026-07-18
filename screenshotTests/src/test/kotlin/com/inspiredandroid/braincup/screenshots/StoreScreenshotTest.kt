@@ -120,6 +120,15 @@ class StoreScreenshotTest(
                 highscores = mainMenuHighscores,
                 unlockedCount = 5,
                 showDailyChallenge = false,
+                // Hand-picked portrait lineup so the home screenshot shows strong demos without scrolling.
+                gameTypes = listOf(
+                    GameType.CAT_QUEENS,
+                    GameType.GHOST_GRID,
+                    GameType.SPOT_THE_NEW,
+                    GameType.MINI_CHESS,
+                    GameType.DIGIT_MEMORY,
+                    GameType.PATTERN_SEQUENCE,
+                ),
             )
         }
     }

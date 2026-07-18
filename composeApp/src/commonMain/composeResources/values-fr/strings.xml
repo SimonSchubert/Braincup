@@ -664,6 +664,13 @@
     <string name="n_back_demo_recall">Touchez la forme à la position 1.</string>
     <string name="achievement_gold_n_back">Mémoire glissante</string>
     <string name="achievement_gold_n_back_desc">Gagnez une médaille d'or à N-Back</string>
+    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says_desc">Regarde les boutons s'allumer dans l'ordre, puis touche-les dans le même ordre. La séquence s'allonge d'un cran à chaque manche.</string>
+    <string name="simon_says_demo_title">Regarde, puis répète</string>
+    <string name="simon_says_demo_watch">Regarde les boutons s'allumer, depuis le début à chaque manche.</string>
+    <string name="simon_says_demo_repeat">Touche-les maintenant dans le même ordre.</string>
+    <string name="achievement_gold_simon_says">Gardien des Motifs</string>
+    <string name="achievement_gold_simon_says_desc">Gagnez une médaille d'or à Simon Says</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Comment les pièces se déplacent</string>

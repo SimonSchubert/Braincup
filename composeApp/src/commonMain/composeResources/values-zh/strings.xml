@@ -338,6 +338,13 @@
     <string name="n_back_demo_recall">点击第 1 个位置的图形。</string>
     <string name="achievement_gold_n_back">滚动记忆</string>
     <string name="achievement_gold_n_back_desc">在N-Back中赢得金牌</string>
+    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says_desc">观察按钮按顺序亮起，然后按相同顺序点击它们。序列每轮增加一个。</string>
+    <string name="simon_says_demo_title">看，然后复现</string>
+    <string name="simon_says_demo_watch">观察按钮亮起，每轮都从头开始。</string>
+    <string name="simon_says_demo_repeat">现在按相同顺序点击它们。</string>
+    <string name="achievement_gold_simon_says">图案守护者</string>
+    <string name="achievement_gold_simon_says_desc">在Simon Says中赢得金牌</string>
     <string name="instructions_best_score">最高分：%1$s</string>
     <string name="instructions_leaderboard">查看排行榜</string>
     <string name="brain_cup_button">Brain Cup 排行榜</string>

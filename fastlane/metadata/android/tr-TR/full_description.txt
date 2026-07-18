@@ -1,82 +1,112 @@
-Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 26 beyin egzersizi sunar.
+Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 36 beyin egzersizi sunar.
 
-<b>Zihinsel hesaplama</b>:
-Matematiksel ifadeleri takip edin. Sonucu bir sonraki hesaplama için temel olarak kullanın.
+<b>Zihinsel Hesaplama</b>:
+Matematiksel ifadeleri takip et. Sonucu sonraki hesap için kullan.
 
-<b>Zincir hesaplama</b>:
-Karmaşık formülleri adım adım çözün.
+<b>Zincir Hesaplama</b>:
+Karmaşık formülleri adım adım çöz.
 
-<b>Sherlock hesaplama</b>:
-Yalnızca verilen sayılar ve operatörleri kullanarak hedefe ulaşacak bir formül bulun.
+<b>Sherlock Hesaplaması</b>:
+Verilen sayılar ve operatörlerle hedefe bir formül bul.
 
-<b>Kesir hesaplama</b>:
-Kesirleri çözün.
+<b>Kesir Hesaplama</b>:
+Kesirleri çöz.
 
-<b>Değer karşılaştırma</b>:
-En yüksek değere sahip ifadeyi seçin.
+<b>Değer Karşılaştırma</b>:
+En yüksek değere sahip ifadeyi seç.
 
-<b>Anomali bulmacası</b>:
-Farklı olan şekli bulun. Her şeklin hem rengine hem de biçimine dikkat edin.
+<b>Baloncuk Toplamı</b>:
+Balonlardaki sayıları topla. Sonra yanıp sönerler — ezberle.
 
-<b>Desen dizisi</b>:
-Tekrarlayan şekilleri, renkleri ve dönüşleri arayarak desendeki bir sonraki şekli bulun.
+<b>Hızlı Toplam</b>:
+Sayılar tek tek yanıp söner. Topla ve sonucu gir.
 
-<b>Yol bulucu</b>:
-İşaretli konumdan başlayın ve hedefi bulmak için ok talimatlarını izleyin.
+<b>Anomali Bulmacası</b>:
+Renk ve şekle göre öne çıkan figürü bul.
 
-<b>Görsel hafıza</b>:
-Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.
+<b>Desen Dizisi</b>:
+Desendeki sonraki figürü bul (şekil, renk, dönüş).
 
-<b>Hayalet ızgara</b>:
-Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.
+<b>Yol Bulucu</b>:
+İşaretli yerden başla ve oklara uyarak hedefe git.
 
-<b>Renk karmaşası</b>:
-Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun. Odaklanmaya devam edin!
+<b>Görsel Hafıza</b>:
+Şekileri ezberle, süre bitince gizli olanı bul.
 
-<b>Renkli şekiller</b>:
-Doğru ifadelerden puanları toplayın.
+<b>Hayalet Izgara</b>:
+Kareler sırayla yanar; aynı sırayla dokun.
 
-<b>Yörünge takipçisi</b>:
-Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.
+<b>Renk Karmaşası</b>:
+Kelime ile yazı rengi eşleşen hücrelere dokun.
 
-<b>Flaş kalabalık</b>:
-Her iki tarafta kısa süreliğine noktalar belirir. Daha fazla noktası olan tarafa dokunun. İçgüdünüze güvenin!
+<b>Renkli Şekiller</b>:
+Doğru ifadelerin puanlarını topla.
+
+<b>Yörünge Takipçisi</b>:
+İşaretli topları izle, takip et ve durunca hedefleri seç.
+
+<b>Flaş Kalabalık</b>:
+Noktalar kısa parlar. Daha çok nokta olan tarafa dokun.
 
 <b>Mini Sudoku</b>:
-Küçük ızgarayı her satır, sütun ve bloğun her sayıyı tam olarak bir kez içerecek şekilde doldurun.
+Küçük ızgarayı doldur: her satır, sütun ve blokta her rakam bir kez.
 
 <b>Mini Satranç</b>:
-Beyazlarla satranç senaryosunu bitir. CPU sana mat etmeden önce ona mat et.
+Beyazlarla senaryoyu bitir. CPU senden önce mat etmesin.
+
+<b>Tek Kişilik Satranç</b>:
+Sadece şah kalana kadar taşları tek tek al. Her hamle alma olmalı.
 
 <b>Işıkları Söndür</b>:
-Tüm ışıkları söndür. Her dokunuş, hücreyi ve dört komşusunu değiştirir.
+Tüm ışıkları kapat. Her dokunuş hücreyi ve komşularını değiştirir.
 
 <b>Kaydırma Bulmacası</b>:
-Karoları boş alana kaydırarak sıraya diz.
+Karoları boş alana kaydırarak sırala.
 
 <b>Shikaku</b>:
-Tüm ızgarayı dikdörtgenlere böl. Her dikdörtgende, alanına eşit tam olarak bir sayı bulunmalıdır.
+Izgaraı dikdörtgenlere böl. Her birinde alanına eşit bir sayı var.
 
 <b>Nurikabe</b>:
-Numaralı adaların çevresinde denizi oluşturmak için hücreleri boyayın. Her ada, sayısı kadar bağlı hücreye sahip olmalı, deniz bağlantılı olmalı ve hiçbir 2x2 blok içermemelidir.
+Numaralı adaların etrafında 2x2 blok olmadan deniz boya.
 
 <b>Kedi Kraliçeleri</b>:
-Her satıra, her sütuna ve her renk bölgesine bir kedi yerleştir. İki kedi birbirine dokunamaz, çapraz olarak da.
+Her satır, sütun ve renk bölgesinde bir kedi. Birbirine değmesinler.
+
+<b>Düğüm</b>:
+Her renkli nokta çiftini yolla birleştir. Yollar kesişmez, tüm hücreleri kaplar.
+
+<b>Hanoi Kuleleri</b>:
+Yığını sağ çubuğa taşı. Büyük diski küçüğün üstüne koyma.
 
 <b>Schulte Tablosu</b>:
-Sayılara 1'den başlayarak sırayla mümkün olduğunca hızlı dokun.
+Sayıları 1’den itibaren olabildiğince hızlı sırayla dokun.
 
 <b>Bayraklar</b>:
-Bayrağına bakarak ülkeyi tahmin et. Her tur daha fazla seçenek ekler ve süre işliyor.
+Bayraktan ülkeyi tanı. Daha fazla seçenek ve süre işler.
 
 <b>Rakam Hafızası</b>:
-Bir rakam dizisini ezberle, hızlı bir matematik problemi çöz, ardından rakamları hatırla.
+Rakamları ezberle, hızlı bir işlem yap, sonra rakamları hatırla.
 
 <b>Yeniyi Bul</b>:
-Daha önce görmediğin hayvana dokun. Tek bir hata oyunu bitirir.
+Daha önce görmediğin hayvana dokun. Bir hata oyunu bitirir.
+
+<b>N-Back</b>:
+Şekilleri izle, istenen konumdakine dokun.
 
 <b>Wordle</b>:
-Altı denemede gizli beş harfli kelimeyi tahmin et. Cevap her zaman bir isimdir.
+Altı denemede gizli beş harfli kelimeyi tahmin et.
+
+<b>Kibrit bulmacaları</b>:
+Kibritleri hareket ettirerek denklemleri düzeltin.
+
+<b>Solitaire</b>:
+Tahtada bir çivi kalana kadar zıplayın.
+
+<b>Sudoku</b>:
+Birden fazla zorlukta klasik Sudoku.
+
+<b>Satranç</b>:
+CPU’ya karşı veya pass-and-play tam satranç.
 
 Oyunda birçok <b>başarı</b> ve her egzersizde sizi motive edecek <b>madalyalar</b> bulunur.
 

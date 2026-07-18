@@ -485,6 +485,14 @@
     <string name="n_back_demo_recall">Tap the shape that was in position 1.</string>
     <string name="achievement_gold_n_back">Rolling Recall</string>
     <string name="achievement_gold_n_back_desc">Win gold medal in N-Back</string>
+    <!-- Simon Says game -->
+    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says_desc">Watch the pads light up in order, then tap them back the same way. The sequence grows by one every round.</string>
+    <string name="simon_says_demo_title">Watch, then repeat</string>
+    <string name="simon_says_demo_watch">Watch the pads light up, from the start every round.</string>
+    <string name="simon_says_demo_repeat">Now tap them back in the same order.</string>
+    <string name="achievement_gold_simon_says">Pattern Keeper</string>
+    <string name="achievement_gold_simon_says_desc">Win gold medal in Simon Says</string>
     <string name="instructions_best_score">Best score: %1$s</string>
     <string name="instructions_leaderboard">View leaderboard</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>

@@ -664,6 +664,13 @@
     <string name="n_back_demo_recall">Tippe auf die Form an Position 1.</string>
     <string name="achievement_gold_n_back">Rollendes Gedächtnis</string>
     <string name="achievement_gold_n_back_desc">Gewinne eine Goldmedaille in N-Back</string>
+    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says_desc">Beobachte, wie die Felder der Reihe nach aufleuchten, und tippe sie dann in der gleichen Reihenfolge an. Die Sequenz wird jede Runde um eins länger.</string>
+    <string name="simon_says_demo_title">Beobachten, dann wiederholen</string>
+    <string name="simon_says_demo_watch">Beobachte, wie die Felder aufleuchten, jede Runde von vorne.</string>
+    <string name="simon_says_demo_repeat">Tippe sie jetzt in der gleichen Reihenfolge an.</string>
+    <string name="achievement_gold_simon_says">Musterhüter</string>
+    <string name="achievement_gold_simon_says_desc">Gewinne eine Goldmedaille in Simon Says</string>
 
     <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">So ziehen die Figuren</string>

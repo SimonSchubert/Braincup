@@ -412,6 +412,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.SCHULTE_TABLE -> SchulteTablePreview()
         GameType.PATTERN_SEQUENCE -> PatternSequencePreview()
         GameType.GHOST_GRID -> GhostGridPreview()
+        GameType.SIMON_SAYS -> SimonSaysPreview()
         GameType.COLOR_CONFUSION -> ColorConfusionPreview()
         GameType.ORBIT_TRACKER -> OrbitTrackerPreview()
         GameType.FLASH_CROWD -> FlashCrowdPreview()
@@ -1006,6 +1007,34 @@ private fun GhostGridPreview() {
                             .weight(1f)
                             .aspectRatio(1f)
                             .padding(2.dp),
+                    )
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun SimonSaysPreview() {
+    val litColor = MaterialTheme.colorScheme.primary
+    val dimColor = MaterialTheme.colorScheme.surfaceContainerHighest
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        for (row in 0 until 2) {
+            Row(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                for (col in 0 until 2) {
+                    val isLit = row == 0 && col == 0
+                    Box(
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .clip(CircleShape)
+                            .background(if (isLit) litColor else dimColor),
                     )
                 }
             }

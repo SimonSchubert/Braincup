@@ -1,52 +1,61 @@
-Trenuj swój mózg za pomocą zabawnych mini gier, które stanowią wyzwanie dla twojej pamięci, koncentracji, logiki i umiejętności matematycznych. Braincup oferuje 26 ćwiczeń treningowych dla mózgu zaprojektowanych, aby wyostrzyć umysł i poprawić koncentrację.
+Trenuj swój mózg za pomocą zabawnych mini gier, które stanowią wyzwanie dla twojej pamięci, koncentracji, logiki i umiejętności matematycznych. Braincup oferuje 36 ćwiczeń treningowych dla mózgu zaprojektowanych, aby wyostrzyć umysł i poprawić koncentrację.
 
-<b>Rachunki w pamięci</b>:
+<b>Rachunek pamięciowy</b>:
 Śledź wyrażenia matematyczne. Użyj wyniku jako podstawy do następnego obliczenia.
 
 <b>Obliczenia łańcuchowe</b>:
-Rozwiązuj złożone formuły krok po kroku.
+Śledź wyrażenia matematyczne.
 
 <b>Obliczenia Sherlocka</b>:
-Znajdź formułę prowadzącą do celu, używając tylko podanych liczb i operatorów.
+Znajdź sposób na osiągnięcie celu używając tylko podanych liczb i tych operatorów: + - * / ( ).
 
 <b>Obliczenia ułamkowe</b>:
 Rozwiąż ułamki.
 
-<b>Porównywanie wartości</b>:
+<b>Porównanie wartości</b>:
 Wybierz wyrażenie o najwyższej wartości.
 
-<b>Puzzle anomalii</b>:
-Znajdź figurę, która się wyróżnia. Zwróć uwagę zarówno na kolor, jak i kształt każdej figury.
+<b>Suma baniek</b>:
+Dodaj liczby na unoszących się bańkach. Później liczby mrugają — zapamiętaj je.
+
+<b>Szybka suma</b>:
+Liczby pojawiają się pojedynczo. Dodaj je i wpisz sumę.
+
+<b>Łamigłówka anomalii</b>:
+Znajdź figurę, która się wyróżnia. Weź pod uwagę zarówno kolor, jak i kształt każdej figury.
 
 <b>Sekwencja wzorów</b>:
 Znajdź następną figurę we wzorze, szukając powtarzających się kształtów, kolorów i obrotów.
 
-<b>Szukacz ścieżek</b>:
-Zacznij od oznaczonej pozycji i podążaj za instrukcjami strzałek, aby znaleźć cel.
+<b>Znajdź ścieżkę</b>:
+Zacznij od zaznaczonej pozycji i podążaj za strzałkami, aby znaleźć cel.
 
 <b>Pamięć wzrokowa</b>:
 Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.
 
-<b>Siatka duchów</b>:
+<b>Siatka Duchów</b>:
 Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.
 
-<b>Zamieszanie kolorów</b>:
-Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki. Zachowaj skupienie!
+<b>Zamieszanie Kolorów</b>:
+Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki, a następnie naciśnij Gotowe.
 
 <b>Kolorowe kształty</b>:
-Zsumuj punkty z prawidłowych stwierdzeń.
+Zsumuj punkty z poprawnych stwierdzeń.
 
-<b>Śledzenie orbit</b>:
-Obserwuj wyróżnione kule, a następnie śledź je podczas ruchu. Wybierz pierwotne cele po zatrzymaniu.
+<b>Śledzenie Orbit</b>:
+Obserwuj podświetlone kule, a następnie śledź je podczas ruchu. Wybierz oryginalne cele po zatrzymaniu.
 
-<b>Błyskawiczny tłum</b>:
-Po każdej stronie na chwilę pojawiają się kropki. Dotknij strony, która miała więcej kropek. Zaufaj swojemu instynktowi!
+<b>Błyskawiczny Tłum</b>:
+Kropki migają krótko po każdej stronie. Dotknij strony, która miała więcej kropek.
 
 <b>Mini Sudoku</b>:
 Wypełnij małą siatkę tak, aby każdy wiersz, kolumna i blok zawierały każdą liczbę dokładnie raz.
 
 <b>Mini Szachy</b>:
 Zakończ scenariusz szachowy jako białe. Daj mata CPU, zanim ona da mata tobie.
+
+<b>Szachy solo</b>:
+Bij figury jedna po drugiej, aż zostanie tylko król.
 
 <b>Wyłącz światła</b>:
 Wyłącz wszystkie światła. Każde dotknięcie przełącza komórkę i jej czterech sąsiadów.
@@ -58,10 +67,16 @@ Przesuwaj kafelki na puste pole, aby ułożyć je po kolei.
 Podziel całą siatkę na prostokąty. Każdy prostokąt musi zawierać dokładnie jedną liczbę, równą jego polu.
 
 <b>Nurikabe</b>:
-Maluj komórki, aby utworzyć morze wokół ponumerowanych wysp. Każda wyspa musi mieć tyle połączonych komórek, ile wynosi jej liczba, morze musi być połączone i nie może zawierać żadnego bloku 2x2.
+Maluj komórki, aby utworzyć morze wokół ponumerowanych wysp.
 
 <b>Koci Gambit</b>:
-Umieść jednego kota w każdym wierszu, każdej kolumnie i każdej strefie kolorów. Dwa koty nie mogą się stykać, nawet po przekątnej.
+Umieść jednego kota w każdym wierszu, każdej kolumnie i każdej strefie kolorów.
+
+<b>Węzeł</b>:
+Połącz każdą parę kolorowych kropek ścieżką. Ścieżki nie mogą się krzyżować i razem muszą pokryć każde pole.
+
+<b>Wieże Hanoi</b>:
+Przenieś cały stos na prawy kołek. Tylko jeden krążek na raz i nigdy większy na mniejszy.
 
 <b>Tablica Schulte'a</b>:
 Stukaj liczby w kolejności od 1 tak szybko, jak potrafisz.
@@ -75,8 +90,23 @@ Zapamiętaj ciąg cyfr, rozwiąż krótkie zadanie matematyczne, a następnie pr
 <b>Znajdź Nowy</b>:
 Dotknij zwierzęcia, którego wcześniej nie widziałeś. Jeden błąd kończy grę.
 
+<b>N-Back</b>:
+Obserwuj kształty, a potem dotknij tego na wskazanej pozycji.
+
 <b>Wordle</b>:
 Zgadnij ukryte pięcioliterowe słowo w sześciu próbach. Odpowiedź to zawsze rzeczownik.
+
+<b>Łamigłówki z zapałkami</b>:
+Przesuwaj zapałki, aby naprawić równania.
+
+<b>Solitaire</b>:
+Skacz pionkami, aż zostanie tylko jeden.
+
+<b>Sudoku</b>:
+Klasyczne pełne Sudoku z wieloma poziomami trudności.
+
+<b>Szachy</b>:
+Pełne szachy przeciwko CPU lub pass-and-play.
 
 Gra zawiera kilka <b>osiągnięć</b>, a każde ćwiczenie ma <b>medale</b>, które utrzymują twoją motywację.
 

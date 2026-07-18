@@ -338,6 +338,13 @@
     <string name="n_back_demo_recall">位置 1 の図形をタップします。</string>
     <string name="achievement_gold_n_back">回転する記憶</string>
     <string name="achievement_gold_n_back_desc">N-Backで金メダルを獲得</string>
+    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says_desc">パッドが順番に光るのを見て、同じ順番でタップしてください。ラウンドごとに順番が1つずつ増えていきます。</string>
+    <string name="simon_says_demo_title">見て、繰り返す</string>
+    <string name="simon_says_demo_watch">パッドが光るのを見てください。毎ラウンド最初から。</string>
+    <string name="simon_says_demo_repeat">今度は同じ順番でタップしてください。</string>
+    <string name="achievement_gold_simon_says">パターンの番人</string>
+    <string name="achievement_gold_simon_says_desc">Simon Saysで金メダルを獲得</string>
     <string name="instructions_best_score">ベストスコア: %1$s</string>
     <string name="instructions_leaderboard">ランキングを見る</string>
     <string name="brain_cup_button">Brain Cup ランキング</string>

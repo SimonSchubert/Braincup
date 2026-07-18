@@ -187,6 +187,7 @@ class GameController(
             (currentState.game as? VisualMemoryGame)?.cancelCountdown()
             (currentState.game as? SpotTheNewGame)?.cancelCountdown()
             (currentState.game as? GhostGridGame)?.cancelShowSequence()
+            (currentState.game as? SimonSaysGame)?.cancelShowSequence()
             (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
             (currentState.game as? BubbleSumGame)?.cancelAnimation()
             (currentState.game as? DigitMemoryGame)?.cancelShowing()
@@ -286,6 +287,10 @@ class GameController(
         }
         if (gameType == GameType.GHOST_GRID) {
             startGhostGridGame(gameType)
+            return
+        }
+        if (gameType == GameType.SIMON_SAYS) {
+            startSimonSaysGame(gameType)
             return
         }
         if (gameType == GameType.ORBIT_TRACKER) {
@@ -388,6 +393,10 @@ class GameController(
         }
         if (game is GhostGridGame) {
             handleGhostGridAnswer(currentState, game, answer)
+            return
+        }
+        if (game is SimonSaysGame) {
+            handleSimonSaysAnswer(currentState, game, answer)
             return
         }
         if (game is AnomalyPuzzleGame) {
@@ -791,6 +800,7 @@ class GameController(
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
         GameType.GHOST_GRID -> GhostGridGame()
+        GameType.SIMON_SAYS -> SimonSaysGame()
         GameType.COLOR_CONFUSION -> ColorConfusionGame()
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
         GameType.BUBBLE_SUM -> BubbleSumGame()
@@ -1706,6 +1716,57 @@ class GameController(
         _gameUiState.value = game.toUiState()
     }
 
+    private fun startSimonSaysGame(gameType: GameType) {
+        val game = SimonSaysGame()
+        // adaptiveDifficulty is false, so no storage.getLastRound() resume block here.
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        navController.navigate(Playing(gameType.id))
+        game.startShowSequence(scope) { emitSimonSaysUiState(game) }
+    }
+
+    private fun handleSimonSaysAnswer(
+        currentState: GameState.Active,
+        game: SimonSaysGame,
+        answer: String,
+    ) {
+        if (game.phase != SimonSaysGame.Phase.ANSWERING) return
+        when (game.submitAnswer(answer)) {
+            SimonSaysGame.SubmitResult.CorrectContinue -> emitSimonSaysUiState(game)
+            SimonSaysGame.SubmitResult.RoundComplete -> {
+                points++
+                _gameState.value = GameState.Feedback(
+                    gameType = currentState.gameType,
+                    game = game,
+                    isCorrect = true,
+                    message = null,
+                )
+                scope.launch {
+                    delay(1.seconds)
+                    game.nextRound()
+                    _gameState.value = GameState.Active(currentState.gameType, game)
+                    game.startShowSequence(scope) { emitSimonSaysUiState(game) }
+                }
+            }
+            SimonSaysGame.SubmitResult.Wrong -> {
+                emitSimonSaysUiState(game)
+                scope.launch {
+                    delay(2.seconds)
+                    finishSimonSaysGame(game)
+                }
+            }
+        }
+    }
+
+    private fun finishSimonSaysGame(game: SimonSaysGame) {
+        finishCurrentGame(GameType.SIMON_SAYS, game)
+    }
+
+    private fun emitSimonSaysUiState(game: SimonSaysGame) {
+        _gameUiState.value = game.toUiState()
+    }
+
     private fun startOrbitTrackerGame(gameType: GameType) {
         val game = OrbitTrackerGame()
         if (game.adaptiveDifficulty) {
@@ -1809,6 +1870,7 @@ class GameController(
         (game as? VisualMemoryGame)?.cancelCountdown()
         (game as? SpotTheNewGame)?.cancelCountdown()
         (game as? GhostGridGame)?.cancelShowSequence()
+        (game as? SimonSaysGame)?.cancelShowSequence()
         (game as? OrbitTrackerGame)?.cancelAnimation()
         (game as? BubbleSumGame)?.cancelAnimation()
         (game as? DigitMemoryGame)?.cancelShowing()

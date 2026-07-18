@@ -1,4 +1,4 @@
-Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 26 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
+Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 36 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
 
 <b>Hoofdrekenen</b>:
 Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.
@@ -6,77 +6,107 @@ Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgen
 <b>Kettingberekening</b>:
 Los complexe formules stap voor stap op.
 
-<b>Sherlock-berekening</b>:
-Vind een formule om het doel te bereiken met alleen de gegeven getallen en operatoren.
+<b>Sherlock berekening</b>:
+Vind een formule voor het doel met alleen de gegeven getallen en operatoren.
 
-<b>Breukenrekenen</b>:
+<b>Breukberekening</b>:
 Los de breuken op.
 
 <b>Waardenvergelijking</b>:
-Selecteer de uitdrukking met de hoogste waarde.
+Kies de uitdrukking met de hoogste waarde.
 
-<b>Anomalie-puzzel</b>:
-Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.
+<b>Bellensom</b>:
+Tel de getallen op de bellen op. Later knipperen ze — onthoud ze.
+
+<b>Snelle som</b>:
+Getallen flitsen één voor één. Tel ze op en voer het totaal in.
+
+<b>Anomalie puzzel</b>:
+Vind de figuur die opvalt door kleur en vorm.
 
 <b>Patroonreeks</b>:
-Vind de volgende figuur in het patroon door te zoeken naar herhalende vormen, kleuren en rotaties.
+Vind de volgende figuur in het patroon (vormen, kleuren, rotaties).
 
 <b>Padvinder</b>:
-Start bij de gemarkeerde positie en volg de pijlinstructies om de bestemming te vinden.
+Start bij de markering en volg de pijlen naar de bestemming.
 
 <b>Visueel geheugen</b>:
-Onthoud de vormen op het raster en identificeer daarna de verborgen vorm als de timer afloopt.
+Onthoud de vormen en herken de verborgen vorm na de timer.
 
 <b>Spookraster</b>:
-Kijk hoe de tegels één voor één oplichten en tik ze daarna in dezelfde volgorde aan.
+Tegels lichten één voor één op; tik ze in dezelfde volgorde terug.
 
 <b>Kleurverwarring</b>:
-Tik alle cellen aan waar het woord overeenkomt met de letterkleur. Blijf gefocust!
+Tik alle cellen waar het woord overeenkomt met de letterkleur.
 
 <b>Gekleurde vormen</b>:
-Tel de punten op van de juiste uitspraken.
+Tel de punten van de juiste stellingen op.
 
-<b>Orbitvolger</b>:
-Bekijk de gemarkeerde ballen en volg ze tijdens hun beweging. Selecteer de oorspronkelijke doelen nadat ze stoppen.
+<b>Baanvolger</b>:
+Bekijk gemarkeerde ballen, volg ze en kies de doelen na stilstand.
 
 <b>Flitsmenigte</b>:
-Er verschijnen kort stippen aan elke kant. Tik de kant aan met meer stippen. Vertrouw op je instinct!
+Stippen flitsen kort. Tik de kant met meer stippen.
 
 <b>Mini Sudoku</b>:
-Vul het kleine raster in zodat elke rij, kolom en blok elk getal precies één keer bevat.
+Vul het kleine raster: elke rij, kolom en blok elke cijfer één keer.
 
 <b>Mini-Schaak</b>:
-Voltooi het schaakscenario als wit. Geef de CPU schaakmat voordat hij jou schaakmat geeft.
+Voltooi het schaakscenario als wit. Mat de CPU voordat die jou mat.
+
+<b>Solo Schaken</b>:
+Sla stukken één voor één tot alleen de koning overblijft. Elke zet moet slaan.
 
 <b>Lichten uit</b>:
-Schakel alle lichten uit. Elke tik wisselt de cel en zijn vier buren om.
+Zet alle lichten uit. Elke tik wisselt de cel en buren.
 
 <b>Schuifpuzzel</b>:
-Schuif tegels in de lege ruimte om ze op volgorde te zetten.
+Schuif tegels in de lege ruimte om ze te ordenen.
 
 <b>Shikaku</b>:
-Verdeel het hele raster in rechthoeken. Elke rechthoek moet precies één getal bevatten, gelijk aan zijn oppervlakte.
+Verdeel het raster in rechthoeken. Elk bevat één getal = de oppervlakte.
 
 <b>Nurikabe</b>:
-Kleur cellen in om de zee rond de genummerde eilanden te vormen. Elk eiland moet evenveel verbonden cellen hebben als zijn getal, de zee moet aaneengesloten zijn en mag geen 2x2-blok bevatten.
+Kleur de zee rond genummerde eilanden zonder 2x2-blok.
 
 <b>Kattenkoninginnen</b>:
-Plaats een kat in elke rij, elke kolom en elke kleurzone. Geen twee katten mogen elkaar raken, ook niet diagonaal.
+Eén kat per rij, kolom en kleurzone. Ze mogen elkaar niet raken.
+
+<b>Knoop</b>:
+Verbind elk paar gekleurde stippen. Paden kruisen niet en vullen alles.
+
+<b>Torens van Hanoi</b>:
+Verplaats de stapel naar de rechter staaf. Nooit een grotere schijf op een kleinere.
 
 <b>Schulte-tabel</b>:
-Tik de nummers zo snel mogelijk op volgorde vanaf 1.
+Tik de getallen zo snel mogelijk op volgorde vanaf 1.
 
 <b>Vlaggen</b>:
-Herken het land aan zijn vlag. Elke ronde voegt meer opties toe en de klok tikt.
+Herken het land aan de vlag. Meer opties en de klok tikt.
 
 <b>Cijfergeheugen</b>:
-Onthoud een reeks cijfers, los een snel rekensommetje op en onthoud dan de cijfers.
+Onthoud cijfers, los een snelle som op, herinner daarna de cijfers.
 
 <b>Spot het Nieuwe</b>:
-Tik op het dier dat je nog niet eerder hebt gezien. Eén fout beëindigt het spel.
+Tik het dier dat je nog niet zag. Eén fout beëindigt het spel.
+
+<b>N-Back</b>:
+Bekijk de vormen en tik die op de gevraagde positie.
 
 <b>Wordle</b>:
-Raad het verborgen woord van vijf letters in zes pogingen. Het antwoord is altijd een zelfstandig naamwoord.
+Raad het verborgen woord van vijf letters in zes pogingen.
+
+<b>Luciferpuzzels</b>:
+Verplaats lucifers om vergelijkingen te repareren.
+
+<b>Solitaire</b>:
+Spring met pionnen tot er nog één over is.
+
+<b>Sudoku</b>:
+Klassieke full-size Sudoku met meerdere niveaus.
+
+<b>Schaken</b>:
+Volledig schaak tegen de CPU of pass-and-play.
 
 Het spel heeft meerdere <b>prestaties</b> en elke oefening heeft <b>medailles</b> om je gemotiveerd te houden.
 

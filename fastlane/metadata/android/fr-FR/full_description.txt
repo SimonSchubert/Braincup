@@ -1,82 +1,112 @@
-Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 26 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
+Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 36 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
 
-<b>Calcul mental</b> :
-Suis les expressions mathématiques. Utilise le résultat comme base pour le calcul suivant.
+<b>Calcul mental</b>:
+Suis les expressions mathématiques. Utilise le résultat pour le calcul suivant.
 
-<b>Calcul en chaîne</b> :
+<b>Calcul en chaîne</b>:
 Résous des formules complexes étape par étape.
 
-<b>Calcul Sherlock</b> :
-Trouve une formule pour atteindre l'objectif en utilisant uniquement les nombres et opérateurs donnés.
+<b>Calcul Sherlock</b>:
+Trouve une formule pour l’objectif avec les nombres et opérateurs donnés.
 
-<b>Calcul de fractions</b> :
+<b>Calcul de fractions</b>:
 Résous les fractions.
 
-<b>Comparaison de valeurs</b> :
-Sélectionne l'expression ayant la valeur la plus élevée.
+<b>Comparaison de valeurs</b>:
+Choisis l’expression avec la plus grande valeur.
 
-<b>Puzzle d'anomalie</b> :
-Trouve la figure qui se démarque. Considère à la fois la couleur et la forme de chaque figure.
+<b>Somme bulles</b>:
+Additionne les nombres sur les bulles. Plus tard, ils clignotent — mémorise-les.
 
-<b>Séquence de motifs</b> :
-Trouve la figure suivante dans le motif en repérant les formes, couleurs et rotations répétitives.
+<b>Somme éclair</b>:
+Les nombres clignotent un par un. Additionne-les et entre le total.
 
-<b>Chercheur de chemin</b> :
-Pars de la position marquée et suis les instructions fléchées pour trouver la destination.
+<b>Puzzle d'anomalie</b>:
+Trouve la figure qui se démarque par la couleur et la forme.
 
-<b>Mémoire visuelle</b> :
-Mémorise les formes sur la grille, puis identifie la forme cachée une fois le minuteur terminé.
+<b>Séquence de motifs</b>:
+Trouve la figure suivante du motif (formes, couleurs, rotations).
 
-<b>Grille fantôme</b> :
-Regarde les tuiles s'illuminer une par une, puis touche-les dans le même ordre.
+<b>Chercheur de chemin</b>:
+Pars de la case marquée et suis les flèches jusqu’à la destination.
 
-<b>Confusion des couleurs</b> :
-Touche toutes les cellules où le mot correspond à sa couleur de police. Reste concentré !
+<b>Mémoire visuelle</b>:
+Mémorise les formes, puis repère celle cachée après le minuteur.
 
-<b>Formes colorées</b> :
+<b>Grille Fantôme</b>:
+Les cases s’allument une à une ; retape-les dans le même ordre.
+
+<b>Confusion de Couleurs</b>:
+Touche les cases où le mot correspond à la couleur de la police.
+
+<b>Formes colorées</b>:
 Additionne les points des affirmations correctes.
 
-<b>Traqueur orbital</b> :
-Observe les balles en surbrillance, puis suis-les pendant qu'elles bougent. Sélectionne les cibles d'origine après leur arrêt.
+<b>Traqueur d'Orbites</b>:
+Observe les balles marquées, suis-les et sélectionne les cibles à l’arrêt.
 
-<b>Foule éclair</b> :
-Des points apparaissent brièvement de chaque côté. Touche le côté qui avait le plus de points. Fais confiance à ton instinct !
+<b>Foule Éclair</b>:
+Des points clignotent de chaque côté. Touche le côté qui en avait plus.
 
-<b>Mini Sudoku</b> :
-Remplis la petite grille pour que chaque ligne, colonne et bloc contienne chaque chiffre exactement une fois.
+<b>Mini Sudoku</b>:
+Remplis la petite grille : chaque ligne, colonne et bloc une fois chaque chiffre.
 
-<b>Mini Échecs</b> :
-Termine le scénario d'échecs avec les blancs. Mets la CPU échec et mat avant qu'elle ne te mette.
+<b>Mini Échecs</b>:
+Termine le scénario avec les blancs. Mat le CPU avant qu’il ne te mate.
 
-<b>Éteins les lumières</b> :
-Éteins toutes les lumières. Chaque tap inverse la cellule et ses quatre voisines.
+<b>Échecs solo</b>:
+Capture les pièces une à une jusqu’au roi seul. Chaque coup doit capturer.
 
-<b>Puzzle coulissant</b> :
-Glisse les tuiles dans l'espace vide pour les mettre en ordre.
+<b>Éteins les lumières</b>:
+Éteins toutes les lumières. Chaque tap bascule la case et ses voisins.
 
-<b>Shikaku</b> :
-Divise toute la grille en rectangles. Chaque rectangle doit contenir exactement un nombre, égal à son aire.
+<b>Puzzle coulissant</b>:
+Fais glisser les tuiles dans l’espace vide pour les ordonner.
 
-<b>Nurikabe</b> :
-Peins des cases pour former la mer autour des îles numérotées. Chaque île doit avoir autant de cases connectées que son nombre, la mer doit être connectée et ne contenir aucun bloc de 2x2.
+<b>Shikaku</b>:
+Découpe la grille en rectangles. Chacun contient un nombre = son aire.
 
-<b>Reines Chats</b> :
-Place un chat dans chaque ligne, chaque colonne et chaque zone de couleur. Deux chats ne peuvent pas se toucher, même en diagonale.
+<b>Nurikabe</b>:
+Peins la mer autour d’îles numérotées sans bloc 2x2.
 
-<b>Table de Schulte</b> :
-Touche les chiffres dans l'ordre à partir de 1 le plus vite possible.
+<b>Reines Chats</b>:
+Un chat par ligne, colonne et zone de couleur. Ils ne peuvent pas se toucher.
 
-<b>Drapeaux</b> :
-Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d'options et le temps s'écoule.
+<b>Nœud</b>:
+Relie chaque paire de points colorés. Les chemins ne se croisent pas.
 
-<b>Mémoire des Chiffres</b> :
-Mémorise une séquence de chiffres, résous un problème mathématique rapide, puis rappelle-toi les chiffres.
+<b>Tours de Hanoï</b>:
+Déplace la pile vers le plot de droite. Jamais un grand disque sur un petit.
 
-<b>Repère le Nouveau</b> :
-Touche l'animal que tu n'as jamais vu. Une erreur met fin au jeu.
+<b>Table de Schulte</b>:
+Touche les nombres dans l’ordre à partir de 1 le plus vite possible.
 
-<b>Wordle</b> :
-Devine le mot caché de cinq lettres en six essais. La réponse est toujours un nom commun.
+<b>Drapeaux</b>:
+Identifie le pays par son drapeau. Plus d’options et le chrono tourne.
+
+<b>Mémoire des Chiffres</b>:
+Mémorise des chiffres, résous un calcul rapide, puis rappelle les chiffres.
+
+<b>Repère le Nouveau</b>:
+Touche l’animal que tu n’as pas encore vu. Une erreur termine la partie.
+
+<b>N-Back</b>:
+Regarde les formes, puis touche celle à la position demandée.
+
+<b>Wordle</b>:
+Devine le mot de cinq lettres en six essais.
+
+<b>Énigmes d'allumettes</b>:
+Déplace des allumettes pour corriger des équations.
+
+<b>Solitaire</b>:
+Saute des pions jusqu’à n’en laisser qu’un.
+
+<b>Sudoku</b>:
+Sudoku classique grand format avec plusieurs difficultés.
+
+<b>Échecs</b>:
+Échecs complets contre le CPU ou en pass-and-play.
 
 Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour te motiver.
 

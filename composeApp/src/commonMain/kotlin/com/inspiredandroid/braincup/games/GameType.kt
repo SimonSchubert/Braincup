@@ -295,6 +295,17 @@ enum class GameType(
         descriptionRes = Res.string.game_wordle_desc,
         category = GameCategory.LOGIC,
     ),
+    SIMON_SAYS(
+        displayNameRes = Res.string.game_simon_says,
+        id = "34",
+        // Score = rounds survived. Cumulative full-replay-every-round design is closer to Spot The
+        // New's difficulty curve than Ghost Grid's; initial thresholds borrowed from there, tune
+        // after playtest.
+        goldScore = 14,
+        silverScore = 7,
+        descriptionRes = Res.string.game_simon_says_desc,
+        category = GameCategory.MEMORY,
+    ),
     ;
 
     /** URL path segment for web navigation, e.g. CAT_QUEENS → "CatQueens". */

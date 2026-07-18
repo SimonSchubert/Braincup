@@ -308,6 +308,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.FLAGS -> R.string.achievementFlagBearer
     GameType.WORDLE -> R.string.achievementWordsmith
     GameType.N_BACK -> null // GPGS achievement ID pending console setup
+    GameType.SIMON_SAYS -> null // GPGS achievement ID pending console setup
 }
 
 private fun sudokuTierAchievementResIdFor(difficulty: SudokuDifficulty): Int = when (difficulty) {

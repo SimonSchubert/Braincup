@@ -1,57 +1,66 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 26 brain training exercises designed to sharpen your mind and improve concentration.
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 36 brain training exercises designed to sharpen your mind and improve concentration.
 
-<b>Mental calculation</b>:
+<b>Mental Calculation</b>:
 Follow the mathematical expressions. Use the result as the base for the next calculation.
 
-<b>Chain calculation</b>:
+<b>Chain Calculation</b>:
 Solve complex formulas step by step.
 
-<b>Sherlock calculation</b>:
+<b>Sherlock Calculation</b>:
 Find a formula to reach the goal using only the given numbers and operators.
 
-<b>Fraction calculation</b>:
+<b>Fraction Calculation</b>:
 Solve the fractions.
 
-<b>Value comparison</b>:
+<b>Value Comparison</b>:
 Select the expression with the highest value.
 
-<b>Anomaly puzzle</b>:
+<b>Bubble Sum</b>:
+Add the numbers on the floating bubbles. Later, numbers blink — remember them.
+
+<b>Quick Sum</b>:
+Numbers flash one at a time. Add them up and enter the total.
+
+<b>Anomaly Puzzle</b>:
 Find the figure that stands out. Consider both the color and shape of each figure.
 
-<b>Pattern sequence</b>:
+<b>Pattern Sequence</b>:
 Find the next figure in the pattern by looking for repeating shapes, colors and rotations.
 
-<b>Path finder</b>:
+<b>Path Finder</b>:
 Start at the marked position and follow the arrow instructions to find the destination.
 
-<b>Visual memory</b>:
+<b>Visual Memory</b>:
 Memorize the shapes on the grid, then identify the hidden shape after the timer ends.
 
-<b>Ghost grid</b>:
+<b>Ghost Grid</b>:
 Watch the tiles light up one by one, then tap them back in the same order.
 
-<b>Color confusion</b>:
+<b>Color Confusion</b>:
 Tap all cells where the word matches its font color. Stay focused!
 
-<b>Colored shapes</b>:
+<b>Colored Shapes</b>:
 Add up the points from the correct statements.
 
-<b>Orbit tracker</b>:
+<b>Orbit Tracker</b>:
 Watch the highlighted balls, then track them as they move. Select the original targets after they stop.
 
-<b>Flash crowd</b>:
+<b>Flash Crowd</b>:
 Dots flash briefly on each side. Tap the side that had more dots. Trust your instinct!
 
-<b>Mini sudoku</b>:
+<b>Mini Sudoku</b>:
 Fill the small grid so every row, column and block contains each number exactly once.
 
-<b>Mini chess</b>:
+<b>Mini Chess</b>:
 Finish the chess scenario as white. Checkmate the CPU before it checkmates you.
 
-<b>Lights out</b>:
+<b>Solo Chess</b>:
+Capture pieces one by one until only the king remains. Every move must capture.
+
+<b>Lights Out</b>:
 Turn off every light. Each tap toggles the cell and its four neighbours.
 
-<b>Sliding puzzle</b>:
+<b>Sliding Puzzle</b>:
 Slide tiles into the empty space to put them back in order.
 
 <b>Shikaku</b>:
@@ -60,23 +69,44 @@ Divide the whole grid into rectangles. Each rectangle holds exactly one number, 
 <b>Nurikabe</b>:
 Paint cells to build the sea around numbered islands without forming any 2x2 block.
 
-<b>Cat queens</b>:
+<b>Cat Queens</b>:
 Place one cat in every row, column and color zone. No two cats may touch, not even diagonally.
 
-<b>Schulte table</b>:
+<b>Knot</b>:
+Connect each pair of colored dots with a path. Paths may not cross and must cover every cell.
+
+<b>Tower of Hanoi</b>:
+Move the full stack to the right peg. Never place a larger disk on a smaller one.
+
+<b>Schulte Table</b>:
 Tap the numbers in order from 1 upwards as fast as you can.
 
 <b>Flags</b>:
 Identify the country by its flag. Each round adds more options and the clock is ticking.
 
-<b>Digit memory</b>:
+<b>Digit Memory</b>:
 Memorize a digit sequence, solve a quick math problem, then recall the digits.
 
-<b>Spot the new</b>:
+<b>Spot the New</b>:
 Tap the animal you have not seen before. One mistake ends the game.
+
+<b>N-Back</b>:
+Watch the shapes flash by, then tap the one at the position asked.
 
 <b>Wordle</b>:
 Guess the hidden five-letter word in six tries.
+
+<b>Matchstick Riddles</b>:
+Move matchsticks to fix broken equations.
+
+<b>Peg Solitaire</b>:
+Jump pegs to clear the board down to one peg.
+
+<b>Sudoku</b>:
+Classic full-size Sudoku with multiple difficulties.
+
+<b>Chess</b>:
+Full chess vs CPU or pass-and-play with a friend.
 
 The game has several <b>achievements</b> and each exercise has <b>medals</b> to keep you motivated.
 

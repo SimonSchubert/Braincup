@@ -1,13 +1,13 @@
-Treine seu cérebro com mini jogos divertidos que desafiam sua memória, foco, lógica e habilidades matemáticas. O Braincup oferece 26 exercícios de treinamento cerebral projetados para aguçar sua mente e melhorar sua concentração.
+Treine seu cérebro com mini jogos divertidos que desafiam sua memória, foco, lógica e habilidades matemáticas. O Braincup oferece 36 exercícios de treinamento cerebral projetados para aguçar sua mente e melhorar sua concentração.
 
 <b>Cálculo mental</b>:
-Acompanhe as expressões matemáticas. Use o resultado como base para o próximo cálculo.
+Siga as expressões matemáticas. Use o resultado como base para o próximo cálculo.
 
 <b>Cálculo em cadeia</b>:
-Resolva fórmulas complexas passo a passo.
+Siga as expressões matemáticas.
 
 <b>Cálculo Sherlock</b>:
-Encontre uma fórmula para alcançar o objetivo usando apenas os números e operadores fornecidos.
+Descubra como alcançar a meta usando apenas os números dados e estes operadores: + - * / ( ).
 
 <b>Cálculo de frações</b>:
 Resolva as frações.
@@ -15,38 +15,47 @@ Resolva as frações.
 <b>Comparação de valores</b>:
 Selecione a expressão com o maior valor.
 
+<b>Soma bolhas</b>:
+Some os números nas bolhas flutuantes. Depois os números piscam — memorize-os.
+
+<b>Soma rápida</b>:
+Os números aparecem um de cada vez. Some-os e introduza o total.
+
 <b>Quebra-cabeça de anomalia</b>:
 Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.
 
 <b>Sequência de padrões</b>:
-Encontre a próxima figura no padrão procurando formas, cores e rotações repetidas.
+Encontre a próxima figura no padrão procurando formas, cores e rotações que se repetem.
 
-<b>Encontrar caminho</b>:
-Comece na posição marcada e siga as instruções das setas para encontrar o destino.
+<b>Busca de caminhos</b>:
+Comece na posição marcada e siga as setas para encontrar o destino.
 
 <b>Memória visual</b>:
-Memorize as formas na grade e depois identifique a forma escondida quando o tempo acabar.
+Memorize as formas na grade e identifique a forma oculta após o término do cronômetro.
 
-<b>Grade fantasma</b>:
-Observe os blocos acenderem um por um e depois toque neles na mesma ordem.
+<b>Grade Fantasma</b>:
+Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.
 
-<b>Confusão de cores</b>:
-Toque em todas as células onde a palavra corresponde à cor da fonte. Mantenha o foco!
+<b>Confusão de Cores</b>:
+Toque em todas as células onde a palavra corresponde à cor da fonte e depois pressione Pronto.
 
 <b>Formas coloridas</b>:
 Some os pontos das afirmações corretas.
 
-<b>Rastreador orbital</b>:
-Observe as bolas destacadas e depois acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.
+<b>Rastreador de Órbitas</b>:
+Observe as bolas destacadas e acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.
 
-<b>Multidão relâmpago</b>:
-Pontos aparecem brevemente em cada lado. Toque no lado que tinha mais pontos. Confie no seu instinto!
+<b>Multidão Relâmpago</b>:
+Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos. Não conte — confie no seu instinto!
 
 <b>Mini Sudoku</b>:
 Preencha a pequena grade para que cada linha, coluna e bloco contenha cada número exatamente uma vez.
 
 <b>Mini Xadrez</b>:
 Termine o cenário de xadrez como brancas. Dê xeque-mate à CPU antes que ela dê em você.
+
+<b>Xadrez Solo</b>:
+Capture as peças uma a uma até sobrar apenas o rei.
 
 <b>Apagar as luzes</b>:
 Apague todas as luzes. Cada toque alterna a célula e seus quatro vizinhos.
@@ -58,10 +67,16 @@ Deslize as peças para o espaço vazio para colocá-las em ordem.
 Divida toda a grade em retângulos. Cada retângulo deve conter exatamente um número, igual à sua área.
 
 <b>Nurikabe</b>:
-Pinte células para formar o mar ao redor das ilhas numeradas. Cada ilha deve ter tantas células conectadas quanto o seu número, o mar deve estar conectado e não pode conter nenhum bloco 2x2.
+Pinte células para formar o mar ao redor das ilhas numeradas.
 
 <b>Rainhas Gato</b>:
 Coloque um gato em cada linha, cada coluna e cada zona de cor. Dois gatos não podem se tocar, nem mesmo na diagonal.
+
+<b>Nó</b>:
+Conecte cada par de pontos coloridos com um caminho.
+
+<b>Torres de Hanói</b>:
+Mova a pilha inteira para o pino direito. Apenas um disco de cada vez e nunca um maior sobre um menor.
 
 <b>Tabela de Schulte</b>:
 Toque nos números em ordem a partir de 1 o mais rápido que puder.
@@ -75,8 +90,23 @@ Memorize uma sequência de dígitos, resolva um problema matemático rápido e d
 <b>Encontre o Novo</b>:
 Toque no animal que você nunca viu antes. Um erro encerra o jogo.
 
+<b>N-Back</b>:
+Observe as formas e toque na que estava na posição pedida.
+
 <b>Wordle</b>:
 Adivinhe a palavra oculta de cinco letras em seis tentativas. A resposta é sempre um substantivo.
+
+<b>Enigmas de palitos</b>:
+Mova palitos para corrigir equações.
+
+<b>Resta Um</b>:
+Pule pinos até restar apenas um.
+
+<b>Sudoku</b>:
+Sudoku clássico completo com vários níveis de dificuldade.
+
+<b>Xadrez</b>:
+Xadrez completo contra a CPU ou pass-and-play.
 
 O jogo tem várias <b>conquistas</b> e cada exercício tem <b>medalhas</b> para manter você motivado.
 

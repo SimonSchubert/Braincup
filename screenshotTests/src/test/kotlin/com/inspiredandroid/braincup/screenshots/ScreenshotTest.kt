@@ -544,6 +544,32 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameSimonSays() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createSimonSaysUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameSimonSaysGameOver() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createSimonSaysGameOverUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameVisualMemory() {
         paparazzi.snap {
             GameScreen(

@@ -1,52 +1,61 @@
-Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 26 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
+Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 36 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
 
-<b>Hitung mental</b>:
+<b>Hitung Mental</b>:
 Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.
 
-<b>Hitung berantai</b>:
-Selesaikan rumus kompleks langkah demi langkah.
+<b>Perhitungan Berantai</b>:
+Ikuti ekspresi matematika.
 
-<b>Hitung Sherlock</b>:
-Temukan rumus untuk mencapai target hanya dengan angka dan operator yang tersedia.
+<b>Perhitungan Sherlock</b>:
+Temukan cara mencapai target hanya dengan angka yang diberikan dan operator ini: + - * / ( ).
 
-<b>Hitung pecahan</b>:
-Selesaikan pecahannya.
+<b>Perhitungan Pecahan</b>:
+Selesaikan pecahan.
 
-<b>Perbandingan nilai</b>:
+<b>Perbandingan Nilai</b>:
 Pilih ekspresi dengan nilai tertinggi.
 
-<b>Teka-teki anomali</b>:
-Temukan figur yang berbeda. Perhatikan warna dan bentuk setiap figur.
+<b>Jumlah Gelembung</b>:
+Jumlahkan angka di gelembung mengambang. Nanti angka berkedip — ingatlah.
 
-<b>Urutan pola</b>:
-Temukan figur berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.
+<b>Jumlah Kilat</b>:
+Angka muncul satu per satu. Jumlahkan dan masukkan totalnya.
 
-<b>Pencari jalur</b>:
-Mulai dari posisi yang ditandai dan ikuti instruksi panah untuk menemukan tujuan.
+<b>Teka-teki Anomali</b>:
+Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.
 
-<b>Memori visual</b>:
-Hafalkan bentuk-bentuk pada grid, lalu identifikasi bentuk tersembunyi setelah waktu habis.
+<b>Urutan Pola</b>:
+Temukan gambar berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.
 
-<b>Grid hantu</b>:
-Perhatikan ubin menyala satu per satu, lalu ketuk kembali dalam urutan yang sama.
+<b>Pencari Jalur</b>:
+Mulai dari posisi yang ditandai dan ikuti panah untuk menemukan tujuan.
 
-<b>Kebingungan warna</b>:
-Ketuk semua sel di mana kata sesuai dengan warna fontnya. Tetap fokus!
+<b>Memori Visual</b>:
+Hafalkan bentuk-bentuk di kotak, lalu identifikasi bentuk tersembunyi setelah waktu habis.
 
-<b>Bentuk berwarna</b>:
+<b>Grid Hantu</b>:
+Perhatikan ubin menyala satu per satu, lalu ketuk dalam urutan yang sama.
+
+<b>Kebingungan Warna</b>:
+Ketuk semua sel yang katanya cocok dengan warna hurufnya, lalu tekan Selesai.
+
+<b>Bentuk Berwarna</b>:
 Jumlahkan poin dari pernyataan yang benar.
 
-<b>Pelacak orbit</b>:
-Perhatikan bola yang disorot, lalu lacak pergerakannya. Pilih target awal setelah bola berhenti.
+<b>Pelacak Orbit</b>:
+Perhatikan bola-bola yang disorot, lalu lacak pergerakannya. Pilih target asli setelah berhenti.
 
-<b>Kerumunan kilat</b>:
-Titik-titik muncul sekilas di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik. Percaya insting Anda!
+<b>Kerumunan Kilat</b>:
+Titik-titik berkedip sebentar di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik.
 
 <b>Mini Sudoku</b>:
 Isi kotak kecil agar setiap baris, kolom dan blok berisi setiap angka tepat satu kali.
 
 <b>Mini Catur</b>:
 Selesaikan skenario catur sebagai putih. Skakmat CPU sebelum ia melakukannya padamu.
+
+<b>Catur Solo</b>:
+Tangkap bidak satu per satu hingga hanya tersisa raja.
 
 <b>Padamkan Lampu</b>:
 Padamkan setiap lampu. Setiap ketukan mengubah sel itu dan empat tetangganya.
@@ -58,10 +67,16 @@ Geser ubin ke ruang kosong untuk menyusunnya berurutan.
 Bagi seluruh kisi menjadi persegi panjang. Setiap persegi panjang harus berisi tepat satu angka, sama dengan luasnya.
 
 <b>Nurikabe</b>:
-Warnai sel untuk membentuk laut di sekitar pulau-pulau bernomor. Setiap pulau harus memiliki sel terhubung sebanyak angkanya, laut harus terhubung, dan tidak boleh ada blok 2x2.
+Warnai sel untuk membentuk laut di sekitar pulau-pulau bernomor.
 
 <b>Ratu Kucing</b>:
-Tempatkan satu kucing di setiap baris, setiap kolom, dan setiap zona warna. Tidak ada dua kucing yang boleh saling bersentuhan, bahkan secara diagonal.
+Tempatkan satu kucing di setiap baris, setiap kolom, dan setiap zona warna.
+
+<b>Simpul</b>:
+Hubungkan setiap pasang titik berwarna dengan jalur.
+
+<b>Menara Hanoi</b>:
+Pindahkan seluruh tumpukan ke pasak kanan.
 
 <b>Tabel Schulte</b>:
 Ketuk angka secara berurutan dari 1 secepat mungkin.
@@ -75,8 +90,23 @@ Hafalkan urutan angka, selesaikan soal matematika cepat, lalu ingat kembali angk
 <b>Temukan yang Baru</b>:
 Ketuk hewan yang belum pernah kamu lihat. Satu kesalahan mengakhiri permainan.
 
+<b>N-Back</b>:
+Perhatikan bentuk-bentuknya, lalu ketuk yang ada di posisi yang diminta.
+
 <b>Wordle</b>:
 Tebak kata lima huruf yang tersembunyi dalam enam percobaan. Jawabannya selalu berupa kata benda.
+
+<b>Teka-teki korek api</b>:
+Pindahkan korek api untuk memperbaiki persamaan.
+
+<b>Solitaire</b>:
+Lompati pasak hingga tersisa satu.
+
+<b>Sudoku</b>:
+Sudoku klasik dengan beberapa tingkat kesulitan.
+
+<b>Catur</b>:
+Catur lengkap vs CPU atau pass-and-play.
 
 Game ini memiliki beberapa <b>pencapaian</b> dan setiap latihan memiliki <b>medali</b> untuk menjaga motivasi Anda.
 

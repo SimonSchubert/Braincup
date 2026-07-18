@@ -30,10 +30,14 @@ val mainMenuHighscores = persistentMapOf(
     "16" to 3,
     "17" to 120, // 12.0s
     "10" to 5,
-    "11" to 6,
-    "12" to 4,
+    "11" to 6, // Pattern Sequence
+    "12" to 4, // Ghost Grid
     "13" to 7,
     "15" to 8,
+    "18" to 10, // Mini Chess (medium win)
+    "22" to 5, // Digit Memory
+    "23" to 8, // Spot the New
+    "27" to 6, // Cat Queens
 )
 
 fun createColoredShapesGame(): ColoredShapesGame {
@@ -359,6 +363,29 @@ fun createGhostGridGameOverUiState(): com.inspiredandroid.braincup.app.GhostGrid
     game.nextRound()
     // Submit a wrong answer to trigger game over
     game.submitAnswer("-1")
+    return game.toUiState()
+}
+
+fun createSimonSaysGame(): SimonSaysGame {
+    val game = SimonSaysGame(random = Random(42L))
+    game.nextRound()
+    return game
+}
+
+fun createSimonSaysUiState(): com.inspiredandroid.braincup.app.SimonSaysUiState {
+    val game = createSimonSaysGame()
+    return game.toUiState().copy(
+        phase = SimonSaysGame.Phase.ANSWERING,
+    )
+}
+
+fun createSimonSaysGameOverUiState(): com.inspiredandroid.braincup.app.SimonSaysUiState {
+    val game = SimonSaysGame(random = Random(42L))
+    game.nextRound()
+    // Submit a color that is guaranteed to mismatch the actual first pad, whatever the seed
+    // produced, so this stays deterministic without hardcoding the RNG's output.
+    val wrongColorName = SimonSaysGame.PADS.first { it != game.sequence[0] }.name
+    game.submitAnswer(wrongColorName)
     return game.toUiState()
 }
 

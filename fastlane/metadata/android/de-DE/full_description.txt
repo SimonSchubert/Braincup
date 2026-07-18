@@ -1,13 +1,13 @@
-Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 26 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
+Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 36 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
 
 <b>Kopfrechnen</b>:
-Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Grundlage für die nächste Berechnung.
+Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Basis für die nächste Rechnung.
 
 <b>Kettenrechnung</b>:
 Löse komplexe Formeln Schritt für Schritt.
 
 <b>Sherlock-Rechnung</b>:
-Finde eine Formel, um das Ziel nur mit den vorgegebenen Zahlen und Operatoren zu erreichen.
+Finde eine Formel zum Ziel nur mit den gegebenen Zahlen und Operatoren.
 
 <b>Bruchrechnung</b>:
 Löse die Brüche.
@@ -15,68 +15,98 @@ Löse die Brüche.
 <b>Wertevergleich</b>:
 Wähle den Ausdruck mit dem höchsten Wert.
 
+<b>Blasensumme</b>:
+Addiere die Zahlen auf den schwebenden Blasen. Später blinken sie — merke sie dir.
+
+<b>Blitzsumme</b>:
+Zahlen blitzen nacheinander auf. Addiere sie und gib die Summe ein.
+
 <b>Anomalie-Rätsel</b>:
-Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.
+Finde die Figur, die heraussticht. Beachte Farbe und Form.
 
 <b>Mustersequenz</b>:
-Finde die nächste Figur im Muster, indem du nach wiederkehrenden Formen, Farben und Drehungen suchst.
+Finde die nächste Figur im Muster anhand von Formen, Farben und Drehungen.
 
 <b>Pfadfinder</b>:
-Starte an der markierten Position und folge den Pfeilanweisungen, um das Ziel zu finden.
+Starte an der Markierung und folge den Pfeilen zum Ziel.
 
 <b>Visuelles Gedächtnis</b>:
-Merke dir die Formen auf dem Gitter und identifiziere dann die versteckte Form nach Ablauf des Timers.
+Merke dir die Formen und erkenne die versteckte Form nach dem Timer.
 
 <b>Geistergitter</b>:
-Beobachte, wie die Felder nacheinander aufleuchten, und tippe sie dann in derselben Reihenfolge an.
+Felder leuchten nacheinander auf — tippe sie in derselben Reihenfolge an.
 
 <b>Farbverwirrung</b>:
-Tippe alle Zellen an, in denen das Wort mit seiner Schriftfarbe übereinstimmt. Bleib konzentriert!
+Tippe alle Zellen an, in denen Wort und Schriftfarbe übereinstimmen.
 
 <b>Farbige Formen</b>:
 Addiere die Punkte aus den richtigen Aussagen.
 
 <b>Orbit-Tracker</b>:
-Beobachte die markierten Bälle und verfolge sie während der Bewegung. Wähle die ursprünglichen Ziele nach dem Stillstand aus.
+Beobachte markierte Bälle, verfolge sie und wähle die Ziele danach aus.
 
-<b>Blitzmengen</b>:
-Punkte blitzen kurz auf jeder Seite auf. Tippe die Seite an, die mehr Punkte hatte. Vertrau deinem Instinkt!
+<b>Blitzmenge</b>:
+Punkte blitzen kurz auf. Tippe die Seite mit mehr Punkten an.
 
 <b>Mini-Sudoku</b>:
-Fülle das kleine Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Zahl genau einmal enthält.
+Fülle das kleine Gitter: jede Zeile, Spalte und jeder Block einmal jede Zahl.
 
 <b>Mini-Schach</b>:
-Beende das Schachszenario als Weiß. Setze die CPU schachmatt, bevor sie dich mattsetzt.
+Beende das Schachszenario als Weiß. Mattsetze die CPU zuerst.
+
+<b>Solo-Schach</b>:
+Schlage Figuren nacheinander, bis nur der König übrig ist. Jeder Zug muss schlagen.
 
 <b>Lichter aus</b>:
-Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre vier Nachbarn um.
+Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre Nachbarn um.
 
 <b>Schiebepuzzle</b>:
-Schiebe Kacheln in den leeren Raum, um sie in die richtige Reihenfolge zu bringen.
+Schiebe Kacheln in den leeren Raum, um sie zu ordnen.
 
 <b>Shikaku</b>:
-Teile das gesamte Gitter in Rechtecke. Jedes Rechteck muss genau eine Zahl enthalten, die seiner Fläche entspricht.
+Teile das Gitter in Rechtecke. Jedes enthält genau eine Zahl = seine Fläche.
 
 <b>Nurikabe</b>:
-Male Zellen aus, um das Meer rund um die nummerierten Inseln zu bilden. Jede Insel muss aus so vielen verbundenen Zellen bestehen wie ihre Zahl, das Meer muss zusammenhängend sein und darf keinen 2x2-Block enthalten.
+Male das Meer um nummerierte Inseln — ohne 2x2-Block.
 
 <b>Katzen-Damen</b>:
-Platziere eine Katze in jeder Zeile, jeder Spalte und jeder Farbzone. Keine zwei Katzen dürfen sich berühren, auch nicht diagonal.
+Eine Katze pro Zeile, Spalte und Farbzone. Keine zwei dürfen sich berühren.
+
+<b>Knoten</b>:
+Verbinde farbige Punktepaare. Pfade kreuzen sich nicht und füllen jedes Feld.
+
+<b>Türme von Hanoi</b>:
+Verschiebe den Stapel auf den rechten Stab. Nie eine größere Scheibe auf eine kleinere.
 
 <b>Schulte-Tabelle</b>:
-Tippe die Zahlen so schnell wie möglich der Reihe nach von 1 aufwärts an.
+Tippe die Zahlen so schnell wie möglich von 1 aufwärts an.
 
 <b>Flaggen</b>:
-Erkenne das Land an seiner Flagge. Jede Runde bringt mehr Optionen und die Uhr tickt.
+Erkenne das Land an seiner Flagge. Mehr Optionen und die Uhr tickt.
 
 <b>Zifferngedächtnis</b>:
-Merke dir eine Ziffernfolge, löse ein kurzes Rechenproblem und erinnere dich dann an die Ziffern.
+Merke dir Ziffern, löse kurz eine Rechnung, dann erinnere die Ziffern.
 
 <b>Finde das Neue</b>:
-Tippe auf das Tier, das du noch nie gesehen hast. Ein Fehler beendet das Spiel.
+Tippe das Tier an, das du noch nie gesehen hast. Ein Fehler beendet das Spiel.
+
+<b>N-Back</b>:
+Formen blitzen auf — tippe die an der gefragten Position.
 
 <b>Wordle</b>:
-Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen. Die Lösung ist immer ein Substantiv.
+Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen.
+
+<b>Streichholz-Rätsel</b>:
+Verschiebe Streichhölzer, um Gleichungen zu reparieren.
+
+<b>Solitär</b>:
+Springe mit Stiften, bis nur noch einer übrig ist.
+
+<b>Sudoku</b>:
+Klassisches volles Sudoku mit mehreren Schwierigkeitsstufen.
+
+<b>Schach</b>:
+Volles Schach gegen die CPU oder Pass-and-Play.
 
 Das Spiel bietet mehrere <b>Erfolge</b> und jede Übung hat <b>Medaillen</b>, die dich motivieren.
 

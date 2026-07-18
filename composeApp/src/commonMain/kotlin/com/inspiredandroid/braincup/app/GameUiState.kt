@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.QuickSumGame
+import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.minichess.PieceType
@@ -289,6 +290,20 @@ data class GhostGridUiState(
 
     @Immutable
     data class CellState(val type: CellType)
+}
+
+@Immutable
+data class SimonSaysUiState(
+    val round: Int,
+    val phase: SimonSaysGame.Phase,
+    val pads: ImmutableList<PadState>,
+    val sequenceLength: Int,
+    val tappedCount: Int,
+) : GameUiState {
+    enum class CellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
+
+    @Immutable
+    data class PadState(val color: Color, val type: CellType)
 }
 
 @Immutable
