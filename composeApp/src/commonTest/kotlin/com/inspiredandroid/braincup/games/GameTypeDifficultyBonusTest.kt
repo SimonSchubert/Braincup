@@ -12,8 +12,29 @@ class GameTypeDifficultyBonusTest {
         val game = GameType.MENTAL_CALCULATION
         assertEquals(0, game.difficultyBonus(startRound = 10, baseScore = 0, adaptiveDifficulty = true))
         assertEquals(0, game.difficultyBonus(startRound = 10, baseScore = 5, adaptiveDifficulty = false))
-        assertEquals(10, game.difficultyBonus(startRound = 10, baseScore = 5, adaptiveDifficulty = true))
+        assertEquals(5, game.difficultyBonus(startRound = 5, baseScore = 5, adaptiveDifficulty = true))
         assertEquals(0, game.difficultyBonus(startRound = 0, baseScore = 18, adaptiveDifficulty = true))
+    }
+
+    @Test
+    fun bonusIsCappedAtSilverScore() {
+        val game = GameType.MENTAL_CALCULATION
+        assertEquals(9, game.silverScore)
+        assertEquals(9, game.difficultyBonus(startRound = 10, baseScore = 5, adaptiveDifficulty = true))
+        assertEquals(9, game.difficultyBonus(startRound = 100, baseScore = 1, adaptiveDifficulty = true))
+        assertEquals(9, game.difficultyBonus(startRound = 9, baseScore = 5, adaptiveDifficulty = true))
+        assertEquals(8, game.difficultyBonus(startRound = 8, baseScore = 5, adaptiveDifficulty = true))
+    }
+
+    @Test
+    fun goldAlwaysRequiresRealAnswersRegardlessOfStartRound() {
+        // The start round grows every session, so without the cap the bonus alone would
+        // eventually beat any threshold. With it, gold takes at least (gold - silver) answers.
+        GameType.entries.filterNot { it.lowerScoreIsBetter }.forEach { game ->
+            val bonus = game.difficultyBonus(startRound = 1_000, baseScore = 1, adaptiveDifficulty = true)
+            assertEquals(game.silverScore, bonus, "cap broken for $game")
+            assertTrue(game.goldScore > game.silverScore, "gold not above silver for $game")
+        }
     }
 
     @Test
@@ -32,7 +53,7 @@ class GameTypeDifficultyBonusTest {
     fun totalWithBonusCanReachGoldWithoutFullBaseFromZero() {
         val game = GameType.MENTAL_CALCULATION
         val startRound = 10
-        val baseScore = 8
+        val baseScore = 9
         val bonus = game.difficultyBonus(startRound, baseScore, adaptiveDifficulty = true)
         val total = baseScore + bonus
         assertEquals(18, total)
@@ -47,5 +68,12 @@ class GameTypeDifficultyBonusTest {
         val total = 0 + bonus
         assertEquals(0, total)
         assertFalse(game.meetsScore(total, game.goldScore))
+    }
+
+    @Test
+    fun gamesWithoutDifficultyRampAreNotAdaptive() {
+        // Their generators never read the round, so a resume bonus would reward playtime only.
+        assertFalse(ColoredShapesGame().adaptiveDifficulty)
+        assertFalse(ColorConfusionGame().adaptiveDifficulty)
     }
 }

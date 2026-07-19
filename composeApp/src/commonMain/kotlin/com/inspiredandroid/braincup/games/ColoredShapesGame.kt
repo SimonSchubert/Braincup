@@ -14,6 +14,9 @@ import kotlin.random.Random
  * 3. Get a third random color(stringColor) which will be the color of the previous generated color string
  */
 class ColoredShapesGame : Game() {
+    // Rounds never get harder, so there is no ramp to resume and no difficulty bonus to earn.
+    override val adaptiveDifficulty: Boolean = false
+
     lateinit var displayedColor: Color
     lateinit var answerColor: Color
     lateinit var stringColor: Color

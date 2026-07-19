@@ -38,6 +38,10 @@
     <string name="achievementLastPieceStanding" translatable="false">CgkIuZrirtIVEAIQIQ</string>
     <!-- achievement Tower Master (Tower of Hanoi) -->
     <string name="achievementTowerMaster" translatable="false">CgkIuZrirtIVEAIQKA</string>
+    <!-- achievement Pattern Keeper (Simon Says) -->
+    <string name="achievementPatternKeeper" translatable="false">CgkIuZrirtIVEAIQLA</string>
+    <!-- achievement Rolling Recall (N-Back) -->
+    <string name="achievementRollingRecall" translatable="false">CgkIuZrirtIVEAIQLQ</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

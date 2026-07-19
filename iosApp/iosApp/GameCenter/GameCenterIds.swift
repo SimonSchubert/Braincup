@@ -37,6 +37,7 @@ enum GameCenterIds {
         "WORDLE":                "achievement.wordsmith",
         "FLAGS":                 "achievement.flag_bearer",
         "SIMON_SAYS":            "achievement.simon_says",
+        "N_BACK":                "achievement.rolling_recall",
     ]
 
     private static let leaderboardsByGameName: [String: String] = [

@@ -5,6 +5,9 @@ import com.inspiredandroid.braincup.games.tools.Color
 import kotlinx.collections.immutable.toImmutableList
 
 class ColorConfusionGame : Game() {
+    // Rounds never get harder, so there is no ramp to resume and no difficulty bonus to earn.
+    override val adaptiveDifficulty: Boolean = false
+
     enum class CellFeedback {
         NONE,
         CORRECT_SELECTED,

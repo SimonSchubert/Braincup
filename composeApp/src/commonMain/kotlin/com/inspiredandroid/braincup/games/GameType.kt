@@ -142,8 +142,8 @@ enum class GameType(
     COLORED_SHAPES(
         displayNameRes = Res.string.game_colored_shapes,
         id = "1",
-        goldScore = 17,
-        silverScore = 9,
+        goldScore = 15,
+        silverScore = 8,
         descriptionRes = Res.string.game_colored_shapes_desc,
         category = GameCategory.LOGIC,
     ),
@@ -217,8 +217,8 @@ enum class GameType(
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,
         id = "13",
-        goldScore = 13,
-        silverScore = 7,
+        goldScore = 11,
+        silverScore = 6,
         descriptionRes = Res.string.game_color_confusion_desc,
         category = GameCategory.PERCEPTION,
     ),
@@ -362,12 +362,14 @@ enum class GameType(
 
     /**
      * Bonus added to the base (correct-answer) score when a session started mid adaptive ramp.
-     * Zero when not adaptive, lower-is-better, or no correct answers this run — so resume alone
-     * never awards free points toward medals.
+     * Zero when not adaptive, lower-is-better, or no correct answers this run, so resume alone
+     * never awards free points toward medals. Capped at [silverScore]: the start round grows
+     * with every session played, so an uncapped bonus would eventually exceed any threshold;
+     * the cap guarantees gold always takes at least (gold - silver) correct answers.
      */
     fun difficultyBonus(startRound: Int, baseScore: Int, adaptiveDifficulty: Boolean): Int {
         if (!adaptiveDifficulty || lowerScoreIsBetter || baseScore <= 0) return 0
-        return startRound.coerceAtLeast(0)
+        return startRound.coerceIn(0, silverScore)
     }
 }
 
