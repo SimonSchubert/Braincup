@@ -72,8 +72,10 @@ class GameTypeDifficultyBonusTest {
 
     @Test
     fun gamesWithoutDifficultyRampAreNotAdaptive() {
-        // Their generators never read the round, so a resume bonus would reward playtime only.
+        // Their difficulty never derives from the round (constant, or rebuilt per session),
+        // so a resume bonus would reward playtime only.
         assertFalse(ColoredShapesGame().adaptiveDifficulty)
         assertFalse(ColorConfusionGame().adaptiveDifficulty)
+        assertFalse(ChainCalculationGame().adaptiveDifficulty)
     }
 }

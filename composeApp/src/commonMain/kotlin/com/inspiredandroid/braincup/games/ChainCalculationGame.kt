@@ -19,6 +19,10 @@ import kotlin.random.Random
  * - Result is always positive
  */
 class ChainCalculationGame : Game() {
+    // Chain length is session-local (numberCount++ in generateRound, never derived from round),
+    // so resuming a round restores no difficulty and a bonus would reward playtime only.
+    override val adaptiveDifficulty: Boolean = false
+
     var calculation = ""
     private var numberCount = 2
     private var result = 0
