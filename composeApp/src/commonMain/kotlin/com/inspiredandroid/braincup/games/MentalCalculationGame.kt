@@ -20,7 +20,8 @@ class MentalCalculationGame : Game() {
     var calculation = ""
     private var number = 0
     private var division = -1
-    private var maxNumber = 0
+    internal var maxNumber = 0
+        private set
     private var resetNextRound = false
     private var showSeedNextRound = true
     private val allowedDivisions by lazy { mutableListOf(2, 3, 4, 5, 6, 7, 8, 9) }
@@ -118,12 +119,15 @@ class MentalCalculationGame : Game() {
         }
     }
 
+    // Derived from round (not stepped on exact matches) so a resumed session
+    // starts at the difficulty the round implies.
     private fun updateMaxNumber() {
-        when (round) {
-            5 -> maxNumber = 50
-            9 -> maxNumber = 70
-            13 -> maxNumber = 100
-            19 -> maxNumber = 150
+        maxNumber = when {
+            round >= 19 -> 150
+            round >= 13 -> 100
+            round >= 9 -> 70
+            round >= 5 -> 50
+            else -> 30
         }
     }
 

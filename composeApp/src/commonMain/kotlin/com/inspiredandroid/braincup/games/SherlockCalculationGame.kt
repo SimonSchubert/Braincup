@@ -24,7 +24,8 @@ class SherlockCalculationGame : Game() {
     var solutionTokens = emptyList<ExpressionToken>()
         private set
     private var calculation = ""
-    private var minNumbersNeeded = 2
+    internal var minNumbersNeeded = 2
+        private set
     private var maxNumbersNeeded = 3
     private val availableOperators = listOf(Operator.MINUS, Operator.PLUS, Operator.MULTIPLY)
 
@@ -107,11 +108,14 @@ class SherlockCalculationGame : Game() {
         return tokens
     }
 
+    // Derived from round (not stepped on exact matches) so a resumed session
+    // starts at the difficulty the round implies.
     private fun updateNumberBounds() {
         maxNumbersNeeded = round + 3
-        when (round) {
-            2 -> minNumbersNeeded = 3
-            5 -> minNumbersNeeded = 4
+        minNumbersNeeded = when {
+            round >= 5 -> 4
+            round >= 2 -> 3
+            else -> 2
         }
     }
 
