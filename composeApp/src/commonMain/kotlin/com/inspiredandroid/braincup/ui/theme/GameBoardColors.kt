@@ -36,8 +36,9 @@ val HanoiPegColor = Color(0xFF6B7280)
 val HanoiBaseColor = Color(0xFF4B5563)
 
 /**
- * Disk face colors by size rank (1 = smallest … 7 = largest). Warm spectrum so stacks read
- * clearly in light and dark themes.
+ * Disk face colors by size rank (1 = smallest … 12 = largest). Ordered so neighbouring sizes,
+ * which always sit next to each other in a stack, land on clearly different hues. Levels beyond
+ * 12 disks wrap around the list (see hanoiDiskColor), so repeats are always far apart in size.
  */
 val HanoiDiskColors: List<Color> = listOf(
     Color(0xFF60A5FA), // 1 blue
@@ -47,6 +48,11 @@ val HanoiDiskColors: List<Color> = listOf(
     Color(0xFFF43F5E), // 5 rose
     Color(0xFFA78BFA), // 6 violet
     Color(0xFF2DD4BF), // 7 teal
+    Color(0xFFF472B6), // 8 pink
+    Color(0xFF38BDF8), // 9 sky
+    Color(0xFFA3E635), // 10 lime
+    Color(0xFFE879F9), // 11 fuchsia
+    Color(0xFFFDBA74), // 12 peach
 )
 
 val FlashCrowdBlueSide = FlashCrowdBlue.darken(0.7f)

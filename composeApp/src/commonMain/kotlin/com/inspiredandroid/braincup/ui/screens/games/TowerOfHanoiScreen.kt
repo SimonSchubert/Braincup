@@ -594,7 +594,7 @@ private fun HanoiPegChrome(
 }
 
 private fun hanoiDiskColor(size: Int): Color {
-    val index = (size - 1).coerceIn(0, HanoiDiskColors.lastIndex)
+    val index = (size - 1).coerceAtLeast(0) % HanoiDiskColors.size
     return HanoiDiskColors[index]
 }
 

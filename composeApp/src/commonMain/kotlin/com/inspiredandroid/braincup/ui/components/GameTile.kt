@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.ColorFilter
@@ -25,6 +26,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
@@ -175,12 +177,17 @@ private val LightsOutPreviewOn: Set<Int> = setOf(1, 3, 4, 5, 7)
 
 private val SlidingPuzzlePreviewLabels: List<Int> = listOf(1, 2, 3, 4, 0, 5, 7, 8, 6)
 
-/** Mid-solve 3-disk Hanoi: two on left, one on middle. */
+/** One move into a 4-disk Hanoi: the pyramid still on the left, the smallest disk parked right. */
 private val TowerOfHanoiPreviewPegs: List<List<Int>> = listOf(
-    listOf(3, 2),
-    listOf(1),
+    listOf(4, 3, 2),
     emptyList(),
+    listOf(1),
 )
+
+private const val TowerOfHanoiPreviewDisks = 4
+private val PegGapPreview = 6.dp
+private val PegPadHPreview = 3.dp
+private val DiskGapPreview = 2.dp
 
 private const val ShikakuPreviewSize = 3
 
@@ -1381,65 +1388,99 @@ private fun SlidingPuzzlePreview() {
     }
 }
 
+/**
+ * Miniature of the in-game board: each peg sits on its own translucent chrome card with a
+ * pill-capped pole and a full-width base, and disks are shadowed pills sized so the stack fills
+ * the pole the way it does while playing.
+ */
 @Composable
 private fun TowerOfHanoiPreview() {
-    Row(
+    val pegFace = PreviewTextColor.copy(alpha = 0.07f)
+    BoxWithConstraints(
+        // Unlike the grid previews this one is not square: the board wants every bit of tile width
+        // it can get, so the three pegs stay wide enough for readable disks.
         modifier = Modifier
-            .fillMaxHeight()
-            .aspectRatio(1f)
-            .padding(20.dp),
-        horizontalArrangement = Arrangement.spacedBy(4.dp),
-        verticalAlignment = Alignment.Bottom,
+            .fillMaxSize()
+            .padding(horizontal = 12.dp, vertical = 10.dp),
+        contentAlignment = Alignment.Center,
     ) {
-        TowerOfHanoiPreviewPegs.forEach { disks ->
-            Column(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxHeight(),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Box(
+        val baseHeight = 7.dp
+        val pegPadV = 5.dp
+        // Disks are sized off the peg width so they stay wide pills like in game, and the board is
+        // only as tall as the stack needs: a full-height column would leave bare, spindly poles.
+        val pegInnerWidth = (maxWidth - PegGapPreview * 2) / TowerOfHanoiPreviewPegs.size - PegPadHPreview * 2
+        val diskHeight = pegInnerWidth * 0.3f
+        // The pole holds the whole stack plus one spare slot, matching the in-game proportion.
+        val boardHeight = (diskHeight + DiskGapPreview) * (TowerOfHanoiPreviewDisks + 1) +
+            baseHeight + pegPadV * 2
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(boardHeight.coerceAtMost(maxHeight)),
+            horizontalArrangement = Arrangement.spacedBy(PegGapPreview),
+            verticalAlignment = Alignment.Bottom,
+        ) {
+            TowerOfHanoiPreviewPegs.forEach { disks ->
+                Column(
                     modifier = Modifier
                         .weight(1f)
-                        .fillMaxWidth(),
-                    contentAlignment = Alignment.BottomCenter,
+                        .fillMaxHeight()
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(pegFace)
+                        .padding(horizontal = PegPadHPreview, vertical = pegPadV),
+                    horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Box(
                         modifier = Modifier
-                            .width(6.dp)
-                            .fillMaxHeight(0.85f)
-                            .align(Alignment.BottomCenter)
-                            .background(HanoiPegColor, shape = RoundedCornerShape(3.dp)),
-                    )
-                    Column(
-                        modifier = Modifier.align(Alignment.BottomCenter),
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(2.dp),
+                            .weight(1f)
+                            .fillMaxWidth(),
+                        contentAlignment = Alignment.BottomCenter,
                     ) {
-                        disks.asReversed().forEach { size ->
-                            val fraction = (size - 1).toFloat() / 2f
-                            val widthFraction = 0.4f + 0.55f * fraction
-                            Box(
-                                modifier = Modifier
-                                    .fillMaxWidth(widthFraction)
-                                    .height(10.dp)
-                                    .background(
-                                        HanoiDiskColors[(size - 1).coerceIn(0, HanoiDiskColors.lastIndex)],
-                                        shape = RoundedCornerShape(5.dp),
-                                    ),
-                            )
+                        Box(
+                            modifier = Modifier
+                                .width(6.dp)
+                                .fillMaxHeight(0.92f)
+                                .align(Alignment.BottomCenter)
+                                .clip(RoundedCornerShape(3.dp))
+                                .background(HanoiPegColor),
+                        )
+                        Column(
+                            modifier = Modifier.align(Alignment.BottomCenter),
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            verticalArrangement = Arrangement.spacedBy(DiskGapPreview),
+                        ) {
+                            disks.asReversed().forEach { size ->
+                                TowerOfHanoiPreviewDisk(size = size, height = diskHeight)
+                            }
                         }
                     }
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(baseHeight)
+                            .clip(RoundedCornerShape(3.dp))
+                            .background(HanoiBaseColor),
+                    )
                 }
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(6.dp)
-                        .background(HanoiBaseColor, shape = RoundedCornerShape(2.dp)),
-                )
             }
         }
     }
+}
+
+@Composable
+private fun TowerOfHanoiPreviewDisk(size: Int, height: Dp) {
+    val fraction = (size - 1).toFloat() / (TowerOfHanoiPreviewDisks - 1).toFloat()
+    val shape = RoundedCornerShape(percent = 50)
+    Box(
+        modifier = Modifier
+            // The smallest disk still needs to read as a pill rather than a dot, so the width
+            // range starts at half the peg instead of scaling all the way down.
+            .fillMaxWidth(0.5f + 0.5f * fraction)
+            .height(height)
+            .shadow(2.dp, shape, clip = false)
+            .clip(shape)
+            .background(HanoiDiskColors[(size - 1) % HanoiDiskColors.size]),
+    )
 }
 
 @Composable

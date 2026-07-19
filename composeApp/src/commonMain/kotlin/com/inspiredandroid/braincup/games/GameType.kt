@@ -100,9 +100,10 @@ enum class GameType(
     TOWER_OF_HANOI(
         displayNameRes = Res.string.game_tower_of_hanoi,
         id = "30",
-        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
-        goldScore = 10,
-        silverScore = 5,
+        // Score = highest level solved. Bronze = any solve, silver = level 2 (4 disks),
+        // gold = level 4 (6 disks, the violet one; 63 moves optimal).
+        goldScore = 4,
+        silverScore = 2,
         descriptionRes = Res.string.game_tower_of_hanoi_desc,
         category = GameCategory.LOGIC,
     ),
