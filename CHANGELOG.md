@@ -1,3 +1,13 @@
+## v2.30.0 — 2026-07-20
+
+### Features
+- Add Simon Says game
+- Add N-Shapes game
+
+### Improvements
+- Adjust gold medal scoring logic
+- Improve Tower of Hanoi
+
 ## v2.29.0 — 2026-07-17
 
 ### Features
