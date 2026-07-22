@@ -23,6 +23,8 @@ data class Finish(
     val totalXpAfter: Int,
     /** Adaptive start-round credit included in [score]; 0 when none. */
     val difficultyBonus: Int = 0,
+    /** True when the player cleared the last catalog level (no next level to play). */
+    val maxLevelReached: Boolean = false,
 )
 
 @Serializable

@@ -9,6 +9,7 @@
     <string name="button_back">Terug</string>
     <string name="button_play_again">Opnieuw spelen</string>
     <string name="button_play_next_level">Volgend level spelen</string>
+    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
     <string name="button_play_random">Willekeurig spel</string>
     <string name="button_give_up">Opgeven</string>
     <string name="button_stay">Blijven</string>
@@ -728,4 +729,13 @@
     <string name="spot_the_new_demo_new">Tik op het dier dat je nog niet eerder hebt gezien.</string>
     <string name="spot_the_new_demo_seen">Dit heb je al eerder gezien. Het sloeg een ronde over, maar telt nog steeds als gezien.</string>
     <string name="spot_the_new_demo_correct">Juist. Het sluit aan bij de dieren die je al hebt gezien.</string>
+    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
+    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
+    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
+    <string name="prism_clear_restart">Restart</string>
+    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
+    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
+    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
+    <string name="prism_clear_undo">Undo</string>
 </resources>

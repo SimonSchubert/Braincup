@@ -42,6 +42,8 @@
     <string name="achievementPatternKeeper" translatable="false">CgkIuZrirtIVEAIQLA</string>
     <!-- achievement Rolling Recall (N-Back) -->
     <string name="achievementRollingRecall" translatable="false">CgkIuZrirtIVEAIQLQ</string>
+    <!-- achievement Crystal Clarity (Prism Clear) -->
+    <string name="achievementCrystalClarity" translatable="false">CgkIuZrirtIVEAIQLg</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

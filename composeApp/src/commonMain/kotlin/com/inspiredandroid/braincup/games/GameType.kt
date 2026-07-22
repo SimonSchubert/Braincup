@@ -307,6 +307,15 @@ enum class GameType(
         descriptionRes = Res.string.game_simon_says_desc,
         category = GameCategory.MEMORY,
     ),
+    PRISM_CLEAR(
+        displayNameRes = Res.string.game_prism_clear,
+        id = "35",
+        // Score = highest level solved. Bronze = any solve, silver = level 5, gold = level 10.
+        goldScore = 10,
+        silverScore = 5,
+        descriptionRes = Res.string.game_prism_clear_desc,
+        category = GameCategory.LOGIC,
+    ),
     ;
 
     /** URL path segment for web navigation, e.g. CAT_QUEENS → "CatQueens". */
@@ -342,7 +351,8 @@ enum class GameType(
             this == CAT_QUEENS ||
             this == KNOT ||
             this == SOLO_CHESS ||
-            this == TOWER_OF_HANOI
+            this == TOWER_OF_HANOI ||
+            this == PRISM_CLEAR
 
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */

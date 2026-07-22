@@ -35,6 +35,7 @@ import com.inspiredandroid.braincup.app.NurikabeUiState
 import com.inspiredandroid.braincup.app.OrbitTrackerUiState
 import com.inspiredandroid.braincup.app.PathFinderUiState
 import com.inspiredandroid.braincup.app.PatternSequenceUiState
+import com.inspiredandroid.braincup.app.PrismClearUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
 import com.inspiredandroid.braincup.app.SchulteTableUiState
 import com.inspiredandroid.braincup.app.SherlockCalculationUiState
@@ -73,6 +74,7 @@ import com.inspiredandroid.braincup.ui.screens.games.NurikabeContent
 import com.inspiredandroid.braincup.ui.screens.games.OrbitTrackerContent
 import com.inspiredandroid.braincup.ui.screens.games.PathFinderContent
 import com.inspiredandroid.braincup.ui.screens.games.PatternSequenceContent
+import com.inspiredandroid.braincup.ui.screens.games.PrismClearContent
 import com.inspiredandroid.braincup.ui.screens.games.QuickSumContent
 import com.inspiredandroid.braincup.ui.screens.games.SchulteTableContent
 import com.inspiredandroid.braincup.ui.screens.games.SherlockCalculationContent
@@ -132,6 +134,7 @@ fun GameScreen(
         is CatQueensUiState,
         is KnotUiState,
         is SoloChessUiState,
+        is PrismClearUiState,
         is WordleUiState,
         -> false
         else -> true
@@ -183,6 +186,7 @@ fun GameScreen(
                 is CatQueensUiState -> CatQueensContent(gameUiState, onAnswer, onGiveUp)
                 is KnotUiState -> KnotContent(gameUiState, onAnswer, onGiveUp)
                 is SoloChessUiState -> SoloChessContent(gameUiState, onAnswer, onGiveUp)
+                is PrismClearUiState -> PrismClearContent(gameUiState, onAnswer, onGiveUp)
                 is SchulteTableUiState -> SchulteTableContent(gameUiState, onAnswer)
                 is PatternSequenceUiState -> PatternSequenceContent(gameUiState, onAnswer)
                 is VisualMemoryUiState -> VisualMemoryContent(gameUiState, onAnswer)

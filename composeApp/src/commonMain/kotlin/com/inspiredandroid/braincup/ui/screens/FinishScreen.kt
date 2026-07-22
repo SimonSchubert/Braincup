@@ -36,6 +36,8 @@ fun FinishScreen(
     totalXpAfter: Int,
     /** Adaptive start-round credit included in [score]; shown as a separate line when > 0. */
     difficultyBonus: Int = 0,
+    /** Cleared the last catalog level; hide "next level" and show wait-for-content copy. */
+    maxLevelReached: Boolean = false,
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
@@ -140,6 +142,19 @@ fun FinishScreen(
 
         XpAndLevelDisplay(xpGained = xpGained, levelChange = levelChange)
 
+        if (maxLevelReached) {
+            Spacer(Modifier.height(16.dp))
+            Text(
+                text = stringResource(Res.string.finish_max_level_reached),
+                style = MaterialTheme.typography.bodyLarge,
+                textAlign = TextAlign.Center,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(horizontal = 24.dp),
+            )
+        }
+
         Spacer(Modifier.height(16.dp))
 
         PrimaryActionButton(
@@ -147,17 +162,19 @@ fun FinishScreen(
             value = stringResource(Res.string.button_play_random),
         )
 
-        Spacer(Modifier.height(8.dp))
+        if (!maxLevelReached) {
+            Spacer(Modifier.height(8.dp))
 
-        val playAgainLabelRes = if (gameType.usesLevelLabel && !gaveUpLevelGame) {
-            Res.string.button_play_next_level
-        } else {
-            Res.string.button_play_again
+            val playAgainLabelRes = if (gameType.usesLevelLabel && !gaveUpLevelGame) {
+                Res.string.button_play_next_level
+            } else {
+                Res.string.button_play_again
+            }
+            PrimaryActionButton(
+                onClick = onPlayAgain,
+                value = stringResource(playAgainLabelRes),
+            )
         }
-        PrimaryActionButton(
-            onClick = onPlayAgain,
-            value = stringResource(playAgainLabelRes),
-        )
     }
 }
 

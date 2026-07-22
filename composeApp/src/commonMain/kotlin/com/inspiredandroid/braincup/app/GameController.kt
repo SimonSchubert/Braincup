@@ -170,6 +170,7 @@ class GameController(
                     it == GameType.KNOT ||
                     it == GameType.SOLO_CHESS ||
                     it == GameType.TOWER_OF_HANOI ||
+                    it == GameType.PRISM_CLEAR ||
                     it == GameType.MINI_CHESS ||
                     it == GameType.WORDLE
             }
@@ -337,6 +338,10 @@ class GameController(
             startSoloChessGame(gameType)
             return
         }
+        if (gameType == GameType.PRISM_CLEAR) {
+            startPrismClearGame(gameType)
+            return
+        }
         if (gameType == GameType.FLAGS) {
             startFlagsGame(gameType)
             return
@@ -467,6 +472,10 @@ class GameController(
             handleSoloChessAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is PrismClearGame) {
+            handlePrismClearAnswer(currentState, game, answer.trim())
+            return
+        }
         if (game is SchulteTableGame) {
             handleSchulteTableAnswer(currentState, game, answer.trim())
             return
@@ -586,6 +595,11 @@ class GameController(
             return
         }
         if (game is SoloChessGame) {
+            points = 0
+            finishCurrentGame(currentState.gameType, game)
+            return
+        }
+        if (game is PrismClearGame) {
             points = 0
             finishCurrentGame(currentState.gameType, game)
             return
@@ -796,6 +810,7 @@ class GameController(
         GameType.CAT_QUEENS -> CatQueensGame()
         GameType.KNOT -> KnotGame()
         GameType.SOLO_CHESS -> SoloChessGame()
+        GameType.PRISM_CLEAR -> PrismClearGame()
         GameType.SCHULTE_TABLE -> SchulteTableGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
@@ -1418,6 +1433,108 @@ class GameController(
         }
     }
 
+    private fun startPrismClearGame(gameType: GameType, navigate: Boolean = true) {
+        val level = storage.getLastRound(gameType.id)
+            .coerceAtLeast(1)
+            .coerceAtMost(PrismClearLevels.COUNT)
+        val game = PrismClearGame(level = level).apply { answeredAllCorrect = false }
+        game.nextRound()
+        points = 0
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        if (navigate) {
+            navController.navigate(Playing(gameType.id))
+        }
+    }
+
+    private fun handlePrismClearAnswer(
+        currentState: GameState.Active,
+        game: PrismClearGame,
+        input: String,
+    ) {
+        // Shared onAnswer channel:
+        //   "tap:<index>" select/swap, "swap:a,b" drag (or tests), "undo", "restart".
+        when {
+            input == "restart" -> {
+                game.restart()
+                _gameUiState.value = game.toUiState()
+            }
+            input == "undo" -> {
+                game.undo()
+                _gameUiState.value = game.toUiState()
+            }
+            input.startsWith("tap:") -> {
+                val index = input.removePrefix("tap:").toIntOrNull() ?: return
+                when (game.tap(index)) {
+                    PrismClearGame.PrismClearResult.Updated,
+                    PrismClearGame.PrismClearResult.Rejected,
+                    -> {
+                        _gameUiState.value = game.toUiState()
+                    }
+                    PrismClearGame.PrismClearResult.Solved -> {
+                        onPrismClearSolved(currentState, game)
+                    }
+                }
+            }
+            input.startsWith("swap:") -> {
+                val parts = input.removePrefix("swap:").split(",")
+                if (parts.size != 2) return
+                val a = parts[0].toIntOrNull() ?: return
+                val b = parts[1].toIntOrNull() ?: return
+                when (game.trySwap(a, b)) {
+                    PrismClearGame.PrismClearResult.Updated,
+                    PrismClearGame.PrismClearResult.Rejected,
+                    -> {
+                        _gameUiState.value = game.toUiState()
+                    }
+                    PrismClearGame.PrismClearResult.Solved -> {
+                        onPrismClearSolved(currentState, game)
+                    }
+                }
+            }
+            else -> return
+        }
+    }
+
+    /**
+     * Let clear/fall animation play on the board, then a brief correct flash, then either the next
+     * catalog level in place or the finish screen when the last level is cleared.
+     */
+    private fun onPrismClearSolved(
+        currentState: GameState.Active,
+        game: PrismClearGame,
+    ) {
+        val ui = game.toUiState()
+        _gameUiState.value = ui
+        // Stay in Active so the Playing route keeps rendering the board during the pop animation.
+        points = game.level
+        storage.putLastRound(currentState.gameType.id, game.level + 1)
+        scope.launch {
+            // Match PrismClearScreen: SwapMillis + (PopMillis + FallMillis) per cascade wave.
+            val swapMs = if (ui.swapFromIndex >= 0) 200 else 0
+            val animMs = (swapMs + ui.clearWaves.size * (240 + 280) + 100).coerceAtLeast(350)
+            delay(animMs.milliseconds)
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = null,
+            )
+            delay(700.milliseconds)
+            val gameType = currentState.gameType
+            // Catalog complete (or session mode): full finish flow with XP + finish screen.
+            if (inSessionMode || game.level >= PrismClearLevels.COUNT) {
+                finishCurrentGame(gameType, game)
+                return@launch
+            }
+            // Intermediate clear: record score/XP for this level, then jump straight into the next.
+            storage.putScore(gameType.id, points)
+            _totalXp.value = storage.getTotalXp()
+            refreshDerivedStorageState()
+            startPrismClearGame(gameType, navigate = false)
+        }
+    }
+
     private fun startWordleGame(gameType: GameType) {
         val language = WordleLanguages.resolve(deviceLanguageTag())
         if (language == null) {
@@ -1912,6 +2029,10 @@ class GameController(
             return
         }
 
+        val maxLevelReached = game is PrismClearGame &&
+            points > 0 &&
+            game.level >= PrismClearLevels.COUNT
+
         navController.navigate(
             Finish(
                 gameTypeId = gameType.id,
@@ -1922,6 +2043,7 @@ class GameController(
                 xpGained = scoreResult.xpGained,
                 totalXpAfter = storage.getTotalXp(),
                 difficultyBonus = difficultyBonus,
+                maxLevelReached = maxLevelReached,
             ),
         ) {
             popUpTo(MainMenu)

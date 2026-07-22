@@ -316,6 +316,7 @@ fun App(
                                 xpGained = route.xpGained,
                                 totalXpAfter = route.totalXpAfter,
                                 difficultyBonus = route.difficultyBonus,
+                                maxLevelReached = route.maxLevelReached,
                                 onPlayRandom = onPlayRandom,
                                 onPlayAgain = onPlayAgain,
                                 onMenu = onMenu,

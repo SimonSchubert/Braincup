@@ -9,6 +9,7 @@
     <string name="button_back">뒤로</string>
     <string name="button_play_again">다시 플레이</string>
     <string name="button_play_next_level">다음 레벨 플레이</string>
+    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
     <string name="button_play_random">랜덤 게임</string>
     <string name="button_give_up">포기</string>
     <string name="button_stay">계속</string>
@@ -727,4 +728,13 @@
     <string name="spot_the_new_demo_new">아직 보지 못한 동물을 탭하세요.</string>
     <string name="spot_the_new_demo_seen">이건 전에 봤습니다. 한 라운드 쉬었지만 여전히 본 것으로 간주됩니다.</string>
     <string name="spot_the_new_demo_correct">정답. 본 것 목록에 추가됩니다.</string>
+    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
+    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
+    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
+    <string name="prism_clear_restart">Restart</string>
+    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
+    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
+    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
+    <string name="prism_clear_undo">Undo</string>
 </resources>

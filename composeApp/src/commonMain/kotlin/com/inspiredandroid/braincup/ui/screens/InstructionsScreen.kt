@@ -15,6 +15,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_start
+import braincup.composeapp.generated.resources.finish_max_level_reached
 import braincup.composeapp.generated.resources.instructions_best_score
 import braincup.composeapp.generated.resources.instructions_leaderboard
 import braincup.composeapp.generated.resources.mini_chess_difficulty
@@ -26,6 +27,7 @@ import braincup.composeapp.generated.resources.wordle_legend_correct
 import braincup.composeapp.generated.resources.wordle_legend_present
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.PrismClearLevels
 import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
@@ -51,6 +53,7 @@ import com.inspiredandroid.braincup.ui.components.OrbitTrackerDemo
 import com.inspiredandroid.braincup.ui.components.PathFinderDemo
 import com.inspiredandroid.braincup.ui.components.PatternSequenceDemo
 import com.inspiredandroid.braincup.ui.components.PrismCard
+import com.inspiredandroid.braincup.ui.components.PrismClearDemo
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.QuickSumDemo
 import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
@@ -125,6 +128,7 @@ fun InstructionsScreen(
                 GameType.CAT_QUEENS -> CatQueensDemo(modifier = demoModifier)
                 GameType.KNOT -> KnotDemo(modifier = demoModifier)
                 GameType.SOLO_CHESS -> SoloChessDemo(modifier = demoModifier)
+                GameType.PRISM_CLEAR -> PrismClearDemo(modifier = demoModifier)
                 GameType.FLASH_CROWD -> FlashCrowdDemo(modifier = demoModifier)
                 GameType.ANOMALY_PUZZLE -> AnomalyPuzzleDemo(modifier = demoModifier)
                 GameType.SLIDING_PUZZLE -> SlidingPuzzleDemo(modifier = demoModifier)
@@ -172,6 +176,21 @@ fun InstructionsScreen(
                         textAlign = TextAlign.Center,
                     )
                 }
+            }
+
+            // After clearing the last catalog board, lastRound is COUNT+1; surface the same
+            // wait-for-content copy as the finish screen so re-entry is not silent.
+            val maxLevelReached = gameType == GameType.PRISM_CLEAR &&
+                storage.getLastRound(gameType.id) > PrismClearLevels.COUNT
+            if (maxLevelReached) {
+                Spacer(Modifier.height(16.dp))
+                Text(
+                    text = stringResource(Res.string.finish_max_level_reached),
+                    style = MaterialTheme.typography.bodyLarge,
+                    textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(horizontal = 24.dp),
+                )
             }
 
             Spacer(Modifier.height(16.dp))

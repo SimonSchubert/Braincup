@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Color
@@ -433,6 +434,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.CAT_QUEENS -> CatQueensPreview()
         GameType.KNOT -> KnotPreview()
         GameType.SOLO_CHESS -> SoloChessPreview()
+        GameType.PRISM_CLEAR -> PrismClearPreview()
         GameType.FLAGS -> FlagsPreview()
         GameType.DIGIT_MEMORY -> DigitMemoryPreview()
         GameType.N_BACK -> NBackPreview()
@@ -1843,6 +1845,39 @@ private fun SoloChessPreview() {
                             }
                         }
                     }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun PrismClearPreview() {
+    val pattern = listOf(
+        0, 2, 2, -1, -1, -1,
+        2, 0, 1, 0, 1, 1,
+    )
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        for (row in 0 until 2) {
+            Row(modifier = Modifier.fillMaxWidth()) {
+                for (col in 0 until 6) {
+                    val ordinal = pattern[row * 6 + col]
+                    val face = if (ordinal < 0) {
+                        MaterialTheme.colorScheme.surfaceContainerHighest
+                    } else {
+                        PrismTileType.entries[ordinal].color.composeColor()
+                    }
+                    ColorPrismCell(
+                        face = face,
+                        modifier = Modifier
+                            .weight(1f)
+                            .aspectRatio(1f)
+                            .padding(1.dp),
+                    )
                 }
             }
         }

@@ -159,6 +159,7 @@
     <string name="finish_new_highscore">New High Score!</string>
     <string name="finish_highscore">High Score: %1$s</string>
     <string name="button_play_next_level">Play next level</string>
+    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
 
     <!-- Answer feedback -->
     <string name="feedback_solution">Solution: %1$s</string>
@@ -200,6 +201,7 @@
     <string name="game_cat_queens">Cat Queens</string>
     <string name="game_knot">Knot</string>
     <string name="game_solo_chess">Solo Chess</string>
+    <string name="game_prism_clear">Prism Clear</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -247,6 +249,12 @@
     <string name="solo_chess_pieces_left">Pieces left: %1$d</string>
     <string name="solo_chess_restart">Restart</string>
     <string name="solo_chess_stuck">No captures left. Tap Restart to try this level again.</string>
+    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
+    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
+    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
+    <string name="prism_clear_undo">Undo</string>
+    <string name="prism_clear_restart">Restart</string>
+    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
     <string name="cat_queens_error_row">Only one cat per row</string>
     <string name="cat_queens_error_column">Only one cat per column</string>
     <string name="cat_queens_error_zone">Only one cat per color zone</string>
@@ -373,6 +381,7 @@
     <string name="achievement_gold_cat_queens">Cat Herder</string>
     <string name="achievement_gold_knot">Untangler</string>
     <string name="achievement_gold_solo_chess">Last Piece Standing</string>
+    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
     <string name="achievement_gold_path_finder">Trailblazer</string>
     <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
     <string name="achievement_gold_colored_shapes">Shape Shifter</string>
@@ -407,6 +416,7 @@
     <string name="achievement_gold_cat_queens_desc">Win gold medal in Cat Queens</string>
     <string name="achievement_gold_knot_desc">Win gold medal in Knot</string>
     <string name="achievement_gold_solo_chess_desc">Win gold medal in Solo Chess</string>
+    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
     <string name="achievement_gold_path_finder_desc">Win gold medal in Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win gold medal in Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Win gold medal in Colored Shapes</string>

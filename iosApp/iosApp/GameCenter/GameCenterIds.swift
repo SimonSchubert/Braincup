@@ -38,6 +38,7 @@ enum GameCenterIds {
         "FLAGS":                 "achievement.flag_bearer",
         "SIMON_SAYS":            "achievement.simon_says",
         "N_BACK":                "achievement.rolling_recall",
+        "PRISM_CLEAR":           "achievement.crystal_clarity",
     ]
 
     private static let leaderboardsByGameName: [String: String] = [

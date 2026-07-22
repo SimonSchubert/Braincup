@@ -309,6 +309,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.WORDLE -> R.string.achievementWordsmith
     GameType.N_BACK -> R.string.achievementRollingRecall
     GameType.SIMON_SAYS -> R.string.achievementPatternKeeper
+    GameType.PRISM_CLEAR -> R.string.achievementCrystalClarity
 }
 
 private fun sudokuTierAchievementResIdFor(difficulty: SudokuDifficulty): Int = when (difficulty) {

@@ -271,6 +271,48 @@ data class SoloChessUiState(
     val stuck: Boolean,
 ) : GameUiState
 
+/**
+ * One cascade wave for Prism Clear clear/fall animation.
+ * [cellsBeforeClear] still contains the matched tiles; [clearedIndices] pop out; then the board
+ * becomes [cellsAfterGravity].
+ */
+@Immutable
+data class PrismClearClearWave(
+    val cellsBeforeClear: ImmutableList<Int?>,
+    val clearedIndices: ImmutableList<Int>,
+    val cellsAfterGravity: ImmutableList<Int?>,
+)
+
+@Immutable
+data class PrismClearUiState(
+    val rows: Int,
+    val cols: Int,
+    /** Row-major tile ordinals ([PrismTileType]) or null for empty cells. */
+    val cells: ImmutableList<Int?>,
+    val selectedIndex: Int?,
+    val movesUsed: Int,
+    val level: Int,
+    /** True when tiles remain but no legal matching swap exists. */
+    val stuck: Boolean,
+    /** True when at least one successful swap can be undone. */
+    val canUndo: Boolean = false,
+    val rejectedFrom: Int? = null,
+    val rejectedTo: Int? = null,
+    val rejectNonce: Int = 0,
+    /**
+     * Cascade waves from the latest successful swap (empty on deal/undo/restart).
+     * UI plays pop + gravity for each wave, keyed by [boardEpoch].
+     */
+    val clearWaves: ImmutableList<PrismClearClearWave> = kotlinx.collections.immutable.persistentListOf(),
+    /** Board snapshot before the latest successful swap (for swap slide animation). */
+    val cellsBeforeSwap: ImmutableList<Int?> = kotlinx.collections.immutable.persistentListOf(),
+    /** Cell indices that slid past each other on the latest successful swap; -1 when none. */
+    val swapFromIndex: Int = -1,
+    val swapToIndex: Int = -1,
+    /** Bumps on every structural board change so the UI can replay or snap. */
+    val boardEpoch: Int = 0,
+) : GameUiState
+
 @Immutable
 data class PatternSequenceUiState(
     val sequence: ImmutableList<Figure>,

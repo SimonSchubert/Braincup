@@ -9,6 +9,7 @@
     <string name="button_back">Geri</string>
     <string name="button_play_again">Tekrar Oyna</string>
     <string name="button_play_next_level">Sonraki seviye</string>
+    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
     <string name="button_play_random">Rastgele Oyun</string>
     <string name="button_give_up">Vazgeç</string>
     <string name="button_stay">Kal</string>
@@ -728,4 +729,13 @@
     <string name="spot_the_new_demo_new">Daha önce görmediğin hayvana dokun.</string>
     <string name="spot_the_new_demo_seen">Bunu daha önce gördün. Bir tur bekledi, ama yine de görülmüş sayılır.</string>
     <string name="spot_the_new_demo_correct">Doğru. Daha önce gördüklerin arasına katılır.</string>
+    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
+    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
+    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
+    <string name="prism_clear_restart">Restart</string>
+    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
+    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
+    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
+    <string name="prism_clear_undo">Undo</string>
 </resources>
