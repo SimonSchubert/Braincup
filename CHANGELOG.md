@@ -1,3 +1,8 @@
+## v2.31.0 — 2026-07-22
+
+### Features
+- Add Prism Clear game
+
 ## v2.30.0 — 2026-07-20
 
 ### Features
