@@ -44,6 +44,8 @@
     <string name="achievementRollingRecall" translatable="false">CgkIuZrirtIVEAIQLQ</string>
     <!-- achievement Crystal Clarity (Prism Clear) -->
     <string name="achievementCrystalClarity" translatable="false">CgkIuZrirtIVEAIQLg</string>
+    <!-- achievement Code Cracker (Bulls & Cows) -->
+    <string name="achievementCodeCracker" translatable="false">CgkIuZrirtIVEAIQLw</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

@@ -316,6 +316,16 @@ enum class GameType(
         descriptionRes = Res.string.game_prism_clear_desc,
         category = GameCategory.LOGIC,
     ),
+    BULLS_AND_COWS(
+        displayNameRes = Res.string.game_bulls_and_cows,
+        id = "36",
+        // Guesses used. Let's say: Gold = <= 6 guesses, Silver = <= 10 guesses
+        goldScore = 6,
+        silverScore = 10,
+        descriptionRes = Res.string.game_bulls_and_cows_desc,
+        category = GameCategory.LOGIC,
+        lowerScoreIsBetter = true,
+    ),
     ;
 
     /** URL path segment for web navigation, e.g. CAT_QUEENS → "CatQueens". */

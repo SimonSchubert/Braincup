@@ -102,6 +102,34 @@ private val PathFinderPreviewGrid: List<List<Figure>> = run {
     }
 }
 
+@Composable
+private fun BullsAndCowsPreview() {
+    Column(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(24.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        // Just a simple visual representing the theme of Bulls & Cows / secret numbers
+        Text(
+            text = "4  B",
+            style = MaterialTheme.typography.headlineMedium,
+            fontFamily = numberFontFamily(),
+            fontWeight = FontWeight.Bold,
+            color = com.inspiredandroid.braincup.ui.theme.SuccessGreen,
+        )
+        Text(
+            text = "2  C",
+            style = MaterialTheme.typography.headlineMedium,
+            fontFamily = numberFontFamily(),
+            fontWeight = FontWeight.Bold,
+            color = MaterialTheme.colorScheme.primary,
+        )
+    }
+}
+
 private val VisualMemoryPreviewFigures: List<Figure?> = listOf(
     Figure(Shape.TRIANGLE, Color.RED),
     null,
@@ -440,6 +468,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.N_BACK -> NBackPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
         GameType.WORDLE -> WordlePreview()
+        GameType.BULLS_AND_COWS -> BullsAndCowsPreview()
     }
 }
 

@@ -37,6 +37,7 @@ class UserStorage(
         GOLD_KNOT(Res.string.achievement_gold_knot, Res.string.achievement_gold_knot_desc),
         GOLD_SOLO_CHESS(Res.string.achievement_gold_solo_chess, Res.string.achievement_gold_solo_chess_desc),
         GOLD_PRISM_CLEAR(Res.string.achievement_gold_prism_clear, Res.string.achievement_gold_prism_clear_desc),
+        GOLD_BULLS_AND_COWS(Res.string.achievement_gold_bulls_and_cows, Res.string.achievement_gold_bulls_and_cows_desc),
         GOLD_TOWER_OF_HANOI(Res.string.achievement_gold_tower_of_hanoi, Res.string.achievement_gold_tower_of_hanoi_desc),
         GOLD_PATH_FINDER(Res.string.achievement_gold_path_finder, Res.string.achievement_gold_path_finder_desc),
         GOLD_ANOMALY_PUZZLE(Res.string.achievement_gold_anomaly_puzzle, Res.string.achievement_gold_anomaly_puzzle_desc),

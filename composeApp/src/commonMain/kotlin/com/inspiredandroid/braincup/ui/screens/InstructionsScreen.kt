@@ -68,6 +68,7 @@ import com.inspiredandroid.braincup.ui.components.TowerOfHanoiDemo
 import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
 import com.inspiredandroid.braincup.ui.components.VisualMemoryDemo
 import com.inspiredandroid.braincup.ui.components.WordleDemo
+import com.inspiredandroid.braincup.ui.components.BullsAndCowsDemo
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -136,6 +137,7 @@ fun InstructionsScreen(
                 GameType.MINI_SUDOKU -> MiniSudokuDemo(modifier = demoModifier)
                 GameType.COLORED_SHAPES -> ColoredShapesDemo(modifier = demoModifier)
                 GameType.WORDLE -> WordleDemo(modifier = demoModifier)
+                GameType.BULLS_AND_COWS -> BullsAndCowsDemo(modifier = demoModifier)
                 GameType.VISUAL_MEMORY -> VisualMemoryDemo(modifier = demoModifier)
                 GameType.DIGIT_MEMORY -> DigitMemoryDemo(modifier = demoModifier)
                 GameType.N_BACK -> NBackDemo(modifier = demoModifier)

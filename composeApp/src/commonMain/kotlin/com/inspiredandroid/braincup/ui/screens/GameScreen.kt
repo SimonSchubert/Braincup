@@ -48,6 +48,7 @@ import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
 import com.inspiredandroid.braincup.app.ValueComparisonUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.WordleUiState
+import com.inspiredandroid.braincup.app.BullsAndCowsUiState
 import com.inspiredandroid.braincup.games.BubbleSumGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
@@ -85,6 +86,7 @@ import com.inspiredandroid.braincup.ui.screens.games.SoloChessContent
 import com.inspiredandroid.braincup.ui.screens.games.SpotTheNewContent
 import com.inspiredandroid.braincup.ui.screens.games.StopwatchDisplay
 import com.inspiredandroid.braincup.ui.screens.games.TimeProgressIndicator
+import com.inspiredandroid.braincup.ui.screens.games.BullsAndCowsContent
 import com.inspiredandroid.braincup.ui.screens.games.TowerOfHanoiContent
 import com.inspiredandroid.braincup.ui.screens.games.ValueComparisonContent
 import com.inspiredandroid.braincup.ui.screens.games.VisualMemoryContent
@@ -136,6 +138,7 @@ fun GameScreen(
         is SoloChessUiState,
         is PrismClearUiState,
         is WordleUiState,
+        is BullsAndCowsUiState,
         -> false
         else -> true
     }
@@ -210,6 +213,10 @@ fun GameScreen(
                     onGiveUp = onGiveUp,
                     inSessionMode = inSessionMode,
                     onFinishedAction = onWordleFinishedAction,
+                )
+                is BullsAndCowsUiState -> BullsAndCowsContent(
+                    uiState = gameUiState,
+                    onAnswer = onAnswer,
                 )
             }
         }

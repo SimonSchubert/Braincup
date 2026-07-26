@@ -202,6 +202,7 @@
     <string name="game_knot">Knot</string>
     <string name="game_solo_chess">Solo Chess</string>
     <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
 
     <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
@@ -251,6 +252,11 @@
     <string name="solo_chess_stuck">No captures left. Tap Restart to try this level again.</string>
     <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
     <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
+    <string name="game_bulls_and_cows_desc">Guess the secret 4-digit number with unique digits. Bulls = correct digit in correct position. Cows = correct digit in wrong position.</string>
+    <string name="game_bulls_and_cows_howto">Type a 4-digit guess using unique digits, then press Enter.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">The secret was %1$s</string>
     <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
     <string name="prism_clear_undo">Undo</string>
     <string name="prism_clear_restart">Restart</string>
@@ -382,6 +388,7 @@
     <string name="achievement_gold_knot">Untangler</string>
     <string name="achievement_gold_solo_chess">Last Piece Standing</string>
     <string name="achievement_gold_prism_clear">Crystal Clarity</string>
+    <string name="achievement_gold_bulls_and_cows">Code Cracker</string>
     <string name="achievement_gold_path_finder">Trailblazer</string>
     <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
     <string name="achievement_gold_colored_shapes">Shape Shifter</string>
@@ -417,6 +424,7 @@
     <string name="achievement_gold_knot_desc">Win gold medal in Knot</string>
     <string name="achievement_gold_solo_chess_desc">Win gold medal in Solo Chess</string>
     <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Win gold medal in Bulls &amp; Cows</string>
     <string name="achievement_gold_path_finder_desc">Win gold medal in Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win gold medal in Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Win gold medal in Colored Shapes</string>
