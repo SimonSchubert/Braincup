@@ -18,20 +18,16 @@ class MissingOperatorsGame : Game() {
         nextRound()
     }
 
-    fun getNumbersCountForRound(round: Int): Int {
-        return when {
-            round >= 10 -> 5
-            round >= 5 -> 4
-            else -> 3
-        }
+    fun getNumbersCountForRound(round: Int): Int = when {
+        round >= 10 -> 5
+        round >= 5 -> 4
+        else -> 3
     }
 
-    fun getAvailableOperatorsForRound(round: Int): List<Operator> {
-        return if (round <= 2) {
-            listOf(Operator.PLUS, Operator.MINUS)
-        } else {
-            listOf(Operator.PLUS, Operator.MINUS, Operator.MULTIPLY, Operator.DIVIDE)
-        }
+    fun getAvailableOperatorsForRound(round: Int): List<Operator> = if (round <= 2) {
+        listOf(Operator.PLUS, Operator.MINUS)
+    } else {
+        listOf(Operator.PLUS, Operator.MINUS, Operator.MULTIPLY, Operator.DIVIDE)
     }
 
     override fun generateRound() {
@@ -150,11 +146,9 @@ class MissingOperatorsGame : Game() {
 
     override fun hint(): String? = null
 
-    override fun toUiState(): GameUiState {
-        return MissingOperatorsUiState(
-            numbers = numbers.toImmutableList(),
-            targetResult = targetResult,
-            operatorsCount = numbers.size - 1,
-        )
-    }
+    override fun toUiState(): GameUiState = MissingOperatorsUiState(
+        numbers = numbers.toImmutableList(),
+        targetResult = targetResult,
+        operatorsCount = numbers.size - 1,
+    )
 }

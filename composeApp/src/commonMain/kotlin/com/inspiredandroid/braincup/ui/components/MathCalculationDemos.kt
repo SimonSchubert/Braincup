@@ -12,7 +12,6 @@ import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -25,6 +24,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -44,8 +44,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.chain_calculation_demo_title
-import braincup.composeapp.generated.resources.missing_operators_demo_title
-import braincup.composeapp.generated.resources.missing_operators_demo_desc
 import braincup.composeapp.generated.resources.fraction_calculation_demo_title
 import braincup.composeapp.generated.resources.game_chain_calculation_desc
 import braincup.composeapp.generated.resources.game_fraction_calculation_desc
@@ -56,6 +54,8 @@ import braincup.composeapp.generated.resources.game_sherlock_calculation_desc
 import braincup.composeapp.generated.resources.game_value_comparison_desc
 import braincup.composeapp.generated.resources.mental_calculation_demo_keep
 import braincup.composeapp.generated.resources.mental_calculation_demo_title
+import braincup.composeapp.generated.resources.missing_operators_demo_desc
+import braincup.composeapp.generated.resources.missing_operators_demo_title
 import braincup.composeapp.generated.resources.sherlock_calculation_demo_title
 import braincup.composeapp.generated.resources.value_comparison_demo_title
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -289,7 +289,7 @@ fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
     ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(10.dp)
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             MathText(text = "12", style = MaterialTheme.typography.displaySmall)
 
@@ -308,17 +308,17 @@ fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
                         } else {
                             MaterialTheme.colorScheme.surfaceVariant
                         },
-                        shape = RoundedCornerShape(8.dp)
+                        shape = RoundedCornerShape(8.dp),
                     )
                     .border(
                         border = firstBorder,
-                        shape = RoundedCornerShape(8.dp)
+                        shape = RoundedCornerShape(8.dp),
                     ),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 MathText(
                     text = if (animationStep >= 1) "/" else " ",
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.titleLarge,
                 )
             }
 
@@ -339,17 +339,17 @@ fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
                         } else {
                             MaterialTheme.colorScheme.surfaceVariant
                         },
-                        shape = RoundedCornerShape(8.dp)
+                        shape = RoundedCornerShape(8.dp),
                     )
                     .border(
                         border = secondBorder,
-                        shape = RoundedCornerShape(8.dp)
+                        shape = RoundedCornerShape(8.dp),
                     ),
-                contentAlignment = Alignment.Center
+                contentAlignment = Alignment.Center,
             ) {
                 MathText(
                     text = if (animationStep >= 2) "+" else " ",
-                    style = MaterialTheme.typography.titleLarge
+                    style = MaterialTheme.typography.titleLarge,
                 )
             }
 

@@ -34,7 +34,6 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BubbleSumDemo
 import com.inspiredandroid.braincup.ui.components.CatQueensDemo
 import com.inspiredandroid.braincup.ui.components.ChainCalculationDemo
-import com.inspiredandroid.braincup.ui.components.MissingOperatorsDemo
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
 import com.inspiredandroid.braincup.ui.components.ColorConfusionDemo
 import com.inspiredandroid.braincup.ui.components.ColoredShapesDemo
@@ -48,6 +47,7 @@ import com.inspiredandroid.braincup.ui.components.KnotDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
 import com.inspiredandroid.braincup.ui.components.MiniSudokuDemo
+import com.inspiredandroid.braincup.ui.components.MissingOperatorsDemo
 import com.inspiredandroid.braincup.ui.components.NBackDemo
 import com.inspiredandroid.braincup.ui.components.NurikabeDemo
 import com.inspiredandroid.braincup.ui.components.OrbitTrackerDemo

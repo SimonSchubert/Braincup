@@ -31,12 +31,12 @@ internal fun ColumnScope.MissingOperatorsContent(
         Row(
             horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.padding(horizontal = 16.dp)
+            modifier = Modifier.padding(horizontal = 16.dp),
         ) {
             uiState.numbers.forEachIndexed { index, number ->
                 MathText(
                     text = number.toString(),
-                    style = MaterialTheme.typography.displaySmall
+                    style = MaterialTheme.typography.displaySmall,
                 )
                 if (index < uiState.operatorsCount) {
                     val borderStroke = if (selectedSlotIndex == index) {
@@ -54,17 +54,17 @@ internal fun ColumnScope.MissingOperatorsContent(
                                 } else {
                                     MaterialTheme.colorScheme.surfaceVariant
                                 },
-                                shape = RoundedCornerShape(8.dp)
+                                shape = RoundedCornerShape(8.dp),
                             )
                             .border(
                                 border = borderStroke,
-                                shape = RoundedCornerShape(8.dp)
+                                shape = RoundedCornerShape(8.dp),
                             )
                             .hoverHand()
                             .clickable {
                                 selectedSlotIndex = index
                             },
-                        contentAlignment = Alignment.Center
+                        contentAlignment = Alignment.Center,
                     ) {
                         val op = enteredOperators[index]
                         if (op != null) {
@@ -77,7 +77,7 @@ internal fun ColumnScope.MissingOperatorsContent(
             }
             MathText(
                 text = " = ${uiState.targetResult}",
-                style = MaterialTheme.typography.displaySmall
+                style = MaterialTheme.typography.displaySmall,
             )
         }
     }
@@ -109,7 +109,7 @@ internal fun ColumnScope.MissingOperatorsContent(
                             }
                         }
                     },
-                    value = op
+                    value = op,
                 )
             }
         }
@@ -137,7 +137,7 @@ internal fun ColumnScope.MissingOperatorsContent(
     } else {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
         ) {
             EquationRow()
             Spacer(Modifier.height(32.dp))
