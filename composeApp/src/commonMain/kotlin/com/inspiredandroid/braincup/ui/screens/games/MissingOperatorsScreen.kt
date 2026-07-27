@@ -1,7 +1,9 @@
 package com.inspiredandroid.braincup.ui.screens.games
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -9,12 +11,9 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.baseline_backspace_24
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.ui.components.*
-import org.jetbrains.compose.resources.painterResource
 
 @Composable
 internal fun ColumnScope.MissingOperatorsContent(
@@ -22,7 +21,10 @@ internal fun ColumnScope.MissingOperatorsContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    var typedOperators by remember(uiState) { mutableStateOf(emptyList<Operator>()) }
+    var enteredOperators by remember(uiState) {
+        mutableStateOf(List<Operator?>(uiState.operatorsCount) { null })
+    }
+    var selectedSlotIndex by remember(uiState) { mutableStateOf(0) }
 
     @Composable
     fun EquationRow() {
@@ -37,23 +39,36 @@ internal fun ColumnScope.MissingOperatorsContent(
                     style = MaterialTheme.typography.displaySmall
                 )
                 if (index < uiState.operatorsCount) {
+                    val borderStroke = if (selectedSlotIndex == index) {
+                        BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
+                    } else {
+                        BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                    }
+
                     Box(
                         modifier = Modifier
-                            .size(44.dp)
+                            .size(48.dp)
                             .background(
-                                color = MaterialTheme.colorScheme.surfaceVariant,
+                                color = if (selectedSlotIndex == index) {
+                                    MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+                                } else {
+                                    MaterialTheme.colorScheme.surfaceVariant
+                                },
                                 shape = RoundedCornerShape(8.dp)
                             )
                             .border(
-                                width = 1.dp,
-                                color = MaterialTheme.colorScheme.outline,
+                                border = borderStroke,
                                 shape = RoundedCornerShape(8.dp)
-                            ),
+                            )
+                            .hoverHand()
+                            .clickable {
+                                selectedSlotIndex = index
+                            },
                         contentAlignment = Alignment.Center
                     ) {
-                        if (index < typedOperators.size) {
-                            val opSymbol = typedOperators[index].char.toString()
-                            MathText(text = opSymbol, style = MaterialTheme.typography.titleLarge)
+                        val op = enteredOperators[index]
+                        if (op != null) {
+                            MathText(text = op.char.toString(), style = MaterialTheme.typography.titleLarge)
                         } else {
                             Text(text = " ", style = MaterialTheme.typography.titleLarge)
                         }
@@ -77,35 +92,24 @@ internal fun ColumnScope.MissingOperatorsContent(
             ops.forEach { op ->
                 CircleButton(
                     onClick = {
-                        if (typedOperators.size < uiState.operatorsCount) {
-                            typedOperators = typedOperators + Operator.entries.first { it.char.toString() == op }
-                            if (typedOperators.size == uiState.operatorsCount) {
-                                val answerStr = typedOperators.map { it.char }.joinToString("")
-                                onAnswer(answerStr)
+                        val selectedOp = Operator.entries.first { it.char.toString() == op }
+                        enteredOperators = enteredOperators.toMutableList().apply {
+                            this[selectedSlotIndex] = selectedOp
+                        }
+
+                        if (enteredOperators.all { it != null }) {
+                            val answerStr = enteredOperators.map { it?.char }.joinToString("")
+                            onAnswer(answerStr)
+                        } else {
+                            val nextEmptyIndex = enteredOperators.indexOfFirst { it == null }
+                            if (nextEmptyIndex != -1) {
+                                selectedSlotIndex = nextEmptyIndex
+                            } else {
+                                selectedSlotIndex = (selectedSlotIndex + 1).coerceAtMost(uiState.operatorsCount - 1)
                             }
                         }
                     },
                     value = op
-                )
-            }
-
-            PrismTile(
-                face = MaterialTheme.colorScheme.surfaceVariant,
-                modifier = Modifier
-                    .size(56.dp)
-                    .hoverHand(typedOperators.isNotEmpty()),
-                isClickable = typedOperators.isNotEmpty(),
-                onClick = {
-                    if (typedOperators.isNotEmpty()) {
-                        typedOperators = typedOperators.dropLast(1)
-                    }
-                },
-            ) {
-                Icon(
-                    painterResource(Res.drawable.baseline_backspace_24),
-                    contentDescription = null,
-                    tint = MaterialTheme.colorScheme.onSurfaceVariant,
-                    modifier = Modifier.size(24.dp),
                 )
             }
         }
