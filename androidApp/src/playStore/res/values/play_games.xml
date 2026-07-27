@@ -44,6 +44,8 @@
     <string name="achievementRollingRecall" translatable="false">CgkIuZrirtIVEAIQLQ</string>
     <!-- achievement Crystal Clarity (Prism Clear) -->
     <string name="achievementCrystalClarity" translatable="false">CgkIuZrirtIVEAIQLg</string>
+    <!-- achievement Operator Master (Missing Operators) -->
+    <string name="achievementOperatorMaster" translatable="false"></string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

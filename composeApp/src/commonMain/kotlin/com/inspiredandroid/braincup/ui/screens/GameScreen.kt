@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.app.KnotUiState
 import com.inspiredandroid.braincup.app.LightsOutUiState
 import com.inspiredandroid.braincup.app.MentalCalculationUiState
 import com.inspiredandroid.braincup.app.MiniChessUiState
+import com.inspiredandroid.braincup.app.MissingOperatorsUiState
 import com.inspiredandroid.braincup.app.MiniSudokuUiState
 import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.NurikabeUiState
@@ -68,6 +69,7 @@ import com.inspiredandroid.braincup.ui.screens.games.LightsOutContent
 import com.inspiredandroid.braincup.ui.screens.games.MemorizeTimeProgressBar
 import com.inspiredandroid.braincup.ui.screens.games.MentalCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.MiniChessContent
+import com.inspiredandroid.braincup.ui.screens.games.MissingOperatorsContent
 import com.inspiredandroid.braincup.ui.screens.games.MiniSudokuContent
 import com.inspiredandroid.braincup.ui.screens.games.NBackContent
 import com.inspiredandroid.braincup.ui.screens.games.NurikabeContent
@@ -171,6 +173,7 @@ fun GameScreen(
                     onArenaSize = onBubbleSumArenaSize,
                 )
                 is ChainCalculationUiState -> ChainCalculationContent(gameUiState, onAnswer, onGiveUp)
+                is MissingOperatorsUiState -> MissingOperatorsContent(gameUiState, onAnswer, onGiveUp)
                 is FractionCalculationUiState -> FractionCalculationContent(gameUiState, onAnswer, onGiveUp)
                 is ColoredShapesUiState -> ColoredShapesContent(gameUiState, onAnswer)
                 is SherlockCalculationUiState -> SherlockCalculationContent(gameUiState, onAnswer, onGiveUp)
