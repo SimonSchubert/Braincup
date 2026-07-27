@@ -257,6 +257,10 @@
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">The secret was %1$s</string>
+    <string name="bulls_and_cows_demo_title">Crack the secret code</string>
+    <string name="bulls_and_cows_demo_step1">Type a 4-digit guess with unique digits.</string>
+    <string name="bulls_and_cows_demo_step2">Check your Bulls (correct position) and Cows (wrong position).</string>
+    <string name="bulls_and_cows_demo_step3">Crack the code in as few turns as possible!</string>
     <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
     <string name="prism_clear_undo">Undo</string>
     <string name="prism_clear_restart">Restart</string>
