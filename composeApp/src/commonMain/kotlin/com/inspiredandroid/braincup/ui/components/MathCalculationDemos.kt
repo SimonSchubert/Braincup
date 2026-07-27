@@ -8,6 +8,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.scaleIn
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -266,55 +267,92 @@ fun ChainCalculationDemo(modifier: Modifier = Modifier) {
 
 @Composable
 fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
+    var animationStep by remember { mutableStateOf(0) }
+
+    LaunchedEffect(Unit) {
+        while (true) {
+            animationStep = 0
+            delay(1200L)
+
+            animationStep = 1
+            delay(800L)
+
+            animationStep = 2
+            delay(1500L)
+        }
+    }
+
     MathExampleDemo(
         title = Res.string.missing_operators_demo_title,
         caption = Res.string.missing_operators_demo_desc,
         modifier = modifier,
-    ) { revealed ->
+    ) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             MathText(text = "12", style = MaterialTheme.typography.displaySmall)
+
+            // First slot: highlighted when animationStep == 0, has value / when animationStep >= 1
+            val firstBorder = if (animationStep == 0) {
+                BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
+            } else {
+                BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+            }
             Box(
                 modifier = Modifier
                     .size(44.dp)
                     .background(
-                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        color = if (animationStep == 0) {
+                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+                        } else {
+                            MaterialTheme.colorScheme.surfaceVariant
+                        },
                         shape = RoundedCornerShape(8.dp)
                     )
                     .border(
-                        width = 1.dp,
-                        color = MaterialTheme.colorScheme.outline,
+                        border = firstBorder,
                         shape = RoundedCornerShape(8.dp)
                     ),
                 contentAlignment = Alignment.Center
             ) {
                 MathText(
-                    text = if (revealed) "/" else " ",
+                    text = if (animationStep >= 1) "/" else " ",
                     style = MaterialTheme.typography.titleLarge
                 )
             }
+
             MathText(text = "4", style = MaterialTheme.typography.displaySmall)
+
+            // Second slot: highlighted when animationStep == 1, has value + when animationStep >= 2
+            val secondBorder = if (animationStep == 1) {
+                BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
+            } else {
+                BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+            }
             Box(
                 modifier = Modifier
                     .size(44.dp)
                     .background(
-                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        color = if (animationStep == 1) {
+                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+                        } else {
+                            MaterialTheme.colorScheme.surfaceVariant
+                        },
                         shape = RoundedCornerShape(8.dp)
                     )
                     .border(
-                        width = 1.dp,
-                        color = MaterialTheme.colorScheme.outline,
+                        border = secondBorder,
                         shape = RoundedCornerShape(8.dp)
                     ),
                 contentAlignment = Alignment.Center
             ) {
                 MathText(
-                    text = if (revealed) "+" else " ",
+                    text = if (animationStep >= 2) "+" else " ",
                     style = MaterialTheme.typography.titleLarge
                 )
             }
+
             MathText(text = "2 = 5", style = MaterialTheme.typography.displaySmall)
         }
     }
