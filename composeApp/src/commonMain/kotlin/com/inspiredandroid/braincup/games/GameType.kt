@@ -316,6 +316,14 @@ enum class GameType(
         descriptionRes = Res.string.game_prism_clear_desc,
         category = GameCategory.LOGIC,
     ),
+    MISSING_OPERATORS(
+        displayNameRes = Res.string.game_missing_operators,
+        id = "36",
+        goldScore = 12,
+        silverScore = 6,
+        descriptionRes = Res.string.game_missing_operators_desc,
+        category = GameCategory.MATH,
+    ),
     ;
 
     /** URL path segment for web navigation, e.g. CAT_QUEENS → "CatQueens". */

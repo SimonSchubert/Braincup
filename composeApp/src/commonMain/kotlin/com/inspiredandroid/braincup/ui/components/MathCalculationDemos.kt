@@ -9,7 +9,9 @@ import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.scaleIn
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.IntrinsicSize
@@ -41,6 +43,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.chain_calculation_demo_title
+import braincup.composeapp.generated.resources.missing_operators_demo_title
+import braincup.composeapp.generated.resources.missing_operators_demo_desc
 import braincup.composeapp.generated.resources.fraction_calculation_demo_title
 import braincup.composeapp.generated.resources.game_chain_calculation_desc
 import braincup.composeapp.generated.resources.game_fraction_calculation_desc
@@ -256,6 +260,62 @@ fun ChainCalculationDemo(modifier: Modifier = Modifier) {
             // 8 x 3 resolves before the + (see Calculator), so 5 + 24 = 29.
             MathText(text = "5 + 8 * 3 =", style = MaterialTheme.typography.displaySmall)
             RevealedAnswer(answer = "29", revealed = revealed)
+        }
+    }
+}
+
+@Composable
+fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
+    MathExampleDemo(
+        title = Res.string.missing_operators_demo_title,
+        caption = Res.string.missing_operators_demo_desc,
+        modifier = modifier,
+    ) { revealed ->
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(10.dp)
+        ) {
+            MathText(text = "12", style = MaterialTheme.typography.displaySmall)
+            Box(
+                modifier = Modifier
+                    .size(44.dp)
+                    .background(
+                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        shape = RoundedCornerShape(8.dp)
+                    )
+                    .border(
+                        width = 1.dp,
+                        color = MaterialTheme.colorScheme.outline,
+                        shape = RoundedCornerShape(8.dp)
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                MathText(
+                    text = if (revealed) "/" else " ",
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
+            MathText(text = "4", style = MaterialTheme.typography.displaySmall)
+            Box(
+                modifier = Modifier
+                    .size(44.dp)
+                    .background(
+                        color = MaterialTheme.colorScheme.surfaceVariant,
+                        shape = RoundedCornerShape(8.dp)
+                    )
+                    .border(
+                        width = 1.dp,
+                        color = MaterialTheme.colorScheme.outline,
+                        shape = RoundedCornerShape(8.dp)
+                    ),
+                contentAlignment = Alignment.Center
+            ) {
+                MathText(
+                    text = if (revealed) "+" else " ",
+                    style = MaterialTheme.typography.titleLarge
+                )
+            }
+            MathText(text = "2 = 5", style = MaterialTheme.typography.displaySmall)
         }
     }
 }
