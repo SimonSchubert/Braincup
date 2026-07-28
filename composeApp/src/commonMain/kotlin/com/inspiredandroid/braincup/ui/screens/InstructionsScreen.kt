@@ -48,6 +48,7 @@ import com.inspiredandroid.braincup.ui.components.KnotDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
 import com.inspiredandroid.braincup.ui.components.MiniSudokuDemo
+import com.inspiredandroid.braincup.ui.components.MissingOperatorsDemo
 import com.inspiredandroid.braincup.ui.components.NBackDemo
 import com.inspiredandroid.braincup.ui.components.NurikabeDemo
 import com.inspiredandroid.braincup.ui.components.OrbitTrackerDemo
@@ -146,6 +147,7 @@ fun InstructionsScreen(
                 GameType.FLAGS -> FlagsDemo(modifier = demoModifier)
                 GameType.MENTAL_CALCULATION -> MentalCalculationDemo(modifier = demoModifier)
                 GameType.CHAIN_CALCULATION -> ChainCalculationDemo(modifier = demoModifier)
+                GameType.MISSING_OPERATORS -> MissingOperatorsDemo(modifier = demoModifier)
                 GameType.FRACTION_CALCULATION -> FractionCalculationDemo(modifier = demoModifier)
                 GameType.SHERLOCK_CALCULATION -> SherlockCalculationDemo(modifier = demoModifier)
                 GameType.VALUE_COMPARISON -> ValueComparisonDemo(modifier = demoModifier)

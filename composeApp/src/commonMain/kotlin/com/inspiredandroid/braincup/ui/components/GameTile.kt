@@ -494,6 +494,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.QUICK_SUM -> QuickSumPreview()
         GameType.SHERLOCK_CALCULATION -> SherlockCalculationPreview()
         GameType.CHAIN_CALCULATION -> ChainCalculationPreview()
+        GameType.MISSING_OPERATORS -> MissingOperatorsPreview()
         GameType.FRACTION_CALCULATION -> FractionCalculationPreview()
         GameType.VALUE_COMPARISON -> ValueComparisonPreview()
         GameType.MINI_SUDOKU -> MiniSudokuPreview()
@@ -683,6 +684,15 @@ private fun MentalCalculationPreview() {
         style = MaterialTheme.typography.headlineSmall,
         fontFamily = numberFontFamily(),
         textAlign = TextAlign.Center,
+        color = PreviewTextColor,
+    )
+}
+
+@Composable
+private fun MissingOperatorsPreview() {
+    MathText(
+        text = "12 ? 4 = 3",
+        style = MaterialTheme.typography.headlineSmall,
         color = PreviewTextColor,
     )
 }

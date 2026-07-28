@@ -812,6 +812,7 @@ class GameController(
         GameType.MENTAL_CALCULATION -> MentalCalculationGame()
         GameType.SHERLOCK_CALCULATION -> SherlockCalculationGame()
         GameType.CHAIN_CALCULATION -> ChainCalculationGame()
+        GameType.MISSING_OPERATORS -> MissingOperatorsGame()
         GameType.VALUE_COMPARISON -> ValueComparisonGame()
         GameType.FRACTION_CALCULATION -> FractionCalculationGame()
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()

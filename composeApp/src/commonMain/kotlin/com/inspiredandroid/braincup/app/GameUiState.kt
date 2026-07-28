@@ -100,6 +100,13 @@ data class ChainCalculationUiState(
 ) : GameUiState
 
 @Immutable
+data class MissingOperatorsUiState(
+    val numbers: ImmutableList<Int>,
+    val targetResult: Int,
+    val operatorsCount: Int,
+) : GameUiState
+
+@Immutable
 data class FractionCalculationUiState(
     val calculation: String,
     val answerString: String,

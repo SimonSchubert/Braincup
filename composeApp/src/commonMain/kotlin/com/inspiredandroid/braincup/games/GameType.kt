@@ -325,9 +325,18 @@ enum class GameType(
         descriptionRes = Res.string.game_prism_clear_desc,
         category = GameCategory.LOGIC,
     ),
+    MISSING_OPERATORS(
+        displayNameRes = Res.string.game_missing_operators,
+        id = "36",
+        goldScore = 12,
+        silverScore = 6,
+        descriptionRes = Res.string.game_missing_operators_desc,
+        category = GameCategory.MATH,
+    ),
     BULLS_AND_COWS(
         displayNameRes = Res.string.game_bulls_and_cows,
-        id = "36",
+        // id 36 is Missing Operators (already on master); use the next free id.
+        id = "37",
         // Guesses used (lower is better): gold ≤3, silver ≤6, bronze ≤12.
         goldScore = 3,
         silverScore = 6,

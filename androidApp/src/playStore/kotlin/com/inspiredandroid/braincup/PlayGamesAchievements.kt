@@ -294,6 +294,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.BUBBLE_SUM -> R.string.achievementBubbleAccountant
     GameType.QUICK_SUM -> R.string.achievementFlashAbacus
     GameType.CHAIN_CALCULATION -> R.string.achievementUnbrokenChain
+    GameType.MISSING_OPERATORS -> R.string.achievementOperatorMaster
     GameType.FRACTION_CALCULATION -> R.string.achievementFractionBoss
     GameType.VALUE_COMPARISON -> R.string.achievementGreaterThanTheRest
     GameType.GHOST_GRID -> R.string.achievementGhostWhisperer

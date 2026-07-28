@@ -738,4 +738,12 @@
     <string name="achievement_gold_prism_clear">Crystal Clarity</string>
     <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
     <string name="prism_clear_undo">Undo</string>
+    <!-- Missing Operators -->
+    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
+    <string name="missing_operators_instruction">Which operators make the statement true?</string>
+    <string name="missing_operators_demo_title">Find the missing operators</string>
+    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
+    <string name="achievement_gold_missing_operators">Operator Master</string>
+    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
 </resources>
