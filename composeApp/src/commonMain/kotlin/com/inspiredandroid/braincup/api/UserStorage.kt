@@ -38,6 +38,7 @@ class UserStorage(
         GOLD_SOLO_CHESS(Res.string.achievement_gold_solo_chess, Res.string.achievement_gold_solo_chess_desc),
         GOLD_PRISM_CLEAR(Res.string.achievement_gold_prism_clear, Res.string.achievement_gold_prism_clear_desc),
         GOLD_MISSING_OPERATORS(Res.string.achievement_gold_missing_operators, Res.string.achievement_gold_missing_operators_desc),
+        GOLD_BULLS_AND_COWS(Res.string.achievement_gold_bulls_and_cows, Res.string.achievement_gold_bulls_and_cows_desc),
         GOLD_TOWER_OF_HANOI(Res.string.achievement_gold_tower_of_hanoi, Res.string.achievement_gold_tower_of_hanoi_desc),
         GOLD_PATH_FINDER(Res.string.achievement_gold_path_finder, Res.string.achievement_gold_path_finder_desc),
         GOLD_ANOMALY_PUZZLE(Res.string.achievement_gold_anomaly_puzzle, Res.string.achievement_gold_anomaly_puzzle_desc),
@@ -769,7 +770,9 @@ class UserStorage(
         return when {
             gameType.meetsScore(score, gameType.goldScore) -> 12
             gameType.meetsScore(score, gameType.silverScore) -> 6
-            else -> 3
+            gameType.meetsScore(score, gameType.bronzeScore) -> 3
+            // Finished outside bronze (e.g. too many tries) — small completion credit.
+            else -> 1
         }
     }
 

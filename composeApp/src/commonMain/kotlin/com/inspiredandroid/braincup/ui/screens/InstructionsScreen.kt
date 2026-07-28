@@ -32,6 +32,7 @@ import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BubbleSumDemo
+import com.inspiredandroid.braincup.ui.components.BullsAndCowsDemo
 import com.inspiredandroid.braincup.ui.components.CatQueensDemo
 import com.inspiredandroid.braincup.ui.components.ChainCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
@@ -137,6 +138,7 @@ fun InstructionsScreen(
                 GameType.MINI_SUDOKU -> MiniSudokuDemo(modifier = demoModifier)
                 GameType.COLORED_SHAPES -> ColoredShapesDemo(modifier = demoModifier)
                 GameType.WORDLE -> WordleDemo(modifier = demoModifier)
+                GameType.BULLS_AND_COWS -> BullsAndCowsDemo(modifier = demoModifier)
                 GameType.VISUAL_MEMORY -> VisualMemoryDemo(modifier = demoModifier)
                 GameType.DIGIT_MEMORY -> DigitMemoryDemo(modifier = demoModifier)
                 GameType.N_BACK -> NBackDemo(modifier = demoModifier)

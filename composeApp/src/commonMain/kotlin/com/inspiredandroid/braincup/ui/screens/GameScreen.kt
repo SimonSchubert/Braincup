@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
 import com.inspiredandroid.braincup.app.BubbleSumUiState
+import com.inspiredandroid.braincup.app.BullsAndCowsUiState
 import com.inspiredandroid.braincup.app.CatQueensUiState
 import com.inspiredandroid.braincup.app.ChainCalculationUiState
 import com.inspiredandroid.braincup.app.ColorConfusionUiState
@@ -55,6 +56,7 @@ import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.screens.games.AnomalyPuzzleContent
 import com.inspiredandroid.braincup.ui.screens.games.BubbleSumContent
+import com.inspiredandroid.braincup.ui.screens.games.BullsAndCowsContent
 import com.inspiredandroid.braincup.ui.screens.games.CatQueensContent
 import com.inspiredandroid.braincup.ui.screens.games.ChainCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.ColorConfusionContent
@@ -138,6 +140,7 @@ fun GameScreen(
         is SoloChessUiState,
         is PrismClearUiState,
         is WordleUiState,
+        is BullsAndCowsUiState,
         -> false
         else -> true
     }
@@ -157,7 +160,9 @@ fun GameScreen(
         } else {
             null
         },
-        fillContent = gameUiState is FlagsUiState || gameUiState is BubbleSumUiState,
+        fillContent = gameUiState is FlagsUiState ||
+            gameUiState is BubbleSumUiState ||
+            gameUiState is BullsAndCowsUiState,
     ) {
         // Force LTR for gameplay content: math expressions, digit sequences, directional
         // arrows, and asymmetric shapes carry semantic meaning that breaks under RTL
@@ -213,6 +218,10 @@ fun GameScreen(
                     onGiveUp = onGiveUp,
                     inSessionMode = inSessionMode,
                     onFinishedAction = onWordleFinishedAction,
+                )
+                is BullsAndCowsUiState -> BullsAndCowsContent(
+                    uiState = gameUiState,
+                    onAnswer = onAnswer,
                 )
             }
         }

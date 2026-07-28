@@ -12,8 +12,17 @@ enum class GameType(
     val silverScore: Int,
     val descriptionRes: StringResource,
     val category: GameCategory,
-    /** When true, score is a time (seconds). Lower beats higher; thresholds are upper bounds. */
+    /**
+     * When true, lower scores beat higher ones (time or tries). Thresholds are upper bounds.
+     * [isTimeScore] further distinguishes time-in-deciseconds from plain try counts.
+     */
     val lowerScoreIsBetter: Boolean = false,
+    /**
+     * Bronze medal threshold. Default `1` means "any positive score" via [meetsScore]
+     * (higher-is-better: score ≥ 1; lower-is-better: any finish). Tries games set an explicit
+     * max (e.g. ≤12).
+     */
+    val bronzeScore: Int = 1,
 ) {
     MINI_SUDOKU(
         displayNameRes = Res.string.game_mini_sudoku,
@@ -324,6 +333,18 @@ enum class GameType(
         descriptionRes = Res.string.game_missing_operators_desc,
         category = GameCategory.MATH,
     ),
+    BULLS_AND_COWS(
+        displayNameRes = Res.string.game_bulls_and_cows,
+        // id 36 is Missing Operators (already on master); use the next free id.
+        id = "37",
+        // Guesses used (lower is better): gold ≤3, silver ≤6, bronze ≤12.
+        goldScore = 3,
+        silverScore = 6,
+        descriptionRes = Res.string.game_bulls_and_cows_desc,
+        category = GameCategory.LOGIC,
+        lowerScoreIsBetter = true,
+        bronzeScore = 12,
+    ),
     ;
 
     /** URL path segment for web navigation, e.g. CAT_QUEENS → "CatQueens". */
@@ -362,9 +383,20 @@ enum class GameType(
             this == TOWER_OF_HANOI ||
             this == PRISM_CLEAR
 
+    /**
+     * Time-based lower-is-better scores stored as deciseconds (Schulte Table).
+     * Not the same as [lowerScoreIsBetter] — Bulls & Cows is lower-is-better tries, not time.
+     */
+    val isTimeScore: Boolean
+        get() = this == SCHULTE_TABLE
+
+    /** Score is guesses/tries used (lower is better). Finish UI says "Tries: N". */
+    val usesTriesLabel: Boolean
+        get() = this == BULLS_AND_COWS
+
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */
-    fun formatScore(score: Int): String = if (lowerScoreIsBetter) {
+    fun formatScore(score: Int): String = if (isTimeScore) {
         "${score / 10}.${score % 10}"
     } else {
         score.toString()
@@ -393,11 +425,11 @@ enum class GameType(
 
 fun getGameTypeById(id: String): GameType? = GameType.entries.find { it.id == id }
 
-/** Localized score display (adds the seconds unit for time-based games). */
+/** Localized score display (adds the seconds unit for time-based games only). */
 @Composable
 fun GameType.formattedScore(score: Int): String {
     val raw = formatScore(score)
-    return if (lowerScoreIsBetter) stringResource(Res.string.format_seconds, raw) else raw
+    return if (isTimeScore) stringResource(Res.string.format_seconds, raw) else raw
 }
 
 /** Pre-resolved seconds template for use in non-Composable lambdas (e.g. joinToString).

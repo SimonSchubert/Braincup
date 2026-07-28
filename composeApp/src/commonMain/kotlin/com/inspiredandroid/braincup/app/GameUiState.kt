@@ -537,6 +537,22 @@ data class WordleUiState(
     val notInWordList: Boolean,
 ) : GameUiState
 
+@Immutable
+data class BullsAndCowsGuess(
+    val guess: String,
+    val bulls: Int,
+    val cows: Int,
+)
+
+@Immutable
+data class BullsAndCowsUiState(
+    val guesses: ImmutableList<BullsAndCowsGuess>,
+    val currentGuess: String,
+    val finished: Boolean,
+    val won: Boolean,
+    val secret: String?,
+) : GameUiState
+
 enum class MiniChessOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }
 
 @Immutable

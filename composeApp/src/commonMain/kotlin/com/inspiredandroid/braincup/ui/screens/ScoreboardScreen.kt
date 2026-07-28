@@ -86,7 +86,7 @@ fun ScoreboardScreen(
         ) {
             MedalRequirement(
                 gameType = gameType,
-                threshold = 1,
+                threshold = gameType.bronzeScore,
                 tint = MedalBronze,
                 highscore = highscore,
             )
@@ -112,7 +112,7 @@ fun ScoreboardScreen(
                 style = MaterialTheme.typography.bodyLarge,
             )
         } else {
-            val template = if (gameType.lowerScoreIsBetter) secondsTemplate() else null
+            val template = if (gameType.isTimeScore) secondsTemplate() else null
             LazyColumn(
                 modifier = Modifier
                     .weight(1f)

@@ -69,6 +69,9 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
 import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
+import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.WordleAbsent
+import com.inspiredandroid.braincup.ui.theme.WordlePresent
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import com.inspiredandroid.braincup.ui.theme.tileFace
 import com.inspiredandroid.braincup.ui.theme.tileTextColor
@@ -99,6 +102,82 @@ private val PathFinderPreviewGrid: List<List<Figure>> = run {
             val isStart = row == startRow && col == startCol
             Figure(Shape.SQUARE, if (isStart) Color.ORANGE else Color.GREY_LIGHT)
         }
+    }
+}
+
+/**
+ * Mini scored guess for the menu tile: secret 1356, guess 1234 →
+ * bull / miss / cow / miss, with matching count chips underneath.
+ * Same green/amber/grey teaching colours as the instructions demo.
+ */
+private val BullsAndCowsPreviewTiles: List<Pair<Char, ComposeColor>> = listOf(
+    '1' to SuccessGreen, // bull — right digit, right place
+    '2' to WordleAbsent, // miss
+    '3' to WordlePresent, // cow — right digit, wrong place
+    '4' to WordleAbsent, // miss
+)
+
+@Composable
+private fun BullsAndCowsPreview() {
+    Column(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(horizontal = 16.dp, vertical = 18.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+        ) {
+            BullsAndCowsPreviewTiles.forEach { (digit, face) ->
+                Box(
+                    modifier = Modifier
+                        .weight(1f)
+                        .aspectRatio(1f),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    ColorPrismCell(
+                        face = face,
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                    Text(
+                        text = digit.toString(),
+                        color = ComposeColor.White,
+                        style = MaterialTheme.typography.titleMedium,
+                        fontFamily = numberFontFamily(),
+                        fontWeight = FontWeight.Bold,
+                        maxLines = 1,
+                    )
+                }
+            }
+        }
+        Spacer(Modifier.height(10.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            BullsAndCowsPreviewChip(label = "1B", color = SuccessGreen)
+            BullsAndCowsPreviewChip(label = "1C", color = WordlePresent)
+        }
+    }
+}
+
+@Composable
+private fun BullsAndCowsPreviewChip(label: String, color: ComposeColor) {
+    Box(
+        modifier = Modifier
+            .clip(RoundedCornerShape(6.dp))
+            .background(color.copy(alpha = 0.18f))
+            .padding(horizontal = 8.dp, vertical = 3.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.labelMedium,
+            fontFamily = numberFontFamily(),
+            fontWeight = FontWeight.Bold,
+            color = color,
+            maxLines = 1,
+        )
     }
 }
 
@@ -289,7 +368,7 @@ fun GameTile(
                 val medalTint = when {
                     gameType.meetsScore(highscore, gameType.goldScore) -> MedalGold
                     gameType.meetsScore(highscore, gameType.silverScore) -> MedalSilver
-                    highscore > 0 -> MedalBronze
+                    gameType.meetsScore(highscore, gameType.bronzeScore) -> MedalBronze
                     else -> null
                 }
                 if (medalTint != null) {
@@ -441,6 +520,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.N_BACK -> NBackPreview()
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
         GameType.WORDLE -> WordlePreview()
+        GameType.BULLS_AND_COWS -> BullsAndCowsPreview()
     }
 }
 

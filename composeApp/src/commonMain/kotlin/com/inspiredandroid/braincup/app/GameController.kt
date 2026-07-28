@@ -172,7 +172,8 @@ class GameController(
                     it == GameType.TOWER_OF_HANOI ||
                     it == GameType.PRISM_CLEAR ||
                     it == GameType.MINI_CHESS ||
-                    it == GameType.WORDLE
+                    it == GameType.WORDLE ||
+                    it == GameType.BULLS_AND_COWS
             }
             .filterNot { storage.isColorblindPaletteEnabled() && it.requiresColorVision }
             .groupBy { it.category.name } // one bucket per GameCategory
@@ -370,6 +371,10 @@ class GameController(
             startWordleGame(gameType)
             return
         }
+        if (gameType == GameType.BULLS_AND_COWS) {
+            startBullsAndCowsGame(gameType)
+            return
+        }
 
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -508,6 +513,10 @@ class GameController(
             handleSpotTheNewAnswer(game, answer.trim())
             return
         }
+        if (game is BullsAndCowsGame) {
+            handleBullsAndCowsAnswer(currentState, game, answer)
+            return
+        }
 
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
@@ -602,6 +611,12 @@ class GameController(
         if (game is PrismClearGame) {
             points = 0
             finishCurrentGame(currentState.gameType, game)
+            return
+        }
+        if (game is BullsAndCowsGame) {
+            game.giveUp()
+            points = 0
+            _gameUiState.value = game.toUiState()
             return
         }
 
@@ -827,8 +842,50 @@ class GameController(
         GameType.QUICK_SUM -> QuickSumGame()
         GameType.N_BACK -> NBackGame()
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
+        GameType.BULLS_AND_COWS -> BullsAndCowsGame()
         // Wordle needs an async-loaded, locale-specific word list, so it is built in startWordleGame.
         GameType.WORDLE -> error("WordleGame is created in startWordleGame")
+    }
+
+    private fun startBullsAndCowsGame(gameType: GameType) {
+        points = 0
+        val game = BullsAndCowsGame()
+        game.nextRound()
+        _gameState.value = GameState.Active(gameType, game)
+        _gameUiState.value = game.toUiState()
+        navController.navigate(Playing(gameType.id))
+    }
+
+    private fun handleBullsAndCowsAnswer(
+        currentState: GameState.Active,
+        game: BullsAndCowsGame,
+        input: String,
+    ) {
+        val guessSubmitted = when {
+            input == WORDLE_ENTER -> game.submitGuess()
+            input == WORDLE_DELETE -> {
+                game.backspace()
+                false
+            }
+            input.startsWith(WORDLE_CLEAR_PREFIX) -> {
+                input.removePrefix(WORDLE_CLEAR_PREFIX).toIntOrNull()?.let { game.removeAt(it) }
+                false
+            }
+            else -> {
+                input.firstOrNull()?.let { game.typeDigit(it) }
+                false
+            }
+        }
+        _gameUiState.value = game.toUiState()
+        if (guessSubmitted && game.finished) {
+            if (game.won) {
+                // Score is guesses used (lower is better): gold ≤3, silver ≤6, bronze ≤12.
+                points = game.toUiState().let { (it as BullsAndCowsUiState).guesses.size }
+            } else {
+                points = 0
+            }
+            finishCurrentGame(currentState.gameType, game)
+        }
     }
 
     private fun startVisualMemoryGame(gameType: GameType) {
