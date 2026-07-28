@@ -32,6 +32,7 @@ import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BubbleSumDemo
+import com.inspiredandroid.braincup.ui.components.BullsAndCowsDemo
 import com.inspiredandroid.braincup.ui.components.CatQueensDemo
 import com.inspiredandroid.braincup.ui.components.ChainCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ChessMoveDemo
@@ -68,7 +69,6 @@ import com.inspiredandroid.braincup.ui.components.TowerOfHanoiDemo
 import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
 import com.inspiredandroid.braincup.ui.components.VisualMemoryDemo
 import com.inspiredandroid.braincup.ui.components.WordleDemo
-import com.inspiredandroid.braincup.ui.components.BullsAndCowsDemo
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost

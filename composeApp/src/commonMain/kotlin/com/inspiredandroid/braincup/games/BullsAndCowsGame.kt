@@ -4,7 +4,6 @@ import com.inspiredandroid.braincup.app.BullsAndCowsGuess
 import com.inspiredandroid.braincup.app.BullsAndCowsUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import kotlinx.collections.immutable.toImmutableList
-import kotlin.random.Random
 
 /**
  * Bulls and Cows (Deductive Logic):
@@ -71,6 +70,13 @@ class BullsAndCowsGame : Game() {
         }
     }
 
+    /** Remove the digit at [index]; later digits shift left so focus is the next empty slot. */
+    fun removeAt(index: Int) {
+        if (finished) return
+        if (index !in currentGuess.indices) return
+        currentGuess = currentGuess.removeRange(index, index + 1)
+    }
+
     fun submitGuess(): Boolean {
         if (finished) return false
         if (currentGuess.length < 4) return false
@@ -105,21 +111,17 @@ class BullsAndCowsGame : Game() {
         return BullsAndCowsGuess(guess, bulls, cows)
     }
 
-    override fun isCorrect(input: String): Boolean {
-        return input == secret
-    }
+    override fun isCorrect(input: String): Boolean = input == secret
 
     override fun solution(): String = secret
 
     override fun hint(): String? = null
 
-    override fun toUiState(): GameUiState {
-        return BullsAndCowsUiState(
-            guesses = guesses.toImmutableList(),
-            currentGuess = currentGuess,
-            finished = finished,
-            won = won,
-            secret = if (finished) secret else null,
-        )
-    }
+    override fun toUiState(): GameUiState = BullsAndCowsUiState(
+        guesses = guesses.toImmutableList(),
+        currentGuess = currentGuess,
+        finished = finished,
+        won = won,
+        secret = if (finished) secret else null,
+    )
 }

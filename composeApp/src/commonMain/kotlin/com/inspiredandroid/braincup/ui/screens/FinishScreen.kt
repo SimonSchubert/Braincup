@@ -61,7 +61,7 @@ fun FinishScreen(
         val medalTint = when {
             gameType.meetsScore(score, gameType.goldScore) -> MedalGold
             gameType.meetsScore(score, gameType.silverScore) -> MedalSilver
-            score > 0 -> MedalBronze
+            gameType.meetsScore(score, gameType.bronzeScore) -> MedalBronze
             else -> null
         }
 
@@ -80,7 +80,11 @@ fun FinishScreen(
         val gaveUpLevelGame = gameType.usesLevelLabel && score <= 0
         if (!gaveUpLevelGame) {
             val baseScore = (score - difficultyBonus).coerceAtLeast(0)
-            val scoreLabelRes = if (gameType.usesLevelLabel) Res.string.finish_level else Res.string.finish_score
+            val scoreLabelRes = when {
+                gameType.usesLevelLabel -> Res.string.finish_level
+                gameType.usesTriesLabel -> Res.string.finish_tries
+                else -> Res.string.finish_score
+            }
             Text(
                 text = stringResource(scoreLabelRes, gameType.formattedScore(baseScore)),
                 style = MaterialTheme.typography.headlineLarge,
@@ -126,14 +130,27 @@ fun FinishScreen(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = stringResource(Res.string.finish_new_highscore),
+                    text = stringResource(
+                        if (gameType.usesTriesLabel) {
+                            Res.string.finish_new_best_tries
+                        } else {
+                            Res.string.finish_new_highscore
+                        },
+                    ),
                     style = MaterialTheme.typography.titleMedium,
                     color = OnPrimaryContainer,
                 )
             }
         } else if (highscore > 0 && !gameType.usesLevelLabel) {
             Text(
-                text = stringResource(Res.string.finish_highscore, gameType.formattedScore(highscore)),
+                text = stringResource(
+                    if (gameType.usesTriesLabel) {
+                        Res.string.finish_best_tries
+                    } else {
+                        Res.string.finish_highscore
+                    },
+                    gameType.formattedScore(highscore),
+                ),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.align(Alignment.CenterHorizontally),

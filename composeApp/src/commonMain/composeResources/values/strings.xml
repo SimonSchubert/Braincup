@@ -153,11 +153,14 @@
 
     <!-- Finish screen -->
     <string name="finish_score">Score: %1$s</string>
+    <string name="finish_tries">Tries: %1$s</string>
     <string name="finish_difficulty_bonus">Difficulty bonus: +%1$s</string>
     <string name="finish_level">Level: %1$s</string>
     <string name="finish_bonus_point">You earned 1 extra point for making no mistakes!</string>
     <string name="finish_new_highscore">New High Score!</string>
+    <string name="finish_new_best_tries">New best!</string>
     <string name="finish_highscore">High Score: %1$s</string>
+    <string name="finish_best_tries">Best: %1$s tries</string>
     <string name="button_play_next_level">Play next level</string>
     <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
 
@@ -258,9 +261,13 @@
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">The secret was %1$s</string>
     <string name="bulls_and_cows_demo_title">Crack the secret code</string>
-    <string name="bulls_and_cows_demo_step1">Type a 4-digit guess with unique digits.</string>
-    <string name="bulls_and_cows_demo_step2">Check your Bulls (correct position) and Cows (wrong position).</string>
-    <string name="bulls_and_cows_demo_step3">Crack the code in as few turns as possible!</string>
+    <!-- Plain fallbacks also used to reserve caption height (Bull/Cow words are colored in UI). -->
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 misses.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = right place.\nCow = right digit, wrong place.</string>
+    <string name="bulls_and_cows_demo_step3">Keep the Bull.\nMove the Cow — it becomes a Bull.</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Miss</string>
     <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
     <string name="prism_clear_undo">Undo</string>
     <string name="prism_clear_restart">Restart</string>

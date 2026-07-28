@@ -769,7 +769,9 @@ class UserStorage(
         return when {
             gameType.meetsScore(score, gameType.goldScore) -> 12
             gameType.meetsScore(score, gameType.silverScore) -> 6
-            else -> 3
+            gameType.meetsScore(score, gameType.bronzeScore) -> 3
+            // Finished outside bronze (e.g. too many tries) — small completion credit.
+            else -> 1
         }
     }
 

@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.games
 import com.inspiredandroid.braincup.app.BullsAndCowsUiState
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class BullsAndCowsGameTest {
@@ -32,6 +31,22 @@ class BullsAndCowsGameTest {
         game.backspace()
         assertEquals("123", game.currentGuess)
 
+        game.typeDigit('4')
+        assertEquals("1234", game.currentGuess)
+
+        // Tap a middle digit slot: remove that digit, rest shifts left
+        game.removeAt(1)
+        assertEquals("134", game.currentGuess)
+        game.typeDigit('2')
+        assertEquals("1342", game.currentGuess)
+        // Rebuild a full correct guess for the win path below
+        game.removeAt(0)
+        game.removeAt(0)
+        game.removeAt(0)
+        game.removeAt(0)
+        game.typeDigit('1')
+        game.typeDigit('2')
+        game.typeDigit('3')
         game.typeDigit('4')
         assertEquals("1234", game.currentGuess)
 

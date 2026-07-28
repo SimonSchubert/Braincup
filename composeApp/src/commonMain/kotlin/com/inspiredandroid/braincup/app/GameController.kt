@@ -860,10 +860,14 @@ class GameController(
         game: BullsAndCowsGame,
         input: String,
     ) {
-        val guessSubmitted = when (input) {
-            WORDLE_ENTER -> game.submitGuess()
-            WORDLE_DELETE -> {
+        val guessSubmitted = when {
+            input == WORDLE_ENTER -> game.submitGuess()
+            input == WORDLE_DELETE -> {
                 game.backspace()
+                false
+            }
+            input.startsWith(WORDLE_CLEAR_PREFIX) -> {
+                input.removePrefix(WORDLE_CLEAR_PREFIX).toIntOrNull()?.let { game.removeAt(it) }
                 false
             }
             else -> {
@@ -874,8 +878,7 @@ class GameController(
         _gameUiState.value = game.toUiState()
         if (guessSubmitted && game.finished) {
             if (game.won) {
-                // Score is guesses used. For Bulls & Cows we set goldScore = 6, silverScore = 10.
-                // It is a lowerScoreIsBetter game.
+                // Score is guesses used (lower is better): gold ≤3, silver ≤6, bronze ≤12.
                 points = game.toUiState().let { (it as BullsAndCowsUiState).guesses.size }
             } else {
                 points = 0

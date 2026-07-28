@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
 import com.inspiredandroid.braincup.app.BubbleSumUiState
+import com.inspiredandroid.braincup.app.BullsAndCowsUiState
 import com.inspiredandroid.braincup.app.CatQueensUiState
 import com.inspiredandroid.braincup.app.ChainCalculationUiState
 import com.inspiredandroid.braincup.app.ColorConfusionUiState
@@ -48,13 +49,13 @@ import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
 import com.inspiredandroid.braincup.app.ValueComparisonUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.WordleUiState
-import com.inspiredandroid.braincup.app.BullsAndCowsUiState
 import com.inspiredandroid.braincup.games.BubbleSumGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.ui.components.GameScaffold
 import com.inspiredandroid.braincup.ui.screens.games.AnomalyPuzzleContent
 import com.inspiredandroid.braincup.ui.screens.games.BubbleSumContent
+import com.inspiredandroid.braincup.ui.screens.games.BullsAndCowsContent
 import com.inspiredandroid.braincup.ui.screens.games.CatQueensContent
 import com.inspiredandroid.braincup.ui.screens.games.ChainCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.ColorConfusionContent
@@ -86,7 +87,6 @@ import com.inspiredandroid.braincup.ui.screens.games.SoloChessContent
 import com.inspiredandroid.braincup.ui.screens.games.SpotTheNewContent
 import com.inspiredandroid.braincup.ui.screens.games.StopwatchDisplay
 import com.inspiredandroid.braincup.ui.screens.games.TimeProgressIndicator
-import com.inspiredandroid.braincup.ui.screens.games.BullsAndCowsContent
 import com.inspiredandroid.braincup.ui.screens.games.TowerOfHanoiContent
 import com.inspiredandroid.braincup.ui.screens.games.ValueComparisonContent
 import com.inspiredandroid.braincup.ui.screens.games.VisualMemoryContent
@@ -158,7 +158,9 @@ fun GameScreen(
         } else {
             null
         },
-        fillContent = gameUiState is FlagsUiState || gameUiState is BubbleSumUiState,
+        fillContent = gameUiState is FlagsUiState ||
+            gameUiState is BubbleSumUiState ||
+            gameUiState is BullsAndCowsUiState,
     ) {
         // Force LTR for gameplay content: math expressions, digit sequences, directional
         // arrows, and asymmetric shapes carry semantic meaning that breaks under RTL
