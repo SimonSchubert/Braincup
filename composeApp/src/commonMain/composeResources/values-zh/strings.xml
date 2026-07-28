@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">训练您的数学技能、记忆力和专注力。</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">开始</string>
     <string name="button_back">返回</string>
     <string name="button_play_again">再玩一次</string>
     <string name="button_play_next_level">玩下一关</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">已达最高关卡。请等待新内容。</string>
     <string name="button_play_random">随机游戏</string>
     <string name="button_give_up">放弃</string>
     <string name="button_stay">继续</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">退格</string>
     <string name="button_done">完成</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">成就 (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">退出游戏？</string>
     <string name="quit_game_message">本局进度将不会保存。</string>
     <string name="game_goal">目标：%1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">点击数字来构建表达式</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">得分：%1$s</string>
     <string name="finish_difficulty_bonus">难度奖励：+%1$s</string>
     <string name="finish_level">关卡：%1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">新最高分！</string>
     <string name="finish_highscore">最高分: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">答案: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s 排行榜</string>
     <string name="scoreboard_highscore">最高分</string>
     <string name="scoreboard_best_level">最高关卡</string>
     <string name="scoreboard_no_scores">暂无分数</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">成就</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">异常谜题</string>
     <string name="game_mental_calculation">心算</string>
     <string name="game_colored_shapes">彩色形状</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">绳结</string>
     <string name="game_solo_chess">单人象棋</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">找出与众不同的图形。考虑每个图形的颜色和形状。</string>
     <string name="game_mental_calculation_desc">跟随数学表达式。将结果作为下一次计算的基础。</string>
     <string name="game_colored_shapes_desc">将正确陈述的分数相加。</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">蓝色</string>
     <string name="game_flash_crowd_yellow">黄色</string>
 
-    <!-- Color names -->
     <string name="color_red">红</string>
     <string name="color_green">绿</string>
     <string name="color_blue">蓝</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">粉红</string>
     <string name="color_light_grey">浅灰</string>
 
-    <!-- Shape names -->
     <string name="shape_square">正方形</string>
     <string name="shape_triangle">三角形</string>
     <string name="shape_circle">圆形</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">房子</string>
     <string name="shape_arrow">箭头</string>
 
-    <!-- Direction words -->
     <string name="direction_up">上</string>
     <string name="direction_right">右</string>
     <string name="direction_down">下</string>
     <string name="direction_left">左</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">指向%3$s的%1$s%2$s</string>
     <string name="solution_figure">%1$s%2$s</string>
     <string name="solution_column_row">第%1$d列第%2$d行</string>
     <string name="solution_left">左边</string>
     <string name="solution_right">右边</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">每日挑战</string>
     <string name="daily_challenge_subtitle_start">玩 %1$d 个游戏来保持连续记录</string>
     <string name="daily_challenge_subtitle_start_no_streak">玩 %1$d 个游戏来开始你的连续记录</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">连续天数: %1$d</string>
     <string name="session_streak_current">当前连续: %1$d 天</string>
 
-    <!-- Level / XP -->
     <string name="level_label">等级 %1$d</string>
     <string name="level_up_title">升级！</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">大师</string>
     <string name="title_grandmaster">宗师</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">数独贤者</string>
     <string name="achievement_gold_mini_chess">残局大师</string>
     <string name="achievement_gold_lights_out">全场熄灯</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">闪电之眼</string>
     <string name="achievement_gold_flags">旗手</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">心智马拉松</string>
     <string name="achievement_iron_streak">铁血连胜</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">在迷你数独中赢得金牌</string>
     <string name="achievement_gold_mini_chess_desc">在Mini Chess中赢得金牌</string>
     <string name="achievement_gold_lights_out_desc">在Lights Out中赢得金牌</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">在舒尔特方格中赢得金牌</string>
     <string name="achievement_gold_flags_desc">在国旗中赢得金牌</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">累计获得10000分</string>
     <string name="achievement_iron_streak_desc">连续训练30天</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">数独新芽</string>
     <string name="achievement_sudoku_beginner_desc">解开全部10个入门难度数独</string>
     <string name="achievement_sudoku_easy">数独学者</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">解开全部10个困难难度数独</string>
     <string name="achievement_sudoku_expert">数独霸主</string>
     <string name="achievement_sudoku_expert_desc">解开全部10个专家难度数独</string>
-    <!-- Flags game -->
     <string name="game_flags">国旗</string>
     <string name="game_flags_desc">通过国旗辨认国家。每一轮选项更多，时间也在流逝。</string>
     <string name="game_flags_question">这是哪个国家的国旗？</string>
     <string name="game_flags_score">得分：%1$d</string>
     <string name="game_flags_best">最佳：%1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">数字记忆</string>
     <string name="game_digit_memory_desc">记住一串数字，完成一道简单数学题，然后回忆数字。</string>
     <string name="digit_memory_memorize">记忆</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">回忆</string>
     <string name="achievement_gold_digit_memory">密码捕手</string>
     <string name="achievement_gold_digit_memory_desc">在数字记忆中获得金牌</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">找出新的</string>
     <string name="game_spot_the_new_desc">点击你从未见过的动物。一次错误就结束游戏。</string>
     <string name="achievement_gold_spot_the_new">火眼金睛</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">字母正确，位置正确</string>
     <string name="wordle_legend_present">字母正确，位置错误</string>
     <string name="wordle_legend_absent">不在词中</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">观察图形，然后点击所问位置上的图形。</string>
     <string name="n_back_prompt">第 %1$d 个位置是哪个图形？</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">赞助商</string>
     <string name="sponsors_subtitle">支持人人享有免费教育</string>
 <string name="sponsors_become">成为赞助商</string>
-    <!-- Country names -->
     <string name="country_afghanistan">阿富汗</string>
     <string name="country_aland_islands">奥兰群岛</string>
     <string name="country_albania">阿尔巴尼亚</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">赞比亚</string>
     <string name="country_zimbabwe">津巴布韦</string>
 
-    <!-- Settings -->
     <string name="settings_title">设置</string>
     <string name="settings_open">打开设置</string>
     <string name="settings_sound">声音</string>
@@ -648,7 +620,6 @@
     <string name="normal_chess_promotion_knight">马</string>
     <string name="normal_chess_draw_warning">= 逼和（平局，非胜利）</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">火柴谜题 (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">火柴谜题</string>
     <string name="matchstick_riddles_puzzle_label">谜题 %1$d</string>
@@ -660,7 +631,6 @@
     <string name="achievement_matchstick_master">火柴大师</string>
     <string name="achievement_matchstick_master_desc">解开所有火柴谜题</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">孔明棋</string>
     <string name="peg_solitaire_title">孔明棋</string>
     <string name="peg_solitaire_pegs_left">剩余棋子：%1$d</string>
@@ -672,7 +642,6 @@
     <string name="peg_solitaire_restart">重来</string>
     <string name="achievement_peg_solitaire_perfect">孔明棋大师</string>
     <string name="achievement_peg_solitaire_perfect_desc">以中心一枚棋子完成英式孔明棋</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">棋子走法</string>
     <string name="chess_piece_king">王</string>
     <string name="chess_piece_queen">皇后</string>
@@ -729,20 +698,39 @@
     <string name="spot_the_new_demo_seen">你之前见过这个。它缺席了一轮，但仍算作见过。</string>
     <string name="spot_the_new_demo_correct">正确，它加入了已见过的行列。</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">交换相同方块以消除三连或更多。清空整个棋盘即可获胜。</string>
+    <string name="game_prism_clear_howto">点选一个方块再点相邻方块，或拖到相邻方块上交换。在行或列中连成三个或更多。</string>
+    <string name="prism_clear_moves_remaining">剩余步数：%1$d</string>
+    <string name="prism_clear_restart">重来</string>
+    <string name="prism_clear_stuck">没有可走的步了。撤销一步或重新开始本关。</string>
+    <string name="achievement_gold_prism_clear">水晶澄明</string>
+    <string name="achievement_gold_prism_clear_desc">在 Prism Clear 中赢得金牌</string>
+    <string name="prism_clear_undo">撤销</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">找出使等式成立的缺失运算符（+、-、*、/）。</string>
+    <string name="missing_operators_instruction">哪些运算符能使式子成立？</string>
+    <string name="missing_operators_demo_title">找出缺失的运算符</string>
+    <string name="missing_operators_demo_desc">选择运算符使等式成立。运算符按标准数学优先级计算。</string>
+    <string name="achievement_gold_missing_operators">运算符大师</string>
+    <string name="achievement_gold_missing_operators_desc">在 Missing Operators 中赢得金牌</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">猜出由不重复数字组成的4位密码。Bulls＝数字正确且位置正确。Cows＝数字正确但位置错误。</string>
+    <string name="game_bulls_and_cows_howto">输入不重复的4位猜测，然后按 Enter。</string>
+    <string name="bulls_and_cows_bulls">Bulls：%1$d</string>
+    <string name="bulls_and_cows_cows">Cows：%1$d</string>
+    <string name="bulls_and_cows_secret_was">密码是 %1$s</string>
+    <string name="bulls_and_cows_demo_title">破解密码</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">未中</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull、1 Cow、2 未中。</string>
+    <string name="bulls_and_cows_demo_step2">Bull = 位置正确。\nCow = 数字正确、位置错误。</string>
+    <string name="bulls_and_cows_demo_step3">保留 Bull。\n移动 Cow——它会变成 Bull。</string>
+    <string name="achievement_gold_bulls_and_cows">密码破解者</string>
+    <string name="achievement_gold_bulls_and_cows_desc">在 Bulls &amp; Cows 中赢得金牌</string>
+    <string name="finish_tries">尝试：%1$s</string>
+    <string name="finish_best_tries">最佳：%1$s 次</string>
+    <string name="finish_new_best_tries">新纪录！</string>
+
 </resources>

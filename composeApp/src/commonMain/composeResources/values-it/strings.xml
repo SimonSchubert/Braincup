@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Allena le tue abilità matematiche, la memoria e la concentrazione.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Inizia</string>
     <string name="button_back">Indietro</string>
     <string name="button_play_again">Gioca ancora</string>
     <string name="button_play_next_level">Gioca livello successivo</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">Livello massimo raggiunto. Attendi nuovi contenuti.</string>
     <string name="button_play_random">Gioco casuale</string>
     <string name="button_give_up">Rinuncia</string>
     <string name="button_stay">Resta</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">Cancella</string>
     <string name="button_done">Fatto</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">Obiettivi (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Uscire dal gioco?</string>
     <string name="quit_game_message">I tuoi progressi in questa partita non verranno salvati.</string>
     <string name="game_goal">Obiettivo: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">Tocca i numeri per costruire un'espressione</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Punteggio: %1$s</string>
     <string name="finish_difficulty_bonus">Bonus difficoltà: +%1$s</string>
     <string name="finish_level">Livello: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">Nuovo record!</string>
     <string name="finish_highscore">Punteggio più alto: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Soluzione: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">Classifica %1$s</string>
     <string name="scoreboard_highscore">Record</string>
     <string name="scoreboard_best_level">Miglior livello</string>
     <string name="scoreboard_no_scores">Nessun punteggio ancora</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Obiettivi</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Puzzle dell'anomalia</string>
     <string name="game_mental_calculation">Calcolo mentale</string>
     <string name="game_colored_shapes">Forme colorate</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">Nodo</string>
     <string name="game_solo_chess">Scacchi in solitaria</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Trova la figura che si distingue. Considera sia il colore che la forma di ogni figura.</string>
     <string name="game_mental_calculation_desc">Segui le espressioni matematiche. Usa il risultato come base per il calcolo successivo.</string>
     <string name="game_colored_shapes_desc">Somma i punti delle affermazioni corrette.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">Blu</string>
     <string name="game_flash_crowd_yellow">Giallo</string>
 
-    <!-- Color names -->
     <string name="color_red">Rosso</string>
     <string name="color_green">Verde</string>
     <string name="color_blue">Blu</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">Rosa</string>
     <string name="color_light_grey">Grigio Chiaro</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Quadrato</string>
     <string name="shape_triangle">Triangolo</string>
     <string name="shape_circle">Cerchio</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">Casa</string>
     <string name="shape_arrow">Freccia</string>
 
-    <!-- Direction words -->
     <string name="direction_up">su</string>
     <string name="direction_right">destra</string>
     <string name="direction_down">giù</string>
     <string name="direction_left">sinistra</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s che punta verso %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">colonna %1$d e riga %2$d</string>
     <string name="solution_left">Sinistra</string>
     <string name="solution_right">Destra</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Sfida giornaliera</string>
     <string name="daily_challenge_subtitle_start">Gioca %1$d partite per mantenere la serie</string>
     <string name="daily_challenge_subtitle_start_no_streak">Gioca %1$d partite per iniziare la serie</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">Serie di giorni: %1$d</string>
     <string name="session_streak_current">Serie attuale: %1$d giorni</string>
 
-    <!-- Level / XP -->
     <string name="level_label">Livello %1$d</string>
     <string name="level_up_title">Livello aumentato!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">Maestro</string>
     <string name="title_grandmaster">Gran Maestro</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">Saggio del Sudoku</string>
     <string name="achievement_gold_mini_chess">Virtuoso del finale</string>
     <string name="achievement_gold_lights_out">Blackout totale</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">Sguardo fulmineo</string>
     <string name="achievement_gold_flags">Portabandiera</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Maratoneta della mente</string>
     <string name="achievement_iron_streak">Serie di ferro</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Vinci la medaglia d'oro in Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Vinci la medaglia d'oro in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Vinci la medaglia d'oro in Lights Out</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">Vinci la medaglia d'oro in Tabella di Schulte</string>
     <string name="achievement_gold_flags_desc">Vinci la medaglia d'oro in Bandiere</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Accumula 10.000 punti totali</string>
     <string name="achievement_iron_streak_desc">Allenati per 30 giorni di fila</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Germoglio del Sudoku</string>
     <string name="achievement_sudoku_beginner_desc">Risolvi tutti i 10 puzzle di livello Principiante</string>
     <string name="achievement_sudoku_easy">Studioso del Sudoku</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">Risolvi tutti i 10 puzzle di livello Difficile</string>
     <string name="achievement_sudoku_expert">Sovrano del Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Risolvi tutti i 10 puzzle di livello Esperto</string>
-    <!-- Flags game -->
     <string name="game_flags">Bandiere</string>
     <string name="game_flags_desc">Identifica il paese dalla sua bandiera. Ogni round aggiunge più opzioni e il tempo scorre.</string>
     <string name="game_flags_question">Quale bandiera è questa?</string>
     <string name="game_flags_score">Punteggio: %1$d</string>
     <string name="game_flags_best">Migliore: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">Memoria delle Cifre</string>
     <string name="game_digit_memory_desc">Memorizza una sequenza di cifre, risolvi un rapido problema matematico, poi ricorda le cifre.</string>
     <string name="digit_memory_memorize">Memorizza</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">Ricorda</string>
     <string name="achievement_gold_digit_memory">Acchiappacodici</string>
     <string name="achievement_gold_digit_memory_desc">Vinci la medaglia d'oro in Memoria delle Cifre</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">Trova il Nuovo</string>
     <string name="game_spot_the_new_desc">Tocca l'animale che non hai mai visto. Un errore termina il gioco.</string>
     <string name="achievement_gold_spot_the_new">Occhio Nuovo</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">Lettera giusta, posizione giusta</string>
     <string name="wordle_legend_present">Lettera giusta, posizione sbagliata</string>
     <string name="wordle_legend_absent">Non è nella parola</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Guarda le forme, poi tocca quella nella posizione richiesta.</string>
     <string name="n_back_prompt">Quale forma era nella posizione %1$d?</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">Sponsor</string>
     <string name="sponsors_subtitle">Sostieni l'istruzione gratuita per tutti</string>
 <string name="sponsors_become">Diventa sponsor</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Isole Åland</string>
     <string name="country_albania">Albania</string>
@@ -382,7 +355,7 @@
     <string name="country_bosnia_and_herzegovina">Bosnia ed Erzegovina</string>
     <string name="country_botswana">Botswana</string>
     <string name="country_brazil">Brasile</string>
-    <string name="country_british_indian_ocean_territory">Territorio britannico dell\'Oceano Indiano</string>
+    <string name="country_british_indian_ocean_territory">Territorio britannico dell'Oceano Indiano</string>
     <string name="country_british_virgin_islands">Isole Vergini britanniche</string>
     <string name="country_brunei_darussalam">Brunei</string>
     <string name="country_bulgaria">Bulgaria</string>
@@ -461,7 +434,7 @@
     <string name="country_isle_of_man">Isola di Man</string>
     <string name="country_israel">Israele</string>
     <string name="country_italy">Italia</string>
-    <string name="country_ivory_coast">Costa d\'Avorio</string>
+    <string name="country_ivory_coast">Costa d'Avorio</string>
     <string name="country_jamaica">Giamaica</string>
     <string name="country_japan">Giappone</string>
     <string name="country_jersey">Jersey</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">Zambia</string>
     <string name="country_zimbabwe">Zimbabwe</string>
 
-    <!-- Settings -->
     <string name="settings_title">Impostazioni</string>
     <string name="settings_open">Apri impostazioni</string>
     <string name="settings_sound">Suono</string>
@@ -599,13 +571,12 @@
     <string name="settings_keypad">Tastierino numerico stile telefono</string>
     <string name="settings_keypad_desc">Mette 1, 2, 3 in alto invece di 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Scegli l\'aspetto di Brain Cup.</string>
+    <string name="settings_theme_desc">Scegli l'aspetto di Brain Cup.</string>
     <string name="settings_theme_system">Sistema</string>
     <string name="settings_theme_light">Chiaro</string>
     <string name="settings_theme_dark">Scuro</string>
     <string name="settings_theme_oled">OLED</string>
 
-    <!-- Normal Sudoku -->
     <string name="normal_sudoku_button">Sudoku normale (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Principiante</string>
     <string name="normal_sudoku_difficulty_easy">Facile</string>
@@ -650,19 +621,17 @@
     <string name="normal_chess_promotion_knight">Cavallo</string>
     <string name="normal_chess_draw_warning">= stallo (patta, non vittoria)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Indovinelli con fiammiferi (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Indovinelli con fiammiferi</string>
     <string name="matchstick_riddles_puzzle_label">Indovinello %1$d</string>
-    <string name="matchstick_riddle_prompt_move_one">Sposta 1 fiammifero per correggere l\'equazione.</string>
-    <string name="matchstick_riddle_prompt_move_two">Sposta 2 fiammiferi per correggere l\'equazione.</string>
-    <string name="matchstick_riddle_prompt_move_three">Sposta 3 fiammiferi per correggere l\'equazione.</string>
+    <string name="matchstick_riddle_prompt_move_one">Sposta 1 fiammifero per correggere l'equazione.</string>
+    <string name="matchstick_riddle_prompt_move_two">Sposta 2 fiammiferi per correggere l'equazione.</string>
+    <string name="matchstick_riddle_prompt_move_three">Sposta 3 fiammiferi per correggere l'equazione.</string>
     <string name="matchstick_riddles_solved">Risolto!</string>
     <string name="matchstick_riddles_reset">Reimposta</string>
     <string name="achievement_matchstick_master">Maestro dei fiammiferi</string>
     <string name="achievement_matchstick_master_desc">Risolvi ogni indovinello con fiammiferi</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Solitario</string>
     <string name="peg_solitaire_title">Solitario</string>
     <string name="peg_solitaire_pegs_left">Pedine rimaste: %1$d</string>
@@ -674,7 +643,6 @@
     <string name="peg_solitaire_restart">Ricomincia</string>
     <string name="achievement_peg_solitaire_perfect">Maestro del solitario</string>
     <string name="achievement_peg_solitaire_perfect_desc">Finisci il solitario inglese con una pedina al centro</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Come si muovono i pezzi</string>
     <string name="chess_piece_king">Re</string>
     <string name="chess_piece_queen">Donna</string>
@@ -731,20 +699,39 @@
     <string name="spot_the_new_demo_seen">Hai già visto questo. Ha saltato un turno, ma conta ancora come visto.</string>
     <string name="spot_the_new_demo_correct">Corretto. Si aggiunge a quelli che hai già visto.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">Scambia tessere uguali per cancellare linee di tre o più. Svuota l'intero tabellone per vincere.</string>
+    <string name="game_prism_clear_howto">Tocca una tessera e poi una vicina, oppure trascina una tessera su una adiacente per scambiarle. Allinea tre o più in riga o colonna.</string>
+    <string name="prism_clear_moves_remaining">Mosse rimaste: %1$d</string>
+    <string name="prism_clear_restart">Ricomincia</string>
+    <string name="prism_clear_stuck">Nessuna mossa possibile. Annulla una mossa o ricomincia il livello.</string>
+    <string name="achievement_gold_prism_clear">Chiarezza di cristallo</string>
+    <string name="achievement_gold_prism_clear_desc">Vinci la medaglia d'oro in Prism Clear</string>
+    <string name="prism_clear_undo">Annulla</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">Trova gli operatori mancanti (+, -, *, /) che rendono vera l'equazione.</string>
+    <string name="missing_operators_instruction">Quali operatori rendono vera l'affermazione?</string>
+    <string name="missing_operators_demo_title">Trova gli operatori mancanti</string>
+    <string name="missing_operators_demo_desc">Seleziona gli operatori per rendere vera l'equazione. Gli operatori si valutano con la precedenza matematica standard.</string>
+    <string name="achievement_gold_missing_operators">Maestro degli operatori</string>
+    <string name="achievement_gold_missing_operators_desc">Vinci la medaglia d'oro in Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">Indovina il numero segreto a 4 cifre con cifre uniche. Bulls = cifra corretta nella posizione corretta. Cows = cifra corretta nella posizione sbagliata.</string>
+    <string name="game_bulls_and_cows_howto">Digita un tentativo a 4 cifre uniche, poi premi Invio.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">Il segreto era %1$s</string>
+    <string name="bulls_and_cows_demo_title">Scopri il codice segreto</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Mancato</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 mancati.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = posto giusto.\nCow = cifra giusta, posto sbagliato.</string>
+    <string name="bulls_and_cows_demo_step3">Tieni il Bull.\nSposta la Cow — diventa un Bull.</string>
+    <string name="achievement_gold_bulls_and_cows">Spaccacodici</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Vinci la medaglia d'oro in Bulls &amp; Cows</string>
+    <string name="finish_tries">Tentativi: %1$s</string>
+    <string name="finish_best_tries">Migliore: %1$s tentativi</string>
+    <string name="finish_new_best_tries">Nuovo record!</string>
+
 </resources>

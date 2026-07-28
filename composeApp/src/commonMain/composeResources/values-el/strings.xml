@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Εξασκήστε τα μαθηματικά σας, τη μνήμη και τη συγκέντρωσή σας.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Εναρξη</string>
     <string name="button_back">Πίσω</string>
     <string name="button_play_again">Παίξτε ξανά</string>
@@ -14,9 +12,6 @@
     <string name="button_quit_game">Έξοδος</string>
     <string name="button_backspace">Επιστροφή</string>
 
-    <!-- Main menu -->
-
-    <!-- Level / XP -->
     <string name="level_label">Επίπεδο %1$d</string>
     <string name="level_up_title">Νέο επίπεδο!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -44,7 +39,6 @@
     <string name="normal_sudoku_pen_mode">Στυλό</string>
     <string name="normal_sudoku_notes_toggle">Εναλλαγή λειτουργίας σημειώσεων</string>
 
-    <!-- Normal Chess -->
     <string name="normal_chess_button">Κανονικό Σκάκι</string>
     <string name="normal_chess_title">Σκάκι</string>
     <string name="normal_chess_mode_cpu">Παίξτε εναντίον CPU</string>
@@ -74,7 +68,6 @@
     <string name="normal_chess_promotion_knight">Ίππος</string>
     <string name="normal_chess_draw_warning">= πατ (ισοπαλία, όχι νίκη)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Γρίφοι με σπίρτα (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Γρίφοι με σπίρτα</string>
     <string name="matchstick_riddles_puzzle_label">Γρίφος %1$d</string>
@@ -86,7 +79,6 @@
     <string name="achievement_matchstick_master">Δάσκαλος σπίρτων</string>
     <string name="achievement_matchstick_master_desc">Λύσε κάθε γρίφο με σπίρτα</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Σολιτέρ</string>
     <string name="peg_solitaire_title">Σολιτέρ</string>
     <string name="peg_solitaire_pegs_left">Πιόνια: %1$d</string>
@@ -98,7 +90,6 @@
     <string name="peg_solitaire_restart">Επανεκκίνηση</string>
     <string name="achievement_peg_solitaire_perfect">Μάστερ σολιτέρ</string>
     <string name="achievement_peg_solitaire_perfect_desc">Ολοκλήρωσε το αγγλικό σολιτέρ με ένα πιόνι στο κέντρο</string>
-    <!-- Settings -->
     <string name="settings_title">Επιλογές</string>
     <string name="settings_open">Ανοιγμα επιλογών</string>
     <string name="settings_sound">Ηχος</string>
@@ -116,7 +107,6 @@
     <string name="settings_theme_dark">Σκοτεινό</string>
     <string name="settings_theme_oled">OLED</string>
 
-    <!-- Daily challenge -->
     <string name="daily_challenge_title">Πρόκληση Ημέρας</string>
     <string name="daily_challenge_subtitle_start">Παίξτε %1$d παιχνίδια ώστε να διατηρήσετε το σερί σας</string>
     <string name="daily_challenge_subtitle_start_no_streak">Παίξτε %1$d παιχνίδια για να αρχίσετε το σερί σας</string>
@@ -127,7 +117,6 @@
     <string name="daily_challenge_button_resume">Συνέχεια</string>
     <string name="daily_challenge_button_done">Σήμερα ολοκληρώθηκαν</string>
 
-    <!-- Session screens -->
     <string name="session_progress">Παιχνίδι %1$d από %2$d</string>
     <string name="session_running_total">Σύνολο έως τώρα: %1$d</string>
     <string name="session_next_up">Ακολουθεί</string>
@@ -138,7 +127,6 @@
     <string name="session_streak_increased">Σερί ημερών: %1$d</string>
     <string name="session_streak_current">Τρέχον σερί: %1$d ημέρες</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Έξοδος από το παιχνίδι;</string>
     <string name="quit_game_message">Η πρόοδός σας σε αυτό το παιχνίδι δεν θα αποθηκευτεί.</string>
     <string name="game_goal">Στόχος: %1$d</string>
@@ -148,7 +136,6 @@
     <string name="game_tap_numbers">Πατήστε αριθμούς για να δημιουργήσετε μια παράσταση</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Σκορ: %1$s</string>
     <string name="finish_difficulty_bonus">Μπόνους δυσκολίας: +%1$s</string>
     <string name="finish_level">Επίπεδο: %1$s</string>
@@ -156,21 +143,17 @@
     <string name="finish_new_highscore">Νέο ρεκόρ!</string>
     <string name="finish_highscore">Ρεκόρ: %1$s</string>
     <string name="button_play_next_level">Επόμενο επίπεδο</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">Έφτασες στο μέγιστο επίπεδο. Περίμενε νέο περιεχόμενο.</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Λύση: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Πίνακας σκορ</string>
     <string name="scoreboard_highscore">Ρεκόρ</string>
     <string name="scoreboard_best_level">Καλύτερο επίπεδο</string>
     <string name="scoreboard_no_scores">Δεν υπάρχουν σκορ</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Επιτεύγματα</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Παζλ Ανωμαλίας</string>
     <string name="game_mental_calculation">Νοερός Υπολογισμός</string>
     <string name="game_colored_shapes">Χρωματιστά Σχήματα</string>
@@ -214,7 +197,6 @@
     <string name="game_knot">Κόμπος</string>
     <string name="game_solo_chess">Σόλο Σκάκι</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Βρείτε το σχήμα που ξεχωρίζει. Λάβετε υπόψη τόσο το χρώμα όσο και το σχήμα κάθε πλακιδίου.</string>
     <string name="game_mental_calculation_desc">Ακολουθήστε τις μαθηματικές παραστάσεις. Χρησιμοποιήστε το αποτέλεσμα ως βάση για τον επόμενο υπολογισμό.</string>
     <string name="game_colored_shapes_desc">Προσθέστε τους βαθμούς από τις σωστές παραστάσεις.</string>
@@ -325,7 +307,6 @@
     <string name="game_flash_crowd_yellow">Κίτρινη</string>
     <string name="button_done">Τέλος</string>
 
-    <!-- Color names -->
     <string name="color_red">Κόκκινο</string>
     <string name="color_green">Πράσινο</string>
     <string name="color_blue">Μπλε</string>
@@ -336,7 +317,6 @@
     <string name="color_pink">Ροζ</string>
     <string name="color_light_grey">Ανοιχτό Γκρι</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Τετράγωνο</string>
     <string name="shape_triangle">Τρίγωνο</string>
     <string name="shape_circle">Κύκλος</string>
@@ -348,23 +328,19 @@
     <string name="shape_house">Σπίτι</string>
     <string name="shape_arrow">Βελάκι</string>
 
-    <!-- Direction words -->
     <string name="direction_up">πάνω</string>
     <string name="direction_right">δεξιά</string>
     <string name="direction_down">κάτω</string>
     <string name="direction_left">αριστερά</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s που δείχνει %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">στήλη %1$d και γραμμή %2$d</string>
     <string name="solution_left">Αριστερά</string>
     <string name="solution_right">Δεξιά</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">εναντίον</string>
 
-    <!-- Per-game Gold achievement titles (mirror Google Play Games titles) -->
     <string name="achievement_gold_mini_sudoku">Σοφός του Sudoku</string>
     <string name="achievement_gold_mini_chess">Δεξιοτέχνης του Φινάλε</string>
     <string name="achievement_gold_lights_out">Απόλυτο Σκοτάδι</string>
@@ -392,11 +368,9 @@
     <string name="achievement_gold_schulte_table">Αστραπιαίο Βλέμμα</string>
     <string name="achievement_gold_flags">Σημαιοφόρος</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Μαραθωνοδρόμος του Νου</string>
     <string name="achievement_iron_streak">Σιδερένιο Σερί</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μίνι Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μίνι Σκάκι</string>
     <string name="achievement_gold_lights_out_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σβήσε τα Φώτα</string>
@@ -424,11 +398,9 @@
     <string name="achievement_gold_schulte_table_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Πίνακας Σούλτε</string>
     <string name="achievement_gold_flags_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Σημαίες</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Συγκεντρώστε συνολικά 10,000 πόντους</string>
     <string name="achievement_iron_streak_desc">Εκπαιδευτείτε 30 μέρες σερί</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Βλαστάρι του Σουντόκου</string>
     <string name="achievement_sudoku_beginner_desc">Λύσε και τους 10 γρίφους επιπέδου Αρχάριος</string>
     <string name="achievement_sudoku_easy">Λόγιος του Σουντόκου</string>
@@ -439,13 +411,11 @@
     <string name="achievement_sudoku_hard_desc">Λύσε και τους 10 γρίφους επιπέδου Δύσκολο</string>
     <string name="achievement_sudoku_expert">Κυρίαρχος του Σουντόκου</string>
     <string name="achievement_sudoku_expert_desc">Λύσε και τους 10 γρίφους επιπέδου Υπερβολικό</string>
-    <!-- Flags game -->
     <string name="game_flags">Σημαίες</string>
     <string name="game_flags_desc">Βρείτε τη χώρα από τη σημαία της. Κάθε γύρος προσθέτει περισσότερες επιλογές και ο χρόνος κυλάει..</string>
     <string name="game_flags_question">Ποια σημαία είναι αυτή;</string>
     <string name="game_flags_score">Σκορ: %1$d</string>
     <string name="game_flags_best">Ρεκόρ: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">Μνήμη Ψηφίων</string>
     <string name="game_digit_memory_desc">Απομνημονεύστε μια ακολουθία αριθμών, λύστε ένα γρήγορο μαθηματικό πρόβλημα και μετά θυμηθείτε τα ψηφία.</string>
     <string name="digit_memory_memorize">Απομνημονεύστε</string>
@@ -453,7 +423,6 @@
     <string name="digit_memory_recall">Θυμηθείτε</string>
     <string name="achievement_gold_digit_memory">Λόγιος των Ψηφίων</string>
     <string name="achievement_gold_digit_memory_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Μνήμη Ψηφίων</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">Βρες το Νέο</string>
     <string name="game_spot_the_new_desc">Πατήστε το ζώο που δεν έχετε ξαναδεί. Ένα λάθος τερματίζει το παιχνίδι.</string>
     <string name="achievement_gold_spot_the_new">Φρέσκο Μάτι</string>
@@ -475,7 +444,6 @@
     <string name="wordle_legend_correct">Σωστό γράμμα, σωστή θέση</string>
     <string name="wordle_legend_present">Σωστό γράμμα, λάθος θέση</string>
     <string name="wordle_legend_absent">Δεν υπάρχει στη λέξη</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Δες τα σχήματα και μετά πάτησε αυτό στη ζητούμενη θέση.</string>
     <string name="n_back_prompt">Ποιο σχήμα ήταν στη θέση %1$d;</string>
@@ -493,11 +461,9 @@
     <string name="instructions_best_score">Καλύτερο σκορ: %1$s</string>
     <string name="instructions_leaderboard">Προβολή πίνακα κατάταξης</string>
     <string name="brain_cup_button">Πίνακας Brain Cup</string>
-    <!-- Sponsors section -->
     <string name="sponsors_title">Χορηγοί</string>
     <string name="sponsors_subtitle">Στηρίξτε τη δωρεάν εκπαίδευση για όλους</string>
     <string name="sponsors_become">Γίνετε χορηγός</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Αφγανιστάν</string>
     <string name="country_aland_islands">Νήσοι Ωλαντ</string>
     <string name="country_albania">Αλβανία</string>
@@ -733,20 +699,39 @@
     <string name="country_zimbabwe">Ζιμπάμπουε</string>
 
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">Αντάλλαξε ταιριαστά πλακίδια για να καθαρίσεις γραμμές τριών ή περισσότερων. Άδειασε όλο το ταμπλό για να κερδίσεις.</string>
+    <string name="game_prism_clear_howto">Πάτα ένα πλακίδιο και μετά ένα γειτονικό, ή σύρε ένα σε διπλανό για ανταλλαγή. Ταίριαξε τρία ή περισσότερα σε γραμμή ή στήλη.</string>
+    <string name="prism_clear_moves_remaining">Κινήσεις που απομένουν: %1$d</string>
+    <string name="prism_clear_restart">Επανεκκίνηση</string>
+    <string name="prism_clear_stuck">Δεν υπάρχουν κινήσεις. Αναίρεσε μια κίνηση ή επανεκκίνησε το επίπεδο.</string>
+    <string name="achievement_gold_prism_clear">Κρυστάλλινη διαύγεια</string>
+    <string name="achievement_gold_prism_clear_desc">Κερδίστε χρυσό μετάλλιο στο Prism Clear</string>
+    <string name="prism_clear_undo">Αναίρεση</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">Βρες τους τελεστές που λείπουν (+, -, *, /) ώστε η εξίσωση να είναι σωστή.</string>
+    <string name="missing_operators_instruction">Ποιοι τελεστές κάνουν την πρόταση αληθή;</string>
+    <string name="missing_operators_demo_title">Βρες τους τελεστές που λείπουν</string>
+    <string name="missing_operators_demo_desc">Επίλεξε τελεστές ώστε η εξίσωση να ισχύει. Οι τελεστές υπολογίζονται με την τυπική μαθηματική προτεραιότητα.</string>
+    <string name="achievement_gold_missing_operators">Αφέντης τελεστών</string>
+    <string name="achievement_gold_missing_operators_desc">Κερδίστε χρυσό μετάλλιο στο Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">Μάντεψε τον μυστικό 4ψήφιο αριθμό με μοναδικά ψηφία. Bulls = σωστό ψηφίο στη σωστή θέση. Cows = σωστό ψηφίο σε λάθος θέση.</string>
+    <string name="game_bulls_and_cows_howto">Πληκτρολόγησε 4ψήφια πρόταση με μοναδικά ψηφία και πάτα Enter.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">Το μυστικό ήταν %1$s</string>
+    <string name="bulls_and_cows_demo_title">Σπάσε τον μυστικό κωδικό</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Άστοχο</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 άστοχα.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = σωστή θέση.\nCow = σωστό ψηφίο, λάθος θέση.</string>
+    <string name="bulls_and_cows_demo_step3">Κράτα το Bull.\nΜετακίνησε το Cow — γίνεται Bull.</string>
+    <string name="achievement_gold_bulls_and_cows">Σπάστης κωδικών</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Κερδίστε χρυσό μετάλλιο στο Bulls &amp; Cows</string>
+    <string name="finish_tries">Προσπάθειες: %1$s</string>
+    <string name="finish_best_tries">Καλύτερο: %1$s προσπάθειες</string>
+    <string name="finish_new_best_tries">Νέο ρεκόρ!</string>
+
 </resources>

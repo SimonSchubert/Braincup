@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">ฝึกทักษะคณิตศาสตร์ ความจำ และสมาธิของคุณ</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">เริ่ม</string>
     <string name="button_back">กลับ</string>
     <string name="button_play_again">เล่นอีกครั้ง</string>
     <string name="button_play_next_level">เล่นระดับถัดไป</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">ถึงระดับสูงสุดแล้ว รอเนื้อหาใหม่</string>
     <string name="button_play_random">เล่นเกมสุ่ม</string>
     <string name="button_give_up">ยอมแพ้</string>
     <string name="button_stay">อยู่ต่อ</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">ลบ</string>
     <string name="button_done">เสร็จ</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">ความสำเร็จ (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">ออกจากเกม?</string>
     <string name="quit_game_message">ความคืบหน้าในเกมนี้จะไม่ถูกบันทึก</string>
     <string name="game_goal">เป้าหมาย: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">แตะตัวเลขเพื่อสร้างนิพจน์</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">คะแนน: %1$s</string>
     <string name="finish_difficulty_bonus">โบนัสความยาก: +%1$s</string>
     <string name="finish_level">ระดับ: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">คะแนนสูงสุดใหม่!</string>
     <string name="finish_highscore">คะแนนสูงสุด: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">เฉลย: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">กระดานคะแนน %1$s</string>
     <string name="scoreboard_highscore">คะแนนสูงสุด</string>
     <string name="scoreboard_best_level">ระดับสูงสุด</string>
     <string name="scoreboard_no_scores">ยังไม่มีคะแนน</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">ความสำเร็จ</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">ปริศนาความผิดปกติ</string>
     <string name="game_mental_calculation">การคำนวณในใจ</string>
     <string name="game_colored_shapes">รูปทรงสี</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">ปม</string>
     <string name="game_solo_chess">หมากรุกเดี่ยว</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">หารูปที่แตกต่าง พิจารณาทั้งสีและรูปร่างของแต่ละรูป</string>
     <string name="game_mental_calculation_desc">ทำตามนิพจน์คณิตศาสตร์ ใช้ผลลัพธ์เป็นฐานสำหรับการคำนวณถัดไป</string>
     <string name="game_colored_shapes_desc">รวมคะแนนจากข้อความที่ถูกต้อง</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">น้ำเงิน</string>
     <string name="game_flash_crowd_yellow">เหลือง</string>
 
-    <!-- Color names -->
     <string name="color_red">แดง</string>
     <string name="color_green">เขียว</string>
     <string name="color_blue">น้ำเงิน</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">ชมพู</string>
     <string name="color_light_grey">เทาอ่อน</string>
 
-    <!-- Shape names -->
     <string name="shape_square">สี่เหลี่ยม</string>
     <string name="shape_triangle">สามเหลี่ยม</string>
     <string name="shape_circle">วงกลม</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">บ้าน</string>
     <string name="shape_arrow">ลูกศร</string>
 
-    <!-- Direction words -->
     <string name="direction_up">บน</string>
     <string name="direction_right">ขวา</string>
     <string name="direction_down">ล่าง</string>
     <string name="direction_left">ซ้าย</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s ชี้ไปทาง%3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">คอลัมน์ %1$d และแถว %2$d</string>
     <string name="solution_left">ซ้าย</string>
     <string name="solution_right">ขวา</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">ความท้าทายประจำวัน</string>
     <string name="daily_challenge_subtitle_start">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</string>
     <string name="daily_challenge_subtitle_start_no_streak">เล่น %1$d เกมเพื่อเริ่มสตรีคของคุณ</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">สตรีค: %1$d วัน</string>
     <string name="session_streak_current">สตรีคปัจจุบัน: %1$d วัน</string>
 
-    <!-- Level / XP -->
     <string name="level_label">เลเวล %1$d</string>
     <string name="level_up_title">เลื่อนเลเวล!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">ผู้เชี่ยวชาญ</string>
     <string name="title_grandmaster">ปรมาจารย์</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">ปราชญ์ซูโดกุ</string>
     <string name="achievement_gold_mini_chess">นักหมากรุกตอนจบ</string>
     <string name="achievement_gold_lights_out">ดับสนิท</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">สายตาฟ้าผ่า</string>
     <string name="achievement_gold_flags">ผู้ถือธง</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">นักวิ่งมาราธอนสมอง</string>
     <string name="achievement_iron_streak">ต่อเนื่องเหล็ก</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">ชนะเหรียญทองในมินิซูโดกุ</string>
     <string name="achievement_gold_mini_chess_desc">ชนะเหรียญทองในMini Chess</string>
     <string name="achievement_gold_lights_out_desc">ชนะเหรียญทองในLights Out</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">ชนะเหรียญทองในตารางชูลเทอ</string>
     <string name="achievement_gold_flags_desc">ชนะเหรียญทองในธง</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">สะสมแต้มรวม 10,000 แต้ม</string>
     <string name="achievement_iron_streak_desc">ฝึก 30 วันติดต่อกัน</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">หน่อซูโดกุ</string>
     <string name="achievement_sudoku_beginner_desc">ไขปริศนาระดับเริ่มต้นครบทั้ง 10 ข้อ</string>
     <string name="achievement_sudoku_easy">นักปราชญ์ซูโดกุ</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">ไขปริศนาระดับยากครบทั้ง 10 ข้อ</string>
     <string name="achievement_sudoku_expert">เจ้าแห่งซูโดกุ</string>
     <string name="achievement_sudoku_expert_desc">ไขปริศนาระดับผู้เชี่ยวชาญครบทั้ง 10 ข้อ</string>
-    <!-- Flags game -->
     <string name="game_flags">ธง</string>
     <string name="game_flags_desc">ทายประเทศจากธงของมัน แต่ละรอบมีตัวเลือกเพิ่มขึ้นและเวลากำลังนับถอยหลัง</string>
     <string name="game_flags_question">นี่คือธงของประเทศใด?</string>
     <string name="game_flags_score">คะแนน: %1$d</string>
     <string name="game_flags_best">ดีที่สุด: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">ความจำตัวเลข</string>
     <string name="game_digit_memory_desc">จำลำดับตัวเลข แก้โจทย์คณิตศาสตร์อย่างรวดเร็ว แล้วนึกตัวเลขกลับมา</string>
     <string name="digit_memory_memorize">จำ</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">นึกกลับ</string>
     <string name="achievement_gold_digit_memory">นักจับรหัส</string>
     <string name="achievement_gold_digit_memory_desc">ชนะเหรียญทองในความจำตัวเลข</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">หาสิ่งใหม่</string>
     <string name="game_spot_the_new_desc">แตะสัตว์ที่คุณไม่เคยเห็นมาก่อน ผิดครั้งเดียวเกมจบ</string>
     <string name="achievement_gold_spot_the_new">สายตาเฉียบคม</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">ตัวอักษรถูก ตำแหน่งถูก</string>
     <string name="wordle_legend_present">ตัวอักษรถูก ตำแหน่งผิด</string>
     <string name="wordle_legend_absent">ไม่มีในคำ</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">ดูรูปทรง แล้วแตะรูปที่อยู่ในตำแหน่งที่ถาม</string>
     <string name="n_back_prompt">รูปทรงใดอยู่ในตำแหน่งที่ %1$d?</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">ผู้สนับสนุน</string>
     <string name="sponsors_subtitle">สนับสนุนการศึกษาฟรีสำหรับทุกคน</string>
 <string name="sponsors_become">เป็นผู้สนับสนุน</string>
-    <!-- Country names -->
     <string name="country_afghanistan">อัฟกานิสถาน</string>
     <string name="country_aland_islands">หมู่เกาะโอลันด์</string>
     <string name="country_albania">แอลเบเนีย</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">แซมเบีย</string>
     <string name="country_zimbabwe">ซิมบับเว</string>
 
-    <!-- Settings -->
     <string name="settings_title">การตั้งค่า</string>
     <string name="settings_open">เปิดการตั้งค่า</string>
     <string name="settings_sound">เสียง</string>
@@ -648,7 +620,6 @@
     <string name="normal_chess_promotion_knight">ม้า</string>
     <string name="normal_chess_draw_warning">= เสมอตาย (เสมอ ไม่ใช่ชนะ)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">ปริศนาไม้ขีดไฟ (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">ปริศนาไม้ขีดไฟ</string>
     <string name="matchstick_riddles_puzzle_label">ปริศนา %1$d</string>
@@ -660,7 +631,6 @@
     <string name="achievement_matchstick_master">ปรมาจารย์ไม้ขีดไฟ</string>
     <string name="achievement_matchstick_master_desc">แก้ปริศนาไม้ขีดไฟทุกข้อ</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">หมากกลัด</string>
     <string name="peg_solitaire_title">หมากกลัด</string>
     <string name="peg_solitaire_pegs_left">หมุดที่เหลือ: %1$d</string>
@@ -672,7 +642,6 @@
     <string name="peg_solitaire_restart">เริ่มใหม่</string>
     <string name="achievement_peg_solitaire_perfect">ปรมาจารย์หมากกลัด</string>
     <string name="achievement_peg_solitaire_perfect_desc">จบหมากกลัดแบบอังกฤษด้วยหมุดหนึ่งตัวตรงกลาง</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">วิธีที่หมากเคลื่อนที่</string>
     <string name="chess_piece_king">คิง</string>
     <string name="chess_piece_queen">ควีน</string>
@@ -729,20 +698,39 @@
     <string name="spot_the_new_demo_seen">คุณเคยเห็นตัวนี้มาก่อน มันพักหนึ่งรอบแต่ยังนับว่าเคยเห็น</string>
     <string name="spot_the_new_demo_correct">ถูกต้อง มันเข้าร่วมกับตัวที่คุณเคยเห็นแล้ว</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">สลับกระเบื้องที่เข้าคู่กันเพื่อลบแถวที่มีสามขึ้นไป เคลียร์กระดานทั้งแผ่นเพื่อชนะ</string>
+    <string name="game_prism_clear_howto">แตะกระเบื้องแล้วแตะข้างเคียง หรือลากไปวางบนช่องติดกันเพื่อสลับ จับคู่สามขึ้นไปในแถวหรือคอลัมน์</string>
+    <string name="prism_clear_moves_remaining">เหลือ %1$d ตา</string>
+    <string name="prism_clear_restart">เริ่มใหม่</string>
+    <string name="prism_clear_stuck">ไม่มีตาเดินแล้ว เลิกทำหนึ่งตาหรือเริ่มระดับใหม่</string>
+    <string name="achievement_gold_prism_clear">ความใสดุจคริสตัล</string>
+    <string name="achievement_gold_prism_clear_desc">ชนะเหรียญทองใน Prism Clear</string>
+    <string name="prism_clear_undo">เลิกทำ</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">หาเครื่องหมายที่หายไป (+, -, *, /) ที่ทำให้สมการเป็นจริง</string>
+    <string name="missing_operators_instruction">เครื่องหมายใดทำให้ข้อความเป็นจริง?</string>
+    <string name="missing_operators_demo_title">หาเครื่องหมายที่หายไป</string>
+    <string name="missing_operators_demo_desc">เลือกเครื่องหมายให้สมการเป็นจริง เครื่องหมายคำนวณตามลำดับความสำคัญทางคณิตศาสตร์มาตรฐาน</string>
+    <string name="achievement_gold_missing_operators">ปรมาจารย์เครื่องหมาย</string>
+    <string name="achievement_gold_missing_operators_desc">ชนะเหรียญทองใน Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">ทายเลขลับ 4 หลักที่ไม่ซ้ำ Bulls = เลขถูกตำแหน่งถูก Cows = เลขถูกตำแหน่งผิด</string>
+    <string name="game_bulls_and_cows_howto">พิมพ์ทาย 4 หลักที่ไม่ซ้ำ แล้วกด Enter</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">รหัสลับคือ %1$s</string>
+    <string name="bulls_and_cows_demo_title">ถอดรหัสลับ</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">พลาด</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, พลาด 2</string>
+    <string name="bulls_and_cows_demo_step2">Bull = ตำแหน่งถูก\nCow = เลขถูก ตำแหน่งผิด</string>
+    <string name="bulls_and_cows_demo_step3">เก็บ Bull ไว้\nย้าย Cow — มันจะกลายเป็น Bull</string>
+    <string name="achievement_gold_bulls_and_cows">นักถอดรหัส</string>
+    <string name="achievement_gold_bulls_and_cows_desc">ชนะเหรียญทองใน Bulls &amp; Cows</string>
+    <string name="finish_tries">ครั้งที่ลอง: %1$s</string>
+    <string name="finish_best_tries">ดีที่สุด: %1$s ครั้ง</string>
+    <string name="finish_new_best_tries">สถิติใหม่!</string>
+
 </resources>

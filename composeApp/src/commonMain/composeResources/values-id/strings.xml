@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Latih kemampuan matematika, memori, dan fokus Anda.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Mulai</string>
     <string name="button_back">Kembali</string>
     <string name="button_play_again">Main Lagi</string>
     <string name="button_play_next_level">Mainkan level berikutnya</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">Level maksimum tercapai. Tunggu konten baru.</string>
     <string name="button_play_random">Permainan Acak</string>
     <string name="button_give_up">Menyerah</string>
     <string name="button_stay">Tetap</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">Hapus</string>
     <string name="button_done">Selesai</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">Pencapaian (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Keluar dari permainan?</string>
     <string name="quit_game_message">Kemajuanmu di permainan ini tidak akan disimpan.</string>
     <string name="game_goal">Target: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">Ketuk angka untuk membuat ekspresi</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Skor: %1$s</string>
     <string name="finish_difficulty_bonus">Bonus kesulitan: +%1$s</string>
     <string name="finish_level">Level: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">Skor Tertinggi Baru!</string>
     <string name="finish_highscore">Skor Tertinggi: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Solusi: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">Papan Skor %1$s</string>
     <string name="scoreboard_highscore">Skor Tertinggi</string>
     <string name="scoreboard_best_level">Level Terbaik</string>
     <string name="scoreboard_no_scores">Belum ada skor</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Pencapaian</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Teka-teki Anomali</string>
     <string name="game_mental_calculation">Hitung Mental</string>
     <string name="game_colored_shapes">Bentuk Berwarna</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">Simpul</string>
     <string name="game_solo_chess">Catur Solo</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.</string>
     <string name="game_mental_calculation_desc">Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.</string>
     <string name="game_colored_shapes_desc">Jumlahkan poin dari pernyataan yang benar.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">Biru</string>
     <string name="game_flash_crowd_yellow">Kuning</string>
 
-    <!-- Color names -->
     <string name="color_red">Merah</string>
     <string name="color_green">Hijau</string>
     <string name="color_blue">Biru</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">Merah Muda</string>
     <string name="color_light_grey">Abu-abu Muda</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Persegi</string>
     <string name="shape_triangle">Segitiga</string>
     <string name="shape_circle">Lingkaran</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">Rumah</string>
     <string name="shape_arrow">Panah</string>
 
-    <!-- Direction words -->
     <string name="direction_up">atas</string>
     <string name="direction_right">kanan</string>
     <string name="direction_down">bawah</string>
     <string name="direction_left">kiri</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s menunjuk %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">kolom %1$d dan baris %2$d</string>
     <string name="solution_left">Kiri</string>
     <string name="solution_right">Kanan</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Tantangan harian</string>
     <string name="daily_challenge_subtitle_start">Mainkan %1$d permainan untuk menjaga streak</string>
     <string name="daily_challenge_subtitle_start_no_streak">Mainkan %1$d permainan untuk memulai streak</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">Streak hari: %1$d</string>
     <string name="session_streak_current">Streak saat ini: %1$d hari</string>
 
-    <!-- Level / XP -->
     <string name="level_label">Level %1$d</string>
     <string name="level_up_title">Naik Level!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">Ahli</string>
     <string name="title_grandmaster">Maha Ahli</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">Sudoku Bijaksana</string>
     <string name="achievement_gold_mini_chess">Maestro Akhir Permainan</string>
     <string name="achievement_gold_lights_out">Pemadaman Total</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">Tatapan Kilat</string>
     <string name="achievement_gold_flags">Pembawa Bendera</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Pelari Maraton Pikiran</string>
     <string name="achievement_iron_streak">Rentetan Besi</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Menangkan medali emas di Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Menangkan medali emas di Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Menangkan medali emas di Lights Out</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">Menangkan medali emas di Tabel Schulte</string>
     <string name="achievement_gold_flags_desc">Menangkan medali emas di Bendera</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Kumpulkan total 10.000 poin</string>
     <string name="achievement_iron_streak_desc">Berlatih 30 hari berturut-turut</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Tunas Sudoku</string>
     <string name="achievement_sudoku_beginner_desc">Selesaikan semua 10 teka-teki level Pemula</string>
     <string name="achievement_sudoku_easy">Cendekiawan Sudoku</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">Selesaikan semua 10 teka-teki level Sulit</string>
     <string name="achievement_sudoku_expert">Penguasa Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Selesaikan semua 10 teka-teki level Ahli</string>
-    <!-- Flags game -->
     <string name="game_flags">Bendera</string>
     <string name="game_flags_desc">Tebak negara dari benderanya. Setiap ronde menambahkan lebih banyak pilihan dan waktu terus berjalan.</string>
     <string name="game_flags_question">Bendera apa ini?</string>
     <string name="game_flags_score">Skor: %1$d</string>
     <string name="game_flags_best">Terbaik: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">Memori Angka</string>
     <string name="game_digit_memory_desc">Hafalkan urutan angka, selesaikan soal matematika cepat, lalu ingat kembali angkanya.</string>
     <string name="digit_memory_memorize">Hafalkan</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">Ingat kembali</string>
     <string name="achievement_gold_digit_memory">Penangkap Kode</string>
     <string name="achievement_gold_digit_memory_desc">Menangkan medali emas di Memori Angka</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">Temukan yang Baru</string>
     <string name="game_spot_the_new_desc">Ketuk hewan yang belum pernah kamu lihat. Satu kesalahan mengakhiri permainan.</string>
     <string name="achievement_gold_spot_the_new">Mata Jeli</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">Huruf benar, posisi benar</string>
     <string name="wordle_legend_present">Huruf benar, posisi salah</string>
     <string name="wordle_legend_absent">Tidak ada dalam kata</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Perhatikan bentuk-bentuknya, lalu ketuk yang ada di posisi yang diminta.</string>
     <string name="n_back_prompt">Bentuk mana yang ada di posisi %1$d?</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">Sponsor</string>
     <string name="sponsors_subtitle">Dukung pendidikan gratis untuk semua</string>
 <string name="sponsors_become">Jadilah Sponsor</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Afganistan</string>
     <string name="country_aland_islands">Kepulauan Aland</string>
     <string name="country_albania">Albania</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">Zambia</string>
     <string name="country_zimbabwe">Zimbabwe</string>
 
-    <!-- Settings -->
     <string name="settings_title">Pengaturan</string>
     <string name="settings_open">Buka pengaturan</string>
     <string name="settings_sound">Suara</string>
@@ -604,7 +576,6 @@
     <string name="settings_theme_light">Terang</string>
     <string name="settings_theme_dark">Gelap</string>
     <string name="settings_theme_oled">OLED</string>
-    <!-- Normal Sudoku -->
     <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Pemula</string>
     <string name="normal_sudoku_difficulty_easy">Mudah</string>
@@ -649,7 +620,6 @@
     <string name="normal_chess_promotion_knight">Kuda</string>
     <string name="normal_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Teka-teki korek api (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Teka-teki korek api</string>
     <string name="matchstick_riddles_puzzle_label">Teka-teki %1$d</string>
@@ -661,7 +631,6 @@
     <string name="achievement_matchstick_master">Master korek api</string>
     <string name="achievement_matchstick_master_desc">Selesaikan setiap teka-teki korek api</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Solitaire</string>
     <string name="peg_solitaire_title">Solitaire</string>
     <string name="peg_solitaire_pegs_left">Bidak tersisa: %1$d</string>
@@ -673,7 +642,6 @@
     <string name="peg_solitaire_restart">Mulai ulang</string>
     <string name="achievement_peg_solitaire_perfect">Master Solitaire</string>
     <string name="achievement_peg_solitaire_perfect_desc">Selesaikan solitaire Inggris dengan satu bidak di tengah</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cara buah catur bergerak</string>
     <string name="chess_piece_king">Raja</string>
     <string name="chess_piece_queen">Menteri</string>
@@ -730,20 +698,39 @@
     <string name="spot_the_new_demo_seen">Kamu pernah melihat ini sebelumnya. Ia absen satu ronde, tapi tetap dihitung sebagai sudah dilihat.</string>
     <string name="spot_the_new_demo_correct">Benar. Ia bergabung dengan yang sudah kamu lihat.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">Tukar ubin yang cocok untuk menghapus baris berisi tiga atau lebih. Kosongkan seluruh papan untuk menang.</string>
+    <string name="game_prism_clear_howto">Ketuk ubin lalu tetangga, atau seret ubin ke yang bersebelahan untuk menukar. Cocokkan tiga atau lebih dalam baris atau kolom.</string>
+    <string name="prism_clear_moves_remaining">Langkah tersisa: %1$d</string>
+    <string name="prism_clear_restart">Mulai ulang</string>
+    <string name="prism_clear_stuck">Tidak ada langkah lagi. Urungkan langkah atau mulai ulang level.</string>
+    <string name="achievement_gold_prism_clear">Kejernihan Kristal</string>
+    <string name="achievement_gold_prism_clear_desc">Menangkan medali emas di Prism Clear</string>
+    <string name="prism_clear_undo">Urungkan</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">Temukan operator yang hilang (+, -, *, /) agar persamaan menjadi benar.</string>
+    <string name="missing_operators_instruction">Operator mana yang membuat pernyataan benar?</string>
+    <string name="missing_operators_demo_title">Temukan operator yang hilang</string>
+    <string name="missing_operators_demo_desc">Pilih operator agar persamaan benar. Operator dievaluasi dengan prioritas matematika standar.</string>
+    <string name="achievement_gold_missing_operators">Master Operator</string>
+    <string name="achievement_gold_missing_operators_desc">Menangkan medali emas di Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">Tebak angka rahasia 4 digit dengan digit unik. Bulls = digit benar di posisi benar. Cows = digit benar di posisi salah.</string>
+    <string name="game_bulls_and_cows_howto">Ketik tebakan 4 digit unik, lalu tekan Enter.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">Rahasianya adalah %1$s</string>
+    <string name="bulls_and_cows_demo_title">Pecahkan kode rahasia</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Melenceng</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 melenceng.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = posisi benar.\nCow = digit benar, posisi salah.</string>
+    <string name="bulls_and_cows_demo_step3">Pertahankan Bull.\nPindahkan Cow — menjadi Bull.</string>
+    <string name="achievement_gold_bulls_and_cows">Pemecah Kode</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Menangkan medali emas di Bulls &amp; Cows</string>
+    <string name="finish_tries">Percobaan: %1$s</string>
+    <string name="finish_best_tries">Terbaik: %1$s percobaan</string>
+    <string name="finish_new_best_tries">Rekor baru!</string>
+
 </resources>

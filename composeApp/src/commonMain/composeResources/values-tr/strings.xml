@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Matematik becerilerinizi, hafızanızı ve odaklanmanızı geliştirin.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Başla</string>
     <string name="button_back">Geri</string>
     <string name="button_play_again">Tekrar Oyna</string>
     <string name="button_play_next_level">Sonraki seviye</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">Maksimum seviyeye ulaşıldı. Yeni içerik için bekleyin.</string>
     <string name="button_play_random">Rastgele Oyun</string>
     <string name="button_give_up">Vazgeç</string>
     <string name="button_stay">Kal</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">Sil</string>
     <string name="button_done">Bitti</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">Başarılar (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Oyundan çık?</string>
     <string name="quit_game_message">Bu oyundaki ilerlemen kaydedilmeyecek.</string>
     <string name="game_goal">Hedef: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">Bir ifade oluşturmak için sayılara dokunun</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Puan: %1$s</string>
     <string name="finish_difficulty_bonus">Zorluk bonusu: +%1$s</string>
     <string name="finish_level">Seviye: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">Yeni Yüksek Skor!</string>
     <string name="finish_highscore">En Yüksek Skor: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Çözüm: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Skor Tablosu</string>
     <string name="scoreboard_highscore">Yüksek Skor</string>
     <string name="scoreboard_best_level">En İyi Seviye</string>
     <string name="scoreboard_no_scores">Henüz skor yok</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Başarılar</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Anomali Bulmacası</string>
     <string name="game_mental_calculation">Zihinsel Hesaplama</string>
     <string name="game_colored_shapes">Renkli Şekiller</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">Düğüm</string>
     <string name="game_solo_chess">Tek Kişilik Satranç</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Farklı olan şekli bulun. Her şeklin hem rengini hem de biçimini göz önünde bulundurun.</string>
     <string name="game_mental_calculation_desc">Matematiksel ifadeleri takip edin. Sonucu bir sonraki hesaplama için temel olarak kullanın.</string>
     <string name="game_colored_shapes_desc">Doğru ifadelerin puanlarını toplayın.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">Mavi</string>
     <string name="game_flash_crowd_yellow">Sarı</string>
 
-    <!-- Color names -->
     <string name="color_red">Kırmızı</string>
     <string name="color_green">Yeşil</string>
     <string name="color_blue">Mavi</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">Pembe</string>
     <string name="color_light_grey">Açık Gri</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Kare</string>
     <string name="shape_triangle">Üçgen</string>
     <string name="shape_circle">Daire</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">Ev</string>
     <string name="shape_arrow">Ok</string>
 
-    <!-- Direction words -->
     <string name="direction_up">yukarı</string>
     <string name="direction_right">sağ</string>
     <string name="direction_down">aşağı</string>
     <string name="direction_left">sol</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%3$s gösteren %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">sütun %1$d ve satır %2$d</string>
     <string name="solution_left">Sol</string>
     <string name="solution_right">Sağ</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Günlük meydan okuma</string>
     <string name="daily_challenge_subtitle_start">Serini sürdürmek için %1$d oyun oyna</string>
     <string name="daily_challenge_subtitle_start_no_streak">Serini başlatmak için %1$d oyun oyna</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">Gün serisi: %1$d</string>
     <string name="session_streak_current">Mevcut seri: %1$d gün</string>
 
-    <!-- Level / XP -->
     <string name="level_label">Seviye %1$d</string>
     <string name="level_up_title">Seviye Atladın!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">Usta</string>
     <string name="title_grandmaster">Büyük Usta</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">Sudoku Bilgesi</string>
     <string name="achievement_gold_mini_chess">Oyunsonu Virtüözü</string>
     <string name="achievement_gold_lights_out">Tam Karartma</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">Şimşek Bakış</string>
     <string name="achievement_gold_flags">Bayrak Taşıyıcı</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Zihin Maratoncusu</string>
     <string name="achievement_iron_streak">Demir Seri</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Mini Sudoku oyununda altın madalya kazan</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess oyununda altın madalya kazan</string>
     <string name="achievement_gold_lights_out_desc">Lights Out oyununda altın madalya kazan</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">Schulte Tablosu oyununda altın madalya kazan</string>
     <string name="achievement_gold_flags_desc">Bayraklar oyununda altın madalya kazan</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Toplam 10.000 puan biriktir</string>
     <string name="achievement_iron_streak_desc">30 gün üst üste antren</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Sudoku Filizi</string>
     <string name="achievement_sudoku_beginner_desc">Başlangıç seviyesindeki 10 bulmacanın tümünü çöz</string>
     <string name="achievement_sudoku_easy">Sudoku Bilgini</string>
@@ -300,25 +278,22 @@
     <string name="achievement_sudoku_hard_desc">Zor seviyesindeki 10 bulmacanın tümünü çöz</string>
     <string name="achievement_sudoku_expert">Sudoku Hükümdarı</string>
     <string name="achievement_sudoku_expert_desc">Uzman seviyesindeki 10 bulmacanın tümünü çöz</string>
-    <!-- Flags game -->
     <string name="game_flags">Bayraklar</string>
     <string name="game_flags_desc">Bayrağına bakarak ülkeyi tahmin et. Her tur daha fazla seçenek ekler ve süre işliyor.</string>
     <string name="game_flags_question">Bu hangi bayrak?</string>
     <string name="game_flags_score">Puan: %1$d</string>
     <string name="game_flags_best">En iyi: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">Rakam Hafızası</string>
     <string name="game_digit_memory_desc">Bir rakam dizisini ezberle, hızlı bir matematik problemi çöz, ardından rakamları hatırla.</string>
     <string name="digit_memory_memorize">Ezberle</string>
     <string name="digit_memory_solve">Çöz</string>
     <string name="digit_memory_recall">Hatırla</string>
     <string name="achievement_gold_digit_memory">Kod Yakalayıcı</string>
-    <string name="achievement_gold_digit_memory_desc">Rakam Hafızası\'nda altın madalya kazan</string>
-    <!-- Spot the New game -->
+    <string name="achievement_gold_digit_memory_desc">Rakam Hafızası'nda altın madalya kazan</string>
     <string name="game_spot_the_new">Yeniyi Bul</string>
     <string name="game_spot_the_new_desc">Daha önce görmediğin hayvana dokun. Tek bir hata oyunu bitirir.</string>
     <string name="achievement_gold_spot_the_new">Keskin Göz</string>
-    <string name="achievement_gold_spot_the_new_desc">Yeniyi Bul\'da altın madalya kazan</string>
+    <string name="achievement_gold_spot_the_new_desc">Yeniyi Bul'da altın madalya kazan</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Altı denemede gizli beş harfli kelimeyi tahmin et. Cevap her zaman bir isimdir.</string>
     <string name="achievement_gold_wordle">Kelime Ustası</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">Doğru harf, doğru yer</string>
     <string name="wordle_legend_present">Doğru harf, yanlış yer</string>
     <string name="wordle_legend_absent">Kelimede yok</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Şekilleri izle, sonra istenen konumdakine dokun.</string>
     <string name="n_back_prompt">%1$d. konumdaki şekil hangisiydi?</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">Sponsorlar</string>
     <string name="sponsors_subtitle">Herkes için ücretsiz eğitimi destekleyin</string>
 <string name="sponsors_become">Sponsor ol</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Afganistan</string>
     <string name="country_aland_islands">Åland Adaları</string>
     <string name="country_albania">Arnavutluk</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">Zambiya</string>
     <string name="country_zimbabwe">Zimbabve</string>
 
-    <!-- Settings -->
     <string name="settings_title">Ayarlar</string>
     <string name="settings_open">Ayarları aç</string>
     <string name="settings_sound">Ses</string>
@@ -599,12 +571,11 @@
     <string name="settings_keypad">Telefon tarzı sayı tuş takımı</string>
     <string name="settings_keypad_desc">Üst sıraya 7, 8, 9 yerine 1, 2, 3 koyar.</string>
     <string name="settings_theme">Tema</string>
-    <string name="settings_theme_desc">Brain Cup\'un görünümünü seçin.</string>
+    <string name="settings_theme_desc">Brain Cup'un görünümünü seçin.</string>
     <string name="settings_theme_system">Sistem</string>
     <string name="settings_theme_light">Açık</string>
     <string name="settings_theme_dark">Koyu</string>
     <string name="settings_theme_oled">OLED</string>
-    <!-- Normal Sudoku -->
     <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Başlangıç</string>
     <string name="normal_sudoku_difficulty_easy">Kolay</string>
@@ -649,7 +620,6 @@
     <string name="normal_chess_promotion_knight">At</string>
     <string name="normal_chess_draw_warning">= pat (berabere, galibiyet değil)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Kibrit bulmacaları (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Kibrit bulmacaları</string>
     <string name="matchstick_riddles_puzzle_label">Bulmaca %1$d</string>
@@ -661,7 +631,6 @@
     <string name="achievement_matchstick_master">Kibrit ustası</string>
     <string name="achievement_matchstick_master_desc">Her kibrit bulmacasını çöz</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Solitaire</string>
     <string name="peg_solitaire_title">Solitaire</string>
     <string name="peg_solitaire_pegs_left">Kalan taş: %1$d</string>
@@ -673,7 +642,6 @@
     <string name="peg_solitaire_restart">Yeniden</string>
     <string name="achievement_peg_solitaire_perfect">Solitaire ustası</string>
     <string name="achievement_peg_solitaire_perfect_desc">İngiliz solitaire'i ortada bir taşla bitir</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Taşlar nasıl hareket eder</string>
     <string name="chess_piece_king">Şah</string>
     <string name="chess_piece_queen">Vezir</string>
@@ -730,20 +698,39 @@
     <string name="spot_the_new_demo_seen">Bunu daha önce gördün. Bir tur bekledi, ama yine de görülmüş sayılır.</string>
     <string name="spot_the_new_demo_correct">Doğru. Daha önce gördüklerin arasına katılır.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">Eşleşen karoları değiştirerek üç veya daha fazla karodan oluşan satırları temizleyin. Kazanmak için tüm tahtayı boşaltın.</string>
+    <string name="game_prism_clear_howto">Bir karoya, sonra komşusuna dokunun veya bir karoyu bitişiğine sürükleyerek değiştirin. Satır veya sütunda üç veya daha fazla eşleştirin.</string>
+    <string name="prism_clear_moves_remaining">Kalan hamle: %1$d</string>
+    <string name="prism_clear_restart">Yeniden</string>
+    <string name="prism_clear_stuck">Hamle kalmadı. Bir hamleyi geri alın veya seviyeyi yeniden başlatın.</string>
+    <string name="achievement_gold_prism_clear">Kristal Netlik</string>
+    <string name="achievement_gold_prism_clear_desc">Prism Clear oyununda altın madalya kazan</string>
+    <string name="prism_clear_undo">Geri al</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">Denklemi doğru yapan eksik operatörleri (+, -, *, /) bulun.</string>
+    <string name="missing_operators_instruction">Hangi operatörler ifadeyi doğru yapar?</string>
+    <string name="missing_operators_demo_title">Eksik operatörleri bulun</string>
+    <string name="missing_operators_demo_desc">Denklemi doğru yapmak için operatörleri seçin. Operatörler standart matematiksel öncelik sırasıyla değerlendirilir.</string>
+    <string name="achievement_gold_missing_operators">Operatör Ustası</string>
+    <string name="achievement_gold_missing_operators_desc">Missing Operators oyununda altın madalya kazan</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">Benzersiz rakamlardan oluşan gizli 4 basamaklı sayıyı tahmin edin. Bulls = doğru rakam doğru yerde. Cows = doğru rakam yanlış yerde.</string>
+    <string name="game_bulls_and_cows_howto">Benzersiz rakamlardan 4 basamaklı bir tahmin yazın ve Enter'a basın.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">Gizli sayı %1$s idi</string>
+    <string name="bulls_and_cows_demo_title">Gizli kodu kırın</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Iska</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 iska.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = doğru yer.\nCow = doğru rakam, yanlış yer.</string>
+    <string name="bulls_and_cows_demo_step3">Bull'u tutun.\nCow'u taşıyın — Bull olur.</string>
+    <string name="achievement_gold_bulls_and_cows">Kod Kırıcı</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows oyununda altın madalya kazan</string>
+    <string name="finish_tries">Deneme: %1$s</string>
+    <string name="finish_best_tries">En iyi: %1$s deneme</string>
+    <string name="finish_new_best_tries">Yeni rekor!</string>
+
 </resources>

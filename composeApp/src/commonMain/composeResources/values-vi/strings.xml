@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Rèn luyện kỹ năng toán học, trí nhớ và sự tập trung của bạn.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Bắt đầu</string>
     <string name="button_back">Quay lại</string>
     <string name="button_play_again">Chơi lại</string>
     <string name="button_play_next_level">Chơi cấp tiếp theo</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">Đã đạt cấp tối đa. Chờ nội dung mới.</string>
     <string name="button_play_random">Trò chơi ngẫu nhiên</string>
     <string name="button_give_up">Bỏ cuộc</string>
     <string name="button_stay">Ở lại</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">Xóa</string>
     <string name="button_done">Xong</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">Thành tích (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Thoát trò chơi?</string>
     <string name="quit_game_message">Tiến trình của bạn trong trò chơi này sẽ không được lưu.</string>
     <string name="game_goal">Mục tiêu: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">Chạm vào các số để tạo biểu thức</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Điểm: %1$s</string>
     <string name="finish_difficulty_bonus">Thưởng độ khó: +%1$s</string>
     <string name="finish_level">Cấp: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">Điểm cao mới!</string>
     <string name="finish_highscore">Điểm cao: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Đáp án: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">Bảng điểm %1$s</string>
     <string name="scoreboard_highscore">Điểm cao</string>
     <string name="scoreboard_best_level">Cấp cao nhất</string>
     <string name="scoreboard_no_scores">Chưa có điểm</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Thành tích</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Câu đố bất thường</string>
     <string name="game_mental_calculation">Tính nhẩm</string>
     <string name="game_colored_shapes">Hình dạng màu sắc</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">Nút Thắt</string>
     <string name="game_solo_chess">Cờ vua Solo</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.</string>
     <string name="game_mental_calculation_desc">Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.</string>
     <string name="game_colored_shapes_desc">Cộng điểm từ các phát biểu đúng.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">Xanh dương</string>
     <string name="game_flash_crowd_yellow">Vàng</string>
 
-    <!-- Color names -->
     <string name="color_red">Đỏ</string>
     <string name="color_green">Xanh lá</string>
     <string name="color_blue">Xanh dương</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">Hồng</string>
     <string name="color_light_grey">Xám Nhạt</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Vuông</string>
     <string name="shape_triangle">Tam Giác</string>
     <string name="shape_circle">Tròn</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">Ngôi Nhà</string>
     <string name="shape_arrow">Mũi Tên</string>
 
-    <!-- Direction words -->
     <string name="direction_up">trên</string>
     <string name="direction_right">phải</string>
     <string name="direction_down">dưới</string>
     <string name="direction_left">trái</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s chỉ %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">cột %1$d và hàng %2$d</string>
     <string name="solution_left">Trái</string>
     <string name="solution_right">Phải</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Thử thách hàng ngày</string>
     <string name="daily_challenge_subtitle_start">Chơi %1$d trò chơi để giữ chuỗi thắng</string>
     <string name="daily_challenge_subtitle_start_no_streak">Chơi %1$d trò chơi để bắt đầu chuỗi của bạn</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">Chuỗi ngày: %1$d</string>
     <string name="session_streak_current">Chuỗi hiện tại: %1$d ngày</string>
 
-    <!-- Level / XP -->
     <string name="level_label">Cấp %1$d</string>
     <string name="level_up_title">Lên Cấp!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">Cao Thủ</string>
     <string name="title_grandmaster">Đại Cao Thủ</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">Hiền nhân Sudoku</string>
     <string name="achievement_gold_mini_chess">Bậc thầy cờ tàn</string>
     <string name="achievement_gold_lights_out">Tắt đèn toàn bộ</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">Tia nhìn chớp nhoáng</string>
     <string name="achievement_gold_flags">Người cầm cờ</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Vận động viên Marathon Trí tuệ</string>
     <string name="achievement_iron_streak">Chuỗi Sắt</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Giành huy chương vàng trong Sudoku Mini</string>
     <string name="achievement_gold_mini_chess_desc">Giành huy chương vàng trong Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Giành huy chương vàng trong Lights Out</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">Giành huy chương vàng trong Bảng Schulte</string>
     <string name="achievement_gold_flags_desc">Giành huy chương vàng trong Cờ</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Tích lũy tổng cộng 10.000 điểm</string>
     <string name="achievement_iron_streak_desc">Luyện tập 30 ngày liên tiếp</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Mầm Sudoku</string>
     <string name="achievement_sudoku_beginner_desc">Giải tất cả 10 câu đố cấp Mới bắt đầu</string>
     <string name="achievement_sudoku_easy">Học giả Sudoku</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">Giải tất cả 10 câu đố cấp Khó</string>
     <string name="achievement_sudoku_expert">Bá chủ Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Giải tất cả 10 câu đố cấp Chuyên gia</string>
-    <!-- Flags game -->
     <string name="game_flags">Cờ</string>
     <string name="game_flags_desc">Nhận diện quốc gia qua lá cờ của nó. Mỗi vòng thêm nhiều lựa chọn và thời gian đang trôi.</string>
     <string name="game_flags_question">Đây là cờ nước nào?</string>
     <string name="game_flags_score">Điểm: %1$d</string>
     <string name="game_flags_best">Cao nhất: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">Trí Nhớ Số</string>
     <string name="game_digit_memory_desc">Ghi nhớ một dãy số, giải một bài toán nhanh, rồi nhớ lại các số.</string>
     <string name="digit_memory_memorize">Ghi nhớ</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">Nhớ lại</string>
     <string name="achievement_gold_digit_memory">Thợ Săn Mã</string>
     <string name="achievement_gold_digit_memory_desc">Giành huy chương vàng trong Trí Nhớ Số</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">Tìm Cái Mới</string>
     <string name="game_spot_the_new_desc">Chạm vào con vật mà bạn chưa từng thấy. Một lỗi sai sẽ kết thúc trò chơi.</string>
     <string name="achievement_gold_spot_the_new">Mắt Tinh</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">Đúng chữ, đúng vị trí</string>
     <string name="wordle_legend_present">Đúng chữ, sai vị trí</string>
     <string name="wordle_legend_absent">Không có trong từ</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Quan sát các hình, rồi chạm vào hình ở vị trí được hỏi.</string>
     <string name="n_back_prompt">Hình nào ở vị trí %1$d?</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">Nhà tài trợ</string>
     <string name="sponsors_subtitle">Hỗ trợ giáo dục miễn phí cho mọi người</string>
 <string name="sponsors_become">Trở thành nhà tài trợ</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Quần đảo Aland</string>
     <string name="country_albania">Albania</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">Zambia</string>
     <string name="country_zimbabwe">Zimbabwe</string>
 
-    <!-- Settings -->
     <string name="settings_title">Cài đặt</string>
     <string name="settings_open">Mở cài đặt</string>
     <string name="settings_sound">Âm thanh</string>
@@ -604,7 +576,6 @@
     <string name="settings_theme_light">Sáng</string>
     <string name="settings_theme_dark">Tối</string>
     <string name="settings_theme_oled">OLED</string>
-    <!-- Normal Sudoku -->
     <string name="normal_sudoku_button">Sudoku Thường (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Mới bắt đầu</string>
     <string name="normal_sudoku_difficulty_easy">Dễ</string>
@@ -649,7 +620,6 @@
     <string name="normal_chess_promotion_knight">Mã</string>
     <string name="normal_chess_draw_warning">= hết nước đi (hòa, không phải thắng)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Câu đố que diêm (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Câu đố que diêm</string>
     <string name="matchstick_riddles_puzzle_label">Câu đố %1$d</string>
@@ -661,7 +631,6 @@
     <string name="achievement_matchstick_master">Bậc thầy que diêm</string>
     <string name="achievement_matchstick_master_desc">Giải mọi câu đố que diêm</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Cờ nhảy</string>
     <string name="peg_solitaire_title">Cờ nhảy</string>
     <string name="peg_solitaire_pegs_left">Quân còn lại: %1$d</string>
@@ -673,7 +642,6 @@
     <string name="peg_solitaire_restart">Chơi lại</string>
     <string name="achievement_peg_solitaire_perfect">Bậc thầy cờ nhảy</string>
     <string name="achievement_peg_solitaire_perfect_desc">Hoàn thành cờ nhảy kiểu Anh với một quân ở giữa</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Cách các quân cờ di chuyển</string>
     <string name="chess_piece_king">Vua</string>
     <string name="chess_piece_queen">Hậu</string>
@@ -730,20 +698,39 @@
     <string name="spot_the_new_demo_seen">Bạn đã thấy cái này trước đây. Nó đã nghỉ một vòng nhưng vẫn được tính là đã thấy.</string>
     <string name="spot_the_new_demo_correct">Đúng rồi. Nó gia nhập vào những cái đã thấy.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">Đổi các ô khớp nhau để xóa hàng ba ô trở lên. Làm trống toàn bộ bảng để thắng.</string>
+    <string name="game_prism_clear_howto">Chạm một ô rồi ô kề, hoặc kéo một ô lên ô liền kề để đổi. Khớp ba ô trở lên theo hàng hoặc cột.</string>
+    <string name="prism_clear_moves_remaining">Nước còn lại: %1$d</string>
+    <string name="prism_clear_restart">Chơi lại</string>
+    <string name="prism_clear_stuck">Không còn nước đi. Hoàn tác một nước hoặc chơi lại cấp.</string>
+    <string name="achievement_gold_prism_clear">Tinh thể trong veo</string>
+    <string name="achievement_gold_prism_clear_desc">Giành huy chương vàng trong Prism Clear</string>
+    <string name="prism_clear_undo">Hoàn tác</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">Tìm các toán tử còn thiếu (+, -, *, /) để phương trình đúng.</string>
+    <string name="missing_operators_instruction">Toán tử nào làm cho biểu thức đúng?</string>
+    <string name="missing_operators_demo_title">Tìm các toán tử còn thiếu</string>
+    <string name="missing_operators_demo_desc">Chọn toán tử để phương trình đúng. Toán tử được tính theo thứ tự ưu tiên toán học chuẩn.</string>
+    <string name="achievement_gold_missing_operators">Bậc thầy toán tử</string>
+    <string name="achievement_gold_missing_operators_desc">Giành huy chương vàng trong Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">Đoán số bí mật 4 chữ số không trùng. Bulls = đúng số đúng vị trí. Cows = đúng số sai vị trí.</string>
+    <string name="game_bulls_and_cows_howto">Nhập đoán 4 chữ số không trùng, rồi nhấn Enter.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">Số bí mật là %1$s</string>
+    <string name="bulls_and_cows_demo_title">Phá mã bí mật</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Sai</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 sai.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = đúng vị trí.\nCow = đúng số, sai vị trí.</string>
+    <string name="bulls_and_cows_demo_step3">Giữ Bull.\nDi chuyển Cow — nó thành Bull.</string>
+    <string name="achievement_gold_bulls_and_cows">Kẻ phá mã</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Giành huy chương vàng trong Bulls &amp; Cows</string>
+    <string name="finish_tries">Lần thử: %1$s</string>
+    <string name="finish_best_tries">Tốt nhất: %1$s lần</string>
+    <string name="finish_new_best_tries">Kỷ lục mới!</string>
+
 </resources>

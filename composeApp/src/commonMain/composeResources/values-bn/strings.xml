@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">আপনার গণিত দক্ষতা, স্মৃতি এবং মনোযোগ প্রশিক্ষণ করুন।</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">শুরু করুন</string>
     <string name="button_back">ফিরে যান</string>
     <string name="button_play_again">আবার খেলুন</string>
     <string name="button_play_next_level">পরবর্তী লেভেল খেলুন</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">সর্বোচ্চ লেভেলে পৌঁছেছেন। নতুন কন্টেন্টের জন্য অপেক্ষা করুন।</string>
     <string name="button_play_random">র‍্যান্ডম গেম খেলুন</string>
     <string name="button_give_up">হাল ছাড়ুন</string>
     <string name="button_stay">থাকুন</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">ব্যাকস্পেস</string>
     <string name="button_done">সম্পন্ন</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">অর্জন (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">গেম থেকে বের হবেন?</string>
     <string name="quit_game_message">এই গেমের অগ্রগতি সংরক্ষিত হবে না।</string>
     <string name="game_goal">লক্ষ্য: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">একটি এক্সপ্রেশন তৈরি করতে সংখ্যাগুলিতে ট্যাপ করুন</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">স্কোর: %1$s</string>
     <string name="finish_difficulty_bonus">কঠিনতার বোনাস: +%1$s</string>
     <string name="finish_level">লেভেল: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">নতুন সর্বোচ্চ স্কোর!</string>
     <string name="finish_highscore">সর্বোচ্চ স্কোর: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">সমাধান: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s স্কোরবোর্ড</string>
     <string name="scoreboard_highscore">সর্বোচ্চ স্কোর</string>
     <string name="scoreboard_best_level">সর্বোচ্চ লেভেল</string>
     <string name="scoreboard_no_scores">এখনও কোনো স্কোর নেই</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">অর্জনসমূহ</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">অসঙ্গতি ধাঁধা</string>
     <string name="game_mental_calculation">মানসিক গণনা</string>
     <string name="game_colored_shapes">রঙিন আকৃতি</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">গিঁট</string>
     <string name="game_solo_chess">একক দাবা</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">আলাদা চিত্রটি খুঁজুন। প্রতিটি চিত্রের রঙ এবং আকৃতি উভয়ই বিবেচনা করুন।</string>
     <string name="game_mental_calculation_desc">গাণিতিক এক্সপ্রেশনগুলি অনুসরণ করুন। পরবর্তী গণনার ভিত্তি হিসাবে ফলাফল ব্যবহার করুন।</string>
     <string name="game_colored_shapes_desc">সঠিক বিবৃতির পয়েন্ট যোগ করুন।</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">নীল</string>
     <string name="game_flash_crowd_yellow">হলুদ</string>
 
-    <!-- Color names -->
     <string name="color_red">লাল</string>
     <string name="color_green">সবুজ</string>
     <string name="color_blue">নীল</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">গোলাপি</string>
     <string name="color_light_grey">হালকা ধূসর</string>
 
-    <!-- Shape names -->
     <string name="shape_square">বর্গ</string>
     <string name="shape_triangle">ত্রিভুজ</string>
     <string name="shape_circle">বৃত্ত</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">বাড়ি</string>
     <string name="shape_arrow">তীর</string>
 
-    <!-- Direction words -->
     <string name="direction_up">উপরে</string>
     <string name="direction_right">ডানে</string>
     <string name="direction_down">নিচে</string>
     <string name="direction_left">বামে</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s %3$s দিকে নির্দেশিত</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">কলাম %1$d এবং সারি %2$d</string>
     <string name="solution_left">বাম</string>
     <string name="solution_right">ডান</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">বনাম</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">দৈনিক চ্যালেঞ্জ</string>
     <string name="daily_challenge_subtitle_start">আপনার স্ট্রিক বজায় রাখতে %1$dটি গেম খেলুন</string>
     <string name="daily_challenge_subtitle_start_no_streak">আপনার স্ট্রিক শুরু করতে %1$dটি গেম খেলুন</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">দিন স্ট্রিক: %1$d</string>
     <string name="session_streak_current">বর্তমান স্ট্রিক: %1$d দিন</string>
 
-    <!-- Level / XP -->
     <string name="level_label">লেভেল %1$d</string>
     <string name="level_up_title">লেভেল আপ!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">দক্ষ</string>
     <string name="title_grandmaster">মহাগুরু</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">সুডোকু জ্ঞানী</string>
     <string name="achievement_gold_mini_chess">শেষ-খেলার ওস্তাদ</string>
     <string name="achievement_gold_lights_out">সম্পূর্ণ অন্ধকার</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">বিদ্যুৎ দৃষ্টি</string>
     <string name="achievement_gold_flags">পতাকাবাহী</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">মস্তিষ্কের ম্যারাথন রানার</string>
     <string name="achievement_iron_streak">লোহার ধারাবাহিকতা</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">মিনি সুডোকু-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_lights_out_desc">Lights Out-এ স্বর্ণপদক জিতুন</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">শুল্টে টেবিল-এ স্বর্ণপদক জিতুন</string>
     <string name="achievement_gold_flags_desc">পতাকা-এ স্বর্ণপদক জিতুন</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">মোট ১০,০০০ পয়েন্ট সংগ্রহ করুন</string>
     <string name="achievement_iron_streak_desc">টানা ৩০ দিন অনুশীলন করুন</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">সুডোকু অঙ্কুর</string>
     <string name="achievement_sudoku_beginner_desc">শিক্ষানবিস স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
     <string name="achievement_sudoku_easy">সুডোকু পণ্ডিত</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">কঠিন স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
     <string name="achievement_sudoku_expert">সুডোকু সম্রাট</string>
     <string name="achievement_sudoku_expert_desc">বিশেষজ্ঞ স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
-    <!-- Flags game -->
     <string name="game_flags">পতাকা</string>
     <string name="game_flags_desc">পতাকা দেখে দেশ শনাক্ত করুন। প্রতিটি রাউন্ডে আরও বিকল্প যোগ হয় এবং সময় চলতে থাকে।</string>
     <string name="game_flags_question">এটি কোন দেশের পতাকা?</string>
     <string name="game_flags_score">স্কোর: %1$d</string>
     <string name="game_flags_best">সেরা: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">অঙ্ক স্মৃতি</string>
     <string name="game_digit_memory_desc">একটি সংখ্যার ক্রম মুখস্থ করুন, একটি দ্রুত গণিতের সমস্যা সমাধান করুন, তারপর সংখ্যাগুলি মনে করুন।</string>
     <string name="digit_memory_memorize">মুখস্থ করুন</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">মনে করুন</string>
     <string name="achievement_gold_digit_memory">কোড শিকারি</string>
     <string name="achievement_gold_digit_memory_desc">অঙ্ক স্মৃতিতে সোনার পদক জিতুন</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">নতুনটি খুঁজুন</string>
     <string name="game_spot_the_new_desc">আগে দেখেননি এমন প্রাণীতে ট্যাপ করুন। একটি ভুলে খেলা শেষ হয়ে যায়।</string>
     <string name="achievement_gold_spot_the_new">তীক্ষ্ণ দৃষ্টি</string>
@@ -325,7 +300,6 @@
     <string name="sponsors_title">স্পনসর</string>
     <string name="sponsors_subtitle">সবার জন্য বিনামূল্যে শিক্ষাকে সমর্থন করুন</string>
 <string name="sponsors_become">স্পনসর হন</string>
-    <!-- Country names -->
     <string name="country_afghanistan">আফগানিস্তান</string>
     <string name="country_aland_islands">অলান্ড দ্বীপপুঞ্জ</string>
     <string name="country_albania">আলবেনিয়া</string>
@@ -560,7 +534,6 @@
     <string name="country_zambia">জাম্বিয়া</string>
     <string name="country_zimbabwe">জিম্বাবুয়ে</string>
 
-    <!-- Settings -->
     <string name="settings_title">সেটিংস</string>
     <string name="settings_open">সেটিংস খুলুন</string>
     <string name="settings_sound">শব্দ</string>
@@ -621,7 +594,6 @@
     <string name="normal_chess_promotion_knight">ঘোড়া</string>
     <string name="normal_chess_draw_warning">= স্টেলমেট (ড্র, জয় নয়)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">ম্যাচস্টিক ধাঁধা (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">ম্যাচস্টিক ধাঁধা</string>
     <string name="matchstick_riddles_puzzle_label">ধাঁধা %1$d</string>
@@ -633,7 +605,6 @@
     <string name="achievement_matchstick_master">ম্যাচস্টিক মাস্টার</string>
     <string name="achievement_matchstick_master_desc">প্রতিটি ম্যাচস্টিক ধাঁধা সমাধান করুন</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">পেগ সলিটেয়ার</string>
     <string name="peg_solitaire_title">পেগ সলিটেয়ার</string>
     <string name="peg_solitaire_pegs_left">বাকি গুটি: %1$d</string>
@@ -657,7 +628,6 @@
     <string name="wordle_legend_correct">সঠিক অক্ষর, সঠিক স্থান</string>
     <string name="wordle_legend_present">সঠিক অক্ষর, ভুল স্থান</string>
     <string name="wordle_legend_absent">শব্দে নেই</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">আকৃতিগুলো দেখুন, তারপর জিজ্ঞাসিত অবস্থানের আকৃতিতে ট্যাপ করুন।</string>
     <string name="n_back_prompt">%1$d নম্বর অবস্থানে কোন আকৃতি ছিল?</string>
@@ -673,7 +643,6 @@
     <string name="achievement_gold_simon_says">প্যাটার্ন রক্ষক</string>
     <string name="achievement_gold_simon_says_desc">Simon Says-এ স্বর্ণপদক জিতুন</string>
 
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">ঘুঁটিগুলো কীভাবে চলে</string>
     <string name="chess_piece_king">রাজা</string>
     <string name="chess_piece_queen">মন্ত্রী</string>
@@ -730,20 +699,39 @@
     <string name="spot_the_new_demo_seen">আপনি এটি আগে দেখেছেন। এটি একটি রাউন্ড বাদ পড়েছিল, কিন্তু এখনও দেখা হিসেবে গণ্য।</string>
     <string name="spot_the_new_demo_correct">সঠিক। এটি আপনার দেখা তালিকায় যোগ হলো।</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">মিল থাকা টাইল বদলে তিন বা তার বেশি সারি মুছুন। জিততে পুরো বোর্ড খালি করুন।</string>
+    <string name="game_prism_clear_howto">একটি টাইল ট্যাপ করে প্রতিবেশী ট্যাপ করুন, বা পাশের টাইলে টেনে বিনিময় করুন। সারি বা কলামে তিন বা তার বেশি মিলান।</string>
+    <string name="prism_clear_moves_remaining">বাকি চাল: %1$d</string>
+    <string name="prism_clear_restart">আবার</string>
+    <string name="prism_clear_stuck">আর চাল নেই। একটি চাল পূর্বাবস্থায় ফেরান বা লেভেল আবার শুরু করুন।</string>
+    <string name="achievement_gold_prism_clear">স্ফটিক স্বচ্ছতা</string>
+    <string name="achievement_gold_prism_clear_desc">Prism Clear-এ স্বর্ণপদক জিতুন</string>
+    <string name="prism_clear_undo">পূর্বাবস্থা</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">সমীকরণ সত্য করে এমন অনুপস্থিত অপারেটর (+, -, *, /) খুঁজুন।</string>
+    <string name="missing_operators_instruction">কোন অপারেটরগুলো বিবৃতি সত্য করে?</string>
+    <string name="missing_operators_demo_title">অনুপস্থিত অপারেটর খুঁজুন</string>
+    <string name="missing_operators_demo_desc">সমীকরণ সত্য করতে অপারেটর বেছে নিন। অপারেটর মানক গাণিতিক অগ্রাধিকার দিয়ে মূল্যায়ন হয়।</string>
+    <string name="achievement_gold_missing_operators">অপারেটর মাস্টার</string>
+    <string name="achievement_gold_missing_operators_desc">Missing Operators-এ স্বর্ণপদক জিতুন</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">অনন্য অঙ্কসহ গোপন ৪-অঙ্কের সংখ্যা অনুমান করুন। Bulls = সঠিক অঙ্ক সঠিক স্থানে। Cows = সঠিক অঙ্ক ভুল স্থানে।</string>
+    <string name="game_bulls_and_cows_howto">অনন্য অঙ্কের ৪-অঙ্কের অনুমান লিখে Enter চাপুন।</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">গোপন সংখ্যা ছিল %1$s</string>
+    <string name="bulls_and_cows_demo_title">গোপন কোড ভাঙুন</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">মিস</string>
+    <string name="bulls_and_cows_demo_step1">১ Bull, ১ Cow, ২ মিস।</string>
+    <string name="bulls_and_cows_demo_step2">Bull = সঠিক স্থান।\nCow = সঠিক অঙ্ক, ভুল স্থান।</string>
+    <string name="bulls_and_cows_demo_step3">Bull রাখুন।\nCow সরান — এটি Bull হয়ে যায়।</string>
+    <string name="achievement_gold_bulls_and_cows">কোড ক্র্যাকার</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows-এ স্বর্ণপদক জিতুন</string>
+    <string name="finish_tries">চেষ্টা: %1$s</string>
+    <string name="finish_best_tries">সেরা: %1$s চেষ্টা</string>
+    <string name="finish_new_best_tries">নতুন রেকর্ড!</string>
+
 </resources>

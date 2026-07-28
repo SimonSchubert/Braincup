@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">수학 능력, 기억력, 집중력을 훈련하세요.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">시작</string>
     <string name="button_back">뒤로</string>
     <string name="button_play_again">다시 플레이</string>
     <string name="button_play_next_level">다음 레벨 플레이</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">최대 레벨에 도달했습니다. 새 콘텐츠를 기다려 주세요.</string>
     <string name="button_play_random">랜덤 게임</string>
     <string name="button_give_up">포기</string>
     <string name="button_stay">계속</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">지우기</string>
     <string name="button_done">완료</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">업적 (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">게임을 종료할까요?</string>
     <string name="quit_game_message">이 게임의 진행 상황은 저장되지 않습니다.</string>
     <string name="game_goal">목표: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">숫자를 탭하여 수식을 만드세요</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">점수: %1$s</string>
     <string name="finish_difficulty_bonus">난이도 보너스: +%1$s</string>
     <string name="finish_level">레벨: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">새로운 최고 점수!</string>
     <string name="finish_highscore">최고 점수: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">정답: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s 스코어보드</string>
     <string name="scoreboard_highscore">최고 점수</string>
     <string name="scoreboard_best_level">최고 레벨</string>
     <string name="scoreboard_no_scores">아직 점수가 없습니다</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">업적</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">이상 퍼즐</string>
     <string name="game_mental_calculation">암산</string>
     <string name="game_colored_shapes">색깔 도형</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">매듭</string>
     <string name="game_solo_chess">솔로 체스</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">다른 도형을 찾으세요. 각 도형의 색상과 모양을 모두 고려하세요.</string>
     <string name="game_mental_calculation_desc">수학 표현식을 따르세요. 결과를 다음 계산의 기초로 사용하세요.</string>
     <string name="game_colored_shapes_desc">올바른 문장의 점수를 합산하세요.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">파란색</string>
     <string name="game_flash_crowd_yellow">노란색</string>
 
-    <!-- Color names -->
     <string name="color_red">빨강</string>
     <string name="color_green">초록</string>
     <string name="color_blue">파랑</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">분홍</string>
     <string name="color_light_grey">밝은 회색</string>
 
-    <!-- Shape names -->
     <string name="shape_square">사각형</string>
     <string name="shape_triangle">삼각형</string>
     <string name="shape_circle">원</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">집</string>
     <string name="shape_arrow">화살표</string>
 
-    <!-- Direction words -->
     <string name="direction_up">위</string>
     <string name="direction_right">오른쪽</string>
     <string name="direction_down">아래</string>
     <string name="direction_left">왼쪽</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%3$s을 가리키는 %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">열 %1$d 행 %2$d</string>
     <string name="solution_left">왼쪽</string>
     <string name="solution_right">오른쪽</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">일일 챌린지</string>
     <string name="daily_challenge_subtitle_start">연속 기록을 유지하려면 %1$d개의 게임을 플레이하세요</string>
     <string name="daily_challenge_subtitle_start_no_streak">연속 기록을 시작하려면 %1$d개의 게임을 플레이하세요</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">연속 일수: %1$d</string>
     <string name="session_streak_current">현재 연속: %1$d일</string>
 
-    <!-- Level / XP -->
     <string name="level_label">레벨 %1$d</string>
     <string name="level_up_title">레벨 업!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">달인</string>
     <string name="title_grandmaster">대가</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">스도쿠 현자</string>
     <string name="achievement_gold_mini_chess">종반의 거장</string>
     <string name="achievement_gold_lights_out">완전한 암흑</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">번개 시선</string>
     <string name="achievement_gold_flags">기수</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">마인드 마라토너</string>
     <string name="achievement_iron_streak">철의 연승</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">미니 스도쿠에서 금메달 획득</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chess에서 금메달 획득</string>
     <string name="achievement_gold_lights_out_desc">Lights Out에서 금메달 획득</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">슐테 테이블에서 금메달 획득</string>
     <string name="achievement_gold_flags_desc">국기에서 금메달 획득</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">총 10,000점 누적</string>
     <string name="achievement_iron_streak_desc">30일 연속 훈련</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">스도쿠 새싹</string>
     <string name="achievement_sudoku_beginner_desc">입문 난이도 퍼즐 10개를 모두 풀기</string>
     <string name="achievement_sudoku_easy">스도쿠 학자</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">어려움 난이도 퍼즐 10개를 모두 풀기</string>
     <string name="achievement_sudoku_expert">스도쿠 군주</string>
     <string name="achievement_sudoku_expert_desc">전문가 난이도 퍼즐 10개를 모두 풀기</string>
-    <!-- Flags game -->
     <string name="game_flags">국기</string>
     <string name="game_flags_desc">국기를 보고 나라를 맞혀보세요. 라운드마다 선택지가 늘어나고 시간이 흘러갑니다.</string>
     <string name="game_flags_question">이건 어느 나라 국기일까요?</string>
     <string name="game_flags_score">점수: %1$d</string>
     <string name="game_flags_best">최고: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">숫자 기억</string>
     <string name="game_digit_memory_desc">숫자 순서를 외우고, 간단한 수학 문제를 풀고, 숫자를 다시 떠올리세요.</string>
     <string name="digit_memory_memorize">외우기</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">떠올리기</string>
     <string name="achievement_gold_digit_memory">코드 캐처</string>
     <string name="achievement_gold_digit_memory_desc">숫자 기억에서 금메달 획득</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">새로운 것 찾기</string>
     <string name="game_spot_the_new_desc">이전에 본 적 없는 동물을 탭하세요. 한 번 틀리면 게임이 끝납니다.</string>
     <string name="achievement_gold_spot_the_new">예리한 눈</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">정확한 글자, 정확한 위치</string>
     <string name="wordle_legend_present">정확한 글자, 잘못된 위치</string>
     <string name="wordle_legend_absent">단어에 없는 글자</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">도형을 본 뒤, 물어본 위치의 도형을 탭하세요.</string>
     <string name="n_back_prompt">%1$d번 위치의 도형은?</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">후원자</string>
     <string name="sponsors_subtitle">모두를 위한 무료 교육을 지원하세요</string>
 <string name="sponsors_become">후원자 되기</string>
-    <!-- Country names -->
     <string name="country_afghanistan">아프가니스탄</string>
     <string name="country_aland_islands">올란드 제도</string>
     <string name="country_albania">알바니아</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">잠비아</string>
     <string name="country_zimbabwe">짐바브웨</string>
 
-    <!-- Settings -->
     <string name="settings_title">설정</string>
     <string name="settings_open">설정 열기</string>
     <string name="settings_sound">사운드</string>
@@ -648,7 +620,6 @@
     <string name="normal_chess_promotion_knight">나이트</string>
     <string name="normal_chess_draw_warning">= 스테일메이트 (승리가 아닌 무승부)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">성냥개비 퍼즐 (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">성냥개비 퍼즐</string>
     <string name="matchstick_riddles_puzzle_label">퍼즐 %1$d</string>
@@ -660,7 +631,6 @@
     <string name="achievement_matchstick_master">성냥개비 마스터</string>
     <string name="achievement_matchstick_master_desc">모든 성냥개비 퍼즐을 풀기</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">페그 솔리테어</string>
     <string name="peg_solitaire_title">페그 솔리테어</string>
     <string name="peg_solitaire_pegs_left">남은 말: %1$d</string>
@@ -672,7 +642,6 @@
     <string name="peg_solitaire_restart">다시 시작</string>
     <string name="achievement_peg_solitaire_perfect">페그 마스터</string>
     <string name="achievement_peg_solitaire_perfect_desc">영어식 페그 솔리테어를 중앙 한 개로 완료하기</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">기물이 움직이는 방법</string>
     <string name="chess_piece_king">킹</string>
     <string name="chess_piece_queen">퀸</string>
@@ -729,20 +698,39 @@
     <string name="spot_the_new_demo_seen">이건 전에 봤습니다. 한 라운드 쉬었지만 여전히 본 것으로 간주됩니다.</string>
     <string name="spot_the_new_demo_correct">정답. 본 것 목록에 추가됩니다.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">같은 타일을 바꿔 3개 이상 줄을 지우세요. 보드를 모두 비우면 승리합니다.</string>
+    <string name="game_prism_clear_howto">타일을 탭한 뒤 이웃을 탭하거나, 인접 타일로 드래그해 바꿉니다. 가로 또는 세로로 3개 이상 맞추세요.</string>
+    <string name="prism_clear_moves_remaining">남은 수: %1$d</string>
+    <string name="prism_clear_restart">다시 시작</string>
+    <string name="prism_clear_stuck">더 이상 둘 수 없습니다. 수를 취소하거나 레벨을 다시 시작하세요.</string>
+    <string name="achievement_gold_prism_clear">수정 같은 명료함</string>
+    <string name="achievement_gold_prism_clear_desc">Prism Clear에서 금메달 획득</string>
+    <string name="prism_clear_undo">실행 취소</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">식을 참이 되게 하는 빠진 연산자(+, -, *, /)를 찾으세요.</string>
+    <string name="missing_operators_instruction">어떤 연산자가 식을 참이 되게 할까요?</string>
+    <string name="missing_operators_demo_title">빠진 연산자 찾기</string>
+    <string name="missing_operators_demo_desc">식이 참이 되도록 연산자를 선택하세요. 연산자는 표준 수학 우선순위로 계산됩니다.</string>
+    <string name="achievement_gold_missing_operators">연산자 마스터</string>
+    <string name="achievement_gold_missing_operators_desc">Missing Operators에서 금메달 획득</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">중복 없는 4자리 비밀 숫자를 맞히세요. Bulls = 맞는 숫자·맞는 자리. Cows = 맞는 숫자·틀린 자리.</string>
+    <string name="game_bulls_and_cows_howto">중복 없는 4자리 추측을 입력한 뒤 Enter를 누르세요.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">비밀 숫자는 %1$s였습니다</string>
+    <string name="bulls_and_cows_demo_title">비밀 코드 풀기</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">틀림</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 틀림.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = 맞는 자리.\nCow = 맞는 숫자, 틀린 자리.</string>
+    <string name="bulls_and_cows_demo_step3">Bull은 유지하세요.\nCow를 옮기면 Bull이 됩니다.</string>
+    <string name="achievement_gold_bulls_and_cows">코드 해독가</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows에서 금메달 획득</string>
+    <string name="finish_tries">시도: %1$s</string>
+    <string name="finish_best_tries">최고: %1$s회</string>
+    <string name="finish_new_best_tries">신기록!</string>
+
 </resources>

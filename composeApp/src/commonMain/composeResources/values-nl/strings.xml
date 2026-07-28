@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Train je wiskundige vaardigheden, geheugen en concentratie.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Starten</string>
     <string name="button_back">Terug</string>
     <string name="button_play_again">Opnieuw spelen</string>
     <string name="button_play_next_level">Volgend level spelen</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">Maximaal level bereikt. Wacht op nieuwe content.</string>
     <string name="button_play_random">Willekeurig spel</string>
     <string name="button_give_up">Opgeven</string>
     <string name="button_stay">Blijven</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">Wissen</string>
     <string name="button_done">Klaar</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">Prestaties (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Spel verlaten?</string>
     <string name="quit_game_message">Je voortgang in dit spel wordt niet opgeslagen.</string>
     <string name="game_goal">Doel: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">Tik op getallen om een uitdrukking te maken</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Score: %1$s</string>
     <string name="finish_difficulty_bonus">Moeilijkheidsbonus: +%1$s</string>
     <string name="finish_level">Level: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">Nieuwe highscore!</string>
     <string name="finish_highscore">Topscore: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Oplossing: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Scorebord</string>
     <string name="scoreboard_highscore">Highscore</string>
     <string name="scoreboard_best_level">Hoogste level</string>
     <string name="scoreboard_no_scores">Nog geen scores</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Prestaties</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Anomalie puzzel</string>
     <string name="game_mental_calculation">Hoofdrekenen</string>
     <string name="game_colored_shapes">Gekleurde vormen</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">Knoop</string>
     <string name="game_solo_chess">Solo Schaken</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Vind de figuur die opvalt. Let op zowel de kleur als de vorm van elke figuur.</string>
     <string name="game_mental_calculation_desc">Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.</string>
     <string name="game_colored_shapes_desc">Tel de punten van de juiste uitspraken op.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">Blauw</string>
     <string name="game_flash_crowd_yellow">Geel</string>
 
-    <!-- Color names -->
     <string name="color_red">Rood</string>
     <string name="color_green">Groen</string>
     <string name="color_blue">Blauw</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">Roze</string>
     <string name="color_light_grey">Lichtgrijs</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Vierkant</string>
     <string name="shape_triangle">Driehoek</string>
     <string name="shape_circle">Cirkel</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">Huis</string>
     <string name="shape_arrow">Pijl</string>
 
-    <!-- Direction words -->
     <string name="direction_up">boven</string>
     <string name="direction_right">rechts</string>
     <string name="direction_down">onder</string>
     <string name="direction_left">links</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s wijzend naar %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">kolom %1$d en rij %2$d</string>
     <string name="solution_left">Links</string>
     <string name="solution_right">Rechts</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Dagelijkse uitdaging</string>
     <string name="daily_challenge_subtitle_start">Speel %1$d spellen om je reeks te behouden</string>
     <string name="daily_challenge_subtitle_start_no_streak">Speel %1$d spellen om je reeks te starten</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">Dagenreeks: %1$d</string>
     <string name="session_streak_current">Huidige reeks: %1$d dagen</string>
 
-    <!-- Level / XP -->
     <string name="level_label">Level %1$d</string>
     <string name="level_up_title">Level omhoog!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">Meester</string>
     <string name="title_grandmaster">Grootmeester</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">Sudoku-wijze</string>
     <string name="achievement_gold_mini_chess">Eindspelvirtuoos</string>
     <string name="achievement_gold_lights_out">Totale duisternis</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">Bliksemblik</string>
     <string name="achievement_gold_flags">Vlagdrager</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Geest-marathonloper</string>
     <string name="achievement_iron_streak">IJzeren reeks</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Win de gouden medaille in Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Win de gouden medaille in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Win de gouden medaille in Lights Out</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">Win de gouden medaille in Schulte-tabel</string>
     <string name="achievement_gold_flags_desc">Win een gouden medaille in Vlaggen</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Verzamel in totaal 10.000 punten</string>
     <string name="achievement_iron_streak_desc">Train 30 dagen op rij</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Sudoku-spruit</string>
     <string name="achievement_sudoku_beginner_desc">Los alle 10 puzzels van niveau Beginner op</string>
     <string name="achievement_sudoku_easy">Sudoku-geleerde</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">Los alle 10 puzzels van niveau Moeilijk op</string>
     <string name="achievement_sudoku_expert">Sudoku-soeverein</string>
     <string name="achievement_sudoku_expert_desc">Los alle 10 puzzels van niveau Expert op</string>
-    <!-- Flags game -->
     <string name="game_flags">Vlaggen</string>
     <string name="game_flags_desc">Herken het land aan zijn vlag. Elke ronde voegt meer opties toe en de klok tikt.</string>
     <string name="game_flags_question">Welke vlag is dit?</string>
     <string name="game_flags_score">Score: %1$d</string>
     <string name="game_flags_best">Beste: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">Cijfergeheugen</string>
     <string name="game_digit_memory_desc">Onthoud een reeks cijfers, los een snel rekensommetje op en onthoud dan de cijfers.</string>
     <string name="digit_memory_memorize">Onthouden</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">Herinneren</string>
     <string name="achievement_gold_digit_memory">Codevanger</string>
     <string name="achievement_gold_digit_memory_desc">Win de gouden medaille in Cijfergeheugen</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">Spot het Nieuwe</string>
     <string name="game_spot_the_new_desc">Tik op het dier dat je nog niet eerder hebt gezien. Eén fout beëindigt het spel.</string>
     <string name="achievement_gold_spot_the_new">Frisse Blik</string>
@@ -325,7 +300,6 @@
     <string name="sponsors_title">Sponsors</string>
     <string name="sponsors_subtitle">Steun gratis onderwijs voor iedereen</string>
 <string name="sponsors_become">Word sponsor</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Ålandseilanden</string>
     <string name="country_albania">Albanië</string>
@@ -341,7 +315,7 @@
     <string name="country_australia">Australië</string>
     <string name="country_austria">Oostenrijk</string>
     <string name="country_azerbaijan">Azerbeidzjan</string>
-    <string name="country_bahamas">Bahama\'s</string>
+    <string name="country_bahamas">Bahama's</string>
     <string name="country_bahrain">Bahrein</string>
     <string name="country_bangladesh">Bangladesh</string>
     <string name="country_barbados">Barbados</string>
@@ -560,7 +534,6 @@
     <string name="country_zambia">Zambia</string>
     <string name="country_zimbabwe">Zimbabwe</string>
 
-    <!-- Settings -->
     <string name="settings_title">Instellingen</string>
     <string name="settings_open">Instellingen openen</string>
     <string name="settings_sound">Geluid</string>
@@ -621,7 +594,6 @@
     <string name="normal_chess_promotion_knight">Paard</string>
     <string name="normal_chess_draw_warning">= pat (remise, geen winst)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Luciferpuzzels (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Luciferpuzzels</string>
     <string name="matchstick_riddles_puzzle_label">Puzzel %1$d</string>
@@ -633,7 +605,6 @@
     <string name="achievement_matchstick_master">Lucifermeester</string>
     <string name="achievement_matchstick_master_desc">Los elke luciferpuzzel op</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Solitaire</string>
     <string name="peg_solitaire_title">Solitaire</string>
     <string name="peg_solitaire_pegs_left">Pinnen over: %1$d</string>
@@ -657,7 +628,6 @@
     <string name="wordle_legend_correct">Juiste letter, juiste plek</string>
     <string name="wordle_legend_present">Juiste letter, verkeerde plek</string>
     <string name="wordle_legend_absent">Niet in het woord</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Kijk naar de vormen en tik op die op de gevraagde positie.</string>
     <string name="n_back_prompt">Welke vorm stond op positie %1$d?</string>
@@ -673,7 +643,6 @@
     <string name="achievement_gold_simon_says">Patroonbewaker</string>
     <string name="achievement_gold_simon_says_desc">Win een gouden medaille in Simon Says</string>
 
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Zo bewegen de stukken</string>
     <string name="chess_piece_king">Koning</string>
     <string name="chess_piece_queen">Dame</string>
@@ -730,20 +699,39 @@
     <string name="spot_the_new_demo_seen">Dit heb je al eerder gezien. Het sloeg een ronde over, maar telt nog steeds als gezien.</string>
     <string name="spot_the_new_demo_correct">Juist. Het sluit aan bij de dieren die je al hebt gezien.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">Wissel bijpassende tegels om rijen van drie of meer te wissen. Maak het hele bord leeg om te winnen.</string>
+    <string name="game_prism_clear_howto">Tik op een tegel en dan op een buur, of sleep een tegel op een aangrenzende om te wisselen. Match drie of meer in een rij of kolom.</string>
+    <string name="prism_clear_moves_remaining">Zetten over: %1$d</string>
+    <string name="prism_clear_restart">Opnieuw</string>
+    <string name="prism_clear_stuck">Geen zetten meer. Maak een zet ongedaan of start het level opnieuw.</string>
+    <string name="achievement_gold_prism_clear">Kristalhelder</string>
+    <string name="achievement_gold_prism_clear_desc">Win de gouden medaille in Prism Clear</string>
+    <string name="prism_clear_undo">Ongedaan</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">Vind de ontbrekende operatoren (+, -, *, /) die de vergelijking waar maken.</string>
+    <string name="missing_operators_instruction">Welke operatoren maken de stelling waar?</string>
+    <string name="missing_operators_demo_title">Vind de ontbrekende operatoren</string>
+    <string name="missing_operators_demo_desc">Selecteer de operatoren om de vergelijking waar te maken. Operatoren worden geëvalueerd met de standaard wiskundige volgorde.</string>
+    <string name="achievement_gold_missing_operators">Operatormeester</string>
+    <string name="achievement_gold_missing_operators_desc">Win de gouden medaille in Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">Raad het geheime 4-cijferige getal met unieke cijfers. Bulls = juist cijfer op de juiste plaats. Cows = juist cijfer op de verkeerde plaats.</string>
+    <string name="game_bulls_and_cows_howto">Typ een 4-cijferige gok met unieke cijfers en druk op Enter.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">Het geheim was %1$s</string>
+    <string name="bulls_and_cows_demo_title">Kraak de geheime code</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Mis</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 mis.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = juiste plaats.\nCow = juist cijfer, verkeerde plaats.</string>
+    <string name="bulls_and_cows_demo_step3">Houd de Bull.\nVerplaats de Cow — die wordt een Bull.</string>
+    <string name="achievement_gold_bulls_and_cows">Codekraker</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Win de gouden medaille in Bulls &amp; Cows</string>
+    <string name="finish_tries">Pogingen: %1$s</string>
+    <string name="finish_best_tries">Beste: %1$s pogingen</string>
+    <string name="finish_new_best_tries">Nieuw record!</string>
+
 </resources>

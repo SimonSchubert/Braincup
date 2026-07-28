@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Train your math skills, memory, and focus.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Start</string>
     <string name="button_back">Back</string>
     <string name="button_play_again">Play Again</string>
@@ -14,9 +12,6 @@
     <string name="button_quit_game">Quit</string>
     <string name="button_backspace">Backspace</string>
 
-    <!-- Main menu -->
-
-    <!-- Level / XP -->
     <string name="level_label">Level %1$d</string>
     <string name="level_up_title">Level Up!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -44,7 +39,6 @@
     <string name="normal_sudoku_pen_mode">Pen</string>
     <string name="normal_sudoku_notes_toggle">Toggle notes mode</string>
 
-    <!-- Normal Chess -->
     <string name="normal_chess_button">Normal Chess</string>
     <string name="normal_chess_title">Chess</string>
     <string name="normal_chess_mode_cpu">Play vs CPU</string>
@@ -74,7 +68,6 @@
     <string name="normal_chess_promotion_knight">Knight</string>
     <string name="normal_chess_draw_warning">= stalemate (draw, not a win)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Matchstick Riddles (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Matchstick Riddles</string>
     <string name="matchstick_riddles_puzzle_label">Riddle %1$d</string>
@@ -83,12 +76,9 @@
     <string name="matchstick_riddle_prompt_move_three">Move 3 matchsticks to fix the equation.</string>
     <string name="matchstick_riddles_solved">Solved!</string>
     <string name="matchstick_riddles_reset">Reset</string>
-    <!-- Set-completion achievement (incremental: solve every riddle). Description is count-free so
-         adding riddles later needs no string change. -->
     <string name="achievement_matchstick_master">Matchstick Master</string>
     <string name="achievement_matchstick_master_desc">Solve every matchstick riddle</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Peg Solitaire</string>
     <string name="peg_solitaire_title">Peg Solitaire</string>
     <string name="peg_solitaire_pegs_left">Pegs left: %1$d</string>
@@ -101,7 +91,6 @@
     <string name="achievement_peg_solitaire_perfect">Peg Master</string>
     <string name="achievement_peg_solitaire_perfect_desc">Finish English peg solitaire with one peg in the center</string>
 
-    <!-- Settings -->
     <string name="settings_title">Settings</string>
     <string name="settings_open">Open settings</string>
     <string name="settings_sound">Sound</string>
@@ -119,7 +108,6 @@
     <string name="settings_theme_dark">Dark</string>
     <string name="settings_theme_oled">OLED</string>
 
-    <!-- Daily challenge -->
     <string name="daily_challenge_title">Daily Challenge</string>
     <string name="daily_challenge_subtitle_start">Play %1$d games to keep your streak</string>
     <string name="daily_challenge_subtitle_start_no_streak">Play %1$d games to start your streak</string>
@@ -130,7 +118,6 @@
     <string name="daily_challenge_button_resume">Resume</string>
     <string name="daily_challenge_button_done">Completed today</string>
 
-    <!-- Session screens -->
     <string name="session_progress">Game %1$d of %2$d</string>
     <string name="session_running_total">Total so far: %1$d</string>
     <string name="session_next_up">Up next</string>
@@ -141,7 +128,6 @@
     <string name="session_streak_increased">Day streak: %1$d</string>
     <string name="session_streak_current">Current streak: %1$d days</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Quit game?</string>
     <string name="quit_game_message">Your progress in this game will not be saved.</string>
     <string name="game_goal">Goal: %1$d</string>
@@ -151,7 +137,6 @@
     <string name="game_tap_numbers">Tap numbers to build an expression</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Score: %1$s</string>
     <string name="finish_tries">Tries: %1$s</string>
     <string name="finish_difficulty_bonus">Difficulty bonus: +%1$s</string>
@@ -164,19 +149,15 @@
     <string name="button_play_next_level">Play next level</string>
     <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Solution: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s Scoreboard</string>
     <string name="scoreboard_highscore">High Score</string>
     <string name="scoreboard_best_level">Best Level</string>
     <string name="scoreboard_no_scores">No scores yet</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Achievements</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Anomaly Puzzle</string>
     <string name="game_mental_calculation">Mental Calculation</string>
     <string name="game_colored_shapes">Colored Shapes</string>
@@ -208,7 +189,6 @@
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
     <string name="game_mental_calculation_desc">Follow the mathematical expressions. Use the result as the base for the next calculation.</string>
     <string name="game_colored_shapes_desc">Add up the points from the correct statements.</string>
@@ -266,7 +246,6 @@
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">The secret was %1$s</string>
     <string name="bulls_and_cows_demo_title">Crack the secret code</string>
-    <!-- Plain fallbacks also used to reserve caption height (Bull/Cow words are colored in UI). -->
     <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 misses.</string>
     <string name="bulls_and_cows_demo_step2">Bull = right place.\nCow = right digit, wrong place.</string>
     <string name="bulls_and_cows_demo_step3">Keep the Bull.\nMove the Cow — it becomes a Bull.</string>
@@ -353,7 +332,6 @@
     <string name="game_flash_crowd_yellow">Yellow</string>
     <string name="button_done">Done</string>
 
-    <!-- Color names -->
     <string name="color_red">Red</string>
     <string name="color_green">Green</string>
     <string name="color_blue">Blue</string>
@@ -364,7 +342,6 @@
     <string name="color_pink">Pink</string>
     <string name="color_light_grey">Light Grey</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Square</string>
     <string name="shape_triangle">Triangle</string>
     <string name="shape_circle">Circle</string>
@@ -376,23 +353,19 @@
     <string name="shape_house">House</string>
     <string name="shape_arrow">Arrow</string>
 
-    <!-- Direction words -->
     <string name="direction_up">up</string>
     <string name="direction_right">right</string>
     <string name="direction_down">down</string>
     <string name="direction_left">left</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s pointing %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">column %1$d and row %2$d</string>
     <string name="solution_left">Left</string>
     <string name="solution_right">Right</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Per-game Gold achievement titles (mirror Google Play Games titles) -->
     <string name="achievement_gold_mini_sudoku">Sudoku Sage</string>
     <string name="achievement_gold_mini_chess">Endgame Virtuoso</string>
     <string name="achievement_gold_lights_out">Total Blackout</string>
@@ -425,11 +398,9 @@
     <string name="achievement_gold_schulte_table">Lightning Gaze</string>
     <string name="achievement_gold_flags">Flag Bearer</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Mind Marathoner</string>
     <string name="achievement_iron_streak">Iron Streak</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Win gold medal in Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Win gold medal in Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Win gold medal in Lights Out</string>
@@ -462,11 +433,9 @@
     <string name="achievement_gold_schulte_table_desc">Win gold medal in Schulte Table</string>
     <string name="achievement_gold_flags_desc">Win gold medal in Flags</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Accumulate 10,000 total points</string>
     <string name="achievement_iron_streak_desc">Train for 30 days in a row</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Sudoku Sprout</string>
     <string name="achievement_sudoku_beginner_desc">Solve all 10 Beginner puzzles</string>
     <string name="achievement_sudoku_easy">Sudoku Scholar</string>
@@ -477,13 +446,11 @@
     <string name="achievement_sudoku_hard_desc">Solve all 10 Hard puzzles</string>
     <string name="achievement_sudoku_expert">Sudoku Sovereign</string>
     <string name="achievement_sudoku_expert_desc">Solve all 10 Expert puzzles</string>
-    <!-- Flags game -->
     <string name="game_flags">Flags</string>
     <string name="game_flags_desc">Identify the country by its flag. Each round adds more options and the clock is ticking.</string>
     <string name="game_flags_question">What flag is this?</string>
     <string name="game_flags_score">Score: %1$d</string>
     <string name="game_flags_best">Best: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">Digit Memory</string>
     <string name="game_digit_memory_desc">Memorize a digit sequence, solve a quick math problem, then recall the digits.</string>
     <string name="digit_memory_memorize">Memorize</string>
@@ -491,7 +458,6 @@
     <string name="digit_memory_recall">Recall</string>
     <string name="achievement_gold_digit_memory">Code Catcher</string>
     <string name="achievement_gold_digit_memory_desc">Win gold medal in Digit Memory</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">Spot the New</string>
     <string name="game_spot_the_new_desc">Tap the animal you have not seen before. One mistake ends the game.</string>
     <string name="achievement_gold_spot_the_new">Fresh Eyes</string>
@@ -513,7 +479,6 @@
     <string name="wordle_legend_correct">Right letter, right spot</string>
     <string name="wordle_legend_present">Right letter, wrong spot</string>
     <string name="wordle_legend_absent">Not in the word</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Watch the shapes flash by, then tap the one at the position asked.</string>
     <string name="n_back_prompt">Which shape was at position %1$d?</string>
@@ -521,7 +486,6 @@
     <string name="n_back_demo_recall">Tap the shape that was in position 1.</string>
     <string name="achievement_gold_n_back">Rolling Recall</string>
     <string name="achievement_gold_n_back_desc">Win gold medal in N-Back</string>
-    <!-- Simon Says game -->
     <string name="game_simon_says">Simon Says</string>
     <string name="game_simon_says_desc">Each round lights up one new pad. Tap the whole sequence back from the start, earlier pads included.</string>
     <string name="simon_says_demo_title">Watch, then repeat</string>
@@ -532,11 +496,9 @@
     <string name="instructions_best_score">Best score: %1$s</string>
     <string name="instructions_leaderboard">View leaderboard</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>
-    <!-- Sponsors section -->
     <string name="sponsors_title">Sponsors</string>
     <string name="sponsors_subtitle">Support free education for everyone</string>
     <string name="sponsors_become">Become a Sponsor</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Åland Islands</string>
     <string name="country_albania">Albania</string>

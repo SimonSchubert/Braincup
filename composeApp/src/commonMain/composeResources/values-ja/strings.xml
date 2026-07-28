@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">数学スキル、記憶力、集中力を鍛えましょう。</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">スタート</string>
     <string name="button_back">戻る</string>
     <string name="button_play_again">もう一度プレイ</string>
     <string name="button_play_next_level">次のレベルをプレイ</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">最大レベルに到達しました。新しいコンテンツをお待ちください。</string>
     <string name="button_play_random">ランダムゲーム</string>
     <string name="button_give_up">ギブアップ</string>
     <string name="button_stay">続ける</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">バックスペース</string>
     <string name="button_done">完了</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">実績 (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">ゲームを終了しますか？</string>
     <string name="quit_game_message">このゲームの進行状況は保存されません。</string>
     <string name="game_goal">目標：%1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">数字をタップして式を作成</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">スコア：%1$s</string>
     <string name="finish_difficulty_bonus">難易度ボーナス: +%1$s</string>
     <string name="finish_level">レベル：%1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">新記録！</string>
     <string name="finish_highscore">ハイスコア: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">解答: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">%1$s スコアボード</string>
     <string name="scoreboard_highscore">ハイスコア</string>
     <string name="scoreboard_best_level">最高レベル</string>
     <string name="scoreboard_no_scores">まだスコアがありません</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">実績</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">異常パズル</string>
     <string name="game_mental_calculation">暗算</string>
     <string name="game_colored_shapes">カラフルな形</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">結び目</string>
     <string name="game_solo_chess">ソロチェス</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">異なる図形を見つけてください。各図形の色と形の両方を考慮してください。</string>
     <string name="game_mental_calculation_desc">数式に従ってください。結果を次の計算の基礎として使用します。</string>
     <string name="game_colored_shapes_desc">正しい文のポイントを合計してください。</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">青</string>
     <string name="game_flash_crowd_yellow">黄</string>
 
-    <!-- Color names -->
     <string name="color_red">赤</string>
     <string name="color_green">緑</string>
     <string name="color_blue">青</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">ピンク</string>
     <string name="color_light_grey">ライトグレー</string>
 
-    <!-- Shape names -->
     <string name="shape_square">四角</string>
     <string name="shape_triangle">三角</string>
     <string name="shape_circle">丸</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">家</string>
     <string name="shape_arrow">矢印</string>
 
-    <!-- Direction words -->
     <string name="direction_up">上</string>
     <string name="direction_right">右</string>
     <string name="direction_down">下</string>
     <string name="direction_left">左</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%3$sを向いた%1$sの%2$s</string>
     <string name="solution_figure">%1$sの%2$s</string>
     <string name="solution_column_row">列%1$d 行%2$d</string>
     <string name="solution_left">左</string>
     <string name="solution_right">右</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">デイリーチャレンジ</string>
     <string name="daily_challenge_subtitle_start">%1$dゲームをプレイして連続記録を保とう</string>
     <string name="daily_challenge_subtitle_start_no_streak">%1$dゲームをプレイして連続記録を始めよう</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">連続日数: %1$d</string>
     <string name="session_streak_current">現在の連続: %1$d日</string>
 
-    <!-- Level / XP -->
     <string name="level_label">レベル %1$d</string>
     <string name="level_up_title">レベルアップ!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">達人</string>
     <string name="title_grandmaster">大達人</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">数独の達人</string>
     <string name="achievement_gold_mini_chess">終盤の名手</string>
     <string name="achievement_gold_lights_out">完全消灯</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">稲妻の視線</string>
     <string name="achievement_gold_flags">旗手</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">脳のマラソンランナー</string>
     <string name="achievement_iron_streak">鉄の連続記録</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">ミニ数独で金メダルを獲得</string>
     <string name="achievement_gold_mini_chess_desc">Mini Chessで金メダルを獲得</string>
     <string name="achievement_gold_lights_out_desc">Lights Outで金メダルを獲得</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">シュルテ表で金メダルを獲得</string>
     <string name="achievement_gold_flags_desc">国旗で金メダルを獲得</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">累計10,000ポイントを獲得</string>
     <string name="achievement_iron_streak_desc">30日連続で訓練</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">数独の芽</string>
     <string name="achievement_sudoku_beginner_desc">入門レベルのパズルを10問すべて解く</string>
     <string name="achievement_sudoku_easy">数独の学者</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">難しいレベルのパズルを10問すべて解く</string>
     <string name="achievement_sudoku_expert">数独の覇者</string>
     <string name="achievement_sudoku_expert_desc">上級レベルのパズルを10問すべて解く</string>
-    <!-- Flags game -->
     <string name="game_flags">国旗</string>
     <string name="game_flags_desc">国旗から国を当てよう。ラウンドごとに選択肢が増え、時間も限られています。</string>
     <string name="game_flags_question">これはどこの国旗？</string>
     <string name="game_flags_score">スコア: %1$d</string>
     <string name="game_flags_best">ベスト: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">数字記憶</string>
     <string name="game_digit_memory_desc">数字の列を記憶し、簡単な計算問題を解いたあと、その数字を思い出してください。</string>
     <string name="digit_memory_memorize">記憶</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">想起</string>
     <string name="achievement_gold_digit_memory">コードキャッチャー</string>
     <string name="achievement_gold_digit_memory_desc">数字記憶でゴールドメダルを獲得</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">新しいものを探せ</string>
     <string name="game_spot_the_new_desc">今まで見たことのない動物をタップしてください。一度間違えるとゲーム終了です。</string>
     <string name="achievement_gold_spot_the_new">新鮮な目</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">正しい文字、正しい位置</string>
     <string name="wordle_legend_present">正しい文字、違う位置</string>
     <string name="wordle_legend_absent">単語に含まれない</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">図形を見て、指定された位置の図形をタップします。</string>
     <string name="n_back_prompt">位置 %1$d の図形は？</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">スポンサー</string>
     <string name="sponsors_subtitle">すべての人のための無料教育を支援しよう</string>
 <string name="sponsors_become">スポンサーになる</string>
-    <!-- Country names -->
     <string name="country_afghanistan">アフガニスタン</string>
     <string name="country_aland_islands">オーランド諸島</string>
     <string name="country_albania">アルバニア</string>
@@ -587,7 +560,6 @@
     <string name="country_zambia">ザンビア</string>
     <string name="country_zimbabwe">ジンバブエ</string>
 
-    <!-- Settings -->
     <string name="settings_title">設定</string>
     <string name="settings_open">設定を開く</string>
     <string name="settings_sound">サウンド</string>
@@ -648,7 +620,6 @@
     <string name="normal_chess_promotion_knight">ナイト</string>
     <string name="normal_chess_draw_warning">= ステイルメイト（勝ちではなく引き分け）</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">マッチ棒パズル (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">マッチ棒パズル</string>
     <string name="matchstick_riddles_puzzle_label">パズル %1$d</string>
@@ -660,7 +631,6 @@
     <string name="achievement_matchstick_master">マッチ棒マスター</string>
     <string name="achievement_matchstick_master_desc">すべてのマッチ棒パズルを解く</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">ペグソリティア</string>
     <string name="peg_solitaire_title">ペグソリティア</string>
     <string name="peg_solitaire_pegs_left">残り駒: %1$d</string>
@@ -672,7 +642,6 @@
     <string name="peg_solitaire_restart">やり直す</string>
     <string name="achievement_peg_solitaire_perfect">ペグマスター</string>
     <string name="achievement_peg_solitaire_perfect_desc">英語式ペグソリティアを中央1個でクリアする</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">駒の動き方</string>
     <string name="chess_piece_king">キング</string>
     <string name="chess_piece_queen">クイーン</string>
@@ -729,20 +698,39 @@
     <string name="spot_the_new_demo_seen">これは前に見ました。1ラウンド休みましたが、見たものとして数えられます。</string>
     <string name="spot_the_new_demo_correct">正解。見たものの仲間入りです。</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">同じタイルを入れ替えて、3つ以上の並びを消しましょう。盤面をすべて空にするとクリアです。</string>
+    <string name="game_prism_clear_howto">タイルをタップしてから隣をタップするか、隣のタイルへドラッグして入れ替えます。縦または横に3つ以上そろえてください。</string>
+    <string name="prism_clear_moves_remaining">残り手数: %1$d</string>
+    <string name="prism_clear_restart">やり直す</string>
+    <string name="prism_clear_stuck">もう動かせません。一手戻すか、レベルをやり直してください。</string>
+    <string name="achievement_gold_prism_clear">クリスタルの明晰</string>
+    <string name="achievement_gold_prism_clear_desc">Prism Clearで金メダルを獲得</string>
+    <string name="prism_clear_undo">戻す</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">式が成り立つように、足りない演算子（+、-、*、/）を見つけましょう。</string>
+    <string name="missing_operators_instruction">どの演算子で式が正しくなりますか？</string>
+    <string name="missing_operators_demo_title">足りない演算子を見つける</string>
+    <string name="missing_operators_demo_desc">式が成り立つ演算子を選びます。演算子は通常の数学の優先順位で評価されます。</string>
+    <string name="achievement_gold_missing_operators">演算子マスター</string>
+    <string name="achievement_gold_missing_operators_desc">Missing Operatorsで金メダルを獲得</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">重複のない4桁の秘密の数字を当てます。Bulls＝正しい数字が正しい位置。Cows＝正しい数字が違う位置。</string>
+    <string name="game_bulls_and_cows_howto">重複のない4桁の予想を入力し、Enterを押します。</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">秘密の数字は %1$s でした</string>
+    <string name="bulls_and_cows_demo_title">秘密のコードを解く</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">ハズレ</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull、1 Cow、2 ハズレ。</string>
+    <string name="bulls_and_cows_demo_step2">Bull = 正しい位置。\nCow = 正しい数字、違う位置。</string>
+    <string name="bulls_and_cows_demo_step3">Bullはそのまま。\nCowを動かすとBullになります。</string>
+    <string name="achievement_gold_bulls_and_cows">コードクラッカー</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cowsで金メダルを獲得</string>
+    <string name="finish_tries">試行: %1$s</string>
+    <string name="finish_best_tries">ベスト: %1$s 回</string>
+    <string name="finish_new_best_tries">自己ベスト更新！</string>
+
 </resources>

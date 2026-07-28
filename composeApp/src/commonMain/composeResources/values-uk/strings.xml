@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">Тренуйте математичні навички, пам'ять та концентрацію.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">Почати</string>
     <string name="button_back">Назад</string>
     <string name="button_play_again">Грати знову</string>
     <string name="button_play_next_level">Наступний рівень</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">Досягнуто максимального рівня. Чекайте на новий вміст.</string>
     <string name="button_play_random">Випадкова гра</string>
     <string name="button_give_up">Здатися</string>
     <string name="button_stay">Залишитися</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">Видалити</string>
     <string name="button_done">Готово</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">Досягнення (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">Вийти з гри?</string>
     <string name="quit_game_message">Ваш прогрес у цій грі не буде збережено.</string>
     <string name="game_goal">Ціль: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">Натискайте на числа, щоб скласти вираз</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">Рахунок: %1$s</string>
     <string name="finish_difficulty_bonus">Бонус складності: +%1$s</string>
     <string name="finish_level">Рівень: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">Новий рекорд!</string>
     <string name="finish_highscore">Найкращий результат: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">Відповідь: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">Таблиця %1$s</string>
     <string name="scoreboard_highscore">Рекорд</string>
     <string name="scoreboard_best_level">Найкращий рівень</string>
     <string name="scoreboard_no_scores">Поки що немає результатів</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">Досягнення</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">Головоломка з аномалією</string>
     <string name="game_mental_calculation">Усний рахунок</string>
     <string name="game_colored_shapes">Кольорові фігури</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">Вузол</string>
     <string name="game_solo_chess">Соло-шахи</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">Знайдіть фігуру, яка виділяється. Враховуйте як колір, так і форму кожної фігури.</string>
     <string name="game_mental_calculation_desc">Слідуйте математичним виразам. Використовуйте результат як основу для наступного обчислення.</string>
     <string name="game_colored_shapes_desc">Додайте очки за правильні твердження.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">Синій</string>
     <string name="game_flash_crowd_yellow">Жовтий</string>
 
-    <!-- Color names -->
     <string name="color_red">Червоний</string>
     <string name="color_green">Зелений</string>
     <string name="color_blue">Синій</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">Рожевий</string>
     <string name="color_light_grey">Світло-сірий</string>
 
-    <!-- Shape names -->
     <string name="shape_square">Квадрат</string>
     <string name="shape_triangle">Трикутник</string>
     <string name="shape_circle">Коло</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">Будинок</string>
     <string name="shape_arrow">Стрілка</string>
 
-    <!-- Direction words -->
     <string name="direction_up">вгору</string>
     <string name="direction_right">вправо</string>
     <string name="direction_down">вниз</string>
     <string name="direction_left">вліво</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s спрямований %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">стовпець %1$d і рядок %2$d</string>
     <string name="solution_left">Ліва</string>
     <string name="solution_right">Права</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">vs</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">Щоденний виклик</string>
     <string name="daily_challenge_subtitle_start">Зіграйте %1$d ігор, щоб зберегти серію</string>
     <string name="daily_challenge_subtitle_start_no_streak">Зіграйте %1$d ігор, щоб почати серію</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">Серія днів: %1$d</string>
     <string name="session_streak_current">Поточна серія: %1$d днів</string>
 
-    <!-- Level / XP -->
     <string name="level_label">Рівень %1$d</string>
     <string name="level_up_title">Новий рівень!</string>
     <string name="xp_gained">+%1$d XP</string>
@@ -225,7 +208,6 @@
     <string name="title_master">Майстер</string>
     <string name="title_grandmaster">Гросмейстер</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">Мудрець судоку</string>
     <string name="achievement_gold_mini_chess">Віртуоз ендшпілю</string>
     <string name="achievement_gold_lights_out">Повне затемнення</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">Блискавичний погляд</string>
     <string name="achievement_gold_flags">Прапороносець</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">Марафонець розуму</string>
     <string name="achievement_iron_streak">Залізна серія</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">Здобудь золоту медаль у Міні-судоку</string>
     <string name="achievement_gold_mini_chess_desc">Здобудь золоту медаль у Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">Здобудь золоту медаль у Lights Out</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">Здобудь золоту медаль у Таблиця Шульте</string>
     <string name="achievement_gold_flags_desc">Здобудь золоту медаль у Прапори</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">Набери в сумі 10 000 очок</string>
     <string name="achievement_iron_streak_desc">Тренуйся 30 днів поспіль</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">Паросток судоку</string>
     <string name="achievement_sudoku_beginner_desc">Розв'яжіть усі 10 головоломок рівня «Початківець»</string>
     <string name="achievement_sudoku_easy">Знавець судоку</string>
@@ -300,27 +278,24 @@
     <string name="achievement_sudoku_hard_desc">Розв'яжіть усі 10 головоломок рівня «Складний»</string>
     <string name="achievement_sudoku_expert">Володар судоку</string>
     <string name="achievement_sudoku_expert_desc">Розв'яжіть усі 10 головоломок рівня «Експерт»</string>
-    <!-- Flags game -->
     <string name="game_flags">Прапори</string>
     <string name="game_flags_desc">Вгадай країну за її прапором. Кожен раунд додає більше варіантів, а час спливає.</string>
     <string name="game_flags_question">Який це прапор?</string>
     <string name="game_flags_score">Очки: %1$d</string>
     <string name="game_flags_best">Найкращий: %1$d</string>
-    <!-- Digit Memory game -->
-    <string name="game_digit_memory">Пам\'ять на цифри</string>
-    <string name="game_digit_memory_desc">Запам\'ятайте послідовність цифр, розв\'яжіть коротку математичну задачу, а потім пригадайте цифри.</string>
-    <string name="digit_memory_memorize">Запам\'ятати</string>
+    <string name="game_digit_memory">Пам'ять на цифри</string>
+    <string name="game_digit_memory_desc">Запам'ятайте послідовність цифр, розв'яжіть коротку математичну задачу, а потім пригадайте цифри.</string>
+    <string name="digit_memory_memorize">Запам'ятати</string>
     <string name="digit_memory_solve">Вирішити</string>
     <string name="digit_memory_recall">Пригадати</string>
     <string name="achievement_gold_digit_memory">Ловець кодів</string>
-    <string name="achievement_gold_digit_memory_desc">Здобудь золоту медаль у Пам\'яті на цифри</string>
-    <!-- Spot the New game -->
+    <string name="achievement_gold_digit_memory_desc">Здобудь золоту медаль у Пам'яті на цифри</string>
     <string name="game_spot_the_new">Знайди нове</string>
     <string name="game_spot_the_new_desc">Натисніть на тварину, яку ви ще не бачили. Одна помилка завершує гру.</string>
     <string name="achievement_gold_spot_the_new">Свіжий погляд</string>
     <string name="achievement_gold_spot_the_new_desc">Здобудь золоту медаль у Знайди нове</string>
     <string name="game_wordle">Wordle</string>
-    <string name="game_wordle_desc">Вгадай приховане п\'ятилітерне слово за шість спроб. Відповідь завжди іменник.</string>
+    <string name="game_wordle_desc">Вгадай приховане п'ятилітерне слово за шість спроб. Відповідь завжди іменник.</string>
     <string name="achievement_gold_wordle">Майстер слова</string>
     <string name="achievement_gold_wordle_desc">Здобудь золоту медаль у Wordle</string>
     <string name="wordle_not_enough_letters">Недостатньо літер</string>
@@ -331,7 +306,6 @@
     <string name="wordle_legend_correct">Правильна літера, правильна позиція</string>
     <string name="wordle_legend_present">Правильна літера, неправильна позиція</string>
     <string name="wordle_legend_absent">Немає в слові</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">Дивись на фігури, потім натисни ту, що була на потрібній позиції.</string>
     <string name="n_back_prompt">Яка фігура була на позиції %1$d?</string>
@@ -352,7 +326,6 @@
     <string name="sponsors_title">Спонсори</string>
     <string name="sponsors_subtitle">Підтримайте безкоштовну освіту для всіх</string>
 <string name="sponsors_become">Стати спонсором</string>
-    <!-- Country names -->
     <string name="country_afghanistan">Афганістан</string>
     <string name="country_aland_islands">Аландські острови</string>
     <string name="country_albania">Албанія</string>
@@ -461,7 +434,7 @@
     <string name="country_isle_of_man">Острів Мен</string>
     <string name="country_israel">Ізраїль</string>
     <string name="country_italy">Італія</string>
-    <string name="country_ivory_coast">Кот-д\'Івуар</string>
+    <string name="country_ivory_coast">Кот-д'Івуар</string>
     <string name="country_jamaica">Ямайка</string>
     <string name="country_japan">Японія</string>
     <string name="country_jersey">Джерсі</string>
@@ -500,7 +473,7 @@
     <string name="country_montserrat">Монтсеррат</string>
     <string name="country_morocco">Марокко</string>
     <string name="country_mozambique">Мозамбік</string>
-    <string name="country_myanmar">М\'янма</string>
+    <string name="country_myanmar">М'янма</string>
     <string name="country_namibia">Намібія</string>
     <string name="country_nauru">Науру</string>
     <string name="country_nepal">Непал</string>
@@ -572,7 +545,7 @@
     <string name="country_tuvalu">Тувалу</string>
     <string name="country_uganda">Уганда</string>
     <string name="country_ukraine">Україна</string>
-    <string name="country_united_arab_emirates">Об\'єднані Арабські Емірати</string>
+    <string name="country_united_arab_emirates">Об'єднані Арабські Емірати</string>
     <string name="country_united_states_virgin_islands">Американські Віргінські острови</string>
     <string name="country_uruguay">Уругвай</string>
     <string name="country_usa">США</string>
@@ -581,13 +554,12 @@
     <string name="country_vanuatu">Вануату</string>
     <string name="country_vatican_city">Ватикан</string>
     <string name="country_venezuela">Венесуела</string>
-    <string name="country_vietnam">В\'єтнам</string>
+    <string name="country_vietnam">В'єтнам</string>
     <string name="country_western_sahara">Західна Сахара</string>
     <string name="country_yemen">Ємен</string>
     <string name="country_zambia">Замбія</string>
     <string name="country_zimbabwe">Зімбабве</string>
 
-    <!-- Settings -->
     <string name="settings_title">Налаштування</string>
     <string name="settings_open">Відкрити налаштування</string>
     <string name="settings_sound">Звук</string>
@@ -605,7 +577,6 @@
     <string name="settings_theme_dark">Темна</string>
     <string name="settings_theme_oled">OLED</string>
 
-    <!-- Normal Sudoku -->
     <string name="normal_sudoku_button">Звичайний судоку (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Початківець</string>
     <string name="normal_sudoku_difficulty_easy">Легкий</string>
@@ -619,7 +590,7 @@
     <string name="normal_sudoku_not_solved">Не зовсім правильно</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
-    <string name="normal_sudoku_solved">Розв\'язано!</string>
+    <string name="normal_sudoku_solved">Розв'язано!</string>
     <string name="normal_sudoku_title">Судоку</string>
     <string name="normal_chess_button">Звичайні шахи</string>
     <string name="normal_chess_title">Шахи</string>
@@ -650,19 +621,17 @@
     <string name="normal_chess_promotion_knight">Кінь</string>
     <string name="normal_chess_draw_warning">= пат (нічия, не перемога)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">Головоломки з сірниками (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Головоломки з сірниками</string>
     <string name="matchstick_riddles_puzzle_label">Загадка %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Перемістіть 1 сірник, щоб виправити рівняння.</string>
     <string name="matchstick_riddle_prompt_move_two">Перемістіть 2 сірники, щоб виправити рівняння.</string>
     <string name="matchstick_riddle_prompt_move_three">Перемістіть 3 сірники, щоб виправити рівняння.</string>
-    <string name="matchstick_riddles_solved">Розв\'язано!</string>
+    <string name="matchstick_riddles_solved">Розв'язано!</string>
     <string name="matchstick_riddles_reset">Скинути</string>
     <string name="achievement_matchstick_master">Майстер сірників</string>
-    <string name="achievement_matchstick_master_desc">Розв\'яжіть кожну головоломку з сірниками</string>
+    <string name="achievement_matchstick_master_desc">Розв'яжіть кожну головоломку з сірниками</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">Солітер</string>
     <string name="peg_solitaire_title">Солітер</string>
     <string name="peg_solitaire_pegs_left">Фішок лишилось: %1$d</string>
@@ -674,7 +643,6 @@
     <string name="peg_solitaire_restart">Спочатку</string>
     <string name="achievement_peg_solitaire_perfect">Майстер солітера</string>
     <string name="achievement_peg_solitaire_perfect_desc">Завершіть англійський солітер з однією фішкою в центрі</string>
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">Як ходять фігури</string>
     <string name="chess_piece_king">Король</string>
     <string name="chess_piece_queen">Ферзь</string>
@@ -731,20 +699,39 @@
     <string name="spot_the_new_demo_seen">Ти вже бачив цю. Вона пропустила раунд, але все одно вважається побаченою.</string>
     <string name="spot_the_new_demo_correct">Правильно. Вона приєднується до тих, що ти вже бачив.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">Міняйте однакові плитки, щоб прибирати лінії з трьох і більше. Очистіть усю дошку, щоб перемогти.</string>
+    <string name="game_prism_clear_howto">Торкніться плитки, потім сусідньої, або перетягніть плитку на сусідню, щоб поміняти. Зберіть три і більше в рядку чи стовпці.</string>
+    <string name="prism_clear_moves_remaining">Залишилось ходів: %1$d</string>
+    <string name="prism_clear_restart">Спочатку</string>
+    <string name="prism_clear_stuck">Ходів більше немає. Скасуйте хід або перезапустіть рівень.</string>
+    <string name="achievement_gold_prism_clear">Кришталева ясність</string>
+    <string name="achievement_gold_prism_clear_desc">Здобудь золоту медаль у Prism Clear</string>
+    <string name="prism_clear_undo">Скасувати</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">Знайдіть відсутні оператори (+, -, *, /), які роблять рівняння істинним.</string>
+    <string name="missing_operators_instruction">Які оператори роблять твердження істинним?</string>
+    <string name="missing_operators_demo_title">Знайдіть відсутні оператори</string>
+    <string name="missing_operators_demo_desc">Оберіть оператори, щоб рівняння було істинним. Оператори обчислюються зі стандартним пріоритетом.</string>
+    <string name="achievement_gold_missing_operators">Майстер операторів</string>
+    <string name="achievement_gold_missing_operators_desc">Здобудь золоту медаль у Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">Вгадайте секретне 4-значне число з різними цифрами. Bulls = правильна цифра на правильному місці. Cows = правильна цифра на неправильному місці.</string>
+    <string name="game_bulls_and_cows_howto">Введіть 4-значну спробу з різними цифрами й натисніть Enter.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">Секрет був %1$s</string>
+    <string name="bulls_and_cows_demo_title">Зламайте секретний код</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">Мимо</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 мимо.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = правильне місце.\nCow = правильна цифра, неправильне місце.</string>
+    <string name="bulls_and_cows_demo_step3">Залиште Bull.\nПеремістіть Cow — вона стане Bull.</string>
+    <string name="achievement_gold_bulls_and_cows">Зломщик кодів</string>
+    <string name="achievement_gold_bulls_and_cows_desc">Здобудь золоту медаль у Bulls &amp; Cows</string>
+    <string name="finish_tries">Спроби: %1$s</string>
+    <string name="finish_best_tries">Найкраще: %1$s спроб</string>
+    <string name="finish_new_best_tries">Новий рекорд!</string>
+
 </resources>

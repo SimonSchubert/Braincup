@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-    <!-- App -->
     <string name="app_name">Braincup</string>
     <string name="app_tagline">درّب مهاراتك الرياضية وذاكرتك وتركيزك.</string>
 
-    <!-- Common buttons and labels -->
     <string name="button_start">ابدأ</string>
     <string name="button_back">رجوع</string>
     <string name="button_play_again">العب مجدداً</string>
     <string name="button_play_next_level">المستوى التالي</string>
-    <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_max_level_reached">وصلت إلى أعلى مستوى. انتظر محتوى جديدًا.</string>
     <string name="button_play_random">لعبة عشوائية</string>
     <string name="button_give_up">استسلام</string>
     <string name="button_stay">ابق</string>
@@ -17,10 +15,8 @@
     <string name="button_backspace">مسح</string>
     <string name="button_done">تم</string>
 
-    <!-- Main menu -->
     <string name="achievements_button">الإنجازات (%1$d/%2$d)</string>
 
-    <!-- Game screen -->
     <string name="quit_game_title">الخروج من اللعبة؟</string>
     <string name="quit_game_message">لن يتم حفظ تقدمك في هذه اللعبة.</string>
     <string name="game_goal">الهدف: %1$d</string>
@@ -30,7 +26,6 @@
     <string name="game_tap_numbers">اضغط على الأرقام لبناء تعبير</string>
     <string name="format_seconds">%1$ss</string>
 
-    <!-- Finish screen -->
     <string name="finish_score">النتيجة: %1$s</string>
     <string name="finish_difficulty_bonus">مكافأة الصعوبة: +%1$s</string>
     <string name="finish_level">المستوى: %1$s</string>
@@ -38,19 +33,15 @@
     <string name="finish_new_highscore">رقم قياسي جديد!</string>
     <string name="finish_highscore">أعلى نتيجة: %1$s</string>
 
-    <!-- Answer feedback -->
     <string name="feedback_solution">الحل: %1$s</string>
 
-    <!-- Scoreboard screen -->
     <string name="scoreboard_title">لوحة نتائج %1$s</string>
     <string name="scoreboard_highscore">أعلى نتيجة</string>
     <string name="scoreboard_best_level">أفضل مستوى</string>
     <string name="scoreboard_no_scores">لا توجد نتائج بعد</string>
 
-    <!-- Achievements screen -->
     <string name="achievements_title">الإنجازات</string>
 
-    <!-- Game types - names -->
     <string name="game_anomaly_puzzle">لغز الشذوذ</string>
     <string name="game_mental_calculation">الحساب الذهني</string>
     <string name="game_colored_shapes">أشكال ملونة</string>
@@ -94,7 +85,6 @@
     <string name="game_knot">عقدة</string>
     <string name="game_solo_chess">شطرنج فردي</string>
 
-    <!-- Game types - descriptions -->
     <string name="game_anomaly_puzzle_desc">اعثر على الشكل المختلف. ضع في اعتبارك لون وشكل كل عنصر.</string>
     <string name="game_mental_calculation_desc">اتبع التعبيرات الرياضية. استخدم النتيجة كأساس للحساب التالي.</string>
     <string name="game_colored_shapes_desc">اجمع نقاط العبارات الصحيحة.</string>
@@ -154,7 +144,6 @@
     <string name="game_flash_crowd_blue">أزرق</string>
     <string name="game_flash_crowd_yellow">أصفر</string>
 
-    <!-- Color names -->
     <string name="color_red">أحمر</string>
     <string name="color_green">أخضر</string>
     <string name="color_blue">أزرق</string>
@@ -165,7 +154,6 @@
     <string name="color_pink">وردي</string>
     <string name="color_light_grey">رمادي فاتح</string>
 
-    <!-- Shape names -->
     <string name="shape_square">مربع</string>
     <string name="shape_triangle">مثلث</string>
     <string name="shape_circle">دائرة</string>
@@ -177,23 +165,19 @@
     <string name="shape_house">بيت</string>
     <string name="shape_arrow">سهم</string>
 
-    <!-- Direction words -->
     <string name="direction_up">أعلى</string>
     <string name="direction_right">يمين</string>
     <string name="direction_down">أسفل</string>
     <string name="direction_left">يسار</string>
 
-    <!-- Solution templates -->
     <string name="solution_pointing">%1$s %2$s يشير %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">العمود %1$d والصف %2$d</string>
     <string name="solution_left">يسار</string>
     <string name="solution_right">يمين</string>
 
-    <!-- Other UI -->
     <string name="preview_vs">ضد</string>
 
-    <!-- Daily challenge / session -->
     <string name="daily_challenge_title">التحدي اليومي</string>
     <string name="daily_challenge_subtitle_start">العب %1$d ألعاب للحفاظ على سلسلتك</string>
     <string name="daily_challenge_subtitle_start_no_streak">العب %1$d ألعاب لبدء سلسلتك</string>
@@ -213,7 +197,6 @@
     <string name="session_streak_increased">سلسلة الأيام: %1$d</string>
     <string name="session_streak_current">السلسلة الحالية: %1$d يوم</string>
 
-    <!-- Level / XP -->
     <string name="level_label">المستوى %1$d</string>
     <string name="level_up_title">ارتقاء المستوى!</string>
     <string name="xp_gained">+%1$d نقطة خبرة</string>
@@ -225,7 +208,6 @@
     <string name="title_master">خبير</string>
     <string name="title_grandmaster">كبير الخبراء</string>
 
-    <!-- Per-game Gold achievement titles -->
     <string name="achievement_gold_mini_sudoku">حكيم السودوكو</string>
     <string name="achievement_gold_mini_chess">بارع نهاية اللعبة</string>
     <string name="achievement_gold_lights_out">إطفاء كامل</string>
@@ -253,11 +235,9 @@
     <string name="achievement_gold_schulte_table">نظرة برق</string>
     <string name="achievement_gold_flags">حامل الراية</string>
 
-    <!-- Milestone achievement titles -->
     <string name="achievement_mind_marathoner">عدّاء ماراثون العقل</string>
     <string name="achievement_iron_streak">سلسلة حديدية</string>
 
-    <!-- Per-game Gold achievement descriptions -->
     <string name="achievement_gold_mini_sudoku_desc">اربح الميدالية الذهبية في سودوكو مصغر</string>
     <string name="achievement_gold_mini_chess_desc">اربح الميدالية الذهبية في Mini Chess</string>
     <string name="achievement_gold_lights_out_desc">اربح الميدالية الذهبية في Lights Out</string>
@@ -285,11 +265,9 @@
     <string name="achievement_gold_schulte_table_desc">اربح الميدالية الذهبية في جدول شولت</string>
     <string name="achievement_gold_flags_desc">اربح الميدالية الذهبية في الأعلام</string>
 
-    <!-- Milestone achievement descriptions -->
     <string name="achievement_mind_marathoner_desc">اجمع ١٠٬٠٠٠ نقطة في المجموع</string>
     <string name="achievement_iron_streak_desc">تدرّب ٣٠ يومًا متتاليًا</string>
 
-    <!-- Normal Sudoku per-difficulty tier achievements (incremental, solve all 10) -->
     <string name="achievement_sudoku_beginner">برعم سودوكو</string>
     <string name="achievement_sudoku_beginner_desc">حل جميع الألغاز العشرة لمستوى مبتدئ</string>
     <string name="achievement_sudoku_easy">عالم سودوكو</string>
@@ -300,13 +278,11 @@
     <string name="achievement_sudoku_hard_desc">حل جميع الألغاز العشرة لمستوى صعب</string>
     <string name="achievement_sudoku_expert">سيد سودوكو</string>
     <string name="achievement_sudoku_expert_desc">حل جميع الألغاز العشرة لمستوى خبير</string>
-    <!-- Flags game -->
     <string name="game_flags">الأعلام</string>
     <string name="game_flags_desc">تعرّف على الدولة من علمها. كل جولة تضيف المزيد من الخيارات والوقت يمضي.</string>
     <string name="game_flags_question">ما هذا العلم؟</string>
     <string name="game_flags_score">النتيجة: %1$d</string>
     <string name="game_flags_best">الأفضل: %1$d</string>
-    <!-- Digit Memory game -->
     <string name="game_digit_memory">ذاكرة الأرقام</string>
     <string name="game_digit_memory_desc">احفظ تسلسل أرقام، وحل مسألة رياضية سريعة، ثم تذكر الأرقام.</string>
     <string name="digit_memory_memorize">احفظ</string>
@@ -314,7 +290,6 @@
     <string name="digit_memory_recall">تذكر</string>
     <string name="achievement_gold_digit_memory">صائد الشيفرات</string>
     <string name="achievement_gold_digit_memory_desc">اربح الميدالية الذهبية في ذاكرة الأرقام</string>
-    <!-- Spot the New game -->
     <string name="game_spot_the_new">اكتشف الجديد</string>
     <string name="game_spot_the_new_desc">انقر على الحيوان الذي لم تره من قبل. خطأ واحد ينهي اللعبة.</string>
     <string name="achievement_gold_spot_the_new">عين ثاقبة</string>
@@ -325,7 +300,6 @@
     <string name="sponsors_title">الرعاة</string>
     <string name="sponsors_subtitle">ادعم التعليم المجاني للجميع</string>
 <string name="sponsors_become">كن راعياً</string>
-    <!-- Country names -->
     <string name="country_afghanistan">أفغانستان</string>
     <string name="country_aland_islands">جزر أولاند</string>
     <string name="country_albania">ألبانيا</string>
@@ -560,7 +534,6 @@
     <string name="country_zambia">زامبيا</string>
     <string name="country_zimbabwe">زيمبابوي</string>
 
-    <!-- Settings -->
     <string name="settings_title">الإعدادات</string>
     <string name="settings_open">فتح الإعدادات</string>
     <string name="settings_sound">الصوت</string>
@@ -621,7 +594,6 @@
     <string name="normal_chess_promotion_knight">حصان</string>
     <string name="normal_chess_draw_warning">= طريق مسدود (تعادل، ليس فوزاً)</string>
 
-    <!-- Matchstick Riddles -->
     <string name="matchstick_riddles_button">ألغاز أعواد الثقاب (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">ألغاز أعواد الثقاب</string>
     <string name="matchstick_riddles_puzzle_label">لغز %1$d</string>
@@ -633,7 +605,6 @@
     <string name="achievement_matchstick_master">سيد أعواد الثقاب</string>
     <string name="achievement_matchstick_master_desc">حل كل ألغاز أعواد الثقاب</string>
 
-    <!-- Peg Solitaire -->
     <string name="peg_solitaire_button">سوليتير الأوتاد</string>
     <string name="peg_solitaire_title">سوليتير الأوتاد</string>
     <string name="peg_solitaire_pegs_left">الأوتاد المتبقية: %1$d</string>
@@ -657,7 +628,6 @@
     <string name="wordle_legend_correct">الحرف صحيح والمكان صحيح</string>
     <string name="wordle_legend_present">الحرف صحيح والمكان خاطئ</string>
     <string name="wordle_legend_absent">غير موجود في الكلمة</string>
-    <!-- N-Back game -->
     <string name="game_n_back">N-Back</string>
     <string name="game_n_back_desc">راقب الأشكال، ثم اضغط على الشكل في الموضع المطلوب.</string>
     <string name="n_back_prompt">أي شكل كان في الموضع %1$d؟</string>
@@ -673,7 +643,6 @@
     <string name="achievement_gold_simon_says">حافظ النمط</string>
     <string name="achievement_gold_simon_says_desc">اربح الميدالية الذهبية في Simon Says</string>
 
-    <!-- Animated instruction demos -->
     <string name="mini_chess_moves_title">كيف تتحرك القطع</string>
     <string name="chess_piece_king">الملك</string>
     <string name="chess_piece_queen">الوزير</string>
@@ -730,20 +699,39 @@
     <string name="spot_the_new_demo_seen">لقد رأيت هذا من قبل. غاب جولة، لكنه لا يزال محسوباً كمرئي.</string>
     <string name="spot_the_new_demo_correct">صحيح. ينضم إلى قائمة ما رأيت.</string>
     <string name="game_prism_clear">Prism Clear</string>
-    <string name="game_prism_clear_desc">Swap matching tiles to clear lines of three or more. Empty the whole board to win.</string>
-    <string name="game_prism_clear_howto">Tap a tile then a neighbour, or drag one tile onto an adjacent tile to swap. Match three or more in a row or column.</string>
-    <string name="prism_clear_moves_remaining">Moves left: %1$d</string>
-    <string name="prism_clear_restart">Restart</string>
-    <string name="prism_clear_stuck">No matches left. Undo a move or restart the level.</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_prism_clear_desc">Win gold medal in Prism Clear</string>
-    <string name="prism_clear_undo">Undo</string>
-    <!-- Missing Operators -->
+    <string name="game_prism_clear_desc">بدّل البلاطات المتطابقة لمسح صفوف من ثلاثة أو أكثر. أفرغ اللوحة بالكامل للفوز.</string>
+    <string name="game_prism_clear_howto">المس بلاطة ثم جارتها، أو اسحب بلاطة إلى مجاورة للتبديل. طابق ثلاثة أو أكثر في صف أو عمود.</string>
+    <string name="prism_clear_moves_remaining">الحركات المتبقية: %1$d</string>
+    <string name="prism_clear_restart">إعادة</string>
+    <string name="prism_clear_stuck">لا حركات متبقية. تراجع عن حركة أو أعد تشغيل المستوى.</string>
+    <string name="achievement_gold_prism_clear">صفاء بلوري</string>
+    <string name="achievement_gold_prism_clear_desc">اربح الميدالية الذهبية في Prism Clear</string>
+    <string name="prism_clear_undo">تراجع</string>
     <string name="game_missing_operators">Missing Operators</string>
-    <string name="game_missing_operators_desc">Find the missing operators (+, -, *, /) that make the equation true.</string>
-    <string name="missing_operators_instruction">Which operators make the statement true?</string>
-    <string name="missing_operators_demo_title">Find the missing operators</string>
-    <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
+    <string name="game_missing_operators_desc">اعثر على المعاملات المفقودة (+، -، *، /) التي تجعل المعادلة صحيحة.</string>
+    <string name="missing_operators_instruction">أي معاملات تجعل العبارة صحيحة؟</string>
+    <string name="missing_operators_demo_title">اعثر على المعاملات المفقودة</string>
+    <string name="missing_operators_demo_desc">اختر المعاملات لجعل المعادلة صحيحة. تُقيَّم المعاملات بأولوية رياضية قياسية.</string>
+    <string name="achievement_gold_missing_operators">سيد المعاملات</string>
+    <string name="achievement_gold_missing_operators_desc">اربح الميدالية الذهبية في Missing Operators</string>
+
+    <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
+    <string name="game_bulls_and_cows_desc">خمّن الرقم السري المكون من 4 أرقام فريدة. Bulls = رقم صحيح في الموضع الصحيح. Cows = رقم صحيح في موضع خاطئ.</string>
+    <string name="game_bulls_and_cows_howto">اكتب تخمينًا من 4 أرقام فريدة ثم اضغط Enter.</string>
+    <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
+    <string name="bulls_and_cows_cows">Cows: %1$d</string>
+    <string name="bulls_and_cows_secret_was">السر كان %1$s</string>
+    <string name="bulls_and_cows_demo_title">اكسر الرمز السري</string>
+    <string name="bulls_and_cows_demo_bull">Bull</string>
+    <string name="bulls_and_cows_demo_cow">Cow</string>
+    <string name="bulls_and_cows_demo_miss">خطأ</string>
+    <string name="bulls_and_cows_demo_step1">1 Bull، 1 Cow، خطآن.</string>
+    <string name="bulls_and_cows_demo_step2">Bull = الموضع الصحيح.\nCow = رقم صحيح، موضع خاطئ.</string>
+    <string name="bulls_and_cows_demo_step3">احتفظ بـ Bull.\nحرّك Cow — تصبح Bull.</string>
+    <string name="achievement_gold_bulls_and_cows">كاسر الشفرات</string>
+    <string name="achievement_gold_bulls_and_cows_desc">اربح الميدالية الذهبية في Bulls &amp; Cows</string>
+    <string name="finish_tries">المحاولات: %1$s</string>
+    <string name="finish_best_tries">الأفضل: %1$s محاولات</string>
+    <string name="finish_new_best_tries">رقم قياسي جديد!</string>
+
 </resources>
