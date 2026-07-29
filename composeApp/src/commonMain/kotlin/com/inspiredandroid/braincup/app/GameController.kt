@@ -106,8 +106,10 @@ class GameController(
     /** Wordle word lists keyed by language tag; each bundled file is read at most once. */
     private val wordListCache = mutableMapOf<String, WordleWordLists>()
     private var wordleScoreRecorded = false
+
     /** Same stay-on-board scoring pattern as Wordle: record once, then Continue to finish / session. */
     private var bullsAndCowsScoreRecorded = false
+
     /** Captured when the score is recorded so Continue can open Finish without re-awarding XP. */
     private var bullsAndCowsScoreResult: UserStorage.ScoreResult? = null
 
