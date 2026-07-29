@@ -1,3 +1,9 @@
+## v2.32.0 — 2026-07-29
+
+### Features
+- Add Bulls and Cows game
+- Add Missing Operators game
+
 ## v2.31.0 — 2026-07-22
 
 ### Features
