@@ -11,9 +11,11 @@ permissions:
   pages: write
   id-token: write
 
+# Never cancel an in-flight deploy: a cancelled push can race with a later
+# failed build and leave gh-pages / the custom domain in a bad state.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
@@ -44,17 +46,27 @@ jobs:
       - name: Build WASM project
         run: ./gradlew :composeApp:wasmJsBrowserDistribution
 
+      # Deploy only runs if this job reaches here successfully. A failed build
+      # must never touch gh-pages — the live site stays on the last good deploy.
       - name: Validate build before deploy
         run: |
           DIST=composeApp/build/dist/wasmJs/productionExecutable
           test -f "$DIST/index.html" || { echo "FATAL: index.html missing"; exit 1; }
           test -f "$DIST/404.html" || { echo "FATAL: 404.html missing (required for SPA deep links)"; exit 1; }
           ls "$DIST"/*.wasm >/dev/null 2>&1 || { echo "FATAL: WASM bundle missing"; exit 1; }
+          # Custom domain: peaceiris also writes this via `cname`, and resources/CNAME
+          # is copied into dist. Fail loud if either is missing so we never wipe DNS.
+          test -f "$DIST/CNAME" || { echo "FATAL: CNAME missing from dist (custom domain would break)"; exit 1; }
+          grep -qx 'braincup.app' "$DIST/CNAME" || { echo "FATAL: CNAME must be exactly braincup.app"; exit 1; }
           echo "All checks passed"
 
       - name: Deploy to GitHub Pages
+        if: success()
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: composeApp/build/dist/wasmJs/productionExecutable
           enable_jekyll: false
+          # Always re-publish CNAME. Without this, force-push deploys clear the
+          # custom domain and https://braincup.app/ returns GitHub "Site not found".
+          cname: braincup.app
