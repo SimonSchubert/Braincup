@@ -219,6 +219,9 @@ fun App(
                         val onAnswer = remember(controller) { { answer: String -> controller.submitAnswer(answer) } }
                         val onGiveUp = remember(controller) { { controller.giveUp() } }
                         val onWordleFinished = remember(controller) { { controller.wordleFinishedAction() } }
+                        val onBullsAndCowsFinished = remember(controller) {
+                            { controller.bullsAndCowsFinishedAction() }
+                        }
                         val navigateHome = remember(controller) { { controller.navigateToMainMenu() } }
 
                         LaunchedEffect(controller, hapticEnabled) {
@@ -268,6 +271,7 @@ fun App(
                                     inSessionMode = controller.isInSessionMode,
                                     isTimerPaused = showQuitDialog,
                                     onWordleFinishedAction = onWordleFinished,
+                                    onBullsAndCowsFinishedAction = onBullsAndCowsFinished,
                                     orbitBallPositions = controller.orbitBallPositions,
                                     bubbleSumFrames = controller.bubbleSumFrames,
                                     onBubbleSumArenaSize = controller::setBubbleSumArenaSize,
@@ -498,6 +502,7 @@ fun App(
  */
 private fun shouldConfirmQuit(gameUiState: GameUiState): Boolean = when (gameUiState) {
     is WordleUiState -> !gameUiState.finished
+    is BullsAndCowsUiState -> !gameUiState.finished
     is MiniChessUiState -> gameUiState.outcome == null
     else -> true
 }

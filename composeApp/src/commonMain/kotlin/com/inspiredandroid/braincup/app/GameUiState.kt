@@ -18,6 +18,7 @@ import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentSetOf
 
 enum class FigureCellState { NORMAL, WRONG, CORRECT, DIMMED }
 
@@ -563,6 +564,8 @@ data class BullsAndCowsUiState(
     val finished: Boolean,
     val won: Boolean,
     val secret: String?,
+    /** Digits proven not in the secret (from any 0-bull 0-cow guess). */
+    val absentDigits: ImmutableSet<Char> = persistentSetOf(),
 ) : GameUiState
 
 enum class MiniChessOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }

@@ -112,6 +112,7 @@ fun GameScreen(
     inSessionMode: Boolean = false,
     isTimerPaused: Boolean = false,
     onWordleFinishedAction: () -> Unit = {},
+    onBullsAndCowsFinishedAction: () -> Unit = {},
     /** Live ball positions during Orbit Tracker MOVING; ignored for other games. */
     orbitBallPositions: StateFlow<List<Pair<Float, Float>>>? = null,
     /** Live Bubble Sum frames (position + visibility); ignored for other games. */
@@ -222,6 +223,9 @@ fun GameScreen(
                 is BullsAndCowsUiState -> BullsAndCowsContent(
                     uiState = gameUiState,
                     onAnswer = onAnswer,
+                    onGiveUp = onGiveUp,
+                    inSessionMode = inSessionMode,
+                    onFinishedAction = onBullsAndCowsFinishedAction,
                 )
             }
         }
@@ -243,6 +247,7 @@ fun GameScreen(
     inSessionMode: Boolean = false,
     isTimerPaused: Boolean = false,
     onWordleFinishedAction: () -> Unit = {},
+    onBullsAndCowsFinishedAction: () -> Unit = {},
 ) {
     val timeFlow = remember { MutableStateFlow(timeRemaining) }
     val elapsedFlow = remember { MutableStateFlow(elapsedTime) }
@@ -258,6 +263,7 @@ fun GameScreen(
         inSessionMode = inSessionMode,
         isTimerPaused = isTimerPaused,
         onWordleFinishedAction = onWordleFinishedAction,
+        onBullsAndCowsFinishedAction = onBullsAndCowsFinishedAction,
     )
 }
 

@@ -4,6 +4,7 @@ import com.inspiredandroid.braincup.app.BullsAndCowsGuess
 import com.inspiredandroid.braincup.app.BullsAndCowsUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import kotlinx.collections.immutable.toImmutableList
+import kotlinx.collections.immutable.toImmutableSet
 
 /**
  * Bulls and Cows (Deductive Logic):
@@ -12,10 +13,15 @@ import kotlinx.collections.immutable.toImmutableList
  * "Bulls" represent a correct digit in the correct position.
  * "Cows" represent a correct digit but in the wrong position.
  * The player cracks the code in as few turns as possible.
+ *
+ * Digits from a guess that scored 0 bulls and 0 cows are known-absent and
+ * cannot be entered again (keyboard greys them out).
  */
 class BullsAndCowsGame : Game() {
     private var secret = ""
     private val guesses = mutableListOf<BullsAndCowsGuess>()
+    private val absentDigits = mutableSetOf<Char>()
+
     var currentGuess = ""
         private set
 
@@ -23,6 +29,9 @@ class BullsAndCowsGame : Game() {
         private set
     var won = false
         private set
+
+    /** Guesses submitted so far; equals the winning try count after a solve. */
+    val guessesUsed: Int get() = guesses.size
 
     override val adaptiveDifficulty: Boolean = false
 
@@ -32,14 +41,12 @@ class BullsAndCowsGame : Game() {
 
     override fun generateRound() {
         guesses.clear()
+        absentDigits.clear()
         currentGuess = ""
         finished = false
         won = false
 
-        // Generate a 4-digit number with unique digits.
-        // It's standard for Bulls & Cows to allow unique digits from 0-9.
-        // If we want to allow leading zeros, we can just pick from 0..9.
-        // Let's generate 4 unique digits.
+        // Generate a 4-digit number with unique digits (0-9, leading zeros allowed).
         val digits = (0..9).shuffled()
         secret = digits.take(4).joinToString("")
     }
@@ -54,9 +61,8 @@ class BullsAndCowsGame : Game() {
     fun typeDigit(digit: Char) {
         if (finished) return
         if (digit !in '0'..'9') return
-        // Standard Bulls and Cows allows any digits, but since we are breaking a unique digits code,
-        // let's check if the player already inputted that digit. It's helpful if we enforce or at least
-        // allow typing unique digits. Let's allow unique digits to stay true to the deduction constraint.
+        if (digit in absentDigits) return
+        // Unique digits only — matches classic Bulls & Cows.
         if (digit in currentGuess) return
         if (currentGuess.length < 4) {
             currentGuess += digit
@@ -83,6 +89,11 @@ class BullsAndCowsGame : Game() {
 
         val result = evaluate(currentGuess)
         guesses.add(result)
+
+        // 0B + 0C means every digit in this guess is not in the secret.
+        if (result.bulls == 0 && result.cows == 0) {
+            result.guess.forEach { absentDigits.add(it) }
+        }
 
         if (currentGuess == secret) {
             won = true
@@ -123,5 +134,6 @@ class BullsAndCowsGame : Game() {
         finished = finished,
         won = won,
         secret = if (finished) secret else null,
+        absentDigits = absentDigits.toImmutableSet(),
     )
 }

@@ -5,7 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
@@ -20,17 +20,26 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.persistentSetOf
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
 internal fun ColumnScope.BullsAndCowsContent(
     uiState: BullsAndCowsUiState,
     onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
+    inSessionMode: Boolean,
+    onFinishedAction: () -> Unit,
 ) {
     val listState = rememberLazyListState()
     val compact = LocalIsCompactHeight.current
+    val finishedActionLabel = stringResource(
+        if (inSessionMode) Res.string.session_continue else Res.string.button_play_again,
+    )
+    val triesLabel = stringResource(Res.string.finish_tries, uiState.guesses.size.toString())
 
     // Scroll to the end when a new guess is added
     LaunchedEffect(uiState.guesses.size) {
@@ -48,7 +57,7 @@ internal fun ColumnScope.BullsAndCowsContent(
             horizontalArrangement = Arrangement.spacedBy(16.dp),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            // Guesses list + active slots
+            // Guesses list + active slots / result CTA
             Column(
                 modifier = Modifier
                     .weight(1f)
@@ -66,31 +75,27 @@ internal fun ColumnScope.BullsAndCowsContent(
                             modifier = Modifier.fillMaxSize(),
                             verticalArrangement = Arrangement.spacedBy(4.dp),
                         ) {
-                            items(uiState.guesses) { guess ->
-                                GuessRow(guess = guess, compact = true)
+                            itemsIndexed(uiState.guesses) { index, guess ->
+                                GuessRow(guess = guess, index = index, compact = true)
                             }
                         }
                     }
                 }
 
+                Text(
+                    text = triesLabel,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(vertical = 2.dp),
+                )
+
                 if (uiState.finished) {
-                    Surface(
-                        shape = RoundedCornerShape(8.dp),
-                        color = if (uiState.won) SuccessGreen.copy(alpha = 0.15f) else MaterialTheme.colorScheme.errorContainer,
-                        border = BorderStroke(
-                            1.dp,
-                            if (uiState.won) SuccessGreen else MaterialTheme.colorScheme.error,
-                        ),
-                        modifier = Modifier.padding(vertical = 4.dp),
-                    ) {
-                        Text(
-                            text = stringResource(Res.string.bulls_and_cows_secret_was, uiState.secret ?: ""),
-                            style = MaterialTheme.typography.titleSmall,
-                            fontWeight = FontWeight.Bold,
-                            color = if (uiState.won) SuccessGreen else MaterialTheme.colorScheme.onErrorContainer,
-                            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp),
-                        )
-                    }
+                    ResultBanner(uiState = uiState, compact = true)
+                    Spacer(Modifier.height(6.dp))
+                    PrimaryActionButton(
+                        onClick = onFinishedAction,
+                        value = finishedActionLabel,
+                    )
                 } else {
                     DigitMemorySlots(
                         length = 4,
@@ -100,12 +105,14 @@ internal fun ColumnScope.BullsAndCowsContent(
                         onRemoveAt = { index -> onAnswer(GameController.wordleClearAt(index)) },
                         modifier = Modifier.widthIn(max = 240.dp),
                     )
+                    GiveUpButton(onGiveUp = onGiveUp)
                 }
             }
 
             if (!uiState.finished) {
                 BullsAndCowsKeyboard(
                     currentGuess = uiState.currentGuess,
+                    absentDigits = uiState.absentDigits,
                     onKey = onAnswer,
                     compact = true,
                     modifier = Modifier
@@ -130,34 +137,37 @@ internal fun ColumnScope.BullsAndCowsContent(
                     modifier = Modifier.fillMaxSize(),
                     verticalArrangement = Arrangement.spacedBy(8.dp),
                 ) {
-                    items(uiState.guesses) { guess ->
-                        GuessRow(guess = guess, compact = false)
+                    itemsIndexed(uiState.guesses) { index, guess ->
+                        GuessRow(guess = guess, index = index, compact = false)
                     }
                 }
             }
         }
 
+        Text(
+            text = triesLabel,
+            style = MaterialTheme.typography.labelLarge,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(vertical = 4.dp),
+        )
+
         if (uiState.finished) {
-            Surface(
-                shape = RoundedCornerShape(12.dp),
-                color = if (uiState.won) SuccessGreen.copy(alpha = 0.15f) else MaterialTheme.colorScheme.errorContainer,
-                border = BorderStroke(
-                    1.dp,
-                    if (uiState.won) SuccessGreen else MaterialTheme.colorScheme.error,
-                ),
+            ResultBanner(
+                uiState = uiState,
+                compact = false,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(horizontal = 16.dp, vertical = 8.dp),
-            ) {
-                Text(
-                    text = stringResource(Res.string.bulls_and_cows_secret_was, uiState.secret ?: ""),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = if (uiState.won) SuccessGreen else MaterialTheme.colorScheme.onErrorContainer,
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                )
-            }
+            )
+            PrimaryActionButton(
+                onClick = onFinishedAction,
+                value = finishedActionLabel,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
         } else {
+            Spacer(Modifier.height(8.dp))
             DigitMemorySlots(
                 length = 4,
                 value = uiState.currentGuess,
@@ -169,11 +179,10 @@ internal fun ColumnScope.BullsAndCowsContent(
                     .align(Alignment.CenterHorizontally)
                     .padding(horizontal = 16.dp),
             )
-        }
-
-        if (!uiState.finished) {
+            Spacer(Modifier.height(8.dp))
             BullsAndCowsKeyboard(
                 currentGuess = uiState.currentGuess,
+                absentDigits = uiState.absentDigits,
                 onKey = onAnswer,
                 compact = false,
                 modifier = Modifier
@@ -181,12 +190,44 @@ internal fun ColumnScope.BullsAndCowsContent(
                     .align(Alignment.CenterHorizontally)
                     .padding(bottom = 8.dp),
             )
+            GiveUpButton(
+                onGiveUp = onGiveUp,
+                modifier = Modifier.align(Alignment.CenterHorizontally),
+            )
         }
     }
 }
 
 @Composable
-private fun GuessRow(guess: BullsAndCowsGuess, compact: Boolean) {
+private fun ResultBanner(
+    uiState: BullsAndCowsUiState,
+    compact: Boolean,
+    modifier: Modifier = Modifier,
+) {
+    Surface(
+        shape = RoundedCornerShape(if (compact) 8.dp else 12.dp),
+        color = if (uiState.won) SuccessGreen.copy(alpha = 0.15f) else MaterialTheme.colorScheme.errorContainer,
+        border = BorderStroke(
+            1.dp,
+            if (uiState.won) SuccessGreen else MaterialTheme.colorScheme.error,
+        ),
+        modifier = modifier,
+    ) {
+        Text(
+            text = stringResource(Res.string.bulls_and_cows_secret_was, uiState.secret ?: ""),
+            style = if (compact) MaterialTheme.typography.titleSmall else MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+            color = if (uiState.won) SuccessGreen else MaterialTheme.colorScheme.onErrorContainer,
+            modifier = Modifier.padding(
+                horizontal = if (compact) 12.dp else 16.dp,
+                vertical = if (compact) 6.dp else 8.dp,
+            ),
+        )
+    }
+}
+
+@Composable
+private fun GuessRow(guess: BullsAndCowsGuess, index: Int, compact: Boolean) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -200,13 +241,24 @@ private fun GuessRow(guess: BullsAndCowsGuess, compact: Boolean) {
         horizontalArrangement = Arrangement.SpaceBetween,
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Text(
-            text = guess.guess,
-            style = if (compact) MaterialTheme.typography.titleMedium else MaterialTheme.typography.headlineSmall,
-            fontFamily = numberFontFamily(),
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.onSurface,
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(if (compact) 8.dp else 12.dp),
+        ) {
+            Text(
+                text = "#${index + 1}",
+                style = if (compact) MaterialTheme.typography.labelSmall else MaterialTheme.typography.labelMedium,
+                fontWeight = FontWeight.SemiBold,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = guess.guess,
+                style = if (compact) MaterialTheme.typography.titleMedium else MaterialTheme.typography.headlineSmall,
+                fontFamily = numberFontFamily(),
+                fontWeight = FontWeight.Bold,
+                color = MaterialTheme.colorScheme.onSurface,
+            )
+        }
 
         Row(horizontalArrangement = Arrangement.spacedBy(if (compact) 6.dp else 12.dp)) {
             BadgeChip(
@@ -246,10 +298,12 @@ private fun BadgeChip(label: String, color: Color, compact: Boolean) {
 /**
  * Standard 3-column number pad (phone or calculator order via [LocalNumberPadAscending]).
  * No backspace — tap a filled digit slot to remove it. Full-width Enter submits when 4 digits.
+ * Digits proven absent (0B+0C guesses) are greyed and disabled permanently for the round.
  */
 @Composable
 private fun BullsAndCowsKeyboard(
     currentGuess: String,
+    absentDigits: Set<Char>,
     onKey: (String) -> Unit,
     compact: Boolean,
     modifier: Modifier = Modifier,
@@ -283,10 +337,13 @@ private fun BullsAndCowsKeyboard(
                 modifier = Modifier.fillMaxWidth(),
             ) {
                 row.forEach { key ->
-                    val used = key in currentGuess
+                    val digit = key.first()
+                    val absent = digit in absentDigits
+                    val usedInDraft = key in currentGuess
                     DigitKey(
                         value = key,
-                        enabled = !used && currentGuess.length < 4,
+                        enabled = !absent && !usedInDraft && currentGuess.length < 4,
+                        absent = absent,
                         onClick = { onKey(key) },
                         modifier = Modifier.weight(1f),
                         height = keyHeight,
@@ -302,10 +359,12 @@ private fun BullsAndCowsKeyboard(
             modifier = Modifier.fillMaxWidth(),
         ) {
             Spacer(Modifier.weight(1f))
+            val zeroAbsent = '0' in absentDigits
             val zeroUsed = "0" in currentGuess
             DigitKey(
                 value = "0",
-                enabled = !zeroUsed && currentGuess.length < 4,
+                enabled = !zeroAbsent && !zeroUsed && currentGuess.length < 4,
+                absent = zeroAbsent,
                 onClick = { onKey("0") },
                 modifier = Modifier.weight(1f),
                 height = keyHeight,
@@ -350,17 +409,24 @@ private fun BullsAndCowsKeyboard(
 private fun DigitKey(
     value: String,
     enabled: Boolean,
+    absent: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     height: androidx.compose.ui.unit.Dp,
     compact: Boolean,
 ) {
+    val face = when {
+        absent -> WordleAbsent
+        enabled -> MaterialTheme.colorScheme.primaryContainer
+        else -> MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
+    }
+    val textColor = when {
+        absent -> Color.White
+        enabled -> MaterialTheme.colorScheme.onPrimaryContainer
+        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.25f)
+    }
     PrismTile(
-        face = if (enabled) {
-            MaterialTheme.colorScheme.primaryContainer
-        } else {
-            MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
-        },
+        face = face,
         modifier = modifier
             .height(height)
             .hoverHand(enabled),
@@ -369,11 +435,7 @@ private fun DigitKey(
     ) {
         Text(
             text = value,
-            color = if (enabled) {
-                MaterialTheme.colorScheme.onPrimaryContainer
-            } else {
-                MaterialTheme.colorScheme.onSurface.copy(alpha = 0.25f)
-            },
+            color = textColor,
             style = if (compact) {
                 MaterialTheme.typography.titleSmall
             } else {
@@ -393,14 +455,18 @@ private fun BullsAndCowsContentPreview() {
             uiState = BullsAndCowsUiState(
                 guesses = persistentListOf(
                     BullsAndCowsGuess("1234", 1, 2),
-                    BullsAndCowsGuess("5678", 0, 1),
+                    BullsAndCowsGuess("5678", 0, 0),
                 ),
                 currentGuess = "90",
                 finished = false,
                 won = false,
                 secret = null,
+                absentDigits = persistentSetOf('5', '6', '7', '8'),
             ),
             onAnswer = {},
+            onGiveUp = {},
+            inSessionMode = false,
+            onFinishedAction = {},
         )
     }
 }
