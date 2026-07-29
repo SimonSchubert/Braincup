@@ -724,7 +724,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">Melenceng</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 melenceng.</string>
     <string name="bulls_and_cows_demo_step2">Bull = posisi benar.\nCow = digit benar, posisi salah.</string>
     <string name="bulls_and_cows_demo_step3">Pertahankan Bull.\nPindahkan Cow — menjadi Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Pemecah Kode</string>

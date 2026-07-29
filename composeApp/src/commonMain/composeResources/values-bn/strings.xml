@@ -725,7 +725,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">মিস</string>
-    <string name="bulls_and_cows_demo_step1">১ Bull, ১ Cow, ২ মিস।</string>
     <string name="bulls_and_cows_demo_step2">Bull = সঠিক স্থান।\nCow = সঠিক অঙ্ক, ভুল স্থান।</string>
     <string name="bulls_and_cows_demo_step3">Bull রাখুন।\nCow সরান — এটি Bull হয়ে যায়।</string>
     <string name="achievement_gold_bulls_and_cows">কোড ক্র্যাকার</string>

@@ -246,7 +246,6 @@
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">The secret was %1$s</string>
     <string name="bulls_and_cows_demo_title">Crack the secret code</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 misses.</string>
     <string name="bulls_and_cows_demo_step2">Bull = right place.\nCow = right digit, wrong place.</string>
     <string name="bulls_and_cows_demo_step3">Keep the Bull.\nMove the Cow — it becomes a Bull.</string>
     <string name="bulls_and_cows_demo_bull">Bull</string>

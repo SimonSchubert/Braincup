@@ -724,7 +724,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">พลาด</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, พลาด 2</string>
     <string name="bulls_and_cows_demo_step2">Bull = ตำแหน่งถูก\nCow = เลขถูก ตำแหน่งผิด</string>
     <string name="bulls_and_cows_demo_step3">เก็บ Bull ไว้\nย้าย Cow — มันจะกลายเป็น Bull</string>
     <string name="achievement_gold_bulls_and_cows">นักถอดรหัส</string>

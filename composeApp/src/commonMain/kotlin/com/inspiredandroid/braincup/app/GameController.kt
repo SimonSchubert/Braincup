@@ -106,8 +106,10 @@ class GameController(
     /** Wordle word lists keyed by language tag; each bundled file is read at most once. */
     private val wordListCache = mutableMapOf<String, WordleWordLists>()
     private var wordleScoreRecorded = false
-    /** Same stay-on-board scoring pattern as Wordle: record once, then Play Again / Continue. */
+    /** Same stay-on-board scoring pattern as Wordle: record once, then Continue to finish / session. */
     private var bullsAndCowsScoreRecorded = false
+    /** Captured when the score is recorded so Continue can open Finish without re-awarding XP. */
+    private var bullsAndCowsScoreResult: UserStorage.ScoreResult? = null
 
     private val _totalXp = MutableStateFlow(0)
     val totalXp: StateFlow<Int> = _totalXp.asStateFlow()
@@ -730,12 +732,43 @@ class GameController(
         }
     }
 
-    /** Play Again from the Bulls & Cows result board, or Continue during a daily challenge. */
+    /** Continue from the Bulls & Cows result board: finish screen (medal/XP), or next daily game. */
     fun bullsAndCowsFinishedAction() {
         if (inSessionMode) {
             continueStayOnBoardInDailyChallenge()
         } else {
-            restartBullsAndCowsInPlace()
+            navigateToBullsAndCowsFinish()
+        }
+    }
+
+    /** Leave the result board for the standard finish screen without recording score again. */
+    private fun navigateToBullsAndCowsFinish() {
+        val currentState = _gameState.value as? GameState.Active ?: return
+        if (currentState.gameType != GameType.BULLS_AND_COWS) return
+        val game = currentState.game as? BullsAndCowsGame ?: return
+        val gameType = currentState.gameType
+        val score = points
+        val scoreResult = bullsAndCowsScoreResult
+            ?: UserStorage.ScoreResult(newHighscore = false, xpGained = 0, levelChange = null)
+        val highscore = storage.getHighScore(gameType.id)
+
+        _gameUiState.value = null
+        _gameState.value = GameState.Idle
+        bullsAndCowsScoreRecorded = false
+        bullsAndCowsScoreResult = null
+
+        navController.navigate(
+            Finish(
+                gameTypeId = gameType.id,
+                score = score,
+                isNewHighscore = scoreResult.newHighscore,
+                answeredAllCorrect = game.won,
+                highscore = highscore,
+                xpGained = scoreResult.xpGained,
+                totalXpAfter = storage.getTotalXp(),
+            ),
+        ) {
+            popUpTo(MainMenu)
         }
     }
 
@@ -895,22 +928,12 @@ class GameController(
     private fun startBullsAndCowsGame(gameType: GameType) {
         points = 0
         bullsAndCowsScoreRecorded = false
+        bullsAndCowsScoreResult = null
         val game = BullsAndCowsGame()
         game.nextRound()
         _gameState.value = GameState.Active(gameType, game)
         _gameUiState.value = game.toUiState()
         navController.navigate(Playing(gameType.id))
-    }
-
-    private fun restartBullsAndCowsInPlace() {
-        val currentState = _gameState.value as? GameState.Active ?: return
-        if (currentState.gameType != GameType.BULLS_AND_COWS) return
-        points = 0
-        bullsAndCowsScoreRecorded = false
-        val game = BullsAndCowsGame()
-        game.nextRound()
-        _gameState.value = GameState.Active(currentState.gameType, game)
-        _gameUiState.value = game.toUiState()
     }
 
     private fun handleBullsAndCowsAnswer(
@@ -1866,11 +1889,11 @@ class GameController(
         refreshDerivedStorageState()
     }
 
-    /** Persist the Bulls & Cows result while staying on the board; leave via Play Again / Back. */
+    /** Persist the Bulls & Cows result while staying on the board; leave via Continue / Back. */
     private fun recordBullsAndCowsScore(gameType: GameType) {
         if (bullsAndCowsScoreRecorded) return
         bullsAndCowsScoreRecorded = true
-        storage.putScore(gameType.id, points)
+        bullsAndCowsScoreResult = storage.putScore(gameType.id, points)
         _totalXp.value = storage.getTotalXp()
         refreshDerivedStorageState()
     }

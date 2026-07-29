@@ -724,7 +724,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">ハズレ</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull、1 Cow、2 ハズレ。</string>
     <string name="bulls_and_cows_demo_step2">Bull = 正しい位置。\nCow = 正しい数字、違う位置。</string>
     <string name="bulls_and_cows_demo_step3">Bullはそのまま。\nCowを動かすとBullになります。</string>
     <string name="achievement_gold_bulls_and_cows">コードクラッカー</string>

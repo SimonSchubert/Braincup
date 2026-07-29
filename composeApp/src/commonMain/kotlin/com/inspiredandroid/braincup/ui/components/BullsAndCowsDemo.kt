@@ -46,7 +46,6 @@ import braincup.composeapp.generated.resources.bulls_and_cows_cows
 import braincup.composeapp.generated.resources.bulls_and_cows_demo_bull
 import braincup.composeapp.generated.resources.bulls_and_cows_demo_cow
 import braincup.composeapp.generated.resources.bulls_and_cows_demo_miss
-import braincup.composeapp.generated.resources.bulls_and_cows_demo_step1
 import braincup.composeapp.generated.resources.bulls_and_cows_demo_step2
 import braincup.composeapp.generated.resources.bulls_and_cows_demo_step3
 import braincup.composeapp.generated.resources.bulls_and_cows_demo_title
@@ -207,8 +206,8 @@ fun BullsAndCowsDemo(modifier: Modifier = Modifier) {
     val bullWord = stringResource(Res.string.bulls_and_cows_demo_bull)
     val cowWord = stringResource(Res.string.bulls_and_cows_demo_cow)
     val caption = coloredCaption(phase = phase, bullWord = bullWord, cowWord = cowWord)
+    // Reserve height for the definition/move captions only (step1 summary removed).
     val reserveCaptions = persistentListOf(
-        stringResource(Res.string.bulls_and_cows_demo_step1),
         stringResource(Res.string.bulls_and_cows_demo_step2),
         stringResource(Res.string.bulls_and_cows_demo_step3),
     )
@@ -341,16 +340,12 @@ private fun coloredCaption(
     val cowStyle = SpanStyle(color = CowColor, fontWeight = FontWeight.Bold)
     val plain = SpanStyle(color = body, fontWeight = FontWeight.Normal)
 
+    // No summary caption during guess/reveal — tile labels and count chips cover it;
+    // step2/step3 captions explain the rules once roles are painted.
     return when (phase) {
         BullsAndCowsDemoPhase.GUESS,
         BullsAndCowsDemoPhase.REVEAL,
-        -> buildAnnotatedString {
-            withStyle(plain) { append("1 ") }
-            withStyle(bullStyle) { append(bullWord) }
-            withStyle(plain) { append(", 1 ") }
-            withStyle(cowStyle) { append(cowWord) }
-            withStyle(plain) { append(", 2 misses.") }
-        }
+        -> AnnotatedString("")
         BullsAndCowsDemoPhase.EXPLAIN -> buildAnnotatedString {
             withStyle(bullStyle) { append(bullWord) }
             withStyle(plain) { append(" = right place.\n") }

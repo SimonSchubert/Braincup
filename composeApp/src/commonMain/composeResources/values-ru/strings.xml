@@ -724,7 +724,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">Мимо</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 мимо.</string>
     <string name="bulls_and_cows_demo_step2">Bull = верное место.\nCow = верная цифра, неверное место.</string>
     <string name="bulls_and_cows_demo_step3">Оставьте Bull.\nСдвиньте Cow — она станет Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Взломщик кодов</string>

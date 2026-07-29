@@ -725,7 +725,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">Mancato</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 mancati.</string>
     <string name="bulls_and_cows_demo_step2">Bull = posto giusto.\nCow = cifra giusta, posto sbagliato.</string>
     <string name="bulls_and_cows_demo_step3">Tieni il Bull.\nSposta la Cow — diventa un Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Spaccacodici</string>

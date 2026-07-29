@@ -725,7 +725,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">Raté</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 ratés.</string>
     <string name="bulls_and_cows_demo_step2">Bull = bonne place.\nCow = bon chiffre, mauvaise place.</string>
     <string name="bulls_and_cows_demo_step3">Gardez le Bull.\nDéplacez la Cow — elle devient un Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Casseur de code</string>

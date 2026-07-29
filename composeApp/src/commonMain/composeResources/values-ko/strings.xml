@@ -724,7 +724,6 @@
     <string name="bulls_and_cows_demo_bull">Bull</string>
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">틀림</string>
-    <string name="bulls_and_cows_demo_step1">1 Bull, 1 Cow, 2 틀림.</string>
     <string name="bulls_and_cows_demo_step2">Bull = 맞는 자리.\nCow = 맞는 숫자, 틀린 자리.</string>
     <string name="bulls_and_cows_demo_step3">Bull은 유지하세요.\nCow를 옮기면 Bull이 됩니다.</string>
     <string name="achievement_gold_bulls_and_cows">코드 해독가</string>

@@ -224,7 +224,6 @@ fun GameScreen(
                     uiState = gameUiState,
                     onAnswer = onAnswer,
                     onGiveUp = onGiveUp,
-                    inSessionMode = inSessionMode,
                     onFinishedAction = onBullsAndCowsFinishedAction,
                 )
             }

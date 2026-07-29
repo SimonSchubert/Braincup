@@ -31,14 +31,12 @@ internal fun ColumnScope.BullsAndCowsContent(
     uiState: BullsAndCowsUiState,
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
-    inSessionMode: Boolean,
     onFinishedAction: () -> Unit,
 ) {
     val listState = rememberLazyListState()
     val compact = LocalIsCompactHeight.current
-    val finishedActionLabel = stringResource(
-        if (inSessionMode) Res.string.session_continue else Res.string.button_play_again,
-    )
+    // Always Continue: non-session goes to the medal/XP finish screen; session advances the challenge.
+    val finishedActionLabel = stringResource(Res.string.session_continue)
     val triesLabel = stringResource(Res.string.finish_tries, uiState.guesses.size.toString())
 
     // Scroll to the end when a new guess is added
@@ -95,6 +93,7 @@ internal fun ColumnScope.BullsAndCowsContent(
                     PrimaryActionButton(
                         onClick = onFinishedAction,
                         value = finishedActionLabel,
+                        modifier = Modifier.padding(bottom = 12.dp),
                     )
                 } else {
                     DigitMemorySlots(
@@ -164,7 +163,9 @@ internal fun ColumnScope.BullsAndCowsContent(
             PrimaryActionButton(
                 onClick = onFinishedAction,
                 value = finishedActionLabel,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+                modifier = Modifier
+                    .align(Alignment.CenterHorizontally)
+                    .padding(bottom = 16.dp),
             )
         } else {
             Spacer(Modifier.height(8.dp))
@@ -465,7 +466,6 @@ private fun BullsAndCowsContentPreview() {
             ),
             onAnswer = {},
             onGiveUp = {},
-            inSessionMode = false,
             onFinishedAction = {},
         )
     }
