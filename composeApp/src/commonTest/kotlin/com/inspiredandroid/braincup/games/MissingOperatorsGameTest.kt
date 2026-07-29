@@ -67,6 +67,33 @@ class MissingOperatorsGameTest {
     }
 
     @Test
+    fun testNeverAllPlusWhenMultipleOperators() {
+        val game = MissingOperatorsGame()
+
+        // Sample many rounds with 2+ operators (3+ numbers) and ensure all-plus
+        // is never a valid answer for the generated target.
+        repeat(100) { i ->
+            game.round = i % 15
+            game.nextRound()
+            val operatorCount = game.numbers.size - 1
+            if (operatorCount > 1) {
+                val allPlus = List(operatorCount) { Operator.PLUS }
+                val allPlusResult = game.evaluateTokens(game.numbers, allPlus)
+                assertTrue(
+                    allPlusResult != game.targetResult,
+                    "Round ${game.round}: all-plus must not equal target " +
+                        "(numbers=${game.numbers}, target=${game.targetResult}, " +
+                        "ops=${game.correctOperators})",
+                )
+                assertFalse(
+                    game.correctOperators.all { it == Operator.PLUS },
+                    "Round ${game.round}: correctOperators must not be all PLUS when count > 1",
+                )
+            }
+        }
+    }
+
+    @Test
     fun testIsCorrect() {
         val game = MissingOperatorsGame()
         game.numbers = listOf(12, 4, 2)

@@ -45,6 +45,15 @@ class MissingOperatorsGame : Game() {
 
             val result = evaluateTokens(generatedNumbers, generatedOperators)
             if (result != null && result > 0 && result <= 200) {
+                // When more than one operator, never allow all-plus as a valid answer
+                // (too easy and occurs too often by chance).
+                val operatorCount = generatedOperators.size
+                if (operatorCount > 1) {
+                    val allPlus = List(operatorCount) { Operator.PLUS }
+                    if (evaluateTokens(generatedNumbers, allPlus) == result) {
+                        continue
+                    }
+                }
                 this.numbers = generatedNumbers
                 this.correctOperators = generatedOperators
                 this.targetResult = result
@@ -121,13 +130,17 @@ class MissingOperatorsGame : Game() {
         return tokens[0] as Int
     }
 
-    override fun isCorrect(input: String): Boolean {
+    fun parseOperators(input: String): List<Operator>? {
         val trimmed = input.trim().replace(" ", "")
-        if (trimmed.length != numbers.size - 1) return false
+        if (trimmed.length != numbers.size - 1) return null
         val userOperators = trimmed.mapNotNull { char ->
             Operator.entries.find { it.char == char }
         }
-        if (userOperators.size != numbers.size - 1) return false
+        return userOperators.takeIf { it.size == numbers.size - 1 }
+    }
+
+    override fun isCorrect(input: String): Boolean {
+        val userOperators = parseOperators(input) ?: return false
         val result = evaluateTokens(numbers, userOperators)
         return result == targetResult
     }

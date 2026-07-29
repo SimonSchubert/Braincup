@@ -13,6 +13,7 @@ import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
@@ -104,6 +105,17 @@ data class MissingOperatorsUiState(
     val numbers: ImmutableList<Int>,
     val targetResult: Int,
     val operatorsCount: Int,
+    /** Non-null during wrong-answer feedback: operators the player submitted. */
+    val submittedOperators: ImmutableList<Operator>? = null,
+    /** Non-null during wrong-answer / give-up feedback: intended solution. */
+    val correctOperators: ImmutableList<Operator>? = null,
+    /**
+     * Slot indices that have already flipped to the correct operator during sequential
+     * feedback reveal. Slots the player already had right are treated as revealed immediately
+     * in the UI without needing to appear here.
+     */
+    val revealedCorrectIndices: ImmutableSet<Int> =
+        kotlinx.collections.immutable.persistentSetOf(),
 ) : GameUiState
 
 @Immutable

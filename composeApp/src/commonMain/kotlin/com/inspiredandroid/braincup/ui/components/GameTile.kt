@@ -1,8 +1,10 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -690,11 +692,37 @@ private fun MentalCalculationPreview() {
 
 @Composable
 private fun MissingOperatorsPreview() {
-    MathText(
-        text = "12 ? 4 = 3",
-        style = MaterialTheme.typography.headlineSmall,
-        color = PreviewTextColor,
-    )
+    // Mini selected operator slot (same shape/colors as play), empty, so the tile reads
+    // as "fill in the missing operator" without a plain "?".
+    val slotShape = RoundedCornerShape(6.dp)
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(5.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        MathText(
+            text = "12",
+            style = MaterialTheme.typography.headlineSmall,
+            color = PreviewTextColor,
+        )
+        Box(
+            modifier = Modifier
+                .size(26.dp)
+                .background(
+                    // Selected empty slot — primary tint reads clearly on pastel tile faces.
+                    color = LightColorScheme.primaryContainer.copy(alpha = 0.45f),
+                    shape = slotShape,
+                )
+                .border(
+                    border = BorderStroke(2.dp, LightColorScheme.primary),
+                    shape = slotShape,
+                ),
+        ) {}
+        MathText(
+            text = "4 = 3",
+            style = MaterialTheme.typography.headlineSmall,
+            color = PreviewTextColor,
+        )
+    }
 }
 
 @Composable

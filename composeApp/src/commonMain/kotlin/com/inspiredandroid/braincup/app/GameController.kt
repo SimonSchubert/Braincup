@@ -13,7 +13,9 @@ import com.inspiredandroid.braincup.games.wordle.deviceLanguageTag
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentSetOf
 import kotlinx.collections.immutable.toImmutableList
+import kotlinx.collections.immutable.toImmutableSet
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -130,6 +132,15 @@ class GameController(
 
         /** How long the correct shape stays revealed after a recall before the next trial. */
         private const val NBACK_REVEAL_HOLD_MILLIS = 900L
+
+        /** Pause with wrong operator slots marked red before the first correct reveal. */
+        private const val MISSING_OPS_FEEDBACK_INITIAL_MS = 700L
+
+        /** Delay between revealing each wrong operator one-by-one. */
+        private const val MISSING_OPS_FEEDBACK_STEP_MS = 650L
+
+        /** Hold after every correct operator is shown before advancing the round. */
+        private const val MISSING_OPS_FEEDBACK_HOLD_MS = 1200L
 
         // Sentinel inputs the Wordle keyboard sends through the shared onAnswer(String) channel;
         // anything else is treated as a single typed letter.
@@ -489,6 +500,10 @@ class GameController(
             handleValueComparisonAnswer(currentState, game, answer.trim())
             return
         }
+        if (game is MissingOperatorsGame) {
+            handleMissingOperatorsAnswer(currentState, game, answer.trim())
+            return
+        }
         if (game is MiniChessGame) {
             handleMiniChessAnswer(currentState, game, answer.trim())
             return
@@ -626,6 +641,24 @@ class GameController(
             scope.launch {
                 delay(1.seconds)
                 proceedAfterInlineFeedback(currentState.gameType, game)
+            }
+            return
+        }
+
+        if (game is MissingOperatorsGame) {
+            val currentUiState = _gameUiState.value as? MissingOperatorsUiState ?: return
+            if (currentUiState.correctOperators != null) return
+            _gameUiState.value = currentUiState.copy(
+                submittedOperators = null,
+                correctOperators = game.correctOperators.toImmutableList(),
+                revealedCorrectIndices = persistentSetOf(),
+            )
+            scope.launch {
+                revealMissingOperatorsSequentially(
+                    gameType = currentState.gameType,
+                    game = game,
+                    indicesToReveal = game.correctOperators.indices.toList(),
+                )
             }
             return
         }
@@ -1102,6 +1135,73 @@ class GameController(
                 proceedAfterInlineFeedback(currentState.gameType, game)
             }
         }
+    }
+
+    private fun handleMissingOperatorsAnswer(
+        currentState: GameState.Active,
+        game: MissingOperatorsGame,
+        input: String,
+    ) {
+        val currentUiState = _gameUiState.value as? MissingOperatorsUiState ?: return
+        // Ignore further input while wrong-answer / give-up feedback is showing.
+        if (currentUiState.correctOperators != null) return
+
+        if (game.isCorrect(input)) {
+            points++
+            _gameState.value = GameState.Feedback(
+                gameType = currentState.gameType,
+                game = game,
+                isCorrect = true,
+                message = game.hint()?.let { FeedbackMessage.Plain(it) },
+            )
+            scope.launch {
+                delay(1.seconds)
+                proceedAfterFeedback()
+            }
+            return
+        }
+
+        game.answeredAllCorrect = false
+        val submitted = game.parseOperators(input) ?: return
+        val correct = game.correctOperators
+        val wrongIndices = submitted.indices.filter { i ->
+            submitted[i] != correct[i]
+        }
+        _gameUiState.value = currentUiState.copy(
+            submittedOperators = submitted.toImmutableList(),
+            correctOperators = correct.toImmutableList(),
+            revealedCorrectIndices = persistentSetOf(),
+        )
+        scope.launch {
+            // Hold on red wrongs, then flip each incorrect slot to the correct operator
+            // one at a time so the solution is easy to follow.
+            revealMissingOperatorsSequentially(
+                gameType = currentState.gameType,
+                game = game,
+                indicesToReveal = wrongIndices,
+            )
+        }
+    }
+
+    private suspend fun revealMissingOperatorsSequentially(
+        gameType: GameType,
+        game: MissingOperatorsGame,
+        indicesToReveal: List<Int>,
+    ) {
+        delay(MISSING_OPS_FEEDBACK_INITIAL_MS.milliseconds)
+        indicesToReveal.forEachIndexed { step, index ->
+            val feedbackState = _gameUiState.value as? MissingOperatorsUiState ?: return
+            if (feedbackState.correctOperators == null) return
+            _gameUiState.value = feedbackState.copy(
+                revealedCorrectIndices = (feedbackState.revealedCorrectIndices + index)
+                    .toImmutableSet(),
+            )
+            if (step < indicesToReveal.lastIndex) {
+                delay(MISSING_OPS_FEEDBACK_STEP_MS.milliseconds)
+            }
+        }
+        delay(MISSING_OPS_FEEDBACK_HOLD_MS.milliseconds)
+        proceedAfterInlineFeedback(gameType, game)
     }
 
     private fun handleColorConfusionAnswer(

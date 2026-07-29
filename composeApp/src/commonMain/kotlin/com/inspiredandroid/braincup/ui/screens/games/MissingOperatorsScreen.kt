@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 
 @Composable
 internal fun ColumnScope.MissingOperatorsContent(
@@ -21,10 +22,13 @@ internal fun ColumnScope.MissingOperatorsContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    var enteredOperators by remember(uiState) {
+    val isFeedback = uiState.correctOperators != null
+    var enteredOperators by remember(uiState.numbers, uiState.targetResult, uiState.operatorsCount) {
         mutableStateOf(List<Operator?>(uiState.operatorsCount) { null })
     }
-    var selectedSlotIndex by remember(uiState) { mutableStateOf(0) }
+    var selectedSlotIndex by remember(uiState.numbers, uiState.targetResult, uiState.operatorsCount) {
+        mutableStateOf(0)
+    }
 
     @Composable
     fun EquationRow() {
@@ -39,40 +43,18 @@ internal fun ColumnScope.MissingOperatorsContent(
                     style = MaterialTheme.typography.displaySmall,
                 )
                 if (index < uiState.operatorsCount) {
-                    val borderStroke = if (selectedSlotIndex == index) {
-                        BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
-                    } else {
-                        BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-                    }
-
-                    Box(
-                        modifier = Modifier
-                            .size(48.dp)
-                            .background(
-                                color = if (selectedSlotIndex == index) {
-                                    MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
-                                } else {
-                                    MaterialTheme.colorScheme.surfaceVariant
-                                },
-                                shape = RoundedCornerShape(8.dp),
-                            )
-                            .border(
-                                border = borderStroke,
-                                shape = RoundedCornerShape(8.dp),
-                            )
-                            .hoverHand()
-                            .clickable {
+                    OperatorSlot(
+                        index = index,
+                        uiState = uiState,
+                        enteredOperators = enteredOperators,
+                        selectedSlotIndex = selectedSlotIndex,
+                        isFeedback = isFeedback,
+                        onSelect = {
+                            if (!isFeedback) {
                                 selectedSlotIndex = index
-                            },
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        val op = enteredOperators[index]
-                        if (op != null) {
-                            MathText(text = op.char.toString(), style = MaterialTheme.typography.titleLarge)
-                        } else {
-                            Text(text = " ", style = MaterialTheme.typography.titleLarge)
-                        }
-                    }
+                            }
+                        },
+                    )
                 }
             }
             MathText(
@@ -92,6 +74,7 @@ internal fun ColumnScope.MissingOperatorsContent(
             ops.forEach { op ->
                 CircleButton(
                     onClick = {
+                        if (isFeedback) return@CircleButton
                         val selectedOp = Operator.entries.first { it.char.toString() == op }
                         enteredOperators = enteredOperators.toMutableList().apply {
                             this[selectedSlotIndex] = selectedOp
@@ -105,7 +88,8 @@ internal fun ColumnScope.MissingOperatorsContent(
                             if (nextEmptyIndex != -1) {
                                 selectedSlotIndex = nextEmptyIndex
                             } else {
-                                selectedSlotIndex = (selectedSlotIndex + 1).coerceAtMost(uiState.operatorsCount - 1)
+                                selectedSlotIndex =
+                                    (selectedSlotIndex + 1).coerceAtMost(uiState.operatorsCount - 1)
                             }
                         }
                     },
@@ -128,7 +112,9 @@ internal fun ColumnScope.MissingOperatorsContent(
             ) {
                 EquationRow()
                 Spacer(Modifier.height(16.dp))
-                GiveUpButton(onGiveUp = onGiveUp)
+                if (!isFeedback) {
+                    GiveUpButton(onGiveUp = onGiveUp)
+                }
             }
             Column {
                 KeysRow()
@@ -143,10 +129,97 @@ internal fun ColumnScope.MissingOperatorsContent(
             Spacer(Modifier.height(32.dp))
             KeysRow()
             Spacer(Modifier.height(32.dp))
-            GiveUpButton(
-                onGiveUp = onGiveUp,
-                modifier = Modifier.align(Alignment.CenterHorizontally),
+            if (!isFeedback) {
+                GiveUpButton(
+                    onGiveUp = onGiveUp,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun OperatorSlot(
+    index: Int,
+    uiState: MissingOperatorsUiState,
+    enteredOperators: List<Operator?>,
+    selectedSlotIndex: Int,
+    isFeedback: Boolean,
+    onSelect: () -> Unit,
+) {
+    val submitted = uiState.submittedOperators?.getOrNull(index)
+    val correct = uiState.correctOperators?.getOrNull(index)
+    val entered = enteredOperators.getOrNull(index)
+
+    val wasAlreadyCorrect = submitted != null && correct != null && submitted == correct
+    val isRevealedCorrect = isFeedback &&
+        (index in uiState.revealedCorrectIndices || wasAlreadyCorrect)
+    val isWrongPending = isFeedback &&
+        submitted != null &&
+        correct != null &&
+        submitted != correct &&
+        index !in uiState.revealedCorrectIndices
+
+    val displayOp: Operator? = when {
+        isRevealedCorrect -> correct
+        isFeedback && submitted != null -> submitted
+        isFeedback -> null
+        else -> entered
+    }
+
+    val backgroundColor = when {
+        isWrongPending -> MaterialTheme.colorScheme.errorContainer
+        isRevealedCorrect -> SuccessGreen.copy(alpha = 0.2f)
+        selectedSlotIndex == index && !isFeedback ->
+            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+        else -> MaterialTheme.colorScheme.surfaceVariant
+    }
+
+    val borderStroke = when {
+        isWrongPending -> BorderStroke(2.5.dp, MaterialTheme.colorScheme.error)
+        isRevealedCorrect -> BorderStroke(2.5.dp, SuccessGreen)
+        selectedSlotIndex == index && !isFeedback ->
+            BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
+        else -> BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+    }
+
+    val textColor = when {
+        isWrongPending -> MaterialTheme.colorScheme.onErrorContainer
+        isRevealedCorrect -> SuccessGreen
+        else -> LocalContentColor.current
+    }
+
+    Box(
+        modifier = Modifier
+            .size(56.dp)
+            .background(
+                color = backgroundColor,
+                shape = RoundedCornerShape(8.dp),
             )
+            .border(
+                border = borderStroke,
+                shape = RoundedCornerShape(8.dp),
+            )
+            .then(
+                if (!isFeedback) {
+                    Modifier
+                        .hoverHand()
+                        .clickable(onClick = onSelect)
+                } else {
+                    Modifier
+                },
+            ),
+        contentAlignment = Alignment.Center,
+    ) {
+        if (displayOp != null) {
+            MathText(
+                text = displayOp.char.toString(),
+                style = MaterialTheme.typography.headlineLarge,
+                color = textColor,
+            )
+        } else {
+            Text(text = " ", style = MaterialTheme.typography.headlineLarge)
         }
     }
 }
