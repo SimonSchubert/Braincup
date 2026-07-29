@@ -1,4 +1,4 @@
-Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 36 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
+Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 38 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
 
 <b>Hitung Mental</b>:
 Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.
@@ -107,6 +107,12 @@ Sudoku klasik dengan beberapa tingkat kesulitan.
 
 <b>Catur</b>:
 Catur lengkap vs CPU atau pass-and-play.
+
+<b>Missing Operators</b>:
+Temukan operator yang hilang (+, -, *, /) agar persamaan menjadi benar.
+
+<b>Bulls & Cows</b>:
+Tebak angka rahasia 4 digit dengan digit unik. Bulls = digit benar di posisi benar. Cows = digit benar di posisi salah.
 
 Game ini memiliki beberapa <b>pencapaian</b> dan setiap latihan memiliki <b>medali</b> untuk menjaga motivasi Anda.
 

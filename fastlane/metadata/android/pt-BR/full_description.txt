@@ -1,4 +1,4 @@
-Treine seu cérebro com mini jogos divertidos que desafiam sua memória, foco, lógica e habilidades matemáticas. O Braincup oferece 36 exercícios de treinamento cerebral projetados para aguçar sua mente e melhorar sua concentração.
+Treine seu cérebro com mini jogos divertidos. O Braincup oferece 38 exercícios de treino cerebral.
 
 <b>Cálculo mental</b>:
 Siga as expressões matemáticas. Use o resultado como base para o próximo cálculo.
@@ -107,6 +107,12 @@ Sudoku clássico completo com vários níveis de dificuldade.
 
 <b>Xadrez</b>:
 Xadrez completo contra a CPU ou pass-and-play.
+
+<b>Missing Operators</b>:
+Encontre os operadores em falta (+, -, *, /) que tornam a equação verdadeira.
+
+<b>Bulls & Cows</b>:
+Adivinhe o número secreto de 4 dígitos. Bulls = posição certa, Cows = posição errada.
 
 O jogo tem várias <b>conquistas</b> e cada exercício tem <b>medalhas</b> para manter você motivado.
 

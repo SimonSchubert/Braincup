@@ -46,7 +46,7 @@ Train your math skills, memory and focus.
 
 ## Games
 
-Braincup includes **36** activities: **32** scored mini-games plus **4** extras.
+Braincup includes **40** activities: **36** scored mini-games plus **4** extras.
 
 ### Math
 - **Mental Calculation** — Follow expressions; use each result as the base for the next
@@ -56,6 +56,7 @@ Braincup includes **36** activities: **32** scored mini-games plus **4** extras.
 - **Value Comparison** — Pick the expression with the highest value
 - **Bubble Sum** — Add numbers on floating bubbles (later rounds blink)
 - **Quick Sum** — Numbers flash one at a time; enter the total
+- **Missing Operators** — Find the operators (+, -, *, /) that make the equation true
 
 ### Logic
 - **Anomaly Puzzle** — Find the figure that stands out by color and shape
@@ -72,6 +73,8 @@ Braincup includes **36** activities: **32** scored mini-games plus **4** extras.
 - **Knot** — Connect colored dot pairs without crossing; cover every cell
 - **Tower of Hanoi** — Move the stack to the right peg
 - **Wordle** — Guess the five-letter word in six tries
+- **Prism Clear** — Swap matching tiles to clear lines; empty the board
+- **Bulls & Cows** — Guess the secret 4-digit number (Bulls = right place, Cows = wrong place)
 
 ### Memory
 - **Visual Memory** — Memorize shapes, then identify the hidden one
@@ -80,6 +83,7 @@ Braincup includes **36** activities: **32** scored mini-games plus **4** extras.
 - **Digit Memory** — Memorize digits, solve a quick math problem, recall
 - **Spot the New** — Tap the animal you have not seen before
 - **N-Back** — Watch shapes flash; tap the one at the asked position
+- **Simon Says** — Tap back the growing pad sequence each round
 
 ### Perception
 - **Pattern Sequence** — Find the next figure in the pattern

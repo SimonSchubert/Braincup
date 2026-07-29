@@ -1,4 +1,4 @@
-Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 36 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
+Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 38 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
 
 <b>Kopfrechnen</b>:
 Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Basis für die nächste Rechnung.
@@ -107,6 +107,12 @@ Klassisches volles Sudoku mit mehreren Schwierigkeitsstufen.
 
 <b>Schach</b>:
 Volles Schach gegen die CPU oder Pass-and-Play.
+
+<b>Missing Operators</b>:
+Finde die fehlenden Operatoren (+, -, *, /), die die Gleichung wahr machen.
+
+<b>Bulls & Cows</b>:
+Errate die geheime 4-stellige Zahl mit eindeutigen Ziffern. Bulls = richtige Ziffer an der richtigen Stelle. Cows = richtige Ziffer an der falschen Stelle.
 
 Das Spiel bietet mehrere <b>Erfolge</b> und jede Übung hat <b>Medaillen</b>, die dich motivieren.
 

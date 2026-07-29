@@ -39,6 +39,8 @@ enum GameCenterIds {
         "SIMON_SAYS":            "achievement.simon_says",
         "N_BACK":                "achievement.rolling_recall",
         "PRISM_CLEAR":           "achievement.crystal_clarity",
+        "MISSING_OPERATORS":     "achievement.operator_master",
+        "BULLS_AND_COWS":        "achievement.code_cracker",
     ]
 
     private static let leaderboardsByGameName: [String: String] = [
@@ -130,6 +132,8 @@ enum GameCenterIds {
         case "achievement.fresh_eyes":            return UserStorage.Achievements.goldSpotTheNew
         case "achievement.wordsmith":             return UserStorage.Achievements.goldWordle
         case "achievement.flag_bearer":           return UserStorage.Achievements.goldFlags
+        case "achievement.operator_master":       return UserStorage.Achievements.goldMissingOperators
+        case "achievement.code_cracker":          return UserStorage.Achievements.goldBullsAndCows
         case achievementPegMaster:                return UserStorage.Achievements.pegSolitairePerfect
         default: return nil
         }

@@ -1,6 +1,12 @@
-Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 36 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
+Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 38 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
 
 <b>Calcolo mentale</b>:
+<b>Missing Operators</b>:
+Trova gli operatori mancanti (+, -, *, /) che rendono vera l'equazione.
+
+<b>Bulls & Cows</b>:
+Indovina il numero segreto a 4 cifre con cifre uniche. Bulls = cifra corretta nella posizione corretta. Cows = cifra corretta nella posizione sbagliata.
+
 Segui le espressioni matematiche. Usa il risultato come base del calcolo successivo.
 
 <b>Calcolo a catena</b>:

@@ -45,9 +45,9 @@
     <!-- achievement Crystal Clarity (Prism Clear) -->
     <string name="achievementCrystalClarity" translatable="false">CgkIuZrirtIVEAIQLg</string>
     <!-- achievement Operator Master (Missing Operators) -->
-    <string name="achievementOperatorMaster" translatable="false"></string>
+    <string name="achievementOperatorMaster" translatable="false">CgkIuZrirtIVEAIQLw</string>
     <!-- achievement Code Cracker (Bulls & Cows) -->
-    <string name="achievementCodeCracker" translatable="false">CgkIuZrirtIVEAIQLw</string>
+    <string name="achievementCodeCracker" translatable="false">CgkIuZrirtIVEAIQMA</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

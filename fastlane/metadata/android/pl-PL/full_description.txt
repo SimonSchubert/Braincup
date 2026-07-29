@@ -1,4 +1,4 @@
-Trenuj swój mózg za pomocą zabawnych mini gier, które stanowią wyzwanie dla twojej pamięci, koncentracji, logiki i umiejętności matematycznych. Braincup oferuje 36 ćwiczeń treningowych dla mózgu zaprojektowanych, aby wyostrzyć umysł i poprawić koncentrację.
+Trenuj swój mózg zabawnymi mini grami. Braincup oferuje 38 ćwiczeń treningu mózgu.
 
 <b>Rachunek pamięciowy</b>:
 Śledź wyrażenia matematyczne. Użyj wyniku jako podstawy do następnego obliczenia.
@@ -107,6 +107,12 @@ Klasyczne pełne Sudoku z wieloma poziomami trudności.
 
 <b>Szachy</b>:
 Pełne szachy przeciwko CPU lub pass-and-play.
+
+<b>Missing Operators</b>:
+Znajdź brakujące operatory (+, -, *, /), które czynią równanie prawdziwym.
+
+<b>Bulls & Cows</b>:
+Odgadnij tajną 4-cyfrową liczbę. Bulls = dobra pozycja, Cows = zła pozycja.
 
 Gra zawiera kilka <b>osiągnięć</b>, a każde ćwiczenie ma <b>medale</b>, które utrzymują twoją motywację.
 
