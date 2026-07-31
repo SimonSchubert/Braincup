@@ -29,12 +29,19 @@ class AndroidAudioPlayer(private val context: Context) : AudioPlayer {
             mediaPlayer = player
             player.setDataSource(source)
             player.isLooping = loop
-            player.setOnPreparedListener { it.start() }
             player.setOnErrorListener { _, _, _ ->
                 stop()
                 true
             }
-            player.prepareAsync()
+            // One-shots (Simon pads, etc.) prepare synchronously so the tone lines up with the
+            // flash/tap. Ambient loops stay async so we never block the UI thread on large files.
+            if (loop) {
+                player.setOnPreparedListener { it.start() }
+                player.prepareAsync()
+            } else {
+                player.prepare()
+                player.start()
+            }
         } catch (_: Exception) {
             stop()
         }

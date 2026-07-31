@@ -25,6 +25,7 @@ import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.toImmutableList
+import kotlinx.coroutines.delay
 
 @Composable
 internal fun ColumnScope.SimonSaysContent(
@@ -33,6 +34,9 @@ internal fun ColumnScope.SimonSaysContent(
 ) {
     val cellMax = if (LocalIsCompactHeight.current) 96.dp else 140.dp
     val isClickable = uiState.phase == SimonSaysGame.Phase.ANSWERING
+    // Bumps on every accepted tap so a second press of the same color can re-pulse the pad
+    // (pad type alone stays TAPPED and would not restart the color animation).
+    val tapFlashKey = uiState.tappedCount
 
     SimonDisc(
         modifier = Modifier
@@ -45,6 +49,7 @@ internal fun ColumnScope.SimonSaysContent(
             pad = pad,
             quadrant = quadrant,
             isClickable = isClickable,
+            tapFlashKey = if (pad.type == SimonSaysUiState.CellType.TAPPED) tapFlashKey else 0,
             onClick = { onAnswer(pad.color.name) },
             modifier = padModifier,
         )
@@ -56,6 +61,7 @@ private fun SimonPad(
     pad: SimonSaysUiState.PadState,
     quadrant: SimonQuadrant,
     isClickable: Boolean,
+    tapFlashKey: Int,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -64,7 +70,7 @@ private fun SimonPad(
     // Ghost Grid (whose tiles are neutral) -- a red "wrong" tint next to the red pad, or a green
     // "missed" tint next to the green pad, is unreadable. Lit/dim carries the state and a ✓/✗
     // mark carries the verdict, both independent of hue.
-    val isLit = when (pad.type) {
+    val baseLit = when (pad.type) {
         SimonSaysUiState.CellType.ACTIVE,
         SimonSaysUiState.CellType.TAPPED,
         SimonSaysUiState.CellType.MISSED,
@@ -73,6 +79,18 @@ private fun SimonPad(
         SimonSaysUiState.CellType.INACTIVE,
         -> false
     }
+    // Brief dark blip so a repeated same-color tap still reads as a new press.
+    var forceDark by remember { mutableStateOf(false) }
+    LaunchedEffect(tapFlashKey) {
+        if (tapFlashKey <= 0) {
+            forceDark = false
+            return@LaunchedEffect
+        }
+        forceDark = true
+        delay(45)
+        forceDark = false
+    }
+    val isLit = baseLit && !forceDark
     val animatedColor by animateColorAsState(
         targetValue = simonPadColor(baseColor, isLit),
         animationSpec = SimonPadColorSpec,
@@ -81,7 +99,11 @@ private fun SimonPad(
 
     val interactionSource = remember { MutableInteractionSource() }
     val isPressed by interactionSource.collectIsPressedAsState()
-    val scale by animateFloatAsState(targetValue = if (isPressed) 0.92f else 1f, label = "simonPadScale")
+    // Ignore a stuck PressInteraction when the pad is disabled mid-press (e.g. game over).
+    val scale by animateFloatAsState(
+        targetValue = if (isClickable && isPressed) 0.92f else 1f,
+        label = "simonPadScale",
+    )
 
     val shape = remember(quadrant) { simonQuadrantShape(quadrant) }
 

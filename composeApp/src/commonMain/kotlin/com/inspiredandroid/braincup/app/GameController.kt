@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.minichess.ChessAi
+import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.wordle.WordleGame
 import com.inspiredandroid.braincup.games.wordle.WordleLanguage
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
@@ -80,6 +81,13 @@ class GameController(
 
     private val _intermediateCorrectEvents = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
     val intermediateCorrectEvents: SharedFlow<Unit> = _intermediateCorrectEvents.asSharedFlow()
+
+    /**
+     * One-shot Simon Says pad tones: fired when a pad is flashed during SHOWING and when the
+     * player taps a pad during ANSWERING. Color is the pad that should sound, not the round score.
+     */
+    private val _simonPadSoundEvents = MutableSharedFlow<Color>(extraBufferCapacity = 4)
+    val simonPadSoundEvents: SharedFlow<Color> = _simonPadSoundEvents.asSharedFlow()
 
     private var startTime = 0L
     private var points = 0
@@ -2057,7 +2065,17 @@ class GameController(
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
-        game.startShowNewPad(scope) { emitSimonSaysUiState(game) }
+        startSimonSaysShow(game)
+    }
+
+    private fun startSimonSaysShow(game: SimonSaysGame) {
+        game.startShowNewPad(scope) {
+            emitSimonSaysUiState(game)
+            val idx = game.currentShowIndex
+            if (idx >= 0) {
+                _simonPadSoundEvents.tryEmit(game.sequence[idx])
+            }
+        }
     }
 
     private fun handleSimonSaysAnswer(
@@ -2066,6 +2084,8 @@ class GameController(
         answer: String,
     ) {
         if (game.phase != SimonSaysGame.Phase.ANSWERING) return
+        // Tone for the pad the player pressed, including wrong taps (classic Simon behaviour).
+        Color.entries.find { it.name == answer }?.let { _simonPadSoundEvents.tryEmit(it) }
         when (game.submitAnswer(answer)) {
             SimonSaysGame.SubmitResult.CorrectContinue -> emitSimonSaysUiState(game)
             SimonSaysGame.SubmitResult.RoundComplete -> {
@@ -2086,7 +2106,7 @@ class GameController(
                     // stays lit through the lead-in and reads as a pad the game just flashed.
                     emitSimonSaysUiState(game)
                     _gameState.value = GameState.Active(currentState.gameType, game)
-                    game.startShowNewPad(scope) { emitSimonSaysUiState(game) }
+                    startSimonSaysShow(game)
                 }
             }
             SimonSaysGame.SubmitResult.Wrong -> {

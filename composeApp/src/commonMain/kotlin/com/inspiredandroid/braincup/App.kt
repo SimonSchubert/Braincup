@@ -24,8 +24,10 @@ import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.ReviewBridge
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.audio.SimonPadSounds
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
@@ -56,6 +58,8 @@ fun App(
         onDispose { controller.dispose() }
     }
     val audioPlayer = rememberAudioPlayer()
+    // Separate player so pad one-shots never stop ambient/game music.
+    val soundEffectPlayer = rememberAudioPlayer()
 
     var isMuted by remember { mutableStateOf(controller.storage.isAudioMuted()) }
     var colorblindPaletteEnabled by remember {
@@ -87,12 +91,22 @@ fun App(
 
     var menuAudio by remember { mutableStateOf<ByteArray?>(null) }
     var gameAudio by remember { mutableStateOf<ByteArray?>(null) }
+    var simonPadAudio by remember { mutableStateOf<Map<Color, ByteArray>>(emptyMap()) }
 
     LaunchedEffect(Unit) {
         try {
             menuAudio = Res.readBytes("files/menu_ambient.wav")
         } catch (_: Exception) {
         }
+        // Small one-shots (~18 KB each); load with menu audio so the first Simon flash is never silent.
+        val loaded = mutableMapOf<Color, ByteArray>()
+        for ((color, path) in SimonPadSounds.paths) {
+            try {
+                loaded[color] = Res.readBytes(path)
+            } catch (_: Exception) {
+            }
+        }
+        simonPadAudio = loaded
         val opens = controller.storage.incrementAndGetTotalAppOpens()
         if (opens % 5 == 0) {
             ReviewBridge.requestInAppReview?.invoke()
@@ -127,11 +141,22 @@ fun App(
     LaunchedEffect(isPlayingGame, isMuted, menuAudio, gameAudio) {
         if (isMuted) {
             audioPlayer.stop()
+            soundEffectPlayer.stop()
             return@LaunchedEffect
         }
         val data = if (isPlayingGame) gameAudio else menuAudio
         if (data != null) {
             audioPlayer.play(data, loop = true)
+        }
+    }
+
+    val latestMuted by rememberUpdatedState(isMuted)
+    val latestSimonPadAudio by rememberUpdatedState(simonPadAudio)
+    LaunchedEffect(controller, soundEffectPlayer) {
+        controller.simonPadSoundEvents.collect { color ->
+            if (latestMuted) return@collect
+            val data = latestSimonPadAudio[color] ?: return@collect
+            soundEffectPlayer.play(data, loop = false)
         }
     }
 
