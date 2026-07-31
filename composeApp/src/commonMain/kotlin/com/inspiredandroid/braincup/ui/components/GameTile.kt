@@ -1050,7 +1050,7 @@ private fun PegSolitairePreview() {
                             Spacer(Modifier.weight(1f).fillMaxHeight())
                             continue
                         }
-                        val isEmpty = (row == 3 && col == 3) || (row == 2 && col == 3)
+                        val isEmpty = row == 3 && col == 3
                         Box(
                             modifier = Modifier.weight(1f).fillMaxHeight(),
                             contentAlignment = Alignment.Center,
