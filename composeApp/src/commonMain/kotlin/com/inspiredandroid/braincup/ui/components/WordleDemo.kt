@@ -30,6 +30,8 @@ import braincup.composeapp.generated.resources.wordle_demo_title
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.WordleCorrect
 import com.inspiredandroid.braincup.ui.theme.WordlePresent
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -39,14 +41,14 @@ private data class DemoTile(val char: Char, val state: DemoLetterState)
 
 // Hidden word: BRAIN. The first guess BREAD scores every tile state at once (B,R green;
 // A yellow/present; E,D grey/absent); the winning guess BRAIN turns all green.
-private val GuessRow = listOf(
+private val GuessRow = persistentListOf(
     DemoTile('B', DemoLetterState.CORRECT),
     DemoTile('R', DemoLetterState.CORRECT),
     DemoTile('E', DemoLetterState.ABSENT),
     DemoTile('A', DemoLetterState.PRESENT),
     DemoTile('D', DemoLetterState.ABSENT),
 )
-private val WinRow = listOf(
+private val WinRow = persistentListOf(
     DemoTile('B', DemoLetterState.CORRECT),
     DemoTile('R', DemoLetterState.CORRECT),
     DemoTile('A', DemoLetterState.CORRECT),
@@ -119,7 +121,7 @@ fun WordleDemo(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun DemoWordleRow(tiles: List<DemoTile>, revealed: Int, tileSize: androidx.compose.ui.unit.Dp) {
+private fun DemoWordleRow(tiles: ImmutableList<DemoTile>, revealed: Int, tileSize: androidx.compose.ui.unit.Dp) {
     Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
         tiles.forEachIndexed { index, tile ->
             DemoWordleTile(tile = tile, isRevealed = index < revealed, size = tileSize)

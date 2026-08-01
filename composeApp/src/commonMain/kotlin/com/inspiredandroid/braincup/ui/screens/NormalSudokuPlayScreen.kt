@@ -46,6 +46,8 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -68,7 +70,7 @@ fun NormalSudokuPlayScreen(
         return
     }
 
-    val clueDigits = remember(puzzle) { puzzle.clues.map { it.digitToInt() } }
+    val clueDigits = remember(puzzle) { puzzle.clues.map { it.digitToInt() }.toImmutableList() }
     val initial = remember(puzzle) {
         val saved = storage.getNormalSudokuProgress(puzzle.id)
         val source = saved ?: puzzle.clues
@@ -175,6 +177,10 @@ fun NormalSudokuPlayScreen(
             }
             val onDigit = remember { { digit: Int -> applyDigit(digit) } }
             val onErase = remember { { applyErase() } }
+            // Snapshot mutable board/notes into stable lists so the board and pad can skip when
+            // only selection or notes-mode changes (strong skipping still equals-checks content).
+            val boardSnapshot = board.toImmutableList()
+            val notesSnapshot = notes.toImmutableList()
 
             if (landscape) {
                 val boardSize = minOf(
@@ -193,8 +199,8 @@ fun NormalSudokuPlayScreen(
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
                     SudokuBoard9x9(
-                        board = board,
-                        notes = notes,
+                        board = boardSnapshot,
+                        notes = notesSnapshot,
                         clueDigits = clueDigits,
                         selectedIndex = selectedIndex,
                         solved = solved,
@@ -205,7 +211,7 @@ fun NormalSudokuPlayScreen(
                     )
                     DigitPad(
                         columns = 3,
-                        board = board,
+                        board = boardSnapshot,
                         notesMode = notesMode,
                         selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
@@ -227,8 +233,8 @@ fun NormalSudokuPlayScreen(
                     verticalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterVertically),
                 ) {
                     SudokuBoard9x9(
-                        board = board,
-                        notes = notes,
+                        board = boardSnapshot,
+                        notes = notesSnapshot,
                         clueDigits = clueDigits,
                         selectedIndex = selectedIndex,
                         solved = solved,
@@ -239,7 +245,7 @@ fun NormalSudokuPlayScreen(
                     )
                     DigitPad(
                         columns = 9,
-                        board = board,
+                        board = boardSnapshot,
                         notesMode = notesMode,
                         selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
@@ -301,9 +307,9 @@ private fun NotesModeToggle(
 
 @Composable
 private fun SudokuBoard9x9(
-    board: List<Int>,
-    notes: List<NoteMask>,
-    clueDigits: List<Int>,
+    board: ImmutableList<Int>,
+    notes: ImmutableList<NoteMask>,
+    clueDigits: ImmutableList<Int>,
     selectedIndex: Int,
     solved: Boolean,
     outerFrame: Dp,
@@ -455,7 +461,7 @@ private fun CellNotesText(
 @Composable
 private fun DigitPad(
     columns: Int,
-    board: List<Int>,
+    board: ImmutableList<Int>,
     notesMode: Boolean,
     selectedNotes: NoteMask,
     enabled: Boolean,

@@ -58,6 +58,9 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentSetOf
+import kotlinx.collections.immutable.toImmutableSet
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
@@ -155,10 +158,11 @@ fun NormalChessPlayScreen(
             )
     val legalMoves = if (humanCanInteract) board.legalMoves() else emptyList()
     val legalByFrom: Map<Square, List<Move>> = legalMoves.groupBy { it.from }
-    val highlightedTargets: Set<Square> = selected?.let { legalByFrom[it]?.map { m -> m.to }?.toSet() } ?: emptySet()
+    val highlightedTargets: ImmutableSet<Square> =
+        selected?.let { legalByFrom[it]?.map { m -> m.to }?.toImmutableSet() } ?: persistentSetOf()
     // Moves from the selected piece that would draw the game (stalemate the opponent or trigger an
     // automatic draw). We warn the player so they don't accidentally stalemate a winning position.
-    val stalematingTargets: Set<Square> = selected?.let { sel ->
+    val stalematingTargets: ImmutableSet<Square> = selected?.let { sel ->
         legalByFrom[sel].orEmpty()
             .filter { move ->
                 when (board.apply(move).result()) {
@@ -171,8 +175,8 @@ fun NormalChessPlayScreen(
                 }
             }
             .map { it.to }
-            .toSet()
-    } ?: emptySet()
+            .toImmutableSet()
+    } ?: persistentSetOf()
     val selectedHasDrawMove = stalematingTargets.isNotEmpty()
 
     fun onSquareTapped(square: Square) {
@@ -387,8 +391,8 @@ private fun TurnHeader(
 private fun BoardView(
     board: NormalChessBoard,
     selected: Square?,
-    highlightedTargets: Set<Square>,
-    stalematingTargets: Set<Square>,
+    highlightedTargets: ImmutableSet<Square>,
+    stalematingTargets: ImmutableSet<Square>,
     lastMoveFrom: Square?,
     lastMoveTo: Square?,
     interactive: Boolean,

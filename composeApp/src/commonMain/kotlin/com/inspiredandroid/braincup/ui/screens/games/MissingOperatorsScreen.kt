@@ -15,6 +15,8 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 
 @Composable
 internal fun ColumnScope.MissingOperatorsContent(
@@ -24,7 +26,7 @@ internal fun ColumnScope.MissingOperatorsContent(
 ) {
     val isFeedback = uiState.correctOperators != null
     var enteredOperators by remember(uiState.numbers, uiState.targetResult, uiState.operatorsCount) {
-        mutableStateOf(List<Operator?>(uiState.operatorsCount) { null })
+        mutableStateOf(List<Operator?>(uiState.operatorsCount) { null }.toImmutableList())
     }
     var selectedSlotIndex by remember(uiState.numbers, uiState.targetResult, uiState.operatorsCount) {
         mutableStateOf(0)
@@ -76,9 +78,9 @@ internal fun ColumnScope.MissingOperatorsContent(
                     onClick = {
                         if (isFeedback) return@CircleButton
                         val selectedOp = Operator.entries.first { it.char.toString() == op }
-                        enteredOperators = enteredOperators.toMutableList().apply {
-                            this[selectedSlotIndex] = selectedOp
-                        }
+                        enteredOperators = enteredOperators
+                            .mapIndexed { i, current -> if (i == selectedSlotIndex) selectedOp else current }
+                            .toImmutableList()
 
                         if (enteredOperators.all { it != null }) {
                             val answerStr = enteredOperators.map { it?.char }.joinToString("")
@@ -143,7 +145,7 @@ internal fun ColumnScope.MissingOperatorsContent(
 private fun OperatorSlot(
     index: Int,
     uiState: MissingOperatorsUiState,
-    enteredOperators: List<Operator?>,
+    enteredOperators: ImmutableList<Operator?>,
     selectedSlotIndex: Int,
     isFeedback: Boolean,
     onSelect: () -> Unit,

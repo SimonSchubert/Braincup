@@ -32,6 +32,9 @@ import com.inspiredandroid.braincup.ui.theme.HanoiBaseColor
 import com.inspiredandroid.braincup.ui.theme.HanoiDiskColors
 import com.inspiredandroid.braincup.ui.theme.HanoiPegColor
 import com.inspiredandroid.braincup.ui.theme.Primary
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -48,6 +51,12 @@ private val OptimalMoves = listOf(
     0 to 2,
 )
 
+private val InitialPegs: ImmutableList<ImmutableList<Int>> = persistentListOf(
+    persistentListOf(3, 2, 1),
+    persistentListOf(),
+    persistentListOf(),
+)
+
 private const val SelectMillis = 400L
 private const val MoveMillis = 350L
 private const val SolvedHoldMillis = 1300L
@@ -59,14 +68,12 @@ private const val ResetPauseMillis = 500L
  */
 @Composable
 fun TowerOfHanoiDemo(modifier: Modifier = Modifier) {
-    var pegs by remember {
-        mutableStateOf(listOf(listOf(3, 2, 1), emptyList(), emptyList()))
-    }
+    var pegs by remember { mutableStateOf(InitialPegs) }
     var selectedPeg by remember { mutableIntStateOf(-1) }
 
     LaunchedEffect(Unit) {
         while (true) {
-            pegs = listOf(listOf(3, 2, 1), emptyList(), emptyList())
+            pegs = InitialPegs
             selectedPeg = -1
             delay(ResetPauseMillis)
 
@@ -78,7 +85,7 @@ fun TowerOfHanoiDemo(modifier: Modifier = Modifier) {
                     val disk = next[from].removeAt(next[from].lastIndex)
                     next[to].add(disk)
                 }
-                pegs = next.map { it.toList() }
+                pegs = next.map { it.toImmutableList() }.toImmutableList()
                 selectedPeg = to
                 delay(MoveMillis)
                 selectedPeg = -1
@@ -122,7 +129,7 @@ fun TowerOfHanoiDemo(modifier: Modifier = Modifier) {
 
 @Composable
 private fun DemoPeg(
-    disks: List<Int>,
+    disks: ImmutableList<Int>,
     selected: Boolean,
     width: androidx.compose.ui.unit.Dp,
     height: androidx.compose.ui.unit.Dp,

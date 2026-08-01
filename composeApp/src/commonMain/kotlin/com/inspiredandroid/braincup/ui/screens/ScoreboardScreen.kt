@@ -23,6 +23,7 @@ import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
+import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -35,7 +36,7 @@ fun ScoreboardScreen(
     val scores = remember(storage, gameType) {
         storage.getScores(gameType.id).mapNotNull { group ->
             val nonZero = group.scores.filter { it > 0 }
-            nonZero.takeIf { it.isNotEmpty() }?.let { group.copy(scores = it) }
+            nonZero.takeIf { it.isNotEmpty() }?.let { group.copy(scores = it.toImmutableList()) }
         }
     }
 

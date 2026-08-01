@@ -58,6 +58,9 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PrismShade
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentSetOf
+import kotlinx.collections.immutable.toImmutableSet
 import org.jetbrains.compose.resources.stringResource
 
 private val PegBoardFrame = Color(0xFF5D4037)
@@ -103,13 +106,13 @@ fun PegSolitairePlayScreen(
     val interactive = result == PegSolitaireResult.ONGOING
     // Highlight targets from the live board; the click handler re-queries legality too so a jump
     // never depends on a stale composition-time list.
-    val targetHoles: Set<Pair<Int, Int>> = selected?.let { (r, c) ->
+    val targetHoles: ImmutableSet<Pair<Int, Int>> = selected?.let { (r, c) ->
         if (interactive) {
-            board.legalJumpsFrom(r, c).map { it.toRow to it.toCol }.toSet()
+            board.legalJumpsFrom(r, c).map { it.toRow to it.toCol }.toImmutableSet()
         } else {
-            emptySet()
+            persistentSetOf()
         }
-    } ?: emptySet()
+    } ?: persistentSetOf()
 
     LaunchedEffect(result) {
         if (awardedThisGame) return@LaunchedEffect
@@ -240,7 +243,7 @@ private fun StatusHeader(board: PegSolitaireBoard, result: PegSolitaireResult) {
 private fun PegBoardView(
     board: PegSolitaireBoard,
     selected: Pair<Int, Int>?,
-    targets: Set<Pair<Int, Int>>,
+    targets: ImmutableSet<Pair<Int, Int>>,
     interactive: Boolean,
     onHoleTapped: (Int, Int) -> Unit,
     modifier: Modifier = Modifier,

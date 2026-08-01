@@ -38,6 +38,7 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
+import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
@@ -46,7 +47,7 @@ import org.jetbrains.compose.resources.stringResource
 // "circle, triangle" and the next figure is a circle. Mirrors PatternSequenceGame's SHAPE_CYCLE.
 private val DemoColor = Color.BLUE
 private const val CycleLength = 2
-private val Sequence = listOf(
+private val Sequence = persistentListOf(
     Figure(Shape.CIRCLE, DemoColor),
     Figure(Shape.TRIANGLE, DemoColor),
     Figure(Shape.CIRCLE, DemoColor),
@@ -132,7 +133,10 @@ fun PatternSequenceDemo(modifier: Modifier = Modifier) {
         ) {
             for (unit in 0 until Sequence.size / CycleLength) {
                 CycleGroup(
-                    figures = Sequence.subList(unit * CycleLength, unit * CycleLength + CycleLength),
+                    figures = Sequence.subList(
+                        unit * CycleLength,
+                        unit * CycleLength + CycleLength,
+                    ),
                     highlighted = unit == highlightedUnit,
                     cell = cell,
                 )
@@ -176,7 +180,7 @@ fun PatternSequenceDemo(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun CycleGroup(figures: List<Figure>, highlighted: Boolean, cell: Dp) {
+private fun CycleGroup(figures: ImmutableList<Figure>, highlighted: Boolean, cell: Dp) {
     // A soft rounded frame fades in behind the unit's figures to mark the repeating group.
     val highlightAlpha by animateFloatAsState(
         targetValue = if (highlighted) 1f else 0f,

@@ -65,6 +65,7 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.HanoiBaseColor
 import com.inspiredandroid.braincup.ui.theme.HanoiDiskColors
 import com.inspiredandroid.braincup.ui.theme.HanoiPegColor
+import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
@@ -216,7 +217,7 @@ internal fun ColumnScope.TowerOfHanoiContent(
  */
 @Composable
 private fun HanoiBoard(
-    pegs: List<List<Int>>,
+    pegs: ImmutableList<ImmutableList<Int>>,
     diskCount: Int,
     selectedPeg: Int?,
     rejectedPeg: Int?,

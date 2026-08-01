@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
 import org.jetbrains.compose.resources.stringResource
@@ -304,7 +305,7 @@ private fun BadgeChip(label: String, color: Color, compact: Boolean) {
 @Composable
 private fun BullsAndCowsKeyboard(
     currentGuess: String,
-    absentDigits: Set<Char>,
+    absentDigits: ImmutableSet<Char>,
     onKey: (String) -> Unit,
     compact: Boolean,
     modifier: Modifier = Modifier,

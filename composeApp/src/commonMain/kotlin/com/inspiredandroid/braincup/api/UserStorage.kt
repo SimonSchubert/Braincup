@@ -12,6 +12,9 @@ import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import com.russhwolf.settings.MapSettings
 import com.russhwolf.settings.Settings
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.number
 import kotlinx.datetime.toLocalDateTime
@@ -585,15 +588,17 @@ class UserStorage(
             settings.putString(KEY_SESSION_GAME_IDS, ids.joinToString(","))
             settings.putString(KEY_SESSION_SCORES, "")
             settings.putInt(KEY_SESSION_INDEX, 0)
-            return SessionState(today, ids, emptyList(), 0)
+            return SessionState(today, ids.toImmutableList(), persistentListOf(), 0)
         }
         val ids = settings.getString(KEY_SESSION_GAME_IDS, "")
             .split(",")
             .filter { it.isNotEmpty() }
+            .toImmutableList()
         val scores = settings.getString(KEY_SESSION_SCORES, "")
             .split(",")
             .filter { it.isNotEmpty() }
             .mapNotNull { it.toIntOrNull() }
+            .toImmutableList()
         val index = settings.getInt(KEY_SESSION_INDEX, 0)
         return SessionState(today, ids, scores, index)
     }
@@ -664,6 +669,7 @@ class UserStorage(
         return settings.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) == today
     }
 
+    @Immutable
     data class SessionCompletionResult(
         val newStreak: Int,
         val xpGained: Int,
@@ -690,10 +696,11 @@ class UserStorage(
         return SessionCompletionResult(newStreak, SESSION_COMPLETION_XP, levelChange)
     }
 
+    @Immutable
     data class SessionState(
         val epochDay: Int,
-        val gameIds: List<String>,
-        val scores: List<Int>,
+        val gameIds: ImmutableList<String>,
+        val scores: ImmutableList<Int>,
         val currentIndex: Int,
     )
 
@@ -711,6 +718,7 @@ class UserStorage(
         settings.putInt(getLastRoundKey(gameId), round.coerceAtLeast(0))
     }
 
+    @Immutable
     data class ScoreResult(
         val newHighscore: Boolean,
         val xpGained: Int,
@@ -778,7 +786,13 @@ class UserStorage(
 
     fun getTotalScore(): Int = settings.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
 
-    data class ScoreGroup(val day: Int, val month: Int, val year: Int, val scores: List<Int>)
+    @Immutable
+    data class ScoreGroup(
+        val day: Int,
+        val month: Int,
+        val year: Int,
+        val scores: ImmutableList<Int>,
+    )
 
     fun getScores(gameId: String): List<ScoreGroup> {
         val scoresRaw = settings.getStringOrNull(getScoresKey(gameId)) ?: return listOf()
@@ -791,7 +805,12 @@ class UserStorage(
                 val date = Instant.fromEpochMilliseconds(timeInMillis).toLocalDateTime(TimeZone.UTC)
                 Triple(date.day, date.month.number, date.year)
             }.map { (key, values) ->
-                ScoreGroup(key.first, key.second, key.third, values.map { it.split("/")[1].toIntOrNull() ?: 0 })
+                ScoreGroup(
+                    key.first,
+                    key.second,
+                    key.third,
+                    values.map { it.split("/")[1].toIntOrNull() ?: 0 }.toImmutableList(),
+                )
             }
     }
 }

@@ -39,6 +39,7 @@ import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
+import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.toImmutableMap
@@ -128,7 +129,7 @@ fun MainMenuScreenContent(
      * Optional override for which mini-game tiles appear (and in which order).
      * Used by store screenshots to hand-pick a compact portrait lineup; null = full menu.
      */
-    gameTypes: List<GameType>? = null,
+    gameTypes: ImmutableList<GameType>? = null,
     onOpenSettings: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},

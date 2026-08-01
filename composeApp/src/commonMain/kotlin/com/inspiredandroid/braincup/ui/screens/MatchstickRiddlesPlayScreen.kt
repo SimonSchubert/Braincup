@@ -39,6 +39,8 @@ import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.MatchstickColors
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -153,7 +155,7 @@ fun MatchstickRiddlesPlayScreen(
                 ) {
                     MatchstickBoard(
                         riddle = riddle,
-                        occupied = occupied,
+                        occupied = occupied.toImmutableList(),
                         solved = solved,
                         onMove = ::move,
                         modifier = Modifier
@@ -215,7 +217,7 @@ private fun MatchstickResetButton(onClick: () -> Unit) {
 @Composable
 private fun MatchstickBoard(
     riddle: MatchstickRiddle,
-    occupied: List<Int>,
+    occupied: ImmutableList<Int>,
     solved: Boolean,
     onMove: (from: Int, to: Int) -> Unit,
     modifier: Modifier = Modifier,
@@ -240,7 +242,9 @@ private fun MatchstickBoard(
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
-                .pointerInput(riddle, solved) {
+                // Include [occupied] so drag handlers see the latest stick layout (immutable snapshot,
+                // not a live mutable list).
+                .pointerInput(riddle, solved, occupied) {
                     if (solved) return@pointerInput
                     detectDragGestures(
                         onDragStart = { offset ->

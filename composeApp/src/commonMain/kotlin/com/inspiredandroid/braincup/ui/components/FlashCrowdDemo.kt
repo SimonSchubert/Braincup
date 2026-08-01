@@ -44,6 +44,7 @@ import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowBottom
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellowSide
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
@@ -63,7 +64,7 @@ private enum class FlashDemoPhase { GLANCE, COUNT, ANSWER }
 // Yellow clearly outnumbers Blue (6 vs 10) so the teaching answer is unambiguous; positions are
 // spread out enough that the prism discs never meaningfully overlap. Listed roughly top-to-bottom
 // so the count reveal sweeps downward.
-private val BlueDots = listOf(
+private val BlueDots = persistentListOf(
     Triple(0.25f, 0.22f, 0.055f),
     Triple(0.62f, 0.20f, 0.05f),
     Triple(0.78f, 0.45f, 0.055f),
@@ -72,7 +73,7 @@ private val BlueDots = listOf(
     Triple(0.22f, 0.80f, 0.05f),
 )
 
-private val YellowDots = listOf(
+private val YellowDots = persistentListOf(
     Triple(0.20f, 0.18f, 0.05f),
     Triple(0.45f, 0.15f, 0.045f),
     Triple(0.72f, 0.20f, 0.05f),
@@ -283,7 +284,7 @@ private fun TallyText(text: String, color: Color, modifier: Modifier = Modifier)
 
 @Composable
 private fun DotCluster(
-    dots: List<Triple<Float, Float, Float>>,
+    dots: ImmutableList<Triple<Float, Float, Float>>,
     litCount: Int,
     showRing: Boolean,
     fullFace: Color,

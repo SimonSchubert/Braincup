@@ -19,6 +19,7 @@ import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.persistentSetOf
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
 import org.junit.Before
@@ -612,7 +613,7 @@ class ScreenshotTest {
     fun matchstickRiddlesMenu() {
         paparazzi.snap {
             MatchstickRiddlesMenuScreenContent(
-                solved = setOf("one_plus_one", "nine_minus_four", "nine_minus_three"),
+                solved = persistentSetOf("one_plus_one", "nine_minus_four", "nine_minus_three"),
                 onRiddleSelected = {},
                 onBack = {},
             )

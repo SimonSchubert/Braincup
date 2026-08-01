@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.app
 
+import androidx.compose.runtime.Immutable
 import androidx.navigation.NavController
 import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.api.PlayGamesBridge
@@ -130,9 +131,10 @@ class GameController(
     private val _unlockedAchievementCount = MutableStateFlow(0)
     val unlockedAchievementCount: StateFlow<Int> = _unlockedAchievementCount.asStateFlow()
 
+    @Immutable
     data class SessionResult(
-        val gameIds: List<String>,
-        val scores: List<Int>,
+        val gameIds: ImmutableList<String>,
+        val scores: ImmutableList<Int>,
         val streakBefore: Int,
         val streakAfter: Int,
         val xpGained: Int,

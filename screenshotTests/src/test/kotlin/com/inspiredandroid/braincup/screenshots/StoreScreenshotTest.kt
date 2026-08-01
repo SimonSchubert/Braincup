@@ -15,6 +15,7 @@ import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
+import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.setResourceReaderAndroidContext
 import org.junit.After
@@ -121,7 +122,7 @@ class StoreScreenshotTest(
                 unlockedCount = 5,
                 showDailyChallenge = false,
                 // Hand-picked portrait lineup so the home screenshot shows strong demos without scrolling.
-                gameTypes = listOf(
+                gameTypes = persistentListOf(
                     GameType.CAT_QUEENS,
                     GameType.GHOST_GRID,
                     GameType.SPOT_THE_NEW,

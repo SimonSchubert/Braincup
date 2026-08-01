@@ -24,6 +24,9 @@ import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import kotlinx.collections.immutable.ImmutableSet
+import kotlinx.collections.immutable.persistentSetOf
+import kotlinx.collections.immutable.toImmutableSet
 import org.jetbrains.compose.resources.stringResource
 
 private val TileHeight = 72.dp
@@ -34,7 +37,9 @@ fun MatchstickRiddlesMenuScreen(
     onRiddleSelected: (riddleId: String) -> Unit,
     onBack: () -> Unit,
 ) {
-    val solved = remember(MatchstickRiddles.all) { storage.getSolvedMatchstickRiddleIds() }
+    val solved = remember(MatchstickRiddles.all) {
+        storage.getSolvedMatchstickRiddleIds().toImmutableSet()
+    }
     MatchstickRiddlesMenuScreenContent(
         solved = solved,
         onRiddleSelected = onRiddleSelected,
@@ -44,7 +49,7 @@ fun MatchstickRiddlesMenuScreen(
 
 @Composable
 fun MatchstickRiddlesMenuScreenContent(
-    solved: Set<String>,
+    solved: ImmutableSet<String>,
     onRiddleSelected: (riddleId: String) -> Unit,
     onBack: () -> Unit,
 ) {
@@ -129,7 +134,7 @@ private fun RiddleTile(
 private fun MatchstickRiddlesMenuScreenPreview() {
     ScreenPreviewHost {
         MatchstickRiddlesMenuScreenContent(
-            solved = emptySet(),
+            solved = persistentSetOf(),
             onRiddleSelected = {},
             onBack = {},
         )
