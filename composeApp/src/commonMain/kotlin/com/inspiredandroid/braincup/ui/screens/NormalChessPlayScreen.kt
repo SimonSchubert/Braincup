@@ -1,7 +1,5 @@
 package com.inspiredandroid.braincup.ui.screens
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.MaterialTheme
@@ -15,12 +13,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.ic_chess_bishop
-import braincup.composeapp.generated.resources.ic_chess_king
-import braincup.composeapp.generated.resources.ic_chess_knight
-import braincup.composeapp.generated.resources.ic_chess_pawn
-import braincup.composeapp.generated.resources.ic_chess_queen
-import braincup.composeapp.generated.resources.ic_chess_rook
 import braincup.composeapp.generated.resources.normal_chess_checkmate_black
 import braincup.composeapp.generated.resources.normal_chess_checkmate_white
 import braincup.composeapp.generated.resources.normal_chess_draw_50
@@ -48,25 +40,20 @@ import com.inspiredandroid.braincup.normalchess.NormalChessAi
 import com.inspiredandroid.braincup.normalchess.NormalChessBoard
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
-import com.inspiredandroid.braincup.normalchess.Piece
 import com.inspiredandroid.braincup.normalchess.PieceType
 import com.inspiredandroid.braincup.normalchess.Square
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.ChessBoardFrame
-import com.inspiredandroid.braincup.ui.components.ChessCaptureTint
-import com.inspiredandroid.braincup.ui.components.ChessCheckTint
-import com.inspiredandroid.braincup.ui.components.ChessDarkSquare
-import com.inspiredandroid.braincup.ui.components.ChessDrawDot
-import com.inspiredandroid.braincup.ui.components.ChessDrawTint
-import com.inspiredandroid.braincup.ui.components.ChessLastMove
-import com.inspiredandroid.braincup.ui.components.ChessLightSquare
 import com.inspiredandroid.braincup.ui.components.ChessPieceIcon
-import com.inspiredandroid.braincup.ui.components.ChessSelected
+import com.inspiredandroid.braincup.ui.components.ChessSquare
+import com.inspiredandroid.braincup.ui.components.ChessSquareTarget
 import com.inspiredandroid.braincup.ui.components.ChessWarning
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.LocalScaffoldBodyHeight
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
+import com.inspiredandroid.braincup.ui.components.chessPieceResource
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -76,7 +63,6 @@ import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
-import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.stringResource
 import kotlin.time.Clock
 import com.inspiredandroid.braincup.normalchess.Color as ChessColor
@@ -225,7 +211,9 @@ fun NormalChessPlayScreen(
     AppScaffold(
         title = stringResource(Res.string.normal_chess_title),
         onBack = onBack,
-        scrollable = true,
+        // Expose body height so the board can shrink in short landscape windows
+        // (scrollable content is measured with unbounded height otherwise).
+        provideCompactHeight = true,
     ) {
         Spacer(Modifier.height(8.dp))
 
@@ -408,113 +396,75 @@ private fun BoardView(
 ) {
     val whiteInCheck = board.isInCheck(ChessColor.WHITE)
     val blackInCheck = board.isInCheck(ChessColor.BLACK)
-    PrismCard(
-        face = ChessBoardFrame,
-        facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Board,
+    // Scrollable scaffolds measure children with unbounded height; the real viewport height
+    // comes from LocalScaffoldBodyHeight (provideCompactHeight on AppScaffold).
+    val scaffoldBodyHeight = LocalScaffoldBodyHeight.current
+    BoxWithConstraints(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
     ) {
-        Column {
-            for (row in NORMAL_CHESS_SIZE - 1 downTo 0) {
-                Row {
-                    for (col in 0 until NORMAL_CHESS_SIZE) {
-                        val square = Square(col, row)
-                        val piece = board.pieceAt(square)
-                        // a1 (file 0, row 0) is dark in standard chess; queen on d1 is light.
-                        val isLight = (row + col) % 2 == 1
-                        val isSelected = selected == square
-                        val isTarget = square in highlightedTargets
-                        val isStalemateTarget = square in stalematingTargets
-                        val isLastMove = square == lastMoveFrom || square == lastMoveTo
-                        val showCheckRing = piece?.type == PieceType.KING &&
-                            (
-                                (piece.color == ChessColor.WHITE && whiteInCheck) ||
-                                    (piece.color == ChessColor.BLACK && blackInCheck)
-                                )
-                        ChessSquareView(
-                            piece = piece,
-                            isLight = isLight,
-                            isSelected = isSelected,
-                            isTarget = isTarget,
-                            isStalemateTarget = isStalemateTarget,
-                            isLastMove = isLastMove,
-                            showCheckRing = showCheckRing,
-                            enabled = interactive,
-                            onClick = { onSquareTapped(square) },
-                        )
+        // Header + spacers + action buttons take roughly this much vertical chrome.
+        val verticalChrome = 140.dp
+        val heightBudget = ((scaffoldBodyHeight ?: maxHeight) - verticalChrome)
+            .coerceAtLeast(160.dp)
+        // Grow with the smaller of width / remaining height; cap huge desktops.
+        val boardSide = minOf(maxWidth, heightBudget, 480.dp)
+        val cellSize = boardSide / NORMAL_CHESS_SIZE
+        val pieceSize = cellSize * 0.9f
+
+        PrismCard(
+            face = ChessBoardFrame,
+            facet = com.inspiredandroid.braincup.ui.theme.PrismFacet.Board,
+            modifier = Modifier.align(Alignment.Center),
+        ) {
+            Column {
+                for (row in NORMAL_CHESS_SIZE - 1 downTo 0) {
+                    Row {
+                        for (col in 0 until NORMAL_CHESS_SIZE) {
+                            val square = Square(col, row)
+                            val piece = board.pieceAt(square)
+                            // a1 (file 0, row 0) is dark in standard chess; queen on d1 is light.
+                            val isLight = (row + col) % 2 == 1
+                            val isTarget = square in highlightedTargets
+                            val isStalemateTarget = square in stalematingTargets
+                            val showCheckRing = piece?.type == PieceType.KING &&
+                                (
+                                    (piece.color == ChessColor.WHITE && whiteInCheck) ||
+                                        (piece.color == ChessColor.BLACK && blackInCheck)
+                                    )
+                            val target = when {
+                                isStalemateTarget -> ChessSquareTarget.Stalemate
+                                isTarget && piece != null -> ChessSquareTarget.Capture
+                                isTarget -> ChessSquareTarget.LegalEmpty
+                                else -> ChessSquareTarget.None
+                            }
+                            ChessSquare(
+                                size = cellSize,
+                                isLight = isLight,
+                                isSelected = selected == square,
+                                isLastMove = square == lastMoveFrom || square == lastMoveTo,
+                                showCheckRing = showCheckRing,
+                                target = target,
+                                enabled = interactive,
+                                onClick = { onSquareTapped(square) },
+                            ) {
+                                piece?.let {
+                                    Box(
+                                        modifier = Modifier.size(pieceSize),
+                                        contentAlignment = Alignment.Center,
+                                    ) {
+                                        ChessPieceIcon(
+                                            resource = chessPieceResource(it.type),
+                                            isWhite = it.color == ChessColor.WHITE,
+                                            figureSize = pieceSize,
+                                        )
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-            }
-        }
-    }
-}
-
-@Composable
-private fun ChessSquareView(
-    piece: Piece?,
-    isLight: Boolean,
-    isSelected: Boolean,
-    isTarget: Boolean,
-    isStalemateTarget: Boolean,
-    isLastMove: Boolean,
-    showCheckRing: Boolean,
-    enabled: Boolean,
-    onClick: () -> Unit,
-) {
-    val baseColor = if (isLight) ChessLightSquare else ChessDarkSquare
-    Box(
-        modifier = Modifier
-            .size(40.dp)
-            .background(if (isSelected) ChessSelected else baseColor)
-            .clickable(enabled = enabled, onClick = onClick)
-            .hoverHand(enabled),
-        contentAlignment = Alignment.Center,
-    ) {
-        if (isLastMove && !isSelected) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(ChessLastMove),
-            )
-        }
-        if (showCheckRing) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(ChessCheckTint),
-            )
-        }
-        if (isStalemateTarget) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(ChessDrawTint),
-            )
-        } else if (isTarget && piece != null) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(ChessCaptureTint),
-            )
-        }
-        piece?.let {
-            Box(
-                modifier = Modifier.size(36.dp),
-                contentAlignment = Alignment.Center,
-            ) {
-                ChessPieceIcon(resource = pieceResource(it.type), isWhite = it.color == ChessColor.WHITE)
-            }
-        }
-        if (isTarget) {
-            when {
-                isStalemateTarget -> Box(
-                    modifier = Modifier
-                        .size(12.dp)
-                        .background(ChessDrawDot),
-                )
-                piece == null -> Box(
-                    modifier = Modifier
-                        .size(12.dp)
-                        .background(Color.Black.copy(alpha = 0.4f)),
-                )
             }
         }
     }
@@ -565,21 +515,12 @@ private fun PromotionRow(
             verticalAlignment = Alignment.CenterVertically,
         ) {
             Box(modifier = Modifier.size(36.dp), contentAlignment = Alignment.Center) {
-                ChessPieceIcon(resource = pieceResource(type), isWhite = isWhite)
+                ChessPieceIcon(resource = chessPieceResource(type), isWhite = isWhite)
             }
             Spacer(Modifier.width(12.dp))
             Text(stringResource(labelRes))
         }
     }
-}
-
-private fun pieceResource(type: PieceType): DrawableResource = when (type) {
-    PieceType.KING -> Res.drawable.ic_chess_king
-    PieceType.QUEEN -> Res.drawable.ic_chess_queen
-    PieceType.ROOK -> Res.drawable.ic_chess_rook
-    PieceType.BISHOP -> Res.drawable.ic_chess_bishop
-    PieceType.KNIGHT -> Res.drawable.ic_chess_knight
-    PieceType.PAWN -> Res.drawable.ic_chess_pawn
 }
 
 @DevicePreviews

@@ -1,14 +1,11 @@
 package com.inspiredandroid.braincup.ui.screens.games
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -20,27 +17,6 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentMapOf
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.graphics.Color as ComposeColor
-
-private val MiniChessLightSquare = ChessLightSquare
-
-private val MiniChessDarkSquare = ChessDarkSquare
-
-private val MiniChessBoardFrame = ChessBoardFrame
-
-private val MiniChessSelected = ChessSelected
-
-private val MiniChessLastMove = ChessLastMove
-
-private val MiniChessLegalDot = ChessLegalDot
-
-private val MiniChessCaptureTint = ChessCaptureTint
-
-private val MiniChessDrawDot = ChessDrawDot
-
-private val MiniChessCheckTint = ChessCheckTint
-
-private val MiniChessWarning = ChessWarning
 
 @Composable
 internal fun ColumnScope.MiniChessContent(
@@ -70,7 +46,7 @@ internal fun ColumnScope.MiniChessContent(
                 )
                 selectedHasDrawMove -> Row(verticalAlignment = Alignment.CenterVertically) {
                     ColorPrismCell(
-                        face = MiniChessDrawDot,
+                        face = ChessDrawDot,
                         facet = PrismFacet.Dot,
                         modifier = Modifier.size(14.dp),
                     )
@@ -78,7 +54,7 @@ internal fun ColumnScope.MiniChessContent(
                     Text(
                         text = stringResource(Res.string.mini_chess_draw_warning),
                         style = MaterialTheme.typography.bodyMedium,
-                        color = MiniChessWarning,
+                        color = ChessWarning,
                         fontWeight = FontWeight.Bold,
                     )
                 }
@@ -89,7 +65,7 @@ internal fun ColumnScope.MiniChessContent(
                         uiState.halfMoveCap,
                     ),
                     style = MaterialTheme.typography.bodyMedium,
-                    color = if (movesNearCap) MiniChessWarning else MaterialTheme.colorScheme.onSurface,
+                    color = if (movesNearCap) ChessWarning else MaterialTheme.colorScheme.onSurface,
                     fontWeight = if (movesNearCap) FontWeight.Bold else FontWeight.Normal,
                 )
             }
@@ -98,7 +74,7 @@ internal fun ColumnScope.MiniChessContent(
 
     val board: @Composable () -> Unit = {
         PrismCard(
-            face = MiniChessBoardFrame,
+            face = ChessBoardFrame,
             facet = PrismFacet.Board,
         ) {
             Column {
@@ -107,19 +83,27 @@ internal fun ColumnScope.MiniChessContent(
                         for (col in 0..4) {
                             val index = row * 5 + col
                             val cell = uiState.cells[index]
+                            val isLegalTarget = index in highlights
+                            val isStalemateTarget = index in drawHighlights
                             val showCheckRing = cell.pieceType == PieceType.KING &&
                                 (
                                     (cell.isWhite && uiState.whiteInCheck) ||
                                         (!cell.isWhite && uiState.blackInCheck)
                                     )
-                            MiniChessCellView(
-                                cell = cell,
+                            val target = when {
+                                !isLegalTarget -> ChessSquareTarget.None
+                                isStalemateTarget -> ChessSquareTarget.Stalemate
+                                cell.pieceType != null -> ChessSquareTarget.Capture
+                                else -> ChessSquareTarget.LegalEmpty
+                            }
+                            ChessSquare(
+                                size = 56.dp,
                                 isLight = (row + col) % 2 == 0,
                                 isSelected = selectedFrom == index,
-                                isLegalTarget = index in highlights,
-                                isStalemateTarget = index in drawHighlights,
-                                isLastMove = index == uiState.lastMoveFromIndex || index == uiState.lastMoveToIndex,
+                                isLastMove = index == uiState.lastMoveFromIndex ||
+                                    index == uiState.lastMoveToIndex,
                                 showCheckRing = showCheckRing,
+                                target = target,
                                 enabled = interactive,
                                 onClick = {
                                     val from = selectedFrom
@@ -132,7 +116,19 @@ internal fun ColumnScope.MiniChessContent(
                                         selectedFrom = null
                                     }
                                 },
-                            )
+                            ) {
+                                cell.pieceType?.let { type ->
+                                    Box(
+                                        modifier = Modifier.size(52.dp),
+                                        contentAlignment = Alignment.Center,
+                                    ) {
+                                        ChessPieceIcon(
+                                            resource = chessPieceResource(type),
+                                            isWhite = cell.isWhite,
+                                        )
+                                    }
+                                }
+                            }
                         }
                     }
                 }
@@ -218,79 +214,6 @@ internal fun ColumnScope.MiniChessContent(
             outcomeAndActions()
         }
     }
-}
-
-@Composable
-private fun MiniChessCellView(
-    cell: MiniChessCell,
-    isLight: Boolean,
-    isSelected: Boolean,
-    isLegalTarget: Boolean,
-    isStalemateTarget: Boolean,
-    isLastMove: Boolean,
-    showCheckRing: Boolean,
-    enabled: Boolean,
-    onClick: () -> Unit,
-) {
-    val baseColor = if (isLight) MiniChessLightSquare else MiniChessDarkSquare
-    Box(
-        modifier = Modifier
-            .size(56.dp)
-            .background(if (isSelected) MiniChessSelected else baseColor)
-            .clickable(enabled = enabled, onClick = onClick)
-            .hoverHand(enabled),
-        contentAlignment = Alignment.Center,
-    ) {
-        if (isLastMove && !isSelected) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(MiniChessLastMove),
-            )
-        }
-        if (showCheckRing) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(MiniChessCheckTint),
-            )
-        }
-        if (isLegalTarget && cell.pieceType != null && !isStalemateTarget) {
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(MiniChessCaptureTint),
-            )
-        }
-        cell.pieceType?.let { type ->
-            Box(
-                modifier = Modifier.size(52.dp),
-                contentAlignment = Alignment.Center,
-            ) {
-                MiniChessPieceIcon(type = type, isWhite = cell.isWhite)
-            }
-        }
-        if (isLegalTarget) {
-            when {
-                isStalemateTarget -> ColorPrismCell(
-                    face = MiniChessDrawDot,
-                    side = ComposeColor.Black.copy(alpha = 0.55f),
-                    bottom = ComposeColor.Black.copy(alpha = 0.55f),
-                    modifier = Modifier.size(20.dp),
-                )
-                cell.pieceType == null -> ColorPrismCell(
-                    face = MiniChessLegalDot,
-                    facet = PrismFacet.Dot,
-                    modifier = Modifier.size(16.dp),
-                )
-            }
-        }
-    }
-}
-
-@Composable
-private fun MiniChessPieceIcon(type: PieceType, isWhite: Boolean) {
-    ChessPieceIcon(resource = chessPieceResource(type), isWhite = isWhite)
 }
 
 @DevicePreviews

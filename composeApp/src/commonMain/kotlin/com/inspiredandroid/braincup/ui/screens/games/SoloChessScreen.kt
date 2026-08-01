@@ -1,7 +1,5 @@
 package com.inspiredandroid.braincup.ui.screens.games
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
@@ -39,16 +37,46 @@ internal fun ColumnScope.SoloChessContent(
                     Row {
                         for (col in 0 until n) {
                             val index = row * n + col
-                            SoloChessCellView(
-                                type = uiState.pieces[index],
+                            val type = uiState.pieces[index]
+                            val isKing = index == uiState.kingCell
+                            val captures = uiState.capturesLeft[index] ?: 0
+                            // A piece that has used both captures is "spent": it can no longer move.
+                            // The king is never spent (it can't be captured and always remains).
+                            val spent = type != null && captures <= 0 && !isKing
+                            ChessSquare(
                                 size = cellSize,
                                 isLight = (row + col) % 2 == 0,
-                                isKing = index == uiState.kingCell,
                                 isSelected = uiState.selected == index,
-                                isTarget = index in uiState.targets,
-                                captures = uiState.capturesLeft[index] ?: 0,
+                                target = if (index in uiState.targets) {
+                                    ChessSquareTarget.Capture
+                                } else {
+                                    ChessSquareTarget.None
+                                },
+                                showKingHighlight = isKing,
                                 onClick = { onAnswer("tap:$index") },
-                            )
+                            ) {
+                                type?.let {
+                                    Box(
+                                        modifier = Modifier.size(cellSize * 0.82f),
+                                        contentAlignment = Alignment.Center,
+                                    ) {
+                                        ChessPieceIcon(
+                                            resource = chessPieceResource(it),
+                                            isWhite = true,
+                                            figureSize = cellSize * 0.78f,
+                                            tint = if (spent) SoloChessSpentTint else null,
+                                        )
+                                    }
+                                    // Capture "charges": one amber pip per remaining capture (max two).
+                                    SoloChessCapturePips(
+                                        remaining = captures.coerceIn(0, SoloChessGame.MAX_CAPTURES),
+                                        modifier = Modifier
+                                            .align(Alignment.TopEnd)
+                                            .padding(cellSize * 0.05f)
+                                            .size(width = cellSize * 0.46f, height = cellSize * 0.22f),
+                                    )
+                                }
+                            }
                         }
                     }
                 }
@@ -148,62 +176,6 @@ internal fun ColumnScope.SoloChessContent(
         Spacer(Modifier.height(16.dp))
         Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
             actions()
-        }
-    }
-}
-
-@Composable
-private fun SoloChessCellView(
-    type: PieceType?,
-    size: androidx.compose.ui.unit.Dp,
-    isLight: Boolean,
-    isKing: Boolean,
-    isSelected: Boolean,
-    isTarget: Boolean,
-    captures: Int,
-    onClick: () -> Unit,
-) {
-    val baseColor = if (isLight) ChessLightSquare else ChessDarkSquare
-    // A piece that has used both captures is "spent": it can no longer move. The king is never spent
-    // (it can't be captured and always remains), so it is never greyed.
-    val spent = type != null && captures <= 0 && !isKing
-    Box(
-        modifier = Modifier
-            .size(size)
-            .background(if (isSelected) ChessSelected else baseColor)
-            .clickable(onClick = onClick)
-            .hoverHand(),
-        contentAlignment = Alignment.Center,
-    ) {
-        // A translucent gold underlay marks the king: it can never be captured and must be the last
-        // piece standing.
-        if (isKing && !isSelected) {
-            Box(modifier = Modifier.matchParentSize().background(ChessDrawTint))
-        }
-        if (isTarget) {
-            Box(modifier = Modifier.matchParentSize().background(ChessCaptureTint))
-        }
-        type?.let {
-            Box(
-                modifier = Modifier.size(size * 0.82f),
-                contentAlignment = Alignment.Center,
-            ) {
-                ChessPieceIcon(
-                    resource = chessPieceResource(it),
-                    isWhite = true,
-                    figureSize = size * 0.78f,
-                    tint = if (spent) SoloChessSpentTint else null,
-                )
-            }
-            // Capture "charges": one amber pip per remaining capture (max two). This makes the
-            // "no piece may capture more than twice" rule visible — a spent piece shows two empty pips.
-            SoloChessCapturePips(
-                remaining = captures.coerceIn(0, SoloChessGame.MAX_CAPTURES),
-                modifier = Modifier
-                    .align(Alignment.TopEnd)
-                    .padding(size * 0.05f)
-                    .size(width = size * 0.46f, height = size * 0.22f),
-            )
         }
     }
 }
