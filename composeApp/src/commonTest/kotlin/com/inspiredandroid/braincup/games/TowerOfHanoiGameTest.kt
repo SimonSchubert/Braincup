@@ -48,9 +48,9 @@ class TowerOfHanoiGameTest {
         val game = TowerOfHanoiGame(level = 1).apply { nextRound() }
         val state = game.toUiState()
         assertEquals(3, state.diskCount)
-        assertEquals(listOf(3, 2, 1), state.pegs[0])
-        assertTrue(state.pegs[1].isEmpty())
-        assertTrue(state.pegs[2].isEmpty())
+        assertEquals(listOf(3, 2, 1), state.pegsBottomToTop[0])
+        assertTrue(state.pegsBottomToTop[1].isEmpty())
+        assertTrue(state.pegsBottomToTop[2].isEmpty())
         assertNull(state.selectedPeg)
         assertEquals(0, state.moves)
     }
@@ -59,7 +59,7 @@ class TowerOfHanoiGameTest {
     fun higherLevelUsesMoreDisks() {
         val game = TowerOfHanoiGame(level = 3).apply { nextRound() }
         assertEquals(5, game.diskCount)
-        assertEquals(listOf(5, 4, 3, 2, 1), game.toUiState().pegs[0])
+        assertEquals(listOf(5, 4, 3, 2, 1), game.toUiState().pegsBottomToTop[0])
     }
 
     @Test
@@ -94,8 +94,8 @@ class TowerOfHanoiGameTest {
         game.tapPeg(0)
         assertFalse(game.tapPeg(2))
         val state = game.toUiState()
-        assertEquals(listOf(3, 2), state.pegs[0])
-        assertEquals(listOf(1), state.pegs[2])
+        assertEquals(listOf(3, 2), state.pegsBottomToTop[0])
+        assertEquals(listOf(1), state.pegsBottomToTop[2])
         assertEquals(1, state.moves)
         assertNull(state.selectedPeg)
     }
@@ -110,13 +110,13 @@ class TowerOfHanoiGameTest {
         val before = game.toUiState()
         assertFalse(game.tapPeg(1)) // illegal: 2 onto 1
         val after = game.toUiState()
-        assertEquals(before.pegs, after.pegs)
+        assertEquals(before.pegsBottomToTop, after.pegsBottomToTop)
         assertEquals(1, after.moves)
         // Selection is cleared after a wrong move.
         assertNull(after.selectedPeg)
         assertEquals(1, after.rejectedPeg)
         assertEquals(0, after.rejectFromPeg)
-        assertEquals(1, after.rejectNonce)
+        assertEquals(1, after.rejectFeedbackKey)
     }
 
     @Test
@@ -126,12 +126,12 @@ class TowerOfHanoiGameTest {
         game.tapPeg(1)
         game.tapPeg(0)
         game.tapPeg(1)
-        assertEquals(1, game.rejectNonce)
+        assertEquals(1, game.rejectFeedbackKey)
         assertNull(game.selectedPeg)
         // Must re-select after a reject; selection is disabled until then.
         game.tapPeg(0)
         game.tapPeg(1)
-        assertEquals(2, game.rejectNonce)
+        assertEquals(2, game.rejectFeedbackKey)
         assertNull(game.selectedPeg)
         assertEquals(1, game.rejectedPeg)
         assertEquals(0, game.rejectFromPeg)
@@ -142,7 +142,7 @@ class TowerOfHanoiGameTest {
         val game = TowerOfHanoiGame(level = 1).apply { nextRound() }
         game.tapPeg(0)
         assertFalse(game.tapPeg(1))
-        assertEquals(listOf(1), game.toUiState().pegs[1])
+        assertEquals(listOf(1), game.toUiState().pegsBottomToTop[1])
     }
 
     @Test
@@ -167,9 +167,9 @@ class TowerOfHanoiGameTest {
         assertTrue(game.isSolved())
         assertEquals(7, game.moves)
         val state = game.toUiState()
-        assertEquals(listOf(3, 2, 1), state.pegs[2])
-        assertTrue(state.pegs[0].isEmpty())
-        assertTrue(state.pegs[1].isEmpty())
+        assertEquals(listOf(3, 2, 1), state.pegsBottomToTop[2])
+        assertTrue(state.pegsBottomToTop[0].isEmpty())
+        assertTrue(state.pegsBottomToTop[1].isEmpty())
     }
 
     @Test

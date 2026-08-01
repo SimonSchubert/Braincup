@@ -37,8 +37,8 @@ class SoloChessGameTest {
     @Test
     fun everyGeneratedPieceStartsWithTwoCaptures() {
         val game = SoloChessGame(level = 6, random = Random(5L)).apply { nextRound() }
-        assertTrue(game.capturesLeft.values.all { it == SoloChessGame.MAX_CAPTURES })
-        assertEquals(game.pieces.keys, game.capturesLeft.keys)
+        assertTrue(game.remainingCapturesByCell.values.all { it == SoloChessGame.MAX_CAPTURES })
+        assertEquals(game.pieces.keys, game.remainingCapturesByCell.keys)
     }
 
     @Test
@@ -104,7 +104,7 @@ class SoloChessGameTest {
         game.restart()
         assertEquals(initialPieces, game.pieces)
         assertEquals(initialKing, game.kingCell)
-        assertTrue(game.capturesLeft.values.all { it == SoloChessGame.MAX_CAPTURES })
+        assertTrue(game.remainingCapturesByCell.values.all { it == SoloChessGame.MAX_CAPTURES })
     }
 
     @Test

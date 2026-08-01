@@ -39,7 +39,7 @@ internal fun ColumnScope.SoloChessContent(
                             val index = row * n + col
                             val type = uiState.pieces[index]
                             val isKing = index == uiState.kingCell
-                            val captures = uiState.capturesLeft[index] ?: 0
+                            val captures = uiState.remainingCapturesByCell[index] ?: 0
                             // A piece that has used both captures is "spent": it can no longer move.
                             // The king is never spent (it can't be captured and always remains).
                             val spent = type != null && captures <= 0 && !isKing
@@ -188,7 +188,7 @@ private fun SoloChessContentPreview() {
             uiState = SoloChessUiState(
                 size = 4,
                 pieces = persistentMapOf(0 to PieceType.ROOK, 5 to PieceType.KNIGHT, 15 to PieceType.KING),
-                capturesLeft = persistentMapOf(0 to 1, 5 to 1, 15 to 0),
+                remainingCapturesByCell = persistentMapOf(0 to 1, 5 to 1, 15 to 0),
                 kingCell = 15,
                 selected = null,
                 targets = persistentSetOf(),

@@ -83,11 +83,11 @@ internal fun ColumnScope.NurikabeContent(
                             onDragStart = { offset ->
                                 val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
                                 val index = r * cols + c
-                                if (index in uiState.clues) {
+                                if (index in uiState.clueByCellIndex) {
                                     dragFills = true
                                     dragCells = emptySet()
                                 } else {
-                                    dragFills = index !in uiState.walls
+                                    dragFills = index !in uiState.seaCells
                                     dragCells = setOf(index)
                                 }
                             },
@@ -95,7 +95,7 @@ internal fun ColumnScope.NurikabeContent(
                                 change.consume()
                                 val (r, c) = cellAt(change.position, size.width, size.height, rows, cols)
                                 val index = r * cols + c
-                                if (index !in uiState.clues) dragCells = dragCells + index
+                                if (index !in uiState.clueByCellIndex) dragCells = dragCells + index
                             },
                             onDragEnd = {
                                 val cells = dragCells
@@ -130,12 +130,12 @@ internal fun ColumnScope.NurikabeContent(
                     drawRect(color = invalidFill, topLeft = cellTopLeft(index), size = cellSize)
                 }
 
-                uiState.walls.forEach { index ->
+                uiState.seaCells.forEach { index ->
                     drawRect(color = seaColor, topLeft = cellTopLeft(index), size = cellSize)
                 }
 
                 // Flag forbidden 2x2 sea pools in red over the painted sea.
-                uiState.poolCells.forEach { index ->
+                uiState.forbiddenPoolCells.forEach { index ->
                     drawRect(color = poolColor, topLeft = cellTopLeft(index), size = cellSize)
                 }
 
@@ -177,7 +177,7 @@ internal fun ColumnScope.NurikabeContent(
                 }
 
                 val clueFontSize = (cellH * 0.42f).toSp()
-                uiState.clues.forEach { (index, value) ->
+                uiState.clueByCellIndex.forEach { (index, value) ->
                     val color = when (index) {
                         in uiState.satisfiedCells -> satisfiedColor
                         in uiState.invalidCells -> invalidColor
@@ -266,11 +266,11 @@ private fun NurikabeContentPreview() {
             uiState = NurikabeUiState(
                 rows = 4,
                 cols = 4,
-                clues = persistentMapOf(0 to 3, 2 to 2, 15 to 2),
-                walls = persistentSetOf(1, 3, 5),
+                clueByCellIndex = persistentMapOf(0 to 3, 2 to 2, 15 to 2),
+                seaCells = persistentSetOf(1, 3, 5),
                 satisfiedCells = persistentSetOf(),
                 invalidCells = persistentSetOf(),
-                poolCells = persistentSetOf(),
+                forbiddenPoolCells = persistentSetOf(),
                 disconnectedSeaCells = persistentSetOf(),
                 level = 1,
             ),

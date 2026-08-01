@@ -25,7 +25,6 @@ enum class FigureCellState { NORMAL, WRONG, CORRECT, DIMMED }
 
 enum class AnswerButtonState { NORMAL, WRONG, CORRECT, DIMMED }
 
-/** Shared cell/pad presentation state for sequence-recall boards (Ghost Grid, Simon Says). */
 enum class SequenceCellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
 
 @Immutable
@@ -43,9 +42,6 @@ data class FigureCell(
 @Immutable
 sealed interface GameUiState
 
-/**
- * Represents a token in the Sherlock Calculation expression builder.
- */
 @Immutable
 sealed class ExpressionToken(val displayValue: String) {
     data class NumberToken(val value: Int, val originalIndex: Int) : ExpressionToken(value.toString())
@@ -71,12 +67,10 @@ data class BubbleSumUiState(
 @Immutable
 data class QuickSumUiState(
     val phase: QuickSumGame.Phase,
-    /** The term on screen, or null during the blank gap between terms. */
     val currentTerm: Int?,
     val termIndex: Int,
     val termCount: Int,
     val answerLength: Int,
-    /** Non-null while revealing the total after a submission. */
     val revealedSum: String?,
     val answerResult: QuickSumGame.AnswerResult?,
 ) : GameUiState
@@ -84,18 +78,12 @@ data class QuickSumUiState(
 @Immutable
 data class NBackUiState(
     val phase: NBackGame.Phase,
-    /** The shape flashing during MEMORIZE, or null during the blank gap / RECALL. */
     val currentShape: Shape?,
-    /** Position (0-based) of the flashing shape; drives the memorize progress dots. */
     val showIndex: Int,
     val sequenceLength: Int,
-    /** Position (0-based) the player is asked to recall; the prompt shows it 1-based. */
-    val askPosition: Int,
-    /** The fixed palette of shape buttons shown during RECALL. */
+    val askIndex: Int,
     val options: ImmutableList<Shape>,
-    /** The correct shape, revealed (highlighted green) only after an answer. */
     val revealAnswer: Shape?,
-    /** Set while revealing the answer, so the tapped button can flash green/red. */
     val recallResult: NBackGame.RecallResult?,
 ) : GameUiState
 
@@ -110,16 +98,9 @@ data class MissingOperatorsUiState(
     val numbers: ImmutableList<Int>,
     val targetResult: Int,
     val operatorsCount: Int,
-    /** Non-null during wrong-answer feedback: operators the player submitted. */
     val submittedOperators: ImmutableList<Operator>? = null,
-    /** Non-null during wrong-answer / give-up feedback: intended solution. */
     val correctOperators: ImmutableList<Operator>? = null,
-    /**
-     * Slot indices that have already flipped to the correct operator during sequential
-     * feedback reveal. Slots the player already had right are treated as revealed immediately
-     * in the UI without needing to appear here.
-     */
-    val revealedCorrectIndices: ImmutableSet<Int> =
+    val feedbackRevealedSlots: ImmutableSet<Int> =
         kotlinx.collections.immutable.persistentSetOf(),
 ) : GameUiState
 
@@ -192,15 +173,11 @@ data class SlidingPuzzleUiState(
 @Immutable
 data class TowerOfHanoiUiState(
     val diskCount: Int,
-    /** Disks bottom→top on each of the three pegs (larger size = larger disk). */
-    val pegs: ImmutableList<ImmutableList<Int>>,
+    val pegsBottomToTop: ImmutableList<ImmutableList<Int>>,
     val selectedPeg: Int?,
-    /** Target peg of the latest illegal drop (larger on smaller), if any. */
     val rejectedPeg: Int? = null,
-    /** Source peg of the latest illegal drop (disk that failed to move). */
     val rejectFromPeg: Int? = null,
-    /** Bumps on every illegal drop so the UI can re-trigger reject feedback. */
-    val rejectNonce: Int = 0,
+    val rejectFeedbackKey: Int = 0,
     val moves: Int,
     val level: Int,
 ) : GameUiState
@@ -209,35 +186,27 @@ data class TowerOfHanoiUiState(
 data class ShikakuUiState(
     val rows: Int,
     val cols: Int,
-    /** cellIndex (row*cols+col) -> clue value; absent keys are blank cells. */
-    val clues: ImmutableMap<Int, Int>,
-    val rectangles: ImmutableList<RectState>,
+    val clueByCellIndex: ImmutableMap<Int, Int>,
+    val rectangles: ImmutableList<InclusiveRect>,
     val level: Int,
 ) : GameUiState {
-    /** A player-drawn rectangle with inclusive grid bounds and live validity. */
     @Immutable
-    data class RectState(
+    data class InclusiveRect(
         val top: Int,
         val left: Int,
         val bottom: Int,
         val right: Int,
-        /** True when this rectangle contains exactly one clue equal to its area. */
         val isValid: Boolean,
     )
 }
 
 @Immutable
 data class CatQueensUiState(
-    /** Side length of the square board; also the cat / column / region count. */
     val size: Int,
-    /** region id (0 until size) for each cell, indexed by row*size+col. */
-    val regions: ImmutableList<Int>,
-    /** Cells with a cat placed on them. */
+    val regionIdByCellIndex: ImmutableList<Int>,
     val cats: ImmutableSet<Int>,
-    /** Placed cats that currently break a rule; shown with a warning ring. */
     val invalidCats: ImmutableSet<Int>,
     val level: Int,
-    /** The rule the current placement breaks, if any; drives the contextual error message. */
     val violation: Violation? = null,
 ) : GameUiState {
     enum class Violation { ROW, COLUMN, ZONE, TOUCHING }
@@ -247,17 +216,11 @@ data class CatQueensUiState(
 data class NurikabeUiState(
     val rows: Int,
     val cols: Int,
-    /** cellIndex (row*cols+col) -> island size; absent keys are blank cells. */
-    val clues: ImmutableMap<Int, Int>,
-    /** Player-painted sea cells, by cellIndex. */
-    val walls: ImmutableSet<Int>,
-    /** White cells of islands that are complete and correct (one clue, exact size). */
+    val clueByCellIndex: ImmutableMap<Int, Int>,
+    val seaCells: ImmutableSet<Int>,
     val satisfiedCells: ImmutableSet<Int>,
-    /** White cells of islands that are already wrong (one clue but too many cells). */
     val invalidCells: ImmutableSet<Int>,
-    /** Sea cells that form a 2x2 pool, which Nurikabe forbids. */
-    val poolCells: ImmutableSet<Int>,
-    /** Sea cells stranded in a non-main component while every island is already correct. */
+    val forbiddenPoolCells: ImmutableSet<Int>,
     val disconnectedSeaCells: ImmutableSet<Int>,
     val level: Int,
 ) : GameUiState
@@ -266,9 +229,7 @@ data class NurikabeUiState(
 data class KnotUiState(
     val rows: Int,
     val cols: Int,
-    /** The colored endpoint pairs; color id drives the palette index. */
     val endpoints: ImmutableList<Endpoint>,
-    /** color id -> ordered cells the player has drawn so far (first cell is an endpoint). */
     val paths: ImmutableMap<Int, ImmutableList<Int>>,
     val level: Int,
 ) : GameUiState {
@@ -278,28 +239,16 @@ data class KnotUiState(
 
 @Immutable
 data class SoloChessUiState(
-    /** Side length of the square board; cells are indexed row * size + col. */
     val size: Int,
-    /** cell index -> piece type currently on that cell. */
     val pieces: ImmutableMap<Int, PieceType>,
-    /** cell index -> captures the piece may still make; 0 means it can no longer move. */
-    val capturesLeft: ImmutableMap<Int, Int>,
-    /** The king's cell; the king can never be captured, so it is the last piece standing. */
+    val remainingCapturesByCell: ImmutableMap<Int, Int>,
     val kingCell: Int?,
-    /** The currently selected piece's cell, if any. */
     val selected: Int?,
-    /** Cells the selected piece may capture (highlighted). */
     val targets: ImmutableSet<Int>,
     val level: Int,
-    /** True when no piece can capture and the board is unsolved: only a restart helps. */
     val stuck: Boolean,
 ) : GameUiState
 
-/**
- * One cascade wave for Prism Clear clear/fall animation.
- * [cellsBeforeClear] still contains the matched tiles; [clearedIndices] pop out; then the board
- * becomes [cellsAfterGravity].
- */
 @Immutable
 data class PrismClearClearWave(
     val cellsBeforeClear: ImmutableList<Int?>,
@@ -311,30 +260,20 @@ data class PrismClearClearWave(
 data class PrismClearUiState(
     val rows: Int,
     val cols: Int,
-    /** Row-major tile ordinals ([PrismTileType]) or null for empty cells. */
-    val cells: ImmutableList<Int?>,
+    val tileOrdinals: ImmutableList<Int?>,
     val selectedIndex: Int?,
     val movesUsed: Int,
     val level: Int,
-    /** True when tiles remain but no legal matching swap exists. */
     val stuck: Boolean,
-    /** True when at least one successful swap can be undone. */
     val canUndo: Boolean = false,
     val rejectedFrom: Int? = null,
     val rejectedTo: Int? = null,
-    val rejectNonce: Int = 0,
-    /**
-     * Cascade waves from the latest successful swap (empty on deal/undo/restart).
-     * UI plays pop + gravity for each wave, keyed by [boardEpoch].
-     */
+    val rejectFeedbackKey: Int = 0,
     val clearWaves: ImmutableList<PrismClearClearWave> = kotlinx.collections.immutable.persistentListOf(),
-    /** Board snapshot before the latest successful swap (for swap slide animation). */
-    val cellsBeforeSwap: ImmutableList<Int?> = kotlinx.collections.immutable.persistentListOf(),
-    /** Cell indices that slid past each other on the latest successful swap; -1 when none. */
-    val swapFromIndex: Int = -1,
-    val swapToIndex: Int = -1,
-    /** Bumps on every structural board change so the UI can replay or snap. */
-    val boardEpoch: Int = 0,
+    val tileOrdinalsBeforeSwap: ImmutableList<Int?> = kotlinx.collections.immutable.persistentListOf(),
+    val swapFromIndex: Int? = null,
+    val swapToIndex: Int? = null,
+    val boardAnimationKey: Int = 0,
 ) : GameUiState
 
 @Immutable
@@ -472,7 +411,6 @@ data class SpotTheNewUiState(
     @Immutable
     data class CellState(
         val animal: Animal,
-        /** Position in the displayed list; the value passed back on tap. */
         val index: Int,
         val type: SpotTheNewGame.CellType,
     )
@@ -481,35 +419,19 @@ data class SpotTheNewUiState(
 @Immutable
 data class DigitMemoryUiState(
     val phase: DigitMemoryGame.Phase,
-    /** The digits to memorize; shown during SHOWING and during the recall reveal. */
     val sequence: String,
-    /** Expected recall length (drives auto-submit). */
     val sequenceLength: Int,
-    /** Distraction problem text shown during SOLVING, e.g. "3 + 4". */
     val problem: String,
-    /** Expected math answer length (drives auto-submit). */
     val answerLength: Int,
-    /** Non-null => flash the correct math answer after a wrong attempt. */
     val revealedMathAnswer: String?,
-    /** Non-null => reveal the sequence colored by correct/wrong. */
     val recallResult: DigitMemoryGame.RecallResult?,
 ) : GameUiState
 
-/** Per-tile state for a Wordle letter. */
 enum class WordleLetterState {
-    /** No letter typed yet. */
     EMPTY,
-
-    /** Typed into the current row but not yet submitted. */
     PENDING,
-
-    /** Submitted and not in the word. */
     ABSENT,
-
-    /** Submitted, in the word, wrong position. */
     PRESENT,
-
-    /** Submitted, correct position. */
     CORRECT,
 }
 
@@ -518,20 +440,14 @@ data class WordleLetter(val char: Char, val state: WordleLetterState)
 
 @Immutable
 data class WordleUiState(
-    /** Always [WordleGame.MAX_GUESSES] rows of [wordLength] letters: submitted, in-progress, then empty. */
     val rows: ImmutableList<ImmutableList<WordleLetter>>,
-    /** On-screen keyboard layout (rows of UPPERCASE letters). */
     val keyboardRows: ImmutableList<String>,
-    /** Best state seen per letter across guesses; drives keyboard key colors. */
     val keyStates: ImmutableMap<Char, WordleLetterState>,
     val wordLength: Int,
     val solved: Boolean,
     val finished: Boolean,
-    /** The answer to reveal under the board when the game ends; null while playing. */
     val answer: String?,
-    /** True when the last submit was rejected for being too short; cleared on the next keypress. */
     val notEnoughLetters: Boolean,
-    /** True when the last submit was not in the word list; cleared on the next keypress. */
     val notInWordList: Boolean,
 ) : GameUiState
 
@@ -549,7 +465,6 @@ data class BullsAndCowsUiState(
     val finished: Boolean,
     val won: Boolean,
     val secret: String?,
-    /** Digits proven not in the secret (from any 0-bull 0-cow guess). */
     val absentDigits: ImmutableSet<Char> = persistentSetOf(),
 ) : GameUiState
 
@@ -565,9 +480,6 @@ data class MiniChessCell(
 data class MiniChessUiState(
     val cells: ImmutableList<MiniChessCell>,
     val legalMovesByFrom: ImmutableMap<Int, ImmutableSet<Int>>,
-    /** Subset of [legalMovesByFrom] entries (same keys) whose move would immediately
-     *  stalemate the CPU — i.e. the resulting position has no legal CPU response and the
-     *  CPU is not in check. Players can use this to avoid accidental draws. */
     val stalematingMovesByFrom: ImmutableMap<Int, ImmutableSet<Int>>,
     val lastMoveFromIndex: Int?,
     val lastMoveToIndex: Int?,
@@ -577,6 +489,5 @@ data class MiniChessUiState(
     val outcome: MiniChessOutcome?,
     val halfMoveCount: Int,
     val halfMoveCap: Int,
-    /** Points awarded for a win at the current difficulty (drives the +N XP label). */
     val pointsForWin: Int,
 ) : GameUiState

@@ -184,9 +184,9 @@ fun InstructionsScreen(
 
             // After clearing the last catalog board, lastRound is COUNT+1; surface the same
             // wait-for-content copy as the finish screen so re-entry is not silent.
-            val maxLevelReached = gameType == GameType.PRISM_CLEAR &&
+            val isFinalCatalogLevel = gameType == GameType.PRISM_CLEAR &&
                 storage.getLastRound(gameType.id) > PrismClearLevels.COUNT
-            if (maxLevelReached) {
+            if (isFinalCatalogLevel) {
                 Spacer(Modifier.height(16.dp))
                 Text(
                     text = stringResource(Res.string.finish_max_level_reached),

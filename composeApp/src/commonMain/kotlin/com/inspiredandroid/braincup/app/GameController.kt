@@ -666,7 +666,7 @@ class GameController(
             _gameUiState.value = currentUiState.copy(
                 submittedOperators = null,
                 correctOperators = game.correctOperators.toImmutableList(),
-                revealedCorrectIndices = persistentSetOf(),
+                feedbackRevealedSlots = persistentSetOf(),
             )
             scope.launch {
                 revealMissingOperatorsSequentially(
@@ -1224,7 +1224,7 @@ class GameController(
         _gameUiState.value = currentUiState.copy(
             submittedOperators = submitted.toImmutableList(),
             correctOperators = correct.toImmutableList(),
-            revealedCorrectIndices = persistentSetOf(),
+            feedbackRevealedSlots = persistentSetOf(),
         )
         scope.launch {
             // Hold on red wrongs, then flip each incorrect slot to the correct operator
@@ -1247,7 +1247,7 @@ class GameController(
             val feedbackState = _gameUiState.value as? MissingOperatorsUiState ?: return
             if (feedbackState.correctOperators == null) return
             _gameUiState.value = feedbackState.copy(
-                revealedCorrectIndices = (feedbackState.revealedCorrectIndices + index)
+                feedbackRevealedSlots = (feedbackState.feedbackRevealedSlots + index)
                     .toImmutableSet(),
             )
             if (step < indicesToReveal.lastIndex) {
@@ -1723,7 +1723,7 @@ class GameController(
         storage.putLastRound(currentState.gameType.id, game.level + 1)
         scope.launch {
             // Match PrismClearScreen: SwapMillis + (PopMillis + FallMillis) per cascade wave.
-            val swapMs = if (ui.swapFromIndex >= 0) 200 else 0
+            val swapMs = if (ui.swapFromIndex != null) 200 else 0
             val animMs = (swapMs + ui.clearWaves.size * (240 + 280) + 100).coerceAtLeast(350)
             delay(animMs.milliseconds)
             _gameState.value = GameState.Feedback(
@@ -2275,8 +2275,8 @@ class GameController(
                 highscore = highscore,
                 xpGained = scoreResult.xpGained,
                 totalXpAfter = storage.getTotalXp(),
-                difficultyBonus = difficultyBonus,
-                maxLevelReached = maxLevelReached,
+                adaptiveStartRoundCredit = difficultyBonus,
+                isFinalCatalogLevel = maxLevelReached,
             ),
         ) {
             popUpTo(MainMenu)

@@ -178,7 +178,7 @@ internal fun ColumnScope.ShikakuContent(
                     fontFamily = numberFont,
                     fontWeight = FontWeight.Bold,
                 )
-                uiState.clues.forEach { (index, value) ->
+                uiState.clueByCellIndex.forEach { (index, value) ->
                     val r = index / cols
                     val c = index % cols
                     val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
@@ -258,7 +258,7 @@ private fun ShikakuContentPreview() {
             uiState = ShikakuUiState(
                 rows = 3,
                 cols = 3,
-                clues = persistentMapOf(0 to 4, 2 to 2, 6 to 3),
+                clueByCellIndex = persistentMapOf(0 to 4, 2 to 2, 6 to 3),
                 rectangles = persistentListOf(),
                 level = 1,
             ),

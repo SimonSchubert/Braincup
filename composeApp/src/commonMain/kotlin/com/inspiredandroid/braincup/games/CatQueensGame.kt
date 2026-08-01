@@ -134,7 +134,7 @@ class CatQueensGame(
         val conflicts = conflicts()
         return CatQueensUiState(
             size = size,
-            regions = regions.toList().toImmutableList(),
+            regionIdByCellIndex = regions.toList().toImmutableList(),
             cats = cats.toImmutableSet(),
             invalidCats = conflicts.cells.toImmutableSet(),
             level = level,

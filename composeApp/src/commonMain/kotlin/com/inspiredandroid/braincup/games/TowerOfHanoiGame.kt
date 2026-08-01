@@ -19,7 +19,6 @@ class TowerOfHanoiGame(
     var diskCount: Int = 3
         private set
 
-    /** Disks bottom→top on each peg. Larger size values are physically larger disks. */
     private var pegs: Array<MutableList<Int>> = Array(PEG_COUNT) { mutableListOf() }
 
     var selectedPeg: Int? = null
@@ -28,19 +27,13 @@ class TowerOfHanoiGame(
     var moves: Int = 0
         private set
 
-    /**
-     * Peg that was the target of the most recent illegal drop (larger on smaller), or null.
-     * Paired with [rejectNonce] so the UI can re-fire feedback for repeated rejects.
-     */
     var rejectedPeg: Int? = null
         private set
 
-    /** Source peg of the most recent illegal drop (disk that failed to move). */
     var rejectFromPeg: Int? = null
         private set
 
-    /** Monotonic counter bumped on every illegal drop; 0 until the first reject this round. */
-    var rejectNonce: Int = 0
+    var rejectFeedbackKey: Int = 0
         private set
 
     override fun generateRound() {
@@ -52,7 +45,7 @@ class TowerOfHanoiGame(
         moves = 0
         rejectedPeg = null
         rejectFromPeg = null
-        rejectNonce = 0
+        rejectFeedbackKey = 0
     }
 
     /**
@@ -88,7 +81,7 @@ class TowerOfHanoiGame(
                 rejectedPeg = peg
                 rejectFromPeg = current
                 selectedPeg = null
-                rejectNonce++
+                rejectFeedbackKey++
             }
         }
         return false
@@ -112,11 +105,11 @@ class TowerOfHanoiGame(
 
     override fun toUiState(): TowerOfHanoiUiState = TowerOfHanoiUiState(
         diskCount = diskCount,
-        pegs = pegs.map { it.toImmutableList() }.toImmutableList(),
+        pegsBottomToTop = pegs.map { it.toImmutableList() }.toImmutableList(),
         selectedPeg = selectedPeg,
         rejectedPeg = rejectedPeg,
         rejectFromPeg = rejectFromPeg,
-        rejectNonce = rejectNonce,
+        rejectFeedbackKey = rejectFeedbackKey,
         moves = moves,
         level = level,
     )

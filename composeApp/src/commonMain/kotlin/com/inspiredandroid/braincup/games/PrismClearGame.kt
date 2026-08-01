@@ -43,7 +43,7 @@ class PrismClearGame(
     var selectedIndex: Int? = null
         private set
 
-    var rejectNonce: Int = 0
+    var rejectFeedbackKey: Int = 0
         private set
 
     var rejectedFrom: Int? = null
@@ -70,10 +70,10 @@ class PrismClearGame(
 
     /** Pre-swap board + indices for the swap slide animation. */
     private var lastCellsBeforeSwap: List<Int?> = emptyList()
-    private var lastSwapFrom: Int = -1
-    private var lastSwapTo: Int = -1
+    private var lastSwapFrom: Int? = null
+    private var lastSwapTo: Int? = null
 
-    private var boardEpoch: Int = 0
+    private var boardAnimationKey: Int = 0
 
     enum class PrismClearResult {
         Updated,
@@ -95,9 +95,9 @@ class PrismClearGame(
         undoStack.clear()
         lastClearWaves = emptyList()
         lastCellsBeforeSwap = emptyList()
-        lastSwapFrom = -1
-        lastSwapTo = -1
-        boardEpoch++
+        lastSwapFrom = null
+        lastSwapTo = null
+        boardAnimationKey++
 
         cells = def.parseCells()
         generatedSolution = def.solution
@@ -131,7 +131,7 @@ class PrismClearGame(
 
     fun trySwap(a: Int, b: Int): PrismClearResult {
         if (!isLegalMatchingSwap(cells, rows, cols, a, b)) {
-            rejectNonce++
+            rejectFeedbackKey++
             rejectedFrom = a
             rejectedTo = b
             selectedIndex = null
@@ -148,7 +148,7 @@ class PrismClearGame(
         selectedIndex = null
         rejectedFrom = null
         rejectedTo = null
-        boardEpoch++
+        boardAnimationKey++
         if (boardIsEmpty()) return PrismClearResult.Solved
         return PrismClearResult.Updated
     }
@@ -163,9 +163,9 @@ class PrismClearGame(
         rejectedTo = null
         lastClearWaves = emptyList()
         lastCellsBeforeSwap = emptyList()
-        lastSwapFrom = -1
-        lastSwapTo = -1
-        boardEpoch++
+        lastSwapFrom = null
+        lastSwapTo = null
+        boardAnimationKey++
         return true
     }
 
@@ -178,9 +178,9 @@ class PrismClearGame(
         rejectedTo = null
         lastClearWaves = emptyList()
         lastCellsBeforeSwap = emptyList()
-        lastSwapFrom = -1
-        lastSwapTo = -1
-        boardEpoch++
+        lastSwapFrom = null
+        lastSwapTo = null
+        boardAnimationKey++
     }
 
     fun hasAnyValidSwap(): Boolean = hasAnyValidSwap(cells, rows, cols)
@@ -198,7 +198,7 @@ class PrismClearGame(
     override fun toUiState(): PrismClearUiState = PrismClearUiState(
         rows = rows,
         cols = cols,
-        cells = cells.map { it?.ordinal }.toImmutableList(),
+        tileOrdinals = cells.map { it?.ordinal }.toImmutableList(),
         selectedIndex = selectedIndex,
         movesUsed = movesUsed,
         level = level,
@@ -206,12 +206,12 @@ class PrismClearGame(
         canUndo = canUndo,
         rejectedFrom = rejectedFrom,
         rejectedTo = rejectedTo,
-        rejectNonce = rejectNonce,
+        rejectFeedbackKey = rejectFeedbackKey,
         clearWaves = lastClearWaves.toImmutableList(),
-        cellsBeforeSwap = lastCellsBeforeSwap.toImmutableList(),
+        tileOrdinalsBeforeSwap = lastCellsBeforeSwap.toImmutableList(),
         swapFromIndex = lastSwapFrom,
         swapToIndex = lastSwapTo,
-        boardEpoch = boardEpoch,
+        boardAnimationKey = boardAnimationKey,
     )
 
     private fun isOrthogonallyAdjacent(a: Int, b: Int): Boolean {

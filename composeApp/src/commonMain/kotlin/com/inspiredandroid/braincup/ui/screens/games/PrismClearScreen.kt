@@ -121,15 +121,17 @@ internal fun ColumnScope.PrismClearContent(
     }
 
     // Deal / undo / restart: snap. Successful swap: slide tiles, then clear/fall waves.
-    LaunchedEffect(uiState.boardEpoch, uiState.level, rows, cols) {
+    LaunchedEffect(uiState.boardAnimationKey, uiState.level, rows, cols) {
         val waves = uiState.clearWaves
-        val hasSwap = uiState.swapFromIndex >= 0 &&
-            uiState.swapToIndex >= 0 &&
-            uiState.cellsBeforeSwap.isNotEmpty()
+        val swapFrom = uiState.swapFromIndex
+        val swapTo = uiState.swapToIndex
+        val hasSwap = swapFrom != null &&
+            swapTo != null &&
+            uiState.tileOrdinalsBeforeSwap.isNotEmpty()
 
         if (!hasSwap && waves.isEmpty()) {
             var id = nextId
-            tiles = buildTilesFromCells(uiState.cells, rows, cols) { id++ }
+            tiles = buildTilesFromCells(uiState.tileOrdinals, rows, cols) { id++ }
             nextId = id
             inputLocked = false
             flushPendingTap()
@@ -138,14 +140,14 @@ internal fun ColumnScope.PrismClearContent(
 
         inputLocked = true
 
-        if (hasSwap) {
+        if (hasSwap && swapFrom != null && swapTo != null) {
             // Start from pre-swap board, then slide the two tiles into each other's cells.
-            tiles = mergeIntoBoard(tiles, uiState.cellsBeforeSwap, rows, cols) { nextId++ }
+            tiles = mergeIntoBoard(tiles, uiState.tileOrdinalsBeforeSwap, rows, cols) { nextId++ }
             delay(16) // let composition pick up pre-swap positions
             tiles = applyVisualSwap(
                 tiles = tiles,
-                fromIndex = uiState.swapFromIndex,
-                toIndex = uiState.swapToIndex,
+                fromIndex = swapFrom,
+                toIndex = swapTo,
                 cols = cols,
             )
             delay(SwapMillis.toLong())
@@ -163,7 +165,7 @@ internal fun ColumnScope.PrismClearContent(
         }
         // Ensure we end exactly on the settled engine board.
         var id = nextId
-        tiles = buildTilesFromCells(uiState.cells, rows, cols) { id++ }
+        tiles = buildTilesFromCells(uiState.tileOrdinals, rows, cols) { id++ }
         nextId = id
         inputLocked = false
         // Apply any cell the player tapped mid-animation (selection survives the anim).
@@ -177,7 +179,7 @@ internal fun ColumnScope.PrismClearContent(
 
     // Fresh values for the board gesture loop without restarting pointerInput every frame.
     val inputLockedState = rememberUpdatedState(inputLocked)
-    val cellsState = rememberUpdatedState(uiState.cells)
+    val cellsState = rememberUpdatedState(uiState.tileOrdinals)
     val onAnswerState = rememberUpdatedState(onAnswer)
     val onTapState = rememberUpdatedState { index: Int -> handleCellTap(index) }
     val dragThresholdPx = stepPx * DragThresholdFraction
@@ -639,7 +641,7 @@ private fun PrismClearContentPreview() {
             uiState = PrismClearUiState(
                 rows = rows,
                 cols = cols,
-                cells = persistentListOf(*cells.toTypedArray()),
+                tileOrdinals = persistentListOf(*cells.toTypedArray()),
                 selectedIndex = 1 * cols,
                 movesUsed = 0,
                 level = 1,

@@ -154,12 +154,12 @@ private fun OperatorSlot(
 
     val wasAlreadyCorrect = submitted != null && correct != null && submitted == correct
     val isRevealedCorrect = isFeedback &&
-        (index in uiState.revealedCorrectIndices || wasAlreadyCorrect)
+        (index in uiState.feedbackRevealedSlots || wasAlreadyCorrect)
     val isWrongPending = isFeedback &&
         submitted != null &&
         correct != null &&
         submitted != correct &&
-        index !in uiState.revealedCorrectIndices
+        index !in uiState.feedbackRevealedSlots
 
     val displayOp: Operator? = when {
         isRevealedCorrect -> correct

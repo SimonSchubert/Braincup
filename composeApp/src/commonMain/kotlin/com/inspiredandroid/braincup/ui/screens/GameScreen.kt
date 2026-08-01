@@ -113,11 +113,8 @@ fun GameScreen(
     isTimerPaused: Boolean = false,
     onWordleFinishedAction: () -> Unit = {},
     onBullsAndCowsFinishedAction: () -> Unit = {},
-    /** Live ball positions during Orbit Tracker MOVING; ignored for other games. */
     orbitBallPositions: StateFlow<List<Pair<Float, Float>>>? = null,
-    /** Live Bubble Sum frames (position + visibility); ignored for other games. */
     bubbleSumFrames: StateFlow<List<BubbleSumGame.BubbleFrame>>? = null,
-    /** Reports the measured Bubble Sum arena size in pixels; ignored for other games. */
     onBubbleSumArenaSize: (Float, Float) -> Unit = { _, _ -> },
 ) {
     val progressBarModifier = Modifier

@@ -49,7 +49,7 @@ class NBackGame : Game() {
         private set
 
     /** The position (0-based) the player is asked to recall this round. */
-    var askPosition: Int = 0
+    var askIndex: Int = 0
         private set
 
     /** Non-null while revealing the answer after a tap (drives the green/red reveal). */
@@ -91,7 +91,7 @@ class NBackGame : Game() {
         // so the first round (round 0) shows MIN_LENGTH shapes.
         val length = lengthForRound(round)
         sequence = PALETTE.shuffled().take(length)
-        askPosition = Random.nextInt(length)
+        askIndex = Random.nextInt(length)
         phase = Phase.MEMORIZE
         showIndex = -1
         showing = false
@@ -101,7 +101,7 @@ class NBackGame : Game() {
     val sequenceLength: Int get() = sequence.size
 
     /** The correct answer this round: the shape at the asked position. */
-    fun answerShape(): Shape = sequence[askPosition]
+    fun answerShape(): Shape = sequence[askIndex]
 
     /** Flash the sequence in order, then open the recall phase. */
     fun startShowing(scope: CoroutineScope, onChange: () -> Unit) {
@@ -161,7 +161,6 @@ class NBackGame : Game() {
         nextRound()
     }
 
-    /** Submit the tapped shape (by [Shape.name]). Returns whether it was the shape at [askPosition]. */
     fun submitRecall(input: String): Boolean {
         val correct = input == answerShape().name
         recallResult = if (correct) RecallResult.CORRECT else RecallResult.WRONG
@@ -180,7 +179,7 @@ class NBackGame : Game() {
         currentShape = if (phase == Phase.MEMORIZE && showing) sequence.getOrNull(showIndex) else null,
         showIndex = showIndex,
         sequenceLength = sequence.size,
-        askPosition = askPosition,
+        askIndex = askIndex,
         options = PALETTE.toImmutableList(),
         revealAnswer = if (recallResult != null) answerShape() else null,
         recallResult = recallResult,

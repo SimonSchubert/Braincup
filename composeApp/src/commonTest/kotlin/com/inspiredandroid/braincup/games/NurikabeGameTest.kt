@@ -322,7 +322,7 @@ class NurikabeGameTest {
         }
         game.setWalls((4..11).toList(), true)
         val ui = game.toUiState()
-        assertEquals((4..11).toSet(), ui.poolCells.toSet())
+        assertEquals((4..11).toSet(), ui.forbiddenPoolCells.toSet())
     }
 
     @Test

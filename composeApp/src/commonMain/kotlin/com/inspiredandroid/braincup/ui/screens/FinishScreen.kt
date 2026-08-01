@@ -34,10 +34,8 @@ fun FinishScreen(
     highscore: Int,
     xpGained: Int,
     totalXpAfter: Int,
-    /** Adaptive start-round credit included in [score]; shown as a separate line when > 0. */
-    difficultyBonus: Int = 0,
-    /** Cleared the last catalog level; hide "next level" and show wait-for-content copy. */
-    maxLevelReached: Boolean = false,
+    adaptiveStartRoundCredit: Int = 0,
+    isFinalCatalogLevel: Boolean = false,
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
@@ -79,7 +77,7 @@ fun FinishScreen(
         // since "Level: 0" / "Best Level: N" reads as misleading status info.
         val gaveUpLevelGame = gameType.usesLevelLabel && score <= 0
         if (!gaveUpLevelGame) {
-            val baseScore = (score - difficultyBonus).coerceAtLeast(0)
+            val baseScore = (score - adaptiveStartRoundCredit).coerceAtLeast(0)
             val scoreLabelRes = when {
                 gameType.usesLevelLabel -> Res.string.finish_level
                 gameType.usesTriesLabel -> Res.string.finish_tries
@@ -90,12 +88,12 @@ fun FinishScreen(
                 style = MaterialTheme.typography.headlineLarge,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
-            if (difficultyBonus > 0) {
+            if (adaptiveStartRoundCredit > 0) {
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = stringResource(
                         Res.string.finish_difficulty_bonus,
-                        gameType.formattedScore(difficultyBonus),
+                        gameType.formattedScore(adaptiveStartRoundCredit),
                     ),
                     style = MaterialTheme.typography.titleMedium,
                     color = Primary,
@@ -159,7 +157,7 @@ fun FinishScreen(
 
         XpAndLevelDisplay(xpGained = xpGained, levelChange = levelChange)
 
-        if (maxLevelReached) {
+        if (isFinalCatalogLevel) {
             Spacer(Modifier.height(16.dp))
             Text(
                 text = stringResource(Res.string.finish_max_level_reached),
@@ -179,7 +177,7 @@ fun FinishScreen(
             value = stringResource(Res.string.button_play_random),
         )
 
-        if (!maxLevelReached) {
+        if (!isFinalCatalogLevel) {
             Spacer(Modifier.height(8.dp))
 
             val playAgainLabelRes = if (gameType.usesLevelLabel && !gaveUpLevelGame) {

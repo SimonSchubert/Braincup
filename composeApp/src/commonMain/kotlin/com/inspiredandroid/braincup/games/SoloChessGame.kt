@@ -40,7 +40,7 @@ class SoloChessGame(
     internal val pieces: MutableMap<Int, PieceType> = mutableMapOf()
 
     /** cell index -> captures the piece on that cell may still make (starts at [MAX_CAPTURES]). */
-    internal val capturesLeft: MutableMap<Int, Int> = mutableMapOf()
+    internal val remainingCapturesByCell: MutableMap<Int, Int> = mutableMapOf()
 
     /** The cell holding the king; the king can never be captured, so it is always the final piece. */
     internal var kingCell: Int = -1
@@ -95,11 +95,11 @@ class SoloChessGame(
         }
 
         pieces.clear()
-        capturesLeft.clear()
+        remainingCapturesByCell.clear()
         best.pieces.forEach { (cell, type) ->
             pieces[cell] = type
             // Every piece starts fresh: it may still capture twice, whatever the generator did with it.
-            capturesLeft[cell] = MAX_CAPTURES
+            remainingCapturesByCell[cell] = MAX_CAPTURES
         }
         kingCell = best.kingCell
         generatedSolution = best.solution
@@ -221,7 +221,7 @@ class SoloChessGame(
      */
     internal fun captureTargets(from: Int): Set<Int> {
         val type = pieces[from] ?: return emptySet()
-        if ((capturesLeft[from] ?: 0) <= 0) return emptySet()
+        if ((remainingCapturesByCell[from] ?: 0) <= 0) return emptySet()
         val fr = from / size
         val fc = from % size
         val out = HashSet<Int>()
@@ -271,7 +271,7 @@ class SoloChessGame(
         if (index !in 0 until size * size) return false
         val current = selected
         if (current == null) {
-            if (index in pieces && (capturesLeft[index] ?: 0) > 0) selected = index
+            if (index in pieces && (remainingCapturesByCell[index] ?: 0) > 0) selected = index
             return false
         }
         if (index == current) {
@@ -283,28 +283,28 @@ class SoloChessGame(
             selected = null
             return isSolved()
         }
-        selected = if (index in pieces && (capturesLeft[index] ?: 0) > 0) index else null
+        selected = if (index in pieces && (remainingCapturesByCell[index] ?: 0) > 0) index else null
         return false
     }
 
     private fun capture(from: Int, to: Int) {
         val type = pieces.getValue(from)
-        val remaining = (capturesLeft[from] ?: 0) - 1
+        val remaining = (remainingCapturesByCell[from] ?: 0) - 1
         pieces.remove(from)
-        capturesLeft.remove(from)
+        remainingCapturesByCell.remove(from)
         // The captured piece on `to` is removed; the mover takes its square with one fewer capture.
         pieces[to] = type
-        capturesLeft[to] = remaining
+        remainingCapturesByCell[to] = remaining
         if (from == kingCell) kingCell = to
     }
 
     /** Resets the board to the generated start so a dead-end line can be retried. */
     fun restart() {
         pieces.clear()
-        capturesLeft.clear()
+        remainingCapturesByCell.clear()
         initialPieces.forEach { (cell, type) ->
             pieces[cell] = type
-            capturesLeft[cell] = MAX_CAPTURES
+            remainingCapturesByCell[cell] = MAX_CAPTURES
         }
         kingCell = initialKingCell
         selected = null
@@ -327,7 +327,7 @@ class SoloChessGame(
         return SoloChessUiState(
             size = size,
             pieces = pieces.toImmutableMap(),
-            capturesLeft = capturesLeft.toImmutableMap(),
+            remainingCapturesByCell = remainingCapturesByCell.toImmutableMap(),
             kingCell = kingCell,
             selected = sel,
             targets = (if (sel != null) captureTargets(sel) else emptySet()).toImmutableSet(),

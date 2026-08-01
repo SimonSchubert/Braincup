@@ -67,7 +67,7 @@ internal fun ColumnScope.NBackContent(
                 NBackDots(current = uiState.showIndex, count = uiState.sequenceLength)
             }
             NBackGame.Phase.RECALL -> {
-                NBackPrompt(position = uiState.askPosition + 1)
+                NBackPrompt(position = uiState.askIndex + 1)
                 Spacer(Modifier.height(if (compact) 12.dp else 24.dp))
                 NBackPalette(
                     uiState = uiState,
@@ -252,7 +252,7 @@ private fun NBackRecallPreview() {
                 currentShape = null,
                 showIndex = 3,
                 sequenceLength = 4,
-                askPosition = 2,
+                askIndex = 2,
                 options = NBackGame.PALETTE.toImmutableList(),
                 revealAnswer = null,
                 recallResult = null,

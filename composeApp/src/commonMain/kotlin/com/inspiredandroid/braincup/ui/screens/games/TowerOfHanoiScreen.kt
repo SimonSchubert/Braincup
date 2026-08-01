@@ -99,8 +99,8 @@ internal fun ColumnScope.TowerOfHanoiContent(
     val pegWidth = if (compact) 88.dp else 108.dp
 
     var showInvalidMessage by remember { mutableStateOf(false) }
-    LaunchedEffect(uiState.rejectNonce) {
-        if (uiState.rejectNonce <= 0) {
+    LaunchedEffect(uiState.rejectFeedbackKey) {
+        if (uiState.rejectFeedbackKey <= 0) {
             showInvalidMessage = false
             return@LaunchedEffect
         }
@@ -130,12 +130,12 @@ internal fun ColumnScope.TowerOfHanoiContent(
 
     val board: @Composable () -> Unit = {
         HanoiBoard(
-            pegs = uiState.pegs,
+            pegs = uiState.pegsBottomToTop,
             diskCount = uiState.diskCount,
             selectedPeg = uiState.selectedPeg,
             rejectedPeg = uiState.rejectedPeg,
             rejectFromPeg = uiState.rejectFromPeg,
-            rejectNonce = uiState.rejectNonce,
+            rejectFeedbackKey = uiState.rejectFeedbackKey,
             pegWidth = pegWidth,
             boardHeight = boardHeight,
             onPegClick = { peg -> onAnswer(peg.toString()) },
@@ -221,7 +221,7 @@ private fun HanoiBoard(
     selectedPeg: Int?,
     rejectedPeg: Int?,
     rejectFromPeg: Int?,
-    rejectNonce: Int,
+    rejectFeedbackKey: Int,
     pegWidth: Dp,
     boardHeight: Dp,
     onPegClick: (Int) -> Unit,
@@ -256,7 +256,7 @@ private fun HanoiBoard(
     var flashBlockDisk by remember { mutableIntStateOf(-1) }
     var rejectPulse by remember { mutableStateOf(false) }
     // Lets the reject bounce own the disk's motion for one nonce (avoids deselect settle racing it).
-    var handledRejectNonce by remember { mutableIntStateOf(0) }
+    var handledRejectFeedbackKey by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(diskCount) {
         val live = (1..diskCount).toSet()
@@ -290,8 +290,8 @@ private fun HanoiBoard(
 
     // Reject feedback: nudge toward the illegal target, shake, spring home; flash peg + blocker.
     // Selection is already cleared; animate from [rejectFromPeg]'s top disk (unlifted rest).
-    LaunchedEffect(rejectNonce) {
-        if (rejectNonce <= 0 || rejectedPeg == null || rejectFromPeg == null) return@LaunchedEffect
+    LaunchedEffect(rejectFeedbackKey) {
+        if (rejectFeedbackKey <= 0 || rejectedPeg == null || rejectFromPeg == null) return@LaunchedEffect
         val sourcePeg = rejectFromPeg
         val heldSize = pegs.getOrNull(sourcePeg)?.lastOrNull() ?: return@LaunchedEffect
         val blockDisk = pegs.getOrNull(rejectedPeg)?.lastOrNull() ?: -1
@@ -343,7 +343,7 @@ private fun HanoiBoard(
         rejectPulse = false
         flashPeg = -1
         flashBlockDisk = -1
-        handledRejectNonce = rejectNonce
+        handledRejectFeedbackKey = rejectFeedbackKey
     }
 
     Box(
@@ -388,9 +388,9 @@ private fun HanoiBoard(
                     Animatable(iy)
                 }
 
-                LaunchedEffect(peg, stackIndex, isTopOfSelected, diskCount, pegWidth, boardHeight, rejectNonce) {
-                    // Reject bounce owns this disk until handledRejectNonce catches up.
-                    if (rejectNonce > handledRejectNonce &&
+                LaunchedEffect(peg, stackIndex, isTopOfSelected, diskCount, pegWidth, boardHeight, rejectFeedbackKey) {
+                    // Reject bounce owns this disk until handledRejectFeedbackKey catches up.
+                    if (rejectFeedbackKey > handledRejectFeedbackKey &&
                         rejectFromPeg == peg &&
                         pegs.getOrNull(peg)?.lastOrNull() == size
                     ) {
@@ -615,7 +615,7 @@ private fun TowerOfHanoiContentPreview() {
         TowerOfHanoiContent(
             uiState = TowerOfHanoiUiState(
                 diskCount = 3,
-                pegs = persistentListOf(
+                pegsBottomToTop = persistentListOf(
                     persistentListOf(3, 2),
                     persistentListOf(1),
                     persistentListOf(),
@@ -623,7 +623,7 @@ private fun TowerOfHanoiContentPreview() {
                 selectedPeg = null,
                 rejectedPeg = 1,
                 rejectFromPeg = 0,
-                rejectNonce = 1,
+                rejectFeedbackKey = 1,
                 moves = 1,
                 level = 1,
             ),

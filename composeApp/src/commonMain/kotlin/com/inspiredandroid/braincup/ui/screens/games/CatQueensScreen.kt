@@ -76,7 +76,7 @@ internal fun ColumnScope.CatQueensContent(
                 fun topLeft(index: Int) = Offset((index % n) * cellW, (index / n) * cellH)
 
                 for (index in 0 until n * n) {
-                    val color = CatRegionColors[uiState.regions[index] % CatRegionColors.size]
+                    val color = CatRegionColors[uiState.regionIdByCellIndex[index] % CatRegionColors.size]
                     drawRect(color = color, topLeft = topLeft(index), size = cellSize)
                 }
 
@@ -93,21 +93,21 @@ internal fun ColumnScope.CatQueensContent(
                 for (r in 0 until n) {
                     for (c in 0 until n) {
                         val index = r * n + c
-                        val region = uiState.regions[index]
+                        val region = uiState.regionIdByCellIndex[index]
                         val x0 = c * cellW
                         val y0 = r * cellH
                         val x1 = x0 + cellW
                         val y1 = y0 + cellH
-                        if (r == 0 || uiState.regions[index - n] != region) {
+                        if (r == 0 || uiState.regionIdByCellIndex[index - n] != region) {
                             drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
                         }
-                        if (r == n - 1 || uiState.regions[index + n] != region) {
+                        if (r == n - 1 || uiState.regionIdByCellIndex[index + n] != region) {
                             drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
                         }
-                        if (c == 0 || uiState.regions[index - 1] != region) {
+                        if (c == 0 || uiState.regionIdByCellIndex[index - 1] != region) {
                             drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
                         }
-                        if (c == n - 1 || uiState.regions[index + 1] != region) {
+                        if (c == n - 1 || uiState.regionIdByCellIndex[index + 1] != region) {
                             drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
                         }
                     }
@@ -245,7 +245,7 @@ private fun CatQueensContentPreview() {
         CatQueensContent(
             uiState = CatQueensUiState(
                 size = 4,
-                regions = persistentListOf(
+                regionIdByCellIndex = persistentListOf(
                     0, 0, 1, 1,
                     0, 2, 1, 3,
                     2, 2, 3, 3,

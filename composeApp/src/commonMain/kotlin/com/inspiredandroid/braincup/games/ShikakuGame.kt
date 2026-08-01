@@ -277,9 +277,9 @@ class ShikakuGame(
     override fun toUiState(): ShikakuUiState = ShikakuUiState(
         rows = rows,
         cols = cols,
-        clues = clues.toImmutableMap(),
+        clueByCellIndex = clues.toImmutableMap(),
         rectangles = rectangles.map {
-            ShikakuUiState.RectState(it.top, it.left, it.bottom, it.right, rectIsValid(it))
+            ShikakuUiState.InclusiveRect(it.top, it.left, it.bottom, it.right, rectIsValid(it))
         }.toImmutableList(),
         level = level,
     )

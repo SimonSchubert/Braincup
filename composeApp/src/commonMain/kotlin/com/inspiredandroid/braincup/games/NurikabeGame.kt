@@ -562,11 +562,11 @@ class NurikabeGame(
         return NurikabeUiState(
             rows = rows,
             cols = cols,
-            clues = clues.toImmutableMap(),
-            walls = walls.toImmutableSet(),
+            clueByCellIndex = clues.toImmutableMap(),
+            seaCells = walls.toImmutableSet(),
             satisfiedCells = satisfied.toImmutableSet(),
             invalidCells = invalid.toImmutableSet(),
-            poolCells = pool.toImmutableSet(),
+            forbiddenPoolCells = pool.toImmutableSet(),
             disconnectedSeaCells = disconnectedSea.toImmutableSet(),
             level = level,
         )

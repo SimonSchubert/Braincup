@@ -49,7 +49,7 @@ fun PrismClearLevelCard(
             for (row in 0 until uiState.rows) {
                 Row(horizontalArrangement = Arrangement.spacedBy(2.dp)) {
                     for (col in 0 until uiState.cols) {
-                        val ordinal = uiState.cells[row * uiState.cols + col]
+                        val ordinal = uiState.tileOrdinals[row * uiState.cols + col]
                         val face = if (ordinal == null) {
                             MaterialTheme.colorScheme.surfaceContainerHighest
                         } else {

@@ -43,13 +43,13 @@ class NBackGameTest {
     }
 
     @Test
-    fun askPositionIsInsideTheSequenceAndNamesTheAnswer() {
+    fun askIndexIsInsideTheSequenceAndNamesTheAnswer() {
         repeat(20) {
             val game = NBackGame()
             game.round = 2
             game.nextRound()
-            assertTrue(game.askPosition in game.sequence.indices)
-            assertEquals(game.sequence[game.askPosition], game.answerShape())
+            assertTrue(game.askIndex in game.sequence.indices)
+            assertEquals(game.sequence[game.askIndex], game.answerShape())
         }
     }
 
@@ -119,7 +119,7 @@ class NBackGameTest {
         assertEquals(NBackGame.Phase.MEMORIZE, memorizing.phase)
         assertNull(memorizing.currentShape, "no shape is on screen before the flash starts")
         assertEquals(game.sequenceLength, memorizing.sequenceLength)
-        assertEquals(game.askPosition, memorizing.askPosition)
+        assertEquals(game.askIndex, memorizing.askIndex)
         assertEquals(NBackGame.PALETTE, memorizing.options.toList())
         assertNull(memorizing.revealAnswer, "the answer must stay hidden until the player taps")
 
