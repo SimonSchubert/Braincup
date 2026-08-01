@@ -13,12 +13,6 @@ import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 
 class OrbitTrackerGame : Game() {
-    sealed class SubmitResult {
-        data object CorrectContinue : SubmitResult()
-        data object RoundComplete : SubmitResult()
-        data object Wrong : SubmitResult()
-    }
-
     enum class Phase {
         HIGHLIGHTING,
         MOVING,
@@ -163,9 +157,9 @@ class OrbitTrackerGame : Game() {
         animationJob = null
     }
 
-    fun selectBall(index: Int): SubmitResult {
+    fun selectBall(index: Int): SequenceSubmitResult {
         if (phase != Phase.ANSWERING || index !in balls.indices || index in selectedIndices) {
-            return SubmitResult.CorrectContinue
+            return SequenceSubmitResult.CorrectContinue
         }
 
         selectedIndices.add(index)
@@ -183,7 +177,7 @@ class OrbitTrackerGame : Game() {
             }
             answeredAllCorrect = false
             phase = Phase.GAME_OVER
-            return SubmitResult.Wrong
+            return SequenceSubmitResult.Wrong
         }
 
         // Correct ball — mark as selected
@@ -196,9 +190,9 @@ class OrbitTrackerGame : Game() {
         }
 
         return if (allTargetsSelected) {
-            SubmitResult.RoundComplete
+            SequenceSubmitResult.RoundComplete
         } else {
-            SubmitResult.CorrectContinue
+            SequenceSubmitResult.CorrectContinue
         }
     }
 
@@ -294,12 +288,7 @@ class OrbitTrackerGame : Game() {
                     y = ball.y,
                     isTarget = ball.isTarget,
                     isSelected = index in selectedIndices,
-                    feedback = when (feedbackState[index]) {
-                        BallFeedback.NONE -> OrbitTrackerUiState.BallFeedback.NONE
-                        BallFeedback.CORRECT_SELECTED -> OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED
-                        BallFeedback.WRONG_SELECTED -> OrbitTrackerUiState.BallFeedback.WRONG_SELECTED
-                        BallFeedback.MISSED -> OrbitTrackerUiState.BallFeedback.MISSED
-                    },
+                    feedback = feedbackState[index],
                 )
             }.toImmutableList(),
             phase = phase,

@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
@@ -92,9 +93,9 @@ private fun ColorConfusionCell(
     val selectedFace = if (isDark) SelectedTileFaceDark else SelectedTileFaceLight
     val unselectedFace = if (isDark) UnselectedTileFaceDark else MaterialTheme.colorScheme.surfaceContainer
     val targetContainerColor = when {
-        cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
-        cell.feedback == ColorConfusionUiState.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
-        cell.feedback == ColorConfusionUiState.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
+        cell.feedback == ColorConfusionGame.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
+        cell.feedback == ColorConfusionGame.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
+        cell.feedback == ColorConfusionGame.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
         cell.isSelected -> selectedFace
         else -> unselectedFace
     }
@@ -104,12 +105,12 @@ private fun ColorConfusionCell(
         label = "colorConfusionContainer",
     )
 
-    val isInteractive = cell.feedback == ColorConfusionUiState.CellFeedback.NONE
+    val isInteractive = cell.feedback == ColorConfusionGame.CellFeedback.NONE
     // Only sink the tile for finalized feedback states. Sinking the mid-play selection would dim
     // the bright selected face to its side color and erase the very contrast that distinguishes
     // selected from unselected in bright sunlight.
-    val isLockedIn = cell.feedback == ColorConfusionUiState.CellFeedback.CORRECT_SELECTED ||
-        cell.feedback == ColorConfusionUiState.CellFeedback.WRONG_SELECTED
+    val isLockedIn = cell.feedback == ColorConfusionGame.CellFeedback.CORRECT_SELECTED ||
+        cell.feedback == ColorConfusionGame.CellFeedback.WRONG_SELECTED
     PrismTile(
         face = containerColor,
         modifier = modifier.hoverHand(isInteractive),
@@ -137,15 +138,15 @@ private fun ColorConfusionContentPreview() {
         ColorConfusionContent(
             uiState = ColorConfusionUiState(
                 cells = persistentListOf(
-                    ColorConfusionUiState.Cell(Color.RED, Color.BLUE, false, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.GREEN, Color.GREEN, true, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.YELLOW, Color.YELLOW, false, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.YELLOW, Color.YELLOW, false, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionUiState.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionUiState.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.RED, Color.BLUE, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.GREEN, Color.GREEN, true, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.YELLOW, Color.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.YELLOW, Color.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
                 ),
                 isSubmitted = false,
             ),

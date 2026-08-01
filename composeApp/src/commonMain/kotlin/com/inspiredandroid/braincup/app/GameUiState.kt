@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.app
 
 import androidx.compose.runtime.Immutable
+import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.NBackGame
@@ -23,6 +24,9 @@ import kotlinx.collections.immutable.persistentSetOf
 enum class FigureCellState { NORMAL, WRONG, CORRECT, DIMMED }
 
 enum class AnswerButtonState { NORMAL, WRONG, CORRECT, DIMMED }
+
+/** Shared cell/pad presentation state for sequence-recall boards (Ghost Grid, Simon Says). */
+enum class SequenceCellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
 
 @Immutable
 data class AnswerButton(
@@ -348,10 +352,8 @@ data class GhostGridUiState(
     val sequenceLength: Int,
     val tappedCount: Int,
 ) : GameUiState {
-    enum class CellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
-
     @Immutable
-    data class CellState(val type: CellType)
+    data class CellState(val type: SequenceCellType)
 }
 
 @Immutable
@@ -362,10 +364,8 @@ data class SimonSaysUiState(
     val sequenceLength: Int,
     val tappedCount: Int,
 ) : GameUiState {
-    enum class CellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
-
     @Immutable
-    data class PadState(val color: Color, val type: CellType)
+    data class PadState(val color: Color, val type: SequenceCellType)
 }
 
 @Immutable
@@ -384,20 +384,12 @@ data class ColorConfusionUiState(
     val cells: ImmutableList<Cell>,
     val isSubmitted: Boolean,
 ) : GameUiState {
-    enum class CellFeedback {
-        NONE,
-        CORRECT_SELECTED,
-        WRONG_SELECTED,
-        MISSED,
-        CORRECT_UNSELECTED,
-    }
-
     @Immutable
     data class Cell(
         val word: Color,
         val fontColor: Color,
         val isSelected: Boolean,
-        val feedback: CellFeedback,
+        val feedback: ColorConfusionGame.CellFeedback,
     )
 }
 
@@ -408,20 +400,13 @@ data class OrbitTrackerUiState(
     val targetCount: Int,
     val selectedCount: Int,
 ) : GameUiState {
-    enum class BallFeedback {
-        NONE,
-        CORRECT_SELECTED,
-        WRONG_SELECTED,
-        MISSED,
-    }
-
     @Immutable
     data class BallState(
         val x: Float,
         val y: Float,
         val isTarget: Boolean,
         val isSelected: Boolean,
-        val feedback: BallFeedback,
+        val feedback: OrbitTrackerGame.BallFeedback,
     )
 }
 

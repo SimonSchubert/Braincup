@@ -2020,8 +2020,8 @@ class GameController(
     ) {
         if (game.phase != GhostGridGame.Phase.ANSWERING) return
         when (game.submitAnswer(answer)) {
-            GhostGridGame.SubmitResult.CorrectContinue -> emitGhostGridUiState(game)
-            GhostGridGame.SubmitResult.RoundComplete -> {
+            SequenceSubmitResult.CorrectContinue -> emitGhostGridUiState(game)
+            SequenceSubmitResult.RoundComplete -> {
                 points++
                 _gameState.value = GameState.Feedback(
                     gameType = currentState.gameType,
@@ -2036,7 +2036,7 @@ class GameController(
                     game.startShowSequence(scope) { emitGhostGridUiState(game) }
                 }
             }
-            GhostGridGame.SubmitResult.Wrong -> {
+            SequenceSubmitResult.Wrong -> {
                 emitGhostGridUiState(game)
                 scope.launch {
                     delay(2.seconds)
@@ -2087,8 +2087,8 @@ class GameController(
         // Tone for the pad the player pressed, including wrong taps (classic Simon behaviour).
         Color.entries.find { it.name == answer }?.let { _simonPadSoundEvents.tryEmit(it) }
         when (game.submitAnswer(answer)) {
-            SimonSaysGame.SubmitResult.CorrectContinue -> emitSimonSaysUiState(game)
-            SimonSaysGame.SubmitResult.RoundComplete -> {
+            SequenceSubmitResult.CorrectContinue -> emitSimonSaysUiState(game)
+            SequenceSubmitResult.RoundComplete -> {
                 points++
                 // The final tap of the round never emitted, so without this the board still shows
                 // the *second to last* pad lit all the way through the feedback beat.
@@ -2109,7 +2109,7 @@ class GameController(
                     startSimonSaysShow(game)
                 }
             }
-            SimonSaysGame.SubmitResult.Wrong -> {
+            SequenceSubmitResult.Wrong -> {
                 emitSimonSaysUiState(game)
                 scope.launch {
                     delay(2.seconds)
@@ -2155,11 +2155,11 @@ class GameController(
     ) {
         val index = input.toIntOrNull() ?: return
         when (game.selectBall(index)) {
-            OrbitTrackerGame.SubmitResult.CorrectContinue -> {
+            SequenceSubmitResult.CorrectContinue -> {
                 emitOrbitTrackerUiState(game)
                 _intermediateCorrectEvents.tryEmit(Unit)
             }
-            OrbitTrackerGame.SubmitResult.RoundComplete -> {
+            SequenceSubmitResult.RoundComplete -> {
                 points++
                 _gameState.value = GameState.Feedback(
                     gameType = currentState.gameType,
@@ -2174,7 +2174,7 @@ class GameController(
                     startOrbitTrackerAnimation(game)
                 }
             }
-            OrbitTrackerGame.SubmitResult.Wrong -> {
+            SequenceSubmitResult.Wrong -> {
                 emitOrbitTrackerUiState(game)
                 scope.launch {
                     delay(2.seconds)

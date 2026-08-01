@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
 import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
+import com.inspiredandroid.braincup.app.SequenceCellType
 import com.inspiredandroid.braincup.app.SimonSaysUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
@@ -380,9 +381,9 @@ fun createSimonSaysUiState(): SimonSaysUiState {
             SimonSaysUiState.PadState(
                 color = color,
                 type = if (color == tapped) {
-                    SimonSaysUiState.CellType.TAPPED
+                    SequenceCellType.TAPPED
                 } else {
-                    SimonSaysUiState.CellType.INACTIVE
+                    SequenceCellType.INACTIVE
                 },
             )
         }.toImmutableList(),

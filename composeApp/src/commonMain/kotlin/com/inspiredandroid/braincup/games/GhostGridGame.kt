@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.GhostGridUiState
+import com.inspiredandroid.braincup.app.SequenceCellType
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -14,12 +15,6 @@ import kotlin.time.Duration.Companion.milliseconds
  * one at a time on a grid, and the player must tap them back in the same order.
  */
 class GhostGridGame(private val random: Random = Random.Default) : Game() {
-    sealed class SubmitResult {
-        data object CorrectContinue : SubmitResult()
-        data object RoundComplete : SubmitResult()
-        data object Wrong : SubmitResult()
-    }
-
     enum class Phase {
         SHOWING,
         ANSWERING,
@@ -85,22 +80,22 @@ class GhostGridGame(private val random: Random = Random.Default) : Game() {
         showJob = null
     }
 
-    fun submitAnswer(position: String): SubmitResult {
-        val pos = position.toIntOrNull() ?: return SubmitResult.Wrong
+    fun submitAnswer(position: String): SequenceSubmitResult {
+        val pos = position.toIntOrNull() ?: return SequenceSubmitResult.Wrong
 
         val expected = sequence[currentTapIndex]
         if (pos != expected) {
             answeredAllCorrect = false
             wrongPosition = pos
             phase = Phase.GAME_OVER
-            return SubmitResult.Wrong
+            return SequenceSubmitResult.Wrong
         }
 
         currentTapIndex++
         if (currentTapIndex >= sequence.size) {
-            return SubmitResult.RoundComplete
+            return SequenceSubmitResult.RoundComplete
         }
-        return SubmitResult.CorrectContinue
+        return SequenceSubmitResult.CorrectContinue
     }
 
     override fun isCorrect(input: String): Boolean {
@@ -123,19 +118,19 @@ class GhostGridGame(private val random: Random = Random.Default) : Game() {
         val cells = (0 until totalCells).map { position ->
             when {
                 phase == Phase.SHOWING && currentShowIndex >= 0 && position == sequence[currentShowIndex] ->
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.ACTIVE)
+                    GhostGridUiState.CellState(SequenceCellType.ACTIVE)
 
                 phase == Phase.GAME_OVER && position == wrongPosition ->
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.WRONG)
+                    GhostGridUiState.CellState(SequenceCellType.WRONG)
 
                 phase == Phase.GAME_OVER && position == sequence[currentTapIndex] ->
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.MISSED)
+                    GhostGridUiState.CellState(SequenceCellType.MISSED)
 
                 position in tappedPositions ->
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.TAPPED)
+                    GhostGridUiState.CellState(SequenceCellType.TAPPED)
 
                 else ->
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.INACTIVE)
+                    GhostGridUiState.CellState(SequenceCellType.INACTIVE)
             }
         }
 

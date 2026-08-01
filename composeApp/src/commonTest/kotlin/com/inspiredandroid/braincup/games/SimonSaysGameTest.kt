@@ -1,6 +1,6 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.app.SimonSaysUiState
+import com.inspiredandroid.braincup.app.SequenceCellType
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import kotlin.random.Random
@@ -57,15 +57,15 @@ class SimonSaysGameTest {
 
         // Tapping only the newly shown pad is not enough to clear the round.
         assertEquals(
-            SimonSaysGame.SubmitResult.CorrectContinue,
+            SequenceSubmitResult.CorrectContinue,
             game.submitAnswer(game.sequence[0].name),
         )
         assertEquals(
-            SimonSaysGame.SubmitResult.CorrectContinue,
+            SequenceSubmitResult.CorrectContinue,
             game.submitAnswer(game.sequence[1].name),
         )
         assertEquals(
-            SimonSaysGame.SubmitResult.RoundComplete,
+            SequenceSubmitResult.RoundComplete,
             game.submitAnswer(game.sequence[2].name),
         )
     }
@@ -81,7 +81,7 @@ class SimonSaysGameTest {
 
         // The controller renders this state during the feedback beat, with currentTapIndex sitting
         // one past the end of the sequence. It must light the last pad, not read out of bounds.
-        val lit = game.toUiState().pads.filter { it.type == SimonSaysUiState.CellType.TAPPED }
+        val lit = game.toUiState().pads.filter { it.type == SequenceCellType.TAPPED }
         assertEquals(1, lit.size)
         assertEquals(game.sequence.last(), lit.single().color)
     }
@@ -92,14 +92,14 @@ class SimonSaysGameTest {
         game.nextRound()
         playFlash(game)
         game.submitAnswer(game.sequence[0].name)
-        assertTrue(game.toUiState().pads.any { it.type == SimonSaysUiState.CellType.TAPPED })
+        assertTrue(game.toUiState().pads.any { it.type == SequenceCellType.TAPPED })
 
         game.nextRound()
 
         // Nothing may still look active when the new round opens, or the leftover pad reads as
         // one the game just flashed.
         val types = game.toUiState().pads.map { it.type }
-        assertTrue(types.all { it == SimonSaysUiState.CellType.INACTIVE })
+        assertTrue(types.all { it == SequenceCellType.INACTIVE })
     }
 
     @Test
@@ -108,7 +108,7 @@ class SimonSaysGameTest {
         repeat(2) { game.nextRound() }
 
         val wrong = SimonSaysGame.PADS.first { it != game.sequence[0] }
-        assertEquals(SimonSaysGame.SubmitResult.Wrong, game.submitAnswer(wrong.name))
+        assertEquals(SequenceSubmitResult.Wrong, game.submitAnswer(wrong.name))
         assertEquals(SimonSaysGame.Phase.GAME_OVER, game.phase)
         assertEquals(wrong, game.wrongPad)
         assertFalse(game.answeredAllCorrect)

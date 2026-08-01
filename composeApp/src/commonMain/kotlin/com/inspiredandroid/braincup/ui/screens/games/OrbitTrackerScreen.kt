@@ -154,10 +154,10 @@ private fun OrbitTrackerArena(
             val center = Offset(px * size.width, py * size.height)
 
             val color = when {
-                ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED && isGameOver -> SuccessGreen
-                ball.feedback == OrbitTrackerUiState.BallFeedback.CORRECT_SELECTED -> primaryColor
-                ball.feedback == OrbitTrackerUiState.BallFeedback.WRONG_SELECTED -> errorColor
-                ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED -> SuccessGreen
+                ball.feedback == OrbitTrackerGame.BallFeedback.CORRECT_SELECTED && isGameOver -> SuccessGreen
+                ball.feedback == OrbitTrackerGame.BallFeedback.CORRECT_SELECTED -> primaryColor
+                ball.feedback == OrbitTrackerGame.BallFeedback.WRONG_SELECTED -> errorColor
+                ball.feedback == OrbitTrackerGame.BallFeedback.MISSED -> SuccessGreen
                 isHighlighting && ball.isTarget -> primaryColor
                 else -> onSurfaceVariantColor
             }
@@ -168,7 +168,7 @@ private fun OrbitTrackerArena(
                 face = color,
             )
 
-            if (ball.feedback == OrbitTrackerUiState.BallFeedback.MISSED) {
+            if (ball.feedback == OrbitTrackerGame.BallFeedback.MISSED) {
                 drawCircle(
                     color = SuccessGreen,
                     radius = ballRadiusPx + 3.dp.toPx(),
@@ -177,7 +177,7 @@ private fun OrbitTrackerArena(
                 )
             }
 
-            if (ball.isSelected && ball.feedback == OrbitTrackerUiState.BallFeedback.NONE) {
+            if (ball.isSelected && ball.feedback == OrbitTrackerGame.BallFeedback.NONE) {
                 drawCircle(
                     color = primaryColor,
                     radius = ballRadiusPx + 3.dp.toPx(),
@@ -219,9 +219,9 @@ private fun OrbitTrackerContentPreview() {
         OrbitTrackerContent(
             uiState = OrbitTrackerUiState(
                 balls = persistentListOf(
-                    OrbitTrackerUiState.BallState(0.3f, 0.4f, true, false, OrbitTrackerUiState.BallFeedback.NONE),
-                    OrbitTrackerUiState.BallState(0.6f, 0.5f, false, false, OrbitTrackerUiState.BallFeedback.NONE),
-                    OrbitTrackerUiState.BallState(0.5f, 0.7f, true, true, OrbitTrackerUiState.BallFeedback.NONE),
+                    OrbitTrackerUiState.BallState(0.3f, 0.4f, true, false, OrbitTrackerGame.BallFeedback.NONE),
+                    OrbitTrackerUiState.BallState(0.6f, 0.5f, false, false, OrbitTrackerGame.BallFeedback.NONE),
+                    OrbitTrackerUiState.BallState(0.5f, 0.7f, true, true, OrbitTrackerGame.BallFeedback.NONE),
                 ),
                 phase = OrbitTrackerGame.Phase.ANSWERING,
                 targetCount = 2,

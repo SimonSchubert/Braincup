@@ -49,7 +49,7 @@ internal fun ColumnScope.SimonSaysContent(
             pad = pad,
             quadrant = quadrant,
             isClickable = isClickable,
-            tapFlashKey = if (pad.type == SimonSaysUiState.CellType.TAPPED) tapFlashKey else 0,
+            tapFlashKey = if (pad.type == SequenceCellType.TAPPED) tapFlashKey else 0,
             onClick = { onAnswer(pad.color.name) },
             modifier = padModifier,
         )
@@ -71,12 +71,12 @@ private fun SimonPad(
     // "missed" tint next to the green pad, is unreadable. Lit/dim carries the state and a ✓/✗
     // mark carries the verdict, both independent of hue.
     val baseLit = when (pad.type) {
-        SimonSaysUiState.CellType.ACTIVE,
-        SimonSaysUiState.CellType.TAPPED,
-        SimonSaysUiState.CellType.MISSED,
+        SequenceCellType.ACTIVE,
+        SequenceCellType.TAPPED,
+        SequenceCellType.MISSED,
         -> true
-        SimonSaysUiState.CellType.WRONG,
-        SimonSaysUiState.CellType.INACTIVE,
+        SequenceCellType.WRONG,
+        SequenceCellType.INACTIVE,
         -> false
     }
     // Brief dark blip so a repeated same-color tap still reads as a new press.
@@ -121,8 +121,8 @@ private fun SimonPad(
             .hoverHand(isClickable),
     ) {
         val mark = when (pad.type) {
-            SimonSaysUiState.CellType.WRONG -> SimonMark.WRONG
-            SimonSaysUiState.CellType.MISSED -> SimonMark.MISSED
+            SequenceCellType.WRONG -> SimonMark.WRONG
+            SequenceCellType.MISSED -> SimonMark.MISSED
             else -> null
         }
         if (mark != null) {
@@ -178,7 +178,7 @@ private fun SimonSaysContentPreview() {
                 pads = SimonSaysGame.PADS.mapIndexed { index, color ->
                     SimonSaysUiState.PadState(
                         color = color,
-                        type = if (index == 0) SimonSaysUiState.CellType.TAPPED else SimonSaysUiState.CellType.INACTIVE,
+                        type = if (index == 0) SequenceCellType.TAPPED else SequenceCellType.INACTIVE,
                     )
                 }.toImmutableList(),
                 sequenceLength = 3,

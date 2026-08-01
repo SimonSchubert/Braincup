@@ -104,13 +104,7 @@ class ColorConfusionGame : Game() {
                 word = cell.word,
                 fontColor = cell.fontColor,
                 isSelected = index in selectedIndices,
-                feedback = when (feedbackState[index]) {
-                    CellFeedback.NONE -> ColorConfusionUiState.CellFeedback.NONE
-                    CellFeedback.CORRECT_SELECTED -> ColorConfusionUiState.CellFeedback.CORRECT_SELECTED
-                    CellFeedback.WRONG_SELECTED -> ColorConfusionUiState.CellFeedback.WRONG_SELECTED
-                    CellFeedback.MISSED -> ColorConfusionUiState.CellFeedback.MISSED
-                    CellFeedback.CORRECT_UNSELECTED -> ColorConfusionUiState.CellFeedback.CORRECT_UNSELECTED
-                },
+                feedback = feedbackState[index],
             )
         }.toImmutableList(),
         isSubmitted = isSubmitted,

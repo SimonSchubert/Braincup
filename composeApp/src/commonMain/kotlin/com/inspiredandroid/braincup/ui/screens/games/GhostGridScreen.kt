@@ -59,17 +59,17 @@ private fun GhostGridCell(
     modifier: Modifier = Modifier,
 ) {
     val face = when (cell.type) {
-        GhostGridUiState.CellType.ACTIVE -> Primary
-        GhostGridUiState.CellType.TAPPED -> Primary
-        GhostGridUiState.CellType.WRONG -> MaterialTheme.colorScheme.errorContainer
-        GhostGridUiState.CellType.MISSED -> SuccessGreenSoft
-        GhostGridUiState.CellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
+        SequenceCellType.ACTIVE -> Primary
+        SequenceCellType.TAPPED -> Primary
+        SequenceCellType.WRONG -> MaterialTheme.colorScheme.errorContainer
+        SequenceCellType.MISSED -> SuccessGreenSoft
+        SequenceCellType.INACTIVE -> MaterialTheme.colorScheme.surfaceVariant
     }
     PrismTile(
         face = face,
         modifier = modifier.hoverHand(isClickable),
         isClickable = isClickable,
-        isSelected = cell.type == GhostGridUiState.CellType.TAPPED,
+        isSelected = cell.type == SequenceCellType.TAPPED,
         onClick = onClick,
     ) {}
 }
@@ -84,15 +84,15 @@ private fun GhostGridContentPreview() {
                 round = 1,
                 phase = GhostGridGame.Phase.SHOWING,
                 cells = persistentListOf(
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.ACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.INACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.INACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.INACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.ACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.INACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.INACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.INACTIVE),
-                    GhostGridUiState.CellState(GhostGridUiState.CellType.ACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.ACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.INACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.INACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.INACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.ACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.INACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.INACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.INACTIVE),
+                    GhostGridUiState.CellState(SequenceCellType.ACTIVE),
                 ),
                 sequenceLength = 3,
                 tappedCount = 0,

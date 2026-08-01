@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.SequenceCellType
 import com.inspiredandroid.braincup.app.SimonSaysUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import kotlinx.collections.immutable.toImmutableList
@@ -17,12 +18,6 @@ import kotlin.time.Duration.Companion.milliseconds
  * length) survived.
  */
 class SimonSaysGame(private val random: Random = Random.Default) : Game() {
-    sealed class SubmitResult {
-        data object CorrectContinue : SubmitResult()
-        data object RoundComplete : SubmitResult()
-        data object Wrong : SubmitResult()
-    }
-
     enum class Phase { SHOWING, ANSWERING, GAME_OVER }
 
     companion object {
@@ -85,18 +80,18 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
         showJob = null
     }
 
-    fun submitAnswer(colorName: String): SubmitResult {
+    fun submitAnswer(colorName: String): SequenceSubmitResult {
         val color = Color.entries.find { it.name == colorName }
         val expected = sequence[currentTapIndex]
         if (color == null || color != expected) {
             answeredAllCorrect = false
             wrongPad = color
             phase = Phase.GAME_OVER
-            return SubmitResult.Wrong
+            return SequenceSubmitResult.Wrong
         }
         currentTapIndex++
-        if (currentTapIndex >= sequence.size) return SubmitResult.RoundComplete
-        return SubmitResult.CorrectContinue
+        if (currentTapIndex >= sequence.size) return SequenceSubmitResult.RoundComplete
+        return SequenceSubmitResult.CorrectContinue
     }
 
     override fun isCorrect(input: String): Boolean {
@@ -112,18 +107,18 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
         val pads = PADS.map { color ->
             val type = when {
                 phase == Phase.SHOWING && currentShowIndex >= 0 && sequence[currentShowIndex] == color ->
-                    SimonSaysUiState.CellType.ACTIVE
+                    SequenceCellType.ACTIVE
                 phase == Phase.GAME_OVER && wrongPad == color ->
-                    SimonSaysUiState.CellType.WRONG
+                    SequenceCellType.WRONG
                 phase == Phase.GAME_OVER && sequence[currentTapIndex] == color ->
-                    SimonSaysUiState.CellType.MISSED
+                    SequenceCellType.MISSED
                 // Repeat-safe: highlight only the single most recently correctly-tapped pad, not
                 // "any pad tapped so far" -- colors repeat within a round (e.g. GREEN, RED, GREEN),
                 // so a Set-membership check (Ghost Grid's approach) would wrongly keep GREEN "done"
                 // after step 1 even though it's needed again at step 3.
                 phase == Phase.ANSWERING && currentTapIndex > 0 && sequence[currentTapIndex - 1] == color ->
-                    SimonSaysUiState.CellType.TAPPED
-                else -> SimonSaysUiState.CellType.INACTIVE
+                    SequenceCellType.TAPPED
+                else -> SequenceCellType.INACTIVE
             }
             SimonSaysUiState.PadState(color, type)
         }
