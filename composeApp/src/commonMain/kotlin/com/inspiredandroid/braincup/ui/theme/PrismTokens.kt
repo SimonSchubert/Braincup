@@ -24,5 +24,4 @@ object PrismShade {
 }
 
 val RoundedSlot = RoundedCornerShape(10.dp)
-val RoundedCard = RoundedCornerShape(16.dp)
 const val SlotBorderWidthDp = 2

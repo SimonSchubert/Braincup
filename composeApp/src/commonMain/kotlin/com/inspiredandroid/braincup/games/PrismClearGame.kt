@@ -366,15 +366,6 @@ internal fun verifySolves(
     return sim.all { it == null }
 }
 
-internal fun freeRow(cells: Array<PrismTileType?>, rows: Int, cols: Int, c: Int): Int? {
-    var h = 0
-    for (r in 0 until rows) {
-        if (cells[r * cols + c] != null) h++
-    }
-    val fr = rows - 1 - h
-    return if (fr >= 0) fr else null
-}
-
 internal fun orthogonalNeighbors(index: Int, rows: Int, cols: Int): List<Int> {
     val r = index / cols
     val c = index % cols

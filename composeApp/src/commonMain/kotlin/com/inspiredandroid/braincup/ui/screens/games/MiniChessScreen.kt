@@ -38,8 +38,6 @@ private val MiniChessCaptureTint = ChessCaptureTint
 
 private val MiniChessDrawDot = ChessDrawDot
 
-private val MiniChessDrawTint = ChessDrawTint
-
 private val MiniChessCheckTint = ChessCheckTint
 
 private val MiniChessWarning = ChessWarning
