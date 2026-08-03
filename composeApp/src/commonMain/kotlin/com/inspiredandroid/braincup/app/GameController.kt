@@ -205,17 +205,7 @@ class GameController(
     fun navigateToMainMenu() {
         val currentState = _gameState.value
         if (currentState is GameState.Active) {
-            (currentState.game as? VisualMemoryGame)?.cancelCountdown()
-            (currentState.game as? SpotTheNewGame)?.cancelCountdown()
-            (currentState.game as? GhostGridGame)?.cancelShowSequence()
-            (currentState.game as? SimonSaysGame)?.cancelShowNewPad()
-            (currentState.game as? OrbitTrackerGame)?.cancelAnimation()
-            (currentState.game as? BubbleSumGame)?.cancelAnimation()
-            (currentState.game as? DigitMemoryGame)?.cancelShowing()
-            (currentState.game as? QuickSumGame)?.cancelFlashing()
-            (currentState.game as? NBackGame)?.cancelShowing()
-            if (currentState.game is MiniChessGame) cancelMiniChessAi()
-            if (currentState.game is FlagsGame) cancelFlagsTimer()
+            cancelPendingJobs(currentState.game)
         }
         timersPaused = false
         pausedTimerKind = null
@@ -301,100 +291,38 @@ class GameController(
         points = 0
         sessionStartRound = 0
 
-        // Visual Memory and Ghost Grid have special handling (no timer, round-based)
-        if (gameType == GameType.VISUAL_MEMORY) {
-            startVisualMemoryGame(gameType)
-            return
+        // Games that own their setup (reveal timers, animation loops, stored level, async word
+        // list) start themselves; the rest take the generic timed-round path.
+        when (gameType) {
+            GameType.VISUAL_MEMORY -> startVisualMemoryGame(gameType)
+            GameType.GHOST_GRID -> startGhostGridGame(gameType)
+            GameType.SIMON_SAYS -> startSimonSaysGame(gameType)
+            GameType.ORBIT_TRACKER -> startOrbitTrackerGame(gameType)
+            GameType.SCHULTE_TABLE -> startSchulteTableGame(gameType)
+            GameType.MINI_CHESS -> startMiniChessGame(gameType)
+            GameType.LIGHTS_OUT -> startLevelGame(gameType) { LightsOutGame(level = it) }
+            GameType.SLIDING_PUZZLE -> startLevelGame(gameType) { SlidingPuzzleGame(level = it) }
+            GameType.TOWER_OF_HANOI -> startLevelGame(gameType) { TowerOfHanoiGame(level = it) }
+            GameType.SHIKAKU -> startLevelGame(gameType) { ShikakuGame(level = it) }
+            GameType.NURIKABE -> startLevelGame(gameType) { NurikabeGame(level = it) }
+            GameType.CAT_QUEENS -> startLevelGame(gameType) { CatQueensGame(level = it) }
+            GameType.KNOT -> startLevelGame(gameType) { KnotGame(level = it) }
+            GameType.SOLO_CHESS -> startLevelGame(gameType) { SoloChessGame(level = it) }
+            GameType.PRISM_CLEAR -> startPrismClearGame(gameType)
+            GameType.FLAGS -> startFlagsGame(gameType)
+            GameType.DIGIT_MEMORY -> startDigitMemoryGame(gameType)
+            GameType.QUICK_SUM -> startQuickSumGame(gameType)
+            GameType.N_BACK -> startNBackGame(gameType)
+            GameType.BUBBLE_SUM -> startBubbleSumGame(gameType)
+            GameType.SPOT_THE_NEW -> startSpotTheNewGame(gameType)
+            GameType.WORDLE -> startWordleGame(gameType)
+            GameType.BULLS_AND_COWS -> startBullsAndCowsGame(gameType)
+            else -> startTimedRoundGame(gameType)
         }
-        if (gameType == GameType.GHOST_GRID) {
-            startGhostGridGame(gameType)
-            return
-        }
-        if (gameType == GameType.SIMON_SAYS) {
-            startSimonSaysGame(gameType)
-            return
-        }
-        if (gameType == GameType.ORBIT_TRACKER) {
-            startOrbitTrackerGame(gameType)
-            return
-        }
-        if (gameType == GameType.SCHULTE_TABLE) {
-            startSchulteTableGame(gameType)
-            return
-        }
-        if (gameType == GameType.MINI_CHESS) {
-            startMiniChessGame(gameType)
-            return
-        }
-        if (gameType == GameType.LIGHTS_OUT) {
-            startLevelGame(gameType) { LightsOutGame(level = it) }
-            return
-        }
-        if (gameType == GameType.SLIDING_PUZZLE) {
-            startLevelGame(gameType) { SlidingPuzzleGame(level = it) }
-            return
-        }
-        if (gameType == GameType.TOWER_OF_HANOI) {
-            startLevelGame(gameType) { TowerOfHanoiGame(level = it) }
-            return
-        }
-        if (gameType == GameType.SHIKAKU) {
-            startLevelGame(gameType) { ShikakuGame(level = it) }
-            return
-        }
-        if (gameType == GameType.NURIKABE) {
-            startLevelGame(gameType) { NurikabeGame(level = it) }
-            return
-        }
-        if (gameType == GameType.CAT_QUEENS) {
-            startLevelGame(gameType) { CatQueensGame(level = it) }
-            return
-        }
-        if (gameType == GameType.KNOT) {
-            startLevelGame(gameType) { KnotGame(level = it) }
-            return
-        }
-        if (gameType == GameType.SOLO_CHESS) {
-            startLevelGame(gameType) { SoloChessGame(level = it) }
-            return
-        }
-        if (gameType == GameType.PRISM_CLEAR) {
-            startPrismClearGame(gameType)
-            return
-        }
-        if (gameType == GameType.FLAGS) {
-            startFlagsGame(gameType)
-            return
-        }
-        if (gameType == GameType.DIGIT_MEMORY) {
-            startDigitMemoryGame(gameType)
-            return
-        }
-        if (gameType == GameType.QUICK_SUM) {
-            startQuickSumGame(gameType)
-            return
-        }
-        if (gameType == GameType.N_BACK) {
-            startNBackGame(gameType)
-            return
-        }
-        if (gameType == GameType.BUBBLE_SUM) {
-            startBubbleSumGame(gameType)
-            return
-        }
-        if (gameType == GameType.SPOT_THE_NEW) {
-            startSpotTheNewGame(gameType)
-            return
-        }
-        if (gameType == GameType.WORDLE) {
-            startWordleGame(gameType)
-            return
-        }
-        if (gameType == GameType.BULLS_AND_COWS) {
-            startBullsAndCowsGame(gameType)
-            return
-        }
+    }
 
+    /** The default flow: a fixed-length timed run of generated rounds. */
+    private fun startTimedRoundGame(gameType: GameType) {
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
 
@@ -416,131 +344,44 @@ class GameController(
         if (currentState !is GameState.Active) return
 
         val game = currentState.game
-        if (game is VisualMemoryGame) {
-            handleVisualMemoryAnswer(game, answer)
-            return
+        when (game) {
+            is VisualMemoryGame -> handleVisualMemoryAnswer(game, answer)
+            is GhostGridGame -> handleGhostGridAnswer(currentState, game, answer)
+            is SimonSaysGame -> handleSimonSaysAnswer(currentState, game, answer)
+            is AnomalyPuzzleGame -> handleAnomalyPuzzleAnswer(currentState, game, answer.trim())
+            is PatternSequenceGame -> handlePatternSequenceAnswer(currentState, game, answer.trim())
+            is PathFinderGame -> handlePathFinderAnswer(currentState, game, answer.trim())
+            is ColoredShapesGame -> handleColoredShapesAnswer(currentState, game, answer.trim())
+            is ColorConfusionGame -> handleColorConfusionAnswer(currentState, game, answer.trim())
+            is OrbitTrackerGame -> handleOrbitTrackerAnswer(currentState, game, answer.trim())
+            is FlashCrowdGame -> handleFlashCrowdAnswer(currentState, game, answer.trim())
+            is MiniSudokuGame -> handleMiniSudokuAnswer(currentState, game, answer.trim())
+            is WordleGame -> handleWordleAnswer(currentState, game, answer)
+            is LightsOutGame -> handleLightsOutAnswer(currentState, game, answer.trim())
+            is SlidingPuzzleGame -> handleSlidingPuzzleAnswer(currentState, game, answer.trim())
+            is TowerOfHanoiGame -> handleTowerOfHanoiAnswer(currentState, game, answer.trim())
+            is ShikakuGame -> handleShikakuAnswer(currentState, game, answer.trim())
+            is NurikabeGame -> handleNurikabeAnswer(currentState, game, answer.trim())
+            is CatQueensGame -> handleCatQueensAnswer(currentState, game, answer.trim())
+            is KnotGame -> handleKnotAnswer(currentState, game, answer.trim())
+            is SoloChessGame -> handleSoloChessAnswer(currentState, game, answer.trim())
+            is PrismClearGame -> handlePrismClearAnswer(currentState, game, answer.trim())
+            is SchulteTableGame -> handleSchulteTableAnswer(currentState, game, answer.trim())
+            is ValueComparisonGame -> handleValueComparisonAnswer(currentState, game, answer.trim())
+            is MissingOperatorsGame -> handleMissingOperatorsAnswer(currentState, game, answer.trim())
+            is MiniChessGame -> handleMiniChessAnswer(currentState, game, answer.trim())
+            is FlagsGame -> handleFlagsAnswer(currentState, game, answer.trim())
+            is DigitMemoryGame -> handleDigitMemoryAnswer(currentState, game, answer.trim())
+            is QuickSumGame -> handleQuickSumAnswer(currentState, game, answer.trim())
+            is NBackGame -> handleNBackAnswer(currentState, game, answer.trim())
+            is SpotTheNewGame -> handleSpotTheNewAnswer(game, answer.trim())
+            is BullsAndCowsGame -> handleBullsAndCowsAnswer(currentState, game, answer)
+            else -> submitGenericAnswer(currentState, game, answer)
         }
-        if (game is GhostGridGame) {
-            handleGhostGridAnswer(currentState, game, answer)
-            return
-        }
-        if (game is SimonSaysGame) {
-            handleSimonSaysAnswer(currentState, game, answer)
-            return
-        }
-        if (game is AnomalyPuzzleGame) {
-            handleAnomalyPuzzleAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is PatternSequenceGame) {
-            handlePatternSequenceAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is PathFinderGame) {
-            handlePathFinderAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is ColoredShapesGame) {
-            handleColoredShapesAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is ColorConfusionGame) {
-            handleColorConfusionAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is OrbitTrackerGame) {
-            handleOrbitTrackerAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is FlashCrowdGame) {
-            handleFlashCrowdAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is MiniSudokuGame) {
-            handleMiniSudokuAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is WordleGame) {
-            handleWordleAnswer(currentState, game, answer)
-            return
-        }
-        if (game is LightsOutGame) {
-            handleLightsOutAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is SlidingPuzzleGame) {
-            handleSlidingPuzzleAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is TowerOfHanoiGame) {
-            handleTowerOfHanoiAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is ShikakuGame) {
-            handleShikakuAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is NurikabeGame) {
-            handleNurikabeAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is CatQueensGame) {
-            handleCatQueensAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is KnotGame) {
-            handleKnotAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is SoloChessGame) {
-            handleSoloChessAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is PrismClearGame) {
-            handlePrismClearAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is SchulteTableGame) {
-            handleSchulteTableAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is ValueComparisonGame) {
-            handleValueComparisonAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is MissingOperatorsGame) {
-            handleMissingOperatorsAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is MiniChessGame) {
-            handleMiniChessAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is FlagsGame) {
-            handleFlagsAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is DigitMemoryGame) {
-            handleDigitMemoryAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is QuickSumGame) {
-            handleQuickSumAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is NBackGame) {
-            handleNBackAnswer(currentState, game, answer.trim())
-            return
-        }
-        if (game is SpotTheNewGame) {
-            handleSpotTheNewAnswer(game, answer.trim())
-            return
-        }
-        if (game is BullsAndCowsGame) {
-            handleBullsAndCowsAnswer(currentState, game, answer)
-            return
-        }
+    }
 
+    /** Correct/incorrect plus a one-second feedback beat, for games without bespoke handling. */
+    private fun submitGenericAnswer(currentState: GameState.Active, game: Game, answer: String) {
         val input = answer.trim()
         val isCorrect = game.isCorrect(input)
 
@@ -579,7 +420,6 @@ class GameController(
         game.answeredAllCorrect = false
 
         if (game is MiniChessGame) {
-            cancelMiniChessAi()
             game.markGiveUp()
             finishCurrentGame(currentState.gameType, game)
             return
@@ -843,7 +683,7 @@ class GameController(
                     game.resumeFlashing(scope) { _gameUiState.value = game.toUiState() }
                 }
             is NBackGame ->
-                if (game.phase == NBackGame.Phase.MEMORIZE && game.wasPaused()) {
+                if (game.phase == NBackGame.Phase.MEMORIZE) {
                     game.resumeShowing(scope) { _gameUiState.value = game.toUiState() }
                 }
         }
@@ -2032,16 +1872,7 @@ class GameController(
     }
 
     private fun finishCurrentGame(gameType: GameType, game: Game) {
-        (game as? VisualMemoryGame)?.cancelCountdown()
-        (game as? SpotTheNewGame)?.cancelCountdown()
-        (game as? GhostGridGame)?.cancelShowSequence()
-        (game as? SimonSaysGame)?.cancelShowNewPad()
-        (game as? OrbitTrackerGame)?.cancelAnimation()
-        (game as? BubbleSumGame)?.cancelAnimation()
-        (game as? DigitMemoryGame)?.cancelShowing()
-        (game as? QuickSumGame)?.cancelFlashing()
-        (game as? NBackGame)?.cancelShowing()
-        if (game is FlagsGame) cancelFlagsTimer()
+        cancelPendingJobs(game)
         cancelTimer()
         _gameUiState.value = null
         _gameState.value = GameState.Idle
@@ -2370,6 +2201,24 @@ class GameController(
         storage.putScore(currentState.gameType.id, points)
         _totalXp.value = storage.getTotalXp()
         refreshDerivedStorageState()
+    }
+
+    /**
+     * Stops any coroutine a game left running (reveal timers, animation frames, AI search).
+     * Every exit path out of a live game goes through here so no single path can forget one.
+     */
+    private fun cancelPendingJobs(game: Game) {
+        (game as? VisualMemoryGame)?.cancelCountdown()
+        (game as? SpotTheNewGame)?.cancelCountdown()
+        (game as? GhostGridGame)?.cancelShowSequence()
+        (game as? SimonSaysGame)?.cancelShowNewPad()
+        (game as? OrbitTrackerGame)?.cancelAnimation()
+        (game as? BubbleSumGame)?.cancelAnimation()
+        (game as? DigitMemoryGame)?.cancelShowing()
+        (game as? QuickSumGame)?.cancelFlashing()
+        (game as? NBackGame)?.cancelShowing()
+        if (game is MiniChessGame) cancelMiniChessAi()
+        if (game is FlagsGame) cancelFlagsTimer()
     }
 
     private fun cancelMiniChessAi() {

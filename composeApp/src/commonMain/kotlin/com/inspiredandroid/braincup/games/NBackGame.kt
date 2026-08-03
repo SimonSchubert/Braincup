@@ -141,8 +141,6 @@ class NBackGame : Game() {
         showJob = null
     }
 
-    fun wasPaused(): Boolean = showPaused
-
     /**
      * Restart the round with a fresh sequence rather than resuming mid-flash. Half a shown sequence
      * has no meaningful resume point, and replaying the same shapes would turn the quit dialog into a
