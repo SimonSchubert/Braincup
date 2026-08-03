@@ -2,7 +2,7 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.PrismClearClearWave
 import com.inspiredandroid.braincup.app.PrismClearUiState
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
 import kotlinx.collections.immutable.toImmutableList
@@ -16,12 +16,12 @@ import kotlinx.collections.immutable.toImmutableList
  *
  * Boards come from the hand-authored catalog [PrismClearLevels].
  */
-enum class PrismTileType(val color: Color, val shape: Shape) {
-    RUBY(Color.RED, Shape.CIRCLE),
-    EMERALD(Color.GREEN, Shape.SQUARE),
-    SAPPHIRE(Color.BLUE, Shape.TRIANGLE),
-    AMETHYST(Color.PURPLE, Shape.DIAMOND),
-    TOPAZ(Color.ORANGE, Shape.STAR),
+enum class PrismTileType(val color: GameColor, val shape: Shape) {
+    RUBY(GameColor.RED, Shape.CIRCLE),
+    EMERALD(GameColor.GREEN, Shape.SQUARE),
+    SAPPHIRE(GameColor.BLUE, Shape.TRIANGLE),
+    AMETHYST(GameColor.PURPLE, Shape.DIAMOND),
+    TOPAZ(GameColor.ORANGE, Shape.STAR),
 }
 
 class PrismClearGame(

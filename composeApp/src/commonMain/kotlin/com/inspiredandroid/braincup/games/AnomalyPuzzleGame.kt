@@ -3,8 +3,8 @@ package com.inspiredandroid.braincup.games
 import com.inspiredandroid.braincup.app.AnomalyPuzzleUiState
 import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FigureCell
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.toImmutableList
 
@@ -47,7 +47,7 @@ class AnomalyPuzzleGame : Game() {
 
     private val basicShapes =
         listOf(Shape.SQUARE, Shape.TRIANGLE, Shape.CIRCLE, Shape.HEART, Shape.STAR)
-    private val basicColors = listOf(Color.GREEN, Color.BLUE, Color.PURPLE, Color.RED, Color.YELLOW)
+    private val basicColors = listOf(GameColor.GREEN, GameColor.BLUE, GameColor.PURPLE, GameColor.RED, GameColor.YELLOW)
     private val fallbackPuzzles by lazy {
         listOf(
             Puzzle.SAME_SHAPE_MAX_COLOR,
@@ -159,7 +159,7 @@ class AnomalyPuzzleGame : Game() {
         outstandingFigure: Figure,
         maxFigures: Int,
     ): Figure {
-        val allColors = basicColors + Color.ROSA + Color.TURQUOISE + Color.ORANGE
+        val allColors = basicColors + GameColor.ROSA + GameColor.TURQUOISE + GameColor.ORANGE
         val modified = outstandingFigure.copy(color = allColors.random())
         sameShapeRound(modified, maxFigures, allColors)
         return modified
@@ -229,7 +229,7 @@ class AnomalyPuzzleGame : Game() {
     private fun sameShapeRound(
         outstandingFigure: Figure,
         maxFigures: Int,
-        colors: List<Color>,
+        colors: List<GameColor>,
     ) {
         val availableColors =
             colors

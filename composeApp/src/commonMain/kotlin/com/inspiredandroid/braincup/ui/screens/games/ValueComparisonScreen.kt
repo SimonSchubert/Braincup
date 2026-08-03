@@ -6,6 +6,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
@@ -14,7 +15,6 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
 internal fun ColumnScope.ValueComparisonContent(
@@ -36,7 +36,7 @@ internal fun ColumnScope.ValueComparisonContent(
         }
         val contentColor = when (button.state) {
             AnswerButtonState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
-            else -> ComposeColor.White
+            else -> Color.White
         }
         val isInteractive = button.state == AnswerButtonState.NORMAL
         PrismTile(

@@ -27,8 +27,8 @@ import braincup.composeapp.generated.resources.anomaly_demo_color
 import braincup.composeapp.generated.resources.anomaly_demo_correct
 import braincup.composeapp.generated.resources.anomaly_demo_shape
 import braincup.composeapp.generated.resources.anomaly_demo_title
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
@@ -46,10 +46,10 @@ private const val Round1OddIndex = 1
 private const val Round2OddIndex = 2
 
 private val Round1Figures: List<Figure> = List(DemoGridSize * DemoGridSize) { index ->
-    if (index == Round1OddIndex) Figure(Shape.STAR, Color.YELLOW) else Figure(Shape.STAR, Color.BLUE)
+    if (index == Round1OddIndex) Figure(Shape.STAR, GameColor.YELLOW) else Figure(Shape.STAR, GameColor.BLUE)
 }
 private val Round2Figures: List<Figure> = List(DemoGridSize * DemoGridSize) { index ->
-    if (index == Round2OddIndex) Figure(Shape.TRIANGLE, Color.GREEN) else Figure(Shape.SQUARE, Color.GREEN)
+    if (index == Round2OddIndex) Figure(Shape.TRIANGLE, GameColor.GREEN) else Figure(Shape.SQUARE, GameColor.GREEN)
 }
 
 private const val ScanMillis = 900L

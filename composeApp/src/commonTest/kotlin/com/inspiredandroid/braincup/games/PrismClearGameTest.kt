@@ -79,7 +79,7 @@ class PrismClearGameTest {
     @Test
     fun topazIsOrangeNotYellow() {
         assertEquals(
-            com.inspiredandroid.braincup.games.tools.Color.ORANGE,
+            com.inspiredandroid.braincup.games.tools.GameColor.ORANGE,
             PrismTileType.TOPAZ.color,
         )
     }

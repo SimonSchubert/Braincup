@@ -2,21 +2,21 @@ package com.inspiredandroid.braincup.ui
 
 import androidx.compose.runtime.Composable
 import braincup.composeapp.generated.resources.*
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun Color.localizedName(): String = when (this) {
-    Color.RED -> stringResource(Res.string.color_red)
-    Color.GREEN -> stringResource(Res.string.color_green)
-    Color.BLUE -> stringResource(Res.string.color_blue)
-    Color.PURPLE -> stringResource(Res.string.color_purple)
-    Color.YELLOW -> stringResource(Res.string.color_yellow)
-    Color.ORANGE -> stringResource(Res.string.color_orange)
-    Color.TURQUOISE -> stringResource(Res.string.color_turquoise)
-    Color.ROSA -> stringResource(Res.string.color_pink)
-    Color.GREY_LIGHT -> stringResource(Res.string.color_light_grey)
+fun GameColor.localizedName(): String = when (this) {
+    GameColor.RED -> stringResource(Res.string.color_red)
+    GameColor.GREEN -> stringResource(Res.string.color_green)
+    GameColor.BLUE -> stringResource(Res.string.color_blue)
+    GameColor.PURPLE -> stringResource(Res.string.color_purple)
+    GameColor.YELLOW -> stringResource(Res.string.color_yellow)
+    GameColor.ORANGE -> stringResource(Res.string.color_orange)
+    GameColor.TURQUOISE -> stringResource(Res.string.color_turquoise)
+    GameColor.ROSA -> stringResource(Res.string.color_pink)
+    GameColor.GREY_LIGHT -> stringResource(Res.string.color_light_grey)
 }.uppercase()
 
 @Composable

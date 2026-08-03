@@ -27,6 +27,7 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.colored_shapes_demo_title
 import braincup.composeapp.generated.resources.game_colored_shapes_desc
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.localizedName
@@ -34,7 +35,6 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
-import com.inspiredandroid.braincup.games.tools.Color as GameColor
 
 // A fixed example: a red triangle. The shape statement is true (it IS a triangle), the colour
 // statement is false (it is red, not blue), so the score is just the shape's points.

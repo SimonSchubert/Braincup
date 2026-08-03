@@ -32,8 +32,8 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_visual_memory_desc
 import braincup.composeapp.generated.resources.visual_memory_demo_title
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
@@ -43,15 +43,15 @@ private const val DemoGridSize = 3
 // Three figures placed on a 3x3 grid (by cell index), recalled in a scrambled order. Mirrors
 // VisualMemoryGame: memorize the placements, then identify each hidden figure.
 private val Placements = mapOf(
-    1 to Figure(Shape.STAR, Color.YELLOW),
-    3 to Figure(Shape.HEART, Color.RED),
-    8 to Figure(Shape.TRIANGLE, Color.BLUE),
+    1 to Figure(Shape.STAR, GameColor.YELLOW),
+    3 to Figure(Shape.HEART, GameColor.RED),
+    8 to Figure(Shape.TRIANGLE, GameColor.BLUE),
 )
 private val RecallOrder = listOf(3, 1, 8)
 private val AnswerFigures = listOf(
-    Figure(Shape.HEART, Color.RED),
-    Figure(Shape.TRIANGLE, Color.BLUE),
-    Figure(Shape.STAR, Color.YELLOW),
+    Figure(Shape.HEART, GameColor.RED),
+    Figure(Shape.TRIANGLE, GameColor.BLUE),
+    Figure(Shape.STAR, GameColor.YELLOW),
 )
 
 private const val MemorizeMillis = 2200L

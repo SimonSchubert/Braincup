@@ -2,9 +2,9 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FigureCell
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.splitToIntList
 import kotlinx.collections.immutable.toImmutableList
@@ -82,7 +82,7 @@ class PathFinderGame : Game() {
                 FigureCell(
                     Figure(
                         Shape.SQUARE,
-                        if (isStart) Color.ORANGE else Color.GREY_LIGHT,
+                        if (isStart) GameColor.ORANGE else GameColor.GREY_LIGHT,
                     ),
                 )
             }.toImmutableList()

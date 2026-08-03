@@ -30,11 +30,11 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.path_finder_demo_caption
 import braincup.composeapp.generated.resources.path_finder_demo_title
 import com.inspiredandroid.braincup.games.tools.Direction
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
-import com.inspiredandroid.braincup.games.tools.Color as FigureColor
 
 private const val DemoGridSize = 3
 
@@ -142,9 +142,9 @@ fun PathFinderDemo(modifier: Modifier = Modifier) {
                         val point = DemoPoint(col, row)
                         val face = when {
                             destinationLit && point == DemoDestination -> SuccessGreen
-                            point == DemoStart -> FigureColor.ORANGE.composeColor()
+                            point == DemoStart -> GameColor.ORANGE.composeColor()
                             point in trail -> TrailOrange
-                            else -> FigureColor.GREY_LIGHT.composeColor()
+                            else -> GameColor.GREY_LIGHT.composeColor()
                         }
                         PathFinderDemoTile(
                             face = face,

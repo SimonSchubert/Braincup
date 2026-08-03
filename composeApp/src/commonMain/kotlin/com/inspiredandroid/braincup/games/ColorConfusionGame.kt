@@ -1,7 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.ColorConfusionUiState
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import kotlinx.collections.immutable.toImmutableList
 
 class ColorConfusionGame : Game() {
@@ -17,8 +17,8 @@ class ColorConfusionGame : Game() {
     }
 
     data class Cell(
-        val word: Color,
-        val fontColor: Color,
+        val word: GameColor,
+        val fontColor: GameColor,
     ) {
         val isMatching: Boolean get() = word == fontColor
     }
@@ -29,7 +29,7 @@ class ColorConfusionGame : Game() {
     var isSubmitted: Boolean = false
 
     companion object {
-        val GAME_COLORS = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.PURPLE, Color.YELLOW, Color.ORANGE)
+        val GAME_COLORS = listOf(GameColor.RED, GameColor.GREEN, GameColor.BLUE, GameColor.PURPLE, GameColor.YELLOW, GameColor.ORANGE)
     }
 
     override fun generateRound() {
@@ -45,7 +45,7 @@ class ColorConfusionGame : Game() {
         // Generate non-matching cells
         repeat(9 - matchCount) {
             val word = GAME_COLORS.random()
-            var fontColor: Color
+            var fontColor: GameColor
             do {
                 fontColor = GAME_COLORS.random()
             } while (fontColor == word)

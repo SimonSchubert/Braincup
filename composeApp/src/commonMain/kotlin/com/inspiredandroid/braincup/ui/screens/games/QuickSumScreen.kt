@@ -9,6 +9,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.*
@@ -17,7 +18,6 @@ import com.inspiredandroid.braincup.games.QuickSumGame
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.graphics.Color as ComposeColor
 
 /** Height of the flash slot. Fixed so the layout never shifts as terms appear and clear. */
 private val FlashSlotHeight = 96.dp
@@ -36,7 +36,7 @@ internal fun ColumnScope.QuickSumContent(
 }
 
 @Composable
-private fun QuickSumPhaseLabel(text: String, accent: ComposeColor) {
+private fun QuickSumPhaseLabel(text: String, accent: Color) {
     Text(
         text = text,
         style = MaterialTheme.typography.labelLarge,
@@ -98,7 +98,7 @@ private fun QuickSumAnswerContent(
     val revealColor = when (uiState.answerResult) {
         QuickSumGame.AnswerResult.CORRECT -> SuccessGreen
         QuickSumGame.AnswerResult.WRONG -> MaterialTheme.colorScheme.error
-        null -> ComposeColor.Unspecified
+        null -> Color.Unspecified
     }
     val onInputChange: (String) -> Unit = { typed ->
         if (reveal == null && typed.length == uiState.answerLength) onAnswer(typed)

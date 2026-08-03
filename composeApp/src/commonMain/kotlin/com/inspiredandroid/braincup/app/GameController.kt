@@ -7,7 +7,7 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.minichess.ChessAi
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.wordle.WordleGame
 import com.inspiredandroid.braincup.games.wordle.WordleLanguage
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
@@ -85,10 +85,10 @@ class GameController(
 
     /**
      * One-shot Simon Says pad tones: fired when a pad is flashed during SHOWING and when the
-     * player taps a pad during ANSWERING. Color is the pad that should sound, not the round score.
+     * player taps a pad during ANSWERING. GameColor is the pad that should sound, not the round score.
      */
-    private val _simonPadSoundEvents = MutableSharedFlow<Color>(extraBufferCapacity = 4)
-    val simonPadSoundEvents: SharedFlow<Color> = _simonPadSoundEvents.asSharedFlow()
+    private val _simonPadSoundEvents = MutableSharedFlow<GameColor>(extraBufferCapacity = 4)
+    val simonPadSoundEvents: SharedFlow<GameColor> = _simonPadSoundEvents.asSharedFlow()
 
     private var startTime = 0L
     private var points = 0
@@ -1730,7 +1730,7 @@ class GameController(
     ) {
         if (game.phase != SimonSaysGame.Phase.ANSWERING) return
         // Tone for the pad the player pressed, including wrong taps (classic Simon behaviour).
-        Color.entries.find { it.name == answer }?.let { _simonPadSoundEvents.tryEmit(it) }
+        GameColor.entries.find { it.name == answer }?.let { _simonPadSoundEvents.tryEmit(it) }
         when (game.submitAnswer(answer)) {
             SequenceSubmitResult.CorrectContinue -> emitSimonSaysUiState(game)
             SequenceSubmitResult.RoundComplete -> {

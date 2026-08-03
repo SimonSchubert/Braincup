@@ -31,8 +31,8 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_pattern_sequence_desc
 import braincup.composeapp.generated.resources.game_what_comes_next
 import braincup.composeapp.generated.resources.pattern_sequence_demo_unit
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -45,7 +45,7 @@ import org.jetbrains.compose.resources.stringResource
 
 // A simple shape cycle in one colour: circle, triangle, circle, triangle, … so the repeating unit is
 // "circle, triangle" and the next figure is a circle. Mirrors PatternSequenceGame's SHAPE_CYCLE.
-private val DemoColor = Color.BLUE
+private val DemoColor = GameColor.BLUE
 private const val CycleLength = 2
 private val Sequence = persistentListOf(
     Figure(Shape.CIRCLE, DemoColor),

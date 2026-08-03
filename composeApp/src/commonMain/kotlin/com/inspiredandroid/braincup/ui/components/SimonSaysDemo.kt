@@ -17,7 +17,7 @@ import braincup.composeapp.generated.resources.simon_says_demo_repeat
 import braincup.composeapp.generated.resources.simon_says_demo_title
 import braincup.composeapp.generated.resources.simon_says_demo_watch
 import com.inspiredandroid.braincup.games.SimonSaysGame
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.composeColor
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
@@ -31,7 +31,7 @@ private const val ReplayStepMillis = 500L
 // Hand-picked sequence with a deliberate repeat (GREEN appears twice) so the tutorial visibly
 // demonstrates that repeats are legal: only the most recently tapped pad stays highlighted, not
 // every pad tapped so far.
-private val DemoSequence = listOf(Color.GREEN, Color.RED, Color.GREEN, Color.YELLOW)
+private val DemoSequence = listOf(GameColor.GREEN, GameColor.RED, GameColor.GREEN, GameColor.YELLOW)
 
 private val DemoCaptions = persistentListOf(
     Res.string.simon_says_demo_watch,
@@ -47,7 +47,7 @@ private val DemoCaptions = persistentListOf(
  */
 @Composable
 fun SimonSaysDemo(modifier: Modifier = Modifier) {
-    var activeColor by remember { mutableStateOf<Color?>(null) }
+    var activeColor by remember { mutableStateOf<GameColor?>(null) }
     var tappedCount by remember { mutableStateOf(0) }
     var repeating by remember { mutableStateOf(false) }
 
@@ -112,7 +112,7 @@ fun SimonSaysDemo(modifier: Modifier = Modifier) {
 
 @Composable
 private fun DemoSimonPad(
-    color: Color,
+    color: GameColor,
     lit: Boolean,
     quadrant: SimonQuadrant,
     modifier: Modifier = Modifier,

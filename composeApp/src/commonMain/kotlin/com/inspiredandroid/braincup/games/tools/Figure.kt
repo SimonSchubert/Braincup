@@ -5,7 +5,7 @@ import androidx.compose.runtime.Immutable
 @Immutable
 data class Figure(
     val shape: Shape,
-    val color: Color,
+    val color: GameColor,
     val rotation: Int = 0,
 ) {
     fun getRotationString(): String = when (rotation) {

@@ -10,6 +10,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -23,7 +24,6 @@ import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 import kotlin.time.Duration.Companion.milliseconds
-import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
 internal fun ColumnScope.FlashCrowdContent(
@@ -85,7 +85,7 @@ internal fun ColumnScope.FlashCrowdContent(
                     Text(
                         text = stringResource(Res.string.game_flash_crowd_blue),
                         style = MaterialTheme.typography.titleLarge,
-                        color = ComposeColor.White,
+                        color = Color.White,
                     )
                 }
                 PrismTile(
@@ -101,7 +101,7 @@ internal fun ColumnScope.FlashCrowdContent(
                     Text(
                         text = stringResource(Res.string.game_flash_crowd_yellow),
                         style = MaterialTheme.typography.titleLarge,
-                        color = ComposeColor.Black,
+                        color = Color.Black,
                     )
                 }
             }
@@ -112,8 +112,8 @@ internal fun ColumnScope.FlashCrowdContent(
 @Composable
 private fun FlashCrowdDotsRow(
     uiState: FlashCrowdUiState,
-    blueColor: ComposeColor,
-    yellowColor: ComposeColor,
+    blueColor: Color,
+    yellowColor: Color,
     modifier: Modifier = Modifier,
 ) {
     Row(

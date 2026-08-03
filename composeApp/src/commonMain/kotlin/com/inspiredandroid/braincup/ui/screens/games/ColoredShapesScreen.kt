@@ -7,11 +7,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
@@ -19,7 +20,6 @@ import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.persistentListOf
-import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
 internal fun ColumnScope.ColoredShapesContent(
@@ -75,7 +75,7 @@ internal fun ColumnScope.ColoredShapesContent(
                 Text(
                     button.value,
                     fontFamily = numberFontFamily(),
-                    color = ComposeColor.White,
+                    color = Color.White,
                 )
             }
             AnswerButtonState.DIMMED -> Box(
@@ -133,10 +133,10 @@ private fun ColoredShapesContentPreview() {
     GamePreviewHost {
         ColoredShapesContent(
             uiState = ColoredShapesUiState(
-                displayedFigure = Figure(Shape.HEART, Color.RED),
+                displayedFigure = Figure(Shape.HEART, GameColor.RED),
                 answerShape = Shape.HEART,
-                answerColor = Color.BLUE,
-                stringColor = Color.BLUE,
+                answerColor = GameColor.BLUE,
+                stringColor = GameColor.BLUE,
                 shapePoints = 2,
                 colorPoints = 3,
                 possibleAnswers = persistentListOf(

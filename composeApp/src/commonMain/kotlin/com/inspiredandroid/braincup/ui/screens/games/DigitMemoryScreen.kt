@@ -7,6 +7,7 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -16,7 +17,6 @@ import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
 internal fun ColumnScope.DigitMemoryContent(
@@ -84,7 +84,7 @@ internal fun ColumnScope.DigitMemoryContent(
 }
 
 @Composable
-private fun DigitMemoryPhaseLabel(text: String, accent: ComposeColor) {
+private fun DigitMemoryPhaseLabel(text: String, accent: Color) {
     Text(
         text = text,
         style = MaterialTheme.typography.labelLarge,
@@ -163,7 +163,7 @@ private fun EquationCard(problem: String, answer: String?) {
 @Composable
 private fun DigitMemoryInputArea(
     label: String,
-    accent: ComposeColor,
+    accent: Color,
     expectedLength: Int,
     revealed: Boolean,
     onAnswer: (String) -> Unit,

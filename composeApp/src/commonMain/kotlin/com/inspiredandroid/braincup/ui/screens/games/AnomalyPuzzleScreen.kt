@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.*
 import kotlinx.collections.immutable.persistentListOf
@@ -44,13 +44,13 @@ internal fun AnomalyPuzzleContent(
 @DevicePreviews
 @Composable
 private fun AnomalyPuzzleContentPreview() {
-    val fig = Figure(Shape.SQUARE, Color.BLUE)
+    val fig = Figure(Shape.SQUARE, GameColor.BLUE)
     GamePreviewHost {
         AnomalyPuzzleContent(
             uiState = AnomalyPuzzleUiState(
                 rows = persistentListOf(
                     persistentListOf(FigureCell(fig), FigureCell(fig), FigureCell(fig)),
-                    persistentListOf(FigureCell(fig), FigureCell(Figure(Shape.CIRCLE, Color.RED)), FigureCell(fig)),
+                    persistentListOf(FigureCell(fig), FigureCell(Figure(Shape.CIRCLE, GameColor.RED)), FigureCell(fig)),
                     persistentListOf(FigureCell(fig), FigureCell(fig), FigureCell(fig)),
                 ),
                 columnsPerRow = 3,

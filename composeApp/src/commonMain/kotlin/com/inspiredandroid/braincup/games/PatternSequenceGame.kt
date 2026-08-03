@@ -3,8 +3,8 @@ package com.inspiredandroid.braincup.games
 import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.FigureCell
 import com.inspiredandroid.braincup.app.PatternSequenceUiState
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.toImmutableList
 
@@ -48,14 +48,14 @@ class PatternSequenceGame : Game() {
     )
 
     private val allColors = listOf(
-        Color.GREEN,
-        Color.BLUE,
-        Color.PURPLE,
-        Color.RED,
-        Color.YELLOW,
-        Color.ORANGE,
-        Color.TURQUOISE,
-        Color.ROSA,
+        GameColor.GREEN,
+        GameColor.BLUE,
+        GameColor.PURPLE,
+        GameColor.RED,
+        GameColor.YELLOW,
+        GameColor.ORANGE,
+        GameColor.TURQUOISE,
+        GameColor.ROSA,
     )
 
     override fun isCorrect(input: String): Boolean = input.toIntOrNull() == correctOptionIndex
@@ -323,7 +323,7 @@ class PatternSequenceGame : Game() {
     private fun generateOptions(
         answer: Figure,
         shapePool: List<Shape>,
-        colorPool: List<Color>,
+        colorPool: List<GameColor>,
     ) {
         // Ensure pools are large enough for 3 unique distractors
         val shapes = if (shapePool.size * colorPool.size < 4) {
@@ -379,7 +379,7 @@ class PatternSequenceGame : Game() {
     private fun generateRotationOptions(
         answer: Figure,
         shape: Shape,
-        color: Color,
+        color: GameColor,
     ) {
         val rotations = listOf(0, 90, 180, 270)
         val wrongRotations = rotations.filter { it != answer.rotation }.shuffled().take(3)
@@ -395,7 +395,7 @@ class PatternSequenceGame : Game() {
     private fun generateRotationWithColorOptions(
         answer: Figure,
         shape: Shape,
-        colorPool: List<Color>,
+        colorPool: List<GameColor>,
     ) {
         val rotations = listOf(0, 90, 180, 270)
         val wrongRotations = rotations.filter { it != answer.rotation }.shuffled()

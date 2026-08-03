@@ -17,6 +17,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.translate
@@ -36,9 +37,9 @@ import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.tools.Animal
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
@@ -84,7 +85,6 @@ import com.inspiredandroid.braincup.ui.theme.tileTextColor
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.graphics.Color as ComposeColor
 import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 // Tile previews always render on light pastel backgrounds (gameType.accentColor),
@@ -92,10 +92,10 @@ import androidx.compose.ui.text.intl.Locale as ComposeLocale
 private val PreviewTextColor = LightColorScheme.onSurface
 
 private val AnomalyPuzzlePreviewFigures = listOf(
-    Figure(Shape.STAR, Color.RED),
-    Figure(Shape.STAR, Color.RED),
-    Figure(Shape.STAR, Color.RED),
-    Figure(Shape.STAR, Color.BLUE),
+    Figure(Shape.STAR, GameColor.RED),
+    Figure(Shape.STAR, GameColor.RED),
+    Figure(Shape.STAR, GameColor.RED),
+    Figure(Shape.STAR, GameColor.BLUE),
 )
 
 private val PathFinderPreviewDirections = listOf(Direction.RIGHT, Direction.DOWN, Direction.RIGHT)
@@ -106,7 +106,7 @@ private val PathFinderPreviewGrid: List<List<Figure>> = run {
     List(4) { row ->
         List(4) { col ->
             val isStart = row == startRow && col == startCol
-            Figure(Shape.SQUARE, if (isStart) Color.ORANGE else Color.GREY_LIGHT)
+            Figure(Shape.SQUARE, if (isStart) GameColor.ORANGE else GameColor.GREY_LIGHT)
         }
     }
 }
@@ -116,7 +116,7 @@ private val PathFinderPreviewGrid: List<List<Figure>> = run {
  * bull / miss / cow / miss, with matching count chips underneath.
  * Same green/amber/grey teaching colours as the instructions demo.
  */
-private val BullsAndCowsPreviewTiles: List<Pair<Char, ComposeColor>> = listOf(
+private val BullsAndCowsPreviewTiles: List<Pair<Char, Color>> = listOf(
     '1' to SuccessGreen, // bull — right digit, right place
     '2' to WordleAbsent, // miss
     '3' to WordlePresent, // cow — right digit, wrong place
@@ -150,7 +150,7 @@ private fun BullsAndCowsPreview() {
                     )
                     Text(
                         text = digit.toString(),
-                        color = ComposeColor.White,
+                        color = Color.White,
                         style = MaterialTheme.typography.titleMedium,
                         fontFamily = numberFontFamily(),
                         fontWeight = FontWeight.Bold,
@@ -168,7 +168,7 @@ private fun BullsAndCowsPreview() {
 }
 
 @Composable
-private fun BullsAndCowsPreviewChip(label: String, color: ComposeColor) {
+private fun BullsAndCowsPreviewChip(label: String, color: Color) {
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(6.dp))
@@ -188,9 +188,9 @@ private fun BullsAndCowsPreviewChip(label: String, color: ComposeColor) {
 }
 
 private val VisualMemoryPreviewFigures: List<Figure?> = listOf(
-    Figure(Shape.TRIANGLE, Color.RED),
+    Figure(Shape.TRIANGLE, GameColor.RED),
     null,
-    Figure(Shape.CIRCLE, Color.GREEN),
+    Figure(Shape.CIRCLE, GameColor.GREEN),
     null,
 )
 
@@ -205,9 +205,9 @@ private val SpotTheNewPreviewAnimals: List<Animal> = listOf(
 private val SherlockPreviewNumbers = listOf(4, 9, 3, 7, 2)
 
 private val PatternSequencePreviewFigures = listOf(
-    Figure(Shape.TRIANGLE, Color.RED),
-    Figure(Shape.TRIANGLE, Color.BLUE),
-    Figure(Shape.TRIANGLE, Color.RED),
+    Figure(Shape.TRIANGLE, GameColor.RED),
+    Figure(Shape.TRIANGLE, GameColor.BLUE),
+    Figure(Shape.TRIANGLE, GameColor.RED),
 )
 
 private val OrbitTrackerPreviewBalls = listOf(
@@ -219,10 +219,10 @@ private val OrbitTrackerPreviewBalls = listOf(
 )
 
 private val ColorConfusionPreviewWords = listOf(
-    Color.RED to Color.RED,
-    Color.BLUE to Color.GREEN,
-    Color.GREEN to Color.GREEN,
-    Color.PURPLE to Color.YELLOW,
+    GameColor.RED to GameColor.RED,
+    GameColor.BLUE to GameColor.GREEN,
+    GameColor.GREEN to GameColor.GREEN,
+    GameColor.PURPLE to GameColor.YELLOW,
 )
 
 private val FlashCrowdPreviewLeftDots = listOf(
@@ -450,7 +450,7 @@ private fun GameTileShell(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
-                    .background(ComposeColor(accentColor)),
+                    .background(Color(accentColor)),
                 contentAlignment = Alignment.Center,
             ) {
                 MaterialTheme(colorScheme = LightColorScheme) {
@@ -468,7 +468,7 @@ private fun GameTileShell(
                 Text(
                     text = label,
                     style = MaterialTheme.typography.labelLarge,
-                    color = ComposeColor.White,
+                    color = Color.White,
                     maxLines = labelMaxLines,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f),
@@ -588,7 +588,7 @@ private fun ColoredShapesPreview() {
         contentAlignment = Alignment.Center,
     ) {
         ShapeCanvas(
-            figure = Figure(Shape.HEART, Color.BLUE),
+            figure = Figure(Shape.HEART, GameColor.BLUE),
             modifier = Modifier.size(48.dp),
         )
     }
@@ -767,7 +767,7 @@ private fun NBackPreview() {
         verticalArrangement = Arrangement.Center,
     ) {
         ShapeCanvas(
-            figure = Figure(Shape.STAR, Color.BLUE),
+            figure = Figure(Shape.STAR, GameColor.BLUE),
             modifier = Modifier.size(44.dp),
         )
         Spacer(Modifier.height(10.dp))
@@ -1146,7 +1146,7 @@ private fun SimonSaysPreview() {
     SimonDisc(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         // The hub reads as a hole punched through to the tile's accent background.
-        hubColor = ComposeColor(GameType.SIMON_SAYS.accentColor),
+        hubColor = Color(GameType.SIMON_SAYS.accentColor),
     ) { index, quadrant, padModifier ->
         Box(
             modifier = padModifier
@@ -1846,7 +1846,7 @@ private fun MiniChessPreviewPiece(
     modifier: Modifier = Modifier,
 ) {
     val painter = painterResource(drawable)
-    val fill = ColorFilter.tint(if (isWhite) ComposeColor.White else ComposeColor.Black)
+    val fill = ColorFilter.tint(if (isWhite) Color.White else Color.Black)
     Canvas(modifier = modifier) {
         if (isWhite) {
             // Halo offset scales with canvas size so the outline stays proportional.

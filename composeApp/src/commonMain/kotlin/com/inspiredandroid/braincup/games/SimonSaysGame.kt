@@ -2,7 +2,7 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.SequenceCellType
 import com.inspiredandroid.braincup.app.SimonSaysUiState
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -23,7 +23,7 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
     companion object {
         // Classic physical-toy layout: green top-left, red top-right, yellow bottom-left, blue
         // bottom-right. Order here is also the fixed pad order in SimonSaysUiState.pads.
-        val PADS = listOf(Color.GREEN, Color.RED, Color.YELLOW, Color.BLUE)
+        val PADS = listOf(GameColor.GREEN, GameColor.RED, GameColor.YELLOW, GameColor.BLUE)
 
         private const val LEAD_IN_MILLIS = 400L
         private const val FLASH_MILLIS = 600L
@@ -32,7 +32,7 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
     // Survival game: never resume mid-difficulty, always start fresh.
     override val adaptiveDifficulty: Boolean = false
 
-    var sequence: List<Color> = emptyList()
+    var sequence: List<GameColor> = emptyList()
         private set
     var phase: Phase = Phase.SHOWING
         private set
@@ -40,7 +40,7 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
         private set
     var currentTapIndex: Int = 0
         private set
-    var wrongPad: Color? = null
+    var wrongPad: GameColor? = null
         private set
 
     private var showJob: Job? = null
@@ -81,7 +81,7 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
     }
 
     fun submitAnswer(colorName: String): SequenceSubmitResult {
-        val color = Color.entries.find { it.name == colorName }
+        val color = GameColor.entries.find { it.name == colorName }
         val expected = sequence[currentTapIndex]
         if (color == null || color != expected) {
             answeredAllCorrect = false
@@ -95,7 +95,7 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
     }
 
     override fun isCorrect(input: String): Boolean {
-        val color = Color.entries.find { it.name == input } ?: return false
+        val color = GameColor.entries.find { it.name == input } ?: return false
         return currentTapIndex < sequence.size && color == sequence[currentTapIndex]
     }
 

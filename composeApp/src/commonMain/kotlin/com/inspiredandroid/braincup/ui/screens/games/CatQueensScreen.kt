@@ -13,6 +13,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
@@ -32,7 +33,6 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
 internal fun ColumnScope.CatQueensContent(
@@ -43,7 +43,7 @@ internal fun ColumnScope.CatQueensContent(
     val n = uiState.size
     val compact = LocalIsCompactHeight.current
 
-    val gridLineColor = ComposeColor(0xFF000000).copy(alpha = 0.15f)
+    val gridLineColor = Color(0xFF000000).copy(alpha = 0.15f)
     val borderColor = PuzzleGridInk
     val invalidColor = MaterialTheme.colorScheme.error
     val validColor = SuccessGreen

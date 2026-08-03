@@ -1,6 +1,6 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
@@ -17,16 +17,16 @@ class ColoredShapesGame : Game() {
     // Rounds never get harder, so there is no ramp to resume and no difficulty bonus to earn.
     override val adaptiveDifficulty: Boolean = false
 
-    lateinit var displayedColor: Color
-    lateinit var answerColor: Color
-    lateinit var stringColor: Color
+    lateinit var displayedColor: GameColor
+    lateinit var answerColor: GameColor
+    lateinit var stringColor: GameColor
     lateinit var displayedShape: Shape
     lateinit var answerShape: Shape
     var colorPoints = 0
     var shapePoints = 0
     var possibleAnswers: List<String> = emptyList()
 
-    private val colors = listOf(Color.RED, Color.GREEN, Color.BLUE, Color.PURPLE)
+    private val colors = listOf(GameColor.RED, GameColor.GREEN, GameColor.BLUE, GameColor.PURPLE)
     private val shapes = listOf(Shape.SQUARE, Shape.TRIANGLE, Shape.CIRCLE, Shape.HEART)
 
     override fun isCorrect(input: String): Boolean = points() == input

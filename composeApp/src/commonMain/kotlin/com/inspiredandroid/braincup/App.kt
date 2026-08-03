@@ -27,7 +27,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.SimonPadSounds
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
@@ -91,7 +91,7 @@ fun App(
 
     var menuAudio by remember { mutableStateOf<ByteArray?>(null) }
     var gameAudio by remember { mutableStateOf<ByteArray?>(null) }
-    var simonPadAudio by remember { mutableStateOf<Map<Color, ByteArray>>(emptyMap()) }
+    var simonPadAudio by remember { mutableStateOf<Map<GameColor, ByteArray>>(emptyMap()) }
 
     LaunchedEffect(Unit) {
         try {
@@ -99,7 +99,7 @@ fun App(
         } catch (_: Exception) {
         }
         // Small one-shots (~18 KB each); load with menu audio so the first Simon flash is never silent.
-        val loaded = mutableMapOf<Color, ByteArray>()
+        val loaded = mutableMapOf<GameColor, ByteArray>()
         for ((color, path) in SimonPadSounds.paths) {
             try {
                 loaded[color] = Res.readBytes(path)

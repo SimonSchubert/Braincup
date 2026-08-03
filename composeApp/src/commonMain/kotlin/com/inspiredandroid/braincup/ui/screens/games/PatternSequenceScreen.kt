@@ -9,8 +9,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
@@ -87,7 +87,7 @@ internal fun ColumnScope.PatternSequenceContent(
 @DevicePreviews
 @Composable
 private fun PatternSequenceContentPreview() {
-    val fig = Figure(Shape.CIRCLE, Color.BLUE)
+    val fig = Figure(Shape.CIRCLE, GameColor.BLUE)
     GamePreviewHost {
         PatternSequenceContent(
             uiState = PatternSequenceUiState(

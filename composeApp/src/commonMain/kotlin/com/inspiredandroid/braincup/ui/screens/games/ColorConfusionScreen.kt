@@ -10,11 +10,12 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.ColorConfusionGame
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.localizedName
@@ -25,7 +26,6 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
 import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.stringResource
-import androidx.compose.ui.graphics.Color as ComposeColor
 
 @Composable
 internal fun ColumnScope.ColorConfusionContent(
@@ -78,7 +78,7 @@ internal fun ColumnScope.ColorConfusionContent(
     ) {
         Text(
             stringResource(Res.string.button_done),
-            color = ComposeColor.White,
+            color = Color.White,
         )
     }
 }
@@ -138,15 +138,15 @@ private fun ColorConfusionContentPreview() {
         ColorConfusionContent(
             uiState = ColorConfusionUiState(
                 cells = persistentListOf(
-                    ColorConfusionUiState.Cell(Color.RED, Color.BLUE, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.GREEN, Color.GREEN, true, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.YELLOW, Color.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.YELLOW, Color.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(Color.BLUE, Color.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.RED, GameColor.BLUE, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.GREEN, GameColor.GREEN, true, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.YELLOW, GameColor.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.YELLOW, GameColor.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
+                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
                 ),
                 isSubmitted = false,
             ),

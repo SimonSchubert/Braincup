@@ -12,7 +12,7 @@ import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellType
 import com.inspiredandroid.braincup.games.*
-import com.inspiredandroid.braincup.games.tools.Color
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.Shape
@@ -45,10 +45,10 @@ val mainMenuHighscores = persistentMapOf(
 fun createColoredShapesGame(): ColoredShapesGame {
     val game = ColoredShapesGame()
     game.displayedShape = Shape.HEART
-    game.displayedColor = Color.RED
+    game.displayedColor = GameColor.RED
     game.answerShape = Shape.HEART
-    game.answerColor = Color.BLUE
-    game.stringColor = Color.GREEN
+    game.answerColor = GameColor.BLUE
+    game.stringColor = GameColor.GREEN
     game.shapePoints = 3
     game.colorPoints = 4
     game.possibleAnswers = listOf("0", "3", "4", "7")
@@ -60,15 +60,15 @@ fun createAnomalyPuzzleGame(): AnomalyPuzzleGame {
     game.figures.clear()
     game.figures.addAll(
         listOf(
-            Figure(Shape.STAR, Color.RED),
-            Figure(Shape.STAR, Color.GREEN),
-            Figure(Shape.STAR, Color.BLUE),
-            Figure(Shape.STAR, Color.PURPLE),
-            Figure(Shape.STAR, Color.YELLOW),
-            Figure(Shape.STAR, Color.RED),
-            Figure(Shape.STAR, Color.GREEN),
-            Figure(Shape.STAR, Color.PURPLE),
-            Figure(Shape.STAR, Color.BLUE),
+            Figure(Shape.STAR, GameColor.RED),
+            Figure(Shape.STAR, GameColor.GREEN),
+            Figure(Shape.STAR, GameColor.BLUE),
+            Figure(Shape.STAR, GameColor.PURPLE),
+            Figure(Shape.STAR, GameColor.YELLOW),
+            Figure(Shape.STAR, GameColor.RED),
+            Figure(Shape.STAR, GameColor.GREEN),
+            Figure(Shape.STAR, GameColor.PURPLE),
+            Figure(Shape.STAR, GameColor.BLUE),
         ),
     )
     game.resultIndex = 7
@@ -191,19 +191,19 @@ fun createPatternSequenceGame(): PatternSequenceGame {
     game.sequence.clear()
     game.sequence.addAll(
         listOf(
-            Figure(Shape.CIRCLE, Color.BLUE),
-            Figure(Shape.HEART, Color.ROSA),
-            Figure(Shape.CIRCLE, Color.BLUE),
-            Figure(Shape.HEART, Color.ROSA),
+            Figure(Shape.CIRCLE, GameColor.BLUE),
+            Figure(Shape.HEART, GameColor.ROSA),
+            Figure(Shape.CIRCLE, GameColor.BLUE),
+            Figure(Shape.HEART, GameColor.ROSA),
         ),
     )
     game.options.clear()
     game.options.addAll(
         listOf(
-            Figure(Shape.HEART, Color.BLUE),
-            Figure(Shape.CIRCLE, Color.ROSA),
-            Figure(Shape.HEART, Color.ROSA),
-            Figure(Shape.CIRCLE, Color.BLUE),
+            Figure(Shape.HEART, GameColor.BLUE),
+            Figure(Shape.CIRCLE, GameColor.ROSA),
+            Figure(Shape.HEART, GameColor.ROSA),
+            Figure(Shape.CIRCLE, GameColor.BLUE),
         ),
     )
     game.correctOptionIndex = 1
@@ -213,15 +213,15 @@ fun createPatternSequenceGame(): PatternSequenceGame {
 fun createColorConfusionGame(): ColorConfusionGame {
     val game = ColorConfusionGame()
     game.cells = listOf(
-        ColorConfusionGame.Cell(word = Color.RED, fontColor = Color.RED),
-        ColorConfusionGame.Cell(word = Color.BLUE, fontColor = Color.GREEN),
-        ColorConfusionGame.Cell(word = Color.GREEN, fontColor = Color.GREEN),
-        ColorConfusionGame.Cell(word = Color.PURPLE, fontColor = Color.YELLOW),
-        ColorConfusionGame.Cell(word = Color.ORANGE, fontColor = Color.ORANGE),
-        ColorConfusionGame.Cell(word = Color.YELLOW, fontColor = Color.BLUE),
-        ColorConfusionGame.Cell(word = Color.RED, fontColor = Color.PURPLE),
-        ColorConfusionGame.Cell(word = Color.BLUE, fontColor = Color.BLUE),
-        ColorConfusionGame.Cell(word = Color.GREEN, fontColor = Color.RED),
+        ColorConfusionGame.Cell(word = GameColor.RED, fontColor = GameColor.RED),
+        ColorConfusionGame.Cell(word = GameColor.BLUE, fontColor = GameColor.GREEN),
+        ColorConfusionGame.Cell(word = GameColor.GREEN, fontColor = GameColor.GREEN),
+        ColorConfusionGame.Cell(word = GameColor.PURPLE, fontColor = GameColor.YELLOW),
+        ColorConfusionGame.Cell(word = GameColor.ORANGE, fontColor = GameColor.ORANGE),
+        ColorConfusionGame.Cell(word = GameColor.YELLOW, fontColor = GameColor.BLUE),
+        ColorConfusionGame.Cell(word = GameColor.RED, fontColor = GameColor.PURPLE),
+        ColorConfusionGame.Cell(word = GameColor.BLUE, fontColor = GameColor.BLUE),
+        ColorConfusionGame.Cell(word = GameColor.GREEN, fontColor = GameColor.RED),
     )
     game.selectedIndices = mutableSetOf(0, 2, 4)
     game.feedbackState = List(9) { ColorConfusionGame.CellFeedback.NONE }
@@ -236,15 +236,15 @@ fun createGhostGridGame(): GhostGridGame {
 }
 
 private val visualMemoryFigures = listOf(
-    Figure(Shape.HEART, Color.PURPLE),
-    Figure(Shape.SQUARE, Color.GREY_LIGHT),
-    Figure(Shape.STAR, Color.BLUE),
-    Figure(Shape.CIRCLE, Color.TURQUOISE),
-    Figure(Shape.L, Color.ROSA),
-    Figure(Shape.TRIANGLE, Color.YELLOW),
-    Figure(Shape.HOUSE, Color.ORANGE),
-    Figure(Shape.T, Color.GREEN),
-    Figure(Shape.DIAMOND, Color.RED),
+    Figure(Shape.HEART, GameColor.PURPLE),
+    Figure(Shape.SQUARE, GameColor.GREY_LIGHT),
+    Figure(Shape.STAR, GameColor.BLUE),
+    Figure(Shape.CIRCLE, GameColor.TURQUOISE),
+    Figure(Shape.L, GameColor.ROSA),
+    Figure(Shape.TRIANGLE, GameColor.YELLOW),
+    Figure(Shape.HOUSE, GameColor.ORANGE),
+    Figure(Shape.T, GameColor.GREEN),
+    Figure(Shape.DIAMOND, GameColor.RED),
 )
 
 private val visualMemoryAnswerOptions = visualMemoryFigures.mapIndexed { index, figure ->

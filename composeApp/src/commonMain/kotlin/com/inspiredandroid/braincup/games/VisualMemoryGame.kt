@@ -2,8 +2,8 @@ package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
@@ -58,15 +58,15 @@ class VisualMemoryGame : Game() {
         )
 
         private val GAME_COLORS = listOf(
-            Color.RED,
-            Color.GREEN,
-            Color.BLUE,
-            Color.PURPLE,
-            Color.YELLOW,
-            Color.ORANGE,
-            Color.TURQUOISE,
-            Color.ROSA,
-            Color.GREY_LIGHT,
+            GameColor.RED,
+            GameColor.GREEN,
+            GameColor.BLUE,
+            GameColor.PURPLE,
+            GameColor.YELLOW,
+            GameColor.ORANGE,
+            GameColor.TURQUOISE,
+            GameColor.ROSA,
+            GameColor.GREY_LIGHT,
         )
     }
 

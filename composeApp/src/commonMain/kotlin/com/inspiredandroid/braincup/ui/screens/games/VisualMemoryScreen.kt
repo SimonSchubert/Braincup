@@ -15,8 +15,8 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.VisualMemoryGame
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
@@ -237,7 +237,7 @@ private fun VisualMemoryCell(
 @DevicePreviews
 @Composable
 private fun VisualMemoryContentPreview() {
-    val fig = Figure(Shape.SQUARE, Color.RED)
+    val fig = Figure(Shape.SQUARE, GameColor.RED)
     GamePreviewHost {
         VisualMemoryContent(
             uiState = VisualMemoryUiState(

@@ -10,8 +10,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.*
 import kotlinx.collections.immutable.persistentListOf
@@ -96,7 +96,7 @@ internal fun ColumnScope.PathFinderContent(
 @DevicePreviews
 @Composable
 private fun PathFinderContentPreview() {
-    val fig = Figure(Shape.TRIANGLE, Color.GREEN)
+    val fig = Figure(Shape.TRIANGLE, GameColor.GREEN)
     GamePreviewHost {
         PathFinderContent(
             uiState = PathFinderUiState(

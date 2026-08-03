@@ -32,6 +32,7 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_done
 import braincup.composeapp.generated.resources.color_confusion_demo_title
 import braincup.composeapp.generated.resources.game_color_confusion_desc
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -41,7 +42,6 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
-import com.inspiredandroid.braincup.games.tools.Color as GameColor
 
 // A cell shows a colour-word printed in some ink colour. It is a "match" when the word's meaning
 // equals its ink (e.g. RED printed in red). Three of the nine cells match; the demo taps those.

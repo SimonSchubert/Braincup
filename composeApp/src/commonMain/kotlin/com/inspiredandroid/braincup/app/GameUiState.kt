@@ -12,8 +12,8 @@ import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Animal
-import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure
+import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.collections.immutable.ImmutableList
@@ -114,8 +114,8 @@ data class FractionCalculationUiState(
 data class ColoredShapesUiState(
     val displayedFigure: Figure,
     val answerShape: Shape,
-    val answerColor: Color,
-    val stringColor: Color,
+    val answerColor: GameColor,
+    val stringColor: GameColor,
     val shapePoints: Int,
     val colorPoints: Int,
     val possibleAnswers: ImmutableList<AnswerButton>,
@@ -304,7 +304,7 @@ data class SimonSaysUiState(
     val tappedCount: Int,
 ) : GameUiState {
     @Immutable
-    data class PadState(val color: Color, val type: SequenceCellType)
+    data class PadState(val color: GameColor, val type: SequenceCellType)
 }
 
 @Immutable
@@ -325,8 +325,8 @@ data class ColorConfusionUiState(
 ) : GameUiState {
     @Immutable
     data class Cell(
-        val word: Color,
-        val fontColor: Color,
+        val word: GameColor,
+        val fontColor: GameColor,
         val isSelected: Boolean,
         val feedback: ColorConfusionGame.CellFeedback,
     )
