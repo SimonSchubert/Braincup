@@ -8,6 +8,12 @@ val PuzzleGridInk = Color(0xFF1A1A1A)
 
 fun puzzleGridLine(alpha: Float = 0.2f): Color = PuzzleGridInk.copy(alpha = alpha)
 
+/** Peg Solitaire board palette, shared by the play screen and its menu tile preview. */
+val PegBoardFrame = Color(0xFF5D4037)
+val PegBoardSurface = Color(0xFFD7CCC8)
+val PegHole = Color(0xFF8D6E63)
+val PegTarget = PegBoardFrame
+
 /** Shared slate tray used by Shikaku and Knot boards. */
 val PuzzleSlateFrame = Color(0xFF3E4450)
 

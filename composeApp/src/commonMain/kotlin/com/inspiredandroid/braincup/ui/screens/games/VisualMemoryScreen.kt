@@ -40,13 +40,7 @@ internal fun ColumnScope.VisualMemoryContent(
         uiState.phase == VisualMemoryGame.Phase.GAME_OVER
 
     if (LocalIsCompactHeight.current) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             VisualMemoryGrid(
                 cells = uiState.cells,
                 modifier = Modifier.widthIn(max = 200.dp),

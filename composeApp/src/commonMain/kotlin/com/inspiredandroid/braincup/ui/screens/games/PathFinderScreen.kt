@@ -70,13 +70,7 @@ internal fun ColumnScope.PathFinderContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {

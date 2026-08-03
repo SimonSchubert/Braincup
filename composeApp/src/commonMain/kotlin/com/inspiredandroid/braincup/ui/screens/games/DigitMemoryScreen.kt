@@ -103,13 +103,7 @@ private fun DigitMemorySolvingContent(
         if (reveal == null && typed.length == uiState.answerLength) onAnswer(typed)
     }
     if (LocalIsCompactHeight.current) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 DigitMemoryPhaseLabel(
                     text = stringResource(Res.string.digit_memory_solve),
@@ -189,13 +183,7 @@ private fun DigitMemoryInputArea(
         }
     }
     if (LocalIsCompactHeight.current) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 DigitMemoryPhaseLabel(label, accent)
                 Spacer(Modifier.height(12.dp))

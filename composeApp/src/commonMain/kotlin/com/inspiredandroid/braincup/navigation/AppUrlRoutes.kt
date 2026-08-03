@@ -64,22 +64,22 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
 fun NavBackStackEntry.toUrlPathSuffix(): String {
     val destination = destination
     return when {
-        destination.hasRoute<MainMenu>() -> ""
-        destination.hasRoute<Settings>() -> "settings"
-        destination.hasRoute<Achievements>() -> "achievements"
-        destination.hasRoute<SessionInterstitial>() -> "session"
-        destination.hasRoute<SessionComplete>() -> "session/complete"
-        destination.hasRoute<NormalSudokuMenu>() -> "sudoku"
+        destination.hasRoute<MainMenu>() -> navRouteToPathSuffix(MainMenu)
+        destination.hasRoute<Settings>() -> navRouteToPathSuffix(Settings)
+        destination.hasRoute<Achievements>() -> navRouteToPathSuffix(Achievements)
+        destination.hasRoute<SessionInterstitial>() -> navRouteToPathSuffix(SessionInterstitial)
+        destination.hasRoute<SessionComplete>() -> navRouteToPathSuffix(SessionComplete)
+        destination.hasRoute<NormalSudokuMenu>() -> navRouteToPathSuffix(NormalSudokuMenu)
         destination.hasRoute<NormalSudokuPlay>() -> navRouteToPathSuffix(toRoute<NormalSudokuPlay>())
-        destination.hasRoute<NormalChessMenu>() -> "chess"
+        destination.hasRoute<NormalChessMenu>() -> navRouteToPathSuffix(NormalChessMenu)
         destination.hasRoute<NormalChessPlay>() -> navRouteToPathSuffix(toRoute<NormalChessPlay>())
-        destination.hasRoute<MatchstickRiddlesMenu>() -> "matchstick"
+        destination.hasRoute<MatchstickRiddlesMenu>() -> navRouteToPathSuffix(MatchstickRiddlesMenu)
         destination.hasRoute<MatchstickRiddlesPlay>() -> navRouteToPathSuffix(toRoute<MatchstickRiddlesPlay>())
-        destination.hasRoute<PegSolitaire>() -> "peg-solitaire"
-        destination.hasRoute<Instructions>() -> gamePathSuffix(toRoute<Instructions>().gameTypeId)
-        destination.hasRoute<Playing>() -> gamePathSuffix(toRoute<Playing>().gameTypeId)
-        destination.hasRoute<Finish>() -> gamePathSuffix(toRoute<Finish>().gameTypeId)
-        destination.hasRoute<Scoreboard>() -> gameScoreboardPathSuffix(toRoute<Scoreboard>().gameTypeId)
+        destination.hasRoute<PegSolitaire>() -> navRouteToPathSuffix(PegSolitaire)
+        destination.hasRoute<Instructions>() -> navRouteToPathSuffix(toRoute<Instructions>())
+        destination.hasRoute<Playing>() -> navRouteToPathSuffix(toRoute<Playing>())
+        destination.hasRoute<Finish>() -> navRouteToPathSuffix(toRoute<Finish>())
+        destination.hasRoute<Scoreboard>() -> navRouteToPathSuffix(toRoute<Scoreboard>())
         else -> ""
     }
 }

@@ -19,6 +19,14 @@ import org.jetbrains.compose.resources.stringResource
 internal val LocalIsCompactHeight = staticCompositionLocalOf { false }
 
 /**
+ * Default maximum edge for a square board cell. Boards cap their width at this times the grid
+ * size, so a cell never grows past it while still shrinking to fit narrow screens.
+ */
+@Suppress("ktlint:standard:property-naming")
+internal val gridCellMaxSize: Dp
+    @Composable get() = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+
+/**
  * Height of the scaffold body (viewport minus the top bar), provided on the compact paths only.
  * Those paths wrap the content in a vertical scroll, so content is measured with unbounded height
  * and cannot read the real viewport from its own constraints. Null when nothing measured it.

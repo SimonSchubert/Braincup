@@ -129,14 +129,7 @@ internal fun ColumnScope.ShikakuContent(
                     }
                 }
 
-                for (c in 0..cols) {
-                    val x = c * cellW
-                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
-                }
-                for (r in 0..rows) {
-                    val y = r * cellH
-                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
-                }
+                drawPuzzleGridLines(rows, cols, gridLineColor, strokeWidth = 1.5.dp.toPx())
 
                 // Bold border around each rectangle: dark for valid (like Cat Queens), red for invalid.
                 uiState.rectangles.forEach { rect ->
@@ -194,21 +187,10 @@ internal fun ColumnScope.ShikakuContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             board()
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = stringResource(Res.string.level_label, uiState.level),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
+                LevelHeader(uiState.level)
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = stringResource(Res.string.game_shikaku_howto),
@@ -221,13 +203,7 @@ internal fun ColumnScope.ShikakuContent(
             }
         }
     } else {
-        Text(
-            text = stringResource(Res.string.level_label, uiState.level),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(4.dp))
         Text(
             text = stringResource(Res.string.game_shikaku_howto),

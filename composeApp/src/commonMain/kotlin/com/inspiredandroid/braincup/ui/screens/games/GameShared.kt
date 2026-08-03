@@ -7,8 +7,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
@@ -144,4 +147,61 @@ internal fun cellAt(offset: Offset, width: Int, height: Int, rows: Int, cols: In
     val col = (offset.x / width * cols).toInt().coerceIn(0, cols - 1)
     val row = (offset.y / height * rows).toInt().coerceIn(0, rows - 1)
     return row to col
+}
+
+/**
+ * "Level N" heading shown by every level-based puzzle. In the tall layout callers pass
+ * `Modifier.align(Alignment.CenterHorizontally)`; in the compact sidebar the surrounding
+ * column already centers it.
+ */
+@Composable
+internal fun LevelHeader(level: Int, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(Res.string.level_label, level),
+        style = MaterialTheme.typography.titleMedium,
+        fontWeight = FontWeight.Bold,
+        color = MaterialTheme.colorScheme.primary,
+        modifier = modifier,
+    )
+}
+
+/**
+ * Compact-height layout shell: the board and its side panel sit next to each other on one
+ * centered row, because there is no vertical room to stack them.
+ */
+@Composable
+internal fun CompactGameRow(
+    modifier: Modifier = Modifier,
+    content: @Composable RowScope.() -> Unit,
+) {
+    Row(
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
+        verticalAlignment = Alignment.CenterVertically,
+        content = content,
+    )
+}
+
+/** Tile size for a square n x n board of [PrismTile]s, shrunk when vertical room is tight. */
+internal fun squareTileSize(gridSize: Int, compact: Boolean): Dp = when {
+    compact -> if (gridSize <= 4) 48.dp else 40.dp
+    gridSize == 3 -> 72.dp
+    gridSize == 4 -> 60.dp
+    else -> 52.dp
+}
+
+/** Draws the cell separators of a [rows] x [cols] board filling the whole canvas. */
+internal fun DrawScope.drawPuzzleGridLines(rows: Int, cols: Int, color: Color, strokeWidth: Float) {
+    val cellW = size.width / cols
+    val cellH = size.height / rows
+    for (c in 0..cols) {
+        val x = c * cellW
+        drawLine(color, Offset(x, 0f), Offset(x, size.height), strokeWidth = strokeWidth)
+    }
+    for (r in 0..rows) {
+        val y = r * cellH
+        drawLine(color, Offset(0f, y), Offset(size.width, y), strokeWidth = strokeWidth)
+    }
 }

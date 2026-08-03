@@ -31,13 +31,7 @@ internal fun ColumnScope.FlagsContent(
     val flagSize = if (compact) 120.dp else 180.dp
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Image(
                     painter = painterResource(flagResource(uiState.countrySlug)),

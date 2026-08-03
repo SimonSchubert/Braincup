@@ -25,7 +25,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -54,6 +53,10 @@ import com.inspiredandroid.braincup.ui.components.darken
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.PegBoardFrame
+import com.inspiredandroid.braincup.ui.theme.PegBoardSurface
+import com.inspiredandroid.braincup.ui.theme.PegHole
+import com.inspiredandroid.braincup.ui.theme.PegTarget
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PrismShade
@@ -62,11 +65,6 @@ import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentSetOf
 import kotlinx.collections.immutable.toImmutableSet
 import org.jetbrains.compose.resources.stringResource
-
-private val PegBoardFrame = Color(0xFF5D4037)
-private val PegBoardSurface = Color(0xFFD7CCC8)
-private val PegHole = Color(0xFF8D6E63)
-private val PegTarget = Color(0xFF5D4037)
 
 @Composable
 fun PegSolitairePlayScreen(

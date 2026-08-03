@@ -105,13 +105,7 @@ private fun QuickSumAnswerContent(
     }
 
     if (LocalIsCompactHeight.current) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 QuickSumPhaseLabel(
                     text = stringResource(Res.string.quick_sum_instruction),

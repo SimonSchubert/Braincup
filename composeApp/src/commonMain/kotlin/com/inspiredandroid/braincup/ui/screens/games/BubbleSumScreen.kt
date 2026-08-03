@@ -46,6 +46,7 @@ import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.drawPrismCircle
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellow
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -264,7 +265,7 @@ private fun BubbleSumArena(
         fontWeight = FontWeight.Bold,
         fontFamily = numberFontFamily(),
     )
-    val warningDigitStyle = digitStyle.copy(color = Color(0xFF1A1A1A))
+    val warningDigitStyle = digitStyle.copy(color = PuzzleGridInk)
 
     val hasLiveFrames = live.isNotEmpty()
 

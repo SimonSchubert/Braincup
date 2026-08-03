@@ -103,7 +103,7 @@ fun PathFinderDemo(modifier: Modifier = Modifier) {
 
     // Tiles 1..revealed of the path are lit as the trail; the start tile is always shown on its own.
     val trail = remember(revealed) { DemoPath.subList(1, revealed + 1).toSet() }
-    val cellMax = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+    val cellMax = gridCellMaxSize
 
     Column(
         modifier = modifier,

@@ -13,7 +13,6 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -135,14 +134,7 @@ internal fun ColumnScope.KnotContent(
 
                 drawRect(color = cellColor)
 
-                for (c in 0..cols) {
-                    val x = c * cellW
-                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
-                }
-                for (r in 0..rows) {
-                    val y = r * cellH
-                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
-                }
+                drawPuzzleGridLines(rows, cols, gridLineColor, strokeWidth = 1.5.dp.toPx())
 
                 val pathStroke = minOf(cellW, cellH) * 0.34f
                 val dotRadius = minOf(cellW, cellH) * 0.30f
@@ -187,21 +179,10 @@ internal fun ColumnScope.KnotContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             board()
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = stringResource(Res.string.level_label, uiState.level),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
+                LevelHeader(uiState.level)
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = stringResource(Res.string.game_knot_howto),
@@ -214,13 +195,7 @@ internal fun ColumnScope.KnotContent(
             }
         }
     } else {
-        Text(
-            text = stringResource(Res.string.level_label, uiState.level),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(4.dp))
         Text(
             text = stringResource(Res.string.game_knot_howto),

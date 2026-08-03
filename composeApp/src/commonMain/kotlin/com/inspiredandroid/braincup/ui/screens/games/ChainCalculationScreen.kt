@@ -25,13 +25,7 @@ internal fun ColumnScope.ChainCalculationContent(
     }
     if (LocalIsCompactHeight.current) {
         var input by remember(uiState.calculation) { mutableStateOf("") }
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {

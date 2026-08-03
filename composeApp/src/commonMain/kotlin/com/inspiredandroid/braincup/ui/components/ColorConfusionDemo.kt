@@ -94,7 +94,7 @@ fun ColorConfusionDemo(modifier: Modifier = Modifier) {
         }
     }
 
-    val cell = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+    val cell = gridCellMaxSize
 
     Column(
         modifier = modifier,

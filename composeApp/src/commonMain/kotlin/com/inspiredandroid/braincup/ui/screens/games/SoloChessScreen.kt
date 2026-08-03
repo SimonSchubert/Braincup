@@ -117,21 +117,10 @@ internal fun ColumnScope.SoloChessContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             board()
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = stringResource(Res.string.level_label, uiState.level),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
+                LevelHeader(uiState.level)
                 Spacer(Modifier.height(6.dp))
                 progress()
                 Spacer(Modifier.height(6.dp))
@@ -147,13 +136,7 @@ internal fun ColumnScope.SoloChessContent(
             }
         }
     } else {
-        Text(
-            text = stringResource(Res.string.level_label, uiState.level),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(6.dp))
         Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
             progress()

@@ -25,12 +25,7 @@ internal fun ColumnScope.SlidingPuzzleContent(
 ) {
     val n = uiState.gridSize
     val compact = LocalIsCompactHeight.current
-    val cellSize = when {
-        compact -> if (n <= 4) 48.dp else 40.dp
-        n == 3 -> 72.dp
-        n == 4 -> 60.dp
-        else -> 52.dp
-    }
+    val cellSize = squareTileSize(n, compact)
 
     val board: @Composable () -> Unit = {
         Column(
@@ -53,23 +48,12 @@ internal fun ColumnScope.SlidingPuzzleContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             board()
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(
-                    text = stringResource(Res.string.level_label, uiState.level),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
+                LevelHeader(uiState.level)
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = stringResource(Res.string.moves_label, uiState.moves),
@@ -81,13 +65,7 @@ internal fun ColumnScope.SlidingPuzzleContent(
             }
         }
     } else {
-        Text(
-            text = stringResource(Res.string.level_label, uiState.level),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(4.dp))
         Text(
             text = stringResource(Res.string.moves_label, uiState.moves),

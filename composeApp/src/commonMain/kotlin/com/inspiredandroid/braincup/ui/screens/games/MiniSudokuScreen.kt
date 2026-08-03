@@ -58,13 +58,7 @@ internal fun ColumnScope.MiniSudokuContent(
     }
 
     if (LocalIsCompactHeight.current) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             SudokuGrid(
                 uiState = uiState,
                 inputs = inputs,

@@ -66,7 +66,7 @@ private fun SpotTheNewGrid(
     val count = uiState.displayedCount.coerceAtLeast(1)
     val columns = ceil(sqrt(count.toDouble())).toInt().coerceAtLeast(1)
     val clickable = interactive && uiState.phase == SpotTheNewGame.Phase.ANSWERING
-    val maxTileWidth = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+    val maxTileWidth = gridCellMaxSize
 
     Column(
         modifier = Modifier

@@ -67,8 +67,12 @@ import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
+import com.inspiredandroid.braincup.ui.theme.PegBoardFrame
+import com.inspiredandroid.braincup.ui.theme.PegBoardSurface
+import com.inspiredandroid.braincup.ui.theme.PegHole
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
 import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -332,67 +336,32 @@ fun GameTile(
     onPlay: (GameType) -> Unit,
     onViewScore: (GameType) -> Unit,
 ) {
-    PrismTile(
-        face = Primary,
-        modifier = Modifier
-            .aspectRatio(1f)
-            .hoverHand(),
+    GameTileShell(
+        label = stringResource(gameType.displayNameRes),
+        accentColor = gameType.accentColor,
+        labelMaxLines = 1,
         onClick = { onPlay(gameType) },
+        preview = { GamePreview(gameType) },
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
-            Box(
+        val medalTint = when {
+            gameType.meetsScore(highscore, gameType.goldScore) -> MedalGold
+            gameType.meetsScore(highscore, gameType.silverScore) -> MedalSilver
+            gameType.meetsScore(highscore, gameType.bronzeScore) -> MedalBronze
+            else -> null
+        }
+        if (medalTint != null) {
+            Spacer(Modifier.width(4.dp))
+            PrismTrophy(
+                tint = medalTint,
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-                    .background(ComposeColor(gameType.accentColor)),
-                contentAlignment = Alignment.Center,
-            ) {
-                MaterialTheme(colorScheme = LightColorScheme) {
-                    GamePreview(gameType)
-                }
-            }
-
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .heightIn(min = 40.dp)
-                    .padding(start = 8.dp, top = 6.dp, bottom = 6.dp, end = 6.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                Text(
-                    text = stringResource(gameType.displayNameRes),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = ComposeColor.White,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.weight(1f),
-                )
-                val medalTint = when {
-                    gameType.meetsScore(highscore, gameType.goldScore) -> MedalGold
-                    gameType.meetsScore(highscore, gameType.silverScore) -> MedalSilver
-                    gameType.meetsScore(highscore, gameType.bronzeScore) -> MedalBronze
-                    else -> null
-                }
-                if (medalTint != null) {
-                    Spacer(Modifier.width(4.dp))
-                    PrismTrophy(
-                        tint = medalTint,
-                        modifier = Modifier
-                            .size(28.dp)
-                            .hoverHand()
-                            .noRippleClickable(onClick = { onViewScore(gameType) }),
-                    )
-                }
-            }
+                    .size(28.dp)
+                    .hoverHand()
+                    .noRippleClickable(onClick = { onViewScore(gameType) }),
+            )
         }
     }
 }
 
-/**
- * A square tile matching [GameTile]'s look, but for the "normal" (full-size) game entries that are
- * not real [GameType]s and have no per-game highscore/medal. Caller supplies the label, accent color
- * and a [preview] drawn the same way as the mini-game previews.
- */
 /** The full-size 9x9 Sudoku entry, shown as a square tile alongside the mini games. */
 @Composable
 fun NormalSudokuTile(completedCount: Int, onClick: () -> Unit) {
@@ -435,12 +404,39 @@ fun PegSolitaireTile(onClick: () -> Unit) {
 
 private const val PegSolitaireTileAccentArgb = 0xFF8D6E63L
 
+/**
+ * A square tile for the "normal" (full-size) game entries that are not real [GameType]s and have
+ * no per-game highscore or medal. Two label lines are allowed so a longer label with a progress
+ * count (e.g. "Normal Sudoku (0/50)") stays readable at tile width instead of truncating.
+ */
 @Composable
 private fun NormalGameTile(
     label: String,
     accentColor: Long,
     onClick: () -> Unit,
     preview: @Composable () -> Unit,
+) {
+    GameTileShell(
+        label = label,
+        accentColor = accentColor,
+        labelMaxLines = 2,
+        onClick = onClick,
+        preview = preview,
+    )
+}
+
+/**
+ * Square menu tile: accent-tinted preview above a label row. [trailing] holds anything that sits
+ * after the label, such as the medal on a scored mini-game.
+ */
+@Composable
+private fun GameTileShell(
+    label: String,
+    accentColor: Long,
+    labelMaxLines: Int,
+    onClick: () -> Unit,
+    preview: @Composable () -> Unit,
+    trailing: @Composable RowScope.() -> Unit = {},
 ) {
     PrismTile(
         face = Primary,
@@ -473,12 +469,11 @@ private fun NormalGameTile(
                     text = label,
                     style = MaterialTheme.typography.labelLarge,
                     color = ComposeColor.White,
-                    // Allow two lines so a longer label with a progress count (e.g. "Normal
-                    // Sudoku (0/50)") stays readable at tile width instead of truncating.
-                    maxLines = 2,
+                    maxLines = labelMaxLines,
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.weight(1f),
                 )
+                trailing()
             }
         }
     }
@@ -1025,9 +1020,9 @@ private fun MatchstickRiddlesPreview() {
 
 @Composable
 private fun PegSolitairePreview() {
-    val frame = ComposeColor(0xFF5D4037)
-    val surface = ComposeColor(0xFFD7CCC8)
-    val hole = ComposeColor(0xFF8D6E63)
+    val frame = PegBoardFrame
+    val surface = PegBoardSurface
+    val hole = PegHole
     PrismCard(
         face = frame,
         facet = PrismFacet.Preview,
@@ -1694,7 +1689,7 @@ private fun BubbleSumPreview() {
         color = androidx.compose.ui.graphics.Color.White,
         fontWeight = FontWeight.Bold,
     )
-    val warningDigitStyle = digitStyle.copy(color = ComposeColor(0xFF1A1A1A))
+    val warningDigitStyle = digitStyle.copy(color = PuzzleGridInk)
     Box(
         modifier = Modifier
             .fillMaxHeight()

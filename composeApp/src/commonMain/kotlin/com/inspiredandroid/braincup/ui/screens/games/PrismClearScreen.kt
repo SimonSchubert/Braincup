@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
@@ -43,7 +42,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.level_label
 import braincup.composeapp.generated.resources.prism_clear_restart
 import braincup.composeapp.generated.resources.prism_clear_stuck
 import braincup.composeapp.generated.resources.prism_clear_undo
@@ -307,21 +305,10 @@ internal fun ColumnScope.PrismClearContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             board()
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                Text(
-                    text = stringResource(Res.string.level_label, uiState.level),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
+                LevelHeader(uiState.level)
                 if (uiState.stuck) {
                     Spacer(Modifier.height(6.dp))
                     Text(
@@ -337,13 +324,7 @@ internal fun ColumnScope.PrismClearContent(
             }
         }
     } else {
-        Text(
-            text = stringResource(Res.string.level_label, uiState.level),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         if (uiState.stuck) {
             Spacer(Modifier.height(8.dp))
             Text(

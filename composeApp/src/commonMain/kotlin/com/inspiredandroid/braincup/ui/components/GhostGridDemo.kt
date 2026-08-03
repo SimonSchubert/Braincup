@@ -85,7 +85,7 @@ fun GhostGridDemo(modifier: Modifier = Modifier) {
     }
 
     val tappedSet = remember(tappedCount) { DemoSequence.take(tappedCount).toSet() }
-    val cellMax = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+    val cellMax = gridCellMaxSize
 
     Column(
         modifier = modifier,

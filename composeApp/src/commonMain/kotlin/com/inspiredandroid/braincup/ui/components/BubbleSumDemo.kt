@@ -33,6 +33,7 @@ import braincup.composeapp.generated.resources.bubble_sum_demo_correct
 import braincup.composeapp.generated.resources.bubble_sum_demo_title
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdYellow
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.persistentListOf
@@ -160,7 +161,7 @@ fun BubbleSumDemo(modifier: Modifier = Modifier) {
         fontWeight = FontWeight.Bold,
         fontFamily = numberFontFamily(),
     )
-    val warningDigitStyle = digitStyle.copy(color = Color(0xFF1A1A1A))
+    val warningDigitStyle = digitStyle.copy(color = PuzzleGridInk)
 
     LaunchedEffect(loop) {
         bubbles = InitialBubbles.map { it.copy() }

@@ -88,13 +88,7 @@ internal fun ColumnScope.ColoredShapesContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             shape(Modifier.size(160.dp))
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,

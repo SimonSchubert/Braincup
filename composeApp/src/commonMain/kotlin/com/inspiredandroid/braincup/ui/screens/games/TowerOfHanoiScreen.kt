@@ -54,7 +54,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.level_label
 import braincup.composeapp.generated.resources.moves_label
 import braincup.composeapp.generated.resources.tower_of_hanoi_invalid_move
 import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
@@ -144,23 +143,12 @@ internal fun ColumnScope.TowerOfHanoiContent(
     }
 
     if (compact) {
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
-            horizontalArrangement = Arrangement.spacedBy(24.dp, Alignment.CenterHorizontally),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+        CompactGameRow {
             board()
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                Text(
-                    text = stringResource(Res.string.level_label, uiState.level),
-                    style = MaterialTheme.typography.titleMedium,
-                    fontWeight = FontWeight.Bold,
-                    color = MaterialTheme.colorScheme.primary,
-                )
+                LevelHeader(uiState.level)
                 Spacer(Modifier.height(4.dp))
                 Text(
                     text = stringResource(Res.string.moves_label, uiState.moves),
@@ -174,13 +162,7 @@ internal fun ColumnScope.TowerOfHanoiContent(
             }
         }
     } else {
-        Text(
-            text = stringResource(Res.string.level_label, uiState.level),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = MaterialTheme.colorScheme.primary,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(4.dp))
         Text(
             text = stringResource(Res.string.moves_label, uiState.moves),

@@ -68,7 +68,7 @@ fun SchulteTableDemo(modifier: Modifier = Modifier) {
         }
     }
 
-    val cellMax = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+    val cellMax = gridCellMaxSize
 
     Column(
         modifier = modifier,
