@@ -1,5 +1,9 @@
 package com.inspiredandroid.braincup.normalchess
 
+import com.inspiredandroid.braincup.chess.Piece
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -12,14 +16,14 @@ class NormalChessAiTest {
         // White to play and mate in one with Rook to h8 (back-rank).
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(0, 6) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(6, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(5, 6) to Piece(PieceType.PAWN, Color.BLACK),
-                Square(6, 6) to Piece(PieceType.PAWN, Color.BLACK),
-                Square(7, 6) to Piece(PieceType.PAWN, Color.BLACK),
+                Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(0, 6) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(6, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(5, 6) to Piece(PieceType.PAWN, PieceColor.BLACK),
+                Square(6, 6) to Piece(PieceType.PAWN, PieceColor.BLACK),
+                Square(7, 6) to Piece(PieceType.PAWN, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         for (depth in intArrayOf(1, 2, 3)) {
             val ai = NormalChessAi(depth = depth, random = Random(42))
@@ -35,12 +39,12 @@ class NormalChessAiTest {
         // White rook on a1 can capture undefended black queen on a8.
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(0, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(0, 7) to Piece(PieceType.QUEEN, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(0, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(0, 7) to Piece(PieceType.QUEEN, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         val ai = NormalChessAi(depth = 2, random = Random(7))
         val move = ai.bestMove(b)
@@ -54,12 +58,12 @@ class NormalChessAiTest {
         // White queen on d4 attacked by black knight on c6 — white must move queen.
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(3, 3) to Piece(PieceType.QUEEN, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(2, 5) to Piece(PieceType.KNIGHT, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(3, 3) to Piece(PieceType.QUEEN, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(2, 5) to Piece(PieceType.KNIGHT, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         val ai = NormalChessAi(depth = 3, random = Random(7))
         val move = ai.bestMove(b)

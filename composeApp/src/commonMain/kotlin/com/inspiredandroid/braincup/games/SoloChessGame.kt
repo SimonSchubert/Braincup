@@ -1,7 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.SoloChessUiState
-import com.inspiredandroid.braincup.games.minichess.PieceType
+import com.inspiredandroid.braincup.chess.PieceType
 import kotlinx.collections.immutable.toImmutableMap
 import kotlinx.collections.immutable.toImmutableSet
 import kotlin.random.Random

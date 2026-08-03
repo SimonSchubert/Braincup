@@ -1,5 +1,10 @@
 package com.inspiredandroid.braincup.normalchess
 
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.Piece
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -11,7 +16,7 @@ class NormalChessBoardTest {
     @Test
     fun startingPositionHas32PiecesAndWhiteToMove() {
         val b = NormalChessBoard.startingPosition()
-        assertEquals(Color.WHITE, b.sideToMove)
+        assertEquals(PieceColor.WHITE, b.sideToMove)
         assertEquals(32, b.snapshot().count { it != null })
         // White has 20 opening moves (16 pawn moves + 4 knight moves)
         assertEquals(20, b.legalMoves().size)
@@ -22,10 +27,10 @@ class NormalChessBoardTest {
         // Standard chess: queen on d, king on e. Do not "swap" them to fix square colors;
         // square coloring is a UI concern (a1 must be dark so queens sit on their own color).
         val b = NormalChessBoard.startingPosition()
-        assertEquals(Piece(PieceType.QUEEN, Color.WHITE), b.pieceAt(Square(3, 0)))
-        assertEquals(Piece(PieceType.KING, Color.WHITE), b.pieceAt(Square(4, 0)))
-        assertEquals(Piece(PieceType.QUEEN, Color.BLACK), b.pieceAt(Square(3, 7)))
-        assertEquals(Piece(PieceType.KING, Color.BLACK), b.pieceAt(Square(4, 7)))
+        assertEquals(Piece(PieceType.QUEEN, PieceColor.WHITE), b.pieceAt(Square(3, 0)))
+        assertEquals(Piece(PieceType.KING, PieceColor.WHITE), b.pieceAt(Square(4, 0)))
+        assertEquals(Piece(PieceType.QUEEN, PieceColor.BLACK), b.pieceAt(Square(3, 7)))
+        assertEquals(Piece(PieceType.KING, PieceColor.BLACK), b.pieceAt(Square(4, 7)))
     }
 
     @Test
@@ -43,12 +48,12 @@ class NormalChessBoardTest {
     fun enPassantCaptureWorks() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(4, 1) to Piece(PieceType.PAWN, Color.WHITE),
-                Square(5, 3) to Piece(PieceType.PAWN, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(4, 1) to Piece(PieceType.PAWN, PieceColor.WHITE),
+                Square(5, 3) to Piece(PieceType.PAWN, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         val after = b.apply(Move(Square(4, 1), Square(4, 3)))
         assertEquals(Square(4, 2), after.enPassantTarget)
@@ -56,7 +61,7 @@ class NormalChessBoardTest {
         assertNotNull(epMove, "en passant capture should be legal")
         val final = after.apply(epMove)
         assertNull(final.pieceAt(Square(4, 3)))
-        assertEquals(Piece(PieceType.PAWN, Color.BLACK), final.pieceAt(Square(4, 2)))
+        assertEquals(Piece(PieceType.PAWN, PieceColor.BLACK), final.pieceAt(Square(4, 2)))
         assertNull(final.enPassantTarget)
     }
 
@@ -64,11 +69,11 @@ class NormalChessBoardTest {
     fun pawnPromotionOffersAllFourTypes() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(0, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(4, 6) to Piece(PieceType.PAWN, Color.WHITE),
+                Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(0, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(4, 6) to Piece(PieceType.PAWN, PieceColor.WHITE),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         val promotions = b.legalMoves().filter { it.from == Square(4, 6) && it.to == Square(4, 7) }
         assertEquals(
@@ -77,25 +82,25 @@ class NormalChessBoardTest {
         )
         val asKnight = promotions.first { it.promotion == PieceType.KNIGHT }
         val after = b.apply(asKnight)
-        assertEquals(Piece(PieceType.KNIGHT, Color.WHITE), after.pieceAt(Square(4, 7)))
+        assertEquals(Piece(PieceType.KNIGHT, PieceColor.WHITE), after.pieceAt(Square(4, 7)))
     }
 
     @Test
     fun kingsideCastleWorksAndMovesRook() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(7, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(7, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             castling = CastlingRights(whiteKingside = true, whiteQueenside = false, blackKingside = false, blackQueenside = false),
         )
         val castle = b.legalMoves().firstOrNull { it.from == Square(4, 0) && it.to == Square(6, 0) }
         assertNotNull(castle, "kingside castle should be legal")
         val after = b.apply(castle)
-        assertEquals(Piece(PieceType.KING, Color.WHITE), after.pieceAt(Square(6, 0)))
-        assertEquals(Piece(PieceType.ROOK, Color.WHITE), after.pieceAt(Square(5, 0)))
+        assertEquals(Piece(PieceType.KING, PieceColor.WHITE), after.pieceAt(Square(6, 0)))
+        assertEquals(Piece(PieceType.ROOK, PieceColor.WHITE), after.pieceAt(Square(5, 0)))
         assertNull(after.pieceAt(Square(7, 0)))
         assertFalse(after.castling.whiteKingside)
         assertFalse(after.castling.whiteQueenside)
@@ -105,18 +110,18 @@ class NormalChessBoardTest {
     fun queensideCastleWorksAndMovesRook() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(0, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(0, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             castling = CastlingRights(whiteKingside = false, whiteQueenside = true, blackKingside = false, blackQueenside = false),
         )
         val castle = b.legalMoves().firstOrNull { it.from == Square(4, 0) && it.to == Square(2, 0) }
         assertNotNull(castle)
         val after = b.apply(castle)
-        assertEquals(Piece(PieceType.KING, Color.WHITE), after.pieceAt(Square(2, 0)))
-        assertEquals(Piece(PieceType.ROOK, Color.WHITE), after.pieceAt(Square(3, 0)))
+        assertEquals(Piece(PieceType.KING, PieceColor.WHITE), after.pieceAt(Square(2, 0)))
+        assertEquals(Piece(PieceType.ROOK, PieceColor.WHITE), after.pieceAt(Square(3, 0)))
         assertNull(after.pieceAt(Square(0, 0)))
     }
 
@@ -124,12 +129,12 @@ class NormalChessBoardTest {
     fun cannotCastleThroughCheck() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(7, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(5, 7) to Piece(PieceType.ROOK, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(7, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(5, 7) to Piece(PieceType.ROOK, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             castling = CastlingRights(whiteKingside = true, whiteQueenside = false, blackKingside = false, blackQueenside = false),
         )
         val castle = b.legalMoves().firstOrNull { it.from == Square(4, 0) && it.to == Square(6, 0) }
@@ -140,12 +145,12 @@ class NormalChessBoardTest {
     fun cannotCastleWhenInCheck() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(7, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(4, 5) to Piece(PieceType.ROOK, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(7, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(4, 5) to Piece(PieceType.ROOK, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             castling = CastlingRights(whiteKingside = true, whiteQueenside = false, blackKingside = false, blackQueenside = false),
         )
         val castle = b.legalMoves().firstOrNull { it.from == Square(4, 0) && it.to == Square(6, 0) }
@@ -156,11 +161,11 @@ class NormalChessBoardTest {
     fun cannotCastleAfterKingMoves() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(7, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(7, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             castling = CastlingRights(whiteKingside = false, whiteQueenside = false, blackKingside = false, blackQueenside = false),
         )
         val castle = b.legalMoves().firstOrNull { it.from == Square(4, 0) && it.to == Square(6, 0) }
@@ -171,12 +176,12 @@ class NormalChessBoardTest {
     fun rookMoveRevokesMatchingCastlingRight() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(0, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(7, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(0, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(7, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             castling = CastlingRights(whiteKingside = true, whiteQueenside = true, blackKingside = false, blackQueenside = false),
         )
         val after = b.apply(Move(Square(0, 0), Square(0, 4)))
@@ -188,14 +193,14 @@ class NormalChessBoardTest {
     fun backRankMateIsCheckmate() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(6, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(5, 6) to Piece(PieceType.PAWN, Color.BLACK),
-                Square(6, 6) to Piece(PieceType.PAWN, Color.BLACK),
-                Square(7, 6) to Piece(PieceType.PAWN, Color.BLACK),
-                Square(0, 7) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
+                Square(6, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(5, 6) to Piece(PieceType.PAWN, PieceColor.BLACK),
+                Square(6, 6) to Piece(PieceType.PAWN, PieceColor.BLACK),
+                Square(7, 6) to Piece(PieceType.PAWN, PieceColor.BLACK),
+                Square(0, 7) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
             ),
-            sideToMove = Color.BLACK,
+            sideToMove = PieceColor.BLACK,
         )
         assertTrue(b.isCheckmate())
         assertEquals(GameResult.WHITE_WINS, b.result())
@@ -205,11 +210,11 @@ class NormalChessBoardTest {
     fun stalemateDetected() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(7, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(6, 5) to Piece(PieceType.QUEEN, Color.WHITE),
-                Square(5, 5) to Piece(PieceType.KING, Color.WHITE),
+                Square(7, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(6, 5) to Piece(PieceType.QUEEN, PieceColor.WHITE),
+                Square(5, 5) to Piece(PieceType.KING, PieceColor.WHITE),
             ),
-            sideToMove = Color.BLACK,
+            sideToMove = PieceColor.BLACK,
         )
         assertTrue(b.isStalemate())
         assertEquals(GameResult.DRAW_STALEMATE, b.result())
@@ -219,11 +224,11 @@ class NormalChessBoardTest {
     fun fiftyMoveRuleDrawAtHundredHalfmoves() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(0, 0) to Piece(PieceType.ROOK, Color.WHITE),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(0, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             halfmoveClock = 100,
         )
         assertEquals(GameResult.DRAW_FIFTY_MOVE, b.result())
@@ -233,11 +238,11 @@ class NormalChessBoardTest {
     fun pawnMoveResetsHalfmoveClock() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(0, 1) to Piece(PieceType.PAWN, Color.WHITE),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(0, 1) to Piece(PieceType.PAWN, PieceColor.WHITE),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             halfmoveClock = 40,
         )
         val after = b.apply(Move(Square(0, 1), Square(0, 2)))
@@ -248,12 +253,12 @@ class NormalChessBoardTest {
     fun captureResetsHalfmoveClock() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(0, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(0, 4) to Piece(PieceType.ROOK, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(0, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(0, 4) to Piece(PieceType.ROOK, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
             halfmoveClock = 30,
         )
         val after = b.apply(Move(Square(0, 0), Square(0, 4)))
@@ -264,10 +269,10 @@ class NormalChessBoardTest {
     fun insufficientMaterialKvK() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         assertTrue(b.isInsufficientMaterial())
         assertEquals(GameResult.DRAW_INSUFFICIENT_MATERIAL, b.result())
@@ -277,11 +282,11 @@ class NormalChessBoardTest {
     fun insufficientMaterialKvKB() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(2, 5) to Piece(PieceType.BISHOP, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(2, 5) to Piece(PieceType.BISHOP, PieceColor.BLACK),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         assertTrue(b.isInsufficientMaterial())
     }
@@ -290,11 +295,11 @@ class NormalChessBoardTest {
     fun queenIsSufficientMaterial() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(0, 0) to Piece(PieceType.QUEEN, Color.WHITE),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(0, 0) to Piece(PieceType.QUEEN, PieceColor.WHITE),
             ),
-            sideToMove = Color.WHITE,
+            sideToMove = PieceColor.WHITE,
         )
         assertFalse(b.isInsufficientMaterial())
     }
@@ -303,12 +308,12 @@ class NormalChessBoardTest {
     fun bishopCapturingCornerRookKillsCastlingRight() {
         val b = NormalChessBoard.fromMap(
             pieces = mapOf(
-                Square(4, 0) to Piece(PieceType.KING, Color.WHITE),
-                Square(4, 7) to Piece(PieceType.KING, Color.BLACK),
-                Square(7, 0) to Piece(PieceType.ROOK, Color.WHITE),
-                Square(6, 1) to Piece(PieceType.BISHOP, Color.BLACK),
+                Square(4, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+                Square(4, 7) to Piece(PieceType.KING, PieceColor.BLACK),
+                Square(7, 0) to Piece(PieceType.ROOK, PieceColor.WHITE),
+                Square(6, 1) to Piece(PieceType.BISHOP, PieceColor.BLACK),
             ),
-            sideToMove = Color.BLACK,
+            sideToMove = PieceColor.BLACK,
             castling = CastlingRights(whiteKingside = true, whiteQueenside = true, blackKingside = false, blackQueenside = false),
         )
         val capture = b.legalMoves().first { it.from == Square(6, 1) && it.to == Square(7, 0) }
@@ -325,7 +330,7 @@ class NormalChessBoardTest {
         b = b.apply(Move(Square(6, 7), Square(5, 5))) // Nf6
         b = b.apply(Move(Square(5, 2), Square(6, 0))) // Ng1
         b = b.apply(Move(Square(5, 5), Square(6, 7))) // Ng8
-        assertEquals(Color.WHITE, b.sideToMove)
+        assertEquals(PieceColor.WHITE, b.sideToMove)
         assertFalse(b.isThreefoldRepetition())
         assertEquals(GameResult.ONGOING, b.result())
     }
@@ -340,7 +345,7 @@ class NormalChessBoardTest {
             b = b.apply(Move(Square(5, 2), Square(6, 0))) // Ng1
             b = b.apply(Move(Square(5, 5), Square(6, 7))) // Ng8
         }
-        assertEquals(Color.WHITE, b.sideToMove)
+        assertEquals(PieceColor.WHITE, b.sideToMove)
         assertTrue(b.isThreefoldRepetition())
         assertEquals(GameResult.DRAW_REPETITION, b.result())
     }

@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.app
 
 import androidx.compose.runtime.Immutable
+import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
@@ -10,7 +11,6 @@ import com.inspiredandroid.braincup.games.QuickSumGame
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.VisualMemoryGame
-import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Figure

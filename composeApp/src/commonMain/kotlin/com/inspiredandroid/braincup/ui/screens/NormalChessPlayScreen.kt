@@ -33,15 +33,16 @@ import braincup.composeapp.generated.resources.normal_chess_title
 import braincup.composeapp.generated.resources.normal_chess_turn_black
 import braincup.composeapp.generated.resources.normal_chess_turn_white
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
 import com.inspiredandroid.braincup.normalchess.GameResult
-import com.inspiredandroid.braincup.normalchess.Move
 import com.inspiredandroid.braincup.normalchess.NORMAL_CHESS_SIZE
 import com.inspiredandroid.braincup.normalchess.NormalChessAi
 import com.inspiredandroid.braincup.normalchess.NormalChessBoard
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
-import com.inspiredandroid.braincup.normalchess.PieceType
-import com.inspiredandroid.braincup.normalchess.Square
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.ChessBoardFrame
 import com.inspiredandroid.braincup.ui.components.ChessPieceIcon
@@ -68,7 +69,6 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withContext
 import org.jetbrains.compose.resources.stringResource
 import kotlin.time.Clock
-import com.inspiredandroid.braincup.normalchess.Color as ChessColor
 
 private const val MIN_AI_THINK_MILLIS = 500L
 
@@ -118,7 +118,7 @@ fun NormalChessPlayScreen(
     // Schedule AI move after every human move when in VS_CPU and it's black to move.
     LaunchedEffect(board, mode) {
         if (mode != NormalChessMode.VS_CPU) return@LaunchedEffect
-        if (board.sideToMove != ChessColor.BLACK) return@LaunchedEffect
+        if (board.sideToMove != PieceColor.BLACK) return@LaunchedEffect
         if (board.result() != GameResult.ONGOING) return@LaunchedEffect
         aiThinking = true
         try {
@@ -154,7 +154,7 @@ fun NormalChessPlayScreen(
         result == GameResult.ONGOING &&
         (
             mode == NormalChessMode.VS_HUMAN ||
-                (mode == NormalChessMode.VS_CPU && board.sideToMove == ChessColor.WHITE)
+                (mode == NormalChessMode.VS_CPU && board.sideToMove == PieceColor.WHITE)
             )
     val legalMoves = if (humanCanInteract) board.legalMoves() else emptyList()
     val legalByFrom: Map<Square, List<Move>> = legalMoves.groupBy { it.from }
@@ -188,7 +188,7 @@ fun NormalChessPlayScreen(
             board.result() == GameResult.ONGOING &&
             (
                 mode == NormalChessMode.VS_HUMAN ||
-                    (mode == NormalChessMode.VS_CPU && board.sideToMove == ChessColor.WHITE)
+                    (mode == NormalChessMode.VS_CPU && board.sideToMove == PieceColor.WHITE)
                 )
         if (!canInteract) return
         val sel = selected
@@ -324,7 +324,7 @@ private fun TurnHeader(
         }
         humanResigned -> {
             text = stringResource(
-                if (board.sideToMove == ChessColor.WHITE) {
+                if (board.sideToMove == PieceColor.WHITE) {
                     Res.string.normal_chess_checkmate_black
                 } else {
                     Res.string.normal_chess_checkmate_white
@@ -364,7 +364,7 @@ private fun TurnHeader(
             text = stringResource(Res.string.normal_chess_draw_warning)
             color = ChessWarning
         }
-        board.sideToMove == ChessColor.WHITE -> {
+        board.sideToMove == PieceColor.WHITE -> {
             text = stringResource(Res.string.normal_chess_turn_white)
             color = MaterialTheme.colorScheme.onSurface
         }
@@ -398,8 +398,8 @@ private fun BoardView(
     interactive: Boolean,
     onSquareTapped: (Square) -> Unit,
 ) {
-    val whiteInCheck = board.isInCheck(ChessColor.WHITE)
-    val blackInCheck = board.isInCheck(ChessColor.BLACK)
+    val whiteInCheck = board.isInCheck(PieceColor.WHITE)
+    val blackInCheck = board.isInCheck(PieceColor.BLACK)
     // Scrollable scaffolds measure children with unbounded height; the real viewport height
     // comes from LocalScaffoldBodyHeight (provideCompactHeight on AppScaffold).
     val scaffoldBodyHeight = LocalScaffoldBodyHeight.current
@@ -434,8 +434,8 @@ private fun BoardView(
                             val isStalemateTarget = square in stalematingTargets
                             val showCheckRing = piece?.type == PieceType.KING &&
                                 (
-                                    (piece.color == ChessColor.WHITE && whiteInCheck) ||
-                                        (piece.color == ChessColor.BLACK && blackInCheck)
+                                    (piece.color == PieceColor.WHITE && whiteInCheck) ||
+                                        (piece.color == PieceColor.BLACK && blackInCheck)
                                     )
                             val target = when {
                                 isStalemateTarget -> ChessSquareTarget.Stalemate
@@ -460,7 +460,7 @@ private fun BoardView(
                                     ) {
                                         ChessPieceIcon(
                                             resource = chessPieceResource(it.type),
-                                            isWhite = it.color == ChessColor.WHITE,
+                                            isWhite = it.color == PieceColor.WHITE,
                                             figureSize = pieceSize,
                                         )
                                     }
@@ -476,11 +476,11 @@ private fun BoardView(
 
 @Composable
 private fun PromotionDialog(
-    sideToMove: ChessColor,
+    sideToMove: PieceColor,
     onPicked: (PieceType) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    val isWhite = sideToMove == ChessColor.WHITE
+    val isWhite = sideToMove == PieceColor.WHITE
     AlertDialog(
         onDismissRequest = onDismiss,
         confirmButton = {

@@ -1,5 +1,10 @@
 package com.inspiredandroid.braincup.games.minichess
 
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.Piece
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -8,17 +13,17 @@ import kotlin.test.assertTrue
 
 class ChessBoardTest {
     private fun board(
-        sideToMove: Color = Color.WHITE,
+        sideToMove: PieceColor = PieceColor.WHITE,
         vararg pieces: Pair<Square, Piece>,
     ): ChessBoard = ChessBoard.fromMap(pieces.toMap(), sideToMove)
 
     @Test
     fun pawnMovesForwardOnce() {
         val b = board(
-            Color.WHITE,
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(2, 1) to Piece(PieceType.PAWN, Color.WHITE),
+            PieceColor.WHITE,
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(2, 1) to Piece(PieceType.PAWN, PieceColor.WHITE),
         )
         val pawnTargets = b.legalMoves().filter { it.from == Square(2, 1) }.map { it.to }
         assertEquals(setOf(Square(2, 2)), pawnTargets.toSet())
@@ -27,12 +32,12 @@ class ChessBoardTest {
     @Test
     fun pawnCapturesDiagonallyAndCannotForwardCapture() {
         val b = board(
-            Color.WHITE,
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(2, 1) to Piece(PieceType.PAWN, Color.WHITE),
-            Square(2, 2) to Piece(PieceType.PAWN, Color.BLACK), // blocks forward
-            Square(1, 2) to Piece(PieceType.KNIGHT, Color.BLACK), // capturable
+            PieceColor.WHITE,
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(2, 1) to Piece(PieceType.PAWN, PieceColor.WHITE),
+            Square(2, 2) to Piece(PieceType.PAWN, PieceColor.BLACK), // blocks forward
+            Square(1, 2) to Piece(PieceType.KNIGHT, PieceColor.BLACK), // capturable
         )
         val pawnTargets = b.legalMoves().filter { it.from == Square(2, 1) }.map { it.to }
         assertEquals(setOf(Square(1, 2)), pawnTargets.toSet())
@@ -41,10 +46,10 @@ class ChessBoardTest {
     @Test
     fun pawnPromotesToQueenOnLastRank() {
         val b = board(
-            Color.WHITE,
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(2, 3) to Piece(PieceType.PAWN, Color.WHITE),
+            PieceColor.WHITE,
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(2, 3) to Piece(PieceType.PAWN, PieceColor.WHITE),
         )
         val moves = b.legalMoves().filter { it.from == Square(2, 3) }
         assertEquals(1, moves.size)
@@ -52,16 +57,16 @@ class ChessBoardTest {
         assertEquals(PieceType.QUEEN, moves[0].promotion)
 
         val after = b.apply(moves[0])
-        assertEquals(Piece(PieceType.QUEEN, Color.WHITE), after.pieceAt(Square(2, 4)))
+        assertEquals(Piece(PieceType.QUEEN, PieceColor.WHITE), after.pieceAt(Square(2, 4)))
     }
 
     @Test
     fun blackPawnMovesAndPromotesDownward() {
         val b = board(
-            Color.BLACK,
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(2, 1) to Piece(PieceType.PAWN, Color.BLACK),
+            PieceColor.BLACK,
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(2, 1) to Piece(PieceType.PAWN, PieceColor.BLACK),
         )
         val moves = b.legalMoves().filter { it.from == Square(2, 1) }
         assertEquals(1, moves.size)
@@ -72,10 +77,10 @@ class ChessBoardTest {
     @Test
     fun knightMovesInLShape() {
         val b = board(
-            Color.WHITE,
-            Square(2, 2) to Piece(PieceType.KNIGHT, Color.WHITE),
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
+            PieceColor.WHITE,
+            Square(2, 2) to Piece(PieceType.KNIGHT, PieceColor.WHITE),
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         )
         val expected = setOf(
             Square(0, 1),
@@ -94,12 +99,12 @@ class ChessBoardTest {
     @Test
     fun knightCannotLandOnOwnPieceButCanCapture() {
         val b = board(
-            Color.WHITE,
-            Square(2, 2) to Piece(PieceType.KNIGHT, Color.WHITE),
-            Square(0, 1) to Piece(PieceType.PAWN, Color.WHITE), // own → blocked
-            Square(4, 3) to Piece(PieceType.PAWN, Color.BLACK), // opp → capturable
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
+            PieceColor.WHITE,
+            Square(2, 2) to Piece(PieceType.KNIGHT, PieceColor.WHITE),
+            Square(0, 1) to Piece(PieceType.PAWN, PieceColor.WHITE), // own → blocked
+            Square(4, 3) to Piece(PieceType.PAWN, PieceColor.BLACK), // opp → capturable
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         )
         val knightTargets = b.legalMoves().filter { it.from == Square(2, 2) }.map { it.to }.toSet()
         assertFalse(Square(0, 1) in knightTargets)
@@ -109,12 +114,12 @@ class ChessBoardTest {
     @Test
     fun rookSlidesUntilBlocker() {
         val b = board(
-            Color.WHITE,
-            Square(2, 2) to Piece(PieceType.ROOK, Color.WHITE),
-            Square(2, 4) to Piece(PieceType.PAWN, Color.BLACK), // capturable
-            Square(4, 2) to Piece(PieceType.PAWN, Color.WHITE), // blocks
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(0, 4) to Piece(PieceType.KING, Color.BLACK),
+            PieceColor.WHITE,
+            Square(2, 2) to Piece(PieceType.ROOK, PieceColor.WHITE),
+            Square(2, 4) to Piece(PieceType.PAWN, PieceColor.BLACK), // capturable
+            Square(4, 2) to Piece(PieceType.PAWN, PieceColor.WHITE), // blocks
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(0, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         )
         val rookTargets = b.legalMoves().filter { it.from == Square(2, 2) }.map { it.to }.toSet()
         assertEquals(
@@ -138,10 +143,10 @@ class ChessBoardTest {
     @Test
     fun bishopAndQueenMoveDiagonally() {
         val b = board(
-            Color.WHITE,
-            Square(2, 2) to Piece(PieceType.BISHOP, Color.WHITE),
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
+            PieceColor.WHITE,
+            Square(2, 2) to Piece(PieceType.BISHOP, PieceColor.WHITE),
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         )
         val bishopTargets = b.legalMoves().filter { it.from == Square(2, 2) }.map { it.to }.toSet()
         // Diagonals from (2,2): (1,1), (0,0 own king blocks), (3,3), (4,4 black king at end of ray, capturable but capturing king is not really possible — but rays go (3,3) then (4,4) capture)
@@ -159,10 +164,10 @@ class ChessBoardTest {
     @Test
     fun kingCannotMoveIntoCheck() {
         val b = board(
-            Color.WHITE,
-            Square(2, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(3, 4) to Piece(PieceType.ROOK, Color.BLACK), // attacks file 3
+            PieceColor.WHITE,
+            Square(2, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(3, 4) to Piece(PieceType.ROOK, PieceColor.BLACK), // attacks file 3
         )
         val kingTargets = b.legalMoves().filter { it.from == Square(2, 0) }.map { it.to }.toSet()
         assertFalse(Square(3, 0) in kingTargets) // attacked by rook on file 3
@@ -173,9 +178,9 @@ class ChessBoardTest {
     @Test
     fun kingsCannotBeAdjacent() {
         val b = board(
-            Color.WHITE,
-            Square(2, 2) to Piece(PieceType.KING, Color.WHITE),
-            Square(2, 4) to Piece(PieceType.KING, Color.BLACK),
+            PieceColor.WHITE,
+            Square(2, 2) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(2, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         )
         val kingTargets = b.legalMoves().filter { it.from == Square(2, 2) }.map { it.to }.toSet()
         // Cannot move adjacent to opposing king (which would put own king in check by enemy king).
@@ -188,11 +193,11 @@ class ChessBoardTest {
     @Test
     fun pinnedPieceCannotLeaveThePinLine() {
         val b = board(
-            Color.WHITE,
-            Square(2, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(2, 2) to Piece(PieceType.ROOK, Color.WHITE), // pinned vertically
-            Square(2, 4) to Piece(PieceType.ROOK, Color.BLACK),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
+            PieceColor.WHITE,
+            Square(2, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(2, 2) to Piece(PieceType.ROOK, PieceColor.WHITE), // pinned vertically
+            Square(2, 4) to Piece(PieceType.ROOK, PieceColor.BLACK),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         )
         val pinnedTargets = b.legalMoves().filter { it.from == Square(2, 2) }.map { it.to }.toSet()
         // Allowed: stays on file 2 → (2,1), (2,3), (2,4) capture.
@@ -202,24 +207,24 @@ class ChessBoardTest {
     @Test
     fun isInCheckDetectsAttacker() {
         val b = board(
-            Color.WHITE,
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(0, 4) to Piece(PieceType.ROOK, Color.BLACK),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
+            PieceColor.WHITE,
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(0, 4) to Piece(PieceType.ROOK, PieceColor.BLACK),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         )
-        assertTrue(b.isInCheck(Color.WHITE))
-        assertFalse(b.isInCheck(Color.BLACK))
+        assertTrue(b.isInCheck(PieceColor.WHITE))
+        assertFalse(b.isInCheck(PieceColor.BLACK))
     }
 
     @Test
     fun checkmateInCornerByQueenAndKing() {
         val b = board(
-            Color.BLACK,
-            Square(0, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(1, 3) to Piece(PieceType.QUEEN, Color.WHITE),
-            Square(1, 2) to Piece(PieceType.KING, Color.WHITE),
+            PieceColor.BLACK,
+            Square(0, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(1, 3) to Piece(PieceType.QUEEN, PieceColor.WHITE),
+            Square(1, 2) to Piece(PieceType.KING, PieceColor.WHITE),
         )
-        assertTrue(b.isInCheck(Color.BLACK))
+        assertTrue(b.isInCheck(PieceColor.BLACK))
         assertEquals(emptyList(), b.legalMoves())
         assertTrue(b.isCheckmate())
         assertFalse(b.isStalemate())
@@ -232,12 +237,12 @@ class ChessBoardTest {
         // Queen does NOT attack (0,4) (off any rank/file/diagonal).
         // Black has no other pieces -> stalemate.
         val b = board(
-            Color.BLACK,
-            Square(0, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(1, 2) to Piece(PieceType.QUEEN, Color.WHITE),
-            Square(2, 2) to Piece(PieceType.KING, Color.WHITE),
+            PieceColor.BLACK,
+            Square(0, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(1, 2) to Piece(PieceType.QUEEN, PieceColor.WHITE),
+            Square(2, 2) to Piece(PieceType.KING, PieceColor.WHITE),
         )
-        assertFalse(b.isInCheck(Color.BLACK))
+        assertFalse(b.isInCheck(PieceColor.BLACK))
         assertEquals(emptyList(), b.legalMoves())
         assertTrue(b.isStalemate())
         assertFalse(b.isCheckmate())
@@ -246,14 +251,14 @@ class ChessBoardTest {
     @Test
     fun applyMovesPieceAndFlipsSide() {
         val b = board(
-            Color.WHITE,
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
-            Square(2, 2) to Piece(PieceType.KNIGHT, Color.WHITE),
+            PieceColor.WHITE,
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
+            Square(2, 2) to Piece(PieceType.KNIGHT, PieceColor.WHITE),
         )
         val after = b.apply(Move(Square(2, 2), Square(0, 1)))
-        assertEquals(Color.BLACK, after.sideToMove)
+        assertEquals(PieceColor.BLACK, after.sideToMove)
         assertNull(after.pieceAt(Square(2, 2)))
-        assertEquals(Piece(PieceType.KNIGHT, Color.WHITE), after.pieceAt(Square(0, 1)))
+        assertEquals(Piece(PieceType.KNIGHT, PieceColor.WHITE), after.pieceAt(Square(0, 1)))
     }
 }

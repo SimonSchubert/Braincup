@@ -23,11 +23,10 @@ import braincup.composeapp.generated.resources.ic_chess_knight
 import braincup.composeapp.generated.resources.ic_chess_pawn
 import braincup.composeapp.generated.resources.ic_chess_queen
 import braincup.composeapp.generated.resources.ic_chess_rook
+import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.SoloChessGame
-import com.inspiredandroid.braincup.games.minichess.PieceType
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
-import com.inspiredandroid.braincup.normalchess.PieceType as NormalPieceType
 
 val ChessLightSquare = Color(0xFFEEEED2)
 val ChessDarkSquare = Color(0xFF6FA055)
@@ -162,15 +161,6 @@ fun chessPieceResource(type: PieceType): DrawableResource = when (type) {
     PieceType.BISHOP -> Res.drawable.ic_chess_bishop
     PieceType.KNIGHT -> Res.drawable.ic_chess_knight
     PieceType.PAWN -> Res.drawable.ic_chess_pawn
-}
-
-fun chessPieceResource(type: NormalPieceType): DrawableResource = when (type) {
-    NormalPieceType.KING -> Res.drawable.ic_chess_king
-    NormalPieceType.QUEEN -> Res.drawable.ic_chess_queen
-    NormalPieceType.ROOK -> Res.drawable.ic_chess_rook
-    NormalPieceType.BISHOP -> Res.drawable.ic_chess_bishop
-    NormalPieceType.KNIGHT -> Res.drawable.ic_chess_knight
-    NormalPieceType.PAWN -> Res.drawable.ic_chess_pawn
 }
 
 @Composable

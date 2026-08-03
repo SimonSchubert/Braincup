@@ -1,5 +1,7 @@
 package com.inspiredandroid.braincup.games.minichess
 
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.PieceType
 import kotlin.random.Random
 
 class ChessAi(
@@ -78,8 +80,8 @@ class ChessAi(
         private val CENTER = intArrayOf(0, 1, 2, 1, 0)
 
         private fun centerBonus(flatIndex: Int): Int {
-            val r = flatIndex / BOARD_SIZE
-            val c = flatIndex % BOARD_SIZE
+            val r = flatIndex / MINI_CHESS_SIZE
+            val c = flatIndex % MINI_CHESS_SIZE
             return CENTER[r] + CENTER[c]
         }
 

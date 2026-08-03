@@ -1,26 +1,14 @@
 package com.inspiredandroid.braincup.normalchess
 
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.Piece
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
+import com.inspiredandroid.braincup.chess.opposite
 import kotlin.math.abs
 
 const val NORMAL_CHESS_SIZE = 8
-
-enum class PieceType { KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN }
-
-enum class Color { WHITE, BLACK }
-
-fun Color.opposite(): Color = if (this == Color.WHITE) Color.BLACK else Color.WHITE
-
-data class Piece(val type: PieceType, val color: Color)
-
-data class Square(val file: Int, val row: Int) {
-    fun inBounds(): Boolean = file in 0 until NORMAL_CHESS_SIZE && row in 0 until NORMAL_CHESS_SIZE
-}
-
-data class Move(
-    val from: Square,
-    val to: Square,
-    val promotion: PieceType? = null,
-)
 
 data class CastlingRights(
     val whiteKingside: Boolean = true,
@@ -41,7 +29,7 @@ enum class GameResult {
 
 class NormalChessBoard private constructor(
     private val grid: Array<Array<Piece?>>,
-    val sideToMove: Color,
+    val sideToMove: PieceColor,
     val castling: CastlingRights,
     val enPassantTarget: Square?,
     val halfmoveClock: Int,
@@ -89,7 +77,7 @@ class NormalChessBoard private constructor(
 
         val newCastling = updateCastlingRights(piece, move)
         val newHalfmove = if (isPawn || isCapture || isEnPassant) 0 else halfmoveClock + 1
-        val newFullmove = if (sideToMove == Color.BLACK) fullmoveNumber + 1 else fullmoveNumber
+        val newFullmove = if (sideToMove == PieceColor.BLACK) fullmoveNumber + 1 else fullmoveNumber
         val newSide = sideToMove.opposite()
         val nextKey = positionKey(
             grid = newGrid,
@@ -112,17 +100,17 @@ class NormalChessBoard private constructor(
     private fun updateCastlingRights(piece: Piece, move: Move): CastlingRights {
         var c = castling
         if (piece.type == PieceType.KING) {
-            c = if (piece.color == Color.WHITE) {
+            c = if (piece.color == PieceColor.WHITE) {
                 c.copy(whiteKingside = false, whiteQueenside = false)
             } else {
                 c.copy(blackKingside = false, blackQueenside = false)
             }
         }
         if (piece.type == PieceType.ROOK) {
-            if (piece.color == Color.WHITE && move.from == Square(0, 0)) c = c.copy(whiteQueenside = false)
-            if (piece.color == Color.WHITE && move.from == Square(7, 0)) c = c.copy(whiteKingside = false)
-            if (piece.color == Color.BLACK && move.from == Square(0, 7)) c = c.copy(blackQueenside = false)
-            if (piece.color == Color.BLACK && move.from == Square(7, 7)) c = c.copy(blackKingside = false)
+            if (piece.color == PieceColor.WHITE && move.from == Square(0, 0)) c = c.copy(whiteQueenside = false)
+            if (piece.color == PieceColor.WHITE && move.from == Square(7, 0)) c = c.copy(whiteKingside = false)
+            if (piece.color == PieceColor.BLACK && move.from == Square(0, 7)) c = c.copy(blackQueenside = false)
+            if (piece.color == PieceColor.BLACK && move.from == Square(7, 7)) c = c.copy(blackKingside = false)
         }
         // Capturing a corner rook also kills the matching castling right.
         if (move.to == Square(0, 0)) c = c.copy(whiteQueenside = false)
@@ -132,7 +120,7 @@ class NormalChessBoard private constructor(
         return c
     }
 
-    fun findKing(color: Color): Square? {
+    fun findKing(color: PieceColor): Square? {
         for (r in 0 until NORMAL_CHESS_SIZE) {
             for (c in 0 until NORMAL_CHESS_SIZE) {
                 val p = grid[r][c]
@@ -142,12 +130,12 @@ class NormalChessBoard private constructor(
         return null
     }
 
-    fun isInCheck(color: Color): Boolean {
+    fun isInCheck(color: PieceColor): Boolean {
         val king = findKing(color) ?: return false
         return isSquareAttackedBy(king, color.opposite())
     }
 
-    private fun isSquareAttackedBy(target: Square, color: Color): Boolean {
+    private fun isSquareAttackedBy(target: Square, color: PieceColor): Boolean {
         for (r in 0 until NORMAL_CHESS_SIZE) {
             for (c in 0 until NORMAL_CHESS_SIZE) {
                 val piece = grid[r][c] ?: continue
@@ -167,8 +155,8 @@ class NormalChessBoard private constructor(
         PieceType.KING -> kingAttacks(from, target)
     }
 
-    private fun pawnAttacks(color: Color, from: Square, target: Square): Boolean {
-        val dir = if (color == Color.WHITE) 1 else -1
+    private fun pawnAttacks(color: PieceColor, from: Square, target: Square): Boolean {
+        val dir = if (color == PieceColor.WHITE) 1 else -1
         return target.row == from.row + dir && abs(target.file - from.file) == 1
     }
 
@@ -219,8 +207,8 @@ class NormalChessBoard private constructor(
     fun isInsufficientMaterial(): Boolean {
         val pieces = snapshot().filterNotNull()
         if (pieces.any { it.type == PieceType.QUEEN || it.type == PieceType.ROOK || it.type == PieceType.PAWN }) return false
-        val whiteMinors = pieces.count { it.color == Color.WHITE && (it.type == PieceType.KNIGHT || it.type == PieceType.BISHOP) }
-        val blackMinors = pieces.count { it.color == Color.BLACK && (it.type == PieceType.KNIGHT || it.type == PieceType.BISHOP) }
+        val whiteMinors = pieces.count { it.color == PieceColor.WHITE && (it.type == PieceType.KNIGHT || it.type == PieceType.BISHOP) }
+        val blackMinors = pieces.count { it.color == PieceColor.BLACK && (it.type == PieceType.KNIGHT || it.type == PieceType.BISHOP) }
         // KvK
         if (whiteMinors == 0 && blackMinors == 0) return true
         // KvK+N or KvK+B
@@ -228,8 +216,8 @@ class NormalChessBoard private constructor(
         if (blackMinors == 0 && whiteMinors == 1) return true
         // KB vs KB with bishops on same color complex (theoretical draw)
         if (whiteMinors == 1 && blackMinors == 1) {
-            val whiteBishop = squareOf(PieceType.BISHOP, Color.WHITE)
-            val blackBishop = squareOf(PieceType.BISHOP, Color.BLACK)
+            val whiteBishop = squareOf(PieceType.BISHOP, PieceColor.WHITE)
+            val blackBishop = squareOf(PieceType.BISHOP, PieceColor.BLACK)
             if (whiteBishop != null && blackBishop != null) {
                 val whiteParity = (whiteBishop.file + whiteBishop.row) and 1
                 val blackParity = (blackBishop.file + blackBishop.row) and 1
@@ -239,7 +227,7 @@ class NormalChessBoard private constructor(
         return false
     }
 
-    private fun squareOf(type: PieceType, color: Color): Square? {
+    private fun squareOf(type: PieceType, color: PieceColor): Square? {
         for (r in 0 until NORMAL_CHESS_SIZE) {
             for (c in 0 until NORMAL_CHESS_SIZE) {
                 val p = grid[r][c]
@@ -252,7 +240,7 @@ class NormalChessBoard private constructor(
     fun result(): GameResult {
         if (legalMoves().isEmpty()) {
             return if (isInCheck(sideToMove)) {
-                if (sideToMove == Color.WHITE) GameResult.BLACK_WINS else GameResult.WHITE_WINS
+                if (sideToMove == PieceColor.WHITE) GameResult.BLACK_WINS else GameResult.WHITE_WINS
             } else {
                 GameResult.DRAW_STALEMATE
             }
@@ -263,7 +251,7 @@ class NormalChessBoard private constructor(
         return GameResult.ONGOING
     }
 
-    private fun pseudoLegalMoves(color: Color): List<Move> {
+    private fun pseudoLegalMoves(color: PieceColor): List<Move> {
         val moves = ArrayList<Move>(48)
         for (r in 0 until NORMAL_CHESS_SIZE) {
             for (c in 0 until NORMAL_CHESS_SIZE) {
@@ -289,10 +277,10 @@ class NormalChessBoard private constructor(
         return moves
     }
 
-    private fun generatePawnMoves(color: Color, from: Square, out: MutableList<Move>) {
-        val dir = if (color == Color.WHITE) 1 else -1
-        val startRow = if (color == Color.WHITE) 1 else 6
-        val promotionRow = if (color == Color.WHITE) NORMAL_CHESS_SIZE - 1 else 0
+    private fun generatePawnMoves(color: PieceColor, from: Square, out: MutableList<Move>) {
+        val dir = if (color == PieceColor.WHITE) 1 else -1
+        val startRow = if (color == PieceColor.WHITE) 1 else 6
+        val promotionRow = if (color == PieceColor.WHITE) NORMAL_CHESS_SIZE - 1 else 0
         val oneForwardRow = from.row + dir
         if (oneForwardRow !in 0 until NORMAL_CHESS_SIZE) return
 
@@ -335,7 +323,7 @@ class NormalChessBoard private constructor(
     }
 
     private fun generateStepMoves(
-        color: Color,
+        color: PieceColor,
         from: Square,
         deltas: Array<IntArray>,
         out: MutableList<Move>,
@@ -352,7 +340,7 @@ class NormalChessBoard private constructor(
     }
 
     private fun generateSlidingMoves(
-        color: Color,
+        color: PieceColor,
         from: Square,
         deltas: Array<IntArray>,
         out: MutableList<Move>,
@@ -374,13 +362,13 @@ class NormalChessBoard private constructor(
         }
     }
 
-    private fun generateCastleMoves(color: Color, from: Square, out: MutableList<Move>) {
-        val homeRow = if (color == Color.WHITE) 0 else 7
+    private fun generateCastleMoves(color: PieceColor, from: Square, out: MutableList<Move>) {
+        val homeRow = if (color == PieceColor.WHITE) 0 else 7
         if (from != Square(4, homeRow)) return
         if (isInCheck(color)) return
 
-        val kingside = if (color == Color.WHITE) castling.whiteKingside else castling.blackKingside
-        val queenside = if (color == Color.WHITE) castling.whiteQueenside else castling.blackQueenside
+        val kingside = if (color == PieceColor.WHITE) castling.whiteKingside else castling.blackKingside
+        val queenside = if (color == PieceColor.WHITE) castling.whiteQueenside else castling.blackQueenside
         val enemy = color.opposite()
 
         if (kingside &&
@@ -445,7 +433,7 @@ class NormalChessBoard private constructor(
         /** Hash of piece placement + side to move + castling + en passant (FIDE position identity). */
         fun positionKey(
             grid: Array<Array<Piece?>>,
-            sideToMove: Color,
+            sideToMove: PieceColor,
             castling: CastlingRights,
             enPassantTarget: Square?,
         ): Long {
@@ -480,7 +468,7 @@ class NormalChessBoard private constructor(
 
         private fun create(
             grid: Array<Array<Piece?>>,
-            sideToMove: Color,
+            sideToMove: PieceColor,
             castling: CastlingRights,
             enPassantTarget: Square?,
             halfmoveClock: Int,
@@ -511,14 +499,14 @@ class NormalChessBoard private constructor(
                 PieceType.ROOK,
             )
             for (c in 0 until NORMAL_CHESS_SIZE) {
-                grid[0][c] = Piece(backRank[c], Color.WHITE)
-                grid[1][c] = Piece(PieceType.PAWN, Color.WHITE)
-                grid[6][c] = Piece(PieceType.PAWN, Color.BLACK)
-                grid[7][c] = Piece(backRank[c], Color.BLACK)
+                grid[0][c] = Piece(backRank[c], PieceColor.WHITE)
+                grid[1][c] = Piece(PieceType.PAWN, PieceColor.WHITE)
+                grid[6][c] = Piece(PieceType.PAWN, PieceColor.BLACK)
+                grid[7][c] = Piece(backRank[c], PieceColor.BLACK)
             }
             return create(
                 grid = grid,
-                sideToMove = Color.WHITE,
+                sideToMove = PieceColor.WHITE,
                 castling = CastlingRights(),
                 enPassantTarget = null,
                 halfmoveClock = 0,
@@ -528,7 +516,7 @@ class NormalChessBoard private constructor(
 
         fun fromMap(
             pieces: Map<Square, Piece>,
-            sideToMove: Color = Color.WHITE,
+            sideToMove: PieceColor = PieceColor.WHITE,
             castling: CastlingRights = CastlingRights(false, false, false, false),
             enPassantTarget: Square? = null,
             halfmoveClock: Int = 0,

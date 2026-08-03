@@ -4,12 +4,12 @@ import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.MiniChessCell
 import com.inspiredandroid.braincup.app.MiniChessOutcome
 import com.inspiredandroid.braincup.app.MiniChessUiState
-import com.inspiredandroid.braincup.games.minichess.BOARD_SIZE
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.Square
 import com.inspiredandroid.braincup.games.minichess.ChessBoard
-import com.inspiredandroid.braincup.games.minichess.Color
-import com.inspiredandroid.braincup.games.minichess.Move
+import com.inspiredandroid.braincup.games.minichess.MINI_CHESS_SIZE
 import com.inspiredandroid.braincup.games.minichess.ScenarioGenerator
-import com.inspiredandroid.braincup.games.minichess.Square
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentMapOf
@@ -92,7 +92,7 @@ class MiniChessGame(
 
         // After player's move, evaluate position from AI (black) perspective.
         if (board.legalMoves().isEmpty()) {
-            outcome = if (board.isInCheck(Color.BLACK)) {
+            outcome = if (board.isInCheck(PieceColor.BLACK)) {
                 MiniChessOutcome.PLAYER_WIN
             } else {
                 MiniChessOutcome.DRAW
@@ -119,7 +119,7 @@ class MiniChessGame(
 
         // After AI's move, evaluate position from player (white) perspective.
         if (board.legalMoves().isEmpty()) {
-            outcome = if (board.isInCheck(Color.WHITE)) {
+            outcome = if (board.isInCheck(PieceColor.WHITE)) {
                 MiniChessOutcome.PLAYER_LOSS
             } else {
                 MiniChessOutcome.DRAW
@@ -149,7 +149,7 @@ class MiniChessGame(
     override fun toUiState(): GameUiState {
         val snapshot = board.snapshot()
         val cells = snapshot.map { piece ->
-            MiniChessCell(pieceType = piece?.type, isWhite = piece?.color == Color.WHITE)
+            MiniChessCell(pieceType = piece?.type, isWhite = piece?.color == PieceColor.WHITE)
         }
         val legalByFrom: ImmutableMap<Int, ImmutableSet<Int>>
         val stalematingByFrom: ImmutableMap<Int, ImmutableSet<Int>>
@@ -162,7 +162,7 @@ class MiniChessGame(
             stalematingByFrom = legalMoves
                 .filter { move ->
                     val after = board.apply(move)
-                    after.legalMoves().isEmpty() && !after.isInCheck(Color.BLACK)
+                    after.legalMoves().isEmpty() && !after.isInCheck(PieceColor.BLACK)
                 }
                 .groupBy({ it.from.toIndex() }, { it.to.toIndex() })
                 .mapValues { it.value.toImmutableSet() }
@@ -177,8 +177,8 @@ class MiniChessGame(
             stalematingMovesByFrom = stalematingByFrom,
             lastMoveFromIndex = lastMoveFrom?.toIndex(),
             lastMoveToIndex = lastMoveTo?.toIndex(),
-            whiteInCheck = board.isInCheck(Color.WHITE),
-            blackInCheck = board.isInCheck(Color.BLACK),
+            whiteInCheck = board.isInCheck(PieceColor.WHITE),
+            blackInCheck = board.isInCheck(PieceColor.BLACK),
             isAiThinking = phase == Phase.AI_THINKING,
             outcome = outcome,
             halfMoveCount = halfMoveCount,
@@ -192,10 +192,10 @@ class MiniChessGame(
         if (parts.size != 2) return null
         val from = parts[0].toIntOrNull() ?: return null
         val to = parts[1].toIntOrNull() ?: return null
-        if (from !in 0 until BOARD_SIZE * BOARD_SIZE) return null
-        if (to !in 0 until BOARD_SIZE * BOARD_SIZE) return null
-        val fromSq = Square(from % BOARD_SIZE, from / BOARD_SIZE)
-        val toSq = Square(to % BOARD_SIZE, to / BOARD_SIZE)
+        if (from !in 0 until MINI_CHESS_SIZE * MINI_CHESS_SIZE) return null
+        if (to !in 0 until MINI_CHESS_SIZE * MINI_CHESS_SIZE) return null
+        val fromSq = Square(from % MINI_CHESS_SIZE, from / MINI_CHESS_SIZE)
+        val toSq = Square(to % MINI_CHESS_SIZE, to / MINI_CHESS_SIZE)
         return findLegalMove(fromSq, toSq)
     }
 
@@ -227,6 +227,6 @@ class MiniChessGame(
 
         fun encodeMove(from: Square, to: Square): String = "${from.toIndex()}>${to.toIndex()}"
 
-        fun Square.toIndex(): Int = row * BOARD_SIZE + file
+        fun Square.toIndex(): Int = row * MINI_CHESS_SIZE + file
     }
 }

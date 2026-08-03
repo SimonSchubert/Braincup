@@ -22,8 +22,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_solo_chess_desc
+import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.SoloChessGame
-import com.inspiredandroid.braincup.games.minichess.PieceType
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 

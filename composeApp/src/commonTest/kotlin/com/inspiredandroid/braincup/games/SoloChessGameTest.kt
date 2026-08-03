@@ -1,6 +1,6 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.games.minichess.PieceType
+import com.inspiredandroid.braincup.chess.PieceType
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals

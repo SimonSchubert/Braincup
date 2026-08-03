@@ -11,8 +11,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
+import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.SoloChessGame
-import com.inspiredandroid.braincup.games.minichess.PieceType
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import kotlinx.collections.immutable.persistentMapOf

@@ -1,5 +1,9 @@
 package com.inspiredandroid.braincup.normalchess
 
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.Piece
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
 import kotlin.random.Random
 
 class NormalChessAi(
@@ -198,7 +202,7 @@ class NormalChessAi(
             // flatIndex was built as row * 8 + file in snapshot(); mirror row for black.
             val row = flatIndex / NORMAL_CHESS_SIZE
             val file = flatIndex % NORMAL_CHESS_SIZE
-            val effectiveRow = if (piece.color == Color.WHITE) row else NORMAL_CHESS_SIZE - 1 - row
+            val effectiveRow = if (piece.color == PieceColor.WHITE) row else NORMAL_CHESS_SIZE - 1 - row
             val mirrored = effectiveRow * NORMAL_CHESS_SIZE + file
             return when (piece.type) {
                 PieceType.PAWN -> PAWN_PST[mirrored]

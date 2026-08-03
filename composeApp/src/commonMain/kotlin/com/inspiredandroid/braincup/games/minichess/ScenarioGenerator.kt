@@ -1,5 +1,9 @@
 package com.inspiredandroid.braincup.games.minichess
 
+import com.inspiredandroid.braincup.chess.Piece
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.random.Random
@@ -30,34 +34,34 @@ object ScenarioGenerator {
         val placed = HashMap<Square, Piece>()
 
         val whiteKing = ALL_SQUARES.random(random)
-        placed[whiteKing] = Piece(PieceType.KING, Color.WHITE)
+        placed[whiteKing] = Piece(PieceType.KING, PieceColor.WHITE)
 
         val blackKingCandidates = ALL_SQUARES.filter { it != whiteKing && chebyshev(it, whiteKing) >= 2 }
         val blackKing = blackKingCandidates.randomOrNull(random) ?: return null
-        placed[blackKing] = Piece(PieceType.KING, Color.BLACK)
+        placed[blackKing] = Piece(PieceType.KING, PieceColor.BLACK)
 
         val whiteCount = whitePieceCount(random)
         repeat(whiteCount) {
-            val piece = placeRandom(placed, Color.WHITE, random) ?: return null
+            val piece = placeRandom(placed, PieceColor.WHITE, random) ?: return null
             placed[piece.first] = piece.second
         }
 
         val blackCount = blackPieceCount(difficultyDepth, random)
         repeat(blackCount) {
-            val piece = placeRandom(placed, Color.BLACK, random) ?: return null
+            val piece = placeRandom(placed, PieceColor.BLACK, random) ?: return null
             placed[piece.first] = piece.second
         }
 
-        val board = ChessBoard.fromMap(placed, Color.WHITE)
+        val board = ChessBoard.fromMap(placed, PieceColor.WHITE)
 
         // Reject illegal/impossible/uninteresting positions.
-        if (board.isInCheck(Color.WHITE)) return null
-        if (board.isInCheck(Color.BLACK)) return null
+        if (board.isInCheck(PieceColor.WHITE)) return null
+        if (board.isInCheck(PieceColor.BLACK)) return null
         if (board.legalMoves().size < MIN_LEGAL_MOVES) return null
 
         // Without a queen, rook, or promotable pawn, white can't force checkmate
         // against a lone king — these positions waste the player's time.
-        if (!hasMatingPotential(placed, Color.WHITE)) return null
+        if (!hasMatingPotential(placed, PieceColor.WHITE)) return null
 
         // Quality gate: short negamax search must place the eval in a
         // difficulty-tuned window. Skip for Easy (current behavior is fine).
@@ -76,7 +80,7 @@ object ScenarioGenerator {
 
     private fun placeRandom(
         occupied: Map<Square, Piece>,
-        color: Color,
+        color: PieceColor,
         random: Random,
     ): Pair<Square, Piece>? {
         val type = PIECE_BAG.random(random)
@@ -87,7 +91,7 @@ object ScenarioGenerator {
         return sq to Piece(type, color)
     }
 
-    private fun validForPawn(sq: Square, type: PieceType): Boolean = type != PieceType.PAWN || sq.row in 1 until BOARD_SIZE - 1
+    private fun validForPawn(sq: Square, type: PieceType): Boolean = type != PieceType.PAWN || sq.row in 1 until MINI_CHESS_SIZE - 1
 
     /** Player always gets a meaty army: K + 3..4 non-king pieces. */
     private fun whitePieceCount(random: Random): Int = (3..4).random(random)
@@ -100,7 +104,7 @@ object ScenarioGenerator {
 
     private fun chebyshev(a: Square, b: Square): Int = max(abs(a.file - b.file), abs(a.row - b.row))
 
-    private fun hasMatingPotential(placed: Map<Square, Piece>, color: Color): Boolean = placed.values.any { p ->
+    private fun hasMatingPotential(placed: Map<Square, Piece>, color: PieceColor): Boolean = placed.values.any { p ->
         p.color == color && (p.type == PieceType.QUEEN || p.type == PieceType.ROOK || p.type == PieceType.PAWN)
     }
 
@@ -128,15 +132,15 @@ object ScenarioGenerator {
 
     private fun fallback(): ChessBoard = ChessBoard.fromMap(
         mapOf(
-            Square(0, 0) to Piece(PieceType.KING, Color.WHITE),
-            Square(2, 1) to Piece(PieceType.ROOK, Color.WHITE),
-            Square(4, 4) to Piece(PieceType.KING, Color.BLACK),
+            Square(0, 0) to Piece(PieceType.KING, PieceColor.WHITE),
+            Square(2, 1) to Piece(PieceType.ROOK, PieceColor.WHITE),
+            Square(4, 4) to Piece(PieceType.KING, PieceColor.BLACK),
         ),
-        Color.WHITE,
+        PieceColor.WHITE,
     )
 
     private val ALL_SQUARES: List<Square> = buildList {
-        for (r in 0 until BOARD_SIZE) for (c in 0 until BOARD_SIZE) add(Square(c, r))
+        for (r in 0 until MINI_CHESS_SIZE) for (c in 0 until MINI_CHESS_SIZE) add(Square(c, r))
     }
 
     // Weighted bag: pawns and minor pieces common, queen rare.

@@ -1,5 +1,8 @@
 package com.inspiredandroid.braincup.games.minichess
 
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.random.Random
@@ -18,22 +21,22 @@ class ScenarioGeneratorTest {
                 val board = ScenarioGenerator.generate(depth, random)
                 val msg = "depth=$depth iteration=$iteration"
 
-                val whiteKing = board.findKing(Color.WHITE)
-                val blackKing = board.findKing(Color.BLACK)
+                val whiteKing = board.findKing(PieceColor.WHITE)
+                val blackKing = board.findKing(PieceColor.BLACK)
                 assertNotNull(whiteKing, "$msg: white king missing")
                 assertNotNull(blackKing, "$msg: black king missing")
 
                 val dist = chebyshev(whiteKing, blackKing)
                 assertTrue(dist >= 2, "$msg: kings adjacent at $whiteKing / $blackKing")
 
-                assertFalse(board.isInCheck(Color.WHITE), "$msg: white in check")
-                assertFalse(board.isInCheck(Color.BLACK), "$msg: black in check")
+                assertFalse(board.isInCheck(PieceColor.WHITE), "$msg: white in check")
+                assertFalse(board.isInCheck(PieceColor.BLACK), "$msg: black in check")
                 assertFalse(board.isCheckmate(), "$msg: already checkmate")
                 assertFalse(board.isStalemate(), "$msg: already stalemate")
                 assertTrue(board.legalMoves().size >= 3, "$msg: too few legal moves")
 
-                val white = board.pieceCount(Color.WHITE)
-                val black = board.pieceCount(Color.BLACK)
+                val white = board.pieceCount(PieceColor.WHITE)
+                val black = board.pieceCount(PieceColor.BLACK)
                 // White always K + 3..4 non-king = 4..5 total.
                 assertTrue(white in 4..5, "$msg: unexpected white piece count $white")
                 // Black: Easy (depth 1) = K + 2..3 non-king = 3..4; harder = K + 3..4 = 4..5.
@@ -45,8 +48,8 @@ class ScenarioGeneratorTest {
                 for (i in snapshot.indices) {
                     val p = snapshot[i] ?: continue
                     if (p.type == PieceType.PAWN) {
-                        val row = i / BOARD_SIZE
-                        assertTrue(row in 1 until BOARD_SIZE - 1, "$msg: pawn on row $row")
+                        val row = i / MINI_CHESS_SIZE
+                        assertTrue(row in 1 until MINI_CHESS_SIZE - 1, "$msg: pawn on row $row")
                     }
                 }
             }

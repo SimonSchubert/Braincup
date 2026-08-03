@@ -45,7 +45,7 @@ import braincup.composeapp.generated.resources.chess_piece_pawn
 import braincup.composeapp.generated.resources.chess_piece_queen
 import braincup.composeapp.generated.resources.chess_piece_rook
 import braincup.composeapp.generated.resources.mini_chess_moves_title
-import com.inspiredandroid.braincup.games.minichess.PieceType
+import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay

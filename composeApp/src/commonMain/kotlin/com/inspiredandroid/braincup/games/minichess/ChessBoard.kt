@@ -1,30 +1,18 @@
 package com.inspiredandroid.braincup.games.minichess
 
+import com.inspiredandroid.braincup.chess.Move
+import com.inspiredandroid.braincup.chess.Piece
+import com.inspiredandroid.braincup.chess.PieceColor
+import com.inspiredandroid.braincup.chess.PieceType
+import com.inspiredandroid.braincup.chess.Square
+import com.inspiredandroid.braincup.chess.opposite
 import kotlin.math.abs
 
-const val BOARD_SIZE = 5
-
-enum class PieceType { KING, QUEEN, ROOK, BISHOP, KNIGHT, PAWN }
-
-enum class Color { WHITE, BLACK }
-
-fun Color.opposite(): Color = if (this == Color.WHITE) Color.BLACK else Color.WHITE
-
-data class Piece(val type: PieceType, val color: Color)
-
-data class Square(val file: Int, val row: Int) {
-    fun inBounds(): Boolean = file in 0 until BOARD_SIZE && row in 0 until BOARD_SIZE
-}
-
-data class Move(
-    val from: Square,
-    val to: Square,
-    val promotion: PieceType? = null,
-)
+const val MINI_CHESS_SIZE = 5
 
 class ChessBoard private constructor(
     private val grid: Array<Array<Piece?>>,
-    val sideToMove: Color,
+    val sideToMove: PieceColor,
 ) {
     fun pieceAt(square: Square): Piece? = grid[square.row][square.file]
     fun pieceAt(file: Int, row: Int): Piece? = grid[row][file]
@@ -32,16 +20,16 @@ class ChessBoard private constructor(
     fun apply(move: Move): ChessBoard {
         val piece = pieceAt(move.from)
             ?: error("apply: no piece on ${move.from}")
-        val newGrid = Array(BOARD_SIZE) { r -> Array<Piece?>(BOARD_SIZE) { c -> grid[r][c] } }
+        val newGrid = Array(MINI_CHESS_SIZE) { r -> Array<Piece?>(MINI_CHESS_SIZE) { c -> grid[r][c] } }
         newGrid[move.from.row][move.from.file] = null
         val placedType = move.promotion ?: piece.type
         newGrid[move.to.row][move.to.file] = Piece(placedType, piece.color)
         return ChessBoard(newGrid, sideToMove.opposite())
     }
 
-    fun findKing(color: Color): Square? {
-        for (r in 0 until BOARD_SIZE) {
-            for (c in 0 until BOARD_SIZE) {
+    fun findKing(color: PieceColor): Square? {
+        for (r in 0 until MINI_CHESS_SIZE) {
+            for (c in 0 until MINI_CHESS_SIZE) {
                 val p = grid[r][c]
                 if (p != null && p.type == PieceType.KING && p.color == color) return Square(c, r)
             }
@@ -49,14 +37,14 @@ class ChessBoard private constructor(
         return null
     }
 
-    fun isInCheck(color: Color): Boolean {
+    fun isInCheck(color: PieceColor): Boolean {
         val kingSq = findKing(color) ?: return false
         return isSquareAttackedBy(kingSq, color.opposite())
     }
 
-    private fun isSquareAttackedBy(target: Square, color: Color): Boolean {
-        for (r in 0 until BOARD_SIZE) {
-            for (c in 0 until BOARD_SIZE) {
+    private fun isSquareAttackedBy(target: Square, color: PieceColor): Boolean {
+        for (r in 0 until MINI_CHESS_SIZE) {
+            for (c in 0 until MINI_CHESS_SIZE) {
                 val piece = grid[r][c] ?: continue
                 if (piece.color != color) continue
                 if (pieceAttacks(piece, Square(c, r), target)) return true
@@ -74,8 +62,8 @@ class ChessBoard private constructor(
         PieceType.KING -> kingAttacks(from, target)
     }
 
-    private fun pawnAttacks(color: Color, from: Square, target: Square): Boolean {
-        val dir = if (color == Color.WHITE) 1 else -1
+    private fun pawnAttacks(color: PieceColor, from: Square, target: Square): Boolean {
+        val dir = if (color == PieceColor.WHITE) 1 else -1
         return target.row == from.row + dir && abs(target.file - from.file) == 1
     }
 
@@ -94,7 +82,7 @@ class ChessBoard private constructor(
         for (d in deltas) {
             var f = from.file + d[0]
             var r = from.row + d[1]
-            while (f in 0 until BOARD_SIZE && r in 0 until BOARD_SIZE) {
+            while (f in 0 until MINI_CHESS_SIZE && r in 0 until MINI_CHESS_SIZE) {
                 if (f == target.file && r == target.row) return true
                 if (grid[r][f] != null) break
                 f += d[0]
@@ -117,10 +105,10 @@ class ChessBoard private constructor(
     fun isCheckmate(): Boolean = isInCheck(sideToMove) && legalMoves().isEmpty()
     fun isStalemate(): Boolean = !isInCheck(sideToMove) && legalMoves().isEmpty()
 
-    private fun pseudoLegalMoves(color: Color): List<Move> {
+    private fun pseudoLegalMoves(color: PieceColor): List<Move> {
         val moves = ArrayList<Move>()
-        for (r in 0 until BOARD_SIZE) {
-            for (c in 0 until BOARD_SIZE) {
+        for (r in 0 until MINI_CHESS_SIZE) {
+            for (c in 0 until MINI_CHESS_SIZE) {
                 val piece = grid[r][c] ?: continue
                 if (piece.color != color) continue
                 val from = Square(c, r)
@@ -140,11 +128,11 @@ class ChessBoard private constructor(
         return moves
     }
 
-    private fun generatePawnMoves(color: Color, from: Square, out: MutableList<Move>) {
-        val dir = if (color == Color.WHITE) 1 else -1
-        val promotionRow = if (color == Color.WHITE) BOARD_SIZE - 1 else 0
+    private fun generatePawnMoves(color: PieceColor, from: Square, out: MutableList<Move>) {
+        val dir = if (color == PieceColor.WHITE) 1 else -1
+        val promotionRow = if (color == PieceColor.WHITE) MINI_CHESS_SIZE - 1 else 0
         val forwardRow = from.row + dir
-        if (forwardRow !in 0 until BOARD_SIZE) return
+        if (forwardRow !in 0 until MINI_CHESS_SIZE) return
 
         if (grid[forwardRow][from.file] == null) {
             val to = Square(from.file, forwardRow)
@@ -152,7 +140,7 @@ class ChessBoard private constructor(
         }
         for (df in intArrayOf(-1, 1)) {
             val tf = from.file + df
-            if (tf !in 0 until BOARD_SIZE) continue
+            if (tf !in 0 until MINI_CHESS_SIZE) continue
             val target = grid[forwardRow][tf]
             if (target != null && target.color != color) {
                 val to = Square(tf, forwardRow)
@@ -162,7 +150,7 @@ class ChessBoard private constructor(
     }
 
     private fun generateStepMoves(
-        color: Color,
+        color: PieceColor,
         from: Square,
         deltas: Array<IntArray>,
         out: MutableList<Move>,
@@ -170,7 +158,7 @@ class ChessBoard private constructor(
         for (d in deltas) {
             val tf = from.file + d[0]
             val tr = from.row + d[1]
-            if (tf !in 0 until BOARD_SIZE || tr !in 0 until BOARD_SIZE) continue
+            if (tf !in 0 until MINI_CHESS_SIZE || tr !in 0 until MINI_CHESS_SIZE) continue
             val target = grid[tr][tf]
             if (target == null || target.color != color) {
                 out.add(Move(from, Square(tf, tr)))
@@ -179,7 +167,7 @@ class ChessBoard private constructor(
     }
 
     private fun generateSlidingMoves(
-        color: Color,
+        color: PieceColor,
         from: Square,
         deltas: Array<IntArray>,
         out: MutableList<Move>,
@@ -187,7 +175,7 @@ class ChessBoard private constructor(
         for (d in deltas) {
             var f = from.file + d[0]
             var r = from.row + d[1]
-            while (f in 0 until BOARD_SIZE && r in 0 until BOARD_SIZE) {
+            while (f in 0 until MINI_CHESS_SIZE && r in 0 until MINI_CHESS_SIZE) {
                 val target = grid[r][f]
                 if (target == null) {
                     out.add(Move(from, Square(f, r)))
@@ -201,14 +189,14 @@ class ChessBoard private constructor(
         }
     }
 
-    fun snapshot(): List<Piece?> = buildList(BOARD_SIZE * BOARD_SIZE) {
-        for (r in 0 until BOARD_SIZE) for (c in 0 until BOARD_SIZE) add(grid[r][c])
+    fun snapshot(): List<Piece?> = buildList(MINI_CHESS_SIZE * MINI_CHESS_SIZE) {
+        for (r in 0 until MINI_CHESS_SIZE) for (c in 0 until MINI_CHESS_SIZE) add(grid[r][c])
     }
 
-    fun pieceCount(color: Color): Int {
+    fun pieceCount(color: PieceColor): Int {
         var n = 0
-        for (r in 0 until BOARD_SIZE) {
-            for (c in 0 until BOARD_SIZE) {
+        for (r in 0 until MINI_CHESS_SIZE) {
+            for (c in 0 until MINI_CHESS_SIZE) {
                 if (grid[r][c]?.color == color) n++
             }
         }
@@ -249,8 +237,8 @@ class ChessBoard private constructor(
             intArrayOf(-1, -1),
         )
 
-        fun fromMap(pieces: Map<Square, Piece>, sideToMove: Color = Color.WHITE): ChessBoard {
-            val grid = Array(BOARD_SIZE) { Array<Piece?>(BOARD_SIZE) { null } }
+        fun fromMap(pieces: Map<Square, Piece>, sideToMove: PieceColor = PieceColor.WHITE): ChessBoard {
+            val grid = Array(MINI_CHESS_SIZE) { Array<Piece?>(MINI_CHESS_SIZE) { null } }
             for ((sq, p) in pieces) grid[sq.row][sq.file] = p
             return ChessBoard(grid, sideToMove)
         }
