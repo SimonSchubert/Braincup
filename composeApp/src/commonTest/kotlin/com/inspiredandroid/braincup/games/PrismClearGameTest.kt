@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse

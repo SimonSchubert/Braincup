@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.KnotUiState
+import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableMap
 import kotlin.math.abs
@@ -25,11 +26,7 @@ import kotlin.random.Random
 class KnotGame(
     level: Int = 1,
     private val random: Random = Random.Default,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     var rows: Int = 5
         private set
@@ -334,16 +331,7 @@ class KnotGame(
         return (ar == br && abs(ac - bc) == 1) || (ac == bc && abs(ar - br) == 1)
     }
 
-    private fun neighbors(index: Int): List<Int> {
-        val r = index / cols
-        val c = index % cols
-        val out = ArrayList<Int>(4)
-        if (r > 0) out.add(index - cols)
-        if (r < rows - 1) out.add(index + cols)
-        if (c > 0) out.add(index - 1)
-        if (c < cols - 1) out.add(index + 1)
-        return out
-    }
+    private fun neighbors(index: Int): List<Int> = orthogonalNeighbors(index, rows, cols)
 
     /**
      * Counts full-coverage solutions for the current endpoints, stopping once [limit] is reached

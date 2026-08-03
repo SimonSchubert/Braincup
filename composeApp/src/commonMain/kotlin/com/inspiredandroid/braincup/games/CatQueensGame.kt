@@ -22,11 +22,7 @@ import kotlin.random.Random
 class CatQueensGame(
     level: Int = 1,
     private val random: Random = Random.Default,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     /** Side length of the square board; also the number of cats, columns and color regions. */
     var size: Int = 5

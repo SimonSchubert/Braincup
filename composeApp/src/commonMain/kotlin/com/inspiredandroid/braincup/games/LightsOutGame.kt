@@ -7,11 +7,7 @@ import kotlin.random.Random
 class LightsOutGame(
     level: Int = 1,
     private val random: Random = Random.Default,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     var gridSize: Int = 3
         private set

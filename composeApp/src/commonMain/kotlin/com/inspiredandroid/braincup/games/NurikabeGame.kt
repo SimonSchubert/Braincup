@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.NurikabeUiState
+import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
 import kotlinx.collections.immutable.toImmutableMap
 import kotlinx.collections.immutable.toImmutableSet
 import kotlin.random.Random
@@ -26,11 +27,7 @@ import kotlin.random.Random
 class NurikabeGame(
     level: Int = 1,
     private val random: Random = Random.Default,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     var rows: Int = 5
         internal set
@@ -351,16 +348,7 @@ class NurikabeGame(
         return false
     }
 
-    private fun neighbors(index: Int): List<Int> {
-        val r = index / cols
-        val c = index % cols
-        val out = ArrayList<Int>(4)
-        if (r > 0) out.add(index - cols)
-        if (r < rows - 1) out.add(index + cols)
-        if (c > 0) out.add(index - 1)
-        if (c < cols - 1) out.add(index + 1)
-        return out
-    }
+    private fun neighbors(index: Int): List<Int> = orthogonalNeighbors(index, rows, cols)
 
     /**
      * Counts how many ways the current clues can be solved, stopping once [limit] is reached (callers

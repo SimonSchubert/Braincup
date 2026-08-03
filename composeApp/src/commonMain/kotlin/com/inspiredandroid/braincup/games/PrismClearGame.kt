@@ -4,6 +4,7 @@ import com.inspiredandroid.braincup.app.PrismClearClearWave
 import com.inspiredandroid.braincup.app.PrismClearUiState
 import com.inspiredandroid.braincup.games.tools.Color
 import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
 import kotlinx.collections.immutable.toImmutableList
 
 /**
@@ -25,11 +26,7 @@ enum class PrismTileType(val color: Color, val shape: Shape) {
 
 class PrismClearGame(
     level: Int = 1,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceIn(1, PrismClearLevels.COUNT)
-        private set
+) : LevelGame(level, maxLevel = PrismClearLevels.COUNT) {
 
     var rows: Int = 2
         private set
@@ -364,17 +361,6 @@ internal fun verifySolves(
         resolveAllCascades(sim, rows, cols)
     }
     return sim.all { it == null }
-}
-
-internal fun orthogonalNeighbors(index: Int, rows: Int, cols: Int): List<Int> {
-    val r = index / cols
-    val c = index % cols
-    val out = ArrayList<Int>(4)
-    if (r > 0) out.add((r - 1) * cols + c)
-    if (r < rows - 1) out.add((r + 1) * cols + c)
-    if (c > 0) out.add(r * cols + (c - 1))
-    if (c < cols - 1) out.add(r * cols + (c + 1))
-    return out
 }
 
 internal fun swapCells(cells: Array<PrismTileType?>, a: Int, b: Int) {

@@ -189,15 +189,7 @@ class GameController(
     private fun generateSessionGameIds(): List<String> {
         val eligibleByCategory = GameType.entries
             .filterNot {
-                it == GameType.LIGHTS_OUT ||
-                    it == GameType.SLIDING_PUZZLE ||
-                    it == GameType.SHIKAKU ||
-                    it == GameType.NURIKABE ||
-                    it == GameType.CAT_QUEENS ||
-                    it == GameType.KNOT ||
-                    it == GameType.SOLO_CHESS ||
-                    it == GameType.TOWER_OF_HANOI ||
-                    it == GameType.PRISM_CLEAR ||
+                it.usesLevelLabel ||
                     it == GameType.MINI_CHESS ||
                     it == GameType.WORDLE ||
                     it == GameType.BULLS_AND_COWS
@@ -335,35 +327,35 @@ class GameController(
             return
         }
         if (gameType == GameType.LIGHTS_OUT) {
-            startLightsOutGame(gameType)
+            startLevelGame(gameType) { LightsOutGame(level = it) }
             return
         }
         if (gameType == GameType.SLIDING_PUZZLE) {
-            startSlidingPuzzleGame(gameType)
+            startLevelGame(gameType) { SlidingPuzzleGame(level = it) }
             return
         }
         if (gameType == GameType.TOWER_OF_HANOI) {
-            startTowerOfHanoiGame(gameType)
+            startLevelGame(gameType) { TowerOfHanoiGame(level = it) }
             return
         }
         if (gameType == GameType.SHIKAKU) {
-            startShikakuGame(gameType)
+            startLevelGame(gameType) { ShikakuGame(level = it) }
             return
         }
         if (gameType == GameType.NURIKABE) {
-            startNurikabeGame(gameType)
+            startLevelGame(gameType) { NurikabeGame(level = it) }
             return
         }
         if (gameType == GameType.CAT_QUEENS) {
-            startCatQueensGame(gameType)
+            startLevelGame(gameType) { CatQueensGame(level = it) }
             return
         }
         if (gameType == GameType.KNOT) {
-            startKnotGame(gameType)
+            startLevelGame(gameType) { KnotGame(level = it) }
             return
         }
         if (gameType == GameType.SOLO_CHESS) {
-            startSoloChessGame(gameType)
+            startLevelGame(gameType) { SoloChessGame(level = it) }
             return
         }
         if (gameType == GameType.PRISM_CLEAR) {
@@ -599,47 +591,7 @@ class GameController(
             recordWordleScore(currentState.gameType)
             return
         }
-        if (game is LightsOutGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is SlidingPuzzleGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is TowerOfHanoiGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is ShikakuGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is NurikabeGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is CatQueensGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is KnotGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is SoloChessGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is PrismClearGame) {
+        if (game is LevelGame) {
             points = 0
             finishCurrentGame(currentState.gameType, game)
             return
@@ -1310,39 +1262,6 @@ class GameController(
         }
     }
 
-    private fun startLightsOutGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = LightsOutGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
-    }
-
-    private fun startSlidingPuzzleGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = SlidingPuzzleGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
-    }
-
-    private fun startTowerOfHanoiGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = TowerOfHanoiGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
-    }
-
     private fun handleLightsOutAnswer(
         currentState: GameState.Active,
         game: LightsOutGame,
@@ -1352,18 +1271,7 @@ class GameController(
         val solved = game.press(index)
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
     }
 
@@ -1376,18 +1284,7 @@ class GameController(
         val solved = game.slideTile(index)
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
     }
 
@@ -1400,30 +1297,8 @@ class GameController(
         val solved = game.tapPeg(peg)
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
-    }
-
-    private fun startShikakuGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = ShikakuGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
     }
 
     private fun handleShikakuAnswer(
@@ -1448,30 +1323,8 @@ class GameController(
         }
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
-    }
-
-    private fun startNurikabeGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = NurikabeGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
     }
 
     private fun handleNurikabeAnswer(
@@ -1499,30 +1352,8 @@ class GameController(
         }
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
-    }
-
-    private fun startCatQueensGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = CatQueensGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
     }
 
     private fun handleCatQueensAnswer(
@@ -1535,30 +1366,8 @@ class GameController(
         val solved = game.toggle(index)
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
-    }
-
-    private fun startKnotGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = KnotGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
     }
 
     private fun handleKnotAnswer(
@@ -1586,30 +1395,8 @@ class GameController(
         }
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
-    }
-
-    private fun startSoloChessGame(gameType: GameType) {
-        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        // The puzzle has no concept of a "wrong" answer, so the per-round no-mistakes
-        // bonus message on the finish screen wouldn't make sense here.
-        val game = SoloChessGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
-        _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
-        navController.navigate(Playing(gameType.id))
     }
 
     private fun handleSoloChessAnswer(
@@ -1632,32 +1419,48 @@ class GameController(
         }
         _gameUiState.value = game.toUiState()
         if (solved) {
-            points = game.level
-            storage.putLastRound(currentState.gameType.id, game.level + 1)
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = null,
-            )
-            scope.launch {
-                delay(700.milliseconds)
-                finishCurrentGame(currentState.gameType, game)
-            }
+            onLevelSolved(currentState, game)
         }
     }
 
     private fun startPrismClearGame(gameType: GameType, navigate: Boolean = true) {
-        val level = storage.getLastRound(gameType.id)
-            .coerceAtLeast(1)
-            .coerceAtMost(PrismClearLevels.COUNT)
-        val game = PrismClearGame(level = level).apply { answeredAllCorrect = false }
-        game.nextRound()
         points = 0
+        startLevelGame(gameType, navigate) { PrismClearGame(level = it) }
+    }
+
+    /**
+     * Resume a [LevelGame] at the stored level. [answeredAllCorrect] is cleared because these
+     * puzzles have no concept of a "wrong" answer, so the per-round no-mistakes bonus message
+     * on the finish screen wouldn't make sense.
+     */
+    private fun startLevelGame(
+        gameType: GameType,
+        navigate: Boolean = true,
+        create: (level: Int) -> LevelGame,
+    ) {
+        val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
+        val game = create(level).apply { answeredAllCorrect = false }
+        game.nextRound()
         _gameState.value = GameState.Active(gameType, game)
         _gameUiState.value = game.toUiState()
         if (navigate) {
             navController.navigate(Playing(gameType.id))
+        }
+    }
+
+    /** Bank the cleared level as the score, unlock the next one, flash correct, then finish. */
+    private fun onLevelSolved(currentState: GameState.Active, game: LevelGame) {
+        points = game.level
+        storage.putLastRound(currentState.gameType.id, game.level + 1)
+        _gameState.value = GameState.Feedback(
+            gameType = currentState.gameType,
+            game = game,
+            isCorrect = true,
+            message = null,
+        )
+        scope.launch {
+            delay(700.milliseconds)
+            finishCurrentGame(currentState.gameType, game)
         }
     }
 

@@ -26,11 +26,7 @@ import kotlin.random.Random
 class SoloChessGame(
     level: Int = 1,
     private val random: Random = Random.Default,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     /** Side length of the square board; cells are indexed row * size + col, row 0 at the top. */
     var size: Int = 4

@@ -10,11 +10,7 @@ import kotlinx.collections.immutable.toImmutableList
  */
 class TowerOfHanoiGame(
     level: Int = 1,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     var diskCount: Int = 3
         private set

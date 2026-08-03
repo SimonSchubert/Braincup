@@ -19,11 +19,7 @@ import kotlin.random.Random
 class ShikakuGame(
     level: Int = 1,
     private val random: Random = Random.Default,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     var rows: Int = 4
         private set

@@ -1,17 +1,14 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.SlidingPuzzleUiState
+import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
 import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 class SlidingPuzzleGame(
     level: Int = 1,
     private val random: Random = Random.Default,
-) : Game() {
-    override val adaptiveDifficulty: Boolean = false
-
-    var level: Int = level.coerceAtLeast(1)
-        private set
+) : LevelGame(level) {
 
     var gridSize: Int = 3
         private set
@@ -59,16 +56,7 @@ class SlidingPuzzleGame(
         emptyIndex = index
     }
 
-    private fun neighborsOf(i: Int): List<Int> {
-        val r = i / gridSize
-        val c = i % gridSize
-        return buildList {
-            if (r > 0) add(i - gridSize)
-            if (r < gridSize - 1) add(i + gridSize)
-            if (c > 0) add(i - 1)
-            if (c < gridSize - 1) add(i + 1)
-        }
-    }
+    private fun neighborsOf(i: Int): List<Int> = orthogonalNeighbors(i, gridSize, gridSize)
 
     private fun isSolved(): Boolean {
         val n = tiles.size
