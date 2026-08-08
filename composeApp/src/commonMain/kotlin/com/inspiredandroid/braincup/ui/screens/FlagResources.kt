@@ -168,6 +168,7 @@ fun flagResource(slug: String): DrawableResource = when (slug) {
     "norway" -> Res.drawable.flag_norway_50
     "oman" -> Res.drawable.flag_oman_50
     "pakistan" -> Res.drawable.flag_pakistan_50
+    "palestine" -> Res.drawable.flag_palestine_50
     "panama" -> Res.drawable.flag_panama_50
     "papua_new_guinea" -> Res.drawable.flag_papua_new_guinea_50
     "paraguay" -> Res.drawable.flag_paraguay_50
@@ -405,6 +406,7 @@ fun countryNameRes(slug: String): StringResource = when (slug) {
     "norway" -> Res.string.country_norway
     "oman" -> Res.string.country_oman
     "pakistan" -> Res.string.country_pakistan
+    "palestine" -> Res.string.country_palestine
     "panama" -> Res.string.country_panama
     "papua_new_guinea" -> Res.string.country_papua_new_guinea
     "paraguay" -> Res.string.country_paraguay
