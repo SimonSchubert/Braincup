@@ -733,4 +733,13 @@
     <string name="finish_best_tries">Tốt nhất: %1$s lần</string>
     <string name="finish_new_best_tries">Kỷ lục mới!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Tìm ba lá bài chung hình, số lượng hoặc phần tô.</string>
+    <string name="game_trio_howto">Chạm ba lá có chung một đặc điểm.</string>
+    <string name="trio_demo_title">Tìm một bộ ba lá</string>
+    <string name="trio_demo_rule">Chúng chung một đặc điểm. Phần còn lại không bị lẫn.</string>
+    <string name="trio_demo_correct">Đó là một bộ.</string>
+    <string name="achievement_gold_trio">Tầm nhìn ba</string>
+    <string name="achievement_gold_trio_desc">Giành huy chương vàng trong Trio</string>
 </resources>
+

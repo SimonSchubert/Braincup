@@ -47,6 +47,7 @@ import com.inspiredandroid.braincup.app.SlidingPuzzleUiState
 import com.inspiredandroid.braincup.app.SoloChessUiState
 import com.inspiredandroid.braincup.app.SpotTheNewUiState
 import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
+import com.inspiredandroid.braincup.app.TrioUiState
 import com.inspiredandroid.braincup.app.ValueComparisonUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.WordleUiState
@@ -90,6 +91,7 @@ import com.inspiredandroid.braincup.ui.screens.games.SpotTheNewContent
 import com.inspiredandroid.braincup.ui.screens.games.StopwatchDisplay
 import com.inspiredandroid.braincup.ui.screens.games.TimeProgressIndicator
 import com.inspiredandroid.braincup.ui.screens.games.TowerOfHanoiContent
+import com.inspiredandroid.braincup.ui.screens.games.TrioContent
 import com.inspiredandroid.braincup.ui.screens.games.ValueComparisonContent
 import com.inspiredandroid.braincup.ui.screens.games.VisualMemoryContent
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -200,6 +202,7 @@ fun GameScreen(
                 is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
                 is SimonSaysUiState -> SimonSaysContent(gameUiState, onAnswer)
                 is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
+                is TrioUiState -> TrioContent(gameUiState, onAnswer)
                 is OrbitTrackerUiState -> OrbitTrackerContent(
                     uiState = gameUiState,
                     livePositions = orbitBallPositions,

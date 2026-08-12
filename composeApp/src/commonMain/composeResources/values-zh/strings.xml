@@ -733,4 +733,13 @@
     <string name="finish_best_tries">最佳：%1$s 次</string>
     <string name="finish_new_best_tries">新纪录！</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">找出形状、数量或填充相同的三张牌。</string>
+    <string name="game_trio_howto">点选共享一项特征的三张牌。</string>
+    <string name="trio_demo_title">找出三张一组</string>
+    <string name="trio_demo_rule">它们共享一项特征。其余没有混杂。</string>
+    <string name="trio_demo_correct">这就是一组。</string>
+    <string name="achievement_gold_trio">三重视力</string>
+    <string name="achievement_gold_trio_desc">在 Trio 中赢得金牌</string>
 </resources>
+

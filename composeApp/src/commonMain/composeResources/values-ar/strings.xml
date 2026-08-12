@@ -734,4 +734,13 @@
     <string name="finish_best_tries">الأفضل: %1$s محاولات</string>
     <string name="finish_new_best_tries">رقم قياسي جديد!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">اعثر على ثلاث بطاقات تشترك في الشكل أو العدد أو التعبئة.</string>
+    <string name="game_trio_howto">المس ثلاث بطاقات تشترك في سمة.</string>
+    <string name="trio_demo_title">اعثر على مجموعة من ثلاث</string>
+    <string name="trio_demo_rule">تشترك في سمة. لا شيء آخر مختلط.</string>
+    <string name="trio_demo_correct">هذه مجموعة.</string>
+    <string name="achievement_gold_trio">الرؤية الثلاثية</string>
+    <string name="achievement_gold_trio_desc">اربح الميدالية الذهبية في Trio</string>
 </resources>
+

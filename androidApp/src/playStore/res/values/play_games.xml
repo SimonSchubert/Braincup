@@ -48,6 +48,8 @@
     <string name="achievementOperatorMaster" translatable="false">CgkIuZrirtIVEAIQLw</string>
     <!-- achievement Code Cracker (Bulls & Cows) -->
     <string name="achievementCodeCracker" translatable="false">CgkIuZrirtIVEAIQMA</string>
+    <!-- achievement Triple Vision (Trio) — ID empty until Play Console -->
+    <string name="achievementTripleVision" translatable="false"></string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

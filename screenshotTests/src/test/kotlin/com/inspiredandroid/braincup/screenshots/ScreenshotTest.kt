@@ -519,6 +519,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameTrio() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createTrioUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameGhostGrid() {
         paparazzi.snap {
             GameScreen(

@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -38,5 +39,22 @@ class AdaptiveDifficultyResumeTest {
         assertEquals(3, minNumbersAtStartRound(3))
         assertEquals(4, minNumbersAtStartRound(5))
         assertEquals(4, minNumbersAtStartRound(20))
+    }
+
+    @Test
+    fun trioHardnessIsDerivedFromRound() {
+        fun hasHardness(startRound: Int, hardness: Int): Boolean {
+            val game = TrioGame(Random(7L)).apply {
+                round = startRound
+                nextRound()
+            }
+            return findTrioSets(game.cards).any { indices ->
+                trioSetHardness(game.cards[indices[0]], game.cards[indices[1]], game.cards[indices[2]]) == hardness
+            }
+        }
+
+        assertEquals(true, hasHardness(0, 1))
+        assertEquals(true, hasHardness(5, 2))
+        assertEquals(true, hasHardness(10, 2))
     }
 }

@@ -345,6 +345,15 @@ enum class GameType(
         lowerScoreIsBetter = true,
         bronzeScore = 12,
     ),
+    TRIO(
+        displayNameRes = Res.string.game_trio,
+        id = "38",
+        // Score = sets found in 60s. Initial thresholds; tune after playtest.
+        goldScore = 6,
+        silverScore = 3,
+        descriptionRes = Res.string.game_trio_desc,
+        category = GameCategory.PERCEPTION,
+    ),
     ;
 
     /** URL path segment for web navigation, e.g. CAT_QUEENS → "CatQueens". */

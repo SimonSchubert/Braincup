@@ -733,4 +733,13 @@
     <string name="finish_best_tries">En iyi: %1$s deneme</string>
     <string name="finish_new_best_tries">Yeni rekor!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Şekil, sayı veya dolgusu ortak olan üç kart bulun.</string>
+    <string name="game_trio_howto">Bir özelliği paylaşan üç karta dokunun.</string>
+    <string name="trio_demo_title">Üçlü bir set bulun</string>
+    <string name="trio_demo_rule">Bir özelliği paylaşırlar. Gerisi karışık değil.</string>
+    <string name="trio_demo_correct">Bu bir set.</string>
+    <string name="achievement_gold_trio">Üçlü görüş</string>
+    <string name="achievement_gold_trio_desc">Trio'da altın madalya kazanın</string>
 </resources>
+

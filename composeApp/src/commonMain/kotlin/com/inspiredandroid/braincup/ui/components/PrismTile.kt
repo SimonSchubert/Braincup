@@ -64,17 +64,20 @@ fun PrismTile(
     val parentDirection = LocalLayoutDirection.current
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
         Box(
-            modifier = modifier
-                .clickable(
-                    interactionSource = interactionSource,
-                    indication = null,
-                    enabled = isClickable,
-                ) {
-                    onClick()
-                }
-                // Show the hand cursor whenever the tile is interactive, so every PrismTile-based
-                // control gets the hover affordance without each caller having to remember it.
-                .hoverHand(isClickable),
+            modifier = modifier.then(
+                if (isClickable) {
+                    Modifier
+                        .clickable(
+                            interactionSource = interactionSource,
+                            indication = null,
+                        ) {
+                            onClick()
+                        }
+                        .hoverHand()
+                } else {
+                    Modifier
+                },
+            ),
             contentAlignment = Alignment.Center,
         ) {
             PrismShape(

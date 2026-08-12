@@ -734,4 +734,13 @@
     <string name="finish_best_tries">Migliore: %1$s tentativi</string>
     <string name="finish_new_best_tries">Nuovo record!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Trova tre carte che condividono forma, numero o riempimento.</string>
+    <string name="game_trio_howto">Tocca tre carte che condividono un tratto.</string>
+    <string name="trio_demo_title">Trova un insieme di tre</string>
+    <string name="trio_demo_rule">Condividono un tratto. Nient'altro è mescolato.</string>
+    <string name="trio_demo_correct">Questo è un insieme.</string>
+    <string name="achievement_gold_trio">Tripla visione</string>
+    <string name="achievement_gold_trio_desc">Vinci la medaglia d'oro in Trio</string>
 </resources>
+

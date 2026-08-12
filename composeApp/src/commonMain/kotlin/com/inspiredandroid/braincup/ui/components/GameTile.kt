@@ -36,6 +36,8 @@ import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.SimonSaysGame
+import com.inspiredandroid.braincup.games.TrioFill
+import com.inspiredandroid.braincup.games.TrioShape
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -518,6 +520,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.SPOT_THE_NEW -> SpotTheNewPreview()
         GameType.WORDLE -> WordlePreview()
         GameType.BULLS_AND_COWS -> BullsAndCowsPreview()
+        GameType.TRIO -> TrioPreview()
     }
 }
 
@@ -2018,6 +2021,33 @@ private fun FlagsPreview() {
             Image(
                 painter = painterResource(drawable),
                 contentDescription = null,
+                modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(1f),
+            )
+        }
+    }
+}
+
+private val TrioPreviewGlyphs = listOf(1, 2, 3)
+
+@Composable
+private fun TrioPreview() {
+    val ink = GameColor.RED.composeColor()
+    Row(
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(16.dp),
+        horizontalArrangement = Arrangement.spacedBy(6.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        TrioPreviewGlyphs.forEach { count ->
+            TrioCardGlyphs(
+                shape = TrioShape.CIRCLE,
+                count = count,
+                fill = TrioFill.SOLID,
+                color = ink,
                 modifier = Modifier
                     .weight(1f)
                     .aspectRatio(1f),

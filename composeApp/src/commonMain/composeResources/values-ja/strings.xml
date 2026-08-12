@@ -733,4 +733,13 @@
     <string name="finish_best_tries">ベスト: %1$s 回</string>
     <string name="finish_new_best_tries">自己ベスト更新！</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">形・枚数・塗りのどれかを共有する3枚を見つけてください。</string>
+    <string name="game_trio_howto">特徴を共有する3枚をタップします。</string>
+    <string name="trio_demo_title">3枚のセットを見つける</string>
+    <string name="trio_demo_rule">ひとつの特徴を共有。ほかは混ざっていません。</string>
+    <string name="trio_demo_correct">それがセットです。</string>
+    <string name="achievement_gold_trio">トリプルビジョン</string>
+    <string name="achievement_gold_trio_desc">Trioで金メダルを獲得する</string>
 </resources>
+

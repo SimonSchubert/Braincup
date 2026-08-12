@@ -734,4 +734,13 @@
     <string name="finish_best_tries">Najlepszy: %1$s prób</string>
     <string name="finish_new_best_tries">Nowy rekord!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Znajdź trzy karty, które mają wspólny kształt, liczbę albo wypełnienie.</string>
+    <string name="game_trio_howto">Dotknij trzech kart ze wspólną cechą.</string>
+    <string name="trio_demo_title">Znajdź zestaw trzech</string>
+    <string name="trio_demo_rule">Łączy je jedna cecha. Reszta nie jest pomieszana.</string>
+    <string name="trio_demo_correct">To jest zestaw.</string>
+    <string name="achievement_gold_trio">Potrójne widzenie</string>
+    <string name="achievement_gold_trio_desc">Wygraj złoty medal w Trio</string>
 </resources>
+

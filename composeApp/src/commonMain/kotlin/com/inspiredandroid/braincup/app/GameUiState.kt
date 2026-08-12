@@ -10,6 +10,9 @@ import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.QuickSumGame
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
+import com.inspiredandroid.braincup.games.TrioFill
+import com.inspiredandroid.braincup.games.TrioGame
+import com.inspiredandroid.braincup.games.TrioShape
 import com.inspiredandroid.braincup.games.VisualMemoryGame
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -329,6 +332,20 @@ data class ColorConfusionUiState(
         val fontColor: GameColor,
         val isSelected: Boolean,
         val feedback: ColorConfusionGame.CellFeedback,
+    )
+}
+
+@Immutable
+data class TrioUiState(
+    val cards: ImmutableList<Card>,
+    val columns: Int,
+) : GameUiState {
+    @Immutable
+    data class Card(
+        val shape: TrioShape,
+        val count: Int,
+        val fill: TrioFill,
+        val feedback: TrioGame.CardFeedback,
     )
 }
 

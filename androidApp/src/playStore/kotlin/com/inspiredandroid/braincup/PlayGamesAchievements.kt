@@ -312,6 +312,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.SIMON_SAYS -> R.string.achievementPatternKeeper
     GameType.PRISM_CLEAR -> R.string.achievementCrystalClarity
     GameType.BULLS_AND_COWS -> R.string.achievementCodeCracker
+    GameType.TRIO -> R.string.achievementTripleVision
 }
 
 private fun sudokuTierAchievementResIdFor(difficulty: SudokuDifficulty): Int = when (difficulty) {

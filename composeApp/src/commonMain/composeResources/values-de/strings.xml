@@ -734,4 +734,13 @@
     <string name="finish_best_tries">Bestes: %1$s Versuche</string>
     <string name="finish_new_best_tries">Neuer Bestwert!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Finde drei Karten, die sich eine Form, eine Anzahl oder eine Füllung teilen.</string>
+    <string name="game_trio_howto">Tippe drei Karten an, die ein Merkmal teilen.</string>
+    <string name="trio_demo_title">Finde ein Set aus drei</string>
+    <string name="trio_demo_rule">Sie teilen ein Merkmal. Sonst nichts Gemischtes.</string>
+    <string name="trio_demo_correct">Das ist ein Set.</string>
+    <string name="achievement_gold_trio">Dreifachblick</string>
+    <string name="achievement_gold_trio_desc">Gewinne die Goldmedaille in Trio</string>
 </resources>
+

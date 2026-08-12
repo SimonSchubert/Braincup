@@ -46,7 +46,7 @@ Train your math skills, memory and focus.
 
 ## Games
 
-Braincup includes **40** activities: **36** scored mini-games plus **4** extras.
+Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 
 ### Math
 - **Mental Calculation** — Follow expressions; use each result as the base for the next
@@ -91,6 +91,7 @@ Braincup includes **40** activities: **36** scored mini-games plus **4** extras.
 - **Flash Crowd** — Tap the side that flashed more dots
 - **Schulte Table** — Tap numbers in order as fast as you can
 - **Flags** — Identify countries by their flags against the clock
+- **Trio** — Find three cards that share a shape, a count or a fill
 
 ### Extra modes
 - **Matchstick Riddles** — Move matchsticks to fix equations

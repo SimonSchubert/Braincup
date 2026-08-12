@@ -733,4 +733,13 @@
     <string name="finish_best_tries">ดีที่สุด: %1$s ครั้ง</string>
     <string name="finish_new_best_tries">สถิติใหม่!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">หาไพ่สามใบที่รูป จำนวน หรือการเติมเหมือนกัน</string>
+    <string name="game_trio_howto">แตะไพ่สามใบที่มีลักษณะร่วมกัน</string>
+    <string name="trio_demo_title">หาชุดสามใบ</string>
+    <string name="trio_demo_rule">มีลักษณะร่วมกัน ส่วนอื่นไม่ปะปน</string>
+    <string name="trio_demo_correct">นั่นคือหนึ่งชุด</string>
+    <string name="achievement_gold_trio">สายตาสามเท่า</string>
+    <string name="achievement_gold_trio_desc">ชนะเหรียญทองใน Trio</string>
 </resources>
+

@@ -320,6 +320,12 @@ fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().to
 
 fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()
 
+fun createTrioUiState(): GameUiState = TrioGame(Random(42L)).apply {
+    nextRound()
+    tap(0)
+    tap(1)
+}.toUiState()
+
 fun createFlashCrowdUiState(): FlashCrowdUiState = FlashCrowdUiState(
     roundKey = 1,
     leftDots = listOf(

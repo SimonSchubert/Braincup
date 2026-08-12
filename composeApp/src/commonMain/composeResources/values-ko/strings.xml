@@ -733,4 +733,13 @@
     <string name="finish_best_tries">최고: %1$s회</string>
     <string name="finish_new_best_tries">신기록!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">모양, 개수, 채우기 중 하나를 공유하는 카드 세 장을 찾으세요.</string>
+    <string name="game_trio_howto">특징을 공유하는 카드 세 장을 탭하세요.</string>
+    <string name="trio_demo_title">세 장의 세트 찾기</string>
+    <string name="trio_demo_rule">특징 하나를 공유합니다. 나머지는 섞이지 않습니다.</string>
+    <string name="trio_demo_correct">그게 세트입니다.</string>
+    <string name="achievement_gold_trio">트리플 비전</string>
+    <string name="achievement_gold_trio_desc">Trio에서 금메달을 획득하세요</string>
 </resources>
+

@@ -734,4 +734,13 @@
     <string name="finish_best_tries">সেরা: %1$s চেষ্টা</string>
     <string name="finish_new_best_tries">নতুন রেকর্ড!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">এমন তিনটি তাস খুঁজুন যাদের আকৃতি, সংখ্যা বা ভরাট এক।</string>
+    <string name="game_trio_howto">একটি বৈশিষ্ট্য ভাগ করে এমন তিনটি তাসে ট্যাপ করুন।</string>
+    <string name="trio_demo_title">তিনটির একটি সেট খুঁজুন</string>
+    <string name="trio_demo_rule">তারা একটি বৈশিষ্ট্য ভাগ করে। বাকি মেশানো নয়।</string>
+    <string name="trio_demo_correct">এটি একটি সেট।</string>
+    <string name="achievement_gold_trio">ত্রিগুণ দৃষ্টি</string>
+    <string name="achievement_gold_trio_desc">Trio-তে স্বর্ণপদক জিতুন</string>
 </resources>
+

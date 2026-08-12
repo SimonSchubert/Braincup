@@ -376,6 +376,7 @@ class GameController(
             is NBackGame -> handleNBackAnswer(currentState, game, answer.trim())
             is SpotTheNewGame -> handleSpotTheNewAnswer(game, answer.trim())
             is BullsAndCowsGame -> handleBullsAndCowsAnswer(currentState, game, answer)
+            is TrioGame -> handleTrioAnswer(currentState, game, answer.trim())
             else -> submitGenericAnswer(currentState, game, answer)
         }
     }
@@ -725,6 +726,7 @@ class GameController(
         GameType.N_BACK -> NBackGame()
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
         GameType.BULLS_AND_COWS -> BullsAndCowsGame()
+        GameType.TRIO -> TrioGame()
         // Wordle needs an async-loaded, locale-specific word list, so it is built in startWordleGame.
         GameType.WORDLE -> error("WordleGame is created in startWordleGame")
     }
@@ -1050,6 +1052,38 @@ class GameController(
         }
         delay(MISSING_OPS_FEEDBACK_HOLD_MS.milliseconds)
         proceedAfterInlineFeedback(gameType, game)
+    }
+
+    private fun handleTrioAnswer(
+        currentState: GameState.Active,
+        game: TrioGame,
+        input: String,
+    ) {
+        val index = input.toIntOrNull() ?: return
+        when (game.tap(index)) {
+            TrioGame.TapResult.Toggled -> {
+                _gameUiState.value = game.toUiState()
+            }
+            TrioGame.TapResult.Correct -> {
+                points++
+                _gameUiState.value = game.toUiState()
+                scope.launch {
+                    delay(700.milliseconds)
+                    proceedAfterInlineFeedback(currentState.gameType, game)
+                }
+            }
+            TrioGame.TapResult.Wrong -> {
+                _gameUiState.value = game.toUiState()
+                scope.launch {
+                    delay(500.milliseconds)
+                    if (_gameState.value is GameState.Active) {
+                        game.clearSelection()
+                        _gameUiState.value = game.toUiState()
+                    }
+                }
+            }
+            TrioGame.TapResult.Ignored -> Unit
+        }
     }
 
     private fun handleColorConfusionAnswer(

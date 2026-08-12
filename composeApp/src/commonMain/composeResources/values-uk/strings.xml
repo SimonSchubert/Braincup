@@ -734,4 +734,13 @@
     <string name="finish_best_tries">Найкраще: %1$s спроб</string>
     <string name="finish_new_best_tries">Новий рекорд!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Знайдіть три карти зі спільною формою, кількістю або заливкою.</string>
+    <string name="game_trio_howto">Торкніться трьох карт зі спільною ознакою.</string>
+    <string name="trio_demo_title">Знайдіть набір із трьох</string>
+    <string name="trio_demo_rule">У них спільна ознака. Решта не змішана.</string>
+    <string name="trio_demo_correct">Це набір.</string>
+    <string name="achievement_gold_trio">Потрійний зір</string>
+    <string name="achievement_gold_trio_desc">Виграйте золоту медаль у Trio</string>
 </resources>
+

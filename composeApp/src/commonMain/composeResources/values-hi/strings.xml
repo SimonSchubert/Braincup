@@ -733,4 +733,13 @@
     <string name="finish_best_tries">सर्वश्रेष्ठ: %1$s प्रयास</string>
     <string name="finish_new_best_tries">नया सर्वश्रेष्ठ!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">तीन पत्ते खोजें जिनका आकार, संख्या या भराव एक जैसा हो।</string>
+    <string name="game_trio_howto">एक गुण साझा करने वाले तीन पत्तों पर टैप करें।</string>
+    <string name="trio_demo_title">तीन का सेट खोजें</string>
+    <string name="trio_demo_rule">वे एक गुण साझा करते हैं। बाकी मिलाया नहीं गया।</string>
+    <string name="trio_demo_correct">यह एक सेट है।</string>
+    <string name="achievement_gold_trio">तिहरी दृष्टि</string>
+    <string name="achievement_gold_trio_desc">Trio में स्वर्ण पदक जीतें</string>
 </resources>
+

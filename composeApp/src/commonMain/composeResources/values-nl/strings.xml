@@ -734,4 +734,13 @@
     <string name="finish_best_tries">Beste: %1$s pogingen</string>
     <string name="finish_new_best_tries">Nieuw record!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Zoek drie kaarten die een vorm, aantal of vulling delen.</string>
+    <string name="game_trio_howto">Tik drie kaarten aan die een kenmerk delen.</string>
+    <string name="trio_demo_title">Vind een set van drie</string>
+    <string name="trio_demo_rule">Ze delen een kenmerk. Verder niets gemengd.</string>
+    <string name="trio_demo_correct">Dat is een set.</string>
+    <string name="achievement_gold_trio">Drievoudig zicht</string>
+    <string name="achievement_gold_trio_desc">Win de gouden medaille in Trio</string>
 </resources>
+

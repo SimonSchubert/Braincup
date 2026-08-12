@@ -67,6 +67,7 @@ import com.inspiredandroid.braincup.ui.components.SoloChessDemo
 import com.inspiredandroid.braincup.ui.components.SpotTheNewDemo
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.TowerOfHanoiDemo
+import com.inspiredandroid.braincup.ui.components.TrioDemo
 import com.inspiredandroid.braincup.ui.components.ValueComparisonDemo
 import com.inspiredandroid.braincup.ui.components.VisualMemoryDemo
 import com.inspiredandroid.braincup.ui.components.WordleDemo
@@ -151,6 +152,7 @@ fun InstructionsScreen(
                 GameType.FRACTION_CALCULATION -> FractionCalculationDemo(modifier = demoModifier)
                 GameType.SHERLOCK_CALCULATION -> SherlockCalculationDemo(modifier = demoModifier)
                 GameType.VALUE_COMPARISON -> ValueComparisonDemo(modifier = demoModifier)
+                GameType.TRIO -> TrioDemo(modifier = demoModifier)
             }
 
             if (gameType == GameType.WORDLE) {

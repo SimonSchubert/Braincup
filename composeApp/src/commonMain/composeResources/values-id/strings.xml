@@ -733,4 +733,13 @@
     <string name="finish_best_tries">Terbaik: %1$s percobaan</string>
     <string name="finish_new_best_tries">Rekor baru!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Temukan tiga kartu yang berbagi bentuk, jumlah, atau isian.</string>
+    <string name="game_trio_howto">Ketuk tiga kartu yang berbagi satu sifat.</string>
+    <string name="trio_demo_title">Temukan set dari tiga</string>
+    <string name="trio_demo_rule">Mereka berbagi satu sifat. Yang lain tidak tercampur.</string>
+    <string name="trio_demo_correct">Itu sebuah set.</string>
+    <string name="achievement_gold_trio">Penglihatan tiga</string>
+    <string name="achievement_gold_trio_desc">Menangkan medali emas di Trio</string>
 </resources>
+

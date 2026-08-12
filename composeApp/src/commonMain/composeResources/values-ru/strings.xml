@@ -733,4 +733,13 @@
     <string name="finish_best_tries">Лучший: %1$s попыток</string>
     <string name="finish_new_best_tries">Новый рекорд!</string>
 
+    <string name="game_trio">Trio</string>
+    <string name="game_trio_desc">Найдите три карты с общей формой, числом или заливкой.</string>
+    <string name="game_trio_howto">Нажмите три карты с общим признаком.</string>
+    <string name="trio_demo_title">Найдите набор из трёх</string>
+    <string name="trio_demo_rule">У них общий признак. Остальное не смешано.</string>
+    <string name="trio_demo_correct">Это набор.</string>
+    <string name="achievement_gold_trio">Тройное зрение</string>
+    <string name="achievement_gold_trio_desc">Выиграйте золотую медаль в Trio</string>
 </resources>
+

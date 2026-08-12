@@ -41,6 +41,7 @@ enum GameCenterIds {
         "PRISM_CLEAR":           "achievement.crystal_clarity",
         "MISSING_OPERATORS":     "achievement.operator_master",
         "BULLS_AND_COWS":        "achievement.code_cracker",
+        "TRIO":                  "achievement.triple_vision",
     ]
 
     private static let leaderboardsByGameName: [String: String] = [
@@ -134,6 +135,7 @@ enum GameCenterIds {
         case "achievement.flag_bearer":           return UserStorage.Achievements.goldFlags
         case "achievement.operator_master":       return UserStorage.Achievements.goldMissingOperators
         case "achievement.code_cracker":          return UserStorage.Achievements.goldBullsAndCows
+        case "achievement.triple_vision":         return UserStorage.Achievements.goldTrio
         case achievementPegMaster:                return UserStorage.Achievements.pegSolitairePerfect
         default: return nil
         }
