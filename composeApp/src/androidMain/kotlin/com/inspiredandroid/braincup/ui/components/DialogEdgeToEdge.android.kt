@@ -27,8 +27,10 @@ actual fun DialogWindowEdgeToEdgeTweaks() {
         // with the scrim and, since the dim is not applied uniformly behind the bars, leaves the
         // bars a different shade than the body.
         window.setDimAmount(0f)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT in Build.VERSION_CODES.Q until Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            @Suppress("DEPRECATION")
             window.isStatusBarContrastEnforced = false
+            @Suppress("DEPRECATION")
             window.isNavigationBarContrastEnforced = false
         }
     }

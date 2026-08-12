@@ -1,5 +1,8 @@
+@file:OptIn(ExperimentalWasmJsInterop::class)
+
 package com.inspiredandroid.braincup.games.wordle
 
+import kotlin.js.ExperimentalWasmJsInterop
 import kotlin.js.JsString
 
 @JsFun("() => (navigator.language || 'en')")

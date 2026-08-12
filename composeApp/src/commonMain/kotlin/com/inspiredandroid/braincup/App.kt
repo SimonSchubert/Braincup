@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalComposeUiApi::class)
-
 package com.inspiredandroid.braincup
 
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -7,9 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.*
-import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.backhandler.BackHandler
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
@@ -20,6 +16,9 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import androidx.navigationevent.NavigationEventInfo
+import androidx.navigationevent.compose.NavigationBackHandler
+import androidx.navigationevent.compose.rememberNavigationEventState
 import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.ReviewBridge
@@ -270,13 +269,17 @@ fun App(
                                     }
                                 }
 
-                                BackHandler {
-                                    if (showQuitDialog) {
-                                        showQuitDialog = false
-                                    } else {
-                                        onBackFromGame()
-                                    }
-                                }
+                                val backState = rememberNavigationEventState(NavigationEventInfo.None)
+                                NavigationBackHandler(
+                                    state = backState,
+                                    onBackCompleted = {
+                                        if (showQuitDialog) {
+                                            showQuitDialog = false
+                                        } else {
+                                            onBackFromGame()
+                                        }
+                                    },
+                                )
 
                                 LaunchedEffect(showQuitDialog) {
                                     if (showQuitDialog) {

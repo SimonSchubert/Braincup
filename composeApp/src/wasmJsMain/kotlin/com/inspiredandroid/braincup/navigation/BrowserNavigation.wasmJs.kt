@@ -1,9 +1,12 @@
+@file:OptIn(ExperimentalWasmJsInterop::class)
+
 package com.inspiredandroid.braincup.navigation
 
 import androidx.navigation.ExperimentalBrowserHistoryApi
 import androidx.navigation.NavController
 import androidx.navigation.bindToBrowserNavigation
 import kotlinx.browser.window
+import kotlin.js.ExperimentalWasmJsInterop
 
 @OptIn(ExperimentalBrowserHistoryApi::class)
 suspend fun NavController.bindBraincupBrowserNavigation() {
