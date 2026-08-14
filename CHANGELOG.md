@@ -1,3 +1,21 @@
+## v2.33.0 — 2026-08-14
+
+### Features
+- Add Trio game
+- Add multi-account support
+- Add Simon Says sound effects
+- Update flags
+
+### Fixes
+- Fix Peg Solitaire tile preview to show only the center empty
+- Fix Mini Chess AI job leak when a game ends by checkmate
+
+### Improvements
+- Improve chess board sizing
+- Improve performance
+- Upgrade dependencies
+- Replace deprecated Kotlin and Gradle APIs
+
 ## v2.32.0 — 2026-07-29
 
 ### Features
