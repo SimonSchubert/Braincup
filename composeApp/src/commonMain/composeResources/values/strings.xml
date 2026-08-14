@@ -107,6 +107,11 @@
     <string name="settings_theme_light">Light</string>
     <string name="settings_theme_dark">Dark</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play Games profile</string>
+    <string name="settings_play_games_profile_desc">Tap to switch the account used for achievements and leaderboards.</string>
+    <string name="settings_play_games_profile_signed_out">Sign in to save achievements and leaderboards.</string>
+    <string name="settings_play_games_profile_switch">Switch</string>
+    <string name="settings_play_games_profile_sign_in">Sign in</string>
 
     <string name="daily_challenge_title">Daily Challenge</string>
     <string name="daily_challenge_subtitle_start">Play %1$d games to keep your streak</string>

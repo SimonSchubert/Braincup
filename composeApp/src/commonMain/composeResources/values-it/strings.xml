@@ -577,6 +577,11 @@
     <string name="settings_theme_light">Chiaro</string>
     <string name="settings_theme_dark">Scuro</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Profilo Play Games</string>
+    <string name="settings_play_games_profile_desc">Tocca per cambiare l'account usato per obiettivi e classifiche.</string>
+    <string name="settings_play_games_profile_signed_out">Accedi per salvare obiettivi e classifiche.</string>
+    <string name="settings_play_games_profile_switch">Cambia</string>
+    <string name="settings_play_games_profile_sign_in">Accedi</string>
 
     <string name="normal_sudoku_button">Sudoku normale (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Principiante</string>

@@ -551,6 +551,11 @@
     <string name="settings_theme_light">Clair</string>
     <string name="settings_theme_dark">Sombre</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Profil Play Jeux</string>
+    <string name="settings_play_games_profile_desc">Appuie pour changer le compte utilisé pour les succès et classements.</string>
+    <string name="settings_play_games_profile_signed_out">Connecte-toi pour enregistrer tes succès et classements.</string>
+    <string name="settings_play_games_profile_switch">Changer</string>
+    <string name="settings_play_games_profile_sign_in">Connexion</string>
     <string name="normal_sudoku_button">Sudoku normal (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Débutant</string>
     <string name="normal_sudoku_difficulty_easy">Facile</string>

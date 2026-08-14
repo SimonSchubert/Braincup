@@ -178,6 +178,23 @@ fun App(
 
                     composable<Settings> {
                         val onBackSettings = remember(controller) { { controller.navigateToMainMenu() } }
+                        val storeProfile by PlayGamesBridge.currentPlayer.collectAsStateWithLifecycle()
+                        val onSwitchStoreProfile = PlayGamesBridge.onSwitchStoreProfile
+                        val onRefreshStoreProfile = PlayGamesBridge.onRefreshStoreProfile
+                        val settingsLifecycle = LocalLifecycleOwner.current
+                        DisposableEffect(settingsLifecycle, onRefreshStoreProfile) {
+                            if (onRefreshStoreProfile == null) {
+                                return@DisposableEffect onDispose { }
+                            }
+                            onRefreshStoreProfile()
+                            val observer = LifecycleEventObserver { _, event ->
+                                if (event == Lifecycle.Event.ON_RESUME) {
+                                    onRefreshStoreProfile()
+                                }
+                            }
+                            settingsLifecycle.lifecycle.addObserver(observer)
+                            onDispose { settingsLifecycle.lifecycle.removeObserver(observer) }
+                        }
                         SettingsScreen(
                             isMuted = isMuted,
                             onToggleMute = {
@@ -205,6 +222,8 @@ fun App(
                                 controller.storage.setThemeMode(mode)
                             },
                             onBack = onBackSettings,
+                            storeProfile = storeProfile,
+                            onSwitchStoreProfile = onSwitchStoreProfile,
                         )
                     }
 

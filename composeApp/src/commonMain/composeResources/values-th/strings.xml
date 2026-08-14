@@ -577,6 +577,11 @@
     <string name="settings_theme_light">สว่าง</string>
     <string name="settings_theme_dark">มืด</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">โปรไฟล์ Play Games</string>
+    <string name="settings_play_games_profile_desc">แตะเพื่อสลับบัญชีที่ใช้สำหรับความสำเร็จและลีดเดอร์บอร์ด</string>
+    <string name="settings_play_games_profile_signed_out">ลงชื่อเข้าใช้เพื่อบันทึกความสำเร็จและลีดเดอร์บอร์ด</string>
+    <string name="settings_play_games_profile_switch">สลับ</string>
+    <string name="settings_play_games_profile_sign_in">ลงชื่อเข้าใช้</string>
     <string name="normal_sudoku_button">ซูโดกุปกติ (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">เริ่มต้น</string>
     <string name="normal_sudoku_difficulty_easy">ง่าย</string>

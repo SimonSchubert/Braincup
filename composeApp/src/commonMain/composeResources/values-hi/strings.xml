@@ -577,6 +577,11 @@
     <string name="settings_theme_light">हल्का</string>
     <string name="settings_theme_dark">गहरा</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play Games प्रोफ़ाइल</string>
+    <string name="settings_play_games_profile_desc">उपलब्धियों और लीडरबोर्ड के लिए खाता बदलने के लिए टैप करें।</string>
+    <string name="settings_play_games_profile_signed_out">उपलब्धियाँ और लीडरबोर्ड सहेजने के लिए साइन इन करें।</string>
+    <string name="settings_play_games_profile_switch">बदलें</string>
+    <string name="settings_play_games_profile_sign_in">साइन इन</string>
     <string name="normal_sudoku_button">सामान्य सुडोकू (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">शुरुआती</string>
     <string name="normal_sudoku_difficulty_easy">आसान</string>

@@ -1,41 +1,54 @@
 package com.inspiredandroid.braincup
 
+import android.content.Intent
+import android.content.pm.ShortcutManager
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
+import android.os.Build
+import android.provider.Settings
 import android.util.Log
 import androidx.activity.ComponentActivity
+import com.google.android.gms.common.images.ImageManager
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.PlayGamesSdk
+import com.google.android.gms.games.Player
+import com.google.android.gms.games.internal.v2.appshortcuts.PlayGamesAppShortcutsActivity
 import com.google.android.gms.games.achievement.Achievement
 import com.google.android.gms.games.leaderboard.LeaderboardVariant
 import com.inspiredandroid.braincup.api.PlayGamesBridge
+import com.inspiredandroid.braincup.api.StorePlayerProfile
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.R
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
+import java.io.ByteArrayOutputStream
 import java.lang.ref.WeakReference
 
 private const val TAG = "PlayGamesBridge"
 
 private var activityRef: WeakReference<ComponentActivity>? = null
+private var lastPlayerId: String? = null
 
 fun initPlayGames(activity: ComponentActivity) {
     activityRef = WeakReference(activity)
     PlayGamesSdk.initialize(activity)
 
+    PlayGamesBridge.onSwitchStoreProfile = { switchStoreProfile() }
+    PlayGamesBridge.onRefreshStoreProfile = ::refreshStoreProfile
+
     val signInClient = PlayGames.getGamesSignInClient(activity)
     signInClient.isAuthenticated.addOnCompleteListener { task ->
         val authed = task.isSuccessful && task.result.isAuthenticated
         if (authed) {
-            restoreAchievementsFromPlayGames(activity)
-            syncTotalXpWithLeaderboard(activity)
-            syncPerGameLeaderboards(activity)
+            onPlayGamesAuthenticated(activity)
         } else {
             signInClient.signIn().addOnCompleteListener { signInTask ->
                 val signedIn = signInTask.isSuccessful && signInTask.result?.isAuthenticated == true
                 if (signedIn) {
-                    restoreAchievementsFromPlayGames(activity)
-                    syncTotalXpWithLeaderboard(activity)
-                    syncPerGameLeaderboards(activity)
+                    onPlayGamesAuthenticated(activity)
                 }
             }
         }
@@ -117,6 +130,179 @@ fun initPlayGames(activity: ComponentActivity) {
     }
 }
 
+private fun refreshStoreProfile() {
+    val current = activityRef?.get() ?: return
+    loadCurrentPlayer(current, forceReload = true)
+}
+
+private fun onPlayGamesAuthenticated(activity: ComponentActivity) {
+    loadCurrentPlayer(activity, forceReload = false)
+    restoreAchievementsFromPlayGames(activity)
+    syncTotalXpWithLeaderboard(activity)
+    syncPerGameLeaderboards(activity)
+}
+
+private fun switchStoreProfile() {
+    val activity = activityRef?.get() ?: return
+    PlayGames.getGamesSignInClient(activity).isAuthenticated
+        .addOnCompleteListener { authTask ->
+            val signedIn = authTask.isSuccessful && authTask.result?.isAuthenticated == true
+            if (signedIn) {
+                launchProfileSwitcher(activity)
+            } else {
+                PlayGames.getGamesSignInClient(activity).signIn()
+                    .addOnSuccessListener { result ->
+                        if (result.isAuthenticated) {
+                            onPlayGamesAuthenticated(activity)
+                        }
+                    }
+                    .addOnFailureListener { e -> Log.w(TAG, "Play Games sign-in failed", e) }
+            }
+        }
+}
+
+private fun launchProfileSwitcher(activity: ComponentActivity) {
+    // Play Games v2 has no in-app account picker. The per-game account is
+    // changed in OS Play Games settings ("Sign in account" / "Change the
+    // account by game"), or via the launcher "Choose profile" shortcut —
+    // not by switching the Play Store or Play Games app account.
+    if (launchProfileSwitcherShortcut(activity)) return
+    if (launchPlayGamesSignInSettings(activity)) return
+    Log.w(TAG, "No Play Games account-switch destination available")
+}
+
+private fun launchProfileSwitcherShortcut(activity: ComponentActivity): Boolean {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N_MR1) return false
+    val manager = activity.getSystemService(ShortcutManager::class.java) ?: return false
+    val shortcuts = buildList {
+        addAll(manager.dynamicShortcuts)
+        addAll(manager.pinnedShortcuts)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            addAll(
+                manager.getShortcuts(
+                    ShortcutManager.FLAG_MATCH_DYNAMIC or
+                        ShortcutManager.FLAG_MATCH_MANIFEST or
+                        ShortcutManager.FLAG_MATCH_PINNED,
+                ),
+            )
+        }
+    }.distinctBy { it.id }
+    val switcher = shortcuts.firstOrNull { shortcut ->
+        val id = shortcut.id
+        val label = buildString {
+            append(shortcut.shortLabel ?: "")
+            append(' ')
+            append(shortcut.longLabel ?: "")
+        }
+        id.startsWith(PLAY_GAMES_SHORTCUT_PREFIX) ||
+            label.contains("profile", ignoreCase = true) ||
+            label.contains("Choose", ignoreCase = true)
+    } ?: return false
+    switcher.intent?.let { intent ->
+        if (startExternalIntent(activity, intent)) return true
+    }
+    val trampoline = Intent(activity, PlayGamesAppShortcutsActivity::class.java).apply {
+        putExtra(EXTRA_APP_SHORTCUT_ID, switcher.id)
+        switcher.extras?.let { putExtra(EXTRA_APP_SHORTCUT_EXTRAS, it) }
+    }
+    return startExternalIntent(activity, trampoline)
+}
+
+private fun launchPlayGamesSignInSettings(activity: ComponentActivity): Boolean {
+    val candidates = listOf(
+        Intent("com.google.android.gms.accountsettings.action.VIEW_SETTINGS").apply {
+            setPackage("com.google.android.gms")
+        },
+        Intent("android.settings.GOOGLE_SETTINGS"),
+        Intent(Settings.ACTION_SYNC_SETTINGS),
+    )
+    return candidates.any { startExternalIntent(activity, it) }
+}
+
+private fun startExternalIntent(activity: ComponentActivity, intent: Intent): Boolean {
+    return try {
+        @Suppress("DEPRECATION")
+        activity.startActivityForResult(intent, PROFILE_REQUEST_CODE)
+        true
+    } catch (e: Exception) {
+        Log.w(TAG, "startActivityForResult failed for $intent", e)
+        false
+    }
+}
+
+private fun loadCurrentPlayer(activity: ComponentActivity, forceReload: Boolean) {
+    PlayGames.getPlayersClient(activity)
+        .getCurrentPlayer(forceReload)
+        .addOnSuccessListener { annotated ->
+            val player = annotated.get()
+            if (player == null) {
+                lastPlayerId = null
+                PlayGamesBridge.updateCurrentPlayer(null)
+                return@addOnSuccessListener
+            }
+            publishPlayer(activity, player)
+        }
+        .addOnFailureListener { e ->
+            Log.w(TAG, "getCurrentPlayer failed", e)
+            lastPlayerId = null
+            PlayGamesBridge.updateCurrentPlayer(null)
+        }
+}
+
+private fun publishPlayer(activity: ComponentActivity, player: Player) {
+    val playerId = player.playerId
+    val name = player.displayName.orEmpty()
+    if (name.isBlank()) {
+        lastPlayerId = null
+        PlayGamesBridge.updateCurrentPlayer(null)
+        return
+    }
+    val previousId = lastPlayerId
+    lastPlayerId = playerId
+    if (previousId != null && previousId != playerId) {
+        restoreAchievementsFromPlayGames(activity)
+        syncTotalXpWithLeaderboard(activity)
+        syncPerGameLeaderboards(activity)
+    }
+    PlayGamesBridge.updateCurrentPlayer(StorePlayerProfile(displayName = name))
+    val imageUri = player.hiResImageUri ?: player.iconImageUri
+    if (imageUri == null) return
+    ImageManager.create(activity).loadImage(
+        { _, drawable, _ ->
+            if (lastPlayerId != playerId) return@loadImage
+            val bytes = drawable?.let { drawableToPngBytes(it) }
+            PlayGamesBridge.updateCurrentPlayer(
+                StorePlayerProfile(displayName = name, avatarBytes = bytes),
+            )
+        },
+        imageUri,
+    )
+}
+
+private fun drawableToPngBytes(drawable: Drawable): ByteArray? {
+    val bitmap = when (drawable) {
+        is BitmapDrawable -> drawable.bitmap
+        else -> {
+            val width = drawable.intrinsicWidth.coerceAtLeast(1)
+            val height = drawable.intrinsicHeight.coerceAtLeast(1)
+            Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).also { bmp ->
+                val canvas = Canvas(bmp)
+                drawable.setBounds(0, 0, canvas.width, canvas.height)
+                drawable.draw(canvas)
+            }
+        }
+    }
+    return try {
+        ByteArrayOutputStream().use { out ->
+            if (!bitmap.compress(Bitmap.CompressFormat.PNG, 90, out)) return null
+            out.toByteArray()
+        }
+    } catch (e: Exception) {
+        Log.w(TAG, "Failed to encode Play Games avatar", e)
+        null
+    }
+}
+
 private fun ensureSignedInAndLaunch(activity: ComponentActivity, id: String) {
     PlayGames.getGamesSignInClient(activity).isAuthenticated
         .addOnCompleteListener { authTask ->
@@ -151,6 +337,10 @@ private fun launchLeaderboard(activity: ComponentActivity, id: String) {
 private const val MIND_MARATHONER_TARGET = 10_000
 private const val IRON_STREAK_TARGET = 30
 private const val LEADERBOARD_REQUEST_CODE = 9001
+private const val PROFILE_REQUEST_CODE = 9002
+private const val PLAY_GAMES_SHORTCUT_PREFIX = "PLAY_GAMES_SERVICES_"
+private const val EXTRA_APP_SHORTCUT_ID = "com.google.android.gms.games.EXTRA_APP_SHORTCUT_ID"
+private const val EXTRA_APP_SHORTCUT_EXTRAS = "com.google.android.gms.games.EXTRA_APP_SHORTCUT_EXTRAS"
 
 /**
  * Two-way sync of cumulative XP with the Brain Cup leaderboard:

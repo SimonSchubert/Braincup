@@ -577,6 +577,11 @@
     <string name="settings_theme_light">라이트</string>
     <string name="settings_theme_dark">다크</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play 게임 프로필</string>
+    <string name="settings_play_games_profile_desc">탭하여 업적과 리더보드에 사용할 계정을 전환하세요.</string>
+    <string name="settings_play_games_profile_signed_out">업적과 리더보드를 저장하려면 로그인하세요.</string>
+    <string name="settings_play_games_profile_switch">전환</string>
+    <string name="settings_play_games_profile_sign_in">로그인</string>
     <string name="normal_sudoku_button">스도쿠 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">입문</string>
     <string name="normal_sudoku_difficulty_easy">쉬움</string>

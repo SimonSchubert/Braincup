@@ -577,6 +577,11 @@
     <string name="settings_theme_light">Светлая</string>
     <string name="settings_theme_dark">Тёмная</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Профиль Play Игр</string>
+    <string name="settings_play_games_profile_desc">Нажмите, чтобы сменить аккаунт для достижений и таблиц лидеров.</string>
+    <string name="settings_play_games_profile_signed_out">Войдите, чтобы сохранять достижения и таблицы лидеров.</string>
+    <string name="settings_play_games_profile_switch">Сменить</string>
+    <string name="settings_play_games_profile_sign_in">Войти</string>
     <string name="normal_sudoku_button">Обычное судоку (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Начинающий</string>
     <string name="normal_sudoku_difficulty_easy">Лёгкий</string>

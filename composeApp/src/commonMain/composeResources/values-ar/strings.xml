@@ -551,6 +551,11 @@
     <string name="settings_theme_light">فاتح</string>
     <string name="settings_theme_dark">داكن</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">ملف Play Games</string>
+    <string name="settings_play_games_profile_desc">اضغط لتبديل الحساب المستخدم للإنجازات ولوحات الصدارة.</string>
+    <string name="settings_play_games_profile_signed_out">سجّل الدخول لحفظ الإنجازات ولوحات الصدارة.</string>
+    <string name="settings_play_games_profile_switch">تبديل</string>
+    <string name="settings_play_games_profile_sign_in">تسجيل الدخول</string>
     <string name="normal_sudoku_button">سودوكو عادي (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">مبتدئ</string>
     <string name="normal_sudoku_difficulty_easy">سهل</string>

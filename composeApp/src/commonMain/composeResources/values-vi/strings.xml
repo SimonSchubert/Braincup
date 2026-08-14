@@ -577,6 +577,11 @@
     <string name="settings_theme_light">Sáng</string>
     <string name="settings_theme_dark">Tối</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Hồ sơ Play Games</string>
+    <string name="settings_play_games_profile_desc">Chạm để đổi tài khoản dùng cho thành tích và bảng xếp hạng.</string>
+    <string name="settings_play_games_profile_signed_out">Đăng nhập để lưu thành tích và bảng xếp hạng.</string>
+    <string name="settings_play_games_profile_switch">Đổi</string>
+    <string name="settings_play_games_profile_sign_in">Đăng nhập</string>
     <string name="normal_sudoku_button">Sudoku Thường (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Mới bắt đầu</string>
     <string name="normal_sudoku_difficulty_easy">Dễ</string>

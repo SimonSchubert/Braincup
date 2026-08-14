@@ -551,6 +551,11 @@
     <string name="settings_theme_light">হালকা</string>
     <string name="settings_theme_dark">গাঢ়</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play Games প্রোফাইল</string>
+    <string name="settings_play_games_profile_desc">অ্যাচিভমেন্ট ও লিডারবোর্ডের অ্যাকাউন্ট বদলাতে ট্যাপ করুন।</string>
+    <string name="settings_play_games_profile_signed_out">অ্যাচিভমেন্ট ও লিডারবোর্ড সেভ করতে সাইন ইন করুন।</string>
+    <string name="settings_play_games_profile_switch">বদলান</string>
+    <string name="settings_play_games_profile_sign_in">সাইন ইন</string>
     <string name="normal_sudoku_button">সাধারণ সুডোকু (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">শিক্ষানবিস</string>
     <string name="normal_sudoku_difficulty_easy">সহজ</string>

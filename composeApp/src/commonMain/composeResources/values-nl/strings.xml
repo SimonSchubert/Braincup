@@ -551,6 +551,11 @@
     <string name="settings_theme_light">Licht</string>
     <string name="settings_theme_dark">Donker</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play Games-profiel</string>
+    <string name="settings_play_games_profile_desc">Tik om het account voor prestaties en ranglijsten te wisselen.</string>
+    <string name="settings_play_games_profile_signed_out">Meld je aan om prestaties en ranglijsten op te slaan.</string>
+    <string name="settings_play_games_profile_switch">Wisselen</string>
+    <string name="settings_play_games_profile_sign_in">Aanmelden</string>
     <string name="normal_sudoku_button">Normaal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Beginner</string>
     <string name="normal_sudoku_difficulty_easy">Makkelijk</string>

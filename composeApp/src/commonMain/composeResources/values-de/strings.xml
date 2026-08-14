@@ -551,6 +551,11 @@
     <string name="settings_theme_light">Hell</string>
     <string name="settings_theme_dark">Dunkel</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play-Games-Profil</string>
+    <string name="settings_play_games_profile_desc">Tippe, um das Konto für Erfolge und Bestenlisten zu wechseln.</string>
+    <string name="settings_play_games_profile_signed_out">Melde dich an, um Erfolge und Bestenlisten zu speichern.</string>
+    <string name="settings_play_games_profile_switch">Wechseln</string>
+    <string name="settings_play_games_profile_sign_in">Anmelden</string>
     <string name="normal_sudoku_button">Normal-Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Anfänger</string>
     <string name="normal_sudoku_difficulty_easy">Einfach</string>

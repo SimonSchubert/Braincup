@@ -577,6 +577,11 @@
     <string name="settings_theme_light">Jasny</string>
     <string name="settings_theme_dark">Ciemny</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Profil Play Games</string>
+    <string name="settings_play_games_profile_desc">Dotknij, aby zmienić konto używane do osiągnięć i rankingów.</string>
+    <string name="settings_play_games_profile_signed_out">Zaloguj się, aby zapisać osiągnięcia i rankingi.</string>
+    <string name="settings_play_games_profile_switch">Zmień</string>
+    <string name="settings_play_games_profile_sign_in">Zaloguj się</string>
 
     <string name="normal_sudoku_button">Sudoku klasyczne (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Początkujący</string>

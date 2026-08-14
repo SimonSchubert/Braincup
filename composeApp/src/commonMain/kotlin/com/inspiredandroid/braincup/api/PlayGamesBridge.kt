@@ -2,6 +2,22 @@ package com.inspiredandroid.braincup.api
 
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+
+data class StorePlayerProfile(
+    val displayName: String,
+    val avatarBytes: ByteArray? = null,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is StorePlayerProfile) return false
+        return displayName == other.displayName && avatarBytes.contentEquals(other.avatarBytes)
+    }
+
+    override fun hashCode(): Int = 31 * displayName.hashCode() + (avatarBytes?.contentHashCode() ?: 0)
+}
 
 /**
  * Platform-agnostic hook fired when a game run earns a Gold-tier result.
@@ -14,6 +30,16 @@ object PlayGamesBridge {
     var onGoldMedal: ((GameType) -> Unit)? = null
     var onTotalScore: ((Int) -> Unit)? = null
     var onStreak: ((Int) -> Unit)? = null
+
+    private val _currentPlayer = MutableStateFlow<StorePlayerProfile?>(null)
+    val currentPlayer: StateFlow<StorePlayerProfile?> = _currentPlayer.asStateFlow()
+
+    fun updateCurrentPlayer(profile: StorePlayerProfile?) {
+        _currentPlayer.value = profile
+    }
+
+    var onSwitchStoreProfile: (() -> Unit)? = null
+    var onRefreshStoreProfile: (() -> Unit)? = null
 
     /** Fired the first time English peg solitaire is finished with the last peg in the center. */
     var onPegSolitairePerfect: (() -> Unit)? = null

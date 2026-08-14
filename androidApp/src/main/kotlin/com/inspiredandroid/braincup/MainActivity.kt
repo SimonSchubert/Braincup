@@ -25,13 +25,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         ReviewBridge.requestInAppReview = { requestInAppReview(this) }
+        initPlayGames(this)
 
         setContent {
             AndroidApp(
                 useBuiltInSponsors = useBuiltInSponsors,
             )
         }
-
-        initPlayGames(this)
     }
 }

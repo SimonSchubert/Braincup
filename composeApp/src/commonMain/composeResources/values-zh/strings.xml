@@ -577,6 +577,11 @@
     <string name="settings_theme_light">浅色</string>
     <string name="settings_theme_dark">深色</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play 游戏资料</string>
+    <string name="settings_play_games_profile_desc">点按即可切换用于成就和排行榜的账号。</string>
+    <string name="settings_play_games_profile_signed_out">登录以保存成就和排行榜。</string>
+    <string name="settings_play_games_profile_switch">切换</string>
+    <string name="settings_play_games_profile_sign_in">登录</string>
     <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">入门</string>
     <string name="normal_sudoku_difficulty_easy">简单</string>

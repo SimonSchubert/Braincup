@@ -577,6 +577,11 @@
     <string name="settings_theme_light">Açık</string>
     <string name="settings_theme_dark">Koyu</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play Oyunlar profili</string>
+    <string name="settings_play_games_profile_desc">Başarılar ve sıralamalar için kullanılan hesabı değiştirmek üzere dokun.</string>
+    <string name="settings_play_games_profile_signed_out">Başarıları ve sıralamaları kaydetmek için oturum aç.</string>
+    <string name="settings_play_games_profile_switch">Değiştir</string>
+    <string name="settings_play_games_profile_sign_in">Oturum aç</string>
     <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Başlangıç</string>
     <string name="normal_sudoku_difficulty_easy">Kolay</string>

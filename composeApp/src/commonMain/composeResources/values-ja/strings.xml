@@ -577,6 +577,11 @@
     <string name="settings_theme_light">ライト</string>
     <string name="settings_theme_dark">ダーク</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile">Play ゲーム プロフィール</string>
+    <string name="settings_play_games_profile_desc">タップして実績とリーダーボードのアカウントを切り替えます。</string>
+    <string name="settings_play_games_profile_signed_out">実績とリーダーボードを保存するにはサインインしてください。</string>
+    <string name="settings_play_games_profile_switch">切り替え</string>
+    <string name="settings_play_games_profile_sign_in">サインイン</string>
     <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">入門</string>
     <string name="normal_sudoku_difficulty_easy">簡単</string>
