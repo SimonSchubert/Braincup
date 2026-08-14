@@ -26,11 +26,14 @@ class UserStorageSudokuAchievementsTest {
 
     @BeforeTest
     fun clearBridge() {
+        PlayGamesBridge.hasPlayStoreAccount = true
         PlayGamesBridge.onSudokuTierProgress = null
     }
 
     @AfterTest
     fun resetBridge() {
+        PlayGamesBridge.hasPlayStoreAccount = false
+        PlayGamesBridge.isGameCenterAccount = false
         PlayGamesBridge.onSudokuTierProgress = null
     }
 

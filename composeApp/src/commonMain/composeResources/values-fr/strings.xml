@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Résous les 10 grilles du niveau Expert</string>
     <string name="game_flags">Drapeaux</string>
     <string name="game_flags_desc">Identifie le pays grâce à son drapeau. Chaque manche ajoute plus d'options et le temps s'écoule.</string>
-    <string name="game_flags_question">Quel est ce drapeau ?</string>
     <string name="game_flags_score">Score : %1$d</string>
     <string name="game_flags_best">Meilleur : %1$d</string>
     <string name="game_digit_memory">Mémoire des Chiffres</string>
@@ -551,6 +550,21 @@
     <string name="settings_theme_light">Clair</string>
     <string name="settings_theme_dark">Sombre</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Changer</string>
+    <string name="settings_play_games_switch_cancel">Pas maintenant</string>
+    <string name="accounts_title">Comptes</string>
+    <string name="accounts_create">Créer un compte</string>
+    <string name="accounts_create_title">Nouveau compte</string>
+    <string name="accounts_edit">Modifier</string>
+    <string name="accounts_edit_title">Modifier le compte</string>
+    <string name="accounts_delete">Supprimer</string>
+    <string name="accounts_delete_title">Supprimer le compte</string>
+    <string name="accounts_delete_confirm">Supprimer %1$s ? Les scores et succès de ce compte restent sur l'appareil et seront perdus.</string>
+    <string name="accounts_save">Enregistrer</string>
+    <string name="accounts_name_label">Nom</string>
+    <string name="accounts_play_desc">Enregistré dans Play Jeux</string>
+    <string name="accounts_game_center_desc">Enregistré dans Game Center</string>
+    <string name="accounts_local_desc">Enregistré sur cet appareil. Perdu si tu désinstalles.</string>
     <string name="normal_sudoku_button">Sudoku normal (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Débutant</string>
     <string name="normal_sudoku_difficulty_easy">Facile</string>
@@ -597,7 +611,6 @@
 
     <string name="matchstick_riddles_button">Énigmes d'allumettes (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Énigmes d'allumettes</string>
-    <string name="matchstick_riddles_puzzle_label">Énigme %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Déplacez 1 allumette pour corriger l'équation.</string>
     <string name="matchstick_riddle_prompt_move_two">Déplacez 2 allumettes pour corriger l'équation.</string>
     <string name="matchstick_riddle_prompt_move_three">Déplacez 3 allumettes pour corriger l'équation.</string>
@@ -625,7 +638,6 @@
     <string name="wordle_not_in_word_list">Absent de la liste</string>
     <string name="wordle_answer_was">Le mot était %1$s</string>
     <string name="wordle_enter">Entrée</string>
-    <string name="wordle_backspace">Supprimer la lettre</string>
     <string name="wordle_legend_correct">Bonne lettre, bonne place</string>
     <string name="wordle_legend_present">Bonne lettre, mauvaise place</string>
     <string name="wordle_legend_absent">Absente du mot</string>
@@ -701,8 +713,6 @@
     <string name="spot_the_new_demo_correct">Correct. Il rejoint ceux que tu as déjà vus.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Échangez des tuiles assorties pour effacer des lignes de trois ou plus. Videz tout le plateau pour gagner.</string>
-    <string name="game_prism_clear_howto">Touchez une tuile puis une voisine, ou glissez une tuile sur une adjacente pour échanger. Alignez trois ou plus en ligne ou en colonne.</string>
-    <string name="prism_clear_moves_remaining">Coups restants : %1$d</string>
     <string name="prism_clear_restart">Recommencer</string>
     <string name="prism_clear_stuck">Plus de coups possibles. Annulez un coup ou recommencez le niveau.</string>
     <string name="achievement_gold_prism_clear">Clarté de cristal</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">Annuler</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Trouvez les opérateurs manquants (+, -, *, /) qui rendent l'équation vraie.</string>
-    <string name="missing_operators_instruction">Quels opérateurs rendent l'affirmation vraie ?</string>
     <string name="missing_operators_demo_title">Trouvez les opérateurs manquants</string>
     <string name="missing_operators_demo_desc">Sélectionnez les opérateurs pour rendre l'équation vraie. Les opérateurs sont évalués avec la priorité mathématique standard.</string>
     <string name="achievement_gold_missing_operators">Maître des opérateurs</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Devinez le nombre secret à 4 chiffres avec des chiffres uniques. Bulls = bon chiffre à la bonne place. Cows = bon chiffre à la mauvaise place.</string>
-    <string name="game_bulls_and_cows_howto">Saisissez une proposition à 4 chiffres uniques, puis appuyez sur Entrée.</string>
     <string name="bulls_and_cows_bulls">Bulls : %1$d</string>
     <string name="bulls_and_cows_cows">Cows : %1$d</string>
     <string name="bulls_and_cows_secret_was">Le secret était %1$s</string>

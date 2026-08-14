@@ -10,4 +10,4 @@ fun MainViewController(requestReview: () -> Unit = {}) = ComposeUIViewController
 }
 
 /** Swift-callable factory for [UserStorage]; K/N does not expose the no-arg default constructor. */
-fun createUserStorage(): UserStorage = UserStorage()
+fun createUserStorage(): UserStorage = UserStorage(playSlotProgress = true)

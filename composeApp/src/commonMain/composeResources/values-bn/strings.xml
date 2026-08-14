@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">বিশেষজ্ঞ স্তরের সব ১০টি ধাঁধা সমাধান করুন</string>
     <string name="game_flags">পতাকা</string>
     <string name="game_flags_desc">পতাকা দেখে দেশ শনাক্ত করুন। প্রতিটি রাউন্ডে আরও বিকল্প যোগ হয় এবং সময় চলতে থাকে।</string>
-    <string name="game_flags_question">এটি কোন দেশের পতাকা?</string>
     <string name="game_flags_score">স্কোর: %1$d</string>
     <string name="game_flags_best">সেরা: %1$d</string>
     <string name="game_digit_memory">অঙ্ক স্মৃতি</string>
@@ -551,6 +550,21 @@
     <string name="settings_theme_light">হালকা</string>
     <string name="settings_theme_dark">গাঢ়</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">বদলান</string>
+    <string name="settings_play_games_switch_cancel">এখন না</string>
+    <string name="accounts_title">অ্যাকাউন্ট</string>
+    <string name="accounts_create">অ্যাকাউন্ট তৈরি করুন</string>
+    <string name="accounts_create_title">নতুন অ্যাকাউন্ট</string>
+    <string name="accounts_edit">সম্পাদনা</string>
+    <string name="accounts_edit_title">অ্যাকাউন্ট সম্পাদনা</string>
+    <string name="accounts_delete">মুছুন</string>
+    <string name="accounts_delete_title">অ্যাকাউন্ট মুছুন</string>
+    <string name="accounts_delete_confirm">%1$s মুছবেন? এই অ্যাকাউন্টের স্কোর ও অ্যাচিভমেন্ট এই ডিভাইসে থাকে এবং হারিয়ে যাবে।</string>
+    <string name="accounts_save">সেভ</string>
+    <string name="accounts_name_label">নাম</string>
+    <string name="accounts_play_desc">Play Games-এ সেভ</string>
+    <string name="accounts_game_center_desc">Game Center-এ সংরক্ষিত</string>
+    <string name="accounts_local_desc">এই ডিভাইসে সেভ। আনইনস্টল করলে চলে যাবে।</string>
     <string name="normal_sudoku_button">সাধারণ সুডোকু (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">শিক্ষানবিস</string>
     <string name="normal_sudoku_difficulty_easy">সহজ</string>
@@ -597,7 +611,6 @@
 
     <string name="matchstick_riddles_button">ম্যাচস্টিক ধাঁধা (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">ম্যাচস্টিক ধাঁধা</string>
-    <string name="matchstick_riddles_puzzle_label">ধাঁধা %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">সমীকরণ ঠিক করতে ১টি ম্যাচস্টিক সরান।</string>
     <string name="matchstick_riddle_prompt_move_two">সমীকরণ ঠিক করতে ২টি ম্যাচস্টিক সরান।</string>
     <string name="matchstick_riddle_prompt_move_three">সমীকরণ ঠিক করতে ৩টি ম্যাচস্টিক সরান।</string>
@@ -625,7 +638,6 @@
     <string name="wordle_not_in_word_list">শব্দ তালিকায় নেই</string>
     <string name="wordle_answer_was">শব্দটি ছিল %1$s</string>
     <string name="wordle_enter">এন্টার</string>
-    <string name="wordle_backspace">অক্ষর মুছুন</string>
     <string name="wordle_legend_correct">সঠিক অক্ষর, সঠিক স্থান</string>
     <string name="wordle_legend_present">সঠিক অক্ষর, ভুল স্থান</string>
     <string name="wordle_legend_absent">শব্দে নেই</string>
@@ -701,8 +713,6 @@
     <string name="spot_the_new_demo_correct">সঠিক। এটি আপনার দেখা তালিকায় যোগ হলো।</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">মিল থাকা টাইল বদলে তিন বা তার বেশি সারি মুছুন। জিততে পুরো বোর্ড খালি করুন।</string>
-    <string name="game_prism_clear_howto">একটি টাইল ট্যাপ করে প্রতিবেশী ট্যাপ করুন, বা পাশের টাইলে টেনে বিনিময় করুন। সারি বা কলামে তিন বা তার বেশি মিলান।</string>
-    <string name="prism_clear_moves_remaining">বাকি চাল: %1$d</string>
     <string name="prism_clear_restart">আবার</string>
     <string name="prism_clear_stuck">আর চাল নেই। একটি চাল পূর্বাবস্থায় ফেরান বা লেভেল আবার শুরু করুন।</string>
     <string name="achievement_gold_prism_clear">স্ফটিক স্বচ্ছতা</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">পূর্বাবস্থা</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">সমীকরণ সত্য করে এমন অনুপস্থিত অপারেটর (+, -, *, /) খুঁজুন।</string>
-    <string name="missing_operators_instruction">কোন অপারেটরগুলো বিবৃতি সত্য করে?</string>
     <string name="missing_operators_demo_title">অনুপস্থিত অপারেটর খুঁজুন</string>
     <string name="missing_operators_demo_desc">সমীকরণ সত্য করতে অপারেটর বেছে নিন। অপারেটর মানক গাণিতিক অগ্রাধিকার দিয়ে মূল্যায়ন হয়।</string>
     <string name="achievement_gold_missing_operators">অপারেটর মাস্টার</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">অনন্য অঙ্কসহ গোপন ৪-অঙ্কের সংখ্যা অনুমান করুন। Bulls = সঠিক অঙ্ক সঠিক স্থানে। Cows = সঠিক অঙ্ক ভুল স্থানে।</string>
-    <string name="game_bulls_and_cows_howto">অনন্য অঙ্কের ৪-অঙ্কের অনুমান লিখে Enter চাপুন।</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">গোপন সংখ্যা ছিল %1$s</string>

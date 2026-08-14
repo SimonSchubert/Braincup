@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">विशेषज्ञ स्तर की सभी 10 पहेलियाँ हल करें</string>
     <string name="game_flags">झंडे</string>
     <string name="game_flags_desc">झंडे से देश पहचानें। हर राउंड में और विकल्प जुड़ते हैं और घड़ी चल रही है।</string>
-    <string name="game_flags_question">यह कौन सा झंडा है?</string>
     <string name="game_flags_score">स्कोर: %1$d</string>
     <string name="game_flags_best">सर्वश्रेष्ठ: %1$d</string>
     <string name="game_digit_memory">अंक स्मृति</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">शब्द सूची में नहीं है</string>
     <string name="wordle_answer_was">शब्द था %1$s</string>
     <string name="wordle_enter">दर्ज करें</string>
-    <string name="wordle_backspace">अक्षर मिटाएं</string>
     <string name="wordle_legend_correct">सही अक्षर, सही जगह</string>
     <string name="wordle_legend_present">सही अक्षर, गलत जगह</string>
     <string name="wordle_legend_absent">शब्द में नहीं है</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">हल्का</string>
     <string name="settings_theme_dark">गहरा</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">बदलें</string>
+    <string name="settings_play_games_switch_cancel">अभी नहीं</string>
+    <string name="accounts_title">खाते</string>
+    <string name="accounts_create">खाता बनाएँ</string>
+    <string name="accounts_create_title">नया खाता</string>
+    <string name="accounts_edit">संपादित करें</string>
+    <string name="accounts_edit_title">खाता संपादित करें</string>
+    <string name="accounts_delete">हटाएँ</string>
+    <string name="accounts_delete_title">खाता हटाएँ</string>
+    <string name="accounts_delete_confirm">%1$s हटाएँ? इस खाते के स्कोर और उपलब्धियाँ इस डिवाइस पर रहती हैं और खो जाएँगी।</string>
+    <string name="accounts_save">सहेजें</string>
+    <string name="accounts_name_label">नाम</string>
+    <string name="accounts_play_desc">Play Games में सहेजा गया</string>
+    <string name="accounts_game_center_desc">Game Center में सहेजा गया</string>
+    <string name="accounts_local_desc">इस डिवाइस पर सहेजा गया। अनइंस्टॉल करने पर चला जाएगा।</string>
     <string name="normal_sudoku_button">सामान्य सुडोकू (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">शुरुआती</string>
     <string name="normal_sudoku_difficulty_easy">आसान</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">माचिस की पहेलियाँ (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">माचिस की पहेलियाँ</string>
-    <string name="matchstick_riddles_puzzle_label">पहेली %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">समीकरण ठीक करने के लिए 1 माचिस की तीली हटाएँ।</string>
     <string name="matchstick_riddle_prompt_move_two">समीकरण ठीक करने के लिए 2 माचिस की तीलियाँ हटाएँ।</string>
     <string name="matchstick_riddle_prompt_move_three">समीकरण ठीक करने के लिए 3 माचिस की तीलियाँ हटाएँ।</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">सही। यह आपके देखे हुओं में शामिल हो गया।</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">मिलान वाले टाइलों को बदलकर तीन या अधिक की पंक्तियाँ साफ़ करें। जीतने के लिए पूरा बोर्ड खाली करें।</string>
-    <string name="game_prism_clear_howto">एक टाइल टैप करें फिर पड़ोसी, या एक टाइल को आस-पास की टाइल पर खींचकर बदलें। पंक्ति या स्तंभ में तीन या अधिक मिलाएँ।</string>
-    <string name="prism_clear_moves_remaining">बचे चाल: %1$d</string>
     <string name="prism_clear_restart">फिर से</string>
     <string name="prism_clear_stuck">कोई चाल नहीं बची। एक चाल पूर्ववत करें या स्तर पुनः शुरू करें।</string>
     <string name="achievement_gold_prism_clear">क्रिस्टल स्पष्टता</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">पूर्ववत</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">वे गायब संकारक (+, -, *, /) खोजें जो समीकरण को सत्य बनाते हैं।</string>
-    <string name="missing_operators_instruction">कौन से संकारक कथन को सत्य बनाते हैं?</string>
     <string name="missing_operators_demo_title">गायब संकारक खोजें</string>
     <string name="missing_operators_demo_desc">समीकरण को सत्य बनाने के लिए संकारक चुनें। संकारकों का मूल्यांकन मानक गणितीय प्राथमिकता से होता है।</string>
     <string name="achievement_gold_missing_operators">संकारक मास्टर</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">अद्वितीय अंकों वाली गुप्त 4-अंकीय संख्या अनुमान लगाएँ। Bulls = सही अंक सही स्थान पर। Cows = सही अंक गलत स्थान पर।</string>
-    <string name="game_bulls_and_cows_howto">अद्वितीय अंकों वाला 4-अंकीय अनुमान लिखें, फिर Enter दबाएँ।</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">रहस्य %1$s था</string>

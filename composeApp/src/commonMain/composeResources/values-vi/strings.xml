@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Giải tất cả 10 câu đố cấp Chuyên gia</string>
     <string name="game_flags">Cờ</string>
     <string name="game_flags_desc">Nhận diện quốc gia qua lá cờ của nó. Mỗi vòng thêm nhiều lựa chọn và thời gian đang trôi.</string>
-    <string name="game_flags_question">Đây là cờ nước nào?</string>
     <string name="game_flags_score">Điểm: %1$d</string>
     <string name="game_flags_best">Cao nhất: %1$d</string>
     <string name="game_digit_memory">Trí Nhớ Số</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">Không có trong danh sách từ</string>
     <string name="wordle_answer_was">Từ đúng là %1$s</string>
     <string name="wordle_enter">Xác nhận</string>
-    <string name="wordle_backspace">Xóa chữ cái</string>
     <string name="wordle_legend_correct">Đúng chữ, đúng vị trí</string>
     <string name="wordle_legend_present">Đúng chữ, sai vị trí</string>
     <string name="wordle_legend_absent">Không có trong từ</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">Sáng</string>
     <string name="settings_theme_dark">Tối</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Đổi</string>
+    <string name="settings_play_games_switch_cancel">Để sau</string>
+    <string name="accounts_title">Tài khoản</string>
+    <string name="accounts_create">Tạo tài khoản</string>
+    <string name="accounts_create_title">Tài khoản mới</string>
+    <string name="accounts_edit">Sửa</string>
+    <string name="accounts_edit_title">Sửa tài khoản</string>
+    <string name="accounts_delete">Xóa</string>
+    <string name="accounts_delete_title">Xóa tài khoản</string>
+    <string name="accounts_delete_confirm">Xóa %1$s? Điểm và thành tích của tài khoản này ở trên máy và sẽ mất.</string>
+    <string name="accounts_save">Lưu</string>
+    <string name="accounts_name_label">Tên</string>
+    <string name="accounts_play_desc">Đã lưu vào Play Games</string>
+    <string name="accounts_game_center_desc">Đã lưu vào Game Center</string>
+    <string name="accounts_local_desc">Lưu trên máy này. Mất nếu gỡ ứng dụng.</string>
     <string name="normal_sudoku_button">Sudoku Thường (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Mới bắt đầu</string>
     <string name="normal_sudoku_difficulty_easy">Dễ</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">Câu đố que diêm (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Câu đố que diêm</string>
-    <string name="matchstick_riddles_puzzle_label">Câu đố %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Di chuyển 1 que diêm để sửa phương trình.</string>
     <string name="matchstick_riddle_prompt_move_two">Di chuyển 2 que diêm để sửa phương trình.</string>
     <string name="matchstick_riddle_prompt_move_three">Di chuyển 3 que diêm để sửa phương trình.</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">Đúng rồi. Nó gia nhập vào những cái đã thấy.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Đổi các ô khớp nhau để xóa hàng ba ô trở lên. Làm trống toàn bộ bảng để thắng.</string>
-    <string name="game_prism_clear_howto">Chạm một ô rồi ô kề, hoặc kéo một ô lên ô liền kề để đổi. Khớp ba ô trở lên theo hàng hoặc cột.</string>
-    <string name="prism_clear_moves_remaining">Nước còn lại: %1$d</string>
     <string name="prism_clear_restart">Chơi lại</string>
     <string name="prism_clear_stuck">Không còn nước đi. Hoàn tác một nước hoặc chơi lại cấp.</string>
     <string name="achievement_gold_prism_clear">Tinh thể trong veo</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">Hoàn tác</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Tìm các toán tử còn thiếu (+, -, *, /) để phương trình đúng.</string>
-    <string name="missing_operators_instruction">Toán tử nào làm cho biểu thức đúng?</string>
     <string name="missing_operators_demo_title">Tìm các toán tử còn thiếu</string>
     <string name="missing_operators_demo_desc">Chọn toán tử để phương trình đúng. Toán tử được tính theo thứ tự ưu tiên toán học chuẩn.</string>
     <string name="achievement_gold_missing_operators">Bậc thầy toán tử</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Đoán số bí mật 4 chữ số không trùng. Bulls = đúng số đúng vị trí. Cows = đúng số sai vị trí.</string>
-    <string name="game_bulls_and_cows_howto">Nhập đoán 4 chữ số không trùng, rồi nhấn Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Số bí mật là %1$s</string>

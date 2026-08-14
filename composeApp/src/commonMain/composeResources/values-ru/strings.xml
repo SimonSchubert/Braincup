@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Решите все 10 головоломок уровня «Эксперт»</string>
     <string name="game_flags">Флаги</string>
     <string name="game_flags_desc">Угадайте страну по её флагу. Каждый раунд добавляет больше вариантов, и время идёт.</string>
-    <string name="game_flags_question">Какой это флаг?</string>
     <string name="game_flags_score">Очки: %1$d</string>
     <string name="game_flags_best">Лучший: %1$d</string>
     <string name="game_digit_memory">Память на цифры</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">Нет в списке слов</string>
     <string name="wordle_answer_was">Слово было %1$s</string>
     <string name="wordle_enter">Ввод</string>
-    <string name="wordle_backspace">Удалить букву</string>
     <string name="wordle_legend_correct">Верная буква, верная позиция</string>
     <string name="wordle_legend_present">Верная буква, неверная позиция</string>
     <string name="wordle_legend_absent">Нет в слове</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">Светлая</string>
     <string name="settings_theme_dark">Тёмная</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Сменить</string>
+    <string name="settings_play_games_switch_cancel">Не сейчас</string>
+    <string name="accounts_title">Аккаунты</string>
+    <string name="accounts_create">Создать аккаунт</string>
+    <string name="accounts_create_title">Новый аккаунт</string>
+    <string name="accounts_edit">Изменить</string>
+    <string name="accounts_edit_title">Изменить аккаунт</string>
+    <string name="accounts_delete">Удалить</string>
+    <string name="accounts_delete_title">Удалить аккаунт</string>
+    <string name="accounts_delete_confirm">Удалить %1$s? Очки и достижения этого аккаунта остаются на устройстве и будут потеряны.</string>
+    <string name="accounts_save">Сохранить</string>
+    <string name="accounts_name_label">Имя</string>
+    <string name="accounts_play_desc">Сохранено в Play Играх</string>
+    <string name="accounts_game_center_desc">Сохранено в Game Center</string>
+    <string name="accounts_local_desc">Сохранено на этом устройстве. Пропадёт при удалении приложения.</string>
     <string name="normal_sudoku_button">Обычное судоку (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Начинающий</string>
     <string name="normal_sudoku_difficulty_easy">Лёгкий</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">Головоломки со спичками (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Головоломки со спичками</string>
-    <string name="matchstick_riddles_puzzle_label">Загадка %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Переместите 1 спичку, чтобы исправить уравнение.</string>
     <string name="matchstick_riddle_prompt_move_two">Переместите 2 спички, чтобы исправить уравнение.</string>
     <string name="matchstick_riddle_prompt_move_three">Переместите 3 спички, чтобы исправить уравнение.</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">Верно. Оно присоединяется к тем, что ты уже видел.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Меняйте одинаковые плитки, чтобы убирать линии из трёх и более. Очистите всё поле, чтобы победить.</string>
-    <string name="game_prism_clear_howto">Нажмите плитку, затем соседнюю, или перетащите плитку на соседнюю, чтобы поменять. Соберите три и более в ряд или столбец.</string>
-    <string name="prism_clear_moves_remaining">Ходов осталось: %1$d</string>
     <string name="prism_clear_restart">Заново</string>
     <string name="prism_clear_stuck">Ходов больше нет. Отмените ход или перезапустите уровень.</string>
     <string name="achievement_gold_prism_clear">Хрустальная ясность</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">Отменить</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Найдите недостающие операторы (+, -, *, /), которые делают уравнение верным.</string>
-    <string name="missing_operators_instruction">Какие операторы делают утверждение верным?</string>
     <string name="missing_operators_demo_title">Найдите недостающие операторы</string>
     <string name="missing_operators_demo_desc">Выберите операторы, чтобы уравнение стало верным. Операторы вычисляются со стандартным приоритетом.</string>
     <string name="achievement_gold_missing_operators">Мастер операторов</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Угадайте секретное 4-значное число с разными цифрами. Bulls = верная цифра на верном месте. Cows = верная цифра на неверном месте.</string>
-    <string name="game_bulls_and_cows_howto">Введите 4-значную попытку с разными цифрами и нажмите Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Секрет был %1$s</string>

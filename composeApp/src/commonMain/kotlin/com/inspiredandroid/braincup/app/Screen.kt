@@ -35,6 +35,9 @@ object Achievements
 object Settings
 
 @Serializable
+object Accounts
+
+@Serializable
 object SessionInterstitial
 
 @Serializable

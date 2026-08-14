@@ -63,10 +63,11 @@ fun MainMenuScreen(
     val totalXp by controller.totalXp.collectAsStateWithLifecycle()
     val highscores by controller.highscores.collectAsStateWithLifecycle()
     val unlockedCount by controller.unlockedAchievementCount.collectAsStateWithLifecycle()
-    val normalSudokuCompleted = remember(controller) {
+    val storageRevision by controller.storageRevision.collectAsStateWithLifecycle()
+    val normalSudokuCompleted = remember(controller, storageRevision) {
         controller.storage.getCompletedNormalSudokuIds().size
     }
-    val matchstickRiddlesSolved = remember(controller) {
+    val matchstickRiddlesSolved = remember(controller, storageRevision) {
         controller.storage.getSolvedMatchstickRiddleIds().size
     }
     val matchstickRiddlesTotal = remember { MatchstickRiddles.all.size }

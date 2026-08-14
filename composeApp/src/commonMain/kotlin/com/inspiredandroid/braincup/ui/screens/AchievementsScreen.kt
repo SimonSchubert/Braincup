@@ -25,7 +25,7 @@ fun AchievementsScreen(
     storage: UserStorage,
     onBack: () -> Unit,
 ) {
-    val unlockedAchievements = remember(storage) { storage.getUnlockedAchievements() }
+    val unlockedAchievements = storage.getUnlockedAchievements()
     val allAchievements = UserStorage.Achievements.displayOrder
 
     AppScaffold(

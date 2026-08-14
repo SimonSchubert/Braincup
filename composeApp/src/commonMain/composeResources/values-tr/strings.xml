@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Uzman seviyesindeki 10 bulmacanın tümünü çöz</string>
     <string name="game_flags">Bayraklar</string>
     <string name="game_flags_desc">Bayrağına bakarak ülkeyi tahmin et. Her tur daha fazla seçenek ekler ve süre işliyor.</string>
-    <string name="game_flags_question">Bu hangi bayrak?</string>
     <string name="game_flags_score">Puan: %1$d</string>
     <string name="game_flags_best">En iyi: %1$d</string>
     <string name="game_digit_memory">Rakam Hafızası</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">Kelime listesinde yok</string>
     <string name="wordle_answer_was">Kelime %1$s idi</string>
     <string name="wordle_enter">Gir</string>
-    <string name="wordle_backspace">Harf sil</string>
     <string name="wordle_legend_correct">Doğru harf, doğru yer</string>
     <string name="wordle_legend_present">Doğru harf, yanlış yer</string>
     <string name="wordle_legend_absent">Kelimede yok</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">Açık</string>
     <string name="settings_theme_dark">Koyu</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Değiştir</string>
+    <string name="settings_play_games_switch_cancel">Şimdi değil</string>
+    <string name="accounts_title">Hesaplar</string>
+    <string name="accounts_create">Hesap oluştur</string>
+    <string name="accounts_create_title">Yeni hesap</string>
+    <string name="accounts_edit">Düzenle</string>
+    <string name="accounts_edit_title">Hesabı düzenle</string>
+    <string name="accounts_delete">Sil</string>
+    <string name="accounts_delete_title">Hesabı sil</string>
+    <string name="accounts_delete_confirm">%1$s silinsin mi? Bu hesabın skorları ve başarıları bu cihazda kalır ve kaybolur.</string>
+    <string name="accounts_save">Kaydet</string>
+    <string name="accounts_name_label">Ad</string>
+    <string name="accounts_play_desc">Play Oyunlar'a kaydedildi</string>
+    <string name="accounts_game_center_desc">Game Center'a kaydedildi</string>
+    <string name="accounts_local_desc">Bu cihazda kayıtlı. Uygulamayı silersen gider.</string>
     <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Başlangıç</string>
     <string name="normal_sudoku_difficulty_easy">Kolay</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">Kibrit bulmacaları (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Kibrit bulmacaları</string>
-    <string name="matchstick_riddles_puzzle_label">Bulmaca %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Denklemi düzeltmek için 1 kibrit taşıyın.</string>
     <string name="matchstick_riddle_prompt_move_two">Denklemi düzeltmek için 2 kibrit taşıyın.</string>
     <string name="matchstick_riddle_prompt_move_three">Denklemi düzeltmek için 3 kibrit taşıyın.</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">Doğru. Daha önce gördüklerin arasına katılır.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Eşleşen karoları değiştirerek üç veya daha fazla karodan oluşan satırları temizleyin. Kazanmak için tüm tahtayı boşaltın.</string>
-    <string name="game_prism_clear_howto">Bir karoya, sonra komşusuna dokunun veya bir karoyu bitişiğine sürükleyerek değiştirin. Satır veya sütunda üç veya daha fazla eşleştirin.</string>
-    <string name="prism_clear_moves_remaining">Kalan hamle: %1$d</string>
     <string name="prism_clear_restart">Yeniden</string>
     <string name="prism_clear_stuck">Hamle kalmadı. Bir hamleyi geri alın veya seviyeyi yeniden başlatın.</string>
     <string name="achievement_gold_prism_clear">Kristal Netlik</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">Geri al</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Denklemi doğru yapan eksik operatörleri (+, -, *, /) bulun.</string>
-    <string name="missing_operators_instruction">Hangi operatörler ifadeyi doğru yapar?</string>
     <string name="missing_operators_demo_title">Eksik operatörleri bulun</string>
     <string name="missing_operators_demo_desc">Denklemi doğru yapmak için operatörleri seçin. Operatörler standart matematiksel öncelik sırasıyla değerlendirilir.</string>
     <string name="achievement_gold_missing_operators">Operatör Ustası</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Benzersiz rakamlardan oluşan gizli 4 basamaklı sayıyı tahmin edin. Bulls = doğru rakam doğru yerde. Cows = doğru rakam yanlış yerde.</string>
-    <string name="game_bulls_and_cows_howto">Benzersiz rakamlardan 4 basamaklı bir tahmin yazın ve Enter'a basın.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Gizli sayı %1$s idi</string>

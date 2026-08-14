@@ -15,6 +15,12 @@ final class GameCenterBridge: NSObject {
     /// Wire callbacks and kick off Game Center authentication.
     /// Safe to call once at app launch (before the first Compose screen renders).
     func start() {
+        let bridge = PlayGamesBridge.shared
+        bridge.hasPlayStoreAccount = true
+        bridge.isGameCenterAccount = true
+        bridge.onRefreshStoreProfile = { [weak self] in
+            self?.refreshStoreProfile()
+        }
         wireBridgeCallbacks()
 
         GKLocalPlayer.local.authenticateHandler = { [weak self] viewController, _ in
@@ -105,9 +111,46 @@ final class GameCenterBridge: NSObject {
 
     // MARK: - Post-auth
 
+    private func refreshStoreProfile() {
+        guard isAuthenticated else { return }
+        if publishLocalPlayer() {
+            restoreAchievements()
+            syncBrainCupXp()
+        }
+    }
+
     private func onAuthenticated() {
+        _ = publishLocalPlayer()
         restoreAchievements()
         syncBrainCupXp()
+    }
+
+    private func publishLocalPlayer() -> Bool {
+        let player = GKLocalPlayer.local
+        let playerId = player.gamePlayerID
+        guard !playerId.isEmpty else { return false }
+        let changed = PlayGamesBridge.shared.bindStorePlayer(playerId: playerId)
+        if changed {
+            PlayGamesBridge.shared.onStoreProgressRestored?()
+        }
+        let name = player.displayName
+        PlayGamesBridge.shared.updateCurrentPlayer(
+            profile: StorePlayerProfile(playerId: playerId, displayName: name, avatarBytes: nil)
+        )
+        player.loadPhoto(for: .normal) { image, _ in
+            guard GKLocalPlayer.local.gamePlayerID == playerId,
+                  let image,
+                  let data = image.pngData()
+            else { return }
+            PlayGamesBridge.shared.updateCurrentPlayer(
+                profile: StorePlayerProfile(
+                    playerId: playerId,
+                    displayName: name,
+                    avatarBytes: kotlinBytes(from: data)
+                )
+            )
+        }
+        return changed
     }
 
     private func restoreAchievements() {
@@ -123,6 +166,8 @@ final class GameCenterBridge: NSObject {
             }
             if !toRestore.isEmpty {
                 storage.restoreUnlockedAchievements(achievements: toRestore)
+            } else {
+                storage.seedHighScoresFromUnlockedGold()
             }
 
             // Restore partial Normal Sudoku tier progress: only the count is recoverable, so
@@ -144,6 +189,7 @@ final class GameCenterBridge: NSObject {
                     storage.restoreMatchstickRiddlesProgressIfHigher(remoteCount: Int32(count))
                 }
             }
+            PlayGamesBridge.shared.onStoreProgressRestored?()
         }
     }
 
@@ -230,6 +276,14 @@ final class GameCenterBridge: NSObject {
         }
         return top
     }
+}
+
+private func kotlinBytes(from data: Data) -> KotlinByteArray {
+    let bytes = KotlinByteArray(size: Int32(data.count))
+    data.enumerated().forEach { index, byte in
+        bytes.set(index: Int32(index), value: Int8(bitPattern: byte))
+    }
+    return bytes
 }
 
 extension GameCenterBridge: GKGameCenterControllerDelegate {

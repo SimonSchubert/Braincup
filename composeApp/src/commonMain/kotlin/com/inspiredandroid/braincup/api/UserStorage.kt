@@ -24,7 +24,17 @@ import kotlin.time.Instant
 
 class UserStorage(
     private val settings: Settings = Settings(),
+    val accounts: AccountStore = AccountStore(settings),
+    playSlotProgress: Boolean = false,
 ) {
+    private val store = AccountAwareSettings(settings) {
+        if (playSlotProgress) accounts.progressPrefix(AccountStore.PLAY_ID) else accounts.progressPrefix()
+    }
+
+    private fun notifyStore(block: () -> Unit) {
+        if (accounts.isPlayAccountActive()) block()
+    }
+
     enum class Achievements(
         val titleRes: StringResource,
         val descriptionRes: StringResource,
@@ -168,6 +178,52 @@ class UserStorage(
          */
         fun forPreview(configure: UserStorage.() -> Unit = {}): UserStorage = UserStorage(MapSettings()).apply(configure)
 
+        private val deviceKeys = setOf(
+            KEY_AUDIO_MUTED,
+            KEY_COLORBLIND_PALETTE,
+            KEY_HAPTIC_ENABLED,
+            KEY_NUMBER_PAD_ASCENDING,
+            KEY_THEME_MODE,
+            KEY_TOTAL_APP_OPENS,
+        )
+
+        private class AccountAwareSettings(
+            private val raw: Settings,
+            private val prefix: () -> String,
+        ) {
+            private fun k(key: String): String {
+                if (key in deviceKeys) return key
+                val p = prefix()
+                return if (p.isEmpty()) key else p + key
+            }
+
+            fun getBoolean(key: String, default: Boolean): Boolean = raw.getBoolean(k(key), default)
+
+            fun putBoolean(key: String, value: Boolean) {
+                raw.putBoolean(k(key), value)
+            }
+
+            fun getInt(key: String, default: Int): Int = raw.getInt(k(key), default)
+
+            fun getIntOrNull(key: String): Int? = raw.getIntOrNull(k(key))
+
+            fun putInt(key: String, value: Int) {
+                raw.putInt(k(key), value)
+            }
+
+            fun getString(key: String, default: String): String = raw.getString(k(key), default)
+
+            fun getStringOrNull(key: String): String? = raw.getStringOrNull(k(key))
+
+            fun putString(key: String, value: String) {
+                raw.putString(k(key), value)
+            }
+
+            fun remove(key: String) {
+                raw.remove(k(key))
+            }
+        }
+
         fun xpSpanForLevel(level: Int): Int = xpThresholdForLevel(level + 1) - xpThresholdForLevel(level)
 
         fun xpIntoLevel(xp: Int): Int = (xp - xpThresholdForLevel(levelForXp(xp))).coerceAtLeast(0)
@@ -219,13 +275,13 @@ class UserStorage(
     }
 
     fun getTotalXp(): Int {
-        if (!settings.getBoolean(KEY_XP_SEEDED, false)) {
+        if (!store.getBoolean(KEY_XP_SEEDED, false)) {
             val seed = getTotalScore()
-            settings.putInt(KEY_TOTAL_XP, seed)
-            settings.putBoolean(KEY_XP_SEEDED, true)
+            store.putInt(KEY_TOTAL_XP, seed)
+            store.putBoolean(KEY_XP_SEEDED, true)
             return seed
         }
-        return settings.getInt(KEY_TOTAL_XP, 0)
+        return store.getInt(KEY_TOTAL_XP, 0)
     }
 
     fun getLevel(): Int = levelForXp(getTotalXp())
@@ -248,7 +304,7 @@ class UserStorage(
             remoteScore > current
         }
         if (!isBetter) return false
-        settings.putInt(getHighscoreKey(gameId), remoteScore)
+        store.putInt(getHighscoreKey(gameId), remoteScore)
         if (gameType != null && gameType.meetsScore(remoteScore, gameType.goldScore)) {
             Achievements.forGameGold(gameType)?.let { unlockAchievement(it) }
         }
@@ -263,14 +319,14 @@ class UserStorage(
      */
     fun restoreTotalXpIfHigher(remoteXp: Int): Boolean {
         if (remoteXp <= 0) return false
-        val current = if (settings.getBoolean(KEY_XP_SEEDED, false)) {
-            settings.getInt(KEY_TOTAL_XP, 0)
+        val current = if (store.getBoolean(KEY_XP_SEEDED, false)) {
+            store.getInt(KEY_TOTAL_XP, 0)
         } else {
             getTotalScore()
         }
         if (remoteXp <= current) return false
-        settings.putInt(KEY_TOTAL_XP, remoteXp)
-        settings.putBoolean(KEY_XP_SEEDED, true)
+        store.putInt(KEY_TOTAL_XP, remoteXp)
+        store.putBoolean(KEY_XP_SEEDED, true)
         if (remoteXp >= TOTAL_SCORE_10K_TARGET) {
             unlockAchievement(Achievements.TOTAL_SCORE_10K)
         }
@@ -281,8 +337,8 @@ class UserStorage(
         if (amount <= 0) return null
         val before = getTotalXp()
         val after = before + amount
-        settings.putInt(KEY_TOTAL_XP, after)
-        PlayGamesBridge.onSubmitTotalXp?.invoke(after)
+        store.putInt(KEY_TOTAL_XP, after)
+        notifyStore { PlayGamesBridge.onSubmitTotalXp?.invoke(after) }
         val oldLevel = levelForXp(before)
         val newLevel = levelForXp(after)
         return if (newLevel > oldLevel) {
@@ -292,65 +348,65 @@ class UserStorage(
         }
     }
 
-    fun isAudioMuted(): Boolean = settings.getBoolean(KEY_AUDIO_MUTED, false)
+    fun isAudioMuted(): Boolean = store.getBoolean(KEY_AUDIO_MUTED, false)
 
     fun setAudioMuted(muted: Boolean) {
-        settings.putBoolean(KEY_AUDIO_MUTED, muted)
+        store.putBoolean(KEY_AUDIO_MUTED, muted)
     }
 
-    fun isColorblindPaletteEnabled(): Boolean = settings.getBoolean(KEY_COLORBLIND_PALETTE, false)
+    fun isColorblindPaletteEnabled(): Boolean = store.getBoolean(KEY_COLORBLIND_PALETTE, false)
 
     fun setColorblindPaletteEnabled(enabled: Boolean) {
-        settings.putBoolean(KEY_COLORBLIND_PALETTE, enabled)
+        store.putBoolean(KEY_COLORBLIND_PALETTE, enabled)
     }
 
-    fun isHapticEnabled(): Boolean = settings.getBoolean(KEY_HAPTIC_ENABLED, true)
+    fun isHapticEnabled(): Boolean = store.getBoolean(KEY_HAPTIC_ENABLED, true)
 
     fun setHapticEnabled(enabled: Boolean) {
-        settings.putBoolean(KEY_HAPTIC_ENABLED, enabled)
+        store.putBoolean(KEY_HAPTIC_ENABLED, enabled)
     }
 
     /** Number pad layout. When true the keypad shows 1-2-3 on the top row (phone style);
      *  when false it shows 7-8-9 on top (calculator style). Defaults to calculator style. */
-    fun isNumberPadAscending(): Boolean = settings.getBoolean(KEY_NUMBER_PAD_ASCENDING, false)
+    fun isNumberPadAscending(): Boolean = store.getBoolean(KEY_NUMBER_PAD_ASCENDING, false)
 
     fun setNumberPadAscending(ascending: Boolean) {
-        settings.putBoolean(KEY_NUMBER_PAD_ASCENDING, ascending)
+        store.putBoolean(KEY_NUMBER_PAD_ASCENDING, ascending)
     }
 
     /** Selected app theme. Defaults to [ThemeMode.SYSTEM]. */
-    fun getThemeMode(): ThemeMode = runCatching { ThemeMode.valueOf(settings.getString(KEY_THEME_MODE, ThemeMode.SYSTEM.name)) }
+    fun getThemeMode(): ThemeMode = runCatching { ThemeMode.valueOf(store.getString(KEY_THEME_MODE, ThemeMode.SYSTEM.name)) }
         .getOrDefault(ThemeMode.SYSTEM)
 
     fun setThemeMode(mode: ThemeMode) {
-        settings.putString(KEY_THEME_MODE, mode.name)
+        store.putString(KEY_THEME_MODE, mode.name)
     }
 
     /** Mini Chess AI search depth chosen on the instructions screen. Defaults to 3 (Medium). */
-    fun getMiniChessDifficulty(): Int = settings.getInt(KEY_MINI_CHESS_DIFFICULTY, 3)
+    fun getMiniChessDifficulty(): Int = store.getInt(KEY_MINI_CHESS_DIFFICULTY, 3)
 
     fun setMiniChessDifficulty(depth: Int) {
-        settings.putInt(KEY_MINI_CHESS_DIFFICULTY, depth)
+        store.putInt(KEY_MINI_CHESS_DIFFICULTY, depth)
     }
 
     /** Normal Chess CPU difficulty. Defaults to MEDIUM. */
     fun getNormalChessDifficulty(): NormalChessDifficulty {
-        val name = settings.getStringOrNull(KEY_NORMAL_CHESS_DIFFICULTY)
+        val name = store.getStringOrNull(KEY_NORMAL_CHESS_DIFFICULTY)
         return NormalChessDifficulty.entries.firstOrNull { it.name == name } ?: NormalChessDifficulty.MEDIUM
     }
 
     fun setNormalChessDifficulty(difficulty: NormalChessDifficulty) {
-        settings.putString(KEY_NORMAL_CHESS_DIFFICULTY, difficulty.name)
+        store.putString(KEY_NORMAL_CHESS_DIFFICULTY, difficulty.name)
     }
 
     /** Normal Chess play mode. Defaults to VS_CPU. */
     fun getNormalChessMode(): NormalChessMode {
-        val name = settings.getStringOrNull(KEY_NORMAL_CHESS_MODE)
+        val name = store.getStringOrNull(KEY_NORMAL_CHESS_MODE)
         return NormalChessMode.entries.firstOrNull { it.name == name } ?: NormalChessMode.VS_CPU
     }
 
     fun setNormalChessMode(mode: NormalChessMode) {
-        settings.putString(KEY_NORMAL_CHESS_MODE, mode.name)
+        store.putString(KEY_NORMAL_CHESS_MODE, mode.name)
     }
 
     data class XpAward(val xpGained: Int, val levelChange: LevelChange?)
@@ -374,9 +430,9 @@ class UserStorage(
         return XpAward(amount, levelChange)
     }
 
-    fun hasSolvedPegSolitaire(): Boolean = settings.getBoolean(KEY_PEG_SOLITAIRE_SOLVED, false)
+    fun hasSolvedPegSolitaire(): Boolean = store.getBoolean(KEY_PEG_SOLITAIRE_SOLVED, false)
 
-    fun hasPerfectPegSolitaire(): Boolean = settings.getBoolean(KEY_PEG_SOLITAIRE_PERFECT, false)
+    fun hasPerfectPegSolitaire(): Boolean = store.getBoolean(KEY_PEG_SOLITAIRE_PERFECT, false)
 
     /**
      * Award first-time XP for any one-peg finish. No-ops on replay. Marks the puzzle solved.
@@ -384,7 +440,7 @@ class UserStorage(
      */
     fun awardPegSolitaireWinXp(): XpAward {
         if (hasSolvedPegSolitaire()) return XpAward(0, null)
-        settings.putBoolean(KEY_PEG_SOLITAIRE_SOLVED, true)
+        store.putBoolean(KEY_PEG_SOLITAIRE_SOLVED, true)
         val levelChange = addXp(PEG_SOLITAIRE_WIN_XP)
         return XpAward(PEG_SOLITAIRE_WIN_XP, levelChange)
     }
@@ -392,15 +448,15 @@ class UserStorage(
     /** Unlock the perfect-center milestone the first time the last peg is in the center. */
     fun markPegSolitairePerfect() {
         if (hasPerfectPegSolitaire()) return
-        settings.putBoolean(KEY_PEG_SOLITAIRE_PERFECT, true)
-        PlayGamesBridge.onPegSolitairePerfect?.invoke()
+        store.putBoolean(KEY_PEG_SOLITAIRE_PERFECT, true)
+        notifyStore { PlayGamesBridge.onPegSolitairePerfect?.invoke() }
         unlockAchievement(Achievements.PEG_SOLITAIRE_PERFECT)
     }
 
     private fun normalSudokuProgressKey(id: String): String = "normal_sudoku_progress_$id"
     private fun normalSudokuNotesKey(id: String): String = "normal_sudoku_notes_$id"
 
-    fun getCompletedNormalSudokuIds(): Set<String> = settings
+    fun getCompletedNormalSudokuIds(): Set<String> = store
         .getStringOrNull(KEY_NORMAL_SUDOKU_COMPLETED)
         ?.split(",")
         ?.filter { it.isNotEmpty() }
@@ -411,13 +467,13 @@ class UserStorage(
         val current = getCompletedNormalSudokuIds()
         if (id in current) return
         val updated = current + id
-        settings.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
-        settings.remove(normalSudokuProgressKey(id))
-        settings.remove(normalSudokuNotesKey(id))
+        store.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
+        store.remove(normalSudokuProgressKey(id))
+        store.remove(normalSudokuNotesKey(id))
         reportSudokuTierProgress(difficulty, updated)
     }
 
-    fun getSolvedMatchstickRiddleIds(): Set<String> = settings
+    fun getSolvedMatchstickRiddleIds(): Set<String> = store
         .getStringOrNull(KEY_MATCHSTICK_RIDDLES_SOLVED)
         ?.split(",")
         ?.filter { it.isNotEmpty() }
@@ -428,7 +484,7 @@ class UserStorage(
         val current = getSolvedMatchstickRiddleIds()
         if (id in current) return
         val updated = current + id
-        settings.putString(KEY_MATCHSTICK_RIDDLES_SOLVED, updated.joinToString(","))
+        store.putString(KEY_MATCHSTICK_RIDDLES_SOLVED, updated.joinToString(","))
         reportMatchstickProgress(updated)
     }
 
@@ -445,7 +501,7 @@ class UserStorage(
      */
     private fun reportMatchstickProgress(solved: Set<String>) {
         val count = solvedMatchstickCount(solved)
-        PlayGamesBridge.onMatchstickRiddlesProgress?.invoke(count)
+        notifyStore { PlayGamesBridge.onMatchstickRiddlesProgress?.invoke(count) }
         if (count >= MatchstickRiddles.count) {
             unlockAchievement(Achievements.MATCHSTICK_MASTER)
         }
@@ -469,7 +525,7 @@ class UserStorage(
         val current = getSolvedMatchstickRiddleIds()
         if (clamped <= solvedMatchstickCount(current)) return false
         val updated = current + catalogIds.take(clamped)
-        settings.putString(KEY_MATCHSTICK_RIDDLES_SOLVED, updated.joinToString(","))
+        store.putString(KEY_MATCHSTICK_RIDDLES_SOLVED, updated.joinToString(","))
         if (clamped >= MatchstickRiddles.count) {
             unlockAchievement(Achievements.MATCHSTICK_MASTER)
         }
@@ -485,7 +541,7 @@ class UserStorage(
     /** Push the tier's solved count to the store achievement and unlock it once the tier is complete. */
     private fun reportSudokuTierProgress(difficulty: SudokuDifficulty, completed: Set<String>) {
         val solvedInTier = solvedCountInTier(difficulty, completed)
-        PlayGamesBridge.onSudokuTierProgress?.invoke(difficulty, solvedInTier)
+        notifyStore { PlayGamesBridge.onSudokuTierProgress?.invoke(difficulty, solvedInTier) }
         if (solvedInTier >= SUDOKU_TIER_TARGET) {
             unlockAchievement(Achievements.forSudokuTier(difficulty))
         }
@@ -506,7 +562,7 @@ class UserStorage(
         if (remoteCount <= solvedCountInTier(difficulty, current)) return false
         val tierIds = NormalSudokuPuzzles.byDifficulty(difficulty).map { it.id }
         val updated = current + tierIds.take(remoteCount)
-        settings.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
+        store.putString(KEY_NORMAL_SUDOKU_COMPLETED, updated.joinToString(","))
         if (remoteCount >= SUDOKU_TIER_TARGET) {
             unlockAchievement(Achievements.forSudokuTier(difficulty))
         }
@@ -514,30 +570,30 @@ class UserStorage(
     }
 
     /** Resume state: 81-char board where '0' = empty user cell, '1'..'9' = entered digit. */
-    fun getNormalSudokuProgress(id: String): String? = settings.getStringOrNull(normalSudokuProgressKey(id))?.takeIf { it.length == 81 }
+    fun getNormalSudokuProgress(id: String): String? = store.getStringOrNull(normalSudokuProgressKey(id))?.takeIf { it.length == 81 }
 
     fun saveNormalSudokuProgress(id: String, board: String) {
         if (board.length != 81) return
-        settings.putString(normalSudokuProgressKey(id), board)
+        store.putString(normalSudokuProgressKey(id), board)
     }
 
     fun clearNormalSudokuProgress(id: String) {
-        settings.remove(normalSudokuProgressKey(id))
+        store.remove(normalSudokuProgressKey(id))
     }
 
     /** Resume state: 81-char encoded pencil-mark bitmasks per cell. */
-    fun getNormalSudokuNotes(id: String): String? = settings.getStringOrNull(normalSudokuNotesKey(id))?.takeIf { it.length == 81 }
+    fun getNormalSudokuNotes(id: String): String? = store.getStringOrNull(normalSudokuNotesKey(id))?.takeIf { it.length == 81 }
 
     fun saveNormalSudokuNotes(id: String, notes: String) {
         if (notes.length != 81) return
-        settings.putString(normalSudokuNotesKey(id), notes)
+        store.putString(normalSudokuNotesKey(id), notes)
     }
 
     fun clearNormalSudokuNotes(id: String) {
-        settings.remove(normalSudokuNotesKey(id))
+        store.remove(normalSudokuNotesKey(id))
     }
 
-    fun getUnlockedAchievements(): MutableList<Achievements> = settings
+    fun getUnlockedAchievements(): MutableList<Achievements> = store
         .getStringOrNull(KEY_UNLOCKED_ACHIEVEMENTS)
         ?.split(",")
         ?.filter { it.isNotEmpty() }
@@ -549,58 +605,77 @@ class UserStorage(
         val unlockedAchievements = getUnlockedAchievements()
         if (unlockedAchievements.contains(achievement)) return
         unlockedAchievements.add(achievement)
-        settings.putString(KEY_UNLOCKED_ACHIEVEMENTS, unlockedAchievements.joinToString(",") { it.name })
+        store.putString(KEY_UNLOCKED_ACHIEVEMENTS, unlockedAchievements.joinToString(",") { it.name })
     }
 
     /** Merge unlocked achievements from an external source (e.g. Play Games sync on the playStore flavor). */
     fun restoreUnlockedAchievements(achievements: Set<Achievements>) {
-        if (achievements.isEmpty()) return
+        if (achievements.isEmpty()) {
+            seedHighScoresFromUnlockedGold()
+            return
+        }
         val current = getUnlockedAchievements().toMutableSet()
         val before = current.size
         current.addAll(achievements)
         if (current.size > before) {
-            settings.putString(KEY_UNLOCKED_ACHIEVEMENTS, current.joinToString(",") { it.name })
+            store.putString(KEY_UNLOCKED_ACHIEVEMENTS, current.joinToString(",") { it.name })
+        }
+        seedHighScoresFromUnlockedGold()
+    }
+
+    /**
+     * Tile medals read high scores, but Play Games only restores gold unlocks (and XP),
+     * not per-game scores. If gold is unlocked and the stored high score would not show
+     * gold, write the gold threshold so the menu trophy matches the achievement.
+     */
+    fun seedHighScoresFromUnlockedGold() {
+        val unlocked = getUnlockedAchievements().toSet()
+        for (gameType in GameType.entries) {
+            val achievement = Achievements.forGameGold(gameType) ?: continue
+            if (achievement !in unlocked) continue
+            if (gameType.meetsScore(getHighScore(gameType.id), gameType.goldScore)) continue
+            store.putInt(getHighscoreKey(gameType.id), gameType.goldScore)
         }
     }
 
-    fun getSessionStreak(): Int = settings.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
+    fun getSessionStreak(): Int = store.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
 
     fun incrementAndGetTotalAppOpens(): Int {
-        val count = settings.getInt(KEY_TOTAL_APP_OPENS, 0) + 1
-        settings.putInt(KEY_TOTAL_APP_OPENS, count)
+        val count = store.getInt(KEY_TOTAL_APP_OPENS, 0) + 1
+        store.putInt(KEY_TOTAL_APP_OPENS, count)
         return count
     }
 
     fun migrateStreakIfNeeded() {
-        if (settings.getBoolean(KEY_STREAK_MIGRATED_V2, false)) return
-        settings.putInt(KEY_APP_OPEN_COMBO, 0)
-        settings.remove(KEY_APP_OPEN_DAY)
-        settings.putBoolean(KEY_STREAK_MIGRATED_V2, true)
+        if (store.getBoolean(KEY_STREAK_MIGRATED_V2, false)) return
+        store.putInt(KEY_APP_OPEN_COMBO, 0)
+        store.remove(KEY_APP_OPEN_DAY)
+        store.putBoolean(KEY_STREAK_MIGRATED_V2, true)
     }
 
     private fun todayEpochDay(): Int = (Clock.System.now().toEpochMilliseconds() / 86400000L).toInt()
 
     fun getOrCreateTodaySession(generateGameIds: () -> List<String>): SessionState {
         val today = todayEpochDay()
-        val storedDay = settings.getIntOrNull(KEY_SESSION_DAY) ?: -1
+        val storedDay = store.getIntOrNull(KEY_SESSION_DAY) ?: -1
         if (storedDay != today) {
             val ids = generateGameIds()
-            settings.putInt(KEY_SESSION_DAY, today)
-            settings.putString(KEY_SESSION_GAME_IDS, ids.joinToString(","))
-            settings.putString(KEY_SESSION_SCORES, "")
-            settings.putInt(KEY_SESSION_INDEX, 0)
+            store.putInt(KEY_SESSION_DAY, today)
+            store.putString(KEY_SESSION_GAME_IDS, ids.joinToString(","))
+            store.putString(KEY_SESSION_SCORES, "")
+            store.putInt(KEY_SESSION_INDEX, 0)
             return SessionState(today, ids.toImmutableList(), persistentListOf(), 0)
         }
-        val ids = settings.getString(KEY_SESSION_GAME_IDS, "")
+        val ids = store.getString(KEY_SESSION_GAME_IDS, "")
             .split(",")
             .filter { it.isNotEmpty() }
             .toImmutableList()
-        val scores = settings.getString(KEY_SESSION_SCORES, "")
+        val scores = store.getString(KEY_SESSION_SCORES, "")
             .split(",")
             .filter { it.isNotEmpty() }
             .mapNotNull { it.toIntOrNull() }
             .toImmutableList()
-        val index = settings.getInt(KEY_SESSION_INDEX, 0)
+        val index = store.getInt(KEY_SESSION_INDEX, 0)
         return SessionState(today, ids, scores, index)
     }
 
@@ -640,7 +715,7 @@ class UserStorage(
     }
 
     private fun loadSessionBags(): Map<String, List<String>> {
-        val raw = settings.getString(KEY_SESSION_BAGS, "")
+        val raw = store.getString(KEY_SESSION_BAGS, "")
         if (raw.isEmpty()) return emptyMap()
         return raw.split(";").filter { it.isNotEmpty() }.mapNotNull { entry ->
             val separator = entry.indexOf('=')
@@ -655,19 +730,19 @@ class UserStorage(
         val encoded = bags.entries.joinToString(";") { (category, ids) ->
             "$category=${ids.joinToString(",")}"
         }
-        settings.putString(KEY_SESSION_BAGS, encoded)
+        store.putString(KEY_SESSION_BAGS, encoded)
     }
 
     fun appendSessionScore(score: Int) {
-        val scoresRaw = settings.getString(KEY_SESSION_SCORES, "")
+        val scoresRaw = store.getString(KEY_SESSION_SCORES, "")
         val updated = if (scoresRaw.isEmpty()) score.toString() else "$scoresRaw,$score"
-        settings.putString(KEY_SESSION_SCORES, updated)
-        settings.putInt(KEY_SESSION_INDEX, settings.getInt(KEY_SESSION_INDEX, 0) + 1)
+        store.putString(KEY_SESSION_SCORES, updated)
+        store.putInt(KEY_SESSION_INDEX, store.getInt(KEY_SESSION_INDEX, 0) + 1)
     }
 
     fun isSessionCompletedToday(): Boolean {
         val today = todayEpochDay()
-        return settings.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) == today
+        return store.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) == today
     }
 
     @Immutable
@@ -679,15 +754,15 @@ class UserStorage(
 
     fun recordSessionCompleted(): SessionCompletionResult {
         val today = todayEpochDay()
-        val lastCompleted = settings.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) ?: -1
+        val lastCompleted = store.getIntOrNull(KEY_LAST_COMPLETED_SESSION_DAY) ?: -1
         if (lastCompleted == today) {
             return SessionCompletionResult(getSessionStreak(), 0, null)
         }
 
         val newStreak = if (lastCompleted == today - 1) getSessionStreak() + 1 else 1
-        settings.putInt(KEY_APP_OPEN_COMBO, newStreak)
-        settings.putInt(KEY_LAST_COMPLETED_SESSION_DAY, today)
-        PlayGamesBridge.onStreak?.invoke(newStreak)
+        store.putInt(KEY_APP_OPEN_COMBO, newStreak)
+        store.putInt(KEY_LAST_COMPLETED_SESSION_DAY, today)
+        notifyStore { PlayGamesBridge.onStreak?.invoke(newStreak) }
 
         if (newStreak >= STREAK_30_TARGET) {
             unlockAchievement(Achievements.STREAK_30)
@@ -711,12 +786,12 @@ class UserStorage(
 
     private fun getLastRoundKey(gameId: String): String = "game_${gameId}_last_round"
 
-    fun getHighScore(gameId: String): Int = settings.getInt(getHighscoreKey(gameId), 0)
+    fun getHighScore(gameId: String): Int = store.getInt(getHighscoreKey(gameId), 0)
 
-    fun getLastRound(gameId: String): Int = settings.getInt(getLastRoundKey(gameId), 0)
+    fun getLastRound(gameId: String): Int = store.getInt(getLastRoundKey(gameId), 0)
 
     fun putLastRound(gameId: String, round: Int) {
-        settings.putInt(getLastRoundKey(gameId), round.coerceAtLeast(0))
+        store.putInt(getLastRoundKey(gameId), round.coerceAtLeast(0))
     }
 
     @Immutable
@@ -738,10 +813,10 @@ class UserStorage(
             score > previousHighscore
         }
         if (newHighscore) {
-            settings.putInt(getHighscoreKey(gameId), score)
+            store.putInt(getHighscoreKey(gameId), score)
         }
-        val scoresRaw = settings.getString(getScoresKey(gameId), "")
-        settings.putString(
+        val scoresRaw = store.getString(getScoresKey(gameId), "")
+        store.putString(
             getScoresKey(gameId),
             "${Clock.System.now().toEpochMilliseconds()}/$score,$scoresRaw",
         )
@@ -754,14 +829,14 @@ class UserStorage(
             score
         }
         val updatedTotalScore = getTotalScore() + xpAward
-        settings.putInt(KEY_TOTAL_SCORE, updatedTotalScore)
+        store.putInt(KEY_TOTAL_SCORE, updatedTotalScore)
 
-        PlayGamesBridge.onTotalScore?.invoke(updatedTotalScore)
+        notifyStore { PlayGamesBridge.onTotalScore?.invoke(updatedTotalScore) }
         if (gameType != null) {
-            PlayGamesBridge.onSubmitScore?.invoke(gameType, score)
+            notifyStore { PlayGamesBridge.onSubmitScore?.invoke(gameType, score) }
         }
         if (gameType != null && gameType.meetsScore(score, gameType.goldScore)) {
-            PlayGamesBridge.onGoldMedal?.invoke(gameType)
+            notifyStore { PlayGamesBridge.onGoldMedal?.invoke(gameType) }
             Achievements.forGameGold(gameType)?.let { unlockAchievement(it) }
         }
         if (updatedTotalScore >= TOTAL_SCORE_10K_TARGET) {
@@ -785,7 +860,7 @@ class UserStorage(
         }
     }
 
-    fun getTotalScore(): Int = settings.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
+    fun getTotalScore(): Int = store.getIntOrNull(KEY_TOTAL_SCORE) ?: 0
 
     @Immutable
     data class ScoreGroup(
@@ -796,7 +871,7 @@ class UserStorage(
     )
 
     fun getScores(gameId: String): List<ScoreGroup> {
-        val scoresRaw = settings.getStringOrNull(getScoresKey(gameId)) ?: return listOf()
+        val scoresRaw = store.getStringOrNull(getScoresKey(gameId)) ?: return listOf()
         return scoresRaw
             .split(",")
             .filterNot { it.isEmpty() }

@@ -125,6 +125,22 @@ fun App(
     }
 
     val lifecycleOwner = LocalLifecycleOwner.current
+    val onRefreshStoreProfile = PlayGamesBridge.onRefreshStoreProfile
+    DisposableEffect(lifecycleOwner, onRefreshStoreProfile) {
+        if (onRefreshStoreProfile == null) {
+            return@DisposableEffect onDispose { }
+        }
+        val observer = LifecycleEventObserver { _, event ->
+            if (event == Lifecycle.Event.ON_RESUME) {
+                PlayGamesBridge.onRefreshStoreProfile?.invoke()
+            }
+        }
+        lifecycleOwner.lifecycle.addObserver(observer)
+        if (lifecycleOwner.lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) {
+            onRefreshStoreProfile()
+        }
+        onDispose { lifecycleOwner.lifecycle.removeObserver(observer) }
+    }
     DisposableEffect(lifecycleOwner, audioPlayer, isMuted) {
         val observer = LifecycleEventObserver { _, event ->
             when (event) {
@@ -178,6 +194,8 @@ fun App(
 
                     composable<Settings> {
                         val onBackSettings = remember(controller) { { controller.navigateToMainMenu() } }
+                        val accountSnapshot by controller.storage.accounts.snapshot.collectAsStateWithLifecycle()
+                        val storeProfile by PlayGamesBridge.currentPlayer.collectAsStateWithLifecycle()
                         SettingsScreen(
                             isMuted = isMuted,
                             onToggleMute = {
@@ -205,6 +223,45 @@ fun App(
                                 controller.storage.setThemeMode(mode)
                             },
                             onBack = onBackSettings,
+                            activeAccount = accountSnapshot.accounts.firstOrNull {
+                                it.id == accountSnapshot.activeId
+                            },
+                            storeProfile = storeProfile,
+                            onOpenAccounts = { controller.navigateToAccounts() },
+                        )
+                    }
+
+                    composable<Accounts> {
+                        val accountSnapshot by controller.storage.accounts.snapshot.collectAsStateWithLifecycle()
+                        val storeProfile by PlayGamesBridge.currentPlayer.collectAsStateWithLifecycle()
+                        AccountsScreen(
+                            accounts = accountSnapshot.accounts,
+                            activeId = accountSnapshot.activeId,
+                            storeProfile = storeProfile,
+                            canCreate = controller.storage.accounts.canCreate(),
+                            onSelect = { id ->
+                                if (controller.storage.accounts.switchTo(id)) {
+                                    controller.reloadAfterAccountSwitch()
+                                }
+                            },
+                            onCreate = { name, icon ->
+                                if (controller.storage.accounts.createLocal(name, icon) != null) {
+                                    controller.reloadAfterAccountSwitch()
+                                }
+                            },
+                            onEdit = { id, name, icon ->
+                                controller.storage.accounts.updateLocal(id, name, icon)
+                            },
+                            onDelete = { id ->
+                                if (controller.storage.accounts.deleteLocal(id)) {
+                                    controller.reloadAfterAccountSwitch()
+                                }
+                            },
+                            onBack = {
+                                if (!navController.popBackStack()) {
+                                    controller.navigateToSettings()
+                                }
+                            },
                         )
                     }
 

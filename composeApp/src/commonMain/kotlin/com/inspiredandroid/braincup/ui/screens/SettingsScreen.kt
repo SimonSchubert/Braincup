@@ -8,8 +8,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
+import com.inspiredandroid.braincup.api.AccountIcon
+import com.inspiredandroid.braincup.api.AccountKind
+import com.inspiredandroid.braincup.api.PlayerAccount
+import com.inspiredandroid.braincup.api.StorePlayerProfile
+import com.inspiredandroid.braincup.ui.components.AccountAvatar
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
@@ -36,6 +42,9 @@ fun SettingsScreen(
     themeMode: ThemeMode,
     onThemeSelected: (ThemeMode) -> Unit,
     onBack: () -> Unit,
+    activeAccount: PlayerAccount? = null,
+    storeProfile: StorePlayerProfile? = null,
+    onOpenAccounts: (() -> Unit)? = null,
 ) {
     AppScaffold(
         title = stringResource(Res.string.settings_title),
@@ -48,6 +57,13 @@ fun SettingsScreen(
                 .padding(horizontal = 16.dp, vertical = 8.dp),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
+            if (activeAccount != null && onOpenAccounts != null) {
+                SettingsAccountRow(
+                    account = activeAccount,
+                    storeProfile = storeProfile,
+                    onClick = onOpenAccounts,
+                )
+            }
             SettingsThemeSelector(
                 themeMode = themeMode,
                 onThemeSelected = onThemeSelected,
@@ -75,6 +91,66 @@ fun SettingsScreen(
                 description = stringResource(Res.string.settings_keypad_desc),
                 checked = isNumberPadAscending,
                 onToggle = onToggleNumberPadAscending,
+            )
+        }
+    }
+}
+
+@Composable
+private fun SettingsAccountRow(
+    account: PlayerAccount,
+    storeProfile: StorePlayerProfile?,
+    onClick: () -> Unit,
+) {
+    val title = if (account.isStoreAccount) {
+        storeProfile?.displayName?.takeIf { it.isNotBlank() } ?: account.name
+    } else {
+        account.name
+    }
+    val description = stringResource(
+        when (account.kind) {
+            AccountKind.PLAY -> Res.string.accounts_play_desc
+            AccountKind.GAME_CENTER -> Res.string.accounts_game_center_desc
+            AccountKind.LOCAL -> Res.string.accounts_local_desc
+        },
+    )
+    PrismCard(
+        face = MaterialTheme.colorScheme.surfaceContainer,
+        modifier = Modifier
+            .fillMaxWidth()
+            .noRippleClickable(onClickLabel = title, onClick = onClick)
+            .hoverHand(),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            AccountAvatar(
+                account = account.copy(name = title),
+                playAvatarBytes = storeProfile?.avatarBytes,
+            )
+            Spacer(Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Spacer(Modifier.width(16.dp))
+            Text(
+                text = stringResource(Res.string.settings_play_games_profile_switch),
+                style = MaterialTheme.typography.labelLarge,
+                color = Primary,
             )
         }
     }
@@ -196,6 +272,35 @@ private fun SettingsScreenPreview() {
             themeMode = ThemeMode.SYSTEM,
             onThemeSelected = {},
             onBack = {},
+        )
+    }
+}
+
+@DevicePreviews
+@Composable
+private fun SettingsScreenPlayGamesPreview() {
+    ScreenPreviewHost {
+        SettingsScreen(
+            isMuted = false,
+            onToggleMute = {},
+            isColorblindPaletteEnabled = false,
+            onToggleColorblindPalette = {},
+            isHapticEnabled = true,
+            onToggleHaptic = {},
+            isNumberPadAscending = true,
+            onToggleNumberPadAscending = {},
+            themeMode = ThemeMode.SYSTEM,
+            onThemeSelected = {},
+            onBack = {},
+            activeAccount = PlayerAccount(
+                id = "default",
+                name = "Alex",
+                icon = AccountIcon.DOLPHIN,
+                kind = AccountKind.LOCAL,
+                canDelete = false,
+                canEdit = true,
+            ),
+            onOpenAccounts = {},
         )
     }
 }

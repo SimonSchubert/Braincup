@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Löse alle 10 Rätsel der Stufe Experte</string>
     <string name="game_flags">Flaggen</string>
     <string name="game_flags_desc">Erkenne das Land an seiner Flagge. Jede Runde bringt mehr Optionen und die Uhr tickt.</string>
-    <string name="game_flags_question">Welche Flagge ist das?</string>
     <string name="game_flags_score">Punkte: %1$d</string>
     <string name="game_flags_best">Beste: %1$d</string>
     <string name="game_digit_memory">Zifferngedächtnis</string>
@@ -551,6 +550,21 @@
     <string name="settings_theme_light">Hell</string>
     <string name="settings_theme_dark">Dunkel</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Wechseln</string>
+    <string name="settings_play_games_switch_cancel">Nicht jetzt</string>
+    <string name="accounts_title">Konten</string>
+    <string name="accounts_create">Konto erstellen</string>
+    <string name="accounts_create_title">Neues Konto</string>
+    <string name="accounts_edit">Bearbeiten</string>
+    <string name="accounts_edit_title">Konto bearbeiten</string>
+    <string name="accounts_delete">Löschen</string>
+    <string name="accounts_delete_title">Konto löschen</string>
+    <string name="accounts_delete_confirm">%1$s löschen? Punkte und Erfolge dieses Kontos bleiben auf dem Gerät und gehen verloren.</string>
+    <string name="accounts_save">Speichern</string>
+    <string name="accounts_name_label">Name</string>
+    <string name="accounts_play_desc">In Play Games gespeichert</string>
+    <string name="accounts_game_center_desc">In Game Center gespeichert</string>
+    <string name="accounts_local_desc">Auf diesem Gerät gespeichert. Weg, wenn du die App löschst.</string>
     <string name="normal_sudoku_button">Normal-Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Anfänger</string>
     <string name="normal_sudoku_difficulty_easy">Einfach</string>
@@ -597,7 +611,6 @@
 
     <string name="matchstick_riddles_button">Streichholz-Rätsel (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Streichholz-Rätsel</string>
-    <string name="matchstick_riddles_puzzle_label">Rätsel %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Verschiebe 1 Streichholz, um die Gleichung zu korrigieren.</string>
     <string name="matchstick_riddle_prompt_move_two">Verschiebe 2 Streichhölzer, um die Gleichung zu korrigieren.</string>
     <string name="matchstick_riddle_prompt_move_three">Verschiebe 3 Streichhölzer, um die Gleichung zu korrigieren.</string>
@@ -625,7 +638,6 @@
     <string name="wordle_not_in_word_list">Nicht in der Wortliste</string>
     <string name="wordle_answer_was">Das Wort war %1$s</string>
     <string name="wordle_enter">Eingabe</string>
-    <string name="wordle_backspace">Buchstabe löschen</string>
     <string name="wordle_legend_correct">Richtiger Buchstabe, richtige Stelle</string>
     <string name="wordle_legend_present">Richtiger Buchstabe, falsche Stelle</string>
     <string name="wordle_legend_absent">Nicht im Wort</string>
@@ -701,8 +713,6 @@
     <string name="spot_the_new_demo_correct">Richtig. Es kommt zu den bereits gesehenen hinzu.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Tausche passende Kacheln, um Reihen aus drei oder mehr zu räumen. Leere das ganze Spielfeld, um zu gewinnen.</string>
-    <string name="game_prism_clear_howto">Tippe eine Kachel und dann eine Nachbarkachel an, oder ziehe eine Kachel auf eine angrenzende, um zu tauschen. Bilde drei oder mehr in einer Reihe oder Spalte.</string>
-    <string name="prism_clear_moves_remaining">Züge übrig: %1$d</string>
     <string name="prism_clear_restart">Neustart</string>
     <string name="prism_clear_stuck">Keine Züge mehr. Mache einen Zug rückgängig oder starte das Level neu.</string>
     <string name="achievement_gold_prism_clear">Kristallklare Sicht</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">Rückgängig</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Finde die fehlenden Operatoren (+, -, *, /), die die Gleichung wahr machen.</string>
-    <string name="missing_operators_instruction">Welche Operatoren machen die Aussage wahr?</string>
     <string name="missing_operators_demo_title">Finde die fehlenden Operatoren</string>
     <string name="missing_operators_demo_desc">Wähle die Operatoren, die die Gleichung wahr machen. Operatoren werden mit der üblichen mathematischen Rangfolge ausgewertet.</string>
     <string name="achievement_gold_missing_operators">Operatoren-Meister</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Errate die geheime 4-stellige Zahl mit eindeutigen Ziffern. Bulls = richtige Ziffer an der richtigen Stelle. Cows = richtige Ziffer an der falschen Stelle.</string>
-    <string name="game_bulls_and_cows_howto">Gib einen 4-stelligen Tipp mit eindeutigen Ziffern ein und drücke Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Die Geheimzahl war %1$s</string>

@@ -22,11 +22,14 @@ class UserStorageMatchstickAchievementsTest {
 
     @BeforeTest
     fun clearBridge() {
+        PlayGamesBridge.hasPlayStoreAccount = true
         PlayGamesBridge.onMatchstickRiddlesProgress = null
     }
 
     @AfterTest
     fun resetBridge() {
+        PlayGamesBridge.hasPlayStoreAccount = false
+        PlayGamesBridge.isGameCenterAccount = false
         PlayGamesBridge.onMatchstickRiddlesProgress = null
     }
 

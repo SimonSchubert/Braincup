@@ -1,17 +1,25 @@
 package com.inspiredandroid.braincup
 
+import android.graphics.Bitmap
+import android.graphics.Canvas
+import android.graphics.drawable.BitmapDrawable
+import android.graphics.drawable.Drawable
 import android.util.Log
 import androidx.activity.ComponentActivity
+import com.google.android.gms.common.images.ImageManager
 import com.google.android.gms.games.PlayGames
 import com.google.android.gms.games.PlayGamesSdk
+import com.google.android.gms.games.Player
 import com.google.android.gms.games.achievement.Achievement
 import com.google.android.gms.games.leaderboard.LeaderboardVariant
 import com.inspiredandroid.braincup.api.PlayGamesBridge
+import com.inspiredandroid.braincup.api.StorePlayerProfile
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.R
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
+import java.io.ByteArrayOutputStream
 import java.lang.ref.WeakReference
 
 private const val TAG = "PlayGamesBridge"
@@ -22,20 +30,19 @@ fun initPlayGames(activity: ComponentActivity) {
     activityRef = WeakReference(activity)
     PlayGamesSdk.initialize(activity)
 
+    PlayGamesBridge.hasPlayStoreAccount = true
+    PlayGamesBridge.onRefreshStoreProfile = ::refreshStoreProfile
+
     val signInClient = PlayGames.getGamesSignInClient(activity)
     signInClient.isAuthenticated.addOnCompleteListener { task ->
         val authed = task.isSuccessful && task.result.isAuthenticated
         if (authed) {
-            restoreAchievementsFromPlayGames(activity)
-            syncTotalXpWithLeaderboard(activity)
-            syncPerGameLeaderboards(activity)
+            onPlayGamesAuthenticated(activity)
         } else {
             signInClient.signIn().addOnCompleteListener { signInTask ->
                 val signedIn = signInTask.isSuccessful && signInTask.result?.isAuthenticated == true
                 if (signedIn) {
-                    restoreAchievementsFromPlayGames(activity)
-                    syncTotalXpWithLeaderboard(activity)
-                    syncPerGameLeaderboards(activity)
+                    onPlayGamesAuthenticated(activity)
                 }
             }
         }
@@ -117,6 +124,89 @@ fun initPlayGames(activity: ComponentActivity) {
     }
 }
 
+private fun refreshStoreProfile() {
+    val current = activityRef?.get() ?: return
+    loadCurrentPlayer(current, forceReload = true)
+}
+
+private fun onPlayGamesAuthenticated(activity: ComponentActivity) {
+    loadCurrentPlayer(activity, forceReload = false)
+    restoreAchievementsFromPlayGames(activity)
+    syncTotalXpWithLeaderboard(activity)
+    syncPerGameLeaderboards(activity)
+}
+
+private fun loadCurrentPlayer(activity: ComponentActivity, forceReload: Boolean) {
+    PlayGames.getPlayersClient(activity)
+        .getCurrentPlayer(forceReload)
+        .addOnSuccessListener { annotated ->
+            val player = annotated.get()
+            if (player == null) {
+                return@addOnSuccessListener
+            }
+            publishPlayer(activity, player)
+        }
+        .addOnFailureListener { e ->
+            Log.w(TAG, "getCurrentPlayer failed", e)
+        }
+}
+
+private fun publishPlayer(activity: ComponentActivity, player: Player) {
+    val playerId = player.playerId
+    val name = player.displayName.orEmpty()
+    if (playerId.isNullOrBlank() || name.isBlank()) return
+    val identityChanged = PlayGamesBridge.bindStorePlayer(playerId)
+    if (identityChanged) {
+        PlayGamesBridge.onStoreProgressRestored?.invoke()
+        restoreAchievementsFromPlayGames(activity)
+        syncTotalXpWithLeaderboard(activity)
+        syncPerGameLeaderboards(activity)
+    }
+    val existing = PlayGamesBridge.currentPlayer.value
+    val keepAvatar = if (existing?.playerId == playerId) existing.avatarBytes else null
+    if (existing == null || existing.playerId != playerId || existing.displayName != name || existing.avatarBytes == null) {
+        PlayGamesBridge.updateCurrentPlayer(
+            StorePlayerProfile(playerId = playerId, displayName = name, avatarBytes = keepAvatar),
+        )
+    }
+    val imageUri = player.hiResImageUri ?: player.iconImageUri
+    if (imageUri == null || keepAvatar != null) return
+    ImageManager.create(activity).loadImage(
+        { _, drawable, isRequested ->
+            if (PlayGamesBridge.currentPlayer.value?.playerId != playerId || !isRequested) return@loadImage
+            val bytes = drawable?.let { drawableToPngBytes(it) } ?: return@loadImage
+            PlayGamesBridge.updateCurrentPlayer(
+                StorePlayerProfile(playerId = playerId, displayName = name, avatarBytes = bytes),
+            )
+        },
+        imageUri,
+    )
+}
+
+private fun drawableToPngBytes(drawable: Drawable): ByteArray? {
+    val bitmap = when (drawable) {
+        is BitmapDrawable -> drawable.bitmap
+        else -> {
+            val width = drawable.intrinsicWidth.coerceAtLeast(1)
+            val height = drawable.intrinsicHeight.coerceAtLeast(1)
+            Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888).also { bmp ->
+                val canvas = Canvas(bmp)
+                drawable.setBounds(0, 0, canvas.width, canvas.height)
+                drawable.draw(canvas)
+            }
+        }
+    }
+    return try {
+        ByteArrayOutputStream().use { out ->
+            if (!bitmap.compress(Bitmap.CompressFormat.PNG, 90, out)) return null
+            out.toByteArray()
+        }
+    } catch (e: Exception) {
+        Log.w(TAG, "Failed to encode Play Games avatar", e)
+        null
+    }
+}
+
 private fun ensureSignedInAndLaunch(activity: ComponentActivity, id: String) {
     PlayGames.getGamesSignInClient(activity).isAuthenticated
         .addOnCompleteListener { authTask ->
@@ -162,7 +252,7 @@ private const val LEADERBOARD_REQUEST_CODE = 9001
 private fun syncTotalXpWithLeaderboard(activity: ComponentActivity) {
     val id = activity.getString(R.string.leaderboardBrainCup)
     if (id.isBlank()) return
-    val storage = UserStorage()
+    val storage = UserStorage(playSlotProgress = true)
     val leaderboardsClient = PlayGames.getLeaderboardsClient(activity)
     leaderboardsClient.loadCurrentPlayerLeaderboardScore(
         id,
@@ -191,12 +281,16 @@ private fun syncTotalXpWithLeaderboard(activity: ComponentActivity) {
  * Play Games keeps the max, so a smaller resubmit can never overwrite a larger remote score.
  */
 private fun syncPerGameLeaderboards(activity: ComponentActivity) {
-    val storage = UserStorage()
+    val storage = UserStorage(playSlotProgress = true)
     val leaderboardsClient = PlayGames.getLeaderboardsClient(activity)
-    for (gameType in GameType.entries) {
-        val resId = leaderboardResIdFor(gameType) ?: continue
+    val boards = GameType.entries.mapNotNull { gameType ->
+        val resId = leaderboardResIdFor(gameType) ?: return@mapNotNull null
         val leaderboardId = activity.getString(resId)
-        if (leaderboardId.isBlank()) continue
+        if (leaderboardId.isBlank()) null else gameType to leaderboardId
+    }
+    if (boards.isEmpty()) return
+    var remaining = boards.size
+    for ((gameType, leaderboardId) in boards) {
         leaderboardsClient.loadCurrentPlayerLeaderboardScore(
             leaderboardId,
             LeaderboardVariant.TIME_SPAN_ALL_TIME,
@@ -210,6 +304,10 @@ private fun syncPerGameLeaderboards(activity: ComponentActivity) {
             }
             if (remoteScore > 0) {
                 storage.restoreHighScoreIfHigher(gameType.id, remoteScore)
+            }
+            remaining -= 1
+            if (remaining == 0) {
+                PlayGamesBridge.onStoreProgressRestored?.invoke()
             }
         }
     }
@@ -231,7 +329,7 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
                     incrementalSteps[ach.achievementId] = ach.currentSteps
                 }
             }
-            val storage = UserStorage()
+            val storage = UserStorage(playSlotProgress = true)
             val toRestore = mutableSetOf<UserStorage.Achievements>()
             for (gameType in GameType.entries) {
                 val resId = achievementResIdFor(gameType) ?: continue
@@ -269,6 +367,7 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
                     storage.restoreMatchstickRiddlesProgressIfHigher(steps)
                 }
             }
+            PlayGamesBridge.onStoreProgressRestored?.invoke()
         } finally {
             buffer.release()
         }

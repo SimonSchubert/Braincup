@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.navigation
 
+import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Instructions
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
@@ -71,6 +72,16 @@ class AppUrlRoutesTest {
     @Test
     fun pathSuffixToNavRoute_settings() {
         assertEquals(Settings, pathSuffixToNavRoute("settings"))
+    }
+
+    @Test
+    fun navRouteToPathSuffix_accounts() {
+        assertEquals("accounts", navRouteToPathSuffix(Accounts))
+    }
+
+    @Test
+    fun pathSuffixToNavRoute_accounts() {
+        assertEquals(Accounts, pathSuffixToNavRoute("accounts"))
     }
 
     @Test

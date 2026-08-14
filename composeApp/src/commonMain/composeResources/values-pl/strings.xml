@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Rozwiąż wszystkie 10 łamigłówek na poziomie Ekspert</string>
     <string name="game_flags">Flagi</string>
     <string name="game_flags_desc">Rozpoznaj kraj po jego fladze. Każda runda dodaje więcej opcji, a czas ucieka.</string>
-    <string name="game_flags_question">Jaka to flaga?</string>
     <string name="game_flags_score">Wynik: %1$d</string>
     <string name="game_flags_best">Najlepszy: %1$d</string>
     <string name="game_digit_memory">Pamięć Cyfr</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">Nie ma w liście słów</string>
     <string name="wordle_answer_was">Słowem było %1$s</string>
     <string name="wordle_enter">Zatwierdź</string>
-    <string name="wordle_backspace">Usuń literę</string>
     <string name="wordle_legend_correct">Dobra litera, dobre miejsce</string>
     <string name="wordle_legend_present">Dobra litera, złe miejsce</string>
     <string name="wordle_legend_absent">Nie ma w słowie</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">Jasny</string>
     <string name="settings_theme_dark">Ciemny</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Zmień</string>
+    <string name="settings_play_games_switch_cancel">Nie teraz</string>
+    <string name="accounts_title">Konta</string>
+    <string name="accounts_create">Utwórz konto</string>
+    <string name="accounts_create_title">Nowe konto</string>
+    <string name="accounts_edit">Edytuj</string>
+    <string name="accounts_edit_title">Edytuj konto</string>
+    <string name="accounts_delete">Usuń</string>
+    <string name="accounts_delete_title">Usuń konto</string>
+    <string name="accounts_delete_confirm">Usunąć %1$s? Wyniki i osiągnięcia tego konta zostają na urządzeniu i przepadną.</string>
+    <string name="accounts_save">Zapisz</string>
+    <string name="accounts_name_label">Nazwa</string>
+    <string name="accounts_play_desc">Zapisane w Play Games</string>
+    <string name="accounts_game_center_desc">Zapisane w Game Center</string>
+    <string name="accounts_local_desc">Zapisane na tym urządzeniu. Zniknie po odinstalowaniu.</string>
 
     <string name="normal_sudoku_button">Sudoku klasyczne (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Początkujący</string>
@@ -624,7 +637,6 @@
 
     <string name="matchstick_riddles_button">Łamigłówki z zapałkami (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Łamigłówki z zapałkami</string>
-    <string name="matchstick_riddles_puzzle_label">Łamigłówka %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Przesuń 1 zapałkę, aby poprawić równanie.</string>
     <string name="matchstick_riddle_prompt_move_two">Przesuń 2 zapałki, aby poprawić równanie.</string>
     <string name="matchstick_riddle_prompt_move_three">Przesuń 3 zapałki, aby poprawić równanie.</string>
@@ -701,8 +713,6 @@
     <string name="spot_the_new_demo_correct">Poprawnie. Dołącza do tych, które już widziałeś.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Zamień pasujące kafelki, by usuwać linie z trzech lub więcej. Opróżnij całą planszę, by wygrać.</string>
-    <string name="game_prism_clear_howto">Dotknij kafelka, a potem sąsiada, albo przeciągnij kafelek na sąsiedni, by zamienić. Dopasuj trzy lub więcej w rzędzie lub kolumnie.</string>
-    <string name="prism_clear_moves_remaining">Pozostałe ruchy: %1$d</string>
     <string name="prism_clear_restart">Od nowa</string>
     <string name="prism_clear_stuck">Brak ruchów. Cofnij ruch lub zrestartuj poziom.</string>
     <string name="achievement_gold_prism_clear">Kryształowa jasność</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">Cofnij</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Znajdź brakujące operatory (+, -, *, /), które czynią równanie prawdziwym.</string>
-    <string name="missing_operators_instruction">Które operatory czynią stwierdzenie prawdziwym?</string>
     <string name="missing_operators_demo_title">Znajdź brakujące operatory</string>
     <string name="missing_operators_demo_desc">Wybierz operatory, by równanie było prawdziwe. Operatory są oceniane według standardowej kolejności działań.</string>
     <string name="achievement_gold_missing_operators">Mistrz operatorów</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Odgadnij tajną 4-cyfrową liczbę z unikalnymi cyframi. Bulls = dobra cyfra na dobrej pozycji. Cows = dobra cyfra na złej pozycji.</string>
-    <string name="game_bulls_and_cows_howto">Wpisz 4-cyfrową próbę z unikalnymi cyframi i naciśnij Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Sekret to %1$s</string>

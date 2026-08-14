@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Resolva os 10 quebra-cabeças do nível Especialista</string>
     <string name="game_flags">Bandeiras</string>
     <string name="game_flags_desc">Identifique o país pela sua bandeira. Cada rodada adiciona mais opções e o tempo está correndo.</string>
-    <string name="game_flags_question">Qual é esta bandeira?</string>
     <string name="game_flags_score">Pontuação: %1$d</string>
     <string name="game_flags_best">Melhor: %1$d</string>
     <string name="game_digit_memory">Memória de Dígitos</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">Não está na lista de palavras</string>
     <string name="wordle_answer_was">A palavra era %1$s</string>
     <string name="wordle_enter">Confirmar</string>
-    <string name="wordle_backspace">Apagar letra</string>
     <string name="wordle_legend_correct">Letra certa, posição certa</string>
     <string name="wordle_legend_present">Letra certa, posição errada</string>
     <string name="wordle_legend_absent">Não está na palavra</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">Claro</string>
     <string name="settings_theme_dark">Escuro</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Trocar</string>
+    <string name="settings_play_games_switch_cancel">Agora não</string>
+    <string name="accounts_title">Contas</string>
+    <string name="accounts_create">Criar conta</string>
+    <string name="accounts_create_title">Nova conta</string>
+    <string name="accounts_edit">Editar</string>
+    <string name="accounts_edit_title">Editar conta</string>
+    <string name="accounts_delete">Eliminar</string>
+    <string name="accounts_delete_title">Eliminar conta</string>
+    <string name="accounts_delete_confirm">Eliminar %1$s? Pontos e conquistas desta conta ficam neste dispositivo e serão perdidos.</string>
+    <string name="accounts_save">Guardar</string>
+    <string name="accounts_name_label">Nome</string>
+    <string name="accounts_play_desc">Guardado no Play Games</string>
+    <string name="accounts_game_center_desc">Guardado no Game Center</string>
+    <string name="accounts_local_desc">Guardado neste dispositivo. Perdido se desinstalares.</string>
 
     <string name="normal_sudoku_button">Sudoku normal (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Iniciante</string>
@@ -624,7 +637,6 @@
 
     <string name="matchstick_riddles_button">Enigmas de palitos (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Enigmas de palitos</string>
-    <string name="matchstick_riddles_puzzle_label">Enigma %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Mova 1 palito para corrigir a equação.</string>
     <string name="matchstick_riddle_prompt_move_two">Mova 2 palitos para corrigir a equação.</string>
     <string name="matchstick_riddle_prompt_move_three">Mova 3 palitos para corrigir a equação.</string>
@@ -701,8 +713,6 @@
     <string name="spot_the_new_demo_correct">Correto. Ele se junta aos que você já viu.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Troque peças iguais para limpar linhas de três ou mais. Esvazie todo o tabuleiro para vencer.</string>
-    <string name="game_prism_clear_howto">Toque numa peça e depois numa vizinha, ou arraste uma peça para uma adjacente para trocar. Forme três ou mais em linha ou coluna.</string>
-    <string name="prism_clear_moves_remaining">Movimentos restantes: %1$d</string>
     <string name="prism_clear_restart">Reiniciar</string>
     <string name="prism_clear_stuck">Sem movimentos. Desfaça um movimento ou reinicie o nível.</string>
     <string name="achievement_gold_prism_clear">Clareza de cristal</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">Desfazer</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Encontre os operadores em falta (+, -, *, /) que tornam a equação verdadeira.</string>
-    <string name="missing_operators_instruction">Que operadores tornam a afirmação verdadeira?</string>
     <string name="missing_operators_demo_title">Encontre os operadores em falta</string>
     <string name="missing_operators_demo_desc">Selecione os operadores para tornar a equação verdadeira. Os operadores são avaliados com a precedência matemática padrão.</string>
     <string name="achievement_gold_missing_operators">Mestre dos operadores</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Adivinhe o número secreto de 4 dígitos com dígitos únicos. Bulls = dígito certo na posição certa. Cows = dígito certo na posição errada.</string>
-    <string name="game_bulls_and_cows_howto">Digite uma tentativa de 4 dígitos únicos e pressione Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">O segredo era %1$s</string>

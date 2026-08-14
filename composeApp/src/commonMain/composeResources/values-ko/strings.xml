@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">전문가 난이도 퍼즐 10개를 모두 풀기</string>
     <string name="game_flags">국기</string>
     <string name="game_flags_desc">국기를 보고 나라를 맞혀보세요. 라운드마다 선택지가 늘어나고 시간이 흘러갑니다.</string>
-    <string name="game_flags_question">이건 어느 나라 국기일까요?</string>
     <string name="game_flags_score">점수: %1$d</string>
     <string name="game_flags_best">최고: %1$d</string>
     <string name="game_digit_memory">숫자 기억</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">단어 목록에 없습니다</string>
     <string name="wordle_answer_was">정답은 %1$s 이었습니다</string>
     <string name="wordle_enter">입력</string>
-    <string name="wordle_backspace">글자 삭제</string>
     <string name="wordle_legend_correct">정확한 글자, 정확한 위치</string>
     <string name="wordle_legend_present">정확한 글자, 잘못된 위치</string>
     <string name="wordle_legend_absent">단어에 없는 글자</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">라이트</string>
     <string name="settings_theme_dark">다크</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">전환</string>
+    <string name="settings_play_games_switch_cancel">나중에</string>
+    <string name="accounts_title">계정</string>
+    <string name="accounts_create">계정 만들기</string>
+    <string name="accounts_create_title">새 계정</string>
+    <string name="accounts_edit">수정</string>
+    <string name="accounts_edit_title">계정 수정</string>
+    <string name="accounts_delete">삭제</string>
+    <string name="accounts_delete_title">계정 삭제</string>
+    <string name="accounts_delete_confirm">%1$s을(를) 삭제할까요? 이 계정의 점수와 업적은 이 기기에만 있으며 사라집니다.</string>
+    <string name="accounts_save">저장</string>
+    <string name="accounts_name_label">이름</string>
+    <string name="accounts_play_desc">Play 게임에 저장됨</string>
+    <string name="accounts_game_center_desc">Game Center에 저장됨</string>
+    <string name="accounts_local_desc">이 기기에 저장됩니다. 앱을 삭제하면 사라집니다.</string>
     <string name="normal_sudoku_button">스도쿠 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">입문</string>
     <string name="normal_sudoku_difficulty_easy">쉬움</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">성냥개비 퍼즐 (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">성냥개비 퍼즐</string>
-    <string name="matchstick_riddles_puzzle_label">퍼즐 %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">성냥개비 1개를 옮겨 식을 맞추세요.</string>
     <string name="matchstick_riddle_prompt_move_two">성냥개비 2개를 옮겨 식을 맞추세요.</string>
     <string name="matchstick_riddle_prompt_move_three">성냥개비 3개를 옮겨 식을 맞추세요.</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">정답. 본 것 목록에 추가됩니다.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">같은 타일을 바꿔 3개 이상 줄을 지우세요. 보드를 모두 비우면 승리합니다.</string>
-    <string name="game_prism_clear_howto">타일을 탭한 뒤 이웃을 탭하거나, 인접 타일로 드래그해 바꿉니다. 가로 또는 세로로 3개 이상 맞추세요.</string>
-    <string name="prism_clear_moves_remaining">남은 수: %1$d</string>
     <string name="prism_clear_restart">다시 시작</string>
     <string name="prism_clear_stuck">더 이상 둘 수 없습니다. 수를 취소하거나 레벨을 다시 시작하세요.</string>
     <string name="achievement_gold_prism_clear">수정 같은 명료함</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">실행 취소</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">식을 참이 되게 하는 빠진 연산자(+, -, *, /)를 찾으세요.</string>
-    <string name="missing_operators_instruction">어떤 연산자가 식을 참이 되게 할까요?</string>
     <string name="missing_operators_demo_title">빠진 연산자 찾기</string>
     <string name="missing_operators_demo_desc">식이 참이 되도록 연산자를 선택하세요. 연산자는 표준 수학 우선순위로 계산됩니다.</string>
     <string name="achievement_gold_missing_operators">연산자 마스터</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">중복 없는 4자리 비밀 숫자를 맞히세요. Bulls = 맞는 숫자·맞는 자리. Cows = 맞는 숫자·틀린 자리.</string>
-    <string name="game_bulls_and_cows_howto">중복 없는 4자리 추측을 입력한 뒤 Enter를 누르세요.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">비밀 숫자는 %1$s였습니다</string>

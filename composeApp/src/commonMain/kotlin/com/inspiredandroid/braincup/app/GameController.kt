@@ -131,6 +131,9 @@ class GameController(
     private val _unlockedAchievementCount = MutableStateFlow(0)
     val unlockedAchievementCount: StateFlow<Int> = _unlockedAchievementCount.asStateFlow()
 
+    private val _storageRevision = MutableStateFlow(0)
+    val storageRevision: StateFlow<Int> = _storageRevision.asStateFlow()
+
     @Immutable
     data class SessionResult(
         val gameIds: ImmutableList<String>,
@@ -169,11 +172,13 @@ class GameController(
 
     init {
         storage.migrateStreakIfNeeded()
+        storage.seedHighScoresFromUnlockedGold()
         _sessionStreak.value = storage.getSessionStreak()
         _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
         _totalXp.value = storage.getTotalXp()
         refreshDerivedStorageState()
-        PlayGamesBridge.onTotalXpRestored = { restored -> _totalXp.value = restored }
+        PlayGamesBridge.onTotalXpRestored = { applyRestoredStoreProgress() }
+        PlayGamesBridge.onStoreProgressRestored = { applyRestoredStoreProgress() }
     }
 
     private fun refreshDerivedStorageState() {
@@ -183,7 +188,15 @@ class GameController(
 
     fun dispose() {
         PlayGamesBridge.onTotalXpRestored = null
+        PlayGamesBridge.onStoreProgressRestored = null
         scope.cancel()
+    }
+
+    private fun applyRestoredStoreProgress() {
+        storage.seedHighScoresFromUnlockedGold()
+        _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
+        _storageRevision.value += 1
     }
 
     private fun generateSessionGameIds(): List<String> {
@@ -257,6 +270,20 @@ class GameController(
 
     fun navigateToSettings() {
         navController.navigate(Settings)
+    }
+
+    fun navigateToAccounts() {
+        navController.navigate(Accounts)
+    }
+
+    fun reloadAfterAccountSwitch() {
+        storage.migrateStreakIfNeeded()
+        storage.seedHighScoresFromUnlockedGold()
+        _sessionStreak.value = storage.getSessionStreak()
+        _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
+        _totalXp.value = storage.getTotalXp()
+        refreshDerivedStorageState()
+        _storageRevision.value += 1
     }
 
     fun navigateToNormalSudokuMenu() {

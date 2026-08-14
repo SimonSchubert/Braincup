@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Risolvi tutti i 10 puzzle di livello Esperto</string>
     <string name="game_flags">Bandiere</string>
     <string name="game_flags_desc">Identifica il paese dalla sua bandiera. Ogni round aggiunge più opzioni e il tempo scorre.</string>
-    <string name="game_flags_question">Quale bandiera è questa?</string>
     <string name="game_flags_score">Punteggio: %1$d</string>
     <string name="game_flags_best">Migliore: %1$d</string>
     <string name="game_digit_memory">Memoria delle Cifre</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">Non è nella lista delle parole</string>
     <string name="wordle_answer_was">La parola era %1$s</string>
     <string name="wordle_enter">Invio</string>
-    <string name="wordle_backspace">Cancella lettera</string>
     <string name="wordle_legend_correct">Lettera giusta, posizione giusta</string>
     <string name="wordle_legend_present">Lettera giusta, posizione sbagliata</string>
     <string name="wordle_legend_absent">Non è nella parola</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">Chiaro</string>
     <string name="settings_theme_dark">Scuro</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Cambia</string>
+    <string name="settings_play_games_switch_cancel">Non ora</string>
+    <string name="accounts_title">Account</string>
+    <string name="accounts_create">Crea account</string>
+    <string name="accounts_create_title">Nuovo account</string>
+    <string name="accounts_edit">Modifica</string>
+    <string name="accounts_edit_title">Modifica account</string>
+    <string name="accounts_delete">Elimina</string>
+    <string name="accounts_delete_title">Elimina account</string>
+    <string name="accounts_delete_confirm">Eliminare %1$s? Punteggi e obiettivi di questo account restano sul dispositivo e andranno persi.</string>
+    <string name="accounts_save">Salva</string>
+    <string name="accounts_name_label">Nome</string>
+    <string name="accounts_play_desc">Salvato su Play Games</string>
+    <string name="accounts_game_center_desc">Salvato su Game Center</string>
+    <string name="accounts_local_desc">Salvato su questo dispositivo. Perso se disinstalli.</string>
 
     <string name="normal_sudoku_button">Sudoku normale (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Principiante</string>
@@ -624,7 +637,6 @@
 
     <string name="matchstick_riddles_button">Indovinelli con fiammiferi (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Indovinelli con fiammiferi</string>
-    <string name="matchstick_riddles_puzzle_label">Indovinello %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Sposta 1 fiammifero per correggere l'equazione.</string>
     <string name="matchstick_riddle_prompt_move_two">Sposta 2 fiammiferi per correggere l'equazione.</string>
     <string name="matchstick_riddle_prompt_move_three">Sposta 3 fiammiferi per correggere l'equazione.</string>
@@ -701,8 +713,6 @@
     <string name="spot_the_new_demo_correct">Corretto. Si aggiunge a quelli che hai già visto.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Scambia tessere uguali per cancellare linee di tre o più. Svuota l'intero tabellone per vincere.</string>
-    <string name="game_prism_clear_howto">Tocca una tessera e poi una vicina, oppure trascina una tessera su una adiacente per scambiarle. Allinea tre o più in riga o colonna.</string>
-    <string name="prism_clear_moves_remaining">Mosse rimaste: %1$d</string>
     <string name="prism_clear_restart">Ricomincia</string>
     <string name="prism_clear_stuck">Nessuna mossa possibile. Annulla una mossa o ricomincia il livello.</string>
     <string name="achievement_gold_prism_clear">Chiarezza di cristallo</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">Annulla</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Trova gli operatori mancanti (+, -, *, /) che rendono vera l'equazione.</string>
-    <string name="missing_operators_instruction">Quali operatori rendono vera l'affermazione?</string>
     <string name="missing_operators_demo_title">Trova gli operatori mancanti</string>
     <string name="missing_operators_demo_desc">Seleziona gli operatori per rendere vera l'equazione. Gli operatori si valutano con la precedenza matematica standard.</string>
     <string name="achievement_gold_missing_operators">Maestro degli operatori</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Indovina il numero segreto a 4 cifre con cifre uniche. Bulls = cifra corretta nella posizione corretta. Cows = cifra corretta nella posizione sbagliata.</string>
-    <string name="game_bulls_and_cows_howto">Digita un tentativo a 4 cifre uniche, poi premi Invio.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Il segreto era %1$s</string>

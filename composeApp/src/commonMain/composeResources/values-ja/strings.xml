@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">上級レベルのパズルを10問すべて解く</string>
     <string name="game_flags">国旗</string>
     <string name="game_flags_desc">国旗から国を当てよう。ラウンドごとに選択肢が増え、時間も限られています。</string>
-    <string name="game_flags_question">これはどこの国旗？</string>
     <string name="game_flags_score">スコア: %1$d</string>
     <string name="game_flags_best">ベスト: %1$d</string>
     <string name="game_digit_memory">数字記憶</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">単語リストにありません</string>
     <string name="wordle_answer_was">答えは %1$s でした</string>
     <string name="wordle_enter">決定</string>
-    <string name="wordle_backspace">文字を削除</string>
     <string name="wordle_legend_correct">正しい文字、正しい位置</string>
     <string name="wordle_legend_present">正しい文字、違う位置</string>
     <string name="wordle_legend_absent">単語に含まれない</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">ライト</string>
     <string name="settings_theme_dark">ダーク</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">切り替え</string>
+    <string name="settings_play_games_switch_cancel">後で</string>
+    <string name="accounts_title">アカウント</string>
+    <string name="accounts_create">アカウントを作成</string>
+    <string name="accounts_create_title">新しいアカウント</string>
+    <string name="accounts_edit">編集</string>
+    <string name="accounts_edit_title">アカウントを編集</string>
+    <string name="accounts_delete">削除</string>
+    <string name="accounts_delete_title">アカウントを削除</string>
+    <string name="accounts_delete_confirm">%1$s を削除しますか？このアカウントのスコアと実績はこの端末にあり、失われます。</string>
+    <string name="accounts_save">保存</string>
+    <string name="accounts_name_label">名前</string>
+    <string name="accounts_play_desc">Play ゲームに保存</string>
+    <string name="accounts_game_center_desc">Game Center に保存</string>
+    <string name="accounts_local_desc">この端末に保存。アンインストールすると消えます。</string>
     <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">入門</string>
     <string name="normal_sudoku_difficulty_easy">簡単</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">マッチ棒パズル (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">マッチ棒パズル</string>
-    <string name="matchstick_riddles_puzzle_label">パズル %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">マッチ棒を1本動かして式を正しくしてください。</string>
     <string name="matchstick_riddle_prompt_move_two">マッチ棒を2本動かして式を正しくしてください。</string>
     <string name="matchstick_riddle_prompt_move_three">マッチ棒を3本動かして式を正しくしてください。</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">正解。見たものの仲間入りです。</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">同じタイルを入れ替えて、3つ以上の並びを消しましょう。盤面をすべて空にするとクリアです。</string>
-    <string name="game_prism_clear_howto">タイルをタップしてから隣をタップするか、隣のタイルへドラッグして入れ替えます。縦または横に3つ以上そろえてください。</string>
-    <string name="prism_clear_moves_remaining">残り手数: %1$d</string>
     <string name="prism_clear_restart">やり直す</string>
     <string name="prism_clear_stuck">もう動かせません。一手戻すか、レベルをやり直してください。</string>
     <string name="achievement_gold_prism_clear">クリスタルの明晰</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">戻す</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">式が成り立つように、足りない演算子（+、-、*、/）を見つけましょう。</string>
-    <string name="missing_operators_instruction">どの演算子で式が正しくなりますか？</string>
     <string name="missing_operators_demo_title">足りない演算子を見つける</string>
     <string name="missing_operators_demo_desc">式が成り立つ演算子を選びます。演算子は通常の数学の優先順位で評価されます。</string>
     <string name="achievement_gold_missing_operators">演算子マスター</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">重複のない4桁の秘密の数字を当てます。Bulls＝正しい数字が正しい位置。Cows＝正しい数字が違う位置。</string>
-    <string name="game_bulls_and_cows_howto">重複のない4桁の予想を入力し、Enterを押します。</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">秘密の数字は %1$s でした</string>

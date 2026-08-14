@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Los alle 10 puzzels van niveau Expert op</string>
     <string name="game_flags">Vlaggen</string>
     <string name="game_flags_desc">Herken het land aan zijn vlag. Elke ronde voegt meer opties toe en de klok tikt.</string>
-    <string name="game_flags_question">Welke vlag is dit?</string>
     <string name="game_flags_score">Score: %1$d</string>
     <string name="game_flags_best">Beste: %1$d</string>
     <string name="game_digit_memory">Cijfergeheugen</string>
@@ -551,6 +550,21 @@
     <string name="settings_theme_light">Licht</string>
     <string name="settings_theme_dark">Donker</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Wisselen</string>
+    <string name="settings_play_games_switch_cancel">Niet nu</string>
+    <string name="accounts_title">Accounts</string>
+    <string name="accounts_create">Account maken</string>
+    <string name="accounts_create_title">Nieuw account</string>
+    <string name="accounts_edit">Bewerken</string>
+    <string name="accounts_edit_title">Account bewerken</string>
+    <string name="accounts_delete">Verwijderen</string>
+    <string name="accounts_delete_title">Account verwijderen</string>
+    <string name="accounts_delete_confirm">%1$s verwijderen? Scores en prestaties van dit account blijven op dit apparaat en gaan verloren.</string>
+    <string name="accounts_save">Opslaan</string>
+    <string name="accounts_name_label">Naam</string>
+    <string name="accounts_play_desc">Opgeslagen in Play Games</string>
+    <string name="accounts_game_center_desc">Opgeslagen in Game Center</string>
+    <string name="accounts_local_desc">Opgeslagen op dit apparaat. Weg als je de app verwijdert.</string>
     <string name="normal_sudoku_button">Normaal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Beginner</string>
     <string name="normal_sudoku_difficulty_easy">Makkelijk</string>
@@ -597,7 +611,6 @@
 
     <string name="matchstick_riddles_button">Luciferpuzzels (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Luciferpuzzels</string>
-    <string name="matchstick_riddles_puzzle_label">Puzzel %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Verplaats 1 lucifer om de vergelijking te corrigeren.</string>
     <string name="matchstick_riddle_prompt_move_two">Verplaats 2 lucifers om de vergelijking te corrigeren.</string>
     <string name="matchstick_riddle_prompt_move_three">Verplaats 3 lucifers om de vergelijking te corrigeren.</string>
@@ -625,7 +638,6 @@
     <string name="wordle_not_in_word_list">Niet in de woordenlijst</string>
     <string name="wordle_answer_was">Het woord was %1$s</string>
     <string name="wordle_enter">Enter</string>
-    <string name="wordle_backspace">Letter verwijderen</string>
     <string name="wordle_legend_correct">Juiste letter, juiste plek</string>
     <string name="wordle_legend_present">Juiste letter, verkeerde plek</string>
     <string name="wordle_legend_absent">Niet in het woord</string>
@@ -701,8 +713,6 @@
     <string name="spot_the_new_demo_correct">Juist. Het sluit aan bij de dieren die je al hebt gezien.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Wissel bijpassende tegels om rijen van drie of meer te wissen. Maak het hele bord leeg om te winnen.</string>
-    <string name="game_prism_clear_howto">Tik op een tegel en dan op een buur, of sleep een tegel op een aangrenzende om te wisselen. Match drie of meer in een rij of kolom.</string>
-    <string name="prism_clear_moves_remaining">Zetten over: %1$d</string>
     <string name="prism_clear_restart">Opnieuw</string>
     <string name="prism_clear_stuck">Geen zetten meer. Maak een zet ongedaan of start het level opnieuw.</string>
     <string name="achievement_gold_prism_clear">Kristalhelder</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">Ongedaan</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Vind de ontbrekende operatoren (+, -, *, /) die de vergelijking waar maken.</string>
-    <string name="missing_operators_instruction">Welke operatoren maken de stelling waar?</string>
     <string name="missing_operators_demo_title">Vind de ontbrekende operatoren</string>
     <string name="missing_operators_demo_desc">Selecteer de operatoren om de vergelijking waar te maken. Operatoren worden geëvalueerd met de standaard wiskundige volgorde.</string>
     <string name="achievement_gold_missing_operators">Operatormeester</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Raad het geheime 4-cijferige getal met unieke cijfers. Bulls = juist cijfer op de juiste plaats. Cows = juist cijfer op de verkeerde plaats.</string>
-    <string name="game_bulls_and_cows_howto">Typ een 4-cijferige gok met unieke cijfers en druk op Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Het geheim was %1$s</string>

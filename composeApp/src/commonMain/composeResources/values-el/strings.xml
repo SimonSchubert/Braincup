@@ -70,7 +70,6 @@
 
     <string name="matchstick_riddles_button">Γρίφοι με σπίρτα (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Γρίφοι με σπίρτα</string>
-    <string name="matchstick_riddles_puzzle_label">Γρίφος %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Μετακινήστε 1 σπίρτο για να διορθώσετε την εξίσωση.</string>
     <string name="matchstick_riddle_prompt_move_two">Μετακινήστε 2 σπίρτα για να διορθώσετε την εξίσωση.</string>
     <string name="matchstick_riddle_prompt_move_three">Μετακινήστε 3 σπίρτα για να διορθώσετε την εξίσωση.</string>
@@ -106,6 +105,21 @@
     <string name="settings_theme_light">Φωτεινό</string>
     <string name="settings_theme_dark">Σκοτεινό</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Αλλαγή</string>
+    <string name="settings_play_games_switch_cancel">Όχι τώρα</string>
+    <string name="accounts_title">Λογαριασμοί</string>
+    <string name="accounts_create">Δημιουργία λογαριασμού</string>
+    <string name="accounts_create_title">Νέος λογαριασμός</string>
+    <string name="accounts_edit">Επεξεργασία</string>
+    <string name="accounts_edit_title">Επεξεργασία λογαριασμού</string>
+    <string name="accounts_delete">Διαγραφή</string>
+    <string name="accounts_delete_title">Διαγραφή λογαριασμού</string>
+    <string name="accounts_delete_confirm">Διαγραφή του %1$s; Οι βαθμοί και τα επιτεύγματα μένουν στη συσκευή και θα χαθούν.</string>
+    <string name="accounts_save">Αποθήκευση</string>
+    <string name="accounts_name_label">Όνομα</string>
+    <string name="accounts_play_desc">Αποθηκεύτηκε στο Play Games</string>
+    <string name="accounts_game_center_desc">Αποθηκεύτηκε στο Game Center</string>
+    <string name="accounts_local_desc">Αποθηκεύεται σε αυτή τη συσκευή. Χάνεται αν απεγκαταστήσεις την εφαρμογή.</string>
 
     <string name="daily_challenge_title">Πρόκληση Ημέρας</string>
     <string name="daily_challenge_subtitle_start">Παίξτε %1$d παιχνίδια ώστε να διατηρήσετε το σερί σας</string>
@@ -413,7 +427,6 @@
     <string name="achievement_sudoku_expert_desc">Λύσε και τους 10 γρίφους επιπέδου Υπερβολικό</string>
     <string name="game_flags">Σημαίες</string>
     <string name="game_flags_desc">Βρείτε τη χώρα από τη σημαία της. Κάθε γύρος προσθέτει περισσότερες επιλογές και ο χρόνος κυλάει..</string>
-    <string name="game_flags_question">Ποια σημαία είναι αυτή;</string>
     <string name="game_flags_score">Σκορ: %1$d</string>
     <string name="game_flags_best">Ρεκόρ: %1$d</string>
     <string name="game_digit_memory">Μνήμη Ψηφίων</string>
@@ -440,7 +453,6 @@
     <string name="wordle_not_in_word_list">Δεν υπάρχει στη λίστα λέξεων</string>
     <string name="wordle_answer_was">Η λέξη ήταν %1$s</string>
     <string name="wordle_enter">Καταχώρηση</string>
-    <string name="wordle_backspace">Διαγραφή γράμματος</string>
     <string name="wordle_legend_correct">Σωστό γράμμα, σωστή θέση</string>
     <string name="wordle_legend_present">Σωστό γράμμα, λάθος θέση</string>
     <string name="wordle_legend_absent">Δεν υπάρχει στη λέξη</string>
@@ -701,8 +713,6 @@
 
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Αντάλλαξε ταιριαστά πλακίδια για να καθαρίσεις γραμμές τριών ή περισσότερων. Άδειασε όλο το ταμπλό για να κερδίσεις.</string>
-    <string name="game_prism_clear_howto">Πάτα ένα πλακίδιο και μετά ένα γειτονικό, ή σύρε ένα σε διπλανό για ανταλλαγή. Ταίριαξε τρία ή περισσότερα σε γραμμή ή στήλη.</string>
-    <string name="prism_clear_moves_remaining">Κινήσεις που απομένουν: %1$d</string>
     <string name="prism_clear_restart">Επανεκκίνηση</string>
     <string name="prism_clear_stuck">Δεν υπάρχουν κινήσεις. Αναίρεσε μια κίνηση ή επανεκκίνησε το επίπεδο.</string>
     <string name="achievement_gold_prism_clear">Κρυστάλλινη διαύγεια</string>
@@ -710,7 +720,6 @@
     <string name="prism_clear_undo">Αναίρεση</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Βρες τους τελεστές που λείπουν (+, -, *, /) ώστε η εξίσωση να είναι σωστή.</string>
-    <string name="missing_operators_instruction">Ποιοι τελεστές κάνουν την πρόταση αληθή;</string>
     <string name="missing_operators_demo_title">Βρες τους τελεστές που λείπουν</string>
     <string name="missing_operators_demo_desc">Επίλεξε τελεστές ώστε η εξίσωση να ισχύει. Οι τελεστές υπολογίζονται με την τυπική μαθηματική προτεραιότητα.</string>
     <string name="achievement_gold_missing_operators">Αφέντης τελεστών</string>
@@ -718,7 +727,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Μάντεψε τον μυστικό 4ψήφιο αριθμό με μοναδικά ψηφία. Bulls = σωστό ψηφίο στη σωστή θέση. Cows = σωστό ψηφίο σε λάθος θέση.</string>
-    <string name="game_bulls_and_cows_howto">Πληκτρολόγησε 4ψήφια πρόταση με μοναδικά ψηφία και πάτα Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Το μυστικό ήταν %1$s</string>

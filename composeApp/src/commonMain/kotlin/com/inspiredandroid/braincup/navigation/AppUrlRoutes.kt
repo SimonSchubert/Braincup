@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.navigation
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.toRoute
+import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Achievements
 import com.inspiredandroid.braincup.app.Finish
 import com.inspiredandroid.braincup.app.Instructions
@@ -29,6 +30,7 @@ fun detectWebBasePath(pathname: String): String = if (pathname.startsWith(GITHUB
 fun navRouteToPathSuffix(route: Any): String = when (route) {
     is MainMenu -> ""
     is Settings -> "settings"
+    is Accounts -> "accounts"
     is Achievements -> "achievements"
     is SessionInterstitial -> "session"
     is SessionComplete -> "session/complete"
@@ -50,6 +52,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
     if (suffix.isEmpty()) return null
     return when (suffix) {
         "settings" -> Settings
+        "accounts" -> Accounts
         "achievements" -> Achievements
         "session" -> SessionInterstitial
         "session/complete" -> SessionComplete
@@ -66,6 +69,7 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
     return when {
         destination.hasRoute<MainMenu>() -> navRouteToPathSuffix(MainMenu)
         destination.hasRoute<Settings>() -> navRouteToPathSuffix(Settings)
+        destination.hasRoute<Accounts>() -> navRouteToPathSuffix(Accounts)
         destination.hasRoute<Achievements>() -> navRouteToPathSuffix(Achievements)
         destination.hasRoute<SessionInterstitial>() -> navRouteToPathSuffix(SessionInterstitial)
         destination.hasRoute<SessionComplete>() -> navRouteToPathSuffix(SessionComplete)

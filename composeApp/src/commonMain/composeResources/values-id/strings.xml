@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">Selesaikan semua 10 teka-teki level Ahli</string>
     <string name="game_flags">Bendera</string>
     <string name="game_flags_desc">Tebak negara dari benderanya. Setiap ronde menambahkan lebih banyak pilihan dan waktu terus berjalan.</string>
-    <string name="game_flags_question">Bendera apa ini?</string>
     <string name="game_flags_score">Skor: %1$d</string>
     <string name="game_flags_best">Terbaik: %1$d</string>
     <string name="game_digit_memory">Memori Angka</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">Tidak ada dalam daftar kata</string>
     <string name="wordle_answer_was">Kata yang benar adalah %1$s</string>
     <string name="wordle_enter">Masukkan</string>
-    <string name="wordle_backspace">Hapus huruf</string>
     <string name="wordle_legend_correct">Huruf benar, posisi benar</string>
     <string name="wordle_legend_present">Huruf benar, posisi salah</string>
     <string name="wordle_legend_absent">Tidak ada dalam kata</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">Terang</string>
     <string name="settings_theme_dark">Gelap</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">Ganti</string>
+    <string name="settings_play_games_switch_cancel">Nanti saja</string>
+    <string name="accounts_title">Akun</string>
+    <string name="accounts_create">Buat akun</string>
+    <string name="accounts_create_title">Akun baru</string>
+    <string name="accounts_edit">Edit</string>
+    <string name="accounts_edit_title">Edit akun</string>
+    <string name="accounts_delete">Hapus</string>
+    <string name="accounts_delete_title">Hapus akun</string>
+    <string name="accounts_delete_confirm">Hapus %1$s? Skor dan pencapaian akun ini ada di perangkat ini dan akan hilang.</string>
+    <string name="accounts_save">Simpan</string>
+    <string name="accounts_name_label">Nama</string>
+    <string name="accounts_play_desc">Disimpan di Play Games</string>
+    <string name="accounts_game_center_desc">Disimpan di Game Center</string>
+    <string name="accounts_local_desc">Disimpan di perangkat ini. Hilang jika kamu menghapus aplikasi.</string>
     <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">Pemula</string>
     <string name="normal_sudoku_difficulty_easy">Mudah</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">Teka-teki korek api (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Teka-teki korek api</string>
-    <string name="matchstick_riddles_puzzle_label">Teka-teki %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">Pindahkan 1 korek api untuk memperbaiki persamaan.</string>
     <string name="matchstick_riddle_prompt_move_two">Pindahkan 2 korek api untuk memperbaiki persamaan.</string>
     <string name="matchstick_riddle_prompt_move_three">Pindahkan 3 korek api untuk memperbaiki persamaan.</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">Benar. Ia bergabung dengan yang sudah kamu lihat.</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">Tukar ubin yang cocok untuk menghapus baris berisi tiga atau lebih. Kosongkan seluruh papan untuk menang.</string>
-    <string name="game_prism_clear_howto">Ketuk ubin lalu tetangga, atau seret ubin ke yang bersebelahan untuk menukar. Cocokkan tiga atau lebih dalam baris atau kolom.</string>
-    <string name="prism_clear_moves_remaining">Langkah tersisa: %1$d</string>
     <string name="prism_clear_restart">Mulai ulang</string>
     <string name="prism_clear_stuck">Tidak ada langkah lagi. Urungkan langkah atau mulai ulang level.</string>
     <string name="achievement_gold_prism_clear">Kejernihan Kristal</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">Urungkan</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">Temukan operator yang hilang (+, -, *, /) agar persamaan menjadi benar.</string>
-    <string name="missing_operators_instruction">Operator mana yang membuat pernyataan benar?</string>
     <string name="missing_operators_demo_title">Temukan operator yang hilang</string>
     <string name="missing_operators_demo_desc">Pilih operator agar persamaan benar. Operator dievaluasi dengan prioritas matematika standar.</string>
     <string name="achievement_gold_missing_operators">Master Operator</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Tebak angka rahasia 4 digit dengan digit unik. Bulls = digit benar di posisi benar. Cows = digit benar di posisi salah.</string>
-    <string name="game_bulls_and_cows_howto">Ketik tebakan 4 digit unik, lalu tekan Enter.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Rahasianya adalah %1$s</string>

@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">ไขปริศนาระดับผู้เชี่ยวชาญครบทั้ง 10 ข้อ</string>
     <string name="game_flags">ธง</string>
     <string name="game_flags_desc">ทายประเทศจากธงของมัน แต่ละรอบมีตัวเลือกเพิ่มขึ้นและเวลากำลังนับถอยหลัง</string>
-    <string name="game_flags_question">นี่คือธงของประเทศใด?</string>
     <string name="game_flags_score">คะแนน: %1$d</string>
     <string name="game_flags_best">ดีที่สุด: %1$d</string>
     <string name="game_digit_memory">ความจำตัวเลข</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">ไม่อยู่ในรายการคำ</string>
     <string name="wordle_answer_was">คำคือ %1$s</string>
     <string name="wordle_enter">ยืนยัน</string>
-    <string name="wordle_backspace">ลบตัวอักษร</string>
     <string name="wordle_legend_correct">ตัวอักษรถูก ตำแหน่งถูก</string>
     <string name="wordle_legend_present">ตัวอักษรถูก ตำแหน่งผิด</string>
     <string name="wordle_legend_absent">ไม่มีในคำ</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">สว่าง</string>
     <string name="settings_theme_dark">มืด</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">สลับ</string>
+    <string name="settings_play_games_switch_cancel">ไว้ทีหลัง</string>
+    <string name="accounts_title">บัญชี</string>
+    <string name="accounts_create">สร้างบัญชี</string>
+    <string name="accounts_create_title">บัญชีใหม่</string>
+    <string name="accounts_edit">แก้ไข</string>
+    <string name="accounts_edit_title">แก้ไขบัญชี</string>
+    <string name="accounts_delete">ลบ</string>
+    <string name="accounts_delete_title">ลบบัญชี</string>
+    <string name="accounts_delete_confirm">ลบ %1$s? คะแนนและความสำเร็จของบัญชีนี้อยู่ในเครื่องนี้และจะหายไป</string>
+    <string name="accounts_save">บันทึก</string>
+    <string name="accounts_name_label">ชื่อ</string>
+    <string name="accounts_play_desc">บันทึกใน Play Games</string>
+    <string name="accounts_game_center_desc">บันทึกไว้ที่ Game Center</string>
+    <string name="accounts_local_desc">บันทึกในเครื่องนี้ หายถ้าถอนการติดตั้ง</string>
     <string name="normal_sudoku_button">ซูโดกุปกติ (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">เริ่มต้น</string>
     <string name="normal_sudoku_difficulty_easy">ง่าย</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">ปริศนาไม้ขีดไฟ (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">ปริศนาไม้ขีดไฟ</string>
-    <string name="matchstick_riddles_puzzle_label">ปริศนา %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">เลื่อนไม้ขีดไฟ 1 แท่งเพื่อแก้สมการ</string>
     <string name="matchstick_riddle_prompt_move_two">เลื่อนไม้ขีดไฟ 2 แท่งเพื่อแก้สมการ</string>
     <string name="matchstick_riddle_prompt_move_three">เลื่อนไม้ขีดไฟ 3 แท่งเพื่อแก้สมการ</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">ถูกต้อง มันเข้าร่วมกับตัวที่คุณเคยเห็นแล้ว</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">สลับกระเบื้องที่เข้าคู่กันเพื่อลบแถวที่มีสามขึ้นไป เคลียร์กระดานทั้งแผ่นเพื่อชนะ</string>
-    <string name="game_prism_clear_howto">แตะกระเบื้องแล้วแตะข้างเคียง หรือลากไปวางบนช่องติดกันเพื่อสลับ จับคู่สามขึ้นไปในแถวหรือคอลัมน์</string>
-    <string name="prism_clear_moves_remaining">เหลือ %1$d ตา</string>
     <string name="prism_clear_restart">เริ่มใหม่</string>
     <string name="prism_clear_stuck">ไม่มีตาเดินแล้ว เลิกทำหนึ่งตาหรือเริ่มระดับใหม่</string>
     <string name="achievement_gold_prism_clear">ความใสดุจคริสตัล</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">เลิกทำ</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">หาเครื่องหมายที่หายไป (+, -, *, /) ที่ทำให้สมการเป็นจริง</string>
-    <string name="missing_operators_instruction">เครื่องหมายใดทำให้ข้อความเป็นจริง?</string>
     <string name="missing_operators_demo_title">หาเครื่องหมายที่หายไป</string>
     <string name="missing_operators_demo_desc">เลือกเครื่องหมายให้สมการเป็นจริง เครื่องหมายคำนวณตามลำดับความสำคัญทางคณิตศาสตร์มาตรฐาน</string>
     <string name="achievement_gold_missing_operators">ปรมาจารย์เครื่องหมาย</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">ทายเลขลับ 4 หลักที่ไม่ซ้ำ Bulls = เลขถูกตำแหน่งถูก Cows = เลขถูกตำแหน่งผิด</string>
-    <string name="game_bulls_and_cows_howto">พิมพ์ทาย 4 หลักที่ไม่ซ้ำ แล้วกด Enter</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">รหัสลับคือ %1$s</string>

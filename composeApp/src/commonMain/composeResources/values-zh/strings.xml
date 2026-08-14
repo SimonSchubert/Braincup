@@ -280,7 +280,6 @@
     <string name="achievement_sudoku_expert_desc">解开全部10个专家难度数独</string>
     <string name="game_flags">国旗</string>
     <string name="game_flags_desc">通过国旗辨认国家。每一轮选项更多，时间也在流逝。</string>
-    <string name="game_flags_question">这是哪个国家的国旗？</string>
     <string name="game_flags_score">得分：%1$d</string>
     <string name="game_flags_best">最佳：%1$d</string>
     <string name="game_digit_memory">数字记忆</string>
@@ -302,7 +301,6 @@
     <string name="wordle_not_in_word_list">不在词库中</string>
     <string name="wordle_answer_was">答案是 %1$s</string>
     <string name="wordle_enter">确认</string>
-    <string name="wordle_backspace">删除字母</string>
     <string name="wordle_legend_correct">字母正确，位置正确</string>
     <string name="wordle_legend_present">字母正确，位置错误</string>
     <string name="wordle_legend_absent">不在词中</string>
@@ -577,6 +575,21 @@
     <string name="settings_theme_light">浅色</string>
     <string name="settings_theme_dark">深色</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_play_games_profile_switch">切换</string>
+    <string name="settings_play_games_switch_cancel">暂不</string>
+    <string name="accounts_title">账号</string>
+    <string name="accounts_create">创建账号</string>
+    <string name="accounts_create_title">新账号</string>
+    <string name="accounts_edit">编辑</string>
+    <string name="accounts_edit_title">编辑账号</string>
+    <string name="accounts_delete">删除</string>
+    <string name="accounts_delete_title">删除账号</string>
+    <string name="accounts_delete_confirm">删除 %1$s？此账号的分数和成就只保存在本机，删除后将丢失。</string>
+    <string name="accounts_save">保存</string>
+    <string name="accounts_name_label">名称</string>
+    <string name="accounts_play_desc">已保存到 Play 游戏</string>
+    <string name="accounts_game_center_desc">已保存到 Game Center</string>
+    <string name="accounts_local_desc">保存在本机。卸载后会丢失。</string>
     <string name="normal_sudoku_button">数独 (%1$d/%2$d)</string>
     <string name="normal_sudoku_difficulty_beginner">入门</string>
     <string name="normal_sudoku_difficulty_easy">简单</string>
@@ -623,7 +636,6 @@
 
     <string name="matchstick_riddles_button">火柴谜题 (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">火柴谜题</string>
-    <string name="matchstick_riddles_puzzle_label">谜题 %1$d</string>
     <string name="matchstick_riddle_prompt_move_one">移动 1 根火柴来修正等式。</string>
     <string name="matchstick_riddle_prompt_move_two">移动 2 根火柴来修正等式。</string>
     <string name="matchstick_riddle_prompt_move_three">移动 3 根火柴来修正等式。</string>
@@ -700,8 +712,6 @@
     <string name="spot_the_new_demo_correct">正确，它加入了已见过的行列。</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_prism_clear_desc">交换相同方块以消除三连或更多。清空整个棋盘即可获胜。</string>
-    <string name="game_prism_clear_howto">点选一个方块再点相邻方块，或拖到相邻方块上交换。在行或列中连成三个或更多。</string>
-    <string name="prism_clear_moves_remaining">剩余步数：%1$d</string>
     <string name="prism_clear_restart">重来</string>
     <string name="prism_clear_stuck">没有可走的步了。撤销一步或重新开始本关。</string>
     <string name="achievement_gold_prism_clear">水晶澄明</string>
@@ -709,7 +719,6 @@
     <string name="prism_clear_undo">撤销</string>
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_missing_operators_desc">找出使等式成立的缺失运算符（+、-、*、/）。</string>
-    <string name="missing_operators_instruction">哪些运算符能使式子成立？</string>
     <string name="missing_operators_demo_title">找出缺失的运算符</string>
     <string name="missing_operators_demo_desc">选择运算符使等式成立。运算符按标准数学优先级计算。</string>
     <string name="achievement_gold_missing_operators">运算符大师</string>
@@ -717,7 +726,6 @@
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">猜出由不重复数字组成的4位密码。Bulls＝数字正确且位置正确。Cows＝数字正确但位置错误。</string>
-    <string name="game_bulls_and_cows_howto">输入不重复的4位猜测，然后按 Enter。</string>
     <string name="bulls_and_cows_bulls">Bulls：%1$d</string>
     <string name="bulls_and_cows_cows">Cows：%1$d</string>
     <string name="bulls_and_cows_secret_was">密码是 %1$s</string>

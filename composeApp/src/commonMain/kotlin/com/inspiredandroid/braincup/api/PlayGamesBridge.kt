@@ -2,6 +2,30 @@ package com.inspiredandroid.braincup.api
 
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
+
+data class StorePlayerProfile(
+    val playerId: String = "",
+    val displayName: String,
+    val avatarBytes: ByteArray? = null,
+) {
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other !is StorePlayerProfile) return false
+        return playerId == other.playerId &&
+            displayName == other.displayName &&
+            avatarBytes.contentEquals(other.avatarBytes)
+    }
+
+    override fun hashCode(): Int {
+        var result = playerId.hashCode()
+        result = 31 * result + displayName.hashCode()
+        result = 31 * result + (avatarBytes?.contentHashCode() ?: 0)
+        return result
+    }
+}
 
 /**
  * Platform-agnostic hook fired when a game run earns a Gold-tier result.
@@ -14,6 +38,20 @@ object PlayGamesBridge {
     var onGoldMedal: ((GameType) -> Unit)? = null
     var onTotalScore: ((Int) -> Unit)? = null
     var onStreak: ((Int) -> Unit)? = null
+
+    private val _currentPlayer = MutableStateFlow<StorePlayerProfile?>(null)
+    val currentPlayer: StateFlow<StorePlayerProfile?> = _currentPlayer.asStateFlow()
+
+    fun updateCurrentPlayer(profile: StorePlayerProfile?) {
+        if (_currentPlayer.value == profile) return
+        _currentPlayer.value = profile
+    }
+
+    var hasPlayStoreAccount: Boolean = false
+    var isGameCenterAccount: Boolean = false
+    var onRefreshStoreProfile: (() -> Unit)? = null
+
+    fun bindStorePlayer(playerId: String): Boolean = AccountStore().bindStorePlayer(playerId)
 
     /** Fired the first time English peg solitaire is finished with the last peg in the center. */
     var onPegSolitairePerfect: (() -> Unit)? = null
@@ -47,4 +85,7 @@ object PlayGamesBridge {
 
     /** Fired when local XP was raised to match a higher value from the Brain Cup leaderboard. */
     var onTotalXpRestored: ((Int) -> Unit)? = null
+
+    /** Fired after Play Games / Game Center progress was written into local storage. */
+    var onStoreProgressRestored: (() -> Unit)? = null
 }
