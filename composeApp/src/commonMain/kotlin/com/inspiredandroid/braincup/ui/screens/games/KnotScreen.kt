@@ -108,7 +108,7 @@ internal fun ColumnScope.KnotContent(
                                 val color = dragColor
                                 val cells = dragCells
                                 if (color != null && cells.isNotEmpty()) {
-                                    onAnswer("path:$color:${cells.joinToString(",")}")
+                                    onAnswer(BoardCommand.path(color, cells))
                                 }
                                 dragColor = null
                                 dragCells = emptyList()
@@ -124,7 +124,7 @@ internal fun ColumnScope.KnotContent(
                             val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
                             val cell = r * cols + c
                             val color = endpointColorByCell[cell] ?: pathColorByCell[cell]
-                            if (color != null) onAnswer("clear:$color")
+                            if (color != null) onAnswer(BoardCommand.clearPath(color))
                         }
                     },
             ) {

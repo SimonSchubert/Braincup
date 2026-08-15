@@ -48,6 +48,7 @@ import com.inspiredandroid.braincup.app.SoloChessUiState
 import com.inspiredandroid.braincup.app.SpotTheNewUiState
 import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
 import com.inspiredandroid.braincup.app.TrioUiState
+import com.inspiredandroid.braincup.app.UntimedUiState
 import com.inspiredandroid.braincup.app.ValueComparisonUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.WordleUiState
@@ -123,25 +124,12 @@ fun GameScreen(
         .fillMaxWidth()
         .padding(horizontal = 16.dp, vertical = 8.dp)
 
+    // Memorize phases run their own bar; the untimed boards (level puzzles, survival games,
+    // Wordle) have no clock at all. Everything else gets the 60s countdown.
     val needsProgressBar = when (gameUiState) {
         is VisualMemoryUiState -> gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING
         is SpotTheNewUiState -> gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING
-        is GhostGridUiState,
-        is SimonSaysUiState,
-        is OrbitTrackerUiState,
-        is MiniChessUiState,
-        is LightsOutUiState,
-        is SlidingPuzzleUiState,
-        is TowerOfHanoiUiState,
-        is ShikakuUiState,
-        is NurikabeUiState,
-        is CatQueensUiState,
-        is KnotUiState,
-        is SoloChessUiState,
-        is PrismClearUiState,
-        is WordleUiState,
-        is BullsAndCowsUiState,
-        -> false
+        is UntimedUiState -> false
         else -> true
     }
 

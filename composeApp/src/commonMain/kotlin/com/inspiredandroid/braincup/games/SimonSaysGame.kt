@@ -17,7 +17,9 @@ import kotlin.time.Duration.Companion.milliseconds
  * carrying every earlier pad from memory. Ends on the first wrong tap. Score = rounds (sequence
  * length) survived.
  */
-class SimonSaysGame(private val random: Random = Random.Default) : Game() {
+class SimonSaysGame(private val random: Random = Random.Default) :
+    Game(),
+    TimedPhaseGame {
     enum class Phase { SHOWING, ANSWERING, GAME_OVER }
 
     companion object {
@@ -75,7 +77,7 @@ class SimonSaysGame(private val random: Random = Random.Default) : Game() {
         }
     }
 
-    fun cancelShowNewPad() {
+    override fun cancelTimedPhase() {
         showJob?.cancel()
         showJob = null
     }

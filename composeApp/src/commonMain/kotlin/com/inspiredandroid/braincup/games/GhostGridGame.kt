@@ -14,7 +14,9 @@ import kotlin.time.Duration.Companion.milliseconds
  * Ghost Grid game. A sequence of tiles lights up
  * one at a time on a grid, and the player must tap them back in the same order.
  */
-class GhostGridGame(private val random: Random = Random.Default) : Game() {
+class GhostGridGame(private val random: Random = Random.Default) :
+    Game(),
+    TimedPhaseGame {
     enum class Phase {
         SHOWING,
         ANSWERING,
@@ -75,7 +77,7 @@ class GhostGridGame(private val random: Random = Random.Default) : Game() {
         }
     }
 
-    fun cancelShowSequence() {
+    override fun cancelTimedPhase() {
         showJob?.cancel()
         showJob = null
     }

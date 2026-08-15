@@ -9,6 +9,7 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
@@ -161,6 +162,39 @@ internal fun LevelHeader(level: Int, modifier: Modifier = Modifier) {
         style = MaterialTheme.typography.titleMedium,
         fontWeight = FontWeight.Bold,
         color = MaterialTheme.colorScheme.primary,
+        modifier = modifier,
+    )
+}
+
+/** "Moves: N" counter the level puzzles show under their [LevelHeader]. */
+@Composable
+internal fun MovesLabel(moves: Int, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(Res.string.moves_label, moves),
+        style = MaterialTheme.typography.labelLarge,
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = modifier,
+    )
+}
+
+/**
+ * The how-to line of a puzzle board, which doubles as its error line: while [isError] it turns
+ * bold and red, and it goes back to normal on its own once the board is legal again. The compact
+ * sidebar passes the smaller label style.
+ */
+@Composable
+internal fun BoardInstructionLine(
+    text: String,
+    isError: Boolean,
+    modifier: Modifier = Modifier,
+    style: TextStyle = MaterialTheme.typography.bodyMedium,
+) {
+    Text(
+        text = text,
+        style = style,
+        color = if (isError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.onSurfaceVariant,
+        fontWeight = if (isError) FontWeight.Bold else FontWeight.Normal,
+        textAlign = TextAlign.Center,
         modifier = modifier,
     )
 }

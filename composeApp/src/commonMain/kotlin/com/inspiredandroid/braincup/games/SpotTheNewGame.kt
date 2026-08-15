@@ -23,7 +23,9 @@ import kotlin.time.Duration.Companion.milliseconds
  * tap ends the game. When every animal has been seen the game ends with the maximum score. The
  * score is the number of rounds survived.
  */
-class SpotTheNewGame : Game() {
+class SpotTheNewGame :
+    Game(),
+    PausableTimedPhaseGame {
     // Survival game: never resume mid-difficulty, always start fresh.
     override val adaptiveDifficulty: Boolean = false
 
@@ -63,6 +65,8 @@ class SpotTheNewGame : Game() {
 
     var phase: Phase = Phase.MEMORIZING
         private set
+
+    override val isTimedPhaseActive: Boolean get() = phase == Phase.MEMORIZING
 
     /** Cumulative pool of every animal shown so far (seed + each tapped new one). */
     private val seen = mutableSetOf<Animal>()
@@ -109,13 +113,13 @@ class SpotTheNewGame : Game() {
         }
     }
 
-    fun cancelCountdown() {
+    override fun cancelTimedPhase() {
         countdownPaused = false
         countdownJob?.cancel()
         countdownJob = null
     }
 
-    fun pauseCountdown() {
+    override fun pauseTimedPhase() {
         if (countdownJob == null) return
         countdownPaused = true
         val remaining = (memorizeDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
@@ -124,14 +128,14 @@ class SpotTheNewGame : Game() {
         countdownJob = null
     }
 
-    fun resumeCountdown(scope: CoroutineScope, onStateChanged: () -> Unit) {
+    override fun resumeTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         if (!countdownPaused) return
         countdownPaused = false
         val remaining = (memorizeDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
         countdownJob = scope.launch {
             delay(remaining.milliseconds)
             startAnswering()
-            onStateChanged()
+            onChange()
         }
     }
 

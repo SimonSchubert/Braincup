@@ -18,7 +18,9 @@ import kotlin.time.Duration.Companion.seconds
  * Each round reveals N shapes for memorization, then hides ALL shapes.
  * The player must identify ALL N shapes in a random order determined by the game.
  */
-class VisualMemoryGame : Game() {
+class VisualMemoryGame :
+    Game(),
+    PausableTimedPhaseGame {
     // Must always start at round 0: generateRound() places one figure per round, so resuming at
     // a higher round leaves earlier figures unplaced while the answer phase still asks for them.
     override val adaptiveDifficulty: Boolean = false
@@ -72,6 +74,8 @@ class VisualMemoryGame : Game() {
 
     var phase: Phase = Phase.MEMORIZING
         private set
+
+    override val isTimedPhaseActive: Boolean get() = phase == Phase.MEMORIZING
 
     var wrongAnswerFigureIndex: Int? = null
         private set
@@ -161,30 +165,30 @@ class VisualMemoryGame : Game() {
         }
     }
 
-    fun cancelCountdown() {
+    override fun cancelTimedPhase() {
         countdownPaused = false
         countdownJob?.cancel()
         countdownJob = null
     }
 
-    fun pauseCountdown() {
+    override fun pauseTimedPhase() {
         if (countdownJob == null) return
         countdownPaused = true
         countdownJob?.cancel()
         countdownJob = null
     }
 
-    fun resumeCountdown(scope: CoroutineScope, onStateChanged: () -> Unit) {
+    override fun resumeTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         if (!countdownPaused) return
         countdownPaused = false
         countdownJob = scope.launch {
             while (countdown > 0) {
                 delay(1.seconds)
                 countdown--
-                onStateChanged()
+                onChange()
             }
             startAnswerPhase()
-            onStateChanged()
+            onChange()
         }
     }
 

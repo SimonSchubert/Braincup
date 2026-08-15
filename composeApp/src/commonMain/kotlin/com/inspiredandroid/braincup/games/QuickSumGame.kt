@@ -23,7 +23,9 @@ import kotlin.time.Duration.Companion.milliseconds
  *
  * A correct total advances the ramp; a wrong one replays the same tier with fresh terms.
  */
-class QuickSumGame : Game() {
+class QuickSumGame :
+    Game(),
+    RevealRoundGame {
     // Always start at the slowest tier so scores are comparable run-to-run.
     override val adaptiveDifficulty: Boolean = false
 
@@ -33,6 +35,8 @@ class QuickSumGame : Game() {
 
     var phase: Phase = Phase.FLASHING
         private set
+
+    override val isTimedPhaseActive: Boolean get() = phase == Phase.FLASHING
 
     /** The terms to add, in flash order. */
     var terms: List<Int> = emptyList()
@@ -132,7 +136,7 @@ class QuickSumGame : Game() {
     fun answerLength(): Int = targetSum().toString().length
 
     /** Wait out the blank lead-in, flash the terms in order, then open the answer phase. */
-    fun startFlashing(scope: CoroutineScope, onChange: () -> Unit) {
+    override fun startTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         flashJob?.cancel()
         flashPaused = false
         phase = Phase.FLASHING
@@ -158,13 +162,13 @@ class QuickSumGame : Game() {
         }
     }
 
-    fun cancelFlashing() {
+    override fun cancelTimedPhase() {
         flashPaused = false
         flashJob?.cancel()
         flashJob = null
     }
 
-    fun pauseFlashing() {
+    override fun pauseTimedPhase() {
         if (flashJob == null || phase != Phase.FLASHING) return
         flashPaused = true
         flashJob?.cancel()
@@ -176,17 +180,11 @@ class QuickSumGame : Game() {
      * no meaningful resume point, and replaying the same terms would turn the quit dialog into a
      * free second look that could be farmed by reopening it.
      */
-    fun resumeFlashing(scope: CoroutineScope, onChange: () -> Unit) {
+    override fun resumeTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         if (!flashPaused) return
         flashPaused = false
         repeatRound()
-        startFlashing(scope, onChange)
-    }
-
-    /** Re-generate the round at the current tier with fresh terms, without advancing the ramp. */
-    fun repeatRound() {
-        round -= 1
-        nextRound()
+        startTimedPhase(scope, onChange)
     }
 
     /** Submit the total. Returns whether it matched; exposes [answerResult] for the reveal. */

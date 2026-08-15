@@ -23,6 +23,26 @@ enum class GameType(
      * max (e.g. ≤12).
      */
     val bronzeScore: Int = 1,
+    /**
+     * Score is the highest level reached, not a count of correct answers. Drives the whole
+     * level flow: [LevelGame] resumed at the stored level, "Level N" / "Play next level" labels,
+     * no run timer, and exclusion from the daily session.
+     */
+    val usesLevelLabel: Boolean = false,
+    /** Score is guesses/tries used (lower is better). Finish UI says "Tries: N". */
+    val usesTriesLabel: Boolean = false,
+    /**
+     * Time-based lower-is-better scores stored as deciseconds (Schulte Table).
+     * Not the same as [lowerScoreIsBetter] — Bulls & Cows is lower-is-better tries, not time.
+     */
+    val isTimeScore: Boolean = false,
+    /**
+     * Hidden from menus and daily challenges while the color-blind palette is on — the mechanic
+     * depends on naming specific hues and remains unfair under any palette.
+     */
+    val requiresColorVision: Boolean = false,
+    /** Whether this game has a Play Games leaderboard wired up. */
+    val hasLeaderboard: Boolean = false,
 ) {
     MINI_SUDOKU(
         displayNameRes = Res.string.game_mini_sudoku,
@@ -51,6 +71,7 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_solo_chess_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     LIGHTS_OUT(
         displayNameRes = Res.string.game_lights_out,
@@ -60,6 +81,7 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_lights_out_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     SLIDING_PUZZLE(
         displayNameRes = Res.string.game_sliding_puzzle,
@@ -69,6 +91,7 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_sliding_puzzle_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     SHIKAKU(
         displayNameRes = Res.string.game_shikaku,
@@ -78,6 +101,7 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_shikaku_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     NURIKABE(
         displayNameRes = Res.string.game_nurikabe,
@@ -87,6 +111,7 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_nurikabe_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     CAT_QUEENS(
         displayNameRes = Res.string.game_cat_queens,
@@ -96,6 +121,7 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_cat_queens_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     KNOT(
         displayNameRes = Res.string.game_knot,
@@ -105,6 +131,8 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_knot_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
+        requiresColorVision = true,
     ),
     TOWER_OF_HANOI(
         displayNameRes = Res.string.game_tower_of_hanoi,
@@ -115,6 +143,7 @@ enum class GameType(
         silverScore = 2,
         descriptionRes = Res.string.game_tower_of_hanoi_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     PATH_FINDER(
         displayNameRes = Res.string.game_path_finder,
@@ -155,6 +184,7 @@ enum class GameType(
         silverScore = 8,
         descriptionRes = Res.string.game_colored_shapes_desc,
         category = GameCategory.LOGIC,
+        requiresColorVision = true,
     ),
     SHERLOCK_CALCULATION(
         displayNameRes = Res.string.game_sherlock_calculation,
@@ -230,6 +260,7 @@ enum class GameType(
         silverScore = 6,
         descriptionRes = Res.string.game_color_confusion_desc,
         category = GameCategory.PERCEPTION,
+        requiresColorVision = true,
     ),
     ORBIT_TRACKER(
         displayNameRes = Res.string.game_orbit_tracker,
@@ -257,6 +288,7 @@ enum class GameType(
         descriptionRes = Res.string.game_schulte_table_desc,
         category = GameCategory.PERCEPTION,
         lowerScoreIsBetter = true,
+        isTimeScore = true,
     ),
     FLAGS(
         displayNameRes = Res.string.game_flags,
@@ -266,6 +298,7 @@ enum class GameType(
         silverScore = 15,
         descriptionRes = Res.string.game_flags_desc,
         category = GameCategory.PERCEPTION,
+        hasLeaderboard = true,
     ),
     DIGIT_MEMORY(
         displayNameRes = Res.string.game_digit_memory,
@@ -324,6 +357,7 @@ enum class GameType(
         silverScore = 5,
         descriptionRes = Res.string.game_prism_clear_desc,
         category = GameCategory.LOGIC,
+        usesLevelLabel = true,
     ),
     MISSING_OPERATORS(
         displayNameRes = Res.string.game_missing_operators,
@@ -344,6 +378,7 @@ enum class GameType(
         category = GameCategory.LOGIC,
         lowerScoreIsBetter = true,
         bronzeScore = 12,
+        usesTriesLabel = true,
     ),
     TRIO(
         displayNameRes = Res.string.game_trio,
@@ -370,38 +405,6 @@ enum class GameType(
     }
 
     val accentColor: Long get() = category.accentColor
-
-    /** Whether this game has a Play Games leaderboard wired up. */
-    val hasLeaderboard: Boolean get() = this == FLAGS
-
-    /** Hidden from menus and daily challenges while the color-blind palette is on —
-     *  the mechanic depends on naming specific hues and remains unfair under any palette. */
-    val requiresColorVision: Boolean
-        get() = this == COLOR_CONFUSION || this == COLORED_SHAPES || this == KNOT
-
-    /** Games whose score is the highest level reached, not a count of correct answers.
-     *  UI shows "Level N" / "Play next level" instead of "Score: N" / "Play Again". */
-    val usesLevelLabel: Boolean
-        get() = this == LIGHTS_OUT ||
-            this == SLIDING_PUZZLE ||
-            this == SHIKAKU ||
-            this == NURIKABE ||
-            this == CAT_QUEENS ||
-            this == KNOT ||
-            this == SOLO_CHESS ||
-            this == TOWER_OF_HANOI ||
-            this == PRISM_CLEAR
-
-    /**
-     * Time-based lower-is-better scores stored as deciseconds (Schulte Table).
-     * Not the same as [lowerScoreIsBetter] — Bulls & Cows is lower-is-better tries, not time.
-     */
-    val isTimeScore: Boolean
-        get() = this == SCHULTE_TABLE
-
-    /** Score is guesses/tries used (lower is better). Finish UI says "Tries: N". */
-    val usesTriesLabel: Boolean
-        get() = this == BULLS_AND_COWS
 
     /** Numeric part of a score (time-based stored as deciseconds → "12.3"; count-based → "42").
      *  UI code should prefer [formattedScore] / [secondsTemplate] to attach the localized unit. */

@@ -69,7 +69,7 @@ internal fun ColumnScope.ColorConfusionContent(
     PrismTile(
         face = Primary,
         isClickable = !uiState.isSubmitted,
-        onClick = { onAnswer("submit") },
+        onClick = { onAnswer(BoardCommand.SUBMIT) },
         modifier = Modifier
             .align(Alignment.CenterHorizontally)
             .defaultMinSize(minWidth = 96.dp, minHeight = 48.dp)

@@ -19,7 +19,6 @@ import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
@@ -166,12 +165,6 @@ internal fun ColumnScope.CatQueensContent(
         null -> stringResource(Res.string.game_cat_queens_howto)
     }
     val isError = uiState.violation != null
-    val instructionColor = if (isError) {
-        MaterialTheme.colorScheme.error
-    } else {
-        MaterialTheme.colorScheme.onSurfaceVariant
-    }
-    val instructionWeight = if (isError) FontWeight.Bold else FontWeight.Normal
 
     if (compact) {
         CompactGameRow {
@@ -181,12 +174,10 @@ internal fun ColumnScope.CatQueensContent(
                 Spacer(Modifier.height(6.dp))
                 progress()
                 Spacer(Modifier.height(6.dp))
-                Text(
+                BoardInstructionLine(
                     text = instruction,
+                    isError = isError,
                     style = MaterialTheme.typography.labelMedium,
-                    color = instructionColor,
-                    fontWeight = instructionWeight,
-                    textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(8.dp))
                 GiveUpButton(onGiveUp = onGiveUp)
@@ -199,12 +190,9 @@ internal fun ColumnScope.CatQueensContent(
             progress()
         }
         Spacer(Modifier.height(6.dp))
-        Text(
+        BoardInstructionLine(
             text = instruction,
-            style = MaterialTheme.typography.bodyMedium,
-            color = instructionColor,
-            fontWeight = instructionWeight,
-            textAlign = TextAlign.Center,
+            isError = isError,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(horizontal = 24.dp),

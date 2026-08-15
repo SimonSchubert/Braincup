@@ -7,7 +7,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
@@ -53,7 +52,7 @@ internal fun ColumnScope.SoloChessContent(
                                     ChessSquareTarget.None
                                 },
                                 showKingHighlight = isKing,
-                                onClick = { onAnswer("tap:$index") },
+                                onClick = { onAnswer(BoardCommand.tap(index)) },
                             ) {
                                 type?.let {
                                     Box(
@@ -99,17 +98,12 @@ internal fun ColumnScope.SoloChessContent(
     } else {
         stringResource(Res.string.game_solo_chess_howto)
     }
-    val instructionColor = if (uiState.stuck) {
-        MaterialTheme.colorScheme.error
-    } else {
-        MaterialTheme.colorScheme.onSurfaceVariant
-    }
-    val instructionWeight = if (uiState.stuck) FontWeight.Bold else FontWeight.Normal
+    val isError = uiState.stuck
 
     val actions: @Composable () -> Unit = {
         Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
             DefaultButton(
-                onClick = { onAnswer("restart") },
+                onClick = { onAnswer(BoardCommand.RESTART) },
                 value = stringResource(Res.string.solo_chess_restart),
             )
             GiveUpButton(onGiveUp = onGiveUp)
@@ -124,12 +118,10 @@ internal fun ColumnScope.SoloChessContent(
                 Spacer(Modifier.height(6.dp))
                 progress()
                 Spacer(Modifier.height(6.dp))
-                Text(
+                BoardInstructionLine(
                     text = instruction,
+                    isError = isError,
                     style = MaterialTheme.typography.labelMedium,
-                    color = instructionColor,
-                    fontWeight = instructionWeight,
-                    textAlign = TextAlign.Center,
                 )
                 Spacer(Modifier.height(8.dp))
                 actions()
@@ -142,12 +134,9 @@ internal fun ColumnScope.SoloChessContent(
             progress()
         }
         Spacer(Modifier.height(6.dp))
-        Text(
+        BoardInstructionLine(
             text = instruction,
-            style = MaterialTheme.typography.bodyMedium,
-            color = instructionColor,
-            fontWeight = instructionWeight,
-            textAlign = TextAlign.Center,
+            isError = isError,
             modifier = Modifier
                 .align(Alignment.CenterHorizontally)
                 .padding(horizontal = 24.dp),

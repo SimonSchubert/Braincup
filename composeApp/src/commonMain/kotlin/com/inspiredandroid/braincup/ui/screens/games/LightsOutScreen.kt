@@ -13,7 +13,6 @@ import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import kotlinx.collections.immutable.persistentListOf
-import org.jetbrains.compose.resources.stringResource
 
 @Composable
 internal fun ColumnScope.LightsOutContent(
@@ -52,11 +51,7 @@ internal fun ColumnScope.LightsOutContent(
             ) {
                 LevelHeader(uiState.level)
                 Spacer(Modifier.height(4.dp))
-                Text(
-                    text = stringResource(Res.string.moves_label, uiState.moves),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+                MovesLabel(uiState.moves)
                 Spacer(Modifier.height(8.dp))
                 GiveUpButton(onGiveUp = onGiveUp)
             }
@@ -64,12 +59,7 @@ internal fun ColumnScope.LightsOutContent(
     } else {
         LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(4.dp))
-        Text(
-            text = stringResource(Res.string.moves_label, uiState.moves),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        MovesLabel(uiState.moves, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(16.dp))
         Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
             board()

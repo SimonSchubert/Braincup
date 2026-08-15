@@ -25,7 +25,9 @@ import kotlin.time.Duration.Companion.milliseconds
  * a blind guess is right 1 in [Shape] count of the time, so there is nothing to farm; the score is
  * the number of correct recalls within the global 60s timer.
  */
-class NBackGame : Game() {
+class NBackGame :
+    Game(),
+    RevealRoundGame {
     // Always start at the shortest sequence so scores are comparable run-to-run.
     override val adaptiveDifficulty: Boolean = false
 
@@ -35,6 +37,8 @@ class NBackGame : Game() {
 
     var phase: Phase = Phase.MEMORIZE
         private set
+
+    override val isTimedPhaseActive: Boolean get() = phase == Phase.MEMORIZE
 
     /** The shapes to memorize, in flash order; distinct within a round so a position is unambiguous. */
     var sequence: List<Shape> = emptyList()
@@ -104,7 +108,7 @@ class NBackGame : Game() {
     fun answerShape(): Shape = sequence[askIndex]
 
     /** Flash the sequence in order, then open the recall phase. */
-    fun startShowing(scope: CoroutineScope, onChange: () -> Unit) {
+    override fun startTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         showJob?.cancel()
         showPaused = false
         phase = Phase.MEMORIZE
@@ -128,13 +132,13 @@ class NBackGame : Game() {
         }
     }
 
-    fun cancelShowing() {
+    override fun cancelTimedPhase() {
         showPaused = false
         showJob?.cancel()
         showJob = null
     }
 
-    fun pauseShowing() {
+    override fun pauseTimedPhase() {
         if (showJob == null || phase != Phase.MEMORIZE) return
         showPaused = true
         showJob?.cancel()
@@ -146,17 +150,11 @@ class NBackGame : Game() {
      * has no meaningful resume point, and replaying the same shapes would turn the quit dialog into a
      * free second look that could be farmed by reopening it.
      */
-    fun resumeShowing(scope: CoroutineScope, onChange: () -> Unit) {
+    override fun resumeTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         if (!showPaused) return
         showPaused = false
         repeatRound()
-        startShowing(scope, onChange)
-    }
-
-    /** Re-generate the round at the current length with a fresh sequence, without advancing. */
-    fun repeatRound() {
-        round -= 1
-        nextRound()
+        startTimedPhase(scope, onChange)
     }
 
     fun submitRecall(input: String): Boolean {

@@ -140,11 +140,11 @@ internal fun ColumnScope.MiniChessContent(
         if (uiState.outcome == null) {
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 DefaultButton(
-                    onClick = { onAnswer("reset") },
+                    onClick = { onAnswer(BoardCommand.RESET) },
                     value = stringResource(Res.string.mini_chess_reset),
                 )
                 DefaultButton(
-                    onClick = { onAnswer("restart") },
+                    onClick = { onAnswer(BoardCommand.RESTART) },
                     value = stringResource(Res.string.mini_chess_restart),
                 )
             }
@@ -173,11 +173,11 @@ internal fun ColumnScope.MiniChessContent(
             Spacer(Modifier.height(12.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 DefaultButton(
-                    onClick = { onAnswer("reset") },
+                    onClick = { onAnswer(BoardCommand.RESET) },
                     value = stringResource(Res.string.mini_chess_reset),
                 )
                 DefaultButton(
-                    onClick = { onAnswer("restart") },
+                    onClick = { onAnswer(BoardCommand.RESTART) },
                     value = stringResource(Res.string.mini_chess_restart),
                 )
             }

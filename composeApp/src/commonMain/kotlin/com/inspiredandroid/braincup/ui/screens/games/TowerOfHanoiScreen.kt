@@ -54,7 +54,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.moves_label
 import braincup.composeapp.generated.resources.tower_of_hanoi_invalid_move
 import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
 import com.inspiredandroid.braincup.games.TowerOfHanoiGame
@@ -150,11 +149,7 @@ internal fun ColumnScope.TowerOfHanoiContent(
             ) {
                 LevelHeader(uiState.level)
                 Spacer(Modifier.height(4.dp))
-                Text(
-                    text = stringResource(Res.string.moves_label, uiState.moves),
-                    style = MaterialTheme.typography.labelLarge,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
+                MovesLabel(uiState.moves)
                 Spacer(Modifier.height(6.dp))
                 invalidMessage()
                 Spacer(Modifier.height(8.dp))
@@ -164,12 +159,7 @@ internal fun ColumnScope.TowerOfHanoiContent(
     } else {
         LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(4.dp))
-        Text(
-            text = stringResource(Res.string.moves_label, uiState.moves),
-            style = MaterialTheme.typography.labelLarge,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
+        MovesLabel(uiState.moves, Modifier.align(Alignment.CenterHorizontally))
         Spacer(Modifier.height(16.dp))
         Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
             board()

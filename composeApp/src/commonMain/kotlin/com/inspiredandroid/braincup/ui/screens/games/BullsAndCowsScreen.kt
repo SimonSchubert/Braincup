@@ -102,7 +102,7 @@ internal fun ColumnScope.BullsAndCowsContent(
                         value = uiState.currentGuess,
                         accent = MaterialTheme.colorScheme.primary,
                         revealColor = null,
-                        onRemoveAt = { index -> onAnswer(GameController.wordleClearAt(index)) },
+                        onRemoveAt = { index -> onAnswer(KeyboardCommand.clearAt(index)) },
                         modifier = Modifier.widthIn(max = 240.dp),
                     )
                     GiveUpButton(onGiveUp = onGiveUp)
@@ -175,7 +175,7 @@ internal fun ColumnScope.BullsAndCowsContent(
                 value = uiState.currentGuess,
                 accent = MaterialTheme.colorScheme.primary,
                 revealColor = null,
-                onRemoveAt = { index -> onAnswer(GameController.wordleClearAt(index)) },
+                onRemoveAt = { index -> onAnswer(KeyboardCommand.clearAt(index)) },
                 modifier = Modifier
                     .widthIn(max = 320.dp)
                     .align(Alignment.CenterHorizontally)
@@ -387,7 +387,7 @@ private fun BullsAndCowsKeyboard(
                 .height(enterHeight)
                 .hoverHand(canSubmit),
             isClickable = canSubmit,
-            onClick = { onKey(GameController.WORDLE_ENTER) },
+            onClick = { onKey(KeyboardCommand.ENTER) },
         ) {
             Text(
                 text = stringResource(Res.string.wordle_enter),

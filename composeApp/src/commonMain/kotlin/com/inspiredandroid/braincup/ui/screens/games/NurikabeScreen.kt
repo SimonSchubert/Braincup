@@ -100,7 +100,7 @@ internal fun ColumnScope.NurikabeContent(
                             onDragEnd = {
                                 val cells = dragCells
                                 if (cells.isNotEmpty()) {
-                                    onAnswer("paint:${if (dragFills) 1 else 0}:${cells.joinToString(",")}")
+                                    onAnswer(BoardCommand.paint(dragFills, cells))
                                 }
                                 dragCells = emptySet()
                             },
@@ -110,7 +110,7 @@ internal fun ColumnScope.NurikabeContent(
                     .pointerInput(uiState) {
                         detectTapGestures { offset ->
                             val (r, c) = cellAt(offset, size.width, size.height, rows, cols)
-                            onAnswer("toggle:${r * cols + c}")
+                            onAnswer(BoardCommand.toggle(r * cols + c))
                         }
                     },
             ) {

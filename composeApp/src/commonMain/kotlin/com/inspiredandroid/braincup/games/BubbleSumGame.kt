@@ -22,7 +22,9 @@ import kotlin.time.Duration.Companion.milliseconds
  * spends time fully visible, then a warning color, then hides — phases offset per bubble so
  * they do not all disappear together.
  */
-class BubbleSumGame : Game() {
+class BubbleSumGame :
+    Game(),
+    TimedPhaseGame {
 
     enum class VisibilityPhase {
         /** Number shown in the normal face color. */
@@ -302,7 +304,7 @@ class BubbleSumGame : Game() {
         }
     }
 
-    fun cancelAnimation() {
+    override fun cancelTimedPhase() {
         animationJob?.cancel()
         animationJob = null
     }

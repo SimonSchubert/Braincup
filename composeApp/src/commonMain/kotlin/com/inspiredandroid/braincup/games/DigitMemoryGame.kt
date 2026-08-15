@@ -23,7 +23,9 @@ import kotlin.time.Duration.Companion.milliseconds
  * The sequence grows by one digit each round (round 1 -> 4 digits) and the math problem gets mildly
  * harder, but the math stays an easy distractor, not a hard calculation. Only the recall is scored.
  */
-class DigitMemoryGame : Game() {
+class DigitMemoryGame :
+    Game(),
+    RevealRoundGame {
     // Always start fresh at length 4 so scores are comparable run-to-run.
     override val adaptiveDifficulty: Boolean = false
 
@@ -33,6 +35,8 @@ class DigitMemoryGame : Game() {
 
     var phase: Phase = Phase.SHOWING
         private set
+
+    override val isTimedPhaseActive: Boolean get() = phase == Phase.SHOWING
 
     /** The digits to memorize, kept as a String so leading zeros survive comparison. */
     var sequence: String = ""
@@ -103,7 +107,7 @@ class DigitMemoryGame : Game() {
     private fun showDurationMillis(length: Int): Long = (800L * length).coerceIn(2500L, 6000L)
 
     /** Show the sequence, then auto-advance to the solving phase after the memorize window. */
-    fun startShowing(scope: CoroutineScope, onChange: () -> Unit) {
+    override fun startTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         showJob?.cancel()
         showingPaused = false
         phase = Phase.SHOWING
@@ -117,13 +121,13 @@ class DigitMemoryGame : Game() {
         }
     }
 
-    fun cancelShowing() {
+    override fun cancelTimedPhase() {
         showingPaused = false
         showJob?.cancel()
         showJob = null
     }
 
-    fun pauseShowing() {
+    override fun pauseTimedPhase() {
         if (showJob == null || phase != Phase.SHOWING) return
         showingPaused = true
         val remaining = (showDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
@@ -132,7 +136,7 @@ class DigitMemoryGame : Game() {
         showJob = null
     }
 
-    fun resumeShowing(scope: CoroutineScope, onChange: () -> Unit) {
+    override fun resumeTimedPhase(scope: CoroutineScope, onChange: () -> Unit) {
         if (!showingPaused) return
         showingPaused = false
         val remaining = (showDeadlineMillis - Clock.System.now().toEpochMilliseconds()).coerceAtLeast(0)
@@ -141,15 +145,6 @@ class DigitMemoryGame : Game() {
             phase = Phase.SOLVING
             onChange()
         }
-    }
-
-    /**
-     * Re-generate the round at the current difficulty (same sequence length) without advancing.
-     * Used when a failed math problem forfeits the round.
-     */
-    fun repeatRound() {
-        round -= 1
-        nextRound()
     }
 
     /**

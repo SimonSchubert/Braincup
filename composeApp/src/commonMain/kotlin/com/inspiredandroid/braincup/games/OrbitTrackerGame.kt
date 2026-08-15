@@ -12,7 +12,9 @@ import kotlin.random.Random
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 
-class OrbitTrackerGame : Game() {
+class OrbitTrackerGame :
+    Game(),
+    TimedPhaseGame {
     enum class Phase {
         HIGHLIGHTING,
         MOVING,
@@ -152,7 +154,7 @@ class OrbitTrackerGame : Game() {
         }
     }
 
-    fun cancelAnimation() {
+    override fun cancelTimedPhase() {
         animationJob?.cancel()
         animationJob = null
     }

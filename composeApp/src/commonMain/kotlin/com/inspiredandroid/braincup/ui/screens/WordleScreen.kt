@@ -28,7 +28,7 @@ import braincup.composeapp.generated.resources.session_continue
 import braincup.composeapp.generated.resources.wordle_answer_was
 import braincup.composeapp.generated.resources.wordle_not_enough_letters
 import braincup.composeapp.generated.resources.wordle_not_in_word_list
-import com.inspiredandroid.braincup.app.GameController
+import com.inspiredandroid.braincup.app.KeyboardCommand
 import com.inspiredandroid.braincup.app.WordleLetter
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.app.WordleUiState
@@ -66,7 +66,7 @@ internal fun ColumnScope.WordleContent(
     onFinishedAction: () -> Unit,
 ) {
     val compact = LocalIsCompactHeight.current
-    val onTileClear: (Int) -> Unit = { index -> onAnswer(GameController.wordleClearAt(index)) }
+    val onTileClear: (Int) -> Unit = { index -> onAnswer(KeyboardCommand.clearAt(index)) }
     val finishedActionLabel = stringResource(
         if (inSessionMode) Res.string.session_continue else Res.string.button_play_again,
     )

@@ -86,7 +86,7 @@ internal fun ColumnScope.ShikakuContent(
                                 val start = dragStart
                                 val end = dragCurrent
                                 if (start != null && end != null) {
-                                    onAnswer("draw:${start.first},${start.second},${end.first},${end.second}")
+                                    onAnswer(BoardCommand.draw(start.first, start.second, end.first, end.second))
                                 }
                                 dragStart = null
                                 dragCurrent = null
@@ -100,7 +100,7 @@ internal fun ColumnScope.ShikakuContent(
                     .pointerInput(uiState) {
                         detectTapGestures { offset ->
                             val (row, col) = cellAt(offset, size.width, size.height, rows, cols)
-                            onAnswer("del:$row,$col")
+                            onAnswer(BoardCommand.delete(row, col))
                         }
                     },
             ) {

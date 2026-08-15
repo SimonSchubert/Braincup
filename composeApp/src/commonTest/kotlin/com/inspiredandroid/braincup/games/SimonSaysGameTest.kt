@@ -133,7 +133,7 @@ class SimonSaysGameTest {
         game.nextRound()
 
         game.startShowNewPad(this) {}
-        game.cancelShowNewPad()
+        game.cancelTimedPhase()
         testScheduler.advanceUntilIdle()
 
         // Leaving the game mid-flash must not strand a coroutine that later flips the phase.

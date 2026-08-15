@@ -45,6 +45,22 @@ data class FigureCell(
 @Immutable
 sealed interface GameUiState
 
+/**
+ * A [GameUiState] whose screen carries no run timer: the attempt ends on the board itself
+ * (solved, wrong tap, out of guesses) rather than when a countdown expires.
+ */
+@Immutable
+sealed interface UntimedUiState : GameUiState
+
+/**
+ * An [UntimedUiState] for a puzzle scored by the level reached, so every one of these boards can
+ * show its [level] the same way.
+ */
+@Immutable
+sealed interface LevelUiState : UntimedUiState {
+    val level: Int
+}
+
 @Immutable
 sealed class ExpressionToken(val displayValue: String) {
     data class NumberToken(val value: Int, val originalIndex: Int) : ExpressionToken(value.toString())
@@ -162,16 +178,16 @@ data class LightsOutUiState(
     val gridSize: Int,
     val cells: ImmutableList<Boolean>,
     val moves: Int,
-    val level: Int,
-) : GameUiState
+    override val level: Int,
+) : LevelUiState
 
 @Immutable
 data class SlidingPuzzleUiState(
     val gridSize: Int,
     val tiles: ImmutableList<Int>,
     val moves: Int,
-    val level: Int,
-) : GameUiState
+    override val level: Int,
+) : LevelUiState
 
 @Immutable
 data class TowerOfHanoiUiState(
@@ -182,8 +198,8 @@ data class TowerOfHanoiUiState(
     val rejectFromPeg: Int? = null,
     val rejectFeedbackKey: Int = 0,
     val moves: Int,
-    val level: Int,
-) : GameUiState
+    override val level: Int,
+) : LevelUiState
 
 @Immutable
 data class ShikakuUiState(
@@ -191,8 +207,8 @@ data class ShikakuUiState(
     val cols: Int,
     val clueByCellIndex: ImmutableMap<Int, Int>,
     val rectangles: ImmutableList<InclusiveRect>,
-    val level: Int,
-) : GameUiState {
+    override val level: Int,
+) : LevelUiState {
     @Immutable
     data class InclusiveRect(
         val top: Int,
@@ -209,9 +225,9 @@ data class CatQueensUiState(
     val regionIdByCellIndex: ImmutableList<Int>,
     val cats: ImmutableSet<Int>,
     val invalidCats: ImmutableSet<Int>,
-    val level: Int,
+    override val level: Int,
     val violation: Violation? = null,
-) : GameUiState {
+) : LevelUiState {
     enum class Violation { ROW, COLUMN, ZONE, TOUCHING }
 }
 
@@ -225,8 +241,8 @@ data class NurikabeUiState(
     val invalidCells: ImmutableSet<Int>,
     val forbiddenPoolCells: ImmutableSet<Int>,
     val disconnectedSeaCells: ImmutableSet<Int>,
-    val level: Int,
-) : GameUiState
+    override val level: Int,
+) : LevelUiState
 
 @Immutable
 data class KnotUiState(
@@ -234,8 +250,8 @@ data class KnotUiState(
     val cols: Int,
     val endpoints: ImmutableList<Endpoint>,
     val paths: ImmutableMap<Int, ImmutableList<Int>>,
-    val level: Int,
-) : GameUiState {
+    override val level: Int,
+) : LevelUiState {
     @Immutable
     data class Endpoint(val color: Int, val a: Int, val b: Int)
 }
@@ -248,9 +264,9 @@ data class SoloChessUiState(
     val kingCell: Int?,
     val selected: Int?,
     val targets: ImmutableSet<Int>,
-    val level: Int,
+    override val level: Int,
     val stuck: Boolean,
-) : GameUiState
+) : LevelUiState
 
 @Immutable
 data class PrismClearClearWave(
@@ -266,7 +282,7 @@ data class PrismClearUiState(
     val tileOrdinals: ImmutableList<Int?>,
     val selectedIndex: Int?,
     val movesUsed: Int,
-    val level: Int,
+    override val level: Int,
     val stuck: Boolean,
     val canUndo: Boolean = false,
     val rejectedFrom: Int? = null,
@@ -277,7 +293,7 @@ data class PrismClearUiState(
     val swapFromIndex: Int? = null,
     val swapToIndex: Int? = null,
     val boardAnimationKey: Int = 0,
-) : GameUiState
+) : LevelUiState
 
 @Immutable
 data class PatternSequenceUiState(
@@ -293,7 +309,7 @@ data class GhostGridUiState(
     val cells: ImmutableList<CellState>,
     val sequenceLength: Int,
     val tappedCount: Int,
-) : GameUiState {
+) : UntimedUiState {
     @Immutable
     data class CellState(val type: SequenceCellType)
 }
@@ -305,7 +321,7 @@ data class SimonSaysUiState(
     val pads: ImmutableList<PadState>,
     val sequenceLength: Int,
     val tappedCount: Int,
-) : GameUiState {
+) : UntimedUiState {
     @Immutable
     data class PadState(val color: GameColor, val type: SequenceCellType)
 }
@@ -355,7 +371,7 @@ data class OrbitTrackerUiState(
     val phase: OrbitTrackerGame.Phase,
     val targetCount: Int,
     val selectedCount: Int,
-) : GameUiState {
+) : UntimedUiState {
     @Immutable
     data class BallState(
         val x: Float,
@@ -466,7 +482,7 @@ data class WordleUiState(
     val answer: String?,
     val notEnoughLetters: Boolean,
     val notInWordList: Boolean,
-) : GameUiState
+) : UntimedUiState
 
 @Immutable
 data class BullsAndCowsGuess(
@@ -483,7 +499,7 @@ data class BullsAndCowsUiState(
     val won: Boolean,
     val secret: String?,
     val absentDigits: ImmutableSet<Char> = persistentSetOf(),
-) : GameUiState
+) : UntimedUiState
 
 enum class MiniChessOutcome { PLAYER_WIN, PLAYER_LOSS, DRAW }
 
@@ -507,4 +523,4 @@ data class MiniChessUiState(
     val halfMoveCount: Int,
     val halfMoveCap: Int,
     val pointsForWin: Int,
-) : GameUiState
+) : UntimedUiState

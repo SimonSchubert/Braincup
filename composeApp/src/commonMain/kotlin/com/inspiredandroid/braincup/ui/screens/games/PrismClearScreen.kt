@@ -20,7 +20,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -36,8 +35,6 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.input.pointer.positionChange
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -45,6 +42,7 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.prism_clear_restart
 import braincup.composeapp.generated.resources.prism_clear_stuck
 import braincup.composeapp.generated.resources.prism_clear_undo
+import com.inspiredandroid.braincup.app.BoardCommand
 import com.inspiredandroid.braincup.app.PrismClearClearWave
 import com.inspiredandroid.braincup.app.PrismClearUiState
 import com.inspiredandroid.braincup.games.PrismTileType
@@ -103,14 +101,14 @@ internal fun ColumnScope.PrismClearContent(
             pendingTapIndex = index
         } else {
             pendingTapIndex = null
-            onAnswer("tap:$index")
+            onAnswer(BoardCommand.tap(index))
         }
     }
 
     fun flushPendingTap() {
         val pending = pendingTapIndex ?: return
         pendingTapIndex = null
-        onAnswer("tap:$pending")
+        onAnswer(BoardCommand.tap(pending))
     }
 
     // Drop a stale pending selection when the level changes.
@@ -266,7 +264,7 @@ internal fun ColumnScope.PrismClearContent(
                                     !inputLockedState.value
                                 ) {
                                     // Drag commits go straight to trySwap; skip while animating.
-                                    onAnswerState.value("swap:$from,$to")
+                                    onAnswerState.value(BoardCommand.swap(from, to))
                                     swapped = true
                                 }
                             }
@@ -289,7 +287,7 @@ internal fun ColumnScope.PrismClearContent(
             DefaultButton(
                 // Stay visually enabled for the whole turn once a move exists; only the first
                 // pre-move state is dimmed. Clicks during clear/swap anim still wait on inputLock.
-                onClick = { if (!inputLocked && uiState.canUndo) onAnswer("undo") },
+                onClick = { if (!inputLocked && uiState.canUndo) onAnswer(BoardCommand.UNDO) },
                 value = stringResource(Res.string.prism_clear_undo),
                 face = if (uiState.canUndo) {
                     Primary
@@ -298,7 +296,7 @@ internal fun ColumnScope.PrismClearContent(
                 },
             )
             DefaultButton(
-                onClick = { if (!inputLocked) onAnswer("restart") },
+                onClick = { if (!inputLocked) onAnswer(BoardCommand.RESTART) },
                 value = stringResource(Res.string.prism_clear_restart),
             )
         }
@@ -311,12 +309,10 @@ internal fun ColumnScope.PrismClearContent(
                 LevelHeader(uiState.level)
                 if (uiState.stuck) {
                     Spacer(Modifier.height(6.dp))
-                    Text(
+                    BoardInstructionLine(
                         text = stringResource(Res.string.prism_clear_stuck),
+                        isError = true,
                         style = MaterialTheme.typography.labelMedium,
-                        color = MaterialTheme.colorScheme.error,
-                        fontWeight = FontWeight.Bold,
-                        textAlign = TextAlign.Center,
                     )
                 }
                 Spacer(Modifier.height(8.dp))
@@ -327,12 +323,10 @@ internal fun ColumnScope.PrismClearContent(
         LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
         if (uiState.stuck) {
             Spacer(Modifier.height(8.dp))
-            Text(
+            BoardInstructionLine(
                 text = stringResource(Res.string.prism_clear_stuck),
+                isError = true,
                 style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.error,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
                     .padding(horizontal = 24.dp),

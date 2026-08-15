@@ -5,6 +5,9 @@ import androidx.navigation.NavController
 import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.app.BoardCommand.intAndIntsArg
+import com.inspiredandroid.braincup.app.BoardCommand.intArg
+import com.inspiredandroid.braincup.app.BoardCommand.intsArg
 import com.inspiredandroid.braincup.games.*
 import com.inspiredandroid.braincup.games.minichess.ChessAi
 import com.inspiredandroid.braincup.games.tools.GameColor
@@ -33,6 +36,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.time.Clock
+import kotlin.time.Duration
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
 
@@ -160,14 +164,6 @@ class GameController(
 
         /** Hold after every correct operator is shown before advancing the round. */
         private const val MISSING_OPS_FEEDBACK_HOLD_MS = 1200L
-
-        // Sentinel inputs the Wordle keyboard sends through the shared onAnswer(String) channel;
-        // anything else is treated as a single typed letter.
-        const val WORDLE_ENTER = "ENTER"
-        const val WORDLE_DELETE = "DEL"
-        private const val WORDLE_CLEAR_PREFIX = "CLEAR"
-
-        fun wordleClearAt(index: Int): String = "$WORDLE_CLEAR_PREFIX$index"
     }
 
     init {
@@ -318,8 +314,14 @@ class GameController(
         points = 0
         sessionStartRound = 0
 
-        // Games that own their setup (reveal timers, animation loops, stored level, async word
-        // list) start themselves; the rest take the generic timed-round path.
+        // Every level puzzle resumes at its stored level through the same path.
+        if (gameType.usesLevelLabel) {
+            startLevelGame(gameType)
+            return
+        }
+
+        // Games that own their setup (reveal timers, animation loops, async word list) start
+        // themselves; the rest take the generic timed-round path.
         when (gameType) {
             GameType.VISUAL_MEMORY -> startVisualMemoryGame(gameType)
             GameType.GHOST_GRID -> startGhostGridGame(gameType)
@@ -327,19 +329,11 @@ class GameController(
             GameType.ORBIT_TRACKER -> startOrbitTrackerGame(gameType)
             GameType.SCHULTE_TABLE -> startSchulteTableGame(gameType)
             GameType.MINI_CHESS -> startMiniChessGame(gameType)
-            GameType.LIGHTS_OUT -> startLevelGame(gameType) { LightsOutGame(level = it) }
-            GameType.SLIDING_PUZZLE -> startLevelGame(gameType) { SlidingPuzzleGame(level = it) }
-            GameType.TOWER_OF_HANOI -> startLevelGame(gameType) { TowerOfHanoiGame(level = it) }
-            GameType.SHIKAKU -> startLevelGame(gameType) { ShikakuGame(level = it) }
-            GameType.NURIKABE -> startLevelGame(gameType) { NurikabeGame(level = it) }
-            GameType.CAT_QUEENS -> startLevelGame(gameType) { CatQueensGame(level = it) }
-            GameType.KNOT -> startLevelGame(gameType) { KnotGame(level = it) }
-            GameType.SOLO_CHESS -> startLevelGame(gameType) { SoloChessGame(level = it) }
-            GameType.PRISM_CLEAR -> startPrismClearGame(gameType)
             GameType.FLAGS -> startFlagsGame(gameType)
-            GameType.DIGIT_MEMORY -> startDigitMemoryGame(gameType)
-            GameType.QUICK_SUM -> startQuickSumGame(gameType)
-            GameType.N_BACK -> startNBackGame(gameType)
+            GameType.DIGIT_MEMORY,
+            GameType.QUICK_SUM,
+            GameType.N_BACK,
+            -> startRevealRoundGame(gameType)
             GameType.BUBBLE_SUM -> startBubbleSumGame(gameType)
             GameType.SPOT_THE_NEW -> startSpotTheNewGame(gameType)
             GameType.WORDLE -> startWordleGame(gameType)
@@ -354,16 +348,23 @@ class GameController(
         _timeRemaining.value = GAME_TIME_MILLIS
 
         val game = createGame(gameType)
-        if (game.adaptiveDifficulty) {
-            sessionStartRound = storage.getLastRound(gameType.id)
-            game.round = sessionStartRound
-        }
+        resumeAdaptiveDifficulty(gameType, game)
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         navController.navigate(Playing(gameType.id))
         startTimer()
+    }
+
+    /**
+     * Pick the ramp back up where the last run left it, so a returning player never replays the
+     * easiest rounds. The start round is also what [GameType.difficultyBonus] scores on finish.
+     */
+    private fun resumeAdaptiveDifficulty(gameType: GameType, game: Game) {
+        if (!game.adaptiveDifficulty) return
+        sessionStartRound = storage.getLastRound(gameType.id)
+        game.round = sessionStartRound
     }
 
     fun submitAnswer(answer: String) {
@@ -411,32 +412,107 @@ class GameController(
     /** Correct/incorrect plus a one-second feedback beat, for games without bespoke handling. */
     private fun submitGenericAnswer(currentState: GameState.Active, game: Game, answer: String) {
         val input = answer.trim()
-        val isCorrect = game.isCorrect(input)
 
         // Stop continuous motion while the feedback screen is up; proceedAfterFeedback restarts it.
-        (game as? BubbleSumGame)?.cancelAnimation()
+        (game as? BubbleSumGame)?.cancelTimedPhase()
 
-        if (isCorrect) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
+        if (game.isCorrect(input)) {
+            onCorrectAnswer(currentState, game)
         } else {
             game.answeredAllCorrect = false
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = false,
-                message = game.solutionMessage(),
-            )
+            showFeedbackScreen(currentState.gameType, game, isCorrect = false, message = game.solutionMessage())
         }
+    }
 
+    /**
+     * The one correct-answer beat every round-based game shares: bank the point, show the feedback
+     * screen with the game's hint, then move on.
+     */
+    private fun onCorrectAnswer(currentState: GameState.Active, game: Game) {
+        points++
+        showFeedbackScreen(
+            gameType = currentState.gameType,
+            game = game,
+            isCorrect = true,
+            message = game.hint()?.let { FeedbackMessage.Plain(it) },
+        )
+    }
+
+    /** Hold the feedback screen for a beat, then start the next round or finish the run. */
+    private fun showFeedbackScreen(
+        gameType: GameType,
+        game: Game,
+        isCorrect: Boolean,
+        message: FeedbackMessage?,
+    ) {
+        _gameState.value = GameState.Feedback(
+            gameType = gameType,
+            game = game,
+            isCorrect = isCorrect,
+            message = message,
+        )
         scope.launch {
             delay(1.seconds)
             proceedAfterFeedback()
+        }
+    }
+
+    /**
+     * The answer flow for games that mark a wrong answer on their own board instead of on the
+     * feedback screen: a correct answer takes the shared [onCorrectAnswer] beat, a wrong one
+     * recolors the live UI state through [markWrong] and holds it for [wrongFeedback] before the
+     * next round. [markWrong] returns null when the input cannot be mapped onto the board, which
+     * leaves the round untouched.
+     */
+    private inline fun <reified S : GameUiState> handleAnswerWithBoardFeedback(
+        currentState: GameState.Active,
+        game: Game,
+        input: String,
+        wrongFeedback: Duration = 1.seconds,
+        markWrong: (S) -> S?,
+    ) {
+        if (game.isCorrect(input)) {
+            onCorrectAnswer(currentState, game)
+            return
+        }
+        game.answeredAllCorrect = false
+        val current = _gameUiState.value as? S ?: return
+        _gameUiState.value = markWrong(current) ?: return
+        scheduleNextRound(currentState.gameType, game, after = wrongFeedback)
+    }
+
+    /**
+     * The keyboard flow both guess-a-secret boards share. Returns whether a guess was submitted:
+     * Wordle submits by itself once the row is full, so that answer has to come back from [type]
+     * as well as from the ENTER key.
+     */
+    private fun applyKeyboardInput(
+        input: String,
+        type: (Char) -> Boolean,
+        backspace: () -> Unit,
+        clearAt: (Int) -> Unit,
+        submit: () -> Boolean,
+    ): Boolean {
+        when (input) {
+            KeyboardCommand.ENTER -> return submit()
+            KeyboardCommand.DELETE -> {
+                backspace()
+                return false
+            }
+        }
+        val clearIndex = KeyboardCommand.clearIndexOf(input)
+        if (clearIndex != null) {
+            clearAt(clearIndex)
+            return false
+        }
+        return input.firstOrNull()?.let(type) ?: false
+    }
+
+    /** Leave the board feedback up for [after], then advance the round (or finish the run). */
+    private fun scheduleNextRound(gameType: GameType, game: Game, after: Duration) {
+        scope.launch {
+            delay(after)
+            proceedAfterInlineFeedback(gameType, game)
         }
     }
 
@@ -444,72 +520,57 @@ class GameController(
         val currentState = _gameState.value
         if (currentState !is GameState.Active) return
 
+        val gameType = currentState.gameType
         val game = currentState.game
         game.answeredAllCorrect = false
 
-        if (game is MiniChessGame) {
-            game.markGiveUp()
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is WordleGame) {
-            game.giveUp()
-            points = 0
-            _gameUiState.value = game.toUiState()
-            recordWordleScore(currentState.gameType)
-            return
-        }
-        if (game is LevelGame) {
-            points = 0
-            finishCurrentGame(currentState.gameType, game)
-            return
-        }
-        if (game is BullsAndCowsGame) {
-            game.giveUp()
-            points = 0
-            _gameUiState.value = game.toUiState()
-            recordBullsAndCowsScore(currentState.gameType)
-            return
-        }
-
-        if (game is SherlockCalculationGame) {
-            val currentUiState = _gameUiState.value as? SherlockCalculationUiState ?: return
-            _gameUiState.value = currentUiState.copy(solutionTokens = game.solutionTokens.toImmutableList())
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
+        when (game) {
+            // Games that end the whole attempt on a give-up.
+            is MiniChessGame -> {
+                game.markGiveUp()
+                finishCurrentGame(gameType, game)
             }
-            return
-        }
-
-        if (game is MissingOperatorsGame) {
-            val currentUiState = _gameUiState.value as? MissingOperatorsUiState ?: return
-            if (currentUiState.correctOperators != null) return
-            _gameUiState.value = currentUiState.copy(
-                submittedOperators = null,
-                correctOperators = game.correctOperators.toImmutableList(),
-                feedbackRevealedSlots = persistentSetOf(),
-            )
-            scope.launch {
-                revealMissingOperatorsSequentially(
-                    gameType = currentState.gameType,
-                    game = game,
-                    indicesToReveal = game.correctOperators.indices.toList(),
+            is LevelGame -> {
+                points = 0
+                finishCurrentGame(gameType, game)
+            }
+            // Boards that stay up with the answer revealed; the player leaves them by hand.
+            is WordleGame -> {
+                game.giveUp()
+                points = 0
+                emitUiState(game)
+                recordWordleScore(gameType)
+            }
+            is BullsAndCowsGame -> {
+                game.giveUp()
+                points = 0
+                emitUiState(game)
+                recordBullsAndCowsScore(gameType)
+            }
+            // Games that reveal the solution on their own board before the next round.
+            is SherlockCalculationGame -> {
+                val ui = _gameUiState.value as? SherlockCalculationUiState ?: return
+                _gameUiState.value = ui.copy(solutionTokens = game.solutionTokens.toImmutableList())
+                scheduleNextRound(gameType, game, after = 1.seconds)
+            }
+            is MissingOperatorsGame -> {
+                val ui = _gameUiState.value as? MissingOperatorsUiState ?: return
+                if (ui.correctOperators != null) return
+                _gameUiState.value = ui.copy(
+                    submittedOperators = null,
+                    correctOperators = game.correctOperators.toImmutableList(),
+                    feedbackRevealedSlots = persistentSetOf(),
                 )
+                scope.launch {
+                    revealMissingOperatorsSequentially(
+                        gameType = gameType,
+                        game = game,
+                        indicesToReveal = game.correctOperators.indices.toList(),
+                    )
+                }
             }
-            return
-        }
-
-        _gameState.value = GameState.Feedback(
-            gameType = currentState.gameType,
-            game = game,
-            isCorrect = false,
-            message = game.solutionMessage(),
-        )
-
-        scope.launch {
-            delay(1.seconds)
-            proceedAfterFeedback()
+            // Everyone else: the feedback screen shows the solution, then the round moves on.
+            else -> showFeedbackScreen(gameType, game, isCorrect = false, message = game.solutionMessage())
         }
     }
 
@@ -526,7 +587,7 @@ class GameController(
         } else {
             game.nextRound()
             _gameState.value = GameState.Active(currentState.gameType, game)
-            _gameUiState.value = game.toUiState()
+            emitUiState(game)
             if (game is BubbleSumGame) {
                 startBubbleSumMotion(game)
             }
@@ -650,19 +711,11 @@ class GameController(
             }
         }
 
-        when (val game = state.game) {
-            is VisualMemoryGame ->
-                if (game.phase == VisualMemoryGame.Phase.MEMORIZING) game.pauseCountdown()
-            is SpotTheNewGame ->
-                if (game.phase == SpotTheNewGame.Phase.MEMORIZING) game.pauseCountdown()
-            is DigitMemoryGame ->
-                if (game.phase == DigitMemoryGame.Phase.SHOWING) game.pauseShowing()
-            is QuickSumGame ->
-                if (game.phase == QuickSumGame.Phase.FLASHING) game.pauseFlashing()
-            is NBackGame ->
-                if (game.phase == NBackGame.Phase.MEMORIZE) game.pauseShowing()
-        }
+        state.pausablePhase()?.pauseTimedPhase()
     }
+
+    /** The running memorize/flash phase of the current game, if it has one to hold. */
+    private fun GameState.Active.pausablePhase(): PausableTimedPhaseGame? = (game as? PausableTimedPhaseGame)?.takeIf { it.isTimedPhaseActive }
 
     /** Resumes timers paused by [pauseTimers]; no-op if nothing was paused. */
     fun resumeTimers() {
@@ -693,28 +746,7 @@ class GameController(
         }
         pausedTimerKind = null
 
-        when (val game = state.game) {
-            is VisualMemoryGame ->
-                if (game.phase == VisualMemoryGame.Phase.MEMORIZING) {
-                    game.resumeCountdown(scope) { emitGameUiState(game) }
-                }
-            is SpotTheNewGame ->
-                if (game.phase == SpotTheNewGame.Phase.MEMORIZING) {
-                    game.resumeCountdown(scope) { _gameUiState.value = game.toUiState() }
-                }
-            is DigitMemoryGame ->
-                if (game.phase == DigitMemoryGame.Phase.SHOWING) {
-                    game.resumeShowing(scope) { _gameUiState.value = game.toUiState() }
-                }
-            is QuickSumGame ->
-                if (game.phase == QuickSumGame.Phase.FLASHING) {
-                    game.resumeFlashing(scope) { _gameUiState.value = game.toUiState() }
-                }
-            is NBackGame ->
-                if (game.phase == NBackGame.Phase.MEMORIZE) {
-                    game.resumeShowing(scope) { _gameUiState.value = game.toUiState() }
-                }
-        }
+        state.pausablePhase()?.resumeTimedPhase(scope) { emitUiState(state.game) }
     }
 
     private fun createGame(gameType: GameType): Game = when (gameType) {
@@ -728,15 +760,18 @@ class GameController(
         GameType.ANOMALY_PUZZLE -> AnomalyPuzzleGame()
         GameType.PATH_FINDER -> PathFinderGame()
         GameType.MINI_SUDOKU -> MiniSudokuGame()
-        GameType.LIGHTS_OUT -> LightsOutGame()
-        GameType.SLIDING_PUZZLE -> SlidingPuzzleGame()
-        GameType.TOWER_OF_HANOI -> TowerOfHanoiGame()
-        GameType.SHIKAKU -> ShikakuGame()
-        GameType.NURIKABE -> NurikabeGame()
-        GameType.CAT_QUEENS -> CatQueensGame()
-        GameType.KNOT -> KnotGame()
-        GameType.SOLO_CHESS -> SoloChessGame()
-        GameType.PRISM_CLEAR -> PrismClearGame()
+        // Level puzzles are normally built at the stored level by startGame; this covers the
+        // instructions/preview path, which only ever needs the first one.
+        GameType.LIGHTS_OUT,
+        GameType.SLIDING_PUZZLE,
+        GameType.TOWER_OF_HANOI,
+        GameType.SHIKAKU,
+        GameType.NURIKABE,
+        GameType.CAT_QUEENS,
+        GameType.KNOT,
+        GameType.SOLO_CHESS,
+        GameType.PRISM_CLEAR,
+        -> createLevelGame(gameType, level = 1)
         GameType.SCHULTE_TABLE -> SchulteTableGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
         GameType.PATTERN_SEQUENCE -> PatternSequenceGame()
@@ -758,6 +793,20 @@ class GameController(
         GameType.WORDLE -> error("WordleGame is created in startWordleGame")
     }
 
+    /** The one place that knows how to build each level puzzle at a given level. */
+    private fun createLevelGame(gameType: GameType, level: Int): LevelGame = when (gameType) {
+        GameType.LIGHTS_OUT -> LightsOutGame(level = level)
+        GameType.SLIDING_PUZZLE -> SlidingPuzzleGame(level = level)
+        GameType.TOWER_OF_HANOI -> TowerOfHanoiGame(level = level)
+        GameType.SHIKAKU -> ShikakuGame(level = level)
+        GameType.NURIKABE -> NurikabeGame(level = level)
+        GameType.CAT_QUEENS -> CatQueensGame(level = level)
+        GameType.KNOT -> KnotGame(level = level)
+        GameType.SOLO_CHESS -> SoloChessGame(level = level)
+        GameType.PRISM_CLEAR -> PrismClearGame(level = level)
+        else -> error("${gameType.name} is not a level game")
+    }
+
     private fun startBullsAndCowsGame(gameType: GameType) {
         points = 0
         bullsAndCowsScoreRecorded = false
@@ -765,7 +814,7 @@ class GameController(
         val game = BullsAndCowsGame()
         game.nextRound()
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         navController.navigate(Playing(gameType.id))
     }
 
@@ -774,22 +823,17 @@ class GameController(
         game: BullsAndCowsGame,
         input: String,
     ) {
-        val guessSubmitted = when {
-            input == WORDLE_ENTER -> game.submitGuess()
-            input == WORDLE_DELETE -> {
-                game.backspace()
+        val guessSubmitted = applyKeyboardInput(
+            input = input,
+            type = { digit ->
+                game.typeDigit(digit)
                 false
-            }
-            input.startsWith(WORDLE_CLEAR_PREFIX) -> {
-                input.removePrefix(WORDLE_CLEAR_PREFIX).toIntOrNull()?.let { game.removeAt(it) }
-                false
-            }
-            else -> {
-                input.firstOrNull()?.let { game.typeDigit(it) }
-                false
-            }
-        }
-        _gameUiState.value = game.toUiState()
+            },
+            backspace = game::backspace,
+            clearAt = game::removeAt,
+            submit = game::submitGuess,
+        )
+        emitUiState(game)
         if (guessSubmitted && game.finished) {
             // Score is guesses used (lower is better): gold ≤3, silver ≤6, bronze ≤12.
             // Stay on the board so the player can embrace the win (or see the secret).
@@ -804,7 +848,7 @@ class GameController(
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
-        game.startCountdown(scope) { emitGameUiState(game) }
+        game.startCountdown(scope) { emitUiState(game) }
     }
 
     private fun startSpotTheNewGame(gameType: GameType) {
@@ -812,11 +856,11 @@ class GameController(
         game.startMemorizing()
 
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         navController.navigate(Playing(gameType.id))
         // Memorize phase runs for a fixed countdown, then the answering rounds begin.
         // No global timer: the game runs until a wrong tap.
-        game.startMemorizeCountdown(scope) { _gameUiState.value = game.toUiState() }
+        game.startMemorizeCountdown(scope) { emitUiState(game) }
     }
 
     private fun handleSpotTheNewAnswer(game: SpotTheNewGame, answer: String) {
@@ -824,7 +868,7 @@ class GameController(
         when (game.submitAnswer(answer)) {
             SpotTheNewGame.SubmitResult.Correct -> {
                 points++
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
                 _intermediateCorrectEvents.tryEmit(Unit)
             }
             SpotTheNewGame.SubmitResult.PoolExhausted -> {
@@ -833,7 +877,7 @@ class GameController(
                 finishCurrentGame(GameType.SPOT_THE_NEW, game)
             }
             SpotTheNewGame.SubmitResult.Wrong -> {
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
                 scope.launch {
                     delay(2.seconds)
                     finishCurrentGame(GameType.SPOT_THE_NEW, game)
@@ -846,172 +890,69 @@ class GameController(
         currentState: GameState.Active,
         game: AnomalyPuzzleGame,
         input: String,
-    ) {
-        if (game.isCorrect(input)) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterFeedback()
-            }
-        } else {
-            game.answeredAllCorrect = false
-            val wrongIndex = input.toIntOrNull()?.minus(1)
-            val currentUiState = _gameUiState.value as? AnomalyPuzzleUiState ?: return
-            _gameUiState.value = currentUiState.copy(
-                rows = currentUiState.rows.withFeedbackStates(wrongIndex, game.resultIndex, currentUiState.columnsPerRow),
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
-            }
-        }
+    ) = handleAnswerWithBoardFeedback<AnomalyPuzzleUiState>(currentState, game, input) { ui ->
+        ui.copy(
+            rows = ui.rows.withFeedbackStates(
+                wrongIndex = input.toIntOrNull()?.minus(1),
+                correctIndex = game.resultIndex,
+                columnsPerRow = ui.columnsPerRow,
+            ),
+        )
     }
 
     private fun handlePatternSequenceAnswer(
         currentState: GameState.Active,
         game: PatternSequenceGame,
         input: String,
-    ) {
-        if (game.isCorrect(input)) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterFeedback()
-            }
-        } else {
-            game.answeredAllCorrect = false
-            val wrongIndex = input.toIntOrNull()
-            val currentUiState = _gameUiState.value as? PatternSequenceUiState ?: return
-            _gameUiState.value = currentUiState.copy(
-                optionRows = currentUiState.optionRows.withFeedbackStates(wrongIndex, game.correctOptionIndex, 2),
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
-            }
-        }
+    ) = handleAnswerWithBoardFeedback<PatternSequenceUiState>(currentState, game, input) { ui ->
+        ui.copy(
+            optionRows = ui.optionRows.withFeedbackStates(
+                wrongIndex = input.toIntOrNull(),
+                correctIndex = game.correctOptionIndex,
+                columnsPerRow = 2,
+            ),
+        )
     }
 
     private fun handlePathFinderAnswer(
         currentState: GameState.Active,
         game: PathFinderGame,
         input: String,
-    ) {
-        if (game.isCorrect(input)) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterFeedback()
-            }
-        } else {
-            game.answeredAllCorrect = false
-            val wrongIndex = input.toIntOrNull()?.minus(1)
-            val currentUiState = _gameUiState.value as? PathFinderUiState ?: return
-            _gameUiState.value = currentUiState.copy(
-                grid = currentUiState.grid.withFeedbackStates(wrongIndex, game.correctIndex, 4),
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
-            }
-        }
+    ) = handleAnswerWithBoardFeedback<PathFinderUiState>(currentState, game, input) { ui ->
+        ui.copy(
+            grid = ui.grid.withFeedbackStates(
+                wrongIndex = input.toIntOrNull()?.minus(1),
+                correctIndex = game.correctIndex,
+                columnsPerRow = 4,
+            ),
+        )
     }
 
     private fun handleColoredShapesAnswer(
         currentState: GameState.Active,
         game: ColoredShapesGame,
         input: String,
-    ) {
-        if (game.isCorrect(input)) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterFeedback()
-            }
-        } else {
-            game.answeredAllCorrect = false
-            val correctAnswer = game.points()
-            val currentUiState = _gameUiState.value as? ColoredShapesUiState ?: return
-            _gameUiState.value = currentUiState.copy(
-                possibleAnswers = currentUiState.possibleAnswers.map { button ->
-                    button.copy(
-                        state = when (button.value) {
-                            input -> AnswerButtonState.WRONG
-                            correctAnswer -> AnswerButtonState.CORRECT
-                            else -> AnswerButtonState.DIMMED
-                        },
-                    )
-                }.toImmutableList(),
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
-            }
-        }
+    ) = handleAnswerWithBoardFeedback<ColoredShapesUiState>(currentState, game, input) { ui ->
+        ui.copy(
+            possibleAnswers = ui.possibleAnswers.withFeedbackStates(
+                wrongValue = input,
+                correctValue = game.points(),
+            ),
+        )
     }
 
     private fun handleValueComparisonAnswer(
         currentState: GameState.Active,
         game: ValueComparisonGame,
         input: String,
-    ) {
-        if (game.isCorrect(input)) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterFeedback()
-            }
-        } else {
-            game.answeredAllCorrect = false
-            val selectedIndex = (input.toIntOrNull() ?: return) - 1
-            val correctIndex = game.resultIndex
-            val currentUiState = _gameUiState.value as? ValueComparisonUiState ?: return
-            _gameUiState.value = currentUiState.copy(
-                answers = currentUiState.answers.mapIndexed { i, button ->
-                    button.copy(
-                        state = when (i) {
-                            selectedIndex -> AnswerButtonState.WRONG
-                            correctIndex -> AnswerButtonState.CORRECT
-                            else -> AnswerButtonState.DIMMED
-                        },
-                    )
-                }.toImmutableList(),
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
-            }
-        }
+    ) = handleAnswerWithBoardFeedback<ValueComparisonUiState>(currentState, game, input) { ui ->
+        val selectedIndex = input.toIntOrNull()?.minus(1) ?: return@handleAnswerWithBoardFeedback null
+        ui.copy(
+            answers = ui.answers.withFeedbackStates(
+                wrongIndex = selectedIndex,
+                correctIndex = game.resultIndex,
+            ),
+        )
     }
 
     private fun handleMissingOperatorsAnswer(
@@ -1024,17 +965,7 @@ class GameController(
         if (currentUiState.correctOperators != null) return
 
         if (game.isCorrect(input)) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterFeedback()
-            }
+            onCorrectAnswer(currentState, game)
             return
         }
 
@@ -1089,23 +1020,20 @@ class GameController(
         val index = input.toIntOrNull() ?: return
         when (game.tap(index)) {
             TrioGame.TapResult.Toggled -> {
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
             }
             TrioGame.TapResult.Correct -> {
                 points++
-                _gameUiState.value = game.toUiState()
-                scope.launch {
-                    delay(700.milliseconds)
-                    proceedAfterInlineFeedback(currentState.gameType, game)
-                }
+                emitUiState(game)
+                scheduleNextRound(currentState.gameType, game, after = 700.milliseconds)
             }
             TrioGame.TapResult.Wrong -> {
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
                 scope.launch {
                     delay(500.milliseconds)
                     if (_gameState.value is GameState.Active) {
                         game.clearSelection()
-                        _gameUiState.value = game.toUiState()
+                        emitUiState(game)
                     }
                 }
             }
@@ -1118,20 +1046,17 @@ class GameController(
         game: ColorConfusionGame,
         input: String,
     ) {
-        if (input == "submit") {
+        if (input == BoardCommand.SUBMIT) {
             val correct = game.submit()
-            _gameUiState.value = game.toUiState()
+            emitUiState(game)
             if (correct) {
                 points++
             }
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
-            }
+            scheduleNextRound(currentState.gameType, game, after = 1.seconds)
         } else {
             val index = input.toIntOrNull() ?: return
             game.toggleCell(index)
-            _gameUiState.value = game.toUiState()
+            emitUiState(game)
         }
     }
 
@@ -1139,27 +1064,29 @@ class GameController(
         currentState: GameState.Active,
         game: MiniSudokuGame,
         input: String,
+    ) = handleAnswerWithBoardFeedback<MiniSudokuUiState>(
+        currentState = currentState,
+        game = game,
+        input = input,
+        wrongFeedback = 1500.milliseconds,
+    ) { ui ->
+        ui.copy(solutionValues = game.flatSolution().toImmutableList())
+    }
+
+    /**
+     * Shared flow for every [LevelGame] board: apply the move the screen encoded, republish the
+     * board, and bank the level when that move solved it. [apply] returns null when the command
+     * is not one this board understands, which leaves the round untouched.
+     */
+    private fun handleLevelBoardAnswer(
+        currentState: GameState.Active,
+        game: LevelGame,
+        apply: () -> Boolean?,
     ) {
-        if (game.isCorrect(input)) {
-            points++
-            _gameState.value = GameState.Feedback(
-                gameType = currentState.gameType,
-                game = game,
-                isCorrect = true,
-                message = game.hint()?.let { FeedbackMessage.Plain(it) },
-            )
-            scope.launch {
-                delay(1.seconds)
-                proceedAfterFeedback()
-            }
-        } else {
-            game.answeredAllCorrect = false
-            val currentUiState = _gameUiState.value as? MiniSudokuUiState ?: return
-            _gameUiState.value = currentUiState.copy(solutionValues = game.flatSolution().toImmutableList())
-            scope.launch {
-                delay(1500.milliseconds)
-                proceedAfterInlineFeedback(currentState.gameType, game)
-            }
+        val solved = apply() ?: return
+        emitUiState(game)
+        if (solved) {
+            onLevelSolved(currentState, game)
         }
     }
 
@@ -1167,64 +1094,37 @@ class GameController(
         currentState: GameState.Active,
         game: LightsOutGame,
         input: String,
-    ) {
-        val index = input.toIntOrNull() ?: return
-        val solved = game.press(index)
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
-        }
+    ) = handleLevelBoardAnswer(currentState, game) {
+        input.toIntOrNull()?.let { game.press(it) }
     }
 
     private fun handleSlidingPuzzleAnswer(
         currentState: GameState.Active,
         game: SlidingPuzzleGame,
         input: String,
-    ) {
-        val index = input.toIntOrNull() ?: return
-        val solved = game.slideTile(index)
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
-        }
+    ) = handleLevelBoardAnswer(currentState, game) {
+        input.toIntOrNull()?.let { game.slideTile(it) }
     }
 
     private fun handleTowerOfHanoiAnswer(
         currentState: GameState.Active,
         game: TowerOfHanoiGame,
         input: String,
-    ) {
-        val peg = input.toIntOrNull() ?: return
-        val solved = game.tapPeg(peg)
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
-        }
+    ) = handleLevelBoardAnswer(currentState, game) {
+        input.toIntOrNull()?.let { game.tapPeg(it) }
     }
 
     private fun handleShikakuAnswer(
         currentState: GameState.Active,
         game: ShikakuGame,
         input: String,
-    ) {
-        // The UI encodes drawing/erasing over the shared onAnswer(String) channel:
-        //   "draw:r1,c1,r2,c2" commits a rectangle, "del:r,c" removes the one under a cell.
-        val solved = when {
-            input.startsWith("draw:") -> {
-                val parts = input.removePrefix("draw:").split(",").mapNotNull { it.toIntOrNull() }
-                if (parts.size != 4) return
-                game.commitRectangle(parts[0], parts[1], parts[2], parts[3])
-            }
-            input.startsWith("del:") -> {
-                val parts = input.removePrefix("del:").split(",").mapNotNull { it.toIntOrNull() }
-                if (parts.size != 2) return
-                game.deleteRectangleAt(parts[0], parts[1])
-            }
-            else -> return
-        }
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
+    ) = handleLevelBoardAnswer(currentState, game) {
+        val drawn = input.intsArg(BoardCommand.DRAW)?.takeIf { it.size == 4 }
+        val deleted = input.intsArg(BoardCommand.DELETE)?.takeIf { it.size == 2 }
+        when {
+            drawn != null -> game.commitRectangle(drawn[0], drawn[1], drawn[2], drawn[3])
+            deleted != null -> game.deleteRectangleAt(deleted[0], deleted[1])
+            else -> null
         }
     }
 
@@ -1232,28 +1132,13 @@ class GameController(
         currentState: GameState.Active,
         game: NurikabeGame,
         input: String,
-    ) {
-        // The UI encodes painting over the shared onAnswer(String) channel:
-        //   "toggle:idx" flips one cell, "paint:<0|1>:idx,idx,..." sets a whole stroke.
-        val solved = when {
-            input.startsWith("toggle:") -> {
-                val index = input.removePrefix("toggle:").toIntOrNull() ?: return
-                game.toggleWall(index)
-            }
-            input.startsWith("paint:") -> {
-                val rest = input.removePrefix("paint:")
-                val separator = rest.indexOf(':')
-                if (separator < 0) return
-                val wall = rest.substring(0, separator) == "1"
-                val cells = rest.substring(separator + 1).split(",").mapNotNull { it.toIntOrNull() }
-                if (cells.isEmpty()) return
-                game.setWalls(cells, wall)
-            }
-            else -> return
-        }
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
+    ) = handleLevelBoardAnswer(currentState, game) {
+        val toggled = input.intArg(BoardCommand.TOGGLE)
+        val painted = input.intAndIntsArg(BoardCommand.PAINT)
+        when {
+            toggled != null -> game.toggleWall(toggled)
+            painted != null -> game.setWalls(painted.second, wall = painted.first == 1)
+            else -> null
         }
     }
 
@@ -1261,42 +1146,21 @@ class GameController(
         currentState: GameState.Active,
         game: CatQueensGame,
         input: String,
-    ) {
-        // The UI sends the tapped cell index over the shared onAnswer(String) channel.
-        val index = input.toIntOrNull() ?: return
-        val solved = game.toggle(index)
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
-        }
+    ) = handleLevelBoardAnswer(currentState, game) {
+        input.toIntOrNull()?.let { game.toggle(it) }
     }
 
     private fun handleKnotAnswer(
         currentState: GameState.Active,
         game: KnotGame,
         input: String,
-    ) {
-        // The UI encodes drawing/erasing over the shared onAnswer(String) channel:
-        //   "path:<color>:idx,idx,..." sets a color's drawn path, "clear:<color>" removes it.
-        val solved = when {
-            input.startsWith("path:") -> {
-                val rest = input.removePrefix("path:")
-                val separator = rest.indexOf(':')
-                if (separator < 0) return
-                val color = rest.substring(0, separator).toIntOrNull() ?: return
-                val cells = rest.substring(separator + 1).split(",").mapNotNull { it.toIntOrNull() }
-                if (cells.isEmpty()) return
-                game.setPath(color, cells)
-            }
-            input.startsWith("clear:") -> {
-                val color = input.removePrefix("clear:").toIntOrNull() ?: return
-                game.clearPath(color)
-            }
-            else -> return
-        }
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
+    ) = handleLevelBoardAnswer(currentState, game) {
+        val drawn = input.intAndIntsArg(BoardCommand.PATH)
+        val cleared = input.intArg(BoardCommand.CLEAR)
+        when {
+            drawn != null -> game.setPath(drawn.first, drawn.second)
+            cleared != null -> game.clearPath(cleared)
+            else -> null
         }
     }
 
@@ -1304,29 +1168,14 @@ class GameController(
         currentState: GameState.Active,
         game: SoloChessGame,
         input: String,
-    ) {
-        // The UI sends taps and the restart action over the shared onAnswer(String) channel:
-        //   "tap:<index>" selects/captures, "restart" resets the level after a dead-end.
-        val solved = when {
-            input == "restart" -> {
-                game.restart()
-                false
-            }
-            input.startsWith("tap:") -> {
-                val index = input.removePrefix("tap:").toIntOrNull() ?: return
-                game.tap(index)
-            }
-            else -> return
+    ) = handleLevelBoardAnswer(currentState, game) {
+        if (input == BoardCommand.RESTART) {
+            // A dead-end level is restarted in place, so this changes the board without solving it.
+            game.restart()
+            false
+        } else {
+            input.intArg(BoardCommand.TAP)?.let { game.tap(it) }
         }
-        _gameUiState.value = game.toUiState()
-        if (solved) {
-            onLevelSolved(currentState, game)
-        }
-    }
-
-    private fun startPrismClearGame(gameType: GameType, navigate: Boolean = true) {
-        points = 0
-        startLevelGame(gameType, navigate) { PrismClearGame(level = it) }
     }
 
     /**
@@ -1334,16 +1183,12 @@ class GameController(
      * puzzles have no concept of a "wrong" answer, so the per-round no-mistakes bonus message
      * on the finish screen wouldn't make sense.
      */
-    private fun startLevelGame(
-        gameType: GameType,
-        navigate: Boolean = true,
-        create: (level: Int) -> LevelGame,
-    ) {
+    private fun startLevelGame(gameType: GameType, navigate: Boolean = true) {
         val level = storage.getLastRound(gameType.id).coerceAtLeast(1)
-        val game = create(level).apply { answeredAllCorrect = false }
+        val game = createLevelGame(gameType, level).apply { answeredAllCorrect = false }
         game.nextRound()
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         if (navigate) {
             navController.navigate(Playing(gameType.id))
         }
@@ -1370,47 +1215,26 @@ class GameController(
         game: PrismClearGame,
         input: String,
     ) {
-        // Shared onAnswer channel:
-        //   "tap:<index>" select/swap, "swap:a,b" drag (or tests), "undo", "restart".
-        when {
-            input == "restart" -> {
+        val tapped = input.intArg(BoardCommand.TAP)
+        val swapped = input.intsArg(BoardCommand.SWAP)?.takeIf { it.size == 2 }
+        val result = when {
+            input == BoardCommand.RESTART -> {
                 game.restart()
-                _gameUiState.value = game.toUiState()
+                PrismClearGame.PrismClearResult.Updated
             }
-            input == "undo" -> {
+            input == BoardCommand.UNDO -> {
                 game.undo()
-                _gameUiState.value = game.toUiState()
+                PrismClearGame.PrismClearResult.Updated
             }
-            input.startsWith("tap:") -> {
-                val index = input.removePrefix("tap:").toIntOrNull() ?: return
-                when (game.tap(index)) {
-                    PrismClearGame.PrismClearResult.Updated,
-                    PrismClearGame.PrismClearResult.Rejected,
-                    -> {
-                        _gameUiState.value = game.toUiState()
-                    }
-                    PrismClearGame.PrismClearResult.Solved -> {
-                        onPrismClearSolved(currentState, game)
-                    }
-                }
-            }
-            input.startsWith("swap:") -> {
-                val parts = input.removePrefix("swap:").split(",")
-                if (parts.size != 2) return
-                val a = parts[0].toIntOrNull() ?: return
-                val b = parts[1].toIntOrNull() ?: return
-                when (game.trySwap(a, b)) {
-                    PrismClearGame.PrismClearResult.Updated,
-                    PrismClearGame.PrismClearResult.Rejected,
-                    -> {
-                        _gameUiState.value = game.toUiState()
-                    }
-                    PrismClearGame.PrismClearResult.Solved -> {
-                        onPrismClearSolved(currentState, game)
-                    }
-                }
-            }
+            tapped != null -> game.tap(tapped)
+            swapped != null -> game.trySwap(swapped[0], swapped[1])
             else -> return
+        }
+        when (result) {
+            PrismClearGame.PrismClearResult.Updated,
+            PrismClearGame.PrismClearResult.Rejected,
+            -> emitUiState(game)
+            PrismClearGame.PrismClearResult.Solved -> onPrismClearSolved(currentState, game)
         }
     }
 
@@ -1449,7 +1273,8 @@ class GameController(
             storage.putScore(gameType.id, points)
             _totalXp.value = storage.getTotalXp()
             refreshDerivedStorageState()
-            startPrismClearGame(gameType, navigate = false)
+            points = 0
+            startLevelGame(gameType, navigate = false)
         }
     }
 
@@ -1497,7 +1322,7 @@ class GameController(
         val game = WordleGame(language, lists.answers.random(), lists.guesses)
         game.nextRound()
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         if (navigateToPlaying) {
             navController.navigate(Playing(gameType.id))
         }
@@ -1533,19 +1358,14 @@ class GameController(
         game: WordleGame,
         input: String,
     ) {
-        val guessSubmitted = when {
-            input == WORDLE_ENTER -> game.submitGuess()
-            input == WORDLE_DELETE -> {
-                game.backspace()
-                false
-            }
-            input.startsWith(WORDLE_CLEAR_PREFIX) -> {
-                input.removePrefix(WORDLE_CLEAR_PREFIX).toIntOrNull()?.let { game.clearFrom(it) }
-                false
-            }
-            else -> input.firstOrNull()?.let { game.typeLetter(it) } ?: false
-        }
-        _gameUiState.value = game.toUiState()
+        val guessSubmitted = applyKeyboardInput(
+            input = input,
+            type = game::typeLetter,
+            backspace = game::backspace,
+            clearAt = game::clearFrom,
+            submit = game::submitGuess,
+        )
+        emitUiState(game)
         if (guessSubmitted && game.finished) {
             points = game.score
             recordWordleScore(currentState.gameType)
@@ -1622,7 +1442,7 @@ class GameController(
         _elapsedTime.value = 0L
 
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         navController.navigate(Playing(gameType.id))
         startStopwatch()
     }
@@ -1646,7 +1466,7 @@ class GameController(
         val index = input.toIntOrNull() ?: return
         when (game.tapCell(index)) {
             SchulteTableGame.TapResult.Correct -> {
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
             }
             SchulteTableGame.TapResult.Complete -> {
                 val elapsedMillis = Clock.System.now().toEpochMilliseconds() - startTime
@@ -1654,7 +1474,7 @@ class GameController(
                 _elapsedTime.value = elapsedMillis
                 // Deciseconds (1/10s), rounded; e.g. 24_300 ms → 243.
                 points = ((elapsedMillis + 50) / 100).toInt().coerceAtLeast(1)
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
                 scope.launch {
                     delay(500.milliseconds)
                     finishCurrentGame(currentState.gameType, game)
@@ -1662,11 +1482,11 @@ class GameController(
             }
             SchulteTableGame.TapResult.Wrong -> {
                 game.answeredAllCorrect = false
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
                 scope.launch {
                     delay(500.milliseconds)
                     game.clearWrongTap()
-                    _gameUiState.value = game.toUiState()
+                    emitUiState(game)
                 }
             }
         }
@@ -1683,16 +1503,8 @@ class GameController(
         } else {
             game.answeredAllCorrect = false
         }
-        _gameState.value = GameState.Feedback(
-            gameType = currentState.gameType,
-            game = game,
-            isCorrect = isCorrect,
-            message = null,
-        )
-        scope.launch {
-            delay(1.seconds)
-            proceedAfterFeedback()
-        }
+        // No solution message: the answer is the dot count the player was asked to compare.
+        showFeedbackScreen(currentState.gameType, game, isCorrect = isCorrect, message = null)
     }
 
     private fun proceedAfterInlineFeedback(gameType: GameType, game: Game) {
@@ -1702,21 +1514,18 @@ class GameController(
         } else {
             game.nextRound()
             _gameState.value = GameState.Active(gameType, game)
-            _gameUiState.value = game.toUiState()
+            emitUiState(game)
         }
     }
 
     private fun startGhostGridGame(gameType: GameType) {
         val game = GhostGridGame()
-        if (game.adaptiveDifficulty) {
-            sessionStartRound = storage.getLastRound(gameType.id)
-            game.round = sessionStartRound
-        }
+        resumeAdaptiveDifficulty(gameType, game)
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
-        game.startShowSequence(scope) { emitGhostGridUiState(game) }
+        game.startShowSequence(scope) { emitUiState(game) }
     }
 
     private fun handleGhostGridAnswer(
@@ -1725,8 +1534,27 @@ class GameController(
         answer: String,
     ) {
         if (game.phase != GhostGridGame.Phase.ANSWERING) return
-        when (game.submitAnswer(answer)) {
-            SequenceSubmitResult.CorrectContinue -> emitGhostGridUiState(game)
+        handleSequenceSubmit(currentState, game, game.submitAnswer(answer)) {
+            game.startShowSequence(scope) { emitUiState(game) }
+        }
+    }
+
+    /**
+     * The shared submit flow for the survival games that report through [SequenceSubmitResult]:
+     * keep taking taps, bank the round and open the next one through [startNextRound], or end the
+     * run on a mistake. The board is republished at every step, including right before the
+     * feedback beat and right after the new round is generated — otherwise it keeps showing marks
+     * from one tap (or one round) ago while the next sequence is already being flashed.
+     */
+    private fun handleSequenceSubmit(
+        currentState: GameState.Active,
+        game: Game,
+        result: SequenceSubmitResult,
+        startNextRound: () -> Unit,
+    ) {
+        emitUiState(game)
+        when (result) {
+            SequenceSubmitResult.CorrectContinue -> Unit
             SequenceSubmitResult.RoundComplete -> {
                 points++
                 _gameState.value = GameState.Feedback(
@@ -1738,26 +1566,18 @@ class GameController(
                 scope.launch {
                     delay(1.seconds)
                     game.nextRound()
+                    emitUiState(game)
                     _gameState.value = GameState.Active(currentState.gameType, game)
-                    game.startShowSequence(scope) { emitGhostGridUiState(game) }
+                    startNextRound()
                 }
             }
             SequenceSubmitResult.Wrong -> {
-                emitGhostGridUiState(game)
                 scope.launch {
                     delay(2.seconds)
-                    finishGhostGridGame(game)
+                    finishCurrentGame(currentState.gameType, game)
                 }
             }
         }
-    }
-
-    private fun finishGhostGridGame(game: GhostGridGame) {
-        finishCurrentGame(GameType.GHOST_GRID, game)
-    }
-
-    private fun emitGhostGridUiState(game: GhostGridGame) {
-        _gameUiState.value = game.toUiState()
     }
 
     private fun startSimonSaysGame(gameType: GameType) {
@@ -1767,7 +1587,7 @@ class GameController(
         // Paint the fresh (all dark) board before the lead-in delay. Without this _gameUiState
         // still holds the previous Simon session's final board, so replaying flashes the old
         // game-over marks for a moment before the first pad lights.
-        emitSimonSaysUiState(game)
+        emitUiState(game)
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
@@ -1776,7 +1596,7 @@ class GameController(
 
     private fun startSimonSaysShow(game: SimonSaysGame) {
         game.startShowNewPad(scope) {
-            emitSimonSaysUiState(game)
+            emitUiState(game)
             val idx = game.currentShowIndex
             if (idx >= 0) {
                 _simonPadSoundEvents.tryEmit(game.sequence[idx])
@@ -1792,53 +1612,14 @@ class GameController(
         if (game.phase != SimonSaysGame.Phase.ANSWERING) return
         // Tone for the pad the player pressed, including wrong taps (classic Simon behaviour).
         GameColor.entries.find { it.name == answer }?.let { _simonPadSoundEvents.tryEmit(it) }
-        when (game.submitAnswer(answer)) {
-            SequenceSubmitResult.CorrectContinue -> emitSimonSaysUiState(game)
-            SequenceSubmitResult.RoundComplete -> {
-                points++
-                // The final tap of the round never emitted, so without this the board still shows
-                // the *second to last* pad lit all the way through the feedback beat.
-                emitSimonSaysUiState(game)
-                _gameState.value = GameState.Feedback(
-                    gameType = currentState.gameType,
-                    game = game,
-                    isCorrect = true,
-                    message = null,
-                )
-                scope.launch {
-                    delay(1.seconds)
-                    game.nextRound()
-                    // Clear the board as the new round opens. Otherwise the pad tapped last round
-                    // stays lit through the lead-in and reads as a pad the game just flashed.
-                    emitSimonSaysUiState(game)
-                    _gameState.value = GameState.Active(currentState.gameType, game)
-                    startSimonSaysShow(game)
-                }
-            }
-            SequenceSubmitResult.Wrong -> {
-                emitSimonSaysUiState(game)
-                scope.launch {
-                    delay(2.seconds)
-                    finishSimonSaysGame(game)
-                }
-            }
+        handleSequenceSubmit(currentState, game, game.submitAnswer(answer)) {
+            startSimonSaysShow(game)
         }
-    }
-
-    private fun finishSimonSaysGame(game: SimonSaysGame) {
-        finishCurrentGame(GameType.SIMON_SAYS, game)
-    }
-
-    private fun emitSimonSaysUiState(game: SimonSaysGame) {
-        _gameUiState.value = game.toUiState()
     }
 
     private fun startOrbitTrackerGame(gameType: GameType) {
         val game = OrbitTrackerGame()
-        if (game.adaptiveDifficulty) {
-            sessionStartRound = storage.getLastRound(gameType.id)
-            game.round = sessionStartRound
-        }
+        resumeAdaptiveDifficulty(gameType, game)
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
@@ -1849,7 +1630,10 @@ class GameController(
     private fun startOrbitTrackerAnimation(game: OrbitTrackerGame) {
         game.startHighlightAndMove(
             scope = scope,
-            onPhaseChanged = { emitOrbitTrackerUiState(game) },
+            onPhaseChanged = {
+                emitUiState(game)
+                emitOrbitTrackerFrame(game)
+            },
             onFrame = { emitOrbitTrackerFrame(game) },
         )
     }
@@ -1860,42 +1644,13 @@ class GameController(
         input: String,
     ) {
         val index = input.toIntOrNull() ?: return
-        when (game.selectBall(index)) {
-            SequenceSubmitResult.CorrectContinue -> {
-                emitOrbitTrackerUiState(game)
-                _intermediateCorrectEvents.tryEmit(Unit)
-            }
-            SequenceSubmitResult.RoundComplete -> {
-                points++
-                _gameState.value = GameState.Feedback(
-                    gameType = currentState.gameType,
-                    game = game,
-                    isCorrect = true,
-                    message = null,
-                )
-                scope.launch {
-                    delay(1.seconds)
-                    game.nextRound()
-                    _gameState.value = GameState.Active(currentState.gameType, game)
-                    startOrbitTrackerAnimation(game)
-                }
-            }
-            SequenceSubmitResult.Wrong -> {
-                emitOrbitTrackerUiState(game)
-                scope.launch {
-                    delay(2.seconds)
-                    finishOrbitTrackerGame(game)
-                }
-            }
+        val result = game.selectBall(index)
+        if (result == SequenceSubmitResult.CorrectContinue) {
+            _intermediateCorrectEvents.tryEmit(Unit)
         }
-    }
-
-    private fun finishOrbitTrackerGame(game: OrbitTrackerGame) {
-        finishCurrentGame(GameType.ORBIT_TRACKER, game)
-    }
-
-    private fun emitOrbitTrackerUiState(game: OrbitTrackerGame) {
-        _gameUiState.value = game.toUiState()
+        handleSequenceSubmit(currentState, game, result) {
+            startOrbitTrackerAnimation(game)
+        }
         emitOrbitTrackerFrame(game)
     }
 
@@ -1907,29 +1662,30 @@ class GameController(
         if (game.phase != VisualMemoryGame.Phase.ANSWERING) return
         when (game.submitAnswer(answer)) {
             VisualMemoryGame.SubmitResult.CorrectContinue -> {
-                emitGameUiState(game)
+                emitUiState(game)
                 _intermediateCorrectEvents.tryEmit(Unit)
             }
             VisualMemoryGame.SubmitResult.RoundComplete -> {
                 points++
-                game.startCountdown(scope) { emitGameUiState(game) }
+                game.startCountdown(scope) { emitUiState(game) }
             }
             VisualMemoryGame.SubmitResult.GameComplete -> {
                 points++
-                finishVisualMemoryGame(game)
+                finishCurrentGame(GameType.VISUAL_MEMORY, game)
             }
             VisualMemoryGame.SubmitResult.Wrong -> {
-                emitGameUiState(game)
+                emitUiState(game)
                 scope.launch {
                     delay(2.seconds)
-                    finishVisualMemoryGame(game)
+                    finishCurrentGame(GameType.VISUAL_MEMORY, game)
                 }
             }
         }
     }
 
-    private fun finishVisualMemoryGame(game: VisualMemoryGame) {
-        finishCurrentGame(GameType.VISUAL_MEMORY, game)
+    /** Republish the board from the game's own state; the single way UI state is produced. */
+    private fun emitUiState(game: Game) {
+        _gameUiState.value = game.toUiState()
     }
 
     private fun finishCurrentGame(gameType: GameType, game: Game) {
@@ -1980,47 +1736,38 @@ class GameController(
         }
     }
 
-    private fun emitGameUiState(game: VisualMemoryGame) {
-        _gameUiState.value = game.toUiState()
-    }
-
-    private fun startDigitMemoryGame(gameType: GameType) {
+    /** Start for the reveal-round games: the 60s clock, then the first reveal. */
+    private fun startRevealRoundGame(gameType: GameType) {
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
 
-        val game = DigitMemoryGame()
+        val game = createGame(gameType)
+        check(game is RevealRoundGame) { "${gameType.name} is not a reveal-round game" }
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
         navController.navigate(Playing(gameType.id))
         startTimer()
-        game.startShowing(scope) { _gameUiState.value = game.toUiState() }
+        game.startTimedPhase(scope) { emitUiState(game) }
     }
 
-    private fun startQuickSumGame(gameType: GameType) {
-        startTime = Clock.System.now().toEpochMilliseconds()
-        _timeRemaining.value = GAME_TIME_MILLIS
-
-        val game = QuickSumGame()
-        game.nextRound()
-
+    /**
+     * Open the next reveal round, or finish once the 60s are up. A correct answer advances the
+     * ramp; a wrong one replays the same difficulty so the pace never runs ahead of the player.
+     */
+    private fun <G> advanceRevealRound(
+        gameType: GameType,
+        game: G,
+        advanceDifficulty: Boolean,
+    ) where G : Game, G : RevealRoundGame {
+        if (_gameState.value !is GameState.Active) return
+        if (Clock.System.now().toEpochMilliseconds() - startTime > GAME_TIME_MILLIS) {
+            finishCurrentGame(gameType, game)
+            return
+        }
+        if (advanceDifficulty) game.nextRound() else game.repeatRound()
         _gameState.value = GameState.Active(gameType, game)
-        navController.navigate(Playing(gameType.id))
-        startTimer()
-        game.startFlashing(scope) { _gameUiState.value = game.toUiState() }
-    }
-
-    private fun startNBackGame(gameType: GameType) {
-        startTime = Clock.System.now().toEpochMilliseconds()
-        _timeRemaining.value = GAME_TIME_MILLIS
-
-        val game = NBackGame()
-        game.nextRound()
-
-        _gameState.value = GameState.Active(gameType, game)
-        navController.navigate(Playing(gameType.id))
-        startTimer()
-        game.startShowing(scope) { _gameUiState.value = game.toUiState() }
+        game.startTimedPhase(scope) { emitUiState(game) }
     }
 
     private fun startBubbleSumGame(gameType: GameType) {
@@ -2028,14 +1775,11 @@ class GameController(
         _timeRemaining.value = GAME_TIME_MILLIS
 
         val game = BubbleSumGame()
-        if (game.adaptiveDifficulty) {
-            sessionStartRound = storage.getLastRound(gameType.id)
-            game.round = sessionStartRound
-        }
+        resumeAdaptiveDifficulty(gameType, game)
         game.nextRound()
 
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         navController.navigate(Playing(gameType.id))
         startTimer()
         startBubbleSumMotion(game)
@@ -2069,14 +1813,14 @@ class GameController(
             DigitMemoryGame.Phase.SOLVING -> {
                 if (game.submitMath(input)) {
                     game.advanceToRecall()
-                    _gameUiState.value = game.toUiState()
+                    emitUiState(game)
                 } else {
                     // Wrong math forfeits the round: flash the answer, then start a fresh memorize
                     // round at the same difficulty (no recall, no point).
-                    _gameUiState.value = game.toUiState()
+                    emitUiState(game)
                     scope.launch {
                         delay(1.seconds)
-                        advanceDigitMemory(currentState.gameType, game, advanceDifficulty = false)
+                        advanceRevealRound(currentState.gameType, game, advanceDifficulty = false)
                     }
                 }
             }
@@ -2085,25 +1829,13 @@ class GameController(
                 // math answer) replays at the same length with a fresh sequence.
                 val correct = game.submitRecall(input)
                 if (correct) points++
-                _gameUiState.value = game.toUiState()
+                emitUiState(game)
                 scope.launch {
                     delay(1.seconds)
-                    advanceDigitMemory(currentState.gameType, game, advanceDifficulty = correct)
+                    advanceRevealRound(currentState.gameType, game, advanceDifficulty = correct)
                 }
             }
             DigitMemoryGame.Phase.SHOWING -> Unit // ignore input while memorizing
-        }
-    }
-
-    private fun advanceDigitMemory(gameType: GameType, game: DigitMemoryGame, advanceDifficulty: Boolean) {
-        if (_gameState.value !is GameState.Active) return
-        val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
-        if (elapsed > GAME_TIME_MILLIS) {
-            finishCurrentGame(gameType, game)
-        } else {
-            if (advanceDifficulty) game.nextRound() else game.repeatRound()
-            _gameState.value = GameState.Active(gameType, game)
-            game.startShowing(scope) { _gameUiState.value = game.toUiState() }
         }
     }
 
@@ -2119,22 +1851,10 @@ class GameController(
         // terms, so the pace never runs ahead of the player.
         val correct = game.submitSum(input)
         if (correct) points++
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         scope.launch {
             delay(1.seconds)
-            advanceQuickSum(currentState.gameType, game, advanceDifficulty = correct)
-        }
-    }
-
-    private fun advanceQuickSum(gameType: GameType, game: QuickSumGame, advanceDifficulty: Boolean) {
-        if (_gameState.value !is GameState.Active) return
-        val elapsed = Clock.System.now().toEpochMilliseconds() - startTime
-        if (elapsed > GAME_TIME_MILLIS) {
-            finishCurrentGame(gameType, game)
-        } else {
-            if (advanceDifficulty) game.nextRound() else game.repeatRound()
-            _gameState.value = GameState.Active(gameType, game)
-            game.startFlashing(scope) { _gameUiState.value = game.toUiState() }
+            advanceRevealRound(currentState.gameType, game, advanceDifficulty = correct)
         }
     }
 
@@ -2147,24 +1867,15 @@ class GameController(
             points++
             _intermediateCorrectEvents.tryEmit(Unit)
         }
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         scope.launch {
             delay(NBACK_REVEAL_HOLD_MILLIS)
-            advanceNBack(currentState.gameType, game, advanceDifficulty = correct)
+            advanceRevealRound(currentState.gameType, game, advanceDifficulty = correct)
         }
     }
 
-    private fun advanceNBack(gameType: GameType, game: NBackGame, advanceDifficulty: Boolean) {
-        if (_gameState.value !is GameState.Active) return
-        if (Clock.System.now().toEpochMilliseconds() - startTime > GAME_TIME_MILLIS) {
-            finishCurrentGame(gameType, game)
-            return
-        }
-        // Correct lengthens the next sequence; wrong replays the same length with fresh shapes.
-        if (advanceDifficulty) game.nextRound() else game.repeatRound()
-        _gameState.value = GameState.Active(gameType, game)
-        game.startShowing(scope) { _gameUiState.value = game.toUiState() }
-    }
+    // Marking up a board after an answer: the picked cell/button goes red, the right one green,
+    // everything else dims. One family of helpers so every game reveals an answer the same way.
 
     private fun ImmutableList<ImmutableList<FigureCell>>.withFeedbackStates(
         wrongIndex: Int?,
@@ -2183,11 +1894,41 @@ class GameController(
         }.toImmutableList()
     }.toImmutableList()
 
+    private fun ImmutableList<AnswerButton>.withFeedbackStates(
+        wrongIndex: Int?,
+        correctIndex: Int,
+    ): ImmutableList<AnswerButton> = mapIndexed { index, button ->
+        button.copy(
+            state = when (index) {
+                wrongIndex -> AnswerButtonState.WRONG
+                correctIndex -> AnswerButtonState.CORRECT
+                else -> AnswerButtonState.DIMMED
+            },
+        )
+    }.toImmutableList()
+
+    /**
+     * Value-keyed variant for games whose buttons carry the answer itself. Passing the correct
+     * value as [wrongValue] marks a right answer: it lights green and the rest dim.
+     */
+    private fun ImmutableList<AnswerButton>.withFeedbackStates(
+        wrongValue: String?,
+        correctValue: String,
+    ): ImmutableList<AnswerButton> = map { button ->
+        button.copy(
+            state = when (button.value) {
+                correctValue -> AnswerButtonState.CORRECT
+                wrongValue -> AnswerButtonState.WRONG
+                else -> AnswerButtonState.DIMMED
+            },
+        )
+    }.toImmutableList()
+
     private fun startMiniChessGame(gameType: GameType) {
         val game = MiniChessGame(difficultyDepth = storage.getMiniChessDifficulty())
         game.nextRound()
         _gameState.value = GameState.Active(gameType, game)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
         navController.navigate(Playing(gameType.id))
     }
 
@@ -2196,21 +1937,21 @@ class GameController(
         game: MiniChessGame,
         input: String,
     ) {
-        if (input == "restart" || input == "reset") {
+        if (input == BoardCommand.RESTART || input == BoardCommand.RESET) {
             cancelMiniChessAi()
             // Any score from the just-finished round was already recorded in
             // handleMiniChessRoundOver, so reset the per-attempt counters before either
             // restoring the initial position or rolling a fresh scenario.
             points = 0
             game.answeredAllCorrect = true
-            if (input == "reset") game.resetScenario() else game.restartScenario()
-            _gameUiState.value = game.toUiState()
+            if (input == BoardCommand.RESET) game.resetScenario() else game.restartScenario()
+            emitUiState(game)
             return
         }
         if (game.phase != MiniChessGame.Phase.PLAYER_TURN) return
         val move = game.parseMove(input) ?: return
         val result = game.applyPlayerMove(move)
-        _gameUiState.value = game.toUiState()
+        emitUiState(game)
 
         when (result) {
             MiniChessGame.PlayerMoveResult.RoundOver ->
@@ -2236,7 +1977,7 @@ class GameController(
             val minThinkMs = 800L
             if (elapsed < minThinkMs) delay((minThinkMs - elapsed).milliseconds)
             game.applyAiMove(move)
-            _gameUiState.value = game.toUiState()
+            emitUiState(game)
             if (game.phase == MiniChessGame.Phase.ROUND_OVER) {
                 handleMiniChessRoundOver(currentState, game)
             }
@@ -2269,15 +2010,8 @@ class GameController(
      * Every exit path out of a live game goes through here so no single path can forget one.
      */
     private fun cancelPendingJobs(game: Game) {
-        (game as? VisualMemoryGame)?.cancelCountdown()
-        (game as? SpotTheNewGame)?.cancelCountdown()
-        (game as? GhostGridGame)?.cancelShowSequence()
-        (game as? SimonSaysGame)?.cancelShowNewPad()
-        (game as? OrbitTrackerGame)?.cancelAnimation()
-        (game as? BubbleSumGame)?.cancelAnimation()
-        (game as? DigitMemoryGame)?.cancelShowing()
-        (game as? QuickSumGame)?.cancelFlashing()
-        (game as? NBackGame)?.cancelShowing()
+        (game as? TimedPhaseGame)?.cancelTimedPhase()
+        // The chess search and the Flags round clock are owned by the controller, not the game.
         if (game is MiniChessGame) cancelMiniChessAi()
         if (game is FlagsGame) cancelFlagsTimer()
     }
@@ -2349,43 +2083,32 @@ class GameController(
         if (isCorrect) {
             points++
             _intermediateCorrectEvents.tryEmit(Unit)
-            val highlightedAnswers = currentUiState.possibleAnswers.map { button ->
-                button.copy(
-                    state = when (button.value) {
-                        input -> AnswerButtonState.CORRECT
-                        else -> AnswerButtonState.DIMMED
-                    },
-                )
-            }.toImmutableList()
-            _gameUiState.value = buildFlagsUiState(currentState.gameType, game, highlightedAnswers)
-            scope.launch {
-                delay(1.seconds)
-                if (_gameState.value !is GameState.Active) return@launch
-                if (game.isComplete()) {
-                    finishCurrentGame(currentState.gameType, game)
-                    return@launch
-                }
-                game.nextRound()
-                _gameState.value = GameState.Active(currentState.gameType, game)
-                _gameUiState.value = buildFlagsUiState(currentState.gameType, game)
-                startFlagsRoundTimer(currentState.gameType, game)
-            }
         } else {
             game.answeredAllCorrect = false
-            val highlightedAnswers = currentUiState.possibleAnswers.map { button ->
-                button.copy(
-                    state = when (button.value) {
-                        input -> AnswerButtonState.WRONG
-                        correctAnswer -> AnswerButtonState.CORRECT
-                        else -> AnswerButtonState.DIMMED
-                    },
-                )
-            }.toImmutableList()
-            _gameUiState.value = buildFlagsUiState(currentState.gameType, game, highlightedAnswers)
-            scope.launch {
-                delay(1.seconds)
+        }
+        // A correct pick lights green on its own; a wrong one goes red next to the right answer.
+        val markedAnswers = currentUiState.possibleAnswers.withFeedbackStates(
+            wrongValue = input,
+            correctValue = correctAnswer,
+        )
+        _gameUiState.value = buildFlagsUiState(currentState.gameType, game, markedAnswers)
+
+        scope.launch {
+            delay(1.seconds)
+            // One wrong flag ends the run; otherwise play on until the country pool is used up.
+            if (!isCorrect) {
                 finishCurrentGame(currentState.gameType, game)
+                return@launch
             }
+            if (_gameState.value !is GameState.Active) return@launch
+            if (game.isComplete()) {
+                finishCurrentGame(currentState.gameType, game)
+                return@launch
+            }
+            game.nextRound()
+            _gameState.value = GameState.Active(currentState.gameType, game)
+            _gameUiState.value = buildFlagsUiState(currentState.gameType, game)
+            startFlagsRoundTimer(currentState.gameType, game)
         }
     }
 }
