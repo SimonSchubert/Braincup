@@ -1,7 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.NurikabeUiState
-import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
+import com.inspiredandroid.braincup.games.tools.OrthogonalNeighborTable
 import kotlinx.collections.immutable.toImmutableMap
 import kotlinx.collections.immutable.toImmutableSet
 import kotlin.random.Random
@@ -348,7 +348,9 @@ class NurikabeGame(
         return false
     }
 
-    private fun neighbors(index: Int): List<Int> = orthogonalNeighbors(index, rows, cols)
+    private val neighborTable = OrthogonalNeighborTable()
+
+    private fun neighbors(index: Int): IntArray = neighborTable[index, rows, cols]
 
     /**
      * Counts how many ways the current clues can be solved, stopping once [limit] is reached (callers
@@ -359,47 +361,104 @@ class NurikabeGame(
     internal fun solutionCount(limit: Int): Int {
         val total = rows * cols
         val clueList = clues.entries.toList()
-        val candidates = ArrayList<List<Set<Int>>>(clueList.size)
+        val candidates = ArrayList<List<IntArray>>(clueList.size)
+        // Bound the whole call so a pathological board can never stall generation. Enumerating a
+        // clue's candidate islands is itself unbounded on a board of large clues, so it draws on the
+        // same budget as the search that follows. Running out reports "not unique" (count = limit),
+        // so the generator keeps looking for a board it can verify cheaply rather than accepting an
+        // unverified one.
+        var budget = SOLUTION_BUDGET
         for (entry in clueList) {
-            val islands = islandCandidates(entry.key, entry.value)
+            val islands = islandCandidates(entry.key, entry.value, cap = budget) ?: return limit
             if (islands.isEmpty()) return 0
+            budget -= islands.size
             candidates.add(islands)
         }
         // Assign the most constrained clues first to prune the search early.
         val order = clueList.indices.sortedBy { candidates[it].size }
         val owner = IntArray(total) { UNASSIGNED }
         var count = 0
-        // Bound the search so a pathological board can never stall generation. Hitting the budget
-        // reports "not unique" (count = limit), so the generator simply keeps looking for a board it
-        // can verify cheaply rather than accepting an unverified one.
-        var budget = SOLUTION_NODE_BUDGET
 
-        fun conflicts(island: Set<Int>): Boolean {
+        // Marks the cells of the candidate island being tested so the conflict check can tell one of
+        // its own cells from a neighbouring island's without a set lookup. Bumping the stamp is how
+        // the previous candidate's marks are cleared.
+        val islandStamp = IntArray(total)
+        var stamp = 0
+
+        fun conflicts(island: IntArray): Boolean {
+            stamp++
             for (cell in island) {
                 if (owner[cell] != UNASSIGNED) return true
+                islandStamp[cell] = stamp
+            }
+            for (cell in island) {
                 for (n in neighbors(cell)) {
-                    if (owner[n] != UNASSIGNED && n !in island) return true
+                    if (owner[n] != UNASSIGNED && islandStamp[n] != stamp) return true
                 }
             }
             return false
         }
 
+        // Reused by every leaf: the sea check allocated a fresh Set per solution candidate, which on
+        // a dense board cost more than the search around it.
+        val seaSeen = BooleanArray(total)
+        val seaStack = IntArray(total)
+
         fun seaIsValid(): Boolean {
-            val sea = (0 until total).filter { owner[it] == UNASSIGNED }.toSet()
-            return isConnected(sea) && !hasSeaPool(sea)
+            var seaCount = 0
+            var start = -1
+            for (cell in 0 until total) {
+                if (owner[cell] == UNASSIGNED) {
+                    seaCount++
+                    if (start < 0) start = cell
+                }
+            }
+            if (start < 0) return true // islands cover the board: vacuously connected and pool-free
+
+            for (r in 0 until rows - 1) {
+                for (c in 0 until cols - 1) {
+                    val topLeft = r * cols + c
+                    if (owner[topLeft] == UNASSIGNED &&
+                        owner[topLeft + 1] == UNASSIGNED &&
+                        owner[topLeft + cols] == UNASSIGNED &&
+                        owner[topLeft + cols + 1] == UNASSIGNED
+                    ) {
+                        return false
+                    }
+                }
+            }
+
+            seaSeen.fill(false)
+            var top = 0
+            seaStack[top++] = start
+            seaSeen[start] = true
+            var reached = 0
+            while (top > 0) {
+                val cell = seaStack[--top]
+                reached++
+                for (n in neighbors(cell)) {
+                    if (owner[n] == UNASSIGNED && !seaSeen[n]) {
+                        seaSeen[n] = true
+                        seaStack[top++] = n
+                    }
+                }
+            }
+            return reached == seaCount
         }
 
         fun backtrack(depth: Int) {
             if (count >= limit) return
-            if (budget-- <= 0) {
-                count = limit // treat an over-budget board as not uniquely verifiable
-                return
-            }
             if (depth == order.size) {
                 if (seaIsValid()) count++
                 return
             }
             for (island in candidates[order[depth]]) {
+                // Charged per candidate examined rather than per node: a single node scans every
+                // candidate of its clue, so a per-node budget left the real work unbounded.
+                if (budget-- <= 0) {
+                    count = limit // treat an over-budget board as not uniquely verifiable
+                    return
+                }
                 if (conflicts(island)) continue
                 for (cell in island) owner[cell] = order[depth]
                 backtrack(depth + 1)
@@ -414,9 +473,11 @@ class NurikabeGame(
     /**
      * All islands of the given [size] that contain [clueIndex], hold no other clue, and never touch
      * another clue cell (which would force two islands to be adjacent). Duplicate-free connected-set
-     * enumeration so larger clues stay tractable.
+     * enumeration so larger clues stay tractable. Returns null once more than [cap] candidates exist:
+     * a clue that open-ended cannot be verified cheaply, and the caller treats the board as not
+     * uniquely solvable rather than enumerating for hundreds of milliseconds.
      */
-    private fun islandCandidates(clueIndex: Int, size: Int): List<Set<Int>> {
+    private fun islandCandidates(clueIndex: Int, size: Int, cap: Int): List<IntArray>? {
         val total = rows * cols
         val forbidden = BooleanArray(total)
         for ((index, _) in clues) {
@@ -426,18 +487,19 @@ class NurikabeGame(
         }
         if (forbidden[clueIndex]) return emptyList()
 
-        val results = ArrayList<Set<Int>>()
+        val results = ArrayList<IntArray>()
         val current = HashSet<Int>()
         current.add(clueIndex)
         val excluded = HashSet<Int>()
         val extension = neighbors(clueIndex).filter { !forbidden[it] }
-        enumerateConnected(current, extension, excluded, size, forbidden, results)
-        return results
+        val complete = enumerateConnected(current, extension, excluded, size, forbidden, results, cap)
+        return if (complete) results else null
     }
 
     /**
      * Emits every connected set of [size] cells reachable from [current] using the standard
      * include/exclude branching over an ordered [extension] frontier, which visits each set once.
+     * Returns false if it gave up after exceeding [cap] results.
      */
     private fun enumerateConnected(
         current: HashSet<Int>,
@@ -445,13 +507,15 @@ class NurikabeGame(
         excluded: HashSet<Int>,
         size: Int,
         forbidden: BooleanArray,
-        results: MutableList<Set<Int>>,
-    ) {
+        results: MutableList<IntArray>,
+        cap: Int,
+    ): Boolean {
+        if (results.size > cap) return false
         if (current.size == size) {
-            results.add(HashSet(current))
-            return
+            results.add(current.toIntArray())
+            return true
         }
-        if (extension.isEmpty()) return
+        if (extension.isEmpty()) return true
 
         val cell = extension[0]
         val rest = extension.subList(1, extension.size)
@@ -462,13 +526,15 @@ class NurikabeGame(
         for (n in neighbors(cell)) {
             if (!forbidden[n] && n !in current && n !in excluded && n !in grown) grown.add(n)
         }
-        enumerateConnected(current, grown, excluded, size, forbidden, results)
+        val grownComplete = enumerateConnected(current, grown, excluded, size, forbidden, results, cap)
         current.remove(cell)
+        if (!grownComplete) return false
 
         // Branch 2: exclude cell for the remainder of this subtree.
         excluded.add(cell)
-        enumerateConnected(current, rest, excluded, size, forbidden, results)
+        val restComplete = enumerateConnected(current, rest, excluded, size, forbidden, results, cap)
         excluded.remove(cell)
+        return restComplete
     }
 
     override fun isCorrect(input: String): Boolean = isSolved()
@@ -599,7 +665,12 @@ class NurikabeGame(
         /** How far above the difficulty's cap the relaxed fallback may grow islands. */
         private const val RELAXED_FALLBACK_SLACK = 3
 
-        /** Upper bound on solver nodes per uniqueness check, so generation can never stall. */
-        private const val SOLUTION_NODE_BUDGET = 20_000
+        /**
+         * Upper bound on candidate islands enumerated *and* examined per uniqueness check, so
+         * generation can never stall. Counting candidates rather than search nodes is what makes
+         * this a real bound: one node scans every candidate of its clue, so a board of large clues
+         * used to spend a quarter of a second inside a nominally "bounded" search.
+         */
+        private const val SOLUTION_BUDGET = 20_000
     }
 }

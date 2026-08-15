@@ -1,7 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.KnotUiState
-import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
+import com.inspiredandroid.braincup.games.tools.OrthogonalNeighborTable
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableMap
 import kotlin.math.abs
@@ -73,12 +73,20 @@ class KnotGame(
         cols = difficulty.size
         paths.clear()
 
-        // Rejection sampling for quality: prefer a uniquely-solvable board, but only spend the solver
-        // on a bounded number of candidates so generation stays fast. Every candidate is solvable by
+        // Rejection sampling for quality: prefer a uniquely-solvable board, but draw every candidate's
+        // uniqueness check from one budget shared across the whole search instead of handing each a
+        // fresh one. On the small boards a check that fails to verify also ends early, so those levels
+        // still use all their attempts and keep their unique puzzles; from 7x7 up every check runs to
+        // the per-board cap and none of them ever verifies, so the shared budget runs out after a
+        // handful and stops paying for the remaining attempts. Every candidate is solvable by
         // construction, and solve detection accepts any valid board, so the fallback is still fair.
+        val budget = SolverBudget(GENERATION_SOLVER_BUDGET)
         var lastSolution = buildSolution(difficulty).also { applyEndpoints(it) }
         var attempts = 1
-        while (solutionCount(limit = 2) != 1 && attempts < MAX_GENERATION_ATTEMPTS) {
+        while (solutionCount(limit = 2, budget) != 1 &&
+            attempts < MAX_GENERATION_ATTEMPTS &&
+            budget.remaining > 0
+        ) {
             lastSolution = buildSolution(difficulty).also { applyEndpoints(it) }
             attempts++
         }
@@ -112,16 +120,23 @@ class KnotGame(
      */
     private fun randomHamiltonianPath(): MutableList<Int> {
         val path = snakePath().toMutableList()
+        // Each cell's index in path, kept in step with every reversal so a backbite can locate its
+        // target in O(1) rather than rescanning the path.
+        val positionOf = IntArray(path.size)
+        for (i in path.indices) positionOf[path[i]] = i
         // A handful of backbite passes is plenty of variety; n^2 was needlessly expensive on big
         // boards (it dominated generation time without improving the puzzles).
         val iterations = path.size * BACKBITE_PASSES
         repeat(iterations) {
             // Occasionally flip the whole path so backbites act on the other end too.
-            if (random.nextBoolean()) path.reverse()
+            if (random.nextBoolean()) {
+                path.reverse()
+                for (i in path.indices) positionOf[path[i]] = i
+            }
             val head = path[0]
             val neighbors = neighbors(head)
             val q = neighbors[random.nextInt(neighbors.size)]
-            val k = path.indexOf(q)
+            val k = positionOf[q]
             if (k > 1) {
                 var i = 0
                 var j = k - 1
@@ -129,6 +144,8 @@ class KnotGame(
                     val tmp = path[i]
                     path[i] = path[j]
                     path[j] = tmp
+                    positionOf[path[i]] = i
+                    positionOf[path[j]] = j
                     i++
                     j--
                 }
@@ -331,7 +348,9 @@ class KnotGame(
         return (ar == br && abs(ac - bc) == 1) || (ac == bc && abs(ar - br) == 1)
     }
 
-    private fun neighbors(index: Int): List<Int> = orthogonalNeighbors(index, rows, cols)
+    private val neighborTable = OrthogonalNeighborTable()
+
+    private fun neighbors(index: Int): IntArray = neighborTable[index, rows, cols]
 
     /**
      * Counts full-coverage solutions for the current endpoints, stopping once [limit] is reached
@@ -341,7 +360,9 @@ class KnotGame(
      * [NurikabeGame.solutionCount]; hitting the budget reports "not unique" so generation simply keeps
      * looking rather than accepting an unverified board.
      */
-    internal fun solutionCount(limit: Int): Int {
+    internal fun solutionCount(limit: Int): Int = solutionCount(limit, SolverBudget(SOLUTION_NODE_BUDGET))
+
+    private fun solutionCount(limit: Int, allowance: SolverBudget): Int {
         val total = rows * cols
         val colors = endpoints.keys.sorted()
         val owner = IntArray(total) { UNASSIGNED }
@@ -351,7 +372,10 @@ class KnotGame(
             owner[b] = color
         }
         var count = 0
-        var budget = SOLUTION_NODE_BUDGET
+        // One check may spend at most SOLUTION_NODE_BUDGET nodes, and never more than the allowance
+        // has left; whatever it spends is charged back so later attempts see a smaller budget.
+        val granted = minOf(SOLUTION_NODE_BUDGET, allowance.remaining)
+        var budget = granted
 
         // An empty cell whose every neighbour is owned by an already-completed color can never be
         // filled (completed colors never move, future paths only grow through empty cells), so the
@@ -411,6 +435,7 @@ class KnotGame(
         }
 
         solveColor(0)
+        allowance.remaining -= granted - budget.coerceAtLeast(0)
         return count
     }
 
@@ -431,6 +456,12 @@ class KnotGame(
         level = level,
     )
 
+    /**
+     * Nodes left for the uniqueness checks of one [generateRound], shared across all of its
+     * candidate boards. A single check still spends at most [SOLUTION_NODE_BUDGET] of them.
+     */
+    private class SolverBudget(var remaining: Int)
+
     companion object {
         /** Shortest allowed path between a pair's endpoints, so no pair is trivially adjacent. */
         private const val MIN_SEGMENT_LENGTH = 3
@@ -450,7 +481,14 @@ class KnotGame(
 
         /** Upper bound on solver nodes per uniqueness check, so generation can never stall. Small
          *  boards verify in well under this; large boards exceed it (and are accepted as-is), so this
-         *  mainly caps the time spent failing to verify a hard board. */
+         *  mainly caps the time spent failing to verify a hard board. Confirming uniqueness means
+         *  exhausting the search tree, so it cannot be lowered to make generation cheaper: a smaller
+         *  cap makes genuinely unique boards report as unverifiable and measurably lowers quality. */
         private const val SOLUTION_NODE_BUDGET = 12_000
+
+        /** Upper bound on solver nodes across all of one round's uniqueness checks. Boards that
+         *  never verify exhaust it after a few attempts rather than paying for all
+         *  [MAX_GENERATION_ATTEMPTS], which is what made the 8x8 and 9x9 levels slow to start. */
+        private const val GENERATION_SOLVER_BUDGET = 250_000
     }
 }
