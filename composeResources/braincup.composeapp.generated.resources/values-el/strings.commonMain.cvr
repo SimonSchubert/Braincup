@@ -232,7 +232,6 @@ string|country_el_salvador|zpXOuyDOo86xzrvOss6xzrTPjM+B
 string|country_england|zpHOs86zzrvOr86x
 string|country_equatorial_guinea|zpnPg863zrzOtc+BzrnOvc6uIM6Tzr/Phc65zr3Orc6x
 string|country_eritrea|zpXPgc+FzrjPgc6xzq/OsQ==
-string|country_esperanto_flag|zpXPg8+AzrXPgc6szr3PhM6/
 string|country_estonia|zpXPg864zr/Ovc6vzrE=
 string|country_eswatini|zpXPg86/z4XOsc+Ezq/Ovc65
 string|country_ethiopia|zpHOuc64zrnOv8+Azq/OsQ==
@@ -388,7 +387,6 @@ string|country_united_arab_emirates|zpfOvc+JzrzOrc69zrEgzpHPgc6xzrLOuc66zqwgzpXO
 string|country_united_states_virgin_islands|zqDOsc+BzrjOrc69zr/OuSDOnc6uz4POv865IM6XzqDOkQ==
 string|country_uruguay|zp/Phc+Bzr/Phc6zzr/Phc6szrc=
 string|country_usa|zpfOvc+JzrzOrc69zrXPgiDOoM6/zrvOuc+EzrXOr861z4IgzpHOvM61z4HOuc66zq7Pgg==
-string|country_ussr|zqPOv86yzrnOtc+EzrnOus6uIM6Vzr3Pic+Dzrc=
 string|country_uzbekistan|zp/Phc62zrzPgM61zrrOuc+Dz4TOrM69
 string|country_vanuatu|zpLOsc69zr/Phc6sz4TOv8+F
 string|country_vatican_city|zpLOsc+EzrnOus6xzr3PjA==
@@ -533,6 +531,16 @@ string|instructions_best_score|zprOsc67z43PhM61z4HOvyDPg866zr/PgTogJTEkcw==
 string|instructions_leaderboard|zqDPgc6/zrLOv867zq4gz4DOr869zrHOus6xIM66zrHPhM6sz4TOsc6+zrfPgg==
 string|level_label|zpXPgM6vz4DOtc60zr8gJTEkZA==
 string|level_up_title|zp3Orc6/IM61z4DOr8+AzrXOtM6/IQ==
+string|licenses_app_notice|zqTOvyBCcmFpbiBDdXAgzrXOr869zrHOuSDOsc69zr/Ouc+Hz4TOv8+NIM66z47OtM65zrrOsSwgzrzOtSDOrM60zrXOuc6xIEFwYWNoZSBMaWNlbnNlIDIuMC4=
+string|licenses_desc|zpLOuc6yzrvOuc6/zrjOrs66zrXPgiwgzrPPgc6xzrzOvM6xz4TOv8+DzrXOuc+Bzq3Pgiwgzq7Ph86/zrkgzrrOsc65IM6zz4HOsc+GzrnOus6sIM+Azr/PhSDPh8+BzrfPg865zrzOv8+Azr/Ouc61zq8gz4TOvyBCcmFpbiBDdXAu
+string|licenses_section_artwork|zpPPgc6xz4bOuc66zqw=
+string|licenses_section_fonts|zpPPgc6xzrzOvM6xz4TOv8+DzrXOuc+Bzq3Pgg==
+string|licenses_section_libraries|zpLOuc6yzrvOuc6/zrjOrs66zrXPgg==
+string|licenses_section_sound|zonPh86/zrk=
+string|licenses_section_word_lists|zpvOr8+Dz4TOtc+CIM67zq3Ovs61z4nOvQ==
+string|licenses_title|zobOtM61zrnOtc+C
+string|licenses_view_license|zqDPgc6/zrLOv867zq4gzqzOtM61zrnOsc+C
+string|licenses_view_source|zqDPgc6/zrLOv867zq4gz4DOt86zzq7Pgg==
 string|lights_out_demo_title|zqPOss6uz4PPhM61IM+EzrEgz4zOu86x
 string|matchstick_riddle_prompt_move_one|zpzOtc+EzrHOus65zr3Ors+Dz4TOtSAxIM+Dz4DOr8+Bz4TOvyDOs865zrEgzr3OsSDOtM65zr/Pgc64z47Pg861z4TOtSDPhM63zr0gzrXOvs6vz4PPic+Dzrcu
 string|matchstick_riddle_prompt_move_three|zpzOtc+EzrHOus65zr3Ors+Dz4TOtSAzIM+Dz4DOr8+Bz4TOsSDOs865zrEgzr3OsSDOtM65zr/Pgc64z47Pg861z4TOtSDPhM63zr0gzrXOvs6vz4PPic+Dzrcu

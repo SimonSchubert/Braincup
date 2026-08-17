@@ -232,7 +232,6 @@ string|country_el_salvador|RWwgU2FsdmFkb3I=
 string|country_england|SW5naGlsdGVycmE=
 string|country_equatorial_guinea|R3VpbmVhIEVxdWF0b3JpYWxl
 string|country_eritrea|RXJpdHJlYQ==
-string|country_esperanto_flag|RXNwZXJhbnRv
 string|country_estonia|RXN0b25pYQ==
 string|country_eswatini|RXN3YXRpbmk=
 string|country_ethiopia|RXRpb3BpYQ==
@@ -388,7 +387,6 @@ string|country_united_arab_emirates|RW1pcmF0aSBBcmFiaSBVbml0aQ==
 string|country_united_states_virgin_islands|SXNvbGUgVmVyZ2luaSBhbWVyaWNhbmU=
 string|country_uruguay|VXJ1Z3VheQ==
 string|country_usa|VVNB
-string|country_ussr|VW5pb25lIFNvdmlldGljYQ==
 string|country_uzbekistan|VXpiZWtpc3Rhbg==
 string|country_vanuatu|VmFudWF0dQ==
 string|country_vatican_city|Q2l0dMOgIGRlbCBWYXRpY2Fubw==
@@ -533,6 +531,16 @@ string|instructions_best_score|TWlnbGlvciBwdW50ZWdnaW86ICUxJHM=
 string|instructions_leaderboard|VmVkaSBjbGFzc2lmaWNh
 string|level_label|TGl2ZWxsbyAlMSRk
 string|level_up_title|TGl2ZWxsbyBhdW1lbnRhdG8h
+string|licenses_app_notice|QnJhaW4gQ3VwIMOoIG9wZW4gc291cmNlLCBjb24gbGljZW56YSBBcGFjaGUgTGljZW5zZSAyLjAu
+string|licenses_desc|TGlicmVyaWUsIGNhcmF0dGVyaSwgc3VvbmkgZSBncmFmaWNoZSB1c2F0aSBkYSBCcmFpbiBDdXAu
+string|licenses_section_artwork|R3JhZmljaGU=
+string|licenses_section_fonts|Q2FyYXR0ZXJp
+string|licenses_section_libraries|TGlicmVyaWU=
+string|licenses_section_sound|U3Vvbmk=
+string|licenses_section_word_lists|TGlzdGUgZGkgcGFyb2xl
+string|licenses_title|TGljZW56ZQ==
+string|licenses_view_license|VmVkaSBsYSBsaWNlbnph
+string|licenses_view_source|VmVkaSBsYSBmb250ZQ==
 string|lights_out_demo_title|U3BlZ25pbGkgdHV0dGk=
 string|matchstick_riddle_prompt_move_one|U3Bvc3RhIDEgZmlhbW1pZmVybyBwZXIgY29ycmVnZ2VyZSBsJ2VxdWF6aW9uZS4=
 string|matchstick_riddle_prompt_move_three|U3Bvc3RhIDMgZmlhbW1pZmVyaSBwZXIgY29ycmVnZ2VyZSBsJ2VxdWF6aW9uZS4=
