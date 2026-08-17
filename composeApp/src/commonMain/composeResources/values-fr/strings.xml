@@ -367,7 +367,6 @@
     <string name="country_england">Angleterre</string>
     <string name="country_equatorial_guinea">Guinée équatoriale</string>
     <string name="country_eritrea">Érythrée</string>
-    <string name="country_esperanto_flag">Esperanto</string>
     <string name="country_estonia">Estonie</string>
     <string name="country_eswatini">Eswatini</string>
     <string name="country_ethiopia">Éthiopie</string>
@@ -523,7 +522,6 @@
     <string name="country_united_states_virgin_islands">Îles Vierges des États-Unis</string>
     <string name="country_uruguay">Uruguay</string>
     <string name="country_usa">États-Unis</string>
-    <string name="country_ussr">Union soviétique</string>
     <string name="country_uzbekistan">Ouzbékistan</string>
     <string name="country_vanuatu">Vanuatu</string>
     <string name="country_vatican_city">Cité du Vatican</string>
@@ -552,6 +550,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">Changer</string>
     <string name="settings_play_games_switch_cancel">Pas maintenant</string>
+    <string name="licenses_title">Licences</string>
+    <string name="licenses_desc">Bibliothèques, polices, sons et illustrations utilisés par Brain Cup.</string>
+    <string name="licenses_section_libraries">Bibliothèques</string>
+    <string name="licenses_section_fonts">Polices</string>
+    <string name="licenses_section_sound">Sons</string>
+    <string name="licenses_section_artwork">Illustrations</string>
+    <string name="licenses_section_word_lists">Listes de mots</string>
+    <string name="licenses_view_source">Voir la source</string>
+    <string name="licenses_view_license">Voir la licence</string>
+    <string name="licenses_app_notice">Brain Cup est open source, sous licence Apache License 2.0.</string>
     <string name="accounts_title">Comptes</string>
     <string name="accounts_create">Créer un compte</string>
     <string name="accounts_create_title">Nouveau compte</string>

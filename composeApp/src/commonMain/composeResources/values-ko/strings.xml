@@ -392,7 +392,6 @@
     <string name="country_england">잉글랜드</string>
     <string name="country_equatorial_guinea">적도 기니</string>
     <string name="country_eritrea">에리트레아</string>
-    <string name="country_esperanto_flag">에스페란토</string>
     <string name="country_estonia">에스토니아</string>
     <string name="country_eswatini">에스와티니</string>
     <string name="country_ethiopia">에티오피아</string>
@@ -548,7 +547,6 @@
     <string name="country_united_states_virgin_islands">미국령 버진아일랜드</string>
     <string name="country_uruguay">우루과이</string>
     <string name="country_usa">미국</string>
-    <string name="country_ussr">소련</string>
     <string name="country_uzbekistan">우즈베키스탄</string>
     <string name="country_vanuatu">바누아투</string>
     <string name="country_vatican_city">바티칸</string>
@@ -577,6 +575,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">전환</string>
     <string name="settings_play_games_switch_cancel">나중에</string>
+    <string name="licenses_title">라이선스</string>
+    <string name="licenses_desc">Brain Cup에서 사용하는 라이브러리, 글꼴, 사운드, 이미지입니다.</string>
+    <string name="licenses_section_libraries">라이브러리</string>
+    <string name="licenses_section_fonts">글꼴</string>
+    <string name="licenses_section_sound">사운드</string>
+    <string name="licenses_section_artwork">이미지</string>
+    <string name="licenses_section_word_lists">단어 목록</string>
+    <string name="licenses_view_source">출처 보기</string>
+    <string name="licenses_view_license">라이선스 보기</string>
+    <string name="licenses_app_notice">Brain Cup은 오픈 소스이며 Apache License 2.0을 따릅니다.</string>
     <string name="accounts_title">계정</string>
     <string name="accounts_create">계정 만들기</string>
     <string name="accounts_create_title">새 계정</string>

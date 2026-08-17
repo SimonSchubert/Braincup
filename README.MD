@@ -111,7 +111,9 @@ Very welcome.
 ## Acknowledgments ♥
 https://kotlinlang.org, https://github.com/russhwolf/multiplatform-settings, https://ktor.io, https://soywiz.com, @cssinate for design suggestions and everyone else I missed to mention.
 
-Sea animal icons: https://www.svgrepo.com/collection/sea-life-2/
+Sea animal icons: ["Sea Life 2"](https://www.svgrepo.com/collection/sea-life-2/) by SVG Repo — [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)
+
+Country flags: [flag-icons](https://github.com/lipis/flag-icons) by Panayiotis Lipiridis — [MIT](https://github.com/lipis/flag-icons/blob/main/LICENSE), redrawn as Android vector drawables
 
 ### Audio
 - Menu music: ["Drum and Piano Loop"](https://freesound.org/people/EEE3333E/sounds/841825/) by EEE3333E — [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/)

@@ -17,6 +17,7 @@ import com.inspiredandroid.braincup.api.PlayerAccount
 import com.inspiredandroid.braincup.api.StorePlayerProfile
 import com.inspiredandroid.braincup.ui.components.AccountAvatar
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.ChunkyChevron
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.PrismToggle
@@ -45,6 +46,7 @@ fun SettingsScreen(
     activeAccount: PlayerAccount? = null,
     storeProfile: StorePlayerProfile? = null,
     onOpenAccounts: (() -> Unit)? = null,
+    onOpenLicenses: (() -> Unit)? = null,
 ) {
     AppScaffold(
         title = stringResource(Res.string.settings_title),
@@ -92,6 +94,13 @@ fun SettingsScreen(
                 checked = isNumberPadAscending,
                 onToggle = onToggleNumberPadAscending,
             )
+            if (onOpenLicenses != null) {
+                SettingsLinkRow(
+                    title = stringResource(Res.string.licenses_title),
+                    description = stringResource(Res.string.licenses_desc),
+                    onClick = onOpenLicenses,
+                )
+            }
         }
     }
 }
@@ -219,6 +228,46 @@ private fun SettingsThemeSelector(
 }
 
 @Composable
+private fun SettingsLinkRow(
+    title: String,
+    description: String,
+    onClick: () -> Unit,
+) {
+    PrismCard(
+        face = MaterialTheme.colorScheme.surfaceContainer,
+        modifier = Modifier
+            .fillMaxWidth()
+            .noRippleClickable(onClickLabel = title, onClick = onClick)
+            .hoverHand(),
+    ) {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSurface,
+                )
+                Text(
+                    text = description,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Spacer(Modifier.width(16.dp))
+            ChunkyChevron(
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.size(16.dp),
+            )
+        }
+    }
+}
+
+@Composable
 private fun SettingsToggleRow(
     title: String,
     description: String,
@@ -272,6 +321,7 @@ private fun SettingsScreenPreview() {
             themeMode = ThemeMode.SYSTEM,
             onThemeSelected = {},
             onBack = {},
+            onOpenLicenses = {},
         )
     }
 }
@@ -301,6 +351,7 @@ private fun SettingsScreenPlayGamesPreview() {
                 canEdit = true,
             ),
             onOpenAccounts = {},
+            onOpenLicenses = {},
         )
     }
 }

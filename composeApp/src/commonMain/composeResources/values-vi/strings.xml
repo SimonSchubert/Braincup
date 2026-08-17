@@ -392,7 +392,6 @@
     <string name="country_england">Anh</string>
     <string name="country_equatorial_guinea">Guinea Xích Đạo</string>
     <string name="country_eritrea">Eritrea</string>
-    <string name="country_esperanto_flag">Esperanto</string>
     <string name="country_estonia">Estonia</string>
     <string name="country_eswatini">Eswatini</string>
     <string name="country_ethiopia">Ethiopia</string>
@@ -548,7 +547,6 @@
     <string name="country_united_states_virgin_islands">Quần đảo Virgin thuộc Hoa Kỳ</string>
     <string name="country_uruguay">Uruguay</string>
     <string name="country_usa">Hoa Kỳ</string>
-    <string name="country_ussr">Liên Xô</string>
     <string name="country_uzbekistan">Uzbekistan</string>
     <string name="country_vanuatu">Vanuatu</string>
     <string name="country_vatican_city">Thành Vatican</string>
@@ -577,6 +575,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">Đổi</string>
     <string name="settings_play_games_switch_cancel">Để sau</string>
+    <string name="licenses_title">Giấy phép</string>
+    <string name="licenses_desc">Thư viện, phông chữ, âm thanh và hình ảnh mà Brain Cup sử dụng.</string>
+    <string name="licenses_section_libraries">Thư viện</string>
+    <string name="licenses_section_fonts">Phông chữ</string>
+    <string name="licenses_section_sound">Âm thanh</string>
+    <string name="licenses_section_artwork">Hình ảnh</string>
+    <string name="licenses_section_word_lists">Danh sách từ</string>
+    <string name="licenses_view_source">Xem nguồn</string>
+    <string name="licenses_view_license">Xem giấy phép</string>
+    <string name="licenses_app_notice">Brain Cup là mã nguồn mở, theo giấy phép Apache License 2.0.</string>
     <string name="accounts_title">Tài khoản</string>
     <string name="accounts_create">Tạo tài khoản</string>
     <string name="accounts_create_title">Tài khoản mới</string>

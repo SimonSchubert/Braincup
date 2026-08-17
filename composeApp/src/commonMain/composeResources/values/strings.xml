@@ -108,6 +108,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">Switch</string>
     <string name="settings_play_games_switch_cancel">Not now</string>
+    <string name="licenses_title">Licenses</string>
+    <string name="licenses_desc">Libraries, fonts, sounds and artwork used in Brain Cup.</string>
+    <string name="licenses_section_libraries">Libraries</string>
+    <string name="licenses_section_fonts">Fonts</string>
+    <string name="licenses_section_sound">Sound</string>
+    <string name="licenses_section_artwork">Artwork</string>
+    <string name="licenses_section_word_lists">Word lists</string>
+    <string name="licenses_view_source">View source</string>
+    <string name="licenses_view_license">View license</string>
+    <string name="licenses_app_notice">Brain Cup is open source, licensed under the Apache License 2.0.</string>
     <string name="accounts_title">Accounts</string>
     <string name="accounts_create">Create account</string>
     <string name="accounts_create_title">New account</string>
@@ -582,7 +592,6 @@
     <string name="country_england">England</string>
     <string name="country_equatorial_guinea">Equatorial Guinea</string>
     <string name="country_eritrea">Eritrea</string>
-    <string name="country_esperanto_flag">Esperanto</string>
     <string name="country_estonia">Estonia</string>
     <string name="country_eswatini">Eswatini</string>
     <string name="country_ethiopia">Ethiopia</string>
@@ -738,7 +747,6 @@
     <string name="country_united_states_virgin_islands">United States Virgin Islands</string>
     <string name="country_uruguay">Uruguay</string>
     <string name="country_usa">United States</string>
-    <string name="country_ussr">Soviet Union</string>
     <string name="country_uzbekistan">Uzbekistan</string>
     <string name="country_vanuatu">Vanuatu</string>
     <string name="country_vatican_city">Vatican City</string>

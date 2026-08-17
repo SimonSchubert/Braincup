@@ -285,6 +285,13 @@ fun numberFontFamily(): FontFamily = FontFamily(
 fun TextStyle.numeric(): TextStyle = copy(fontFamily = numberFontFamily())
 
 /**
+ * Same swap for long-form prose. Bungee is an all-caps display face, so paragraphs of it (license
+ * texts) lose their capitalization and become a wall of shouting.
+ */
+@Composable
+fun TextStyle.readable(): TextStyle = copy(fontFamily = numberFontFamily())
+
+/**
  * Render only the digit runs of [text] in the readable number font, leaving words and other
  * characters in the surrounding (Bungee) style. Use for mixed label+number strings like
  * "Level 4" or "Score: 12" so the word stays on-brand while the number is legible.

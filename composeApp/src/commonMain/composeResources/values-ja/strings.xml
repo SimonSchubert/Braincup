@@ -392,7 +392,6 @@
     <string name="country_england">イングランド</string>
     <string name="country_equatorial_guinea">赤道ギニア</string>
     <string name="country_eritrea">エリトリア</string>
-    <string name="country_esperanto_flag">エスペラント</string>
     <string name="country_estonia">エストニア</string>
     <string name="country_eswatini">エスワティニ</string>
     <string name="country_ethiopia">エチオピア</string>
@@ -548,7 +547,6 @@
     <string name="country_united_states_virgin_islands">アメリカ領ヴァージン諸島</string>
     <string name="country_uruguay">ウルグアイ</string>
     <string name="country_usa">アメリカ</string>
-    <string name="country_ussr">ソ連</string>
     <string name="country_uzbekistan">ウズベキスタン</string>
     <string name="country_vanuatu">バヌアツ</string>
     <string name="country_vatican_city">バチカン市国</string>
@@ -577,6 +575,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">切り替え</string>
     <string name="settings_play_games_switch_cancel">後で</string>
+    <string name="licenses_title">ライセンス</string>
+    <string name="licenses_desc">Brain Cup が使用しているライブラリ、フォント、サウンド、画像です。</string>
+    <string name="licenses_section_libraries">ライブラリ</string>
+    <string name="licenses_section_fonts">フォント</string>
+    <string name="licenses_section_sound">サウンド</string>
+    <string name="licenses_section_artwork">画像</string>
+    <string name="licenses_section_word_lists">単語リスト</string>
+    <string name="licenses_view_source">ソースを見る</string>
+    <string name="licenses_view_license">ライセンスを見る</string>
+    <string name="licenses_app_notice">Brain Cup はオープンソースで、Apache License 2.0 のもとで公開されています。</string>
     <string name="accounts_title">アカウント</string>
     <string name="accounts_create">アカウントを作成</string>
     <string name="accounts_create_title">新しいアカウント</string>

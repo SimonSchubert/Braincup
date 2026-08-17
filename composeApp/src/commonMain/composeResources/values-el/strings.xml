@@ -107,6 +107,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">Αλλαγή</string>
     <string name="settings_play_games_switch_cancel">Όχι τώρα</string>
+    <string name="licenses_title">Άδειες</string>
+    <string name="licenses_desc">Βιβλιοθήκες, γραμματοσειρές, ήχοι και γραφικά που χρησιμοποιεί το Brain Cup.</string>
+    <string name="licenses_section_libraries">Βιβλιοθήκες</string>
+    <string name="licenses_section_fonts">Γραμματοσειρές</string>
+    <string name="licenses_section_sound">Ήχοι</string>
+    <string name="licenses_section_artwork">Γραφικά</string>
+    <string name="licenses_section_word_lists">Λίστες λέξεων</string>
+    <string name="licenses_view_source">Προβολή πηγής</string>
+    <string name="licenses_view_license">Προβολή άδειας</string>
+    <string name="licenses_app_notice">Το Brain Cup είναι ανοιχτού κώδικα, με άδεια Apache License 2.0.</string>
     <string name="accounts_title">Λογαριασμοί</string>
     <string name="accounts_create">Δημιουργία λογαριασμού</string>
     <string name="accounts_create_title">Νέος λογαριασμός</string>
@@ -544,7 +554,6 @@
     <string name="country_england">Αγγλία</string>
     <string name="country_equatorial_guinea">Ισημερινή Γουινέα</string>
     <string name="country_eritrea">Ερυθραία</string>
-    <string name="country_esperanto_flag">Εσπεράντο</string>
     <string name="country_estonia">Εσθονία</string>
     <string name="country_eswatini">Εσουατίνι</string>
     <string name="country_ethiopia">Αιθιοπία</string>
@@ -700,7 +709,6 @@
     <string name="country_united_states_virgin_islands">Παρθένοι Νήσοι ΗΠΑ</string>
     <string name="country_uruguay">Ουρουγουάη</string>
     <string name="country_usa">Ηνωμένες Πολιτείες Αμερικής</string>
-    <string name="country_ussr">Σοβιετική Ενωση</string>
     <string name="country_uzbekistan">Ουζμπεκιστάν</string>
     <string name="country_vanuatu">Βανουάτου</string>
     <string name="country_vatican_city">Βατικανό</string>

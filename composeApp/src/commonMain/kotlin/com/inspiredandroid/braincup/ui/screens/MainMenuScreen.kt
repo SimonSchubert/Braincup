@@ -193,7 +193,7 @@ fun MainMenuScreenContent(
                         modifier = Modifier
                             .padding(top = 16.dp)
                             .align(Alignment.Center)
-                            .height(154.dp),
+                            .height(170.dp),
                     )
                     Box(modifier = Modifier.align(Alignment.TopEnd)) {
                         settingsIcon()

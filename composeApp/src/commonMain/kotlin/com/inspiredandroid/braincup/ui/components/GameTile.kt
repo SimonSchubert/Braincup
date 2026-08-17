@@ -2001,9 +2001,9 @@ private fun PrismClearPreview() {
 }
 
 private val FlagsPreviewDrawables: List<DrawableResource> = listOf(
-    Res.drawable.flag_japan_50,
-    Res.drawable.flag_brazil_50,
-    Res.drawable.flag_france_50,
+    Res.drawable.flag_japan,
+    Res.drawable.flag_brazil,
+    Res.drawable.flag_france,
 )
 
 @Composable

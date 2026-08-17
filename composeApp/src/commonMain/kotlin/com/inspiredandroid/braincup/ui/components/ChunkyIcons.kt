@@ -9,6 +9,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.graphicsLayer
 
 /** A bold, round-capped checkmark matching the chunky tile typography. */
 @Composable
@@ -20,6 +21,23 @@ fun ChunkyCheck(color: Color, modifier: Modifier = Modifier) {
         val elbow = Offset(w * 0.40f, h * 0.78f)
         drawLine(color, Offset(w * 0.08f, h * 0.50f), elbow, strokeWidth = stroke, cap = StrokeCap.Round)
         drawLine(color, elbow, Offset(w * 0.92f, h * 0.20f), strokeWidth = stroke, cap = StrokeCap.Round)
+    }
+}
+
+/** A bold chevron pointing right at [rotationDegrees] 0, and down at 90. */
+@Composable
+fun ChunkyChevron(
+    color: Color,
+    modifier: Modifier = Modifier,
+    rotationDegrees: Float = 0f,
+) {
+    Canvas(modifier.graphicsLayer { rotationZ = rotationDegrees }) {
+        val w = size.width
+        val h = size.height
+        val stroke = minOf(w, h) * 0.18f
+        val tip = Offset(w * 0.68f, h * 0.50f)
+        drawLine(color, Offset(w * 0.34f, h * 0.18f), tip, strokeWidth = stroke, cap = StrokeCap.Round)
+        drawLine(color, tip, Offset(w * 0.34f, h * 0.82f), strokeWidth = stroke, cap = StrokeCap.Round)
     }
 }
 

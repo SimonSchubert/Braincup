@@ -272,6 +272,10 @@ class GameController(
         navController.navigate(Accounts)
     }
 
+    fun navigateToLicenses() {
+        navController.navigate(Licenses)
+    }
+
     fun reloadAfterAccountSwitch() {
         storage.migrateStreakIfNeeded()
         storage.seedHighScoresFromUnlockedGold()

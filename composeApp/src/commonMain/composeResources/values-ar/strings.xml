@@ -367,7 +367,6 @@
     <string name="country_england">إنجلترا</string>
     <string name="country_equatorial_guinea">غينيا الاستوائية</string>
     <string name="country_eritrea">إريتريا</string>
-    <string name="country_esperanto_flag">إسبرانتو</string>
     <string name="country_estonia">إستونيا</string>
     <string name="country_eswatini">إسواتيني</string>
     <string name="country_ethiopia">إثيوبيا</string>
@@ -523,7 +522,6 @@
     <string name="country_united_states_virgin_islands">جزر العذراء الأمريكية</string>
     <string name="country_uruguay">أوروغواي</string>
     <string name="country_usa">الولايات المتحدة الأمريكية</string>
-    <string name="country_ussr">الاتحاد السوفيتي</string>
     <string name="country_uzbekistan">أوزبكستان</string>
     <string name="country_vanuatu">فانواتو</string>
     <string name="country_vatican_city">مدينة الفاتيكان</string>
@@ -552,6 +550,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">تبديل</string>
     <string name="settings_play_games_switch_cancel">ليس الآن</string>
+    <string name="licenses_title">التراخيص</string>
+    <string name="licenses_desc">المكتبات والخطوط والأصوات والرسومات التي يستخدمها Brain Cup.</string>
+    <string name="licenses_section_libraries">المكتبات</string>
+    <string name="licenses_section_fonts">الخطوط</string>
+    <string name="licenses_section_sound">الأصوات</string>
+    <string name="licenses_section_artwork">الرسومات</string>
+    <string name="licenses_section_word_lists">قوائم الكلمات</string>
+    <string name="licenses_view_source">عرض المصدر</string>
+    <string name="licenses_view_license">عرض الترخيص</string>
+    <string name="licenses_app_notice">Brain Cup مفتوح المصدر بموجب رخصة Apache License 2.0.</string>
     <string name="accounts_title">الحسابات</string>
     <string name="accounts_create">إنشاء حساب</string>
     <string name="accounts_create_title">حساب جديد</string>

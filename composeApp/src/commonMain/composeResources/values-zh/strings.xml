@@ -392,7 +392,6 @@
     <string name="country_england">英格兰</string>
     <string name="country_equatorial_guinea">赤道几内亚</string>
     <string name="country_eritrea">厄立特里亚</string>
-    <string name="country_esperanto_flag">世界语</string>
     <string name="country_estonia">爱沙尼亚</string>
     <string name="country_eswatini">斯威士兰</string>
     <string name="country_ethiopia">埃塞俄比亚</string>
@@ -548,7 +547,6 @@
     <string name="country_united_states_virgin_islands">美属维尔京群岛</string>
     <string name="country_uruguay">乌拉圭</string>
     <string name="country_usa">美国</string>
-    <string name="country_ussr">苏联</string>
     <string name="country_uzbekistan">乌兹别克斯坦</string>
     <string name="country_vanuatu">瓦努阿图</string>
     <string name="country_vatican_city">梵蒂冈城</string>
@@ -577,6 +575,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">切换</string>
     <string name="settings_play_games_switch_cancel">暂不</string>
+    <string name="licenses_title">许可</string>
+    <string name="licenses_desc">Brain Cup 使用的库、字体、音效和图像。</string>
+    <string name="licenses_section_libraries">库</string>
+    <string name="licenses_section_fonts">字体</string>
+    <string name="licenses_section_sound">音效</string>
+    <string name="licenses_section_artwork">图像</string>
+    <string name="licenses_section_word_lists">词库</string>
+    <string name="licenses_view_source">查看来源</string>
+    <string name="licenses_view_license">查看许可</string>
+    <string name="licenses_app_notice">Brain Cup 是开源项目，采用 Apache License 2.0 许可。</string>
     <string name="accounts_title">账号</string>
     <string name="accounts_create">创建账号</string>
     <string name="accounts_create_title">新账号</string>

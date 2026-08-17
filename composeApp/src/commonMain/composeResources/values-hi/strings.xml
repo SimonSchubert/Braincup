@@ -392,7 +392,6 @@
     <string name="country_england">इंग्लैंड</string>
     <string name="country_equatorial_guinea">इक्वेटोरियल गिनी</string>
     <string name="country_eritrea">इरिट्रिया</string>
-    <string name="country_esperanto_flag">एस्पेरांतो</string>
     <string name="country_estonia">एस्टोनिया</string>
     <string name="country_eswatini">एस्वातिनी</string>
     <string name="country_ethiopia">इथियोपिया</string>
@@ -548,7 +547,6 @@
     <string name="country_united_states_virgin_islands">संयुक्त राज्य वर्जिन द्वीप समूह</string>
     <string name="country_uruguay">उरुग्वे</string>
     <string name="country_usa">अमेरिका</string>
-    <string name="country_ussr">सोवियत संघ</string>
     <string name="country_uzbekistan">उज़्बेकिस्तान</string>
     <string name="country_vanuatu">वनुआतू</string>
     <string name="country_vatican_city">वेटिकन सिटी</string>
@@ -577,6 +575,16 @@
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">बदलें</string>
     <string name="settings_play_games_switch_cancel">अभी नहीं</string>
+    <string name="licenses_title">लाइसेंस</string>
+    <string name="licenses_desc">Brain Cup में इस्तेमाल की गई लाइब्रेरी, फ़ॉन्ट, ध्वनियाँ और चित्र।</string>
+    <string name="licenses_section_libraries">लाइब्रेरी</string>
+    <string name="licenses_section_fonts">फ़ॉन्ट</string>
+    <string name="licenses_section_sound">ध्वनियाँ</string>
+    <string name="licenses_section_artwork">चित्र</string>
+    <string name="licenses_section_word_lists">शब्द सूचियाँ</string>
+    <string name="licenses_view_source">स्रोत देखें</string>
+    <string name="licenses_view_license">लाइसेंस देखें</string>
+    <string name="licenses_app_notice">Brain Cup ओपन सोर्स है और Apache License 2.0 के तहत उपलब्ध है।</string>
     <string name="accounts_title">खाते</string>
     <string name="accounts_create">खाता बनाएँ</string>
     <string name="accounts_create_title">नया खाता</string>

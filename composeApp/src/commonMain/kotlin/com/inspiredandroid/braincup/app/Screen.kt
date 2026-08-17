@@ -38,6 +38,9 @@ object Settings
 object Accounts
 
 @Serializable
+object Licenses
+
+@Serializable
 object SessionInterstitial
 
 @Serializable

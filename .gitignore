@@ -18,6 +18,7 @@ AGENTS.md
 *.aab
 .claude
 xcuserdata/
+/tools
 fastlane/play-store-key.json
 fastlane/report.xml
 fastlane/README.md

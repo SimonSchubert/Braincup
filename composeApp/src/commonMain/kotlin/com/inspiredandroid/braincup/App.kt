@@ -228,7 +228,19 @@ fun App(
                             },
                             storeProfile = storeProfile,
                             onOpenAccounts = { controller.navigateToAccounts() },
+                            onOpenLicenses = { controller.navigateToLicenses() },
                         )
+                    }
+
+                    composable<Licenses> {
+                        val onBackLicenses = remember(navController, controller) {
+                            {
+                                if (!navController.popBackStack()) {
+                                    controller.navigateToSettings()
+                                }
+                            }
+                        }
+                        LicensesScreen(onBack = onBackLicenses)
                     }
 
                     composable<Accounts> {
