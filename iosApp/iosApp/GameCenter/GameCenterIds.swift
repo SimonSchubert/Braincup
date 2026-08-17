@@ -133,6 +133,9 @@ enum GameCenterIds {
         case "achievement.fresh_eyes":            return UserStorage.Achievements.goldSpotTheNew
         case "achievement.wordsmith":             return UserStorage.Achievements.goldWordle
         case "achievement.flag_bearer":           return UserStorage.Achievements.goldFlags
+        case "achievement.simon_says":            return UserStorage.Achievements.goldSimonSays
+        case "achievement.rolling_recall":        return UserStorage.Achievements.goldNBack
+        case "achievement.crystal_clarity":       return UserStorage.Achievements.goldPrismClear
         case "achievement.operator_master":       return UserStorage.Achievements.goldMissingOperators
         case "achievement.code_cracker":          return UserStorage.Achievements.goldBullsAndCows
         case "achievement.triple_vision":         return UserStorage.Achievements.goldTrio
