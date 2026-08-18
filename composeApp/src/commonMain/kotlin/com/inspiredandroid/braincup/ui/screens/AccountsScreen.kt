@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -28,6 +27,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
@@ -57,6 +57,7 @@ import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.DialogWindowEdgeToEdgeTweaks
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismDialog
+import com.inspiredandroid.braincup.ui.components.PrismDialogButton
 import com.inspiredandroid.braincup.ui.components.drawable
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
@@ -311,21 +312,19 @@ private fun AccountEditorDialog(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
-                    Text(
-                        text = stringResource(Res.string.settings_play_games_switch_cancel),
-                        style = MaterialTheme.typography.labelLarge,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        modifier = Modifier
-                            .weight(1f)
-                            .defaultMinSize(minHeight = 48.dp)
-                            .noRippleClickable(onClick = onDismiss)
-                            .hoverHand()
-                            .padding(vertical = 12.dp),
-                    )
-                    DefaultButton(
+                    PrismDialogButton(
+                        label = stringResource(Res.string.settings_play_games_switch_cancel),
+                        face = MaterialTheme.colorScheme.surfaceVariant,
+                        textColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                        onClick = onDismiss,
                         modifier = Modifier.weight(1f),
-                        value = stringResource(Res.string.accounts_save),
+                    )
+                    PrismDialogButton(
+                        label = stringResource(Res.string.accounts_save),
+                        face = Primary,
+                        textColor = Color.White,
                         onClick = { if (canSave) onConfirm(name, icon) },
+                        modifier = Modifier.weight(1f),
                     )
                 }
             }

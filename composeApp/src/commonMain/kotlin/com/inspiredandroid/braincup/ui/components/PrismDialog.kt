@@ -109,7 +109,7 @@ fun PrismDialog(
 }
 
 @Composable
-private fun PrismDialogButton(
+fun PrismDialogButton(
     label: String,
     face: Color,
     textColor: Color,
