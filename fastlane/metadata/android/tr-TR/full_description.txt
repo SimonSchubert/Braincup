@@ -1,4 +1,4 @@
-Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 38 beyin egzersizi sunar.
+Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 41 beyin egzersizi sunar.
 
 <b>Zihinsel Hesaplama</b>:
 Matematiksel ifadeleri takip et. Sonucu sonraki hesap için kullan.
@@ -16,7 +16,7 @@ Kesirleri çöz.
 En yüksek değere sahip ifadeyi seç.
 
 <b>Baloncuk Toplamı</b>:
-Balonlardaki sayıları topla. Sonra yanıp sönerler — ezberle.
+Balonlardaki sayıları topla.
 
 <b>Hızlı Toplam</b>:
 Sayılar tek tek yanıp söner. Topla ve sonucu gir.
@@ -25,7 +25,7 @@ Sayılar tek tek yanıp söner. Topla ve sonucu gir.
 Renk ve şekle göre öne çıkan figürü bul.
 
 <b>Desen Dizisi</b>:
-Desendeki sonraki figürü bul (şekil, renk, dönüş).
+Izgaranın her satırında ilerleyen kuralı bul, sonra onu tamamlayan parçayı seç.
 
 <b>Yol Bulucu</b>:
 İşaretli yerden başla ve oklara uyarak hedefe git.
@@ -46,13 +46,13 @@ Doğru ifadelerin puanlarını topla.
 İşaretli topları izle, takip et ve durunca hedefleri seç.
 
 <b>Flaş Kalabalık</b>:
-Noktalar kısa parlar. Daha çok nokta olan tarafa dokun.
+Noktalar kısa parlar.
 
 <b>Mini Sudoku</b>:
 Küçük ızgarayı doldur: her satır, sütun ve blokta her rakam bir kez.
 
 <b>Mini Satranç</b>:
-Beyazlarla senaryoyu bitir. CPU senden önce mat etmesin.
+CPU senden önce mat etmesin.
 
 <b>Tek Kişilik Satranç</b>:
 Sadece şah kalana kadar taşları tek tek al. Her hamle alma olmalı.
@@ -76,19 +76,19 @@ Her satır, sütun ve renk bölgesinde bir kedi. Birbirine değmesinler.
 Her renkli nokta çiftini yolla birleştir. Yollar kesişmez, tüm hücreleri kaplar.
 
 <b>Hanoi Kuleleri</b>:
-Yığını sağ çubuğa taşı. Büyük diski küçüğün üstüne koyma.
+Yığını sağ çubuğa taşı.
 
 <b>Schulte Tablosu</b>:
 Sayıları 1’den itibaren olabildiğince hızlı sırayla dokun.
 
 <b>Bayraklar</b>:
-Bayraktan ülkeyi tanı. Daha fazla seçenek ve süre işler.
+Bayraktan ülkeyi tanı.
 
 <b>Rakam Hafızası</b>:
 Rakamları ezberle, hızlı bir işlem yap, sonra rakamları hatırla.
 
 <b>Yeniyi Bul</b>:
-Daha önce görmediğin hayvana dokun. Bir hata oyunu bitirir.
+Daha önce görmediğin hayvana dokun.
 
 <b>N-Back</b>:
 Şekilleri izle, istenen konumdakine dokun.
@@ -112,7 +112,16 @@ CPU’ya karşı veya pass-and-play tam satranç.
 Denklemi doğru yapan eksik operatörleri (+, -, *, /) bulun.
 
 <b>Bulls & Cows</b>:
-Benzersiz rakamlardan oluşan gizli 4 basamaklı sayıyı tahmin edin. Bulls = doğru rakam doğru yerde. Cows = doğru rakam yanlış yerde.
+Benzersiz rakamlardan oluşan gizli 4 basamaklı sayıyı tahmin edin.
+
+<b>Simon Says</b>:
+Her turda yeni bir düğme yanar. Önceki turların düğmeleri dahil, tüm diziye baştan dokun.
+
+<b>Prism Clear</b>:
+Eşleşen karoları değiştirerek üç veya daha fazla karodan oluşan satırları temizleyin. Kazanmak için tüm tahtayı boşaltın.
+
+<b>Trio</b>:
+Şekil, sayı veya dolgusu ortak olan üç kart bulun.
 
 Oyunda birçok <b>başarı</b> ve her egzersizde sizi motive edecek <b>madalyalar</b> bulunur.
 

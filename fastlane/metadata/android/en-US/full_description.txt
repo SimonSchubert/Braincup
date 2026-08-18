@@ -1,4 +1,4 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 38 brain training exercises designed to sharpen your mind and improve concentration.
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 41 brain training exercises designed to sharpen your mind and improve concentration.
 
 <b>Mental Calculation</b>:
 Follow the mathematical expressions. Use the result as the base for the next calculation.
@@ -16,16 +16,16 @@ Solve the fractions.
 Select the expression with the highest value.
 
 <b>Bubble Sum</b>:
-Add the numbers on the floating bubbles. Later, numbers blink — remember them.
+Add the numbers on the floating bubbles.
 
 <b>Quick Sum</b>:
 Numbers flash one at a time. Add them up and enter the total.
 
 <b>Anomaly Puzzle</b>:
-Find the figure that stands out. Consider both the color and shape of each figure.
+Find the figure that stands out.
 
 <b>Pattern Sequence</b>:
-A fresh matrix puzzle every round. Work out the rule running along each row of the 3x3 grid, then pick the piece that completes it.
+Work out the rule running along each row of the grid, then pick the piece that completes it.
 
 <b>Path Finder</b>:
 Start at the marked position and follow the arrow instructions to find the destination.
@@ -37,22 +37,22 @@ Memorize the shapes on the grid, then identify the hidden shape after the timer 
 Watch the tiles light up one by one, then tap them back in the same order.
 
 <b>Color Confusion</b>:
-Tap all cells where the word matches its font color. Stay focused!
+Tap all cells where the word matches its font color.
 
 <b>Colored Shapes</b>:
 Add up the points from the correct statements.
 
 <b>Orbit Tracker</b>:
-Watch the highlighted balls, then track them as they move. Select the original targets after they stop.
+Watch the highlighted balls, then track them as they move.
 
 <b>Flash Crowd</b>:
-Dots flash briefly on each side. Tap the side that had more dots. Trust your instinct!
+Dots flash briefly on each side. Tap the side that had more dots.
 
 <b>Mini Sudoku</b>:
 Fill the small grid so every row, column and block contains each number exactly once.
 
 <b>Mini Chess</b>:
-Finish the chess scenario as white. Checkmate the CPU before it checkmates you.
+Checkmate the CPU before it checkmates you.
 
 <b>Solo Chess</b>:
 Capture pieces one by one until only the king remains. Every move must capture.
@@ -76,19 +76,19 @@ Place one cat in every row, column and color zone. No two cats may touch, not ev
 Connect each pair of colored dots with a path. Paths may not cross and must cover every cell.
 
 <b>Tower of Hanoi</b>:
-Move the full stack to the right peg. Never place a larger disk on a smaller one.
+Move the full stack to the right peg.
 
 <b>Schulte Table</b>:
 Tap the numbers in order from 1 upwards as fast as you can.
 
 <b>Flags</b>:
-Identify the country by its flag. Each round adds more options and the clock is ticking.
+Identify the country by its flag.
 
 <b>Digit Memory</b>:
 Memorize a digit sequence, solve a quick math problem, then recall the digits.
 
 <b>Spot the New</b>:
-Tap the animal you have not seen before. One mistake ends the game.
+Tap the animal you have not seen before.
 
 <b>N-Back</b>:
 Watch the shapes flash by, then tap the one at the position asked.
@@ -112,7 +112,16 @@ Full chess vs CPU or pass-and-play with a friend.
 Find the missing operators (+, -, *, /) that make the equation true.
 
 <b>Bulls & Cows</b>:
-Guess the secret 4-digit number with unique digits. Bulls = correct digit in correct position. Cows = correct digit in wrong position.
+Guess the secret 4-digit number with unique digits.
+
+<b>Simon Says</b>:
+Each round lights up one new pad. Tap the whole sequence back from the start, earlier pads included.
+
+<b>Prism Clear</b>:
+Swap matching tiles to clear lines of three or more. Empty the whole board to win.
+
+<b>Trio</b>:
+Find three cards that share a shape, a count or a fill.
 
 The game has several <b>achievements</b> and each exercise has <b>medals</b> to keep you motivated.
 

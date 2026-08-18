@@ -1,4 +1,4 @@
-Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 38 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
+Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 41 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
 
 <b>Tính nhẩm</b>:
 Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.
@@ -16,16 +16,16 @@ Giải các phân số.
 Chọn biểu thức có giá trị cao nhất.
 
 <b>Tổng bong bóng</b>:
-Cộng các số trên bong bóng bay. Sau đó số nhấp nháy — hãy nhớ chúng.
+Cộng các số trên bong bóng bay.
 
 <b>Tổng Nhanh</b>:
 Các số lần lượt hiện ra. Cộng chúng lại và nhập tổng.
 
 <b>Câu đố bất thường</b>:
-Tìm hình khác biệt. Xem xét cả màu sắc và hình dạng của mỗi hình.
+Tìm hình khác biệt.
 
 <b>Chuỗi mẫu</b>:
-Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, màu sắc và phép quay lặp lại.
+Tìm quy luật chạy dọc mỗi hàng của lưới, rồi chọn mảnh hoàn thiện nó.
 
 <b>Tìm đường</b>:
 Bắt đầu từ vị trí đánh dấu và đi theo các mũi tên để tìm đích đến.
@@ -43,16 +43,16 @@ Chạm vào tất cả ô mà từ khớp với màu phông chữ, sau đó nh�
 Cộng điểm từ các phát biểu đúng.
 
 <b>Theo Dõi Quỹ Đạo</b>:
-Quan sát các quả bóng được đánh dấu, sau đó theo dõi chúng khi di chuyển. Chọn các mục tiêu ban đầu sau khi dừng lại.
+Quan sát các quả bóng được đánh dấu, sau đó theo dõi chúng khi di chuyển.
 
 <b>Đám Đông Chớp</b>:
-Các chấm nhấp nháy ngắn ở mỗi bên. Chạm vào bên có nhiều chấm hơn. Đừng đếm — hãy tin vào trực giác!
+Các chấm nhấp nháy ngắn ở mỗi bên. Chạm vào bên có nhiều chấm hơn.
 
 <b>Sudoku Mini</b>:
 Điền vào lưới nhỏ sao cho mỗi hàng, cột và khối chứa mỗi số đúng một lần.
 
 <b>Cờ Vua Mini</b>:
-Hoàn thành ván cờ với quân trắng. Chiếu hết CPU trước khi nó chiếu hết bạn.
+Chiếu hết CPU trước khi nó chiếu hết bạn.
 
 <b>Cờ vua Solo</b>:
 Bắt các quân lần lượt cho đến khi chỉ còn lại vua. Mỗi nước đi phải ăn quân, và không quân nào được ăn quá hai lần.
@@ -76,19 +76,19 @@ Tô các ô để tạo biển bao quanh các đảo có số. Mỗi đảo ph�
 Nối từng cặp chấm cùng màu bằng một đường. Các đường không được cắt nhau và cùng nhau phải phủ kín mọi ô.
 
 <b>Tháp Hà Nội</b>:
-Chuyển cả chồng đĩa sang cọc bên phải. Mỗi lần chỉ một đĩa, và không được đặt đĩa lớn lên đĩa nhỏ.
+Chuyển cả chồng đĩa sang cọc bên phải.
 
 <b>Bảng Schulte</b>:
 Chạm các số theo thứ tự từ 1 trở lên nhanh nhất có thể.
 
 <b>Cờ</b>:
-Nhận diện quốc gia qua lá cờ của nó. Mỗi vòng thêm nhiều lựa chọn và thời gian đang trôi.
+Nhận diện quốc gia qua lá cờ của nó.
 
 <b>Trí Nhớ Số</b>:
 Ghi nhớ một dãy số, giải một bài toán nhanh, rồi nhớ lại các số.
 
 <b>Tìm Cái Mới</b>:
-Chạm vào con vật mà bạn chưa từng thấy. Một lỗi sai sẽ kết thúc trò chơi.
+Chạm vào con vật mà bạn chưa từng thấy.
 
 <b>N-Back</b>:
 Quan sát các hình, rồi chạm vào hình ở vị trí được hỏi.
@@ -112,7 +112,16 @@ Cờ vua đầy đủ với CPU hoặc chơi luân phiên.
 Tìm các toán tử còn thiếu (+, -, *, /) để phương trình đúng.
 
 <b>Bulls & Cows</b>:
-Đoán số bí mật 4 chữ số không trùng. Bulls = đúng số đúng vị trí. Cows = đúng số sai vị trí.
+Đoán số bí mật 4 chữ số không trùng.
+
+<b>Simon Says</b>:
+Mỗi vòng có một nút mới sáng lên. Hãy chạm lại toàn bộ chuỗi từ đầu, gồm cả những nút của các vòng trước.
+
+<b>Prism Clear</b>:
+Đổi các ô khớp nhau để xóa hàng ba ô trở lên. Làm trống toàn bộ bảng để thắng.
+
+<b>Trio</b>:
+Tìm ba lá bài chung hình, số lượng hoặc phần tô.
 
 Trò chơi có nhiều <b>thành tựu</b> và mỗi bài tập có <b>huy chương</b> để giữ động lực cho bạn.
 

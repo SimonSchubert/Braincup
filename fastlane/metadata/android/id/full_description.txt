@@ -1,4 +1,4 @@
-Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 38 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
+Latih otak Anda dengan mini game seru yang menantang memori, fokus, logika, dan kemampuan matematika Anda. Braincup menawarkan 41 latihan otak yang dirancang untuk mengasah pikiran dan meningkatkan konsentrasi Anda.
 
 <b>Hitung Mental</b>:
 Ikuti ekspresi matematika. Gunakan hasilnya sebagai dasar untuk perhitungan berikutnya.
@@ -16,16 +16,16 @@ Selesaikan pecahan.
 Pilih ekspresi dengan nilai tertinggi.
 
 <b>Jumlah Gelembung</b>:
-Jumlahkan angka di gelembung mengambang. Nanti angka berkedip — ingatlah.
+Jumlahkan angka di gelembung mengambang.
 
 <b>Jumlah Kilat</b>:
 Angka muncul satu per satu. Jumlahkan dan masukkan totalnya.
 
 <b>Teka-teki Anomali</b>:
-Temukan gambar yang berbeda. Pertimbangkan warna dan bentuk dari setiap gambar.
+Temukan gambar yang berbeda.
 
 <b>Urutan Pola</b>:
-Temukan gambar berikutnya dalam pola dengan mencari bentuk, warna, dan rotasi yang berulang.
+Temukan aturan yang berjalan di setiap baris kisi, lalu pilih kepingan yang melengkapinya.
 
 <b>Pencari Jalur</b>:
 Mulai dari posisi yang ditandai dan ikuti panah untuk menemukan tujuan.
@@ -43,16 +43,16 @@ Ketuk semua sel yang katanya cocok dengan warna hurufnya, lalu tekan Selesai.
 Jumlahkan poin dari pernyataan yang benar.
 
 <b>Pelacak Orbit</b>:
-Perhatikan bola-bola yang disorot, lalu lacak pergerakannya. Pilih target asli setelah berhenti.
+Perhatikan bola-bola yang disorot, lalu lacak pergerakannya.
 
 <b>Kerumunan Kilat</b>:
-Titik-titik berkedip sebentar di setiap sisi. Ketuk sisi yang memiliki lebih banyak titik.
+Titik-titik berkedip sebentar di setiap sisi.
 
 <b>Mini Sudoku</b>:
 Isi kotak kecil agar setiap baris, kolom dan blok berisi setiap angka tepat satu kali.
 
 <b>Mini Catur</b>:
-Selesaikan skenario catur sebagai putih. Skakmat CPU sebelum ia melakukannya padamu.
+Skakmat CPU sebelum ia melakukannya padamu.
 
 <b>Catur Solo</b>:
 Tangkap bidak satu per satu hingga hanya tersisa raja.
@@ -82,13 +82,13 @@ Pindahkan seluruh tumpukan ke pasak kanan.
 Ketuk angka secara berurutan dari 1 secepat mungkin.
 
 <b>Bendera</b>:
-Tebak negara dari benderanya. Setiap ronde menambahkan lebih banyak pilihan dan waktu terus berjalan.
+Tebak negara dari benderanya.
 
 <b>Memori Angka</b>:
 Hafalkan urutan angka, selesaikan soal matematika cepat, lalu ingat kembali angkanya.
 
 <b>Temukan yang Baru</b>:
-Ketuk hewan yang belum pernah kamu lihat. Satu kesalahan mengakhiri permainan.
+Ketuk hewan yang belum pernah kamu lihat.
 
 <b>N-Back</b>:
 Perhatikan bentuk-bentuknya, lalu ketuk yang ada di posisi yang diminta.
@@ -112,7 +112,16 @@ Catur lengkap vs CPU atau pass-and-play.
 Temukan operator yang hilang (+, -, *, /) agar persamaan menjadi benar.
 
 <b>Bulls & Cows</b>:
-Tebak angka rahasia 4 digit dengan digit unik. Bulls = digit benar di posisi benar. Cows = digit benar di posisi salah.
+Tebak angka rahasia 4 digit dengan digit unik.
+
+<b>Simon Says</b>:
+Setiap ronde satu tombol baru menyala. Ketuk seluruh urutan dari awal, termasuk tombol dari ronde sebelumnya.
+
+<b>Prism Clear</b>:
+Tukar ubin yang cocok untuk menghapus baris berisi tiga atau lebih. Kosongkan seluruh papan untuk menang.
+
+<b>Trio</b>:
+Temukan tiga kartu yang berbagi bentuk, jumlah, atau isian.
 
 Game ini memiliki beberapa <b>pencapaian</b> dan setiap latihan memiliki <b>medali</b> untuk menjaga motivasi Anda.
 

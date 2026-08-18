@@ -1,4 +1,4 @@
-Entrena tu cerebro con divertidos minijuegos que desafían tu memoria, concentración, lógica y habilidades matemáticas. Braincup ofrece 38 ejercicios de entrenamiento cerebral diseñados para agudizar tu mente y mejorar tu concentración.
+Entrena tu cerebro con divertidos minijuegos que desafían tu memoria, concentración, lógica y habilidades matemáticas. Braincup ofrece 41 ejercicios de entrenamiento cerebral diseñados para agudizar tu mente y mejorar tu concentración.
 
 <b>Cálculo mental</b>:
 Sigue las expresiones matemáticas. Usa el resultado como base del siguiente cálculo.
@@ -16,7 +16,7 @@ Resuelve las fracciones.
 Elige la expresión con el valor más alto.
 
 <b>Suma burbujas</b>:
-Suma los números de las burbujas. Luego parpadean: memorízalos.
+Suma los números de las burbujas.
 
 <b>Suma rápida</b>:
 Los números parpadean uno a uno. Súmalos e introduce el total.
@@ -25,7 +25,7 @@ Los números parpadean uno a uno. Súmalos e introduce el total.
 Encuentra la figura que destaca por color y forma.
 
 <b>Secuencia de patrones</b>:
-Encuentra la siguiente figura del patrón (formas, colores y giros).
+Descubre la regla que recorre cada fila de la cuadrícula y elige la pieza que la completa.
 
 <b>Buscador de caminos</b>:
 Parte de la marca y sigue las flechas hasta el destino.
@@ -46,13 +46,13 @@ Suma los puntos de las afirmaciones correctas.
 Observa las bolas marcadas, síguelas y elige los objetivos al parar.
 
 <b>Multitud Relámpago</b>:
-Puntos parpadean a cada lado. Toca el lado que tenía más.
+Puntos parpadean a cada lado.
 
 <b>Mini Sudoku</b>:
 Rellena la mini rejilla: cada fila, columna y bloque una vez cada número.
 
 <b>Mini Ajedrez</b>:
-Termina el escenario como blancas. Da mate a la CPU antes que ella a ti.
+Da mate a la CPU antes que ella a ti.
 
 <b>Ajedrez en solitario</b>:
 Captura piezas una a una hasta que solo quede el rey. Cada jugada debe capturar.
@@ -76,19 +76,19 @@ Un gato por fila, columna y zona de color. No pueden tocarse.
 Une cada par de puntos de color. Las rutas no se cruzan y cubren todo.
 
 <b>Torres de Hanói</b>:
-Mueve la pila al poste derecho. Nunca un disco grande sobre uno pequeño.
+Mueve la pila al poste derecho.
 
 <b>Tabla de Schulte</b>:
 Toca los números en orden desde el 1 lo más rápido posible.
 
 <b>Banderas</b>:
-Identifica el país por su bandera. Más opciones y el reloj corre.
+Identifica el país por su bandera.
 
 <b>Memoria de Dígitos</b>:
 Memoriza dígitos, resuelve un cálculo rápido y recuérdalos.
 
 <b>Detecta lo Nuevo</b>:
-Toca el animal que no has visto. Un error termina la partida.
+Toca el animal que no has visto.
 
 <b>N-Back</b>:
 Observa las formas y toca la de la posición pedida.
@@ -112,7 +112,16 @@ Ajedrez completo contra la CPU o pasarse el dispositivo.
 Encuentra los operadores que faltan (+, -, *, /) para que la ecuación sea verdadera.
 
 <b>Bulls & Cows</b>:
-Adivina el número secreto de 4 dígitos con dígitos únicos. Bulls = dígito correcto en la posición correcta. Cows = dígito correcto en posición incorrecta.
+Adivina el número secreto de 4 dígitos con dígitos únicos.
+
+<b>Simon Says</b>:
+En cada ronda se ilumina un botón nuevo. Toca toda la secuencia desde el principio, incluidos los botones de las rondas anteriores.
+
+<b>Prism Clear</b>:
+Intercambia fichas iguales para borrar líneas de tres o más. Vacía todo el tablero para ganar.
+
+<b>Trio</b>:
+Encuentra tres cartas que compartan forma, cantidad o relleno.
 
 El juego tiene varios <b>logros</b> y cada ejercicio tiene <b>medallas</b> para mantenerte motivado.
 

@@ -1,4 +1,4 @@
-Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 38 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
+Trainiere dein Gehirn mit unterhaltsamen Minispielen, die dein Gedächtnis, deine Konzentration, Logik und Rechenfähigkeiten herausfordern. Braincup bietet 41 Gehirntraining-Übungen, die deinen Geist schärfen und deine Konzentration verbessern.
 
 <b>Kopfrechnen</b>:
 Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Basis für die nächste Rechnung.
@@ -16,16 +16,16 @@ Löse die Brüche.
 Wähle den Ausdruck mit dem höchsten Wert.
 
 <b>Blasensumme</b>:
-Addiere die Zahlen auf den schwebenden Blasen. Später blinken sie — merke sie dir.
+Addiere die Zahlen auf den schwebenden Blasen.
 
 <b>Blitzsumme</b>:
 Zahlen blitzen nacheinander auf. Addiere sie und gib die Summe ein.
 
 <b>Anomalie-Rätsel</b>:
-Finde die Figur, die heraussticht. Beachte Farbe und Form.
+Finde die Figur, die heraussticht.
 
 <b>Mustersequenz</b>:
-In jeder Runde ein neues Matrixrätsel. Finde die Regel, die durch jede Zeile des 3x3-Gitters läuft, und wähle das Teil, das sie vervollständigt.
+Finde die Regel, die durch jede Zeile des Gitters läuft, und wähle dann das Teil, das sie vervollständigt.
 
 <b>Pfadfinder</b>:
 Starte an der Markierung und folge den Pfeilen zum Ziel.
@@ -46,13 +46,13 @@ Addiere die Punkte aus den richtigen Aussagen.
 Beobachte markierte Bälle, verfolge sie und wähle die Ziele danach aus.
 
 <b>Blitzmenge</b>:
-Punkte blitzen kurz auf. Tippe die Seite mit mehr Punkten an.
+Punkte blitzen kurz auf.
 
 <b>Mini-Sudoku</b>:
 Fülle das kleine Gitter: jede Zeile, Spalte und jeder Block einmal jede Zahl.
 
 <b>Mini-Schach</b>:
-Beende das Schachszenario als Weiß. Mattsetze die CPU zuerst.
+Mattsetze die CPU zuerst.
 
 <b>Solo-Schach</b>:
 Schlage Figuren nacheinander, bis nur der König übrig ist. Jeder Zug muss schlagen.
@@ -76,19 +76,19 @@ Eine Katze pro Zeile, Spalte und Farbzone. Keine zwei dürfen sich berühren.
 Verbinde farbige Punktepaare. Pfade kreuzen sich nicht und füllen jedes Feld.
 
 <b>Türme von Hanoi</b>:
-Verschiebe den Stapel auf den rechten Stab. Nie eine größere Scheibe auf eine kleinere.
+Verschiebe den Stapel auf den rechten Stab.
 
 <b>Schulte-Tabelle</b>:
 Tippe die Zahlen so schnell wie möglich von 1 aufwärts an.
 
 <b>Flaggen</b>:
-Erkenne das Land an seiner Flagge. Mehr Optionen und die Uhr tickt.
+Erkenne das Land an seiner Flagge.
 
 <b>Zifferngedächtnis</b>:
 Merke dir Ziffern, löse kurz eine Rechnung, dann erinnere die Ziffern.
 
 <b>Finde das Neue</b>:
-Tippe das Tier an, das du noch nie gesehen hast. Ein Fehler beendet das Spiel.
+Tippe das Tier an, das du noch nie gesehen hast.
 
 <b>N-Back</b>:
 Formen blitzen auf — tippe die an der gefragten Position.
@@ -112,7 +112,16 @@ Volles Schach gegen die CPU oder Pass-and-Play.
 Finde die fehlenden Operatoren (+, -, *, /), die die Gleichung wahr machen.
 
 <b>Bulls & Cows</b>:
-Errate die geheime 4-stellige Zahl mit eindeutigen Ziffern. Bulls = richtige Ziffer an der richtigen Stelle. Cows = richtige Ziffer an der falschen Stelle.
+Errate die geheime 4-stellige Zahl mit eindeutigen Ziffern.
+
+<b>Simon Says</b>:
+Jede Runde leuchtet ein neues Feld auf. Tippe die ganze Sequenz von vorne ein, samt der Felder aus den Runden davor.
+
+<b>Prism Clear</b>:
+Tausche passende Kacheln, um Reihen aus drei oder mehr zu räumen. Leere das ganze Spielfeld, um zu gewinnen.
+
+<b>Trio</b>:
+Finde drei Karten, die sich eine Form, eine Anzahl oder eine Füllung teilen.
 
 Das Spiel bietet mehrere <b>Erfolge</b> und jede Übung hat <b>Medaillen</b>, die dich motivieren.
 

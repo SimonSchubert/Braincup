@@ -35,6 +35,7 @@ class TabletStoreScreenshotTest(
             arrayOf("ar", "ar"),
             arrayOf("bn", "bn-BD"),
             arrayOf("de", "de-DE"),
+            arrayOf("el", "el-GR"),
             arrayOf("en", "en-US"),
             arrayOf("es", "es-ES"),
             arrayOf("fr", "fr-FR"),

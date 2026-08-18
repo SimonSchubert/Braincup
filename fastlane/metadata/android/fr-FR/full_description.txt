@@ -1,4 +1,4 @@
-Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 38 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
+Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 41 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
 
 <b>Calcul mental</b>:
 Suis les expressions mathématiques. Utilise le résultat pour le calcul suivant.
@@ -16,7 +16,7 @@ Résous les fractions.
 Choisis l’expression avec la plus grande valeur.
 
 <b>Somme bulles</b>:
-Additionne les nombres sur les bulles. Plus tard, ils clignotent — mémorise-les.
+Additionne les nombres sur les bulles.
 
 <b>Somme éclair</b>:
 Les nombres clignotent un par un. Additionne-les et entre le total.
@@ -25,7 +25,7 @@ Les nombres clignotent un par un. Additionne-les et entre le total.
 Trouve la figure qui se démarque par la couleur et la forme.
 
 <b>Séquence de motifs</b>:
-Trouve la figure suivante du motif (formes, couleurs, rotations).
+Trouvez la règle qui parcourt chaque ligne de la grille, puis choisissez la pièce qui la complète.
 
 <b>Chercheur de chemin</b>:
 Pars de la case marquée et suis les flèches jusqu’à la destination.
@@ -46,13 +46,13 @@ Additionne les points des affirmations correctes.
 Observe les balles marquées, suis-les et sélectionne les cibles à l’arrêt.
 
 <b>Foule Éclair</b>:
-Des points clignotent de chaque côté. Touche le côté qui en avait plus.
+Des points clignotent de chaque côté.
 
 <b>Mini Sudoku</b>:
 Remplis la petite grille : chaque ligne, colonne et bloc une fois chaque chiffre.
 
 <b>Mini Échecs</b>:
-Termine le scénario avec les blancs. Mat le CPU avant qu’il ne te mate.
+Mat le CPU avant qu’il ne te mate.
 
 <b>Échecs solo</b>:
 Capture les pièces une à une jusqu’au roi seul. Chaque coup doit capturer.
@@ -76,19 +76,19 @@ Un chat par ligne, colonne et zone de couleur. Ils ne peuvent pas se toucher.
 Relie chaque paire de points colorés. Les chemins ne se croisent pas.
 
 <b>Tours de Hanoï</b>:
-Déplace la pile vers le plot de droite. Jamais un grand disque sur un petit.
+Déplace la pile vers le plot de droite.
 
 <b>Table de Schulte</b>:
 Touche les nombres dans l’ordre à partir de 1 le plus vite possible.
 
 <b>Drapeaux</b>:
-Identifie le pays par son drapeau. Plus d’options et le chrono tourne.
+Identifie le pays par son drapeau.
 
 <b>Mémoire des Chiffres</b>:
 Mémorise des chiffres, résous un calcul rapide, puis rappelle les chiffres.
 
 <b>Repère le Nouveau</b>:
-Touche l’animal que tu n’as pas encore vu. Une erreur termine la partie.
+Touche l’animal que tu n’as pas encore vu.
 
 <b>N-Back</b>:
 Regarde les formes, puis touche celle à la position demandée.
@@ -112,7 +112,16 @@ Sudoku classique grand format avec plusieurs difficultés.
 Trouvez les opérateurs manquants (+, -, *, /) qui rendent l'équation vraie.
 
 <b>Bulls & Cows</b>:
-Devinez le nombre secret à 4 chiffres avec des chiffres uniques. Bulls = bon chiffre à la bonne place. Cows = bon chiffre à la mauvaise place.
+Devinez le nombre secret à 4 chiffres avec des chiffres uniques.
+
+<b>Simon Says</b>:
+À chaque manche, un nouveau bouton s'allume. Touche toute la séquence depuis le début, y compris les boutons des manches précédentes.
+
+<b>Prism Clear</b>:
+Échangez des tuiles assorties pour effacer des lignes de trois ou plus. Videz tout le plateau pour gagner.
+
+<b>Trio</b>:
+Trouve trois cartes qui partagent une forme, un nombre ou un remplissage.
 
 Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour te motiver.
 

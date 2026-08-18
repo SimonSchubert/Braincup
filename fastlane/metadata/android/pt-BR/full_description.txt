@@ -1,4 +1,4 @@
-Treine seu cérebro com mini jogos divertidos. O Braincup oferece 38 exercícios de treino cerebral.
+Treine seu cérebro com mini jogos divertidos. O Braincup oferece 41 exercícios de treino cerebral.
 
 <b>Cálculo mental</b>:
 Siga as expressões matemáticas. Use o resultado como base para o próximo cálculo.
@@ -16,16 +16,16 @@ Resolva as frações.
 Selecione a expressão com o maior valor.
 
 <b>Soma bolhas</b>:
-Some os números nas bolhas flutuantes. Depois os números piscam — memorize-os.
+Some os números nas bolhas flutuantes.
 
 <b>Soma rápida</b>:
 Os números aparecem um de cada vez. Some-os e introduza o total.
 
 <b>Quebra-cabeça de anomalia</b>:
-Encontre a figura que se destaca. Considere tanto a cor quanto a forma de cada figura.
+Encontre a figura que se destaca.
 
 <b>Sequência de padrões</b>:
-Encontre a próxima figura no padrão procurando formas, cores e rotações que se repetem.
+Descubra a regra que percorre cada linha da grade e escolha a peça que a completa.
 
 <b>Busca de caminhos</b>:
 Comece na posição marcada e siga as setas para encontrar o destino.
@@ -43,16 +43,16 @@ Toque em todas as células onde a palavra corresponde à cor da fonte e depois p
 Some os pontos das afirmações corretas.
 
 <b>Rastreador de Órbitas</b>:
-Observe as bolas destacadas e acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.
+Observe as bolas destacadas e acompanhe-as enquanto se movem.
 
 <b>Multidão Relâmpago</b>:
-Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos. Não conte — confie no seu instinto!
+Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos.
 
 <b>Mini Sudoku</b>:
 Preencha a pequena grade para que cada linha, coluna e bloco contenha cada número exatamente uma vez.
 
 <b>Mini Xadrez</b>:
-Termine o cenário de xadrez como brancas. Dê xeque-mate à CPU antes que ela dê em você.
+Dê xeque-mate à CPU antes que ela dê em você.
 
 <b>Xadrez Solo</b>:
 Capture as peças uma a uma até sobrar apenas o rei.
@@ -76,19 +76,19 @@ Coloque um gato em cada linha, cada coluna e cada zona de cor. Dois gatos não p
 Conecte cada par de pontos coloridos com um caminho.
 
 <b>Torres de Hanói</b>:
-Mova a pilha inteira para o pino direito. Apenas um disco de cada vez e nunca um maior sobre um menor.
+Mova a pilha inteira para o pino direito.
 
 <b>Tabela de Schulte</b>:
 Toque nos números em ordem a partir de 1 o mais rápido que puder.
 
 <b>Bandeiras</b>:
-Identifique o país pela sua bandeira. Cada rodada adiciona mais opções e o tempo está correndo.
+Identifique o país pela sua bandeira.
 
 <b>Memória de Dígitos</b>:
 Memorize uma sequência de dígitos, resolva um problema matemático rápido e depois lembre-se dos dígitos.
 
 <b>Encontre o Novo</b>:
-Toque no animal que você nunca viu antes. Um erro encerra o jogo.
+Toque no animal que você nunca viu antes.
 
 <b>N-Back</b>:
 Observe as formas e toque na que estava na posição pedida.
@@ -112,7 +112,16 @@ Xadrez completo contra a CPU ou pass-and-play.
 Encontre os operadores em falta (+, -, *, /) que tornam a equação verdadeira.
 
 <b>Bulls & Cows</b>:
-Adivinhe o número secreto de 4 dígitos. Bulls = posição certa, Cows = posição errada.
+Adivinhe o número secreto de 4 dígitos.
+
+<b>Simon Says</b>:
+A cada rodada, um novo botão se ilumina. Toque em toda a sequência desde o início, incluindo os botões das rodadas anteriores.
+
+<b>Prism Clear</b>:
+Troque peças iguais para limpar linhas de três ou mais. Esvazie todo o tabuleiro para vencer.
+
+<b>Trio</b>:
+Encontre três cartas que compartilhem forma, quantidade ou preenchimento.
 
 O jogo tem várias <b>conquistas</b> e cada exercício tem <b>medalhas</b> para manter você motivado.
 

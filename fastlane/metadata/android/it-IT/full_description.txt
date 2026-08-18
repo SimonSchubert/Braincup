@@ -1,11 +1,11 @@
-Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 38 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
+Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 41 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
 
 <b>Calcolo mentale</b>:
 <b>Missing Operators</b>:
 Trova gli operatori mancanti (+, -, *, /) che rendono vera l'equazione.
 
 <b>Bulls & Cows</b>:
-Indovina il numero segreto a 4 cifre con cifre uniche. Bulls = cifra corretta nella posizione corretta. Cows = cifra corretta nella posizione sbagliata.
+Indovina il numero segreto a 4 cifre con cifre uniche.
 
 Segui le espressioni matematiche. Usa il risultato come base del calcolo successivo.
 
@@ -22,7 +22,7 @@ Risolvi le frazioni.
 Scegli l’espressione con il valore più alto.
 
 <b>Somma bolle</b>:
-Somma i numeri sulle bolle. Poi lampeggiano: memorizzali.
+Somma i numeri sulle bolle.
 
 <b>Somma lampo</b>:
 I numeri lampeggiano uno alla volta. Sommali e inserisci il totale.
@@ -31,7 +31,7 @@ I numeri lampeggiano uno alla volta. Sommali e inserisci il totale.
 Trova la figura che spicca per colore e forma.
 
 <b>Sequenza di schemi</b>:
-Trova la figura successiva del pattern (forme, colori, rotazioni).
+Scopri la regola che percorre ogni riga della griglia, poi scegli il pezzo che la completa.
 
 <b>Trova il percorso</b>:
 Parti dalla casella segnata e segui le frecce fino alla meta.
@@ -52,13 +52,13 @@ Somma i punti delle affermazioni corrette.
 Osserva le palline evidenziate, seguile e seleziona i bersagli a fine movimento.
 
 <b>Folla Lampo</b>:
-I punti lampeggiano su ogni lato. Tocca il lato che ne aveva di più.
+I punti lampeggiano su ogni lato.
 
 <b>Mini Sudoku</b>:
 Riempi la mini griglia: ogni riga, colonna e blocco ogni cifra una volta.
 
 <b>Mini Scacchi</b>:
-Concludi lo scenario col bianco. Dai scacco matto alla CPU prima di lei.
+Dai scacco matto alla CPU prima di lei.
 
 <b>Scacchi in solitaria</b>:
 Cattura i pezzi uno a uno finché resta solo il re. Ogni mossa deve catturare.
@@ -82,19 +82,19 @@ Un gatto per riga, colonna e zona colore. Non possono toccarsi.
 Collega ogni coppia di punti colorati. I percorsi non si incrociano.
 
 <b>Torri di Hanoi</b>:
-Sposta la pila sul piolo destro. Mai un disco grande su uno piccolo.
+Sposta la pila sul piolo destro.
 
 <b>Tabella di Schulte</b>:
 Tocca i numeri in ordine da 1 il più velocemente possibile.
 
 <b>Bandiere</b>:
-Riconosci il paese dalla bandiera. Più opzioni e il tempo scorre.
+Riconosci il paese dalla bandiera.
 
 <b>Memoria delle Cifre</b>:
 Memorizza cifre, risolvi un calcolo rapido, poi richiama le cifre.
 
 <b>Trova il Nuovo</b>:
-Tocca l’animale che non hai ancora visto. Un errore termina la partita.
+Tocca l’animale che non hai ancora visto.
 
 <b>N-Back</b>:
 Guarda le forme, poi tocca quella nella posizione richiesta.
@@ -113,6 +113,15 @@ Sudoku classico completo con più difficoltà.
 
 <b>Scacchi</b>:
 Scacchi completi contro la CPU o in pass-and-play.
+
+<b>Simon Says</b>:
+Ogni round si illumina un nuovo pulsante. Tocca l'intera sequenza dall'inizio, compresi i pulsanti dei round precedenti.
+
+<b>Prism Clear</b>:
+Scambia tessere uguali per cancellare linee di tre o più. Svuota l'intero tabellone per vincere.
+
+<b>Trio</b>:
+Trova tre carte che condividono forma, numero o riempimento.
 
 Il gioco ha diversi <b>traguardi</b> e ogni esercizio ha <b>medaglie</b> per tenerti motivato.
 

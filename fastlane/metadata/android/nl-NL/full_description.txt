@@ -1,4 +1,4 @@
-Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 38 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
+Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 41 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
 
 <b>Hoofdrekenen</b>:
 Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.
@@ -16,7 +16,7 @@ Los de breuken op.
 Kies de uitdrukking met de hoogste waarde.
 
 <b>Bellensom</b>:
-Tel de getallen op de bellen op. Later knipperen ze — onthoud ze.
+Tel de getallen op de bellen op.
 
 <b>Snelle som</b>:
 Getallen flitsen één voor één. Tel ze op en voer het totaal in.
@@ -25,7 +25,7 @@ Getallen flitsen één voor één. Tel ze op en voer het totaal in.
 Vind de figuur die opvalt door kleur en vorm.
 
 <b>Patroonreeks</b>:
-Vind de volgende figuur in het patroon (vormen, kleuren, rotaties).
+Zoek de regel die door elke rij van het raster loopt en kies dan het stuk dat hem afmaakt.
 
 <b>Padvinder</b>:
 Start bij de markering en volg de pijlen naar de bestemming.
@@ -46,13 +46,13 @@ Tel de punten van de juiste stellingen op.
 Bekijk gemarkeerde ballen, volg ze en kies de doelen na stilstand.
 
 <b>Flitsmenigte</b>:
-Stippen flitsen kort. Tik de kant met meer stippen.
+Stippen flitsen kort.
 
 <b>Mini Sudoku</b>:
 Vul het kleine raster: elke rij, kolom en blok elke cijfer één keer.
 
 <b>Mini-Schaak</b>:
-Voltooi het schaakscenario als wit. Mat de CPU voordat die jou mat.
+Mat de CPU voordat die jou mat.
 
 <b>Solo Schaken</b>:
 Sla stukken één voor één tot alleen de koning overblijft. Elke zet moet slaan.
@@ -76,19 +76,19 @@ Eén kat per rij, kolom en kleurzone. Ze mogen elkaar niet raken.
 Verbind elk paar gekleurde stippen. Paden kruisen niet en vullen alles.
 
 <b>Torens van Hanoi</b>:
-Verplaats de stapel naar de rechter staaf. Nooit een grotere schijf op een kleinere.
+Verplaats de stapel naar de rechter staaf.
 
 <b>Schulte-tabel</b>:
 Tik de getallen zo snel mogelijk op volgorde vanaf 1.
 
 <b>Vlaggen</b>:
-Herken het land aan de vlag. Meer opties en de klok tikt.
+Herken het land aan de vlag.
 
 <b>Cijfergeheugen</b>:
 Onthoud cijfers, los een snelle som op, herinner daarna de cijfers.
 
 <b>Spot het Nieuwe</b>:
-Tik het dier dat je nog niet zag. Eén fout beëindigt het spel.
+Tik het dier dat je nog niet zag.
 
 <b>N-Back</b>:
 Bekijk de vormen en tik die op de gevraagde positie.
@@ -112,7 +112,16 @@ Volledig schaak tegen de CPU of pass-and-play.
 Vind de ontbrekende operatoren (+, -, *, /) die de vergelijking waar maken.
 
 <b>Bulls & Cows</b>:
-Raad het geheime 4-cijferige getal met unieke cijfers. Bulls = juist cijfer op de juiste plaats. Cows = juist cijfer op de verkeerde plaats.
+Raad het geheime 4-cijferige getal met unieke cijfers.
+
+<b>Simon Says</b>:
+Elke ronde licht er één nieuwe knop op. Tik de hele reeks vanaf het begin terug, inclusief de knoppen uit eerdere rondes.
+
+<b>Prism Clear</b>:
+Wissel bijpassende tegels om rijen van drie of meer te wissen. Maak het hele bord leeg om te winnen.
+
+<b>Trio</b>:
+Zoek drie kaarten die een vorm, aantal of vulling delen.
 
 Het spel heeft meerdere <b>prestaties</b> en elke oefening heeft <b>medailles</b> om je gemotiveerd te houden.
 

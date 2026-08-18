@@ -7,7 +7,9 @@ platform :android do
       skip_upload_apk: true,
       skip_upload_aab: true,
       skip_upload_changelogs: true,
-      skip_upload_images: true,
+      # The listing icon and feature graphic live in en-US/images and are the only graphics Play
+      # keeps at the default-language level, so this lane owns them too.
+      skip_upload_images: false,
       skip_upload_screenshots: false,
       skip_upload_metadata: false,
     )
