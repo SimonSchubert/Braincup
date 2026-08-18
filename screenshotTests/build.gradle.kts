@@ -1,3 +1,7 @@
+import java.awt.Color
+import java.awt.image.BufferedImage
+import javax.imageio.ImageIO
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.compose.multiplatform)
@@ -124,6 +128,10 @@ tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
         task.filter.includeTestsMatching("*.StoreScreenshotTest")
         task.filter.includeTestsMatching("*.TabletStoreScreenshotTest")
     }
+    if (requestedTasks.any { it.contains("generateIosStoreScreenshots") }) {
+        task.filter.includeTestsMatching("*.IosStoreScreenshotTest")
+        task.filter.includeTestsMatching("*.IosTabletStoreScreenshotTest")
+    }
     if (requestedTasks.any { it.contains("updateDesktopScreenshots") }) {
         task.filter.includeTestsMatching("*.DesktopFrameScreenshotTest")
     }
@@ -173,6 +181,53 @@ tasks.register("generateStoreScreenshots") {
             val targetFile = File(targetDir, "$name.png")
             file.copyTo(targetFile, overwrite = true)
             println("Copied -> $locale/tenInchScreenshots/$name.png")
+        }
+    }
+}
+
+val appStoreScreenshotsDir: Directory? = layout.projectDirectory.dir("../fastlane/screenshots")
+
+tasks.register("generateIosStoreScreenshots") {
+    description = "Records the iPhone 6.9\" and iPad 13\" snapshots and lays them out for 'fastlane ios upload_screenshots'."
+    dependsOn("recordPaparazziDebug")
+
+    val snapshotsDirFile = snapshotsDir.asFile
+    val appStoreDirFile = appStoreScreenshotsDir?.asFile
+
+    doLast {
+        // App Store Connect rejects screenshots that carry an alpha channel, and Paparazzi writes
+        // RGBA, so every snapshot is flattened on the way out instead of plain-copied.
+        fun writeOpaque(source: File, target: File) {
+            val snapshot = ImageIO.read(source)
+            val opaque = BufferedImage(snapshot.width, snapshot.height, BufferedImage.TYPE_INT_RGB)
+            val graphics = opaque.createGraphics()
+            graphics.drawImage(snapshot, 0, 0, Color.BLACK, null)
+            graphics.dispose()
+            ImageIO.write(opaque, "png", target)
+        }
+
+        val sets = listOf(
+            Regex("""IosStoreScreenshotTest_\w+\[([^\]]+)\]_iphone_[a-z-]+_(\d+)\.png""") to "iphone69",
+            Regex("""IosTabletStoreScreenshotTest_\w+\[([^\]]+)\]_ipad_[a-z-]+_(\d+)\.png""") to "ipad13",
+        )
+
+        val allPngs = snapshotsDirFile.listFiles()?.filter { it.extension == "png" } ?: emptyList()
+        var copied = 0
+
+        sets.forEach { (regex, prefix) ->
+            allPngs.forEach { file ->
+                val match = regex.find(file.name) ?: return@forEach
+                val (locale, name) = match.destructured
+                val targetDir = File(appStoreDirFile, locale)
+                targetDir.mkdirs()
+                writeOpaque(file, File(targetDir, "${prefix}_$name.png"))
+                println("Copied -> $locale/${prefix}_$name.png")
+                copied++
+            }
+        }
+
+        if (copied == 0) {
+            println("No App Store screenshots found.")
         }
     }
 }

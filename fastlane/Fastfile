@@ -26,6 +26,45 @@ platform :android do
 end
 
 platform :ios do
+  desc "Replace the App Store screenshots of the version that is open for editing"
+  lane :upload_screenshots do |options|
+    app_store_connect_api_key(
+      key_id: ENV.fetch("ASC_KEY_ID"),
+      issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+      key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_#{ENV.fetch('ASC_KEY_ID')}.p8"),
+      in_house: false,
+    )
+
+    screenshots_path = File.join(__dir__, "screenshots")
+    if Dir.glob(File.join(screenshots_path, "*", "*.png")).empty?
+      UI.user_error!("No screenshots in #{screenshots_path}. Run './gradlew :screenshotTests:generateIosStoreScreenshots' first.")
+    end
+
+    # Screenshots belong to an App Store version, so one has to be editable. Passing version:X.Y.Z
+    # creates it; without it we only touch a version that already exists and has not been submitted.
+    app_version = options[:version]
+    if app_version.nil?
+      app = Spaceship::ConnectAPI::App.find(CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier))
+      edit_version = app&.get_edit_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS)
+      if edit_version.nil?
+        UI.user_error!("No App Store version is open for editing. Pass version:X.Y.Z to create one, or run this before 'fastlane ios deploy' submits the release.")
+      end
+      UI.message("Uploading screenshots to version #{edit_version.version_string}")
+    end
+
+    upload_to_app_store(
+      app_version: app_version,
+      screenshots_path: screenshots_path,
+      skip_binary_upload: true,
+      skip_metadata: true,
+      skip_screenshots: false,
+      overwrite_screenshots: true,
+      submit_for_review: false,
+      run_precheck_before_submit: false,
+      force: true,
+    )
+  end
+
   desc "Build, archive, upload to App Store Connect, submit for review, auto-release"
   lane :deploy do
     app_store_connect_api_key(
@@ -56,9 +95,13 @@ platform :ios do
     )
     upload_to_app_store(
       metadata_path: File.join(__dir__, "metadata/ios"),
+      screenshots_path: File.join(__dir__, "screenshots"),
       release_notes: { "en-US" => release_notes },
       skip_binary_upload: true,
-      skip_screenshots: true,
+      # A new App Store version inherits the previous one's screenshots, so every release replaces
+      # the whole set rather than adding to it.
+      skip_screenshots: false,
+      overwrite_screenshots: true,
       skip_metadata: false,
       submit_for_review: true,
       automatic_release: true,
