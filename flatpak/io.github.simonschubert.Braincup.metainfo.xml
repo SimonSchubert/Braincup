@@ -59,8 +59,113 @@
   </supports>
 
   <releases>
-    <release version="2.5.0" date="2026-04-20">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.5.0</url>
+    <release version="3.0.0" date="2026-08-18">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.0.0</url>
+      <description>
+        <ul>
+          <li>Pattern Sequence is now a 3x3 matrix reasoning puzzle</li>
+          <li>Add license screen</li>
+          <li>New mascot app icons</li>
+          <li>Fix Trio gold medal not unlocking</li>
+          <li>Improve OLED and color blind colors</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.33.0" date="2026-08-14">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.33.0</url>
+      <description>
+        <ul>
+          <li>Add Trio game</li>
+          <li>Add multi-account support</li>
+          <li>Add Simon Says sound effects</li>
+          <li>Fix Peg Solitaire tile preview</li>
+          <li>Improve chess board sizing and performance</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.32.0" date="2026-07-29">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.32.0</url>
+      <description>
+        <ul>
+          <li>Add Bulls and Cows game</li>
+          <li>Add Missing Operators game</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.31.0" date="2026-07-22">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.31.0</url>
+      <description>
+        <ul>
+          <li>Add Prism Clear game</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.30.0" date="2026-07-20">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.30.0</url>
+      <description>
+        <ul>
+          <li>Add Simon Says game</li>
+          <li>Add N-Shapes game</li>
+          <li>Adjust gold medal scoring logic</li>
+          <li>Improve Tower of Hanoi</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.29.0" date="2026-07-17">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.29.0</url>
+      <description>
+        <ul>
+          <li>Add Bubble Sum game</li>
+          <li>Add Peg Solitaire game</li>
+          <li>Add Quick Sum game</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.28.0" date="2026-07-14">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.28.0</url>
+      <description>
+        <ul>
+          <li>Add Tower of Hanoi game</li>
+          <li>Chess draws by threefold repetition</li>
+          <li>Fix web crash on nested routes</li>
+          <li>Fix chess grid colors</li>
+          <li>Fix French localization display</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.27.0" date="2026-07-11">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.27.0</url>
+      <description>
+        <ul>
+          <li>Achievements now respect difficulty level</li>
+          <li>Fix Wordle and session landscape layouts</li>
+          <li>Fix Sherlock calculation landscape layout</li>
+          <li>Improve overall performance</li>
+          <li>Cleaner game screens</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.26.1" date="2026-07-07">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.26.1</url>
+      <description>
+        <ul>
+          <li>Add a fallback font so non-Latin languages render correctly</li>
+          <li>Improve daily challenges rotation</li>
+          <li>Disable lenient 9 and 6 answer forms</li>
+        </ul>
+      </description>
+    </release>
+    <release version="2.26.0" date="2026-06-30">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.26.0</url>
+      <description>
+        <ul>
+          <li>Add Sudoku notes (pencil marks)</li>
+          <li>Add browser URL navigation and a 404 page on web</li>
+          <li>Fix German Wordle umlaut handling</li>
+          <li>Improve UI performance</li>
+          <li>Improve web SEO</li>
+        </ul>
+      </description>
     </release>
   </releases>
 </component>

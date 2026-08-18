@@ -1,3 +1,25 @@
+## v3.0.0 — 2026-08-18
+
+### Features
+- Rebuild Pattern Sequence as a 3x3 matrix reasoning puzzle
+- Add license screen
+- New mascot app icons across all platforms
+
+### Fixes
+- Fix Pattern Sequence button sizes
+- Fix Trio gold medal never unlocking on Play Games
+- Fix Game Center achievement restore for Simon Says, N-Back and Prism Clear
+- Align player account dialog buttons
+
+### Improvements
+- Speed up Knot and Nurikabe puzzle generation
+- Improve OLED and color blind colors
+- Improve mascot and feedback icons
+- Improve sound looping
+- Remove duplicate resources
+- Unify shared game abstractions
+- Upgrade dependencies
+
 ## v2.33.0 — 2026-08-14
 
 ### Features
