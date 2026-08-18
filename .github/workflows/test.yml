@@ -22,6 +22,12 @@ jobs:
           distribution: 'temurin'
       - uses: android-actions/setup-android@v3
       - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      # scripts/render_device_frames.py draws the macOS/browser window frames for media/screen_mac_*.png
+      # and media/screen_web_*.png; :screenshotTests:updateScreenshots runs it.
+      - run: pip install pillow
       - run: ./gradlew spotlessApply
       - run: ./gradlew :screenshotTests:updateScreenshots
       - name: Auto-commit if changed

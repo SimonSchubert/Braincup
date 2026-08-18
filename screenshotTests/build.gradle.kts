@@ -98,13 +98,34 @@ tasks.register("updateScreenshots") {
     }
 }
 
+val renderDeviceFrames =
+    tasks.register<Exec>("renderDeviceFrames") {
+        description = "Wraps the DesktopFrameScreenshotTest snapshots in macOS/browser window frames."
+        dependsOn("recordPaparazziDebug")
+        workingDir = layout.projectDirectory.dir("..").asFile
+        commandLine("python3", "scripts/render_device_frames.py")
+    }
+
+tasks.named("updateScreenshots") {
+    dependsOn(renderDeviceFrames)
+}
+
+tasks.register("updateDesktopScreenshots") {
+    description = "Records only the desktop-frame snapshots and rebuilds media/screen_mac_*.png and media/screen_web_*.png."
+    dependsOn(renderDeviceFrames)
+}
+
 val fastlaneDir: Directory? = layout.projectDirectory.dir("../fastlane/metadata/android")
 
 tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
     val task = this as Test
-    if (gradle.startParameter.taskNames.any { it.contains("generateStoreScreenshots") }) {
+    val requestedTasks = gradle.startParameter.taskNames
+    if (requestedTasks.any { it.contains("generateStoreScreenshots") }) {
         task.filter.includeTestsMatching("*.StoreScreenshotTest")
         task.filter.includeTestsMatching("*.TabletStoreScreenshotTest")
+    }
+    if (requestedTasks.any { it.contains("updateDesktopScreenshots") }) {
+        task.filter.includeTestsMatching("*.DesktopFrameScreenshotTest")
     }
 }
 
