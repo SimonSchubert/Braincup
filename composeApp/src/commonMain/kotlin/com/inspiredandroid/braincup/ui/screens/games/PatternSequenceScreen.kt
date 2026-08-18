@@ -30,11 +30,13 @@ internal fun ColumnScope.PatternSequenceContent(
     onAnswer: (String) -> Unit,
 ) {
     val compact = LocalIsCompactHeight.current
-    val matrixCell = if (compact) 50.dp else 62.dp
-    val optionCell = if (compact) 44.dp else 54.dp
+    // A rule can govern figure size, so an option only reads correctly when it is drawn at the
+    // exact scale the matrix draws it at: same tile size, and an inset that cancels the wider
+    // tile bevel (see [OptionPanelInset]).
+    val cellSize = if (compact) 50.dp else 62.dp
 
-    val matrix: @Composable () -> Unit = { MatrixBoard(uiState, matrixCell) }
-    val options: @Composable () -> Unit = { OptionBoard(uiState, optionCell, onAnswer) }
+    val matrix: @Composable () -> Unit = { MatrixBoard(uiState, cellSize) }
+    val options: @Composable () -> Unit = { OptionBoard(uiState, cellSize, onAnswer) }
 
     if (compact) {
         CompactGameRow {
@@ -139,13 +141,19 @@ private fun MatrixOptionTile(
         isSelected = cell.state == FigureCellState.DIMMED,
         onClick = onClick,
     ) {
-        MatrixPanelCanvas(panel = cell.panel, modifier = Modifier.fillMaxSize().padding(PanelInset))
+        MatrixPanelCanvas(panel = cell.panel, modifier = Modifier.fillMaxSize().padding(OptionPanelInset))
     }
 }
 
 private val MatrixGap = 4.dp
 private val OptionGap = 6.dp
 private val PanelInset = 6.dp
+
+/**
+ * An option is a [PrismTile] while a matrix entry is a [PrismCard], and the tile's bevel eats more
+ * of its box, so the option pads less to leave a drawing area of exactly the matrix cell's size.
+ */
+private val OptionPanelInset = PanelInset - (PrismFacet.Tile - PrismFacet.Cell) / 2
 
 @DevicePreviews
 @Composable
