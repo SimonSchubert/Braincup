@@ -25,14 +25,14 @@ fun AnswerFeedbackScreen(
     GameScaffold {
         if (isCorrect) {
             Image(
-                painterResource(Res.drawable.ic_success),
+                painterResource(Res.drawable.ic_mascot_thumbs_up),
                 contentDescription = null,
                 modifier = Modifier
                     .size(200.dp),
             )
         } else {
             Image(
-                painterResource(Res.drawable.ic_delivery),
+                painterResource(Res.drawable.ic_mascot_sad),
                 contentDescription = null,
                 modifier = Modifier
                     .size(200.dp),

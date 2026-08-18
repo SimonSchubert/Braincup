@@ -56,7 +56,7 @@ fun SessionCompleteScreen(
         scrollable = true,
     ) {
         Image(
-            painterResource(Res.drawable.ic_success),
+            painterResource(Res.drawable.ic_mascot_thumbs_up),
             contentDescription = null,
             modifier = Modifier
                 .height(120.dp)
