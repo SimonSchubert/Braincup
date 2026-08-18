@@ -25,3 +25,12 @@ fastlane/README.md
 media/achievements
 fastlane/play-bulk-bucket
 __pycache__/
+
+# App Store listing text (name, subtitle, description, keywords, categories, URLs) is managed in
+# App Store Connect, not here. 'fastlane ios download_metadata' pulls it locally on demand and it
+# must not be committed; review_information additionally holds the reviewer contact phone number.
+# Only the release notes that /release generates are tracked, and deploy pushes just those.
+fastlane/metadata/ios/*.txt
+fastlane/metadata/ios/*/*.txt
+!fastlane/metadata/ios/*/release_notes.txt
+fastlane/metadata/ios/review_information/

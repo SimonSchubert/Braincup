@@ -65,6 +65,51 @@ platform :ios do
     )
   end
 
+  desc "Pull the live App Store listing into fastlane/metadata/ios to inspect it locally (not committed)"
+  lane :download_metadata do
+    app_store_connect_api_key(
+      key_id: ENV.fetch("ASC_KEY_ID"),
+      issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+      key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_#{ENV.fetch('ASC_KEY_ID')}.p8"),
+      in_house: false,
+    )
+
+    require "deliver"
+    require "deliver/options"
+    require "deliver/runner"
+    require "deliver/setup"
+    options = FastlaneCore::Configuration.create(
+      Deliver::Options.available_options,
+      {
+        app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier),
+        metadata_path: File.join(__dir__, "metadata/ios"),
+        skip_binary_upload: true,
+        skip_screenshots: true,
+        run_precheck_before_submit: false,
+        force: true,
+      },
+    )
+    Deliver::Runner.new(options, { app_identifier: false, app_version: true, ipa: true, pkg: true })
+    app = Deliver.cache[:app]
+    version = app.get_latest_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS)
+    # release_notes.txt describes the release being prepared, which /release writes and the deploy
+    # lane reads. Downloading would replace it with the notes of the version already on sale.
+    notes_path = File.join(options[:metadata_path], "en-US", "release_notes.txt")
+    pending_notes = File.exist?(notes_path) ? File.read(notes_path) : nil
+
+    Deliver::Setup.new.generate_metadata_files(app, version, options[:metadata_path], options)
+
+    File.write(notes_path, pending_notes) unless pending_notes.nil?
+
+    # The download also writes the App Store review contact (name, email, phone number) and demo
+    # credentials. This repository is public, so those are dropped again straight away. deliver
+    # skips metadata files that do not exist, so App Store Connect keeps the values already set.
+    FileUtils.rm_rf(File.join(options[:metadata_path], "review_information"))
+
+    UI.important("The listing text is git-ignored on purpose: App Store Connect owns it. Delete these")
+    UI.important("files again when you are done, otherwise 'fastlane ios deploy' will push them back.")
+  end
+
   desc "Build, archive, upload to App Store Connect, submit for review, auto-release"
   lane :deploy do
     app_store_connect_api_key(
