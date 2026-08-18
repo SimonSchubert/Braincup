@@ -188,12 +188,12 @@ fun MainMenuScreenContent(
             if (totalXp > 0) {
                 Box(modifier = Modifier.fillMaxWidth()) {
                     Image(
-                        painter = painterResource(Res.drawable.ic_success),
+                        painter = painterResource(Res.drawable.ic_mascot),
                         contentDescription = null,
                         modifier = Modifier
                             .padding(top = 16.dp)
                             .align(Alignment.Center)
-                            .height(170.dp),
+                            .height(160.dp),
                     )
                     Box(modifier = Modifier.align(Alignment.TopEnd)) {
                         settingsIcon()
@@ -213,9 +213,9 @@ fun MainMenuScreenContent(
                         )
                         Spacer(Modifier.height(12.dp))
                         Image(
-                            painterResource(Res.drawable.ic_success),
+                            painterResource(Res.drawable.ic_mascot),
                             contentDescription = null,
-                            modifier = Modifier.height(154.dp),
+                            modifier = Modifier.height(150.dp),
                         )
                         Spacer(Modifier.height(12.dp))
                         Text(
