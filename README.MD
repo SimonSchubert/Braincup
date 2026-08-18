@@ -1,6 +1,6 @@
 [![GitHub](https://img.shields.io/github/license/SimonSchubert/Braincup.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 
-<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/play_store_feature.png" width="350">
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/fastlane/metadata/android/en-US/images/featureGraphic.png" width="350">
 
 # Braincup
 Train your math skills, memory and focus.
@@ -24,7 +24,7 @@ Train your math skills, memory and focus.
 ## Screenshots
 
 ### Mobile (Android, iOS)
-<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_02.png" width="200">  <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_03.png" width="200">  <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_android_06.png" width="200">
+<img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/fastlane/metadata/android/en-US/images/phoneScreenshots/01.png" width="200"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/fastlane/metadata/android/en-US/images/phoneScreenshots/02.png" width="200">  <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/fastlane/metadata/android/en-US/images/phoneScreenshots/03.png" width="200">  <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/fastlane/metadata/android/en-US/images/phoneScreenshots/04.png" width="200">
 
 ### Desktop
 <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_01.png" width="400"> <img src="https://raw.githubusercontent.com/SimonSchubert/Braincup/master/media/screen_mac_02.png" width="400">

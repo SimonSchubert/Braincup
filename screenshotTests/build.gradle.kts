@@ -64,43 +64,6 @@ tasks.withType<Test>().configureEach {
 }
 
 val snapshotsDir = layout.projectDirectory.dir("src/test/snapshots/images")
-val mediaDir = layout.projectDirectory.dir("../media")
-
-tasks.register("updateScreenshots") {
-    dependsOn("recordPaparazziDebug")
-
-    val snapshotsDirFile = snapshotsDir.asFile
-    val mediaDirFile = mediaDir.asFile
-
-    doLast {
-        val mapping = mapOf(
-            "mainMenu" to "screen_android_01.png",
-            "gameColoredShapes" to "screen_android_02.png",
-            "gameAnomalyPuzzle" to "screen_android_03.png",
-            "finishNewHighscore" to "screen_android_04.png",
-            "gameMentalCalculation" to "screen_android_05.png",
-            "gameSherlockCalculation" to "screen_android_06.png",
-            "gameChainCalculation" to "screen_android_07.png",
-            "gameFractionCalculation" to "screen_android_08.png",
-            "gameValueComparison" to "screen_android_09.png",
-            "gamePathFinder" to "screen_android_10.png",
-            "gameGridSolver" to "screen_android_11.png",
-            "gameVisualMemory" to "screen_android_12.png",
-        )
-
-        mapping.forEach { (testName, mediaName) ->
-            val snapshot = snapshotsDirFile.listFiles()?.find {
-                it.name.endsWith("_ScreenshotTest_$testName.png")
-            }
-            if (snapshot != null) {
-                snapshot.copyTo(mediaDirFile.resolve(mediaName), overwrite = true)
-                println("Copied ${snapshot.name} -> media/$mediaName")
-            } else {
-                println("Warning: No snapshot found for $testName")
-            }
-        }
-    }
-}
 
 val renderDeviceFrames =
     tasks.register<Exec>("renderDeviceFrames") {
@@ -109,10 +72,6 @@ val renderDeviceFrames =
         workingDir = layout.projectDirectory.dir("..").asFile
         commandLine("python3", "scripts/render_device_frames.py")
     }
-
-tasks.named("updateScreenshots") {
-    dependsOn(renderDeviceFrames)
-}
 
 tasks.register("updateDesktopScreenshots") {
     description = "Records only the desktop-frame snapshots and rebuilds media/screen_mac_*.png and media/screen_web_*.png."
@@ -124,7 +83,7 @@ val fastlaneDir: Directory? = layout.projectDirectory.dir("../fastlane/metadata/
 tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
     val task = this as Test
     val requestedTasks = gradle.startParameter.taskNames
-    if (requestedTasks.any { it.contains("generateStoreScreenshots") }) {
+    if (requestedTasks.any { it.contains("generateStoreScreenshots") || it.contains("updateEnUsStoreScreenshots") }) {
         task.filter.includeTestsMatching("*.StoreScreenshotTest")
         task.filter.includeTestsMatching("*.TabletStoreScreenshotTest")
     }
@@ -137,7 +96,14 @@ tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
     }
 }
 
-tasks.register("generateStoreScreenshots") {
+// Lays the recorded Play snapshots out in fastlane's supply tree. `locales` limits the copy to a
+// subset of the rendered matrix; null copies every locale.
+fun registerStoreScreenshotCopy(
+    name: String,
+    locales: Set<String>?,
+    taskDescription: String,
+) = tasks.register(name) {
+    description = taskDescription
     dependsOn("recordPaparazziDebug")
 
     val snapshotsDirFile = snapshotsDir.asFile
@@ -165,24 +131,46 @@ tasks.register("generateStoreScreenshots") {
 
         phoneSnapshots.forEach { file ->
             val match = phoneRegex.find(file.name) ?: return@forEach
-            val (locale, name) = match.destructured
+            val (locale, screen) = match.destructured
+            if (locales != null && locale !in locales) return@forEach
             val targetDir = File(fastlaneDirFile, "$locale/images/phoneScreenshots")
             targetDir.mkdirs()
-            val targetFile = File(targetDir, "$name.png")
+            val targetFile = File(targetDir, "$screen.png")
             file.copyTo(targetFile, overwrite = true)
-            println("Copied -> $locale/phoneScreenshots/$name.png")
+            println("Copied -> $locale/phoneScreenshots/$screen.png")
         }
 
         tabletSnapshots.forEach { file ->
             val match = tabletRegex.find(file.name) ?: return@forEach
-            val (locale, name) = match.destructured
+            val (locale, screen) = match.destructured
+            if (locales != null && locale !in locales) return@forEach
             val targetDir = File(fastlaneDirFile, "$locale/images/tenInchScreenshots")
             targetDir.mkdirs()
-            val targetFile = File(targetDir, "$name.png")
+            val targetFile = File(targetDir, "$screen.png")
             file.copyTo(targetFile, overwrite = true)
-            println("Copied -> $locale/tenInchScreenshots/$name.png")
+            println("Copied -> $locale/tenInchScreenshots/$screen.png")
         }
     }
+}
+
+registerStoreScreenshotCopy(
+    name = "generateStoreScreenshots",
+    locales = null,
+    taskDescription = "Lays every locale's Play store snapshots out for 'fastlane android upload_screenshots'.",
+)
+
+// The README renders the en-US store images straight from the supply tree, so CI refreshes just
+// that locale on every push; the full matrix stays a manual step before a store release.
+val updateEnUsStoreScreenshots =
+    registerStoreScreenshotCopy(
+        name = "updateEnUsStoreScreenshots",
+        locales = setOf("en-US"),
+        taskDescription = "Refreshes only the en-US Play store images, which the README links to.",
+    )
+
+tasks.register("updateScreenshots") {
+    description = "Rebuilds the images the README links to: the desktop/web frames and the en-US store set."
+    dependsOn(renderDeviceFrames, updateEnUsStoreScreenshots)
 }
 
 val appStoreScreenshotsDir: Directory? = layout.projectDirectory.dir("../fastlane/screenshots")

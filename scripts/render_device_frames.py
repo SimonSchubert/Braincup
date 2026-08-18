@@ -155,16 +155,43 @@ def favicon(size: int, ss: int = 8) -> Image.Image:
         sys.exit(f"No inline SVG favicon found in {INDEX_HTML}")
     svg = unquote(match.group(1))
     view_x, view_y, view_w, _ = (float(v) for v in re.search(r"viewBox='([^']+)'", svg).group(1).split())
-    stroke = re.search(r"stroke='([^']+)'", svg).group(1)
-    stroke_width = float(re.search(r"stroke-width='([^']+)'", svg).group(1))
 
     scale = size * ss / view_w
     icon = Image.new("RGBA", (size * ss, size * ss), (0, 0, 0, 0))
     draw = ImageDraw.Draw(icon)
-    for d in re.findall(r"<path d='([^']+)'", svg):
-        for subpath in parse_path(d):
-            points = [((px - view_x) * scale, (py - view_y) * scale) for px, py in subpath]
-            draw.line(points, fill=stroke, width=max(1, round(stroke_width * scale)), joint="curve")
+
+    def project(subpath):
+        return [((px - view_x) * scale, (py - view_y) * scale) for px, py in subpath]
+
+    # Attributes are read per <path> element rather than in a fixed order, so the icon keeps
+    # rendering if the exporter reorders them or drops a fill in favour of one on <svg>.
+    paths = re.findall(r"<path\b[^>]*>", svg)
+    root_fill = re.search(r"<svg\b[^>]*\sfill='([^']+)'", svg)
+
+    stroke_match = re.search(r"stroke='([^']+)'", svg)
+    if stroke_match:
+        # Stroked line art: one colour for the whole icon, drawn as polylines.
+        stroke = stroke_match.group(1)
+        stroke_width = float(re.search(r"stroke-width='([^']+)'", svg).group(1))
+        width = max(1, round(stroke_width * scale))
+        for element in paths:
+            d = re.search(r"\bd='([^']+)'", element)
+            if not d:
+                continue
+            for subpath in parse_path(d.group(1)):
+                draw.line(project(subpath), fill=stroke, width=width, joint="curve")
+    else:
+        # Filled art (the mascot): each path carries its own colour and paints over the previous.
+        for element in paths:
+            d = re.search(r"\bd='([^']+)'", element)
+            if not d:
+                continue
+            fill = re.search(r"\bfill='([^']+)'", element)
+            colour = fill.group(1) if fill else (root_fill.group(1) if root_fill else "#000000")
+            for subpath in parse_path(d.group(1)):
+                points = project(subpath)
+                if len(points) >= 3:
+                    draw.polygon(points, fill=colour)
     return icon.resize((size, size), Image.LANCZOS)
 
 

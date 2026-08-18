@@ -2,8 +2,9 @@
 """Render the 1024x500 feature graphic from the in-app mascot drawable.
 
 The mascot comes straight from composeApp/.../drawable/ic_mascot.xml, so re-running this after
-the mascot changes keeps every copy of the graphic in sync. It is written to all three places
-that need it: the README/Play banner, the web Open Graph image, and the fastlane metadata.
+the mascot changes keeps every copy of the graphic in sync. It is written to both places that
+need it: the fastlane metadata (which the Play listing and the README banner both use) and the
+web Open Graph image, which GitHub Pages has to serve from the wasm bundle.
 
 Requires: rsvg-convert on PATH (same dependency as media/achievements/generate.py) and Pillow.
 """
@@ -26,7 +27,6 @@ MASCOT = ROOT / "composeApp/src/commonMain/composeResources/drawable/ic_mascot.x
 BUNGEE = ROOT / "composeApp/src/commonMain/composeResources/font/bungee.ttf"
 
 TARGETS = [
-    ROOT / "media/play_store_feature.png",
     ROOT / "composeApp/src/wasmJsMain/resources/og-image.png",
     ROOT / "fastlane/metadata/android/en-US/images/featureGraphic.png",
 ]
