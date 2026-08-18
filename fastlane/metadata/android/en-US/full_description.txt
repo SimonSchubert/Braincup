@@ -25,7 +25,7 @@ Numbers flash one at a time. Add them up and enter the total.
 Find the figure that stands out. Consider both the color and shape of each figure.
 
 <b>Pattern Sequence</b>:
-Find the next figure in the pattern by looking for repeating shapes, colors and rotations.
+A fresh matrix puzzle every round. Work out the rule running along each row of the 3x3 grid, then pick the piece that completes it.
 
 <b>Path Finder</b>:
 Start at the marked position and follow the arrow instructions to find the destination.

@@ -57,4 +57,18 @@ class AdaptiveDifficultyResumeTest {
         assertEquals(true, hasHardness(5, 2))
         assertEquals(true, hasHardness(10, 2))
     }
+
+    @Test
+    fun patternSequenceRestoresTierWhenResumed() {
+        fun optionsAtStartRound(startRound: Int): Int = PatternSequenceGame(Random(3L))
+            .apply {
+                round = startRound
+                nextRound()
+            }.problem.options.size
+
+        assertEquals(4, optionsAtStartRound(0))
+        assertEquals(6, optionsAtStartRound(5))
+        assertEquals(8, optionsAtStartRound(11))
+        assertEquals(8, optionsAtStartRound(40))
+    }
 }

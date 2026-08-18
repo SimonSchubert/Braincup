@@ -25,7 +25,7 @@ Zahlen blitzen nacheinander auf. Addiere sie und gib die Summe ein.
 Finde die Figur, die heraussticht. Beachte Farbe und Form.
 
 <b>Mustersequenz</b>:
-Finde die nächste Figur im Muster anhand von Formen, Farben und Drehungen.
+In jeder Runde ein neues Matrixrätsel. Finde die Regel, die durch jede Zeile des 3x3-Gitters läuft, und wähle das Teil, das sie vervollständigt.
 
 <b>Pfadfinder</b>:
 Starte an der Markierung und folge den Pfeilen zum Ziel.

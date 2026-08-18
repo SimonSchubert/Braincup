@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Zacznij od zaznaczonej pozycji i podążaj za strzałkami, aby znaleźć cel.</string>
     <string name="game_mini_sudoku_desc">Wypełnij małą siatkę tak, aby każdy wiersz, kolumna i blok zawierały każdą liczbę dokładnie raz.</string>
     <string name="game_visual_memory_desc">Zapamiętaj kształty na siatce, a następnie zidentyfikuj ukryty kształt po upływie czasu.</string>
-    <string name="game_pattern_sequence_desc">Znajdź następną figurę we wzorze, szukając powtarzających się kształtów, kolorów i obrotów.</string>
+    <string name="game_pattern_sequence_desc">Odkryj regułę biegnącą przez każdy wiersz siatki, a potem wybierz element, który ją uzupełnia.</string>
     <string name="game_ghost_grid_desc">Obserwuj, jak kafelki zapalają się jeden po drugim, a następnie dotknij ich w tej samej kolejności.</string>
     <string name="game_color_confusion_desc">Dotknij wszystkich komórek, w których słowo odpowiada kolorowi czcionki, a następnie naciśnij Gotowe.</string>
     <string name="game_orbit_tracker_desc">Obserwuj podświetlone kule, a następnie śledź je podczas ruchu. Wybierz oryginalne cele po zatrzymaniu.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Nowa gra</string>
     <string name="mini_chess_move_counter">Ruch %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (remis, nie wygrana)</string>
-    <string name="game_what_comes_next">Co będzie dalej?</string>
+    <string name="pattern_sequence_prompt">Który element uzupełnia macierz?</string>
     <string name="game_tap_original_targets">Dotknij oryginalnych celów</string>
     <string name="game_remember_targets">Zapamiętaj cele</string>
     <string name="game_flash_crowd_which_more">Która strona miała więcej?</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">Zgadnij ukryte słowo</string>
     <string name="visual_memory_demo_title">Zapamiętaj, co gdzie stoi</string>
     <string name="digit_memory_demo_title">Zapamiętaj, daj się rozproszyć, przypomnij</string>
-    <string name="pattern_sequence_demo_unit">Wzór się powtarza: koło, trójkąt.</string>
+    <string name="pattern_sequence_demo_rule">Każdy wiersz używa tych samych trzech kształtów w przesuniętej kolejności.</string>
     <string name="color_confusion_demo_title">Dotknij pasujących słów</string>
     <string name="flags_demo_title">Podaj nazwę kraju</string>
     <string name="mental_calculation_demo_title">Przenoś wynik dalej</string>

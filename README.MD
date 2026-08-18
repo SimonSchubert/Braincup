@@ -75,6 +75,7 @@ Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 - **Wordle** — Guess the five-letter word in six tries
 - **Prism Clear** — Swap matching tiles to clear lines; empty the board
 - **Bulls & Cows** — Guess the secret 4-digit number (Bulls = right place, Cows = wrong place)
+- **Pattern Sequence** — Work out the rule along each row and complete the 3x3 grid
 
 ### Memory
 - **Visual Memory** — Memorize shapes, then identify the hidden one
@@ -86,7 +87,6 @@ Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 - **Simon Says** — Tap back the growing pad sequence each round
 
 ### Perception
-- **Pattern Sequence** — Find the next figure in the pattern
 - **Color Confusion** — Tap cells where the word matches its font color
 - **Flash Crowd** — Tap the side that flashed more dots
 - **Schulte Table** — Tap numbers in order as fast as you can

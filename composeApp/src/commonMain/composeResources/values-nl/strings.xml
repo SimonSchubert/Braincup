@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Begin op de gemarkeerde positie en volg de pijlen om de bestemming te vinden.</string>
     <string name="game_mini_sudoku_desc">Vul het kleine raster in zodat elke rij, kolom en blok elk getal precies één keer bevat.</string>
     <string name="game_visual_memory_desc">Onthoud de vormen op het raster en identificeer vervolgens de verborgen vorm nadat de timer is afgelopen.</string>
-    <string name="game_pattern_sequence_desc">Vind de volgende figuur in het patroon door te zoeken naar herhalende vormen, kleuren en rotaties.</string>
+    <string name="game_pattern_sequence_desc">Zoek de regel die door elke rij van het raster loopt en kies dan het stuk dat hem afmaakt.</string>
     <string name="game_ghost_grid_desc">Kijk hoe de tegels één voor één oplichten en tik ze daarna in dezelfde volgorde aan.</string>
     <string name="game_color_confusion_desc">Tik alle cellen aan waar het woord overeenkomt met de letterkleur en druk dan op Klaar.</string>
     <string name="game_orbit_tracker_desc">Kijk naar de gemarkeerde ballen en volg ze terwijl ze bewegen. Selecteer de oorspronkelijke doelen nadat ze stoppen.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Nieuw spel</string>
     <string name="mini_chess_move_counter">Zet %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= patstelling (gelijkspel, geen winst)</string>
-    <string name="game_what_comes_next">Wat komt er hierna?</string>
+    <string name="pattern_sequence_prompt">Welk stuk maakt de matrix compleet?</string>
     <string name="game_tap_original_targets">Tik op de oorspronkelijke doelen</string>
     <string name="game_remember_targets">Onthoud de doelen</string>
     <string name="game_flash_crowd_which_more">Welke kant had meer?</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">Raad het verborgen woord</string>
     <string name="visual_memory_demo_title">Onthoud wat waar staat</string>
     <string name="digit_memory_demo_title">Memoriseer, word afgeleid, herinner</string>
-    <string name="pattern_sequence_demo_unit">Het patroon herhaalt zich: cirkel, driehoek.</string>
+    <string name="pattern_sequence_demo_rule">Elke rij gebruikt dezelfde drie vormen in een verschoven volgorde.</string>
     <string name="color_confusion_demo_title">Tik de overeenkomende woorden aan</string>
     <string name="flags_demo_title">Noem het land</string>
     <string name="mental_calculation_demo_title">Draag het resultaat door</string>

@@ -206,10 +206,12 @@ private val SpotTheNewPreviewAnimals: List<Animal> = listOf(
 
 private val SherlockPreviewNumbers = listOf(4, 9, 3, 7, 2)
 
+// A 2x2 corner of the matrix: shape distributes across the rows, the missing cell is the
+// one the player supplies. A full 3x3 is unreadable at tile size.
 private val PatternSequencePreviewFigures = listOf(
     Figure(Shape.TRIANGLE, GameColor.RED),
-    Figure(Shape.TRIANGLE, GameColor.BLUE),
-    Figure(Shape.TRIANGLE, GameColor.RED),
+    Figure(Shape.CIRCLE, GameColor.BLUE),
+    Figure(Shape.CIRCLE, GameColor.BLUE),
 )
 
 private val OrbitTrackerPreviewBalls = listOf(
@@ -1605,32 +1607,34 @@ private fun TowerOfHanoiPreviewDisk(size: Int, height: Dp) {
 private fun PatternSequencePreview() {
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            PatternSequencePreviewFigures.forEach { figure ->
-                ShapeCanvas(
-                    figure = figure,
-                    modifier = Modifier.weight(1f).aspectRatio(1f).padding(2.dp),
-                )
-            }
-            PrismCard(
-                face = MaterialTheme.colorScheme.primaryContainer,
-                facet = PrismFacet.Cell,
-                modifier = Modifier
-                    .weight(1f)
-                    .aspectRatio(1f)
-                    .padding(2.dp),
+        repeat(2) { row ->
+            Row(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
             ) {
-                Text(
-                    text = "?",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                )
+                repeat(2) { column ->
+                    val index = row * 2 + column
+                    if (index == PatternSequencePreviewFigures.size) {
+                        PrismCard(
+                            face = MaterialTheme.colorScheme.primaryContainer,
+                            facet = PrismFacet.Cell,
+                            modifier = Modifier.weight(1f).fillMaxHeight(),
+                        ) {
+                            Text(
+                                text = "?",
+                                style = MaterialTheme.typography.labelMedium,
+                                color = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                        }
+                    } else {
+                        ShapeCanvas(
+                            figure = PatternSequencePreviewFigures[index],
+                            modifier = Modifier.weight(1f).fillMaxHeight().padding(3.dp),
+                        )
+                    }
+                }
             }
         }
     }

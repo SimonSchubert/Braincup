@@ -177,6 +177,14 @@ enum class GameType(
         descriptionRes = Res.string.game_visual_memory_desc,
         category = GameCategory.MEMORY,
     ),
+    PATTERN_SEQUENCE(
+        displayNameRes = Res.string.game_pattern_sequence,
+        id = "11",
+        goldScore = 8,
+        silverScore = 4,
+        descriptionRes = Res.string.game_pattern_sequence_desc,
+        category = GameCategory.LOGIC,
+    ),
     COLORED_SHAPES(
         displayNameRes = Res.string.game_colored_shapes,
         id = "1",
@@ -244,14 +252,6 @@ enum class GameType(
         silverScore = 6,
         descriptionRes = Res.string.game_value_comparison_desc,
         category = GameCategory.MATH,
-    ),
-    PATTERN_SEQUENCE(
-        displayNameRes = Res.string.game_pattern_sequence,
-        id = "11",
-        goldScore = 12,
-        silverScore = 6,
-        descriptionRes = Res.string.game_pattern_sequence_desc,
-        category = GameCategory.PERCEPTION,
     ),
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,

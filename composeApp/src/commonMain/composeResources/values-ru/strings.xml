@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Начните с отмеченной позиции и следуйте стрелкам, чтобы найти пункт назначения.</string>
     <string name="game_mini_sudoku_desc">Заполните маленькую сетку так, чтобы каждая строка, столбец и блок содержали каждое число ровно один раз.</string>
     <string name="game_visual_memory_desc">Запомните фигуры на сетке, затем определите скрытую фигуру после окончания таймера.</string>
-    <string name="game_pattern_sequence_desc">Найдите следующую фигуру в последовательности, ищите повторяющиеся формы, цвета и вращения.</string>
+    <string name="game_pattern_sequence_desc">Найдите правило, которое проходит по каждой строке сетки, и выберите фигуру, завершающую её.</string>
     <string name="game_ghost_grid_desc">Наблюдайте, как плитки загораются одна за другой, затем нажимайте на них в том же порядке.</string>
     <string name="game_color_confusion_desc">Нажмите на все ячейки, где слово совпадает с цветом шрифта, затем нажмите Готово.</string>
     <string name="game_orbit_tracker_desc">Наблюдайте за выделенными шарами, а затем отслеживайте их движение. Выберите исходные цели после остановки.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Новая игра</string>
     <string name="mini_chess_move_counter">Ход %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= пат (ничья, не победа)</string>
-    <string name="game_what_comes_next">Что дальше?</string>
+    <string name="pattern_sequence_prompt">Какая фигура завершает матрицу?</string>
     <string name="game_tap_original_targets">Нажмите на исходные цели</string>
     <string name="game_remember_targets">Запомните цели</string>
     <string name="game_flash_crowd_which_more">На какой стороне было больше?</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">Угадай скрытое слово</string>
     <string name="visual_memory_demo_title">Запомни, что где находится</string>
     <string name="digit_memory_demo_title">Запомни, отвлекись, вспомни</string>
-    <string name="pattern_sequence_demo_unit">Паттерн повторяется: круг, треугольник.</string>
+    <string name="pattern_sequence_demo_rule">В каждой строке те же три формы, но в сдвинутом порядке.</string>
     <string name="color_confusion_demo_title">Нажимай на совпадающие слова</string>
     <string name="flags_demo_title">Назови страну</string>
     <string name="mental_calculation_demo_title">Переноси результат дальше</string>

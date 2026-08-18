@@ -231,7 +231,7 @@
     <string name="game_path_finder_desc">Ξεκινήστε από τη σημειωμένη θέση και ακολουθήστε τα βέλη για να βρείτε τον προορισμό.</string>
     <string name="game_mini_sudoku_desc">Γεμίστε το μικρό πλέγμα έτσι ώστε κάθε γραμμή, στήλη και μπλοκ να περιέχει κάθε αριθμό ακριβώς μία φορά.</string>
     <string name="game_visual_memory_desc">Απομνημονεύστε τα σχήματα στο πλέγμα, και μετά εντοπίστε το κρυμμένο σχήμα μετά τη λήξη της διορίας.</string>
-    <string name="game_pattern_sequence_desc">Βρείτε το επόμενο σχήμα στο μοτίβο αναζητώντας επαναλαμβανόμενα σχήματα, χρώματα και περιστροφές.</string>
+    <string name="game_pattern_sequence_desc">Βρες τον κανόνα που διατρέχει κάθε γραμμή του πλέγματος και διάλεξε το κομμάτι που τον ολοκληρώνει.</string>
     <string name="game_ghost_grid_desc">Παρακολουθήστε τα πλακίδια να φωτίζονται ένα προς ένα, και μετά πατήστε τα ξανά με την ίδια σειρά.</string>
     <string name="game_color_confusion_desc">Πατήστε όλα τα κελιά όπου η λέξη ταιριάζει με το χρώμα της γραμματοσειράς της, και μετά πατήστε Τέλος.</string>
     <string name="game_orbit_tracker_desc">Παρακολουθήστε τις φωτεινές μπάλες και μετά το πώς κινούνται. Επιλέξτε τους αρχικούς στόχους αφού σταματήσουν.</string>
@@ -314,7 +314,7 @@
     <string name="wordle_demo_title">Μαντέψτε την κρυφή λέξη</string>
     <string name="visual_memory_demo_title">Θυμηθείτε τι πάει πού</string>
     <string name="digit_memory_demo_title">Απομνημονεύστε, αποσπαστείτε, ανακαλέστε</string>
-    <string name="pattern_sequence_demo_unit">Το μοτίβο επαναλαμβάνεται: κύκλος, τρίγωνο.</string>
+    <string name="pattern_sequence_demo_rule">Κάθε γραμμή χρησιμοποιεί τα ίδια τρία σχήματα με μετατοπισμένη σειρά.</string>
     <string name="color_confusion_demo_title">Πατήστε τις λέξεις που ταιριάζουν</string>
     <string name="flags_demo_title">Ονομάστε τη χώρα</string>
     <string name="mental_calculation_demo_title">Μεταφέρετε το αποτέλεσμα παρακάτω</string>
@@ -323,7 +323,7 @@
     <string name="fraction_calculation_demo_title">Πολλαπλασιάστε τα κλάσματα</string>
     <string name="sherlock_calculation_demo_title">Φτάστε στον αριθμό-στόχο</string>
     <string name="value_comparison_demo_title">Διαλέξτε τη μεγαλύτερη τιμή</string>
-    <string name="game_what_comes_next">Τι ακολουθεί;</string>
+    <string name="pattern_sequence_prompt">Ποιο κομμάτι ολοκληρώνει το μητρώο;</string>
     <string name="game_tap_original_targets">Πατήστε τους αρχικούς στόχους</string>
     <string name="game_remember_targets">Θυμηθείτε τους στόχους</string>
     <string name="game_flash_crowd_which_more">Ποια πλευρά έχει περισσότερα;</string>

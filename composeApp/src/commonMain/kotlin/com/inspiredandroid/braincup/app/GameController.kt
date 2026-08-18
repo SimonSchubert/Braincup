@@ -912,8 +912,8 @@ class GameController(
         ui.copy(
             optionRows = ui.optionRows.withFeedbackStates(
                 wrongIndex = input.toIntOrNull(),
-                correctIndex = game.correctOptionIndex,
-                columnsPerRow = 2,
+                correctIndex = game.problem.correctOptionIndex,
+                columnsPerRow = ui.optionColumns,
             ),
         )
     }
@@ -1881,15 +1881,15 @@ class GameController(
     // Marking up a board after an answer: the picked cell/button goes red, the right one green,
     // everything else dims. One family of helpers so every game reveals an answer the same way.
 
-    private fun ImmutableList<ImmutableList<FigureCell>>.withFeedbackStates(
+    private fun <T : FeedbackCell<T>> ImmutableList<ImmutableList<T>>.withFeedbackStates(
         wrongIndex: Int?,
         correctIndex: Int,
         columnsPerRow: Int,
-    ): ImmutableList<ImmutableList<FigureCell>> = mapIndexed { y, row ->
+    ): ImmutableList<ImmutableList<T>> = mapIndexed { y, row ->
         row.mapIndexed { x, cell ->
             val flatIndex = y * columnsPerRow + x
-            cell.copy(
-                state = when (flatIndex) {
+            cell.withState(
+                when (flatIndex) {
                     wrongIndex -> FigureCellState.WRONG
                     correctIndex -> FigureCellState.CORRECT
                     else -> FigureCellState.DIMMED

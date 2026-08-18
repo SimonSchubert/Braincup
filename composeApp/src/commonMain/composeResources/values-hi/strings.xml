@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">चिह्नित स्थान से शुरू करें और गंतव्य खोजने के लिए तीरों का पालन करें।</string>
     <string name="game_mini_sudoku_desc">छोटी ग्रिड को इस तरह भरें कि हर पंक्ति, स्तंभ और ब्लॉक में हर संख्या ठीक एक बार आए।</string>
     <string name="game_visual_memory_desc">ग्रिड पर आकृतियों को याद करें, फिर टाइमर समाप्त होने के बाद छिपी हुई आकृति की पहचान करें।</string>
-    <string name="game_pattern_sequence_desc">दोहराए जाने वाले आकार, रंग और घुमाव खोजकर पैटर्न में अगली आकृति खोजें।</string>
+    <string name="game_pattern_sequence_desc">ग्रिड की हर पंक्ति में चलने वाला नियम पहचानें, फिर उसे पूरा करने वाला टुकड़ा चुनें।</string>
     <string name="game_ghost_grid_desc">टाइलों को एक-एक करके जलते हुए देखें, फिर उन्हें उसी क्रम में टैप करें।</string>
     <string name="game_color_confusion_desc">उन सभी सेल को टैप करें जहाँ शब्द फ़ॉन्ट रंग से मेल खाता है, फिर पूर्ण दबाएँ।</string>
     <string name="game_orbit_tracker_desc">हाइलाइट की गई गेंदों को देखें, फिर उनकी गति को ट्रैक करें। रुकने के बाद मूल लक्ष्यों को चुनें।</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">नया गेम</string>
     <string name="mini_chess_move_counter">चाल %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= गतिरोध (ड्रॉ, जीत नहीं)</string>
-    <string name="game_what_comes_next">आगे क्या आता है?</string>
+    <string name="pattern_sequence_prompt">मैट्रिक्स को कौन सा टुकड़ा पूरा करता है?</string>
     <string name="game_tap_original_targets">मूल लक्ष्यों को टैप करें</string>
     <string name="game_remember_targets">लक्ष्यों को याद रखें</string>
     <string name="game_flash_crowd_which_more">किस तरफ अधिक थे?</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">छिपे शब्द का अनुमान लगाएँ</string>
     <string name="visual_memory_demo_title">याद रखें क्या कहाँ है</string>
     <string name="digit_memory_demo_title">याद करें, ध्यान भटकाएँ, फिर स्मरण करें</string>
-    <string name="pattern_sequence_demo_unit">पैटर्न दोहराता है: वृत्त, त्रिभुज।</string>
+    <string name="pattern_sequence_demo_rule">हर पंक्ति वही तीन आकृतियाँ बदले हुए क्रम में इस्तेमाल करती है।</string>
     <string name="color_confusion_demo_title">मिलान करने वाले शब्दों पर टैप करें</string>
     <string name="flags_demo_title">देश का नाम बताएँ</string>
     <string name="mental_calculation_demo_title">परिणाम आगे ले जाएँ</string>

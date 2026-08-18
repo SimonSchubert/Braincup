@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">マークされた位置から始めて、矢印に従って目的地を見つけてください。</string>
     <string name="game_mini_sudoku_desc">小さなグリッドを埋めて、各行、列、ブロックがそれぞれの数字を正確に1回ずつ含むようにします。</string>
     <string name="game_visual_memory_desc">グリッド上の形を覚えて、タイマー終了後に隠された形を特定してください。</string>
-    <string name="game_pattern_sequence_desc">繰り返される形、色、回転を見つけて、パターンの次の図形を見つけてください。</string>
+    <string name="game_pattern_sequence_desc">グリッドの各行を貫く規則を見つけ、それを完成させるピースを選んでください。</string>
     <string name="game_ghost_grid_desc">タイルが一つずつ光るのを見て、同じ順番でタップしてください。</string>
     <string name="game_color_confusion_desc">単語がフォントの色と一致するすべてのセルをタップし、完了を押してください。</string>
     <string name="game_orbit_tracker_desc">ハイライトされたボールを見て、動きを追跡してください。停止後に元のターゲットを選択してください。</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">新しいゲーム</string>
     <string name="mini_chess_move_counter">手 %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ステイルメイト(引き分け、勝ちではない)</string>
-    <string name="game_what_comes_next">次は何？</string>
+    <string name="pattern_sequence_prompt">マトリックスを完成させるのはどれ？</string>
     <string name="game_tap_original_targets">元のターゲットをタップ</string>
     <string name="game_remember_targets">ターゲットを覚えて</string>
     <string name="game_flash_crowd_which_more">どちらが多かった？</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">隠れた単語を当てる</string>
     <string name="visual_memory_demo_title">どこに何があるか覚える</string>
     <string name="digit_memory_demo_title">覚えて、気を散らして、思い出す</string>
-    <string name="pattern_sequence_demo_unit">パターンが繰り返されます：丸、三角。</string>
+    <string name="pattern_sequence_demo_rule">どの行も同じ3つの形を順番をずらして使います。</string>
     <string name="color_confusion_demo_title">一致する単語をタップ</string>
     <string name="flags_demo_title">国名を答える</string>
     <string name="mental_calculation_demo_title">結果を次に持ち越す</string>

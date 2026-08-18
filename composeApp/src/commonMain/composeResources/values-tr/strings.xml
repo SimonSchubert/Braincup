@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">İşaretli konumdan başlayın ve hedefi bulmak için okları takip edin.</string>
     <string name="game_mini_sudoku_desc">Küçük ızgarayı her satır, sütun ve bloğun her sayıyı tam olarak bir kez içerecek şekilde doldurun.</string>
     <string name="game_visual_memory_desc">Izgaradaki şekilleri ezberleyin, ardından süre dolduktan sonra gizli şekli belirleyin.</string>
-    <string name="game_pattern_sequence_desc">Tekrarlayan şekilleri, renkleri ve döndürmeleri arayarak desendeki bir sonraki şekli bulun.</string>
+    <string name="game_pattern_sequence_desc">Izgaranın her satırında ilerleyen kuralı bul, sonra onu tamamlayan parçayı seç.</string>
     <string name="game_ghost_grid_desc">Karelerin tek tek yanmasını izleyin, ardından aynı sırayla dokunun.</string>
     <string name="game_color_confusion_desc">Kelimenin yazı tipi rengiyle eşleştiği tüm hücrelere dokunun, ardından Bitti'ye basın.</string>
     <string name="game_orbit_tracker_desc">Vurgulanan topları izleyin, ardından hareket ederken takip edin. Durduktan sonra orijinal hedefleri seçin.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Yeni Oyun</string>
     <string name="mini_chess_move_counter">Hamle %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (berabere, galibiyet değil)</string>
-    <string name="game_what_comes_next">Sıradaki ne?</string>
+    <string name="pattern_sequence_prompt">Matrisi hangi parça tamamlar?</string>
     <string name="game_tap_original_targets">Orijinal hedeflere dokunun</string>
     <string name="game_remember_targets">Hedefleri hatırlayın</string>
     <string name="game_flash_crowd_which_more">Hangi tarafta daha fazla vardı?</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">Gizli kelimeyi tahmin et</string>
     <string name="visual_memory_demo_title">Neyin nerede olduğunu hatırla</string>
     <string name="digit_memory_demo_title">Ezberle, dağıl, hatırla</string>
-    <string name="pattern_sequence_demo_unit">Desen tekrar eder: daire, üçgen.</string>
+    <string name="pattern_sequence_demo_rule">Her satır aynı üç şekli kaydırılmış bir sırayla kullanır.</string>
     <string name="color_confusion_demo_title">Eşleşen kelimelere dokun</string>
     <string name="flags_demo_title">Ülkeyi adlandır</string>
     <string name="mental_calculation_demo_title">Sonucu ileriye taşı</string>

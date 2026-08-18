@@ -29,83 +29,78 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_pattern_sequence_desc
-import braincup.composeapp.generated.resources.game_what_comes_next
-import braincup.composeapp.generated.resources.pattern_sequence_demo_unit
+import braincup.composeapp.generated.resources.pattern_sequence_demo_rule
+import braincup.composeapp.generated.resources.pattern_sequence_prompt
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.RoundedSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
-import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
-// A simple shape cycle in one colour: circle, triangle, circle, triangle, … so the repeating unit is
-// "circle, triangle" and the next figure is a circle. Mirrors PatternSequenceGame's SHAPE_CYCLE.
+// Distribute-three on shape, one colour throughout: every row holds the same three shapes in a
+// shifted order, so the missing corner is the one shape its row has not used yet. Mirrors the
+// DISTRIBUTE_THREE rule in MatrixGenerator.
 private val DemoColor = GameColor.BLUE
-private const val CycleLength = 2
-private val Sequence = persistentListOf(
+private val DemoShapes = persistentListOf(Shape.CIRCLE, Shape.TRIANGLE, Shape.STAR)
+private val Matrix = List(9) { index ->
+    Figure(DemoShapes[(index / 3 + index % 3) % 3], DemoColor)
+}
+private const val AnswerIndex = 8
+private val Options = persistentListOf(
     Figure(Shape.CIRCLE, DemoColor),
-    Figure(Shape.TRIANGLE, DemoColor),
-    Figure(Shape.CIRCLE, DemoColor),
-    Figure(Shape.TRIANGLE, DemoColor),
-)
-private val Answer = Figure(Shape.CIRCLE, DemoColor)
-private val Options = listOf(
-    Figure(Shape.TRIANGLE, DemoColor),
-    Figure(Shape.CIRCLE, DemoColor), // the answer
-    Figure(Shape.HEART, DemoColor),
+    Figure(Shape.TRIANGLE, DemoColor), // the answer
     Figure(Shape.STAR, DemoColor),
+    Figure(Shape.HEART, DemoColor),
 )
 private const val CorrectOption = 1
 
 private const val ShowMillis = 700L
-private const val UnitHighlightMillis = 950L
-private const val UnitGapMillis = 250L
+private const val RowHighlightMillis = 900L
+private const val RowGapMillis = 200L
 private const val RevealMillis = 700L
-private const val SolvedHoldMillis = 1600L
+private const val SolvedHoldMillis = 1800L
 private const val ResetPauseMillis = 500L
 
 // Every caption the demo cycles through, so the caption line can reserve the tallest one's height.
 private val DemoCaptions = persistentListOf(
     Res.string.game_pattern_sequence_desc,
-    Res.string.pattern_sequence_demo_unit,
+    Res.string.pattern_sequence_demo_rule,
 )
 
 /**
- * Animated tutorial for Pattern Sequence. The sequence is drawn in cycle-sized groups; the demo
- * highlights each repeating "circle, triangle" unit in turn to make the pattern obvious, then the
- * matching option lights up green and fills the blank. Mirrors PatternSequenceGame (find the
- * repeating unit and pick the next figure). Loops on its own, like [LightsOutDemo].
+ * Animated tutorial for Pattern Sequence. Each row of the matrix lights up in turn to show that
+ * the same three shapes recur in a shifted order, then the answer fills the empty corner and the
+ * matching option turns green. Loops on its own, like [LightsOutDemo].
  */
 @Composable
 fun PatternSequenceDemo(modifier: Modifier = Modifier) {
-    // Which repeating unit (group of [CycleLength]) is currently framed, or -1 for none.
-    var highlightedUnit by remember { mutableIntStateOf(-1) }
+    var highlightedRow by remember { mutableIntStateOf(-1) }
     var solved by remember { mutableStateOf(false) }
     var captionRes by remember { mutableStateOf(Res.string.game_pattern_sequence_desc) }
 
     LaunchedEffect(Unit) {
         while (true) {
-            highlightedUnit = -1
+            highlightedRow = -1
             solved = false
             captionRes = Res.string.game_pattern_sequence_desc
             delay(ResetPauseMillis)
             delay(ShowMillis)
 
-            // Frame each repeating unit to spell out the pattern.
-            captionRes = Res.string.pattern_sequence_demo_unit
-            for (unit in 0 until Sequence.size / CycleLength) {
-                highlightedUnit = unit
-                delay(UnitHighlightMillis)
-                highlightedUnit = -1
-                delay(UnitGapMillis)
+            captionRes = Res.string.pattern_sequence_demo_rule
+            for (row in 0 until 3) {
+                highlightedRow = row
+                delay(RowHighlightMillis)
+                highlightedRow = -1
+                delay(RowGapMillis)
             }
 
-            // Reveal: the next figure continues the cycle (another circle).
             captionRes = Res.string.game_pattern_sequence_desc
             solved = true
             delay(RevealMillis)
@@ -113,64 +108,33 @@ fun PatternSequenceDemo(modifier: Modifier = Modifier) {
         }
     }
 
-    val cell = if (LocalIsCompactHeight.current) 38.dp else 44.dp
+    val cell = if (LocalIsCompactHeight.current) 34.dp else 42.dp
 
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(Res.string.game_what_comes_next),
+            text = stringResource(Res.string.pattern_sequence_prompt),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
         )
         Spacer(Modifier.height(16.dp))
 
-        // Wider gaps between cycle groups so the repeating unit reads even without the highlight.
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(14.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            for (unit in 0 until Sequence.size / CycleLength) {
-                CycleGroup(
-                    figures = Sequence.subList(
-                        unit * CycleLength,
-                        unit * CycleLength + CycleLength,
-                    ),
-                    highlighted = unit == highlightedUnit,
-                    cell = cell,
-                )
-            }
-            // The "?" card that fills with the answer once it is revealed.
-            PrismCard(face = if (solved) SuccessGreenSoft else PrimaryContainer, modifier = Modifier.size(cell)) {
-                Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
-                    if (solved) {
-                        ShapeCanvas(figure = Answer, modifier = Modifier.fillMaxSize().padding(6.dp))
-                    } else {
-                        Text(
-                            text = "?",
-                            style = MaterialTheme.typography.headlineMedium,
-                            color = OnPrimaryContainer,
-                        )
-                    }
-                }
+        Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+            for (row in 0 until 3) {
+                DemoMatrixRow(row = row, highlighted = row == highlightedRow, solved = solved, cell = cell)
             }
         }
-        Spacer(Modifier.height(24.dp))
+        Spacer(Modifier.height(20.dp))
 
-        // 2x2 options; the correct one turns green when revealed.
-        Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            for (rowIndex in 0 until 2) {
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    for (colIndex in 0 until 2) {
-                        val index = rowIndex * 2 + colIndex
-                        DemoOptionCell(
-                            figure = Options[index],
-                            isCorrect = solved && index == CorrectOption,
-                            size = cell + 16.dp,
-                        )
-                    }
-                }
+        Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Options.forEachIndexed { index, figure ->
+                DemoMatrixOption(
+                    figure = figure,
+                    isCorrect = solved && index == CorrectOption,
+                    size = cell + 10.dp,
+                )
             }
         }
         Spacer(Modifier.height(16.dp))
@@ -180,35 +144,57 @@ fun PatternSequenceDemo(modifier: Modifier = Modifier) {
 }
 
 @Composable
-private fun CycleGroup(figures: ImmutableList<Figure>, highlighted: Boolean, cell: Dp) {
-    // A soft rounded frame fades in behind the unit's figures to mark the repeating group.
+private fun DemoMatrixRow(row: Int, highlighted: Boolean, solved: Boolean, cell: Dp) {
+    // A soft rounded frame fades in behind the row to mark the three shapes it recycles.
     val highlightAlpha by animateFloatAsState(
         targetValue = if (highlighted) 1f else 0f,
         animationSpec = tween(260),
-        label = "unitHighlight",
+        label = "rowHighlight",
     )
-    val frame = Primary.copy(alpha = 0.16f * highlightAlpha)
     Row(
         modifier = Modifier
-            .clip(com.inspiredandroid.braincup.ui.theme.RoundedSlot)
-            .background(frame)
-            .padding(horizontal = 4.dp, vertical = 4.dp),
+            .clip(RoundedSlot)
+            .background(Primary.copy(alpha = 0.16f * highlightAlpha))
+            .padding(4.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        figures.forEach { figure ->
-            ShapeCanvas(figure = figure, modifier = Modifier.size(cell))
+        for (column in 0 until 3) {
+            val index = row * 3 + column
+            if (index == AnswerIndex && !solved) {
+                PrismCard(
+                    face = PrimaryContainer,
+                    facet = PrismFacet.Cell,
+                    modifier = Modifier.size(cell),
+                ) {
+                    Text(
+                        text = "?",
+                        style = MaterialTheme.typography.titleMedium,
+                        color = OnPrimaryContainer,
+                    )
+                }
+            } else {
+                PrismCard(
+                    face = if (index == AnswerIndex) SuccessGreenSoft else MaterialTheme.colorScheme.surfaceContainer,
+                    facet = PrismFacet.Cell,
+                    modifier = Modifier.size(cell),
+                ) {
+                    Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxSize()) {
+                        ShapeCanvas(figure = Matrix[index], modifier = Modifier.fillMaxSize().padding(6.dp))
+                    }
+                }
+            }
         }
     }
 }
 
 @Composable
-private fun DemoOptionCell(figure: Figure, isCorrect: Boolean, size: Dp) {
+private fun DemoMatrixOption(figure: Figure, isCorrect: Boolean, size: Dp) {
     PrismTile(
         face = if (isCorrect) SuccessGreenSoft else MaterialTheme.colorScheme.surfaceContainer,
         modifier = Modifier.size(size),
         isClickable = false,
         onClick = {},
     ) {
-        ShapeCanvas(figure = figure, modifier = Modifier.fillMaxSize().padding(8.dp))
+        ShapeCanvas(figure = figure, modifier = Modifier.fillMaxSize().padding(7.dp))
     }
 }

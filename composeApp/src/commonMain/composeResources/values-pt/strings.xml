@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Comece na posição marcada e siga as setas para encontrar o destino.</string>
     <string name="game_mini_sudoku_desc">Preencha a pequena grade para que cada linha, coluna e bloco contenha cada número exatamente uma vez.</string>
     <string name="game_visual_memory_desc">Memorize as formas na grade e identifique a forma oculta após o término do cronômetro.</string>
-    <string name="game_pattern_sequence_desc">Encontre a próxima figura no padrão procurando formas, cores e rotações que se repetem.</string>
+    <string name="game_pattern_sequence_desc">Descubra a regra que percorre cada linha da grade e escolha a peça que a completa.</string>
     <string name="game_ghost_grid_desc">Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.</string>
     <string name="game_color_confusion_desc">Toque em todas as células onde a palavra corresponde à cor da fonte e depois pressione Pronto.</string>
     <string name="game_orbit_tracker_desc">Observe as bolas destacadas e acompanhe-as enquanto se movem. Selecione os alvos originais após pararem.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Novo jogo</string>
     <string name="mini_chess_move_counter">Movimento %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= afogado (empate, não vitória)</string>
-    <string name="game_what_comes_next">O que vem a seguir?</string>
+    <string name="pattern_sequence_prompt">Que peça completa a matriz?</string>
     <string name="game_tap_original_targets">Toque nos alvos originais</string>
     <string name="game_remember_targets">Lembre-se dos alvos</string>
     <string name="game_flash_crowd_which_more">Qual lado tinha mais?</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">Adivinhe a palavra oculta</string>
     <string name="visual_memory_demo_title">Lembre o que vai onde</string>
     <string name="digit_memory_demo_title">Memorize, distraia-se, recorde</string>
-    <string name="pattern_sequence_demo_unit">O padrão se repete: círculo, triângulo.</string>
+    <string name="pattern_sequence_demo_rule">Cada linha usa as mesmas três formas em uma ordem deslocada.</string>
     <string name="color_confusion_demo_title">Toque nas palavras correspondentes</string>
     <string name="flags_demo_title">Identifique o país</string>
     <string name="mental_calculation_demo_title">Carregue o resultado para a frente</string>

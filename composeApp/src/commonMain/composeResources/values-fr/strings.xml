@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Commencez à la position marquée et suivez les flèches pour trouver la destination.</string>
     <string name="game_mini_sudoku_desc">Remplis la petite grille pour que chaque ligne, colonne et bloc contienne chaque chiffre exactement une fois.</string>
     <string name="game_visual_memory_desc">Mémorisez les formes sur la grille, puis identifiez la forme cachée après la fin du chronomètre.</string>
-    <string name="game_pattern_sequence_desc">Trouvez la figure suivante dans le motif en cherchant les formes, couleurs et rotations qui se répètent.</string>
+    <string name="game_pattern_sequence_desc">Trouvez la règle qui parcourt chaque ligne de la grille, puis choisissez la pièce qui la complète.</string>
     <string name="game_ghost_grid_desc">Regardez les cases s'allumer une par une, puis touchez-les dans le même ordre.</string>
     <string name="game_color_confusion_desc">Touchez toutes les cellules où le mot correspond à la couleur de la police, puis appuyez sur Terminé.</string>
     <string name="game_orbit_tracker_desc">Observez les balles en surbrillance, puis suivez-les pendant leur déplacement. Sélectionnez les cibles originales après l'arrêt.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Nouvelle partie</string>
     <string name="mini_chess_move_counter">Coup %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (match nul, pas une victoire)</string>
-    <string name="game_what_comes_next">Quelle est la suite ?</string>
+    <string name="pattern_sequence_prompt">Quelle pièce complète la matrice ?</string>
     <string name="game_tap_original_targets">Touchez les cibles originales</string>
     <string name="game_remember_targets">Mémorisez les cibles</string>
     <string name="game_flash_crowd_which_more">Quel côté en avait plus ?</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">Devine le mot caché</string>
     <string name="visual_memory_demo_title">Mémorise ce qui va où</string>
     <string name="digit_memory_demo_title">Mémorise, sois distrait, rappelle-toi</string>
-    <string name="pattern_sequence_demo_unit">Le motif se répète : cercle, triangle.</string>
+    <string name="pattern_sequence_demo_rule">Chaque ligne utilise les trois mêmes formes dans un ordre décalé.</string>
     <string name="color_confusion_demo_title">Touche les mots qui correspondent</string>
     <string name="flags_demo_title">Nomme le pays</string>
     <string name="mental_calculation_demo_title">Reporte le résultat</string>

@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Comienza en la posición marcada y sigue las flechas para encontrar el destino.</string>
     <string name="game_mini_sudoku_desc">Rellena la pequeña cuadrícula para que cada fila, columna y bloque contenga cada número exactamente una vez.</string>
     <string name="game_visual_memory_desc">Memoriza las formas en la cuadrícula, luego identifica la forma oculta cuando termine el temporizador.</string>
-    <string name="game_pattern_sequence_desc">Encuentra la siguiente figura en el patrón buscando formas, colores y rotaciones que se repiten.</string>
+    <string name="game_pattern_sequence_desc">Descubre la regla que recorre cada fila de la cuadrícula y elige la pieza que la completa.</string>
     <string name="game_ghost_grid_desc">Observa cómo se iluminan las casillas una por una y luego tócalas en el mismo orden.</string>
     <string name="game_color_confusion_desc">Toca todas las celdas donde la palabra coincida con el color de la fuente y luego pulsa Listo.</string>
     <string name="game_orbit_tracker_desc">Observa las bolas resaltadas y luego síguelas mientras se mueven. Selecciona los objetivos originales después de que se detengan.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Nuevo juego</string>
     <string name="mini_chess_move_counter">Movimiento %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= ahogado (empate, no es victoria)</string>
-    <string name="game_what_comes_next">¿Qué sigue?</string>
+    <string name="pattern_sequence_prompt">¿Qué pieza completa la matriz?</string>
     <string name="game_tap_original_targets">Toca los objetivos originales</string>
     <string name="game_remember_targets">Recuerda los objetivos</string>
     <string name="game_flash_crowd_which_more">¿Qué lado tenía más?</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">Adivina la palabra oculta</string>
     <string name="visual_memory_demo_title">Recuerda qué va dónde</string>
     <string name="digit_memory_demo_title">Memoriza, distráete, recuerda</string>
-    <string name="pattern_sequence_demo_unit">El patrón se repite: círculo, triángulo.</string>
+    <string name="pattern_sequence_demo_rule">Cada fila usa las mismas tres formas en un orden desplazado.</string>
     <string name="color_confusion_demo_title">Toca las palabras que coinciden</string>
     <string name="flags_demo_title">Nombra el país</string>
     <string name="mental_calculation_demo_title">Lleva el resultado hacia adelante</string>

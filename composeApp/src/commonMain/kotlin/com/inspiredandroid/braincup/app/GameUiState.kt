@@ -14,6 +14,7 @@ import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioGame
 import com.inspiredandroid.braincup.games.TrioShape
 import com.inspiredandroid.braincup.games.VisualMemoryGame
+import com.inspiredandroid.braincup.games.matrix.MatrixPanel
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.GameColor
@@ -36,11 +37,24 @@ data class AnswerButton(
     val state: AnswerButtonState = AnswerButtonState.NORMAL,
 )
 
+/**
+ * A board cell that answer feedback can recolour. The self type keeps
+ * [GameController.withFeedbackStates] generic over cells that hold different artwork.
+ */
+@Immutable
+sealed interface FeedbackCell<T : FeedbackCell<T>> {
+    val state: FigureCellState
+
+    fun withState(state: FigureCellState): T
+}
+
 @Immutable
 data class FigureCell(
     val figure: Figure,
-    val state: FigureCellState = FigureCellState.NORMAL,
-)
+    override val state: FigureCellState = FigureCellState.NORMAL,
+) : FeedbackCell<FigureCell> {
+    override fun withState(state: FigureCellState) = copy(state = state)
+}
 
 @Immutable
 sealed interface GameUiState
@@ -296,9 +310,19 @@ data class PrismClearUiState(
 ) : LevelUiState
 
 @Immutable
+data class MatrixOptionCell(
+    val panel: MatrixPanel,
+    override val state: FigureCellState = FigureCellState.NORMAL,
+) : FeedbackCell<MatrixOptionCell> {
+    override fun withState(state: FigureCellState) = copy(state = state)
+}
+
+@Immutable
 data class PatternSequenceUiState(
-    val sequence: ImmutableList<Figure>,
-    val optionRows: ImmutableList<ImmutableList<FigureCell>>,
+    /** Nine panels in reading order; the entry the player has to supply is null. */
+    val matrix: ImmutableList<MatrixPanel?>,
+    val optionRows: ImmutableList<ImmutableList<MatrixOptionCell>>,
+    val optionColumns: Int,
 ) : GameUiState
 
 @Immutable

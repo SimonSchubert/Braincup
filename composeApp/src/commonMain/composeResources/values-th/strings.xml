@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">เริ่มจากตำแหน่งที่ทำเครื่องหมายและตามลูกศรเพื่อหาจุดหมาย</string>
     <string name="game_mini_sudoku_desc">เติมตารางเล็กให้แต่ละแถว คอลัมน์ และบล็อก มีตัวเลขแต่ละตัวพอดีหนึ่งครั้ง</string>
     <string name="game_visual_memory_desc">จำรูปร่างบนตาราง แล้วระบุรูปร่างที่ซ่อนอยู่หลังจากหมดเวลา</string>
-    <string name="game_pattern_sequence_desc">ค้นหารูปถัดไปในรูปแบบโดยมองหารูปร่าง สี และการหมุนที่ซ้ำกัน</string>
+    <string name="game_pattern_sequence_desc">หากฎที่ทอดผ่านแต่ละแถวของตาราง แล้วเลือกชิ้นส่วนที่เติมเต็มมัน</string>
     <string name="game_ghost_grid_desc">ดูช่องสว่างขึ้นทีละช่อง แล้วแตะตามลำดับเดิม</string>
     <string name="game_color_confusion_desc">แตะเซลล์ทั้งหมดที่คำตรงกับสีตัวอักษร แล้วกดเสร็จ</string>
     <string name="game_orbit_tracker_desc">ดูลูกบอลที่ถูกไฮไลท์ แล้วติดตามขณะเคลื่อนที่ เลือกเป้าหมายเดิมหลังจากหยุด</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">เกมใหม่</string>
     <string name="mini_chess_move_counter">การเดิน %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= อับ (เสมอ ไม่ใช่ชนะ)</string>
-    <string name="game_what_comes_next">อะไรต่อไป?</string>
+    <string name="pattern_sequence_prompt">ชิ้นไหนเติมเต็มเมทริกซ์?</string>
     <string name="game_tap_original_targets">แตะเป้าหมายเดิม</string>
     <string name="game_remember_targets">จำเป้าหมายไว้</string>
     <string name="game_flash_crowd_which_more">ด้านไหนมีมากกว่า?</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">เดาคำที่ซ่อนอยู่</string>
     <string name="visual_memory_demo_title">จำว่าอะไรอยู่ที่ไหน</string>
     <string name="digit_memory_demo_title">จำ ถูกรบกวน แล้วนึกขึ้นมาใหม่</string>
-    <string name="pattern_sequence_demo_unit">รูปแบบซ้ำ: วงกลม สามเหลี่ยม</string>
+    <string name="pattern_sequence_demo_rule">ทุกแถวใช้สามรูปทรงเดิมโดยสลับลำดับ</string>
     <string name="color_confusion_demo_title">แตะคำที่ตรงกัน</string>
     <string name="flags_demo_title">บอกชื่อประเทศ</string>
     <string name="mental_calculation_demo_title">นำผลลัพธ์ส่งต่อ</string>

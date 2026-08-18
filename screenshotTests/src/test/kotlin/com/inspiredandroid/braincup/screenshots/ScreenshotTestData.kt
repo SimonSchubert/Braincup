@@ -186,30 +186,6 @@ fun createMiniSudokuGame(): MiniSudokuGame {
     return game
 }
 
-fun createPatternSequenceGame(): PatternSequenceGame {
-    val game = PatternSequenceGame()
-    game.sequence.clear()
-    game.sequence.addAll(
-        listOf(
-            Figure(Shape.CIRCLE, GameColor.BLUE),
-            Figure(Shape.HEART, GameColor.ROSA),
-            Figure(Shape.CIRCLE, GameColor.BLUE),
-            Figure(Shape.HEART, GameColor.ROSA),
-        ),
-    )
-    game.options.clear()
-    game.options.addAll(
-        listOf(
-            Figure(Shape.HEART, GameColor.BLUE),
-            Figure(Shape.CIRCLE, GameColor.ROSA),
-            Figure(Shape.HEART, GameColor.ROSA),
-            Figure(Shape.CIRCLE, GameColor.BLUE),
-        ),
-    )
-    game.correctOptionIndex = 1
-    return game
-}
-
 fun createColorConfusionGame(): ColorConfusionGame {
     val game = ColorConfusionGame()
     game.cells = listOf(
@@ -316,7 +292,13 @@ fun createSoloChessUiState(): GameUiState {
 }
 
 fun createSchulteTableUiState(): GameUiState = createSchulteTableGame().toUiState()
-fun createPatternSequenceUiState(): GameUiState = createPatternSequenceGame().toUiState()
+// Round 6 lands on difficulty tier 3: two governed attributes and six options, which is the
+// most representative board the ladder produces.
+fun createPatternSequenceUiState(): GameUiState = PatternSequenceGame(Random(42L))
+    .apply {
+        round = 6
+        nextRound()
+    }.toUiState()
 
 fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()
 

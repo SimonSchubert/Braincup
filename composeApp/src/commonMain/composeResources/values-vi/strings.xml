@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Bắt đầu từ vị trí đánh dấu và đi theo các mũi tên để tìm đích đến.</string>
     <string name="game_mini_sudoku_desc">Điền vào lưới nhỏ sao cho mỗi hàng, cột và khối chứa mỗi số đúng một lần.</string>
     <string name="game_visual_memory_desc">Ghi nhớ các hình trên lưới, sau đó xác định hình ẩn sau khi hết giờ.</string>
-    <string name="game_pattern_sequence_desc">Tìm hình tiếp theo trong mẫu bằng cách tìm kiếm các hình dạng, màu sắc và phép quay lặp lại.</string>
+    <string name="game_pattern_sequence_desc">Tìm quy luật chạy dọc mỗi hàng của lưới, rồi chọn mảnh hoàn thiện nó.</string>
     <string name="game_ghost_grid_desc">Xem các ô sáng lên từng cái một, sau đó chạm vào chúng theo cùng thứ tự.</string>
     <string name="game_color_confusion_desc">Chạm vào tất cả ô mà từ khớp với màu phông chữ, sau đó nhấn Xong.</string>
     <string name="game_orbit_tracker_desc">Quan sát các quả bóng được đánh dấu, sau đó theo dõi chúng khi di chuyển. Chọn các mục tiêu ban đầu sau khi dừng lại.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Trò chơi mới</string>
     <string name="mini_chess_move_counter">Lượt %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= hết nước đi (hòa, không phải thắng)</string>
-    <string name="game_what_comes_next">Tiếp theo là gì?</string>
+    <string name="pattern_sequence_prompt">Mảnh nào hoàn thiện ma trận?</string>
     <string name="game_tap_original_targets">Chạm vào các mục tiêu ban đầu</string>
     <string name="game_remember_targets">Ghi nhớ các mục tiêu</string>
     <string name="game_flash_crowd_which_more">Bên nào nhiều hơn?</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">Đoán từ bí ẩn</string>
     <string name="visual_memory_demo_title">Nhớ vị trí của từng thứ</string>
     <string name="digit_memory_demo_title">Ghi nhớ, bị phân tâm, rồi nhớ lại</string>
-    <string name="pattern_sequence_demo_unit">Mẫu lặp lại: hình tròn, hình tam giác.</string>
+    <string name="pattern_sequence_demo_rule">Mỗi hàng dùng cùng ba hình dạng theo thứ tự dịch chuyển.</string>
     <string name="color_confusion_demo_title">Chạm vào từ phù hợp</string>
     <string name="flags_demo_title">Đặt tên quốc gia</string>
     <string name="mental_calculation_demo_title">Chuyển kết quả sang bước tiếp theo</string>

@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Почніть з позначеної позиції та слідуйте стрілкам, щоб знайти пункт призначення.</string>
     <string name="game_mini_sudoku_desc">Заповніть маленьку сітку так, щоб кожен рядок, стовпець і блок містили кожне число рівно один раз.</string>
     <string name="game_visual_memory_desc">Запам'ятайте фігури на сітці, а потім визначте приховану фігуру після закінчення таймера.</string>
-    <string name="game_pattern_sequence_desc">Знайдіть наступну фігуру у візерунку, шукаючи повторювані форми, кольори та обертання.</string>
+    <string name="game_pattern_sequence_desc">Знайдіть правило, що проходить по кожному рядку сітки, і виберіть фігуру, яка його завершує.</string>
     <string name="game_ghost_grid_desc">Спостерігайте, як плитки загоряються одна за одною, потім натискайте їх у тому ж порядку.</string>
     <string name="game_color_confusion_desc">Натисніть на всі клітинки, де слово збігається з кольором шрифту, потім натисніть Готово.</string>
     <string name="game_orbit_tracker_desc">Спостерігайте за виділеними кулями, а потім відстежуйте їх рух. Виберіть початкові цілі після зупинки.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Нова гра</string>
     <string name="mini_chess_move_counter">Хід %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= пат (нічия, не перемога)</string>
-    <string name="game_what_comes_next">Що далі?</string>
+    <string name="pattern_sequence_prompt">Яка фігура завершує матрицю?</string>
     <string name="game_tap_original_targets">Натисніть на початкові цілі</string>
     <string name="game_remember_targets">Запам'ятайте цілі</string>
     <string name="game_flash_crowd_which_more">На якому боці було більше?</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">Вгадай приховане слово</string>
     <string name="visual_memory_demo_title">Пам'ятай, що де знаходиться</string>
     <string name="digit_memory_demo_title">Запам'ятай, відволікнись, пригадай</string>
-    <string name="pattern_sequence_demo_unit">Візерунок повторюється: коло, трикутник.</string>
+    <string name="pattern_sequence_demo_rule">У кожному рядку ті самі три форми, але у зсунутому порядку.</string>
     <string name="color_confusion_demo_title">Натискай на відповідні слова</string>
     <string name="flags_demo_title">Назви країну</string>
     <string name="mental_calculation_demo_title">Переноси результат далі</string>

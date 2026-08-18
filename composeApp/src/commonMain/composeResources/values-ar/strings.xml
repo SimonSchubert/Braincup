@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">ابدأ من الموقع المحدد واتبع الأسهم للوصول إلى الوجهة.</string>
     <string name="game_mini_sudoku_desc">املأ الشبكة الصغيرة بحيث يحتوي كل صف وعمود وكتلة على كل رقم مرة واحدة بالضبط.</string>
     <string name="game_visual_memory_desc">احفظ الأشكال على الشبكة، ثم حدد الشكل المخفي بعد انتهاء المؤقت.</string>
-    <string name="game_pattern_sequence_desc">اعثر على الشكل التالي في النمط من خلال البحث عن الأشكال والألوان والدورانات المتكررة.</string>
+    <string name="game_pattern_sequence_desc">اكتشف القاعدة التي تسري في كل صف من الشبكة، ثم اختر القطعة التي تكملها.</string>
     <string name="game_ghost_grid_desc">شاهد المربعات تضيء واحدة تلو الأخرى، ثم اضغط عليها بنفس الترتيب.</string>
     <string name="game_color_confusion_desc">اضغط على جميع الخلايا التي تتطابق فيها الكلمة مع لون الخط، ثم اضغط تم.</string>
     <string name="game_orbit_tracker_desc">شاهد الكرات المميزة، ثم تتبعها أثناء تحركها. حدد الأهداف الأصلية بعد توقفها.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">لعبة جديدة</string>
     <string name="mini_chess_move_counter">نقلة %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= جمود (تعادل وليس فوزًا)</string>
-    <string name="game_what_comes_next">ما التالي؟</string>
+    <string name="pattern_sequence_prompt">أي قطعة تكمل المصفوفة؟</string>
     <string name="game_tap_original_targets">انقر على الأهداف الأصلية</string>
     <string name="game_remember_targets">تذكر الأهداف</string>
     <string name="game_flash_crowd_which_more">أي جانب كان أكثر؟</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">خمّن الكلمة المخفية</string>
     <string name="visual_memory_demo_title">تذكر ما يوجد أين</string>
     <string name="digit_memory_demo_title">احفظ، وانشغل، ثم تذكر</string>
-    <string name="pattern_sequence_demo_unit">النمط يتكرر: دائرة، مثلث.</string>
+    <string name="pattern_sequence_demo_rule">كل صف يستخدم الأشكال الثلاثة نفسها بترتيب مُزاح.</string>
     <string name="color_confusion_demo_title">انقر على الكلمات المتطابقة</string>
     <string name="flags_demo_title">سمّ الدولة</string>
     <string name="mental_calculation_demo_title">احمل النتيجة للأمام</string>

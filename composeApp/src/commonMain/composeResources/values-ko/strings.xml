@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">표시된 위치에서 시작하여 화살표를 따라 목적지를 찾으세요.</string>
     <string name="game_mini_sudoku_desc">작은 그리드를 채워 각 행, 열, 블록에 각 숫자가 정확히 한 번씩 들어가도록 하세요.</string>
     <string name="game_visual_memory_desc">그리드의 도형을 기억한 후 타이머가 끝나면 숨겨진 도형을 식별하세요.</string>
-    <string name="game_pattern_sequence_desc">반복되는 모양, 색상, 회전을 찾아 패턴의 다음 도형을 찾으세요.</string>
+    <string name="game_pattern_sequence_desc">격자의 각 행을 관통하는 규칙을 찾아 이를 완성하는 조각을 고르세요.</string>
     <string name="game_ghost_grid_desc">타일이 하나씩 켜지는 것을 보고, 같은 순서로 탭하세요.</string>
     <string name="game_color_confusion_desc">단어가 글꼴 색상과 일치하는 모든 셀을 탭한 다음 완료를 누르세요.</string>
     <string name="game_orbit_tracker_desc">강조된 공을 관찰한 후 움직임을 추적하세요. 멈춘 후 원래 목표물을 선택하세요.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">새 게임</string>
     <string name="mini_chess_move_counter">이동 %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= 스테일메이트 (무승부, 승리 아님)</string>
-    <string name="game_what_comes_next">다음은 무엇일까요?</string>
+    <string name="pattern_sequence_prompt">매트릭스를 완성하는 조각은?</string>
     <string name="game_tap_original_targets">원래 목표물을 탭하세요</string>
     <string name="game_remember_targets">목표물을 기억하세요</string>
     <string name="game_flash_crowd_which_more">어느 쪽이 더 많았나요?</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">숨겨진 단어 맞추기</string>
     <string name="visual_memory_demo_title">어디에 무엇이 있는지 기억하기</string>
     <string name="digit_memory_demo_title">외우고, 방해받고, 떠올리기</string>
-    <string name="pattern_sequence_demo_unit">패턴이 반복됩니다: 원, 삼각형.</string>
+    <string name="pattern_sequence_demo_rule">모든 행은 같은 세 도형을 순서만 바꿔 사용합니다.</string>
     <string name="color_confusion_demo_title">일치하는 단어 탭하기</string>
     <string name="flags_demo_title">나라 이름 맞추기</string>
     <string name="mental_calculation_demo_title">결과를 계속 이어가기</string>

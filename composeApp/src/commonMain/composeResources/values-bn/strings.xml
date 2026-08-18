@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">চিহ্নিত অবস্থান থেকে শুরু করুন এবং গন্তব্য খুঁজতে তীরগুলি অনুসরণ করুন।</string>
     <string name="game_mini_sudoku_desc">ছোট গ্রিডটি পূরণ করুন যাতে প্রতিটি সারি, কলাম এবং ব্লকে প্রতিটি সংখ্যা ঠিক একবার থাকে।</string>
     <string name="game_visual_memory_desc">গ্রিডে আকৃতিগুলি মুখস্থ করুন, তারপর টাইমার শেষ হওয়ার পরে লুকানো আকৃতিটি সনাক্ত করুন।</string>
-    <string name="game_pattern_sequence_desc">পুনরাবৃত্ত আকার, রঙ এবং ঘূর্ণন খুঁজে প্যাটার্নের পরবর্তী চিত্রটি খুঁজুন।</string>
+    <string name="game_pattern_sequence_desc">গ্রিডের প্রতিটি সারিতে চলা নিয়মটি বের করুন, তারপর সেটি সম্পূর্ণ করা টুকরোটি বেছে নিন।</string>
     <string name="game_ghost_grid_desc">টাইলগুলো একে একে জ্বলতে দেখুন, তারপর একই ক্রমে ট্যাপ করুন।</string>
     <string name="game_color_confusion_desc">যেসব ঘরে শব্দটি ফন্টের রঙের সাথে মেলে সেগুলোতে ট্যাপ করুন, তারপর সম্পন্ন চাপুন।</string>
     <string name="game_orbit_tracker_desc">হাইলাইট করা বলগুলো দেখুন, তারপর সেগুলো নড়াচড়ার সময় ট্র্যাক করুন। থামার পরে মূল লক্ষ্যগুলো নির্বাচন করুন।</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">নতুন গেম</string>
     <string name="mini_chess_move_counter">চাল %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= অচলাবস্থা (ড্র, জয় নয়)</string>
-    <string name="game_what_comes_next">পরেরটি কী?</string>
+    <string name="pattern_sequence_prompt">কোন টুকরোটি ম্যাট্রিক্স সম্পূর্ণ করে?</string>
     <string name="game_tap_original_targets">মূল লক্ষ্যগুলোতে ট্যাপ করুন</string>
     <string name="game_remember_targets">লক্ষ্যগুলো মনে রাখুন</string>
     <string name="game_flash_crowd_which_more">কোন পাশে বেশি ছিল?</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">লুকানো শব্দটি অনুমান করুন</string>
     <string name="visual_memory_demo_title">কোনটি কোথায় তা মনে রাখুন</string>
     <string name="digit_memory_demo_title">মুখস্থ করুন, বিক্ষিপ্ত হন, স্মরণ করুন</string>
-    <string name="pattern_sequence_demo_unit">প্যাটার্নটি পুনরাবৃত্তি হয়: বৃত্ত, ত্রিভুজ।</string>
+    <string name="pattern_sequence_demo_rule">প্রতিটি সারিতে একই তিনটি আকৃতি সরানো ক্রমে ব্যবহৃত হয়।</string>
     <string name="color_confusion_demo_title">মিলের শব্দগুলোতে ট্যাপ করুন</string>
     <string name="flags_demo_title">দেশটির নাম বলুন</string>
     <string name="mental_calculation_demo_title">ফলাফল সামনে বহন করুন</string>

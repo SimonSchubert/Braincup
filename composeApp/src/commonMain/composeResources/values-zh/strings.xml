@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">从标记位置开始，按照箭头找到目的地。</string>
     <string name="game_mini_sudoku_desc">填充小网格，使每一行、列和方块都恰好包含每个数字一次。</string>
     <string name="game_visual_memory_desc">记住网格上的形状，然后在计时结束后识别隐藏的形状。</string>
-    <string name="game_pattern_sequence_desc">通过寻找重复的形状、颜色和旋转，找出图案中的下一个图形。</string>
+    <string name="game_pattern_sequence_desc">找出贯穿网格每一行的规律，然后选出补全它的图块。</string>
     <string name="game_ghost_grid_desc">观察方格逐个亮起，然后按相同顺序点击它们。</string>
     <string name="game_color_confusion_desc">点击所有文字与字体颜色匹配的单元格，然后按完成。</string>
     <string name="game_orbit_tracker_desc">观察高亮的球，然后在它们移动时追踪。停止后选择最初的目标。</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">新游戏</string>
     <string name="mini_chess_move_counter">第 %1$d / %2$d 步</string>
     <string name="mini_chess_draw_warning">= 逼和(平局,非胜利)</string>
-    <string name="game_what_comes_next">下一个是什么？</string>
+    <string name="pattern_sequence_prompt">哪一块能补全矩阵？</string>
     <string name="game_tap_original_targets">点击最初的目标</string>
     <string name="game_remember_targets">记住目标</string>
     <string name="game_flash_crowd_which_more">哪边更多？</string>
@@ -706,7 +706,7 @@
     <string name="wordle_demo_title">猜出隐藏单词</string>
     <string name="visual_memory_demo_title">记住各物的位置</string>
     <string name="digit_memory_demo_title">记忆、分心、回忆</string>
-    <string name="pattern_sequence_demo_unit">规律循环：圆形、三角形。</string>
+    <string name="pattern_sequence_demo_rule">每一行都用同样的三个形状，只是顺序错开。</string>
     <string name="color_confusion_demo_title">点击匹配的单词</string>
     <string name="flags_demo_title">说出国家名称</string>
     <string name="mental_calculation_demo_title">将结果传递下去</string>

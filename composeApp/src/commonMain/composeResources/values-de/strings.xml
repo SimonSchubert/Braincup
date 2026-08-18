@@ -95,7 +95,7 @@
     <string name="game_path_finder_desc">Beginne an der markierten Position und folge den Pfeilen, um das Ziel zu finden.</string>
     <string name="game_mini_sudoku_desc">Fülle das kleine Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Zahl genau einmal enthält.</string>
     <string name="game_visual_memory_desc">Merke dir die Formen im Gitter und identifiziere die versteckte Form nach Ablauf des Timers.</string>
-    <string name="game_pattern_sequence_desc">Finde die nächste Figur im Muster, indem du nach sich wiederholenden Formen, Farben und Drehungen suchst.</string>
+    <string name="game_pattern_sequence_desc">Finde die Regel, die durch jede Zeile des Gitters läuft, und wähle dann das Teil, das sie vervollständigt.</string>
     <string name="game_ghost_grid_desc">Beobachte, wie die Felder nacheinander aufleuchten, und tippe sie in der gleichen Reihenfolge an.</string>
     <string name="game_color_confusion_desc">Tippe alle Felder an, bei denen das Wort mit seiner Schriftfarbe übereinstimmt, und drücke dann Fertig.</string>
     <string name="game_orbit_tracker_desc">Beobachte die markierten Kugeln und verfolge sie während der Bewegung. Wähle die ursprünglichen Ziele nach dem Stillstand aus.</string>
@@ -137,7 +137,7 @@
     <string name="mini_chess_restart">Neues Spiel</string>
     <string name="mini_chess_move_counter">Zug %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
-    <string name="game_what_comes_next">Was kommt als Nächstes?</string>
+    <string name="pattern_sequence_prompt">Welches Teil vervollständigt die Matrix?</string>
     <string name="game_tap_original_targets">Tippe die ursprünglichen Ziele an</string>
     <string name="game_remember_targets">Merke dir die Ziele</string>
     <string name="game_flash_crowd_which_more">Welche Seite hatte mehr?</string>
@@ -707,7 +707,7 @@
     <string name="wordle_demo_title">Errate das versteckte Wort</string>
     <string name="visual_memory_demo_title">Merke dir, was wohin gehört</string>
     <string name="digit_memory_demo_title">Einprägen, ablenken lassen, erinnern</string>
-    <string name="pattern_sequence_demo_unit">Das Muster wiederholt sich: Kreis, Dreieck.</string>
+    <string name="pattern_sequence_demo_rule">Jede Zeile nutzt dieselben drei Formen in verschobener Reihenfolge.</string>
     <string name="color_confusion_demo_title">Tippe auf die passenden Wörter</string>
     <string name="flags_demo_title">Nenne das Land</string>
     <string name="mental_calculation_demo_title">Ergebnis weiterrechnen</string>
