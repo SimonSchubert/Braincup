@@ -153,6 +153,8 @@
     <string name="color_turquoise">Turkoois</string>
     <string name="color_pink">Roze</string>
     <string name="color_light_grey">Lichtgrijs</string>
+    <string name="color_black">Zwart</string>
+    <string name="color_white">Wit</string>
 
     <string name="shape_square">Vierkant</string>
     <string name="shape_triangle">Driehoek</string>

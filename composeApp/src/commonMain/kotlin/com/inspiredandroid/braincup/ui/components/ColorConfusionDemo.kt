@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -40,6 +39,7 @@ import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceDark
 import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceLight
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
+import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -146,7 +146,7 @@ fun ColorConfusionDemo(modifier: Modifier = Modifier) {
 
 @Composable
 private fun DemoConfusionCell(cell: DemoWord, isSelected: Boolean, isCorrect: Boolean, size: Dp) {
-    val isDark = isSystemInDarkTheme()
+    val isDark = isDarkColorScheme
     val selectedFace = if (isDark) SelectedTileFaceDark else SelectedTileFaceLight
     val unselectedFace = if (isDark) UnselectedTileFaceDark else MaterialTheme.colorScheme.surfaceContainer
     val target = when {

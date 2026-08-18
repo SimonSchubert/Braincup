@@ -11,7 +11,9 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
+import com.inspiredandroid.braincup.ui.theme.LightsOutOffColorDark
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
+import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import kotlinx.collections.immutable.persistentListOf
 
 @Composable
@@ -78,8 +80,9 @@ private fun LightsOutCell(
     size: androidx.compose.ui.unit.Dp,
     onClick: () -> Unit,
 ) {
+    val offColor = if (isDarkColorScheme) LightsOutOffColorDark else LightsOutOffColor
     PrismTile(
-        face = if (on) LightsOutOnColor else LightsOutOffColor,
+        face = if (on) LightsOutOnColor else offColor,
         modifier = Modifier
             .size(size)
             .hoverHand(),

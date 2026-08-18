@@ -7,7 +7,9 @@ import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -61,6 +63,12 @@ val MedalBronze = Color(0xFFCD7F32)
 
 val LightsOutOnColor = Color(0xFFFFC107)
 val LightsOutOffColor = Color(0xFF424242)
+
+// Off cells are drawn sunken (isSelected = !on), and PrismTile repaints a sunken face with its
+// side tone = face.darken(0.7f). On the dark schemes 0x42 sinks to 0x2E, which all but vanishes
+// against a near-black background; 0x8A sinks to 0x61 and still reads as unmistakably "off"
+// next to the amber on-color.
+val LightsOutOffColorDark = Color(0xFF8A8A8A)
 
 /** Vibrant pastel zone colors for Cat Queens, by region id (boards use up to 8 regions). The board
  *  also draws bold region borders, so the puzzle stays solvable when hues are hard to tell apart. */
@@ -142,6 +150,17 @@ val OledColorScheme = darkColorScheme(
     error = ErrorRed,
     onError = Color.White,
 )
+
+/**
+ * True when the resolved app scheme is dark. Reads the live scheme rather than the OS setting, so
+ * an explicit DARK/OLED pick is honoured and Material You dynamic color is covered too; ThemeMode
+ * itself is not visible below App.kt. Every scheme the app resolves to sits far from the midpoint
+ * (OLED 0.0, dark ~0.01, light 1.0).
+ */
+val isDarkColorScheme: Boolean
+    @Composable
+    @ReadOnlyComposable
+    get() = MaterialTheme.colorScheme.background.luminance() < 0.5f
 
 // Locales whose scripts Bungee cannot render. Bungee only partially covers Greek (just
 // μ, π, Δ, Ω) which produces a jarring mix, and has no Cyrillic/CJK/Thai/Arabic/Indic

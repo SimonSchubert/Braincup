@@ -153,6 +153,8 @@
     <string name="color_turquoise">청록</string>
     <string name="color_pink">분홍</string>
     <string name="color_light_grey">밝은 회색</string>
+    <string name="color_black">검정</string>
+    <string name="color_white">흰색</string>
 
     <string name="shape_square">사각형</string>
     <string name="shape_triangle">삼각형</string>

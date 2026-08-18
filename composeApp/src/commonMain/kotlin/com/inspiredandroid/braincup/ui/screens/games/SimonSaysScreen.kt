@@ -112,6 +112,7 @@ private fun SimonPad(
             .scale(scale)
             .clip(shape)
             .background(animatedColor)
+            .simonPadOutline(shape)
             .clickable(
                 interactionSource = interactionSource,
                 indication = null,

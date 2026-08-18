@@ -153,6 +153,8 @@
     <string name="color_turquoise">เทอร์ควอยซ์</string>
     <string name="color_pink">ชมพู</string>
     <string name="color_light_grey">เทาอ่อน</string>
+    <string name="color_black">ดำ</string>
+    <string name="color_white">ขาว</string>
 
     <string name="shape_square">สี่เหลี่ยม</string>
     <string name="shape_triangle">สามเหลี่ยม</string>

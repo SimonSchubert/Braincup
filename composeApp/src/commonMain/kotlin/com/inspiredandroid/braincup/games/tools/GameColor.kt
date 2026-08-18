@@ -4,18 +4,26 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.graphics.Color
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
+import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 
 // Accessible palette uses Okabe & Ito 2008 / Wong 2011 — the empirically validated
 // 8-color categorical set that stays distinguishable under protanopia and
-// deuteranopia (together >95% of color-blind users). The 8 canonical colors fill
-// the 8 chromatic slots; ROSA maps to black (the palette's 8th color) because no
-// pale-pink hex stays separable from PURPLE under deuteranopia. ROSA's displayName
-// is only rendered as text in Color Confusion, which is hidden while this palette
-// is active, so the rose→black mismatch is invisible to the user.
+// deuteranopia (together >95% of color-blind users). Seven of the eight canonical
+// colors are chromatic; the eighth is achromatic, and ROSA fills it because no
+// pale-pink hex stays separable from PURPLE under deuteranopia.
+//
+// That achromatic slot has to flip with the background: Okabe-Ito specifies black,
+// which is invisible on the dark and OLED schemes (OLED's background is pure black),
+// so [accessibleColorOnDark] carries the inverted near-white and [composeColor]
+// picks between them. Pattern Sequence, Visual Memory and Anomaly Puzzle all draw
+// ROSA figures and none of them is gated by GameType.requiresColorVision, so both
+// the fill and the localized name (see LocalizedNames.localizedName) are user-visible
+// while this palette is active.
 enum class GameColor(
     val displayName: String,
     val standardColor: Color,
     val accessibleColor: Color,
+    val accessibleColorOnDark: Color = accessibleColor,
 ) {
     RED(
         displayName = "red",
@@ -55,7 +63,10 @@ enum class GameColor(
     ROSA(
         displayName = "rosa",
         standardColor = Color(0xFFFDA7DF),
-        accessibleColor = Color(0xFF000000), // Okabe-Ito black
+        accessibleColor = Color(0xFF000000), // Okabe-Ito black, for light backgrounds
+        // Near-white rather than pure white so the prism bevel, which darkens the face for its
+        // sides, still has somewhere to go.
+        accessibleColorOnDark = Color(0xFFF2F2F2),
     ),
     GREY_LIGHT(
         displayName = "light grey",
@@ -64,9 +75,16 @@ enum class GameColor(
     ),
     ;
 
-    fun composeColor(accessible: Boolean): Color = if (accessible) accessibleColor else standardColor
+    fun composeColor(accessible: Boolean, onDark: Boolean = false): Color = when {
+        !accessible -> standardColor
+        onDark -> accessibleColorOnDark
+        else -> accessibleColor
+    }
 }
 
 @Composable
 @ReadOnlyComposable
-fun GameColor.composeColor(): Color = composeColor(LocalAccessiblePalette.current)
+fun GameColor.composeColor(): Color = composeColor(
+    accessible = LocalAccessiblePalette.current,
+    onDark = isDarkColorScheme,
+)

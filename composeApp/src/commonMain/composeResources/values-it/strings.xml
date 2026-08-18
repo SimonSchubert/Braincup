@@ -153,6 +153,8 @@
     <string name="color_turquoise">Turchese</string>
     <string name="color_pink">Rosa</string>
     <string name="color_light_grey">Grigio Chiaro</string>
+    <string name="color_black">Nero</string>
+    <string name="color_white">Bianco</string>
 
     <string name="shape_square">Quadrato</string>
     <string name="shape_triangle">Triangolo</string>

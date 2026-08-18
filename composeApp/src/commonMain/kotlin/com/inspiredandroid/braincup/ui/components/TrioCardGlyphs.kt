@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Row
@@ -34,6 +33,7 @@ import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceDark
 import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceLight
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
+import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import kotlin.math.min
 
 @Composable
@@ -116,7 +116,7 @@ fun TrioCardTile(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val isDark = isSystemInDarkTheme()
+    val isDark = isDarkColorScheme
     val selectedFace = if (isDark) SelectedTileFaceDark else SelectedTileFaceLight
     val unselectedFace = if (isDark) {
         UnselectedTileFaceDark

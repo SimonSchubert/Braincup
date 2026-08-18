@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
@@ -24,6 +23,7 @@ import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceDark
 import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceLight
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
+import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.stringResource
 
@@ -89,7 +89,7 @@ private fun ColorConfusionCell(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val isDark = isSystemInDarkTheme()
+    val isDark = isDarkColorScheme
     val selectedFace = if (isDark) SelectedTileFaceDark else SelectedTileFaceLight
     val unselectedFace = if (isDark) UnselectedTileFaceDark else MaterialTheme.colorScheme.surfaceContainer
     val targetContainerColor = when {

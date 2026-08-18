@@ -153,6 +153,8 @@
     <string name="color_turquoise">Pirus</string>
     <string name="color_pink">Merah Muda</string>
     <string name="color_light_grey">Abu-abu Muda</string>
+    <string name="color_black">Hitam</string>
+    <string name="color_white">Putih</string>
 
     <string name="shape_square">Persegi</string>
     <string name="shape_triangle">Segitiga</string>

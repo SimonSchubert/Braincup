@@ -4,6 +4,8 @@ import androidx.compose.runtime.Composable
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
+import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
+import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -15,7 +17,13 @@ fun GameColor.localizedName(): String = when (this) {
     GameColor.YELLOW -> stringResource(Res.string.color_yellow)
     GameColor.ORANGE -> stringResource(Res.string.color_orange)
     GameColor.TURQUOISE -> stringResource(Res.string.color_turquoise)
-    GameColor.ROSA -> stringResource(Res.string.color_pink)
+    // The accessible palette repaints ROSA as the achromatic slot (black on light backgrounds,
+    // near-white on dark), so calling it "pink" would contradict the shape on screen.
+    GameColor.ROSA -> when {
+        !LocalAccessiblePalette.current -> stringResource(Res.string.color_pink)
+        isDarkColorScheme -> stringResource(Res.string.color_white)
+        else -> stringResource(Res.string.color_black)
+    }
     GameColor.GREY_LIGHT -> stringResource(Res.string.color_light_grey)
 }.uppercase()
 

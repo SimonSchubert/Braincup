@@ -153,6 +153,8 @@
     <string name="color_turquoise">Бирюзовый</string>
     <string name="color_pink">Розовый</string>
     <string name="color_light_grey">Светло-серый</string>
+    <string name="color_black">Чёрный</string>
+    <string name="color_white">Белый</string>
 
     <string name="shape_square">Квадрат</string>
     <string name="shape_triangle">Треугольник</string>

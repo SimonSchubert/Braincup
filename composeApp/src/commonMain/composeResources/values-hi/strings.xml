@@ -153,6 +153,8 @@
     <string name="color_turquoise">फ़िरोज़ा</string>
     <string name="color_pink">गुलाबी</string>
     <string name="color_light_grey">हल्का भूरा</string>
+    <string name="color_black">काला</string>
+    <string name="color_white">सफ़ेद</string>
 
     <string name="shape_square">वर्ग</string>
     <string name="shape_triangle">त्रिभुज</string>

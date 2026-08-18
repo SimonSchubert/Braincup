@@ -366,6 +366,8 @@
     <string name="color_turquoise">Turquoise</string>
     <string name="color_pink">Pink</string>
     <string name="color_light_grey">Light Grey</string>
+    <string name="color_black">Black</string>
+    <string name="color_white">White</string>
 
     <string name="shape_square">Square</string>
     <string name="shape_triangle">Triangle</string>

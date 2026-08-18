@@ -153,6 +153,8 @@
     <string name="color_turquoise">青绿</string>
     <string name="color_pink">粉红</string>
     <string name="color_light_grey">浅灰</string>
+    <string name="color_black">黑色</string>
+    <string name="color_white">白色</string>
 
     <string name="shape_square">正方形</string>
     <string name="shape_triangle">三角形</string>

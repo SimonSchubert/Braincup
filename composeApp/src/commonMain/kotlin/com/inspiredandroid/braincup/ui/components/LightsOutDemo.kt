@@ -24,8 +24,10 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_lights_out_desc
 import braincup.composeapp.generated.resources.lights_out_demo_title
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
+import com.inspiredandroid.braincup.ui.theme.LightsOutOffColorDark
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import kotlinx.coroutines.delay
 import org.jetbrains.compose.resources.stringResource
 
@@ -142,6 +144,7 @@ private fun DemoLightCell(
     val face = when {
         isActive -> Primary
         on -> LightsOutOnColor
+        isDarkColorScheme -> LightsOutOffColorDark
         else -> LightsOutOffColor
     }
     PrismTile(

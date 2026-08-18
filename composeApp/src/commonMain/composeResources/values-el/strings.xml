@@ -340,6 +340,8 @@
     <string name="color_turquoise">Τιρκουάζ</string>
     <string name="color_pink">Ροζ</string>
     <string name="color_light_grey">Ανοιχτό Γκρι</string>
+    <string name="color_black">Μαύρο</string>
+    <string name="color_white">Λευκό</string>
 
     <string name="shape_square">Τετράγωνο</string>
     <string name="shape_triangle">Τρίγωνο</string>

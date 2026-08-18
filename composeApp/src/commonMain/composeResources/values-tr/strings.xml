@@ -153,6 +153,8 @@
     <string name="color_turquoise">Turkuaz</string>
     <string name="color_pink">Pembe</string>
     <string name="color_light_grey">Açık Gri</string>
+    <string name="color_black">Siyah</string>
+    <string name="color_white">Beyaz</string>
 
     <string name="shape_square">Kare</string>
     <string name="shape_triangle">Üçgen</string>

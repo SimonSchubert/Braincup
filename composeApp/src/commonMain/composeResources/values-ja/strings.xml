@@ -153,6 +153,8 @@
     <string name="color_turquoise">ターコイズ</string>
     <string name="color_pink">ピンク</string>
     <string name="color_light_grey">ライトグレー</string>
+    <string name="color_black">ブラック</string>
+    <string name="color_white">ホワイト</string>
 
     <string name="shape_square">四角</string>
     <string name="shape_triangle">三角</string>

@@ -153,6 +153,8 @@
     <string name="color_turquoise">ফিরোজা</string>
     <string name="color_pink">গোলাপি</string>
     <string name="color_light_grey">হালকা ধূসর</string>
+    <string name="color_black">কালো</string>
+    <string name="color_white">সাদা</string>
 
     <string name="shape_square">বর্গ</string>
     <string name="shape_triangle">ত্রিভুজ</string>

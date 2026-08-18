@@ -6,6 +6,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.material3.ColorScheme
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.games.GameType
@@ -18,6 +19,8 @@ import com.inspiredandroid.braincup.ui.screens.SessionInterstitialScreen
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
+import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
+import com.inspiredandroid.braincup.ui.theme.OledColorScheme
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
 import org.jetbrains.compose.resources.ExperimentalResourceApi
@@ -40,12 +43,20 @@ class ScreenshotTest {
         setResourceReaderAndroidContext(paparazzi.context)
     }
 
+    /**
+     * [colorScheme] overrides the light/dark pair for schemes that have no [darkTheme] shorthand
+     * (OLED); [accessiblePalette] turns on the color-blind palette the way App.kt does, so the
+     * combinations that only misbehave together can be captured.
+     */
     fun Paparazzi.snap(
         darkTheme: Boolean = false,
+        colorScheme: ColorScheme? = null,
+        accessiblePalette: Boolean = false,
         content: @Composable () -> Unit,
     ) {
+        val resolvedScheme = colorScheme ?: if (darkTheme) DarkColorScheme else LightColorScheme
         unsafeUpdateConfig(
-            theme = if (darkTheme) {
+            theme = if (darkTheme || colorScheme != null) {
                 "android:Theme.Material.NoActionBar"
             } else {
                 "android:Theme.Material.Light.NoActionBar"
@@ -53,8 +64,11 @@ class ScreenshotTest {
         )
 
         snapshot {
-            CompositionLocalProvider(LocalInspectionMode provides true) {
-                BraincupTheme(colorScheme = if (darkTheme) DarkColorScheme else LightColorScheme) {
+            CompositionLocalProvider(
+                LocalInspectionMode provides true,
+                LocalAccessiblePalette provides accessiblePalette,
+            ) {
+                BraincupTheme(colorScheme = resolvedScheme) {
                     Surface(modifier = Modifier.fillMaxSize()) {
                         content()
                     }
@@ -615,6 +629,98 @@ class ScreenshotTest {
             GameScreen(
                 gameUiState = createVisualMemoryGameOverUiState(),
                 timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gamePatternSequenceOledColorblind() {
+        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
+            GameScreen(
+                gameUiState = createPatternSequenceUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameVisualMemoryOledColorblind() {
+        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
+            GameScreen(
+                gameUiState = createVisualMemoryUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    /** The one state that puts both achromatic slots -- ROSA and GREY_LIGHT -- in the same grid. */
+    @Test
+    fun gameVisualMemoryGameOverOledColorblind() {
+        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
+            GameScreen(
+                gameUiState = createVisualMemoryGameOverUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameAnomalyPuzzleOledColorblind() {
+        paparazzi.snap(colorScheme = OledColorScheme, accessiblePalette = true) {
+            GameScreen(
+                gameUiState = createAnomalyPuzzleUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameSimonSaysOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            GameScreen(
+                gameUiState = createSimonSaysUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameLightsOutOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            GameScreen(
+                gameUiState = createLightsOutUiState(),
+                timeRemaining = 50_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameTrioOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            GameScreen(
+                gameUiState = createTrioUiState(),
+                timeRemaining = 45_000L,
                 onAnswer = {},
                 onGiveUp = {},
                 onBack = {},

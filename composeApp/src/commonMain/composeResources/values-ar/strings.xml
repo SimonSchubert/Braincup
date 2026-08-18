@@ -153,6 +153,8 @@
     <string name="color_turquoise">فيروزي</string>
     <string name="color_pink">وردي</string>
     <string name="color_light_grey">رمادي فاتح</string>
+    <string name="color_black">أسود</string>
+    <string name="color_white">أبيض</string>
 
     <string name="shape_square">مربع</string>
     <string name="shape_triangle">مثلث</string>
