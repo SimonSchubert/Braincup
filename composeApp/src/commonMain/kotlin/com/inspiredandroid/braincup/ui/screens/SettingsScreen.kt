@@ -48,6 +48,9 @@ fun SettingsScreen(
     onOpenAccounts: (() -> Unit)? = null,
     onOpenLicenses: (() -> Unit)? = null,
 ) {
+    // Same bottom safe padding as the home screen: the last row has to clear the gesture/
+    // navigation bar, which the scaffold body does not reserve on its own.
+    val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     AppScaffold(
         title = stringResource(Res.string.settings_title),
         onBack = onBack,
@@ -56,7 +59,12 @@ fun SettingsScreen(
             modifier = Modifier
                 .widthIn(max = 420.dp)
                 .fillMaxWidth()
-                .padding(horizontal = 16.dp, vertical = 8.dp),
+                .padding(
+                    start = 16.dp,
+                    end = 16.dp,
+                    top = 8.dp,
+                    bottom = 16.dp + bottomInset,
+                ),
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             if (activeAccount != null && onOpenAccounts != null) {

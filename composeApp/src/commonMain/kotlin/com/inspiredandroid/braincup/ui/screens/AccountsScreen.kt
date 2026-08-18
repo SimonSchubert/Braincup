@@ -17,7 +17,6 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -58,6 +57,7 @@ import com.inspiredandroid.braincup.ui.components.DialogWindowEdgeToEdgeTweaks
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismDialog
 import com.inspiredandroid.braincup.ui.components.PrismDialogButton
+import com.inspiredandroid.braincup.ui.components.PrismTextField
 import com.inspiredandroid.braincup.ui.components.drawable
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
@@ -273,11 +273,10 @@ private fun AccountEditorDialog(
                     color = MaterialTheme.colorScheme.onSurface,
                 )
                 Spacer(Modifier.height(16.dp))
-                OutlinedTextField(
+                PrismTextField(
                     value = name,
                     onValueChange = { if (it.length <= 24) name = it },
-                    label = { Text(stringResource(Res.string.accounts_name_label)) },
-                    singleLine = true,
+                    placeholder = stringResource(Res.string.accounts_name_label),
                     modifier = Modifier.fillMaxWidth(),
                 )
                 Spacer(Modifier.height(16.dp))

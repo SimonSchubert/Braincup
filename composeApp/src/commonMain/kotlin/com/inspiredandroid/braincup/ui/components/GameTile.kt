@@ -650,11 +650,7 @@ private fun VisualMemoryPreview() {
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { figure ->
                     PrismCard(
-                        face = if (figure != null) {
-                            MaterialTheme.colorScheme.surface
-                        } else {
-                            MaterialTheme.colorScheme.surfaceContainerHighest
-                        },
+                        face = MaterialTheme.colorScheme.surfaceContainer,
                         facet = PrismFacet.Cell,
                         modifier = Modifier
                             .weight(1f)
@@ -806,7 +802,7 @@ private fun SherlockCalculationPreview() {
         Row(modifier = Modifier.fillMaxWidth()) {
             SherlockPreviewNumbers.forEach { num ->
                 PrismCard(
-                    face = MaterialTheme.colorScheme.secondaryContainer,
+                    face = MaterialTheme.colorScheme.surfaceContainer,
                     facet = PrismFacet.Dot,
                     modifier = Modifier
                         .weight(1f)
@@ -912,7 +908,7 @@ private fun MiniSudokuPreview() {
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxHeight()
-                                .background(MaterialTheme.colorScheme.surface),
+                                .background(MaterialTheme.colorScheme.surfaceContainer),
                             contentAlignment = Alignment.Center,
                         ) {
                             Text(
@@ -1089,7 +1085,7 @@ private fun SchulteTablePreview() {
                         face = if (cell.tapped) {
                             MaterialTheme.colorScheme.surfaceVariant
                         } else {
-                            MaterialTheme.colorScheme.surface
+                            MaterialTheme.colorScheme.surfaceContainer
                         },
                         facet = PrismFacet.Cell,
                         modifier = Modifier
@@ -1129,7 +1125,7 @@ private fun GhostGridPreview() {
                         face = if (isHighlighted) {
                             MaterialTheme.colorScheme.primary
                         } else {
-                            MaterialTheme.colorScheme.surfaceContainerHighest
+                            MaterialTheme.colorScheme.surfaceContainer
                         },
                         modifier = Modifier
                             .weight(1f)
@@ -1618,7 +1614,7 @@ private fun PatternSequencePreview() {
                     val index = row * 2 + column
                     if (index == PatternSequencePreviewFigures.size) {
                         PrismCard(
-                            face = MaterialTheme.colorScheme.primaryContainer,
+                            face = MaterialTheme.colorScheme.surfaceContainer,
                             facet = PrismFacet.Cell,
                             modifier = Modifier.weight(1f).fillMaxHeight(),
                         ) {
@@ -1660,7 +1656,7 @@ private fun OrbitTrackerPreview() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(2.dp)
-                .background(MaterialTheme.colorScheme.surface),
+                .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
             val ballRadius = size.width * 0.06f
             OrbitTrackerPreviewBalls.forEach { (x, y, isTarget) ->
@@ -1708,7 +1704,7 @@ private fun BubbleSumPreview() {
             modifier = Modifier
                 .fillMaxSize()
                 .padding(2.dp)
-                .background(MaterialTheme.colorScheme.surface),
+                .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
             val ballRadius = size.width * 0.12f
             BubbleSumPreviewBubbles.forEachIndexed { index, (x, y, value) ->
