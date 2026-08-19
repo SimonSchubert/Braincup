@@ -321,9 +321,12 @@ enum class GameType(
     N_BACK(
         displayNameRes = Res.string.game_n_back,
         id = "33",
-        // Score = correct hits in 60s; perfect play is ~4 blocks x 3 hits.
-        // Initial thresholds; tune after playtest.
-        goldScore = 10,
+        // Score = correct recalls in 60s, plus the flawless-run bonus point.
+        // The ramp bounds this hard: a round costs 500ms lead-in + length x 1050ms of flashing
+        // + a 900ms reveal hold, and lengths run 3,4,5,6 then stay at 6. Even with an
+        // instantaneous tap only 9 rounds start inside the 60s, so gold has to sit below that
+        // ceiling to be reachable at human reaction times (see issue #53).
+        goldScore = 8,
         silverScore = 5,
         descriptionRes = Res.string.game_n_back_desc,
         category = GameCategory.MEMORY,

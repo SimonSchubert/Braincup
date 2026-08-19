@@ -754,6 +754,24 @@ class UserStorage(
         }
     }
 
+    /**
+     * The mirror of [seedHighScoresFromUnlockedGold]: gold is only ever unlocked while recording a
+     * score, so lowering a [GameType.goldScore] threshold would leave players who already beat the
+     * new bar showing a gold tile medal (which reads the high score live) with the achievement
+     * still locked until their next qualifying run. Reconcile that on startup.
+     */
+    fun unlockGoldForQualifyingHighScores() {
+        val unlocked = getUnlockedAchievements().toSet()
+        for (gameType in GameType.entries) {
+            val achievement = Achievements.forGameGold(gameType) ?: continue
+            if (achievement in unlocked) continue
+            // meetsScore rejects 0, so an unplayed game never qualifies.
+            if (!gameType.meetsScore(getHighScore(gameType.id), gameType.goldScore)) continue
+            unlockAchievement(achievement)
+            notifyStore { PlayGamesBridge.onGoldMedal?.invoke(gameType) }
+        }
+    }
+
     fun getSessionStreak(): Int = store.getIntOrNull(KEY_APP_OPEN_COMBO) ?: 0
 
     fun incrementAndGetTotalAppOpens(): Int {

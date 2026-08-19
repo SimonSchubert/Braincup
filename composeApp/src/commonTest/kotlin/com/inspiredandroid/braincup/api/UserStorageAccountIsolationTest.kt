@@ -98,6 +98,23 @@ class UserStorageAccountIsolationTest {
     }
 
     @Test
+    fun qualifyingHighScoreUnlocksGoldAfterThresholdLowered() {
+        PlayGamesBridge.hasPlayStoreAccount = false
+        // A high score banked under an older, higher goldScore: the tile medal reads the score
+        // live so it already shows gold, but the achievement was never unlocked.
+        val settings = MapSettings()
+        settings.putInt("game_${GameType.N_BACK.id}_highscore", GameType.N_BACK.goldScore)
+        settings.putInt("game_${GameType.DIGIT_MEMORY.id}_highscore", GameType.DIGIT_MEMORY.goldScore - 1)
+        val storage = UserStorage(settings)
+        assertTrue(UserStorage.Achievements.GOLD_N_BACK !in storage.getUnlockedAchievements())
+
+        storage.unlockGoldForQualifyingHighScores()
+
+        assertTrue(UserStorage.Achievements.GOLD_N_BACK in storage.getUnlockedAchievements())
+        assertTrue(UserStorage.Achievements.GOLD_DIGIT_MEMORY !in storage.getUnlockedAchievements())
+    }
+
+    @Test
     fun deviceThemeIsSharedAcrossAccounts() {
         PlayGamesBridge.hasPlayStoreAccount = false
         val storage = UserStorage(MapSettings())

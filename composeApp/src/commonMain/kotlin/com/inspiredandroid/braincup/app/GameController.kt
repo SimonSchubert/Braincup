@@ -169,6 +169,7 @@ class GameController(
     init {
         storage.migrateStreakIfNeeded()
         storage.seedHighScoresFromUnlockedGold()
+        storage.unlockGoldForQualifyingHighScores()
         _sessionStreak.value = storage.getSessionStreak()
         _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
         _totalXp.value = storage.getTotalXp()
@@ -190,6 +191,7 @@ class GameController(
 
     private fun applyRestoredStoreProgress() {
         storage.seedHighScoresFromUnlockedGold()
+        storage.unlockGoldForQualifyingHighScores()
         _totalXp.value = storage.getTotalXp()
         refreshDerivedStorageState()
         _storageRevision.value += 1
@@ -279,6 +281,7 @@ class GameController(
     fun reloadAfterAccountSwitch() {
         storage.migrateStreakIfNeeded()
         storage.seedHighScoresFromUnlockedGold()
+        storage.unlockGoldForQualifyingHighScores()
         _sessionStreak.value = storage.getSessionStreak()
         _sessionState.value = storage.getOrCreateTodaySession { generateSessionGameIds() }
         _totalXp.value = storage.getTotalXp()
@@ -1766,7 +1769,9 @@ class GameController(
     ) where G : Game, G : RevealRoundGame {
         if (_gameState.value !is GameState.Active) return
         if (Clock.System.now().toEpochMilliseconds() - startTime > GAME_TIME_MILLIS) {
-            finishCurrentGame(gameType, game)
+            // finishGame, not finishCurrentGame: these games are scored out of correct answers, so
+            // they earn the flawless-run bonus point the finish screen announces.
+            finishGame(gameType, game)
             return
         }
         if (advanceDifficulty) game.nextRound() else game.repeatRound()
