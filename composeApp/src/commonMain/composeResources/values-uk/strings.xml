@@ -117,7 +117,7 @@
     <string name="game_solo_chess_desc">Бийте фігури одну за одною, доки не залишиться лише король. Кожен хід має бути взяттям, і жодна фігура не може бити більш ніж двічі.</string>
     <string name="game_solo_chess_howto">Торкніться фігури, а потім тієї, яку вона може побити. Короля побити не можна — він має лишитися останнім.</string>
     <string name="solo_chess_pieces_left">Залишилось фігур: %1$d</string>
-    <string name="solo_chess_restart">Заново</string>
+    <string name="solo_chess_restart">Спочатку</string>
     <string name="solo_chess_stuck">Більше немає взять. Натисніть «Заново», щоб пройти рівень знову.</string>
     <string name="cat_queens_error_row">Лише одна кішка на рядок</string>
     <string name="cat_queens_error_column">Лише одна кішка на стовпець</string>
@@ -178,7 +178,7 @@
     <string name="solution_left">Ліва</string>
     <string name="solution_right">Права</string>
 
-    <string name="preview_vs">vs</string>
+    <string name="preview_vs">проти</string>
 
     <string name="daily_challenge_title">Щоденний виклик</string>
     <string name="daily_challenge_subtitle_start">Зіграйте %1$d ігор, щоб зберегти серію</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">Натисни на фігуру на позиції 1.</string>
     <string name="achievement_gold_n_back">Рухомий слід</string>
     <string name="achievement_gold_n_back_desc">Здобудь золоту медаль у N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Саймон каже</string>
     <string name="game_simon_says_desc">У кожному раунді загоряється одна нова кнопка. Натисни всю послідовність з початку, разом із кнопками з попередніх раундів.</string>
     <string name="simon_says_demo_title">Дивись, потім повтори</string>
     <string name="simon_says_demo_watch">У кожному раунді загоряється лише нова кнопка.</string>
@@ -624,7 +624,7 @@
     <string name="normal_chess_difficulty">Складність</string>
     <string name="normal_chess_difficulty_easy">Легкий</string>
     <string name="normal_chess_difficulty_medium">Середній</string>
-    <string name="normal_chess_difficulty_hard">Важкий</string>
+    <string name="normal_chess_difficulty_hard">Складний</string>
     <string name="normal_chess_start">Почати гру</string>
     <string name="normal_chess_thinking">Комп'ютер думає…</string>
     <string name="normal_chess_checkmate_white">Мат. Білі перемогли.</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">Натисни на тварину, яку ти ще не бачив.</string>
     <string name="spot_the_new_demo_seen">Ти вже бачив цю. Вона пропустила раунд, але все одно вважається побаченою.</string>
     <string name="spot_the_new_demo_correct">Правильно. Вона приєднується до тих, що ти вже бачив.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Очищення призми</string>
     <string name="game_prism_clear_desc">Міняйте однакові плитки, щоб прибирати лінії з трьох і більше. Очистіть усю дошку, щоб перемогти.</string>
     <string name="prism_clear_restart">Спочатку</string>
     <string name="prism_clear_stuck">Ходів більше немає. Скасуйте хід або перезапустіть рівень.</string>
     <string name="achievement_gold_prism_clear">Кришталева ясність</string>
     <string name="achievement_gold_prism_clear_desc">Здобудь золоту медаль у Prism Clear</string>
     <string name="prism_clear_undo">Скасувати</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Пропущені знаки</string>
     <string name="game_missing_operators_desc">Знайдіть відсутні оператори (+, -, *, /), які роблять рівняння істинним.</string>
     <string name="missing_operators_demo_title">Знайдіть відсутні оператори</string>
     <string name="missing_operators_demo_desc">Оберіть оператори, щоб рівняння було істинним. Оператори обчислюються зі стандартним пріоритетом.</string>
@@ -752,7 +752,7 @@
     <string name="finish_best_tries">Найкраще: %1$s спроб</string>
     <string name="finish_new_best_tries">Новий рекорд!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">Тріо</string>
     <string name="game_trio_desc">Знайдіть три карти зі спільною формою, кількістю або заливкою.</string>
     <string name="game_trio_howto">Торкніться трьох карт зі спільною ознакою.</string>
     <string name="trio_demo_title">Знайдіть набір із трьох</string>

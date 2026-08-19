@@ -14,8 +14,8 @@
 
     <string name="level_label">مرحله %1$d</string>
     <string name="level_up_title">ارتقای سطح!</string>
-    <string name="xp_gained">%1$d+ امتیاز تجربه</string>
-    <string name="xp_progress">%1$d / %2$d امتیاز تجربه</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
     <string name="title_novice">تازه‌کار</string>
     <string name="title_apprentice">کارآموز</string>
     <string name="title_scholar">دانش‌پژوه</string>
@@ -291,7 +291,7 @@
     <string name="mini_chess_round_lost">رایانه مات‌ات کرد</string>
     <string name="mini_chess_round_draw">مساوی</string>
     <string name="mini_chess_reset">از نو</string>
-    <string name="mini_chess_xp_gained">%1$d+ امتیاز تجربه</string>
+    <string name="mini_chess_xp_gained">+%1$d XP</string>
     <string name="mini_chess_difficulty">درجه سختی</string>
     <string name="mini_chess_difficulty_easy">آسان</string>
     <string name="mini_chess_difficulty_medium">متوسط</string>

@@ -117,7 +117,7 @@
     <string name="game_solo_chess_desc">मोहरों को एक-एक करके तब तक काटें जब तक केवल राजा न बचे। हर चाल में काटना ज़रूरी है, और कोई भी मोहरा दो बार से अधिक नहीं काट सकता।</string>
     <string name="game_solo_chess_howto">किसी मोहरे पर टैप करें, फिर उस मोहरे पर जिसे वह काट सकता है। राजा को काटा नहीं जा सकता और वही आख़िरी मोहरा बचना चाहिए।</string>
     <string name="solo_chess_pieces_left">शेष मोहरे: %1$d</string>
-    <string name="solo_chess_restart">फिर से शुरू</string>
+    <string name="solo_chess_restart">फिर से</string>
     <string name="solo_chess_stuck">अब कोई काट संभव नहीं। इस स्तर को फिर से आज़माने के लिए फिर से शुरू पर टैप करें।</string>
     <string name="cat_queens_error_row">प्रति पंक्ति केवल एक बिल्ली</string>
     <string name="cat_queens_error_column">प्रति स्तंभ केवल एक बिल्ली</string>
@@ -134,7 +134,7 @@
     <string name="mini_chess_difficulty_easy">आसान</string>
     <string name="mini_chess_difficulty_medium">मध्यम</string>
     <string name="mini_chess_difficulty_hard">कठिन</string>
-    <string name="mini_chess_restart">नया गेम</string>
+    <string name="mini_chess_restart">नया खेल</string>
     <string name="mini_chess_move_counter">चाल %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= गतिरोध (ड्रॉ, जीत नहीं)</string>
     <string name="pattern_sequence_prompt">मैट्रिक्स को कौन सा टुकड़ा पूरा करता है?</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">स्थिति 1 वाली आकृति पर टैप करें।</string>
     <string name="achievement_gold_n_back">घूमती स्मृति</string>
     <string name="achievement_gold_n_back_desc">N-Back में स्वर्ण पदक जीतें</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">साइमन कहता है</string>
     <string name="game_simon_says_desc">हर राउंड में एक नया पैड जलता है। पिछले राउंड के पैड सहित पूरा क्रम शुरुआत से टैप करें।</string>
     <string name="simon_says_demo_title">देखें, फिर दोहराएँ</string>
     <string name="simon_says_demo_watch">हर राउंड में सिर्फ़ नया पैड जलता है।</string>
@@ -633,7 +633,7 @@
     <string name="normal_chess_draw_material">अपर्याप्त सामग्री से ड्रॉ।</string>
     <string name="normal_chess_draw_repetition">पुनरावृत्ति द्वारा ड्रॉ।</string>
     <string name="normal_chess_resign">हार स्वीकार करें</string>
-    <string name="normal_chess_quit">बाहर निकलें</string>
+    <string name="normal_chess_quit">छोड़ें</string>
     <string name="normal_chess_new_game">नया खेल</string>
     <string name="normal_chess_turn_white">सफेद की बारी</string>
     <string name="normal_chess_turn_black">काले की बारी</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">वह जानवर टैप करें जिसे आपने पहले नहीं देखा।</string>
     <string name="spot_the_new_demo_seen">यह आपने पहले देखा था। एक राउंड छोड़ा, लेकिन अभी भी देखा हुआ माना जाता है।</string>
     <string name="spot_the_new_demo_correct">सही। यह आपके देखे हुओं में शामिल हो गया।</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">प्रिज़्म सफ़ाई</string>
     <string name="game_prism_clear_desc">मिलान वाले टाइलों को बदलकर तीन या अधिक की पंक्तियाँ साफ़ करें। जीतने के लिए पूरा बोर्ड खाली करें।</string>
     <string name="prism_clear_restart">फिर से</string>
     <string name="prism_clear_stuck">कोई चाल नहीं बची। एक चाल पूर्ववत करें या स्तर पुनः शुरू करें।</string>
     <string name="achievement_gold_prism_clear">क्रिस्टल स्पष्टता</string>
     <string name="achievement_gold_prism_clear_desc">Prism Clear में स्वर्ण पदक जीतें</string>
     <string name="prism_clear_undo">पूर्ववत</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">गायब ऑपरेटर</string>
     <string name="game_missing_operators_desc">वे गायब संकारक (+, -, *, /) खोजें जो समीकरण को सत्य बनाते हैं।</string>
     <string name="missing_operators_demo_title">गायब संकारक खोजें</string>
     <string name="missing_operators_demo_desc">समीकरण को सत्य बनाने के लिए संकारक चुनें। संकारकों का मूल्यांकन मानक गणितीय प्राथमिकता से होता है।</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">सर्वश्रेष्ठ: %1$s प्रयास</string>
     <string name="finish_new_best_tries">नया सर्वश्रेष्ठ!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">तिकड़ी</string>
     <string name="game_trio_desc">तीन पत्ते खोजें जिनका आकार, संख्या या भराव एक जैसा हो।</string>
     <string name="game_trio_howto">एक गुण साझा करने वाले तीन पत्तों पर टैप करें।</string>
     <string name="trio_demo_title">तीन का सेट खोजें</string>

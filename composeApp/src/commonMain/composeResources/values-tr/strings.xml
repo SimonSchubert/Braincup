@@ -117,7 +117,7 @@
     <string name="game_solo_chess_desc">Yalnızca şah kalana kadar taşları teker teker al. Her hamle bir taş almalı ve hiçbir taş ikiden fazla alamaz.</string>
     <string name="game_solo_chess_howto">Bir taşa, sonra alabileceği bir taşa dokun. Şah alınamaz ve son kalan taş olmalıdır.</string>
     <string name="solo_chess_pieces_left">Kalan taş: %1$d</string>
-    <string name="solo_chess_restart">Yeniden başlat</string>
+    <string name="solo_chess_restart">Yeniden</string>
     <string name="solo_chess_stuck">Alınacak taş kalmadı. Bu seviyeyi tekrar denemek için Yeniden başlat'a dokun.</string>
     <string name="cat_queens_error_row">Satır başına yalnızca bir kedi</string>
     <string name="cat_queens_error_column">Sütun başına yalnızca bir kedi</string>
@@ -134,7 +134,7 @@
     <string name="mini_chess_difficulty_easy">Kolay</string>
     <string name="mini_chess_difficulty_medium">Orta</string>
     <string name="mini_chess_difficulty_hard">Zor</string>
-    <string name="mini_chess_restart">Yeni Oyun</string>
+    <string name="mini_chess_restart">Yeni oyun</string>
     <string name="mini_chess_move_counter">Hamle %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (berabere, galibiyet değil)</string>
     <string name="pattern_sequence_prompt">Matrisi hangi parça tamamlar?</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">1. konumdaki şekle dokun.</string>
     <string name="achievement_gold_n_back">Akan Hafıza</string>
     <string name="achievement_gold_n_back_desc">N-Back oyununda altın madalya kazan</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Simon Diyor ki</string>
     <string name="game_simon_says_desc">Her turda yeni bir düğme yanar. Önceki turların düğmeleri dahil, tüm diziye baştan dokun.</string>
     <string name="simon_says_demo_title">İzle, sonra tekrarla</string>
     <string name="simon_says_demo_watch">Her turda yalnızca yeni düğme yanar.</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">Daha önce görmediğin hayvana dokun.</string>
     <string name="spot_the_new_demo_seen">Bunu daha önce gördün. Bir tur bekledi, ama yine de görülmüş sayılır.</string>
     <string name="spot_the_new_demo_correct">Doğru. Daha önce gördüklerin arasına katılır.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Prizma Temizliği</string>
     <string name="game_prism_clear_desc">Eşleşen karoları değiştirerek üç veya daha fazla karodan oluşan satırları temizleyin. Kazanmak için tüm tahtayı boşaltın.</string>
     <string name="prism_clear_restart">Yeniden</string>
     <string name="prism_clear_stuck">Hamle kalmadı. Bir hamleyi geri alın veya seviyeyi yeniden başlatın.</string>
     <string name="achievement_gold_prism_clear">Kristal Netlik</string>
     <string name="achievement_gold_prism_clear_desc">Prism Clear oyununda altın madalya kazan</string>
     <string name="prism_clear_undo">Geri al</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Eksik İşlemler</string>
     <string name="game_missing_operators_desc">Denklemi doğru yapan eksik operatörleri (+, -, *, /) bulun.</string>
     <string name="missing_operators_demo_title">Eksik operatörleri bulun</string>
     <string name="missing_operators_demo_desc">Denklemi doğru yapmak için operatörleri seçin. Operatörler standart matematiksel öncelik sırasıyla değerlendirilir.</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">En iyi: %1$s deneme</string>
     <string name="finish_new_best_tries">Yeni rekor!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">Üçlü</string>
     <string name="game_trio_desc">Şekil, sayı veya dolgusu ortak olan üç kart bulun.</string>
     <string name="game_trio_howto">Bir özelliği paylaşan üç karta dokunun.</string>
     <string name="trio_demo_title">Üçlü bir set bulun</string>

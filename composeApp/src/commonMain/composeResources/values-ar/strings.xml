@@ -124,7 +124,7 @@
     <string name="cat_queens_error_zone">قطة واحدة فقط في كل منطقة لونية</string>
     <string name="cat_queens_error_touch">لا يمكن أن تتلامس قطتان</string>
     <string name="moves_label">النقلات: %1$d</string>
-    <string name="mini_chess_thinking">الحاسوب يفكّر…</string>
+    <string name="mini_chess_thinking">الحاسوب يفكر…</string>
     <string name="mini_chess_round_won">كش ملك</string>
     <string name="mini_chess_round_lost">الحاسوب أوقع عليك كش ملك</string>
     <string name="mini_chess_round_draw">تعادل</string>
@@ -134,9 +134,9 @@
     <string name="mini_chess_difficulty_easy">سهل</string>
     <string name="mini_chess_difficulty_medium">متوسط</string>
     <string name="mini_chess_difficulty_hard">صعب</string>
-    <string name="mini_chess_restart">لعبة جديدة</string>
+    <string name="mini_chess_restart">مباراة جديدة</string>
     <string name="mini_chess_move_counter">نقلة %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= جمود (تعادل وليس فوزًا)</string>
+    <string name="mini_chess_draw_warning">= طريق مسدود (تعادل، ليس فوزاً)</string>
     <string name="pattern_sequence_prompt">أي قطعة تكمل المصفوفة؟</string>
     <string name="game_tap_original_targets">انقر على الأهداف الأصلية</string>
     <string name="game_remember_targets">تذكر الأهداف</string>
@@ -201,8 +201,8 @@
 
     <string name="level_label">المستوى %1$d</string>
     <string name="level_up_title">ارتقاء المستوى!</string>
-    <string name="xp_gained">+%1$d نقطة خبرة</string>
-    <string name="xp_progress">%1$d / %2$d نقطة خبرة</string>
+    <string name="xp_gained">+%1$d XP</string>
+    <string name="xp_progress">%1$d / %2$d XP</string>
     <string name="title_novice">مبتدئ</string>
     <string name="title_apprentice">متدرب</string>
     <string name="title_scholar">عالم</string>
@@ -595,7 +595,7 @@
     <string name="normal_chess_mode_cpu">العب ضد الحاسوب</string>
     <string name="normal_chess_mode_human">العب ضد إنسان</string>
     <string name="normal_chess_mode_human_subtitle">العب بالتناوب على نفس الجهاز</string>
-    <string name="normal_chess_difficulty">المستوى</string>
+    <string name="normal_chess_difficulty">الصعوبة</string>
     <string name="normal_chess_difficulty_easy">سهل</string>
     <string name="normal_chess_difficulty_medium">متوسط</string>
     <string name="normal_chess_difficulty_hard">صعب</string>
@@ -613,10 +613,10 @@
     <string name="normal_chess_turn_white">دور الأبيض</string>
     <string name="normal_chess_turn_black">دور الأسود</string>
     <string name="normal_chess_promotion_title">ترقية إلى</string>
-    <string name="normal_chess_promotion_queen">ملكة</string>
-    <string name="normal_chess_promotion_rook">قلعة</string>
-    <string name="normal_chess_promotion_bishop">فيل</string>
-    <string name="normal_chess_promotion_knight">حصان</string>
+    <string name="normal_chess_promotion_queen">الوزير</string>
+    <string name="normal_chess_promotion_rook">القلعة</string>
+    <string name="normal_chess_promotion_bishop">الفيل</string>
+    <string name="normal_chess_promotion_knight">الحصان</string>
     <string name="normal_chess_draw_warning">= طريق مسدود (تعادل، ليس فوزاً)</string>
 
     <string name="matchstick_riddles_button">ألغاز أعواد الثقاب (%1$d/%2$d)</string>
@@ -658,7 +658,7 @@
     <string name="n_back_demo_recall">اضغط على الشكل في الموضع 1.</string>
     <string name="achievement_gold_n_back">ذاكرة متجددة</string>
     <string name="achievement_gold_n_back_desc">اربح الميدالية الذهبية في N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">سيمون يقول</string>
     <string name="game_simon_says_desc">في كل جولة يضيء زر جديد واحد فقط. اضغط التسلسل كاملاً من البداية، بما في ذلك أزرار الجولات السابقة.</string>
     <string name="simon_says_demo_title">شاهد ثم كرر</string>
     <string name="simon_says_demo_watch">في كل جولة يضيء الزر الجديد فقط.</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">انقر على الحيوان الذي لم تره من قبل.</string>
     <string name="spot_the_new_demo_seen">لقد رأيت هذا من قبل. غاب جولة، لكنه لا يزال محسوباً كمرئي.</string>
     <string name="spot_the_new_demo_correct">صحيح. ينضم إلى قائمة ما رأيت.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">تصفية المنشور</string>
     <string name="game_prism_clear_desc">بدّل البلاطات المتطابقة لمسح صفوف من ثلاثة أو أكثر. أفرغ اللوحة بالكامل للفوز.</string>
     <string name="prism_clear_restart">إعادة</string>
     <string name="prism_clear_stuck">لا حركات متبقية. تراجع عن حركة أو أعد تشغيل المستوى.</string>
     <string name="achievement_gold_prism_clear">صفاء بلوري</string>
     <string name="achievement_gold_prism_clear_desc">اربح الميدالية الذهبية في Prism Clear</string>
     <string name="prism_clear_undo">تراجع</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">العوامل المفقودة</string>
     <string name="game_missing_operators_desc">اعثر على المعاملات المفقودة (+، -، *، /) التي تجعل المعادلة صحيحة.</string>
     <string name="missing_operators_demo_title">اعثر على المعاملات المفقودة</string>
     <string name="missing_operators_demo_desc">اختر المعاملات لجعل المعادلة صحيحة. تُقيَّم المعاملات بأولوية رياضية قياسية.</string>
@@ -752,7 +752,7 @@
     <string name="finish_best_tries">الأفضل: %1$s محاولات</string>
     <string name="finish_new_best_tries">رقم قياسي جديد!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">ثلاثي</string>
     <string name="game_trio_desc">اعثر على ثلاث بطاقات تشترك في الشكل أو العدد أو التعبئة.</string>
     <string name="game_trio_howto">المس ثلاث بطاقات تشترك في سمة.</string>
     <string name="trio_demo_title">اعثر على مجموعة من ثلاث</string>

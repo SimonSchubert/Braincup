@@ -136,7 +136,7 @@
     <string name="mini_chess_difficulty_hard">Difficile</string>
     <string name="mini_chess_restart">Nuova partita</string>
     <string name="mini_chess_move_counter">Mossa %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= stallo (pareggio, non vittoria)</string>
+    <string name="mini_chess_draw_warning">= stallo (patta, non vittoria)</string>
     <string name="pattern_sequence_prompt">Quale pezzo completa la matrice?</string>
     <string name="game_tap_original_targets">Tocca i bersagli originali</string>
     <string name="game_remember_targets">Ricorda i bersagli</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">Tocca la forma nella posizione 1.</string>
     <string name="achievement_gold_n_back">Memoria in movimento</string>
     <string name="achievement_gold_n_back_desc">Vinci la medaglia d'oro in N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Simone dice</string>
     <string name="game_simon_says_desc">Ogni round si illumina un nuovo pulsante. Tocca l'intera sequenza dall'inizio, compresi i pulsanti dei round precedenti.</string>
     <string name="simon_says_demo_title">Guarda, poi ripeti</string>
     <string name="simon_says_demo_watch">Ogni round si illumina solo il pulsante nuovo.</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">Tocca l'animale che non hai ancora visto.</string>
     <string name="spot_the_new_demo_seen">Hai già visto questo. Ha saltato un turno, ma conta ancora come visto.</string>
     <string name="spot_the_new_demo_correct">Corretto. Si aggiunge a quelli che hai già visto.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Svuota prisma</string>
     <string name="game_prism_clear_desc">Scambia tessere uguali per cancellare linee di tre o più. Svuota l'intero tabellone per vincere.</string>
     <string name="prism_clear_restart">Ricomincia</string>
     <string name="prism_clear_stuck">Nessuna mossa possibile. Annulla una mossa o ricomincia il livello.</string>
     <string name="achievement_gold_prism_clear">Chiarezza di cristallo</string>
     <string name="achievement_gold_prism_clear_desc">Vinci la medaglia d'oro in Prism Clear</string>
     <string name="prism_clear_undo">Annulla</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Operatori mancanti</string>
     <string name="game_missing_operators_desc">Trova gli operatori mancanti (+, -, *, /) che rendono vera l'equazione.</string>
     <string name="missing_operators_demo_title">Trova gli operatori mancanti</string>
     <string name="missing_operators_demo_desc">Seleziona gli operatori per rendere vera l'equazione. Gli operatori si valutano con la precedenza matematica standard.</string>

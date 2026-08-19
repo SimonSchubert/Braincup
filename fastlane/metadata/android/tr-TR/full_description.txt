@@ -1,4 +1,4 @@
-Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 41 beyin egzersizi sunar.
+Hafızanızı, odaklanmanızı, mantığınızı ve matematik becerilerinizi zorlayan eğlenceli mini oyunlarla beyninizi eğitin. Braincup, zihninizi keskinleştirmek ve konsantrasyonunuzu artırmak için tasarlanmış 42 beyin egzersizi sunar.
 
 <b>Zihinsel Hesaplama</b>:
 Matematiksel ifadeleri takip et. Sonucu sonraki hesap için kullan.
@@ -107,6 +107,9 @@ Birden fazla zorlukta klasik Sudoku.
 
 <b>Satranç</b>:
 CPU’ya karşı veya pass-and-play tam satranç.
+
+<b>IQ Testi</b>:
+15 dakikada 30 matris bulmacası, tahmini IQ ile. Sadece eğlence için.
 
 <b>Missing Operators</b>:
 Denklemi doğru yapan eksik operatörleri (+, -, *, /) bulun.

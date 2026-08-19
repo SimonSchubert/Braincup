@@ -182,6 +182,22 @@
 
     <string name="achievements_title">Achievements</string>
 
+    <!--
+        Game names follow three tiers. Keep a new game consistent with the tier it belongs to,
+        and localize it in every values-*/strings.xml, not just this file.
+
+        1. Descriptive name  -> translate in all locales. Covers almost every game here,
+           including ones built on a proper noun (Tower of Hanoi, Schulte Table).
+        2. Established puzzle loanword -> transliterate in non-Latin scripts, keep the Latin
+           spelling in Latin scripts. Only Sudoku, Shikaku and Nurikabe: these have real
+           native spellings, so Greek writes Σουντόκου and Chinese writes 数独.
+        3. Brand or technical term -> leave in English everywhere, Latin scripts and not.
+           Only Wordle (a trademark) and N-Back (lab jargon).
+
+        Bulls and Cows is tier 3 as well, and so is its Bull/Cow scoring vocabulary: the
+        tutorial defines those two words in place (bulls_and_cows_demo_step2/step3), so every
+        locale translates the definition around them and leaves the terms themselves alone.
+    -->
     <string name="game_anomaly_puzzle">Anomaly Puzzle</string>
     <string name="game_mental_calculation">Mental Calculation</string>
     <string name="game_colored_shapes">Colored Shapes</string>

@@ -124,7 +124,7 @@
     <string name="cat_queens_error_zone">Solo un gato por zona de color</string>
     <string name="cat_queens_error_touch">2 gatos no pueden tocarse</string>
     <string name="moves_label">Movimientos: %1$d</string>
-    <string name="mini_chess_thinking">El CPU está pensando…</string>
+    <string name="mini_chess_thinking">La CPU está pensando…</string>
     <string name="mini_chess_round_won">Jaque mate</string>
     <string name="mini_chess_round_lost">El CPU te hizo jaque mate</string>
     <string name="mini_chess_round_draw">Empate</string>
@@ -134,9 +134,9 @@
     <string name="mini_chess_difficulty_easy">Fácil</string>
     <string name="mini_chess_difficulty_medium">Medio</string>
     <string name="mini_chess_difficulty_hard">Difícil</string>
-    <string name="mini_chess_restart">Nuevo juego</string>
+    <string name="mini_chess_restart">Nueva partida</string>
     <string name="mini_chess_move_counter">Movimiento %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= ahogado (empate, no es victoria)</string>
+    <string name="mini_chess_draw_warning">= ahogado (tablas, no victoria)</string>
     <string name="pattern_sequence_prompt">¿Qué pieza completa la matriz?</string>
     <string name="game_tap_original_targets">Toca los objetivos originales</string>
     <string name="game_remember_targets">Recuerda los objetivos</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">Toca la forma que estaba en la posición 1.</string>
     <string name="achievement_gold_n_back">Memoria en movimiento</string>
     <string name="achievement_gold_n_back_desc">Gana la medalla de oro en N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Simón dice</string>
     <string name="game_simon_says_desc">En cada ronda se ilumina un botón nuevo. Toca toda la secuencia desde el principio, incluidos los botones de las rondas anteriores.</string>
     <string name="simon_says_demo_title">Observa y repite</string>
     <string name="simon_says_demo_watch">En cada ronda solo se ilumina el botón nuevo.</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">Toca el animal que no has visto antes.</string>
     <string name="spot_the_new_demo_seen">Ya viste este. Se saltó una ronda, pero sigue contando como visto.</string>
     <string name="spot_the_new_demo_correct">Correcto. Se une a los que ya has visto.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Despejar prisma</string>
     <string name="game_prism_clear_desc">Intercambia fichas iguales para borrar líneas de tres o más. Vacía todo el tablero para ganar.</string>
     <string name="prism_clear_restart">Reiniciar</string>
     <string name="prism_clear_stuck">No quedan movimientos. Deshaz un movimiento o reinicia el nivel.</string>
     <string name="achievement_gold_prism_clear">Claridad de cristal</string>
     <string name="achievement_gold_prism_clear_desc">Gana la medalla de oro en Prism Clear</string>
     <string name="prism_clear_undo">Deshacer</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Operadores que faltan</string>
     <string name="game_missing_operators_desc">Encuentra los operadores que faltan (+, -, *, /) para que la ecuación sea verdadera.</string>
     <string name="missing_operators_demo_title">Encuentra los operadores que faltan</string>
     <string name="missing_operators_demo_desc">Selecciona los operadores para que la ecuación sea verdadera. Se evalúan con la precedencia matemática estándar.</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">Mejor: %1$s intentos</string>
     <string name="finish_new_best_tries">¡Nuevo récord!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">Trío</string>
     <string name="game_trio_desc">Encuentra tres cartas que compartan forma, cantidad o relleno.</string>
     <string name="game_trio_howto">Toca tres cartas que compartan un rasgo.</string>
     <string name="trio_demo_title">Encuentra un conjunto de tres</string>

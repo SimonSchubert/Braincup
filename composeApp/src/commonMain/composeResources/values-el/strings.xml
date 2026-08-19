@@ -24,7 +24,7 @@
     <string name="title_grandmaster">Μέγας Διδάσκαλος</string>
     <string name="achievements_button">Επιτεύγματα (%1$d/%2$d)</string>
     <string name="normal_sudoku_button">Κανονικό Sudoku (%1$d/%2$d)</string>
-    <string name="normal_sudoku_title">Sudoku</string>
+    <string name="normal_sudoku_title">Σουντόκου</string>
     <string name="normal_sudoku_difficulty_beginner">Αρχάριος</string>
     <string name="normal_sudoku_difficulty_easy">Εύκολο</string>
     <string name="normal_sudoku_difficulty_medium">Μέτριο</string>
@@ -186,7 +186,7 @@
     <string name="game_fraction_calculation">Υπολογισμός Κλασμάτων</string>
     <string name="game_value_comparison">Σύγκριση Τιμών</string>
     <string name="game_path_finder">Εύρεση Διαδρομής</string>
-    <string name="game_mini_sudoku">Μίνι Sudoku</string>
+    <string name="game_mini_sudoku">Μίνι Σουντόκου</string>
     <string name="game_visual_memory">Οπτική Μνήμη</string>
     <string name="game_pattern_sequence">Ακολουθία Μοτίβου</string>
     <string name="game_ghost_grid">Πλέγμα Φαντασμάτων</string>
@@ -215,8 +215,8 @@
     <string name="game_lights_out">Σβήσε τα Φώτα</string>
     <string name="game_sliding_puzzle">Συρόμενο Παζλ</string>
     <string name="game_tower_of_hanoi">Πύργοι του Ανόι</string>
-    <string name="game_shikaku">Shikaku</string>
-    <string name="game_nurikabe">Nurikabe</string>
+    <string name="game_shikaku">Σικάκου</string>
+    <string name="game_nurikabe">Νουρικάμπε</string>
     <string name="game_cat_queens">Βασίλισσες Γάτες</string>
     <string name="game_knot">Κόμπος</string>
     <string name="game_solo_chess">Σόλο Σκάκι</string>
@@ -475,7 +475,7 @@
     <string name="n_back_demo_recall">Πάτησε το σχήμα στη θέση 1.</string>
     <string name="achievement_gold_n_back">Κυλιόμενη μνήμη</string>
     <string name="achievement_gold_n_back_desc">Κέρδισε χρυσό μετάλλιο στο N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Ο Σάιμον λέει</string>
     <string name="game_simon_says_desc">Σε κάθε γύρο ανάβει ένα νέο πλήκτρο. Πατήστε ολόκληρη τη σειρά από την αρχή, μαζί με τα πλήκτρα των προηγούμενων γύρων.</string>
     <string name="simon_says_demo_title">Παρακολουθήστε, μετά επαναλάβετε</string>
     <string name="simon_says_demo_watch">Σε κάθε γύρο ανάβει μόνο το νέο πλήκτρο.</string>
@@ -721,14 +721,14 @@
     <string name="country_zambia">Ζάμπια</string>
     <string name="country_zimbabwe">Ζιμπάμπουε</string>
 
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Καθαρισμός πρίσματος</string>
     <string name="game_prism_clear_desc">Αντάλλαξε ταιριαστά πλακίδια για να καθαρίσεις γραμμές τριών ή περισσότερων. Άδειασε όλο το ταμπλό για να κερδίσεις.</string>
     <string name="prism_clear_restart">Επανεκκίνηση</string>
     <string name="prism_clear_stuck">Δεν υπάρχουν κινήσεις. Αναίρεσε μια κίνηση ή επανεκκίνησε το επίπεδο.</string>
     <string name="achievement_gold_prism_clear">Κρυστάλλινη διαύγεια</string>
     <string name="achievement_gold_prism_clear_desc">Κερδίστε χρυσό μετάλλιο στο Prism Clear</string>
     <string name="prism_clear_undo">Αναίρεση</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Σύμβολα που λείπουν</string>
     <string name="game_missing_operators_desc">Βρες τους τελεστές που λείπουν (+, -, *, /) ώστε η εξίσωση να είναι σωστή.</string>
     <string name="missing_operators_demo_title">Βρες τους τελεστές που λείπουν</string>
     <string name="missing_operators_demo_desc">Επίλεξε τελεστές ώστε η εξίσωση να ισχύει. Οι τελεστές υπολογίζονται με την τυπική μαθηματική προτεραιότητα.</string>
@@ -752,7 +752,7 @@
     <string name="finish_best_tries">Καλύτερο: %1$s προσπάθειες</string>
     <string name="finish_new_best_tries">Νέο ρεκόρ!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">Τριάδα</string>
     <string name="game_trio_desc">Βρες τρεις κάρτες που μοιράζονται σχήμα, πλήθος ή γέμισμα.</string>
     <string name="game_trio_howto">Πάτα τρεις κάρτες που μοιράζονται ένα γνώρισμα.</string>
     <string name="trio_demo_title">Βρες ένα σύνολο των τριών</string>

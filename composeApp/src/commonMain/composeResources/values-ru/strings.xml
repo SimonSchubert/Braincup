@@ -178,7 +178,7 @@
     <string name="solution_left">Левая</string>
     <string name="solution_right">Правая</string>
 
-    <string name="preview_vs">vs</string>
+    <string name="preview_vs">против</string>
 
     <string name="daily_challenge_title">Ежедневный вызов</string>
     <string name="daily_challenge_subtitle_start">Сыграйте %1$d игр, чтобы сохранить серию</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">Нажми на фигуру на позиции 1.</string>
     <string name="achievement_gold_n_back">Скользящая память</string>
     <string name="achievement_gold_n_back_desc">Получи золотую медаль в N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Саймон говорит</string>
     <string name="game_simon_says_desc">В каждом раунде загорается одна новая кнопка. Нажми всю последовательность с начала, включая кнопки из прошлых раундов.</string>
     <string name="simon_says_demo_title">Смотри, затем повтори</string>
     <string name="simon_says_demo_watch">В каждом раунде загорается только новая кнопка.</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">Нажми на животное, которое ты ещё не видел.</string>
     <string name="spot_the_new_demo_seen">Это ты уже видел. Оно пропустило раунд, но всё равно считается увиденным.</string>
     <string name="spot_the_new_demo_correct">Верно. Оно присоединяется к тем, что ты уже видел.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Очистка призмы</string>
     <string name="game_prism_clear_desc">Меняйте одинаковые плитки, чтобы убирать линии из трёх и более. Очистите всё поле, чтобы победить.</string>
     <string name="prism_clear_restart">Заново</string>
     <string name="prism_clear_stuck">Ходов больше нет. Отмените ход или перезапустите уровень.</string>
     <string name="achievement_gold_prism_clear">Хрустальная ясность</string>
     <string name="achievement_gold_prism_clear_desc">Получи золотую медаль в Prism Clear</string>
     <string name="prism_clear_undo">Отменить</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Пропущенные знаки</string>
     <string name="game_missing_operators_desc">Найдите недостающие операторы (+, -, *, /), которые делают уравнение верным.</string>
     <string name="missing_operators_demo_title">Найдите недостающие операторы</string>
     <string name="missing_operators_demo_desc">Выберите операторы, чтобы уравнение стало верным. Операторы вычисляются со стандартным приоритетом.</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">Лучший: %1$s попыток</string>
     <string name="finish_new_best_tries">Новый рекорд!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">Трио</string>
     <string name="game_trio_desc">Найдите три карты с общей формой, числом или заливкой.</string>
     <string name="game_trio_howto">Нажмите три карты с общим признаком.</string>
     <string name="trio_demo_title">Найдите набор из трёх</string>

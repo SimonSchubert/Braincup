@@ -136,7 +136,7 @@
     <string name="mini_chess_difficulty_hard">Moeilijk</string>
     <string name="mini_chess_restart">Nieuw spel</string>
     <string name="mini_chess_move_counter">Zet %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= patstelling (gelijkspel, geen winst)</string>
+    <string name="mini_chess_draw_warning">= pat (remise, geen winst)</string>
     <string name="pattern_sequence_prompt">Welk stuk maakt de matrix compleet?</string>
     <string name="game_tap_original_targets">Tik op de oorspronkelijke doelen</string>
     <string name="game_remember_targets">Onthoud de doelen</string>
@@ -658,7 +658,7 @@
     <string name="n_back_demo_recall">Tik op de vorm op positie 1.</string>
     <string name="achievement_gold_n_back">Rollend geheugen</string>
     <string name="achievement_gold_n_back_desc">Win een gouden medaille in N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Simon zegt</string>
     <string name="game_simon_says_desc">Elke ronde licht er één nieuwe knop op. Tik de hele reeks vanaf het begin terug, inclusief de knoppen uit eerdere rondes.</string>
     <string name="simon_says_demo_title">Kijk, dan herhaal</string>
     <string name="simon_says_demo_watch">Elke ronde licht alleen de nieuwe knop op.</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">Tik op het dier dat je nog niet eerder hebt gezien.</string>
     <string name="spot_the_new_demo_seen">Dit heb je al eerder gezien. Het sloeg een ronde over, maar telt nog steeds als gezien.</string>
     <string name="spot_the_new_demo_correct">Juist. Het sluit aan bij de dieren die je al hebt gezien.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Prisma leegmaken</string>
     <string name="game_prism_clear_desc">Wissel bijpassende tegels om rijen van drie of meer te wissen. Maak het hele bord leeg om te winnen.</string>
     <string name="prism_clear_restart">Opnieuw</string>
     <string name="prism_clear_stuck">Geen zetten meer. Maak een zet ongedaan of start het level opnieuw.</string>
     <string name="achievement_gold_prism_clear">Kristalhelder</string>
     <string name="achievement_gold_prism_clear_desc">Win de gouden medaille in Prism Clear</string>
     <string name="prism_clear_undo">Ongedaan</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Ontbrekende operatoren</string>
     <string name="game_missing_operators_desc">Vind de ontbrekende operatoren (+, -, *, /) die de vergelijking waar maken.</string>
     <string name="missing_operators_demo_title">Vind de ontbrekende operatoren</string>
     <string name="missing_operators_demo_desc">Selecteer de operatoren om de vergelijking waar te maken. Operatoren worden geëvalueerd met de standaard wiskundige volgorde.</string>

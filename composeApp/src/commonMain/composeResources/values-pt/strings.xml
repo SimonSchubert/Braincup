@@ -134,9 +134,9 @@
     <string name="mini_chess_difficulty_easy">Fácil</string>
     <string name="mini_chess_difficulty_medium">Médio</string>
     <string name="mini_chess_difficulty_hard">Difícil</string>
-    <string name="mini_chess_restart">Novo jogo</string>
+    <string name="mini_chess_restart">Nova partida</string>
     <string name="mini_chess_move_counter">Movimento %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= afogado (empate, não vitória)</string>
+    <string name="mini_chess_draw_warning">= afogamento (empate, não vitória)</string>
     <string name="pattern_sequence_prompt">Que peça completa a matriz?</string>
     <string name="game_tap_original_targets">Toque nos alvos originais</string>
     <string name="game_remember_targets">Lembre-se dos alvos</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">Toque na forma que estava na posição 1.</string>
     <string name="achievement_gold_n_back">Memória em movimento</string>
     <string name="achievement_gold_n_back_desc">Ganhe a medalha de ouro em N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Simão manda</string>
     <string name="game_simon_says_desc">A cada rodada, um novo botão se ilumina. Toque em toda a sequência desde o início, incluindo os botões das rodadas anteriores.</string>
     <string name="simon_says_demo_title">Observe, depois repita</string>
     <string name="simon_says_demo_watch">A cada rodada só o botão novo se ilumina.</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">Toque no animal que você ainda não viu.</string>
     <string name="spot_the_new_demo_seen">Você já viu este. Ficou fora de uma rodada, mas ainda conta como visto.</string>
     <string name="spot_the_new_demo_correct">Correto. Ele se junta aos que você já viu.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Limpar prisma</string>
     <string name="game_prism_clear_desc">Troque peças iguais para limpar linhas de três ou mais. Esvazie todo o tabuleiro para vencer.</string>
     <string name="prism_clear_restart">Reiniciar</string>
     <string name="prism_clear_stuck">Sem movimentos. Desfaça um movimento ou reinicie o nível.</string>
     <string name="achievement_gold_prism_clear">Clareza de cristal</string>
     <string name="achievement_gold_prism_clear_desc">Ganhe a medalha de ouro em Prism Clear</string>
     <string name="prism_clear_undo">Desfazer</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Operadores ausentes</string>
     <string name="game_missing_operators_desc">Encontre os operadores em falta (+, -, *, /) que tornam a equação verdadeira.</string>
     <string name="missing_operators_demo_title">Encontre os operadores em falta</string>
     <string name="missing_operators_demo_desc">Selecione os operadores para tornar a equação verdadeira. Os operadores são avaliados com a precedência matemática padrão.</string>

@@ -1,4 +1,4 @@
-Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 41 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
+Allena il tuo cervello con divertenti mini giochi che sfidano la tua memoria, concentrazione, logica e abilità matematiche. Braincup offre 42 esercizi di allenamento cerebrale progettati per affinare la mente e migliorare la concentrazione.
 
 <b>Calcolo mentale</b>:
 <b>Missing Operators</b>:
@@ -107,6 +107,9 @@ Sposta i fiammiferi per correggere equazioni.
 
 <b>Solitario</b>:
 Salta i pioli finché ne resta solo uno.
+
+<b>Test del QI</b>:
+30 rompicapi a matrici in 15 minuti, con QI stimato. Solo per divertimento.
 
 <b>Sudoku</b>:
 Sudoku classico completo con più difficoltà.

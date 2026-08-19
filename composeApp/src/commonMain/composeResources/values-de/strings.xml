@@ -658,7 +658,7 @@
     <string name="n_back_demo_recall">Tippe auf die Form an Position 1.</string>
     <string name="achievement_gold_n_back">Rollendes Gedächtnis</string>
     <string name="achievement_gold_n_back_desc">Gewinne eine Goldmedaille in N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Simon sagt</string>
     <string name="game_simon_says_desc">Jede Runde leuchtet ein neues Feld auf. Tippe die ganze Sequenz von vorne ein, samt der Felder aus den Runden davor.</string>
     <string name="simon_says_demo_title">Beobachten, dann wiederholen</string>
     <string name="simon_says_demo_watch">Jede Runde leuchtet nur das neue Feld auf.</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">Tippe auf das Tier, das du noch nicht gesehen hast.</string>
     <string name="spot_the_new_demo_seen">Dieses hast du schon gesehen. Es hat eine Runde ausgesetzt, gilt aber weiterhin als gesehen.</string>
     <string name="spot_the_new_demo_correct">Richtig. Es kommt zu den bereits gesehenen hinzu.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Prisma räumen</string>
     <string name="game_prism_clear_desc">Tausche passende Kacheln, um Reihen aus drei oder mehr zu räumen. Leere das ganze Spielfeld, um zu gewinnen.</string>
     <string name="prism_clear_restart">Neustart</string>
     <string name="prism_clear_stuck">Keine Züge mehr. Mache einen Zug rückgängig oder starte das Level neu.</string>
     <string name="achievement_gold_prism_clear">Kristallklare Sicht</string>
     <string name="achievement_gold_prism_clear_desc">Gewinne die Goldmedaille in Prism Clear</string>
     <string name="prism_clear_undo">Rückgängig</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Fehlende Operatoren</string>
     <string name="game_missing_operators_desc">Finde die fehlenden Operatoren (+, -, *, /), die die Gleichung wahr machen.</string>
     <string name="missing_operators_demo_title">Finde die fehlenden Operatoren</string>
     <string name="missing_operators_demo_desc">Wähle die Operatoren, die die Gleichung wahr machen. Operatoren werden mit der üblichen mathematischen Rangfolge ausgewertet.</string>

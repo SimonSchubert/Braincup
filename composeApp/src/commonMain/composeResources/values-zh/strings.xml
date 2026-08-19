@@ -117,7 +117,7 @@
     <string name="game_solo_chess_desc">逐个吃掉棋子，直到只剩下王。每一步都必须吃子，且任何棋子吃子不能超过两次。</string>
     <string name="game_solo_chess_howto">先点一个棋子，再点它能吃的棋子。王不能被吃掉，必须是最后剩下的棋子。</string>
     <string name="solo_chess_pieces_left">剩余棋子：%1$d</string>
-    <string name="solo_chess_restart">重新开始</string>
+    <string name="solo_chess_restart">重来</string>
     <string name="solo_chess_stuck">没有可吃的棋子了。点击重新开始再次挑战本关。</string>
     <string name="cat_queens_error_row">每行只能有一只猫</string>
     <string name="cat_queens_error_column">每列只能有一只猫</string>
@@ -136,7 +136,7 @@
     <string name="mini_chess_difficulty_hard">困难</string>
     <string name="mini_chess_restart">新游戏</string>
     <string name="mini_chess_move_counter">第 %1$d / %2$d 步</string>
-    <string name="mini_chess_draw_warning">= 逼和(平局,非胜利)</string>
+    <string name="mini_chess_draw_warning">= 逼和（平局，非胜利）</string>
     <string name="pattern_sequence_prompt">哪一块能补全矩阵？</string>
     <string name="game_tap_original_targets">点击最初的目标</string>
     <string name="game_remember_targets">记住目标</string>
@@ -178,7 +178,7 @@
     <string name="solution_left">左边</string>
     <string name="solution_right">右边</string>
 
-    <string name="preview_vs">vs</string>
+    <string name="preview_vs">对</string>
 
     <string name="daily_challenge_title">每日挑战</string>
     <string name="daily_challenge_subtitle_start">玩 %1$d 个游戏来保持连续记录</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">点击第 1 个位置的图形。</string>
     <string name="achievement_gold_n_back">滚动记忆</string>
     <string name="achievement_gold_n_back_desc">在N-Back中赢得金牌</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">西蒙说</string>
     <string name="game_simon_says_desc">每回合只会亮起一个新按钮。请从头点出完整序列，包括之前回合的所有按钮。</string>
     <string name="simon_says_demo_title">看，然后复现</string>
     <string name="simon_says_demo_watch">每回合只有新按钮会亮起。</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">点击你之前没见过的动物。</string>
     <string name="spot_the_new_demo_seen">你之前见过这个。它缺席了一轮，但仍算作见过。</string>
     <string name="spot_the_new_demo_correct">正确，它加入了已见过的行列。</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">清空棱镜</string>
     <string name="game_prism_clear_desc">交换相同方块以消除三连或更多。清空整个棋盘即可获胜。</string>
     <string name="prism_clear_restart">重来</string>
     <string name="prism_clear_stuck">没有可走的步了。撤销一步或重新开始本关。</string>
     <string name="achievement_gold_prism_clear">水晶澄明</string>
     <string name="achievement_gold_prism_clear_desc">在 Prism Clear 中赢得金牌</string>
     <string name="prism_clear_undo">撤销</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">缺失运算符</string>
     <string name="game_missing_operators_desc">找出使等式成立的缺失运算符（+、-、*、/）。</string>
     <string name="missing_operators_demo_title">找出缺失的运算符</string>
     <string name="missing_operators_demo_desc">选择运算符使等式成立。运算符按标准数学优先级计算。</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">最佳：%1$s 次</string>
     <string name="finish_new_best_tries">新纪录！</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">三重组</string>
     <string name="game_trio_desc">找出形状、数量或填充相同的三张牌。</string>
     <string name="game_trio_howto">点选共享一项特征的三张牌。</string>
     <string name="trio_demo_title">找出三张一组</string>

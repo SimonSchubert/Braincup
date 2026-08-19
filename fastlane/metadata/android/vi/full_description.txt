@@ -1,4 +1,4 @@
-Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 41 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
+Rèn luyện não bộ với các trò chơi nhỏ thú vị thách thức trí nhớ, sự tập trung, tư duy logic và kỹ năng toán học của bạn. Braincup cung cấp 42 bài tập rèn luyện não bộ được thiết kế để nâng cao trí tuệ và cải thiện khả năng tập trung.
 
 <b>Tính nhẩm</b>:
 Theo dõi các biểu thức toán học. Sử dụng kết quả làm cơ sở cho phép tính tiếp theo.
@@ -107,6 +107,9 @@ Sudoku cổ điển với nhiều mức độ khó.
 
 <b>Cờ vua</b>:
 Cờ vua đầy đủ với CPU hoặc chơi luân phiên.
+
+<b>Trắc nghiệm IQ</b>:
+30 câu đố ma trận trong 15 phút, có điểm IQ ước tính. Chỉ để giải trí.
 
 <b>Missing Operators</b>:
 Tìm các toán tử còn thiếu (+, -, *, /) để phương trình đúng.

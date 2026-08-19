@@ -117,14 +117,14 @@
     <string name="game_solo_chess_desc">কেবল রাজা না থাকা পর্যন্ত একে একে গুটি দখল করুন। প্রতিটি চাল অবশ্যই গুটি দখল করবে, এবং কোনো গুটি দুবারের বেশি দখল করতে পারবে না।</string>
     <string name="game_solo_chess_howto">একটি গুটিতে চাপ দিন, তারপর এটি যে গুটি দখল করতে পারে তাতে চাপ দিন। রাজাকে দখল করা যায় না এবং সে-ই শেষ গুটি হতে হবে।</string>
     <string name="solo_chess_pieces_left">অবশিষ্ট গুটি: %1$d</string>
-    <string name="solo_chess_restart">পুনরায় শুরু</string>
+    <string name="solo_chess_restart">আবার</string>
     <string name="solo_chess_stuck">আর কোনো দখল সম্ভব নয়। এই স্তরটি আবার চেষ্টা করতে পুনরায় শুরু-এ চাপ দিন।</string>
     <string name="cat_queens_error_row">প্রতি সারিতে শুধু একটি বিড়াল</string>
     <string name="cat_queens_error_column">প্রতি কলামে শুধু একটি বিড়াল</string>
     <string name="cat_queens_error_zone">প্রতি রঙ অঞ্চলে শুধু একটি বিড়াল</string>
     <string name="cat_queens_error_touch">২টি বিড়াল একে অপরকে স্পর্শ করতে পারবে না</string>
     <string name="moves_label">চাল: %1$d</string>
-    <string name="mini_chess_thinking">সিপিইউ ভাবছে…</string>
+    <string name="mini_chess_thinking">CPU চিন্তা করছে…</string>
     <string name="mini_chess_round_won">কিস্তিমাত</string>
     <string name="mini_chess_round_lost">সিপিইউ আপনাকে কিস্তিমাত করেছে</string>
     <string name="mini_chess_round_draw">ড্র</string>
@@ -134,9 +134,9 @@
     <string name="mini_chess_difficulty_easy">সহজ</string>
     <string name="mini_chess_difficulty_medium">মাঝারি</string>
     <string name="mini_chess_difficulty_hard">কঠিন</string>
-    <string name="mini_chess_restart">নতুন গেম</string>
+    <string name="mini_chess_restart">নতুন খেলা</string>
     <string name="mini_chess_move_counter">চাল %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= অচলাবস্থা (ড্র, জয় নয়)</string>
+    <string name="mini_chess_draw_warning">= স্টেলমেট (ড্র, জয় নয়)</string>
     <string name="pattern_sequence_prompt">কোন টুকরোটি ম্যাট্রিক্স সম্পূর্ণ করে?</string>
     <string name="game_tap_original_targets">মূল লক্ষ্যগুলোতে ট্যাপ করুন</string>
     <string name="game_remember_targets">লক্ষ্যগুলো মনে রাখুন</string>
@@ -658,7 +658,7 @@
     <string name="n_back_demo_recall">1 নম্বর অবস্থানের আকৃতিতে ট্যাপ করুন।</string>
     <string name="achievement_gold_n_back">চলমান স্মৃতি</string>
     <string name="achievement_gold_n_back_desc">N-Back-এ স্বর্ণপদক জিতুন</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">সাইমন বলে</string>
     <string name="game_simon_says_desc">প্রতি রাউন্ডে একটি নতুন প্যাড জ্বলে ওঠে। আগের রাউন্ডগুলোর প্যাডসহ পুরো ক্রমটি শুরু থেকে ট্যাপ করুন।</string>
     <string name="simon_says_demo_title">দেখুন, তারপর পুনরায় করুন</string>
     <string name="simon_says_demo_watch">প্রতি রাউন্ডে শুধু নতুন প্যাডটিই জ্বলে ওঠে।</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">আপনি আগে যে প্রাণীটি দেখেননি সেটিতে ট্যাপ করুন।</string>
     <string name="spot_the_new_demo_seen">আপনি এটি আগে দেখেছেন। এটি একটি রাউন্ড বাদ পড়েছিল, কিন্তু এখনও দেখা হিসেবে গণ্য।</string>
     <string name="spot_the_new_demo_correct">সঠিক। এটি আপনার দেখা তালিকায় যোগ হলো।</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">প্রিজম সাফ</string>
     <string name="game_prism_clear_desc">মিল থাকা টাইল বদলে তিন বা তার বেশি সারি মুছুন। জিততে পুরো বোর্ড খালি করুন।</string>
     <string name="prism_clear_restart">আবার</string>
     <string name="prism_clear_stuck">আর চাল নেই। একটি চাল পূর্বাবস্থায় ফেরান বা লেভেল আবার শুরু করুন।</string>
     <string name="achievement_gold_prism_clear">স্ফটিক স্বচ্ছতা</string>
     <string name="achievement_gold_prism_clear_desc">Prism Clear-এ স্বর্ণপদক জিতুন</string>
     <string name="prism_clear_undo">পূর্বাবস্থা</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">অনুপস্থিত অপারেটর</string>
     <string name="game_missing_operators_desc">সমীকরণ সত্য করে এমন অনুপস্থিত অপারেটর (+, -, *, /) খুঁজুন।</string>
     <string name="missing_operators_demo_title">অনুপস্থিত অপারেটর খুঁজুন</string>
     <string name="missing_operators_demo_desc">সমীকরণ সত্য করতে অপারেটর বেছে নিন। অপারেটর মানক গাণিতিক অগ্রাধিকার দিয়ে মূল্যায়ন হয়।</string>
@@ -752,7 +752,7 @@
     <string name="finish_best_tries">সেরা: %1$s চেষ্টা</string>
     <string name="finish_new_best_tries">নতুন রেকর্ড!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">ত্রয়ী</string>
     <string name="game_trio_desc">এমন তিনটি তাস খুঁজুন যাদের আকৃতি, সংখ্যা বা ভরাট এক।</string>
     <string name="game_trio_howto">একটি বৈশিষ্ট্য ভাগ করে এমন তিনটি তাসে ট্যাপ করুন।</string>
     <string name="trio_demo_title">তিনটির একটি সেট খুঁজুন</string>

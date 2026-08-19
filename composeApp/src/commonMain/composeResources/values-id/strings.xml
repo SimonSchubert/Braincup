@@ -130,13 +130,13 @@
     <string name="mini_chess_round_draw">Seri</string>
     <string name="mini_chess_reset">Atur Ulang</string>
     <string name="mini_chess_xp_gained">+%1$d XP</string>
-    <string name="mini_chess_difficulty">Tingkat Kesulitan</string>
+    <string name="mini_chess_difficulty">Tingkat kesulitan</string>
     <string name="mini_chess_difficulty_easy">Mudah</string>
     <string name="mini_chess_difficulty_medium">Sedang</string>
     <string name="mini_chess_difficulty_hard">Sulit</string>
-    <string name="mini_chess_restart">Permainan Baru</string>
+    <string name="mini_chess_restart">Permainan baru</string>
     <string name="mini_chess_move_counter">Gerakan %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= macet (seri, bukan kemenangan)</string>
+    <string name="mini_chess_draw_warning">= pat (seri, bukan kemenangan)</string>
     <string name="pattern_sequence_prompt">Kepingan mana yang melengkapi matriks?</string>
     <string name="game_tap_original_targets">Ketuk target asli</string>
     <string name="game_remember_targets">Ingat targetnya</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">Ketuk bentuk di posisi 1.</string>
     <string name="achievement_gold_n_back">Memori Bergulir</string>
     <string name="achievement_gold_n_back_desc">Menangkan medali emas di N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Simon Berkata</string>
     <string name="game_simon_says_desc">Setiap ronde satu tombol baru menyala. Ketuk seluruh urutan dari awal, termasuk tombol dari ronde sebelumnya.</string>
     <string name="simon_says_demo_title">Perhatikan, lalu ulangi</string>
     <string name="simon_says_demo_watch">Setiap ronde hanya tombol baru yang menyala.</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">Ketuk hewan yang belum pernah kamu lihat sebelumnya.</string>
     <string name="spot_the_new_demo_seen">Kamu pernah melihat ini sebelumnya. Ia absen satu ronde, tapi tetap dihitung sebagai sudah dilihat.</string>
     <string name="spot_the_new_demo_correct">Benar. Ia bergabung dengan yang sudah kamu lihat.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Bersihkan Prisma</string>
     <string name="game_prism_clear_desc">Tukar ubin yang cocok untuk menghapus baris berisi tiga atau lebih. Kosongkan seluruh papan untuk menang.</string>
     <string name="prism_clear_restart">Mulai ulang</string>
     <string name="prism_clear_stuck">Tidak ada langkah lagi. Urungkan langkah atau mulai ulang level.</string>
     <string name="achievement_gold_prism_clear">Kejernihan Kristal</string>
     <string name="achievement_gold_prism_clear_desc">Menangkan medali emas di Prism Clear</string>
     <string name="prism_clear_undo">Urungkan</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Operator Hilang</string>
     <string name="game_missing_operators_desc">Temukan operator yang hilang (+, -, *, /) agar persamaan menjadi benar.</string>
     <string name="missing_operators_demo_title">Temukan operator yang hilang</string>
     <string name="missing_operators_demo_desc">Pilih operator agar persamaan benar. Operator dievaluasi dengan prioritas matematika standar.</string>

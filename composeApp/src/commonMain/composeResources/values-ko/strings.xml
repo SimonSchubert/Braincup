@@ -136,7 +136,7 @@
     <string name="mini_chess_difficulty_hard">어려움</string>
     <string name="mini_chess_restart">새 게임</string>
     <string name="mini_chess_move_counter">이동 %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= 스테일메이트 (무승부, 승리 아님)</string>
+    <string name="mini_chess_draw_warning">= 스테일메이트 (승리가 아닌 무승부)</string>
     <string name="pattern_sequence_prompt">매트릭스를 완성하는 조각은?</string>
     <string name="game_tap_original_targets">원래 목표물을 탭하세요</string>
     <string name="game_remember_targets">목표물을 기억하세요</string>
@@ -178,7 +178,7 @@
     <string name="solution_left">왼쪽</string>
     <string name="solution_right">오른쪽</string>
 
-    <string name="preview_vs">vs</string>
+    <string name="preview_vs">대</string>
 
     <string name="daily_challenge_title">일일 챌린지</string>
     <string name="daily_challenge_subtitle_start">연속 기록을 유지하려면 %1$d개의 게임을 플레이하세요</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">1번 위치의 도형을 탭하세요.</string>
     <string name="achievement_gold_n_back">굴러가는 기억</string>
     <string name="achievement_gold_n_back_desc">N-Back에서 금메달 획득</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">사이먼 가라사대</string>
     <string name="game_simon_says_desc">라운드마다 새 패드가 하나씩 켜집니다. 이전 라운드의 패드까지 포함해 전체 순서를 처음부터 눌러 주세요.</string>
     <string name="simon_says_demo_title">보고, 따라하기</string>
     <string name="simon_says_demo_watch">라운드마다 새 패드만 켜집니다.</string>
@@ -633,7 +633,7 @@
     <string name="normal_chess_draw_material">기물 부족으로 인한 무승부.</string>
     <string name="normal_chess_draw_repetition">반복으로 인한 무승부.</string>
     <string name="normal_chess_resign">기권</string>
-    <string name="normal_chess_quit">나가기</string>
+    <string name="normal_chess_quit">종료</string>
     <string name="normal_chess_new_game">새 게임</string>
     <string name="normal_chess_turn_white">백 차례</string>
     <string name="normal_chess_turn_black">흑 차례</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">아직 보지 못한 동물을 탭하세요.</string>
     <string name="spot_the_new_demo_seen">이건 전에 봤습니다. 한 라운드 쉬었지만 여전히 본 것으로 간주됩니다.</string>
     <string name="spot_the_new_demo_correct">정답. 본 것 목록에 추가됩니다.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">프리즘 클리어</string>
     <string name="game_prism_clear_desc">같은 타일을 바꿔 3개 이상 줄을 지우세요. 보드를 모두 비우면 승리합니다.</string>
     <string name="prism_clear_restart">다시 시작</string>
     <string name="prism_clear_stuck">더 이상 둘 수 없습니다. 수를 취소하거나 레벨을 다시 시작하세요.</string>
     <string name="achievement_gold_prism_clear">수정 같은 명료함</string>
     <string name="achievement_gold_prism_clear_desc">Prism Clear에서 금메달 획득</string>
     <string name="prism_clear_undo">실행 취소</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">빠진 연산자</string>
     <string name="game_missing_operators_desc">식을 참이 되게 하는 빠진 연산자(+, -, *, /)를 찾으세요.</string>
     <string name="missing_operators_demo_title">빠진 연산자 찾기</string>
     <string name="missing_operators_demo_desc">식이 참이 되도록 연산자를 선택하세요. 연산자는 표준 수학 우선순위로 계산됩니다.</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">최고: %1$s회</string>
     <string name="finish_new_best_tries">신기록!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">트리오</string>
     <string name="game_trio_desc">모양, 개수, 채우기 중 하나를 공유하는 카드 세 장을 찾으세요.</string>
     <string name="game_trio_howto">특징을 공유하는 카드 세 장을 탭하세요.</string>
     <string name="trio_demo_title">세 장의 세트 찾기</string>

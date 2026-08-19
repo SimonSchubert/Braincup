@@ -124,7 +124,7 @@
     <string name="cat_queens_error_zone">มีแมวได้เพียงตัวเดียวต่อโซนสี</string>
     <string name="cat_queens_error_touch">แมว 2 ตัวห้ามสัมผัสกัน</string>
     <string name="moves_label">การเดิน: %1$d</string>
-    <string name="mini_chess_thinking">ซีพียูกำลังคิด…</string>
+    <string name="mini_chess_thinking">CPU กำลังคิด…</string>
     <string name="mini_chess_round_won">รุกฆาต</string>
     <string name="mini_chess_round_lost">ซีพียูรุกฆาตคุณ</string>
     <string name="mini_chess_round_draw">เสมอ</string>
@@ -136,7 +136,7 @@
     <string name="mini_chess_difficulty_hard">ยาก</string>
     <string name="mini_chess_restart">เกมใหม่</string>
     <string name="mini_chess_move_counter">การเดิน %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= อับ (เสมอ ไม่ใช่ชนะ)</string>
+    <string name="mini_chess_draw_warning">= เสมอตาย (เสมอ ไม่ใช่ชนะ)</string>
     <string name="pattern_sequence_prompt">ชิ้นไหนเติมเต็มเมทริกซ์?</string>
     <string name="game_tap_original_targets">แตะเป้าหมายเดิม</string>
     <string name="game_remember_targets">จำเป้าหมายไว้</string>
@@ -178,7 +178,7 @@
     <string name="solution_left">ซ้าย</string>
     <string name="solution_right">ขวา</string>
 
-    <string name="preview_vs">vs</string>
+    <string name="preview_vs">เทียบกับ</string>
 
     <string name="daily_challenge_title">ความท้าทายประจำวัน</string>
     <string name="daily_challenge_subtitle_start">เล่น %1$d เกมเพื่อรักษาสตรีคของคุณ</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">แตะรูปทรงที่อยู่ในตำแหน่งที่ 1</string>
     <string name="achievement_gold_n_back">ความจำหมุนเวียน</string>
     <string name="achievement_gold_n_back_desc">ชนะเหรียญทองใน N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">ไซมอนบอก</string>
     <string name="game_simon_says_desc">แต่ละรอบจะมีปุ่มใหม่สว่างขึ้นหนึ่งปุ่ม แตะลำดับทั้งหมดตั้งแต่ต้น รวมถึงปุ่มจากรอบก่อนหน้าด้วย</string>
     <string name="simon_says_demo_title">ดู แล้วทำซ้ำ</string>
     <string name="simon_says_demo_watch">แต่ละรอบจะมีเพียงปุ่มใหม่ที่สว่างขึ้น</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">แตะสัตว์ที่คุณยังไม่เคยเห็นมาก่อน</string>
     <string name="spot_the_new_demo_seen">คุณเคยเห็นตัวนี้มาก่อน มันพักหนึ่งรอบแต่ยังนับว่าเคยเห็น</string>
     <string name="spot_the_new_demo_correct">ถูกต้อง มันเข้าร่วมกับตัวที่คุณเคยเห็นแล้ว</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">เคลียร์ปริซึม</string>
     <string name="game_prism_clear_desc">สลับกระเบื้องที่เข้าคู่กันเพื่อลบแถวที่มีสามขึ้นไป เคลียร์กระดานทั้งแผ่นเพื่อชนะ</string>
     <string name="prism_clear_restart">เริ่มใหม่</string>
     <string name="prism_clear_stuck">ไม่มีตาเดินแล้ว เลิกทำหนึ่งตาหรือเริ่มระดับใหม่</string>
     <string name="achievement_gold_prism_clear">ความใสดุจคริสตัล</string>
     <string name="achievement_gold_prism_clear_desc">ชนะเหรียญทองใน Prism Clear</string>
     <string name="prism_clear_undo">เลิกทำ</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">เครื่องหมายที่หายไป</string>
     <string name="game_missing_operators_desc">หาเครื่องหมายที่หายไป (+, -, *, /) ที่ทำให้สมการเป็นจริง</string>
     <string name="missing_operators_demo_title">หาเครื่องหมายที่หายไป</string>
     <string name="missing_operators_demo_desc">เลือกเครื่องหมายให้สมการเป็นจริง เครื่องหมายคำนวณตามลำดับความสำคัญทางคณิตศาสตร์มาตรฐาน</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">ดีที่สุด: %1$s ครั้ง</string>
     <string name="finish_new_best_tries">สถิติใหม่!</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">ทริโอ</string>
     <string name="game_trio_desc">หาไพ่สามใบที่รูป จำนวน หรือการเติมเหมือนกัน</string>
     <string name="game_trio_howto">แตะไพ่สามใบที่มีลักษณะร่วมกัน</string>
     <string name="trio_demo_title">หาชุดสามใบ</string>

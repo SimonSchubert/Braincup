@@ -124,7 +124,7 @@
     <string name="cat_queens_error_zone">1ゾーンに1匹のネコのみ</string>
     <string name="cat_queens_error_touch">2匹のネコは隣接できません</string>
     <string name="moves_label">手数: %1$d</string>
-    <string name="mini_chess_thinking">CPUが思考中…</string>
+    <string name="mini_chess_thinking">CPUが考えています…</string>
     <string name="mini_chess_round_won">チェックメイト</string>
     <string name="mini_chess_round_lost">CPUに詰まされた</string>
     <string name="mini_chess_round_draw">引き分け</string>
@@ -134,9 +134,9 @@
     <string name="mini_chess_difficulty_easy">簡単</string>
     <string name="mini_chess_difficulty_medium">普通</string>
     <string name="mini_chess_difficulty_hard">難しい</string>
-    <string name="mini_chess_restart">新しいゲーム</string>
+    <string name="mini_chess_restart">新しい対局</string>
     <string name="mini_chess_move_counter">手 %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= ステイルメイト(引き分け、勝ちではない)</string>
+    <string name="mini_chess_draw_warning">= ステイルメイト（勝ちではなく引き分け）</string>
     <string name="pattern_sequence_prompt">マトリックスを完成させるのはどれ？</string>
     <string name="game_tap_original_targets">元のターゲットをタップ</string>
     <string name="game_remember_targets">ターゲットを覚えて</string>
@@ -178,7 +178,7 @@
     <string name="solution_left">左</string>
     <string name="solution_right">右</string>
 
-    <string name="preview_vs">vs</string>
+    <string name="preview_vs">対</string>
 
     <string name="daily_challenge_title">デイリーチャレンジ</string>
     <string name="daily_challenge_subtitle_start">%1$dゲームをプレイして連続記録を保とう</string>
@@ -313,7 +313,7 @@
     <string name="n_back_demo_recall">位置 1 の図形をタップします。</string>
     <string name="achievement_gold_n_back">回転する記憶</string>
     <string name="achievement_gold_n_back_desc">N-Backで金メダルを獲得</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">サイモンセズ</string>
     <string name="game_simon_says_desc">毎ラウンド、新しいパッドが1つだけ光ります。前のラウンドのパッドも含めて、最初から順番どおりにすべてタップしてください。</string>
     <string name="simon_says_demo_title">見て、繰り返す</string>
     <string name="simon_says_demo_watch">毎ラウンド光るのは新しいパッドだけです。</string>
@@ -621,9 +621,9 @@
     <string name="normal_chess_mode_human">人と対戦</string>
     <string name="normal_chess_mode_human_subtitle">1台の端末で交互にプレイ</string>
     <string name="normal_chess_difficulty">難易度</string>
-    <string name="normal_chess_difficulty_easy">かんたん</string>
-    <string name="normal_chess_difficulty_medium">ふつう</string>
-    <string name="normal_chess_difficulty_hard">むずかしい</string>
+    <string name="normal_chess_difficulty_easy">簡単</string>
+    <string name="normal_chess_difficulty_medium">普通</string>
+    <string name="normal_chess_difficulty_hard">難しい</string>
     <string name="normal_chess_start">対局開始</string>
     <string name="normal_chess_thinking">CPUが考えています…</string>
     <string name="normal_chess_checkmate_white">チェックメイト。白の勝ち。</string>
@@ -720,14 +720,14 @@
     <string name="spot_the_new_demo_new">まだ見ていない動物をタップしてください。</string>
     <string name="spot_the_new_demo_seen">これは前に見ました。1ラウンド休みましたが、見たものとして数えられます。</string>
     <string name="spot_the_new_demo_correct">正解。見たものの仲間入りです。</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">プリズムクリア</string>
     <string name="game_prism_clear_desc">同じタイルを入れ替えて、3つ以上の並びを消しましょう。盤面をすべて空にするとクリアです。</string>
     <string name="prism_clear_restart">やり直す</string>
     <string name="prism_clear_stuck">もう動かせません。一手戻すか、レベルをやり直してください。</string>
     <string name="achievement_gold_prism_clear">クリスタルの明晰</string>
     <string name="achievement_gold_prism_clear_desc">Prism Clearで金メダルを獲得</string>
     <string name="prism_clear_undo">戻す</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">欠けた演算子</string>
     <string name="game_missing_operators_desc">式が成り立つように、足りない演算子（+、-、*、/）を見つけましょう。</string>
     <string name="missing_operators_demo_title">足りない演算子を見つける</string>
     <string name="missing_operators_demo_desc">式が成り立つ演算子を選びます。演算子は通常の数学の優先順位で評価されます。</string>
@@ -751,7 +751,7 @@
     <string name="finish_best_tries">ベスト: %1$s 回</string>
     <string name="finish_new_best_tries">自己ベスト更新！</string>
 
-    <string name="game_trio">Trio</string>
+    <string name="game_trio">トリオ</string>
     <string name="game_trio_desc">形・枚数・塗りのどれかを共有する3枚を見つけてください。</string>
     <string name="game_trio_howto">特徴を共有する3枚をタップします。</string>
     <string name="trio_demo_title">3枚のセットを見つける</string>

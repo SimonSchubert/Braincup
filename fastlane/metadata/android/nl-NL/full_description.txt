@@ -1,4 +1,4 @@
-Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 41 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
+Train je brein met leuke minigames die je geheugen, concentratie, logica en rekenvaardigheden uitdagen. Braincup biedt 42 hersentraining-oefeningen die ontworpen zijn om je geest te scherpen en je concentratie te verbeteren.
 
 <b>Hoofdrekenen</b>:
 Volg de wiskundige uitdrukkingen. Gebruik het resultaat als basis voor de volgende berekening.
@@ -107,6 +107,9 @@ Klassieke full-size Sudoku met meerdere niveaus.
 
 <b>Schaken</b>:
 Volledig schaak tegen de CPU of pass-and-play.
+
+<b>IQ-test</b>:
+30 matrixpuzzels in 15 minuten, met geschat IQ. Puur voor de lol.
 
 <b>Missing Operators</b>:
 Vind de ontbrekende operatoren (+, -, *, /) die de vergelijking waar maken.

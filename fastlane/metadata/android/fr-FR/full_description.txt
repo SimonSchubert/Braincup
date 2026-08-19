@@ -1,4 +1,4 @@
-Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 41 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
+Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 42 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
 
 <b>Calcul mental</b>:
 Suis les expressions mathématiques. Utilise le résultat pour le calcul suivant.
@@ -107,6 +107,9 @@ Sudoku classique grand format avec plusieurs difficultés.
 
 <b>Échecs</b>:
 Échecs complets contre le CPU ou en pass-and-play.
+
+<b>Test de QI</b>:
+30 grilles en 15 min. Juste pour le fun.
 
 <b>Missing Operators</b>:
 Trouvez les opérateurs manquants (+, -, *, /) qui rendent l'équation vraie.

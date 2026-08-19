@@ -1,4 +1,4 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 41 brain training exercises designed to sharpen your mind and improve concentration.
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 42 brain training exercises designed to sharpen your mind and improve concentration.
 
 <b>Mental Calculation</b>:
 Follow the mathematical expressions. Use the result as the base for the next calculation.
@@ -107,6 +107,9 @@ Classic full-size Sudoku with multiple difficulties.
 
 <b>Chess</b>:
 Full chess vs CPU or pass-and-play with a friend.
+
+<b>IQ Test</b>:
+30 matrix puzzles in 15 minutes, with an estimated IQ. Just for fun.
 
 <b>Missing Operators</b>:
 Find the missing operators (+, -, *, /) that make the equation true.

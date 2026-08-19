@@ -124,7 +124,7 @@
     <string name="cat_queens_error_zone">Un seul chat par zone de couleur</string>
     <string name="cat_queens_error_touch">2 chats ne peuvent pas se toucher</string>
     <string name="moves_label">Coups : %1$d</string>
-    <string name="mini_chess_thinking">La CPU réfléchit…</string>
+    <string name="mini_chess_thinking">L'ordinateur réfléchit…</string>
     <string name="mini_chess_round_won">Échec et mat</string>
     <string name="mini_chess_round_lost">La CPU t'a mis échec et mat</string>
     <string name="mini_chess_round_draw">Match nul</string>
@@ -136,7 +136,7 @@
     <string name="mini_chess_difficulty_hard">Difficile</string>
     <string name="mini_chess_restart">Nouvelle partie</string>
     <string name="mini_chess_move_counter">Coup %1$d / %2$d</string>
-    <string name="mini_chess_draw_warning">= pat (match nul, pas une victoire)</string>
+    <string name="mini_chess_draw_warning">= pat (nul, pas une victoire)</string>
     <string name="pattern_sequence_prompt">Quelle pièce complète la matrice ?</string>
     <string name="game_tap_original_targets">Touchez les cibles originales</string>
     <string name="game_remember_targets">Mémorisez les cibles</string>
@@ -658,7 +658,7 @@
     <string name="n_back_demo_recall">Touchez la forme à la position 1.</string>
     <string name="achievement_gold_n_back">Mémoire glissante</string>
     <string name="achievement_gold_n_back_desc">Gagnez une médaille d'or à N-Back</string>
-    <string name="game_simon_says">Simon Says</string>
+    <string name="game_simon_says">Jacques a dit</string>
     <string name="game_simon_says_desc">À chaque manche, un nouveau bouton s'allume. Touche toute la séquence depuis le début, y compris les boutons des manches précédentes.</string>
     <string name="simon_says_demo_title">Regarde, puis répète</string>
     <string name="simon_says_demo_watch">À chaque manche, seul le nouveau bouton s'allume.</string>
@@ -721,14 +721,14 @@
     <string name="spot_the_new_demo_new">Touche l'animal que tu n'as pas encore vu.</string>
     <string name="spot_the_new_demo_seen">Tu as déjà vu celui-ci. Il a passé un tour, mais il compte toujours comme vu.</string>
     <string name="spot_the_new_demo_correct">Correct. Il rejoint ceux que tu as déjà vus.</string>
-    <string name="game_prism_clear">Prism Clear</string>
+    <string name="game_prism_clear">Vider le prisme</string>
     <string name="game_prism_clear_desc">Échangez des tuiles assorties pour effacer des lignes de trois ou plus. Videz tout le plateau pour gagner.</string>
     <string name="prism_clear_restart">Recommencer</string>
     <string name="prism_clear_stuck">Plus de coups possibles. Annulez un coup ou recommencez le niveau.</string>
     <string name="achievement_gold_prism_clear">Clarté de cristal</string>
     <string name="achievement_gold_prism_clear_desc">Gagne la médaille d'or en Prism Clear</string>
     <string name="prism_clear_undo">Annuler</string>
-    <string name="game_missing_operators">Missing Operators</string>
+    <string name="game_missing_operators">Opérateurs manquants</string>
     <string name="game_missing_operators_desc">Trouvez les opérateurs manquants (+, -, *, /) qui rendent l'équation vraie.</string>
     <string name="missing_operators_demo_title">Trouvez les opérateurs manquants</string>
     <string name="missing_operators_demo_desc">Sélectionnez les opérateurs pour rendre l'équation vraie. Les opérateurs sont évalués avec la priorité mathématique standard.</string>
