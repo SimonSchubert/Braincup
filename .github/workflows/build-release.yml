@@ -5,6 +5,14 @@ on:
     tags:
       - 'v*'
 
+# apt has no default network timeout, so an unreachable Ubuntu mirror hangs the
+# job until the 6h limit instead of failing. These options bound every fetch.
+env:
+  APT_OPTS: >-
+    -o Acquire::http::Timeout=30
+    -o Acquire::https::Timeout=30
+    -o Acquire::Retries=3
+
 jobs:
   apk:
     runs-on: ubuntu-latest
@@ -159,7 +167,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v4
 
       - name: Install RPM tools
-        run: sudo apt-get install -y rpm
+        run: sudo apt-get $APT_OPTS install -y rpm
 
       - name: Build RPM
         run: ./gradlew :composeApp:packageRpm
@@ -181,6 +189,7 @@ jobs:
 
   appimage:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
 
@@ -193,11 +202,13 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      # No apt install here on purpose: appimagetool runs with
+      # --appimage-extract-and-run below, so libfuse2 is never used, and file is
+      # already on the runner image. Dropping apt-get avoids hanging forever when
+      # the Ubuntu mirror is unreachable (it has no default timeout).
       - name: Install AppImage tools
         run: |
-          sudo apt-get update
-          sudo apt-get install -y libfuse2 file
-          wget -q https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
+          wget -q --timeout=30 --tries=3 https://github.com/AppImage/appimagetool/releases/download/continuous/appimagetool-x86_64.AppImage
           chmod +x appimagetool-x86_64.AppImage
 
       - name: Build application distribution
@@ -307,8 +318,8 @@ jobs:
 
       - name: Install Flatpak and Builder
         run: |
-          sudo apt-get update
-          sudo apt-get install -y flatpak flatpak-builder
+          sudo apt-get $APT_OPTS update
+          sudo apt-get $APT_OPTS install -y flatpak flatpak-builder
           sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
           sudo flatpak install -y flathub org.freedesktop.Platform//24.08 org.freedesktop.Sdk//24.08
 
