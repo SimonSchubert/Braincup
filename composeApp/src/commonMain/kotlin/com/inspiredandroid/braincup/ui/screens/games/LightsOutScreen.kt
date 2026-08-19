@@ -45,32 +45,13 @@ internal fun ColumnScope.LightsOutContent(
         }
     }
 
-    if (compact) {
-        CompactGameRow {
-            board()
-            Column(
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                LevelHeader(uiState.level)
-                Spacer(Modifier.height(4.dp))
-                MovesLabel(uiState.moves)
-                Spacer(Modifier.height(8.dp))
-                GiveUpButton(onGiveUp = onGiveUp)
-            }
-        }
-    } else {
-        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
-        Spacer(Modifier.height(4.dp))
+    LevelPuzzleLayout(
+        level = uiState.level,
+        headerGap = 4.dp,
+        board = board,
+        actions = { GiveUpButton(onGiveUp = onGiveUp) },
+    ) {
         MovesLabel(uiState.moves, Modifier.align(Alignment.CenterHorizontally))
-        Spacer(Modifier.height(16.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            board()
-        }
-        Spacer(Modifier.height(16.dp))
-        GiveUpButton(
-            onGiveUp = onGiveUp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
-        )
     }
 }
 

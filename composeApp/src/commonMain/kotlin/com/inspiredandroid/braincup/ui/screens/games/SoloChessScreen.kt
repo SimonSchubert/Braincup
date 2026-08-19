@@ -110,45 +110,28 @@ internal fun ColumnScope.SoloChessContent(
         }
     }
 
-    if (compact) {
-        CompactGameRow {
-            board()
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                LevelHeader(uiState.level)
-                Spacer(Modifier.height(6.dp))
-                progress()
-                Spacer(Modifier.height(6.dp))
-                BoardInstructionLine(
-                    text = instruction,
-                    isError = isError,
-                    style = MaterialTheme.typography.labelMedium,
-                )
-                Spacer(Modifier.height(8.dp))
-                actions()
-            }
-        }
-    } else {
-        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
-        Spacer(Modifier.height(6.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            progress()
-        }
+    LevelPuzzleLayout(
+        level = uiState.level,
+        headerGap = 6.dp,
+        board = board,
+        actions = actions,
+    ) { compactLayout ->
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { progress() }
         Spacer(Modifier.height(6.dp))
         BoardInstructionLine(
             text = instruction,
             isError = isError,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(horizontal = 24.dp),
+            style = if (compactLayout) {
+                MaterialTheme.typography.labelMedium
+            } else {
+                MaterialTheme.typography.bodyMedium
+            },
+            modifier = if (compactLayout) {
+                Modifier
+            } else {
+                Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp)
+            },
         )
-        Spacer(Modifier.height(16.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            board()
-        }
-        Spacer(Modifier.height(16.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            actions()
-        }
     }
 }
 

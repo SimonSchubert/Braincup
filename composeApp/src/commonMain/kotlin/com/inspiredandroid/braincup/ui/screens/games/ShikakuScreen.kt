@@ -4,7 +4,6 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,7 +18,6 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
@@ -61,11 +59,7 @@ internal fun ColumnScope.ShikakuContent(
     var dragStart by remember(uiState) { mutableStateOf<Pair<Int, Int>?>(null) }
     var dragCurrent by remember(uiState) { mutableStateOf<Pair<Int, Int>?>(null) }
 
-    val boardModifier = if (compact) {
-        Modifier.heightIn(max = 260.dp).aspectRatio(cols.toFloat() / rows)
-    } else {
-        Modifier.widthIn(max = 340.dp).aspectRatio(cols.toFloat() / rows)
-    }
+    val boardModifier = puzzleBoardModifier(rows, cols, compact)
 
     val board: @Composable () -> Unit = {
         PrismCard(face = ShikakuBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {
@@ -187,42 +181,25 @@ internal fun ColumnScope.ShikakuContent(
         }
     }
 
-    if (compact) {
-        CompactGameRow {
-            board()
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                LevelHeader(uiState.level)
-                Spacer(Modifier.height(4.dp))
-                Text(
-                    text = stringResource(Res.string.game_shikaku_howto),
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                    textAlign = TextAlign.Center,
-                )
-                Spacer(Modifier.height(8.dp))
-                GiveUpButton(onGiveUp = onGiveUp)
-            }
-        }
-    } else {
-        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
-        Spacer(Modifier.height(4.dp))
-        Text(
+    LevelPuzzleLayout(
+        level = uiState.level,
+        headerGap = 4.dp,
+        board = board,
+        actions = { GiveUpButton(onGiveUp = onGiveUp) },
+    ) { compactLayout ->
+        BoardInstructionLine(
             text = stringResource(Res.string.game_shikaku_howto),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(horizontal = 24.dp),
-        )
-        Spacer(Modifier.height(16.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            board()
-        }
-        Spacer(Modifier.height(16.dp))
-        GiveUpButton(
-            onGiveUp = onGiveUp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            isError = false,
+            style = if (compactLayout) {
+                MaterialTheme.typography.labelMedium
+            } else {
+                MaterialTheme.typography.bodyMedium
+            },
+            modifier = if (compactLayout) {
+                Modifier
+            } else {
+                Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp)
+            },
         )
     }
 }

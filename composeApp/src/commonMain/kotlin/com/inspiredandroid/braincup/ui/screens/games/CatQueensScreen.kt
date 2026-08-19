@@ -4,7 +4,6 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -50,11 +49,7 @@ internal fun ColumnScope.CatQueensContent(
 
     val placed = uiState.cats.size
     val solvedLook = placed == n && uiState.invalidCats.isEmpty()
-    val boardModifier = if (compact) {
-        Modifier.heightIn(max = 260.dp).aspectRatio(1f)
-    } else {
-        Modifier.widthIn(max = 340.dp).aspectRatio(1f)
-    }
+    val boardModifier = puzzleBoardModifier(n, n, compact)
 
     // The board sits on a beveled prism tray, matching the Mini Chess board's raised look.
     val board: @Composable () -> Unit = {
@@ -159,45 +154,27 @@ internal fun ColumnScope.CatQueensContent(
     }
     val isError = uiState.violation != null
 
-    if (compact) {
-        CompactGameRow {
-            board()
-            Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                LevelHeader(uiState.level)
-                Spacer(Modifier.height(6.dp))
-                progress()
-                Spacer(Modifier.height(6.dp))
-                BoardInstructionLine(
-                    text = instruction,
-                    isError = isError,
-                    style = MaterialTheme.typography.labelMedium,
-                )
-                Spacer(Modifier.height(8.dp))
-                GiveUpButton(onGiveUp = onGiveUp)
-            }
-        }
-    } else {
-        LevelHeader(uiState.level, Modifier.align(Alignment.CenterHorizontally))
-        Spacer(Modifier.height(6.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            progress()
-        }
+    LevelPuzzleLayout(
+        level = uiState.level,
+        headerGap = 6.dp,
+        board = board,
+        actions = { GiveUpButton(onGiveUp = onGiveUp) },
+    ) { compactLayout ->
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { progress() }
         Spacer(Modifier.height(6.dp))
         BoardInstructionLine(
             text = instruction,
             isError = isError,
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-                .padding(horizontal = 24.dp),
-        )
-        Spacer(Modifier.height(16.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-            board()
-        }
-        Spacer(Modifier.height(16.dp))
-        GiveUpButton(
-            onGiveUp = onGiveUp,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            style = if (compactLayout) {
+                MaterialTheme.typography.labelMedium
+            } else {
+                MaterialTheme.typography.bodyMedium
+            },
+            modifier = if (compactLayout) {
+                Modifier
+            } else {
+                Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp)
+            },
         )
     }
 }

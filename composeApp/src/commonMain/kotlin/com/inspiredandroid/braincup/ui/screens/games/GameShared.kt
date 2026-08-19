@@ -223,3 +223,61 @@ internal fun DrawScope.drawPuzzleGridLines(rows: Int, cols: Int, color: Color, s
         drawLine(color, Offset(0f, y), Offset(size.width, y), strokeWidth = strokeWidth)
     }
 }
+
+/**
+ * Board sizing for the canvas puzzles: square boards cap on the short edge so the whole grid stays
+ * on screen, and the aspect ratio comes from the grid itself so non-square boards are not stretched.
+ * Compact height trades width for height because the side panel is beside the board, not under it.
+ */
+internal fun puzzleBoardModifier(rows: Int, cols: Int, compact: Boolean): Modifier = if (compact) {
+    Modifier.heightIn(max = 260.dp).aspectRatio(cols.toFloat() / rows)
+} else {
+    Modifier.widthIn(max = 340.dp).aspectRatio(cols.toFloat() / rows)
+}
+
+/**
+ * The shape every level-based puzzle screen has: a level heading, some status under it, the board,
+ * and the actions that end the round.
+ *
+ * The two layouts are different enough to be worth branching rather than reflowing. On a tall screen
+ * the parts stack; on a short one there is no vertical room, so the board moves beside its panel
+ * ([CompactGameRow]) and the status text drops to a smaller style. [status] is handed which layout it
+ * is in so callers can pick that style, and is a slot rather than a string because some puzzles put
+ * two things there (a progress counter and an instruction line) and some put nothing.
+ *
+ * [headerGap] exists because the puzzles carrying a progress counter breathe a little wider under the
+ * heading than the ones carrying a single line.
+ *
+ * Tower of Hanoi and Prism Clear deliberately do not use this: Hanoi puts its message *below* the
+ * board in a fixed-height box to stop the board jumping, and Prism Clear shows its line only while
+ * the board is stuck. Bending either into this signature would cost more parameters than it saves.
+ */
+@Composable
+internal fun ColumnScope.LevelPuzzleLayout(
+    level: Int,
+    headerGap: Dp,
+    board: @Composable () -> Unit,
+    actions: @Composable () -> Unit,
+    status: @Composable ColumnScope.(compact: Boolean) -> Unit,
+) {
+    if (LocalIsCompactHeight.current) {
+        CompactGameRow {
+            board()
+            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                LevelHeader(level)
+                Spacer(Modifier.height(headerGap))
+                status(true)
+                Spacer(Modifier.height(8.dp))
+                actions()
+            }
+        }
+    } else {
+        LevelHeader(level, Modifier.align(Alignment.CenterHorizontally))
+        Spacer(Modifier.height(headerGap))
+        status(false)
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { board() }
+        Spacer(Modifier.height(16.dp))
+        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { actions() }
+    }
+}
