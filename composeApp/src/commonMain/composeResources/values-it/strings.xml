@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Uscire dal gioco?</string>
     <string name="quit_game_message">I tuoi progressi in questa partita non verranno salvati.</string>
-    <string name="game_goal">Obiettivo: %1$d</string>
+    <string name="game_goal_label">Obiettivo</string>
     <string name="game_follow_directions">Segui le istruzioni:</string>
     <string name="game_highest_value">Quale ha il valore più alto?</string>
     <string name="game_sudoku_instruction">Riempi la griglia in modo che ogni riga, colonna e blocco contenga ogni cifra una volta</string>

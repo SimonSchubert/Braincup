@@ -153,7 +153,7 @@
 
     <string name="quit_game_title">Έξοδος από το παιχνίδι;</string>
     <string name="quit_game_message">Η πρόοδός σας σε αυτό το παιχνίδι δεν θα αποθηκευτεί.</string>
-    <string name="game_goal">Στόχος: %1$d</string>
+    <string name="game_goal_label">Στόχος</string>
     <string name="game_follow_directions">Ακολουθήστε τις οδηγίες:</string>
     <string name="game_highest_value">Ποια είναι η υψηλότερη αξία;</string>
     <string name="game_sudoku_instruction">Γεμίστε το πλέγμα έτσι ώστε κάθε γραμμή, στήλη και μπλοκ να περιέχει κάθε ψηφίο μία φορά</string>

@@ -20,39 +20,42 @@ internal fun ColumnScope.PatternSequenceContent(
     onAnswer: (String) -> Unit,
 ) {
     val compact = LocalIsCompactHeight.current
-    // A rule can govern figure size, so an option only reads correctly when it is drawn at the
-    // exact scale the matrix draws it at: same tile size, and an inset that cancels the wider
-    // tile bevel (see MatrixBoardParts).
-    val cellSize = if (compact) 50.dp else 62.dp
 
-    val matrix: @Composable () -> Unit = { MatrixBoard(uiState.matrix, cellSize) }
-    val options: @Composable () -> Unit = {
-        OptionBoard(
-            optionRows = uiState.optionRows,
-            optionColumns = uiState.optionColumns,
-            cellSize = cellSize,
-            onSelect = { index -> onAnswer(index.toString()) },
+    if (!compact) {
+        Text(
+            text = stringResource(Res.string.pattern_sequence_prompt),
+            style = MaterialTheme.typography.bodyLarge,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp),
         )
+        Spacer(Modifier.height(16.dp))
     }
 
-    if (compact) {
-        CompactGameRow {
-            matrix()
-            options()
+    // A rule can govern figure size, so an option only reads correctly when it is drawn at the
+    // exact scale the matrix draws it at: MatrixBoardLayout hands both boards one size, and
+    // MatrixBoardParts insets the option tile to cancel its wider bevel.
+    MatrixBoardLayout(uiState.optionColumns) { cellSize ->
+        val matrix: @Composable () -> Unit = { MatrixBoard(uiState.matrix, cellSize) }
+        val options: @Composable () -> Unit = {
+            OptionBoard(
+                optionRows = uiState.optionRows,
+                optionColumns = uiState.optionColumns,
+                cellSize = cellSize,
+                onSelect = { index -> onAnswer(index.toString()) },
+            )
         }
-        return
-    }
 
-    Text(
-        text = stringResource(Res.string.pattern_sequence_prompt),
-        style = MaterialTheme.typography.bodyLarge,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp),
-    )
-    Spacer(Modifier.height(16.dp))
-    Box(Modifier.align(Alignment.CenterHorizontally)) { matrix() }
-    Spacer(Modifier.height(24.dp))
-    Box(Modifier.align(Alignment.CenterHorizontally)) { options() }
+        if (compact) {
+            CompactGameRow {
+                matrix()
+                options()
+            }
+        } else {
+            Box(Modifier.align(Alignment.CenterHorizontally)) { matrix() }
+            Spacer(Modifier.height(24.dp))
+            Box(Modifier.align(Alignment.CenterHorizontally)) { options() }
+        }
+    }
 }
 
 @DevicePreviews

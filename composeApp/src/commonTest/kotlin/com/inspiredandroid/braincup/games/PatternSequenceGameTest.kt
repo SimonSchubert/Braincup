@@ -6,6 +6,8 @@ import com.inspiredandroid.braincup.games.matrix.MatrixAttribute
 import com.inspiredandroid.braincup.games.matrix.MatrixGenerator
 import com.inspiredandroid.braincup.games.matrix.MatrixProblem
 import com.inspiredandroid.braincup.games.matrix.MatrixRule
+import com.inspiredandroid.braincup.games.matrix.SIZE_STEPS
+import com.inspiredandroid.braincup.games.matrix.SPREAD_SIZE_STEPS
 import kotlin.math.abs
 import kotlin.random.Random
 import kotlin.test.Test
@@ -18,7 +20,15 @@ class PatternSequenceGameTest {
     fun everyRowFollowsTheDeclaredRule() {
         forEachProblem { problem, label ->
             for ((attribute, rule) in problem.rules) {
-                val rows = problem.matrix.map { it.spec.valueOf(attribute) }.chunked(3)
+                // Size can be drawn from a domain that skips a step, so read the rows as positions
+                // in that domain: a progression is consecutive there, not in the raw value.
+                val domain = if (attribute == MatrixAttribute.SIZE) sizeDomain(problem) else null
+                val rows = problem.matrix
+                    .map { panel ->
+                        val value = panel.spec.valueOf(attribute)
+                        domain?.indexOf(value) ?: value
+                    }
+                    .chunked(3)
                 assertTrue(rowsFollow(rule, attribute, rows), "$label: $attribute does not follow $rule in $rows")
             }
         }
@@ -162,6 +172,13 @@ class PatternSequenceGameTest {
     }
 
     private fun forEachProblem(check: (MatrixProblem, String) -> Unit) = forEachProblem { problem, label, _ -> check(problem, label) }
+
+    /** Which size steps this item draws from; the sub-grid halves every slot, so it skips one. */
+    private fun sizeDomain(problem: MatrixProblem): List<Int> = if (MatrixAttribute.POSITION in problem.governedAttributes) {
+        SPREAD_SIZE_STEPS
+    } else {
+        (0 until SIZE_STEPS).toList()
+    }
 
     private fun rowsFollow(rule: MatrixRule, attribute: MatrixAttribute, rows: List<List<Int>>): Boolean = when (rule) {
         MatrixRule.CONSTANT -> rows.all { it.distinct().size == 1 }

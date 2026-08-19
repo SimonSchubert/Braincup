@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">게임을 종료할까요?</string>
     <string name="quit_game_message">이 게임의 진행 상황은 저장되지 않습니다.</string>
-    <string name="game_goal">목표: %1$d</string>
+    <string name="game_goal_label">목표</string>
     <string name="game_follow_directions">지시를 따르세요:</string>
     <string name="game_highest_value">어떤 것이 가장 높은 값을 가지고 있나요?</string>
     <string name="game_sudoku_instruction">각 행, 열, 블록에 각 숫자가 한 번씩 들어가도록 그리드를 채우세요</string>

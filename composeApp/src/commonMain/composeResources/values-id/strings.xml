@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Keluar dari permainan?</string>
     <string name="quit_game_message">Kemajuanmu di permainan ini tidak akan disimpan.</string>
-    <string name="game_goal">Target: %1$d</string>
+    <string name="game_goal_label">Target</string>
     <string name="game_follow_directions">Ikuti petunjuk:</string>
     <string name="game_highest_value">Mana yang nilainya paling tinggi?</string>
     <string name="game_sudoku_instruction">Isi kotak agar setiap baris, kolom dan blok berisi setiap angka satu kali</string>

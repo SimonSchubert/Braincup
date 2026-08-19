@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">退出游戏？</string>
     <string name="quit_game_message">本局进度将不会保存。</string>
-    <string name="game_goal">目标：%1$d</string>
+    <string name="game_goal_label">目标</string>
     <string name="game_follow_directions">按照指示操作：</string>
     <string name="game_highest_value">哪个值最大？</string>
     <string name="game_sudoku_instruction">填充网格，使每行、列和方块都包含每个数字一次</string>

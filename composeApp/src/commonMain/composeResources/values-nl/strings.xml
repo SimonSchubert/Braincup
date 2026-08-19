@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Spel verlaten?</string>
     <string name="quit_game_message">Je voortgang in dit spel wordt niet opgeslagen.</string>
-    <string name="game_goal">Doel: %1$d</string>
+    <string name="game_goal_label">Doel</string>
     <string name="game_follow_directions">Volg de aanwijzingen:</string>
     <string name="game_highest_value">Welke heeft de hoogste waarde?</string>
     <string name="game_sudoku_instruction">Vul het raster in zodat elke rij, kolom en blok elk cijfer één keer bevat</string>

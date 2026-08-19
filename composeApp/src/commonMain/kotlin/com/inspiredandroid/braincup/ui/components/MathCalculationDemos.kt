@@ -46,7 +46,6 @@ import braincup.composeapp.generated.resources.chain_calculation_demo_title
 import braincup.composeapp.generated.resources.fraction_calculation_demo_title
 import braincup.composeapp.generated.resources.game_chain_calculation_desc
 import braincup.composeapp.generated.resources.game_fraction_calculation_desc
-import braincup.composeapp.generated.resources.game_goal
 import braincup.composeapp.generated.resources.game_highest_value
 import braincup.composeapp.generated.resources.game_mental_calculation_desc
 import braincup.composeapp.generated.resources.game_sherlock_calculation_desc
@@ -287,73 +286,77 @@ fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
         caption = Res.string.missing_operators_demo_desc,
         modifier = modifier,
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(10.dp),
-        ) {
-            MathText(text = "12", style = MaterialTheme.typography.displaySmall)
-
-            // First slot: highlighted when animationStep == 0, has value / when animationStep >= 1
-            val firstBorder = if (animationStep == 0) {
-                BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
-            } else {
-                BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-            }
-            Box(
-                modifier = Modifier
-                    .size(44.dp)
-                    .background(
-                        color = if (animationStep == 0) {
-                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
-                        } else {
-                            MaterialTheme.colorScheme.surfaceVariant
-                        },
-                        shape = PrismSlot,
-                    )
-                    .border(
-                        border = firstBorder,
-                        shape = PrismSlot,
-                    ),
-                contentAlignment = Alignment.Center,
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            GoalHeader(value = 5)
+            Spacer(Modifier.height(16.dp))
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(10.dp),
             ) {
-                MathText(
-                    text = if (animationStep >= 1) "/" else " ",
-                    style = MaterialTheme.typography.titleLarge,
-                )
-            }
+                MathText(text = "12", style = MaterialTheme.typography.displaySmall)
 
-            MathText(text = "4", style = MaterialTheme.typography.displaySmall)
-
-            // Second slot: highlighted when animationStep == 1, has value + when animationStep >= 2
-            val secondBorder = if (animationStep == 1) {
-                BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
-            } else {
-                BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
-            }
-            Box(
-                modifier = Modifier
-                    .size(44.dp)
-                    .background(
-                        color = if (animationStep == 1) {
-                            MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
-                        } else {
-                            MaterialTheme.colorScheme.surfaceVariant
-                        },
-                        shape = PrismSlot,
+                // First slot: highlighted when animationStep == 0, has value / when animationStep >= 1
+                val firstBorder = if (animationStep == 0) {
+                    BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
+                } else {
+                    BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                }
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .background(
+                            color = if (animationStep == 0) {
+                                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+                            } else {
+                                MaterialTheme.colorScheme.surfaceVariant
+                            },
+                            shape = PrismSlot,
+                        )
+                        .border(
+                            border = firstBorder,
+                            shape = PrismSlot,
+                        ),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    MathText(
+                        text = if (animationStep >= 1) "/" else " ",
+                        style = MaterialTheme.typography.titleLarge,
                     )
-                    .border(
-                        border = secondBorder,
-                        shape = PrismSlot,
-                    ),
-                contentAlignment = Alignment.Center,
-            ) {
-                MathText(
-                    text = if (animationStep >= 2) "+" else " ",
-                    style = MaterialTheme.typography.titleLarge,
-                )
-            }
+                }
 
-            MathText(text = "2 = 5", style = MaterialTheme.typography.displaySmall)
+                MathText(text = "4", style = MaterialTheme.typography.displaySmall)
+
+                // Second slot: highlighted when animationStep == 1, has value + when animationStep >= 2
+                val secondBorder = if (animationStep == 1) {
+                    BorderStroke(2.5.dp, MaterialTheme.colorScheme.primary)
+                } else {
+                    BorderStroke(1.dp, MaterialTheme.colorScheme.outline)
+                }
+                Box(
+                    modifier = Modifier
+                        .size(44.dp)
+                        .background(
+                            color = if (animationStep == 1) {
+                                MaterialTheme.colorScheme.primaryContainer.copy(alpha = 0.3f)
+                            } else {
+                                MaterialTheme.colorScheme.surfaceVariant
+                            },
+                            shape = PrismSlot,
+                        )
+                        .border(
+                            border = secondBorder,
+                            shape = PrismSlot,
+                        ),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    MathText(
+                        text = if (animationStep >= 2) "+" else " ",
+                        style = MaterialTheme.typography.titleLarge,
+                    )
+                }
+
+                MathText(text = "2", style = MaterialTheme.typography.displaySmall)
+            }
         }
     }
 }
@@ -539,10 +542,7 @@ fun SherlockCalculationDemo(modifier: Modifier = Modifier) {
         modifier = modifier,
     ) { revealed ->
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(
-                text = stringResource(Res.string.game_goal, 21),
-                style = MaterialTheme.typography.headlineMedium.copy(fontFamily = numberFontFamily()),
-            )
+            GoalHeader(value = 21)
             Spacer(Modifier.height(16.dp))
             // The available numbers; the example combines them to hit the goal.
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {

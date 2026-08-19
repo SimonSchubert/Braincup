@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">गेम छोड़ें?</string>
     <string name="quit_game_message">इस गेम की प्रगति सहेजी नहीं जाएगी।</string>
-    <string name="game_goal">लक्ष्य: %1$d</string>
+    <string name="game_goal_label">लक्ष्य</string>
     <string name="game_follow_directions">निर्देशों का पालन करें:</string>
     <string name="game_highest_value">किसका मूल्य सबसे अधिक है?</string>
     <string name="game_sudoku_instruction">ग्रिड को इस तरह भरें कि हर पंक्ति, स्तंभ और ब्लॉक में हर अंक एक बार आए</string>

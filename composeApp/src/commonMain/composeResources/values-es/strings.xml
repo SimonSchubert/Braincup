@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">¿Salir del juego?</string>
     <string name="quit_game_message">Tu progreso en esta partida no se guardará.</string>
-    <string name="game_goal">Meta: %1$d</string>
+    <string name="game_goal_label">Meta</string>
     <string name="game_follow_directions">Sigue las instrucciones:</string>
     <string name="game_highest_value">¿Cuál tiene el valor más alto?</string>
     <string name="game_sudoku_instruction">Rellena la cuadrícula para que cada fila, columna y bloque contenga cada dígito una vez</string>

@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">الخروج من اللعبة؟</string>
     <string name="quit_game_message">لن يتم حفظ تقدمك في هذه اللعبة.</string>
-    <string name="game_goal">الهدف: %1$d</string>
+    <string name="game_goal_label">الهدف</string>
     <string name="game_follow_directions">اتبع التعليمات:</string>
     <string name="game_highest_value">أيهما له القيمة الأعلى؟</string>
     <string name="game_sudoku_instruction">املأ الشبكة بحيث يحتوي كل صف وعمود وكتلة على كل رقم مرة واحدة</string>

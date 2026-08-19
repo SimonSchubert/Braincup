@@ -231,6 +231,26 @@ class ScreenshotTest {
         }
     }
 
+    /**
+     * Item 28 at this seed governs size by progression while position puts every figure on the 2x2
+     * sub-grid, which halves each slot. That combination once left an option and its near-miss
+     * distractor under 4dp apart, and no golden covered it.
+     */
+    @Test
+    fun iqTestPlaySizeOnSubGrid() {
+        paparazzi.snap {
+            IqTestPlayScreen(
+                uiState = createIqTestPlayUiState(itemIndex = 28, selectedOption = null),
+                timeRemainingMillis = 2 * 60_000L + 30_000L,
+                onSelect = {},
+                onPrevious = {},
+                onNext = {},
+                onFinish = {},
+                onRequestQuit = {},
+            )
+        }
+    }
+
     @Test
     fun iqTestResultAverage() {
         paparazzi.snap {

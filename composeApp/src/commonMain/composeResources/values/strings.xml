@@ -154,7 +154,7 @@
 
     <string name="quit_game_title">Quit game?</string>
     <string name="quit_game_message">Your progress in this game will not be saved.</string>
-    <string name="game_goal">Goal: %1$d</string>
+    <string name="game_goal_label">Goal</string>
     <string name="game_follow_directions">Follow the directions:</string>
     <string name="game_highest_value">Which has the highest value?</string>
     <string name="game_sudoku_instruction">Fill the grid so each row, column and block contains every digit once</string>

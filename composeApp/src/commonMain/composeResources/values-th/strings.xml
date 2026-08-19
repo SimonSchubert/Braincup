@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">ออกจากเกม?</string>
     <string name="quit_game_message">ความคืบหน้าในเกมนี้จะไม่ถูกบันทึก</string>
-    <string name="game_goal">เป้าหมาย: %1$d</string>
+    <string name="game_goal_label">เป้าหมาย</string>
     <string name="game_follow_directions">ทำตามคำแนะนำ:</string>
     <string name="game_highest_value">อันไหนมีค่าสูงสุด?</string>
     <string name="game_sudoku_instruction">เติมตารางให้แต่ละแถว คอลัมน์ และบล็อก มีตัวเลขแต่ละตัวหนึ่งครั้ง</string>

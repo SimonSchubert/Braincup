@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Thoát trò chơi?</string>
     <string name="quit_game_message">Tiến trình của bạn trong trò chơi này sẽ không được lưu.</string>
-    <string name="game_goal">Mục tiêu: %1$d</string>
+    <string name="game_goal_label">Mục tiêu</string>
     <string name="game_follow_directions">Làm theo hướng dẫn:</string>
     <string name="game_highest_value">Cái nào có giá trị cao nhất?</string>
     <string name="game_sudoku_instruction">Điền vào lưới sao cho mỗi hàng, cột và khối chứa mỗi chữ số một lần</string>

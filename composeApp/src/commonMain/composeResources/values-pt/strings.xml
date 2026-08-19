@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Sair do jogo?</string>
     <string name="quit_game_message">O teu progresso neste jogo não será guardado.</string>
-    <string name="game_goal">Meta: %1$d</string>
+    <string name="game_goal_label">Meta</string>
     <string name="game_follow_directions">Siga as instruções:</string>
     <string name="game_highest_value">Qual tem o maior valor?</string>
     <string name="game_sudoku_instruction">Preencha a grade para que cada linha, coluna e bloco contenha cada dígito uma vez</string>

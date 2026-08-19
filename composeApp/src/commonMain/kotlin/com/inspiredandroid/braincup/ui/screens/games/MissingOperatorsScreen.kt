@@ -59,10 +59,6 @@ internal fun ColumnScope.MissingOperatorsContent(
                     )
                 }
             }
-            MathText(
-                text = " = ${uiState.targetResult}",
-                style = MaterialTheme.typography.displaySmall,
-            )
         }
     }
 
@@ -106,6 +102,8 @@ internal fun ColumnScope.MissingOperatorsContent(
             Column(
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
+                GoalHeader(value = uiState.targetResult)
+                Spacer(Modifier.height(8.dp))
                 EquationRow()
                 Spacer(Modifier.height(16.dp))
                 if (!isFeedback) {
@@ -121,6 +119,8 @@ internal fun ColumnScope.MissingOperatorsContent(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier.fillMaxWidth(),
         ) {
+            GoalHeader(value = uiState.targetResult)
+            Spacer(Modifier.height(16.dp))
             EquationRow()
             Spacer(Modifier.height(32.dp))
             KeysRow()

@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Вийти з гри?</string>
     <string name="quit_game_message">Ваш прогрес у цій грі не буде збережено.</string>
-    <string name="game_goal">Ціль: %1$d</string>
+    <string name="game_goal_label">Ціль</string>
     <string name="game_follow_directions">Дотримуйтесь інструкцій:</string>
     <string name="game_highest_value">Що має найбільше значення?</string>
     <string name="game_sudoku_instruction">Заповніть сітку так, щоб кожен рядок, стовпець і блок містили кожну цифру один раз</string>

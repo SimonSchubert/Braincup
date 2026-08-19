@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Wyjść z gry?</string>
     <string name="quit_game_message">Twój postęp w tej grze nie zostanie zapisany.</string>
-    <string name="game_goal">Cel: %1$d</string>
+    <string name="game_goal_label">Cel</string>
     <string name="game_follow_directions">Postępuj zgodnie z instrukcjami:</string>
     <string name="game_highest_value">Która ma najwyższą wartość?</string>
     <string name="game_sudoku_instruction">Wypełnij siatkę tak, aby każdy wiersz, kolumna i blok zawierały każdą cyfrę raz</string>

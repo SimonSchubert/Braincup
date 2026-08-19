@@ -12,7 +12,6 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.tools.Calculator
 import com.inspiredandroid.braincup.ui.components.*
-import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableSet
@@ -49,11 +48,7 @@ internal fun ColumnScope.SherlockCalculationContent(
         }
 
         val goalText: @Composable (Modifier) -> Unit = { mod ->
-            Text(
-                text = annotateNumbers(stringResource(Res.string.game_goal, uiState.result)),
-                style = MaterialTheme.typography.headlineMedium,
-                modifier = mod,
-            )
+            GoalHeader(value = uiState.result, modifier = mod)
         }
 
         val expressionRow: @Composable (Modifier) -> Unit = { mod ->

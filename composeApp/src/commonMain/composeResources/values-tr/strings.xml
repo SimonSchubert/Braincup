@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">Oyundan çık?</string>
     <string name="quit_game_message">Bu oyundaki ilerlemen kaydedilmeyecek.</string>
-    <string name="game_goal">Hedef: %1$d</string>
+    <string name="game_goal_label">Hedef</string>
     <string name="game_follow_directions">Yönergeleri takip edin:</string>
     <string name="game_highest_value">Hangisinin değeri en yüksek?</string>
     <string name="game_sudoku_instruction">Izgarayı her satır, sütun ve bloğun her rakamı bir kez içerecek şekilde doldurun</string>

@@ -19,7 +19,7 @@
 
     <string name="quit_game_title">ゲームを終了しますか？</string>
     <string name="quit_game_message">このゲームの進行状況は保存されません。</string>
-    <string name="game_goal">目標：%1$d</string>
+    <string name="game_goal_label">目標</string>
     <string name="game_follow_directions">指示に従ってください：</string>
     <string name="game_highest_value">どれが最も高い値ですか？</string>
     <string name="game_sudoku_instruction">各行、列、ブロックが各数字を1回ずつ含むようにグリッドを埋めてください</string>
