@@ -162,6 +162,10 @@ class UserStorage(
         const val KEY_PEG_SOLITAIRE_SOLVED = "peg_solitaire_solved"
         const val KEY_PEG_SOLITAIRE_PERFECT = "peg_solitaire_perfect"
         const val KEY_IQ_TEST_RESULTS = "iq_test_results"
+
+        // Kept apart from the history because the history is capped: once the twenty-first attempt
+        // pushes an old personal best off the end, the best is only recoverable from here.
+        const val KEY_IQ_TEST_BEST_RAW = "iq_test_best_raw"
         const val SESSION_GAME_COUNT = 4 // one game per GameCategory (MEMORY, LOGIC, PERCEPTION, MATH)
         const val SESSION_COMPLETION_XP = 50
 
@@ -169,6 +173,9 @@ class UserStorage(
 
         /** Attempts kept on disk. The per-game score history is unbounded; do not repeat that here. */
         const val IQ_TEST_HISTORY_LIMIT = 20
+
+        /** Fields every stored attempt starts with. See [getIqTestResults] before growing this. */
+        const val IQ_TEST_RECORD_FIELDS = 4
 
         const val IQ_TEST_HIGH_ACHIEVEMENT_IQ = 130
 
@@ -499,6 +506,9 @@ class UserStorage(
             KEY_IQ_TEST_RESULTS,
             kept.joinToString(",") { "${it.epochMillis}/${it.seed}/${it.rawScore}/${it.durationSeconds}" },
         )
+        if (previousBest == null || rawScore > previousBest) {
+            store.putInt(KEY_IQ_TEST_BEST_RAW, rawScore)
+        }
 
         val iq = IqScoring.iqFor(rawScore)
         unlockAchievement(Achievements.IQ_TEST_COMPLETED)
@@ -515,13 +525,21 @@ class UserStorage(
         )
     }
 
+    /**
+     * Read history back, tolerating records written by another version of the app.
+     *
+     * A record is accepted as long as it starts with the four fields below, so a later version may
+     * append a fifth without this build discarding the row, and this build's rows survive being
+     * read by that version. Rewriting history in the older format drops any appended field, which
+     * is why anything appended later has to be optional rather than load-bearing.
+     */
     fun getIqTestResults(): List<IqTestRecord> = store
         .getStringOrNull(KEY_IQ_TEST_RESULTS)
         .orEmpty()
         .split(",")
         .mapNotNull { entry ->
             val parts = entry.split("/")
-            if (parts.size != 4) return@mapNotNull null
+            if (parts.size < IQ_TEST_RECORD_FIELDS) return@mapNotNull null
             IqTestRecord(
                 epochMillis = parts[0].toLongOrNull() ?: return@mapNotNull null,
                 seed = parts[1].toLongOrNull() ?: return@mapNotNull null,
@@ -530,7 +548,18 @@ class UserStorage(
             )
         }
 
-    fun getBestIqTestRawScore(): Int? = getIqTestResults().maxOfOrNull { it.rawScore }
+    /**
+     * The highest raw score ever recorded, which outlives the capped history.
+     *
+     * Falls back to the history so an install that predates [KEY_IQ_TEST_BEST_RAW] reports its real
+     * best on first read instead of null, and takes the larger of the two so a rewritten history can
+     * never walk the stored best backwards.
+     */
+    fun getBestIqTestRawScore(): Int? {
+        val stored = store.getIntOrNull(KEY_IQ_TEST_BEST_RAW)
+        val fromHistory = getIqTestResults().maxOfOrNull { it.rawScore }
+        return listOfNotNull(stored, fromHistory).maxOrNull()
+    }
 
     /** Unlock the perfect-center milestone the first time the last peg is in the center. */
     fun markPegSolitairePerfect() {

@@ -89,6 +89,70 @@ class UserStorageIqTestTest {
         )
     }
 
+    /** The history is capped, so the best has to outlive the attempts that fall off the end. */
+    @Test
+    fun bestSurvivesAttemptsFallingOffTheHistory() {
+        val storage = storage()
+        storage.putIqTestResult(seed = 1L, rawScore = 26, durationSeconds = 60)
+        repeat(UserStorage.IQ_TEST_HISTORY_LIMIT) { attempt ->
+            storage.putIqTestResult(seed = attempt.toLong(), rawScore = 18, durationSeconds = 60)
+        }
+
+        assertTrue(storage.getIqTestResults().none { it.rawScore == 26 }, "the record should have aged out")
+        assertEquals(26, storage.getBestIqTestRawScore())
+    }
+
+    /** A worse score must not read as a personal best just because the old best aged out. */
+    @Test
+    fun personalBestDoesNotFireAgainAfterTheBestAgesOut() {
+        val storage = storage()
+        storage.putIqTestResult(seed = 1L, rawScore = 26, durationSeconds = 60)
+        repeat(UserStorage.IQ_TEST_HISTORY_LIMIT) { attempt ->
+            storage.putIqTestResult(seed = attempt.toLong(), rawScore = 18, durationSeconds = 60)
+        }
+
+        assertFalse(storage.putIqTestResult(seed = 99L, rawScore = 25, durationSeconds = 60).isPersonalBest)
+        assertTrue(storage.putIqTestResult(seed = 100L, rawScore = 27, durationSeconds = 60).isPersonalBest)
+    }
+
+    /** An install written before the best key existed still reports its real best. */
+    @Test
+    fun bestFallsBackToHistoryWhenTheKeyIsAbsent() {
+        val settings = MapSettings()
+        val storage = UserStorage(settings)
+        storage.putIqTestResult(seed = 1L, rawScore = 19, durationSeconds = 60)
+        settings.remove(settings.keys.first { it.endsWith(UserStorage.KEY_IQ_TEST_BEST_RAW) })
+
+        assertEquals(19, storage.getBestIqTestRawScore())
+    }
+
+    /** A later version may append a field; this build has to keep reading the rows it wrote. */
+    @Test
+    fun recordsWithAnAppendedFieldStillParse() {
+        val settings = MapSettings()
+        val storage = UserStorage(settings)
+        storage.putIqTestResult(seed = 1L, rawScore = 12, durationSeconds = 60)
+        val key = settings.keys.first { it.endsWith(UserStorage.KEY_IQ_TEST_RESULTS) }
+        settings.putString(key, "1755000000000/7/22/640/somethingnew,1754000000000/8/18/720")
+
+        val history = storage.getIqTestResults()
+        assertEquals(listOf(7L, 8L), history.map { it.seed })
+        assertEquals(22, history[0].rawScore)
+        assertEquals(640, history[0].durationSeconds)
+    }
+
+    /** Tolerating extra fields must not start accepting truncated ones. */
+    @Test
+    fun recordsMissingAFieldAreStillSkipped() {
+        val settings = MapSettings()
+        val storage = UserStorage(settings)
+        storage.putIqTestResult(seed = 1L, rawScore = 12, durationSeconds = 60)
+        val key = settings.keys.first { it.endsWith(UserStorage.KEY_IQ_TEST_RESULTS) }
+        settings.putString(key, "1755000000000/7/22,1754000000000/8/18/720")
+
+        assertEquals(listOf(8L), storage.getIqTestResults().map { it.seed })
+    }
+
     @Test
     fun garbledHistoryIsSkippedRatherThanCrashing() {
         val settings = MapSettings()
