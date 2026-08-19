@@ -3,14 +3,9 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.simon_says_demo_repeat
@@ -21,7 +16,6 @@ import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.composeColor
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 // Roughly matches the real game's flash pacing (SimonSaysGame.FLASH_MILLIS).
 private const val FlashOnMillis = 700L
@@ -81,17 +75,10 @@ fun SimonSaysDemo(modifier: Modifier = Modifier) {
     val litColor = if (repeating) DemoSequence.getOrNull(tappedCount - 1) else activeColor
     val cellMax = if (LocalIsCompactHeight.current) 72.dp else 96.dp
 
-    Column(
+    DemoScaffold(
+        title = Res.string.simon_says_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.simon_says_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         SimonDisc(modifier = Modifier.widthIn(max = cellMax * 2)) { index, quadrant, padModifier ->
             val color = SimonSaysGame.PADS[index]
             DemoSimonPad(

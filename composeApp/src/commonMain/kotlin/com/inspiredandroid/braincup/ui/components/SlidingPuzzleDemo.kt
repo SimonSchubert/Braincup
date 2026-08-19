@@ -7,10 +7,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,7 +18,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
@@ -35,7 +31,6 @@ import braincup.composeapp.generated.resources.sliding_puzzle_demo_title
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 private const val DemoGridSize = 3
 
@@ -119,17 +114,11 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
     val gap = 4.dp
     val step = cell + gap
 
-    Column(
+    DemoScaffold(
+        title = Res.string.sliding_puzzle_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_sliding_puzzle_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.sliding_puzzle_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         val emptyFace = MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
         val tileFace = MaterialTheme.colorScheme.primaryContainer
         val tileText = MaterialTheme.colorScheme.onPrimaryContainer
@@ -179,14 +168,6 @@ fun SlidingPuzzleDemo(modifier: Modifier = Modifier) {
                 }
             }
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_sliding_puzzle_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }
 

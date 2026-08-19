@@ -1,10 +1,8 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -17,7 +15,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
@@ -87,17 +84,11 @@ fun DigitMemoryDemo(modifier: Modifier = Modifier) {
     val accent = MaterialTheme.colorScheme.primary
     val slot = if (LocalIsCompactHeight.current) 36.dp else 44.dp
 
-    Column(
+    DemoScaffold(
+        title = Res.string.digit_memory_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_digit_memory_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.digit_memory_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Text(
             text = stringResource(
                 when (phase) {
@@ -137,13 +128,5 @@ fun DigitMemoryDemo(modifier: Modifier = Modifier) {
                 }
             }
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_digit_memory_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }

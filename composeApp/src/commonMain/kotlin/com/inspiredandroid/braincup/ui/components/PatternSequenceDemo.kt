@@ -24,7 +24,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -42,7 +41,6 @@ import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 // Distribute-three on shape, one colour throughout: every row holds the same three shapes in a
 // shifted order, so the missing corner is the one shape its row has not used yet. Mirrors the
@@ -110,17 +108,10 @@ fun PatternSequenceDemo(modifier: Modifier = Modifier) {
 
     val cell = if (LocalIsCompactHeight.current) 34.dp else 42.dp
 
-    Column(
+    DemoScaffold(
+        title = Res.string.pattern_sequence_prompt,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.pattern_sequence_prompt),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
             for (row in 0 until 3) {
                 DemoMatrixRow(row = row, highlighted = row == highlightedRow, solved = solved, cell = cell)

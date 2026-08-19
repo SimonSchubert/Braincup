@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
@@ -21,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.colored_shapes_demo_title
@@ -34,7 +32,6 @@ import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 // A fixed example: a red triangle. The shape statement is true (it IS a triangle), the colour
 // statement is false (it is red, not blue), so the score is just the shape's points.
@@ -87,17 +84,11 @@ fun ColoredShapesDemo(modifier: Modifier = Modifier) {
 
     val figureSize = if (LocalIsCompactHeight.current) 120.dp else 160.dp
 
-    Column(
+    DemoScaffold(
+        title = Res.string.colored_shapes_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_colored_shapes_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.colored_shapes_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         ShapeCanvas(figure = DemoFigure, modifier = Modifier.size(figureSize))
         Spacer(Modifier.height(16.dp))
 
@@ -137,14 +128,6 @@ fun ColoredShapesDemo(modifier: Modifier = Modifier) {
                 }
             }
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_colored_shapes_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }
 

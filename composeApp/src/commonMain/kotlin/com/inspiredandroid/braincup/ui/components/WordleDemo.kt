@@ -5,9 +5,6 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -17,12 +14,10 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_wordle_desc
@@ -33,7 +28,6 @@ import com.inspiredandroid.braincup.ui.theme.WordlePresent
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 private enum class DemoLetterState { NEUTRAL, ABSENT, PRESENT, CORRECT }
 
@@ -94,29 +88,15 @@ fun WordleDemo(modifier: Modifier = Modifier) {
 
     val tile = if (LocalIsCompactHeight.current) 40.dp else 48.dp
 
-    Column(
+    DemoScaffold(
+        title = Res.string.wordle_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_wordle_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.wordle_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
             DemoWordleRow(tiles = GuessRow, revealed = revealedGuess, tileSize = tile)
             DemoWordleRow(tiles = WinRow, revealed = revealedWin, tileSize = tile)
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_wordle_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }
 

@@ -19,7 +19,6 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.lerp
@@ -38,7 +37,6 @@ import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 private const val DemoGridSize = 4 // the real game's first grid is 4x4 with 2x2 blocks
 private const val DemoBlock = 2
@@ -152,17 +150,10 @@ fun MiniSudokuDemo(modifier: Modifier = Modifier) {
     val surface = MaterialTheme.colorScheme.surface
     val litColor = lerp(surface, SuccessGreen, 0.45f)
 
-    Column(
+    DemoScaffold(
+        title = Res.string.mini_sudoku_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.mini_sudoku_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Box(Modifier.background(gridLineColor)) {
             Column(Modifier.padding(OuterFrame)) {
                 for (row in 0 until DemoGridSize) {

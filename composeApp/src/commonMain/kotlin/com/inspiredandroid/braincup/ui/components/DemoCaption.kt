@@ -1,6 +1,10 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -9,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -85,5 +90,70 @@ fun DemoCaptionText(
             fontWeight = fontWeight,
             textAlign = TextAlign.Center,
         )
+    }
+}
+
+/** [DemoCaptionText] for captions that style part of their text, such as coloured keywords. */
+@Composable
+fun DemoCaptionText(
+    text: AnnotatedString,
+    reserveTexts: ImmutableList<String>,
+    modifier: Modifier = Modifier,
+) {
+    Box(
+        modifier = modifier.padding(horizontal = 24.dp),
+        contentAlignment = Alignment.Center,
+    ) {
+        reserveTexts.forEach { reserve ->
+            Text(
+                text = reserve,
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.alpha(0f),
+            )
+        }
+        Text(
+            text = text,
+            style = MaterialTheme.typography.bodyMedium,
+            textAlign = TextAlign.Center,
+        )
+    }
+}
+
+/**
+ * The frame every self-playing tutorial demo sits in: a bold title, the demo itself, and an
+ * optional line under it explaining what is being shown.
+ *
+ * [description] is for demos whose caption never changes. Demos that narrate their phases pass
+ * nothing and emit a [DemoCaption] inside [content] instead, so the caption reserves its height
+ * and the board above it does not shift as the wording changes.
+ */
+@Composable
+fun DemoScaffold(
+    title: StringResource,
+    modifier: Modifier = Modifier,
+    description: StringResource? = null,
+    content: @Composable ColumnScope.() -> Unit,
+) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = stringResource(title),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(Modifier.height(16.dp))
+        content()
+        if (description != null) {
+            Spacer(Modifier.height(16.dp))
+            Text(
+                text = stringResource(description),
+                style = MaterialTheme.typography.bodyMedium,
+                textAlign = TextAlign.Center,
+                modifier = Modifier.padding(horizontal = 24.dp),
+            )
+        }
     }
 }

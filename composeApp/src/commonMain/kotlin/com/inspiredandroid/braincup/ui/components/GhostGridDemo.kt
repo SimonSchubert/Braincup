@@ -27,7 +27,6 @@ import braincup.composeapp.generated.resources.ghost_grid_demo_watch
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 private const val DemoGridSize = 3
 
@@ -87,17 +86,10 @@ fun GhostGridDemo(modifier: Modifier = Modifier) {
     val tappedSet = remember(tappedCount) { DemoSequence.take(tappedCount).toSet() }
     val cellMax = gridCellMaxSize
 
-    Column(
+    DemoScaffold(
+        title = Res.string.ghost_grid_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.ghost_grid_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Column(
             modifier = Modifier.widthIn(max = cellMax * DemoGridSize),
             horizontalAlignment = Alignment.CenterHorizontally,

@@ -618,16 +618,10 @@ fun ValueComparisonDemo(modifier: Modifier = Modifier) {
         }
     }
 
-    Column(
+    DemoScaffold(
+        title = Res.string.value_comparison_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.value_comparison_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
         Text(
             text = stringResource(Res.string.game_highest_value),
             style = MaterialTheme.typography.bodyLarge,

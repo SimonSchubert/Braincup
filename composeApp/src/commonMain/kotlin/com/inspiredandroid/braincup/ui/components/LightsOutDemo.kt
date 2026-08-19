@@ -2,13 +2,9 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -17,8 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_lights_out_desc
@@ -29,7 +23,6 @@ import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 private const val DemoGridSize = 3
 
@@ -79,17 +72,11 @@ fun LightsOutDemo(modifier: Modifier = Modifier) {
 
     val cellMax = gridCellMaxSize
 
-    Column(
+    DemoScaffold(
+        title = Res.string.lights_out_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_lights_out_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.lights_out_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Column(
             modifier = Modifier.widthIn(max = cellMax * DemoGridSize),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -110,14 +97,6 @@ fun LightsOutDemo(modifier: Modifier = Modifier) {
                 }
             }
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_lights_out_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }
 

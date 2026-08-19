@@ -18,10 +18,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -75,17 +73,11 @@ fun FlagsDemo(modifier: Modifier = Modifier) {
     val round = Rounds[roundIndex]
     val flagSize = if (LocalIsCompactHeight.current) 110.dp else 150.dp
 
-    Column(
+    DemoScaffold(
+        title = Res.string.flags_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_flags_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.flags_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Image(
             painter = painterResource(flagResource(round.correct)),
             contentDescription = null,
@@ -117,13 +109,5 @@ fun FlagsDemo(modifier: Modifier = Modifier) {
                 }
             }
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_flags_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }

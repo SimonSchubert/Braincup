@@ -292,17 +292,10 @@ fun ChessMoveDemo(modifier: Modifier = Modifier) {
         legFrom.value.y + (legTo.value.y - legFrom.value.y) * progress.value,
     )
 
-    Column(
+    DemoScaffold(
+        title = Res.string.mini_chess_moves_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.mini_chess_moves_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         FlowRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
             verticalArrangement = Arrangement.spacedBy(8.dp),

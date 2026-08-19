@@ -2,9 +2,7 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.material3.MaterialTheme
@@ -27,7 +25,6 @@ import braincup.composeapp.generated.resources.schulte_demo_title
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 private const val DemoGridSize = 3
 
@@ -70,17 +67,11 @@ fun SchulteTableDemo(modifier: Modifier = Modifier) {
 
     val cellMax = gridCellMaxSize
 
-    Column(
+    DemoScaffold(
+        title = Res.string.schulte_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_schulte_instruction,
     ) {
-        Text(
-            text = stringResource(Res.string.schulte_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Column(
             modifier = Modifier.widthIn(max = cellMax * DemoGridSize),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -104,14 +95,6 @@ fun SchulteTableDemo(modifier: Modifier = Modifier) {
                 }
             }
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_schulte_instruction),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }
 

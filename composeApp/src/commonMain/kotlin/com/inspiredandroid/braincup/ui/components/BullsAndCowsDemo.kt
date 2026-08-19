@@ -35,7 +35,6 @@ import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
@@ -231,7 +230,7 @@ fun BullsAndCowsDemo(modifier: Modifier = Modifier) {
             modifier = Modifier.padding(bottom = 8.dp),
         )
 
-        DemoCaptionAnnotated(
+        DemoCaptionText(
             text = caption,
             reserveTexts = reserveCaptions,
         )
@@ -363,35 +362,6 @@ private fun coloredCaption(
             withStyle(bullStyle) { append(bullWord) }
             withStyle(plain) { append(".") }
         }
-    }
-}
-
-/**
- * Like [DemoCaptionText] but for [AnnotatedString] (coloured Bull / Cow words).
- */
-@Composable
-private fun DemoCaptionAnnotated(
-    text: AnnotatedString,
-    reserveTexts: kotlinx.collections.immutable.ImmutableList<String>,
-    modifier: Modifier = Modifier,
-) {
-    Box(
-        modifier = modifier.padding(horizontal = 24.dp),
-        contentAlignment = Alignment.Center,
-    ) {
-        reserveTexts.forEach { reserve ->
-            Text(
-                text = reserve,
-                style = MaterialTheme.typography.bodyMedium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.graphicsLayer { alpha = 0f },
-            )
-        }
-        Text(
-            text = text,
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-        )
     }
 }
 

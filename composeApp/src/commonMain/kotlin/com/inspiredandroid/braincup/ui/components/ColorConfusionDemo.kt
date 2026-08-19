@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -23,8 +22,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -96,17 +93,11 @@ fun ColorConfusionDemo(modifier: Modifier = Modifier) {
 
     val cell = gridCellMaxSize
 
-    Column(
+    DemoScaffold(
+        title = Res.string.color_confusion_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_color_confusion_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.color_confusion_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
             for (row in 0 until 3) {
                 Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
@@ -133,14 +124,6 @@ fun ColorConfusionDemo(modifier: Modifier = Modifier) {
         ) {
             Text(stringResource(Res.string.button_done), color = Color.White)
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_color_confusion_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }
 

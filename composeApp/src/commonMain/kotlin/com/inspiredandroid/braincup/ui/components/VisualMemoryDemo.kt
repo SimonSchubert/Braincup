@@ -25,8 +25,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -36,7 +34,6 @@ import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Shape
 import kotlinx.coroutines.delay
-import org.jetbrains.compose.resources.stringResource
 
 private const val DemoGridSize = 3
 
@@ -111,17 +108,11 @@ fun VisualMemoryDemo(modifier: Modifier = Modifier) {
 
     val cell = if (LocalIsCompactHeight.current) 48.dp else 60.dp
 
-    Column(
+    DemoScaffold(
+        title = Res.string.visual_memory_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
+        description = Res.string.game_visual_memory_desc,
     ) {
-        Text(
-            text = stringResource(Res.string.visual_memory_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
             for (row in 0 until DemoGridSize) {
                 Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
@@ -153,14 +144,6 @@ fun VisualMemoryDemo(modifier: Modifier = Modifier) {
                 )
             }
         }
-        Spacer(Modifier.height(16.dp))
-
-        Text(
-            text = stringResource(Res.string.game_visual_memory_desc),
-            style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Center,
-            modifier = Modifier.padding(horizontal = 24.dp),
-        )
     }
 }
 

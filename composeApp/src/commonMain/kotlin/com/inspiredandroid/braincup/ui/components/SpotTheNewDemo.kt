@@ -28,7 +28,6 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalDensity
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
@@ -246,17 +245,10 @@ fun SpotTheNewDemo(modifier: Modifier = Modifier) {
         }
     }
 
-    Column(
+    DemoScaffold(
+        title = Res.string.spot_the_new_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.spot_the_new_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Text(
             text = stringResource(Res.string.spot_the_new_demo_seen_label),
             style = MaterialTheme.typography.labelMedium,

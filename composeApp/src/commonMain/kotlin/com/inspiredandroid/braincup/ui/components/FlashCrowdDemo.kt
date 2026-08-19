@@ -161,17 +161,10 @@ fun FlashCrowdDemo(modifier: Modifier = Modifier) {
         FlashDemoPhase.ANSWER -> Res.string.flash_crowd_demo_answer
     }
 
-    Column(
+    DemoScaffold(
+        title = Res.string.flash_crowd_demo_title,
         modifier = modifier,
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(
-            text = stringResource(Res.string.flash_crowd_demo_title),
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(16.dp))
-
         Box(
             modifier = Modifier
                 .fillMaxWidth()
