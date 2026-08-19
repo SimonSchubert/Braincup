@@ -170,16 +170,17 @@ class MatrixGenerator(private val random: Random) {
             if (starts.size < 3) return null
             return starts.map { start -> List(3) { column -> (start + step * column).mod(4) } }
         }
-        val min = domain.min()
-        val max = domain.max()
-        val starts = domain.filter { start ->
-            (0..2).all { column -> start + step * column in min..max }
+        // Stepping over domain indices rather than raw values keeps this correct when the domain
+        // skips a step, which it does for size on the sub-grid. Identical to walking the values
+        // whenever the domain is contiguous.
+        val starts = domain.indices.filter { start ->
+            (0..2).all { column -> start + step * column in domain.indices }
         }
         if (starts.isEmpty()) return null
         // Fewer than three valid starts is normal for a four-value range, so rows may repeat a
         // start; the caller rejects the board only if two whole rows come out identical.
         val chosen = List(3) { starts.random(random) }
-        return chosen.map { start -> List(3) { column -> start + step * column } }
+        return chosen.map { start -> List(3) { column -> domain[start + step * column] } }
     }
 
     private fun arithmeticGrid(): List<List<Int>>? {
@@ -199,7 +200,9 @@ class MatrixGenerator(private val random: Random) {
         MatrixAttribute.TYPE -> plan.shapes.indices.toList()
         MatrixAttribute.COLOR -> plan.colors.indices.toList()
         MatrixAttribute.ROTATION -> (0 until 4).toList()
-        MatrixAttribute.SIZE -> (0 until SIZE_STEPS).toList()
+        // A governed position forces the 2x2 sub-grid, halving every slot, so the steps a rule
+        // picks from have to be spaced further apart to survive at that scale.
+        MatrixAttribute.SIZE -> if (plan.positionGoverned) SPREAD_SIZE_STEPS else (0 until SIZE_STEPS).toList()
         MatrixAttribute.NUMBER -> (1..MAX_ENTITIES).toList()
         MatrixAttribute.POSITION -> masksWith(plan.fixedNumber)
     }

@@ -31,9 +31,6 @@ fun IqTestPlayScreen(
     onFinish: () -> Unit,
     onRequestQuit: () -> Unit,
 ) {
-    val compact = LocalIsCompactHeight.current
-    val cellSize = if (compact) 44.dp else 58.dp
-
     AppScaffold(
         title = null,
         onBack = onRequestQuit,
@@ -52,6 +49,9 @@ fun IqTestPlayScreen(
             )
         },
     ) {
+        // Read inside the scaffold body: AppScaffold only provides this around its content.
+        val compact = LocalIsCompactHeight.current
+
         Text(
             text = stringResource(
                 Res.string.iq_test_item_counter,
@@ -79,26 +79,28 @@ fun IqTestPlayScreen(
 
         Spacer(Modifier.height(if (compact) 12.dp else 20.dp))
 
-        val matrix: @Composable () -> Unit = { MatrixBoard(uiState.matrix, cellSize) }
-        val options: @Composable () -> Unit = {
-            OptionBoard(
-                optionRows = uiState.optionRows,
-                optionColumns = uiState.optionColumns,
-                cellSize = cellSize,
-                onSelect = onSelect,
-                selectedIndex = uiState.selectedOption,
-            )
-        }
-
-        if (compact) {
-            CompactGameRow {
-                matrix()
-                options()
+        MatrixBoardLayout(uiState.optionColumns) { cellSize ->
+            val matrix: @Composable () -> Unit = { MatrixBoard(uiState.matrix, cellSize) }
+            val options: @Composable () -> Unit = {
+                OptionBoard(
+                    optionRows = uiState.optionRows,
+                    optionColumns = uiState.optionColumns,
+                    cellSize = cellSize,
+                    onSelect = onSelect,
+                    selectedIndex = uiState.selectedOption,
+                )
             }
-        } else {
-            Box(Modifier.align(Alignment.CenterHorizontally)) { matrix() }
-            Spacer(Modifier.height(20.dp))
-            Box(Modifier.align(Alignment.CenterHorizontally)) { options() }
+
+            if (compact) {
+                CompactGameRow {
+                    matrix()
+                    options()
+                }
+            } else {
+                Box(Modifier.align(Alignment.CenterHorizontally)) { matrix() }
+                Spacer(Modifier.height(20.dp))
+                Box(Modifier.align(Alignment.CenterHorizontally)) { options() }
+            }
         }
 
         Spacer(Modifier.height(20.dp))

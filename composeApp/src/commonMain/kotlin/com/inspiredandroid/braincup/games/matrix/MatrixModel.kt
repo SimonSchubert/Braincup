@@ -16,6 +16,19 @@ const val CENTERED_SLOT = -1
 /** Number of scale steps [MatrixEntity.sizeStep] can take. */
 const val SIZE_STEPS = 4
 
+/**
+ * Scale per size step, as a fraction of the slot the entity is drawn in. Uniform sqrt(2) ratios,
+ * so each step doubles in area and no pair is harder to tell apart than any other.
+ */
+val SIZE_SCALES = floatArrayOf(0.36f, 0.5f, 0.71f, 1f)
+
+/**
+ * Size steps a panel may use once it renders on the 2x2 sub-grid, where every slot is half as wide
+ * and adjacent steps would land only a few dp apart. Skipping step 1 keeps the three values a rule
+ * picks far enough apart to still read at that scale.
+ */
+val SPREAD_SIZE_STEPS = listOf(0, 2, 3)
+
 /** Largest entity count a panel can hold, bounded by the 2x2 sub-grid. */
 const val MAX_ENTITIES = 4
 
@@ -24,7 +37,9 @@ const val MAX_ENTITIES = 4
  *
  * Every attribute a matrix governs is visually distinguishable by construction, so two specs
  * that differ always render differently. That is what lets the option set be validated on specs
- * alone instead of on rendered pixels.
+ * alone instead of on rendered pixels. Size is the one attribute where that holds only because of
+ * how far apart [SIZE_SCALES] spaces the steps, and because a panel on the sub-grid draws from
+ * [SPREAD_SIZE_STEPS] rather than from every step; MatrixGeneratorTest pins both.
  */
 @Immutable
 data class MatrixPanelSpec(

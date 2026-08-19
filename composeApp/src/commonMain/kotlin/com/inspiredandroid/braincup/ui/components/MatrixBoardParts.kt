@@ -1,14 +1,18 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.Dp
@@ -27,6 +31,42 @@ import kotlinx.collections.immutable.ImmutableList
  * the IQ test. Both draw the same artwork from the same [MatrixPanel]s, so the parts take plain
  * panel data rather than either mode's UI state.
  */
+/**
+ * Measures the width both boards have to share and hands down the one cell size they must agree on.
+ *
+ * A rule can govern figure size, so an option only reads correctly when it is drawn at exactly the
+ * scale the matrix draws it at. That rules out sizing the two boards independently, even though the
+ * option board can want more columns than the matrix's three.
+ */
+@Composable
+internal fun MatrixBoardLayout(
+    optionColumns: Int,
+    content: @Composable ColumnScope.(cellSize: Dp) -> Unit,
+) {
+    val compact = LocalIsCompactHeight.current
+    val maxCell = gridCellMaxSize
+    BoxWithConstraints(Modifier.fillMaxWidth()) {
+        val cellSize = if (compact) {
+            // CompactGameRow sets the two boards side by side, so every column is on one line.
+            val usable = maxWidth - CompactRowPadding * 2 - CompactRowSpacing
+            val gaps = MatrixGap * 2 + OptionGap * (optionColumns - 1)
+            (usable - gaps) / (3 + optionColumns)
+        } else {
+            val usable = maxWidth - BoardMargin * 2
+            minOf(
+                (usable - MatrixGap * 2) / 3,
+                (usable - OptionGap * (optionColumns - 1)) / optionColumns,
+            )
+        }
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            content(cellSize.coerceIn(MinCellSize, maxCell))
+        }
+    }
+}
+
 @Composable
 internal fun MatrixBoard(
     matrix: ImmutableList<MatrixPanel?>,
@@ -130,6 +170,16 @@ private fun MatrixOptionTile(
 private val MatrixGap = 4.dp
 private val OptionGap = 6.dp
 private val PanelInset = 6.dp
+
+/** Breathing room left either side of a stacked board, matching the other game screens. */
+private val BoardMargin = 24.dp
+
+/** Never shrink past this; the screens scroll, so a board may run wider than a very narrow phone. */
+private val MinCellSize = 36.dp
+
+// Mirrors what CompactGameRow puts around and between its children.
+private val CompactRowPadding = 16.dp
+private val CompactRowSpacing = 24.dp
 
 /**
  * An option is a [PrismTile] while a matrix entry is a [PrismCard], and the tile's bevel eats more

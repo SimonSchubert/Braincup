@@ -17,6 +17,7 @@ import com.inspiredandroid.braincup.games.iqtest.IqTestBlueprint
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.MatrixBoard
+import com.inspiredandroid.braincup.ui.components.MatrixBoardLayout
 import com.inspiredandroid.braincup.ui.components.OptionBoard
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
@@ -31,9 +32,6 @@ fun IqTestReviewScreen(
     onNext: () -> Unit,
     onBack: () -> Unit,
 ) {
-    val compact = LocalIsCompactHeight.current
-    val cellSize = if (compact) 44.dp else 58.dp
-
     // Marking happens here rather than in the controller so the review board is built from the same
     // FeedbackCell states the mini-game uses after a wrong answer.
     val markedOptions = remember(uiState) {
@@ -57,6 +55,9 @@ fun IqTestReviewScreen(
         scrollable = true,
         provideCompactHeight = true,
     ) {
+        // Read inside the scaffold body: AppScaffold only provides this around its content.
+        val compact = LocalIsCompactHeight.current
+
         Text(
             text = stringResource(Res.string.iq_test_item_counter, uiState.itemIndex + 1, uiState.itemCount) +
                 "  ·  " +
@@ -83,19 +84,21 @@ fun IqTestReviewScreen(
 
         Spacer(Modifier.height(if (compact) 12.dp else 20.dp))
 
-        Box(Modifier.align(Alignment.CenterHorizontally)) {
-            MatrixBoard(uiState.matrix, cellSize)
-        }
+        MatrixBoardLayout(uiState.optionColumns) { cellSize ->
+            Box(Modifier.align(Alignment.CenterHorizontally)) {
+                MatrixBoard(uiState.matrix, cellSize)
+            }
 
-        Spacer(Modifier.height(20.dp))
+            Spacer(Modifier.height(20.dp))
 
-        Box(Modifier.align(Alignment.CenterHorizontally)) {
-            OptionBoard(
-                optionRows = markedOptions,
-                optionColumns = uiState.optionColumns,
-                cellSize = cellSize,
-                onSelect = {},
-            )
+            Box(Modifier.align(Alignment.CenterHorizontally)) {
+                OptionBoard(
+                    optionRows = markedOptions,
+                    optionColumns = uiState.optionColumns,
+                    cellSize = cellSize,
+                    onSelect = {},
+                )
+            }
         }
 
         Spacer(Modifier.height(24.dp))

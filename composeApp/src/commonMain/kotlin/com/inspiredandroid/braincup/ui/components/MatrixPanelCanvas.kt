@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import com.inspiredandroid.braincup.games.matrix.CENTERED_SLOT
 import com.inspiredandroid.braincup.games.matrix.MatrixEntity
 import com.inspiredandroid.braincup.games.matrix.MatrixPanel
+import com.inspiredandroid.braincup.games.matrix.SIZE_SCALES
 import com.inspiredandroid.braincup.games.tools.composeColor
 
 /**
@@ -58,6 +59,3 @@ private fun MatrixEntityShape(entity: MatrixEntity) {
 }
 
 private const val SUB_GRID = 2
-
-/** Scale per size step. The smallest is still legible at option-tile size on a phone. */
-private val SIZE_SCALES = floatArrayOf(0.45f, 0.62f, 0.8f, 1f)
