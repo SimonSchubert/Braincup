@@ -1,3 +1,20 @@
+## v3.1.0 — 2026-08-19
+
+### Features
+- Add IQ test
+- Add Persian language support
+
+### Fixes
+- Fix Accounts dialog scrim and design token drift
+
+### Improvements
+- Improve Prism style UI
+- Improve Missing Operator and Sherlock Calculation games
+- Improve color sets
+- Improve localizations
+- Share demo scaffold, level-puzzle layout and reading column across screens
+- Upgrade dependencies
+
 ## v3.0.0 — 2026-08-18
 
 ### Features

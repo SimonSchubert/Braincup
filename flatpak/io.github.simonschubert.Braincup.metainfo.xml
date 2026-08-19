@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.1.0" date="2026-08-19">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.1.0</url>
+      <description>
+        <ul>
+          <li>Add IQ test</li>
+          <li>Add Persian language support</li>
+          <li>Improve Prism style UI</li>
+          <li>Improve Missing Operator and Sherlock Calculation games</li>
+          <li>Improve color sets</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.0.0" date="2026-08-18">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.0.0</url>
       <description>
@@ -152,18 +164,6 @@
           <li>Add a fallback font so non-Latin languages render correctly</li>
           <li>Improve daily challenges rotation</li>
           <li>Disable lenient 9 and 6 answer forms</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.26.0" date="2026-06-30">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.26.0</url>
-      <description>
-        <ul>
-          <li>Add Sudoku notes (pencil marks)</li>
-          <li>Add browser URL navigation and a 404 page on web</li>
-          <li>Fix German Wordle umlaut handling</li>
-          <li>Improve UI performance</li>
-          <li>Improve web SEO</li>
         </ul>
       </description>
     </release>
