@@ -14,7 +14,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -265,14 +264,12 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
 
                 // The tap target lights up just before its cat pops in.
                 val inset = cellW * 0.07f
-                val corner = CornerRadius(cellW * 0.2f)
                 if (active in 0 until n * n) {
                     val tl = topLeft(active)
-                    drawRoundRect(
+                    drawRect(
                         color = accentColor,
                         topLeft = Offset(tl.x + inset, tl.y + inset),
                         size = Size(cellW - 2 * inset, cellH - 2 * inset),
-                        cornerRadius = corner,
                         style = Stroke(width = 3.dp.toPx()),
                     )
                 }
@@ -289,11 +286,10 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
                     translate(left = tl.x + pad, top = tl.y + pad) {
                         with(catPainter) { draw(catSize) }
                     }
-                    drawRoundRect(
+                    drawRect(
                         color = if (isInvalid) invalidColor else validColor,
                         topLeft = Offset(tl.x + inset, tl.y + inset),
                         size = Size(cellW - 2 * inset, cellH - 2 * inset),
-                        cornerRadius = corner,
                         style = Stroke(width = 3.dp.toPx()),
                     )
                 }

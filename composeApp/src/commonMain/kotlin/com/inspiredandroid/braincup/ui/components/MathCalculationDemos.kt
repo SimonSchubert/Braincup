@@ -24,7 +24,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -59,6 +58,7 @@ import braincup.composeapp.generated.resources.missing_operators_demo_title
 import braincup.composeapp.generated.resources.sherlock_calculation_demo_title
 import braincup.composeapp.generated.resources.value_comparison_demo_title
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.collections.immutable.persistentListOf
@@ -308,11 +308,11 @@ fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
                         } else {
                             MaterialTheme.colorScheme.surfaceVariant
                         },
-                        shape = RoundedCornerShape(8.dp),
+                        shape = PrismSlot,
                     )
                     .border(
                         border = firstBorder,
-                        shape = RoundedCornerShape(8.dp),
+                        shape = PrismSlot,
                     ),
                 contentAlignment = Alignment.Center,
             ) {
@@ -339,11 +339,11 @@ fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
                         } else {
                             MaterialTheme.colorScheme.surfaceVariant
                         },
-                        shape = RoundedCornerShape(8.dp),
+                        shape = PrismSlot,
                     )
                     .border(
                         border = secondBorder,
-                        shape = RoundedCornerShape(8.dp),
+                        shape = PrismSlot,
                     ),
                 contentAlignment = Alignment.Center,
             ) {

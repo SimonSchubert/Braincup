@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -14,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.tools.Operator
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
@@ -191,11 +191,11 @@ private fun OperatorSlot(
             .size(56.dp)
             .background(
                 color = backgroundColor,
-                shape = RoundedCornerShape(8.dp),
+                shape = PrismSlot,
             )
             .border(
                 border = borderStroke,
-                shape = RoundedCornerShape(8.dp),
+                shape = PrismSlot,
             )
             .then(
                 if (!isFeedback) {

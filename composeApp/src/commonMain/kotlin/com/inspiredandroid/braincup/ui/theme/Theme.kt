@@ -294,6 +294,7 @@ fun BraincupTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         typography = appTypography(),
+        shapes = PrismShapes,
         content = content,
     )
 }

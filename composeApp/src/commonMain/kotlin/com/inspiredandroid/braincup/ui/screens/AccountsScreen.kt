@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -63,6 +62,7 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
 import com.inspiredandroid.braincup.ui.components.prismDialogProperties
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
@@ -292,11 +292,11 @@ private fun AccountEditorDialog(
                             contentDescription = candidate.name,
                             modifier = Modifier
                                 .size(40.dp)
-                                .clip(CircleShape)
+                                .clip(PrismSlot)
                                 .background(MaterialTheme.colorScheme.surfaceVariant)
                                 .then(
                                     if (selected) {
-                                        Modifier.border(2.dp, Primary, CircleShape)
+                                        Modifier.border(2.dp, Primary, PrismSlot)
                                     } else {
                                         Modifier
                                     },

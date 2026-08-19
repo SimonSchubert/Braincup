@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.inspiredandroid.braincup.ui.theme.RoundedSlot
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SlotBorderWidthDp
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 
@@ -63,9 +63,9 @@ fun DigitMemorySlots(
                 Box(
                     modifier = Modifier
                         .size(width = resolvedSlotWidth, height = slotHeight)
-                        .clip(RoundedSlot)
+                        .clip(PrismSlot)
                         .background(MaterialTheme.colorScheme.surfaceContainer)
-                        .border(BorderStroke(SlotBorderWidthDp.dp, borderColor), RoundedSlot)
+                        .border(BorderStroke(SlotBorderWidthDp.dp, borderColor), PrismSlot)
                         .then(
                             if (clickable) Modifier.clickable { onRemoveAt(index) } else Modifier,
                         )

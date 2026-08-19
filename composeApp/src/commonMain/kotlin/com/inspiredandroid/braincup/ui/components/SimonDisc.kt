@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
@@ -20,10 +19,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.lerp
 import androidx.compose.ui.unit.dp
-import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 
 /**
  * The four quadrant wedges of a Simon disc, matching `SimonSaysGame.PADS` order
@@ -82,20 +79,6 @@ internal fun simonQuadrantShape(quadrant: SimonQuadrant) = GenericShape { size, 
  * at base colour -- see SimonSaysPreview.
  */
 internal fun simonPadColor(base: Color, lit: Boolean): Color = if (lit) lerp(base, Color.White, 0.18f) else base.darken(0.28f)
-
-/**
- * Hairline edge for a pad, applied on the dark schemes only. An unlit pad is a fraction of its base
- * color, so against a near-black (OLED: exactly black) background the whole disc has no visible
- * footprint until something flashes -- and the 2.dp gaps between wedges plus the surface-colored hub
- * do not help. Outlining the wedge restores the board's shape without lifting the unlit face, which
- * would eat into the lit/unlit gap the flash cue is built on.
- */
-@Composable
-internal fun Modifier.simonPadOutline(shape: Shape): Modifier = if (isDarkColorScheme) {
-    border(1.dp, MaterialTheme.colorScheme.onSurface.copy(alpha = 0.2f), shape)
-} else {
-    this
-}
 
 /**
  * Pads snap between lit and unlit rather than easing. The default spring smears a pad's fade-out

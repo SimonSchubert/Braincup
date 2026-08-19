@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,6 +14,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
 
@@ -139,7 +139,7 @@ private fun DigitMemorySolvingContent(
 private fun EquationCard(problem: String, answer: String?) {
     val isError = answer != null
     Surface(
-        shape = RoundedCornerShape(16.dp),
+        shape = PrismSlot,
         color = if (isError) {
             MaterialTheme.colorScheme.errorContainer
         } else {

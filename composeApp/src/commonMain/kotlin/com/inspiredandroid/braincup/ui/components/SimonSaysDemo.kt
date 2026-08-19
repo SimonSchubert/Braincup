@@ -128,7 +128,6 @@ private fun DemoSimonPad(
     Box(
         modifier = modifier
             .clip(shape)
-            .background(animatedColor)
-            .simonPadOutline(shape),
+            .background(animatedColor),
     )
 }

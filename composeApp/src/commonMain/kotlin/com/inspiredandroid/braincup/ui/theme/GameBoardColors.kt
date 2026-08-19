@@ -37,6 +37,10 @@ val NurikabeSeaColor = Color(0xFF546E7A)
 val KnotBoardFrame = PuzzleSlateFrame
 val KnotCellColor = PuzzleLightCell
 
+/** Slate tray behind the Orbit Tracker and Bubble Sum arenas, matching the puzzle boards. */
+val OrbitTrackerBoardFrame = PuzzleSlateFrame
+val BubbleSumBoardFrame = PuzzleSlateFrame
+
 /** Peg pole / base for Tower of Hanoi. */
 val HanoiPegColor = Color(0xFF6B7280)
 val HanoiBaseColor = Color(0xFF4B5563)

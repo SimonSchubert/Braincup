@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
@@ -189,7 +188,7 @@ fun ChessPieceIcon(
 @Composable
 fun SoloChessCapturePips(remaining: Int, modifier: Modifier = Modifier) {
     Canvas(modifier = modifier) {
-        drawRoundRect(color = SoloChessPipTray, cornerRadius = CornerRadius(size.height / 2f))
+        drawRect(color = SoloChessPipTray)
         val radius = size.height * 0.3f
         val slots = SoloChessGame.MAX_CAPTURES
         val step = size.width / (slots + 1)

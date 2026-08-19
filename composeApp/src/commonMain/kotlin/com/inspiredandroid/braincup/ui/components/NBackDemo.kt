@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -29,6 +28,7 @@ import braincup.composeapp.generated.resources.n_back_demo_recall
 import braincup.composeapp.generated.resources.n_back_demo_stream
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentSetOf
@@ -134,7 +134,7 @@ fun NBackDemo(modifier: Modifier = Modifier) {
                         Box(
                             modifier = Modifier
                                 .size(option)
-                                .clip(RoundedCornerShape(12.dp))
+                                .clip(PrismSlot)
                                 .background(background),
                             contentAlignment = Alignment.Center,
                         ) {

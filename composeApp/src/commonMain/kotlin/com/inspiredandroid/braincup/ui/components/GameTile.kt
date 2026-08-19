@@ -7,23 +7,20 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
@@ -32,6 +29,7 @@ import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
@@ -49,6 +47,7 @@ import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.theme.BubbleSumBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.FlashCrowdBlue
@@ -72,11 +71,13 @@ import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
+import com.inspiredandroid.braincup.ui.theme.OrbitTrackerBoardFrame
 import com.inspiredandroid.braincup.ui.theme.PegBoardFrame
 import com.inspiredandroid.braincup.ui.theme.PegBoardSurface
 import com.inspiredandroid.braincup.ui.theme.PegHole
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
 import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
@@ -128,8 +129,52 @@ private val BullsAndCowsPreviewTiles: List<Pair<Char, Color>> = listOf(
     '4' to WordleAbsent, // miss
 )
 
+/**
+ * [style] resized so that every string in [texts] fits a [cellWidth] x [cellHeight] slot on a
+ * single line, never growing past [style]'s own font size.
+ *
+ * Preview cells are derived from tile width, which the adaptive menu grid varies from its 150.dp
+ * minimum (any 360.dp phone) up to ~300.dp, while the font sizes and line heights in
+ * [MaterialTheme.typography] are absolute. On a narrow tile that leaves a 24.sp line box inside a
+ * 14.dp cell, and TextOverflow.Clip shears the glyphs. Measuring the whole [texts] list at once
+ * keeps every cell of a grid identical, and covers locales whose words run far longer than the
+ * English ones.
+ *
+ * The returned style also drops the absolute line height: without that the shrunken glyph would
+ * still sit in the original over-tall line box and stay clipped.
+ */
+@Composable
+private fun rememberFittedPreviewStyle(
+    texts: List<String>,
+    style: TextStyle,
+    cellWidth: Dp,
+    cellHeight: Dp,
+): TextStyle {
+    val measurer = rememberTextMeasurer()
+    val density = LocalDensity.current
+    return remember(texts, style, cellWidth, cellHeight, density, measurer) {
+        val natural = style.copy(lineHeight = TextUnit.Unspecified)
+        var widest = 1
+        var tallest = 1
+        texts.forEach { text ->
+            val measured = measurer.measure(text, natural, softWrap = false).size
+            widest = maxOf(widest, measured.width)
+            tallest = maxOf(tallest, measured.height)
+        }
+        val scale = with(density) {
+            minOf(cellWidth.toPx() / widest, cellHeight.toPx() / tallest, 1f).coerceAtLeast(0f)
+        }
+        natural.copy(fontSize = style.fontSize * scale)
+    }
+}
+
 @Composable
 private fun BullsAndCowsPreview() {
+    val digitLabels = remember { BullsAndCowsPreviewTiles.map { it.first.toString() } }
+    val digitStyle = MaterialTheme.typography.titleMedium.copy(
+        fontFamily = numberFontFamily(),
+        fontWeight = FontWeight.Bold,
+    )
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -143,7 +188,7 @@ private fun BullsAndCowsPreview() {
             horizontalArrangement = Arrangement.spacedBy(4.dp),
         ) {
             BullsAndCowsPreviewTiles.forEach { (digit, face) ->
-                Box(
+                BoxWithConstraints(
                     modifier = Modifier
                         .weight(1f)
                         .aspectRatio(1f),
@@ -156,38 +201,70 @@ private fun BullsAndCowsPreview() {
                     Text(
                         text = digit.toString(),
                         color = Color.White,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontFamily = numberFontFamily(),
-                        fontWeight = FontWeight.Bold,
+                        // Fit the flat prism face, not the whole cell, so the digit clears the bevel.
+                        style = rememberFittedPreviewStyle(
+                            texts = digitLabels,
+                            style = digitStyle,
+                            cellWidth = maxWidth - PrismFacet.Cell,
+                            cellHeight = maxHeight - PrismFacet.Cell,
+                        ),
                         maxLines = 1,
+                        softWrap = false,
                     )
                 }
             }
         }
         Spacer(Modifier.height(10.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
-            BullsAndCowsPreviewChip(label = "1B", color = SuccessGreen)
-            BullsAndCowsPreviewChip(label = "1C", color = WordlePresent)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
+        ) {
+            // fill = false keeps the chips snug around their labels while capping them at half the
+            // row, so the pair can never spill past the preview on a narrow tile.
+            BullsAndCowsPreviewChip(
+                label = "1B",
+                color = SuccessGreen,
+                modifier = Modifier.weight(1f, fill = false),
+            )
+            BullsAndCowsPreviewChip(
+                label = "1C",
+                color = WordlePresent,
+                modifier = Modifier.weight(1f, fill = false),
+            )
         }
     }
 }
 
+private val BullsAndCowsChipLabels = listOf("1B", "1C")
+private val BullsAndCowsChipPaddingH = 8.dp
+private val BullsAndCowsChipPaddingV = 3.dp
+
 @Composable
-private fun BullsAndCowsPreviewChip(label: String, color: Color) {
-    Box(
-        modifier = Modifier
-            .clip(RoundedCornerShape(6.dp))
-            .background(color.copy(alpha = 0.18f))
-            .padding(horizontal = 8.dp, vertical = 3.dp),
-        contentAlignment = Alignment.Center,
-    ) {
+private fun BullsAndCowsPreviewChip(label: String, color: Color, modifier: Modifier = Modifier) {
+    val chipStyle = MaterialTheme.typography.labelMedium.copy(
+        fontFamily = numberFontFamily(),
+        fontWeight = FontWeight.Bold,
+    )
+    BoxWithConstraints(modifier = modifier, contentAlignment = Alignment.Center) {
+        val labelStyle = rememberFittedPreviewStyle(
+            texts = BullsAndCowsChipLabels,
+            style = chipStyle,
+            cellWidth = (maxWidth - BullsAndCowsChipPaddingH * 2).coerceAtLeast(0.dp),
+            cellHeight = (maxHeight - BullsAndCowsChipPaddingV * 2).coerceAtLeast(0.dp),
+        )
         Text(
             text = label,
-            style = MaterialTheme.typography.labelMedium,
-            fontFamily = numberFontFamily(),
-            fontWeight = FontWeight.Bold,
+            modifier = Modifier
+                .clip(PrismSlot)
+                .background(color.copy(alpha = 0.18f))
+                .padding(
+                    horizontal = BullsAndCowsChipPaddingH,
+                    vertical = BullsAndCowsChipPaddingV,
+                ),
+            style = labelStyle,
             color = color,
             maxLines = 1,
+            softWrap = false,
         )
     }
 }
@@ -225,10 +302,13 @@ private val OrbitTrackerPreviewBalls = listOf(
     Triple(0.8f, 0.75f, true),
 )
 
+/**
+ * word -> ink. One matching pair and one mismatched pair is the whole rule (tap the words whose ink
+ * matches their meaning), and two full-width rows leave each word four times the space a 2x2 grid
+ * did — enough to stay readable on the grid's narrowest tile and in locales with long color names.
+ */
 private val ColorConfusionPreviewWords = listOf(
     GameColor.RED to GameColor.RED,
-    GameColor.BLUE to GameColor.GREEN,
-    GameColor.GREEN to GameColor.GREEN,
     GameColor.PURPLE to GameColor.YELLOW,
 )
 
@@ -419,36 +499,37 @@ fun IqTestTile(bestIq: Int?, onClick: () -> Unit) {
  */
 @Composable
 private fun IqTestPreview() {
-    val curveColor = MaterialTheme.colorScheme.primary
-    val trackColor = MaterialTheme.colorScheme.surfaceVariant
-    val markerColor = MaterialTheme.colorScheme.onSurface
-    Canvas(modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp)) {
-        val baseline = size.height * 0.82f
-        val peak = size.height * 0.12f
-        val curve = Path().apply {
-            moveTo(0f, baseline)
-            for (step in 0..IqTestPreviewSteps) {
-                val t = step / IqTestPreviewSteps.toFloat()
-                val z = (t - 0.5f) * 5f
-                lineTo(t * size.width, baseline - exp(-0.5f * z * z) * (baseline - peak))
-            }
-            lineTo(size.width, baseline)
-            close()
+    val belowFace = MaterialTheme.colorScheme.primary
+    val aboveFace = MaterialTheme.colorScheme.surfaceContainer
+    Row(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        horizontalArrangement = Arrangement.spacedBy(2.dp),
+        verticalAlignment = Alignment.Bottom,
+    ) {
+        repeat(IqTestPreviewBars) { index ->
+            // Column heights sample the normal curve at each bar's center, so the row reads as the
+            // same distribution the result screen plots. The color break is the score marker: the
+            // primary columns are the share of people the score sits above, which is what a
+            // percentile means, so a separate marker line would only repeat the boundary.
+            val z = ((index + 0.5f) / IqTestPreviewBars - 0.5f) * IqTestPreviewSpread
+            ColorPrismCell(
+                face = if (index < IqTestPreviewBarsBelow) belowFace else aboveFace,
+                facet = PrismFacet.Dot,
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxHeight(exp(-0.5f * z * z)),
+            )
         }
-        drawPath(curve, trackColor)
-        val markerX = size.width * IqTestPreviewMarker
-        clipRect(right = markerX) { drawPath(curve, curveColor) }
-        drawLine(
-            color = markerColor,
-            start = Offset(markerX, peak),
-            end = Offset(markerX, baseline),
-            strokeWidth = 2.dp.toPx(),
-        )
     }
 }
 
-private const val IqTestPreviewSteps = 48
-private const val IqTestPreviewMarker = 0.68f
+private const val IqTestPreviewBars = 9
+
+/** Filled columns; doubles as the marker position, so it has to land on a bar boundary. */
+private const val IqTestPreviewBarsBelow = 6
+
+/** Half-width of the sampled z-range: wide enough to fall off, tight enough to keep edge bars visible. */
+private const val IqTestPreviewSpread = 4.4f
 
 /** English peg solitaire entry under the full-size games divider. */
 @Composable
@@ -744,7 +825,6 @@ private fun MentalCalculationPreview() {
 private fun MissingOperatorsPreview() {
     // Mini selected operator slot (same shape/colors as play), empty, so the tile reads
     // as "fill in the missing operator" without a plain "?".
-    val slotShape = RoundedCornerShape(6.dp)
     Row(
         horizontalArrangement = Arrangement.spacedBy(5.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -760,11 +840,11 @@ private fun MissingOperatorsPreview() {
                 .background(
                     // Selected empty slot — primary tint reads clearly on pastel tile faces.
                     color = LightColorScheme.primaryContainer.copy(alpha = 0.45f),
-                    shape = slotShape,
+                    shape = PrismSlot,
                 )
                 .border(
                     border = BorderStroke(2.dp, LightColorScheme.primary),
-                    shape = slotShape,
+                    shape = PrismSlot,
                 ),
         ) {}
         MathText(
@@ -842,7 +922,9 @@ private fun NBackPreview() {
 @Composable
 private fun SherlockCalculationPreview() {
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        // Five cells in one row is the densest layout in the tile set, so it gets the tighter
+        // inset the other cramped previews already use, and a 1.dp gutter instead of 2.dp.
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
@@ -853,6 +935,8 @@ private fun SherlockCalculationPreview() {
             color = MaterialTheme.colorScheme.primary,
         )
         Spacer(Modifier.height(4.dp))
+        val numberLabels = remember { SherlockPreviewNumbers.map { it.toString() } }
+        val numberStyle = MaterialTheme.typography.labelSmall.copy(fontFamily = numberFontFamily())
         Row(modifier = Modifier.fillMaxWidth()) {
             SherlockPreviewNumbers.forEach { num ->
                 PrismCard(
@@ -861,14 +945,22 @@ private fun SherlockCalculationPreview() {
                     modifier = Modifier
                         .weight(1f)
                         .aspectRatio(1f)
-                        .padding(2.dp),
+                        .padding(1.dp),
                 ) {
-                    Text(
-                        text = "$num",
-                        style = MaterialTheme.typography.labelSmall,
-                        fontFamily = numberFontFamily(),
-                        color = LightColorScheme.onSecondaryContainer,
-                    )
+                    BoxWithConstraints(contentAlignment = Alignment.Center) {
+                        Text(
+                            text = "$num",
+                            style = rememberFittedPreviewStyle(
+                                texts = numberLabels,
+                                style = numberStyle,
+                                cellWidth = maxWidth,
+                                cellHeight = maxHeight,
+                            ),
+                            color = LightColorScheme.onSecondaryContainer,
+                            maxLines = 1,
+                            softWrap = false,
+                        )
+                    }
                 }
             }
         }
@@ -911,45 +1003,74 @@ private fun FractionCalculationPreview() {
     }
 }
 
+private val ValueComparisonPreviewTerms = listOf("3 + 8", "5 + 4")
+
 @Composable
 private fun ValueComparisonPreview() {
-    Column(
+    val vsLabel = stringResource(Res.string.preview_vs)
+    val termStyle = MaterialTheme.typography.titleMedium.copy(fontFamily = numberFontFamily())
+    // Unlike the grid previews nothing here is clipped per cell: it is the stack of three lines
+    // that outgrows the square, so give each line a third of the height and fit it to that.
+    BoxWithConstraints(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+        contentAlignment = Alignment.Center,
     ) {
-        Text(
-            text = "3 + 8",
-            style = MaterialTheme.typography.titleMedium,
-            fontFamily = numberFontFamily(),
-            color = PreviewTextColor,
+        val lineHeight = maxHeight / 3
+        val fittedTerm = rememberFittedPreviewStyle(
+            texts = ValueComparisonPreviewTerms,
+            style = termStyle,
+            cellWidth = maxWidth,
+            cellHeight = lineHeight,
         )
-        Text(
-            text = stringResource(Res.string.preview_vs),
+        val fittedVs = rememberFittedPreviewStyle(
+            texts = listOf(vsLabel),
             style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            cellWidth = maxWidth,
+            cellHeight = lineHeight,
         )
-        Text(
-            text = "5 + 4",
-            style = MaterialTheme.typography.titleMedium,
-            fontFamily = numberFontFamily(),
-            color = PreviewTextColor,
-        )
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+        ) {
+            Text(
+                text = ValueComparisonPreviewTerms[0],
+                style = fittedTerm,
+                color = PreviewTextColor,
+                maxLines = 1,
+                softWrap = false,
+            )
+            Text(
+                text = vsLabel,
+                style = fittedVs,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 1,
+                softWrap = false,
+            )
+            Text(
+                text = ValueComparisonPreviewTerms[1],
+                style = fittedTerm,
+                color = PreviewTextColor,
+                maxLines = 1,
+                softWrap = false,
+            )
+        }
     }
 }
 
 @Composable
 private fun MiniSudokuPreview() {
     val gridLineColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
-    Box(
+    PrismCard(
+        face = PreviewTextColor,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
-            .padding(24.dp)
-            .background(gridLineColor),
+            .padding(24.dp),
     ) {
+        // The prism face is the outer border now; the gaps between cells stay as grid lines.
         Column(
-            modifier = Modifier.fillMaxSize().padding(2.dp),
+            modifier = Modifier.fillMaxSize().background(gridLineColor),
             verticalArrangement = Arrangement.spacedBy(2.dp),
         ) {
             MiniSudokuPreviewGrid.forEach { row ->
@@ -1132,6 +1253,13 @@ private fun SchulteTablePreview() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
+        val numberLabels = remember {
+            SchulteTablePreviewGrid.flatten().map { it.number.toString() }
+        }
+        val numberStyle = MaterialTheme.typography.labelSmall.copy(
+            fontFamily = numberFontFamily(),
+            fontWeight = FontWeight.Bold,
+        )
         SchulteTablePreviewGrid.forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { cell ->
@@ -1147,15 +1275,22 @@ private fun SchulteTablePreview() {
                             .aspectRatio(1f)
                             .padding(2.dp),
                     ) {
-                        Text(
-                            text = cell.number.toString(),
-                            style = MaterialTheme.typography.labelSmall,
-                            fontFamily = numberFontFamily(),
-                            fontWeight = FontWeight.Bold,
-                            color = MaterialTheme.colorScheme.onSurface.copy(
-                                alpha = if (cell.tapped) 0.4f else 1f,
-                            ),
-                        )
+                        BoxWithConstraints(contentAlignment = Alignment.Center) {
+                            Text(
+                                text = cell.number.toString(),
+                                style = rememberFittedPreviewStyle(
+                                    texts = numberLabels,
+                                    style = numberStyle,
+                                    cellWidth = maxWidth,
+                                    cellHeight = maxHeight,
+                                ),
+                                color = MaterialTheme.colorScheme.onSurface.copy(
+                                    alpha = if (cell.tapped) 0.4f else 1f,
+                                ),
+                                maxLines = 1,
+                                softWrap = false,
+                            )
+                        }
                     }
                 }
             }
@@ -1473,6 +1608,9 @@ private fun WordlePreview() {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
+        // Every letter of the puzzle drives one shared size: Bungee is proportional, so fitting each
+        // cell on its own would render "I" larger than "W" in the same row.
+        val letters = remember(puzzle) { puzzle.guesses.flatMap { it.map(Char::toString) } }
         puzzle.guesses.forEach { guess ->
             val states = puzzle.statesFor(guess)
             Row(
@@ -1483,6 +1621,7 @@ private fun WordlePreview() {
                     WordlePreviewCell(
                         char = char,
                         state = states[index],
+                        letters = letters,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f),
@@ -1498,11 +1637,13 @@ private fun WordlePreview() {
 private fun WordlePreviewCell(
     char: Char,
     state: WordleLetterState,
+    letters: List<String>,
     modifier: Modifier = Modifier,
 ) {
     val face = state.tileFace()
     val textColor = state.tileTextColor()
-    Box(modifier = modifier, contentAlignment = Alignment.Center) {
+    val letterStyle = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+    BoxWithConstraints(modifier = modifier, contentAlignment = Alignment.Center) {
         ColorPrismCell(
             face = face,
             modifier = Modifier.fillMaxSize(),
@@ -1510,15 +1651,27 @@ private fun WordlePreviewCell(
         Text(
             text = char.toString(),
             color = textColor,
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
+            style = rememberFittedPreviewStyle(
+                texts = letters,
+                style = letterStyle,
+                cellWidth = maxWidth - PrismFacet.Cell,
+                cellHeight = maxHeight - PrismFacet.Cell,
+            ),
             maxLines = 1,
+            softWrap = false,
         )
     }
 }
 
 @Composable
 private fun SlidingPuzzlePreview() {
+    val numberLabels = remember {
+        SlidingPuzzlePreviewLabels.filter { it != 0 }.map { it.toString() }
+    }
+    val numberStyle = MaterialTheme.typography.labelSmall.copy(
+        fontFamily = numberFontFamily(),
+        fontWeight = FontWeight.Bold,
+    )
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -1543,13 +1696,20 @@ private fun SlidingPuzzlePreview() {
                             .padding(2.dp),
                     ) {
                         if (!isEmpty) {
-                            Text(
-                                text = label.toString(),
-                                style = MaterialTheme.typography.labelSmall,
-                                fontFamily = numberFontFamily(),
-                                fontWeight = FontWeight.Bold,
-                                color = LightColorScheme.onPrimaryContainer,
-                            )
+                            BoxWithConstraints(contentAlignment = Alignment.Center) {
+                                Text(
+                                    text = label.toString(),
+                                    style = rememberFittedPreviewStyle(
+                                        texts = numberLabels,
+                                        style = numberStyle,
+                                        cellWidth = maxWidth,
+                                        cellHeight = maxHeight,
+                                    ),
+                                    color = LightColorScheme.onPrimaryContainer,
+                                    maxLines = 1,
+                                    softWrap = false,
+                                )
+                            }
                         }
                     }
                 }
@@ -1560,8 +1720,8 @@ private fun SlidingPuzzlePreview() {
 
 /**
  * Miniature of the in-game board: each peg sits on its own translucent chrome card with a
- * pill-capped pole and a full-width base, and disks are shadowed pills sized so the stack fills
- * the pole the way it does while playing.
+ * square pole and a full-width base, and disks are prism bars sized so the stack fills the pole
+ * the way it does while playing.
  */
 @Composable
 private fun TowerOfHanoiPreview() {
@@ -1595,7 +1755,7 @@ private fun TowerOfHanoiPreview() {
                     modifier = Modifier
                         .weight(1f)
                         .fillMaxHeight()
-                        .clip(RoundedCornerShape(10.dp))
+                        .clip(PrismSlot)
                         .background(pegFace)
                         .padding(horizontal = PegPadHPreview, vertical = pegPadV),
                     horizontalAlignment = Alignment.CenterHorizontally,
@@ -1611,7 +1771,6 @@ private fun TowerOfHanoiPreview() {
                                 .width(6.dp)
                                 .fillMaxHeight(0.92f)
                                 .align(Alignment.BottomCenter)
-                                .clip(RoundedCornerShape(3.dp))
                                 .background(HanoiPegColor),
                         )
                         Column(
@@ -1628,7 +1787,6 @@ private fun TowerOfHanoiPreview() {
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(baseHeight)
-                            .clip(RoundedCornerShape(3.dp))
                             .background(HanoiBaseColor),
                     )
                 }
@@ -1640,16 +1798,14 @@ private fun TowerOfHanoiPreview() {
 @Composable
 private fun TowerOfHanoiPreviewDisk(size: Int, height: Dp) {
     val fraction = (size - 1).toFloat() / (TowerOfHanoiPreviewDisks - 1).toFloat()
-    val shape = RoundedCornerShape(percent = 50)
-    Box(
+    ColorPrismCell(
+        face = HanoiDiskColors[(size - 1) % HanoiDiskColors.size],
+        facet = PrismFacet.Dot,
         modifier = Modifier
-            // The smallest disk still needs to read as a pill rather than a dot, so the width
+            // The smallest disk still needs to read as a bar rather than a dot, so the width
             // range starts at half the peg instead of scaling all the way down.
             .fillMaxWidth(0.5f + 0.5f * fraction)
-            .height(height)
-            .shadow(2.dp, shape, clip = false)
-            .clip(shape)
-            .background(HanoiDiskColors[(size - 1) % HanoiDiskColors.size]),
+            .height(height),
     )
 }
 
@@ -1694,22 +1850,21 @@ private fun PatternSequencePreview() {
 private fun OrbitTrackerPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
     val onSurfaceVariantColor = MaterialTheme.colorScheme.onSurfaceVariant
-    val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
     val primarySide = remember(primaryColor) { primaryColor.darken(0.7f) }
     val primaryBottom = remember(primaryColor) { primaryColor.darken(0.5f) }
     val variantSide = remember(onSurfaceVariantColor) { onSurfaceVariantColor.darken(0.7f) }
     val variantBottom = remember(onSurfaceVariantColor) { onSurfaceVariantColor.darken(0.5f) }
-    Box(
+    PrismCard(
+        face = OrbitTrackerBoardFrame,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
-            .padding(24.dp)
-            .background(borderColor),
+            .padding(24.dp),
     ) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(2.dp)
                 .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
             val ballRadius = size.width * 0.06f
@@ -1738,7 +1893,6 @@ private const val BubbleSumPreviewWarningBubble = 0
 @Composable
 private fun BubbleSumPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
-    val borderColor = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.5f)
     val primarySide = remember(primaryColor) { primaryColor.darken(0.7f) }
     val primaryBottom = remember(primaryColor) { primaryColor.darken(0.5f) }
     val textMeasurer = rememberTextMeasurer()
@@ -1747,17 +1901,17 @@ private fun BubbleSumPreview() {
         fontWeight = FontWeight.Bold,
     )
     val warningDigitStyle = digitStyle.copy(color = PuzzleGridInk)
-    Box(
+    PrismCard(
+        face = BubbleSumBoardFrame,
+        facet = PrismFacet.Preview,
         modifier = Modifier
             .fillMaxHeight()
             .aspectRatio(1f)
-            .padding(24.dp)
-            .background(borderColor),
+            .padding(24.dp),
     ) {
         Canvas(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(2.dp)
                 .background(MaterialTheme.colorScheme.surfaceContainer),
         ) {
             val ballRadius = size.width * 0.12f
@@ -1798,29 +1952,37 @@ private fun BubbleSumPreview() {
 
 @Composable
 private fun ColorConfusionPreview() {
+    val labels = ColorConfusionPreviewWords.map { it.first.localizedName() }
     Column(
-        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        ColorConfusionPreviewWords.chunked(2).forEach { row ->
-            Row(modifier = Modifier.fillMaxWidth()) {
-                row.forEach { (wordColor, fontColor) ->
-                    PrismCard(
-                        face = MaterialTheme.colorScheme.surface,
-                        facet = PrismFacet.Cell,
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(2.dp),
-                    ) {
-                        Text(
-                            text = wordColor.localizedName(),
-                            style = MaterialTheme.typography.labelSmall,
-                            color = fontColor.composeColor(),
-                            textAlign = TextAlign.Center,
-                        )
-                    }
+        ColorConfusionPreviewWords.forEach { (wordColor, fontColor) ->
+            PrismCard(
+                face = MaterialTheme.colorScheme.surface,
+                facet = PrismFacet.Cell,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .weight(1f)
+                    .padding(2.dp),
+            ) {
+                BoxWithConstraints(contentAlignment = Alignment.Center) {
+                    // Both words share one size (the longest one drives it) so the two cards match.
+                    val style = rememberFittedPreviewStyle(
+                        texts = labels,
+                        style = MaterialTheme.typography.labelSmall,
+                        cellWidth = (maxWidth - 4.dp).coerceAtLeast(0.dp),
+                        cellHeight = maxHeight,
+                    )
+                    Text(
+                        text = wordColor.localizedName(),
+                        style = style,
+                        color = fontColor.composeColor(),
+                        textAlign = TextAlign.Center,
+                        maxLines = 1,
+                        softWrap = false,
+                    )
                 }
             }
         }

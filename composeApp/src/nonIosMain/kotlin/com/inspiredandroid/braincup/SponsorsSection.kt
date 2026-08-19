@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -29,6 +28,7 @@ import coil3.compose.setSingletonImageLoaderFactory
 import coil3.network.ktor3.KtorNetworkFetcherFactory
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
@@ -97,7 +97,7 @@ internal fun SponsorsSectionContent(sponsors: Sponsors) {
                         contentDescription = sponsor.username,
                         modifier = Modifier
                             .size(52.dp)
-                            .clip(CircleShape)
+                            .clip(PrismSlot)
                             .hoverHand()
                             .clickable { uriHandler.openUri("https://github.com/${sponsor.username}") },
                     )

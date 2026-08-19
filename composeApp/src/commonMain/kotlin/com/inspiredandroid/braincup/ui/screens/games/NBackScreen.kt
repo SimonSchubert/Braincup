@@ -11,7 +11,6 @@ import androidx.compose.foundation.interaction.collectIsPressedAsState
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -33,6 +32,7 @@ import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
@@ -220,7 +220,7 @@ private fun NBackOption(
     )
 
     Surface(
-        shape = RoundedCornerShape(16.dp),
+        shape = PrismSlot,
         color = background,
         border = border,
         modifier = Modifier

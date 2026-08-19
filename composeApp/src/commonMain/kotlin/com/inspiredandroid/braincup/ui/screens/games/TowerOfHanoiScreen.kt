@@ -29,7 +29,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -44,7 +43,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalDensity
@@ -57,12 +55,15 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.tower_of_hanoi_invalid_move
 import com.inspiredandroid.braincup.app.TowerOfHanoiUiState
 import com.inspiredandroid.braincup.games.TowerOfHanoiGame
+import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.GiveUpButton
 import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.HanoiBaseColor
 import com.inspiredandroid.braincup.ui.theme.HanoiDiskColors
 import com.inspiredandroid.braincup.ui.theme.HanoiPegColor
+import com.inspiredandroid.braincup.ui.theme.PrismChamferShape
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.coroutineScope
@@ -446,6 +447,10 @@ private fun HanoiBoard(
                     label = "diskFace$size",
                 )
 
+                // Prism depth stands in for the old elevation: a lifted or blocking disk
+                // extrudes further instead of casting a shadow. Capped against diskHeight so a
+                // deep facet cannot eat a short disk's face.
+                val diskFacet = elev.dp.coerceAtMost(diskHeight / 4)
                 Box(
                     modifier = Modifier
                         .offset {
@@ -456,25 +461,24 @@ private fun HanoiBoard(
                             scaleX = scale
                             scaleY = scale
                         }
-                        .shadow(
-                            elevation = elev.dp,
-                            shape = RoundedCornerShape(diskHeight / 2),
-                            clip = false,
-                        )
                         .then(
                             if (isBlocking) {
                                 Modifier.border(
                                     width = 2.dp,
                                     color = errorColor,
-                                    shape = RoundedCornerShape(diskHeight / 2),
+                                    shape = PrismChamferShape(diskFacet),
                                 )
                             } else {
                                 Modifier
                             },
-                        )
-                        .clip(RoundedCornerShape(diskHeight / 2))
-                        .background(diskFace),
-                )
+                        ),
+                ) {
+                    ColorPrismCell(
+                        face = diskFace,
+                        facet = diskFacet,
+                        modifier = Modifier.matchParentSize(),
+                    )
+                }
             }
         }
     }
@@ -523,11 +527,11 @@ private fun HanoiPegChrome(
         modifier = Modifier
             .width(width)
             .height(height)
-            .clip(RoundedCornerShape(12.dp))
+            .clip(PrismSlot)
             .background(face)
             .then(
                 if (rejected) {
-                    Modifier.border(2.dp, errorColor, RoundedCornerShape(12.dp))
+                    Modifier.border(2.dp, errorColor, PrismSlot)
                 } else {
                     Modifier
                 },
@@ -552,7 +556,6 @@ private fun HanoiPegChrome(
                     .width(PoleWidth)
                     .fillMaxHeight(0.92f)
                     .align(Alignment.BottomCenter)
-                    .clip(RoundedCornerShape(PoleWidth / 2))
                     .background(poleColor),
             )
         }
@@ -560,7 +563,6 @@ private fun HanoiPegChrome(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(BaseHeight)
-                .clip(RoundedCornerShape(4.dp))
                 .background(baseColor),
         )
     }

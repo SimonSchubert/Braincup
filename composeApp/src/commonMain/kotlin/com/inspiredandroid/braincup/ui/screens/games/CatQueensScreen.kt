@@ -10,7 +10,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -119,7 +118,6 @@ internal fun ColumnScope.CatQueensContent(
                 val catSize = Size(cellW - 2 * pad, cellH - 2 * pad)
                 val ring = 3.dp.toPx()
                 val inset = cellW * 0.07f
-                val corner = CornerRadius(cellW * 0.2f)
                 uiState.cats.forEach { index ->
                     val tl = topLeft(index)
                     val invalid = index in uiState.invalidCats
@@ -129,11 +127,10 @@ internal fun ColumnScope.CatQueensContent(
                     translate(left = tl.x + pad, top = tl.y + pad) {
                         with(catPainter) { draw(catSize) }
                     }
-                    drawRoundRect(
+                    drawRect(
                         color = if (invalid) invalidColor else validColor,
                         topLeft = Offset(tl.x + inset, tl.y + inset),
                         size = Size(cellW - 2 * inset, cellH - 2 * inset),
-                        cornerRadius = corner,
                         style = Stroke(width = ring),
                     )
                 }

@@ -5,7 +5,6 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.detectDragGestures
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -38,6 +37,7 @@ import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.MatchstickColors
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
@@ -374,7 +374,7 @@ private fun MovesIndicator(
     )
     Row(
         modifier = modifier
-            .clip(RoundedCornerShape(percent = 50))
+            .clip(PrismSlot)
             .background(MaterialTheme.colorScheme.surfaceVariant)
             .padding(start = 20.dp, end = 24.dp, top = 8.dp, bottom = 8.dp),
         verticalAlignment = Alignment.CenterVertically,

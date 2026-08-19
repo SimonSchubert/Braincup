@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.ui.components
 import androidx.compose.foundation.Canvas
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -59,11 +58,10 @@ fun ChunkyLock(color: Color, modifier: Modifier = Modifier) {
             size = Size(shackleW, h * 0.70f),
             style = Stroke(width = stroke, cap = StrokeCap.Round),
         )
-        drawRoundRect(
+        drawRect(
             color = color,
             topLeft = Offset(w * 0.20f, h * 0.45f),
             size = Size(w * 0.60f, h * 0.45f),
-            cornerRadius = CornerRadius(w * 0.12f, w * 0.12f),
         )
     }
 }

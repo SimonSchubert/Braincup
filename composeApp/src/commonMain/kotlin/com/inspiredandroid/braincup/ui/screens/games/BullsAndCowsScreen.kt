@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.rememberLazyListState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -19,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
@@ -207,7 +207,7 @@ private fun ResultBanner(
     modifier: Modifier = Modifier,
 ) {
     Surface(
-        shape = RoundedCornerShape(if (compact) 8.dp else 12.dp),
+        shape = PrismSlot,
         color = if (uiState.won) SuccessGreen.copy(alpha = 0.15f) else MaterialTheme.colorScheme.errorContainer,
         border = BorderStroke(
             1.dp,
@@ -233,9 +233,9 @@ private fun GuessRow(guess: BullsAndCowsGuess, index: Int, compact: Boolean) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clip(RoundedCornerShape(if (compact) 8.dp else 12.dp))
+            .clip(PrismSlot)
             .background(MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.5f))
-            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, RoundedCornerShape(if (compact) 8.dp else 12.dp))
+            .border(1.dp, MaterialTheme.colorScheme.outlineVariant, PrismSlot)
             .padding(
                 horizontal = if (compact) 10.dp else 16.dp,
                 vertical = if (compact) 6.dp else 10.dp,
@@ -280,7 +280,7 @@ private fun GuessRow(guess: BullsAndCowsGuess, index: Int, compact: Boolean) {
 @Composable
 private fun BadgeChip(label: String, color: Color, compact: Boolean) {
     Surface(
-        shape = RoundedCornerShape(if (compact) 6.dp else 8.dp),
+        shape = PrismSlot,
         color = color.copy(alpha = 0.12f),
         border = BorderStroke(1.dp, color.copy(alpha = 0.5f)),
     ) {

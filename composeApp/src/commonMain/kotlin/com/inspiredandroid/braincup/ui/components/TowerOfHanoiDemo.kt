@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,6 +31,8 @@ import com.inspiredandroid.braincup.ui.theme.HanoiBaseColor
 import com.inspiredandroid.braincup.ui.theme.HanoiDiskColors
 import com.inspiredandroid.braincup.ui.theme.HanoiPegColor
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
@@ -145,7 +146,7 @@ private fun DemoPeg(
         modifier = Modifier
             .width(width)
             .height(height)
-            .clip(RoundedCornerShape(10.dp))
+            .clip(PrismSlot)
             .background(face)
             .padding(horizontal = 3.dp, vertical = 4.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -161,7 +162,6 @@ private fun DemoPeg(
                     .width(poleWidth)
                     .fillMaxHeight(0.9f)
                     .align(Alignment.BottomCenter)
-                    .clip(RoundedCornerShape(poleWidth / 2))
                     .background(poleColor),
             )
             Column(
@@ -173,12 +173,12 @@ private fun DemoPeg(
                     val fraction = (size - 1).toFloat() / (DemoDiskCount - 1).toFloat()
                     val diskWidth = minDiskWidth + (maxDiskWidth - minDiskWidth) * fraction
                     val color = HanoiDiskColors[(size - 1).coerceIn(0, HanoiDiskColors.lastIndex)]
-                    Box(
+                    ColorPrismCell(
+                        face = color,
+                        facet = PrismFacet.Dot,
                         modifier = Modifier
                             .width(diskWidth)
-                            .height(diskHeight)
-                            .clip(RoundedCornerShape(diskHeight / 2))
-                            .background(color),
+                            .height(diskHeight),
                     )
                 }
             }
@@ -187,7 +187,6 @@ private fun DemoPeg(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(8.dp)
-                .clip(RoundedCornerShape(3.dp))
                 .background(if (selected) Primary else HanoiBaseColor),
         )
     }

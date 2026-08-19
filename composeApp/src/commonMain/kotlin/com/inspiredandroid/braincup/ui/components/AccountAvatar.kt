@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -43,6 +42,7 @@ import braincup.composeapp.generated.resources.animal_winkle
 import com.inspiredandroid.braincup.api.AccountIcon
 import com.inspiredandroid.braincup.api.PlayerAccount
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.ExperimentalResourceApi
 import org.jetbrains.compose.resources.decodeToImageBitmap
@@ -91,7 +91,7 @@ fun AccountAvatar(
     Box(
         modifier = modifier
             .size(size)
-            .clip(CircleShape)
+            .clip(PrismSlot)
             .background(Primary.copy(alpha = 0.15f)),
         contentAlignment = Alignment.Center,
     ) {

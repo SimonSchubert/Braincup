@@ -38,7 +38,7 @@ import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
-import com.inspiredandroid.braincup.ui.theme.RoundedSlot
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.coroutines.delay
@@ -153,7 +153,7 @@ private fun DemoMatrixRow(row: Int, highlighted: Boolean, solved: Boolean, cell:
     )
     Row(
         modifier = Modifier
-            .clip(RoundedSlot)
+            .clip(PrismSlot)
             .background(Primary.copy(alpha = 0.16f * highlightAlpha))
             .padding(4.dp),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
