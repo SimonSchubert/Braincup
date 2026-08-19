@@ -13,6 +13,7 @@ import com.android.resources.ScreenOrientation
 import com.android.resources.ScreenRatio
 import com.android.resources.ScreenSize
 import com.inspiredandroid.braincup.ui.screens.GameScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestResultScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
@@ -120,14 +121,16 @@ class IosTabletStoreScreenshotTest(
     }
 
     @Test
-    fun gameColoredShapes() {
-        snap("02", darkTheme = false) {
-            GameScreen(
-                gameUiState = createColoredShapesUiState(),
-                timeRemaining = 45_000L,
-                onAnswer = {},
-                onGiveUp = {},
-                onBack = {},
+    fun iqTestResult() {
+        snap("02", darkTheme = true) {
+            IqTestResultScreen(
+                uiState = createIqTestResultUiState(
+                    rawScore = 27,
+                    durationSeconds = 14 * 60 + 46,
+                    tierCorrect = listOf(3, 4, 4, 5, 5, 3, 3),
+                ),
+                onReview = {},
+                onDone = {},
             )
         }
     }

@@ -527,16 +527,25 @@ fun createIqTestResultUiState(
     rawScore: Int,
     isPersonalBest: Boolean = true,
     levelChange: UserStorage.LevelChange? = null,
+    durationSeconds: Int = 11 * 60 + 42,
+    /**
+     * Correct answers per tier. Defaults to filling the easy tiers first, which is fine for a
+     * regression fixture but reads as a cliff. Pass a spread for the store shots, where a run that
+     * drops a few items mid-ladder looks like someone actually played it.
+     */
+    tierCorrect: List<Int>? = null,
 ): IqTestResultUiState {
     val iq = IqScoring.iqFor(rawScore)
-    // Spread the raw score over the tiers the way a real run does: easy tiers fill first.
     var remaining = rawScore
     val breakdown = (0..MatrixGenerator.MAX_DIFFICULTY).map { tier ->
         val total = IqTestBlueprint.itemCountForTier(tier)
-        val correct = remaining.coerceIn(0, total)
-        remaining -= correct
+        val correct = tierCorrect?.get(tier) ?: remaining.coerceIn(0, total).also { remaining -= it }
         TierResult(tier = tier, correct = correct, total = total)
     }
+    require(breakdown.sumOf { it.correct } == rawScore) {
+        "tierCorrect sums to ${breakdown.sumOf { it.correct }}, expected rawScore $rawScore"
+    }
+    require(breakdown.all { it.correct <= it.total }) { "a tier cannot score above its item count" }
     return IqTestResultUiState(
         rawScore = rawScore,
         itemCount = IqTestBlueprint.ITEM_COUNT,
@@ -545,7 +554,7 @@ fun createIqTestResultUiState(
         band = IqScoring.bandFor(iq),
         isBelowMeasurableRange = IqScoring.isBelowMeasurableRange(rawScore),
         tierBreakdown = breakdown.toImmutableList(),
-        durationSeconds = 11 * 60 + 42,
+        durationSeconds = durationSeconds,
         xpGained = UserStorage.IQ_TEST_COMPLETION_XP,
         levelChange = levelChange,
         isPersonalBest = isPersonalBest,

@@ -129,6 +129,28 @@ fun registerStoreScreenshotCopy(
             return@doLast
         }
 
+        // Snapshot files carry the test method name, so renaming a store test leaves the old file
+        // behind claiming the same slot. Both would map to "<slot>.png" and whichever the directory
+        // listing yielded last would win, silently shipping the wrong image. Fail instead.
+        fun assertOneFilePerSlot(files: List<File>, regex: Regex, kind: String) {
+            files.groupBy { file ->
+                val match = regex.find(file.name) ?: return@groupBy null
+                val (locale, screen) = match.destructured
+                locale to screen
+            }.forEach { (slot, claimants) ->
+                if (slot != null && claimants.size > 1) {
+                    throw GradleException(
+                        "$kind slot ${slot.first}/${slot.second} is claimed by ${claimants.size} snapshots: " +
+                            claimants.joinToString { it.name } +
+                            ". A store test was probably renamed; delete the stale snapshot and re-record.",
+                    )
+                }
+            }
+        }
+
+        assertOneFilePerSlot(phoneSnapshots, phoneRegex, "phone")
+        assertOneFilePerSlot(tabletSnapshots, tabletRegex, "tablet")
+
         phoneSnapshots.forEach { file ->
             val match = phoneRegex.find(file.name) ?: return@forEach
             val (locale, screen) = match.destructured
