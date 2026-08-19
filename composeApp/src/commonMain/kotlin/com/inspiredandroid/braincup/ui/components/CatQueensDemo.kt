@@ -26,6 +26,7 @@ import braincup.composeapp.generated.resources.cat_queens_error_column
 import braincup.composeapp.generated.resources.cat_queens_error_touch
 import braincup.composeapp.generated.resources.game_cat_queens_desc
 import com.inspiredandroid.braincup.ui.icons.CatFace
+import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.ErrorRed
@@ -206,12 +207,7 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
 
                 // Thin lines between every cell, then bold lines along zone boundaries so the zones
                 // read clearly even when two neighbouring hues are hard to tell apart.
-                for (i in 0..n) {
-                    val x = i * cellW
-                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.dp.toPx())
-                    val y = i * cellH
-                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.dp.toPx())
-                }
+                drawPuzzleGridLines(n, n, gridLineColor, 1.dp.toPx())
 
                 val bold = 3.dp.toPx()
                 for (r in 0 until n) {

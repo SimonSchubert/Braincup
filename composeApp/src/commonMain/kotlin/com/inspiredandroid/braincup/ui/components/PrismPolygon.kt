@@ -15,6 +15,7 @@ import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
+import com.inspiredandroid.braincup.ui.theme.PrismShade
 import kotlinx.collections.immutable.ImmutableList
 import kotlin.math.PI
 import kotlin.math.cos
@@ -32,8 +33,8 @@ fun PrismPolygon(
     bottom: Color? = null,
     facet: Dp? = null,
 ) {
-    val resolvedSide = remember(face, side) { side ?: face.darken(0.7f) }
-    val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(0.5f) }
+    val resolvedSide = remember(face, side) { side ?: face.darken(PrismShade.Side) }
+    val resolvedBottom = remember(face, bottom) { bottom ?: face.darken(PrismShade.Bottom) }
     // Keep polygon shading (extruded down-right facets) oriented LTR so trophies, podiums,
     // and other prism polygons match the rest of the prism UI across layout directions.
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
@@ -113,8 +114,8 @@ fun DrawScope.drawPrismCircle(
     depth: Float = radius * 0.22f,
 ) {
     if (radius <= 0f) return
-    val resolvedSide = side ?: face.darken(0.7f)
-    val resolvedBottom = bottom ?: face.darken(0.5f)
+    val resolvedSide = side ?: face.darken(PrismShade.Side)
+    val resolvedBottom = bottom ?: face.darken(PrismShade.Bottom)
 
     translate(depth, depth) { drawCircle(resolvedBottom, radius, center) }
 

@@ -31,6 +31,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_shikaku_desc
+import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
@@ -148,14 +149,7 @@ fun ShikakuDemo(modifier: Modifier = Modifier) {
                     )
                 }
 
-                for (c in 0..ShikakuCols) {
-                    val x = c * cellW
-                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
-                }
-                for (r in 0..ShikakuRows) {
-                    val y = r * cellH
-                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
-                }
+                drawPuzzleGridLines(ShikakuRows, ShikakuCols, gridLineColor, 1.5.dp.toPx())
 
                 committed.forEach { rect ->
                     drawRect(

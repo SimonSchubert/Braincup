@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.games.TrioGame
 import com.inspiredandroid.braincup.games.TrioShape
 import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.TrioCardTile
+import com.inspiredandroid.braincup.ui.components.gridCellMaxSize
 import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.stringResource
 
@@ -31,7 +32,7 @@ internal fun TrioContent(
     onAnswer: (String) -> Unit,
 ) {
     val compact = LocalIsCompactHeight.current
-    val cellMax = if (compact) 56.dp else 72.dp
+    val cellMax = gridCellMaxSize
     val locked = uiState.cards.any {
         it.feedback == TrioGame.CardFeedback.CORRECT || it.feedback == TrioGame.CardFeedback.WRONG
     }

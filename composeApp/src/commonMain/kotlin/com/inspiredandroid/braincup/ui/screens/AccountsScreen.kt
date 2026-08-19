@@ -25,10 +25,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.window.Dialog
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.accounts_create
 import braincup.composeapp.generated.resources.accounts_create_title
@@ -52,15 +50,14 @@ import com.inspiredandroid.braincup.api.StorePlayerProfile
 import com.inspiredandroid.braincup.ui.components.AccountAvatar
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.DefaultButton
-import com.inspiredandroid.braincup.ui.components.DialogWindowEdgeToEdgeTweaks
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismDialog
-import com.inspiredandroid.braincup.ui.components.PrismDialogButton
+import com.inspiredandroid.braincup.ui.components.PrismDialogButtonRow
+import com.inspiredandroid.braincup.ui.components.PrismDialogShell
 import com.inspiredandroid.braincup.ui.components.PrismTextField
 import com.inspiredandroid.braincup.ui.components.drawable
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
-import com.inspiredandroid.braincup.ui.components.prismDialogProperties
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
@@ -247,87 +244,58 @@ private fun AccountEditorDialog(
     var name by remember { mutableStateOf(initial?.name.orEmpty()) }
     var icon by remember { mutableStateOf(initial?.icon ?: AccountIcon.BLOWFISH) }
     val canSave = name.trim().isNotEmpty()
-    Dialog(
-        onDismissRequest = onDismiss,
-        properties = prismDialogProperties(),
-    ) {
-        DialogWindowEdgeToEdgeTweaks()
-        PrismCard(
-            face = MaterialTheme.colorScheme.surface,
-            modifier = Modifier
-                .padding(horizontal = 24.dp)
-                .widthIn(max = 400.dp),
+    PrismDialogShell(onDismissRequest = onDismiss) {
+        Text(
+            text = stringResource(
+                if (editor is AccountEditor.Create) {
+                    Res.string.accounts_create_title
+                } else {
+                    Res.string.accounts_edit_title
+                },
+            ),
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.onSurface,
+        )
+        Spacer(Modifier.height(16.dp))
+        PrismTextField(
+            value = name,
+            onValueChange = { if (it.length <= 24) name = it },
+            placeholder = stringResource(Res.string.accounts_name_label),
+            modifier = Modifier.fillMaxWidth(),
+        )
+        Spacer(Modifier.height(16.dp))
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            modifier = Modifier.fillMaxWidth(),
         ) {
-            Column(
-                modifier = Modifier.fillMaxWidth().padding(20.dp),
-                horizontalAlignment = Alignment.CenterHorizontally,
-            ) {
-                Text(
-                    text = stringResource(
-                        if (editor is AccountEditor.Create) {
-                            Res.string.accounts_create_title
-                        } else {
-                            Res.string.accounts_edit_title
-                        },
-                    ),
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
-                )
-                Spacer(Modifier.height(16.dp))
-                PrismTextField(
-                    value = name,
-                    onValueChange = { if (it.length <= 24) name = it },
-                    placeholder = stringResource(Res.string.accounts_name_label),
-                    modifier = Modifier.fillMaxWidth(),
-                )
-                Spacer(Modifier.height(16.dp))
-                FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
-                    modifier = Modifier.fillMaxWidth(),
-                ) {
-                    AccountIcon.entries.forEach { candidate ->
-                        val selected = candidate == icon
-                        Image(
-                            painter = painterResource(candidate.drawable()),
-                            contentDescription = candidate.name,
-                            modifier = Modifier
-                                .size(40.dp)
-                                .clip(PrismSlot)
-                                .background(MaterialTheme.colorScheme.surfaceVariant)
-                                .then(
-                                    if (selected) {
-                                        Modifier.border(2.dp, Primary, PrismSlot)
-                                    } else {
-                                        Modifier
-                                    },
-                                )
-                                .noRippleClickable { icon = candidate }
-                                .hoverHand(),
+            AccountIcon.entries.forEach { candidate ->
+                val selected = candidate == icon
+                Image(
+                    painter = painterResource(candidate.drawable()),
+                    contentDescription = candidate.name,
+                    modifier = Modifier
+                        .size(40.dp)
+                        .clip(PrismSlot)
+                        .background(MaterialTheme.colorScheme.surfaceVariant)
+                        .then(
+                            if (selected) {
+                                Modifier.border(2.dp, Primary, PrismSlot)
+                            } else {
+                                Modifier
+                            },
                         )
-                    }
-                }
-                Spacer(Modifier.height(20.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.spacedBy(12.dp),
-                ) {
-                    PrismDialogButton(
-                        label = stringResource(Res.string.settings_play_games_switch_cancel),
-                        face = MaterialTheme.colorScheme.surfaceVariant,
-                        textColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                        onClick = onDismiss,
-                        modifier = Modifier.weight(1f),
-                    )
-                    PrismDialogButton(
-                        label = stringResource(Res.string.accounts_save),
-                        face = Primary,
-                        textColor = Color.White,
-                        onClick = { if (canSave) onConfirm(name, icon) },
-                        modifier = Modifier.weight(1f),
-                    )
-                }
+                        .noRippleClickable { icon = candidate }
+                        .hoverHand(),
+                )
             }
         }
+        Spacer(Modifier.height(20.dp))
+        PrismDialogButtonRow(
+            primaryLabel = stringResource(Res.string.settings_play_games_switch_cancel),
+            onPrimary = onDismiss,
+            secondaryLabel = stringResource(Res.string.accounts_save),
+            onSecondary = { if (canSave) onConfirm(name, icon) },
+        )
     }
 }

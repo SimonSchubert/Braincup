@@ -77,6 +77,7 @@ import com.inspiredandroid.braincup.ui.theme.PegBoardSurface
 import com.inspiredandroid.braincup.ui.theme.PegHole
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
+import com.inspiredandroid.braincup.ui.theme.PrismShade
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
@@ -1227,7 +1228,7 @@ private fun PegSolitairePreview() {
                             contentAlignment = Alignment.Center,
                         ) {
                             ColorPrismCell(
-                                face = hole.darken(0.7f),
+                                face = hole.darken(PrismShade.Side),
                                 facet = PrismFacet.Dot,
                                 modifier = Modifier.fillMaxSize(0.72f),
                             )

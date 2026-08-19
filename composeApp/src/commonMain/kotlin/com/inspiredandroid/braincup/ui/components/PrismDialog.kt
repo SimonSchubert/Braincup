@@ -6,6 +6,7 @@ import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.defaultMinSize
@@ -35,6 +36,42 @@ fun PrismDialog(
     onPrimary: () -> Unit,
     secondaryLabel: String,
     onSecondary: () -> Unit,
+) {
+    PrismDialogShell(onDismissRequest = onDismissRequest) {
+        Text(
+            text = title,
+            style = MaterialTheme.typography.titleLarge,
+            color = MaterialTheme.colorScheme.onSurface,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(Modifier.height(12.dp))
+        Text(
+            text = message,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            textAlign = TextAlign.Center,
+        )
+        Spacer(Modifier.height(20.dp))
+        PrismDialogButtonRow(
+            primaryLabel = primaryLabel,
+            onPrimary = onPrimary,
+            secondaryLabel = secondaryLabel,
+            onSecondary = onSecondary,
+        )
+    }
+}
+
+/**
+ * The shell every prism dialog sits in: the platform [Dialog], the scrim behind it, and a centred
+ * card whose taps are swallowed so only a tap on the scrim dismisses.
+ *
+ * Dialogs that are just a question with two answers use [PrismDialog]; this is for the ones that
+ * put their own controls in the card, which would otherwise hand-roll the shell and drift from it.
+ */
+@Composable
+fun PrismDialogShell(
+    onDismissRequest: () -> Unit,
+    content: @Composable ColumnScope.() -> Unit,
 ) {
     Dialog(
         onDismissRequest = onDismissRequest,
@@ -68,43 +105,39 @@ fun PrismDialog(
                         .fillMaxWidth()
                         .padding(20.dp),
                     horizontalAlignment = Alignment.CenterHorizontally,
-                ) {
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.titleLarge,
-                        color = MaterialTheme.colorScheme.onSurface,
-                        textAlign = TextAlign.Center,
-                    )
-                    Spacer(Modifier.height(12.dp))
-                    Text(
-                        text = message,
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center,
-                    )
-                    Spacer(Modifier.height(20.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.spacedBy(12.dp),
-                    ) {
-                        PrismDialogButton(
-                            label = primaryLabel,
-                            onClick = onPrimary,
-                            face = MaterialTheme.colorScheme.surfaceVariant,
-                            textColor = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.weight(1f),
-                        )
-                        PrismDialogButton(
-                            label = secondaryLabel,
-                            face = Primary,
-                            textColor = Color.White,
-                            onClick = onSecondary,
-                            modifier = Modifier.weight(1f),
-                        )
-                    }
-                }
+                    content = content,
+                )
             }
         }
+    }
+}
+
+/** The cancel/confirm pair that closes a prism dialog, sized to split the card evenly. */
+@Composable
+fun PrismDialogButtonRow(
+    primaryLabel: String,
+    onPrimary: () -> Unit,
+    secondaryLabel: String,
+    onSecondary: () -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        PrismDialogButton(
+            label = primaryLabel,
+            onClick = onPrimary,
+            face = MaterialTheme.colorScheme.surfaceVariant,
+            textColor = MaterialTheme.colorScheme.onSurfaceVariant,
+            modifier = Modifier.weight(1f),
+        )
+        PrismDialogButton(
+            label = secondaryLabel,
+            face = Primary,
+            textColor = Color.White,
+            onClick = onSecondary,
+            modifier = Modifier.weight(1f),
+        )
     }
 }
 

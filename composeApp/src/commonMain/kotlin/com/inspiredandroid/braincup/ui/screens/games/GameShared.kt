@@ -51,39 +51,23 @@ internal fun FigureCellContent(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    when (cell.state) {
-        FigureCellState.NORMAL -> PrismTile(
-            face = MaterialTheme.colorScheme.surfaceContainer,
-            modifier = modifier,
-            onClick = onClick,
-        ) {
-            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
-        }
-        FigureCellState.WRONG -> PrismTile(
-            face = MaterialTheme.colorScheme.errorContainer,
-            modifier = modifier,
-            isClickable = false,
-            onClick = {},
-        ) {
-            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
-        }
-        FigureCellState.CORRECT -> PrismTile(
-            face = SuccessGreenSoft,
-            modifier = modifier,
-            isClickable = false,
-            onClick = {},
-        ) {
-            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
-        }
-        FigureCellState.DIMMED -> PrismTile(
-            face = MaterialTheme.colorScheme.surfaceContainer,
-            modifier = modifier.alpha(0.3f),
-            isClickable = false,
-            isSelected = true,
-            onClick = {},
-        ) {
-            ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
-        }
+    // Every state draws the same figure on the same tile; only the tile's face and whether it still
+    // responds to touch change, so they are picked here rather than repeated per branch.
+    val face = when (cell.state) {
+        FigureCellState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        FigureCellState.CORRECT -> SuccessGreenSoft
+        else -> MaterialTheme.colorScheme.surfaceContainer
+    }
+    val isNormal = cell.state == FigureCellState.NORMAL
+    val isDimmed = cell.state == FigureCellState.DIMMED
+    PrismTile(
+        face = face,
+        modifier = if (isDimmed) modifier.alpha(0.3f) else modifier,
+        isClickable = isNormal,
+        isSelected = isDimmed,
+        onClick = if (isNormal) onClick else ({}),
+    ) {
+        ShapeCanvas(figure = cell.figure, modifier = Modifier.fillMaxSize().padding(8.dp))
     }
 }
 

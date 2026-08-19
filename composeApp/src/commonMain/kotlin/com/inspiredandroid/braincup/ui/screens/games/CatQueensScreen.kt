@@ -81,12 +81,7 @@ internal fun ColumnScope.CatQueensContent(
 
                 // Thin lines between every cell, then bold lines along region boundaries so the zones
                 // read clearly even when two neighbouring hues are hard to tell apart.
-                for (i in 0..n) {
-                    val x = i * cellW
-                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.dp.toPx())
-                    val y = i * cellH
-                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.dp.toPx())
-                }
+                drawPuzzleGridLines(n, n, gridLineColor, 1.dp.toPx())
 
                 val bold = 3.dp.toPx()
                 for (r in 0 until n) {

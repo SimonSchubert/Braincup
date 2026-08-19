@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_nurikabe_desc
+import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
@@ -176,14 +177,7 @@ fun NurikabeDemo(modifier: Modifier = Modifier) {
                     )
                 }
 
-                for (c in 0..NurikabeCols) {
-                    val x = c * cellW
-                    drawLine(gridLineColor, Offset(x, 0f), Offset(x, size.height), strokeWidth = 1.5.dp.toPx())
-                }
-                for (r in 0..NurikabeRows) {
-                    val y = r * cellH
-                    drawLine(gridLineColor, Offset(0f, y), Offset(size.width, y), strokeWidth = 1.5.dp.toPx())
-                }
+                drawPuzzleGridLines(NurikabeRows, NurikabeCols, gridLineColor, 1.5.dp.toPx())
 
                 NurikabeClues.forEach { (index, value) ->
                     val color = if (index in satisfied) satisfiedColor else clueColor

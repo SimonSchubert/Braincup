@@ -22,6 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_knot_desc
+import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.KnotBoardFrame
 import com.inspiredandroid.braincup.ui.theme.KnotCellColor
@@ -96,12 +97,7 @@ fun KnotDemo(modifier: Modifier = Modifier) {
 
                 drawRect(color = cellColor)
 
-                for (i in 0..KnotCols) {
-                    drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.5.dp.toPx())
-                }
-                for (i in 0..KnotRows) {
-                    drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.5.dp.toPx())
-                }
+                drawPuzzleGridLines(KnotRows, KnotCols, gridLineColor, 1.5.dp.toPx())
 
                 val stroke = minOf(cellW, cellH) * 0.34f
                 val dotRadius = minOf(cellW, cellH) * 0.30f
