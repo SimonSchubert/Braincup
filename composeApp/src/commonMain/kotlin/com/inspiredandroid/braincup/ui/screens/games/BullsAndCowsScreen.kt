@@ -397,10 +397,13 @@ private fun BullsAndCowsKeyboard(
                     MaterialTheme.typography.titleMedium
                 },
                 fontWeight = FontWeight.Bold,
+                // Both faces are theme-derived, so the label has to track them: a hardcoded white
+                // goes invisible on a light Material You primary, and a 38%-alpha onSurface only
+                // reaches 2.7:1 against the disabled face on the dark schemes.
                 color = if (canSubmit) {
-                    Color.White
+                    MaterialTheme.colorScheme.onPrimary
                 } else {
-                    MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f)
+                    MaterialTheme.colorScheme.onSurfaceVariant
                 },
             )
         }
@@ -417,15 +420,19 @@ private fun DigitKey(
     height: androidx.compose.ui.unit.Dp,
     compact: Boolean,
 ) {
+    // No alpha on the face: PrismTile paints it straight onto the page with drawPath, so a
+    // translucent face composites against the background rather than a surface and all but
+    // disappears on the dark schemes. Every key is disabled at once while a full guess is staged,
+    // so a muted-but-legible pad matters more than a faded one.
     val face = when {
         absent -> WordleAbsent
         enabled -> MaterialTheme.colorScheme.primaryContainer
-        else -> MaterialTheme.colorScheme.surfaceContainerHighest.copy(alpha = 0.4f)
+        else -> MaterialTheme.colorScheme.surfaceContainerHighest
     }
     val textColor = when {
         absent -> Color.White
         enabled -> MaterialTheme.colorScheme.onPrimaryContainer
-        else -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.25f)
+        else -> MaterialTheme.colorScheme.onSurfaceVariant
     }
     PrismTile(
         face = face,

@@ -26,6 +26,7 @@ import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
+import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -44,7 +45,7 @@ internal fun ColumnScope.CatQueensContent(
 
     val gridLineColor = Color(0xFF000000).copy(alpha = 0.15f)
     val borderColor = PuzzleGridInk
-    val invalidColor = MaterialTheme.colorScheme.error
+    val invalidColor = ErrorRed
     val validColor = SuccessGreen
     val catPainter = rememberVectorPainter(CatFace)
 

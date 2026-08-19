@@ -25,6 +25,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
+import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
@@ -49,8 +50,8 @@ internal fun ColumnScope.ShikakuContent(
     val gridLineColor = puzzleGridLine()
     val cellColor = ShikakuCellColor
     val regionBorderColor = PuzzleGridInk
-    val invalidBorder = MaterialTheme.colorScheme.error
-    val invalidOverlay = MaterialTheme.colorScheme.error.copy(alpha = 0.25f)
+    val invalidBorder = ErrorRed
+    val invalidOverlay = ErrorRed.copy(alpha = 0.25f)
     val previewColor = Primary
     val clueColor = PuzzleGridInk
     val numberFont = numberFontFamily()

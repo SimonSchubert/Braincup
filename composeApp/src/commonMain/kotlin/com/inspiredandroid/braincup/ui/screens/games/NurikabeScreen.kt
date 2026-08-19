@@ -24,6 +24,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.ui.components.*
+import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
@@ -55,9 +56,9 @@ internal fun ColumnScope.NurikabeContent(
     val clueColor = PuzzleGridInk
     val satisfiedFill = SuccessGreenSoft
     val satisfiedColor = SuccessGreen
-    val invalidFill = MaterialTheme.colorScheme.error.copy(alpha = 0.15f)
-    val invalidColor = MaterialTheme.colorScheme.error
-    val poolColor = MaterialTheme.colorScheme.error.copy(alpha = 0.55f)
+    val invalidFill = ErrorRed.copy(alpha = 0.15f)
+    val invalidColor = ErrorRed
+    val poolColor = ErrorRed.copy(alpha = 0.55f)
     val numberFont = numberFontFamily()
     val textMeasurer = rememberTextMeasurer()
 

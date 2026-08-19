@@ -42,6 +42,14 @@ private val OnSurfaceVariant = Color(0xFF666666)
 val SuccessGreen = Color(0xFF5C8E58)
 val ErrorRed = Color(0xFFB00020)
 
+// ErrorRed is a light-theme red: on the near-black dark/OLED backgrounds it only reaches 2.3:1,
+// so error text ("delete", "stuck", wrong-answer marks) is barely legible. The dark schemes use a
+// lighter red instead, which clears 5.6:1 on warm dark and 6.6:1 on OLED. Boards that stay light
+// in every theme (Nurikabe, Shikaku, Cat Queens) keep [ErrorRed] directly, since their surface
+// does not follow the scheme.
+val ErrorRedOnDark = Color(0xFFFF5252)
+val OnErrorRedOnDark = Color(0xFF410002)
+
 // Start CTA on the instructions screen. A cool teal that contrasts the warm orange brand and is
 // never used by demo tiles, so the real "Start" action never blends into the orange animation.
 // Brand-pinned (constant across light/dark/OLED) and dark enough for white bold text to read.
@@ -115,6 +123,9 @@ val LightColorScheme = lightColorScheme(
 
 // Warm dark: near-black tones biased toward the orange brand instead of neutral gray, so the
 // dark theme feels warm rather than clinical. OLED below keeps the pure-black variant.
+// surfaceContainerHighest is set explicitly: left to the M3 baseline it resolves to a cool blue-gray
+// (#36343B) that clashes with these warm tones, and it carries disabled controls (the Bulls & Cows
+// keypad, Wordle's pending tiles), so its ink pairing has to be predictable.
 val DarkColorScheme = darkColorScheme(
     primary = Primary,
     onPrimary = Color.White,
@@ -128,8 +139,9 @@ val DarkColorScheme = darkColorScheme(
     onSurfaceVariant = Color(0xFFB0A8A2),
     surfaceContainer = Color(0xFF241D1A),
     surfaceContainerHigh = Color(0xFF332A25),
-    error = ErrorRed,
-    onError = Color.White,
+    surfaceContainerHighest = Color(0xFF3D322C),
+    error = ErrorRedOnDark,
+    onError = OnErrorRedOnDark,
 )
 
 // OLED: pure black background to save power on OLED panels. Container tones are lifted off pure
@@ -147,8 +159,9 @@ val OledColorScheme = darkColorScheme(
     onSurfaceVariant = Color(0xFFB0B0B0),
     surfaceContainer = Color(0xFF121212),
     surfaceContainerHigh = Color(0xFF1E1E1E),
-    error = ErrorRed,
-    onError = Color.White,
+    surfaceContainerHighest = Color(0xFF2A2A2A),
+    error = ErrorRedOnDark,
+    onError = OnErrorRedOnDark,
 )
 
 /**

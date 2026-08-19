@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.drawscope.clipPath
+import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.app.TrioUiState
 import com.inspiredandroid.braincup.games.TrioFill
@@ -109,6 +110,13 @@ private fun trioShapePath(shape: TrioShape, size: Size, pad: Float): Path {
     }
 }
 
+/**
+ * Relative-luminance point above which a card face needs dark glyphs. Sits between the light
+ * scheme's selected face (0.16) and the dark scheme's (0.39), so light mode keeps its existing
+ * ink and only the dark selected card flips.
+ */
+private const val SelectedFaceInkFlipPoint = 0.25f
+
 @Composable
 fun TrioCardTile(
     card: TrioUiState.Card,
@@ -154,7 +162,14 @@ fun TrioCardTile(
             shape = card.shape,
             count = card.count,
             fill = card.fill,
-            color = MaterialTheme.colorScheme.onSurface,
+            // The selected face inverts lightness between the schemes (dark mode brightens it to
+            // SelectedTileFaceDark), so keying the glyph off onSurface alone puts near-white marks
+            // on a light grey card at 1.8:1. Pick the ink from the face that is actually painted.
+            color = if (face.luminance() > SelectedFaceInkFlipPoint) {
+                Color.Black
+            } else {
+                MaterialTheme.colorScheme.onSurface
+            },
             modifier = Modifier.fillMaxSize(),
         )
     }

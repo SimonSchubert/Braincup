@@ -128,7 +128,9 @@ fun ColoredShapesDemo(modifier: Modifier = Modifier) {
                 ) {
                     Text(
                         text = value,
-                        color = Color.White,
+                        // SuccessGreen is pinned so it keeps white; the primary face is not, and a
+                        // light Material You primary would swallow a hardcoded white label.
+                        color = if (isCorrect) Color.White else MaterialTheme.colorScheme.onPrimary,
                         fontFamily = numberFontFamily(),
                         style = MaterialTheme.typography.titleMedium,
                     )

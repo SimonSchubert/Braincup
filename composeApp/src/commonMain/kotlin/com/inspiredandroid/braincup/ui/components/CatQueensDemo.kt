@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -30,6 +29,7 @@ import braincup.composeapp.generated.resources.game_cat_queens_desc
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
+import com.inspiredandroid.braincup.ui.theme.ErrorRed
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
@@ -106,7 +106,7 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
     val n = CatQueensDemoSize
     val gridLineColor = Color(0xFF000000).copy(alpha = 0.15f)
     val borderColor = PuzzleGridInk
-    val invalidColor = MaterialTheme.colorScheme.error
+    val invalidColor = ErrorRed
     val validColor = SuccessGreen
     val accentColor = Primary
     val catPainter = rememberVectorPainter(CatFace)
