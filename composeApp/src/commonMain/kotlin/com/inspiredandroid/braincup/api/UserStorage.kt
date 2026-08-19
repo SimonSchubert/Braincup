@@ -4,6 +4,7 @@ import androidx.compose.runtime.Immutable
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.games.iqtest.IqScoring
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
@@ -88,6 +89,12 @@ class UserStorage(
             Res.string.achievement_peg_solitaire_perfect_desc,
             isMilestone = true,
         ),
+        IQ_TEST_COMPLETED(
+            Res.string.achievement_iq_test_completed,
+            Res.string.achievement_iq_test_completed_desc,
+            isMilestone = true,
+        ),
+        IQ_TEST_HIGH(Res.string.achievement_iq_test_high, Res.string.achievement_iq_test_high_desc, isMilestone = true),
         TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc, isMilestone = true),
         STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc, isMilestone = true),
         ;
@@ -110,6 +117,8 @@ class UserStorage(
                 addAll(SudokuDifficulty.entries.map { forSudokuTier(it) })
                 add(MATCHSTICK_MASTER)
                 add(PEG_SOLITAIRE_PERFECT)
+                add(IQ_TEST_COMPLETED)
+                add(IQ_TEST_HIGH)
                 add(TOTAL_SCORE_10K)
                 add(STREAK_30)
             }
@@ -152,8 +161,16 @@ class UserStorage(
         const val KEY_MATCHSTICK_RIDDLES_SOLVED = "matchstick_riddles_solved"
         const val KEY_PEG_SOLITAIRE_SOLVED = "peg_solitaire_solved"
         const val KEY_PEG_SOLITAIRE_PERFECT = "peg_solitaire_perfect"
+        const val KEY_IQ_TEST_RESULTS = "iq_test_results"
         const val SESSION_GAME_COUNT = 4 // one game per GameCategory (MEMORY, LOGIC, PERCEPTION, MATH)
         const val SESSION_COMPLETION_XP = 50
+
+        const val IQ_TEST_COMPLETION_XP = 60
+
+        /** Attempts kept on disk. The per-game score history is unbounded; do not repeat that here. */
+        const val IQ_TEST_HISTORY_LIMIT = 20
+
+        const val IQ_TEST_HIGH_ACHIEVEMENT_IQ = 130
 
         /** First-time win XP for English peg solitaire (any one-peg finish). */
         const val PEG_SOLITAIRE_WIN_XP = 30
@@ -444,6 +461,76 @@ class UserStorage(
         val levelChange = addXp(PEG_SOLITAIRE_WIN_XP)
         return XpAward(PEG_SOLITAIRE_WIN_XP, levelChange)
     }
+
+    @Immutable
+    data class IqTestRecord(
+        val epochMillis: Long,
+        val seed: Long,
+        val rawScore: Int,
+        val durationSeconds: Int,
+    ) {
+        val iq: Int get() = IqScoring.iqFor(rawScore)
+    }
+
+    @Immutable
+    data class IqTestAward(
+        val xpGained: Int,
+        val levelChange: LevelChange?,
+        val isPersonalBest: Boolean,
+    )
+
+    /**
+     * Store a finished attempt, newest first, capped at [IQ_TEST_HISTORY_LIMIT].
+     *
+     * Only the raw score is persisted, never the IQ: the raw score is the measurement and the IQ is
+     * derived from it, so recalibrating [IqScoring] re-reads history correctly instead of leaving
+     * stale numbers on disk.
+     */
+    fun putIqTestResult(seed: Long, rawScore: Int, durationSeconds: Int): IqTestAward {
+        val previousBest = getBestIqTestRawScore()
+        val record = IqTestRecord(
+            epochMillis = Clock.System.now().toEpochMilliseconds(),
+            seed = seed,
+            rawScore = rawScore,
+            durationSeconds = durationSeconds,
+        )
+        val kept = (listOf(record) + getIqTestResults()).take(IQ_TEST_HISTORY_LIMIT)
+        store.putString(
+            KEY_IQ_TEST_RESULTS,
+            kept.joinToString(",") { "${it.epochMillis}/${it.seed}/${it.rawScore}/${it.durationSeconds}" },
+        )
+
+        val iq = IqScoring.iqFor(rawScore)
+        unlockAchievement(Achievements.IQ_TEST_COMPLETED)
+        if (iq >= IQ_TEST_HIGH_ACHIEVEMENT_IQ) {
+            unlockAchievement(Achievements.IQ_TEST_HIGH)
+        }
+        notifyStore { PlayGamesBridge.onIqTestCompleted?.invoke(iq) }
+
+        val levelChange = addXp(IQ_TEST_COMPLETION_XP)
+        return IqTestAward(
+            xpGained = IQ_TEST_COMPLETION_XP,
+            levelChange = levelChange,
+            isPersonalBest = previousBest == null || rawScore > previousBest,
+        )
+    }
+
+    fun getIqTestResults(): List<IqTestRecord> = store
+        .getStringOrNull(KEY_IQ_TEST_RESULTS)
+        .orEmpty()
+        .split(",")
+        .mapNotNull { entry ->
+            val parts = entry.split("/")
+            if (parts.size != 4) return@mapNotNull null
+            IqTestRecord(
+                epochMillis = parts[0].toLongOrNull() ?: return@mapNotNull null,
+                seed = parts[1].toLongOrNull() ?: return@mapNotNull null,
+                rawScore = parts[2].toIntOrNull() ?: return@mapNotNull null,
+                durationSeconds = parts[3].toIntOrNull() ?: return@mapNotNull null,
+            )
+        }
+
+    fun getBestIqTestRawScore(): Int? = getIqTestResults().maxOfOrNull { it.rawScore }
 
     /** Unlock the perfect-center milestone the first time the last peg is in the center. */
     fun markPegSolitairePerfect() {

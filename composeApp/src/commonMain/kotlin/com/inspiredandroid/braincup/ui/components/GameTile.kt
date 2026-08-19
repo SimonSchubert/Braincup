@@ -19,7 +19,9 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.clipRect
 import androidx.compose.ui.graphics.drawscope.translate
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.text.AnnotatedString
@@ -87,6 +89,7 @@ import com.inspiredandroid.braincup.ui.theme.tileTextColor
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
+import kotlin.math.exp
 import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 // Tile previews always render on light pastel backgrounds (gameType.accentColor),
@@ -395,6 +398,57 @@ fun MatchstickRiddlesTile(solvedCount: Int, total: Int, onClick: () -> Unit) {
         onClick = onClick,
     ) { MatchstickRiddlesPreview() }
 }
+
+/** The standalone matrix-reasoning IQ test, under the full-size games divider. */
+@Composable
+fun IqTestTile(bestIq: Int?, onClick: () -> Unit) {
+    NormalGameTile(
+        label = if (bestIq != null) {
+            stringResource(Res.string.iq_test_button) + " ($bestIq)"
+        } else {
+            stringResource(Res.string.iq_test_button)
+        },
+        accentColor = GameType.PATTERN_SEQUENCE.accentColor,
+        onClick = onClick,
+    ) { IqTestPreview() }
+}
+
+/**
+ * A miniature of the result screen's bell curve rather than another matrix, so the tile reads as
+ * "a measurement" next to the puzzle tiles rather than as a second Pattern Sequence.
+ */
+@Composable
+private fun IqTestPreview() {
+    val curveColor = MaterialTheme.colorScheme.primary
+    val trackColor = MaterialTheme.colorScheme.surfaceVariant
+    val markerColor = MaterialTheme.colorScheme.onSurface
+    Canvas(modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp)) {
+        val baseline = size.height * 0.82f
+        val peak = size.height * 0.12f
+        val curve = Path().apply {
+            moveTo(0f, baseline)
+            for (step in 0..IqTestPreviewSteps) {
+                val t = step / IqTestPreviewSteps.toFloat()
+                val z = (t - 0.5f) * 5f
+                lineTo(t * size.width, baseline - exp(-0.5f * z * z) * (baseline - peak))
+            }
+            lineTo(size.width, baseline)
+            close()
+        }
+        drawPath(curve, trackColor)
+        val markerX = size.width * IqTestPreviewMarker
+        clipRect(right = markerX) { drawPath(curve, curveColor) }
+        drawLine(
+            color = markerColor,
+            start = Offset(markerX, peak),
+            end = Offset(markerX, baseline),
+            strokeWidth = 2.dp.toPx(),
+        )
+    }
+}
+
+private const val IqTestPreviewSteps = 48
+private const val IqTestPreviewMarker = 0.68f
 
 /** English peg solitaire entry under the full-size games divider. */
 @Composable

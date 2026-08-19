@@ -7,6 +7,10 @@ import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Achievements
 import com.inspiredandroid.braincup.app.Finish
 import com.inspiredandroid.braincup.app.Instructions
+import com.inspiredandroid.braincup.app.IqTestIntro
+import com.inspiredandroid.braincup.app.IqTestPlay
+import com.inspiredandroid.braincup.app.IqTestResult
+import com.inspiredandroid.braincup.app.IqTestReview
 import com.inspiredandroid.braincup.app.Licenses
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.MatchstickRiddlesMenu
@@ -43,6 +47,10 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is MatchstickRiddlesMenu -> "matchstick"
     is MatchstickRiddlesPlay -> "matchstick/${route.riddleId}"
     is PegSolitaire -> "peg-solitaire"
+    is IqTestIntro -> "iq-test"
+    is IqTestPlay -> "iq-test/play"
+    is IqTestResult -> "iq-test/result"
+    is IqTestReview -> "iq-test/review"
     is Instructions -> gamePathSuffix(route.gameTypeId)
     is Playing -> gamePathSuffix(route.gameTypeId)
     is Finish -> gamePathSuffix(route.gameTypeId)
@@ -63,6 +71,10 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "chess" -> NormalChessMenu
         "matchstick" -> MatchstickRiddlesMenu
         "peg-solitaire" -> PegSolitaire
+        "iq-test" -> IqTestIntro
+        "iq-test/play" -> IqTestPlay
+        "iq-test/result" -> IqTestResult
+        "iq-test/review" -> IqTestReview
         else -> parseParameterizedPath(suffix)
     }
 }
@@ -84,6 +96,10 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<MatchstickRiddlesMenu>() -> navRouteToPathSuffix(MatchstickRiddlesMenu)
         destination.hasRoute<MatchstickRiddlesPlay>() -> navRouteToPathSuffix(toRoute<MatchstickRiddlesPlay>())
         destination.hasRoute<PegSolitaire>() -> navRouteToPathSuffix(PegSolitaire)
+        destination.hasRoute<IqTestIntro>() -> navRouteToPathSuffix(IqTestIntro)
+        destination.hasRoute<IqTestPlay>() -> navRouteToPathSuffix(IqTestPlay)
+        destination.hasRoute<IqTestResult>() -> navRouteToPathSuffix(IqTestResult)
+        destination.hasRoute<IqTestReview>() -> navRouteToPathSuffix(IqTestReview)
         destination.hasRoute<Instructions>() -> navRouteToPathSuffix(toRoute<Instructions>())
         destination.hasRoute<Playing>() -> navRouteToPathSuffix(toRoute<Playing>())
         destination.hasRoute<Finish>() -> navRouteToPathSuffix(toRoute<Finish>())

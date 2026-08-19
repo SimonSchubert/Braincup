@@ -760,5 +760,50 @@
     <string name="trio_demo_correct">To jest zestaw.</string>
     <string name="achievement_gold_trio">Potrójne widzenie</string>
     <string name="achievement_gold_trio_desc">Wygraj złoty medal w Trio</string>
-</resources>
 
+    <string name="iq_test_button">Test IQ</string>
+    <string name="iq_test_title">Test IQ</string>
+    <string name="iq_test_intro_headline">Test rozumowania na macierzach</string>
+    <string name="iq_test_intro_body">%1$d zadań, %2$d minut. Każde zadanie to siatka 3x3, w której brakuje jednego pola. Odkryj regułę biegnącą wzdłuż wierszy i wybierz pole pasujące do pustego rogu. Zadania stają się coraz trudniejsze.</string>
+    <string name="iq_test_intro_pacing">Pojedyncze zadanie nie ma limitu czasu. Możesz się cofać, pomijać i zmieniać odpowiedzi, dopóki nie skończy się czas.</string>
+    <string name="iq_test_disclaimer">To szacunek oparty na jednym rodzaju zadań na rozumowanie, zrobiony dla zabawy. Nie jest to ocena kliniczna ani diagnostyczna, a żaden wynik nie mówi nic o twojej wartości ani zdolnościach.</string>
+    <string name="iq_test_retake_note">Przy powtórce wyniki zwykle rosną, bo znasz już ten rodzaj zadań. Potraktuj pierwszy wynik jako najbardziej uczciwy.</string>
+    <string name="iq_test_start">Rozpocznij test</string>
+    <string name="iq_test_history_title">Poprzednie wyniki</string>
+    <string name="iq_test_item_counter">Zadanie %1$d z %2$d</string>
+    <string name="iq_test_previous">Wstecz</string>
+    <string name="iq_test_next">Dalej</string>
+    <string name="iq_test_skip">Pomiń</string>
+    <string name="iq_test_finish">Zakończ</string>
+    <string name="iq_test_finish_now">Zakończ teraz</string>
+    <string name="iq_test_quit_title">Opuścić test?</string>
+    <string name="iq_test_quit_message">Twój postęp przepadnie. Test jest na czas, więc nie można go wstrzymać i wznowić później.</string>
+    <string name="iq_test_result_title">Twój wynik</string>
+    <string name="iq_test_estimated_iq">Szacowane IQ</string>
+    <string name="iq_test_percentile">Wyżej niż %1$d% populacji</string>
+    <string name="iq_test_percentile_low">W dolnej części zakresu, który ten test potrafi zmierzyć</string>
+    <string name="iq_test_raw_score">%1$d z %2$d poprawnych</string>
+    <string name="iq_test_duration">Ukończono w %1$s</string>
+    <string name="iq_test_below_range">Za mało poprawnych odpowiedzi, by oszacować wynik. Ktoś zgadujący wylądowałby mniej więcej tutaj, więc test nie potrafi ich odróżnić.</string>
+    <string name="iq_test_personal_best">Twój najlepszy dotychczasowy wynik</string>
+    <string name="iq_test_breakdown_title">Według trudności</string>
+    <string name="iq_test_difficulty_level">Poziom %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Przejrzyj odpowiedzi</string>
+    <string name="iq_test_review_title">Przegląd</string>
+    <string name="iq_test_review_correct">Wybrano właściwe pole</string>
+    <string name="iq_test_review_wrong">Wybrano niewłaściwe pole</string>
+    <string name="iq_test_review_skipped">To zadanie zostało pominięte</string>
+    <string name="iq_test_done">Powrót do menu</string>
+    <string name="iq_band_below_average">Poniżej średniej</string>
+    <string name="iq_band_low_average">Niska średnia</string>
+    <string name="iq_band_average">Średnia</string>
+    <string name="iq_band_high_average">Wysoka średnia</string>
+    <string name="iq_band_superior">Powyżej średniej</string>
+    <string name="iq_band_very_superior">Znacznie powyżej średniej</string>
+    <string name="achievement_iq_test_completed">Zmierzony umysł</string>
+    <string name="achievement_iq_test_completed_desc">Ukończ pełny test IQ</string>
+    <string name="achievement_iq_test_high">Geniusz wzorów</string>
+    <string name="achievement_iq_test_high_desc">Osiągnij szacowane IQ 130 lub wyżej</string>
+
+</resources>

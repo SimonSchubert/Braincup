@@ -760,5 +760,50 @@
     <string name="trio_demo_correct">Esse é um conjunto.</string>
     <string name="achievement_gold_trio">Visão tripla</string>
     <string name="achievement_gold_trio_desc">Ganhe a medalha de ouro em Trio</string>
-</resources>
 
+    <string name="iq_test_button">Teste de QI</string>
+    <string name="iq_test_title">Teste de QI</string>
+    <string name="iq_test_intro_headline">Teste de raciocínio matricial</string>
+    <string name="iq_test_intro_body">%1$d desafios, %2$d minutos. Cada desafio é uma grelha 3x3 com um painel em falta. Descobre a regra que percorre as linhas e escolhe o painel que pertence ao canto vazio. Os desafios vão ficando mais difíceis.</string>
+    <string name="iq_test_intro_pacing">Não há limite de tempo por desafio. Podes voltar atrás, saltar e mudar as tuas respostas até o tempo acabar.</string>
+    <string name="iq_test_disclaimer">Isto é uma estimativa baseada num único tipo de desafio de raciocínio, feita por diversão. Não é uma avaliação clínica nem um diagnóstico, e nenhuma pontuação aqui diz seja o que for sobre o teu valor ou a tua capacidade.</string>
+    <string name="iq_test_retake_note">As pontuações tendem a subir numa repetição porque já viste este tipo de desafio. Considera o teu primeiro resultado como o mais honesto.</string>
+    <string name="iq_test_start">Começar teste</string>
+    <string name="iq_test_history_title">Resultados anteriores</string>
+    <string name="iq_test_item_counter">Desafio %1$d de %2$d</string>
+    <string name="iq_test_previous">Anterior</string>
+    <string name="iq_test_next">Seguinte</string>
+    <string name="iq_test_skip">Saltar</string>
+    <string name="iq_test_finish">Terminar</string>
+    <string name="iq_test_finish_now">Terminar agora</string>
+    <string name="iq_test_quit_title">Sair do teste?</string>
+    <string name="iq_test_quit_message">O teu progresso será perdido. O teste é cronometrado, por isso não pode ser pausado e retomado mais tarde.</string>
+    <string name="iq_test_result_title">O teu resultado</string>
+    <string name="iq_test_estimated_iq">QI estimado</string>
+    <string name="iq_test_percentile">Superior a %1$d% da população</string>
+    <string name="iq_test_percentile_low">Na parte baixa do intervalo que este teste consegue medir</string>
+    <string name="iq_test_raw_score">%1$d de %2$d corretas</string>
+    <string name="iq_test_duration">Concluído em %1$s</string>
+    <string name="iq_test_below_range">Poucas respostas corretas para estimar uma pontuação. Quem respondesse ao acaso ficaria por aqui, por isso o teste não consegue distinguir.</string>
+    <string name="iq_test_personal_best">O teu melhor resultado até agora</string>
+    <string name="iq_test_breakdown_title">Por dificuldade</string>
+    <string name="iq_test_difficulty_level">Nível %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Rever respostas</string>
+    <string name="iq_test_review_title">Revisão</string>
+    <string name="iq_test_review_correct">Escolheste o painel certo</string>
+    <string name="iq_test_review_wrong">Escolheste o painel errado</string>
+    <string name="iq_test_review_skipped">Saltaste este</string>
+    <string name="iq_test_done">Voltar ao menu</string>
+    <string name="iq_band_below_average">Abaixo da média</string>
+    <string name="iq_band_low_average">Média baixa</string>
+    <string name="iq_band_average">Média</string>
+    <string name="iq_band_high_average">Média alta</string>
+    <string name="iq_band_superior">Superior</string>
+    <string name="iq_band_very_superior">Muito superior</string>
+    <string name="achievement_iq_test_completed">Mente medida</string>
+    <string name="achievement_iq_test_completed_desc">Conclui um teste de QI completo</string>
+    <string name="achievement_iq_test_high">Génio dos padrões</string>
+    <string name="achievement_iq_test_high_desc">Atinge um QI estimado de 130 ou mais</string>
+
+</resources>

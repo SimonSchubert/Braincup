@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">这就是一组。</string>
     <string name="achievement_gold_trio">三重视力</string>
     <string name="achievement_gold_trio_desc">在 Trio 中赢得金牌</string>
-</resources>
 
+    <string name="iq_test_button">智商测试</string>
+    <string name="iq_test_title">智商测试</string>
+    <string name="iq_test_intro_headline">矩阵推理测试</string>
+    <string name="iq_test_intro_body">%1$d 道题，%2$d 分钟。每道题是一个缺了一格的 3x3 方阵。找出沿着每一行的规律，再选出该填进空缺角落的那一格。题目会越来越难。</string>
+    <string name="iq_test_intro_pacing">单题没有时间限制。在总时间用完之前，你可以返回、跳过并修改答案。</string>
+    <string name="iq_test_disclaimer">这只是根据一种推理题得出的估算，做着玩的。它不是临床评估或诊断，这里的任何分数都不能说明你的价值或能力。</string>
+    <string name="iq_test_retake_note">重做时分数通常会上升，因为你已经见过这类题目。请把第一次的结果当作最诚实的那一个。</string>
+    <string name="iq_test_start">开始测试</string>
+    <string name="iq_test_history_title">以往结果</string>
+    <string name="iq_test_item_counter">第 %1$d 题，共 %2$d 题</string>
+    <string name="iq_test_previous">上一题</string>
+    <string name="iq_test_next">下一题</string>
+    <string name="iq_test_skip">跳过</string>
+    <string name="iq_test_finish">完成</string>
+    <string name="iq_test_finish_now">现在结束</string>
+    <string name="iq_test_quit_title">要离开测试吗？</string>
+    <string name="iq_test_quit_message">你的进度将会丢失。测试是计时的，无法暂停后再继续。</string>
+    <string name="iq_test_result_title">你的结果</string>
+    <string name="iq_test_estimated_iq">估算智商</string>
+    <string name="iq_test_percentile">高于 %1$d% 的人</string>
+    <string name="iq_test_percentile_low">处于本测试可测范围的偏低区间</string>
+    <string name="iq_test_raw_score">答对 %1$d 题，共 %2$d 题</string>
+    <string name="iq_test_duration">用时 %1$s</string>
+    <string name="iq_test_below_range">答对的题目太少，无法估算分数。随便猜也大致落在这里，所以测试无法区分。</string>
+    <string name="iq_test_personal_best">你目前的最佳成绩</string>
+    <string name="iq_test_breakdown_title">按难度</string>
+    <string name="iq_test_difficulty_level">第 %1$d 级</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">回顾答案</string>
+    <string name="iq_test_review_title">回顾</string>
+    <string name="iq_test_review_correct">你选对了</string>
+    <string name="iq_test_review_wrong">你选错了</string>
+    <string name="iq_test_review_skipped">这道题你跳过了</string>
+    <string name="iq_test_done">返回菜单</string>
+    <string name="iq_band_below_average">低于平均</string>
+    <string name="iq_band_low_average">中下</string>
+    <string name="iq_band_average">平均</string>
+    <string name="iq_band_high_average">中上</string>
+    <string name="iq_band_superior">优秀</string>
+    <string name="iq_band_very_superior">非常优秀</string>
+    <string name="achievement_iq_test_completed">被量度的心智</string>
+    <string name="achievement_iq_test_completed_desc">完整做完一次智商测试</string>
+    <string name="achievement_iq_test_high">规律高手</string>
+    <string name="achievement_iq_test_high_desc">估算智商达到 130 或以上</string>
+
+</resources>

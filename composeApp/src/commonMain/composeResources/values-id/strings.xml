@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">Itu sebuah set.</string>
     <string name="achievement_gold_trio">Penglihatan tiga</string>
     <string name="achievement_gold_trio_desc">Menangkan medali emas di Trio</string>
-</resources>
 
+    <string name="iq_test_button">Tes IQ</string>
+    <string name="iq_test_title">Tes IQ</string>
+    <string name="iq_test_intro_headline">Tes penalaran matriks</string>
+    <string name="iq_test_intro_body">%1$d soal, %2$d menit. Setiap soal berupa kisi 3x3 yang salah satu petaknya hilang. Temukan aturan yang berjalan di sepanjang baris, lalu pilih petak yang cocok untuk sudut kosong. Soalnya makin sulit seiring berjalannya tes.</string>
+    <string name="iq_test_intro_pacing">Tidak ada batas waktu untuk satu soal. Kamu bisa kembali, melewati soal, dan mengubah jawaban sampai waktunya habis.</string>
+    <string name="iq_test_disclaimer">Ini adalah perkiraan berdasarkan satu jenis soal penalaran saja, dibuat untuk hiburan. Ini bukan penilaian klinis atau diagnostik, dan tidak ada skor di sini yang menyatakan apa pun tentang nilai atau kemampuanmu.</string>
+    <string name="iq_test_retake_note">Skor cenderung naik saat mengulang karena kamu sudah pernah melihat jenis soal ini. Anggap hasil pertamamu sebagai yang paling jujur.</string>
+    <string name="iq_test_start">Mulai tes</string>
+    <string name="iq_test_history_title">Hasil sebelumnya</string>
+    <string name="iq_test_item_counter">Soal %1$d dari %2$d</string>
+    <string name="iq_test_previous">Sebelumnya</string>
+    <string name="iq_test_next">Berikutnya</string>
+    <string name="iq_test_skip">Lewati</string>
+    <string name="iq_test_finish">Selesai</string>
+    <string name="iq_test_finish_now">Selesai sekarang</string>
+    <string name="iq_test_quit_title">Keluar dari tes?</string>
+    <string name="iq_test_quit_message">Progresmu akan hilang. Tes ini memakai waktu, jadi tidak bisa dijeda dan dilanjutkan nanti.</string>
+    <string name="iq_test_result_title">Hasilmu</string>
+    <string name="iq_test_estimated_iq">Perkiraan IQ</string>
+    <string name="iq_test_percentile">Lebih tinggi dari %1$d% populasi</string>
+    <string name="iq_test_percentile_low">Di bagian bawah rentang yang bisa diukur tes ini</string>
+    <string name="iq_test_raw_score">%1$d dari %2$d benar</string>
+    <string name="iq_test_duration">Selesai dalam %1$s</string>
+    <string name="iq_test_below_range">Jawaban benarnya terlalu sedikit untuk memperkirakan skor. Orang yang menebak akan berada di sekitar sini, jadi tes ini tidak bisa membedakannya.</string>
+    <string name="iq_test_personal_best">Hasil terbaikmu sejauh ini</string>
+    <string name="iq_test_breakdown_title">Menurut kesulitan</string>
+    <string name="iq_test_difficulty_level">Tingkat %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Tinjau jawaban</string>
+    <string name="iq_test_review_title">Tinjauan</string>
+    <string name="iq_test_review_correct">Kamu memilih petak yang benar</string>
+    <string name="iq_test_review_wrong">Kamu memilih petak yang salah</string>
+    <string name="iq_test_review_skipped">Kamu melewati yang ini</string>
+    <string name="iq_test_done">Kembali ke menu</string>
+    <string name="iq_band_below_average">Di bawah rata-rata</string>
+    <string name="iq_band_low_average">Rata-rata bawah</string>
+    <string name="iq_band_average">Rata-rata</string>
+    <string name="iq_band_high_average">Rata-rata atas</string>
+    <string name="iq_band_superior">Unggul</string>
+    <string name="iq_band_very_superior">Sangat unggul</string>
+    <string name="achievement_iq_test_completed">Pikiran Terukur</string>
+    <string name="achievement_iq_test_completed_desc">Selesaikan satu tes IQ penuh</string>
+    <string name="achievement_iq_test_high">Ahli Pola</string>
+    <string name="achievement_iq_test_high_desc">Capai perkiraan IQ 130 atau lebih</string>
+
+</resources>

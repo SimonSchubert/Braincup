@@ -760,5 +760,50 @@
     <string name="trio_demo_correct">هذه مجموعة.</string>
     <string name="achievement_gold_trio">الرؤية الثلاثية</string>
     <string name="achievement_gold_trio_desc">اربح الميدالية الذهبية في Trio</string>
-</resources>
 
+    <string name="iq_test_button">اختبار الذكاء</string>
+    <string name="iq_test_title">اختبار الذكاء</string>
+    <string name="iq_test_intro_headline">اختبار الاستدلال بالمصفوفات</string>
+    <string name="iq_test_intro_body">%1$d أحجية، %2$d دقيقة. كل أحجية شبكة 3x3 ينقصها مربع واحد. استنتج القاعدة التي تسير على امتداد الصفوف، ثم اختر المربع الذي ينتمي إلى الزاوية الفارغة. تزداد الأحاجي صعوبة كلما تقدمت.</string>
+    <string name="iq_test_intro_pacing">لا يوجد وقت محدد لكل أحجية على حدة. يمكنك الرجوع والتخطي وتغيير إجاباتك حتى ينفد الوقت.</string>
+    <string name="iq_test_disclaimer">هذا تقدير مبني على نوع واحد فقط من أحاجي الاستدلال، وُضع للمتعة. ليس تقييما سريريا ولا تشخيصيا، ولا تقول أي نتيجة هنا شيئا عن قيمتك أو قدرتك.</string>
+    <string name="iq_test_retake_note">ترتفع النتائج عادة عند الإعادة لأنك رأيت هذا النوع من الأحاجي من قبل، لذا اعتبر نتيجتك الأولى هي الأصدق.</string>
+    <string name="iq_test_start">ابدأ الاختبار</string>
+    <string name="iq_test_history_title">النتائج السابقة</string>
+    <string name="iq_test_item_counter">الأحجية %1$d من %2$d</string>
+    <string name="iq_test_previous">السابق</string>
+    <string name="iq_test_next">التالي</string>
+    <string name="iq_test_skip">تخطي</string>
+    <string name="iq_test_finish">إنهاء</string>
+    <string name="iq_test_finish_now">أنهِ الآن</string>
+    <string name="iq_test_quit_title">مغادرة الاختبار؟</string>
+    <string name="iq_test_quit_message">سيضيع تقدمك. الاختبار محدد بوقت، لذا لا يمكن إيقافه مؤقتا واستئنافه لاحقا.</string>
+    <string name="iq_test_result_title">نتيجتك</string>
+    <string name="iq_test_estimated_iq">الذكاء التقديري</string>
+    <string name="iq_test_percentile">أعلى من %1$d% من السكان</string>
+    <string name="iq_test_percentile_low">في الجزء المنخفض من المدى الذي يستطيع هذا الاختبار قياسه</string>
+    <string name="iq_test_raw_score">%1$d صحيحة من %2$d</string>
+    <string name="iq_test_duration">انتهى في %1$s</string>
+    <string name="iq_test_below_range">الإجابات الصحيحة أقل من أن تسمح بتقدير نتيجة. من يخمّن عشوائيا سيصل إلى هنا تقريبا، لذا لا يستطيع الاختبار التمييز بينهما.</string>
+    <string name="iq_test_personal_best">أفضل نتيجة لك حتى الآن</string>
+    <string name="iq_test_breakdown_title">حسب الصعوبة</string>
+    <string name="iq_test_difficulty_level">المستوى %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">مراجعة الإجابات</string>
+    <string name="iq_test_review_title">مراجعة</string>
+    <string name="iq_test_review_correct">اخترت المربع الصحيح</string>
+    <string name="iq_test_review_wrong">اخترت المربع الخطأ</string>
+    <string name="iq_test_review_skipped">تخطيت هذه الأحجية</string>
+    <string name="iq_test_done">العودة إلى القائمة</string>
+    <string name="iq_band_below_average">دون المتوسط</string>
+    <string name="iq_band_low_average">متوسط منخفض</string>
+    <string name="iq_band_average">متوسط</string>
+    <string name="iq_band_high_average">متوسط مرتفع</string>
+    <string name="iq_band_superior">متفوق</string>
+    <string name="iq_band_very_superior">متفوق جدا</string>
+    <string name="achievement_iq_test_completed">عقل مُقاس</string>
+    <string name="achievement_iq_test_completed_desc">أكمل اختبار ذكاء كاملا</string>
+    <string name="achievement_iq_test_high">نابغة الأنماط</string>
+    <string name="achievement_iq_test_high_desc">بلوغ ذكاء تقديري 130 أو أكثر</string>
+
+</resources>

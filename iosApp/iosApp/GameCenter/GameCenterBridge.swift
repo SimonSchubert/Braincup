@@ -66,6 +66,11 @@ final class GameCenterBridge: NSObject {
         bridge.onPegSolitairePerfect = { [weak self] in
             self?.reportAchievement(id: GameCenterIds.achievementPegMaster, percent: 100)
         }
+        bridge.onIqTestCompleted = { [weak self] iq in
+            self?.reportAchievement(id: GameCenterIds.achievementMeasuredMind, percent: 100)
+            guard iq.intValue >= GameCenterIds.iqTestHighTarget else { return }
+            self?.reportAchievement(id: GameCenterIds.achievementPatternSavant, percent: 100)
+        }
 
         bridge.onSudokuTierProgress = { [weak self] difficulty, solved in
             let count = Double(Int(truncating: solved))
@@ -217,7 +222,7 @@ final class GameCenterBridge: NSObject {
     // MARK: - GameKit primitives
 
     private func reportAchievement(id: String?, percent: Double, showsBanner: Bool = true) {
-        guard let id = id, isAuthenticated else { return }
+        guard let id = id, !id.isEmpty, isAuthenticated else { return }
         let achievement = GKAchievement(identifier: id)
         achievement.percentComplete = percent
         achievement.showsCompletionBanner = showsBanner

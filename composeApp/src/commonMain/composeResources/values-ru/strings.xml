@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">Это набор.</string>
     <string name="achievement_gold_trio">Тройное зрение</string>
     <string name="achievement_gold_trio_desc">Выиграйте золотую медаль в Trio</string>
-</resources>
 
+    <string name="iq_test_button">Тест IQ</string>
+    <string name="iq_test_title">Тест IQ</string>
+    <string name="iq_test_intro_headline">Тест на матричное мышление</string>
+    <string name="iq_test_intro_body">%1$d заданий, %2$d минут. Каждое задание — сетка 3x3, в которой не хватает одной клетки. Найдите правило, идущее вдоль строк, и выберите клетку, подходящую для пустого угла. Задания постепенно усложняются.</string>
+    <string name="iq_test_intro_pacing">На отдельное задание времени не ограничено. Можно возвращаться, пропускать и менять ответы, пока не истечёт время.</string>
+    <string name="iq_test_disclaimer">Это оценка по одному типу заданий на мышление, сделанная ради интереса. Это не клиническое и не диагностическое обследование, и никакой результат здесь ничего не говорит о вашей ценности или способностях.</string>
+    <string name="iq_test_retake_note">При повторном прохождении результат обычно растёт, потому что такой тип заданий вам уже знаком. Считайте первый результат самым честным.</string>
+    <string name="iq_test_start">Начать тест</string>
+    <string name="iq_test_history_title">Прошлые результаты</string>
+    <string name="iq_test_item_counter">Задание %1$d из %2$d</string>
+    <string name="iq_test_previous">Назад</string>
+    <string name="iq_test_next">Далее</string>
+    <string name="iq_test_skip">Пропустить</string>
+    <string name="iq_test_finish">Готово</string>
+    <string name="iq_test_finish_now">Завершить сейчас</string>
+    <string name="iq_test_quit_title">Выйти из теста?</string>
+    <string name="iq_test_quit_message">Прогресс будет потерян. Тест идёт на время, поэтому его нельзя приостановить и продолжить позже.</string>
+    <string name="iq_test_result_title">Ваш результат</string>
+    <string name="iq_test_estimated_iq">Ориентировочный IQ</string>
+    <string name="iq_test_percentile">Выше, чем у %1$d% населения</string>
+    <string name="iq_test_percentile_low">В нижней части диапазона, который может измерить этот тест</string>
+    <string name="iq_test_raw_score">%1$d из %2$d верно</string>
+    <string name="iq_test_duration">Пройдено за %1$s</string>
+    <string name="iq_test_below_range">Слишком мало верных ответов, чтобы оценить результат. Тот, кто просто угадывает, оказался бы примерно здесь, поэтому тест их не различает.</string>
+    <string name="iq_test_personal_best">Ваш лучший результат</string>
+    <string name="iq_test_breakdown_title">По сложности</string>
+    <string name="iq_test_difficulty_level">Уровень %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Разобрать ответы</string>
+    <string name="iq_test_review_title">Разбор</string>
+    <string name="iq_test_review_correct">Вы выбрали правильную клетку</string>
+    <string name="iq_test_review_wrong">Вы выбрали не ту клетку</string>
+    <string name="iq_test_review_skipped">Это задание пропущено</string>
+    <string name="iq_test_done">В меню</string>
+    <string name="iq_band_below_average">Ниже среднего</string>
+    <string name="iq_band_low_average">Ниже нормы</string>
+    <string name="iq_band_average">Средний</string>
+    <string name="iq_band_high_average">Выше нормы</string>
+    <string name="iq_band_superior">Высокий</string>
+    <string name="iq_band_very_superior">Очень высокий</string>
+    <string name="achievement_iq_test_completed">Измеренный разум</string>
+    <string name="achievement_iq_test_completed_desc">Пройдите полный тест IQ</string>
+    <string name="achievement_iq_test_high">Гений закономерностей</string>
+    <string name="achievement_iq_test_high_desc">Достигните ориентировочного IQ 130 или выше</string>
+
+</resources>

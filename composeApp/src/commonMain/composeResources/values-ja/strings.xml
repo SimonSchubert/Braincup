@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">それがセットです。</string>
     <string name="achievement_gold_trio">トリプルビジョン</string>
     <string name="achievement_gold_trio_desc">Trioで金メダルを獲得する</string>
-</resources>
 
+    <string name="iq_test_button">IQテスト</string>
+    <string name="iq_test_title">IQテスト</string>
+    <string name="iq_test_intro_headline">行列推論テスト</string>
+    <string name="iq_test_intro_body">%1$d問、%2$d分。各問題は1マスが欠けた3x3のグリッドです。行に沿って走る規則を見つけ、空いた角に入るマスを選んでください。問題は進むにつれて難しくなります。</string>
+    <string name="iq_test_intro_pacing">1問ごとの制限時間はありません。全体の時間が尽きるまで、戻る・とばす・答えを変えることができます。</string>
+    <string name="iq_test_disclaimer">これは1種類の推論問題だけにもとづく推定で、楽しむために作られています。臨床的な検査でも診断でもなく、ここで出る数値はあなたの価値や能力について何も語りません。</string>
+    <string name="iq_test_retake_note">同じ種類の問題に慣れるため、再挑戦では点数が上がりやすくなります。最初の結果をいちばん正直なものと考えてください。</string>
+    <string name="iq_test_start">テストを始める</string>
+    <string name="iq_test_history_title">これまでの結果</string>
+    <string name="iq_test_item_counter">第%1$d問 / 全%2$d問</string>
+    <string name="iq_test_previous">前へ</string>
+    <string name="iq_test_next">次へ</string>
+    <string name="iq_test_skip">とばす</string>
+    <string name="iq_test_finish">終了</string>
+    <string name="iq_test_finish_now">ここで終える</string>
+    <string name="iq_test_quit_title">テストをやめますか？</string>
+    <string name="iq_test_quit_message">進行状況は失われます。時間制のテストなので、一時停止して後から再開することはできません。</string>
+    <string name="iq_test_result_title">あなたの結果</string>
+    <string name="iq_test_estimated_iq">推定IQ</string>
+    <string name="iq_test_percentile">人口の%1$d%より上</string>
+    <string name="iq_test_percentile_low">このテストで測れる範囲の下のほう</string>
+    <string name="iq_test_raw_score">%2$d問中%1$d問正解</string>
+    <string name="iq_test_duration">%1$sで終了</string>
+    <string name="iq_test_below_range">正解が少なすぎて点数を推定できません。当てずっぽうでもこのあたりになるため、テストでは見分けがつきません。</string>
+    <string name="iq_test_personal_best">これまでの自己ベスト</string>
+    <string name="iq_test_breakdown_title">難易度別</string>
+    <string name="iq_test_difficulty_level">レベル%1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">解答を振り返る</string>
+    <string name="iq_test_review_title">振り返り</string>
+    <string name="iq_test_review_correct">正しいマスを選べました</string>
+    <string name="iq_test_review_wrong">選んだマスは正解ではありません</string>
+    <string name="iq_test_review_skipped">この問題はとばしました</string>
+    <string name="iq_test_done">メニューに戻る</string>
+    <string name="iq_band_below_average">平均より下</string>
+    <string name="iq_band_low_average">平均のやや下</string>
+    <string name="iq_band_average">平均</string>
+    <string name="iq_band_high_average">平均のやや上</string>
+    <string name="iq_band_superior">高い</string>
+    <string name="iq_band_very_superior">非常に高い</string>
+    <string name="achievement_iq_test_completed">測られた知性</string>
+    <string name="achievement_iq_test_completed_desc">IQテストを最後まで終える</string>
+    <string name="achievement_iq_test_high">パターンの達人</string>
+    <string name="achievement_iq_test_high_desc">推定IQ130以上に到達する</string>
+
+</resources>

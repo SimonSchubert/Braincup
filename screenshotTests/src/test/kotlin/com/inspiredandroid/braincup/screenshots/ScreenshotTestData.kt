@@ -1,6 +1,11 @@
 package com.inspiredandroid.braincup.screenshots
 
+import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.DigitMemoryUiState
+import com.inspiredandroid.braincup.app.IqTestPlayUiState
+import com.inspiredandroid.braincup.app.IqTestResultUiState
+import com.inspiredandroid.braincup.app.IqTestReviewItemUiState
+import com.inspiredandroid.braincup.app.MatrixOptionCell
 import com.inspiredandroid.braincup.app.FlashCrowdUiState
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.app.KnotUiState
@@ -12,6 +17,12 @@ import com.inspiredandroid.braincup.app.VisualMemoryUiState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellState
 import com.inspiredandroid.braincup.app.VisualMemoryUiState.CellType
 import com.inspiredandroid.braincup.games.*
+import com.inspiredandroid.braincup.games.iqtest.IqScoring
+import com.inspiredandroid.braincup.games.iqtest.IqTest
+import com.inspiredandroid.braincup.games.iqtest.IqTestBlueprint
+import com.inspiredandroid.braincup.games.iqtest.TierResult
+import com.inspiredandroid.braincup.games.matrix.MatrixGenerator
+import com.inspiredandroid.braincup.games.matrix.MatrixProblem
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -464,5 +475,79 @@ fun createVisualMemoryGameOverUiState(): VisualMemoryUiState {
             )
         }.toImmutableList(),
         currentTargetFigure = visualMemoryFigures[3],
+    )
+}
+
+/**
+ * IQ test fixtures. Built from the public [IqTest] API rather than the screens' own preview
+ * helpers, which are `internal` to composeApp and so invisible from this module.
+ */
+private const val IQ_TEST_SEED = 42L
+
+private fun iqTestProblem(itemIndex: Int) = IqTest(seed = IQ_TEST_SEED).problemAt(itemIndex)
+
+private fun MatrixProblem.blankedMatrix() = matrix
+    .mapIndexed { index, panel -> panel.takeIf { index != 8 } }
+    .toImmutableList()
+
+private fun MatrixProblem.optionCellRows() = options
+    .map { MatrixOptionCell(it) }
+    .chunked(optionColumns)
+    .map { it.toImmutableList() }
+    .toImmutableList()
+
+fun createIqTestPlayUiState(itemIndex: Int = 17, selectedOption: Int? = 2): IqTestPlayUiState {
+    val problem = iqTestProblem(itemIndex)
+    return IqTestPlayUiState(
+        itemIndex = itemIndex,
+        itemCount = IqTestBlueprint.ITEM_COUNT,
+        matrix = problem.blankedMatrix(),
+        optionRows = problem.optionCellRows(),
+        optionColumns = problem.optionColumns,
+        selectedOption = selectedOption,
+        isOnLastItem = itemIndex == IqTestBlueprint.ITEM_COUNT - 1,
+    )
+}
+
+fun createIqTestReviewUiState(itemIndex: Int = 14, pickedOption: Int? = 1): IqTestReviewItemUiState {
+    val problem = iqTestProblem(itemIndex)
+    return IqTestReviewItemUiState(
+        itemIndex = itemIndex,
+        itemCount = IqTestBlueprint.ITEM_COUNT,
+        matrix = problem.blankedMatrix(),
+        optionRows = problem.optionCellRows(),
+        optionColumns = problem.optionColumns,
+        pickedOption = pickedOption,
+        correctOption = problem.correctOptionIndex,
+        tier = IqTestBlueprint.tierFor(itemIndex),
+    )
+}
+
+fun createIqTestResultUiState(
+    rawScore: Int,
+    isPersonalBest: Boolean = true,
+    levelChange: UserStorage.LevelChange? = null,
+): IqTestResultUiState {
+    val iq = IqScoring.iqFor(rawScore)
+    // Spread the raw score over the tiers the way a real run does: easy tiers fill first.
+    var remaining = rawScore
+    val breakdown = (0..MatrixGenerator.MAX_DIFFICULTY).map { tier ->
+        val total = IqTestBlueprint.itemCountForTier(tier)
+        val correct = remaining.coerceIn(0, total)
+        remaining -= correct
+        TierResult(tier = tier, correct = correct, total = total)
+    }
+    return IqTestResultUiState(
+        rawScore = rawScore,
+        itemCount = IqTestBlueprint.ITEM_COUNT,
+        iq = iq,
+        percentile = IqScoring.percentileFor(iq),
+        band = IqScoring.bandFor(iq),
+        isBelowMeasurableRange = IqScoring.isBelowMeasurableRange(rawScore),
+        tierBreakdown = breakdown.toImmutableList(),
+        durationSeconds = 11 * 60 + 42,
+        xpGained = UserStorage.IQ_TEST_COMPLETION_XP,
+        levelChange = levelChange,
+        isPersonalBest = isPersonalBest,
     )
 }

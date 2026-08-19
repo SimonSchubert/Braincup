@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">นั่นคือหนึ่งชุด</string>
     <string name="achievement_gold_trio">สายตาสามเท่า</string>
     <string name="achievement_gold_trio_desc">ชนะเหรียญทองใน Trio</string>
-</resources>
 
+    <string name="iq_test_button">แบบทดสอบไอคิว</string>
+    <string name="iq_test_title">แบบทดสอบไอคิว</string>
+    <string name="iq_test_intro_headline">แบบทดสอบการให้เหตุผลเชิงเมทริกซ์</string>
+    <string name="iq_test_intro_body">%1$d ข้อ %2$d นาที แต่ละข้อคือตาราง 3x3 ที่ขาดไปหนึ่งช่อง หากฎที่ไล่ไปตามแต่ละแถว แล้วเลือกช่องที่ควรอยู่ในมุมที่ว่าง ข้อต่อ ๆ ไปจะยากขึ้นเรื่อย ๆ</string>
+    <string name="iq_test_intro_pacing">ไม่มีการจับเวลารายข้อ คุณย้อนกลับ ข้าม และเปลี่ยนคำตอบได้จนกว่าเวลาจะหมด</string>
+    <string name="iq_test_disclaimer">นี่เป็นการประมาณจากโจทย์เหตุผลเพียงชนิดเดียว ทำขึ้นเพื่อความสนุก ไม่ใช่การประเมินทางคลินิกหรือการวินิจฉัย และไม่มีคะแนนใดที่นี่บอกอะไรเกี่ยวกับคุณค่าหรือความสามารถของคุณ</string>
+    <string name="iq_test_retake_note">คะแนนมักสูงขึ้นเมื่อทำซ้ำ เพราะคุณเคยเห็นโจทย์แบบนี้มาแล้ว ให้ถือว่าผลครั้งแรกคือผลที่ตรงไปตรงมาที่สุด</string>
+    <string name="iq_test_start">เริ่มทำแบบทดสอบ</string>
+    <string name="iq_test_history_title">ผลครั้งก่อน</string>
+    <string name="iq_test_item_counter">ข้อ %1$d จาก %2$d</string>
+    <string name="iq_test_previous">ก่อนหน้า</string>
+    <string name="iq_test_next">ถัดไป</string>
+    <string name="iq_test_skip">ข้าม</string>
+    <string name="iq_test_finish">เสร็จสิ้น</string>
+    <string name="iq_test_finish_now">จบตอนนี้</string>
+    <string name="iq_test_quit_title">ออกจากแบบทดสอบไหม</string>
+    <string name="iq_test_quit_message">ความคืบหน้าของคุณจะหายไป แบบทดสอบนี้จับเวลา จึงหยุดพักแล้วกลับมาทำต่อภายหลังไม่ได้</string>
+    <string name="iq_test_result_title">ผลของคุณ</string>
+    <string name="iq_test_estimated_iq">ไอคิวโดยประมาณ</string>
+    <string name="iq_test_percentile">สูงกว่า %1$d% ของประชากร</string>
+    <string name="iq_test_percentile_low">อยู่ในช่วงล่างของสิ่งที่แบบทดสอบนี้วัดได้</string>
+    <string name="iq_test_raw_score">ถูก %1$d จาก %2$d ข้อ</string>
+    <string name="iq_test_duration">ใช้เวลา %1$s</string>
+    <string name="iq_test_below_range">ตอบถูกน้อยเกินกว่าจะประมาณคะแนนได้ คนที่เดาล้วน ๆ ก็จะได้ราว ๆ นี้ แบบทดสอบจึงแยกไม่ออก</string>
+    <string name="iq_test_personal_best">ผลที่ดีที่สุดของคุณ</string>
+    <string name="iq_test_breakdown_title">ตามระดับความยาก</string>
+    <string name="iq_test_difficulty_level">ระดับ %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">ดูคำตอบย้อนหลัง</string>
+    <string name="iq_test_review_title">ทบทวน</string>
+    <string name="iq_test_review_correct">คุณเลือกช่องถูกต้อง</string>
+    <string name="iq_test_review_wrong">คุณเลือกช่องผิด</string>
+    <string name="iq_test_review_skipped">ข้อนี้คุณข้ามไป</string>
+    <string name="iq_test_done">กลับไปที่เมนู</string>
+    <string name="iq_band_below_average">ต่ำกว่าค่าเฉลี่ย</string>
+    <string name="iq_band_low_average">ค่อนไปทางต่ำ</string>
+    <string name="iq_band_average">ปานกลาง</string>
+    <string name="iq_band_high_average">ค่อนไปทางสูง</string>
+    <string name="iq_band_superior">สูง</string>
+    <string name="iq_band_very_superior">สูงมาก</string>
+    <string name="achievement_iq_test_completed">จิตที่ถูกวัด</string>
+    <string name="achievement_iq_test_completed_desc">ทำแบบทดสอบไอคิวจนจบ</string>
+    <string name="achievement_iq_test_high">ผู้เชี่ยวชาญรูปแบบ</string>
+    <string name="achievement_iq_test_high_desc">ทำไอคิวโดยประมาณได้ 130 ขึ้นไป</string>
+
+</resources>

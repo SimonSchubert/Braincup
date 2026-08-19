@@ -57,6 +57,13 @@ object PlayGamesBridge {
     var onPegSolitairePerfect: (() -> Unit)? = null
 
     /**
+     * Fired when an IQ test is finished, with the estimated IQ. The platform side unlocks the
+     * completion achievement every time and the high-score one only past its threshold, so this
+     * stays a single hook rather than one per achievement.
+     */
+    var onIqTestCompleted: ((Int) -> Unit)? = null
+
+    /**
      * Report the number of solved puzzles in a Normal Sudoku difficulty tier (0..10) to the
      * tier's incremental store achievement. Wired to `setSteps` (Play Games) /
      * `percentComplete` (Game Center); null off-store so completion stays a no-op.

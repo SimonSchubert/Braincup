@@ -21,11 +21,13 @@ import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.iqtest.IqScoring
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
+import com.inspiredandroid.braincup.ui.components.IqTestTile
 import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
 import com.inspiredandroid.braincup.ui.components.NormalChessTile
 import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
@@ -51,6 +53,7 @@ import androidx.compose.ui.text.intl.Locale as ComposeLocale
 fun MainMenuScreen(
     controller: GameController,
     onOpenSettings: () -> Unit = {},
+    onIqTest: () -> Unit = {},
     useBuiltInSponsors: Boolean = false,
 ) {
     val sessionState by controller.sessionState.collectAsStateWithLifecycle()
@@ -71,6 +74,9 @@ fun MainMenuScreen(
         controller.storage.getSolvedMatchstickRiddleIds().size
     }
     val matchstickRiddlesTotal = remember { MatchstickRiddles.all.size }
+    val bestIq = remember(controller, storageRevision) {
+        controller.storage.getBestIqTestRawScore()?.let { IqScoring.iqFor(it) }
+    }
 
     val onPlayDaily = remember(controller) { { controller.startDailySession() } }
     val onPlay = remember(controller) { { gameType: GameType -> controller.navigateToInstructions(gameType) } }
@@ -99,7 +105,9 @@ fun MainMenuScreen(
         normalSudokuCompleted = normalSudokuCompleted,
         matchstickRiddlesSolved = matchstickRiddlesSolved,
         matchstickRiddlesTotal = matchstickRiddlesTotal,
+        bestIq = bestIq,
         onOpenSettings = onOpenSettings,
+        onIqTest = onIqTest,
         onPlayDaily = onPlayDaily,
         onPlay = onPlay,
         onViewScore = onViewScore,
@@ -125,6 +133,7 @@ fun MainMenuScreenContent(
     normalSudokuCompleted: Int = 0,
     matchstickRiddlesSolved: Int = 0,
     matchstickRiddlesTotal: Int = 0,
+    bestIq: Int? = null,
     showDailyChallenge: Boolean = true,
     /**
      * Optional override for which mini-game tiles appear (and in which order).
@@ -132,6 +141,7 @@ fun MainMenuScreenContent(
      */
     gameTypes: ImmutableList<GameType>? = null,
     onOpenSettings: () -> Unit = {},
+    onIqTest: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
     onViewScore: (GameType) -> Unit = {},
@@ -295,6 +305,11 @@ fun MainMenuScreenContent(
         }
 
         // Full-size "normal" game entries, shown as square tiles alongside the mini games.
+        // The IQ test leads the section: it is the longest-form mode here, and burying it behind
+        // the whole mini-game grid would leave it undiscovered.
+        item(contentType = "iq_test") {
+            IqTestTile(bestIq = bestIq, onClick = onIqTest)
+        }
         item(contentType = "normal_sudoku") {
             NormalSudokuTile(
                 completedCount = normalSudokuCompleted,

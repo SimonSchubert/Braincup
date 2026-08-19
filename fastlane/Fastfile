@@ -37,7 +37,7 @@ platform :ios do
       in_house: false,
     )
 
-    screenshots_path = File.join(__dir__, "screenshots")
+    screenshots_path = File.expand_path("screenshots", __dir__)
     if Dir.glob(File.join(screenshots_path, "*", "*.png")).empty?
       UI.user_error!("No screenshots in #{screenshots_path}. Run './gradlew :screenshotTests:generateIosStoreScreenshots' first.")
     end
@@ -57,6 +57,9 @@ platform :ios do
     upload_to_app_store(
       app_version: app_version,
       screenshots_path: screenshots_path,
+      # deliver validates the metadata directory even when skip_metadata is set, and the default
+      # fastlane/metadata holds the android and ios trees rather than locale folders.
+      metadata_path: File.expand_path("metadata/ios", __dir__),
       skip_binary_upload: true,
       skip_metadata: true,
       skip_screenshots: false,
@@ -84,7 +87,7 @@ platform :ios do
       Deliver::Options.available_options,
       {
         app_identifier: CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier),
-        metadata_path: File.join(__dir__, "metadata/ios"),
+        metadata_path: File.expand_path("metadata/ios", __dir__),
         skip_binary_upload: true,
         skip_screenshots: true,
         run_precheck_before_submit: false,
@@ -130,7 +133,7 @@ platform :ios do
       clean: true,
       xcargs: "-allowProvisioningUpdates",
     )
-    notes_path = File.join(__dir__, "metadata/ios/en-US/release_notes.txt")
+    notes_path = File.expand_path("metadata/ios/en-US/release_notes.txt", __dir__)
     unless File.exist?(notes_path)
       UI.user_error!("Release notes file missing: #{notes_path}. Run /release first (it writes this file), or create it manually with the 'What's New' text.")
     end
@@ -141,8 +144,8 @@ platform :ios do
       skip_waiting_for_build_processing: false,
     )
     upload_to_app_store(
-      metadata_path: File.join(__dir__, "metadata/ios"),
-      screenshots_path: File.join(__dir__, "screenshots"),
+      metadata_path: File.expand_path("metadata/ios", __dir__),
+      screenshots_path: File.expand_path("screenshots", __dir__),
       release_notes: { "en-US" => release_notes },
       skip_binary_upload: true,
       # A new App Store version inherits the previous one's screenshots, so every release replaces

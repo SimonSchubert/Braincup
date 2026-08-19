@@ -71,6 +71,11 @@
     <!-- Peg Solitaire Perfect ("Peg Master"), standard (non-incremental). -->
     <string name="achievementPegMaster" translatable="false">CgkIuZrirtIVEAIQKw</string>
 
+    <!-- IQ test, standard (non-incremental). Blank until the achievements are registered in Play
+         Console; every call site guards on isBlank(), so an empty ID is a working no-op. -->
+    <string name="achievementMeasuredMind" translatable="false"></string>
+    <string name="achievementPatternSavant" translatable="false"></string>
+
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>
     <string name="leaderboardBrainCup" translatable="false">CgkIuZrirtIVEAIQGA</string>

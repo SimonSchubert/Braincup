@@ -78,6 +78,16 @@ fun initPlayGames(activity: ComponentActivity) {
         PlayGames.getAchievementsClient(current).unlock(id)
     }
 
+    PlayGamesBridge.onIqTestCompleted = fun(iq: Int) {
+        val current = activityRef?.get() ?: return
+        val client = PlayGames.getAchievementsClient(current)
+        val completedId = current.getString(R.string.achievementMeasuredMind)
+        if (completedId.isNotBlank()) client.unlock(completedId)
+        if (iq < UserStorage.IQ_TEST_HIGH_ACHIEVEMENT_IQ) return
+        val highId = current.getString(R.string.achievementPatternSavant)
+        if (highId.isNotBlank()) client.unlock(highId)
+    }
+
     PlayGamesBridge.onSudokuTierProgress = fun(difficulty: SudokuDifficulty, solved: Int) {
         val current = activityRef?.get() ?: return
         val id = current.getString(sudokuTierAchievementResIdFor(difficulty))
@@ -348,6 +358,14 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
             val pegMasterId = activity.getString(R.string.achievementPegMaster)
             if (pegMasterId.isNotBlank() && pegMasterId in unlockedIds) {
                 toRestore.add(UserStorage.Achievements.PEG_SOLITAIRE_PERFECT)
+            }
+            val measuredMindId = activity.getString(R.string.achievementMeasuredMind)
+            if (measuredMindId.isNotBlank() && measuredMindId in unlockedIds) {
+                toRestore.add(UserStorage.Achievements.IQ_TEST_COMPLETED)
+            }
+            val patternSavantId = activity.getString(R.string.achievementPatternSavant)
+            if (patternSavantId.isNotBlank() && patternSavantId in unlockedIds) {
+                toRestore.add(UserStorage.Achievements.IQ_TEST_HIGH)
             }
             storage.restoreUnlockedAchievements(toRestore)
 

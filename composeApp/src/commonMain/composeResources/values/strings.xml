@@ -759,4 +759,51 @@
     <string name="country_zambia">Zambia</string>
     <string name="country_zimbabwe">Zimbabwe</string>
 
+    <string name="iq_test_button">IQ Test</string>
+    <string name="iq_test_title">IQ Test</string>
+    <string name="iq_test_intro_headline">Matrix reasoning test</string>
+    <string name="iq_test_intro_body">%1$d puzzles, %2$d minutes. Each puzzle is a 3x3 grid with one panel missing. Work out the rule running along the rows, then pick the panel that belongs in the empty corner. The puzzles get harder as you go.</string>
+    <string name="iq_test_intro_pacing">There is no time limit on a single puzzle. You can go back, skip, and change your answers until the clock runs out.</string>
+    <string name="iq_test_disclaimer">This is an estimate based on one kind of reasoning puzzle, made for fun. It is not a clinical or diagnostic assessment, and no score here says anything about your worth or ability.</string>
+    <string name="iq_test_retake_note">Scores tend to rise on a retake because you have seen this kind of puzzle before, so treat your first result as the honest one.</string>
+    <string name="iq_test_start">Start test</string>
+    <string name="iq_test_history_title">Previous results</string>
+    <string name="iq_test_item_counter">Puzzle %1$d of %2$d</string>
+    <string name="iq_test_previous">Previous</string>
+    <string name="iq_test_next">Next</string>
+    <string name="iq_test_skip">Skip</string>
+    <string name="iq_test_finish">Finish</string>
+    <string name="iq_test_finish_now">Finish now</string>
+    <string name="iq_test_quit_title">Leave the test?</string>
+    <string name="iq_test_quit_message">Your progress will be lost. The test is timed, so it cannot be paused and resumed later.</string>
+    <string name="iq_test_result_title">Your result</string>
+    <string name="iq_test_estimated_iq">Estimated IQ</string>
+    <string name="iq_test_percentile">Higher than %1$d% of the population</string>
+    <string name="iq_test_percentile_low">In the lower part of the range this test can measure</string>
+    <string name="iq_test_raw_score">%1$d of %2$d correct</string>
+    <string name="iq_test_duration">Finished in %1$s</string>
+    <string name="iq_test_below_range">Too few correct answers to estimate a score. Anyone guessing would land around here, so the test cannot tell them apart.</string>
+    <string name="iq_test_personal_best">Your best result so far</string>
+    <string name="iq_test_breakdown_title">By difficulty</string>
+    <string name="iq_test_difficulty_level">Level %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Review answers</string>
+    <string name="iq_test_review_title">Review</string>
+    <string name="iq_test_review_correct">You picked the right panel</string>
+    <string name="iq_test_review_wrong">You picked the wrong panel</string>
+    <string name="iq_test_review_skipped">You skipped this one</string>
+    <string name="iq_test_done">Back to menu</string>
+
+    <string name="iq_band_below_average">Below average</string>
+    <string name="iq_band_low_average">Low average</string>
+    <string name="iq_band_average">Average</string>
+    <string name="iq_band_high_average">High average</string>
+    <string name="iq_band_superior">Superior</string>
+    <string name="iq_band_very_superior">Very superior</string>
+
+    <string name="achievement_iq_test_completed">Measured Mind</string>
+    <string name="achievement_iq_test_completed_desc">Finish a full IQ test</string>
+    <string name="achievement_iq_test_high">Pattern Savant</string>
+    <string name="achievement_iq_test_high_desc">Reach an estimated IQ of 130 or higher</string>
+
 </resources>

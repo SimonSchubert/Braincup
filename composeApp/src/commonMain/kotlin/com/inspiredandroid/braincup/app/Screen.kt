@@ -66,3 +66,15 @@ data class MatchstickRiddlesPlay(val riddleId: String)
 
 @Serializable
 object PegSolitaire
+
+@Serializable
+object IqTestIntro
+
+@Serializable
+object IqTestPlay
+
+@Serializable
+object IqTestResult
+
+@Serializable
+object IqTestReview

@@ -67,9 +67,16 @@ enum GameCenterIds {
     static let achievementMatchstickMaster = "achievement.matchstick_master"
     // Peg Solitaire Perfect ("Peg Master"), standard (non-incremental).
     static let achievementPegMaster       = "achievement.peg_master"
+    // IQ test, standard (non-incremental). Empty until the achievements are registered in App Store
+    // Connect; reportAchievement ignores an empty identifier, so this stays a working no-op.
+    static let achievementMeasuredMind    = ""
+    static let achievementPatternSavant   = ""
     static let leaderboardBrainCup       = "leaderboard.brain_cup"
 
     static let mindMarathonerTarget = 10_000
+    // Mirrors UserStorage.IQ_TEST_HIGH_ACHIEVEMENT_IQ. Kept as a Swift constant for the same reason
+    // as mindMarathonerTarget above: the thresholds read at the call site, not through the bridge.
+    static let iqTestHighTarget = 130
     static let sudokuTierTarget = 10
 
     static func achievement(for game: GameType) -> String? {
@@ -99,6 +106,14 @@ enum GameCenterIds {
     /// Inverse of `achievement(for:)` — maps a Game Center ID back to the Kotlin
     /// `UserStorage.Achievements` enum case used during restore.
     static func userStorageAchievement(forGameCenterId id: String) -> UserStorage.Achievements? {
+        // Checked ahead of the switch: both IDs are empty until the achievements are registered,
+        // and two empty `case` labels would shadow each other.
+        if !achievementMeasuredMind.isEmpty, id == achievementMeasuredMind {
+            return UserStorage.Achievements.iqTestCompleted
+        }
+        if !achievementPatternSavant.isEmpty, id == achievementPatternSavant {
+            return UserStorage.Achievements.iqTestHigh
+        }
         switch id {
         case achievementMindMarathoner: return UserStorage.Achievements.totalScore10k
         case achievementIronStreak:     return UserStorage.Achievements.streak30

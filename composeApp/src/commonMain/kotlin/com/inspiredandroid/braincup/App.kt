@@ -20,6 +20,10 @@ import androidx.navigationevent.NavigationEventInfo
 import androidx.navigationevent.compose.NavigationBackHandler
 import androidx.navigationevent.compose.rememberNavigationEventState
 import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.button_quit_game
+import braincup.composeapp.generated.resources.button_stay
+import braincup.composeapp.generated.resources.iq_test_quit_message
+import braincup.composeapp.generated.resources.iq_test_quit_title
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.ReviewBridge
 import com.inspiredandroid.braincup.app.*
@@ -32,8 +36,13 @@ import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.ui.components.LocalNumberPadAscending
+import com.inspiredandroid.braincup.ui.components.PrismDialog
 import com.inspiredandroid.braincup.ui.components.QuitGameDialog
 import com.inspiredandroid.braincup.ui.screens.*
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestIntroScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestPlayScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestResultScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestReviewScreen
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
@@ -42,6 +51,7 @@ import com.inspiredandroid.braincup.ui.theme.OledColorScheme
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.stringResource
 
 @OptIn(ExperimentalResourceApi::class)
 @Composable
@@ -55,6 +65,10 @@ fun App(
     val controller = remember(navController) { GameController(navController) }
     DisposableEffect(controller) {
         onDispose { controller.dispose() }
+    }
+    val iqTestController = remember(controller) { IqTestController(navController, controller.storage) }
+    DisposableEffect(iqTestController) {
+        onDispose { iqTestController.dispose() }
     }
     val audioPlayer = rememberAudioPlayer()
     // Separate player so pad one-shots never stop ambient/game music.
@@ -185,9 +199,11 @@ fun App(
                 AppNavHost(navController = navController, startDestination = MainMenu) {
                     composable<MainMenu> {
                         val onOpenSettings = remember(controller) { { controller.navigateToSettings() } }
+                        val onIqTest = remember(iqTestController) { { iqTestController.navigateToIntro() } }
                         MainMenuScreen(
                             controller = controller,
                             onOpenSettings = onOpenSettings,
+                            onIqTest = onIqTest,
                             useBuiltInSponsors = useBuiltInSponsors,
                         )
                     }
@@ -580,6 +596,91 @@ fun App(
                                 xpGained = current.xpGained,
                                 levelChange = current.levelChange,
                                 onDone = onDone,
+                            )
+                        }
+                    }
+
+                    composable<IqTestIntro> {
+                        val history by iqTestController.history.collectAsStateWithLifecycle()
+                        val onStart = remember(iqTestController) { { iqTestController.start() } }
+                        val onBackIntro = remember(controller) { { controller.navigateToMainMenu() } }
+                        IqTestIntroScreen(
+                            history = history,
+                            onStart = onStart,
+                            onBack = onBackIntro,
+                        )
+                    }
+
+                    composable<IqTestPlay> {
+                        val playState by iqTestController.playState.collectAsStateWithLifecycle()
+                        val timeRemaining by iqTestController.timeRemaining.collectAsStateWithLifecycle()
+                        val current = playState
+                        if (current != null) {
+                            var showIqQuitDialog by remember { mutableStateOf(false) }
+
+                            // System back must land on the same prompt as the toolbar arrow. Popping
+                            // the route outright would strand the run: the controller keeps counting
+                            // down and would later score it and open the result over whatever the
+                            // player had moved on to.
+                            val iqBackState = rememberNavigationEventState(NavigationEventInfo.None)
+                            NavigationBackHandler(
+                                state = iqBackState,
+                                onBackCompleted = { showIqQuitDialog = !showIqQuitDialog },
+                            )
+
+                            IqTestPlayScreen(
+                                uiState = current,
+                                timeRemainingMillis = timeRemaining,
+                                onSelect = remember(iqTestController) { { index: Int -> iqTestController.select(index) } },
+                                onPrevious = remember(iqTestController) { { iqTestController.goToPrevious() } },
+                                onNext = remember(iqTestController) { { iqTestController.goToNext() } },
+                                onFinish = remember(iqTestController) { { iqTestController.finish() } },
+                                onRequestQuit = { showIqQuitDialog = true },
+                            )
+
+                            if (showIqQuitDialog) {
+                                PrismDialog(
+                                    onDismissRequest = { showIqQuitDialog = false },
+                                    title = stringResource(Res.string.iq_test_quit_title),
+                                    message = stringResource(Res.string.iq_test_quit_message),
+                                    primaryLabel = stringResource(Res.string.button_stay),
+                                    onPrimary = { showIqQuitDialog = false },
+                                    secondaryLabel = stringResource(Res.string.button_quit_game),
+                                    onSecondary = {
+                                        showIqQuitDialog = false
+                                        iqTestController.abandon()
+                                    },
+                                )
+                            }
+                        }
+                    }
+
+                    composable<IqTestResult> {
+                        val result by iqTestController.resultState.collectAsStateWithLifecycle()
+                        val current = result
+                        if (current != null) {
+                            IqTestResultScreen(
+                                uiState = current,
+                                onReview = remember(iqTestController) { { iqTestController.openReview() } },
+                                onDone = remember(iqTestController) { { iqTestController.leaveResult() } },
+                            )
+                        }
+                    }
+
+                    composable<IqTestReview> {
+                        val item by iqTestController.reviewItem.collectAsStateWithLifecycle()
+                        val current = item
+                        if (current != null) {
+                            IqTestReviewScreen(
+                                uiState = current,
+                                onPrevious = remember(iqTestController) { { iqTestController.reviewPrevious() } },
+                                onNext = remember(iqTestController) { { iqTestController.reviewNext() } },
+                                onBack = remember(navController) {
+                                    {
+                                        navController.popBackStack()
+                                        Unit
+                                    }
+                                },
                             )
                         }
                     }

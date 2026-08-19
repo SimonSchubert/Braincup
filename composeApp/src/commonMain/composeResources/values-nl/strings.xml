@@ -760,5 +760,50 @@
     <string name="trio_demo_correct">Dat is een set.</string>
     <string name="achievement_gold_trio">Drievoudig zicht</string>
     <string name="achievement_gold_trio_desc">Win de gouden medaille in Trio</string>
-</resources>
 
+    <string name="iq_test_button">IQ-test</string>
+    <string name="iq_test_title">IQ-test</string>
+    <string name="iq_test_intro_headline">Test voor matrixredeneren</string>
+    <string name="iq_test_intro_body">%1$d puzzels, %2$d minuten. Elke puzzel is een 3x3-raster waarin één vak ontbreekt. Zoek de regel die langs de rijen loopt en kies het vak dat in de lege hoek hoort. De puzzels worden gaandeweg moeilijker.</string>
+    <string name="iq_test_intro_pacing">Er staat geen tijdslimiet op een losse puzzel. Je kunt terug, overslaan en je antwoorden wijzigen tot de klok afloopt.</string>
+    <string name="iq_test_disclaimer">Dit is een schatting op basis van één soort redeneerpuzzel, bedoeld voor de lol. Het is geen klinische of diagnostische beoordeling, en geen enkele score hier zegt iets over je waarde of je kunnen.</string>
+    <string name="iq_test_retake_note">Scores gaan bij een herkansing meestal omhoog omdat je dit soort puzzel al kent. Beschouw je eerste resultaat als het eerlijkste.</string>
+    <string name="iq_test_start">Test starten</string>
+    <string name="iq_test_history_title">Eerdere resultaten</string>
+    <string name="iq_test_item_counter">Puzzel %1$d van %2$d</string>
+    <string name="iq_test_previous">Vorige</string>
+    <string name="iq_test_next">Volgende</string>
+    <string name="iq_test_skip">Overslaan</string>
+    <string name="iq_test_finish">Klaar</string>
+    <string name="iq_test_finish_now">Nu afronden</string>
+    <string name="iq_test_quit_title">Test verlaten?</string>
+    <string name="iq_test_quit_message">Je voortgang gaat verloren. De test loopt op tijd en kan niet worden gepauzeerd en later hervat.</string>
+    <string name="iq_test_result_title">Jouw resultaat</string>
+    <string name="iq_test_estimated_iq">Geschat IQ</string>
+    <string name="iq_test_percentile">Hoger dan %1$d% van de bevolking</string>
+    <string name="iq_test_percentile_low">In het lage deel van wat deze test kan meten</string>
+    <string name="iq_test_raw_score">%1$d van %2$d goed</string>
+    <string name="iq_test_duration">Afgerond in %1$s</string>
+    <string name="iq_test_below_range">Te weinig goede antwoorden om een score te schatten. Wie gokt komt ongeveer hier uit, dus de test kan het verschil niet zien.</string>
+    <string name="iq_test_personal_best">Je beste resultaat tot nu toe</string>
+    <string name="iq_test_breakdown_title">Per moeilijkheidsgraad</string>
+    <string name="iq_test_difficulty_level">Niveau %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Antwoorden bekijken</string>
+    <string name="iq_test_review_title">Terugblik</string>
+    <string name="iq_test_review_correct">Je koos het juiste vak</string>
+    <string name="iq_test_review_wrong">Je koos het verkeerde vak</string>
+    <string name="iq_test_review_skipped">Deze heb je overgeslagen</string>
+    <string name="iq_test_done">Terug naar menu</string>
+    <string name="iq_band_below_average">Onder gemiddeld</string>
+    <string name="iq_band_low_average">Laag gemiddeld</string>
+    <string name="iq_band_average">Gemiddeld</string>
+    <string name="iq_band_high_average">Hoog gemiddeld</string>
+    <string name="iq_band_superior">Bovengemiddeld</string>
+    <string name="iq_band_very_superior">Ver bovengemiddeld</string>
+    <string name="achievement_iq_test_completed">Gemeten geest</string>
+    <string name="achievement_iq_test_completed_desc">Rond een volledige IQ-test af</string>
+    <string name="achievement_iq_test_high">Patroongenie</string>
+    <string name="achievement_iq_test_high_desc">Bereik een geschat IQ van 130 of hoger</string>
+
+</resources>

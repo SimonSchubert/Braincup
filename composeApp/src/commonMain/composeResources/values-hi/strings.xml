@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">यह एक सेट है।</string>
     <string name="achievement_gold_trio">तिहरी दृष्टि</string>
     <string name="achievement_gold_trio_desc">Trio में स्वर्ण पदक जीतें</string>
-</resources>
 
+    <string name="iq_test_button">आईक्यू टेस्ट</string>
+    <string name="iq_test_title">आईक्यू टेस्ट</string>
+    <string name="iq_test_intro_headline">मैट्रिक्स तर्क परीक्षण</string>
+    <string name="iq_test_intro_body">%1$d पहेलियाँ, %2$d मिनट। हर पहेली 3x3 का एक ग्रिड है जिसमें एक खाना गायब है। पंक्तियों के साथ चलने वाला नियम पहचानिए, फिर वह खाना चुनिए जो खाली कोने में बैठता है। पहेलियाँ आगे बढ़ने के साथ कठिन होती जाती हैं।</string>
+    <string name="iq_test_intro_pacing">किसी एक पहेली पर समय की सीमा नहीं है। समय समाप्त होने तक आप पीछे जा सकते हैं, छोड़ सकते हैं और अपने उत्तर बदल सकते हैं।</string>
+    <string name="iq_test_disclaimer">यह केवल एक तरह की तर्क पहेली पर आधारित अनुमान है, मनोरंजन के लिए बनाया गया। यह कोई नैदानिक या निदानात्मक आकलन नहीं है, और यहाँ का कोई अंक आपके मूल्य या क्षमता के बारे में कुछ नहीं कहता।</string>
+    <string name="iq_test_retake_note">दोबारा देने पर अंक अक्सर बढ़ जाते हैं क्योंकि आप इस तरह की पहेलियाँ पहले देख चुके होते हैं। अपने पहले परिणाम को ही सबसे ईमानदार मानिए।</string>
+    <string name="iq_test_start">टेस्ट शुरू करें</string>
+    <string name="iq_test_history_title">पिछले परिणाम</string>
+    <string name="iq_test_item_counter">पहेली %1$d / %2$d</string>
+    <string name="iq_test_previous">पिछला</string>
+    <string name="iq_test_next">अगला</string>
+    <string name="iq_test_skip">छोड़ें</string>
+    <string name="iq_test_finish">पूरा करें</string>
+    <string name="iq_test_finish_now">अभी समाप्त करें</string>
+    <string name="iq_test_quit_title">टेस्ट छोड़ दें?</string>
+    <string name="iq_test_quit_message">आपकी प्रगति खो जाएगी। यह टेस्ट समयबद्ध है, इसलिए इसे रोककर बाद में जारी नहीं रखा जा सकता।</string>
+    <string name="iq_test_result_title">आपका परिणाम</string>
+    <string name="iq_test_estimated_iq">अनुमानित आईक्यू</string>
+    <string name="iq_test_percentile">जनसंख्या के %1$d% से अधिक</string>
+    <string name="iq_test_percentile_low">इस टेस्ट की मापने योग्य सीमा के निचले हिस्से में</string>
+    <string name="iq_test_raw_score">%2$d में से %1$d सही</string>
+    <string name="iq_test_duration">%1$s में पूरा हुआ</string>
+    <string name="iq_test_below_range">अंक का अनुमान लगाने के लिए सही उत्तर बहुत कम हैं। अंदाज़े से चुनने वाला भी लगभग यहीं पहुँचता, इसलिए टेस्ट दोनों में फ़र्क नहीं कर सकता।</string>
+    <string name="iq_test_personal_best">अब तक का आपका सर्वश्रेष्ठ परिणाम</string>
+    <string name="iq_test_breakdown_title">कठिनाई के अनुसार</string>
+    <string name="iq_test_difficulty_level">स्तर %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">उत्तर देखें</string>
+    <string name="iq_test_review_title">समीक्षा</string>
+    <string name="iq_test_review_correct">आपने सही खाना चुना</string>
+    <string name="iq_test_review_wrong">आपने ग़लत खाना चुना</string>
+    <string name="iq_test_review_skipped">आपने इसे छोड़ दिया था</string>
+    <string name="iq_test_done">मेन्यू पर लौटें</string>
+    <string name="iq_band_below_average">औसत से नीचे</string>
+    <string name="iq_band_low_average">निम्न औसत</string>
+    <string name="iq_band_average">औसत</string>
+    <string name="iq_band_high_average">उच्च औसत</string>
+    <string name="iq_band_superior">उत्कृष्ट</string>
+    <string name="iq_band_very_superior">अत्यंत उत्कृष्ट</string>
+    <string name="achievement_iq_test_completed">मापा गया मन</string>
+    <string name="achievement_iq_test_completed_desc">एक पूरा आईक्यू टेस्ट पूरा करें</string>
+    <string name="achievement_iq_test_high">पैटर्न विशेषज्ञ</string>
+    <string name="achievement_iq_test_high_desc">130 या उससे अधिक अनुमानित आईक्यू पाएँ</string>
+
+</resources>

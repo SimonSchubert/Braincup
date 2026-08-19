@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">Bu bir set.</string>
     <string name="achievement_gold_trio">Üçlü görüş</string>
     <string name="achievement_gold_trio_desc">Trio'da altın madalya kazanın</string>
-</resources>
 
+    <string name="iq_test_button">IQ Testi</string>
+    <string name="iq_test_title">IQ Testi</string>
+    <string name="iq_test_intro_headline">Matris muhakemesi testi</string>
+    <string name="iq_test_intro_body">%1$d soru, %2$d dakika. Her soru, bir karesi eksik olan 3x3 bir ızgaradır. Satırlar boyunca ilerleyen kuralı bul ve boş köşeye ait kareyi seç. Sorular ilerledikçe zorlaşır.</string>
+    <string name="iq_test_intro_pacing">Tek bir soru için süre sınırı yok. Süre dolana kadar geri dönebilir, soru atlayabilir ve cevaplarını değiştirebilirsin.</string>
+    <string name="iq_test_disclaimer">Bu, tek bir tür muhakeme sorusuna dayanan, eğlence için yapılmış bir tahmindir. Klinik ya da tanısal bir değerlendirme değildir ve buradaki hiçbir puan senin değerin veya yeteneğin hakkında bir şey söylemez.</string>
+    <string name="iq_test_retake_note">Testi tekrarlayınca puanlar genelde yükselir, çünkü bu tür soruları artık tanıyorsun. İlk sonucunu en dürüst sonuç olarak kabul et.</string>
+    <string name="iq_test_start">Teste başla</string>
+    <string name="iq_test_history_title">Önceki sonuçlar</string>
+    <string name="iq_test_item_counter">Soru %1$d / %2$d</string>
+    <string name="iq_test_previous">Önceki</string>
+    <string name="iq_test_next">Sonraki</string>
+    <string name="iq_test_skip">Atla</string>
+    <string name="iq_test_finish">Bitir</string>
+    <string name="iq_test_finish_now">Şimdi bitir</string>
+    <string name="iq_test_quit_title">Testten çıkılsın mı?</string>
+    <string name="iq_test_quit_message">İlerlemen kaybolacak. Test süreli olduğu için duraklatılıp sonra sürdürülemez.</string>
+    <string name="iq_test_result_title">Sonucun</string>
+    <string name="iq_test_estimated_iq">Tahmini IQ</string>
+    <string name="iq_test_percentile">Nüfusun %1$d% kadarından yüksek</string>
+    <string name="iq_test_percentile_low">Bu testin ölçebildiği aralığın alt kısmında</string>
+    <string name="iq_test_raw_score">%2$d sorudan %1$d doğru</string>
+    <string name="iq_test_duration">%1$s içinde tamamlandı</string>
+    <string name="iq_test_below_range">Puan tahmini için doğru cevap sayısı çok az. Rastgele işaretleyen biri de yaklaşık buraya düşerdi, bu yüzden test ikisini ayırt edemiyor.</string>
+    <string name="iq_test_personal_best">Şimdiye kadarki en iyi sonucun</string>
+    <string name="iq_test_breakdown_title">Zorluğa göre</string>
+    <string name="iq_test_difficulty_level">Seviye %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Cevapları incele</string>
+    <string name="iq_test_review_title">İnceleme</string>
+    <string name="iq_test_review_correct">Doğru kareyi seçtin</string>
+    <string name="iq_test_review_wrong">Yanlış kareyi seçtin</string>
+    <string name="iq_test_review_skipped">Bunu atladın</string>
+    <string name="iq_test_done">Menüye dön</string>
+    <string name="iq_band_below_average">Ortalamanın altı</string>
+    <string name="iq_band_low_average">Düşük ortalama</string>
+    <string name="iq_band_average">Ortalama</string>
+    <string name="iq_band_high_average">Yüksek ortalama</string>
+    <string name="iq_band_superior">Üstün</string>
+    <string name="iq_band_very_superior">Çok üstün</string>
+    <string name="achievement_iq_test_completed">Ölçülmüş Zihin</string>
+    <string name="achievement_iq_test_completed_desc">Eksiksiz bir IQ testi tamamla</string>
+    <string name="achievement_iq_test_high">Örüntü Dehası</string>
+    <string name="achievement_iq_test_high_desc">Tahmini 130 veya üzeri bir IQ'ya ulaş</string>
+
+</resources>

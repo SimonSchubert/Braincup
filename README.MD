@@ -94,6 +94,7 @@ Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 - **Trio** — Find three cards that share a shape, a count or a fill
 
 ### Extra modes
+- **IQ Test** — 30 matrix-reasoning puzzles in 15 minutes, scored as an estimated IQ with a percentile (an estimate for fun, not a clinical assessment)
 - **Matchstick Riddles** — Move matchsticks to fix equations
 - **Peg Solitaire** — Jump pegs until one remains
 - **Sudoku** — Classic full-size Sudoku with multiple difficulties

@@ -10,12 +10,17 @@ import androidx.compose.material3.ColorScheme
 import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.GameScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.SessionCompleteScreen
 import com.inspiredandroid.braincup.ui.screens.SessionInterstitialScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestIntroScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestPlayScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestResultScreen
+import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestReviewScreen
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
@@ -167,6 +172,125 @@ class ScreenshotTest {
                 xpGained = 80,
                 levelChange = null,
                 onDone = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestIntroFirstRun() {
+        paparazzi.snap {
+            IqTestIntroScreen(
+                history = persistentListOf(),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestIntroWithHistory() {
+        paparazzi.snap {
+            IqTestIntroScreen(
+                history = persistentListOf(
+                    UserStorage.IqTestRecord(1_755_000_000_000L, 1L, rawScore = 22, durationSeconds = 640),
+                    UserStorage.IqTestRecord(1_754_000_000_000L, 2L, rawScore = 18, durationSeconds = 720),
+                ),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestPlay() {
+        paparazzi.snap {
+            IqTestPlayScreen(
+                uiState = createIqTestPlayUiState(),
+                timeRemainingMillis = 9 * 60_000L + 12_000L,
+                onSelect = {},
+                onPrevious = {},
+                onNext = {},
+                onFinish = {},
+                onRequestQuit = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestPlayDark() {
+        paparazzi.snap(darkTheme = true) {
+            IqTestPlayScreen(
+                uiState = createIqTestPlayUiState(itemIndex = 3, selectedOption = null),
+                timeRemainingMillis = 14 * 60_000L,
+                onSelect = {},
+                onPrevious = {},
+                onNext = {},
+                onFinish = {},
+                onRequestQuit = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestResultAverage() {
+        paparazzi.snap {
+            IqTestResultScreen(
+                uiState = createIqTestResultUiState(rawScore = 17),
+                onReview = {},
+                onDone = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestResultHigh() {
+        paparazzi.snap {
+            IqTestResultScreen(
+                uiState = createIqTestResultUiState(
+                    rawScore = 27,
+                    levelChange = UserStorage.LevelChange(
+                        oldLevel = 5,
+                        newLevel = 6,
+                        totalXpBefore = 1200,
+                        totalXpAfter = 1260,
+                    ),
+                ),
+                onReview = {},
+                onDone = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestResultBelowRange() {
+        paparazzi.snap {
+            IqTestResultScreen(
+                uiState = createIqTestResultUiState(rawScore = 4, isPersonalBest = false),
+                onReview = {},
+                onDone = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestResultDark() {
+        paparazzi.snap(darkTheme = true) {
+            IqTestResultScreen(
+                uiState = createIqTestResultUiState(rawScore = 22),
+                onReview = {},
+                onDone = {},
+            )
+        }
+    }
+
+    @Test
+    fun iqTestReview() {
+        paparazzi.snap {
+            IqTestReviewScreen(
+                uiState = createIqTestReviewUiState(),
+                onPrevious = {},
+                onNext = {},
+                onBack = {},
             )
         }
     }

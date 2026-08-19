@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">Ese es un conjunto.</string>
     <string name="achievement_gold_trio">Triple visión</string>
     <string name="achievement_gold_trio_desc">Gana la medalla de oro en Trio</string>
-</resources>
 
+    <string name="iq_test_button">Test de CI</string>
+    <string name="iq_test_title">Test de CI</string>
+    <string name="iq_test_intro_headline">Test de razonamiento matricial</string>
+    <string name="iq_test_intro_body">%1$d ejercicios, %2$d minutos. Cada ejercicio es una cuadrícula de 3x3 a la que le falta un panel. Descubre la regla que recorre las filas y elige el panel que va en la esquina vacía. Los ejercicios se vuelven más difíciles a medida que avanzas.</string>
+    <string name="iq_test_intro_pacing">No hay límite de tiempo por ejercicio. Puedes volver atrás, saltarte preguntas y cambiar tus respuestas hasta que se acabe el tiempo.</string>
+    <string name="iq_test_disclaimer">Esto es una estimación basada en un solo tipo de ejercicio de razonamiento, hecha para divertirse. No es una evaluación clínica ni un diagnóstico, y ninguna puntuación de aquí dice nada sobre tu valía ni tu capacidad.</string>
+    <string name="iq_test_retake_note">Las puntuaciones suelen subir al repetir porque ya conoces este tipo de ejercicio. Toma tu primer resultado como el más sincero.</string>
+    <string name="iq_test_start">Empezar test</string>
+    <string name="iq_test_history_title">Resultados anteriores</string>
+    <string name="iq_test_item_counter">Ejercicio %1$d de %2$d</string>
+    <string name="iq_test_previous">Anterior</string>
+    <string name="iq_test_next">Siguiente</string>
+    <string name="iq_test_skip">Saltar</string>
+    <string name="iq_test_finish">Terminar</string>
+    <string name="iq_test_finish_now">Terminar ahora</string>
+    <string name="iq_test_quit_title">¿Salir del test?</string>
+    <string name="iq_test_quit_message">Perderás tu progreso. El test es cronometrado, así que no se puede pausar y retomar más tarde.</string>
+    <string name="iq_test_result_title">Tu resultado</string>
+    <string name="iq_test_estimated_iq">CI estimado</string>
+    <string name="iq_test_percentile">Superior al %1$d% de la población</string>
+    <string name="iq_test_percentile_low">En la parte baja del rango que puede medir este test</string>
+    <string name="iq_test_raw_score">%1$d de %2$d correctas</string>
+    <string name="iq_test_duration">Terminado en %1$s</string>
+    <string name="iq_test_below_range">Muy pocas respuestas correctas para estimar una puntuación. Quien respondiera al azar acabaría por aquí, así que el test no puede distinguirlo.</string>
+    <string name="iq_test_personal_best">Tu mejor resultado hasta ahora</string>
+    <string name="iq_test_breakdown_title">Por dificultad</string>
+    <string name="iq_test_difficulty_level">Nivel %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Revisar respuestas</string>
+    <string name="iq_test_review_title">Revisión</string>
+    <string name="iq_test_review_correct">Elegiste el panel correcto</string>
+    <string name="iq_test_review_wrong">Elegiste el panel incorrecto</string>
+    <string name="iq_test_review_skipped">Te saltaste este</string>
+    <string name="iq_test_done">Volver al menú</string>
+    <string name="iq_band_below_average">Por debajo de la media</string>
+    <string name="iq_band_low_average">Media baja</string>
+    <string name="iq_band_average">Media</string>
+    <string name="iq_band_high_average">Media alta</string>
+    <string name="iq_band_superior">Superior</string>
+    <string name="iq_band_very_superior">Muy superior</string>
+    <string name="achievement_iq_test_completed">Mente medida</string>
+    <string name="achievement_iq_test_completed_desc">Completa un test de CI entero</string>
+    <string name="achievement_iq_test_high">Genio de los patrones</string>
+    <string name="achievement_iq_test_high_desc">Alcanza un CI estimado de 130 o más</string>
+
+</resources>

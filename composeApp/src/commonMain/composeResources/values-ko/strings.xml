@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">그게 세트입니다.</string>
     <string name="achievement_gold_trio">트리플 비전</string>
     <string name="achievement_gold_trio_desc">Trio에서 금메달을 획득하세요</string>
-</resources>
 
+    <string name="iq_test_button">IQ 테스트</string>
+    <string name="iq_test_title">IQ 테스트</string>
+    <string name="iq_test_intro_headline">행렬 추론 테스트</string>
+    <string name="iq_test_intro_body">%1$d문제, %2$d분. 각 문제는 한 칸이 빠진 3x3 격자입니다. 각 행을 따라 이어지는 규칙을 찾아 빈 모서리에 들어갈 칸을 고르세요. 문제는 갈수록 어려워집니다.</string>
+    <string name="iq_test_intro_pacing">문제 하나에 대한 시간 제한은 없습니다. 전체 시간이 끝날 때까지 되돌아가고, 건너뛰고, 답을 바꿀 수 있습니다.</string>
+    <string name="iq_test_disclaimer">이것은 한 가지 추론 문제만을 바탕으로 한 추정치이며 재미로 만든 것입니다. 임상 검사나 진단이 아니며, 여기의 어떤 점수도 당신의 가치나 능력에 대해 말해 주지 않습니다.</string>
+    <string name="iq_test_retake_note">같은 유형의 문제를 이미 겪었기 때문에 다시 풀면 점수가 오르는 편입니다. 첫 번째 결과를 가장 정직한 결과로 여기세요.</string>
+    <string name="iq_test_start">테스트 시작</string>
+    <string name="iq_test_history_title">이전 결과</string>
+    <string name="iq_test_item_counter">%2$d문제 중 %1$d번째</string>
+    <string name="iq_test_previous">이전</string>
+    <string name="iq_test_next">다음</string>
+    <string name="iq_test_skip">건너뛰기</string>
+    <string name="iq_test_finish">완료</string>
+    <string name="iq_test_finish_now">지금 끝내기</string>
+    <string name="iq_test_quit_title">테스트를 나갈까요?</string>
+    <string name="iq_test_quit_message">진행 상황이 사라집니다. 시간이 재어지는 테스트라 잠시 멈췄다가 나중에 이어서 할 수 없습니다.</string>
+    <string name="iq_test_result_title">결과</string>
+    <string name="iq_test_estimated_iq">추정 IQ</string>
+    <string name="iq_test_percentile">인구의 %1$d%보다 높음</string>
+    <string name="iq_test_percentile_low">이 테스트가 측정할 수 있는 범위의 아래쪽</string>
+    <string name="iq_test_raw_score">%2$d문제 중 %1$d개 정답</string>
+    <string name="iq_test_duration">%1$s 만에 완료</string>
+    <string name="iq_test_below_range">점수를 추정하기에는 정답이 너무 적습니다. 찍어도 이 정도가 나오기 때문에 테스트로는 구분할 수 없습니다.</string>
+    <string name="iq_test_personal_best">지금까지의 최고 결과</string>
+    <string name="iq_test_breakdown_title">난이도별</string>
+    <string name="iq_test_difficulty_level">레벨 %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">답 다시 보기</string>
+    <string name="iq_test_review_title">다시 보기</string>
+    <string name="iq_test_review_correct">올바른 칸을 골랐습니다</string>
+    <string name="iq_test_review_wrong">고른 칸이 정답이 아닙니다</string>
+    <string name="iq_test_review_skipped">이 문제는 건너뛰었습니다</string>
+    <string name="iq_test_done">메뉴로 돌아가기</string>
+    <string name="iq_band_below_average">평균 이하</string>
+    <string name="iq_band_low_average">평균 하위</string>
+    <string name="iq_band_average">평균</string>
+    <string name="iq_band_high_average">평균 상위</string>
+    <string name="iq_band_superior">우수</string>
+    <string name="iq_band_very_superior">매우 우수</string>
+    <string name="achievement_iq_test_completed">측정된 지성</string>
+    <string name="achievement_iq_test_completed_desc">IQ 테스트를 끝까지 마치기</string>
+    <string name="achievement_iq_test_high">패턴의 달인</string>
+    <string name="achievement_iq_test_high_desc">추정 IQ 130 이상 달성</string>
+
+</resources>

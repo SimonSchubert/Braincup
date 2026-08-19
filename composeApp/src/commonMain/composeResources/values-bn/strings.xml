@@ -760,5 +760,50 @@
     <string name="trio_demo_correct">এটি একটি সেট।</string>
     <string name="achievement_gold_trio">ত্রিগুণ দৃষ্টি</string>
     <string name="achievement_gold_trio_desc">Trio-তে স্বর্ণপদক জিতুন</string>
-</resources>
 
+    <string name="iq_test_button">আইকিউ টেস্ট</string>
+    <string name="iq_test_title">আইকিউ টেস্ট</string>
+    <string name="iq_test_intro_headline">ম্যাট্রিক্স যুক্তি পরীক্ষা</string>
+    <string name="iq_test_intro_body">%1$dটি ধাঁধা, %2$d মিনিট। প্রতিটি ধাঁধা একটি 3x3 ছক, যার একটি ঘর অনুপস্থিত। সারি বরাবর চলা নিয়মটি বের করুন, তারপর খালি কোণে যে ঘরটি বসে সেটি বেছে নিন। ধাঁধাগুলো ক্রমশ কঠিন হতে থাকে।</string>
+    <string name="iq_test_intro_pacing">একেকটি ধাঁধার জন্য আলাদা সময়সীমা নেই। সময় শেষ না হওয়া পর্যন্ত আপনি পিছিয়ে যেতে, এড়িয়ে যেতে এবং উত্তর বদলাতে পারেন।</string>
+    <string name="iq_test_disclaimer">এটি কেবল এক ধরনের যুক্তির ধাঁধার ভিত্তিতে করা একটি আনুমানিক হিসাব, মজার জন্য তৈরি। এটি কোনো ক্লিনিক্যাল বা রোগনির্ণয়মূলক মূল্যায়ন নয়, আর এখানকার কোনো স্কোরই আপনার মূল্য বা সামর্থ্য নিয়ে কিছু বলে না।</string>
+    <string name="iq_test_retake_note">আবার দিলে স্কোর সাধারণত বাড়ে, কারণ এ ধরনের ধাঁধা আপনি আগেই দেখেছেন। প্রথম ফলটিকেই সবচেয়ে সৎ ফল হিসেবে ধরুন।</string>
+    <string name="iq_test_start">টেস্ট শুরু করুন</string>
+    <string name="iq_test_history_title">আগের ফলাফল</string>
+    <string name="iq_test_item_counter">ধাঁধা %1$d / %2$d</string>
+    <string name="iq_test_previous">আগের</string>
+    <string name="iq_test_next">পরের</string>
+    <string name="iq_test_skip">এড়িয়ে যান</string>
+    <string name="iq_test_finish">শেষ করুন</string>
+    <string name="iq_test_finish_now">এখনই শেষ করুন</string>
+    <string name="iq_test_quit_title">টেস্ট ছেড়ে যাবেন?</string>
+    <string name="iq_test_quit_message">আপনার অগ্রগতি হারিয়ে যাবে। টেস্টটি সময়ভিত্তিক, তাই থামিয়ে রেখে পরে আবার শুরু করা যায় না।</string>
+    <string name="iq_test_result_title">আপনার ফলাফল</string>
+    <string name="iq_test_estimated_iq">আনুমানিক আইকিউ</string>
+    <string name="iq_test_percentile">জনসংখ্যার %1$d% এর চেয়ে বেশি</string>
+    <string name="iq_test_percentile_low">এই টেস্ট যতটা মাপতে পারে তার নিচের দিকে</string>
+    <string name="iq_test_raw_score">%2$dটির মধ্যে %1$dটি সঠিক</string>
+    <string name="iq_test_duration">%1$s এ শেষ হয়েছে</string>
+    <string name="iq_test_below_range">স্কোর আন্দাজ করার মতো যথেষ্ট সঠিক উত্তর নেই। কেউ শুধু অনুমান করলেও প্রায় এখানেই পৌঁছাত, তাই টেস্ট দুটোর পার্থক্য ধরতে পারে না।</string>
+    <string name="iq_test_personal_best">এ পর্যন্ত আপনার সেরা ফল</string>
+    <string name="iq_test_breakdown_title">কঠিনতা অনুযায়ী</string>
+    <string name="iq_test_difficulty_level">স্তর %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">উত্তরগুলো দেখুন</string>
+    <string name="iq_test_review_title">পর্যালোচনা</string>
+    <string name="iq_test_review_correct">আপনি সঠিক ঘরটি বেছেছেন</string>
+    <string name="iq_test_review_wrong">আপনি ভুল ঘর বেছেছেন</string>
+    <string name="iq_test_review_skipped">এটি আপনি এড়িয়ে গিয়েছিলেন</string>
+    <string name="iq_test_done">মেনুতে ফিরুন</string>
+    <string name="iq_band_below_average">গড়ের নিচে</string>
+    <string name="iq_band_low_average">নিম্ন গড়</string>
+    <string name="iq_band_average">গড়</string>
+    <string name="iq_band_high_average">উচ্চ গড়</string>
+    <string name="iq_band_superior">উৎকৃষ্ট</string>
+    <string name="iq_band_very_superior">অত্যন্ত উৎকৃষ্ট</string>
+    <string name="achievement_iq_test_completed">পরিমাপিত মন</string>
+    <string name="achievement_iq_test_completed_desc">একটি পূর্ণ আইকিউ টেস্ট শেষ করুন</string>
+    <string name="achievement_iq_test_high">প্যাটার্ন বিশারদ</string>
+    <string name="achievement_iq_test_high_desc">আনুমানিক আইকিউ ১৩০ বা তার বেশি পান</string>
+
+</resources>

@@ -760,5 +760,50 @@
     <string name="trio_demo_correct">C'est un ensemble.</string>
     <string name="achievement_gold_trio">Triple vision</string>
     <string name="achievement_gold_trio_desc">Gagne la médaille d'or à Trio</string>
-</resources>
 
+    <string name="iq_test_button">Test de QI</string>
+    <string name="iq_test_title">Test de QI</string>
+    <string name="iq_test_intro_headline">Test de raisonnement matriciel</string>
+    <string name="iq_test_intro_body">%1$d énigmes, %2$d minutes. Chaque énigme est une grille 3x3 dont un panneau manque. Trouvez la règle qui court le long des lignes, puis choisissez le panneau qui va dans le coin vide. Les énigmes deviennent plus difficiles au fil du test.</string>
+    <string name="iq_test_intro_pacing">Aucune limite de temps par énigme. Vous pouvez revenir en arrière, passer une question et changer vos réponses jusqu'à la fin du chronomètre.</string>
+    <string name="iq_test_disclaimer">Ceci est une estimation fondée sur un seul type d'énigme de raisonnement, conçue pour le plaisir. Ce n'est ni une évaluation clinique ni un diagnostic, et aucun score ici ne dit quoi que ce soit sur votre valeur ou vos capacités.</string>
+    <string name="iq_test_retake_note">Les scores montent souvent lors d'une reprise parce que vous connaissez déjà ce type d'énigme. Considérez votre premier résultat comme le plus honnête.</string>
+    <string name="iq_test_start">Commencer le test</string>
+    <string name="iq_test_history_title">Résultats précédents</string>
+    <string name="iq_test_item_counter">Énigme %1$d sur %2$d</string>
+    <string name="iq_test_previous">Précédent</string>
+    <string name="iq_test_next">Suivant</string>
+    <string name="iq_test_skip">Passer</string>
+    <string name="iq_test_finish">Terminer</string>
+    <string name="iq_test_finish_now">Terminer maintenant</string>
+    <string name="iq_test_quit_title">Quitter le test ?</string>
+    <string name="iq_test_quit_message">Votre progression sera perdue. Le test est chronométré, il ne peut donc pas être mis en pause et repris plus tard.</string>
+    <string name="iq_test_result_title">Votre résultat</string>
+    <string name="iq_test_estimated_iq">QI estimé</string>
+    <string name="iq_test_percentile">Supérieur à %1$d% de la population</string>
+    <string name="iq_test_percentile_low">Dans la partie basse de ce que ce test peut mesurer</string>
+    <string name="iq_test_raw_score">%1$d bonnes réponses sur %2$d</string>
+    <string name="iq_test_duration">Terminé en %1$s</string>
+    <string name="iq_test_below_range">Trop peu de bonnes réponses pour estimer un score. Quelqu'un qui répond au hasard arriverait à peu près ici, le test ne peut donc pas faire la différence.</string>
+    <string name="iq_test_personal_best">Votre meilleur résultat</string>
+    <string name="iq_test_breakdown_title">Par difficulté</string>
+    <string name="iq_test_difficulty_level">Niveau %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Revoir les réponses</string>
+    <string name="iq_test_review_title">Révision</string>
+    <string name="iq_test_review_correct">Vous avez choisi le bon panneau</string>
+    <string name="iq_test_review_wrong">Vous avez choisi le mauvais panneau</string>
+    <string name="iq_test_review_skipped">Vous avez passé celle-ci</string>
+    <string name="iq_test_done">Retour au menu</string>
+    <string name="iq_band_below_average">Sous la moyenne</string>
+    <string name="iq_band_low_average">Moyenne basse</string>
+    <string name="iq_band_average">Moyenne</string>
+    <string name="iq_band_high_average">Moyenne haute</string>
+    <string name="iq_band_superior">Supérieur</string>
+    <string name="iq_band_very_superior">Très supérieur</string>
+    <string name="achievement_iq_test_completed">Esprit mesuré</string>
+    <string name="achievement_iq_test_completed_desc">Terminez un test de QI complet</string>
+    <string name="achievement_iq_test_high">Génie des motifs</string>
+    <string name="achievement_iq_test_high_desc">Atteignez un QI estimé de 130 ou plus</string>
+
+</resources>

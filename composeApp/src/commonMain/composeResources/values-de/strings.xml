@@ -760,5 +760,50 @@
     <string name="trio_demo_correct">Das ist ein Set.</string>
     <string name="achievement_gold_trio">Dreifachblick</string>
     <string name="achievement_gold_trio_desc">Gewinne die Goldmedaille in Trio</string>
-</resources>
 
+    <string name="iq_test_button">IQ-Test</string>
+    <string name="iq_test_title">IQ-Test</string>
+    <string name="iq_test_intro_headline">Test zum Matrizen-Denken</string>
+    <string name="iq_test_intro_body">%1$d Aufgaben, %2$d Minuten. Jede Aufgabe ist ein 3x3-Raster, in dem ein Feld fehlt. Finde die Regel entlang der Zeilen und wähle das Feld, das in die leere Ecke gehört. Die Aufgaben werden nach und nach schwerer.</string>
+    <string name="iq_test_intro_pacing">Für einzelne Aufgaben gibt es kein Zeitlimit. Du kannst zurückgehen, überspringen und deine Antworten ändern, bis die Zeit abläuft.</string>
+    <string name="iq_test_disclaimer">Das ist eine Schätzung auf Basis einer einzigen Art von Denkaufgabe, gedacht zum Spaß. Es ist keine klinische oder diagnostische Beurteilung, und kein Ergebnis hier sagt etwas über deinen Wert oder deine Fähigkeiten aus.</string>
+    <string name="iq_test_retake_note">Bei einem zweiten Versuch steigen die Werte meist, weil du diese Art von Aufgabe schon kennst. Nimm dein erstes Ergebnis als das ehrlichste.</string>
+    <string name="iq_test_start">Test starten</string>
+    <string name="iq_test_history_title">Frühere Ergebnisse</string>
+    <string name="iq_test_item_counter">Aufgabe %1$d von %2$d</string>
+    <string name="iq_test_previous">Zurück</string>
+    <string name="iq_test_next">Weiter</string>
+    <string name="iq_test_skip">Überspringen</string>
+    <string name="iq_test_finish">Fertig</string>
+    <string name="iq_test_finish_now">Jetzt beenden</string>
+    <string name="iq_test_quit_title">Test verlassen?</string>
+    <string name="iq_test_quit_message">Dein Fortschritt geht verloren. Der Test läuft auf Zeit und kann nicht pausiert und später fortgesetzt werden.</string>
+    <string name="iq_test_result_title">Dein Ergebnis</string>
+    <string name="iq_test_estimated_iq">Geschätzter IQ</string>
+    <string name="iq_test_percentile">Höher als %1$d% der Bevölkerung</string>
+    <string name="iq_test_percentile_low">Im unteren Bereich, den dieser Test messen kann</string>
+    <string name="iq_test_raw_score">%1$d von %2$d richtig</string>
+    <string name="iq_test_duration">Beendet in %1$s</string>
+    <string name="iq_test_below_range">Zu wenige richtige Antworten für eine Schätzung. Wer nur rät, landet ungefähr hier, deshalb kann der Test das nicht unterscheiden.</string>
+    <string name="iq_test_personal_best">Dein bisher bestes Ergebnis</string>
+    <string name="iq_test_breakdown_title">Nach Schwierigkeit</string>
+    <string name="iq_test_difficulty_level">Stufe %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Antworten ansehen</string>
+    <string name="iq_test_review_title">Rückblick</string>
+    <string name="iq_test_review_correct">Du hast das richtige Feld gewählt</string>
+    <string name="iq_test_review_wrong">Du hast das falsche Feld gewählt</string>
+    <string name="iq_test_review_skipped">Diese hast du übersprungen</string>
+    <string name="iq_test_done">Zurück zum Menü</string>
+    <string name="iq_band_below_average">Unterdurchschnittlich</string>
+    <string name="iq_band_low_average">Untere Mitte</string>
+    <string name="iq_band_average">Durchschnittlich</string>
+    <string name="iq_band_high_average">Obere Mitte</string>
+    <string name="iq_band_superior">Überdurchschnittlich</string>
+    <string name="iq_band_very_superior">Weit überdurchschnittlich</string>
+    <string name="achievement_iq_test_completed">Vermessener Verstand</string>
+    <string name="achievement_iq_test_completed_desc">Schließe einen kompletten IQ-Test ab</string>
+    <string name="achievement_iq_test_high">Muster-Genie</string>
+    <string name="achievement_iq_test_high_desc">Erreiche einen geschätzten IQ von 130 oder mehr</string>
+
+</resources>

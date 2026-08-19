@@ -759,5 +759,50 @@
     <string name="trio_demo_correct">Đó là một bộ.</string>
     <string name="achievement_gold_trio">Tầm nhìn ba</string>
     <string name="achievement_gold_trio_desc">Giành huy chương vàng trong Trio</string>
-</resources>
 
+    <string name="iq_test_button">Bài kiểm tra IQ</string>
+    <string name="iq_test_title">Bài kiểm tra IQ</string>
+    <string name="iq_test_intro_headline">Bài kiểm tra suy luận ma trận</string>
+    <string name="iq_test_intro_body">%1$d câu, %2$d phút. Mỗi câu là một lưới 3x3 thiếu một ô. Hãy tìm quy luật chạy dọc theo các hàng, rồi chọn ô thuộc về góc trống. Các câu sẽ khó dần lên.</string>
+    <string name="iq_test_intro_pacing">Không có giới hạn thời gian cho từng câu. Bạn có thể quay lại, bỏ qua và đổi câu trả lời cho đến khi hết giờ.</string>
+    <string name="iq_test_disclaimer">Đây là một ước tính dựa trên một loại câu hỏi suy luận duy nhất, làm ra để giải trí. Nó không phải là đánh giá lâm sàng hay chẩn đoán, và không điểm số nào ở đây nói lên điều gì về giá trị hay năng lực của bạn.</string>
+    <string name="iq_test_retake_note">Điểm thường tăng khi làm lại vì bạn đã quen với loại câu hỏi này. Hãy xem kết quả đầu tiên là kết quả trung thực nhất.</string>
+    <string name="iq_test_start">Bắt đầu</string>
+    <string name="iq_test_history_title">Kết quả trước đây</string>
+    <string name="iq_test_item_counter">Câu %1$d trên %2$d</string>
+    <string name="iq_test_previous">Trước</string>
+    <string name="iq_test_next">Tiếp</string>
+    <string name="iq_test_skip">Bỏ qua</string>
+    <string name="iq_test_finish">Hoàn tất</string>
+    <string name="iq_test_finish_now">Kết thúc ngay</string>
+    <string name="iq_test_quit_title">Rời bài kiểm tra?</string>
+    <string name="iq_test_quit_message">Tiến trình của bạn sẽ mất. Bài kiểm tra có tính giờ nên không thể tạm dừng rồi tiếp tục sau.</string>
+    <string name="iq_test_result_title">Kết quả của bạn</string>
+    <string name="iq_test_estimated_iq">IQ ước tính</string>
+    <string name="iq_test_percentile">Cao hơn %1$d% dân số</string>
+    <string name="iq_test_percentile_low">Ở phần thấp của khoảng mà bài kiểm tra này đo được</string>
+    <string name="iq_test_raw_score">Đúng %1$d trên %2$d</string>
+    <string name="iq_test_duration">Hoàn thành trong %1$s</string>
+    <string name="iq_test_below_range">Quá ít câu đúng để ước tính điểm. Người đoán ngẫu nhiên cũng rơi vào khoảng này, nên bài kiểm tra không phân biệt được.</string>
+    <string name="iq_test_personal_best">Kết quả tốt nhất của bạn</string>
+    <string name="iq_test_breakdown_title">Theo độ khó</string>
+    <string name="iq_test_difficulty_level">Cấp %1$d</string>
+    <string name="iq_test_breakdown_value">%1$d / %2$d</string>
+    <string name="iq_test_review">Xem lại đáp án</string>
+    <string name="iq_test_review_title">Xem lại</string>
+    <string name="iq_test_review_correct">Bạn đã chọn đúng ô</string>
+    <string name="iq_test_review_wrong">Bạn đã chọn sai ô</string>
+    <string name="iq_test_review_skipped">Bạn đã bỏ qua câu này</string>
+    <string name="iq_test_done">Về menu</string>
+    <string name="iq_band_below_average">Dưới trung bình</string>
+    <string name="iq_band_low_average">Trung bình thấp</string>
+    <string name="iq_band_average">Trung bình</string>
+    <string name="iq_band_high_average">Trung bình cao</string>
+    <string name="iq_band_superior">Vượt trội</string>
+    <string name="iq_band_very_superior">Rất vượt trội</string>
+    <string name="achievement_iq_test_completed">Trí Tuệ Đo Được</string>
+    <string name="achievement_iq_test_completed_desc">Hoàn thành trọn một bài kiểm tra IQ</string>
+    <string name="achievement_iq_test_high">Thiên Tài Quy Luật</string>
+    <string name="achievement_iq_test_high_desc">Đạt IQ ước tính từ 130 trở lên</string>
+
+</resources>
