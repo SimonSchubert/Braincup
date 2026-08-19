@@ -25,6 +25,7 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.ThemeMode
 import org.jetbrains.compose.resources.StringResource
@@ -57,7 +58,7 @@ fun SettingsScreen(
     ) {
         Column(
             modifier = Modifier
-                .widthIn(max = 420.dp)
+                .widthIn(max = ContentMaxWidth)
                 .fillMaxWidth()
                 .padding(
                     start = 16.dp,

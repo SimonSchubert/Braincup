@@ -107,3 +107,10 @@ val PrismShapes = Shapes(
 )
 
 const val SlotBorderWidthDp = 2
+
+/**
+ * Widest a column of text or cards is allowed to get. Phones are narrower than this, so it only
+ * bites on tablets, desktop, and web, where a full-bleed column would otherwise stretch past a
+ * comfortable reading measure.
+ */
+val ContentMaxWidth: Dp = 420.dp

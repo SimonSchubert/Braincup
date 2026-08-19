@@ -32,6 +32,7 @@ import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
@@ -145,7 +146,7 @@ private fun DifficultyRow(
         )
         Spacer(Modifier.height(8.dp))
         Row(
-            modifier = Modifier.widthIn(max = 420.dp).fillMaxWidth(),
+            modifier = Modifier.widthIn(max = ContentMaxWidth).fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
             NormalChessDifficulty.entries.forEach { d ->

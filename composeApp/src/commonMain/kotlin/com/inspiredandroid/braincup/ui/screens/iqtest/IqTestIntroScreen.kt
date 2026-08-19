@@ -13,6 +13,7 @@ import com.inspiredandroid.braincup.games.iqtest.IqTestBlueprint
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
+import com.inspiredandroid.braincup.ui.components.SectionColumn
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer

@@ -38,6 +38,7 @@ import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -252,7 +253,7 @@ fun MainMenuScreenContent(
                     PlayerLevelCard(
                         totalXp = totalXp,
                         onShowBrainCup = onShowBrainCup,
-                        modifier = Modifier.widthIn(max = 420.dp),
+                        modifier = Modifier.widthIn(max = ContentMaxWidth),
                     )
                 }
             }
@@ -271,7 +272,7 @@ fun MainMenuScreenContent(
                         totalGames = sessionTotalGames,
                         completedToday = sessionCompletedToday,
                         onPlay = onPlayDaily,
-                        modifier = Modifier.widthIn(max = 420.dp),
+                        modifier = Modifier.widthIn(max = ContentMaxWidth),
                     )
                 }
             }

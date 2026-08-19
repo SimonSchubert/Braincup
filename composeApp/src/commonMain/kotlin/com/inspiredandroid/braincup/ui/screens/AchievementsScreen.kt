@@ -16,6 +16,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
@@ -46,7 +47,7 @@ fun AchievementsScreen(
                     achievement = achievement,
                     isUnlocked = isUnlocked,
                     modifier = Modifier
-                        .widthIn(max = 420.dp)
+                        .widthIn(max = ContentMaxWidth)
                         .fillMaxWidth(),
                 )
                 Spacer(Modifier.height(8.dp))

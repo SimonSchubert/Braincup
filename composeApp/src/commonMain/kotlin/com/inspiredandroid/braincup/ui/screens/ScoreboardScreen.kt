@@ -20,6 +20,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
@@ -50,7 +51,7 @@ fun ScoreboardScreen(
         PrismCard(
             face = MaterialTheme.colorScheme.primaryContainer,
             modifier = Modifier
-                .widthIn(max = 420.dp)
+                .widthIn(max = ContentMaxWidth)
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
         ) {
@@ -80,7 +81,7 @@ fun ScoreboardScreen(
 
         Row(
             modifier = Modifier
-                .widthIn(max = 420.dp)
+                .widthIn(max = ContentMaxWidth)
                 .fillMaxWidth()
                 .padding(horizontal = 16.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
@@ -126,7 +127,7 @@ fun ScoreboardScreen(
                     PrismCard(
                         face = MaterialTheme.colorScheme.surfaceContainer,
                         modifier = Modifier
-                            .widthIn(max = 420.dp)
+                            .widthIn(max = ContentMaxWidth)
                             .fillMaxWidth()
                             .padding(vertical = 4.dp),
                     ) {

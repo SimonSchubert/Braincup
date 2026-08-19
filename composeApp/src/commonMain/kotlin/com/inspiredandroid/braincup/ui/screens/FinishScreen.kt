@@ -16,6 +16,7 @@ import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismTrophy
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
+import com.inspiredandroid.braincup.ui.components.sectionWidth
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
@@ -119,11 +120,7 @@ fun FinishScreen(
         if (isNewHighscore) {
             Spacer(Modifier.height(8.dp))
             BrandedCard(
-                modifier = Modifier
-                    .widthIn(max = 420.dp)
-                    .padding(horizontal = 24.dp)
-                    .align(Alignment.CenterHorizontally)
-                    .fillMaxWidth(),
+                modifier = sectionWidth(),
                 contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {

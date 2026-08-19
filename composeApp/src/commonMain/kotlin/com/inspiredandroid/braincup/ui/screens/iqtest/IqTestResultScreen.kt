@@ -18,6 +18,7 @@ import com.inspiredandroid.braincup.ui.components.BellCurve
 import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismProgressBar
+import com.inspiredandroid.braincup.ui.components.SectionColumn
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews

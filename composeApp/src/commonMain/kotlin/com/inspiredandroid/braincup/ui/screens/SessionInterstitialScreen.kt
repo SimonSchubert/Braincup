@@ -18,6 +18,7 @@ import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -75,7 +76,7 @@ fun SessionInterstitialScreen(
 
         BrandedCard(
             modifier = Modifier
-                .widthIn(max = 420.dp)
+                .widthIn(max = ContentMaxWidth)
                 .padding(horizontal = if (compact) 16.dp else 24.dp)
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth(),

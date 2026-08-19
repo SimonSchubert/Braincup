@@ -21,8 +21,10 @@ import com.inspiredandroid.braincup.ui.components.BrandedCard
 import com.inspiredandroid.braincup.ui.components.ColorPrismCell
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
+import com.inspiredandroid.braincup.ui.components.sectionWidth
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.annotateNumbers
 import kotlinx.collections.immutable.ImmutableList
@@ -73,11 +75,7 @@ fun SessionCompleteScreen(
 
         if (streakIncreased) {
             BrandedCard(
-                modifier = Modifier
-                    .widthIn(max = 420.dp)
-                    .padding(horizontal = 24.dp)
-                    .align(Alignment.CenterHorizontally)
-                    .fillMaxWidth(),
+                modifier = sectionWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
@@ -104,7 +102,7 @@ fun SessionCompleteScreen(
 
         Column(
             modifier = Modifier
-                .widthIn(max = 420.dp)
+                .widthIn(max = ContentMaxWidth)
                 .padding(horizontal = 24.dp)
                 .align(Alignment.CenterHorizontally),
         ) {

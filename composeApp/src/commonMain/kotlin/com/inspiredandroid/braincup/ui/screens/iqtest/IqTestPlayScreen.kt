@@ -16,6 +16,7 @@ import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.screens.games.CompactGameRow
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numeric
 import kotlinx.collections.immutable.toImmutableList
@@ -70,7 +71,7 @@ fun IqTestPlayScreen(
             trackColor = MaterialTheme.colorScheme.surfaceVariant,
             fillColor = Primary,
             modifier = Modifier
-                .widthIn(max = 420.dp)
+                .widthIn(max = ContentMaxWidth)
                 .padding(horizontal = 24.dp)
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth()

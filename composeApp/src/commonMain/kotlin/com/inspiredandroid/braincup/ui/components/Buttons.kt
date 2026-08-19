@@ -9,6 +9,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_give_up
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.stringResource
@@ -75,7 +76,7 @@ fun GiveUpButton(
 
 /**
  * A primary action button intended as the bottom CTA on result/interstitial screens.
- * Caps width at 420.dp on wide layouts and adds 24.dp horizontal insets so the touch
+ * Caps width at [ContentMaxWidth] on wide layouts and adds 24.dp horizontal insets so the touch
  * target stays comfortable across phones, tablets, and desktop.
  */
 @Composable
@@ -88,7 +89,7 @@ fun PrimaryActionButton(
         onClick = onClick,
         value = value,
         modifier = modifier
-            .widthIn(max = 420.dp)
+            .widthIn(max = ContentMaxWidth)
             .padding(horizontal = 24.dp),
     )
 }

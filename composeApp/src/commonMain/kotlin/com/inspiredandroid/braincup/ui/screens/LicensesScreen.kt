@@ -36,6 +36,7 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.readable
@@ -64,7 +65,7 @@ fun LicensesScreen(onBack: () -> Unit) {
                     SectionHeader(
                         title = stringResource(section.category.titleResource),
                         modifier = Modifier
-                            .widthIn(max = 420.dp)
+                            .widthIn(max = ContentMaxWidth)
                             .fillMaxWidth(),
                     )
                 }
@@ -73,7 +74,7 @@ fun LicensesScreen(onBack: () -> Unit) {
                         attribution = attribution,
                         onOpenUrl = { uriHandler.openUri(attribution.url) },
                         modifier = Modifier
-                            .widthIn(max = 420.dp)
+                            .widthIn(max = ContentMaxWidth)
                             .fillMaxWidth(),
                     )
                     Spacer(Modifier.height(8.dp))
@@ -86,7 +87,7 @@ fun LicensesScreen(onBack: () -> Unit) {
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textDecoration = TextDecoration.Underline,
                     modifier = Modifier
-                        .widthIn(max = 420.dp)
+                        .widthIn(max = ContentMaxWidth)
                         .fillMaxWidth()
                         .noRippleClickable { uriHandler.openUri(BRAINCUP_SOURCE_URL) }
                         .hoverHand()

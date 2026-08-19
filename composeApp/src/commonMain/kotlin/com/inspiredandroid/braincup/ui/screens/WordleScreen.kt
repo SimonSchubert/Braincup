@@ -39,6 +39,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.GamePreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.keyFace
 import com.inspiredandroid.braincup.ui.theme.keyTextColor
 import com.inspiredandroid.braincup.ui.theme.tileFace
@@ -111,7 +112,7 @@ internal fun ColumnScope.WordleContent(
                     keyHeight = CompactKeyHeight,
                     modifier = Modifier
                         .weight(1.15f)
-                        .widthIn(max = 420.dp),
+                        .widthIn(max = ContentMaxWidth),
                 )
             }
         }
