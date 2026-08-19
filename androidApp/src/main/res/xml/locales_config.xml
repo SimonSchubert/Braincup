@@ -6,6 +6,7 @@
     <locale android:name="de" />
     <locale android:name="el" />
     <locale android:name="es" />
+    <locale android:name="fa" />
     <locale android:name="fr" />
     <locale android:name="hi" />
     <locale android:name="id" />
