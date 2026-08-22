@@ -3,7 +3,7 @@ package com.inspiredandroid.braincup.ui.screens
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,10 +23,12 @@ import braincup.composeapp.generated.resources.learn_retake_test
 import braincup.composeapp.generated.resources.learn_take_test
 import braincup.composeapp.generated.resources.learn_test_intro
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.learn.CertificateGrade
+import com.inspiredandroid.braincup.learn.CertificateTier
+import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
-import com.inspiredandroid.braincup.learn.LearnTopicProgress
+import com.inspiredandroid.braincup.learn.LearnUnit
+import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
@@ -37,6 +39,7 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.labelRes
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentSetOf
@@ -44,17 +47,17 @@ import kotlinx.collections.immutable.toImmutableSet
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
-fun LearnTopicScreen(
-    topic: MathTopic,
+fun LearnUnitScreen(
+    unit: LearnUnit,
     storage: UserStorage,
     onLessonSelected: (lessonId: String) -> Unit,
     onTakeTest: () -> Unit,
     onViewCertificate: () -> Unit,
     onBack: () -> Unit,
 ) {
-    val completed = remember(storage, topic) { storage.getCompletedLearnLessonIds().toImmutableSet() }
-    val progress = remember(storage, topic) { storage.getLearnTopicProgress(topic) }
-    LearnTopicScreenContent(
+    val completed = remember(storage, unit) { storage.getCompletedLearnLessonIds().toImmutableSet() }
+    val progress = remember(storage, unit) { storage.getLearnUnitProgress(unit) }
+    LearnUnitScreenContent(
         progress = progress,
         completedLessonIds = completed,
         onLessonSelected = onLessonSelected,
@@ -65,20 +68,20 @@ fun LearnTopicScreen(
 }
 
 @Composable
-fun LearnTopicScreenContent(
-    progress: LearnTopicProgress,
+fun LearnUnitScreenContent(
+    progress: LearnUnitProgress,
     completedLessonIds: ImmutableSet<String>,
     onLessonSelected: (lessonId: String) -> Unit,
     onTakeTest: () -> Unit,
     onViewCertificate: () -> Unit,
     onBack: () -> Unit,
 ) {
-    val topic = progress.topic
-    val lessons = remember(topic) { LearnCatalog.lessons(topic) }
-    val quiz = remember(topic) { LearnCatalog.quiz(topic) }
+    val unit = progress.unit
+    val lessons = unit.lessons
+    val quiz = unit.quiz
 
     AppScaffold(
-        title = stringResource(topic.titleRes),
+        title = stringResource(unit.topic.titleRes),
         onBack = onBack,
         scrollable = false,
     ) {
@@ -96,7 +99,14 @@ fun LearnTopicScreenContent(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
-                        text = stringResource(topic.subtitleRes),
+                        text = stringResource(unit.level.titleRes),
+                        style = MaterialTheme.typography.labelMedium,
+                        color = Primary,
+                        fontWeight = FontWeight.Bold,
+                    )
+                    Spacer(Modifier.height(2.dp))
+                    Text(
+                        text = unit.summary,
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center,
                     )
@@ -113,10 +123,10 @@ fun LearnTopicScreenContent(
                 }
             }
 
-            if (progress.grade != null && progress.bestPercent != null) {
+            if (progress.tier != null && progress.bestPercent != null) {
                 item(key = "certificate") {
                     EarnedCertificateCard(
-                        grade = progress.grade,
+                        tier = progress.tier,
                         bestPercent = progress.bestPercent,
                         onClick = onViewCertificate,
                         modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
@@ -136,10 +146,10 @@ fun LearnTopicScreenContent(
                 )
             }
 
-            items(lessons, key = { it.id }) { lesson ->
+            itemsIndexed(lessons, key = { _, lesson -> lesson.id }) { index, lesson ->
                 LessonRow(
                     lesson = lesson,
-                    index = lessons.indexOf(lesson),
+                    index = index,
                     isCompleted = lesson.id in completedLessonIds,
                     onClick = { onLessonSelected(lesson.id) },
                     modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
@@ -156,7 +166,7 @@ fun LearnTopicScreenContent(
                         text = stringResource(
                             Res.string.learn_test_intro,
                             quiz.total,
-                            CertificateGrade.PASS_PERCENT,
+                            CertificateTier.PASS_PERCENT,
                         ),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -179,7 +189,7 @@ fun LearnTopicScreenContent(
 
 @Composable
 private fun EarnedCertificateCard(
-    grade: CertificateGrade,
+    tier: CertificateTier,
     bestPercent: Int,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -193,13 +203,13 @@ private fun EarnedCertificateCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            CertificateMedal(grade = grade, modifier = Modifier.size(32.dp))
+            CertificateMedal(tier = tier, modifier = Modifier.size(32.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = stringResource(
                         Res.string.learn_certificate_best,
                         bestPercent,
-                        stringResource(grade.labelRes()),
+                        stringResource(tier.labelRes()),
                     ),
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
@@ -262,17 +272,18 @@ private fun LessonRow(
 
 @DevicePreviews
 @Composable
-private fun LearnTopicScreenPreview() {
+private fun LearnUnitScreenPreview() {
+    val unit = LearnCatalog.unitOf(GradeLevel.GRADES_6_8, MathTopic.ALGEBRA)!!
     ScreenPreviewHost {
-        LearnTopicScreenContent(
-            progress = LearnTopicProgress(
-                topic = MathTopic.ALGEBRA,
+        LearnUnitScreenContent(
+            progress = LearnUnitProgress(
+                unit = unit,
                 lessonsCompleted = 1,
                 bestPercent = 80,
-                grade = CertificateGrade.SILVER,
+                tier = CertificateTier.SILVER,
                 earnedEpochDay = 20_000,
             ),
-            completedLessonIds = persistentSetOf("algebra-expressions"),
+            completedLessonIds = persistentSetOf(unit.lessons.first().id),
             onLessonSelected = {},
             onTakeTest = {},
             onViewCertificate = {},

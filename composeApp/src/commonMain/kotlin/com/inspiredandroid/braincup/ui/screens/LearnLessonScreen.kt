@@ -62,7 +62,7 @@ fun LearnLessonScreen(
 ) {
     val lesson = remember(lessonId) { LearnCatalog.lessonById(lessonId) } ?: return
     val nextLessonId = remember(lessonId) {
-        val siblings = LearnCatalog.lessons(lesson.topic)
+        val siblings = LearnCatalog.unitOfLesson(lesson)?.lessons.orEmpty()
         siblings.getOrNull(siblings.indexOfFirst { it.id == lesson.id } + 1)?.id
     }
     var xpGained by remember(lessonId) { mutableIntStateOf(0) }
@@ -525,7 +525,7 @@ private fun LessonCompleteContent(
 private fun LearnLessonScreenPreview() {
     ScreenPreviewHost {
         LearnLessonScreenContent(
-            lesson = LearnCatalog.lessons(com.inspiredandroid.braincup.learn.MathTopic.GEOMETRY).first(),
+            lesson = LearnCatalog.allLessons.first(),
             nextLessonId = null,
             xpGained = 0,
             onLessonCompleted = {},

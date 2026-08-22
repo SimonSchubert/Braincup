@@ -15,7 +15,8 @@ import com.inspiredandroid.braincup.games.wordle.WordleGame
 import com.inspiredandroid.braincup.games.wordle.WordleLanguage
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.games.wordle.deviceLanguageTag
-import com.inspiredandroid.braincup.learn.MathTopic
+import com.inspiredandroid.braincup.learn.GradeLevel
+import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
@@ -322,13 +323,17 @@ class GameController(
         navController.navigate(LearnMenu)
     }
 
-    fun navigateToLearnTopic(topic: MathTopic) {
-        navController.navigate(LearnTopicDetail(topic.id))
+    fun navigateToLearnGrade(level: GradeLevel) {
+        navController.navigate(LearnGradeDetail(level.id))
+    }
+
+    fun navigateToLearnUnit(unit: LearnUnit) {
+        navController.navigate(LearnUnitDetail(unit.id))
     }
 
     /**
-     * Open a lesson. [replaceCurrent] is used by "Next lesson" so walking a whole topic does not
-     * pile lessons up on the back stack — going back always lands on the topic screen.
+     * Open a lesson. [replaceCurrent] is used by "Next lesson" so walking a whole unit does not
+     * pile lessons up on the back stack — going back always lands on the unit screen.
      */
     fun navigateToLearnLesson(lessonId: String, replaceCurrent: Boolean = false) {
         navController.navigate(LearnLessonPlay(lessonId)) {
@@ -338,17 +343,17 @@ class GameController(
         }
     }
 
-    /** Return to a topic's screen from any of its lesson, test or certificate screens. */
-    fun popToLearnTopic(topic: MathTopic) {
-        navController.popBackStack(LearnTopicDetail(topic.id), inclusive = false)
+    /** Return to a unit's screen from any of its lesson, test or certificate screens. */
+    fun popToLearnUnit(unit: LearnUnit) {
+        navController.popBackStack(LearnUnitDetail(unit.id), inclusive = false)
     }
 
-    fun navigateToLearnTest(topic: MathTopic) {
-        navController.navigate(LearnTest(topic.id))
+    fun navigateToLearnTest(unit: LearnUnit) {
+        navController.navigate(LearnTest(unit.id))
     }
 
-    fun navigateToLearnCertificate(topic: MathTopic) {
-        navController.navigate(LearnCertificate(topic.id))
+    fun navigateToLearnCertificate(unit: LearnUnit) {
+        navController.navigate(LearnCertificate(unit.id))
     }
 
     fun startGame(gameType: GameType) {

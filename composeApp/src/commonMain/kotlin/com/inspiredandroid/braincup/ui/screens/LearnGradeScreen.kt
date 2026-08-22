@@ -13,45 +13,49 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.learn_section_certificates
-import braincup.composeapp.generated.resources.learn_section_subtitle
-import braincup.composeapp.generated.resources.learn_title
+import braincup.composeapp.generated.resources.learn_grade_certificates
+import braincup.composeapp.generated.resources.learn_grade_intro
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.learn.GradeLevel
-import com.inspiredandroid.braincup.learn.LearnGradeProgress
+import com.inspiredandroid.braincup.learn.LearnCatalog
+import com.inspiredandroid.braincup.learn.LearnUnit
+import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.LearnGradeTile
+import com.inspiredandroid.braincup.ui.components.LearnUnitTile
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
 
+/** The topics taught at one grade band. Each tile opens that band's unit for the topic. */
 @Composable
-fun LearnMenuScreen(
+fun LearnGradeScreen(
+    level: GradeLevel,
     storage: UserStorage,
-    onGradeSelected: (GradeLevel) -> Unit,
+    onUnitSelected: (LearnUnit) -> Unit,
     onBack: () -> Unit,
 ) {
-    val progress = remember(storage) { storage.getAllLearnGradeProgress().toImmutableList() }
-    LearnMenuScreenContent(
+    val progress = remember(storage, level) { storage.getLearnUnitProgress(level).toImmutableList() }
+    LearnGradeScreenContent(
+        level = level,
         progress = progress,
-        onGradeSelected = onGradeSelected,
+        onUnitSelected = onUnitSelected,
         onBack = onBack,
     )
 }
 
 @Composable
-fun LearnMenuScreenContent(
-    progress: ImmutableList<LearnGradeProgress>,
-    onGradeSelected: (GradeLevel) -> Unit,
+fun LearnGradeScreenContent(
+    level: GradeLevel,
+    progress: ImmutableList<LearnUnitProgress>,
+    onUnitSelected: (LearnUnit) -> Unit,
     onBack: () -> Unit,
 ) {
-    val certificateCount = remember(progress) { progress.sumOf { it.certificates } }
-    val certificateTotal = remember(progress) { progress.sumOf { it.unitsTotal } }
+    val certificateCount = remember(progress) { progress.count { it.hasCertificate } }
 
     AppScaffold(
-        title = stringResource(Res.string.learn_title),
+        title = stringResource(level.titleRes),
         onBack = onBack,
         scrollable = false,
     ) {
@@ -64,20 +68,28 @@ fun LearnMenuScreenContent(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            item(span = { GridItemSpan(maxLineSpan) }, contentType = "learn_intro") {
+            item(span = { GridItemSpan(maxLineSpan) }, contentType = "grade_intro") {
                 Column(modifier = Modifier.fillMaxWidth()) {
                     Text(
-                        text = stringResource(Res.string.learn_section_subtitle),
+                        text = stringResource(level.subtitleRes),
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth(),
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
+                        text = stringResource(Res.string.learn_grade_intro),
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                    Spacer(Modifier.height(4.dp))
+                    Text(
                         text = stringResource(
-                            Res.string.learn_section_certificates,
+                            Res.string.learn_grade_certificates,
                             certificateCount,
-                            certificateTotal,
+                            progress.size,
                         ),
                         style = MaterialTheme.typography.labelMedium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -87,13 +99,13 @@ fun LearnMenuScreenContent(
                 }
             }
 
-            items(progress, key = { it.level.id }, contentType = { "learn_grade" }) { gradeProgress ->
-                LearnGradeTile(
-                    level = gradeProgress.level,
-                    certificates = gradeProgress.certificates,
-                    unitsTotal = gradeProgress.unitsTotal,
-                    bestTier = gradeProgress.bestTier,
-                    onClick = onGradeSelected,
+            items(progress, key = { it.unit.id }, contentType = { "learn_unit" }) { unitProgress ->
+                LearnUnitTile(
+                    unit = unitProgress.unit,
+                    lessonsCompleted = unitProgress.lessonsCompleted,
+                    lessonsTotal = unitProgress.lessonsTotal,
+                    tier = unitProgress.tier,
+                    onClick = onUnitSelected,
                 )
             }
         }
@@ -102,11 +114,14 @@ fun LearnMenuScreenContent(
 
 @DevicePreviews
 @Composable
-private fun LearnMenuScreenPreview() {
+private fun LearnGradeScreenPreview() {
     ScreenPreviewHost {
-        LearnMenuScreenContent(
-            progress = GradeLevel.entries.map { LearnGradeProgress.empty(it) }.toImmutableList(),
-            onGradeSelected = {},
+        LearnGradeScreenContent(
+            level = GradeLevel.GRADES_3_5,
+            progress = LearnCatalog.units(GradeLevel.GRADES_3_5)
+                .map { LearnUnitProgress.empty(it) }
+                .toImmutableList(),
+            onUnitSelected = {},
             onBack = {},
         )
     }

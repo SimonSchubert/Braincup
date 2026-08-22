@@ -27,10 +27,10 @@ import braincup.composeapp.generated.resources.learn_quiz_score
 import braincup.composeapp.generated.resources.learn_quiz_your_answer
 import braincup.composeapp.generated.resources.learn_test_title
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.learn.CertificateGrade
+import com.inspiredandroid.braincup.learn.CertificateTier
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnQuiz
-import com.inspiredandroid.braincup.learn.MathTopic
+import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.QuizQuestion
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
@@ -52,19 +52,18 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun LearnQuizScreen(
-    topic: MathTopic,
+    unit: LearnUnit,
     storage: UserStorage,
     onViewCertificate: () -> Unit,
     onDone: () -> Unit,
     onBack: () -> Unit,
 ) {
-    val quiz = remember(topic) { LearnCatalog.quiz(topic) }
-    var result by remember(topic) { mutableStateOf<UserStorage.LearnQuizResult?>(null) }
+    var result by remember(unit) { mutableStateOf<UserStorage.LearnQuizResult?>(null) }
 
     LearnQuizScreenContent(
-        quiz = quiz,
+        unit = unit,
         result = result,
-        onSubmit = { correct -> result = storage.recordLearnQuizResult(topic, correct, quiz.total) },
+        onSubmit = { correct -> result = storage.recordLearnQuizResult(unit, correct, unit.quiz.total) },
         onViewCertificate = onViewCertificate,
         onDone = onDone,
         onBack = onBack,
@@ -73,27 +72,28 @@ fun LearnQuizScreen(
 
 @Composable
 fun LearnQuizScreenContent(
-    quiz: LearnQuiz,
+    unit: LearnUnit,
     result: UserStorage.LearnQuizResult?,
     onSubmit: (correctCount: Int) -> Unit,
     onViewCertificate: () -> Unit,
     onDone: () -> Unit,
     onBack: () -> Unit,
 ) {
+    val quiz = unit.quiz
     // One entry per question, filled in as the learner answers; -1 means not answered yet.
-    val answers = remember(quiz.topic) { mutableStateListOf<Int>().apply { repeat(quiz.total) { add(-1) } } }
-    var questionIndex by remember(quiz.topic) { mutableIntStateOf(0) }
+    val answers = remember(unit.id) { mutableStateListOf<Int>().apply { repeat(quiz.total) { add(-1) } } }
+    var questionIndex by remember(unit.id) { mutableIntStateOf(0) }
 
     val submitted = questionIndex >= quiz.total
     val correctCount = quiz.questions.indices.count { answers[it] == quiz.questions[it].correctIndex }
 
     // The result is recorded once, when the last question is answered.
-    LaunchedEffect(quiz.topic, submitted) {
+    LaunchedEffect(unit.id, submitted) {
         if (submitted) onSubmit(correctCount)
     }
 
     AppScaffold(
-        title = stringResource(Res.string.learn_test_title, stringResource(quiz.topic.titleRes)),
+        title = stringResource(Res.string.learn_test_title, stringResource(unit.topic.titleRes)),
         onBack = onBack,
         scrollable = false,
     ) {
@@ -177,8 +177,8 @@ private fun QuizResultContent(
     modifier: Modifier = Modifier,
 ) {
     var showReview by remember { mutableStateOf(false) }
-    val percent = result?.percent ?: CertificateGrade.percentOf(correctCount, quiz.total)
-    val grade = result?.grade ?: CertificateGrade.forPercent(percent)
+    val percent = result?.percent ?: CertificateTier.percentOf(correctCount, quiz.total)
+    val tier = result?.tier ?: CertificateTier.forPercent(percent)
 
     Column(
         modifier = modifier
@@ -201,13 +201,13 @@ private fun QuizResultContent(
         )
         Spacer(Modifier.height(16.dp))
 
-        if (grade != null) {
-            CertificateMedal(grade = grade, modifier = Modifier.size(56.dp))
+        if (tier != null) {
+            CertificateMedal(tier = tier, modifier = Modifier.size(56.dp))
             Spacer(Modifier.height(8.dp))
             Text(
-                text = stringResource(grade.labelRes()),
+                text = stringResource(tier.labelRes()),
                 style = MaterialTheme.typography.titleMedium,
-                color = grade.medalColor(),
+                color = tier.medalColor(),
                 fontWeight = FontWeight.Bold,
             )
             Spacer(Modifier.height(4.dp))
@@ -221,7 +221,7 @@ private fun QuizResultContent(
             )
         } else {
             Text(
-                text = stringResource(Res.string.learn_quiz_failed, CertificateGrade.PASS_PERCENT),
+                text = stringResource(Res.string.learn_quiz_failed, CertificateTier.PASS_PERCENT),
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
             )
@@ -253,7 +253,7 @@ private fun QuizResultContent(
         }
 
         Spacer(Modifier.height(24.dp))
-        if (grade != null) {
+        if (tier != null) {
             PrimaryActionButton(
                 onClick = onViewCertificate,
                 value = stringResource(Res.string.learn_certificate_view),
@@ -324,7 +324,7 @@ private fun ReviewCard(
 private fun LearnQuizScreenPreview() {
     ScreenPreviewHost {
         LearnQuizScreenContent(
-            quiz = LearnCatalog.quiz(MathTopic.ARITHMETIC),
+            unit = LearnCatalog.allUnits.first(),
             result = null,
             onSubmit = {},
             onViewCertificate = {},

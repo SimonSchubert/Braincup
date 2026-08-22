@@ -3,10 +3,11 @@ package com.inspiredandroid.braincup.navigation
 import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Instructions
 import com.inspiredandroid.braincup.app.LearnCertificate
+import com.inspiredandroid.braincup.app.LearnGradeDetail
 import com.inspiredandroid.braincup.app.LearnLessonPlay
 import com.inspiredandroid.braincup.app.LearnMenu
 import com.inspiredandroid.braincup.app.LearnTest
-import com.inspiredandroid.braincup.app.LearnTopicDetail
+import com.inspiredandroid.braincup.app.LearnUnitDetail
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
 import com.inspiredandroid.braincup.app.PegSolitaire
@@ -14,6 +15,7 @@ import com.inspiredandroid.braincup.app.Playing
 import com.inspiredandroid.braincup.app.Scoreboard
 import com.inspiredandroid.braincup.app.Settings
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.MathTopic
 import kotlin.test.Test
@@ -126,37 +128,52 @@ class AppUrlRoutesTest {
 
     @Test
     fun navRouteToPathSuffix_learn() {
+        val algebra = requireNotNull(LearnCatalog.unitOf(GradeLevel.GRADES_9_10, MathTopic.ALGEBRA))
         assertEquals("learn", navRouteToPathSuffix(LearnMenu))
-        assertEquals("learn/algebra", navRouteToPathSuffix(LearnTopicDetail(MathTopic.ALGEBRA.id)))
-        assertEquals("learn/algebra/test", navRouteToPathSuffix(LearnTest(MathTopic.ALGEBRA.id)))
+        assertEquals("learn/grade-9-10", navRouteToPathSuffix(LearnGradeDetail(GradeLevel.GRADES_9_10.id)))
+        assertEquals("learn/grade-9-10/algebra", navRouteToPathSuffix(LearnUnitDetail(algebra.id)))
+        assertEquals("learn/grade-9-10/algebra/test", navRouteToPathSuffix(LearnTest(algebra.id)))
         assertEquals(
-            "learn/algebra/certificate",
-            navRouteToPathSuffix(LearnCertificate(MathTopic.ALGEBRA.id)),
+            "learn/grade-9-10/algebra/certificate",
+            navRouteToPathSuffix(LearnCertificate(algebra.id)),
         )
     }
 
     @Test
     fun pathSuffixToNavRoute_learnRoundTrip() {
+        val calculus = requireNotNull(LearnCatalog.unitOf(GradeLevel.GRADES_11_12, MathTopic.CALCULUS))
         assertEquals(LearnMenu, pathSuffixToNavRoute("learn"))
-        assertEquals(LearnTopicDetail(MathTopic.CALCULUS.id), pathSuffixToNavRoute("learn/calculus"))
-        assertEquals(LearnTest(MathTopic.CALCULUS.id), pathSuffixToNavRoute("learn/calculus/test"))
         assertEquals(
-            LearnCertificate(MathTopic.CALCULUS.id),
-            pathSuffixToNavRoute("learn/calculus/certificate"),
+            LearnGradeDetail(GradeLevel.GRADES_11_12.id),
+            pathSuffixToNavRoute("learn/grade-11-12"),
+        )
+        assertEquals(LearnUnitDetail(calculus.id), pathSuffixToNavRoute("learn/grade-11-12/calculus"))
+        assertEquals(LearnTest(calculus.id), pathSuffixToNavRoute("learn/grade-11-12/calculus/test"))
+        assertEquals(
+            LearnCertificate(calculus.id),
+            pathSuffixToNavRoute("learn/grade-11-12/calculus/certificate"),
         )
     }
 
     @Test
     fun learnLessonPathRoundTrips() {
-        val lessonId = LearnCatalog.lessons(MathTopic.GEOMETRY).first().id
+        val lessonId = LearnCatalog.allLessons.first().id
         assertEquals("learn/lesson/$lessonId", navRouteToPathSuffix(LearnLessonPlay(lessonId)))
         assertEquals(LearnLessonPlay(lessonId), pathSuffixToNavRoute("learn/lesson/$lessonId"))
     }
 
     @Test
     fun unknownLearnPathsAreRejected() {
-        assertNull(pathSuffixToNavRoute("learn/not-a-topic"))
-        assertNull(pathSuffixToNavRoute("learn/algebra/nope"))
+        assertNull(pathSuffixToNavRoute("learn/grade-99"))
+        assertNull(pathSuffixToNavRoute("learn/grade-9-10/not-a-topic"))
+        assertNull(pathSuffixToNavRoute("learn/grade-9-10/algebra/nope"))
         assertNull(pathSuffixToNavRoute("learn/lesson/not-a-lesson"))
+    }
+
+    /** Calculus is not taught in grade 1-2, so that pairing must not resolve to anything. */
+    @Test
+    fun learnTopicsNotTaughtAtALevelAreRejected() {
+        assertNull(pathSuffixToNavRoute("learn/grade-1-2/calculus"))
+        assertNull(pathSuffixToNavRoute("learn/grade-1-2/calculus/test"))
     }
 }

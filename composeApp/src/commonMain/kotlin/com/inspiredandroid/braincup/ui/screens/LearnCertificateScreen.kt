@@ -21,7 +21,10 @@ import braincup.composeapp.generated.resources.learn_certificate_title
 import braincup.composeapp.generated.resources.learn_lesson_finish
 import braincup.composeapp.generated.resources.learn_quiz_failed
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.learn.CertificateGrade
+import com.inspiredandroid.braincup.learn.CertificateTier
+import com.inspiredandroid.braincup.learn.GradeLevel
+import com.inspiredandroid.braincup.learn.LearnCatalog
+import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
@@ -39,15 +42,15 @@ import kotlin.time.Instant
 
 @Composable
 fun LearnCertificateScreen(
-    topic: MathTopic,
+    unit: LearnUnit,
     storage: UserStorage,
     onDone: () -> Unit,
     onBack: () -> Unit,
 ) {
-    val certificate = remember(storage, topic) { storage.getLearnCertificate(topic) }
+    val certificate = remember(storage, unit) { storage.getLearnCertificate(unit) }
     LearnCertificateScreenContent(
-        topic = topic,
-        grade = certificate?.grade,
+        unit = unit,
+        tier = certificate?.tier,
         percent = certificate?.percent,
         earnedEpochDay = certificate?.earnedEpochDay,
         onDone = onDone,
@@ -57,8 +60,8 @@ fun LearnCertificateScreen(
 
 @Composable
 fun LearnCertificateScreenContent(
-    topic: MathTopic,
-    grade: CertificateGrade?,
+    unit: LearnUnit,
+    tier: CertificateTier?,
     percent: Int?,
     earnedEpochDay: Int?,
     onDone: () -> Unit,
@@ -68,9 +71,9 @@ fun LearnCertificateScreenContent(
         title = stringResource(Res.string.learn_certificate_title),
         onBack = onBack,
     ) {
-        if (grade == null || percent == null) {
+        if (tier == null || percent == null) {
             Text(
-                text = stringResource(Res.string.learn_quiz_failed, CertificateGrade.PASS_PERCENT),
+                text = stringResource(Res.string.learn_quiz_failed, CertificateTier.PASS_PERCENT),
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.padding(24.dp),
@@ -83,8 +86,8 @@ fun LearnCertificateScreenContent(
         }
 
         CertificateCard(
-            topic = topic,
-            grade = grade,
+            unit = unit,
+            tier = tier,
             percent = percent,
             earnedEpochDay = earnedEpochDay,
             modifier = Modifier
@@ -104,13 +107,13 @@ fun LearnCertificateScreenContent(
 
 @Composable
 private fun CertificateCard(
-    topic: MathTopic,
-    grade: CertificateGrade,
+    unit: LearnUnit,
+    tier: CertificateTier,
     percent: Int,
     earnedEpochDay: Int?,
     modifier: Modifier = Modifier,
 ) {
-    val medal = grade.medalColor()
+    val medal = tier.medalColor()
     PrismCard(
         face = MaterialTheme.colorScheme.surface,
         modifier = modifier,
@@ -131,10 +134,10 @@ private fun CertificateCard(
                 textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(16.dp))
-            CertificateMedal(grade = grade, modifier = Modifier.size(64.dp))
+            CertificateMedal(tier = tier, modifier = Modifier.size(64.dp))
             Spacer(Modifier.height(8.dp))
             Text(
-                text = stringResource(grade.labelRes()),
+                text = stringResource(tier.labelRes()),
                 style = MaterialTheme.typography.titleMedium,
                 color = medal,
                 fontWeight = FontWeight.Bold,
@@ -148,8 +151,15 @@ private fun CertificateCard(
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = stringResource(topic.titleRes),
+                text = stringResource(unit.topic.titleRes),
                 style = MaterialTheme.typography.headlineSmall,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                text = stringResource(unit.level.titleRes),
+                style = MaterialTheme.typography.titleSmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(16.dp))
@@ -187,8 +197,8 @@ private fun formatEpochDay(epochDay: Int): String = Instant
 private fun LearnCertificateScreenPreview() {
     ScreenPreviewHost {
         LearnCertificateScreenContent(
-            topic = MathTopic.TRIGONOMETRY,
-            grade = CertificateGrade.GOLD,
+            unit = LearnCatalog.unitOf(GradeLevel.GRADES_9_10, MathTopic.TRIGONOMETRY)!!,
+            tier = CertificateTier.GOLD,
             percent = 95,
             earnedEpochDay = 20_000,
             onDone = {},

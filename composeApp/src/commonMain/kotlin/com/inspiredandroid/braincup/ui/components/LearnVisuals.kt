@@ -40,8 +40,22 @@ fun LearnVisualCanvas(
         Canvas(Modifier.fillMaxSize()) {
             when (visual) {
                 LearnVisual.NUMBER_LINE -> drawNumberLine(ink)
+                LearnVisual.COUNTERS -> drawCounters(ink)
+                LearnVisual.PLACE_VALUE_BLOCKS -> drawPlaceValueBlocks(ink)
+                LearnVisual.ARRAY_GRID -> drawArrayGrid(ink)
                 LearnVisual.FRACTION_BAR -> drawFractionBar(ink)
                 LearnVisual.RULER -> drawRuler(ink)
+                LearnVisual.CLOCK -> drawClock(ink)
+                LearnVisual.COINS -> drawCoins(ink)
+                LearnVisual.SHAPES_2D -> drawShapes2d(ink)
+                LearnVisual.SOLIDS -> drawSolids(ink)
+                LearnVisual.SYMMETRY -> drawSymmetry(ink)
+                LearnVisual.COORDINATE_GRID -> drawCoordinateGrid(ink)
+                LearnVisual.PICTOGRAM -> drawPictogram(ink)
+                LearnVisual.PIE_CHART -> drawPieChart(ink)
+                LearnVisual.NORMAL_CURVE -> drawNormalCurve(ink)
+                LearnVisual.EXPONENTIAL_CURVE -> drawExponentialCurve(ink)
+                LearnVisual.SINE_WAVE -> drawSineWave(ink)
                 LearnVisual.AREA_RECTANGLE -> drawAreaRectangle(ink)
                 LearnVisual.RIGHT_TRIANGLE -> drawRightTriangle(ink)
                 LearnVisual.CIRCLE -> drawCircleDiagram(ink)
@@ -336,4 +350,402 @@ private fun DrawScope.drawAreaUnderCurve(ink: Color) {
         strokeWidth = axisStroke(),
         cap = StrokeCap.Round,
     )
+}
+
+private fun DrawScope.drawCounters(ink: Color) {
+    // Two groups of dots side by side: the "4 counters and 3 counters" picture.
+    val radius = size.minDimension * 0.07f
+    val gap = radius * 2.6f
+    val rowY = size.height / 2
+    repeat(4) { index ->
+        drawCircle(Primary, radius, Offset(size.width * 0.14f + gap * index, rowY))
+    }
+    repeat(3) { index ->
+        drawCircle(SuccessGreen, radius, Offset(size.width * 0.62f + gap * index, rowY))
+    }
+    drawLine(
+        color = ink,
+        start = Offset(size.width * 0.55f, rowY - gap),
+        end = Offset(size.width * 0.55f, rowY + gap),
+        strokeWidth = axisStroke(),
+        cap = StrokeCap.Round,
+    )
+}
+
+private fun DrawScope.drawPlaceValueBlocks(ink: Color) {
+    // Three ten-rods and seven loose ones: 37 as a picture.
+    val cell = minOf(size.width * 0.08f, size.height * 0.16f)
+    val top = size.height * 0.2f
+    repeat(3) { rod ->
+        val x = size.width * 0.1f + rod * cell * 1.6f
+        repeat(5) { row ->
+            repeat(2) { col ->
+                val topLeft = Offset(x + col * cell, top + row * cell)
+                drawRect(Primary.copy(alpha = 0.35f), topLeft, Size(cell, cell))
+                drawRect(ink, topLeft, Size(cell, cell), style = Stroke(axisStroke() * 0.5f))
+            }
+        }
+    }
+    repeat(7) { index ->
+        val topLeft = Offset(
+            x = size.width * 0.62f + (index % 3) * cell * 1.3f,
+            y = top + (index / 3) * cell * 1.3f,
+        )
+        drawRect(SuccessGreen.copy(alpha = 0.4f), topLeft, Size(cell, cell))
+        drawRect(ink, topLeft, Size(cell, cell), style = Stroke(axisStroke() * 0.5f))
+    }
+}
+
+private fun DrawScope.drawArrayGrid(ink: Color) {
+    val cols = 6
+    val rows = 4
+    val step = minOf(size.width * 0.8f / cols, size.height * 0.72f / rows)
+    val left = (size.width - step * (cols - 1)) / 2
+    val top = (size.height - step * (rows - 1)) / 2
+    val radius = step * 0.24f
+    repeat(rows) { row ->
+        repeat(cols) { col ->
+            drawCircle(Primary, radius, Offset(left + col * step, top + row * step))
+        }
+    }
+    drawRect(
+        color = ink,
+        topLeft = Offset(left - step * 0.5f, top - step * 0.5f),
+        size = Size(step * cols, step * rows),
+        style = Stroke(width = axisStroke()),
+    )
+}
+
+private fun DrawScope.drawClock(ink: Color) {
+    val radius = size.minDimension * 0.38f
+    val center = Offset(size.width / 2, size.height / 2)
+    drawCircle(ink, radius, center, style = Stroke(width = axisStroke() * 1.4f))
+    repeat(12) { hour ->
+        val angle = hour * PI / 6.0
+        val outer = Offset(
+            center.x + (radius * 0.92f * sin(angle)).toFloat(),
+            center.y - (radius * 0.92f * cos(angle)).toFloat(),
+        )
+        val inner = Offset(
+            center.x + (radius * 0.78f * sin(angle)).toFloat(),
+            center.y - (radius * 0.78f * cos(angle)).toFloat(),
+        )
+        drawLine(ink, inner, outer, strokeWidth = axisStroke(), cap = StrokeCap.Round)
+    }
+    // Ten past two, so both hands are clearly visible.
+    val hourAngle = 2.17 * PI / 6.0
+    val minuteAngle = 2.0 * PI / 6.0
+    drawLine(
+        color = Primary,
+        start = center,
+        end = Offset(
+            center.x + (radius * 0.5f * sin(hourAngle)).toFloat(),
+            center.y - (radius * 0.5f * cos(hourAngle)).toFloat(),
+        ),
+        strokeWidth = axisStroke() * 1.8f,
+        cap = StrokeCap.Round,
+    )
+    drawLine(
+        color = SuccessGreen,
+        start = center,
+        end = Offset(
+            center.x + (radius * 0.78f * sin(minuteAngle)).toFloat(),
+            center.y - (radius * 0.78f * cos(minuteAngle)).toFloat(),
+        ),
+        strokeWidth = axisStroke() * 1.3f,
+        cap = StrokeCap.Round,
+    )
+    drawCircle(ink, axisStroke() * 1.6f, center)
+}
+
+private fun DrawScope.drawCoins(ink: Color) {
+    // Three coins of different value, largest first, the way you count them.
+    val y = size.height / 2
+    val radii = listOf(size.minDimension * 0.22f, size.minDimension * 0.17f, size.minDimension * 0.13f)
+    var x = size.width * 0.26f
+    radii.forEachIndexed { index, radius ->
+        val center = Offset(x, y)
+        drawCircle(if (index == 0) Primary.copy(alpha = 0.35f) else SuccessGreen.copy(alpha = 0.3f), radius, center)
+        drawCircle(ink, radius, center, style = Stroke(width = axisStroke() * 1.2f))
+        drawCircle(ink, radius * 0.62f, center, style = Stroke(width = axisStroke() * 0.6f))
+        x += radius + radii.getOrElse(index + 1) { radius } + size.width * 0.05f
+    }
+}
+
+private fun DrawScope.drawShapes2d(ink: Color) {
+    val cell = minOf(size.width * 0.28f, size.height * 0.5f)
+    val y = size.height / 2
+    val triangleCenter = Offset(size.width * 0.22f, y)
+    val triangle = Path().apply {
+        moveTo(triangleCenter.x, triangleCenter.y - cell / 2)
+        lineTo(triangleCenter.x + cell / 2, triangleCenter.y + cell / 2)
+        lineTo(triangleCenter.x - cell / 2, triangleCenter.y + cell / 2)
+        close()
+    }
+    drawPath(triangle, Primary.copy(alpha = 0.2f))
+    drawPath(triangle, ink, style = Stroke(width = axisStroke() * 1.2f))
+
+    drawRect(
+        color = SuccessGreen.copy(alpha = 0.2f),
+        topLeft = Offset(size.width * 0.5f - cell / 2, y - cell / 2),
+        size = Size(cell, cell),
+    )
+    drawRect(
+        color = ink,
+        topLeft = Offset(size.width * 0.5f - cell / 2, y - cell / 2),
+        size = Size(cell, cell),
+        style = Stroke(width = axisStroke() * 1.2f),
+    )
+
+    val pentagonCenter = Offset(size.width * 0.78f, y)
+    val pentagon = Path()
+    repeat(5) { index ->
+        val angle = -PI / 2 + index * 2 * PI / 5
+        val point = Offset(
+            pentagonCenter.x + (cell / 2 * cos(angle)).toFloat(),
+            pentagonCenter.y + (cell / 2 * sin(angle)).toFloat(),
+        )
+        if (index == 0) pentagon.moveTo(point.x, point.y) else pentagon.lineTo(point.x, point.y)
+    }
+    pentagon.close()
+    drawPath(pentagon, Primary.copy(alpha = 0.2f))
+    drawPath(pentagon, ink, style = Stroke(width = axisStroke() * 1.2f))
+}
+
+private fun DrawScope.drawSolids(ink: Color) {
+    val stroke = Stroke(width = axisStroke() * 1.2f)
+    // Cube drawn as a front face plus an offset back face.
+    val side = minOf(size.width * 0.26f, size.height * 0.42f)
+    val depth = side * 0.4f
+    val cubeLeft = size.width * 0.08f
+    val cubeTop = size.height * 0.34f
+    drawRect(Primary.copy(alpha = 0.18f), Offset(cubeLeft, cubeTop), Size(side, side))
+    drawRect(ink, Offset(cubeLeft, cubeTop), Size(side, side), style = stroke)
+    drawRect(ink, Offset(cubeLeft + depth, cubeTop - depth), Size(side, side), style = stroke)
+    listOf(
+        Offset(cubeLeft, cubeTop) to Offset(cubeLeft + depth, cubeTop - depth),
+        Offset(cubeLeft + side, cubeTop) to Offset(cubeLeft + side + depth, cubeTop - depth),
+        Offset(cubeLeft, cubeTop + side) to Offset(cubeLeft + depth, cubeTop + side - depth),
+        Offset(cubeLeft + side, cubeTop + side) to Offset(cubeLeft + side + depth, cubeTop + side - depth),
+    ).forEach { (from, to) -> drawLine(ink, from, to, strokeWidth = axisStroke()) }
+
+    // Cylinder: two ellipses joined by straight sides.
+    val cylinderCenterX = size.width * 0.62f
+    val cylinderWidth = side * 0.9f
+    val ellipseHeight = side * 0.3f
+    val cylinderTop = size.height * 0.3f
+    val cylinderBottom = size.height * 0.74f
+    drawOval(
+        color = SuccessGreen.copy(alpha = 0.2f),
+        topLeft = Offset(cylinderCenterX - cylinderWidth / 2, cylinderTop),
+        size = Size(cylinderWidth, ellipseHeight),
+    )
+    drawOval(
+        color = ink,
+        topLeft = Offset(cylinderCenterX - cylinderWidth / 2, cylinderTop),
+        size = Size(cylinderWidth, ellipseHeight),
+        style = stroke,
+    )
+    drawOval(
+        color = ink,
+        topLeft = Offset(cylinderCenterX - cylinderWidth / 2, cylinderBottom - ellipseHeight),
+        size = Size(cylinderWidth, ellipseHeight),
+        style = stroke,
+    )
+    listOf(cylinderCenterX - cylinderWidth / 2, cylinderCenterX + cylinderWidth / 2).forEach { x ->
+        drawLine(
+            ink,
+            Offset(x, cylinderTop + ellipseHeight / 2),
+            Offset(x, cylinderBottom - ellipseHeight / 2),
+            strokeWidth = axisStroke() * 1.2f,
+        )
+    }
+
+    // Cone: a triangle sitting on an ellipse.
+    val coneCenterX = size.width * 0.88f
+    val coneWidth = side * 0.7f
+    val cone = Path().apply {
+        moveTo(coneCenterX, cylinderTop)
+        lineTo(coneCenterX + coneWidth / 2, cylinderBottom - ellipseHeight / 2)
+        lineTo(coneCenterX - coneWidth / 2, cylinderBottom - ellipseHeight / 2)
+        close()
+    }
+    drawPath(cone, Primary.copy(alpha = 0.18f))
+    drawPath(cone, ink, style = stroke)
+    drawOval(
+        color = ink,
+        topLeft = Offset(coneCenterX - coneWidth / 2, cylinderBottom - ellipseHeight),
+        size = Size(coneWidth, ellipseHeight),
+        style = stroke,
+    )
+}
+
+private fun DrawScope.drawSymmetry(ink: Color) {
+    // A shape and its mirror image either side of a dashed fold line.
+    val axis = size.width / 2
+    val top = size.height * 0.22f
+    val bottom = size.height * 0.78f
+    val reach = size.width * 0.34f
+    listOf(-1f, 1f).forEach { direction ->
+        val wing = Path().apply {
+            moveTo(axis, top)
+            lineTo(axis + reach * direction, size.height * 0.42f)
+            lineTo(axis + reach * 0.55f * direction, bottom)
+            lineTo(axis, bottom * 0.94f)
+            close()
+        }
+        drawPath(wing, Primary.copy(alpha = 0.2f))
+        drawPath(wing, ink, style = Stroke(width = axisStroke() * 1.2f))
+    }
+    drawLine(
+        color = SuccessGreen,
+        start = Offset(axis, size.height * 0.1f),
+        end = Offset(axis, size.height * 0.9f),
+        strokeWidth = axisStroke() * 1.2f,
+        pathEffect = PathEffect.dashPathEffect(floatArrayOf(12f, 10f)),
+    )
+}
+
+private fun DrawScope.drawCoordinateGrid(ink: Color) {
+    val rect = Rect(size.width * 0.1f, size.height * 0.1f, size.width * 0.9f, size.height * 0.9f)
+    val faint = ink.copy(alpha = 0.28f)
+    repeat(5) { index ->
+        val t = index / 4f
+        drawLine(faint, Offset(rect.left, rect.top + rect.height * t), Offset(rect.right, rect.top + rect.height * t), strokeWidth = axisStroke() * 0.6f)
+        drawLine(faint, Offset(rect.left + rect.width * t, rect.top), Offset(rect.left + rect.width * t, rect.bottom), strokeWidth = axisStroke() * 0.6f)
+    }
+    val centerY = rect.top + rect.height / 2
+    val centerX = rect.left + rect.width / 2
+    drawLine(ink, Offset(rect.left, centerY), Offset(rect.right, centerY), strokeWidth = axisStroke() * 1.2f)
+    drawLine(ink, Offset(centerX, rect.top), Offset(centerX, rect.bottom), strokeWidth = axisStroke() * 1.2f)
+    drawLine(
+        color = Primary,
+        start = Offset(rect.left, rect.bottom - rect.height * 0.15f),
+        end = Offset(rect.right, rect.top + rect.height * 0.1f),
+        strokeWidth = axisStroke() * 1.6f,
+        cap = StrokeCap.Round,
+    )
+}
+
+private fun DrawScope.drawPictogram(ink: Color) {
+    // Three rows of symbols, the last row ending in a half symbol.
+    val counts = listOf(4f, 2.5f, 3f)
+    val step = size.width * 0.17f
+    val radius = step * 0.3f
+    counts.forEachIndexed { row, count ->
+        val y = size.height * (0.24f + row * 0.26f)
+        var drawn = 0f
+        while (drawn + 1f <= count) {
+            drawCircle(Primary, radius, Offset(size.width * 0.16f + step * drawn, y))
+            drawn += 1f
+        }
+        if (count - drawn > 0f) {
+            drawArc(
+                color = Primary,
+                startAngle = 90f,
+                sweepAngle = 180f,
+                useCenter = true,
+                topLeft = Offset(size.width * 0.16f + step * drawn - radius, y - radius),
+                size = Size(radius * 2, radius * 2),
+            )
+        }
+    }
+    drawLine(
+        color = ink,
+        start = Offset(size.width * 0.09f, size.height * 0.12f),
+        end = Offset(size.width * 0.09f, size.height * 0.88f),
+        strokeWidth = axisStroke(),
+    )
+}
+
+private fun DrawScope.drawPieChart(ink: Color) {
+    val diameter = size.minDimension * 0.72f
+    val topLeft = Offset((size.width - diameter) / 2, (size.height - diameter) / 2)
+    val slices = listOf(140f to Primary, 110f to SuccessGreen, 110f to ink.copy(alpha = 0.35f))
+    var start = -90f
+    slices.forEach { (sweep, color) ->
+        drawArc(color, start, sweep, useCenter = true, topLeft = topLeft, size = Size(diameter, diameter))
+        start += sweep
+    }
+    drawArc(
+        color = ink,
+        startAngle = 0f,
+        sweepAngle = 360f,
+        useCenter = false,
+        topLeft = topLeft,
+        size = Size(diameter, diameter),
+        style = Stroke(width = axisStroke() * 1.2f),
+    )
+}
+
+/** Bell curve on [rect], with x running -3..3 standard deviations. */
+private fun bellPoint(rect: Rect, t: Float): Offset {
+    val z = -3f + 6f * t
+    val height = kotlin.math.exp(-0.5 * z * z).toFloat()
+    return Offset(rect.left + rect.width * t, rect.bottom - rect.height * height)
+}
+
+private fun DrawScope.drawNormalCurve(ink: Color) {
+    val rect = plotFrame(ink)
+    val fill = Path().apply {
+        moveTo(rect.left + rect.width / 3f, rect.bottom)
+        for (step in 0..20) {
+            val point = bellPoint(rect, 1f / 3f + step / 20f / 3f)
+            lineTo(point.x, point.y)
+        }
+        lineTo(rect.left + rect.width * 2f / 3f, rect.bottom)
+        close()
+    }
+    drawPath(fill, Primary.copy(alpha = 0.25f))
+    val curve = Path()
+    for (step in 0..60) {
+        val point = bellPoint(rect, step / 60f)
+        if (step == 0) curve.moveTo(point.x, point.y) else curve.lineTo(point.x, point.y)
+    }
+    drawPath(curve, Primary, style = Stroke(width = axisStroke() * 1.6f, cap = StrokeCap.Round))
+    drawLine(
+        color = SuccessGreen,
+        start = Offset(rect.left + rect.width / 2, rect.bottom),
+        end = bellPoint(rect, 0.5f),
+        strokeWidth = axisStroke(),
+        pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 8f)),
+    )
+}
+
+private fun DrawScope.drawExponentialCurve(ink: Color) {
+    val rect = plotFrame(ink)
+    val curve = Path()
+    for (step in 0..40) {
+        val t = step / 40f
+        val point = Offset(
+            x = rect.left + rect.width * t,
+            y = rect.bottom - rect.height * (kotlin.math.exp(3.0 * t).toFloat() - 1f) / (kotlin.math.exp(3.0).toFloat() - 1f),
+        )
+        if (step == 0) curve.moveTo(point.x, point.y) else curve.lineTo(point.x, point.y)
+    }
+    drawPath(curve, Primary, style = Stroke(width = axisStroke() * 1.6f, cap = StrokeCap.Round))
+    drawLine(
+        color = SuccessGreen,
+        start = Offset(rect.left, rect.bottom),
+        end = Offset(rect.right, rect.top + rect.height * 0.55f),
+        strokeWidth = axisStroke(),
+        pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 8f)),
+    )
+}
+
+private fun DrawScope.drawSineWave(ink: Color) {
+    val rect = Rect(size.width * 0.08f, size.height * 0.14f, size.width * 0.92f, size.height * 0.86f)
+    val midY = rect.top + rect.height / 2
+    drawLine(ink, Offset(rect.left, midY), Offset(rect.right, midY), strokeWidth = axisStroke())
+    drawLine(ink, Offset(rect.left, rect.top), Offset(rect.left, rect.bottom), strokeWidth = axisStroke())
+    val wave = Path()
+    for (step in 0..80) {
+        val t = step / 80f
+        val point = Offset(
+            x = rect.left + rect.width * t,
+            y = midY - (rect.height / 2 * 0.85f * sin(2 * PI * 2 * t)).toFloat(),
+        )
+        if (step == 0) wave.moveTo(point.x, point.y) else wave.lineTo(point.x, point.y)
+    }
+    drawPath(wave, Primary, style = Stroke(width = axisStroke() * 1.6f, cap = StrokeCap.Round))
 }

@@ -20,9 +20,11 @@ import braincup.composeapp.generated.resources.learn_topic_trigonometry_subtitle
 import org.jetbrains.compose.resources.StringResource
 
 /**
- * A subject area in the Learn section, ordered as a curriculum: everything a topic teaches assumes
- * only the topics above it. [id] is persisted (progress, certificates) and [urlSlug] appears in the
- * web build's address bar, so neither may be renamed once shipped.
+ * A subject area in the Learn section. A topic spans several grade bands — see [GradeLevel] — so it
+ * carries no lessons of its own; the lessons live on the [LearnUnit] for one band of one topic.
+ *
+ * [id] is persisted (as part of unit ids and certificates) and [urlSlug] appears in the web build's
+ * address bar, so neither may be renamed once shipped.
  */
 enum class MathTopic(
     val id: String,
@@ -90,9 +92,8 @@ enum class MathTopic(
     ),
     ;
 
-    val lessons: List<LearnLesson> get() = LearnCatalog.lessons(this)
-
-    val quiz: LearnQuiz get() = LearnCatalog.quiz(this)
+    /** Every band that teaches this topic, youngest first. */
+    val units: List<LearnUnit> get() = LearnCatalog.unitsOf(this)
 
     companion object {
         fun byId(id: String): MathTopic? = entries.firstOrNull { it.id == id }
