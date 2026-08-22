@@ -821,5 +821,73 @@
     <string name="achievement_iq_test_completed_desc">Finish a full IQ test</string>
     <string name="achievement_iq_test_high">Pattern Savant</string>
     <string name="achievement_iq_test_high_desc">Reach an estimated IQ of 130 or higher</string>
+    <!-- Learn section -->
+    <string name="learn_section_title">Learn Math</string>
+    <string name="learn_section_subtitle">Work through a topic, then take the test for a certificate.</string>
+    <string name="learn_section_certificates">%1$d / %2$d certificates</string>
+    <string name="learn_title">Learn Math</string>
+
+    <string name="learn_topic_arithmetic">Arithmetic</string>
+    <string name="learn_topic_arithmetic_subtitle">Number &amp; operations</string>
+    <string name="learn_topic_measurement">Measurement</string>
+    <string name="learn_topic_measurement_subtitle">Units, area &amp; rates</string>
+    <string name="learn_topic_geometry">Geometry</string>
+    <string name="learn_topic_geometry_subtitle">Angles, triangles &amp; circles</string>
+    <string name="learn_topic_data">Data &amp; Probability</string>
+    <string name="learn_topic_data_subtitle">Statistics &amp; chance</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Equations &amp; quadratics</string>
+    <string name="learn_topic_trigonometry">Trigonometry</string>
+    <string name="learn_topic_trigonometry_subtitle">Ratios &amp; the unit circle</string>
+    <string name="learn_topic_functions">Pre-calculus</string>
+    <string name="learn_topic_functions_subtitle">Functions, logs &amp; graphs</string>
+    <string name="learn_topic_calculus">Calculus</string>
+    <string name="learn_topic_calculus_subtitle">Limits, derivatives &amp; integrals</string>
+
+    <string name="learn_lessons_header">Lessons</string>
+    <string name="learn_lesson_progress">%1$d / %2$d lessons</string>
+    <string name="learn_lesson_number">Lesson %1$d</string>
+    <string name="learn_lesson_complete_title">Lesson complete!</string>
+    <string name="learn_lesson_score">%1$d of %2$d checks correct</string>
+    <string name="learn_lesson_finish">Back to topic</string>
+    <string name="learn_next_lesson">Next lesson</string>
+    <string name="learn_continue">Continue</string>
+    <string name="learn_check">Check</string>
+    <string name="learn_next_line">Show next line</string>
+    <string name="learn_answer_label">Answer</string>
+    <string name="learn_correct">Correct!</string>
+    <string name="learn_incorrect">Not quite</string>
+    <string name="learn_your_answer">Your answer</string>
+
+    <string name="learn_take_test">Take the test</string>
+    <string name="learn_retake_test">Retake the test</string>
+    <string name="learn_test_title">%1$s test</string>
+    <string name="learn_test_intro">%1$d questions. Answer at least %2$d%% correctly to earn your certificate.</string>
+    <string name="learn_quiz_progress">Question %1$d of %2$d</string>
+    <string name="learn_quiz_result_title">Test complete</string>
+    <string name="learn_quiz_score">%1$d of %2$d correct (%3$d%%)</string>
+    <string name="learn_quiz_passed">Certificate earned!</string>
+    <string name="learn_quiz_improved">New personal best!</string>
+    <string name="learn_quiz_failed">You need %1$d%% to earn a certificate. Review the lessons and try again.</string>
+    <string name="learn_quiz_review">Review answers</string>
+    <string name="learn_quiz_hide_review">Hide answers</string>
+    <string name="learn_quiz_your_answer">Your answer: %1$s</string>
+    <string name="learn_quiz_correct_answer">Correct answer: %1$s</string>
+
+    <string name="learn_certificate_title">Certificate</string>
+    <string name="learn_certificate_headline">Certificate of Achievement</string>
+    <string name="learn_certificate_intro">This certifies a passing result in</string>
+    <string name="learn_certificate_score">Score %1$d%%</string>
+    <string name="learn_certificate_earned">Earned %1$s</string>
+    <string name="learn_certificate_view">View certificate</string>
+    <string name="learn_certificate_grade_bronze">Bronze</string>
+    <string name="learn_certificate_grade_silver">Silver</string>
+    <string name="learn_certificate_grade_gold">Gold</string>
+    <string name="learn_certificate_best">Best %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">Certified</string>
+    <string name="achievement_learn_first_certificate_desc">Pass your first Learn Math topic test.</string>
+    <string name="achievement_learn_all_certificates">Math Scholar</string>
+    <string name="achievement_learn_all_certificates_desc">Earn a certificate in every Learn Math topic.</string>
 
 </resources>

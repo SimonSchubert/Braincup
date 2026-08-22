@@ -2,6 +2,11 @@ package com.inspiredandroid.braincup.navigation
 
 import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Instructions
+import com.inspiredandroid.braincup.app.LearnCertificate
+import com.inspiredandroid.braincup.app.LearnLessonPlay
+import com.inspiredandroid.braincup.app.LearnMenu
+import com.inspiredandroid.braincup.app.LearnTest
+import com.inspiredandroid.braincup.app.LearnTopicDetail
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
 import com.inspiredandroid.braincup.app.PegSolitaire
@@ -9,6 +14,8 @@ import com.inspiredandroid.braincup.app.Playing
 import com.inspiredandroid.braincup.app.Scoreboard
 import com.inspiredandroid.braincup.app.Settings
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.learn.LearnCatalog
+import com.inspiredandroid.braincup.learn.MathTopic
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNull
@@ -115,5 +122,41 @@ class AppUrlRoutesTest {
     fun detectWebBasePath_localDev() {
         assertEquals("", detectWebBasePath("/"))
         assertEquals("", detectWebBasePath("/CatQueens"))
+    }
+
+    @Test
+    fun navRouteToPathSuffix_learn() {
+        assertEquals("learn", navRouteToPathSuffix(LearnMenu))
+        assertEquals("learn/algebra", navRouteToPathSuffix(LearnTopicDetail(MathTopic.ALGEBRA.id)))
+        assertEquals("learn/algebra/test", navRouteToPathSuffix(LearnTest(MathTopic.ALGEBRA.id)))
+        assertEquals(
+            "learn/algebra/certificate",
+            navRouteToPathSuffix(LearnCertificate(MathTopic.ALGEBRA.id)),
+        )
+    }
+
+    @Test
+    fun pathSuffixToNavRoute_learnRoundTrip() {
+        assertEquals(LearnMenu, pathSuffixToNavRoute("learn"))
+        assertEquals(LearnTopicDetail(MathTopic.CALCULUS.id), pathSuffixToNavRoute("learn/calculus"))
+        assertEquals(LearnTest(MathTopic.CALCULUS.id), pathSuffixToNavRoute("learn/calculus/test"))
+        assertEquals(
+            LearnCertificate(MathTopic.CALCULUS.id),
+            pathSuffixToNavRoute("learn/calculus/certificate"),
+        )
+    }
+
+    @Test
+    fun learnLessonPathRoundTrips() {
+        val lessonId = LearnCatalog.lessons(MathTopic.GEOMETRY).first().id
+        assertEquals("learn/lesson/$lessonId", navRouteToPathSuffix(LearnLessonPlay(lessonId)))
+        assertEquals(LearnLessonPlay(lessonId), pathSuffixToNavRoute("learn/lesson/$lessonId"))
+    }
+
+    @Test
+    fun unknownLearnPathsAreRejected() {
+        assertNull(pathSuffixToNavRoute("learn/not-a-topic"))
+        assertNull(pathSuffixToNavRoute("learn/algebra/nope"))
+        assertNull(pathSuffixToNavRoute("learn/lesson/not-a-lesson"))
     }
 }

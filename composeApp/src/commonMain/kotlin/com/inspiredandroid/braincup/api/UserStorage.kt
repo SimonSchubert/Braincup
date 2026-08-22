@@ -5,6 +5,10 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
+import com.inspiredandroid.braincup.learn.CertificateGrade
+import com.inspiredandroid.braincup.learn.LearnCatalog
+import com.inspiredandroid.braincup.learn.LearnTopicProgress
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
@@ -95,6 +99,16 @@ class UserStorage(
             isMilestone = true,
         ),
         IQ_TEST_HIGH(Res.string.achievement_iq_test_high, Res.string.achievement_iq_test_high_desc, isMilestone = true),
+        LEARN_FIRST_CERTIFICATE(
+            Res.string.achievement_learn_first_certificate,
+            Res.string.achievement_learn_first_certificate_desc,
+            isMilestone = true,
+        ),
+        LEARN_ALL_CERTIFICATES(
+            Res.string.achievement_learn_all_certificates,
+            Res.string.achievement_learn_all_certificates_desc,
+            isMilestone = true,
+        ),
         TOTAL_SCORE_10K(Res.string.achievement_mind_marathoner, Res.string.achievement_mind_marathoner_desc, isMilestone = true),
         STREAK_30(Res.string.achievement_iron_streak, Res.string.achievement_iron_streak_desc, isMilestone = true),
         ;
@@ -119,6 +133,8 @@ class UserStorage(
                 add(PEG_SOLITAIRE_PERFECT)
                 add(IQ_TEST_COMPLETED)
                 add(IQ_TEST_HIGH)
+                add(LEARN_FIRST_CERTIFICATE)
+                add(LEARN_ALL_CERTIFICATES)
                 add(TOTAL_SCORE_10K)
                 add(STREAK_30)
             }
@@ -166,6 +182,8 @@ class UserStorage(
         // Kept apart from the history because the history is capped: once the twenty-first attempt
         // pushes an old personal best off the end, the best is only recoverable from here.
         const val KEY_IQ_TEST_BEST_RAW = "iq_test_best_raw"
+        const val KEY_LEARN_LESSONS_COMPLETED = "learn_lessons_completed"
+        const val KEY_LEARN_CERTIFICATES = "learn_certificates"
         const val SESSION_GAME_COUNT = 4 // one game per GameCategory (MEMORY, LOGIC, PERCEPTION, MATH)
         const val SESSION_COMPLETION_XP = 50
 
@@ -181,6 +199,17 @@ class UserStorage(
 
         /** First-time win XP for English peg solitaire (any one-peg finish). */
         const val PEG_SOLITAIRE_WIN_XP = 30
+
+        /** First-time completion XP for one Learn lesson. Replays award nothing. */
+        const val LEARN_LESSON_XP = 15
+
+        /** XP for a passed topic test, by certificate tier. Only the improvement over the
+         *  previously earned tier is granted, so retaking a test cannot farm XP. */
+        fun learnCertificateXp(grade: CertificateGrade): Int = when (grade) {
+            CertificateGrade.BRONZE -> 40
+            CertificateGrade.SILVER -> 70
+            CertificateGrade.GOLD -> 100
+        }
 
         fun levelForXp(xp: Int): Int {
             if (xp <= 0) return 1
@@ -708,6 +737,145 @@ class UserStorage(
     fun clearNormalSudokuNotes(id: String) {
         store.remove(normalSudokuNotesKey(id))
     }
+
+    /** A stored certificate: the best test result a topic has ever produced. */
+    @Immutable
+    data class LearnCertificate(
+        val topic: MathTopic,
+        val percent: Int,
+        val grade: CertificateGrade,
+        /** Day the certificate was earned, as an epoch day, for the certificate screen. */
+        val earnedEpochDay: Int,
+    )
+
+    /** Outcome of finishing one topic test. */
+    @Immutable
+    data class LearnQuizResult(
+        val topic: MathTopic,
+        val correct: Int,
+        val total: Int,
+        val percent: Int,
+        /** Tier earned by this attempt, or null when the attempt did not reach the pass mark. */
+        val grade: CertificateGrade?,
+        /** True when this attempt beat every previous attempt at the topic. */
+        val isNewBest: Boolean,
+        val xpAward: XpAward,
+    )
+
+    fun getCompletedLearnLessonIds(): Set<String> = store
+        .getStringOrNull(KEY_LEARN_LESSONS_COMPLETED)
+        ?.split(",")
+        ?.filter { it.isNotEmpty() }
+        ?.toSet()
+        ?: emptySet()
+
+    fun isLearnLessonCompleted(lessonId: String): Boolean = lessonId in getCompletedLearnLessonIds()
+
+    /** Completed lessons in one topic, ignoring ids no longer in the catalog. */
+    fun getCompletedLearnLessonCount(topic: MathTopic): Int {
+        val completed = getCompletedLearnLessonIds()
+        return LearnCatalog.lessons(topic).count { it.id in completed }
+    }
+
+    /**
+     * Mark a lesson finished and grant its XP. A lesson pays out once: walking through it again
+     * is free but awards nothing, so XP tracks learning rather than tapping.
+     */
+    fun completeLearnLesson(lessonId: String): XpAward {
+        val current = getCompletedLearnLessonIds()
+        if (lessonId in current) return XpAward(0, null)
+        store.putString(KEY_LEARN_LESSONS_COMPLETED, (current + lessonId).joinToString(","))
+        val levelChange = addXp(LEARN_LESSON_XP)
+        return XpAward(LEARN_LESSON_XP, levelChange)
+    }
+
+    /** Every certificate earned so far, keyed by topic. */
+    fun getLearnCertificates(): Map<MathTopic, LearnCertificate> = store
+        .getStringOrNull(KEY_LEARN_CERTIFICATES)
+        ?.split(",")
+        ?.filter { it.isNotEmpty() }
+        ?.mapNotNull { entry -> parseLearnCertificate(entry) }
+        ?.associateBy { it.topic }
+        ?: emptyMap()
+
+    fun getLearnCertificate(topic: MathTopic): LearnCertificate? = getLearnCertificates()[topic]
+
+    /** Stored as "topicId:percent:epochDay"; entries for unknown topics are dropped. */
+    private fun parseLearnCertificate(entry: String): LearnCertificate? {
+        val parts = entry.split(":")
+        val topic = MathTopic.byId(parts.getOrNull(0).orEmpty()) ?: return null
+        val percent = parts.getOrNull(1)?.toIntOrNull()?.coerceIn(0, 100) ?: return null
+        val grade = CertificateGrade.forPercent(percent) ?: return null
+        val earnedEpochDay = parts.getOrNull(2)?.toIntOrNull() ?: 0
+        return LearnCertificate(topic, percent, grade, earnedEpochDay)
+    }
+
+    /**
+     * Record a finished topic test. A certificate is stored only when the result beats the topic's
+     * previous best, and XP is granted for the *improvement* in tier only, so retaking a passed
+     * test to farm XP is not possible.
+     */
+    fun recordLearnQuizResult(topic: MathTopic, correct: Int, total: Int): LearnQuizResult {
+        val percent = CertificateGrade.percentOf(correct, total)
+        val grade = CertificateGrade.forPercent(percent)
+        val certificates = getLearnCertificates()
+        val previous = certificates[topic]
+        val isNewBest = percent > (previous?.percent ?: -1)
+
+        if (grade == null || !isNewBest) {
+            return LearnQuizResult(topic, correct, total, percent, grade, isNewBest, XpAward(0, null))
+        }
+
+        val updated = certificates + (
+            topic to LearnCertificate(topic, percent, grade, todayEpochDay())
+            )
+        store.putString(
+            KEY_LEARN_CERTIFICATES,
+            updated.values.joinToString(",") { "${it.topic.id}:${it.percent}:${it.earnedEpochDay}" },
+        )
+
+        unlockAchievement(Achievements.LEARN_FIRST_CERTIFICATE)
+        if (updated.keys.containsAll(MathTopic.entries)) {
+            unlockAchievement(Achievements.LEARN_ALL_CERTIFICATES)
+        }
+
+        // Pay only the difference, so improving Bronze to Gold is worth exactly the gap.
+        val alreadyPaid = previous?.let { learnCertificateXp(it.grade) } ?: 0
+        val amount = (learnCertificateXp(grade) - alreadyPaid).coerceAtLeast(0)
+        val levelChange = addXp(amount)
+        return LearnQuizResult(topic, correct, total, percent, grade, true, XpAward(amount, levelChange))
+    }
+
+    /** Menu state for one topic: lesson progress plus the best certificate earned. */
+    fun getLearnTopicProgress(topic: MathTopic): LearnTopicProgress {
+        val certificate = getLearnCertificate(topic)
+        return LearnTopicProgress(
+            topic = topic,
+            lessonsCompleted = getCompletedLearnLessonCount(topic),
+            bestPercent = certificate?.percent,
+            grade = certificate?.grade,
+            earnedEpochDay = certificate?.earnedEpochDay,
+        )
+    }
+
+    /** Menu state for every topic, in curriculum order. Reads storage once per topic group. */
+    fun getAllLearnTopicProgress(): List<LearnTopicProgress> {
+        val completed = getCompletedLearnLessonIds()
+        val certificates = getLearnCertificates()
+        return MathTopic.entries.map { topic ->
+            val certificate = certificates[topic]
+            LearnTopicProgress(
+                topic = topic,
+                lessonsCompleted = LearnCatalog.lessons(topic).count { it.id in completed },
+                bestPercent = certificate?.percent,
+                grade = certificate?.grade,
+                earnedEpochDay = certificate?.earnedEpochDay,
+            )
+        }
+    }
+
+    /** How many topics have a certificate, for the main-menu section header. */
+    fun getLearnCertificateCount(): Int = getLearnCertificates().size
 
     fun getUnlockedAchievements(): MutableList<Achievements> = store
         .getStringOrNull(KEY_UNLOCKED_ACHIEVEMENTS)

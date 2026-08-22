@@ -23,11 +23,15 @@ import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
+import com.inspiredandroid.braincup.learn.LearnTopicProgress
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.IqTestTile
+import com.inspiredandroid.braincup.ui.components.LearnSectionHeader
+import com.inspiredandroid.braincup.ui.components.LearnTopicTile
 import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
 import com.inspiredandroid.braincup.ui.components.NormalChessTile
 import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
@@ -44,7 +48,9 @@ import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
+import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.persistentMapOf
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableMap
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
@@ -78,6 +84,9 @@ fun MainMenuScreen(
     val bestIq = remember(controller, storageRevision) {
         controller.storage.getBestIqTestRawScore()?.let { IqScoring.iqFor(it) }
     }
+    val learnProgress = remember(controller, storageRevision) {
+        controller.storage.getAllLearnTopicProgress().toImmutableList()
+    }
 
     val onPlayDaily = remember(controller) { { controller.startDailySession() } }
     val onPlay = remember(controller) { { gameType: GameType -> controller.navigateToInstructions(gameType) } }
@@ -87,6 +96,7 @@ fun MainMenuScreen(
     val onNormalChess = remember(controller) { { controller.navigateToNormalChessMenu() } }
     val onMatchstickRiddles = remember(controller) { { controller.navigateToMatchstickRiddlesMenu() } }
     val onPegSolitaire = remember(controller) { { controller.navigateToPegSolitaire() } }
+    val onLearnTopic = remember(controller) { { topic: MathTopic -> controller.navigateToLearnTopic(topic) } }
     val onShowBrainCup = remember(controller) {
         if (PlayGamesBridge.onShowBrainCup != null) {
             { controller.showBrainCup() }
@@ -117,6 +127,8 @@ fun MainMenuScreen(
         onNormalChess = onNormalChess,
         onMatchstickRiddles = onMatchstickRiddles,
         onPegSolitaire = onPegSolitaire,
+        learnProgress = learnProgress,
+        onLearnTopic = onLearnTopic,
         onShowBrainCup = onShowBrainCup,
         useBuiltInSponsors = useBuiltInSponsors,
     )
@@ -151,6 +163,9 @@ fun MainMenuScreenContent(
     onNormalChess: () -> Unit = {},
     onMatchstickRiddles: () -> Unit = {},
     onPegSolitaire: () -> Unit = {},
+    /** Learn section state, one entry per topic. Empty hides the section (store screenshots). */
+    learnProgress: ImmutableList<LearnTopicProgress> = persistentListOf(),
+    onLearnTopic: (MathTopic) -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     useBuiltInSponsors: Boolean = false,
 ) {
@@ -331,6 +346,45 @@ fun MainMenuScreenContent(
             PegSolitaireTile(onClick = onPegSolitaire)
         }
 
+        // Learn section — interactive math topics with a test and certificate for each.
+        if (learnProgress.isNotEmpty()) {
+            item(span = { GridItemSpan(maxLineSpan) }, contentType = "learn_header") {
+                Column(modifier = Modifier.fillMaxWidth()) {
+                    HorizontalDivider(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(vertical = 8.dp),
+                        thickness = 2.dp,
+                        color = Primary.copy(alpha = 0.5f),
+                    )
+                    LearnSectionHeader(
+                        title = stringResource(Res.string.learn_section_title),
+                        subtitle = stringResource(Res.string.learn_section_subtitle),
+                        trailing = stringResource(
+                            Res.string.learn_section_certificates,
+                            learnProgress.count { it.hasCertificate },
+                            learnProgress.size,
+                        ),
+                        modifier = Modifier.padding(bottom = 4.dp),
+                    )
+                }
+            }
+
+            items(
+                learnProgress,
+                key = { "learn-${it.topic.id}" },
+                contentType = { "learn_topic" },
+            ) { topicProgress ->
+                LearnTopicTile(
+                    topic = topicProgress.topic,
+                    lessonsCompleted = topicProgress.lessonsCompleted,
+                    lessonsTotal = topicProgress.lessonsTotal,
+                    grade = topicProgress.grade,
+                    onClick = onLearnTopic,
+                )
+            }
+        }
+
         // Footer
         item(span = { GridItemSpan(maxLineSpan) }, contentType = "footer") {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
@@ -394,6 +448,7 @@ private fun MainMenuScreenPreview() {
             matchstickRiddlesSolved = 1,
             matchstickRiddlesTotal = 18,
             showDailyChallenge = true,
+            learnProgress = MathTopic.entries.map { LearnTopicProgress.empty(it) }.toImmutableList(),
         )
     }
 }

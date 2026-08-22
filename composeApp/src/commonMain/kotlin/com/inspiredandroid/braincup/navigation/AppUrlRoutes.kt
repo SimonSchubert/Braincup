@@ -11,6 +11,11 @@ import com.inspiredandroid.braincup.app.IqTestIntro
 import com.inspiredandroid.braincup.app.IqTestPlay
 import com.inspiredandroid.braincup.app.IqTestResult
 import com.inspiredandroid.braincup.app.IqTestReview
+import com.inspiredandroid.braincup.app.LearnCertificate
+import com.inspiredandroid.braincup.app.LearnLessonPlay
+import com.inspiredandroid.braincup.app.LearnMenu
+import com.inspiredandroid.braincup.app.LearnTest
+import com.inspiredandroid.braincup.app.LearnTopicDetail
 import com.inspiredandroid.braincup.app.Licenses
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.MatchstickRiddlesMenu
@@ -27,8 +32,12 @@ import com.inspiredandroid.braincup.app.SessionInterstitial
 import com.inspiredandroid.braincup.app.Settings
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.learn.LearnCatalog
+import com.inspiredandroid.braincup.learn.MathTopic
 
 const val GITHUB_PAGES_BASE_PATH = "/Braincup"
+
+private const val LEARN_BASE_PATH = "learn"
 
 fun detectWebBasePath(pathname: String): String = if (pathname.startsWith(GITHUB_PAGES_BASE_PATH)) GITHUB_PAGES_BASE_PATH else ""
 
@@ -51,6 +60,11 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is IqTestPlay -> "iq-test/play"
     is IqTestResult -> "iq-test/result"
     is IqTestReview -> "iq-test/review"
+    is LearnMenu -> LEARN_BASE_PATH
+    is LearnTopicDetail -> learnTopicPathSuffix(route.topicId)
+    is LearnLessonPlay -> "$LEARN_BASE_PATH/lesson/${route.lessonId}"
+    is LearnTest -> learnTopicPathSuffix(route.topicId, "test")
+    is LearnCertificate -> learnTopicPathSuffix(route.topicId, "certificate")
     is Instructions -> gamePathSuffix(route.gameTypeId)
     is Playing -> gamePathSuffix(route.gameTypeId)
     is Finish -> gamePathSuffix(route.gameTypeId)
@@ -75,6 +89,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "iq-test/play" -> IqTestPlay
         "iq-test/result" -> IqTestResult
         "iq-test/review" -> IqTestReview
+        LEARN_BASE_PATH -> LearnMenu
         else -> parseParameterizedPath(suffix)
     }
 }
@@ -100,6 +115,11 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<IqTestPlay>() -> navRouteToPathSuffix(IqTestPlay)
         destination.hasRoute<IqTestResult>() -> navRouteToPathSuffix(IqTestResult)
         destination.hasRoute<IqTestReview>() -> navRouteToPathSuffix(IqTestReview)
+        destination.hasRoute<LearnMenu>() -> navRouteToPathSuffix(LearnMenu)
+        destination.hasRoute<LearnTopicDetail>() -> navRouteToPathSuffix(toRoute<LearnTopicDetail>())
+        destination.hasRoute<LearnLessonPlay>() -> navRouteToPathSuffix(toRoute<LearnLessonPlay>())
+        destination.hasRoute<LearnTest>() -> navRouteToPathSuffix(toRoute<LearnTest>())
+        destination.hasRoute<LearnCertificate>() -> navRouteToPathSuffix(toRoute<LearnCertificate>())
         destination.hasRoute<Instructions>() -> navRouteToPathSuffix(toRoute<Instructions>())
         destination.hasRoute<Playing>() -> navRouteToPathSuffix(toRoute<Playing>())
         destination.hasRoute<Finish>() -> navRouteToPathSuffix(toRoute<Finish>())
@@ -109,6 +129,9 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
 }
 
 private fun parseParameterizedPath(suffix: String): Any? {
+    if (suffix.startsWith("$LEARN_BASE_PATH/")) {
+        return parseLearnPath(suffix.removePrefix("$LEARN_BASE_PATH/"))
+    }
     if (suffix.startsWith("sudoku/")) {
         val puzzleId = suffix.removePrefix("sudoku/")
         return puzzleId.takeIf { it.isNotEmpty() }?.let { NormalSudokuPlay(it) }
@@ -138,4 +161,29 @@ private fun gamePathSuffix(gameTypeId: String): String = getGameTypeById(gameTyp
 private fun gameScoreboardPathSuffix(gameTypeId: String): String {
     val slug = getGameTypeById(gameTypeId)?.urlSlug ?: return ""
     return "$slug/scores"
+}
+
+/**
+ * Learn paths below the section root: `lesson/<lessonId>` for a lesson, and `<topicSlug>`
+ * optionally followed by `test` or `certificate` for the topic screens.
+ */
+private fun parseLearnPath(rest: String): Any? {
+    if (rest.startsWith("lesson/")) {
+        val lessonId = rest.removePrefix("lesson/")
+        return LearnCatalog.lessonById(lessonId)?.let { LearnLessonPlay(it.id) }
+    }
+    val parts = rest.split('/')
+    if (parts.size > 2) return null
+    val topic = MathTopic.bySlug(parts.firstOrNull().orEmpty()) ?: return null
+    return when (parts.getOrNull(1)) {
+        null -> LearnTopicDetail(topic.id)
+        "test" -> LearnTest(topic.id)
+        "certificate" -> LearnCertificate(topic.id)
+        else -> null
+    }
+}
+
+private fun learnTopicPathSuffix(topicId: String, leaf: String? = null): String {
+    val slug = MathTopic.byId(topicId)?.urlSlug ?: return LEARN_BASE_PATH
+    return if (leaf == null) "$LEARN_BASE_PATH/$slug" else "$LEARN_BASE_PATH/$slug/$leaf"
 }

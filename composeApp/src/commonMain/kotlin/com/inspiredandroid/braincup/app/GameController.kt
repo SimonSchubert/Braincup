@@ -15,6 +15,7 @@ import com.inspiredandroid.braincup.games.wordle.WordleGame
 import com.inspiredandroid.braincup.games.wordle.WordleLanguage
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.games.wordle.deviceLanguageTag
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
@@ -315,6 +316,39 @@ class GameController(
 
     fun navigateToPegSolitaire() {
         navController.navigate(PegSolitaire)
+    }
+
+    fun navigateToLearnMenu() {
+        navController.navigate(LearnMenu)
+    }
+
+    fun navigateToLearnTopic(topic: MathTopic) {
+        navController.navigate(LearnTopicDetail(topic.id))
+    }
+
+    /**
+     * Open a lesson. [replaceCurrent] is used by "Next lesson" so walking a whole topic does not
+     * pile lessons up on the back stack — going back always lands on the topic screen.
+     */
+    fun navigateToLearnLesson(lessonId: String, replaceCurrent: Boolean = false) {
+        navController.navigate(LearnLessonPlay(lessonId)) {
+            if (replaceCurrent) {
+                popUpTo<LearnLessonPlay> { inclusive = true }
+            }
+        }
+    }
+
+    /** Return to a topic's screen from any of its lesson, test or certificate screens. */
+    fun popToLearnTopic(topic: MathTopic) {
+        navController.popBackStack(LearnTopicDetail(topic.id), inclusive = false)
+    }
+
+    fun navigateToLearnTest(topic: MathTopic) {
+        navController.navigate(LearnTest(topic.id))
+    }
+
+    fun navigateToLearnCertificate(topic: MathTopic) {
+        navController.navigate(LearnCertificate(topic.id))
     }
 
     fun startGame(gameType: GameType) {

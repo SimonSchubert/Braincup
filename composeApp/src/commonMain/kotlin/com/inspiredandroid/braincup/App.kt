@@ -32,6 +32,8 @@ import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
+import com.inspiredandroid.braincup.learn.LearnCatalog
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
@@ -558,6 +560,98 @@ fun App(
                             storage = controller.storage,
                             onBack = onBackPegSolitaire,
                         )
+                    }
+
+                    composable<LearnMenu> {
+                        val onTopicSelected = remember(controller) {
+                            { topic: MathTopic -> controller.navigateToLearnTopic(topic) }
+                        }
+                        val onBackLearnMenu = remember(controller) { { controller.navigateToMainMenu() } }
+                        LearnMenuScreen(
+                            storage = controller.storage,
+                            onTopicSelected = onTopicSelected,
+                            onBack = onBackLearnMenu,
+                        )
+                    }
+
+                    composable<LearnTopicDetail> { backStackEntry ->
+                        val route: LearnTopicDetail = backStackEntry.toRoute()
+                        val topic = MathTopic.byId(route.topicId)
+                        if (topic != null) {
+                            val onLessonSelected = remember(controller) {
+                                { lessonId: String -> controller.navigateToLearnLesson(lessonId) }
+                            }
+                            val onTakeTest = remember(controller, topic) { { controller.navigateToLearnTest(topic) } }
+                            val onViewCertificate = remember(controller, topic) {
+                                { controller.navigateToLearnCertificate(topic) }
+                            }
+                            val onBackTopic = remember(navController) {
+                                {
+                                    navController.popBackStack()
+                                    Unit
+                                }
+                            }
+                            LearnTopicScreen(
+                                topic = topic,
+                                storage = controller.storage,
+                                onLessonSelected = onLessonSelected,
+                                onTakeTest = onTakeTest,
+                                onViewCertificate = onViewCertificate,
+                                onBack = onBackTopic,
+                            )
+                        }
+                    }
+
+                    composable<LearnLessonPlay> { backStackEntry ->
+                        val route: LearnLessonPlay = backStackEntry.toRoute()
+                        val lesson = LearnCatalog.lessonById(route.lessonId)
+                        if (lesson != null) {
+                            val popTopic = remember(controller, lesson) {
+                                { controller.popToLearnTopic(lesson.topic) }
+                            }
+                            val onNextLesson = remember(controller) {
+                                { lessonId: String -> controller.navigateToLearnLesson(lessonId, replaceCurrent = true) }
+                            }
+                            LearnLessonScreen(
+                                lessonId = lesson.id,
+                                storage = controller.storage,
+                                onDone = popTopic,
+                                onNextLesson = onNextLesson,
+                                onBack = popTopic,
+                            )
+                        }
+                    }
+
+                    composable<LearnTest> { backStackEntry ->
+                        val route: LearnTest = backStackEntry.toRoute()
+                        val topic = MathTopic.byId(route.topicId)
+                        if (topic != null) {
+                            val popTopic = remember(controller, topic) { { controller.popToLearnTopic(topic) } }
+                            val onViewCertificate = remember(controller, topic) {
+                                { controller.navigateToLearnCertificate(topic) }
+                            }
+                            LearnQuizScreen(
+                                topic = topic,
+                                storage = controller.storage,
+                                onViewCertificate = onViewCertificate,
+                                onDone = popTopic,
+                                onBack = popTopic,
+                            )
+                        }
+                    }
+
+                    composable<LearnCertificate> { backStackEntry ->
+                        val route: LearnCertificate = backStackEntry.toRoute()
+                        val topic = MathTopic.byId(route.topicId)
+                        if (topic != null) {
+                            val popTopic = remember(controller, topic) { { controller.popToLearnTopic(topic) } }
+                            LearnCertificateScreen(
+                                topic = topic,
+                                storage = controller.storage,
+                                onDone = popTopic,
+                                onBack = popTopic,
+                            )
+                        }
                     }
 
                     composable<SessionInterstitial> {
