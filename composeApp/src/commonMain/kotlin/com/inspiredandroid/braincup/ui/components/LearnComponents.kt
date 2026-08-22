@@ -18,10 +18,12 @@ import braincup.composeapp.generated.resources.learn_certificate_grade_silver
 import braincup.composeapp.generated.resources.learn_lesson_progress
 import braincup.composeapp.generated.resources.learn_unit_progress
 import com.inspiredandroid.braincup.learn.CertificateTier
+import com.inspiredandroid.braincup.learn.Curve
 import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.MathTopic
+import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -46,23 +48,23 @@ fun CertificateTier.labelRes(): StringResource = when (this) {
 
 /** The sketch that stands in for a whole grade band on its tile. */
 fun GradeLevel.tileVisual(): LearnVisual = when (this) {
-    GradeLevel.GRADES_1_2 -> LearnVisual.COUNTERS
-    GradeLevel.GRADES_3_5 -> LearnVisual.ARRAY_GRID
-    GradeLevel.GRADES_6_8 -> LearnVisual.BALANCE_SCALE
-    GradeLevel.GRADES_9_10 -> LearnVisual.RIGHT_TRIANGLE
-    GradeLevel.GRADES_11_12 -> LearnVisual.TANGENT_LINE
+    GradeLevel.GRADES_1_2 -> LearnVisual.Counters(listOf(4, 3), merge = false)
+    GradeLevel.GRADES_3_5 -> LearnVisual.ArrayDots(rows = 3, cols = 4)
+    GradeLevel.GRADES_6_8 -> LearnVisual.Balance(leftX = 2, leftOnes = 1, rightOnes = 7)
+    GradeLevel.GRADES_9_10 -> LearnVisual.RightTriangle(a = 4, b = 3, labels = false)
+    GradeLevel.GRADES_11_12 -> LearnVisual.Plot(Curve.Quadratic(0.5f), tangentAt = 1.5f)
 }
 
 /** The sketch that stands in for a topic on its tiles. */
 fun MathTopic.tileVisual(): LearnVisual = when (this) {
-    MathTopic.ARITHMETIC -> LearnVisual.NUMBER_LINE
-    MathTopic.MEASUREMENT -> LearnVisual.RULER
-    MathTopic.GEOMETRY -> LearnVisual.RIGHT_TRIANGLE
-    MathTopic.DATA -> LearnVisual.BAR_CHART
-    MathTopic.ALGEBRA -> LearnVisual.BALANCE_SCALE
-    MathTopic.TRIGONOMETRY -> LearnVisual.UNIT_CIRCLE
-    MathTopic.FUNCTIONS -> LearnVisual.PARABOLA
-    MathTopic.CALCULUS -> LearnVisual.AREA_UNDER_CURVE
+    MathTopic.ARITHMETIC -> LearnVisual.NumberLine(from = 0, to = 10, tickStep = 1)
+    MathTopic.MEASUREMENT -> LearnVisual.Ruler(length = 7, span = 10)
+    MathTopic.GEOMETRY -> LearnVisual.Polygon(sides = 5, countCorners = false)
+    MathTopic.DATA -> LearnVisual.BarChart(listOf(3, 5, 2, 6))
+    MathTopic.ALGEBRA -> LearnVisual.Balance(leftX = 1, leftOnes = 2, rightOnes = 5)
+    MathTopic.TRIGONOMETRY -> LearnVisual.UnitCircleFigure(degrees = 52)
+    MathTopic.FUNCTIONS -> LearnVisual.Plot(Curve.Quadratic(0.6f))
+    MathTopic.CALCULUS -> LearnVisual.Plot(Curve.Quadratic(0.5f), areaTo = 2f)
 }
 
 /** A small trophy in the tier's metal, shown wherever a certificate has been earned. */

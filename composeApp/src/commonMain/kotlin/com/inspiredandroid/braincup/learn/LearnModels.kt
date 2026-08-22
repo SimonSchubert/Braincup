@@ -6,43 +6,15 @@ package com.inspiredandroid.braincup.learn
  * The catalog is organised as `grade band -> topic -> lessons + test`. One (band, topic) pair is a
  * [LearnUnit]: the same topic appears in several bands, teaching harder material each time.
  *
+ * Step diagrams are declared as [LearnVisual] values carrying the numbers they illustrate, so the
+ * picture teaches and the prose stays short.
+ *
  * Lesson and quiz bodies are authored in English right here rather than in `strings.xml`: a lesson
  * is a content catalog entry (like a Sudoku puzzle or a matchstick riddle definition), not UI
  * chrome, and a single band carries far more prose than the resource pipeline is meant to hold.
  * Everything the section shows *around* the content — screen titles, buttons, progress labels,
  * certificate wording — does go through `strings.xml` and stays translatable.
  */
-
-/** An optional diagram drawn next to a step, rendered by `LearnVisualCanvas`. */
-enum class LearnVisual {
-    NUMBER_LINE,
-    COUNTERS,
-    PLACE_VALUE_BLOCKS,
-    ARRAY_GRID,
-    FRACTION_BAR,
-    RULER,
-    CLOCK,
-    COINS,
-    AREA_RECTANGLE,
-    SHAPES_2D,
-    SOLIDS,
-    SYMMETRY,
-    RIGHT_TRIANGLE,
-    CIRCLE,
-    ANGLES,
-    COORDINATE_GRID,
-    BAR_CHART,
-    PICTOGRAM,
-    PIE_CHART,
-    NORMAL_CURVE,
-    BALANCE_SCALE,
-    PARABOLA,
-    EXPONENTIAL_CURVE,
-    UNIT_CIRCLE,
-    SINE_WAVE,
-    TANGENT_LINE,
-    AREA_UNDER_CURVE,
-}
 
 /**
  * One screen inside a lesson. A lesson alternates teaching steps ([Concept], [Worked]) with steps
@@ -116,6 +88,7 @@ data class QuizQuestion(
     val options: List<String>,
     val correctIndex: Int,
     val explanation: String,
+    val visual: LearnVisual? = null,
 ) {
     init {
         require(correctIndex in options.indices) { "correctIndex out of bounds for $prompt" }

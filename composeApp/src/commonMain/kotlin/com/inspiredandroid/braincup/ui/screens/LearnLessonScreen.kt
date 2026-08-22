@@ -30,7 +30,6 @@ import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
 import com.inspiredandroid.braincup.learn.LessonStep
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.LearnVisualCanvas
 import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
@@ -39,6 +38,7 @@ import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -240,8 +240,8 @@ private fun ConceptStep(step: LessonStep.Concept) {
             visual = it,
             modifier = Modifier
                 .fillMaxWidth()
-                .heightIn(max = 140.dp)
-                .height(120.dp)
+                .heightIn(max = 210.dp)
+                .height(190.dp)
                 .padding(bottom = 8.dp),
         )
     }
@@ -277,7 +277,7 @@ private fun WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
     step.visual?.let {
         LearnVisualCanvas(
             visual = it,
-            modifier = Modifier.fillMaxWidth().height(120.dp).padding(bottom = 8.dp),
+            modifier = Modifier.fillMaxWidth().height(170.dp).padding(bottom = 8.dp),
         )
     }
     Text(
@@ -329,7 +329,7 @@ private fun ChoiceStep(
     step.visual?.let {
         LearnVisualCanvas(
             visual = it,
-            modifier = Modifier.fillMaxWidth().height(120.dp).padding(bottom = 8.dp),
+            modifier = Modifier.fillMaxWidth().height(170.dp).padding(bottom = 8.dp),
         )
     }
     Text(
@@ -363,7 +363,7 @@ private fun NumericStep(
     step.visual?.let {
         LearnVisualCanvas(
             visual = it,
-            modifier = Modifier.fillMaxWidth().height(120.dp).padding(bottom = 8.dp),
+            modifier = Modifier.fillMaxWidth().height(170.dp).padding(bottom = 8.dp),
         )
     }
     Text(

@@ -43,6 +43,7 @@ import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.labelRes
+import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
 import com.inspiredandroid.braincup.ui.components.medalColor
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -132,6 +133,16 @@ fun LearnQuizScreenContent(
                 .padding(horizontal = 16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            question.visual?.let { visual ->
+                LearnVisualCanvas(
+                    visual = visual,
+                    modifier = Modifier
+                        .widthIn(max = 420.dp)
+                        .fillMaxWidth()
+                        .height(180.dp)
+                        .padding(bottom = 12.dp),
+                )
+            }
             Text(
                 text = question.prompt,
                 style = MaterialTheme.typography.titleMedium,

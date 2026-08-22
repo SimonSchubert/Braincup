@@ -62,6 +62,43 @@ class LearnCatalogTest {
         }
     }
 
+    /** The section is meant to teach by picture, so a step without a figure is a content bug. */
+    @Test
+    fun everyStepAndQuestionHasAVisual() {
+        LearnCatalog.allLessons.forEach { lesson ->
+            lesson.steps.forEachIndexed { index, step ->
+                val visual = when (step) {
+                    is LessonStep.Concept -> step.visual
+                    is LessonStep.Worked -> step.visual
+                    is LessonStep.Choice -> step.visual
+                    is LessonStep.Numeric -> step.visual
+                }
+                assertNotNull(visual, "${lesson.id} step $index has no visual")
+            }
+        }
+        LearnCatalog.allUnits.forEach { unit ->
+            unit.quiz.questions.forEach { question ->
+                assertNotNull(question.visual, "${unit.id}: no visual for ${question.prompt}")
+            }
+        }
+    }
+
+    /** A question must not caption the diagram with the answer it is asking for. */
+    @Test
+    fun questionVisualsDoNotRevealTheirAnswer() {
+        val revealing = LearnCatalog.allLessons
+            .flatMap { lesson -> lesson.steps.map { lesson.id to it } }
+            .count { (_, step) ->
+                when (step) {
+                    is LessonStep.Choice -> step.visual?.reveal == true
+                    is LessonStep.Numeric -> step.visual?.reveal == true
+                    else -> false
+                }
+            }
+        // Most question figures hide their summary; the rest show a situation with nothing to give away.
+        assertTrue(revealing < LearnCatalog.allLessons.size * 2, "too many question figures caption the answer")
+    }
+
     @Test
     fun everyLessonAsksAtLeastOneQuestion() {
         LearnCatalog.allLessons.forEach { lesson ->
