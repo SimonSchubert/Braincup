@@ -29,6 +29,8 @@ import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.IqTestTile
 import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
+import com.inspiredandroid.braincup.mathlearning.MathLearningTopic
+import com.inspiredandroid.braincup.ui.components.MathLearningTile
 import com.inspiredandroid.braincup.ui.components.NormalChessTile
 import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
 import com.inspiredandroid.braincup.ui.components.PegSolitaireTile
@@ -55,6 +57,7 @@ fun MainMenuScreen(
     controller: GameController,
     onOpenSettings: () -> Unit = {},
     onIqTest: () -> Unit = {},
+    onMathLearning: () -> Unit = {},
     useBuiltInSponsors: Boolean = false,
 ) {
     val sessionState by controller.sessionState.collectAsStateWithLifecycle()
@@ -77,6 +80,9 @@ fun MainMenuScreen(
     val matchstickRiddlesTotal = remember { MatchstickRiddles.all.size }
     val bestIq = remember(controller, storageRevision) {
         controller.storage.getBestIqTestRawScore()?.let { IqScoring.iqFor(it) }
+    }
+    val mathTopicsPassed = remember(controller, storageRevision) {
+        MathLearningTopic.entries.count { controller.storage.isMathTopicPassed(it.id) }
     }
 
     val onPlayDaily = remember(controller) { { controller.startDailySession() } }
@@ -107,8 +113,11 @@ fun MainMenuScreen(
         matchstickRiddlesSolved = matchstickRiddlesSolved,
         matchstickRiddlesTotal = matchstickRiddlesTotal,
         bestIq = bestIq,
+        mathTopicsPassed = mathTopicsPassed,
+        mathTopicsTotal = MathLearningTopic.entries.size,
         onOpenSettings = onOpenSettings,
         onIqTest = onIqTest,
+        onMathLearning = onMathLearning,
         onPlayDaily = onPlayDaily,
         onPlay = onPlay,
         onViewScore = onViewScore,
@@ -135,6 +144,8 @@ fun MainMenuScreenContent(
     matchstickRiddlesSolved: Int = 0,
     matchstickRiddlesTotal: Int = 0,
     bestIq: Int? = null,
+    mathTopicsPassed: Int = 0,
+    mathTopicsTotal: Int = MathLearningTopic.entries.size,
     showDailyChallenge: Boolean = true,
     /**
      * Optional override for which mini-game tiles appear (and in which order).
@@ -143,6 +154,7 @@ fun MainMenuScreenContent(
     gameTypes: ImmutableList<GameType>? = null,
     onOpenSettings: () -> Unit = {},
     onIqTest: () -> Unit = {},
+    onMathLearning: () -> Unit = {},
     onPlayDaily: () -> Unit = {},
     onPlay: (GameType) -> Unit = {},
     onViewScore: (GameType) -> Unit = {},
@@ -329,6 +341,15 @@ fun MainMenuScreenContent(
         }
         item(contentType = "peg_solitaire") {
             PegSolitaireTile(onClick = onPegSolitaire)
+        }
+
+        // Interactive Math Topics section at the bottom of the main screen
+        item(span = { GridItemSpan(maxLineSpan) }, contentType = "math_learning") {
+            MathLearningTile(
+                passedCount = mathTopicsPassed,
+                totalTopics = mathTopicsTotal,
+                onClick = onMathLearning,
+            )
         }
 
         // Footer

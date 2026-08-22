@@ -822,4 +822,182 @@
     <string name="achievement_iq_test_high">Pattern Savant</string>
     <string name="achievement_iq_test_high_desc">Reach an estimated IQ of 130 or higher</string>
 
+    <!-- Math Learning Section -->
+    <string name="math_learning_button">Interactive Math Topics</string>
+    <string name="math_learning_title">Math Learning</string>
+    <string name="math_learning_subtitle">Interactive lessons, practice &amp; certificate tests</string>
+    <string name="math_learning_start_lesson">Start Lesson</string>
+    <string name="math_learning_take_test">Take Test</string>
+    <string name="math_learning_view_certificate">View Certificate</string>
+    <string name="math_learning_passed">Passed (%1$d%%)</string>
+    <string name="math_learning_not_passed">Not Passed</string>
+    <string name="math_learning_lesson_title">Lesson: %1$s</string>
+    <string name="math_learning_practice_title">Practice Question</string>
+    <string name="math_learning_check_answer">Check Answer</string>
+    <string name="math_learning_correct">Correct!</string>
+    <string name="math_learning_incorrect">Not quite right, try again.</string>
+    <string name="math_learning_next_step">Next Step</string>
+    <string name="math_learning_finish_lesson">Finish Lesson &amp; Take Test</string>
+    <string name="math_learning_test_title">%1$s Skill Test</string>
+    <string name="math_learning_question_progress">Question %1$d of %2$d</string>
+    <string name="math_learning_submit_test">Submit Test</string>
+    <string name="math_learning_test_passed_title">Test Passed!</string>
+    <string name="math_learning_test_failed_title">Keep Learning</string>
+    <string name="math_learning_test_score">Score: %1$d / %2$d (%3$d%%)</string>
+    <string name="math_learning_test_passed_msg">Congratulations! You demonstrated mastery in %1$s and earned a certificate.</string>
+    <string name="math_learning_test_failed_msg">You need at least 66%% to pass and earn a certificate. Review the lesson and try again!</string>
+
+    <!-- Certificate -->
+    <string name="certificate_title">Certificate of Achievement</string>
+    <string name="certificate_header">Braincup Learning Academy</string>
+    <string name="certificate_presented_to">This certifies that</string>
+    <string name="certificate_recipient_default">Learner</string>
+    <string name="certificate_body">has successfully completed interactive learning and passed the skill assessment for</string>
+    <string name="certificate_score_label">Score Achieved: %1$d%%</string>
+
+    <!-- Topic Titles & Descriptions -->
+    <string name="math_topic_arithmetic">Arithmetic / Number &amp; Operations</string>
+    <string name="math_topic_arithmetic_desc">Master fundamental order of operations, properties, and mental calculation tricks.</string>
+
+    <string name="math_topic_measurement">Measurement</string>
+    <string name="math_topic_measurement_desc">Learn metric unit conversions, perimeter, area, and spatial scale calculations.</string>
+
+    <string name="math_topic_geometry">Geometry</string>
+    <string name="math_topic_geometry_desc">Explore geometric shapes, angles, Pythagorean theorem, and area formulas.</string>
+
+    <string name="math_topic_data_analysis">Data Analysis, Statistics &amp; Probability</string>
+    <string name="math_topic_data_analysis_desc">Understand mean, median, mode, data interpretation, and basic probability.</string>
+
+    <string name="math_topic_algebra">Algebra</string>
+    <string name="math_topic_algebra_desc">Solve linear equations, simplify algebraic expressions, and expand polynomials.</string>
+
+    <string name="math_topic_trigonometry">Trigonometry</string>
+    <string name="math_topic_trigonometry_desc">Learn sine, cosine, tangent ratios, right triangle problem-solving, and identities.</string>
+
+    <string name="math_topic_pre_calculus">Pre-calculus / Functions</string>
+    <string name="math_topic_pre_calculus_desc">Understand functions, domain and range, logarithmic rules, and exponential behavior.</string>
+
+    <string name="math_topic_calculus">Calculus</string>
+    <string name="math_topic_calculus_desc">Introduction to derivatives (rates of change) and integrals (area under curves).</string>
+
+    <!-- Arithmetic Lessons & Questions -->
+    <string name="math_arithmetic_l1_title">Distributive Property</string>
+    <string name="math_arithmetic_l1_desc">Multiplying a sum by a number is equal to multiplying each addend individually and adding the products together.</string>
+    <string name="math_arithmetic_q1_question">What is 4 * (2 + 3)?</string>
+    <string name="math_arithmetic_q1_exp">4 * (2 + 3) = 4 * 5 = 20. Or (4 * 2) + (4 * 3) = 8 + 12 = 20.</string>
+
+    <string name="math_arithmetic_l2_title">Order of Operations (PEMDAS)</string>
+    <string name="math_arithmetic_l2_desc">Perform operations inside Parentheses first, then Exponents, Multiplication/Division from left to right, then Addition/Subtraction from left to right.</string>
+    <string name="math_arithmetic_q2_question">Evaluate: 2 + 3 * 4 + 2</string>
+    <string name="math_arithmetic_q2_exp">Multiply first: 3 * 4 = 12. Then add: 2 + 12 + 2 = 16.</string>
+
+    <string name="math_arithmetic_t1">What is 3 * (4 + 3)?</string>
+    <string name="math_arithmetic_t2">Evaluate: 8 + 12 / 2</string>
+    <string name="math_arithmetic_t3">What is 5 * (6 + 3)?</string>
+
+    <!-- Measurement Lessons & Questions -->
+    <string name="math_measurement_l1_title">Metric Unit Conversions</string>
+    <string name="math_measurement_l1_desc">The metric system uses powers of 10. 1 kilometer = 1,000 meters; 1 meter = 100 centimeters; 1 centimeter = 10 millimeters.</string>
+    <string name="math_measurement_q1_question">How many centimeters are in 3 meters?</string>
+    <string name="math_measurement_q1_exp">3 meters * 100 cm/meter = 300 cm.</string>
+
+    <string name="math_measurement_l2_title">Area of Rectangles</string>
+    <string name="math_measurement_l2_desc">The area of a rectangle is the amount of 2D space inside it, calculated by multiplying width by height.</string>
+    <string name="math_measurement_q2_question">Find the area of a rectangle with length 6 m and width 4 m.</string>
+    <string name="math_measurement_q2_exp">Area = 6 m * 4 m = 24 m².</string>
+
+    <string name="math_measurement_t1">How many centimeters are in 2.5 meters?</string>
+    <string name="math_measurement_t2">What is the area of a garden that is 5 cm wide and 7 cm long?</string>
+    <string name="math_measurement_t3">What is the perimeter of a rectangle with sides 10 m and 20 m?</string>
+
+    <!-- Geometry Lessons & Questions -->
+    <string name="math_geometry_l1_title">Pythagorean Theorem</string>
+    <string name="math_geometry_l1_desc">In any right-angled triangle, the square of the hypotenuse (c) equals the sum of the squares of the other two sides (a and b).</string>
+    <string name="math_geometry_q1_question">In a right triangle, if a = 3 and b = 4, what is hypotenuse c?</string>
+    <string name="math_geometry_q1_exp">c² = 3² + 4² = 9 + 16 = 25, so c = 5.</string>
+
+    <string name="math_geometry_l2_title">Area of a Triangle</string>
+    <string name="math_geometry_l2_desc">The area of any triangle is half the base times the height.</string>
+    <string name="math_geometry_q2_question">Find the area of a triangle with base = 8 cm and height = 6 cm.</string>
+    <string name="math_geometry_q2_exp">Area = (8 * 6) / 2 = 48 / 2 = 24 cm².</string>
+
+    <string name="math_geometry_t1">In a right triangle with legs 5 and 12, what is the length of the hypotenuse?</string>
+    <string name="math_geometry_t2">What is the sum of interior angles in any triangle?</string>
+    <string name="math_geometry_t3">Calculate the area of a triangle with base 10 cm and height 6 cm.</string>
+
+    <!-- Data Analysis Lessons & Questions -->
+    <string name="math_data_l1_title">Mean (Average)</string>
+    <string name="math_data_l1_desc">The mean is calculated by adding up all numbers in a dataset and dividing by the total count of numbers.</string>
+    <string name="math_data_q1_question">What is the mean of: 2, 4, 6, 8, 10?</string>
+    <string name="math_data_q1_exp">Sum = 30. Count = 5. Mean = 30 / 5 = 6.</string>
+
+    <string name="math_data_l2_title">Probability Basics</string>
+    <string name="math_data_l2_desc">Probability measures how likely an event is to happen: ratio of favorable outcomes to total possible outcomes.</string>
+    <string name="math_data_q2_question">What is the probability of rolling an even number on a standard 6-sided die?</string>
+    <string name="math_data_q2_exp">Even numbers are {2, 4, 6} (3 outcomes out of 6). Probability = 3/6 = 1/2.</string>
+
+    <string name="math_data_t1">Find the mean of the dataset: 5, 10, 15, 18.</string>
+    <string name="math_data_t2">What is the probability of flipping two coins and getting two heads?</string>
+    <string name="math_data_t3">Which statistical measure represents the most frequently occurring value?</string>
+
+    <!-- Algebra Lessons & Questions -->
+    <string name="math_algebra_l1_title">Solving Linear Equations</string>
+    <string name="math_algebra_l1_desc">To solve ax + b = c, isolate variable x by applying inverse operations to both sides of the equation.</string>
+    <string name="math_algebra_q1_question">Solve for x: 2x + 5 = 13</string>
+    <string name="math_algebra_q1_exp">Subtract 5: 2x = 8. Divide by 2: x = 4.</string>
+
+    <string name="math_algebra_l2_title">Expanding Binomials</string>
+    <string name="math_algebra_l2_desc">Square of a binomial (a + b)² equals a² + 2ab + b².</string>
+    <string name="math_algebra_q2_question">Expand: (x + 3)²</string>
+    <string name="math_algebra_q2_exp">(x + 3)² = x² + 2*(x*3) + 3² = x² + 6x + 9.</string>
+
+    <string name="math_algebra_t1">Solve for x: 3x - 4 = 11</string>
+    <string name="math_algebra_t2">Expand: (x + 4)²</string>
+    <string name="math_algebra_t3">Factor the difference of squares: x² - 4</string>
+
+    <!-- Trigonometry Lessons & Questions -->
+    <string name="math_trig_l1_title">Trigonometric Ratios (SOH CAH TOA)</string>
+    <string name="math_trig_l1_desc">In right triangles: sin(θ) = Opposite/Hypotenuse, cos(θ) = Adjacent/Hypotenuse, tan(θ) = Opposite/Adjacent.</string>
+    <string name="math_trig_q1_question">In a 3-4-5 right triangle, what is sin(θ) for the angle opposite side 3?</string>
+    <string name="math_trig_q1_exp">sin(θ) = Opposite / Hypotenuse = 3 / 5.</string>
+
+    <string name="math_trig_l2_title">Pythagorean Identity</string>
+    <string name="math_trig_l2_desc">For any angle θ, sin²(θ) + cos²(θ) = 1.</string>
+    <string name="math_trig_q2_question">What is the value of sin²(30°) + cos²(30°)?</string>
+    <string name="math_trig_q2_exp">By the Pythagorean identity, sin²(θ) + cos²(θ) is always 1 for any angle θ.</string>
+
+    <string name="math_trig_t1">What is sin(30°)?</string>
+    <string name="math_trig_t2">What is tan(45°)?</string>
+    <string name="math_trig_t3">Which expression is equal to sin(θ) / cos(θ)?</string>
+
+    <!-- Pre-calculus Lessons & Questions -->
+    <string name="math_precalc_l1_title">Functions and Evaluation</string>
+    <string name="math_precalc_l1_desc">A function f(x) maps input x to output y. Evaluate f(c) by replacing variable x with constant c.</string>
+    <string name="math_precalc_q1_question">If f(x) = 2x + 5, what is f(3)?</string>
+    <string name="math_precalc_q1_exp">f(3) = 2(3) + 5 = 6 + 5 = 11.</string>
+
+    <string name="math_precalc_l2_title">Logarithms</string>
+    <string name="math_precalc_l2_desc">A logarithm log_b(x) asks: to what power must base b be raised to get x?</string>
+    <string name="math_precalc_q2_question">What is log_2(8)?</string>
+    <string name="math_precalc_q2_exp">Because 2³ = 8, log_2(8) = 3.</string>
+
+    <string name="math_precalc_t1">If f(x) = 3x + 4, find f(3).</string>
+    <string name="math_precalc_t2">Evaluate log_10(100).</string>
+    <string name="math_precalc_t3">What is the domain of f(x) = x² + 1?</string>
+
+    <!-- Calculus Lessons & Questions -->
+    <string name="math_calc_l1_title">Derivatives (Power Rule)</string>
+    <string name="math_calc_l1_desc">A derivative measures instantaneous rate of change. By the power rule, d/dx(xⁿ) = n * xⁿ⁻¹.</string>
+    <string name="math_calc_q1_question">What is the derivative of f(x) = x³?</string>
+    <string name="math_calc_q1_exp">By power rule with n = 3: d/dx(x³) = 3 * x³⁻¹ = 3x².</string>
+
+    <string name="math_calc_l2_title">Integrals (Antiderivatives)</string>
+    <string name="math_calc_l2_desc">Integration is the reverse of differentiation, representing accumulation and area under a curve. ∫ xⁿ dx = xⁿ⁺¹/(n+1) + C.</string>
+    <string name="math_calc_q2_question">What is ∫ 2x dx?</string>
+    <string name="math_calc_q2_exp">∫ 2x dx = 2 * (x²/2) + C = x² + C.</string>
+
+    <string name="math_calc_t1">What is the derivative of x⁴?</string>
+    <string name="math_calc_t2">Evaluate the indefinite integral: ∫ 3x² dx</string>
+    <string name="math_calc_t3">What geometric property does a definite integral represent?</string>
+
 </resources>

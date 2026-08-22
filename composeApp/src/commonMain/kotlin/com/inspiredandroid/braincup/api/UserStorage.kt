@@ -170,6 +170,7 @@ class UserStorage(
         const val SESSION_COMPLETION_XP = 50
 
         const val IQ_TEST_COMPLETION_XP = 60
+        const val MATH_TOPIC_PASS_XP = 50
 
         /** Attempts kept on disk. The per-game score history is unbounded; do not repeat that here. */
         const val IQ_TEST_HISTORY_LIMIT = 20
@@ -1003,6 +1004,41 @@ class UserStorage(
         val year: Int,
         val scores: ImmutableList<Int>,
     )
+
+    /** Math Learning helper methods */
+    private fun mathTopicScoreKey(topicId: String): String = "math_topic_score_$topicId"
+    private fun mathTopicPassedKey(topicId: String): String = "math_topic_passed_$topicId"
+    private fun mathTopicDateKey(topicId: String): String = "math_topic_date_$topicId"
+
+    fun getMathTopicScore(topicId: String): Int? = store.getIntOrNull(mathTopicScoreKey(topicId))
+
+    fun isMathTopicPassed(topicId: String): Boolean = store.getBoolean(mathTopicPassedKey(topicId), false)
+
+    fun getMathTopicTimestamp(topicId: String): Long? {
+        val raw = store.getStringOrNull(mathTopicDateKey(topicId)) ?: return null
+        return raw.toLongOrNull()
+    }
+
+    fun recordMathTopicResult(topicId: String, scorePercentage: Int, passed: Boolean): XpAward? {
+        val prevScore = getMathTopicScore(topicId) ?: 0
+        if (scorePercentage > prevScore) {
+            store.putInt(mathTopicScoreKey(topicId), scorePercentage)
+        }
+        val prevPassed = isMathTopicPassed(topicId)
+        if (passed) {
+            store.putBoolean(mathTopicPassedKey(topicId), true)
+            if (getMathTopicTimestamp(topicId) == null) {
+                store.putString(mathTopicDateKey(topicId), Clock.System.now().toEpochMilliseconds().toString())
+            }
+        }
+
+        // Award XP if passed for the first time
+        if (passed && !prevPassed) {
+            val levelChange = addXp(MATH_TOPIC_PASS_XP)
+            return XpAward(MATH_TOPIC_PASS_XP, levelChange)
+        }
+        return null
+    }
 
     fun getScores(gameId: String): List<ScoreGroup> {
         val scoresRaw = store.getStringOrNull(getScoresKey(gameId)) ?: return listOf()
