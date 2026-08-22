@@ -30,6 +30,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.audio.SimonPadSounds
 import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
+import com.inspiredandroid.braincup.mathlearning.MathLearningTopic
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
 import com.inspiredandroid.braincup.navigation.AppNavHost
@@ -200,10 +201,12 @@ fun App(
                     composable<MainMenu> {
                         val onOpenSettings = remember(controller) { { controller.navigateToSettings() } }
                         val onIqTest = remember(iqTestController) { { iqTestController.navigateToIntro() } }
+                        val onMathLearning = remember(navController) { { navController.navigate(MathLearningMenu) } }
                         MainMenuScreen(
                             controller = controller,
                             onOpenSettings = onOpenSettings,
                             onIqTest = onIqTest,
+                            onMathLearning = onMathLearning,
                             useBuiltInSponsors = useBuiltInSponsors,
                         )
                     }
@@ -681,6 +684,65 @@ fun App(
                                         Unit
                                     }
                                 },
+                            )
+                        }
+                    }
+
+                    composable<MathLearningMenu> {
+                        MathLearningMenuScreen(
+                            storage = controller.storage,
+                            onSelectTopicLesson = { topic -> navController.navigate(MathLearningLesson(topic.id)) },
+                            onSelectTopicTest = { topic -> navController.navigate(MathLearningTest(topic.id)) },
+                            onViewCertificate = { topic -> navController.navigate(MathLearningCertificate(topic.id)) },
+                            onBack = {
+                                if (!navController.popBackStack()) {
+                                    controller.navigateToMainMenu()
+                                }
+                            },
+                        )
+                    }
+
+                    composable<MathLearningLesson> { backStackEntry ->
+                        val route: MathLearningLesson = backStackEntry.toRoute()
+                        val topic = MathLearningTopic.getById(route.topicId)
+                        if (topic != null) {
+                            MathLearningLessonScreen(
+                                topic = topic,
+                                onFinishLessonTakeTest = {
+                                    navController.navigate(MathLearningTest(topic.id)) {
+                                        popUpTo<MathLearningLesson> { inclusive = true }
+                                    }
+                                },
+                                onBack = { navController.popBackStack() },
+                            )
+                        }
+                    }
+
+                    composable<MathLearningTest> { backStackEntry ->
+                        val route: MathLearningTest = backStackEntry.toRoute()
+                        val topic = MathLearningTopic.getById(route.topicId)
+                        if (topic != null) {
+                            MathLearningTestScreen(
+                                topic = topic,
+                                storage = controller.storage,
+                                onViewCertificate = { certTopic ->
+                                    navController.navigate(MathLearningCertificate(certTopic.id)) {
+                                        popUpTo<MathLearningTest> { inclusive = true }
+                                    }
+                                },
+                                onBack = { navController.popBackStack() },
+                            )
+                        }
+                    }
+
+                    composable<MathLearningCertificate> { backStackEntry ->
+                        val route: MathLearningCertificate = backStackEntry.toRoute()
+                        val topic = MathLearningTopic.getById(route.topicId)
+                        if (topic != null) {
+                            MathLearningCertificateScreen(
+                                topic = topic,
+                                storage = controller.storage,
+                                onBack = { navController.popBackStack() },
                             )
                         }
                     }

@@ -78,3 +78,15 @@ object IqTestResult
 
 @Serializable
 object IqTestReview
+
+@Serializable
+object MathLearningMenu
+
+@Serializable
+data class MathLearningLesson(val topicId: String)
+
+@Serializable
+data class MathLearningTest(val topicId: String)
+
+@Serializable
+data class MathLearningCertificate(val topicId: String)

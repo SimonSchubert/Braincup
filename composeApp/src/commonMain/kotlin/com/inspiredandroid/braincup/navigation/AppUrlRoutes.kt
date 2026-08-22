@@ -12,6 +12,10 @@ import com.inspiredandroid.braincup.app.IqTestPlay
 import com.inspiredandroid.braincup.app.IqTestResult
 import com.inspiredandroid.braincup.app.IqTestReview
 import com.inspiredandroid.braincup.app.Licenses
+import com.inspiredandroid.braincup.app.MathLearningCertificate
+import com.inspiredandroid.braincup.app.MathLearningLesson
+import com.inspiredandroid.braincup.app.MathLearningMenu
+import com.inspiredandroid.braincup.app.MathLearningTest
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.MatchstickRiddlesMenu
 import com.inspiredandroid.braincup.app.MatchstickRiddlesPlay
@@ -51,6 +55,10 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is IqTestPlay -> "iq-test/play"
     is IqTestResult -> "iq-test/result"
     is IqTestReview -> "iq-test/review"
+    is MathLearningMenu -> "math-learning"
+    is MathLearningLesson -> "math-learning/lesson/${route.topicId}"
+    is MathLearningTest -> "math-learning/test/${route.topicId}"
+    is MathLearningCertificate -> "math-learning/certificate/${route.topicId}"
     is Instructions -> gamePathSuffix(route.gameTypeId)
     is Playing -> gamePathSuffix(route.gameTypeId)
     is Finish -> gamePathSuffix(route.gameTypeId)
@@ -75,6 +83,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "iq-test/play" -> IqTestPlay
         "iq-test/result" -> IqTestResult
         "iq-test/review" -> IqTestReview
+        "math-learning" -> MathLearningMenu
         else -> parseParameterizedPath(suffix)
     }
 }
@@ -100,6 +109,10 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<IqTestPlay>() -> navRouteToPathSuffix(IqTestPlay)
         destination.hasRoute<IqTestResult>() -> navRouteToPathSuffix(IqTestResult)
         destination.hasRoute<IqTestReview>() -> navRouteToPathSuffix(IqTestReview)
+        destination.hasRoute<MathLearningMenu>() -> navRouteToPathSuffix(MathLearningMenu)
+        destination.hasRoute<MathLearningLesson>() -> navRouteToPathSuffix(toRoute<MathLearningLesson>())
+        destination.hasRoute<MathLearningTest>() -> navRouteToPathSuffix(toRoute<MathLearningTest>())
+        destination.hasRoute<MathLearningCertificate>() -> navRouteToPathSuffix(toRoute<MathLearningCertificate>())
         destination.hasRoute<Instructions>() -> navRouteToPathSuffix(toRoute<Instructions>())
         destination.hasRoute<Playing>() -> navRouteToPathSuffix(toRoute<Playing>())
         destination.hasRoute<Finish>() -> navRouteToPathSuffix(toRoute<Finish>())
@@ -123,6 +136,18 @@ private fun parseParameterizedPath(suffix: String): Any? {
     if (suffix.startsWith("matchstick/")) {
         val riddleId = suffix.removePrefix("matchstick/")
         return riddleId.takeIf { it.isNotEmpty() }?.let { MatchstickRiddlesPlay(it) }
+    }
+    if (suffix.startsWith("math-learning/lesson/")) {
+        val topicId = suffix.removePrefix("math-learning/lesson/")
+        return topicId.takeIf { it.isNotEmpty() }?.let { MathLearningLesson(it) }
+    }
+    if (suffix.startsWith("math-learning/test/")) {
+        val topicId = suffix.removePrefix("math-learning/test/")
+        return topicId.takeIf { it.isNotEmpty() }?.let { MathLearningTest(it) }
+    }
+    if (suffix.startsWith("math-learning/certificate/")) {
+        val topicId = suffix.removePrefix("math-learning/certificate/")
+        return topicId.takeIf { it.isNotEmpty() }?.let { MathLearningCertificate(it) }
     }
     if (suffix.endsWith("/scores")) {
         val slug = suffix.removeSuffix("/scores")

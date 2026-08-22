@@ -2,6 +2,10 @@ package com.inspiredandroid.braincup.navigation
 
 import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Instructions
+import com.inspiredandroid.braincup.app.MathLearningCertificate
+import com.inspiredandroid.braincup.app.MathLearningLesson
+import com.inspiredandroid.braincup.app.MathLearningMenu
+import com.inspiredandroid.braincup.app.MathLearningTest
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
 import com.inspiredandroid.braincup.app.PegSolitaire
@@ -103,6 +107,22 @@ class AppUrlRoutesTest {
     fun pathSuffixToNavRoute_unknownPath() {
         assertNull(pathSuffixToNavRoute("UnknownGame"))
         assertNull(pathSuffixToNavRoute(""))
+    }
+
+    @Test
+    fun navRouteToPathSuffix_mathLearning() {
+        assertEquals("math-learning", navRouteToPathSuffix(MathLearningMenu))
+        assertEquals("math-learning/lesson/arithmetic", navRouteToPathSuffix(MathLearningLesson("arithmetic")))
+        assertEquals("math-learning/test/arithmetic", navRouteToPathSuffix(MathLearningTest("arithmetic")))
+        assertEquals("math-learning/certificate/arithmetic", navRouteToPathSuffix(MathLearningCertificate("arithmetic")))
+    }
+
+    @Test
+    fun pathSuffixToNavRoute_mathLearning() {
+        assertEquals(MathLearningMenu, pathSuffixToNavRoute("math-learning"))
+        assertEquals(MathLearningLesson("arithmetic"), pathSuffixToNavRoute("math-learning/lesson/arithmetic"))
+        assertEquals(MathLearningTest("arithmetic"), pathSuffixToNavRoute("math-learning/test/arithmetic"))
+        assertEquals(MathLearningCertificate("arithmetic"), pathSuffixToNavRoute("math-learning/certificate/arithmetic"))
     }
 
     @Test
