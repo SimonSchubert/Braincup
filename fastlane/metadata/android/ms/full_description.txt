@@ -1,0 +1,131 @@
+Latih minda dengan mini game yang mencabar ingatan, tumpuan, logik dan matematik. Braincup menawarkan 42 latihan otak untuk menajamkan minda dan meningkatkan konsentrasi.
+
+<b>Kiraan Mental</b>:
+Ikuti ungkapan matematik. Gunakan hasilnya sebagai asas kiraan seterusnya.
+
+<b>Kiraan Berantai</b>:
+Selesaikan formula kompleks langkah demi langkah.
+
+<b>Kiraan Sherlock</b>:
+Cari formula untuk mencapai sasaran hanya dengan nombor dan operator yang diberi.
+
+<b>Kiraan Pecahan</b>:
+Selesaikan pecahan.
+
+<b>Perbandingan Nilai</b>:
+Pilih ungkapan dengan nilai tertinggi.
+
+<b>Jumlah Gelembung</b>:
+Jumlahkan nombor pada gelembung terapung.
+
+<b>Jumlah Pantas</b>:
+Nombor berkelip satu demi satu. Jumlahkan dan masukkan jumlahnya.
+
+<b>Teka-teki Anomali</b>:
+Cari rajah yang menonjol.
+
+<b>Jujukan Corak</b>:
+Fahami peraturan setiap baris, kemudian pilih kepingan yang melengkapkannya.
+
+<b>Pencari Laluan</b>:
+Mula di kedudukan bertanda dan ikuti anak panah untuk mencari destinasi.
+
+<b>Ingatan Visual</b>:
+Ingat bentuk pada grid, kemudian kenal pasti bentuk tersembunyi selepas pemasa tamat.
+
+<b>Grid Hantu</b>:
+Tonton jubin menyala satu demi satu, kemudian ketik semula dalam urutan yang sama.
+
+<b>Kekeliruan Warna</b>:
+Ketik semua sel yang perkataannya sepadan dengan warna fon.
+
+<b>Bentuk Berwarna</b>:
+Jumlahkan mata daripada pernyataan yang betul.
+
+<b>Penjejak Orbit</b>:
+Tonton bola yang diserlahkan, kemudian jejaki mereka semasa bergerak.
+
+<b>Kumpulan Kilat</b>:
+Titik berkelip sekejap di setiap belah. Ketik belah yang ada lebih banyak titik.
+
+<b>Mini Sudoku</b>:
+Isi grid kecil supaya setiap baris, lajur dan blok mengandungi setiap nombor sekali.
+
+<b>Mini Catur</b>:
+Skakmat CPU sebelum ia menskakmat anda.
+
+<b>Catur Solo</b>:
+Tangkap bidak satu demi satu hingga tinggal raja sahaja.
+
+<b>Padamkan Lampu</b>:
+Padamkan setiap lampu. Setiap ketikan menogol sel itu dan empat jirannya.
+
+<b>Teka-teki Gelongsor</b>:
+Gelongsorkan jubin ke ruang kosong untuk menyusunnya mengikut tertib.
+
+<b>Shikaku</b>:
+Bahagi grid kepada segi empat tepat. Setiap satu mengandungi tepat satu nombor, sama dengan kawasannya.
+
+<b>Nurikabe</b>:
+Cat sel untuk membina laut di sekeliling pulau bernombor, tanpa blok 2x2.
+
+<b>Ratu Kucing</b>:
+Letakkan satu kucing di setiap baris, lajur dan zon warna. Kucing tidak boleh bersentuhan.
+
+<b>Simpulan</b>:
+Sambungkan setiap pasangan titik berwarna. Laluan tidak boleh bersilang dan mesti menutup setiap sel.
+
+<b>Menara Hanoi</b>:
+Pindahkan seluruh longgokan ke pasak kanan.
+
+<b>Jadual Schulte</b>:
+Ketik nombor mengikut tertib dari 1 ke atas secepat mungkin.
+
+<b>Bendera</b>:
+Kenal pasti negara daripada benderanya.
+
+<b>Ingatan Digit</b>:
+Ingat jujukan digit, selesaikan soalan matematik pantas, kemudian ingat semula digitnya.
+
+<b>Cari Yang Baharu</b>:
+Ketik haiwan yang belum pernah anda lihat.
+
+<b>N-Back</b>:
+Tonton bentuk berkelip, kemudian ketik yang berada di kedudukan yang ditanya.
+
+<b>Wordle</b>:
+Teka perkataan tersembunyi lima huruf dalam enam cubaan.
+
+<b>Teka-teki Mancis</b>:
+Alih mancis untuk membetulkan persamaan yang rosak.
+
+<b>Solitaire Pasak</b>:
+Lompat pasak hingga tinggal satu.
+
+<b>Sudoku</b>:
+Sudoku saiz penuh klasik dengan beberapa tahap kesukaran.
+
+<b>Catur</b>:
+Catur lengkap lawan CPU atau main bergilir dengan rakan.
+
+<b>Ujian IQ</b>:
+30 teka-teki matriks dalam 15 minit, dengan IQ anggaran. Sekadar hiburan.
+
+<b>Operator Hilang</b>:
+Cari operator yang hilang (+, -, *, /) yang menjadikan persamaan benar.
+
+<b>Bulls & Cows</b>:
+Teka nombor rahsia 4 digit dengan digit unik.
+
+<b>Simon Says</b>:
+Setiap pusingan menyalakan satu pad baharu. Ketik semula seluruh jujukan dari awal.
+
+<b>Prism Clear</b>:
+Tukar jubin sepadan untuk mengosongkan baris tiga atau lebih. Kosongkan papan untuk menang.
+
+<b>Trio</b>:
+Cari tiga kad yang berkongsi bentuk, kiraan atau isian.
+
+Terdapat beberapa <b>pencapaian</b> dan setiap latihan mempunyai <b>pingat</b> untuk mengekalkan motivasi.
+
+Tiada penjejakan. <b>Sumber terbuka</b>.
