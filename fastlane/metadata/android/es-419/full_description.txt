@@ -1,0 +1,131 @@
+Entrena tu cerebro con minijuegos divertidos que desafían tu memoria, enfoque, lógica y habilidades matemáticas. Braincup ofrece 42 ejercicios de entrenamiento cerebral para agudizar tu mente y mejorar tu concentración.
+
+<b>Cálculo mental</b>:
+Sigue las expresiones matemáticas. Usa el resultado como base del siguiente cálculo.
+
+<b>Cálculo en cadena</b>:
+Resuelve fórmulas complejas paso a paso.
+
+<b>Cálculo Sherlock</b>:
+Encuentra una fórmula para la meta solo con los números y operadores dados.
+
+<b>Cálculo de fracciones</b>:
+Resuelve las fracciones.
+
+<b>Comparación de valores</b>:
+Elige la expresión con el valor más alto.
+
+<b>Suma burbujas</b>:
+Suma los números de las burbujas flotantes.
+
+<b>Suma rápida</b>:
+Los números aparecen uno por uno. Súmalos e ingresa el total.
+
+<b>Puzzle de anomalías</b>:
+Encuentra la figura que destaca.
+
+<b>Secuencia de patrones</b>:
+Descubre la regla de cada fila de la cuadrícula y elige la pieza que la completa.
+
+<b>Buscador de caminos</b>:
+Parte de la marca y sigue las flechas hasta el destino.
+
+<b>Memoria visual</b>:
+Memoriza las formas de la cuadrícula y reconoce la oculta cuando se acabe el tiempo.
+
+<b>Cuadrícula Fantasma</b>:
+Las casillas se iluminan una por una; tócalas en el mismo orden.
+
+<b>Confusión de Colores</b>:
+Toca las celdas donde la palabra coincide con el color de la fuente.
+
+<b>Formas de colores</b>:
+Suma los puntos de las afirmaciones correctas.
+
+<b>Rastreador de Órbitas</b>:
+Observa las bolas marcadas y síguelas mientras se mueven.
+
+<b>Multitud Relámpago</b>:
+Puntos parpadean un instante en cada lado. Toca el lado con más puntos.
+
+<b>Mini Sudoku</b>:
+Completa la mini cuadrícula: cada fila, columna y bloque una vez cada número.
+
+<b>Mini Ajedrez</b>:
+Haz jaque mate a la CPU antes de que te lo dé a ti.
+
+<b>Ajedrez en solitario</b>:
+Captura piezas una a una hasta que solo quede el rey. Cada jugada debe capturar.
+
+<b>Apaga las luces</b>:
+Apaga todas las luces. Cada toque cambia la celda y sus cuatro vecinas.
+
+<b>Rompecabezas deslizante</b>:
+Desliza las fichas al espacio vacío para ordenarlas.
+
+<b>Shikaku</b>:
+Divide la cuadrícula en rectángulos. Cada uno tiene un número igual a su área.
+
+<b>Nurikabe</b>:
+Pinta el mar alrededor de islas numeradas sin bloques de 2x2.
+
+<b>Reinas Felinas</b>:
+Un gato por fila, columna y zona de color. No pueden tocarse, ni siquiera en diagonal.
+
+<b>Nudo</b>:
+Une cada par de puntos de color. Los caminos no se cruzan y cubren todo.
+
+<b>Torres de Hanói</b>:
+Mueve la pila al poste derecho.
+
+<b>Tabla de Schulte</b>:
+Toca los números en orden desde el 1 lo más rápido que puedas.
+
+<b>Banderas</b>:
+Identifica el país por su bandera.
+
+<b>Memoria de Dígitos</b>:
+Memoriza dígitos, resuelve un cálculo rápido y recuérdalos.
+
+<b>Detecta lo Nuevo</b>:
+Toca el animal que no hayas visto antes.
+
+<b>N-Back</b>:
+Observa las formas y toca la de la posición pedida.
+
+<b>Wordle</b>:
+Adivina la palabra de cinco letras en seis intentos.
+
+<b>Acertijos de fósforos</b>:
+Mueve fósforos para corregir ecuaciones.
+
+<b>Solitario</b>:
+Salta fichas hasta dejar solo una en el tablero.
+
+<b>Sudoku</b>:
+Sudoku clásico completo con varios niveles de dificultad.
+
+<b>Ajedrez</b>:
+Ajedrez completo contra la CPU o pásala y juega con un amigo.
+
+<b>Test de CI</b>:
+30 puzzles de matrices en 15 minutos, con CI estimado. Solo por diversión.
+
+<b>Operadores que faltan</b>:
+Encuentra los operadores que faltan (+, -, *, /) para que la ecuación sea verdadera.
+
+<b>Bulls & Cows</b>:
+Adivina el número secreto de 4 dígitos con dígitos únicos.
+
+<b>Simón dice</b>:
+En cada ronda se ilumina un botón nuevo. Toca toda la secuencia desde el principio, botones anteriores incluidos.
+
+<b>Despejar prisma</b>:
+Intercambia fichas iguales para borrar líneas de tres o más. Vacía todo el tablero para ganar.
+
+<b>Trío</b>:
+Encuentra tres cartas que compartan forma, cantidad o relleno.
+
+El juego tiene varios <b>logros</b> y cada ejercicio tiene <b>medallas</b> para mantenerte motivado.
+
+Sin rastreo. <b>Código abierto</b>.

@@ -1,0 +1,131 @@
+Sanayin ang utak mo sa mga masayang mini game para sa memorya, focus, logic, at math. May 42 brain training exercise ang Braincup.
+
+<b>Mental na Pagbilang</b>:
+Sundin ang expression. Gamitin ang resulta bilang base ng susunod.
+
+<b>Kadena ng Kalkulasyon</b>:
+Lutasin ang mga kumplikadong formula nang hakbang-hakbang.
+
+<b>Kalkulasyong Sherlock</b>:
+Maabot ang goal gamit lang ang ibinigay na numero at operators.
+
+<b>Kalkulasyon ng Fraction</b>:
+Lutasin ang mga fraction.
+
+<b>Paghahambing ng Value</b>:
+Piliin ang expression na may pinakamataas na value.
+
+<b>Bubble Sum</b>:
+Idagdag ang mga numero sa lumulutang na bubbles.
+
+<b>Quick Sum</b>:
+Kumikislap ang mga numero isa-isa. Idagdag at i-enter ang total.
+
+<b>Anomaly Puzzle</b>:
+Hanapin ang figure na kakaiba.
+
+<b>Pattern Sequence</b>:
+Alamin ang rule sa bawat row, tapos piliin ang piraso na kumukumpleto nito.
+
+<b>Path Finder</b>:
+Mula sa marka, sundan ang mga arrow hanggang sa destinasyon.
+
+<b>Visual Memory</b>:
+Isaulo ang mga hugis, tapos kilalanin ang nakatago pagkatapos ng timer.
+
+<b>Ghost Grid</b>:
+Umiilaw ang tiles isa-isa; i-tap ulit sa parehong ayos.
+
+<b>Color Confusion</b>:
+I-tap ang mga cell kung saan tumutugma ang salita sa kulay nito.
+
+<b>Mga Kulay na Hugis</b>:
+Idagdag ang points mula sa mga tamang statement.
+
+<b>Orbit Tracker</b>:
+Panoorin ang naka-highlight na bola at sundan sila habang gumagalaw.
+
+<b>Flash Crowd</b>:
+Kumikislap ang dots sa bawat panig. I-tap ang panig na mas marami.
+
+<b>Mini Sudoku</b>:
+Punuin ang mini grid: bawat row, column, at block isang beses bawat numero.
+
+<b>Mini Chess</b>:
+I-checkmate ang CPU bago ka nito i-checkmate.
+
+<b>Solo Chess</b>:
+Kunin ang mga piraso isa-isa hanggang hari na lang ang natitira. Bawat galaw ay dapat kumukuha.
+
+<b>Lights Out</b>:
+Patayin ang lahat ng ilaw. Bawat tap ay nagti-toggle sa cell at kapitbahay nito.
+
+<b>Sliding Puzzle</b>:
+I-slide ang mga tile sa bakanteng espasyo para maayos sila.
+
+<b>Shikaku</b>:
+Hatiin ang buong grid sa mga rectangle. Bawat isa ay may numerong katumbas ng area nito.
+
+<b>Nurikabe</b>:
+Pinturahan ang dagat sa paligid ng may-numerong isla, walang 2x2 block.
+
+<b>Cat Queens</b>:
+Isang pusa bawat row, column, at color zone. Hindi pwedeng magdikit, kahit pahilis.
+
+<b>Knot</b>:
+Ikonekta ang bawat pares ng may kulay na dots. Hindi magkrus ang paths at sasakop nila ang lahat.
+
+<b>Tore ng Hanoi</b>:
+Ilipat ang buong stack sa kanang peg.
+
+<b>Schulte Table</b>:
+I-tap ang mga numero nang sunud-sunod mula 1 pataas nang mabilis.
+
+<b>Mga Watawat</b>:
+Kilalanin ang bansa sa watawat nito.
+
+<b>Digit Memory</b>:
+Isaulo ang digits, lutasin ang mabilis na math, tapos alalahanin ang digits.
+
+<b>Spot the New</b>:
+I-tap ang hayop na hindi mo pa nakikita.
+
+<b>N-Back</b>:
+Panoorin ang mga hugis, tapos i-tap ang nasa tinanong na posisyon.
+
+<b>Wordle</b>:
+Hulaan ang nakatagong limang-titik na salita sa loob ng anim na subok.
+
+<b>Mga Palaisipan sa Palito</b>:
+Ilipat ang mga palito para ayusin ang equation.
+
+<b>Peg Solitaire</b>:
+Lundagin ang mga peg hanggang isa na lang ang matira.
+
+<b>Sudoku</b>:
+Classic na full-size Sudoku na may iba't ibang hirap.
+
+<b>Chess</b>:
+Buong chess laban sa CPU o pass-and-play sa kaibigan.
+
+<b>IQ Test</b>:
+30 matrix puzzle sa 15 minuto, na may tinatayang IQ. Pang-aliw lang.
+
+<b>Kulang na Operators</b>:
+Hanapin ang kulang na operators (+, -, *, /) para maging tama ang equation.
+
+<b>Bulls & Cows</b>:
+Hulaan ang secret na 4-digit na numero na walang umuulit na digit.
+
+<b>Simon Says</b>:
+Bawat round ay umiilaw ng bagong pad. I-tap ang buong sequence mula sa simula.
+
+<b>Prism Clear</b>:
+Magpalit ng magkatugmang tiles para linisin ang linya ng tatlo o higit pa. Palinisin ang board.
+
+<b>Trio</b>:
+Maghanap ng tatlong card na may parehong hugis, bilang, o fill.
+
+May <b>achievements</b> ang laro at bawat exercise ay may <b>medals</b>.
+
+Walang tracking. <b>Open source</b>.

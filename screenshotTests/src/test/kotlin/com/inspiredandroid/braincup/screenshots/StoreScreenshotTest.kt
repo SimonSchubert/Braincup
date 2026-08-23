@@ -35,29 +35,7 @@ class StoreScreenshotTest(
     companion object {
         @JvmStatic
         @Parameterized.Parameters(name = "{1}")
-        fun locales() = listOf(
-            arrayOf("ar", "ar"),
-            arrayOf("bn", "bn-BD"),
-            arrayOf("de", "de-DE"),
-            arrayOf("el", "el-GR"),
-            arrayOf("en", "en-US"),
-            arrayOf("es", "es-ES"),
-            arrayOf("fr", "fr-FR"),
-            arrayOf("hi", "hi-IN"),
-            arrayOf("id", "id"),
-            arrayOf("it", "it-IT"),
-            arrayOf("ja", "ja-JP"),
-            arrayOf("ko", "ko-KR"),
-            arrayOf("nl", "nl-NL"),
-            arrayOf("pl", "pl-PL"),
-            arrayOf("pt", "pt-BR"),
-            arrayOf("ru", "ru-RU"),
-            arrayOf("th", "th"),
-            arrayOf("tr", "tr-TR"),
-            arrayOf("uk", "uk"),
-            arrayOf("vi", "vi"),
-            arrayOf("zh", "zh-CN"),
-        )
+        fun locales() = playStoreLocales()
     }
 
     @get:Rule
@@ -72,7 +50,7 @@ class StoreScreenshotTest(
     @Before
     fun setup() {
         originalLocale = Locale.getDefault()
-        Locale.setDefault(Locale(locale))
+        Locale.setDefault(javaLocale(locale))
 
         paparazzi.unsafeUpdateConfig(
             deviceConfig = DeviceConfig.PIXEL_9A.copy(

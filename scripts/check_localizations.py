@@ -112,7 +112,13 @@ def load_supported_locales(locales_config: Path) -> list[str]:
 
 
 def locale_folder(locale: str) -> str:
-    return "values" if locale == "en" else f"values-{locale}"
+    if locale == "en":
+        return "values"
+    # BCP 47 region subtags (zh-TW) map to Android/Compose values-zh-rTW.
+    parts = locale.split("-")
+    if len(parts) == 2 and len(parts[1]) == 2 and parts[1].isalpha():
+        return f"values-{parts[0]}-r{parts[1]}"
+    return f"values-{locale}"
 
 
 def strings_file(resources_dir: Path, locale: str) -> Path:

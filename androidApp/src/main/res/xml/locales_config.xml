@@ -7,6 +7,7 @@
     <locale android:name="el" />
     <locale android:name="es" />
     <locale android:name="fa" />
+    <locale android:name="fil" />
     <locale android:name="fr" />
     <locale android:name="hi" />
     <locale android:name="id" />
@@ -22,4 +23,5 @@
     <locale android:name="uk" />
     <locale android:name="vi" />
     <locale android:name="zh" />
+    <locale android:name="zh-TW" />
 </locale-config>

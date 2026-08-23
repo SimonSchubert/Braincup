@@ -1,0 +1,43 @@
+package com.inspiredandroid.braincup.screenshots
+
+import java.util.Locale
+
+/**
+ * Play store screenshot matrix: Compose resource locale paired with the supply folder name
+ * under fastlane/metadata/android/.
+ *
+ * es-419 reuses the Spanish UI strings; only the store listing copy differs from es-ES.
+ * zh-rTW is the Compose/Android resource qualifier for Traditional Chinese (Taiwan).
+ */
+internal fun javaLocale(resourceLocale: String): Locale {
+    val tag = resourceLocale.replace("-r", "-").replace('_', '-')
+    return Locale.forLanguageTag(tag)
+}
+
+internal fun playStoreLocales(): List<Array<String>> = listOf(
+    arrayOf("ar", "ar"),
+    arrayOf("bn", "bn-BD"),
+    arrayOf("de", "de-DE"),
+    arrayOf("el", "el-GR"),
+    arrayOf("en", "en-US"),
+    arrayOf("es", "es-ES"),
+    arrayOf("es", "es-419"),
+    arrayOf("fa", "fa"),
+    arrayOf("fil", "fil"),
+    arrayOf("fr", "fr-FR"),
+    arrayOf("hi", "hi-IN"),
+    arrayOf("id", "id"),
+    arrayOf("it", "it-IT"),
+    arrayOf("ja", "ja-JP"),
+    arrayOf("ko", "ko-KR"),
+    arrayOf("nl", "nl-NL"),
+    arrayOf("pl", "pl-PL"),
+    arrayOf("pt", "pt-BR"),
+    arrayOf("ru", "ru-RU"),
+    arrayOf("th", "th"),
+    arrayOf("tr", "tr-TR"),
+    arrayOf("uk", "uk"),
+    arrayOf("vi", "vi"),
+    arrayOf("zh", "zh-CN"),
+    arrayOf("zh-rTW", "zh-TW"),
+)

@@ -110,8 +110,8 @@ fun registerStoreScreenshotCopy(
     val fastlaneDirFile = fastlaneDir?.asFile
 
     doLast {
-        val phoneRegex = Regex("""StoreScreenshotTest_\w+\[([^\]]+)\]_store_[a-z-]+_(\d+(?:_\w+)?)\.png""")
-        val tabletRegex = Regex("""TabletStoreScreenshotTest_\w+\[([^\]]+)\]_tablet_[a-z-]+_(\d+(?:_\w+)?)\.png""")
+        val phoneRegex = Regex("""StoreScreenshotTest_\w+\[([^\]]+)\]_store_[a-zA-Z0-9-]+_(\d+(?:_\w+)?)\.png""")
+        val tabletRegex = Regex("""TabletStoreScreenshotTest_\w+\[([^\]]+)\]_tablet_[a-zA-Z0-9-]+_(\d+(?:_\w+)?)\.png""")
 
         val allPngs = snapshotsDirFile.listFiles()?.filter { it.extension == "png" } ?: emptyList()
 
