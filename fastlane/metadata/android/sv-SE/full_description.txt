@@ -1,0 +1,131 @@
+Träna hjärnan med roliga minispel som utmanar minne, fokus, logik och matematik. Braincup har 42 hjärnövningar som skärper sinnet och förbättrar koncentrationen.
+
+<b>Huvudräkning</b>:
+Följ de matematiska uttrycken. Använd resultatet som bas för nästa räkning.
+
+<b>Kedjeräkning</b>:
+Lös komplexa formler steg för steg.
+
+<b>Sherlock-räkning</b>:
+Hitta en formel som når målet med bara de givna talen och operatorerna.
+
+<b>Bråkräkning</b>:
+Lös bråken.
+
+<b>Värdejämförelse</b>:
+Välj uttrycket med högst värde.
+
+<b>Bubbelsumma</b>:
+Addera talen på de flytande bubblorna.
+
+<b>Snabbsamma</b>:
+Tal blinkar ett i taget. Addera dem och ange totalt.
+
+<b>Avvikelsepussel</b>:
+Hitta figuren som sticker ut.
+
+<b>Mönstersekvens</b>:
+Lista ut regeln längs varje rad och välj biten som kompletterar den.
+
+<b>Vägvisare</b>:
+Börja vid den markerade positionen och följ pilarna till målet.
+
+<b>Visuellt minne</b>:
+Memorera formerna och identifiera den dolda formen när timern tar slut.
+
+<b>Spökruta</b>:
+Se brickorna tändas en efter en och tryck tillbaka dem i samma ordning.
+
+<b>Färgförvirring</b>:
+Tryck på alla rutor där ordet matchar textfärgen.
+
+<b>Färgade former</b>:
+Addera poängen från de sanna påståendena.
+
+<b>Banföljare</b>:
+Titta på de markerade bollarna och följ dem när de rör sig.
+
+<b>Blixtmängd</b>:
+Prickar blinkar kort på varje sida. Tryck på sidan som hade fler.
+
+<b>Mini-Sudoku</b>:
+Fyll det lilla rutnätet så att varje rad, kolumn och block har varje siffra en gång.
+
+<b>Minischack</b>:
+Sätt CPU i schackmatt innan den sätter dig.
+
+<b>Soloschack</b>:
+Slå pjäserna en efter en tills bara kungen är kvar.
+
+<b>Släck lamporna</b>:
+Släck varje lampa. Varje tryck växlar rutan och dess fyra grannar.
+
+<b>Skjutpussel</b>:
+Skjut brickor in i det tomma utrymmet för att lägga dem i ordning.
+
+<b>Shikaku</b>:
+Dela rutnätet i rektanglar. Varje rektangel har exakt ett tal, lika med dess area.
+
+<b>Nurikabe</b>:
+Måla rutor för att bygga havet runt numrerade öar, utan 2x2-block.
+
+<b>Kattdrottningar</b>:
+Placera en katt i varje rad, kolumn och färgzon. Katter får inte röra varandra.
+
+<b>Knut</b>:
+Koppla ihop varje par av färgade prickar. Banorna får inte korsa varandra och måste täcka varje ruta.
+
+<b>Tornet i Hanoi</b>:
+Flytta hela högen till den högra pinnen.
+
+<b>Schultetabell</b>:
+Tryck på talen i ordning från 1 och uppåt så snabbt du kan.
+
+<b>Flaggor</b>:
+Identifiera landet utifrån flaggan.
+
+<b>Sifferminne</b>:
+Memorera en siffersekvens, lös ett snabbt mattetal och återge sedan siffrorna.
+
+<b>Hitta den nya</b>:
+Tryck på djuret du inte har sett förut.
+
+<b>N-Back</b>:
+Se formerna blinka förbi och tryck på den på den efterfrågade positionen.
+
+<b>Wordle</b>:
+Gissa det dolda fem-bokstavsordet på sex försök.
+
+<b>Tändsticksgåtor</b>:
+Flytta tändstickor för att rätta trasiga ekvationer.
+
+<b>Pinnsolitär</b>:
+Hoppa med pinnar tills bara en är kvar.
+
+<b>Sudoku</b>:
+Klassisk Sudoku i full storlek med flera svårighetsgrader.
+
+<b>Schack</b>:
+Fullt schack mot CPU eller turvis spel med en vän.
+
+<b>IQ-test</b>:
+30 matrispussel på 15 minuter, med en uppskattad IQ. Bara på skoj.
+
+<b>Saknade operatorer</b>:
+Hitta de saknade operatorerna (+, -, *, /) som gör ekvationen sann.
+
+<b>Bulls & Cows</b>:
+Gissa det hemliga fyrsiffriga talet med unika siffror.
+
+<b>Simon Says</b>:
+Varje runda tänder en ny platta. Tryck tillbaka hela sekvensen från början.
+
+<b>Prism Clear</b>:
+Byt matchande brickor för att rensa rader med tre eller fler. Töm brädet för att vinna.
+
+<b>Trio</b>:
+Hitta tre kort som delar form, antal eller fyllning.
+
+Spelet har flera <b>prestationer</b> och varje övning har <b>medaljer</b> som håller motivationen uppe.
+
+Ingen spårning. <b>Öppen källkod</b>.
