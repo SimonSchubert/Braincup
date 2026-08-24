@@ -5,6 +5,7 @@
 - Add Malay language support
 - Add Swedish language support
 - Add Hebrew language support
+- Add Czech language support
 
 ## v3.1.0 — 2026-08-19
 

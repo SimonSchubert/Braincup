@@ -1,0 +1,131 @@
+Trénuj mozek zábavnými minihry, které prověří paměť, soustředění, logiku a matematiku. Braincup nabízí 42 cvičení na mozek, která bystří mysl a zlepšují koncentraci.
+
+<b>Počítání z hlavy</b>:
+Sleduj matematické výrazy. Výsledek použij jako základ dalšího výpočtu.
+
+<b>Řetězové počítání</b>:
+Řeš složité vzorce krok za krokem.
+
+<b>Sherlockovské počítání</b>:
+Najdi vzorec, který dosáhne cíle jen s danými čísly a operátory.
+
+<b>Počítání zlomků</b>:
+Vyřeš zlomky.
+
+<b>Porovnání hodnot</b>:
+Vyber výraz s nejvyšší hodnotou.
+
+<b>Součet bublin</b>:
+Sečti čísla na plovoucích bublinách.
+
+<b>Rychlý součet</b>:
+Čísla blikají jedno po druhém. Sečti je a zadej součet.
+
+<b>Hádanka anomálie</b>:
+Najdi figurku, která vyčnívá.
+
+<b>Posloupnost vzorů</b>:
+Odhal pravidlo v každém řádku a vyber dílek, který ho doplní.
+
+<b>Hledač cesty</b>:
+Začni na označené pozici a následuj šipky k cíli.
+
+<b>Vizuální paměť</b>:
+Zapamatuj si tvary v mřížce a po skončení časovače urči skrytý tvar.
+
+<b>Mřížka duchů</b>:
+Sleduj, jak se dlaždice rozsvěcují jedna po druhé, a klepni na ně ve stejném pořadí.
+
+<b>Zmatek barev</b>:
+Klepni na všechny buňky, kde se slovo shoduje s barvou písma.
+
+<b>Barevné tvary</b>:
+Sečti body z pravdivých tvrzení.
+
+<b>Sledovač drah</b>:
+Sleduj zvýrazněné koule a drž je, když se pohybují.
+
+<b>Zábleskový dav</b>:
+Tečky krátce bliknou na každé straně. Klepni na stranu, kde jich bylo víc.
+
+<b>Mini Sudoku</b>:
+Vyplň malou mřížku tak, aby každý řádek, sloupec a blok obsahoval každé číslo přesně jednou.
+
+<b>Mini šachy</b>:
+Dej CPU mata dřív, než ho dostaneš ty.
+
+<b>Solo šachy</b>:
+Ber figury jednu po druhé, dokud nezbude jen král.
+
+<b>Zhasni světla</b>:
+Zhasni každé světlo. Každé klepnutí přepne buňku a její čtyři sousedy.
+
+<b>Posuvné puzzle</b>:
+Posouvej dlaždice do prázdného místa, aby byly v pořádku.
+
+<b>Shikaku</b>:
+Rozděl celou mřížku na obdélníky. Každý obdélník obsahuje přesně jedno číslo, rovné jeho obsahu.
+
+<b>Nurikabe</b>:
+Maluj buňky a postav moře kolem očíslovaných ostrovů, bez bloku 2x2.
+
+<b>Kočičí královny</b>:
+Umísti jednu kočku do každého řádku, sloupce i barevné zóny. Kočky se nesmějí dotýkat.
+
+<b>Uzel</b>:
+Spoj každou dvojici barevných teček cestou. Cesty se nesmějí křížit a musí pokrýt každou buňku.
+
+<b>Hanojská věž</b>:
+Přesuň celý sloupec na pravý kolík.
+
+<b>Schultova tabulka</b>:
+Klepej na čísla v pořadí od 1 nahoru co nejrychleji.
+
+<b>Vlajky</b>:
+Poznej zemi podle vlajky.
+
+<b>Paměť číslic</b>:
+Zapamatuj si posloupnost číslic, vyřeš rychlý příklad a pak si číslice vybav.
+
+<b>Najdi nového</b>:
+Klepni na zvíře, které jsi ještě neviděl.
+
+<b>N-Back</b>:
+Sleduj tvary, jak prolétají, a klepni na ten na požadované pozici.
+
+<b>Wordle</b>:
+Hádej skryté pětipísmenné slovo na šest pokusů.
+
+<b>Sirkové hádanky</b>:
+Přesouvej sirky a oprav rozbité rovnice.
+
+<b>Kolíkový solitér</b>:
+Přeskakuj kolíky, dokud nezbude jeden.
+
+<b>Sudoku</b>:
+Klasické Sudoku v plné velikosti s více obtížnostmi.
+
+<b>Šachy</b>:
+Plné šachy proti CPU nebo střídání tahů s kamarádem.
+
+<b>IQ test</b>:
+30 maticových hádanek za 15 minut, s odhadovaným IQ. Jen pro zábavu.
+
+<b>Chybějící operátory</b>:
+Najdi chybějící operátory (+, -, *, /), které rovnice splní.
+
+<b>Bulls & Cows</b>:
+Hádej tajné 4místné číslo s unikátními číslicemi.
+
+<b>Simon Says</b>:
+Každé kolo rozsvítí jeden nový panel. Klepni celou sekvenci od začátku.
+
+<b>Prism Clear</b>:
+Prohoď shodné dlaždice a smaž řady o třech a více. Vyprázdni desku a vyhraješ.
+
+<b>Trio</b>:
+Najdi tři karty, které sdílejí tvar, počet nebo výplň.
+
+Hra má několik <b>úspěchů</b> a každé cvičení má <b>medaile</b>, které tě motivují.
+
+Bez sledování. <b>Open source</b>.
