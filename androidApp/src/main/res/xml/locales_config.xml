@@ -9,6 +9,7 @@
     <locale android:name="fa" />
     <locale android:name="fil" />
     <locale android:name="fr" />
+    <locale android:name="he" />
     <locale android:name="hi" />
     <locale android:name="id" />
     <locale android:name="it" />

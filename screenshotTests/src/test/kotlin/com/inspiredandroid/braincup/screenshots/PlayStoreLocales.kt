@@ -25,6 +25,7 @@ internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("fa", "fa"),
     arrayOf("fil", "fil"),
     arrayOf("fr", "fr-FR"),
+    arrayOf("he", "iw-IL"),
     arrayOf("hi", "hi-IN"),
     arrayOf("id", "id"),
     arrayOf("it", "it-IT"),
