@@ -1,0 +1,131 @@
+Træn hjernen med sjove minispil, der udfordrer hukommelse, fokus, logik og matematik. Braincup har 42 hjerneøvelser.
+
+<b>Hovedregning</b>:
+Følg de matematiske udtryk. Brug resultatet som grundlag for næste beregning.
+
+<b>Kæderegning</b>:
+Løs komplekse formler trin for trin.
+
+<b>Sherlock-regning</b>:
+Find en formel, der når målet med kun de givne tal og operatorer.
+
+<b>Brøkregning</b>:
+Løs brøkerne.
+
+<b>Værdisammenligning</b>:
+Vælg udtrykket med den højeste værdi.
+
+<b>Boblesum</b>:
+Læg tallene på de flydende bobler sammen.
+
+<b>Hurtigsum</b>:
+Tal blinker ét ad gangen. Læg dem sammen, og indtast totalen.
+
+<b>Afvigelsespuslespil</b>:
+Find figuren, der skiller sig ud.
+
+<b>Mønstersekvens</b>:
+Find reglen i hver række, og vælg brikken, der fuldender den.
+
+<b>Stifinder</b>:
+Start ved den markerede position, og følg pilene til målet.
+
+<b>Visuel hukommelse</b>:
+Husk formene, og identificer den skjulte form, når timeren slutter.
+
+<b>Spøgelsesgitter</b>:
+Se brikkerne tænde én efter én, og tryk dem tilbage i samme rækkefølge.
+
+<b>Farveforvirring</b>:
+Tryk på alle felter, hvor ordet matcher skriftfarven.
+
+<b>Farvede former</b>:
+Læg pointene fra de sande udsagn sammen.
+
+<b>Banefølger</b>:
+Se de fremhævede bolde, og følg dem, mens de bevæger sig.
+
+<b>Lynmængde</b>:
+Prikker blinker kort på hver side. Tryk på den side, der havde flest.
+
+<b>Mini-Sudoku</b>:
+Udfyld det lille gitter, så hver række, søjle og blok har hvert tal én gang.
+
+<b>Miniskak</b>:
+Sæt CPU skakmat, før den sætter dig.
+
+<b>Soloskak</b>:
+Slå brikkerne én efter én, indtil kun kongen er tilbage. Hvert træk skal slå.
+
+<b>Sluk lysene</b>:
+Sluk hvert lys. Hvert tryk skifter feltet og dets fire naboer.
+
+<b>Skydpuslespil</b>:
+Skyd brikker ind i det tomme felt for at lægge dem i rækkefølge.
+
+<b>Shikaku</b>:
+Del gitteret i rektangler. Hvert rektangel har præcis ét tal, lig med dets areal.
+
+<b>Nurikabe</b>:
+Mal felter for at bygge havet rundt om nummererede øer, uden 2x2-blok.
+
+<b>Kattedronninger</b>:
+Placer én kat i hver række, søjle og farvezone. Katte må ikke røre hinanden, heller ikke diagonalt.
+
+<b>Knude</b>:
+Forbind hvert par farvede prikker. Stierne må ikke krydse, og de skal dække hvert felt.
+
+<b>Tårnet i Hanoi</b>:
+Flyt hele stakken til den højre pind.
+
+<b>Schulte-tabel</b>:
+Tryk på tallene i rækkefølge fra 1 og opefter så hurtigt, du kan.
+
+<b>Flag</b>:
+Identificer landet ud fra flaget.
+
+<b>Cifferhukommelse</b>:
+Husk en ciffersekvens, løs et hurtigt regnestykke, og gengiv derefter cifrene.
+
+<b>Find den nye</b>:
+Tryk på det dyr, du ikke har set før.
+
+<b>N-Back</b>:
+Se formene blinke forbi, og tryk på den på den efterspurgte position.
+
+<b>Wordle</b>:
+Gæt det skjulte fem-bogstavsord på seks forsøg.
+
+<b>Tændstikgåder</b>:
+Flyt tændstikker for at rette ødelagte ligninger.
+
+<b>Pindesolitær</b>:
+Hop med pinde, indtil kun én er tilbage.
+
+<b>Sudoku</b>:
+Klassisk Sudoku i fuld størrelse med flere sværhedsgrader.
+
+<b>Skak</b>:
+Fuld skak mod CPU eller på skift med en ven.
+
+<b>IQ-test</b>:
+30 matrixpuslespil på 15 minutter, med en anslået IQ. Kun for sjov.
+
+<b>Manglende operatorer</b>:
+Find de manglende operatorer (+, -, *, /), der gør ligningen sand.
+
+<b>Bulls & Cows</b>:
+Gæt det hemmelige 4-cifrede tal med unikke cifre.
+
+<b>Simon Says</b>:
+Hver runde tænder én ny plade. Tryk hele sekvensen tilbage fra starten.
+
+<b>Prism Clear</b>:
+Byt matchende brikker for at rydde rækker med tre eller flere. Tøm brættet for at vinde.
+
+<b>Trio</b>:
+Find tre kort, der deler form, antal eller udfyldning.
+
+Spillet har flere <b>præstationer</b>, og hver øvelse har <b>medaljer</b>, der holder motivationen oppe.
+
+Ingen sporing. <b>Åben kildekode</b>.
