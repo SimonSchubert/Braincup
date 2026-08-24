@@ -1,0 +1,131 @@
+Antrenează-ți creierul cu minijocuri care pun la încercare memoria, concentrarea, logica și matematica. Braincup are 42 de exerciții gândite să-ți ascută mintea.
+
+<b>Calcul mintal</b>:
+Urmărește expresiile matematice. Folosește rezultatul ca bază pentru calculul următor.
+
+<b>Calcul în lanț</b>:
+Rezolvă formule complexe pas cu pas.
+
+<b>Calcul Sherlock</b>:
+Găsește o formulă care ajunge la scop doar cu numerele și operatorii dați.
+
+<b>Calcul cu fracții</b>:
+Rezolvă fracțiile.
+
+<b>Compararea valorilor</b>:
+Alege expresia cu valoarea cea mai mare.
+
+<b>Suma bulelor</b>:
+Adună numerele de pe bulele care plutesc.
+
+<b>Sumă rapidă</b>:
+Numerele apar pe rând. Adună-le și introdu totalul.
+
+<b>Puzzle-ul anomaliei</b>:
+Găsește figura care iese în evidență.
+
+<b>Secvență de modele</b>:
+Descoperă regula de pe fiecare rând și alege piesa care o completează.
+
+<b>Căutător de cale</b>:
+Pornește de la poziția marcată și urmează săgețile până la destinație.
+
+<b>Memorie vizuală</b>:
+Memorează formele din grilă, apoi identifică forma ascunsă.
+
+<b>Grila fantomă</b>:
+Urmărește cum se aprind dalele una câte una, apoi apasă-le în aceeași ordine.
+
+<b>Confuzie de culori</b>:
+Apasă toate celulele unde cuvântul se potrivește cu culoarea fontului.
+
+<b>Forme colorate</b>:
+Adună punctele din afirmațiile corecte.
+
+<b>Urmăritor de orbite</b>:
+Urmărește bilele evidențiate, apoi ține-le minte pe măsură ce se mișcă.
+
+<b>Mulțime fulger</b>:
+Punctele clipesc scurt pe fiecare parte. Apasă partea care a avut mai multe.
+
+<b>Mini Sudoku</b>:
+Completează grila mică astfel încât fiecare rând, coloană și bloc să conțină fiecare număr o dată.
+
+<b>Mini șah</b>:
+Dă șah-mat CPU-ului înainte să ți-l dea el.
+
+<b>Șah solo</b>:
+Capturează piesele una câte una până rămâne doar regele. Fiecare mutare trebuie să captureze.
+
+<b>Stinge luminile</b>:
+Stinge fiecare lumină. Fiecare apăsare comută celula și cei patru vecini.
+
+<b>Puzzle glisant</b>:
+Glisează dalele în spațiul gol ca să le pui în ordine.
+
+<b>Shikaku</b>:
+Împarte grila în dreptunghiuri. Fiecare conține exact un număr, egal cu aria sa.
+
+<b>Nurikabe</b>:
+Pictează celule ca să construiești marea în jurul insulelor numerotate, fără bloc 2x2.
+
+<b>Regine pisici</b>:
+Pune o pisică pe fiecare rând, coloană și zonă de culoare. Pisicile nu se pot atinge, nici în diagonală.
+
+<b>Nod</b>:
+Leagă fiecare pereche de puncte colorate cu o cale. Căile nu se intersectează și acoperă fiecare celulă.
+
+<b>Turnul din Hanoi</b>:
+Mută tot teancul pe cuiul din dreapta.
+
+<b>Tabel Schulte</b>:
+Apasă numerele în ordine de la 1 în sus cât poți de repede.
+
+<b>Steaguri</b>:
+Identifică țara după steag.
+
+<b>Memorie de cifre</b>:
+Memorează o secvență de cifre, rezolvă o problemă rapidă, apoi amintește-ți cifrele.
+
+<b>Găsește noul</b>:
+Apasă animalul pe care nu l-ai mai văzut.
+
+<b>N-Back</b>:
+Urmărește formele care apar, apoi apasă-o pe cea de la poziția cerută.
+
+<b>Wordle</b>:
+Ghicește cuvântul ascuns de cinci litere în șase încercări.
+
+<b>Ghicitori cu chibrituri</b>:
+Mută chibrituri ca să îndrepți ecuațiile stricate.
+
+<b>Solitar cu pioni</b>:
+Sari cu pionii până rămâne unul singur.
+
+<b>Sudoku</b>:
+Sudoku clasic de mărime completă, cu mai multe dificultăți.
+
+<b>Șah</b>:
+Șah complet contra CPU sau pe rând cu un prieten.
+
+<b>Test IQ</b>:
+30 de puzzle-uri matriciale în 15 minute, cu un IQ estimat. Doar de distracție.
+
+<b>Operatori lipsă</b>:
+Găsește operatorii lipsă (+, -, *, /) care fac ecuația adevărată.
+
+<b>Bulls & Cows</b>:
+Ghicește numărul secret de 4 cifre cu cifre unice.
+
+<b>Simon Says</b>:
+Fiecare rundă aprinde un panou nou. Apasă toată secvența de la început.
+
+<b>Prism Clear</b>:
+Schimbă dale potrivite ca să ștergi linii de trei sau mai multe. Golește tabla ca să câștigi.
+
+<b>Trio</b>:
+Găsește trei cărți care împart o formă, un număr sau o umplere.
+
+Jocul are mai multe <b>realizări</b>, iar fiecare exercițiu are <b>medalii</b> care te țin motivat.
+
+Fără urmărire. <b>Open source</b>.
