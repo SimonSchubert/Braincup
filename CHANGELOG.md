@@ -7,6 +7,7 @@
 - Add Hebrew language support
 - Add Czech language support
 - Add Romanian language support
+- Add Hungarian language support
 
 ## v3.1.0 — 2026-08-19
 

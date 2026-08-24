@@ -1,0 +1,131 @@
+Edzd az agyad szórakoztató minijátékokkal, amelyek a memóriát, a figyelmet, a logikát és a matematikát próbálják. A Braincup 42 agyedzést kínál.
+
+<b>Fejszámolás</b>:
+Kövesd a matematikai kifejezéseket. Az eredmény legyen a következő számolás alapja.
+
+<b>Láncszámolás</b>:
+Oldj meg összetett képleteket lépésről lépésre.
+
+<b>Sherlock-számolás</b>:
+Találj képletet a célhoz csak a megadott számokkal és jelekkel.
+
+<b>Törtszámolás</b>:
+Oldd meg a törteket.
+
+<b>Érték-összehasonlítás</b>:
+Válaszd a legnagyobb értékű kifejezést.
+
+<b>Buborékszám</b>:
+Add össze a lebegő buborékok számait.
+
+<b>Gyors összeg</b>:
+A számok egymás után villannak. Add össze őket, és írd be az összeget.
+
+<b>Anomália-rejtvény</b>:
+Találd meg az alakzatot, amely kilóg.
+
+<b>Mintasorozat</b>:
+Találd ki a szabályt minden sorban, majd válaszd a darabot, amely kiegészíti.
+
+<b>Útkereső</b>:
+Indulj a jelölt helyről, és kövesd a nyilakat a célhoz.
+
+<b>Vizuális memória</b>:
+Jegyezd meg a rács alakzatait, majd azonosítsd a rejtett alakzatot.
+
+<b>Szellemrács</b>:
+Figyeld, ahogy a mezők egymás után kigyulladnak, majd koppints rájuk ugyanabban a sorrendben.
+
+<b>Színzavar</b>:
+Koppints minden cellára, ahol a szó megegyezik a betűszínnel.
+
+<b>Színes alakzatok</b>:
+Add össze a helyes állítások pontjait.
+
+<b>Pályakövető</b>:
+Figyeld a kiemelt golyókat, majd kövesd őket, ahogy mozognak.
+
+<b>Villanótömeg</b>:
+Pontok villannak röviden mindkét oldalon. Koppints arra, ahol több volt.
+
+<b>Mini Sudoku</b>:
+Töltsd ki a kis rácsot úgy, hogy minden sor, oszlop és blokk minden számot egyszer tartalmazzon.
+
+<b>Mini sakk</b>:
+Adj sakk-mattot a CPU-nak, mielőtt ő ad neked.
+
+<b>Szóló sakk</b>:
+Üsd le a bábukat egyenként, amíg csak a király marad. Minden lépésnek ütésnek kell lennie.
+
+<b>Fények ki</b>:
+Oltsd el minden fényt. Minden koppintás a cellát és a négy szomszédját kapcsolja.
+
+<b>Csúszó kirakó</b>:
+Csúsztasd a lapkákat az üres helyre, hogy sorba tedd őket.
+
+<b>Shikaku</b>:
+Oszd fel a rácsot téglalapokra. Mindegyikben pontosan egy szám van, a területével egyenlő.
+
+<b>Nurikabe</b>:
+Fess cellákat, hogy tengert építs a számozott szigetek köré, 2x2-es blokk nélkül.
+
+<b>Macskakirálynők</b>:
+Tegyél egy macskát minden sorba, oszlopba és színzónába. A macskák nem érhetnek össze, még átlósan sem.
+
+<b>Csomó</b>:
+Kösd össze a színes pontpárokat. Az utak nem kereszteződnek, és minden cellát lefednek.
+
+<b>Hanoi tornya</b>:
+Vidd a teljes tornyot a jobb rúdra.
+
+<b>Schulte-tábla</b>:
+Koppints a számokra 1-től felfelé, amilyen gyorsan tudod.
+
+<b>Zászlók</b>:
+Ismerd fel az országot a zászlójáról.
+
+<b>Számjegyemlékezet</b>:
+Jegyezz meg egy számjegysort, oldj meg egy gyors feladatot, majd idézd fel a jegyeket.
+
+<b>Az újat keresd</b>:
+Koppints az állatra, amelyet még nem láttál.
+
+<b>N-Back</b>:
+Figyeld az alakzatokat, majd koppints arra, amelyik a kért helyen volt.
+
+<b>Wordle</b>:
+Találd ki a rejtett ötbetűs szót hat próbálkozásból.
+
+<b>Gyufarejtvények</b>:
+Mozgass gyufaszálakat, hogy javítsd a törött egyenleteket.
+
+<b>Bábu-türelemjáték</b>:
+Ugorj a bábukkal, amíg egy marad.
+
+<b>Sudoku</b>:
+Klasszikus teljes méretű Sudoku, több nehézséggel.
+
+<b>Sakk</b>:
+Teljes sakk CPU ellen vagy felváltva egy baráttal.
+
+<b>IQ-teszt</b>:
+30 mátrixrejtvény 15 perc alatt, becsült IQ-val. Csak szórakozásból.
+
+<b>Hiányzó műveleti jelek</b>:
+Találd meg a hiányzó jeleket (+, -, *, /), amelyek igazzá teszik az egyenletet.
+
+<b>Bulls & Cows</b>:
+Találd ki a titkos 4 jegyű számot, csupa különböző jeggyel.
+
+<b>Simon Says</b>:
+Minden körben egy új gomb gyullad ki. Koppintsd vissza az egész sorozatot az elejétől.
+
+<b>Prism Clear</b>:
+Cseréld az egyező lapkákat, hogy legalább hármas sorokat törölj. Ürítsd ki a táblát a győzelemhez.
+
+<b>Trio</b>:
+Találj három kártyát, amelyek alakban, számban vagy kitöltésben megegyeznek.
+
+A játékban több <b>teljesítmény</b> van, és minden gyakorlatnak vannak <b>érmei</b>, hogy motivált maradj.
+
+Nincs követés. <b>Nyílt forráskód</b>.
