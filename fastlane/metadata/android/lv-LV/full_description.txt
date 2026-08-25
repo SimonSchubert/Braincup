@@ -1,0 +1,131 @@
+Trenē smadzenes ar aizraujošām minispēlēm, kas pārbauda atmiņu, uzmanību, loģiku un matemātiku. Braincup piedāvā 42 smadzeņu vingrinājumus.
+
+<b>Skaitīšana prātā</b>:
+Seko matemātiskajām izteiksmēm. Izmanto rezultātu kā pamatu nākamajam aprēķinam.
+
+<b>Ķēdes skaitīšana</b>:
+Atrisini sarežģītas formulas soli pa solim.
+
+<b>Šerloka skaitīšana</b>:
+Atrodi formulu, kas sasniedz mērķi tikai ar dotajiem skaitļiem un operatoriem.
+
+<b>Daļskaitļu skaitīšana</b>:
+Atrisini daļskaitļus.
+
+<b>Vērtību salīdzināšana</b>:
+Izvēlies izteiksmi ar vislielāko vērtību.
+
+<b>Burbuļu summa</b>:
+Saskaiti skaitļus uz peldošajiem burbuļiem.
+
+<b>Ātrā summa</b>:
+Skaitļi mirgo viens pēc otra. Saskaiti tos un ievadi summu.
+
+<b>Anomālijas mīkla</b>:
+Atrodi figūru, kas izceļas.
+
+<b>Rakstu secība</b>:
+Atklāj likumu katrā rindā un izvēlies gabalu, kas to papildina.
+
+<b>Ceļa meklētājs</b>:
+Sāc no atzīmētās vietas un seko bultiņām līdz mērķim.
+
+<b>Vizuālā atmiņa</b>:
+Atceries formas un pēc taimera beigām nosaki slēpto formu.
+
+<b>Rēgu režģis</b>:
+Skaties, kā flīzes iedegas viena pēc otras, un pieskaries tām tajā pašā secībā.
+
+<b>Krāsu sajukums</b>:
+Pieskaries visām šūnām, kur vārds sakrīt ar fonta krāsu.
+
+<b>Krāsainas figūras</b>:
+Saskaiti punktus no patiesajiem apgalvojumiem.
+
+<b>Orbītu izsekotājs</b>:
+Skaties izceltās bumbiņas un turi tās, kamēr tās kustas.
+
+<b>Mirgojošais pūlis</b>:
+Punkti īsi nomirgo katrā pusē. Pieskaries pusei, kurā to bija vairāk.
+
+<b>Mini Sudoku</b>:
+Aizpildi mazo režģi tā, lai katrā rindā, kolonnā un blokā būtu katrs skaitlis vienreiz.
+
+<b>Mini šahs</b>:
+Dod CPU matu, pirms tas to dod tev.
+
+<b>Solo šahs</b>:
+Ņem figūras vienu pēc otras, līdz paliek tikai karalis. Katram gājienam jāņem.
+
+<b>Izdzēs gaismas</b>:
+Izdzēs katru gaismu. Katrs pieskāriens pārslēdz šūnu un tās četrus kaimiņus.
+
+<b>Bīdāmā puzle</b>:
+Bīdi flīzes tukšajā vietā, līdz tās ir kārtībā.
+
+<b>Shikaku</b>:
+Sadali režģi taisnstūros. Katrā ir tieši viens skaitlis, tā laukums.
+
+<b>Nurikabe</b>:
+Krāso šūnas un uzbūvē jūru ap numurētajām salām bez 2x2 bloka.
+
+<b>Kaķu karalienes</b>:
+Novieto vienu kaķi katrā rindā, kolonnā un krāsas zonā. Kaķi nedrīkst saskarties, pat pa diagonāli.
+
+<b>Mezgls</b>:
+Savieno katru krāsaino punktu pāri. Ceļi nedrīkst krustoties un tiem jānosedz katra šūna.
+
+<b>Hanojas tornis</b>:
+Pārvieto visu stabiņu uz labo tapiņu.
+
+<b>Šultes tabula</b>:
+Pieskaries skaitļiem pēc kārtas no 1 uz augšu tik ātri, cik vari.
+
+<b>Karogi</b>:
+Atpazīsti valsti pēc karoga.
+
+<b>Ciparu atmiņa</b>:
+Atceries ciparu secību, atrisini ātru uzdevumu, tad atceries ciparus.
+
+<b>Atrodi jauno</b>:
+Pieskaries dzīvniekam, kuru vēl nepazīsti.
+
+<b>N-Back</b>:
+Skaties formas, kā tās palido garām, un pieskaries tai vajadzīgajā vietā.
+
+<b>Wordle</b>:
+Uzmini slēpto piecu burtu vārdu sešos mēģinājumos.
+
+<b>Sērkociņu mīklas</b>:
+Pārvieto sērkociņus un izlabo salauztos vienādojumus.
+
+<b>Tapu solitērs</b>:
+Pārlēc tapas, līdz paliek viena.
+
+<b>Sudoku</b>:
+Klasiskais pilna izmēra Sudoku ar vairākām grūtībām.
+
+<b>Šahs</b>:
+Pilns šahs pret CPU vai gājienu maiņa ar draugu.
+
+<b>IQ tests</b>:
+30 matricu mīklas 15 minūtēs, ar novērtētu IQ. Tikai izklaidei.
+
+<b>Trūkstošie operatori</b>:
+Atrodi trūkstošos operatorus (+, -, *, /), kas padara vienādojumu par patiesu.
+
+<b>Bulls & Cows</b>:
+Uzmini slepeno 4 ciparu skaitli ar unikāliem cipariem.
+
+<b>Simon Says</b>:
+Katra kārta iedeg vienu jaunu flīzi. Pieskaries visai secībai no sākuma.
+
+<b>Prism Clear</b>:
+Apmaini sakrītošas flīzes un izdzēs rindas no trim un vairāk. Iztīri dēli un uzvari.
+
+<b>Trio</b>:
+Atrodi trīs kārtis, kas dala formu, skaitu vai aizpildījumu.
+
+Spēlē ir vairāki <b>sasniegumi</b>, un katram vingrinājumam ir <b>medaļas</b>, kas uztur motivāciju.
+
+Bez izsekošanas. <b>Open source</b>.
