@@ -1,0 +1,131 @@
+Traenáil d’inchinn le mionchluichí spraíúla a chuireann cuimhne, fócas, loighic agus mata faoi thástáil. Tá 42 cleachtadh ag Braincup.
+
+<b>Áireamh meabhrach</b>:
+Lean slonnanna matamaitice. Úsáid an toradh mar bhonn don chéad áireamh eile.
+
+<b>Áireamh slabhrach</b>:
+Réitigh foirmlí casta céim ar chéim.
+
+<b>Áireamh Sherlock</b>:
+Faigh an fhoirmle a shroicheann an sprioc leis na huimhreacha agus oibreoirí tugtha.
+
+<b>Áireamh codán</b>:
+Réitigh na codáin.
+
+<b>Comparáid luachanna</b>:
+Roghnaigh an slonn leis an luach is airde.
+
+<b>Suim boilgeog</b>:
+Suimigh na huimhreacha ar na boilgeoga snámha.
+
+<b>Suim thapa</b>:
+Caochaíonn uimhreacha ceann ar cheann. Suimigh iad agus cuir isteach an t-iomlán.
+
+<b>Tomhas aimhrialtachta</b>:
+Faigh an figiúr atá difriúil.
+
+<b>Seicheamh patrún</b>:
+Faigh an riail i ngach ró agus roghnaigh an píosa a chomhlánaíonn í.
+
+<b>Aimsitheoir slí</b>:
+Tosaigh ag an suíomh marcáilte agus lean na saigheada go dtí an ceann scríbe.
+
+<b>Cuimhne amhairc</b>:
+Meabhraigh cruthanna agus aithin an cruth folaithe nuair a chríochnaíonn an t-amadóir.
+
+<b>Eangach thaibhsí</b>:
+Féach ar na tíl ag lasadh ceann i ndiaidh a chéile agus tapáil iad san ord céanna.
+
+<b>Mearbhall dathanna</b>:
+Tapáil gach cill ina n-oireann an focal le dath an chló.
+
+<b>Cruthanna daite</b>:
+Suimigh na pointí ó ráitis fhíora.
+
+<b>Lorgaire fithise</b>:
+Féach ar na liathróidí aibhsithe agus lean iad agus iad ag gluaiseacht.
+
+<b>Slua splanc</b>:
+Caochaíonn poncanna go gairid ar gach taobh. Tapáil an taobh a raibh níos mó orthu.
+
+<b>Mini Sudoku</b>:
+Líon an eangach bheag ionas go bhfuil gach uimhir uair amháin i ngach ró, colún agus bloc.
+
+<b>Mionfhicheall</b>:
+Tabhair marbhsháinn don CPU sula dtugann sé duitse í.
+
+<b>Ficheall aonair</b>:
+Tóg píosaí ceann ar cheann go dtí nach bhfuil fágtha ach an rí.
+
+<b>Múch na soilse</b>:
+Múch gach solas. Gach tapáil aistríonn an chill agus a ceithre comharsa.
+
+<b>Puzal sleamhnáin</b>:
+Sleamhnaigh tíl isteach sa spás folamh go dtí go bhfuil siad in ord.
+
+<b>Shikaku</b>:
+Roinn an eangach ina dronuilleoga. Tá uimhir amháin i ngach ceann, a achar.
+
+<b>Nurikabe</b>:
+Péinteáil cealla chun an fharraige a thógáil timpeall oileán uimhrithe gan bloc 2x2.
+
+<b>Banríonacha cait</b>:
+Cuir cat amháin i ngach ró, colún agus crios datha. Ní féidir leo teagmháil a dhéanamh, fiú ar an trasnán.
+
+<b>Snaidhm</b>:
+Ceangail gach péire ponc daite. Ní féidir leis na cosáin trasnú, agus caithfidh siad gach cill a chlúdach.
+
+<b>Túr Hanoi</b>:
+Bog an carn iomlán chuig an tairne ar dheis.
+
+<b>Tábla Schulte</b>:
+Tapáil uimhreacha in ord ó 1 aníos chomh tapa agus is féidir.
+
+<b>Bratacha</b>:
+Aithin an tír ón mbratach.
+
+<b>Cuimhne digití</b>:
+Meabhraigh seicheamh digití, réitigh áireamh tapa, ansin meabhraigh na digití.
+
+<b>Faigh an ceann nua</b>:
+Tapáil an t-ainmhí nár chonaic tú cheana.
+
+<b>N-Back</b>:
+Féach ar chruthanna ag splancadh thart agus tapáil an ceann a bhí sa suíomh iarrtha.
+
+<b>Wordle</b>:
+Buille faoi thuairim an focal folaithe cúig litir i sé iarracht.
+
+<b>Tomhais lasán</b>:
+Bog lasáin chun cothromóidí briste a dheisiú.
+
+<b>Solitaire bioráin</b>:
+Léim bioráin go dtí nach bhfuil fágtha ach ceann amháin.
+
+<b>Sudoku</b>:
+Sudoku clasaiceach lánmhéide le roinnt deacrachtaí.
+
+<b>Ficheall</b>:
+Ficheall iomlán in aghaidh CPU nó bearta ar a seal le cara.
+
+<b>Tástáil IQ</b>:
+30 tomhas maitríse i 15 nóiméad, le IQ measta. Le haghaidh spraoi amháin.
+
+<b>Oibreoirí ar iarraidh</b>:
+Faigh na hoibreoirí atá in easnamh (+, -, *, /) a fhágann an chothromóid fíor.
+
+<b>Bulls & Cows</b>:
+Buille faoi thuairim an uimhir rúnda 4 dhigit le digití uathúla.
+
+<b>Simon Says</b>:
+Lasann gach babhta tíl nua amháin. Tapáil an seicheamh iomlán ón tús.
+
+<b>Prism Clear</b>:
+Malartaigh tíl mheaitseála chun sraitheanna de thrí nó níos mó a ghlanadh. Glan an clár agus buaigh.
+
+<b>Trio</b>:
+Faigh trí chárta a roinneann cruth, líon nó líonadh.
+
+Tá <b>éachtaí</b> agus <b>boinn</b> ag gach cleachtadh a choinníonn an spreagadh.
+
+Gan rianú. <b>Open source</b>.
