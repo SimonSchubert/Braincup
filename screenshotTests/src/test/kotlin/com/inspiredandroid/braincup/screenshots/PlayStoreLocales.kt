@@ -16,6 +16,7 @@ internal fun javaLocale(resourceLocale: String): Locale {
 
 internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("ar", "ar"),
+    arrayOf("bg", "bg-BG"),
     arrayOf("bn", "bn-BD"),
     arrayOf("cs", "cs-CZ"),
     arrayOf("da", "da-DK"),

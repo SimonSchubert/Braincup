@@ -182,7 +182,7 @@ val isDarkColorScheme: Boolean
 // Arabic, Persian, Urdu and Hebrew have no glyphs in either font and fall back to the system
 // face, so they share Tektur to keep those locales visually consistent.
 private val nonLatinDisplayLanguages =
-    setOf("el", "ru", "uk", "ja", "ko", "zh", "th", "hi", "bn", "ar", "fa", "ur", "he", "iw")
+    setOf("el", "bg", "ru", "uk", "ja", "ko", "zh", "th", "hi", "bn", "ar", "fa", "ur", "he", "iw")
 
 @Composable
 private fun displayFontFamily(): FontFamily = if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
