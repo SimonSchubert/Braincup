@@ -9,6 +9,7 @@
 - Add Romanian language support
 - Add Hungarian language support
 - Add Danish language support
+- Add Norwegian language support
 
 ## v3.1.0 — 2026-08-19
 

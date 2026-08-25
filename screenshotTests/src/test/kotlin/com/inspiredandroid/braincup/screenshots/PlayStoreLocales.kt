@@ -35,6 +35,7 @@ internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("ja", "ja-JP"),
     arrayOf("ko", "ko-KR"),
     arrayOf("ms", "ms"),
+    arrayOf("nb", "no-NO"),
     arrayOf("nl", "nl-NL"),
     arrayOf("pl", "pl-PL"),
     arrayOf("pt", "pt-BR"),
