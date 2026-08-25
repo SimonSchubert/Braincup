@@ -1,0 +1,132 @@
+Æfðu heilann með skemmtilegum smáleikjum sem reyna á minni, einbeitingu, rökhugsun og stærðfræði. Braincup býður upp á 42 heilaæfingar.
+
+<b>Hugarreikningur</b>:
+Fylgdu stærðfræðistæðunum. Notaðu niðurstöðuna sem grunn næsta útreiknings.
+
+<b>Keðjureikningur</b>:
+Leystu flóknar formúlur skref fyrir skref.
+
+<b>Sherlock-reikningur</b>:
+Finndu formúlu sem nær markmiðinu aðeins með gefnum tölum og virkjum.
+
+<b>Brotareikningur</b>:
+Leystu brotin.
+
+<b>Gildissamanburður</b>:
+Veldu stæðuna með hæsta gildið.
+
+<b>Kúlasumma</b>:
+Leggðu saman tölurnar á fljótandi kúlunum.
+
+<b>Hraðsumma</b>:
+Tölur blikka ein af annarri. Leggðu þær saman og sláðu inn heildina.
+
+<b>Fráviksgáta</b>:
+Finndu myndina sem sker sig úr.
+
+<b>Mynsturröð</b>:
+Finndu regluna í hverri röð og veldu bitann sem lýkur henni.
+
+<b>Leiðarleitandi</b>:
+Byrjaðu á merktum stað og fylgdu örvunum að áfangastað.
+
+<b>Sjónminni</b>:
+Mundu formin og greindu falið formið þegar tímamælirinn rennur út.
+
+<b>Drauganet</b>:
+Horfðu á flísarnar kvikna eina af annarri og ýttu á þær í sömu röð.
+
+<b>Litaruglingur</b>:
+Ýttu á alla reiti þar sem orðið passar við lit letursins.
+
+<b>Litaðar myndir</b>:
+Leggðu saman stigin úr sönnum fullyrðingum.
+
+<b>Brautarfylgjandi</b>:
+Horfðu á auðkenndu kúlurnar og fylgdu þeim þegar þær hreyfast.
+
+<b>Leifturþyrping</b>:
+Punktar blikka stutt á hvorri hlið. Ýttu á hliðina sem hafði fleiri.
+
+<b>Mini Sudoku</b>:
+Fylltu litla netið þannig að hver röð, dálkur og blokk innihaldi hverja tölu einu sinni.
+
+<b>Míniskák</b>:
+Gefðu CPU mát áður en hann gefur þér það.
+
+<b>Einmennisskák</b>:
+Taktu taflmenn einn af öðrum uns aðeins kóngurinn er eftir. Hver leikur verður að taka.
+
+<b>Slökktu ljósin</b>:
+Slökktu hvert ljós. Hver ýting snýr við reitnum og fjórum nágrönnum hans.
+
+<b>Rennaþraut</b>:
+Renndu flísum í autt plássið þar til þær eru í röð.
+
+<b>Shikaku</b>:
+Skiptu netinu í rétthyrninga. Hver rétthyrningur hefur nákvæmlega eina tölu, jafna flatarmáli hans.
+
+<b>Nurikabe</b>:
+Málaðu reiti til að byggja hafið utan um númeruð eyjar, án 2x2 blokkar.
+
+<b>Kattardrottningar</b>:
+Settu einn kött í hverja röð, dálk og litasvæði. Kettir mega ekki snertast, jafnvel á ská.
+
+<b>Hnútur</b>:
+Tengdu hvert litað punktapar. Slóðir mega ekki skerast og verða að þekja hvern reit.
+
+<b>Turninn í Hanoi</b>:
+Færðu allan staflann á hægri pinnann.
+
+<b>Schulte-tafla</b>:
+Ýttu á tölur í röð frá 1 og upp eins hratt og þú getur.
+
+<b>Fánar</b>:
+Þekktu landið af fánanum.
+
+<b>Tölustafaminni</b>:
+Mundu runu tölustafa, leystu fljótan útreikning og mundu síðan tölustafina.
+
+<b>Finndu nýja</b>:
+Ýttu á dýrið sem þú hefur ekki séð áður.
+
+<b>N-Back</b>:
+Horfðu á form fljúga fram hjá og ýttu á það sem var á umbeðnum stað.
+
+<b>Wordle</b>:
+Giskaðu á falda fimm stafa orðið á sex tilraunum.
+
+<b>Eldspýtugátur</b>:
+Færðu eldspýtur til að jafna bilaðar jöfnur.
+
+<b>Pinnasólitaire</b>:
+Hoppaðu með pinna uns aðeins einn er eftir.
+
+<b>Sudoku</b>:
+Klassískt Sudoku í fullri stærð með mörgum erfiðleikastigum.
+
+<b>Skák</b>:
+Full skák gegn CPU eða til skiptis við vin.
+
+<b>IQ-próf</b>:
+30 fylkisgátur á 15 mínútum, með áætluðu IQ. Aðeins til skemmtunar.
+
+<b>Vantar virkja</b>:
+Finndu virkjana sem vantar (+, -, *, /) sem gera jöfnuna sanna.
+
+<b>Bulls & Cows</b>:
+Giskaðu á leynilega 4 stafa tölu með einstökum tölustöfum.
+
+<b>Simon Says</b>:
+Hver umferð kveikir eina nýja flís. Ýttu á alla rununa frá byrjun.
+
+<b>Prism Clear</b>:
+Skiptu um samsvarandi flísar til að hreinsa raðir af þremur eða fleiri. Tæmdu allt borðið til að vinna.
+
+<b>Trio</b>:
+Finndu þrjú spil sem deila formi, fjölda eða fyllingu.
+
+Leikurinn hefur nokkur <b>afrek</b> og hver æfing hefur <b>verðlaun</b> sem halda þér við efnið.
+
+Engin rakning. <b>Opinn kóði</b>.
+
