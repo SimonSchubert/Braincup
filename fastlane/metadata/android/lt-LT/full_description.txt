@@ -1,0 +1,131 @@
+Treniruok smegenis smagiais mini žaidimais, kurie tikrina atmintį, dėmesį, logiką ir matematiką. Braincup siūlo 42 smegenų pratimus.
+
+<b>Skaičiavimas mintyse</b>:
+Sek matematinius reiškinius. Rezultatą naudok kaip kito skaičiavimo pagrindą.
+
+<b>Grandininis skaičiavimas</b>:
+Spręsk sudėtingas formules žingsnis po žingsnio.
+
+<b>Šerloko skaičiavimas</b>:
+Rask formulę, kuri pasiekia tikslą tik su duotais skaičiais ir operatoriais.
+
+<b>Trupmenų skaičiavimas</b>:
+Išspręsk trupmenas.
+
+<b>Verčių palyginimas</b>:
+Pasirink reiškinį su didžiausia verte.
+
+<b>Burbulų suma</b>:
+Sudėk skaičius ant plaukiojančių burbulų.
+
+<b>Greitoji suma</b>:
+Skaičiai mirksi vienas po kito. Sudėk juos ir įvesk sumą.
+
+<b>Anomalijos galvosūkis</b>:
+Rask figūrą, kuri išsiskiria.
+
+<b>Raštų seka</b>:
+Atrask taisyklę kiekvienoje eilutėje ir pasirink dalelę, kuri ją papildo.
+
+<b>Kelio ieškotojas</b>:
+Pradėk nuo pažymėtos vietos ir sek rodykles iki tikslo.
+
+<b>Vaizdinė atmintis</b>:
+Įsimink formas ir pasibaigus laikmačiui nustatyk paslėptą formą.
+
+<b>Vaiduoklių tinklelis</b>:
+Stebėk, kaip plytelės užsidega viena po kitos, ir paliesk jas ta pačia tvarka.
+
+<b>Spalvų painiava</b>:
+Paliesk visus langelius, kuriuose žodis sutampa su šrifto spalva.
+
+<b>Spalvotos figūros</b>:
+Sudėk taškus iš teisingų teiginių.
+
+<b>Orbitų sekiklis</b>:
+Stebėk paryškintus rutuliukus ir sek juos, kol juda.
+
+<b>Blyksinti minia</b>:
+Taškai trumpai sumirksi abiejose pusėse. Paliesk pusę, kurioje jų buvo daugiau.
+
+<b>Mini Sudoku</b>:
+Užpildyk mažą tinklelį taip, kad kiekviena eilutė, stulpelis ir blokas turėtų kiekvieną skaičių vieną kartą.
+
+<b>Mini šachmatai</b>:
+Duok CPU matą, kol jis neduos jo tau.
+
+<b>Solo šachmatai</b>:
+Imk figūras vieną po kitos, kol liks tik karalius. Kiekvienas ėjimas turi imti.
+
+<b>Užgesink šviesas</b>:
+Užgesink kiekvieną šviesą. Kiekvienas palietimas perjungia langelį ir keturis jo kaimynus.
+
+<b>Slenkanti dėlionė</b>:
+Stumdyk plyteles į tuščią vietą, kol jos bus tvarkoje.
+
+<b>Shikaku</b>:
+Padalyk tinklelį į stačiakampius. Kiekviename yra lygiai vienas skaičius, jo plotas.
+
+<b>Nurikabe</b>:
+Spalvink langelius ir pastatyk jūrą aplink sunumeruotas salas be 2x2 bloko.
+
+<b>Kačių karalienės</b>:
+Pastatyk po vieną katę kiekvienoje eilutėje, stulpelyje ir spalvos zonoje. Katės negali liestis, net įstrižai.
+
+<b>Mazgas</b>:
+Sujunk kiekvieną spalvotų taškų porą. Keliai negali kirstis ir turi uždengti kiekvieną langelį.
+
+<b>Hanojaus bokštas</b>:
+Perkelk visą stulpelį ant dešinio smeigtuko.
+
+<b>Šultės lentelė</b>:
+Paliesk skaičius iš eilės nuo 1 kuo greičiau.
+
+<b>Vėliavos</b>:
+Atpažink šalį pagal vėliavą.
+
+<b>Skaitmenų atmintis</b>:
+Įsimink skaitmenų seką, išspręsk greitą užduotį, tada prisimink skaitmenis.
+
+<b>Surask naują</b>:
+Paliesk gyvūną, kurio dar nepažįsti.
+
+<b>N-Back</b>:
+Stebėk formas, kaip jos praskrenda, ir paliesk tą reikiamoje vietoje.
+
+<b>Wordle</b>:
+Atspėk paslėptą penkių raidžių žodį per šešis bandymus.
+
+<b>Degtukų galvosūkiai</b>:
+Perkelk degtukus ir pataisyk sulaužytas lygtis.
+
+<b>Smeigtukų solitaire</b>:
+Peršok smeigtukus, kol liks vienas.
+
+<b>Sudoku</b>:
+Klasikinis viso dydžio Sudoku su keliomis sunkumo pakopomis.
+
+<b>Šachmatai</b>:
+Pilni šachmatai prieš CPU arba ėjimų keitimasis su draugu.
+
+<b>IQ testas</b>:
+30 matricinių galvosūkių per 15 minučių, su įvertintu IQ. Tik pramogai.
+
+<b>Trūkstami operatoriai</b>:
+Rask trūkstamus operatorius (+, -, *, /), kurie padaro lygtį teisingą.
+
+<b>Bulls & Cows</b>:
+Atspėk slaptą 4 skaitmenų skaičių su unikaliais skaitmenimis.
+
+<b>Simon Says</b>:
+Kiekvienas raundas uždega vieną naują plytelę. Paliesk visą seką nuo pradžių.
+
+<b>Prism Clear</b>:
+Sukeisk sutampančias plyteles ir išvalyk eiles iš trijų ir daugiau. Ištuštink lentą ir laimėsi.
+
+<b>Trio</b>:
+Rask tris kortas, kurios dalijasi forma, skaičiumi arba užpildu.
+
+Žaidime yra keli <b>pasiekimai</b>, o kiekvienas pratimas turi <b>medalius</b>, kurie palaiko motyvaciją.
+
+Be sekimo. <b>Open source</b>.

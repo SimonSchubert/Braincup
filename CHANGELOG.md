@@ -1,6 +1,7 @@
 ## Unreleased
 
 ### Features
+- Add Lithuanian language support
 - Add Slovenian language support
 - Add Bulgarian language support
 - Add Croatian language support
