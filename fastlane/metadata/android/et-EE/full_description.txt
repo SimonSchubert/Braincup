@@ -1,0 +1,131 @@
+Treeni aju lõbusate minimängudega, mis panevad proovile mälu, keskendumise, loogika ja matemaatika. Braincupis on 42 ajuharjutust.
+
+<b>Peast arvutamine</b>:
+Jälgi matemaatilisi avaldisi. Kasuta tulemust järgmise arvutuse alusena.
+
+<b>Ahelarvutus</b>:
+Lahenda keerukaid valemeid sammhaaval.
+
+<b>Sherlocki arvutus</b>:
+Leia valem, mis jõuab eesmärgini ainult antud arvude ja tehtemärkidega.
+
+<b>Murdarvutus</b>:
+Lahenda murrud.
+
+<b>Väärtuste võrdlus</b>:
+Vali avaldis, mille väärtus on suurim.
+
+<b>Mullisumma</b>:
+Liida kokku ujuavate mullide numbrid.
+
+<b>Kiirsumma</b>:
+Numbrid vilguvad ükshaaval. Liida need kokku ja sisesta summa.
+
+<b>Anomaalia mõistatus</b>:
+Leia kujund, mis eristub.
+
+<b>Mustrijada</b>:
+Selgita reegel igal real ja vali tükk, mis selle täiendab.
+
+<b>Teeotsija</b>:
+Alusta märgitud kohast ja järgi nooli sihtkohta.
+
+<b>Visuaalne mälu</b>:
+Jäta kujundid meelde ja tuvasta peidetud kujund, kui taimer lõpeb.
+
+<b>Tondivõrk</b>:
+Vaata, kuidas plaadid süttivad ükshaaval, ja puuduta need tagasi samas järjekorras.
+
+<b>Värvisegadus</b>:
+Puuduta kõiki lahtreid, kus sõna vastab fondi värvile.
+
+<b>Värvilised kujundid</b>:
+Liida kokku punktid õigetest väidetest.
+
+<b>Orbiidijälgija</b>:
+Vaata esile tõstetud palle ja jälgi neid, kui need liiguvad.
+
+<b>Välgugrupp</b>:
+Punktid vilguvad lühidalt kummalgi poolel. Puuduta poolt, kus neid oli rohkem.
+
+<b>Mini-Sudoku</b>:
+Täida väike ruudustik nii, et iga rida, veerg ja plokk sisaldab iga numbrit üks kord.
+
+<b>Minimale</b>:
+Anna CPU-le matt enne, kui see sulle annab.
+
+<b>Soolomale</b>:
+Võta nuppe ükshaaval, kuni järele jääb ainult kuningas. Iga käik peab võtma.
+
+<b>Kustuta tuled</b>:
+Kustuta iga tuli. Iga puudutus lülitab lahtri ja neli naabrit.
+
+<b>Lükatav pusle</b>:
+Lükka plaate tühja kohta, kuni need on järjekorras.
+
+<b>Shikaku</b>:
+Jaga ruudustik ristkülikuteks. Igas on täpselt üks arv, selle pindala.
+
+<b>Nurikabe</b>:
+Värvi lahtreid ja ehita meri nummerdatud saarte ümber ilma 2x2 plokita.
+
+<b>Kassikuningannad</b>:
+Aseta üks kass igasse ritta, veergu ja värvitsooni. Kassid ei tohi puutuda, isegi diagonaalis.
+
+<b>Sõlm</b>:
+Ühenda iga värviline punktipaar. Teed ei tohi ristuda ja peavad katma iga lahtri.
+
+<b>Hanoi torn</b>:
+Liiguta kogu virn paremale tapile.
+
+<b>Schulte tabel</b>:
+Puuduta numbreid järjekorras ühest ülespoole nii kiiresti kui oskad.
+
+<b>Lipud</b>:
+Tuvasta riik lipu järgi.
+
+<b>Numbrimälu</b>:
+Jäta meelde numbrijada, lahenda kiire tehe ja too numbrid siis tagasi.
+
+<b>Leia uus</b>:
+Puuduta looma, keda sa varem näinud pole.
+
+<b>N-Back</b>:
+Vaata kujundeid vilksatamas ja puuduta seda, mis oli nõutud kohas.
+
+<b>Wordle</b>:
+Arva peidetud viietäheline sõna kuue katsega.
+
+<b>Tikuküsimused</b>:
+Liiguta tikke ja paranda katkised võrrandid.
+
+<b>Nuppsolitaire</b>:
+Hüppa nuppudega, kuni järele jääb üks.
+
+<b>Sudoku</b>:
+Klassikaline täissuuruses Sudoku mitme raskusastmega.
+
+<b>Male</b>:
+Täis male CPU vastu või käikude vahetamine sõbraga.
+
+<b>IQ-test</b>:
+30 maatriksmõistatust 15 minutiga, hinnangulise IQ-ga. Ainult lõbuks.
+
+<b>Puuduvad tehtemärgid</b>:
+Leia puuduvad tehtemärgid (+, -, *, /), mis teevad võrrandi tõeseks.
+
+<b>Bulls & Cows</b>:
+Arva salajane 4-kohaline arv erinevate numbritega.
+
+<b>Simon Says</b>:
+Iga voor süütab ühe uue plaadi. Puuduta kogu jada algusest.
+
+<b>Prism Clear</b>:
+Vaheta kokkusobivaid plaate, et tühjendada ridu kolmest ja enamast. Tühjenda laud ja võidad.
+
+<b>Trio</b>:
+Leia kolm kaarti, mis jagavad kuju, arvu või täidet.
+
+Mängul on mitu <b>saavutust</b> ja igal harjutusel on <b>medalid</b>, mis hoiavad motivatsiooni.
+
+Jälgimist pole. <b>Open source</b>.
