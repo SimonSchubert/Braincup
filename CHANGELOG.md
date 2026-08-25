@@ -1,6 +1,7 @@
 ## Unreleased
 
 ### Features
+- Add Croatian language support
 - Add Slovak language support
 - Add Urdu language support
 - Add Malay language support

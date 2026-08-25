@@ -30,6 +30,7 @@ internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("fr", "fr-FR"),
     arrayOf("he", "iw-IL"),
     arrayOf("hi", "hi-IN"),
+    arrayOf("hr", "hr-HR"),
     arrayOf("hu", "hu-HU"),
     arrayOf("id", "id"),
     arrayOf("it", "it-IT"),

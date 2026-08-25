@@ -1,0 +1,131 @@
+Treniraj mozak zabavnim miniigrama koje provjeravaju pamćenje, koncentraciju, logiku i matematiku. Braincup nudi 42 vježbe za mozak.
+
+<b>Računanje napamet</b>:
+Prati matematičke izraze. Rezultat koristi kao osnovu sljedećeg izračuna.
+
+<b>Lančano računanje</b>:
+Rješavaj složene formule korak po korak.
+
+<b>Sherlockovo računanje</b>:
+Pronađi formulu koja dosegne cilj samo s danim brojevima i operatorima.
+
+<b>Računanje razlomaka</b>:
+Riješi razlomke.
+
+<b>Usporedba vrijednosti</b>:
+Odaberi izraz s najvećom vrijednošću.
+
+<b>Zbroj mjehurića</b>:
+Zbroji brojeve na plutajućim mjehurićima.
+
+<b>Brzi zbroj</b>:
+Brojevi trepere jedan za drugim. Zbroji ih i unesi zbroj.
+
+<b>Zagonetka anomalije</b>:
+Pronađi figuru koja odskače.
+
+<b>Niz uzoraka</b>:
+Otkrij pravilo u svakom retku i odaberi dijelić koji ga dopunjuje.
+
+<b>Tražilac puta</b>:
+Kreni s označenog mjesta i slijedi strelice do cilja.
+
+<b>Vizualno pamćenje</b>:
+Zapamti oblike i nakon isteka vremena odredi skriveni oblik.
+
+<b>Mreža duhova</b>:
+Prati kako se pločice pale jedna za drugom i dodirni ih istim redoslijedom.
+
+<b>Zabuna boja</b>:
+Dodirni sve ćelije u kojima se riječ podudara s bojom fonta.
+
+<b>Obojeni oblici</b>:
+Zbroji bodove iz točnih tvrdnji.
+
+<b>Pratitelj orbita</b>:
+Prati istaknute kugle i drži ih dok se kreću.
+
+<b>Bljeskovita gomila</b>:
+Točkice kratko trepnu na svakoj strani. Dodirni stranu na kojoj ih je bilo više.
+
+<b>Mini Sudoku</b>:
+Ispuni malu mrežu tako da svaki redak, stupac i blok sadrži svaki broj jednom.
+
+<b>Mini šah</b>:
+Daj CPU-u mat prije nego što ga dobiješ ti.
+
+<b>Solo šah</b>:
+Uzmi figure jednu po jednu dok ne ostane samo kralj. Svaki potez mora uzimati.
+
+<b>Ugasi svjetla</b>:
+Ugasi svako svjetlo. Svaki dodir prebacuje ćeliju i njezina četiri susjeda.
+
+<b>Klizna slagalica</b>:
+Klizi pločice u prazno mjesto dok ne budu u redu.
+
+<b>Shikaku</b>:
+Podijeli mrežu na pravokutnike. Svaki sadrži točno jedan broj, njegovu površinu.
+
+<b>Nurikabe</b>:
+Bojaj ćelije i izgradi more oko numeriranih otoka bez bloka 2x2.
+
+<b>Mačje kraljice</b>:
+Postavi jednu mačku u svaki redak, stupac i zonu boje. Mačke se ne smiju dodirivati, čak ni dijagonalno.
+
+<b>Čvor</b>:
+Spoji svaki par obojenih točaka. Staze se ne smiju križati i moraju pokriti svaku ćeliju.
+
+<b>Hanojski toranj</b>:
+Premjesti cijeli stup na desni klin.
+
+<b>Schulteova tablica</b>:
+Dodiruj brojeve redom od 1 naviše što brže možeš.
+
+<b>Zastave</b>:
+Prepoznaj zemlju po zastavi.
+
+<b>Pamćenje znamenki</b>:
+Zapamti niz znamenki, riješi brzi zadatak, pa se sjeti znamenki.
+
+<b>Pronađi novo</b>:
+Dodirni životinju koju još ne poznaješ.
+
+<b>N-Back</b>:
+Prati oblike kako prolaze i dodirni onaj na traženom mjestu.
+
+<b>Wordle</b>:
+Pogodi skrivenu riječ od pet slova u šest pokušaja.
+
+<b>Zagonetke sa šibicama</b>:
+Premještaj šibice i popravi pokvarene jednadžbe.
+
+<b>Solitaire s klinovima</b>:
+Preskači klinove dok ne ostane jedan.
+
+<b>Sudoku</b>:
+Klasični Sudoku pune veličine s više težina.
+
+<b>Šah</b>:
+Puni šah protiv CPU-a ili naizmjenični potezi s prijateljem.
+
+<b>IQ test</b>:
+30 matričnih zagonetki u 15 minuta, s procijenjenim IQ-om. Samo za zabavu.
+
+<b>Nedostajući operatori</b>:
+Pronađi nedostajuće operatore (+, -, *, /) koji čine jednadžbu točnom.
+
+<b>Bulls & Cows</b>:
+Pogodi tajni 4-znamenkasti broj s jedinstvenim znamenkama.
+
+<b>Simon Says</b>:
+Svaka runda pali jednu novu pločicu. Dodirni cijeli slijed od početka.
+
+<b>Prism Clear</b>:
+Zamijeni podudarne pločice i obriši redove od tri i više. Isprazni ploču i pobjeđuješ.
+
+<b>Trio</b>:
+Pronađi tri karte koje dijele oblik, broj ili ispunu.
+
+Igra ima nekoliko <b>postignuća</b> i svaka vježba ima <b>medalje</b> koje te motiviraju.
+
+Bez praćenja. <b>Open source</b>.
