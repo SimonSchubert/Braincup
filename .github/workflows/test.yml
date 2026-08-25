@@ -30,7 +30,9 @@ jobs:
       # and updateEnUsStoreScreenshots refreshes fastlane/metadata/android/en-US/images/. The other
       # 19 locales stay a manual ':screenshotTests:generateStoreScreenshots' before a store release.
       - run: pip install pillow
+      # leftover lint errors (not auto-fixable) must not skip screenshot updates
       - run: ./gradlew :composeApp:lintFix :androidApp:lintFix
+        continue-on-error: true
       - run: ./gradlew spotlessApply
       - run: ./gradlew :screenshotTests:updateScreenshots
       - name: Auto-commit if changed

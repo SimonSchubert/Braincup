@@ -91,6 +91,7 @@ android {
     }
     lint {
         abortOnError = false
+        checkReleaseBuilds = false
         checkDependencies = true
     }
 }

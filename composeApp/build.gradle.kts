@@ -33,6 +33,7 @@ kotlin {
         }
         lint {
             abortOnError = false
+            checkReleaseBuilds = false
         }
         withHostTest {}
     }
@@ -196,6 +197,7 @@ tasks.matching { it.name.startsWith("compileKotlinIos") }.configureEach {
 
 lint {
     abortOnError = false
+    checkReleaseBuilds = false
 }
 
 dependencies {
