@@ -45,6 +45,7 @@ internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("ro", "ro-RO"),
     arrayOf("ru", "ru-RU"),
     arrayOf("sk", "sk-SK"),
+    arrayOf("sl", "sl-SI"),
     arrayOf("sv", "sv-SE"),
     arrayOf("th", "th"),
     arrayOf("tr", "tr-TR"),
