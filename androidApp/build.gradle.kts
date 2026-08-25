@@ -89,6 +89,10 @@ android {
                 }
         }
     }
+    lint {
+        abortOnError = false
+        checkDependencies = true
+    }
 }
 
 dependencies {

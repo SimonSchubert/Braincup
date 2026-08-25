@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.compose.multiplatform)
     alias(libs.plugins.android.kotlin.multiplatform.library)
+    alias(libs.plugins.android.lint)
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.spotless)
 }
@@ -29,6 +30,9 @@ kotlin {
         }
         androidResources {
             enable = true
+        }
+        lint {
+            abortOnError = false
         }
         withHostTest {}
     }
@@ -188,6 +192,10 @@ tasks.register("updateIosVersion") {
 
 tasks.matching { it.name.startsWith("compileKotlinIos") }.configureEach {
     dependsOn("updateIosVersion")
+}
+
+lint {
+    abortOnError = false
 }
 
 dependencies {

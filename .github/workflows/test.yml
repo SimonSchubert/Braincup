@@ -30,6 +30,7 @@ jobs:
       # and updateEnUsStoreScreenshots refreshes fastlane/metadata/android/en-US/images/. The other
       # 19 locales stay a manual ':screenshotTests:generateStoreScreenshots' before a store release.
       - run: pip install pillow
+      - run: ./gradlew :composeApp:lintFix :androidApp:lintFix
       - run: ./gradlew spotlessApply
       - run: ./gradlew :screenshotTests:updateScreenshots
       - name: Auto-commit if changed
@@ -39,5 +40,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Auto-fix: spotlessApply and updateScreenshots [skip ci]"
+          git commit -m "Auto-fix: lintFix, spotlessApply and updateScreenshots [skip ci]"
           git push
