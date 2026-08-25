@@ -98,4 +98,5 @@ dependencies {
     implementation(libs.compose.runtime)
     "playStoreImplementation"(libs.play.review)
     "playStoreImplementation"(libs.play.games)
+    lintChecks(libs.compose.lint.checks)
 }

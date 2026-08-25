@@ -189,3 +189,7 @@ tasks.register("updateIosVersion") {
 tasks.matching { it.name.startsWith("compileKotlinIos") }.configureEach {
     dependsOn("updateIosVersion")
 }
+
+dependencies {
+    lintChecks(libs.compose.lint.checks)
+}
