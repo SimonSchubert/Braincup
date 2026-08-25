@@ -1,0 +1,131 @@
+Entrena el cervell amb minijocs divertits que posen a prova la memòria, la concentració, la lògica i les matemàtiques. Braincup ofereix 42 exercicis cerebrals.
+
+<b>Càlcul mental</b>:
+Segueix les expressions matemàtiques. Fes servir el resultat com a base del càlcul següent.
+
+<b>Càlcul en cadena</b>:
+Resol fórmules complexes pas a pas.
+
+<b>Càlcul de Sherlock</b>:
+Troba la fórmula cap a l'objectiu només amb els números i operadors donats.
+
+<b>Càlcul de fraccions</b>:
+Resol les fraccions.
+
+<b>Comparació de valors</b>:
+Tria l'expressió amb el valor més alt.
+
+<b>Suma de bombolles</b>:
+Suma els números de les bombolles flotants.
+
+<b>Suma ràpida</b>:
+Els números parpellegen un darrere l'altre. Suma'ls i introdueix el total.
+
+<b>Enigma de l'anomalia</b>:
+Troba la figura que destaca.
+
+<b>Seqüència de patrons</b>:
+Descobreix la regla de cada fila i tria la peça que la completa.
+
+<b>Cercador de camins</b>:
+Comença a la posició marcada i segueix les fletxes fins a la destinació.
+
+<b>Memòria visual</b>:
+Recorda les formes i identifica la forma amagada quan s'acabi el temporitzador.
+
+<b>Graella fantasma</b>:
+Mira com s'encenen les fitxes una darrere l'altra i toca-les en el mateix ordre.
+
+<b>Confusió de colors</b>:
+Toca totes les caselles on la paraula coincideix amb el color de la lletra.
+
+<b>Figures de colors</b>:
+Suma els punts de les afirmacions certes.
+
+<b>Seguidor d'òrbites</b>:
+Mira les boles destacades i segueix-les mentre es mouen.
+
+<b>Multitud llampec</b>:
+Els punts parpellegen breument a cada costat. Toca el costat on n'hi havia més.
+
+<b>Mini Sudoku</b>:
+Omple la graella petita perquè cada fila, columna i bloc contingui cada número un cop.
+
+<b>Mini escacs</b>:
+Fes escac i mat a la CPU abans que te'l faci a tu.
+
+<b>Escacs en solitari</b>:
+Captura les peces una a una fins que només quedi el rei.
+
+<b>Apaga els llums</b>:
+Apaga cada llum. Cada toc commuta la casella i els seus quatre veïns.
+
+<b>Trencaclosques lliscant</b>:
+Fes lliscar les fitxes cap a l'espai buit fins que estiguin en ordre.
+
+<b>Shikaku</b>:
+Divideix la graella en rectangles. Cadascun té exactament un número, la seva àrea.
+
+<b>Nurikabe</b>:
+Pinta caselles per fer el mar al voltant de les illes numerades, sense bloc 2x2.
+
+<b>Reines gat</b>:
+Col·loca un gat a cada fila, columna i zona de color. No es poden tocar, ni en diagonal.
+
+<b>Nus</b>:
+Connecta cada parell de punts de color. Els camins no es poden creuar i han de cobrir cada casella.
+
+<b>Torre de Hanoi</b>:
+Mou tota la pila al pal dret.
+
+<b>Taula de Schulte</b>:
+Toca els números en ordre des de l'1 cap amunt tan ràpid com puguis.
+
+<b>Banderes</b>:
+Identifica el país per la bandera.
+
+<b>Memòria de dígits</b>:
+Recorda uns dígits, resol un càlcul ràpid i després torna'ls a dir.
+
+<b>Troba el nou</b>:
+Toca l'animal que encara no has vist.
+
+<b>N-Back</b>:
+Mira les formes com passen i toca la que era a la posició demanada.
+
+<b>Wordle</b>:
+Endevina la paraula amagada de cinc lletres en sis intents.
+
+<b>Enigmes de llumins</b>:
+Mou llumins i corregeix les equacions trencades.
+
+<b>Solitari de clavilles</b>:
+Salta clavilles fins que en quedi una.
+
+<b>Sudoku</b>:
+Sudoku clàssic de mida completa amb diverses dificultats.
+
+<b>Escacs</b>:
+Escacs complets contra la CPU o torns alternats amb un amic.
+
+<b>Test d'IQ</b>:
+30 enigmes matricials en 15 minuts, amb un IQ estimat. Només per diversió.
+
+<b>Operadors que falten</b>:
+Troba els operadors que falten (+, -, *, /) que fan certa l'equació.
+
+<b>Bulls & Cows</b>:
+Endevina el número secret de 4 dígits amb dígits únics.
+
+<b>Simon Says</b>:
+Cada ronda encén una fitxa nova. Toca tota la seqüència des del principi.
+
+<b>Prism Clear</b>:
+Intercanvia fitxes coincidents per esborrar files de tres o més. Buida el tauler i guanyes.
+
+<b>Trio</b>:
+Troba tres cartes que comparteixin forma, quantitat o farciment.
+
+El joc té diversos <b>assoliments</b> i cada exercici té <b>medalles</b> que et motiven.
+
+Sense seguiment. <b>Open source</b>.

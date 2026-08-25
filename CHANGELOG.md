@@ -1,6 +1,7 @@
 ## Unreleased
 
 ### Features
+- Add Catalan language support
 - Add Estonian language support
 - Add Latvian language support
 - Add Lithuanian language support
