@@ -1,0 +1,131 @@
+Harjoittele aivojasi hauskoilla minipeleillä, jotka haastavat muistin, keskittymisen, logiikan ja matematiikan. Braincupissa on 42 aivojumppaa.
+
+<b>Päässälasku</b>:
+Seuraa matemaattisia lausekkeita. Käytä tulosta seuraavan laskun pohjana.
+
+<b>Ketjulasku</b>:
+Ratkaise monimutkaisia kaavoja askel kerrallaan.
+
+<b>Sherlock-lasku</b>:
+Löydä kaava tavoitteeseen vain annetuilla luvuilla ja merkeillä.
+
+<b>Murtolasku</b>:
+Ratkaise murtoluvut.
+
+<b>Arvojen vertailu</b>:
+Valitse lauseke, jonka arvo on suurin.
+
+<b>Kuplasumma</b>:
+Laske kelluvien kuplien numerot yhteen.
+
+<b>Pikasumma</b>:
+Numerot vilkkuvat yksi kerrallaan. Laske ne yhteen ja syötä kokonaissumma.
+
+<b>Poikkeamatehtävä</b>:
+Löydä hahmo, joka erottuu.
+
+<b>Kuviosekvenssi</b>:
+Selvitä sääntö jokaisella rivillä ja valitse pala, joka täydentää sen.
+
+<b>Polunetsijä</b>:
+Aloita merkitystä kohdasta ja seuraa nuolia määränpäähän.
+
+<b>Visuaalinen muisti</b>:
+Muista muodot ja tunnista piilotettu muoto, kun ajastin päättyy.
+
+<b>Aaveruudukko</b>:
+Katso, miten ruudut syttyvät yksi kerrallaan, ja napauta ne takaisin samassa järjestyksessä.
+
+<b>Värisekaannus</b>:
+Napauta kaikkia ruutuja, joissa sana vastaa fontin väriä.
+
+<b>Värilliset muodot</b>:
+Laske yhteen oikeiden väittämien pisteet.
+
+<b>Rataseuraaja</b>:
+Katso korostettuja palloja ja seuraa niitä, kun ne liikkuvat.
+
+<b>Salamajoukko</b>:
+Pisteet vilkkuvat lyhyesti kummallakin puolella. Napauta puolta, jossa oli enemmän.
+
+<b>Mini-Sudoku</b>:
+Täytä pieni ruudukko niin, että jokainen rivi, sarake ja lohko sisältää jokaisen numeron kerran.
+
+<b>Minishakki</b>:
+Anna CPU:lle shakkimatti ennen kuin se antaa sen sinulle.
+
+<b>Yksinshakki</b>:
+Lyö nappulat yksi kerrallaan, kunnes jäljellä on vain kuningas. Jokaisen siirron on oltava lyönti.
+
+<b>Valot pois</b>:
+Sammuta jokainen valo. Jokainen napautus vaihtaa ruudun ja sen neljä naapuria.
+
+<b>Liukupalapeli</b>:
+Liu'uta paloja tyhjään tilaan saadaksesi ne järjestykseen.
+
+<b>Shikaku</b>:
+Jaa ruudukko suorakulmioihin. Jokaisessa on tasan yksi luku, sen pinta-ala.
+
+<b>Nurikabe</b>:
+Maalaa ruutuja meren rakentamiseksi numeroitujen saarten ympärille ilman 2x2-lohkoa.
+
+<b>Kissakuningattaret</b>:
+Aseta yksi kissa jokaiseen riviin, sarakkeeseen ja värialueeseen. Kissat eivät saa koskea toisiinsa, ei edes vinottain.
+
+<b>Solmu</b>:
+Yhdistä jokainen värillinen pistepari. Polut eivät saa risteytyä, ja niiden on peitettävä jokainen ruutu.
+
+<b>Hanoin torni</b>:
+Siirrä koko pino oikealle tapille.
+
+<b>Schulte-taulukko</b>:
+Napauta numeroita järjestyksessä ykkösestä ylöspäin niin nopeasti kuin osaat.
+
+<b>Liput</b>:
+Tunnista maa lipusta.
+
+<b>Numeromuisti</b>:
+Muista numerosarja, ratkaise nopea laskutehtävä ja palauta sitten numerot.
+
+<b>Löydä uusi</b>:
+Napauta eläintä, jota et ole nähnyt aiemmin.
+
+<b>N-Back</b>:
+Katso muotojen vilkkuvan ohi ja napauta sitä, joka oli pyydetyssä kohdassa.
+
+<b>Wordle</b>:
+Arvaa piilotettu viisikirjaiminen sana kuudella yrityksellä.
+
+<b>Tulitikkutehtävät</b>:
+Siirrä tulitikkuja korjataksesi rikkinäiset yhtälöt.
+
+<b>Tappipeli</b>:
+Hyppää tapeilla, kunnes jäljellä on vain yksi.
+
+<b>Sudoku</b>:
+Klassinen täysikokoinen Sudoku useilla vaikeustasoilla.
+
+<b>Shakki</b>:
+Täysi shakki CPU:ta vastaan tai vuorotellen kaverin kanssa.
+
+<b>IQ-testi</b>:
+30 matriisitehtävää 15 minuutissa, arvioidulla IQ:lla. Vain huviksi.
+
+<b>Puuttuvat operaattorit</b>:
+Löydä puuttuvat merkit (+, -, *, /), jotka tekevät yhtälöstä toden.
+
+<b>Bulls & Cows</b>:
+Arvaa salainen 4-numeroinen luku eri numeroilla.
+
+<b>Simon Says</b>:
+Jokainen kierros sytyttää yhden uuden ruudun. Napauta koko jakso takaisin alusta.
+
+<b>Prism Clear</b>:
+Vaihda sopivia paloja tyhjentääksesi vähintään kolmen rivit. Tyhjennä lauta voittaaksesi.
+
+<b>Trio</b>:
+Löydä kolme korttia, jotka jakavat muodon, määrän tai täytön.
+
+Pelissä on useita <b>saavutuksia</b>, ja jokaisella harjoituksella on <b>mitaleita</b>, jotka pitävät motivaation yllä.
+
+Ei seurantaa. <b>Avoin lähdekoodi</b>.
