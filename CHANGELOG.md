@@ -1,27 +1,24 @@
-## Unreleased
+## v3.2.0 — 2026-08-27
 
 ### Features
-- Add Icelandic language support
-- Add Irish language support
-- Add Serbian language support
-- Add Catalan language support
-- Add Estonian language support
-- Add Latvian language support
-- Add Lithuanian language support
-- Add Slovenian language support
-- Add Bulgarian language support
-- Add Croatian language support
-- Add Slovak language support
-- Add Urdu language support
-- Add Malay language support
-- Add Swedish language support
-- Add Hebrew language support
-- Add Czech language support
-- Add Romanian language support
-- Add Hungarian language support
-- Add Danish language support
-- Add Norwegian language support
-- Add Finnish language support
+- Add Learn Math section (beta) with lessons, tests and certificates, organised by topic and sub-topic
+- Award a store achievement for every Learn certificate
+- Add 21 new languages: Bulgarian, Catalan, Croatian, Czech, Danish, Estonian, Finnish, Hebrew, Hungarian, Icelandic, Irish, Latvian, Lithuanian, Malay, Norwegian, Romanian, Serbian, Slovak, Slovenian, Swedish, Urdu
+- Register Filipino, Urdu and Traditional Chinese on iOS
+
+### Fixes
+- Fix N-Back gold cup being unreachable
+- Fix the Play locale codes and complete every store listing
+- Fix content defects in the counting, multiplication, fractions and decimals lessons
+- Fix the web build's canonical URLs
+
+### Improvements
+- Update the desktop and PWA icons to the new mascot
+- Draw the figures the lessons actually describe, with animated steps
+- Share one set of components across the Learn screens
+- Cut the web build's blank-page wait
+- Clear every compose lint finding
+- Upgrade dependencies
 
 ## v3.1.0 — 2026-08-19
 

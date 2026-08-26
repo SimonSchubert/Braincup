@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.2.0" date="2026-08-27">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.2.0</url>
+      <description>
+        <ul>
+          <li>Add Learn Math section with lessons, tests and certificates</li>
+          <li>Add 21 new languages</li>
+          <li>Award a store achievement for every Learn certificate</li>
+          <li>Update the desktop and web icons to the new mascot</li>
+          <li>Fix N-Back gold cup being unreachable</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.1.0" date="2026-08-19">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.1.0</url>
       <description>
@@ -154,16 +166,6 @@
           <li>Fix Sherlock calculation landscape layout</li>
           <li>Improve overall performance</li>
           <li>Cleaner game screens</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.26.1" date="2026-07-07">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.26.1</url>
-      <description>
-        <ul>
-          <li>Add a fallback font so non-Latin languages render correctly</li>
-          <li>Improve daily challenges rotation</li>
-          <li>Disable lenient 9 and 6 answer forms</li>
         </ul>
       </description>
     </release>
