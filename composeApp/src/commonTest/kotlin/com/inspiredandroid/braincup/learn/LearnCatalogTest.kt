@@ -14,13 +14,11 @@ class LearnCatalogTest {
          * How many question figures in the not-yet-reworked sub-topics still caption their own
          * answer. A ratchet, not a target: lower it as topics are reworked, never raise it.
          *
-         * Since the first release ships Arithmetic and Geometry only, every remaining one of these
-         * is in Geometry, so this reaching 0 is what "Geometry is done" means.
-         *
-         * It read 14 until [canCaptionItsResult] stopped counting every `RightTriangle`: seven of
-         * those were drawn with `labels = false` and captioned nothing at all.
+         * At 0 with only `geometry-similarity-and-proof` left outside the strict set, which is
+         * where it stays: it may only ever go down. Delete it, and the [reworkedUnits] escape
+         * hatch with it, once that last sub-topic is reworked and every unit is held strictly.
          */
-        const val RATCHET = 6
+        const val RATCHET = 0
     }
 
     @Test
@@ -118,7 +116,7 @@ class LearnCatalogTest {
      */
     private fun LearnVisual.canCaptionItsResult(): Boolean = when (this) {
         is LearnVisual.Counters, is LearnVisual.TenFrame, is LearnVisual.NumberLine,
-        is LearnVisual.PlaceValue, is LearnVisual.DecimalGrid, is LearnVisual.ArrayDots,
+        is LearnVisual.PlaceValue, is LearnVisual.DecimalGrid,
         is LearnVisual.Coins, is LearnVisual.Ruler, is LearnVisual.Polygon, is LearnVisual.Solid,
         is LearnVisual.Symmetry, is LearnVisual.CircleFigure,
         is LearnVisual.AngleFigure, is LearnVisual.BarChart, is LearnVisual.PieChart,
@@ -165,6 +163,7 @@ class LearnCatalogTest {
             "geometry-flat-shapes", "geometry-solid-shapes",
             "geometry-angles", "geometry-quadrilaterals", "geometry-symmetry",
             "geometry-perimeter-and-area",
+            "geometry-pythagoras", "geometry-circles", "geometry-volume",
         )
         val (done, pending) = LearnCatalog.allUnits.partition {
             it.topic in reworked || it.id in reworkedUnits

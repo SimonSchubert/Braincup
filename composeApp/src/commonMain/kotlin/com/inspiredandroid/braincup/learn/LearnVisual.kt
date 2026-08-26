@@ -99,17 +99,18 @@ sealed interface LearnVisual {
      * colours. That is how a hard fact is actually worked out - 6 eights is 5 eights and one more
      * eight - and it lets the prose colour its numbers to match the blocks.
      *
-     * [leftover] adds the dots that could not fill another whole row, and [divide] captions the
-     * array as the division it answers rather than as the product it builds. Either one turns the
-     * same picture from building up into sharing out.
+     * [leftover] adds the dots that could not fill another whole row, which is what turns the same
+     * picture from building up into sharing out.
+     *
+     * The figure draws the situation and never the sum it comes to, so it has no [reveal] of its
+     * own: the step's formula is what says "4 x 6 = 24", and the array poses a question honestly
+     * whichever way round it is read.
      */
     data class ArrayDots(
         val rows: Int,
         val cols: Int,
         val split: Int? = null,
         val leftover: Int = 0,
-        val divide: Boolean = false,
-        override val reveal: Boolean = true,
     ) : LearnVisual
 
     /**

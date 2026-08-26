@@ -567,6 +567,11 @@ internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
  * A split array is drawn as two blocks with a lane between them, in the two group colours, which
  * is the whole of "break it into facts you already know". Leftover dots stand apart to the right,
  * because a remainder is precisely what would not go into the rows.
+ *
+ * The array never writes its own sum underneath. Every step that shows one gives that sum as a
+ * formula in the card directly below the figure, so a caption only says the same line twice. What
+ * the picture is for is the situation - this many rows, this many in each - which is the half the
+ * formula cannot show.
  */
 internal fun VisualScope.drawArrayDots(visual: LearnVisual.ArrayDots) {
     val rows = visual.rows.coerceAtLeast(1)
@@ -575,24 +580,42 @@ internal fun VisualScope.drawArrayDots(visual: LearnVisual.ArrayDots) {
     // A split that takes every row or none of them is not a split, and drawing the lane anyway
     // would promise a second block that never comes.
     val split = visual.split?.takeIf { it in 1 until rows }
-
     val lane = if (split != null) 0.6f else 0f
-    val spare = if (leftover > 0) 2.2f else 0f
+
+    // The labels are measured before anything is placed, because the row count sits in a gutter of
+    // its own width: the dots are sized to the room that leaves, not to the whole panel.
+    val style = labelStyle(ink, RowLabelFactor)
+    val rowTexts = if (split != null) {
+        listOf("$split rows", "${rows - split} more")
+    } else {
+        listOf("$rows rows")
+    }
+    val gutter = rowTexts.maxOf { measure(it, style).size.width }.toFloat()
+    val colText = "$cols in each"
+    val colHeight = measure(colText, style).size.height.toFloat()
+
+    // Sizing counts the strides between dot centres plus everything that hangs off the edges: the
+    // gap across to the gutter, a dot's radius, and the two columns a remainder stands in.
+    val trailing = if (leftover > 0) LeftoverStride + 1f + DotFactor else DotFactor
+    val across = GutterStride + (cols - 1) + trailing
+    val down = ColLabelStride + DotFactor + (rows - 1 + lane)
     val step = minOf(
-        width * 0.62f / (cols + spare),
-        height * 0.6f / maxOf(rows - 1f + lane, 1f),
-    )
+        (width * 0.96f - gutter) / across,
+        (height * 0.96f - colHeight / 2f) / down,
+    ).coerceAtLeast(1f)
     val gridWidth = step * (cols - 1)
     val gridHeight = step * (rows - 1 + lane)
-    val left = width * 0.52f - (gridWidth + step * spare) / 2f
-    val top = height * 0.48f - gridHeight / 2f
+    // Gutter, dots and remainder are then centred as one block. Centring the dots by themselves and
+    // letting the row count hang off the left is what leaves a figure sitting off to one side.
+    val left = (width - gutter - step * across) / 2f + gutter + step * GutterStride
+    val top = (height - colHeight / 2f - step * down) / 2f + colHeight / 2f + step * ColLabelStride
     fun rowY(r: Int): Float = top + step * (r + if (split != null && r >= split) lane else 0f)
 
     repeat(rows) { r ->
         repeat(cols) { c ->
             dot(
                 center = Offset(left + c * step, rowY(r)),
-                radius = step * 0.26f,
+                radius = step * DotFactor,
                 color = if (split != null && r >= split) Accent2 else Accent,
                 alpha = item(r * cols + c, rows * cols + leftover),
             )
@@ -600,47 +623,37 @@ internal fun VisualScope.drawArrayDots(visual: LearnVisual.ArrayDots) {
     }
     repeat(leftover) { i ->
         dot(
-            center = Offset(left + gridWidth + step * (1.4f + i % 2), rowY(i / 2)),
-            radius = step * 0.26f,
+            center = Offset(left + gridWidth + step * (LeftoverStride + i % 2), rowY(i / 2)),
+            radius = step * DotFactor,
             color = Accent2,
             alpha = item(rows * cols + i, rows * cols + leftover),
         )
     }
 
-    // The row count is set by its own measured width rather than a multiple of the dot stride: on a
-    // tall array the dots sit close together, and a label centred two strides out lands on them.
+    // The row counts share the right edge of the gutter instead of each centring on its own width,
+    // so a split array's two labels line up under one another.
     fun rowLabel(text: String, y: Float, color: Color) {
-        val measured = measure(text, labelStyle(color, RowLabelFactor))
-        label(text, Offset(left - step * 0.7f - measured.size.width / 2f, y), color, RowLabelFactor, alpha = stage(0, 3))
+        val measured = measure(text, style)
+        val center = Offset(left - step * GutterStride - measured.size.width / 2f, y)
+        label(text, center, color, RowLabelFactor, alpha = stage(0, 3))
     }
     if (split != null) {
-        rowLabel("$split rows", (rowY(0) + rowY(split - 1)) / 2f, Accent)
-        rowLabel("${rows - split} more", (rowY(split) + rowY(rows - 1)) / 2f, Accent2)
+        rowLabel(rowTexts[0], (rowY(0) + rowY(split - 1)) / 2f, Accent)
+        rowLabel(rowTexts[1], (rowY(split) + rowY(rows - 1)) / 2f, Accent2)
     } else {
-        rowLabel("$rows rows", top + gridHeight / 2f, Accent2)
+        rowLabel(rowTexts[0], top + gridHeight / 2f, Accent2)
     }
-    label("$cols in each", Offset(left + gridWidth / 2f, top - step * 1.1f), Accent2, RowLabelFactor, alpha = stage(0, 3))
-    if (!revealing(visual.reveal)) return
-    val product = rows * cols
-    label(
-        text = when {
-            // A remainder only means anything as the bit that was left over from sharing out, so a
-            // figure carrying one reads as a division whether or not it was asked to.
-            visual.divide || leftover > 0 -> "${product + leftover} ÷ $cols = $rows" + if (leftover > 0) " r $leftover" else ""
-            split != null -> "$split x $cols + ${rows - split} x $cols = $product"
-            else -> "$rows x $cols = $product"
-        },
-        // A short array leaves a whole stride of clearance under it, which on a wide canvas is
-        // enough to push the caption off the bottom of the panel entirely.
-        center = Offset(width / 2f, minOf(top + gridHeight + step * 1.4f, height * 0.92f)),
-        color = Accent,
-        factor = 0.13f,
-        alpha = stage(2, 3),
-    )
+    label(colText, Offset(left + gridWidth / 2f, top - step * ColLabelStride), Accent2, RowLabelFactor, alpha = stage(0, 3))
 }
 
 /** Font size of an array's row and column counts, relative to the canvas. */
 private const val RowLabelFactor = 0.09f
+
+/** An array's dot radius and its clearances, as fractions of the stride between dot centres. */
+private const val DotFactor = 0.26f
+private const val GutterStride = 0.7f
+private const val ColLabelStride = 1.1f
+private const val LeftoverStride = 1.4f
 
 /**
  * One fraction bar, two stacked so a comparison is unmissable, or the three of a sum.

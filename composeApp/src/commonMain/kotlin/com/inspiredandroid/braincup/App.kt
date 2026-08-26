@@ -650,7 +650,6 @@ fun App(
                             LearnLessonScreen(
                                 lessonId = lesson.id,
                                 storage = controller.storage,
-                                onDone = popUnit,
                                 onNextLesson = onNextLesson,
                                 onBack = popUnit,
                             )

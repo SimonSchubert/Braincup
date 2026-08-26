@@ -1113,17 +1113,17 @@ internal object GeometryContent {
         ),
     )
 
-    private val pythagorasAndCircles = learnUnit(
+    private val pythagoras = learnUnit(
         topic = MathTopic.GEOMETRY,
-        urlSlug = "pythagoras-and-circles",
-        title = "Pythagoras, circles and volume",
-        summary = "Pythagoras, circle measurements and the volume of prisms.",
+        urlSlug = "pythagoras",
+        title = "Pythagoras' theorem",
+        summary = "Two squares that fill a third, and the sides it lets you find.",
         level = GradeLevel.GRADES_6_8,
         lessons = listOf(
             LessonSpec(
                 id = "g68-geometry-pythagoras",
-                title = "Pythagoras' theorem",
-                summary = "Two squares that fill a third.",
+                title = "Two squares that fill a third",
+                summary = "Where the theorem comes from.",
                 steps = listOf(
                     Concept(
                         body = "The longest side always faces the right angle.",
@@ -1150,6 +1150,35 @@ internal object GeometryContent {
                         explanation = "36 + 64 = 100.",
                         visual = RightTriangle(a = 8, b = 6, unknown = Side.HYPOTENUSE),
                     ),
+                    Concept(
+                        body = "It works only for right-angled triangles. Take the right angle away and the two squares stop fitting.",
+                        visual = RightTriangle(a = 4, b = 3, showSquares = true),
+                    ),
+                    Choice(
+                        question = "Which of these could be the three sides of a right triangle?",
+                        options = listOf("2, 3, 4", "5, 12, 13", "4, 5, 6", "1, 2, 3"),
+                        correctIndex = 1,
+                        explanation = "25 + 144 = 169, and 169 is 13 squared. None of the others add up.",
+                        visual = RightTriangle(a = 12, b = 5, labels = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-pythagoras-finding",
+                title = "Finding a shorter side",
+                summary = "Take the small square away from the big one.",
+                steps = listOf(
+                    Concept(
+                        body = "Turned around, the theorem finds a short side instead. Take the small square away from the big one rather than adding the two together.",
+                        formula = "a² = c² - b²",
+                        visual = RightTriangle(a = 4, b = 3, showSquares = true),
+                    ),
+                    Numeric(
+                        question = "How long is the missing side?",
+                        answer = "8",
+                        explanation = "100 - 36 = 64.",
+                        visual = RightTriangle(a = 6, b = 8, unknown = Side.B),
+                    ),
                     Choice(
                         question = "A 13 m ladder stands 5 m from the wall. How high does it reach?",
                         options = listOf("8 m", "10 m", "12 m", "14 m"),
@@ -1158,96 +1187,73 @@ internal object GeometryContent {
                         visual = RightTriangle(a = 5, b = 12, unknown = Side.B),
                     ),
                     Concept(
-                        body = "It works only for right-angled triangles - but also backwards.",
-                        visual = RightTriangle(a = 4, b = 3, showSquares = true),
+                        body = "Decide which side faces the right angle before anything else. That is what says whether the squares get added or taken away.",
+                        visual = RightTriangle(a = 5, b = 12),
+                    ),
+                    Choice(
+                        question = "The hypotenuse is 25 and one short side is 7. How long is the other?",
+                        options = listOf("18", "24", "26", "32"),
+                        correctIndex = 1,
+                        explanation = "625 - 49 = 576, and 576 is 24 squared.",
+                        visual = RightTriangle(a = 7, b = 24, unknown = Side.B),
+                    ),
+                    Numeric(
+                        question = "The hypotenuse is 17 and one short side is 8. How long is the other?",
+                        answer = "15",
+                        explanation = "289 - 64 = 225.",
+                        visual = RightTriangle(a = 8, b = 15, unknown = Side.B),
                     ),
                 ),
             ),
             LessonSpec(
-                id = "g68-geometry-circles",
-                title = "Circles",
-                summary = "Where pi comes from.",
+                id = "geometry-pythagoras-using",
+                title = "Using the theorem",
+                summary = "Diagonals, shortcuts, and checking for a right angle.",
                 steps = listOf(
                     Concept(
-                        body = "The diameter crosses the middle, so it is twice the radius.",
-                        formula = "d = 2r",
-                        visual = CircleFigure(radius = 5, showDiameter = true),
-                    ),
-                    Concept(
-                        body = "Roll a circle once and it covers pi diameters.",
-                        formula = "C = pi x d",
-                        visual = CircleFigure(radius = 5, sweepCircumference = true),
-                    ),
-                    Numeric(
-                        question = "The radius is 5 cm. What is the diameter?",
-                        answer = "10",
-                        explanation = "Twice the radius.",
-                        visual = CircleFigure(radius = 5),
-                    ),
-                    Choice(
-                        question = "A wheel of diameter 70 cm. How far does one turn take it?",
-                        options = listOf("110 cm", "220 cm", "350 cm", "440 cm"),
-                        correctIndex = 1,
-                        explanation = "3.14 x 70.",
-                        visual = CircleFigure(sweepCircumference = true),
-                    ),
-                    Concept(
-                        body = "Area squares the radius, so doubling r gives four times the area.",
-                        formula = "A = pi x r²",
-                        visual = CircleFigure(radius = 10, fillArea = true),
-                    ),
-                    Choice(
-                        question = "Radius 10 cm, pi as 3.14. What is the area?",
-                        options = listOf("31.4", "62.8", "314", "628"),
-                        correctIndex = 2,
-                        explanation = "3.14 x 100.",
-                        visual = CircleFigure(fillArea = true),
-                    ),
-                ),
-            ),
-            LessonSpec(
-                id = "g68-geometry-volume",
-                title = "Volume of prisms",
-                summary = "Cross-section times length.",
-                steps = listOf(
-                    Concept(
-                        body = "Volume counts unit cubes, so its units are cubed.",
-                        visual = Solid(kind = SolidKind.CUBE),
-                    ),
-                    Concept(
-                        body = "A prism keeps the same cross-section the whole way along.",
-                        formula = "V = base area x length",
-                        visual = Solid(kind = SolidKind.PRISM, counts = true),
-                    ),
-                    Numeric(
-                        question = "A box is 4 by 3 by 2 cm. What is its volume in cubic cm?",
-                        answer = "24",
-                        explanation = "4 x 3 x 2.",
-                        visual = Solid(kind = SolidKind.PRISM, reveal = false),
-                    ),
-                    Choice(
-                        question = "A cylinder has base radius r and height h. Which is its volume?",
-                        options = listOf("2 x pi x r x h", "pi x r² x h", "pi x d x h", "r² + h"),
-                        correctIndex = 1,
-                        explanation = "The circle of area pi r², repeated up the height.",
-                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                        body = "Any real problem with a right angle hidden in it can be turned into a triangle: a ladder, a diagonal, a shortcut across a field.",
+                        visual = RightTriangle(a = 4, b = 3),
                     ),
                     Worked(
-                        problem = "A triangular prism, cross-section 6 cm², length 9 cm.",
+                        problem = "A rectangle is 12 cm by 9 cm. How long is its diagonal?",
                         lines = listOf(
-                            "Same triangle all the way along.",
-                            "Volume is cross-section x length.",
-                            "6 x 9.",
+                            "The diagonal cuts the rectangle into two right triangles.",
+                            "12² = 144 and 9² = 81.",
+                            "144 + 81 = 225.",
+                            "Take the square root.",
                         ),
-                        result = "V = 54 cm³",
-                        visual = Solid(kind = SolidKind.PRISM),
+                        result = "15 cm",
+                        visual = RightTriangle(a = 12, b = 9, showSquares = true),
                     ),
                     Choice(
-                        question = "Double every side of a cube. The volume is multiplied by...",
-                        options = listOf("2", "4", "6", "8"),
-                        correctIndex = 3,
-                        explanation = "All three dimensions double.",
-                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                        question = "A field is 40 m by 30 m. How much shorter is the diagonal than walking two sides?",
+                        options = listOf("10 m", "20 m", "30 m", "50 m"),
+                        correctIndex = 1,
+                        explanation = "The diagonal is 50 m and the two sides are 70 m together.",
+                        visual = RightTriangle(a = 40, b = 30, unknown = Side.HYPOTENUSE),
+                    ),
+                    Concept(
+                        body = "The theorem also runs backwards. If the two squares add up to the third, the triangle must have a right angle in it.",
+                        formula = "9 + 16 = 25",
+                        visual = RightTriangle(a = 4, b = 3, showSquares = true),
+                    ),
+                    Choice(
+                        question = "A triangle has sides 8, 15 and 17. Is it right-angled?",
+                        options = listOf(
+                            "Yes, the squares add up",
+                            "No, the squares do not add up",
+                            "Only if it is also isosceles",
+                            "There is no way to tell",
+                        ),
+                        correctIndex = 0,
+                        explanation = "64 + 225 = 289, and 289 is 17 squared.",
+                        visual = RightTriangle(a = 15, b = 8, labels = false),
+                    ),
+                    Numeric(
+                        question = "A screen is 16 inches wide and 12 inches tall. How long is its diagonal, in inches?",
+                        answer = "20",
+                        explanation = "256 + 144 = 400.",
+                        visual = RightTriangle(a = 16, b = 12, unknown = Side.HYPOTENUSE),
                     ),
                 ),
             ),
@@ -1261,26 +1267,367 @@ internal object GeometryContent {
                 visual = RightTriangle(a = 12, b = 5, unknown = Side.HYPOTENUSE),
             ),
             QuizQuestion(
+                prompt = "How long is the missing short side?",
+                options = listOf("6", "8", "10", "12"),
+                correctIndex = 1,
+                explanation = "100 - 36 = 64.",
+                visual = RightTriangle(a = 6, b = 8, unknown = Side.B),
+            ),
+            QuizQuestion(
+                prompt = "Which of these could be the three sides of a right triangle?",
+                options = listOf("2, 3, 4", "6, 8, 10", "4, 5, 6", "1, 2, 3"),
+                correctIndex = 1,
+                explanation = "36 + 64 = 100.",
+                visual = RightTriangle(a = 8, b = 6, labels = false),
+            ),
+            QuizQuestion(
+                prompt = "A rectangle is 12 cm by 9 cm. How long is its diagonal?",
+                options = listOf("13 cm", "15 cm", "21 cm", "144 cm"),
+                correctIndex = 1,
+                explanation = "144 + 81 = 225.",
+                visual = RightTriangle(a = 12, b = 9, unknown = Side.HYPOTENUSE),
+            ),
+            QuizQuestion(
+                prompt = "Which side of a right triangle is always the longest?",
+                options = listOf(
+                    "The one facing the right angle",
+                    "The one lying along the bottom",
+                    "The shorter of the two touching the right angle",
+                    "They are always equal",
+                ),
+                correctIndex = 0,
+                explanation = "The hypotenuse faces the biggest angle, and the right angle is the biggest one there is here.",
+                visual = RightTriangle(a = 4, b = 3, labels = false),
+            ),
+            QuizQuestion(
+                prompt = "The hypotenuse is 26 and one short side is 10. How long is the other?",
+                options = listOf("16", "20", "24", "28"),
+                correctIndex = 2,
+                explanation = "676 - 100 = 576.",
+                visual = RightTriangle(a = 10, b = 24, unknown = Side.B),
+            ),
+        ),
+    )
+
+    private val circles = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "circles",
+        title = "Circles",
+        summary = "Where pi comes from, and the two formulas it feeds.",
+        level = GradeLevel.GRADES_6_8,
+        lessons = listOf(
+            LessonSpec(
+                id = "g68-geometry-circles",
+                title = "Radius, diameter and pi",
+                summary = "Where pi comes from.",
+                steps = listOf(
+                    Concept(
+                        body = "The diameter crosses the middle, so it is twice the radius.",
+                        formula = "d = 2r",
+                        visual = CircleFigure(radius = 5, showDiameter = true),
+                    ),
+                    Numeric(
+                        question = "The radius is 5 cm. What is the diameter, in cm?",
+                        formula = "2 x 5 = ?",
+                        answer = "10",
+                        explanation = "Twice the radius.",
+                        visual = CircleFigure(radius = 5, reveal = false),
+                    ),
+                    Concept(
+                        body = "Roll a circle along once and it covers a little over three diameters. That number is pi, and it never changes.",
+                        formula = "C = pi x d",
+                        visual = CircleFigure(radius = 5, sweepCircumference = true),
+                    ),
+                    Concept(
+                        body = "Pi is the same for a coin and for a planet. Being the same every time is exactly what makes it worth a name of its own.",
+                        visual = CircleFigure(radius = 3, sweepCircumference = true),
+                    ),
+                    Choice(
+                        question = "A wheel of diameter 70 cm. How far does one turn take it?",
+                        options = listOf("110 cm", "220 cm", "350 cm", "440 cm"),
+                        correctIndex = 1,
+                        explanation = "3.14 x 70.",
+                        visual = CircleFigure(sweepCircumference = true, reveal = false),
+                    ),
+                    Numeric(
+                        question = "The diameter is 18 cm. What is the radius, in cm?",
+                        formula = "18 / 2 = ?",
+                        answer = "9",
+                        explanation = "Half the diameter.",
+                        visual = CircleFigure(showDiameter = true, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-circles-area",
+                title = "Area of a circle",
+                summary = "Square the radius, then multiply by pi.",
+                steps = listOf(
+                    Concept(
+                        body = "Area squares the radius, so doubling r gives four times the area rather than twice.",
+                        formula = "A = pi x r²",
+                        visual = CircleFigure(radius = 10, fillArea = true),
+                    ),
+                    Concept(
+                        body = "Square the radius first, then multiply by pi. Squaring the whole of pi times r is the usual slip.",
+                        formula = "A = pi x (r x r)",
+                        visual = CircleFigure(radius = 4, fillArea = true),
+                    ),
+                    Choice(
+                        question = "Radius 10 cm, pi as 3.14. What is the area?",
+                        options = listOf("31.4", "62.8", "314", "628"),
+                        correctIndex = 2,
+                        explanation = "3.14 x 100.",
+                        visual = CircleFigure(fillArea = true, reveal = false),
+                    ),
+                    Numeric(
+                        question = "A circle has radius 4 cm. Taking pi as 3.14, what is its area in square cm?",
+                        formula = "3.14 x 4 x 4 = ?",
+                        answer = "50.24",
+                        explanation = "16 square units, each one worth pi.",
+                        visual = CircleFigure(radius = 4, fillArea = true, reveal = false),
+                    ),
+                    Concept(
+                        body = "Circumference uses the radius once and area uses it twice. That is the whole difference between the two formulas, and it is why their units differ.",
+                        formula = "C = 2 pi r, A = pi r²",
+                        visual = CircleFigure(radius = 5, fillArea = true),
+                    ),
+                    Choice(
+                        question = "A circle's radius is doubled. Its area is multiplied by...",
+                        options = listOf("2", "3", "4", "8"),
+                        correctIndex = 2,
+                        explanation = "The radius is squared, so doubling it doubles the answer twice over.",
+                        visual = CircleFigure(radius = 8, fillArea = true, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-circles-using",
+                title = "Working backwards",
+                summary = "From a circumference or an area back to the circle.",
+                steps = listOf(
+                    Concept(
+                        body = "Every circle question starts by deciding which measurement you were given. Halving or doubling first prevents most of the mistakes.",
+                        visual = CircleFigure(radius = 6, showDiameter = true),
+                    ),
+                    Choice(
+                        question = "A circle has circumference 31.4 cm, with pi as 3.14. What is its diameter?",
+                        options = listOf("5 cm", "10 cm", "15.7 cm", "20 cm"),
+                        correctIndex = 1,
+                        explanation = "Circumference divided by pi gives the diameter back.",
+                        visual = CircleFigure(sweepCircumference = true, reveal = false),
+                    ),
+                    Concept(
+                        body = "The formulas run both ways. Circumference divides back to the diameter, and area divides by pi and then square-roots back to the radius.",
+                        formula = "d = C / pi",
+                        visual = CircleFigure(radius = 5, sweepCircumference = true),
+                    ),
+                    Numeric(
+                        question = "A circle has area 78.5 square cm, with pi as 3.14. What is the radius times itself?",
+                        formula = "78.5 / 3.14 = ?",
+                        answer = "25",
+                        explanation = "Dividing by pi leaves r squared, and the radius itself is its square root.",
+                        visual = CircleFigure(radius = 5, fillArea = true, reveal = false),
+                    ),
+                    Concept(
+                        body = "Half a circle keeps half the curved edge but gains the diameter as a straight one, so its perimeter is not simply half the circumference.",
+                        visual = CircleFigure(radius = 5, showDiameter = true),
+                    ),
+                    Choice(
+                        question = "A semicircle has diameter 10 cm. How long is its curved edge, with pi as 3.14?",
+                        options = listOf("15.7 cm", "31.4 cm", "5 cm", "10 cm"),
+                        correctIndex = 0,
+                        explanation = "The whole way round is 31.4 cm, and the curved edge is half of it.",
+                        visual = CircleFigure(radius = 5, sweepCircumference = true, reveal = false),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
+            QuizQuestion(
                 prompt = "The diameter is 18 cm. What is the radius?",
                 options = listOf("6 cm", "9 cm", "18 cm", "36 cm"),
                 correctIndex = 1,
                 explanation = "Half the diameter.",
-                visual = CircleFigure(showDiameter = true),
+                visual = CircleFigure(showDiameter = true, reveal = false),
             ),
             QuizQuestion(
                 prompt = "Circumference of a circle of diameter 10 cm, pi as 3.14?",
                 options = listOf("15.7 cm", "31.4 cm", "78.5 cm", "314 cm"),
                 correctIndex = 1,
                 explanation = "pi x d.",
-                visual = CircleFigure(sweepCircumference = true),
+                visual = CircleFigure(sweepCircumference = true, reveal = false),
             ),
             QuizQuestion(
                 prompt = "Area of a circle of radius 4 cm, pi as 3.14?",
                 options = listOf("12.56", "25.12", "50.24", "100.48"),
                 correctIndex = 2,
                 explanation = "3.14 x 16.",
-                visual = CircleFigure(fillArea = true),
+                visual = CircleFigure(fillArea = true, reveal = false),
             ),
+            QuizQuestion(
+                prompt = "Which formula gives the circumference?",
+                options = listOf("pi x r²", "2 x pi x r", "pi x r", "4 x pi x r"),
+                correctIndex = 1,
+                explanation = "Two radii make the diameter, and pi diameters make the way round.",
+                visual = CircleFigure(sweepCircumference = true, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A circle's radius is doubled. Its area is multiplied by...",
+                options = listOf("2", "3", "4", "8"),
+                correctIndex = 2,
+                explanation = "The radius is squared in the area formula.",
+                visual = CircleFigure(radius = 8, fillArea = true, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A circle has circumference 62.8 cm, pi as 3.14. What is its diameter?",
+                options = listOf("10 cm", "20 cm", "31.4 cm", "40 cm"),
+                correctIndex = 1,
+                explanation = "62.8 divided by pi.",
+                visual = CircleFigure(sweepCircumference = true, reveal = false),
+            ),
+        ),
+    )
+
+    private val volume = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "volume",
+        title = "Volume and surface area",
+        summary = "Cross-section times length, and the skin around it.",
+        level = GradeLevel.GRADES_6_8,
+        lessons = listOf(
+            LessonSpec(
+                id = "g68-geometry-volume",
+                title = "Volume of a prism",
+                summary = "Cross-section times length.",
+                steps = listOf(
+                    Concept(
+                        body = "Volume counts unit cubes, so its units are cubed.",
+                        visual = Solid(kind = SolidKind.CUBE),
+                    ),
+                    Concept(
+                        body = "A prism keeps the same cross-section the whole way along, so one slice repeated is all there is to it.",
+                        formula = "V = base area x length",
+                        visual = Solid(kind = SolidKind.PRISM, counts = true),
+                    ),
+                    Numeric(
+                        question = "A box is 4 by 3 by 2 cm. What is its volume in cubic cm?",
+                        formula = "4 x 3 x 2 = ?",
+                        answer = "24",
+                        explanation = "A layer of 12 cubes, twice over.",
+                        visual = Solid(kind = SolidKind.PRISM, reveal = false),
+                    ),
+                    Worked(
+                        problem = "A triangular prism, cross-section 6 cm², length 9 cm.",
+                        lines = listOf(
+                            "Same triangle all the way along.",
+                            "Volume is cross-section x length.",
+                            "6 x 9.",
+                        ),
+                        result = "V = 54 cm³",
+                        visual = Solid(kind = SolidKind.PRISM),
+                    ),
+                    Choice(
+                        question = "A cylinder has base radius r and height h. Which is its volume?",
+                        options = listOf("2 x pi x r x h", "pi x r² x h", "pi x d x h", "r² + h"),
+                        correctIndex = 1,
+                        explanation = "The circle of area pi r², repeated up the height.",
+                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                    ),
+                    Choice(
+                        question = "Double every side of a cube. The volume is multiplied by...",
+                        options = listOf("2", "4", "6", "8"),
+                        correctIndex = 3,
+                        explanation = "All three dimensions double, so the answer doubles three times over.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-volume-surface",
+                title = "Surface area",
+                summary = "The skin rather than the filling.",
+                steps = listOf(
+                    Concept(
+                        body = "Surface area is the skin rather than the filling. Add up the faces, and the units come out squared, not cubed.",
+                        visual = Solid(kind = SolidKind.CUBE, counts = true),
+                    ),
+                    Concept(
+                        body = "A cuboid has three pairs of matching faces, so work out three of them and double the total.",
+                        formula = "SA = 2(lw + lh + wh)",
+                        visual = Solid(kind = SolidKind.PRISM, counts = true),
+                    ),
+                    Numeric(
+                        question = "A cube has edges of 3 cm. What is its surface area in square cm?",
+                        formula = "6 x 3 x 3 = ?",
+                        answer = "54",
+                        explanation = "Six faces, each one 9 square cm.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
+                    Choice(
+                        question = "A box is 5 by 4 by 2 cm. What is its surface area, in square cm?",
+                        options = listOf("40", "76", "80", "100"),
+                        correctIndex = 1,
+                        explanation = "20, 10 and 8 for the three different faces, then doubled.",
+                        visual = Solid(kind = SolidKind.PRISM, reveal = false),
+                    ),
+                    Concept(
+                        body = "Volume and surface area do not grow together. A long thin box holds very little and still takes a great deal of wrapping.",
+                        visual = Solid(kind = SolidKind.PRISM),
+                    ),
+                    Choice(
+                        question = "Which of the two is measured in square units rather than cubic ones?",
+                        options = listOf("Volume", "Surface area", "Both of them", "Neither of them"),
+                        correctIndex = 1,
+                        explanation = "Faces are flat, so their measure is an area.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-volume-cylinders",
+                title = "Cylinders and capacity",
+                summary = "A prism with a circle for its cross-section.",
+                steps = listOf(
+                    Concept(
+                        body = "A cylinder is a prism with a circle for its cross-section, so the same rule works: the area of the circle, repeated up the height.",
+                        formula = "V = pi x r² x h",
+                        visual = Solid(kind = SolidKind.CYLINDER, counts = true),
+                    ),
+                    Numeric(
+                        question = "A cylinder has base area 20 square cm and height 6 cm. What is its volume in cubic cm?",
+                        formula = "20 x 6 = ?",
+                        answer = "120",
+                        explanation = "The same 20 square cm, six times over.",
+                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                    ),
+                    Concept(
+                        body = "Capacity is volume seen from the inside. A litre is exactly a thousand cubic centimetres, which is a 10 cm cube.",
+                        formula = "1 litre = 1000 cm³",
+                        visual = Solid(kind = SolidKind.CUBE),
+                    ),
+                    Choice(
+                        question = "A tank is 10 by 10 by 10 cm. How many litres does it hold?",
+                        options = listOf("0.1", "1", "10", "100"),
+                        correctIndex = 1,
+                        explanation = "1000 cubic cm, which is exactly one litre.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
+                    Concept(
+                        body = "Doubling a cylinder's radius gives four times the volume, because the radius is squared. Doubling its height only doubles it.",
+                        visual = Solid(kind = SolidKind.CYLINDER),
+                    ),
+                    Choice(
+                        question = "A cylinder's height is doubled and its radius left alone. Its volume is multiplied by...",
+                        options = listOf("2", "4", "6", "8"),
+                        correctIndex = 0,
+                        explanation = "Height appears once in the formula, so it changes the answer once.",
+                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
             QuizQuestion(
                 prompt = "What is the volume of a 5 by 4 by 3 cm box?",
                 options = listOf("12", "20", "47", "60"),
@@ -1294,6 +1641,34 @@ internal object GeometryContent {
                 correctIndex = 1,
                 explanation = "The cross-section repeats unchanged.",
                 visual = Solid(kind = SolidKind.PRISM, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A cube has edges of 2 cm. What is its volume in cubic cm?",
+                options = listOf("4", "6", "8", "12"),
+                correctIndex = 2,
+                explanation = "2 x 2 x 2.",
+                visual = Solid(kind = SolidKind.CUBE, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A cube has edges of 4 cm. What is its surface area in square cm?",
+                options = listOf("16", "64", "96", "128"),
+                correctIndex = 2,
+                explanation = "Six faces of 16 square cm.",
+                visual = Solid(kind = SolidKind.CUBE, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Surface area is measured in...",
+                options = listOf("cubic units", "square units", "plain units", "degrees"),
+                correctIndex = 1,
+                explanation = "It adds up flat faces, and a face has an area.",
+                visual = Solid(kind = SolidKind.PRISM, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "How many cubic centimetres are in one litre?",
+                options = listOf("10", "100", "1000", "10000"),
+                correctIndex = 2,
+                explanation = "A litre is a 10 cm cube.",
+                visual = Solid(kind = SolidKind.CUBE, reveal = false),
             ),
         ),
     )
@@ -1501,5 +1876,5 @@ internal object GeometryContent {
         ),
     )
 
-    val units: List<LearnUnit> = listOf(flatShapes, solidShapes, angles, quadrilaterals, symmetry, perimeterAndArea, pythagorasAndCircles, similarityAndProof)
+    val units: List<LearnUnit> = listOf(flatShapes, solidShapes, angles, quadrilaterals, symmetry, perimeterAndArea, pythagoras, circles, volume, similarityAndProof)
 }

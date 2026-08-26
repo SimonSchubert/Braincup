@@ -20,7 +20,6 @@ import braincup.composeapp.generated.resources.learn_check
 import braincup.composeapp.generated.resources.learn_continue
 import braincup.composeapp.generated.resources.learn_correct
 import braincup.composeapp.generated.resources.learn_lesson_complete_title
-import braincup.composeapp.generated.resources.learn_lesson_finish
 import braincup.composeapp.generated.resources.learn_lesson_score
 import braincup.composeapp.generated.resources.learn_next_lesson
 import braincup.composeapp.generated.resources.learn_next_line
@@ -90,7 +89,6 @@ private fun StepAnswer.lastAttempt(): String? = when (this) {
 fun LearnLessonScreen(
     lessonId: String,
     storage: UserStorage,
-    onDone: () -> Unit,
     onNextLesson: (lessonId: String) -> Unit,
     onBack: () -> Unit,
 ) {
@@ -106,7 +104,6 @@ fun LearnLessonScreen(
         nextLessonId = nextLessonId,
         xpGained = xpGained,
         onLessonCompleted = { xpGained = storage.completeLearnLesson(lesson.id).xpGained },
-        onDone = onDone,
         onNextLesson = onNextLesson,
         onBack = onBack,
     )
@@ -118,7 +115,6 @@ fun LearnLessonScreenContent(
     nextLessonId: String?,
     xpGained: Int,
     onLessonCompleted: () -> Unit,
-    onDone: () -> Unit,
     onNextLesson: (lessonId: String) -> Unit,
     onBack: () -> Unit,
 ) {
@@ -164,7 +160,6 @@ fun LearnLessonScreenContent(
                 correctCount = correctCount,
                 xpGained = xpGained,
                 nextLessonId = nextLessonId,
-                onDone = onDone,
                 onNextLesson = onNextLesson,
                 modifier = Modifier.weight(1f),
             )
@@ -634,7 +629,6 @@ private fun LessonCompleteContent(
     correctCount: Int,
     xpGained: Int,
     nextLessonId: String?,
-    onDone: () -> Unit,
     onNextLesson: (lessonId: String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -662,20 +656,14 @@ private fun LessonCompleteContent(
             Spacer(Modifier.height(16.dp))
             XpGainedChip(xpGained = xpGained)
         }
-        Spacer(Modifier.height(24.dp))
         if (nextLessonId != null) {
+            Spacer(Modifier.height(24.dp))
             PrimaryActionButton(
                 onClick = { onNextLesson(nextLessonId) },
                 value = stringResource(Res.string.learn_next_lesson),
                 modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
             )
-            Spacer(Modifier.height(8.dp))
         }
-        PrimaryActionButton(
-            onClick = onDone,
-            value = stringResource(Res.string.learn_lesson_finish),
-            modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
-        )
     }
 }
 
@@ -688,7 +676,6 @@ private fun LearnLessonScreenPreview() {
             nextLessonId = null,
             xpGained = 0,
             onLessonCompleted = {},
-            onDone = {},
             onNextLesson = {},
             onBack = {},
         )
