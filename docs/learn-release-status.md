@@ -3,7 +3,7 @@
 Working document for the Learn Math section's first release. It survives between Claude
 sessions: read it before touching anything under `learn/`, and update it as work lands.
 
-Last updated: 2026-08-26 (parking done, Geometry rework not started)
+Last updated: 2026-08-26 (parked; Arithmetic ready; Geometry rework not started)
 
 ---
 
@@ -13,7 +13,7 @@ The first release ships **two topics**: Arithmetic and Geometry. The other six a
 
 | Topic | v1 | Sub-topics | State |
 |---|---|---|---|
-| Arithmetic | **ships** | 6 | reworked, needs a readiness pass |
+| Arithmetic | **ships** | 10 | all ready bar the render check |
 | Geometry | **ships** | 5 today, ~12 after the split | grade slices, full rework needed |
 | Measurement | parked | 0 | perimeter + area moved into Geometry, rest cut |
 | Data & Probability | parked | 3 | grade slices |
@@ -128,14 +128,23 @@ Status values used in the tables: `ready` / `review` (reworked, readiness pass n
 All six are reworked and carry zero spoiler figures. What is left is the readiness pass,
 mostly items 1, 5, 6 and 8.
 
-| # | Unit id | Title | Level | Q | Tinted | Formula-led | Status |
-|---|---|---|---|---|---|---|---|
-| 1 | `arithmetic-counting` | Counting and first sums | g12 | 10 | 4 | 7/10 | **`ready`** * |
-| 2 | `arithmetic-multiplication` | Multiplication and division | g35 | 7 | 6 | 6/7 | **`ready`** * |
-| 3 | `arithmetic-fractions` | Fractions | g35 | 9 | 2 | 4/9 | **`ready`** * |
-| 4 | `arithmetic-decimals` | Decimals | g35 | 9 | 3 | 4/9 | **`ready`** * |
-| 5 | `arithmetic-ratio-and-percent` | Negatives, ratio and percent | g68 | 9 | 11 | 5/9 | `review` |
-| 6 | `arithmetic-standard-form-and-surds` | Standard form, surds and bounds | g910 | 7 | 0 | 2/7 | `review` |
+| # | Unit id | Title | Level | Lessons | Test | Status |
+|---|---|---|---|---|---|---|
+| 1 | `arithmetic-counting` | Counting and first sums | g12 | 3 | 6 | **`ready`** * |
+| 2 | `arithmetic-multiplication` | Multiplication and division | g35 | 3 | 6 | **`ready`** * |
+| 3 | `arithmetic-fractions` | Fractions | g35 | 3 | 6 | **`ready`** * |
+| 4 | `arithmetic-decimals` | Decimals | g35 | 3 | 6 | **`ready`** * |
+| 5 | `arithmetic-negatives` | Negative numbers | g68 | 3 | 6 | **`ready`** * |
+| 6 | `arithmetic-ratio` | Ratio and proportion | g68 | 3 | 6 | **`ready`** * |
+| 7 | `arithmetic-percent` | Percentages | g68 | 3 | 6 | **`ready`** * |
+| 8 | `arithmetic-standard-form` | Standard form | g910 | 3 | 6 | **`ready`** * |
+| 9 | `arithmetic-surds` | Surds | g910 | 3 | 6 | **`ready`** * |
+| 10 | `arithmetic-bounds` | Rounding and bounds | g910 | 3 | 6 | **`ready`** * |
+
+The two compound units are gone. `arithmetic-ratio-and-percent` became units 5 to 7 and
+`arithmetic-standard-form-and-surds` became units 8 to 10, each with two lessons and a
+six-question test written for it. The original lesson ids were kept, so the only progress
+lost is the two old unit certificates, which is acceptable before release and not after.
 
 \* Items 1 to 8 pass. Item 9, the render check, is batched for the whole topic at the end of
 the pass rather than done per unit.
@@ -151,12 +160,6 @@ figures and questions a unit uses, not by how finished it is:
   reason, and that is right.
 * A leading `formula` belongs on a question that **is** an equation. A question like "what
   number is built here" has no equation to lead with, so a ratio below 1 is expected.
-
-The one real weak spot found so far:
-
-* **Units 5 and 6 fail readiness item 1.** "Negatives, ratio and percent" is three subjects,
-  and so is "Standard form, surds and bounds". Under the split rule just adopted for
-  Geometry they should become six units. Open decision, see section 7.
 
 ### Pass notes
 
@@ -243,6 +246,16 @@ Proposed, confirm before authoring. Each unit is 3 lessons + a 6-question test.
 | 11 | `geometry-transformations` | Transformations | g910 | split from `geometry-similarity-and-proof` | `rework` |
 | 12 | `geometry-circle-theorems` | Circle theorems | g910 | split from `geometry-similarity-and-proof` | `rework` |
 
+**Blocker to clear first: `RightTriangle` cannot suppress its own caption.** It is on the
+strict `canCaptionItsResult()` list in `LearnCatalogTest` but, unlike most variants, it does
+not declare `override val reveal`, so it inherits the interface default of `true` and can
+never be built with `reveal = false`. Any question step drawing one therefore fails the
+strict rule automatically. `geometry-pythagoras-and-circles` holds 9 of the 15 remaining
+ratchet figures and is exactly the sub-topic that needs it, so **add the `reveal` override to
+`RightTriangle` before authoring Pythagoras**. The other variants missing the override
+(`Clock`, `Steps`, `Balance`, `NormalCurve`, `SetDiagram`, `Plot`) are not on the strict list,
+so they are unaffected.
+
 Notes on the split:
 
 * **"Halves and quarters" is dropped.** It is fraction material and Arithmetic teaches
@@ -276,9 +289,9 @@ Notes on the split:
 
 | # | Question | Why it matters | State |
 |---|---|---|---|
-| 1 | Do Arithmetic units 5 and 6 split into six the way Geometry is splitting? | Consistency of the readiness bar, and it rebalances 12 vs 6. Costs six new units of authoring and breaks two unit ids. | **open** |
-| 2 | Is the 12-unit Geometry ladder right, or should some units merge? | Sets the whole authoring workload. | **open** |
-| 3 | Drop "Halves and quarters", or keep it as a g12 Geometry unit? | Overlaps Arithmetic fractions. | **open** |
+| 1 | Do Arithmetic units 5 and 6 split into six the way Geometry is splitting? | Consistency of the readiness bar, and it rebalances 12 vs 6. | **done 2026-08-26**: split. Arithmetic is 10 units. |
+| 2 | Is the 12-unit Geometry ladder right, or should some units merge? | Sets the whole authoring workload. Arithmetic landing at 10 makes 12 look reasonable rather than lopsided. | **open** |
+| 3 | Drop "Halves and quarters", or keep it as a g12 Geometry unit? | Overlaps Arithmetic fractions. | **done 2026-08-26**: drop it. |
 | 4 | Does the section ship with `GRADES_11_12` unreachable? | Two dead strings across 45 files, and the level picker copy mentions calculus. | **open** |
 
 ---
@@ -288,6 +301,7 @@ Notes on the split:
 | Date | What happened |
 |---|---|
 | 2026-08-26 | Scope set: ship Arithmetic + Geometry, park six. Parking method, perimeter/area move and Geometry split decided. This document created. |
+| 2026-08-26 | Arithmetic split 6 -> 10: `ratio-and-percent` became Negative numbers, Ratio and proportion and Percentages; `standard-form-and-surds` became Standard form, Surds and Rounding and bounds. Twelve new lessons and six new tests written; original lesson ids kept. All 10 sub-topics now `ready` bar the batched render check. Found that `RightTriangle` cannot set `reveal = false`, which blocks the Pythagoras rework (see section 5). |
 | 2026-08-26 | Readiness pass: `arithmetic-multiplication`, `arithmetic-fractions` and `arithmetic-decimals` reviewed and marked ready, four more defects fixed. 4 of 6 Arithmetic sub-topics done; units 5 and 6 are blocked on open decision 1. |
 | 2026-08-26 | Readiness pass started. `arithmetic-counting` reviewed and marked ready: four defects fixed (see section 4). Corrected a wrong lead in this document: low Tinted / Formula-led counts are a property of the figures a unit uses, not a sign of unfinished work. |
 | 2026-08-26 | Restructure committed as `b2a56c22`; `learn-parked` branched there. Parking executed: 6 content files, 6 `MathTopic` entries, 6 tile sketches and 540 locale strings removed; perimeter and area moved into Geometry as `geometry-perimeter-and-area`; previews and tests repointed at shipped topics; `RATCHET` 50 -> 15 and verified tight at exactly 15. `desktopTest` green apart from the by-design `NurikabeMeasureTest.measure`. Geometry rework not started. |

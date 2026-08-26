@@ -34,7 +34,7 @@ class UserStorageLearnTest {
     @Test
     fun lessonProgressCountsOnlyItsOwnUnit() {
         val storage = UserStorage.forPreview()
-        val middle = unit(MathTopic.ARITHMETIC, "ratio-and-percent")
+        val middle = unit(MathTopic.ARITHMETIC, "percent")
         val early = unit(MathTopic.ARITHMETIC, "counting")
         storage.completeLearnLesson(middle.lessons.first().id)
 
