@@ -373,10 +373,13 @@ jobs:
           KEYSTORE_PASSWORD: ${{ secrets.PLAY_STORE_KEYSTORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.PLAY_STORE_KEY_ALIAS }}
 
+      # Pinned in .ruby-version so this and the bundle check in test.yml can never drift apart.
+      # Gems raise required_ruby_version without notice (excon 1.7.0 moved to >= 3.3.0), and a
+      # pin that is too old only shows up here, after the AAB is already built.
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.3'
+          ruby-version: .ruby-version
           bundler-cache: true
 
       - name: Deploy to Play Store

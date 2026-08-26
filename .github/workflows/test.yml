@@ -79,3 +79,22 @@ jobs:
             composeApp/build/reports/lint-results-*.html
             androidApp/build/reports/lint-results-*.html
           if-no-files-found: ignore
+
+  # `bundle install` otherwise runs for the first time inside the release workflow, so a Gemfile.lock
+  # that needs a newer Ruby than CI pins fails after the signed AAB is built and half the release
+  # artifacts are published. `bundle update fastlane` runs against whatever Ruby the dev machine has,
+  # which is how such a lock gets committed in the first place. Resolving it here, on the same
+  # .ruby-version the release uses, turns that into a failed push instead of a broken release.
+  fastlane-bundle:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && github.actor != 'github-actions[bot]'"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      # Proves the lock resolves and fastlane actually loads on this Ruby, not just that it installs.
+      - run: bundle exec fastlane --version
