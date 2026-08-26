@@ -3,19 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // 404.html is served for any unknown path, so the document URL can be a nested route such
+        // as /Braincup/matchstick/one_plus_one. A relative URL would resolve against that nested
+        // path and 404, so every same-origin asset is pinned to the app root. Webpack derives its
+        // public path from currentScript.src, which keeps the wasm chunks resolving from the same
+        // root. Mirrors detectWebBasePath in AppUrlRoutes.kt.
+        window.braincupBase = location.pathname.indexOf('/Braincup') === 0 ? '/Braincup/' : '/';
+        (function () {
+            // The bundle tag is appended at the end of the document, far too late for the preload
+            // scanner to find it. Starting the fetch here, while the head is still parsing, takes
+            // a full round trip off the critical path.
+            var preload = document.createElement('link');
+            preload.rel = 'preload';
+            preload.as = 'script';
+            preload.href = window.braincupBase + 'composeApp.js';
+            document.head.appendChild(preload);
+
+            var manifest = document.createElement('link');
+            manifest.rel = 'manifest';
+            manifest.href = window.braincupBase + 'manifest.json';
+            document.head.appendChild(manifest);
+        })();
+    </script>
+
     <title>Braincup – Brain Training for Math, Memory &amp; Focus</title>
     <meta name="description" content="Free brain training with 26 mini-games for math, memory, and focus. Play instantly in your browser — no account, no tracking. Open source.">
     <meta name="author" content="Simon Schubert">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#ED7354">
-    <link rel="canonical" href="https://simonschubert.github.io/Braincup/">
+    <link rel="canonical" href="https://braincup.app/">
 
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Braincup">
     <meta property="og:title" content="Braincup – Brain Training for Math, Memory &amp; Focus">
     <meta property="og:description" content="Free brain training with 26 mini-games for math, memory, and focus. Play instantly in your browser — no account, no tracking. Open source.">
-    <meta property="og:url" content="https://simonschubert.github.io/Braincup/">
-    <meta property="og:image" content="https://simonschubert.github.io/Braincup/og-image.png">
+    <meta property="og:url" content="https://braincup.app/">
+    <meta property="og:image" content="https://braincup.app/og-image.png">
     <meta property="og:image:width" content="1024">
     <meta property="og:image:height" content="500">
     <meta property="og:image:alt" content="Braincup brain training app showing math, memory and focus games">
@@ -24,7 +48,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Braincup – Brain Training for Math, Memory &amp; Focus">
     <meta name="twitter:description" content="Free brain training with 26 mini-games for math, memory, and focus. Play instantly in your browser — no account, no tracking. Open source.">
-    <meta name="twitter:image" content="https://simonschubert.github.io/Braincup/og-image.png">
+    <meta name="twitter:image" content="https://braincup.app/og-image.png">
     <meta name="twitter:image:alt" content="Braincup brain training app showing math, memory and focus games">
 
     <meta name="apple-mobile-web-app-title" content="Braincup">
@@ -38,7 +62,7 @@
       "@type": "WebApplication",
       "name": "Braincup",
       "description": "Free brain training with 26 mini-games for math, memory, and focus. Play instantly in your browser — no account, no tracking. Open source.",
-      "url": "https://simonschubert.github.io/Braincup/",
+      "url": "https://braincup.app/",
       "applicationCategory": "GameApplication",
       "operatingSystem": "Web",
       "browserRequirements": "Requires JavaScript and WebAssembly support",
@@ -51,8 +75,8 @@
         "@type": "Person",
         "name": "Simon Schubert"
       },
-      "image": "https://simonschubert.github.io/Braincup/og-image.png",
-      "screenshot": "https://simonschubert.github.io/Braincup/og-image.png",
+      "image": "https://braincup.app/og-image.png",
+      "screenshot": "https://braincup.app/og-image.png",
       "featureList": "Mental math, memory games, logic puzzles, focus exercises, sudoku, chess, wordle, offline play"
     }
     </script>
@@ -65,32 +89,99 @@
             height: 100%;
             overflow: hidden;
         }
-        .seo-fallback {
-            display: none;
+
+        /* Painted on the first frame. ComposeViewport clears its container on composition
+           creation, so Compose takes this node down itself the moment it has something to draw.
+           Without it the page is a blank rectangle for the whole multi-megabyte wasm download. */
+        #braincup-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 2147483647;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.85rem;
+            padding: 1.5rem;
+            text-align: center;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background: #fffaf7;
+            color: #2b2622;
+        }
+
+        .splash-title {
+            margin: 0;
+            font-size: clamp(2.25rem, 10vw, 3.25rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #ED7354;
+        }
+
+        .splash-tagline,
+        .splash-noscript {
+            margin: 0;
+            max-width: 26rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.75;
+        }
+
+        .splash-status {
+            margin: 0;
+            font-size: 0.85rem;
+            letter-spacing: 0.02em;
+            opacity: 0.5;
+        }
+
+        .splash-spinner {
+            width: 2rem;
+            height: 2rem;
+            margin-top: 0.5rem;
+            border: 3px solid rgba(237, 115, 84, 0.25);
+            border-top-color: #ED7354;
+            border-radius: 50%;
+            animation: splash-spin 0.9s linear infinite;
+        }
+
+        @keyframes splash-spin {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .splash-spinner { animation: none; }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            #braincup-splash {
+                background: #16130f;
+                color: #f3ece6;
+            }
         }
     </style>
+
+    <noscript>
+        <style>
+            /* Nothing is loading without JavaScript, so drop the progress affordances. */
+            .splash-spinner,
+            .splash-status { display: none; }
+        </style>
+    </noscript>
 </head>
 <body>
-<noscript>
-    <div class="seo-fallback" style="display:block;max-width:40rem;margin:2rem auto;padding:0 1rem;font-family:system-ui,sans-serif;line-height:1.5;color:#1a1a1a;">
-        <h1>Braincup – Brain Training for Math, Memory &amp; Focus</h1>
-        <p>Train your brain with 26 free mini-games that challenge your math, memory, logic, and focus. Play in your browser with no account and no tracking.</p>
-        <p>JavaScript is required to run Braincup. Please enable JavaScript in your browser settings.</p>
-        <p><a href="https://github.com/SimonSchubert/Braincup">View source on GitHub</a></p>
-    </div>
-</noscript>
+<div id="braincup-splash">
+    <h1 class="splash-title">Braincup</h1>
+    <p class="splash-tagline">Brain training for math, memory and focus. 26 free mini-games, no account and no tracking.</p>
+    <div class="splash-spinner" aria-hidden="true"></div>
+    <p class="splash-status">Loading Braincup...</p>
+    <noscript>
+        <p class="splash-noscript">Braincup needs JavaScript and WebAssembly to run. Enable JavaScript to play, or <a href="https://github.com/SimonSchubert/Braincup">view the source on GitHub</a>.</p>
+    </noscript>
+</div>
 <script>
-    // 404.html is served for any unknown path, so the document URL can be a nested route such as
-    // /Braincup/matchstick/one_plus_one. A relative script src would resolve against that nested
-    // path and 404, so pin the bundle to the app root. Webpack derives its public path from
-    // currentScript.src, which keeps the wasm chunks resolving from the same root.
-    // Mirrors detectWebBasePath in AppUrlRoutes.kt.
-    (function () {
-        var base = location.pathname.indexOf('/Braincup') === 0 ? '/Braincup/' : '/';
-        var script = document.createElement('script');
-        script.src = base + 'composeApp.js';
-        document.body.appendChild(script);
-    })();
+    var braincupScript = document.createElement('script');
+    braincupScript.src = window.braincupBase + 'composeApp.js';
+    document.body.appendChild(braincupScript);
 </script>
 </body>
 </html>
