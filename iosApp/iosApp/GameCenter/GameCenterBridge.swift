@@ -66,6 +66,9 @@ final class GameCenterBridge: NSObject {
         bridge.onPegSolitairePerfect = { [weak self] in
             self?.reportAchievement(id: GameCenterIds.achievementPegMaster, percent: 100)
         }
+        bridge.onLearnCertificate = { [weak self] unitId in
+            self?.reportAchievement(id: GameCenterIds.learnCertificate(forUnitId: unitId), percent: 100)
+        }
         bridge.onIqTestCompleted = { [weak self] iq in
             self?.reportAchievement(id: GameCenterIds.achievementMeasuredMind, percent: 100)
             guard iq.intValue >= GameCenterIds.iqTestHighTarget else { return }
@@ -184,6 +187,18 @@ final class GameCenterBridge: NSObject {
                 if count > 0 {
                     storage.restoreSudokuTierProgressIfHigher(difficulty: difficulty, remoteCount: Int32(count))
                 }
+            }
+
+            // Restore Learn Math certificates: Game Center is the only off-device record of
+            // one, so without this a certificate does not survive a reinstall.
+            var certifiedUnitIds = Set<String>()
+            for a in achievements where a.percentComplete >= 100 {
+                if let unitId = GameCenterIds.learnUnitId(forGameCenterId: a.identifier) {
+                    certifiedUnitIds.insert(unitId)
+                }
+            }
+            if !certifiedUnitIds.isEmpty {
+                storage.restoreLearnCertificates(unitIds: certifiedUnitIds)
             }
 
             // Restore Matchstick Riddles progress: percentComplete is toward storeProgressMax.

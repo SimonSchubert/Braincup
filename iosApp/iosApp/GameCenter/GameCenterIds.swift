@@ -91,6 +91,17 @@ enum GameCenterIds {
         sudokuTiersByName[name]
     }
 
+    /// Learn Math certificates have no id table here: both directions are derived from the
+    /// `LearnUnit` id by the shared Kotlin object, so the forward and reverse maps cannot
+    /// disagree the way the hand-written per-game ones did.
+    static func learnCertificate(forUnitId unitId: String) -> String {
+        LearnStoreAchievements.shared.gameCenterId(unitId: unitId)
+    }
+
+    static func learnUnitId(forGameCenterId id: String) -> String? {
+        LearnStoreAchievements.shared.unitIdForGameCenterId(id: id)
+    }
+
     /// Maps a Game Center sudoku-tier ID back to its Kotlin `SudokuDifficulty` (for restore).
     static func sudokuTier(forGameCenterId id: String) -> SudokuDifficulty? {
         switch id {

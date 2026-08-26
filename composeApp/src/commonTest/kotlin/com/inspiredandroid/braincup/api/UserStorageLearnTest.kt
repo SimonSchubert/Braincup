@@ -113,6 +113,55 @@ class UserStorageLearnTest {
     }
 
     @Test
+    fun restoringCertificatesAddsTheMissingOnesWithoutPayingXp() {
+        val storage = UserStorage.forPreview()
+        val counting = unit(MathTopic.ARITHMETIC, "counting")
+        val percent = unit(MathTopic.ARITHMETIC, "percent")
+        storage.recordLearnQuizResult(counting, counting.quiz.total, counting.quiz.total)
+        val xpAfterEarning = storage.getTotalXp()
+
+        storage.restoreLearnCertificates(setOf(counting.id, percent.id))
+
+        assertNotNull(storage.getLearnCertificate(percent))
+        assertEquals(xpAfterEarning, storage.getTotalXp(), "a restored certificate pays no XP")
+    }
+
+    @Test
+    fun restoringIsIdempotentAndIgnoresUnknownUnits() {
+        val storage = UserStorage.forPreview()
+        val counting = unit(MathTopic.ARITHMETIC, "counting")
+
+        storage.restoreLearnCertificates(setOf(counting.id, "arithmetic-retired-sub-topic"))
+        val earnedDay = assertNotNull(storage.getLearnCertificate(counting)).earnedEpochDay
+        storage.restoreLearnCertificates(setOf(counting.id))
+
+        assertEquals(1, storage.getLearnCertificates().size)
+        assertEquals(earnedDay, assertNotNull(storage.getLearnCertificate(counting)).earnedEpochDay)
+        assertEquals(0, storage.getTotalXp())
+    }
+
+    @Test
+    fun restoringAWholeTopicUnlocksTheSameMilestonesAsEarningIt() {
+        val storage = UserStorage.forPreview()
+
+        storage.restoreLearnCertificates(LearnCatalog.units(MathTopic.ARITHMETIC).map { it.id }.toSet())
+
+        val unlocked = storage.getUnlockedAchievements()
+        assertTrue(UserStorage.Achievements.LEARN_FIRST_CERTIFICATE in unlocked)
+        assertTrue(UserStorage.Achievements.LEARN_TOPIC_CERTIFICATES in unlocked)
+        assertFalse(UserStorage.Achievements.LEARN_ALL_CERTIFICATES in unlocked)
+    }
+
+    @Test
+    fun restoringEveryCertificateUnlocksTheScholarMilestone() {
+        val storage = UserStorage.forPreview()
+
+        storage.restoreLearnCertificates(LearnCatalog.allUnits.map { it.id }.toSet())
+
+        assertTrue(UserStorage.Achievements.LEARN_ALL_CERTIFICATES in storage.getUnlockedAchievements())
+    }
+
+    @Test
     fun unitProgressReflectsLessonsAndCertificate() {
         val storage = UserStorage.forPreview()
         val target = unit(MathTopic.GEOMETRY, "flat-shapes")

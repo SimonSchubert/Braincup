@@ -829,16 +829,49 @@ class UserStorage(
             updated.values.joinToString(",") { "${it.unitId}:${it.earnedEpochDay}" },
         )
 
-        unlockAchievement(Achievements.LEARN_FIRST_CERTIFICATE)
-        if (LearnCatalog.units(unit.topic).all { it.id in updated }) {
-            unlockAchievement(Achievements.LEARN_TOPIC_CERTIFICATES)
-        }
-        if (updated.keys.containsAll(LearnCatalog.allUnits.map { it.id })) {
-            unlockAchievement(Achievements.LEARN_ALL_CERTIFICATES)
-        }
+        notifyStore { PlayGamesBridge.onLearnCertificate?.invoke(unit.id) }
+        unlockLearnCertificateMilestones(updated.keys)
 
         val levelChange = addXp(LEARN_CERTIFICATE_XP)
         return LearnQuizResult(unit, correct, total, true, XpAward(LEARN_CERTIFICATE_XP, levelChange))
+    }
+
+    /**
+     * Merge certificates restored from a store (Play Games / Game Center) into local progress.
+     *
+     * A store only records *that* a certificate was earned, never when, so a restored one is dated
+     * today. No XP is paid either: cumulative XP comes back from the Brain Cup leaderboard, so
+     * paying [LEARN_CERTIFICATE_XP] again here would count every restored certificate twice.
+     */
+    fun restoreLearnCertificates(unitIds: Set<String>) {
+        if (unitIds.isEmpty()) return
+        val certificates = getLearnCertificates()
+        val missing = unitIds.filter { it !in certificates && LearnCatalog.unitById(it) != null }
+        if (missing.isEmpty()) return
+
+        val today = todayEpochDay()
+        val updated = certificates + missing.associateWith { LearnCertificate(it, today) }
+        store.putString(
+            KEY_LEARN_CERTIFICATES,
+            updated.values.joinToString(",") { "${it.unitId}:${it.earnedEpochDay}" },
+        )
+        unlockLearnCertificateMilestones(updated.keys)
+    }
+
+    /**
+     * The three cross-certificate milestones, re-evaluated against every certificate held. Shared
+     * by the award path and [restoreLearnCertificates] so the two can never disagree on what
+     * counts as a completed topic.
+     */
+    private fun unlockLearnCertificateMilestones(certifiedUnitIds: Set<String>) {
+        if (certifiedUnitIds.isEmpty()) return
+        unlockAchievement(Achievements.LEARN_FIRST_CERTIFICATE)
+        if (MathTopic.entries.any { topic -> LearnCatalog.units(topic).all { it.id in certifiedUnitIds } }) {
+            unlockAchievement(Achievements.LEARN_TOPIC_CERTIFICATES)
+        }
+        if (certifiedUnitIds.containsAll(LearnCatalog.allUnits.map { it.id })) {
+            unlockAchievement(Achievements.LEARN_ALL_CERTIFICATES)
+        }
     }
 
     /** Menu state for one unit: lesson progress plus the certificate, once earned. */

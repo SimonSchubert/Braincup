@@ -76,6 +76,55 @@
     <string name="achievementMeasuredMind" translatable="false"></string>
     <string name="achievementPatternSavant" translatable="false"></string>
 
+    <!-- Learn Math sub-topic certificates, standard (non-incremental). One per LearnUnit;
+         keys mirror LearnStoreAchievements.storeKey. Blank until each is created in Play
+         Console: every call site guards on isBlank(), so an empty ID is a silent no-op and
+         the medal simply never unlocks. -->
+    <!-- Counting Cadet -->
+    <string name="achievementCertArithmeticCounting" translatable="false">CgkIuZrirtIVEAIQMg</string>
+    <!-- Times Table Titan -->
+    <string name="achievementCertArithmeticMultiplication" translatable="false">CgkIuZrirtIVEAIQMw</string>
+    <!-- Piece of the Pie -->
+    <string name="achievementCertArithmeticFractions" translatable="false">CgkIuZrirtIVEAIQNA</string>
+    <!-- Point Taken -->
+    <string name="achievementCertArithmeticDecimals" translatable="false">CgkIuZrirtIVEAIQNQ</string>
+    <!-- Below Zero -->
+    <string name="achievementCertArithmeticNegatives" translatable="false">CgkIuZrirtIVEAIQNg</string>
+    <!-- In Proportion -->
+    <string name="achievementCertArithmeticRatio" translatable="false">CgkIuZrirtIVEAIQNw</string>
+    <!-- Hundred Percent -->
+    <string name="achievementCertArithmeticPercent" translatable="false">CgkIuZrirtIVEAIQOA</string>
+    <!-- Powers of Ten -->
+    <string name="achievementCertArithmeticStandardForm" translatable="false">CgkIuZrirtIVEAIQOQ</string>
+    <!-- Root Cause -->
+    <string name="achievementCertArithmeticSurds" translatable="false">CgkIuZrirtIVEAIQOg</string>
+    <!-- Within Bounds -->
+    <string name="achievementCertArithmeticBounds" translatable="false">CgkIuZrirtIVEAIQOw</string>
+    <!-- Corner Counter -->
+    <string name="achievementCertGeometryFlatShapes" translatable="false">CgkIuZrirtIVEAIQPA</string>
+    <!-- Solid Thinking -->
+    <string name="achievementCertGeometrySolidShapes" translatable="false">CgkIuZrirtIVEAIQPQ</string>
+    <!-- Full Turn -->
+    <string name="achievementCertGeometryAngles" translatable="false">CgkIuZrirtIVEAIQPg</string>
+    <!-- Sorted by Sides -->
+    <string name="achievementCertGeometryQuadrilaterals" translatable="false">CgkIuZrirtIVEAIQPw</string>
+    <!-- Mirror Image -->
+    <string name="achievementCertGeometrySymmetry" translatable="false">CgkIuZrirtIVEAIQQA</string>
+    <!-- Fence and Floor -->
+    <string name="achievementCertGeometryPerimeterAndArea" translatable="false">CgkIuZrirtIVEAIQQQ</string>
+    <!-- Hypotenuse Hero -->
+    <string name="achievementCertGeometryPythagoras" translatable="false">CgkIuZrirtIVEAIQQg</string>
+    <!-- Round Numbers -->
+    <string name="achievementCertGeometryCircles" translatable="false">CgkIuZrirtIVEAIQQw</string>
+    <!-- Filled to the Brim -->
+    <string name="achievementCertGeometryVolume" translatable="false">CgkIuZrirtIVEAIQRA</string>
+    <!-- Scaled Up -->
+    <string name="achievementCertGeometrySimilarity" translatable="false">CgkIuZrirtIVEAIQRQ</string>
+    <!-- Slide, Flip, Turn -->
+    <string name="achievementCertGeometryTransformations" translatable="false">CgkIuZrirtIVEAIQRg</string>
+    <!-- Full Circle -->
+    <string name="achievementCertGeometryCircleTheorems" translatable="false">CgkIuZrirtIVEAIQRw</string>
+
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>
     <string name="leaderboardBrainCup" translatable="false">CgkIuZrirtIVEAIQGA</string>

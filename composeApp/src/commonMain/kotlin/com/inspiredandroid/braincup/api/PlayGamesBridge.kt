@@ -57,6 +57,12 @@ object PlayGamesBridge {
     var onPegSolitairePerfect: (() -> Unit)? = null
 
     /**
+     * Fired when a Learn Math sub-topic certificate is earned, with the LearnUnit id. Each
+     * certificate has its own store achievement; see `LearnStoreAchievements` for the id scheme.
+     */
+    var onLearnCertificate: ((String) -> Unit)? = null
+
+    /**
      * Fired when an IQ test is finished, with the estimated IQ. The platform side unlocks the
      * completion achievement every time and the high-score one only past its threshold, so this
      * stays a single hook rather than one per achievement.

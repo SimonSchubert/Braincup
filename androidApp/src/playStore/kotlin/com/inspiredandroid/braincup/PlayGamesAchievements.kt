@@ -17,6 +17,7 @@ import com.inspiredandroid.braincup.api.StorePlayerProfile
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.R
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.learn.LearnStoreAchievements
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
 import java.io.ByteArrayOutputStream
@@ -74,6 +75,14 @@ fun initPlayGames(activity: ComponentActivity) {
     PlayGamesBridge.onPegSolitairePerfect = fun() {
         val current = activityRef?.get() ?: return
         val id = current.getString(R.string.achievementPegMaster)
+        if (id.isBlank()) return
+        PlayGames.getAchievementsClient(current).unlock(id)
+    }
+
+    PlayGamesBridge.onLearnCertificate = fun(unitId: String) {
+        val current = activityRef?.get() ?: return
+        val resId = learnCertificateResIdFor(unitId) ?: return
+        val id = current.getString(resId)
         if (id.isBlank()) return
         PlayGames.getAchievementsClient(current).unlock(id)
     }
@@ -378,6 +387,18 @@ private fun restoreAchievementsFromPlayGames(activity: ComponentActivity) {
                 }
             }
 
+            // Certificates the store has but this install does not: the only way a certificate
+            // survives a reinstall, since nothing else records one off-device.
+            val certifiedUnitIds = mutableSetOf<String>()
+            for (unitId in LearnStoreAchievements.certifiedUnitIds) {
+                val resId = learnCertificateResIdFor(unitId) ?: continue
+                val certificateId = activity.getString(resId)
+                if (certificateId.isNotBlank() && certificateId in unlockedIds) {
+                    certifiedUnitIds.add(unitId)
+                }
+            }
+            storage.restoreLearnCertificates(certifiedUnitIds)
+
             val matchstickId = activity.getString(R.string.achievementMatchstickMaster)
             if (matchstickId.isNotBlank()) {
                 val steps = incrementalSteps[matchstickId] ?: 0
@@ -430,6 +451,37 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.PRISM_CLEAR -> R.string.achievementCrystalClarity
     GameType.BULLS_AND_COWS -> R.string.achievementCodeCracker
     GameType.TRIO -> R.string.achievementTripleVision
+}
+
+/**
+ * Store achievement per Learn Math sub-topic certificate. Unlike [achievementResIdFor] this `when`
+ * is not exhaustive, so a new sub-topic will not fail the build here; `LearnStoreAchievementsTest`
+ * is what catches it.
+ */
+private fun learnCertificateResIdFor(unitId: String): Int? = when (unitId) {
+    "arithmetic-counting"        -> R.string.achievementCertArithmeticCounting
+    "arithmetic-multiplication"  -> R.string.achievementCertArithmeticMultiplication
+    "arithmetic-fractions"       -> R.string.achievementCertArithmeticFractions
+    "arithmetic-decimals"        -> R.string.achievementCertArithmeticDecimals
+    "arithmetic-negatives"       -> R.string.achievementCertArithmeticNegatives
+    "arithmetic-ratio"           -> R.string.achievementCertArithmeticRatio
+    "arithmetic-percent"         -> R.string.achievementCertArithmeticPercent
+    "arithmetic-standard-form"   -> R.string.achievementCertArithmeticStandardForm
+    "arithmetic-surds"           -> R.string.achievementCertArithmeticSurds
+    "arithmetic-bounds"          -> R.string.achievementCertArithmeticBounds
+    "geometry-flat-shapes"       -> R.string.achievementCertGeometryFlatShapes
+    "geometry-solid-shapes"      -> R.string.achievementCertGeometrySolidShapes
+    "geometry-angles"            -> R.string.achievementCertGeometryAngles
+    "geometry-quadrilaterals"    -> R.string.achievementCertGeometryQuadrilaterals
+    "geometry-symmetry"          -> R.string.achievementCertGeometrySymmetry
+    "geometry-perimeter-and-area"-> R.string.achievementCertGeometryPerimeterAndArea
+    "geometry-pythagoras"        -> R.string.achievementCertGeometryPythagoras
+    "geometry-circles"           -> R.string.achievementCertGeometryCircles
+    "geometry-volume"            -> R.string.achievementCertGeometryVolume
+    "geometry-similarity"        -> R.string.achievementCertGeometrySimilarity
+    "geometry-transformations"   -> R.string.achievementCertGeometryTransformations
+    "geometry-circle-theorems"   -> R.string.achievementCertGeometryCircleTheorems
+    else -> null
 }
 
 private fun sudokuTierAchievementResIdFor(difficulty: SudokuDifficulty): Int = when (difficulty) {

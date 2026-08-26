@@ -1,10 +1,12 @@
 package com.inspiredandroid.braincup.api
 
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.russhwolf.settings.MapSettings
 import kotlin.test.AfterTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFalse
 import kotlin.test.assertNotEquals
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
@@ -204,5 +206,50 @@ class UserStorageAccountIsolationTest {
         PlayGamesBridge.onGoldMedal = { medals += it }
         storage.putScore(GameType.MENTAL_CALCULATION.id, GameType.MENTAL_CALCULATION.goldScore)
         assertEquals(listOf(GameType.MENTAL_CALCULATION), medals)
+    }
+
+    /**
+     * Learn progress rides on the same prefix as everything else, which only holds while its two
+     * keys stay out of `deviceKeys`. Adding one there would silently share a child's lessons and
+     * certificates with every other account on the device.
+     */
+    @Test
+    fun learnProgressStaysIsolatedAcrossAccounts() {
+        PlayGamesBridge.hasPlayStoreAccount = false
+        val settings = MapSettings()
+        val storage = UserStorage(settings)
+        val unit = LearnCatalog.allUnits.first()
+        val lessonId = unit.lessons.first().id
+        storage.completeLearnLesson(lessonId)
+        storage.recordLearnQuizResult(unit, unit.quiz.total, unit.quiz.total)
+        assertEquals(1, storage.getLearnCertificateCount())
+
+        val kid = storage.accounts.createLocal("Kid", AccountIcon.SEAL)
+        assertFalse(storage.isLearnLessonCompleted(lessonId))
+        assertEquals(0, storage.getLearnCertificateCount())
+        storage.completeLearnLesson(LearnCatalog.allUnits[1].lessons.first().id)
+
+        storage.accounts.switchTo(AccountStore.DEFAULT_LOCAL_ID)
+        assertEquals(setOf(lessonId), storage.getCompletedLearnLessonIds())
+        assertEquals(1, storage.getLearnCertificateCount())
+        assertTrue(settings.keys.any { it.startsWith("a_${kid!!.id}.") })
+    }
+
+    /** The store restore path writes into the Play slot, never into whichever account is active. */
+    @Test
+    fun learnCertificateRestoreDoesNotTouchLocalPrefix() {
+        PlayGamesBridge.hasPlayStoreAccount = true
+        val settings = MapSettings()
+        val live = UserStorage(settings)
+        live.accounts.createLocal("Offline", AccountIcon.WHALE)
+        val unit = LearnCatalog.allUnits.first()
+
+        val restore = UserStorage(settings, playSlotProgress = true)
+        restore.restoreLearnCertificates(setOf(unit.id))
+
+        assertEquals(0, live.getLearnCertificateCount())
+        live.accounts.switchTo(AccountStore.PLAY_ID)
+        assertEquals(1, live.getLearnCertificateCount())
+        assertTrue(UserStorage.Achievements.LEARN_FIRST_CERTIFICATE in live.getUnlockedAchievements())
     }
 }
