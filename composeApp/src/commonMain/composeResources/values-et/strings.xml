@@ -846,20 +846,8 @@ Liiguta Cow — sellest saab Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmeetika</string>
     <string name="learn_topic_arithmetic_subtitle">Arvud ja tehted</string>
-    <string name="learn_topic_measurement">Mõõtmine</string>
-    <string name="learn_topic_measurement_subtitle">Pikkus, ühikud ja pindala</string>
     <string name="learn_topic_geometry">Geomeetria</string>
     <string name="learn_topic_geometry_subtitle">Nurgad, kolmnurgad ja ringjooned</string>
-    <string name="learn_topic_data">Andmed ja tõenäosus</string>
-    <string name="learn_topic_data_subtitle">Statistika ja juhus</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Avaldised ja võrrandid</string>
-    <string name="learn_topic_trigonometry">Trigonomeetria</string>
-    <string name="learn_topic_trigonometry_subtitle">Suhted ja ühikringjoon</string>
-    <string name="learn_topic_functions">Ettevalmistus analüüsiks</string>
-    <string name="learn_topic_functions_subtitle">Funktsioonid ja graafikud</string>
-    <string name="learn_topic_calculus">Analüüs</string>
-    <string name="learn_topic_calculus_subtitle">Piirväärtused, tuletised ja integraalid</string>
 
     <string name="learn_lessons_header">Tunnid</string>
     <string name="learn_lesson_progress">%1$d / %2$d tundi</string>

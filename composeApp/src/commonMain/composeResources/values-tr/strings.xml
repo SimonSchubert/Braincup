@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Sayılar &amp; işlemler</string>
-    <string name="learn_topic_measurement">Ölçme</string>
-    <string name="learn_topic_measurement_subtitle">Uzunluk, birimler &amp; alan</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Açılar, üçgenler &amp; çemberler</string>
-    <string name="learn_topic_data">Veri &amp; olasılık</string>
-    <string name="learn_topic_data_subtitle">İstatistik &amp; şans</string>
-    <string name="learn_topic_algebra">Cebir</string>
-    <string name="learn_topic_algebra_subtitle">İfadeler &amp; denklemler</string>
-    <string name="learn_topic_trigonometry">Trigonometri</string>
-    <string name="learn_topic_trigonometry_subtitle">Oranlar &amp; birim çember</string>
-    <string name="learn_topic_functions">Analize hazırlık</string>
-    <string name="learn_topic_functions_subtitle">Fonksiyonlar &amp; grafikler</string>
-    <string name="learn_topic_calculus">Analiz</string>
-    <string name="learn_topic_calculus_subtitle">Limitler, türevler &amp; integraller</string>
 
     <string name="learn_lessons_header">Dersler</string>
     <string name="learn_lesson_progress">%1$d / %2$d ders</string>

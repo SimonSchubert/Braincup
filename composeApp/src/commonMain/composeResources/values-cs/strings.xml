@@ -846,20 +846,8 @@ Přesuň Cow — stane se z něj Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Čísla a operace</string>
-    <string name="learn_topic_measurement">Měření</string>
-    <string name="learn_topic_measurement_subtitle">Délka, jednotky a obsah</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Úhly, trojúhelníky a kružnice</string>
-    <string name="learn_topic_data">Data a pravděpodobnost</string>
-    <string name="learn_topic_data_subtitle">Statistika a náhoda</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Výrazy a rovnice</string>
-    <string name="learn_topic_trigonometry">Trigonometrie</string>
-    <string name="learn_topic_trigonometry_subtitle">Poměry a jednotková kružnice</string>
-    <string name="learn_topic_functions">Příprava na kalkulus</string>
-    <string name="learn_topic_functions_subtitle">Funkce a grafy</string>
-    <string name="learn_topic_calculus">Kalkulus</string>
-    <string name="learn_topic_calculus_subtitle">Limity, derivace a integrály</string>
 
     <string name="learn_lessons_header">Lekce</string>
     <string name="learn_lesson_progress">%1$d / %2$d lekcí</string>

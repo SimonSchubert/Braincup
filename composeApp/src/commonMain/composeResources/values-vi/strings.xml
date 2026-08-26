@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">Số học</string>
     <string name="learn_topic_arithmetic_subtitle">Số &amp; phép tính</string>
-    <string name="learn_topic_measurement">Đo lường</string>
-    <string name="learn_topic_measurement_subtitle">Độ dài, đơn vị &amp; diện tích</string>
     <string name="learn_topic_geometry">Hình học</string>
     <string name="learn_topic_geometry_subtitle">Góc, tam giác &amp; đường tròn</string>
-    <string name="learn_topic_data">Dữ liệu &amp; xác suất</string>
-    <string name="learn_topic_data_subtitle">Thống kê &amp; may rủi</string>
-    <string name="learn_topic_algebra">Đại số</string>
-    <string name="learn_topic_algebra_subtitle">Biểu thức &amp; phương trình</string>
-    <string name="learn_topic_trigonometry">Lượng giác</string>
-    <string name="learn_topic_trigonometry_subtitle">Tỉ số &amp; đường tròn đơn vị</string>
-    <string name="learn_topic_functions">Chuẩn bị giải tích</string>
-    <string name="learn_topic_functions_subtitle">Hàm số &amp; đồ thị</string>
-    <string name="learn_topic_calculus">Giải tích</string>
-    <string name="learn_topic_calculus_subtitle">Giới hạn, đạo hàm &amp; tích phân</string>
 
     <string name="learn_lessons_header">Bài học</string>
     <string name="learn_lesson_progress">%1$d / %2$d bài học</string>

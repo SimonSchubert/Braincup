@@ -829,20 +829,8 @@
 
     <string name="learn_topic_arithmetic">Rekenen</string>
     <string name="learn_topic_arithmetic_subtitle">Getallen &amp; bewerkingen</string>
-    <string name="learn_topic_measurement">Meten</string>
-    <string name="learn_topic_measurement_subtitle">Lengte, eenheden &amp; oppervlakte</string>
     <string name="learn_topic_geometry">Meetkunde</string>
     <string name="learn_topic_geometry_subtitle">Hoeken, driehoeken &amp; cirkels</string>
-    <string name="learn_topic_data">Data &amp; kans</string>
-    <string name="learn_topic_data_subtitle">Statistiek &amp; toeval</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Uitdrukkingen &amp; vergelijkingen</string>
-    <string name="learn_topic_trigonometry">Trigonometrie</string>
-    <string name="learn_topic_trigonometry_subtitle">Verhoudingen &amp; eenheidscirkel</string>
-    <string name="learn_topic_functions">Voorbereiding analyse</string>
-    <string name="learn_topic_functions_subtitle">Functies &amp; grafieken</string>
-    <string name="learn_topic_calculus">Analyse</string>
-    <string name="learn_topic_calculus_subtitle">Limieten, afgeleiden &amp; integralen</string>
 
     <string name="learn_lessons_header">Lessen</string>
     <string name="learn_lesson_progress">%1$d / %2$d lessen</string>

@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Bilangan &amp; operasi</string>
-    <string name="learn_topic_measurement">Pengukuran</string>
-    <string name="learn_topic_measurement_subtitle">Panjang, satuan &amp; luas</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Sudut, segitiga &amp; lingkaran</string>
-    <string name="learn_topic_data">Data &amp; peluang</string>
-    <string name="learn_topic_data_subtitle">Statistika &amp; peluang</string>
-    <string name="learn_topic_algebra">Aljabar</string>
-    <string name="learn_topic_algebra_subtitle">Bentuk aljabar &amp; persamaan</string>
-    <string name="learn_topic_trigonometry">Trigonometri</string>
-    <string name="learn_topic_trigonometry_subtitle">Rasio &amp; lingkaran satuan</string>
-    <string name="learn_topic_functions">Prakalkulus</string>
-    <string name="learn_topic_functions_subtitle">Fungsi &amp; grafik</string>
-    <string name="learn_topic_calculus">Kalkulus</string>
-    <string name="learn_topic_calculus_subtitle">Limit, turunan &amp; integral</string>
 
     <string name="learn_lessons_header">Pelajaran</string>
     <string name="learn_lesson_progress">%1$d / %2$d pelajaran</string>

@@ -58,13 +58,7 @@ private val TilePreviewPadding = 24.dp
 internal fun TopicTilePreview(topic: MathTopic) {
     when (topic) {
         MathTopic.ARITHMETIC -> OperatorGridPreview()
-        MathTopic.MEASUREMENT -> RulerPreview()
         MathTopic.GEOMETRY -> PentagonPreview()
-        MathTopic.DATA -> BarChartPreview()
-        MathTopic.ALGEBRA -> UnknownSlotPreview()
-        MathTopic.TRIGONOMETRY -> UnitCirclePreview()
-        MathTopic.FUNCTIONS -> LinearPlotPreview()
-        MathTopic.CALCULUS -> TangentPreview()
     }
 }
 
@@ -151,31 +145,6 @@ private fun OperatorGridPreview() {
 
 private const val RulerTicks = 5
 
-@Composable
-private fun RulerPreview() {
-    PreviewBox {
-        PrismCard(
-            face = Primary,
-            facet = PrismFacet.Cell,
-            modifier = Modifier.fillMaxWidth().aspectRatio(2.6f),
-        ) {
-            Canvas(modifier = Modifier.fillMaxSize()) {
-                val gap = size.width / (RulerTicks + 1)
-                repeat(RulerTicks) { index ->
-                    val x = gap * (index + 1)
-                    val length = if (index % 2 == 0) size.height * 0.55f else size.height * 0.32f
-                    drawLine(
-                        color = Color.White,
-                        start = Offset(x, 0f),
-                        end = Offset(x, length),
-                        strokeWidth = size.height * 0.1f,
-                    )
-                }
-            }
-        }
-    }
-}
-
 private val PentagonPoints = regularPolygonPoints(sides = 5)
 
 @Composable
@@ -191,127 +160,8 @@ private fun PentagonPreview() {
 
 private val BarChartHeights = listOf(0.45f, 0.75f, 0.3f, 1f)
 
-@Composable
-private fun BarChartPreview() {
-    PreviewBox {
-        Row(
-            modifier = Modifier.fillMaxSize(),
-            verticalAlignment = Alignment.Bottom,
-            horizontalArrangement = Arrangement.spacedBy(4.dp),
-        ) {
-            BarChartHeights.forEach { fraction ->
-                ColorPrismCell(
-                    face = Primary,
-                    modifier = Modifier.weight(1f).fillMaxHeight(fraction),
-                )
-            }
-        }
-    }
-}
-
 /** The unknown, in the same slot shape the number pad drops an answer into. */
-@Composable
-private fun UnknownSlotPreview() {
-    PreviewBox {
-        Box(
-            modifier = Modifier
-                .fillMaxSize(0.72f)
-                .background(LightColorScheme.primaryContainer.copy(alpha = 0.45f), PrismSlot)
-                .border(BorderStroke(2.dp, LightColorScheme.primary), PrismSlot),
-            contentAlignment = Alignment.Center,
-        ) {
-            MathText(
-                text = "x",
-                style = MaterialTheme.typography.headlineMedium,
-                color = PreviewInk,
-            )
-        }
-    }
-}
-
-@Composable
-private fun UnitCirclePreview() {
-    PreviewBox {
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            val stroke = size.minDimension * 0.08f
-            val radius = size.minDimension / 2f - stroke / 2f
-            val center = Offset(size.width / 2f, size.height / 2f)
-            val guide = PreviewStructure.copy(alpha = 0.55f)
-            drawCircle(color = guide, radius = radius, center = center, style = Stroke(stroke))
-            // Only the positive-x radius, not the whole diameter: that is the arm the angle is
-            // measured from, and half the line leaves the figure less busy at tile size.
-            drawLine(
-                color = guide,
-                start = center,
-                end = Offset(center.x + radius, center.y),
-                strokeWidth = stroke,
-                cap = StrokeCap.Round,
-            )
-            val radians = -UnitCircleDegrees * PI.toFloat() / 180f
-            drawLine(
-                color = Primary,
-                start = center,
-                end = Offset(center.x + cos(radians) * radius, center.y + sin(radians) * radius),
-                strokeWidth = stroke * 1.3f,
-                cap = StrokeCap.Round,
-            )
-            val arcRadius = radius * 0.55f
-            drawArc(
-                color = SuccessGreen,
-                startAngle = -UnitCircleDegrees,
-                sweepAngle = UnitCircleDegrees,
-                useCenter = false,
-                topLeft = Offset(center.x - arcRadius, center.y - arcRadius),
-                size = Size(arcRadius * 2f, arcRadius * 2f),
-                style = Stroke(width = stroke, cap = StrokeCap.Round),
-            )
-        }
-    }
-}
-
-@Composable
-private fun LinearPlotPreview() {
-    PreviewBox {
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            val stroke = size.minDimension * 0.085f
-            val inset = stroke / 2f
-            drawPlotAxes(stroke)
-            drawLine(
-                color = Primary,
-                start = plotPoint(-1f, 0.08f, inset),
-                end = plotPoint(1f, 0.92f, inset),
-                strokeWidth = stroke,
-                cap = StrokeCap.Round,
-            )
-        }
-    }
-}
-
 /** A curve with the tangent that measures its slope: the derivative, in one picture. */
-@Composable
-private fun TangentPreview() {
-    PreviewBox {
-        Canvas(modifier = Modifier.fillMaxSize()) {
-            val stroke = size.minDimension * 0.085f
-            val inset = stroke / 2f
-            drawPlotAxes(stroke)
-            drawPath(
-                path = archPath(inset, close = false),
-                color = Primary,
-                style = Stroke(width = stroke, cap = StrokeCap.Round),
-            )
-            // Tangent to y = 1 - x² at x = 0.5, clipped to the two edges it runs into.
-            drawLine(
-                color = SuccessGreen,
-                start = plotPoint(0.25f, 1f, inset),
-                end = plotPoint(1f, 0.25f, inset),
-                strokeWidth = stroke * 0.8f,
-                cap = StrokeCap.Round,
-            )
-        }
-    }
-}
-
 // --- Drawing helpers -----------------------------------------------------------------------
 
 private const val ArchSamples = 24

@@ -846,20 +846,8 @@ Perkelk Cow — jis taps Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Skaičiai ir veiksmai</string>
-    <string name="learn_topic_measurement">Matavimas</string>
-    <string name="learn_topic_measurement_subtitle">Ilgis, vienetai ir plotas</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Kampai, trikampiai ir apskritimai</string>
-    <string name="learn_topic_data">Duomenys ir tikimybė</string>
-    <string name="learn_topic_data_subtitle">Statistika ir atsitiktinumas</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Reiškiniai ir lygtys</string>
-    <string name="learn_topic_trigonometry">Trigonometrija</string>
-    <string name="learn_topic_trigonometry_subtitle">Santykiai ir vienetinis apskritimas</string>
-    <string name="learn_topic_functions">Pasiruošimas analizei</string>
-    <string name="learn_topic_functions_subtitle">Funkcijos ir grafikai</string>
-    <string name="learn_topic_calculus">Analizė</string>
-    <string name="learn_topic_calculus_subtitle">Ribos, išvestinės ir integralai</string>
 
     <string name="learn_lessons_header">Pamokos</string>
     <string name="learn_lesson_progress">%1$d / %2$d pamokų</string>

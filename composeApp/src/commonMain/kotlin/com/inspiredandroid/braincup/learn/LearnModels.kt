@@ -3,15 +3,15 @@ package com.inspiredandroid.braincup.learn
 /**
  * Content model for the Learn section.
  *
- * The catalog is organised as `grade band -> topic -> lessons + test`. One (band, topic) pair is a
- * [LearnUnit]: the same topic appears in several bands, teaching harder material each time.
+ * The catalog is organised as `topic -> sub-topic -> lessons + test`. A sub-topic is a [LearnUnit],
+ * and a topic is a ladder of them ordered easiest first.
  *
  * Step diagrams are declared as [LearnVisual] values carrying the numbers they illustrate, so the
  * picture teaches and the prose stays short.
  *
  * Lesson and quiz bodies are authored in English right here rather than in `strings.xml`: a lesson
  * is a content catalog entry (like a Sudoku puzzle or a matchstick riddle definition), not UI
- * chrome, and a single band carries far more prose than the resource pipeline is meant to hold.
+ * chrome, and a single topic carries far more prose than the resource pipeline is meant to hold.
  * Everything the section shows *around* the content — screen titles, buttons, progress labels,
  * certificate wording — does go through `strings.xml` and stays translatable.
  */
@@ -75,7 +75,7 @@ sealed interface LessonStep {
 
 /**
  * A lesson as the content files declare it, before [learnUnit] stamps it with the unit it belongs
- * to. Authoring one of these instead of a [LearnLesson] keeps the band and topic out of every
+ * to. Authoring one of these instead of a [LearnLesson] keeps the unit id out of every
  * single lesson literal.
  */
 data class LessonSpec(

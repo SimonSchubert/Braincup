@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">算術</string>
     <string name="learn_topic_arithmetic_subtitle">數與運算</string>
-    <string name="learn_topic_measurement">測量</string>
-    <string name="learn_topic_measurement_subtitle">長度、單位與面積</string>
     <string name="learn_topic_geometry">幾何</string>
     <string name="learn_topic_geometry_subtitle">角度、三角形與圓</string>
-    <string name="learn_topic_data">資料與機率</string>
-    <string name="learn_topic_data_subtitle">統計與機會</string>
-    <string name="learn_topic_algebra">代數</string>
-    <string name="learn_topic_algebra_subtitle">運算式與方程式</string>
-    <string name="learn_topic_trigonometry">三角</string>
-    <string name="learn_topic_trigonometry_subtitle">比值與單位圓</string>
-    <string name="learn_topic_functions">微積分先修</string>
-    <string name="learn_topic_functions_subtitle">函數與圖形</string>
-    <string name="learn_topic_calculus">微積分</string>
-    <string name="learn_topic_calculus_subtitle">極限、導數與積分</string>
 
     <string name="learn_lessons_header">課程</string>
     <string name="learn_lesson_progress">%1$d / %2$d 課</string>

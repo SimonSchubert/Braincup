@@ -71,7 +71,7 @@ class UserStorageLearnTest {
     @Test
     fun retakingACertifiedTestPaysNothingMore() {
         val storage = UserStorage.forPreview()
-        val target = unit(MathTopic.CALCULUS, "limits-and-derivatives")
+        val target = unit(MathTopic.ARITHMETIC, "decimals")
         storage.recordLearnQuizResult(target, correct = 8, total = 8)
         val xpAfterCertificate = storage.getTotalXp()
         assertEquals(UserStorage.LEARN_CERTIFICATE_XP, xpAfterCertificate)
@@ -90,7 +90,7 @@ class UserStorageLearnTest {
     @Test
     fun certifyingAWholeTopicUnlocksTheTopicAchievement() {
         val storage = UserStorage.forPreview()
-        val ladder = LearnCatalog.units(MathTopic.MEASUREMENT)
+        val ladder = LearnCatalog.units(MathTopic.GEOMETRY)
         ladder.dropLast(1).forEach { storage.recordLearnQuizResult(it, correct = 8, total = 8) }
         assertFalse(UserStorage.Achievements.LEARN_TOPIC_CERTIFICATES in storage.getUnlockedAchievements())
 
@@ -115,7 +115,7 @@ class UserStorageLearnTest {
     @Test
     fun unitProgressReflectsLessonsAndCertificate() {
         val storage = UserStorage.forPreview()
-        val target = unit(MathTopic.TRIGONOMETRY, "right-triangle-trig")
+        val target = unit(MathTopic.GEOMETRY, "shapes")
         storage.completeLearnLesson(target.lessons.first().id)
         storage.recordLearnQuizResult(target, correct = 8, total = 8)
 
@@ -126,26 +126,26 @@ class UserStorageLearnTest {
         assertFalse(progress.allLessonsDone)
 
         assertEquals(
-            LearnCatalog.units(MathTopic.TRIGONOMETRY).size,
-            storage.getLearnUnitProgress(MathTopic.TRIGONOMETRY).size,
+            LearnCatalog.units(MathTopic.GEOMETRY).size,
+            storage.getLearnUnitProgress(MathTopic.GEOMETRY).size,
         )
     }
 
     @Test
     fun topicProgressRollsUpItsSubTopics() {
         val storage = UserStorage.forPreview()
-        val ladder = LearnCatalog.units(MathTopic.ALGEBRA)
+        val ladder = LearnCatalog.units(MathTopic.ARITHMETIC)
         storage.completeLearnLesson(ladder.first().lessons.first().id)
         storage.recordLearnQuizResult(ladder.first(), correct = 8, total = 8)
 
         val all = storage.getAllLearnTopicProgress()
         assertEquals(MathTopic.entries.size, all.size)
 
-        val algebra = all.first { it.topic == MathTopic.ALGEBRA }
-        assertEquals(1, algebra.lessonsCompleted)
-        assertEquals(ladder.sumOf { it.lessons.size }, algebra.lessonsTotal)
-        assertEquals(1, algebra.certificates)
-        assertEquals(ladder.size, algebra.unitsTotal)
-        assertFalse(algebra.allCertificatesEarned)
+        val arithmetic = all.first { it.topic == MathTopic.ARITHMETIC }
+        assertEquals(1, arithmetic.lessonsCompleted)
+        assertEquals(ladder.sumOf { it.lessons.size }, arithmetic.lessonsTotal)
+        assertEquals(1, arithmetic.certificates)
+        assertEquals(ladder.size, arithmetic.unitsTotal)
+        assertFalse(arithmetic.allCertificatesEarned)
     }
 }

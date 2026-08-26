@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">เลขคณิต</string>
     <string name="learn_topic_arithmetic_subtitle">จำนวนและการดำเนินการ</string>
-    <string name="learn_topic_measurement">การวัด</string>
-    <string name="learn_topic_measurement_subtitle">ความยาว หน่วย และพื้นที่</string>
     <string name="learn_topic_geometry">เรขาคณิต</string>
     <string name="learn_topic_geometry_subtitle">มุม สามเหลี่ยม และวงกลม</string>
-    <string name="learn_topic_data">ข้อมูลและความน่าจะเป็น</string>
-    <string name="learn_topic_data_subtitle">สถิติและโอกาส</string>
-    <string name="learn_topic_algebra">พีชคณิต</string>
-    <string name="learn_topic_algebra_subtitle">นิพจน์และสมการ</string>
-    <string name="learn_topic_trigonometry">ตรีโกณมิติ</string>
-    <string name="learn_topic_trigonometry_subtitle">อัตราส่วนและวงกลมหนึ่งหน่วย</string>
-    <string name="learn_topic_functions">เตรียมแคลคูลัส</string>
-    <string name="learn_topic_functions_subtitle">ฟังก์ชันและกราฟ</string>
-    <string name="learn_topic_calculus">แคลคูลัส</string>
-    <string name="learn_topic_calculus_subtitle">ลิมิต อนุพันธ์ และปริพันธ์</string>
 
     <string name="learn_lessons_header">บทเรียน</string>
     <string name="learn_lesson_progress">%1$d / %2$d บทเรียน</string>

@@ -846,20 +846,8 @@ Færðu Cow — hann verður Bull.</string>
 
     <string name="learn_topic_arithmetic">Reikningur</string>
     <string name="learn_topic_arithmetic_subtitle">Tölur og aðgerðir</string>
-    <string name="learn_topic_measurement">Mæling</string>
-    <string name="learn_topic_measurement_subtitle">Lengd, einingar og flatarmál</string>
     <string name="learn_topic_geometry">Rúmfræði</string>
     <string name="learn_topic_geometry_subtitle">Horn, þríhyrningar og hringir</string>
-    <string name="learn_topic_data">Gögn og líkindi</string>
-    <string name="learn_topic_data_subtitle">Tölfræði og tilviljun</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Stæður og jöfnur</string>
-    <string name="learn_topic_trigonometry">Hornafræði</string>
-    <string name="learn_topic_trigonometry_subtitle">Hlutföll og einingarhringur</string>
-    <string name="learn_topic_functions">Undirbúningur greiningar</string>
-    <string name="learn_topic_functions_subtitle">Föll og gröf</string>
-    <string name="learn_topic_calculus">Stærðfræðigreining</string>
-    <string name="learn_topic_calculus_subtitle">Markgildi, afleiður og heildi</string>
 
     <string name="learn_lessons_header">Kennslustundir</string>
     <string name="learn_lesson_progress">%1$d / %2$d kennslustundir</string>

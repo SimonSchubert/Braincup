@@ -846,20 +846,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmētika</string>
     <string name="learn_topic_arithmetic_subtitle">Skaitļi un darbības</string>
-    <string name="learn_topic_measurement">Mērīšana</string>
-    <string name="learn_topic_measurement_subtitle">Garums, vienības un laukums</string>
     <string name="learn_topic_geometry">Ģeometrija</string>
     <string name="learn_topic_geometry_subtitle">Leņķi, trijstūri un riņķi</string>
-    <string name="learn_topic_data">Dati un varbūtība</string>
-    <string name="learn_topic_data_subtitle">Statistika un nejaušība</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Izteiksmes un vienādojumi</string>
-    <string name="learn_topic_trigonometry">Trigonometrija</string>
-    <string name="learn_topic_trigonometry_subtitle">Attiecības un vienības riņķis</string>
-    <string name="learn_topic_functions">Sagatavošanās analīzei</string>
-    <string name="learn_topic_functions_subtitle">Funkcijas un grafiki</string>
-    <string name="learn_topic_calculus">Analīze</string>
-    <string name="learn_topic_calculus_subtitle">Robežas, atvasinājumi un integrāļi</string>
 
     <string name="learn_lessons_header">Stundas</string>
     <string name="learn_lesson_progress">%1$d / %2$d stundas</string>

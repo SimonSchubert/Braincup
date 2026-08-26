@@ -829,20 +829,8 @@
 
     <string name="learn_topic_arithmetic">Арифметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; дії</string>
-    <string name="learn_topic_measurement">Вимірювання</string>
-    <string name="learn_topic_measurement_subtitle">Довжина, одиниці &amp; площа</string>
     <string name="learn_topic_geometry">Геометрія</string>
     <string name="learn_topic_geometry_subtitle">Кути, трикутники &amp; кола</string>
-    <string name="learn_topic_data">Дані &amp; ймовірність</string>
-    <string name="learn_topic_data_subtitle">Статистика &amp; випадковість</string>
-    <string name="learn_topic_algebra">Алгебра</string>
-    <string name="learn_topic_algebra_subtitle">Вирази &amp; рівняння</string>
-    <string name="learn_topic_trigonometry">Тригонометрія</string>
-    <string name="learn_topic_trigonometry_subtitle">Відношення &amp; одиничне коло</string>
-    <string name="learn_topic_functions">Початки аналізу</string>
-    <string name="learn_topic_functions_subtitle">Функції &amp; графіки</string>
-    <string name="learn_topic_calculus">Математичний аналіз</string>
-    <string name="learn_topic_calculus_subtitle">Границі, похідні &amp; інтеграли</string>
 
     <string name="learn_lessons_header">Уроки</string>
     <string name="learn_lesson_progress">%1$d / %2$d уроків</string>

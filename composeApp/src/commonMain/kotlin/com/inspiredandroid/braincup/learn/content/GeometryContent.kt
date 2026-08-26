@@ -24,7 +24,7 @@ import com.inspiredandroid.braincup.learn.Side
 import com.inspiredandroid.braincup.learn.SolidKind
 import com.inspiredandroid.braincup.learn.learnUnit
 
-/** Geometry: shapes and their names, then angles, Pythagoras, circles and formal proof. */
+/** Geometry: shapes and their names, then angles, area, Pythagoras, circles and formal proof. */
 internal object GeometryContent {
 
     private val shapes = learnUnit(
@@ -378,6 +378,187 @@ internal object GeometryContent {
                 correctIndex = 2,
                 explanation = "It sits between 90 and 180 degrees.",
                 visual = AngleFigure(degrees = 120, reveal = false),
+            ),
+        ),
+    )
+
+    private val perimeterAndArea = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "perimeter-and-area",
+        title = "Perimeter and area",
+        summary = "The walk around the outside, and the squares that fill the inside.",
+        level = GradeLevel.GRADES_3_5,
+        lessons = listOf(
+            LessonSpec(
+                id = "g35-measurement-perimeter",
+                title = "Perimeter",
+                summary = "The walk all the way around.",
+                steps = listOf(
+                    Concept(
+                        body = "Perimeter is the distance around the outside.",
+                        visual = AreaGrid(cols = 6, rows = 4, showArea = false, showPerimeter = true),
+                    ),
+                    Concept(
+                        body = "Opposite sides match, so add one of each and double it.",
+                        formula = "P = 2 x (length + width)",
+                        visual = AreaGrid(cols = 8, rows = 5, showArea = false, showPerimeter = true),
+                    ),
+                    Worked(
+                        problem = "A rectangle is 8 cm by 5 cm.",
+                        lines = listOf(
+                            "8 + 5 = 13.",
+                            "Every side has an equal partner.",
+                            "13 x 2 = 26.",
+                        ),
+                        result = "Perimeter = 26 cm",
+                        visual = AreaGrid(cols = 8, rows = 5, showArea = false, showPerimeter = true),
+                    ),
+                    Numeric(
+                        question = "What is the perimeter of this square, in cm?",
+                        answer = "36",
+                        explanation = "Four sides of 9.",
+                        visual = AreaGrid(cols = 9, rows = 9, showArea = false, showPerimeter = true, reveal = false),
+                    ),
+                    Choice(
+                        question = "Which shape has a perimeter of 20 cm?",
+                        options = listOf("A 6 by 4 rectangle", "A 5 by 5 square", "Both of them", "Neither"),
+                        correctIndex = 2,
+                        explanation = "6 + 4 doubled is 20, and 4 x 5 is 20 as well.",
+                        visual = AreaGrid(cols = 6, rows = 4, showArea = false, reveal = false),
+                    ),
+                    Concept(
+                        body = "Perimeter is a length, so it is never measured in square units.",
+                        visual = AreaGrid(cols = 5, rows = 3, showArea = false, showPerimeter = true),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "g35-measurement-area",
+                title = "Area of rectangles",
+                summary = "Count the squares, or multiply instead.",
+                steps = listOf(
+                    Concept(
+                        body = "Area counts the unit squares that cover a shape.",
+                        visual = AreaGrid(cols = 6, rows = 3),
+                    ),
+                    Concept(
+                        body = "The squares sit in equal rows, so multiply instead of counting.",
+                        formula = "A = length x width",
+                        visual = AreaGrid(cols = 6, rows = 3),
+                    ),
+                    Numeric(
+                        question = "How many squares cover this rug?",
+                        answer = "18",
+                        explanation = "6 rows of 3.",
+                        visual = AreaGrid(cols = 6, rows = 3, reveal = false),
+                    ),
+                    Choice(
+                        question = "Which unit belongs to an area?",
+                        options = listOf("cm", "square cm", "cubic cm", "ml"),
+                        correctIndex = 1,
+                        explanation = "Area counts squares, so the unit is squared.",
+                        visual = AreaGrid(cols = 4, rows = 4, reveal = false),
+                    ),
+                    Concept(
+                        body = "A square metre is a square one metre along each side, not a hundred square centimetres.",
+                        visual = AreaGrid(cols = 4, rows = 4, unit = "m"),
+                    ),
+                    Choice(
+                        question = "The area is 24 square cm and one side is 4 cm. How long is the other?",
+                        options = listOf("4 cm", "6 cm", "8 cm", "20 cm"),
+                        correctIndex = 1,
+                        explanation = "24 divided by 4.",
+                        visual = AreaGrid(cols = 6, rows = 4, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-area-compound",
+                title = "Shapes made of rectangles",
+                summary = "Split it up, work out each piece, add them back.",
+                steps = listOf(
+                    Concept(
+                        body = "A compound shape is rectangles joined together, so no new formula is needed.",
+                        visual = AreaGrid(cols = 7, rows = 4),
+                    ),
+                    Concept(
+                        body = "Split it into rectangles you know, find each area, then add.",
+                        formula = "A = A1 + A2",
+                        visual = AreaGrid(cols = 4, rows = 3),
+                    ),
+                    Worked(
+                        problem = "An L-shape: a 5 by 2 rectangle joined to a 3 by 2 one.",
+                        lines = listOf(
+                            "Split it into rectangles you know.",
+                            "5 x 2 = 10.",
+                            "3 x 2 = 6.",
+                            "10 + 6.",
+                        ),
+                        result = "Area = 16 square cm",
+                        visual = AreaGrid(cols = 5, rows = 2),
+                    ),
+                    Numeric(
+                        question = "A 5 by 4 rectangle has a 2 by 2 corner cut out. What area is left, in square cm?",
+                        answer = "16",
+                        explanation = "5 x 4 = 20, and the missing corner takes 2 x 2 = 4 away.",
+                        visual = AreaGrid(cols = 5, rows = 4, reveal = false),
+                    ),
+                    Choice(
+                        question = "A 3 by 2 rectangle and a 4 by 2 rectangle are joined edge to edge. What is the total area?",
+                        options = listOf("12 square cm", "14 square cm", "16 square cm", "20 square cm"),
+                        correctIndex = 1,
+                        explanation = "6 squares and 8 squares.",
+                        visual = AreaGrid(cols = 4, rows = 2, reveal = false),
+                    ),
+                    Concept(
+                        body = "Split the shape whichever way is easiest: the total comes out the same either way.",
+                        visual = AreaGrid(cols = 6, rows = 4),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
+            QuizQuestion(
+                prompt = "What is the perimeter of this rectangle?",
+                options = listOf("10 cm", "20 cm", "21 cm", "14 cm"),
+                correctIndex = 1,
+                explanation = "(7 + 3) doubled.",
+                visual = AreaGrid(cols = 7, rows = 3, showArea = false, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "What is the area of this rectangle?",
+                options = listOf("10 square cm", "20 square cm", "21 square cm", "14 square cm"),
+                correctIndex = 2,
+                explanation = "7 rows of 3.",
+                visual = AreaGrid(cols = 7, rows = 3, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A square has a perimeter of 32 cm. How long is one side?",
+                options = listOf("4 cm", "6 cm", "8 cm", "16 cm"),
+                correctIndex = 2,
+                explanation = "32 divided by 4.",
+                visual = AreaGrid(cols = 8, rows = 8, showArea = false, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Which measurement is an area?",
+                options = listOf("12 m", "12 square m", "12 ml", "12 kg"),
+                correctIndex = 1,
+                explanation = "Only the squared unit measures a surface.",
+                visual = AreaGrid(cols = 4, rows = 3, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "What is the perimeter of a 9 cm by 2 cm rectangle?",
+                options = listOf("11 cm", "18 cm", "20 cm", "22 cm"),
+                correctIndex = 3,
+                explanation = "(9 + 2) doubled.",
+                visual = AreaGrid(cols = 9, rows = 2, showArea = false, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "An L-shape is a 4 by 3 rectangle with a 2 by 2 square added. What is its area?",
+                options = listOf("12 square cm", "14 square cm", "16 square cm", "18 square cm"),
+                correctIndex = 2,
+                explanation = "12 squares and 4 squares.",
+                visual = AreaGrid(cols = 4, rows = 3, reveal = false),
             ),
         ),
     )
@@ -770,5 +951,5 @@ internal object GeometryContent {
         ),
     )
 
-    val units: List<LearnUnit> = listOf(shapes, anglesAndSymmetry, pythagorasAndCircles, similarityAndProof)
+    val units: List<LearnUnit> = listOf(shapes, anglesAndSymmetry, perimeterAndArea, pythagorasAndCircles, similarityAndProof)
 }

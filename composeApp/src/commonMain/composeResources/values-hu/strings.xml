@@ -846,20 +846,8 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
 
     <string name="learn_topic_arithmetic">Számtan</string>
     <string name="learn_topic_arithmetic_subtitle">Számok és műveletek</string>
-    <string name="learn_topic_measurement">Mérés</string>
-    <string name="learn_topic_measurement_subtitle">Hossz, mértékegységek és terület</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Szögek, háromszögek és körök</string>
-    <string name="learn_topic_data">Adatok és valószínűség</string>
-    <string name="learn_topic_data_subtitle">Statisztika és esély</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Kifejezések és egyenletek</string>
-    <string name="learn_topic_trigonometry">Trigonometria</string>
-    <string name="learn_topic_trigonometry_subtitle">Arányok és az egységkör</string>
-    <string name="learn_topic_functions">Analízis-előkészítő</string>
-    <string name="learn_topic_functions_subtitle">Függvények és grafikonok</string>
-    <string name="learn_topic_calculus">Analízis</string>
-    <string name="learn_topic_calculus_subtitle">Határérték, derivált és integrál</string>
 
     <string name="learn_lessons_header">Leckék</string>
     <string name="learn_lesson_progress">%1$d / %2$d lecke</string>

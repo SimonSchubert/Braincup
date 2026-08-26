@@ -829,20 +829,8 @@
 
     <string name="learn_topic_arithmetic">الحساب</string>
     <string name="learn_topic_arithmetic_subtitle">الأعداد &amp; العمليات</string>
-    <string name="learn_topic_measurement">القياس</string>
-    <string name="learn_topic_measurement_subtitle">الطول &amp; الوحدات &amp; المساحة</string>
     <string name="learn_topic_geometry">الهندسة</string>
     <string name="learn_topic_geometry_subtitle">الزوايا &amp; المثلثات &amp; الدوائر</string>
-    <string name="learn_topic_data">البيانات &amp; الاحتمالات</string>
-    <string name="learn_topic_data_subtitle">الإحصاء &amp; الاحتمال</string>
-    <string name="learn_topic_algebra">الجبر</string>
-    <string name="learn_topic_algebra_subtitle">العبارات &amp; المعادلات</string>
-    <string name="learn_topic_trigonometry">حساب المثلثات</string>
-    <string name="learn_topic_trigonometry_subtitle">النسب &amp; دائرة الوحدة</string>
-    <string name="learn_topic_functions">التمهيد للتفاضل</string>
-    <string name="learn_topic_functions_subtitle">الدوال &amp; الرسوم البيانية</string>
-    <string name="learn_topic_calculus">التفاضل والتكامل</string>
-    <string name="learn_topic_calculus_subtitle">النهايات &amp; المشتقات &amp; التكاملات</string>
 
     <string name="learn_lessons_header">الدروس</string>
     <string name="learn_lesson_progress">%1$d / %2$d دروس</string>

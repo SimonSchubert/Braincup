@@ -829,20 +829,8 @@
 
     <string name="learn_topic_arithmetic">পাটিগণিত</string>
     <string name="learn_topic_arithmetic_subtitle">সংখ্যা &amp; প্রক্রিয়া</string>
-    <string name="learn_topic_measurement">পরিমাপ</string>
-    <string name="learn_topic_measurement_subtitle">দৈর্ঘ্য, একক &amp; ক্ষেত্রফল</string>
     <string name="learn_topic_geometry">জ্যামিতি</string>
     <string name="learn_topic_geometry_subtitle">কোণ, ত্রিভুজ &amp; বৃত্ত</string>
-    <string name="learn_topic_data">উপাত্ত &amp; সম্ভাবনা</string>
-    <string name="learn_topic_data_subtitle">পরিসংখ্যান &amp; সম্ভাবনা</string>
-    <string name="learn_topic_algebra">বীজগণিত</string>
-    <string name="learn_topic_algebra_subtitle">রাশিমালা &amp; সমীকরণ</string>
-    <string name="learn_topic_trigonometry">ত্রিকোণমিতি</string>
-    <string name="learn_topic_trigonometry_subtitle">অনুপাত &amp; একক বৃত্ত</string>
-    <string name="learn_topic_functions">প্রাক-ক্যালকুলাস</string>
-    <string name="learn_topic_functions_subtitle">ফাংশন &amp; লেখচিত্র</string>
-    <string name="learn_topic_calculus">ক্যালকুলাস</string>
-    <string name="learn_topic_calculus_subtitle">সীমা, অন্তরজ &amp; যোগজ</string>
 
     <string name="learn_lessons_header">পাঠ</string>
     <string name="learn_lesson_progress">%1$d / %2$d পাঠ</string>

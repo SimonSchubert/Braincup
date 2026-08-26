@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">Арифметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; действия</string>
-    <string name="learn_topic_measurement">Измерения</string>
-    <string name="learn_topic_measurement_subtitle">Длина, единицы &amp; площадь</string>
     <string name="learn_topic_geometry">Геометрия</string>
     <string name="learn_topic_geometry_subtitle">Углы, треугольники &amp; окружности</string>
-    <string name="learn_topic_data">Данные &amp; вероятность</string>
-    <string name="learn_topic_data_subtitle">Статистика &amp; случай</string>
-    <string name="learn_topic_algebra">Алгебра</string>
-    <string name="learn_topic_algebra_subtitle">Выражения &amp; уравнения</string>
-    <string name="learn_topic_trigonometry">Тригонометрия</string>
-    <string name="learn_topic_trigonometry_subtitle">Отношения &amp; единичная окружность</string>
-    <string name="learn_topic_functions">Начала анализа</string>
-    <string name="learn_topic_functions_subtitle">Функции &amp; графики</string>
-    <string name="learn_topic_calculus">Математический анализ</string>
-    <string name="learn_topic_calculus_subtitle">Пределы, производные &amp; интегралы</string>
 
     <string name="learn_lessons_header">Уроки</string>
     <string name="learn_lesson_progress">%1$d / %2$d уроков</string>

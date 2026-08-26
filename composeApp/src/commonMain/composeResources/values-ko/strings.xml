@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">산술</string>
     <string name="learn_topic_arithmetic_subtitle">수와 연산</string>
-    <string name="learn_topic_measurement">측정</string>
-    <string name="learn_topic_measurement_subtitle">길이, 단위, 넓이</string>
     <string name="learn_topic_geometry">기하</string>
     <string name="learn_topic_geometry_subtitle">각, 삼각형, 원</string>
-    <string name="learn_topic_data">자료와 확률</string>
-    <string name="learn_topic_data_subtitle">통계와 확률</string>
-    <string name="learn_topic_algebra">대수</string>
-    <string name="learn_topic_algebra_subtitle">식과 방정식</string>
-    <string name="learn_topic_trigonometry">삼각법</string>
-    <string name="learn_topic_trigonometry_subtitle">비와 단위원</string>
-    <string name="learn_topic_functions">미적분 준비</string>
-    <string name="learn_topic_functions_subtitle">함수와 그래프</string>
-    <string name="learn_topic_calculus">미적분</string>
-    <string name="learn_topic_calculus_subtitle">극한, 도함수, 적분</string>
 
     <string name="learn_lessons_header">수업</string>
     <string name="learn_lesson_progress">%1$d / %2$d 수업</string>

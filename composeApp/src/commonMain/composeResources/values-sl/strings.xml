@@ -846,20 +846,8 @@ Premakni Cow — postal bo Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Števila in operacije</string>
-    <string name="learn_topic_measurement">Merjenje</string>
-    <string name="learn_topic_measurement_subtitle">Dolžina, enote in ploščina</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Koti, trikotniki in krožnice</string>
-    <string name="learn_topic_data">Podatki in verjetnost</string>
-    <string name="learn_topic_data_subtitle">Statistika in naključje</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Izrazi in enačbe</string>
-    <string name="learn_topic_trigonometry">Trigonometrija</string>
-    <string name="learn_topic_trigonometry_subtitle">Razmerja in enotska krožnica</string>
-    <string name="learn_topic_functions">Priprava na kalkulus</string>
-    <string name="learn_topic_functions_subtitle">Funkcije in grafi</string>
-    <string name="learn_topic_calculus">Kalkulus</string>
-    <string name="learn_topic_calculus_subtitle">Limite, odvodi in integrali</string>
 
     <string name="learn_lessons_header">Lekcije</string>
     <string name="learn_lesson_progress">%1$d / %2$d lekcij</string>

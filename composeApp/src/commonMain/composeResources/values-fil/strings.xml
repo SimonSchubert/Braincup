@@ -844,20 +844,8 @@
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Numero at operations</string>
-    <string name="learn_topic_measurement">Pagsukat</string>
-    <string name="learn_topic_measurement_subtitle">Haba, units, at area</string>
     <string name="learn_topic_geometry">Heometriya</string>
     <string name="learn_topic_geometry_subtitle">Anggulo, tatsulok, at bilog</string>
-    <string name="learn_topic_data">Data at Probability</string>
-    <string name="learn_topic_data_subtitle">Statistics at tsansa</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Mga expression at equation</string>
-    <string name="learn_topic_trigonometry">Trigonometriya</string>
-    <string name="learn_topic_trigonometry_subtitle">Mga ratio at ang unit circle</string>
-    <string name="learn_topic_functions">Pre-kalkulo</string>
-    <string name="learn_topic_functions_subtitle">Mga function at graph</string>
-    <string name="learn_topic_calculus">Kalkulo</string>
-    <string name="learn_topic_calculus_subtitle">Limits, derivatives, at integrals</string>
 
     <string name="learn_lessons_header">Mga Aralin</string>
     <string name="learn_lesson_progress">%1$d / %2$d aralin</string>

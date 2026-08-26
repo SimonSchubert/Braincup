@@ -271,7 +271,7 @@ private fun LessonRow(
 @DevicePreviews
 @Composable
 private fun LearnUnitScreenPreview() {
-    val unit = LearnCatalog.units(MathTopic.ALGEBRA).first()
+    val unit = LearnCatalog.units(MathTopic.ARITHMETIC).first()
     ScreenPreviewHost {
         LearnUnitScreenContent(
             progress = LearnUnitProgress(

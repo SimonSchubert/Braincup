@@ -846,20 +846,8 @@ Flytt Cow — den blir en Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmetikk</string>
     <string name="learn_topic_arithmetic_subtitle">Tall og regnearter</string>
-    <string name="learn_topic_measurement">Måling</string>
-    <string name="learn_topic_measurement_subtitle">Lengde, enheter og areal</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Vinkler, trekanter og sirkler</string>
-    <string name="learn_topic_data">Data og sannsynlighet</string>
-    <string name="learn_topic_data_subtitle">Statistikk og sjanse</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Uttrykk og likninger</string>
-    <string name="learn_topic_trigonometry">Trigonometri</string>
-    <string name="learn_topic_trigonometry_subtitle">Forhold og enhetssirkelen</string>
-    <string name="learn_topic_functions">Forberedende analyse</string>
-    <string name="learn_topic_functions_subtitle">Funksjoner og grafer</string>
-    <string name="learn_topic_calculus">Analyse</string>
-    <string name="learn_topic_calculus_subtitle">Grenseverdier, deriverte og integraler</string>
 
     <string name="learn_lessons_header">Leksjoner</string>
     <string name="learn_lesson_progress">%1$d / %2$d leksjoner</string>

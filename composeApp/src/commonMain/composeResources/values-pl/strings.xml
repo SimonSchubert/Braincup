@@ -829,20 +829,8 @@
 
     <string name="learn_topic_arithmetic">Arytmetyka</string>
     <string name="learn_topic_arithmetic_subtitle">Liczby &amp; działania</string>
-    <string name="learn_topic_measurement">Miary</string>
-    <string name="learn_topic_measurement_subtitle">Długość, jednostki &amp; pole</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Kąty, trójkąty &amp; okręgi</string>
-    <string name="learn_topic_data">Dane &amp; prawdopodobieństwo</string>
-    <string name="learn_topic_data_subtitle">Statystyka &amp; przypadek</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Wyrażenia &amp; równania</string>
-    <string name="learn_topic_trigonometry">Trygonometria</string>
-    <string name="learn_topic_trigonometry_subtitle">Stosunki &amp; okrąg jednostkowy</string>
-    <string name="learn_topic_functions">Wstęp do analizy</string>
-    <string name="learn_topic_functions_subtitle">Funkcje &amp; wykresy</string>
-    <string name="learn_topic_calculus">Analiza matematyczna</string>
-    <string name="learn_topic_calculus_subtitle">Granice, pochodne &amp; całki</string>
 
     <string name="learn_lessons_header">Lekcje</string>
     <string name="learn_lesson_progress">%1$d / %2$d lekcji</string>

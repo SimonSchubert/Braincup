@@ -119,8 +119,8 @@ fun LearnTopicScreenContent(
 private fun LearnTopicScreenPreview() {
     ScreenPreviewHost {
         LearnTopicScreenContent(
-            topic = MathTopic.ALGEBRA,
-            progress = LearnCatalog.units(MathTopic.ALGEBRA)
+            topic = MathTopic.ARITHMETIC,
+            progress = LearnCatalog.units(MathTopic.ARITHMETIC)
                 .map { LearnUnitProgress.empty(it) }
                 .toImmutableList(),
             onUnitSelected = {},

@@ -846,20 +846,8 @@ Cow = вярна цифра, грешно място.</string>
 
     <string name="learn_topic_arithmetic">Аритметика</string>
     <string name="learn_topic_arithmetic_subtitle">Числа и операции</string>
-    <string name="learn_topic_measurement">Измерване</string>
-    <string name="learn_topic_measurement_subtitle">Дължина, мерни единици и лице</string>
     <string name="learn_topic_geometry">Геометрия</string>
     <string name="learn_topic_geometry_subtitle">Ъгли, триъгълници и окръжности</string>
-    <string name="learn_topic_data">Данни и вероятности</string>
-    <string name="learn_topic_data_subtitle">Статистика и случайност</string>
-    <string name="learn_topic_algebra">Алгебра</string>
-    <string name="learn_topic_algebra_subtitle">Изрази и уравнения</string>
-    <string name="learn_topic_trigonometry">Тригонометрия</string>
-    <string name="learn_topic_trigonometry_subtitle">Отношения и единична окръжност</string>
-    <string name="learn_topic_functions">Подготовка за анализ</string>
-    <string name="learn_topic_functions_subtitle">Функции и графики</string>
-    <string name="learn_topic_calculus">Анализ</string>
-    <string name="learn_topic_calculus_subtitle">Граници, производни и интеграли</string>
 
     <string name="learn_lessons_header">Уроци</string>
     <string name="learn_lesson_progress">%1$d / %2$d урока</string>

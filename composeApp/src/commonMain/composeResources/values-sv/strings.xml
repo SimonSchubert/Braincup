@@ -844,20 +844,8 @@
 
     <string name="learn_topic_arithmetic">Aritmetik</string>
     <string name="learn_topic_arithmetic_subtitle">Tal &amp; räknesätt</string>
-    <string name="learn_topic_measurement">Mätning</string>
-    <string name="learn_topic_measurement_subtitle">Längd, enheter &amp; area</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Vinklar, trianglar &amp; cirklar</string>
-    <string name="learn_topic_data">Data &amp; sannolikhet</string>
-    <string name="learn_topic_data_subtitle">Statistik &amp; slump</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Uttryck &amp; ekvationer</string>
-    <string name="learn_topic_trigonometry">Trigonometri</string>
-    <string name="learn_topic_trigonometry_subtitle">Förhållanden &amp; enhetscirkeln</string>
-    <string name="learn_topic_functions">Förberedande analys</string>
-    <string name="learn_topic_functions_subtitle">Funktioner &amp; grafer</string>
-    <string name="learn_topic_calculus">Analys</string>
-    <string name="learn_topic_calculus_subtitle">Gränsvärden, derivator &amp; integraler</string>
 
     <string name="learn_lessons_header">Lektioner</string>
     <string name="learn_lesson_progress">%1$d / %2$d lektioner</string>

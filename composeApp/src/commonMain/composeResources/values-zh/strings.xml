@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">算术</string>
     <string name="learn_topic_arithmetic_subtitle">数与运算</string>
-    <string name="learn_topic_measurement">测量</string>
-    <string name="learn_topic_measurement_subtitle">长度、单位与面积</string>
     <string name="learn_topic_geometry">几何</string>
     <string name="learn_topic_geometry_subtitle">角、三角形与圆</string>
-    <string name="learn_topic_data">数据与概率</string>
-    <string name="learn_topic_data_subtitle">统计与概率</string>
-    <string name="learn_topic_algebra">代数</string>
-    <string name="learn_topic_algebra_subtitle">代数式与方程</string>
-    <string name="learn_topic_trigonometry">三角学</string>
-    <string name="learn_topic_trigonometry_subtitle">比与单位圆</string>
-    <string name="learn_topic_functions">微积分预备</string>
-    <string name="learn_topic_functions_subtitle">函数与图像</string>
-    <string name="learn_topic_calculus">微积分</string>
-    <string name="learn_topic_calculus_subtitle">极限、导数与积分</string>
 
     <string name="learn_lessons_header">课程</string>
     <string name="learn_lesson_progress">%1$d / %2$d 课</string>

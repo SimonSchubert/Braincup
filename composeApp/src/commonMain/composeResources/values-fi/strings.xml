@@ -846,20 +846,8 @@ Siirrä Cow — siitä tulee Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmetiikka</string>
     <string name="learn_topic_arithmetic_subtitle">Luvut ja laskutoimitukset</string>
-    <string name="learn_topic_measurement">Mittaaminen</string>
-    <string name="learn_topic_measurement_subtitle">Pituus, yksiköt ja pinta-ala</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Kulmat, kolmiot ja ympyrät</string>
-    <string name="learn_topic_data">Data ja todennäköisyys</string>
-    <string name="learn_topic_data_subtitle">Tilastot ja sattuma</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Lausekkeet ja yhtälöt</string>
-    <string name="learn_topic_trigonometry">Trigonometria</string>
-    <string name="learn_topic_trigonometry_subtitle">Suhteet ja yksikköympyrä</string>
-    <string name="learn_topic_functions">Analyysin valmennus</string>
-    <string name="learn_topic_functions_subtitle">Funktiot ja kuvaajat</string>
-    <string name="learn_topic_calculus">Analyysi</string>
-    <string name="learn_topic_calculus_subtitle">Raja-arvot, derivaatat ja integraalit</string>
 
     <string name="learn_lessons_header">Oppitunnit</string>
     <string name="learn_lesson_progress">%1$d / %2$d oppituntia</string>

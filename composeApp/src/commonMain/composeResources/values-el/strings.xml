@@ -829,20 +829,8 @@
 
     <string name="learn_topic_arithmetic">Αριθμητική</string>
     <string name="learn_topic_arithmetic_subtitle">Αριθμοί &amp; πράξεις</string>
-    <string name="learn_topic_measurement">Μετρήσεις</string>
-    <string name="learn_topic_measurement_subtitle">Μήκος, μονάδες &amp; εμβαδόν</string>
     <string name="learn_topic_geometry">Γεωμετρία</string>
     <string name="learn_topic_geometry_subtitle">Γωνίες, τρίγωνα &amp; κύκλοι</string>
-    <string name="learn_topic_data">Δεδομένα &amp; πιθανότητες</string>
-    <string name="learn_topic_data_subtitle">Στατιστική &amp; τύχη</string>
-    <string name="learn_topic_algebra">Άλγεβρα</string>
-    <string name="learn_topic_algebra_subtitle">Παραστάσεις &amp; εξισώσεις</string>
-    <string name="learn_topic_trigonometry">Τριγωνομετρία</string>
-    <string name="learn_topic_trigonometry_subtitle">Λόγοι &amp; μοναδιαίος κύκλος</string>
-    <string name="learn_topic_functions">Προ-ανάλυση</string>
-    <string name="learn_topic_functions_subtitle">Συναρτήσεις &amp; γραφήματα</string>
-    <string name="learn_topic_calculus">Ανάλυση</string>
-    <string name="learn_topic_calculus_subtitle">Όρια, παράγωγοι &amp; ολοκληρώματα</string>
 
     <string name="learn_lessons_header">Μαθήματα</string>
     <string name="learn_lesson_progress">%1$d / %2$d μαθήματα</string>

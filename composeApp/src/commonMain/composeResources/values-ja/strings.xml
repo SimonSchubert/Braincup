@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">算術</string>
     <string name="learn_topic_arithmetic_subtitle">数と計算</string>
-    <string name="learn_topic_measurement">測定</string>
-    <string name="learn_topic_measurement_subtitle">長さ、単位、面積</string>
     <string name="learn_topic_geometry">図形</string>
     <string name="learn_topic_geometry_subtitle">角、三角形、円</string>
-    <string name="learn_topic_data">データと確率</string>
-    <string name="learn_topic_data_subtitle">統計と確率</string>
-    <string name="learn_topic_algebra">代数</string>
-    <string name="learn_topic_algebra_subtitle">式と方程式</string>
-    <string name="learn_topic_trigonometry">三角法</string>
-    <string name="learn_topic_trigonometry_subtitle">比と単位円</string>
-    <string name="learn_topic_functions">微積分入門</string>
-    <string name="learn_topic_functions_subtitle">関数とグラフ</string>
-    <string name="learn_topic_calculus">微積分</string>
-    <string name="learn_topic_calculus_subtitle">極限、微分、積分</string>
 
     <string name="learn_lessons_header">レッスン</string>
     <string name="learn_lesson_progress">%1$d / %2$d レッスン</string>

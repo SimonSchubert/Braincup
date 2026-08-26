@@ -172,7 +172,7 @@ private fun formatEpochDay(epochDay: Int): String = Instant
 private fun LearnCertificateScreenPreview() {
     ScreenPreviewHost {
         LearnCertificateScreenContent(
-            unit = LearnCatalog.units(MathTopic.TRIGONOMETRY).first(),
+            unit = LearnCatalog.units(MathTopic.GEOMETRY).first(),
             earnedEpochDay = 20_000,
             onDone = {},
             onBack = {},

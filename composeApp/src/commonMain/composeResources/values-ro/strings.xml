@@ -846,20 +846,8 @@ Mută Cow — devine Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmetică</string>
     <string name="learn_topic_arithmetic_subtitle">Numere și operații</string>
-    <string name="learn_topic_measurement">Măsurare</string>
-    <string name="learn_topic_measurement_subtitle">Lungime, unități și arie</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Unghiuri, triunghiuri și cercuri</string>
-    <string name="learn_topic_data">Date și probabilități</string>
-    <string name="learn_topic_data_subtitle">Statistică și șansă</string>
-    <string name="learn_topic_algebra">Algebră</string>
-    <string name="learn_topic_algebra_subtitle">Expresii și ecuații</string>
-    <string name="learn_topic_trigonometry">Trigonometrie</string>
-    <string name="learn_topic_trigonometry_subtitle">Rapoarte și cercul trigonometric</string>
-    <string name="learn_topic_functions">Pregătire pentru analiză</string>
-    <string name="learn_topic_functions_subtitle">Funcții și grafice</string>
-    <string name="learn_topic_calculus">Analiză matematică</string>
-    <string name="learn_topic_calculus_subtitle">Limite, derivate și integrale</string>
 
     <string name="learn_lessons_header">Lecții</string>
     <string name="learn_lesson_progress">%1$d / %2$d lecții</string>

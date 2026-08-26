@@ -844,20 +844,8 @@
 
     <string name="learn_topic_arithmetic">حساب</string>
     <string name="learn_topic_arithmetic_subtitle">عدد اور اعمال</string>
-    <string name="learn_topic_measurement">پیمائش</string>
-    <string name="learn_topic_measurement_subtitle">لمبائی، اکائیاں اور رقبہ</string>
     <string name="learn_topic_geometry">ہندسیہ</string>
     <string name="learn_topic_geometry_subtitle">زاویے، مثلثیں اور دائرے</string>
-    <string name="learn_topic_data">ڈیٹا اور احتمال</string>
-    <string name="learn_topic_data_subtitle">شماریات اور موقع</string>
-    <string name="learn_topic_algebra">الجبرا</string>
-    <string name="learn_topic_algebra_subtitle">عبارتیں اور مساوات</string>
-    <string name="learn_topic_trigonometry">تکونیات</string>
-    <string name="learn_topic_trigonometry_subtitle">تناسب اور اکائی دائرہ</string>
-    <string name="learn_topic_functions">قبل از حسابان</string>
-    <string name="learn_topic_functions_subtitle">افعال اور گراف</string>
-    <string name="learn_topic_calculus">حسابان</string>
-    <string name="learn_topic_calculus_subtitle">حدود، مشتق اور تکامل</string>
 
     <string name="learn_lessons_header">سبق</string>
     <string name="learn_lesson_progress">%1$d / %2$d سبق</string>

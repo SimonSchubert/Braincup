@@ -846,20 +846,8 @@ Premjesti Cow — postat će Bull.</string>
 
     <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Brojevi i operacije</string>
-    <string name="learn_topic_measurement">Mjerenje</string>
-    <string name="learn_topic_measurement_subtitle">Duljina, jedinice i površina</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Kutovi, trokuti i kružnice</string>
-    <string name="learn_topic_data">Podaci i vjerojatnost</string>
-    <string name="learn_topic_data_subtitle">Statistika i slučajnost</string>
-    <string name="learn_topic_algebra">Algebra</string>
-    <string name="learn_topic_algebra_subtitle">Izrazi i jednadžbe</string>
-    <string name="learn_topic_trigonometry">Trigonometrija</string>
-    <string name="learn_topic_trigonometry_subtitle">Omjeri i jedinična kružnica</string>
-    <string name="learn_topic_functions">Priprema za kalkulus</string>
-    <string name="learn_topic_functions_subtitle">Funkcije i grafovi</string>
-    <string name="learn_topic_calculus">Kalkulus</string>
-    <string name="learn_topic_calculus_subtitle">Limesi, derivacije i integrali</string>
 
     <string name="learn_lessons_header">Lekcije</string>
     <string name="learn_lesson_progress">%1$d / %2$d lekcija</string>

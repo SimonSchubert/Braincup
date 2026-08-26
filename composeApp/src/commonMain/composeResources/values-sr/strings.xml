@@ -846,20 +846,8 @@ Cow = тачна цифра, погрешно место.</string>
 
     <string name="learn_topic_arithmetic">Аритметика</string>
     <string name="learn_topic_arithmetic_subtitle">Бројеви и операције</string>
-    <string name="learn_topic_measurement">Мерење</string>
-    <string name="learn_topic_measurement_subtitle">Дужина, јединице и површина</string>
     <string name="learn_topic_geometry">Геометрија</string>
     <string name="learn_topic_geometry_subtitle">Углови, троуглови и кругови</string>
-    <string name="learn_topic_data">Подаци и вероватноћа</string>
-    <string name="learn_topic_data_subtitle">Статистика и случајност</string>
-    <string name="learn_topic_algebra">Алгебра</string>
-    <string name="learn_topic_algebra_subtitle">Изрази и једначине</string>
-    <string name="learn_topic_trigonometry">Тригонометрија</string>
-    <string name="learn_topic_trigonometry_subtitle">Односи и јединични круг</string>
-    <string name="learn_topic_functions">Припрема за калкулус</string>
-    <string name="learn_topic_functions_subtitle">Функције и графикони</string>
-    <string name="learn_topic_calculus">Калкулус</string>
-    <string name="learn_topic_calculus_subtitle">Лимеси, изводи и интеграли</string>
 
     <string name="learn_lessons_header">Лекције</string>
     <string name="learn_lesson_progress">%1$d / %2$d лекција</string>

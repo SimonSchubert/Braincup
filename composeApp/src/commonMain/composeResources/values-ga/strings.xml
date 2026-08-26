@@ -846,20 +846,8 @@ Bog Cow — éireoidh Bull de.</string>
 
     <string name="learn_topic_arithmetic">Uimhríocht</string>
     <string name="learn_topic_arithmetic_subtitle">Uimhreacha agus oibríochtaí</string>
-    <string name="learn_topic_measurement">Tomhas</string>
-    <string name="learn_topic_measurement_subtitle">Fad, aonaid agus achar</string>
     <string name="learn_topic_geometry">Céimseata</string>
     <string name="learn_topic_geometry_subtitle">Uillinneacha, triantáin agus ciorcail</string>
-    <string name="learn_topic_data">Sonraí agus dóchúlacht</string>
-    <string name="learn_topic_data_subtitle">Staitisticí agus seans</string>
-    <string name="learn_topic_algebra">Ailgéabar</string>
-    <string name="learn_topic_algebra_subtitle">Slonnanna agus cothromóidí</string>
-    <string name="learn_topic_trigonometry">Triantánacht</string>
-    <string name="learn_topic_trigonometry_subtitle">Cóimheasa agus an t-aonadchiorcal</string>
-    <string name="learn_topic_functions">Ullmhúchán do chalcalas</string>
-    <string name="learn_topic_functions_subtitle">Feidhmeanna agus graif</string>
-    <string name="learn_topic_calculus">Calcalas</string>
-    <string name="learn_topic_calculus_subtitle">Teorainneacha, díorthaigh agus slánuimhreacha</string>
 
     <string name="learn_lessons_header">Ceachtanna</string>
     <string name="learn_lesson_progress">%1$d / %2$d ceacht</string>

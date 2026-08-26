@@ -846,20 +846,8 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
 
     <string name="learn_topic_arithmetic">חשבון</string>
     <string name="learn_topic_arithmetic_subtitle">מספרים ופעולות</string>
-    <string name="learn_topic_measurement">מדידה</string>
-    <string name="learn_topic_measurement_subtitle">אורך, יחידות ושטח</string>
     <string name="learn_topic_geometry">גאומטריה</string>
     <string name="learn_topic_geometry_subtitle">זוויות, משולשים ומעגלים</string>
-    <string name="learn_topic_data">נתונים והסתברות</string>
-    <string name="learn_topic_data_subtitle">סטטיסטיקה וסיכוי</string>
-    <string name="learn_topic_algebra">אלגברה</string>
-    <string name="learn_topic_algebra_subtitle">ביטויים ומשוואות</string>
-    <string name="learn_topic_trigonometry">טריגונומטריה</string>
-    <string name="learn_topic_trigonometry_subtitle">יחסים ומעגל היחידה</string>
-    <string name="learn_topic_functions">קדם-חשבון דיפרנציאלי</string>
-    <string name="learn_topic_functions_subtitle">פונקציות וגרפים</string>
-    <string name="learn_topic_calculus">חשבון דיפרנציאלי ואינטגרלי</string>
-    <string name="learn_topic_calculus_subtitle">גבולות, נגזרות ואינטגרלים</string>
 
     <string name="learn_lessons_header">שיעורים</string>
     <string name="learn_lesson_progress">%1$d / %2$d שיעורים</string>

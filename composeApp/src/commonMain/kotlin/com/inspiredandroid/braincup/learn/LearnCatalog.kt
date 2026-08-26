@@ -1,13 +1,7 @@
 package com.inspiredandroid.braincup.learn
 
-import com.inspiredandroid.braincup.learn.content.AlgebraContent
 import com.inspiredandroid.braincup.learn.content.ArithmeticContent
-import com.inspiredandroid.braincup.learn.content.CalculusContent
-import com.inspiredandroid.braincup.learn.content.DataContent
-import com.inspiredandroid.braincup.learn.content.FunctionsContent
 import com.inspiredandroid.braincup.learn.content.GeometryContent
-import com.inspiredandroid.braincup.learn.content.MeasurementContent
-import com.inspiredandroid.braincup.learn.content.TrigonometryContent
 
 /**
  * Every sub-topic in the Learn section, keyed by topic.
@@ -20,13 +14,7 @@ object LearnCatalog {
 
     private val byTopic: Map<MathTopic, List<LearnUnit>> = mapOf(
         MathTopic.ARITHMETIC to ArithmeticContent.units,
-        MathTopic.MEASUREMENT to MeasurementContent.units,
         MathTopic.GEOMETRY to GeometryContent.units,
-        MathTopic.DATA to DataContent.units,
-        MathTopic.ALGEBRA to AlgebraContent.units,
-        MathTopic.TRIGONOMETRY to TrigonometryContent.units,
-        MathTopic.FUNCTIONS to FunctionsContent.units,
-        MathTopic.CALCULUS to CalculusContent.units,
     )
 
     /** Every sub-topic, in menu order: topic by topic, easiest first inside each. */

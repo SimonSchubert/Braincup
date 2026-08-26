@@ -13,8 +13,11 @@ class LearnCatalogTest {
         /**
          * How many question figures in the not-yet-reworked sub-topics still caption their own
          * answer. A ratchet, not a target: lower it as topics are reworked, never raise it.
+         *
+         * Since the first release ships Arithmetic and Geometry only, every remaining one of these
+         * is in Geometry, so this reaching 0 is what "Geometry is done" means.
          */
-        const val RATCHET = 50
+        const val RATCHET = 15
     }
 
     @Test
@@ -52,7 +55,7 @@ class LearnCatalogTest {
                 assertTrue(unit.id.startsWith("${topic.id}-"), "${unit.id} is not filed under its topic")
             }
         }
-        assertNull(LearnCatalog.unitBySlug(MathTopic.ALGEBRA, "not-a-sub-topic"))
+        assertNull(LearnCatalog.unitBySlug(MathTopic.ARITHMETIC, "not-a-sub-topic"))
     }
 
     @Test
@@ -144,13 +147,13 @@ class LearnCatalogTest {
      * a whole topic ([reworked]) or the ones done so far inside a topic still being worked through
      * ([reworkedUnits]). The rest still carry their original grade-slice content and are only kept
      * from getting worse; move a topic across as its last sub-topic lands.
+     *
+     * See `docs/learn-release-status.md` for the readiness bar a sub-topic has to clear first.
      */
     @Test
     fun questionFiguresDoNotCaptionTheirAnswer() {
-        val reworked = setOf(MathTopic.ALGEBRA, MathTopic.ARITHMETIC)
-        // The sub-topics already done inside a topic still being worked through. Empty while
-        // arithmetic holds a place in [reworked] on its own: every one of its sub-topics is
-        // hand-authored now, so any new one joins them under the strict rule.
+        val reworked = setOf(MathTopic.ARITHMETIC)
+        // Geometry's sub-topics as each is reworked, until the whole topic can join [reworked].
         val reworkedUnits = emptySet<String>()
         val (done, pending) = LearnCatalog.allUnits.partition {
             it.topic in reworked || it.id in reworkedUnits

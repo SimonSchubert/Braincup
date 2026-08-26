@@ -829,20 +829,8 @@
 
     <string name="learn_topic_arithmetic">حساب</string>
     <string name="learn_topic_arithmetic_subtitle">اعداد &amp; عملیات</string>
-    <string name="learn_topic_measurement">اندازه‌گیری</string>
-    <string name="learn_topic_measurement_subtitle">طول، یکاها &amp; مساحت</string>
     <string name="learn_topic_geometry">هندسه</string>
     <string name="learn_topic_geometry_subtitle">زاویه‌ها، مثلث‌ها &amp; دایره‌ها</string>
-    <string name="learn_topic_data">داده &amp; احتمال</string>
-    <string name="learn_topic_data_subtitle">آمار &amp; شانس</string>
-    <string name="learn_topic_algebra">جبر</string>
-    <string name="learn_topic_algebra_subtitle">عبارت‌ها &amp; معادله‌ها</string>
-    <string name="learn_topic_trigonometry">مثلثات</string>
-    <string name="learn_topic_trigonometry_subtitle">نسبت‌ها &amp; دایره واحد</string>
-    <string name="learn_topic_functions">پیش‌نیاز حسابان</string>
-    <string name="learn_topic_functions_subtitle">توابع &amp; نمودارها</string>
-    <string name="learn_topic_calculus">حسابان</string>
-    <string name="learn_topic_calculus_subtitle">حدها، مشتق‌ها &amp; انتگرال‌ها</string>
 
     <string name="learn_lessons_header">درس‌ها</string>
     <string name="learn_lesson_progress">%1$d / %2$d درس</string>

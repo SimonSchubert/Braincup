@@ -127,36 +127,36 @@ class AppUrlRoutesTest {
 
     @Test
     fun navRouteToPathSuffix_learn() {
-        val quadratics = requireNotNull(LearnCatalog.unitBySlug(MathTopic.ALGEBRA, "quadratics"))
+        val fractions = requireNotNull(LearnCatalog.unitBySlug(MathTopic.ARITHMETIC, "fractions"))
         assertEquals("learn", navRouteToPathSuffix(LearnMenu))
-        assertEquals("learn/algebra", navRouteToPathSuffix(LearnTopicDetail(MathTopic.ALGEBRA.id)))
-        assertEquals("learn/algebra/quadratics", navRouteToPathSuffix(LearnUnitDetail(quadratics.id)))
-        assertEquals("learn/algebra/quadratics/test", navRouteToPathSuffix(LearnTest(quadratics.id)))
+        assertEquals("learn/arithmetic", navRouteToPathSuffix(LearnTopicDetail(MathTopic.ARITHMETIC.id)))
+        assertEquals("learn/arithmetic/fractions", navRouteToPathSuffix(LearnUnitDetail(fractions.id)))
+        assertEquals("learn/arithmetic/fractions/test", navRouteToPathSuffix(LearnTest(fractions.id)))
         assertEquals(
-            "learn/algebra/quadratics/certificate",
-            navRouteToPathSuffix(LearnCertificate(quadratics.id)),
+            "learn/arithmetic/fractions/certificate",
+            navRouteToPathSuffix(LearnCertificate(fractions.id)),
         )
     }
 
     @Test
     fun pathSuffixToNavRoute_learnRoundTrip() {
-        val limits = requireNotNull(LearnCatalog.unitBySlug(MathTopic.CALCULUS, "limits-and-derivatives"))
+        val shapes = requireNotNull(LearnCatalog.unitBySlug(MathTopic.GEOMETRY, "shapes"))
         assertEquals(LearnMenu, pathSuffixToNavRoute("learn"))
         assertEquals(
-            LearnTopicDetail(MathTopic.CALCULUS.id),
-            pathSuffixToNavRoute("learn/calculus"),
+            LearnTopicDetail(MathTopic.GEOMETRY.id),
+            pathSuffixToNavRoute("learn/geometry"),
         )
         assertEquals(
-            LearnUnitDetail(limits.id),
-            pathSuffixToNavRoute("learn/calculus/limits-and-derivatives"),
+            LearnUnitDetail(shapes.id),
+            pathSuffixToNavRoute("learn/geometry/shapes"),
         )
         assertEquals(
-            LearnTest(limits.id),
-            pathSuffixToNavRoute("learn/calculus/limits-and-derivatives/test"),
+            LearnTest(shapes.id),
+            pathSuffixToNavRoute("learn/geometry/shapes/test"),
         )
         assertEquals(
-            LearnCertificate(limits.id),
-            pathSuffixToNavRoute("learn/calculus/limits-and-derivatives/certificate"),
+            LearnCertificate(shapes.id),
+            pathSuffixToNavRoute("learn/geometry/shapes/certificate"),
         )
     }
 

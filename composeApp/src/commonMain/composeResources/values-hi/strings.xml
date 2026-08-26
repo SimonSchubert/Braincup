@@ -828,20 +828,8 @@
 
     <string name="learn_topic_arithmetic">अंकगणित</string>
     <string name="learn_topic_arithmetic_subtitle">संख्याएँ &amp; संक्रियाएँ</string>
-    <string name="learn_topic_measurement">माप</string>
-    <string name="learn_topic_measurement_subtitle">लंबाई, इकाइयाँ &amp; क्षेत्रफल</string>
     <string name="learn_topic_geometry">ज्यामिति</string>
     <string name="learn_topic_geometry_subtitle">कोण, त्रिभुज &amp; वृत्त</string>
-    <string name="learn_topic_data">आँकड़े &amp; प्रायिकता</string>
-    <string name="learn_topic_data_subtitle">सांख्यिकी &amp; संयोग</string>
-    <string name="learn_topic_algebra">बीजगणित</string>
-    <string name="learn_topic_algebra_subtitle">व्यंजक &amp; समीकरण</string>
-    <string name="learn_topic_trigonometry">त्रिकोणमिति</string>
-    <string name="learn_topic_trigonometry_subtitle">अनुपात &amp; इकाई वृत्त</string>
-    <string name="learn_topic_functions">कलन-पूर्व</string>
-    <string name="learn_topic_functions_subtitle">फलन &amp; ग्राफ़</string>
-    <string name="learn_topic_calculus">कलन</string>
-    <string name="learn_topic_calculus_subtitle">सीमाएँ, अवकलज &amp; समाकल</string>
 
     <string name="learn_lessons_header">पाठ</string>
     <string name="learn_lesson_progress">%1$d / %2$d पाठ</string>
