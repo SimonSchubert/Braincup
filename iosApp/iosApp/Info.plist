@@ -19,6 +19,7 @@
         <string>et</string>
         <string>fa</string>
         <string>fi</string>
+        <string>fil</string>
         <string>fr</string>
         <string>ga</string>
         <string>he</string>
@@ -46,8 +47,10 @@
         <string>th</string>
         <string>tr</string>
         <string>uk</string>
+        <string>ur</string>
         <string>vi</string>
         <string>zh</string>
+        <string>zh-Hant</string>
     </array>
     <key>CFBundleExecutable</key>
     <string>$(EXECUTABLE_NAME)</string>
