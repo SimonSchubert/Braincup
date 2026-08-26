@@ -6,6 +6,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.movableContentOf
+import androidx.compose.runtime.movableContentWithReceiverOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -24,7 +28,9 @@ internal val LocalIsCompactHeight = staticCompositionLocalOf { false }
  */
 @Suppress("ktlint:standard:property-naming")
 internal val gridCellMaxSize: Dp
-    @Composable get() = if (LocalIsCompactHeight.current) 56.dp else 72.dp
+    @Composable
+    @ReadOnlyComposable
+    get() = if (LocalIsCompactHeight.current) 56.dp else 72.dp
 
 /**
  * Height of the scaffold body (viewport minus the top bar), provided on the compact paths only.
@@ -38,6 +44,7 @@ private val CompactHeightThreshold = 480.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppScaffold(
+    modifier: Modifier = Modifier,
     title: String? = null,
     onBack: (() -> Unit)? = null,
     scrollable: Boolean = true,
@@ -46,7 +53,13 @@ fun AppScaffold(
     actions: (@Composable RowScope.() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
+    // The compact and regular branches below put the body in different Columns. Handing the slot
+    // straight to both would drop everything it remembers whenever the window crosses the compact
+    // threshold; as movable content the same nodes are moved across instead.
+    val body = remember(content) { movableContentWithReceiverOf<ColumnScope>(content) }
+
     Scaffold(
+        modifier = modifier,
         topBar = {
             TopAppBar(
                 title = {
@@ -104,7 +117,7 @@ fun AppScaffold(
                         horizontalAlignment = Alignment.CenterHorizontally,
                         verticalArrangement = Arrangement.Center,
                     ) {
-                        content()
+                        body()
                     }
                 }
             }
@@ -125,7 +138,7 @@ fun AppScaffold(
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center,
             ) {
-                content()
+                body()
             }
         }
     }
@@ -134,25 +147,32 @@ fun AppScaffold(
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun GameScaffold(
+    modifier: Modifier = Modifier,
     onBack: (() -> Unit)? = null,
     progressBar: (@Composable () -> Unit)? = null,
     fillContent: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
-    BoxWithConstraints(Modifier.fillMaxSize()) {
+    // Compact moves the progress bar into the top bar and the body into a scrolling Column; both
+    // slots are invoked from more than one place, so they travel as movable content and keep their
+    // state (game animations, scroll position) across a resize or rotation.
+    val bar = remember(progressBar) { progressBar?.let { movableContentOf(it) } }
+    val body = remember(content) { movableContentWithReceiverOf<ColumnScope>(content) }
+
+    BoxWithConstraints(modifier.fillMaxSize()) {
         val compact = maxHeight < CompactHeightThreshold
         CompositionLocalProvider(LocalIsCompactHeight provides compact) {
             Scaffold(
                 topBar = {
                     TopAppBar(
                         title = {
-                            if (compact && progressBar != null) {
+                            if (compact && bar != null) {
                                 Box(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .padding(end = 16.dp),
                                 ) {
-                                    progressBar()
+                                    bar()
                                 }
                             }
                         },
@@ -190,7 +210,7 @@ fun GameScaffold(
                                 horizontalAlignment = Alignment.CenterHorizontally,
                                 verticalArrangement = Arrangement.Center,
                             ) {
-                                content()
+                                body()
                             }
                         }
                     }
@@ -201,14 +221,14 @@ fun GameScaffold(
                             .padding(paddingValues),
                         horizontalAlignment = Alignment.CenterHorizontally,
                     ) {
-                        if (progressBar != null) {
-                            progressBar()
+                        if (bar != null) {
+                            bar()
                         }
                         if (fillContent) {
-                            content()
+                            body()
                         } else {
                             Spacer(Modifier.weight(1f))
-                            content()
+                            body()
                             Spacer(Modifier.weight(1f))
                         }
                     }

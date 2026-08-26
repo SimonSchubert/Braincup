@@ -90,9 +90,12 @@ android {
         }
     }
     lint {
-        abortOnError = false
+        abortOnError = true
+        // :composeApp lints itself, so pulling its sources in here would report every finding twice.
+        checkDependencies = false
+        // Release builds skip lintVital; CI runs `lint` explicitly instead of paying for it twice.
         checkReleaseBuilds = false
-        checkDependencies = true
+        lintConfig = rootProject.layout.projectDirectory.file("lint.xml").asFile
     }
 }
 

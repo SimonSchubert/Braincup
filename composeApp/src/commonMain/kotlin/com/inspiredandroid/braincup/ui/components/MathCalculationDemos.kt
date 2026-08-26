@@ -266,7 +266,7 @@ fun ChainCalculationDemo(modifier: Modifier = Modifier) {
 
 @Composable
 fun MissingOperatorsDemo(modifier: Modifier = Modifier) {
-    var animationStep by remember { mutableStateOf(0) }
+    var animationStep by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(Unit) {
         while (true) {

@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -73,9 +74,9 @@ private const val StepMillis = 600L
 @Composable
 fun PathFinderDemo(modifier: Modifier = Modifier) {
     // Index of the arrow currently (or last) executed; controls which arrows are lit. -1 means none.
-    var activeArrow by remember { mutableStateOf(-1) }
+    var activeArrow by remember { mutableIntStateOf(-1) }
     // How many path tiles beyond the start are painted with the trail color.
-    var revealed by remember { mutableStateOf(0) }
+    var revealed by remember { mutableIntStateOf(0) }
     var destinationLit by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {

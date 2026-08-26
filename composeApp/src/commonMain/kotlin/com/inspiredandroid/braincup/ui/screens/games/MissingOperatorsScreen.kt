@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -29,7 +30,7 @@ internal fun ColumnScope.MissingOperatorsContent(
         mutableStateOf(List<Operator?>(uiState.operatorsCount) { null }.toImmutableList())
     }
     var selectedSlotIndex by remember(uiState.numbers, uiState.targetResult, uiState.operatorsCount) {
-        mutableStateOf(0)
+        mutableIntStateOf(0)
     }
 
     @Composable

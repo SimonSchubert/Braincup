@@ -37,12 +37,12 @@ fun Color.darken(darkenBy: Float = 0.3f): Color = copy(
 @Composable
 fun PrismTile(
     face: Color,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     side: Color? = null,
     bottom: Color? = null,
-    modifier: Modifier = Modifier,
     isClickable: Boolean = true,
     isSelected: Boolean = false,
-    onClick: () -> Unit,
     content: @Composable () -> Unit,
 ) {
     val resolvedSide = remember(face, side) { side ?: face.darken(PrismShade.Side) }
@@ -108,9 +108,9 @@ fun PrismTile(
 @Composable
 fun PrismCard(
     face: Color,
+    modifier: Modifier = Modifier,
     side: Color? = null,
     bottom: Color? = null,
-    modifier: Modifier = Modifier,
     facet: Dp = PrismFacet.Card,
     content: @Composable () -> Unit = {},
 ) {

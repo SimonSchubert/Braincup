@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -61,7 +62,9 @@ fun PrismToggle(
             ColorPrismCell(
                 face = thumbColor,
                 modifier = Modifier
-                    .offset(x = thumbOffset)
+                    // Lambda overload: the thumb slide is read in the layout phase, so the
+                    // animation does not recompose the toggle on every frame.
+                    .offset { IntOffset(thumbOffset.roundToPx(), 0) }
                     .size(ThumbSize),
             )
         }

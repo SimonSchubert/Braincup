@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -42,7 +43,7 @@ internal fun ColumnScope.MiniSudokuContent(
     // would index out of bounds on the new grid.
     var inputs by remember(uiState) { mutableStateOf(uiState.initialValues) }
     var selectedIndex by remember(uiState) {
-        mutableStateOf(uiState.initialValues.indexOfFirst { it == null }.coerceAtLeast(0))
+        mutableIntStateOf(uiState.initialValues.indexOfFirst { it == null }.coerceAtLeast(0))
     }
 
     val onDigit: (Int) -> Unit = { digit ->

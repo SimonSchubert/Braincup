@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -85,12 +87,12 @@ fun NormalSudokuPlayScreen(
     }
     var selectedIndex by remember(puzzle) {
         val firstEmpty = clueDigits.indexOfFirst { it == 0 }
-        mutableStateOf(if (firstEmpty == -1) 0 else firstEmpty)
+        mutableIntStateOf(if (firstEmpty == -1) 0 else firstEmpty)
     }
     var notesMode by remember(puzzle) { mutableStateOf(false) }
-    var lastWrongFlash by remember(puzzle) { mutableStateOf(0L) }
+    var lastWrongFlash by remember(puzzle) { mutableLongStateOf(0L) }
     var solved by remember(puzzle) { mutableStateOf(false) }
-    var xpGained by remember(puzzle) { mutableStateOf(0) }
+    var xpGained by remember(puzzle) { mutableIntStateOf(0) }
 
     fun persist() {
         if (solved) return
@@ -465,9 +467,9 @@ private fun DigitPad(
     notesMode: Boolean,
     selectedNotes: NoteMask,
     enabled: Boolean,
-    modifier: Modifier = Modifier,
     onDigit: (Int) -> Unit,
     onErase: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     val digitCounts = IntArray(10)
     board.forEach { if (it in 1..9) digitCounts[it]++ }

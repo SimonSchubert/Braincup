@@ -423,11 +423,13 @@ fun GameTile(
     highscore: Int,
     onPlay: (GameType) -> Unit,
     onViewScore: (GameType) -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     GameTileShell(
         label = stringResource(gameType.displayNameRes),
         accentColor = gameType.accentColor,
         labelMaxLines = 1,
+        modifier = modifier,
         onClick = { onPlay(gameType) },
         preview = { GamePreview(gameType) },
     ) {
@@ -576,11 +578,12 @@ private fun GameTileShell(
     labelMaxLines: Int,
     onClick: () -> Unit,
     preview: @Composable () -> Unit,
+    modifier: Modifier = Modifier,
     trailing: @Composable RowScope.() -> Unit = {},
 ) {
     PrismTile(
         face = Primary,
-        modifier = Modifier
+        modifier = modifier
             .aspectRatio(1f)
             .hoverHand(),
         onClick = onClick,

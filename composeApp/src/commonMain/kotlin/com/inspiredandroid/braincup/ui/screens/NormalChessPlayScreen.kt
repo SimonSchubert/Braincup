@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.*
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -86,7 +87,7 @@ fun NormalChessPlayScreen(
     var lastMoveTo by remember { mutableStateOf<Square?>(null) }
     var aiThinking by remember { mutableStateOf(false) }
     var humanResigned by remember { mutableStateOf(false) }
-    var xpGained by remember { mutableStateOf(0) }
+    var xpGained by remember { mutableIntStateOf(0) }
 
     val ai = remember(difficulty) {
         NormalChessAi(

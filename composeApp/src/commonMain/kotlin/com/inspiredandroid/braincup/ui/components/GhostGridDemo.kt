@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -52,9 +53,9 @@ private val DemoCaptions = persistentListOf(
 @Composable
 fun GhostGridDemo(modifier: Modifier = Modifier) {
     // Position currently flashing during the watch phase, or -1 when nothing is lit.
-    var activePosition by remember { mutableStateOf(-1) }
+    var activePosition by remember { mutableIntStateOf(-1) }
     // How many of the sequence's tiles are lit during the repeat phase.
-    var tappedCount by remember { mutableStateOf(0) }
+    var tappedCount by remember { mutableIntStateOf(0) }
     var repeating by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {

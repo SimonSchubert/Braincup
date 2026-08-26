@@ -31,9 +31,15 @@ kotlin {
         androidResources {
             enable = true
         }
+        // The Android target's lint covers commonMain and nonIosMain as well, which is where
+        // nearly all the Compose code lives. CI gates on this, so leftover issues must fail the
+        // build rather than scroll past in the log.
         lint {
-            abortOnError = false
-            checkReleaseBuilds = false
+            abortOnError = true
+            lintConfig =
+                rootProject.layout.projectDirectory
+                    .file("lint.xml")
+                    .asFile
         }
         withHostTest {}
     }
@@ -195,9 +201,15 @@ tasks.matching { it.name.startsWith("compileKotlinIos") }.configureEach {
     dependsOn("updateIosVersion")
 }
 
+// The standalone com.android.lint plugin adds `lintJvm`, whose only extra reach is
+// src/desktopMain/kotlin - the Android target's lint already covers everything shared. Only the
+// handful of iOS and wasmJs actuals stay unlinted, and none of them build UI.
 lint {
-    abortOnError = false
-    checkReleaseBuilds = false
+    abortOnError = true
+    lintConfig =
+        rootProject.layout.projectDirectory
+            .file("lint.xml")
+            .asFile
 }
 
 dependencies {

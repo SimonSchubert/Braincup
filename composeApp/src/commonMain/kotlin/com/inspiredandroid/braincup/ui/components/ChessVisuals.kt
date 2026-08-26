@@ -81,6 +81,8 @@ enum class ChessSquareTarget {
 fun ChessSquare(
     size: Dp,
     isLight: Boolean,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
     isSelected: Boolean = false,
     isLastMove: Boolean = false,
     showCheckRing: Boolean = false,
@@ -88,8 +90,6 @@ fun ChessSquare(
     /** Solo Chess king square gold underlay (skipped when selected). */
     showKingHighlight: Boolean = false,
     enabled: Boolean = true,
-    onClick: () -> Unit,
-    modifier: Modifier = Modifier,
     content: @Composable BoxScope.() -> Unit = {},
 ) {
     val baseColor = if (isLight) ChessLightSquare else ChessDarkSquare
@@ -166,13 +166,14 @@ fun chessPieceResource(type: PieceType): DrawableResource = when (type) {
 fun ChessPieceIcon(
     resource: DrawableResource,
     isWhite: Boolean,
+    modifier: Modifier = Modifier,
     figureSize: Dp = 44.dp,
     /** Overrides the fill color (e.g. a gray for a "spent" piece). A black outline is still drawn. */
     tint: Color? = null,
 ) {
     val painter = painterResource(resource)
     val fill = ColorFilter.tint(tint ?: if (isWhite) Color.White else Color.Black)
-    Canvas(modifier = Modifier.size(figureSize)) {
+    Canvas(modifier = modifier.size(figureSize)) {
         if (isWhite || tint != null) {
             for ((dx, dy) in ChessHaloDeltas) {
                 translate(left = dx, top = dy) {

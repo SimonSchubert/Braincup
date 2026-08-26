@@ -4,6 +4,7 @@ import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
@@ -42,7 +43,7 @@ private val DemoCaptions = persistentListOf(
 @Composable
 fun SimonSaysDemo(modifier: Modifier = Modifier) {
     var activeColor by remember { mutableStateOf<GameColor?>(null) }
-    var tappedCount by remember { mutableStateOf(0) }
+    var tappedCount by remember { mutableIntStateOf(0) }
     var repeating by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {

@@ -35,11 +35,11 @@ fun FinishScreen(
     highscore: Int,
     xpGained: Int,
     totalXpAfter: Int,
-    adaptiveStartRoundCredit: Int = 0,
-    isFinalCatalogLevel: Boolean = false,
     onPlayRandom: () -> Unit,
     onPlayAgain: () -> Unit,
     onMenu: () -> Unit,
+    adaptiveStartRoundCredit: Int = 0,
+    isFinalCatalogLevel: Boolean = false,
 ) {
     val levelAfter = UserStorage.levelForXp(totalXpAfter)
     val levelBefore = UserStorage.levelForXp(totalXpAfter - xpGained)

@@ -18,6 +18,9 @@ import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
  * ways: some callers wrap children in a column, others hand it straight to a card that is already
  * the section. Adding a column around those would insert a layout node for nothing.
  */
+// Not a Modifier extension: align() is only available on ColumnScope, so the receiver has to be
+// the scope. Callers apply the result as a whole chain rather than extending one of their own.
+@Suppress("ModifierFactoryExtensionFunction")
 fun ColumnScope.sectionWidth(): Modifier = Modifier
     .widthIn(max = ContentMaxWidth)
     .padding(horizontal = 24.dp)
@@ -26,6 +29,6 @@ fun ColumnScope.sectionWidth(): Modifier = Modifier
 
 /** [sectionWidth] as a column, for callers that are stacking several children inside the measure. */
 @Composable
-fun ColumnScope.SectionColumn(content: @Composable ColumnScope.() -> Unit) {
-    Column(modifier = sectionWidth(), content = content)
+fun ColumnScope.SectionColumn(modifier: Modifier = Modifier, content: @Composable ColumnScope.() -> Unit) {
+    Column(modifier = sectionWidth().then(modifier), content = content)
 }

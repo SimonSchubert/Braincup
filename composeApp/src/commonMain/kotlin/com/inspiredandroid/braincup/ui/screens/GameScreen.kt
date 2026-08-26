@@ -227,10 +227,10 @@ fun GameScreen(
 fun GameScreen(
     gameUiState: GameUiState,
     timeRemaining: Long,
-    elapsedTime: Long = 0L,
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
     onBack: () -> Unit,
+    elapsedTime: Long = 0L,
     inSessionMode: Boolean = false,
     isTimerPaused: Boolean = false,
     onWordleFinishedAction: () -> Unit = {},

@@ -273,7 +273,7 @@ private fun FormulaCard(formula: String) {
 }
 
 @Composable
-private fun WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
+private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
     step.visual?.let {
         LearnVisualCanvas(
             visual = it,
@@ -320,7 +320,7 @@ private fun WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
 }
 
 @Composable
-private fun ChoiceStep(
+private fun ColumnScope.ChoiceStep(
     step: LessonStep.Choice,
     selectedOption: Int?,
     answer: StepAnswer,

@@ -36,8 +36,9 @@ fun PrismDialog(
     onPrimary: () -> Unit,
     secondaryLabel: String,
     onSecondary: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
-    PrismDialogShell(onDismissRequest = onDismissRequest) {
+    PrismDialogShell(onDismissRequest = onDismissRequest, modifier = modifier) {
         Text(
             text = title,
             style = MaterialTheme.typography.titleLarge,
@@ -71,6 +72,7 @@ fun PrismDialog(
 @Composable
 fun PrismDialogShell(
     onDismissRequest: () -> Unit,
+    modifier: Modifier = Modifier,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Dialog(
@@ -89,9 +91,11 @@ fun PrismDialogShell(
                 ),
             contentAlignment = Alignment.Center,
         ) {
+            // The modifier lands on the card, not the scrim: the scrim always fills the window,
+            // so the card is the only part a caller can meaningfully size.
             PrismCard(
                 face = MaterialTheme.colorScheme.surface,
-                modifier = Modifier
+                modifier = modifier
                     .padding(horizontal = 32.dp)
                     .widthIn(max = 400.dp)
                     .clickable(
@@ -119,9 +123,10 @@ fun PrismDialogButtonRow(
     onPrimary: () -> Unit,
     secondaryLabel: String,
     onSecondary: () -> Unit,
+    modifier: Modifier = Modifier,
 ) {
     Row(
-        modifier = Modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxWidth(),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
         PrismDialogButton(

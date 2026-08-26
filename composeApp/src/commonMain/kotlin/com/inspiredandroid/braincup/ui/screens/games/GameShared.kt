@@ -229,10 +229,10 @@ internal fun DrawScope.drawPuzzleGridLines(rows: Int, cols: Int, color: Color, s
  * on screen, and the aspect ratio comes from the grid itself so non-square boards are not stretched.
  * Compact height trades width for height because the side panel is beside the board, not under it.
  */
-internal fun puzzleBoardModifier(rows: Int, cols: Int, compact: Boolean): Modifier = if (compact) {
-    Modifier.heightIn(max = 260.dp).aspectRatio(cols.toFloat() / rows)
+internal fun Modifier.puzzleBoardModifier(rows: Int, cols: Int, compact: Boolean): Modifier = if (compact) {
+    heightIn(max = 260.dp).aspectRatio(cols.toFloat() / rows)
 } else {
-    Modifier.widthIn(max = 340.dp).aspectRatio(cols.toFloat() / rows)
+    widthIn(max = 340.dp).aspectRatio(cols.toFloat() / rows)
 }
 
 /**

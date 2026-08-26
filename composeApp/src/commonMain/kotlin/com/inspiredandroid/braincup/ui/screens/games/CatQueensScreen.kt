@@ -49,7 +49,7 @@ internal fun ColumnScope.CatQueensContent(
 
     val placed = uiState.cats.size
     val solvedLook = placed == n && uiState.invalidCats.isEmpty()
-    val boardModifier = puzzleBoardModifier(n, n, compact)
+    val boardModifier = Modifier.puzzleBoardModifier(n, n, compact)
 
     // The board sits on a beveled prism tray, matching the Mini Chess board's raised look.
     val board: @Composable () -> Unit = {

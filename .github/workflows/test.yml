@@ -1,4 +1,4 @@
-name: Screenshots
+name: Checks
 
 on:
   push:
@@ -30,9 +30,6 @@ jobs:
       # and updateEnUsStoreScreenshots refreshes fastlane/metadata/android/en-US/images/. The other
       # 19 locales stay a manual ':screenshotTests:generateStoreScreenshots' before a store release.
       - run: pip install pillow
-      # leftover lint errors (not auto-fixable) must not skip screenshot updates
-      - run: ./gradlew :composeApp:lintFix :androidApp:lintFix
-        continue-on-error: true
       - run: ./gradlew spotlessApply
       - run: ./gradlew :screenshotTests:updateScreenshots
       - name: Auto-commit if changed
@@ -42,5 +39,35 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Auto-fix: lintFix, spotlessApply and updateScreenshots [skip ci]"
+          git commit -m "Auto-fix: spotlessApply and updateScreenshots [skip ci]"
           git push
+
+  # Android Lint plus the Slack compose-lint-checks rules. This gates the build: `abortOnError` is
+  # on in both modules, so any Compose issue that lint.xml does not explicitly allow fails here.
+  #
+  # Deliberately `lint` and not `lintFix`. The quick-fixes are not safe to apply unattended - they
+  # rewrite receivers and rename functions without touching call sites, which leaves the tree not
+  # compiling, and the auto-commit step above would push that.
+  lint:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]') && github.actor != 'github-actions[bot]'"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - uses: android-actions/setup-android@v3
+      - uses: gradle/actions/setup-gradle@v4
+      # Both Android flavors: src/foss and src/playStore each hold sources the other does not.
+      - run: ./gradlew :composeApp:lint :androidApp:lintFossDebug :androidApp:lintPlayStoreDebug
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: lint-reports
+          path: |
+            composeApp/build/reports/lint-results-*.html
+            androidApp/build/reports/lint-results-*.html
+          if-no-files-found: ignore

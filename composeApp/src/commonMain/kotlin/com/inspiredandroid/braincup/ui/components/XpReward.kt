@@ -121,6 +121,9 @@ fun LevelUpBanner(
  * The XP-gained chip and level-up banner pair shown after a game finishes or a session completes.
  * Renders nothing when there's no XP to display and no level change.
  */
+// No modifier parameter: this lays up to two independent siblings into the caller's column, so
+// there is no single node for one to apply to. Both already take the shared section measure.
+@Suppress("ComposeModifierMissing")
 @Composable
 fun ColumnScope.XpAndLevelDisplay(
     xpGained: Int,

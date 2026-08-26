@@ -19,8 +19,9 @@ val LocalNumberPadAscending = staticCompositionLocalOf { false }
 
 @Composable
 fun ColumnScope.NumberPad(
-    showOperators: Boolean = false,
     onInputChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    showOperators: Boolean = false,
 ) {
     // Number rows from top to bottom in the default (calculator) layout. Each row pairs its
     // digits with the operator anchored to that row position (top to bottom: / * -).
@@ -37,7 +38,7 @@ fun ColumnScope.NumberPad(
     }
 
     Column(
-        modifier = Modifier
+        modifier = modifier
             .align(Alignment.CenterHorizontally)
             .width(IntrinsicSize.Min),
         verticalArrangement = Arrangement.spacedBy(8.dp),
@@ -87,12 +88,13 @@ fun ColumnScope.NumberPad(
 
 @Composable
 fun NumberPadWithInput(
-    showOperators: Boolean = false,
     onInputChange: (String) -> Unit,
+    modifier: Modifier = Modifier,
+    showOperators: Boolean = false,
 ) {
     var input by remember { mutableStateOf("") }
 
-    Column {
+    Column(modifier = modifier) {
         Row(
             horizontalArrangement = Arrangement.End,
             modifier = Modifier

@@ -66,7 +66,7 @@ internal fun ColumnScope.NurikabeContent(
     var dragCells by remember(uiState) { mutableStateOf(emptySet<Int>()) }
     var dragFills by remember(uiState) { mutableStateOf(true) }
 
-    val boardModifier = puzzleBoardModifier(rows, cols, compact)
+    val boardModifier = Modifier.puzzleBoardModifier(rows, cols, compact)
 
     val board: @Composable () -> Unit = {
         PrismCard(face = NurikabeBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {

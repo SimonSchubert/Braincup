@@ -16,9 +16,9 @@ import org.jetbrains.compose.resources.stringResource
 
 @Composable
 fun DefaultButton(
-    modifier: Modifier = Modifier,
     onClick: () -> Unit,
     value: String,
+    modifier: Modifier = Modifier,
     face: Color = Primary,
 ) {
     PrismTile(
@@ -98,10 +98,11 @@ fun PrimaryActionButton(
 fun CircleButton(
     onClick: () -> Unit,
     value: String,
+    modifier: Modifier = Modifier,
 ) {
     PrismTile(
         face = Primary,
-        modifier = Modifier
+        modifier = modifier
             .sizeIn(56.dp, 56.dp)
             .hoverHand(),
         onClick = onClick,

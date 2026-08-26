@@ -416,9 +416,9 @@ private fun DigitKey(
     enabled: Boolean,
     absent: Boolean,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
     height: androidx.compose.ui.unit.Dp,
     compact: Boolean,
+    modifier: Modifier = Modifier,
 ) {
     // No alpha on the face: PrismTile paints it straight onto the page with drawPath, so a
     // translucent face composites against the background rather than a surface and all but

@@ -13,6 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -107,7 +108,7 @@ fun ShikakuDemo(modifier: Modifier = Modifier) {
 
     // committed = rectangles already placed; activeIndex = the one currently growing (-1 = none).
     var committed by remember { mutableStateOf(listOf<ShikakuRect>()) }
-    var activeIndex by remember { mutableStateOf(-1) }
+    var activeIndex by remember { mutableIntStateOf(-1) }
     val progress = remember { Animatable(0f) }
 
     LaunchedEffect(Unit) {

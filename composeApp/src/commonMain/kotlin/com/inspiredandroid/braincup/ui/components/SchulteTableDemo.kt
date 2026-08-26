@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -45,8 +45,8 @@ private const val ResetPauseMillis = 400L
 @Composable
 fun SchulteTableDemo(modifier: Modifier = Modifier) {
     // Numbers <= tappedCount have been tapped; activeNumber is the one pulsing right now (0 = none).
-    var tappedCount by remember { mutableStateOf(0) }
-    var activeNumber by remember { mutableStateOf(0) }
+    var tappedCount by remember { mutableIntStateOf(0) }
+    var activeNumber by remember { mutableIntStateOf(0) }
 
     LaunchedEffect(Unit) {
         while (true) {

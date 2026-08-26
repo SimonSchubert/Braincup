@@ -58,7 +58,7 @@ private data class SponsorList(
 private data class SponsorDto(val username: String, val avatar: String)
 
 @Composable
-internal fun ensureSponsorsImageLoader() {
+internal fun EnsureSponsorsImageLoader() {
     setSingletonImageLoaderFactory { context ->
         ImageLoader.Builder(context)
             .components { add(KtorNetworkFetcherFactory()) }

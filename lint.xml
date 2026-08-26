@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Shared Android Lint configuration for :composeApp and :androidApp.
+
+  The Slack compose-lint-checks rules are on by default; the entries below are the ones this
+  codebase deliberately does not follow, each with the reason. Everything else is expected to be
+  clean, and CI fails the build when it is not.
+-->
+<lint>
+
+    <!--
+      Screen roots are entry points for the navigation graph, not reusable components: nothing ever
+      positions or decorates them from the outside, so a modifier parameter would be dead weight on
+      every one of them. Reusable components under ui/components/ still have to take a modifier.
+    -->
+    <issue id="ComposeModifierMissing">
+        <ignore path="**/braincup/App.kt" />
+        <ignore path="**/braincup/ui/screens/**" />
+    </issue>
+
+    <!--
+      The four CompositionLocals here carry layout context (compact height, scaffold body height,
+      number-pad metrics, accessibility palette) that would otherwise have to be threaded through
+      every intermediate composable by hand. Each is documented at its declaration.
+    -->
+    <issue id="ComposeCompositionLocalUsage" severity="ignore" />
+
+    <!-- Dependency freshness is handled by the /check-updates workflow, not by a lint run. -->
+    <issue id="NewerVersionAvailable" severity="ignore" />
+
+    <!--
+      androidx.core:core-ktx is only on the classpath transitively. Everything shared lives in the
+      multiplatform module, and the thin Android layer is not worth a direct dependency on it just
+      to swap a handful of platform calls for their Kotlin extensions.
+    -->
+    <issue id="UseKtx" severity="ignore" />
+
+    <!--
+      ic_launcher_monochrome is the themed-icon mark, drawn once by the launcher rather than per
+      frame in a list. Cutting its precision to shorten the path visibly degrades the outline.
+    -->
+    <issue id="VectorPath">
+        <ignore path="**/res/drawable/ic_launcher_monochrome.xml" />
+    </issue>
+
+</lint>

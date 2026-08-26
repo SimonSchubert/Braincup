@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -62,7 +63,7 @@ fun KnotDemo(modifier: Modifier = Modifier) {
 
     // committed = paths already fully drawn; activeColor/drawing = the path currently being drawn.
     var committed by remember { mutableStateOf(listOf<KnotDemoPath>()) }
-    var activeColor by remember { mutableStateOf(-1) }
+    var activeColor by remember { mutableIntStateOf(-1) }
     var drawing by remember { mutableStateOf(listOf<Int>()) }
 
     LaunchedEffect(Unit) {

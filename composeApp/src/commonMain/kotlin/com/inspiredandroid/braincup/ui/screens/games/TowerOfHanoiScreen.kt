@@ -353,10 +353,15 @@ private fun HanoiBoard(
             val width = diskWidth(size)
 
             key(size) {
+                // getOrPut stores into xAnim/yAnim, which are themselves remembered above, so each
+                // Animatable survives recomposition. Lint only sees the constructor call.
+                @Suppress("RememberInComposition")
                 val x = xAnim.getOrPut(size) {
                     val (ix, _) = restOffsetPx(peg, stackIndex, size, lifted = false)
                     Animatable(ix)
                 }
+
+                @Suppress("RememberInComposition")
                 val y = yAnim.getOrPut(size) {
                     val (_, iy) = restOffsetPx(peg, stackIndex, size, lifted = false)
                     Animatable(iy)

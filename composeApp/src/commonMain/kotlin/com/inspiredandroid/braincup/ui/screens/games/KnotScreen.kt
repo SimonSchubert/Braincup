@@ -57,7 +57,7 @@ internal fun ColumnScope.KnotContent(
     var dragColor by remember(uiState) { mutableStateOf<Int?>(null) }
     var dragCells by remember(uiState) { mutableStateOf<List<Int>>(emptyList()) }
 
-    val boardModifier = puzzleBoardModifier(rows, cols, compact)
+    val boardModifier = Modifier.puzzleBoardModifier(rows, cols, compact)
 
     val board: @Composable () -> Unit = {
         PrismCard(face = KnotBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {

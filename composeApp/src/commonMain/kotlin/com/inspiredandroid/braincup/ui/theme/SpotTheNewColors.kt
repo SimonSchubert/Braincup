@@ -9,7 +9,7 @@ object SpotTheNewColors {
     @Composable
     fun normalFace(): Color = MaterialTheme.colorScheme.surfaceContainer
 
-    @Composable
+    // Not @Composable: a fixed palette colour, unlike the two theme-derived faces around it.
     fun highlightFace(): Color = PrimaryContainer
 
     @Composable

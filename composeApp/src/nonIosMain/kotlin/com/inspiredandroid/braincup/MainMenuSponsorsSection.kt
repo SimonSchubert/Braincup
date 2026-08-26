@@ -9,7 +9,7 @@ import androidx.compose.runtime.setValue
 
 @Composable
 actual fun rememberMainMenuSponsorsSection(): (@Composable () -> Unit)? {
-    ensureSponsorsImageLoader()
+    EnsureSponsorsImageLoader()
 
     var sponsors by remember { mutableStateOf<Sponsors?>(null) }
 

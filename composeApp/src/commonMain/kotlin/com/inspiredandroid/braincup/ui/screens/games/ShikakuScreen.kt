@@ -59,7 +59,7 @@ internal fun ColumnScope.ShikakuContent(
     var dragStart by remember(uiState) { mutableStateOf<Pair<Int, Int>?>(null) }
     var dragCurrent by remember(uiState) { mutableStateOf<Pair<Int, Int>?>(null) }
 
-    val boardModifier = puzzleBoardModifier(rows, cols, compact)
+    val boardModifier = Modifier.puzzleBoardModifier(rows, cols, compact)
 
     val board: @Composable () -> Unit = {
         PrismCard(face = ShikakuBoardFrame, facet = PrismFacet.Board, modifier = boardModifier) {
