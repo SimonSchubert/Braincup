@@ -17,7 +17,7 @@ class LearnCatalogTest {
          * Since the first release ships Arithmetic and Geometry only, every remaining one of these
          * is in Geometry, so this reaching 0 is what "Geometry is done" means.
          */
-        const val RATCHET = 15
+        const val RATCHET = 14
     }
 
     @Test
@@ -154,7 +154,7 @@ class LearnCatalogTest {
     fun questionFiguresDoNotCaptionTheirAnswer() {
         val reworked = setOf(MathTopic.ARITHMETIC)
         // Geometry's sub-topics as each is reworked, until the whole topic can join [reworked].
-        val reworkedUnits = emptySet<String>()
+        val reworkedUnits = setOf("geometry-flat-shapes", "geometry-solid-shapes")
         val (done, pending) = LearnCatalog.allUnits.partition {
             it.topic in reworked || it.id in reworkedUnits
         }

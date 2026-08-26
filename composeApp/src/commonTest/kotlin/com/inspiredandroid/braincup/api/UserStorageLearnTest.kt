@@ -115,7 +115,7 @@ class UserStorageLearnTest {
     @Test
     fun unitProgressReflectsLessonsAndCertificate() {
         val storage = UserStorage.forPreview()
-        val target = unit(MathTopic.GEOMETRY, "shapes")
+        val target = unit(MathTopic.GEOMETRY, "flat-shapes")
         storage.completeLearnLesson(target.lessons.first().id)
         storage.recordLearnQuizResult(target, correct = 8, total = 8)
 

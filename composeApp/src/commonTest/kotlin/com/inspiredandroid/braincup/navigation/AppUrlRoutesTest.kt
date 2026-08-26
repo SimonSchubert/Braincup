@@ -140,7 +140,7 @@ class AppUrlRoutesTest {
 
     @Test
     fun pathSuffixToNavRoute_learnRoundTrip() {
-        val shapes = requireNotNull(LearnCatalog.unitBySlug(MathTopic.GEOMETRY, "shapes"))
+        val shapes = requireNotNull(LearnCatalog.unitBySlug(MathTopic.GEOMETRY, "flat-shapes"))
         assertEquals(LearnMenu, pathSuffixToNavRoute("learn"))
         assertEquals(
             LearnTopicDetail(MathTopic.GEOMETRY.id),
@@ -148,15 +148,15 @@ class AppUrlRoutesTest {
         )
         assertEquals(
             LearnUnitDetail(shapes.id),
-            pathSuffixToNavRoute("learn/geometry/shapes"),
+            pathSuffixToNavRoute("learn/geometry/flat-shapes"),
         )
         assertEquals(
             LearnTest(shapes.id),
-            pathSuffixToNavRoute("learn/geometry/shapes/test"),
+            pathSuffixToNavRoute("learn/geometry/flat-shapes/test"),
         )
         assertEquals(
             LearnCertificate(shapes.id),
-            pathSuffixToNavRoute("learn/geometry/shapes/certificate"),
+            pathSuffixToNavRoute("learn/geometry/flat-shapes/certificate"),
         )
     }
 

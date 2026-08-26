@@ -27,16 +27,16 @@ import com.inspiredandroid.braincup.learn.learnUnit
 /** Geometry: shapes and their names, then angles, area, Pythagoras, circles and formal proof. */
 internal object GeometryContent {
 
-    private val shapes = learnUnit(
+    private val flatShapes = learnUnit(
         topic = MathTopic.GEOMETRY,
-        urlSlug = "shapes",
-        title = "Flat and solid shapes",
-        summary = "Flat shapes, solid shapes, and splitting things into equal parts.",
+        urlSlug = "flat-shapes",
+        title = "Flat shapes",
+        summary = "Counting sides and corners, and the names that follow from them.",
         level = GradeLevel.GRADES_1_2,
         lessons = listOf(
             LessonSpec(
                 id = "g12-geometry-flat-shapes",
-                title = "Flat shapes",
+                title = "Counting the sides",
                 summary = "Count the sides to name the shape.",
                 steps = listOf(
                     Concept(
@@ -44,7 +44,7 @@ internal object GeometryContent {
                         visual = Polygon(sides = 3),
                     ),
                     Concept(
-                        body = "Every side meets another at a corner, so the counts always match.",
+                        body = "Every side meets another at a corner, so the two counts always match.",
                         visual = Polygon(sides = 5),
                     ),
                     Choice(
@@ -61,11 +61,50 @@ internal object GeometryContent {
                         visual = Polygon(sides = 6, reveal = false),
                     ),
                     Concept(
-                        body = "A circle curves the whole way round: no sides, no corners.",
-                        visual = CircleFigure(showRadius = false),
+                        body = "Three sides is a triangle, four a quadrilateral, five a pentagon and six a hexagon.",
+                        visual = Polygon(sides = 6),
                     ),
                     Choice(
-                        question = "Which is NOT true of every rectangle?",
+                        question = "Which name belongs to this shape?",
+                        options = listOf("Triangle", "Pentagon", "Hexagon", "Octagon"),
+                        correctIndex = 3,
+                        explanation = "Eight sides and eight corners.",
+                        visual = Polygon(sides = 8, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-flat-shapes-curves",
+                title = "Straight sides and curves",
+                summary = "What happens when a shape has no corners at all.",
+                steps = listOf(
+                    Concept(
+                        body = "A circle curves the whole way round: no sides, no corners, and nowhere for two edges to meet.",
+                        visual = CircleFigure(showRadius = false),
+                    ),
+                    Concept(
+                        body = "A shape made only of straight sides is called a polygon. A circle is not one, and neither is anything with a curved edge.",
+                        visual = Polygon(sides = 4),
+                    ),
+                    Choice(
+                        question = "Which of these has no corners at all?",
+                        options = listOf("Triangle", "Square", "Circle", "Hexagon"),
+                        correctIndex = 2,
+                        explanation = "One smooth curve, so no two sides ever meet.",
+                        visual = CircleFigure(showRadius = false, reveal = false),
+                    ),
+                    Numeric(
+                        question = "How many corners does a circle have?",
+                        answer = "0",
+                        explanation = "There are no straight sides to meet, so there is nothing to count.",
+                        visual = CircleFigure(showRadius = false, reveal = false),
+                    ),
+                    Concept(
+                        body = "Sides do not have to be the same length. A long thin rectangle is still a four-sided shape.",
+                        visual = AreaGrid(cols = 7, rows = 2, showArea = false),
+                    ),
+                    Choice(
+                        question = "Which of these is NOT true of every rectangle?",
                         options = listOf(
                             "It has four sides",
                             "It has four square corners",
@@ -79,81 +118,41 @@ internal object GeometryContent {
                 ),
             ),
             LessonSpec(
-                id = "g12-geometry-solid-shapes",
-                title = "Solid shapes",
-                summary = "Faces, edges and corners you can hold.",
+                id = "geometry-flat-shapes-sorting",
+                title = "Sorting shapes",
+                summary = "Size and turning do not change what a shape is.",
                 steps = listOf(
                     Concept(
-                        body = "Solid shapes take up space.",
-                        visual = Solid(kind = SolidKind.CUBE),
+                        body = "Shapes sort by their side count, whatever size they happen to be drawn.",
+                        visual = Polygon(sides = 3),
                     ),
                     Concept(
-                        body = "Faces are the flat parts, edges are where two faces meet.",
-                        visual = Solid(kind = SolidKind.CUBE, counts = true),
+                        body = "Turning a shape round does not change what it is. A triangle standing on its point is still a triangle.",
+                        visual = Polygon(sides = 3),
                     ),
                     Choice(
-                        question = "Which solid rolls but still has two flat circles?",
-                        options = listOf("Sphere", "Cube", "Cylinder", "Cone"),
+                        question = "Which shape has one more side than a pentagon?",
+                        options = listOf("Square", "Triangle", "Hexagon", "Octagon"),
                         correctIndex = 2,
-                        explanation = "It rolls on its curved side and stands on either circle.",
-                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                        explanation = "A pentagon has five, so one more is six.",
+                        visual = Polygon(sides = 6, reveal = false),
                     ),
                     Numeric(
-                        question = "How many faces does this solid have?",
-                        answer = "6",
-                        explanation = "Top, bottom and four sides.",
-                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
-                    ),
-                    Concept(
-                        body = "A cone rises from one circle to a single point.",
-                        visual = Solid(kind = SolidKind.CONE, counts = true),
-                    ),
-                    Choice(
-                        question = "A tin of soup is closest to which solid?",
-                        options = listOf("Cube", "Cone", "Sphere", "Cylinder"),
-                        correctIndex = 3,
-                        explanation = "Two circular ends and a curved side.",
-                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
-                    ),
-                ),
-            ),
-            LessonSpec(
-                id = "g12-geometry-equal-parts",
-                title = "Halves and quarters",
-                summary = "Fair shares are equal shares.",
-                steps = listOf(
-                    Concept(
-                        body = "A fraction splits something into equal parts.",
-                        visual = Fraction(numerator = 1, denominator = 2),
-                    ),
-                    Concept(
-                        body = "The more parts you cut, the smaller each one gets.",
-                        formula = "1 half = 2 quarters",
-                        visual = Fraction(numerator = 1, denominator = 2, compare = 2 to 4),
-                    ),
-                    Choice(
-                        question = "You eat 2 of the 4 equal pieces. How much is that?",
-                        options = listOf("A quarter", "A half", "Three quarters", "All of it"),
-                        correctIndex = 1,
-                        explanation = "Two of four fills exactly half the bar.",
-                        visual = Fraction(numerator = 2, denominator = 4, reveal = false),
-                    ),
-                    Numeric(
-                        question = "A pizza is cut into 4 and you eat 1. How many slices are left?",
+                        question = "A shape has 3 corners. How many sides has it?",
                         answer = "3",
-                        explanation = "4 take away 1.",
-                        visual = Fraction(numerator = 1, denominator = 4, reveal = false),
+                        explanation = "Sides and corners always come in matching pairs.",
+                        visual = Polygon(sides = 3, reveal = false),
                     ),
                     Concept(
-                        body = "Half of a half is a quarter.",
-                        visual = Fraction(numerator = 1, denominator = 4),
+                        body = "A square is a rectangle that happens to have all four sides the same, so it belongs in both piles at once.",
+                        visual = AreaGrid(cols = 4, rows = 4, showArea = false),
                     ),
                     Choice(
-                        question = "Which is the bigger share of the same cake?",
-                        options = listOf("A quarter", "A half", "They are the same", "It depends"),
-                        correctIndex = 1,
-                        explanation = "One of two beats one of four.",
-                        visual = Fraction(numerator = 1, denominator = 2, compare = 1 to 4, reveal = false),
+                        question = "Which of these is NOT true of a square?",
+                        options = listOf("4 equal sides", "4 square corners", "4 corners", "Curved edges"),
+                        correctIndex = 3,
+                        explanation = "Every side of a square is straight.",
+                        visual = Polygon(sides = 4, reveal = false),
                     ),
                 ),
             ),
@@ -167,12 +166,174 @@ internal object GeometryContent {
                 visual = Polygon(sides = 5, reveal = false),
             ),
             QuizQuestion(
+                prompt = "What is this shape called?",
+                options = listOf("Pentagon", "Hexagon", "Octagon", "Square"),
+                correctIndex = 1,
+                explanation = "Six sides and six corners.",
+                visual = Polygon(sides = 6, reveal = false),
+            ),
+            QuizQuestion(
                 prompt = "Which shape has no corners at all?",
                 options = listOf("Triangle", "Square", "Circle", "Hexagon"),
                 correctIndex = 2,
                 explanation = "One smooth curve, so no two sides ever meet.",
-                visual = CircleFigure(showRadius = false),
+                visual = CircleFigure(showRadius = false, reveal = false),
             ),
+            QuizQuestion(
+                prompt = "How many corners has a shape with 8 sides?",
+                options = listOf("4", "6", "8", "16"),
+                correctIndex = 2,
+                explanation = "Sides and corners always match.",
+                visual = Polygon(sides = 8, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Which of these is NOT true of a square?",
+                options = listOf("4 equal sides", "4 square corners", "4 corners", "Curved edges"),
+                correctIndex = 3,
+                explanation = "Every side of a square is straight.",
+                visual = Polygon(sides = 4, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Which of these is true of every rectangle?",
+                options = listOf(
+                    "All four sides are equal",
+                    "Opposite sides are equal",
+                    "It has three corners",
+                    "It has a curved edge",
+                ),
+                correctIndex = 1,
+                explanation = "The equal sides face each other. Only a square has all four the same.",
+                visual = AreaGrid(cols = 5, rows = 3, showArea = false, reveal = false),
+            ),
+        ),
+    )
+
+    private val solidShapes = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "solid-shapes",
+        title = "Solid shapes",
+        summary = "Faces, edges and corners on shapes you can hold.",
+        level = GradeLevel.GRADES_1_2,
+        lessons = listOf(
+            LessonSpec(
+                id = "g12-geometry-solid-shapes",
+                title = "Shapes you can hold",
+                summary = "Faces, edges and corners.",
+                steps = listOf(
+                    Concept(
+                        body = "Solid shapes take up space, so they have a front and a back as well as a top.",
+                        visual = Solid(kind = SolidKind.CUBE),
+                    ),
+                    Concept(
+                        body = "Faces are the flat parts, edges are where two faces meet, and corners are where the edges do.",
+                        visual = Solid(kind = SolidKind.CUBE, counts = true),
+                    ),
+                    Numeric(
+                        question = "How many faces does this solid have?",
+                        answer = "6",
+                        explanation = "Top, bottom and four sides.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
+                    Concept(
+                        body = "A cone rises from one circle to a single point.",
+                        visual = Solid(kind = SolidKind.CONE, counts = true),
+                    ),
+                    Choice(
+                        question = "Which solid rolls but still has two flat circles?",
+                        options = listOf("Sphere", "Cube", "Cylinder", "Cone"),
+                        correctIndex = 2,
+                        explanation = "It rolls on its curved side and stands on either circle.",
+                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                    ),
+                    Choice(
+                        question = "What is this solid called?",
+                        options = listOf("Cylinder", "Cone", "Sphere", "Cube"),
+                        correctIndex = 1,
+                        explanation = "One circle rising to a point.",
+                        visual = Solid(kind = SolidKind.CONE, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-solid-shapes-counting",
+                title = "Counting faces and edges",
+                summary = "Work round the solid so nothing gets counted twice.",
+                steps = listOf(
+                    Concept(
+                        body = "Counting goes wrong when you jump about. Work round the solid instead: the top, then the bottom, then the sides.",
+                        visual = Solid(kind = SolidKind.CUBE, counts = true),
+                    ),
+                    Numeric(
+                        question = "How many edges does this solid have?",
+                        answer = "12",
+                        explanation = "Four on top, four underneath and four uprights.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
+                    Concept(
+                        body = "A sphere has one curved surface and nothing else: no flat faces, no edges and no corners.",
+                        visual = Solid(kind = SolidKind.SPHERE, counts = true),
+                    ),
+                    Choice(
+                        question = "How many corners has a sphere?",
+                        options = listOf("0", "1", "2", "4"),
+                        correctIndex = 0,
+                        explanation = "There are no edges to meet, so there is nothing to count.",
+                        visual = Solid(kind = SolidKind.SPHERE, reveal = false),
+                    ),
+                    Concept(
+                        body = "A prism keeps the same shape all the way along, so both of its ends match.",
+                        visual = Solid(kind = SolidKind.PRISM, counts = true),
+                    ),
+                    Choice(
+                        question = "Which of these has no flat face at all?",
+                        options = listOf("Cube", "Cylinder", "Cone", "Sphere"),
+                        correctIndex = 3,
+                        explanation = "A cylinder has two circles and a cone has one. A sphere has none.",
+                        visual = Solid(kind = SolidKind.SPHERE, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-solid-shapes-around",
+                title = "Solids around you",
+                summary = "Everyday things, once you look past what they are for.",
+                steps = listOf(
+                    Concept(
+                        body = "Real objects are solids too, once you look past what they are for.",
+                        visual = Solid(kind = SolidKind.CYLINDER),
+                    ),
+                    Choice(
+                        question = "A tin of soup is closest to which solid?",
+                        options = listOf("Cube", "Cone", "Sphere", "Cylinder"),
+                        correctIndex = 3,
+                        explanation = "Two circular ends and a curved side.",
+                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                    ),
+                    Concept(
+                        body = "A dice is a cube: six square faces, every one the same size.",
+                        visual = Solid(kind = SolidKind.CUBE, counts = true),
+                    ),
+                    Choice(
+                        question = "A football is closest to which solid?",
+                        options = listOf("Cylinder", "Sphere", "Cube", "Prism"),
+                        correctIndex = 1,
+                        explanation = "It rolls in every direction, which nothing with a flat face can do.",
+                        visual = Solid(kind = SolidKind.SPHERE, reveal = false),
+                    ),
+                    Concept(
+                        body = "A party hat is a cone, and a tent with matching ends is a prism.",
+                        visual = Solid(kind = SolidKind.PRISM),
+                    ),
+                    Numeric(
+                        question = "How many flat faces has a cylinder?",
+                        answer = "2",
+                        explanation = "The two circles at its ends. The curved part in between is not flat.",
+                        visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
             QuizQuestion(
                 prompt = "How many edges does this solid have?",
                 options = listOf("6", "8", "10", "12"),
@@ -188,18 +349,32 @@ internal object GeometryContent {
                 visual = Solid(kind = SolidKind.CONE, reveal = false),
             ),
             QuizQuestion(
-                prompt = "How much of the bar is shaded?",
-                options = listOf("A quarter", "A half", "A third", "The whole bar"),
+                prompt = "How many faces has a cube?",
+                options = listOf("4", "6", "8", "12"),
                 correctIndex = 1,
-                explanation = "One of two equal parts.",
-                visual = Fraction(numerator = 1, denominator = 2, reveal = false),
+                explanation = "Top, bottom and four sides.",
+                visual = Solid(kind = SolidKind.CUBE, reveal = false),
             ),
             QuizQuestion(
-                prompt = "Which of these is NOT true of a square?",
-                options = listOf("4 equal sides", "4 square corners", "4 corners", "Curved edges"),
+                prompt = "Which solid has no corners at all?",
+                options = listOf("Cube", "Cone", "Sphere", "Prism"),
+                correctIndex = 2,
+                explanation = "No edges means nothing for them to meet at.",
+                visual = Solid(kind = SolidKind.SPHERE, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A tin of soup is closest to which solid?",
+                options = listOf("Cube", "Cone", "Sphere", "Cylinder"),
                 correctIndex = 3,
-                explanation = "Every side of a square is straight.",
-                visual = Polygon(sides = 4, reveal = false),
+                explanation = "Two circular ends and a curved side.",
+                visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Which of these is a flat shape rather than a solid?",
+                options = listOf("Cube", "Circle", "Sphere", "Cylinder"),
+                correctIndex = 1,
+                explanation = "A circle is drawn on the page. A sphere is the ball it would become.",
+                visual = CircleFigure(showRadius = false, reveal = false),
             ),
         ),
     )
@@ -951,5 +1126,5 @@ internal object GeometryContent {
         ),
     )
 
-    val units: List<LearnUnit> = listOf(shapes, anglesAndSymmetry, perimeterAndArea, pythagorasAndCircles, similarityAndProof)
+    val units: List<LearnUnit> = listOf(flatShapes, solidShapes, anglesAndSymmetry, perimeterAndArea, pythagorasAndCircles, similarityAndProof)
 }
