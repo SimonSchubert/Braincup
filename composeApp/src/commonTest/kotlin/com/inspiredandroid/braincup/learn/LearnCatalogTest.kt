@@ -16,8 +16,11 @@ class LearnCatalogTest {
          *
          * Since the first release ships Arithmetic and Geometry only, every remaining one of these
          * is in Geometry, so this reaching 0 is what "Geometry is done" means.
+         *
+         * It read 14 until [canCaptionItsResult] stopped counting every `RightTriangle`: seven of
+         * those were drawn with `labels = false` and captioned nothing at all.
          */
-        const val RATCHET = 14
+        const val RATCHET = 7
     }
 
     @Test
@@ -117,13 +120,17 @@ class LearnCatalogTest {
         is LearnVisual.Counters, is LearnVisual.TenFrame, is LearnVisual.NumberLine,
         is LearnVisual.PlaceValue, is LearnVisual.DecimalGrid, is LearnVisual.ArrayDots,
         is LearnVisual.Coins, is LearnVisual.Ruler, is LearnVisual.Polygon, is LearnVisual.Solid,
-        is LearnVisual.Symmetry, is LearnVisual.RightTriangle, is LearnVisual.CircleFigure,
+        is LearnVisual.Symmetry, is LearnVisual.CircleFigure,
         is LearnVisual.AngleFigure, is LearnVisual.BarChart, is LearnVisual.PieChart,
         is LearnVisual.Pictogram, is LearnVisual.Tally, is LearnVisual.UnitCircleFigure,
         is LearnVisual.Inequality, is LearnVisual.Fraction, is LearnVisual.RatioBar,
         -> true
         // An area grid captions itself only when it was asked for a total.
         is LearnVisual.AreaGrid -> showArea || showPerimeter
+        // A right triangle writes all three sides only when it is labelled and nothing is marked
+        // unknown; `unknown` already replaces the side being asked for with a question mark. It
+        // has no `reveal` of its own, so these two are the whole of its answer-hiding.
+        is LearnVisual.RightTriangle -> labels && unknown == null
         else -> false
     }
 
