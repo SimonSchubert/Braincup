@@ -64,6 +64,10 @@ kotlin {
             val projectDirPath = layout.projectDirectory.asFile.path
             commonWebpackConfig {
                 outputFileName = "composeApp.js"
+                // composeApp.js is only the loader glue; the app itself lives in the .wasm files,
+                // which carry their own source map. Mapping the glue added a 1.5 MB composeApp.js.map
+                // to every Pages deploy that nothing ever fetches.
+                sourceMaps = false
                 devServer =
                     (devServer ?: KotlinWebpackConfig.DevServer()).apply {
                         static(rootDirPath)

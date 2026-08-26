@@ -19,6 +19,8 @@ fun main() {
         resourcePathMapping { path -> "$basePath/$path" }
     }
 
+    // ComposeViewport clears its container on composition creation, which is what takes the static
+    // loading splash in index.html off the screen. Nothing else should be parked in <body>.
     ComposeViewport(document.body!!) {
         App(
             useBuiltInSponsors = true,

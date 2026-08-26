@@ -110,30 +110,41 @@ fun App(
     var simonPadAudio by remember { mutableStateOf<Map<GameColor, ByteArray>>(emptyMap()) }
 
     LaunchedEffect(Unit) {
-        try {
-            menuAudio = Res.readBytes("files/menu_ambient.wav")
-        } catch (_: Exception) {
-        }
-        // Small one-shots (~18 KB each); load with menu audio so the first Simon flash is never silent.
-        val loaded = mutableMapOf<GameColor, ByteArray>()
-        for ((color, path) in SimonPadSounds.paths) {
-            try {
-                loaded[color] = Res.readBytes(path)
-            } catch (_: Exception) {
-            }
-        }
-        simonPadAudio = loaded
         val opens = controller.storage.incrementAndGetTotalAppOpens()
         if (opens % 5 == 0) {
             ReviewBridge.requestInAppReview?.invoke()
         }
     }
 
+    // Audio is only fetched once it can actually be heard. On web these are plain WAV files served
+    // uncompressed, so a muted visitor would otherwise pay 1.1 MB for ambient audio on every load
+    // and another 3.5 MB the moment they start a game.
+    LaunchedEffect(isMuted) {
+        if (isMuted) return@LaunchedEffect
+        if (menuAudio == null) {
+            try {
+                menuAudio = Res.readBytes("files/menu_ambient.wav")
+            } catch (_: Exception) {
+            }
+        }
+        // Small one-shots (~18 KB each); load with menu audio so the first Simon flash is never silent.
+        if (simonPadAudio.isEmpty()) {
+            val loaded = mutableMapOf<GameColor, ByteArray>()
+            for ((color, path) in SimonPadSounds.paths) {
+                try {
+                    loaded[color] = Res.readBytes(path)
+                } catch (_: Exception) {
+                }
+            }
+            simonPadAudio = loaded
+        }
+    }
+
     val currentEntry by navController.currentBackStackEntryAsState()
     val isPlayingGame = currentEntry?.destination?.hasRoute<Playing>() == true
 
-    LaunchedEffect(isPlayingGame) {
-        if (isPlayingGame && gameAudio == null) {
+    LaunchedEffect(isPlayingGame, isMuted) {
+        if (isPlayingGame && !isMuted && gameAudio == null) {
             try {
                 gameAudio = Res.readBytes("files/game_focus.wav")
             } catch (_: Exception) {
