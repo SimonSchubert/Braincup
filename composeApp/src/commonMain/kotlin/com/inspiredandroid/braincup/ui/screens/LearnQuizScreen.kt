@@ -8,7 +8,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -18,7 +17,6 @@ import braincup.composeapp.generated.resources.learn_lesson_finish
 import braincup.composeapp.generated.resources.learn_quiz_correct_answer
 import braincup.composeapp.generated.resources.learn_quiz_failed
 import braincup.composeapp.generated.resources.learn_quiz_hide_review
-import braincup.composeapp.generated.resources.learn_quiz_improved
 import braincup.composeapp.generated.resources.learn_quiz_passed
 import braincup.composeapp.generated.resources.learn_quiz_progress
 import braincup.composeapp.generated.resources.learn_quiz_result_title
@@ -27,7 +25,7 @@ import braincup.composeapp.generated.resources.learn_quiz_score
 import braincup.composeapp.generated.resources.learn_quiz_your_answer
 import braincup.composeapp.generated.resources.learn_test_title
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.learn.CertificateTier
+import com.inspiredandroid.braincup.learn.Certificate
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnQuiz
 import com.inspiredandroid.braincup.learn.LearnUnit
@@ -42,9 +40,7 @@ import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
-import com.inspiredandroid.braincup.ui.components.labelRes
 import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
-import com.inspiredandroid.braincup.ui.components.medalColor
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -168,6 +164,7 @@ fun LearnQuizScreenContent(
                         style = MaterialTheme.typography.bodyLarge,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
+                        fractionSlash = true,
                     )
                 }
                 Spacer(Modifier.height(8.dp))
@@ -188,8 +185,7 @@ private fun QuizResultContent(
     modifier: Modifier = Modifier,
 ) {
     var showReview by remember { mutableStateOf(false) }
-    val percent = result?.percent ?: CertificateTier.percentOf(correctCount, quiz.total)
-    val tier = result?.tier ?: CertificateTier.forPercent(percent)
+    val earnedCertificate = result?.earnedCertificate ?: Certificate.isEarnedBy(correctCount, quiz.total)
 
     Column(
         modifier = modifier
@@ -206,33 +202,25 @@ private fun QuizResultContent(
         )
         Spacer(Modifier.height(8.dp))
         Text(
-            text = stringResource(Res.string.learn_quiz_score, correctCount, quiz.total, percent),
+            text = stringResource(Res.string.learn_quiz_score, correctCount, quiz.total),
             style = MaterialTheme.typography.titleMedium,
             textAlign = TextAlign.Center,
         )
         Spacer(Modifier.height(16.dp))
 
-        if (tier != null) {
-            CertificateMedal(tier = tier, modifier = Modifier.size(56.dp))
+        if (earnedCertificate) {
+            CertificateMedal(modifier = Modifier.size(56.dp))
             Spacer(Modifier.height(8.dp))
             Text(
-                text = stringResource(tier.labelRes()),
+                text = stringResource(Res.string.learn_quiz_passed),
                 style = MaterialTheme.typography.titleMedium,
-                color = tier.medalColor(),
-                fontWeight = FontWeight.Bold,
-            )
-            Spacer(Modifier.height(4.dp))
-            Text(
-                text = stringResource(
-                    if (result?.isNewBest == true) Res.string.learn_quiz_improved else Res.string.learn_quiz_passed,
-                ),
-                style = MaterialTheme.typography.bodyMedium,
                 color = SuccessGreen,
+                fontWeight = FontWeight.Bold,
                 textAlign = TextAlign.Center,
             )
         } else {
             Text(
-                text = stringResource(Res.string.learn_quiz_failed, CertificateTier.PASS_PERCENT),
+                text = stringResource(Res.string.learn_quiz_failed),
                 style = MaterialTheme.typography.bodyMedium,
                 textAlign = TextAlign.Center,
             )
@@ -264,7 +252,7 @@ private fun QuizResultContent(
         }
 
         Spacer(Modifier.height(24.dp))
-        if (tier != null) {
+        if (earnedCertificate) {
             PrimaryActionButton(
                 onClick = onViewCertificate,
                 value = stringResource(Res.string.learn_certificate_view),
@@ -288,18 +276,27 @@ private fun ReviewCard(
     modifier: Modifier = Modifier,
 ) {
     val isCorrect = givenIndex == question.correctIndex
+    // Ink follows the face: these containers are resolved from the wallpaper on Android, so text
+    // left to inherit the ambient content colour can end up near-white on a pale card.
+    val face = if (isCorrect) {
+        MaterialTheme.colorScheme.primaryContainer
+    } else {
+        MaterialTheme.colorScheme.surfaceVariant
+    }
+    val ink = if (isCorrect) {
+        MaterialTheme.colorScheme.onPrimaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
     PrismCard(
-        face = if (isCorrect) {
-            MaterialTheme.colorScheme.primaryContainer
-        } else {
-            MaterialTheme.colorScheme.surfaceVariant
-        },
+        face = face,
         modifier = modifier,
     ) {
         Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             Text(
                 text = question.prompt,
                 style = MaterialTheme.typography.titleSmall,
+                color = ink,
             )
             Spacer(Modifier.height(6.dp))
             if (!isCorrect) {
@@ -318,13 +315,13 @@ private fun ReviewCard(
                     question.options[question.correctIndex],
                 ),
                 style = MaterialTheme.typography.bodySmall,
-                color = if (isCorrect) SuccessGreen else Color.Unspecified,
+                color = if (isCorrect) SuccessGreen else ink,
             )
             Spacer(Modifier.height(4.dp))
             Text(
                 text = question.explanation,
                 style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                color = ink.copy(alpha = 0.85f),
             )
         }
     }

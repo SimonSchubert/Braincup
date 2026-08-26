@@ -825,12 +825,13 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_iq_test_high_desc">Arriba a un IQ estimat de 130 o més</string>
     <!-- Learn section -->
     <string name="learn_section_title">Aprèn matemàtiques</string>
-    <string name="learn_section_subtitle">Tria el curs, treballa un tema i després fes el test per al certificat.</string>
+    <string name="learn_section_subtitle">Tria un tema, treballa'l pas a pas i després fes la prova per obtenir el certificat.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificats</string>
     <string name="learn_title">Aprèn matemàtiques</string>
     <string name="learn_unit_progress">%1$d / %2$d certificats</string>
-    <string name="learn_grade_intro">Cada tema s'ensenya aquí al nivell d'aquest curs.</string>
-    <string name="learn_grade_certificates">%1$d de %2$d temes certificats</string>
+    <string name="learn_topic_intro">Baixa per la llista. Cada pas es basa en l'anterior.</string>
+    <string name="learn_topic_certificates">%1$d de %2$d certificats</string>
+    <string name="learn_ages">Edats %1$s</string>
 
     <string name="learn_level_g12">1r–2n de primària</string>
     <string name="learn_level_g12_subtitle">6–8 anys · comptar, formes i primeres mesures</string>
@@ -870,6 +871,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_continue">Continua</string>
     <string name="learn_check">Comprova</string>
     <string name="learn_next_line">Mostra la línia següent</string>
+    <string name="learn_try_again">Torna-ho a provar</string>
+    <string name="learn_try_again_hint">No ben bé. Torna-hi a mirar i prova-ho un altre cop.</string>
     <string name="learn_answer_label">Resposta</string>
     <string name="learn_correct">Correcte!</string>
     <string name="learn_incorrect">Encara no</string>
@@ -878,13 +881,9 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_take_test">Fes el test</string>
     <string name="learn_retake_test">Torna a fer el test</string>
     <string name="learn_test_title">Test de %1$s</string>
-    <string name="learn_test_intro">%1$d preguntes. Respon correctament almenys el %2$d%% per obtenir el certificat.</string>
     <string name="learn_quiz_progress">Pregunta %1$d de %2$d</string>
     <string name="learn_quiz_result_title">Test completat</string>
-    <string name="learn_quiz_score">%1$d de %2$d correctes (%3$d%%)</string>
     <string name="learn_quiz_passed">Certificat aconseguit!</string>
-    <string name="learn_quiz_improved">Nou millor personal!</string>
-    <string name="learn_quiz_failed">Et cal un %1$d%% per al certificat. Repassa les lliçons i torna-ho a provar.</string>
     <string name="learn_quiz_review">Revisa les respostes</string>
     <string name="learn_quiz_hide_review">Amaga les respostes</string>
     <string name="learn_quiz_your_answer">La teva resposta: %1$s</string>
@@ -893,19 +892,14 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_certificate_title">Certificat</string>
     <string name="learn_certificate_headline">Certificat d'assoliment</string>
     <string name="learn_certificate_intro">Això certifica un resultat aprovat a</string>
-    <string name="learn_certificate_score">Puntuació %1$d%%</string>
     <string name="learn_certificate_earned">Obtingut %1$s</string>
     <string name="learn_certificate_view">Mostra el certificat</string>
-    <string name="learn_certificate_grade_bronze">Bronze</string>
-    <string name="learn_certificate_grade_silver">Plata</string>
-    <string name="learn_certificate_grade_gold">Or</string>
-    <string name="learn_certificate_best">Millor %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Acreditat</string>
     <string name="achievement_learn_first_certificate_desc">Aprova el teu primer test de tema d'Aprèn matemàtiques.</string>
-    <string name="achievement_learn_grade_certificates">Cap de classe</string>
-    <string name="achievement_learn_grade_certificates_desc">Aconsegueix cada certificat d'un curs.</string>
+    <string name="achievement_learn_topic_certificates">Cap de classe</string>
+    <string name="achievement_learn_topic_certificates_desc">Aconsegueix tots els certificats d'un tema d'Aprèn Matemàtiques.</string>
     <string name="achievement_learn_all_certificates">Erudit de matemàtiques</string>
-    <string name="achievement_learn_all_certificates_desc">Aconsegueix un certificat a cada tema d'Aprèn matemàtiques, a cada curs.</string>
+    <string name="achievement_learn_all_certificates_desc">Aconsegueix un certificat de cada subtema d'Aprèn Matemàtiques.</string>
 
 </resources>

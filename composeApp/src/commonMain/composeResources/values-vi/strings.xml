@@ -807,12 +807,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Học Toán</string>
-    <string name="learn_section_subtitle">Chọn năm học của bạn, học hết một chủ đề, rồi làm bài kiểm tra để nhận chứng chỉ.</string>
+    <string name="learn_section_subtitle">Chọn một chủ đề, đi qua từng bước, rồi làm bài kiểm tra để lấy chứng chỉ.</string>
     <string name="learn_section_certificates">%1$d / %2$d chứng chỉ</string>
     <string name="learn_title">Học Toán</string>
     <string name="learn_unit_progress">%1$d / %2$d chứng chỉ</string>
-    <string name="learn_grade_intro">Mọi chủ đề ở đây đều được dạy ở trình độ của năm học này.</string>
-    <string name="learn_grade_certificates">%1$d trên %2$d chủ đề đã có chứng chỉ</string>
+    <string name="learn_topic_intro">Đi xuống theo danh sách. Mỗi bước dựa trên bước phía trên.</string>
+    <string name="learn_topic_certificates">%1$d trên %2$d đã có chứng chỉ</string>
+    <string name="learn_ages">Tuổi %1$s</string>
 
     <string name="learn_level_g12">Lớp 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 tuổi · đếm, hình dạng và phép đo đầu tiên</string>
@@ -852,6 +853,8 @@
     <string name="learn_continue">Tiếp tục</string>
     <string name="learn_check">Kiểm tra</string>
     <string name="learn_next_line">Hiện dòng tiếp theo</string>
+    <string name="learn_try_again">Thử lại</string>
+    <string name="learn_try_again_hint">Chưa đúng. Nhìn lại một lần nữa rồi thử lại.</string>
     <string name="learn_answer_label">Đáp án</string>
     <string name="learn_correct">Chính xác!</string>
     <string name="learn_incorrect">Chưa đúng lắm</string>
@@ -860,13 +863,9 @@
     <string name="learn_take_test">Làm bài kiểm tra</string>
     <string name="learn_retake_test">Làm lại bài kiểm tra</string>
     <string name="learn_test_title">Bài kiểm tra %1$s</string>
-    <string name="learn_test_intro">%1$d câu hỏi. Trả lời đúng ít nhất %2$d%% để nhận chứng chỉ.</string>
     <string name="learn_quiz_progress">Câu %1$d trên %2$d</string>
     <string name="learn_quiz_result_title">Hoàn thành bài kiểm tra</string>
-    <string name="learn_quiz_score">Đúng %1$d trên %2$d (%3$d%%)</string>
     <string name="learn_quiz_passed">Đã nhận chứng chỉ!</string>
-    <string name="learn_quiz_improved">Kỷ lục cá nhân mới!</string>
-    <string name="learn_quiz_failed">Bạn cần %1$d%% để nhận chứng chỉ. Hãy ôn lại bài học và thử lại.</string>
     <string name="learn_quiz_review">Xem đáp án</string>
     <string name="learn_quiz_hide_review">Ẩn đáp án</string>
     <string name="learn_quiz_your_answer">Câu trả lời của bạn: %1$s</string>
@@ -875,19 +874,14 @@
     <string name="learn_certificate_title">Chứng chỉ</string>
     <string name="learn_certificate_headline">Chứng chỉ thành tích</string>
     <string name="learn_certificate_intro">Chứng nhận đạt kết quả ở chủ đề</string>
-    <string name="learn_certificate_score">Điểm %1$d%%</string>
     <string name="learn_certificate_earned">Nhận ngày %1$s</string>
     <string name="learn_certificate_view">Xem chứng chỉ</string>
-    <string name="learn_certificate_grade_bronze">Đồng</string>
-    <string name="learn_certificate_grade_silver">Bạc</string>
-    <string name="learn_certificate_grade_gold">Vàng</string>
-    <string name="learn_certificate_best">Tốt nhất %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Đã chứng nhận</string>
     <string name="achievement_learn_first_certificate_desc">Vượt qua bài kiểm tra chủ đề đầu tiên trong Học Toán.</string>
-    <string name="achievement_learn_grade_certificates">Đứng đầu lớp</string>
-    <string name="achievement_learn_grade_certificates_desc">Nhận mọi chứng chỉ trong một năm học.</string>
+    <string name="achievement_learn_topic_certificates">Đứng đầu lớp</string>
+    <string name="achievement_learn_topic_certificates_desc">Giành mọi chứng chỉ trong một chủ đề của Học Toán.</string>
     <string name="achievement_learn_all_certificates">Học giả Toán</string>
-    <string name="achievement_learn_all_certificates_desc">Nhận chứng chỉ ở mọi chủ đề Toán, ở mọi lớp.</string>
+    <string name="achievement_learn_all_certificates_desc">Giành một chứng chỉ ở mọi chủ đề nhỏ của Học Toán.</string>
 
 </resources>

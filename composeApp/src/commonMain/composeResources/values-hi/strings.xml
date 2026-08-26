@@ -807,12 +807,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">गणित सीखें</string>
-    <string name="learn_section_subtitle">अपना कक्षा वर्ष चुनें, कोई विषय पूरा करें, फिर प्रमाणपत्र के लिए परीक्षा दें।</string>
+    <string name="learn_section_subtitle">एक विषय चुनें, उसे कदम दर कदम पूरा करें, फिर प्रमाणपत्र के लिए परीक्षा दें।</string>
     <string name="learn_section_certificates">%1$d / %2$d प्रमाणपत्र</string>
     <string name="learn_title">गणित सीखें</string>
     <string name="learn_unit_progress">%1$d / %2$d प्रमाणपत्र</string>
-    <string name="learn_grade_intro">यहाँ हर विषय इसी कक्षा वर्ष के स्तर पर पढ़ाया जाता है।</string>
-    <string name="learn_grade_certificates">%2$d में से %1$d विषय प्रमाणित</string>
+    <string name="learn_topic_intro">सूची में ऊपर से नीचे बढ़ें। हर कदम पिछले पर टिका है।</string>
+    <string name="learn_topic_certificates">%2$d में से %1$d प्रमाणित</string>
+    <string name="learn_ages">आयु %1$s</string>
 
     <string name="learn_level_g12">कक्षा 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 वर्ष · गिनती, आकृतियाँ और पहली माप</string>
@@ -852,6 +853,8 @@
     <string name="learn_continue">जारी रखें</string>
     <string name="learn_check">जाँचें</string>
     <string name="learn_next_line">अगली पंक्ति दिखाएँ</string>
+    <string name="learn_try_again">फिर से कोशिश करें</string>
+    <string name="learn_try_again_hint">बिलकुल सही नहीं। एक बार और देखें और फिर कोशिश करें।</string>
     <string name="learn_answer_label">उत्तर</string>
     <string name="learn_correct">सही!</string>
     <string name="learn_incorrect">बिल्कुल नहीं</string>
@@ -860,13 +863,9 @@
     <string name="learn_take_test">परीक्षा दें</string>
     <string name="learn_retake_test">फिर से परीक्षा दें</string>
     <string name="learn_test_title">%1$s परीक्षा</string>
-    <string name="learn_test_intro">%1$d प्रश्न। प्रमाणपत्र पाने के लिए कम से कम %2$d%% सही उत्तर दें।</string>
     <string name="learn_quiz_progress">प्रश्न %1$d / %2$d</string>
     <string name="learn_quiz_result_title">परीक्षा पूरी</string>
-    <string name="learn_quiz_score">%2$d में से %1$d सही (%3$d%%)</string>
     <string name="learn_quiz_passed">प्रमाणपत्र मिला!</string>
-    <string name="learn_quiz_improved">नया व्यक्तिगत सर्वश्रेष्ठ!</string>
-    <string name="learn_quiz_failed">प्रमाणपत्र के लिए %1$d%% चाहिए। पाठ दोहराएँ और फिर कोशिश करें।</string>
     <string name="learn_quiz_review">उत्तर देखें</string>
     <string name="learn_quiz_hide_review">उत्तर छिपाएँ</string>
     <string name="learn_quiz_your_answer">आपका उत्तर: %1$s</string>
@@ -875,19 +874,14 @@
     <string name="learn_certificate_title">प्रमाणपत्र</string>
     <string name="learn_certificate_headline">उपलब्धि प्रमाणपत्र</string>
     <string name="learn_certificate_intro">इसके द्वारा इस विषय में उत्तीर्ण परिणाम प्रमाणित किया जाता है</string>
-    <string name="learn_certificate_score">अंक %1$d%%</string>
     <string name="learn_certificate_earned">प्राप्त %1$s</string>
     <string name="learn_certificate_view">प्रमाणपत्र देखें</string>
-    <string name="learn_certificate_grade_bronze">कांस्य</string>
-    <string name="learn_certificate_grade_silver">रजत</string>
-    <string name="learn_certificate_grade_gold">स्वर्ण</string>
-    <string name="learn_certificate_best">सर्वश्रेष्ठ %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">प्रमाणित</string>
     <string name="achievement_learn_first_certificate_desc">गणित सीखें में अपनी पहली विषय परीक्षा उत्तीर्ण करें।</string>
-    <string name="achievement_learn_grade_certificates">कक्षा में प्रथम</string>
-    <string name="achievement_learn_grade_certificates_desc">एक ही कक्षा वर्ष के सभी प्रमाणपत्र अर्जित करें।</string>
+    <string name="achievement_learn_topic_certificates">कक्षा में प्रथम</string>
+    <string name="achievement_learn_topic_certificates_desc">गणित सीखें के एक विषय के सभी प्रमाणपत्र अर्जित करें।</string>
     <string name="achievement_learn_all_certificates">गणित विद्वान</string>
-    <string name="achievement_learn_all_certificates_desc">हर कक्षा में, हर गणित विषय में प्रमाणपत्र अर्जित करें।</string>
+    <string name="achievement_learn_all_certificates_desc">गणित सीखें के हर उपविषय में प्रमाणपत्र अर्जित करें।</string>
 
 </resources>

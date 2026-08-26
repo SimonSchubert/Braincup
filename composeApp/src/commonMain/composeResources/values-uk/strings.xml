@@ -808,12 +808,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Вчити математику</string>
-    <string name="learn_section_subtitle">Обери свій навчальний рік, опрацюй тему, а потім склади тест і отримай сертифікат.</string>
+    <string name="learn_section_subtitle">Обери тему, пройди її крок за кроком, а потім склади тест на сертифікат.</string>
     <string name="learn_section_certificates">%1$d / %2$d сертифікатів</string>
     <string name="learn_title">Вчити математику</string>
     <string name="learn_unit_progress">%1$d / %2$d сертифікатів</string>
-    <string name="learn_grade_intro">Кожна тема тут пояснюється на рівні цього навчального року.</string>
-    <string name="learn_grade_certificates">%1$d з %2$d тем із сертифікатом</string>
+    <string name="learn_topic_intro">Рухайся списком униз. Кожен крок спирається на попередній.</string>
+    <string name="learn_topic_certificates">%1$d з %2$d із сертифікатом</string>
+    <string name="learn_ages">Вік %1$s</string>
 
     <string name="learn_level_g12">Класи 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 років · лічба, фігури та перші вимірювання</string>
@@ -853,6 +854,8 @@
     <string name="learn_continue">Продовжити</string>
     <string name="learn_check">Перевірити</string>
     <string name="learn_next_line">Показати наступний рядок</string>
+    <string name="learn_try_again">Спробуй ще раз</string>
+    <string name="learn_try_again_hint">Не зовсім. Поглянь іще раз і спробуй знову.</string>
     <string name="learn_answer_label">Відповідь</string>
     <string name="learn_correct">Правильно!</string>
     <string name="learn_incorrect">Не зовсім</string>
@@ -861,13 +864,9 @@
     <string name="learn_take_test">Скласти тест</string>
     <string name="learn_retake_test">Скласти тест ще раз</string>
     <string name="learn_test_title">Тест: %1$s</string>
-    <string name="learn_test_intro">%1$d запитань. Дай правильну відповідь щонайменше на %2$d%%, щоб отримати сертифікат.</string>
     <string name="learn_quiz_progress">Запитання %1$d з %2$d</string>
     <string name="learn_quiz_result_title">Тест завершено</string>
-    <string name="learn_quiz_score">%1$d з %2$d правильно (%3$d%%)</string>
     <string name="learn_quiz_passed">Сертифікат отримано!</string>
-    <string name="learn_quiz_improved">Новий особистий рекорд!</string>
-    <string name="learn_quiz_failed">Для сертифіката потрібно %1$d%%. Повтори уроки та спробуй ще раз.</string>
     <string name="learn_quiz_review">Показати відповіді</string>
     <string name="learn_quiz_hide_review">Сховати відповіді</string>
     <string name="learn_quiz_your_answer">Твоя відповідь: %1$s</string>
@@ -876,19 +875,14 @@
     <string name="learn_certificate_title">Сертифікат</string>
     <string name="learn_certificate_headline">Сертифікат про досягнення</string>
     <string name="learn_certificate_intro">Цим підтверджується успішний результат із теми</string>
-    <string name="learn_certificate_score">Результат %1$d%%</string>
     <string name="learn_certificate_earned">Отримано %1$s</string>
     <string name="learn_certificate_view">Переглянути сертифікат</string>
-    <string name="learn_certificate_grade_bronze">Бронза</string>
-    <string name="learn_certificate_grade_silver">Срібло</string>
-    <string name="learn_certificate_grade_gold">Золото</string>
-    <string name="learn_certificate_best">Найкращий %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Сертифікований</string>
     <string name="achievement_learn_first_certificate_desc">Склади свій перший тематичний тест у розділі «Вчити математику».</string>
-    <string name="achievement_learn_grade_certificates">Найкращий у класі</string>
-    <string name="achievement_learn_grade_certificates_desc">Отримай усі сертифікати одного навчального року.</string>
+    <string name="achievement_learn_topic_certificates">Найкращий у класі</string>
+    <string name="achievement_learn_topic_certificates_desc">Здобудь усі сертифікати однієї теми у Вивченні математики.</string>
     <string name="achievement_learn_all_certificates">Знавець математики</string>
-    <string name="achievement_learn_all_certificates_desc">Отримай сертифікат із кожної теми математики та в кожному класі.</string>
+    <string name="achievement_learn_all_certificates_desc">Здобудь сертифікат у кожній підтемі Вивчення математики.</string>
 
 </resources>

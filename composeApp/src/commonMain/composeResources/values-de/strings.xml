@@ -808,12 +808,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Mathe lernen</string>
-    <string name="learn_section_subtitle">Wähle dein Schuljahr, arbeite ein Thema durch und mache dann den Test für ein Zertifikat.</string>
+    <string name="learn_section_subtitle">Wähle ein Thema, arbeite es Schritt für Schritt durch und mach dann den Test für dein Zertifikat.</string>
     <string name="learn_section_certificates">%1$d / %2$d Zertifikate</string>
     <string name="learn_title">Mathe lernen</string>
     <string name="learn_unit_progress">%1$d / %2$d Zertifikate</string>
-    <string name="learn_grade_intro">Jedes Thema hier wird auf dem Niveau dieses Schuljahres unterrichtet.</string>
-    <string name="learn_grade_certificates">%1$d von %2$d Themen zertifiziert</string>
+    <string name="learn_topic_intro">Arbeite dich die Liste hinunter. Jeder Schritt baut auf dem vorherigen auf.</string>
+    <string name="learn_topic_certificates">%1$d von %2$d zertifiziert</string>
+    <string name="learn_ages">Alter %1$s</string>
 
     <string name="learn_level_g12">Klasse 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 Jahre · Zählen, Formen und erste Maße</string>
@@ -853,6 +854,8 @@
     <string name="learn_continue">Weiter</string>
     <string name="learn_check">Prüfen</string>
     <string name="learn_next_line">Nächste Zeile zeigen</string>
+    <string name="learn_try_again">Nochmal versuchen</string>
+    <string name="learn_try_again_hint">Noch nicht ganz. Schau noch einmal hin und versuch es erneut.</string>
     <string name="learn_answer_label">Antwort</string>
     <string name="learn_correct">Richtig!</string>
     <string name="learn_incorrect">Nicht ganz</string>
@@ -861,13 +864,9 @@
     <string name="learn_take_test">Test machen</string>
     <string name="learn_retake_test">Test wiederholen</string>
     <string name="learn_test_title">%1$s-Test</string>
-    <string name="learn_test_intro">%1$d Fragen. Beantworte mindestens %2$d%% richtig, um dein Zertifikat zu erhalten.</string>
     <string name="learn_quiz_progress">Frage %1$d von %2$d</string>
     <string name="learn_quiz_result_title">Test abgeschlossen</string>
-    <string name="learn_quiz_score">%1$d von %2$d richtig (%3$d%%)</string>
     <string name="learn_quiz_passed">Zertifikat erhalten!</string>
-    <string name="learn_quiz_improved">Neue Bestleistung!</string>
-    <string name="learn_quiz_failed">Du brauchst %1$d%% für ein Zertifikat. Sieh dir die Lektionen noch einmal an und versuche es erneut.</string>
     <string name="learn_quiz_review">Antworten ansehen</string>
     <string name="learn_quiz_hide_review">Antworten ausblenden</string>
     <string name="learn_quiz_your_answer">Deine Antwort: %1$s</string>
@@ -876,19 +875,14 @@
     <string name="learn_certificate_title">Zertifikat</string>
     <string name="learn_certificate_headline">Leistungszertifikat</string>
     <string name="learn_certificate_intro">Hiermit wird ein bestandenes Ergebnis bescheinigt in</string>
-    <string name="learn_certificate_score">Ergebnis %1$d%%</string>
     <string name="learn_certificate_earned">Erhalten am %1$s</string>
     <string name="learn_certificate_view">Zertifikat ansehen</string>
-    <string name="learn_certificate_grade_bronze">Bronze</string>
-    <string name="learn_certificate_grade_silver">Silber</string>
-    <string name="learn_certificate_grade_gold">Gold</string>
-    <string name="learn_certificate_best">Bestes %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Zertifiziert</string>
     <string name="achievement_learn_first_certificate_desc">Bestehe deinen ersten Themen-Test in Mathe lernen.</string>
-    <string name="achievement_learn_grade_certificates">Klassenbester</string>
-    <string name="achievement_learn_grade_certificates_desc">Erhalte alle Zertifikate eines Schuljahres.</string>
+    <string name="achievement_learn_topic_certificates">Klassenbester</string>
+    <string name="achievement_learn_topic_certificates_desc">Hol dir alle Zertifikate eines Themas in Mathe lernen.</string>
     <string name="achievement_learn_all_certificates">Mathe-Gelehrter</string>
-    <string name="achievement_learn_all_certificates_desc">Erhalte ein Zertifikat in jedem Mathe-Thema und in jeder Klassenstufe.</string>
+    <string name="achievement_learn_all_certificates_desc">Hol dir ein Zertifikat in jedem Unterthema von Mathe lernen.</string>
 
 </resources>

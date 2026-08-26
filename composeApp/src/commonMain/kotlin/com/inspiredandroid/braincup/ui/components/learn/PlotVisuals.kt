@@ -188,11 +188,10 @@ internal fun VisualScope.drawUnitCircle(visual: LearnVisual.UnitCircleFigure) {
         size = Size(radius * 0.7f, radius * 0.7f),
     )
     line(center, point, Accent, stroke * 1.4f)
-    dot(point, stroke * 2f, Accent)
 
     if (visual.showCos) {
         line(center, Offset(point.x, center.y), Accent2, stroke * 1.2f, alpha = stage(2, 3))
-        if (visual.reveal) {
+        if (revealing(visual.reveal)) {
             label(
                 text = "cos = " + formatDecimal(cos(visual.degrees * PI / 180.0)),
                 center = Offset(center.x, center.y + radius * 1.62f),
@@ -204,7 +203,7 @@ internal fun VisualScope.drawUnitCircle(visual: LearnVisual.UnitCircleFigure) {
     }
     if (visual.showSin) {
         line(Offset(point.x, center.y), point, Accent2, stroke * 1.2f, alpha = stage(2, 3))
-        if (visual.reveal) {
+        if (revealing(visual.reveal)) {
             label(
                 text = "sin = " + formatDecimal(sin(visual.degrees * PI / 180.0)),
                 center = Offset(center.x, center.y - radius * 1.62f),
@@ -214,6 +213,9 @@ internal fun VisualScope.drawUnitCircle(visual: LearnVisual.UnitCircleFigure) {
             )
         }
     }
+
+    // After the legs: the sine leg ends exactly on this point and would otherwise cover it.
+    dot(point, stroke * 2f, Accent)
 
     label(
         text = visual.label ?: "${visual.degrees.toFloat().roundToInt()} deg",

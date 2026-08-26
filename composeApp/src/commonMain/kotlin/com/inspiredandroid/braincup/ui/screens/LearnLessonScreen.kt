@@ -10,6 +10,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -18,16 +19,18 @@ import braincup.composeapp.generated.resources.learn_answer_label
 import braincup.composeapp.generated.resources.learn_check
 import braincup.composeapp.generated.resources.learn_continue
 import braincup.composeapp.generated.resources.learn_correct
-import braincup.composeapp.generated.resources.learn_incorrect
 import braincup.composeapp.generated.resources.learn_lesson_complete_title
 import braincup.composeapp.generated.resources.learn_lesson_finish
 import braincup.composeapp.generated.resources.learn_lesson_score
 import braincup.composeapp.generated.resources.learn_next_lesson
 import braincup.composeapp.generated.resources.learn_next_line
+import braincup.composeapp.generated.resources.learn_try_again
+import braincup.composeapp.generated.resources.learn_try_again_hint
 import braincup.composeapp.generated.resources.learn_your_answer
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
+import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.LessonStep
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.MathText
@@ -39,17 +42,48 @@ import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
+import com.inspiredandroid.braincup.ui.components.learn.VisualAnswer
+import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
 
-/** Answer state of the step currently on screen. */
+/**
+ * How wide lesson content is allowed to grow. Everything on the step shares one measure so a
+ * desktop window does not stretch the prose, the options and the diagram to three different
+ * widths; the diagram is capped tighter still, because its figures are laid out from the canvas
+ * width and a very wide canvas draws counters and hops far larger than the text beside them.
+ */
+private val LessonContentWidth = 480.dp
+private val LessonVisualWidth = 420.dp
+private val LessonVisualHeight = 180.dp
+
+/**
+ * How far the learner has got with the question on screen.
+ *
+ * A wrong answer is not an end state: the step stays open, the miss is marked, and they try again.
+ * Nothing moves on until [Correct], so a lesson can never be walked past without understanding it.
+ * [Missed] carries every option already ruled out so they all stay struck through, and [firstTry]
+ * remembers whether the first attempt landed, which is what the lesson score counts.
+ */
 private sealed interface StepAnswer {
     data object Unanswered : StepAnswer
 
-    data class Answered(val isCorrect: Boolean) : StepAnswer
+    /** Options (or typed values) tried and rejected so far, in order. Never empty. */
+    data class Missed(val attempts: List<String>) : StepAnswer
+
+    data class Correct(val firstTry: Boolean) : StepAnswer
+}
+
+/** The value the learner last put forward, for the figure to mark, or null before any attempt. */
+private fun StepAnswer.lastAttempt(): String? = when (this) {
+    StepAnswer.Unanswered -> null
+    is StepAnswer.Missed -> attempts.last()
+    is StepAnswer.Correct -> null
 }
 
 @Composable
@@ -91,7 +125,6 @@ fun LearnLessonScreenContent(
     var stepIndex by remember(lesson.id) { mutableIntStateOf(0) }
     var correctCount by remember(lesson.id) { mutableIntStateOf(0) }
     var answer by remember(lesson.id) { mutableStateOf<StepAnswer>(StepAnswer.Unanswered) }
-    var selectedOption by remember(lesson.id) { mutableStateOf<Int?>(null) }
     var typedAnswer by remember(lesson.id) { mutableStateOf("") }
     var revealedLines by remember(lesson.id) { mutableIntStateOf(0) }
 
@@ -105,9 +138,19 @@ fun LearnLessonScreenContent(
     val advance = {
         stepIndex++
         answer = StepAnswer.Unanswered
-        selectedOption = null
         typedAnswer = ""
         revealedLines = 0
+    }
+
+    /** Records an attempt. The score counts only answers that landed first time. */
+    fun submit(attempt: String, isCorrect: Boolean) {
+        val previous = (answer as? StepAnswer.Missed)?.attempts.orEmpty()
+        answer = if (isCorrect) {
+            if (previous.isEmpty()) correctCount++
+            StepAnswer.Correct(firstTry = previous.isEmpty())
+        } else {
+            StepAnswer.Missed(previous + attempt)
+        }
     }
 
     AppScaffold(
@@ -149,14 +192,10 @@ fun LearnLessonScreenContent(
                 is LessonStep.Worked -> WorkedStep(step, revealedLines)
                 is LessonStep.Choice -> ChoiceStep(
                     step = step,
-                    selectedOption = selectedOption,
                     answer = answer,
                     onSelect = { index ->
-                        if (answer is StepAnswer.Unanswered) {
-                            selectedOption = index
-                            val isCorrect = index == step.correctIndex
-                            if (isCorrect) correctCount++
-                            answer = StepAnswer.Answered(isCorrect)
+                        if (answer !is StepAnswer.Correct) {
+                            submit(step.options[index], index == step.correctIndex)
                         }
                     },
                 )
@@ -183,8 +222,7 @@ fun LearnLessonScreenContent(
                     typedAnswer,
                     (step as LessonStep.Numeric).answer,
                 )
-                if (correct) correctCount++
-                answer = StepAnswer.Answered(correct)
+                submit(typedAnswer, correct)
             },
             onContinue = advance,
         )
@@ -202,9 +240,13 @@ private fun ColumnScope.LessonActionBar(
     onContinue: () -> Unit,
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    // The bar spans the window, the button inside it does not: stretched edge to edge on a desktop
+    // window it stops reading as a button at all.
+    val button = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth()
     Box(
         modifier = Modifier
             .fillMaxWidth()
+            .padding(horizontal = 16.dp)
             .padding(bottom = 16.dp + bottomInset, top = 8.dp),
         contentAlignment = Alignment.Center,
     ) {
@@ -212,43 +254,76 @@ private fun ColumnScope.LessonActionBar(
             step is LessonStep.Worked && revealedLines < step.lines.size -> PrimaryActionButton(
                 onClick = onRevealLine,
                 value = stringResource(Res.string.learn_next_line),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = button,
             )
 
-            step is LessonStep.Numeric && answer is StepAnswer.Unanswered -> PrimaryActionButton(
+            // Continue appears only once the question is right. Until then the step stays open, so
+            // a lesson cannot be walked through without ever working an answer out.
+            step is LessonStep.Numeric && answer !is StepAnswer.Correct -> PrimaryActionButton(
                 onClick = { if (typedAnswer.isNotBlank()) onCheckNumeric() },
-                value = stringResource(Res.string.learn_check),
-                modifier = Modifier.fillMaxWidth(),
+                value = stringResource(
+                    if (answer is StepAnswer.Missed) Res.string.learn_try_again else Res.string.learn_check,
+                ),
+                modifier = button,
             )
 
-            // A choice step is answered by tapping an option, so it shows no button until then.
-            step is LessonStep.Choice && answer is StepAnswer.Unanswered -> Unit
+            // A choice step is answered by tapping an option, so it shows no button of its own.
+            step is LessonStep.Choice && answer !is StepAnswer.Correct -> Unit
 
             else -> PrimaryActionButton(
                 onClick = onContinue,
                 value = stringResource(Res.string.learn_continue),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = button,
             )
         }
     }
 }
 
+/**
+ * The step's diagram, on a panel of its own so it reads as a figure rather than as marks floating
+ * on the page, and so the tap-to-replay target has a visible edge.
+ */
+@Composable
+private fun LessonVisual(
+    visual: LearnVisual,
+    modifier: Modifier = Modifier,
+    answer: VisualAnswer? = null,
+) {
+    PrismCard(
+        face = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = modifier
+            .widthIn(max = LessonVisualWidth)
+            .fillMaxWidth()
+            .height(LessonVisualHeight),
+    ) {
+        LearnVisualCanvas(
+            visual = visual,
+            modifier = Modifier.fillMaxSize().padding(12.dp),
+            answer = answer,
+        )
+    }
+}
+
+/**
+ * The value the figure should point at: the one the learner last put forward. Only numbers reach
+ * the figure, so an option like "the orange one" simply leaves it unmarked.
+ */
+private fun StepAnswer.visualAnswer(correctValue: String): VisualAnswer? = when (this) {
+    StepAnswer.Unanswered -> null
+    is StepAnswer.Correct -> correctValue.trim().toIntOrNull()?.let { VisualAnswer(it, correct = true) }
+    is StepAnswer.Missed -> attempts.last().trim().toIntOrNull()?.let { VisualAnswer(it, correct = false) }
+}
+
 @Composable
 private fun ConceptStep(step: LessonStep.Concept) {
     step.visual?.let {
-        LearnVisualCanvas(
-            visual = it,
-            modifier = Modifier
-                .fillMaxWidth()
-                .heightIn(max = 210.dp)
-                .height(190.dp)
-                .padding(bottom = 8.dp),
-        )
+        LessonVisual(it, modifier = Modifier.padding(bottom = 16.dp))
     }
-    Text(
+    LessonText(
         text = step.body,
         style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.widthIn(max = 480.dp),
+        textAlign = TextAlign.Center,
+        modifier = Modifier.widthIn(max = LessonContentWidth),
     )
     step.formula?.let { formula ->
         Spacer(Modifier.height(16.dp))
@@ -256,43 +331,69 @@ private fun ConceptStep(step: LessonStep.Concept) {
     }
 }
 
+/**
+ * Lesson prose, with any `{a:...}` and `{b:...}` numbers tinted to match the dots they name in the
+ * figure above: the "6" of "6 needs 4 more" is the same orange as the six dots already in the
+ * frame, and the "4" the same green as the ones arriving. Untagged text renders as plain [Text].
+ */
+@Composable
+private fun LessonText(
+    text: String,
+    style: TextStyle,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    textAlign: TextAlign? = null,
+) {
+    Text(
+        text = text.withGroupColors(),
+        modifier = modifier,
+        style = style,
+        color = color,
+        textAlign = textAlign,
+    )
+}
+
 @Composable
 private fun FormulaCard(formula: String) {
+    // The formula is the line the step is teaching, so it carries the brand colour and full-weight
+    // ink rather than the muted tone the supporting cards use.
     PrismCard(
         face = MaterialTheme.colorScheme.surfaceVariant,
-        modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
+        modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
     ) {
         MathText(
             text = formula,
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.titleLarge,
             textAlign = TextAlign.Center,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+            color = Primary,
             modifier = Modifier.fillMaxWidth().padding(16.dp),
+            fractionSlash = true,
         )
     }
 }
 
 @Composable
 private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
-    step.visual?.let {
-        LearnVisualCanvas(
-            visual = it,
-            modifier = Modifier.fillMaxWidth().height(170.dp).padding(bottom = 8.dp),
-        )
-    }
-    Text(
-        text = step.problem,
-        style = MaterialTheme.typography.titleMedium,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.widthIn(max = 480.dp),
+    val worked = revealedLines >= step.lines.size
+    // A problem asked as an equation finishes where it was asked: the answer lands on the question
+    // mark, exactly as it does on a question step, rather than being restated underneath. A problem
+    // asked in words has no question mark to land on, so that one still answers on its own line.
+    val finishesInPlace = step.problem.trimEnd().endsWith("= ?")
+    // The sum leads, above the figure and in the same card the teaching steps give their formula:
+    // it is the thing being worked out, and the diagram under it is the picture of that sum.
+    FormulaCard(
+        if (worked && finishesInPlace) step.problem.replace("?", "{b:${step.result}}") else step.problem,
     )
-    Spacer(Modifier.height(12.dp))
+    Spacer(Modifier.height(16.dp))
+    step.visual?.let {
+        LessonVisual(it, modifier = Modifier.padding(bottom = 16.dp))
+    }
     step.lines.take(revealedLines).forEach { line ->
         PrismCard(
             face = MaterialTheme.colorScheme.surfaceVariant,
-            modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth().padding(vertical = 4.dp),
+            modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth().padding(vertical = 4.dp),
         ) {
-            Text(
+            LessonText(
                 text = line,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -300,7 +401,7 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
             )
         }
     }
-    AnimatedVisibility(visible = revealedLines >= step.lines.size) {
+    AnimatedVisibility(visible = worked && !finishesInPlace) {
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Spacer(Modifier.height(8.dp))
             Text(
@@ -322,34 +423,91 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
 @Composable
 private fun ColumnScope.ChoiceStep(
     step: LessonStep.Choice,
-    selectedOption: Int?,
     answer: StepAnswer,
     onSelect: (Int) -> Unit,
 ) {
     step.visual?.let {
-        LearnVisualCanvas(
+        LessonVisual(
             visual = it,
-            modifier = Modifier.fillMaxWidth().height(170.dp).padding(bottom = 8.dp),
+            modifier = Modifier.padding(bottom = 16.dp),
+            answer = answer.visualAnswer(step.options[step.correctIndex]),
         )
     }
-    Text(
-        text = step.question,
-        style = MaterialTheme.typography.titleMedium,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.widthIn(max = 480.dp),
+    QuestionHeading(
+        formula = step.formula,
+        question = step.question,
+        solved = (answer as? StepAnswer.Correct)?.let { step.options[step.correctIndex] },
     )
     Spacer(Modifier.height(16.dp))
+
+    val missed = (answer as? StepAnswer.Missed)?.attempts.orEmpty()
     step.options.forEachIndexed { index, option ->
         OptionTile(
             label = option,
-            state = optionState(index, step.correctIndex, selectedOption, answer),
+            state = when {
+                answer is StepAnswer.Correct && index == step.correctIndex -> OptionState.CORRECT
+                option in missed -> OptionState.WRONG
+                answer is StepAnswer.Correct -> OptionState.MUTED
+                else -> OptionState.IDLE
+            },
             onClick = { onSelect(index) },
         )
         Spacer(Modifier.height(8.dp))
     }
-    if (answer is StepAnswer.Answered) {
-        FeedbackCard(isCorrect = answer.isCorrect, explanation = step.explanation)
+    when (answer) {
+        is StepAnswer.Correct -> FeedbackCard(step.explanation)
+        is StepAnswer.Missed -> RetryNote()
+        StepAnswer.Unanswered -> Unit
     }
+}
+
+/**
+ * The question itself. When the step carries a formula that leads, in the same card the teaching
+ * steps use for theirs, and the prose drops underneath to say how to read the picture.
+ *
+ * [solved] is the answer, once the learner has it. It takes the place of the question mark in the
+ * formula, so the sum they were asked finishes in front of them rather than being restated
+ * somewhere else, and it arrives in the same green the correct option turns.
+ */
+@Composable
+private fun QuestionHeading(formula: String?, question: String, solved: String? = null) {
+    Column(
+        modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        if (formula != null) {
+            FormulaCard(if (solved == null) formula else formula.replace("?", "{b:$solved}"))
+            Spacer(Modifier.height(10.dp))
+        }
+        LessonText(
+            text = question,
+            // With a formula above it the prose is a supporting line; without one it is the question.
+            style = if (formula == null) {
+                MaterialTheme.typography.titleMedium
+            } else {
+                MaterialTheme.typography.bodyMedium
+            },
+            color = if (formula == null) {
+                MaterialTheme.colorScheme.onSurface
+            } else {
+                MaterialTheme.colorScheme.onSurfaceVariant
+            },
+            textAlign = TextAlign.Center,
+        )
+    }
+}
+
+/** Shown after a miss. It says to try again and nothing else, so no hint leaks with it. */
+@Composable
+private fun RetryNote() {
+    Text(
+        text = stringResource(Res.string.learn_try_again_hint),
+        style = MaterialTheme.typography.titleSmall,
+        color = MaterialTheme.colorScheme.error,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+        modifier = Modifier.widthIn(max = LessonContentWidth).padding(top = 8.dp),
+    )
 }
 
 @Composable
@@ -361,18 +519,18 @@ private fun NumericStep(
     onInputChange: (String) -> Unit,
 ) {
     step.visual?.let {
-        LearnVisualCanvas(
+        LessonVisual(
             visual = it,
-            modifier = Modifier.fillMaxWidth().height(170.dp).padding(bottom = 8.dp),
+            modifier = Modifier.padding(bottom = 16.dp),
+            answer = answer.visualAnswer(step.answer),
         )
     }
-    Text(
-        text = step.question,
-        style = MaterialTheme.typography.titleMedium,
-        textAlign = TextAlign.Center,
-        modifier = Modifier.widthIn(max = 480.dp),
+    QuestionHeading(
+        formula = step.formula,
+        question = step.question,
+        solved = (answer as? StepAnswer.Correct)?.let { step.answer },
     )
-    if (answer is StepAnswer.Answered) {
+    if (answer is StepAnswer.Correct) {
         Spacer(Modifier.height(12.dp))
         Text(
             text = stringResource(Res.string.learn_your_answer),
@@ -382,29 +540,23 @@ private fun NumericStep(
         Text(
             text = typedAnswer,
             style = MaterialTheme.typography.headlineSmall,
-            color = if (answer.isCorrect) SuccessGreen else MaterialTheme.colorScheme.error,
+            color = SuccessGreen,
             fontWeight = FontWeight.Bold,
         )
         Spacer(Modifier.height(8.dp))
-        FeedbackCard(isCorrect = answer.isCorrect, explanation = step.explanation)
+        FeedbackCard(step.explanation)
     } else {
-        // Keyed so the pad's internal buffer starts empty on every new question.
-        key(stepIndex) {
+        // Keyed so the pad's buffer starts empty on a new question, and again after a miss so the
+        // rejected number is cleared rather than needing backspacing away.
+        val missCount = (answer as? StepAnswer.Missed)?.attempts?.size ?: 0
+        key(stepIndex, missCount) {
             NumberPadWithInput(onInputChange = onInputChange)
         }
+        if (answer is StepAnswer.Missed) {
+            Spacer(Modifier.height(8.dp))
+            RetryNote()
+        }
     }
-}
-
-private fun optionState(
-    index: Int,
-    correctIndex: Int,
-    selectedOption: Int?,
-    answer: StepAnswer,
-): OptionState = when {
-    answer is StepAnswer.Unanswered -> OptionState.IDLE
-    index == correctIndex -> OptionState.CORRECT
-    index == selectedOption -> OptionState.WRONG
-    else -> OptionState.MUTED
 }
 
 private enum class OptionState { IDLE, CORRECT, WRONG, MUTED }
@@ -429,41 +581,48 @@ private fun OptionTile(
         face = face,
         isClickable = state == OptionState.IDLE,
         modifier = Modifier
-            .widthIn(max = 480.dp)
+            .widthIn(max = LessonContentWidth)
             .fillMaxWidth()
             .hoverHand(state == OptionState.IDLE),
-        onClick = onClick,
+        onClick = { if (state == OptionState.IDLE) onClick() },
     ) {
         MathText(
             text = label,
             style = MaterialTheme.typography.bodyLarge,
             color = if (state == OptionState.MUTED) contentColor.copy(alpha = 0.6f) else contentColor,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
+            fractionSlash = true,
         )
     }
 }
 
+/**
+ * Shown once the learner gets there. There is no wrong-answer variant any more: a miss leaves the
+ * step open and shows [RetryNote] instead, so this card only ever confirms and explains.
+ *
+ * Face and ink are both brand-pinned rather than taken from the scheme. Material You resolves
+ * `primaryContainer` to whatever the device wallpaper suggests, which on some phones is a pale
+ * grey, and the text underneath it was inheriting the ambient near-white content colour: white on
+ * pale grey. Pinning both halves of the pair keeps them legible on every device and theme.
+ */
 @Composable
-private fun FeedbackCard(isCorrect: Boolean, explanation: String) {
+private fun FeedbackCard(explanation: String) {
     PrismCard(
-        face = if (isCorrect) {
-            MaterialTheme.colorScheme.primaryContainer
-        } else {
-            MaterialTheme.colorScheme.surfaceVariant
-        },
-        modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth().padding(top = 8.dp),
+        face = PrimaryContainer,
+        modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth().padding(top = 8.dp),
     ) {
         Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             Text(
-                text = stringResource(if (isCorrect) Res.string.learn_correct else Res.string.learn_incorrect),
+                text = stringResource(Res.string.learn_correct),
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.Bold,
-                color = if (isCorrect) SuccessGreen else Primary,
+                color = OnPrimaryContainer,
             )
             Spacer(Modifier.height(4.dp))
-            Text(
+            LessonText(
                 text = explanation,
                 style = MaterialTheme.typography.bodyMedium,
+                color = OnPrimaryContainer,
             )
         }
     }
@@ -508,14 +667,14 @@ private fun LessonCompleteContent(
             PrimaryActionButton(
                 onClick = { onNextLesson(nextLessonId) },
                 value = stringResource(Res.string.learn_next_lesson),
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
             )
             Spacer(Modifier.height(8.dp))
         }
         PrimaryActionButton(
             onClick = onDone,
             value = stringResource(Res.string.learn_lesson_finish),
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
         )
     }
 }

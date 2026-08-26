@@ -823,12 +823,13 @@
     <string name="achievement_iq_test_high_desc">تخمینی آئی کیو 130 یا اس سے زیادہ حاصل کریں</string>
     <!-- Learn section -->
     <string name="learn_section_title">ریاضی سیکھیں</string>
-    <string name="learn_section_subtitle">اپنا تعلیمی سال چنیں، موضوع مکمل کریں، پھر سرٹیفکیٹ کے لیے ٹیسٹ دیں۔</string>
+    <string name="learn_section_subtitle">ایک موضوع چنیں، اسے قدم بہ قدم مکمل کریں، پھر سرٹیفکیٹ کے لیے ٹیسٹ دیں۔</string>
     <string name="learn_section_certificates">%1$d / %2$d سرٹیفکیٹ</string>
     <string name="learn_title">ریاضی سیکھیں</string>
     <string name="learn_unit_progress">%1$d / %2$d سرٹیفکیٹ</string>
-    <string name="learn_grade_intro">یہاں ہر موضوع اسی تعلیمی سال کی سطح پر پڑھایا جاتا ہے۔</string>
-    <string name="learn_grade_certificates">%2$d میں سے %1$d موضوعات تصدیق شدہ</string>
+    <string name="learn_topic_intro">فہرست میں اوپر سے نیچے چلیں۔ ہر قدم پچھلے قدم پر کھڑا ہے۔</string>
+    <string name="learn_topic_certificates">%2$d میں سے %1$d تصدیق شدہ</string>
+    <string name="learn_ages">عمریں %1$s</string>
 
     <string name="learn_level_g12">جماعت 1–2</string>
     <string name="learn_level_g12_subtitle">عمر 6–8 · گنتی، شکلیں اور پہلی پیمائش</string>
@@ -868,6 +869,8 @@
     <string name="learn_continue">جاری رکھیں</string>
     <string name="learn_check">جانچیں</string>
     <string name="learn_next_line">اگلی سطر دکھائیں</string>
+    <string name="learn_try_again">دوبارہ کوشش کریں</string>
+    <string name="learn_try_again_hint">بالکل درست نہیں۔ ایک بار پھر دیکھیں اور دوبارہ کوشش کریں۔</string>
     <string name="learn_answer_label">جواب</string>
     <string name="learn_correct">درست!</string>
     <string name="learn_incorrect">ابھی نہیں</string>
@@ -876,13 +879,9 @@
     <string name="learn_take_test">ٹیسٹ دیں</string>
     <string name="learn_retake_test">ٹیسٹ دوبارہ دیں</string>
     <string name="learn_test_title">%1$s ٹیسٹ</string>
-    <string name="learn_test_intro">%1$d سوالات۔ سرٹیفکیٹ کے لیے کم از کم %2$d%% درست جواب دیں۔</string>
     <string name="learn_quiz_progress">سوال %1$d از %2$d</string>
     <string name="learn_quiz_result_title">ٹیسٹ مکمل</string>
-    <string name="learn_quiz_score">%2$d میں سے %1$d درست (%3$d%%)</string>
     <string name="learn_quiz_passed">سرٹیفکیٹ مل گیا!</string>
-    <string name="learn_quiz_improved">نیا ذاتی بہترین!</string>
-    <string name="learn_quiz_failed">سرٹیفکیٹ کے لیے %1$d%% چاہیے۔ سبق دوبارہ دیکھیں اور کوشش کریں۔</string>
     <string name="learn_quiz_review">جواب دیکھیں</string>
     <string name="learn_quiz_hide_review">جواب چھپائیں</string>
     <string name="learn_quiz_your_answer">آپ کا جواب: %1$s</string>
@@ -891,19 +890,14 @@
     <string name="learn_certificate_title">سرٹیفکیٹ</string>
     <string name="learn_certificate_headline">کامیابی کا سرٹیفکیٹ</string>
     <string name="learn_certificate_intro">یہ اس میں کامیاب نتیجے کی تصدیق کرتا ہے</string>
-    <string name="learn_certificate_score">اسکور %1$d%%</string>
     <string name="learn_certificate_earned">حاصل %1$s</string>
     <string name="learn_certificate_view">سرٹیفکیٹ دیکھیں</string>
-    <string name="learn_certificate_grade_bronze">کانسی</string>
-    <string name="learn_certificate_grade_silver">چاندی</string>
-    <string name="learn_certificate_grade_gold">سونا</string>
-    <string name="learn_certificate_best">بہترین %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">تصدیق شدہ</string>
     <string name="achievement_learn_first_certificate_desc">ریاضی سیکھیں کا پہلا موضوع ٹیسٹ پاس کریں۔</string>
-    <string name="achievement_learn_grade_certificates">کلاس کا اول</string>
-    <string name="achievement_learn_grade_certificates_desc">ایک تعلیمی سال کے تمام سرٹیفکیٹ حاصل کریں۔</string>
+    <string name="achievement_learn_topic_certificates">کلاس کا اول</string>
+    <string name="achievement_learn_topic_certificates_desc">ریاضی سیکھیں کے ایک موضوع کے تمام سرٹیفکیٹ حاصل کریں۔</string>
     <string name="achievement_learn_all_certificates">ریاضی کا عالم</string>
-    <string name="achievement_learn_all_certificates_desc">ہر جماعت کے ہر موضوع کا سرٹیفکیٹ حاصل کریں۔</string>
+    <string name="achievement_learn_all_certificates_desc">ریاضی سیکھیں کے ہر ذیلی موضوع میں سرٹیفکیٹ حاصل کریں۔</string>
 
 </resources>

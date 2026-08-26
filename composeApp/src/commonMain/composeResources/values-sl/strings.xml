@@ -825,12 +825,13 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_iq_test_high_desc">Doseži ocenjeni IQ 130 ali več</string>
     <!-- Learn section -->
     <string name="learn_section_title">Uči se matematiko</string>
-    <string name="learn_section_subtitle">Izberi razred, predelaj temo, nato opravi test za potrdilo.</string>
+    <string name="learn_section_subtitle">Izberi temo, predelaj jo korak za korakom in nato opravi test za potrdilo.</string>
     <string name="learn_section_certificates">%1$d / %2$d potrdil</string>
     <string name="learn_title">Uči se matematiko</string>
     <string name="learn_unit_progress">%1$d / %2$d potrdil</string>
-    <string name="learn_grade_intro">Vsaka tema se tu poučuje na ravni tega razreda.</string>
-    <string name="learn_grade_certificates">%1$d od %2$d tem s potrdilom</string>
+    <string name="learn_topic_intro">Pomikaj se po seznamu navzdol. Vsak korak gradi na prejšnjem.</string>
+    <string name="learn_topic_certificates">%1$d od %2$d s potrdilom</string>
+    <string name="learn_ages">Starost %1$s</string>
 
     <string name="learn_level_g12">1.–2. razred</string>
     <string name="learn_level_g12_subtitle">6–8 let · štetje, liki in prva merjenja</string>
@@ -870,6 +871,8 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_continue">Nadaljuj</string>
     <string name="learn_check">Preveri</string>
     <string name="learn_next_line">Pokaži naslednjo vrstico</string>
+    <string name="learn_try_again">Poskusi znova</string>
+    <string name="learn_try_again_hint">Ne čisto. Poglej še enkrat in poskusi znova.</string>
     <string name="learn_answer_label">Odgovor</string>
     <string name="learn_correct">Pravilno!</string>
     <string name="learn_incorrect">Še ne</string>
@@ -878,13 +881,9 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_take_test">Opravi test</string>
     <string name="learn_retake_test">Ponovi test</string>
     <string name="learn_test_title">Test %1$s</string>
-    <string name="learn_test_intro">%1$d vprašanj. Odgovori pravilno na vsaj %2$d%% in osvoji potrdilo.</string>
     <string name="learn_quiz_progress">Vprašanje %1$d od %2$d</string>
     <string name="learn_quiz_result_title">Test končan</string>
-    <string name="learn_quiz_score">%1$d od %2$d pravilno (%3$d%%)</string>
     <string name="learn_quiz_passed">Potrdilo osvojeno!</string>
-    <string name="learn_quiz_improved">Nov osebni rekord!</string>
-    <string name="learn_quiz_failed">Za potrdilo potrebuješ %1$d%%. Ponovi lekcije in poskusi znova.</string>
     <string name="learn_quiz_review">Preglej odgovore</string>
     <string name="learn_quiz_hide_review">Skrij odgovore</string>
     <string name="learn_quiz_your_answer">Tvoj odgovor: %1$s</string>
@@ -893,19 +892,14 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_certificate_title">Potrdilo</string>
     <string name="learn_certificate_headline">Potrdilo o uspehu</string>
     <string name="learn_certificate_intro">S tem se potrjuje uspešen rezultat pri</string>
-    <string name="learn_certificate_score">Rezultat %1$d%%</string>
     <string name="learn_certificate_earned">Osvojeno %1$s</string>
     <string name="learn_certificate_view">Prikaži potrdilo</string>
-    <string name="learn_certificate_grade_bronze">Bron</string>
-    <string name="learn_certificate_grade_silver">Srebro</string>
-    <string name="learn_certificate_grade_gold">Zlato</string>
-    <string name="learn_certificate_best">Najbolje %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Potrjen</string>
     <string name="achievement_learn_first_certificate_desc">Opravi svoj prvi test teme v Uči se matematiko.</string>
-    <string name="achievement_learn_grade_certificates">Prvak razreda</string>
-    <string name="achievement_learn_grade_certificates_desc">Osvoji vsako potrdilo v enem razredu.</string>
+    <string name="achievement_learn_topic_certificates">Prvak razreda</string>
+    <string name="achievement_learn_topic_certificates_desc">Prisluži si vsa potrdila ene teme v Uči se matematiko.</string>
     <string name="achievement_learn_all_certificates">Matematični učenjak</string>
-    <string name="achievement_learn_all_certificates_desc">Osvoji potrdilo pri vsaki temi Uči se matematiko, v vsakem razredu.</string>
+    <string name="achievement_learn_all_certificates_desc">Prisluži si potrdilo v vsaki podtemi v Uči se matematiko.</string>
 
 </resources>

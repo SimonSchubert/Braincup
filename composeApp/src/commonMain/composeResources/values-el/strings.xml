@@ -808,12 +808,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Μάθε μαθηματικά</string>
-    <string name="learn_section_subtitle">Διάλεξε τη σχολική σου χρονιά, δούλεψε μια ενότητα και μετά δώσε το τεστ για πιστοποιητικό.</string>
+    <string name="learn_section_subtitle">Διάλεξε ένα θέμα, δούλεψέ το βήμα βήμα και μετά δώσε το τεστ για πιστοποιητικό.</string>
     <string name="learn_section_certificates">%1$d / %2$d πιστοποιητικά</string>
     <string name="learn_title">Μάθε μαθηματικά</string>
     <string name="learn_unit_progress">%1$d / %2$d πιστοποιητικά</string>
-    <string name="learn_grade_intro">Κάθε ενότητα εδώ διδάσκεται στο επίπεδο αυτής της σχολικής χρονιάς.</string>
-    <string name="learn_grade_certificates">%1$d από %2$d ενότητες πιστοποιημένες</string>
+    <string name="learn_topic_intro">Προχώρα προς τα κάτω στη λίστα. Κάθε βήμα πατάει στο προηγούμενο.</string>
+    <string name="learn_topic_certificates">%1$d από %2$d πιστοποιημένα</string>
+    <string name="learn_ages">Ηλικίες %1$s</string>
 
     <string name="learn_level_g12">Τάξεις 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 ετών · μέτρημα, σχήματα και πρώτες μετρήσεις</string>
@@ -853,6 +854,8 @@
     <string name="learn_continue">Συνέχεια</string>
     <string name="learn_check">Έλεγχος</string>
     <string name="learn_next_line">Δείξε την επόμενη γραμμή</string>
+    <string name="learn_try_again">Δοκίμασε ξανά</string>
+    <string name="learn_try_again_hint">Όχι ακριβώς. Ρίξε άλλη μια ματιά και δοκίμασε ξανά.</string>
     <string name="learn_answer_label">Απάντηση</string>
     <string name="learn_correct">Σωστά!</string>
     <string name="learn_incorrect">Όχι ακριβώς</string>
@@ -861,13 +864,9 @@
     <string name="learn_take_test">Δώσε το τεστ</string>
     <string name="learn_retake_test">Ξαναδώσε το τεστ</string>
     <string name="learn_test_title">Τεστ: %1$s</string>
-    <string name="learn_test_intro">%1$d ερωτήσεις. Απάντησε σωστά τουλάχιστον στο %2$d%% για να πάρεις το πιστοποιητικό σου.</string>
     <string name="learn_quiz_progress">Ερώτηση %1$d από %2$d</string>
     <string name="learn_quiz_result_title">Το τεστ ολοκληρώθηκε</string>
-    <string name="learn_quiz_score">%1$d από %2$d σωστά (%3$d%%)</string>
     <string name="learn_quiz_passed">Πήρες πιστοποιητικό!</string>
-    <string name="learn_quiz_improved">Νέο προσωπικό ρεκόρ!</string>
-    <string name="learn_quiz_failed">Χρειάζεσαι %1$d%% για πιστοποιητικό. Ξανακοίτα τα μαθήματα και δοκίμασε ξανά.</string>
     <string name="learn_quiz_review">Δες τις απαντήσεις</string>
     <string name="learn_quiz_hide_review">Κρύψε τις απαντήσεις</string>
     <string name="learn_quiz_your_answer">Η απάντησή σου: %1$s</string>
@@ -876,19 +875,14 @@
     <string name="learn_certificate_title">Πιστοποιητικό</string>
     <string name="learn_certificate_headline">Πιστοποιητικό επίδοσης</string>
     <string name="learn_certificate_intro">Πιστοποιείται επιτυχές αποτέλεσμα στην ενότητα</string>
-    <string name="learn_certificate_score">Βαθμολογία %1$d%%</string>
     <string name="learn_certificate_earned">Αποκτήθηκε %1$s</string>
     <string name="learn_certificate_view">Δες το πιστοποιητικό</string>
-    <string name="learn_certificate_grade_bronze">Χάλκινο</string>
-    <string name="learn_certificate_grade_silver">Ασημένιο</string>
-    <string name="learn_certificate_grade_gold">Χρυσό</string>
-    <string name="learn_certificate_best">Καλύτερο %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Πιστοποιημένος</string>
     <string name="achievement_learn_first_certificate_desc">Πέρνα το πρώτο σου τεστ ενότητας στο Μάθε μαθηματικά.</string>
-    <string name="achievement_learn_grade_certificates">Πρώτος της τάξης</string>
-    <string name="achievement_learn_grade_certificates_desc">Πάρε όλα τα πιστοποιητικά μιας σχολικής χρονιάς.</string>
+    <string name="achievement_learn_topic_certificates">Πρώτος της τάξης</string>
+    <string name="achievement_learn_topic_certificates_desc">Κέρδισε όλα τα πιστοποιητικά ενός θέματος στα Μαθηματικά.</string>
     <string name="achievement_learn_all_certificates">Λόγιος των μαθηματικών</string>
-    <string name="achievement_learn_all_certificates_desc">Πάρε πιστοποιητικό σε κάθε ενότητα μαθηματικών, σε κάθε τάξη.</string>
+    <string name="achievement_learn_all_certificates_desc">Κέρδισε πιστοποιητικό σε κάθε υποενότητα στα Μαθηματικά.</string>
 
 </resources>

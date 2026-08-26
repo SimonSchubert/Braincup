@@ -1,49 +1,54 @@
 package com.inspiredandroid.braincup.learn
 
-import com.inspiredandroid.braincup.learn.content.Grade11To12Content
-import com.inspiredandroid.braincup.learn.content.Grade1To2Content
-import com.inspiredandroid.braincup.learn.content.Grade3To5Content
-import com.inspiredandroid.braincup.learn.content.Grade6To8Content
-import com.inspiredandroid.braincup.learn.content.Grade9To10Content
+import com.inspiredandroid.braincup.learn.content.AlgebraContent
+import com.inspiredandroid.braincup.learn.content.ArithmeticContent
+import com.inspiredandroid.braincup.learn.content.CalculusContent
+import com.inspiredandroid.braincup.learn.content.DataContent
+import com.inspiredandroid.braincup.learn.content.FunctionsContent
+import com.inspiredandroid.braincup.learn.content.GeometryContent
+import com.inspiredandroid.braincup.learn.content.MeasurementContent
+import com.inspiredandroid.braincup.learn.content.TrigonometryContent
 
 /**
- * Every unit in the Learn section, keyed by grade band.
+ * Every sub-topic in the Learn section, keyed by topic.
  *
- * Unit ids and lesson ids are persisted as progress, so they may be appended to but never renamed
- * or reused for different content.
+ * Each topic holds a ladder of sub-topics ordered easiest first. Unit ids and lesson ids are
+ * persisted as progress, so they may be appended to but never renamed or reused for different
+ * content.
  */
 object LearnCatalog {
 
-    private val byLevel: Map<GradeLevel, List<LearnUnit>> = mapOf(
-        GradeLevel.GRADES_1_2 to Grade1To2Content.units,
-        GradeLevel.GRADES_3_5 to Grade3To5Content.units,
-        GradeLevel.GRADES_6_8 to Grade6To8Content.units,
-        GradeLevel.GRADES_9_10 to Grade9To10Content.units,
-        GradeLevel.GRADES_11_12 to Grade11To12Content.units,
+    private val byTopic: Map<MathTopic, List<LearnUnit>> = mapOf(
+        MathTopic.ARITHMETIC to ArithmeticContent.units,
+        MathTopic.MEASUREMENT to MeasurementContent.units,
+        MathTopic.GEOMETRY to GeometryContent.units,
+        MathTopic.DATA to DataContent.units,
+        MathTopic.ALGEBRA to AlgebraContent.units,
+        MathTopic.TRIGONOMETRY to TrigonometryContent.units,
+        MathTopic.FUNCTIONS to FunctionsContent.units,
+        MathTopic.CALCULUS to CalculusContent.units,
     )
 
-    /** Every unit, youngest band first. */
-    val allUnits: List<LearnUnit> = GradeLevel.entries.flatMap { byLevel.getValue(it) }
+    /** Every sub-topic, in menu order: topic by topic, easiest first inside each. */
+    val allUnits: List<LearnUnit> = MathTopic.entries.flatMap { byTopic.getValue(it) }
 
-    /** Every lesson across every unit, in curriculum order. */
+    /** Every lesson across every sub-topic, in curriculum order. */
     val allLessons: List<LearnLesson> = allUnits.flatMap { it.lessons }
 
     val totalUnitCount: Int = allUnits.size
 
     val totalLessonCount: Int = allLessons.size
 
-    fun units(level: GradeLevel): List<LearnUnit> = byLevel.getValue(level)
-
-    /** The bands that teach [topic], youngest first. */
-    fun unitsOf(topic: MathTopic): List<LearnUnit> = allUnits.filter { it.topic == topic }
+    /** The sub-topics of [topic], easiest first. */
+    fun units(topic: MathTopic): List<LearnUnit> = byTopic.getValue(topic)
 
     fun unitById(id: String): LearnUnit? = allUnits.firstOrNull { it.id == id }
 
-    fun unitOf(level: GradeLevel, topic: MathTopic): LearnUnit? = unitById(LearnUnit.idFor(level, topic))
+    fun unitBySlug(topic: MathTopic, slug: String): LearnUnit? = byTopic.getValue(topic).firstOrNull { it.urlSlug == slug }
 
     fun lessonById(id: String): LearnLesson? = allLessons.firstOrNull { it.id == id }
 
-    /** The unit a lesson belongs to. Every lesson in the catalog has one. */
+    /** The sub-topic a lesson belongs to. Every lesson in the catalog has one. */
     fun unitOfLesson(lesson: LearnLesson): LearnUnit? = unitById(lesson.unitId)
 
     /**

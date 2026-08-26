@@ -12,10 +12,10 @@ import com.inspiredandroid.braincup.app.IqTestPlay
 import com.inspiredandroid.braincup.app.IqTestResult
 import com.inspiredandroid.braincup.app.IqTestReview
 import com.inspiredandroid.braincup.app.LearnCertificate
-import com.inspiredandroid.braincup.app.LearnGradeDetail
 import com.inspiredandroid.braincup.app.LearnLessonPlay
 import com.inspiredandroid.braincup.app.LearnMenu
 import com.inspiredandroid.braincup.app.LearnTest
+import com.inspiredandroid.braincup.app.LearnTopicDetail
 import com.inspiredandroid.braincup.app.LearnUnitDetail
 import com.inspiredandroid.braincup.app.Licenses
 import com.inspiredandroid.braincup.app.MainMenu
@@ -33,7 +33,6 @@ import com.inspiredandroid.braincup.app.SessionInterstitial
 import com.inspiredandroid.braincup.app.Settings
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.MathTopic
 
@@ -63,7 +62,7 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is IqTestResult -> "iq-test/result"
     is IqTestReview -> "iq-test/review"
     is LearnMenu -> LEARN_BASE_PATH
-    is LearnGradeDetail -> learnGradePathSuffix(route.levelId)
+    is LearnTopicDetail -> learnTopicPathSuffix(route.topicId)
     is LearnUnitDetail -> learnUnitPathSuffix(route.unitId)
     is LearnLessonPlay -> "$LEARN_BASE_PATH/lesson/${route.lessonId}"
     is LearnTest -> learnUnitPathSuffix(route.unitId, "test")
@@ -119,7 +118,7 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<IqTestResult>() -> navRouteToPathSuffix(IqTestResult)
         destination.hasRoute<IqTestReview>() -> navRouteToPathSuffix(IqTestReview)
         destination.hasRoute<LearnMenu>() -> navRouteToPathSuffix(LearnMenu)
-        destination.hasRoute<LearnGradeDetail>() -> navRouteToPathSuffix(toRoute<LearnGradeDetail>())
+        destination.hasRoute<LearnTopicDetail>() -> navRouteToPathSuffix(toRoute<LearnTopicDetail>())
         destination.hasRoute<LearnUnitDetail>() -> navRouteToPathSuffix(toRoute<LearnUnitDetail>())
         destination.hasRoute<LearnLessonPlay>() -> navRouteToPathSuffix(toRoute<LearnLessonPlay>())
         destination.hasRoute<LearnTest>() -> navRouteToPathSuffix(toRoute<LearnTest>())
@@ -168,8 +167,8 @@ private fun gameScoreboardPathSuffix(gameTypeId: String): String {
 }
 
 /**
- * Learn paths below the section root: `lesson/<lessonId>` for a lesson, `<gradeSlug>` for a grade
- * band, and `<gradeSlug>/<topicSlug>` optionally followed by `test` or `certificate` for one unit.
+ * Learn paths below the section root: `lesson/<lessonId>` for a lesson, `<topicSlug>` for a topic,
+ * and `<topicSlug>/<unitSlug>` optionally followed by `test` or `certificate` for one sub-topic.
  */
 private fun parseLearnPath(rest: String): Any? {
     if (rest.startsWith("lesson/")) {
@@ -178,10 +177,9 @@ private fun parseLearnPath(rest: String): Any? {
     }
     val parts = rest.split('/')
     if (parts.size > 3) return null
-    val level = GradeLevel.bySlug(parts.firstOrNull().orEmpty()) ?: return null
-    val topicSlug = parts.getOrNull(1) ?: return LearnGradeDetail(level.id)
-    val topic = MathTopic.bySlug(topicSlug) ?: return null
-    val unit = LearnCatalog.unitOf(level, topic) ?: return null
+    val topic = MathTopic.bySlug(parts.firstOrNull().orEmpty()) ?: return null
+    val unitSlug = parts.getOrNull(1) ?: return LearnTopicDetail(topic.id)
+    val unit = LearnCatalog.unitBySlug(topic, unitSlug) ?: return null
     return when (parts.getOrNull(2)) {
         null -> LearnUnitDetail(unit.id)
         "test" -> LearnTest(unit.id)
@@ -190,13 +188,13 @@ private fun parseLearnPath(rest: String): Any? {
     }
 }
 
-private fun learnGradePathSuffix(levelId: String): String {
-    val slug = GradeLevel.byId(levelId)?.urlSlug ?: return LEARN_BASE_PATH
+private fun learnTopicPathSuffix(topicId: String): String {
+    val slug = MathTopic.byId(topicId)?.urlSlug ?: return LEARN_BASE_PATH
     return "$LEARN_BASE_PATH/$slug"
 }
 
 private fun learnUnitPathSuffix(unitId: String, leaf: String? = null): String {
     val unit = LearnCatalog.unitById(unitId) ?: return LEARN_BASE_PATH
-    val base = "$LEARN_BASE_PATH/${unit.level.urlSlug}/${unit.topic.urlSlug}"
+    val base = "$LEARN_BASE_PATH/${unit.topic.urlSlug}/${unit.urlSlug}"
     return if (leaf == null) base else "$base/$leaf"
 }

@@ -808,12 +808,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">ریاضی بیاموز</string>
-    <string name="learn_section_subtitle">سال تحصیلی خود را انتخاب کن، یک موضوع را کامل کن و سپس در آزمون شرکت کن تا گواهی بگیری.</string>
+    <string name="learn_section_subtitle">یک موضوع انتخاب کن، قدم‌به‌قدم پیش برو و بعد برای گواهی در آزمون شرکت کن.</string>
     <string name="learn_section_certificates">%1$d / %2$d گواهی</string>
     <string name="learn_title">ریاضی بیاموز</string>
     <string name="learn_unit_progress">%1$d / %2$d گواهی</string>
-    <string name="learn_grade_intro">هر موضوع در اینجا در سطح همین سال تحصیلی آموزش داده می‌شود.</string>
-    <string name="learn_grade_certificates">%1$d از %2$d موضوع دارای گواهی</string>
+    <string name="learn_topic_intro">فهرست را از بالا به پایین پیش برو. هر قدم روی قدم قبلی ساخته می‌شود.</string>
+    <string name="learn_topic_certificates">%1$d از %2$d دارای گواهی</string>
+    <string name="learn_ages">سنین %1$s</string>
 
     <string name="learn_level_g12">پایه‌های ۱–۲</string>
     <string name="learn_level_g12_subtitle">۶–۸ سال · شمردن، شکل‌ها و اندازه‌گیری‌های نخست</string>
@@ -853,6 +854,8 @@
     <string name="learn_continue">ادامه</string>
     <string name="learn_check">بررسی</string>
     <string name="learn_next_line">نمایش خط بعدی</string>
+    <string name="learn_try_again">دوباره تلاش کن</string>
+    <string name="learn_try_again_hint">کاملاً درست نیست. یک بار دیگر نگاه کن و دوباره امتحان کن.</string>
     <string name="learn_answer_label">پاسخ</string>
     <string name="learn_correct">درست!</string>
     <string name="learn_incorrect">نه دقیقاً</string>
@@ -861,13 +864,9 @@
     <string name="learn_take_test">در آزمون شرکت کن</string>
     <string name="learn_retake_test">آزمون را دوباره بده</string>
     <string name="learn_test_title">آزمون %1$s</string>
-    <string name="learn_test_intro">%1$d پرسش. برای گرفتن گواهی دست‌کم %2$d%% را درست پاسخ بده.</string>
     <string name="learn_quiz_progress">پرسش %1$d از %2$d</string>
     <string name="learn_quiz_result_title">آزمون کامل شد</string>
-    <string name="learn_quiz_score">%1$d از %2$d درست (%3$d%%)</string>
     <string name="learn_quiz_passed">گواهی گرفتی!</string>
-    <string name="learn_quiz_improved">رکورد شخصی تازه!</string>
-    <string name="learn_quiz_failed">برای گرفتن گواهی به %1$d%% نیاز داری. درس‌ها را مرور کن و دوباره تلاش کن.</string>
     <string name="learn_quiz_review">دیدن پاسخ‌ها</string>
     <string name="learn_quiz_hide_review">پنهان کردن پاسخ‌ها</string>
     <string name="learn_quiz_your_answer">پاسخ تو: %1$s</string>
@@ -876,19 +875,14 @@
     <string name="learn_certificate_title">گواهی</string>
     <string name="learn_certificate_headline">گواهی دستاورد</string>
     <string name="learn_certificate_intro">بدین‌وسیله نتیجه قبولی در این موضوع تأیید می‌شود</string>
-    <string name="learn_certificate_score">امتیاز %1$d%%</string>
     <string name="learn_certificate_earned">دریافت‌شده %1$s</string>
     <string name="learn_certificate_view">دیدن گواهی</string>
-    <string name="learn_certificate_grade_bronze">برنز</string>
-    <string name="learn_certificate_grade_silver">نقره</string>
-    <string name="learn_certificate_grade_gold">طلا</string>
-    <string name="learn_certificate_best">بهترین %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">دارای گواهی</string>
     <string name="achievement_learn_first_certificate_desc">نخستین آزمون موضوعی خود را در ریاضی بیاموز با موفقیت بگذران.</string>
-    <string name="achievement_learn_grade_certificates">بهترین کلاس</string>
-    <string name="achievement_learn_grade_certificates_desc">همه گواهی‌های یک سال تحصیلی را به دست بیاور.</string>
+    <string name="achievement_learn_topic_certificates">بهترین کلاس</string>
+    <string name="achievement_learn_topic_certificates_desc">همه گواهی‌های یک موضوع در ریاضی بیاموز را به دست بیاور.</string>
     <string name="achievement_learn_all_certificates">دانشمند ریاضی</string>
-    <string name="achievement_learn_all_certificates_desc">در هر موضوع ریاضی و در هر پایه گواهی بگیر.</string>
+    <string name="achievement_learn_all_certificates_desc">در هر زیرموضوع ریاضی بیاموز یک گواهی به دست بیاور.</string>
 
 </resources>

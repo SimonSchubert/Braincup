@@ -823,12 +823,13 @@
     <string name="achievement_iq_test_high_desc">Umabot ng tinatayang IQ na 130 o mas mataas</string>
     <!-- Learn section -->
     <string name="learn_section_title">Matuto ng Math</string>
-    <string name="learn_section_subtitle">Piliin ang grade, pag-aralan ang topic, tapos kumuha ng test para sa certificate.</string>
+    <string name="learn_section_subtitle">Pumili ng topic, dumaan dito nang paisa-isa, tapos kunin ang test para sa certificate.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificate</string>
     <string name="learn_title">Matuto ng Math</string>
     <string name="learn_unit_progress">%1$d / %2$d certificate</string>
-    <string name="learn_grade_intro">Bawat topic dito ay tinuturo sa antas ng grade na ito.</string>
-    <string name="learn_grade_certificates">%1$d sa %2$d topic ang may certificate</string>
+    <string name="learn_topic_intro">Bumaba sa listahan. Bawat hakbang ay nakasandal sa nauna.</string>
+    <string name="learn_topic_certificates">%1$d sa %2$d ang may certificate</string>
+    <string name="learn_ages">Edad %1$s</string>
 
     <string name="learn_level_g12">Baitang 1–2</string>
     <string name="learn_level_g12_subtitle">Edad 6–8 · pagbilang, hugis, at unang sukat</string>
@@ -868,6 +869,8 @@
     <string name="learn_continue">Magpatuloy</string>
     <string name="learn_check">Suriin</string>
     <string name="learn_next_line">Ipakita ang susunod na linya</string>
+    <string name="learn_try_again">Subukan ulit</string>
+    <string name="learn_try_again_hint">Hindi pa tama. Tingnan ulit at subukan muli.</string>
     <string name="learn_answer_label">Sagot</string>
     <string name="learn_correct">Tama!</string>
     <string name="learn_incorrect">Hindi pa</string>
@@ -876,13 +879,9 @@
     <string name="learn_take_test">Kumuha ng test</string>
     <string name="learn_retake_test">Ulitin ang test</string>
     <string name="learn_test_title">Test sa %1$s</string>
-    <string name="learn_test_intro">%1$d tanong. Sagutan nang tama ang hindi bababa sa %2$d%% para makuha ang certificate.</string>
     <string name="learn_quiz_progress">Tanong %1$d sa %2$d</string>
     <string name="learn_quiz_result_title">Tapos na ang test</string>
-    <string name="learn_quiz_score">%1$d sa %2$d ang tama (%3$d%%)</string>
     <string name="learn_quiz_passed">Nakuha ang certificate!</string>
-    <string name="learn_quiz_improved">Bagong personal best!</string>
-    <string name="learn_quiz_failed">Kailangan mo ng %1$d%% para makuha ang certificate. Balikan ang mga aralin at subukan ulit.</string>
     <string name="learn_quiz_review">Suriin ang mga sagot</string>
     <string name="learn_quiz_hide_review">Itago ang mga sagot</string>
     <string name="learn_quiz_your_answer">Sagot mo: %1$s</string>
@@ -891,19 +890,14 @@
     <string name="learn_certificate_title">Sertipiko</string>
     <string name="learn_certificate_headline">Sertipiko ng Tagumpay</string>
     <string name="learn_certificate_intro">Pinatutunayan nito ang passing result sa</string>
-    <string name="learn_certificate_score">Iskor %1$d%%</string>
     <string name="learn_certificate_earned">Nakuha noong %1$s</string>
     <string name="learn_certificate_view">Tingnan ang certificate</string>
-    <string name="learn_certificate_grade_bronze">Tanso</string>
-    <string name="learn_certificate_grade_silver">Pilak</string>
-    <string name="learn_certificate_grade_gold">Ginto</string>
-    <string name="learn_certificate_best">Pinakamataas %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Sertipikado</string>
     <string name="achievement_learn_first_certificate_desc">Pumasa sa unang test ng topic sa Matuto ng Math.</string>
-    <string name="achievement_learn_grade_certificates">Numero Uno sa Klase</string>
-    <string name="achievement_learn_grade_certificates_desc">Kunin ang lahat ng certificate sa isang grade.</string>
+    <string name="achievement_learn_topic_certificates">Numero Uno sa Klase</string>
+    <string name="achievement_learn_topic_certificates_desc">Kunin ang lahat ng certificate sa isang topic ng Learn Math.</string>
     <string name="achievement_learn_all_certificates">Iskolar ng Matematika</string>
-    <string name="achievement_learn_all_certificates_desc">Kunin ang certificate sa bawat topic ng Matuto ng Math, sa bawat grade.</string>
+    <string name="achievement_learn_all_certificates_desc">Kumuha ng certificate sa bawat subtopic ng Learn Math.</string>
 
 </resources>

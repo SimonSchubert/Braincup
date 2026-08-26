@@ -39,7 +39,7 @@ internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
             topLeft = Offset(x, baseline - barHeight),
             size = Size(barWidth, barHeight),
         )
-        if (visual.reveal) {
+        if (revealing(visual.reveal)) {
             label(
                 text = value.toString(),
                 center = Offset(x + barWidth / 2f, baseline - barHeight - height * 0.06f),
@@ -98,7 +98,7 @@ internal fun VisualScope.drawPieChart(visual: LearnVisual.PieChart) {
             topLeft = topLeft,
             size = Size(diameter, diameter),
         )
-        if (t > 0.85f && visual.reveal) {
+        if (t > 0.85f && revealing(visual.reveal)) {
             val mid = (start + sweep / 2f) * kotlin.math.PI.toFloat() / 180f
             val at = Offset(
                 center.x + (diameter * 0.3f * kotlin.math.cos(mid)),
@@ -155,7 +155,7 @@ internal fun VisualScope.drawPictogram(visual: LearnVisual.Pictogram) {
                 size = Size(radius * 2, radius * 2),
             )
         }
-        if (visual.reveal) {
+        if (revealing(visual.reveal)) {
             label(
                 text = "= ${(count * visual.unitValue).roundToInt()}",
                 center = Offset(width * 0.86f, y),

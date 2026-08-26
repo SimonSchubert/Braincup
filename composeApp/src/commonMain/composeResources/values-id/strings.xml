@@ -807,12 +807,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Belajar Matematika</string>
-    <string name="learn_section_subtitle">Pilih tahun ajaranmu, pelajari satu topik, lalu ikuti tes untuk mendapatkan sertifikat.</string>
+    <string name="learn_section_subtitle">Pilih topik, kerjakan langkah demi langkah, lalu ikuti tes untuk mendapatkan sertifikat.</string>
     <string name="learn_section_certificates">%1$d / %2$d sertifikat</string>
     <string name="learn_title">Belajar Matematika</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifikat</string>
-    <string name="learn_grade_intro">Setiap topik di sini diajarkan pada tingkat tahun ajaran ini.</string>
-    <string name="learn_grade_certificates">%1$d dari %2$d topik bersertifikat</string>
+    <string name="learn_topic_intro">Turuni daftarnya. Setiap langkah dibangun di atas langkah sebelumnya.</string>
+    <string name="learn_topic_certificates">%1$d dari %2$d bersertifikat</string>
+    <string name="learn_ages">Usia %1$s</string>
 
     <string name="learn_level_g12">Kelas 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 tahun · berhitung, bangun datar, dan pengukuran awal</string>
@@ -852,6 +853,8 @@
     <string name="learn_continue">Lanjut</string>
     <string name="learn_check">Periksa</string>
     <string name="learn_next_line">Tampilkan baris berikutnya</string>
+    <string name="learn_try_again">Coba lagi</string>
+    <string name="learn_try_again_hint">Belum tepat. Lihat sekali lagi dan coba lagi.</string>
     <string name="learn_answer_label">Jawaban</string>
     <string name="learn_correct">Benar!</string>
     <string name="learn_incorrect">Belum tepat</string>
@@ -860,13 +863,9 @@
     <string name="learn_take_test">Ikuti tes</string>
     <string name="learn_retake_test">Ulangi tes</string>
     <string name="learn_test_title">Tes %1$s</string>
-    <string name="learn_test_intro">%1$d soal. Jawab benar minimal %2$d%% untuk mendapatkan sertifikatmu.</string>
     <string name="learn_quiz_progress">Soal %1$d dari %2$d</string>
     <string name="learn_quiz_result_title">Tes selesai</string>
-    <string name="learn_quiz_score">%1$d dari %2$d benar (%3$d%%)</string>
     <string name="learn_quiz_passed">Sertifikat didapat!</string>
-    <string name="learn_quiz_improved">Rekor pribadi baru!</string>
-    <string name="learn_quiz_failed">Kamu perlu %1$d%% untuk mendapatkan sertifikat. Ulas kembali pelajarannya dan coba lagi.</string>
     <string name="learn_quiz_review">Lihat jawaban</string>
     <string name="learn_quiz_hide_review">Sembunyikan jawaban</string>
     <string name="learn_quiz_your_answer">Jawabanmu: %1$s</string>
@@ -875,19 +874,14 @@
     <string name="learn_certificate_title">Sertifikat</string>
     <string name="learn_certificate_headline">Sertifikat Pencapaian</string>
     <string name="learn_certificate_intro">Dengan ini menyatakan hasil lulus pada topik</string>
-    <string name="learn_certificate_score">Skor %1$d%%</string>
     <string name="learn_certificate_earned">Didapat %1$s</string>
     <string name="learn_certificate_view">Lihat sertifikat</string>
-    <string name="learn_certificate_grade_bronze">Perunggu</string>
-    <string name="learn_certificate_grade_silver">Perak</string>
-    <string name="learn_certificate_grade_gold">Emas</string>
-    <string name="learn_certificate_best">Terbaik %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Bersertifikat</string>
     <string name="achievement_learn_first_certificate_desc">Lulus tes topik pertamamu di Belajar Matematika.</string>
-    <string name="achievement_learn_grade_certificates">Juara Kelas</string>
-    <string name="achievement_learn_grade_certificates_desc">Dapatkan semua sertifikat dalam satu tahun ajaran.</string>
+    <string name="achievement_learn_topic_certificates">Juara Kelas</string>
+    <string name="achievement_learn_topic_certificates_desc">Raih semua sertifikat dalam satu topik Belajar Matematika.</string>
     <string name="achievement_learn_all_certificates">Cendekiawan Matematika</string>
-    <string name="achievement_learn_all_certificates_desc">Dapatkan sertifikat di setiap topik Matematika, di setiap kelas.</string>
+    <string name="achievement_learn_all_certificates_desc">Raih sertifikat di setiap subtopik Belajar Matematika.</string>
 
 </resources>

@@ -14,7 +14,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.learn_certificate_best
+import braincup.composeapp.generated.resources.learn_ages
+import braincup.composeapp.generated.resources.learn_certificate_awarded
 import braincup.composeapp.generated.resources.learn_certificate_view
 import braincup.composeapp.generated.resources.learn_lesson_number
 import braincup.composeapp.generated.resources.learn_lesson_progress
@@ -23,8 +24,6 @@ import braincup.composeapp.generated.resources.learn_retake_test
 import braincup.composeapp.generated.resources.learn_take_test
 import braincup.composeapp.generated.resources.learn_test_intro
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.learn.CertificateTier
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
 import com.inspiredandroid.braincup.learn.LearnUnit
@@ -36,7 +35,6 @@ import com.inspiredandroid.braincup.ui.components.ChunkyCheck
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.hoverHand
-import com.inspiredandroid.braincup.ui.components.labelRes
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -81,7 +79,7 @@ fun LearnUnitScreenContent(
     val quiz = unit.quiz
 
     AppScaffold(
-        title = stringResource(unit.topic.titleRes),
+        title = unit.title,
         onBack = onBack,
         scrollable = false,
     ) {
@@ -99,7 +97,10 @@ fun LearnUnitScreenContent(
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
-                        text = stringResource(unit.level.titleRes),
+                        // Topic first, then the age band this rung is normally taught at: the
+                        // learner arrived here from the topic's ladder, not from a school year.
+                        text = stringResource(unit.topic.titleRes) + " · " +
+                            stringResource(Res.string.learn_ages, unit.level.ageRange),
                         style = MaterialTheme.typography.labelMedium,
                         color = Primary,
                         fontWeight = FontWeight.Bold,
@@ -123,11 +124,9 @@ fun LearnUnitScreenContent(
                 }
             }
 
-            if (progress.tier != null && progress.bestPercent != null) {
+            if (progress.hasCertificate) {
                 item(key = "certificate") {
                     EarnedCertificateCard(
-                        tier = progress.tier,
-                        bestPercent = progress.bestPercent,
                         onClick = onViewCertificate,
                         modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
                     )
@@ -163,11 +162,7 @@ fun LearnUnitScreenContent(
                 ) {
                     Spacer(Modifier.height(16.dp))
                     Text(
-                        text = stringResource(
-                            Res.string.learn_test_intro,
-                            quiz.total,
-                            CertificateTier.PASS_PERCENT,
-                        ),
+                        text = stringResource(Res.string.learn_test_intro, quiz.total),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,
@@ -189,8 +184,6 @@ fun LearnUnitScreenContent(
 
 @Composable
 private fun EarnedCertificateCard(
-    tier: CertificateTier,
-    bestPercent: Int,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -203,14 +196,10 @@ private fun EarnedCertificateCard(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            CertificateMedal(tier = tier, modifier = Modifier.size(32.dp))
+            CertificateMedal(modifier = Modifier.size(32.dp))
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = stringResource(
-                        Res.string.learn_certificate_best,
-                        bestPercent,
-                        stringResource(tier.labelRes()),
-                    ),
+                    text = stringResource(Res.string.learn_certificate_awarded),
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
                 )
@@ -232,12 +221,20 @@ private fun LessonRow(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
+    // Ink follows the face. Material You resolves these containers from the wallpaper, so text
+    // coloured from a different pair - or left to inherit the ambient one - can land unreadable.
+    val face = if (isCompleted) {
+        MaterialTheme.colorScheme.primaryContainer
+    } else {
+        MaterialTheme.colorScheme.surfaceVariant
+    }
+    val ink = if (isCompleted) {
+        MaterialTheme.colorScheme.onPrimaryContainer
+    } else {
+        MaterialTheme.colorScheme.onSurfaceVariant
+    }
     PrismCard(
-        face = if (isCompleted) {
-            MaterialTheme.colorScheme.primaryContainer
-        } else {
-            MaterialTheme.colorScheme.surfaceVariant
-        },
+        face = face,
         modifier = modifier.hoverHand().clickable(onClick = onClick),
     ) {
         Row(
@@ -248,16 +245,17 @@ private fun LessonRow(
                 Text(
                     text = stringResource(Res.string.learn_lesson_number, index + 1),
                     style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = ink.copy(alpha = 0.75f),
                 )
                 Text(
                     text = lesson.title,
                     style = MaterialTheme.typography.titleSmall,
+                    color = ink,
                 )
                 Text(
                     text = lesson.summary,
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = ink.copy(alpha = 0.75f),
                 )
             }
             if (isCompleted) {
@@ -273,14 +271,12 @@ private fun LessonRow(
 @DevicePreviews
 @Composable
 private fun LearnUnitScreenPreview() {
-    val unit = LearnCatalog.unitOf(GradeLevel.GRADES_6_8, MathTopic.ALGEBRA)!!
+    val unit = LearnCatalog.units(MathTopic.ALGEBRA).first()
     ScreenPreviewHost {
         LearnUnitScreenContent(
             progress = LearnUnitProgress(
                 unit = unit,
                 lessonsCompleted = 1,
-                bestPercent = 80,
-                tier = CertificateTier.SILVER,
                 earnedEpochDay = 20_000,
             ),
             completedLessonIds = persistentSetOf(unit.lessons.first().id),

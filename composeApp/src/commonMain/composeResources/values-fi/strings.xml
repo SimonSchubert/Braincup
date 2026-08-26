@@ -825,12 +825,13 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_iq_test_high_desc">Saavuta arvioitu IQ 130 tai enemmän</string>
     <!-- Learn section -->
     <string name="learn_section_title">Opi matematiikkaa</string>
-    <string name="learn_section_subtitle">Valitse luokka-aste, käy aihe läpi ja tee sitten testi todistusta varten.</string>
+    <string name="learn_section_subtitle">Valitse aihe, käy se läpi vaihe vaiheelta ja tee sitten testi todistusta varten.</string>
     <string name="learn_section_certificates">%1$d / %2$d todistusta</string>
     <string name="learn_title">Opi matematiikkaa</string>
     <string name="learn_unit_progress">%1$d / %2$d todistusta</string>
-    <string name="learn_grade_intro">Jokainen aihe täällä opetetaan tämän luokka-asteen tasolla.</string>
-    <string name="learn_grade_certificates">%1$d / %2$d aihetta todistettu</string>
+    <string name="learn_topic_intro">Etene listaa alaspäin. Jokainen vaihe rakentuu edelliselle.</string>
+    <string name="learn_topic_certificates">%1$d / %2$d todistettu</string>
+    <string name="learn_ages">Ikä %1$s</string>
 
     <string name="learn_level_g12">1.–2. luokka</string>
     <string name="learn_level_g12_subtitle">6–8 v · laskeminen, muodot ja ensimmäiset mittaukset</string>
@@ -870,6 +871,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_continue">Jatka</string>
     <string name="learn_check">Tarkista</string>
     <string name="learn_next_line">Näytä seuraava rivi</string>
+    <string name="learn_try_again">Yritä uudelleen</string>
+    <string name="learn_try_again_hint">Ei aivan. Katso vielä kerran ja yritä uudelleen.</string>
     <string name="learn_answer_label">Vastaus</string>
     <string name="learn_correct">Oikein!</string>
     <string name="learn_incorrect">Ei ihan</string>
@@ -878,13 +881,9 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_take_test">Tee testi</string>
     <string name="learn_retake_test">Tee testi uudelleen</string>
     <string name="learn_test_title">%1$s-testi</string>
-    <string name="learn_test_intro">%1$d kysymystä. Vastaa oikein vähintään %2$d%% saadaksesi todistuksen.</string>
     <string name="learn_quiz_progress">Kysymys %1$d / %2$d</string>
     <string name="learn_quiz_result_title">Testi valmis</string>
-    <string name="learn_quiz_score">%1$d / %2$d oikein (%3$d%%)</string>
     <string name="learn_quiz_passed">Todistus ansaittu!</string>
-    <string name="learn_quiz_improved">Uusi henkilökohtainen ennätys!</string>
-    <string name="learn_quiz_failed">Tarvitset %1$d%% todistukseen. Kertaa oppitunnit ja yritä uudelleen.</string>
     <string name="learn_quiz_review">Tarkista vastaukset</string>
     <string name="learn_quiz_hide_review">Piilota vastaukset</string>
     <string name="learn_quiz_your_answer">Vastauksesi: %1$s</string>
@@ -893,19 +892,14 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_certificate_title">Todistus</string>
     <string name="learn_certificate_headline">Suoritustodistus</string>
     <string name="learn_certificate_intro">Tämä todistaa hyväksytyn tuloksen aiheessa</string>
-    <string name="learn_certificate_score">Pisteet %1$d%%</string>
     <string name="learn_certificate_earned">Ansaittu %1$s</string>
     <string name="learn_certificate_view">Näytä todistus</string>
-    <string name="learn_certificate_grade_bronze">Pronssi</string>
-    <string name="learn_certificate_grade_silver">Hopea</string>
-    <string name="learn_certificate_grade_gold">Kulta</string>
-    <string name="learn_certificate_best">Paras %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Ensimmäinen diplomi</string>
     <string name="achievement_learn_first_certificate_desc">Läpäise ensimmäinen Opi matematiikkaa -aiheen testi.</string>
-    <string name="achievement_learn_grade_certificates">Luokan priimus</string>
-    <string name="achievement_learn_grade_certificates_desc">Hanki jokainen todistus yhdeltä luokka-asteelta.</string>
+    <string name="achievement_learn_topic_certificates">Luokan priimus</string>
+    <string name="achievement_learn_topic_certificates_desc">Ansaitse yhden Opi matematiikkaa -aiheen kaikki todistukset.</string>
     <string name="achievement_learn_all_certificates">Matemaatikko</string>
-    <string name="achievement_learn_all_certificates_desc">Hanki todistus jokaisesta Opi matematiikkaa -aiheesta, jokaiselta luokka-asteelta.</string>
+    <string name="achievement_learn_all_certificates_desc">Ansaitse todistus jokaisesta Opi matematiikkaa -alaaiheesta.</string>
 
 </resources>

@@ -83,7 +83,7 @@ object IqTestReview
 object LearnMenu
 
 @Serializable
-data class LearnGradeDetail(val levelId: String)
+data class LearnTopicDetail(val topicId: String)
 
 @Serializable
 data class LearnUnitDetail(val unitId: String)

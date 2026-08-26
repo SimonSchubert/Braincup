@@ -5,12 +5,12 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
-import com.inspiredandroid.braincup.learn.CertificateTier
-import com.inspiredandroid.braincup.learn.GradeLevel
+import com.inspiredandroid.braincup.learn.Certificate
 import com.inspiredandroid.braincup.learn.LearnCatalog
-import com.inspiredandroid.braincup.learn.LearnGradeProgress
+import com.inspiredandroid.braincup.learn.LearnTopicProgress
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
@@ -106,9 +106,9 @@ class UserStorage(
             Res.string.achievement_learn_first_certificate_desc,
             isMilestone = true,
         ),
-        LEARN_GRADE_CERTIFICATES(
-            Res.string.achievement_learn_grade_certificates,
-            Res.string.achievement_learn_grade_certificates_desc,
+        LEARN_TOPIC_CERTIFICATES(
+            Res.string.achievement_learn_topic_certificates,
+            Res.string.achievement_learn_topic_certificates_desc,
             isMilestone = true,
         ),
         LEARN_ALL_CERTIFICATES(
@@ -141,7 +141,7 @@ class UserStorage(
                 add(IQ_TEST_COMPLETED)
                 add(IQ_TEST_HIGH)
                 add(LEARN_FIRST_CERTIFICATE)
-                add(LEARN_GRADE_CERTIFICATES)
+                add(LEARN_TOPIC_CERTIFICATES)
                 add(LEARN_ALL_CERTIFICATES)
                 add(TOTAL_SCORE_10K)
                 add(STREAK_30)
@@ -211,13 +211,8 @@ class UserStorage(
         /** First-time completion XP for one Learn lesson. Replays award nothing. */
         const val LEARN_LESSON_XP = 15
 
-        /** XP for a passed unit test, by certificate tier. Only the improvement over the
-         *  previously earned tier is granted, so retaking a test cannot farm XP. */
-        fun learnCertificateXp(tier: CertificateTier): Int = when (tier) {
-            CertificateTier.BRONZE -> 40
-            CertificateTier.SILVER -> 70
-            CertificateTier.GOLD -> 100
-        }
+        /** XP for certifying a unit test. Paid once per unit, so retaking cannot farm XP. */
+        const val LEARN_CERTIFICATE_XP = 100
 
         fun levelForXp(xp: Int): Int {
             if (xp <= 0) return 1
@@ -750,8 +745,6 @@ class UserStorage(
     @Immutable
     data class LearnCertificate(
         val unitId: String,
-        val percent: Int,
-        val tier: CertificateTier,
         /** Day the certificate was earned, as an epoch day, for the certificate screen. */
         val earnedEpochDay: Int,
     )
@@ -762,11 +755,8 @@ class UserStorage(
         val unit: LearnUnit,
         val correct: Int,
         val total: Int,
-        val percent: Int,
-        /** Tier earned by this attempt, or null when the attempt did not reach the pass mark. */
-        val tier: CertificateTier?,
-        /** True when this attempt beat every previous attempt at the unit. */
-        val isNewBest: Boolean,
+        /** True when every answer was correct, which is the only result that earns a certificate. */
+        val earnedCertificate: Boolean,
         val xpAward: XpAward,
     )
 
@@ -808,97 +798,86 @@ class UserStorage(
 
     fun getLearnCertificate(unit: LearnUnit): LearnCertificate? = getLearnCertificates()[unit.id]
 
-    /** Stored as "unitId:percent:epochDay"; entries for units no longer in the catalog are dropped. */
+    /**
+     * Stored as "unitId:epochDay". Entries for units no longer in the catalog are dropped, as are
+     * entries in the older graded format, whose partial passes no longer earn a certificate.
+     */
     private fun parseLearnCertificate(entry: String): LearnCertificate? {
         val parts = entry.split(":")
-        val unit = LearnCatalog.unitById(parts.getOrNull(0).orEmpty()) ?: return null
-        val percent = parts.getOrNull(1)?.toIntOrNull()?.coerceIn(0, 100) ?: return null
-        val tier = CertificateTier.forPercent(percent) ?: return null
-        val earnedEpochDay = parts.getOrNull(2)?.toIntOrNull() ?: 0
-        return LearnCertificate(unit.id, percent, tier, earnedEpochDay)
+        if (parts.size != 2) return null
+        val unit = LearnCatalog.unitById(parts[0]) ?: return null
+        val earnedEpochDay = parts[1].toIntOrNull() ?: return null
+        return LearnCertificate(unit.id, earnedEpochDay)
     }
 
     /**
-     * Record a finished unit test. A certificate is stored only when the result beats the unit's
-     * previous best, and XP is granted for the *improvement* in tier only, so retaking a passed
-     * test to farm XP is not possible.
+     * Record a finished unit test. The certificate is all-or-nothing: it is stored, and its XP
+     * paid, only for a flawless run and only the first time, so retaking a certified test to farm
+     * XP is not possible.
      */
     fun recordLearnQuizResult(unit: LearnUnit, correct: Int, total: Int): LearnQuizResult {
-        val percent = CertificateTier.percentOf(correct, total)
-        val tier = CertificateTier.forPercent(percent)
+        val earned = Certificate.isEarnedBy(correct, total)
         val certificates = getLearnCertificates()
-        val previous = certificates[unit.id]
-        val isNewBest = percent > (previous?.percent ?: -1)
 
-        if (tier == null || !isNewBest) {
-            return LearnQuizResult(unit, correct, total, percent, tier, isNewBest, XpAward(0, null))
+        if (!earned || unit.id in certificates) {
+            return LearnQuizResult(unit, correct, total, earned, XpAward(0, null))
         }
 
-        val updated = certificates + (
-            unit.id to LearnCertificate(unit.id, percent, tier, todayEpochDay())
-            )
+        val updated = certificates + (unit.id to LearnCertificate(unit.id, todayEpochDay()))
         store.putString(
             KEY_LEARN_CERTIFICATES,
-            updated.values.joinToString(",") { "${it.unitId}:${it.percent}:${it.earnedEpochDay}" },
+            updated.values.joinToString(",") { "${it.unitId}:${it.earnedEpochDay}" },
         )
 
         unlockAchievement(Achievements.LEARN_FIRST_CERTIFICATE)
-        if (LearnCatalog.units(unit.level).all { it.id in updated }) {
-            unlockAchievement(Achievements.LEARN_GRADE_CERTIFICATES)
+        if (LearnCatalog.units(unit.topic).all { it.id in updated }) {
+            unlockAchievement(Achievements.LEARN_TOPIC_CERTIFICATES)
         }
         if (updated.keys.containsAll(LearnCatalog.allUnits.map { it.id })) {
             unlockAchievement(Achievements.LEARN_ALL_CERTIFICATES)
         }
 
-        // Pay only the difference, so improving Bronze to Gold is worth exactly the gap.
-        val alreadyPaid = previous?.let { learnCertificateXp(it.tier) } ?: 0
-        val amount = (learnCertificateXp(tier) - alreadyPaid).coerceAtLeast(0)
-        val levelChange = addXp(amount)
-        return LearnQuizResult(unit, correct, total, percent, tier, true, XpAward(amount, levelChange))
+        val levelChange = addXp(LEARN_CERTIFICATE_XP)
+        return LearnQuizResult(unit, correct, total, true, XpAward(LEARN_CERTIFICATE_XP, levelChange))
     }
 
-    /** Menu state for one unit: lesson progress plus the best certificate earned. */
+    /** Menu state for one unit: lesson progress plus the certificate, once earned. */
     fun getLearnUnitProgress(unit: LearnUnit): LearnUnitProgress {
         val certificate = getLearnCertificate(unit)
         return LearnUnitProgress(
             unit = unit,
             lessonsCompleted = getCompletedLearnLessonCount(unit),
-            bestPercent = certificate?.percent,
-            tier = certificate?.tier,
             earnedEpochDay = certificate?.earnedEpochDay,
         )
     }
 
-    /** Menu state for every unit in one grade band. Reads storage once for the whole band. */
-    fun getLearnUnitProgress(level: GradeLevel): List<LearnUnitProgress> {
+    /** Menu state for every sub-topic of one topic. Reads storage once for the whole ladder. */
+    fun getLearnUnitProgress(topic: MathTopic): List<LearnUnitProgress> {
         val completed = getCompletedLearnLessonIds()
         val certificates = getLearnCertificates()
-        return LearnCatalog.units(level).map { unit ->
+        return LearnCatalog.units(topic).map { unit ->
             val certificate = certificates[unit.id]
             LearnUnitProgress(
                 unit = unit,
                 lessonsCompleted = unit.lessons.count { it.id in completed },
-                bestPercent = certificate?.percent,
-                tier = certificate?.tier,
                 earnedEpochDay = certificate?.earnedEpochDay,
             )
         }
     }
 
-    /** Menu state for every grade band, youngest first. Reads storage once for all bands. */
-    fun getAllLearnGradeProgress(): List<LearnGradeProgress> {
+    /** Menu state for every topic, in menu order. Reads storage once for all of them. */
+    fun getAllLearnTopicProgress(): List<LearnTopicProgress> {
         val completed = getCompletedLearnLessonIds()
         val certificates = getLearnCertificates()
-        return GradeLevel.entries.map { level ->
-            val units = LearnCatalog.units(level)
+        return MathTopic.entries.map { topic ->
+            val units = LearnCatalog.units(topic)
             val earned = units.mapNotNull { certificates[it.id] }
-            LearnGradeProgress(
-                level = level,
+            LearnTopicProgress(
+                topic = topic,
                 lessonsCompleted = units.sumOf { unit -> unit.lessons.count { it.id in completed } },
                 lessonsTotal = units.sumOf { it.lessons.size },
                 certificates = earned.size,
                 unitsTotal = units.size,
-                bestTier = earned.maxByOrNull { it.percent }?.tier,
             )
         }
     }

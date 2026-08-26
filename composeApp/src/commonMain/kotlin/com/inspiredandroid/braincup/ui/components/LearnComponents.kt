@@ -12,128 +12,124 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.learn_certificate_grade_bronze
-import braincup.composeapp.generated.resources.learn_certificate_grade_gold
-import braincup.composeapp.generated.resources.learn_certificate_grade_silver
-import braincup.composeapp.generated.resources.learn_lesson_progress
+import braincup.composeapp.generated.resources.learn_ages
 import braincup.composeapp.generated.resources.learn_unit_progress
-import com.inspiredandroid.braincup.learn.CertificateTier
-import com.inspiredandroid.braincup.learn.Curve
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnUnit
-import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.MathTopic
-import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
+import com.inspiredandroid.braincup.ui.components.learn.SubTopicRowPreview
+import com.inspiredandroid.braincup.ui.components.learn.TopicTilePreview
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
-import org.jetbrains.compose.resources.StringResource
+import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import org.jetbrains.compose.resources.stringResource
 
-private val BronzeMedal = Color(0xFFCD7F32)
-private val SilverMedal = Color(0xFFB8BFC6)
-
-/** Medal colour for a certificate tier, used by the badge, the tile and the certificate page. */
-fun CertificateTier.medalColor(): Color = when (this) {
-    CertificateTier.BRONZE -> BronzeMedal
-    CertificateTier.SILVER -> SilverMedal
-    CertificateTier.GOLD -> MedalGold
-}
-
-fun CertificateTier.labelRes(): StringResource = when (this) {
-    CertificateTier.BRONZE -> Res.string.learn_certificate_grade_bronze
-    CertificateTier.SILVER -> Res.string.learn_certificate_grade_silver
-    CertificateTier.GOLD -> Res.string.learn_certificate_grade_gold
-}
-
-/** The sketch that stands in for a whole grade band on its tile. */
-fun GradeLevel.tileVisual(): LearnVisual = when (this) {
-    GradeLevel.GRADES_1_2 -> LearnVisual.Counters(listOf(4, 3), merge = false)
-    GradeLevel.GRADES_3_5 -> LearnVisual.ArrayDots(rows = 3, cols = 4)
-    GradeLevel.GRADES_6_8 -> LearnVisual.Balance(leftX = 2, leftOnes = 1, rightOnes = 7)
-    GradeLevel.GRADES_9_10 -> LearnVisual.RightTriangle(a = 4, b = 3, labels = false)
-    GradeLevel.GRADES_11_12 -> LearnVisual.Plot(Curve.Quadratic(0.5f), tangentAt = 1.5f)
-}
-
-/** The sketch that stands in for a topic on its tiles. */
-fun MathTopic.tileVisual(): LearnVisual = when (this) {
-    MathTopic.ARITHMETIC -> LearnVisual.NumberLine(from = 0, to = 10, tickStep = 1)
-    MathTopic.MEASUREMENT -> LearnVisual.Ruler(length = 7, span = 10)
-    MathTopic.GEOMETRY -> LearnVisual.Polygon(sides = 5, countCorners = false)
-    MathTopic.DATA -> LearnVisual.BarChart(listOf(3, 5, 2, 6))
-    MathTopic.ALGEBRA -> LearnVisual.Balance(leftX = 1, leftOnes = 2, rightOnes = 5)
-    MathTopic.TRIGONOMETRY -> LearnVisual.UnitCircleFigure(degrees = 52)
-    MathTopic.FUNCTIONS -> LearnVisual.Plot(Curve.Quadratic(0.6f))
-    MathTopic.CALCULUS -> LearnVisual.Plot(Curve.Quadratic(0.5f), areaTo = 2f)
-}
-
-/** A small trophy in the tier's metal, shown wherever a certificate has been earned. */
+/** A small gold trophy, shown wherever a certificate has been earned. */
 @Composable
-fun CertificateMedal(
-    tier: CertificateTier,
-    modifier: Modifier = Modifier,
-) {
+fun CertificateMedal(modifier: Modifier = Modifier) {
     PrismTrophy(
-        tint = tier.medalColor(),
+        tint = MedalGold,
         modifier = modifier,
     )
 }
 
 /**
- * Grade band entry, used in the main menu's Learn section and on the Learn screen: the band's
- * sketch over its accent colour, with how many of its unit certificates have been earned.
+ * Topic entry, used in the main menu's Learn section and on the Learn screen: the topic's sketch
+ * over its accent colour, with how many of its sub-topic certificates have been earned.
  */
 @Composable
-fun LearnGradeTile(
-    level: GradeLevel,
+fun LearnTopicTile(
+    topic: MathTopic,
     certificates: Int,
     unitsTotal: Int,
-    bestTier: CertificateTier?,
-    onClick: (GradeLevel) -> Unit,
+    onClick: (MathTopic) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     LearnTileBody(
-        accentColor = level.accentColor,
-        visual = level.tileVisual(),
-        title = stringResource(level.titleRes),
+        accentColor = topic.accentColor,
+        preview = { TopicTilePreview(topic) },
+        title = stringResource(topic.titleRes),
         caption = stringResource(Res.string.learn_unit_progress, certificates, unitsTotal),
-        tier = bestTier,
-        onClick = { onClick(level) },
+        // The trophy marks a finished topic, so it waits for the last sub-topic's certificate.
+        showMedal = unitsTotal > 0 && certificates >= unitsTotal,
+        onClick = { onClick(topic) },
         modifier = modifier,
     )
 }
 
 /**
- * One topic at one grade band, shown on that band's screen with its lesson progress and any
- * certificate earned.
+ * One rung of a topic's ladder.
+ *
+ * A row rather than a square tile: sub-topics are an ordered sequence, and a row has space for the
+ * name and the age band it is normally taught at, which is what decides where to start. Lesson
+ * counts stay on the sub-topic's own screen; here they are noise between the titles.
  */
 @Composable
-fun LearnUnitTile(
+fun LearnSubTopicRow(
     unit: LearnUnit,
-    lessonsCompleted: Int,
-    lessonsTotal: Int,
-    tier: CertificateTier?,
+    position: Int,
+    ladderSize: Int,
+    hasCertificate: Boolean,
     onClick: (LearnUnit) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    LearnTileBody(
-        accentColor = unit.topic.accentColor,
-        visual = unit.topic.tileVisual(),
-        title = stringResource(unit.topic.titleRes),
-        caption = stringResource(Res.string.learn_lesson_progress, lessonsCompleted, lessonsTotal),
-        tier = tier,
+    PrismTile(
+        face = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = modifier.fillMaxWidth().hoverHand(),
         onClick = { onClick(unit) },
-        modifier = modifier,
-    )
+    ) {
+        Row(
+            modifier = Modifier.fillMaxWidth().padding(12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Box(
+                modifier = Modifier
+                    .size(52.dp)
+                    .background(Color(unit.topic.accentColor), PrismSlot),
+                contentAlignment = Alignment.Center,
+            ) {
+                MaterialTheme(colorScheme = LightColorScheme) {
+                    SubTopicRowPreview(
+                        position = position,
+                        ladderSize = ladderSize,
+                        modifier = Modifier.fillMaxSize(),
+                    )
+                }
+            }
+
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = unit.title,
+                    style = MaterialTheme.typography.titleSmall,
+                    color = MaterialTheme.colorScheme.onSurface,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Spacer(Modifier.height(2.dp))
+                Text(
+                    text = stringResource(Res.string.learn_ages, unit.level.ageRange),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
+
+            if (hasCertificate) {
+                CertificateMedal(modifier = Modifier.size(28.dp))
+            }
+        }
+    }
 }
 
 @Composable
 private fun LearnTileBody(
     accentColor: Long,
-    visual: LearnVisual,
+    preview: @Composable () -> Unit,
     title: String,
     caption: String,
-    tier: CertificateTier?,
+    showMedal: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -153,16 +149,10 @@ private fun LearnTileBody(
                 contentAlignment = Alignment.Center,
             ) {
                 MaterialTheme(colorScheme = LightColorScheme) {
-                    LearnVisualCanvas(
-                        visual = visual,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(12.dp),
-                    )
+                    preview()
                 }
-                if (tier != null) {
+                if (showMedal) {
                     CertificateMedal(
-                        tier = tier,
                         modifier = Modifier
                             .align(Alignment.TopEnd)
                             .padding(6.dp)

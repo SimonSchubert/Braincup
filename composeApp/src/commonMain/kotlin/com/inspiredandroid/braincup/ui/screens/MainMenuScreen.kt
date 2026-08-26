@@ -23,15 +23,15 @@ import com.inspiredandroid.braincup.app.GameController
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
-import com.inspiredandroid.braincup.learn.GradeLevel
-import com.inspiredandroid.braincup.learn.LearnGradeProgress
+import com.inspiredandroid.braincup.learn.LearnTopicProgress
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
 import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.IqTestTile
-import com.inspiredandroid.braincup.ui.components.LearnGradeTile
 import com.inspiredandroid.braincup.ui.components.LearnSectionHeader
+import com.inspiredandroid.braincup.ui.components.LearnTopicTile
 import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
 import com.inspiredandroid.braincup.ui.components.NormalChessTile
 import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
@@ -85,7 +85,7 @@ fun MainMenuScreen(
         controller.storage.getBestIqTestRawScore()?.let { IqScoring.iqFor(it) }
     }
     val learnProgress = remember(controller, storageRevision) {
-        controller.storage.getAllLearnGradeProgress().toImmutableList()
+        controller.storage.getAllLearnTopicProgress().toImmutableList()
     }
 
     val onPlayDaily = remember(controller) { { controller.startDailySession() } }
@@ -96,7 +96,7 @@ fun MainMenuScreen(
     val onNormalChess = remember(controller) { { controller.navigateToNormalChessMenu() } }
     val onMatchstickRiddles = remember(controller) { { controller.navigateToMatchstickRiddlesMenu() } }
     val onPegSolitaire = remember(controller) { { controller.navigateToPegSolitaire() } }
-    val onLearnGrade = remember(controller) { { level: GradeLevel -> controller.navigateToLearnGrade(level) } }
+    val onLearnTopic = remember(controller) { { topic: MathTopic -> controller.navigateToLearnTopic(topic) } }
     val onShowBrainCup = remember(controller) {
         if (PlayGamesBridge.onShowBrainCup != null) {
             { controller.showBrainCup() }
@@ -128,7 +128,7 @@ fun MainMenuScreen(
         onMatchstickRiddles = onMatchstickRiddles,
         onPegSolitaire = onPegSolitaire,
         learnProgress = learnProgress,
-        onLearnGrade = onLearnGrade,
+        onLearnTopic = onLearnTopic,
         onShowBrainCup = onShowBrainCup,
         useBuiltInSponsors = useBuiltInSponsors,
     )
@@ -163,9 +163,9 @@ fun MainMenuScreenContent(
     onNormalChess: () -> Unit = {},
     onMatchstickRiddles: () -> Unit = {},
     onPegSolitaire: () -> Unit = {},
-    /** Learn section state, one entry per grade band. Empty hides the section (store screenshots). */
-    learnProgress: ImmutableList<LearnGradeProgress> = persistentListOf(),
-    onLearnGrade: (GradeLevel) -> Unit = {},
+    /** Learn section state, one entry per topic. Empty hides the section (store screenshots). */
+    learnProgress: ImmutableList<LearnTopicProgress> = persistentListOf(),
+    onLearnTopic: (MathTopic) -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     useBuiltInSponsors: Boolean = false,
 ) {
@@ -372,15 +372,14 @@ fun MainMenuScreenContent(
 
             items(
                 learnProgress,
-                key = { "learn-${it.level.id}" },
-                contentType = { "learn_grade" },
-            ) { gradeProgress ->
-                LearnGradeTile(
-                    level = gradeProgress.level,
-                    certificates = gradeProgress.certificates,
-                    unitsTotal = gradeProgress.unitsTotal,
-                    bestTier = gradeProgress.bestTier,
-                    onClick = onLearnGrade,
+                key = { "learn-${it.topic.id}" },
+                contentType = { "learn_topic" },
+            ) { topicProgress ->
+                LearnTopicTile(
+                    topic = topicProgress.topic,
+                    certificates = topicProgress.certificates,
+                    unitsTotal = topicProgress.unitsTotal,
+                    onClick = onLearnTopic,
                 )
             }
         }
@@ -448,7 +447,7 @@ private fun MainMenuScreenPreview() {
             matchstickRiddlesSolved = 1,
             matchstickRiddlesTotal = 18,
             showDailyChallenge = true,
-            learnProgress = GradeLevel.entries.map { LearnGradeProgress.empty(it) }.toImmutableList(),
+            learnProgress = MathTopic.entries.map { LearnTopicProgress.empty(it) }.toImmutableList(),
         )
     }
 }

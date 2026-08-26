@@ -1,7 +1,5 @@
 package com.inspiredandroid.braincup.api
 
-import com.inspiredandroid.braincup.learn.CertificateTier
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.MathTopic
@@ -14,7 +12,7 @@ import kotlin.test.assertTrue
 
 class UserStorageLearnTest {
 
-    private fun unit(level: GradeLevel, topic: MathTopic): LearnUnit = requireNotNull(LearnCatalog.unitOf(level, topic)) { "missing unit $level/$topic" }
+    private fun unit(topic: MathTopic, slug: String): LearnUnit = requireNotNull(LearnCatalog.unitBySlug(topic, slug)) { "missing sub-topic $topic/$slug" }
 
     private val firstUnit = LearnCatalog.allUnits.first()
 
@@ -36,85 +34,68 @@ class UserStorageLearnTest {
     @Test
     fun lessonProgressCountsOnlyItsOwnUnit() {
         val storage = UserStorage.forPreview()
-        val middle = unit(GradeLevel.GRADES_6_8, MathTopic.ARITHMETIC)
-        val early = unit(GradeLevel.GRADES_1_2, MathTopic.ARITHMETIC)
+        val middle = unit(MathTopic.ARITHMETIC, "ratio-and-percent")
+        val early = unit(MathTopic.ARITHMETIC, "counting")
         storage.completeLearnLesson(middle.lessons.first().id)
 
         assertEquals(1, storage.getCompletedLearnLessonCount(middle))
         assertEquals(0, storage.getCompletedLearnLessonCount(early))
     }
 
+    /** One wrong answer is enough to miss out: the certificate is all-or-nothing. */
     @Test
-    fun failingTheTestStoresNoCertificate() {
+    fun anythingShortOfPerfectStoresNoCertificate() {
         val storage = UserStorage.forPreview()
-        val target = unit(GradeLevel.GRADES_3_5, MathTopic.GEOMETRY)
-        val result = storage.recordLearnQuizResult(target, correct = 4, total = 8)
+        val target = unit(MathTopic.GEOMETRY, "angles-and-symmetry")
+        val result = storage.recordLearnQuizResult(target, correct = 7, total = 8)
 
-        assertEquals(50, result.percent)
-        assertNull(result.tier)
+        assertFalse(result.earnedCertificate)
         assertNull(storage.getLearnCertificate(target))
         assertEquals(0, result.xpAward.xpGained)
         assertFalse(UserStorage.Achievements.LEARN_FIRST_CERTIFICATE in storage.getUnlockedAchievements())
     }
 
     @Test
-    fun passingStoresACertificateAndUnlocksTheAchievement() {
+    fun aFlawlessRunStoresACertificateAndUnlocksTheAchievement() {
         val storage = UserStorage.forPreview()
-        val target = unit(GradeLevel.GRADES_3_5, MathTopic.GEOMETRY)
-        val result = storage.recordLearnQuizResult(target, correct = 6, total = 8)
+        val target = unit(MathTopic.GEOMETRY, "angles-and-symmetry")
+        val result = storage.recordLearnQuizResult(target, correct = 8, total = 8)
 
-        assertEquals(75, result.percent)
-        assertEquals(CertificateTier.SILVER, result.tier)
-        assertTrue(result.isNewBest)
-        assertEquals(UserStorage.learnCertificateXp(CertificateTier.SILVER), result.xpAward.xpGained)
+        assertTrue(result.earnedCertificate)
+        assertEquals(UserStorage.LEARN_CERTIFICATE_XP, result.xpAward.xpGained)
 
-        val stored = storage.getLearnCertificate(target)
-        assertNotNull(stored)
-        assertEquals(CertificateTier.SILVER, stored.tier)
+        assertNotNull(storage.getLearnCertificate(target))
         assertTrue(UserStorage.Achievements.LEARN_FIRST_CERTIFICATE in storage.getUnlockedAchievements())
     }
 
     @Test
-    fun improvingATierPaysOnlyTheDifference() {
+    fun retakingACertifiedTestPaysNothingMore() {
         val storage = UserStorage.forPreview()
-        val target = unit(GradeLevel.GRADES_6_8, MathTopic.DATA)
-        storage.recordLearnQuizResult(target, correct = 5, total = 8) // 62% -> Bronze
-        val xpAfterBronze = storage.getTotalXp()
-
-        val gold = storage.recordLearnQuizResult(target, correct = 8, total = 8)
-        assertEquals(CertificateTier.GOLD, gold.tier)
-        assertEquals(
-            UserStorage.learnCertificateXp(CertificateTier.GOLD) -
-                UserStorage.learnCertificateXp(CertificateTier.BRONZE),
-            gold.xpAward.xpGained,
-        )
-        assertEquals(UserStorage.learnCertificateXp(CertificateTier.GOLD), storage.getTotalXp())
-        assertTrue(xpAfterBronze < storage.getTotalXp())
-    }
-
-    @Test
-    fun aWorseRetakeKeepsTheBestCertificate() {
-        val storage = UserStorage.forPreview()
-        val target = unit(GradeLevel.GRADES_11_12, MathTopic.CALCULUS)
+        val target = unit(MathTopic.CALCULUS, "limits-and-derivatives")
         storage.recordLearnQuizResult(target, correct = 8, total = 8)
-        val xpAfterGold = storage.getTotalXp()
+        val xpAfterCertificate = storage.getTotalXp()
+        assertEquals(UserStorage.LEARN_CERTIFICATE_XP, xpAfterCertificate)
 
-        val retake = storage.recordLearnQuizResult(target, correct = 5, total = 8)
-        assertFalse(retake.isNewBest)
-        assertEquals(0, retake.xpAward.xpGained)
-        assertEquals(100, storage.getLearnCertificate(target)?.percent)
-        assertEquals(xpAfterGold, storage.getTotalXp())
+        val perfectAgain = storage.recordLearnQuizResult(target, correct = 8, total = 8)
+        assertTrue(perfectAgain.earnedCertificate)
+        assertEquals(0, perfectAgain.xpAward.xpGained)
+
+        // A failed retake leaves the certificate it was earned with in place.
+        val slip = storage.recordLearnQuizResult(target, correct = 5, total = 8)
+        assertFalse(slip.earnedCertificate)
+        assertNotNull(storage.getLearnCertificate(target))
+        assertEquals(xpAfterCertificate, storage.getTotalXp())
     }
 
     @Test
-    fun certifyingAWholeBandUnlocksTheGradeAchievement() {
+    fun certifyingAWholeTopicUnlocksTheTopicAchievement() {
         val storage = UserStorage.forPreview()
-        val band = LearnCatalog.units(GradeLevel.GRADES_1_2)
-        band.dropLast(1).forEach { storage.recordLearnQuizResult(it, correct = 8, total = 8) }
-        assertFalse(UserStorage.Achievements.LEARN_GRADE_CERTIFICATES in storage.getUnlockedAchievements())
+        val ladder = LearnCatalog.units(MathTopic.MEASUREMENT)
+        ladder.dropLast(1).forEach { storage.recordLearnQuizResult(it, correct = 8, total = 8) }
+        assertFalse(UserStorage.Achievements.LEARN_TOPIC_CERTIFICATES in storage.getUnlockedAchievements())
 
-        storage.recordLearnQuizResult(band.last(), correct = 8, total = 8)
-        assertTrue(UserStorage.Achievements.LEARN_GRADE_CERTIFICATES in storage.getUnlockedAchievements())
+        storage.recordLearnQuizResult(ladder.last(), correct = 8, total = 8)
+        assertTrue(UserStorage.Achievements.LEARN_TOPIC_CERTIFICATES in storage.getUnlockedAchievements())
         assertFalse(UserStorage.Achievements.LEARN_ALL_CERTIFICATES in storage.getUnlockedAchievements())
     }
 
@@ -134,39 +115,37 @@ class UserStorageLearnTest {
     @Test
     fun unitProgressReflectsLessonsAndCertificate() {
         val storage = UserStorage.forPreview()
-        val target = unit(GradeLevel.GRADES_9_10, MathTopic.TRIGONOMETRY)
+        val target = unit(MathTopic.TRIGONOMETRY, "right-triangle-trig")
         storage.completeLearnLesson(target.lessons.first().id)
         storage.recordLearnQuizResult(target, correct = 8, total = 8)
 
         val progress = storage.getLearnUnitProgress(target)
         assertEquals(1, progress.lessonsCompleted)
         assertEquals(target.lessons.size, progress.lessonsTotal)
-        assertEquals(CertificateTier.GOLD, progress.tier)
         assertTrue(progress.hasCertificate)
         assertFalse(progress.allLessonsDone)
 
         assertEquals(
-            LearnCatalog.units(GradeLevel.GRADES_9_10).size,
-            storage.getLearnUnitProgress(GradeLevel.GRADES_9_10).size,
+            LearnCatalog.units(MathTopic.TRIGONOMETRY).size,
+            storage.getLearnUnitProgress(MathTopic.TRIGONOMETRY).size,
         )
     }
 
     @Test
-    fun gradeProgressRollsUpItsUnits() {
+    fun topicProgressRollsUpItsSubTopics() {
         val storage = UserStorage.forPreview()
-        val band = LearnCatalog.units(GradeLevel.GRADES_1_2)
-        storage.completeLearnLesson(band.first().lessons.first().id)
-        storage.recordLearnQuizResult(band.first(), correct = 6, total = 8)
+        val ladder = LearnCatalog.units(MathTopic.ALGEBRA)
+        storage.completeLearnLesson(ladder.first().lessons.first().id)
+        storage.recordLearnQuizResult(ladder.first(), correct = 8, total = 8)
 
-        val all = storage.getAllLearnGradeProgress()
-        assertEquals(GradeLevel.entries.size, all.size)
+        val all = storage.getAllLearnTopicProgress()
+        assertEquals(MathTopic.entries.size, all.size)
 
-        val early = all.first { it.level == GradeLevel.GRADES_1_2 }
-        assertEquals(1, early.lessonsCompleted)
-        assertEquals(band.sumOf { it.lessons.size }, early.lessonsTotal)
-        assertEquals(1, early.certificates)
-        assertEquals(band.size, early.unitsTotal)
-        assertEquals(CertificateTier.SILVER, early.bestTier)
-        assertFalse(early.allCertificatesEarned)
+        val algebra = all.first { it.topic == MathTopic.ALGEBRA }
+        assertEquals(1, algebra.lessonsCompleted)
+        assertEquals(ladder.sumOf { it.lessons.size }, algebra.lessonsTotal)
+        assertEquals(1, algebra.certificates)
+        assertEquals(ladder.size, algebra.unitsTotal)
+        assertFalse(algebra.allCertificatesEarned)
     }
 }

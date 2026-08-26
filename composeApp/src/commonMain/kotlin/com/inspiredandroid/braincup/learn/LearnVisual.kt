@@ -32,7 +32,17 @@ sealed interface LearnVisual {
     /** A ten-frame filling to 10, then spilling the remainder into a second frame. */
     data class TenFrame(val filled: Int, val added: Int, override val reveal: Boolean = true) : LearnVisual
 
-    /** Number line from [from] to [to]; when [jump] is set, a hop animates out of [start]. */
+    /**
+     * Number line from [from] to [to]; when [jump] is set, a hop animates out of [start].
+     *
+     * [hopSteps] replaces that even split with hops of different sizes, taken in order, for the
+     * figures that bridge through ten: 15 - 8 is drawn as -5 down to ten and then -3, which is
+     * how the lesson teaches it. [jump] and [hops] are ignored when it is set.
+     *
+     * [thenJump] adds a second hop demonstrated after the first, holding between the two and
+     * looping. It exists for the figures that teach a pair of opposite moves - one more and one
+     * less - where showing only one direction teaches only half the idea.
+     */
     data class NumberLine(
         val from: Int,
         val to: Int,
@@ -40,27 +50,102 @@ sealed interface LearnVisual {
         val start: Int? = null,
         val jump: Int = 0,
         val hops: Int = 1,
+        val hopSteps: List<Int> = emptyList(),
+        val thenJump: Int? = null,
         override val reveal: Boolean = true,
     ) : LearnVisual
 
-    /** Base-ten rods and unit cubes. */
-    data class PlaceValue(val tens: Int, val ones: Int, override val reveal: Boolean = true) : LearnVisual
+    /**
+     * Base-ten rods and unit cubes, as `tens` to `ones`.
+     *
+     * [plus] sets a second number beside the first to be added to it, and [compare] one to be
+     * measured against it. A step that asks which of two numbers is larger has to show both of
+     * them, and one that adds two numbers has to show both piles going in.
+     */
+    data class PlaceValue(
+        val tens: Int,
+        val ones: Int,
+        val plus: Pair<Int, Int>? = null,
+        val compare: Pair<Int, Int>? = null,
+        override val reveal: Boolean = true,
+    ) : LearnVisual
 
-    /** Hundred-square shaded to a decimal, optionally beside a second one to compare. */
+    /**
+     * Hundred-square shaded to a decimal, with a second one beside it to measure against with
+     * [compare] or to add to it with [plus].
+     *
+     * A sum's total arrives as a third square once the figure may reveal it, so a learner watches
+     * tenths land on tenths instead of being told to line the points up. Both parts of a [plus]
+     * have to fit inside one square, which is the whole reason the sums are written under 1.
+     *
+     * [of] is the whole the shading is a percentage of, so "20% of 80" can put the 80 on the panel
+     * and grow the answer out of the shaded squares, instead of leaving the grid to illustrate the
+     * percentage and say nothing about the question. [percent] captions the square "35% = 0.35"
+     * rather than "0.35", for the step whose whole point is that those are one number twice.
+     */
     data class DecimalGrid(
         val value: Double,
         val compare: Double? = null,
+        val plus: Double? = null,
+        val of: Int? = null,
+        val percent: Boolean = false,
         override val reveal: Boolean = true,
     ) : LearnVisual
 
-    /** Rows x columns of dots, filled row by row: multiplication you can count. */
-    data class ArrayDots(val rows: Int, val cols: Int, override val reveal: Boolean = true) : LearnVisual
+    /**
+     * Rows x columns of dots, filled row by row: multiplication you can count.
+     *
+     * [split] cuts the rows into two blocks, the first [split] and the rest, drawn in the two group
+     * colours. That is how a hard fact is actually worked out - 6 eights is 5 eights and one more
+     * eight - and it lets the prose colour its numbers to match the blocks.
+     *
+     * [leftover] adds the dots that could not fill another whole row, and [divide] captions the
+     * array as the division it answers rather than as the product it builds. Either one turns the
+     * same picture from building up into sharing out.
+     */
+    data class ArrayDots(
+        val rows: Int,
+        val cols: Int,
+        val split: Int? = null,
+        val leftover: Int = 0,
+        val divide: Boolean = false,
+        override val reveal: Boolean = true,
+    ) : LearnVisual
 
-    /** One fraction bar, or two stacked bars when [compare] is given. */
+    /**
+     * One fraction bar, a second stacked under it to measure against with [compare], or the two
+     * parts of a sum with [plus].
+     *
+     * A [plus] closes with the total on a third bar, keeping each half in the colour it arrived in,
+     * so "the pieces are the same size, add the tops" is something to look at rather than a rule.
+     * Both bars must be cut into the same number of pieces: pieces only add when they match.
+     */
     data class Fraction(
         val numerator: Int,
         val denominator: Int,
         val compare: Pair<Int, Int>? = null,
+        val plus: Pair<Int, Int>? = null,
+        override val reveal: Boolean = true,
+    ) : LearnVisual
+
+    /**
+     * A ratio as one bar cut into its parts, each run in its own colour: 2 : 3 is a run of two
+     * beside a run of three, not a fraction bar shaded 2 of 5.
+     *
+     * It is a separate figure from [Fraction] because reading a ratio as a fraction of the whole
+     * is the one mistake this corner of the curriculum exists to head off, and a fraction bar
+     * captions itself "2/5". Here the two runs are equal partners and the counts sit over their
+     * own colours.
+     *
+     * [scale] cuts every part again once the bar is out, so the same bar reads as 3 : 5 and then
+     * as 12 : 20 and equivalence is a finer cut rather than a second diagram. [total] shares that
+     * amount over the parts and says underneath what each run is worth.
+     */
+    data class RatioBar(
+        val parts: List<Int>,
+        val scale: Int = 1,
+        val total: Int? = null,
+        override val reveal: Boolean = true,
     ) : LearnVisual
 
     /** Coins with their values, counted on one at a time to a running total. */
@@ -80,6 +165,20 @@ sealed interface LearnVisual {
 
     /** Clock face with both hands. */
     data class Clock(val hour: Int, val minute: Int) : LearnVisual
+
+    /**
+     * A solution set on a number line: every value on one side of [value], drawn as a ray. The end
+     * is hollow for a strict inequality and solid for [orEqual], which is the whole difference
+     * between `x > 3` and `x >= 3` and the thing learners most often lose a mark on.
+     */
+    data class Inequality(
+        val from: Int,
+        val to: Int,
+        val value: Int,
+        val greater: Boolean,
+        val orEqual: Boolean = false,
+        override val reveal: Boolean = true,
+    ) : LearnVisual
 
     /** Terms with the step between them labelled, for sequences and skip counting. */
     data class Steps(val terms: List<Int>, val multiply: Boolean = false) : LearnVisual
@@ -211,6 +310,16 @@ sealed interface LearnVisual {
         override val reveal: Boolean = true,
     ) : LearnVisual
 }
+
+/**
+ * How many phases this figure plays through before it repeats. Almost every figure is a single
+ * animation; the exceptions demonstrate a move and then its opposite.
+ */
+val LearnVisual.phaseCount: Int
+    get() = when {
+        this is LearnVisual.NumberLine && thenJump != null -> 2
+        else -> 1
+    }
 
 enum class SolidKind { CUBE, SPHERE, CYLINDER, CONE, PRISM }
 

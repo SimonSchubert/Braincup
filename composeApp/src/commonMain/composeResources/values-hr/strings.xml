@@ -825,12 +825,13 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_iq_test_high_desc">Dosegni procijenjeni IQ 130 ili viši</string>
     <!-- Learn section -->
     <string name="learn_section_title">Uči matematiku</string>
-    <string name="learn_section_subtitle">Odaberi razred, prođi temu pa položi test za certifikat.</string>
+    <string name="learn_section_subtitle">Odaberi temu, prođi je korak po korak, a zatim riješi test za certifikat.</string>
     <string name="learn_section_certificates">%1$d / %2$d certifikata</string>
     <string name="learn_title">Uči matematiku</string>
     <string name="learn_unit_progress">%1$d / %2$d certifikata</string>
-    <string name="learn_grade_intro">Svaka tema se ovdje predaje na razini ovog razreda.</string>
-    <string name="learn_grade_certificates">%1$d od %2$d tema s certifikatom</string>
+    <string name="learn_topic_intro">Kreći se popisom prema dolje. Svaki korak gradi na prethodnom.</string>
+    <string name="learn_topic_certificates">%1$d od %2$d s certifikatom</string>
+    <string name="learn_ages">Dob %1$s</string>
 
     <string name="learn_level_g12">1.–2. razred</string>
     <string name="learn_level_g12_subtitle">6–8 godina · brojanje, oblici i prva mjerenja</string>
@@ -870,6 +871,8 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_continue">Nastavi</string>
     <string name="learn_check">Provjeri</string>
     <string name="learn_next_line">Pokaži sljedeći redak</string>
+    <string name="learn_try_again">Pokušaj ponovno</string>
+    <string name="learn_try_again_hint">Nije baš. Pogledaj još jednom i pokušaj ponovno.</string>
     <string name="learn_answer_label">Odgovor</string>
     <string name="learn_correct">Točno!</string>
     <string name="learn_incorrect">Još ne</string>
@@ -878,13 +881,9 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_take_test">Položi test</string>
     <string name="learn_retake_test">Ponovi test</string>
     <string name="learn_test_title">Test %1$s</string>
-    <string name="learn_test_intro">%1$d pitanja. Odgovori točno na barem %2$d%% i osvoji certifikat.</string>
     <string name="learn_quiz_progress">Pitanje %1$d od %2$d</string>
     <string name="learn_quiz_result_title">Test završen</string>
-    <string name="learn_quiz_score">%1$d od %2$d točno (%3$d%%)</string>
     <string name="learn_quiz_passed">Certifikat osvojen!</string>
-    <string name="learn_quiz_improved">Novi osobni rekord!</string>
-    <string name="learn_quiz_failed">Za certifikat trebaš %1$d%%. Ponovi lekcije i pokušaj ponovno.</string>
     <string name="learn_quiz_review">Pregledaj odgovore</string>
     <string name="learn_quiz_hide_review">Sakrij odgovore</string>
     <string name="learn_quiz_your_answer">Tvoj odgovor: %1$s</string>
@@ -893,19 +892,14 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_certificate_title">Certifikat</string>
     <string name="learn_certificate_headline">Certifikat o uspjehu</string>
     <string name="learn_certificate_intro">Ovim se potvrđuje uspješan rezultat u</string>
-    <string name="learn_certificate_score">Rezultat %1$d%%</string>
     <string name="learn_certificate_earned">Osvojeno %1$s</string>
     <string name="learn_certificate_view">Prikaži certifikat</string>
-    <string name="learn_certificate_grade_bronze">Bronca</string>
-    <string name="learn_certificate_grade_silver">Srebro</string>
-    <string name="learn_certificate_grade_gold">Zlato</string>
-    <string name="learn_certificate_best">Najbolje %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Ovjeren</string>
     <string name="achievement_learn_first_certificate_desc">Položi svoj prvi test teme u Uči matematiku.</string>
-    <string name="achievement_learn_grade_certificates">Prvak razreda</string>
-    <string name="achievement_learn_grade_certificates_desc">Osvoji svaki certifikat u jednom razredu.</string>
+    <string name="achievement_learn_topic_certificates">Prvak razreda</string>
+    <string name="achievement_learn_topic_certificates_desc">Osvoji sve certifikate jedne teme u Uči matematiku.</string>
     <string name="achievement_learn_all_certificates">Matematički učenjak</string>
-    <string name="achievement_learn_all_certificates_desc">Osvoji certifikat u svakoj temi Uči matematiku, u svakom razredu.</string>
+    <string name="achievement_learn_all_certificates_desc">Osvoji certifikat u svakoj podtemi u Uči matematiku.</string>
 
 </resources>

@@ -825,12 +825,13 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_iq_test_high_desc">Pasiek įvertintą IQ 130 ar daugiau</string>
     <!-- Learn section -->
     <string name="learn_section_title">Mokykis matematikos</string>
-    <string name="learn_section_subtitle">Pasirink klasę, pereik temą, tada laikyk testą sertifikatui.</string>
+    <string name="learn_section_subtitle">Pasirink temą, eik per ją žingsnis po žingsnio, tada laikyk testą sertifikatui gauti.</string>
     <string name="learn_section_certificates">%1$d / %2$d sertifikatų</string>
     <string name="learn_title">Mokykis matematikos</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifikatų</string>
-    <string name="learn_grade_intro">Kiekviena tema čia dėstoma šios klasės lygiu.</string>
-    <string name="learn_grade_certificates">%1$d iš %2$d temų su sertifikatu</string>
+    <string name="learn_topic_intro">Judėk sąrašu žemyn. Kiekvienas žingsnis remiasi ankstesniu.</string>
+    <string name="learn_topic_certificates">%1$d iš %2$d su sertifikatu</string>
+    <string name="learn_ages">Amžius %1$s</string>
 
     <string name="learn_level_g12">1–2 klasė</string>
     <string name="learn_level_g12_subtitle">6–8 m. · skaičiavimas, formos ir pirmi matai</string>
@@ -870,6 +871,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_continue">Tęsti</string>
     <string name="learn_check">Tikrinti</string>
     <string name="learn_next_line">Rodyti kitą eilutę</string>
+    <string name="learn_try_again">Bandyk dar kartą</string>
+    <string name="learn_try_again_hint">Ne visai. Pažiūrėk dar kartą ir bandyk vėl.</string>
     <string name="learn_answer_label">Atsakymas</string>
     <string name="learn_correct">Teisingai!</string>
     <string name="learn_incorrect">Dar ne</string>
@@ -878,13 +881,9 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_take_test">Laikyti testą</string>
     <string name="learn_retake_test">Kartoti testą</string>
     <string name="learn_test_title">Testas %1$s</string>
-    <string name="learn_test_intro">%1$d klausimų. Atsakyk teisingai bent į %2$d%% ir gauk sertifikatą.</string>
     <string name="learn_quiz_progress">Klausimas %1$d iš %2$d</string>
     <string name="learn_quiz_result_title">Testas baigtas</string>
-    <string name="learn_quiz_score">%1$d iš %2$d teisingai (%3$d%%)</string>
     <string name="learn_quiz_passed">Sertifikatas gautas!</string>
-    <string name="learn_quiz_improved">Naujas asmeninis rekordas!</string>
-    <string name="learn_quiz_failed">Sertifikatui reikia %1$d%%. Peržiūrėk pamokas ir bandyk dar kartą.</string>
     <string name="learn_quiz_review">Peržiūrėti atsakymus</string>
     <string name="learn_quiz_hide_review">Slėpti atsakymus</string>
     <string name="learn_quiz_your_answer">Tavo atsakymas: %1$s</string>
@@ -893,19 +892,14 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_certificate_title">Sertifikatas</string>
     <string name="learn_certificate_headline">Pasiekimo sertifikatas</string>
     <string name="learn_certificate_intro">Šiuo patvirtinamas sėkmingas rezultatas</string>
-    <string name="learn_certificate_score">Rezultatas %1$d%%</string>
     <string name="learn_certificate_earned">Gauta %1$s</string>
     <string name="learn_certificate_view">Žiūrėti sertifikatą</string>
-    <string name="learn_certificate_grade_bronze">Bronza</string>
-    <string name="learn_certificate_grade_silver">Sidabras</string>
-    <string name="learn_certificate_grade_gold">Auksas</string>
-    <string name="learn_certificate_best">Geriausia %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Patvirtintas</string>
     <string name="achievement_learn_first_certificate_desc">Išlaikyk pirmąjį temos testą Mokykis matematikos.</string>
-    <string name="achievement_learn_grade_certificates">Klasės pirmūnas</string>
-    <string name="achievement_learn_grade_certificates_desc">Gauk kiekvieną sertifikatą vienoje klasėje.</string>
+    <string name="achievement_learn_topic_certificates">Klasės pirmūnas</string>
+    <string name="achievement_learn_topic_certificates_desc">Gauk visus vienos Mokykis matematikos temos sertifikatus.</string>
     <string name="achievement_learn_all_certificates">Matematikos žinovas</string>
-    <string name="achievement_learn_all_certificates_desc">Gauk sertifikatą kiekvienoje Mokykis matematikos temoje, kiekvienoje klasėje.</string>
+    <string name="achievement_learn_all_certificates_desc">Gauk sertifikatą kiekvienoje Mokykis matematikos potemėje.</string>
 
 </resources>

@@ -1,10 +1,8 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.GridItemSpan
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,32 +11,33 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.learn_grade_certificates
-import braincup.composeapp.generated.resources.learn_grade_intro
+import braincup.composeapp.generated.resources.learn_topic_certificates
+import braincup.composeapp.generated.resources.learn_topic_intro
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.LearnUnitTile
+import com.inspiredandroid.braincup.ui.components.LearnSubTopicRow
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
 
-/** The topics taught at one grade band. Each tile opens that band's unit for the topic. */
+/** One topic's ladder of sub-topics, easiest first. Each row opens that sub-topic's lessons. */
 @Composable
-fun LearnGradeScreen(
-    level: GradeLevel,
+fun LearnTopicScreen(
+    topic: MathTopic,
     storage: UserStorage,
     onUnitSelected: (LearnUnit) -> Unit,
     onBack: () -> Unit,
 ) {
-    val progress = remember(storage, level) { storage.getLearnUnitProgress(level).toImmutableList() }
-    LearnGradeScreenContent(
-        level = level,
+    val progress = remember(storage, topic) { storage.getLearnUnitProgress(topic).toImmutableList() }
+    LearnTopicScreenContent(
+        topic = topic,
         progress = progress,
         onUnitSelected = onUnitSelected,
         onBack = onBack,
@@ -46,8 +45,8 @@ fun LearnGradeScreen(
 }
 
 @Composable
-fun LearnGradeScreenContent(
-    level: GradeLevel,
+fun LearnTopicScreenContent(
+    topic: MathTopic,
     progress: ImmutableList<LearnUnitProgress>,
     onUnitSelected: (LearnUnit) -> Unit,
     onBack: () -> Unit,
@@ -55,30 +54,29 @@ fun LearnGradeScreenContent(
     val certificateCount = remember(progress) { progress.count { it.hasCertificate } }
 
     AppScaffold(
-        title = stringResource(level.titleRes),
+        title = stringResource(topic.titleRes),
         onBack = onBack,
         scrollable = false,
     ) {
-        LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 150.dp),
+        LazyColumn(
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .widthIn(max = ContentMaxWidth),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            item(span = { GridItemSpan(maxLineSpan) }, contentType = "grade_intro") {
-                Column(modifier = Modifier.fillMaxWidth()) {
+            item(contentType = "topic_intro") {
+                Column(modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)) {
                     Text(
-                        text = stringResource(level.subtitleRes),
+                        text = stringResource(topic.subtitleRes),
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth(),
                     )
                     Spacer(Modifier.height(4.dp))
                     Text(
-                        text = stringResource(Res.string.learn_grade_intro),
+                        text = stringResource(Res.string.learn_topic_intro),
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                         textAlign = TextAlign.Center,
@@ -87,7 +85,7 @@ fun LearnGradeScreenContent(
                     Spacer(Modifier.height(4.dp))
                     Text(
                         text = stringResource(
-                            Res.string.learn_grade_certificates,
+                            Res.string.learn_topic_certificates,
                             certificateCount,
                             progress.size,
                         ),
@@ -99,12 +97,16 @@ fun LearnGradeScreenContent(
                 }
             }
 
-            items(progress, key = { it.unit.id }, contentType = { "learn_unit" }) { unitProgress ->
-                LearnUnitTile(
+            itemsIndexed(
+                items = progress,
+                key = { _, item -> item.unit.id },
+                contentType = { _, _ -> "learn_subtopic" },
+            ) { index, unitProgress ->
+                LearnSubTopicRow(
                     unit = unitProgress.unit,
-                    lessonsCompleted = unitProgress.lessonsCompleted,
-                    lessonsTotal = unitProgress.lessonsTotal,
-                    tier = unitProgress.tier,
+                    position = index + 1,
+                    ladderSize = progress.size,
+                    hasCertificate = unitProgress.hasCertificate,
                     onClick = onUnitSelected,
                 )
             }
@@ -114,11 +116,11 @@ fun LearnGradeScreenContent(
 
 @DevicePreviews
 @Composable
-private fun LearnGradeScreenPreview() {
+private fun LearnTopicScreenPreview() {
     ScreenPreviewHost {
-        LearnGradeScreenContent(
-            level = GradeLevel.GRADES_3_5,
-            progress = LearnCatalog.units(GradeLevel.GRADES_3_5)
+        LearnTopicScreenContent(
+            topic = MathTopic.ALGEBRA,
+            progress = LearnCatalog.units(MathTopic.ALGEBRA)
                 .map { LearnUnitProgress.empty(it) }
                 .toImmutableList(),
             onUnitSelected = {},

@@ -14,60 +14,56 @@ import braincup.composeapp.generated.resources.learn_level_g910_subtitle
 import org.jetbrains.compose.resources.StringResource
 
 /**
- * A school-grade band in the Learn section. The band, not the subject, is the first choice a
- * learner makes: the same topic comes back at several bands with harder material each time, so
- * picking "Geometry" alone would drop a nine-year-old into circle theorems.
+ * Where a sub-topic sits in school.
  *
- * [id] is persisted (unit ids, certificates) and [urlSlug] appears in the web build's address bar,
- * so neither may be renamed once shipped.
+ * This is a hint shown on the sub-topic ("Ages 11-14") and the key its topic's ladder is ordered
+ * by, not a navigation layer: learners pick a topic and then a sub-topic, never a school year. [id]
+ * is persisted in saved state, so it may not be renamed once shipped.
  */
 enum class GradeLevel(
     val id: String,
     val urlSlug: String,
     val titleRes: StringResource,
     val subtitleRes: StringResource,
-    /** Tile accent, running from warm (youngest) to cool (oldest). */
-    val accentColor: Long,
+    /** The ages this band is usually taught at, shown beside a sub-topic's name. */
+    val ageRange: String,
 ) {
     GRADES_1_2(
         id = "g12",
         urlSlug = "grade-1-2",
         titleRes = Res.string.learn_level_g12,
         subtitleRes = Res.string.learn_level_g12_subtitle,
-        accentColor = 0xFFFEF3C7,
+        ageRange = "6–8",
     ),
     GRADES_3_5(
         id = "g35",
         urlSlug = "grade-3-5",
         titleRes = Res.string.learn_level_g35,
         subtitleRes = Res.string.learn_level_g35_subtitle,
-        accentColor = 0xFFD1FAE5,
+        ageRange = "8–11",
     ),
     GRADES_6_8(
         id = "g68",
         urlSlug = "grade-6-8",
         titleRes = Res.string.learn_level_g68,
         subtitleRes = Res.string.learn_level_g68_subtitle,
-        accentColor = 0xFFDBEAFE,
+        ageRange = "11–14",
     ),
     GRADES_9_10(
         id = "g910",
         urlSlug = "grade-9-10",
         titleRes = Res.string.learn_level_g910,
         subtitleRes = Res.string.learn_level_g910_subtitle,
-        accentColor = 0xFFEDE9FE,
+        ageRange = "14–16",
     ),
     GRADES_11_12(
         id = "g1112",
         urlSlug = "grade-11-12",
         titleRes = Res.string.learn_level_g1112,
         subtitleRes = Res.string.learn_level_g1112_subtitle,
-        accentColor = 0xFFFCE7F3,
+        ageRange = "16–18",
     ),
     ;
-
-    /** The units taught at this band, in the order they should be worked through. */
-    val units: List<LearnUnit> get() = LearnCatalog.units(this)
 
     companion object {
         fun byId(id: String): GradeLevel? = entries.firstOrNull { it.id == id }

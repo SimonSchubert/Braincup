@@ -11,8 +11,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -24,6 +26,7 @@ import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
@@ -32,12 +35,24 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.TextUnit
 import com.inspiredandroid.braincup.learn.LearnVisual
+import com.inspiredandroid.braincup.learn.phaseCount
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.delay
 
 private val EntranceSpec = tween<Float>(durationMillis = 1100, easing = FastOutSlowInEasing)
+
+/** How long a finished phase stays on screen before a two-phase figure moves on. */
+private const val PhaseHoldMillis = 3000L
+
+/**
+ * A value the learner has just put forward, so a figure drawn on a scale can point at it.
+ *
+ * Deliberately not part of [LearnVisual]: which numbers a figure is about is content, but what the
+ * learner just guessed is screen state, and the same authored figure is shown before and after.
+ */
+data class VisualAnswer(val value: Int, val correct: Boolean)
 
 /**
  * The animated diagram for one lesson step.
@@ -46,32 +61,51 @@ private val EntranceSpec = tween<Float>(durationMillis = 1100, easing = FastOutS
  * without per-theme assets. The whole figure animates in on first appearance — dots slide together,
  * bars grow, sides draw on — and tapping it replays that animation, because the movement is often
  * the explanation.
+ *
+ * A figure with more than one phase ([LearnVisual.phaseCount]) plays them in turn, holding each
+ * finished phase for [PhaseHoldMillis] before the next, and loops.
  */
 @Composable
 fun LearnVisualCanvas(
     visual: LearnVisual,
     modifier: Modifier = Modifier,
     ink: Color = MaterialTheme.colorScheme.onSurfaceVariant,
+    answer: VisualAnswer? = null,
 ) {
-    val progress = remember(visual) { Animatable(0f) }
-    LaunchedEffect(visual) { progress.animateTo(1f, EntranceSpec) }
+    // Previews and screenshot tests never advance the clock, so an entrance that starts at zero
+    // renders them as an empty panel. Under inspection the figure starts finished instead.
+    val inspecting = LocalInspectionMode.current
+    val progress = remember(visual, inspecting) { Animatable(if (inspecting) 1f else 0f) }
+    var phase by remember(visual) { mutableIntStateOf(0) }
+    // Bumped by a tap. Restarting the whole effect is what makes replay work on a looping figure:
+    // a second coroutine racing the loop would leave the two fighting over the same Animatable.
+    var replayKey by remember(visual) { mutableIntStateOf(0) }
+    val phaseCount = visual.phaseCount
+
+    LaunchedEffect(visual, inspecting, replayKey) {
+        if (inspecting) return@LaunchedEffect
+        phase = 0
+        while (true) {
+            progress.snapTo(0f)
+            progress.animateTo(1f, EntranceSpec)
+            if (phaseCount <= 1) break
+            delay(PhaseHoldMillis)
+            phase = (phase + 1) % phaseCount
+        }
+    }
+
     val measurer = rememberTextMeasurer()
-    val replayScope = rememberCoroutineScope()
+    val wrongColor = MaterialTheme.colorScheme.error
     val interactions = remember { MutableInteractionSource() }
 
     Box(
         modifier = modifier
             .hoverHand()
-            .clickable(interactionSource = interactions, indication = null) {
-                replayScope.launch {
-                    progress.snapTo(0f)
-                    progress.animateTo(1f, EntranceSpec)
-                }
-            },
+            .clickable(interactionSource = interactions, indication = null) { replayKey++ },
         contentAlignment = Alignment.Center,
     ) {
         Canvas(Modifier.fillMaxSize()) {
-            val scope = VisualScope(this, progress.value, ink, measurer)
+            val scope = VisualScope(this, progress.value, ink, measurer, answer, wrongColor, phase)
             scope.draw(visual)
         }
     }
@@ -86,7 +120,24 @@ internal class VisualScope(
     val progress: Float,
     val ink: Color,
     val measurer: TextMeasurer,
+    /** Null while the question is open, or on a step that asks nothing. */
+    val answer: VisualAnswer? = null,
+    val wrongColor: Color = Color.Red,
+    /** Which phase of a multi-phase figure is playing. Always 0 for the single-phase majority. */
+    val phase: Int = 0,
 ) {
+    /**
+     * Whether the figure may show the value it works out, which is the content's own choice and
+     * nothing else. A question's figure stays uncaptioned even once it has been answered: the
+     * answer belongs to the screen around it - the option that turns green, the question mark in
+     * the sum resolving - and a diagram repeating it states the same fact twice. What the figure
+     * does do once answered is mark where the learner's own value sits, through [answer].
+     */
+    fun revealing(authored: Boolean): Boolean = authored
+
+    /** The colour a marked value takes: the accent when it is right, the error colour when not. */
+    val resultColor: Color get() = if (answer?.correct == false) wrongColor else Accent
+
     val size: Size get() = draw.size
     val width: Float get() = draw.size.width
     val height: Float get() = draw.size.height
@@ -217,10 +268,12 @@ private fun VisualScope.draw(visual: LearnVisual) {
         is LearnVisual.Counters -> drawCounters(visual)
         is LearnVisual.TenFrame -> drawTenFrame(visual)
         is LearnVisual.NumberLine -> drawNumberLine(visual)
+        is LearnVisual.Inequality -> drawInequality(visual)
         is LearnVisual.PlaceValue -> drawPlaceValue(visual)
         is LearnVisual.DecimalGrid -> drawDecimalGrid(visual)
         is LearnVisual.ArrayDots -> drawArrayDots(visual)
         is LearnVisual.Fraction -> drawFraction(visual)
+        is LearnVisual.RatioBar -> drawRatioBar(visual)
         is LearnVisual.Coins -> drawCoins(visual)
         is LearnVisual.Ruler -> drawRuler(visual)
         is LearnVisual.Clock -> drawClock(visual)

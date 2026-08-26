@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.ui.components.learn
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.drawscope.Stroke
 import com.inspiredandroid.braincup.learn.LearnVisual
@@ -49,9 +50,15 @@ internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
         val t = item(i, sides)
         if (t <= 0f) return@repeat
         line(from, Offset(from.x + (to.x - from.x) * t, from.y + (to.y - from.y) * t), Accent, stroke * 1.5f)
+    }
 
-        if (visual.countCorners) {
-            val cornerAlpha = ((t - 0.6f) * 2.5f).coerceIn(0f, 1f)
+    // Corners go on in a pass of their own, once every side is down. Marking each one as its side
+    // arrived buried it under the side drawn next, and the corner is the thing being counted.
+    if (visual.countCorners) {
+        repeat(sides) { i ->
+            val from = points[i]
+            val cornerAlpha = ((item(i, sides) - 0.6f) * 2.5f).coerceIn(0f, 1f)
+            if (cornerAlpha <= 0f) return@repeat
             val outward = Offset(from.x - center.x, from.y - center.y)
             val length = hypot(outward.x, outward.y).coerceAtLeast(1f)
             val at = Offset(
@@ -63,7 +70,7 @@ internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
         }
     }
 
-    if (!visual.reveal) return
+    if (!revealing(visual.reveal)) return
     label(
         text = "$sides sides, $sides corners",
         center = Offset(width / 2f, height * 0.93f),
@@ -163,7 +170,7 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
         SolidKind.CONE -> "1 flat face · 1 point"
         SolidKind.PRISM -> "same cross-section throughout"
     }
-    if (visual.reveal) {
+    if (revealing(visual.reveal)) {
         label(
             text = if (visual.counts) counts else name,
             center = Offset(width / 2f, height * 0.93f),
@@ -214,7 +221,7 @@ internal fun VisualScope.drawSymmetry(visual: LearnVisual.Symmetry) {
         }
     }
 
-    if (!visual.reveal) return
+    if (!revealing(visual.reveal)) return
     label(
         text = "${visual.lines} line${if (visual.lines == 1) "" else "s"} of symmetry",
         center = Offset(width / 2f, height * 0.93f),
@@ -248,7 +255,7 @@ internal fun VisualScope.drawAreaGrid(visual: LearnVisual.AreaGrid) {
     label("$cols ${visual.unit}", Offset(left + cell * cols / 2f, top - height * 0.09f), ink, 0.09f)
     label("$rows ${visual.unit}", Offset(left - width * 0.09f, top + cell * rows / 2f), ink, 0.09f)
 
-    if (!visual.reveal) return
+    if (!revealing(visual.reveal)) return
     val texts = buildList {
         if (visual.showArea) add("area = ${cols * rows} sq ${visual.unit}")
         if (visual.showPerimeter) add("perimeter = ${2 * (cols + rows)} ${visual.unit}")
@@ -409,7 +416,7 @@ internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
         label("$degrees", Offset(center.x, center.y - height * 0.08f), Accent, 0.1f, alpha = stage(0, 3))
         line(bottom, left, Accent2, stroke * 1.1f, alpha = stage(1, 3))
         line(bottom, right, Accent2, stroke * 1.1f, alpha = stage(1, 3))
-        if (visual.reveal) {
+        if (revealing(visual.reveal)) {
             label(
                 text = "${half.roundToInt()}",
                 center = Offset(center.x, center.y + radius * 0.68f),
@@ -445,15 +452,9 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
         size = Size(sweepRadius * 2, sweepRadius * 2),
         style = Stroke(width = stroke),
     )
-    label(
-        text = "$degrees",
-        center = Offset(origin.x - sweepRadius * 1.15f, origin.y - sweepRadius * 0.5f),
-        color = Accent,
-        factor = 0.1f,
-        alpha = stage(1, 3),
-    )
+    labelWedge("$degrees", origin, 180f, swept, sweepRadius * 1.6f, Accent, stage(1, 3))
 
-    if (visual.supplement && visual.reveal) {
+    if (visual.supplement && revealing(visual.reveal)) {
         val other = 180 - degrees
         val otherRadius = arm * 0.44f
         draw.drawArc(
@@ -465,11 +466,13 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
             size = Size(otherRadius * 2, otherRadius * 2),
             style = Stroke(width = stroke),
         )
-        label(
+        labelWedge(
             text = "$other",
-            center = Offset(origin.x + otherRadius * 0.9f, origin.y - otherRadius * 0.62f),
+            origin = origin,
+            startDegrees = 180f + swept,
+            sweepDegrees = (180f - swept).coerceAtLeast(0f),
+            radius = otherRadius * 1.35f,
             color = Accent2,
-            factor = 0.1f,
             alpha = stage(2, 3),
         )
         label(
@@ -480,6 +483,33 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
             alpha = stage(2, 3),
         )
     }
+}
+
+/**
+ * An angle's number, set on the bisector of its wedge and far enough out that both arms have
+ * opened clear of it. Pinning it to a fixed corner of the figure drew it straight through the arm
+ * at some angles, and the arm crossing the number is the one thing the figure must not do.
+ */
+private fun VisualScope.labelWedge(
+    text: String,
+    origin: Offset,
+    startDegrees: Float,
+    sweepDegrees: Float,
+    radius: Float,
+    color: Color,
+    alpha: Float,
+) {
+    val middle = (startDegrees + sweepDegrees / 2f) * PI / 180.0
+    label(
+        text = text,
+        center = Offset(
+            origin.x + (radius * cos(middle)).toFloat(),
+            origin.y + (radius * sin(middle)).toFloat(),
+        ),
+        color = color,
+        factor = 0.1f,
+        alpha = alpha,
+    )
 }
 
 /** An equation as a balance, with the same blocks lifted off both pans. */

@@ -825,12 +825,13 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_iq_test_high_desc">Dosáhni odhadovaného IQ 130 nebo vyššího</string>
     <!-- Learn section -->
     <string name="learn_section_title">Uč se matematiku</string>
-    <string name="learn_section_subtitle">Vyber ročník, projdi téma a pak slož test pro certifikát.</string>
+    <string name="learn_section_subtitle">Vyber téma, projdi ho krok za krokem a pak si udělej test pro certifikát.</string>
     <string name="learn_section_certificates">%1$d / %2$d certifikátů</string>
     <string name="learn_title">Uč se matematiku</string>
     <string name="learn_unit_progress">%1$d / %2$d certifikátů</string>
-    <string name="learn_grade_intro">Každé téma se tu učí na úrovni tohoto ročníku.</string>
-    <string name="learn_grade_certificates">%1$d z %2$d témat s certifikátem</string>
+    <string name="learn_topic_intro">Postupuj seznamem shora dolů. Každý krok staví na tom předchozím.</string>
+    <string name="learn_topic_certificates">%1$d z %2$d s certifikátem</string>
+    <string name="learn_ages">Věk %1$s</string>
 
     <string name="learn_level_g12">1.–2. ročník</string>
     <string name="learn_level_g12_subtitle">6–8 let · počítání, tvary a první míry</string>
@@ -870,6 +871,8 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_continue">Pokračovat</string>
     <string name="learn_check">Zkontrolovat</string>
     <string name="learn_next_line">Ukázat další řádek</string>
+    <string name="learn_try_again">Zkus to znovu</string>
+    <string name="learn_try_again_hint">Ne tak úplně. Podívej se ještě jednou a zkus to znovu.</string>
     <string name="learn_answer_label">Odpověď</string>
     <string name="learn_correct">Správně!</string>
     <string name="learn_incorrect">Ještě ne</string>
@@ -878,13 +881,9 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_take_test">Složit test</string>
     <string name="learn_retake_test">Zopakovat test</string>
     <string name="learn_test_title">Test %1$s</string>
-    <string name="learn_test_intro">%1$d otázek. Odpověz správně aspoň na %2$d%% a získej certifikát.</string>
     <string name="learn_quiz_progress">Otázka %1$d z %2$d</string>
     <string name="learn_quiz_result_title">Test dokončen</string>
-    <string name="learn_quiz_score">%1$d z %2$d správně (%3$d%%)</string>
     <string name="learn_quiz_passed">Certifikát získán!</string>
-    <string name="learn_quiz_improved">Nové osobní maximum!</string>
-    <string name="learn_quiz_failed">Na certifikát potřebuješ %1$d%%. Projdi lekce a zkus to znovu.</string>
     <string name="learn_quiz_review">Zkontrolovat odpovědi</string>
     <string name="learn_quiz_hide_review">Skrýt odpovědi</string>
     <string name="learn_quiz_your_answer">Tvoje odpověď: %1$s</string>
@@ -893,19 +892,14 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_certificate_title">Certifikát</string>
     <string name="learn_certificate_headline">Certifikát o úspěchu</string>
     <string name="learn_certificate_intro">Tímto se osvědčuje úspěšný výsledek v</string>
-    <string name="learn_certificate_score">Skóre %1$d%%</string>
     <string name="learn_certificate_earned">Získáno %1$s</string>
     <string name="learn_certificate_view">Zobrazit certifikát</string>
-    <string name="learn_certificate_grade_bronze">Bronz</string>
-    <string name="learn_certificate_grade_silver">Stříbro</string>
-    <string name="learn_certificate_grade_gold">Zlato</string>
-    <string name="learn_certificate_best">Nejlepší %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Certifikován</string>
     <string name="achievement_learn_first_certificate_desc">Slož svůj první test tématu v Uč se matematiku.</string>
-    <string name="achievement_learn_grade_certificates">Jednička třídy</string>
-    <string name="achievement_learn_grade_certificates_desc">Získej každý certifikát v jednom ročníku.</string>
+    <string name="achievement_learn_topic_certificates">Jednička třídy</string>
+    <string name="achievement_learn_topic_certificates_desc">Získej všechny certifikáty jednoho tématu v Uč se matematiku.</string>
     <string name="achievement_learn_all_certificates">Matematický učenec</string>
-    <string name="achievement_learn_all_certificates_desc">Získej certifikát v každém tématu Uč se matematiku, v každém ročníku.</string>
+    <string name="achievement_learn_all_certificates_desc">Získej certifikát z každého podtématu v Uč se matematiku.</string>
 
 </resources>

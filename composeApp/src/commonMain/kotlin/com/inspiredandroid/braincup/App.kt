@@ -32,9 +32,9 @@ import com.inspiredandroid.braincup.audio.rememberAudioPlayer
 import com.inspiredandroid.braincup.games.getGameTypeById
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.haptic.rememberHapticSuccess
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnUnit
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.navigation.AppNavHost
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
@@ -575,35 +575,35 @@ fun App(
                     }
 
                     composable<LearnMenu> {
-                        val onGradeSelected = remember(controller) {
-                            { level: GradeLevel -> controller.navigateToLearnGrade(level) }
+                        val onTopicSelected = remember(controller) {
+                            { topic: MathTopic -> controller.navigateToLearnTopic(topic) }
                         }
                         val onBackLearnMenu = remember(controller) { { controller.navigateToMainMenu() } }
                         LearnMenuScreen(
                             storage = controller.storage,
-                            onGradeSelected = onGradeSelected,
+                            onTopicSelected = onTopicSelected,
                             onBack = onBackLearnMenu,
                         )
                     }
 
-                    composable<LearnGradeDetail> { backStackEntry ->
-                        val route: LearnGradeDetail = backStackEntry.toRoute()
-                        val level = GradeLevel.byId(route.levelId)
-                        if (level != null) {
+                    composable<LearnTopicDetail> { backStackEntry ->
+                        val route: LearnTopicDetail = backStackEntry.toRoute()
+                        val topic = MathTopic.byId(route.topicId)
+                        if (topic != null) {
                             val onUnitSelected = remember(controller) {
                                 { unit: LearnUnit -> controller.navigateToLearnUnit(unit) }
                             }
-                            val onBackGrade = remember(navController) {
+                            val onBackTopic = remember(navController) {
                                 {
                                     navController.popBackStack()
                                     Unit
                                 }
                             }
-                            LearnGradeScreen(
-                                level = level,
+                            LearnTopicScreen(
+                                topic = topic,
                                 storage = controller.storage,
                                 onUnitSelected = onUnitSelected,
-                                onBack = onBackGrade,
+                                onBack = onBackTopic,
                             )
                         }
                     }

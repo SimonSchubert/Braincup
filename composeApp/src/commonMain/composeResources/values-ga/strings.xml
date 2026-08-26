@@ -825,12 +825,13 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_iq_test_high_desc">Sroich IQ measta 130 nó níos airde</string>
     <!-- Learn section -->
     <string name="learn_section_title">Foghlaim mata</string>
-    <string name="learn_section_subtitle">Roghnaigh do bhliain scoile, oibrigh trí ábhar, ansin déan an tástáil le haghaidh teastais.</string>
+    <string name="learn_section_subtitle">Roghnaigh ábhar, oibrigh tríd céim ar chéim, ansin déan an triail le haghaidh teastais.</string>
     <string name="learn_section_certificates">%1$d / %2$d teastas</string>
     <string name="learn_title">Foghlaim mata</string>
     <string name="learn_unit_progress">%1$d / %2$d teastas</string>
-    <string name="learn_grade_intro">Múintear gach ábhar anseo ag leibhéal na bliana scoile seo.</string>
-    <string name="learn_grade_certificates">%1$d as %2$d ábhar deimhnithe</string>
+    <string name="learn_topic_intro">Oibrigh síos an liosta. Tógann gach céim ar an gceann roimhe.</string>
+    <string name="learn_topic_certificates">%1$d as %2$d deimhnithe</string>
+    <string name="learn_ages">Aoiseanna %1$s</string>
 
     <string name="learn_level_g12">Rang 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 mbliana · comhaireamh, cruthanna agus na chéad thomhais</string>
@@ -870,6 +871,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_continue">Lean ar aghaidh</string>
     <string name="learn_check">Seiceáil</string>
     <string name="learn_next_line">Taispeáin an chéad líne eile</string>
+    <string name="learn_try_again">Bain triail eile as</string>
+    <string name="learn_try_again_hint">Ní go baileach. Féach arís agus bain triail eile as.</string>
     <string name="learn_answer_label">Freagra</string>
     <string name="learn_correct">Ceart!</string>
     <string name="learn_incorrect">Ní go díreach</string>
@@ -878,13 +881,9 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_take_test">Déan an tástáil</string>
     <string name="learn_retake_test">Déan an tástáil arís</string>
     <string name="learn_test_title">Tástáil %1$s</string>
-    <string name="learn_test_intro">%1$d ceist. Freagair %2$d%% ar a laghad i gceart chun do theastas a thuilleamh.</string>
     <string name="learn_quiz_progress">Ceist %1$d as %2$d</string>
     <string name="learn_quiz_result_title">Tástáil críochnaithe</string>
-    <string name="learn_quiz_score">%1$d as %2$d ceart (%3$d%%)</string>
     <string name="learn_quiz_passed">Teastas tuillte!</string>
-    <string name="learn_quiz_improved">Is fearr nua pearsanta!</string>
-    <string name="learn_quiz_failed">Teastaíonn %1$d%% uait le haghaidh teastais. Athbhreithnigh na ceachtanna agus bain triail eile as.</string>
     <string name="learn_quiz_review">Athbhreithnigh freagraí</string>
     <string name="learn_quiz_hide_review">Folaigh freagraí</string>
     <string name="learn_quiz_your_answer">Do fhreagra: %1$s</string>
@@ -893,19 +892,14 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_certificate_title">Teastas</string>
     <string name="learn_certificate_headline">Teastas éachta</string>
     <string name="learn_certificate_intro">Deimhníonn sé seo toradh pas in</string>
-    <string name="learn_certificate_score">Scór %1$d%%</string>
     <string name="learn_certificate_earned">Tuillte %1$s</string>
     <string name="learn_certificate_view">Féach ar an teastas</string>
-    <string name="learn_certificate_grade_bronze">Cré-umha</string>
-    <string name="learn_certificate_grade_silver">Airgead</string>
-    <string name="learn_certificate_grade_gold">Ór</string>
-    <string name="learn_certificate_best">Is fearr %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Deimhnithe</string>
     <string name="achievement_learn_first_certificate_desc">Pas a fháil i d’chéad tástáil ábhair Foghlaim mata.</string>
-    <string name="achievement_learn_grade_certificates">Barr an ranga</string>
-    <string name="achievement_learn_grade_certificates_desc">Tuill gach teastas i mbliain scoile amháin.</string>
+    <string name="achievement_learn_topic_certificates">Barr an ranga</string>
+    <string name="achievement_learn_topic_certificates_desc">Gnóthaigh gach teastas in ábhar amháin de Foghlaim Mata.</string>
     <string name="achievement_learn_all_certificates">Scoláire mata</string>
-    <string name="achievement_learn_all_certificates_desc">Tuill teastas i ngach ábhar Foghlaim mata, ag gach rang.</string>
+    <string name="achievement_learn_all_certificates_desc">Gnóthaigh teastas i ngach fo-ábhar de Foghlaim Mata.</string>
 
 </resources>

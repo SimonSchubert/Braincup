@@ -17,34 +17,35 @@ import braincup.composeapp.generated.resources.learn_section_certificates
 import braincup.composeapp.generated.resources.learn_section_subtitle
 import braincup.composeapp.generated.resources.learn_title
 import com.inspiredandroid.braincup.api.UserStorage
-import com.inspiredandroid.braincup.learn.GradeLevel
-import com.inspiredandroid.braincup.learn.LearnGradeProgress
+import com.inspiredandroid.braincup.learn.LearnTopicProgress
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.LearnGradeTile
+import com.inspiredandroid.braincup.ui.components.LearnTopicTile
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
 
+/** The Learn section root: every topic, each opening onto its ladder of sub-topics. */
 @Composable
 fun LearnMenuScreen(
     storage: UserStorage,
-    onGradeSelected: (GradeLevel) -> Unit,
+    onTopicSelected: (MathTopic) -> Unit,
     onBack: () -> Unit,
 ) {
-    val progress = remember(storage) { storage.getAllLearnGradeProgress().toImmutableList() }
+    val progress = remember(storage) { storage.getAllLearnTopicProgress().toImmutableList() }
     LearnMenuScreenContent(
         progress = progress,
-        onGradeSelected = onGradeSelected,
+        onTopicSelected = onTopicSelected,
         onBack = onBack,
     )
 }
 
 @Composable
 fun LearnMenuScreenContent(
-    progress: ImmutableList<LearnGradeProgress>,
-    onGradeSelected: (GradeLevel) -> Unit,
+    progress: ImmutableList<LearnTopicProgress>,
+    onTopicSelected: (MathTopic) -> Unit,
     onBack: () -> Unit,
 ) {
     val certificateCount = remember(progress) { progress.sumOf { it.certificates } }
@@ -87,13 +88,12 @@ fun LearnMenuScreenContent(
                 }
             }
 
-            items(progress, key = { it.level.id }, contentType = { "learn_grade" }) { gradeProgress ->
-                LearnGradeTile(
-                    level = gradeProgress.level,
-                    certificates = gradeProgress.certificates,
-                    unitsTotal = gradeProgress.unitsTotal,
-                    bestTier = gradeProgress.bestTier,
-                    onClick = onGradeSelected,
+            items(progress, key = { it.topic.id }, contentType = { "learn_topic" }) { topicProgress ->
+                LearnTopicTile(
+                    topic = topicProgress.topic,
+                    certificates = topicProgress.certificates,
+                    unitsTotal = topicProgress.unitsTotal,
+                    onClick = onTopicSelected,
                 )
             }
         }
@@ -105,8 +105,8 @@ fun LearnMenuScreenContent(
 private fun LearnMenuScreenPreview() {
     ScreenPreviewHost {
         LearnMenuScreenContent(
-            progress = GradeLevel.entries.map { LearnGradeProgress.empty(it) }.toImmutableList(),
-            onGradeSelected = {},
+            progress = MathTopic.entries.map { LearnTopicProgress.empty(it) }.toImmutableList(),
+            onTopicSelected = {},
             onBack = {},
         )
     }

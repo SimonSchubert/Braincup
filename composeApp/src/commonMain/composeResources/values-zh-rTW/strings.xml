@@ -807,12 +807,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">數學學習</string>
-    <string name="learn_section_subtitle">選擇年級，學完一個主題後參加測驗，即可取得證書。</string>
+    <string name="learn_section_subtitle">選一個主題，一步一步走完，然後參加測驗取得證書。</string>
     <string name="learn_section_certificates">%1$d / %2$d 張證書</string>
     <string name="learn_title">數學學習</string>
     <string name="learn_unit_progress">%1$d / %2$d 張證書</string>
-    <string name="learn_grade_intro">這裡的每個主題都依此年級程度教學。</string>
-    <string name="learn_grade_certificates">%2$d 個主題中已取得 %1$d 張證書</string>
+    <string name="learn_topic_intro">由上往下走。每一步都建立在上一步之上。</string>
+    <string name="learn_topic_certificates">%2$d 項中已取得 %1$d 張證書</string>
+    <string name="learn_ages">%1$s 歲</string>
 
     <string name="learn_level_g12">1–2 年級</string>
     <string name="learn_level_g12_subtitle">6–8 歲 · 數數、形狀與初步測量</string>
@@ -852,6 +853,8 @@
     <string name="learn_continue">繼續</string>
     <string name="learn_check">檢查</string>
     <string name="learn_next_line">顯示下一行</string>
+    <string name="learn_try_again">再試一次</string>
+    <string name="learn_try_again_hint">還差一點。再看一遍，然後再試一次。</string>
     <string name="learn_answer_label">答案</string>
     <string name="learn_correct">正確！</string>
     <string name="learn_incorrect">不太對</string>
@@ -860,13 +863,9 @@
     <string name="learn_take_test">參加測驗</string>
     <string name="learn_retake_test">再測一次</string>
     <string name="learn_test_title">%1$s 測驗</string>
-    <string name="learn_test_intro">共 %1$d 題。答對至少 %2$d%% 即可取得證書。</string>
     <string name="learn_quiz_progress">第 %1$d 題，共 %2$d 題</string>
     <string name="learn_quiz_result_title">測驗完成</string>
-    <string name="learn_quiz_score">答對 %1$d / %2$d（%3$d%%）</string>
     <string name="learn_quiz_passed">已取得證書！</string>
-    <string name="learn_quiz_improved">個人最佳成績更新！</string>
-    <string name="learn_quiz_failed">需要達到 %1$d%% 才能取得證書。複習課程後再試一次。</string>
     <string name="learn_quiz_review">檢視答案</string>
     <string name="learn_quiz_hide_review">隱藏答案</string>
     <string name="learn_quiz_your_answer">你的答案：%1$s</string>
@@ -875,19 +874,14 @@
     <string name="learn_certificate_title">證書</string>
     <string name="learn_certificate_headline">成就證書</string>
     <string name="learn_certificate_intro">茲證明已通過</string>
-    <string name="learn_certificate_score">分數 %1$d%%</string>
     <string name="learn_certificate_earned">取得於 %1$s</string>
     <string name="learn_certificate_view">查看證書</string>
-    <string name="learn_certificate_grade_bronze">銅</string>
-    <string name="learn_certificate_grade_silver">銀</string>
-    <string name="learn_certificate_grade_gold">金</string>
-    <string name="learn_certificate_best">最佳 %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">取得認證</string>
     <string name="achievement_learn_first_certificate_desc">通過第一個數學學習主題測驗。</string>
-    <string name="achievement_learn_grade_certificates">全班第一</string>
-    <string name="achievement_learn_grade_certificates_desc">取得同一年級的所有證書。</string>
+    <string name="achievement_learn_topic_certificates">全班第一</string>
+    <string name="achievement_learn_topic_certificates_desc">在「學數學」的一個主題中取得全部證書。</string>
     <string name="achievement_learn_all_certificates">數學學者</string>
-    <string name="achievement_learn_all_certificates_desc">取得每個年級、每個數學學習主題的證書。</string>
+    <string name="achievement_learn_all_certificates_desc">在「學數學」的每個子主題中都取得證書。</string>
 
 </resources>

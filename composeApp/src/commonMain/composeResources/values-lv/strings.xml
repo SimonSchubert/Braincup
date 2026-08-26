@@ -825,12 +825,13 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_iq_test_high_desc">Sasniedz novērtēto IQ 130 vai vairāk</string>
     <!-- Learn section -->
     <string name="learn_section_title">Mācies matemātiku</string>
-    <string name="learn_section_subtitle">Izvēlies klasi, izgāji tēmu, tad kārto testu sertifikātam.</string>
+    <string name="learn_section_subtitle">Izvēlies tēmu, izej to soli pa solim un tad kārto testu, lai iegūtu sertifikātu.</string>
     <string name="learn_section_certificates">%1$d / %2$d sertifikāti</string>
     <string name="learn_title">Mācies matemātiku</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifikāti</string>
-    <string name="learn_grade_intro">Katra tēma šeit tiek mācīta šīs klases līmenī.</string>
-    <string name="learn_grade_certificates">%1$d no %2$d tēmām ar sertifikātu</string>
+    <string name="learn_topic_intro">Virzies pa sarakstu uz leju. Katrs solis balstās uz iepriekšējo.</string>
+    <string name="learn_topic_certificates">%1$d no %2$d ar sertifikātu</string>
+    <string name="learn_ages">Vecums %1$s</string>
 
     <string name="learn_level_g12">1.–2. klase</string>
     <string name="learn_level_g12_subtitle">6–8 gadi · skaitīšana, formas un pirmie mērījumi</string>
@@ -870,6 +871,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_continue">Turpināt</string>
     <string name="learn_check">Pārbaudīt</string>
     <string name="learn_next_line">Rādīt nākamo rindu</string>
+    <string name="learn_try_again">Mēģini vēlreiz</string>
+    <string name="learn_try_again_hint">Ne gluži. Paskaties vēlreiz un mēģini vēlreiz.</string>
     <string name="learn_answer_label">Atbilde</string>
     <string name="learn_correct">Pareizi!</string>
     <string name="learn_incorrect">Vēl nē</string>
@@ -878,13 +881,9 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_take_test">Kārtot testu</string>
     <string name="learn_retake_test">Kārtot vēlreiz</string>
     <string name="learn_test_title">Tests %1$s</string>
-    <string name="learn_test_intro">%1$d jautājumi. Atbildi pareizi vismaz uz %2$d%% un iegūsti sertifikātu.</string>
     <string name="learn_quiz_progress">Jautājums %1$d no %2$d</string>
     <string name="learn_quiz_result_title">Tests pabeigts</string>
-    <string name="learn_quiz_score">%1$d no %2$d pareizi (%3$d%%)</string>
     <string name="learn_quiz_passed">Sertifikāts iegūts!</string>
-    <string name="learn_quiz_improved">Jauns personīgais rekords!</string>
-    <string name="learn_quiz_failed">Sertifikātam vajag %1$d%%. Pārskati stundas un mēģini vēlreiz.</string>
     <string name="learn_quiz_review">Pārskatīt atbildes</string>
     <string name="learn_quiz_hide_review">Slēpt atbildes</string>
     <string name="learn_quiz_your_answer">Tava atbilde: %1$s</string>
@@ -893,19 +892,14 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_certificate_title">Sertifikāts</string>
     <string name="learn_certificate_headline">Sasnieguma sertifikāts</string>
     <string name="learn_certificate_intro">Ar šo tiek apliecināts sekmīgs rezultāts</string>
-    <string name="learn_certificate_score">Rezultāts %1$d%%</string>
     <string name="learn_certificate_earned">Iegūts %1$s</string>
     <string name="learn_certificate_view">Skatīt sertifikātu</string>
-    <string name="learn_certificate_grade_bronze">Bronza</string>
-    <string name="learn_certificate_grade_silver">Sudrabs</string>
-    <string name="learn_certificate_grade_gold">Zelts</string>
-    <string name="learn_certificate_best">Labākais %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Apliecināts</string>
     <string name="achievement_learn_first_certificate_desc">Nokārto savu pirmo tēmas testu Mācies matemātiku.</string>
-    <string name="achievement_learn_grade_certificates">Klases pirmrindnieks</string>
-    <string name="achievement_learn_grade_certificates_desc">Iegūsti katru sertifikātu vienā klasē.</string>
+    <string name="achievement_learn_topic_certificates">Klases pirmrindnieks</string>
+    <string name="achievement_learn_topic_certificates_desc">Iegūsti visus vienas Mācies matemātiku tēmas sertifikātus.</string>
     <string name="achievement_learn_all_certificates">Matemātikas zinātājs</string>
-    <string name="achievement_learn_all_certificates_desc">Iegūsti sertifikātu katrā Mācies matemātiku tēmā, katrā klasē.</string>
+    <string name="achievement_learn_all_certificates_desc">Iegūsti sertifikātu katrā Mācies matemātiku apakštēmā.</string>
 
 </resources>

@@ -808,12 +808,13 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Impara la matematica</string>
-    <string name="learn_section_subtitle">Scegli il tuo anno scolastico, affronta un argomento e poi fai il test per ottenere un certificato.</string>
+    <string name="learn_section_subtitle">Scegli un argomento, affrontalo passo dopo passo e poi fai il test per il certificato.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificati</string>
     <string name="learn_title">Impara la matematica</string>
     <string name="learn_unit_progress">%1$d / %2$d certificati</string>
-    <string name="learn_grade_intro">Ogni argomento qui è spiegato al livello di questo anno scolastico.</string>
-    <string name="learn_grade_certificates">%1$d argomenti su %2$d certificati</string>
+    <string name="learn_topic_intro">Scendi lungo l'elenco. Ogni passo si appoggia al precedente.</string>
+    <string name="learn_topic_certificates">%1$d su %2$d certificati</string>
+    <string name="learn_ages">Età %1$s</string>
 
     <string name="learn_level_g12">Classi 1–2</string>
     <string name="learn_level_g12_subtitle">6–8 anni · contare, forme e prime misure</string>
@@ -853,6 +854,8 @@
     <string name="learn_continue">Continua</string>
     <string name="learn_check">Verifica</string>
     <string name="learn_next_line">Mostra la riga successiva</string>
+    <string name="learn_try_again">Riprova</string>
+    <string name="learn_try_again_hint">Non proprio. Guarda ancora e riprova.</string>
     <string name="learn_answer_label">Risposta</string>
     <string name="learn_correct">Corretto!</string>
     <string name="learn_incorrect">Non proprio</string>
@@ -861,13 +864,9 @@
     <string name="learn_take_test">Fai il test</string>
     <string name="learn_retake_test">Ripeti il test</string>
     <string name="learn_test_title">Test di %1$s</string>
-    <string name="learn_test_intro">%1$d domande. Rispondi correttamente ad almeno il %2$d%% per ottenere il certificato.</string>
     <string name="learn_quiz_progress">Domanda %1$d di %2$d</string>
     <string name="learn_quiz_result_title">Test completato</string>
-    <string name="learn_quiz_score">%1$d su %2$d corrette (%3$d%%)</string>
     <string name="learn_quiz_passed">Certificato ottenuto!</string>
-    <string name="learn_quiz_improved">Nuovo record personale!</string>
-    <string name="learn_quiz_failed">Ti serve il %1$d%% per ottenere un certificato. Ripassa le lezioni e riprova.</string>
     <string name="learn_quiz_review">Rivedi le risposte</string>
     <string name="learn_quiz_hide_review">Nascondi le risposte</string>
     <string name="learn_quiz_your_answer">La tua risposta: %1$s</string>
@@ -876,19 +875,14 @@
     <string name="learn_certificate_title">Certificato</string>
     <string name="learn_certificate_headline">Certificato di merito</string>
     <string name="learn_certificate_intro">Si certifica un risultato sufficiente in</string>
-    <string name="learn_certificate_score">Punteggio %1$d%%</string>
     <string name="learn_certificate_earned">Ottenuto il %1$s</string>
     <string name="learn_certificate_view">Vedi certificato</string>
-    <string name="learn_certificate_grade_bronze">Bronzo</string>
-    <string name="learn_certificate_grade_silver">Argento</string>
-    <string name="learn_certificate_grade_gold">Oro</string>
-    <string name="learn_certificate_best">Migliore %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Certificato</string>
     <string name="achievement_learn_first_certificate_desc">Supera il tuo primo test di argomento in Impara la matematica.</string>
-    <string name="achievement_learn_grade_certificates">Primo della classe</string>
-    <string name="achievement_learn_grade_certificates_desc">Ottieni tutti i certificati di un anno scolastico.</string>
+    <string name="achievement_learn_topic_certificates">Primo della classe</string>
+    <string name="achievement_learn_topic_certificates_desc">Ottieni tutti i certificati di un argomento di Impara la matematica.</string>
     <string name="achievement_learn_all_certificates">Studioso di matematica</string>
-    <string name="achievement_learn_all_certificates_desc">Ottieni un certificato in ogni argomento di matematica e in ogni classe.</string>
+    <string name="achievement_learn_all_certificates_desc">Ottieni un certificato in ogni sottoargomento di Impara la matematica.</string>
 
 </resources>

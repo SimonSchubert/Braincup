@@ -825,12 +825,13 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_iq_test_high_desc">Ajungi la un IQ estimat de 130 sau mai mare</string>
     <!-- Learn section -->
     <string name="learn_section_title">Învață matematică</string>
-    <string name="learn_section_subtitle">Alege clasa, parcurge un subiect, apoi dă testul pentru certificat.</string>
+    <string name="learn_section_subtitle">Alege un subiect, parcurge-l pas cu pas, apoi dă testul pentru certificat.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificate</string>
     <string name="learn_title">Învață matematică</string>
     <string name="learn_unit_progress">%1$d / %2$d certificate</string>
-    <string name="learn_grade_intro">Fiecare subiect de aici e predat la nivelul acestei clase.</string>
-    <string name="learn_grade_certificates">%1$d din %2$d subiecte certificate</string>
+    <string name="learn_topic_intro">Coboară pe listă. Fiecare pas se sprijină pe cel dinainte.</string>
+    <string name="learn_topic_certificates">%1$d din %2$d certificate</string>
+    <string name="learn_ages">Vârste %1$s</string>
 
     <string name="learn_level_g12">Clasele I–II</string>
     <string name="learn_level_g12_subtitle">6–8 ani · numărare, forme și primele măsuri</string>
@@ -870,6 +871,8 @@ Mută Cow — devine Bull.</string>
     <string name="learn_continue">Continuă</string>
     <string name="learn_check">Verifică</string>
     <string name="learn_next_line">Arată următorul rând</string>
+    <string name="learn_try_again">Mai încearcă</string>
+    <string name="learn_try_again_hint">Nu chiar. Mai uită-te o dată și încearcă din nou.</string>
     <string name="learn_answer_label">Răspuns</string>
     <string name="learn_correct">Corect!</string>
     <string name="learn_incorrect">Nu chiar</string>
@@ -878,13 +881,9 @@ Mută Cow — devine Bull.</string>
     <string name="learn_take_test">Dă testul</string>
     <string name="learn_retake_test">Refă testul</string>
     <string name="learn_test_title">Test %1$s</string>
-    <string name="learn_test_intro">%1$d întrebări. Răspunde corect la cel puțin %2$d%% ca să-ți iei certificatul.</string>
     <string name="learn_quiz_progress">Întrebarea %1$d din %2$d</string>
     <string name="learn_quiz_result_title">Test încheiat</string>
-    <string name="learn_quiz_score">%1$d din %2$d corecte (%3$d%%)</string>
     <string name="learn_quiz_passed">Certificat obținut!</string>
-    <string name="learn_quiz_improved">Record personal nou!</string>
-    <string name="learn_quiz_failed">Ai nevoie de %1$d%% ca să iei certificatul. Recitește lecțiile și încearcă din nou.</string>
     <string name="learn_quiz_review">Revizuiește răspunsurile</string>
     <string name="learn_quiz_hide_review">Ascunde răspunsurile</string>
     <string name="learn_quiz_your_answer">Răspunsul tău: %1$s</string>
@@ -893,19 +892,14 @@ Mută Cow — devine Bull.</string>
     <string name="learn_certificate_title">Certificat</string>
     <string name="learn_certificate_headline">Certificat de reușită</string>
     <string name="learn_certificate_intro">Se certifică un rezultat de promovare la</string>
-    <string name="learn_certificate_score">Scor %1$d%%</string>
     <string name="learn_certificate_earned">Obținut %1$s</string>
     <string name="learn_certificate_view">Vezi certificatul</string>
-    <string name="learn_certificate_grade_bronze">Bronz</string>
-    <string name="learn_certificate_grade_silver">Argint</string>
-    <string name="learn_certificate_grade_gold">Aur</string>
-    <string name="learn_certificate_best">Cel mai bun %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Atestat</string>
     <string name="achievement_learn_first_certificate_desc">Promovează primul test de subiect din Învață matematică.</string>
-    <string name="achievement_learn_grade_certificates">Fruntea clasei</string>
-    <string name="achievement_learn_grade_certificates_desc">Ia fiecare certificat dintr-o clasă.</string>
+    <string name="achievement_learn_topic_certificates">Fruntea clasei</string>
+    <string name="achievement_learn_topic_certificates_desc">Ia toate certificatele dintr-un subiect din Învață matematică.</string>
     <string name="achievement_learn_all_certificates">Cărturar matematician</string>
-    <string name="achievement_learn_all_certificates_desc">Ia un certificat la fiecare subiect din Învață matematică, la fiecare clasă.</string>
+    <string name="achievement_learn_all_certificates_desc">Ia un certificat la fiecare subtemă din Învață matematică.</string>
 
 </resources>

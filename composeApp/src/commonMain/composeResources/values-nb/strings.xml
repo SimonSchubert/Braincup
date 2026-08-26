@@ -825,12 +825,13 @@ Flytt Cow — den blir en Bull.</string>
     <string name="achievement_iq_test_high_desc">Nå en anslått IQ på 130 eller høyere</string>
     <!-- Learn section -->
     <string name="learn_section_title">Lær matematikk</string>
-    <string name="learn_section_subtitle">Velg trinn, arbeid deg gjennom et emne, og ta så testen for et bevis.</string>
+    <string name="learn_section_subtitle">Velg et emne, jobb deg gjennom det steg for steg, og ta så testen for et bevis.</string>
     <string name="learn_section_certificates">%1$d / %2$d bevis</string>
     <string name="learn_title">Lær matematikk</string>
     <string name="learn_unit_progress">%1$d / %2$d bevis</string>
-    <string name="learn_grade_intro">Hvert emne her undervises på dette trinnets nivå.</string>
-    <string name="learn_grade_certificates">%1$d av %2$d emner bevist</string>
+    <string name="learn_topic_intro">Jobb deg nedover lista. Hvert steg bygger på det forrige.</string>
+    <string name="learn_topic_certificates">%1$d av %2$d bevist</string>
+    <string name="learn_ages">Alder %1$s</string>
 
     <string name="learn_level_g12">1.–2. trinn</string>
     <string name="learn_level_g12_subtitle">6–8 år · telling, former og første mål</string>
@@ -870,6 +871,8 @@ Flytt Cow — den blir en Bull.</string>
     <string name="learn_continue">Fortsett</string>
     <string name="learn_check">Sjekk</string>
     <string name="learn_next_line">Vis neste linje</string>
+    <string name="learn_try_again">Prøv igjen</string>
+    <string name="learn_try_again_hint">Ikke helt. Se en gang til, og prøv igjen.</string>
     <string name="learn_answer_label">Svar</string>
     <string name="learn_correct">Riktig!</string>
     <string name="learn_incorrect">Ikke helt</string>
@@ -878,13 +881,9 @@ Flytt Cow — den blir en Bull.</string>
     <string name="learn_take_test">Ta testen</string>
     <string name="learn_retake_test">Ta testen igjen</string>
     <string name="learn_test_title">%1$s-test</string>
-    <string name="learn_test_intro">%1$d spørsmål. Svar riktig på minst %2$d%% for å få beviset ditt.</string>
     <string name="learn_quiz_progress">Spørsmål %1$d av %2$d</string>
     <string name="learn_quiz_result_title">Test ferdig</string>
-    <string name="learn_quiz_score">%1$d av %2$d riktige (%3$d%%)</string>
     <string name="learn_quiz_passed">Bevis opptjent!</string>
-    <string name="learn_quiz_improved">Ny personlig beste!</string>
-    <string name="learn_quiz_failed">Du trenger %1$d%% for å få et bevis. Gå gjennom leksjonene, og prøv igjen.</string>
     <string name="learn_quiz_review">Gå gjennom svar</string>
     <string name="learn_quiz_hide_review">Skjul svar</string>
     <string name="learn_quiz_your_answer">Svaret ditt: %1$s</string>
@@ -893,19 +892,14 @@ Flytt Cow — den blir en Bull.</string>
     <string name="learn_certificate_title">Bevis</string>
     <string name="learn_certificate_headline">Prestasjonsbevis</string>
     <string name="learn_certificate_intro">Dette bekrefter et bestått resultat i</string>
-    <string name="learn_certificate_score">Poeng %1$d%%</string>
     <string name="learn_certificate_earned">Opptjent %1$s</string>
     <string name="learn_certificate_view">Se bevis</string>
-    <string name="learn_certificate_grade_bronze">Bronse</string>
-    <string name="learn_certificate_grade_silver">Sølv</string>
-    <string name="learn_certificate_grade_gold">Gull</string>
-    <string name="learn_certificate_best">Beste %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Første diplom</string>
     <string name="achievement_learn_first_certificate_desc">Bestå din første emnetest i Lær matematikk.</string>
-    <string name="achievement_learn_grade_certificates">Klassens duks</string>
-    <string name="achievement_learn_grade_certificates_desc">Få hvert bevis på ett trinn.</string>
+    <string name="achievement_learn_topic_certificates">Klassens duks</string>
+    <string name="achievement_learn_topic_certificates_desc">Få alle bevisene i ett emne i Lær matematikk.</string>
     <string name="achievement_learn_all_certificates">Matematikklærd</string>
-    <string name="achievement_learn_all_certificates_desc">Få et bevis i hvert Lær matematikk-emne, på hvert trinn.</string>
+    <string name="achievement_learn_all_certificates_desc">Få et bevis i hvert underemne i Lær matematikk.</string>
 
 </resources>

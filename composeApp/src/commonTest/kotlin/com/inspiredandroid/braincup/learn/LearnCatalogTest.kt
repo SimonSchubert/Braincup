@@ -9,27 +9,50 @@ import kotlin.test.assertTrue
 
 class LearnCatalogTest {
 
+    private companion object {
+        /**
+         * How many question figures in the not-yet-reworked sub-topics still caption their own
+         * answer. A ratchet, not a target: lower it as topics are reworked, never raise it.
+         */
+        const val RATCHET = 50
+    }
+
     @Test
-    fun everyGradeBandHasUnitsWithLessonsAndATest() {
-        GradeLevel.entries.forEach { level ->
-            val units = LearnCatalog.units(level)
-            assertTrue(units.isNotEmpty(), "${level.id} has no units")
+    fun everyTopicHasSubTopicsWithLessonsAndATest() {
+        MathTopic.entries.forEach { topic ->
+            val units = LearnCatalog.units(topic)
+            assertTrue(units.isNotEmpty(), "${topic.id} has no sub-topics")
             units.forEach { unit ->
                 assertTrue(unit.lessons.isNotEmpty(), "${unit.id} has no lessons")
                 assertTrue(unit.quiz.total >= 6, "${unit.id} test is too short")
+                assertTrue(unit.title.isNotBlank(), "${unit.id} has no title")
                 assertTrue(unit.summary.isNotBlank(), "${unit.id} has no summary")
             }
         }
     }
 
-    /** The point of the grade structure: a topic must reappear at more than one level. */
+    /** A topic's ladder is meant to be walked top to bottom, so it may never step backwards. */
     @Test
-    fun topicsSpanSeveralGradeBands() {
-        val recurring = MathTopic.entries.filter { LearnCatalog.unitsOf(it).size > 1 }
-        assertTrue(recurring.size >= 4, "too few topics are taught across several bands")
+    fun subTopicsAreOrderedEasiestFirst() {
         MathTopic.entries.forEach { topic ->
-            assertTrue(LearnCatalog.unitsOf(topic).isNotEmpty(), "${topic.id} is never taught")
+            val levels = LearnCatalog.units(topic).map { it.level.ordinal }
+            assertEquals(levels.sorted(), levels, "${topic.id} ladder is out of order")
         }
+    }
+
+    /** Sub-topic slugs are the web address inside a topic, so they must not collide there. */
+    @Test
+    fun subTopicSlugsAreUniqueWithinTheirTopic() {
+        MathTopic.entries.forEach { topic ->
+            val units = LearnCatalog.units(topic)
+            val slugs = units.map { it.urlSlug }
+            assertEquals(slugs.size, slugs.toSet().size, "${topic.id} has a duplicate slug")
+            units.forEach { unit ->
+                assertEquals(unit, LearnCatalog.unitBySlug(topic, unit.urlSlug))
+                assertTrue(unit.id.startsWith("${topic.id}-"), "${unit.id} is not filed under its topic")
+            }
+        }
+        assertNull(LearnCatalog.unitBySlug(MathTopic.ALGEBRA, "not-a-sub-topic"))
     }
 
     @Test
@@ -38,7 +61,6 @@ class LearnCatalogTest {
         assertEquals(ids.size, ids.toSet().size, "duplicate unit id")
         LearnCatalog.allUnits.forEach { unit ->
             assertEquals(unit, LearnCatalog.unitById(unit.id))
-            assertEquals(unit, LearnCatalog.unitOf(unit.level, unit.topic))
         }
         assertNull(LearnCatalog.unitById("not-a-unit"))
     }
@@ -83,20 +105,91 @@ class LearnCatalogTest {
         }
     }
 
-    /** A question must not caption the diagram with the answer it is asking for. */
-    @Test
-    fun questionVisualsDoNotRevealTheirAnswer() {
-        val revealing = LearnCatalog.allLessons
-            .flatMap { lesson -> lesson.steps.map { lesson.id to it } }
-            .count { (_, step) ->
-                when (step) {
-                    is LessonStep.Choice -> step.visual?.reveal == true
-                    is LessonStep.Numeric -> step.visual?.reveal == true
-                    else -> false
-                }
+    /**
+     * Figures that can caption themselves with the value they work out. The rest of the variants
+     * only ever draw a situation, so their inherited `reveal` says nothing about the answer and
+     * counting them would drown the check in false positives.
+     */
+    private fun LearnVisual.canCaptionItsResult(): Boolean = when (this) {
+        is LearnVisual.Counters, is LearnVisual.TenFrame, is LearnVisual.NumberLine,
+        is LearnVisual.PlaceValue, is LearnVisual.DecimalGrid, is LearnVisual.ArrayDots,
+        is LearnVisual.Coins, is LearnVisual.Ruler, is LearnVisual.Polygon, is LearnVisual.Solid,
+        is LearnVisual.Symmetry, is LearnVisual.RightTriangle, is LearnVisual.CircleFigure,
+        is LearnVisual.AngleFigure, is LearnVisual.BarChart, is LearnVisual.PieChart,
+        is LearnVisual.Pictogram, is LearnVisual.Tally, is LearnVisual.UnitCircleFigure,
+        is LearnVisual.Inequality, is LearnVisual.Fraction, is LearnVisual.RatioBar,
+        -> true
+        // An area grid captions itself only when it was asked for a total.
+        is LearnVisual.AreaGrid -> showArea || showPerimeter
+        else -> false
+    }
+
+    private fun questionVisuals(units: List<LearnUnit>): List<Pair<String, LearnVisual>> = units.flatMap { it.lessons }.flatMap { lesson ->
+        lesson.steps.mapNotNull { step ->
+            val visual = when (step) {
+                is LessonStep.Choice -> step.visual
+                is LessonStep.Numeric -> step.visual
+                else -> null
             }
-        // Most question figures hide their summary; the rest show a situation with nothing to give away.
-        assertTrue(revealing < LearnCatalog.allLessons.size * 2, "too many question figures caption the answer")
+            visual?.let { lesson.id to it }
+        }
+    } + units.flatMap { unit ->
+        unit.quiz.questions.mapNotNull { q -> q.visual?.let { unit.id to it } }
+    }
+
+    /**
+     * A question must not caption its figure with the answer it is asking for.
+     *
+     * Held strictly on the sub-topics already reworked into hand-authored ladders, whether that is
+     * a whole topic ([reworked]) or the ones done so far inside a topic still being worked through
+     * ([reworkedUnits]). The rest still carry their original grade-slice content and are only kept
+     * from getting worse; move a topic across as its last sub-topic lands.
+     */
+    @Test
+    fun questionFiguresDoNotCaptionTheirAnswer() {
+        val reworked = setOf(MathTopic.ALGEBRA, MathTopic.ARITHMETIC)
+        // The sub-topics already done inside a topic still being worked through. Empty while
+        // arithmetic holds a place in [reworked] on its own: every one of its sub-topics is
+        // hand-authored now, so any new one joins them under the strict rule.
+        val reworkedUnits = emptySet<String>()
+        val (done, pending) = LearnCatalog.allUnits.partition {
+            it.topic in reworked || it.id in reworkedUnits
+        }
+
+        questionVisuals(done).forEach { (owner, visual) ->
+            assertFalse(
+                visual.canCaptionItsResult() && visual.reveal,
+                "$owner: a question figure captions its own answer",
+            )
+        }
+
+        // A ratchet, not a target: this number may only ever go down, and reaches 0 when the last
+        // sub-topic is reworked and every unit is held strictly above.
+        val leaking = questionVisuals(pending).count { it.second.canCaptionItsResult() && it.second.reveal }
+        assertTrue(leaking <= RATCHET, "not-yet-reworked sub-topics got more spoiling figures, not fewer: $leaking")
+    }
+
+    /**
+     * A question step's formula is the question written out, so it has to actually ask something
+     * and must not already contain the answer it is asking for.
+     */
+    @Test
+    fun questionFormulasAskRatherThanTell() {
+        LearnCatalog.allLessons.forEach { lesson ->
+            lesson.steps.forEach { step ->
+                val (formula, answer) = when (step) {
+                    is LessonStep.Choice -> step.formula to step.options[step.correctIndex]
+                    is LessonStep.Numeric -> step.formula to step.answer
+                    else -> null to ""
+                }
+                if (formula == null) return@forEach
+                assertTrue(formula.contains("?"), "${lesson.id}: '$formula' states instead of asking")
+                assertFalse(
+                    formula.contains(answer),
+                    "${lesson.id}: '$formula' gives away its own answer",
+                )
+            }
+        }
     }
 
     @Test
@@ -159,21 +252,12 @@ class LearnCatalogTest {
     }
 
     @Test
-    fun certificateTierThresholds() {
-        assertNull(CertificateTier.forPercent(59))
-        assertEquals(CertificateTier.BRONZE, CertificateTier.forPercent(60))
-        assertEquals(CertificateTier.BRONZE, CertificateTier.forPercent(74))
-        assertEquals(CertificateTier.SILVER, CertificateTier.forPercent(75))
-        assertEquals(CertificateTier.GOLD, CertificateTier.forPercent(90))
-        assertEquals(CertificateTier.GOLD, CertificateTier.forPercent(100))
-    }
-
-    @Test
-    fun percentOfRoundsDown() {
-        assertEquals(0, CertificateTier.percentOf(0, 8))
-        assertEquals(87, CertificateTier.percentOf(7, 8))
-        assertEquals(100, CertificateTier.percentOf(8, 8))
-        assertEquals(0, CertificateTier.percentOf(1, 0))
+    fun onlyAFlawlessRunEarnsTheCertificate() {
+        assertTrue(Certificate.isEarnedBy(8, 8))
+        assertFalse(Certificate.isEarnedBy(7, 8))
+        assertFalse(Certificate.isEarnedBy(0, 8))
+        assertFalse(Certificate.isEarnedBy(0, 0))
+        assertFalse(Certificate.isEarnedBy(1, 0))
     }
 
     @Test

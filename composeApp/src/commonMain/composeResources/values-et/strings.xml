@@ -825,12 +825,13 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_iq_test_high_desc">Jõua hinnangulise IQ-ni 130 või rohkem</string>
     <!-- Learn section -->
     <string name="learn_section_title">Õpi matemaatikat</string>
-    <string name="learn_section_subtitle">Vali klass, käi teema läbi ja tee siis test tunnistuse jaoks.</string>
+    <string name="learn_section_subtitle">Vali teema, tööta see samm-sammult läbi ja tee siis tunnistuse saamiseks test.</string>
     <string name="learn_section_certificates">%1$d / %2$d tunnistust</string>
     <string name="learn_title">Õpi matemaatikat</string>
     <string name="learn_unit_progress">%1$d / %2$d tunnistust</string>
-    <string name="learn_grade_intro">Iga teema siin õpetatakse selle klassi tasemel.</string>
-    <string name="learn_grade_certificates">%1$d / %2$d teemat tunnistusega</string>
+    <string name="learn_topic_intro">Liigu loendis ülalt alla. Iga samm toetub eelmisele.</string>
+    <string name="learn_topic_certificates">%1$d / %2$d tunnistusega</string>
+    <string name="learn_ages">Vanus %1$s</string>
 
     <string name="learn_level_g12">1.–2. klass</string>
     <string name="learn_level_g12_subtitle">6–8 a · loendamine, kujundid ja esimesed mõõdud</string>
@@ -870,6 +871,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_continue">Jätka</string>
     <string name="learn_check">Kontrolli</string>
     <string name="learn_next_line">Näita järgmist rida</string>
+    <string name="learn_try_again">Proovi uuesti</string>
+    <string name="learn_try_again_hint">Päris mitte. Vaata veel kord ja proovi uuesti.</string>
     <string name="learn_answer_label">Vastus</string>
     <string name="learn_correct">Õige!</string>
     <string name="learn_incorrect">Veel mitte</string>
@@ -878,13 +881,9 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_take_test">Tee test</string>
     <string name="learn_retake_test">Tee test uuesti</string>
     <string name="learn_test_title">%1$s test</string>
-    <string name="learn_test_intro">%1$d küsimust. Vasta õigesti vähemalt %2$d%%, et saada tunnistus.</string>
     <string name="learn_quiz_progress">Küsimus %1$d / %2$d</string>
     <string name="learn_quiz_result_title">Test valmis</string>
-    <string name="learn_quiz_score">%1$d / %2$d õigesti (%3$d%%)</string>
     <string name="learn_quiz_passed">Tunnistus teenitud!</string>
-    <string name="learn_quiz_improved">Uus isiklik rekord!</string>
-    <string name="learn_quiz_failed">Tunnistuseks vajad %1$d%%. Korda tunde ja proovi uuesti.</string>
     <string name="learn_quiz_review">Vaata vastuseid</string>
     <string name="learn_quiz_hide_review">Peida vastused</string>
     <string name="learn_quiz_your_answer">Sinu vastus: %1$s</string>
@@ -893,19 +892,14 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_certificate_title">Tunnistus</string>
     <string name="learn_certificate_headline">Saavutustunnistus</string>
     <string name="learn_certificate_intro">See kinnitab sooritatud tulemuse aines</string>
-    <string name="learn_certificate_score">Tulemus %1$d%%</string>
     <string name="learn_certificate_earned">Teenitud %1$s</string>
     <string name="learn_certificate_view">Vaata tunnistust</string>
-    <string name="learn_certificate_grade_bronze">Pronks</string>
-    <string name="learn_certificate_grade_silver">Hõbe</string>
-    <string name="learn_certificate_grade_gold">Kuld</string>
-    <string name="learn_certificate_best">Parim %1$d%% · %2$s</string>
 
     <string name="achievement_learn_first_certificate">Tunnustatud</string>
     <string name="achievement_learn_first_certificate_desc">Läbi oma esimene Õpi matemaatikat teema test.</string>
-    <string name="achievement_learn_grade_certificates">Klassi priimus</string>
-    <string name="achievement_learn_grade_certificates_desc">Saa iga tunnistus ühes klassis.</string>
+    <string name="achievement_learn_topic_certificates">Klassi priimus</string>
+    <string name="achievement_learn_topic_certificates_desc">Teeni ühe Matemaatika teema kõik tunnistused.</string>
     <string name="achievement_learn_all_certificates">Matemaatikaõppur</string>
-    <string name="achievement_learn_all_certificates_desc">Saa tunnistus igas Õpi matemaatikat teemas, igas klassis.</string>
+    <string name="achievement_learn_all_certificates_desc">Teeni tunnistus igas Matemaatika alateemas.</string>
 
 </resources>

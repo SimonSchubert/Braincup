@@ -3,10 +3,10 @@ package com.inspiredandroid.braincup.navigation
 import com.inspiredandroid.braincup.app.Accounts
 import com.inspiredandroid.braincup.app.Instructions
 import com.inspiredandroid.braincup.app.LearnCertificate
-import com.inspiredandroid.braincup.app.LearnGradeDetail
 import com.inspiredandroid.braincup.app.LearnLessonPlay
 import com.inspiredandroid.braincup.app.LearnMenu
 import com.inspiredandroid.braincup.app.LearnTest
+import com.inspiredandroid.braincup.app.LearnTopicDetail
 import com.inspiredandroid.braincup.app.LearnUnitDetail
 import com.inspiredandroid.braincup.app.MainMenu
 import com.inspiredandroid.braincup.app.NormalSudokuPlay
@@ -15,7 +15,6 @@ import com.inspiredandroid.braincup.app.Playing
 import com.inspiredandroid.braincup.app.Scoreboard
 import com.inspiredandroid.braincup.app.Settings
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.MathTopic
 import kotlin.test.Test
@@ -128,30 +127,36 @@ class AppUrlRoutesTest {
 
     @Test
     fun navRouteToPathSuffix_learn() {
-        val algebra = requireNotNull(LearnCatalog.unitOf(GradeLevel.GRADES_9_10, MathTopic.ALGEBRA))
+        val quadratics = requireNotNull(LearnCatalog.unitBySlug(MathTopic.ALGEBRA, "quadratics"))
         assertEquals("learn", navRouteToPathSuffix(LearnMenu))
-        assertEquals("learn/grade-9-10", navRouteToPathSuffix(LearnGradeDetail(GradeLevel.GRADES_9_10.id)))
-        assertEquals("learn/grade-9-10/algebra", navRouteToPathSuffix(LearnUnitDetail(algebra.id)))
-        assertEquals("learn/grade-9-10/algebra/test", navRouteToPathSuffix(LearnTest(algebra.id)))
+        assertEquals("learn/algebra", navRouteToPathSuffix(LearnTopicDetail(MathTopic.ALGEBRA.id)))
+        assertEquals("learn/algebra/quadratics", navRouteToPathSuffix(LearnUnitDetail(quadratics.id)))
+        assertEquals("learn/algebra/quadratics/test", navRouteToPathSuffix(LearnTest(quadratics.id)))
         assertEquals(
-            "learn/grade-9-10/algebra/certificate",
-            navRouteToPathSuffix(LearnCertificate(algebra.id)),
+            "learn/algebra/quadratics/certificate",
+            navRouteToPathSuffix(LearnCertificate(quadratics.id)),
         )
     }
 
     @Test
     fun pathSuffixToNavRoute_learnRoundTrip() {
-        val calculus = requireNotNull(LearnCatalog.unitOf(GradeLevel.GRADES_11_12, MathTopic.CALCULUS))
+        val limits = requireNotNull(LearnCatalog.unitBySlug(MathTopic.CALCULUS, "limits-and-derivatives"))
         assertEquals(LearnMenu, pathSuffixToNavRoute("learn"))
         assertEquals(
-            LearnGradeDetail(GradeLevel.GRADES_11_12.id),
-            pathSuffixToNavRoute("learn/grade-11-12"),
+            LearnTopicDetail(MathTopic.CALCULUS.id),
+            pathSuffixToNavRoute("learn/calculus"),
         )
-        assertEquals(LearnUnitDetail(calculus.id), pathSuffixToNavRoute("learn/grade-11-12/calculus"))
-        assertEquals(LearnTest(calculus.id), pathSuffixToNavRoute("learn/grade-11-12/calculus/test"))
         assertEquals(
-            LearnCertificate(calculus.id),
-            pathSuffixToNavRoute("learn/grade-11-12/calculus/certificate"),
+            LearnUnitDetail(limits.id),
+            pathSuffixToNavRoute("learn/calculus/limits-and-derivatives"),
+        )
+        assertEquals(
+            LearnTest(limits.id),
+            pathSuffixToNavRoute("learn/calculus/limits-and-derivatives/test"),
+        )
+        assertEquals(
+            LearnCertificate(limits.id),
+            pathSuffixToNavRoute("learn/calculus/limits-and-derivatives/certificate"),
         )
     }
 

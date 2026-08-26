@@ -15,8 +15,8 @@ import com.inspiredandroid.braincup.games.wordle.WordleGame
 import com.inspiredandroid.braincup.games.wordle.WordleLanguage
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.games.wordle.deviceLanguageTag
-import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnUnit
+import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
@@ -323,8 +323,8 @@ class GameController(
         navController.navigate(LearnMenu)
     }
 
-    fun navigateToLearnGrade(level: GradeLevel) {
-        navController.navigate(LearnGradeDetail(level.id))
+    fun navigateToLearnTopic(topic: MathTopic) {
+        navController.navigate(LearnTopicDetail(topic.id))
     }
 
     fun navigateToLearnUnit(unit: LearnUnit) {
