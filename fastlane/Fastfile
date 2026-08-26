@@ -1,8 +1,18 @@
 default_platform(:android)
 
 platform :android do
-  desc "Upload localized screenshots to Play Store"
-  lane :upload_screenshots do
+  desc "Publish the localized store listing (copy, graphics and screenshots) for every language"
+  lane :upload_listing do
+    # supply uploads whatever locale folders it finds, and PUTting a listing creates the language
+    # on Play, so a folder added since the last run is all it takes to open a new store listing.
+    # It fails part-way through the locale list on overlong copy or a half-populated folder,
+    # though, which leaves the listing inconsistent - so the folders are validated first.
+    check = sh(
+      "python3", "../scripts/check_store_listings.py", "--quiet",
+      error_callback: ->(result) { UI.user_error!("Store listing check failed, see above.") },
+    )
+    UI.message(check)
+
     upload_to_play_store(
       skip_upload_apk: true,
       skip_upload_aab: true,
@@ -13,6 +23,11 @@ platform :android do
       skip_upload_screenshots: false,
       skip_upload_metadata: false,
     )
+  end
+
+  desc "Deprecated alias for upload_listing"
+  lane :upload_screenshots do
+    upload_listing
   end
 
   desc "Deploy AAB to Play Store production"

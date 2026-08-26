@@ -18,3 +18,16 @@ tasks.register<Exec>("checkLocalizations") {
         layout.projectDirectory.file("scripts/check_localizations.py").asFile.absolutePath,
     )
 }
+
+// Translating the app is only half of shipping a language: the Play listing needs its own supply
+// folder, copy and screenshots, and none of that is produced by adding values-<locale>/strings.xml.
+tasks.register<Exec>("checkStoreListings") {
+    group = "verification"
+    description =
+        "Checks that every supported locale has a complete Play Store listing under fastlane/metadata/android"
+    commandLine(
+        "python3",
+        layout.projectDirectory.file("scripts/check_store_listings.py").asFile.absolutePath,
+        "--quiet",
+    )
+}

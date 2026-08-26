@@ -83,7 +83,12 @@ val fastlaneDir: Directory? = layout.projectDirectory.dir("../fastlane/metadata/
 tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
     val task = this as Test
     val requestedTasks = gradle.startParameter.taskNames
-    if (requestedTasks.any { it.contains("generateStoreScreenshots") || it.contains("updateEnUsStoreScreenshots") }) {
+    if (requestedTasks.any {
+            it.contains("generateStoreScreenshots") ||
+                it.contains("updateEnUsStoreScreenshots") ||
+                it.contains("updateNewLocaleStoreScreenshots")
+        }
+    ) {
         task.filter.includeTestsMatching("*.StoreScreenshotTest")
         task.filter.includeTestsMatching("*.TabletStoreScreenshotTest")
     }
@@ -97,11 +102,14 @@ tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
 }
 
 // Lays the recorded Play snapshots out in fastlane's supply tree. `locales` limits the copy to a
-// subset of the rendered matrix; null copies every locale.
+// subset of the rendered matrix; null copies every locale. `onlyMissing` further narrows it to
+// locales whose supply folder holds no images yet, which is how a newly added language picks up
+// its store screenshots without reshuffling the other 45.
 fun registerStoreScreenshotCopy(
     name: String,
     locales: Set<String>?,
     taskDescription: String,
+    onlyMissing: Boolean = false,
 ) = tasks.register(name) {
     description = taskDescription
     dependsOn("recordPaparazziDebug")
@@ -151,10 +159,22 @@ fun registerStoreScreenshotCopy(
         assertOneFilePerSlot(phoneSnapshots, phoneRegex, "phone")
         assertOneFilePerSlot(tabletSnapshots, tabletRegex, "tablet")
 
+        // Sampled once, before the first copy: checking the directory inside the loop would see
+        // the image this task just wrote and skip every remaining slot of the same locale.
+        fun hasImages(dir: File) = dir.listFiles()?.any { it.extension == "png" } == true
+        val alreadyPopulated = fastlaneDirFile
+            ?.listFiles()
+            ?.filter { it.isDirectory }
+            ?.filter { hasImages(File(it, "images/phoneScreenshots")) || hasImages(File(it, "images/tenInchScreenshots")) }
+            ?.map { it.name }
+            ?.toSet()
+            ?: emptySet()
+
         phoneSnapshots.forEach { file ->
             val match = phoneRegex.find(file.name) ?: return@forEach
             val (locale, screen) = match.destructured
             if (locales != null && locale !in locales) return@forEach
+            if (onlyMissing && locale in alreadyPopulated) return@forEach
             val targetDir = File(fastlaneDirFile, "$locale/images/phoneScreenshots")
             targetDir.mkdirs()
             val targetFile = File(targetDir, "$screen.png")
@@ -166,6 +186,7 @@ fun registerStoreScreenshotCopy(
             val match = tabletRegex.find(file.name) ?: return@forEach
             val (locale, screen) = match.destructured
             if (locales != null && locale !in locales) return@forEach
+            if (onlyMissing && locale in alreadyPopulated) return@forEach
             val targetDir = File(fastlaneDirFile, "$locale/images/tenInchScreenshots")
             targetDir.mkdirs()
             val targetFile = File(targetDir, "$screen.png")
@@ -190,9 +211,22 @@ val updateEnUsStoreScreenshots =
         taskDescription = "Refreshes only the en-US Play store images, which the README links to.",
     )
 
+// recordPaparazziDebug renders all 46 locales on every run regardless, so filling in a locale that
+// has no supply images yet is free. It keeps a language added since the last full refresh from
+// shipping with an English store page, without committing 552 PNGs on every push.
+val updateNewLocaleStoreScreenshots =
+    registerStoreScreenshotCopy(
+        name = "updateNewLocaleStoreScreenshots",
+        locales = null,
+        taskDescription = "Copies store images only for locales whose supply folder is still empty.",
+        onlyMissing = true,
+    )
+
 tasks.register("updateScreenshots") {
-    description = "Rebuilds the images the README links to: the desktop/web frames and the en-US store set."
-    dependsOn(renderDeviceFrames, updateEnUsStoreScreenshots)
+    description =
+        "Rebuilds the images the README links to: the desktop/web frames, the en-US store set " +
+        "and the store images of any locale that has none yet."
+    dependsOn(renderDeviceFrames, updateEnUsStoreScreenshots, updateNewLocaleStoreScreenshots)
 }
 
 val appStoreScreenshotsDir: Directory? = layout.projectDirectory.dir("../fastlane/screenshots")

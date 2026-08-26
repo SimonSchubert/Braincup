@@ -27,8 +27,11 @@ jobs:
           python-version: '3.12'
       # updateScreenshots rebuilds every image the README links to: scripts/render_device_frames.py
       # draws the macOS/browser window frames for media/screen_mac_*.png and media/screen_web_*.png,
-      # and updateEnUsStoreScreenshots refreshes fastlane/metadata/android/en-US/images/. The other
-      # 19 locales stay a manual ':screenshotTests:generateStoreScreenshots' before a store release.
+      # and updateEnUsStoreScreenshots refreshes fastlane/metadata/android/en-US/images/. It also
+      # runs updateNewLocaleStoreScreenshots, which fills in the supply folder of a locale that has
+      # no store images yet, so a freshly added language does not need the manual full-matrix run
+      # before its Play listing can go up. Refreshing the other 45 locales' existing images stays a
+      # manual ':screenshotTests:generateStoreScreenshots' before a store release.
       - run: pip install pillow
       - run: ./gradlew spotlessApply
       - run: ./gradlew :screenshotTests:updateScreenshots
@@ -41,6 +44,11 @@ jobs:
           git add -A
           git commit -m "Auto-fix: spotlessApply and updateScreenshots [skip ci]"
           git push
+      # Runs after the auto-commit so the images it just laid out count. What is left is the part
+      # no task can generate: a language with no supply folder, no listing copy, or copy that Play
+      # would reject. Catching that here is what keeps a shipped language from sitting on an
+      # English store page until someone notices.
+      - run: ./gradlew checkStoreListings
 
   # Android Lint plus the Slack compose-lint-checks rules. This gates the build: `abortOnError` is
   # on in both modules, so any Compose issue that lint.xml does not explicitly allow fails here.
