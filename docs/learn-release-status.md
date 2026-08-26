@@ -130,21 +130,45 @@ mostly items 1, 5, 6 and 8.
 
 | # | Unit id | Title | Level | Q | Tinted | Formula-led | Status |
 |---|---|---|---|---|---|---|---|
-| 1 | `arithmetic-counting` | Counting and first sums | g12 | 10 | 4 | 7/10 | `review` |
+| 1 | `arithmetic-counting` | Counting and first sums | g12 | 10 | 4 | 7/10 | **`ready`** * |
 | 2 | `arithmetic-multiplication` | Multiplication and division | g35 | 7 | 6 | 7/7 | `review` |
 | 3 | `arithmetic-fractions` | Fractions | g35 | 9 | 2 | 4/9 | `review` |
 | 4 | `arithmetic-decimals` | Decimals | g35 | 9 | 3 | 4/9 | `review` |
 | 5 | `arithmetic-ratio-and-percent` | Negatives, ratio and percent | g68 | 9 | 11 | 5/9 | `review` |
 | 6 | `arithmetic-standard-form-and-surds` | Standard form, surds and bounds | g910 | 7 | 0 | 2/7 | `review` |
 
-Known weak spots to check during the pass:
+\* Items 1 to 8 pass. Item 9, the render check, is batched for the whole topic at the end of
+the pass rather than done per unit.
+
+**Do not read the Tinted and Formula-led columns as scores.** Both are decided by which
+figures and questions a unit uses, not by how finished it is:
+
+* `{a:}` / `{b:}` tinting only makes sense against a figure with **two** accents, which means
+  `TenFrame`, `PlaceValue`, `Fraction`, `RatioBar` and friends. `NumberLine`, `Steps`,
+  `AreaGrid` and `RightTriangle` draw with one accent, so prose that points at them is
+  correctly left untinted. Unit 6 uses only single-accent figures, which is why it shows 0.
+  Unit 1's tinting sits entirely in its `TenFrame` and `PlaceValue` lessons for the same
+  reason, and that is right.
+* A leading `formula` belongs on a question that **is** an equation. A question like "what
+  number is built here" has no equation to lead with, so a ratio below 1 is expected.
+
+The one real weak spot found so far:
 
 * **Units 5 and 6 fail readiness item 1.** "Negatives, ratio and percent" is three subjects,
   and so is "Standard form, surds and bounds". Under the split rule just adopted for
   Geometry they should become six units. Open decision, see section 7.
-* **Unit 6 has no tinted numbers at all** and only 2 of 7 questions lead with a formula.
-  It is the least finished of the six despite counting as reworked.
-* Units 3 and 4 sit at 4 of 9 formula-led, against 7 of 7 for unit 2.
+
+### Pass notes
+
+**1. `arithmetic-counting`, reviewed 2026-08-26.** Four defects found and fixed; all 25
+answers and explanations otherwise checked and correct.
+
+| What | Where | Fix |
+|---|---|---|
+| "What comes after 25?" listed 26 as an option and marked it wrong. The figure asks for the next term of a step-five sequence, so a learner counting on is punished for reading the prompt literally. | test, Q6 | Prompt now asks for the next jump. |
+| "Which number is smaller, 62 or 26?" drew only 26. `PlaceValue`'s own KDoc says a step asking which of two numbers is larger has to show both. | test, Q5 | `compare = 2 to 6` so both are drawn, and the explanation now reasons about the rods rather than restating the answer. |
+| "How many loose ones are here?" was explained with "Five rods and three cubes make 53", which answers a different question. | test, Q4 | Explanation now explains the 3. |
+| "These two have the same rods, so the loose ones decide." is a statement; the step never asked anything. | `g12-arithmetic-tens`, step 6 | Now asks which is larger, keeping the hint. |
 
 ---
 
@@ -238,4 +262,5 @@ Notes on the split:
 | Date | What happened |
 |---|---|
 | 2026-08-26 | Scope set: ship Arithmetic + Geometry, park six. Parking method, perimeter/area move and Geometry split decided. This document created. |
+| 2026-08-26 | Readiness pass started. `arithmetic-counting` reviewed and marked ready: four defects fixed (see section 4). Corrected a wrong lead in this document: low Tinted / Formula-led counts are a property of the figures a unit uses, not a sign of unfinished work. |
 | 2026-08-26 | Restructure committed as `b2a56c22`; `learn-parked` branched there. Parking executed: 6 content files, 6 `MathTopic` entries, 6 tile sketches and 540 locale strings removed; perimeter and area moved into Geometry as `geometry-perimeter-and-area`; previews and tests repointed at shipped topics; `RATCHET` 50 -> 15 and verified tight at exactly 15. `desktopTest` green apart from the by-design `NurikabeMeasureTest.measure`. Geometry rework not started. |
