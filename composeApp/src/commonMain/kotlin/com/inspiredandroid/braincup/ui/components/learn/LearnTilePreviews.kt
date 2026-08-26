@@ -1,35 +1,20 @@
 package com.inspiredandroid.braincup.ui.components.learn
 
-import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.drawscope.DrawScope
-import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.ColorPrismCell
-import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.OperatorIcons
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismPolygon
-import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
-import com.inspiredandroid.braincup.ui.theme.PrismSlot
-import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlin.math.PI
@@ -45,9 +30,6 @@ import kotlin.math.sin
  * mini-game tiles, so these are built from the same prism parts, hold three or four shapes at
  * most, carry no explanatory text, and never move.
  */
-
-/** Tile previews always render on the band's pastel accent, so colours are set explicitly. */
-private val PreviewInk = LightColorScheme.onSurface
 
 /** Neutral grey for the structural parts of a sketch: beams, fulcrums, axes. */
 private val PreviewStructure = Color(0xFF6B7280)
@@ -143,8 +125,6 @@ private fun OperatorGridPreview() {
     }
 }
 
-private const val RulerTicks = 5
-
 private val PentagonPoints = regularPolygonPoints(sides = 5)
 
 @Composable
@@ -158,16 +138,6 @@ private fun PentagonPreview() {
     }
 }
 
-private val BarChartHeights = listOf(0.45f, 0.75f, 0.3f, 1f)
-
-/** The unknown, in the same slot shape the number pad drops an answer into. */
-/** A curve with the tangent that measures its slope: the derivative, in one picture. */
-// --- Drawing helpers -----------------------------------------------------------------------
-
-private const val ArchSamples = 24
-
-private const val UnitCircleDegrees = 52f
-
 /** The corners of a regular polygon with [sides] sides, point up, normalized to the unit square. */
 private fun regularPolygonPoints(sides: Int): ImmutableList<Pair<Float, Float>> {
     val step = 2f * PI.toFloat() / sides
@@ -176,46 +146,4 @@ private fun regularPolygonPoints(sides: Int): ImmutableList<Pair<Float, Float>> 
         val angle = start + step * index
         (0.5f + cos(angle) * 0.5f) to (0.5f + sin(angle) * 0.5f)
     }.toImmutableList()
-}
-
-/**
- * A point of the plot, from x in -1..1 and y in 0..1, inset by [inset] so a thick stroke drawn
- * through it still lands inside the canvas.
- */
-private fun DrawScope.plotPoint(x: Float, y: Float, inset: Float): Offset {
-    val floor = size.height - inset
-    return Offset(
-        x = inset + (x + 1f) / 2f * (size.width - inset * 2f),
-        y = floor - y * (floor - inset),
-    )
-}
-
-/** The arch y = 1 - x², as an open polyline or as a closed dome sitting on the axis. */
-private fun DrawScope.archPath(inset: Float, close: Boolean): Path {
-    val points = List(ArchSamples + 1) { index ->
-        val x = -1f + 2f * index / ArchSamples
-        plotPoint(x, 1f - x * x, inset)
-    }
-    return Path().apply {
-        moveTo(points.first().x, points.first().y)
-        points.drop(1).forEach { lineTo(it.x, it.y) }
-        if (close) close()
-    }
-}
-
-private fun DrawScope.drawPlotAxes(stroke: Float) {
-    val axis = PreviewStructure.copy(alpha = 0.35f)
-    val width = stroke * 0.5f
-    drawLine(
-        color = axis,
-        start = Offset(0f, size.height - width / 2f),
-        end = Offset(size.width, size.height - width / 2f),
-        strokeWidth = width,
-    )
-    drawLine(
-        color = axis,
-        start = Offset(width / 2f, 0f),
-        end = Offset(width / 2f, size.height),
-        strokeWidth = width,
-    )
 }

@@ -4,10 +4,11 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.drawscope.Stroke
 import com.inspiredandroid.braincup.learn.LearnVisual
+import com.inspiredandroid.braincup.learn.QuadKind
 import com.inspiredandroid.braincup.learn.Side
 import com.inspiredandroid.braincup.learn.SolidKind
+import com.inspiredandroid.braincup.learn.TriKind
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.hypot
@@ -27,6 +28,235 @@ private fun polygonPoints(sides: Int, center: Offset, radius: Float): List<Offse
 }
 
 /**
+ * Corners of each named triangle on a -1..1 box, y down. The scalene one is checked to have no
+ * right angle and no two sides alike, so it cannot be misread as either of the others.
+ */
+private fun trianglePoints(kind: TriKind): List<Offset> = when (kind) {
+    TriKind.EQUILATERAL -> listOf(Offset(0f, -0.9f), Offset(0.78f, 0.45f), Offset(-0.78f, 0.45f))
+    TriKind.ISOSCELES -> listOf(Offset(0f, -0.95f), Offset(0.62f, 0.55f), Offset(-0.62f, 0.55f))
+    TriKind.SCALENE -> listOf(Offset(0.15f, -0.85f), Offset(0.9f, 0.62f), Offset(-0.95f, 0.5f))
+}
+
+/** Which sides carry a tick, so equal lengths are marked the way a textbook marks them. */
+private fun equalTriangleSides(kind: TriKind): List<Int> = when (kind) {
+    TriKind.EQUILATERAL -> listOf(0, 1, 2)
+    TriKind.ISOSCELES -> listOf(0, 2)
+    TriKind.SCALENE -> emptyList()
+}
+
+/**
+ * The ghost of the finished shape, under the sides that are still arriving, so a figure never
+ * looks broken mid-animation.
+ */
+private fun VisualScope.ghostOutline(points: List<Offset>) {
+    path(closedPath(points), fill = Accent.copy(alpha = 0.12f * progress), outline = faint, width = stroke * 0.7f)
+}
+
+/**
+ * Draws the closed run of [points] one side at a time, each side growing out of the corner the
+ * one before it landed on. This is what makes a polygon count its own sides.
+ */
+private fun VisualScope.drawSidesInTurn(points: List<Offset>, width: Float = stroke * 1.5f) {
+    points.indices.forEach { i ->
+        val from = points[i]
+        val to = points[(i + 1) % points.size]
+        val t = item(i, points.size)
+        if (t <= 0f) return@forEach
+        line(from, Offset(from.x + (to.x - from.x) * t, from.y + (to.y - from.y) * t), Accent, width)
+    }
+}
+
+/** A tick drawn across the side [from]..[to] and centred on [at], marking it equal to its group. */
+private fun VisualScope.tickMark(
+    at: Offset,
+    from: Offset,
+    to: Offset,
+    half: Float,
+    color: Color = Accent2,
+    alpha: Float = 1f,
+) {
+    val normal = normalAt(from, to)
+    line(
+        Offset(at.x + normal.x * half, at.y + normal.y * half),
+        Offset(at.x - normal.x * half, at.y - normal.y * half),
+        color,
+        stroke,
+        alpha = alpha,
+    )
+}
+
+/** The beat the equal-side ticks and parallel chevrons arrive on, once every side is down. */
+private val VisualScope.marksAlpha: Float get() = ((progress - 0.75f) * 4f).coerceIn(0f, 1f)
+
+/**
+ * A triangle of the kind the step is about. [drawPolygon] can only build the equilateral one, and
+ * a question that names two unequal angles needs a shape that does not contradict it.
+ */
+internal fun VisualScope.drawTriangle(visual: LearnVisual.Triangle) {
+    val scale = size.minDimension * 0.34f
+    val center = Offset(width / 2f, height * 0.47f)
+    val points = trianglePoints(visual.kind).map { Offset(center.x + it.x * scale, center.y + it.y * scale) }
+
+    ghostOutline(points)
+    drawSidesInTurn(points)
+
+    if (!visual.marks) return
+    val marks = marksAlpha
+    if (marks <= 0f) return
+    val tickHalf = scale * 0.075f
+    equalTriangleSides(visual.kind).forEach { i ->
+        val from = points[i]
+        val to = points[(i + 1) % 3]
+        val mid = Offset((from.x + to.x) / 2f, (from.y + to.y) / 2f)
+        tickMark(mid, from, to, tickHalf, alpha = marks)
+    }
+}
+
+/**
+ * Corners of each named quadrilateral, in order round the shape, on a -1..1 box with y running
+ * down the screen. Every one is built so its defining property is visible: the rhombus is a
+ * squashed diamond rather than a square, the parallelogram leans, and the trapezium has one pair
+ * of parallel sides and no more.
+ */
+private fun quadPoints(kind: QuadKind): List<Offset> = when (kind) {
+    QuadKind.SQUARE -> listOf(Offset(-0.7f, -0.7f), Offset(0.7f, -0.7f), Offset(0.7f, 0.7f), Offset(-0.7f, 0.7f))
+    QuadKind.RECTANGLE -> listOf(Offset(-1f, -0.6f), Offset(1f, -0.6f), Offset(1f, 0.6f), Offset(-1f, 0.6f))
+    QuadKind.RHOMBUS -> listOf(Offset(0f, -0.8f), Offset(0.95f, 0f), Offset(0f, 0.8f), Offset(-0.95f, 0f))
+    QuadKind.PARALLELOGRAM -> listOf(Offset(-0.6f, -0.6f), Offset(1f, -0.6f), Offset(0.6f, 0.6f), Offset(-1f, 0.6f))
+    QuadKind.TRAPEZIUM -> listOf(Offset(-0.5f, -0.6f), Offset(0.5f, -0.6f), Offset(1f, 0.6f), Offset(-1f, 0.6f))
+    QuadKind.KITE -> listOf(Offset(0f, -0.95f), Offset(0.65f, -0.1f), Offset(0f, 0.9f), Offset(-0.65f, -0.1f))
+}
+
+/** Sides that share a length, as tick counts: index 0 gets one tick, index 1 gets two. */
+private fun equalSideGroups(kind: QuadKind): List<List<Int>> = when (kind) {
+    QuadKind.SQUARE, QuadKind.RHOMBUS -> listOf(listOf(0, 1, 2, 3))
+    QuadKind.RECTANGLE, QuadKind.PARALLELOGRAM -> listOf(listOf(0, 2), listOf(1, 3))
+    QuadKind.KITE -> listOf(listOf(0, 3), listOf(1, 2))
+    QuadKind.TRAPEZIUM -> emptyList()
+}
+
+/** Sides that run parallel, as chevron counts, the same way a textbook marks them. */
+private fun parallelSideGroups(kind: QuadKind): List<List<Int>> = when (kind) {
+    QuadKind.SQUARE, QuadKind.RECTANGLE, QuadKind.RHOMBUS, QuadKind.PARALLELOGRAM ->
+        listOf(listOf(0, 2), listOf(1, 3))
+    QuadKind.TRAPEZIUM -> listOf(listOf(0, 2))
+    QuadKind.KITE -> emptyList()
+}
+
+/**
+ * A named quadrilateral, drawn side by side with its equal sides ticked and its parallel sides
+ * chevroned, so a rhombus reads as a rhombus and not as the square [drawPolygon] would give.
+ */
+internal fun VisualScope.drawQuadrilateral(visual: LearnVisual.Quadrilateral) {
+    val scale = size.minDimension * 0.33f
+    val center = Offset(width / 2f, height * 0.47f)
+    val points = quadPoints(visual.kind).map { Offset(center.x + it.x * scale, center.y + it.y * scale) }
+
+    ghostOutline(points)
+    drawSidesInTurn(points)
+
+    if (!visual.marks) return
+    val marks = marksAlpha
+    if (marks <= 0f) return
+
+    val tickHalf = scale * 0.075f
+    equalSideGroups(visual.kind).forEachIndexed { group, sides ->
+        sides.forEach { i ->
+            val from = points[i]
+            val to = points[(i + 1) % 4]
+            val mid = Offset((from.x + to.x) / 2f, (from.y + to.y) / 2f)
+            val along = unitAlong(from, to)
+            // A group of two or three ticks spreads out along the side, centred on its midpoint.
+            repeat(group + 1) { t ->
+                val shift = (t - group / 2f) * stroke * 2.2f
+                val at = Offset(mid.x + along.x * shift, mid.y + along.y * shift)
+                tickMark(at, from, to, tickHalf, alpha = marks)
+            }
+        }
+    }
+
+    val chevron = scale * 0.09f
+    parallelSideGroups(visual.kind).forEachIndexed { group, sides ->
+        sides.forEach { i ->
+            val from = points[i]
+            val to = points[(i + 1) % 4]
+            // Chevrons sit a quarter of the way along, clear of the equal-length ticks that take
+            // the midpoint; drawn on top of each other the two marks read as a smudge.
+            val mid = Offset(from.x + (to.x - from.x) * 0.27f, from.y + (to.y - from.y) * 0.27f)
+            val along = unitAlong(from, to)
+            val nx = -along.y
+            val ny = along.x
+            repeat(group + 1) { c ->
+                val tip = Offset(mid.x + along.x * c * chevron * 0.9f, mid.y + along.y * c * chevron * 0.9f)
+                line(
+                    Offset(
+                        tip.x - along.x * chevron + nx * chevron * 0.6f,
+                        tip.y - along.y * chevron + ny * chevron * 0.6f,
+                    ),
+                    tip,
+                    ink,
+                    stroke * 0.9f,
+                    alpha = marks,
+                )
+                line(
+                    Offset(
+                        tip.x - along.x * chevron - nx * chevron * 0.6f,
+                        tip.y - along.y * chevron - ny * chevron * 0.6f,
+                    ),
+                    tip,
+                    ink,
+                    stroke * 0.9f,
+                    alpha = marks,
+                )
+            }
+        }
+    }
+}
+
+/**
+ * Where each corner of the cyclic quadrilateral sits on the circle, in degrees. The gaps between
+ * them are deliberately uneven - 68, 124, 118 and 50 degrees - so the corner angles come out near
+ * 121, 84, 59 and 96. A near-square would let the opposite-angle rule be read as a fact about
+ * rectangles, which is the one reading the lesson has to rule out.
+ */
+private val CyclicQuadCorners = listOf(200f, 268f, 32f, 150f)
+
+/**
+ * A lopsided quadrilateral inscribed in its circle. The shape is deliberately irregular so that
+ * the opposite-angle rule cannot be mistaken for a fact about squares, and the corners land on
+ * the circle one at a time so "all four corners sit on it" is the thing the figure shows.
+ */
+internal fun VisualScope.drawCyclicQuad(visual: LearnVisual.CyclicQuad) {
+    val radius = size.minDimension * 0.36f
+    val center = Offset(width / 2f, height * 0.47f)
+    val points = CyclicQuadCorners.map { deg -> polar(center, radius, deg, flipY = false) }
+
+    circle(center, radius, outline = faint)
+
+    // A hair thinner than the other polygons draw with, so the sides do not swamp the circle.
+    drawSidesInTurn(points, width = stroke * 1.4f)
+
+    val cornersAlpha = ((progress - 0.55f) * 3f).coerceIn(0f, 1f)
+    repeat(4) { i ->
+        val paired = visual.highlightPair != null && i % 2 == visual.highlightPair
+        dot(points[i], stroke * 1.5f, if (paired) Accent2 else Accent, alpha = cornersAlpha)
+    }
+
+    val labelsAlpha = ((progress - 0.7f) * 3.4f).coerceIn(0f, 1f)
+    repeat(4) { i ->
+        val text = visual.angles.getOrNull(i).orEmpty()
+        if (text.isEmpty()) return@repeat
+        // Pull the label in off the corner so it sits inside the shape rather than on the circle.
+        val at = Offset(
+            points[i].x + (center.x - points[i].x) * 0.42f,
+            points[i].y + (center.y - points[i].y) * 0.42f,
+        )
+        val paired = visual.highlightPair != null && i % 2 == visual.highlightPair
+        label(text, at, if (paired) Accent2 else ink, 0.095f, alpha = labelsAlpha)
+    }
+}
+
+/**
  * A real polygon of the size the question asks about, drawn one side at a time with its corners
  * numbered as they arrive — so "how many sides does a pentagon have" answers itself.
  */
@@ -36,21 +266,8 @@ internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
     val center = Offset(width / 2f, height * 0.46f)
     val points = polygonPoints(sides, center, radius)
 
-    // Ghost of the finished shape, so the figure never looks broken mid-animation.
-    val outlinePath = Path().apply {
-        moveTo(points[0].x, points[0].y)
-        points.drop(1).forEach { lineTo(it.x, it.y) }
-        close()
-    }
-    path(outlinePath, fill = Accent.copy(alpha = 0.12f * progress), outline = faint, width = stroke * 0.7f)
-
-    repeat(sides) { i ->
-        val from = points[i]
-        val to = points[(i + 1) % sides]
-        val t = item(i, sides)
-        if (t <= 0f) return@repeat
-        line(from, Offset(from.x + (to.x - from.x) * t, from.y + (to.y - from.y) * t), Accent, stroke * 1.5f)
-    }
+    ghostOutline(points)
+    drawSidesInTurn(points)
 
     // Corners go on in a pass of their own, once every side is down. Marking each one as its side
     // arrived buried it under the side drawn next, and the corner is the thing being counted.
@@ -70,14 +287,25 @@ internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
         }
     }
 
-    if (!revealing(visual.reveal)) return
-    label(
-        text = "$sides sides, $sides corners",
-        center = Offset(width / 2f, height * 0.93f),
-        color = Accent,
-        factor = 0.1f,
-        alpha = stage(2, 3),
-    )
+    if (!visual.reveal) return
+    val caption = revealBeat
+    val captionY = height * 0.93f
+    // Each count is written in the colour of the thing it counts: the sides in the accent the shape
+    // is drawn in, the corners in the green their dots are marked with. One colour across the whole
+    // line leaves the reader working out for themselves which half names which part of the figure.
+    if (!visual.countCorners) {
+        label("$sides sides, $sides corners", Offset(width / 2f, captionY), Accent, 0.1f, alpha = caption)
+        return
+    }
+    val sidesText = "$sides sides,"
+    val cornersText = "$sides corners"
+    val captionStyle = labelStyle(ink, 0.1f)
+    val sidesWidth = measure(sidesText, captionStyle).size.width.toFloat()
+    val cornersWidth = measure(cornersText, captionStyle).size.width.toFloat()
+    val space = size.minDimension * 0.03f
+    val captionLeft = width / 2f - (sidesWidth + space + cornersWidth) / 2f
+    labelStart(sidesText, Offset(captionLeft, captionY), Accent, 0.1f, alpha = caption)
+    labelStart(cornersText, Offset(captionLeft + sidesWidth + space, captionY), Accent2, 0.1f, alpha = caption)
 }
 
 /** One solid, drawn in the way that makes its faces and edges countable. */
@@ -86,6 +314,9 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
     val center = Offset(width / 2f, height * 0.48f)
     val depth = s * 0.42f
     val outline = ink.copy(alpha = progress)
+    // Every solid is tinted the same, so a cube and a cylinder read as the same kind of object.
+    // The cube and the cone paint their faces at a flat 0.18 rather than fading in with this one.
+    val face = Accent.copy(alpha = 0.18f * progress)
 
     when (visual.kind) {
         SolidKind.CUBE, SolidKind.PRISM -> {
@@ -103,13 +334,13 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
         }
 
         SolidKind.SPHERE -> {
-            draw.drawCircle(Accent.copy(alpha = 0.18f * progress), s * 0.9f, center)
-            draw.drawCircle(outline, s * 0.9f, center, style = Stroke(width = stroke * 1.2f))
-            draw.drawOval(
-                color = faint.copy(alpha = faint.alpha * progress),
+            circle(center, s * 0.9f, fill = face, outline = null)
+            circle(center, s * 0.9f, outline = outline, width = stroke * 1.2f)
+            oval(
                 topLeft = Offset(center.x - s * 0.9f, center.y - s * 0.28f),
                 size = Size(s * 1.8f, s * 0.56f),
-                style = Stroke(width = stroke * 0.7f),
+                outline = faint.copy(alpha = faint.alpha * progress),
+                width = stroke * 0.7f,
             )
         }
 
@@ -118,17 +349,18 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
             val ellipse = s * 0.34f
             val top = center.y - s * 0.85f
             val bottom = center.y + s * 0.85f
-            draw.drawOval(
-                Accent.copy(alpha = 0.18f * progress),
-                Offset(center.x - w / 2f, top),
-                Size(w, ellipse),
+            oval(
+                topLeft = Offset(center.x - w / 2f, top),
+                size = Size(w, ellipse),
+                fill = face,
+                outline = null,
             )
-            draw.drawOval(outline, Offset(center.x - w / 2f, top), Size(w, ellipse), style = Stroke(stroke * 1.2f))
-            draw.drawOval(
-                outline,
-                Offset(center.x - w / 2f, bottom - ellipse),
-                Size(w, ellipse),
-                style = Stroke(stroke * 1.2f),
+            oval(Offset(center.x - w / 2f, top), Size(w, ellipse), outline = outline, width = stroke * 1.2f)
+            oval(
+                topLeft = Offset(center.x - w / 2f, bottom - ellipse),
+                size = Size(w, ellipse),
+                outline = outline,
+                width = stroke * 1.2f,
             )
             listOf(center.x - w / 2f, center.x + w / 2f).forEach { x ->
                 line(Offset(x, top + ellipse / 2f), Offset(x, bottom - ellipse / 2f), outline, stroke * 1.2f)
@@ -147,11 +379,11 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
                 close()
             }
             path(cone, Accent.copy(alpha = 0.18f), outline, stroke * 1.2f)
-            draw.drawOval(
-                outline,
-                Offset(center.x - w / 2f, baseY - ellipse),
-                Size(w, ellipse),
-                style = Stroke(stroke * 1.2f),
+            oval(
+                topLeft = Offset(center.x - w / 2f, baseY - ellipse),
+                size = Size(w, ellipse),
+                outline = outline,
+                width = stroke * 1.2f,
             )
         }
     }
@@ -170,13 +402,13 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
         SolidKind.CONE -> "1 flat face · 1 point"
         SolidKind.PRISM -> "same cross-section throughout"
     }
-    if (revealing(visual.reveal)) {
+    if (visual.reveal) {
         label(
             text = if (visual.counts) counts else name,
             center = Offset(width / 2f, height * 0.93f),
             color = Accent,
             factor = 0.1f,
-            alpha = stage(2, 3),
+            alpha = revealBeat,
         )
     }
 }
@@ -201,12 +433,7 @@ internal fun VisualScope.drawSymmetry(visual: LearnVisual.Symmetry) {
     } else {
         val sides = visual.sides.coerceAtLeast(3)
         val points = polygonPoints(sides, center, radius)
-        val shape = Path().apply {
-            moveTo(points[0].x, points[0].y)
-            points.drop(1).forEach { lineTo(it.x, it.y) }
-            close()
-        }
-        path(shape, Accent.copy(alpha = 0.15f), ink, stroke * 1.2f)
+        path(closedPath(points), Accent.copy(alpha = 0.15f), ink, stroke * 1.2f)
         repeat(visual.lines) { i ->
             val angle = -PI / 2 + i * PI / visual.lines
             val from = Offset(
@@ -221,13 +448,13 @@ internal fun VisualScope.drawSymmetry(visual: LearnVisual.Symmetry) {
         }
     }
 
-    if (!revealing(visual.reveal)) return
+    if (!visual.reveal) return
     label(
         text = "${visual.lines} line${if (visual.lines == 1) "" else "s"} of symmetry",
         center = Offset(width / 2f, height * 0.93f),
         color = Accent2,
         factor = 0.1f,
-        alpha = stage(2, 3),
+        alpha = revealBeat,
     )
 }
 
@@ -250,12 +477,13 @@ internal fun VisualScope.drawAreaGrid(visual: LearnVisual.AreaGrid) {
             )
         }
     }
-    box(Offset(left, top), Size(cell * cols, cell * rows), null, ink)
+    // The outline is the perimeter, so it takes the colour of the caption that measures it.
+    box(Offset(left, top), Size(cell * cols, cell * rows), null, if (visual.showPerimeter) Accent2 else ink)
 
     label("$cols ${visual.unit}", Offset(left + cell * cols / 2f, top - height * 0.09f), ink, 0.09f)
     label("$rows ${visual.unit}", Offset(left - width * 0.09f, top + cell * rows / 2f), ink, 0.09f)
 
-    if (!revealing(visual.reveal)) return
+    if (!visual.reveal) return
     val texts = buildList {
         if (visual.showArea) add("area = ${cols * rows} sq ${visual.unit}")
         if (visual.showPerimeter) add("perimeter = ${2 * (cols + rows)} ${visual.unit}")
@@ -266,7 +494,7 @@ internal fun VisualScope.drawAreaGrid(visual: LearnVisual.AreaGrid) {
             center = Offset(width / 2f, height * (0.88f + i * 0.09f)),
             color = if (i == 0 && visual.showArea) Accent else Accent2,
             factor = 0.095f,
-            alpha = stage(2, 3),
+            alpha = revealBeat,
         )
     }
 }
@@ -341,21 +569,19 @@ internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
             center = Offset((right.x + top.x) / 2f + width * 0.045f, (right.y + top.y) / 2f - height * 0.03f),
             color = Accent,
             factor = 0.1f,
-            alpha = stage(2, 3),
+            alpha = revealBeat,
         )
     }
 
     visual.angle?.let { degrees ->
         val sweep = degrees.toFloat() * progress
         val arcRadius = min(legA, legB) * 0.42f
-        draw.drawArc(
-            color = Accent2,
+        arc(
+            center = right,
+            radius = arcRadius,
             startAngle = 180f,
             sweepAngle = -sweep,
-            useCenter = false,
-            topLeft = Offset(right.x - arcRadius, right.y - arcRadius),
-            size = Size(arcRadius * 2, arcRadius * 2),
-            style = Stroke(width = stroke),
+            outline = Accent2,
         )
         label("$degrees", Offset(right.x - arcRadius * 1.5f, right.y - arcRadius * 0.5f), Accent2, 0.09f)
     }
@@ -367,19 +593,18 @@ internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
     val center = Offset(width / 2f, height * 0.47f)
 
     if (visual.fillArea) {
-        draw.drawCircle(Accent.copy(alpha = 0.3f * progress), radius * progress, center)
+        circle(center, radius * progress, fill = Accent.copy(alpha = 0.3f * progress), outline = null)
     }
-    draw.drawCircle(ink, radius, center, style = Stroke(width = stroke * 1.3f))
+    circle(center, radius, outline = ink, width = stroke * 1.3f)
 
     if (visual.sweepCircumference) {
-        draw.drawArc(
-            color = Accent,
+        arc(
+            center = center,
+            radius = radius,
             startAngle = -90f,
             sweepAngle = 360f * progress,
-            useCenter = false,
-            topLeft = Offset(center.x - radius, center.y - radius),
-            size = Size(radius * 2, radius * 2),
-            style = Stroke(width = stroke * 2f),
+            outline = Accent,
+            width = stroke * 2f,
         )
     }
     if (visual.showDiameter) {
@@ -390,7 +615,7 @@ internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
             stroke * 1.4f,
         )
         visual.radius?.let {
-            label("d = ${it * 2}", Offset(center.x, center.y + height * 0.1f), Accent2, 0.1f, alpha = stage(2, 3))
+            label("d = ${it * 2}", Offset(center.x, center.y + height * 0.1f), Accent2, 0.1f, alpha = revealBeat)
         }
     }
     if (visual.showRadius && !visual.showDiameter) {
@@ -402,27 +627,21 @@ internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
     visual.centreAngle?.let { degrees ->
         // Centre angle and the angle at the circumference standing on the same arc.
         val half = degrees / 2f
-        val left = Offset(
-            center.x + (radius * cos((-90 - degrees / 2.0) * PI / 180)).toFloat(),
-            center.y + (radius * sin((-90 - degrees / 2.0) * PI / 180)).toFloat(),
-        )
-        val right = Offset(
-            center.x + (radius * cos((-90 + degrees / 2.0) * PI / 180)).toFloat(),
-            center.y + (radius * sin((-90 + degrees / 2.0) * PI / 180)).toFloat(),
-        )
+        val left = polar(center, radius, -90f - half, flipY = false)
+        val right = polar(center, radius, -90f + half, flipY = false)
         val bottom = Offset(center.x, center.y + radius)
         line(center, left, Accent, stroke * 1.2f, alpha = stage(0, 3))
         line(center, right, Accent, stroke * 1.2f, alpha = stage(0, 3))
         label("$degrees", Offset(center.x, center.y - height * 0.08f), Accent, 0.1f, alpha = stage(0, 3))
         line(bottom, left, Accent2, stroke * 1.1f, alpha = stage(1, 3))
         line(bottom, right, Accent2, stroke * 1.1f, alpha = stage(1, 3))
-        if (revealing(visual.reveal)) {
+        if (visual.reveal) {
             label(
                 text = "${half.roundToInt()}",
                 center = Offset(center.x, center.y + radius * 0.68f),
                 color = Accent2,
                 factor = 0.1f,
-                alpha = stage(2, 3),
+                alpha = revealBeat,
             )
         }
     }
@@ -443,28 +662,24 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
     line(origin, tip, Accent, stroke * 1.4f)
 
     val sweepRadius = arm * 0.3f
-    draw.drawArc(
-        color = Accent,
+    arc(
+        center = origin,
+        radius = sweepRadius,
         startAngle = 180f,
         sweepAngle = swept,
-        useCenter = false,
-        topLeft = Offset(origin.x - sweepRadius, origin.y - sweepRadius),
-        size = Size(sweepRadius * 2, sweepRadius * 2),
-        style = Stroke(width = stroke),
+        outline = Accent,
     )
     labelWedge("$degrees", origin, 180f, swept, sweepRadius * 1.6f, Accent, stage(1, 3))
 
-    if (visual.supplement && revealing(visual.reveal)) {
+    if (visual.supplement && visual.reveal) {
         val other = 180 - degrees
         val otherRadius = arm * 0.44f
-        draw.drawArc(
-            color = Accent2,
+        arc(
+            center = origin,
+            radius = otherRadius,
             startAngle = 180f + swept,
             sweepAngle = (180f - swept).coerceAtLeast(0f),
-            useCenter = false,
-            topLeft = Offset(origin.x - otherRadius, origin.y - otherRadius),
-            size = Size(otherRadius * 2, otherRadius * 2),
-            style = Stroke(width = stroke),
+            outline = Accent2,
         )
         labelWedge(
             text = "$other",
@@ -473,14 +688,14 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
             sweepDegrees = (180f - swept).coerceAtLeast(0f),
             radius = otherRadius * 1.35f,
             color = Accent2,
-            alpha = stage(2, 3),
+            alpha = revealBeat,
         )
         label(
             text = "$degrees + $other = 180",
             center = Offset(width / 2f, height * 0.94f),
             color = ink,
             factor = 0.095f,
-            alpha = stage(2, 3),
+            alpha = revealBeat,
         )
     }
 }
@@ -526,7 +741,7 @@ internal fun VisualScope.drawBalance(visual: LearnVisual.Balance) {
     )
 
     val blockSize = min(width * 0.055f, height * 0.14f)
-    val removeProgress = stage(2, 3)
+    val removeProgress = revealBeat
 
     fun drawPan(cx: Float, xBlocks: Int, ones: Int, removed: Int) {
         val panY = center.y + height * 0.1f

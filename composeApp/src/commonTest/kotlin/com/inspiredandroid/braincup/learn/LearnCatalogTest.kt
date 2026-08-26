@@ -173,6 +173,23 @@ class LearnCatalogTest {
         }
     }
 
+    /**
+     * A typed answer has to be typeable. The lesson keypad is ten digits and a backspace - no
+     * decimal point, no minus - so a step answered "0.75" or "-5" cannot be answered at all. Those
+     * questions ask as a [LessonStep.Choice] instead.
+     */
+    @Test
+    fun typedAnswersFitTheKeypad() {
+        LearnCatalog.allLessons.forEach { lesson ->
+            lesson.steps.filterIsInstance<LessonStep.Numeric>().forEach { step ->
+                assertTrue(
+                    step.answer.isNotEmpty() && step.answer.all { it.isDigit() },
+                    "${lesson.id}: '${step.answer}' cannot be typed on the number pad",
+                )
+            }
+        }
+    }
+
     @Test
     fun everyLessonAsksAtLeastOneQuestion() {
         LearnCatalog.allLessons.forEach { lesson ->
@@ -203,6 +220,41 @@ class LearnCatalogTest {
                     step.options.size,
                     step.options.toSet().size,
                     "duplicate option in: ${step.question}",
+                )
+            }
+        }
+    }
+
+    /**
+     * Every answer explanation has to say something, and a test explanation may not lean on the
+     * figure's accent colours.
+     *
+     * The two places an explanation renders are not alike. A lesson's `FeedbackCard` sits under
+     * the figure that posed the question, so `{a:}` / `{b:}` tinting there points at colours the
+     * learner can still see. A test's `ReviewCard` draws no figure at all - only the prompt, the
+     * answers and this line - so a tint in a quiz explanation refers to nothing.
+     */
+    @Test
+    fun everyStepAndQuestionExplains() {
+        LearnCatalog.allLessons.forEach { lesson ->
+            lesson.steps.forEach { step ->
+                val explanation = when (step) {
+                    is LessonStep.Choice -> step.explanation
+                    is LessonStep.Numeric -> step.explanation
+                    else -> return@forEach
+                }
+                assertTrue(explanation.isNotBlank(), "${lesson.id}: a question step explains nothing")
+            }
+        }
+        LearnCatalog.allUnits.forEach { unit ->
+            unit.quiz.questions.forEach { question ->
+                assertTrue(
+                    question.explanation.isNotBlank(),
+                    "${unit.id}: '${question.prompt}' explains nothing",
+                )
+                assertFalse(
+                    question.explanation.contains("{a:") || question.explanation.contains("{b:"),
+                    "${unit.id}: '${question.prompt}' tints its explanation, but the test review draws no figure",
                 )
             }
         }

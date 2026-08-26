@@ -3,7 +3,6 @@ package com.inspiredandroid.braincup.ui.components.learn
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.drawscope.Stroke
 import com.inspiredandroid.braincup.learn.LearnVisual
 import kotlin.math.exp
 import kotlin.math.roundToInt
@@ -34,16 +33,17 @@ internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
         val barHeight = chartHeight * value / maxValue * t
         val x = width * 0.08f + slot * index + (slot - barWidth) / 2f
         val highlighted = index in visual.highlight
-        draw.drawRect(
-            color = if (highlighted) Accent2 else Accent,
+        box(
             topLeft = Offset(x, baseline - barHeight),
             size = Size(barWidth, barHeight),
+            fill = if (highlighted) Accent2 else Accent,
+            outline = null,
         )
-        if (revealing(visual.reveal)) {
+        if (visual.reveal) {
             label(
                 text = value.toString(),
                 center = Offset(x + barWidth / 2f, baseline - barHeight - height * 0.06f),
-                color = ink,
+                color = if (highlighted) Accent2 else Accent,
                 factor = 0.085f,
                 alpha = t,
             )
@@ -58,7 +58,7 @@ internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
     if (visual.showMean) {
         val mean = values.sum().toFloat() / values.size
         val y = baseline - chartHeight * mean / maxValue
-        val reveal = stage(2, 3)
+        val reveal = revealBeat
         line(
             Offset(width * 0.06f, y),
             Offset(width * 0.06f + (width * 0.88f) * reveal, y),
@@ -82,7 +82,6 @@ internal fun VisualScope.drawPieChart(visual: LearnVisual.PieChart) {
     if (shares.isEmpty()) return
     val total = shares.sum().toFloat()
     val diameter = size.minDimension * 0.68f
-    val topLeft = Offset(width / 2f - diameter / 2f, height * 0.46f - diameter / 2f)
     val center = Offset(width / 2f, height * 0.46f)
     val palette = listOf(Accent, Accent2, ink.copy(alpha = 0.45f), Accent.copy(alpha = 0.5f))
 
@@ -90,15 +89,15 @@ internal fun VisualScope.drawPieChart(visual: LearnVisual.PieChart) {
     shares.forEachIndexed { index, share ->
         val sweep = 360f * share / total
         val t = item(index, shares.size)
-        draw.drawArc(
-            color = palette[index % palette.size],
+        arc(
+            center = center,
+            radius = diameter / 2f,
             startAngle = start,
             sweepAngle = sweep * t,
-            useCenter = true,
-            topLeft = topLeft,
-            size = Size(diameter, diameter),
+            fill = palette[index % palette.size],
+            outline = null,
         )
-        if (t > 0.85f && revealing(visual.reveal)) {
+        if (t > 0.85f && visual.reveal) {
             val mid = (start + sweep / 2f) * kotlin.math.PI.toFloat() / 180f
             val at = Offset(
                 center.x + (diameter * 0.3f * kotlin.math.cos(mid)),
@@ -109,7 +108,7 @@ internal fun VisualScope.drawPieChart(visual: LearnVisual.PieChart) {
         }
         start += sweep
     }
-    draw.drawCircle(ink, diameter / 2f, center, style = Stroke(width = stroke))
+    circle(center, diameter / 2f, outline = ink)
 
     visual.labels.forEachIndexed { index, text ->
         label(
@@ -117,7 +116,7 @@ internal fun VisualScope.drawPieChart(visual: LearnVisual.PieChart) {
             center = Offset(width / 2f, height * (0.9f + index * 0.075f)),
             color = palette[index % palette.size],
             factor = 0.08f,
-            alpha = stage(2, 3),
+            alpha = revealBeat,
         )
     }
 }
@@ -146,20 +145,20 @@ internal fun VisualScope.drawPictogram(visual: LearnVisual.Pictogram) {
         }
         if (count - drawn > 0.4f) {
             // A half symbol is half the value, and looks it.
-            draw.drawArc(
-                color = Accent,
+            arc(
+                center = Offset(width * 0.18f + step * symbolIndex, y),
+                radius = radius,
                 startAngle = 90f,
                 sweepAngle = 180f,
-                useCenter = true,
-                topLeft = Offset(width * 0.18f + step * symbolIndex - radius, y - radius),
-                size = Size(radius * 2, radius * 2),
+                fill = Accent,
+                outline = null,
             )
         }
-        if (revealing(visual.reveal)) {
+        if (visual.reveal) {
             label(
                 text = "= ${(count * visual.unitValue).roundToInt()}",
                 center = Offset(width * 0.86f, y),
-                color = Accent2,
+                color = Accent,
                 factor = 0.09f,
                 alpha = item(rowIndex, rows.size),
             )
@@ -224,7 +223,7 @@ internal fun VisualScope.drawNormalCurve(visual: LearnVisual.NormalCurve) {
     }
 
     visual.percent?.let {
-        label(it, Offset(rect.left + rect.width / 2f, rect.bottom - rect.height * 0.4f), ink, 0.12f, alpha = stage(2, 3))
+        label(it, Offset(rect.left + rect.width / 2f, rect.bottom - rect.height * 0.4f), ink, 0.12f, alpha = revealBeat)
     }
 }
 
@@ -235,14 +234,16 @@ internal fun VisualScope.drawSetDiagram(visual: LearnVisual.SetDiagram) {
     val leftCenter = Offset(width / 2f - radius * 0.55f, y)
     val rightCenter = Offset(width / 2f + radius * 0.55f, y)
 
-    draw.drawCircle(Accent.copy(alpha = 0.25f * progress), radius, leftCenter)
-    draw.drawCircle(Accent2.copy(alpha = 0.25f * progress), radius, rightCenter)
-    draw.drawCircle(ink, radius, leftCenter, style = Stroke(width = stroke))
-    draw.drawCircle(ink, radius, rightCenter, style = Stroke(width = stroke))
+    circle(leftCenter, radius, fill = Accent.copy(alpha = 0.25f * progress), outline = null)
+    circle(rightCenter, radius, fill = Accent2.copy(alpha = 0.25f * progress), outline = null)
+    circle(leftCenter, radius, outline = ink)
+    circle(rightCenter, radius, outline = ink)
 
-    label(visual.aOnly.toString(), Offset(leftCenter.x - radius * 0.45f, y), ink, 0.11f, alpha = stage(0, 3))
-    label(visual.both.toString(), Offset(width / 2f, y), Accent, 0.12f, alpha = stage(1, 3))
-    label(visual.bOnly.toString(), Offset(rightCenter.x + radius * 0.45f, y), ink, 0.11f, alpha = stage(0, 3))
+    // Each count takes the colour of the ring it sits in. The overlap belongs to both rings, so it
+    // takes the ink instead of picking a side.
+    label(visual.aOnly.toString(), Offset(leftCenter.x - radius * 0.45f, y), Accent, 0.11f, alpha = stage(0, 3))
+    label(visual.both.toString(), Offset(width / 2f, y), ink, 0.12f, alpha = stage(1, 3))
+    label(visual.bOnly.toString(), Offset(rightCenter.x + radius * 0.45f, y), Accent2, 0.11f, alpha = stage(0, 3))
 
     label(visual.aLabel, Offset(leftCenter.x - radius * 0.4f, y - radius * 1.2f), Accent, 0.085f)
     label(visual.bLabel, Offset(rightCenter.x + radius * 0.4f, y - radius * 1.2f), Accent2, 0.085f)

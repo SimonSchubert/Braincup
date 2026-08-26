@@ -1,9 +1,7 @@
 package com.inspiredandroid.braincup.ui.components.learn
 
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.graphics.drawscope.Stroke
 import com.inspiredandroid.braincup.learn.Curve
 import com.inspiredandroid.braincup.learn.LearnVisual
 import kotlin.math.PI
@@ -73,9 +71,9 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
     }
 
     visual.second?.let { path(pathFor(it, progress), null, Accent2, stroke * 1.3f) }
-    path(pathFor(visual.curve, progress), null, Accent, stroke * 1.6f)
+    visual.curve?.let { path(pathFor(it, progress), null, Accent, stroke * 1.6f) }
 
-    if (visual.areaTo != null) {
+    if (visual.areaTo != null && visual.curve != null) {
         val fill = Path().apply {
             moveTo(px(0f), py(0f))
             var x = 0f
@@ -92,11 +90,12 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
     }
 
     visual.tangentAt?.let { at ->
-        val y = visual.curve.valueAt(at) ?: return@let
+        val curve = visual.curve ?: return@let
+        val y = curve.valueAt(at) ?: return@let
         val h = 0.01f
-        val slope = ((visual.curve.valueAt(at + h) ?: y) - (visual.curve.valueAt(at - h) ?: y)) / (2 * h)
+        val slope = ((curve.valueAt(at + h) ?: y) - (curve.valueAt(at - h) ?: y)) / (2 * h)
         val dx = 1.3f
-        val reveal = stage(2, 3)
+        val reveal = revealBeat
         line(
             Offset(px(at - dx * reveal), py(y - slope * dx * reveal)),
             Offset(px(at + dx * reveal), py(y + slope * dx * reveal)),
@@ -122,13 +121,13 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
                 listOf((-quadratic.b - sqrt) / (2 * quadratic.a), (-quadratic.b + sqrt) / (2 * quadratic.a))
                     .filter { it in X_MIN..X_MAX }
                     .forEach { root ->
-                        dot(Offset(px(root), py(0f)), stroke * 2f, Accent2, alpha = stage(2, 3))
+                        dot(Offset(px(root), py(0f)), stroke * 2f, Accent2, alpha = revealBeat)
                         label(
                             text = formatDecimal(root.toDouble()),
                             center = Offset(px(root), py(0f) + height * 0.08f),
                             color = Accent2,
                             factor = 0.085f,
-                            alpha = stage(2, 3),
+                            alpha = revealBeat,
                         )
                     }
             }
@@ -142,20 +141,20 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
             // Computed directly: a quadratic always has a value, unlike the nullable log curve.
             val vy = quadratic.a * vx * vx + quadratic.b * vx + quadratic.c
             if (vx in X_MIN..X_MAX && vy in Y_MIN..Y_MAX) {
-                dot(Offset(px(vx), py(vy)), stroke * 2f, Accent2, alpha = stage(2, 3))
+                dot(Offset(px(vx), py(vy)), stroke * 2f, Accent2, alpha = revealBeat)
                 label(
                     text = "(${formatDecimal(vx.toDouble())}, ${formatDecimal(vy.toDouble())})",
                     center = Offset(px(vx), py(vy) + height * 0.09f),
                     color = Accent2,
                     factor = 0.085f,
-                    alpha = stage(2, 3),
+                    alpha = revealBeat,
                 )
             }
         }
     }
 
     visual.points.forEach { point ->
-        val alpha = stage(2, 3)
+        val alpha = revealBeat
         dot(Offset(px(point.x), py(point.y)), stroke * 2f, Accent2, alpha = alpha)
         point.label?.let {
             label(it, Offset(px(point.x), py(point.y) - height * 0.08f), Accent2, 0.085f, alpha = alpha)
@@ -170,46 +169,42 @@ internal fun VisualScope.drawUnitCircle(visual: LearnVisual.UnitCircleFigure) {
 
     line(Offset(center.x - radius * 1.35f, center.y), Offset(center.x + radius * 1.35f, center.y), ink, stroke)
     line(Offset(center.x, center.y - radius * 1.35f), Offset(center.x, center.y + radius * 1.35f), ink, stroke)
-    draw.drawCircle(ink, radius, center, style = Stroke(width = stroke * 1.2f))
+    circle(center, radius, outline = ink, width = stroke * 1.2f)
 
     val degrees = visual.degrees * progress
-    val angle = degrees * PI / 180.0
-    val point = Offset(
-        center.x + (radius * cos(angle)).toFloat(),
-        center.y - (radius * sin(angle)).toFloat(),
-    )
+    val point = polar(center, radius, degrees)
 
-    draw.drawArc(
-        color = Accent.copy(alpha = 0.3f),
+    arc(
+        center = center,
+        radius = radius * 0.35f,
         startAngle = 0f,
         sweepAngle = -degrees,
-        useCenter = true,
-        topLeft = Offset(center.x - radius * 0.35f, center.y - radius * 0.35f),
-        size = Size(radius * 0.7f, radius * 0.7f),
+        fill = Accent.copy(alpha = 0.3f),
+        outline = null,
     )
     line(center, point, Accent, stroke * 1.4f)
 
     if (visual.showCos) {
-        line(center, Offset(point.x, center.y), Accent2, stroke * 1.2f, alpha = stage(2, 3))
-        if (revealing(visual.reveal)) {
+        line(center, Offset(point.x, center.y), Accent2, stroke * 1.2f, alpha = revealBeat)
+        if (visual.reveal) {
             label(
                 text = "cos = " + formatDecimal(cos(visual.degrees * PI / 180.0)),
                 center = Offset(center.x, center.y + radius * 1.62f),
                 color = Accent2,
                 factor = 0.085f,
-                alpha = stage(2, 3),
+                alpha = revealBeat,
             )
         }
     }
     if (visual.showSin) {
-        line(Offset(point.x, center.y), point, Accent2, stroke * 1.2f, alpha = stage(2, 3))
-        if (revealing(visual.reveal)) {
+        line(Offset(point.x, center.y), point, Accent2, stroke * 1.2f, alpha = revealBeat)
+        if (visual.reveal) {
             label(
                 text = "sin = " + formatDecimal(sin(visual.degrees * PI / 180.0)),
                 center = Offset(center.x, center.y - radius * 1.62f),
                 color = Accent2,
                 factor = 0.085f,
-                alpha = stage(2, 3),
+                alpha = revealBeat,
             )
         }
     }

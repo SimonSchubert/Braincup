@@ -40,6 +40,10 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.coroutines.delay
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.hypot
+import kotlin.math.sin
 
 private val EntranceSpec = tween<Float>(durationMillis = 1100, easing = FastOutSlowInEasing)
 
@@ -126,15 +130,6 @@ internal class VisualScope(
     /** Which phase of a multi-phase figure is playing. Always 0 for the single-phase majority. */
     val phase: Int = 0,
 ) {
-    /**
-     * Whether the figure may show the value it works out, which is the content's own choice and
-     * nothing else. A question's figure stays uncaptioned even once it has been answered: the
-     * answer belongs to the screen around it - the option that turns green, the question mark in
-     * the sum resolving - and a diagram repeating it states the same fact twice. What the figure
-     * does do once answered is mark where the learner's own value sits, through [answer].
-     */
-    fun revealing(authored: Boolean): Boolean = authored
-
     /** The colour a marked value takes: the accent when it is right, the error colour when not. */
     val resultColor: Color get() = if (answer?.correct == false) wrongColor else Accent
 
@@ -156,6 +151,12 @@ internal class VisualScope(
         val span = 1f / count
         return ((progress - index * span) / span).coerceIn(0f, 1f)
     }
+
+    /**
+     * The last of three beats: the one a figure's result arrives on, once it has drawn itself and
+     * marked what the step is about. Thirty figures reach for this same beat, always meaning this.
+     */
+    val revealBeat: Float get() = stage(2, 3)
 
     /** Progress across [count] items that appear one after another, with a little overlap. */
     fun item(index: Int, count: Int): Float {
@@ -235,12 +236,120 @@ internal class VisualScope(
         draw.drawCircle(color.copy(alpha = color.alpha * alpha), radius, center)
     }
 
-    fun box(topLeft: Offset, size: Size, fill: Color? = null, outline: Color? = ink, alpha: Float = 1f) {
+    fun box(
+        topLeft: Offset,
+        size: Size,
+        fill: Color? = null,
+        outline: Color? = ink,
+        alpha: Float = 1f,
+        width: Float = stroke,
+    ) {
         if (alpha <= 0.01f) return
         fill?.let { draw.drawRect(it.copy(alpha = it.alpha * alpha), topLeft, size) }
         outline?.let {
-            draw.drawRect(it.copy(alpha = it.alpha * alpha), topLeft, size, style = Stroke(width = stroke))
+            draw.drawRect(it.copy(alpha = it.alpha * alpha), topLeft, size, style = Stroke(width = width))
         }
+    }
+
+    /** A circle, filled, outlined or both, in the same shape as [box]. */
+    fun circle(
+        center: Offset,
+        radius: Float,
+        fill: Color? = null,
+        outline: Color? = ink,
+        alpha: Float = 1f,
+        width: Float = stroke,
+    ) {
+        if (alpha <= 0.01f) return
+        fill?.let { draw.drawCircle(it.copy(alpha = it.alpha * alpha), radius, center) }
+        outline?.let {
+            draw.drawCircle(it.copy(alpha = it.alpha * alpha), radius, center, style = Stroke(width = width))
+        }
+    }
+
+    /** An ellipse in the box [topLeft]..[size], for the lids and shadows a solid is drawn from. */
+    fun oval(
+        topLeft: Offset,
+        size: Size,
+        fill: Color? = null,
+        outline: Color? = ink,
+        alpha: Float = 1f,
+        width: Float = stroke,
+    ) {
+        if (alpha <= 0.01f) return
+        fill?.let { draw.drawOval(it.copy(alpha = it.alpha * alpha), topLeft, size) }
+        outline?.let {
+            draw.drawOval(it.copy(alpha = it.alpha * alpha), topLeft, size, style = Stroke(width = width))
+        }
+    }
+
+    /**
+     * An arc of the circle at [center]. A [fill] closes back through the centre, so it draws the
+     * wedge a pie slice or a swept angle needs; an [outline] leaves it open, which is the arc a
+     * circumference or an angle mark is drawn with.
+     */
+    fun arc(
+        center: Offset,
+        radius: Float,
+        startAngle: Float,
+        sweepAngle: Float,
+        fill: Color? = null,
+        outline: Color? = ink,
+        alpha: Float = 1f,
+        width: Float = stroke,
+    ) {
+        if (alpha <= 0.01f) return
+        val topLeft = Offset(center.x - radius, center.y - radius)
+        val box = Size(radius * 2f, radius * 2f)
+        fill?.let {
+            draw.drawArc(it.copy(alpha = it.alpha * alpha), startAngle, sweepAngle, true, topLeft, box)
+        }
+        outline?.let {
+            draw.drawArc(
+                it.copy(alpha = it.alpha * alpha),
+                startAngle,
+                sweepAngle,
+                false,
+                topLeft,
+                box,
+                style = Stroke(width = width),
+            )
+        }
+    }
+
+    /** The outline of a shape, closed back to [points] first corner. */
+    fun closedPath(points: List<Offset>): Path = Path().apply {
+        moveTo(points[0].x, points[0].y)
+        points.drop(1).forEach { lineTo(it.x, it.y) }
+        close()
+    }
+
+    /**
+     * The point [radius] away from [center] at [degrees], measured anticlockwise from east.
+     *
+     * [flipY] says which way up the figure works. Screen y grows downward, so a figure drawing a
+     * mathematical angle wants the default and one laying out corners in screen space wants
+     * `flipY = false`. There is no majority to default to: the shape figures use one convention
+     * and the number-line and plot figures the other.
+     */
+    fun polar(center: Offset, radius: Float, degrees: Float, flipY: Boolean = true): Offset {
+        val radians = degrees * PI.toFloat() / 180f
+        val dy = radius * sin(radians)
+        return Offset(center.x + radius * cos(radians), if (flipY) center.y - dy else center.y + dy)
+    }
+
+    /** The unit vector pointing along the side [from]..[to]. */
+    fun unitAlong(from: Offset, to: Offset): Offset {
+        val dx = to.x - from.x
+        val dy = to.y - from.y
+        val length = hypot(dx, dy).coerceAtLeast(1f)
+        return Offset(dx / length, dy / length)
+    }
+
+    /** The unit normal of the side [from]..[to], for the ticks and chevrons drawn across it. */
+    fun normalAt(from: Offset, to: Offset): Offset {
+        val along = unitAlong(from, to)
+        return Offset(along.y, -along.x)
     }
 
     fun path(path: Path, fill: Color? = null, outline: Color? = ink, width: Float = stroke, alpha: Float = 1f) {
@@ -279,6 +388,9 @@ private fun VisualScope.draw(visual: LearnVisual) {
         is LearnVisual.Clock -> drawClock(visual)
         is LearnVisual.Steps -> drawSteps(visual)
         is LearnVisual.Polygon -> drawPolygon(visual)
+        is LearnVisual.Triangle -> drawTriangle(visual)
+        is LearnVisual.Quadrilateral -> drawQuadrilateral(visual)
+        is LearnVisual.CyclicQuad -> drawCyclicQuad(visual)
         is LearnVisual.Solid -> drawSolid(visual)
         is LearnVisual.Symmetry -> drawSymmetry(visual)
         is LearnVisual.AreaGrid -> drawAreaGrid(visual)

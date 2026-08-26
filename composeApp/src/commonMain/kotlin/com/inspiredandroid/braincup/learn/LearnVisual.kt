@@ -17,6 +17,11 @@ sealed interface LearnVisual {
      * Whether the figure may caption itself with the value it works out. Steps that ask a question
      * set this false: the picture still shows the situation honestly, but the learner does the
      * counting instead of reading the total off the diagram.
+     *
+     * It stays false even once the question has been answered. The answer belongs to the screen
+     * around the figure - the option that turns green, the question mark in the sum resolving -
+     * and a diagram repeating it states the same fact twice. What the figure does do once
+     * answered is mark where the learner's own value sits, through `VisualAnswer`.
      */
     val reveal: Boolean get() = true
 
@@ -193,6 +198,49 @@ sealed interface LearnVisual {
         override val reveal: Boolean = true,
     ) : LearnVisual
 
+    /**
+     * A triangle of the named kind, with tick marks on sides of equal length.
+     *
+     * [Polygon] builds a regular shape, so a triangle asked for there is always equilateral - the
+     * wrong picture for an isosceles question, and worse for one whose angles are given as
+     * unequal. [RightTriangle] is the fourth kind and stays separate: it carries side lengths and
+     * the squares of Pythagoras, which these do not.
+     */
+    data class Triangle(
+        val kind: TriKind,
+        val marks: Boolean = true,
+        override val reveal: Boolean = true,
+    ) : LearnVisual
+
+    /**
+     * A named quadrilateral drawn as the shape it really is, with tick marks on sides of equal
+     * length and chevrons on parallel ones.
+     *
+     * [Polygon] can only build a regular shape, so a rhombus asked for there arrives as a square
+     * and a parallelogram as a rectangle - which is the exact confusion these lessons exist to
+     * clear up. Set [marks] to false for a step that wants the bare outline.
+     */
+    data class Quadrilateral(
+        val kind: QuadKind,
+        val marks: Boolean = true,
+        override val reveal: Boolean = true,
+    ) : LearnVisual
+
+    /**
+     * A quadrilateral with all four corners sitting on the circle, drawn deliberately lopsided so
+     * that "opposite angles add to 180" reads as a claim about any such shape rather than about
+     * the square a regular polygon would have given.
+     *
+     * [angles] labels the four corners in order; an empty string leaves one bare and "?" marks the
+     * one being asked for. [highlightPair] picks out one opposite pair, 0 for the first and third
+     * corners and 1 for the second and fourth.
+     */
+    data class CyclicQuad(
+        val angles: List<String> = emptyList(),
+        val highlightPair: Int? = null,
+        override val reveal: Boolean = true,
+    ) : LearnVisual
+
     /** A named solid, with its face/edge/corner counts when [counts] is set. */
     data class Solid(val kind: SolidKind, val counts: Boolean = false, override val reveal: Boolean = true) : LearnVisual
 
@@ -291,9 +339,15 @@ sealed interface LearnVisual {
 
     // --- Graphs ---------------------------------------------------------------------------
 
-    /** A curve drawn on axes, with optional marked points, tangent, or shaded area. */
+    /**
+     * A curve drawn on axes, with optional marked points, tangent, or shaded area.
+     *
+     * [curve] is optional: a figure that is only about where its [points] sit - a translation, a
+     * reflection - wants bare axes, because any line drawn through the origin reads as the mirror
+     * the question is asking about.
+     */
     data class Plot(
-        val curve: Curve,
+        val curve: Curve? = null,
         val second: Curve? = null,
         val points: List<PlotPoint> = emptyList(),
         val tangentAt: Float? = null,
@@ -321,6 +375,15 @@ val LearnVisual.phaseCount: Int
         this is LearnVisual.NumberLine && thenJump != null -> 2
         else -> 1
     }
+
+/** The triangles a [LearnVisual.Triangle] can draw, sorted the way their lesson sorts them. */
+enum class TriKind { EQUILATERAL, ISOSCELES, SCALENE }
+
+/**
+ * The quadrilaterals a [LearnVisual.Quadrilateral] can draw, each as its own shape rather than as
+ * the special case a regular polygon would give.
+ */
+enum class QuadKind { SQUARE, RECTANGLE, RHOMBUS, PARALLELOGRAM, TRAPEZIUM, KITE }
 
 enum class SolidKind { CUBE, SPHERE, CYLINDER, CONE, PRISM }
 

@@ -1,17 +1,18 @@
 package com.inspiredandroid.braincup.learn.content
 
-import com.inspiredandroid.braincup.learn.Curve
 import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnVisual.AngleFigure
 import com.inspiredandroid.braincup.learn.LearnVisual.AreaGrid
 import com.inspiredandroid.braincup.learn.LearnVisual.CircleFigure
-import com.inspiredandroid.braincup.learn.LearnVisual.Fraction
+import com.inspiredandroid.braincup.learn.LearnVisual.CyclicQuad
 import com.inspiredandroid.braincup.learn.LearnVisual.Plot
 import com.inspiredandroid.braincup.learn.LearnVisual.Polygon
+import com.inspiredandroid.braincup.learn.LearnVisual.Quadrilateral
 import com.inspiredandroid.braincup.learn.LearnVisual.RightTriangle
 import com.inspiredandroid.braincup.learn.LearnVisual.Solid
 import com.inspiredandroid.braincup.learn.LearnVisual.Symmetry
+import com.inspiredandroid.braincup.learn.LearnVisual.Triangle
 import com.inspiredandroid.braincup.learn.LessonSpec
 import com.inspiredandroid.braincup.learn.LessonStep.Choice
 import com.inspiredandroid.braincup.learn.LessonStep.Concept
@@ -19,9 +20,11 @@ import com.inspiredandroid.braincup.learn.LessonStep.Numeric
 import com.inspiredandroid.braincup.learn.LessonStep.Worked
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.learn.PlotPoint
+import com.inspiredandroid.braincup.learn.QuadKind
 import com.inspiredandroid.braincup.learn.QuizQuestion
 import com.inspiredandroid.braincup.learn.Side
 import com.inspiredandroid.braincup.learn.SolidKind
+import com.inspiredandroid.braincup.learn.TriKind
 import com.inspiredandroid.braincup.learn.learnUnit
 
 /** Geometry: shapes and their names, then angles, area, Pythagoras, circles and formal proof. */
@@ -61,7 +64,7 @@ internal object GeometryContent {
                         visual = Polygon(sides = 6, reveal = false),
                     ),
                     Concept(
-                        body = "Three sides is a triangle, four a quadrilateral, five a pentagon and six a hexagon.",
+                        body = "Three sides is a triangle, four a quadrilateral, five a pentagon, six a hexagon and eight an octagon.",
                         visual = Polygon(sides = 6),
                     ),
                     Choice(
@@ -465,7 +468,7 @@ internal object GeometryContent {
                         options = listOf("55", "65", "75", "105"),
                         correctIndex = 1,
                         explanation = "180 - 40 - 75.",
-                        visual = RightTriangle(a = 5, b = 3, labels = false),
+                        visual = Triangle(kind = TriKind.SCALENE),
                     ),
                 ),
             ),
@@ -538,7 +541,7 @@ internal object GeometryContent {
                 options = listOf("45", "55", "65", "125"),
                 correctIndex = 1,
                 explanation = "180 - 125.",
-                visual = RightTriangle(a = 5, b = 3, labels = false),
+                visual = RightTriangle(a = 7, b = 5, labels = false),
             ),
             QuizQuestion(
                 prompt = "Angles all the way round a point add up to...",
@@ -575,7 +578,7 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "A parallelogram has two pairs of parallel sides; a trapezium has one.",
-                        visual = AreaGrid(cols = 6, rows = 4, showArea = false),
+                        visual = Quadrilateral(kind = QuadKind.PARALLELOGRAM),
                     ),
                     Choice(
                         question = "Which is always true of a rhombus?",
@@ -587,7 +590,7 @@ internal object GeometryContent {
                         ),
                         correctIndex = 1,
                         explanation = "A rhombus is a pushed-over square: equal sides, any angles.",
-                        visual = Polygon(sides = 4, reveal = false),
+                        visual = Quadrilateral(kind = QuadKind.RHOMBUS),
                     ),
                     Concept(
                         body = "The angles inside a quadrilateral always add to 360, because it splits into two triangles of 180 each.",
@@ -617,7 +620,7 @@ internal object GeometryContent {
                 steps = listOf(
                     Concept(
                         body = "Triangles sort by their sides. Three equal sides is equilateral, two is isosceles, and none at all is scalene.",
-                        visual = Polygon(sides = 3),
+                        visual = Triangle(kind = TriKind.SCALENE),
                     ),
                     Concept(
                         body = "They sort by their largest angle as well. A right triangle has one square corner, and no triangle can have two.",
@@ -628,7 +631,7 @@ internal object GeometryContent {
                         options = listOf("Equilateral", "Isosceles", "Scalene", "Right"),
                         correctIndex = 1,
                         explanation = "Two equal sides, and the two angles facing them match as well.",
-                        visual = Polygon(sides = 3, reveal = false),
+                        visual = Triangle(kind = TriKind.ISOSCELES),
                     ),
                     Concept(
                         body = "An equilateral triangle has three equal angles to go with its three equal sides, and 180 shared three ways leaves 60 each.",
@@ -639,7 +642,7 @@ internal object GeometryContent {
                         question = "How many degrees is each angle of an equilateral triangle?",
                         answer = "60",
                         explanation = "180 shared equally between three.",
-                        visual = Polygon(sides = 3, reveal = false),
+                        visual = Triangle(kind = TriKind.EQUILATERAL),
                     ),
                     Choice(
                         question = "Can a triangle have two right angles?",
@@ -669,11 +672,11 @@ internal object GeometryContent {
                         options = listOf("Trapezium", "Rhombus", "Kite", "Triangle"),
                         correctIndex = 1,
                         explanation = "That is the definition of a rhombus, and a square is the special case with right angles.",
-                        visual = Polygon(sides = 4, reveal = false),
+                        visual = Quadrilateral(kind = QuadKind.RHOMBUS),
                     ),
                     Concept(
                         body = "A kite has two pairs of equal sides too, but they sit next to each other rather than opposite, which is what keeps it out of the family.",
-                        visual = Polygon(sides = 4),
+                        visual = Quadrilateral(kind = QuadKind.KITE),
                     ),
                     Choice(
                         question = "Is every rectangle a parallelogram?",
@@ -685,17 +688,17 @@ internal object GeometryContent {
                         ),
                         correctIndex = 0,
                         explanation = "A parallelogram asks only for two pairs of parallel sides, and a rectangle has them.",
-                        visual = AreaGrid(cols = 6, rows = 3, showArea = false, reveal = false),
+                        visual = Quadrilateral(kind = QuadKind.RECTANGLE),
                     ),
                     Concept(
                         body = "A trapezium has only one pair of parallel sides, and that single missing pair is what leaves it outside the parallelogram family.",
-                        visual = AreaGrid(cols = 6, rows = 3, showArea = false),
+                        visual = Quadrilateral(kind = QuadKind.TRAPEZIUM),
                     ),
                     Numeric(
                         question = "How many pairs of parallel sides has a parallelogram?",
                         answer = "2",
                         explanation = "Both pairs of opposite sides run parallel.",
-                        visual = AreaGrid(cols = 6, rows = 4, showArea = false, reveal = false),
+                        visual = Quadrilateral(kind = QuadKind.PARALLELOGRAM),
                     ),
                 ),
             ),
@@ -706,7 +709,7 @@ internal object GeometryContent {
                 options = listOf("Trapezium", "Rhombus", "Kite", "Triangle"),
                 correctIndex = 1,
                 explanation = "That is the definition of a rhombus.",
-                visual = Polygon(sides = 4, reveal = false),
+                visual = Quadrilateral(kind = QuadKind.RHOMBUS),
             ),
             QuizQuestion(
                 prompt = "The angles of a quadrilateral add up to...",
@@ -996,7 +999,7 @@ internal object GeometryContent {
                         question = "How many squares cover this rug?",
                         formula = "6 x 3 = ?",
                         answer = "18",
-                        explanation = "6 rows of 3.",
+                        explanation = "3 rows of 6.",
                         visual = AreaGrid(cols = 6, rows = 3, reveal = false),
                     ),
                     Choice(
@@ -1079,7 +1082,7 @@ internal object GeometryContent {
                 prompt = "What is the area of this rectangle?",
                 options = listOf("10 square cm", "20 square cm", "21 square cm", "14 square cm"),
                 correctIndex = 2,
-                explanation = "7 rows of 3.",
+                explanation = "3 rows of 7.",
                 visual = AreaGrid(cols = 7, rows = 3, reveal = false),
             ),
             QuizQuestion(
@@ -1343,10 +1346,10 @@ internal object GeometryContent {
                         visual = CircleFigure(radius = 3, sweepCircumference = true),
                     ),
                     Choice(
-                        question = "A wheel of diameter 70 cm. How far does one turn take it?",
-                        options = listOf("110 cm", "220 cm", "350 cm", "440 cm"),
+                        question = "A wheel of diameter 50 cm. How far does one turn take it?",
+                        options = listOf("78.5 cm", "157 cm", "250 cm", "314 cm"),
                         correctIndex = 1,
-                        explanation = "3.14 x 70.",
+                        explanation = "3.14 x 50.",
                         visual = CircleFigure(sweepCircumference = true, reveal = false),
                     ),
                     Numeric(
@@ -1380,10 +1383,11 @@ internal object GeometryContent {
                         explanation = "3.14 x 100.",
                         visual = CircleFigure(fillArea = true, reveal = false),
                     ),
-                    Numeric(
+                    Choice(
                         question = "A circle has radius 4 cm. Taking pi as 3.14, what is its area in square cm?",
                         formula = "3.14 x 4 x 4 = ?",
-                        answer = "50.24",
+                        options = listOf("12.56", "25.12", "50.24", "200.96"),
+                        correctIndex = 2,
                         explanation = "16 square units, each one worth pi.",
                         visual = CircleFigure(radius = 4, fillArea = true, reveal = false),
                     ),
@@ -1875,7 +1879,6 @@ internal object GeometryContent {
                     Concept(
                         body = "Translations slide, reflections flip, rotations turn, enlargements resize.",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(PlotPoint(x = 2f, y = 1f, label = "A")),
                         ),
                     ),
@@ -1883,7 +1886,6 @@ internal object GeometryContent {
                         body = "A translation vector reads across, then up.",
                         formula = "(3, -2)",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(
                                 PlotPoint(x = -1f, y = 1f, label = "A"),
                                 PlotPoint(x = 2f, y = -1f, label = "A'"),
@@ -1896,7 +1898,6 @@ internal object GeometryContent {
                         correctIndex = 0,
                         explanation = "Add the vector to the coordinates.",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(PlotPoint(x = 2f, y = 1f, label = "(2, 1)")),
                         ),
                     ),
@@ -1904,19 +1905,18 @@ internal object GeometryContent {
                         body = "Reflecting in the y-axis flips the sign of x only.",
                         formula = "(x, y) becomes (-x, y)",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(
                                 PlotPoint(x = 2f, y = 2f, label = "A"),
                                 PlotPoint(x = -2f, y = 2f, label = "A'"),
                             ),
                         ),
                     ),
-                    Numeric(
+                    Choice(
                         question = "Reflect this point in the x-axis. What is the new y-coordinate?",
-                        answer = "-2",
+                        options = listOf("-2", "-1", "1", "2"),
+                        correctIndex = 0,
                         explanation = "Reflecting in the x-axis negates y.",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(PlotPoint(x = 1f, y = 2f, label = "A")),
                         ),
                     ),
@@ -1926,7 +1926,6 @@ internal object GeometryContent {
                         correctIndex = 1,
                         explanation = "The point crosses the horizontal axis, so only its height changes side.",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(
                                 PlotPoint(x = 1f, y = 2f, label = "A"),
                                 PlotPoint(x = 1f, y = -2f, label = "A'"),
@@ -1943,7 +1942,6 @@ internal object GeometryContent {
                     Concept(
                         body = "A rotation needs three things before it means anything: a centre to turn about, an angle, and a direction.",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(PlotPoint(x = 1f, y = 1f, label = "A")),
                         ),
                     ),
@@ -1951,7 +1949,6 @@ internal object GeometryContent {
                         body = "A quarter turn anticlockwise about the origin sends a point across and up in one move.",
                         formula = "(x, y) becomes (-y, x)",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(
                                 PlotPoint(x = 2f, y = 1f, label = "A"),
                                 PlotPoint(x = -1f, y = 2f, label = "A'"),
@@ -1964,16 +1961,15 @@ internal object GeometryContent {
                         correctIndex = 0,
                         explanation = "A half turn sends a point straight through the origin, so both signs flip.",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(PlotPoint(x = 3f, y = 1f, label = "(3, 1)")),
                         ),
                     ),
-                    Numeric(
+                    Choice(
                         question = "Rotate this point by 180 degrees about the origin. What is its new x-coordinate?",
-                        answer = "-2",
+                        options = listOf("-2", "0", "2", "4"),
+                        correctIndex = 0,
                         explanation = "A half turn flips the sign of both coordinates.",
                         visual = Plot(
-                            curve = Curve.Linear(m = 0.5f),
                             points = listOf(PlotPoint(x = 2f, y = 0f, label = "(2, 0)")),
                         ),
                     ),
@@ -2049,7 +2045,6 @@ internal object GeometryContent {
                 correctIndex = 0,
                 explanation = "(1 + 2, 2 - 3).",
                 visual = Plot(
-                    curve = Curve.Linear(m = 0.5f),
                     points = listOf(PlotPoint(x = 1f, y = 2f, label = "(1, 2)")),
                 ),
             ),
@@ -2059,7 +2054,6 @@ internal object GeometryContent {
                 correctIndex = 0,
                 explanation = "Only the sign of x flips.",
                 visual = Plot(
-                    curve = Curve.Linear(m = 0.5f),
                     points = listOf(PlotPoint(x = 2f, y = 2f, label = "(2, 2)")),
                 ),
             ),
@@ -2069,7 +2063,6 @@ internal object GeometryContent {
                 correctIndex = 0,
                 explanation = "A half turn flips the sign of both coordinates.",
                 visual = Plot(
-                    curve = Curve.Linear(m = 0.5f),
                     points = listOf(PlotPoint(x = 3f, y = 1f, label = "(3, 1)")),
                 ),
             ),
@@ -2091,7 +2084,6 @@ internal object GeometryContent {
                 correctIndex = 0,
                 explanation = "Across first, then up, and a minus means down.",
                 visual = Plot(
-                    curve = Curve.Linear(m = 0.5f),
                     points = listOf(
                         PlotPoint(x = -1f, y = 1f, label = "A"),
                         PlotPoint(x = 2f, y = -1f, label = "A'"),
@@ -2162,37 +2154,37 @@ internal object GeometryContent {
                 steps = listOf(
                     Concept(
                         body = "A cyclic quadrilateral has all four of its corners sitting on the circle.",
-                        visual = Polygon(sides = 4, countCorners = false),
+                        visual = CyclicQuad(),
                     ),
                     Concept(
                         body = "Its opposite angles add to 180.",
                         formula = "a + c = 180",
-                        visual = Polygon(sides = 4, countCorners = false),
+                        visual = CyclicQuad(angles = listOf("a", "", "c", ""), highlightPair = 0),
                     ),
                     Numeric(
                         question = "One angle of a cyclic quadrilateral is 110. How many degrees is the opposite one?",
                         answer = "70",
                         explanation = "180 - 110.",
-                        visual = AngleFigure(degrees = 110, supplement = true, reveal = false),
+                        visual = CyclicQuad(angles = listOf("110", "", "?", ""), highlightPair = 0),
                     ),
                     Choice(
                         question = "One angle of a cyclic quadrilateral is 95. Its opposite angle is...",
                         options = listOf("85", "95", "105", "185"),
                         correctIndex = 0,
                         explanation = "The two have to make 180 between them.",
-                        visual = AngleFigure(degrees = 95, supplement = true, reveal = false),
+                        visual = CyclicQuad(angles = listOf("95", "", "?", ""), highlightPair = 0),
                     ),
                     Concept(
                         body = "Both pairs behave the same way, so two opposite angles hand you the other two as well.",
                         formula = "b + d = 180",
-                        visual = Polygon(sides = 4, countCorners = false),
+                        visual = CyclicQuad(angles = listOf("", "b", "", "d"), highlightPair = 1),
                     ),
                     Choice(
                         question = "Going round a cyclic quadrilateral, three angles are 70, 100 and 110. What is the fourth?",
                         options = listOf("70", "80", "90", "100"),
                         correctIndex = 1,
                         explanation = "The 70 and the 110 are already an opposite pair, so the fourth angle partners the 100.",
-                        visual = Polygon(sides = 4, countCorners = false, reveal = false),
+                        visual = CyclicQuad(angles = listOf("70", "100", "110", "?"), highlightPair = 1),
                     ),
                 ),
             ),
@@ -2226,7 +2218,7 @@ internal object GeometryContent {
                         formula = "180 - 90 - 35 = ?",
                         answer = "55",
                         explanation = "The right angle uses up 90 of the 180.",
-                        visual = RightTriangle(a = 4, b = 3, labels = false),
+                        visual = RightTriangle(a = 7, b = 5, labels = false),
                     ),
                     Choice(
                         question = "Two tangents are drawn to a circle from the same point outside it. What can you say about them?",
@@ -2270,7 +2262,7 @@ internal object GeometryContent {
                 options = listOf("85", "95", "105", "185"),
                 correctIndex = 0,
                 explanation = "Opposite angles sum to 180.",
-                visual = AngleFigure(degrees = 95, supplement = true, reveal = false),
+                visual = CyclicQuad(angles = listOf("95", "", "?", ""), highlightPair = 0),
             ),
             QuizQuestion(
                 prompt = "A tangent meets the radius at an angle of...",
