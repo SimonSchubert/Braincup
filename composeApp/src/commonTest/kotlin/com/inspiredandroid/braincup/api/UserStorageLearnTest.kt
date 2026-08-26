@@ -46,7 +46,7 @@ class UserStorageLearnTest {
     @Test
     fun anythingShortOfPerfectStoresNoCertificate() {
         val storage = UserStorage.forPreview()
-        val target = unit(MathTopic.GEOMETRY, "angles-and-symmetry")
+        val target = unit(MathTopic.GEOMETRY, "angles")
         val result = storage.recordLearnQuizResult(target, correct = 7, total = 8)
 
         assertFalse(result.earnedCertificate)
@@ -58,7 +58,7 @@ class UserStorageLearnTest {
     @Test
     fun aFlawlessRunStoresACertificateAndUnlocksTheAchievement() {
         val storage = UserStorage.forPreview()
-        val target = unit(MathTopic.GEOMETRY, "angles-and-symmetry")
+        val target = unit(MathTopic.GEOMETRY, "angles")
         val result = storage.recordLearnQuizResult(target, correct = 8, total = 8)
 
         assertTrue(result.earnedCertificate)

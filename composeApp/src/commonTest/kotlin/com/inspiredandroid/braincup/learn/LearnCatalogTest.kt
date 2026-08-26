@@ -20,7 +20,7 @@ class LearnCatalogTest {
          * It read 14 until [canCaptionItsResult] stopped counting every `RightTriangle`: seven of
          * those were drawn with `labels = false` and captioned nothing at all.
          */
-        const val RATCHET = 7
+        const val RATCHET = 6
     }
 
     @Test
@@ -161,7 +161,11 @@ class LearnCatalogTest {
     fun questionFiguresDoNotCaptionTheirAnswer() {
         val reworked = setOf(MathTopic.ARITHMETIC)
         // Geometry's sub-topics as each is reworked, until the whole topic can join [reworked].
-        val reworkedUnits = setOf("geometry-flat-shapes", "geometry-solid-shapes")
+        val reworkedUnits = setOf(
+            "geometry-flat-shapes", "geometry-solid-shapes",
+            "geometry-angles", "geometry-quadrilaterals", "geometry-symmetry",
+            "geometry-perimeter-and-area",
+        )
         val (done, pending) = LearnCatalog.allUnits.partition {
             it.topic in reworked || it.id in reworkedUnits
         }

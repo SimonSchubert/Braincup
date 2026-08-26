@@ -379,16 +379,16 @@ internal object GeometryContent {
         ),
     )
 
-    private val anglesAndSymmetry = learnUnit(
+    private val angles = learnUnit(
         topic = MathTopic.GEOMETRY,
-        urlSlug = "angles-and-symmetry",
-        title = "Angles, quadrilaterals and symmetry",
-        summary = "Angles and turns, families of quadrilaterals, and symmetry.",
+        urlSlug = "angles",
+        title = "Angles and turns",
+        summary = "Degrees measure turn, and the turns around a point always add up.",
         level = GradeLevel.GRADES_3_5,
         lessons = listOf(
             LessonSpec(
                 id = "g35-geometry-angles",
-                title = "Angles and turns",
+                title = "Measuring a turn",
                 summary = "Degrees measure turn, not length.",
                 steps = listOf(
                     Concept(
@@ -407,14 +407,56 @@ internal object GeometryContent {
                         explanation = "Acute angles are under 90 degrees.",
                         visual = AngleFigure(degrees = 40, reveal = false),
                     ),
+                    Concept(
+                        body = "Under 90 is acute and over 90 is obtuse. The right angle in between is the one everything else is measured against.",
+                        visual = AngleFigure(degrees = 120),
+                    ),
+                    Choice(
+                        question = "What kind of angle is this?",
+                        options = listOf("acute", "right", "obtuse", "reflex"),
+                        correctIndex = 2,
+                        explanation = "It has opened past the right angle but not as far as a straight line.",
+                        visual = AngleFigure(degrees = 120, reveal = false),
+                    ),
+                    Numeric(
+                        question = "How many degrees is a right angle?",
+                        answer = "90",
+                        explanation = "A quarter of the full 360.",
+                        visual = AngleFigure(degrees = 90, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-angles-adding",
+                title = "Angles that add up",
+                summary = "On a line, round a point, and inside a triangle.",
+                steps = listOf(
+                    Concept(
+                        body = "Angles on a straight line make a half turn between them, so they add to 180.",
+                        formula = "a + b = 180",
+                        visual = AngleFigure(degrees = 130, supplement = true),
+                    ),
                     Numeric(
                         question = "Angles on a straight line. How many degrees is the other one?",
                         answer = "50",
                         explanation = "180 - 130.",
                         visual = AngleFigure(degrees = 130, supplement = true, reveal = false),
                     ),
+                    Choice(
+                        question = "Two angles on a straight line, and one of them is 65 degrees.",
+                        formula = "65 + ? = 180",
+                        options = listOf("25", "115", "125", "295"),
+                        correctIndex = 1,
+                        explanation = "180 take away 65.",
+                        visual = AngleFigure(degrees = 65, supplement = true, reveal = false),
+                    ),
                     Concept(
-                        body = "The three angles inside any triangle always add to 180.",
+                        body = "Angles all the way round a point make a full turn, so those add to 360 instead.",
+                        formula = "a + b + c = 360",
+                        visual = AngleFigure(degrees = 100),
+                    ),
+                    Concept(
+                        body = "The three angles inside any triangle always add to 180, whatever shape it is pulled into.",
                         formula = "a + b + c = 180",
                         visual = RightTriangle(a = 4, b = 3, angle = 37, labels = false),
                     ),
@@ -428,8 +470,103 @@ internal object GeometryContent {
                 ),
             ),
             LessonSpec(
+                id = "geometry-angles-turns",
+                title = "Turning all the way round",
+                summary = "Quarter, half and full turns, and what is left over.",
+                steps = listOf(
+                    Concept(
+                        body = "A full turn brings you back where you started. That is four right angles, or 360 degrees.",
+                        visual = AngleFigure(degrees = 90),
+                    ),
+                    Choice(
+                        question = "How many right angles make a full turn?",
+                        options = listOf("2", "3", "4", "6"),
+                        correctIndex = 2,
+                        explanation = "Four quarter turns, and 4 x 90 = 360.",
+                        visual = AngleFigure(degrees = 90, reveal = false),
+                    ),
+                    Concept(
+                        body = "Half a turn is two right angles laid end to end, which is why 180 keeps appearing.",
+                        visual = AngleFigure(degrees = 90, supplement = true),
+                    ),
+                    Numeric(
+                        question = "How many degrees are in three quarters of a turn?",
+                        answer = "270",
+                        explanation = "Three lots of 90.",
+                        visual = AngleFigure(degrees = 90, reveal = false),
+                    ),
+                    Concept(
+                        body = "Every angle has a reflex partner: whatever is left of the full turn if you go round the other way. This 170 leaves 190 behind it.",
+                        formula = "360 - 170 = 190",
+                        visual = AngleFigure(degrees = 170),
+                    ),
+                    Choice(
+                        question = "Going round the other way, how much of the turn is left?",
+                        formula = "360 - 170 = ?",
+                        options = listOf("10", "100", "190", "350"),
+                        correctIndex = 2,
+                        explanation = "The two together have to make one whole turn.",
+                        visual = AngleFigure(degrees = 170, reveal = false),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
+            QuizQuestion(
+                prompt = "How many degrees is this angle?",
+                options = listOf("45", "90", "180", "360"),
+                correctIndex = 1,
+                explanation = "A quarter of a full turn.",
+                visual = AngleFigure(degrees = 90, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "What kind of angle is this?",
+                options = listOf("acute", "right", "obtuse", "reflex"),
+                correctIndex = 2,
+                explanation = "It sits between 90 and 180 degrees.",
+                visual = AngleFigure(degrees = 120, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Two angles sit on a straight line and one is 110 degrees. What is the other?",
+                options = listOf("70", "80", "90", "250"),
+                correctIndex = 0,
+                explanation = "180 take away 110.",
+                visual = AngleFigure(degrees = 110, supplement = true, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A triangle has angles of 90 and 35. What is the third?",
+                options = listOf("45", "55", "65", "125"),
+                correctIndex = 1,
+                explanation = "180 - 125.",
+                visual = RightTriangle(a = 5, b = 3, labels = false),
+            ),
+            QuizQuestion(
+                prompt = "Angles all the way round a point add up to...",
+                options = listOf("90", "180", "270", "360"),
+                correctIndex = 3,
+                explanation = "One full turn.",
+                visual = AngleFigure(degrees = 100, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "An angle is 150 degrees. Going round the other way, how much of the turn is left?",
+                options = listOf("30", "110", "210", "310"),
+                correctIndex = 2,
+                explanation = "360 take away 150.",
+                visual = AngleFigure(degrees = 150, reveal = false),
+            ),
+        ),
+    )
+
+    private val quadrilaterals = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "quadrilaterals",
+        title = "Triangles and quadrilaterals",
+        summary = "Sorting shapes by their sides and angles, and the names that follow.",
+        level = GradeLevel.GRADES_3_5,
+        lessons = listOf(
+            LessonSpec(
                 id = "g35-geometry-quadrilaterals",
-                title = "Sorting quadrilaterals",
+                title = "Four-sided shapes",
                 summary = "Parallel and equal sides decide the name.",
                 steps = listOf(
                     Concept(
@@ -453,8 +590,9 @@ internal object GeometryContent {
                         visual = Polygon(sides = 4, reveal = false),
                     ),
                     Concept(
-                        body = "Every square is also a rectangle and also a rhombus.",
-                        visual = AreaGrid(cols = 4, rows = 4, showArea = false),
+                        body = "The angles inside a quadrilateral always add to 360, because it splits into two triangles of 180 each.",
+                        formula = "180 + 180 = 360",
+                        visual = Polygon(sides = 4),
                     ),
                     Numeric(
                         question = "The angles inside a quadrilateral add to how many degrees?",
@@ -464,6 +602,7 @@ internal object GeometryContent {
                     ),
                     Choice(
                         question = "Three angles are 90, 90 and 100. What is the fourth?",
+                        formula = "90 + 90 + 100 + ? = 360",
                         options = listOf("70", "80", "90", "100"),
                         correctIndex = 1,
                         explanation = "360 - 280.",
@@ -472,16 +611,164 @@ internal object GeometryContent {
                 ),
             ),
             LessonSpec(
-                id = "g35-geometry-symmetry",
-                title = "Symmetry",
-                summary = "Fold lines that leave a shape unchanged.",
+                id = "geometry-quadrilaterals-triangles",
+                title = "Sorting triangles",
+                summary = "By their sides, and by their largest angle.",
                 steps = listOf(
                     Concept(
-                        body = "Fold along a line of symmetry and the two halves land on each other.",
+                        body = "Triangles sort by their sides. Three equal sides is equilateral, two is isosceles, and none at all is scalene.",
+                        visual = Polygon(sides = 3),
+                    ),
+                    Concept(
+                        body = "They sort by their largest angle as well. A right triangle has one square corner, and no triangle can have two.",
+                        visual = RightTriangle(a = 4, b = 3, labels = false),
+                    ),
+                    Choice(
+                        question = "A triangle has exactly two equal sides. What is it called?",
+                        options = listOf("Equilateral", "Isosceles", "Scalene", "Right"),
+                        correctIndex = 1,
+                        explanation = "Two equal sides, and the two angles facing them match as well.",
+                        visual = Polygon(sides = 3, reveal = false),
+                    ),
+                    Concept(
+                        body = "An equilateral triangle has three equal angles to go with its three equal sides, and 180 shared three ways leaves 60 each.",
+                        formula = "180 / 3 = 60",
+                        visual = Symmetry(sides = 3, lines = 3),
+                    ),
+                    Numeric(
+                        question = "How many degrees is each angle of an equilateral triangle?",
+                        answer = "60",
+                        explanation = "180 shared equally between three.",
+                        visual = Polygon(sides = 3, reveal = false),
+                    ),
+                    Choice(
+                        question = "Can a triangle have two right angles?",
+                        options = listOf(
+                            "Yes",
+                            "No",
+                            "Only if it is isosceles",
+                            "Only if it is drawn large enough",
+                        ),
+                        correctIndex = 1,
+                        explanation = "Two right angles already use up the whole 180, leaving nothing for the third.",
+                        visual = RightTriangle(a = 4, b = 4, labels = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-quadrilaterals-family",
+                title = "The family tree",
+                summary = "One shape can wear several names at once.",
+                steps = listOf(
+                    Concept(
+                        body = "The quadrilateral names sit inside one another rather than ruling each other out. Every square is also a rectangle and also a rhombus.",
+                        visual = AreaGrid(cols = 4, rows = 4, showArea = false),
+                    ),
+                    Choice(
+                        question = "Which shape has two pairs of parallel sides and four equal sides?",
+                        options = listOf("Trapezium", "Rhombus", "Kite", "Triangle"),
+                        correctIndex = 1,
+                        explanation = "That is the definition of a rhombus, and a square is the special case with right angles.",
+                        visual = Polygon(sides = 4, reveal = false),
+                    ),
+                    Concept(
+                        body = "A kite has two pairs of equal sides too, but they sit next to each other rather than opposite, which is what keeps it out of the family.",
+                        visual = Polygon(sides = 4),
+                    ),
+                    Choice(
+                        question = "Is every rectangle a parallelogram?",
+                        options = listOf(
+                            "Yes, both pairs of sides are parallel",
+                            "No, a parallelogram is never square",
+                            "Only if it is a square",
+                            "Only if all four sides are equal",
+                        ),
+                        correctIndex = 0,
+                        explanation = "A parallelogram asks only for two pairs of parallel sides, and a rectangle has them.",
+                        visual = AreaGrid(cols = 6, rows = 3, showArea = false, reveal = false),
+                    ),
+                    Concept(
+                        body = "A trapezium has only one pair of parallel sides, and that single missing pair is what leaves it outside the parallelogram family.",
+                        visual = AreaGrid(cols = 6, rows = 3, showArea = false),
+                    ),
+                    Numeric(
+                        question = "How many pairs of parallel sides has a parallelogram?",
+                        answer = "2",
+                        explanation = "Both pairs of opposite sides run parallel.",
+                        visual = AreaGrid(cols = 6, rows = 4, showArea = false, reveal = false),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
+            QuizQuestion(
+                prompt = "Which shape has two pairs of parallel sides and four equal sides?",
+                options = listOf("Trapezium", "Rhombus", "Kite", "Triangle"),
+                correctIndex = 1,
+                explanation = "That is the definition of a rhombus.",
+                visual = Polygon(sides = 4, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "The angles of a quadrilateral add up to...",
+                options = listOf("180", "270", "360", "540"),
+                correctIndex = 2,
+                explanation = "Two triangles' worth.",
+                visual = Polygon(sides = 4, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A triangle with three equal sides is called...",
+                options = listOf("Scalene", "Isosceles", "Equilateral", "Right"),
+                correctIndex = 2,
+                explanation = "Equal sides all round, and three 60 degree angles with them.",
+                visual = Polygon(sides = 3, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Three angles of a quadrilateral are 80, 100 and 110. What is the fourth?",
+                options = listOf("60", "70", "80", "90"),
+                correctIndex = 1,
+                explanation = "360 take away 290.",
+                visual = Polygon(sides = 4, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Which of these is always true of a square?",
+                options = listOf(
+                    "It is a rectangle and a rhombus",
+                    "It is a trapezium and nothing else",
+                    "It has one pair of parallel sides",
+                    "It has three right angles",
+                ),
+                correctIndex = 0,
+                explanation = "It meets both definitions at once, which is what the family tree is for.",
+                visual = AreaGrid(cols = 4, rows = 4, showArea = false, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Each angle of an equilateral triangle is...",
+                options = listOf("45 degrees", "60 degrees", "90 degrees", "120 degrees"),
+                correctIndex = 1,
+                explanation = "180 shared equally between three.",
+                visual = Polygon(sides = 3, reveal = false),
+            ),
+        ),
+    )
+
+    private val symmetry = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "symmetry",
+        title = "Symmetry",
+        summary = "Fold lines, turning symmetry, and where both show up.",
+        level = GradeLevel.GRADES_3_5,
+        lessons = listOf(
+            LessonSpec(
+                id = "g35-geometry-symmetry",
+                title = "Fold lines",
+                summary = "Lines that leave a shape unchanged.",
+                steps = listOf(
+                    Concept(
+                        body = "Fold along a line of symmetry and the two halves land exactly on each other.",
                         visual = Symmetry(sides = 3, lines = 1),
                     ),
                     Concept(
-                        body = "A square has four fold lines. A circle has more than you could count.",
+                        body = "A square has four fold lines: two through the sides and two along the diagonals.",
                         visual = Symmetry(sides = 4, lines = 4),
                     ),
                     Numeric(
@@ -498,48 +785,103 @@ internal object GeometryContent {
                         visual = Symmetry(sides = 4, lines = 2, rectangle = true, reveal = false),
                     ),
                     Concept(
-                        body = "Rotational symmetry means it looks the same after part of a turn.",
+                        body = "A regular shape has one fold line for every side it has, which makes them easy to count.",
                         visual = Symmetry(sides = 5, lines = 5),
+                    ),
+                    Choice(
+                        question = "How many lines of symmetry has a regular pentagon?",
+                        options = listOf("3", "4", "5", "10"),
+                        correctIndex = 2,
+                        explanation = "One for each of its five sides.",
+                        visual = Symmetry(sides = 5, lines = 5, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-symmetry-rotational",
+                title = "Turning symmetry",
+                summary = "Matching part way through a turn, without folding.",
+                steps = listOf(
+                    Concept(
+                        body = "Rotational symmetry means a shape looks the same part way through a turn, with no folding involved at all.",
+                        visual = Symmetry(sides = 5, lines = 5),
+                    ),
+                    Concept(
+                        body = "The order is how many times it matches during one full turn. A square matches four times.",
+                        visual = Symmetry(sides = 4, lines = 4),
+                    ),
+                    Choice(
+                        question = "What is the order of rotational symmetry of an equilateral triangle?",
+                        options = listOf("1", "2", "3", "6"),
+                        correctIndex = 2,
+                        explanation = "It drops back onto itself every third of a turn.",
+                        visual = Symmetry(sides = 3, lines = 3, reveal = false),
+                    ),
+                    Concept(
+                        body = "The two kinds do not have to arrive together. A rectangle matches after half a turn and also folds two ways, but plenty of shapes have one without the other.",
+                        visual = Symmetry(sides = 4, lines = 2, rectangle = true),
+                    ),
+                    Numeric(
+                        question = "What is the order of rotational symmetry of a regular hexagon?",
+                        answer = "6",
+                        explanation = "One match for every side, the same as its fold lines.",
+                        visual = Symmetry(sides = 6, lines = 6, reveal = false),
+                    ),
+                    Choice(
+                        question = "For a regular shape, the order of rotational symmetry is...",
+                        options = listOf(
+                            "always 1",
+                            "the number of its sides",
+                            "half the number of its sides",
+                            "twice the number of its sides",
+                        ),
+                        correctIndex = 1,
+                        explanation = "Every side can take the place of the one before it.",
+                        visual = Symmetry(sides = 5, lines = 5, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-symmetry-around",
+                title = "Symmetry you can see",
+                summary = "Letters and everyday shapes.",
+                steps = listOf(
+                    Concept(
+                        body = "Letters, leaves and faces all carry symmetry, and it is a large part of why they look right.",
+                        visual = Symmetry(sides = 3, lines = 1),
                     ),
                     Choice(
                         question = "Which capital letter has a vertical line of symmetry?",
                         options = listOf("F", "A", "R", "P"),
                         correctIndex = 1,
                         explanation = "Fold A down the middle and the halves match.",
+                        visual = Symmetry(sides = 3, lines = 1, reveal = false),
+                    ),
+                    Concept(
+                        body = "Some shapes fold one way but not the other. An isosceles triangle has exactly one line, straight down from its odd corner.",
                         visual = Symmetry(sides = 3, lines = 1),
+                    ),
+                    Choice(
+                        question = "Which capital letter has a horizontal line of symmetry?",
+                        options = listOf("L", "N", "E", "S"),
+                        correctIndex = 2,
+                        explanation = "Fold E across the middle and the top arm lands on the bottom one.",
+                        visual = Symmetry(sides = 4, lines = 2, rectangle = true, reveal = false),
+                    ),
+                    Concept(
+                        body = "A shape can have turning symmetry with no fold line at all. S and N both match after half a turn, but neither will fold onto itself.",
+                        visual = Symmetry(sides = 5, lines = 5),
+                    ),
+                    Numeric(
+                        question = "How many lines of symmetry has an isosceles triangle?",
+                        answer = "1",
+                        explanation = "Only the line through the corner between its two equal sides.",
+                        visual = Symmetry(sides = 3, lines = 1, reveal = false),
                     ),
                 ),
             ),
         ),
         questions = listOf(
-            QuizQuestion(
-                prompt = "How many degrees is this angle?",
-                options = listOf("45", "90", "180", "360"),
-                correctIndex = 1,
-                explanation = "A quarter of a full turn.",
-                visual = AngleFigure(degrees = 90, reveal = false),
-            ),
-            QuizQuestion(
-                prompt = "A triangle has angles of 90 and 35. What is the third?",
-                options = listOf("45", "55", "65", "125"),
-                correctIndex = 1,
-                explanation = "180 - 125.",
-                visual = RightTriangle(a = 5, b = 3, labels = false),
-            ),
-            QuizQuestion(
-                prompt = "Which shape has two pairs of parallel sides and four equal sides?",
-                options = listOf("Trapezium", "Rhombus", "Kite", "Triangle"),
-                correctIndex = 1,
-                explanation = "That is the definition of a rhombus.",
-                visual = Polygon(sides = 4, reveal = false),
-            ),
-            QuizQuestion(
-                prompt = "The angles of a quadrilateral add up to...",
-                options = listOf("180", "270", "360", "540"),
-                correctIndex = 2,
-                explanation = "Two triangles' worth.",
-                visual = Polygon(sides = 4, reveal = false),
-            ),
             QuizQuestion(
                 prompt = "How many lines of symmetry does this square have?",
                 options = listOf("1", "2", "4", "8"),
@@ -548,11 +890,39 @@ internal object GeometryContent {
                 visual = Symmetry(sides = 4, lines = 4, reveal = false),
             ),
             QuizQuestion(
-                prompt = "What kind of angle is this?",
-                options = listOf("acute", "right", "obtuse", "reflex"),
+                prompt = "How many lines of symmetry has this rectangle?",
+                options = listOf("0", "1", "2", "4"),
                 correctIndex = 2,
-                explanation = "It sits between 90 and 180 degrees.",
-                visual = AngleFigure(degrees = 120, reveal = false),
+                explanation = "One horizontal and one vertical. The diagonals do not match up.",
+                visual = Symmetry(sides = 4, lines = 2, rectangle = true, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "How many lines of symmetry has an equilateral triangle?",
+                options = listOf("1", "2", "3", "6"),
+                correctIndex = 2,
+                explanation = "One from each corner to the opposite side.",
+                visual = Symmetry(sides = 3, lines = 3, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "What is the order of rotational symmetry of a regular pentagon?",
+                options = listOf("3", "4", "5", "10"),
+                correctIndex = 2,
+                explanation = "One match for every side.",
+                visual = Symmetry(sides = 5, lines = 5, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Which capital letter has a vertical line of symmetry?",
+                options = listOf("F", "A", "R", "P"),
+                correctIndex = 1,
+                explanation = "Fold A down the middle and the halves match.",
+                visual = Symmetry(sides = 3, lines = 1, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "How many lines of symmetry has this shape?",
+                options = listOf("3", "4", "6", "12"),
+                correctIndex = 2,
+                explanation = "A regular hexagon has one for each of its six sides.",
+                visual = Symmetry(sides = 6, lines = 6, reveal = false),
             ),
         ),
     )
@@ -590,6 +960,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "What is the perimeter of this square, in cm?",
+                        formula = "4 x 9 = ?",
                         answer = "36",
                         explanation = "Four sides of 9.",
                         visual = AreaGrid(cols = 9, rows = 9, showArea = false, showPerimeter = true, reveal = false),
@@ -623,6 +994,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "How many squares cover this rug?",
+                        formula = "6 x 3 = ?",
                         answer = "18",
                         explanation = "6 rows of 3.",
                         visual = AreaGrid(cols = 6, rows = 3, reveal = false),
@@ -640,6 +1012,7 @@ internal object GeometryContent {
                     ),
                     Choice(
                         question = "The area is 24 square cm and one side is 4 cm. How long is the other?",
+                        formula = "24 / 4 = ?",
                         options = listOf("4 cm", "6 cm", "8 cm", "20 cm"),
                         correctIndex = 1,
                         explanation = "24 divided by 4.",
@@ -674,12 +1047,14 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "A 5 by 4 rectangle has a 2 by 2 corner cut out. What area is left, in square cm?",
+                        formula = "5 x 4 - 2 x 2 = ?",
                         answer = "16",
                         explanation = "5 x 4 = 20, and the missing corner takes 2 x 2 = 4 away.",
                         visual = AreaGrid(cols = 5, rows = 4, reveal = false),
                     ),
                     Choice(
                         question = "A 3 by 2 rectangle and a 4 by 2 rectangle are joined edge to edge. What is the total area?",
+                        formula = "3 x 2 + 4 x 2 = ?",
                         options = listOf("12 square cm", "14 square cm", "16 square cm", "20 square cm"),
                         correctIndex = 1,
                         explanation = "6 squares and 8 squares.",
@@ -1126,5 +1501,5 @@ internal object GeometryContent {
         ),
     )
 
-    val units: List<LearnUnit> = listOf(flatShapes, solidShapes, anglesAndSymmetry, perimeterAndArea, pythagorasAndCircles, similarityAndProof)
+    val units: List<LearnUnit> = listOf(flatShapes, solidShapes, angles, quadrilaterals, symmetry, perimeterAndArea, pythagorasAndCircles, similarityAndProof)
 }
