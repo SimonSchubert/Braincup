@@ -3,7 +3,7 @@
 Working document for the Learn Math section's first release. It survives between Claude
 sessions: read it before touching anything under `learn/`, and update it as work lands.
 
-Last updated: 2026-08-26 (parked; both topics authored; render check outstanding)
+Last updated: 2026-08-26 (parked; both topics authored; clarity- and correctness-passed; render check outstanding)
 
 ---
 
@@ -114,12 +114,40 @@ multiplication passes, which are the ones to copy.
    `Fraction` bar captions 1 : 4 as "1/5", which is the exact confusion the lesson exists
    to clear up.
 8. **Content checked.** Answers correct, distractors plausible rather than obviously wrong,
-   explanations actually explain, spelling consistent with the rest of the section.
+   explanations actually explain (see the house style below), spelling consistent with the rest
+   of the section.
 9. **Seen rendering.** Opened once in the running app or a Paparazzi render, on a narrow
    screen, not just read in the source.
 
 Status values used in the tables: `ready` / `review` (reworked, readiness pass not done) /
 `rework` (still grade-slice content) / `todo` (does not exist yet).
+
+### House style for an `explanation` (item 8)
+
+An answer explanation says **why**, never **what**. Both places it renders already show the
+answer, so a line that restates it teaches nothing:
+
+* In a lesson it appears **only after a correct answer** (`LearnLessonScreen.kt`: `FeedbackCard`
+  on `Correct`, a generic `RetryNote` on a miss), sitting under the solved formula in green.
+* In a test it appears on the `ReviewCard`, under "your answer" and "correct answer" - and that
+  card **draws no figure**. So an explanation that only describes the picture ("Eight rows of
+  nine.", "45 squares out of a hundred.") is read with nothing to look at.
+
+Rules:
+
+1. One sentence, naming the rule or the step that reaches the answer. Target 45-90 characters
+   when rewriting.
+2. Never describe only the figure. A test explanation has to stand on its own words.
+3. Close a tempting distractor in the same sentence rather than adding a second one:
+   "2 parts out of the 9 in the bar, not out of the 7 the ratio names."
+4. **Length is not the test.** "Every jump adds ten, so 50 + 10 = 60." is 37 characters and is a
+   good explanation. Rewrite what restates; leave short reasoning alone.
+5. **No `{a:}` / `{b:}` in a quiz explanation.** Tinting matches a number to the colour the
+   figure draws it in, and the review card has no figure. Enforced by
+   `LearnCatalogTest.everyStepAndQuestionExplains`.
+
+A unit `summary` may list what its three lessons cover, but should not open by repeating lesson
+1's title: the two lines sit directly above each other on `LearnUnitScreen`.
 
 ---
 
@@ -199,6 +227,82 @@ Two smaller things looked at and deliberately left alone: `arithmetic-decimals` 
 only the minuend of `0.7 - 0.35`, and its "smallest of these" step draws two of the three
 numbers it lists, because `DecimalGrid` holds at most two squares.
 
+**5. Clarity pass over all ten units, 2026-08-26.** Item 8 re-read across every unit against the
+house style in section 3. The teaching prose came out clean; the thinness was all in the answer
+explanations, and worst in the tests.
+
+| Surface | n | median chars, before -> after | under 45 chars, before -> after |
+|---|---|---|---|
+| `Concept.body` | 79 | 105 -> 106 | 0 -> 0 |
+| lesson `explanation` | 89 | 57 -> 65 | 29 -> 12 |
+| quiz `explanation` | 60 | **44 -> 60** | **32 -> 9** |
+
+61 explanations rewritten, every one landing inside the 45-90 band. The 21 short ones left alone
+all reason rather than restate ("Every jump adds ten, so 50 + 10 = 60."), which is why no
+minimum-length assertion was added. Also in this pass:
+
+| What | Where | Fix |
+|---|---|---|
+| The quiz screen rendered the same notation two ways: option tiles went through `MathText`, but the prompt, the review prompt and the review explanation used a plain `Text`. A learner saw `72 / 9 = ?` directly above an option tile reading `4.5 × 10^4`. 23 authored Arithmetic quiz strings affected, and Geometry's too. | `LearnQuizScreen.kt` question prompt, `ReviewCard` prompt and explanation | All three now `MathText(fractionSlash = true)`, matching the option tiles at `:162`. |
+| "Surds collect the way like terms do in algebra." Algebra is parked, so a v1 learner has no route to "like terms". | `arithmetic-surds-arithmetic`, step 1 | Now "Matching roots collect the way matching units do", with a metres example. |
+| The longest body in the topic packed four ideas into one step and carried a comma splice at "7.07 is a rounding of that length, the root sign is the length itself". | `arithmetic-surds`, step 2 | Trimmed to one idea; the next step already carries the exact-versus-rounded point. |
+| "A nought in the middle of a number counts... which is the whole difference between 0.00308 and 308 000." Both have 3 s.f., so the contrast it invites is empty, and trailing noughts are a separate case. | `arithmetic-bounds-significant`, step 5 | Now contrasts a middle nought with a leading one, which is the distinction the step's own formula names. |
+| Five unit summaries opened by repeating lesson 1's title, and those two lines sit directly above each other on `LearnUnitScreen`. | `fractions`, `decimals`, `negatives`, `surds`, `bounds` | Reworded. The three that echo a *later* lesson read as a list of the three and were left alone. |
+
+New guard: `LearnCatalogTest.everyStepAndQuestionExplains` - every explanation non-blank, and no
+quiz explanation carries `{a:}` / `{b:}` markup, because `ReviewCard` draws no figure for a tint
+to refer to.
+
+Checked and found not to be a problem: neither `unit.summary` (`LearnUnitScreen.kt:109-113`) nor
+`lesson.summary` (`LessonRow`) is clamped with `maxLines`, so no summary can be ellipsised. The
+`maxLines = 2` in `LearnComponents.kt` is on the sub-topic row's *title*, and that row shows no
+summary at all.
+
+**Render check, partly done.** Paparazzi renders of `arithmetic-fractions`, `-surds` and
+`-bounds` sub-topic screens, the `-multiplication` and `-standard-form` test screens, and an
+`arithmetic-surds` lesson step confirmed: summaries wrap fully and are never ellipsised, the
+lesson-1 stutter is gone, and option tiles render `4.5 × 10^4`. **Still unseen:** the
+`FeedbackCard` and the `ReviewCard`, which is where 61 of the 66 edits land - both need a
+learner to answer something first, so Paparazzi cannot reach them. Walk one lesson and one full
+test in the running app to close item 9. Note `10^4` renders with a literal caret in both
+lessons and tests: `formatMathSymbols` has no superscript rule, which is pre-existing.
+
+**Not done here:** Geometry's 12 sub-topics have not had this pass. They were authored to the
+other eight readiness points but never against the explanation house style, and they inherit the
+same figure-less `ReviewCard`.
+
+---
+
+**6. Correctness audit of both topics, 2026-08-26.** Every one of the 528 steps was extracted and
+every one of the **327 answerable items** checked by hand, with the plain arithmetic auto-verified
+as well.
+
+**The maths came out clean: no wrong answers, no arithmetic slips, no false statements.** The
+awkward cases are all right - trapezium is used in the exclusive UK sense throughout, "exactly two
+equal sides" sidesteps the isosceles/equilateral overlap, `(x, y) -> (-y, x)` is the correct
+quarter-turn anticlockwise, area and volume scale by k² and k³, and the cyclic-quadrilateral
+question at `2190` picks the right opposite pair.
+
+Every defect found was a **figure contradicting correct words**, or a term used before it existed:
+
+| What | Where | Fix |
+|---|---|---|
+| "A triangle has angles of 40 and 75 degrees" was drawn with `RightTriangle`, which stamps a square right-angle marker unconditionally (`ShapeVisuals.kt`). The picture asserts a right angle the question rules out, and reading it gives 50. | `geometry-angles-adding` | New `Triangle(TriKind.SCALENE)`. |
+| Cyclic quadrilaterals were never drawn. The Concept steps used `Polygon(sides = 4)`, which is **regular**, so they showed a square; all three question steps used `AngleFigure(supplement = true)` - two angles on a straight line, no quadrilateral and no circle. The lesson's own definition, "all four corners sitting on the circle", was never shown. | `geometry-circle-theorems-cyclic`, and the test | New `CyclicQuad`. |
+| Rhombus, parallelogram, trapezium and kite were all drawn as squares or rectangles, for the same `Polygon`-is-regular reason. A rhombus question showed a square. | `geometry-quadrilaterals-*` | New `Quadrilateral` + `QuadKind`. |
+| "A triangle has exactly two equal sides. What is it called?" showed an equilateral triangle. | `geometry-quadrilaterals-triangles` | `Triangle(TriKind.ISOSCELES)`. |
+| "Octagon" was the correct answer to "which name belongs to this shape", but the naming Concept taught only triangle, quadrilateral, pentagon and hexagon. At g12 it was reachable only by elimination. | `g12-geometry-flat-shapes` | The Concept now names the octagon too. |
+| Two area explanations read the grid the wrong way round: "6 rows of 3" over `AreaGrid(cols = 6, rows = 3)`, which draws 3 rows of 6. Same class as the multiplication defect in note 2. | `g35-measurement-area`, and the test | "3 rows of 6." / "3 rows of 7." |
+| Place-value vocabulary two lessons early: "takes one off the loose ones, not off the rods" sat in lesson 1 over a `NumberLine`, and rods arrive in lesson 3. | `g12-arithmetic-counting` | Reworded to the number line the step actually draws. |
+| The only inexact pi answer in the circles unit: 3.14 x 70 = 219.8 offered as "220 cm", where the other eight are exact. | `geometry-circles` | Diameter 50 cm, so 157 cm exactly. |
+| Two right triangles stated 90/35/55 but were drawn `a = 5, b = 3` and `a = 4, b = 3`, which render 90/31/59 and 90/37/53. | `angles` test, `geometry-circle-theorems-tangents` | `a = 7, b = 5` gives 90/35.5/54.5. |
+| Every `Plot` in the transformations unit carried a decorative `Curve.Linear(m = 0.5f)`. On "reflect this point in the y-axis" a stray line through the origin invites reflecting in *that* line. | `geometry-transformations-*`, 14 figures | `Plot.curve` is now optional; those figures draw bare axes. |
+
+Three figure variants were added and rendered before use: `Triangle`/`TriKind`,
+`Quadrilateral`/`QuadKind` (equal sides ticked, parallel sides chevroned, the two marks offset so
+they do not smudge together) and `CyclicQuad`, whose corners sit at deliberately uneven gaps so
+the opposite-angle rule cannot be read as a fact about rectangles.
+
 ---
 
 ## 5. Geometry (ships)
@@ -239,6 +343,13 @@ Worth knowing before writing another lesson, and all three cost a rewrite when h
   Its `angle` label is not covered by `unknown`, so do not ask for a labelled angle over one.
 * **`AngleFigure` coerces its angle into 1..179.** It cannot draw a straight or a reflex
   angle. Teach reflex through the partner that is left of a full turn, which it can show.
+* **`Polygon` only builds *regular* shapes.** `Polygon(sides = 4)` is a square and
+  `Polygon(sides = 3)` is equilateral, so it is the wrong figure for a rhombus, a
+  parallelogram, a trapezium, a kite, an isosceles or a scalene triangle. Use
+  `Quadrilateral(QuadKind.X)` or `Triangle(TriKind.X)` for those; `Polygon` is for questions
+  that are only about counting sides and corners.
+* **`RightTriangle` always stamps its right-angle marker**, whatever `labels` says. Never use
+  it for a triangle whose given angles are not a right angle plus two others.
 * **`CircleFigure` has no sector.** Its `centreAngle` draws a centre angle and the angle at
   the circumference on the same arc, which is circle-theorem material. There is no way to
   draw "a quarter of a circle" as a shaded slice.
@@ -274,7 +385,10 @@ Worth knowing before writing another lesson, and all three cost a rewrite when h
 
 | Date | What happened |
 |---|---|
+| 2026-08-26 | Every certificate wired to Play Games and Game Center: 22 store-only achievements, one per sub-topic, ids derived from the unit id in the new `learn/LearnStoreAchievements.kt` and guarded by `LearnStoreAchievementsTest`. No in-app `Achievements` entries and no new strings, so nothing to localize. `UserStorage.restoreLearnCertificates` means a certificate now survives a reinstall, which it never did before. Icons 49-70 generated in gold. All 44 created on 2026-08-27 via the new `scripts/store_achievements.rb`, which drives both store APIs directly (fastlane has no achievement support at all). Game Center is complete, icons included, at 10 points each and 600/1000 used; the cap turned out to be a non-issue. Play Games has all 22 with their ids written back into `play_games.xml`, at 5 XP, the minimum Play accepts. The Play Games icons had to be attached by hand in Play Console, because the Games Configuration API has no image upload method any more; done 2026-08-27, and verified by reading the config back: all 22 have a published icon, each a pixel-exact match for its `media/achievements/png/` source. Nothing outstanding on either store. Full detail and copy in `media/achievements/README.md`. |
 | 2026-08-26 | Scope set: ship Arithmetic + Geometry, park six. Parking method, perimeter/area move and Geometry split decided. This document created. |
+| 2026-08-26 | Correctness audit of all 528 steps across both topics. The maths is clean: 327 answerable items checked, no wrong answers or false statements. Ten defect classes fixed, every one a figure contradicting correct words - most seriously a 40/75/65 triangle drawn with a right-angle marker, and a cyclic-quadrilateral lesson that never once drew a quadrilateral in a circle. Added `Triangle`, `Quadrilateral` and `CyclicQuad` figure variants, since `Polygon` only builds regular shapes and so drew a square for every rhombus and a square for every cyclic quadrilateral. `Plot.curve` made optional to clear the stray line off the transformations figures. |
+| 2026-08-26 | Arithmetic clarity pass, all ten units: 61 answer explanations rewritten from restatement to reason (quiz median 44 -> 60 chars, sub-45 count 32 -> 9). `LearnQuizScreen`'s question prompt and both `ReviewCard` lines switched to `MathText`, so `×` and `÷` finally match the lessons. Three content defects fixed: a parked-Algebra reference in surds, an overlong four-idea body, and a significant-figures contrast that was empty. Five stuttering unit summaries reworded. House style for readiness item 8 written into section 3 and guarded by a new `everyStepAndQuestionExplains` test. Geometry has not had this pass. |
 | 2026-08-26 | Geometry reworked, 4 grade slices into 12 sub-topics, one band per commit. g12 into Flat and Solid shapes; g35 into Angles, Triangles and quadrilaterals, and Symmetry; g68 into Pythagoras, Circles, and Volume and surface area; g910 into Similarity, Transformations and Circle theorems. Corrected `canCaptionItsResult` for `RightTriangle`, which had been counting seven unlabelled triangles that gave nothing away. RATCHET reached 0 and was deleted along with the `reworkedUnits` hatch. Section total: 22 sub-topics, 66 lessons. Only the render check remains. |
 | 2026-08-26 | Arithmetic split 6 -> 10: `ratio-and-percent` became Negative numbers, Ratio and proportion and Percentages; `standard-form-and-surds` became Standard form, Surds and Rounding and bounds. Twelve new lessons and six new tests written; original lesson ids kept. All 10 sub-topics now `ready` bar the batched render check. Found that `RightTriangle` cannot set `reveal = false`, which blocks the Pythagoras rework (see section 5). |
 | 2026-08-26 | Readiness pass: `arithmetic-multiplication`, `arithmetic-fractions` and `arithmetic-decimals` reviewed and marked ready, four more defects fixed. 4 of 6 Arithmetic sub-topics done; units 5 and 6 are blocked on open decision 1. |
