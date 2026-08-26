@@ -647,10 +647,14 @@ fun App(
                             val onNextLesson = remember(controller) {
                                 { lessonId: String -> controller.navigateToLearnLesson(lessonId, replaceCurrent = true) }
                             }
+                            val onTakeTest = remember(controller, unit) {
+                                { controller.navigateToLearnTest(unit) }
+                            }
                             LearnLessonScreen(
                                 lessonId = lesson.id,
                                 storage = controller.storage,
                                 onNextLesson = onNextLesson,
+                                onTakeTest = onTakeTest,
                                 onBack = popUnit,
                             )
                         }

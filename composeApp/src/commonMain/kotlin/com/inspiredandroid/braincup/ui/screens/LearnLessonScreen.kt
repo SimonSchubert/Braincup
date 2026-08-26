@@ -2,8 +2,6 @@ package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -23,24 +21,28 @@ import braincup.composeapp.generated.resources.learn_lesson_complete_title
 import braincup.composeapp.generated.resources.learn_lesson_score
 import braincup.composeapp.generated.resources.learn_next_lesson
 import braincup.composeapp.generated.resources.learn_next_line
+import braincup.composeapp.generated.resources.learn_take_test
+import braincup.composeapp.generated.resources.learn_test_intro
 import braincup.composeapp.generated.resources.learn_try_again
 import braincup.composeapp.generated.resources.learn_try_again_hint
 import braincup.composeapp.generated.resources.learn_your_answer
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
-import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.LessonStep
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
-import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
-import com.inspiredandroid.braincup.ui.components.hoverHand
-import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
+import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
+import com.inspiredandroid.braincup.ui.components.learn.LearnFigurePanel
+import com.inspiredandroid.braincup.ui.components.learn.LearnOptionState
+import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
+import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
+import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.VisualAnswer
 import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
@@ -50,16 +52,6 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
-
-/**
- * How wide lesson content is allowed to grow. Everything on the step shares one measure so a
- * desktop window does not stretch the prose, the options and the diagram to three different
- * widths; the diagram is capped tighter still, because its figures are laid out from the canvas
- * width and a very wide canvas draws counters and hops far larger than the text beside them.
- */
-private val LessonContentWidth = 480.dp
-private val LessonVisualWidth = 420.dp
-private val LessonVisualHeight = 180.dp
 
 /**
  * How far the learner has got with the question on screen.
@@ -90,6 +82,7 @@ fun LearnLessonScreen(
     lessonId: String,
     storage: UserStorage,
     onNextLesson: (lessonId: String) -> Unit,
+    onTakeTest: () -> Unit,
     onBack: () -> Unit,
 ) {
     val lesson = remember(lessonId) { LearnCatalog.lessonById(lessonId) } ?: return
@@ -105,6 +98,7 @@ fun LearnLessonScreen(
         xpGained = xpGained,
         onLessonCompleted = { xpGained = storage.completeLearnLesson(lesson.id).xpGained },
         onNextLesson = onNextLesson,
+        onTakeTest = onTakeTest,
         onBack = onBack,
     )
 }
@@ -117,6 +111,7 @@ fun LearnLessonScreenContent(
     onLessonCompleted: () -> Unit,
     onNextLesson: (lessonId: String) -> Unit,
     onBack: () -> Unit,
+    onTakeTest: (() -> Unit)? = null,
 ) {
     var stepIndex by remember(lesson.id) { mutableIntStateOf(0) }
     var correctCount by remember(lesson.id) { mutableIntStateOf(0) }
@@ -161,6 +156,7 @@ fun LearnLessonScreenContent(
                 xpGained = xpGained,
                 nextLessonId = nextLessonId,
                 onNextLesson = onNextLesson,
+                onTakeTest = onTakeTest,
                 modifier = Modifier.weight(1f),
             )
             return@AppScaffold
@@ -174,14 +170,7 @@ fun LearnLessonScreenContent(
             modifier = Modifier.padding(bottom = 12.dp),
         )
 
-        Column(
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
-        ) {
+        LearnStepColumn {
             when (step) {
                 is LessonStep.Concept -> ConceptStep(step)
                 is LessonStep.Worked -> WorkedStep(step, revealedLines)
@@ -237,7 +226,7 @@ private fun ColumnScope.LessonActionBar(
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     // The bar spans the window, the button inside it does not: stretched edge to edge on a desktop
     // window it stops reading as a button at all.
-    val button = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth()
+    val button = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth()
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -275,31 +264,6 @@ private fun ColumnScope.LessonActionBar(
 }
 
 /**
- * The step's diagram, on a panel of its own so it reads as a figure rather than as marks floating
- * on the page, and so the tap-to-replay target has a visible edge.
- */
-@Composable
-private fun LessonVisual(
-    visual: LearnVisual,
-    modifier: Modifier = Modifier,
-    answer: VisualAnswer? = null,
-) {
-    PrismCard(
-        face = MaterialTheme.colorScheme.surfaceVariant,
-        modifier = modifier
-            .widthIn(max = LessonVisualWidth)
-            .fillMaxWidth()
-            .height(LessonVisualHeight),
-    ) {
-        LearnVisualCanvas(
-            visual = visual,
-            modifier = Modifier.fillMaxSize().padding(12.dp),
-            answer = answer,
-        )
-    }
-}
-
-/**
  * The value the figure should point at: the one the learner last put forward. Only numbers reach
  * the figure, so an option like "the orange one" simply leaves it unmarked.
  */
@@ -312,13 +276,13 @@ private fun StepAnswer.visualAnswer(correctValue: String): VisualAnswer? = when 
 @Composable
 private fun ConceptStep(step: LessonStep.Concept) {
     step.visual?.let {
-        LessonVisual(it, modifier = Modifier.padding(bottom = 16.dp))
+        LearnFigurePanel(it, modifier = Modifier.padding(bottom = 16.dp))
     }
     LessonText(
         text = step.body,
         style = MaterialTheme.typography.bodyLarge,
         textAlign = TextAlign.Center,
-        modifier = Modifier.widthIn(max = LessonContentWidth),
+        modifier = Modifier.widthIn(max = LearnContentWidth),
     )
     step.formula?.let { formula ->
         Spacer(Modifier.height(16.dp))
@@ -354,7 +318,7 @@ private fun FormulaCard(formula: String) {
     // ink rather than the muted tone the supporting cards use.
     PrismCard(
         face = MaterialTheme.colorScheme.surfaceVariant,
-        modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
+        modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
     ) {
         MathText(
             text = formula,
@@ -381,12 +345,12 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
     )
     Spacer(Modifier.height(16.dp))
     step.visual?.let {
-        LessonVisual(it, modifier = Modifier.padding(bottom = 16.dp))
+        LearnFigurePanel(it, modifier = Modifier.padding(bottom = 16.dp))
     }
     step.lines.take(revealedLines).forEach { line ->
         PrismCard(
             face = MaterialTheme.colorScheme.surfaceVariant,
-            modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth().padding(vertical = 4.dp),
+            modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth().padding(vertical = 4.dp),
         ) {
             LessonText(
                 text = line,
@@ -422,7 +386,7 @@ private fun ColumnScope.ChoiceStep(
     onSelect: (Int) -> Unit,
 ) {
     step.visual?.let {
-        LessonVisual(
+        LearnFigurePanel(
             visual = it,
             modifier = Modifier.padding(bottom = 16.dp),
             answer = answer.visualAnswer(step.options[step.correctIndex]),
@@ -437,13 +401,13 @@ private fun ColumnScope.ChoiceStep(
 
     val missed = (answer as? StepAnswer.Missed)?.attempts.orEmpty()
     step.options.forEachIndexed { index, option ->
-        OptionTile(
+        LearnOptionTile(
             label = option,
             state = when {
-                answer is StepAnswer.Correct && index == step.correctIndex -> OptionState.CORRECT
-                option in missed -> OptionState.WRONG
-                answer is StepAnswer.Correct -> OptionState.MUTED
-                else -> OptionState.IDLE
+                answer is StepAnswer.Correct && index == step.correctIndex -> LearnOptionState.CORRECT
+                option in missed -> LearnOptionState.WRONG
+                answer is StepAnswer.Correct -> LearnOptionState.MUTED
+                else -> LearnOptionState.IDLE
             },
             onClick = { onSelect(index) },
         )
@@ -467,7 +431,7 @@ private fun ColumnScope.ChoiceStep(
 @Composable
 private fun QuestionHeading(formula: String?, question: String, solved: String? = null) {
     Column(
-        modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
+        modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (formula != null) {
@@ -501,7 +465,7 @@ private fun RetryNote() {
         color = MaterialTheme.colorScheme.error,
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.Center,
-        modifier = Modifier.widthIn(max = LessonContentWidth).padding(top = 8.dp),
+        modifier = Modifier.widthIn(max = LearnContentWidth).padding(top = 8.dp),
     )
 }
 
@@ -514,7 +478,7 @@ private fun NumericStep(
     onInputChange: (String) -> Unit,
 ) {
     step.visual?.let {
-        LessonVisual(
+        LearnFigurePanel(
             visual = it,
             modifier = Modifier.padding(bottom = 16.dp),
             answer = answer.visualAnswer(step.answer),
@@ -554,43 +518,6 @@ private fun NumericStep(
     }
 }
 
-private enum class OptionState { IDLE, CORRECT, WRONG, MUTED }
-
-@Composable
-private fun OptionTile(
-    label: String,
-    state: OptionState,
-    onClick: () -> Unit,
-) {
-    val face = when (state) {
-        OptionState.IDLE -> MaterialTheme.colorScheme.surfaceVariant
-        OptionState.CORRECT -> SuccessGreen
-        OptionState.WRONG -> MaterialTheme.colorScheme.error
-        OptionState.MUTED -> MaterialTheme.colorScheme.surfaceVariant
-    }
-    val contentColor = when (state) {
-        OptionState.CORRECT, OptionState.WRONG -> Color.White
-        else -> MaterialTheme.colorScheme.onSurfaceVariant
-    }
-    PrismTile(
-        face = face,
-        isClickable = state == OptionState.IDLE,
-        modifier = Modifier
-            .widthIn(max = LessonContentWidth)
-            .fillMaxWidth()
-            .hoverHand(state == OptionState.IDLE),
-        onClick = { if (state == OptionState.IDLE) onClick() },
-    ) {
-        MathText(
-            text = label,
-            style = MaterialTheme.typography.bodyLarge,
-            color = if (state == OptionState.MUTED) contentColor.copy(alpha = 0.6f) else contentColor,
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
-            fractionSlash = true,
-        )
-    }
-}
-
 /**
  * Shown once the learner gets there. There is no wrong-answer variant any more: a miss leaves the
  * step open and shows [RetryNote] instead, so this card only ever confirms and explains.
@@ -604,7 +531,7 @@ private fun OptionTile(
 private fun FeedbackCard(explanation: String) {
     PrismCard(
         face = PrimaryContainer,
-        modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth().padding(top = 8.dp),
+        modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth().padding(top = 8.dp),
     ) {
         Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             Text(
@@ -630,38 +557,50 @@ private fun LessonCompleteContent(
     xpGained: Int,
     nextLessonId: String?,
     onNextLesson: (lessonId: String) -> Unit,
+    onTakeTest: (() -> Unit)?,
     modifier: Modifier = Modifier,
 ) {
-    Column(
-        modifier = modifier
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 24.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+    LearnResultColumn(
+        title = stringResource(Res.string.learn_lesson_complete_title),
+        score = stringResource(Res.string.learn_lesson_score, correctCount, lesson.questionCount),
+        scoreStyle = MaterialTheme.typography.bodyLarge,
+        modifier = modifier,
+        // A lesson result is short enough to sit in the middle of the screen; a test result is
+        // not, because the review list unfolds under it.
         verticalArrangement = Arrangement.Center,
     ) {
-        Text(
-            text = stringResource(Res.string.learn_lesson_complete_title),
-            style = MaterialTheme.typography.headlineSmall,
-            color = Primary,
-            textAlign = TextAlign.Center,
-        )
-        Spacer(Modifier.height(8.dp))
-        Text(
-            text = stringResource(Res.string.learn_lesson_score, correctCount, lesson.questionCount),
-            style = MaterialTheme.typography.bodyLarge,
-            textAlign = TextAlign.Center,
-        )
         if (xpGained > 0) {
             Spacer(Modifier.height(16.dp))
             XpGainedChip(xpGained = xpGained)
+        }
+        val quiz = if (nextLessonId == null && onTakeTest != null) {
+            remember(lesson.id) { LearnCatalog.unitOfLesson(lesson)?.quiz }
+        } else {
+            null
         }
         if (nextLessonId != null) {
             Spacer(Modifier.height(24.dp))
             PrimaryActionButton(
                 onClick = { onNextLesson(nextLessonId) },
                 value = stringResource(Res.string.learn_next_lesson),
-                modifier = Modifier.widthIn(max = LessonContentWidth).fillMaxWidth(),
+                modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
+            )
+        } else if (quiz != null && onTakeTest != null) {
+            // The last lesson of a sub-topic ends where the sub-topic itself does: at its test.
+            // Finishing here and being sent back to the unit screen to find that button is a step
+            // the learner never needs to take.
+            Spacer(Modifier.height(24.dp))
+            Text(
+                text = stringResource(Res.string.learn_test_intro, quiz.total),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                textAlign = TextAlign.Center,
+            )
+            Spacer(Modifier.height(8.dp))
+            PrimaryActionButton(
+                onClick = onTakeTest,
+                value = stringResource(Res.string.learn_take_test),
+                modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
             )
         }
     }

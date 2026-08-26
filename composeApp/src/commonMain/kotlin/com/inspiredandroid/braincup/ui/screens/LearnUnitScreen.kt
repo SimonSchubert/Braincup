@@ -35,6 +35,8 @@ import com.inspiredandroid.braincup.ui.components.ChunkyCheck
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
+import com.inspiredandroid.braincup.ui.components.learn.learnContainerColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -93,7 +95,7 @@ fun LearnUnitScreenContent(
         ) {
             item(key = "header") {
                 Column(
-                    modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
+                    modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Text(
@@ -128,7 +130,7 @@ fun LearnUnitScreenContent(
                 item(key = "certificate") {
                     EarnedCertificateCard(
                         onClick = onViewCertificate,
-                        modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
+                        modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
                     )
                 }
             }
@@ -139,7 +141,7 @@ fun LearnUnitScreenContent(
                     style = MaterialTheme.typography.titleSmall,
                     fontWeight = FontWeight.Bold,
                     modifier = Modifier
-                        .widthIn(max = 480.dp)
+                        .widthIn(max = LearnContentWidth)
                         .fillMaxWidth()
                         .padding(top = 8.dp),
                 )
@@ -151,13 +153,13 @@ fun LearnUnitScreenContent(
                     index = index,
                     isCompleted = lesson.id in completedLessonIds,
                     onClick = { onLessonSelected(lesson.id) },
-                    modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
+                    modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
                 )
             }
 
             item(key = "test") {
                 Column(
-                    modifier = Modifier.widthIn(max = 480.dp).fillMaxWidth(),
+                    modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
                     horizontalAlignment = Alignment.CenterHorizontally,
                 ) {
                     Spacer(Modifier.height(16.dp))
@@ -221,18 +223,7 @@ private fun LessonRow(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    // Ink follows the face. Material You resolves these containers from the wallpaper, so text
-    // coloured from a different pair - or left to inherit the ambient one - can land unreadable.
-    val face = if (isCompleted) {
-        MaterialTheme.colorScheme.primaryContainer
-    } else {
-        MaterialTheme.colorScheme.surfaceVariant
-    }
-    val ink = if (isCompleted) {
-        MaterialTheme.colorScheme.onPrimaryContainer
-    } else {
-        MaterialTheme.colorScheme.onSurfaceVariant
-    }
+    val (face, ink) = learnContainerColors(isCompleted)
     PrismCard(
         face = face,
         modifier = modifier.hoverHand().clickable(onClick = onClick),

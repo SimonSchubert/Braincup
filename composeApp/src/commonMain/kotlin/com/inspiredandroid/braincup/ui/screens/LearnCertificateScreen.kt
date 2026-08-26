@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.datetime.TimeZone
@@ -81,7 +82,7 @@ fun LearnCertificateScreenContent(
             unit = unit,
             earnedEpochDay = earnedEpochDay,
             modifier = Modifier
-                .widthIn(max = 420.dp)
+                .widthIn(max = ContentMaxWidth)
                 .fillMaxWidth()
                 .padding(horizontal = 24.dp),
         )
@@ -136,10 +137,11 @@ private fun CertificateCard(
                 textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(2.dp))
+            // The sub-topic, not the grade band: the test that was passed was "Fractions", and two
+            // certificates reading "Arithmetic, Grades 3-5" said nothing about what was learned.
             Text(
-                text = stringResource(unit.level.titleRes),
+                text = unit.title,
                 style = MaterialTheme.typography.titleSmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,
             )
             if (earnedEpochDay > 0) {
