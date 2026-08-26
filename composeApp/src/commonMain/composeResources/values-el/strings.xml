@@ -806,4 +806,89 @@
     <string name="achievement_iq_test_high">Ιδιοφυΐα Μοτίβων</string>
     <string name="achievement_iq_test_high_desc">Φτάσε σε εκτιμώμενο IQ 130 ή παραπάνω</string>
 
+    <!-- Learn section -->
+    <string name="learn_section_title">Μάθε μαθηματικά</string>
+    <string name="learn_section_subtitle">Διάλεξε τη σχολική σου χρονιά, δούλεψε μια ενότητα και μετά δώσε το τεστ για πιστοποιητικό.</string>
+    <string name="learn_section_certificates">%1$d / %2$d πιστοποιητικά</string>
+    <string name="learn_title">Μάθε μαθηματικά</string>
+    <string name="learn_unit_progress">%1$d / %2$d πιστοποιητικά</string>
+    <string name="learn_grade_intro">Κάθε ενότητα εδώ διδάσκεται στο επίπεδο αυτής της σχολικής χρονιάς.</string>
+    <string name="learn_grade_certificates">%1$d από %2$d ενότητες πιστοποιημένες</string>
+
+    <string name="learn_level_g12">Τάξεις 1–2</string>
+    <string name="learn_level_g12_subtitle">6–8 ετών · μέτρημα, σχήματα και πρώτες μετρήσεις</string>
+    <string name="learn_level_g35">Τάξεις 3–5</string>
+    <string name="learn_level_g35_subtitle">8–11 ετών · προπαίδεια, κλάσματα και γραφήματα</string>
+    <string name="learn_level_g68">Τάξεις 6–8</string>
+    <string name="learn_level_g68_subtitle">11–14 ετών · λόγοι, ποσοστά και πρώτη άλγεβρα</string>
+    <string name="learn_level_g910">Τάξεις 9–10</string>
+    <string name="learn_level_g910_subtitle">14–16 ετών · δευτεροβάθμιες εξισώσεις, αποδείξεις και τριγωνομετρία</string>
+    <string name="learn_level_g1112">Τάξεις 11–12</string>
+    <string name="learn_level_g1112_subtitle">16–18 ετών · λογάριθμοι, μοναδιαίος κύκλος και ανάλυση</string>
+
+    <string name="learn_topic_arithmetic">Αριθμητική</string>
+    <string name="learn_topic_arithmetic_subtitle">Αριθμοί &amp; πράξεις</string>
+    <string name="learn_topic_measurement">Μετρήσεις</string>
+    <string name="learn_topic_measurement_subtitle">Μήκος, μονάδες &amp; εμβαδόν</string>
+    <string name="learn_topic_geometry">Γεωμετρία</string>
+    <string name="learn_topic_geometry_subtitle">Γωνίες, τρίγωνα &amp; κύκλοι</string>
+    <string name="learn_topic_data">Δεδομένα &amp; πιθανότητες</string>
+    <string name="learn_topic_data_subtitle">Στατιστική &amp; τύχη</string>
+    <string name="learn_topic_algebra">Άλγεβρα</string>
+    <string name="learn_topic_algebra_subtitle">Παραστάσεις &amp; εξισώσεις</string>
+    <string name="learn_topic_trigonometry">Τριγωνομετρία</string>
+    <string name="learn_topic_trigonometry_subtitle">Λόγοι &amp; μοναδιαίος κύκλος</string>
+    <string name="learn_topic_functions">Προ-ανάλυση</string>
+    <string name="learn_topic_functions_subtitle">Συναρτήσεις &amp; γραφήματα</string>
+    <string name="learn_topic_calculus">Ανάλυση</string>
+    <string name="learn_topic_calculus_subtitle">Όρια, παράγωγοι &amp; ολοκληρώματα</string>
+
+    <string name="learn_lessons_header">Μαθήματα</string>
+    <string name="learn_lesson_progress">%1$d / %2$d μαθήματα</string>
+    <string name="learn_lesson_number">Μάθημα %1$d</string>
+    <string name="learn_lesson_complete_title">Το μάθημα ολοκληρώθηκε!</string>
+    <string name="learn_lesson_score">%1$d από %2$d ελέγχους σωστά</string>
+    <string name="learn_lesson_finish">Πίσω στην ενότητα</string>
+    <string name="learn_next_lesson">Επόμενο μάθημα</string>
+    <string name="learn_continue">Συνέχεια</string>
+    <string name="learn_check">Έλεγχος</string>
+    <string name="learn_next_line">Δείξε την επόμενη γραμμή</string>
+    <string name="learn_answer_label">Απάντηση</string>
+    <string name="learn_correct">Σωστά!</string>
+    <string name="learn_incorrect">Όχι ακριβώς</string>
+    <string name="learn_your_answer">Η απάντησή σου</string>
+
+    <string name="learn_take_test">Δώσε το τεστ</string>
+    <string name="learn_retake_test">Ξαναδώσε το τεστ</string>
+    <string name="learn_test_title">Τεστ: %1$s</string>
+    <string name="learn_test_intro">%1$d ερωτήσεις. Απάντησε σωστά τουλάχιστον στο %2$d%% για να πάρεις το πιστοποιητικό σου.</string>
+    <string name="learn_quiz_progress">Ερώτηση %1$d από %2$d</string>
+    <string name="learn_quiz_result_title">Το τεστ ολοκληρώθηκε</string>
+    <string name="learn_quiz_score">%1$d από %2$d σωστά (%3$d%%)</string>
+    <string name="learn_quiz_passed">Πήρες πιστοποιητικό!</string>
+    <string name="learn_quiz_improved">Νέο προσωπικό ρεκόρ!</string>
+    <string name="learn_quiz_failed">Χρειάζεσαι %1$d%% για πιστοποιητικό. Ξανακοίτα τα μαθήματα και δοκίμασε ξανά.</string>
+    <string name="learn_quiz_review">Δες τις απαντήσεις</string>
+    <string name="learn_quiz_hide_review">Κρύψε τις απαντήσεις</string>
+    <string name="learn_quiz_your_answer">Η απάντησή σου: %1$s</string>
+    <string name="learn_quiz_correct_answer">Σωστή απάντηση: %1$s</string>
+
+    <string name="learn_certificate_title">Πιστοποιητικό</string>
+    <string name="learn_certificate_headline">Πιστοποιητικό επίδοσης</string>
+    <string name="learn_certificate_intro">Πιστοποιείται επιτυχές αποτέλεσμα στην ενότητα</string>
+    <string name="learn_certificate_score">Βαθμολογία %1$d%%</string>
+    <string name="learn_certificate_earned">Αποκτήθηκε %1$s</string>
+    <string name="learn_certificate_view">Δες το πιστοποιητικό</string>
+    <string name="learn_certificate_grade_bronze">Χάλκινο</string>
+    <string name="learn_certificate_grade_silver">Ασημένιο</string>
+    <string name="learn_certificate_grade_gold">Χρυσό</string>
+    <string name="learn_certificate_best">Καλύτερο %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">Πιστοποιημένος</string>
+    <string name="achievement_learn_first_certificate_desc">Πέρνα το πρώτο σου τεστ ενότητας στο Μάθε μαθηματικά.</string>
+    <string name="achievement_learn_grade_certificates">Πρώτος της τάξης</string>
+    <string name="achievement_learn_grade_certificates_desc">Πάρε όλα τα πιστοποιητικά μιας σχολικής χρονιάς.</string>
+    <string name="achievement_learn_all_certificates">Λόγιος των μαθηματικών</string>
+    <string name="achievement_learn_all_certificates_desc">Πάρε πιστοποιητικό σε κάθε ενότητα μαθηματικών, σε κάθε τάξη.</string>
+
 </resources>

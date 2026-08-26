@@ -806,4 +806,89 @@
     <string name="achievement_iq_test_high">Геній закономірностей</string>
     <string name="achievement_iq_test_high_desc">Досягніть орієнтовного IQ 130 або вище</string>
 
+    <!-- Learn section -->
+    <string name="learn_section_title">Вчити математику</string>
+    <string name="learn_section_subtitle">Обери свій навчальний рік, опрацюй тему, а потім склади тест і отримай сертифікат.</string>
+    <string name="learn_section_certificates">%1$d / %2$d сертифікатів</string>
+    <string name="learn_title">Вчити математику</string>
+    <string name="learn_unit_progress">%1$d / %2$d сертифікатів</string>
+    <string name="learn_grade_intro">Кожна тема тут пояснюється на рівні цього навчального року.</string>
+    <string name="learn_grade_certificates">%1$d з %2$d тем із сертифікатом</string>
+
+    <string name="learn_level_g12">Класи 1–2</string>
+    <string name="learn_level_g12_subtitle">6–8 років · лічба, фігури та перші вимірювання</string>
+    <string name="learn_level_g35">Класи 3–5</string>
+    <string name="learn_level_g35_subtitle">8–11 років · таблиця множення, дроби та графіки</string>
+    <string name="learn_level_g68">Класи 6–8</string>
+    <string name="learn_level_g68_subtitle">11–14 років · відношення, відсотки та початки алгебри</string>
+    <string name="learn_level_g910">Класи 9–10</string>
+    <string name="learn_level_g910_subtitle">14–16 років · квадратні рівняння, доведення та тригонометрія</string>
+    <string name="learn_level_g1112">Класи 11–12</string>
+    <string name="learn_level_g1112_subtitle">16–18 років · логарифми, одиничне коло та аналіз</string>
+
+    <string name="learn_topic_arithmetic">Арифметика</string>
+    <string name="learn_topic_arithmetic_subtitle">Числа &amp; дії</string>
+    <string name="learn_topic_measurement">Вимірювання</string>
+    <string name="learn_topic_measurement_subtitle">Довжина, одиниці &amp; площа</string>
+    <string name="learn_topic_geometry">Геометрія</string>
+    <string name="learn_topic_geometry_subtitle">Кути, трикутники &amp; кола</string>
+    <string name="learn_topic_data">Дані &amp; ймовірність</string>
+    <string name="learn_topic_data_subtitle">Статистика &amp; випадковість</string>
+    <string name="learn_topic_algebra">Алгебра</string>
+    <string name="learn_topic_algebra_subtitle">Вирази &amp; рівняння</string>
+    <string name="learn_topic_trigonometry">Тригонометрія</string>
+    <string name="learn_topic_trigonometry_subtitle">Відношення &amp; одиничне коло</string>
+    <string name="learn_topic_functions">Початки аналізу</string>
+    <string name="learn_topic_functions_subtitle">Функції &amp; графіки</string>
+    <string name="learn_topic_calculus">Математичний аналіз</string>
+    <string name="learn_topic_calculus_subtitle">Границі, похідні &amp; інтеграли</string>
+
+    <string name="learn_lessons_header">Уроки</string>
+    <string name="learn_lesson_progress">%1$d / %2$d уроків</string>
+    <string name="learn_lesson_number">Урок %1$d</string>
+    <string name="learn_lesson_complete_title">Урок завершено!</string>
+    <string name="learn_lesson_score">%1$d з %2$d перевірок правильно</string>
+    <string name="learn_lesson_finish">Назад до теми</string>
+    <string name="learn_next_lesson">Наступний урок</string>
+    <string name="learn_continue">Продовжити</string>
+    <string name="learn_check">Перевірити</string>
+    <string name="learn_next_line">Показати наступний рядок</string>
+    <string name="learn_answer_label">Відповідь</string>
+    <string name="learn_correct">Правильно!</string>
+    <string name="learn_incorrect">Не зовсім</string>
+    <string name="learn_your_answer">Твоя відповідь</string>
+
+    <string name="learn_take_test">Скласти тест</string>
+    <string name="learn_retake_test">Скласти тест ще раз</string>
+    <string name="learn_test_title">Тест: %1$s</string>
+    <string name="learn_test_intro">%1$d запитань. Дай правильну відповідь щонайменше на %2$d%%, щоб отримати сертифікат.</string>
+    <string name="learn_quiz_progress">Запитання %1$d з %2$d</string>
+    <string name="learn_quiz_result_title">Тест завершено</string>
+    <string name="learn_quiz_score">%1$d з %2$d правильно (%3$d%%)</string>
+    <string name="learn_quiz_passed">Сертифікат отримано!</string>
+    <string name="learn_quiz_improved">Новий особистий рекорд!</string>
+    <string name="learn_quiz_failed">Для сертифіката потрібно %1$d%%. Повтори уроки та спробуй ще раз.</string>
+    <string name="learn_quiz_review">Показати відповіді</string>
+    <string name="learn_quiz_hide_review">Сховати відповіді</string>
+    <string name="learn_quiz_your_answer">Твоя відповідь: %1$s</string>
+    <string name="learn_quiz_correct_answer">Правильна відповідь: %1$s</string>
+
+    <string name="learn_certificate_title">Сертифікат</string>
+    <string name="learn_certificate_headline">Сертифікат про досягнення</string>
+    <string name="learn_certificate_intro">Цим підтверджується успішний результат із теми</string>
+    <string name="learn_certificate_score">Результат %1$d%%</string>
+    <string name="learn_certificate_earned">Отримано %1$s</string>
+    <string name="learn_certificate_view">Переглянути сертифікат</string>
+    <string name="learn_certificate_grade_bronze">Бронза</string>
+    <string name="learn_certificate_grade_silver">Срібло</string>
+    <string name="learn_certificate_grade_gold">Золото</string>
+    <string name="learn_certificate_best">Найкращий %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">Сертифікований</string>
+    <string name="achievement_learn_first_certificate_desc">Склади свій перший тематичний тест у розділі «Вчити математику».</string>
+    <string name="achievement_learn_grade_certificates">Найкращий у класі</string>
+    <string name="achievement_learn_grade_certificates_desc">Отримай усі сертифікати одного навчального року.</string>
+    <string name="achievement_learn_all_certificates">Знавець математики</string>
+    <string name="achievement_learn_all_certificates_desc">Отримай сертифікат із кожної теми математики та в кожному класі.</string>
+
 </resources>

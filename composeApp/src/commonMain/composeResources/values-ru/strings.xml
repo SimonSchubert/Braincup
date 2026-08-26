@@ -805,4 +805,89 @@
     <string name="achievement_iq_test_high">Гений закономерностей</string>
     <string name="achievement_iq_test_high_desc">Достигните ориентировочного IQ 130 или выше</string>
 
+    <!-- Learn section -->
+    <string name="learn_section_title">Учить математику</string>
+    <string name="learn_section_subtitle">Выбери свой учебный год, пройди тему, а затем сдай тест и получи сертификат.</string>
+    <string name="learn_section_certificates">%1$d / %2$d сертификатов</string>
+    <string name="learn_title">Учить математику</string>
+    <string name="learn_unit_progress">%1$d / %2$d сертификатов</string>
+    <string name="learn_grade_intro">Каждая тема здесь объясняется на уровне этого учебного года.</string>
+    <string name="learn_grade_certificates">%1$d из %2$d тем с сертификатом</string>
+
+    <string name="learn_level_g12">Классы 1–2</string>
+    <string name="learn_level_g12_subtitle">6–8 лет · счёт, фигуры и первые измерения</string>
+    <string name="learn_level_g35">Классы 3–5</string>
+    <string name="learn_level_g35_subtitle">8–11 лет · таблица умножения, дроби и графики</string>
+    <string name="learn_level_g68">Классы 6–8</string>
+    <string name="learn_level_g68_subtitle">11–14 лет · отношения, проценты и начала алгебры</string>
+    <string name="learn_level_g910">Классы 9–10</string>
+    <string name="learn_level_g910_subtitle">14–16 лет · квадратные уравнения, доказательства и тригонометрия</string>
+    <string name="learn_level_g1112">Классы 11–12</string>
+    <string name="learn_level_g1112_subtitle">16–18 лет · логарифмы, единичная окружность и анализ</string>
+
+    <string name="learn_topic_arithmetic">Арифметика</string>
+    <string name="learn_topic_arithmetic_subtitle">Числа &amp; действия</string>
+    <string name="learn_topic_measurement">Измерения</string>
+    <string name="learn_topic_measurement_subtitle">Длина, единицы &amp; площадь</string>
+    <string name="learn_topic_geometry">Геометрия</string>
+    <string name="learn_topic_geometry_subtitle">Углы, треугольники &amp; окружности</string>
+    <string name="learn_topic_data">Данные &amp; вероятность</string>
+    <string name="learn_topic_data_subtitle">Статистика &amp; случай</string>
+    <string name="learn_topic_algebra">Алгебра</string>
+    <string name="learn_topic_algebra_subtitle">Выражения &amp; уравнения</string>
+    <string name="learn_topic_trigonometry">Тригонометрия</string>
+    <string name="learn_topic_trigonometry_subtitle">Отношения &amp; единичная окружность</string>
+    <string name="learn_topic_functions">Начала анализа</string>
+    <string name="learn_topic_functions_subtitle">Функции &amp; графики</string>
+    <string name="learn_topic_calculus">Математический анализ</string>
+    <string name="learn_topic_calculus_subtitle">Пределы, производные &amp; интегралы</string>
+
+    <string name="learn_lessons_header">Уроки</string>
+    <string name="learn_lesson_progress">%1$d / %2$d уроков</string>
+    <string name="learn_lesson_number">Урок %1$d</string>
+    <string name="learn_lesson_complete_title">Урок пройден!</string>
+    <string name="learn_lesson_score">%1$d из %2$d проверок верно</string>
+    <string name="learn_lesson_finish">Назад к теме</string>
+    <string name="learn_next_lesson">Следующий урок</string>
+    <string name="learn_continue">Продолжить</string>
+    <string name="learn_check">Проверить</string>
+    <string name="learn_next_line">Показать следующую строку</string>
+    <string name="learn_answer_label">Ответ</string>
+    <string name="learn_correct">Верно!</string>
+    <string name="learn_incorrect">Не совсем</string>
+    <string name="learn_your_answer">Твой ответ</string>
+
+    <string name="learn_take_test">Пройти тест</string>
+    <string name="learn_retake_test">Пройти тест заново</string>
+    <string name="learn_test_title">Тест: %1$s</string>
+    <string name="learn_test_intro">%1$d вопросов. Ответь верно минимум на %2$d%%, чтобы получить сертификат.</string>
+    <string name="learn_quiz_progress">Вопрос %1$d из %2$d</string>
+    <string name="learn_quiz_result_title">Тест завершён</string>
+    <string name="learn_quiz_score">%1$d из %2$d верно (%3$d%%)</string>
+    <string name="learn_quiz_passed">Сертификат получен!</string>
+    <string name="learn_quiz_improved">Новый личный рекорд!</string>
+    <string name="learn_quiz_failed">Для сертификата нужно %1$d%%. Повтори уроки и попробуй снова.</string>
+    <string name="learn_quiz_review">Показать ответы</string>
+    <string name="learn_quiz_hide_review">Скрыть ответы</string>
+    <string name="learn_quiz_your_answer">Твой ответ: %1$s</string>
+    <string name="learn_quiz_correct_answer">Верный ответ: %1$s</string>
+
+    <string name="learn_certificate_title">Сертификат</string>
+    <string name="learn_certificate_headline">Сертификат о достижении</string>
+    <string name="learn_certificate_intro">Настоящим подтверждается успешный результат по теме</string>
+    <string name="learn_certificate_score">Результат %1$d%%</string>
+    <string name="learn_certificate_earned">Получен %1$s</string>
+    <string name="learn_certificate_view">Посмотреть сертификат</string>
+    <string name="learn_certificate_grade_bronze">Бронза</string>
+    <string name="learn_certificate_grade_silver">Серебро</string>
+    <string name="learn_certificate_grade_gold">Золото</string>
+    <string name="learn_certificate_best">Лучший %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">Сертифицирован</string>
+    <string name="achievement_learn_first_certificate_desc">Сдай свой первый тематический тест в разделе «Учить математику».</string>
+    <string name="achievement_learn_grade_certificates">Лучший в классе</string>
+    <string name="achievement_learn_grade_certificates_desc">Получи все сертификаты одного учебного года.</string>
+    <string name="achievement_learn_all_certificates">Знаток математики</string>
+    <string name="achievement_learn_all_certificates_desc">Получи сертификат по каждой теме математики и в каждом классе.</string>
+
 </resources>

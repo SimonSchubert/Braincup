@@ -806,4 +806,89 @@
     <string name="achievement_iq_test_high">Génio dos padrões</string>
     <string name="achievement_iq_test_high_desc">Atinge um QI estimado de 130 ou mais</string>
 
+    <!-- Learn section -->
+    <string name="learn_section_title">Aprender matemática</string>
+    <string name="learn_section_subtitle">Escolhe o teu ano escolar, trabalha um tema e depois faz o teste para obter um certificado.</string>
+    <string name="learn_section_certificates">%1$d / %2$d certificados</string>
+    <string name="learn_title">Aprender matemática</string>
+    <string name="learn_unit_progress">%1$d / %2$d certificados</string>
+    <string name="learn_grade_intro">Todos os temas aqui são ensinados ao nível deste ano escolar.</string>
+    <string name="learn_grade_certificates">%1$d de %2$d temas certificados</string>
+
+    <string name="learn_level_g12">Anos 1–2</string>
+    <string name="learn_level_g12_subtitle">6–8 anos · contar, formas e primeiras medidas</string>
+    <string name="learn_level_g35">Anos 3–5</string>
+    <string name="learn_level_g35_subtitle">8–11 anos · tabuadas, frações e gráficos</string>
+    <string name="learn_level_g68">Anos 6–8</string>
+    <string name="learn_level_g68_subtitle">11–14 anos · razões, percentagens e primeira álgebra</string>
+    <string name="learn_level_g910">Anos 9–10</string>
+    <string name="learn_level_g910_subtitle">14–16 anos · equações do segundo grau, demonstrações e trigonometria</string>
+    <string name="learn_level_g1112">Anos 11–12</string>
+    <string name="learn_level_g1112_subtitle">16–18 anos · logaritmos, círculo trigonométrico e cálculo</string>
+
+    <string name="learn_topic_arithmetic">Aritmética</string>
+    <string name="learn_topic_arithmetic_subtitle">Números &amp; operações</string>
+    <string name="learn_topic_measurement">Medida</string>
+    <string name="learn_topic_measurement_subtitle">Comprimento, unidades &amp; área</string>
+    <string name="learn_topic_geometry">Geometria</string>
+    <string name="learn_topic_geometry_subtitle">Ângulos, triângulos &amp; círculos</string>
+    <string name="learn_topic_data">Dados &amp; probabilidade</string>
+    <string name="learn_topic_data_subtitle">Estatística &amp; acaso</string>
+    <string name="learn_topic_algebra">Álgebra</string>
+    <string name="learn_topic_algebra_subtitle">Expressões &amp; equações</string>
+    <string name="learn_topic_trigonometry">Trigonometria</string>
+    <string name="learn_topic_trigonometry_subtitle">Razões &amp; círculo trigonométrico</string>
+    <string name="learn_topic_functions">Pré-cálculo</string>
+    <string name="learn_topic_functions_subtitle">Funções &amp; gráficos</string>
+    <string name="learn_topic_calculus">Cálculo</string>
+    <string name="learn_topic_calculus_subtitle">Limites, derivadas &amp; integrais</string>
+
+    <string name="learn_lessons_header">Lições</string>
+    <string name="learn_lesson_progress">%1$d / %2$d lições</string>
+    <string name="learn_lesson_number">Lição %1$d</string>
+    <string name="learn_lesson_complete_title">Lição concluída!</string>
+    <string name="learn_lesson_score">%1$d de %2$d verificações certas</string>
+    <string name="learn_lesson_finish">Voltar ao tema</string>
+    <string name="learn_next_lesson">Lição seguinte</string>
+    <string name="learn_continue">Continuar</string>
+    <string name="learn_check">Verificar</string>
+    <string name="learn_next_line">Mostrar a linha seguinte</string>
+    <string name="learn_answer_label">Resposta</string>
+    <string name="learn_correct">Certo!</string>
+    <string name="learn_incorrect">Não é bem assim</string>
+    <string name="learn_your_answer">A tua resposta</string>
+
+    <string name="learn_take_test">Fazer o teste</string>
+    <string name="learn_retake_test">Repetir o teste</string>
+    <string name="learn_test_title">Teste de %1$s</string>
+    <string name="learn_test_intro">%1$d perguntas. Acerta pelo menos %2$d%% para obteres o teu certificado.</string>
+    <string name="learn_quiz_progress">Pergunta %1$d de %2$d</string>
+    <string name="learn_quiz_result_title">Teste concluído</string>
+    <string name="learn_quiz_score">%1$d de %2$d certas (%3$d%%)</string>
+    <string name="learn_quiz_passed">Certificado obtido!</string>
+    <string name="learn_quiz_improved">Novo recorde pessoal!</string>
+    <string name="learn_quiz_failed">Precisas de %1$d%% para obter um certificado. Revê as lições e tenta de novo.</string>
+    <string name="learn_quiz_review">Ver respostas</string>
+    <string name="learn_quiz_hide_review">Ocultar respostas</string>
+    <string name="learn_quiz_your_answer">A tua resposta: %1$s</string>
+    <string name="learn_quiz_correct_answer">Resposta certa: %1$s</string>
+
+    <string name="learn_certificate_title">Certificado</string>
+    <string name="learn_certificate_headline">Certificado de mérito</string>
+    <string name="learn_certificate_intro">Certifica-se um resultado positivo em</string>
+    <string name="learn_certificate_score">Pontuação %1$d%%</string>
+    <string name="learn_certificate_earned">Obtido em %1$s</string>
+    <string name="learn_certificate_view">Ver certificado</string>
+    <string name="learn_certificate_grade_bronze">Bronze</string>
+    <string name="learn_certificate_grade_silver">Prata</string>
+    <string name="learn_certificate_grade_gold">Ouro</string>
+    <string name="learn_certificate_best">Melhor %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">Certificado</string>
+    <string name="achievement_learn_first_certificate_desc">Passa no teu primeiro teste de tema em Aprender matemática.</string>
+    <string name="achievement_learn_grade_certificates">Melhor da turma</string>
+    <string name="achievement_learn_grade_certificates_desc">Obtém todos os certificados de um ano escolar.</string>
+    <string name="achievement_learn_all_certificates">Erudito da matemática</string>
+    <string name="achievement_learn_all_certificates_desc">Obtém um certificado em todos os temas de matemática e em todos os anos.</string>
+
 </resources>

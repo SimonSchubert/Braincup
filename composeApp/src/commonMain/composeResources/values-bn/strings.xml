@@ -806,4 +806,89 @@
     <string name="achievement_iq_test_high">প্যাটার্ন বিশারদ</string>
     <string name="achievement_iq_test_high_desc">আনুমানিক আইকিউ ১৩০ বা তার বেশি পান</string>
 
+    <!-- Learn section -->
+    <string name="learn_section_title">গণিত শেখো</string>
+    <string name="learn_section_subtitle">তোমার শ্রেণিবর্ষ বেছে নাও, একটি বিষয় শেষ করো, তারপর সনদের জন্য পরীক্ষা দাও।</string>
+    <string name="learn_section_certificates">%1$d / %2$d সনদ</string>
+    <string name="learn_title">গণিত শেখো</string>
+    <string name="learn_unit_progress">%1$d / %2$d সনদ</string>
+    <string name="learn_grade_intro">এখানে প্রতিটি বিষয় এই শ্রেণিবর্ষের স্তরে শেখানো হয়।</string>
+    <string name="learn_grade_certificates">%2$d টির মধ্যে %1$d টি বিষয় সনদপ্রাপ্ত</string>
+
+    <string name="learn_level_g12">শ্রেণি ১–২</string>
+    <string name="learn_level_g12_subtitle">৬–৮ বছর · গণনা, আকৃতি ও প্রথম পরিমাপ</string>
+    <string name="learn_level_g35">শ্রেণি ৩–৫</string>
+    <string name="learn_level_g35_subtitle">৮–১১ বছর · নামতা, ভগ্নাংশ ও লেখচিত্র</string>
+    <string name="learn_level_g68">শ্রেণি ৬–৮</string>
+    <string name="learn_level_g68_subtitle">১১–১৪ বছর · অনুপাত, শতকরা ও প্রাথমিক বীজগণিত</string>
+    <string name="learn_level_g910">শ্রেণি ৯–১০</string>
+    <string name="learn_level_g910_subtitle">১৪–১৬ বছর · দ্বিঘাত সমীকরণ, প্রমাণ ও ত্রিকোণমিতি</string>
+    <string name="learn_level_g1112">শ্রেণি ১১–১২</string>
+    <string name="learn_level_g1112_subtitle">১৬–১৮ বছর · লগারিদম, একক বৃত্ত ও ক্যালকুলাস</string>
+
+    <string name="learn_topic_arithmetic">পাটিগণিত</string>
+    <string name="learn_topic_arithmetic_subtitle">সংখ্যা &amp; প্রক্রিয়া</string>
+    <string name="learn_topic_measurement">পরিমাপ</string>
+    <string name="learn_topic_measurement_subtitle">দৈর্ঘ্য, একক &amp; ক্ষেত্রফল</string>
+    <string name="learn_topic_geometry">জ্যামিতি</string>
+    <string name="learn_topic_geometry_subtitle">কোণ, ত্রিভুজ &amp; বৃত্ত</string>
+    <string name="learn_topic_data">উপাত্ত &amp; সম্ভাবনা</string>
+    <string name="learn_topic_data_subtitle">পরিসংখ্যান &amp; সম্ভাবনা</string>
+    <string name="learn_topic_algebra">বীজগণিত</string>
+    <string name="learn_topic_algebra_subtitle">রাশিমালা &amp; সমীকরণ</string>
+    <string name="learn_topic_trigonometry">ত্রিকোণমিতি</string>
+    <string name="learn_topic_trigonometry_subtitle">অনুপাত &amp; একক বৃত্ত</string>
+    <string name="learn_topic_functions">প্রাক-ক্যালকুলাস</string>
+    <string name="learn_topic_functions_subtitle">ফাংশন &amp; লেখচিত্র</string>
+    <string name="learn_topic_calculus">ক্যালকুলাস</string>
+    <string name="learn_topic_calculus_subtitle">সীমা, অন্তরজ &amp; যোগজ</string>
+
+    <string name="learn_lessons_header">পাঠ</string>
+    <string name="learn_lesson_progress">%1$d / %2$d পাঠ</string>
+    <string name="learn_lesson_number">পাঠ %1$d</string>
+    <string name="learn_lesson_complete_title">পাঠ সম্পূর্ণ!</string>
+    <string name="learn_lesson_score">%2$d টির মধ্যে %1$d টি সঠিক</string>
+    <string name="learn_lesson_finish">বিষয়ে ফিরে যাও</string>
+    <string name="learn_next_lesson">পরবর্তী পাঠ</string>
+    <string name="learn_continue">চালিয়ে যাও</string>
+    <string name="learn_check">যাচাই করো</string>
+    <string name="learn_next_line">পরের লাইন দেখাও</string>
+    <string name="learn_answer_label">উত্তর</string>
+    <string name="learn_correct">সঠিক!</string>
+    <string name="learn_incorrect">ঠিক হলো না</string>
+    <string name="learn_your_answer">তোমার উত্তর</string>
+
+    <string name="learn_take_test">পরীক্ষা দাও</string>
+    <string name="learn_retake_test">আবার পরীক্ষা দাও</string>
+    <string name="learn_test_title">%1$s পরীক্ষা</string>
+    <string name="learn_test_intro">%1$d টি প্রশ্ন। সনদ পেতে অন্তত %2$d%% সঠিক উত্তর দাও।</string>
+    <string name="learn_quiz_progress">প্রশ্ন %1$d / %2$d</string>
+    <string name="learn_quiz_result_title">পরীক্ষা সম্পূর্ণ</string>
+    <string name="learn_quiz_score">%2$d টির মধ্যে %1$d টি সঠিক (%3$d%%)</string>
+    <string name="learn_quiz_passed">সনদ অর্জিত!</string>
+    <string name="learn_quiz_improved">নতুন ব্যক্তিগত সেরা!</string>
+    <string name="learn_quiz_failed">সনদ পেতে %1$d%% দরকার। পাঠগুলো ঝালিয়ে নাও আর আবার চেষ্টা করো।</string>
+    <string name="learn_quiz_review">উত্তর দেখো</string>
+    <string name="learn_quiz_hide_review">উত্তর লুকাও</string>
+    <string name="learn_quiz_your_answer">তোমার উত্তর: %1$s</string>
+    <string name="learn_quiz_correct_answer">সঠিক উত্তর: %1$s</string>
+
+    <string name="learn_certificate_title">সনদ</string>
+    <string name="learn_certificate_headline">কৃতিত্বের সনদ</string>
+    <string name="learn_certificate_intro">এতদ্দ্বারা এই বিষয়ে উত্তীর্ণ ফলাফল প্রত্যয়ন করা হলো</string>
+    <string name="learn_certificate_score">স্কোর %1$d%%</string>
+    <string name="learn_certificate_earned">অর্জিত %1$s</string>
+    <string name="learn_certificate_view">সনদ দেখো</string>
+    <string name="learn_certificate_grade_bronze">ব্রোঞ্জ</string>
+    <string name="learn_certificate_grade_silver">রৌপ্য</string>
+    <string name="learn_certificate_grade_gold">স্বর্ণ</string>
+    <string name="learn_certificate_best">সেরা %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">সনদপ্রাপ্ত</string>
+    <string name="achievement_learn_first_certificate_desc">গণিত শেখো-তে তোমার প্রথম বিষয় পরীক্ষায় উত্তীর্ণ হও।</string>
+    <string name="achievement_learn_grade_certificates">ক্লাসে প্রথম</string>
+    <string name="achievement_learn_grade_certificates_desc">এক শ্রেণিবর্ষের সব সনদ অর্জন করো।</string>
+    <string name="achievement_learn_all_certificates">গণিত পণ্ডিত</string>
+    <string name="achievement_learn_all_certificates_desc">প্রতিটি শ্রেণিতে, প্রতিটি গণিত বিষয়ে সনদ অর্জন করো।</string>
+
 </resources>

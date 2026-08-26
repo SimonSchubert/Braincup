@@ -805,4 +805,89 @@
     <string name="achievement_iq_test_high">パターンの達人</string>
     <string name="achievement_iq_test_high_desc">推定IQ130以上に到達する</string>
 
+    <!-- Learn section -->
+    <string name="learn_section_title">算数・数学を学ぶ</string>
+    <string name="learn_section_subtitle">学年を選んでトピックを進め、テストに合格して修了証を手に入れよう。</string>
+    <string name="learn_section_certificates">修了証 %1$d / %2$d</string>
+    <string name="learn_title">算数・数学を学ぶ</string>
+    <string name="learn_unit_progress">修了証 %1$d / %2$d</string>
+    <string name="learn_grade_intro">ここにあるトピックはすべて、この学年のレベルで説明されます。</string>
+    <string name="learn_grade_certificates">%2$d 件中 %1$d 件のトピックが修了</string>
+
+    <string name="learn_level_g12">1〜2年生</string>
+    <string name="learn_level_g12_subtitle">6〜8歳 · 数え方、図形、はじめての測定</string>
+    <string name="learn_level_g35">3〜5年生</string>
+    <string name="learn_level_g35_subtitle">8〜11歳 · かけ算九九、分数、グラフ</string>
+    <string name="learn_level_g68">6〜8年生</string>
+    <string name="learn_level_g68_subtitle">11〜14歳 · 比、割合、はじめての代数</string>
+    <string name="learn_level_g910">9〜10年生</string>
+    <string name="learn_level_g910_subtitle">14〜16歳 · 二次方程式、証明、三角比</string>
+    <string name="learn_level_g1112">11〜12年生</string>
+    <string name="learn_level_g1112_subtitle">16〜18歳 · 対数、単位円、微積分</string>
+
+    <string name="learn_topic_arithmetic">算術</string>
+    <string name="learn_topic_arithmetic_subtitle">数と計算</string>
+    <string name="learn_topic_measurement">測定</string>
+    <string name="learn_topic_measurement_subtitle">長さ、単位、面積</string>
+    <string name="learn_topic_geometry">図形</string>
+    <string name="learn_topic_geometry_subtitle">角、三角形、円</string>
+    <string name="learn_topic_data">データと確率</string>
+    <string name="learn_topic_data_subtitle">統計と確率</string>
+    <string name="learn_topic_algebra">代数</string>
+    <string name="learn_topic_algebra_subtitle">式と方程式</string>
+    <string name="learn_topic_trigonometry">三角法</string>
+    <string name="learn_topic_trigonometry_subtitle">比と単位円</string>
+    <string name="learn_topic_functions">微積分入門</string>
+    <string name="learn_topic_functions_subtitle">関数とグラフ</string>
+    <string name="learn_topic_calculus">微積分</string>
+    <string name="learn_topic_calculus_subtitle">極限、微分、積分</string>
+
+    <string name="learn_lessons_header">レッスン</string>
+    <string name="learn_lesson_progress">%1$d / %2$d レッスン</string>
+    <string name="learn_lesson_number">レッスン %1$d</string>
+    <string name="learn_lesson_complete_title">レッスン完了！</string>
+    <string name="learn_lesson_score">%2$d 問中 %1$d 問正解</string>
+    <string name="learn_lesson_finish">トピックに戻る</string>
+    <string name="learn_next_lesson">次のレッスン</string>
+    <string name="learn_continue">続ける</string>
+    <string name="learn_check">確認</string>
+    <string name="learn_next_line">次の行を表示</string>
+    <string name="learn_answer_label">答え</string>
+    <string name="learn_correct">正解！</string>
+    <string name="learn_incorrect">おしい</string>
+    <string name="learn_your_answer">あなたの答え</string>
+
+    <string name="learn_take_test">テストを受ける</string>
+    <string name="learn_retake_test">テストを受け直す</string>
+    <string name="learn_test_title">%1$s のテスト</string>
+    <string name="learn_test_intro">%1$d 問。%2$d%% 以上正解すると修了証がもらえます。</string>
+    <string name="learn_quiz_progress">問題 %1$d / %2$d</string>
+    <string name="learn_quiz_result_title">テスト終了</string>
+    <string name="learn_quiz_score">%2$d 問中 %1$d 問正解（%3$d%%）</string>
+    <string name="learn_quiz_passed">修了証を獲得！</string>
+    <string name="learn_quiz_improved">自己ベスト更新！</string>
+    <string name="learn_quiz_failed">修了証には %1$d%% 必要です。レッスンを復習して、もう一度挑戦しよう。</string>
+    <string name="learn_quiz_review">答えを見る</string>
+    <string name="learn_quiz_hide_review">答えを隠す</string>
+    <string name="learn_quiz_your_answer">あなたの答え: %1$s</string>
+    <string name="learn_quiz_correct_answer">正解: %1$s</string>
+
+    <string name="learn_certificate_title">修了証</string>
+    <string name="learn_certificate_headline">成績証明</string>
+    <string name="learn_certificate_intro">次のトピックに合格したことを証明します</string>
+    <string name="learn_certificate_score">スコア %1$d%%</string>
+    <string name="learn_certificate_earned">取得日 %1$s</string>
+    <string name="learn_certificate_view">修了証を見る</string>
+    <string name="learn_certificate_grade_bronze">ブロンズ</string>
+    <string name="learn_certificate_grade_silver">シルバー</string>
+    <string name="learn_certificate_grade_gold">ゴールド</string>
+    <string name="learn_certificate_best">最高 %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">認定</string>
+    <string name="achievement_learn_first_certificate_desc">「算数・数学を学ぶ」で最初のトピックテストに合格する</string>
+    <string name="achievement_learn_grade_certificates">クラスのトップ</string>
+    <string name="achievement_learn_grade_certificates_desc">ひとつの学年のすべての修了証を獲得する</string>
+    <string name="achievement_learn_all_certificates">数学の学者</string>
+    <string name="achievement_learn_all_certificates_desc">すべての学年で、すべての数学トピックの修了証を獲得する</string>
+
 </resources>

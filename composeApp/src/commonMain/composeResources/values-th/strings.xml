@@ -805,4 +805,89 @@
     <string name="achievement_iq_test_high">ผู้เชี่ยวชาญรูปแบบ</string>
     <string name="achievement_iq_test_high_desc">ทำไอคิวโดยประมาณได้ 130 ขึ้นไป</string>
 
+    <!-- Learn section -->
+    <string name="learn_section_title">เรียนคณิตศาสตร์</string>
+    <string name="learn_section_subtitle">เลือกชั้นปีของคุณ เรียนหัวข้อให้จบ แล้วทำแบบทดสอบเพื่อรับใบรับรอง</string>
+    <string name="learn_section_certificates">ใบรับรอง %1$d / %2$d</string>
+    <string name="learn_title">เรียนคณิตศาสตร์</string>
+    <string name="learn_unit_progress">ใบรับรอง %1$d / %2$d</string>
+    <string name="learn_grade_intro">ทุกหัวข้อที่นี่สอนในระดับของชั้นปีนี้</string>
+    <string name="learn_grade_certificates">ผ่านการรับรองแล้ว %1$d จาก %2$d หัวข้อ</string>
+
+    <string name="learn_level_g12">ชั้น 1–2</string>
+    <string name="learn_level_g12_subtitle">อายุ 6–8 ปี · การนับ รูปทรง และการวัดเบื้องต้น</string>
+    <string name="learn_level_g35">ชั้น 3–5</string>
+    <string name="learn_level_g35_subtitle">อายุ 8–11 ปี · สูตรคูณ เศษส่วน และกราฟ</string>
+    <string name="learn_level_g68">ชั้น 6–8</string>
+    <string name="learn_level_g68_subtitle">อายุ 11–14 ปี · อัตราส่วน ร้อยละ และพีชคณิตเบื้องต้น</string>
+    <string name="learn_level_g910">ชั้น 9–10</string>
+    <string name="learn_level_g910_subtitle">อายุ 14–16 ปี · สมการกำลังสอง การพิสูจน์ และตรีโกณมิติ</string>
+    <string name="learn_level_g1112">ชั้น 11–12</string>
+    <string name="learn_level_g1112_subtitle">อายุ 16–18 ปี · ลอการิทึม วงกลมหนึ่งหน่วย และแคลคูลัส</string>
+
+    <string name="learn_topic_arithmetic">เลขคณิต</string>
+    <string name="learn_topic_arithmetic_subtitle">จำนวนและการดำเนินการ</string>
+    <string name="learn_topic_measurement">การวัด</string>
+    <string name="learn_topic_measurement_subtitle">ความยาว หน่วย และพื้นที่</string>
+    <string name="learn_topic_geometry">เรขาคณิต</string>
+    <string name="learn_topic_geometry_subtitle">มุม สามเหลี่ยม และวงกลม</string>
+    <string name="learn_topic_data">ข้อมูลและความน่าจะเป็น</string>
+    <string name="learn_topic_data_subtitle">สถิติและโอกาส</string>
+    <string name="learn_topic_algebra">พีชคณิต</string>
+    <string name="learn_topic_algebra_subtitle">นิพจน์และสมการ</string>
+    <string name="learn_topic_trigonometry">ตรีโกณมิติ</string>
+    <string name="learn_topic_trigonometry_subtitle">อัตราส่วนและวงกลมหนึ่งหน่วย</string>
+    <string name="learn_topic_functions">เตรียมแคลคูลัส</string>
+    <string name="learn_topic_functions_subtitle">ฟังก์ชันและกราฟ</string>
+    <string name="learn_topic_calculus">แคลคูลัส</string>
+    <string name="learn_topic_calculus_subtitle">ลิมิต อนุพันธ์ และปริพันธ์</string>
+
+    <string name="learn_lessons_header">บทเรียน</string>
+    <string name="learn_lesson_progress">%1$d / %2$d บทเรียน</string>
+    <string name="learn_lesson_number">บทที่ %1$d</string>
+    <string name="learn_lesson_complete_title">จบบทเรียนแล้ว!</string>
+    <string name="learn_lesson_score">ถูก %1$d จาก %2$d ข้อ</string>
+    <string name="learn_lesson_finish">กลับไปที่หัวข้อ</string>
+    <string name="learn_next_lesson">บทเรียนถัดไป</string>
+    <string name="learn_continue">ต่อไป</string>
+    <string name="learn_check">ตรวจ</string>
+    <string name="learn_next_line">แสดงบรรทัดถัดไป</string>
+    <string name="learn_answer_label">คำตอบ</string>
+    <string name="learn_correct">ถูกต้อง!</string>
+    <string name="learn_incorrect">ยังไม่ใช่</string>
+    <string name="learn_your_answer">คำตอบของคุณ</string>
+
+    <string name="learn_take_test">ทำแบบทดสอบ</string>
+    <string name="learn_retake_test">ทำแบบทดสอบอีกครั้ง</string>
+    <string name="learn_test_title">แบบทดสอบ %1$s</string>
+    <string name="learn_test_intro">%1$d ข้อ ตอบถูกอย่างน้อย %2$d%% เพื่อรับใบรับรอง</string>
+    <string name="learn_quiz_progress">ข้อ %1$d จาก %2$d</string>
+    <string name="learn_quiz_result_title">ทำแบบทดสอบเสร็จแล้ว</string>
+    <string name="learn_quiz_score">ถูก %1$d จาก %2$d ข้อ (%3$d%%)</string>
+    <string name="learn_quiz_passed">ได้รับใบรับรองแล้ว!</string>
+    <string name="learn_quiz_improved">สถิติส่วนตัวใหม่!</string>
+    <string name="learn_quiz_failed">คุณต้องได้ %1$d%% เพื่อรับใบรับรอง ทบทวนบทเรียนแล้วลองใหม่</string>
+    <string name="learn_quiz_review">ดูคำตอบ</string>
+    <string name="learn_quiz_hide_review">ซ่อนคำตอบ</string>
+    <string name="learn_quiz_your_answer">คำตอบของคุณ: %1$s</string>
+    <string name="learn_quiz_correct_answer">คำตอบที่ถูก: %1$s</string>
+
+    <string name="learn_certificate_title">ใบรับรอง</string>
+    <string name="learn_certificate_headline">ใบรับรองความสำเร็จ</string>
+    <string name="learn_certificate_intro">ขอรับรองว่าผ่านเกณฑ์ในหัวข้อ</string>
+    <string name="learn_certificate_score">คะแนน %1$d%%</string>
+    <string name="learn_certificate_earned">ได้รับเมื่อ %1$s</string>
+    <string name="learn_certificate_view">ดูใบรับรอง</string>
+    <string name="learn_certificate_grade_bronze">ทองแดง</string>
+    <string name="learn_certificate_grade_silver">เงิน</string>
+    <string name="learn_certificate_grade_gold">ทอง</string>
+    <string name="learn_certificate_best">ดีที่สุด %1$d%% · %2$s</string>
+
+    <string name="achievement_learn_first_certificate">ได้รับการรับรอง</string>
+    <string name="achievement_learn_first_certificate_desc">ผ่านแบบทดสอบหัวข้อแรกในเรียนคณิตศาสตร์</string>
+    <string name="achievement_learn_grade_certificates">ที่หนึ่งของชั้น</string>
+    <string name="achievement_learn_grade_certificates_desc">รับใบรับรองครบทุกหัวข้อในหนึ่งชั้นปี</string>
+    <string name="achievement_learn_all_certificates">ผู้รู้คณิตศาสตร์</string>
+    <string name="achievement_learn_all_certificates_desc">รับใบรับรองในทุกหัวข้อคณิตศาสตร์ ในทุกชั้นปี</string>
+
 </resources>
