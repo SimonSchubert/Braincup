@@ -370,9 +370,8 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = "A crate holds 5 bottles. How many crates can you fill from 38 bottles?",
-                        formula = "38 / 5 = ?",
                         answer = "7",
-                        explanation = "Seven full crates, and three bottles with nowhere to go.",
+                        explanation = "Seven full rows of five, and three bottles with nowhere to go.",
                         visual = ArrayDots(rows = 7, cols = 5, leftover = 3, divide = true, reveal = false),
                     ),
                 ),
@@ -404,7 +403,7 @@ internal object ArithmeticContent {
                 prompt = "72 / 9 = ?",
                 options = listOf("6", "7", "8", "9"),
                 correctIndex = 2,
-                explanation = "Nine rows of eight.",
+                explanation = "Eight rows of nine.",
                 visual = ArrayDots(rows = 8, cols = 9, divide = true, reveal = false),
             ),
             QuizQuestion(
@@ -460,10 +459,10 @@ internal object ArithmeticContent {
                         visual = Fraction(numerator = 3, denominator = 8, compare = 5 to 8, reveal = false),
                     ),
                     Numeric(
-                        question = "A cake is cut into 8 slices and 3 are eaten.",
-                        formula = "8 - 3 = ?",
+                        question = "A cake is cut into 8 slices and 3 are eaten. How many eighths are still on the plate?",
+                        formula = "8/8 - 3/8 = ?/8",
                         answer = "5",
-                        explanation = "Three pieces gone, five still on the plate.",
+                        explanation = "Three of the eight pieces are gone, so 5/8 of the cake is left.",
                         visual = Fraction(numerator = 3, denominator = 8, reveal = false),
                     ),
                     Choice(
@@ -740,7 +739,7 @@ internal object ArithmeticContent {
                         visual = DecimalGrid(value = 0.3, plus = 0.45, reveal = false),
                     ),
                     Concept(
-                        body = "A subtraction is the same picture read backwards: {a:35} hundredths are already there, and {b:4} tenths finish the square off.",
+                        body = "A subtraction is the same picture read backwards: {a:35} hundredths are already there, and {b:4} tenths bring it back up to 0.75.",
                         formula = "0.75 - 0.4 = 0.35",
                         visual = DecimalGrid(value = 0.35, plus = 0.4),
                     ),

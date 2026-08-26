@@ -131,9 +131,9 @@ mostly items 1, 5, 6 and 8.
 | # | Unit id | Title | Level | Q | Tinted | Formula-led | Status |
 |---|---|---|---|---|---|---|---|
 | 1 | `arithmetic-counting` | Counting and first sums | g12 | 10 | 4 | 7/10 | **`ready`** * |
-| 2 | `arithmetic-multiplication` | Multiplication and division | g35 | 7 | 6 | 7/7 | `review` |
-| 3 | `arithmetic-fractions` | Fractions | g35 | 9 | 2 | 4/9 | `review` |
-| 4 | `arithmetic-decimals` | Decimals | g35 | 9 | 3 | 4/9 | `review` |
+| 2 | `arithmetic-multiplication` | Multiplication and division | g35 | 7 | 6 | 6/7 | **`ready`** * |
+| 3 | `arithmetic-fractions` | Fractions | g35 | 9 | 2 | 4/9 | **`ready`** * |
+| 4 | `arithmetic-decimals` | Decimals | g35 | 9 | 3 | 4/9 | **`ready`** * |
 | 5 | `arithmetic-ratio-and-percent` | Negatives, ratio and percent | g68 | 9 | 11 | 5/9 | `review` |
 | 6 | `arithmetic-standard-form-and-surds` | Standard form, surds and bounds | g910 | 7 | 0 | 2/7 | `review` |
 
@@ -169,6 +169,32 @@ answers and explanations otherwise checked and correct.
 | "Which number is smaller, 62 or 26?" drew only 26. `PlaceValue`'s own KDoc says a step asking which of two numbers is larger has to show both. | test, Q5 | `compare = 2 to 6` so both are drawn, and the explanation now reasons about the rods rather than restating the answer. |
 | "How many loose ones are here?" was explained with "Five rods and three cubes make 53", which answers a different question. | test, Q4 | Explanation now explains the 3. |
 | "These two have the same rods, so the loose ones decide." is a statement; the step never asked anything. | `g12-arithmetic-tens`, step 6 | Now asks which is larger, keeping the hint. |
+
+**2. `arithmetic-multiplication`, reviewed 2026-08-26.** Two defects, both fixed. The cleanest
+unit of the four so far.
+
+| What | Where | Fix |
+|---|---|---|
+| A word problem led with `38 / 5 = ?`, whose value is 7.6, while only the 7 whole crates were accepted. A learner who answers the equation on screen is marked wrong. | `arithmetic-multiplication-division`, step 6 | Formula dropped so the word problem leads on its own. This is why the unit now reads 6/7 rather than 7/7. |
+| A division answer was explained as "Nine rows of eight" over an array drawn as eight rows of nine. | test, Q4 | Explanation reads the array the way it is drawn. |
+
+**3. `arithmetic-fractions`, reviewed 2026-08-26.** One defect, fixed. All 15 answers otherwise
+correct.
+
+| What | Where | Fix |
+|---|---|---|
+| In a lesson called Naming the parts, a step asked `8 - 3 = ?` over a fraction bar and wanted the answer 5. It is a whole-number subtraction sitting in a fractions lesson, and it invites exactly the confusion between the two numbers that the lesson exists to prevent. | `g35-arithmetic-fractions`, step 5 | Now asks how many eighths are left, leading with `8/8 - 3/8 = ?/8`. The answer stays 5, so it is still typeable on the number pad. |
+
+**4. `arithmetic-decimals`, reviewed 2026-08-26.** One defect, fixed. All 15 answers otherwise
+correct.
+
+| What | Where | Fix |
+|---|---|---|
+| "35 hundredths are already there, and 4 tenths finish the square off" over `0.75 - 0.4 = 0.35`. Those add to 0.75, not to a full square, so the prose contradicted its own formula. | `arithmetic-decimals-add`, step 4 | Prose now says the tenths bring it back up to 0.75. |
+
+Two smaller things looked at and deliberately left alone: `arithmetic-decimals` test Q6 draws
+only the minuend of `0.7 - 0.35`, and its "smallest of these" step draws two of the three
+numbers it lists, because `DecimalGrid` holds at most two squares.
 
 ---
 
@@ -262,5 +288,6 @@ Notes on the split:
 | Date | What happened |
 |---|---|
 | 2026-08-26 | Scope set: ship Arithmetic + Geometry, park six. Parking method, perimeter/area move and Geometry split decided. This document created. |
+| 2026-08-26 | Readiness pass: `arithmetic-multiplication`, `arithmetic-fractions` and `arithmetic-decimals` reviewed and marked ready, four more defects fixed. 4 of 6 Arithmetic sub-topics done; units 5 and 6 are blocked on open decision 1. |
 | 2026-08-26 | Readiness pass started. `arithmetic-counting` reviewed and marked ready: four defects fixed (see section 4). Corrected a wrong lead in this document: low Tinted / Formula-led counts are a property of the figures a unit uses, not a sign of unfinished work. |
 | 2026-08-26 | Restructure committed as `b2a56c22`; `learn-parked` branched there. Parking executed: 6 content files, 6 `MathTopic` entries, 6 tile sketches and 540 locale strings removed; perimeter and area moved into Geometry as `geometry-perimeter-and-area`; previews and tests repointed at shipped topics; `RATCHET` 50 -> 15 and verified tight at exactly 15. `desktopTest` green apart from the by-design `NurikabeMeasureTest.measure`. Geometry rework not started. |
