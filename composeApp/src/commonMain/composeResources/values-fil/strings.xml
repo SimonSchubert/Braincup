@@ -10,7 +10,7 @@
     <string name="button_give_up">Suko</string>
     <string name="button_stay">Manatili</string>
     <string name="button_quit_game">Lumabas</string>
-    <string name="button_backspace">Backspace</string>
+    <string name="button_backspace">Burahin</string>
 
     <string name="level_label">Level %1$d</string>
     <string name="level_up_title">Level Up!</string>
@@ -19,9 +19,9 @@
     <string name="title_novice">Baguhan</string>
     <string name="title_apprentice">Aprentis</string>
     <string name="title_scholar">Iskolar</string>
-    <string name="title_sage">Sage</string>
-    <string name="title_master">Master</string>
-    <string name="title_grandmaster">Grandmaster</string>
+    <string name="title_sage">Pantas</string>
+    <string name="title_master">Dalubhasa</string>
+    <string name="title_grandmaster">Punong Dalubhasa</string>
     <string name="achievements_button">Mga Achievement (%1$d/%2$d)</string>
     <string name="normal_sudoku_button">Normal na Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
@@ -40,7 +40,7 @@
     <string name="normal_sudoku_notes_toggle">I-toggle ang notes mode</string>
 
     <string name="normal_chess_button">Normal na Chess</string>
-    <string name="normal_chess_title">Chess</string>
+    <string name="normal_chess_title">Ahedres</string>
     <string name="normal_chess_mode_cpu">Laban sa CPU</string>
     <string name="normal_chess_mode_human">Laban sa tao</string>
     <string name="normal_chess_mode_human_subtitle">Pass and play sa isang device</string>
@@ -62,10 +62,10 @@
     <string name="normal_chess_turn_white">Galaw ng White</string>
     <string name="normal_chess_turn_black">Galaw ng Black</string>
     <string name="normal_chess_promotion_title">I-promote sa</string>
-    <string name="normal_chess_promotion_queen">Queen</string>
-    <string name="normal_chess_promotion_rook">Rook</string>
-    <string name="normal_chess_promotion_bishop">Bishop</string>
-    <string name="normal_chess_promotion_knight">Knight</string>
+    <string name="normal_chess_promotion_queen">Reyna</string>
+    <string name="normal_chess_promotion_rook">Tore</string>
+    <string name="normal_chess_promotion_bishop">Obispo</string>
+    <string name="normal_chess_promotion_knight">Kabayo</string>
     <string name="normal_chess_draw_warning">= stalemate (tabla, hindi panalo)</string>
 
     <string name="matchstick_riddles_button">Mga Palaisipan sa Palito (%1$d/%2$d)</string>
@@ -78,8 +78,8 @@
     <string name="achievement_matchstick_master">Master sa Palito</string>
     <string name="achievement_matchstick_master_desc">Lutasin ang lahat ng palaisipan sa palito</string>
 
-    <string name="peg_solitaire_button">Peg Solitaire</string>
-    <string name="peg_solitaire_title">Peg Solitaire</string>
+    <string name="peg_solitaire_button">Solitaryong Peg</string>
+    <string name="peg_solitaire_title">Solitaryong Peg</string>
     <string name="peg_solitaire_pegs_left">Natitirang peg: %1$d</string>
     <string name="peg_solitaire_howto">Lundagin ang isang peg palampas sa isa pa papunta sa bakanteng butas. Linisin ang board hanggang isang peg.</string>
     <string name="peg_solitaire_won">Nalutas! Isang peg na lang.</string>
@@ -87,7 +87,7 @@
     <string name="peg_solitaire_stuck">Wala nang galaw.</string>
     <string name="peg_solitaire_undo">I-undo</string>
     <string name="peg_solitaire_restart">Ulitin</string>
-    <string name="achievement_peg_solitaire_perfect">Peg Master</string>
+    <string name="achievement_peg_solitaire_perfect">Dalubhasa sa Peg</string>
     <string name="achievement_peg_solitaire_perfect_desc">Tapusin ang English peg solitaire nang isang peg sa gitna</string>
 
     <string name="settings_title">Mga Setting</string>
@@ -96,15 +96,15 @@
     <string name="settings_sound_desc">Patunugin ang musika at sound effects.</string>
     <string name="settings_colorblind">Mga kulay para sa color-blind</string>
     <string name="settings_colorblind_desc">Gumamit ng palette na kitang-kita pa rin sa pinakakaraniwang uri ng color blindness.</string>
-    <string name="settings_haptic">Haptic feedback</string>
+    <string name="settings_haptic">Pag-uga</string>
     <string name="settings_haptic_desc">Umuga saglit kapag tama ang sagot.</string>
     <string name="settings_keypad">Number pad na parang telepono</string>
     <string name="settings_keypad_desc">Ilagay ang 1, 2, 3 sa itaas imbes na 7, 8, 9.</string>
     <string name="settings_theme">Tema</string>
     <string name="settings_theme_desc">Piliin kung paano magmumukha ang Brain Cup.</string>
-    <string name="settings_theme_system">System</string>
-    <string name="settings_theme_light">Light</string>
-    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_theme_system">Sistema</string>
+    <string name="settings_theme_light">Maliwanag</string>
+    <string name="settings_theme_dark">Madilim</string>
     <string name="settings_theme_oled">OLED</string>
     <string name="settings_play_games_profile_switch">Palitan</string>
     <string name="settings_play_games_switch_cancel">Huwag muna</string>
@@ -113,7 +113,7 @@
     <string name="licenses_section_libraries">Mga Library</string>
     <string name="licenses_section_fonts">Mga Font</string>
     <string name="licenses_section_sound">Tunog</string>
-    <string name="licenses_section_artwork">Artwork</string>
+    <string name="licenses_section_artwork">Likhang-sining</string>
     <string name="licenses_section_word_lists">Mga listahan ng salita</string>
     <string name="licenses_view_source">Tingnan ang source</string>
     <string name="licenses_view_license">Tingnan ang lisensya</string>
@@ -132,7 +132,7 @@
     <string name="accounts_game_center_desc">Naka-save sa Game Center</string>
     <string name="accounts_local_desc">Naka-save sa device na ito. Mawawala kapag i-uninstall mo.</string>
 
-    <string name="daily_challenge_title">Daily Challenge</string>
+    <string name="daily_challenge_title">Araw-araw na Hamon</string>
     <string name="daily_challenge_subtitle_start">Maglaro ng %1$d laro para mapanatili ang streak</string>
     <string name="daily_challenge_subtitle_start_no_streak">Maglaro ng %1$d laro para simulan ang streak</string>
     <string name="daily_challenge_subtitle_progress">Kasalukuyan · %1$d sa %2$d</string>
@@ -149,12 +149,12 @@
     <string name="session_done">Bumalik sa menu</string>
     <string name="session_complete_title">Tapos na ang Session</string>
     <string name="session_total_score">Kabuuan: %1$d</string>
-    <string name="session_streak_increased">Day streak: %1$d</string>
+    <string name="session_streak_increased">Streak ng araw: %1$d</string>
     <string name="session_streak_current">Kasalukuyang streak: %1$d araw</string>
 
     <string name="quit_game_title">Lumabas sa laro?</string>
     <string name="quit_game_message">Hindi mase-save ang progreso mo sa larong ito.</string>
-    <string name="game_goal_label">Goal</string>
+    <string name="game_goal_label">Layunin</string>
     <string name="game_follow_directions">Sundin ang mga direksyon:</string>
     <string name="game_highest_value">Alin ang may pinakamataas na value?</string>
     <string name="game_sudoku_instruction">Punuin ang grid para bawat row, column, at block ay may bawat digit nang isang beses</string>
@@ -198,33 +198,33 @@
         tutorial defines those two words in place (bulls_and_cows_demo_step2/step3), so every
         locale translates the definition around them and leaves the terms themselves alone.
     -->
-    <string name="game_anomaly_puzzle">Anomaly Puzzle</string>
+    <string name="game_anomaly_puzzle">Palaisipang Anomalya</string>
     <string name="game_mental_calculation">Mental na Pagbilang</string>
     <string name="game_colored_shapes">Mga Kulay na Hugis</string>
     <string name="game_sherlock_calculation">Kalkulasyong Sherlock</string>
     <string name="game_chain_calculation">Kadena ng Kalkulasyon</string>
     <string name="game_fraction_calculation">Kalkulasyon ng Fraction</string>
     <string name="game_value_comparison">Paghahambing ng Value</string>
-    <string name="game_path_finder">Path Finder</string>
+    <string name="game_path_finder">Hanap-Landas</string>
     <string name="game_mini_sudoku">Mini Sudoku</string>
-    <string name="game_visual_memory">Visual Memory</string>
-    <string name="game_pattern_sequence">Pattern Sequence</string>
-    <string name="game_ghost_grid">Ghost Grid</string>
-    <string name="game_color_confusion">Color Confusion</string>
-    <string name="game_orbit_tracker">Orbit Tracker</string>
-    <string name="game_bubble_sum">Bubble Sum</string>
-    <string name="game_quick_sum">Quick Sum</string>
-    <string name="game_flash_crowd">Flash Crowd</string>
-    <string name="game_schulte_table">Schulte Table</string>
-    <string name="game_mini_chess">Mini Chess</string>
-    <string name="game_lights_out">Lights Out</string>
-    <string name="game_sliding_puzzle">Sliding Puzzle</string>
+    <string name="game_visual_memory">Biswal na Memorya</string>
+    <string name="game_pattern_sequence">Sunod-sunod na Pattern</string>
+    <string name="game_ghost_grid">Grid ng Multo</string>
+    <string name="game_color_confusion">Guluhan ng Kulay</string>
+    <string name="game_orbit_tracker">Subaybay-Orbit</string>
+    <string name="game_bubble_sum">Suma ng Bula</string>
+    <string name="game_quick_sum">Mabilis na Suma</string>
+    <string name="game_flash_crowd">Biglaang Dami</string>
+    <string name="game_schulte_table">Talahanayang Schulte</string>
+    <string name="game_mini_chess">Mini Ahedres</string>
+    <string name="game_lights_out">Patayin ang Ilaw</string>
+    <string name="game_sliding_puzzle">Palaisipang Padulas</string>
     <string name="game_tower_of_hanoi">Tore ng Hanoi</string>
     <string name="game_shikaku">Shikaku</string>
     <string name="game_nurikabe">Nurikabe</string>
-    <string name="game_cat_queens">Cat Queens</string>
-    <string name="game_knot">Knot</string>
-    <string name="game_solo_chess">Solo Chess</string>
+    <string name="game_cat_queens">Mga Reynang Pusa</string>
+    <string name="game_knot">Buhol</string>
+    <string name="game_solo_chess">Solong Ahedres</string>
     <string name="game_prism_clear">Prism Clear</string>
     <string name="game_missing_operators">Kulang na Operators</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
@@ -303,7 +303,7 @@
     <string name="cat_queens_error_touch">Hindi pwedeng magdikit ang 2 pusa</string>
     <string name="moves_label">Mga galaw: %1$d</string>
     <string name="mini_chess_thinking">Nag-iisip ang CPU…</string>
-    <string name="mini_chess_round_won">Checkmate</string>
+    <string name="mini_chess_round_won">Tsekmeyt</string>
     <string name="mini_chess_round_lost">Na-mate ka ng CPU</string>
     <string name="mini_chess_round_draw">Tabla</string>
     <string name="mini_chess_reset">I-reset</string>
@@ -321,7 +321,7 @@
     <string name="chess_piece_rook">Tore</string>
     <string name="chess_piece_bishop">Obispo</string>
     <string name="chess_piece_knight">Kabayo</string>
-    <string name="chess_piece_pawn">Pawn</string>
+    <string name="chess_piece_pawn">Peon</string>
     <string name="chess_move_king">Gumagalaw ng isang parisukat sa kahit anong direksyon.</string>
     <string name="chess_move_queen">Gumagalaw ng kahit ilang parisukat nang tuwid o pahilis.</string>
     <string name="chess_move_rook">Gumagalaw ng kahit ilang parisukat nang tuwid.</string>
@@ -381,7 +381,7 @@
     <string name="color_orange">Kahel</string>
     <string name="color_turquoise">Turkesa</string>
     <string name="color_pink">Rosas</string>
-    <string name="color_light_grey">Light Grey</string>
+    <string name="color_light_grey">Mapusyaw na Abo</string>
     <string name="color_black">Itim</string>
     <string name="color_white">Puti</string>
 
@@ -394,7 +394,7 @@
     <string name="shape_l_shape">Hugis L</string>
     <string name="shape_diamond">Diamante</string>
     <string name="shape_house">Bahay</string>
-    <string name="shape_arrow">Arrow</string>
+    <string name="shape_arrow">Palaso</string>
 
     <string name="direction_up">taas</string>
     <string name="direction_right">kanan</string>
@@ -409,41 +409,41 @@
 
     <string name="preview_vs">vs</string>
 
-    <string name="achievement_gold_mini_sudoku">Sudoku Sage</string>
-    <string name="achievement_gold_mini_chess">Endgame Virtuoso</string>
-    <string name="achievement_gold_lights_out">Total Blackout</string>
-    <string name="achievement_gold_sliding_puzzle">Smooth Operator</string>
-    <string name="achievement_gold_tower_of_hanoi">Tower Master</string>
-    <string name="achievement_gold_shikaku">Rectangle Master</string>
-    <string name="achievement_gold_nurikabe">Wall Builder</string>
-    <string name="achievement_gold_cat_queens">Cat Herder</string>
-    <string name="achievement_gold_knot">Untangler</string>
-    <string name="achievement_gold_solo_chess">Last Piece Standing</string>
-    <string name="achievement_gold_prism_clear">Crystal Clarity</string>
-    <string name="achievement_gold_missing_operators">Operator Master</string>
-    <string name="achievement_gold_bulls_and_cows">Code Cracker</string>
-    <string name="achievement_gold_trio">Triple Vision</string>
-    <string name="achievement_gold_path_finder">Trailblazer</string>
-    <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
-    <string name="achievement_gold_colored_shapes">Shape Shifter</string>
-    <string name="achievement_gold_sherlock_calculation">Elementary, My Dear</string>
-    <string name="achievement_gold_mental_calculation">Human Calculator</string>
-    <string name="achievement_gold_bubble_sum">Bubble Accountant</string>
-    <string name="achievement_gold_quick_sum">Flash Abacus</string>
-    <string name="achievement_gold_chain_calculation">Unbroken Chain</string>
-    <string name="achievement_gold_fraction_calculation">Fraction Boss</string>
-    <string name="achievement_gold_value_comparison">Greater Than the Rest</string>
-    <string name="achievement_gold_ghost_grid">Ghost Whisperer</string>
-    <string name="achievement_gold_visual_memory">Photographic Mind</string>
-    <string name="achievement_gold_orbit_tracker">Astronomer</string>
-    <string name="achievement_gold_pattern_sequence">Pattern Prophet</string>
-    <string name="achievement_gold_color_confusion">True Colors</string>
-    <string name="achievement_gold_flash_crowd">Crowd Counter</string>
-    <string name="achievement_gold_schulte_table">Lightning Gaze</string>
-    <string name="achievement_gold_flags">Flag Bearer</string>
+    <string name="achievement_gold_mini_sudoku">Pantas ng Sudoku</string>
+    <string name="achievement_gold_mini_chess">Birtuoso ng Endgame</string>
+    <string name="achievement_gold_lights_out">Ganap na Dilim</string>
+    <string name="achievement_gold_sliding_puzzle">Padulas na Kamay</string>
+    <string name="achievement_gold_tower_of_hanoi">Dalubhasa ng Tore</string>
+    <string name="achievement_gold_shikaku">Dalubhasa sa Parihaba</string>
+    <string name="achievement_gold_nurikabe">Tagapagtayo ng Pader</string>
+    <string name="achievement_gold_cat_queens">Tagapag-alaga ng Pusa</string>
+    <string name="achievement_gold_knot">Tagakalag ng Buhol</string>
+    <string name="achievement_gold_solo_chess">Huling Piyesang Nakatayo</string>
+    <string name="achievement_gold_prism_clear">Sinlinaw ng Kristal</string>
+    <string name="achievement_gold_missing_operators">Dalubhasa sa Operator</string>
+    <string name="achievement_gold_bulls_and_cows">Tagalutas ng Code</string>
+    <string name="achievement_gold_trio">Tatlong Paningin</string>
+    <string name="achievement_gold_path_finder">Tagapagbukas ng Landas</string>
+    <string name="achievement_gold_anomaly_puzzle">Natukoy ang Kaiba</string>
+    <string name="achievement_gold_colored_shapes">Palit-Hugis</string>
+    <string name="achievement_gold_sherlock_calculation">Payak Lamang, Kaibigan</string>
+    <string name="achievement_gold_mental_calculation">Kalkulador na Tao</string>
+    <string name="achievement_gold_bubble_sum">Kontador ng Bula</string>
+    <string name="achievement_gold_quick_sum">Kidlat na Abako</string>
+    <string name="achievement_gold_chain_calculation">Tanikalang Di-Nalagot</string>
+    <string name="achievement_gold_fraction_calculation">Hari ng Praksyon</string>
+    <string name="achievement_gold_value_comparison">Higit sa Lahat</string>
+    <string name="achievement_gold_ghost_grid">Bulong-Multo</string>
+    <string name="achievement_gold_visual_memory">Isip na Litrato</string>
+    <string name="achievement_gold_orbit_tracker">Astronomo</string>
+    <string name="achievement_gold_pattern_sequence">Propeta ng Pattern</string>
+    <string name="achievement_gold_color_confusion">Tunay na Kulay</string>
+    <string name="achievement_gold_flash_crowd">Tagabilang ng Dami</string>
+    <string name="achievement_gold_schulte_table">Kidlat na Tingin</string>
+    <string name="achievement_gold_flags">Tagadala ng Bandila</string>
 
-    <string name="achievement_mind_marathoner">Mind Marathoner</string>
-    <string name="achievement_iron_streak">Iron Streak</string>
+    <string name="achievement_mind_marathoner">Maratonista ng Isip</string>
+    <string name="achievement_iron_streak">Streak na Bakal</string>
 
     <string name="achievement_gold_mini_sudoku_desc">Manalo ng gold medal sa Mini Sudoku</string>
     <string name="achievement_gold_mini_chess_desc">Manalo ng gold medal sa Mini Chess</string>
@@ -481,30 +481,30 @@
     <string name="achievement_mind_marathoner_desc">Makalikom ng 10,000 total points</string>
     <string name="achievement_iron_streak_desc">Mag-train nang 30 araw na sunod-sunod</string>
 
-    <string name="achievement_sudoku_beginner">Sudoku Sprout</string>
+    <string name="achievement_sudoku_beginner">Usbong ng Sudoku</string>
     <string name="achievement_sudoku_beginner_desc">Lutasin ang lahat ng 10 Baguhan na puzzle</string>
-    <string name="achievement_sudoku_easy">Sudoku Scholar</string>
+    <string name="achievement_sudoku_easy">Iskolar ng Sudoku</string>
     <string name="achievement_sudoku_easy_desc">Lutasin ang lahat ng 10 Madali na puzzle</string>
-    <string name="achievement_sudoku_medium">Sudoku Strategist</string>
+    <string name="achievement_sudoku_medium">Estratehista ng Sudoku</string>
     <string name="achievement_sudoku_medium_desc">Lutasin ang lahat ng 10 Katamtaman na puzzle</string>
-    <string name="achievement_sudoku_hard">Sudoku Slayer</string>
+    <string name="achievement_sudoku_hard">Tagalupig ng Sudoku</string>
     <string name="achievement_sudoku_hard_desc">Lutasin ang lahat ng 10 Mahirap na puzzle</string>
-    <string name="achievement_sudoku_expert">Sudoku Sovereign</string>
+    <string name="achievement_sudoku_expert">Soberano ng Sudoku</string>
     <string name="achievement_sudoku_expert_desc">Lutasin ang lahat ng 10 Eksperto na puzzle</string>
     <string name="game_flags">Mga Watawat</string>
     <string name="game_flags_desc">Kilalanin ang bansa sa watawat nito. Dumadami ang options bawat round at tumatakbo ang oras.</string>
     <string name="game_flags_score">Iskor: %1$d</string>
-    <string name="game_flags_best">Best: %1$d</string>
-    <string name="game_digit_memory">Digit Memory</string>
+    <string name="game_flags_best">Pinakamataas: %1$d</string>
+    <string name="game_digit_memory">Memorya ng Numero</string>
     <string name="game_digit_memory_desc">Isaulo ang sequence ng digits, lutasin ang mabilis na math problem, tapos alalahanin ang digits.</string>
     <string name="digit_memory_memorize">Isaulo</string>
     <string name="digit_memory_solve">Lutasin</string>
     <string name="digit_memory_recall">Alalahanin</string>
-    <string name="achievement_gold_digit_memory">Code Catcher</string>
+    <string name="achievement_gold_digit_memory">Huli-Code</string>
     <string name="achievement_gold_digit_memory_desc">Manalo ng gold medal sa Digit Memory</string>
-    <string name="game_spot_the_new">Spot the New</string>
+    <string name="game_spot_the_new">Hanapin ang Bago</string>
     <string name="game_spot_the_new_desc">I-tap ang hayop na hindi mo pa nakikita. Isang mali, tapos na ang laro.</string>
-    <string name="achievement_gold_spot_the_new">Fresh Eyes</string>
+    <string name="achievement_gold_spot_the_new">Sariwang Mata</string>
     <string name="achievement_gold_spot_the_new_desc">Manalo ng gold medal sa Spot the New</string>
     <string name="spot_the_new_demo_title">Hanapin ang bago</string>
     <string name="spot_the_new_demo_seen_label">Nakita na</string>
@@ -513,12 +513,12 @@
     <string name="spot_the_new_demo_correct">Tama. Sumasama na ito sa mga nakita mo.</string>
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Hulaan ang nakatagong limang-titik na salita sa loob ng anim na subok. Palaging noun ang sagot.</string>
-    <string name="achievement_gold_wordle">Wordsmith</string>
+    <string name="achievement_gold_wordle">Panday-Salita</string>
     <string name="achievement_gold_wordle_desc">Manalo ng gold medal sa Wordle</string>
     <string name="wordle_not_enough_letters">Kulang ang mga letra</string>
     <string name="wordle_not_in_word_list">Wala sa listahan ng salita</string>
     <string name="wordle_answer_was">Ang salita ay %1$s</string>
-    <string name="wordle_enter">Enter</string>
+    <string name="wordle_enter">Ipasok</string>
     <string name="wordle_legend_correct">Tamang letra, tamang puwesto</string>
     <string name="wordle_legend_present">Tamang letra, maling puwesto</string>
     <string name="wordle_legend_absent">Wala sa salita</string>
@@ -527,18 +527,18 @@
     <string name="n_back_prompt">Aling hugis ang nasa posisyon %1$d?</string>
     <string name="n_back_demo_stream">Panoorin ang mga hugis na dumadaan.</string>
     <string name="n_back_demo_recall">I-tap ang hugis na nasa posisyon 1.</string>
-    <string name="achievement_gold_n_back">Rolling Recall</string>
+    <string name="achievement_gold_n_back">Gumugulong na Alaala</string>
     <string name="achievement_gold_n_back_desc">Manalo ng gold medal sa N-Back</string>
     <string name="game_simon_says">Simon Says</string>
     <string name="game_simon_says_desc">Bawat round ay umiilaw ng isang bagong pad. I-tap ang buong sequence mula sa simula, kasama ang mga naunang pad.</string>
     <string name="simon_says_demo_title">Manood, tapos ulitin</string>
     <string name="simon_says_demo_watch">Bawat round, ang bagong pad lang ang umiilaw.</string>
     <string name="simon_says_demo_repeat">Ngayon i-tap ang buong sequence, mula sa pinakaunang pad.</string>
-    <string name="achievement_gold_simon_says">Pattern Keeper</string>
+    <string name="achievement_gold_simon_says">Tagapag-ingat ng Pattern</string>
     <string name="achievement_gold_simon_says_desc">Manalo ng gold medal sa Simon Says</string>
-    <string name="instructions_best_score">Best score: %1$s</string>
+    <string name="instructions_best_score">Pinakamataas na iskor: %1$s</string>
     <string name="instructions_leaderboard">Tingnan ang leaderboard</string>
-    <string name="brain_cup_button">Brain Cup leaderboard</string>
+    <string name="brain_cup_button">Leaderboard ng Brain Cup</string>
     <string name="sponsors_title">Mga Sponsor</string>
     <string name="sponsors_subtitle">Suportahan ang libreng edukasyon para sa lahat</string>
     <string name="sponsors_become">Maging Sponsor</string>
@@ -777,7 +777,7 @@
 
     <string name="iq_test_button">IQ Test</string>
     <string name="iq_test_title">IQ Test</string>
-    <string name="iq_test_intro_headline">Matrix reasoning test</string>
+    <string name="iq_test_intro_headline">Pagsusulit sa pangangatwirang matriks</string>
     <string name="iq_test_intro_body">%1$d puzzle, %2$d minuto. Bawat puzzle ay 3x3 grid na may isang kulang na panel. Alamin ang rule sa mga row, tapos piliin ang panel na nababagay sa bakanteng kanto. Humihirap ang mga puzzle habang tumatagal.</string>
     <string name="iq_test_intro_pacing">Walang time limit sa isang puzzle. Pwede kang bumalik, mag-skip, at palitan ang sagot hanggang matapos ang oras.</string>
     <string name="iq_test_disclaimer">Tantiya ito base sa isang uri ng reasoning puzzle, pang-aliw lang. Hindi ito clinical o diagnostic assessment, at walang score dito ang nagsasabi ng worth o ability mo.</string>
@@ -810,16 +810,16 @@
     <string name="iq_test_review_skipped">Nilaktawan mo ito</string>
     <string name="iq_test_done">Bumalik sa menu</string>
 
-    <string name="iq_band_below_average">Below average</string>
-    <string name="iq_band_low_average">Low average</string>
-    <string name="iq_band_average">Average</string>
-    <string name="iq_band_high_average">High average</string>
-    <string name="iq_band_superior">Superior</string>
-    <string name="iq_band_very_superior">Very superior</string>
+    <string name="iq_band_below_average">Mababa sa karaniwan</string>
+    <string name="iq_band_low_average">Mababang karaniwan</string>
+    <string name="iq_band_average">Karaniwan</string>
+    <string name="iq_band_high_average">Mataas na karaniwan</string>
+    <string name="iq_band_superior">Mahusay</string>
+    <string name="iq_band_very_superior">Napakahusay</string>
 
-    <string name="achievement_iq_test_completed">Measured Mind</string>
+    <string name="achievement_iq_test_completed">Nasukat na Isip</string>
     <string name="achievement_iq_test_completed_desc">Tapusin ang buong IQ test</string>
-    <string name="achievement_iq_test_high">Pattern Savant</string>
+    <string name="achievement_iq_test_high">Henyo sa Pattern</string>
     <string name="achievement_iq_test_high_desc">Umabot ng tinatayang IQ na 130 o mas mataas</string>
     <!-- Learn section -->
     <string name="learn_section_title">Matuto ng Math</string>
@@ -830,32 +830,32 @@
     <string name="learn_grade_intro">Bawat topic dito ay tinuturo sa antas ng grade na ito.</string>
     <string name="learn_grade_certificates">%1$d sa %2$d topic ang may certificate</string>
 
-    <string name="learn_level_g12">Grades 1–2</string>
+    <string name="learn_level_g12">Baitang 1–2</string>
     <string name="learn_level_g12_subtitle">Edad 6–8 · pagbilang, hugis, at unang sukat</string>
-    <string name="learn_level_g35">Grades 3–5</string>
+    <string name="learn_level_g35">Baitang 3–5</string>
     <string name="learn_level_g35_subtitle">Edad 8–11 · multiplication table, fractions, at graphs</string>
-    <string name="learn_level_g68">Grades 6–8</string>
+    <string name="learn_level_g68">Baitang 6–8</string>
     <string name="learn_level_g68_subtitle">Edad 11–14 · ratio, percent, at unang algebra</string>
-    <string name="learn_level_g910">Grades 9–10</string>
+    <string name="learn_level_g910">Baitang 9–10</string>
     <string name="learn_level_g910_subtitle">Edad 14–16 · quadratics, proof, at trigonometry</string>
-    <string name="learn_level_g1112">Grades 11–12</string>
+    <string name="learn_level_g1112">Baitang 11–12</string>
     <string name="learn_level_g1112_subtitle">Edad 16–18 · logs, unit circle, at calculus</string>
 
-    <string name="learn_topic_arithmetic">Arithmetic</string>
+    <string name="learn_topic_arithmetic">Aritmetika</string>
     <string name="learn_topic_arithmetic_subtitle">Numero at operations</string>
     <string name="learn_topic_measurement">Pagsukat</string>
     <string name="learn_topic_measurement_subtitle">Haba, units, at area</string>
-    <string name="learn_topic_geometry">Geometry</string>
+    <string name="learn_topic_geometry">Heometriya</string>
     <string name="learn_topic_geometry_subtitle">Anggulo, tatsulok, at bilog</string>
     <string name="learn_topic_data">Data at Probability</string>
     <string name="learn_topic_data_subtitle">Statistics at tsansa</string>
     <string name="learn_topic_algebra">Algebra</string>
     <string name="learn_topic_algebra_subtitle">Mga expression at equation</string>
-    <string name="learn_topic_trigonometry">Trigonometry</string>
+    <string name="learn_topic_trigonometry">Trigonometriya</string>
     <string name="learn_topic_trigonometry_subtitle">Mga ratio at ang unit circle</string>
-    <string name="learn_topic_functions">Pre-calculus</string>
+    <string name="learn_topic_functions">Pre-kalkulo</string>
     <string name="learn_topic_functions_subtitle">Mga function at graph</string>
-    <string name="learn_topic_calculus">Calculus</string>
+    <string name="learn_topic_calculus">Kalkulo</string>
     <string name="learn_topic_calculus_subtitle">Limits, derivatives, at integrals</string>
 
     <string name="learn_lessons_header">Mga Aralin</string>
@@ -888,22 +888,22 @@
     <string name="learn_quiz_your_answer">Sagot mo: %1$s</string>
     <string name="learn_quiz_correct_answer">Tamang sagot: %1$s</string>
 
-    <string name="learn_certificate_title">Certificate</string>
-    <string name="learn_certificate_headline">Certificate of Achievement</string>
+    <string name="learn_certificate_title">Sertipiko</string>
+    <string name="learn_certificate_headline">Sertipiko ng Tagumpay</string>
     <string name="learn_certificate_intro">Pinatutunayan nito ang passing result sa</string>
     <string name="learn_certificate_score">Iskor %1$d%%</string>
     <string name="learn_certificate_earned">Nakuha noong %1$s</string>
     <string name="learn_certificate_view">Tingnan ang certificate</string>
-    <string name="learn_certificate_grade_bronze">Bronze</string>
-    <string name="learn_certificate_grade_silver">Silver</string>
-    <string name="learn_certificate_grade_gold">Gold</string>
-    <string name="learn_certificate_best">Best %1$d%% · %2$s</string>
+    <string name="learn_certificate_grade_bronze">Tanso</string>
+    <string name="learn_certificate_grade_silver">Pilak</string>
+    <string name="learn_certificate_grade_gold">Ginto</string>
+    <string name="learn_certificate_best">Pinakamataas %1$d%% · %2$s</string>
 
-    <string name="achievement_learn_first_certificate">Certified</string>
+    <string name="achievement_learn_first_certificate">Sertipikado</string>
     <string name="achievement_learn_first_certificate_desc">Pumasa sa unang test ng topic sa Matuto ng Math.</string>
-    <string name="achievement_learn_grade_certificates">Top of the Class</string>
+    <string name="achievement_learn_grade_certificates">Numero Uno sa Klase</string>
     <string name="achievement_learn_grade_certificates_desc">Kunin ang lahat ng certificate sa isang grade.</string>
-    <string name="achievement_learn_all_certificates">Math Scholar</string>
+    <string name="achievement_learn_all_certificates">Iskolar ng Matematika</string>
     <string name="achievement_learn_all_certificates_desc">Kunin ang certificate sa bawat topic ng Matuto ng Math, sa bawat grade.</string>
 
 </resources>
