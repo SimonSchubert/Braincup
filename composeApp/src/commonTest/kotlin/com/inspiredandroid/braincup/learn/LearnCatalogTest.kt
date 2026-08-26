@@ -9,18 +9,6 @@ import kotlin.test.assertTrue
 
 class LearnCatalogTest {
 
-    private companion object {
-        /**
-         * How many question figures in the not-yet-reworked sub-topics still caption their own
-         * answer. A ratchet, not a target: lower it as topics are reworked, never raise it.
-         *
-         * At 0 with only `geometry-similarity-and-proof` left outside the strict set, which is
-         * where it stays: it may only ever go down. Delete it, and the [reworkedUnits] escape
-         * hatch with it, once that last sub-topic is reworked and every unit is held strictly.
-         */
-        const val RATCHET = 0
-    }
-
     @Test
     fun everyTopicHasSubTopicsWithLessonsAndATest() {
         MathTopic.entries.forEach { topic ->
@@ -148,38 +136,18 @@ class LearnCatalogTest {
     /**
      * A question must not caption its figure with the answer it is asking for.
      *
-     * Held strictly on the sub-topics already reworked into hand-authored ladders, whether that is
-     * a whole topic ([reworked]) or the ones done so far inside a topic still being worked through
-     * ([reworkedUnits]). The rest still carry their original grade-slice content and are only kept
-     * from getting worse; move a topic across as its last sub-topic lands.
-     *
-     * See `docs/learn-release-status.md` for the readiness bar a sub-topic has to clear first.
+     * Held over the whole catalog. It used to spare the sub-topics still carrying their original
+     * grade-slice content, capping them with a ratchet that could only go down; that reached zero
+     * when the last of Geometry was reworked, so there is nothing left to spare.
      */
     @Test
     fun questionFiguresDoNotCaptionTheirAnswer() {
-        val reworked = setOf(MathTopic.ARITHMETIC)
-        // Geometry's sub-topics as each is reworked, until the whole topic can join [reworked].
-        val reworkedUnits = setOf(
-            "geometry-flat-shapes", "geometry-solid-shapes",
-            "geometry-angles", "geometry-quadrilaterals", "geometry-symmetry",
-            "geometry-perimeter-and-area",
-            "geometry-pythagoras", "geometry-circles", "geometry-volume",
-        )
-        val (done, pending) = LearnCatalog.allUnits.partition {
-            it.topic in reworked || it.id in reworkedUnits
-        }
-
-        questionVisuals(done).forEach { (owner, visual) ->
+        questionVisuals(LearnCatalog.allUnits).forEach { (owner, visual) ->
             assertFalse(
                 visual.canCaptionItsResult() && visual.reveal,
                 "$owner: a question figure captions its own answer",
             )
         }
-
-        // A ratchet, not a target: this number may only ever go down, and reaches 0 when the last
-        // sub-topic is reworked and every unit is held strictly above.
-        val leaking = questionVisuals(pending).count { it.second.canCaptionItsResult() && it.second.reveal }
-        assertTrue(leaking <= RATCHET, "not-yet-reworked sub-topics got more spoiling figures, not fewer: $leaking")
     }
 
     /**

@@ -3,7 +3,7 @@
 Working document for the Learn Math section's first release. It survives between Claude
 sessions: read it before touching anything under `learn/`, and update it as work lands.
 
-Last updated: 2026-08-26 (parked; Arithmetic ready; Geometry rework not started)
+Last updated: 2026-08-26 (parked; both topics authored; render check outstanding)
 
 ---
 
@@ -14,7 +14,7 @@ The first release ships **two topics**: Arithmetic and Geometry. The other six a
 | Topic | v1 | Sub-topics | State |
 |---|---|---|---|
 | Arithmetic | **ships** | 10 | all ready bar the render check |
-| Geometry | **ships** | 5 today, ~12 after the split | grade slices, full rework needed |
+| Geometry | **ships** | 12 | all ready bar the render check |
 | Measurement | parked | 0 | perimeter + area moved into Geometry, rest cut |
 | Data & Probability | parked | 3 | grade slices |
 | Algebra | parked | 7 | fully reworked, parked anyway |
@@ -203,85 +203,59 @@ numbers it lists, because `DecimalGrid` holds at most two squares.
 
 ## 5. Geometry (ships)
 
-Today: four grade slices, 15 spoiler figures between them. That 15 is the whole of the
-post-parking `RATCHET`, so the ratchet doubles as the release progress meter and reaches 0
-exactly when Geometry is done.
+Reworked from four grade slices into twelve sub-topics, band by band. Every one is three
+lessons and a six-question test, and every one is held strictly by
+`questionFiguresDoNotCaptionTheirAnswer`.
 
-### Today
-
-| Unit id | Title | Level | Spoilers | Lessons |
+| # | Unit id | Title | Level | Status |
 |---|---|---|---|---|
-| `geometry-shapes` | Flat and solid shapes | g12 | 1 | Flat shapes / Solid shapes / Halves and quarters |
-| `geometry-angles-and-symmetry` | Angles, quadrilaterals and symmetry | g35 | 3 | Angles and turns / Sorting quadrilaterals / Symmetry |
-| `geometry-perimeter-and-area` | Perimeter and area | g35 | 0 | Perimeter / Area of rectangles / Shapes made of rectangles |
-| `geometry-pythagoras-and-circles` | Pythagoras, circles and volume | g68 | 9 | Pythagoras / Circles / Volume of prisms |
-| `geometry-similarity-and-proof` | Similarity, transformations and proof | g910 | 2 | Similar figures / Transformations / Circle theorems |
+| 1 | `geometry-flat-shapes` | Flat shapes | g12 | **`ready`** * |
+| 2 | `geometry-solid-shapes` | Solid shapes | g12 | **`ready`** * |
+| 3 | `geometry-angles` | Angles and turns | g35 | **`ready`** * |
+| 4 | `geometry-quadrilaterals` | Triangles and quadrilaterals | g35 | **`ready`** * |
+| 5 | `geometry-symmetry` | Symmetry | g35 | **`ready`** * |
+| 6 | `geometry-perimeter-and-area` | Perimeter and area | g35 | **`ready`** * |
+| 7 | `geometry-pythagoras` | Pythagoras' theorem | g68 | **`ready`** * |
+| 8 | `geometry-circles` | Circles | g68 | **`ready`** * |
+| 9 | `geometry-volume` | Volume and surface area | g68 | **`ready`** * |
+| 10 | `geometry-similarity` | Similarity and scale | g910 | **`ready`** * |
+| 11 | `geometry-transformations` | Transformations | g910 | **`ready`** * |
+| 12 | `geometry-circle-theorems` | Circle theorems | g910 | **`ready`** * |
 
-None carry tinted numbers, and not one question step leads with a formula (0 of 43).
+\* Items 1 to 8 pass. Item 9, the render check, is outstanding for the whole section.
 
-`geometry-perimeter-and-area` is the moved Measurement material, not a reworked sub-topic. Its
-two Perimeter and Area lessons came across unchanged, keeping lesson ids
-`g35-measurement-perimeter` and `g35-measurement-area` so progress survives. A third lesson,
-`geometry-area-compound`, was written to fill the unit out, the metric-units lesson stayed behind
-on the branch, and the two spoiling `AreaGrid` figures ("which unit belongs to an area", "which
-measurement is an area") were closed with `reveal = false`, which is why the unit contributes 0
-to the ratchet. It still needs the same rework as the other four.
+**The ratchet is gone.** `RATCHET` went 50 (before parking) to 15, to 14 as g12 landed, to 7
+when the `RightTriangle` predicate was corrected, to 6 after g35, to 0 after g68. With
+nothing left to spare, `questionFiguresDoNotCaptionTheirAnswer` now holds the whole catalog
+strictly and the `reworkedUnits` escape hatch has been deleted with it.
 
-### Target ladder
+### Figure limits found while authoring
 
-Proposed, confirm before authoring. Each unit is 3 lessons + a 6-question test.
+Worth knowing before writing another lesson, and all three cost a rewrite when hit:
 
-| # | Unit id | Title | Level | Source | Status |
-|---|---|---|---|---|---|
-| 1 | `geometry-flat-shapes` | Flat shapes | g12 | split from `geometry-shapes` | `rework` |
-| 2 | `geometry-solid-shapes` | Solid shapes | g12 | split from `geometry-shapes` | `rework` |
-| 3 | `geometry-angles` | Angles and turns | g35 | split from `geometry-angles-and-symmetry` | `rework` |
-| 4 | `geometry-quadrilaterals` | Triangles and quadrilaterals | g35 | split from `geometry-angles-and-symmetry` | `rework` |
-| 5 | `geometry-symmetry` | Symmetry | g35 | split from `geometry-angles-and-symmetry` | `rework` |
-| 6 | `geometry-perimeter-and-area` | Perimeter and area | g35 | **moved, unit exists** | `rework` |
-| 7 | `geometry-pythagoras` | Pythagoras' theorem | g68 | split from `geometry-pythagoras-and-circles` | `rework` |
-| 8 | `geometry-circles` | Circles | g68 | split from `geometry-pythagoras-and-circles` | `rework` |
-| 9 | `geometry-volume` | Volume and surface area | g68 | split from `geometry-pythagoras-and-circles` | `rework` |
-| 10 | `geometry-similarity` | Similarity and scale | g910 | split from `geometry-similarity-and-proof` | `rework` |
-| 11 | `geometry-transformations` | Transformations | g910 | split from `geometry-similarity-and-proof` | `rework` |
-| 12 | `geometry-circle-theorems` | Circle theorems | g910 | split from `geometry-similarity-and-proof` | `rework` |
-
-**Blocker to clear first: `RightTriangle` cannot suppress its own caption.** It is on the
-strict `canCaptionItsResult()` list in `LearnCatalogTest` but, unlike most variants, it does
-not declare `override val reveal`, so it inherits the interface default of `true` and can
-never be built with `reveal = false`. Any question step drawing one therefore fails the
-strict rule automatically. `geometry-pythagoras-and-circles` holds 9 of the 15 remaining
-ratchet figures and is exactly the sub-topic that needs it, so **add the `reveal` override to
-`RightTriangle` before authoring Pythagoras**. The other variants missing the override
-(`Clock`, `Steps`, `Balance`, `NormalCurve`, `SetDiagram`, `Plot`) are not on the strict list,
-so they are unaffected.
-
-Notes on the split:
-
-* **"Halves and quarters" is dropped.** It is fraction material and Arithmetic teaches
-  fractions properly at g35. Confirm before deleting it.
-* **Keep existing lesson ids** where a lesson survives the split, because progress is keyed
-  on them. `g12-geometry-flat-shapes` stays `g12-geometry-flat-shapes` even as its unit
-  becomes `geometry-flat-shapes`. New lessons use `geometry-<subtopic>-<lesson>`.
-* **Unit ids do change**, so certificates already earned against `geometry-shapes` are lost.
-  Acceptable pre-release, not acceptable after.
-* Twelve Geometry units against six Arithmetic units is lopsided. That resolves either by
-  merging some Geometry units or by splitting Arithmetic units 5 and 6, see section 7.
-
----
+* **`RightTriangle` has no `reveal`.** It hides its answer through `labels = false` (no
+  numbers at all) or `unknown = Side.X` (a question mark in place of the side being asked
+  for). `canCaptionItsResult()` now matches that instead of blanket-counting every triangle.
+  Its `angle` label is not covered by `unknown`, so do not ask for a labelled angle over one.
+* **`AngleFigure` coerces its angle into 1..179.** It cannot draw a straight or a reflex
+  angle. Teach reflex through the partner that is left of a full turn, which it can show.
+* **`CircleFigure` has no sector.** Its `centreAngle` draws a centre angle and the angle at
+  the circumference on the same arc, which is circle-theorem material. There is no way to
+  draw "a quarter of a circle" as a shaded slice.
 
 ## 6. Working order
 
 1. Park (section 2), leaving master green with two topics.
 2. Move perimeter and area into Geometry and confirm the target ladder.
-3. Author Geometry one sub-topic at a time, top of the ladder down. After each one lands,
-   add its unit id to `reworkedUnits` in `LearnCatalogTest` and lower `RATCHET` by that
-   unit's spoiler count. Never raise `RATCHET`.
-4. Once all twelve are in, replace `reworkedUnits` with `MathTopic.GEOMETRY` in `reworked`
-   and assert `RATCHET == 0`.
-5. Run the Arithmetic readiness pass, unit by unit, against section 3.
-6. Only then localize: no new UI strings are expected, so this should be a no-op. Verify
-   with a diff of `values/strings.xml` against the parking commit.
+3. ~~Author Geometry~~ done, band by band, 4 slices into 12 sub-topics.
+4. ~~Drop the ratchet~~ done; the whole catalog is held strictly.
+5. ~~Arithmetic readiness pass~~ done, and the two compound units split, 6 into 10.
+6. **Render check (item 9), outstanding.** 22 sub-topics, 66 lessons, 396 steps and 132 test
+   questions have been read and tested but not seen on a screen. Walk the section in the
+   running app on a narrow window, or render it through Paparazzi. This is the one thing
+   between here and a release candidate.
+7. Localize last: no new UI strings were added, so expect a no-op. Verify with a diff of
+   `values/strings.xml` against the parking commit.
 
 ---
 
@@ -290,9 +264,9 @@ Notes on the split:
 | # | Question | Why it matters | State |
 |---|---|---|---|
 | 1 | Do Arithmetic units 5 and 6 split into six the way Geometry is splitting? | Consistency of the readiness bar, and it rebalances 12 vs 6. | **done 2026-08-26**: split. Arithmetic is 10 units. |
-| 2 | Is the 12-unit Geometry ladder right, or should some units merge? | Sets the whole authoring workload. Arithmetic landing at 10 makes 12 look reasonable rather than lopsided. | **open** |
+| 2 | Is the 12-unit Geometry ladder right, or should some units merge? | Sets the whole authoring workload. | **done 2026-08-26**: 12 units, authored. |
 | 3 | Drop "Halves and quarters", or keep it as a g12 Geometry unit? | Overlaps Arithmetic fractions. | **done 2026-08-26**: drop it. |
-| 4 | Does the section ship with `GRADES_11_12` unreachable? | Two dead strings across 45 files, and the level picker copy mentions calculus. | **open** |
+| 4 | Does the section ship with `GRADES_11_12` unreachable? | Two dead strings across 45 files, and its subtitle still mentions calculus, which is parked. Both shipped ladders stop at g910. | **open** |
 
 ---
 
@@ -301,6 +275,7 @@ Notes on the split:
 | Date | What happened |
 |---|---|
 | 2026-08-26 | Scope set: ship Arithmetic + Geometry, park six. Parking method, perimeter/area move and Geometry split decided. This document created. |
+| 2026-08-26 | Geometry reworked, 4 grade slices into 12 sub-topics, one band per commit. g12 into Flat and Solid shapes; g35 into Angles, Triangles and quadrilaterals, and Symmetry; g68 into Pythagoras, Circles, and Volume and surface area; g910 into Similarity, Transformations and Circle theorems. Corrected `canCaptionItsResult` for `RightTriangle`, which had been counting seven unlabelled triangles that gave nothing away. RATCHET reached 0 and was deleted along with the `reworkedUnits` hatch. Section total: 22 sub-topics, 66 lessons. Only the render check remains. |
 | 2026-08-26 | Arithmetic split 6 -> 10: `ratio-and-percent` became Negative numbers, Ratio and proportion and Percentages; `standard-form-and-surds` became Standard form, Surds and Rounding and bounds. Twelve new lessons and six new tests written; original lesson ids kept. All 10 sub-topics now `ready` bar the batched render check. Found that `RightTriangle` cannot set `reveal = false`, which blocks the Pythagoras rework (see section 5). |
 | 2026-08-26 | Readiness pass: `arithmetic-multiplication`, `arithmetic-fractions` and `arithmetic-decimals` reviewed and marked ready, four more defects fixed. 4 of 6 Arithmetic sub-topics done; units 5 and 6 are blocked on open decision 1. |
 | 2026-08-26 | Readiness pass started. `arithmetic-counting` reviewed and marked ready: four defects fixed (see section 4). Corrected a wrong lead in this document: low Tinted / Formula-led counts are a property of the figures a unit uses, not a sign of unfinished work. |

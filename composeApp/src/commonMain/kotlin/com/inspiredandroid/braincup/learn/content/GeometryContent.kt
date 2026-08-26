@@ -1673,24 +1673,24 @@ internal object GeometryContent {
         ),
     )
 
-    private val similarityAndProof = learnUnit(
+    private val similarity = learnUnit(
         topic = MathTopic.GEOMETRY,
-        urlSlug = "similarity-and-proof",
-        title = "Similarity, transformations and proof",
-        summary = "Similarity and scale factors, transformations and circle theorems.",
+        urlSlug = "similarity",
+        title = "Similarity and scale",
+        summary = "Same shape at a different size, and what that does to area and volume.",
         level = GradeLevel.GRADES_9_10,
         lessons = listOf(
             LessonSpec(
                 id = "g910-geometry-similarity",
-                title = "Similar figures",
-                summary = "Same shape, and what that does to area.",
+                title = "Same shape, different size",
+                summary = "One factor carried through every length.",
                 steps = listOf(
                     Concept(
                         body = "Similar shapes share every angle; the lengths all scale by one factor.",
                         visual = RightTriangle(a = 4, b = 3),
                     ),
                     Concept(
-                        body = "Every length doubles, and the shape is unmistakably the same.",
+                        body = "Every length multiplies by that same number, and the shape stays unmistakably itself.",
                         formula = "new = k x old",
                         visual = RightTriangle(a = 8, b = 6),
                     ),
@@ -1708,6 +1708,29 @@ internal object GeometryContent {
                         visual = RightTriangle(a = 4, b = 3, unknown = Side.HYPOTENUSE),
                     ),
                     Concept(
+                        body = "Congruent is the special case where the factor is 1: the same shape at the same size.",
+                        visual = RightTriangle(a = 4, b = 3),
+                    ),
+                    Choice(
+                        question = "Which of these pairs must be similar whatever size they are drawn?",
+                        options = listOf(
+                            "Any two rectangles",
+                            "Any two squares",
+                            "Any two triangles",
+                            "Any two quadrilaterals",
+                        ),
+                        correctIndex = 1,
+                        explanation = "Every square has four right angles and four equal sides, so only the factor can differ. A long rectangle and a short one do not match.",
+                        visual = Polygon(sides = 4, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-similarity-area",
+                title = "Scaling area and volume",
+                summary = "Length by k, area by k squared, volume by k cubed.",
+                steps = listOf(
+                    Concept(
                         body = "Area does not scale like length: double the sides and you get four times the squares.",
                         formula = "length x k, area x k², volume x k³",
                         visual = AreaGrid(cols = 4, rows = 4),
@@ -1719,12 +1742,135 @@ internal object GeometryContent {
                         explanation = "Area scales by the square of the factor.",
                         visual = AreaGrid(cols = 4, rows = 4, reveal = false),
                     ),
+                    Concept(
+                        body = "Volume goes one further and scales by the cube, because all three directions stretch at once.",
+                        formula = "volume x k³",
+                        visual = Solid(kind = SolidKind.CUBE, counts = true),
+                    ),
+                    Numeric(
+                        question = "A solid is enlarged by scale factor 3. Its volume is multiplied by what?",
+                        formula = "3 x 3 x 3 = ?",
+                        answer = "27",
+                        explanation = "Three directions, each one three times bigger.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
+                    Concept(
+                        body = "It reads backwards too. If two areas are in the ratio 9 : 1, the lengths are in the ratio 3 : 1.",
+                        formula = "k = √9 = 3",
+                        visual = AreaGrid(cols = 3, rows = 3),
+                    ),
+                    Choice(
+                        question = "Two similar solids have volumes of 8 cm³ and 64 cm³. What is the scale factor?",
+                        options = listOf("2", "4", "8", "56"),
+                        correctIndex = 0,
+                        explanation = "The volumes are 8 times apart, and the cube root of 8 is 2.",
+                        visual = Solid(kind = SolidKind.CUBE, reveal = false),
+                    ),
                 ),
             ),
             LessonSpec(
+                id = "geometry-similarity-using",
+                title = "Using similar triangles",
+                summary = "One pair of sides fixes every other.",
+                steps = listOf(
+                    Concept(
+                        body = "Two triangles with matching angles must be similar, so a single pair of sides fixes every other length between them.",
+                        visual = RightTriangle(a = 4, b = 3),
+                    ),
+                    Concept(
+                        body = "Match the sides up in the same order before dividing, or the factor comes out upside down.",
+                        visual = RightTriangle(a = 8, b = 6),
+                    ),
+                    Choice(
+                        question = "A triangle has sides 3 and 4. A similar one has 9 in place of the 3. What is in place of the 4?",
+                        options = listOf("10", "12", "13", "16"),
+                        correctIndex = 1,
+                        explanation = "The factor is 9 / 3 = 3, so the 4 becomes 12.",
+                        visual = RightTriangle(a = 9, b = 12, labels = false),
+                    ),
+                    Numeric(
+                        question = "A 2 m stick casts a 3 m shadow. A tree casts a 30 m shadow at the same moment. How tall is the tree, in metres?",
+                        formula = "30 / 3 x 2 = ?",
+                        answer = "20",
+                        explanation = "The shadow is ten times longer, so the tree is ten times taller than the stick.",
+                        visual = RightTriangle(a = 3, b = 2, labels = false),
+                    ),
+                    Concept(
+                        body = "Shadows, maps and scale drawings are all this one idea: a single factor carried through every length in the picture.",
+                        visual = RightTriangle(a = 6, b = 4),
+                    ),
+                    Choice(
+                        question = "Two similar triangles have areas of 20 cm² and 45 cm². What is the scale factor?",
+                        options = listOf("1.5", "2", "2.25", "2.5"),
+                        correctIndex = 0,
+                        explanation = "The areas are 2.25 times apart, and the square root of 2.25 is 1.5.",
+                        visual = AreaGrid(cols = 4, rows = 5, reveal = false),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
+            QuizQuestion(
+                prompt = "Two similar shapes have scale factor 3. Their areas differ by a factor of...",
+                options = listOf("3", "6", "9", "27"),
+                correctIndex = 2,
+                explanation = "Area scales by the square.",
+                visual = AreaGrid(cols = 3, rows = 3, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Two matching sides are 4 cm and 10 cm. What is the scale factor?",
+                options = listOf("0.4", "2.5", "6", "14"),
+                correctIndex = 1,
+                explanation = "10 / 4.",
+                visual = RightTriangle(a = 10, b = 6, labels = false),
+            ),
+            QuizQuestion(
+                prompt = "A solid is enlarged by scale factor 2. Its volume is multiplied by...",
+                options = listOf("2", "4", "6", "8"),
+                correctIndex = 3,
+                explanation = "Volume scales by the cube of the factor.",
+                visual = Solid(kind = SolidKind.CUBE, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Which of these pairs must always be similar?",
+                options = listOf(
+                    "Any two rectangles",
+                    "Any two squares",
+                    "Any two triangles",
+                    "Any two kites",
+                ),
+                correctIndex = 1,
+                explanation = "Only the scale factor can differ between two squares.",
+                visual = Polygon(sides = 4, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Two similar triangles have areas of 16 cm² and 36 cm². What is the scale factor?",
+                options = listOf("1.5", "2", "2.25", "2.5"),
+                correctIndex = 0,
+                explanation = "The areas are 2.25 times apart, and 1.5 squared is 2.25.",
+                visual = AreaGrid(cols = 4, rows = 4, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A 3-4-5 triangle is enlarged by 4. How long is its longest side?",
+                options = listOf("9", "15", "20", "25"),
+                correctIndex = 2,
+                explanation = "5 x 4.",
+                visual = RightTriangle(a = 4, b = 3, labels = false),
+            ),
+        ),
+    )
+
+    private val transformations = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "transformations",
+        title = "Transformations",
+        summary = "Slide, flip, turn and resize, and what each one keeps.",
+        level = GradeLevel.GRADES_9_10,
+        lessons = listOf(
+            LessonSpec(
                 id = "g910-geometry-transformations",
-                title = "Transformations",
-                summary = "Slide, flip and turn on the grid.",
+                title = "Slides and flips",
+                summary = "Translations and reflections on the grid.",
                 steps = listOf(
                     Concept(
                         body = "Translations slide, reflections flip, rotations turn, enlargements resize.",
@@ -1775,63 +1921,128 @@ internal object GeometryContent {
                         ),
                     ),
                     Choice(
-                        question = "Which transformation does NOT keep the size?",
-                        options = listOf("translation", "reflection", "rotation", "enlargement"),
-                        correctIndex = 3,
-                        explanation = "The other three are congruence transformations.",
-                        visual = AreaGrid(cols = 4, rows = 3, showArea = false),
+                        question = "Reflecting in the x-axis changes the sign of...",
+                        options = listOf("x only", "y only", "both of them", "neither of them"),
+                        correctIndex = 1,
+                        explanation = "The point crosses the horizontal axis, so only its height changes side.",
+                        visual = Plot(
+                            curve = Curve.Linear(m = 0.5f),
+                            points = listOf(
+                                PlotPoint(x = 1f, y = 2f, label = "A"),
+                                PlotPoint(x = 1f, y = -2f, label = "A'"),
+                            ),
+                        ),
                     ),
                 ),
             ),
             LessonSpec(
-                id = "g910-geometry-circle-theorems",
-                title = "Circle theorems",
-                summary = "Angles at the centre and on the edge.",
+                id = "geometry-transformations-rotations",
+                title = "Rotations",
+                summary = "A centre, an angle and a direction.",
                 steps = listOf(
                     Concept(
-                        body = "The angle at the centre is exactly twice the one at the circumference on the same arc.",
-                        visual = CircleFigure(centreAngle = 80),
+                        body = "A rotation needs three things before it means anything: a centre to turn about, an angle, and a direction.",
+                        visual = Plot(
+                            curve = Curve.Linear(m = 0.5f),
+                            points = listOf(PlotPoint(x = 1f, y = 1f, label = "A")),
+                        ),
                     ),
                     Concept(
-                        body = "Stretch the centre angle to a straight 180 and the edge angle becomes a right angle.",
-                        visual = CircleFigure(centreAngle = 180),
+                        body = "A quarter turn anticlockwise about the origin sends a point across and up in one move.",
+                        formula = "(x, y) becomes (-y, x)",
+                        visual = Plot(
+                            curve = Curve.Linear(m = 0.5f),
+                            points = listOf(
+                                PlotPoint(x = 2f, y = 1f, label = "A"),
+                                PlotPoint(x = -1f, y = 2f, label = "A'"),
+                            ),
+                        ),
                     ),
                     Choice(
-                        question = "The centre angle is 80. What is the angle at the circumference?",
-                        options = listOf("20", "40", "80", "160"),
-                        correctIndex = 1,
-                        explanation = "Half the centre angle.",
-                        visual = CircleFigure(centreAngle = 80, reveal = false),
-                    ),
-                    Concept(
-                        body = "Opposite angles in a cyclic quadrilateral add to 180.",
-                        formula = "a + c = 180",
-                        visual = Polygon(sides = 4, countCorners = false),
+                        question = "Rotate this point by 180 degrees about the origin. Where does it land?",
+                        options = listOf("(-3, -1)", "(-1, 3)", "(1, -3)", "(3, -1)"),
+                        correctIndex = 0,
+                        explanation = "A half turn sends a point straight through the origin, so both signs flip.",
+                        visual = Plot(
+                            curve = Curve.Linear(m = 0.5f),
+                            points = listOf(PlotPoint(x = 3f, y = 1f, label = "(3, 1)")),
+                        ),
                     ),
                     Numeric(
-                        question = "One angle of a cyclic quadrilateral is 110. How many degrees is the opposite one?",
-                        answer = "70",
-                        explanation = "180 - 110.",
-                        visual = AngleFigure(degrees = 110, supplement = true, reveal = false),
+                        question = "Rotate this point by 180 degrees about the origin. What is its new x-coordinate?",
+                        answer = "-2",
+                        explanation = "A half turn flips the sign of both coordinates.",
+                        visual = Plot(
+                            curve = Curve.Linear(m = 0.5f),
+                            points = listOf(PlotPoint(x = 2f, y = 0f, label = "(2, 0)")),
+                        ),
+                    ),
+                    Concept(
+                        body = "A rotation keeps every length and every angle, so the image is congruent to what it started as.",
+                        visual = AreaGrid(cols = 3, rows = 2, showArea = false),
                     ),
                     Choice(
-                        question = "A tangent meets the radius at an angle of...",
-                        options = listOf("45", "60", "90", "180"),
+                        question = "Which of these leaves every length unchanged?",
+                        options = listOf(
+                            "enlargement by 2",
+                            "enlargement by 0.5",
+                            "rotation",
+                            "enlargement by 3",
+                        ),
                         correctIndex = 2,
-                        explanation = "A tangent is always perpendicular to the radius it touches.",
-                        visual = AngleFigure(degrees = 90, reveal = false),
+                        explanation = "Only an enlargement changes size, and its factor is what does it.",
+                        visual = AreaGrid(cols = 3, rows = 2, showArea = false, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-transformations-enlargements",
+                title = "Enlargements",
+                summary = "A centre and a scale factor, in either direction.",
+                steps = listOf(
+                    Concept(
+                        body = "An enlargement needs a centre and a scale factor. Every point moves away from that centre by the factor.",
+                        visual = AreaGrid(cols = 4, rows = 3, showArea = false),
+                    ),
+                    Concept(
+                        body = "A factor between 0 and 1 still counts as an enlargement, even though the shape comes out smaller. The word covers both directions.",
+                        visual = AreaGrid(cols = 2, rows = 2, showArea = false),
+                    ),
+                    Choice(
+                        question = "A shape is enlarged by scale factor 0.5. What happens to it?",
+                        options = listOf(
+                            "Every length doubles",
+                            "Every length halves",
+                            "Nothing changes",
+                            "It turns through 90 degrees",
+                        ),
+                        correctIndex = 1,
+                        explanation = "The factor multiplies every length, and multiplying by a half makes them shorter.",
+                        visual = AreaGrid(cols = 2, rows = 2, showArea = false, reveal = false),
+                    ),
+                    Concept(
+                        body = "A negative factor sends the shape through the centre and out the other side, arriving upside down.",
+                        formula = "k = -1 is a half turn",
+                        visual = AreaGrid(cols = 3, rows = 3, showArea = false),
+                    ),
+                    Numeric(
+                        question = "A 3 cm side is enlarged by scale factor 4. How long is it now, in cm?",
+                        formula = "3 x 4 = ?",
+                        answer = "12",
+                        explanation = "Every length is multiplied by the factor.",
+                        visual = AreaGrid(cols = 3, rows = 2, showArea = false, reveal = false),
+                    ),
+                    Choice(
+                        question = "Which transformation does NOT keep the size?",
+                        options = listOf("translation", "reflection", "rotation", "enlargement"),
+                        correctIndex = 3,
+                        explanation = "The other three are congruence transformations.",
+                        visual = AreaGrid(cols = 4, rows = 3, showArea = false, reveal = false),
                     ),
                 ),
             ),
         ),
         questions = listOf(
-            QuizQuestion(
-                prompt = "Two similar shapes have scale factor 3. Their areas differ by a factor of...",
-                options = listOf("3", "6", "9", "27"),
-                correctIndex = 2,
-                explanation = "Area scales by the square.",
-                visual = AreaGrid(cols = 3, rows = 3, reveal = false),
-            ),
             QuizQuestion(
                 prompt = "Translate this point by (2, -3). Where does it land?",
                 options = listOf("(3, -1)", "(3, 5)", "(-1, -1)", "(2, 6)"),
@@ -1853,11 +2064,206 @@ internal object GeometryContent {
                 ),
             ),
             QuizQuestion(
+                prompt = "Rotate this point by 180 degrees about the origin.",
+                options = listOf("(-3, -1)", "(-1, 3)", "(1, -3)", "(3, -1)"),
+                correctIndex = 0,
+                explanation = "A half turn flips the sign of both coordinates.",
+                visual = Plot(
+                    curve = Curve.Linear(m = 0.5f),
+                    points = listOf(PlotPoint(x = 3f, y = 1f, label = "(3, 1)")),
+                ),
+            ),
+            QuizQuestion(
+                prompt = "Which transformation does NOT keep the size?",
+                options = listOf("translation", "reflection", "rotation", "enlargement"),
+                correctIndex = 3,
+                explanation = "The other three are congruence transformations.",
+                visual = AreaGrid(cols = 4, rows = 3, showArea = false, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "A translation vector of (3, -2) means...",
+                options = listOf(
+                    "3 right and 2 down",
+                    "3 up and 2 right",
+                    "3 left and 2 up",
+                    "2 right and 3 down",
+                ),
+                correctIndex = 0,
+                explanation = "Across first, then up, and a minus means down.",
+                visual = Plot(
+                    curve = Curve.Linear(m = 0.5f),
+                    points = listOf(
+                        PlotPoint(x = -1f, y = 1f, label = "A"),
+                        PlotPoint(x = 2f, y = -1f, label = "A'"),
+                    ),
+                ),
+            ),
+            QuizQuestion(
+                prompt = "An enlargement by scale factor 0.5 makes a shape...",
+                options = listOf("twice as long", "half as long", "the same size", "upside down"),
+                correctIndex = 1,
+                explanation = "The factor multiplies every length, and a half shortens them.",
+                visual = AreaGrid(cols = 2, rows = 2, showArea = false, reveal = false),
+            ),
+        ),
+    )
+
+    private val circleTheorems = learnUnit(
+        topic = MathTopic.GEOMETRY,
+        urlSlug = "circle-theorems",
+        title = "Circle theorems",
+        summary = "Angles at the centre and the edge, cyclic quadrilaterals and tangents.",
+        level = GradeLevel.GRADES_9_10,
+        lessons = listOf(
+            LessonSpec(
+                id = "g910-geometry-circle-theorems",
+                title = "Angles at the centre and the edge",
+                summary = "One is always twice the other.",
+                steps = listOf(
+                    Concept(
+                        body = "The angle at the centre is exactly twice the one at the circumference standing on the same arc.",
+                        visual = CircleFigure(centreAngle = 80),
+                    ),
+                    Choice(
+                        question = "The centre angle is 80. What is the angle at the circumference?",
+                        options = listOf("20", "40", "80", "160"),
+                        correctIndex = 1,
+                        explanation = "Half the centre angle.",
+                        visual = CircleFigure(centreAngle = 80, reveal = false),
+                    ),
+                    Concept(
+                        body = "Stretch the centre angle out to a straight 180 and the edge angle becomes a right angle. That is the angle in a semicircle.",
+                        visual = CircleFigure(centreAngle = 180),
+                    ),
+                    Choice(
+                        question = "An angle drawn in a semicircle is always...",
+                        options = listOf("45", "60", "90", "180"),
+                        correctIndex = 2,
+                        explanation = "Half of the straight 180 at the centre.",
+                        visual = CircleFigure(centreAngle = 180, reveal = false),
+                    ),
+                    Concept(
+                        body = "Every angle standing on the same arc from the circumference is equal to every other, because each of them is half of the one centre angle.",
+                        visual = CircleFigure(centreAngle = 100),
+                    ),
+                    Numeric(
+                        question = "The centre angle is 140. How many degrees is the angle at the circumference?",
+                        formula = "140 / 2 = ?",
+                        answer = "70",
+                        explanation = "Half the centre angle, whatever that angle happens to be.",
+                        visual = CircleFigure(centreAngle = 140, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-circle-theorems-cyclic",
+                title = "Cyclic quadrilaterals",
+                summary = "Opposite angles add to 180.",
+                steps = listOf(
+                    Concept(
+                        body = "A cyclic quadrilateral has all four of its corners sitting on the circle.",
+                        visual = Polygon(sides = 4, countCorners = false),
+                    ),
+                    Concept(
+                        body = "Its opposite angles add to 180.",
+                        formula = "a + c = 180",
+                        visual = Polygon(sides = 4, countCorners = false),
+                    ),
+                    Numeric(
+                        question = "One angle of a cyclic quadrilateral is 110. How many degrees is the opposite one?",
+                        answer = "70",
+                        explanation = "180 - 110.",
+                        visual = AngleFigure(degrees = 110, supplement = true, reveal = false),
+                    ),
+                    Choice(
+                        question = "One angle of a cyclic quadrilateral is 95. Its opposite angle is...",
+                        options = listOf("85", "95", "105", "185"),
+                        correctIndex = 0,
+                        explanation = "The two have to make 180 between them.",
+                        visual = AngleFigure(degrees = 95, supplement = true, reveal = false),
+                    ),
+                    Concept(
+                        body = "Both pairs behave the same way, so two opposite angles hand you the other two as well.",
+                        formula = "b + d = 180",
+                        visual = Polygon(sides = 4, countCorners = false),
+                    ),
+                    Choice(
+                        question = "Going round a cyclic quadrilateral, three angles are 70, 100 and 110. What is the fourth?",
+                        options = listOf("70", "80", "90", "100"),
+                        correctIndex = 1,
+                        explanation = "The 70 and the 110 are already an opposite pair, so the fourth angle partners the 100.",
+                        visual = Polygon(sides = 4, countCorners = false, reveal = false),
+                    ),
+                ),
+            ),
+            LessonSpec(
+                id = "geometry-circle-theorems-tangents",
+                title = "Tangents",
+                summary = "Touching once, and meeting the radius square on.",
+                steps = listOf(
+                    Concept(
+                        body = "A tangent touches the circle at exactly one point and never crosses it.",
+                        visual = CircleFigure(radius = 5),
+                    ),
+                    Concept(
+                        body = "A tangent always meets the radius drawn to that point at a right angle.",
+                        formula = "tangent meets radius at 90",
+                        visual = AngleFigure(degrees = 90),
+                    ),
+                    Choice(
+                        question = "A tangent meets the radius at an angle of...",
+                        options = listOf("45", "60", "90", "180"),
+                        correctIndex = 2,
+                        explanation = "A tangent is always perpendicular to the radius it touches.",
+                        visual = AngleFigure(degrees = 90, reveal = false),
+                    ),
+                    Concept(
+                        body = "That right angle is what makes tangent questions solvable: it hands you a right triangle to use Pythagoras on.",
+                        visual = RightTriangle(a = 4, b = 3, showSquares = true),
+                    ),
+                    Numeric(
+                        question = "A tangent, a radius and a line to the centre make a right triangle. One of its other angles is 35. How many degrees is the last one?",
+                        formula = "180 - 90 - 35 = ?",
+                        answer = "55",
+                        explanation = "The right angle uses up 90 of the 180.",
+                        visual = RightTriangle(a = 4, b = 3, labels = false),
+                    ),
+                    Choice(
+                        question = "Two tangents are drawn to a circle from the same point outside it. What can you say about them?",
+                        options = listOf(
+                            "They are always equal in length",
+                            "They are always different lengths",
+                            "They are always perpendicular",
+                            "They are always parallel",
+                        ),
+                        correctIndex = 0,
+                        explanation = "The two right triangles they make share the same radius and the same line to the centre.",
+                        visual = CircleFigure(radius = 5, reveal = false),
+                    ),
+                ),
+            ),
+        ),
+        questions = listOf(
+            QuizQuestion(
                 prompt = "The centre angle is 120. What is the angle at the circumference?",
                 options = listOf("30", "60", "120", "240"),
                 correctIndex = 1,
                 explanation = "Half of the centre angle.",
                 visual = CircleFigure(centreAngle = 120, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "An angle in a semicircle is always...",
+                options = listOf("45", "60", "90", "180"),
+                correctIndex = 2,
+                explanation = "Half of the straight angle at the centre.",
+                visual = CircleFigure(centreAngle = 180, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "The angle at the circumference is 35. What is the angle at the centre on the same arc?",
+                options = listOf("17.5", "35", "70", "145"),
+                correctIndex = 2,
+                explanation = "The centre angle is the doubled one.",
+                visual = CircleFigure(centreAngle = 70, reveal = false),
             ),
             QuizQuestion(
                 prompt = "One angle of a cyclic quadrilateral is 95. Its opposite angle is...",
@@ -1867,14 +2273,29 @@ internal object GeometryContent {
                 visual = AngleFigure(degrees = 95, supplement = true, reveal = false),
             ),
             QuizQuestion(
-                prompt = "An angle in a semicircle is always...",
+                prompt = "A tangent meets the radius at an angle of...",
                 options = listOf("45", "60", "90", "180"),
                 correctIndex = 2,
-                explanation = "Half of the straight angle at the centre.",
-                visual = CircleFigure(centreAngle = 180, reveal = false),
+                explanation = "A tangent is always perpendicular to the radius it touches.",
+                visual = AngleFigure(degrees = 90, reveal = false),
+            ),
+            QuizQuestion(
+                prompt = "Two tangents drawn from the same point outside a circle are...",
+                options = listOf(
+                    "always equal in length",
+                    "always different lengths",
+                    "always perpendicular",
+                    "always parallel",
+                ),
+                correctIndex = 0,
+                explanation = "The two right triangles they form are congruent.",
+                visual = CircleFigure(radius = 5, reveal = false),
             ),
         ),
     )
 
-    val units: List<LearnUnit> = listOf(flatShapes, solidShapes, angles, quadrilaterals, symmetry, perimeterAndArea, pythagoras, circles, volume, similarityAndProof)
+    val units: List<LearnUnit> = listOf(
+        flatShapes, solidShapes, angles, quadrilaterals, symmetry, perimeterAndArea, pythagoras, circles, volume,
+        similarity, transformations, circleTheorems,
+    )
 }
