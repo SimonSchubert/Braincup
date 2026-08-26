@@ -807,7 +807,7 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Học Toán</string>
-    <string name="learn_section_subtitle">Chọn một chủ đề, đi qua từng bước, rồi làm bài kiểm tra để lấy chứng chỉ.</string>
+    <string name="learn_section_subtitle">Vẫn đang thử nghiệm. Sẽ có thêm chủ đề mới và cải tiến.</string>
     <string name="learn_section_certificates">%1$d / %2$d chứng chỉ</string>
     <string name="learn_title">Học Toán</string>
     <string name="learn_unit_progress">%1$d / %2$d chứng chỉ</string>
@@ -851,9 +851,12 @@
     <string name="learn_take_test">Làm bài kiểm tra</string>
     <string name="learn_retake_test">Làm lại bài kiểm tra</string>
     <string name="learn_test_title">Bài kiểm tra %1$s</string>
+    <string name="learn_test_intro">%1$d câu hỏi. Phải đúng hết mọi câu mới nhận được chứng chỉ.</string>
     <string name="learn_quiz_progress">Câu %1$d trên %2$d</string>
     <string name="learn_quiz_result_title">Hoàn thành bài kiểm tra</string>
+    <string name="learn_quiz_score">Đúng %1$d trên %2$d câu</string>
     <string name="learn_quiz_passed">Đã nhận chứng chỉ!</string>
+    <string name="learn_quiz_failed">Chứng chỉ yêu cầu đúng tất cả các câu. Xem lại bài học rồi thử lại.</string>
     <string name="learn_quiz_review">Xem đáp án</string>
     <string name="learn_quiz_hide_review">Ẩn đáp án</string>
     <string name="learn_quiz_your_answer">Câu trả lời của bạn: %1$s</string>
@@ -864,6 +867,7 @@
     <string name="learn_certificate_intro">Chứng nhận đạt kết quả ở chủ đề</string>
     <string name="learn_certificate_earned">Nhận ngày %1$s</string>
     <string name="learn_certificate_view">Xem chứng chỉ</string>
+    <string name="learn_certificate_awarded">Đã nhận chứng chỉ</string>
 
     <string name="achievement_learn_first_certificate">Đã chứng nhận</string>
     <string name="achievement_learn_first_certificate_desc">Vượt qua bài kiểm tra chủ đề đầu tiên trong Học Toán.</string>

@@ -807,7 +807,7 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Matematik öğren</string>
-    <string name="learn_section_subtitle">Bir konu seç, adım adım ilerle, sonra sertifika için testi çöz.</string>
+    <string name="learn_section_subtitle">Hâlâ beta sürümünde. Yeni konular ve iyileştirmeler yolda.</string>
     <string name="learn_section_certificates">%1$d / %2$d sertifika</string>
     <string name="learn_title">Matematik öğren</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifika</string>
@@ -851,9 +851,12 @@
     <string name="learn_take_test">Testi çöz</string>
     <string name="learn_retake_test">Testi tekrar çöz</string>
     <string name="learn_test_title">%1$s testi</string>
+    <string name="learn_test_intro">%1$d soru. Sertifikayı kazanmak için tüm cevaplar doğru olmalı.</string>
     <string name="learn_quiz_progress">Soru %1$d / %2$d</string>
     <string name="learn_quiz_result_title">Test tamamlandı</string>
+    <string name="learn_quiz_score">%2$d sorudan %1$d doğru</string>
     <string name="learn_quiz_passed">Sertifika kazanıldı!</string>
+    <string name="learn_quiz_failed">Sertifika için tüm cevapların doğru olması gerekir. Dersleri gözden geçir ve tekrar dene.</string>
     <string name="learn_quiz_review">Cevapları göster</string>
     <string name="learn_quiz_hide_review">Cevapları gizle</string>
     <string name="learn_quiz_your_answer">Cevabın: %1$s</string>
@@ -864,6 +867,7 @@
     <string name="learn_certificate_intro">Bu belge şu konuda geçer not aldığını onaylar</string>
     <string name="learn_certificate_earned">Kazanıldı %1$s</string>
     <string name="learn_certificate_view">Sertifikayı gör</string>
+    <string name="learn_certificate_awarded">Sertifika kazanıldı</string>
 
     <string name="achievement_learn_first_certificate">Sertifikalı</string>
     <string name="achievement_learn_first_certificate_desc">Matematik öğren bölümünde ilk konu testini geç.</string>

@@ -825,7 +825,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_iq_test_high_desc">Sroich IQ measta 130 nó níos airde</string>
     <!-- Learn section -->
     <string name="learn_section_title">Foghlaim mata</string>
-    <string name="learn_section_subtitle">Roghnaigh ábhar, oibrigh tríd céim ar chéim, ansin déan an triail le haghaidh teastais.</string>
+    <string name="learn_section_subtitle">Fós i mbéite. Tá topaicí nua agus feabhsuithe ar an mbealach.</string>
     <string name="learn_section_certificates">%1$d / %2$d teastas</string>
     <string name="learn_title">Foghlaim mata</string>
     <string name="learn_unit_progress">%1$d / %2$d teastas</string>
@@ -869,9 +869,12 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_take_test">Déan an tástáil</string>
     <string name="learn_retake_test">Déan an tástáil arís</string>
     <string name="learn_test_title">Tástáil %1$s</string>
+    <string name="learn_test_intro">%1$d ceist. Caithfidh gach freagra a bheith ceart chun an teastas a fháil.</string>
     <string name="learn_quiz_progress">Ceist %1$d as %2$d</string>
     <string name="learn_quiz_result_title">Tástáil críochnaithe</string>
+    <string name="learn_quiz_score">%1$d as %2$d ceart</string>
     <string name="learn_quiz_passed">Teastas tuillte!</string>
+    <string name="learn_quiz_failed">Teastaíonn gach freagra ceart don teastas. Athbhreithnigh na ceachtanna agus bain triail eile as.</string>
     <string name="learn_quiz_review">Athbhreithnigh freagraí</string>
     <string name="learn_quiz_hide_review">Folaigh freagraí</string>
     <string name="learn_quiz_your_answer">Do fhreagra: %1$s</string>
@@ -882,6 +885,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_certificate_intro">Deimhníonn sé seo toradh pas in</string>
     <string name="learn_certificate_earned">Tuillte %1$s</string>
     <string name="learn_certificate_view">Féach ar an teastas</string>
+    <string name="learn_certificate_awarded">Teastas tuillte</string>
 
     <string name="achievement_learn_first_certificate">Deimhnithe</string>
     <string name="achievement_learn_first_certificate_desc">Pas a fháil i d’chéad tástáil ábhair Foghlaim mata.</string>

@@ -808,7 +808,7 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">ریاضی بیاموز</string>
-    <string name="learn_section_subtitle">یک موضوع انتخاب کن، قدم‌به‌قدم پیش برو و بعد برای گواهی در آزمون شرکت کن.</string>
+    <string name="learn_section_subtitle">هنوز نسخهٔ آزمایشی است. موضوع‌های تازه و بهبودها در راه‌اند.</string>
     <string name="learn_section_certificates">%1$d / %2$d گواهی</string>
     <string name="learn_title">ریاضی بیاموز</string>
     <string name="learn_unit_progress">%1$d / %2$d گواهی</string>
@@ -852,9 +852,12 @@
     <string name="learn_take_test">در آزمون شرکت کن</string>
     <string name="learn_retake_test">آزمون را دوباره بده</string>
     <string name="learn_test_title">آزمون %1$s</string>
+    <string name="learn_test_intro">%1$d پرسش. برای گرفتن گواهی باید همهٔ پاسخ‌ها درست باشد.</string>
     <string name="learn_quiz_progress">پرسش %1$d از %2$d</string>
     <string name="learn_quiz_result_title">آزمون کامل شد</string>
+    <string name="learn_quiz_score">%1$d از %2$d درست</string>
     <string name="learn_quiz_passed">گواهی گرفتی!</string>
+    <string name="learn_quiz_failed">گواهی نیاز دارد همهٔ پاسخ‌ها درست باشد. درس‌ها را مرور کن و دوباره امتحان کن.</string>
     <string name="learn_quiz_review">دیدن پاسخ‌ها</string>
     <string name="learn_quiz_hide_review">پنهان کردن پاسخ‌ها</string>
     <string name="learn_quiz_your_answer">پاسخ تو: %1$s</string>
@@ -865,6 +868,7 @@
     <string name="learn_certificate_intro">بدین‌وسیله نتیجه قبولی در این موضوع تأیید می‌شود</string>
     <string name="learn_certificate_earned">دریافت‌شده %1$s</string>
     <string name="learn_certificate_view">دیدن گواهی</string>
+    <string name="learn_certificate_awarded">گواهی گرفتی</string>
 
     <string name="achievement_learn_first_certificate">دارای گواهی</string>
     <string name="achievement_learn_first_certificate_desc">نخستین آزمون موضوعی خود را در ریاضی بیاموز با موفقیت بگذران.</string>

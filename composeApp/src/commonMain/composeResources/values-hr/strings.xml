@@ -825,7 +825,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_iq_test_high_desc">Dosegni procijenjeni IQ 130 ili viši</string>
     <!-- Learn section -->
     <string name="learn_section_title">Uči matematiku</string>
-    <string name="learn_section_subtitle">Odaberi temu, prođi je korak po korak, a zatim riješi test za certifikat.</string>
+    <string name="learn_section_subtitle">Još u beta verziji. Nove teme i poboljšanja su na putu.</string>
     <string name="learn_section_certificates">%1$d / %2$d certifikata</string>
     <string name="learn_title">Uči matematiku</string>
     <string name="learn_unit_progress">%1$d / %2$d certifikata</string>
@@ -869,9 +869,12 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_take_test">Položi test</string>
     <string name="learn_retake_test">Ponovi test</string>
     <string name="learn_test_title">Test %1$s</string>
+    <string name="learn_test_intro">%1$d pitanja. Za certifikat svaki odgovor mora biti točan.</string>
     <string name="learn_quiz_progress">Pitanje %1$d od %2$d</string>
     <string name="learn_quiz_result_title">Test završen</string>
+    <string name="learn_quiz_score">%1$d od %2$d točno</string>
     <string name="learn_quiz_passed">Certifikat osvojen!</string>
+    <string name="learn_quiz_failed">Za certifikat svi odgovori moraju biti točni. Ponovi lekcije i pokušaj ponovno.</string>
     <string name="learn_quiz_review">Pregledaj odgovore</string>
     <string name="learn_quiz_hide_review">Sakrij odgovore</string>
     <string name="learn_quiz_your_answer">Tvoj odgovor: %1$s</string>
@@ -882,6 +885,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_certificate_intro">Ovim se potvrđuje uspješan rezultat u</string>
     <string name="learn_certificate_earned">Osvojeno %1$s</string>
     <string name="learn_certificate_view">Prikaži certifikat</string>
+    <string name="learn_certificate_awarded">Certifikat osvojen</string>
 
     <string name="achievement_learn_first_certificate">Ovjeren</string>
     <string name="achievement_learn_first_certificate_desc">Položi svoj prvi test teme u Uči matematiku.</string>

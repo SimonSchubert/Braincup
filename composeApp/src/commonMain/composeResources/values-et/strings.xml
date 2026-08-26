@@ -825,7 +825,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_iq_test_high_desc">Jõua hinnangulise IQ-ni 130 või rohkem</string>
     <!-- Learn section -->
     <string name="learn_section_title">Õpi matemaatikat</string>
-    <string name="learn_section_subtitle">Vali teema, tööta see samm-sammult läbi ja tee siis tunnistuse saamiseks test.</string>
+    <string name="learn_section_subtitle">Veel beetaversioonis. Uued teemad ja täiendused on tulekul.</string>
     <string name="learn_section_certificates">%1$d / %2$d tunnistust</string>
     <string name="learn_title">Õpi matemaatikat</string>
     <string name="learn_unit_progress">%1$d / %2$d tunnistust</string>
@@ -869,9 +869,12 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_take_test">Tee test</string>
     <string name="learn_retake_test">Tee test uuesti</string>
     <string name="learn_test_title">%1$s test</string>
+    <string name="learn_test_intro">%1$d küsimust. Tunnistuse saamiseks peab iga vastus õige olema.</string>
     <string name="learn_quiz_progress">Küsimus %1$d / %2$d</string>
     <string name="learn_quiz_result_title">Test valmis</string>
+    <string name="learn_quiz_score">%1$d / %2$d õigesti</string>
     <string name="learn_quiz_passed">Tunnistus teenitud!</string>
+    <string name="learn_quiz_failed">Tunnistuse jaoks peavad kõik vastused õiged olema. Vaata tunnid üle ja proovi uuesti.</string>
     <string name="learn_quiz_review">Vaata vastuseid</string>
     <string name="learn_quiz_hide_review">Peida vastused</string>
     <string name="learn_quiz_your_answer">Sinu vastus: %1$s</string>
@@ -882,6 +885,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_certificate_intro">See kinnitab sooritatud tulemuse aines</string>
     <string name="learn_certificate_earned">Teenitud %1$s</string>
     <string name="learn_certificate_view">Vaata tunnistust</string>
+    <string name="learn_certificate_awarded">Tunnistus teenitud</string>
 
     <string name="achievement_learn_first_certificate">Tunnustatud</string>
     <string name="achievement_learn_first_certificate_desc">Läbi oma esimene Õpi matemaatikat teema test.</string>

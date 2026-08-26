@@ -825,7 +825,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_iq_test_high_desc">Saavuta arvioitu IQ 130 tai enemmän</string>
     <!-- Learn section -->
     <string name="learn_section_title">Opi matematiikkaa</string>
-    <string name="learn_section_subtitle">Valitse aihe, käy se läpi vaihe vaiheelta ja tee sitten testi todistusta varten.</string>
+    <string name="learn_section_subtitle">Vielä beetavaiheessa. Uusia aiheita ja parannuksia on tulossa.</string>
     <string name="learn_section_certificates">%1$d / %2$d todistusta</string>
     <string name="learn_title">Opi matematiikkaa</string>
     <string name="learn_unit_progress">%1$d / %2$d todistusta</string>
@@ -869,9 +869,12 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_take_test">Tee testi</string>
     <string name="learn_retake_test">Tee testi uudelleen</string>
     <string name="learn_test_title">%1$s-testi</string>
+    <string name="learn_test_intro">%1$d kysymystä. Todistukseen tarvitaan jokainen vastaus oikein.</string>
     <string name="learn_quiz_progress">Kysymys %1$d / %2$d</string>
     <string name="learn_quiz_result_title">Testi valmis</string>
+    <string name="learn_quiz_score">%1$d / %2$d oikein</string>
     <string name="learn_quiz_passed">Todistus ansaittu!</string>
+    <string name="learn_quiz_failed">Todistus vaatii kaikki vastaukset oikein. Kertaa oppitunnit ja yritä uudelleen.</string>
     <string name="learn_quiz_review">Tarkista vastaukset</string>
     <string name="learn_quiz_hide_review">Piilota vastaukset</string>
     <string name="learn_quiz_your_answer">Vastauksesi: %1$s</string>
@@ -882,6 +885,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_certificate_intro">Tämä todistaa hyväksytyn tuloksen aiheessa</string>
     <string name="learn_certificate_earned">Ansaittu %1$s</string>
     <string name="learn_certificate_view">Näytä todistus</string>
+    <string name="learn_certificate_awarded">Todistus ansaittu</string>
 
     <string name="achievement_learn_first_certificate">Ensimmäinen diplomi</string>
     <string name="achievement_learn_first_certificate_desc">Läpäise ensimmäinen Opi matematiikkaa -aiheen testi.</string>

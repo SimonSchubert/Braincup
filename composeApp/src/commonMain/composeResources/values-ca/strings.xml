@@ -825,7 +825,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_iq_test_high_desc">Arriba a un IQ estimat de 130 o més</string>
     <!-- Learn section -->
     <string name="learn_section_title">Aprèn matemàtiques</string>
-    <string name="learn_section_subtitle">Tria un tema, treballa'l pas a pas i després fes la prova per obtenir el certificat.</string>
+    <string name="learn_section_subtitle">Encara en fase beta. Aviat hi haurà temes nous i millores.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificats</string>
     <string name="learn_title">Aprèn matemàtiques</string>
     <string name="learn_unit_progress">%1$d / %2$d certificats</string>
@@ -869,9 +869,12 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_take_test">Fes el test</string>
     <string name="learn_retake_test">Torna a fer el test</string>
     <string name="learn_test_title">Test de %1$s</string>
+    <string name="learn_test_intro">%1$d preguntes. Totes les respostes han de ser correctes per aconseguir el certificat.</string>
     <string name="learn_quiz_progress">Pregunta %1$d de %2$d</string>
     <string name="learn_quiz_result_title">Test completat</string>
+    <string name="learn_quiz_score">%1$d de %2$d correctes</string>
     <string name="learn_quiz_passed">Certificat aconseguit!</string>
+    <string name="learn_quiz_failed">Per al certificat cal encertar-ho tot. Repassa les lliçons i torna-ho a provar.</string>
     <string name="learn_quiz_review">Revisa les respostes</string>
     <string name="learn_quiz_hide_review">Amaga les respostes</string>
     <string name="learn_quiz_your_answer">La teva resposta: %1$s</string>
@@ -882,6 +885,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_certificate_intro">Això certifica un resultat aprovat a</string>
     <string name="learn_certificate_earned">Obtingut %1$s</string>
     <string name="learn_certificate_view">Mostra el certificat</string>
+    <string name="learn_certificate_awarded">Certificat aconseguit</string>
 
     <string name="achievement_learn_first_certificate">Acreditat</string>
     <string name="achievement_learn_first_certificate_desc">Aprova el teu primer test de tema d'Aprèn matemàtiques.</string>

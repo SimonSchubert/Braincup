@@ -825,7 +825,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_iq_test_high_desc">Dosiahni odhadované IQ 130 alebo vyššie</string>
     <!-- Learn section -->
     <string name="learn_section_title">Uč sa matematiku</string>
-    <string name="learn_section_subtitle">Vyber si tému, prejdi ju krok za krokom a potom si sprav test pre certifikát.</string>
+    <string name="learn_section_subtitle">Stále v beta verzii. Nové témy a vylepšenia sú na ceste.</string>
     <string name="learn_section_certificates">%1$d / %2$d certifikátov</string>
     <string name="learn_title">Uč sa matematiku</string>
     <string name="learn_unit_progress">%1$d / %2$d certifikátov</string>
@@ -869,9 +869,12 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="learn_take_test">Zložiť test</string>
     <string name="learn_retake_test">Zopakovať test</string>
     <string name="learn_test_title">Test %1$s</string>
+    <string name="learn_test_intro">%1$d otázok. Na získanie certifikátu musí byť správne každá odpoveď.</string>
     <string name="learn_quiz_progress">Otázka %1$d z %2$d</string>
     <string name="learn_quiz_result_title">Test dokončený</string>
+    <string name="learn_quiz_score">%1$d z %2$d správne</string>
     <string name="learn_quiz_passed">Certifikát získaný!</string>
+    <string name="learn_quiz_failed">Certifikát vyžaduje všetky odpovede správne. Prejdi si lekcie a skús to znova.</string>
     <string name="learn_quiz_review">Skontrolovať odpovede</string>
     <string name="learn_quiz_hide_review">Skryť odpovede</string>
     <string name="learn_quiz_your_answer">Tvoja odpoveď: %1$s</string>
@@ -882,6 +885,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="learn_certificate_intro">Týmto sa osvedčuje úspešný výsledok v</string>
     <string name="learn_certificate_earned">Získané %1$s</string>
     <string name="learn_certificate_view">Zobraziť certifikát</string>
+    <string name="learn_certificate_awarded">Certifikát získaný</string>
 
     <string name="achievement_learn_first_certificate">Osvedčený</string>
     <string name="achievement_learn_first_certificate_desc">Zlož svoj prvý test témy v Uč sa matematiku.</string>

@@ -807,7 +807,7 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">수학 배우기</string>
-    <string name="learn_section_subtitle">주제를 고르고 차근차근 학습한 다음, 시험을 보고 수료증을 받으세요.</string>
+    <string name="learn_section_subtitle">아직 베타입니다. 새 주제와 개선이 준비 중이에요.</string>
     <string name="learn_section_certificates">수료증 %1$d / %2$d</string>
     <string name="learn_title">수학 배우기</string>
     <string name="learn_unit_progress">수료증 %1$d / %2$d</string>
@@ -851,9 +851,12 @@
     <string name="learn_take_test">시험 보기</string>
     <string name="learn_retake_test">시험 다시 보기</string>
     <string name="learn_test_title">%1$s 시험</string>
+    <string name="learn_test_intro">%1$d문항. 모두 맞혀야 수료증을 받을 수 있어요.</string>
     <string name="learn_quiz_progress">%2$d문항 중 %1$d번</string>
     <string name="learn_quiz_result_title">시험 완료</string>
+    <string name="learn_quiz_score">%2$d개 중 %1$d개 정답</string>
     <string name="learn_quiz_passed">수료증 획득!</string>
+    <string name="learn_quiz_failed">수료증은 전 문항 정답이 필요해요. 수업을 다시 보고 도전해 보세요.</string>
     <string name="learn_quiz_review">답 보기</string>
     <string name="learn_quiz_hide_review">답 숨기기</string>
     <string name="learn_quiz_your_answer">내 답: %1$s</string>
@@ -864,6 +867,7 @@
     <string name="learn_certificate_intro">다음 주제를 통과했음을 증명합니다</string>
     <string name="learn_certificate_earned">취득일 %1$s</string>
     <string name="learn_certificate_view">수료증 보기</string>
+    <string name="learn_certificate_awarded">수료증 획득</string>
 
     <string name="achievement_learn_first_certificate">수료</string>
     <string name="achievement_learn_first_certificate_desc">수학 배우기에서 첫 주제 시험에 합격하세요.</string>

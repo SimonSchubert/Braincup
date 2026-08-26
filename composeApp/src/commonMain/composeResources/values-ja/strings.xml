@@ -807,7 +807,7 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">算数・数学を学ぶ</string>
-    <string name="learn_section_subtitle">トピックを選び、順に進めてから、テストを受けて修了証を手に入れましょう。</string>
+    <string name="learn_section_subtitle">まだベータ版です。新しいトピックや改善を準備中です。</string>
     <string name="learn_section_certificates">修了証 %1$d / %2$d</string>
     <string name="learn_title">算数・数学を学ぶ</string>
     <string name="learn_unit_progress">修了証 %1$d / %2$d</string>
@@ -851,9 +851,12 @@
     <string name="learn_take_test">テストを受ける</string>
     <string name="learn_retake_test">テストを受け直す</string>
     <string name="learn_test_title">%1$s のテスト</string>
+    <string name="learn_test_intro">%1$d 問。すべて正解すると修了証がもらえます。</string>
     <string name="learn_quiz_progress">問題 %1$d / %2$d</string>
     <string name="learn_quiz_result_title">テスト終了</string>
+    <string name="learn_quiz_score">%2$d 問中 %1$d 問正解</string>
     <string name="learn_quiz_passed">修了証を獲得！</string>
+    <string name="learn_quiz_failed">修了証には全問正解が必要です。レッスンを見直してもう一度挑戦しましょう。</string>
     <string name="learn_quiz_review">答えを見る</string>
     <string name="learn_quiz_hide_review">答えを隠す</string>
     <string name="learn_quiz_your_answer">あなたの答え: %1$s</string>
@@ -864,6 +867,7 @@
     <string name="learn_certificate_intro">次のトピックに合格したことを証明します</string>
     <string name="learn_certificate_earned">取得日 %1$s</string>
     <string name="learn_certificate_view">修了証を見る</string>
+    <string name="learn_certificate_awarded">修了証を獲得</string>
 
     <string name="achievement_learn_first_certificate">認定</string>
     <string name="achievement_learn_first_certificate_desc">「算数・数学を学ぶ」で最初のトピックテストに合格する</string>

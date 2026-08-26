@@ -825,7 +825,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_iq_test_high_desc">Nå en anslået IQ på 130 eller højere</string>
     <!-- Learn section -->
     <string name="learn_section_title">Lær matematik</string>
-    <string name="learn_section_subtitle">Vælg et emne, arbejd dig igennem det trin for trin, og tag så testen for et bevis.</string>
+    <string name="learn_section_subtitle">Stadig i beta. Nye emner og forbedringer er på vej.</string>
     <string name="learn_section_certificates">%1$d / %2$d beviser</string>
     <string name="learn_title">Lær matematik</string>
     <string name="learn_unit_progress">%1$d / %2$d beviser</string>
@@ -869,9 +869,12 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="learn_take_test">Tag testen</string>
     <string name="learn_retake_test">Tag testen igen</string>
     <string name="learn_test_title">%1$s-test</string>
+    <string name="learn_test_intro">%1$d spørgsmål. Alle svar skal være rigtige for at få dit bevis.</string>
     <string name="learn_quiz_progress">Spørgsmål %1$d af %2$d</string>
     <string name="learn_quiz_result_title">Test færdig</string>
+    <string name="learn_quiz_score">%1$d af %2$d rigtige</string>
     <string name="learn_quiz_passed">Bevis optjent!</string>
+    <string name="learn_quiz_failed">Et bevis kræver, at alle svar er rigtige. Gennemgå lektionerne, og prøv igen.</string>
     <string name="learn_quiz_review">Gennemgå svar</string>
     <string name="learn_quiz_hide_review">Skjul svar</string>
     <string name="learn_quiz_your_answer">Dit svar: %1$s</string>
@@ -882,6 +885,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="learn_certificate_intro">Dette bekræfter et bestået resultat i</string>
     <string name="learn_certificate_earned">Optjent %1$s</string>
     <string name="learn_certificate_view">Se bevis</string>
+    <string name="learn_certificate_awarded">Bevis optjent</string>
 
     <string name="achievement_learn_first_certificate">Første diplom</string>
     <string name="achievement_learn_first_certificate_desc">Bestå din første emnetest i Lær matematik.</string>

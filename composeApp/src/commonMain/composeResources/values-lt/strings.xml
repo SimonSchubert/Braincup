@@ -825,7 +825,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_iq_test_high_desc">Pasiek įvertintą IQ 130 ar daugiau</string>
     <!-- Learn section -->
     <string name="learn_section_title">Mokykis matematikos</string>
-    <string name="learn_section_subtitle">Pasirink temą, eik per ją žingsnis po žingsnio, tada laikyk testą sertifikatui gauti.</string>
+    <string name="learn_section_subtitle">Vis dar beta versija. Netrukus laukite naujų temų ir patobulinimų.</string>
     <string name="learn_section_certificates">%1$d / %2$d sertifikatų</string>
     <string name="learn_title">Mokykis matematikos</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifikatų</string>
@@ -869,9 +869,12 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_take_test">Laikyti testą</string>
     <string name="learn_retake_test">Kartoti testą</string>
     <string name="learn_test_title">Testas %1$s</string>
+    <string name="learn_test_intro">%1$d klausimai. Kad gautum sertifikatą, visi atsakymai turi būti teisingi.</string>
     <string name="learn_quiz_progress">Klausimas %1$d iš %2$d</string>
     <string name="learn_quiz_result_title">Testas baigtas</string>
+    <string name="learn_quiz_score">%1$d iš %2$d teisingai</string>
     <string name="learn_quiz_passed">Sertifikatas gautas!</string>
+    <string name="learn_quiz_failed">Sertifikatui reikia visų teisingų atsakymų. Peržiūrėk pamokas ir bandyk vėl.</string>
     <string name="learn_quiz_review">Peržiūrėti atsakymus</string>
     <string name="learn_quiz_hide_review">Slėpti atsakymus</string>
     <string name="learn_quiz_your_answer">Tavo atsakymas: %1$s</string>
@@ -882,6 +885,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_certificate_intro">Šiuo patvirtinamas sėkmingas rezultatas</string>
     <string name="learn_certificate_earned">Gauta %1$s</string>
     <string name="learn_certificate_view">Žiūrėti sertifikatą</string>
+    <string name="learn_certificate_awarded">Sertifikatas gautas</string>
 
     <string name="achievement_learn_first_certificate">Patvirtintas</string>
     <string name="achievement_learn_first_certificate_desc">Išlaikyk pirmąjį temos testą Mokykis matematikos.</string>

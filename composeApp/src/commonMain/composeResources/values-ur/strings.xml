@@ -823,7 +823,7 @@
     <string name="achievement_iq_test_high_desc">تخمینی آئی کیو 130 یا اس سے زیادہ حاصل کریں</string>
     <!-- Learn section -->
     <string name="learn_section_title">ریاضی سیکھیں</string>
-    <string name="learn_section_subtitle">ایک موضوع چنیں، اسے قدم بہ قدم مکمل کریں، پھر سرٹیفکیٹ کے لیے ٹیسٹ دیں۔</string>
+    <string name="learn_section_subtitle">ابھی بیٹا مرحلے میں ہے۔ نئے موضوعات اور بہتریاں آ رہی ہیں۔</string>
     <string name="learn_section_certificates">%1$d / %2$d سرٹیفکیٹ</string>
     <string name="learn_title">ریاضی سیکھیں</string>
     <string name="learn_unit_progress">%1$d / %2$d سرٹیفکیٹ</string>
@@ -867,9 +867,12 @@
     <string name="learn_take_test">ٹیسٹ دیں</string>
     <string name="learn_retake_test">ٹیسٹ دوبارہ دیں</string>
     <string name="learn_test_title">%1$s ٹیسٹ</string>
+    <string name="learn_test_intro">%1$d سوالات۔ سرٹیفکیٹ کے لیے ہر جواب درست ہونا چاہیے۔</string>
     <string name="learn_quiz_progress">سوال %1$d از %2$d</string>
     <string name="learn_quiz_result_title">ٹیسٹ مکمل</string>
+    <string name="learn_quiz_score">%2$d میں سے %1$d درست</string>
     <string name="learn_quiz_passed">سرٹیفکیٹ مل گیا!</string>
+    <string name="learn_quiz_failed">سرٹیفکیٹ کے لیے تمام جواب درست ہونے چاہئیں۔ اسباق دہرائیں اور دوبارہ کوشش کریں۔</string>
     <string name="learn_quiz_review">جواب دیکھیں</string>
     <string name="learn_quiz_hide_review">جواب چھپائیں</string>
     <string name="learn_quiz_your_answer">آپ کا جواب: %1$s</string>
@@ -880,6 +883,7 @@
     <string name="learn_certificate_intro">یہ اس میں کامیاب نتیجے کی تصدیق کرتا ہے</string>
     <string name="learn_certificate_earned">حاصل %1$s</string>
     <string name="learn_certificate_view">سرٹیفکیٹ دیکھیں</string>
+    <string name="learn_certificate_awarded">سرٹیفکیٹ مل گیا</string>
 
     <string name="achievement_learn_first_certificate">تصدیق شدہ</string>
     <string name="achievement_learn_first_certificate_desc">ریاضی سیکھیں کا پہلا موضوع ٹیسٹ پاس کریں۔</string>

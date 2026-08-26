@@ -808,7 +808,7 @@
 
     <!-- Learn section -->
     <string name="learn_section_title">Mathe lernen</string>
-    <string name="learn_section_subtitle">Wähle ein Thema, arbeite es Schritt für Schritt durch und mach dann den Test für dein Zertifikat.</string>
+    <string name="learn_section_subtitle">Noch in der Beta. Neue Themen und Verbesserungen sind unterwegs.</string>
     <string name="learn_section_certificates">%1$d / %2$d Zertifikate</string>
     <string name="learn_title">Mathe lernen</string>
     <string name="learn_unit_progress">%1$d / %2$d Zertifikate</string>
@@ -852,9 +852,12 @@
     <string name="learn_take_test">Test machen</string>
     <string name="learn_retake_test">Test wiederholen</string>
     <string name="learn_test_title">%1$s-Test</string>
+    <string name="learn_test_intro">%1$d Fragen. Für das Zertifikat muss jede Antwort richtig sein.</string>
     <string name="learn_quiz_progress">Frage %1$d von %2$d</string>
     <string name="learn_quiz_result_title">Test abgeschlossen</string>
+    <string name="learn_quiz_score">%1$d von %2$d richtig</string>
     <string name="learn_quiz_passed">Zertifikat erhalten!</string>
+    <string name="learn_quiz_failed">Für ein Zertifikat müssen alle Antworten richtig sein. Schau dir die Lektionen noch einmal an und versuch es erneut.</string>
     <string name="learn_quiz_review">Antworten ansehen</string>
     <string name="learn_quiz_hide_review">Antworten ausblenden</string>
     <string name="learn_quiz_your_answer">Deine Antwort: %1$s</string>
@@ -865,6 +868,7 @@
     <string name="learn_certificate_intro">Hiermit wird ein bestandenes Ergebnis bescheinigt in</string>
     <string name="learn_certificate_earned">Erhalten am %1$s</string>
     <string name="learn_certificate_view">Zertifikat ansehen</string>
+    <string name="learn_certificate_awarded">Zertifikat erhalten</string>
 
     <string name="achievement_learn_first_certificate">Zertifiziert</string>
     <string name="achievement_learn_first_certificate_desc">Bestehe deinen ersten Themen-Test in Mathe lernen.</string>

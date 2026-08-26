@@ -823,7 +823,7 @@
     <string name="achievement_iq_test_high_desc">Capai IQ anggaran 130 atau lebih tinggi</string>
     <!-- Learn section -->
     <string name="learn_section_title">Belajar Matematik</string>
-    <string name="learn_section_subtitle">Pilih topik, kerjakannya langkah demi langkah, kemudian ambil ujian untuk sijil.</string>
+    <string name="learn_section_subtitle">Masih versi beta. Topik baharu dan penambahbaikan akan menyusul.</string>
     <string name="learn_section_certificates">%1$d / %2$d sijil</string>
     <string name="learn_title">Belajar Matematik</string>
     <string name="learn_unit_progress">%1$d / %2$d sijil</string>
@@ -867,9 +867,12 @@
     <string name="learn_take_test">Ambil ujian</string>
     <string name="learn_retake_test">Ambil semula ujian</string>
     <string name="learn_test_title">Ujian %1$s</string>
+    <string name="learn_test_intro">%1$d soalan. Semua jawapan mesti betul untuk meraih sijil.</string>
     <string name="learn_quiz_progress">Soalan %1$d daripada %2$d</string>
     <string name="learn_quiz_result_title">Ujian selesai</string>
+    <string name="learn_quiz_score">%1$d daripada %2$d betul</string>
     <string name="learn_quiz_passed">Sijil diraih!</string>
+    <string name="learn_quiz_failed">Sijil memerlukan semua jawapan betul. Ulang kaji pelajaran dan cuba semula.</string>
     <string name="learn_quiz_review">Semak jawapan</string>
     <string name="learn_quiz_hide_review">Sembunyi jawapan</string>
     <string name="learn_quiz_your_answer">Jawapan anda: %1$s</string>
@@ -880,6 +883,7 @@
     <string name="learn_certificate_intro">Ini mengesahkan keputusan lulus dalam</string>
     <string name="learn_certificate_earned">Diraih %1$s</string>
     <string name="learn_certificate_view">Lihat sijil</string>
+    <string name="learn_certificate_awarded">Sijil diraih</string>
 
     <string name="achievement_learn_first_certificate">Disijilkan</string>
     <string name="achievement_learn_first_certificate_desc">Lulus ujian topik Belajar Matematik yang pertama.</string>

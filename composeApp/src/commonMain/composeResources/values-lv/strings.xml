@@ -825,7 +825,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_iq_test_high_desc">Sasniedz novērtēto IQ 130 vai vairāk</string>
     <!-- Learn section -->
     <string name="learn_section_title">Mācies matemātiku</string>
-    <string name="learn_section_subtitle">Izvēlies tēmu, izej to soli pa solim un tad kārto testu, lai iegūtu sertifikātu.</string>
+    <string name="learn_section_subtitle">Vēl beta versijā. Drīzumā jaunas tēmas un uzlabojumi.</string>
     <string name="learn_section_certificates">%1$d / %2$d sertifikāti</string>
     <string name="learn_title">Mācies matemātiku</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifikāti</string>
@@ -869,9 +869,12 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_take_test">Kārtot testu</string>
     <string name="learn_retake_test">Kārtot vēlreiz</string>
     <string name="learn_test_title">Tests %1$s</string>
+    <string name="learn_test_intro">%1$d jautājumi. Lai iegūtu sertifikātu, katrai atbildei jābūt pareizai.</string>
     <string name="learn_quiz_progress">Jautājums %1$d no %2$d</string>
     <string name="learn_quiz_result_title">Tests pabeigts</string>
+    <string name="learn_quiz_score">%1$d no %2$d pareizi</string>
     <string name="learn_quiz_passed">Sertifikāts iegūts!</string>
+    <string name="learn_quiz_failed">Sertifikātam vajag visas pareizās atbildes. Pārskati stundas un mēģini vēlreiz.</string>
     <string name="learn_quiz_review">Pārskatīt atbildes</string>
     <string name="learn_quiz_hide_review">Slēpt atbildes</string>
     <string name="learn_quiz_your_answer">Tava atbilde: %1$s</string>
@@ -882,6 +885,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_certificate_intro">Ar šo tiek apliecināts sekmīgs rezultāts</string>
     <string name="learn_certificate_earned">Iegūts %1$s</string>
     <string name="learn_certificate_view">Skatīt sertifikātu</string>
+    <string name="learn_certificate_awarded">Sertifikāts iegūts</string>
 
     <string name="achievement_learn_first_certificate">Apliecināts</string>
     <string name="achievement_learn_first_certificate_desc">Nokārto savu pirmo tēmas testu Mācies matemātiku.</string>

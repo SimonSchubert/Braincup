@@ -823,7 +823,7 @@
     <string name="achievement_iq_test_high_desc">Umabot ng tinatayang IQ na 130 o mas mataas</string>
     <!-- Learn section -->
     <string name="learn_section_title">Matuto ng Math</string>
-    <string name="learn_section_subtitle">Pumili ng topic, dumaan dito nang paisa-isa, tapos kunin ang test para sa certificate.</string>
+    <string name="learn_section_subtitle">Beta pa ito. May mga bagong paksa at pagpapabuti na paparating.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificate</string>
     <string name="learn_title">Matuto ng Math</string>
     <string name="learn_unit_progress">%1$d / %2$d certificate</string>
@@ -867,9 +867,12 @@
     <string name="learn_take_test">Kumuha ng test</string>
     <string name="learn_retake_test">Ulitin ang test</string>
     <string name="learn_test_title">Test sa %1$s</string>
+    <string name="learn_test_intro">%1$d na tanong. Kailangang tama lahat ng sagot para makuha ang certificate.</string>
     <string name="learn_quiz_progress">Tanong %1$d sa %2$d</string>
     <string name="learn_quiz_result_title">Tapos na ang test</string>
+    <string name="learn_quiz_score">%1$d sa %2$d ang tama</string>
     <string name="learn_quiz_passed">Nakuha ang certificate!</string>
+    <string name="learn_quiz_failed">Kailangang tama lahat ng sagot para sa certificate. Balikan ang mga aralin at subukan muli.</string>
     <string name="learn_quiz_review">Suriin ang mga sagot</string>
     <string name="learn_quiz_hide_review">Itago ang mga sagot</string>
     <string name="learn_quiz_your_answer">Sagot mo: %1$s</string>
@@ -880,6 +883,7 @@
     <string name="learn_certificate_intro">Pinatutunayan nito ang passing result sa</string>
     <string name="learn_certificate_earned">Nakuha noong %1$s</string>
     <string name="learn_certificate_view">Tingnan ang certificate</string>
+    <string name="learn_certificate_awarded">Nakuha ang certificate</string>
 
     <string name="achievement_learn_first_certificate">Sertipikado</string>
     <string name="achievement_learn_first_certificate_desc">Pumasa sa unang test ng topic sa Matuto ng Math.</string>
