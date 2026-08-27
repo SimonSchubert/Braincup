@@ -23,7 +23,7 @@ navigationevent = "1.1.0"
 play-review = "2.0.2"
 play-games = "22.0.0"
 paparazzi = "2.0.0-alpha05"
-coil = "3.5.0"
+coil = "3.6.0"
 ktor = "3.5.2"
 
 [libraries]
