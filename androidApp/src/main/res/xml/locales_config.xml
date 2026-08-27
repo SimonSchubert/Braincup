@@ -34,6 +34,7 @@
     <locale android:name="mr" />
     <locale android:name="nb" />
     <locale android:name="nl" />
+    <locale android:name="pa" />
     <locale android:name="pl" />
     <locale android:name="pt" />
     <locale android:name="ro" />

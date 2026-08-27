@@ -7,6 +7,7 @@
 - Add Gujarati language support
 - Add Kannada language support
 - Add Malayalam language support
+- Add Punjabi language support
 
 ## v3.2.0 — 2026-08-27
 
