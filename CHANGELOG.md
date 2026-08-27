@@ -9,6 +9,7 @@
 - Add Malayalam language support
 - Add Punjabi language support
 - Add Play store listings for es-US, fr-CA, pt-PT and zh-HK
+- Add regional English Play store listings for en-AU, en-CA, en-GB, en-IN, en-SG and en-ZA
 
 ## v3.2.0 — 2026-08-27
 
