@@ -187,8 +187,14 @@ private val nonLatinDisplayLanguages =
         "ta", "te", "mr", "gu", "kn", "ml", "pa",
     )
 
+/**
+ * The brand display face every [appTypography] style is built on.
+ *
+ * Public because text drawn straight onto a Canvas has no [MaterialTheme] typography to inherit
+ * from and has to name its face itself.
+ */
 @Composable
-private fun displayFontFamily(): FontFamily = if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
+fun displayFontFamily(): FontFamily = if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
     FontFamily(Font(Res.font.tektur))
 } else {
     FontFamily(Font(Res.font.bungee))

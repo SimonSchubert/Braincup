@@ -66,9 +66,13 @@ internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
             stroke * 1.3f,
             dashed = true,
         )
-        label(
+        // Parked over the shortest bar and laid on the panel colour. A fixed fraction of the width
+        // put the reading straight on top of whichever bar happened to end near the mean, and its
+        // value label sits exactly in the band the mean line runs through.
+        val shortest = values.indices.minByOrNull { values[it] } ?: 0
+        chipLabel(
             text = "mean " + formatDecimal(mean.toDouble()),
-            center = Offset(width * 0.78f, y - height * 0.07f),
+            center = Offset(width * 0.08f + slot * shortest + slot / 2f, y - height * 0.09f),
             color = Accent2,
             factor = 0.09f,
             alpha = reveal,

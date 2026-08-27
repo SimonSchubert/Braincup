@@ -27,18 +27,25 @@ import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.text.AnnotatedString
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextMeasurer
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.drawText
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.TextUnit
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.phaseCount
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.displayFontFamily
+import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
 import kotlin.math.PI
 import kotlin.math.cos
@@ -75,6 +82,7 @@ fun LearnVisualCanvas(
     modifier: Modifier = Modifier,
     ink: Color = MaterialTheme.colorScheme.onSurfaceVariant,
     answer: VisualAnswer? = null,
+    paper: Color = MaterialTheme.colorScheme.surfaceVariant,
 ) {
     // Previews and screenshot tests never advance the clock, so an entrance that starts at zero
     // renders them as an empty panel. Under inspection the figure starts finished instead.
@@ -101,6 +109,9 @@ fun LearnVisualCanvas(
     val measurer = rememberTextMeasurer()
     val wrongColor = MaterialTheme.colorScheme.error
     val interactions = remember { MutableInteractionSource() }
+    // Resolved out here because both are @Composable and the draw block is not.
+    val numberFont = numberFontFamily()
+    val displayFont = displayFontFamily()
 
     Box(
         modifier = modifier
@@ -109,7 +120,18 @@ fun LearnVisualCanvas(
         contentAlignment = Alignment.Center,
     ) {
         Canvas(Modifier.fillMaxSize()) {
-            val scope = VisualScope(this, progress.value, ink, measurer, answer, wrongColor, phase)
+            val scope = VisualScope(
+                draw = this,
+                progress = progress.value,
+                ink = ink,
+                measurer = measurer,
+                numberFont = numberFont,
+                displayFont = displayFont,
+                paper = paper,
+                answer = answer,
+                wrongColor = wrongColor,
+                phase = phase,
+            )
             scope.draw(visual)
         }
     }
@@ -124,6 +146,12 @@ internal class VisualScope(
     val progress: Float,
     val ink: Color,
     val measurer: TextMeasurer,
+    /** The face notation takes: digits, operators, and the lone letters that stand for variables. */
+    val numberFont: FontFamily,
+    /** The face words take, so a caption matches the lesson prose printed under the figure. */
+    val displayFont: FontFamily,
+    /** The panel the figure is drawn on, for [chipLabel] to lay a caption over its own marks. */
+    val paper: Color,
     /** Null while the question is open, or on a step that asks nothing. */
     val answer: VisualAnswer? = null,
     val wrongColor: Color = Color.Red,
@@ -175,9 +203,61 @@ internal class VisualScope(
         color = color,
         fontSize = fontSize(factor),
         fontWeight = if (bold) FontWeight.Bold else FontWeight.Normal,
+        // Text drawn onto a Canvas inherits nothing from MaterialTheme, so without this every
+        // label falls back to the platform's own face. Words take the display face here; [annotate]
+        // spans the notation over to the number face.
+        fontFamily = displayFont,
     )
 
-    fun measure(text: String, style: TextStyle): TextLayoutResult = measurer.measure(text, style)
+    /**
+     * A label split so its notation reads in the number face and its words in the display face.
+     *
+     * Two or more letters together are a word, and a word stays on-brand: "4 SIDES, 4 CORNERS",
+     * "2 LINES OF SYMMETRY", "MEAN". Everything else is notation, lone variables included, so
+     * "x + 5" and "90 + 90 = 180" hold one face across the expression instead of changing it at
+     * every sign. This is the same split [com.inspiredandroid.braincup.ui.theme.annotateNumbers]
+     * makes for "Level 4", done here against explicit families because the canvas has none to
+     * inherit.
+     */
+    fun annotate(text: String): AnnotatedString {
+        val isWord = BooleanArray(text.length)
+        var i = 0
+        while (i < text.length) {
+            if (!text[i].isLetter()) {
+                i++
+                continue
+            }
+            val start = i
+            while (i < text.length && text[i].isLetter()) i++
+            if (i - start >= 2) for (j in start until i) isWord[j] = true
+        }
+        return buildAnnotatedString {
+            var from = 0
+            while (from < text.length) {
+                val word = isWord[from]
+                var to = from
+                while (to < text.length && isWord[to] == word) to++
+                val run = text.substring(from, to)
+                if (word) append(run) else withStyle(SpanStyle(fontFamily = numberFont)) { append(run) }
+                from = to
+            }
+        }
+    }
+
+    /**
+     * Lays [text] out exactly as [label] will draw it. The figures measure captions to place them,
+     * so this has to go through [annotate] too or the width they reserve stops matching the ink.
+     */
+    fun measure(text: String, style: TextStyle): TextLayoutResult = measurer.measure(annotate(text), style)
+
+    /**
+     * The left edge a label of [textWidth] should actually be drawn at, having asked for [x].
+     *
+     * A figure labels the thing it is pointing at, and the outermost of those - a ruler's last
+     * tick, a number line's last value - sits close enough to the edge that a centred label runs
+     * off the canvas and is clipped. Nudging it inside is always better than losing half of it.
+     */
+    private fun insideCanvas(x: Float, textWidth: Int): Float = x.coerceIn(0f, (width - textWidth).coerceAtLeast(0f))
 
     /** Draw [text] centred on [center], fading in with [alpha]. */
     fun label(
@@ -193,7 +273,10 @@ internal class VisualScope(
         val measured = measure(text, style)
         draw.drawText(
             measured,
-            topLeft = Offset(center.x - measured.size.width / 2f, center.y - measured.size.height / 2f),
+            topLeft = Offset(
+                insideCanvas(center.x - measured.size.width / 2f, measured.size.width),
+                center.y - measured.size.height / 2f,
+            ),
         )
     }
 
@@ -209,7 +292,39 @@ internal class VisualScope(
         if (alpha <= 0.01f || text.isEmpty()) return
         val style = labelStyle(color.copy(alpha = color.alpha * alpha), factor, bold)
         val measured = measure(text, style)
-        draw.drawText(measured, topLeft = Offset(start.x, start.y - measured.size.height / 2f))
+        draw.drawText(
+            measured,
+            topLeft = Offset(insideCanvas(start.x, measured.size.width), start.y - measured.size.height / 2f),
+        )
+    }
+
+    /**
+     * Draw [text] centred on [center], on a patch of the panel's own colour.
+     *
+     * For the annotations that are anchored to the figure's geometry rather than placed in clear
+     * space - a mean line's reading, a root sitting on an axis, a plotted point's name - where the
+     * thing they name is exactly what they would otherwise be drawn on top of.
+     */
+    fun chipLabel(
+        text: String,
+        center: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        bold: Boolean = true,
+    ) {
+        if (alpha <= 0.01f || text.isEmpty()) return
+        val measured = measure(text, labelStyle(color, factor, bold))
+        val padding = measured.size.height * 0.16f
+        val left = insideCanvas(center.x - measured.size.width / 2f, measured.size.width)
+        box(
+            topLeft = Offset(left - padding, center.y - measured.size.height / 2f - padding),
+            size = Size(measured.size.width + padding * 2f, measured.size.height + padding * 2f),
+            fill = paper,
+            outline = null,
+            alpha = alpha,
+        )
+        label(text, center, color, factor, alpha, bold)
     }
 
     fun line(

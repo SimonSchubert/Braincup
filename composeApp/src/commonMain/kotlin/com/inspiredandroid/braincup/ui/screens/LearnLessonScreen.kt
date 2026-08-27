@@ -354,7 +354,10 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
         ) {
             LessonText(
                 text = line,
-                style = MaterialTheme.typography.bodyMedium,
+                // The same measure a Concept step's prose reads at. A worked line is teaching text
+                // doing the same job, and the display face is heavy enough that a step down in
+                // size reads as a footnote rather than as the explanation.
+                style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.fillMaxWidth().padding(12.dp),
             )
@@ -440,12 +443,10 @@ private fun QuestionHeading(formula: String?, question: String, solved: String? 
         }
         LessonText(
             text = question,
-            // With a formula above it the prose is a supporting line; without one it is the question.
-            style = if (formula == null) {
-                MaterialTheme.typography.titleMedium
-            } else {
-                MaterialTheme.typography.bodyMedium
-            },
+            // With a formula above it the prose is a supporting line; without one it is the
+            // question. Both read at one measure and it is the colour that demotes the supporting
+            // one, because shrinking the display face as well left it too small to read comfortably.
+            style = MaterialTheme.typography.titleMedium,
             color = if (formula == null) {
                 MaterialTheme.colorScheme.onSurface
             } else {
@@ -543,7 +544,7 @@ private fun FeedbackCard(explanation: String) {
             Spacer(Modifier.height(4.dp))
             LessonText(
                 text = explanation,
-                style = MaterialTheme.typography.bodyMedium,
+                style = MaterialTheme.typography.bodyLarge,
                 color = OnPrimaryContainer,
             )
         }

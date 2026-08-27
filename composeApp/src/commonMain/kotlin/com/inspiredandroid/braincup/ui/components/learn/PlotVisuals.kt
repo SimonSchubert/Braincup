@@ -122,7 +122,7 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
                     .filter { it in X_MIN..X_MAX }
                     .forEach { root ->
                         dot(Offset(px(root), py(0f)), stroke * 2f, Accent2, alpha = revealBeat)
-                        label(
+                        chipLabel(
                             text = formatDecimal(root.toDouble()),
                             center = Offset(px(root), py(0f) + height * 0.08f),
                             color = Accent2,
@@ -142,7 +142,7 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
             val vy = quadratic.a * vx * vx + quadratic.b * vx + quadratic.c
             if (vx in X_MIN..X_MAX && vy in Y_MIN..Y_MAX) {
                 dot(Offset(px(vx), py(vy)), stroke * 2f, Accent2, alpha = revealBeat)
-                label(
+                chipLabel(
                     text = "(${formatDecimal(vx.toDouble())}, ${formatDecimal(vy.toDouble())})",
                     center = Offset(px(vx), py(vy) + height * 0.09f),
                     color = Accent2,
@@ -157,7 +157,7 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
         val alpha = revealBeat
         dot(Offset(px(point.x), py(point.y)), stroke * 2f, Accent2, alpha = alpha)
         point.label?.let {
-            label(it, Offset(px(point.x), py(point.y) - height * 0.08f), Accent2, 0.085f, alpha = alpha)
+            chipLabel(it, Offset(px(point.x), py(point.y) - height * 0.08f), Accent2, 0.085f, alpha = alpha)
         }
     }
 }
