@@ -130,6 +130,9 @@ private val SquarePoints = regularPolygonPoints(sides = 4)
 private val PentagonPoints = regularPolygonPoints(sides = 5)
 private val HexagonPoints = regularPolygonPoints(sides = 6)
 
+/** The shapes the badge holds, in the order they read best across the hexagon's wide middle. */
+private val BadgeShapes = listOf(TrianglePoints, SquarePoints, PentagonPoints)
+
 @Composable
 private fun PentagonPreview() {
     PreviewBox {
@@ -142,35 +145,43 @@ private fun PentagonPreview() {
 }
 
 /**
- * The badge on the shape guide row: four shapes in a block.
+ * The shape guide badge: a hexagon holding three of the shapes it names.
  *
- * One shape would read as one more sub-topic. The row's whole claim is that it holds all of them,
- * so the badge shows a handful rather than picking a favourite.
+ * A hexagon rather than the square slot the rungs wear, because the guide is not a rung and must
+ * not be taken for one at a glance. It is also the one badge in the section that may as well be
+ * shaped like what it opens.
  */
 @Composable
-internal fun ShapeGuideRowPreview(modifier: Modifier = Modifier) {
-    Column(
-        modifier = modifier.padding(9.dp),
-        verticalArrangement = Arrangement.spacedBy(3.dp),
-    ) {
-        listOf(TrianglePoints to SquarePoints, PentagonPoints to HexagonPoints).forEach { (left, right) ->
+internal fun ShapeGuideBadge(modifier: Modifier = Modifier) {
+    Box(modifier = modifier, contentAlignment = Alignment.Center) {
+        PrismPolygon(
+            points = HexagonPoints,
+            face = Primary,
+            // Flat top: a hexagon standing on a point reads as a diamond at badge size.
+            rotationDegrees = 30f,
+            modifier = Modifier.fillMaxSize(),
+        )
+        // The prism's lit face sits up and left of the box by half its extrusion, so the shapes
+        // are nudged the same way; centred on the box they look like they have slipped.
+        Box(
+            modifier = Modifier.fillMaxSize().padding(end = 5.dp, bottom = 5.dp),
+            contentAlignment = Alignment.Center,
+        ) {
             Row(
-                modifier = Modifier.weight(1f).fillMaxWidth(),
-                horizontalArrangement = Arrangement.spacedBy(3.dp),
+                modifier = Modifier.fillMaxWidth(0.66f),
+                horizontalArrangement = Arrangement.spacedBy(4.dp),
+                verticalAlignment = Alignment.CenterVertically,
             ) {
-                PrismPolygon(
-                    points = left,
-                    face = Primary,
-                    modifier = Modifier.weight(1f).fillMaxHeight(),
-                )
-                PrismPolygon(
-                    points = right,
-                    face = Primary,
-                    // Upright rather than on a point: a diamond beside a triangle reads as a
-                    // second odd shape instead of as the square everyone knows.
-                    rotationDegrees = if (right === SquarePoints) 45f else 0f,
-                    modifier = Modifier.weight(1f).fillMaxHeight(),
-                )
+                BadgeShapes.forEach { shape ->
+                    PrismPolygon(
+                        points = shape,
+                        face = Color.White,
+                        // Upright rather than on a point: a diamond beside a triangle reads as a
+                        // second odd shape instead of as the square everyone knows.
+                        rotationDegrees = if (shape === SquarePoints) 45f else 0f,
+                        modifier = Modifier.weight(1f).aspectRatio(1f),
+                    )
+                }
             }
         }
     }

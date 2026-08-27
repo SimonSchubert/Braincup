@@ -19,7 +19,7 @@ import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.LearnShapeGuideRow
+import com.inspiredandroid.braincup.ui.components.LearnShapeGuideButton
 import com.inspiredandroid.braincup.ui.components.LearnSubTopicRow
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -98,16 +98,12 @@ fun LearnTopicScreenContent(
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth(),
                     )
-                }
-            }
-
-            // Geometry alone: the guide is a chart of shapes, and no other topic has one to show.
-            if (topic == MathTopic.GEOMETRY) {
-                item(key = "shape_guide", contentType = "learn_shape_guide") {
-                    LearnShapeGuideRow(
-                        accentColor = topic.accentColor,
-                        onClick = onShapeGuide,
-                    )
+                    // Geometry alone: the guide is a chart of shapes, and no other topic has one
+                    // to show. It sits in the header rather than among the rows because it is not
+                    // a rung: nothing is taught by it and no certificate comes out of it.
+                    if (topic == MathTopic.GEOMETRY) {
+                        LearnShapeGuideButton(onClick = onShapeGuide)
+                    }
                 }
             }
 
