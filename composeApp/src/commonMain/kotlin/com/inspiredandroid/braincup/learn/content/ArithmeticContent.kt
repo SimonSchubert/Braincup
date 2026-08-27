@@ -150,7 +150,7 @@ internal object ArithmeticContent {
                         question = "How many rods of ten are here?",
                         options = listOf("6", "8", "60", "68"),
                         correctIndex = 0,
-                        explanation = "The question counts the rods, not what they are worth: six rods, worth 60.",
+                        explanation = "The question counts the rods, not what they are worth: {a:six} rods, worth {a:60}.",
                         visual = PlaceValue(tens = 6, ones = 8, reveal = false),
                     ),
                     Worked(
@@ -167,18 +167,18 @@ internal object ArithmeticContent {
                         question = "What number is built here?",
                         options = listOf("6", "24", "42", "62"),
                         correctIndex = 2,
-                        explanation = "4 rods is 40, and 2 loose ones make 42.",
+                        explanation = "{a:4} rods is {a:40}, and {b:2} loose ones make 42.",
                         visual = PlaceValue(tens = 4, ones = 2, reveal = false),
                     ),
                     Concept(
-                        body = "Compare the rods first. Seven rods beat four, so the ones never get a say.",
+                        body = "Compare the rods first. {a:Seven} rods beat {b:four}, so the ones never get a say.",
                         visual = PlaceValue(tens = 7, ones = 4, compare = 4 to 7),
                     ),
                     Choice(
                         question = "Both have the same rods, so the loose ones decide. Which is larger?",
                         options = listOf("63", "68", "They are equal", "You cannot tell"),
                         correctIndex = 1,
-                        explanation = "The rods tie at six each, so the loose ones decide it, and 8 beats 3.",
+                        explanation = "The rods tie at six each, so the loose ones decide it, and {b:8} beats {a:3}.",
                         visual = PlaceValue(tens = 6, ones = 3, compare = 6 to 8, reveal = false),
                     ),
                 ),
@@ -220,7 +220,7 @@ internal object ArithmeticContent {
                 visual = PlaceValue(tens = 5, ones = 3, reveal = false),
             ),
             QuizQuestion(
-                prompt = "Which number is smaller, 62 or 26?",
+                prompt = "Which number is smaller, {a:62} or {b:26}?",
                 options = listOf("62", "26", "They are equal", "You cannot tell"),
                 correctIndex = 1,
                 explanation = "26 has two rods against six, so it is the smaller whatever its loose ones do.",
@@ -255,11 +255,11 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Turn the array on its side and not one dot is lost, so every fact you learn hands you a second one free.",
-                        formula = "4 x {b:6} = 6 x {b:4}",
+                        formula = "{a:6} x {b:4} = {b:4} x {a:6}",
                         visual = ArrayDots(rows = 6, cols = 4),
                     ),
                     Choice(
-                        question = "Seven rows, three dots in each.",
+                        question = "{a:Seven} rows, {b:three} dots in each.",
                         formula = "7 x {b:3} = ?",
                         options = listOf("18", "21", "24", "27"),
                         correctIndex = 1,
@@ -273,14 +273,14 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Lay {a:3} rows down twice and the total doubles, because the second block is a copy of the first.",
-                        formula = "3 x 6 = 18, so 6 x 6 = 36",
+                        formula = "{a:3} x 6 = 18, so 6 x 6 = 36",
                         visual = ArrayDots(rows = 6, cols = 6, split = 3),
                     ),
                     Numeric(
-                        question = "A baking tray holds 4 rows of 7 cakes.",
+                        question = "A baking tray holds {a:4} rows of {b:7} cakes.",
                         formula = "4 x {b:7} = ?",
                         answer = "28",
-                        explanation = "Four rows of seven: 7, 14, 21, 28.",
+                        explanation = "{a:Four} rows of {b:seven}: 7, 14, 21, 28.",
                         visual = ArrayDots(rows = 4, cols = 7),
                     ),
                 ),
@@ -292,7 +292,7 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Nobody counts seven rows one dot at a time. Take the {a:5} rows everyone knows, then add the {b:2} that are left.",
-                        formula = "7 x 4 = 5 x 4 + 2 x 4",
+                        formula = "7 x 4 = {a:5} x 4 + {b:2} x 4",
                         visual = ArrayDots(rows = 7, cols = 4, split = 5),
                     ),
                     Worked(
@@ -348,7 +348,7 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Every times fact hands you two division facts, because the array can be cut either way.",
-                        formula = "6 x 5 = 30, so 30 / 5 = 6",
+                        formula = "6 x {b:5} = 30, so 30 / {b:5} = 6",
                         visual = ArrayDots(rows = 6, cols = 5),
                     ),
                     Choice(
@@ -361,13 +361,13 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Not every total shares out evenly. Whatever will not fill another row is the remainder.",
-                        formula = "17 / 5 = 3 r 2",
+                        formula = "17 / {b:5} = 3 r {b:2}",
                         visual = ArrayDots(rows = 3, cols = 5, leftover = 2),
                     ),
                     Worked(
-                        problem = "Share 29 sweets between 4 friends",
+                        problem = "Share 29 sweets between {b:4} friends",
                         lines = listOf(
-                            "Deal them out in rows of {a:4}.",
+                            "Deal them out in rows of {b:4}.",
                             "4, 8, 12, 16, 20, 24, 28 - that is {a:7} rows.",
                             "{b:1} sweet will not make an eighth row.",
                         ),
@@ -375,9 +375,9 @@ internal object ArithmeticContent {
                         visual = ArrayDots(rows = 7, cols = 4, leftover = 1),
                     ),
                     Numeric(
-                        question = "A crate holds 5 bottles. How many crates can you fill from 38 bottles?",
+                        question = "A crate holds {b:5} bottles. How many crates can you fill from 38 bottles?",
                         answer = "7",
-                        explanation = "Seven full rows of five, and three bottles with nowhere to go.",
+                        explanation = "{a:Seven} full rows of {b:five}, and {b:three} bottles with nowhere to go.",
                         visual = ArrayDots(rows = 7, cols = 5, leftover = 3),
                     ),
                 ),
@@ -470,15 +470,15 @@ internal object ArithmeticContent {
                         question = "Which bar is shaded more?",
                         options = listOf("3/8", "5/8", "They are equal", "You cannot tell"),
                         correctIndex = 1,
-                        explanation = "Same bottom number, so the pieces are the same size: five of them beats three.",
+                        explanation = "Same bottom number, so the pieces are the same size: {b:five} of them beats {a:three}.",
                         visual = Fraction(numerator = 3, denominator = 8, compare = 5 to 8, reveal = false),
                     ),
                     Numeric(
                         question = "A cake is cut into 8 slices and 3 are eaten. How many eighths are still on the plate?",
                         formula = "8/8 - {b:3/8} = ?/8",
                         answer = "5",
-                        explanation = "Three of the eight pieces are gone, so 5/8 of the cake is left.",
-                        visual = Fraction(numerator = 3, denominator = 8, reveal = false),
+                        explanation = "{b:Three} of the eight pieces are gone, so 5/8 of the cake is left.",
+                        visual = Fraction(numerator = 8, denominator = 8, compare = 3 to 8, reveal = false),
                     ),
                     Choice(
                         question = "Which of these is a whole one?",
@@ -496,12 +496,12 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Cut every piece in half and you get twice as many, each half the size. The shading never moved.",
-                        formula = "1/2 = 4/8",
+                        formula = "1/2 = {b:4/8}",
                         visual = Fraction(numerator = 1, denominator = 2, compare = 4 to 8),
                     ),
                     Concept(
                         body = "Whatever you do to the bottom you do to the top, and the amount stays exactly where it was.",
-                        formula = "2/3 = 4/6",
+                        formula = "2/3 = {b:4/6}",
                         visual = Fraction(numerator = 2, denominator = 3, compare = 4 to 6),
                     ),
                     Choice(
@@ -513,14 +513,14 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Cancelling runs the trick backwards: divide top and bottom by the same number and the fraction gets a simpler name.",
-                        formula = "6/8 = 3/4",
+                        formula = "6/8 = {b:3/4}",
                         visual = Fraction(numerator = 6, denominator = 8, compare = 3 to 4),
                     ),
                     Choice(
                         question = "Which bar is shaded more?",
                         options = listOf("2/3", "3/4", "They are equal", "You cannot compare them"),
                         correctIndex = 1,
-                        explanation = "Cut both into twelfths and they are 8/12 against 9/12.",
+                        explanation = "Cut both into twelfths and they are {a:8/12} against {b:9/12}.",
                         visual = Fraction(numerator = 2, denominator = 3, compare = 3 to 4, reveal = false),
                     ),
                     Numeric(
@@ -553,11 +553,11 @@ internal object ArithmeticContent {
                     Concept(
                         body = "Taking away works the same way. Five sixths with two sixths gone leaves three of them.",
                         formula = "5/6 - {b:2/6} = 3/6",
-                        visual = Fraction(numerator = 5, denominator = 6, compare = 3 to 6),
+                        visual = Fraction(numerator = 5, denominator = 6, compare = 2 to 6),
                     ),
                     Concept(
                         body = "Pieces of different sizes cannot be added as they stand. Rename one bar until both are cut the same way.",
-                        formula = "1/2 = 2/4",
+                        formula = "1/2 = {b:2/4}",
                         visual = Fraction(numerator = 1, denominator = 2, compare = 2 to 4),
                     ),
                     Worked(
@@ -576,7 +576,7 @@ internal object ArithmeticContent {
                         formula = "1/6 + {b:1/3} = ?",
                         options = listOf("2/9", "1/2", "2/6", "1/3"),
                         correctIndex = 1,
-                        explanation = "1/3 is 2/6, so the sum is 3/6, which is one half.",
+                        explanation = "{b:1/3} is {b:2/6}, so the sum is 3/6, which is one half.",
                         visual = Fraction(numerator = 1, denominator = 6, plus = 1 to 3, reveal = false),
                     ),
                 ),
@@ -685,19 +685,19 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Compare the tenths first. Only when those tie do the hundredths get a say.",
-                        formula = "0.4 > 0.35",
+                        formula = "0.4 > {b:0.35}",
                         visual = DecimalGrid(value = 0.4, compare = 0.35),
                     ),
                     Choice(
                         question = "Which square is shaded more?",
                         options = listOf("0.4", "0.35", "They are equal", "You cannot tell"),
                         correctIndex = 0,
-                        explanation = "Four tenths beats three tenths. Extra digits do not make a number bigger.",
+                        explanation = "{a:Four} tenths beats {b:three} tenths. Extra digits do not make a number bigger.",
                         visual = DecimalGrid(value = 0.4, compare = 0.35, reveal = false),
                     ),
                     Concept(
                         body = "Writing a nought on the end changes nothing at all: the same cells are shaded either way.",
-                        formula = "0.4 = 0.40",
+                        formula = "0.4 = {b:0.40}",
                         visual = DecimalGrid(value = 0.4, compare = 0.40),
                     ),
                     Concept(
@@ -721,7 +721,7 @@ internal object ArithmeticContent {
                             "0.09, 0.71, 0.7",
                         ),
                         correctIndex = 0,
-                        explanation = "0.09 has no tenths at all, so it is the smallest however long it looks.",
+                        explanation = "{a:0.09} has no tenths at all, so it is the smallest however long it looks.",
                         visual = DecimalGrid(value = 0.09, compare = 0.7, reveal = false),
                     ),
                 ),
@@ -1029,7 +1029,7 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Cut every part again and the mix is unchanged: more pieces, each one smaller, the same two colours side by side.",
-                        formula = "{a:3} : {b:5} = 12 : 20",
+                        formula = "{a:3} : {b:5} = {a:12} : {b:20}",
                         visual = RatioBar(parts = listOf(3, 5), scale = 4),
                     ),
                     Choice(
@@ -1040,11 +1040,11 @@ internal object ArithmeticContent {
                         visual = RatioBar(parts = listOf(6, 9), reveal = false),
                     ),
                     Concept(
-                        body = "A ratio carries no units and no total. Two to three describes the mix whether the bucket holds 5 litres or 500.",
+                        body = "A ratio carries no units and no total. {a:Two} to {b:three} describes the mix whether the bucket holds 5 litres or 500.",
                         visual = RatioBar(parts = listOf(2, 3)),
                     ),
                     Choice(
-                        question = "One part sand to three parts gravel. What fraction of the mix is sand?",
+                        question = "{a:One} part sand to {b:three} parts gravel. What fraction of the mix is sand?",
                         options = listOf("1/3", "1/4", "3/4", "1/2"),
                         correctIndex = 1,
                         explanation = "One part out of the four parts in the bar, which is exactly the trap a ratio sets.",
@@ -1066,11 +1066,11 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "To share in a ratio, count the parts first, then work out what a single part is worth.",
-                        formula = "2 : 3 is 5 parts",
+                        formula = "{a:2} : {b:3} is 5 parts",
                         visual = RatioBar(parts = listOf(2, 3), total = 60),
                     ),
                     Worked(
-                        problem = "Share 60 euro in the ratio 2 : 3.",
+                        problem = "Share 60 euro in the ratio {a:2} : {b:3}.",
                         lines = listOf(
                             "{a:2} + {b:3} = 5 parts in all.",
                             "60 / 5 = 12 for one part.",
@@ -1080,7 +1080,7 @@ internal object ArithmeticContent {
                         visual = RatioBar(parts = listOf(2, 3), total = 60),
                     ),
                     Choice(
-                        question = "Share 80 euro in the ratio 3 : 1. What is the larger share?",
+                        question = "Share 80 euro in the ratio {a:3} : {b:1}. What is the larger share?",
                         options = listOf("20 euro", "40 euro", "60 euro", "75 euro"),
                         correctIndex = 2,
                         explanation = "Four parts of 20 euro, and the larger share takes three of them.",
@@ -1091,14 +1091,14 @@ internal object ArithmeticContent {
                         visual = RatioBar(parts = listOf(3, 2, 1), total = 180),
                     ),
                     Numeric(
-                        question = "Share 180 g in the ratio 3 : 2 : 1. How many grams are in the largest share?",
+                        question = "Share 180 g in the ratio {a:3} : {b:2} : {a:1}. How many grams are in the largest share?",
                         formula = "180 / 6 x {a:3} = ?",
                         answer = "90",
                         explanation = "Six parts of 30 g, and the largest share takes three of them.",
                         visual = RatioBar(parts = listOf(3, 2, 1), total = 180, reveal = false),
                     ),
                     Choice(
-                        question = "A 2 : 3 mix holds 12 litres of the first colour. How much of the second?",
+                        question = "A {a:2} : {b:3} mix holds 12 litres of the first colour. How much of the second?",
                         options = listOf("8 litres", "15 litres", "18 litres", "20 litres"),
                         correctIndex = 2,
                         explanation = "Two parts are 12, so one part is 6, and the second colour takes three of them.",
@@ -1160,14 +1160,14 @@ internal object ArithmeticContent {
                 visual = RatioBar(parts = listOf(3, 5), reveal = false),
             ),
             QuizQuestion(
-                prompt = "In the ratio 2 : 7, what fraction of the whole is the first part?",
+                prompt = "In the ratio {a:2} : {b:7}, what fraction of the whole is the first part?",
                 options = listOf("2/7", "2/9", "7/9", "1/2"),
                 correctIndex = 1,
                 explanation = "Two parts out of the nine in the bar, not out of the seven.",
                 visual = RatioBar(parts = listOf(2, 7), reveal = false),
             ),
             QuizQuestion(
-                prompt = "Share 100 euro in the ratio 1 : 4. What is the smaller share?",
+                prompt = "Share 100 euro in the ratio {a:1} : {b:4}. What is the smaller share?",
                 options = listOf("20 euro", "25 euro", "40 euro", "80 euro"),
                 correctIndex = 0,
                 explanation = "Five parts of 20 euro, and the smaller share takes one.",

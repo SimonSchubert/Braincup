@@ -436,21 +436,21 @@ internal object GeometryContent {
                 steps = listOf(
                     Concept(
                         body = "Angles on a straight line make a half turn between them, so they add to 180.",
-                        formula = "a + b = 180",
+                        formula = "{a:a} + {b:b} = 180",
                         visual = AngleFigure(degrees = 130, supplement = true),
                     ),
                     Numeric(
                         question = "Angles on a straight line. How many degrees is the other one?",
                         answer = "50",
-                        explanation = "180 - 130.",
+                        explanation = "180 - {a:130}.",
                         visual = AngleFigure(degrees = 130, supplement = true, reveal = false),
                     ),
                     Choice(
-                        question = "Two angles on a straight line, and one of them is 65 degrees.",
+                        question = "Two angles on a straight line, and one of them is {a:65} degrees.",
                         formula = "65 + ? = 180",
                         options = listOf("25", "115", "125", "295"),
                         correctIndex = 1,
-                        explanation = "180 take away 65.",
+                        explanation = "180 take away {a:65}.",
                         visual = AngleFigure(degrees = 65, supplement = true, reveal = false),
                     ),
                     Concept(
@@ -500,12 +500,12 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "Every angle has a reflex partner: whatever is left of the full turn if you go round the other way. This 170 leaves 190 behind it.",
-                        formula = "360 - {b:170} = 190",
+                        formula = "360 - 170 = 190",
                         visual = AngleFigure(degrees = 170),
                     ),
                     Choice(
                         question = "Going round the other way, how much of the turn is left?",
-                        formula = "360 - {b:170} = ?",
+                        formula = "360 - 170 = ?",
                         options = listOf("10", "100", "190", "350"),
                         correctIndex = 2,
                         explanation = "The two together have to make one whole turn.",
@@ -530,7 +530,7 @@ internal object GeometryContent {
                 visual = AngleFigure(degrees = 120, reveal = false),
             ),
             QuizQuestion(
-                prompt = "Two angles sit on a straight line and one is 110 degrees. What is the other?",
+                prompt = "Two angles sit on a straight line and one is {a:110} degrees. What is the other?",
                 options = listOf("70", "80", "90", "250"),
                 correctIndex = 0,
                 explanation = "180 take away 110.",
@@ -551,7 +551,7 @@ internal object GeometryContent {
                 visual = AngleFigure(degrees = 100, reveal = false),
             ),
             QuizQuestion(
-                prompt = "An angle is 150 degrees. Going round the other way, how much of the turn is left?",
+                prompt = "An angle is {a:150} degrees. Going round the other way, how much of the turn is left?",
                 options = listOf("30", "110", "210", "310"),
                 correctIndex = 2,
                 explanation = "360 take away 150.",
@@ -948,7 +948,7 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "Opposite sides match, so add one of each and double it.",
-                        formula = "P = 2 x (length + width)",
+                        formula = "{b:P} = 2 x (length + width)",
                         visual = AreaGrid(cols = 8, rows = 5, showArea = false, showPerimeter = true),
                     ),
                     Worked(
@@ -992,7 +992,7 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "The squares sit in equal rows, so multiply instead of counting.",
-                        formula = "A = length x width",
+                        formula = "{a:A} = length x width",
                         visual = AreaGrid(cols = 6, rows = 3),
                     ),
                     Numeric(
@@ -1134,14 +1134,14 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "The squares on the two short sides hold exactly as much as the square on the long one.",
-                        formula = "a² + b² = c²",
+                        formula = "{a:a}² + {b:b}² = c²",
                         visual = RightTriangle(a = 4, b = 3, showSquares = true),
                     ),
                     Worked(
                         problem = "Short sides 3 and 4.",
                         lines = listOf(
-                            "3² = 9 and 4² = 16.",
-                            "9 + 16 = 25.",
+                            "3² = {b:9} and 4² = 16.",
+                            "{b:9} + 16 = 25.",
                             "Take the square root.",
                         ),
                         result = "c = 5",
@@ -1173,7 +1173,7 @@ internal object GeometryContent {
                 steps = listOf(
                     Concept(
                         body = "Turned around, the theorem finds a short side instead. Take the small square away from the big one rather than adding the two together.",
-                        formula = "a² = c² - b²",
+                        formula = "{a:a}² = c² - {b:b}²",
                         visual = RightTriangle(a = 4, b = 3, showSquares = true),
                     ),
                     Numeric(
@@ -1221,8 +1221,8 @@ internal object GeometryContent {
                         problem = "A rectangle is 12 cm by 9 cm. How long is its diagonal?",
                         lines = listOf(
                             "The diagonal cuts the rectangle into two right triangles.",
-                            "12² = 144 and 9² = 81.",
-                            "144 + 81 = 225.",
+                            "12² = 144 and 9² = {b:81}.",
+                            "144 + {b:81} = 225.",
                             "Take the square root.",
                         ),
                         result = "15 cm",
@@ -1237,7 +1237,7 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "The theorem also runs backwards. If the two squares add up to the third, the triangle must have a right angle in it.",
-                        formula = "9 + {b:16} = 25",
+                        formula = "{b:9} + 16 = 25",
                         visual = RightTriangle(a = 4, b = 3, showSquares = true),
                     ),
                     Choice(
@@ -1326,12 +1326,12 @@ internal object GeometryContent {
                 steps = listOf(
                     Concept(
                         body = "The diameter crosses the middle, so it is twice the radius.",
-                        formula = "d = 2r",
+                        formula = "{b:d} = 2r",
                         visual = CircleFigure(radius = 5, showDiameter = true),
                     ),
                     Numeric(
                         question = "The radius is 5 cm. What is the diameter, in cm?",
-                        formula = "2 x {b:5} = ?",
+                        formula = "2 x 5 = ?",
                         answer = "10",
                         explanation = "Twice the radius.",
                         visual = CircleFigure(radius = 5, reveal = false),
@@ -2120,7 +2120,7 @@ internal object GeometryContent {
                         visual = CircleFigure(centreAngle = 80),
                     ),
                     Choice(
-                        question = "The centre angle is 80. What is the angle at the circumference?",
+                        question = "The centre angle is {a:80}. What is the angle at the circumference?",
                         options = listOf("20", "40", "80", "160"),
                         correctIndex = 1,
                         explanation = "Half the centre angle.",
@@ -2142,7 +2142,7 @@ internal object GeometryContent {
                         visual = CircleFigure(centreAngle = 100),
                     ),
                     Numeric(
-                        question = "The centre angle is 140. How many degrees is the angle at the circumference?",
+                        question = "The centre angle is {a:140}. How many degrees is the angle at the circumference?",
                         formula = "140 / {b:2} = ?",
                         answer = "70",
                         explanation = "Half the centre angle, whatever that angle happens to be.",
@@ -2240,7 +2240,7 @@ internal object GeometryContent {
         ),
         questions = listOf(
             QuizQuestion(
-                prompt = "The centre angle is 120. What is the angle at the circumference?",
+                prompt = "The centre angle is {a:120}. What is the angle at the circumference?",
                 options = listOf("30", "60", "120", "240"),
                 correctIndex = 1,
                 explanation = "Half of the centre angle.",
@@ -2254,7 +2254,7 @@ internal object GeometryContent {
                 visual = CircleFigure(centreAngle = 180, reveal = false),
             ),
             QuizQuestion(
-                prompt = "The angle at the circumference is 35. What is the angle at the centre on the same arc?",
+                prompt = "The angle at the circumference is {b:35}. What is the angle at the centre on the same arc?",
                 options = listOf("17.5", "35", "70", "145"),
                 correctIndex = 2,
                 explanation = "The centre angle is the doubled one.",

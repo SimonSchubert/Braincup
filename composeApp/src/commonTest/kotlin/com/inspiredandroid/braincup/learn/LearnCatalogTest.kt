@@ -385,6 +385,67 @@ class LearnCatalogTest {
         assertFalse(Certificate.isEarnedBy(1, 0))
     }
 
+    /**
+     * A fraction bar and the words beside it have to agree on which bar is which.
+     *
+     * `drawFraction` puts the first bar in the given colour and the second - the one a `compare`
+     * or a `plus` adds - in the working blue. So a formula that names that second fraction has to
+     * tag it `{b:}`, and one that names the first must not: a step reading "6/8 = 3/4" over a blue
+     * 3/4 bar printed the same fraction in two different colours in the two places it appeared,
+     * which is exactly the reference the colour code exists to make readable.
+     *
+     * Only the fractions the figure actually draws are checked, and only where they are written
+     * out in full, because "3/4" as a run of text says which bar it means and nothing else does.
+     * A `Worked` result is left out: it renders as the answer, in green, and never parses a tag.
+     */
+    @Test
+    fun fractionTextMatchesTheBarItNames() {
+        fun taggedRuns(text: String, tag: Char): List<String> =
+            Regex("""\{$tag:([^\}]*)\}""").findAll(text).map { it.groupValues[1] }.toList()
+
+        /** Occurrences of [fraction] standing on its own rather than inside a longer number. */
+        fun namesFraction(text: String, fraction: String): Boolean = Regex("(?<![0-9/])" + Regex.escape(fraction) + "(?![0-9/])")
+            .containsMatchIn(text)
+
+        fun check(where: String, visual: LearnVisual?, texts: List<String>) {
+            val fraction = visual as? LearnVisual.Fraction ?: return
+            val second = fraction.plus ?: fraction.compare ?: return
+            val given = "${fraction.numerator}/${fraction.denominator}"
+            val working = "${second.first}/${second.second}"
+            if (given == working) return
+            texts.forEach { text ->
+                val inWorking = taggedRuns(text, 'b').any { namesFraction(it, working) }
+                assertTrue(
+                    !namesFraction(text, working) || inWorking,
+                    "$where: the figure draws $working in the working colour, but '$text' does not tag it {b:}",
+                )
+                assertFalse(
+                    taggedRuns(text, 'b').any { namesFraction(it, given) },
+                    "$where: '$text' tags $given as working, but the figure draws it as the given",
+                )
+            }
+        }
+
+        LearnCatalog.allLessons.forEach { lesson ->
+            lesson.steps.forEachIndexed { index, step ->
+                val where = "${lesson.id} step $index"
+                when (step) {
+                    is LessonStep.Concept -> check(where, step.visual, listOfNotNull(step.formula, step.body))
+                    is LessonStep.Worked -> check(where, step.visual, listOf(step.problem) + step.lines)
+                    is LessonStep.Choice ->
+                        check(where, step.visual, listOfNotNull(step.formula, step.question, step.explanation))
+                    is LessonStep.Numeric ->
+                        check(where, step.visual, listOfNotNull(step.formula, step.question, step.explanation))
+                }
+            }
+        }
+        LearnCatalog.allUnits.forEach { unit ->
+            unit.quiz.questions.forEach { question ->
+                check("${unit.id}: '${question.prompt}'", question.visual, listOf(question.prompt))
+            }
+        }
+    }
+
     @Test
     fun topicsAndLevelsResolveByIdAndSlug() {
         MathTopic.entries.forEach { topic ->
