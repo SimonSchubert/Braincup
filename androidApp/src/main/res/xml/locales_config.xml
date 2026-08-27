@@ -16,6 +16,7 @@
     <locale android:name="fil" />
     <locale android:name="fr" />
     <locale android:name="ga" />
+    <locale android:name="gu" />
     <locale android:name="he" />
     <locale android:name="hi" />
     <locale android:name="hr" />

@@ -184,7 +184,7 @@ val isDarkColorScheme: Boolean
 private val nonLatinDisplayLanguages =
     setOf(
         "el", "bg", "ru", "sr", "uk", "ja", "ko", "zh", "th", "hi", "bn", "ar", "fa", "ur", "he", "iw",
-        "ta", "te", "mr",
+        "ta", "te", "mr", "gu",
     )
 
 @Composable
