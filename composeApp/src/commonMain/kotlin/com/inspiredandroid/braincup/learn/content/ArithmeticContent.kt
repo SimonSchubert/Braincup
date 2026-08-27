@@ -197,14 +197,20 @@ internal object ArithmeticContent {
                 options = listOf("14", "15", "16", "13"),
                 correctIndex = 1,
                 explanation = "9 takes 1 of the 6 to make ten, and the other 5 carry on past it.",
-                visual = TenFrame(filled = 9, added = 6, reveal = false),
+                // The frame stops at the nine it is handed. Filled to fifteen it draws the
+                // regrouping the question is asking for, ten dots and five, and the answer is
+                // read off rather than worked out. One gap in the frame is the hint the method
+                // needs; the six the learner has to place is on the card above.
+                visual = TenFrame(filled = 9, added = 0, reveal = false),
             ),
             QuizQuestion(
                 prompt = "14 - {b:6} = ?",
                 options = listOf("6", "7", "8", "9"),
                 correctIndex = 2,
                 explanation = "Hop back four to land on ten, and the last two hops reach 8.",
-                visual = NumberLine(from = 0, to = 16, start = 14, hopSteps = listOf(-4, -2), reveal = false),
+                // Where the count starts, not where it finishes. The hops that bridge through ten
+                // are the working, and a test figure that draws them lands on the answer itself.
+                visual = NumberLine(from = 0, to = 16, start = 14, reveal = false),
             ),
             QuizQuestion(
                 prompt = "How many loose ones are here?",
@@ -390,7 +396,11 @@ internal object ArithmeticContent {
                 options = listOf("45", "54", "56", "63"),
                 correctIndex = 1,
                 explanation = "Five nines is 45, and one more nine makes 54.",
-                visual = ArrayDots(rows = 6, cols = 9, split = 5),
+                // The nines set off, three of the six. A 6 x 9 array draws 54 dots to count and
+                // captions itself "5 rows" and "1 more", which is not the question posed but the
+                // method and the answer together. The ladder stops well short of any option, so
+                // reading it is counting on rather than reading off.
+                visual = Steps(terms = listOf(0, 9, 18, 27)),
             ),
             QuizQuestion(
                 prompt = "Which has the same total as 7 x 4?",
@@ -403,15 +413,20 @@ internal object ArithmeticContent {
                 prompt = "72 / {b:9} = ?",
                 options = listOf("6", "7", "8", "9"),
                 correctIndex = 2,
-                explanation = "Eight nines are 72, so 72 splits into exactly eight rows of nine.",
-                visual = ArrayDots(rows = 8, cols = 9),
+                explanation = "Counting on in nines reaches 72 in exactly eight hops.",
+                // A division answer is the row count, and an array prints its row count: drawn as
+                // 8 x 9 this question captioned itself "8 rows". The ladder climbs the nines and
+                // stops short of 72, so the eight has to be counted rather than read.
+                visual = Steps(terms = listOf(18, 27, 36, 45)),
             ),
             QuizQuestion(
                 prompt = "23 / {b:4} = ?",
                 options = listOf("5 r 1", "5 r 3", "6 r 1", "4 r 7"),
                 correctIndex = 1,
-                explanation = "Five rows of four is 20, and 3 will not make a sixth row.",
-                visual = ArrayDots(rows = 5, cols = 4, leftover = 3),
+                explanation = "Counting on in fours reaches 20 in five hops, and 3 is left over.",
+                // Drawn as five rows of four with three dots underneath, the figure spelled the
+                // whole answer out: "5 rows" in words and the remainder alongside it.
+                visual = Steps(terms = listOf(0, 4, 8, 12)),
             ),
             QuizQuestion(
                 prompt = "A tray holds 8 rows of 6 buns. How many buns?",
@@ -835,7 +850,7 @@ internal object ArithmeticContent {
                         options = listOf("-10", "-6", "-1", "0"),
                         correctIndex = 3,
                         explanation = "Furthest right on the line wins, and zero sits to the right of every negative.",
-                        visual = NumberLine(from = -10, to = 5, reveal = false),
+                        visual = NumberLine(from = -10, to = 5, compare = listOf(-10, -6, -1, 0), reveal = false),
                     ),
                     Concept(
                         body = "The further left, the smaller. That is why -10 is less than -1, even though 10 is more than 1.",
@@ -955,28 +970,28 @@ internal object ArithmeticContent {
                 options = listOf("-15", "-3", "3", "15"),
                 correctIndex = 2,
                 explanation = "Six of the nine carry you to zero, and the other three carry on past it to 3.",
-                visual = NumberLine(from = -10, to = 5, start = -6, hopSteps = listOf(6, 3), reveal = false),
+                visual = NumberLine(from = -10, to = 5, start = -6, reveal = false),
             ),
             QuizQuestion(
                 prompt = "Which of these is the smallest?",
                 options = listOf("-9", "-2", "0", "3"),
                 correctIndex = 0,
                 explanation = "Furthest left is smallest, so -9 is below -2 even though 9 is more than 2.",
-                visual = NumberLine(from = -10, to = 5, reveal = false),
+                visual = NumberLine(from = -10, to = 5, compare = listOf(-9, -2, 0, 3), reveal = false),
             ),
             QuizQuestion(
                 prompt = "-3 - {b:8} = ?",
                 options = listOf("-11", "-5", "5", "11"),
                 correctIndex = 0,
                 explanation = "Taking away moves left, and eight steps left of -3 is -11.",
-                visual = NumberLine(from = -12, to = 2, start = -3, hopSteps = listOf(-8), reveal = false),
+                visual = NumberLine(from = -12, to = 2, start = -3, reveal = false),
             ),
             QuizQuestion(
                 prompt = "7 - {b:(-5)} = ?",
                 options = listOf("-12", "-2", "2", "12"),
                 correctIndex = 3,
                 explanation = "Taking away a negative moves right, so this is 7 + 5.",
-                visual = NumberLine(from = -2, to = 14, start = 7, hopSteps = listOf(5), reveal = false),
+                visual = NumberLine(from = -2, to = 14, start = 7, reveal = false),
             ),
             QuizQuestion(
                 prompt = "(-4) x (-5) = ?",

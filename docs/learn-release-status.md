@@ -3,7 +3,7 @@
 Working document for the Learn Math section's first release. It survives between Claude
 sessions: read it before touching anything under `learn/`, and update it as work lands.
 
-Last updated: 2026-08-27 (render check under way; harness in place, see section 7)
+Last updated: 2026-08-27 (render check closed out; see section 7)
 
 ---
 
@@ -503,38 +503,84 @@ thing:
   Blue is a clear gain here over the green these used to draw: an equivalence pair like 1/2 over
   4/8 no longer looks like one of the two is the correct one.
 
-### Test figures that can be counted to their answer
+### Test figures that drew their own answer
 
 `questionFiguresDoNotCaptionTheirAnswer` checks that a figure does not *label* the answer. It
-cannot see one that *draws* it. Scanning all 132 test questions for a figure whose own numbers
-resolve to the accepted answer (`scripts` is not the home for this; the scan is a one-off) turns
-up nine, of which seven ask the learner to compute something the picture has already computed:
+cannot see one that simply *draws* it. Scanning all 132 test questions for a figure whose own
+numbers come to the accepted answer turned up nine leaks, and the scan itself is now a test -
+`testFiguresDoNotDrawTheirOwnAnswer` - so the class cannot come back.
 
-| Unit | Question | Figure | Reads off as |
+The guard reads each figure for what a learner can take off it without answering anything: the
+total a ten-frame or an array counts out, the tick a hop lands on, the cell count of an area grid,
+the terms of a ladder, and the row count an array *prints in words*. A figure that draws several
+of the options is showing the field rather than the answer - which is exactly what a "which of
+these is largest" question needs - so only a figure that comes to the correct option and to none
+of the others is a leak. Two questions are exempt by name, because counting the array is the
+method they intend: "How many dots are here?" and "A tray holds 8 rows of 6 buns".
+
+Lessons are deliberately out of scope. A lesson step's figure sits beside prose teaching the
+method, and drawing the hops there *is* the teaching; a test is the one place the learner supplies
+the whole of the answer.
+
+| Unit | Question | Drew | Now |
 |---|---|---|---|
-| `arithmetic-counting` | `9 + 6 = ?` | `TenFrame(filled = 9, added = 6)` | 10 and 5 dots, already regrouped |
-| `arithmetic-counting` | `14 - 6 = ?` | `NumberLine(start = 14, hopSteps = [-4, -2])` | hops land on 8 |
-| `arithmetic-multiplication` | `6 x 9 = ?` | `ArrayDots(6 x 9)` | 54 countable dots |
-| `arithmetic-negatives` | `-6 + 9 = ?` | `NumberLine(start = -6, ...)` | hops land on 3 |
-| `arithmetic-negatives` | `-3 - 8 = ?` | `NumberLine(start = -3, ...)` | hops land on -11 |
-| `arithmetic-negatives` | `7 - (-5) = ?` | `NumberLine(start = 7, ...)` | hops land on 12 |
-| `geometry-similarity` | scale factor 3, area factor? | `AreaGrid(3 x 3)` | 9 countable cells, which is the k² rule itself |
+| `arithmetic-counting` | `9 + 6 = ?` | `TenFrame(9, added = 6)` - ten dots and five, already regrouped | `TenFrame(9, added = 0)`: the nine it is handed, one gap left in the frame |
+| `arithmetic-counting` | `14 - 6 = ?` | `NumberLine(start = 14, hopSteps = [-4, -2])` - hops land on 8 | same line, `start = 14` and no hops: where the count starts |
+| `arithmetic-multiplication` | `6 x 9 = ?` | `ArrayDots(6 x 9, split = 5)` - 54 countable dots, captioned "5 rows" and "1 more" | `Steps(0, 9, 18, 27)`: the nines set off, three of the six |
+| `arithmetic-multiplication` | `72 / 9 = ?` | `ArrayDots(8 x 9)` - the figure prints "8 rows", and 8 is the answer | `Steps(18, 27, 36, 45)`: the nines climbing, stopping short of 72 |
+| `arithmetic-multiplication` | `23 / 4 = ?` | `ArrayDots(5 x 4, leftover = 3)` - "5 rows" in words with the remainder beside it, which is "5 r 3" written out | `Steps(0, 4, 8, 12)`: the fours climbing, stopping short of 23 |
+| `arithmetic-negatives` | `-6 + 9 = ?` | `NumberLine(start = -6, hopSteps = [6, 3])` - hops land on 3 | `start = -6`, no hops |
+| `arithmetic-negatives` | `-3 - 8 = ?` | `NumberLine(start = -3, hopSteps = [-8])` - hops land on -11 | `start = -3`, no hops |
+| `arithmetic-negatives` | `7 - (-5) = ?` | `NumberLine(start = 7, hopSteps = [5])` - hops land on 12 | `start = 7`, no hops |
+| `geometry-similarity` | scale factor 3, area factor? | `AreaGrid(3 x 3)` - nine cells to count under sides labelled with the factor itself: the k² rule, worked | `AreaGrid(4 x 2)`: what an area is made of, at a size no option can be read off |
 
-The other two - "How many dots are here?" and "A tray holds 8 rows of 6 buns" - are fine: counting
-the array is the method the question intends. The seven above are not, and the fix is per question:
-draw the starting position rather than the finished one, or drop to a figure that sets the problem
-up without working it.
+**Two of the nine were not in the original scan**, and are worse than countable: `72 / 9` and
+`23 / 4` were drawn as arrays, and an array prints its own row count in words - which for a
+division *is* the answer. The first scan compared the figure's product against the answer, so it
+saw 72 and 23 and let both through. The guard now reads the row count too.
 
-### Open, needing a decision
+### A question figure that drew nothing
+
+`NumberLine(from = -10, to = 5, reveal = false)` had no `start`, no `jump` and no `hopSteps`, so it
+rendered a bare axis labelled -10, -5, 0 and 5. The step asks which of -10, -6, -1 and 0 is the
+largest; the figure marked none of them, and -6 and -1 were not even numbered.
+`everyStepAndQuestionHasAVisual` passed because the visual is non-null.
+
+`LearnVisual.NumberLine` now takes a `compare` list: the values a question is choosing between,
+each given a tall tick, a dot on the axis and a number in the called-out size, whatever the fit
+test decides about the rest of the line. They take the **ordinary ink**, not a role colour - a
+candidate is not a given and not yet an answer, and the one that turns out to be right is the
+option tile, not the axis. The same bare figure appeared twice, in `g68-arithmetic-negatives`
+step 3 and in the `arithmetic-negatives` test; both now list their four candidates.
+
+### Subtraction hops
+
+Decided 2026-08-27: **an arrowhead on every hop**, at the end it lands on. Drawn without one, a hop
+back is the same upward curve in the same place as a hop forward, and the minus sign on the label
+was the only thing saying the count goes the other way - a lot to hang on one glyph in a figure
+whose whole job is to show the movement. One change in `hopArc`, so all 38 `NumberLine` figures and
+all 48 `Steps` figures take it.
+
+One consequence, worth knowing before authoring: a `Steps` ladder lays its terms out in list order
+at even spacing, not by value, so a **descending** ladder now draws right-pointing arrows over
+falling numbers. Nineteen of the catalog's twenty-two ladders already ascend; write them that way.
+The two division tests reworked above were authored descending and flipped for exactly this.
+
+Not fixed by this, and accepted: on the bridge-through-ten steps the arcs still read "-3" then "-5"
+left to right, the reverse of the order the prose works them in. The animation plays them in order
+and the arrowheads now say which way each one goes; numbering the hops on top of that is more
+furniture than the figure can carry.
+
+### Known and left alone
 
 | What | Where | Note |
 |---|---|---|
-| A question figure that draws nothing. `NumberLine(from = -10, to = 5, reveal = false)` has no `start`, no `jump` and no `hopSteps`, so it renders a bare axis labelled -10, -5, 0, 5. The step asks which of -10, -6, -1, 0 is largest, and the figure marks none of them; -6 and -1 are not even numbered. `everyStepAndQuestionHasAVisual` passes because the visual is non-null. | `g68-arithmetic-negatives`, step 3 | Needs a figure that actually shows the four candidates. |
-| Subtraction hops are drawn identically to addition hops - same upward arc, same left-to-right order - so only the minus sign on the label says the count goes backwards. On the bridge-through-ten steps the arcs read "-3" then "-5" left to right, the reverse of the order the prose works them in. | every `NumberLine` with a negative jump | Judgement call for a g12 audience. |
+| `Primary` `#ED7354` measures **2.68:1** on the light figure panel, under the 3.0 floor for graphics, and it is the colour carrying every given. | app-wide, `Primary` | Decided 2026-08-27: **left as it is**. Pre-existing, shipped on every surface, and a brand colour is not something a render check gets to move. Recorded here so the next accessibility pass starts from a measurement rather than a hunch. |
 | `PlaceValue` draws rods at `alpha = 0.4f` and loose ones at `0.55f`, so they render `#F2C1B5` / `#A2BD9F` against the `#ED7354` / `#5C8E58` that `TenFrame` and `NumberLine` use at full strength. A `{a:30}` tint therefore prints full-strength orange beside pale pink rods, which is the one thing the tinting exists not to do. | `NumberVisuals.kt`, `drawPlaceValue` | Deliberate, so the block outlines stay legible. Left alone unless the tint mismatch matters more. |
 
-Reviewed so far: `arithmetic-counting` in full, every `NumberLine` figure and every
-`RightTriangle` figure in the catalog.
+Reviewed so far: `arithmetic-counting` in full, every `NumberLine`, `Steps`, `ArrayDots`,
+`TenFrame`, `AreaGrid` and `RightTriangle` figure in the catalog. Section 7 has nothing left
+open bar the two rows above, both of which are decisions rather than defects.
 
 ---
 
@@ -553,6 +599,7 @@ Reviewed so far: `arithmetic-counting` in full, every `NumberLine` figure and ev
 
 | Date | What happened |
 |---|---|
+| 2026-08-27 | Render check closed. Nine test figures were drawing their own answer, not the seven the first scan found: `72 / 9` and `23 / 4` were drawn as arrays, and an array prints its row count in words, which for a division is the answer. All nine reworked to pose the question and stop - a ten-frame that holds the nine it is handed, number lines that mark where the count starts instead of where it finishes, nines and fours ladders in place of countable arrays, an area grid at a size no option can be read off - and the scan is now `testFiguresDoNotDrawTheirOwnAnswer` so the class cannot come back. The bare number line that marked none of its four candidates got `NumberLine.compare`, which numbers and dots them in the ordinary ink; it was in a lesson step and in a test. Hops now end in an arrowhead, so a hop back is no longer the same picture as a hop forward - 38 number lines and 48 ladders. `Primary` at 2.68:1 on the light panel was raised and left alone: brand, not a render defect. |
 | 2026-08-27 | Render check started. Paparazzi harness added for the whole section (~1570 frames, `renderLearnScreens`), with three defaulted seams in composeApp so the answered states a still frame could not reach - `FeedbackCard`, `RetryNote`, both results and the `ReviewCard` list - are rendered at last, along with the second phase of a two-phase figure. Three defects found and fixed: number-line axis labels overprinting each other (the fit test measured the narrowest label style and the line then drew the widest); every quiz prompt, option and review line set in the number face, so prose read one way in a lesson and another in a test; and `RightTriangle(showSquares = true)` drawn at 40% size with its labels stacked, because the sizing reserved room for two squares per axis instead of one. Also scanned all 132 test questions for figures a learner can simply count to the answer: seven of them. `arithmetic-counting` reviewed in full and every `NumberLine` figure in the catalog; four items left open in section 7. |
 | 2026-08-26 | Every certificate wired to Play Games and Game Center: 22 store-only achievements, one per sub-topic, ids derived from the unit id in the new `learn/LearnStoreAchievements.kt` and guarded by `LearnStoreAchievementsTest`. No in-app `Achievements` entries and no new strings, so nothing to localize. `UserStorage.restoreLearnCertificates` means a certificate now survives a reinstall, which it never did before. Icons 49-70 generated in gold. All 44 created on 2026-08-27 via the new `scripts/store_achievements.rb`, which drives both store APIs directly (fastlane has no achievement support at all). Game Center is complete, icons included, at 10 points each and 600/1000 used; the cap turned out to be a non-issue. Play Games has all 22 with their ids written back into `play_games.xml`, at 5 XP, the minimum Play accepts. The Play Games icons had to be attached by hand in Play Console, because the Games Configuration API has no image upload method any more; done 2026-08-27, and verified by reading the config back: all 22 have a published icon, each a pixel-exact match for its `media/achievements/png/` source. Nothing outstanding on either store. Full detail and copy in `media/achievements/README.md`. |
 | 2026-08-26 | Scope set: ship Arithmetic + Geometry, park six. Parking method, perimeter/area move and Geometry split decided. This document created. |

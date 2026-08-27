@@ -188,6 +188,9 @@ private fun VisualScope.valueAxis(
     span = (to - from).coerceAtLeast(1).toFloat(),
 )
 
+/** Half the angle between an arrowhead's two barbs, in radians. */
+private const val ArrowSpread = 0.52f
+
 /**
  * The arc one hop draws over the axis at [y], growing from [x0] to [x1], with [text] riding above
  * it once the hop has all but landed.
@@ -210,11 +213,37 @@ private fun VisualScope.hopArc(
      */
     color: Color = Accent2,
 ) {
+    val control = Offset((x0 + x1) / 2f, y - height * 0.34f)
     val arc = Path().apply {
         moveTo(x0, y)
-        quadraticTo((x0 + x1) / 2f, y - height * 0.34f, x1, y)
+        quadraticTo(control.x, control.y, x1, y)
     }
     path(arc, fill = null, outline = color, width = stroke * 1.2f, alpha = alpha)
+    // The arc ends in an arrowhead at the value it lands on. Drawn without one, a hop back is the
+    // same upward curve in the same place as a hop forward, and the minus sign on the label is the
+    // only thing saying the count goes the other way - which is a lot to hang on one glyph in a
+    // figure whose whole job is to show the movement.
+    if (abs(x1 - x0) > stroke) {
+        val tip = Offset(x1, y)
+        // The quadratic's tangent at its end is the step from the control point to the tip.
+        val along = unitAlong(control, tip)
+        val barb = stroke * 2.6f
+        listOf(ArrowSpread, -ArrowSpread).forEach { angle ->
+            val c = cos(angle)
+            val s = sin(angle)
+            // The barb sweeps backwards off the tip, so it is the reversed tangent, turned.
+            line(
+                from = tip,
+                to = Offset(
+                    tip.x - barb * (along.x * c - along.y * s),
+                    tip.y - barb * (along.x * s + along.y * c),
+                ),
+                color = color,
+                width = stroke * 1.2f,
+                alpha = alpha,
+            )
+        }
+    }
     if (t > 0.9f) {
         label(text, Offset(labelX, y - height * 0.26f), color, 0.1f)
     }
@@ -295,7 +324,13 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
         else -> null
     }
 
-    fun isAccented(value: Int) = roleColor(value) != null
+    // The values a comparison question is choosing between. They carry no role - a candidate is
+    // not a given and not yet an answer - so they take the ordinary ink and only claim the size
+    // and the tick height, which is what makes them readable on a line too crowded to number
+    // every tick.
+    val candidates = visual.compare.filter { it in visual.from..visual.to }.toSet()
+
+    fun isAccented(value: Int) = roleColor(value) != null || value in candidates
 
     // A called-out value is set larger and bold, so it reaches into the space its neighbours would
     // use, and `tickStep > 1` numbers every tick without consulting the fit test at all. Rather
@@ -320,28 +355,32 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
         val isLanding = value == landed && value != start
         val isMarked = value == marked && value != start
         val accentColor = roleColor(value)
-        val accented = accentColor != null
+        val accented = isAccented(value)
         val major = (value - visual.from) % (step * 5) == 0 || step > 1
         val tall = major || accented
         line(
             Offset(x, axisY - height * (if (tall) 0.06f else 0.035f)),
             Offset(x, axisY + height * (if (tall) 0.06f else 0.035f)),
             when {
-                accented -> accentColor ?: Accent
-                major -> ink
+                accentColor != null -> accentColor
+                accented || major -> ink
                 else -> faint
             },
             stroke * 0.8f,
         )
         when {
             // The total arrives with the last hop, so its number fades in on the same beat.
-            accented -> label(
+            accentColor != null -> label(
                 text = value.toString(),
                 center = Offset(x, axisY + height * 0.16f),
-                color = accentColor ?: Accent,
+                color = accentColor,
                 factor = AccentLabelFactor,
                 alpha = if (isLanding) revealBeat else 1f,
             )
+
+            // Candidates are numbered together below, because there can be four of them and two
+            // sitting on neighbouring ticks have to stack rather than run into each other.
+            value in candidates -> Unit
 
             major -> {
                 val majorStyle = labelStyle(ink, MajorLabelFactor, bold = false)
@@ -363,6 +402,39 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
                 }
             }
         }
+    }
+
+    // Each candidate also sits on the line, not only under it, so the set being compared reads as
+    // points on the scale rather than as four numbers that happen to be printed nearby.
+    candidates.forEach { value ->
+        dot(Offset(xOf(value.toFloat()), axisY), stroke * 1.5f, ink)
+    }
+
+    // A candidate is set at the called-out size, and four of them on one line will not always
+    // clear each other: -1 and 0 are neighbouring ticks, and side by side they print as "-10".
+    // Each number takes the first row it fits in, left to right, so a crowded pair steps down a
+    // line instead of overprinting.
+    val candidateStyle = labelStyle(ink, AccentLabelFactor, bold = true)
+    // A whole digit of clearance rather than the hairline [labelPadding] a plain label gets. Two
+    // candidates only need to *touch* to be misread: "-1" and "0" set a few pixels apart print as
+    // "-10", which is one of the other options on the very step this exists for.
+    val candidateGap = measure("0", candidateStyle).size.width.toFloat()
+    val rowRight = mutableListOf<Float>()
+    candidates.filter { roleColor(it) == null }.sorted().forEach { value ->
+        val x = xOf(value.toFloat())
+        val half = measure(value.toString(), candidateStyle).size.width / 2f
+        var row = rowRight.indexOfFirst { x - half > it + candidateGap }
+        if (row < 0) {
+            rowRight.add(0f)
+            row = rowRight.lastIndex
+        }
+        rowRight[row] = x + half
+        label(
+            text = value.toString(),
+            center = Offset(x, axisY + height * (0.16f + row * 0.13f)),
+            color = ink,
+            factor = AccentLabelFactor,
+        )
     }
 
     // The learner's own marker goes on last on every path out of here, so an arc never lands on

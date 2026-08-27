@@ -1819,7 +1819,10 @@ internal object GeometryContent {
                 options = listOf("3", "6", "9", "27"),
                 correctIndex = 2,
                 explanation = "Area scales by the square.",
-                visual = AreaGrid(cols = 3, rows = 3, reveal = false),
+                // A 3 x 3 grid is the k² rule already worked: nine squares to count, under sides
+                // labelled with the factor itself. This one only says what an area is made of -
+                // and neither its sides nor its cell count is any of the four options.
+                visual = AreaGrid(cols = 4, rows = 2, reveal = false),
             ),
             QuizQuestion(
                 prompt = "Two matching sides are 4 cm and 10 cm. What is the scale factor?",

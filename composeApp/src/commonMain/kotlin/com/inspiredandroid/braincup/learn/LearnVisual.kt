@@ -47,6 +47,12 @@ sealed interface LearnVisual {
      * [thenJump] adds a second hop demonstrated after the first, holding between the two and
      * looping. It exists for the figures that teach a pair of opposite moves - one more and one
      * less - where showing only one direction teaches only half the idea.
+     *
+     * [compare] numbers and marks a set of values the question asks the learner to weigh against
+     * each other. A step asking which of -10, -6, -1 and 0 is the largest cannot be answered off a
+     * line that numbers only every fifth tick, and drawing a hop instead would work the question
+     * out for them. These are candidates rather than roles, so they take the ordinary ink: the one
+     * that turns out to be the answer is the option tile, not the axis.
      */
     data class NumberLine(
         val from: Int,
@@ -57,6 +63,7 @@ sealed interface LearnVisual {
         val hops: Int = 1,
         val hopSteps: List<Int> = emptyList(),
         val thenJump: Int? = null,
+        val compare: List<Int> = emptyList(),
         override val reveal: Boolean = true,
     ) : LearnVisual
 

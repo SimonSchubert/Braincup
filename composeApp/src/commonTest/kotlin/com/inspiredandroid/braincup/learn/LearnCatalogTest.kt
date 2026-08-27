@@ -151,6 +151,98 @@ class LearnCatalogTest {
     }
 
     /**
+     * The two test questions whose figure is meant to be counted.
+     *
+     * "How many dots are here?" is answered by counting the array and nothing else, so a figure
+     * that comes to the answer is the question rather than a leak. Every other test question has
+     * to pose its problem and then leave it alone.
+     */
+    private val countingIsTheMethod = setOf(
+        "How many dots are here?",
+        "A tray holds 8 rows of 6 buns. How many buns?",
+    )
+
+    /**
+     * What a learner can take straight off a figure without answering the question: the totals it
+     * counts out, the values it lands on, and the counts it prints in words.
+     *
+     * Only the variants that count out a whole number are listed, because that is the shape an
+     * option is written in. The rest either draw a situation with no total in it - a shape, a
+     * solid, an angle - or resolve to a decimal or a fraction, where matching an option by its
+     * text would be a coincidence rather than a check.
+     */
+    private fun LearnVisual.readableValues(): Set<String> = when (this) {
+        is LearnVisual.Counters -> setOf("${groups.sum()}")
+        // Two frames filling to fifteen have already done the regrouping the question asks for.
+        is LearnVisual.TenFrame -> setOf("${filled + added}")
+        // Hops are the working, and the working ends on the answer whether or not it is labelled:
+        // the tick it lands on can be read off an axis that numbers every tick.
+        is LearnVisual.NumberLine -> {
+            val travel = if (hopSteps.isNotEmpty()) hopSteps.sum() else jump
+            buildSet {
+                start?.let { add("${it + travel}") }
+                // The second phase of a two-phase line replaces the whole hop, so it lands
+                // somewhere else again.
+                start?.let { s -> thenJump?.let { add("${s + it}") } }
+                addAll(compare.map { it.toString() })
+            }
+        }
+        is LearnVisual.PlaceValue -> buildSet {
+            add("${tens * 10 + ones}")
+            compare?.let { (t, o) -> add("${t * 10 + o}") }
+            plus?.let { (t, o) -> add("${t * 10 + o}") }
+        }
+        // An array prints its own row count in words, which for a division is the answer, and its
+        // remainder sits under it in the shape the option is written in.
+        is LearnVisual.ArrayDots -> buildSet {
+            add("${rows * cols + leftover}")
+            add("$rows")
+            if (leftover > 0) add("$rows r $leftover")
+        }
+        // The cell count only. A grid's side labels are the dimensions the question already
+        // states, and counting them as "drawn" made a 3 x 3 grid look like it was offering a
+        // choice between 3 and 9 rather than answering with the 9.
+        is LearnVisual.AreaGrid -> setOf("${cols * rows}")
+        // A ladder is drawn to be continued, so its terms are what it hands over, not where it
+        // stops - but a term that is itself an option has been handed over all the same.
+        is LearnVisual.Steps -> terms.map { it.toString() }.toSet()
+        is LearnVisual.Coins -> setOf("${values.sum()}")
+        is LearnVisual.Tally -> setOf("$count")
+        else -> emptySet()
+    }
+
+    /**
+     * A test figure may pose its question but may not answer it.
+     *
+     * `questionFiguresDoNotCaptionTheirAnswer` checks that a figure does not *label* the value it
+     * works out. It cannot see one that simply *draws* it, which is how a 6 x 9 array of countable
+     * dots, a number line hopping to its landing tick and a 3 x 3 area grid all sat in tests with
+     * the answer already on the panel.
+     *
+     * A figure drawing several of the options is showing the field rather than the answer - which
+     * is exactly what a "which of these is largest" question needs - so only a figure that comes
+     * to the correct option and to none of the others is a leak.
+     *
+     * Lessons are deliberately out of scope. A lesson step's figure works alongside prose that is
+     * teaching the method, and showing the hops there is the teaching; a test is the one place the
+     * learner is meant to supply the whole of the answer.
+     */
+    @Test
+    fun testFiguresDoNotDrawTheirOwnAnswer() {
+        LearnCatalog.allUnits.forEach { unit ->
+            unit.quiz.questions.forEach { question ->
+                if (question.prompt in countingIsTheMethod) return@forEach
+                val readable = question.visual?.readableValues() ?: return@forEach
+                val drawn = question.options.filter { it in readable }
+                assertFalse(
+                    drawn == listOf(question.options[question.correctIndex]),
+                    "${unit.id}: the figure for '${question.prompt}' draws its own answer",
+                )
+            }
+        }
+    }
+
+    /**
      * A question step's formula is the question written out, so it has to actually ask something
      * and must not already contain the answer it is asking for.
      */
