@@ -2,6 +2,7 @@
 
 ### Features
 - Add Tamil language support
+- Add Telugu language support
 
 ## v3.2.0 — 2026-08-27
 
