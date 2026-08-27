@@ -400,8 +400,7 @@ class LearnCatalogTest {
      */
     @Test
     fun fractionTextMatchesTheBarItNames() {
-        fun taggedRuns(text: String, tag: Char): List<String> =
-            Regex("""\{$tag:([^\}]*)\}""").findAll(text).map { it.groupValues[1] }.toList()
+        fun taggedRuns(text: String, tag: Char): List<String> = Regex("""\{$tag:([^\}]*)\}""").findAll(text).map { it.groupValues[1] }.toList()
 
         /** Occurrences of [fraction] standing on its own rather than inside a longer number. */
         fun namesFraction(text: String, fraction: String): Boolean = Regex("(?<![0-9/])" + Regex.escape(fraction) + "(?![0-9/])")
