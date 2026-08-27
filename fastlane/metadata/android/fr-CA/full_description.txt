@@ -1,0 +1,131 @@
+Entraîne ton cerveau avec des mini-jeux amusants qui mettent au défi ta mémoire, ta concentration, ta logique et tes compétences en calcul. Braincup propose 42 exercices d'entraînement cérébral conçus pour aiguiser ton esprit et améliorer ta concentration.
+
+<b>Calcul mental</b>:
+Suis les expressions mathématiques. Utilise le résultat pour le calcul suivant.
+
+<b>Calcul en chaîne</b>:
+Résous des formules complexes étape par étape.
+
+<b>Calcul Sherlock</b>:
+Trouve une formule pour l’objectif avec les nombres et opérateurs donnés.
+
+<b>Calcul de fractions</b>:
+Résous les fractions.
+
+<b>Comparaison de valeurs</b>:
+Choisis l’expression avec la plus grande valeur.
+
+<b>Somme bulles</b>:
+Additionne les nombres sur les bulles.
+
+<b>Somme éclair</b>:
+Les nombres clignotent un par un. Additionne-les et entre le total.
+
+<b>Puzzle d'anomalie</b>:
+Trouve la figure qui se démarque par la couleur et la forme.
+
+<b>Séquence de motifs</b>:
+Trouvez la règle qui parcourt chaque ligne de la grille, puis choisissez la pièce qui la complète.
+
+<b>Chercheur de chemin</b>:
+Pars de la case marquée et suis les flèches jusqu’à la destination.
+
+<b>Mémoire visuelle</b>:
+Mémorise les formes, puis repère celle cachée après le minuteur.
+
+<b>Grille Fantôme</b>:
+Les cases s’allument une à une ; retape-les dans le même ordre.
+
+<b>Confusion de Couleurs</b>:
+Touche les cases où le mot correspond à la couleur de la police.
+
+<b>Formes colorées</b>:
+Additionne les points des affirmations correctes.
+
+<b>Traqueur d'Orbites</b>:
+Observe les balles marquées, suis-les et sélectionne les cibles à l’arrêt.
+
+<b>Foule Éclair</b>:
+Des points clignotent de chaque côté.
+
+<b>Mini Sudoku</b>:
+Remplis la petite grille : chaque ligne, colonne et bloc une fois chaque chiffre.
+
+<b>Mini Échecs</b>:
+Mat le CPU avant qu’il ne te mate.
+
+<b>Échecs solo</b>:
+Capture les pièces une à une jusqu’au roi seul. Chaque coup doit capturer.
+
+<b>Éteins les lumières</b>:
+Éteins toutes les lumières. Chaque tap bascule la case et ses voisins.
+
+<b>Puzzle coulissant</b>:
+Fais glisser les tuiles dans l’espace vide pour les ordonner.
+
+<b>Shikaku</b>:
+Découpe la grille en rectangles. Chacun contient un nombre = son aire.
+
+<b>Nurikabe</b>:
+Peins la mer autour d’îles numérotées sans bloc 2x2.
+
+<b>Reines Chats</b>:
+Un chat par ligne, colonne et zone de couleur. Ils ne peuvent pas se toucher.
+
+<b>Nœud</b>:
+Relie chaque paire de points colorés. Les chemins ne se croisent pas.
+
+<b>Tours de Hanoï</b>:
+Déplace la pile vers le plot de droite.
+
+<b>Table de Schulte</b>:
+Touche les nombres dans l’ordre à partir de 1 le plus vite possible.
+
+<b>Drapeaux</b>:
+Identifie le pays par son drapeau.
+
+<b>Mémoire des Chiffres</b>:
+Mémorise des chiffres, résous un calcul rapide, puis rappelle les chiffres.
+
+<b>Repère le Nouveau</b>:
+Touche l’animal que tu n’as pas encore vu.
+
+<b>N-Back</b>:
+Regarde les formes, puis touche celle à la position demandée.
+
+<b>Wordle</b>:
+Devine le mot de cinq lettres en six essais.
+
+<b>Énigmes d'allumettes</b>:
+Déplace des allumettes pour corriger des équations.
+
+<b>Solitaire</b>:
+Saute des pions jusqu’à n’en laisser qu’un.
+
+<b>Sudoku</b>:
+Sudoku classique grand format avec plusieurs difficultés.
+
+<b>Échecs</b>:
+Échecs complets contre le CPU ou en pass-and-play.
+
+<b>Test de QI</b>:
+30 grilles en 15 min. Juste pour le fun.
+
+<b>Missing Operators</b>:
+Trouvez les opérateurs manquants (+, -, *, /) qui rendent l'équation vraie.
+
+<b>Bulls & Cows</b>:
+Devinez le nombre secret à 4 chiffres avec des chiffres uniques.
+
+<b>Simon Says</b>:
+À chaque manche, un nouveau bouton s'allume. Touche toute la séquence depuis le début, y compris les boutons des manches précédentes.
+
+<b>Prism Clear</b>:
+Échangez des tuiles assorties pour effacer des lignes de trois ou plus. Videz tout le plateau pour gagner.
+
+<b>Trio</b>:
+Trouve trois cartes qui partagent une forme, un nombre ou un remplissage.
+
+Le jeu propose plusieurs <b>succès</b> et chaque exercice a des <b>médailles</b> pour te motiver.
+
+Aucun pistage. <b>Open source</b>.

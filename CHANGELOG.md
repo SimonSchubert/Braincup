@@ -8,6 +8,7 @@
 - Add Kannada language support
 - Add Malayalam language support
 - Add Punjabi language support
+- Add Play store listings for es-US, fr-CA, pt-PT and zh-HK
 
 ## v3.2.0 — 2026-08-27
 

@@ -1,0 +1,131 @@
+Treine seu cérebro com mini jogos divertidos. O Braincup oferece 42 exercícios de treino cerebral.
+
+<b>Cálculo mental</b>:
+Siga as expressões matemáticas. Use o resultado como base para o próximo cálculo.
+
+<b>Cálculo em cadeia</b>:
+Siga as expressões matemáticas.
+
+<b>Cálculo Sherlock</b>:
+Descubra como alcançar a meta usando apenas os números dados e estes operadores: + - * / ( ).
+
+<b>Cálculo de frações</b>:
+Resolva as frações.
+
+<b>Comparação de valores</b>:
+Selecione a expressão com o maior valor.
+
+<b>Soma bolhas</b>:
+Some os números nas bolhas flutuantes.
+
+<b>Soma rápida</b>:
+Os números aparecem um de cada vez. Some-os e introduza o total.
+
+<b>Puzzle de anomalia</b>:
+Encontre a figura que se destaca.
+
+<b>Sequência de padrões</b>:
+Descubra a regra que percorre cada linha da grelha e escolha a peça que a completa.
+
+<b>Busca de caminhos</b>:
+Comece na posição marcada e siga as setas para encontrar o destino.
+
+<b>Memória visual</b>:
+Memorize as formas na grelha e identifique a forma oculta após o término do cronómetro.
+
+<b>Grade Fantasma</b>:
+Observe os blocos se iluminarem um por um e depois toque neles na mesma ordem.
+
+<b>Confusão de Cores</b>:
+Toque em todas as células onde a palavra corresponde à cor da fonte e depois pressione Pronto.
+
+<b>Formas coloridas</b>:
+Some os pontos das afirmações corretas.
+
+<b>Rastreador de Órbitas</b>:
+Observe as bolas destacadas e acompanhe-as enquanto se movem.
+
+<b>Multidão Relâmpago</b>:
+Pontos piscam brevemente em cada lado. Toque no lado que tinha mais pontos.
+
+<b>Mini Sudoku</b>:
+Preencha a pequena grelha para que cada linha, coluna e bloco contenha cada número exatamente uma vez.
+
+<b>Mini Xadrez</b>:
+Dê xeque-mate à CPU antes que ela lhe faça o mesmo.
+
+<b>Xadrez Solo</b>:
+Capture as peças uma a uma até sobrar apenas o rei.
+
+<b>Apagar as luzes</b>:
+Apague todas as luzes. Cada toque alterna a célula e seus quatro vizinhos.
+
+<b>Puzzle deslizante</b>:
+Deslize as peças para o espaço vazio para colocá-las em ordem.
+
+<b>Shikaku</b>:
+Divida toda a grelha em retângulos. Cada retângulo deve conter exatamente um número, igual à sua área.
+
+<b>Nurikabe</b>:
+Pinte células para formar o mar ao redor das ilhas numeradas.
+
+<b>Rainhas Gato</b>:
+Coloque um gato em cada linha, cada coluna e cada zona de cor. Dois gatos não podem se tocar, nem mesmo na diagonal.
+
+<b>Nó</b>:
+Conecte cada par de pontos coloridos com um caminho.
+
+<b>Torres de Hanói</b>:
+Mova a pilha inteira para o pino direito.
+
+<b>Tabela de Schulte</b>:
+Toque nos números em ordem a partir de 1 o mais rápido que puder.
+
+<b>Bandeiras</b>:
+Identifique o país pela sua bandeira.
+
+<b>Memória de Dígitos</b>:
+Memorize uma sequência de dígitos, resolva um problema matemático rápido e depois lembre-se dos dígitos.
+
+<b>Encontre o Novo</b>:
+Toque no animal que nunca viu antes.
+
+<b>N-Back</b>:
+Observe as formas e toque na que estava na posição pedida.
+
+<b>Wordle</b>:
+Adivinhe a palavra oculta de cinco letras em seis tentativas. A resposta é sempre um substantivo.
+
+<b>Enigmas de palitos</b>:
+Mova palitos para corrigir equações.
+
+<b>Resta Um</b>:
+Pule pinos até restar apenas um.
+
+<b>Sudoku</b>:
+Sudoku clássico completo com vários níveis de dificuldade.
+
+<b>Xadrez</b>:
+Xadrez completo contra a CPU ou pass-and-play.
+
+<b>Teste de QI</b>:
+30 desafios de matrizes em 15 minutos. Só por diversão.
+
+<b>Missing Operators</b>:
+Encontre os operadores em falta (+, -, *, /) que tornam a equação verdadeira.
+
+<b>Bulls & Cows</b>:
+Adivinhe o número secreto de 4 dígitos.
+
+<b>Simon Says</b>:
+A cada rodada, um novo botão se ilumina. Toque em toda a sequência desde o início, incluindo os botões das rodadas anteriores.
+
+<b>Prism Clear</b>:
+Troque peças iguais para limpar linhas de três ou mais. Esvazie todo o tabuleiro para vencer.
+
+<b>Trio</b>:
+Encontre três cartas que compartilhem forma, quantidade ou preenchimento.
+
+O jogo tem várias <b>conquistas</b> e cada exercício tem <b>medalhas</b> para o manter motivado.
+
+Sem rastreamento. <b>Código aberto</b>.

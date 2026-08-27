@@ -6,8 +6,11 @@ import java.util.Locale
  * Play store screenshot matrix: Compose resource locale paired with the supply folder name
  * under fastlane/metadata/android/.
  *
- * es-419 reuses the Spanish UI strings; only the store listing copy differs from es-ES.
- * zh-rTW is the Compose/Android resource qualifier for Traditional Chinese (Taiwan).
+ * A resource locale may appear more than once. Play sells a listing per region, so en, es, fr,
+ * pt and zh-rTW each back several supply folders that share one set of UI strings and differ
+ * only in store copy: the app reads the same as en-US in en-GB, but the listing can be its own.
+ * zh-rTW is the Compose/Android resource qualifier for Traditional Chinese, and backs both the
+ * Taiwan (zh-TW) and Hong Kong (zh-HK) listings.
  *
  * The supply folder name has to be a code Play accepts, and Play is inconsistent about region
  * suffixes: it takes de-DE and cs-CZ but rejects bg-BG and sk-SK in favour of bare bg and sk.
@@ -32,11 +35,13 @@ internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("en", "en-US"),
     arrayOf("es", "es-ES"),
     arrayOf("es", "es-419"),
+    arrayOf("es", "es-US"),
     arrayOf("et", "et"),
     arrayOf("fa", "fa"),
     arrayOf("fi", "fi-FI"),
     arrayOf("fil", "fil"),
     arrayOf("fr", "fr-FR"),
+    arrayOf("fr", "fr-CA"),
     arrayOf("gu", "gu"),
     arrayOf("he", "iw-IL"),
     arrayOf("hi", "hi-IN"),
@@ -58,6 +63,7 @@ internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("pa", "pa"),
     arrayOf("pl", "pl-PL"),
     arrayOf("pt", "pt-BR"),
+    arrayOf("pt", "pt-PT"),
     arrayOf("ro", "ro"),
     arrayOf("ru", "ru-RU"),
     arrayOf("sk", "sk"),
@@ -73,4 +79,5 @@ internal fun playStoreLocales(): List<Array<String>> = listOf(
     arrayOf("vi", "vi"),
     arrayOf("zh", "zh-CN"),
     arrayOf("zh-rTW", "zh-TW"),
+    arrayOf("zh-rTW", "zh-HK"),
 )
