@@ -44,6 +44,7 @@ import com.inspiredandroid.braincup.learn.phaseCount
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.WorkingBlue
 import com.inspiredandroid.braincup.ui.theme.displayFontFamily
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
@@ -75,6 +76,10 @@ data class VisualAnswer(val value: Int, val correct: Boolean)
  *
  * A figure with more than one phase ([LearnVisual.phaseCount]) plays them in turn, holding each
  * finished phase for [PhaseHoldMillis] before the next, and loops.
+ *
+ * [inspectionPhase] picks which of those phases a preview or a screenshot render freezes on. The
+ * loop never runs under inspection, so without it the second half of a two-phase figure -- the
+ * return hop of a `NumberLine(thenJump = ...)` -- could never be seen anywhere but on a device.
  */
 @Composable
 fun LearnVisualCanvas(
@@ -83,12 +88,13 @@ fun LearnVisualCanvas(
     ink: Color = MaterialTheme.colorScheme.onSurfaceVariant,
     answer: VisualAnswer? = null,
     paper: Color = MaterialTheme.colorScheme.surfaceVariant,
+    inspectionPhase: Int = 0,
 ) {
     // Previews and screenshot tests never advance the clock, so an entrance that starts at zero
     // renders them as an empty panel. Under inspection the figure starts finished instead.
     val inspecting = LocalInspectionMode.current
     val progress = remember(visual, inspecting) { Animatable(if (inspecting) 1f else 0f) }
-    var phase by remember(visual) { mutableIntStateOf(0) }
+    var phase by remember(visual) { mutableIntStateOf(if (inspecting) inspectionPhase else 0) }
     // Bumped by a tap. Restarting the whole effect is what makes replay work on a looping figure:
     // a second coroutine racing the loop would leave the two fighting over the same Animatable.
     var replayKey by remember(visual) { mutableIntStateOf(0) }
@@ -158,8 +164,20 @@ internal class VisualScope(
     /** Which phase of a multi-phase figure is playing. Always 0 for the single-phase majority. */
     val phase: Int = 0,
 ) {
-    /** The colour a marked value takes: the accent when it is right, the error colour when not. */
-    val resultColor: Color get() = if (answer?.correct == false) wrongColor else Accent
+    /**
+     * The colour a value the learner put forward takes on the scale.
+     *
+     * Green once it is right, and green nowhere else: the same green the option tile turns and the
+     * same green the solved formula prints, so the answer reads as one thing in three places.
+     * Before anything is answered the figure is still only pointing at a value, so it uses the
+     * accent; a miss takes the error colour.
+     */
+    val resultColor: Color
+        get() = when {
+            answer == null -> Accent
+            answer.correct -> SuccessGreen
+            else -> wrongColor
+        }
 
     val size: Size get() = draw.size
     val width: Float get() = draw.size.width
@@ -258,6 +276,39 @@ internal class VisualScope(
      * off the canvas and is clipped. Nudging it inside is always better than losing half of it.
      */
     private fun insideCanvas(x: Float, textWidth: Int): Float = x.coerceIn(0f, (width - textWidth).coerceAtLeast(0f))
+
+    /**
+     * Draw a caption whose parts carry different colours as one centred line.
+     *
+     * A figure that sums two of its own parts should say so in their colours - "90 + 90 = 180"
+     * with each number matching the arc it counts - and a single-colour caption cannot. Each run
+     * pairs its text with a colour, or null to take the caption's own [color].
+     */
+    fun labelRuns(
+        runs: List<Pair<String, Color?>>,
+        center: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        bold: Boolean = true,
+    ) {
+        if (alpha <= 0.01f || runs.isEmpty()) return
+        val style = labelStyle(color.copy(alpha = color.alpha * alpha), factor, bold)
+        val text = buildAnnotatedString {
+            runs.forEach { (piece, tint) ->
+                val resolved = (tint ?: color).let { it.copy(alpha = it.alpha * alpha) }
+                withStyle(SpanStyle(color = resolved)) { append(annotate(piece)) }
+            }
+        }
+        val measured = measurer.measure(text, style)
+        draw.drawText(
+            measured,
+            topLeft = Offset(
+                insideCanvas(center.x - measured.size.width / 2f, measured.size.width),
+                center.y - measured.size.height / 2f,
+            ),
+        )
+    }
 
     /** Draw [text] centred on [center], fading in with [alpha]. */
     fun label(
@@ -485,7 +536,7 @@ internal class VisualScope(
 }
 
 internal val Accent: Color get() = Primary
-internal val Accent2: Color get() = SuccessGreen
+internal val Accent2: Color get() = WorkingBlue
 
 private fun VisualScope.draw(visual: LearnVisual) {
     when (visual) {

@@ -625,14 +625,24 @@ internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
     val a = visual.a.coerceAtLeast(1).toFloat()
     val b = visual.b.coerceAtLeast(1).toFloat()
     val c = hypot(a, b)
-    val room = if (visual.showSquares) 0.3f else 0.62f
-    val unit = min(width * room / (a + if (visual.showSquares) a else 0f), height * room / (b + if (visual.showSquares) b else 0f))
+    // With the squares drawn, the figure reaches legB to the left of the corner and legA below it,
+    // so the whole thing spans (a + b) units in both directions. Reserving (a + a) across and
+    // (b + b) down measured a shape that is not this one: a 12-9 triangle came out at 40% of the
+    // size it could be, a 144px island in a 410px canvas, with its side labels printed on top of
+    // the square labels.
+    val unit = if (visual.showSquares) {
+        min(width, height) * 0.86f / (a + b)
+    } else {
+        min(width * 0.62f / a, height * 0.62f / b)
+    }
     val legA = a * unit
     val legB = b * unit
-    val corner = Offset(
-        width / 2f - legA / 2f + if (visual.showSquares) legA * 0.1f else 0f,
-        height * (if (visual.showSquares) 0.46f else 0.62f) + legB / 2f,
-    )
+    val corner = if (visual.showSquares) {
+        // Centre the whole span - square, triangle, square - rather than the triangle alone.
+        Offset(width / 2f - (legA - legB) / 2f, height / 2f - (legA - legB) / 2f)
+    } else {
+        Offset(width / 2f - legA / 2f, height * 0.62f + legB / 2f)
+    }
     val right = Offset(corner.x + legA, corner.y)
     val top = Offset(corner.x, corner.y - legB)
 
@@ -683,8 +693,13 @@ internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
         val hypLabel = if (visual.unknown == Side.HYPOTENUSE) "?" else formatDecimal(c.toDouble())
         val aLabel = if (visual.unknown == Side.A) "?" else visual.a.toString()
         val bLabel = if (visual.unknown == Side.B) "?" else visual.b.toString()
-        label(aLabel, Offset(corner.x + legA / 2f, corner.y + height * 0.07f), ink, 0.1f)
-        label(bLabel, Offset(corner.x - width * 0.05f, corner.y - legB / 2f), ink, 0.1f)
+        // Without the squares a side label sits outside the triangle, which is where there is room.
+        // With them, outside is the middle of a square that carries its own number, so the labels
+        // move inside the triangle instead - the one part of the figure that is always empty.
+        val alongA = if (visual.showSquares) -height * 0.07f else height * 0.07f
+        val alongB = if (visual.showSquares) width * 0.03f else -width * 0.05f
+        label(aLabel, Offset(corner.x + legA / 2f, corner.y + alongA), ink, 0.1f)
+        label(bLabel, Offset(corner.x + alongB, corner.y - legB / 2f), ink, 0.1f)
         label(
             text = hypLabel,
             center = Offset((right.x + top.x) / 2f + width * 0.045f, (right.y + top.y) / 2f - height * 0.03f),
@@ -780,9 +795,14 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
     val swept = degrees * progress
     val angle = swept * PI / 180.0
     val tip = Offset(origin.x + (arm * cos(PI - angle)).toFloat(), origin.y - (arm * sin(PI - angle)).toFloat())
-    line(origin, tip, Accent, stroke * 1.4f)
 
+    // Both parts of a straight line are drawn on one radius, so together they read as the single
+    // half turn the caption adds them up to. Two radii made the pair look like two unrelated
+    // angles that happened to share an arm.
     val sweepRadius = arm * 0.3f
+    val supplement = visual.supplement && visual.reveal
+    val otherSweep = (180f - swept).coerceAtLeast(0f)
+
     arc(
         center = origin,
         radius = sweepRadius,
@@ -790,29 +810,41 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
         sweepAngle = swept,
         outline = Accent,
     )
-    labelWedge("$degrees", origin, 180f, swept, sweepRadius * 1.6f, Accent, stage(1, 3))
-
-    if (visual.supplement && visual.reveal) {
-        val other = 180 - degrees
-        val otherRadius = arm * 0.44f
+    if (supplement) {
         arc(
             center = origin,
-            radius = otherRadius,
+            radius = sweepRadius,
             startAngle = 180f + swept,
-            sweepAngle = (180f - swept).coerceAtLeast(0f),
+            sweepAngle = otherSweep,
             outline = Accent2,
         )
+    }
+
+    // The arm goes on after the arcs, not before. It is the same colour as the first of them, so
+    // drawn first it had the arc end blending into it instead of stopping cleanly against it.
+    line(origin, tip, Accent, stroke * 1.4f)
+
+    labelWedge("$degrees", origin, 180f, swept, sweepRadius * 1.6f, Accent, stage(1, 3))
+
+    if (supplement) {
+        val other = 180 - degrees
         labelWedge(
             text = "$other",
             origin = origin,
             startDegrees = 180f + swept,
-            sweepDegrees = (180f - swept).coerceAtLeast(0f),
-            radius = otherRadius * 1.35f,
+            sweepDegrees = otherSweep,
+            radius = sweepRadius * 1.6f,
             color = Accent2,
             alpha = revealBeat,
         )
-        label(
-            text = "$degrees + $other = 180",
+        // Each number in the sum takes the colour of the arc it counts.
+        labelRuns(
+            runs = listOf(
+                "$degrees" to Accent,
+                " + " to null,
+                "$other" to Accent2,
+                " = 180" to null,
+            ),
             center = Offset(width / 2f, height * 0.94f),
             color = ink,
             factor = 0.095f,

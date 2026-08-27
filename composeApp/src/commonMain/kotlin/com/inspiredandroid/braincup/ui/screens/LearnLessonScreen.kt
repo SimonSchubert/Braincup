@@ -31,14 +31,15 @@ import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
 import com.inspiredandroid.braincup.learn.LessonStep
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
+import com.inspiredandroid.braincup.ui.components.learn.LearnAnswerCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
 import com.inspiredandroid.braincup.ui.components.learn.LearnFigurePanel
+import com.inspiredandroid.braincup.ui.components.learn.LearnFormulaCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionState
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
@@ -48,9 +49,7 @@ import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
-import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
-import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -61,20 +60,37 @@ import org.jetbrains.compose.resources.stringResource
  * [Missed] carries every option already ruled out so they all stay struck through, and [firstTry]
  * remembers whether the first attempt landed, which is what the lesson score counts.
  */
-private sealed interface StepAnswer {
-    data object Unanswered : StepAnswer
+sealed interface LessonAnswer {
+    data object Unanswered : LessonAnswer
 
     /** Options (or typed values) tried and rejected so far, in order. Never empty. */
-    data class Missed(val attempts: List<String>) : StepAnswer
+    data class Missed(val attempts: List<String>) : LessonAnswer
 
-    data class Correct(val firstTry: Boolean) : StepAnswer
+    data class Correct(val firstTry: Boolean) : LessonAnswer
 }
 
-/** The value the learner last put forward, for the figure to mark, or null before any attempt. */
-private fun StepAnswer.lastAttempt(): String? = when (this) {
-    StepAnswer.Unanswered -> null
-    is StepAnswer.Missed -> attempts.last()
-    is StepAnswer.Correct -> null
+/**
+ * Where a lesson opens.
+ *
+ * The app always starts a lesson at [Start] and walks it from there; nothing in the running app
+ * ever passes anything else. It exists so a preview or a screenshot render can open the screen
+ * part-way through, which is the only way to see the states a learner has to answer their way
+ * into: the solved formula, the [FeedbackCard], the retry note and the lesson result.
+ */
+@Immutable
+data class LessonScreenState(
+    val stepIndex: Int = 0,
+    /** How many lines of a [LessonStep.Worked] have been turned over. */
+    val revealedLines: Int = 0,
+    val answer: LessonAnswer = LessonAnswer.Unanswered,
+    /** What is in the number pad's buffer on a [LessonStep.Numeric]. */
+    val typedAnswer: String = "",
+    /** Questions answered right first time so far, which is what the lesson result reports. */
+    val correctCount: Int = 0,
+) {
+    companion object {
+        val Start = LessonScreenState()
+    }
 }
 
 @Composable
@@ -112,12 +128,13 @@ fun LearnLessonScreenContent(
     onNextLesson: (lessonId: String) -> Unit,
     onBack: () -> Unit,
     onTakeTest: (() -> Unit)? = null,
+    initialState: LessonScreenState = LessonScreenState.Start,
 ) {
-    var stepIndex by remember(lesson.id) { mutableIntStateOf(0) }
-    var correctCount by remember(lesson.id) { mutableIntStateOf(0) }
-    var answer by remember(lesson.id) { mutableStateOf<StepAnswer>(StepAnswer.Unanswered) }
-    var typedAnswer by remember(lesson.id) { mutableStateOf("") }
-    var revealedLines by remember(lesson.id) { mutableIntStateOf(0) }
+    var stepIndex by remember(lesson.id) { mutableIntStateOf(initialState.stepIndex) }
+    var correctCount by remember(lesson.id) { mutableIntStateOf(initialState.correctCount) }
+    var answer by remember(lesson.id) { mutableStateOf(initialState.answer) }
+    var typedAnswer by remember(lesson.id) { mutableStateOf(initialState.typedAnswer) }
+    var revealedLines by remember(lesson.id) { mutableIntStateOf(initialState.revealedLines) }
 
     val finished = stepIndex >= lesson.steps.size
 
@@ -128,19 +145,19 @@ fun LearnLessonScreenContent(
 
     val advance = {
         stepIndex++
-        answer = StepAnswer.Unanswered
+        answer = LessonAnswer.Unanswered
         typedAnswer = ""
         revealedLines = 0
     }
 
     /** Records an attempt. The score counts only answers that landed first time. */
     fun submit(attempt: String, isCorrect: Boolean) {
-        val previous = (answer as? StepAnswer.Missed)?.attempts.orEmpty()
+        val previous = (answer as? LessonAnswer.Missed)?.attempts.orEmpty()
         answer = if (isCorrect) {
             if (previous.isEmpty()) correctCount++
-            StepAnswer.Correct(firstTry = previous.isEmpty())
+            LessonAnswer.Correct(firstTry = previous.isEmpty())
         } else {
-            StepAnswer.Missed(previous + attempt)
+            LessonAnswer.Missed(previous + attempt)
         }
     }
 
@@ -178,7 +195,7 @@ fun LearnLessonScreenContent(
                     step = step,
                     answer = answer,
                     onSelect = { index ->
-                        if (answer !is StepAnswer.Correct) {
+                        if (answer !is LessonAnswer.Correct) {
                             submit(step.options[index], index == step.correctIndex)
                         }
                     },
@@ -216,7 +233,7 @@ fun LearnLessonScreenContent(
 @Composable
 private fun ColumnScope.LessonActionBar(
     step: LessonStep,
-    answer: StepAnswer,
+    answer: LessonAnswer,
     typedAnswer: String,
     revealedLines: Int,
     onRevealLine: () -> Unit,
@@ -243,16 +260,16 @@ private fun ColumnScope.LessonActionBar(
 
             // Continue appears only once the question is right. Until then the step stays open, so
             // a lesson cannot be walked through without ever working an answer out.
-            step is LessonStep.Numeric && answer !is StepAnswer.Correct -> PrimaryActionButton(
+            step is LessonStep.Numeric && answer !is LessonAnswer.Correct -> PrimaryActionButton(
                 onClick = { if (typedAnswer.isNotBlank()) onCheckNumeric() },
                 value = stringResource(
-                    if (answer is StepAnswer.Missed) Res.string.learn_try_again else Res.string.learn_check,
+                    if (answer is LessonAnswer.Missed) Res.string.learn_try_again else Res.string.learn_check,
                 ),
                 modifier = button,
             )
 
             // A choice step is answered by tapping an option, so it shows no button of its own.
-            step is LessonStep.Choice && answer !is StepAnswer.Correct -> Unit
+            step is LessonStep.Choice && answer !is LessonAnswer.Correct -> Unit
 
             else -> PrimaryActionButton(
                 onClick = onContinue,
@@ -267,10 +284,10 @@ private fun ColumnScope.LessonActionBar(
  * The value the figure should point at: the one the learner last put forward. Only numbers reach
  * the figure, so an option like "the orange one" simply leaves it unmarked.
  */
-private fun StepAnswer.visualAnswer(correctValue: String): VisualAnswer? = when (this) {
-    StepAnswer.Unanswered -> null
-    is StepAnswer.Correct -> correctValue.trim().toIntOrNull()?.let { VisualAnswer(it, correct = true) }
-    is StepAnswer.Missed -> attempts.last().trim().toIntOrNull()?.let { VisualAnswer(it, correct = false) }
+private fun LessonAnswer.visualAnswer(correctValue: String): VisualAnswer? = when (this) {
+    LessonAnswer.Unanswered -> null
+    is LessonAnswer.Correct -> correctValue.trim().toIntOrNull()?.let { VisualAnswer(it, correct = true) }
+    is LessonAnswer.Missed -> attempts.last().trim().toIntOrNull()?.let { VisualAnswer(it, correct = false) }
 }
 
 @Composable
@@ -286,7 +303,7 @@ private fun ConceptStep(step: LessonStep.Concept) {
     )
     step.formula?.let { formula ->
         Spacer(Modifier.height(16.dp))
-        FormulaCard(formula)
+        LearnFormulaCard(formula)
     }
 }
 
@@ -313,25 +330,6 @@ private fun LessonText(
 }
 
 @Composable
-private fun FormulaCard(formula: String) {
-    // The formula is the line the step is teaching, so it carries the brand colour and full-weight
-    // ink rather than the muted tone the supporting cards use.
-    PrismCard(
-        face = MaterialTheme.colorScheme.surfaceVariant,
-        modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
-    ) {
-        MathText(
-            text = formula,
-            style = MaterialTheme.typography.titleLarge,
-            textAlign = TextAlign.Center,
-            color = Primary,
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
-            fractionSlash = true,
-        )
-    }
-}
-
-@Composable
 private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
     val worked = revealedLines >= step.lines.size
     // A problem asked as an equation finishes where it was asked: the answer lands on the question
@@ -340,8 +338,8 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
     val finishesInPlace = step.problem.trimEnd().endsWith("= ?")
     // The sum leads, above the figure and in the same card the teaching steps give their formula:
     // it is the thing being worked out, and the diagram under it is the picture of that sum.
-    FormulaCard(
-        if (worked && finishesInPlace) step.problem.replace("?", "{b:${step.result}}") else step.problem,
+    LearnFormulaCard(
+        if (worked && finishesInPlace) step.problem.replace("?", "{c:${step.result}}") else step.problem,
     )
     Spacer(Modifier.height(16.dp))
     step.visual?.let {
@@ -364,20 +362,9 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
         }
     }
     AnimatedVisibility(visible = worked && !finishesInPlace) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Column {
             Spacer(Modifier.height(8.dp))
-            Text(
-                text = stringResource(Res.string.learn_answer_label),
-                style = MaterialTheme.typography.labelMedium,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Text(
-                text = step.result,
-                style = MaterialTheme.typography.headlineSmall,
-                color = SuccessGreen,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
-            )
+            LearnAnswerCard(stringResource(Res.string.learn_answer_label), step.result)
         }
     }
 }
@@ -385,7 +372,7 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
 @Composable
 private fun ColumnScope.ChoiceStep(
     step: LessonStep.Choice,
-    answer: StepAnswer,
+    answer: LessonAnswer,
     onSelect: (Int) -> Unit,
 ) {
     step.visual?.let {
@@ -398,18 +385,18 @@ private fun ColumnScope.ChoiceStep(
     QuestionHeading(
         formula = step.formula,
         question = step.question,
-        solved = (answer as? StepAnswer.Correct)?.let { step.options[step.correctIndex] },
+        solved = (answer as? LessonAnswer.Correct)?.let { step.options[step.correctIndex] },
     )
     Spacer(Modifier.height(16.dp))
 
-    val missed = (answer as? StepAnswer.Missed)?.attempts.orEmpty()
+    val missed = (answer as? LessonAnswer.Missed)?.attempts.orEmpty()
     step.options.forEachIndexed { index, option ->
         LearnOptionTile(
             label = option,
             state = when {
-                answer is StepAnswer.Correct && index == step.correctIndex -> LearnOptionState.CORRECT
+                answer is LessonAnswer.Correct && index == step.correctIndex -> LearnOptionState.CORRECT
                 option in missed -> LearnOptionState.WRONG
-                answer is StepAnswer.Correct -> LearnOptionState.MUTED
+                answer is LessonAnswer.Correct -> LearnOptionState.MUTED
                 else -> LearnOptionState.IDLE
             },
             onClick = { onSelect(index) },
@@ -417,9 +404,9 @@ private fun ColumnScope.ChoiceStep(
         Spacer(Modifier.height(8.dp))
     }
     when (answer) {
-        is StepAnswer.Correct -> FeedbackCard(step.explanation)
-        is StepAnswer.Missed -> RetryNote()
-        StepAnswer.Unanswered -> Unit
+        is LessonAnswer.Correct -> FeedbackCard(step.explanation)
+        is LessonAnswer.Missed -> RetryNote()
+        LessonAnswer.Unanswered -> Unit
     }
 }
 
@@ -429,7 +416,8 @@ private fun ColumnScope.ChoiceStep(
  *
  * [solved] is the answer, once the learner has it. It takes the place of the question mark in the
  * formula, so the sum they were asked finishes in front of them rather than being restated
- * somewhere else, and it arrives in the same green the correct option turns.
+ * somewhere else, and it arrives as `{c:}` - the answer green the correct option turns and the
+ * figure marks the value in, so one number reads the same in all three places.
  */
 @Composable
 private fun QuestionHeading(formula: String?, question: String, solved: String? = null) {
@@ -438,7 +426,7 @@ private fun QuestionHeading(formula: String?, question: String, solved: String? 
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (formula != null) {
-            FormulaCard(if (solved == null) formula else formula.replace("?", "{b:$solved}"))
+            LearnFormulaCard(if (solved == null) formula else formula.replace("?", "{c:$solved}"))
             Spacer(Modifier.height(10.dp))
         }
         LessonText(
@@ -475,7 +463,7 @@ private fun NumericStep(
     step: LessonStep.Numeric,
     stepIndex: Int,
     typedAnswer: String,
-    answer: StepAnswer,
+    answer: LessonAnswer,
     onInputChange: (String) -> Unit,
 ) {
     step.visual?.let {
@@ -488,31 +476,26 @@ private fun NumericStep(
     QuestionHeading(
         formula = step.formula,
         question = step.question,
-        solved = (answer as? StepAnswer.Correct)?.let { step.answer },
+        solved = (answer as? LessonAnswer.Correct)?.let { step.answer },
     )
-    if (answer is StepAnswer.Correct) {
-        Spacer(Modifier.height(12.dp))
-        Text(
-            text = stringResource(Res.string.learn_your_answer),
-            style = MaterialTheme.typography.labelMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
-        Text(
-            text = typedAnswer,
-            style = MaterialTheme.typography.headlineSmall,
-            color = SuccessGreen,
-            fontWeight = FontWeight.Bold,
-        )
+    if (answer is LessonAnswer.Correct) {
+        // Only when the question had nowhere to resolve. A formula ending in "= ?" already
+        // finishes in front of the learner, in the answer green, so reading the same number back
+        // to them underneath it is the number twice and the card stack once too often.
+        if (step.formula?.trimEnd()?.endsWith("= ?") != true) {
+            Spacer(Modifier.height(12.dp))
+            LearnAnswerCard(stringResource(Res.string.learn_your_answer), typedAnswer)
+        }
         Spacer(Modifier.height(8.dp))
         FeedbackCard(step.explanation)
     } else {
         // Keyed so the pad's buffer starts empty on a new question, and again after a miss so the
         // rejected number is cleared rather than needing backspacing away.
-        val missCount = (answer as? StepAnswer.Missed)?.attempts?.size ?: 0
+        val missCount = (answer as? LessonAnswer.Missed)?.attempts?.size ?: 0
         key(stepIndex, missCount) {
             NumberPadWithInput(onInputChange = onInputChange)
         }
-        if (answer is StepAnswer.Missed) {
+        if (answer is LessonAnswer.Missed) {
             Spacer(Modifier.height(8.dp))
             RetryNote()
         }

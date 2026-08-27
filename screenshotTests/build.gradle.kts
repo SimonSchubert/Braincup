@@ -99,6 +99,20 @@ tasks.matching { it.name == "testDebugUnitTest" }.configureEach {
     if (requestedTasks.any { it.contains("updateDesktopScreenshots") }) {
         task.filter.includeTestsMatching("*.DesktopFrameScreenshotTest")
     }
+    if (requestedTasks.any { it.contains("renderLearnScreens") }) {
+        // -PlearnOnly narrows the sweep while a single sub-topic is being re-checked, e.g.
+        // -PlearnOnly='LearnUnitRenderTest.*[geometry-circles]'. Without it the whole section runs.
+        val only = providers.gradleProperty("learnOnly").orNull
+        task.filter.includeTestsMatching(if (only == null) "*.Learn*RenderTest" else "*.$only")
+        // A Learn method renders up to thirty frames where a store method renders six, and it is
+        // total frames per fork that exhausts Paparazzi's native image buffers, not test count.
+        task.forkEvery = 20
+        // Paparazzi finishes its HTML report asynchronously as each fork is torn down, so Gradle's
+        // snapshot of `paparazzi.report.dir` can list a `.temp.png` that is already gone by the
+        // time it stats it, and fail the run after every frame has been recorded. Nothing is lost
+        // by dropping the tracking: a render sweep is meant to re-run every time anyway.
+        task.doNotTrackState("The Learn sweep always re-records; Paparazzi's report dir settles after the task.")
+    }
 }
 
 // Lays the recorded Play snapshots out in fastlane's supply tree. `locales` limits the copy to a
@@ -274,6 +288,160 @@ tasks.register("generateIosStoreScreenshots") {
             println("No App Store screenshots found.")
         }
     }
+}
+
+// ---------------------------------------------------------------------------------------------
+// Learn section render check
+//
+// `docs/learn-release-status.md` item 9 asks for every sub-topic to be *seen* before release.
+// This records the whole section (see LearnRenderHarness.kt) and lays the flat snapshot dump out
+// as one folder per sub-topic, in reading order, which is how the review is actually walked.
+// ---------------------------------------------------------------------------------------------
+
+val learnRenderDir: Directory = layout.buildDirectory.dir("learn-render").get()
+
+/** The phone viewport the sweep renders at; anything taller is a scrolling screen. */
+val learnPageHeight = 2424
+
+/** True for a full sweep; a -PlearnOnly run is a partial re-render and must not wipe the rest. */
+val learnFullSweep: Boolean = !providers.gradleProperty("learnOnly").isPresent
+
+val cleanLearnSnapshots =
+    tasks.register("cleanLearnSnapshots") {
+        description = "Drops last run's Learn snapshots so a renamed frame cannot linger as a stale file."
+        val fullSweep = learnFullSweep
+        onlyIf { fullSweep }
+        val snapshotsDirFile = snapshotsDir.asFile
+        doLast {
+            snapshotsDirFile
+                .listFiles()
+                ?.filter { it.name.startsWith("com.inspiredandroid.braincup.screenshots.learn_") }
+                ?.forEach { it.delete() }
+        }
+    }
+
+tasks.matching { it.name == "recordPaparazziDebug" }.configureEach {
+    mustRunAfter(cleanLearnSnapshots)
+}
+
+val layoutLearnScreens = tasks.register("layoutLearnScreens") {
+    description = "Files already-recorded Learn snapshots under build/learn-render/<sub-topic>/, without re-rendering."
+    mustRunAfter(cleanLearnSnapshots, "recordPaparazziDebug")
+
+    val snapshotsDirFile = snapshotsDir.asFile
+    val outDirFile = learnRenderDir.asFile
+    val pageHeight = learnPageHeight
+    val fullSweep = learnFullSweep
+
+    doLast {
+        // A parameterized class carries its row in brackets - the sub-topic id - and that is the
+        // folder. A plain class has no row, so it files under its own name instead.
+        val parameterized = Regex("""screenshots\.learn_Learn(\w+)RenderTest_\w+\[([^\]]+)]_(.+)\.png""")
+        val plain = Regex("""screenshots\.learn_Learn(\w+)RenderTest_\w+?_(.+)\.png""")
+
+        fun slotOf(name: String): Pair<String, String>? {
+            parameterized.find(name)?.let { return it.groupValues[2] to it.groupValues[3] }
+            plain.find(name)?.let { return "_" + it.groupValues[1].lowercase() to it.groupValues[2] }
+            return null
+        }
+
+        val sources = snapshotsDirFile
+            .listFiles()
+            ?.filter { it.extension == "png" && it.name.startsWith("com.inspiredandroid.braincup.screenshots.learn_") }
+            ?.sortedBy { it.name }
+            ?: emptyList()
+
+        if (sources.isEmpty()) {
+            throw GradleException(
+                "No Learn snapshots were recorded. Check that the testDebugUnitTest filter matched " +
+                    "*.Learn*RenderTest.",
+            )
+        }
+
+        // Same guard the store copy uses: two files claiming one slot means a frame was renamed
+        // and whichever the listing yielded last would silently win.
+        sources.groupBy { slotOf(it.name) }.forEach { (slot, claimants) ->
+            if (slot != null && claimants.size > 1) {
+                throw GradleException(
+                    "Learn slot ${slot.first}/${slot.second} is claimed by ${claimants.size} snapshots: " +
+                        claimants.joinToString { it.name },
+                )
+            }
+        }
+
+        if (fullSweep) outDirFile.deleteRecursively()
+
+        /**
+         * Trims the empty background a tall render leaves under its content, then cuts what is
+         * left into phone-height pages. A `_p2.png` existing is the report that the screen
+         * scrolls on a phone; a screen that fits keeps its single unsuffixed file.
+         */
+        fun write(source: File, targetDir: File, shot: String): Int {
+            val image = ImageIO.read(source)
+            if (image.height <= pageHeight) {
+                ImageIO.write(image, "png", File(targetDir, "$shot.png"))
+                return 1
+            }
+            val background = image.getRGB(0, image.height - 1)
+            var lastInked = image.height - 1
+            while (lastInked > 0) {
+                val rowIsBackground = (0 until image.width).all { x -> image.getRGB(x, lastInked) == background }
+                if (!rowIsBackground) break
+                lastInked--
+            }
+            val content = minOf(image.height, maxOf(pageHeight, lastInked + 1 + 48))
+            val pages = (content + pageHeight - 1) / pageHeight
+            if (pages == 1) {
+                ImageIO.write(image.getSubimage(0, 0, image.width, content), "png", File(targetDir, "$shot.png"))
+                return 1
+            }
+            (0 until pages).forEach { page ->
+                val top = page * pageHeight
+                val height = minOf(pageHeight, content - top)
+                ImageIO.write(
+                    image.getSubimage(0, top, image.width, height),
+                    "png",
+                    File(targetDir, "${shot}_p${page + 1}.png"),
+                )
+            }
+            return pages
+        }
+
+        val counts = sortedMapOf<String, Int>()
+        var skipped = 0
+        sources.forEach { file ->
+            val slot = slotOf(file.name)
+            if (slot == null) {
+                skipped++
+                return@forEach
+            }
+            val (folder, shot) = slot
+            val targetDir = File(outDirFile, folder)
+            targetDir.mkdirs()
+            counts[folder] = (counts[folder] ?: 0) + write(file, targetDir, shot)
+        }
+
+        counts.forEach { (folder, count) -> println("%-32s %3d frames".format(folder, count)) }
+        println("-".repeat(44))
+        println("%-32s %3d frames in ${counts.size} folders".format("total", counts.values.sum()))
+        if (skipped > 0) println("$skipped snapshot(s) did not match the Learn naming pattern and were skipped.")
+        println("Review them in ${outDirFile.path}")
+    }
+}
+
+// A browsable index next to the frames: 1600 PNGs are unreviewable in a file browser, and far too
+// many megabytes to inline into one self-contained page, so the index points at them on disk.
+val learnRenderIndex =
+    tasks.register<Exec>("learnRenderIndex") {
+        description = "Writes build/learn-render/index.html, a browsable index of the Learn renders."
+        mustRunAfter(layoutLearnScreens)
+        workingDir = layout.projectDirectory.dir("..").asFile
+        commandLine("python3", "scripts/learn_render_index.py")
+    }
+
+tasks.register("renderLearnScreens") {
+    description = "Records every Learn screen and lays them out under build/learn-render/<sub-topic>/."
+    dependsOn(cleanLearnSnapshots, "recordPaparazziDebug", layoutLearnScreens, learnRenderIndex)
 }
 
 dependencies {

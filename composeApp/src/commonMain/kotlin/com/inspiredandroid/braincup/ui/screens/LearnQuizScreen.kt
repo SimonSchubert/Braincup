@@ -29,7 +29,6 @@ import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.QuizQuestion
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
-import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
@@ -37,11 +36,14 @@ import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
 import com.inspiredandroid.braincup.ui.components.learn.LearnFigurePanel
+import com.inspiredandroid.braincup.ui.components.learn.LearnFormulaCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionState
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
+import com.inspiredandroid.braincup.ui.components.learn.LearnText
 import com.inspiredandroid.braincup.ui.components.learn.learnContainerColors
+import com.inspiredandroid.braincup.ui.components.readsAsNotation
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -67,6 +69,27 @@ fun LearnQuizScreen(
     )
 }
 
+/**
+ * Where a test opens.
+ *
+ * The app always starts a test at [Start]; nothing in the running app passes anything else. It
+ * exists so a preview or a screenshot render can open the screen part-way through, which is the
+ * only way to see a later question, the result, or the review list a learner has to answer their
+ * way into.
+ */
+@Immutable
+data class QuizScreenState(
+    val questionIndex: Int = 0,
+    /** The option picked per question, -1 for unanswered. Shorter lists are padded with -1. */
+    val answers: List<Int> = emptyList(),
+    /** Whether the result screen opens with its review list already unfolded. */
+    val showReview: Boolean = false,
+) {
+    companion object {
+        val Start = QuizScreenState()
+    }
+}
+
 @Composable
 fun LearnQuizScreenContent(
     unit: LearnUnit,
@@ -75,11 +98,16 @@ fun LearnQuizScreenContent(
     onViewCertificate: () -> Unit,
     onDone: () -> Unit,
     onBack: () -> Unit,
+    initialState: QuizScreenState = QuizScreenState.Start,
 ) {
     val quiz = unit.quiz
     // One entry per question, filled in as the learner answers; -1 means not answered yet.
-    val answers = remember(unit.id) { mutableStateListOf<Int>().apply { repeat(quiz.total) { add(-1) } } }
-    var questionIndex by remember(unit.id) { mutableIntStateOf(0) }
+    val answers = remember(unit.id) {
+        mutableStateListOf<Int>().apply {
+            repeat(quiz.total) { add(initialState.answers.getOrElse(it) { -1 }) }
+        }
+    }
+    var questionIndex by remember(unit.id) { mutableIntStateOf(initialState.questionIndex) }
 
     val submitted = questionIndex >= quiz.total
     val correctCount = quiz.questions.indices.count { answers[it] == quiz.questions[it].correctIndex }
@@ -100,6 +128,7 @@ fun LearnQuizScreenContent(
                 answers = answers,
                 correctCount = correctCount,
                 result = result,
+                initiallyShowingReview = initialState.showReview,
                 onViewCertificate = onViewCertificate,
                 onDone = onDone,
                 modifier = Modifier.weight(1f),
@@ -125,13 +154,19 @@ fun LearnQuizScreenContent(
             question.visual?.let { visual ->
                 LearnFigurePanel(visual, modifier = Modifier.padding(bottom = 12.dp))
             }
-            MathText(
-                text = question.prompt,
-                style = MaterialTheme.typography.titleMedium,
-                textAlign = TextAlign.Center,
-                modifier = Modifier.widthIn(max = LearnContentWidth),
-                fractionSlash = true,
-            )
+            // Notation goes in a card, exactly as a lesson step's formula does; a prose question
+            // stays plain text, exactly as a lesson step's question does. The test was printing
+            // both as loose text, so an equation read as a caption on the figure above it.
+            if (question.prompt.readsAsNotation()) {
+                LearnFormulaCard(question.prompt)
+            } else {
+                LearnText(
+                    text = question.prompt,
+                    style = MaterialTheme.typography.titleMedium,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.widthIn(max = LearnContentWidth),
+                )
+            }
             Spacer(Modifier.height(20.dp))
             question.options.forEachIndexed { index, option ->
                 // Every option stays IDLE: answers are revealed only at the end of a test, so
@@ -157,11 +192,12 @@ private fun QuizResultContent(
     answers: List<Int>,
     correctCount: Int,
     result: UserStorage.LearnQuizResult?,
+    initiallyShowingReview: Boolean,
     onViewCertificate: () -> Unit,
     onDone: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    var showReview by remember { mutableStateOf(false) }
+    var showReview by remember { mutableStateOf(initiallyShowingReview) }
     val earnedCertificate = result?.earnedCertificate ?: Certificate.isEarnedBy(correctCount, quiz.total)
 
     LearnResultColumn(
@@ -246,11 +282,11 @@ private fun ReviewCard(
         modifier = modifier,
     ) {
         Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
-            MathText(
+            LearnText(
                 text = question.prompt,
                 style = MaterialTheme.typography.titleSmall,
                 color = ink,
-                fractionSlash = true,
+                roleColors = true,
             )
             Spacer(Modifier.height(6.dp))
             if (!isCorrect) {
@@ -263,20 +299,22 @@ private fun ReviewCard(
                     color = MaterialTheme.colorScheme.error,
                 )
             }
+            // Green whether or not they got it: green means "the answer" everywhere in the section,
+            // and the answer is the answer. Printing it in the card's own ink after a miss made the
+            // one line the learner most needs the quietest thing on the card.
             Text(
                 text = stringResource(
                     Res.string.learn_quiz_correct_answer,
                     question.options[question.correctIndex],
                 ),
                 style = MaterialTheme.typography.bodySmall,
-                color = if (isCorrect) SuccessGreen else ink,
+                color = SuccessGreen,
             )
             Spacer(Modifier.height(4.dp))
-            MathText(
+            LearnText(
                 text = question.explanation,
                 style = MaterialTheme.typography.bodySmall,
                 color = ink.copy(alpha = 0.85f),
-                fractionSlash = true,
             )
         }
     }

@@ -46,12 +46,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Counting on is adding. Watch three hops land on ten.",
-                        formula = "7 + 3 = 10",
+                        formula = "7 + {b:3} = 10",
                         visual = NumberLine(from = 0, to = 12, start = 7, jump = 3, hops = 3),
                     ),
                     Choice(
                         question = "Start at 12 and count on four hops.",
-                        formula = "12 + 4 = ?",
+                        formula = "12 + {b:4} = ?",
                         options = listOf("14", "15", "16", "17"),
                         correctIndex = 2,
                         explanation = "13, 14, 15, 16 - four hops to the right lands on 16.",
@@ -72,7 +72,7 @@ internal object ArithmeticContent {
                     ),
                     Choice(
                         question = "Count back one from 40.",
-                        formula = "40 - 1 = ?",
+                        formula = "40 - {b:1} = ?",
                         options = listOf("30", "39", "41", "44"),
                         correctIndex = 1,
                         explanation = "Counting back moves one step left, so 40 becomes 39, not 30.",
@@ -115,12 +115,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Taking away hops back the same way: down to ten first, then the rest.",
-                        formula = "15 - 8 = 15 - 5 - 3",
+                        formula = "15 - {b:8} = 15 - {b:5} - {b:3}",
                         visual = NumberLine(from = 0, to = 16, start = 15, hopSteps = listOf(-5, -3)),
                     ),
                     Choice(
                         question = "Hop back to ten first, then hop what is left.",
-                        formula = "13 - 5 = ?",
+                        formula = "13 - {b:5} = ?",
                         options = listOf("6", "7", "8", "9"),
                         correctIndex = 2,
                         explanation = "13 - 3 lands on ten, and 10 - 2 = 8.",
@@ -128,7 +128,7 @@ internal object ArithmeticContent {
                     ),
                     Choice(
                         question = "Same trick, one bigger hop back.",
-                        formula = "15 - 9 = ?",
+                        formula = "15 - {b:9} = ?",
                         options = listOf("5", "6", "7", "8"),
                         correctIndex = 1,
                         explanation = "15 - 5 lands on ten, and 10 - 4 = 6.",
@@ -193,14 +193,14 @@ internal object ArithmeticContent {
                 visual = Steps(terms = listOf(20, 30, 40)),
             ),
             QuizQuestion(
-                prompt = "9 + 6 = ?",
+                prompt = "9 + {b:6} = ?",
                 options = listOf("14", "15", "16", "13"),
                 correctIndex = 1,
                 explanation = "9 takes 1 of the 6 to make ten, and the other 5 carry on past it.",
                 visual = TenFrame(filled = 9, added = 6, reveal = false),
             ),
             QuizQuestion(
-                prompt = "14 - 6 = ?",
+                prompt = "14 - {b:6} = ?",
                 options = listOf("6", "7", "8", "9"),
                 correctIndex = 2,
                 explanation = "Hop back four to land on ten, and the last two hops reach 8.",
@@ -244,17 +244,17 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Multiplication is equal rows. Count how many rows, count what is in each, and the dots do the rest.",
-                        formula = "4 x 6 = 24",
+                        formula = "4 x {b:6} = 24",
                         visual = ArrayDots(rows = 4, cols = 6),
                     ),
                     Concept(
                         body = "Turn the array on its side and not one dot is lost, so every fact you learn hands you a second one free.",
-                        formula = "4 x 6 = 6 x 4",
+                        formula = "4 x {b:6} = 6 x {b:4}",
                         visual = ArrayDots(rows = 6, cols = 4),
                     ),
                     Choice(
                         question = "Seven rows, three dots in each.",
-                        formula = "7 x 3 = ?",
+                        formula = "7 x {b:3} = ?",
                         options = listOf("18", "21", "24", "27"),
                         correctIndex = 1,
                         explanation = "3, 6, 9, 12, 15, 18, 21 - seven threes counted on.",
@@ -272,7 +272,7 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = "A baking tray holds 4 rows of 7 cakes.",
-                        formula = "4 x 7 = ?",
+                        formula = "4 x {b:7} = ?",
                         answer = "28",
                         explanation = "Four rows of seven: 7, 14, 21, 28.",
                         visual = ArrayDots(rows = 4, cols = 7),
@@ -302,12 +302,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Ten rows is the easiest count of all: the number with a nought written after it.",
-                        formula = "10 x 6 = 60",
+                        formula = "10 x {b:6} = 60",
                         visual = ArrayDots(rows = 10, cols = 6),
                     ),
                     Choice(
                         question = "Ten rows of six would be 60, and this array is one row short of that.",
-                        formula = "9 x 6 = ?",
+                        formula = "9 x {b:6} = ?",
                         options = listOf("45", "48", "54", "56"),
                         correctIndex = 2,
                         explanation = "One row of six comes back off the sixty: 60 - 6 = 54.",
@@ -315,14 +315,14 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = "{a:5} rows of eight, and {b:2} more rows of eight.",
-                        formula = "7 x 8 = ?",
+                        formula = "7 x {b:8} = ?",
                         answer = "56",
                         explanation = "{a:5} eights are {a:40} and {b:2} more are {b:16}, so the array holds 56.",
                         visual = ArrayDots(rows = 7, cols = 8, split = 5),
                     ),
                     Choice(
                         question = "Double the {a:2} rows, then double the answer.",
-                        formula = "4 x 9 = ?",
+                        formula = "4 x {b:9} = ?",
                         options = listOf("13", "18", "27", "36"),
                         correctIndex = 3,
                         explanation = "Nine doubled is 18, and 18 doubled is 36.",
@@ -337,7 +337,7 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Division takes the total back apart into equal rows. It is the same array, read the other way round.",
-                        formula = "28 / 7 = 4",
+                        formula = "28 / {b:7} = 4",
                         visual = ArrayDots(rows = 4, cols = 7),
                     ),
                     Concept(
@@ -347,7 +347,7 @@ internal object ArithmeticContent {
                     ),
                     Choice(
                         question = "How many rows of eight does it take?",
-                        formula = "56 / 8 = ?",
+                        formula = "56 / {b:8} = ?",
                         options = listOf("6", "7", "8", "9"),
                         correctIndex = 1,
                         explanation = "Eight sevens are 56, so 56 splits into exactly seven rows of eight.",
@@ -386,7 +386,7 @@ internal object ArithmeticContent {
                 visual = ArrayDots(rows = 8, cols = 7),
             ),
             QuizQuestion(
-                prompt = "6 x 9 = ?",
+                prompt = "6 x {b:9} = ?",
                 options = listOf("45", "54", "56", "63"),
                 correctIndex = 1,
                 explanation = "Five nines is 45, and one more nine makes 54.",
@@ -400,14 +400,14 @@ internal object ArithmeticContent {
                 visual = ArrayDots(rows = 4, cols = 7),
             ),
             QuizQuestion(
-                prompt = "72 / 9 = ?",
+                prompt = "72 / {b:9} = ?",
                 options = listOf("6", "7", "8", "9"),
                 correctIndex = 2,
                 explanation = "Eight nines are 72, so 72 splits into exactly eight rows of nine.",
                 visual = ArrayDots(rows = 8, cols = 9),
             ),
             QuizQuestion(
-                prompt = "23 / 4 = ?",
+                prompt = "23 / {b:4} = ?",
                 options = listOf("5 r 1", "5 r 3", "6 r 1", "4 r 7"),
                 correctIndex = 1,
                 explanation = "Five rows of four is 20, and 3 will not make a sixth row.",
@@ -460,7 +460,7 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = "A cake is cut into 8 slices and 3 are eaten. How many eighths are still on the plate?",
-                        formula = "8/8 - 3/8 = ?/8",
+                        formula = "8/8 - {b:3/8} = ?/8",
                         answer = "5",
                         explanation = "Three of the eight pieces are gone, so 5/8 of the cake is left.",
                         visual = Fraction(numerator = 3, denominator = 8, reveal = false),
@@ -524,12 +524,12 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Pieces of the same size simply add: {a:3} fifths and {b:1} fifth are four fifths. The pieces never change size, so the bottom number never changes either.",
-                        formula = "3/5 + 1/5 = 4/5",
+                        formula = "3/5 + {b:1/5} = 4/5",
                         visual = Fraction(numerator = 3, denominator = 5, plus = 1 to 5),
                     ),
                     Choice(
                         question = "The pieces already match, so add the tops and leave the bottom alone.",
-                        formula = "2/7 + 3/7 = ?",
+                        formula = "2/7 + {b:3/7} = ?",
                         options = listOf("5/7", "5/14", "6/7", "1/7"),
                         correctIndex = 0,
                         explanation = "Two sevenths and three sevenths are five sevenths. Nothing was cut any thinner.",
@@ -537,7 +537,7 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Taking away works the same way. Five sixths with two sixths gone leaves three of them.",
-                        formula = "5/6 - 2/6 = 3/6",
+                        formula = "5/6 - {b:2/6} = 3/6",
                         visual = Fraction(numerator = 5, denominator = 6, compare = 3 to 6),
                     ),
                     Concept(
@@ -558,7 +558,7 @@ internal object ArithmeticContent {
                     ),
                     Choice(
                         question = "Sixths and thirds. Match the pieces first.",
-                        formula = "1/6 + 1/3 = ?",
+                        formula = "1/6 + {b:1/3} = ?",
                         options = listOf("2/9", "1/2", "2/6", "1/3"),
                         correctIndex = 1,
                         explanation = "1/3 is 2/6, so the sum is 3/6, which is one half.",
@@ -590,21 +590,21 @@ internal object ArithmeticContent {
                 visual = Fraction(numerator = 3, denominator = 8, compare = 1 to 2, reveal = false),
             ),
             QuizQuestion(
-                prompt = "3/5 + 1/5 = ?",
+                prompt = "3/5 + {b:1/5} = ?",
                 options = listOf("4/10", "4/5", "3/10", "4/25"),
                 correctIndex = 1,
                 explanation = "The pieces are the same size, so only the tops add.",
                 visual = Fraction(numerator = 3, denominator = 5, plus = 1 to 5, reveal = false),
             ),
             QuizQuestion(
-                prompt = "5/6 - 2/6 = ?",
+                prompt = "5/6 - {b:2/6} = ?",
                 options = listOf("3/6", "3/12", "7/6", "1/6"),
                 correctIndex = 0,
                 explanation = "Two of the five shaded sixths go, and the pieces stay sixths.",
                 visual = Fraction(numerator = 5, denominator = 6, compare = 2 to 6, reveal = false),
             ),
             QuizQuestion(
-                prompt = "1/2 + 1/4 = ?",
+                prompt = "1/2 + {b:1/4} = ?",
                 options = listOf("2/6", "3/4", "1/6", "2/4"),
                 correctIndex = 1,
                 explanation = "A half is two quarters, and two quarters plus one more is 3/4.",
@@ -718,7 +718,7 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Adding decimals is adding same-sized pieces, exactly as fractions do: {a:4} tenths take on {b:35} hundredths.",
-                        formula = "0.4 + 0.35 = 0.75",
+                        formula = "0.4 + {b:0.35} = 0.75",
                         visual = DecimalGrid(value = 0.4, plus = 0.35),
                     ),
                     Worked(
@@ -733,7 +733,7 @@ internal object ArithmeticContent {
                     ),
                     Choice(
                         question = "Line the points up, then add one column at a time.",
-                        formula = "0.3 + 0.45 = ?",
+                        formula = "0.3 + {b:0.45} = ?",
                         options = listOf("0.48", "0.75", "0.78", "0.15"),
                         correctIndex = 1,
                         explanation = "Write 0.3 as 0.30, then five hundredths and seven tenths make 0.75.",
@@ -741,12 +741,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "A subtraction is the same picture read backwards: {a:35} hundredths are already there, and {b:4} tenths bring it back up to 0.75.",
-                        formula = "0.75 - 0.4 = 0.35",
+                        formula = "0.75 - {b:0.4} = 0.35",
                         visual = DecimalGrid(value = 0.35, plus = 0.4),
                     ),
                     Choice(
                         question = "A pencil costs 0.45 euro and a rubber 0.30 euro. What do they cost together?",
-                        formula = "0.45 + 0.3 = ?",
+                        formula = "0.45 + {b:0.3} = ?",
                         options = listOf("0.15", "0.48", "0.75", "7.5"),
                         correctIndex = 2,
                         explanation = "Forty-five cents and thirty cents make seventy-five.",
@@ -786,7 +786,7 @@ internal object ArithmeticContent {
                 visual = DecimalGrid(value = 0.08, compare = 0.6, reveal = false),
             ),
             QuizQuestion(
-                prompt = "0.4 + 0.25 = ?",
+                prompt = "0.4 + {b:0.25} = ?",
                 options = listOf("0.29", "0.65", "0.6", "0.425"),
                 correctIndex = 1,
                 explanation = "Write 0.4 as 0.40, then tenths onto tenths and hundredths onto hundredths give 0.65.",
@@ -800,7 +800,7 @@ internal object ArithmeticContent {
                 visual = DecimalGrid(value = 0.25, reveal = false),
             ),
             QuizQuestion(
-                prompt = "0.7 - 0.35 = ?",
+                prompt = "0.7 - {b:0.35} = ?",
                 options = listOf("0.35", "0.42", "0.45", "0.28"),
                 correctIndex = 0,
                 explanation = "0.70 take away 0.35 leaves half of it.",
@@ -851,7 +851,7 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = "How many degrees warmer is the fridge than the freezer?",
-                        formula = "-2 - (-18) = ?",
+                        formula = "-2 - {b:(-18)} = ?",
                         answer = "16",
                         explanation = "From -18 up to -2 is 16 steps, which is why the two minus signs come out positive.",
                         visual = NumberLine(from = -20, to = 2, start = -18, tickStep = 2, hopSteps = listOf(16), reveal = false),
@@ -897,7 +897,7 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "Adding a negative is the other half of the same rule: it moves left, so the two signs collapse into one.",
-                        formula = "6 + (-4) = 6 - 4",
+                        formula = "6 + {b:(-4)} = 6 - {b:4}",
                         visual = NumberLine(from = -2, to = 8, start = 6, jump = -4),
                     ),
                 ),
@@ -909,12 +909,12 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = "Three lots of a debt is a bigger debt, so a negative times a positive stays negative.",
-                        formula = "3 x (-5) = -15",
+                        formula = "3 x {b:(-5)} = -15",
                         visual = Steps(terms = listOf(-15, -10, -5, 0)),
                     ),
                     Choice(
                         question = "Three rows of a debt of six.",
-                        formula = "3 x (-6) = ?",
+                        formula = "3 x {b:(-6)} = ?",
                         options = listOf("-18", "-9", "9", "18"),
                         correctIndex = 0,
                         explanation = "Three steps of -6 land on -18.",
@@ -927,12 +927,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "That is the whole of the rule. Two signs the same give a positive, two different give a negative, and division behaves exactly as multiplication does.",
-                        formula = "(-4) x (-5) = 20",
+                        formula = "(-4) x {b:(-5)} = 20",
                         visual = Steps(terms = listOf(-10, -5, 0, 5, 10, 15, 20)),
                     ),
                     Choice(
                         question = "Both signs are the same here.",
-                        formula = "(-30) / (-6) = ?",
+                        formula = "(-30) / {b:(-6)} = ?",
                         options = listOf("-5", "-36", "5", "36"),
                         correctIndex = 2,
                         explanation = "Thirty shares into sixes five times, and matching signs give a positive.",
@@ -951,7 +951,7 @@ internal object ArithmeticContent {
         ),
         questions = listOf(
             QuizQuestion(
-                prompt = "-6 + 9 = ?",
+                prompt = "-6 + {b:9} = ?",
                 options = listOf("-15", "-3", "3", "15"),
                 correctIndex = 2,
                 explanation = "Six of the nine carry you to zero, and the other three carry on past it to 3.",
@@ -965,14 +965,14 @@ internal object ArithmeticContent {
                 visual = NumberLine(from = -10, to = 5, reveal = false),
             ),
             QuizQuestion(
-                prompt = "-3 - 8 = ?",
+                prompt = "-3 - {b:8} = ?",
                 options = listOf("-11", "-5", "5", "11"),
                 correctIndex = 0,
                 explanation = "Taking away moves left, and eight steps left of -3 is -11.",
                 visual = NumberLine(from = -12, to = 2, start = -3, hopSteps = listOf(-8), reveal = false),
             ),
             QuizQuestion(
-                prompt = "7 - (-5) = ?",
+                prompt = "7 - {b:(-5)} = ?",
                 options = listOf("-12", "-2", "2", "12"),
                 correctIndex = 3,
                 explanation = "Taking away a negative moves right, so this is 7 + 5.",
@@ -1271,7 +1271,7 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = "That is the whole reason they never cancel: the second percentage is taken of a different number from the first.",
-                        formula = "110 x 0.9 = 99",
+                        formula = "110 x {b:0.9} = 99",
                         visual = DecimalGrid(value = 0.1, of = 110),
                     ),
                 ),

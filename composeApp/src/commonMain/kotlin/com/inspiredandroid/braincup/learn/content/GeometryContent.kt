@@ -500,12 +500,12 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "Every angle has a reflex partner: whatever is left of the full turn if you go round the other way. This 170 leaves 190 behind it.",
-                        formula = "360 - 170 = 190",
+                        formula = "360 - {b:170} = 190",
                         visual = AngleFigure(degrees = 170),
                     ),
                     Choice(
                         question = "Going round the other way, how much of the turn is left?",
-                        formula = "360 - 170 = ?",
+                        formula = "360 - {b:170} = ?",
                         options = listOf("10", "100", "190", "350"),
                         correctIndex = 2,
                         explanation = "The two together have to make one whole turn.",
@@ -594,7 +594,7 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "The angles inside a quadrilateral always add to 360, because it splits into two triangles of 180 each.",
-                        formula = "180 + 180 = 360",
+                        formula = "180 + {b:180} = 360",
                         visual = Polygon(sides = 4),
                     ),
                     Numeric(
@@ -635,7 +635,7 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "An equilateral triangle has three equal angles to go with its three equal sides, and 180 shared three ways leaves 60 each.",
-                        formula = "180 / 3 = 60",
+                        formula = "180 / {b:3} = 60",
                         visual = Symmetry(sides = 3, lines = 3),
                     ),
                     Numeric(
@@ -963,7 +963,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "What is the perimeter of this square, in cm?",
-                        formula = "4 x 9 = ?",
+                        formula = "4 x {b:9} = ?",
                         answer = "36",
                         explanation = "Four sides of 9.",
                         visual = AreaGrid(cols = 9, rows = 9, showArea = false, showPerimeter = true, reveal = false),
@@ -997,7 +997,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "How many squares cover this rug?",
-                        formula = "6 x 3 = ?",
+                        formula = "6 x {b:3} = ?",
                         answer = "18",
                         explanation = "3 rows of 6.",
                         visual = AreaGrid(cols = 6, rows = 3, reveal = false),
@@ -1015,7 +1015,7 @@ internal object GeometryContent {
                     ),
                     Choice(
                         question = "The area is 24 square cm and one side is 4 cm. How long is the other?",
-                        formula = "24 / 4 = ?",
+                        formula = "24 / {b:4} = ?",
                         options = listOf("4 cm", "6 cm", "8 cm", "20 cm"),
                         correctIndex = 1,
                         explanation = "24 divided by 4.",
@@ -1237,7 +1237,7 @@ internal object GeometryContent {
                     ),
                     Concept(
                         body = "The theorem also runs backwards. If the two squares add up to the third, the triangle must have a right angle in it.",
-                        formula = "9 + 16 = 25",
+                        formula = "9 + {b:16} = 25",
                         visual = RightTriangle(a = 4, b = 3, showSquares = true),
                     ),
                     Choice(
@@ -1331,7 +1331,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "The radius is 5 cm. What is the diameter, in cm?",
-                        formula = "2 x 5 = ?",
+                        formula = "2 x {b:5} = ?",
                         answer = "10",
                         explanation = "Twice the radius.",
                         visual = CircleFigure(radius = 5, reveal = false),
@@ -1354,7 +1354,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "The diameter is 18 cm. What is the radius, in cm?",
-                        formula = "18 / 2 = ?",
+                        formula = "18 / {b:2} = ?",
                         answer = "9",
                         explanation = "Half the diameter.",
                         visual = CircleFigure(showDiameter = true, reveal = false),
@@ -1428,7 +1428,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "A circle has area 78.5 square cm, with pi as 3.14. What is the radius times itself?",
-                        formula = "78.5 / 3.14 = ?",
+                        formula = "78.5 / {b:3.14} = ?",
                         answer = "25",
                         explanation = "Dividing by pi leaves r squared, and the radius itself is its square root.",
                         visual = CircleFigure(radius = 5, fillArea = true, reveal = false),
@@ -1600,7 +1600,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "A cylinder has base area 20 square cm and height 6 cm. What is its volume in cubic cm?",
-                        formula = "20 x 6 = ?",
+                        formula = "20 x {b:6} = ?",
                         answer = "120",
                         explanation = "The same 20 square cm, six times over.",
                         visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
@@ -1794,7 +1794,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "A 2 m stick casts a 3 m shadow. A tree casts a 30 m shadow at the same moment. How tall is the tree, in metres?",
-                        formula = "30 / 3 x 2 = ?",
+                        formula = "30 / {b:3} x {b:2} = ?",
                         answer = "20",
                         explanation = "The shadow is ten times longer, so the tree is ten times taller than the stick.",
                         visual = RightTriangle(a = 3, b = 2, labels = false),
@@ -2023,7 +2023,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "A 3 cm side is enlarged by scale factor 4. How long is it now, in cm?",
-                        formula = "3 x 4 = ?",
+                        formula = "3 x {b:4} = ?",
                         answer = "12",
                         explanation = "Every length is multiplied by the factor.",
                         visual = AreaGrid(cols = 3, rows = 2, showArea = false, reveal = false),
@@ -2140,7 +2140,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "The centre angle is 140. How many degrees is the angle at the circumference?",
-                        formula = "140 / 2 = ?",
+                        formula = "140 / {b:2} = ?",
                         answer = "70",
                         explanation = "Half the centre angle, whatever that angle happens to be.",
                         visual = CircleFigure(centreAngle = 140, reveal = false),
@@ -2215,7 +2215,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = "A tangent, a radius and a line to the centre make a right triangle. One of its other angles is 35. How many degrees is the last one?",
-                        formula = "180 - 90 - 35 = ?",
+                        formula = "180 - {b:90} - {b:35} = ?",
                         answer = "55",
                         explanation = "The right angle uses up 90 of the 180.",
                         visual = RightTriangle(a = 7, b = 5, labels = false),

@@ -42,6 +42,23 @@ private val OnSurfaceVariant = Color(0xFF666666)
 val SuccessGreen = Color(0xFF5C8E58)
 val ErrorRed = Color(0xFFB00020)
 
+/**
+ * The second teaching colour in the Learn section: the working, as opposed to the numbers the
+ * question gives you.
+ *
+ * Blue rather than a second warm tone, and blue rather than green, for two reasons. Green now
+ * means one thing only - a correct answer - so a figure that used it to mean "the other group"
+ * was saying "correct" about numbers nobody had answered yet. And orange against blue is the one
+ * accent pair that stays distinct under every kind of colour blindness, which matters in a section
+ * whose figures carry their meaning in colour.
+ *
+ * The exact tone is picked for its worst case rather than its best: 4.09:1 on the light panel a
+ * figure is drawn on, 3.74:1 on warm dark and 4.71:1 on OLED. That is a better floor than either
+ * colour it sits beside - [SuccessGreen] bottoms out at 3.52 and [Primary] at 2.68, on the light
+ * panel - so the working never becomes the hardest thing on the screen to read.
+ */
+val WorkingBlue = Color(0xFF4478C2)
+
 // ErrorRed is a light-theme red: on the near-black dark/OLED backgrounds it only reaches 2.3:1,
 // so error text ("delete", "stuck", wrong-answer marks) is barely legible. The dark schemes use a
 // lighter red instead, which clears 5.6:1 on warm dark and 6.6:1 on OLED. Boards that stay light

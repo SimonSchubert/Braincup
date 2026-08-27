@@ -5,6 +5,7 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
 import com.inspiredandroid.braincup.learn.LearnVisual
+import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
@@ -202,20 +203,35 @@ private fun VisualScope.hopArc(
     text: String,
     labelX: Float = (x0 + x1) / 2f,
     alpha: Float = 1f,
+    /**
+     * The working colour by default, because on a number line a hop is a step applied to a given.
+     * A sequence has no given to step from - every term is one of the same kind of thing - so
+     * [drawSteps] passes the plain accent and keeps blue meaning what it means everywhere else.
+     */
+    color: Color = Accent2,
 ) {
     val arc = Path().apply {
         moveTo(x0, y)
         quadraticTo((x0 + x1) / 2f, y - height * 0.34f, x1, y)
     }
-    path(arc, fill = null, outline = Accent, width = stroke * 1.2f, alpha = alpha)
+    path(arc, fill = null, outline = color, width = stroke * 1.2f, alpha = alpha)
     if (t > 0.9f) {
-        label(text, Offset(labelX, y - height * 0.26f), Accent, 0.1f)
+        label(text, Offset(labelX, y - height * 0.26f), color, 0.1f)
     }
 }
 
 /** Font size of the in-between tick numbers, relative to the canvas, and the gap they need. */
 private const val MinorLabelFactor = 0.085f
 private const val MinorLabelGap = 1.35f
+
+/**
+ * Font size of a called-out value on the axis. Larger than [MinorLabelFactor] and drawn bold, so
+ * it is also the label the fit test has to be measured against.
+ */
+private const val AccentLabelFactor = 0.11f
+
+/** Font size of a tick the every-fifth rule numbers. */
+private const val MajorLabelFactor = 0.1f
 
 /** A number line, with an optional hop counting on from a start value. */
 internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
@@ -233,10 +249,13 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // Every tick is numbered when the numbers fit side by side. A step that asks the learner to
     // land on a value is only answerable if they can read that value off the line, and the every
     // fifth tick rule leaves the four ticks in between blank. Crowded lines fall back to it.
-    val minorStyle = labelStyle(ink, MinorLabelFactor, bold = false)
-    val widestMinor = ticks.maxOfOrNull { measure(it.toString(), minorStyle).size.width } ?: 0
+    // Measured at the widest label the line can actually draw, not the narrowest. A called-out
+    // value is set at [AccentLabelFactor] and bold, so measuring the minor style let crowded lines
+    // through the test and then ran "14" into "15", and "-20" into "-18".
+    val widestStyle = labelStyle(ink, AccentLabelFactor, bold = true)
+    val widest = ticks.maxOfOrNull { measure(it.toString(), widestStyle).size.width } ?: 0
     val spacing = if (ticks.size > 1) (right - left) / (ticks.size - 1) else right - left
-    val labelEveryTick = widestMinor * MinorLabelGap <= spacing
+    val labelEveryTick = widest * MinorLabelGap <= spacing
 
     // The two values the step is about are called out on the axis itself rather than floated above
     // it: the number counted on from, and the one landed on. Now that every tick is numbered, a
@@ -261,19 +280,54 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // actually sits is the correction.
     val marked = answer?.value?.takeIf { it in visual.from..visual.to }
 
+    /**
+     * What a value on the axis is, in colour: a given the question hands you, or the answer. Null
+     * for an ordinary tick.
+     *
+     * A value a hop touches down on along the way is deliberately not coloured. The working is the
+     * movement - the arcs and what they are labelled - and calling out every place the movement
+     * pauses turns a three-colour code back into a scatter of highlights.
+     */
+    fun roleColor(value: Int): Color? = when {
+        value == marked && value != start -> resultColor
+        value == start -> Accent
+        value == landed -> SuccessGreen
+        else -> null
+    }
+
+    fun isAccented(value: Int) = roleColor(value) != null
+
+    // A called-out value is set larger and bold, so it reaches into the space its neighbours would
+    // use, and `tickStep > 1` numbers every tick without consulting the fit test at all. Rather
+    // than let the two collide, the plain neighbour gives way: an axis reading "-20-18" is worse
+    // than one that starts at -18, and the called-out number is the one the step is about.
+    val accentSpans = ticks.filter { isAccented(it) }.map { value ->
+        val x = xOf(value.toFloat())
+        val half = measure(value.toString(), widestStyle).size.width / 2f
+        (x - half) to (x + half)
+    }
+    val labelPadding = stroke * 2f
+
+    fun clearOfAccents(x: Float, width: Int): Boolean {
+        val half = width / 2f
+        return accentSpans.none { (lo, hi) ->
+            x - half < hi + labelPadding && x + half > lo - labelPadding
+        }
+    }
+
     ticks.forEach { value ->
         val x = xOf(value.toFloat())
         val isLanding = value == landed && value != start
         val isMarked = value == marked && value != start
-        val accented = isMarked || value == start || value == landed
-        val accentColor = if (isMarked) resultColor else Accent
+        val accentColor = roleColor(value)
+        val accented = accentColor != null
         val major = (value - visual.from) % (step * 5) == 0 || step > 1
         val tall = major || accented
         line(
             Offset(x, axisY - height * (if (tall) 0.06f else 0.035f)),
             Offset(x, axisY + height * (if (tall) 0.06f else 0.035f)),
             when {
-                accented -> accentColor
+                accented -> accentColor ?: Accent
                 major -> ink
                 else -> faint
             },
@@ -284,19 +338,30 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
             accented -> label(
                 text = value.toString(),
                 center = Offset(x, axisY + height * 0.16f),
-                color = accentColor,
-                factor = 0.11f,
+                color = accentColor ?: Accent,
+                factor = AccentLabelFactor,
                 alpha = if (isLanding) revealBeat else 1f,
             )
 
-            major -> label(value.toString(), Offset(x, axisY + height * 0.16f), ink, 0.1f, bold = false)
-            labelEveryTick -> label(
-                text = value.toString(),
-                center = Offset(x, axisY + height * 0.15f),
-                color = ink.copy(alpha = 0.7f),
-                factor = MinorLabelFactor,
-                bold = false,
-            )
+            major -> {
+                val majorStyle = labelStyle(ink, MajorLabelFactor, bold = false)
+                if (clearOfAccents(x, measure(value.toString(), majorStyle).size.width)) {
+                    label(value.toString(), Offset(x, axisY + height * 0.16f), ink, MajorLabelFactor, bold = false)
+                }
+            }
+
+            labelEveryTick -> {
+                val style = labelStyle(ink, MinorLabelFactor, bold = false)
+                if (clearOfAccents(x, measure(value.toString(), style).size.width)) {
+                    label(
+                        text = value.toString(),
+                        center = Offset(x, axisY + height * 0.15f),
+                        color = ink.copy(alpha = 0.7f),
+                        factor = MinorLabelFactor,
+                        bold = false,
+                    )
+                }
+            }
         }
     }
 
@@ -333,9 +398,9 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
             text = (if (perHop >= 0) "+" else "") + perHop,
         )
     }
-    dot(Offset(xOf(start.toFloat()), axisY), stroke * 2f, ink)
+    dot(Offset(xOf(start.toFloat()), axisY), stroke * 2f, Accent)
     if (landed != null) {
-        dot(Offset(xOf(landed.toFloat()), axisY), stroke * 2.4f, Accent, alpha = progress)
+        dot(Offset(xOf(landed.toFloat()), axisY), stroke * 2.4f, SuccessGreen, alpha = progress)
     }
     markAnswer()
 }
@@ -722,11 +787,15 @@ internal fun VisualScope.drawArrayDots(visual: LearnVisual.ArrayDots) {
     // The column count breaks its rule in the middle rather than sitting above it: a panel this
     // shape runs out of height long before it runs out of width, and a stacked label costs a whole
     // stride of dot size. Where the array is too narrow for that, the rule simply stays away.
-    // Columns run through both blocks of a split, so there the count is chrome and takes the ink.
+    //
+    // Rows are the first number of the product and columns the second, so "4 rows" takes the given
+    // and "7 in each" the working, matching "4 x 7" on the card below. A split array is a different
+    // figure: there the two row bands carry the two colours and the column count runs through both,
+    // so it is chrome and takes the ink.
     val spanLeft = left - radius
     val spanRight = left + gridWidth + radius
     val ruleY = top - step * ArrayTopRule
-    val colColor = if (split != null) ink else Accent
+    val colColor = if (split != null) ink else Accent2
     val breakHalf = colSize.width / 2f + step * ArrayLabelGap
     if ((spanRight - spanLeft) / 2f - breakHalf > step * ArrayTick) {
         dimension(Offset(spanLeft, ruleY), Offset(spanRight, ruleY), colColor, step * ArrayTick, annotation, breakHalf)
@@ -1075,6 +1144,7 @@ internal fun VisualScope.drawSteps(visual: LearnVisual.Steps) {
                 // Pinned to the middle of the whole slot, so a row of labels stays evenly spaced.
                 labelX = x + slot / 2f,
                 alpha = t,
+                color = Accent,
             )
         }
     }

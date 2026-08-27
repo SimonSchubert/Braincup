@@ -18,15 +18,21 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.formatMathSymbols
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.readsAsNotation
+import com.inspiredandroid.braincup.ui.components.withFormulaColors
+import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.numeric
 
 /**
  * The measures the Learn section lays its screens out on.
@@ -50,6 +56,117 @@ internal val LearnFigureHeight = 180.dp
  * nothing on the screen may hint at which one was right.
  */
 internal enum class LearnOptionState { IDLE, CORRECT, WRONG, MUTED }
+
+/**
+ * Notation in the number face, prose in the display face.
+ *
+ * A test question, its options and its review line are a mix: "9 + 6 = ?" is notation and belongs
+ * in Rubik, "Which number is smaller, 62 or 26?" is a sentence and belongs in the display face the
+ * rest of the section's teaching prose is set in. Routing all of them through [MathText] set the
+ * sentences in the number face as well, so the same wording read one way in a lesson and another
+ * in a test. See [readsAsNotation].
+ */
+@Composable
+internal fun LearnText(
+    text: String,
+    style: TextStyle,
+    modifier: Modifier = Modifier,
+    color: Color = Color.Unspecified,
+    textAlign: TextAlign? = null,
+    /**
+     * Colour the notation by role - given, working, answer - the way a lesson's formula card does.
+     * A test asks the same kind of question a lesson asks, so it should read the same way. Off for
+     * an answer option, which is a choice rather than a given and says what it is by turning green.
+     */
+    roleColors: Boolean = false,
+) {
+    if (roleColors && text.readsAsNotation()) {
+        Text(
+            text = text.formatMathSymbols(fractionSlash = true)
+                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant),
+            style = style.numeric(),
+            modifier = modifier,
+            textAlign = textAlign,
+        )
+    } else if (text.readsAsNotation()) {
+        MathText(
+            text = text,
+            style = style,
+            modifier = modifier,
+            color = color,
+            textAlign = textAlign,
+            fractionSlash = true,
+        )
+    } else {
+        Text(
+            text = text.withGroupColors(),
+            style = style,
+            modifier = modifier,
+            color = color,
+            textAlign = textAlign,
+        )
+    }
+}
+
+/**
+ * The card an equation is set in, wherever one appears.
+ *
+ * A lesson step and a test question ask the same kind of thing, so they present it the same way:
+ * the notation in a card of its own, and any prose that goes with it plainly underneath. A test
+ * that printed its equation as loose text under the figure read as a caption rather than as the
+ * question.
+ *
+ * Every number in it carries its role - the given in the brand colour, the working in blue, the
+ * answer in green once it arrives - while the operators holding them together take the muted tone,
+ * so a colour on this card always means something.
+ */
+@Composable
+internal fun LearnFormulaCard(formula: String) {
+    PrismCard(
+        face = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
+    ) {
+        Text(
+            text = formula.formatMathSymbols(fractionSlash = true)
+                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant),
+            style = MaterialTheme.typography.titleLarge.numeric(),
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth().padding(16.dp),
+        )
+    }
+}
+
+/**
+ * A result read out on a card of its own, for the steps whose question has nowhere to resolve.
+ *
+ * A step asked as an equation finishes where it was asked - the answer lands on the question mark
+ * in [LearnFormulaCard] - so it needs no readout at all. A step asked in words has no question
+ * mark to land on, and that answer goes here rather than floating between the cards around it.
+ */
+@Composable
+internal fun LearnAnswerCard(label: String, value: String) {
+    PrismCard(
+        face = MaterialTheme.colorScheme.surfaceVariant,
+        modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
+    ) {
+        Column(
+            modifier = Modifier.fillMaxWidth().padding(12.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+        ) {
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = value,
+                style = MaterialTheme.typography.headlineSmall,
+                color = SuccessGreen,
+                fontWeight = FontWeight.Bold,
+            )
+        }
+    }
+}
 
 /** One tappable answer option, in a lesson step or a test question. */
 @Composable
@@ -77,12 +194,11 @@ internal fun LearnOptionTile(
             .hoverHand(state == LearnOptionState.IDLE),
         onClick = { if (state == LearnOptionState.IDLE) onClick() },
     ) {
-        MathText(
+        LearnText(
             text = label,
             style = MaterialTheme.typography.bodyLarge,
             color = if (state == LearnOptionState.MUTED) contentColor.copy(alpha = 0.6f) else contentColor,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
-            fractionSlash = true,
         )
     }
 }

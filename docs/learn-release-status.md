@@ -3,7 +3,7 @@
 Working document for the Learn Math section's first release. It survives between Claude
 sessions: read it before touching anything under `learn/`, and update it as work lands.
 
-Last updated: 2026-08-26 (parked; both topics authored; clarity- and correctness-passed; render check outstanding)
+Last updated: 2026-08-27 (render check under way; harness in place, see section 7)
 
 ---
 
@@ -370,7 +370,175 @@ Worth knowing before writing another lesson, and all three cost a rewrite when h
 
 ---
 
-## 7. Open decisions
+## 7. Render check (item 9)
+
+Run `./gradlew :screenshotTests:renderLearnScreens`. It records the whole section through
+`screenshotTests/src/test/kotlin/.../screenshots/learn/` and lays ~1570 frames out under
+`screenshotTests/build/learn-render/`, one folder per sub-topic, plus `index.html` to page
+through them. `-PlearnOnly='LearnUnitRenderTest.*[geometry-circles]'` re-renders one sub-topic;
+`layoutLearnScreens` re-files without re-rendering.
+
+Three defaulted seams in `composeApp` make the answered states reachable, which is what closes
+the gap this document recorded as unreachable: `LessonScreenState` (`LearnLessonScreen.kt`),
+`QuizScreenState` (`LearnQuizScreen.kt`) and `LearnVisualCanvas`'s `inspectionPhase`. The app
+always passes the defaults; only previews and this harness pass anything else. `FeedbackCard`,
+`RetryNote`, the lesson result, the test result and the unfolded `ReviewCard` list are all
+rendered now, as is the second phase of a two-phase figure.
+
+`LearnFigureRenderTest` additionally renders every distinct figure in the catalog on its own
+panel, grouped by variant, which is what makes a whole-family comparison practical.
+
+### Defects found
+
+| What | Where | Fix |
+|---|---|---|
+| Axis labels ran into each other: "14" touching "15", "-20" touching "-18", "-5" touching "-4". The fit test that decides whether every tick can be numbered measured the *minor* label style, but a called-out value is drawn at `AccentLabelFactor` and bold, so it is the widest label on the line. `tickStep > 1` skipped the test entirely, because it makes every tick a major. | `drawNumberLine`, 7 figures across `arithmetic-counting`, `-negatives` and `-bounds` | Fit test now measures the widest style the line can draw, and a plain label that would touch a called-out one is dropped rather than overprinted. Verified against all 38 `NumberLine` figures. |
+
+A second defect, and the decision taken on it:
+
+| What | Where | Fix |
+|---|---|---|
+| A test prompt, its options and its review line all rendered in the number face, because the clarity pass routed all three through `MathText` so notation would match the option tiles. The side effect was that pure prose - "What comes next?", "Which number is smaller, 62 or 26?", "They are equal" - lost the display face, so the same wording read one way in a lesson and another in a test. | `LearnQuizScreen.kt` prompt, both `ReviewCard` lines, and `LearnOptionTile` | New `String.readsAsNotation()` (`MathText.kt`) - true when the string carries an operator, or contains no word at all - drives a `LearnText` that picks the face per string. `9 + 6 = ?`, `41`, `1/5` and `4.5 x 10^4` stay in Rubik; `What comes next?` and `They are equal` take the display face. Every non-Learn `MathText` call site is pure notation, so nothing outside the section moves. |
+
+A third defect, found by eye in the index rather than by any scan:
+
+| What | Where | Fix |
+|---|---|---|
+| `RightTriangle(showSquares = true)` drew the whole figure at 40% of the size it could be - a 144px island in a 410px canvas - with the side labels printed on top of the square labels, so "12" and "144" overlapped and "9" and "81" overlapped. The sizing reserved room for a square on *both* legs along *each* axis, `(a + a)` across and `(b + b)` down. The squares actually sit on the far side of one leg each, so the figure spans `(a + b)` in both directions. | `drawRightTriangle`, worst on `geometry-pythagoras-using` step 2 (`a = 12, b = 9`); 7 figures use `showSquares` | Extent corrected to `(a + b)`, the whole span centred rather than the triangle alone, and the side labels moved inside the triangle - the one part of the figure that is always empty - instead of into the middle of a square that carries its own number. 2.5x larger, and every label legible. |
+
+### The colour code
+
+Decided 2026-08-27, after the render check showed the section had no colour code at all: the
+figure painted the given, the working and the answer in one identical orange, while the formula
+beside it turned the answer green. Two colours were each carrying two meanings - orange was the
+brand *and* every called-out value, green was "the second group in a figure" *and* "correct".
+
+Three roles now, and nothing else:
+
+| Role | Colour | Where it appears |
+|---|---|---|
+| **Given** - what the question hands you | `Primary` `#ED7354` | the start value on a figure, a formula's first operand, `{a:}` in prose |
+| **Structure** - the scaffolding | `onSurfaceVariant` | a formula's operators and `=`, ordinary axis labels |
+| **Working** - the step you take | `WorkingBlue` `#4478C2` | hop arcs and their labels, the second group in a two-accent figure, `{b:}` in prose and in a formula's second operand |
+| **Answer** - and nothing else | `SuccessGreen` `#5C8E58` | the value a figure marks once it is right, the resolved `{c:}` in a solved formula, the correct option tile |
+
+The working is the *movement*, not the places it pauses. A value a hop touches down on - the 10 in
+`15 - 9`, reached by hopping back 5 - stays an ordinary axis label. Colouring it too turned a
+three-colour code back into a scatter of highlights, so it was tried and reverted.
+
+**Operators are structure, not content.** While `-` and `=` were printed in the same orange as an
+untagged number, orange read as "the colour a formula card is printed in" rather than "the number
+the question handed you". `withFormulaColors` (MathText.kt) now colours a formula per token: values
+take their role, operators take the muted tone. A minus is part of the number when it signs one and
+structure when it subtracts, which is the distinction `spaceSubtraction` already draws - after
+`formatMathSymbols` a subtracting minus always has space around it and a sign never does. So
+"15 - 9 = 6" reads orange, grey, blue, grey, green, and every colour on the card means something.
+
+**A test question is a formula too.** `LearnText(roleColors = true)` renders a quiz prompt and the
+review card's prompt through the same per-token colouring a lesson's formula card uses, and 13
+binary prompts were tagged the same way, so "9 + 6 = ?" reads orange-blue over a ten-frame drawn
+orange-blue. Answer options deliberately stay out of it: an option is a choice, not a given, and it
+already says what it is by turning green. The review card's "correct answer" line is now green
+whether or not the learner got it - green means "the answer" everywhere, and printing it in the
+card's own ink after a miss made the one line they most need the quietest thing on the card.
+
+**A formula's second operand is the working.** In "15 - 9 = 6" the 15 is what the question hands
+you, the 9 is what you do to it - the same quantity the -4 and -5 hops add up to - and the 6 is the
+answer. 48 formulas and 13 quiz prompts were tagged `{b:}` on their second operand for this; the tagger
+required whitespace around the operator, which is the same tight-versus-spaced rule
+`formatMathSymbols` uses to tell a fraction from a division, so `1/2 = 4/8` was left alone while
+`28 / 7 = 4` was not. 105 formulas that are not a plain `given op working = answer` - sequences,
+chains like `15 - 8 = 15 - 5 - 3`, `17 / 5 = 3 r 2` - were left untouched.
+
+`{c:}` is new and is never authored: it is substituted at render time when a question resolves, so
+"15 - 9 = ?" finishes as "15 - 9 = **6**" in the same green the option tile turns and the same
+green the number line marks the 6 in. One number, one colour, three places.
+
+Blue rather than a second warm tone: green had to be freed for correctness, and orange against
+blue is the one accent pair that survives every kind of colour blindness, which matters in a
+section that carries meaning in colour and already ships an accessible palette. The tone is picked
+for its worst case - 4.09:1 on the light figure panel, 3.74:1 on warm dark, 4.71:1 on OLED - which
+is a better floor than `SuccessGreen` (3.52) or `Primary` (2.68, on that same light panel).
+
+Worth knowing: `Primary` on the light figure panel is **2.68:1**, under the 3.0 floor for
+graphics. That is pre-existing and unrelated to this change, but it is the weakest colour in the
+section and it is the one carrying the givens.
+
+### One box per idea
+
+A lesson step is a stack of cards - formula, figure, working line, feedback - and the test was
+printing its equation as loose text under the figure, so the same question read as a caption in
+one place and as the question in the other. `LearnFormulaCard` moved out of `LearnLessonScreen`
+into the shared components and both screens now use it: notation goes in a card, prose stays plain
+underneath, in a lesson and in a test alike.
+
+Two readouts that floated between cards are now `LearnAnswerCard`, and one of them stopped being
+drawn at all. A `Numeric` step whose formula ends in `= ?` already finishes in front of the learner
+in the answer green, so the "your answer" line under it was the same number twice; it now shows
+only when the question had nowhere to resolve, which is the rule `Worked` steps already followed.
+
+Left deliberately unboxed: the prose question under a formula (it is a supporting line, not a
+second question), and the `ReviewCard`'s prompt, which is already inside a card of its own.
+
+### The code inside a figure
+
+A figure's own annotations carry the same roles as the formula beside it, so the two read as one
+thing:
+
+* `ArrayDots` labels its rows in the given and its columns in the working - "4 rows" orange and
+  "7 in each" blue against `4 x 7` on the card. A **split** array is a different figure: there the
+  two row bands carry the two colours and the column count runs through both, so it stays chrome.
+* `Steps` keeps the plain accent rather than the working blue. A sequence has no given to step
+  from - every term is the same kind of thing - and `hopArc` is shared with `drawNumberLine`, so
+  colouring number-line hops blue had silently flipped all 48 `Steps` figures with it, while their
+  own formulas stayed orange. `hopArc` now takes a colour.
+* `AngleFigure`'s supplement pair draws both arcs on **one** radius, so together they read as the
+  single half turn the caption adds up to; two radii made them look like two unrelated angles that
+  happened to share an arm. The arm is drawn *after* the arcs, because it is the same colour as the
+  first of them and the arc end was blending into it rather than stopping against it. Its caption
+  uses the new `VisualScope.labelRuns`, so "130 + 50 = 180" prints each number in the colour of the
+  arc it counts.
+* Two-accent figures - `TenFrame`, `Fraction`, `RatioBar`, a split `ArrayDots` - use orange and
+  blue for "the two quantities", which is the same pair meaning "given and working" one level up.
+  Blue is a clear gain here over the green these used to draw: an equivalence pair like 1/2 over
+  4/8 no longer looks like one of the two is the correct one.
+
+### Test figures that can be counted to their answer
+
+`questionFiguresDoNotCaptionTheirAnswer` checks that a figure does not *label* the answer. It
+cannot see one that *draws* it. Scanning all 132 test questions for a figure whose own numbers
+resolve to the accepted answer (`scripts` is not the home for this; the scan is a one-off) turns
+up nine, of which seven ask the learner to compute something the picture has already computed:
+
+| Unit | Question | Figure | Reads off as |
+|---|---|---|---|
+| `arithmetic-counting` | `9 + 6 = ?` | `TenFrame(filled = 9, added = 6)` | 10 and 5 dots, already regrouped |
+| `arithmetic-counting` | `14 - 6 = ?` | `NumberLine(start = 14, hopSteps = [-4, -2])` | hops land on 8 |
+| `arithmetic-multiplication` | `6 x 9 = ?` | `ArrayDots(6 x 9)` | 54 countable dots |
+| `arithmetic-negatives` | `-6 + 9 = ?` | `NumberLine(start = -6, ...)` | hops land on 3 |
+| `arithmetic-negatives` | `-3 - 8 = ?` | `NumberLine(start = -3, ...)` | hops land on -11 |
+| `arithmetic-negatives` | `7 - (-5) = ?` | `NumberLine(start = 7, ...)` | hops land on 12 |
+| `geometry-similarity` | scale factor 3, area factor? | `AreaGrid(3 x 3)` | 9 countable cells, which is the k² rule itself |
+
+The other two - "How many dots are here?" and "A tray holds 8 rows of 6 buns" - are fine: counting
+the array is the method the question intends. The seven above are not, and the fix is per question:
+draw the starting position rather than the finished one, or drop to a figure that sets the problem
+up without working it.
+
+### Open, needing a decision
+
+| What | Where | Note |
+|---|---|---|
+| A question figure that draws nothing. `NumberLine(from = -10, to = 5, reveal = false)` has no `start`, no `jump` and no `hopSteps`, so it renders a bare axis labelled -10, -5, 0, 5. The step asks which of -10, -6, -1, 0 is largest, and the figure marks none of them; -6 and -1 are not even numbered. `everyStepAndQuestionHasAVisual` passes because the visual is non-null. | `g68-arithmetic-negatives`, step 3 | Needs a figure that actually shows the four candidates. |
+| Subtraction hops are drawn identically to addition hops - same upward arc, same left-to-right order - so only the minus sign on the label says the count goes backwards. On the bridge-through-ten steps the arcs read "-3" then "-5" left to right, the reverse of the order the prose works them in. | every `NumberLine` with a negative jump | Judgement call for a g12 audience. |
+| `PlaceValue` draws rods at `alpha = 0.4f` and loose ones at `0.55f`, so they render `#F2C1B5` / `#A2BD9F` against the `#ED7354` / `#5C8E58` that `TenFrame` and `NumberLine` use at full strength. A `{a:30}` tint therefore prints full-strength orange beside pale pink rods, which is the one thing the tinting exists not to do. | `NumberVisuals.kt`, `drawPlaceValue` | Deliberate, so the block outlines stay legible. Left alone unless the tint mismatch matters more. |
+
+Reviewed so far: `arithmetic-counting` in full, every `NumberLine` figure and every
+`RightTriangle` figure in the catalog.
+
+---
+
+## 8. Open decisions
 
 | # | Question | Why it matters | State |
 |---|---|---|---|
@@ -381,10 +549,11 @@ Worth knowing before writing another lesson, and all three cost a rewrite when h
 
 ---
 
-## 8. Session log
+## 9. Session log
 
 | Date | What happened |
 |---|---|
+| 2026-08-27 | Render check started. Paparazzi harness added for the whole section (~1570 frames, `renderLearnScreens`), with three defaulted seams in composeApp so the answered states a still frame could not reach - `FeedbackCard`, `RetryNote`, both results and the `ReviewCard` list - are rendered at last, along with the second phase of a two-phase figure. Three defects found and fixed: number-line axis labels overprinting each other (the fit test measured the narrowest label style and the line then drew the widest); every quiz prompt, option and review line set in the number face, so prose read one way in a lesson and another in a test; and `RightTriangle(showSquares = true)` drawn at 40% size with its labels stacked, because the sizing reserved room for two squares per axis instead of one. Also scanned all 132 test questions for figures a learner can simply count to the answer: seven of them. `arithmetic-counting` reviewed in full and every `NumberLine` figure in the catalog; four items left open in section 7. |
 | 2026-08-26 | Every certificate wired to Play Games and Game Center: 22 store-only achievements, one per sub-topic, ids derived from the unit id in the new `learn/LearnStoreAchievements.kt` and guarded by `LearnStoreAchievementsTest`. No in-app `Achievements` entries and no new strings, so nothing to localize. `UserStorage.restoreLearnCertificates` means a certificate now survives a reinstall, which it never did before. Icons 49-70 generated in gold. All 44 created on 2026-08-27 via the new `scripts/store_achievements.rb`, which drives both store APIs directly (fastlane has no achievement support at all). Game Center is complete, icons included, at 10 points each and 600/1000 used; the cap turned out to be a non-issue. Play Games has all 22 with their ids written back into `play_games.xml`, at 5 XP, the minimum Play accepts. The Play Games icons had to be attached by hand in Play Console, because the Games Configuration API has no image upload method any more; done 2026-08-27, and verified by reading the config back: all 22 have a published icon, each a pixel-exact match for its `media/achievements/png/` source. Nothing outstanding on either store. Full detail and copy in `media/achievements/README.md`. |
 | 2026-08-26 | Scope set: ship Arithmetic + Geometry, park six. Parking method, perimeter/area move and Geometry split decided. This document created. |
 | 2026-08-26 | Correctness audit of all 528 steps across both topics. The maths is clean: 327 answerable items checked, no wrong answers or false statements. Ten defect classes fixed, every one a figure contradicting correct words - most seriously a 40/75/65 triangle drawn with a right-angle marker, and a cyclic-quadrilateral lesson that never once drew a quadrilateral in a circle. Added `Triangle`, `Quadrilateral` and `CyclicQuad` figure variants, since `Polygon` only builds regular shapes and so drew a square for every rhombus and a square for every cyclic quadrilateral. `Plot.curve` made optional to clear the stray line off the transformations figures. |
