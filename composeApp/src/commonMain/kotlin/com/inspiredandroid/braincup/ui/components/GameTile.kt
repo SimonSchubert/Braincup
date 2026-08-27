@@ -28,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
@@ -131,8 +132,35 @@ private val BullsAndCowsPreviewTiles: List<Pair<Char, Color>> = listOf(
 )
 
 /**
- * [style] resized so that every string in [texts] fits a [cellWidth] x [cellHeight] slot on a
- * single line, never growing past [style]'s own font size.
+ * The measured extent of a preview's whole label set, ready to be scaled into any cell.
+ *
+ * Text measurement is the expensive half of the fit and depends only on the labels, the style and
+ * the density — never on the cell. Doing it once per preview instead of once per cell is what
+ * keeps a 5x5 grid like Schulte Table from paying 25 measurements per cell (see
+ * [rememberPreviewTextFitter]); [fitTo] is then pure arithmetic.
+ */
+private class PreviewTextFitter(
+    private val natural: TextStyle,
+    private val baseFontSize: TextUnit,
+    private val widestPx: Int,
+    private val tallestPx: Int,
+    private val density: Density,
+) {
+    /**
+     * [natural] resized so that every measured label fits a [cellWidth] x [cellHeight] slot on a
+     * single line, never growing past the original font size.
+     */
+    fun fitTo(cellWidth: Dp, cellHeight: Dp): TextStyle {
+        val scale = with(density) {
+            minOf(cellWidth.toPx() / widestPx, cellHeight.toPx() / tallestPx, 1f).coerceAtLeast(0f)
+        }
+        return natural.copy(fontSize = baseFontSize * scale)
+    }
+}
+
+/**
+ * Measures [texts] in [style] once, so each cell of a preview grid can scale that one result down
+ * to its own box via [PreviewTextFitter.fitTo].
  *
  * Preview cells are derived from tile width, which the adaptive menu grid varies from its 150.dp
  * minimum (any 360.dp phone) up to ~300.dp, while the font sizes and line heights in
@@ -141,19 +169,14 @@ private val BullsAndCowsPreviewTiles: List<Pair<Char, Color>> = listOf(
  * keeps every cell of a grid identical, and covers locales whose words run far longer than the
  * English ones.
  *
- * The returned style also drops the absolute line height: without that the shrunken glyph would
+ * The fitted style also drops the absolute line height: without that the shrunken glyph would
  * still sit in the original over-tall line box and stay clipped.
  */
 @Composable
-private fun rememberFittedPreviewStyle(
-    texts: List<String>,
-    style: TextStyle,
-    cellWidth: Dp,
-    cellHeight: Dp,
-): TextStyle {
+private fun rememberPreviewTextFitter(texts: List<String>, style: TextStyle): PreviewTextFitter {
     val measurer = rememberTextMeasurer()
     val density = LocalDensity.current
-    return remember(texts, style, cellWidth, cellHeight, density, measurer) {
+    return remember(texts, style, density, measurer) {
         val natural = style.copy(lineHeight = TextUnit.Unspecified)
         var widest = 1
         var tallest = 1
@@ -162,10 +185,7 @@ private fun rememberFittedPreviewStyle(
             widest = maxOf(widest, measured.width)
             tallest = maxOf(tallest, measured.height)
         }
-        val scale = with(density) {
-            minOf(cellWidth.toPx() / widest, cellHeight.toPx() / tallest, 1f).coerceAtLeast(0f)
-        }
-        natural.copy(fontSize = style.fontSize * scale)
+        PreviewTextFitter(natural, style.fontSize, widest, tallest, density)
     }
 }
 
@@ -176,6 +196,12 @@ private fun BullsAndCowsPreview() {
         fontFamily = numberFontFamily(),
         fontWeight = FontWeight.Bold,
     )
+    val digitFitter = rememberPreviewTextFitter(digitLabels, digitStyle)
+    val chipStyle = MaterialTheme.typography.labelMedium.copy(
+        fontFamily = numberFontFamily(),
+        fontWeight = FontWeight.Bold,
+    )
+    val chipFitter = rememberPreviewTextFitter(BullsAndCowsChipLabels, chipStyle)
     Column(
         modifier = Modifier
             .fillMaxHeight()
@@ -203,9 +229,7 @@ private fun BullsAndCowsPreview() {
                         text = digit.toString(),
                         color = Color.White,
                         // Fit the flat prism face, not the whole cell, so the digit clears the bevel.
-                        style = rememberFittedPreviewStyle(
-                            texts = digitLabels,
-                            style = digitStyle,
+                        style = digitFitter.fitTo(
                             cellWidth = maxWidth - PrismFacet.Cell,
                             cellHeight = maxHeight - PrismFacet.Cell,
                         ),
@@ -225,11 +249,13 @@ private fun BullsAndCowsPreview() {
             BullsAndCowsPreviewChip(
                 label = "1B",
                 color = SuccessGreen,
+                fitter = chipFitter,
                 modifier = Modifier.weight(1f, fill = false),
             )
             BullsAndCowsPreviewChip(
                 label = "1C",
                 color = WordlePresent,
+                fitter = chipFitter,
                 modifier = Modifier.weight(1f, fill = false),
             )
         }
@@ -241,15 +267,14 @@ private val BullsAndCowsChipPaddingH = 8.dp
 private val BullsAndCowsChipPaddingV = 3.dp
 
 @Composable
-private fun BullsAndCowsPreviewChip(label: String, color: Color, modifier: Modifier = Modifier) {
-    val chipStyle = MaterialTheme.typography.labelMedium.copy(
-        fontFamily = numberFontFamily(),
-        fontWeight = FontWeight.Bold,
-    )
+private fun BullsAndCowsPreviewChip(
+    label: String,
+    color: Color,
+    fitter: PreviewTextFitter,
+    modifier: Modifier = Modifier,
+) {
     BoxWithConstraints(modifier = modifier, contentAlignment = Alignment.Center) {
-        val labelStyle = rememberFittedPreviewStyle(
-            texts = BullsAndCowsChipLabels,
-            style = chipStyle,
+        val labelStyle = fitter.fitTo(
             cellWidth = (maxWidth - BullsAndCowsChipPaddingH * 2).coerceAtLeast(0.dp),
             cellHeight = (maxHeight - BullsAndCowsChipPaddingV * 2).coerceAtLeast(0.dp),
         )
@@ -941,6 +966,7 @@ private fun SherlockCalculationPreview() {
         Spacer(Modifier.height(4.dp))
         val numberLabels = remember { SherlockPreviewNumbers.map { it.toString() } }
         val numberStyle = MaterialTheme.typography.labelSmall.copy(fontFamily = numberFontFamily())
+        val fitter = rememberPreviewTextFitter(numberLabels, numberStyle)
         Row(modifier = Modifier.fillMaxWidth()) {
             SherlockPreviewNumbers.forEach { num ->
                 PrismCard(
@@ -954,12 +980,7 @@ private fun SherlockCalculationPreview() {
                     BoxWithConstraints(contentAlignment = Alignment.Center) {
                         Text(
                             text = "$num",
-                            style = rememberFittedPreviewStyle(
-                                texts = numberLabels,
-                                style = numberStyle,
-                                cellWidth = maxWidth,
-                                cellHeight = maxHeight,
-                            ),
+                            style = fitter.fitTo(maxWidth, maxHeight),
                             color = LightColorScheme.onSecondaryContainer,
                             maxLines = 1,
                             softWrap = false,
@@ -1013,6 +1034,9 @@ private val ValueComparisonPreviewTerms = listOf("3 + 8", "5 + 4")
 private fun ValueComparisonPreview() {
     val vsLabel = stringResource(Res.string.preview_vs)
     val termStyle = MaterialTheme.typography.titleMedium.copy(fontFamily = numberFontFamily())
+    val termFitter = rememberPreviewTextFitter(ValueComparisonPreviewTerms, termStyle)
+    val vsLabels = remember(vsLabel) { listOf(vsLabel) }
+    val vsFitter = rememberPreviewTextFitter(vsLabels, MaterialTheme.typography.labelSmall)
     // Unlike the grid previews nothing here is clipped per cell: it is the stack of three lines
     // that outgrows the square, so give each line a third of the height and fit it to that.
     BoxWithConstraints(
@@ -1020,18 +1044,8 @@ private fun ValueComparisonPreview() {
         contentAlignment = Alignment.Center,
     ) {
         val lineHeight = maxHeight / 3
-        val fittedTerm = rememberFittedPreviewStyle(
-            texts = ValueComparisonPreviewTerms,
-            style = termStyle,
-            cellWidth = maxWidth,
-            cellHeight = lineHeight,
-        )
-        val fittedVs = rememberFittedPreviewStyle(
-            texts = listOf(vsLabel),
-            style = MaterialTheme.typography.labelSmall,
-            cellWidth = maxWidth,
-            cellHeight = lineHeight,
-        )
+        val fittedTerm = termFitter.fitTo(maxWidth, lineHeight)
+        val fittedVs = vsFitter.fitTo(maxWidth, lineHeight)
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center,
@@ -1264,6 +1278,7 @@ private fun SchulteTablePreview() {
             fontFamily = numberFontFamily(),
             fontWeight = FontWeight.Bold,
         )
+        val fitter = rememberPreviewTextFitter(numberLabels, numberStyle)
         SchulteTablePreviewGrid.forEach { row ->
             Row(modifier = Modifier.fillMaxWidth()) {
                 row.forEach { cell ->
@@ -1282,12 +1297,7 @@ private fun SchulteTablePreview() {
                         BoxWithConstraints(contentAlignment = Alignment.Center) {
                             Text(
                                 text = cell.number.toString(),
-                                style = rememberFittedPreviewStyle(
-                                    texts = numberLabels,
-                                    style = numberStyle,
-                                    cellWidth = maxWidth,
-                                    cellHeight = maxHeight,
-                                ),
+                                style = fitter.fitTo(maxWidth, maxHeight),
                                 color = MaterialTheme.colorScheme.onSurface.copy(
                                     alpha = if (cell.tapped) 0.4f else 1f,
                                 ),
@@ -1615,6 +1625,8 @@ private fun WordlePreview() {
         // Every letter of the puzzle drives one shared size: Bungee is proportional, so fitting each
         // cell on its own would render "I" larger than "W" in the same row.
         val letters = remember(puzzle) { puzzle.guesses.flatMap { it.map(Char::toString) } }
+        val letterStyle = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+        val fitter = rememberPreviewTextFitter(letters, letterStyle)
         puzzle.guesses.forEach { guess ->
             val states = puzzle.statesFor(guess)
             Row(
@@ -1625,7 +1637,7 @@ private fun WordlePreview() {
                     WordlePreviewCell(
                         char = char,
                         state = states[index],
-                        letters = letters,
+                        fitter = fitter,
                         modifier = Modifier
                             .weight(1f)
                             .aspectRatio(1f),
@@ -1641,12 +1653,11 @@ private fun WordlePreview() {
 private fun WordlePreviewCell(
     char: Char,
     state: WordleLetterState,
-    letters: List<String>,
+    fitter: PreviewTextFitter,
     modifier: Modifier = Modifier,
 ) {
     val face = state.tileFace()
     val textColor = state.tileTextColor()
-    val letterStyle = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
     BoxWithConstraints(modifier = modifier, contentAlignment = Alignment.Center) {
         ColorPrismCell(
             face = face,
@@ -1655,9 +1666,7 @@ private fun WordlePreviewCell(
         Text(
             text = char.toString(),
             color = textColor,
-            style = rememberFittedPreviewStyle(
-                texts = letters,
-                style = letterStyle,
+            style = fitter.fitTo(
                 cellWidth = maxWidth - PrismFacet.Cell,
                 cellHeight = maxHeight - PrismFacet.Cell,
             ),
@@ -1676,6 +1685,7 @@ private fun SlidingPuzzlePreview() {
         fontFamily = numberFontFamily(),
         fontWeight = FontWeight.Bold,
     )
+    val fitter = rememberPreviewTextFitter(numberLabels, numberStyle)
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -1703,12 +1713,7 @@ private fun SlidingPuzzlePreview() {
                             BoxWithConstraints(contentAlignment = Alignment.Center) {
                                 Text(
                                     text = label.toString(),
-                                    style = rememberFittedPreviewStyle(
-                                        texts = numberLabels,
-                                        style = numberStyle,
-                                        cellWidth = maxWidth,
-                                        cellHeight = maxHeight,
-                                    ),
+                                    style = fitter.fitTo(maxWidth, maxHeight),
                                     color = LightColorScheme.onPrimaryContainer,
                                     maxLines = 1,
                                     softWrap = false,
@@ -1957,6 +1962,8 @@ private fun BubbleSumPreview() {
 @Composable
 private fun ColorConfusionPreview() {
     val labels = ColorConfusionPreviewWords.map { it.first.localizedName() }
+    // Both words share one size (the longest one drives it) so the two cards match.
+    val fitter = rememberPreviewTextFitter(labels, MaterialTheme.typography.labelSmall)
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -1972,10 +1979,7 @@ private fun ColorConfusionPreview() {
                     .padding(2.dp),
             ) {
                 BoxWithConstraints(contentAlignment = Alignment.Center) {
-                    // Both words share one size (the longest one drives it) so the two cards match.
-                    val style = rememberFittedPreviewStyle(
-                        texts = labels,
-                        style = MaterialTheme.typography.labelSmall,
+                    val style = fitter.fitTo(
                         cellWidth = (maxWidth - 4.dp).coerceAtLeast(0.dp),
                         cellHeight = maxHeight,
                     )

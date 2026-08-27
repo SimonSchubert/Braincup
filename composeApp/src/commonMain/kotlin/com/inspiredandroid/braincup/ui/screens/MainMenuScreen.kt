@@ -72,6 +72,9 @@ fun MainMenuScreen(
 
     val totalXp by controller.totalXp.collectAsStateWithLifecycle()
     val highscores by controller.highscores.collectAsStateWithLifecycle()
+    // Copied once per highscore change rather than on every recomposition of the menu: the
+    // conversion walks all ~40 entries and the menu recomposes on XP, streak and session ticks.
+    val immutableHighscores = remember(highscores) { highscores.toImmutableMap() }
     val unlockedCount by controller.unlockedAchievementCount.collectAsStateWithLifecycle()
     val storageRevision by controller.storageRevision.collectAsStateWithLifecycle()
     val normalSudokuCompleted = remember(controller, storageRevision) {
@@ -111,7 +114,7 @@ fun MainMenuScreen(
         sessionProgressIndex = progressIndex,
         sessionTotalGames = totalGames,
         sessionCompletedToday = completedToday,
-        highscores = highscores.toImmutableMap(),
+        highscores = immutableHighscores,
         unlockedCount = unlockedCount,
         normalSudokuCompleted = normalSudokuCompleted,
         matchstickRiddlesSolved = matchstickRiddlesSolved,
