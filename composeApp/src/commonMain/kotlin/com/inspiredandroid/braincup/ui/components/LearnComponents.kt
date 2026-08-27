@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -10,17 +9,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.learn_ages
-import braincup.composeapp.generated.resources.learn_shape_guide_subtitle
+import braincup.composeapp.generated.resources.learn_rules_guide_title
 import braincup.composeapp.generated.resources.learn_shape_guide_title
 import braincup.composeapp.generated.resources.learn_unit_progress
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.MathTopic
-import com.inspiredandroid.braincup.ui.components.learn.ShapeGuideBadge
+import com.inspiredandroid.braincup.ui.components.learn.RulesGuideGlyphs
+import com.inspiredandroid.braincup.ui.components.learn.ShapeGuideGlyphs
 import com.inspiredandroid.braincup.ui.components.learn.SubTopicRowPreview
 import com.inspiredandroid.braincup.ui.components.learn.TopicTilePreview
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
@@ -62,43 +61,71 @@ fun LearnTopicTile(
     )
 }
 
+/** The glyph strip inside a guide button, sized to sit on one line of its label. */
+private val GuideGlyphHeight = 14.dp
+
 /**
- * The shape guide button, above Geometry's ladder.
+ * The button that opens a topic's guide, in the top right of the topic's screen.
  *
- * Deliberately not a row: every row on that screen is a sub-topic with lessons behind it and a
- * certificate to earn, and the guide is neither. A badge with its name under it is a different
- * object on the page, so a learner scanning the ladder does not have to read it to skip it.
+ * Deliberately not a row on the ladder: every row there is a sub-topic with lessons behind it and
+ * a certificate to earn, and a guide is neither. It sits in the bar as a button, shaped like the
+ * app's other bar buttons and carrying a few of the things it opens onto: the shapes for Geometry,
+ * the operators for Arithmetic.
  */
 @Composable
-fun LearnShapeGuideButton(
+fun LearnGuideButton(
+    topic: MathTopic,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(
+    when (topic) {
+        MathTopic.GEOMETRY -> GuideButton(
+            label = stringResource(Res.string.learn_shape_guide_title),
+            onClick = onClick,
+            modifier = modifier,
+        ) {
+            ShapeGuideGlyphs(modifier = Modifier.height(GuideGlyphHeight))
+        }
+
+        MathTopic.ARITHMETIC -> GuideButton(
+            label = stringResource(Res.string.learn_rules_guide_title),
+            onClick = onClick,
+            modifier = modifier,
+        ) {
+            RulesGuideGlyphs(modifier = Modifier.height(GuideGlyphHeight))
+        }
+    }
+}
+
+@Composable
+private fun GuideButton(
+    label: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    glyphs: @Composable () -> Unit,
+) {
+    PrismTile(
+        face = Primary,
         modifier = modifier
-            .fillMaxWidth()
-            .hoverHand()
-            .clickable(onClick = onClick)
-            .padding(vertical = 8.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+            .padding(end = 8.dp)
+            .defaultMinSize(minHeight = 36.dp)
+            .hoverHand(),
+        onClick = onClick,
     ) {
-        ShapeGuideBadge(modifier = Modifier.size(88.dp))
-        Spacer(Modifier.height(6.dp))
-        Text(
-            text = stringResource(Res.string.learn_shape_guide_title),
-            style = MaterialTheme.typography.titleSmall,
-            color = Primary,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-        )
-        Text(
-            text = stringResource(Res.string.learn_shape_guide_subtitle),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-            textAlign = TextAlign.Center,
-            maxLines = 2,
-            overflow = TextOverflow.Ellipsis,
-        )
+        Row(
+            modifier = Modifier.padding(horizontal = 10.dp, vertical = 8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            glyphs()
+            Text(
+                text = label,
+                style = MaterialTheme.typography.labelMedium,
+                color = Color.White,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+            )
+        }
     }
 }
 

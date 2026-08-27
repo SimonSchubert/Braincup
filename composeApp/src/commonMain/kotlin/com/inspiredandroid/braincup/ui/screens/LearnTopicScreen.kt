@@ -19,7 +19,7 @@ import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
-import com.inspiredandroid.braincup.ui.components.LearnShapeGuideButton
+import com.inspiredandroid.braincup.ui.components.LearnGuideButton
 import com.inspiredandroid.braincup.ui.components.LearnSubTopicRow
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -34,7 +34,7 @@ fun LearnTopicScreen(
     topic: MathTopic,
     storage: UserStorage,
     onUnitSelected: (LearnUnit) -> Unit,
-    onShapeGuide: () -> Unit,
+    onGuide: () -> Unit,
     onBack: () -> Unit,
 ) {
     val progress = remember(storage, topic) { storage.getLearnUnitProgress(topic).toImmutableList() }
@@ -42,7 +42,7 @@ fun LearnTopicScreen(
         topic = topic,
         progress = progress,
         onUnitSelected = onUnitSelected,
-        onShapeGuide = onShapeGuide,
+        onGuide = onGuide,
         onBack = onBack,
     )
 }
@@ -52,7 +52,7 @@ fun LearnTopicScreenContent(
     topic: MathTopic,
     progress: ImmutableList<LearnUnitProgress>,
     onUnitSelected: (LearnUnit) -> Unit,
-    onShapeGuide: () -> Unit,
+    onGuide: () -> Unit,
     onBack: () -> Unit,
 ) {
     val certificateCount = remember(progress) { progress.count { it.hasCertificate } }
@@ -61,6 +61,9 @@ fun LearnTopicScreenContent(
         title = stringResource(topic.titleRes),
         onBack = onBack,
         scrollable = false,
+        // The topic's reference guide belongs in the bar rather than among the rows: it is not a
+        // rung - nothing is taught by it and no certificate comes out of it.
+        actions = { LearnGuideButton(topic = topic, onClick = onGuide) },
     ) {
         LazyColumn(
             modifier = Modifier
@@ -98,12 +101,6 @@ fun LearnTopicScreenContent(
                         textAlign = TextAlign.Center,
                         modifier = Modifier.fillMaxWidth(),
                     )
-                    // Geometry alone: the guide is a chart of shapes, and no other topic has one
-                    // to show. It sits in the header rather than among the rows because it is not
-                    // a rung: nothing is taught by it and no certificate comes out of it.
-                    if (topic == MathTopic.GEOMETRY) {
-                        LearnShapeGuideButton(onClick = onShapeGuide)
-                    }
                 }
             }
 
@@ -134,7 +131,7 @@ private fun LearnTopicScreenPreview() {
                 .map { LearnUnitProgress.empty(it) }
                 .toImmutableList(),
             onUnitSelected = {},
-            onShapeGuide = {},
+            onGuide = {},
             onBack = {},
         )
     }

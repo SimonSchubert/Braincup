@@ -128,9 +128,8 @@ private fun OperatorGridPreview() {
 private val TrianglePoints = regularPolygonPoints(sides = 3)
 private val SquarePoints = regularPolygonPoints(sides = 4)
 private val PentagonPoints = regularPolygonPoints(sides = 5)
-private val HexagonPoints = regularPolygonPoints(sides = 6)
 
-/** The shapes the badge holds, in the order they read best across the hexagon's wide middle. */
+/** The shapes the guide button holds, in the order they read best from left to right. */
 private val BadgeShapes = listOf(TrianglePoints, SquarePoints, PentagonPoints)
 
 @Composable
@@ -145,44 +144,62 @@ private fun PentagonPreview() {
 }
 
 /**
- * The shape guide badge: a hexagon holding three of the shapes it names.
+ * The shapes inside the shape guide button: a triangle, a square and a pentagon.
  *
- * A hexagon rather than the square slot the rungs wear, because the guide is not a rung and must
- * not be taken for one at a glance. It is also the one badge in the section that may as well be
- * shaped like what it opens.
+ * Three rather than one, because the button opens a chart of them all and a single shape would
+ * read as a lesson about that shape. They are drawn from the same prism parts as every other
+ * sketch in the section, at button size.
  */
 @Composable
-internal fun ShapeGuideBadge(modifier: Modifier = Modifier) {
-    Box(modifier = modifier, contentAlignment = Alignment.Center) {
-        PrismPolygon(
-            points = HexagonPoints,
-            face = Primary,
-            // Flat top: a hexagon standing on a point reads as a diamond at badge size.
-            rotationDegrees = 30f,
-            modifier = Modifier.fillMaxSize(),
-        )
-        // The prism's lit face sits up and left of the box by half its extrusion, so the shapes
-        // are nudged the same way; centred on the box they look like they have slipped.
-        Box(
-            modifier = Modifier.fillMaxSize().padding(end = 5.dp, bottom = 5.dp),
-            contentAlignment = Alignment.Center,
-        ) {
-            Row(
-                modifier = Modifier.fillMaxWidth(0.66f),
-                horizontalArrangement = Arrangement.spacedBy(4.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                BadgeShapes.forEach { shape ->
-                    PrismPolygon(
-                        points = shape,
-                        face = Color.White,
-                        // Upright rather than on a point: a diamond beside a triangle reads as a
-                        // second odd shape instead of as the square everyone knows.
-                        rotationDegrees = if (shape === SquarePoints) 45f else 0f,
-                        modifier = Modifier.weight(1f).aspectRatio(1f),
-                    )
-                }
-            }
+internal fun ShapeGuideGlyphs(
+    modifier: Modifier = Modifier,
+    face: Color = Color.White,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(3.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        BadgeShapes.forEach { shape ->
+            PrismPolygon(
+                points = shape,
+                face = face,
+                // Upright rather than on a point: a diamond beside a triangle reads as a second
+                // odd shape instead of as the square everyone knows.
+                rotationDegrees = if (shape === SquarePoints) 45f else 0f,
+                // Hairline facet: the default extrusion is a tenth of the glyph at this size and
+                // turns the shapes into smudges.
+                facet = 1.dp,
+                modifier = Modifier.fillMaxHeight().aspectRatio(1f),
+            )
+        }
+    }
+}
+
+/** The operators inside the rules guide button, in the order the rules guide opens with. */
+private val GuideOperators = listOf("+", "-", "×")
+
+/**
+ * The operators inside the rules guide button, drawn as the same chunky glyphs the arithmetic
+ * topic tile is built from, so the two buttons in the section are a pair.
+ */
+@Composable
+internal fun RulesGuideGlyphs(
+    modifier: Modifier = Modifier,
+    tint: Color = Color.White,
+) {
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(3.dp),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        GuideOperators.forEach { operator ->
+            Icon(
+                imageVector = OperatorIcons.getValue(operator),
+                contentDescription = null,
+                tint = tint,
+                modifier = Modifier.fillMaxHeight().aspectRatio(1f),
+            )
         }
     }
 }

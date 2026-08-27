@@ -848,8 +848,9 @@
     <string name="learn_topic_geometry_subtitle">Angles, triangles &amp; circles</string>
 
     <string name="learn_shape_guide_title">Shape guide</string>
-    <string name="learn_shape_guide_subtitle">Every shape with its name, in one place</string>
     <string name="learn_shape_guide_intro">%1$d shapes, drawn and named. Tap one to watch it drawn again.</string>
+    <string name="learn_rules_guide_title">Rules guide</string>
+    <string name="learn_rules_guide_intro">%1$d rules and sign conventions, the basics in one place.</string>
 
     <string name="learn_lessons_header">Lessons</string>
     <string name="learn_lesson_progress">%1$d / %2$d lessons</string>

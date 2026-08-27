@@ -331,8 +331,14 @@ class GameController(
         navController.navigate(LearnUnitDetail(unit.id))
     }
 
-    fun navigateToLearnShapeGuide() {
-        navController.navigate(LearnShapeGuide)
+    /** Open the reference guide [topic] carries: shapes for Geometry, rules for Arithmetic. */
+    fun navigateToLearnGuide(topic: MathTopic) {
+        navController.navigate(
+            when (topic) {
+                MathTopic.GEOMETRY -> LearnShapeGuide
+                MathTopic.ARITHMETIC -> LearnRulesGuide
+            },
+        )
     }
 
     /**
