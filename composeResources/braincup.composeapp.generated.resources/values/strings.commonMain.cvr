@@ -778,6 +778,8 @@ string|settings_haptic_desc|VmlicmF0ZSBicmllZmx5IG9uIGNvcnJlY3QgYW5zd2Vycy4=
 string|settings_haptic|SGFwdGljIGZlZWRiYWNr
 string|settings_keypad_desc|UHV0IDEsIDIsIDMgb24gdGhlIHRvcCByb3cgaW5zdGVhZCBvZiA3LCA4LCA5Lg==
 string|settings_keypad|UGhvbmUtc3R5bGUgbnVtYmVyIHBhZA==
+string|settings_language_system|U3lzdGVtIGRlZmF1bHQ=
+string|settings_language|TGFuZ3VhZ2U=
 string|settings_open|T3BlbiBzZXR0aW5ncw==
 string|settings_play_games_profile_switch|U3dpdGNo
 string|settings_play_games_switch_cancel|Tm90IG5vdw==
