@@ -179,10 +179,13 @@ val isDarkColorScheme: Boolean
 // μ, π, Δ, Ω) which produces a jarring mix, and has no Cyrillic/CJK/Thai/Arabic/Indic
 // glyphs at all. These locales use Tektur instead (full Greek + Cyrillic, a heavy blocky
 // look close to Bungee); Latin locales keep the Bungee brand, which covers their accents.
-// Arabic, Persian, Urdu and Hebrew have no glyphs in either font and fall back to the system
-// face, so they share Tektur to keep those locales visually consistent.
+// Arabic, Persian, Urdu, Hebrew and the Indic scripts have no glyphs in either font and fall
+// back to the system face, so they share Tektur to keep those locales visually consistent.
 private val nonLatinDisplayLanguages =
-    setOf("el", "bg", "ru", "sr", "uk", "ja", "ko", "zh", "th", "hi", "bn", "ar", "fa", "ur", "he", "iw")
+    setOf(
+        "el", "bg", "ru", "sr", "uk", "ja", "ko", "zh", "th", "hi", "bn", "ar", "fa", "ur", "he", "iw",
+        "ta",
+    )
 
 @Composable
 private fun displayFontFamily(): FontFamily = if (ComposeLocale.current.language in nonLatinDisplayLanguages) {

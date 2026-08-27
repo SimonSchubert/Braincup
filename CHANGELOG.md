@@ -1,3 +1,8 @@
+## Unreleased
+
+### Features
+- Add Tamil language support
+
 ## v3.2.0 — 2026-08-27
 
 ### Features
