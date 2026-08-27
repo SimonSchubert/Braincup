@@ -106,6 +106,8 @@
     <string name="settings_theme_light">આછું</string>
     <string name="settings_theme_dark">ઘેરું</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">ભાષા</string>
+    <string name="settings_language_system">સિસ્ટમની ભાષા</string>
     <string name="settings_play_games_profile_switch">બદલો</string>
     <string name="settings_play_games_switch_cancel">અત્યારે નહીં</string>
     <string name="licenses_title">લાઇસન્સ</string>

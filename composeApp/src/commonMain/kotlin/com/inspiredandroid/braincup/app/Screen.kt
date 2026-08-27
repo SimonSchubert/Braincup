@@ -41,6 +41,9 @@ object Accounts
 object Licenses
 
 @Serializable
+object Language
+
+@Serializable
 object SessionInterstitial
 
 @Serializable

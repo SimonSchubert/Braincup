@@ -105,6 +105,8 @@
     <string name="settings_theme_light">Φωτεινό</string>
     <string name="settings_theme_dark">Σκοτεινό</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Γλώσσα</string>
+    <string name="settings_language_system">Γλώσσα συστήματος</string>
     <string name="settings_play_games_profile_switch">Αλλαγή</string>
     <string name="settings_play_games_switch_cancel">Όχι τώρα</string>
     <string name="licenses_title">Άδειες</string>

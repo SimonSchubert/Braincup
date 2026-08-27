@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Clar</string>
     <string name="settings_theme_dark">Fosc</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Idioma</string>
+    <string name="settings_language_system">Idioma del sistema</string>
     <string name="settings_play_games_profile_switch">Canvia</string>
     <string name="settings_play_games_switch_cancel">Ara no</string>
     <string name="licenses_title">Llicències</string>

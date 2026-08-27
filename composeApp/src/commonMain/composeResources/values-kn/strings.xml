@@ -106,6 +106,8 @@
     <string name="settings_theme_light">ತಿಳಿ</string>
     <string name="settings_theme_dark">ಗಾಢ</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">ಭಾಷೆ</string>
+    <string name="settings_language_system">ಸಿಸ್ಟಂ ಭಾಷೆ</string>
     <string name="settings_play_games_profile_switch">ಬದಲಿಸಿ</string>
     <string name="settings_play_games_switch_cancel">ಈಗ ಬೇಡ</string>
     <string name="licenses_title">ಪರವಾನಗಿಗಳು</string>

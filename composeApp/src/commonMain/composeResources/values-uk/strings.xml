@@ -575,6 +575,8 @@
     <string name="settings_theme_light">Світла</string>
     <string name="settings_theme_dark">Темна</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Мова</string>
+    <string name="settings_language_system">Мова системи</string>
     <string name="settings_play_games_profile_switch">Змінити</string>
     <string name="settings_play_games_switch_cancel">Не зараз</string>
     <string name="licenses_title">Ліцензії</string>

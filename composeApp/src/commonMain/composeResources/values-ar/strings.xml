@@ -550,6 +550,8 @@
     <string name="settings_theme_light">فاتح</string>
     <string name="settings_theme_dark">داكن</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">اللغة</string>
+    <string name="settings_language_system">لغة النظام</string>
     <string name="settings_play_games_profile_switch">تبديل</string>
     <string name="settings_play_games_switch_cancel">ليس الآن</string>
     <string name="licenses_title">التراخيص</string>

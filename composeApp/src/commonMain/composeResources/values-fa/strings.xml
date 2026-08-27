@@ -106,6 +106,8 @@
     <string name="settings_theme_light">روشن</string>
     <string name="settings_theme_dark">تیره</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">زبان</string>
+    <string name="settings_language_system">زبان سیستم</string>
     <string name="settings_play_games_profile_switch">تعویض</string>
     <string name="settings_play_games_switch_cancel">حالا نه</string>
     <string name="licenses_title">مجوزها</string>

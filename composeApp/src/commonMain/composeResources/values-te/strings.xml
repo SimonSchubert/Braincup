@@ -106,6 +106,8 @@
     <string name="settings_theme_light">లేత</string>
     <string name="settings_theme_dark">ముదురు</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">భాష</string>
+    <string name="settings_language_system">సిస్టమ్ భాష</string>
     <string name="settings_play_games_profile_switch">మార్చు</string>
     <string name="settings_play_games_switch_cancel">ఇప్పుడు వద్దు</string>
     <string name="licenses_title">లైసెన్సులు</string>

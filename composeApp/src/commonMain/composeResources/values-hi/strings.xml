@@ -575,6 +575,8 @@
     <string name="settings_theme_light">हल्का</string>
     <string name="settings_theme_dark">गहरा</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">भाषा</string>
+    <string name="settings_language_system">सिस्टम की भाषा</string>
     <string name="settings_play_games_profile_switch">बदलें</string>
     <string name="settings_play_games_switch_cancel">अभी नहीं</string>
     <string name="licenses_title">लाइसेंस</string>

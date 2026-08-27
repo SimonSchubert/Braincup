@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Svetlý</string>
     <string name="settings_theme_dark">Tmavý</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Jazyk</string>
+    <string name="settings_language_system">Jazyk systému</string>
     <string name="settings_play_games_profile_switch">Prepnúť</string>
     <string name="settings_play_games_switch_cancel">Teraz nie</string>
     <string name="licenses_title">Licencie</string>

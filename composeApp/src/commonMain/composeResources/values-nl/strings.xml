@@ -550,6 +550,8 @@
     <string name="settings_theme_light">Licht</string>
     <string name="settings_theme_dark">Donker</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Taal</string>
+    <string name="settings_language_system">Systeemtaal</string>
     <string name="settings_play_games_profile_switch">Wisselen</string>
     <string name="settings_play_games_switch_cancel">Niet nu</string>
     <string name="licenses_title">Licenties</string>

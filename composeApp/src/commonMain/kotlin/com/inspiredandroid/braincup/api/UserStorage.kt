@@ -179,6 +179,7 @@ class UserStorage(
         const val KEY_XP_SEEDED = "xp_seeded_v1"
         const val KEY_MINI_CHESS_DIFFICULTY = "mini_chess_difficulty"
         const val KEY_THEME_MODE = "theme_mode"
+        const val KEY_APP_LANGUAGE = "app_language"
         const val KEY_NORMAL_SUDOKU_COMPLETED = "normal_sudoku_completed"
         const val KEY_NORMAL_CHESS_DIFFICULTY = "normal_chess_difficulty"
         const val KEY_NORMAL_CHESS_MODE = "normal_chess_mode"
@@ -235,6 +236,7 @@ class UserStorage(
         fun forPreview(configure: UserStorage.() -> Unit = {}): UserStorage = UserStorage(MapSettings()).apply(configure)
 
         private val deviceKeys = setOf(
+            KEY_APP_LANGUAGE,
             KEY_AUDIO_MUTED,
             KEY_COLORBLIND_PALETTE,
             KEY_HAPTIC_ENABLED,
@@ -436,6 +438,16 @@ class UserStorage(
 
     fun setThemeMode(mode: ThemeMode) {
         store.putString(KEY_THEME_MODE, mode.name)
+    }
+
+    /**
+     * Selected UI language as a BCP 47 tag, or null to follow the device. Stored blank rather than
+     * removed for the default, so the accessor never has to reason about a missing key.
+     */
+    fun getAppLanguageTag(): String? = store.getString(KEY_APP_LANGUAGE, "").takeIf { it.isNotBlank() }
+
+    fun setAppLanguageTag(tag: String?) {
+        store.putString(KEY_APP_LANGUAGE, tag.orEmpty())
     }
 
     /** Mini Chess AI search depth chosen on the instructions screen. Defaults to 3 (Medium). */

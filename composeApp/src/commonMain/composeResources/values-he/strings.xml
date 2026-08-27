@@ -106,6 +106,8 @@
     <string name="settings_theme_light">בהיר</string>
     <string name="settings_theme_dark">כהה</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">שפה</string>
+    <string name="settings_language_system">שפת המערכת</string>
     <string name="settings_play_games_profile_switch">החלף</string>
     <string name="settings_play_games_switch_cancel">לא עכשיו</string>
     <string name="licenses_title">רישיונות</string>

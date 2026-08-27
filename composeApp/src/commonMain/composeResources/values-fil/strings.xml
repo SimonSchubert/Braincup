@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Maliwanag</string>
     <string name="settings_theme_dark">Madilim</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Wika</string>
+    <string name="settings_language_system">Wika ng sistema</string>
     <string name="settings_play_games_profile_switch">Palitan</string>
     <string name="settings_play_games_switch_cancel">Huwag muna</string>
     <string name="licenses_title">Mga Lisensya</string>

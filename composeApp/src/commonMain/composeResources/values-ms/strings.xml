@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Cerah</string>
     <string name="settings_theme_dark">Gelap</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Bahasa</string>
+    <string name="settings_language_system">Bahasa sistem</string>
     <string name="settings_play_games_profile_switch">Tukar</string>
     <string name="settings_play_games_switch_cancel">Bukan sekarang</string>
     <string name="licenses_title">Lesen</string>

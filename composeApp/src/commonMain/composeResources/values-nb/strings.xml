@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Lyst</string>
     <string name="settings_theme_dark">Mørkt</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Språk</string>
+    <string name="settings_language_system">Systemspråk</string>
     <string name="settings_play_games_profile_switch">Bytt</string>
     <string name="settings_play_games_switch_cancel">Ikke nå</string>
     <string name="licenses_title">Lisenser</string>

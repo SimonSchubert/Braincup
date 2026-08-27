@@ -47,6 +47,9 @@ fun SettingsScreen(
     activeAccount: PlayerAccount? = null,
     storeProfile: StorePlayerProfile? = null,
     onOpenAccounts: (() -> Unit)? = null,
+    onOpenLanguage: (() -> Unit)? = null,
+    /** Native name of the picked language, or null while the app follows the device. */
+    languageName: String? = null,
     onOpenLicenses: (() -> Unit)? = null,
 ) {
     // Same bottom safe padding as the home screen: the last row has to clear the gesture/
@@ -103,6 +106,13 @@ fun SettingsScreen(
                 checked = isNumberPadAscending,
                 onToggle = onToggleNumberPadAscending,
             )
+            if (onOpenLanguage != null) {
+                SettingsLinkRow(
+                    title = stringResource(Res.string.settings_language),
+                    description = languageName ?: stringResource(Res.string.settings_language_system),
+                    onClick = onOpenLanguage,
+                )
+            }
             if (onOpenLicenses != null) {
                 SettingsLinkRow(
                     title = stringResource(Res.string.licenses_title),
@@ -330,6 +340,7 @@ private fun SettingsScreenPreview() {
             themeMode = ThemeMode.SYSTEM,
             onThemeSelected = {},
             onBack = {},
+            onOpenLanguage = {},
             onOpenLicenses = {},
         )
     }
@@ -360,6 +371,8 @@ private fun SettingsScreenPlayGamesPreview() {
                 canEdit = true,
             ),
             onOpenAccounts = {},
+            onOpenLanguage = {},
+            languageName = "Deutsch",
             onOpenLicenses = {},
         )
     }

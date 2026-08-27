@@ -550,6 +550,8 @@
     <string name="settings_theme_light">হালকা</string>
     <string name="settings_theme_dark">গাঢ়</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">ভাষা</string>
+    <string name="settings_language_system">সিস্টেমের ভাষা</string>
     <string name="settings_play_games_profile_switch">বদলান</string>
     <string name="settings_play_games_switch_cancel">এখন না</string>
     <string name="licenses_title">লাইসেন্স</string>

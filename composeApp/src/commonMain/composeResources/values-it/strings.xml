@@ -575,6 +575,8 @@
     <string name="settings_theme_light">Chiaro</string>
     <string name="settings_theme_dark">Scuro</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Lingua</string>
+    <string name="settings_language_system">Lingua di sistema</string>
     <string name="settings_play_games_profile_switch">Cambia</string>
     <string name="settings_play_games_switch_cancel">Non ora</string>
     <string name="licenses_title">Licenze</string>

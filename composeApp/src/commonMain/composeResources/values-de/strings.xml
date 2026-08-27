@@ -550,6 +550,8 @@
     <string name="settings_theme_light">Hell</string>
     <string name="settings_theme_dark">Dunkel</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Sprache</string>
+    <string name="settings_language_system">Systemsprache</string>
     <string name="settings_play_games_profile_switch">Wechseln</string>
     <string name="settings_play_games_switch_cancel">Nicht jetzt</string>
     <string name="licenses_title">Lizenzen</string>

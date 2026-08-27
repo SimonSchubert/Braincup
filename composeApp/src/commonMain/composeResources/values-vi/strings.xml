@@ -575,6 +575,8 @@
     <string name="settings_theme_light">Sáng</string>
     <string name="settings_theme_dark">Tối</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Ngôn ngữ</string>
+    <string name="settings_language_system">Ngôn ngữ hệ thống</string>
     <string name="settings_play_games_profile_switch">Đổi</string>
     <string name="settings_play_games_switch_cancel">Để sau</string>
     <string name="licenses_title">Giấy phép</string>

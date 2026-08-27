@@ -14,9 +14,9 @@ import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.wordle.WordleGame
 import com.inspiredandroid.braincup.games.wordle.WordleLanguage
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
-import com.inspiredandroid.braincup.games.wordle.deviceLanguageTag
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.MathTopic
+import com.inspiredandroid.braincup.locale.AppLocale
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
@@ -278,6 +278,10 @@ class GameController(
 
     fun navigateToLicenses() {
         navController.navigate(Licenses)
+    }
+
+    fun navigateToLanguage() {
+        navController.navigate(Language)
     }
 
     fun reloadAfterAccountSwitch() {
@@ -1335,7 +1339,7 @@ class GameController(
     }
 
     private fun startWordleGame(gameType: GameType) {
-        val language = WordleLanguages.resolve(deviceLanguageTag())
+        val language = WordleLanguages.resolve(AppLocale.currentTag())
         if (language == null) {
             // The tile is hidden for unsupported locales, so this is just a safety net.
             navigateToMainMenu()
@@ -1353,7 +1357,7 @@ class GameController(
     private fun restartWordleInPlace() {
         val currentState = _gameState.value as? GameState.Active ?: return
         if (currentState.gameType != GameType.WORDLE) return
-        val language = WordleLanguages.resolve(deviceLanguageTag()) ?: return
+        val language = WordleLanguages.resolve(AppLocale.currentTag()) ?: return
         points = 0
         wordleScoreRecorded = false
         scope.launch {

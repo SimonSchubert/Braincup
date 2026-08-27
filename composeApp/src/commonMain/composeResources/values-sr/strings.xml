@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Светла</string>
     <string name="settings_theme_dark">Тамна</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Језик</string>
+    <string name="settings_language_system">Језик система</string>
     <string name="settings_play_games_profile_switch">Промени</string>
     <string name="settings_play_games_switch_cancel">Не сада</string>
     <string name="licenses_title">Лиценце</string>

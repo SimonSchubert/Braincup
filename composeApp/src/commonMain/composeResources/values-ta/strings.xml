@@ -106,6 +106,8 @@
     <string name="settings_theme_light">வெளிர்</string>
     <string name="settings_theme_dark">அடர்</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">மொழி</string>
+    <string name="settings_language_system">கணினி மொழி</string>
     <string name="settings_play_games_profile_switch">மாற்று</string>
     <string name="settings_play_games_switch_cancel">இப்போது வேண்டாம்</string>
     <string name="licenses_title">உரிமங்கள்</string>

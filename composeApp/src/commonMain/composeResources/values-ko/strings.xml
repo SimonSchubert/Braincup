@@ -575,6 +575,8 @@
     <string name="settings_theme_light">라이트</string>
     <string name="settings_theme_dark">다크</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">언어</string>
+    <string name="settings_language_system">시스템 언어</string>
     <string name="settings_play_games_profile_switch">전환</string>
     <string name="settings_play_games_switch_cancel">나중에</string>
     <string name="licenses_title">라이선스</string>

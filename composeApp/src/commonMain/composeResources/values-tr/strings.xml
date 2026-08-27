@@ -575,6 +575,8 @@
     <string name="settings_theme_light">Açık</string>
     <string name="settings_theme_dark">Koyu</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Dil</string>
+    <string name="settings_language_system">Sistem dili</string>
     <string name="settings_play_games_profile_switch">Değiştir</string>
     <string name="settings_play_games_switch_cancel">Şimdi değil</string>
     <string name="licenses_title">Lisanslar</string>

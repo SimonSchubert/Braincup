@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Šviesi</string>
     <string name="settings_theme_dark">Tamsi</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Kalba</string>
+    <string name="settings_language_system">Sistemos kalba</string>
     <string name="settings_play_games_profile_switch">Keisti</string>
     <string name="settings_play_games_switch_cancel">Ne dabar</string>
     <string name="licenses_title">Licencijos</string>

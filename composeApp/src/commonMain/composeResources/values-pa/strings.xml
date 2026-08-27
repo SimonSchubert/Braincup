@@ -106,6 +106,8 @@
     <string name="settings_theme_light">ਹਲਕਾ</string>
     <string name="settings_theme_dark">ਗੂੜ੍ਹਾ</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">ਭਾਸ਼ਾ</string>
+    <string name="settings_language_system">ਸਿਸਟਮ ਦੀ ਭਾਸ਼ਾ</string>
     <string name="settings_play_games_profile_switch">ਬਦਲੋ</string>
     <string name="settings_play_games_switch_cancel">ਹੁਣੇ ਨਹੀਂ</string>
     <string name="licenses_title">ਲਾਇਸੰਸ</string>

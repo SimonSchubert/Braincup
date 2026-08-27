@@ -1,5 +1,7 @@
 package com.inspiredandroid.braincup.games.wordle
 
+import com.inspiredandroid.braincup.locale.AppLocale
+
 /**
  * Per-language Wordle configuration.
  *
@@ -65,7 +67,7 @@ object WordleLanguages {
     }
 
     /** Config for the current device language, or null when unavailable. */
-    fun current(): WordleLanguage? = resolve(deviceLanguageTag())
+    fun current(): WordleLanguage? = resolve(AppLocale.currentTag())
 
     /** Whether Wordle is available for the current device language (drives the menu filter). */
     fun isAvailable(): Boolean = current() != null

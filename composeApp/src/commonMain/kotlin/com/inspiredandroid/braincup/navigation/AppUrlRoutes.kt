@@ -11,6 +11,7 @@ import com.inspiredandroid.braincup.app.IqTestIntro
 import com.inspiredandroid.braincup.app.IqTestPlay
 import com.inspiredandroid.braincup.app.IqTestResult
 import com.inspiredandroid.braincup.app.IqTestReview
+import com.inspiredandroid.braincup.app.Language
 import com.inspiredandroid.braincup.app.LearnCertificate
 import com.inspiredandroid.braincup.app.LearnLessonPlay
 import com.inspiredandroid.braincup.app.LearnMenu
@@ -53,6 +54,7 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is Settings -> "settings"
     is Accounts -> "accounts"
     is Licenses -> "licenses"
+    is Language -> "language"
     is Achievements -> "achievements"
     is SessionInterstitial -> "session"
     is SessionComplete -> "session/complete"
@@ -88,6 +90,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "settings" -> Settings
         "accounts" -> Accounts
         "licenses" -> Licenses
+        "language" -> Language
         "achievements" -> Achievements
         "session" -> SessionInterstitial
         "session/complete" -> SessionComplete
@@ -113,6 +116,7 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<Settings>() -> navRouteToPathSuffix(Settings)
         destination.hasRoute<Accounts>() -> navRouteToPathSuffix(Accounts)
         destination.hasRoute<Licenses>() -> navRouteToPathSuffix(Licenses)
+        destination.hasRoute<Language>() -> navRouteToPathSuffix(Language)
         destination.hasRoute<Achievements>() -> navRouteToPathSuffix(Achievements)
         destination.hasRoute<SessionInterstitial>() -> navRouteToPathSuffix(SessionInterstitial)
         destination.hasRoute<SessionComplete>() -> navRouteToPathSuffix(SessionComplete)

@@ -1,6 +1,7 @@
 ## Unreleased
 
 ### Features
+- Add an in-app language picker to Settings, independent of the device language
 - Add Tamil language support
 - Add Telugu language support
 - Add Marathi language support

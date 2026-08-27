@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Világos</string>
     <string name="settings_theme_dark">Sötét</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Nyelv</string>
+    <string name="settings_language_system">Rendszernyelv</string>
     <string name="settings_play_games_profile_switch">Váltás</string>
     <string name="settings_play_games_switch_cancel">Most nem</string>
     <string name="licenses_title">Licencek</string>

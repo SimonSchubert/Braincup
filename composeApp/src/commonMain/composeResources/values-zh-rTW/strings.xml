@@ -575,6 +575,8 @@
     <string name="settings_theme_light">淺色</string>
     <string name="settings_theme_dark">深色</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">語言</string>
+    <string name="settings_language_system">跟隨系統</string>
     <string name="settings_play_games_profile_switch">切換</string>
     <string name="settings_play_games_switch_cancel">暫不</string>
     <string name="licenses_title">許可</string>

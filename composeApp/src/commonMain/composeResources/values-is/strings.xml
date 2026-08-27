@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Ljóst</string>
     <string name="settings_theme_dark">Dökkt</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Tungumál</string>
+    <string name="settings_language_system">Kerfistungumál</string>
     <string name="settings_play_games_profile_switch">Skipta</string>
     <string name="settings_play_games_switch_cancel">Ekki núna</string>
     <string name="licenses_title">Leyfi</string>

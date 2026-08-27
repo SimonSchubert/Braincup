@@ -575,6 +575,8 @@
     <string name="settings_theme_light">ライト</string>
     <string name="settings_theme_dark">ダーク</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">言語</string>
+    <string name="settings_language_system">システムの言語</string>
     <string name="settings_play_games_profile_switch">切り替え</string>
     <string name="settings_play_games_switch_cancel">後で</string>
     <string name="licenses_title">ライセンス</string>

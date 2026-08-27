@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Vaalea</string>
     <string name="settings_theme_dark">Tumma</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Kieli</string>
+    <string name="settings_language_system">Järjestelmän kieli</string>
     <string name="settings_play_games_profile_switch">Vaihda</string>
     <string name="settings_play_games_switch_cancel">Ei nyt</string>
     <string name="licenses_title">Lisenssit</string>

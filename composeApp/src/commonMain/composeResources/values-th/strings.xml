@@ -575,6 +575,8 @@
     <string name="settings_theme_light">สว่าง</string>
     <string name="settings_theme_dark">มืด</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">ภาษา</string>
+    <string name="settings_language_system">ภาษาของระบบ</string>
     <string name="settings_play_games_profile_switch">สลับ</string>
     <string name="settings_play_games_switch_cancel">ไว้ทีหลัง</string>
     <string name="licenses_title">ใบอนุญาต</string>

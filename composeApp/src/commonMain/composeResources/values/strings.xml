@@ -106,6 +106,8 @@
     <string name="settings_theme_light">Light</string>
     <string name="settings_theme_dark">Dark</string>
     <string name="settings_theme_oled">OLED</string>
+    <string name="settings_language">Language</string>
+    <string name="settings_language_system">System default</string>
     <string name="settings_play_games_profile_switch">Switch</string>
     <string name="settings_play_games_switch_cancel">Not now</string>
     <string name="licenses_title">Licenses</string>
