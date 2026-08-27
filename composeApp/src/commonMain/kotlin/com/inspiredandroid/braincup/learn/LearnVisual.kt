@@ -244,6 +244,16 @@ sealed interface LearnVisual {
     /** A named solid, with its face/edge/corner counts when [counts] is set. */
     data class Solid(val kind: SolidKind, val counts: Boolean = false, override val reveal: Boolean = true) : LearnVisual
 
+    /**
+     * A flat shape none of the polygon figures can build: the two curved ones, and the star.
+     *
+     * [Polygon] draws a convex regular shape from a side count, which leaves the oval and the
+     * half-circle with no corners to count and the star with the wrong ones. Each of these is a
+     * shape a learner is expected to know by name, so the shape guide needs them drawn properly
+     * rather than approximated by a many-sided polygon.
+     */
+    data class FlatShape(val kind: FlatShapeKind) : LearnVisual
+
     /** Regular polygon with its lines of symmetry folding in. */
     data class Symmetry(
         val sides: Int,
@@ -385,7 +395,16 @@ enum class TriKind { EQUILATERAL, ISOSCELES, SCALENE }
  */
 enum class QuadKind { SQUARE, RECTANGLE, RHOMBUS, PARALLELOGRAM, TRAPEZIUM, KITE }
 
-enum class SolidKind { CUBE, SPHERE, CYLINDER, CONE, PRISM }
+/**
+ * The solids a [LearnVisual.Solid] can draw.
+ *
+ * [PRISM] is drawn as a box, so it doubles as the cuboid; [TRIANGULAR_PRISM] is the one with
+ * triangle ends, which is the shape "prism" is meant to call to mind once a learner has met both.
+ */
+enum class SolidKind { CUBE, SPHERE, CYLINDER, CONE, PRISM, TRIANGULAR_PRISM, PYRAMID }
+
+/** The flat shapes a [LearnVisual.FlatShape] can draw. */
+enum class FlatShapeKind { OVAL, SEMICIRCLE, STAR }
 
 /** Which side of a right triangle a step is solving for. */
 enum class Side { A, B, HYPOTENUSE }

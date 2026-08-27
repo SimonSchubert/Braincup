@@ -19,6 +19,7 @@ import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.LearnShapeGuideRow
 import com.inspiredandroid.braincup.ui.components.LearnSubTopicRow
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -33,6 +34,7 @@ fun LearnTopicScreen(
     topic: MathTopic,
     storage: UserStorage,
     onUnitSelected: (LearnUnit) -> Unit,
+    onShapeGuide: () -> Unit,
     onBack: () -> Unit,
 ) {
     val progress = remember(storage, topic) { storage.getLearnUnitProgress(topic).toImmutableList() }
@@ -40,6 +42,7 @@ fun LearnTopicScreen(
         topic = topic,
         progress = progress,
         onUnitSelected = onUnitSelected,
+        onShapeGuide = onShapeGuide,
         onBack = onBack,
     )
 }
@@ -49,6 +52,7 @@ fun LearnTopicScreenContent(
     topic: MathTopic,
     progress: ImmutableList<LearnUnitProgress>,
     onUnitSelected: (LearnUnit) -> Unit,
+    onShapeGuide: () -> Unit,
     onBack: () -> Unit,
 ) {
     val certificateCount = remember(progress) { progress.count { it.hasCertificate } }
@@ -97,6 +101,16 @@ fun LearnTopicScreenContent(
                 }
             }
 
+            // Geometry alone: the guide is a chart of shapes, and no other topic has one to show.
+            if (topic == MathTopic.GEOMETRY) {
+                item(key = "shape_guide", contentType = "learn_shape_guide") {
+                    LearnShapeGuideRow(
+                        accentColor = topic.accentColor,
+                        onClick = onShapeGuide,
+                    )
+                }
+            }
+
             itemsIndexed(
                 items = progress,
                 key = { _, item -> item.unit.id },
@@ -119,11 +133,12 @@ fun LearnTopicScreenContent(
 private fun LearnTopicScreenPreview() {
     ScreenPreviewHost {
         LearnTopicScreenContent(
-            topic = MathTopic.ARITHMETIC,
-            progress = LearnCatalog.units(MathTopic.ARITHMETIC)
+            topic = MathTopic.GEOMETRY,
+            progress = LearnCatalog.units(MathTopic.GEOMETRY)
                 .map { LearnUnitProgress.empty(it) }
                 .toImmutableList(),
             onUnitSelected = {},
+            onShapeGuide = {},
             onBack = {},
         )
     }

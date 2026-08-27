@@ -125,7 +125,10 @@ private fun OperatorGridPreview() {
     }
 }
 
+private val TrianglePoints = regularPolygonPoints(sides = 3)
+private val SquarePoints = regularPolygonPoints(sides = 4)
 private val PentagonPoints = regularPolygonPoints(sides = 5)
+private val HexagonPoints = regularPolygonPoints(sides = 6)
 
 @Composable
 private fun PentagonPreview() {
@@ -135,6 +138,41 @@ private fun PentagonPreview() {
             face = Primary,
             modifier = Modifier.fillMaxSize(),
         )
+    }
+}
+
+/**
+ * The badge on the shape guide row: four shapes in a block.
+ *
+ * One shape would read as one more sub-topic. The row's whole claim is that it holds all of them,
+ * so the badge shows a handful rather than picking a favourite.
+ */
+@Composable
+internal fun ShapeGuideRowPreview(modifier: Modifier = Modifier) {
+    Column(
+        modifier = modifier.padding(9.dp),
+        verticalArrangement = Arrangement.spacedBy(3.dp),
+    ) {
+        listOf(TrianglePoints to SquarePoints, PentagonPoints to HexagonPoints).forEach { (left, right) ->
+            Row(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(3.dp),
+            ) {
+                PrismPolygon(
+                    points = left,
+                    face = Primary,
+                    modifier = Modifier.weight(1f).fillMaxHeight(),
+                )
+                PrismPolygon(
+                    points = right,
+                    face = Primary,
+                    // Upright rather than on a point: a diamond beside a triangle reads as a
+                    // second odd shape instead of as the square everyone knows.
+                    rotationDegrees = if (right === SquarePoints) 45f else 0f,
+                    modifier = Modifier.weight(1f).fillMaxHeight(),
+                )
+            }
+        }
     }
 }
 

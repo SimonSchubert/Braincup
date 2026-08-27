@@ -14,6 +14,7 @@ import com.inspiredandroid.braincup.app.IqTestReview
 import com.inspiredandroid.braincup.app.LearnCertificate
 import com.inspiredandroid.braincup.app.LearnLessonPlay
 import com.inspiredandroid.braincup.app.LearnMenu
+import com.inspiredandroid.braincup.app.LearnShapeGuide
 import com.inspiredandroid.braincup.app.LearnTest
 import com.inspiredandroid.braincup.app.LearnTopicDetail
 import com.inspiredandroid.braincup.app.LearnUnitDetail
@@ -40,6 +41,9 @@ const val GITHUB_PAGES_BASE_PATH = "/Braincup"
 
 private const val LEARN_BASE_PATH = "learn"
 
+/** The shape guide hangs off the section root, not off a sub-topic: it belongs to none of them. */
+private const val LEARN_SHAPES_PATH = "$LEARN_BASE_PATH/shapes"
+
 fun detectWebBasePath(pathname: String): String = if (pathname.startsWith(GITHUB_PAGES_BASE_PATH)) GITHUB_PAGES_BASE_PATH else ""
 
 fun navRouteToPathSuffix(route: Any): String = when (route) {
@@ -62,6 +66,7 @@ fun navRouteToPathSuffix(route: Any): String = when (route) {
     is IqTestResult -> "iq-test/result"
     is IqTestReview -> "iq-test/review"
     is LearnMenu -> LEARN_BASE_PATH
+    is LearnShapeGuide -> LEARN_SHAPES_PATH
     is LearnTopicDetail -> learnTopicPathSuffix(route.topicId)
     is LearnUnitDetail -> learnUnitPathSuffix(route.unitId)
     is LearnLessonPlay -> "$LEARN_BASE_PATH/lesson/${route.lessonId}"
@@ -92,6 +97,7 @@ fun pathSuffixToNavRoute(suffix: String): Any? {
         "iq-test/result" -> IqTestResult
         "iq-test/review" -> IqTestReview
         LEARN_BASE_PATH -> LearnMenu
+        LEARN_SHAPES_PATH -> LearnShapeGuide
         else -> parseParameterizedPath(suffix)
     }
 }
@@ -118,6 +124,7 @@ fun NavBackStackEntry.toUrlPathSuffix(): String {
         destination.hasRoute<IqTestResult>() -> navRouteToPathSuffix(IqTestResult)
         destination.hasRoute<IqTestReview>() -> navRouteToPathSuffix(IqTestReview)
         destination.hasRoute<LearnMenu>() -> navRouteToPathSuffix(LearnMenu)
+        destination.hasRoute<LearnShapeGuide>() -> navRouteToPathSuffix(LearnShapeGuide)
         destination.hasRoute<LearnTopicDetail>() -> navRouteToPathSuffix(toRoute<LearnTopicDetail>())
         destination.hasRoute<LearnUnitDetail>() -> navRouteToPathSuffix(toRoute<LearnUnitDetail>())
         destination.hasRoute<LearnLessonPlay>() -> navRouteToPathSuffix(toRoute<LearnLessonPlay>())

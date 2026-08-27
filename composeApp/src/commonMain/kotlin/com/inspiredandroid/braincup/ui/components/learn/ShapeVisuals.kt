@@ -4,6 +4,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Path
+import com.inspiredandroid.braincup.learn.FlatShapeKind
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.QuadKind
 import com.inspiredandroid.braincup.learn.Side
@@ -320,7 +321,7 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
 
     when (visual.kind) {
         SolidKind.CUBE, SolidKind.PRISM -> {
-            val w = if (visual.kind == SolidKind.PRISM) s * 1.35f else s
+            val w = if (visual.kind == SolidKind.PRISM) s * 1.7f else s
             val left = center.x - w / 2f - depth / 2f
             val top = center.y - s / 2f + depth / 2f
             box(Offset(left, top), Size(w, s), Accent.copy(alpha = 0.18f), outline)
@@ -386,6 +387,52 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
                 width = stroke * 1.2f,
             )
         }
+
+        SolidKind.TRIANGULAR_PRISM -> {
+            val half = s * 0.85f
+            val tall = s * 1.25f
+            // Longer than it is deep, and set down more than it is set back: a prism drawn on the
+            // cube's short 45-degree offset comes out square-on and reads as a pyramid.
+            val runX = s * 1.15f
+            val runY = s * 0.5f
+            val baseY = center.y + tall / 2f - runY / 2f
+            val left = center.x - half - runX / 2f
+            // The triangle the prism is named for faces the reader; the same triangle set back and
+            // up is what makes the cross-section visibly the same all the way through.
+            val front = listOf(
+                Offset(left, baseY),
+                Offset(left + half, baseY - tall),
+                Offset(left + half * 2f, baseY),
+            )
+            val back = front.map { Offset(it.x + runX, it.y - runY) }
+            // Only the back bottom-left corner is hidden, so its three edges are the dashed ones.
+            line(back[0], back[1], faint, stroke * 0.8f, dashed = true)
+            line(back[0], back[2], faint, stroke * 0.8f, dashed = true)
+            line(front[0], back[0], faint, stroke * 0.8f, dashed = true)
+            line(back[1], back[2], outline, stroke * 0.9f)
+            line(front[1], back[1], outline, stroke * 0.9f)
+            line(front[2], back[2], outline, stroke * 0.9f)
+            path(closedPath(front), Accent.copy(alpha = 0.18f), outline, stroke * 1.2f)
+        }
+
+        SolidKind.PYRAMID -> {
+            val half = s * 0.95f
+            val baseY = center.y + s * 0.7f
+            // The base is a square seen at an angle, so it is drawn as a parallelogram; the apex
+            // sits over its middle rather than over a front corner.
+            val frontLeft = Offset(center.x - half - depth / 2f, baseY)
+            val frontRight = Offset(center.x + half - depth / 2f, baseY)
+            val backRight = Offset(frontRight.x + depth, baseY - depth)
+            val backLeft = Offset(frontLeft.x + depth, baseY - depth)
+            val apex = Offset(center.x, center.y - s * 0.95f)
+            // The two hidden edges go on faint, the way a textbook dashes them in.
+            line(backLeft, frontLeft, faint, stroke * 0.8f, dashed = true)
+            line(backLeft, backRight, faint, stroke * 0.8f, dashed = true)
+            line(apex, backLeft, faint, stroke * 0.8f, dashed = true)
+            path(closedPath(listOf(apex, frontRight, frontLeft)), Accent.copy(alpha = 0.18f), outline, stroke * 1.2f)
+            line(frontRight, backRight, outline, stroke * 1.1f)
+            line(apex, backRight, outline, stroke * 1.1f)
+        }
     }
 
     val name = when (visual.kind) {
@@ -394,6 +441,8 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
         SolidKind.CYLINDER -> "cylinder"
         SolidKind.CONE -> "cone"
         SolidKind.PRISM -> "prism"
+        SolidKind.TRIANGULAR_PRISM -> "triangular prism"
+        SolidKind.PYRAMID -> "pyramid"
     }
     val counts = when (visual.kind) {
         SolidKind.CUBE -> "6 faces · 12 edges · 8 corners"
@@ -401,6 +450,8 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
         SolidKind.CYLINDER -> "2 flat faces · 1 curved"
         SolidKind.CONE -> "1 flat face · 1 point"
         SolidKind.PRISM -> "same cross-section throughout"
+        SolidKind.TRIANGULAR_PRISM -> "5 faces · 9 edges · 6 corners"
+        SolidKind.PYRAMID -> "5 faces · 8 edges · 5 corners"
     }
     if (visual.reveal) {
         label(
@@ -410,6 +461,76 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
             factor = 0.1f,
             alpha = revealBeat,
         )
+    }
+}
+
+/** The corners of a [points]-pointed star, tip up, alternating between the two radii. */
+private fun starPoints(center: Offset, radius: Float, points: Int): List<Offset> {
+    // 0.382 is the pentagram ratio: the inner corners a five-pointed star drawn in one stroke
+    // actually lands on. A rounder value gives the blunt star of a sticker sheet.
+    val inner = radius * 0.382f
+    return List(points * 2) { i ->
+        val r = if (i % 2 == 0) radius else inner
+        val angle = -PI / 2 + i * PI / points
+        Offset(center.x + (r * cos(angle)).toFloat(), center.y + (r * sin(angle)).toFloat())
+    }
+}
+
+/**
+ * The flat shapes no polygon figure can build, each drawn the way it is defined: the oval on the
+ * two different widths that separate it from a circle, the semicircle growing out of the diameter
+ * it was cut along, and the star one point at a time.
+ */
+internal fun VisualScope.drawFlatShape(visual: LearnVisual.FlatShape) {
+    val center = Offset(width / 2f, height * 0.5f)
+    val radius = size.minDimension * 0.36f
+
+    when (visual.kind) {
+        FlatShapeKind.OVAL -> {
+            val w = radius * 2.4f
+            val h = radius * 1.5f
+            val topLeft = Offset(center.x - w / 2f, center.y - h / 2f)
+            oval(topLeft, Size(w, h), fill = Accent.copy(alpha = 0.14f), outline = null)
+            oval(topLeft, Size(w, h), outline = ink, width = stroke * 1.3f)
+            line(
+                Offset(center.x - w / 2f * progress, center.y),
+                Offset(center.x + w / 2f * progress, center.y),
+                Accent,
+                stroke * 1.2f,
+            )
+            line(
+                Offset(center.x, center.y - h / 2f * progress),
+                Offset(center.x, center.y + h / 2f * progress),
+                Accent2,
+                stroke * 1.2f,
+            )
+            dot(center, stroke * 1.3f, ink)
+        }
+
+        FlatShapeKind.SEMICIRCLE -> {
+            val r = radius * 1.2f
+            val flat = center.y + r * 0.4f
+            val base = Offset(center.x, flat)
+            arc(
+                center = base,
+                radius = r,
+                startAngle = 180f,
+                sweepAngle = 180f * progress,
+                fill = Accent.copy(alpha = 0.14f),
+                outline = ink,
+                width = stroke * 1.3f,
+            )
+            // The cut edge is the whole point of the shape, so it is inked in the accent rather
+            // than left as one more stretch of outline.
+            line(Offset(center.x - r, flat), Offset(center.x + r, flat), Accent, stroke * 1.4f)
+            dot(base, stroke * 1.3f, ink)
+        }
+
+        FlatShapeKind.STAR -> {
+            val points = starPoints(center, radius * 1.15f, 5)
+            ghostOutline(points)
+            drawSidesInTurn(points)
+        }
     }
 }
 

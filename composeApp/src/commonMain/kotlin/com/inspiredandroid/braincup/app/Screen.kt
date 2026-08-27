@@ -89,6 +89,9 @@ data class LearnTopicDetail(val topicId: String)
 data class LearnUnitDetail(val unitId: String)
 
 @Serializable
+object LearnShapeGuide
+
+@Serializable
 data class LearnLessonPlay(val lessonId: String)
 
 @Serializable

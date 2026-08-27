@@ -593,6 +593,7 @@ fun App(
                             val onUnitSelected = remember(controller) {
                                 { unit: LearnUnit -> controller.navigateToLearnUnit(unit) }
                             }
+                            val onShapeGuide = remember(controller) { { controller.navigateToLearnShapeGuide() } }
                             val onBackTopic = remember(navController) {
                                 {
                                     navController.popBackStack()
@@ -603,6 +604,7 @@ fun App(
                                 topic = topic,
                                 storage = controller.storage,
                                 onUnitSelected = onUnitSelected,
+                                onShapeGuide = onShapeGuide,
                                 onBack = onBackTopic,
                             )
                         }
@@ -634,6 +636,16 @@ fun App(
                                 onBack = onBackUnit,
                             )
                         }
+                    }
+
+                    composable<LearnShapeGuide> {
+                        val onBackShapeGuide = remember(navController) {
+                            {
+                                navController.popBackStack()
+                                Unit
+                            }
+                        }
+                        LearnShapeGuideScreen(onBack = onBackShapeGuide)
                     }
 
                     composable<LearnLessonPlay> { backStackEntry ->

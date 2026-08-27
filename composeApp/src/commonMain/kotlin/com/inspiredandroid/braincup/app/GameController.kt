@@ -331,6 +331,10 @@ class GameController(
         navController.navigate(LearnUnitDetail(unit.id))
     }
 
+    fun navigateToLearnShapeGuide() {
+        navController.navigate(LearnShapeGuide)
+    }
+
     /**
      * Open a lesson. [replaceCurrent] is used by "Next lesson" so walking a whole unit does not
      * pile lessons up on the back stack — going back always lands on the unit screen.

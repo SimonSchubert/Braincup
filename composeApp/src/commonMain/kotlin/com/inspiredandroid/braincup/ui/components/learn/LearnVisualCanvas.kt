@@ -507,6 +507,7 @@ private fun VisualScope.draw(visual: LearnVisual) {
         is LearnVisual.Quadrilateral -> drawQuadrilateral(visual)
         is LearnVisual.CyclicQuad -> drawCyclicQuad(visual)
         is LearnVisual.Solid -> drawSolid(visual)
+        is LearnVisual.FlatShape -> drawFlatShape(visual)
         is LearnVisual.Symmetry -> drawSymmetry(visual)
         is LearnVisual.AreaGrid -> drawAreaGrid(visual)
         is LearnVisual.RightTriangle -> drawRightTriangle(visual)
