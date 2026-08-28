@@ -899,7 +899,7 @@ internal object ArithmeticContent {
                         options = mathOptions("-10", "-6", "-1", "0"),
                         correctIndex = 3,
                         explanation = words(Res.string.learn_g68_arithmetic_negatives_s3_explanation),
-                        visual = NumberLine(from = -10, to = 5, compare = listOf(-10, -6, -1, 0), reveal = false),
+                        visual = NumberLine(from = -10, to = 0, compare = listOf(-10, -6, -1, 0), reveal = false),
                     ),
                     Concept(
                         body = words(Res.string.learn_g68_arithmetic_negatives_s4_body),
@@ -1552,7 +1552,7 @@ internal object ArithmeticContent {
                         options = mathOptions("8.2 * 10^-4", "8.2 * 10^-3", "82 * 10^-5", "8.2 * 10^4"),
                         correctIndex = 0,
                         explanation = words(Res.string.learn_arithmetic_standard_form_small_s3_explanation),
-                        visual = Steps(terms = listOf(8200, 820, 82, 8), multiply = true),
+                        visual = Steps(terms = listOf(8200, 820, 82, 8.2), multiply = true),
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_standard_form_small_s4_question),

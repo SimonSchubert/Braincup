@@ -12,6 +12,7 @@ import kotlin.math.cos
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
+import kotlin.math.roundToLong
 import kotlin.math.sin
 
 /**
@@ -1291,16 +1292,17 @@ internal fun VisualScope.drawSteps(visual: LearnVisual.Steps) {
             stroke * 0.8f,
             alpha = alpha,
         )
-        label(term.toString(), Offset(x, y + height * 0.17f), ink, StepTermFactor, alpha = alpha, bold = false)
+        val value = term.toDouble()
+        label(formatDecimal(value), Offset(x, y + height * 0.17f), ink, StepTermFactor, alpha = alpha, bold = false)
 
         if (index < terms.lastIndex) {
-            val next = terms[index + 1]
+            val next = terms[index + 1].toDouble()
             val t = item(index, terms.size)
             if (t <= 0f) return@forEachIndexed
             val stepLabel = if (visual.multiply) {
-                "x" + formatDecimal(next.toDouble() / term)
+                "x" + formatDecimal(next / value)
             } else {
-                (if (next - term >= 0) "+" else "") + (next - term)
+                (if (next - value >= 0) "+" else "") + formatDecimal(next - value)
             }
             hopArc(
                 x0 = x,
@@ -1357,6 +1359,9 @@ internal fun VisualScope.drawTally(visual: LearnVisual.Tally) {
 
 /** Trim a double to the shortest sensible label: 2.0 -> "2", 0.25 -> "0.25". */
 internal fun formatDecimal(value: Double): String {
+    // Whole values answer first, because a term can be far larger than a ratio: 52000 scaled by
+    // the hundred the rounding below works in is still an Int, but it does not have to be.
+    if (abs(value - value.roundToLong()) < 0.001) return value.roundToLong().toString()
     val rounded = (value * 100).roundToInt() / 100.0
     if (abs(rounded - rounded.roundToInt()) < 0.001) return rounded.roundToInt().toString()
     val text = rounded.toString()

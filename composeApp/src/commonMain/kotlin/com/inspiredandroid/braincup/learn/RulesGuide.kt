@@ -111,6 +111,7 @@ object RulesGuide {
                 id = "brackets-first",
                 rule = math("3 x (4 + 2) = 18"),
                 meaning = Res.string.learn_rule_brackets_first_meaning,
+                example = math("3 x {b:6} = 18"),
             ),
             Entry(
                 id = "left-to-right",

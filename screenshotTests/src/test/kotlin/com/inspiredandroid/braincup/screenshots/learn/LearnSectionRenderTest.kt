@@ -5,6 +5,7 @@ import com.inspiredandroid.braincup.learn.LearnTopicProgress
 import com.inspiredandroid.braincup.learn.LearnUnitProgress
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.screens.LearnMenuScreenContent
+import com.inspiredandroid.braincup.ui.screens.LearnRulesGuideScreen
 import com.inspiredandroid.braincup.ui.screens.LearnShapeGuideScreen
 import com.inspiredandroid.braincup.ui.screens.LearnTopicScreenContent
 import kotlinx.collections.immutable.toImmutableList
@@ -100,6 +101,16 @@ class LearnSectionRenderTest {
         // Reachable only from the Geometry ladder, and the one Learn screen with no state at all.
         paparazzi.learnSnap("20_shape_guide", heightPx = LearnGuidePx) {
             LearnShapeGuideScreen(onBack = {})
+        }
+    }
+
+    @Test
+    fun rulesGuide() {
+        // The Arithmetic ladder's guide, and stateless in the same way. Worth a frame of its own
+        // because its cells are three runs of text with nothing drawn to anchor them, so a change
+        // in type size or spacing shows up nowhere else.
+        paparazzi.learnSnap("21_rules_guide", heightPx = LearnGuidePx) {
+            LearnRulesGuideScreen(onBack = {})
         }
     }
 }

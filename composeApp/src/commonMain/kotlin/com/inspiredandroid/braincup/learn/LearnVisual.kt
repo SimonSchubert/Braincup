@@ -204,8 +204,14 @@ sealed interface LearnVisual {
         override val reveal: Boolean = true,
     ) : LearnVisual
 
-    /** Terms with the step between them labelled, for sequences and skip counting. */
-    data class Steps(val terms: List<Int>, val multiply: Boolean = false) : LearnVisual
+    /**
+     * Terms with the step between them labelled, for sequences and skip counting.
+     *
+     * The terms are [Number] rather than [Int] because a chain that divides by ten leaves the
+     * whole numbers behind: 8200, 820, 82 continues to 8.2, and rounding that last term to 8 made
+     * the figure label a hop x0.1 that was nothing of the kind.
+     */
+    data class Steps(val terms: List<Number>, val multiply: Boolean = false) : LearnVisual
 
     // --- Shape ----------------------------------------------------------------------------
 
