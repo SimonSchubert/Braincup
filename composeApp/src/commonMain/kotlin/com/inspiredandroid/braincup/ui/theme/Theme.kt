@@ -77,10 +77,50 @@ val StartAccent = Color(0xFF14857A)
 val PrimaryContainer = Color(0xFFEADDFF)
 val OnPrimaryContainer = Color(0xFF21005D)
 
+/**
+ * The Learn section's answer states, brand-pinned for the same reason [PrimaryContainer] is.
+ *
+ * On Android 12+ an unset theme resolves through `dynamicDarkColorScheme`, so a tile left on
+ * `colorScheme.error` is painted whatever the wallpaper suggests. Measured on a stock wallpaper
+ * that landed on `#F2B8B5`, which carries white text at 1.71:1 - the state a learner who is
+ * struggling sees most often was the least legible thing in the section.
+ *
+ * Both faces are picked to clear 4.5:1 against white ink *and* 3:1 against the darkest background
+ * the app ships (OLED black and the warm dark `#1B1614`), which is a narrower band than it sounds:
+ * darken a face for the text and it starts to sink into the background behind it.
+ *
+ * [LearnCorrectFace] is [SuccessGreen] taken down one step. The ink colour of an answer stays
+ * [SuccessGreen] exactly - that is the green the figure marks its value in and the green a solved
+ * formula resolves `{c:}` to - and this is only the face a filled tile is painted with.
+ */
+val LearnCorrectFace = Color(0xFF4F7A4B)
+val LearnWrongFace = Color(0xFFC62828)
+
+/**
+ * The review card for a question that was missed: pale, so it is the loudest card in the list.
+ *
+ * A review list exists to be read for the ones that went wrong, so the miss is the card that gets
+ * called out. Values are the M3 light error-container pair, pinned the same way.
+ */
+val LearnWrongContainer = Color(0xFFF9DEDC)
+val OnLearnWrongContainer = Color(0xFF410E0B)
+
+/** [SuccessGreen] darkened until it reads on the pale [PrimaryContainer] a feedback card uses. */
+val SuccessGreenOnContainer = Color(0xFF3B5C38)
+
 // Pre-baked alpha variants of brand colors that recur across screens.
 val SuccessGreenSoft = Color(0xFF5C8E58).copy(alpha = 0.15f)
 val OnPrimaryContainerSubtle = OnPrimaryContainer.copy(alpha = 0.15f)
 val OnPrimaryContainerDisabled = OnPrimaryContainer.copy(alpha = 0.12f)
+
+/**
+ * The card that says a certificate has been earned, in the medal's own colour family.
+ *
+ * Left on `secondaryContainer` it resolved to the same grey as a lesson that had not been started,
+ * so the one celebratory thing on a sub-topic's screen was also its dullest card.
+ */
+val MedalContainer = Color(0xFFFFF1C2)
+val OnMedalContainer = Color(0xFF4A3A00)
 
 val MedalGold = Color(0xFFFFD700)
 val MedalSilver = Color(0xFFC0C0C0)

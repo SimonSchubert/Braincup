@@ -1,5 +1,9 @@
 package com.inspiredandroid.braincup.learn
 
+import braincup.composeapp.generated.resources.*
+import braincup.composeapp.generated.resources.Res
+import org.jetbrains.compose.resources.StringResource
+
 /**
  * The rules guide: the rules and sign conventions of arithmetic, written out in one place.
  *
@@ -7,8 +11,8 @@ package com.inspiredandroid.braincup.learn
  * which is no help to someone who only wants to check which way round two minuses go. Each entry
  * leads with the rule as it would be written down, so the notation is the thing being looked up.
  *
- * Rules are authored here in English, exactly like the lesson prose in `learn/content`: this is
- * catalog content, not UI chrome. The screen around it goes through `strings.xml`.
+ * Rules go through `strings.xml` like the lessons themselves, keyed by the entry ids below:
+ * `learn_rule_minus_of_minus_rule`, `..._meaning`, `..._example`. Only the ids stay here.
  *
  * Notation follows the lessons: `x` multiplies, a spaced `/` divides, and a tight one is a
  * fraction line, because `MathText` is what renders these. Negatives are written in brackets,
@@ -24,287 +28,287 @@ object RulesGuide {
      */
     data class Entry(
         val id: String,
-        val rule: String,
-        val meaning: String,
-        val example: String? = null,
+        val rule: CatalogText,
+        val meaning: StringResource,
+        val example: CatalogText? = null,
     )
 
     data class Section(
         val id: String,
-        val title: String,
-        val blurb: String,
+        val title: StringResource,
+        val blurb: StringResource,
         val rules: List<Entry>,
     )
 
     private val signs = Section(
         id = "signs",
-        title = "Signs",
-        blurb = "What happens when a minus meets a minus. The rules learners lose most marks on.",
+        title = Res.string.learn_rulesguide_signs_title,
+        blurb = Res.string.learn_rulesguide_signs_blurb,
         rules = listOf(
             Entry(
                 id = "minus-of-minus",
-                rule = "-(-a) = a",
-                meaning = "A minus in front of a minus cancels it out",
-                example = "-(-7) = 7",
+                rule = math("-(-a) = a"),
+                meaning = Res.string.learn_rule_minus_of_minus_meaning,
+                example = math("-(-7) = 7"),
             ),
             Entry(
                 id = "subtract-negative",
-                rule = "a - (-b) = a + b",
-                meaning = "Subtracting a negative adds",
-                example = "5 - (-3) = 8",
+                rule = math("a - (-b) = a + b"),
+                meaning = Res.string.learn_rule_subtract_negative_meaning,
+                example = math("5 - {b:(-3)} = 8"),
             ),
             Entry(
                 id = "add-negative",
-                rule = "a + (-b) = a - b",
-                meaning = "Adding a negative subtracts",
-                example = "5 + (-3) = 2",
+                rule = math("a + (-b) = a - b"),
+                meaning = Res.string.learn_rule_add_negative_meaning,
+                example = math("5 + {b:(-3)} = 2"),
             ),
             Entry(
                 id = "times-two-negatives",
-                rule = "- x - = +",
-                meaning = "Two negatives multiply to a positive",
-                example = "(-4) x (-3) = 12",
+                rule = math("- x - = +"),
+                meaning = Res.string.learn_rule_times_two_negatives_meaning,
+                example = math("(-4) x {b:(-3)} = 12"),
             ),
             Entry(
                 id = "times-one-negative",
-                rule = "- x + = -",
-                meaning = "One negative flips the sign",
-                example = "(-4) x 3 = -12",
+                rule = math("- x + = -"),
+                meaning = Res.string.learn_rule_times_one_negative_meaning,
+                example = math("(-4) x {b:3} = -12"),
             ),
             Entry(
                 id = "divide-negatives",
-                rule = "- / - = +",
-                meaning = "Division follows the same sign rule as multiplication",
-                example = "(-12) / (-3) = 4",
+                rule = math("- / - = +"),
+                meaning = Res.string.learn_rule_divide_negatives_meaning,
+                example = math("(-12) / {b:(-3)} = 4"),
             ),
             Entry(
                 id = "order-negatives",
-                rule = "-5 < -2",
-                meaning = "The further left on the line, the smaller the number",
-                example = "0 > -2 > -5",
+                rule = math("-5 < -2"),
+                meaning = Res.string.learn_rule_order_negatives_meaning,
+                example = math("0 > -2 > -5"),
             ),
             Entry(
                 id = "move-on-the-line",
-                rule = "-3 + 5 = 2",
-                meaning = "Adding moves right along the line, subtracting moves left",
-                example = "2 - 5 = -3",
+                rule = math("-3 + 5 = 2"),
+                meaning = Res.string.learn_rule_move_on_the_line_meaning,
+                example = math("2 - {b:5} = -3"),
             ),
         ),
     )
 
     private val order = Section(
         id = "order",
-        title = "Order of operations",
-        blurb = "Which part of a long sum is worked out first.",
+        title = Res.string.learn_rulesguide_order_title,
+        blurb = Res.string.learn_rulesguide_order_blurb,
         rules = listOf(
             Entry(
                 id = "times-before-plus",
-                rule = "2 + 3 x 4 = 14",
-                meaning = "Times and divide are done before plus and minus",
-                example = "not 5 x 4",
+                rule = math("2 + 3 x 4 = 14"),
+                meaning = Res.string.learn_rule_times_before_plus_meaning,
+                example = words(Res.string.learn_rule_times_before_plus_example),
             ),
             Entry(
                 id = "brackets-first",
-                rule = "3 x (4 + 2) = 18",
-                meaning = "Brackets come before everything else",
+                rule = math("3 x (4 + 2) = 18"),
+                meaning = Res.string.learn_rule_brackets_first_meaning,
             ),
             Entry(
                 id = "left-to-right",
-                rule = "20 / 5 x 2 = 8",
-                meaning = "Same rank: work from left to right",
-                example = "not 20 / 10",
+                rule = math("20 / 5 x 2 = 8"),
+                meaning = Res.string.learn_rule_left_to_right_meaning,
+                example = words(Res.string.learn_rule_left_to_right_example),
             ),
             Entry(
                 id = "powers-before-times",
-                rule = "3 x 4² = 48",
-                meaning = "Powers are worked out before times and divide",
-                example = "not 12²",
+                rule = math("3 x 4² = 48"),
+                meaning = Res.string.learn_rule_powers_before_times_meaning,
+                example = words(Res.string.learn_rule_powers_before_times_example),
             ),
         ),
     )
 
     private val zeroAndOne = Section(
         id = "zero-and-one",
-        title = "Zero and one",
-        blurb = "The two numbers that behave unlike any other.",
+        title = Res.string.learn_rulesguide_zero_and_one_title,
+        blurb = Res.string.learn_rulesguide_zero_and_one_blurb,
         rules = listOf(
-            Entry(id = "add-zero", rule = "a + 0 = a", meaning = "Adding zero changes nothing", example = "9 + 0 = 9"),
-            Entry(id = "times-one", rule = "a x 1 = a", meaning = "Multiplying by one changes nothing", example = "9 x 1 = 9"),
-            Entry(id = "times-zero", rule = "a x 0 = 0", meaning = "Anything times zero is zero", example = "9 x 0 = 0"),
+            Entry(id = "add-zero", rule = math("a + 0 = a"), meaning = Res.string.learn_rule_add_zero_meaning, example = math("9 + {b:0} = 9")),
+            Entry(id = "times-one", rule = math("a x 1 = a"), meaning = Res.string.learn_rule_times_one_meaning, example = math("9 x {b:1} = 9")),
+            Entry(id = "times-zero", rule = math("a x 0 = 0"), meaning = Res.string.learn_rule_times_zero_meaning, example = math("9 x {b:0} = 0")),
             Entry(
                 id = "divide-by-itself",
-                rule = "a / a = 1",
-                meaning = "A number shared by itself is one",
-                example = "9 / 9 = 1",
+                rule = math("a / a = 1"),
+                meaning = Res.string.learn_rule_divide_by_itself_meaning,
+                example = math("9 / {b:9} = 1"),
             ),
-            Entry(id = "zero-shared", rule = "0 / a = 0", meaning = "Zero shared out is still zero", example = "0 / 9 = 0"),
+            Entry(id = "zero-shared", rule = math("0 / a = 0"), meaning = Res.string.learn_rule_zero_shared_meaning, example = math("0 / {b:9} = 0")),
             Entry(
                 id = "divide-by-zero",
-                rule = "a / 0",
-                meaning = "Dividing by zero has no answer at all",
-                example = "not zero, not one",
+                rule = math("a / 0"),
+                meaning = Res.string.learn_rule_divide_by_zero_meaning,
+                example = words(Res.string.learn_rule_divide_by_zero_example),
             ),
         ),
     )
 
     private val rearranging = Section(
         id = "rearranging",
-        title = "Rearranging",
-        blurb = "What a sum still comes to when the numbers are moved about.",
+        title = Res.string.learn_rulesguide_rearranging_title,
+        blurb = Res.string.learn_rulesguide_rearranging_blurb,
         rules = listOf(
             Entry(
                 id = "swap-add",
-                rule = "a + b = b + a",
-                meaning = "Order does not matter when adding",
-                example = "3 + 8 = 8 + 3",
+                rule = math("a + b = b + a"),
+                meaning = Res.string.learn_rule_swap_add_meaning,
+                example = math("3 + 8 = 8 + 3"),
             ),
             Entry(
                 id = "swap-times",
-                rule = "a x b = b x a",
-                meaning = "Order does not matter when multiplying",
-                example = "3 x 8 = 8 x 3",
+                rule = math("a x b = b x a"),
+                meaning = Res.string.learn_rule_swap_times_meaning,
+                example = math("3 x 8 = 8 x 3"),
             ),
             Entry(
                 id = "no-swap",
-                rule = "a - b ≠ b - a",
-                meaning = "Order does matter when subtracting or dividing",
-                example = "9 - 4 = 5 but 4 - 9 = -5",
+                rule = math("a - b ≠ b - a"),
+                meaning = Res.string.learn_rule_no_swap_meaning,
+                example = words(Res.string.learn_rule_no_swap_example),
             ),
             Entry(
                 id = "regroup",
-                rule = "(a + b) + c = a + (b + c)",
-                meaning = "Group a chain of adds whichever way is easier",
-                example = "7 + 3 + 8 = 10 + 8",
+                rule = math("(a + b) + c = a + (b + c)"),
+                meaning = Res.string.learn_rule_regroup_meaning,
+                example = math("7 + 3 + 8 = 10 + 8"),
             ),
             Entry(
                 id = "split-the-times",
-                rule = "a x (b + c) = a x b + a x c",
-                meaning = "Split one hard multiplication into two easy ones",
-                example = "4 x 23 = 4 x 20 + 4 x 3",
+                rule = math("a x (b + c) = a x b + a x c"),
+                meaning = Res.string.learn_rule_split_the_times_meaning,
+                example = math("4 x 23 = 4 x 20 + 4 x 3"),
             ),
         ),
     )
 
     private val fractions = Section(
         id = "fractions",
-        title = "Fractions",
-        blurb = "A tight slash is a fraction line: 3/4 is three quarters.",
+        title = Res.string.learn_rulesguide_fractions_title,
+        blurb = Res.string.learn_rulesguide_fractions_blurb,
         rules = listOf(
             Entry(
                 id = "add-fractions",
-                rule = "a/c + b/c = (a + b)/c",
-                meaning = "Same bottom number: add the tops and keep the bottom",
-                example = "1/5 + 2/5 = 3/5",
+                rule = math("a/c + b/c = (a + b)/c"),
+                meaning = Res.string.learn_rule_add_fractions_meaning,
+                example = math("1/5 + {b:2/5} = 3/5"),
             ),
             Entry(
                 id = "equivalent",
-                rule = "a/b = (a x k)/(b x k)",
-                meaning = "Times top and bottom by the same number and the value holds",
-                example = "1/2 = 3/6",
+                rule = math("a/b = (a x k)/(b x k)"),
+                meaning = Res.string.learn_rule_equivalent_meaning,
+                example = math("1/2 = 3/6"),
             ),
             Entry(
                 id = "times-fractions",
-                rule = "a/b x c/d = (a x c)/(b x d)",
-                meaning = "Multiply the tops together and the bottoms together",
-                example = "2/3 x 3/4 = 6/12 = 1/2",
+                rule = math("a/b x c/d = (a x c)/(b x d)"),
+                meaning = Res.string.learn_rule_times_fractions_meaning,
+                example = math("2/3 x 3/4 = 6/12 = 1/2"),
             ),
             Entry(
                 id = "divide-fractions",
-                rule = "a/b / (c/d) = a/b x d/c",
-                meaning = "To divide by a fraction, turn it upside down and multiply",
-                example = "1/2 / (1/4) = 2",
+                rule = math("a/b / (c/d) = a/b x d/c"),
+                meaning = Res.string.learn_rule_divide_fractions_meaning,
+                example = math("1/2 / {b:(1/4)} = 2"),
             ),
             Entry(
                 id = "mixed-number",
-                rule = "2 1/3 = 7/3",
-                meaning = "Whole times the bottom, plus the top",
-                example = "2 x 3 + 1 = 7",
+                rule = math("2 1/3 = 7/3"),
+                meaning = Res.string.learn_rule_mixed_number_meaning,
+                example = math("2 x 3 + 1 = 7"),
             ),
         ),
     )
 
     private val decimals = Section(
         id = "decimals",
-        title = "Decimals and percents",
-        blurb = "The same amount written three ways.",
+        title = Res.string.learn_rulesguide_decimals_title,
+        blurb = Res.string.learn_rulesguide_decimals_blurb,
         rules = listOf(
             Entry(
                 id = "three-ways",
-                rule = "1/2 = 0.5 = 50%",
-                meaning = "A fraction, a decimal and a percentage can be one number",
-                example = "3/4 = 0.75 = 75%",
+                rule = math("1/2 = 0.5 = 50%"),
+                meaning = Res.string.learn_rule_three_ways_meaning,
+                example = math("3/4 = 0.75 = 75%"),
             ),
             Entry(
                 id = "percent-meaning",
-                rule = "x% = x/100",
-                meaning = "Percent means out of a hundred",
-                example = "25% = 25/100 = 1/4",
+                rule = math("x% = x/100"),
+                meaning = Res.string.learn_rule_percent_meaning_meaning,
+                example = math("25% = 25/100 = 1/4"),
             ),
             Entry(
                 id = "percent-of",
-                rule = "x% of n = x/100 x n",
-                meaning = "For a percentage of an amount, divide by 100 then times",
-                example = "20% of 80 = 16",
+                rule = words(Res.string.learn_rule_percent_of_rule),
+                meaning = Res.string.learn_rule_percent_of_meaning,
+                example = words(Res.string.learn_rule_percent_of_example),
             ),
             Entry(
                 id = "times-ten",
-                rule = "3.7 x 10 = 37",
-                meaning = "Times ten moves the point one place right",
-                example = "3.7 / 10 = 0.37",
+                rule = math("3.7 x 10 = 37"),
+                meaning = Res.string.learn_rule_times_ten_meaning,
+                example = math("3.7 / {b:10} = 0.37"),
             ),
         ),
     )
 
     private val powers = Section(
         id = "powers",
-        title = "Powers and roots",
-        blurb = "Shorthand for multiplying a number by itself, and how to undo it.",
+        title = Res.string.learn_rulesguide_powers_title,
+        blurb = Res.string.learn_rulesguide_powers_blurb,
         rules = listOf(
-            Entry(id = "square", rule = "a² = a x a", meaning = "A square is a number times itself", example = "5² = 25"),
-            Entry(id = "cube", rule = "a³ = a x a x a", meaning = "A cube is three of them multiplied", example = "2³ = 8"),
+            Entry(id = "square", rule = math("a² = a x a"), meaning = Res.string.learn_rule_square_meaning, example = math("5² = 25")),
+            Entry(id = "cube", rule = math("a³ = a x a x a"), meaning = Res.string.learn_rule_cube_meaning, example = math("2³ = 8")),
             Entry(
                 id = "power-zero",
-                rule = "a¹ = a, a⁰ = 1",
-                meaning = "To the power one is itself, and to the power zero is one",
-                example = "7⁰ = 1",
+                rule = math("a¹ = a, a⁰ = 1"),
+                meaning = Res.string.learn_rule_power_zero_meaning,
+                example = math("7⁰ = 1"),
             ),
             Entry(
                 id = "root",
-                rule = "√25 = 5",
-                meaning = "A square root undoes a square: what was multiplied by itself",
-                example = "5 x 5 = 25",
+                rule = math("√25 = 5"),
+                meaning = Res.string.learn_rule_root_meaning,
+                example = math("5 x {b:5} = 25"),
             ),
             Entry(
                 id = "powers-of-ten",
-                rule = "10³ = 1000",
-                meaning = "A power of ten is a one with that many zeros",
-                example = "10⁶ = 1 million",
+                rule = math("10³ = 1000"),
+                meaning = Res.string.learn_rule_powers_of_ten_meaning,
+                example = words(Res.string.learn_rule_powers_of_ten_example),
             ),
         ),
     )
 
     private val rounding = Section(
         id = "rounding",
-        title = "Rounding",
-        blurb = "Cutting a number down to the size the question asks for.",
+        title = Res.string.learn_rulesguide_rounding_title,
+        blurb = Res.string.learn_rulesguide_rounding_blurb,
         rules = listOf(
             Entry(
                 id = "round-half-up",
-                rule = "3.5 → 4",
-                meaning = "Five or more rounds up, four or less rounds down",
-                example = "3.4 → 3",
+                rule = math("3.5 → 4"),
+                meaning = Res.string.learn_rule_round_half_up_meaning,
+                example = math("3.4 → 3"),
             ),
             Entry(
                 id = "round-look-right",
-                rule = "6749 → 6700",
-                meaning = "Look only at the digit just right of where you are cutting",
-                example = "to the nearest hundred",
+                rule = math("6749 → 6700"),
+                meaning = Res.string.learn_rule_round_look_right_meaning,
+                example = words(Res.string.learn_rule_round_look_right_example),
             ),
             Entry(
                 id = "significant-figures",
-                rule = "0.0461 → 0.046",
-                meaning = "Significant figures start counting at the first digit that is not zero",
-                example = "to 2 significant figures",
+                rule = math("0.0461 → 0.046"),
+                meaning = Res.string.learn_rule_significant_figures_meaning,
+                example = words(Res.string.learn_rule_significant_figures_example),
             ),
         ),
     )

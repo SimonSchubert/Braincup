@@ -1,12 +1,14 @@
 package com.inspiredandroid.braincup.ui.components.learn
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
@@ -30,6 +32,8 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.readsAsNotation
 import com.inspiredandroid.braincup.ui.components.withFormulaColors
 import com.inspiredandroid.braincup.ui.components.withGroupColors
+import com.inspiredandroid.braincup.ui.theme.LearnCorrectFace
+import com.inspiredandroid.braincup.ui.theme.LearnWrongFace
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.numeric
@@ -175,10 +179,13 @@ internal fun LearnOptionTile(
     state: LearnOptionState,
     onClick: () -> Unit,
 ) {
+    // Both answered faces are brand-pinned: left on the scheme's roles they are resolved from the
+    // wallpaper by Material You, and a wrong answer was landing on a pale pink that carries white
+    // text at 1.71:1. See LearnCorrectFace / LearnWrongFace.
     val face = when (state) {
         LearnOptionState.IDLE -> MaterialTheme.colorScheme.surfaceVariant
-        LearnOptionState.CORRECT -> SuccessGreen
-        LearnOptionState.WRONG -> MaterialTheme.colorScheme.error
+        LearnOptionState.CORRECT -> LearnCorrectFace
+        LearnOptionState.WRONG -> LearnWrongFace
         LearnOptionState.MUTED -> MaterialTheme.colorScheme.surfaceVariant
     }
     val contentColor = when (state) {
@@ -212,6 +219,8 @@ internal fun LearnFigurePanel(
     visual: LearnVisual,
     modifier: Modifier = Modifier,
     answer: VisualAnswer? = null,
+    /** See [LearnVisualCanvas]: set by a worked example so its diagram keeps pace with its lines. */
+    drivenProgress: Float? = null,
 ) {
     PrismCard(
         face = MaterialTheme.colorScheme.surfaceVariant,
@@ -222,6 +231,7 @@ internal fun LearnFigurePanel(
     ) {
         LearnVisualCanvas(
             visual = visual,
+            drivenProgress = drivenProgress,
             modifier = Modifier.fillMaxSize().padding(12.dp),
             answer = answer,
         )
@@ -231,18 +241,28 @@ internal fun LearnFigurePanel(
 /**
  * The scrolling body a lesson step and a test question are both laid out in, under whatever
  * progress indicator the screen shows above it.
+ *
+ * Centred in the space it is given rather than stacked at the top. A teaching step is often one
+ * figure and one sentence, and top-aligned under a bottom-pinned button that left more than half
+ * the screen empty between the two - a gap so large the button stopped reading as the end of the
+ * step. The minimum height is the viewport, so a step that overflows still grows downwards and
+ * scrolls exactly as it did.
  */
 @Composable
 internal fun ColumnScope.LearnStepColumn(content: @Composable ColumnScope.() -> Unit) {
-    Column(
-        modifier = Modifier
-            .weight(1f)
-            .fillMaxWidth()
-            .verticalScroll(rememberScrollState())
-            .padding(horizontal = 16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        content = content,
-    )
+    BoxWithConstraints(modifier = Modifier.weight(1f).fillMaxWidth()) {
+        val viewport = maxHeight
+        Column(
+            modifier = Modifier
+                .fillMaxWidth()
+                .verticalScroll(rememberScrollState())
+                .heightIn(min = viewport)
+                .padding(horizontal = 16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.Center,
+            content = content,
+        )
+    }
 }
 
 /**

@@ -89,6 +89,15 @@ fun LearnVisualCanvas(
     answer: VisualAnswer? = null,
     paper: Color = MaterialTheme.colorScheme.surfaceVariant,
     inspectionPhase: Int = 0,
+    /**
+     * How far drawn the figure should be, when something other than the clock decides.
+     *
+     * A worked example turns its explanation over a line at a time, and the diagram beside it was
+     * finished before the first line was read - so the picture answered the question the card was
+     * still asking. Handing the reveal in here draws the figure out alongside the working instead.
+     * Null everywhere else, where the entrance animation runs on its own.
+     */
+    drivenProgress: Float? = null,
 ) {
     // Previews and screenshot tests never advance the clock, so an entrance that starts at zero
     // renders them as an empty panel. Under inspection the figure starts finished instead.
@@ -100,8 +109,8 @@ fun LearnVisualCanvas(
     var replayKey by remember(visual) { mutableIntStateOf(0) }
     val phaseCount = visual.phaseCount
 
-    LaunchedEffect(visual, inspecting, replayKey) {
-        if (inspecting) return@LaunchedEffect
+    LaunchedEffect(visual, inspecting, replayKey, drivenProgress != null) {
+        if (inspecting || drivenProgress != null) return@LaunchedEffect
         phase = 0
         while (true) {
             progress.snapTo(0f)
@@ -112,12 +121,19 @@ fun LearnVisualCanvas(
         }
     }
 
+    // Driven figures still ease between readings, so a line turning over grows the picture rather
+    // than snapping it to a new size.
+    if (drivenProgress != null) {
+        LaunchedEffect(visual, drivenProgress) { progress.animateTo(drivenProgress, EntranceSpec) }
+    }
+
     val measurer = rememberTextMeasurer()
     val wrongColor = MaterialTheme.colorScheme.error
     val interactions = remember { MutableInteractionSource() }
-    // Resolved out here because both are @Composable and the draw block is not.
+    // Resolved out here because all three are @Composable and the draw block is not.
     val numberFont = numberFontFamily()
     val displayFont = displayFontFamily()
+    val strings = learnVisualStrings(visual)
 
     Box(
         modifier = modifier
@@ -134,6 +150,7 @@ fun LearnVisualCanvas(
                 numberFont = numberFont,
                 displayFont = displayFont,
                 paper = paper,
+                strings = strings,
                 answer = answer,
                 wrongColor = wrongColor,
                 phase = phase,
@@ -158,6 +175,8 @@ internal class VisualScope(
     val displayFont: FontFamily,
     /** The panel the figure is drawn on, for [chipLabel] to lay a caption over its own marks. */
     val paper: Color,
+    /** The words a figure captions itself with, looked up before the canvas opened. */
+    val strings: LearnVisualStrings,
     /** Null while the question is open, or on a step that asks nothing. */
     val answer: VisualAnswer? = null,
     val wrongColor: Color = Color.Red,

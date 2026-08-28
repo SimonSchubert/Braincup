@@ -16,6 +16,7 @@
     <string name="button_done">完成</string>
 
     <string name="achievements_button">成就 (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">删除最后一位数字</string>
 
     <string name="quit_game_title">退出游戏？</string>
     <string name="quit_game_message">本局进度将不会保存。</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">指向%3$s的%1$s%2$s</string>
     <string name="solution_figure">%1$s%2$s</string>
     <string name="solution_column_row">第%1$d列第%2$d行</string>
+    <string name="hint_remember">记住 %1$d</string>
     <string name="solution_left">左边</string>
     <string name="solution_right">右边</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">%1$d / %2$d 张证书</string>
     <string name="learn_title">学数学</string>
     <string name="learn_unit_progress">%1$d / %2$d 张证书</string>
-    <string name="learn_topic_intro">从上往下走。每一步都建立在上一步之上。</string>
+    <string name="learn_topic_intro">按顺序一路做下去。每一步都建立在上一步之上。</string>
     <string name="learn_topic_certificates">%2$d 项中已认证 %1$d 项</string>
     <string name="learn_ages">%1$s 岁</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">数与运算</string>
     <string name="learn_topic_geometry">几何</string>
     <string name="learn_topic_geometry_subtitle">角、三角形与圆</string>
+
+    <string name="learn_shape_guide_title">图形指南</string>
+    <string name="learn_shape_guide_intro">%1$d 个图形，画出来并标上名字。点一下，再看它画一遍。</string>
+    <string name="learn_rules_guide_title">规则指南</string>
+    <string name="learn_rules_guide_intro">%1$d 条规则和符号约定，基础都在这里。</string>
 
     <string name="learn_lessons_header">课程</string>
     <string name="learn_lesson_progress">%1$d / %2$d 课</string>
@@ -877,5 +884,50 @@
     <string name="achievement_learn_topic_certificates_desc">在“学数学”的一个主题中拿到全部证书。</string>
     <string name="achievement_learn_all_certificates">数学学者</string>
     <string name="achievement_learn_all_certificates_desc">在“学数学”的每个子主题中都拿到证书。</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="other">%1$d 条边， %1$d 个顶点</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="other">%1$d 条边，</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="other">%1$d 个顶点</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">正方体</string>
+    <string name="learn_fig_solid_sphere">球</string>
+    <string name="learn_fig_solid_cylinder">圆柱</string>
+    <string name="learn_fig_solid_cone">圆锥</string>
+    <string name="learn_fig_solid_prism">棱柱</string>
+    <string name="learn_fig_solid_triangular_prism">三棱柱</string>
+    <string name="learn_fig_solid_pyramid">棱锥</string>
+    <string name="learn_fig_solid_cube_counts">6 个面 · 12 条棱 · 8 个顶点</string>
+    <string name="learn_fig_solid_sphere_counts">没有平面，没有棱</string>
+    <string name="learn_fig_solid_cylinder_counts">2 个平面 · 1 个曲面</string>
+    <string name="learn_fig_solid_cone_counts">1 个平面 · 1 个顶点</string>
+    <string name="learn_fig_solid_prism_counts">从头到尾同一个截面</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 个面 · 9 条棱 · 6 个顶点</string>
+    <string name="learn_fig_solid_pyramid_counts">5 个面 · 8 条棱 · 5 个顶点</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="other">%1$d 条对称轴</item>
+    </plurals>
+    <string name="learn_fig_area">面积 = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">周长 = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">两边同时减去 %1$d</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="other">%1$d 行</item>
+    </plurals>
+    <string name="learn_fig_more">再 %1$d</string>
+    <string name="learn_fig_in_each">每行 %1$d</string>
+    <string name="learn_fig_percent_of">%2$s 的 %1$s%</string>
+    <string name="learn_fig_gradient">斜率 %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">平均数 %1$s</string>
+    <string name="learn_fig_mean">平均数</string>
+    <string name="learn_fig_standard_deviations">%1$s 个标准差</string>
+    <string name="learn_fig_symbol_key">1 个符号 = %1$d</string>
 
 </resources>

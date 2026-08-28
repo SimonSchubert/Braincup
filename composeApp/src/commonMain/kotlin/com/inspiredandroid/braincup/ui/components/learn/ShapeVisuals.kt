@@ -262,7 +262,7 @@ internal fun VisualScope.drawCyclicQuad(visual: LearnVisual.CyclicQuad) {
  * numbered as they arrive — so "how many sides does a pentagon have" answers itself.
  */
 internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
-    val sides = visual.sides.coerceAtLeast(3)
+    val sides = visual.drawnSides
     val radius = size.minDimension * 0.34f
     val center = Offset(width / 2f, height * 0.46f)
     val points = polygonPoints(sides, center, radius)
@@ -295,11 +295,11 @@ internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
     // is drawn in, the corners in the green their dots are marked with. One colour across the whole
     // line leaves the reader working out for themselves which half names which part of the figure.
     if (!visual.countCorners) {
-        label("$sides sides, $sides corners", Offset(width / 2f, captionY), Accent, 0.1f, alpha = caption)
+        label(strings.sidesAndCorners, Offset(width / 2f, captionY), Accent, 0.1f, alpha = caption)
         return
     }
-    val sidesText = "$sides sides,"
-    val cornersText = "$sides corners"
+    val sidesText = strings.sides
+    val cornersText = strings.corners
     val captionStyle = labelStyle(ink, 0.1f)
     val sidesWidth = measure(sidesText, captionStyle).size.width.toFloat()
     val cornersWidth = measure(cornersText, captionStyle).size.width.toFloat()
@@ -435,27 +435,10 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
         }
     }
 
-    val name = when (visual.kind) {
-        SolidKind.CUBE -> "cube"
-        SolidKind.SPHERE -> "sphere"
-        SolidKind.CYLINDER -> "cylinder"
-        SolidKind.CONE -> "cone"
-        SolidKind.PRISM -> "prism"
-        SolidKind.TRIANGULAR_PRISM -> "triangular prism"
-        SolidKind.PYRAMID -> "pyramid"
-    }
-    val counts = when (visual.kind) {
-        SolidKind.CUBE -> "6 faces · 12 edges · 8 corners"
-        SolidKind.SPHERE -> "no flat faces, no edges"
-        SolidKind.CYLINDER -> "2 flat faces · 1 curved"
-        SolidKind.CONE -> "1 flat face · 1 point"
-        SolidKind.PRISM -> "same cross-section throughout"
-        SolidKind.TRIANGULAR_PRISM -> "5 faces · 9 edges · 6 corners"
-        SolidKind.PYRAMID -> "5 faces · 8 edges · 5 corners"
-    }
+    val table = if (visual.counts) strings.solidCounts else strings.solidNames
     if (visual.reveal) {
         label(
-            text = if (visual.counts) counts else name,
+            text = table.getValue(visual.kind),
             center = Offset(width / 2f, height * 0.93f),
             color = Accent,
             factor = 0.1f,
@@ -571,7 +554,7 @@ internal fun VisualScope.drawSymmetry(visual: LearnVisual.Symmetry) {
 
     if (!visual.reveal) return
     label(
-        text = "${visual.lines} line${if (visual.lines == 1) "" else "s"} of symmetry",
+        text = strings.symmetryLines,
         center = Offset(width / 2f, height * 0.93f),
         color = Accent2,
         factor = 0.1f,
@@ -606,8 +589,8 @@ internal fun VisualScope.drawAreaGrid(visual: LearnVisual.AreaGrid) {
 
     if (!visual.reveal) return
     val texts = buildList {
-        if (visual.showArea) add("area = ${cols * rows} sq ${visual.unit}")
-        if (visual.showPerimeter) add("perimeter = ${2 * (cols + rows)} ${visual.unit}")
+        if (visual.showArea) add(strings.areaTemplate.fillIn(cols * rows, visual.unit))
+        if (visual.showPerimeter) add(strings.perimeterTemplate.fillIn(2 * (cols + rows), visual.unit))
     }
     texts.forEachIndexed { i, text ->
         label(
@@ -724,6 +707,44 @@ internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
 }
 
 /** A circle showing only the measurement the step is about. */
+/** The size an angle's reading is drawn at, small enough to sit inside a narrow wedge. */
+private const val AngleLabelFactor = 0.09f
+
+/**
+ * An angle's reading, placed up the bisector from [vertex] until the arms stop running through it.
+ *
+ * A wedge of half-angle [halfAngle] is `2 d sin(halfAngle)` wide at distance `d` from its vertex,
+ * so the reading is pushed out until that opening clears its own width. Placing it at a fixed
+ * fraction of the radius instead is what put "80" on top of the two arms it was measuring and let
+ * a chord cut through "40".
+ *
+ * A narrow wedge never opens far enough to hold the reading, and [limit] stops it drifting off
+ * towards the far side of the circle looking for room - a reading that ends up beside the opposite
+ * vertex has stopped naming its own angle. Those are the only ones that get a patch of panel
+ * behind them: everywhere else the plate would cut a hole in the arms, and the arms are the figure.
+ *
+ * Both angles here are bisected by the vertical, which is why the offset is a plain subtraction.
+ */
+private fun VisualScope.angleReading(
+    text: String,
+    vertex: Offset,
+    halfAngle: Float,
+    arcRadius: Float,
+    limit: Float,
+    color: Color,
+    alpha: Float,
+) {
+    val measured = measure(text, labelStyle(ink, AngleLabelFactor, bold = true))
+    val opening = sin(halfAngle * PI.toFloat() / 180f).coerceAtLeast(0.05f)
+    val needed = (measured.size.width / 2f + measured.size.height * 0.45f) / opening
+    val at = Offset(vertex.x, vertex.y - needed.coerceIn(arcRadius + measured.size.height * 0.7f, limit))
+    if (needed > limit) {
+        chipLabel(text, at, color, AngleLabelFactor, alpha)
+    } else {
+        label(text, at, color, AngleLabelFactor, alpha)
+    }
+}
+
 internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
     val radius = size.minDimension * 0.36f
     val center = Offset(width / 2f, height * 0.47f)
@@ -762,21 +783,60 @@ internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
     }
     visual.centreAngle?.let { degrees ->
         // Centre angle and the angle at the circumference standing on the same arc.
+        //
+        // Both angles are marked with an arc and both readings sit on a chip. Without the arcs the
+        // figure named two angles it never drew, and without the chips each number was painted in
+        // its own arms' colour on top of those arms, so "80" merged into the strokes it sat on and
+        // a chord cut straight through "40". The whole point of the figure is one angle against
+        // the other, so both have to be legible at a glance.
         val half = degrees / 2f
         val left = polar(center, radius, -90f - half, flipY = false)
         val right = polar(center, radius, -90f + half, flipY = false)
         val bottom = Offset(center.x, center.y + radius)
+
         line(center, left, Accent, stroke * 1.2f, alpha = stage(0, 3))
         line(center, right, Accent, stroke * 1.2f, alpha = stage(0, 3))
-        label("$degrees", Offset(center.x, center.y - height * 0.08f), Accent, 0.1f, alpha = stage(0, 3))
+        arc(
+            center = center,
+            radius = radius * 0.22f,
+            startAngle = -90f - half,
+            sweepAngle = degrees.toFloat(),
+            outline = Accent,
+            width = stroke * 0.9f,
+            alpha = stage(0, 3),
+        )
+        angleReading(
+            text = "$degrees",
+            vertex = center,
+            halfAngle = half,
+            arcRadius = radius * 0.22f,
+            limit = radius * 0.70f,
+            color = Accent,
+            alpha = stage(0, 3),
+        )
+
         line(bottom, left, Accent2, stroke * 1.1f, alpha = stage(1, 3))
         line(bottom, right, Accent2, stroke * 1.1f, alpha = stage(1, 3))
         if (visual.reveal) {
-            label(
+            // The inscribed angle is half the centre angle, and the same vertical bisects it.
+            arc(
+                center = bottom,
+                radius = radius * 0.30f,
+                startAngle = -90f - half / 2f,
+                sweepAngle = half,
+                outline = Accent2,
+                width = stroke * 0.9f,
+                alpha = revealBeat,
+            )
+            angleReading(
                 text = "${half.roundToInt()}",
-                center = Offset(center.x, center.y + radius * 0.68f),
+                vertex = bottom,
+                halfAngle = half / 2f,
+                arcRadius = radius * 0.30f,
+                // Tighter than the centre's, so the reading stays in the half of the circle its
+                // own vertex is in rather than climbing towards the centre angle's.
+                limit = radius * 0.62f,
                 color = Accent2,
-                factor = 0.1f,
                 alpha = revealBeat,
             )
         }
@@ -931,7 +991,7 @@ internal fun VisualScope.drawBalance(visual: LearnVisual.Balance) {
 
     if (visual.remove > 0) {
         label(
-            text = "take ${visual.remove} from both sides",
+            text = strings.takeFromBothSidesTemplate.fillIn(visual.remove),
             center = Offset(width / 2f, height * 0.94f),
             color = Accent2,
             factor = 0.085f,

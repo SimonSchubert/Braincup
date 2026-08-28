@@ -23,6 +23,7 @@
     <string name="title_master">Mester</string>
     <string name="title_grandmaster">Nagymester</string>
     <string name="achievements_button">Teljesítmények (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Utolsó számjegy törlése</string>
     <string name="normal_sudoku_button">Klasszikus Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Kezdő</string>
@@ -408,6 +409,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="solution_pointing">%1$s %2$s, %3$s mutat</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">%1$d. oszlop és %2$d. sor</string>
+    <string name="hint_remember">Jegyezd meg: %1$d</string>
     <string name="solution_left">Bal</string>
     <string name="solution_right">Jobb</string>
 
@@ -831,7 +833,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_section_certificates">%1$d / %2$d bizonyítvány</string>
     <string name="learn_title">Matektanulás</string>
     <string name="learn_unit_progress">%1$d / %2$d bizonyítvány</string>
-    <string name="learn_topic_intro">Haladj lefelé a listán. Minden lépés az előzőre épül.</string>
+    <string name="learn_topic_intro">Haladj rajtuk sorban. Minden lépés az előzőre épül.</string>
     <string name="learn_topic_certificates">%1$d / %2$d bizonyítványozva</string>
     <string name="learn_ages">Életkor %1$s</string>
 
@@ -850,6 +852,11 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_topic_arithmetic_subtitle">Számok és műveletek</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Szögek, háromszögek és körök</string>
+
+    <string name="learn_shape_guide_title">Alakzatok kalauza</string>
+    <string name="learn_shape_guide_intro">%1$d alakzat megrajzolva és megnevezve. Koppints egyre, hogy újra megrajzolódjon.</string>
+    <string name="learn_rules_guide_title">Szabályok kalauza</string>
+    <string name="learn_rules_guide_intro">%1$d szabály és előjelszabály, az alapok egy helyen.</string>
 
     <string name="learn_lessons_header">Leckék</string>
     <string name="learn_lesson_progress">%1$d / %2$d lecke</string>
@@ -895,5 +902,55 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_learn_topic_certificates_desc">Szerezd meg a Matektanulás egyik témájának összes bizonyítványát.</string>
     <string name="achievement_learn_all_certificates">Matektudós</string>
     <string name="achievement_learn_all_certificates_desc">Szerezz bizonyítványt a Matektanulás minden altémájában.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d oldal, %1$d csúcs</item>
+        <item quantity="other">%1$d oldal, %1$d csúcs</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d oldal,</item>
+        <item quantity="other">%1$d oldal,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d csúcs</item>
+        <item quantity="other">%1$d csúcs</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kocka</string>
+    <string name="learn_fig_solid_sphere">gömb</string>
+    <string name="learn_fig_solid_cylinder">henger</string>
+    <string name="learn_fig_solid_cone">kúp</string>
+    <string name="learn_fig_solid_prism">hasáb</string>
+    <string name="learn_fig_solid_triangular_prism">háromszög alapú hasáb</string>
+    <string name="learn_fig_solid_pyramid">gúla</string>
+    <string name="learn_fig_solid_cube_counts">6 lap · 12 él · 8 csúcs</string>
+    <string name="learn_fig_solid_sphere_counts">nincs sík lapja, nincs éle</string>
+    <string name="learn_fig_solid_cylinder_counts">2 sík lap · 1 görbe</string>
+    <string name="learn_fig_solid_cone_counts">1 sík lap · 1 csúcs</string>
+    <string name="learn_fig_solid_prism_counts">végig ugyanaz a keresztmetszet</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 lap · 9 él · 6 csúcs</string>
+    <string name="learn_fig_solid_pyramid_counts">5 lap · 8 él · 5 csúcs</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d szimmetriatengely</item>
+        <item quantity="other">%1$d szimmetriatengely</item>
+    </plurals>
+    <string name="learn_fig_area">terület = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">kerület = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">vonj ki %1$d-t mindkét oldalból</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d sor</item>
+        <item quantity="other">%1$d sor</item>
+    </plurals>
+    <string name="learn_fig_more">még %1$d</string>
+    <string name="learn_fig_in_each">%1$d mindegyikben</string>
+    <string name="learn_fig_percent_of">%2$s %1$s%-a</string>
+    <string name="learn_fig_gradient">meredekség %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">átlag %1$s</string>
+    <string name="learn_fig_mean">átlag</string>
+    <string name="learn_fig_standard_deviations">%1$s szórás</string>
+    <string name="learn_fig_symbol_key">1 szimbólum = %1$d</string>
 
 </resources>

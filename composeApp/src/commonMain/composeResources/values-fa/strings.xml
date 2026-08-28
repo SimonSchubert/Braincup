@@ -23,6 +23,7 @@
     <string name="title_master">استاد</string>
     <string name="title_grandmaster">استاد بزرگ</string>
     <string name="achievements_button">دستاوردها (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">حذف آخرین رقم</string>
     <string name="normal_sudoku_button">سودوکوی معمولی (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">سودوکو</string>
     <string name="normal_sudoku_difficulty_beginner">مبتدی</string>
@@ -390,6 +391,7 @@
     <string name="solution_pointing">%1$s %2$s رو به %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">ستون %1$d و سطر %2$d</string>
+    <string name="hint_remember">%1$d را به خاطر بسپار</string>
     <string name="solution_left">چپ</string>
     <string name="solution_right">راست</string>
 
@@ -814,7 +816,7 @@
     <string name="learn_section_certificates">%1$d / %2$d گواهی</string>
     <string name="learn_title">ریاضی بیاموز</string>
     <string name="learn_unit_progress">%1$d / %2$d گواهی</string>
-    <string name="learn_topic_intro">فهرست را از بالا به پایین پیش برو. هر قدم روی قدم قبلی ساخته می‌شود.</string>
+    <string name="learn_topic_intro">به ترتیب از آنها عبور کن. هر قدم روی قدم قبلی ساخته می‌شود.</string>
     <string name="learn_topic_certificates">%1$d از %2$d دارای گواهی</string>
     <string name="learn_ages">سنین %1$s</string>
 
@@ -833,6 +835,11 @@
     <string name="learn_topic_arithmetic_subtitle">اعداد &amp; عملیات</string>
     <string name="learn_topic_geometry">هندسه</string>
     <string name="learn_topic_geometry_subtitle">زاویه‌ها، مثلث‌ها &amp; دایره‌ها</string>
+
+    <string name="learn_shape_guide_title">راهنمای شکل‌ها</string>
+    <string name="learn_shape_guide_intro">%1$d شکل، رسم‌شده و نام‌گذاری‌شده. روی یکی بزن تا دوباره رسم شود.</string>
+    <string name="learn_rules_guide_title">راهنمای قاعده‌ها</string>
+    <string name="learn_rules_guide_intro">%1$d قاعده و قرارداد علامت، پایه‌ها در یک جا.</string>
 
     <string name="learn_lessons_header">درس‌ها</string>
     <string name="learn_lesson_progress">%1$d / %2$d درس</string>
@@ -878,5 +885,55 @@
     <string name="achievement_learn_topic_certificates_desc">همه گواهی‌های یک موضوع در ریاضی بیاموز را به دست بیاور.</string>
     <string name="achievement_learn_all_certificates">دانشمند ریاضی</string>
     <string name="achievement_learn_all_certificates_desc">در هر زیرموضوع ریاضی بیاموز یک گواهی به دست بیاور.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d ضلع، %1$d رأس</item>
+        <item quantity="other">%1$d ضلع، %1$d رأس</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d ضلع،</item>
+        <item quantity="other">%1$d ضلع،</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d رأس</item>
+        <item quantity="other">%1$d رأس</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">مکعب</string>
+    <string name="learn_fig_solid_sphere">کره</string>
+    <string name="learn_fig_solid_cylinder">استوانه</string>
+    <string name="learn_fig_solid_cone">مخروط</string>
+    <string name="learn_fig_solid_prism">منشور</string>
+    <string name="learn_fig_solid_triangular_prism">منشور مثلثی</string>
+    <string name="learn_fig_solid_pyramid">هرم</string>
+    <string name="learn_fig_solid_cube_counts">6 وجه · 12 یال · 8 رأس</string>
+    <string name="learn_fig_solid_sphere_counts">بدون وجه تخت، بدون یال</string>
+    <string name="learn_fig_solid_cylinder_counts">2 وجه تخت · 1 منحنی</string>
+    <string name="learn_fig_solid_cone_counts">1 وجه تخت · 1 رأس</string>
+    <string name="learn_fig_solid_prism_counts">مقطع یکسان در تمام طول</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 وجه · 9 یال · 6 رأس</string>
+    <string name="learn_fig_solid_pyramid_counts">5 وجه · 8 یال · 5 رأس</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d محور تقارن</item>
+        <item quantity="other">%1$d محور تقارن</item>
+    </plurals>
+    <string name="learn_fig_area">مساحت = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">محیط = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">%1$d را از هر دو طرف کم کن</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d ردیف</item>
+        <item quantity="other">%1$d ردیف</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d تای دیگر</string>
+    <string name="learn_fig_in_each">%1$d در هر کدام</string>
+    <string name="learn_fig_percent_of">%1$s% از %2$s</string>
+    <string name="learn_fig_gradient">شیب %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">میانگین %1$s</string>
+    <string name="learn_fig_mean">میانگین</string>
+    <string name="learn_fig_standard_deviations">%1$s ا.م</string>
+    <string name="learn_fig_symbol_key">1 نماد = %1$d</string>
 
 </resources>

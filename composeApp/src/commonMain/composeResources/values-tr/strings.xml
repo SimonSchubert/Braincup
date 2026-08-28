@@ -16,6 +16,7 @@
     <string name="button_done">Bitti</string>
 
     <string name="achievements_button">Başarılar (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Son rakamı sil</string>
 
     <string name="quit_game_title">Oyundan çık?</string>
     <string name="quit_game_message">Bu oyundaki ilerlemen kaydedilmeyecek.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%3$s gösteren %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">sütun %1$d ve satır %2$d</string>
+    <string name="hint_remember">%1$d sayısını aklında tut</string>
     <string name="solution_left">Sol</string>
     <string name="solution_right">Sağ</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">%1$d / %2$d sertifika</string>
     <string name="learn_title">Matematik öğren</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifika</string>
-    <string name="learn_topic_intro">Listede yukarıdan aşağıya ilerle. Her adım bir öncekinin üstüne biner.</string>
+    <string name="learn_topic_intro">Sırayla ilerle. Her adım bir öncekinin üstüne biner.</string>
     <string name="learn_topic_certificates">%2$d konudan %1$d tanesi sertifikalı</string>
     <string name="learn_ages">Yaş %1$s</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">Sayılar &amp; işlemler</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Açılar, üçgenler &amp; çemberler</string>
+
+    <string name="learn_shape_guide_title">Şekil rehberi</string>
+    <string name="learn_shape_guide_intro">%1$d şekil, çizilmiş ve adlandırılmış. Birine dokun, yeniden çizilsin.</string>
+    <string name="learn_rules_guide_title">Kural rehberi</string>
+    <string name="learn_rules_guide_intro">%1$d kural ve işaret kuralı, temeller tek yerde.</string>
 
     <string name="learn_lessons_header">Dersler</string>
     <string name="learn_lesson_progress">%1$d / %2$d ders</string>
@@ -877,5 +884,55 @@
     <string name="achievement_learn_topic_certificates_desc">Matematik Öğren'de bir konunun bütün sertifikalarını kazan.</string>
     <string name="achievement_learn_all_certificates">Matematik bilgini</string>
     <string name="achievement_learn_all_certificates_desc">Matematik Öğren'de her alt konuda bir sertifika kazan.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d kenar, %1$d köşe</item>
+        <item quantity="other">%1$d kenar, %1$d köşe</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d kenar,</item>
+        <item quantity="other">%1$d kenar,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d köşe</item>
+        <item quantity="other">%1$d köşe</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">küp</string>
+    <string name="learn_fig_solid_sphere">küre</string>
+    <string name="learn_fig_solid_cylinder">silindir</string>
+    <string name="learn_fig_solid_cone">koni</string>
+    <string name="learn_fig_solid_prism">prizma</string>
+    <string name="learn_fig_solid_triangular_prism">üçgen prizma</string>
+    <string name="learn_fig_solid_pyramid">piramit</string>
+    <string name="learn_fig_solid_cube_counts">6 yüz · 12 ayrıt · 8 köşe</string>
+    <string name="learn_fig_solid_sphere_counts">düz yüz yok, ayrıt yok</string>
+    <string name="learn_fig_solid_cylinder_counts">2 düz yüz · 1 eğri</string>
+    <string name="learn_fig_solid_cone_counts">1 düz yüz · 1 tepe noktası</string>
+    <string name="learn_fig_solid_prism_counts">boyunca aynı kesit</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 yüz · 9 ayrıt · 6 köşe</string>
+    <string name="learn_fig_solid_pyramid_counts">5 yüz · 8 ayrıt · 5 köşe</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d simetri ekseni</item>
+        <item quantity="other">%1$d simetri ekseni</item>
+    </plurals>
+    <string name="learn_fig_area">alan = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">çevre = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">her iki taraftan %1$d çıkar</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d satır</item>
+        <item quantity="other">%1$d satır</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d tane daha</string>
+    <string name="learn_fig_in_each">her birinde %1$d</string>
+    <string name="learn_fig_percent_of">%2$s sayısının %1$s%'si</string>
+    <string name="learn_fig_gradient">eğim %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">ortalama %1$s</string>
+    <string name="learn_fig_mean">ortalama</string>
+    <string name="learn_fig_standard_deviations">%1$s ss</string>
+    <string name="learn_fig_symbol_key">1 sembol = %1$d</string>
 
 </resources>

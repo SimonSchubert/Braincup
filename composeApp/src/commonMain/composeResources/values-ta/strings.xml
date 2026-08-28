@@ -23,6 +23,7 @@
     <string name="title_master">நிபுணர்</string>
     <string name="title_grandmaster">மாபெரும் நிபுணர்</string>
     <string name="achievements_button">சாதனைகள் (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">கடைசி இலக்கத்தை அழி</string>
     <string name="normal_sudoku_button">சாதாரண சுடோகு (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">சுடோகு</string>
     <string name="normal_sudoku_difficulty_beginner">தொடக்கநிலை</string>
@@ -390,6 +391,7 @@
     <string name="solution_pointing">%3$s நோக்கிய %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">நெடுவரிசை %1$d மற்றும் வரிசை %2$d</string>
+    <string name="hint_remember">%1$d நினைவில் வைத்திரு</string>
     <string name="solution_left">இடது</string>
     <string name="solution_right">வலது</string>
 
@@ -812,7 +814,7 @@
     <string name="learn_section_certificates">%1$d / %2$d சான்றிதழ்கள்</string>
     <string name="learn_title">கணிதம் கற்க</string>
     <string name="learn_unit_progress">%1$d / %2$d சான்றிதழ்கள்</string>
-    <string name="learn_topic_intro">பட்டியலில் கீழ்நோக்கிச் செல்லுங்கள். ஒவ்வொரு படியும் அதற்கு மேலுள்ளதன் மீது கட்டமைக்கப்படுகிறது.</string>
+    <string name="learn_topic_intro">இவற்றை வரிசையாகச் செய். ஒவ்வொரு படியும் முந்தையதன் மேல் நிற்கிறது.</string>
     <string name="learn_topic_certificates">%2$d இல் %1$d சான்றளிக்கப்பட்டது</string>
     <string name="learn_ages">வயது %1$s</string>
 
@@ -831,6 +833,11 @@
     <string name="learn_topic_arithmetic_subtitle">எண் &amp; செயல்கள்</string>
     <string name="learn_topic_geometry">வடிவியல்</string>
     <string name="learn_topic_geometry_subtitle">கோணங்கள், முக்கோணங்கள் &amp; வட்டங்கள்</string>
+
+    <string name="learn_shape_guide_title">வடிவ வழிகாட்டி</string>
+    <string name="learn_shape_guide_intro">%1$d வடிவங்கள், வரையப்பட்டு பெயரிடப்பட்டவை. ஒன்றைத் தொட்டு மீண்டும் வரையப்படுவதைப் பார்.</string>
+    <string name="learn_rules_guide_title">விதி வழிகாட்டி</string>
+    <string name="learn_rules_guide_intro">%1$d விதிகளும் குறி மரபுகளும், அடிப்படைகள் ஒரே இடத்தில்.</string>
 
     <string name="learn_lessons_header">பாடங்கள்</string>
     <string name="learn_lesson_progress">%1$d / %2$d பாடங்கள்</string>
@@ -876,5 +883,55 @@
     <string name="achievement_learn_topic_certificates_desc">ஒரு கணிதம் கற்க தலைப்பில் உள்ள ஒவ்வொரு சான்றிதழையும் பெறுங்கள்.</string>
     <string name="achievement_learn_all_certificates">கணித அறிஞர்</string>
     <string name="achievement_learn_all_certificates_desc">ஒவ்வொரு கணிதம் கற்க துணைத் தலைப்பிலும் சான்றிதழ் பெறுங்கள்.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d பக்கம், %1$d முனை</item>
+        <item quantity="other">%1$d பக்கங்கள், %1$d முனைகள்</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d பக்கம்,</item>
+        <item quantity="other">%1$d பக்கங்கள்,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d முனை</item>
+        <item quantity="other">%1$d முனைகள்</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">கனசதுரம்</string>
+    <string name="learn_fig_solid_sphere">கோளம்</string>
+    <string name="learn_fig_solid_cylinder">உருளை</string>
+    <string name="learn_fig_solid_cone">கூம்பு</string>
+    <string name="learn_fig_solid_prism">பட்டகம்</string>
+    <string name="learn_fig_solid_triangular_prism">முக்கோணப் பட்டகம்</string>
+    <string name="learn_fig_solid_pyramid">கூம்பகம்</string>
+    <string name="learn_fig_solid_cube_counts">6 முகங்கள் · 12 விளிம்புகள் · 8 முனைகள்</string>
+    <string name="learn_fig_solid_sphere_counts">தட்டையான முகம் இல்லை, விளிம்பு இல்லை</string>
+    <string name="learn_fig_solid_cylinder_counts">2 தட்டையான முகங்கள் · 1 வளைவு</string>
+    <string name="learn_fig_solid_cone_counts">1 தட்டையான முகம் · 1 முனை</string>
+    <string name="learn_fig_solid_prism_counts">முழுவதும் ஒரே குறுக்குவெட்டு</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 முகங்கள் · 9 விளிம்புகள் · 6 முனைகள்</string>
+    <string name="learn_fig_solid_pyramid_counts">5 முகங்கள் · 8 விளிம்புகள் · 5 முனைகள்</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d சமச்சீர் கோடு</item>
+        <item quantity="other">%1$d சமச்சீர் கோடுகள்</item>
+    </plurals>
+    <string name="learn_fig_area">பரப்பு = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">சுற்றளவு = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">இரு பக்கமும் %1$d கழி</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d வரிசை</item>
+        <item quantity="other">%1$d வரிசைகள்</item>
+    </plurals>
+    <string name="learn_fig_more">மேலும் %1$d</string>
+    <string name="learn_fig_in_each">ஒவ்வொன்றிலும் %1$d</string>
+    <string name="learn_fig_percent_of">%2$s இல் %1$s%</string>
+    <string name="learn_fig_gradient">சாய்வு %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">சராசரி %1$s</string>
+    <string name="learn_fig_mean">சராசரி</string>
+    <string name="learn_fig_standard_deviations">%1$s நி. வி.</string>
+    <string name="learn_fig_symbol_key">1 குறியீடு = %1$d</string>
 
 </resources>

@@ -18,6 +18,7 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.learn_shape_guide_intro
 import braincup.composeapp.generated.resources.learn_shape_guide_title
 import com.inspiredandroid.braincup.learn.ShapeGuide
+import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
@@ -92,14 +93,14 @@ fun LearnShapeGuideScreen(onBack: () -> Unit) {
 private fun SectionHeader(section: ShapeGuide.Section) {
     Column(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
         Text(
-            text = section.title,
+            text = stringResource(section.title),
             style = MaterialTheme.typography.titleSmall,
             color = Primary,
             fontWeight = FontWeight.Bold,
         )
         Spacer(Modifier.height(2.dp))
         Text(
-            text = section.blurb,
+            text = stringResource(section.blurb),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -122,7 +123,7 @@ private fun ShapeCell(shape: ShapeGuide.Entry) {
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                text = shape.name,
+                text = stringResource(shape.name),
                 style = MaterialTheme.typography.titleSmall,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
@@ -130,7 +131,7 @@ private fun ShapeCell(shape: ShapeGuide.Entry) {
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
-                text = shape.fact,
+                text = shape.fact.resolve(),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 textAlign = TextAlign.Center,

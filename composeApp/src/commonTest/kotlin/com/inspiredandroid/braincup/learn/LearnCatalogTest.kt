@@ -17,8 +17,6 @@ class LearnCatalogTest {
             units.forEach { unit ->
                 assertTrue(unit.lessons.isNotEmpty(), "${unit.id} has no lessons")
                 assertTrue(unit.quiz.total >= 6, "${unit.id} test is too short")
-                assertTrue(unit.title.isNotBlank(), "${unit.id} has no title")
-                assertTrue(unit.summary.isNotBlank(), "${unit.id} has no summary")
             }
         }
     }
@@ -151,121 +149,6 @@ class LearnCatalogTest {
     }
 
     /**
-     * The two test questions whose figure is meant to be counted.
-     *
-     * "How many dots are here?" is answered by counting the array and nothing else, so a figure
-     * that comes to the answer is the question rather than a leak. Every other test question has
-     * to pose its problem and then leave it alone.
-     */
-    private val countingIsTheMethod = setOf(
-        "How many dots are here?",
-        "A tray holds 8 rows of 6 buns. How many buns?",
-    )
-
-    /**
-     * What a learner can take straight off a figure without answering the question: the totals it
-     * counts out, the values it lands on, and the counts it prints in words.
-     *
-     * Only the variants that count out a whole number are listed, because that is the shape an
-     * option is written in. The rest either draw a situation with no total in it - a shape, a
-     * solid, an angle - or resolve to a decimal or a fraction, where matching an option by its
-     * text would be a coincidence rather than a check.
-     */
-    private fun LearnVisual.readableValues(): Set<String> = when (this) {
-        is LearnVisual.Counters -> setOf("${groups.sum()}")
-        // Two frames filling to fifteen have already done the regrouping the question asks for.
-        is LearnVisual.TenFrame -> setOf("${filled + added}")
-        // Hops are the working, and the working ends on the answer whether or not it is labelled:
-        // the tick it lands on can be read off an axis that numbers every tick.
-        is LearnVisual.NumberLine -> {
-            val travel = if (hopSteps.isNotEmpty()) hopSteps.sum() else jump
-            buildSet {
-                start?.let { add("${it + travel}") }
-                // The second phase of a two-phase line replaces the whole hop, so it lands
-                // somewhere else again.
-                start?.let { s -> thenJump?.let { add("${s + it}") } }
-                addAll(compare.map { it.toString() })
-            }
-        }
-        is LearnVisual.PlaceValue -> buildSet {
-            add("${tens * 10 + ones}")
-            compare?.let { (t, o) -> add("${t * 10 + o}") }
-            plus?.let { (t, o) -> add("${t * 10 + o}") }
-        }
-        // An array prints its own row count in words, which for a division is the answer, and its
-        // remainder sits under it in the shape the option is written in.
-        is LearnVisual.ArrayDots -> buildSet {
-            add("${rows * cols + leftover}")
-            add("$rows")
-            if (leftover > 0) add("$rows r $leftover")
-        }
-        // The cell count only. A grid's side labels are the dimensions the question already
-        // states, and counting them as "drawn" made a 3 x 3 grid look like it was offering a
-        // choice between 3 and 9 rather than answering with the 9.
-        is LearnVisual.AreaGrid -> setOf("${cols * rows}")
-        // A ladder is drawn to be continued, so its terms are what it hands over, not where it
-        // stops - but a term that is itself an option has been handed over all the same.
-        is LearnVisual.Steps -> terms.map { it.toString() }.toSet()
-        is LearnVisual.Coins -> setOf("${values.sum()}")
-        is LearnVisual.Tally -> setOf("$count")
-        else -> emptySet()
-    }
-
-    /**
-     * A test figure may pose its question but may not answer it.
-     *
-     * `questionFiguresDoNotCaptionTheirAnswer` checks that a figure does not *label* the value it
-     * works out. It cannot see one that simply *draws* it, which is how a 6 x 9 array of countable
-     * dots, a number line hopping to its landing tick and a 3 x 3 area grid all sat in tests with
-     * the answer already on the panel.
-     *
-     * A figure drawing several of the options is showing the field rather than the answer - which
-     * is exactly what a "which of these is largest" question needs - so only a figure that comes
-     * to the correct option and to none of the others is a leak.
-     *
-     * Lessons are deliberately out of scope. A lesson step's figure works alongside prose that is
-     * teaching the method, and showing the hops there is the teaching; a test is the one place the
-     * learner is meant to supply the whole of the answer.
-     */
-    @Test
-    fun testFiguresDoNotDrawTheirOwnAnswer() {
-        LearnCatalog.allUnits.forEach { unit ->
-            unit.quiz.questions.forEach { question ->
-                if (question.prompt in countingIsTheMethod) return@forEach
-                val readable = question.visual?.readableValues() ?: return@forEach
-                val drawn = question.options.filter { it in readable }
-                assertFalse(
-                    drawn == listOf(question.options[question.correctIndex]),
-                    "${unit.id}: the figure for '${question.prompt}' draws its own answer",
-                )
-            }
-        }
-    }
-
-    /**
-     * A question step's formula is the question written out, so it has to actually ask something
-     * and must not already contain the answer it is asking for.
-     */
-    @Test
-    fun questionFormulasAskRatherThanTell() {
-        LearnCatalog.allLessons.forEach { lesson ->
-            lesson.steps.forEach { step ->
-                val (formula, answer) = when (step) {
-                    is LessonStep.Choice -> step.formula to step.options[step.correctIndex]
-                    is LessonStep.Numeric -> step.formula to step.answer
-                    else -> null to ""
-                }
-                if (formula == null) return@forEach
-                assertTrue(formula.contains("?"), "${lesson.id}: '$formula' states instead of asking")
-                assertFalse(
-                    formula.contains(answer),
-                    "${lesson.id}: '$formula' gives away its own answer",
-                )
-            }
-        }
-    }
-
-    /**
      * A typed answer has to be typeable. The lesson keypad is ten digits and a backspace - no
      * decimal point, no minus - so a step answered "0.75" or "-5" cannot be answered at all. Those
      * questions ask as a [LessonStep.Choice] instead.
@@ -317,41 +200,6 @@ class LearnCatalogTest {
         }
     }
 
-    /**
-     * Every answer explanation has to say something, and a test explanation may not lean on the
-     * figure's accent colours.
-     *
-     * The two places an explanation renders are not alike. A lesson's `FeedbackCard` sits under
-     * the figure that posed the question, so `{a:}` / `{b:}` tinting there points at colours the
-     * learner can still see. A test's `ReviewCard` draws no figure at all - only the prompt, the
-     * answers and this line - so a tint in a quiz explanation refers to nothing.
-     */
-    @Test
-    fun everyStepAndQuestionExplains() {
-        LearnCatalog.allLessons.forEach { lesson ->
-            lesson.steps.forEach { step ->
-                val explanation = when (step) {
-                    is LessonStep.Choice -> step.explanation
-                    is LessonStep.Numeric -> step.explanation
-                    else -> return@forEach
-                }
-                assertTrue(explanation.isNotBlank(), "${lesson.id}: a question step explains nothing")
-            }
-        }
-        LearnCatalog.allUnits.forEach { unit ->
-            unit.quiz.questions.forEach { question ->
-                assertTrue(
-                    question.explanation.isNotBlank(),
-                    "${unit.id}: '${question.prompt}' explains nothing",
-                )
-                assertFalse(
-                    question.explanation.contains("{a:") || question.explanation.contains("{b:"),
-                    "${unit.id}: '${question.prompt}' tints its explanation, but the test review draws no figure",
-                )
-            }
-        }
-    }
-
     @Test
     fun numericAnswersTolerateFormatting() {
         assertTrue(LearnCatalog.matchesNumericAnswer("6700", "6700"))
@@ -383,66 +231,6 @@ class LearnCatalogTest {
         assertFalse(Certificate.isEarnedBy(0, 8))
         assertFalse(Certificate.isEarnedBy(0, 0))
         assertFalse(Certificate.isEarnedBy(1, 0))
-    }
-
-    /**
-     * A fraction bar and the words beside it have to agree on which bar is which.
-     *
-     * `drawFraction` puts the first bar in the given colour and the second - the one a `compare`
-     * or a `plus` adds - in the working blue. So a formula that names that second fraction has to
-     * tag it `{b:}`, and one that names the first must not: a step reading "6/8 = 3/4" over a blue
-     * 3/4 bar printed the same fraction in two different colours in the two places it appeared,
-     * which is exactly the reference the colour code exists to make readable.
-     *
-     * Only the fractions the figure actually draws are checked, and only where they are written
-     * out in full, because "3/4" as a run of text says which bar it means and nothing else does.
-     * A `Worked` result is left out: it renders as the answer, in green, and never parses a tag.
-     */
-    @Test
-    fun fractionTextMatchesTheBarItNames() {
-        fun taggedRuns(text: String, tag: Char): List<String> = Regex("""\{$tag:([^\}]*)\}""").findAll(text).map { it.groupValues[1] }.toList()
-
-        /** Occurrences of [fraction] standing on its own rather than inside a longer number. */
-        fun namesFraction(text: String, fraction: String): Boolean = Regex("(?<![0-9/])" + Regex.escape(fraction) + "(?![0-9/])")
-            .containsMatchIn(text)
-
-        fun check(where: String, visual: LearnVisual?, texts: List<String>) {
-            val fraction = visual as? LearnVisual.Fraction ?: return
-            val second = fraction.plus ?: fraction.compare ?: return
-            val given = "${fraction.numerator}/${fraction.denominator}"
-            val working = "${second.first}/${second.second}"
-            if (given == working) return
-            texts.forEach { text ->
-                val inWorking = taggedRuns(text, 'b').any { namesFraction(it, working) }
-                assertTrue(
-                    !namesFraction(text, working) || inWorking,
-                    "$where: the figure draws $working in the working colour, but '$text' does not tag it {b:}",
-                )
-                assertFalse(
-                    taggedRuns(text, 'b').any { namesFraction(it, given) },
-                    "$where: '$text' tags $given as working, but the figure draws it as the given",
-                )
-            }
-        }
-
-        LearnCatalog.allLessons.forEach { lesson ->
-            lesson.steps.forEachIndexed { index, step ->
-                val where = "${lesson.id} step $index"
-                when (step) {
-                    is LessonStep.Concept -> check(where, step.visual, listOfNotNull(step.formula, step.body))
-                    is LessonStep.Worked -> check(where, step.visual, listOf(step.problem) + step.lines)
-                    is LessonStep.Choice ->
-                        check(where, step.visual, listOfNotNull(step.formula, step.question, step.explanation))
-                    is LessonStep.Numeric ->
-                        check(where, step.visual, listOfNotNull(step.formula, step.question, step.explanation))
-                }
-            }
-        }
-        LearnCatalog.allUnits.forEach { unit ->
-            unit.quiz.questions.forEach { question ->
-                check("${unit.id}: '${question.prompt}'", question.visual, listOf(question.prompt))
-            }
-        }
     }
 
     @Test

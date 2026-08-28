@@ -16,6 +16,7 @@
     <string name="button_done">Xong</string>
 
     <string name="achievements_button">Thành tích (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Xóa chữ số cuối</string>
 
     <string name="quit_game_title">Thoát trò chơi?</string>
     <string name="quit_game_message">Tiến trình của bạn trong trò chơi này sẽ không được lưu.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s chỉ %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">cột %1$d và hàng %2$d</string>
+    <string name="hint_remember">Nhớ %1$d</string>
     <string name="solution_left">Trái</string>
     <string name="solution_right">Phải</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">%1$d / %2$d chứng chỉ</string>
     <string name="learn_title">Học Toán</string>
     <string name="learn_unit_progress">%1$d / %2$d chứng chỉ</string>
-    <string name="learn_topic_intro">Đi xuống theo danh sách. Mỗi bước dựa trên bước phía trên.</string>
+    <string name="learn_topic_intro">Đi qua chúng theo thứ tự. Mỗi bước dựa trên bước trước.</string>
     <string name="learn_topic_certificates">%1$d trên %2$d đã có chứng chỉ</string>
     <string name="learn_ages">Tuổi %1$s</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">Số &amp; phép tính</string>
     <string name="learn_topic_geometry">Hình học</string>
     <string name="learn_topic_geometry_subtitle">Góc, tam giác &amp; đường tròn</string>
+
+    <string name="learn_shape_guide_title">Sổ tay hình</string>
+    <string name="learn_shape_guide_intro">%1$d hình, được vẽ và gọi tên. Chạm vào một hình để xem vẽ lại.</string>
+    <string name="learn_rules_guide_title">Sổ tay quy tắc</string>
+    <string name="learn_rules_guide_intro">%1$d quy tắc và quy ước dấu, những điều cơ bản ở một chỗ.</string>
 
     <string name="learn_lessons_header">Bài học</string>
     <string name="learn_lesson_progress">%1$d / %2$d bài học</string>
@@ -877,5 +884,50 @@
     <string name="achievement_learn_topic_certificates_desc">Giành mọi chứng chỉ trong một chủ đề của Học Toán.</string>
     <string name="achievement_learn_all_certificates">Học giả Toán</string>
     <string name="achievement_learn_all_certificates_desc">Giành một chứng chỉ ở mọi chủ đề nhỏ của Học Toán.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="other">%1$d cạnh, %1$d đỉnh</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="other">%1$d cạnh,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="other">%1$d đỉnh</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">khối lập phương</string>
+    <string name="learn_fig_solid_sphere">hình cầu</string>
+    <string name="learn_fig_solid_cylinder">hình trụ</string>
+    <string name="learn_fig_solid_cone">hình nón</string>
+    <string name="learn_fig_solid_prism">lăng trụ</string>
+    <string name="learn_fig_solid_triangular_prism">lăng trụ tam giác</string>
+    <string name="learn_fig_solid_pyramid">hình chóp</string>
+    <string name="learn_fig_solid_cube_counts">6 mặt · 12 cạnh · 8 đỉnh</string>
+    <string name="learn_fig_solid_sphere_counts">không mặt phẳng, không cạnh</string>
+    <string name="learn_fig_solid_cylinder_counts">2 mặt phẳng · 1 mặt cong</string>
+    <string name="learn_fig_solid_cone_counts">1 mặt phẳng · 1 đỉnh</string>
+    <string name="learn_fig_solid_prism_counts">cùng một tiết diện suốt chiều dài</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 mặt · 9 cạnh · 6 đỉnh</string>
+    <string name="learn_fig_solid_pyramid_counts">5 mặt · 8 cạnh · 5 đỉnh</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="other">%1$d trục đối xứng</item>
+    </plurals>
+    <string name="learn_fig_area">diện tích = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">chu vi = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">trừ %1$d ở cả hai vế</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="other">%1$d hàng</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d nữa</string>
+    <string name="learn_fig_in_each">mỗi hàng %1$d</string>
+    <string name="learn_fig_percent_of">%1$s% của %2$s</string>
+    <string name="learn_fig_gradient">độ dốc %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">trung bình %1$s</string>
+    <string name="learn_fig_mean">trung bình</string>
+    <string name="learn_fig_standard_deviations">%1$s độ lệch</string>
+    <string name="learn_fig_symbol_key">1 ký hiệu = %1$d</string>
 
 </resources>

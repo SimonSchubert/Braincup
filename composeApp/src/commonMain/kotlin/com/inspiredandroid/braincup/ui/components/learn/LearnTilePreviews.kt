@@ -18,7 +18,6 @@ import com.inspiredandroid.braincup.ui.theme.PrismFacet
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlin.math.PI
-import kotlin.math.ceil
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -44,36 +43,34 @@ internal fun TopicTilePreview(topic: MathTopic) {
     }
 }
 
-private val RungBarHeights = listOf(0.4f, 0.7f, 1f)
-
 /**
- * The badge on a sub-topic row: how far up the ladder this rung sits, as a three-bar meter.
+ * The badge on a sub-topic row: which age band this rung is taught at, as a meter.
  *
  * A figure rather than a numeral, so the row reads at a glance and the badge belongs to the same
- * family as the topic sketches. Three bars whatever the ladder's length: the row order already
- * carries the exact position, and a bar per rung turns into hairlines on the longer ladders.
+ * family as the topic sketches.
+ *
+ * One bar per band the topic covers, lit up to [band]. It used to be three bars filled by the
+ * rung's *position* in the ladder, cut into thirds, which put a different reading beside identical
+ * age text: Fractions and Decimals both say "Ages 8-11" and showed one bar and two. Two signals on
+ * one row disagreeing is worse than one signal, and the age band is the one the learner acts on.
  */
 @Composable
-internal fun SubTopicRowPreview(position: Int, ladderSize: Int, modifier: Modifier = Modifier) {
-    val lit = rungBarsLit(position, ladderSize)
+internal fun SubTopicRowPreview(band: Int, bands: Int, modifier: Modifier = Modifier) {
+    val total = bands.coerceAtLeast(1)
     Row(
-        modifier = modifier.padding(12.dp),
+        modifier = modifier.padding(10.dp),
         verticalAlignment = Alignment.Bottom,
         horizontalArrangement = Arrangement.spacedBy(3.dp),
     ) {
-        RungBarHeights.forEachIndexed { index, height ->
+        repeat(total) { index ->
+            // Shortest to tallest across whatever number of bands the topic has.
+            val height = if (total == 1) 1f else 0.4f + 0.6f * (index / (total - 1f))
             ColorPrismCell(
-                face = if (index < lit) Primary else PreviewStructure.copy(alpha = 0.3f),
+                face = if (index < band) Primary else PreviewStructure.copy(alpha = 0.3f),
                 modifier = Modifier.weight(1f).fillMaxHeight(height),
             )
         }
     }
-}
-
-/** The rung's band of the climb, rounded up so the last rung of any ladder fills the meter. */
-private fun rungBarsLit(position: Int, ladderSize: Int): Int {
-    val rungs = maxOf(ladderSize, position, 1)
-    return ceil(position * RungBarHeights.size / rungs.toDouble()).toInt().coerceIn(1, RungBarHeights.size)
 }
 
 /** The square drawing area every sketch gets, inset the same way the mini-game previews are. */

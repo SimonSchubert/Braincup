@@ -835,7 +835,7 @@ class UserStorage(
             return LearnQuizResult(unit, correct, total, earned, XpAward(0, null))
         }
 
-        val updated = certificates + (unit.id to LearnCertificate(unit.id, todayEpochDay()))
+        val updated = certificates + (unit.id to LearnCertificate(unit.id, todayLocalEpochDay()))
         store.putString(
             KEY_LEARN_CERTIFICATES,
             updated.values.joinToString(",") { "${it.unitId}:${it.earnedEpochDay}" },
@@ -861,7 +861,7 @@ class UserStorage(
         val missing = unitIds.filter { it !in certificates && LearnCatalog.unitById(it) != null }
         if (missing.isEmpty()) return
 
-        val today = todayEpochDay()
+        val today = todayLocalEpochDay()
         val updated = certificates + missing.associateWith { LearnCertificate(it, today) }
         store.putString(
             KEY_LEARN_CERTIFICATES,
@@ -1009,6 +1009,21 @@ class UserStorage(
     }
 
     private fun todayEpochDay(): Int = (Clock.System.now().toEpochMilliseconds() / 86400000L).toInt()
+
+    /**
+     * Today as the learner's own calendar reckons it, for the one thing that prints a date.
+     *
+     * [todayEpochDay] counts UTC days, which is the right basis for a streak - it is the same
+     * boundary for everyone, wherever they play from - but it is the wrong number to print. A
+     * certificate earned at ten past midnight in Berlin was still 22:10 the previous day in UTC,
+     * so it came out dated yesterday. Nothing else in the app shows a stored day to the learner,
+     * so only certificates are moved off the UTC basis and the streak keeps counting as it did.
+     */
+    private fun todayLocalEpochDay(): Int = Clock.System.now()
+        .toLocalDateTime(TimeZone.currentSystemDefault())
+        .date
+        .toEpochDays()
+        .toInt()
 
     fun getOrCreateTodaySession(generateGameIds: () -> List<String>): SessionState {
         val today = todayEpochDay()

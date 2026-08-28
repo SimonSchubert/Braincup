@@ -23,6 +23,7 @@
     <string name="title_master">Majstor</string>
     <string name="title_grandmaster">Veliki majstor</string>
     <string name="achievements_button">Postignuća (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Izbriši zadnju znamenku</string>
     <string name="normal_sudoku_button">Klasični Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Početnik</string>
@@ -408,6 +409,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="solution_pointing">%1$s %2$s usmjeren %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">stupac %1$d i redak %2$d</string>
+    <string name="hint_remember">Zapamti %1$d</string>
     <string name="solution_left">Lijevo</string>
     <string name="solution_right">Desno</string>
 
@@ -831,7 +833,7 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d certifikata</string>
     <string name="learn_title">Uči matematiku</string>
     <string name="learn_unit_progress">%1$d / %2$d certifikata</string>
-    <string name="learn_topic_intro">Kreći se popisom prema dolje. Svaki korak gradi na prethodnom.</string>
+    <string name="learn_topic_intro">Prođi ih redom. Svaki korak gradi na prethodnom.</string>
     <string name="learn_topic_certificates">%1$d od %2$d s certifikatom</string>
     <string name="learn_ages">Dob %1$s</string>
 
@@ -850,6 +852,11 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Brojevi i operacije</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Kutovi, trokuti i kružnice</string>
+
+    <string name="learn_shape_guide_title">Vodič kroz oblike</string>
+    <string name="learn_shape_guide_intro">%1$d oblika, nacrtanih i imenovanih. Dodirni jedan da ga vidiš ponovno nacrtanog.</string>
+    <string name="learn_rules_guide_title">Vodič kroz pravila</string>
+    <string name="learn_rules_guide_intro">%1$d pravila i pravila predznaka, osnove na jednom mjestu.</string>
 
     <string name="learn_lessons_header">Lekcije</string>
     <string name="learn_lesson_progress">%1$d / %2$d lekcija</string>
@@ -895,5 +902,60 @@ Premjesti Cow — postat će Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Osvoji sve certifikate jedne teme u Uči matematiku.</string>
     <string name="achievement_learn_all_certificates">Matematički učenjak</string>
     <string name="achievement_learn_all_certificates_desc">Osvoji certifikat u svakoj podtemi u Uči matematiku.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d stranica, %1$d vrh</item>
+        <item quantity="few">%1$d stranice, %1$d vrha</item>
+        <item quantity="other">%1$d stranica, %1$d vrhova</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d stranica,</item>
+        <item quantity="few">%1$d stranice,</item>
+        <item quantity="other">%1$d stranica,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d vrh</item>
+        <item quantity="few">%1$d vrha</item>
+        <item quantity="other">%1$d vrhova</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kocka</string>
+    <string name="learn_fig_solid_sphere">kugla</string>
+    <string name="learn_fig_solid_cylinder">valjak</string>
+    <string name="learn_fig_solid_cone">stožac</string>
+    <string name="learn_fig_solid_prism">prizma</string>
+    <string name="learn_fig_solid_triangular_prism">trokutasta prizma</string>
+    <string name="learn_fig_solid_pyramid">piramida</string>
+    <string name="learn_fig_solid_cube_counts">6 strana · 12 bridova · 8 vrhova</string>
+    <string name="learn_fig_solid_sphere_counts">nema ravnih strana, nema bridova</string>
+    <string name="learn_fig_solid_cylinder_counts">2 ravne strane · 1 zakrivljena</string>
+    <string name="learn_fig_solid_cone_counts">1 ravna strana · 1 vrh</string>
+    <string name="learn_fig_solid_prism_counts">isti presjek cijelom dužinom</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 strana · 9 bridova · 6 vrhova</string>
+    <string name="learn_fig_solid_pyramid_counts">5 strana · 8 bridova · 5 vrhova</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d os simetrije</item>
+        <item quantity="few">%1$d osi simetrije</item>
+        <item quantity="other">%1$d osi simetrije</item>
+    </plurals>
+    <string name="learn_fig_area">površina = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">opseg = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">oduzmi %1$d s obje strane</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d red</item>
+        <item quantity="few">%1$d reda</item>
+        <item quantity="other">%1$d redova</item>
+    </plurals>
+    <string name="learn_fig_more">još %1$d</string>
+    <string name="learn_fig_in_each">po %1$d u svakom</string>
+    <string name="learn_fig_percent_of">%1$s% od %2$s</string>
+    <string name="learn_fig_gradient">nagib %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">prosjek %1$s</string>
+    <string name="learn_fig_mean">prosjek</string>
+    <string name="learn_fig_standard_deviations">%1$s st. dev.</string>
+    <string name="learn_fig_symbol_key">1 simbol = %1$d</string>
 
 </resources>

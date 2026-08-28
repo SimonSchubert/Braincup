@@ -51,6 +51,7 @@ fun XpGainedChip(
             translationY = with(density) { offsetDp.value.dp.toPx() }
         },
         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+        fillWidth = false,
     ) {
         Text(
             text = stringResource(Res.string.xp_gained, xpGained),

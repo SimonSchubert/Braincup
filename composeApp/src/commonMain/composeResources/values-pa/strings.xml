@@ -23,6 +23,7 @@
     <string name="title_master">ਨਿਪੁੰਨ</string>
     <string name="title_grandmaster">ਮਹਾਂ ਨਿਪੁੰਨ</string>
     <string name="achievements_button">ਪ੍ਰਾਪਤੀਆਂ (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">ਆਖਰੀ ਅੰਕ ਮਿਟਾਓ</string>
     <string name="normal_sudoku_button">ਆਮ ਸੁਡੋਕੂ (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">ਸੁਡੋਕੂ</string>
     <string name="normal_sudoku_difficulty_beginner">ਸ਼ੁਰੂਆਤੀ</string>
@@ -390,6 +391,7 @@
     <string name="solution_pointing">%3$s ਵੱਲ ਇਸ਼ਾਰਾ ਕਰਦਾ %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">ਕਾਲਮ %1$d ਅਤੇ ਕਤਾਰ %2$d</string>
+    <string name="hint_remember">%1$d ਯਾਦ ਰੱਖੋ</string>
     <string name="solution_left">ਖੱਬਾ</string>
     <string name="solution_right">ਸੱਜਾ</string>
 
@@ -812,7 +814,7 @@
     <string name="learn_section_certificates">%1$d / %2$d ਸਰਟੀਫਿਕੇਟ</string>
     <string name="learn_title">ਗਣਿਤ ਸਿੱਖੋ</string>
     <string name="learn_unit_progress">%1$d / %2$d ਸਰਟੀਫਿਕੇਟ</string>
-    <string name="learn_topic_intro">ਸੂਚੀ ਵਿੱਚ ਹੇਠਾਂ ਵੱਲ ਵਧੋ। ਹਰ ਪੌੜੀ ਆਪਣੇ ਉੱਪਰਲੀ ਉੱਤੇ ਟਿਕੀ ਹੈ।</string>
+    <string name="learn_topic_intro">ਇਹਨਾਂ ਨੂੰ ਕ੍ਰਮ ਵਿੱਚ ਪੂਰਾ ਕਰੋ। ਹਰ ਕਦਮ ਪਿਛਲੇ ਉੱਤੇ ਟਿਕਿਆ ਹੈ।</string>
     <string name="learn_topic_certificates">%2$d ਵਿੱਚੋਂ %1$d ਪ੍ਰਮਾਣਿਤ</string>
     <string name="learn_ages">ਉਮਰ %1$s</string>
 
@@ -831,6 +833,11 @@
     <string name="learn_topic_arithmetic_subtitle">ਸੰਖਿਆ &amp; ਕਿਰਿਆਵਾਂ</string>
     <string name="learn_topic_geometry">ਰੇਖਾ ਗਣਿਤ</string>
     <string name="learn_topic_geometry_subtitle">ਕੋਣ, ਤਿਕੋਣ &amp; ਚੱਕਰ</string>
+
+    <string name="learn_shape_guide_title">ਆਕਾਰ ਗਾਈਡ</string>
+    <string name="learn_shape_guide_intro">%1$d ਆਕਾਰ, ਬਣਾਏ ਅਤੇ ਨਾਮ ਦਿੱਤੇ। ਕਿਸੇ ਇੱਕ ਨੂੰ ਛੂਹੋ ਅਤੇ ਦੁਬਾਰਾ ਬਣਦਾ ਵੇਖੋ।</string>
+    <string name="learn_rules_guide_title">ਨਿਯਮ ਗਾਈਡ</string>
+    <string name="learn_rules_guide_intro">%1$d ਨਿਯਮ ਅਤੇ ਚਿੰਨ੍ਹ ਦੇ ਢੰਗ, ਮੁੱਢਲੀਆਂ ਗੱਲਾਂ ਇੱਕ ਥਾਂ।</string>
 
     <string name="learn_lessons_header">ਪਾਠ</string>
     <string name="learn_lesson_progress">%1$d / %2$d ਪਾਠ</string>
@@ -876,5 +883,55 @@
     <string name="achievement_learn_topic_certificates_desc">ਇੱਕ ਗਣਿਤ ਸਿੱਖੋ ਵਿਸ਼ੇ ਦਾ ਹਰ ਸਰਟੀਫਿਕੇਟ ਹਾਸਲ ਕਰੋ।</string>
     <string name="achievement_learn_all_certificates">ਗਣਿਤ ਵਿਦਵਾਨ</string>
     <string name="achievement_learn_all_certificates_desc">ਹਰ ਗਣਿਤ ਸਿੱਖੋ ਉਪ-ਵਿਸ਼ੇ ਵਿੱਚ ਸਰਟੀਫਿਕੇਟ ਹਾਸਲ ਕਰੋ।</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d ਭੁਜਾ, %1$d ਕੋਨਾ</item>
+        <item quantity="other">%1$d ਭੁਜਾਵਾਂ, %1$d ਕੋਨੇ</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d ਭੁਜਾ,</item>
+        <item quantity="other">%1$d ਭੁਜਾਵਾਂ,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d ਕੋਨਾ</item>
+        <item quantity="other">%1$d ਕੋਨੇ</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">ਘਣ</string>
+    <string name="learn_fig_solid_sphere">ਗੋਲਾ</string>
+    <string name="learn_fig_solid_cylinder">ਬੇਲਣ</string>
+    <string name="learn_fig_solid_cone">ਸ਼ੰਕੂ</string>
+    <string name="learn_fig_solid_prism">ਪ੍ਰਿਜ਼ਮ</string>
+    <string name="learn_fig_solid_triangular_prism">ਤਿਕੋਣੀ ਪ੍ਰਿਜ਼ਮ</string>
+    <string name="learn_fig_solid_pyramid">ਪਿਰਾਮਿਡ</string>
+    <string name="learn_fig_solid_cube_counts">6 ਸਤ੍ਹਾ · 12 ਕਿਨਾਰੇ · 8 ਕੋਨੇ</string>
+    <string name="learn_fig_solid_sphere_counts">ਕੋਈ ਸਮਤਲ ਸਤ੍ਹਾ ਨਹੀਂ, ਕੋਈ ਕਿਨਾਰਾ ਨਹੀਂ</string>
+    <string name="learn_fig_solid_cylinder_counts">2 ਸਮਤਲ ਸਤ੍ਹਾ · 1 ਵਲ਼ਦਾਰ</string>
+    <string name="learn_fig_solid_cone_counts">1 ਸਮਤਲ ਸਤ੍ਹਾ · 1 ਨੋਕ</string>
+    <string name="learn_fig_solid_prism_counts">ਪੂਰੀ ਲੰਬਾਈ ਵਿੱਚ ਇੱਕੋ ਕਾਟ</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 ਸਤ੍ਹਾ · 9 ਕਿਨਾਰੇ · 6 ਕੋਨੇ</string>
+    <string name="learn_fig_solid_pyramid_counts">5 ਸਤ੍ਹਾ · 8 ਕਿਨਾਰੇ · 5 ਕੋਨੇ</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d ਸਮਮਿਤੀ ਰੇਖਾ</item>
+        <item quantity="other">%1$d ਸਮਮਿਤੀ ਰੇਖਾਵਾਂ</item>
+    </plurals>
+    <string name="learn_fig_area">ਖੇਤਰਫਲ = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">ਘੇਰਾ = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">ਦੋਵੇਂ ਪਾਸਿਓਂ %1$d ਘਟਾਓ</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d ਕਤਾਰ</item>
+        <item quantity="other">%1$d ਕਤਾਰਾਂ</item>
+    </plurals>
+    <string name="learn_fig_more">ਹੋਰ %1$d</string>
+    <string name="learn_fig_in_each">ਹਰ ਇੱਕ ਵਿੱਚ %1$d</string>
+    <string name="learn_fig_percent_of">%2$s ਦਾ %1$s%</string>
+    <string name="learn_fig_gradient">ਢਲਾਣ %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">ਔਸਤ %1$s</string>
+    <string name="learn_fig_mean">ਔਸਤ</string>
+    <string name="learn_fig_standard_deviations">%1$s ਮਿ. ਵਿ.</string>
+    <string name="learn_fig_symbol_key">1 ਚਿੰਨ੍ਹ = %1$d</string>
 
 </resources>

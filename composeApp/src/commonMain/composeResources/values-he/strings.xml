@@ -23,6 +23,7 @@
     <string name="title_master">אמן</string>
     <string name="title_grandmaster">רב-אמן</string>
     <string name="achievements_button">הישגים (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">מחיקת הספרה האחרונה</string>
     <string name="normal_sudoku_button">סודוקו רגיל (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">סודוקו</string>
     <string name="normal_sudoku_difficulty_beginner">מתחיל</string>
@@ -408,6 +409,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="solution_pointing">%1$s %2$s פונה %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">עמודה %1$d ושורה %2$d</string>
+    <string name="hint_remember">זכור %1$d</string>
     <string name="solution_left">שמאל</string>
     <string name="solution_right">ימין</string>
 
@@ -831,7 +833,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_section_certificates">%1$d / %2$d תעודות</string>
     <string name="learn_title">למד מתמטיקה</string>
     <string name="learn_unit_progress">%1$d / %2$d תעודות</string>
-    <string name="learn_topic_intro">רד ברשימה מלמעלה למטה. כל שלב נשען על הקודם.</string>
+    <string name="learn_topic_intro">עבור עליהם לפי הסדר. כל שלב נשען על הקודם.</string>
     <string name="learn_topic_certificates">%1$d מתוך %2$d עם תעודה</string>
     <string name="learn_ages">גילאי %1$s</string>
 
@@ -850,6 +852,11 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_topic_arithmetic_subtitle">מספרים ופעולות</string>
     <string name="learn_topic_geometry">גאומטריה</string>
     <string name="learn_topic_geometry_subtitle">זוויות, משולשים ומעגלים</string>
+
+    <string name="learn_shape_guide_title">מדריך הצורות</string>
+    <string name="learn_shape_guide_intro">%1$d צורות, מצוירות ובשמן. הקש על אחת כדי לראות אותה מצוירת שוב.</string>
+    <string name="learn_rules_guide_title">מדריך הכללים</string>
+    <string name="learn_rules_guide_intro">%1$d כללים ומוסכמות סימן, היסודות במקום אחד.</string>
 
     <string name="learn_lessons_header">שיעורים</string>
     <string name="learn_lesson_progress">%1$d / %2$d שיעורים</string>
@@ -895,5 +902,60 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="achievement_learn_topic_certificates_desc">השג את כל התעודות בנושא אחד בלימוד מתמטיקה.</string>
     <string name="achievement_learn_all_certificates">מלומד מתמטיקה</string>
     <string name="achievement_learn_all_certificates_desc">השג תעודה בכל תת-נושא בלימוד מתמטיקה.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d צלע, %1$d קודקוד</item>
+        <item quantity="two">%1$d צלעות, %1$d קודקודים</item>
+        <item quantity="other">%1$d צלעות, %1$d קודקודים</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d צלע,</item>
+        <item quantity="two">%1$d צלעות,</item>
+        <item quantity="other">%1$d צלעות,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d קודקוד</item>
+        <item quantity="two">%1$d קודקודים</item>
+        <item quantity="other">%1$d קודקודים</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">קובייה</string>
+    <string name="learn_fig_solid_sphere">כדור</string>
+    <string name="learn_fig_solid_cylinder">גליל</string>
+    <string name="learn_fig_solid_cone">חרוט</string>
+    <string name="learn_fig_solid_prism">מנסרה</string>
+    <string name="learn_fig_solid_triangular_prism">מנסרה משולשת</string>
+    <string name="learn_fig_solid_pyramid">פירמידה</string>
+    <string name="learn_fig_solid_cube_counts">6 פאות · 12 מקצועות · 8 קודקודים</string>
+    <string name="learn_fig_solid_sphere_counts">אין פאות שטוחות, אין מקצועות</string>
+    <string name="learn_fig_solid_cylinder_counts">2 פאות שטוחות · 1 מעוגלת</string>
+    <string name="learn_fig_solid_cone_counts">1 פאה שטוחה · 1 קודקוד</string>
+    <string name="learn_fig_solid_prism_counts">אותו חתך לכל האורך</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 פאות · 9 מקצועות · 6 קודקודים</string>
+    <string name="learn_fig_solid_pyramid_counts">5 פאות · 8 מקצועות · 5 קודקודים</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d ציר סימטריה</item>
+        <item quantity="two">%1$d צירי סימטריה</item>
+        <item quantity="other">%1$d צירי סימטריה</item>
+    </plurals>
+    <string name="learn_fig_area">שטח = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">היקף = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">החסר %1$d משני הצדדים</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d שורה</item>
+        <item quantity="two">%1$d שורות</item>
+        <item quantity="other">%1$d שורות</item>
+    </plurals>
+    <string name="learn_fig_more">עוד %1$d</string>
+    <string name="learn_fig_in_each">%1$d בכל אחת</string>
+    <string name="learn_fig_percent_of">%1$s% מתוך %2$s</string>
+    <string name="learn_fig_gradient">שיפוע %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">ממוצע %1$s</string>
+    <string name="learn_fig_mean">ממוצע</string>
+    <string name="learn_fig_standard_deviations">%1$s ס.ת</string>
+    <string name="learn_fig_symbol_key">1 סמל = %1$d</string>
 
 </resources>

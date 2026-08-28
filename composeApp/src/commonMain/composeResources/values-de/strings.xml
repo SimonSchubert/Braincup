@@ -16,6 +16,7 @@
     <string name="button_done">Fertig</string>
 
     <string name="achievements_button">Erfolge (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Letzte Ziffer löschen</string>
 
     <string name="quit_game_title">Spiel beenden?</string>
     <string name="quit_game_message">Dein Fortschritt in diesem Spiel wird nicht gespeichert.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s zeigt nach %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">Spalte %1$d und Zeile %2$d</string>
+    <string name="hint_remember">Merk dir %1$d</string>
     <string name="solution_left">Links</string>
     <string name="solution_right">Rechts</string>
 
@@ -814,7 +816,7 @@
     <string name="learn_section_certificates">%1$d / %2$d Zertifikate</string>
     <string name="learn_title">Mathe lernen</string>
     <string name="learn_unit_progress">%1$d / %2$d Zertifikate</string>
-    <string name="learn_topic_intro">Arbeite dich die Liste hinunter. Jeder Schritt baut auf dem vorherigen auf.</string>
+    <string name="learn_topic_intro">Arbeite sie der Reihe nach durch. Jeder Schritt baut auf dem vorherigen auf.</string>
     <string name="learn_topic_certificates">%1$d von %2$d zertifiziert</string>
     <string name="learn_ages">Alter %1$s</string>
 
@@ -833,6 +835,11 @@
     <string name="learn_topic_arithmetic_subtitle">Zahlen &amp; Rechenarten</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Winkel, Dreiecke &amp; Kreise</string>
+
+    <string name="learn_shape_guide_title">Formen-Übersicht</string>
+    <string name="learn_shape_guide_intro">%1$d Formen, gezeichnet und benannt. Tippe eine an, um sie erneut zu zeichnen.</string>
+    <string name="learn_rules_guide_title">Regel-Übersicht</string>
+    <string name="learn_rules_guide_intro">%1$d Regeln und Vorzeichenregeln, die Grundlagen an einem Ort.</string>
 
     <string name="learn_lessons_header">Lektionen</string>
     <string name="learn_lesson_progress">%1$d / %2$d Lektionen</string>
@@ -878,5 +885,55 @@
     <string name="achievement_learn_topic_certificates_desc">Hol dir alle Zertifikate eines Themas in Mathe lernen.</string>
     <string name="achievement_learn_all_certificates">Mathe-Gelehrter</string>
     <string name="achievement_learn_all_certificates_desc">Hol dir ein Zertifikat in jedem Unterthema von Mathe lernen.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d Seite, %1$d Ecke</item>
+        <item quantity="other">%1$d Seiten, %1$d Ecken</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d Seite,</item>
+        <item quantity="other">%1$d Seiten,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d Ecke</item>
+        <item quantity="other">%1$d Ecken</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">Würfel</string>
+    <string name="learn_fig_solid_sphere">Kugel</string>
+    <string name="learn_fig_solid_cylinder">Zylinder</string>
+    <string name="learn_fig_solid_cone">Kegel</string>
+    <string name="learn_fig_solid_prism">Prisma</string>
+    <string name="learn_fig_solid_triangular_prism">Dreiecksprisma</string>
+    <string name="learn_fig_solid_pyramid">Pyramide</string>
+    <string name="learn_fig_solid_cube_counts">6 Flächen · 12 Kanten · 8 Ecken</string>
+    <string name="learn_fig_solid_sphere_counts">keine ebenen Flächen, keine Kanten</string>
+    <string name="learn_fig_solid_cylinder_counts">2 ebene Flächen · 1 gewölbte</string>
+    <string name="learn_fig_solid_cone_counts">1 ebene Fläche · 1 Spitze</string>
+    <string name="learn_fig_solid_prism_counts">überall gleicher Querschnitt</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 Flächen · 9 Kanten · 6 Ecken</string>
+    <string name="learn_fig_solid_pyramid_counts">5 Flächen · 8 Kanten · 5 Ecken</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d Symmetrieachse</item>
+        <item quantity="other">%1$d Symmetrieachsen</item>
+    </plurals>
+    <string name="learn_fig_area">Fläche = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">Umfang = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">%1$d von beiden Seiten abziehen</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d Reihe</item>
+        <item quantity="other">%1$d Reihen</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d weitere</string>
+    <string name="learn_fig_in_each">%1$d in jeder</string>
+    <string name="learn_fig_percent_of">%1$s% von %2$s</string>
+    <string name="learn_fig_gradient">Steigung %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">Mittelwert %1$s</string>
+    <string name="learn_fig_mean">Mittelwert</string>
+    <string name="learn_fig_standard_deviations">%1$s SD</string>
+    <string name="learn_fig_symbol_key">1 Symbol = %1$d</string>
 
 </resources>

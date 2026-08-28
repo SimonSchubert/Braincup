@@ -23,6 +23,7 @@
     <string name="title_master">Mestari</string>
     <string name="title_grandmaster">Suurmestari</string>
     <string name="achievements_button">Saavutukset (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Poista viimeinen numero</string>
     <string name="normal_sudoku_button">Klassinen Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Aloittelija</string>
@@ -408,6 +409,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="solution_pointing">%1$s %2$s osoittaa %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">sarake %1$d ja rivi %2$d</string>
+    <string name="hint_remember">Muista %1$d</string>
     <string name="solution_left">Vasen</string>
     <string name="solution_right">Oikea</string>
 
@@ -831,7 +833,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d todistusta</string>
     <string name="learn_title">Opi matematiikkaa</string>
     <string name="learn_unit_progress">%1$d / %2$d todistusta</string>
-    <string name="learn_topic_intro">Etene listaa alaspäin. Jokainen vaihe rakentuu edelliselle.</string>
+    <string name="learn_topic_intro">Käy ne läpi järjestyksessä. Jokainen vaihe rakentuu edelliselle.</string>
     <string name="learn_topic_certificates">%1$d / %2$d todistettu</string>
     <string name="learn_ages">Ikä %1$s</string>
 
@@ -850,6 +852,11 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Luvut ja laskutoimitukset</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Kulmat, kolmiot ja ympyrät</string>
+
+    <string name="learn_shape_guide_title">Muoto-opas</string>
+    <string name="learn_shape_guide_intro">%1$d muotoa piirrettynä ja nimettynä. Napauta yhtä, niin näet sen piirtyvän uudelleen.</string>
+    <string name="learn_rules_guide_title">Sääntöopas</string>
+    <string name="learn_rules_guide_intro">%1$d sääntöä ja merkkisääntöä, perusasiat yhdessä paikassa.</string>
 
     <string name="learn_lessons_header">Oppitunnit</string>
     <string name="learn_lesson_progress">%1$d / %2$d oppituntia</string>
@@ -895,5 +902,55 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Ansaitse yhden Opi matematiikkaa -aiheen kaikki todistukset.</string>
     <string name="achievement_learn_all_certificates">Matemaatikko</string>
     <string name="achievement_learn_all_certificates_desc">Ansaitse todistus jokaisesta Opi matematiikkaa -alaaiheesta.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d sivu, %1$d kulma</item>
+        <item quantity="other">%1$d sivua, %1$d kulmaa</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d sivu,</item>
+        <item quantity="other">%1$d sivua,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d kulma</item>
+        <item quantity="other">%1$d kulmaa</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kuutio</string>
+    <string name="learn_fig_solid_sphere">pallo</string>
+    <string name="learn_fig_solid_cylinder">lieriö</string>
+    <string name="learn_fig_solid_cone">kartio</string>
+    <string name="learn_fig_solid_prism">prisma</string>
+    <string name="learn_fig_solid_triangular_prism">kolmioprisma</string>
+    <string name="learn_fig_solid_pyramid">pyramidi</string>
+    <string name="learn_fig_solid_cube_counts">6 tahkoa · 12 särmää · 8 kärkeä</string>
+    <string name="learn_fig_solid_sphere_counts">ei tasaisia tahkoja, ei särmiä</string>
+    <string name="learn_fig_solid_cylinder_counts">2 tasaista tahkoa · 1 kaareva</string>
+    <string name="learn_fig_solid_cone_counts">1 tasainen tahko · 1 kärki</string>
+    <string name="learn_fig_solid_prism_counts">sama poikkileikkaus kauttaaltaan</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 tahkoa · 9 särmää · 6 kärkeä</string>
+    <string name="learn_fig_solid_pyramid_counts">5 tahkoa · 8 särmää · 5 kärkeä</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d symmetria-akseli</item>
+        <item quantity="other">%1$d symmetria-akselia</item>
+    </plurals>
+    <string name="learn_fig_area">pinta-ala = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">piiri = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">vähennä %1$d molemmilta puolilta</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d rivi</item>
+        <item quantity="other">%1$d riviä</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d lisää</string>
+    <string name="learn_fig_in_each">%1$d kussakin</string>
+    <string name="learn_fig_percent_of">%1$s% luvusta %2$s</string>
+    <string name="learn_fig_gradient">kulmakerroin %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">keskiarvo %1$s</string>
+    <string name="learn_fig_mean">keskiarvo</string>
+    <string name="learn_fig_standard_deviations">%1$s kh</string>
+    <string name="learn_fig_symbol_key">1 symboli = %1$d</string>
 
 </resources>

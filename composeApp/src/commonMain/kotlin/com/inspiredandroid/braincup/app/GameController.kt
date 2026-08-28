@@ -494,7 +494,7 @@ class GameController(
             gameType = currentState.gameType,
             game = game,
             isCorrect = true,
-            message = game.hint()?.let { FeedbackMessage.Plain(it) },
+            message = game.hintMessage(),
         )
     }
 

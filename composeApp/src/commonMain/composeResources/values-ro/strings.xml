@@ -23,6 +23,7 @@
     <string name="title_master">Maestru</string>
     <string name="title_grandmaster">Mare maestru</string>
     <string name="achievements_button">Realizări (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Șterge ultima cifră</string>
     <string name="normal_sudoku_button">Sudoku clasic (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Începător</string>
@@ -408,6 +409,7 @@ Mută Cow — devine Bull.</string>
     <string name="solution_pointing">%1$s %2$s îndreptat %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">coloana %1$d și rândul %2$d</string>
+    <string name="hint_remember">Ține minte %1$d</string>
     <string name="solution_left">Stânga</string>
     <string name="solution_right">Dreapta</string>
 
@@ -831,7 +833,7 @@ Mută Cow — devine Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificate</string>
     <string name="learn_title">Învață matematică</string>
     <string name="learn_unit_progress">%1$d / %2$d certificate</string>
-    <string name="learn_topic_intro">Coboară pe listă. Fiecare pas se sprijină pe cel dinainte.</string>
+    <string name="learn_topic_intro">Parcurge-le în ordine. Fiecare pas se sprijină pe cel dinainte.</string>
     <string name="learn_topic_certificates">%1$d din %2$d certificate</string>
     <string name="learn_ages">Vârste %1$s</string>
 
@@ -850,6 +852,11 @@ Mută Cow — devine Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Numere și operații</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Unghiuri, triunghiuri și cercuri</string>
+
+    <string name="learn_shape_guide_title">Ghidul formelor</string>
+    <string name="learn_shape_guide_intro">%1$d forme, desenate și denumite. Atinge una ca să o vezi desenată din nou.</string>
+    <string name="learn_rules_guide_title">Ghidul regulilor</string>
+    <string name="learn_rules_guide_intro">%1$d reguli și convenții de semne, bazele într-un singur loc.</string>
 
     <string name="learn_lessons_header">Lecții</string>
     <string name="learn_lesson_progress">%1$d / %2$d lecții</string>
@@ -895,5 +902,60 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Ia toate certificatele dintr-un subiect din Învață matematică.</string>
     <string name="achievement_learn_all_certificates">Cărturar matematician</string>
     <string name="achievement_learn_all_certificates_desc">Ia un certificat la fiecare subtemă din Învață matematică.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d latură, %1$d vârf</item>
+        <item quantity="few">%1$d laturi, %1$d vârfuri</item>
+        <item quantity="other">%1$d de laturi, %1$d de vârfuri</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d latură,</item>
+        <item quantity="few">%1$d laturi,</item>
+        <item quantity="other">%1$d de laturi,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d vârf</item>
+        <item quantity="few">%1$d vârfuri</item>
+        <item quantity="other">%1$d de vârfuri</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">cub</string>
+    <string name="learn_fig_solid_sphere">sferă</string>
+    <string name="learn_fig_solid_cylinder">cilindru</string>
+    <string name="learn_fig_solid_cone">con</string>
+    <string name="learn_fig_solid_prism">prismă</string>
+    <string name="learn_fig_solid_triangular_prism">prismă triunghiulară</string>
+    <string name="learn_fig_solid_pyramid">piramidă</string>
+    <string name="learn_fig_solid_cube_counts">6 fețe · 12 muchii · 8 vârfuri</string>
+    <string name="learn_fig_solid_sphere_counts">nicio față plană, nicio muchie</string>
+    <string name="learn_fig_solid_cylinder_counts">2 fețe plane · 1 curbă</string>
+    <string name="learn_fig_solid_cone_counts">1 față plană · 1 vârf</string>
+    <string name="learn_fig_solid_prism_counts">aceeași secțiune pe toată lungimea</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 fețe · 9 muchii · 6 vârfuri</string>
+    <string name="learn_fig_solid_pyramid_counts">5 fețe · 8 muchii · 5 vârfuri</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d axă de simetrie</item>
+        <item quantity="few">%1$d axe de simetrie</item>
+        <item quantity="other">%1$d de axe de simetrie</item>
+    </plurals>
+    <string name="learn_fig_area">aria = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">perimetrul = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">scade %1$d din ambele părți</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d rând</item>
+        <item quantity="few">%1$d rânduri</item>
+        <item quantity="other">%1$d de rânduri</item>
+    </plurals>
+    <string name="learn_fig_more">încă %1$d</string>
+    <string name="learn_fig_in_each">%1$d în fiecare</string>
+    <string name="learn_fig_percent_of">%1$s% din %2$s</string>
+    <string name="learn_fig_gradient">panta %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">media %1$s</string>
+    <string name="learn_fig_mean">media</string>
+    <string name="learn_fig_standard_deviations">%1$s ab. std.</string>
+    <string name="learn_fig_symbol_key">1 simbol = %1$d</string>
 
 </resources>

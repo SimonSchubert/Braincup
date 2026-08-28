@@ -1,5 +1,9 @@
 package com.inspiredandroid.braincup.learn
 
+import braincup.composeapp.generated.resources.*
+import braincup.composeapp.generated.resources.Res
+import org.jetbrains.compose.resources.StringResource
+
 /**
  * The shape guide: every shape a learner is expected to know by name, drawn and named in one
  * place.
@@ -9,27 +13,26 @@ package com.inspiredandroid.braincup.learn
  * one with five sides called again?". This answers that in a single scroll, and every figure is
  * the same animated one the lessons use, so tapping a shape draws it again.
  *
- * Names and facts are authored here in English, exactly like the lesson prose in
- * `learn/content` and for the same reason: this is catalog content, not UI chrome. The screen
- * around it - its title, the button that opens it - goes through `strings.xml` and stays
- * translatable.
+ * Names and facts go through `strings.xml` like the lessons themselves, keyed by the entry ids
+ * below: `learn_shape_hexagon_name`, `learn_shape_hexagon_fact`. Only the ids stay here, because
+ * they key the grid cells rather than being read.
  */
 object ShapeGuide {
 
     /** One shape: what it is called, the fact that pins it down, and the figure that draws it. */
     data class Entry(
         val id: String,
-        val name: String,
+        val name: StringResource,
         /** The one line that separates this shape from its neighbours in the same section. */
-        val fact: String,
+        val fact: CatalogText,
         val visual: LearnVisual,
     )
 
     /** A run of shapes that belong together, with the line that says what they have in common. */
     data class Section(
         val id: String,
-        val title: String,
-        val blurb: String,
+        val title: StringResource,
+        val blurb: StringResource,
         val shapes: List<Entry>,
     )
 
@@ -43,49 +46,49 @@ object ShapeGuide {
      */
     private val polygons = Section(
         id = "polygons",
-        title = "Polygons",
-        blurb = "Named for how many sides they have. Drawn regular here, with every side and angle equal.",
+        title = Res.string.learn_shapeguide_polygons_title,
+        blurb = Res.string.learn_shapeguide_polygons_blurb,
         shapes = listOf(
-            polygon("triangle", "Triangle", 3),
-            polygon("quadrilateral", "Quadrilateral", 4),
-            polygon("pentagon", "Pentagon", 5),
-            polygon("hexagon", "Hexagon", 6),
-            polygon("heptagon", "Heptagon", 7),
-            polygon("octagon", "Octagon", 8),
-            polygon("nonagon", "Nonagon", 9),
-            polygon("decagon", "Decagon", 10),
-            polygon("hendecagon", "Hendecagon", 11),
-            polygon("dodecagon", "Dodecagon", 12),
+            polygon("triangle", Res.string.learn_shape_triangle_name, 3),
+            polygon("quadrilateral", Res.string.learn_shape_quadrilateral_name, 4),
+            polygon("pentagon", Res.string.learn_shape_pentagon_name, 5),
+            polygon("hexagon", Res.string.learn_shape_hexagon_name, 6),
+            polygon("heptagon", Res.string.learn_shape_heptagon_name, 7),
+            polygon("octagon", Res.string.learn_shape_octagon_name, 8),
+            polygon("nonagon", Res.string.learn_shape_nonagon_name, 9),
+            polygon("decagon", Res.string.learn_shape_decagon_name, 10),
+            polygon("hendecagon", Res.string.learn_shape_hendecagon_name, 11),
+            polygon("dodecagon", Res.string.learn_shape_dodecagon_name, 12),
         ),
     )
 
     private val triangles = Section(
         id = "triangles",
-        title = "Triangles",
-        blurb = "Three sides, sorted by which of them match. Ticks mark the sides of equal length.",
+        title = Res.string.learn_shapeguide_triangles_title,
+        blurb = Res.string.learn_shapeguide_triangles_blurb,
         shapes = listOf(
             Entry(
                 id = "equilateral",
-                name = "Equilateral",
-                fact = "3 equal sides · every angle 60°",
+                name = Res.string.learn_shape_equilateral_name,
+                fact = words(Res.string.learn_shape_equilateral_fact),
                 visual = LearnVisual.Triangle(kind = TriKind.EQUILATERAL),
             ),
             Entry(
                 id = "isosceles",
-                name = "Isosceles",
-                fact = "2 equal sides · 2 equal angles",
+                name = Res.string.learn_shape_isosceles_name,
+                fact = words(Res.string.learn_shape_isosceles_fact),
                 visual = LearnVisual.Triangle(kind = TriKind.ISOSCELES),
             ),
             Entry(
                 id = "scalene",
-                name = "Scalene",
-                fact = "No two sides the same length",
+                name = Res.string.learn_shape_scalene_name,
+                fact = words(Res.string.learn_shape_scalene_fact),
                 visual = LearnVisual.Triangle(kind = TriKind.SCALENE),
             ),
             Entry(
                 id = "right-triangle",
-                name = "Right triangle",
-                fact = "One corner of exactly 90°",
+                name = Res.string.learn_shape_right_triangle_name,
+                fact = words(Res.string.learn_shape_right_triangle_fact),
                 // Bare, because the guide names the shape and side lengths would read as part of
                 // the definition. The little square at the corner is the definition.
                 visual = LearnVisual.RightTriangle(a = 4, b = 3, labels = false),
@@ -95,45 +98,45 @@ object ShapeGuide {
 
     private val quadrilaterals = Section(
         id = "quadrilaterals",
-        title = "Quadrilaterals",
-        blurb = "Four sides, six families. Ticks mark equal sides and arrows mark parallel ones.",
+        title = Res.string.learn_shapeguide_quadrilaterals_title,
+        blurb = Res.string.learn_shapeguide_quadrilaterals_blurb,
         shapes = listOf(
-            quad("square", "Square", "4 equal sides · 4 right angles", QuadKind.SQUARE),
-            quad("rectangle", "Rectangle", "Opposite sides equal · 4 right angles", QuadKind.RECTANGLE),
-            quad("rhombus", "Rhombus", "4 equal sides, leaning over", QuadKind.RHOMBUS),
-            quad("parallelogram", "Parallelogram", "Both pairs of opposite sides parallel", QuadKind.PARALLELOGRAM),
-            quad("trapezium", "Trapezium", "Exactly one pair of parallel sides", QuadKind.TRAPEZIUM),
-            quad("kite", "Kite", "Two pairs of equal sides, next to each other", QuadKind.KITE),
+            quad("square", Res.string.learn_shape_square_name, words(Res.string.learn_shape_square_fact), QuadKind.SQUARE),
+            quad("rectangle", Res.string.learn_shape_rectangle_name, words(Res.string.learn_shape_rectangle_fact), QuadKind.RECTANGLE),
+            quad("rhombus", Res.string.learn_shape_rhombus_name, words(Res.string.learn_shape_rhombus_fact), QuadKind.RHOMBUS),
+            quad("parallelogram", Res.string.learn_shape_parallelogram_name, words(Res.string.learn_shape_parallelogram_fact), QuadKind.PARALLELOGRAM),
+            quad("trapezium", Res.string.learn_shape_trapezium_name, words(Res.string.learn_shape_trapezium_fact), QuadKind.TRAPEZIUM),
+            quad("kite", Res.string.learn_shape_kite_name, words(Res.string.learn_shape_kite_fact), QuadKind.KITE),
         ),
     )
 
     private val curves = Section(
         id = "curves",
-        title = "Round shapes",
-        blurb = "The shapes no count of straight sides describes.",
+        title = Res.string.learn_shapeguide_curves_title,
+        blurb = Res.string.learn_shapeguide_curves_blurb,
         shapes = listOf(
             Entry(
                 id = "circle",
-                name = "Circle",
-                fact = "Every point the same distance from the centre",
+                name = Res.string.learn_shape_circle_name,
+                fact = words(Res.string.learn_shape_circle_fact),
                 visual = LearnVisual.CircleFigure(showRadius = true, reveal = false),
             ),
             Entry(
                 id = "oval",
-                name = "Oval",
-                fact = "A stretched circle: two different widths",
+                name = Res.string.learn_shape_oval_name,
+                fact = words(Res.string.learn_shape_oval_fact),
                 visual = LearnVisual.FlatShape(kind = FlatShapeKind.OVAL),
             ),
             Entry(
                 id = "semicircle",
-                name = "Semicircle",
-                fact = "Half a circle, cut along its diameter",
+                name = Res.string.learn_shape_semicircle_name,
+                fact = words(Res.string.learn_shape_semicircle_fact),
                 visual = LearnVisual.FlatShape(kind = FlatShapeKind.SEMICIRCLE),
             ),
             Entry(
                 id = "star",
-                name = "Star",
-                fact = "5 points · 10 sides, turning in and out",
+                name = Res.string.learn_shape_star_name,
+                fact = words(Res.string.learn_shape_star_fact),
                 visual = LearnVisual.FlatShape(kind = FlatShapeKind.STAR),
             ),
         ),
@@ -148,21 +151,21 @@ object ShapeGuide {
      */
     private val solids = Section(
         id = "solids",
-        title = "Solids",
-        blurb = "Shapes you can hold. A face is a flat side, an edge is where two faces meet.",
+        title = Res.string.learn_shapeguide_solids_title,
+        blurb = Res.string.learn_shapeguide_solids_blurb,
         shapes = listOf(
-            solid("cube", "Cube", "6 square faces · 12 edges · 8 corners", SolidKind.CUBE),
-            solid("cuboid", "Cuboid", "A box: 6 rectangular faces", SolidKind.PRISM),
+            solid("cube", Res.string.learn_shape_cube_name, words(Res.string.learn_shape_cube_fact), SolidKind.CUBE),
+            solid("cuboid", Res.string.learn_shape_cuboid_name, words(Res.string.learn_shape_cuboid_fact), SolidKind.PRISM),
             solid(
                 "triangular-prism",
-                "Triangular prism",
-                "Two triangle ends, three rectangles between",
+                Res.string.learn_shape_triangular_prism_name,
+                words(Res.string.learn_shape_triangular_prism_fact),
                 SolidKind.TRIANGULAR_PRISM,
             ),
-            solid("pyramid", "Pyramid", "A square base rising to one point", SolidKind.PYRAMID),
-            solid("cylinder", "Cylinder", "Two circle ends and one curved face", SolidKind.CYLINDER),
-            solid("cone", "Cone", "One circle base rising to a point", SolidKind.CONE),
-            solid("sphere", "Sphere", "No faces, no edges, no corners", SolidKind.SPHERE),
+            solid("pyramid", Res.string.learn_shape_pyramid_name, words(Res.string.learn_shape_pyramid_fact), SolidKind.PYRAMID),
+            solid("cylinder", Res.string.learn_shape_cylinder_name, words(Res.string.learn_shape_cylinder_fact), SolidKind.CYLINDER),
+            solid("cone", Res.string.learn_shape_cone_name, words(Res.string.learn_shape_cone_fact), SolidKind.CONE),
+            solid("sphere", Res.string.learn_shape_sphere_name, words(Res.string.learn_shape_sphere_fact), SolidKind.SPHERE),
         ),
     )
 
@@ -174,21 +177,23 @@ object ShapeGuide {
      * A polygon cell. The corner numbering the lessons use is off here: at cell size the numbers
      * around a dodecagon are a smudge, and the side count is written under the shape anyway.
      */
-    private fun polygon(id: String, name: String, sides: Int) = Entry(
+    private fun polygon(id: String, name: StringResource, sides: Int) = Entry(
         id = id,
         name = name,
-        fact = "$sides sides · $sides corners",
+        // Ten polygons whose fact differs only in a number is one sentence, and a language that
+        // inflects "side" cannot write it from a fixed string.
+        fact = counted(Res.plurals.learn_shape_polygon_fact, sides),
         visual = LearnVisual.Polygon(sides = sides, countCorners = false, reveal = false),
     )
 
-    private fun quad(id: String, name: String, fact: String, kind: QuadKind) = Entry(
+    private fun quad(id: String, name: StringResource, fact: CatalogText, kind: QuadKind) = Entry(
         id = id,
         name = name,
         fact = fact,
         visual = LearnVisual.Quadrilateral(kind = kind),
     )
 
-    private fun solid(id: String, name: String, fact: String, kind: SolidKind) = Entry(
+    private fun solid(id: String, name: StringResource, fact: CatalogText, kind: SolidKind) = Entry(
         id = id,
         name = name,
         fact = fact,

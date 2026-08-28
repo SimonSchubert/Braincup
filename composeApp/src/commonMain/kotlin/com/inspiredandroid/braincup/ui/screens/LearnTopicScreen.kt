@@ -1,8 +1,10 @@
 package com.inspiredandroid.braincup.ui.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -23,10 +25,15 @@ import com.inspiredandroid.braincup.ui.components.LearnGuideButton
 import com.inspiredandroid.braincup.ui.components.LearnSubTopicRow
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
-import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
+
+/**
+ * One rung to a row on a phone, several to a line on a tablet or a desktop window. Wide enough for
+ * the longest sub-topic title to sit beside its difficulty chip without wrapping to a third line.
+ */
+private val SubTopicCellMinWidth = 300.dp
 
 /** One topic's ladder of sub-topics, easiest first. Each row opens that sub-topic's lessons. */
 @Composable
@@ -56,6 +63,9 @@ fun LearnTopicScreenContent(
     onBack: () -> Unit,
 ) {
     val certificateCount = remember(progress) { progress.count { it.hasCertificate } }
+    // The age bands this topic actually covers, in ladder order, so the row meter can say which of
+    // them a rung sits at rather than how far down the list it happens to be.
+    val bands = remember(progress) { progress.map { it.unit.level }.distinct() }
 
     AppScaffold(
         title = stringResource(topic.titleRes),
@@ -65,15 +75,18 @@ fun LearnTopicScreenContent(
         // rung - nothing is taught by it and no certificate comes out of it.
         actions = { LearnGuideButton(topic = topic, onClick = onGuide) },
     ) {
-        LazyColumn(
+        LazyVerticalGrid(
+            // A ladder still reads in order when it wraps, and a wide window fits three rungs to a
+            // line instead of stretching one across the whole screen.
+            columns = GridCells.Adaptive(minSize = SubTopicCellMinWidth),
             modifier = Modifier
                 .weight(1f)
-                .fillMaxWidth()
-                .widthIn(max = ContentMaxWidth),
+                .fillMaxWidth(),
             contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(10.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            item(contentType = "topic_intro") {
+            item(span = { GridItemSpan(maxLineSpan) }, contentType = "topic_intro") {
                 Column(modifier = Modifier.fillMaxWidth().padding(bottom = 4.dp)) {
                     Text(
                         text = stringResource(topic.subtitleRes),
@@ -108,11 +121,11 @@ fun LearnTopicScreenContent(
                 items = progress,
                 key = { _, item -> item.unit.id },
                 contentType = { _, _ -> "learn_subtopic" },
-            ) { index, unitProgress ->
+            ) { _, unitProgress ->
                 LearnSubTopicRow(
                     unit = unitProgress.unit,
-                    position = index + 1,
-                    ladderSize = progress.size,
+                    band = bands.indexOf(unitProgress.unit.level) + 1,
+                    bands = bands.size,
                     hasCertificate = unitProgress.hasCertificate,
                     onClick = onUnitSelected,
                 )

@@ -11,11 +11,16 @@ import app.cash.paparazzi.DeviceConfig
 import com.android.resources.ScreenOrientation
 import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.learn.LearnCatalog
+import com.inspiredandroid.braincup.learn.CatalogText
 import com.inspiredandroid.braincup.learn.LessonStep
 import com.inspiredandroid.braincup.ui.theme.BraincupTheme
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.OledColorScheme
+import kotlinx.coroutines.runBlocking
+import org.jetbrains.compose.resources.getPluralString
+import org.jetbrains.compose.resources.getString
+import org.jetbrains.compose.resources.getSystemResourceEnvironment
 
 /**
  * Shared rig for the Learn section's render check.
@@ -112,9 +117,27 @@ fun LessonStep.kindTag(): String = when (this) {
     is LessonStep.Numeric -> "numeric"
 }
 
-/** An option this step rejects, for the miss state. Every authored step has at least two. */
+/**
+ * An option this step rejects, as the text the miss state records. Every authored step has at
+ * least two.
+ *
+ * Resolved here rather than handed back as a key: `LessonAnswer.Missed` holds what the learner
+ * tapped, and the option tiles are matched against it by text.
+ */
 fun LessonStep.Choice.wrongOption(): String =
-    options.filterIndexed { index, _ -> index != correctIndex }.first()
+    options.filterIndexed { index, _ -> index != correctIndex }.first().render()
+
+/** A catalog run in the render locale, outside composition. */
+fun CatalogText.render(): String = when (this) {
+    is CatalogText.Value -> text
+    is CatalogText.Words -> runBlocking { getString(getSystemResourceEnvironment(), res) }
+    is CatalogText.Counted -> runBlocking {
+        getPluralString(getSystemResourceEnvironment(), res, count, count)
+    }
+    is CatalogText.Formatted -> runBlocking {
+        getString(getSystemResourceEnvironment(), res, *args.toTypedArray())
+    }
+}
 
 /** An index this step rejects, for seeding a test that was not passed. */
 fun wrongIndexFor(correctIndex: Int, optionCount: Int): Int =

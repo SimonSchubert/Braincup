@@ -23,6 +23,7 @@
     <string name="title_master">Meistars</string>
     <string name="title_grandmaster">Lielmeistars</string>
     <string name="achievements_button">Sasniegumi (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Dzēst pēdējo ciparu</string>
     <string name="normal_sudoku_button">Klasiskais Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Iesācējs</string>
@@ -408,6 +409,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="solution_pointing">%1$s %2$s vērsts %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">kolonna %1$d un rinda %2$d</string>
+    <string name="hint_remember">Atceries %1$d</string>
     <string name="solution_left">Pa kreisi</string>
     <string name="solution_right">Pa labi</string>
 
@@ -831,7 +833,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d sertifikāti</string>
     <string name="learn_title">Mācies matemātiku</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifikāti</string>
-    <string name="learn_topic_intro">Virzies pa sarakstu uz leju. Katrs solis balstās uz iepriekšējo.</string>
+    <string name="learn_topic_intro">Izej tos pēc kārtas. Katrs solis balstās uz iepriekšējo.</string>
     <string name="learn_topic_certificates">%1$d no %2$d ar sertifikātu</string>
     <string name="learn_ages">Vecums %1$s</string>
 
@@ -850,6 +852,11 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Skaitļi un darbības</string>
     <string name="learn_topic_geometry">Ģeometrija</string>
     <string name="learn_topic_geometry_subtitle">Leņķi, trijstūri un riņķi</string>
+
+    <string name="learn_shape_guide_title">Formu ceļvedis</string>
+    <string name="learn_shape_guide_intro">%1$d formas, uzzīmētas un nosauktas. Pieskaries kādai, lai redzētu to uzzīmētu vēlreiz.</string>
+    <string name="learn_rules_guide_title">Likumu ceļvedis</string>
+    <string name="learn_rules_guide_intro">%1$d likumi un zīmju vienošanās, pamati vienuviet.</string>
 
     <string name="learn_lessons_header">Stundas</string>
     <string name="learn_lesson_progress">%1$d / %2$d stundas</string>
@@ -895,5 +902,60 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Iegūsti visus vienas Mācies matemātiku tēmas sertifikātus.</string>
     <string name="achievement_learn_all_certificates">Matemātikas zinātājs</string>
     <string name="achievement_learn_all_certificates_desc">Iegūsti sertifikātu katrā Mācies matemātiku apakštēmā.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="zero">%1$d malu, %1$d stūru</item>
+        <item quantity="one">%1$d mala, %1$d stūris</item>
+        <item quantity="other">%1$d malas, %1$d stūri</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="zero">%1$d malu,</item>
+        <item quantity="one">%1$d mala,</item>
+        <item quantity="other">%1$d malas,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="zero">%1$d stūru</item>
+        <item quantity="one">%1$d stūris</item>
+        <item quantity="other">%1$d stūri</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kubs</string>
+    <string name="learn_fig_solid_sphere">lode</string>
+    <string name="learn_fig_solid_cylinder">cilindrs</string>
+    <string name="learn_fig_solid_cone">konuss</string>
+    <string name="learn_fig_solid_prism">prizma</string>
+    <string name="learn_fig_solid_triangular_prism">trijstūra prizma</string>
+    <string name="learn_fig_solid_pyramid">piramīda</string>
+    <string name="learn_fig_solid_cube_counts">6 skaldnes · 12 šķautnes · 8 virsotnes</string>
+    <string name="learn_fig_solid_sphere_counts">nav plakanu skaldņu, nav šķautņu</string>
+    <string name="learn_fig_solid_cylinder_counts">2 plakanas skaldnes · 1 izliekta</string>
+    <string name="learn_fig_solid_cone_counts">1 plakana skaldne · 1 virsotne</string>
+    <string name="learn_fig_solid_prism_counts">vienāds šķērsgriezums visā garumā</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 skaldnes · 9 šķautnes · 6 virsotnes</string>
+    <string name="learn_fig_solid_pyramid_counts">5 skaldnes · 8 šķautnes · 5 virsotnes</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="zero">%1$d simetrijas asu</item>
+        <item quantity="one">%1$d simetrijas ass</item>
+        <item quantity="other">%1$d simetrijas asis</item>
+    </plurals>
+    <string name="learn_fig_area">laukums = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">perimetrs = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">atņem %1$d no abām pusēm</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="zero">%1$d rindu</item>
+        <item quantity="one">%1$d rinda</item>
+        <item quantity="other">%1$d rindas</item>
+    </plurals>
+    <string name="learn_fig_more">vēl %1$d</string>
+    <string name="learn_fig_in_each">pa %1$d katrā</string>
+    <string name="learn_fig_percent_of">%1$s% no %2$s</string>
+    <string name="learn_fig_gradient">slīpums %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">vidējais %1$s</string>
+    <string name="learn_fig_mean">vidējais</string>
+    <string name="learn_fig_standard_deviations">%1$s st. nov.</string>
+    <string name="learn_fig_symbol_key">1 simbols = %1$d</string>
 
 </resources>

@@ -16,6 +16,7 @@
     <string name="button_done">Listo</string>
 
     <string name="achievements_button">Logros (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Borrar el último dígito</string>
 
     <string name="quit_game_title">¿Salir del juego?</string>
     <string name="quit_game_message">Tu progreso en esta partida no se guardará.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s apuntando %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">columna %1$d y fila %2$d</string>
+    <string name="hint_remember">Recuerda %1$d</string>
     <string name="solution_left">Izquierda</string>
     <string name="solution_right">Derecha</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">%1$d / %2$d certificados</string>
     <string name="learn_title">Aprender mates</string>
     <string name="learn_unit_progress">%1$d / %2$d certificados</string>
-    <string name="learn_topic_intro">Baja por la lista. Cada paso se apoya en el anterior.</string>
+    <string name="learn_topic_intro">Recórrelos en orden. Cada paso se apoya en el anterior.</string>
     <string name="learn_topic_certificates">%1$d de %2$d certificados</string>
     <string name="learn_ages">Edades %1$s</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">Números &amp; operaciones</string>
     <string name="learn_topic_geometry">Geometría</string>
     <string name="learn_topic_geometry_subtitle">Ángulos, triángulos &amp; círculos</string>
+
+    <string name="learn_shape_guide_title">Guía de formas</string>
+    <string name="learn_shape_guide_intro">%1$d formas, dibujadas y nombradas. Toca una para verla dibujarse otra vez.</string>
+    <string name="learn_rules_guide_title">Guía de reglas</string>
+    <string name="learn_rules_guide_intro">%1$d reglas y convenios de signos, lo básico en un solo sitio.</string>
 
     <string name="learn_lessons_header">Lecciones</string>
     <string name="learn_lesson_progress">%1$d / %2$d lecciones</string>
@@ -877,5 +884,55 @@
     <string name="achievement_learn_topic_certificates_desc">Consigue todos los certificados de un tema de Aprende Matemáticas.</string>
     <string name="achievement_learn_all_certificates">Erudito de las mates</string>
     <string name="achievement_learn_all_certificates_desc">Consigue un certificado en cada subtema de Aprende Matemáticas.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d lado, %1$d vértice</item>
+        <item quantity="other">%1$d lados, %1$d vértices</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d lado,</item>
+        <item quantity="other">%1$d lados,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d vértice</item>
+        <item quantity="other">%1$d vértices</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">cubo</string>
+    <string name="learn_fig_solid_sphere">esfera</string>
+    <string name="learn_fig_solid_cylinder">cilindro</string>
+    <string name="learn_fig_solid_cone">cono</string>
+    <string name="learn_fig_solid_prism">prisma</string>
+    <string name="learn_fig_solid_triangular_prism">prisma triangular</string>
+    <string name="learn_fig_solid_pyramid">pirámide</string>
+    <string name="learn_fig_solid_cube_counts">6 caras · 12 aristas · 8 vértices</string>
+    <string name="learn_fig_solid_sphere_counts">sin caras planas, sin aristas</string>
+    <string name="learn_fig_solid_cylinder_counts">2 caras planas · 1 curva</string>
+    <string name="learn_fig_solid_cone_counts">1 cara plana · 1 punta</string>
+    <string name="learn_fig_solid_prism_counts">la misma sección de un extremo al otro</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 caras · 9 aristas · 6 vértices</string>
+    <string name="learn_fig_solid_pyramid_counts">5 caras · 8 aristas · 5 vértices</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d eje de simetría</item>
+        <item quantity="other">%1$d ejes de simetría</item>
+    </plurals>
+    <string name="learn_fig_area">área = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">perímetro = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">quita %1$d de los dos lados</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d fila</item>
+        <item quantity="other">%1$d filas</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d más</string>
+    <string name="learn_fig_in_each">%1$d en cada una</string>
+    <string name="learn_fig_percent_of">%1$s% de %2$s</string>
+    <string name="learn_fig_gradient">pendiente %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">media %1$s</string>
+    <string name="learn_fig_mean">media</string>
+    <string name="learn_fig_standard_deviations">%1$s DE</string>
+    <string name="learn_fig_symbol_key">1 símbolo = %1$d</string>
 
 </resources>

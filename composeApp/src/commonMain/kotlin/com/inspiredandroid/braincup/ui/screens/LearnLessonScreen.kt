@@ -30,6 +30,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
 import com.inspiredandroid.braincup.learn.LessonStep
+import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
@@ -50,6 +51,7 @@ import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.SuccessGreenOnContainer
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -162,7 +164,7 @@ fun LearnLessonScreenContent(
     }
 
     AppScaffold(
-        title = lesson.title,
+        title = stringResource(lesson.title),
         onBack = onBack,
         scrollable = false,
     ) {
@@ -191,15 +193,21 @@ fun LearnLessonScreenContent(
             when (step) {
                 is LessonStep.Concept -> ConceptStep(step)
                 is LessonStep.Worked -> WorkedStep(step, revealedLines)
-                is LessonStep.Choice -> ChoiceStep(
-                    step = step,
-                    answer = answer,
-                    onSelect = { index ->
-                        if (answer !is LessonAnswer.Correct) {
-                            submit(step.options[index], index == step.correctIndex)
-                        }
-                    },
-                )
+                is LessonStep.Choice -> {
+                    // Answers are recorded as the text the learner tapped, so the options are
+                    // resolved once here and the step below works in plain strings.
+                    val options = step.options.map { it.resolve() }
+                    ChoiceStep(
+                        step = step,
+                        options = options,
+                        answer = answer,
+                        onSelect = { index ->
+                            if (answer !is LessonAnswer.Correct) {
+                                submit(options[index], index == step.correctIndex)
+                            }
+                        },
+                    )
+                }
 
                 is LessonStep.Numeric -> NumericStep(
                     step = step,
@@ -296,14 +304,14 @@ private fun ConceptStep(step: LessonStep.Concept) {
         LearnFigurePanel(it, modifier = Modifier.padding(bottom = 16.dp))
     }
     LessonText(
-        text = step.body,
+        text = step.body.resolve(),
         style = MaterialTheme.typography.bodyLarge,
         textAlign = TextAlign.Center,
         modifier = Modifier.widthIn(max = LearnContentWidth),
     )
     step.formula?.let { formula ->
         Spacer(Modifier.height(16.dp))
-        LearnFormulaCard(formula)
+        LearnFormulaCard(formula.resolve())
     }
 }
 
@@ -329,23 +337,40 @@ private fun LessonText(
     )
 }
 
+/** How much of a worked example's figure is already drawn before the first line is turned over. */
+private const val WorkedFigureOpening = 0.45f
+
 @Composable
 private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
-    val worked = revealedLines >= step.lines.size
+    val problem = step.problem.resolve()
+    val result = step.result.resolve()
+    val lines = step.lines.map { it.resolve() }
+    val worked = revealedLines >= lines.size
     // A problem asked as an equation finishes where it was asked: the answer lands on the question
     // mark, exactly as it does on a question step, rather than being restated underneath. A problem
     // asked in words has no question mark to land on, so that one still answers on its own line.
-    val finishesInPlace = step.problem.trimEnd().endsWith("= ?")
+    val finishesInPlace = problem.trimEnd().endsWith("= ?")
     // The sum leads, above the figure and in the same card the teaching steps give their formula:
     // it is the thing being worked out, and the diagram under it is the picture of that sum.
     LearnFormulaCard(
-        if (worked && finishesInPlace) step.problem.replace("?", "{c:${step.result}}") else step.problem,
+        if (worked && finishesInPlace) problem.replace("?", "{c:$result}") else problem,
     )
     Spacer(Modifier.height(16.dp))
     step.visual?.let {
-        LearnFigurePanel(it, modifier = Modifier.padding(bottom = 16.dp))
+        LearnFigurePanel(
+            visual = it,
+            modifier = Modifier.padding(bottom = 16.dp),
+            // The diagram keeps pace with the working rather than arriving finished. It opens
+            // mostly drawn - the setup the problem hands you is not a spoiler, and a near-empty
+            // panel under a question is worse than a full one - and completes on the last line.
+            drivenProgress = if (lines.isEmpty()) {
+                null
+            } else {
+                WorkedFigureOpening + (1f - WorkedFigureOpening) * (revealedLines / lines.size.toFloat())
+            },
+        )
     }
-    step.lines.take(revealedLines).forEach { line ->
+    lines.take(revealedLines).forEach { line ->
         PrismCard(
             face = MaterialTheme.colorScheme.surfaceVariant,
             modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth().padding(vertical = 4.dp),
@@ -364,7 +389,7 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
     AnimatedVisibility(visible = worked && !finishesInPlace) {
         Column {
             Spacer(Modifier.height(8.dp))
-            LearnAnswerCard(stringResource(Res.string.learn_answer_label), step.result)
+            LearnAnswerCard(stringResource(Res.string.learn_answer_label), result)
         }
     }
 }
@@ -372,25 +397,27 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
 @Composable
 private fun ColumnScope.ChoiceStep(
     step: LessonStep.Choice,
+    options: List<String>,
     answer: LessonAnswer,
     onSelect: (Int) -> Unit,
 ) {
+    val correct = options[step.correctIndex]
     step.visual?.let {
         LearnFigurePanel(
             visual = it,
             modifier = Modifier.padding(bottom = 16.dp),
-            answer = answer.visualAnswer(step.options[step.correctIndex]),
+            answer = answer.visualAnswer(correct),
         )
     }
     QuestionHeading(
-        formula = step.formula,
-        question = step.question,
-        solved = (answer as? LessonAnswer.Correct)?.let { step.options[step.correctIndex] },
+        formula = step.formula?.resolve(),
+        question = step.question.resolve(),
+        solved = (answer as? LessonAnswer.Correct)?.let { correct },
     )
     Spacer(Modifier.height(16.dp))
 
     val missed = (answer as? LessonAnswer.Missed)?.attempts.orEmpty()
-    step.options.forEachIndexed { index, option ->
+    options.forEachIndexed { index, option ->
         LearnOptionTile(
             label = option,
             state = when {
@@ -404,7 +431,7 @@ private fun ColumnScope.ChoiceStep(
         Spacer(Modifier.height(8.dp))
     }
     when (answer) {
-        is LessonAnswer.Correct -> FeedbackCard(step.explanation)
+        is LessonAnswer.Correct -> FeedbackCard(step.explanation.resolve())
         is LessonAnswer.Missed -> RetryNote()
         LessonAnswer.Unanswered -> Unit
     }
@@ -473,21 +500,22 @@ private fun NumericStep(
             answer = answer.visualAnswer(step.answer),
         )
     }
+    val formula = step.formula?.resolve()
     QuestionHeading(
-        formula = step.formula,
-        question = step.question,
+        formula = formula,
+        question = step.question.resolve(),
         solved = (answer as? LessonAnswer.Correct)?.let { step.answer },
     )
     if (answer is LessonAnswer.Correct) {
         // Only when the question had nowhere to resolve. A formula ending in "= ?" already
         // finishes in front of the learner, in the answer green, so reading the same number back
         // to them underneath it is the number twice and the card stack once too often.
-        if (step.formula?.trimEnd()?.endsWith("= ?") != true) {
+        if (formula?.trimEnd()?.endsWith("= ?") != true) {
             Spacer(Modifier.height(12.dp))
             LearnAnswerCard(stringResource(Res.string.learn_your_answer), typedAnswer)
         }
         Spacer(Modifier.height(8.dp))
-        FeedbackCard(step.explanation)
+        FeedbackCard(step.explanation.resolve())
     } else {
         // Keyed so the pad's buffer starts empty on a new question, and again after a miss so the
         // rejected number is cleared rather than needing backspacing away.
@@ -522,7 +550,11 @@ private fun FeedbackCard(explanation: String) {
                 text = stringResource(Res.string.learn_correct),
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.Bold,
-                color = OnPrimaryContainer,
+                // Green, because green means "the answer" everywhere else in the section: the tile
+                // that was just tapped, the value the figure marks, the `{c:}` the formula
+                // resolves to. Saying "Correct!" in the card's own purple made this the one place
+                // correctness had a colour of its own.
+                color = SuccessGreenOnContainer,
             )
             Spacer(Modifier.height(4.dp))
             LessonText(

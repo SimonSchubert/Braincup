@@ -16,6 +16,7 @@
     <string name="button_done">Готово</string>
 
     <string name="achievements_button">Досягнення (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Видалити останню цифру</string>
 
     <string name="quit_game_title">Вийти з гри?</string>
     <string name="quit_game_message">Ваш прогрес у цій грі не буде збережено.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s спрямований %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">стовпець %1$d і рядок %2$d</string>
+    <string name="hint_remember">Запам'ятай %1$d</string>
     <string name="solution_left">Ліва</string>
     <string name="solution_right">Права</string>
 
@@ -814,7 +816,7 @@
     <string name="learn_section_certificates">%1$d / %2$d сертифікатів</string>
     <string name="learn_title">Вчити математику</string>
     <string name="learn_unit_progress">%1$d / %2$d сертифікатів</string>
-    <string name="learn_topic_intro">Рухайся списком униз. Кожен крок спирається на попередній.</string>
+    <string name="learn_topic_intro">Проходь їх по черзі. Кожен крок спирається на попередній.</string>
     <string name="learn_topic_certificates">%1$d з %2$d із сертифікатом</string>
     <string name="learn_ages">Вік %1$s</string>
 
@@ -833,6 +835,11 @@
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; дії</string>
     <string name="learn_topic_geometry">Геометрія</string>
     <string name="learn_topic_geometry_subtitle">Кути, трикутники &amp; кола</string>
+
+    <string name="learn_shape_guide_title">Довідник фігур</string>
+    <string name="learn_shape_guide_intro">%1$d фігур, намальованих і названих. Натисни на будь-яку, щоб побачити її знову.</string>
+    <string name="learn_rules_guide_title">Довідник правил</string>
+    <string name="learn_rules_guide_intro">%1$d правил і знакових домовленостей, основи в одному місці.</string>
 
     <string name="learn_lessons_header">Уроки</string>
     <string name="learn_lesson_progress">%1$d / %2$d уроків</string>
@@ -878,5 +885,65 @@
     <string name="achievement_learn_topic_certificates_desc">Здобудь усі сертифікати однієї теми у Вивченні математики.</string>
     <string name="achievement_learn_all_certificates">Знавець математики</string>
     <string name="achievement_learn_all_certificates_desc">Здобудь сертифікат у кожній підтемі Вивчення математики.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d сторона, %1$d кут</item>
+        <item quantity="few">%1$d сторони, %1$d кути</item>
+        <item quantity="many">%1$d сторін, %1$d кутів</item>
+        <item quantity="other">%1$d сторони, %1$d кута</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d сторона,</item>
+        <item quantity="few">%1$d сторони,</item>
+        <item quantity="many">%1$d сторін,</item>
+        <item quantity="other">%1$d сторони,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d кут</item>
+        <item quantity="few">%1$d кути</item>
+        <item quantity="many">%1$d кутів</item>
+        <item quantity="other">%1$d кута</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">куб</string>
+    <string name="learn_fig_solid_sphere">куля</string>
+    <string name="learn_fig_solid_cylinder">циліндр</string>
+    <string name="learn_fig_solid_cone">конус</string>
+    <string name="learn_fig_solid_prism">призма</string>
+    <string name="learn_fig_solid_triangular_prism">трикутна призма</string>
+    <string name="learn_fig_solid_pyramid">піраміда</string>
+    <string name="learn_fig_solid_cube_counts">6 граней · 12 ребер · 8 вершин</string>
+    <string name="learn_fig_solid_sphere_counts">немає плоских граней, немає ребер</string>
+    <string name="learn_fig_solid_cylinder_counts">2 плоскі грані · 1 вигнута</string>
+    <string name="learn_fig_solid_cone_counts">1 плоска грань · 1 вершина</string>
+    <string name="learn_fig_solid_prism_counts">однаковий переріз по всій довжині</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 граней · 9 ребер · 6 вершин</string>
+    <string name="learn_fig_solid_pyramid_counts">5 граней · 8 ребер · 5 вершин</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d вісь симетрії</item>
+        <item quantity="few">%1$d осі симетрії</item>
+        <item quantity="many">%1$d осей симетрії</item>
+        <item quantity="other">%1$d осі симетрії</item>
+    </plurals>
+    <string name="learn_fig_area">площа = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">периметр = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">відніми %1$d з обох боків</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d ряд</item>
+        <item quantity="few">%1$d ряди</item>
+        <item quantity="many">%1$d рядів</item>
+        <item quantity="other">%1$d ряду</item>
+    </plurals>
+    <string name="learn_fig_more">ще %1$d</string>
+    <string name="learn_fig_in_each">по %1$d у кожному</string>
+    <string name="learn_fig_percent_of">%1$s% від %2$s</string>
+    <string name="learn_fig_gradient">нахил %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">середнє %1$s</string>
+    <string name="learn_fig_mean">середнє</string>
+    <string name="learn_fig_standard_deviations">%1$s σ</string>
+    <string name="learn_fig_symbol_key">1 символ = %1$d</string>
 
 </resources>

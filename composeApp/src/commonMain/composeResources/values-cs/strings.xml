@@ -23,6 +23,7 @@
     <string name="title_master">Mistr</string>
     <string name="title_grandmaster">Velmistr</string>
     <string name="achievements_button">Úspěchy (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Smazat poslední číslici</string>
     <string name="normal_sudoku_button">Klasické Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Začátečník</string>
@@ -408,6 +409,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="solution_pointing">%1$s %2$s mířící %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">sloupec %1$d a řádek %2$d</string>
+    <string name="hint_remember">Zapamatuj si %1$d</string>
     <string name="solution_left">Vlevo</string>
     <string name="solution_right">Vpravo</string>
 
@@ -831,7 +833,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d certifikátů</string>
     <string name="learn_title">Uč se matematiku</string>
     <string name="learn_unit_progress">%1$d / %2$d certifikátů</string>
-    <string name="learn_topic_intro">Postupuj seznamem shora dolů. Každý krok staví na tom předchozím.</string>
+    <string name="learn_topic_intro">Projdi je popořadě. Každý krok staví na tom předchozím.</string>
     <string name="learn_topic_certificates">%1$d z %2$d s certifikátem</string>
     <string name="learn_ages">Věk %1$s</string>
 
@@ -850,6 +852,11 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Čísla a operace</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Úhly, trojúhelníky a kružnice</string>
+
+    <string name="learn_shape_guide_title">Průvodce tvary</string>
+    <string name="learn_shape_guide_intro">%1$d tvarů, nakreslených a pojmenovaných. Klepni na některý a uvidíš ho nakreslit znovu.</string>
+    <string name="learn_rules_guide_title">Průvodce pravidly</string>
+    <string name="learn_rules_guide_intro">%1$d pravidel a znaménkových konvencí, základy na jednom místě.</string>
 
     <string name="learn_lessons_header">Lekce</string>
     <string name="learn_lesson_progress">%1$d / %2$d lekcí</string>
@@ -895,5 +902,60 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Získej všechny certifikáty jednoho tématu v Uč se matematiku.</string>
     <string name="achievement_learn_all_certificates">Matematický učenec</string>
     <string name="achievement_learn_all_certificates_desc">Získej certifikát z každého podtématu v Uč se matematiku.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d strana, %1$d vrchol</item>
+        <item quantity="few">%1$d strany, %1$d vrcholy</item>
+        <item quantity="other">%1$d stran, %1$d vrcholů</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d strana,</item>
+        <item quantity="few">%1$d strany,</item>
+        <item quantity="other">%1$d stran,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d vrchol</item>
+        <item quantity="few">%1$d vrcholy</item>
+        <item quantity="other">%1$d vrcholů</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">krychle</string>
+    <string name="learn_fig_solid_sphere">koule</string>
+    <string name="learn_fig_solid_cylinder">válec</string>
+    <string name="learn_fig_solid_cone">kužel</string>
+    <string name="learn_fig_solid_prism">hranol</string>
+    <string name="learn_fig_solid_triangular_prism">trojboký hranol</string>
+    <string name="learn_fig_solid_pyramid">jehlan</string>
+    <string name="learn_fig_solid_cube_counts">6 stěn · 12 hran · 8 vrcholů</string>
+    <string name="learn_fig_solid_sphere_counts">žádné rovné stěny, žádné hrany</string>
+    <string name="learn_fig_solid_cylinder_counts">2 rovné stěny · 1 zakřivená</string>
+    <string name="learn_fig_solid_cone_counts">1 rovná stěna · 1 vrchol</string>
+    <string name="learn_fig_solid_prism_counts">stejný průřez po celé délce</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 stěn · 9 hran · 6 vrcholů</string>
+    <string name="learn_fig_solid_pyramid_counts">5 stěn · 8 hran · 5 vrcholů</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d osa souměrnosti</item>
+        <item quantity="few">%1$d osy souměrnosti</item>
+        <item quantity="other">%1$d os souměrnosti</item>
+    </plurals>
+    <string name="learn_fig_area">obsah = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">obvod = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">odečti %1$d z obou stran</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d řada</item>
+        <item quantity="few">%1$d řady</item>
+        <item quantity="other">%1$d řad</item>
+    </plurals>
+    <string name="learn_fig_more">ještě %1$d</string>
+    <string name="learn_fig_in_each">po %1$d v každé</string>
+    <string name="learn_fig_percent_of">%1$s% z %2$s</string>
+    <string name="learn_fig_gradient">sklon %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">průměr %1$s</string>
+    <string name="learn_fig_mean">průměr</string>
+    <string name="learn_fig_standard_deviations">%1$s sm. odch.</string>
+    <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
 
 </resources>

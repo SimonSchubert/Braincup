@@ -15,9 +15,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.level_label
 import com.inspiredandroid.braincup.app.PrismClearUiState
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.tools.composeColor
+import org.jetbrains.compose.resources.stringResource
 
 /**
  * Public review card for a Prism Clear level (board + label). Used by Paparazzi gallery
@@ -34,7 +37,7 @@ fun PrismClearLevelCard(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = "Level ${uiState.level}",
+            text = stringResource(Res.string.level_label, uiState.level),
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.Bold,
             color = MaterialTheme.colorScheme.primary,

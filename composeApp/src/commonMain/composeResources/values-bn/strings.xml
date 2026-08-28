@@ -16,6 +16,7 @@
     <string name="button_done">সম্পন্ন</string>
 
     <string name="achievements_button">অর্জন (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">শেষ সংখ্যাটি মুছুন</string>
 
     <string name="quit_game_title">গেম থেকে বের হবেন?</string>
     <string name="quit_game_message">এই গেমের অগ্রগতি সংরক্ষিত হবে না।</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s %3$s দিকে নির্দেশিত</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">কলাম %1$d এবং সারি %2$d</string>
+    <string name="hint_remember">%1$d মনে রাখো</string>
     <string name="solution_left">বাম</string>
     <string name="solution_right">ডান</string>
 
@@ -814,7 +816,7 @@
     <string name="learn_section_certificates">%1$d / %2$d সনদ</string>
     <string name="learn_title">গণিত শেখো</string>
     <string name="learn_unit_progress">%1$d / %2$d সনদ</string>
-    <string name="learn_topic_intro">তালিকা ধরে নিচে নামুন। প্রতিটি ধাপ আগেরটির উপর গড়ে ওঠে।</string>
+    <string name="learn_topic_intro">এগুলো ক্রম অনুসারে করো। প্রতিটি ধাপ আগেরটির উপর দাঁড়ায়।</string>
     <string name="learn_topic_certificates">%2$d টির মধ্যে %1$d টি সনদপ্রাপ্ত</string>
     <string name="learn_ages">বয়স %1$s</string>
 
@@ -833,6 +835,11 @@
     <string name="learn_topic_arithmetic_subtitle">সংখ্যা &amp; প্রক্রিয়া</string>
     <string name="learn_topic_geometry">জ্যামিতি</string>
     <string name="learn_topic_geometry_subtitle">কোণ, ত্রিভুজ &amp; বৃত্ত</string>
+
+    <string name="learn_shape_guide_title">আকৃতির নির্দেশিকা</string>
+    <string name="learn_shape_guide_intro">%1$d আকৃতি, আঁকা এবং নাম দেওয়া। একটিতে চাপ দাও, আবার আঁকা দেখো।</string>
+    <string name="learn_rules_guide_title">নিয়মের নির্দেশিকা</string>
+    <string name="learn_rules_guide_intro">%1$d নিয়ম ও চিহ্নের রীতি, মূল বিষয়গুলো এক জায়গায়।</string>
 
     <string name="learn_lessons_header">পাঠ</string>
     <string name="learn_lesson_progress">%1$d / %2$d পাঠ</string>
@@ -878,5 +885,55 @@
     <string name="achievement_learn_topic_certificates_desc">গণিত শিখুন-এর একটি বিষয়ের সব সনদ অর্জন করুন।</string>
     <string name="achievement_learn_all_certificates">গণিত পণ্ডিত</string>
     <string name="achievement_learn_all_certificates_desc">গণিত শিখুন-এর প্রতিটি উপবিষয়ে সনদ অর্জন করুন।</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d বাহু, %1$d কোণ</item>
+        <item quantity="other">%1$d বাহু, %1$d কোণ</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d বাহু,</item>
+        <item quantity="other">%1$d বাহু,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d কোণ</item>
+        <item quantity="other">%1$d কোণ</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">ঘনক</string>
+    <string name="learn_fig_solid_sphere">গোলক</string>
+    <string name="learn_fig_solid_cylinder">সিলিন্ডার</string>
+    <string name="learn_fig_solid_cone">শঙ্কু</string>
+    <string name="learn_fig_solid_prism">প্রিজম</string>
+    <string name="learn_fig_solid_triangular_prism">ত্রিভুজাকার প্রিজম</string>
+    <string name="learn_fig_solid_pyramid">পিরামিড</string>
+    <string name="learn_fig_solid_cube_counts">6 তল · 12 ধার · 8 কোণ</string>
+    <string name="learn_fig_solid_sphere_counts">কোনো সমতল তল নেই, কোনো ধার নেই</string>
+    <string name="learn_fig_solid_cylinder_counts">2 সমতল তল · 1 বাঁকা</string>
+    <string name="learn_fig_solid_cone_counts">1 সমতল তল · 1 ডগা</string>
+    <string name="learn_fig_solid_prism_counts">পুরো দৈর্ঘ্যে একই প্রস্থচ্ছেদ</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 তল · 9 ধার · 6 কোণ</string>
+    <string name="learn_fig_solid_pyramid_counts">5 তল · 8 ধার · 5 কোণ</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d প্রতিসাম্য রেখা</item>
+        <item quantity="other">%1$d প্রতিসাম্য রেখা</item>
+    </plurals>
+    <string name="learn_fig_area">ক্ষেত্রফল = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">পরিসীমা = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">দুই দিক থেকে %1$d বাদ দাও</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d সারি</item>
+        <item quantity="other">%1$d সারি</item>
+    </plurals>
+    <string name="learn_fig_more">আরও %1$d</string>
+    <string name="learn_fig_in_each">প্রতিটিতে %1$d</string>
+    <string name="learn_fig_percent_of">%2$s এর %1$s%</string>
+    <string name="learn_fig_gradient">ঢাল %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">গড় %1$s</string>
+    <string name="learn_fig_mean">গড়</string>
+    <string name="learn_fig_standard_deviations">%1$s পরি. বিচ্যুতি</string>
+    <string name="learn_fig_symbol_key">1 প্রতীক = %1$d</string>
 
 </resources>

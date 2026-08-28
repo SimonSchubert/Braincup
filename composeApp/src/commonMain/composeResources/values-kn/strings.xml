@@ -23,6 +23,7 @@
     <string name="title_master">ನಿಪುಣ</string>
     <string name="title_grandmaster">ಮಹಾನಿಪುಣ</string>
     <string name="achievements_button">ಸಾಧನೆಗಳು (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">ಕೊನೆಯ ಅಂಕಿಯನ್ನು ಅಳಿಸಿ</string>
     <string name="normal_sudoku_button">ಸಾಮಾನ್ಯ ಸುಡೋಕು (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">ಸುಡೋಕು</string>
     <string name="normal_sudoku_difficulty_beginner">ಆರಂಭಿಕ</string>
@@ -390,6 +391,7 @@
     <string name="solution_pointing">%3$s ತೋರಿಸುವ %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">ಕಂಬ %1$d ಮತ್ತು ಸಾಲು %2$d</string>
+    <string name="hint_remember">%1$d ನೆನಪಿಡು</string>
     <string name="solution_left">ಎಡ</string>
     <string name="solution_right">ಬಲ</string>
 
@@ -812,7 +814,7 @@
     <string name="learn_section_certificates">%1$d / %2$d ಪ್ರಮಾಣಪತ್ರಗಳು</string>
     <string name="learn_title">ಗಣಿತ ಕಲಿಯಿರಿ</string>
     <string name="learn_unit_progress">%1$d / %2$d ಪ್ರಮಾಣಪತ್ರಗಳು</string>
-    <string name="learn_topic_intro">ಪಟ್ಟಿಯಲ್ಲಿ ಕೆಳಗೆ ಸಾಗಿ. ಪ್ರತಿ ಹೆಜ್ಜೆ ಅದರ ಮೇಲಿನದರ ಮೇಲೆ ನಿಂತಿದೆ.</string>
+    <string name="learn_topic_intro">ಇವುಗಳನ್ನು ಕ್ರಮವಾಗಿ ಮಾಡು. ಪ್ರತಿ ಹೆಜ್ಜೆ ಹಿಂದಿನದರ ಮೇಲೆ ನಿಲ್ಲುತ್ತದೆ.</string>
     <string name="learn_topic_certificates">%2$d ರಲ್ಲಿ %1$d ಪ್ರಮಾಣೀಕೃತ</string>
     <string name="learn_ages">ವಯಸ್ಸು %1$s</string>
 
@@ -831,6 +833,11 @@
     <string name="learn_topic_arithmetic_subtitle">ಸಂಖ್ಯೆ &amp; ಕ್ರಿಯೆಗಳು</string>
     <string name="learn_topic_geometry">ರೇಖಾಗಣಿತ</string>
     <string name="learn_topic_geometry_subtitle">ಕೋನ, ತ್ರಿಕೋನ &amp; ವೃತ್ತ</string>
+
+    <string name="learn_shape_guide_title">ಆಕಾರ ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="learn_shape_guide_intro">%1$d ಆಕಾರಗಳು, ಬಿಡಿಸಿ ಹೆಸರಿಸಲಾಗಿದೆ. ಒಂದನ್ನು ಮುಟ್ಟಿ ಮತ್ತೆ ಬಿಡಿಸುವುದನ್ನು ನೋಡು.</string>
+    <string name="learn_rules_guide_title">ನಿಯಮ ಮಾರ್ಗದರ್ಶಿ</string>
+    <string name="learn_rules_guide_intro">%1$d ನಿಯಮಗಳು ಮತ್ತು ಚಿಹ್ನೆ ಸಂಪ್ರದಾಯಗಳು, ಮೂಲಗಳು ಒಂದೇ ಕಡೆ.</string>
 
     <string name="learn_lessons_header">ಪಾಠಗಳು</string>
     <string name="learn_lesson_progress">%1$d / %2$d ಪಾಠಗಳು</string>
@@ -876,5 +883,55 @@
     <string name="achievement_learn_topic_certificates_desc">ಒಂದು ಗಣಿತ ಕಲಿಯಿರಿ ವಿಷಯದ ಪ್ರತಿ ಪ್ರಮಾಣಪತ್ರವನ್ನೂ ಗಳಿಸಿ.</string>
     <string name="achievement_learn_all_certificates">ಗಣಿತ ವಿದ್ವಾಂಸ</string>
     <string name="achievement_learn_all_certificates_desc">ಪ್ರತಿ ಗಣಿತ ಕಲಿಯಿರಿ ಉಪವಿಷಯದಲ್ಲೂ ಪ್ರಮಾಣಪತ್ರ ಗಳಿಸಿ.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d ಬಾಹು, %1$d ಮೂಲೆ</item>
+        <item quantity="other">%1$d ಬಾಹುಗಳು, %1$d ಮೂಲೆಗಳು</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d ಬಾಹು,</item>
+        <item quantity="other">%1$d ಬಾಹುಗಳು,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d ಮೂಲೆ</item>
+        <item quantity="other">%1$d ಮೂಲೆಗಳು</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">ಘನ</string>
+    <string name="learn_fig_solid_sphere">ಗೋಳ</string>
+    <string name="learn_fig_solid_cylinder">ಸಿಲಿಂಡರ್</string>
+    <string name="learn_fig_solid_cone">ಶಂಕು</string>
+    <string name="learn_fig_solid_prism">ಪ್ರಿಸಂ</string>
+    <string name="learn_fig_solid_triangular_prism">ತ್ರಿಕೋನ ಪ್ರಿಸಂ</string>
+    <string name="learn_fig_solid_pyramid">ಪಿರಮಿಡ್</string>
+    <string name="learn_fig_solid_cube_counts">6 ಮುಖಗಳು · 12 ಅಂಚುಗಳು · 8 ಮೂಲೆಗಳು</string>
+    <string name="learn_fig_solid_sphere_counts">ಸಮತಟ್ಟಾದ ಮುಖಗಳಿಲ್ಲ, ಅಂಚುಗಳಿಲ್ಲ</string>
+    <string name="learn_fig_solid_cylinder_counts">2 ಸಮತಟ್ಟಾದ ಮುಖಗಳು · 1 ಬಾಗಿದ್ದು</string>
+    <string name="learn_fig_solid_cone_counts">1 ಸಮತಟ್ಟಾದ ಮುಖ · 1 ತುದಿ</string>
+    <string name="learn_fig_solid_prism_counts">ಉದ್ದಕ್ಕೂ ಒಂದೇ ಅಡ್ಡಕೊಯ್ತ</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 ಮುಖಗಳು · 9 ಅಂಚುಗಳು · 6 ಮೂಲೆಗಳು</string>
+    <string name="learn_fig_solid_pyramid_counts">5 ಮುಖಗಳು · 8 ಅಂಚುಗಳು · 5 ಮೂಲೆಗಳು</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d ಸಮಮಿತಿ ರೇಖೆ</item>
+        <item quantity="other">%1$d ಸಮಮಿತಿ ರೇಖೆಗಳು</item>
+    </plurals>
+    <string name="learn_fig_area">ವಿಸ್ತೀರ್ಣ = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">ಸುತ್ತಳತೆ = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">ಎರಡೂ ಕಡೆಯಿಂದ %1$d ಕಳೆ</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d ಸಾಲು</item>
+        <item quantity="other">%1$d ಸಾಲುಗಳು</item>
+    </plurals>
+    <string name="learn_fig_more">ಇನ್ನೂ %1$d</string>
+    <string name="learn_fig_in_each">ಪ್ರತಿಯೊಂದರಲ್ಲಿ %1$d</string>
+    <string name="learn_fig_percent_of">%2$s ರ %1$s%</string>
+    <string name="learn_fig_gradient">ಇಳಿಜಾರು %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">ಸರಾಸರಿ %1$s</string>
+    <string name="learn_fig_mean">ಸರಾಸರಿ</string>
+    <string name="learn_fig_standard_deviations">%1$s ಪ್ರ. ವಿ.</string>
+    <string name="learn_fig_symbol_key">1 ಚಿಹ್ನೆ = %1$d</string>
 
 </resources>

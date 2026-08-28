@@ -23,6 +23,7 @@
     <string name="title_master">Master</string>
     <string name="title_grandmaster">Grandmaster</string>
     <string name="achievements_button">Achievements (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Delete the last digit</string>
     <string name="normal_sudoku_button">Normal Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Beginner</string>
@@ -406,6 +407,8 @@
     <string name="solution_pointing">%1$s %2$s pointing %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">column %1$d and row %2$d</string>
+    <!-- Mental Calculation asks the player to hold the running total between rounds. -->
+    <string name="hint_remember">Remember %1$d</string>
     <string name="solution_left">Left</string>
     <string name="solution_right">Right</string>
 
@@ -829,7 +832,7 @@
     <string name="learn_section_certificates">%1$d / %2$d certificates</string>
     <string name="learn_title">Learn Math</string>
     <string name="learn_unit_progress">%1$d / %2$d certificates</string>
-    <string name="learn_topic_intro">Work down the list. Each step builds on the one above it.</string>
+    <string name="learn_topic_intro">Work through them in order. Each step builds on the one before it.</string>
     <string name="learn_topic_certificates">%1$d of %2$d certified</string>
     <string name="learn_ages">Ages %1$s</string>
 
@@ -898,5 +901,1412 @@
     <string name="achievement_learn_topic_certificates_desc">Earn every certificate in one Learn Math topic.</string>
     <string name="achievement_learn_all_certificates">Math Scholar</string>
     <string name="achievement_learn_all_certificates_desc">Earn a certificate in every Learn Math sub-topic.</string>
+
+    <!--
+        Learn figures: the words a diagram writes on itself.
+
+        These label an animated sketch, not a sentence in it. The lesson prose the figures
+        illustrate is authored in English in `learn/content`, on purpose; a caption is the app
+        speaking, on a screen whose every other label is translated, so it belongs here.
+
+        They are drawn on a canvas at a size the figure picks, with no room to reflow, so keep
+        them roughly as short as the English. Placeholders are filled by `fillIn` in
+        `LearnVisualStrings.kt`, which understands `%1$s` and `%1$d` and leaves a lone `%` alone.
+    -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d side, %1$d corner</item>
+        <item quantity="other">%1$d sides, %1$d corners</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d side,</item>
+        <item quantity="other">%1$d sides,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d corner</item>
+        <item quantity="other">%1$d corners</item>
+    </plurals>
+
+    <string name="learn_fig_solid_cube">cube</string>
+    <string name="learn_fig_solid_sphere">sphere</string>
+    <string name="learn_fig_solid_cylinder">cylinder</string>
+    <string name="learn_fig_solid_cone">cone</string>
+    <string name="learn_fig_solid_prism">prism</string>
+    <string name="learn_fig_solid_triangular_prism">triangular prism</string>
+    <string name="learn_fig_solid_pyramid">pyramid</string>
+    <string name="learn_fig_solid_cube_counts">6 faces · 12 edges · 8 corners</string>
+    <string name="learn_fig_solid_sphere_counts">no flat faces, no edges</string>
+    <string name="learn_fig_solid_cylinder_counts">2 flat faces · 1 curved</string>
+    <string name="learn_fig_solid_cone_counts">1 flat face · 1 point</string>
+    <string name="learn_fig_solid_prism_counts">same cross-section throughout</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 faces · 9 edges · 6 corners</string>
+    <string name="learn_fig_solid_pyramid_counts">5 faces · 8 edges · 5 corners</string>
+
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d line of symmetry</item>
+        <item quantity="other">%1$d lines of symmetry</item>
+    </plurals>
+
+    <!-- "sq" is short for square: "area = 12 sq cm". The unit itself comes from the lesson. -->
+    <string name="learn_fig_area">area = %1$d sq %2$s</string>
+    <string name="learn_fig_perimeter">perimeter = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">take %1$d from both sides</string>
+    <!-- Beside an array of dots: "4 rows", "7 in each", and "3 more" for the rows below a split. -->
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d row</item>
+        <item quantity="other">%1$d rows</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d more</string>
+    <string name="learn_fig_in_each">%1$d in each</string>
+    <string name="learn_fig_percent_of">%1$s% of %2$s</string>
+    <string name="learn_fig_gradient">gradient %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <!-- Short for degrees, beside an angle mark. Abbreviate rather than spell it out. -->
+    <string name="learn_fig_degrees">%1$d deg</string>
+    <string name="learn_fig_mean_value">mean %1$s</string>
+    <string name="learn_fig_mean">mean</string>
+    <!-- Short for standard deviation, on the tick marks either side of a bell curve's mean. -->
+    <string name="learn_fig_standard_deviations">%1$s sd</string>
+    <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
+
+    <!--
+        ================================================================================
+        Learn Math catalog. Everything below is lesson content, moved out of
+        `learn/content` and the two guides on 2026-08-28 so the section can be
+        translated like the rest of the app.
+
+        Keys say where a thing sits in the catalog, so they are stable across edits:
+          learn_unit_<unit>_title       a sub-topic's name and one-line summary
+          learn_<lesson>_title          a lesson's name and summary
+          learn_<lesson>_s3_body        the third step of that lesson
+          learn_<lesson>_s3_o2          its second answer option
+          learn_unit_<unit>_q4_prompt   question 4 of the unit test
+          learn_shape_<id>_name         an entry in the shape guide
+          learn_rule_<id>_rule          an entry in the rules guide
+
+        Only language is here. Anything mechanical stayed in `learn/content`:
+
+        * Notation - a formula, an option that is a number, a worked line that is an
+          equation - is `math("12 + {b:4} = ?")` next to the figure it has to agree
+          with. A digit changed in translation would be a broken question.
+        * A sentence the catalog repeats with different numbers is one template here,
+          filled at the call site: `filled(Res.string.learn_opt_enlargement_by, "0.5")`.
+        * A phrase that counts something is a `<plurals>`, filled the same way, so a
+          language that inflects the noun can.
+        * A text used in more than one lesson has one key, shared.
+
+        `scripts/check_localizations.py` fails the build on any of those coming back:
+        an option carrying a number, one sentence stored twice with different numbers,
+        or one text under two keys.
+
+        TRANSLATING THESE:
+        * Numbers still appear inside prose - "eight steps left of -3 is -11".
+          Translate the words around them and leave every number exactly as it is;
+          the check fails a translation whose numbers differ from the English.
+        * `{a:6}` and `{b:3}` colour a run orange (the given) or blue (the working),
+          matching the figure. Keep the markers and their contents; move them with
+          the words they belong to.
+        * `%1$s` slots take a number the lesson supplies. Move them freely, keep them all.
+
+        Numbers in prose are deliberate. They could not be pulled out into slots without
+        also pulling out the ones that are facts rather than arithmetic - "angles on a
+        straight line add to 180" - so a sentence that narrates a sum keeps its numbers.
+        `./gradlew learnNumberCoupling` lists which sentences a step's arithmetic is tied
+        to, for when one of them changes.
+        ================================================================================
+    -->
+
+    <string name="learn_unit_arithmetic_counting_title">Counting and first sums</string>
+    <string name="learn_unit_arithmetic_counting_summary">Counting on, sums to 20, and tens and ones.</string>
+    <string name="learn_g12_arithmetic_counting_title">Counting to 100</string>
+    <string name="learn_g12_arithmetic_counting_summary">Find any number on the number line.</string>
+    <string name="learn_g12_arithmetic_counting_s1_body">One step right is one more. One step left is one less.</string>
+    <string name="learn_g12_arithmetic_counting_s2_body">Counting on is adding. Watch three hops land on ten.</string>
+    <string name="learn_g12_arithmetic_counting_s3_question">Start at 12 and count on four hops.</string>
+    <string name="learn_g12_arithmetic_counting_s3_explanation">13, 14, 15, 16 - four hops to the right lands on 16.</string>
+    <string name="learn_g12_arithmetic_counting_s4_body">Skip counting means jumping by the same amount each time instead of one by one. These jumps are all ten.</string>
+    <string name="learn_g12_arithmetic_counting_s5_question">Each jump adds the same amount. Keep going.</string>
+    <string name="learn_g12_arithmetic_counting_s5_explanation">Every jump adds ten, so 50 + 10 = 60.</string>
+    <string name="learn_g12_arithmetic_counting_s6_question">Count back one from 40.</string>
+    <string name="learn_g12_arithmetic_counting_s6_explanation">Counting back moves one step left, so 40 becomes 39, not 30.</string>
+    <string name="learn_g12_arithmetic_addsub_title">Adding and taking away</string>
+    <string name="learn_g12_arithmetic_addsub_summary">Make ten, and count back to subtract.</string>
+    <string name="learn_g12_arithmetic_addsub_s1_l1">Ten is the easy number, so fill the frame up to ten first.</string>
+    <string name="learn_g12_arithmetic_addsub_s1_l2">{a:6} needs {b:4} more to fill it.</string>
+    <string name="learn_g12_arithmetic_addsub_s1_l3">Split the {b:7} into {b:4} and {b:3}.</string>
+    <string name="learn_g12_arithmetic_addsub_s2_question">Count the empty squares.</string>
+    <string name="learn_g12_arithmetic_addsub_s2_explanation">The frame holds ten and {a:7} are filled, so {b:3} squares are still empty.</string>
+    <string name="learn_g12_arithmetic_addsub_s3_question">Fill the ten first, then add what is left over.</string>
+    <string name="learn_g12_arithmetic_addsub_s3_explanation">{a:8} needs {b:2} to reach ten, and {b:3} of the {b:5} are left over.</string>
+    <string name="learn_g12_arithmetic_addsub_s4_body">Taking away hops back the same way: down to ten first, then the rest.</string>
+    <string name="learn_g12_arithmetic_addsub_s5_question">Hop back to ten first, then hop what is left.</string>
+    <string name="learn_g12_arithmetic_addsub_s6_question">Same trick, one bigger hop back.</string>
+    <string name="learn_g12_arithmetic_tens_title">Tens and ones</string>
+    <string name="learn_g12_arithmetic_tens_summary">Build and compare two-digit numbers.</string>
+    <string name="learn_g12_arithmetic_tens_s1_body">A two-digit number is rods of ten plus loose ones.</string>
+    <string name="learn_g12_arithmetic_tens_s2_question">How many rods of ten are here?</string>
+    <string name="learn_g12_arithmetic_tens_s2_explanation">The question counts the rods, not what they are worth: {a:six} rods, worth {a:60}.</string>
+    <string name="learn_g12_arithmetic_tens_s3_l1">Add the rods: {a:2} tens and {b:1} ten make 3 tens.</string>
+    <string name="learn_g12_arithmetic_tens_s3_l2">Add the ones: {a:5} and {b:3} make 8.</string>
+    <string name="learn_g12_arithmetic_tens_s3_l3">Three rods and eight ones.</string>
+    <string name="learn_g12_arithmetic_tens_s4_question">What number is built here?</string>
+    <string name="learn_g12_arithmetic_tens_s4_explanation">{a:4} rods is {a:40}, and {b:2} loose ones make 42.</string>
+    <string name="learn_g12_arithmetic_tens_s5_body">Compare the rods first. {a:Seven} rods beat {b:four}, so the ones never get a say.</string>
+    <string name="learn_g12_arithmetic_tens_s6_question">Both have the same rods, so the loose ones decide. Which is larger?</string>
+    <string name="learn_g12_arithmetic_tens_s6_explanation">The rods tie at six each, so the loose ones decide it, and {b:8} beats {a:3}.</string>
+    <string name="learn_unit_arithmetic_counting_q1_prompt">What comes next?</string>
+    <string name="learn_unit_arithmetic_counting_q1_explanation">Each jump adds ten, so the one after 40 is 50.</string>
+    <string name="learn_unit_arithmetic_counting_q2_explanation">9 takes 1 of the 6 to make ten, and the other 5 carry on past it.</string>
+    <string name="learn_unit_arithmetic_counting_q3_explanation">Hop back four to land on ten, and the last two hops reach 8.</string>
+    <string name="learn_unit_arithmetic_counting_q4_prompt">How many loose ones are here?</string>
+    <string name="learn_unit_arithmetic_counting_q4_explanation">The loose ones are the single cubes, so three; the five rods are worth 50.</string>
+    <string name="learn_unit_arithmetic_counting_q5_prompt">Which number is smaller, {a:62} or {b:26}?</string>
+    <string name="learn_unit_arithmetic_counting_q5_explanation">26 has two rods against six, so it is the smaller whatever its loose ones do.</string>
+    <string name="learn_unit_arithmetic_counting_q6_prompt">These jumps are all the same size. What comes next?</string>
+    <string name="learn_unit_arithmetic_counting_q6_explanation">Each jump adds five, not one, so 25 + 5 = 30.</string>
+    <string name="learn_unit_arithmetic_multiplication_title">Multiplication and division</string>
+    <string name="learn_unit_arithmetic_multiplication_summary">Equal rows, the facts that fall out of them, and sharing back out.</string>
+    <string name="learn_g35_arithmetic_multiplication_title">Multiplication as an array</string>
+    <string name="learn_g35_arithmetic_multiplication_summary">Rows and columns make the times tables make sense.</string>
+    <string name="learn_g35_arithmetic_multiplication_s1_body">Multiplication is equal rows. Count how many rows, count what is in each, and the dots do the rest.</string>
+    <string name="learn_g35_arithmetic_multiplication_s2_body">Turn the array on its side and not one dot is lost, so every fact you learn hands you a second one free.</string>
+    <string name="learn_g35_arithmetic_multiplication_s3_question">{a:Seven} rows, {b:three} dots in each.</string>
+    <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - seven threes counted on.</string>
+    <string name="learn_g35_arithmetic_multiplication_s4_body">Counting the rows on is skip counting: one row of three, then two rows, then three.</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_body">Lay {a:3} rows down twice and the total doubles, because the second block is a copy of the first.</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, so 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s6_question">A baking tray holds {a:4} rows of {b:7} cakes.</string>
+    <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Four} rows of {b:seven}: 7, 14, 21, 28.</string>
+    <string name="learn_arithmetic_multiplication_facts_title">Facts you already know</string>
+    <string name="learn_arithmetic_multiplication_facts_summary">Break a hard times fact into two easy ones.</string>
+    <string name="learn_arithmetic_multiplication_facts_s1_body">Nobody counts seven rows one dot at a time. Take the {a:5} rows everyone knows, then add the {b:2} that are left.</string>
+    <string name="learn_arithmetic_multiplication_facts_s2_l1">Fives are the easy ones, so peel off {a:5} rows first.</string>
+    <string name="learn_arithmetic_multiplication_facts_s2_l3">That leaves {b:1} row of eight.</string>
+    <string name="learn_arithmetic_multiplication_facts_s3_body">Ten rows is the easiest count of all: the number with a nought written after it.</string>
+    <string name="learn_arithmetic_multiplication_facts_s4_question">Ten rows of six would be 60, and this array is one row short of that.</string>
+    <string name="learn_arithmetic_multiplication_facts_s4_explanation">One row of six comes back off the sixty: 60 - 6 = 54.</string>
+    <string name="learn_arithmetic_multiplication_facts_s5_question">{a:5} rows of eight, and {b:2} more rows of eight.</string>
+    <string name="learn_arithmetic_multiplication_facts_s5_explanation">{a:5} eights are {a:40} and {b:2} more are {b:16}, so the array holds 56.</string>
+    <string name="learn_arithmetic_multiplication_facts_s6_question">Double the {a:2} rows, then double the answer.</string>
+    <string name="learn_arithmetic_multiplication_facts_s6_explanation">Nine doubled is 18, and 18 doubled is 36.</string>
+    <string name="learn_arithmetic_multiplication_division_title">Sharing back out</string>
+    <string name="learn_arithmetic_multiplication_division_summary">Division undoes multiplication, and sometimes leaves a bit over.</string>
+    <string name="learn_arithmetic_multiplication_division_s1_body">Division takes the total back apart into equal rows. It is the same array, read the other way round.</string>
+    <string name="learn_arithmetic_multiplication_division_s2_body">Every times fact hands you two division facts, because the array can be cut either way.</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, so 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s3_question">How many rows of eight does it take?</string>
+    <string name="learn_arithmetic_multiplication_division_s3_explanation">Eight sevens are 56, so 56 splits into exactly seven rows of eight.</string>
+    <string name="learn_arithmetic_multiplication_division_s4_body">Not every total shares out evenly. Whatever will not fill another row is the remainder.</string>
+    <string name="learn_arithmetic_multiplication_division_s5_problem">Share 29 sweets between {b:4} friends</string>
+    <string name="learn_arithmetic_multiplication_division_s5_l1">Deal them out in rows of {b:4}.</string>
+    <string name="learn_arithmetic_multiplication_division_s5_l2">4, 8, 12, 16, 20, 24, 28 - that is {a:7} rows.</string>
+    <string name="learn_arithmetic_multiplication_division_s5_l3">{b:1} sweet will not make an eighth row.</string>
+    <string name="learn_arithmetic_multiplication_division_s5_result">7 each, with 1 left over</string>
+    <string name="learn_arithmetic_multiplication_division_s6_question">A crate holds {b:5} bottles. How many crates can you fill from 38 bottles?</string>
+    <string name="learn_arithmetic_multiplication_division_s6_explanation">{a:Seven} full rows of {b:five}, and {b:three} bottles with nowhere to go.</string>
+    <string name="learn_unit_arithmetic_multiplication_q1_prompt">How many dots are here?</string>
+    <string name="learn_unit_arithmetic_multiplication_q1_explanation">Eight rows of seven, and eight sevens are 56.</string>
+    <string name="learn_unit_arithmetic_multiplication_q2_explanation">Five nines is 45, and one more nine makes 54.</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Which has the same total as 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_explanation">Turning the array on its side changes nothing.</string>
+    <string name="learn_unit_arithmetic_multiplication_q4_explanation">Counting on in nines reaches 72 in exactly eight hops.</string>
+    <string name="learn_unit_arithmetic_multiplication_q5_explanation">Counting on in fours reaches 20 in five hops, and 3 is left over.</string>
+    <string name="learn_unit_arithmetic_multiplication_q6_prompt">A tray holds 8 rows of 6 buns. How many buns?</string>
+    <string name="learn_unit_arithmetic_multiplication_q6_explanation">Five sixes is 30 and three more sixes is 18, so the tray holds 48.</string>
+    <string name="learn_unit_arithmetic_fractions_title">Fractions</string>
+    <string name="learn_unit_arithmetic_fractions_summary">What the two numbers mean, matching them up, and adding them.</string>
+    <string name="learn_g35_arithmetic_fractions_title">Naming the parts</string>
+    <string name="learn_g35_arithmetic_fractions_summary">What each of the two numbers is for.</string>
+    <string name="learn_g35_arithmetic_fractions_s1_body">The bottom number says how many equal pieces the bar was cut into. The top number says how many of them you take.</string>
+    <string name="learn_g35_arithmetic_fractions_s2_explanation">Two shaded out of five pieces in all, so the five goes underneath.</string>
+    <string name="learn_g35_arithmetic_fractions_s3_body">The more pieces the bar is cut into, the thinner each piece gets. An eighth is a narrower slice than a quarter.</string>
+    <string name="learn_g35_arithmetic_fractions_s4_explanation">Same bottom number, so the pieces are the same size: {b:five} of them beats {a:three}.</string>
+    <string name="learn_g35_arithmetic_fractions_s5_question">A cake is cut into 8 slices and 3 are eaten. How many eighths are still on the plate?</string>
+    <string name="learn_g35_arithmetic_fractions_s5_explanation">{b:Three} of the eight pieces are gone, so 5/8 of the cake is left.</string>
+    <string name="learn_g35_arithmetic_fractions_s6_question">Which of these is a whole one?</string>
+    <string name="learn_g35_arithmetic_fractions_s6_explanation">Take every piece there is and you have the whole bar back.</string>
+    <string name="learn_arithmetic_fractions_equivalent_title">Fractions that match</string>
+    <string name="learn_arithmetic_fractions_equivalent_summary">Different names for exactly the same amount.</string>
+    <string name="learn_arithmetic_fractions_equivalent_s1_body">Cut every piece in half and you get twice as many, each half the size. The shading never moved.</string>
+    <string name="learn_arithmetic_fractions_equivalent_s2_body">Whatever you do to the bottom you do to the top, and the amount stays exactly where it was.</string>
+    <string name="learn_arithmetic_fractions_equivalent_s3_question">Which fraction shades the same amount as this bar?</string>
+    <string name="learn_arithmetic_fractions_equivalent_s3_explanation">Doubling both numbers renames 2/3 as 4/6 without moving the shading.</string>
+    <string name="learn_arithmetic_fractions_equivalent_s4_body">Cancelling runs the trick backwards: divide top and bottom by the same number and the fraction gets a simpler name.</string>
+    <string name="learn_arithmetic_fractions_equivalent_s5_o4">You cannot compare them</string>
+    <string name="learn_arithmetic_fractions_equivalent_s5_explanation">Cut both into twelfths and they are {a:8/12} against {b:9/12}.</string>
+    <string name="learn_arithmetic_fractions_equivalent_s6_question">How many tenths shade the same as this bar?</string>
+    <string name="learn_arithmetic_fractions_equivalent_s6_explanation">Both numbers doubled: five pieces become ten, three become six.</string>
+    <string name="learn_arithmetic_fractions_add_title">Adding fractions</string>
+    <string name="learn_arithmetic_fractions_add_summary">Same-size pieces add; different ones have to be matched first.</string>
+    <string name="learn_arithmetic_fractions_add_s1_body">Pieces of the same size simply add: {a:3} fifths and {b:1} fifth are four fifths. The pieces never change size, so the bottom number never changes either.</string>
+    <string name="learn_arithmetic_fractions_add_s2_question">The pieces already match, so add the tops and leave the bottom alone.</string>
+    <string name="learn_arithmetic_fractions_add_s2_explanation">Two sevenths and three sevenths are five sevenths. Nothing was cut any thinner.</string>
+    <string name="learn_arithmetic_fractions_add_s3_body">Taking away works the same way. Five sixths with two sixths gone leaves three of them.</string>
+    <string name="learn_arithmetic_fractions_add_s4_body">Pieces of different sizes cannot be added as they stand. Rename one bar until both are cut the same way.</string>
+    <string name="learn_arithmetic_fractions_add_s5_l1">A half and a quarter are different sizes, so nothing can be added yet.</string>
+    <string name="learn_arithmetic_fractions_add_s5_l2">Cut the half into quarters: {a:1}/2 is {a:2}/4.</string>
+    <string name="learn_arithmetic_fractions_add_s5_l3">Now both bars are in quarters.</string>
+    <string name="learn_arithmetic_fractions_add_s6_question">Sixths and thirds. Match the pieces first.</string>
+    <string name="learn_arithmetic_fractions_add_s6_explanation">{b:1/3} is {b:2/6}, so the sum is 3/6, which is one half.</string>
+    <string name="learn_unit_arithmetic_fractions_q1_explanation">The bottom number counts all five pieces, the top counts the two shaded.</string>
+    <string name="learn_unit_arithmetic_fractions_q2_prompt">Which fraction shades the same as this bar?</string>
+    <string name="learn_unit_arithmetic_fractions_q2_explanation">4 is half of 8, and half the bar is shaded.</string>
+    <string name="learn_unit_arithmetic_fractions_q3_explanation">A half is 4/8, and four eighths beat three.</string>
+    <string name="learn_unit_arithmetic_fractions_q4_explanation">The pieces are the same size, so only the tops add.</string>
+    <string name="learn_unit_arithmetic_fractions_q5_explanation">Two of the five shaded sixths go, and the pieces stay sixths.</string>
+    <string name="learn_unit_arithmetic_fractions_q6_explanation">A half is two quarters, and two quarters plus one more is 3/4.</string>
+    <string name="learn_unit_arithmetic_decimals_title">Decimals</string>
+    <string name="learn_unit_arithmetic_decimals_summary">Reading, comparing and adding the places past the point.</string>
+    <string name="learn_g35_arithmetic_decimals_title">Tenths and hundredths</string>
+    <string name="learn_g35_arithmetic_decimals_summary">Place value carries on past the point.</string>
+    <string name="learn_g35_arithmetic_decimals_s1_body">The square is one whole. A column of it is a tenth, and a single cell is a hundredth.</string>
+    <string name="learn_g35_arithmetic_decimals_s1_formula">0.35 = 3 tenths + 5 hundredths</string>
+    <string name="learn_g35_arithmetic_decimals_s2_body">A fraction and a decimal can be the very same amount, written two ways.</string>
+    <string name="learn_g35_arithmetic_decimals_s4_body">The nought is not decoration. It holds the tenths place empty so the 5 lands in hundredths.</string>
+    <string name="learn_g35_arithmetic_decimals_s4_formula">3.05 = 3 + 5 hundredths</string>
+    <string name="learn_g35_arithmetic_decimals_s5_question">What does 3.05 euro mean?</string>
+    <string name="learn_g35_arithmetic_decimals_s5_explanation">A cent is a hundredth of a euro, and the nought keeps the tenths empty.</string>
+    <string name="learn_g35_arithmetic_decimals_s6_question">How much of the square is shaded?</string>
+    <string name="learn_g35_arithmetic_decimals_s6_explanation">Four whole columns, and a column is a tenth, so 0.4 and not 0.04.</string>
+    <string name="learn_arithmetic_decimals_compare_title">Comparing decimals</string>
+    <string name="learn_arithmetic_decimals_compare_summary">A longer decimal is not a bigger one.</string>
+    <string name="learn_arithmetic_decimals_compare_s1_body">Compare the tenths first. Only when those tie do the hundredths get a say.</string>
+    <string name="learn_arithmetic_decimals_compare_s2_explanation">{a:Four} tenths beats {b:three} tenths. Extra digits do not make a number bigger.</string>
+    <string name="learn_arithmetic_decimals_compare_s3_body">Writing a nought on the end changes nothing at all: the same cells are shaded either way.</string>
+    <string name="learn_arithmetic_decimals_compare_s4_body">Money is a decimal you already read without thinking. Half a euro is fifty of its hundred cents.</string>
+    <string name="learn_arithmetic_decimals_compare_s4_formula">0.5 euro = 50 cents</string>
+    <string name="learn_arithmetic_decimals_compare_s5_question">How many hundredths shade the same as this square?</string>
+    <string name="learn_arithmetic_decimals_compare_s5_formula">0.3 = ? hundredths</string>
+    <string name="learn_arithmetic_decimals_compare_s5_explanation">Three columns of ten cells each, so 0.3 is 30 hundredths.</string>
+    <string name="learn_arithmetic_decimals_compare_s6_question">Smallest first. Which order is right?</string>
+    <string name="learn_arithmetic_decimals_compare_s6_explanation">{a:0.09} has no tenths at all, so it is the smallest however long it looks.</string>
+    <string name="learn_arithmetic_decimals_add_title">Adding decimals</string>
+    <string name="learn_arithmetic_decimals_add_summary">Tenths onto tenths, hundredths onto hundredths.</string>
+    <string name="learn_arithmetic_decimals_add_s1_body">Adding decimals is adding same-sized pieces, exactly as fractions do: {a:4} tenths take on {b:35} hundredths.</string>
+    <string name="learn_arithmetic_decimals_add_s2_l1">Write {a:0.6} as {a:0.60} so both numbers reach the hundredths.</string>
+    <string name="learn_arithmetic_decimals_add_s2_l2">Hundredths: 0 + {b:5}.</string>
+    <string name="learn_arithmetic_decimals_add_s2_l3">Tenths: {a:6} + {b:2}.</string>
+    <string name="learn_arithmetic_decimals_add_s3_question">Line the points up, then add one column at a time.</string>
+    <string name="learn_arithmetic_decimals_add_s3_explanation">Write 0.3 as 0.30, then five hundredths and seven tenths make 0.75.</string>
+    <string name="learn_arithmetic_decimals_add_s4_body">A subtraction is the same picture read backwards: {a:35} hundredths are already there, and {b:4} tenths bring it back up to 0.75.</string>
+    <string name="learn_arithmetic_decimals_add_s5_question">A pencil costs 0.45 euro and a rubber 0.30 euro. What do they cost together?</string>
+    <string name="learn_arithmetic_decimals_add_s5_explanation">Forty-five cents and thirty cents make seventy-five.</string>
+    <string name="learn_arithmetic_decimals_add_s6_question">How much more shading would fill the square?</string>
+    <string name="learn_arithmetic_decimals_add_s6_explanation">35 cells are shaded, so 65 of the hundred are not.</string>
+    <string name="learn_unit_arithmetic_decimals_q2_o3">They match</string>
+    <string name="learn_unit_arithmetic_decimals_q2_explanation">Five tenths beats four tenths and five hundredths.</string>
+    <string name="learn_unit_arithmetic_decimals_q3_explanation">0.08 has no tenths at all, so it sits below every number here that has one.</string>
+    <string name="learn_unit_arithmetic_decimals_q4_explanation">Write 0.4 as 0.40, then tenths onto tenths and hundredths onto hundredths give 0.65.</string>
+    <string name="learn_unit_arithmetic_decimals_q5_prompt">Which fraction is the same amount as 0.25?</string>
+    <string name="learn_unit_arithmetic_decimals_q5_explanation">25 hundredths is one quarter of the square.</string>
+    <string name="learn_unit_arithmetic_decimals_q6_explanation">0.70 take away 0.35 leaves half of it.</string>
+    <string name="learn_unit_arithmetic_negatives_title">Negative numbers</string>
+    <string name="learn_unit_arithmetic_negatives_summary">Below zero, and what the two signs do to each other.</string>
+    <string name="learn_g68_arithmetic_negatives_title">Left of zero</string>
+    <string name="learn_g68_arithmetic_negatives_summary">The line carries on, and so does the order.</string>
+    <string name="learn_g68_arithmetic_negatives_s1_body">Zero is not the end of the line. Right is still more and left is still less, and to the left of zero the numbers wear a minus.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_body">A negative is a shortfall, not a quantity. Minus four is four steps below zero, and there is nothing you can have four of.</string>
+    <string name="learn_g68_arithmetic_negatives_s2_formula">-4 is 4 left of 0</string>
+    <string name="learn_g68_arithmetic_negatives_s3_explanation">Furthest right on the line wins, and zero sits to the right of every negative.</string>
+    <string name="learn_g68_arithmetic_negatives_s4_body">The further left, the smaller. That is why -10 is less than -1, even though 10 is more than 1.</string>
+    <string name="learn_g68_arithmetic_negatives_s5_question">A freezer sits at -18 degrees and a fridge at -2. Which is colder?</string>
+    <string name="learn_g68_arithmetic_negatives_s5_o1">the freezer</string>
+    <string name="learn_g68_arithmetic_negatives_s5_o2">the fridge</string>
+    <string name="learn_g68_arithmetic_negatives_s5_o3">they match</string>
+    <string name="learn_g68_arithmetic_negatives_s5_explanation">-18 is further left, so it is the smaller number and the colder one.</string>
+    <string name="learn_g68_arithmetic_negatives_s6_question">How many degrees warmer is the fridge than the freezer?</string>
+    <string name="learn_g68_arithmetic_negatives_s6_explanation">From -18 up to -2 is 16 steps, which is why the two minus signs come out positive.</string>
+    <string name="learn_arithmetic_negatives_addsub_title">Adding and taking away</string>
+    <string name="learn_arithmetic_negatives_addsub_summary">Hopping across zero, and what two minus signs do.</string>
+    <string name="learn_arithmetic_negatives_addsub_s1_body">Adding moves right and taking away moves left. Crossing zero changes nothing about that.</string>
+    <string name="learn_arithmetic_negatives_addsub_s2_question">Hop up to zero first, then carry on.</string>
+    <string name="learn_arithmetic_negatives_addsub_s2_explanation">{b:7} of the twelve get you to zero, and the other {b:5} carry on past it.</string>
+    <string name="learn_arithmetic_negatives_addsub_s3_question">The temperature is -4 and drops six more.</string>
+    <string name="learn_arithmetic_negatives_addsub_s3_explanation">Six steps left of {a:-4} lands on -10.</string>
+    <string name="learn_arithmetic_negatives_addsub_s4_body">Taking away a negative moves right, the same way adding does, because losing a debt leaves you better off.</string>
+    <string name="learn_arithmetic_negatives_addsub_s5_question">Two minus signs in a row cancel each other out.</string>
+    <string name="learn_arithmetic_negatives_addsub_s5_explanation">Taking away {b:-9} moves nine steps right of {a:-2}, which lands on 7.</string>
+    <string name="learn_arithmetic_negatives_addsub_s6_body">Adding a negative is the other half of the same rule: it moves left, so the two signs collapse into one.</string>
+    <string name="learn_arithmetic_negatives_multiply_title">Multiplying and dividing</string>
+    <string name="learn_arithmetic_negatives_multiply_summary">Why two negatives make a positive.</string>
+    <string name="learn_arithmetic_negatives_multiply_s1_body">Three lots of a debt is a bigger debt, so a negative times a positive stays negative.</string>
+    <string name="learn_arithmetic_negatives_multiply_s2_question">Three rows of a debt of six.</string>
+    <string name="learn_arithmetic_negatives_multiply_s2_explanation">Three steps of -6 land on -18.</string>
+    <string name="learn_arithmetic_negatives_multiply_s3_body">Walk a times table down past zero: 3 lots of -4, then 2, then 1, then none. Every step adds the same {b:4}, so once the first number goes negative the answers have to carry on up into the positives.</string>
+    <string name="learn_arithmetic_negatives_multiply_s4_body">That is the whole of the rule. Two signs the same give a positive, two different give a negative, and division behaves exactly as multiplication does.</string>
+    <string name="learn_arithmetic_negatives_multiply_s5_question">Both signs are the same here.</string>
+    <string name="learn_arithmetic_negatives_multiply_s5_explanation">Thirty shares into sixes five times, and matching signs give a positive.</string>
+    <string name="learn_arithmetic_negatives_multiply_s6_question">Divide first, then decide the sign.</string>
+    <string name="learn_arithmetic_negatives_multiply_s6_explanation">Forty-five shares into nines five times, and the two signs differ, so the answer is negative.</string>
+    <string name="learn_unit_arithmetic_negatives_q1_explanation">Six of the nine carry you to zero, and the other three carry on past it to 3.</string>
+    <string name="learn_unit_arithmetic_negatives_q2_explanation">Furthest left is smallest, so -9 is below -2 even though 9 is more than 2.</string>
+    <string name="learn_unit_arithmetic_negatives_q3_explanation">Taking away moves left, and eight steps left of -3 is -11.</string>
+    <string name="learn_unit_arithmetic_negatives_q4_explanation">Taking away a negative moves right, so this is 7 + 5.</string>
+    <string name="learn_unit_arithmetic_negatives_q5_explanation">Each step up the ladder adds five, so past zero the answers turn positive.</string>
+    <string name="learn_unit_arithmetic_negatives_q6_explanation">Thirty-six shares into nines four times, and the signs differ, so it is -4.</string>
+    <string name="learn_unit_arithmetic_ratio_title">Ratio and proportion</string>
+    <string name="learn_unit_arithmetic_ratio_summary">Counting parts against parts, sharing them out, and scaling them up.</string>
+    <string name="learn_g68_arithmetic_ratio_title">What a ratio counts</string>
+    <string name="learn_g68_arithmetic_ratio_summary">Parts against parts, not parts against the whole.</string>
+    <string name="learn_g68_arithmetic_ratio_s1_body">A ratio counts parts against parts, not parts against the whole. One part to four parts is one in every five, not one in four.</string>
+    <string name="learn_g68_arithmetic_ratio_s2_body">Cut every part again and the mix is unchanged: more pieces, each one smaller, the same two colours side by side.</string>
+    <string name="learn_g68_arithmetic_ratio_s3_explanation">The bar is {a:6} against {b:9}, and both divide by three.</string>
+    <string name="learn_g68_arithmetic_ratio_s4_body">A ratio carries no units and no total. {a:Two} to {b:three} describes the mix whether the bucket holds 5 litres or 500.</string>
+    <string name="learn_g68_arithmetic_ratio_s5_question">{a:One} part sand to {b:three} parts gravel. What fraction of the mix is sand?</string>
+    <string name="learn_g68_arithmetic_ratio_s5_explanation">One part out of the four parts in the bar, which is exactly the trap a ratio sets.</string>
+    <string name="learn_g68_arithmetic_ratio_s6_question">How many parts are there altogether in this bar?</string>
+    <string name="learn_g68_arithmetic_ratio_s6_explanation">Counting the parts is always the first move, because it is what one part gets measured against.</string>
+    <string name="learn_arithmetic_ratio_sharing_title">Sharing in a ratio</string>
+    <string name="learn_arithmetic_ratio_sharing_summary">Count the parts, price one part, hand them out.</string>
+    <string name="learn_arithmetic_ratio_sharing_s1_body">To share in a ratio, count the parts first, then work out what a single part is worth.</string>
+    <string name="learn_arithmetic_ratio_sharing_s1_formula">{a:2} : {b:3} is 5 parts</string>
+    <string name="learn_arithmetic_ratio_sharing_s2_problem">Share 60 euro in the ratio {a:2} : {b:3}.</string>
+    <string name="learn_arithmetic_ratio_sharing_s2_l1">{a:2} + {b:3} = 5 parts in all.</string>
+    <string name="learn_arithmetic_ratio_sharing_s2_l2">60 / 5 = 12 for one part.</string>
+    <string name="learn_arithmetic_ratio_sharing_s2_l3">{a:2} parts and {b:3} parts.</string>
+    <string name="learn_arithmetic_ratio_sharing_s2_result">24 euro and 36 euro</string>
+    <string name="learn_arithmetic_ratio_sharing_s3_question">Share 80 euro in the ratio {a:3} : {b:1}. What is the larger share?</string>
+    <string name="learn_arithmetic_ratio_sharing_s3_explanation">Four parts of 20 euro, and the larger share takes three of them.</string>
+    <string name="learn_arithmetic_ratio_sharing_s4_body">There is no reason to stop at two parts. Three to two to one is six parts, and the method does not change.</string>
+    <string name="learn_arithmetic_ratio_sharing_s5_question">Share 180 g in the ratio {a:3} : {b:2} : {a:1}. How many grams are in the largest share?</string>
+    <string name="learn_arithmetic_ratio_sharing_s5_explanation">Six parts of 30 g, and the largest share takes three of them.</string>
+    <string name="learn_arithmetic_ratio_sharing_s6_question">A {a:2} : {b:3} mix holds 12 litres of the first colour. How much of the second?</string>
+    <string name="learn_arithmetic_ratio_sharing_s6_explanation">Two parts are 12, so one part is 6, and the second colour takes three of them.</string>
+    <string name="learn_arithmetic_ratio_scaling_title">Scaling and proportion</string>
+    <string name="learn_arithmetic_ratio_scaling_summary">Find what one is worth, then multiply.</string>
+    <string name="learn_arithmetic_ratio_scaling_s1_body">In direct proportion, double one amount and the other doubles with it.</string>
+    <string name="learn_arithmetic_ratio_scaling_s1_formula">4 people need {a:300} g</string>
+    <string name="learn_arithmetic_ratio_scaling_s2_body">Work out what a single one is worth first. That one step answers every scaling question there is.</string>
+    <string name="learn_arithmetic_ratio_scaling_s2_formula">300 / 4 = 75 each</string>
+    <string name="learn_arithmetic_ratio_scaling_s3_question">Rice for 4 people is 300 g. How much for 6?</string>
+    <string name="learn_arithmetic_ratio_scaling_s3_formula">{a:300} g for 4, ? g for {b:6}</string>
+    <string name="learn_arithmetic_ratio_scaling_s3_explanation">One person needs {a:75} g, so {b:6} of them need 450 g.</string>
+    <string name="learn_arithmetic_ratio_scaling_s4_question">8 pens cost 6 euro. What do 12 cost?</string>
+    <string name="learn_arithmetic_ratio_scaling_s4_explanation">Four pens cost 3 euro, and twelve is three fours.</string>
+    <string name="learn_arithmetic_ratio_scaling_s5_question">A map is drawn to a scale of 1 : 50000. A road measures 4 cm on it.</string>
+    <string name="learn_arithmetic_ratio_scaling_s5_explanation">Every 1 cm on the map stands for {b:50000} cm on the ground.</string>
+    <string name="learn_arithmetic_ratio_scaling_s6_body">Not everything scales that way. Two painters take half the time rather than twice as long, which is inverse proportion.</string>
+    <string name="learn_arithmetic_ratio_scaling_s6_formula">2 painters x 6 days = 12</string>
+    <string name="learn_unit_arithmetic_ratio_q1_explanation">The first colour takes three parts and the second five, in that order.</string>
+    <string name="learn_unit_arithmetic_ratio_q2_prompt">In the ratio {a:2} : {b:7}, what fraction of the whole is the first part?</string>
+    <string name="learn_unit_arithmetic_ratio_q2_explanation">Two parts out of the nine in the bar, not out of the seven.</string>
+    <string name="learn_unit_arithmetic_ratio_q3_prompt">Share 100 euro in the ratio {a:1} : {b:4}. What is the smaller share?</string>
+    <string name="learn_unit_arithmetic_ratio_q3_explanation">Five parts of 20 euro, and the smaller share takes one.</string>
+    <string name="learn_unit_arithmetic_ratio_q4_prompt">Simplify the ratio 15 : 25.</string>
+    <string name="learn_unit_arithmetic_ratio_q4_explanation">Both sides divide by five, and 3 : 5 will not go any further.</string>
+    <string name="learn_unit_arithmetic_ratio_q5_prompt">A recipe for 6 people uses 240 g of flour. How much for 9?</string>
+    <string name="learn_unit_arithmetic_ratio_q5_explanation">240 g shared by 6 is 40 g each, so 9 people take 360 g.</string>
+    <string name="learn_unit_arithmetic_ratio_q6_prompt">A model is built to a scale of 1 : 200. How tall is the model of a 30 m tower, in cm?</string>
+    <string name="learn_unit_arithmetic_ratio_q6_explanation">30 m is 3000 cm, and 3000 shared into 200 is 15 cm.</string>
+    <string name="learn_unit_arithmetic_percent_title">Percentages</string>
+    <string name="learn_unit_arithmetic_percent_summary">Parts of a hundred: taking them, adding them on, and working them out.</string>
+    <string name="learn_g68_arithmetic_percent_title">Out of a hundred</string>
+    <string name="learn_g68_arithmetic_percent_summary">A percentage is a hundred-square with some of it shaded.</string>
+    <string name="learn_g68_arithmetic_percent_s1_body">Per cent means out of a hundred, so a percentage is a hundred-square with some of its squares shaded.</string>
+    <string name="learn_g68_arithmetic_percent_s2_body">A percentage, a decimal and a fraction are three names for one amount of shading.</string>
+    <string name="learn_g68_arithmetic_percent_s3_body">To take a percentage of an amount, share the amount over the hundred squares and count the shaded ones.</string>
+    <string name="learn_g68_arithmetic_percent_s3_formula">{a:20}% of {b:80} = 16</string>
+    <string name="learn_g68_arithmetic_percent_s4_question">Half the square is shaded.</string>
+    <string name="learn_g68_arithmetic_percent_s4_formula">50% of 64 = ?</string>
+    <string name="learn_g68_arithmetic_percent_s4_explanation">50% is one half of anything, and half of 64 is 32.</string>
+    <string name="learn_g68_arithmetic_percent_s5_question">Ten per cent first, then half of it again.</string>
+    <string name="learn_g68_arithmetic_percent_s5_formula">{a:15}% of {b:200} = ?</string>
+    <string name="learn_g68_arithmetic_percent_s5_explanation">{a:10}% is {b:20} and {a:5}% is half of that, so {a:15}% comes to 30.</string>
+    <string name="learn_g68_arithmetic_percent_s6_explanation">0.4 is 40 squares out of the hundred, and nothing else on the list reaches that.</string>
+    <string name="learn_arithmetic_percent_change_title">Adding it on, taking it off</string>
+    <string name="learn_arithmetic_percent_change_summary">Rises, discounts, and why they do not cancel.</string>
+    <string name="learn_arithmetic_percent_change_s1_body">An increase adds the percentage on top; a decrease takes it off.</string>
+    <string name="learn_arithmetic_percent_change_s2_question">A 40 euro jacket is 25% off. What do you pay?</string>
+    <string name="learn_arithmetic_percent_change_s2_explanation">A quarter of {b:40} is {a:10}, and that {a:10} is what comes off.</string>
+    <string name="learn_arithmetic_percent_change_s3_body">One multiplication does it in a single step, because 20% off is the same as keeping 80%.</string>
+    <string name="learn_arithmetic_percent_change_s4_question">A 60 euro fare rises by 15%. What is the new fare, in euro?</string>
+    <string name="learn_arithmetic_percent_change_s4_explanation">15% of {a:60} is 9, and that goes on top.</string>
+    <string name="learn_arithmetic_percent_change_s5_question">Up 10%, then down 10%. Where do you end up?</string>
+    <string name="learn_arithmetic_percent_change_s5_o1">back at the start</string>
+    <string name="learn_arithmetic_percent_change_s5_o2">slightly better off</string>
+    <string name="learn_arithmetic_percent_change_s5_o3">slightly worse off</string>
+    <string name="learn_arithmetic_percent_change_s5_o4">cannot tell</string>
+    <string name="learn_arithmetic_percent_change_s5_explanation">The rise was 10% of 100, but the fall is 10% of {b:110}, which is 11. More comes off than went on.</string>
+    <string name="learn_arithmetic_percent_change_s6_body">That is the whole reason they never cancel: the second percentage is taken of a different number from the first.</string>
+    <string name="learn_arithmetic_percent_finding_title">Working the percentage out</string>
+    <string name="learn_arithmetic_percent_finding_summary">Measure the change against what you started from.</string>
+    <string name="learn_arithmetic_percent_finding_s1_body">To find what percentage one number is of another, divide the one by the other and multiply by a hundred.</string>
+    <string name="learn_arithmetic_percent_finding_s2_problem">A price rises from 50 to 65.</string>
+    <string name="learn_arithmetic_percent_finding_s2_l1">The change is {b:15}.</string>
+    <string name="learn_arithmetic_percent_finding_s2_l2">Measure it against the original, not the new price.</string>
+    <string name="learn_arithmetic_percent_finding_s2_result">A 30% increase</string>
+    <string name="learn_arithmetic_percent_finding_s3_body">Always measure against what you started from. Against the new price you would get a different answer to a different question.</string>
+    <string name="learn_arithmetic_percent_finding_s4_question">A price falls from 80 to 60. What is the percentage decrease?</string>
+    <string name="learn_arithmetic_percent_finding_s4_explanation">The change is 20, and 20 against the original 80 is 0.25.</string>
+    <string name="learn_arithmetic_percent_finding_s5_question">A test is marked 18 out of 24. What percentage is that?</string>
+    <string name="learn_arithmetic_percent_finding_s5_explanation">18 out of 24 is three quarters of the paper.</string>
+    <string name="learn_arithmetic_percent_finding_s6_question">A shop's takings go from 200 to 250. By what percentage did they rise?</string>
+    <string name="learn_unit_arithmetic_percent_q1_explanation">10% of 150 is 15 and 2% is 3, so 12% is 18.</string>
+    <string name="learn_unit_arithmetic_percent_q2_explanation">75% is three quarters, and three quarters of 40 is 30.</string>
+    <string name="learn_unit_arithmetic_percent_q3_prompt">Which of these is the same amount as 45%?</string>
+    <string name="learn_unit_arithmetic_percent_q3_explanation">Per cent means out of a hundred, so 45% is 45 hundredths: 0.45.</string>
+    <string name="learn_unit_arithmetic_percent_q4_prompt">A 90 euro coat is 30% off. What do you pay?</string>
+    <string name="learn_unit_arithmetic_percent_q4_explanation">30% of 90 is 27, and that is what comes off.</string>
+    <string name="learn_unit_arithmetic_percent_q5_prompt">A price rises from 40 to 50. What is the percentage increase?</string>
+    <string name="learn_unit_arithmetic_percent_q6_prompt">100 euro goes up 20%, then down 20%. What is left?</string>
+    <string name="learn_unit_arithmetic_percent_q6_explanation">The rise is 20% of 100, but the fall is 20% of 120, which is 24.</string>
+    <string name="learn_unit_arithmetic_standard_form_title">Standard form</string>
+    <string name="learn_unit_arithmetic_standard_form_summary">Huge and tiny numbers written as one digit and a power of ten.</string>
+    <string name="learn_arithmetic_standard_form_title">One digit and a power of ten</string>
+    <string name="learn_arithmetic_standard_form_summary">Counting jumps instead of counting noughts.</string>
+    <string name="learn_arithmetic_standard_form_s1_body">Every jump along this line multiplies by ten. Counting the jumps is quicker than counting noughts, and that count is the power.</string>
+    <string name="learn_arithmetic_standard_form_s2_body">The front number always sits between 1 and 10. 52 is three jumps below 52 000, so 5.2 is four, and four is the power.</string>
+    <string name="learn_arithmetic_standard_form_s3_question">Two of these are the right digits in the wrong shape.</string>
+    <string name="learn_arithmetic_standard_form_s3_explanation">72 and 0.72 are outside the 1 to 10 window. From 7.2 the point moves five places.</string>
+    <string name="learn_arithmetic_standard_form_s4_body">The power counts jumps, so it decides the size long before the front number gets a say. Anything times a bigger power of ten wins.</string>
+    <string name="learn_arithmetic_standard_form_s5_question">Walk the point three jumps to the right.</string>
+    <string name="learn_arithmetic_standard_form_s5_explanation">Three jumps right of 4.7: 47, 470, 4 700.</string>
+    <string name="learn_arithmetic_standard_form_s6_question">All four have the right digits. Only one is in standard form and worth 12 000.</string>
+    <string name="learn_arithmetic_standard_form_s6_explanation">12 and 0.12 are outside the window, and 1.2 * 10^3 is only 1 200.</string>
+    <string name="learn_arithmetic_standard_form_small_title">Tiny numbers</string>
+    <string name="learn_arithmetic_standard_form_small_summary">The same line walked backwards, with negative powers.</string>
+    <string name="learn_arithmetic_standard_form_small_s1_body">Small numbers are the same line walked backwards. Each step divides by ten, and the power counts those steps as negatives: 6, 0.6, 0.06, 0.006.</string>
+    <string name="learn_arithmetic_standard_form_small_s2_body">The minus in the power says which way to walk, not that the number is negative. A number in standard form is negative only when the front number is.</string>
+    <string name="learn_arithmetic_standard_form_small_s3_question">Count the jumps from 8.2 down to this number.</string>
+    <string name="learn_arithmetic_standard_form_small_s3_explanation">Four steps left of 8.2, and 82 is outside the 1 to 10 window.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_question">Walk the point four jumps to the left.</string>
+    <string name="learn_arithmetic_standard_form_small_s4_explanation">Four jumps left of 5.6: 0.56, 0.056, 0.0056, 0.00056.</string>
+    <string name="learn_arithmetic_standard_form_small_s5_body">A negative front number and a negative power mean two different things, and either can happen without the other.</string>
+    <string name="learn_arithmetic_standard_form_small_s6_question">The most negative power walks furthest left, so it is the smallest.</string>
+    <string name="learn_arithmetic_standard_form_small_s6_explanation">Only one of these has a power of -4, and 0.0009 is below every other number here.</string>
+    <string name="learn_arithmetic_standard_form_calculating_title">Calculating in standard form</string>
+    <string name="learn_arithmetic_standard_form_calculating_summary">Front numbers multiply, powers add.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s1_body">The two halves travel separately. The front numbers multiply with each other, and the powers of ten add.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l1">The two halves travel separately.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">The front numbers multiply: 3 x 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">The powers of ten add: 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l4">Put the two halves back together.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s3_question">Dividing runs it backwards: the front numbers divide and the powers subtract.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s4_body">The front number can come out of the multiplication too big for the window, and then it has to be walked back in.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s5_question">The front numbers give 20, which is outside the window.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s5_explanation">20 * 10^5 has the right value in the wrong shape: walk the point one place left and the power goes up one.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s6_question">How many times bigger is 8 * 10^7 than 8 * 10^4?</string>
+    <string name="learn_arithmetic_standard_form_calculating_s6_explanation">The front numbers match, so only the three extra jumps count.</string>
+    <string name="learn_unit_arithmetic_standard_form_q1_prompt">Which one is 45 000 in standard form?</string>
+    <string name="learn_unit_arithmetic_standard_form_q1_explanation">The front number has to sit between 1 and 10, and 4.5 is four jumps below 45 000.</string>
+    <string name="learn_unit_arithmetic_standard_form_q2_prompt">Which one of these is not in standard form?</string>
+    <string name="learn_unit_arithmetic_standard_form_q2_explanation">The front number has to sit between 1 and 10, and 12 does not.</string>
+    <string name="learn_unit_arithmetic_standard_form_q3_prompt">Which one is 0.0004 in standard form?</string>
+    <string name="learn_unit_arithmetic_standard_form_q3_explanation">0.0004 is four jumps left of 4, so the power is -4.</string>
+    <string name="learn_unit_arithmetic_standard_form_q4_explanation">The front numbers multiply to 8 and the powers add to 10^7.</string>
+    <string name="learn_unit_arithmetic_standard_form_q6_prompt">Which is larger, 7 * 10^5 or 2 * 10^6?</string>
+    <string name="learn_unit_arithmetic_standard_form_q6_o3">they are equal</string>
+    <string name="learn_unit_arithmetic_standard_form_q6_explanation">The bigger power wins whatever the front numbers are: 700 000 against 2 000 000.</string>
+    <string name="learn_unit_arithmetic_surds_title">Surds</string>
+    <string name="learn_unit_arithmetic_surds_summary">Roots with no whole answer, and how to keep them exact.</string>
+    <string name="learn_arithmetic_surds_title">Roots that never finish</string>
+    <string name="learn_arithmetic_surds_summary">When a root is better left exactly as it is.</string>
+    <string name="learn_arithmetic_surds_s1_body">A square root asks for the side of a square with that area. 36 tiles make a tidy 6 by 6, so this root lands on a whole number.</string>
+    <string name="learn_arithmetic_surds_s2_body">Most numbers make no tidy square. Step 5 across and 5 up, and the diagonal you have just cut is √50: nothing whole squares to 50, so its decimal runs on for ever without ever repeating.</string>
+    <string name="learn_arithmetic_surds_s3_question">Which of these roots never finishes?</string>
+    <string name="learn_arithmetic_surds_s3_explanation">49, 64 and 81 are square numbers. 70 sits between 64 and 81, so its root sits between 8 and 9 and never settles.</string>
+    <string name="learn_arithmetic_surds_s4_body">A root that never finishes is called a surd. Leaving it under the sign is the only way to write it exactly, which is why the sign is an answer and not an unfinished sum.</string>
+    <string name="learn_arithmetic_surds_s4_formula">√2 is exact, 1.41 is not</string>
+    <string name="learn_arithmetic_surds_s5_explanation">25 and 36 are the square numbers either side of 30, so the root sits between their roots.</string>
+    <string name="learn_arithmetic_surds_s6_explanation">A root multiplied by itself rebuilds the number it came from, exactly the way 3 rows of 3 rebuild 9. It makes no difference that this root never finishes.</string>
+    <string name="learn_arithmetic_surds_simplify_title">Simplifying a surd</string>
+    <string name="learn_arithmetic_surds_simplify_summary">Split off the largest square factor.</string>
+    <string name="learn_arithmetic_surds_simplify_s1_body">Roots multiply straight across. That is what lets an untidy root be broken up: split off the largest square factor and take its root exactly.</string>
+    <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Look for a square factor: 50 is 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l2">The root splits in two: √25 x √2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l3">√25 is exactly 5.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l4">2 has no square factor left, so it stays under the root.</string>
+    <string name="learn_arithmetic_surds_simplify_s3_question">Find the square factor first.</string>
+    <string name="learn_arithmetic_surds_simplify_s4_body">Take the largest square factor you can find. Splitting √72 through 4 leaves 2√18, which still has work left in it; through 36 it finishes in one step.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_question">√12 simplifies to a√3. What is a?</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 is 4 x 3, and √4 is exactly 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_question">Three of these still have a square factor hiding in them.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 and 20 all divide by 4. 15 is 3 x 5, and neither is a square.</string>
+    <string name="learn_arithmetic_surds_arithmetic_title">Adding and multiplying surds</string>
+    <string name="learn_arithmetic_surds_arithmetic_summary">Matching roots collect; different ones do not.</string>
+    <string name="learn_arithmetic_surds_arithmetic_s1_body">Matching roots collect the way matching units do. Three metres and four metres make seven metres, and the metre never changes.</string>
+    <string name="learn_arithmetic_surds_arithmetic_s2_explanation">Three of something and two more of it are five of it. Nothing happens under the root.</string>
+    <string name="learn_arithmetic_surds_arithmetic_s3_body">√2 + √3 will not collect at all. The two roots are different lengths, so there is nothing to add and the sum is already finished.</string>
+    <string name="learn_arithmetic_surds_arithmetic_s3_formula">√2 + √3 stays as it is</string>
+    <string name="learn_arithmetic_surds_arithmetic_s4_l1">Roots multiply straight across.</string>
+    <string name="learn_arithmetic_surds_arithmetic_s4_l3">36 is a square number.</string>
+    <string name="learn_arithmetic_surds_arithmetic_s5_explanation">Straight across gives √100, and that root does finish.</string>
+    <string name="learn_arithmetic_surds_arithmetic_s6_question">A root squared rebuilds the number underneath it. What is √7 squared?</string>
+    <string name="learn_arithmetic_surds_arithmetic_s6_explanation">Squaring and rooting undo each other, so the number comes back untouched.</string>
+    <string name="learn_unit_arithmetic_surds_q1_prompt">Which one of these is not a whole number?</string>
+    <string name="learn_unit_arithmetic_surds_q1_explanation">16, 25 and 36 are square numbers. 30 is not, so its root never finishes.</string>
+    <string name="learn_unit_arithmetic_surds_q4_explanation">A root times itself rebuilds the number under it.</string>
+    <string name="learn_unit_arithmetic_surds_q6_explanation">49 and 64 are the square numbers either side of 50, so the root sits between 7 and 8.</string>
+    <string name="learn_unit_arithmetic_bounds_title">Rounding and bounds</string>
+    <string name="learn_unit_arithmetic_bounds_summary">The range a rounded number stands for, and how it travels through a sum.</string>
+    <string name="learn_arithmetic_bounds_title">What a rounded number hides</string>
+    <string name="learn_arithmetic_bounds_summary">Every rounded measurement stands for a range.</string>
+    <string name="learn_arithmetic_bounds_s1_body">Rounding throws information away. A wall given as 40 cm to the nearest 10 cm was never exactly 40: anything from 35 cm up rounds to it, and so does anything below 45 cm.</string>
+    <string name="learn_arithmetic_bounds_s1_formula">35 &lt;= length &lt; 45</string>
+    <string name="learn_arithmetic_bounds_s2_question">A crowd is reported as 500, to the nearest 100. What is the smallest it could have been?</string>
+    <string name="learn_arithmetic_bounds_s2_explanation">Half of a hundred below 500. From there up, everything rounds to 500.</string>
+    <string name="learn_arithmetic_bounds_s3_body">The two ends are not treated alike. The bottom one is included, because 450 does round up to 500. The top one is not: 550 rounds up to 600 instead, so the range stops just short of it.</string>
+    <string name="learn_arithmetic_bounds_s3_formula">450 &lt;= crowd &lt; 550</string>
+    <string name="learn_arithmetic_bounds_s4_body">The two ends have names. The lower bound is the smallest the measurement can be, and the upper bound is the number it stops just short of.</string>
+    <string name="learn_arithmetic_bounds_s4_formula">lower 35, upper 45</string>
+    <string name="learn_arithmetic_bounds_s5_question">A sack is 60 kg to the nearest 10 kg. What is the least it can weigh, in kilograms?</string>
+    <string name="learn_arithmetic_bounds_s5_explanation">Half of ten below 60. At 55 it still rounds up to 60.</string>
+    <string name="learn_arithmetic_bounds_s6_question">A field is given as 300 m to the nearest 50 m. Where does its range start?</string>
+    <string name="learn_arithmetic_bounds_s6_explanation">Half the rounding unit either side: half of 50 is 25, so the range runs from 275 m up to just under 325 m.</string>
+    <string name="learn_arithmetic_bounds_significant_title">Significant figures</string>
+    <string name="learn_arithmetic_bounds_significant_summary">Counting from the first digit that means something.</string>
+    <string name="learn_arithmetic_bounds_significant_s1_body">Significant figures count from the first digit that is not a nought, wherever the point happens to sit.</string>
+    <string name="learn_arithmetic_bounds_significant_s1_formula">0.00427 has 3 significant figures</string>
+    <string name="learn_arithmetic_bounds_significant_s2_body">Rounding to a significant figure works exactly like rounding to a place: keep the digits you want and look at the next one along to decide.</string>
+    <string name="learn_arithmetic_bounds_significant_s2_formula">3 872 = 3 900 to 2 s.f.</string>
+    <string name="learn_arithmetic_bounds_significant_s3_question">Round 0.04617 to 2 significant figures. The leading noughts only hold the point, so counting starts at the 4.</string>
+    <string name="learn_arithmetic_bounds_significant_s3_explanation">4 and 6 are the two significant digits, and the 1 after them rounds nothing up.</string>
+    <string name="learn_arithmetic_bounds_significant_s4_explanation">2, 7 and 4 are the three digits, and the 8 behind them rounds the 4 up.</string>
+    <string name="learn_arithmetic_bounds_significant_s5_body">A nought between two significant digits counts. A nought in front of them does not: it is only holding the point, which is why 0.00308 has three.</string>
+    <string name="learn_arithmetic_bounds_significant_s5_formula">0.00308 has 3 s.f.</string>
+    <string name="learn_arithmetic_bounds_significant_s6_explanation">The two leading noughts only hold the point, but the last one was written on purpose, so it counts: 2, 5 and 0.</string>
+    <string name="learn_arithmetic_bounds_calculating_title">Calculating with bounds</string>
+    <string name="learn_arithmetic_bounds_calculating_summary">A range in, a range out.</string>
+    <string name="learn_arithmetic_bounds_calculating_s1_body">Every measurement carries a range, so anything worked out from one carries a range too. There is no single answer to give.</string>
+    <string name="learn_arithmetic_bounds_calculating_s2_problem">Two boards, each 40 cm to the nearest 10 cm, are laid end to end. How long is the pair?</string>
+    <string name="learn_arithmetic_bounds_calculating_s2_l1">Each board is at least 35 cm.</string>
+    <string name="learn_arithmetic_bounds_calculating_s2_l2">Two of those give 70 cm.</string>
+    <string name="learn_arithmetic_bounds_calculating_s2_l3">Each board is under 45 cm.</string>
+    <string name="learn_arithmetic_bounds_calculating_s2_l4">Two of those stay under 90 cm.</string>
+    <string name="learn_arithmetic_bounds_calculating_s2_result">70 cm up to just under 90 cm</string>
+    <string name="learn_arithmetic_bounds_calculating_s3_body">For a sum, take both upper bounds to reach as high as possible, and both lower bounds to reach as low as possible.</string>
+    <string name="learn_arithmetic_bounds_calculating_s4_question">Two shelves, each 50 cm to the nearest 10 cm, go end to end. How far can they reach?</string>
+    <string name="learn_arithmetic_bounds_calculating_s4_explanation">Each shelf stops just short of 55, so the pair stops just short of 110 without ever arriving.</string>
+    <string name="learn_arithmetic_bounds_calculating_s5_question">A journey is 120 km to the nearest 10 km. What is its lower bound, in kilometres?</string>
+    <string name="learn_arithmetic_bounds_calculating_s5_explanation">Half of ten below 120, because 115 still rounds up to 120.</string>
+    <string name="learn_arithmetic_bounds_calculating_s6_question">A subtraction is the odd one out. Which pair of bounds gives the largest answer?</string>
+    <string name="learn_arithmetic_bounds_calculating_s6_o1">both upper bounds</string>
+    <string name="learn_arithmetic_bounds_calculating_s6_o2">both lower bounds</string>
+    <string name="learn_arithmetic_bounds_calculating_s6_o3">upper take away lower</string>
+    <string name="learn_arithmetic_bounds_calculating_s6_o4">lower take away upper</string>
+    <string name="learn_arithmetic_bounds_calculating_s6_explanation">Start as high as you can and take away as little as you can.</string>
+    <string name="learn_unit_arithmetic_bounds_q1_prompt">A mass is 8 kg to the nearest kilogram. Where does its range start?</string>
+    <string name="learn_unit_arithmetic_bounds_q1_explanation">Half a kilogram below 8, because 7.5 rounds up to 8.</string>
+    <string name="learn_unit_arithmetic_bounds_q2_prompt">A shelf is 200 cm to the nearest 10 cm. Which lengths round to that?</string>
+    <string name="learn_unit_arithmetic_bounds_q2_explanation">Half of ten either side, and the top end is not included.</string>
+    <string name="learn_unit_arithmetic_bounds_q3_explanation">5 and 7 are the two digits, and the 4 behind them rounds nothing up.</string>
+    <string name="learn_unit_arithmetic_bounds_q4_explanation">Counting starts at the 6, and the last nought was written on purpose: 6, 8 and 0.</string>
+    <string name="learn_unit_arithmetic_bounds_q5_prompt">A length is 46 cm to the nearest centimetre. What is its upper bound, in centimetres?</string>
+    <string name="learn_unit_arithmetic_bounds_q5_explanation">Half a centimetre above 46, and the length stops just short of it.</string>
+    <string name="learn_unit_arithmetic_bounds_q6_prompt">Two masses, each 20 g to the nearest gram, are added. What is the lower bound of the total, in grams?</string>
+    <string name="learn_unit_arithmetic_bounds_q6_explanation">Each one is at least 19.5 g, so the pair is at least 39 g.</string>
+    <string name="learn_unit_geometry_flat_shapes_title">Flat shapes</string>
+    <string name="learn_unit_geometry_flat_shapes_summary">Counting sides and corners, and the names that follow from them.</string>
+    <string name="learn_g12_geometry_flat_shapes_title">Counting the sides</string>
+    <string name="learn_g12_geometry_flat_shapes_summary">Count the sides to name the shape.</string>
+    <string name="learn_g12_geometry_flat_shapes_s1_body">Shapes are named by how many straight sides they have.</string>
+    <string name="learn_g12_geometry_flat_shapes_s2_body">Every side meets another at a corner, so the two counts always match.</string>
+    <string name="learn_g12_geometry_flat_shapes_s3_explanation">Count the corners as they light up: five.</string>
+    <string name="learn_g12_geometry_flat_shapes_s4_question">How many corners does this shape have?</string>
+    <string name="learn_g12_geometry_flat_shapes_s4_explanation">Six sides means six corners.</string>
+    <string name="learn_g12_geometry_flat_shapes_s5_body">Three sides is a triangle, four a quadrilateral, five a pentagon, six a hexagon and eight an octagon.</string>
+    <string name="learn_g12_geometry_flat_shapes_s6_question">Which name belongs to this shape?</string>
+    <string name="learn_g12_geometry_flat_shapes_s6_explanation">Eight sides and eight corners.</string>
+    <string name="learn_geometry_flat_shapes_curves_title">Straight sides and curves</string>
+    <string name="learn_geometry_flat_shapes_curves_summary">What happens when a shape has no corners at all.</string>
+    <string name="learn_geometry_flat_shapes_curves_s1_body">A circle curves the whole way round: no sides, no corners, and nowhere for two edges to meet.</string>
+    <string name="learn_geometry_flat_shapes_curves_s2_body">A shape made only of straight sides is called a polygon. A circle is not one, and neither is anything with a curved edge.</string>
+    <string name="learn_geometry_flat_shapes_curves_s3_question">Which of these has no corners at all?</string>
+    <string name="learn_geometry_flat_shapes_curves_s4_question">How many corners does a circle have?</string>
+    <string name="learn_geometry_flat_shapes_curves_s4_explanation">There are no straight sides to meet, so there is nothing to count.</string>
+    <string name="learn_geometry_flat_shapes_curves_s5_body">Sides do not have to be the same length. A long thin rectangle is still a four-sided shape.</string>
+    <string name="learn_geometry_flat_shapes_curves_s6_question">Which of these is NOT true of every rectangle?</string>
+    <string name="learn_geometry_flat_shapes_curves_s6_o1">It has four sides</string>
+    <string name="learn_geometry_flat_shapes_curves_s6_o2">It has four square corners</string>
+    <string name="learn_geometry_flat_shapes_curves_s6_explanation">Only squares have all four sides the same.</string>
+    <string name="learn_geometry_flat_shapes_sorting_title">Sorting shapes</string>
+    <string name="learn_geometry_flat_shapes_sorting_summary">Size and turning do not change what a shape is.</string>
+    <string name="learn_geometry_flat_shapes_sorting_s1_body">Shapes sort by their side count, whatever size they happen to be drawn.</string>
+    <string name="learn_geometry_flat_shapes_sorting_s2_body">Turning a shape round does not change what it is. A triangle standing on its point is still a triangle.</string>
+    <string name="learn_geometry_flat_shapes_sorting_s3_question">Which shape has one more side than a pentagon?</string>
+    <string name="learn_geometry_flat_shapes_sorting_s3_explanation">A pentagon has five, so one more is six.</string>
+    <string name="learn_geometry_flat_shapes_sorting_s4_question">A shape has 3 corners. How many sides has it?</string>
+    <string name="learn_geometry_flat_shapes_sorting_s4_explanation">Sides and corners always come in matching pairs.</string>
+    <string name="learn_geometry_flat_shapes_sorting_s5_body">A square is a rectangle that happens to have all four sides the same, so it belongs in both piles at once.</string>
+    <string name="learn_unit_geometry_flat_shapes_q1_explanation">A pentagon has five.</string>
+    <string name="learn_unit_geometry_flat_shapes_q2_prompt">What is this shape called?</string>
+    <string name="learn_unit_geometry_flat_shapes_q2_explanation">Six sides and six corners.</string>
+    <string name="learn_unit_geometry_flat_shapes_q3_prompt">Which shape has no corners at all?</string>
+    <string name="learn_unit_geometry_flat_shapes_q4_prompt">How many corners has a shape with 8 sides?</string>
+    <string name="learn_unit_geometry_flat_shapes_q4_explanation">Sides and corners always match.</string>
+    <string name="learn_unit_geometry_flat_shapes_q6_prompt">Which of these is true of every rectangle?</string>
+    <string name="learn_unit_geometry_flat_shapes_q6_o3">It has three corners</string>
+    <string name="learn_unit_geometry_flat_shapes_q6_o4">It has a curved edge</string>
+    <string name="learn_unit_geometry_flat_shapes_q6_explanation">The equal sides face each other. Only a square has all four the same.</string>
+    <string name="learn_unit_geometry_solid_shapes_title">Solid shapes</string>
+    <string name="learn_unit_geometry_solid_shapes_summary">Faces, edges and corners on shapes you can hold.</string>
+    <string name="learn_g12_geometry_solid_shapes_title">Shapes you can hold</string>
+    <string name="learn_g12_geometry_solid_shapes_summary">Faces, edges and corners.</string>
+    <string name="learn_g12_geometry_solid_shapes_s1_body">Solid shapes take up space, so they have a front and a back as well as a top.</string>
+    <string name="learn_g12_geometry_solid_shapes_s2_body">Faces are the flat parts, edges are where two faces meet, and corners are where the edges do.</string>
+    <string name="learn_g12_geometry_solid_shapes_s3_question">How many faces does this solid have?</string>
+    <string name="learn_g12_geometry_solid_shapes_s4_body">A cone rises from one circle to a single point.</string>
+    <string name="learn_g12_geometry_solid_shapes_s5_question">Which solid rolls but still has two flat circles?</string>
+    <string name="learn_g12_geometry_solid_shapes_s5_explanation">It rolls on its curved side and stands on either circle.</string>
+    <string name="learn_geometry_solid_shapes_counting_title">Counting faces and edges</string>
+    <string name="learn_geometry_solid_shapes_counting_summary">Work round the solid so nothing gets counted twice.</string>
+    <string name="learn_geometry_solid_shapes_counting_s1_body">Counting goes wrong when you jump about. Work round the solid instead: the top, then the bottom, then the sides.</string>
+    <string name="learn_geometry_solid_shapes_counting_s3_body">A sphere has one curved surface and nothing else: no flat faces, no edges and no corners.</string>
+    <string name="learn_geometry_solid_shapes_counting_s4_question">How many corners has a sphere?</string>
+    <string name="learn_geometry_solid_shapes_counting_s4_explanation">There are no edges to meet, so there is nothing to count.</string>
+    <string name="learn_geometry_solid_shapes_counting_s5_body">A prism keeps the same shape all the way along, so both of its ends match.</string>
+    <string name="learn_geometry_solid_shapes_counting_s6_question">Which of these has no flat face at all?</string>
+    <string name="learn_geometry_solid_shapes_counting_s6_explanation">A cylinder has two circles and a cone has one. A sphere has none.</string>
+    <string name="learn_geometry_solid_shapes_around_title">Solids around you</string>
+    <string name="learn_geometry_solid_shapes_around_summary">Everyday things, once you look past what they are for.</string>
+    <string name="learn_geometry_solid_shapes_around_s1_body">Real objects are solids too, once you look past what they are for.</string>
+    <string name="learn_geometry_solid_shapes_around_s3_body">A dice is a cube: six square faces, every one the same size.</string>
+    <string name="learn_geometry_solid_shapes_around_s4_question">A football is closest to which solid?</string>
+    <string name="learn_geometry_solid_shapes_around_s4_explanation">It rolls in every direction, which nothing with a flat face can do.</string>
+    <string name="learn_geometry_solid_shapes_around_s5_body">A party hat is a cone, and a tent with matching ends is a prism.</string>
+    <string name="learn_geometry_solid_shapes_around_s6_question">How many flat faces has a cylinder?</string>
+    <string name="learn_geometry_solid_shapes_around_s6_explanation">The two circles at its ends. The curved part in between is not flat.</string>
+    <string name="learn_unit_geometry_solid_shapes_q3_prompt">How many faces has a cube?</string>
+    <string name="learn_unit_geometry_solid_shapes_q4_prompt">Which solid has no corners at all?</string>
+    <string name="learn_unit_geometry_solid_shapes_q4_explanation">No edges means nothing for them to meet at.</string>
+    <string name="learn_unit_geometry_solid_shapes_q6_prompt">Which of these is a flat shape rather than a solid?</string>
+    <string name="learn_unit_geometry_solid_shapes_q6_explanation">A circle is drawn on the page. A sphere is the ball it would become.</string>
+    <string name="learn_unit_geometry_angles_title">Angles and turns</string>
+    <string name="learn_unit_geometry_angles_summary">Degrees measure turn, and the turns around a point always add up.</string>
+    <string name="learn_g35_geometry_angles_title">Measuring a turn</string>
+    <string name="learn_g35_geometry_angles_summary">Degrees measure turn, not length.</string>
+    <string name="learn_g35_geometry_angles_s1_body">An angle measures turn. Longer arms do not make a bigger angle.</string>
+    <string name="learn_g35_geometry_angles_s2_body">A quarter turn is 90 degrees: a right angle.</string>
+    <string name="learn_g35_geometry_angles_s2_formula">full turn = 360 degrees</string>
+    <string name="learn_g35_geometry_angles_s3_o4">straight</string>
+    <string name="learn_g35_geometry_angles_s3_explanation">Acute angles are under 90 degrees.</string>
+    <string name="learn_g35_geometry_angles_s4_body">Under 90 is acute and over 90 is obtuse. The right angle in between is the one everything else is measured against.</string>
+    <string name="learn_g35_geometry_angles_s5_explanation">It has opened past the right angle but not as far as a straight line.</string>
+    <string name="learn_g35_geometry_angles_s6_question">How many degrees is a right angle?</string>
+    <string name="learn_g35_geometry_angles_s6_explanation">A quarter of the full 360.</string>
+    <string name="learn_geometry_angles_adding_title">Angles that add up</string>
+    <string name="learn_geometry_angles_adding_summary">On a line, round a point, and inside a triangle.</string>
+    <string name="learn_geometry_angles_adding_s1_body">Angles on a straight line make a half turn between them, so they add to 180.</string>
+    <string name="learn_geometry_angles_adding_s2_question">Angles on a straight line. How many degrees is the other one?</string>
+    <string name="learn_geometry_angles_adding_s3_question">Two angles on a straight line, and one of them is {a:65} degrees.</string>
+    <string name="learn_geometry_angles_adding_s3_explanation">180 take away {a:65}.</string>
+    <string name="learn_geometry_angles_adding_s4_body">Angles all the way round a point make a full turn, so those add to 360 instead.</string>
+    <string name="learn_geometry_angles_adding_s5_body">The three angles inside any triangle always add to 180, whatever shape it is pulled into.</string>
+    <string name="learn_geometry_angles_adding_s6_question">A triangle has angles of 40 and 75 degrees. What is the third?</string>
+    <string name="learn_geometry_angles_turns_title">Turning all the way round</string>
+    <string name="learn_geometry_angles_turns_summary">Quarter, half and full turns, and what is left over.</string>
+    <string name="learn_geometry_angles_turns_s1_body">A full turn brings you back where you started. That is four right angles, or 360 degrees.</string>
+    <string name="learn_geometry_angles_turns_s2_question">How many right angles make a full turn?</string>
+    <string name="learn_geometry_angles_turns_s2_explanation">Four quarter turns, and 4 x 90 = 360.</string>
+    <string name="learn_geometry_angles_turns_s3_body">Half a turn is two right angles laid end to end, which is why 180 keeps appearing.</string>
+    <string name="learn_geometry_angles_turns_s4_question">How many degrees are in three quarters of a turn?</string>
+    <string name="learn_geometry_angles_turns_s4_explanation">Three lots of 90.</string>
+    <string name="learn_geometry_angles_turns_s5_body">Every angle has a reflex partner: whatever is left of the full turn if you go round the other way. This 170 leaves 190 behind it.</string>
+    <string name="learn_geometry_angles_turns_s6_question">Going round the other way, how much of the turn is left?</string>
+    <string name="learn_geometry_angles_turns_s6_explanation">The two together have to make one whole turn.</string>
+    <string name="learn_unit_geometry_angles_q1_prompt">How many degrees is this angle?</string>
+    <string name="learn_unit_geometry_angles_q1_explanation">A quarter of a full turn.</string>
+    <string name="learn_unit_geometry_angles_q2_explanation">It sits between 90 and 180 degrees.</string>
+    <string name="learn_unit_geometry_angles_q3_prompt">Two angles sit on a straight line and one is {a:110} degrees. What is the other?</string>
+    <string name="learn_unit_geometry_angles_q4_prompt">A triangle has angles of 90 and 35. What is the third?</string>
+    <string name="learn_unit_geometry_angles_q5_prompt">Angles all the way round a point add up to...</string>
+    <string name="learn_unit_geometry_angles_q5_explanation">One full turn.</string>
+    <string name="learn_unit_geometry_angles_q6_prompt">An angle is {a:150} degrees. Going round the other way, how much of the turn is left?</string>
+    <string name="learn_unit_geometry_quadrilaterals_title">Triangles and quadrilaterals</string>
+    <string name="learn_unit_geometry_quadrilaterals_summary">Sorting shapes by their sides and angles, and the names that follow.</string>
+    <string name="learn_g35_geometry_quadrilaterals_title">Four-sided shapes</string>
+    <string name="learn_g35_geometry_quadrilaterals_summary">Parallel and equal sides decide the name.</string>
+    <string name="learn_g35_geometry_quadrilaterals_s1_body">Any four straight sides makes a quadrilateral.</string>
+    <string name="learn_g35_geometry_quadrilaterals_s2_body">A parallelogram has two pairs of parallel sides; a trapezium has one.</string>
+    <string name="learn_g35_geometry_quadrilaterals_s3_question">Which is always true of a rhombus?</string>
+    <string name="learn_g35_geometry_quadrilaterals_s3_o1">It has four right angles</string>
+    <string name="learn_g35_geometry_quadrilaterals_s3_o4">It has three sides</string>
+    <string name="learn_g35_geometry_quadrilaterals_s3_explanation">A rhombus is a pushed-over square: equal sides, any angles.</string>
+    <string name="learn_g35_geometry_quadrilaterals_s4_body">The angles inside a quadrilateral always add to 360, because it splits into two triangles of 180 each.</string>
+    <string name="learn_g35_geometry_quadrilaterals_s5_question">The angles inside a quadrilateral add to how many degrees?</string>
+    <string name="learn_g35_geometry_quadrilaterals_s5_explanation">Split it into two triangles: 180 + 180.</string>
+    <string name="learn_g35_geometry_quadrilaterals_s6_question">Three angles are 90, 90 and 100. What is the fourth?</string>
+    <string name="learn_geometry_quadrilaterals_triangles_title">Sorting triangles</string>
+    <string name="learn_geometry_quadrilaterals_triangles_summary">By their sides, and by their largest angle.</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s1_body">Triangles sort by their sides. Three equal sides is equilateral, two is isosceles, and none at all is scalene.</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s2_body">They sort by their largest angle as well. A right triangle has one square corner, and no triangle can have two.</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s3_question">A triangle has exactly two equal sides. What is it called?</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s3_explanation">Two equal sides, and the two angles facing them match as well.</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s4_body">An equilateral triangle has three equal angles to go with its three equal sides, and 180 shared three ways leaves 60 each.</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s5_question">How many degrees is each angle of an equilateral triangle?</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s6_question">Can a triangle have two right angles?</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s6_o1">Yes</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s6_o2">No</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s6_o3">Only if it is isosceles</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s6_o4">Only if it is drawn large enough</string>
+    <string name="learn_geometry_quadrilaterals_triangles_s6_explanation">Two right angles already use up the whole 180, leaving nothing for the third.</string>
+    <string name="learn_geometry_quadrilaterals_family_title">The family tree</string>
+    <string name="learn_geometry_quadrilaterals_family_summary">One shape can wear several names at once.</string>
+    <string name="learn_geometry_quadrilaterals_family_s1_body">The quadrilateral names sit inside one another rather than ruling each other out. Every square is also a rectangle and also a rhombus.</string>
+    <string name="learn_geometry_quadrilaterals_family_s2_explanation">That is the definition of a rhombus, and a square is the special case with right angles.</string>
+    <string name="learn_geometry_quadrilaterals_family_s3_body">A kite has two pairs of equal sides too, but they sit next to each other rather than opposite, which is what keeps it out of the family.</string>
+    <string name="learn_geometry_quadrilaterals_family_s4_question">Is every rectangle a parallelogram?</string>
+    <string name="learn_geometry_quadrilaterals_family_s4_o1">Yes, both pairs of sides are parallel</string>
+    <string name="learn_geometry_quadrilaterals_family_s4_o2">No, a parallelogram is never square</string>
+    <string name="learn_geometry_quadrilaterals_family_s4_o3">Only if it is a square</string>
+    <string name="learn_geometry_quadrilaterals_family_s4_o4">Only if all four sides are equal</string>
+    <string name="learn_geometry_quadrilaterals_family_s4_explanation">A parallelogram asks only for two pairs of parallel sides, and a rectangle has them.</string>
+    <string name="learn_geometry_quadrilaterals_family_s5_body">A trapezium has only one pair of parallel sides, and that single missing pair is what leaves it outside the parallelogram family.</string>
+    <string name="learn_geometry_quadrilaterals_family_s6_question">How many pairs of parallel sides has a parallelogram?</string>
+    <string name="learn_geometry_quadrilaterals_family_s6_explanation">Both pairs of opposite sides run parallel.</string>
+    <string name="learn_unit_geometry_quadrilaterals_q1_explanation">That is the definition of a rhombus.</string>
+    <string name="learn_unit_geometry_quadrilaterals_q2_prompt">The angles of a quadrilateral add up to...</string>
+    <string name="learn_unit_geometry_quadrilaterals_q2_explanation">Two triangles' worth.</string>
+    <string name="learn_unit_geometry_quadrilaterals_q3_prompt">A triangle with three equal sides is called...</string>
+    <string name="learn_unit_geometry_quadrilaterals_q3_explanation">Equal sides all round, and three 60 degree angles with them.</string>
+    <string name="learn_unit_geometry_quadrilaterals_q4_prompt">Three angles of a quadrilateral are 80, 100 and 110. What is the fourth?</string>
+    <string name="learn_unit_geometry_quadrilaterals_q5_prompt">Which of these is always true of a square?</string>
+    <string name="learn_unit_geometry_quadrilaterals_q5_o1">It is a rectangle and a rhombus</string>
+    <string name="learn_unit_geometry_quadrilaterals_q5_o2">It is a trapezium and nothing else</string>
+    <string name="learn_unit_geometry_quadrilaterals_q5_o4">It has three right angles</string>
+    <string name="learn_unit_geometry_quadrilaterals_q5_explanation">It meets both definitions at once, which is what the family tree is for.</string>
+    <string name="learn_unit_geometry_quadrilaterals_q6_prompt">Each angle of an equilateral triangle is...</string>
+    <string name="learn_unit_geometry_symmetry_title">Symmetry</string>
+    <string name="learn_unit_geometry_symmetry_summary">Fold lines, turning symmetry, and where both show up.</string>
+    <string name="learn_g35_geometry_symmetry_title">Fold lines</string>
+    <string name="learn_g35_geometry_symmetry_summary">Lines that leave a shape unchanged.</string>
+    <string name="learn_g35_geometry_symmetry_s1_body">Fold along a line of symmetry and the two halves land exactly on each other.</string>
+    <string name="learn_g35_geometry_symmetry_s2_body">A square has four fold lines: two through the sides and two along the diagonals.</string>
+    <string name="learn_g35_geometry_symmetry_s3_question">How many lines of symmetry does this triangle have?</string>
+    <string name="learn_g35_geometry_symmetry_s4_question">How many lines of symmetry does this rectangle have?</string>
+    <string name="learn_g35_geometry_symmetry_s4_explanation">One horizontal, one vertical. The diagonals do not match up.</string>
+    <string name="learn_g35_geometry_symmetry_s5_body">A regular shape has one fold line for every side it has, which makes them easy to count.</string>
+    <string name="learn_g35_geometry_symmetry_s6_question">How many lines of symmetry has a regular pentagon?</string>
+    <string name="learn_g35_geometry_symmetry_s6_explanation">One for each of its five sides.</string>
+    <string name="learn_geometry_symmetry_rotational_title">Turning symmetry</string>
+    <string name="learn_geometry_symmetry_rotational_summary">Matching part way through a turn, without folding.</string>
+    <string name="learn_geometry_symmetry_rotational_s1_body">Rotational symmetry means a shape looks the same part way through a turn, with no folding involved at all.</string>
+    <string name="learn_geometry_symmetry_rotational_s2_body">The order is how many times it matches during one full turn. A square matches four times.</string>
+    <string name="learn_geometry_symmetry_rotational_s3_question">What is the order of rotational symmetry of an equilateral triangle?</string>
+    <string name="learn_geometry_symmetry_rotational_s3_explanation">It drops back onto itself every third of a turn.</string>
+    <string name="learn_geometry_symmetry_rotational_s4_body">The two kinds do not have to arrive together. A rectangle matches after half a turn and also folds two ways, but plenty of shapes have one without the other.</string>
+    <string name="learn_geometry_symmetry_rotational_s5_question">What is the order of rotational symmetry of a regular hexagon?</string>
+    <string name="learn_geometry_symmetry_rotational_s5_explanation">One match for every side, the same as its fold lines.</string>
+    <string name="learn_geometry_symmetry_rotational_s6_question">For a regular shape, the order of rotational symmetry is...</string>
+    <string name="learn_geometry_symmetry_rotational_s6_o2">the number of its sides</string>
+    <string name="learn_geometry_symmetry_rotational_s6_o3">half the number of its sides</string>
+    <string name="learn_geometry_symmetry_rotational_s6_o4">twice the number of its sides</string>
+    <string name="learn_geometry_symmetry_rotational_s6_explanation">Every side can take the place of the one before it.</string>
+    <string name="learn_geometry_symmetry_around_title">Symmetry you can see</string>
+    <string name="learn_geometry_symmetry_around_summary">Letters and everyday shapes.</string>
+    <string name="learn_geometry_symmetry_around_s1_body">Letters, leaves and faces all carry symmetry, and it is a large part of why they look right.</string>
+    <string name="learn_geometry_symmetry_around_s3_body">Some shapes fold one way but not the other. An isosceles triangle has exactly one line, straight down from its odd corner.</string>
+    <string name="learn_geometry_symmetry_around_s4_question">Which capital letter has a horizontal line of symmetry?</string>
+    <string name="learn_geometry_symmetry_around_s4_explanation">Fold E across the middle and the top arm lands on the bottom one.</string>
+    <string name="learn_geometry_symmetry_around_s5_body">A shape can have turning symmetry with no fold line at all. S and N both match after half a turn, but neither will fold onto itself.</string>
+    <string name="learn_geometry_symmetry_around_s6_question">How many lines of symmetry has an isosceles triangle?</string>
+    <string name="learn_geometry_symmetry_around_s6_explanation">Only the line through the corner between its two equal sides.</string>
+    <string name="learn_unit_geometry_symmetry_q1_prompt">How many lines of symmetry does this square have?</string>
+    <string name="learn_unit_geometry_symmetry_q1_explanation">Two through the sides and two along the diagonals.</string>
+    <string name="learn_unit_geometry_symmetry_q2_prompt">How many lines of symmetry has this rectangle?</string>
+    <string name="learn_unit_geometry_symmetry_q2_explanation">One horizontal and one vertical. The diagonals do not match up.</string>
+    <string name="learn_unit_geometry_symmetry_q3_prompt">How many lines of symmetry has an equilateral triangle?</string>
+    <string name="learn_unit_geometry_symmetry_q4_prompt">What is the order of rotational symmetry of a regular pentagon?</string>
+    <string name="learn_unit_geometry_symmetry_q4_explanation">One match for every side.</string>
+    <string name="learn_unit_geometry_symmetry_q6_prompt">How many lines of symmetry has this shape?</string>
+    <string name="learn_unit_geometry_symmetry_q6_explanation">A regular hexagon has one for each of its six sides.</string>
+    <string name="learn_unit_geometry_perimeter_and_area_title">Perimeter and area</string>
+    <string name="learn_unit_geometry_perimeter_and_area_summary">The walk around the outside, and the squares that fill the inside.</string>
+    <string name="learn_g35_measurement_perimeter_title">Perimeter</string>
+    <string name="learn_g35_measurement_perimeter_summary">The walk all the way around.</string>
+    <string name="learn_g35_measurement_perimeter_s1_body">Perimeter is the distance around the outside.</string>
+    <string name="learn_g35_measurement_perimeter_s2_body">Opposite sides match, so add one of each and double it.</string>
+    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 x (length + width)</string>
+    <string name="learn_g35_measurement_perimeter_s3_problem">A rectangle is 8 cm by 5 cm.</string>
+    <string name="learn_g35_measurement_perimeter_s3_l2">Every side has an equal partner.</string>
+    <string name="learn_g35_measurement_perimeter_s3_result">Perimeter = 26 cm</string>
+    <string name="learn_g35_measurement_perimeter_s4_question">What is the perimeter of this square, in cm?</string>
+    <string name="learn_g35_measurement_perimeter_s4_explanation">Four sides of 9.</string>
+    <string name="learn_g35_measurement_perimeter_s5_question">Which shape has a perimeter of 20 cm?</string>
+    <string name="learn_g35_measurement_perimeter_s5_o4">Neither</string>
+    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 doubled is 20, and 4 x 5 is 20 as well.</string>
+    <string name="learn_g35_measurement_perimeter_s6_body">Perimeter is a length, so it is never measured in square units.</string>
+    <string name="learn_g35_measurement_area_title">Area of rectangles</string>
+    <string name="learn_g35_measurement_area_summary">Count the squares, or multiply instead.</string>
+    <string name="learn_g35_measurement_area_s1_body">Area counts the unit squares that cover a shape.</string>
+    <string name="learn_g35_measurement_area_s2_body">The squares sit in equal rows, so multiply instead of counting.</string>
+    <string name="learn_g35_measurement_area_s2_formula">{a:A} = length x width</string>
+    <string name="learn_g35_measurement_area_s3_question">How many squares cover this rug?</string>
+    <string name="learn_g35_measurement_area_s4_question">Which unit belongs to an area?</string>
+    <string name="learn_g35_measurement_area_s4_o2">square cm</string>
+    <string name="learn_g35_measurement_area_s4_o3">cubic cm</string>
+    <string name="learn_g35_measurement_area_s4_explanation">Area counts squares, so the unit is squared.</string>
+    <string name="learn_g35_measurement_area_s5_body">A square metre is a square one metre along each side, not a hundred square centimetres.</string>
+    <string name="learn_g35_measurement_area_s6_question">The area is 24 square cm and one side is 4 cm. How long is the other?</string>
+    <string name="learn_geometry_area_compound_title">Shapes made of rectangles</string>
+    <string name="learn_geometry_area_compound_summary">Split it up, work out each piece, add them back.</string>
+    <string name="learn_geometry_area_compound_s1_body">A compound shape is rectangles joined together, so no new formula is needed.</string>
+    <string name="learn_geometry_area_compound_s2_body">Split it into rectangles you know, find each area, then add.</string>
+    <string name="learn_geometry_area_compound_s3_problem">An L-shape: a 5 by 2 rectangle joined to a 3 by 2 one.</string>
+    <string name="learn_geometry_area_compound_s3_l1">Split it into rectangles you know.</string>
+    <string name="learn_geometry_area_compound_s3_result">Area = 16 square cm</string>
+    <string name="learn_geometry_area_compound_s4_question">A 5 by 4 rectangle has a 2 by 2 corner cut out. What area is left, in square cm?</string>
+    <string name="learn_geometry_area_compound_s4_explanation">5 x 4 = 20, and the missing corner takes 2 x 2 = 4 away.</string>
+    <string name="learn_geometry_area_compound_s5_question">A 3 by 2 rectangle and a 4 by 2 rectangle are joined edge to edge. What is the total area?</string>
+    <string name="learn_geometry_area_compound_s6_body">Split the shape whichever way is easiest: the total comes out the same either way.</string>
+    <string name="learn_unit_geometry_perimeter_and_area_q1_prompt">What is the perimeter of this rectangle?</string>
+    <string name="learn_unit_geometry_perimeter_and_area_q2_prompt">What is the area of this rectangle?</string>
+    <string name="learn_unit_geometry_perimeter_and_area_q3_prompt">A square has a perimeter of 32 cm. How long is one side?</string>
+    <string name="learn_unit_geometry_perimeter_and_area_q4_prompt">Which measurement is an area?</string>
+    <string name="learn_unit_geometry_perimeter_and_area_q4_explanation">Only the squared unit measures a surface.</string>
+    <string name="learn_unit_geometry_perimeter_and_area_q5_prompt">What is the perimeter of a 9 cm by 2 cm rectangle?</string>
+    <string name="learn_unit_geometry_perimeter_and_area_q6_prompt">An L-shape is a 4 by 3 rectangle with a 2 by 2 square added. What is its area?</string>
+    <string name="learn_unit_geometry_pythagoras_title">Pythagoras' theorem</string>
+    <string name="learn_unit_geometry_pythagoras_summary">Two squares that fill a third, and the sides it lets you find.</string>
+    <string name="learn_g68_geometry_pythagoras_title">Two squares that fill a third</string>
+    <string name="learn_g68_geometry_pythagoras_summary">Where the theorem comes from.</string>
+    <string name="learn_g68_geometry_pythagoras_s1_body">The longest side always faces the right angle.</string>
+    <string name="learn_g68_geometry_pythagoras_s2_body">The squares on the two short sides hold exactly as much as the square on the long one.</string>
+    <string name="learn_g68_geometry_pythagoras_s3_problem">Short sides 3 and 4.</string>
+    <string name="learn_g68_geometry_pythagoras_s3_l1">3² = {b:9} and 4² = 16.</string>
+    <string name="learn_g68_geometry_pythagoras_s5_body">It works only for right-angled triangles. Take the right angle away and the two squares stop fitting.</string>
+    <string name="learn_g68_geometry_pythagoras_s6_explanation">25 + 144 = 169, and 169 is 13 squared. None of the others add up.</string>
+    <string name="learn_geometry_pythagoras_finding_title">Finding a shorter side</string>
+    <string name="learn_geometry_pythagoras_finding_summary">Take the small square away from the big one.</string>
+    <string name="learn_geometry_pythagoras_finding_s1_body">Turned around, the theorem finds a short side instead. Take the small square away from the big one rather than adding the two together.</string>
+    <string name="learn_geometry_pythagoras_finding_s2_question">How long is the missing side?</string>
+    <string name="learn_geometry_pythagoras_finding_s3_question">A 13 m ladder stands 5 m from the wall. How high does it reach?</string>
+    <string name="learn_geometry_pythagoras_finding_s4_body">Decide which side faces the right angle before anything else. That is what says whether the squares get added or taken away.</string>
+    <string name="learn_geometry_pythagoras_finding_s5_explanation">625 - 49 = 576, and 576 is 24 squared.</string>
+    <string name="learn_geometry_pythagoras_using_title">Using the theorem</string>
+    <string name="learn_geometry_pythagoras_using_summary">Diagonals, shortcuts, and checking for a right angle.</string>
+    <string name="learn_geometry_pythagoras_using_s1_body">Any real problem with a right angle hidden in it can be turned into a triangle: a ladder, a diagonal, a shortcut across a field.</string>
+    <string name="learn_geometry_pythagoras_using_s2_l1">The diagonal cuts the rectangle into two right triangles.</string>
+    <string name="learn_geometry_pythagoras_using_s2_l2">12² = 144 and 9² = {b:81}.</string>
+    <string name="learn_geometry_pythagoras_using_s3_question">A field is 40 m by 30 m. How much shorter is the diagonal than walking two sides?</string>
+    <string name="learn_geometry_pythagoras_using_s3_explanation">The diagonal is 50 m and the two sides are 70 m together.</string>
+    <string name="learn_geometry_pythagoras_using_s4_body">The theorem also runs backwards. If the two squares add up to the third, the triangle must have a right angle in it.</string>
+    <string name="learn_geometry_pythagoras_using_s5_question">A triangle has sides 8, 15 and 17. Is it right-angled?</string>
+    <string name="learn_geometry_pythagoras_using_s5_o1">Yes, the squares add up</string>
+    <string name="learn_geometry_pythagoras_using_s5_o2">No, the squares do not add up</string>
+    <string name="learn_geometry_pythagoras_using_s5_o3">Only if it is also isosceles</string>
+    <string name="learn_geometry_pythagoras_using_s5_o4">There is no way to tell</string>
+    <string name="learn_geometry_pythagoras_using_s5_explanation">64 + 225 = 289, and 289 is 17 squared.</string>
+    <string name="learn_geometry_pythagoras_using_s6_question">A screen is 16 inches wide and 12 inches tall. How long is its diagonal, in inches?</string>
+    <string name="learn_unit_geometry_pythagoras_q2_prompt">How long is the missing short side?</string>
+    <string name="learn_unit_geometry_pythagoras_q5_prompt">Which side of a right triangle is always the longest?</string>
+    <string name="learn_unit_geometry_pythagoras_q5_o1">The one facing the right angle</string>
+    <string name="learn_unit_geometry_pythagoras_q5_o2">The one lying along the bottom</string>
+    <string name="learn_unit_geometry_pythagoras_q5_o3">The shorter of the two touching the right angle</string>
+    <string name="learn_unit_geometry_pythagoras_q5_o4">They are always equal</string>
+    <string name="learn_unit_geometry_pythagoras_q5_explanation">The hypotenuse faces the biggest angle, and the right angle is the biggest one there is here.</string>
+    <string name="learn_unit_geometry_circles_title">Circles</string>
+    <string name="learn_unit_geometry_circles_summary">Where pi comes from, and the two formulas it feeds.</string>
+    <string name="learn_g68_geometry_circles_title">Radius, diameter and pi</string>
+    <string name="learn_g68_geometry_circles_summary">Where pi comes from.</string>
+    <string name="learn_g68_geometry_circles_s1_body">The diameter crosses the middle, so it is twice the radius.</string>
+    <string name="learn_g68_geometry_circles_s2_question">The radius is 5 cm. What is the diameter, in cm?</string>
+    <string name="learn_g68_geometry_circles_s2_explanation">Twice the radius.</string>
+    <string name="learn_g68_geometry_circles_s3_body">Roll a circle along once and it covers a little over three diameters. That number is pi, and it never changes.</string>
+    <string name="learn_g68_geometry_circles_s4_body">Pi is the same for a coin and for a planet. Being the same every time is exactly what makes it worth a name of its own.</string>
+    <string name="learn_g68_geometry_circles_s5_question">A wheel of diameter 50 cm. How far does one turn take it?</string>
+    <string name="learn_g68_geometry_circles_s6_question">The diameter is 18 cm. What is the radius, in cm?</string>
+    <string name="learn_geometry_circles_area_title">Area of a circle</string>
+    <string name="learn_geometry_circles_area_summary">Square the radius, then multiply by pi.</string>
+    <string name="learn_geometry_circles_area_s1_body">Area squares the radius, so doubling r gives four times the area rather than twice.</string>
+    <string name="learn_geometry_circles_area_s2_body">Square the radius first, then multiply by pi. Squaring the whole of pi times r is the usual slip.</string>
+    <string name="learn_geometry_circles_area_s3_question">Radius 10 cm, pi as 3.14. What is the area?</string>
+    <string name="learn_geometry_circles_area_s4_question">A circle has radius 4 cm. Taking pi as 3.14, what is its area in square cm?</string>
+    <string name="learn_geometry_circles_area_s4_explanation">16 square units, each one worth pi.</string>
+    <string name="learn_geometry_circles_area_s5_body">Circumference uses the radius once and area uses it twice. That is the whole difference between the two formulas, and it is why their units differ.</string>
+    <string name="learn_geometry_circles_area_s6_explanation">The radius is squared, so doubling it doubles the answer twice over.</string>
+    <string name="learn_geometry_circles_using_title">Working backwards</string>
+    <string name="learn_geometry_circles_using_summary">From a circumference or an area back to the circle.</string>
+    <string name="learn_geometry_circles_using_s1_body">Every circle question starts by deciding which measurement you were given. Halving or doubling first prevents most of the mistakes.</string>
+    <string name="learn_geometry_circles_using_s2_question">A circle has circumference 31.4 cm, with pi as 3.14. What is its diameter?</string>
+    <string name="learn_geometry_circles_using_s2_explanation">Circumference divided by pi gives the diameter back.</string>
+    <string name="learn_geometry_circles_using_s3_body">The formulas run both ways. Circumference divides back to the diameter, and area divides by pi and then square-roots back to the radius.</string>
+    <string name="learn_geometry_circles_using_s4_question">A circle has area 78.5 square cm, with pi as 3.14. What is the radius times itself?</string>
+    <string name="learn_geometry_circles_using_s4_explanation">Dividing by pi leaves r squared, and the radius itself is its square root.</string>
+    <string name="learn_geometry_circles_using_s5_body">Half a circle keeps half the curved edge but gains the diameter as a straight one, so its perimeter is not simply half the circumference.</string>
+    <string name="learn_geometry_circles_using_s6_question">A semicircle has diameter 10 cm. How long is its curved edge, with pi as 3.14?</string>
+    <string name="learn_geometry_circles_using_s6_explanation">The whole way round is 31.4 cm, and the curved edge is half of it.</string>
+    <string name="learn_unit_geometry_circles_q1_prompt">The diameter is 18 cm. What is the radius?</string>
+    <string name="learn_unit_geometry_circles_q2_prompt">Circumference of a circle of diameter 10 cm, pi as 3.14?</string>
+    <string name="learn_unit_geometry_circles_q3_prompt">Area of a circle of radius 4 cm, pi as 3.14?</string>
+    <string name="learn_unit_geometry_circles_q4_prompt">Which formula gives the circumference?</string>
+    <string name="learn_unit_geometry_circles_q4_explanation">Two radii make the diameter, and pi diameters make the way round.</string>
+    <string name="learn_unit_geometry_circles_q5_explanation">The radius is squared in the area formula.</string>
+    <string name="learn_unit_geometry_circles_q6_prompt">A circle has circumference 62.8 cm, pi as 3.14. What is its diameter?</string>
+    <string name="learn_unit_geometry_circles_q6_explanation">62.8 divided by pi.</string>
+    <string name="learn_unit_geometry_volume_title">Volume and surface area</string>
+    <string name="learn_unit_geometry_volume_summary">Cross-section times length, and the skin around it.</string>
+    <string name="learn_g68_geometry_volume_title">Volume of a prism</string>
+    <string name="learn_g68_geometry_volume_summary">Cross-section times length.</string>
+    <string name="learn_g68_geometry_volume_s1_body">Volume counts unit cubes, so its units are cubed.</string>
+    <string name="learn_g68_geometry_volume_s2_body">A prism keeps the same cross-section the whole way along, so one slice repeated is all there is to it.</string>
+    <string name="learn_g68_geometry_volume_s2_formula">V = base area x length</string>
+    <string name="learn_g68_geometry_volume_s3_question">A box is 4 by 3 by 2 cm. What is its volume in cubic cm?</string>
+    <string name="learn_g68_geometry_volume_s3_explanation">A layer of 12 cubes, twice over.</string>
+    <string name="learn_g68_geometry_volume_s4_problem">A triangular prism, cross-section 6 cm², length 9 cm.</string>
+    <string name="learn_g68_geometry_volume_s4_l1">Same triangle all the way along.</string>
+    <string name="learn_g68_geometry_volume_s4_l2">Volume is cross-section x length.</string>
+    <string name="learn_g68_geometry_volume_s5_question">A cylinder has base radius r and height h. Which is its volume?</string>
+    <string name="learn_g68_geometry_volume_s5_explanation">The circle of area pi r², repeated up the height.</string>
+    <string name="learn_g68_geometry_volume_s6_question">Double every side of a cube. The volume is multiplied by...</string>
+    <string name="learn_g68_geometry_volume_s6_explanation">All three dimensions double, so the answer doubles three times over.</string>
+    <string name="learn_geometry_volume_surface_title">Surface area</string>
+    <string name="learn_geometry_volume_surface_summary">The skin rather than the filling.</string>
+    <string name="learn_geometry_volume_surface_s1_body">Surface area is the skin rather than the filling. Add up the faces, and the units come out squared, not cubed.</string>
+    <string name="learn_geometry_volume_surface_s2_body">A cuboid has three pairs of matching faces, so work out three of them and double the total.</string>
+    <string name="learn_geometry_volume_surface_s2_formula">SA = 2(lw + lh + wh)</string>
+    <string name="learn_geometry_volume_surface_s3_explanation">Six faces, each one 9 square cm.</string>
+    <string name="learn_geometry_volume_surface_s4_question">A box is 5 by 4 by 2 cm. What is its surface area, in square cm?</string>
+    <string name="learn_geometry_volume_surface_s4_explanation">20, 10 and 8 for the three different faces, then doubled.</string>
+    <string name="learn_geometry_volume_surface_s5_body">Volume and surface area do not grow together. A long thin box holds very little and still takes a great deal of wrapping.</string>
+    <string name="learn_geometry_volume_surface_s6_question">Which of the two is measured in square units rather than cubic ones?</string>
+    <string name="learn_geometry_volume_surface_s6_o1">Volume</string>
+    <string name="learn_geometry_volume_surface_s6_o2">Surface area</string>
+    <string name="learn_geometry_volume_surface_s6_o4">Neither of them</string>
+    <string name="learn_geometry_volume_surface_s6_explanation">Faces are flat, so their measure is an area.</string>
+    <string name="learn_geometry_volume_cylinders_title">Cylinders and capacity</string>
+    <string name="learn_geometry_volume_cylinders_summary">A prism with a circle for its cross-section.</string>
+    <string name="learn_geometry_volume_cylinders_s1_body">A cylinder is a prism with a circle for its cross-section, so the same rule works: the area of the circle, repeated up the height.</string>
+    <string name="learn_geometry_volume_cylinders_s2_question">A cylinder has base area 20 square cm and height 6 cm. What is its volume in cubic cm?</string>
+    <string name="learn_geometry_volume_cylinders_s2_explanation">The same 20 square cm, six times over.</string>
+    <string name="learn_geometry_volume_cylinders_s3_body">Capacity is volume seen from the inside. A litre is exactly a thousand cubic centimetres, which is a 10 cm cube.</string>
+    <string name="learn_geometry_volume_cylinders_s3_formula">1 litre = 1000 cm³</string>
+    <string name="learn_geometry_volume_cylinders_s4_question">A tank is 10 by 10 by 10 cm. How many litres does it hold?</string>
+    <string name="learn_geometry_volume_cylinders_s4_explanation">1000 cubic cm, which is exactly one litre.</string>
+    <string name="learn_geometry_volume_cylinders_s5_body">Doubling a cylinder's radius gives four times the volume, because the radius is squared. Doubling its height only doubles it.</string>
+    <string name="learn_geometry_volume_cylinders_s6_question">A cylinder's height is doubled and its radius left alone. Its volume is multiplied by...</string>
+    <string name="learn_geometry_volume_cylinders_s6_explanation">Height appears once in the formula, so it changes the answer once.</string>
+    <string name="learn_unit_geometry_volume_q1_prompt">What is the volume of a 5 by 4 by 3 cm box?</string>
+    <string name="learn_unit_geometry_volume_q2_prompt">Which gives the volume of any prism?</string>
+    <string name="learn_unit_geometry_volume_q2_o1">perimeter x height</string>
+    <string name="learn_unit_geometry_volume_q2_o2">cross-section x length</string>
+    <string name="learn_unit_geometry_volume_q2_explanation">The cross-section repeats unchanged.</string>
+    <string name="learn_unit_geometry_volume_q3_prompt">A cube has edges of 2 cm. What is its volume in cubic cm?</string>
+    <string name="learn_unit_geometry_volume_q4_explanation">Six faces of 16 square cm.</string>
+    <string name="learn_unit_geometry_volume_q5_prompt">Surface area is measured in...</string>
+    <string name="learn_unit_geometry_volume_q5_o1">cubic units</string>
+    <string name="learn_unit_geometry_volume_q5_o2">square units</string>
+    <string name="learn_unit_geometry_volume_q5_o3">plain units</string>
+    <string name="learn_unit_geometry_volume_q5_o4">degrees</string>
+    <string name="learn_unit_geometry_volume_q5_explanation">It adds up flat faces, and a face has an area.</string>
+    <string name="learn_unit_geometry_volume_q6_prompt">How many cubic centimetres are in one litre?</string>
+    <string name="learn_unit_geometry_volume_q6_explanation">A litre is a 10 cm cube.</string>
+    <string name="learn_unit_geometry_similarity_title">Similarity and scale</string>
+    <string name="learn_unit_geometry_similarity_summary">Same shape at a different size, and what that does to area and volume.</string>
+    <string name="learn_g910_geometry_similarity_title">Same shape, different size</string>
+    <string name="learn_g910_geometry_similarity_summary">One factor carried through every length.</string>
+    <string name="learn_g910_geometry_similarity_s1_body">Similar shapes share every angle; the lengths all scale by one factor.</string>
+    <string name="learn_g910_geometry_similarity_s2_body">Every length multiplies by that same number, and the shape stays unmistakably itself.</string>
+    <string name="learn_g910_geometry_similarity_s2_formula">new = k x old</string>
+    <string name="learn_g910_geometry_similarity_s4_question">This 3-4-5 triangle is enlarged by 3. How long is the longest side?</string>
+    <string name="learn_g910_geometry_similarity_s5_body">Congruent is the special case where the factor is 1: the same shape at the same size.</string>
+    <string name="learn_g910_geometry_similarity_s6_question">Which of these pairs must be similar whatever size they are drawn?</string>
+    <string name="learn_g910_geometry_similarity_s6_o4">Any two quadrilaterals</string>
+    <string name="learn_g910_geometry_similarity_s6_explanation">Every square has four right angles and four equal sides, so only the factor can differ. A long rectangle and a short one do not match.</string>
+    <string name="learn_geometry_similarity_area_title">Scaling area and volume</string>
+    <string name="learn_geometry_similarity_area_summary">Length by k, area by k squared, volume by k cubed.</string>
+    <string name="learn_geometry_similarity_area_s1_body">Area does not scale like length: double the sides and you get four times the squares.</string>
+    <string name="learn_geometry_similarity_area_s1_formula">length x k, area x k², volume x k³</string>
+    <string name="learn_geometry_similarity_area_s2_question">A shape is enlarged by scale factor 4. Its area is multiplied by...</string>
+    <string name="learn_geometry_similarity_area_s2_explanation">Area scales by the square of the factor.</string>
+    <string name="learn_geometry_similarity_area_s3_body">Volume goes one further and scales by the cube, because all three directions stretch at once.</string>
+    <string name="learn_geometry_similarity_area_s3_formula">volume x k³</string>
+    <string name="learn_geometry_similarity_area_s4_question">A solid is enlarged by scale factor 3. Its volume is multiplied by what?</string>
+    <string name="learn_geometry_similarity_area_s4_explanation">Three directions, each one three times bigger.</string>
+    <string name="learn_geometry_similarity_area_s5_body">It reads backwards too. If two areas are in the ratio 9 : 1, the lengths are in the ratio 3 : 1.</string>
+    <string name="learn_geometry_similarity_area_s6_question">Two similar solids have volumes of 8 cm³ and 64 cm³. What is the scale factor?</string>
+    <string name="learn_geometry_similarity_area_s6_explanation">The volumes are 8 times apart, and the cube root of 8 is 2.</string>
+    <string name="learn_geometry_similarity_using_title">Using similar triangles</string>
+    <string name="learn_geometry_similarity_using_summary">One pair of sides fixes every other.</string>
+    <string name="learn_geometry_similarity_using_s1_body">Two triangles with matching angles must be similar, so a single pair of sides fixes every other length between them.</string>
+    <string name="learn_geometry_similarity_using_s2_body">Match the sides up in the same order before dividing, or the factor comes out upside down.</string>
+    <string name="learn_geometry_similarity_using_s3_question">A triangle has sides 3 and 4. A similar one has 9 in place of the 3. What is in place of the 4?</string>
+    <string name="learn_geometry_similarity_using_s3_explanation">The factor is 9 / 3 = 3, so the 4 becomes 12.</string>
+    <string name="learn_geometry_similarity_using_s4_question">A 2 m stick casts a 3 m shadow. A tree casts a 30 m shadow at the same moment. How tall is the tree, in metres?</string>
+    <string name="learn_geometry_similarity_using_s4_explanation">The shadow is ten times longer, so the tree is ten times taller than the stick.</string>
+    <string name="learn_geometry_similarity_using_s5_body">Shadows, maps and scale drawings are all this one idea: a single factor carried through every length in the picture.</string>
+    <string name="learn_geometry_similarity_using_s6_explanation">The areas are 2.25 times apart, and the square root of 2.25 is 1.5.</string>
+    <string name="learn_unit_geometry_similarity_q1_prompt">Two similar shapes have scale factor 3. Their areas differ by a factor of...</string>
+    <string name="learn_unit_geometry_similarity_q1_explanation">Area scales by the square.</string>
+    <string name="learn_unit_geometry_similarity_q3_prompt">A solid is enlarged by scale factor 2. Its volume is multiplied by...</string>
+    <string name="learn_unit_geometry_similarity_q3_explanation">Volume scales by the cube of the factor.</string>
+    <string name="learn_unit_geometry_similarity_q4_prompt">Which of these pairs must always be similar?</string>
+    <string name="learn_unit_geometry_similarity_q4_o4">Any two kites</string>
+    <string name="learn_unit_geometry_similarity_q4_explanation">Only the scale factor can differ between two squares.</string>
+    <string name="learn_unit_geometry_similarity_q5_explanation">The areas are 2.25 times apart, and 1.5 squared is 2.25.</string>
+    <string name="learn_unit_geometry_similarity_q6_prompt">A 3-4-5 triangle is enlarged by 4. How long is its longest side?</string>
+    <string name="learn_unit_geometry_transformations_title">Transformations</string>
+    <string name="learn_unit_geometry_transformations_summary">Slide, flip, turn and resize, and what each one keeps.</string>
+    <string name="learn_g910_geometry_transformations_title">Slides and flips</string>
+    <string name="learn_g910_geometry_transformations_summary">Translations and reflections on the grid.</string>
+    <string name="learn_g910_geometry_transformations_s1_body">Translations slide, reflections flip, rotations turn, enlargements resize.</string>
+    <string name="learn_g910_geometry_transformations_s2_body">A translation vector reads across, then up.</string>
+    <string name="learn_g910_geometry_transformations_s3_explanation">Add the vector to the coordinates.</string>
+    <string name="learn_g910_geometry_transformations_s4_body">Reflecting in the y-axis flips the sign of x only.</string>
+    <string name="learn_g910_geometry_transformations_s4_formula">(x, y) becomes (-x, y)</string>
+    <string name="learn_g910_geometry_transformations_s5_question">Reflect this point in the x-axis. What is the new y-coordinate?</string>
+    <string name="learn_g910_geometry_transformations_s5_explanation">Reflecting in the x-axis negates y.</string>
+    <string name="learn_g910_geometry_transformations_s6_question">Reflecting in the x-axis changes the sign of...</string>
+    <string name="learn_g910_geometry_transformations_s6_o1">x only</string>
+    <string name="learn_g910_geometry_transformations_s6_o2">y only</string>
+    <string name="learn_g910_geometry_transformations_s6_o3">both of them</string>
+    <string name="learn_g910_geometry_transformations_s6_o4">neither of them</string>
+    <string name="learn_g910_geometry_transformations_s6_explanation">The point crosses the horizontal axis, so only its height changes side.</string>
+    <string name="learn_geometry_transformations_rotations_title">Rotations</string>
+    <string name="learn_geometry_transformations_rotations_summary">A centre, an angle and a direction.</string>
+    <string name="learn_geometry_transformations_rotations_s1_body">A rotation needs three things before it means anything: a centre to turn about, an angle, and a direction.</string>
+    <string name="learn_geometry_transformations_rotations_s2_body">A quarter turn anticlockwise about the origin sends a point across and up in one move.</string>
+    <string name="learn_geometry_transformations_rotations_s2_formula">(x, y) becomes (-y, x)</string>
+    <string name="learn_geometry_transformations_rotations_s3_question">Rotate this point by 180 degrees about the origin. Where does it land?</string>
+    <string name="learn_geometry_transformations_rotations_s3_explanation">A half turn sends a point straight through the origin, so both signs flip.</string>
+    <string name="learn_geometry_transformations_rotations_s4_question">Rotate this point by 180 degrees about the origin. What is its new x-coordinate?</string>
+    <string name="learn_geometry_transformations_rotations_s5_body">A rotation keeps every length and every angle, so the image is congruent to what it started as.</string>
+    <string name="learn_geometry_transformations_rotations_s6_question">Which of these leaves every length unchanged?</string>
+    <string name="learn_geometry_transformations_rotations_s6_explanation">Only an enlargement changes size, and its factor is what does it.</string>
+    <string name="learn_geometry_transformations_enlargements_title">Enlargements</string>
+    <string name="learn_geometry_transformations_enlargements_summary">A centre and a scale factor, in either direction.</string>
+    <string name="learn_geometry_transformations_enlargements_s1_body">An enlargement needs a centre and a scale factor. Every point moves away from that centre by the factor.</string>
+    <string name="learn_geometry_transformations_enlargements_s2_body">A factor between 0 and 1 still counts as an enlargement, even though the shape comes out smaller. The word covers both directions.</string>
+    <string name="learn_geometry_transformations_enlargements_s3_question">A shape is enlarged by scale factor 0.5. What happens to it?</string>
+    <string name="learn_geometry_transformations_enlargements_s3_o1">Every length doubles</string>
+    <string name="learn_geometry_transformations_enlargements_s3_o2">Every length halves</string>
+    <string name="learn_geometry_transformations_enlargements_s3_o3">Nothing changes</string>
+    <string name="learn_geometry_transformations_enlargements_s3_explanation">The factor multiplies every length, and multiplying by a half makes them shorter.</string>
+    <string name="learn_geometry_transformations_enlargements_s4_body">A negative factor sends the shape through the centre and out the other side, arriving upside down.</string>
+    <string name="learn_geometry_transformations_enlargements_s4_formula">k = -1 is a half turn</string>
+    <string name="learn_geometry_transformations_enlargements_s5_question">A 3 cm side is enlarged by scale factor 4. How long is it now, in cm?</string>
+    <string name="learn_geometry_transformations_enlargements_s5_explanation">Every length is multiplied by the factor.</string>
+    <string name="learn_unit_geometry_transformations_q2_prompt">Reflect this point in the y-axis.</string>
+    <string name="learn_unit_geometry_transformations_q2_explanation">Only the sign of x flips.</string>
+    <string name="learn_unit_geometry_transformations_q3_prompt">Rotate this point by 180 degrees about the origin.</string>
+    <string name="learn_unit_geometry_transformations_q5_prompt">A translation vector of (3, -2) means...</string>
+    <string name="learn_unit_geometry_transformations_q5_explanation">Across first, then up, and a minus means down.</string>
+    <string name="learn_unit_geometry_transformations_q6_prompt">An enlargement by scale factor 0.5 makes a shape...</string>
+    <string name="learn_unit_geometry_transformations_q6_o1">twice as long</string>
+    <string name="learn_unit_geometry_transformations_q6_o2">half as long</string>
+    <string name="learn_unit_geometry_transformations_q6_o3">the same size</string>
+    <string name="learn_unit_geometry_transformations_q6_o4">upside down</string>
+    <string name="learn_unit_geometry_transformations_q6_explanation">The factor multiplies every length, and a half shortens them.</string>
+    <string name="learn_unit_geometry_circle_theorems_title">Circle theorems</string>
+    <string name="learn_unit_geometry_circle_theorems_summary">Angles at the centre and the edge, cyclic quadrilaterals and tangents.</string>
+    <string name="learn_g910_geometry_circle_theorems_title">Angles at the centre and the edge</string>
+    <string name="learn_g910_geometry_circle_theorems_summary">One is always twice the other.</string>
+    <string name="learn_g910_geometry_circle_theorems_s1_body">The angle at the centre is exactly twice the one at the circumference standing on the same arc.</string>
+    <string name="learn_g910_geometry_circle_theorems_s2_explanation">Half the centre angle.</string>
+    <string name="learn_g910_geometry_circle_theorems_s3_body">Stretch the centre angle out to a straight 180 and the edge angle becomes a right angle. That is the angle in a semicircle.</string>
+    <string name="learn_g910_geometry_circle_theorems_s4_question">An angle drawn in a semicircle is always...</string>
+    <string name="learn_g910_geometry_circle_theorems_s4_explanation">Half of the straight 180 at the centre.</string>
+    <string name="learn_g910_geometry_circle_theorems_s5_body">Every angle standing on the same arc from the circumference is equal to every other, because each of them is half of the one centre angle.</string>
+    <string name="learn_g910_geometry_circle_theorems_s6_question">The centre angle is {a:140}. How many degrees is the angle at the circumference?</string>
+    <string name="learn_g910_geometry_circle_theorems_s6_explanation">Half the centre angle, whatever that angle happens to be.</string>
+    <string name="learn_geometry_circle_theorems_cyclic_title">Cyclic quadrilaterals</string>
+    <string name="learn_geometry_circle_theorems_cyclic_summary">Opposite angles add to 180.</string>
+    <string name="learn_geometry_circle_theorems_cyclic_s1_body">A cyclic quadrilateral has all four of its corners sitting on the circle.</string>
+    <string name="learn_geometry_circle_theorems_cyclic_s2_body">Its opposite angles add to 180.</string>
+    <string name="learn_geometry_circle_theorems_cyclic_s3_question">One angle of a cyclic quadrilateral is 110. How many degrees is the opposite one?</string>
+    <string name="learn_geometry_circle_theorems_cyclic_s4_explanation">The two have to make 180 between them.</string>
+    <string name="learn_geometry_circle_theorems_cyclic_s5_body">Both pairs behave the same way, so two opposite angles hand you the other two as well.</string>
+    <string name="learn_geometry_circle_theorems_cyclic_s6_question">Going round a cyclic quadrilateral, three angles are 70, 100 and 110. What is the fourth?</string>
+    <string name="learn_geometry_circle_theorems_cyclic_s6_explanation">The 70 and the 110 are already an opposite pair, so the fourth angle partners the 100.</string>
+    <string name="learn_geometry_circle_theorems_tangents_title">Tangents</string>
+    <string name="learn_geometry_circle_theorems_tangents_summary">Touching once, and meeting the radius square on.</string>
+    <string name="learn_geometry_circle_theorems_tangents_s1_body">A tangent touches the circle at exactly one point and never crosses it.</string>
+    <string name="learn_geometry_circle_theorems_tangents_s2_body">A tangent always meets the radius drawn to that point at a right angle.</string>
+    <string name="learn_geometry_circle_theorems_tangents_s2_formula">tangent meets radius at 90</string>
+    <string name="learn_geometry_circle_theorems_tangents_s4_body">That right angle is what makes tangent questions solvable: it hands you a right triangle to use Pythagoras on.</string>
+    <string name="learn_geometry_circle_theorems_tangents_s5_question">A tangent, a radius and a line to the centre make a right triangle. One of its other angles is 35. How many degrees is the last one?</string>
+    <string name="learn_geometry_circle_theorems_tangents_s5_explanation">The right angle uses up 90 of the 180.</string>
+    <string name="learn_geometry_circle_theorems_tangents_s6_question">Two tangents are drawn to a circle from the same point outside it. What can you say about them?</string>
+    <string name="learn_geometry_circle_theorems_tangents_s6_o1">They are always equal in length</string>
+    <string name="learn_geometry_circle_theorems_tangents_s6_o2">They are always different lengths</string>
+    <string name="learn_geometry_circle_theorems_tangents_s6_o3">They are always perpendicular</string>
+    <string name="learn_geometry_circle_theorems_tangents_s6_o4">They are always parallel</string>
+    <string name="learn_geometry_circle_theorems_tangents_s6_explanation">The two right triangles they make share the same radius and the same line to the centre.</string>
+    <string name="learn_unit_geometry_circle_theorems_q1_explanation">Half of the centre angle.</string>
+    <string name="learn_unit_geometry_circle_theorems_q2_prompt">An angle in a semicircle is always...</string>
+    <string name="learn_unit_geometry_circle_theorems_q2_explanation">Half of the straight angle at the centre.</string>
+    <string name="learn_unit_geometry_circle_theorems_q3_prompt">The angle at the circumference is {b:35}. What is the angle at the centre on the same arc?</string>
+    <string name="learn_unit_geometry_circle_theorems_q3_explanation">The centre angle is the doubled one.</string>
+    <string name="learn_unit_geometry_circle_theorems_q4_explanation">Opposite angles sum to 180.</string>
+    <string name="learn_unit_geometry_circle_theorems_q6_prompt">Two tangents drawn from the same point outside a circle are...</string>
+    <string name="learn_unit_geometry_circle_theorems_q6_o1">always equal in length</string>
+    <string name="learn_unit_geometry_circle_theorems_q6_o2">always different lengths</string>
+    <string name="learn_unit_geometry_circle_theorems_q6_o3">always perpendicular</string>
+    <string name="learn_unit_geometry_circle_theorems_q6_o4">always parallel</string>
+    <string name="learn_unit_geometry_circle_theorems_q6_explanation">The two right triangles they form are congruent.</string>
+
+    <!-- Shape guide: section headings, then every shape by name. -->
+    <string name="learn_shapeguide_polygons_title">Polygons</string>
+    <string name="learn_shapeguide_polygons_blurb">Named for how many sides they have. Drawn regular here, with every side and angle equal.</string>
+    <string name="learn_shapeguide_triangles_title">Triangles</string>
+    <string name="learn_shapeguide_triangles_blurb">Three sides, sorted by which of them match. Ticks mark the sides of equal length.</string>
+    <string name="learn_shapeguide_quadrilaterals_title">Quadrilaterals</string>
+    <string name="learn_shapeguide_quadrilaterals_blurb">Four sides, six families. Ticks mark equal sides and arrows mark parallel ones.</string>
+    <string name="learn_shapeguide_curves_title">Round shapes</string>
+    <string name="learn_shapeguide_curves_blurb">The shapes no count of straight sides describes.</string>
+    <string name="learn_shapeguide_solids_title">Solids</string>
+    <string name="learn_shapeguide_solids_blurb">Shapes you can hold. A face is a flat side, an edge is where two faces meet.</string>
+    <string name="learn_shape_triangle_name">Triangle</string>
+    <string name="learn_shape_quadrilateral_name">Quadrilateral</string>
+    <string name="learn_shape_pentagon_name">Pentagon</string>
+    <string name="learn_shape_hexagon_name">Hexagon</string>
+    <string name="learn_shape_heptagon_name">Heptagon</string>
+    <string name="learn_shape_octagon_name">Octagon</string>
+    <string name="learn_shape_nonagon_name">Nonagon</string>
+    <string name="learn_shape_decagon_name">Decagon</string>
+    <string name="learn_shape_hendecagon_name">Hendecagon</string>
+    <string name="learn_shape_dodecagon_name">Dodecagon</string>
+    <string name="learn_shape_equilateral_name">Equilateral</string>
+    <string name="learn_shape_equilateral_fact">3 equal sides · every angle 60°</string>
+    <string name="learn_shape_isosceles_name">Isosceles</string>
+    <string name="learn_shape_isosceles_fact">2 equal sides · 2 equal angles</string>
+    <string name="learn_shape_scalene_name">Scalene</string>
+    <string name="learn_shape_scalene_fact">No two sides the same length</string>
+    <string name="learn_shape_right_triangle_name">Right triangle</string>
+    <string name="learn_shape_right_triangle_fact">One corner of exactly 90°</string>
+    <string name="learn_shape_square_name">Square</string>
+    <string name="learn_shape_square_fact">4 equal sides · 4 right angles</string>
+    <string name="learn_shape_rectangle_name">Rectangle</string>
+    <string name="learn_shape_rectangle_fact">Opposite sides equal · 4 right angles</string>
+    <string name="learn_shape_rhombus_name">Rhombus</string>
+    <string name="learn_shape_rhombus_fact">4 equal sides, leaning over</string>
+    <string name="learn_shape_parallelogram_name">Parallelogram</string>
+    <string name="learn_shape_parallelogram_fact">Both pairs of opposite sides parallel</string>
+    <string name="learn_shape_trapezium_name">Trapezium</string>
+    <string name="learn_shape_trapezium_fact">Exactly one pair of parallel sides</string>
+    <string name="learn_shape_kite_name">Kite</string>
+    <string name="learn_shape_kite_fact">Two pairs of equal sides, next to each other</string>
+    <string name="learn_shape_circle_name">Circle</string>
+    <string name="learn_shape_circle_fact">Every point the same distance from the centre</string>
+    <string name="learn_shape_oval_name">Oval</string>
+    <string name="learn_shape_oval_fact">A stretched circle: two different widths</string>
+    <string name="learn_shape_semicircle_name">Semicircle</string>
+    <string name="learn_shape_semicircle_fact">Half a circle, cut along its diameter</string>
+    <string name="learn_shape_star_name">Star</string>
+    <string name="learn_shape_star_fact">5 points · 10 sides, turning in and out</string>
+    <string name="learn_shape_cube_name">Cube</string>
+    <string name="learn_shape_cube_fact">6 square faces · 12 edges · 8 corners</string>
+    <string name="learn_shape_cuboid_name">Cuboid</string>
+    <string name="learn_shape_cuboid_fact">A box: 6 rectangular faces</string>
+    <string name="learn_shape_pyramid_name">Pyramid</string>
+    <string name="learn_shape_pyramid_fact">A square base rising to one point</string>
+    <string name="learn_shape_cylinder_name">Cylinder</string>
+    <string name="learn_shape_cylinder_fact">Two circle ends and one curved face</string>
+    <string name="learn_shape_cone_name">Cone</string>
+    <string name="learn_shape_cone_fact">One circle base rising to a point</string>
+    <string name="learn_shape_sphere_name">Sphere</string>
+    <string name="learn_shape_sphere_fact">No faces, no edges, no corners</string>
+
+    <!-- Rules guide: section headings, then every rule. -->
+    <string name="learn_rulesguide_signs_title">Signs</string>
+    <string name="learn_rulesguide_signs_blurb">What happens when a minus meets a minus. The rules learners lose most marks on.</string>
+    <string name="learn_rulesguide_order_title">Order of operations</string>
+    <string name="learn_rulesguide_order_blurb">Which part of a long sum is worked out first.</string>
+    <string name="learn_rulesguide_zero_and_one_title">Zero and one</string>
+    <string name="learn_rulesguide_zero_and_one_blurb">The two numbers that behave unlike any other.</string>
+    <string name="learn_rulesguide_rearranging_title">Rearranging</string>
+    <string name="learn_rulesguide_rearranging_blurb">What a sum still comes to when the numbers are moved about.</string>
+    <string name="learn_rulesguide_fractions_title">Fractions</string>
+    <string name="learn_rulesguide_fractions_blurb">A tight slash is a fraction line: 3/4 is three quarters.</string>
+    <string name="learn_rulesguide_decimals_title">Decimals and percents</string>
+    <string name="learn_rulesguide_decimals_blurb">The same amount written three ways.</string>
+    <string name="learn_rulesguide_powers_title">Powers and roots</string>
+    <string name="learn_rulesguide_powers_blurb">Shorthand for multiplying a number by itself, and how to undo it.</string>
+    <string name="learn_rulesguide_rounding_title">Rounding</string>
+    <string name="learn_rulesguide_rounding_blurb">Cutting a number down to the size the question asks for.</string>
+    <string name="learn_rule_minus_of_minus_meaning">A minus in front of a minus cancels it out</string>
+    <string name="learn_rule_subtract_negative_meaning">Subtracting a negative adds</string>
+    <string name="learn_rule_add_negative_meaning">Adding a negative subtracts</string>
+    <string name="learn_rule_times_two_negatives_meaning">Two negatives multiply to a positive</string>
+    <string name="learn_rule_times_one_negative_meaning">One negative flips the sign</string>
+    <string name="learn_rule_divide_negatives_meaning">Division follows the same sign rule as multiplication</string>
+    <string name="learn_rule_order_negatives_meaning">The further left on the line, the smaller the number</string>
+    <string name="learn_rule_move_on_the_line_meaning">Adding moves right along the line, subtracting moves left</string>
+    <string name="learn_rule_times_before_plus_meaning">Times and divide are done before plus and minus</string>
+    <string name="learn_rule_times_before_plus_example">not 5 x 4</string>
+    <string name="learn_rule_brackets_first_meaning">Brackets come before everything else</string>
+    <string name="learn_rule_left_to_right_meaning">Same rank: work from left to right</string>
+    <string name="learn_rule_left_to_right_example">not 20 / 10</string>
+    <string name="learn_rule_powers_before_times_meaning">Powers are worked out before times and divide</string>
+    <string name="learn_rule_powers_before_times_example">not 12²</string>
+    <string name="learn_rule_divide_by_itself_meaning">A number shared by itself is one</string>
+    <string name="learn_rule_divide_by_zero_meaning">Dividing by zero has no answer at all</string>
+    <string name="learn_rule_divide_by_zero_example">not zero, not one</string>
+    <string name="learn_rule_swap_add_meaning">Order does not matter when adding</string>
+    <string name="learn_rule_swap_times_meaning">Order does not matter when multiplying</string>
+    <string name="learn_rule_no_swap_meaning">Order does matter when subtracting or dividing</string>
+    <string name="learn_rule_no_swap_example">9 - 4 = 5 but 4 - 9 = -5</string>
+    <string name="learn_rule_regroup_meaning">Group a chain of adds whichever way is easier</string>
+    <string name="learn_rule_split_the_times_meaning">Split one hard multiplication into two easy ones</string>
+    <string name="learn_rule_add_fractions_meaning">Same bottom number: add the tops and keep the bottom</string>
+    <string name="learn_rule_equivalent_meaning">Times top and bottom by the same number and the value holds</string>
+    <string name="learn_rule_times_fractions_meaning">Multiply the tops together and the bottoms together</string>
+    <string name="learn_rule_divide_fractions_meaning">To divide by a fraction, turn it upside down and multiply</string>
+    <string name="learn_rule_mixed_number_meaning">Whole times the bottom, plus the top</string>
+    <string name="learn_rule_three_ways_meaning">A fraction, a decimal and a percentage can be one number</string>
+    <string name="learn_rule_percent_meaning_meaning">Percent means out of a hundred</string>
+    <string name="learn_rule_percent_of_rule">x% of n = x/100 x n</string>
+    <string name="learn_rule_percent_of_meaning">For a percentage of an amount, divide by 100 then times</string>
+    <string name="learn_rule_percent_of_example">20% of 80 = 16</string>
+    <string name="learn_rule_times_ten_meaning">Times ten moves the point one place right</string>
+    <string name="learn_rule_power_zero_meaning">To the power one is itself, and to the power zero is one</string>
+    <string name="learn_rule_root_meaning">A square root undoes a square: what was multiplied by itself</string>
+    <string name="learn_rule_powers_of_ten_meaning">A power of ten is a one with that many zeros</string>
+    <string name="learn_rule_powers_of_ten_example">10⁶ = 1 million</string>
+    <string name="learn_rule_round_half_up_meaning">Five or more rounds up, four or less rounds down</string>
+    <string name="learn_rule_round_look_right_meaning">Look only at the digit just right of where you are cutting</string>
+    <string name="learn_rule_round_look_right_example">to the nearest hundred</string>
+    <string name="learn_rule_significant_figures_meaning">Significant figures start counting at the first digit that is not zero</string>
+    <string name="learn_rule_significant_figures_example">to 2 significant figures</string>
+    <string name="learn_rule_add_zero_meaning">Adding zero changes nothing</string>
+    <string name="learn_rule_times_one_meaning">Multiplying by one changes nothing</string>
+    <string name="learn_rule_times_zero_meaning">Anything times zero is zero</string>
+    <string name="learn_rule_zero_shared_meaning">Zero shared out is still zero</string>
+    <string name="learn_rule_square_meaning">A square is a number times itself</string>
+    <string name="learn_rule_cube_meaning">A cube is three of them multiplied</string>
+    <string name="learn_shape_triangular_prism_name">Triangular prism</string>
+    <string name="learn_shape_triangular_prism_fact">Two triangle ends, three rectangles between</string>
+
+    <!--
+        Counted phrases: one sentence the catalog fills a number into, rather than the same
+        sentence written out once per number. The shape guide's ten polygons and the options
+        that name an amount are all of this shape, and a language that inflects the noun cannot
+        write them from a fixed string.
+    -->
+    <plurals name="learn_shape_polygon_fact">
+        <item quantity="one">%1$d side · %1$d corner</item>
+        <item quantity="other">%1$d sides · %1$d corners</item>
+    </plurals>
+    <plurals name="learn_opt_euro">
+        <item quantity="one">%1$d euro</item>
+        <item quantity="other">%1$d euro</item>
+    </plurals>
+    <plurals name="learn_opt_litres">
+        <item quantity="one">%1$d litre</item>
+        <item quantity="other">%1$d litres</item>
+    </plurals>
+    <plurals name="learn_opt_degrees">
+        <item quantity="one">%1$d degree</item>
+        <item quantity="other">%1$d degrees</item>
+    </plurals>
+    <plurals name="learn_opt_square_cm">
+        <item quantity="one">%1$d square cm</item>
+        <item quantity="other">%1$d square cm</item>
+    </plurals>
+
+    <!-- Option templates: the sentence, with the arithmetic supplied by the lesson. -->
+    <string name="learn_opt_just_under_cm">just under %1$s cm</string>
+    <string name="learn_opt_between">%1$s and %2$s</string>
+    <string name="learn_opt_euro_cents">%1$s euro %2$s cents</string>
+    <string name="learn_opt_rectangle_by">A %1$s by %2$s rectangle</string>
+    <string name="learn_opt_square_by">A %1$s by %2$s square</string>
+    <string name="learn_opt_always">always %1$s</string>
+    <string name="learn_opt_turns_through_degrees">It turns through %1$s degrees</string>
+    <string name="learn_opt_enlargement_by">enlargement by %1$s</string>
+    <string name="learn_opt_up_to_just_under">%1$s up to just under %2$s</string>
+    <string name="learn_opt_up_to">%1$s up to %2$s</string>
+    <string name="learn_opt_move_right_down">%1$s right and %2$s down</string>
+    <string name="learn_opt_move_up_right">%1$s up and %2$s right</string>
+    <string name="learn_opt_move_left_up">%1$s left and %2$s up</string>
+    <plurals name="learn_opt_equal_sides">
+        <item quantity="one">%1$d equal side</item>
+        <item quantity="other">%1$d equal sides</item>
+    </plurals>
+    <plurals name="learn_opt_square_corners">
+        <item quantity="one">%1$d square corner</item>
+        <item quantity="other">%1$d square corners</item>
+    </plurals>
+    <plurals name="learn_opt_corners">
+        <item quantity="one">%1$d corner</item>
+        <item quantity="other">%1$d corners</item>
+    </plurals>
+    <plurals name="learn_opt_square_m">
+        <item quantity="one">%1$d square m</item>
+        <item quantity="other">%1$d square m</item>
+    </plurals>
+
+    <!-- Sentences the catalog asks more than once, with its own numbers each time. -->
+    <string name="learn_t_angle_cyclic_quadrilateral_opposite">One angle of a cyclic quadrilateral is %1$s. Its opposite angle is...</string>
+    <string name="learn_t_between_whole_numbers_sit">Between which two whole numbers does √%1$s sit?</string>
+    <string name="learn_t_cells_out_hundred_hundredths">%1$s cells out of the hundred, which is %2$s hundredths: %3$s.</string>
+    <string name="learn_t_centre_angle_angle_at">The centre angle is {a:%1$s}. What is the angle at the circumference?</string>
+    <string name="learn_t_change_against_original_quarter">The change is %1$s, and %2$s against the original %3$s is a quarter.</string>
+    <string name="learn_t_cube_edges_cm_surface">A cube has edges of %1$s cm. What is its surface area in square cm?</string>
+    <string name="learn_t_divided">%1$s divided by %2$s.</string>
+    <string name="learn_t_doubled">(%1$s + %2$s) doubled.</string>
+    <string name="learn_t_front_numbers_give_powers">The front numbers give %1$s / %2$s = %3$s, and the powers give %4$s - %5$s = %6$s.</string>
+    <string name="learn_t_hypotenuse_short_side_long">The hypotenuse is %1$s and one short side is %2$s. How long is the other?</string>
+    <string name="learn_t_lands_on_ten">%1$s - %2$s lands on ten, and %3$s - %4$s = %5$s.</string>
+    <string name="learn_t_many_significant_figures">How many significant figures has %1$s?</string>
+    <string name="learn_t_matching_sides_cm_cm">Two matching sides are %1$s cm and %2$s cm. What is the scale factor?</string>
+    <string name="learn_t_rectangle_cm_cm_long">A rectangle is %1$s cm by %2$s cm. How long is its diagonal?</string>
+    <string name="learn_t_round_significant_figures">Round %1$s %2$s to %3$s significant figures.</string>
+    <string name="learn_t_rows">%1$s rows of %2$s.</string>
+    <string name="learn_t_shared_equally_between_three">%1$s shared equally between three.</string>
+    <string name="learn_t_similar_triangles_have_areas">Two similar triangles have areas of %1$s cm² and %2$s cm². What is the scale factor?</string>
+    <string name="learn_t_simplify">Simplify √%1$s</string>
+    <string name="learn_t_squares_squares">%1$s squares and %2$s squares.</string>
+    <string name="learn_t_take_away">%1$s take away %2$s.</string>
+    <string name="learn_t_translate_point_land">Translate this point by (%1$s, %2$s). Where does it land?</string>
+    <string name="learn_t_what_is_of">What is %1$s% of %2$s?</string>
+    <string name="learn_t_x_so_comes_out">%1$s is %2$s x %3$s, so √%4$s comes out as %5$s and the %6$s stays under the sign.</string>
+
+    <!-- Texts the catalog uses in more than one place, so they are translated once. -->
+    <string name="learn_shared_acute">acute</string>
+    <string name="learn_shared_all_four_sides_equal">All four sides are equal</string>
+    <string name="learn_shared_any_two_rectangles">Any two rectangles</string>
+    <string name="learn_shared_any_two_squares">Any two squares</string>
+    <string name="learn_shared_any_two_triangles">Any two triangles</string>
+    <string name="learn_shared_both_them">Both of them</string>
+    <string name="learn_shared_circle_s_radius_doubled_area">A circle's radius is doubled. Its area is multiplied by...</string>
+    <string name="learn_shared_curved_edges">Curved edges</string>
+    <string name="learn_shared_enlargement">enlargement</string>
+    <string name="learn_shared_every_side_square_straight">Every side of a square is straight.</string>
+    <string name="learn_shared_fold_down_middle_halves_match">Fold A down the middle and the halves match.</string>
+    <string name="learn_shared_four_on_top_four_underneath">Four on top, four underneath and four uprights.</string>
+    <string name="learn_shared_half_diameter">Half the diameter.</string>
+    <string name="learn_shared_half_turn_flips_sign_both">A half turn flips the sign of both coordinates.</string>
+    <string name="learn_shared_how_long_hypotenuse">How long is the hypotenuse?</string>
+    <string name="learn_shared_how_many_edges_does_solid">How many edges does this solid have?</string>
+    <string name="learn_shared_how_many_sides_does_shape">How many sides does this shape have?</string>
+    <string name="learn_shared_how_much_bar_shaded">How much of this bar is shaded?</string>
+    <string name="learn_shared_obtuse">obtuse</string>
+    <string name="learn_shared_one_circle_rising_point">One circle rising to a point.</string>
+    <string name="learn_shared_one_from_each_corner_opposite">One from each corner to the opposite side.</string>
+    <string name="learn_shared_one_pair_parallel_sides">It has one pair of parallel sides</string>
+    <string name="learn_shared_one_smooth_curve_so_no">One smooth curve, so no two sides ever meet.</string>
+    <string name="learn_shared_opposite_sides_equal">Opposite sides are equal</string>
+    <string name="learn_shared_other_three_congruence_transformations">The other three are congruence transformations.</string>
+    <string name="learn_shared_prism">Prism</string>
+    <string name="learn_shared_reflection">reflection</string>
+    <string name="learn_shared_reflex">reflex</string>
+    <string name="learn_shared_right">Right</string>
+    <string name="learn_shared_right_2">right</string>
+    <string name="learn_shared_roots_match_so_only_numbers">The roots match, so only the numbers in front add.</string>
+    <string name="learn_shared_rotation">rotation</string>
+    <string name="learn_shared_take_square_root">Take the square root.</string>
+    <string name="learn_shared_tangent_always_perpendicular_radius_touches">A tangent is always perpendicular to the radius it touches.</string>
+    <string name="learn_shared_tangent_meets_radius_at_angle">A tangent meets the radius at an angle of...</string>
+    <string name="learn_shared_they_equal">They are equal</string>
+    <string name="learn_shared_tin_soup_closest_which_solid">A tin of soup is closest to which solid?</string>
+    <string name="learn_shared_top_bottom_four_sides">Top, bottom and four sides.</string>
+    <string name="learn_shared_translation">translation</string>
+    <string name="learn_shared_two_circular_ends_curved_side">Two circular ends and a curved side.</string>
+    <string name="learn_shared_what_kind_angle">What kind of angle is this?</string>
+    <string name="learn_shared_what_solid_called">What is this solid called?</string>
+    <string name="learn_shared_which_bar_shaded_more">Which bar is shaded more?</string>
+    <string name="learn_shared_which_capital_letter_vertical_line">Which capital letter has a vertical line of symmetry?</string>
+    <string name="learn_shared_which_ratio_matches_bar">Which ratio matches the bar?</string>
+    <string name="learn_shared_which_shape_two_pairs_parallel">Which shape has two pairs of parallel sides and four equal sides?</string>
+    <string name="learn_shared_which_square_shaded_more">Which square is shaded more?</string>
+    <string name="learn_shared_which_these_could_be_three">Which of these could be the three sides of a right triangle?</string>
+    <string name="learn_shared_which_these_largest">Which of these is the largest?</string>
+    <string name="learn_shared_which_these_not_true_square">Which of these is NOT true of a square?</string>
+    <string name="learn_shared_which_these_smallest">Which of these is the smallest?</string>
+    <string name="learn_shared_which_transformation_does_not_keep">Which transformation does NOT keep the size?</string>
+    <string name="learn_shared_write_shaded_amount_as_decimal">Write the shaded amount as a decimal.</string>
+    <string name="learn_shared_you_cannot_tell">You cannot tell</string>
+    <string name="learn_shared_you_cannot_tell_2">you cannot tell</string>
 
 </resources>

@@ -34,11 +34,14 @@ import com.inspiredandroid.braincup.ui.components.CertificateMedal
 import com.inspiredandroid.braincup.ui.components.ChunkyCheck
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
+import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
 import com.inspiredandroid.braincup.ui.components.learn.learnContainerColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.MedalContainer
+import com.inspiredandroid.braincup.ui.theme.OnMedalContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.ImmutableSet
@@ -79,9 +82,12 @@ fun LearnUnitScreenContent(
     val unit = progress.unit
     val lessons = unit.lessons
     val quiz = unit.quiz
+    // The lesson the learner is up to: the first they have not finished. Null once the unit is read
+    // through, which is when the test stops being something they are being sent past.
+    val nextLesson = lessons.firstOrNull { it.id !in completedLessonIds }
 
     AppScaffold(
-        title = unit.title,
+        title = stringResource(unit.title),
         onBack = onBack,
         scrollable = false,
     ) {
@@ -109,7 +115,7 @@ fun LearnUnitScreenContent(
                     )
                     Spacer(Modifier.height(2.dp))
                     Text(
-                        text = unit.summary,
+                        text = stringResource(unit.summary),
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Center,
                     )
@@ -152,6 +158,7 @@ fun LearnUnitScreenContent(
                     lesson = lesson,
                     index = index,
                     isCompleted = lesson.id in completedLessonIds,
+                    isNext = lesson.id == nextLesson?.id,
                     onClick = { onLessonSelected(lesson.id) },
                     modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
                 )
@@ -170,13 +177,22 @@ fun LearnUnitScreenContent(
                         textAlign = TextAlign.Center,
                     )
                     Spacer(Modifier.height(8.dp))
-                    PrimaryActionButton(
-                        onClick = onTakeTest,
-                        value = stringResource(
-                            if (progress.hasCertificate) Res.string.learn_retake_test else Res.string.learn_take_test,
-                        ),
-                        modifier = Modifier.fillMaxWidth(),
+                    val testLabel = stringResource(
+                        if (progress.hasCertificate) Res.string.learn_retake_test else Res.string.learn_take_test,
                     )
+                    // The test only takes the primary button once there is nothing left to read.
+                    // Full width and brand orange under three unread lessons, it was the loudest
+                    // thing on the screen and the one action a learner arriving here should not
+                    // take; the lesson they are up to is the one that carries that weight now.
+                    if (nextLesson == null) {
+                        PrimaryActionButton(
+                            onClick = onTakeTest,
+                            value = testLabel,
+                            modifier = Modifier.fillMaxWidth(),
+                        )
+                    } else {
+                        TextPrismButton(onClick = onTakeTest, value = testLabel)
+                    }
                     Spacer(Modifier.height(16.dp))
                 }
             }
@@ -190,7 +206,7 @@ private fun EarnedCertificateCard(
     modifier: Modifier = Modifier,
 ) {
     PrismCard(
-        face = MaterialTheme.colorScheme.secondaryContainer,
+        face = MedalContainer,
         modifier = modifier.hoverHand().clickable(onClick = onClick),
     ) {
         Row(
@@ -203,12 +219,12 @@ private fun EarnedCertificateCard(
                 Text(
                     text = stringResource(Res.string.learn_certificate_awarded),
                     style = MaterialTheme.typography.titleSmall,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    color = OnMedalContainer,
                 )
                 Text(
                     text = stringResource(Res.string.learn_certificate_view),
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    color = OnMedalContainer.copy(alpha = 0.8f),
                 )
             }
         }
@@ -220,6 +236,8 @@ private fun LessonRow(
     lesson: LearnLesson,
     index: Int,
     isCompleted: Boolean,
+    /** The first lesson not yet finished: the one action this screen is actually recommending. */
+    isNext: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -236,15 +254,19 @@ private fun LessonRow(
                 Text(
                     text = stringResource(Res.string.learn_lesson_number, index + 1),
                     style = MaterialTheme.typography.labelSmall,
-                    color = ink.copy(alpha = 0.75f),
+                    // The rung the learner is on, in the brand accent. A finished lesson says so
+                    // with its check; without this nothing on the screen pointed at what to open
+                    // next, which is why the test button was carrying that job and pointing wrong.
+                    color = if (isNext) Primary else ink.copy(alpha = 0.75f),
+                    fontWeight = if (isNext) FontWeight.Bold else null,
                 )
                 Text(
-                    text = lesson.title,
+                    text = stringResource(lesson.title),
                     style = MaterialTheme.typography.titleSmall,
                     color = ink,
                 )
                 Text(
-                    text = lesson.summary,
+                    text = stringResource(lesson.summary),
                     style = MaterialTheme.typography.bodySmall,
                     color = ink.copy(alpha = 0.75f),
                 )

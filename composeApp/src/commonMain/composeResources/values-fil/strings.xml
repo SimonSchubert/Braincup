@@ -23,6 +23,7 @@
     <string name="title_master">Dalubhasa</string>
     <string name="title_grandmaster">Punong Dalubhasa</string>
     <string name="achievements_button">Mga Achievement (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Burahin ang huling digit</string>
     <string name="normal_sudoku_button">Normal na Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Baguhan</string>
@@ -406,6 +407,7 @@
     <string name="solution_pointing">%1$s %2$s nakaturo %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">column %1$d at row %2$d</string>
+    <string name="hint_remember">Tandaan ang %1$d</string>
     <string name="solution_left">Kaliwa</string>
     <string name="solution_right">Kanan</string>
 
@@ -829,7 +831,7 @@
     <string name="learn_section_certificates">%1$d / %2$d certificate</string>
     <string name="learn_title">Matuto ng Math</string>
     <string name="learn_unit_progress">%1$d / %2$d certificate</string>
-    <string name="learn_topic_intro">Bumaba sa listahan. Bawat hakbang ay nakasandal sa nauna.</string>
+    <string name="learn_topic_intro">Daanan mo sila nang sunod-sunod. Bawat hakbang ay nakasandal sa nauna.</string>
     <string name="learn_topic_certificates">%1$d sa %2$d ang may certificate</string>
     <string name="learn_ages">Edad %1$s</string>
 
@@ -848,6 +850,11 @@
     <string name="learn_topic_arithmetic_subtitle">Numero at operations</string>
     <string name="learn_topic_geometry">Heometriya</string>
     <string name="learn_topic_geometry_subtitle">Anggulo, tatsulok, at bilog</string>
+
+    <string name="learn_shape_guide_title">Gabay sa mga hugis</string>
+    <string name="learn_shape_guide_intro">%1$d hugis, iginuhit at pinangalanan. Pindutin ang isa para makitang iguhit muli.</string>
+    <string name="learn_rules_guide_title">Gabay sa mga tuntunin</string>
+    <string name="learn_rules_guide_intro">%1$d tuntunin at panuntunan sa sign, ang mga batayan sa isang lugar.</string>
 
     <string name="learn_lessons_header">Mga Aralin</string>
     <string name="learn_lesson_progress">%1$d / %2$d aralin</string>
@@ -893,5 +900,55 @@
     <string name="achievement_learn_topic_certificates_desc">Kunin ang lahat ng certificate sa isang topic ng Learn Math.</string>
     <string name="achievement_learn_all_certificates">Iskolar ng Matematika</string>
     <string name="achievement_learn_all_certificates_desc">Kumuha ng certificate sa bawat subtopic ng Learn Math.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d panig, %1$d sulok</item>
+        <item quantity="other">%1$d panig, %1$d sulok</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d panig,</item>
+        <item quantity="other">%1$d panig,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d sulok</item>
+        <item quantity="other">%1$d sulok</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kubo</string>
+    <string name="learn_fig_solid_sphere">globo</string>
+    <string name="learn_fig_solid_cylinder">silindro</string>
+    <string name="learn_fig_solid_cone">kono</string>
+    <string name="learn_fig_solid_prism">prisma</string>
+    <string name="learn_fig_solid_triangular_prism">tatsulok na prisma</string>
+    <string name="learn_fig_solid_pyramid">piramide</string>
+    <string name="learn_fig_solid_cube_counts">6 mukha · 12 gilid · 8 sulok</string>
+    <string name="learn_fig_solid_sphere_counts">walang patag na mukha, walang gilid</string>
+    <string name="learn_fig_solid_cylinder_counts">2 patag na mukha · 1 kurbado</string>
+    <string name="learn_fig_solid_cone_counts">1 patag na mukha · 1 tuktok</string>
+    <string name="learn_fig_solid_prism_counts">iisang hiwa sa buong haba</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 mukha · 9 gilid · 6 sulok</string>
+    <string name="learn_fig_solid_pyramid_counts">5 mukha · 8 gilid · 5 sulok</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d guhit ng simetriya</item>
+        <item quantity="other">%1$d guhit ng simetriya</item>
+    </plurals>
+    <string name="learn_fig_area">area = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">perimetro = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">bawasan ng %1$d ang magkabilang panig</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d hanay</item>
+        <item quantity="other">%1$d hanay</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d pa</string>
+    <string name="learn_fig_in_each">%1$d sa bawat isa</string>
+    <string name="learn_fig_percent_of">%1$s% ng %2$s</string>
+    <string name="learn_fig_gradient">slope %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">mean %1$s</string>
+    <string name="learn_fig_mean">mean</string>
+    <string name="learn_fig_standard_deviations">%1$s sd</string>
+    <string name="learn_fig_symbol_key">1 simbolo = %1$d</string>
 
 </resources>

@@ -23,6 +23,7 @@
     <string name="title_master">Διδάσκαλος</string>
     <string name="title_grandmaster">Μέγας Διδάσκαλος</string>
     <string name="achievements_button">Επιτεύγματα (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Διαγραφή του τελευταίου ψηφίου</string>
     <string name="normal_sudoku_button">Κανονικό Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Σουντόκου</string>
     <string name="normal_sudoku_difficulty_beginner">Αρχάριος</string>
@@ -364,6 +365,7 @@
     <string name="solution_pointing">%1$s %2$s που δείχνει %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">στήλη %1$d και γραμμή %2$d</string>
+    <string name="hint_remember">Θυμήσου το %1$d</string>
     <string name="solution_left">Αριστερά</string>
     <string name="solution_right">Δεξιά</string>
 
@@ -814,7 +816,7 @@
     <string name="learn_section_certificates">%1$d / %2$d πιστοποιητικά</string>
     <string name="learn_title">Μάθε μαθηματικά</string>
     <string name="learn_unit_progress">%1$d / %2$d πιστοποιητικά</string>
-    <string name="learn_topic_intro">Προχώρα προς τα κάτω στη λίστα. Κάθε βήμα πατάει στο προηγούμενο.</string>
+    <string name="learn_topic_intro">Πέρασέ τα με τη σειρά. Κάθε βήμα πατάει στο προηγούμενο.</string>
     <string name="learn_topic_certificates">%1$d από %2$d πιστοποιημένα</string>
     <string name="learn_ages">Ηλικίες %1$s</string>
 
@@ -833,6 +835,11 @@
     <string name="learn_topic_arithmetic_subtitle">Αριθμοί &amp; πράξεις</string>
     <string name="learn_topic_geometry">Γεωμετρία</string>
     <string name="learn_topic_geometry_subtitle">Γωνίες, τρίγωνα &amp; κύκλοι</string>
+
+    <string name="learn_shape_guide_title">Οδηγός σχημάτων</string>
+    <string name="learn_shape_guide_intro">%1$d σχήματα, σχεδιασμένα και ονομασμένα. Πάτησε ένα για να το δεις να σχεδιάζεται ξανά.</string>
+    <string name="learn_rules_guide_title">Οδηγός κανόνων</string>
+    <string name="learn_rules_guide_intro">%1$d κανόνες και συμβάσεις προσήμων, τα βασικά σε ένα μέρος.</string>
 
     <string name="learn_lessons_header">Μαθήματα</string>
     <string name="learn_lesson_progress">%1$d / %2$d μαθήματα</string>
@@ -878,5 +885,55 @@
     <string name="achievement_learn_topic_certificates_desc">Κέρδισε όλα τα πιστοποιητικά ενός θέματος στα Μαθηματικά.</string>
     <string name="achievement_learn_all_certificates">Λόγιος των μαθηματικών</string>
     <string name="achievement_learn_all_certificates_desc">Κέρδισε πιστοποιητικό σε κάθε υποενότητα στα Μαθηματικά.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d πλευρά, %1$d κορυφή</item>
+        <item quantity="other">%1$d πλευρές, %1$d κορυφές</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d πλευρά,</item>
+        <item quantity="other">%1$d πλευρές,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d κορυφή</item>
+        <item quantity="other">%1$d κορυφές</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">κύβος</string>
+    <string name="learn_fig_solid_sphere">σφαίρα</string>
+    <string name="learn_fig_solid_cylinder">κύλινδρος</string>
+    <string name="learn_fig_solid_cone">κώνος</string>
+    <string name="learn_fig_solid_prism">πρίσμα</string>
+    <string name="learn_fig_solid_triangular_prism">τριγωνικό πρίσμα</string>
+    <string name="learn_fig_solid_pyramid">πυραμίδα</string>
+    <string name="learn_fig_solid_cube_counts">6 έδρες · 12 ακμές · 8 κορυφές</string>
+    <string name="learn_fig_solid_sphere_counts">καμία επίπεδη έδρα, καμία ακμή</string>
+    <string name="learn_fig_solid_cylinder_counts">2 επίπεδες έδρες · 1 καμπύλη</string>
+    <string name="learn_fig_solid_cone_counts">1 επίπεδη έδρα · 1 κορυφή</string>
+    <string name="learn_fig_solid_prism_counts">ίδια διατομή σε όλο το μήκος</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 έδρες · 9 ακμές · 6 κορυφές</string>
+    <string name="learn_fig_solid_pyramid_counts">5 έδρες · 8 ακμές · 5 κορυφές</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d άξονας συμμετρίας</item>
+        <item quantity="other">%1$d άξονες συμμετρίας</item>
+    </plurals>
+    <string name="learn_fig_area">εμβαδόν = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">περίμετρος = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">αφαίρεσε %1$d και από τις δύο πλευρές</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d γραμμή</item>
+        <item quantity="other">%1$d γραμμές</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d ακόμη</string>
+    <string name="learn_fig_in_each">%1$d σε κάθε</string>
+    <string name="learn_fig_percent_of">%1$s% του %2$s</string>
+    <string name="learn_fig_gradient">κλίση %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">μέσος όρος %1$s</string>
+    <string name="learn_fig_mean">μέσος όρος</string>
+    <string name="learn_fig_standard_deviations">%1$s τ.α.</string>
+    <string name="learn_fig_symbol_key">1 σύμβολο = %1$d</string>
 
 </resources>

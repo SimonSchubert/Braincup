@@ -10,6 +10,7 @@ import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.max
+import kotlin.math.min
 import kotlin.math.roundToInt
 import kotlin.math.sin
 
@@ -212,6 +213,16 @@ private fun VisualScope.hopArc(
      * [drawSteps] passes the plain accent and keeps blue meaning what it means everywhere else.
      */
     color: Color = Accent2,
+    /**
+     * How far short of the landing point the arrowhead stops.
+     *
+     * A number line draws a marker dot where a hop lands, and the head was being drawn at that
+     * dot's centre: on a one-step hop the whole head disappeared under the disc and all that
+     * showed were two stubs poking out from behind it. Backing the head off by the dot's radius
+     * leaves it pointing at the marker instead of buried in it. A figure that lands on a bare tick
+     * passes nothing and keeps the head on the end of the arc.
+     */
+    tipClearance: Float = 0f,
 ) {
     val control = Offset((x0 + x1) / 2f, y - height * 0.34f)
     val arc = Path().apply {
@@ -224,9 +235,12 @@ private fun VisualScope.hopArc(
     // only thing saying the count goes the other way - which is a lot to hang on one glyph in a
     // figure whose whole job is to show the movement.
     if (abs(x1 - x0) > stroke) {
-        val tip = Offset(x1, y)
-        // The quadratic's tangent at its end is the step from the control point to the tip.
-        val along = unitAlong(control, tip)
+        // The quadratic's tangent at its end is the step from the control point to the end.
+        val along = unitAlong(control, Offset(x1, y))
+        // Never more than a third of the hop, so a short one still reads as an arrow rather than
+        // as a head floating halfway along its own arc.
+        val backoff = min(tipClearance, abs(x1 - x0) * 0.33f)
+        val tip = Offset(x1 - along.x * backoff, y - along.y * backoff)
         val barb = stroke * 2.6f
         listOf(ArrowSpread, -ArrowSpread).forEach { angle ->
             val c = cos(angle)
@@ -468,6 +482,8 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
             y = axisY,
             t = t,
             text = (if (perHop >= 0) "+" else "") + perHop,
+            // The largest marker a hop can land on, so the head clears every one of them.
+            tipClearance = stroke * 2.4f,
         )
     }
     dot(Offset(xOf(start.toFloat()), axisY), stroke * 2f, Accent)
@@ -718,7 +734,7 @@ internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
         // whether or not the figure may give the answer away. The part it works out to waits.
         if (ofAmount != null) {
             label(
-                text = "${formatDecimal(value * 100)}% of $ofAmount",
+                text = strings.percentOfTemplate.fillIn(formatDecimal(value * 100), ofAmount),
                 center = Offset(left + gridSize / 2f, top - height * 0.13f),
                 color = ink,
                 factor = 0.12f,
@@ -783,24 +799,22 @@ internal fun VisualScope.drawArrayDots(visual: LearnVisual.ArrayDots) {
     val rows = visual.rows.coerceAtLeast(1)
     val cols = visual.cols.coerceAtLeast(1)
     val leftover = visual.leftover.coerceAtLeast(0)
-    // A split that takes every row or none of them is not a split, and drawing the lane anyway
-    // would promise a second block that never comes.
-    val split = visual.split?.takeIf { it in 1 until rows }
+    val split = visual.bandSplit
     val lane = if (split != null) 0.6f else 0f
 
     val style = labelStyle(ink, RowLabelFactor)
     val bands = if (split != null) {
         listOf(
-            RowBand("$split rows", 0, split - 1, Accent),
-            RowBand("${rows - split} more", split, rows - 1, Accent2),
+            RowBand(strings.rows, 0, split - 1, Accent),
+            RowBand(strings.moreTemplate.fillIn(rows - split), split, rows - 1, Accent2),
         )
     } else {
-        listOf(RowBand("$rows rows", 0, rows - 1, Accent))
+        listOf(RowBand(strings.rows, 0, rows - 1, Accent))
     }
     // The labels are measured before anything is placed: the row counts sit in a gutter of their
     // own width, so the dots are sized to the room that leaves rather than to the whole panel.
     val gutter = bands.maxOf { measure(it.text, style).size.width }.toFloat()
-    val colText = "$cols in each"
+    val colText = strings.inEachTemplate.fillIn(cols)
     val colSize = measure(colText, style).size
 
     // Everything is counted in strides between dot centres plus what hangs off the edges: bracket

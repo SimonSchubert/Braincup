@@ -23,6 +23,7 @@
     <string name="title_master">Meistari</string>
     <string name="title_grandmaster">Stórmeistari</string>
     <string name="achievements_button">Afrek (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Eyða síðasta tölustaf</string>
     <string name="normal_sudoku_button">Klassískt Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Byrjandi</string>
@@ -408,6 +409,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="solution_pointing">%1$s %2$s sem bendir %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">dálkur %1$d og röð %2$d</string>
+    <string name="hint_remember">Mundu %1$d</string>
     <string name="solution_left">Vinstri</string>
     <string name="solution_right">Hægri</string>
 
@@ -831,7 +833,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d skírteini</string>
     <string name="learn_title">Lærðu stærðfræði</string>
     <string name="learn_unit_progress">%1$d / %2$d skírteini</string>
-    <string name="learn_topic_intro">Farðu niður listann. Hvert skref byggir á því á undan.</string>
+    <string name="learn_topic_intro">Farðu í gegnum þau í röð. Hvert skref byggir á því á undan.</string>
     <string name="learn_topic_certificates">%1$d af %2$d með skírteini</string>
     <string name="learn_ages">Aldur %1$s</string>
 
@@ -850,6 +852,11 @@ Færðu Cow — hann verður Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Tölur og aðgerðir</string>
     <string name="learn_topic_geometry">Rúmfræði</string>
     <string name="learn_topic_geometry_subtitle">Horn, þríhyrningar og hringir</string>
+
+    <string name="learn_shape_guide_title">Formahandbók</string>
+    <string name="learn_shape_guide_intro">%1$d form, teiknuð og nefnd. Ýttu á eitt til að sjá það teiknað aftur.</string>
+    <string name="learn_rules_guide_title">Reglubók</string>
+    <string name="learn_rules_guide_intro">%1$d reglur og formerkjareglur, grunnatriðin á einum stað.</string>
 
     <string name="learn_lessons_header">Kennslustundir</string>
     <string name="learn_lesson_progress">%1$d / %2$d kennslustundir</string>
@@ -895,5 +902,55 @@ Færðu Cow — hann verður Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Fáðu öll skírteini í einu efni í Lærðu stærðfræði.</string>
     <string name="achievement_learn_all_certificates">Stærðfræðimaður</string>
     <string name="achievement_learn_all_certificates_desc">Fáðu skírteini í hverju undirefni í Lærðu stærðfræði.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d hlið, %1$d horn</item>
+        <item quantity="other">%1$d hliðar, %1$d horn</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d hlið,</item>
+        <item quantity="other">%1$d hliðar,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d horn</item>
+        <item quantity="other">%1$d horn</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">teningur</string>
+    <string name="learn_fig_solid_sphere">kúla</string>
+    <string name="learn_fig_solid_cylinder">sívalningur</string>
+    <string name="learn_fig_solid_cone">keila</string>
+    <string name="learn_fig_solid_prism">strendingur</string>
+    <string name="learn_fig_solid_triangular_prism">þríhyrndur strendingur</string>
+    <string name="learn_fig_solid_pyramid">píramídi</string>
+    <string name="learn_fig_solid_cube_counts">6 fletir · 12 brúnir · 8 horn</string>
+    <string name="learn_fig_solid_sphere_counts">engir sléttir fletir, engar brúnir</string>
+    <string name="learn_fig_solid_cylinder_counts">2 sléttir fletir · 1 bogadreginn</string>
+    <string name="learn_fig_solid_cone_counts">1 sléttur flötur · 1 oddur</string>
+    <string name="learn_fig_solid_prism_counts">sama þversnið alla leið</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 fletir · 9 brúnir · 6 horn</string>
+    <string name="learn_fig_solid_pyramid_counts">5 fletir · 8 brúnir · 5 horn</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d samhverfuás</item>
+        <item quantity="other">%1$d samhverfuásar</item>
+    </plurals>
+    <string name="learn_fig_area">flatarmál = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">ummál = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">taktu %1$d frá báðum hliðum</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d röð</item>
+        <item quantity="other">%1$d raðir</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d í viðbót</string>
+    <string name="learn_fig_in_each">%1$d í hverri</string>
+    <string name="learn_fig_percent_of">%1$s% af %2$s</string>
+    <string name="learn_fig_gradient">hallatala %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">meðaltal %1$s</string>
+    <string name="learn_fig_mean">meðaltal</string>
+    <string name="learn_fig_standard_deviations">%1$s sf</string>
+    <string name="learn_fig_symbol_key">1 tákn = %1$d</string>
 
 </resources>

@@ -23,6 +23,7 @@
     <string name="title_master">Mester</string>
     <string name="title_grandmaster">Stormester</string>
     <string name="achievements_button">Prestasjoner (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Slett siste siffer</string>
     <string name="normal_sudoku_button">Klassisk Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Nybegynner</string>
@@ -408,6 +409,7 @@ Flytt Cow — den blir en Bull.</string>
     <string name="solution_pointing">%1$s %2$s peker %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">kolonne %1$d og rad %2$d</string>
+    <string name="hint_remember">Husk %1$d</string>
     <string name="solution_left">Venstre</string>
     <string name="solution_right">Høyre</string>
 
@@ -831,7 +833,7 @@ Flytt Cow — den blir en Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d bevis</string>
     <string name="learn_title">Lær matematikk</string>
     <string name="learn_unit_progress">%1$d / %2$d bevis</string>
-    <string name="learn_topic_intro">Jobb deg nedover lista. Hvert steg bygger på det forrige.</string>
+    <string name="learn_topic_intro">Jobb deg gjennom dem i rekkefølge. Hvert steg bygger på det forrige.</string>
     <string name="learn_topic_certificates">%1$d av %2$d bevist</string>
     <string name="learn_ages">Alder %1$s</string>
 
@@ -850,6 +852,11 @@ Flytt Cow — den blir en Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Tall og regnearter</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Vinkler, trekanter og sirkler</string>
+
+    <string name="learn_shape_guide_title">Formguide</string>
+    <string name="learn_shape_guide_intro">%1$d former, tegnet og navngitt. Trykk på en for å se den tegnet på nytt.</string>
+    <string name="learn_rules_guide_title">Regelguide</string>
+    <string name="learn_rules_guide_intro">%1$d regler og fortegnsregler, det grunnleggende på ett sted.</string>
 
     <string name="learn_lessons_header">Leksjoner</string>
     <string name="learn_lesson_progress">%1$d / %2$d leksjoner</string>
@@ -895,5 +902,55 @@ Flytt Cow — den blir en Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Få alle bevisene i ett emne i Lær matematikk.</string>
     <string name="achievement_learn_all_certificates">Matematikklærd</string>
     <string name="achievement_learn_all_certificates_desc">Få et bevis i hvert underemne i Lær matematikk.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d side, %1$d hjørne</item>
+        <item quantity="other">%1$d sider, %1$d hjørner</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d side,</item>
+        <item quantity="other">%1$d sider,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d hjørne</item>
+        <item quantity="other">%1$d hjørner</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">terning</string>
+    <string name="learn_fig_solid_sphere">kule</string>
+    <string name="learn_fig_solid_cylinder">sylinder</string>
+    <string name="learn_fig_solid_cone">kjegle</string>
+    <string name="learn_fig_solid_prism">prisme</string>
+    <string name="learn_fig_solid_triangular_prism">trekantet prisme</string>
+    <string name="learn_fig_solid_pyramid">pyramide</string>
+    <string name="learn_fig_solid_cube_counts">6 flater · 12 kanter · 8 hjørner</string>
+    <string name="learn_fig_solid_sphere_counts">ingen flate sider, ingen kanter</string>
+    <string name="learn_fig_solid_cylinder_counts">2 flate sider · 1 buet</string>
+    <string name="learn_fig_solid_cone_counts">1 flat side · 1 spiss</string>
+    <string name="learn_fig_solid_prism_counts">samme tverrsnitt hele veien</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 flater · 9 kanter · 6 hjørner</string>
+    <string name="learn_fig_solid_pyramid_counts">5 flater · 8 kanter · 5 hjørner</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d symmetrilinje</item>
+        <item quantity="other">%1$d symmetrilinjer</item>
+    </plurals>
+    <string name="learn_fig_area">areal = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">omkrets = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">ta %1$d fra begge sider</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d rad</item>
+        <item quantity="other">%1$d rader</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d til</string>
+    <string name="learn_fig_in_each">%1$d i hver</string>
+    <string name="learn_fig_percent_of">%1$s% av %2$s</string>
+    <string name="learn_fig_gradient">stigningstall %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">gjennomsnitt %1$s</string>
+    <string name="learn_fig_mean">gjennomsnitt</string>
+    <string name="learn_fig_standard_deviations">%1$s sd</string>
+    <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
 
 </resources>

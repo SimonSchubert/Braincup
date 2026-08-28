@@ -139,8 +139,9 @@ private fun GuideButton(
 @Composable
 fun LearnSubTopicRow(
     unit: LearnUnit,
-    position: Int,
-    ladderSize: Int,
+    /** This rung's age band, counting from 1, among the [bands] its topic covers. */
+    band: Int,
+    bands: Int,
     hasCertificate: Boolean,
     onClick: (LearnUnit) -> Unit,
     modifier: Modifier = Modifier,
@@ -163,8 +164,8 @@ fun LearnSubTopicRow(
             ) {
                 MaterialTheme(colorScheme = LightColorScheme) {
                     SubTopicRowPreview(
-                        position = position,
-                        ladderSize = ladderSize,
+                        band = band,
+                        bands = bands,
                         modifier = Modifier.fillMaxSize(),
                     )
                 }
@@ -172,7 +173,7 @@ fun LearnSubTopicRow(
 
             Column(modifier = Modifier.weight(1f)) {
                 Text(
-                    text = unit.title,
+                    text = stringResource(unit.title),
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurface,
                     maxLines = 2,

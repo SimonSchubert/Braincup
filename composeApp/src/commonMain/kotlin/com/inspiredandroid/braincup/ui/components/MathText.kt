@@ -127,7 +127,11 @@ fun String.withFormulaColors(
     working: Color = WorkingBlue,
     answer: Color = SuccessGreen,
 ): AnnotatedString = buildAnnotatedString {
-    fun appendPlain(run: String) {
+    val answerStart = this@withFormulaColors.answerTailStart()
+
+    // [base] is where [run] starts in the whole formula, which is what tells a number after the
+    // equals sign apart from one before it.
+    fun appendPlain(run: String, base: Int) {
         var i = 0
         while (i < run.length) {
             val char = run[i]
@@ -140,7 +144,8 @@ fun String.withFormulaColors(
                 if (run[i] == '-') i++
                 while (i < run.length && (run[i].isDigit() || run[i] == '.' || run[i] == ',')) i++
                 if (i < run.length && run[i] == '%') i++
-                withStyle(SpanStyle(color = given, fontWeight = FontWeight.Bold)) {
+                val role = if (answerStart != null && base + start >= answerStart) answer else given
+                withStyle(SpanStyle(color = role, fontWeight = FontWeight.Bold)) {
                     append(run.substring(start, i))
                 }
             } else {
@@ -158,7 +163,7 @@ fun String.withFormulaColors(
 
     var cursor = 0
     GroupTag.findAll(this@withFormulaColors).forEach { match ->
-        appendPlain(this@withFormulaColors.substring(cursor, match.range.first))
+        appendPlain(this@withFormulaColors.substring(cursor, match.range.first), cursor)
         val color = when (match.groupValues[1]) {
             "a" -> given
             "b" -> working
@@ -169,7 +174,40 @@ fun String.withFormulaColors(
         }
         cursor = match.range.last + 1
     }
-    appendPlain(this@withFormulaColors.substring(cursor))
+    appendPlain(this@withFormulaColors.substring(cursor), cursor)
+}
+
+/** A lone value: what a formula that works out to something has on the right of its equals sign. */
+private val AnswerValue = Regex("""[-+]?\d+(?:[.,]\d+)?(?:/\d+)?[%\u00B2\u00B3]?""")
+
+/**
+ * Where the answer begins in a formula that ends in one, or null when nothing on the card is one.
+ *
+ * A taught formula states its result - "7 + 3 = 10" - and that result is the same number the
+ * figure beside it marks in green. Without this every untagged number fell through to [given], so
+ * the card printed its answer in the colour meaning "what the question handed you" while the
+ * picture marked it in the colour meaning "the answer". `{c:}` already covers the questions,
+ * because those resolve at render time; this covers the ones written out in the content.
+ *
+ * Deliberately narrow, because a number after an equals sign is only sometimes an answer:
+ *
+ * - **A `?` anywhere disqualifies the line.** In "65 + ? = 180" the unknown is the `?` and the 180
+ *   is given, so colouring the tail would say the exact opposite of what the step asks.
+ * - **Exactly one equals sign.** "k = √9 = 3" and "3 x 6 = 18, so 6 x 6 = 36" are chains, and
+ *   which of their values is the answer is not something the punctuation says.
+ * - **The tail is one bare value**, so "3 r 2", "360 degrees" and "2 x (length + width)" are left
+ *   alone. A tight-slash fraction counts as one value: "3/5 + 1/5 = 4/5" answers with 4/5.
+ * - **An already-tagged tail is left to its tag**, which is how a resolved `{c:}` keeps working.
+ */
+private fun String.answerTailStart(): Int? {
+    if (contains('?')) return null
+    val equals = indexOf('=')
+    if (equals < 0 || indexOf('=', equals + 1) >= 0) return null
+    if (substring(0, equals).isBlank()) return null
+    val tail = substring(equals + 1)
+    if (tail.contains('{') || !AnswerValue.matches(tail.trim())) return null
+    val offset = tail.indexOfFirst { !it.isWhitespace() }
+    return if (offset < 0) null else equals + 1 + offset
 }
 
 /** Operators and relations. A string carrying one of these is notation, whatever else is in it. */

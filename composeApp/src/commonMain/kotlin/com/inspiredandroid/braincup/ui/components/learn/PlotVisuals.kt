@@ -104,7 +104,7 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
         )
         dot(Offset(px(at), py(y)), stroke * 2f, Accent2, alpha = reveal)
         label(
-            text = "gradient " + formatDecimal(slope.toDouble()),
+            text = strings.gradientTemplate.fillIn(formatDecimal(slope.toDouble())),
             center = Offset(width * 0.7f, rect.top + height * 0.08f),
             color = Accent2,
             factor = 0.09f,
@@ -188,7 +188,7 @@ internal fun VisualScope.drawUnitCircle(visual: LearnVisual.UnitCircleFigure) {
         line(center, Offset(point.x, center.y), Accent2, stroke * 1.2f, alpha = revealBeat)
         if (visual.reveal) {
             label(
-                text = "cos = " + formatDecimal(cos(visual.degrees * PI / 180.0)),
+                text = strings.cosTemplate.fillIn(formatDecimal(cos(visual.degrees * PI / 180.0))),
                 center = Offset(center.x, center.y + radius * 1.62f),
                 color = Accent2,
                 factor = 0.085f,
@@ -200,7 +200,7 @@ internal fun VisualScope.drawUnitCircle(visual: LearnVisual.UnitCircleFigure) {
         line(Offset(point.x, center.y), point, Accent2, stroke * 1.2f, alpha = revealBeat)
         if (visual.reveal) {
             label(
-                text = "sin = " + formatDecimal(sin(visual.degrees * PI / 180.0)),
+                text = strings.sinTemplate.fillIn(formatDecimal(sin(visual.degrees * PI / 180.0))),
                 center = Offset(center.x, center.y - radius * 1.62f),
                 color = Accent2,
                 factor = 0.085f,
@@ -213,7 +213,7 @@ internal fun VisualScope.drawUnitCircle(visual: LearnVisual.UnitCircleFigure) {
     dot(point, stroke * 2f, Accent)
 
     label(
-        text = visual.label ?: "${visual.degrees.toFloat().roundToInt()} deg",
+        text = visual.label ?: strings.degreesTemplate.fillIn(visual.degrees.toFloat().roundToInt()),
         center = Offset(center.x + radius * 1.05f, center.y - radius * 0.9f),
         color = Accent,
         factor = 0.095f,

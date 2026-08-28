@@ -16,6 +16,7 @@
     <string name="button_done">完了</string>
 
     <string name="achievements_button">実績 (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">最後の数字を削除</string>
 
     <string name="quit_game_title">ゲームを終了しますか？</string>
     <string name="quit_game_message">このゲームの進行状況は保存されません。</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%3$sを向いた%1$sの%2$s</string>
     <string name="solution_figure">%1$sの%2$s</string>
     <string name="solution_column_row">列%1$d 行%2$d</string>
+    <string name="hint_remember">%1$d を覚えて</string>
     <string name="solution_left">左</string>
     <string name="solution_right">右</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">修了証 %1$d / %2$d</string>
     <string name="learn_title">算数・数学を学ぶ</string>
     <string name="learn_unit_progress">修了証 %1$d / %2$d</string>
-    <string name="learn_topic_intro">リストを上から順に進みます。どの段も一つ前の段の上に立っています。</string>
+    <string name="learn_topic_intro">順番に進めよう。どのステップも前のステップの上に積み上がる。</string>
     <string name="learn_topic_certificates">%2$d 件中 %1$d 件が修了</string>
     <string name="learn_ages">%1$s 歳</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">数と計算</string>
     <string name="learn_topic_geometry">図形</string>
     <string name="learn_topic_geometry_subtitle">角、三角形、円</string>
+
+    <string name="learn_shape_guide_title">図形ガイド</string>
+    <string name="learn_shape_guide_intro">%1$d 個の図形を描いて名前をつけたもの。タップするともう一度描かれる。</string>
+    <string name="learn_rules_guide_title">ルールガイド</string>
+    <string name="learn_rules_guide_intro">%1$d 個のルールと符号の決まり、基本がひとまとめ。</string>
 
     <string name="learn_lessons_header">レッスン</string>
     <string name="learn_lesson_progress">%1$d / %2$d レッスン</string>
@@ -877,5 +884,50 @@
     <string name="achievement_learn_topic_certificates_desc">算数を学ぶの 1 つのトピックで修了証をすべて獲得する。</string>
     <string name="achievement_learn_all_certificates">数学の学者</string>
     <string name="achievement_learn_all_certificates_desc">算数を学ぶのすべてのサブトピックで修了証を獲得する。</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="other">%1$d 辺、 %1$d 頂点</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="other">%1$d 辺、</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="other">%1$d 頂点</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">立方体</string>
+    <string name="learn_fig_solid_sphere">球</string>
+    <string name="learn_fig_solid_cylinder">円柱</string>
+    <string name="learn_fig_solid_cone">円錐</string>
+    <string name="learn_fig_solid_prism">角柱</string>
+    <string name="learn_fig_solid_triangular_prism">三角柱</string>
+    <string name="learn_fig_solid_pyramid">角錐</string>
+    <string name="learn_fig_solid_cube_counts">6 面 · 12 辺 · 8 頂点</string>
+    <string name="learn_fig_solid_sphere_counts">平らな面なし、辺なし</string>
+    <string name="learn_fig_solid_cylinder_counts">平らな面 2 · 曲面 1</string>
+    <string name="learn_fig_solid_cone_counts">平らな面 1 · 頂点 1</string>
+    <string name="learn_fig_solid_prism_counts">どこで切っても同じ断面</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 面 · 9 辺 · 6 頂点</string>
+    <string name="learn_fig_solid_pyramid_counts">5 面 · 8 辺 · 5 頂点</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="other">対称の軸 %1$d 本</item>
+    </plurals>
+    <string name="learn_fig_area">面積 = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">周の長さ = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">両辺から %1$d を引く</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="other">%1$d 行</item>
+    </plurals>
+    <string name="learn_fig_more">あと %1$d</string>
+    <string name="learn_fig_in_each">各行 %1$d</string>
+    <string name="learn_fig_percent_of">%2$s の %1$s%</string>
+    <string name="learn_fig_gradient">傾き %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">平均 %1$s</string>
+    <string name="learn_fig_mean">平均</string>
+    <string name="learn_fig_standard_deviations">%1$s SD</string>
+    <string name="learn_fig_symbol_key">記号 1 つ = %1$d</string>
 
 </resources>

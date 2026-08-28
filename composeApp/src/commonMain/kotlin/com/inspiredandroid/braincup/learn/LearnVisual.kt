@@ -123,7 +123,18 @@ sealed interface LearnVisual {
         val cols: Int,
         val split: Int? = null,
         val leftover: Int = 0,
-    ) : LearnVisual
+    ) : LearnVisual {
+        /**
+         * The split the figure draws a lane for, or null for one unbroken block.
+         *
+         * A split that takes every row or none of them is not a split, and drawing the lane
+         * anyway would promise a second block that never comes.
+         */
+        val bandSplit: Int? get() = split?.takeIf { it in 1 until rows.coerceAtLeast(1) }
+
+        /** How many rows the first band holds, which is what its label has to agree with. */
+        val bandRows: Int get() = bandSplit ?: rows.coerceAtLeast(1)
+    }
 
     /**
      * One fraction bar, a second stacked under it to measure against with [compare], or the two
@@ -203,7 +214,10 @@ sealed interface LearnVisual {
         val sides: Int,
         val countCorners: Boolean = true,
         override val reveal: Boolean = true,
-    ) : LearnVisual
+    ) : LearnVisual {
+        /** Fewer than three sides is not a polygon, so the figure draws and counts three. */
+        val drawnSides: Int get() = sides.coerceAtLeast(3)
+    }
 
     /**
      * A triangle of the named kind, with tick marks on sides of equal length.

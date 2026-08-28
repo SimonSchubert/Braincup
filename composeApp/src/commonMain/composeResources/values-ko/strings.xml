@@ -16,6 +16,7 @@
     <string name="button_done">완료</string>
 
     <string name="achievements_button">업적 (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">마지막 숫자 지우기</string>
 
     <string name="quit_game_title">게임을 종료할까요?</string>
     <string name="quit_game_message">이 게임의 진행 상황은 저장되지 않습니다.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%3$s을 가리키는 %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">열 %1$d 행 %2$d</string>
+    <string name="hint_remember">%1$d 기억하기</string>
     <string name="solution_left">왼쪽</string>
     <string name="solution_right">오른쪽</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">수료증 %1$d / %2$d</string>
     <string name="learn_title">수학 배우기</string>
     <string name="learn_unit_progress">수료증 %1$d / %2$d</string>
-    <string name="learn_topic_intro">목록을 위에서 아래로 따라가세요. 각 단계는 바로 위 단계를 딛고 올라갑니다.</string>
+    <string name="learn_topic_intro">순서대로 해 나가자. 각 단계는 앞 단계 위에 쌓인다.</string>
     <string name="learn_topic_certificates">%2$d개 중 %1$d개 수료</string>
     <string name="learn_ages">%1$s세</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">수와 연산</string>
     <string name="learn_topic_geometry">기하</string>
     <string name="learn_topic_geometry_subtitle">각, 삼각형, 원</string>
+
+    <string name="learn_shape_guide_title">도형 안내</string>
+    <string name="learn_shape_guide_intro">그리고 이름 붙인 도형 %1$d개. 하나를 누르면 다시 그려진다.</string>
+    <string name="learn_rules_guide_title">규칙 안내</string>
+    <string name="learn_rules_guide_intro">규칙과 부호 약속 %1$d가지, 기본을 한곳에.</string>
 
     <string name="learn_lessons_header">수업</string>
     <string name="learn_lesson_progress">%1$d / %2$d 수업</string>
@@ -877,5 +884,50 @@
     <string name="achievement_learn_topic_certificates_desc">수학 배우기의 한 주제에서 모든 수료증을 받으세요.</string>
     <string name="achievement_learn_all_certificates">수학 학자</string>
     <string name="achievement_learn_all_certificates_desc">수학 배우기의 모든 세부 주제에서 수료증을 받으세요.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="other">%1$d변, 꼭짓점 %1$d개</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="other">%1$d변,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="other">꼭짓점 %1$d개</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">정육면체</string>
+    <string name="learn_fig_solid_sphere">구</string>
+    <string name="learn_fig_solid_cylinder">원기둥</string>
+    <string name="learn_fig_solid_cone">원뿔</string>
+    <string name="learn_fig_solid_prism">각기둥</string>
+    <string name="learn_fig_solid_triangular_prism">삼각기둥</string>
+    <string name="learn_fig_solid_pyramid">각뿔</string>
+    <string name="learn_fig_solid_cube_counts">면 6 · 모서리 12 · 꼭짓점 8</string>
+    <string name="learn_fig_solid_sphere_counts">평평한 면 없음, 모서리 없음</string>
+    <string name="learn_fig_solid_cylinder_counts">평평한 면 2 · 곡면 1</string>
+    <string name="learn_fig_solid_cone_counts">평평한 면 1 · 꼭짓점 1</string>
+    <string name="learn_fig_solid_prism_counts">어디를 잘라도 같은 단면</string>
+    <string name="learn_fig_solid_triangular_prism_counts">면 5 · 모서리 9 · 꼭짓점 6</string>
+    <string name="learn_fig_solid_pyramid_counts">면 5 · 모서리 8 · 꼭짓점 5</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="other">대칭축 %1$d개</item>
+    </plurals>
+    <string name="learn_fig_area">넓이 = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">둘레 = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">양쪽에서 %1$d 빼기</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="other">%1$d줄</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d 더</string>
+    <string name="learn_fig_in_each">각 줄에 %1$d</string>
+    <string name="learn_fig_percent_of">%2$s의 %1$s%</string>
+    <string name="learn_fig_gradient">기울기 %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">평균 %1$s</string>
+    <string name="learn_fig_mean">평균</string>
+    <string name="learn_fig_standard_deviations">%1$s 표준편차</string>
+    <string name="learn_fig_symbol_key">기호 1개 = %1$d</string>
 
 </resources>

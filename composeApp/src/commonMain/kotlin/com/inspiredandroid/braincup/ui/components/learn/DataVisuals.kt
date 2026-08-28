@@ -71,7 +71,7 @@ internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
         // value label sits exactly in the band the mean line runs through.
         val shortest = values.indices.minByOrNull { values[it] } ?: 0
         chipLabel(
-            text = "mean " + formatDecimal(mean.toDouble()),
+            text = strings.meanValueTemplate.fillIn(formatDecimal(mean.toDouble())),
             center = Offset(width * 0.08f + slot * shortest + slot / 2f, y - height * 0.09f),
             color = Accent2,
             factor = 0.09f,
@@ -170,7 +170,7 @@ internal fun VisualScope.drawPictogram(visual: LearnVisual.Pictogram) {
     }
 
     label(
-        text = "1 symbol = ${visual.unitValue}",
+        text = strings.symbolKeyTemplate.fillIn(visual.unitValue),
         center = Offset(width / 2f, height * 0.94f),
         color = ink,
         factor = 0.085f,
@@ -212,13 +212,13 @@ internal fun VisualScope.drawNormalCurve(visual: LearnVisual.NormalCurve) {
 
     line(Offset(rect.left, rect.bottom), Offset(rect.right, rect.bottom), ink, stroke)
     line(Offset(rect.left + rect.width / 2f, rect.bottom), pointAt(0.5f), Accent2, stroke, dashed = true)
-    label("mean", Offset(rect.left + rect.width / 2f, rect.bottom + height * 0.09f), Accent2, 0.08f, bold = false)
+    label(strings.mean, Offset(rect.left + rect.width / 2f, rect.bottom + height * 0.09f), Accent2, 0.08f, bold = false)
 
     listOf(-band, band).forEach { sd ->
         val x = rect.left + rect.width * (3f + sd) / 6f
         line(Offset(x, rect.bottom), Offset(x, rect.bottom - height * 0.04f), ink, stroke)
         label(
-            text = (if (sd > 0) "+" else "") + sd + " sd",
+            text = strings.standardDeviationsTemplate.fillIn((if (sd > 0) "+" else "") + sd),
             center = Offset(x, rect.bottom + height * 0.09f),
             color = faint,
             factor = 0.075f,

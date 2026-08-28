@@ -23,6 +23,7 @@
     <string name="title_master">Mestre</string>
     <string name="title_grandmaster">Gran mestre</string>
     <string name="achievements_button">Assoliments (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Esborra l'últim dígit</string>
     <string name="normal_sudoku_button">Sudoku clàssic (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Principiant</string>
@@ -408,6 +409,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="solution_pointing">%1$s %2$s que apunta %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">columna %1$d i fila %2$d</string>
+    <string name="hint_remember">Recorda %1$d</string>
     <string name="solution_left">Esquerra</string>
     <string name="solution_right">Dreta</string>
 
@@ -831,7 +833,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d certificats</string>
     <string name="learn_title">Aprèn matemàtiques</string>
     <string name="learn_unit_progress">%1$d / %2$d certificats</string>
-    <string name="learn_topic_intro">Baixa per la llista. Cada pas es basa en l'anterior.</string>
+    <string name="learn_topic_intro">Fes-los en ordre. Cada pas es basa en l'anterior.</string>
     <string name="learn_topic_certificates">%1$d de %2$d certificats</string>
     <string name="learn_ages">Edats %1$s</string>
 
@@ -850,6 +852,11 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Nombres i operacions</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Angles, triangles i cercles</string>
+
+    <string name="learn_shape_guide_title">Guia de formes</string>
+    <string name="learn_shape_guide_intro">%1$d formes, dibuixades i amb nom. Toca'n una per veure-la dibuixar de nou.</string>
+    <string name="learn_rules_guide_title">Guia de regles</string>
+    <string name="learn_rules_guide_intro">%1$d regles i convenis de signes, el bàsic en un sol lloc.</string>
 
     <string name="learn_lessons_header">Lliçons</string>
     <string name="learn_lesson_progress">%1$d / %2$d lliçons</string>
@@ -895,5 +902,55 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Aconsegueix tots els certificats d'un tema d'Aprèn Matemàtiques.</string>
     <string name="achievement_learn_all_certificates">Erudit de matemàtiques</string>
     <string name="achievement_learn_all_certificates_desc">Aconsegueix un certificat de cada subtema d'Aprèn Matemàtiques.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d costat, %1$d vèrtex</item>
+        <item quantity="other">%1$d costats, %1$d vèrtexs</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d costat,</item>
+        <item quantity="other">%1$d costats,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d vèrtex</item>
+        <item quantity="other">%1$d vèrtexs</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">cub</string>
+    <string name="learn_fig_solid_sphere">esfera</string>
+    <string name="learn_fig_solid_cylinder">cilindre</string>
+    <string name="learn_fig_solid_cone">con</string>
+    <string name="learn_fig_solid_prism">prisma</string>
+    <string name="learn_fig_solid_triangular_prism">prisma triangular</string>
+    <string name="learn_fig_solid_pyramid">piràmide</string>
+    <string name="learn_fig_solid_cube_counts">6 cares · 12 arestes · 8 vèrtexs</string>
+    <string name="learn_fig_solid_sphere_counts">cap cara plana, cap aresta</string>
+    <string name="learn_fig_solid_cylinder_counts">2 cares planes · 1 corba</string>
+    <string name="learn_fig_solid_cone_counts">1 cara plana · 1 punta</string>
+    <string name="learn_fig_solid_prism_counts">la mateixa secció de punta a punta</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 cares · 9 arestes · 6 vèrtexs</string>
+    <string name="learn_fig_solid_pyramid_counts">5 cares · 8 arestes · 5 vèrtexs</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d eix de simetria</item>
+        <item quantity="other">%1$d eixos de simetria</item>
+    </plurals>
+    <string name="learn_fig_area">àrea = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">perímetre = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">treu %1$d dels dos costats</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d fila</item>
+        <item quantity="other">%1$d files</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d més</string>
+    <string name="learn_fig_in_each">%1$d a cadascuna</string>
+    <string name="learn_fig_percent_of">%1$s% de %2$s</string>
+    <string name="learn_fig_gradient">pendent %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">mitjana %1$s</string>
+    <string name="learn_fig_mean">mitjana</string>
+    <string name="learn_fig_standard_deviations">%1$s DE</string>
+    <string name="learn_fig_symbol_key">1 símbol = %1$d</string>
 
 </resources>

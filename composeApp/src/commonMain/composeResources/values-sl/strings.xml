@@ -23,6 +23,7 @@
     <string name="title_master">Mojster</string>
     <string name="title_grandmaster">Velemojster</string>
     <string name="achievements_button">Dosežki (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Izbriši zadnjo števko</string>
     <string name="normal_sudoku_button">Klasični Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Začetnik</string>
@@ -408,6 +409,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="solution_pointing">%1$s %2$s usmerjen %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">stolpec %1$d in vrstica %2$d</string>
+    <string name="hint_remember">Zapomni si %1$d</string>
     <string name="solution_left">Levo</string>
     <string name="solution_right">Desno</string>
 
@@ -831,7 +833,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d potrdil</string>
     <string name="learn_title">Uči se matematiko</string>
     <string name="learn_unit_progress">%1$d / %2$d potrdil</string>
-    <string name="learn_topic_intro">Pomikaj se po seznamu navzdol. Vsak korak gradi na prejšnjem.</string>
+    <string name="learn_topic_intro">Prehodi jih po vrsti. Vsak korak gradi na prejšnjem.</string>
     <string name="learn_topic_certificates">%1$d od %2$d s potrdilom</string>
     <string name="learn_ages">Starost %1$s</string>
 
@@ -850,6 +852,11 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Števila in operacije</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Koti, trikotniki in krožnice</string>
+
+    <string name="learn_shape_guide_title">Vodnik po likih</string>
+    <string name="learn_shape_guide_intro">%1$d likov, narisanih in poimenovanih. Dotakni se enega, da ga vidiš narisanega znova.</string>
+    <string name="learn_rules_guide_title">Vodnik po pravilih</string>
+    <string name="learn_rules_guide_intro">%1$d pravil in pravil predznakov, osnove na enem mestu.</string>
 
     <string name="learn_lessons_header">Lekcije</string>
     <string name="learn_lesson_progress">%1$d / %2$d lekcij</string>
@@ -895,5 +902,65 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Prisluži si vsa potrdila ene teme v Uči se matematiko.</string>
     <string name="achievement_learn_all_certificates">Matematični učenjak</string>
     <string name="achievement_learn_all_certificates_desc">Prisluži si potrdilo v vsaki podtemi v Uči se matematiko.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d stranica, %1$d oglišče</item>
+        <item quantity="two">%1$d stranici, %1$d oglišči</item>
+        <item quantity="few">%1$d stranice, %1$d oglišča</item>
+        <item quantity="other">%1$d stranic, %1$d oglišč</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d stranica,</item>
+        <item quantity="two">%1$d stranici,</item>
+        <item quantity="few">%1$d stranice,</item>
+        <item quantity="other">%1$d stranic,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d oglišče</item>
+        <item quantity="two">%1$d oglišči</item>
+        <item quantity="few">%1$d oglišča</item>
+        <item quantity="other">%1$d oglišč</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kocka</string>
+    <string name="learn_fig_solid_sphere">krogla</string>
+    <string name="learn_fig_solid_cylinder">valj</string>
+    <string name="learn_fig_solid_cone">stožec</string>
+    <string name="learn_fig_solid_prism">prizma</string>
+    <string name="learn_fig_solid_triangular_prism">tristrana prizma</string>
+    <string name="learn_fig_solid_pyramid">piramida</string>
+    <string name="learn_fig_solid_cube_counts">6 ploskev · 12 robov · 8 oglišč</string>
+    <string name="learn_fig_solid_sphere_counts">brez ravnih ploskev, brez robov</string>
+    <string name="learn_fig_solid_cylinder_counts">2 ravni ploskvi · 1 ukrivljena</string>
+    <string name="learn_fig_solid_cone_counts">1 ravna ploskev · 1 konica</string>
+    <string name="learn_fig_solid_prism_counts">enak presek po vsej dolžini</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 ploskev · 9 robov · 6 oglišč</string>
+    <string name="learn_fig_solid_pyramid_counts">5 ploskev · 8 robov · 5 oglišč</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d os simetrije</item>
+        <item quantity="two">%1$d osi simetrije</item>
+        <item quantity="few">%1$d osi simetrije</item>
+        <item quantity="other">%1$d osi simetrije</item>
+    </plurals>
+    <string name="learn_fig_area">ploščina = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">obseg = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">odštej %1$d na obeh straneh</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d vrstica</item>
+        <item quantity="two">%1$d vrstici</item>
+        <item quantity="few">%1$d vrstice</item>
+        <item quantity="other">%1$d vrstic</item>
+    </plurals>
+    <string name="learn_fig_more">še %1$d</string>
+    <string name="learn_fig_in_each">po %1$d v vsaki</string>
+    <string name="learn_fig_percent_of">%1$s% od %2$s</string>
+    <string name="learn_fig_gradient">naklon %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">povprečje %1$s</string>
+    <string name="learn_fig_mean">povprečje</string>
+    <string name="learn_fig_standard_deviations">%1$s st. odkl.</string>
+    <string name="learn_fig_symbol_key">1 simbol = %1$d</string>
 
 </resources>

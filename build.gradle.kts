@@ -19,6 +19,19 @@ tasks.register<Exec>("checkLocalizations") {
     )
 }
 
+// A lesson's prose often repeats the numbers its step declares, and no rule can tell those apart
+// from the facts it teaches ("angles on a straight line add to 180"), so they stay in the sentence.
+// This says which sentences a step's arithmetic is tied to, before you change it.
+tasks.register<Exec>("learnNumberCoupling") {
+    group = "verification"
+    description =
+        "Lists Learn sentences that quote a number their own lesson step declares"
+    commandLine(
+        "python3",
+        layout.projectDirectory.file("scripts/learn_number_coupling.py").asFile.absolutePath,
+    )
+}
+
 // Translating the app is only half of shipping a language: the Play listing needs its own supply
 // folder, copy and screenshots, and none of that is produced by adding values-<locale>/strings.xml.
 tasks.register<Exec>("checkStoreListings") {

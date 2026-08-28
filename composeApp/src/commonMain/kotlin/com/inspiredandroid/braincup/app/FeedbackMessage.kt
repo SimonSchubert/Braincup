@@ -14,4 +14,7 @@ sealed interface FeedbackMessage {
     ) : FeedbackMessage
     data class GridPosition(val column: Int, val row: Int) : FeedbackMessage
     data class SideCount(val isLeft: Boolean, val count: Int) : FeedbackMessage
+
+    /** "Remember 7", the running total Mental Calculation asks the player to hold on to. */
+    data class Remember(val number: Int) : FeedbackMessage
 }

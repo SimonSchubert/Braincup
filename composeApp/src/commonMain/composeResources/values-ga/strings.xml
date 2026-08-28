@@ -23,6 +23,7 @@
     <string name="title_master">Máistir</string>
     <string name="title_grandmaster">Ardmháistir</string>
     <string name="achievements_button">Éachtaí (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Scrios an digit deireanach</string>
     <string name="normal_sudoku_button">Sudoku clasaiceach (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Tosaitheoir</string>
@@ -408,6 +409,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="solution_pointing">%1$s %2$s ag díriú %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">colún %1$d agus ró %2$d</string>
+    <string name="hint_remember">Cuimhnigh ar %1$d</string>
     <string name="solution_left">Ar chlé</string>
     <string name="solution_right">Ar dheis</string>
 
@@ -831,7 +833,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_section_certificates">%1$d / %2$d teastas</string>
     <string name="learn_title">Foghlaim mata</string>
     <string name="learn_unit_progress">%1$d / %2$d teastas</string>
-    <string name="learn_topic_intro">Oibrigh síos an liosta. Tógann gach céim ar an gceann roimhe.</string>
+    <string name="learn_topic_intro">Oibrigh tríothu in ord. Tógann gach céim ar an gceann roimhe.</string>
     <string name="learn_topic_certificates">%1$d as %2$d deimhnithe</string>
     <string name="learn_ages">Aoiseanna %1$s</string>
 
@@ -850,6 +852,11 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_topic_arithmetic_subtitle">Uimhreacha agus oibríochtaí</string>
     <string name="learn_topic_geometry">Céimseata</string>
     <string name="learn_topic_geometry_subtitle">Uillinneacha, triantáin agus ciorcail</string>
+
+    <string name="learn_shape_guide_title">Treoir na gcruthanna</string>
+    <string name="learn_shape_guide_intro">%1$d cruth, tarraingthe agus ainmnithe. Tapáil ceann acu le hé a fheiceáil á tharraingt arís.</string>
+    <string name="learn_rules_guide_title">Treoir na rialacha</string>
+    <string name="learn_rules_guide_intro">%1$d riail agus gnás comhartha, na bunúsanna in aon áit amháin.</string>
 
     <string name="learn_lessons_header">Ceachtanna</string>
     <string name="learn_lesson_progress">%1$d / %2$d ceacht</string>
@@ -895,5 +902,70 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_learn_topic_certificates_desc">Gnóthaigh gach teastas in ábhar amháin de Foghlaim Mata.</string>
     <string name="achievement_learn_all_certificates">Scoláire mata</string>
     <string name="achievement_learn_all_certificates_desc">Gnóthaigh teastas i ngach fo-ábhar de Foghlaim Mata.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d taobh, %1$d chúinne</item>
+        <item quantity="two">%1$d thaobh, %1$d chúinne</item>
+        <item quantity="few">%1$d thaobh, %1$d chúinne</item>
+        <item quantity="many">%1$d dtaobh, %1$d gcúinne</item>
+        <item quantity="other">%1$d taobh, %1$d cúinne</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d taobh,</item>
+        <item quantity="two">%1$d thaobh,</item>
+        <item quantity="few">%1$d thaobh,</item>
+        <item quantity="many">%1$d dtaobh,</item>
+        <item quantity="other">%1$d taobh,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d chúinne</item>
+        <item quantity="two">%1$d chúinne</item>
+        <item quantity="few">%1$d chúinne</item>
+        <item quantity="many">%1$d gcúinne</item>
+        <item quantity="other">%1$d cúinne</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">ciúb</string>
+    <string name="learn_fig_solid_sphere">sféar</string>
+    <string name="learn_fig_solid_cylinder">sorcóir</string>
+    <string name="learn_fig_solid_cone">cón</string>
+    <string name="learn_fig_solid_prism">priosma</string>
+    <string name="learn_fig_solid_triangular_prism">priosma triantánach</string>
+    <string name="learn_fig_solid_pyramid">pirimid</string>
+    <string name="learn_fig_solid_cube_counts">6 aghaidh · 12 chiumhais · 8 gcúinne</string>
+    <string name="learn_fig_solid_sphere_counts">gan aghaidh chothrom, gan ciumhais</string>
+    <string name="learn_fig_solid_cylinder_counts">2 aghaidh chothrom · 1 chuartha</string>
+    <string name="learn_fig_solid_cone_counts">1 aghaidh chothrom · 1 rinn</string>
+    <string name="learn_fig_solid_prism_counts">an trasghearradh céanna ar fad</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 aghaidh · 9 gciumhais · 6 chúinne</string>
+    <string name="learn_fig_solid_pyramid_counts">5 aghaidh · 8 gciumhais · 5 chúinne</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d ais siméadrachta</item>
+        <item quantity="two">%1$d ais siméadrachta</item>
+        <item quantity="few">%1$d ais siméadrachta</item>
+        <item quantity="many">%1$d n-ais siméadrachta</item>
+        <item quantity="other">%1$d ais siméadrachta</item>
+    </plurals>
+    <string name="learn_fig_area">achar = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">imlíne = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">bain %1$d den dá thaobh</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d líne</item>
+        <item quantity="two">%1$d líne</item>
+        <item quantity="few">%1$d líne</item>
+        <item quantity="many">%1$d líne</item>
+        <item quantity="other">%1$d líne</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d eile</string>
+    <string name="learn_fig_in_each">%1$d i ngach ceann</string>
+    <string name="learn_fig_percent_of">%1$s% de %2$s</string>
+    <string name="learn_fig_gradient">fána %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">meán %1$s</string>
+    <string name="learn_fig_mean">meán</string>
+    <string name="learn_fig_standard_deviations">%1$s dc</string>
+    <string name="learn_fig_symbol_key">1 siombail = %1$d</string>
 
 </resources>

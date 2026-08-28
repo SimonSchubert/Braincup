@@ -33,5 +33,14 @@ abstract class Game {
 
     abstract fun hint(): String?
 
+    /**
+     * The hint as the feedback screen shows it, which is where a hint carrying words belongs.
+     *
+     * Same split as [solution] and [solutionMessage]: a plain [hint] is a string a game already
+     * has, and anything that has to be said in the player's language becomes a [FeedbackMessage]
+     * the screen resolves against `strings.xml` instead.
+     */
+    open fun hintMessage(): FeedbackMessage? = hint()?.let { FeedbackMessage.Plain(it) }
+
     abstract fun toUiState(): GameUiState
 }

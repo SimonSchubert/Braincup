@@ -9,8 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.baseline_backspace_24
+import braincup.composeapp.generated.resources.number_pad_backspace
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.painterResource
+import org.jetbrains.compose.resources.stringResource
 import kotlin.collections.plusAssign
 
 /** Layout order for [NumberPad]. When true the keypad shows 1-2-3 on the top row (phone style);
@@ -124,7 +126,8 @@ fun NumberPadWithInput(
                 ) {
                     Icon(
                         painterResource(Res.drawable.baseline_backspace_24),
-                        contentDescription = null,
+                        // The only way to correct a typed answer, and it was unreachable by name.
+                        contentDescription = stringResource(Res.string.number_pad_backspace),
                         tint = MaterialTheme.colorScheme.onSurfaceVariant,
                         modifier = Modifier.size(20.dp),
                     )

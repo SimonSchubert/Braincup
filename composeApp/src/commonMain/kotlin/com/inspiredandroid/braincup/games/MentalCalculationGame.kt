@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.games.tools.Operator
 import kotlin.math.max
 import kotlin.math.min
@@ -88,11 +89,11 @@ class MentalCalculationGame : Game() {
 
     override fun solution(): String = number.toString()
 
-    override fun hint(): String? = if (round == 1) {
-        "Remember $number"
-    } else {
-        null
-    }
+    // The only hint in the app that says anything, so it goes through hintMessage() to be
+    // translated; the plain channel stays empty rather than holding an English copy of it.
+    override fun hint(): String? = null
+
+    override fun hintMessage(): FeedbackMessage? = if (round == 1) FeedbackMessage.Remember(number) else null
 
     private fun reset() {
         number = Random.nextInt(2, 15)

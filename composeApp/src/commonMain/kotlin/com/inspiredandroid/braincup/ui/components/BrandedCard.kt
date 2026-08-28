@@ -18,6 +18,14 @@ fun BrandedCard(
     containerColor: Color = PrimaryContainer,
     contentPadding: PaddingValues = PaddingValues(16.dp),
     horizontalAlignment: Alignment.Horizontal = Alignment.Start,
+    /**
+     * Whether the card's content spans the width it is offered.
+     *
+     * True suits the banners this was written for, which fill their column and lay text out from
+     * the left. A chip is the other shape: [XpGainedChip] wants to be as wide as "+15 XP" and no
+     * wider, and filling instead turned it into a full-width bar with its text pinned to one end.
+     */
+    fillWidth: Boolean = true,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     PrismCard(
@@ -26,7 +34,7 @@ fun BrandedCard(
     ) {
         Column(
             modifier = Modifier
-                .fillMaxWidth()
+                .then(if (fillWidth) Modifier.fillMaxWidth() else Modifier)
                 .padding(contentPadding),
             horizontalAlignment = horizontalAlignment,
             content = content,

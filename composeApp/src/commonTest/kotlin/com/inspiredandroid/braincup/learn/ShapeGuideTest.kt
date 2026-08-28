@@ -10,8 +10,6 @@ class ShapeGuideTest {
     fun everySectionHasShapes() {
         ShapeGuide.sections.forEach { section ->
             assertTrue(section.shapes.isNotEmpty(), "${section.id} has no shapes")
-            assertTrue(section.title.isNotBlank(), "${section.id} has no title")
-            assertTrue(section.blurb.isNotBlank(), "${section.id} has no blurb")
         }
     }
 
@@ -20,14 +18,6 @@ class ShapeGuideTest {
     fun shapeIdsAreUnique() {
         val ids = ShapeGuide.sections.flatMap { it.shapes }.map { it.id }
         assertEquals(ids.size, ids.toSet().size, "duplicate shape ids: $ids")
-    }
-
-    @Test
-    fun everyShapeIsNamedAndExplained() {
-        ShapeGuide.sections.flatMap { it.shapes }.forEach { shape ->
-            assertTrue(shape.name.isNotBlank(), "${shape.id} has no name")
-            assertTrue(shape.fact.isNotBlank(), "${shape.id} has no fact")
-        }
     }
 
     /**

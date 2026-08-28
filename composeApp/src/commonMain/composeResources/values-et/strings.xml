@@ -23,6 +23,7 @@
     <string name="title_master">Meister</string>
     <string name="title_grandmaster">Suurmeister</string>
     <string name="achievements_button">Saavutused (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Kustuta viimane number</string>
     <string name="normal_sudoku_button">Klassikaline Sudoku (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">Sudoku</string>
     <string name="normal_sudoku_difficulty_beginner">Algaja</string>
@@ -408,6 +409,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="solution_pointing">%1$s %2$s osutab %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">veerg %1$d ja rida %2$d</string>
+    <string name="hint_remember">Jäta meelde %1$d</string>
     <string name="solution_left">Vasak</string>
     <string name="solution_right">Parem</string>
 
@@ -831,7 +833,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_section_certificates">%1$d / %2$d tunnistust</string>
     <string name="learn_title">Õpi matemaatikat</string>
     <string name="learn_unit_progress">%1$d / %2$d tunnistust</string>
-    <string name="learn_topic_intro">Liigu loendis ülalt alla. Iga samm toetub eelmisele.</string>
+    <string name="learn_topic_intro">Läbi need järjekorras. Iga samm toetub eelmisele.</string>
     <string name="learn_topic_certificates">%1$d / %2$d tunnistusega</string>
     <string name="learn_ages">Vanus %1$s</string>
 
@@ -850,6 +852,11 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Arvud ja tehted</string>
     <string name="learn_topic_geometry">Geomeetria</string>
     <string name="learn_topic_geometry_subtitle">Nurgad, kolmnurgad ja ringjooned</string>
+
+    <string name="learn_shape_guide_title">Kujundite juhend</string>
+    <string name="learn_shape_guide_intro">%1$d kujundit, joonistatud ja nimetatud. Puuduta ühte, et näha seda uuesti joonistumas.</string>
+    <string name="learn_rules_guide_title">Reeglite juhend</string>
+    <string name="learn_rules_guide_intro">%1$d reeglit ja märgireeglit, alused ühes kohas.</string>
 
     <string name="learn_lessons_header">Tunnid</string>
     <string name="learn_lesson_progress">%1$d / %2$d tundi</string>
@@ -895,5 +902,55 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_learn_topic_certificates_desc">Teeni ühe Matemaatika teema kõik tunnistused.</string>
     <string name="achievement_learn_all_certificates">Matemaatikaõppur</string>
     <string name="achievement_learn_all_certificates_desc">Teeni tunnistus igas Matemaatika alateemas.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d külg, %1$d nurk</item>
+        <item quantity="other">%1$d külge, %1$d nurka</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d külg,</item>
+        <item quantity="other">%1$d külge,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d nurk</item>
+        <item quantity="other">%1$d nurka</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kuup</string>
+    <string name="learn_fig_solid_sphere">kera</string>
+    <string name="learn_fig_solid_cylinder">silinder</string>
+    <string name="learn_fig_solid_cone">koonus</string>
+    <string name="learn_fig_solid_prism">prisma</string>
+    <string name="learn_fig_solid_triangular_prism">kolmnurkne prisma</string>
+    <string name="learn_fig_solid_pyramid">püramiid</string>
+    <string name="learn_fig_solid_cube_counts">6 tahku · 12 serva · 8 tippu</string>
+    <string name="learn_fig_solid_sphere_counts">ei ühtegi tasast tahku, ei ühtegi serva</string>
+    <string name="learn_fig_solid_cylinder_counts">2 tasast tahku · 1 kõver</string>
+    <string name="learn_fig_solid_cone_counts">1 tasane tahk · 1 tipp</string>
+    <string name="learn_fig_solid_prism_counts">sama ristlõige kogu ulatuses</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 tahku · 9 serva · 6 tippu</string>
+    <string name="learn_fig_solid_pyramid_counts">5 tahku · 8 serva · 5 tippu</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d sümmeetriatelg</item>
+        <item quantity="other">%1$d sümmeetriatelge</item>
+    </plurals>
+    <string name="learn_fig_area">pindala = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">ümbermõõt = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">lahuta %1$d mõlemalt poolt</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d rida</item>
+        <item quantity="other">%1$d rida</item>
+    </plurals>
+    <string name="learn_fig_more">veel %1$d</string>
+    <string name="learn_fig_in_each">%1$d igas</string>
+    <string name="learn_fig_percent_of">%1$s% arvust %2$s</string>
+    <string name="learn_fig_gradient">tõus %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">keskmine %1$s</string>
+    <string name="learn_fig_mean">keskmine</string>
+    <string name="learn_fig_standard_deviations">%1$s sh</string>
+    <string name="learn_fig_symbol_key">1 sümbol = %1$d</string>
 
 </resources>

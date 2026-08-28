@@ -32,10 +32,8 @@ import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
+import kotlinx.datetime.LocalDate
 import org.jetbrains.compose.resources.stringResource
-import kotlin.time.Instant
 
 @Composable
 fun LearnCertificateScreen(
@@ -140,7 +138,7 @@ private fun CertificateCard(
             // The sub-topic, not the grade band: the test that was passed was "Fractions", and two
             // certificates reading "Arithmetic, Grades 3-5" said nothing about what was learned.
             Text(
-                text = unit.title,
+                text = stringResource(unit.title),
                 style = MaterialTheme.typography.titleSmall,
                 textAlign = TextAlign.Center,
             )
@@ -162,12 +160,14 @@ private fun CertificateCard(
     }
 }
 
-/** Epoch day → ISO date, matching how the rest of the app derives calendar days (UTC). */
-private fun formatEpochDay(epochDay: Int): String = Instant
-    .fromEpochMilliseconds(epochDay.toLong() * 86_400_000L)
-    .toLocalDateTime(TimeZone.UTC)
-    .date
-    .toString()
+/**
+ * Epoch day → ISO date.
+ *
+ * A certificate's day is stored on the learner's own calendar (`todayLocalEpochDay`), so it is
+ * already the date to print and needs no zone to read it back. Going through UTC here on top of a
+ * UTC-derived day was what dated a certificate earned just after local midnight to the day before.
+ */
+private fun formatEpochDay(epochDay: Int): String = LocalDate.fromEpochDays(epochDay).toString()
 
 @DevicePreviews
 @Composable

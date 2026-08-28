@@ -16,6 +16,7 @@
     <string name="button_done">Terminé</string>
 
     <string name="achievements_button">Succès (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Supprimer le dernier chiffre</string>
 
     <string name="quit_game_title">Quitter la partie ?</string>
     <string name="quit_game_message">Ta progression dans cette partie ne sera pas enregistrée.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s pointant vers le %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">colonne %1$d et ligne %2$d</string>
+    <string name="hint_remember">Retiens %1$d</string>
     <string name="solution_left">Gauche</string>
     <string name="solution_right">Droite</string>
 
@@ -814,7 +816,7 @@
     <string name="learn_section_certificates">%1$d / %2$d certificats</string>
     <string name="learn_title">Apprendre les maths</string>
     <string name="learn_unit_progress">%1$d / %2$d certificats</string>
-    <string name="learn_topic_intro">Descends la liste. Chaque étape s'appuie sur la précédente.</string>
+    <string name="learn_topic_intro">Parcours-les dans l'ordre. Chaque étape s'appuie sur la précédente.</string>
     <string name="learn_topic_certificates">%1$d sur %2$d certifiés</string>
     <string name="learn_ages">Âges %1$s</string>
 
@@ -833,6 +835,11 @@
     <string name="learn_topic_arithmetic_subtitle">Nombres &amp; opérations</string>
     <string name="learn_topic_geometry">Géométrie</string>
     <string name="learn_topic_geometry_subtitle">Angles, triangles &amp; cercles</string>
+
+    <string name="learn_shape_guide_title">Guide des formes</string>
+    <string name="learn_shape_guide_intro">%1$d formes, dessinées et nommées. Touches-en une pour la revoir se dessiner.</string>
+    <string name="learn_rules_guide_title">Guide des règles</string>
+    <string name="learn_rules_guide_intro">%1$d règles et conventions de signes, les bases au même endroit.</string>
 
     <string name="learn_lessons_header">Leçons</string>
     <string name="learn_lesson_progress">%1$d / %2$d leçons</string>
@@ -878,5 +885,55 @@
     <string name="achievement_learn_topic_certificates_desc">Obtiens tous les certificats d'un thème d'Apprendre les maths.</string>
     <string name="achievement_learn_all_certificates">Érudit des maths</string>
     <string name="achievement_learn_all_certificates_desc">Obtiens un certificat dans chaque sous-thème d'Apprendre les maths.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d côté, %1$d sommet</item>
+        <item quantity="other">%1$d côtés, %1$d sommets</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d côté,</item>
+        <item quantity="other">%1$d côtés,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d sommet</item>
+        <item quantity="other">%1$d sommets</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">cube</string>
+    <string name="learn_fig_solid_sphere">sphère</string>
+    <string name="learn_fig_solid_cylinder">cylindre</string>
+    <string name="learn_fig_solid_cone">cône</string>
+    <string name="learn_fig_solid_prism">prisme</string>
+    <string name="learn_fig_solid_triangular_prism">prisme triangulaire</string>
+    <string name="learn_fig_solid_pyramid">pyramide</string>
+    <string name="learn_fig_solid_cube_counts">6 faces · 12 arêtes · 8 sommets</string>
+    <string name="learn_fig_solid_sphere_counts">aucune face plane, aucune arête</string>
+    <string name="learn_fig_solid_cylinder_counts">2 faces planes · 1 courbe</string>
+    <string name="learn_fig_solid_cone_counts">1 face plane · 1 pointe</string>
+    <string name="learn_fig_solid_prism_counts">même section sur toute la longueur</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 faces · 9 arêtes · 6 sommets</string>
+    <string name="learn_fig_solid_pyramid_counts">5 faces · 8 arêtes · 5 sommets</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d axe de symétrie</item>
+        <item quantity="other">%1$d axes de symétrie</item>
+    </plurals>
+    <string name="learn_fig_area">aire = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">périmètre = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">enlève %1$d des deux côtés</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d rangée</item>
+        <item quantity="other">%1$d rangées</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d de plus</string>
+    <string name="learn_fig_in_each">%1$d dans chaque</string>
+    <string name="learn_fig_percent_of">%1$s% de %2$s</string>
+    <string name="learn_fig_gradient">pente %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">moyenne %1$s</string>
+    <string name="learn_fig_mean">moyenne</string>
+    <string name="learn_fig_standard_deviations">%1$s ET</string>
+    <string name="learn_fig_symbol_key">1 symbole = %1$d</string>
 
 </resources>

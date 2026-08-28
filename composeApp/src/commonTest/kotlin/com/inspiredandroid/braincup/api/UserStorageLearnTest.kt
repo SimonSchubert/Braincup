@@ -3,12 +3,16 @@ package com.inspiredandroid.braincup.api
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.MathTopic
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toLocalDateTime
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
+import kotlin.time.Clock
 
 class UserStorageLearnTest {
 
@@ -66,6 +70,32 @@ class UserStorageLearnTest {
 
         assertNotNull(storage.getLearnCertificate(target))
         assertTrue(UserStorage.Achievements.LEARN_FIRST_CERTIFICATE in storage.getUnlockedAchievements())
+    }
+
+    /**
+     * A certificate is dated by the learner's own calendar, not by UTC.
+     *
+     * The two disagree for a few hours every day - a certificate earned at ten past midnight in
+     * Berlin was still the previous day in UTC, and came out dated yesterday. The streak still
+     * counts UTC days on purpose, so this pins the one number that is ever shown to a learner.
+     *
+     * Worth knowing: this only discriminates while the local date and the UTC date differ, so on a
+     * runner set to UTC it passes either way. It is a regression guard for the hours that matter
+     * rather than a proof; making it deterministic would need a clock seam in [UserStorage].
+     */
+    @Test
+    fun aCertificateIsDatedByTheLearnersOwnCalendar() {
+        val storage = UserStorage.forPreview()
+        val target = unit(MathTopic.GEOMETRY, "symmetry")
+        storage.recordLearnQuizResult(target, correct = 8, total = 8)
+
+        val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
+        val certificate = assertNotNull(storage.getLearnCertificate(target))
+        assertEquals(
+            today,
+            LocalDate.fromEpochDays(certificate.earnedEpochDay),
+            "the certificate should carry the local calendar day",
+        )
     }
 
     @Test

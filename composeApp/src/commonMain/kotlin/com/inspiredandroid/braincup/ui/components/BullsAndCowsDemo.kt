@@ -204,12 +204,17 @@ fun BullsAndCowsDemo(modifier: Modifier = Modifier) {
 
     val bullWord = stringResource(Res.string.bulls_and_cows_demo_bull)
     val cowWord = stringResource(Res.string.bulls_and_cows_demo_cow)
-    val caption = coloredCaption(phase = phase, bullWord = bullWord, cowWord = cowWord)
-    // Reserve height for the definition/move captions only (step1 summary removed).
-    val reserveCaptions = persistentListOf(
-        stringResource(Res.string.bulls_and_cows_demo_step2),
-        stringResource(Res.string.bulls_and_cows_demo_step3),
+    val defineCaption = stringResource(Res.string.bulls_and_cows_demo_step2)
+    val moveCaption = stringResource(Res.string.bulls_and_cows_demo_step3)
+    val caption = coloredCaption(
+        phase = phase,
+        bullWord = bullWord,
+        cowWord = cowWord,
+        define = defineCaption,
+        move = moveCaption,
     )
+    // Reserve height for the definition/move captions only (step1 summary removed).
+    val reserveCaptions = persistentListOf(defineCaption, moveCaption)
 
     val compact = LocalIsCompactHeight.current
     val tileSize = if (compact) 40.dp else 48.dp
@@ -327,12 +332,23 @@ fun BullsAndCowsDemo(modifier: Modifier = Modifier) {
 
 /**
  * Colour-codes every occurrence of [bullWord] / [cowWord] so caption terms match tile colours.
+ *
+ * The sentences are [define] and [move], the same localized captions the layout reserves height
+ * for, rather than anything assembled here: the tutorial teaches the two terms by defining them,
+ * and a definition written in code is a definition only English speakers ever read.
+ *
+ * Every locale leaves Bull and Cow in English (see the naming note above `game_anomaly_puzzle`
+ * in `strings.xml`), so finding them in a translated sentence is a plain substring scan. One that
+ * inflects a term - Polish "Bulla" - still gets the stem painted and the ending left plain, which
+ * is the right half coloured either way.
  */
 @Composable
 private fun coloredCaption(
     phase: BullsAndCowsDemoPhase,
     bullWord: String,
     cowWord: String,
+    define: String,
+    move: String,
 ): AnnotatedString {
     val body = MaterialTheme.colorScheme.onSurfaceVariant
     val bullStyle = SpanStyle(color = BullColor, fontWeight = FontWeight.Bold)
@@ -341,27 +357,43 @@ private fun coloredCaption(
 
     // No summary caption during guess/reveal — tile labels and count chips cover it;
     // step2/step3 captions explain the rules once roles are painted.
-    return when (phase) {
+    val caption = when (phase) {
         BullsAndCowsDemoPhase.GUESS,
         BullsAndCowsDemoPhase.REVEAL,
-        -> AnnotatedString("")
-        BullsAndCowsDemoPhase.EXPLAIN -> buildAnnotatedString {
-            withStyle(bullStyle) { append(bullWord) }
-            withStyle(plain) { append(" = right place.\n") }
-            withStyle(cowStyle) { append(cowWord) }
-            withStyle(plain) { append(" = right digit, wrong place.") }
-        }
+        -> return AnnotatedString("")
+        BullsAndCowsDemoPhase.EXPLAIN -> define
         BullsAndCowsDemoPhase.MOVE,
         BullsAndCowsDemoPhase.IMPROVED,
-        -> buildAnnotatedString {
-            withStyle(plain) { append("Keep the ") }
-            withStyle(bullStyle) { append(bullWord) }
-            withStyle(plain) { append(".\nMove the ") }
-            withStyle(cowStyle) { append(cowWord) }
-            withStyle(plain) { append(" — it becomes a ") }
-            withStyle(bullStyle) { append(bullWord) }
-            withStyle(plain) { append(".") }
+        -> move
+    }
+    return highlightTerms(caption, plain, listOf(bullWord to bullStyle, cowWord to cowStyle))
+}
+
+/**
+ * [text] as one styled string, with every occurrence of a [terms] word in that word's own style
+ * and everything between them in [plain]. Ties go to the earlier entry in [terms].
+ */
+private fun highlightTerms(
+    text: String,
+    plain: SpanStyle,
+    terms: List<Pair<String, SpanStyle>>,
+): AnnotatedString = buildAnnotatedString {
+    var from = 0
+    while (from < text.length) {
+        val hit = terms
+            .filter { it.first.isNotEmpty() }
+            .mapNotNull { (word, style) ->
+                text.indexOf(word, from).takeIf { it >= 0 }?.let { Triple(it, word, style) }
+            }
+            .minByOrNull { it.first }
+        if (hit == null) {
+            withStyle(plain) { append(text.substring(from)) }
+            return@buildAnnotatedString
         }
+        val (at, word, style) = hit
+        if (at > from) withStyle(plain) { append(text.substring(from, at)) }
+        withStyle(style) { append(word) }
+        from = at + word.length
     }
 }
 

@@ -27,6 +27,7 @@ import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnQuiz
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.QuizQuestion
+import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
@@ -42,11 +43,14 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
-import com.inspiredandroid.braincup.ui.components.learn.learnContainerColors
 import com.inspiredandroid.braincup.ui.components.readsAsNotation
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
+import com.inspiredandroid.braincup.ui.theme.LearnWrongContainer
+import com.inspiredandroid.braincup.ui.theme.LearnWrongFace
+import com.inspiredandroid.braincup.ui.theme.OnLearnWrongContainer
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.SuccessGreenOnContainer
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -157,18 +161,19 @@ fun LearnQuizScreenContent(
             // Notation goes in a card, exactly as a lesson step's formula does; a prose question
             // stays plain text, exactly as a lesson step's question does. The test was printing
             // both as loose text, so an equation read as a caption on the figure above it.
-            if (question.prompt.readsAsNotation()) {
-                LearnFormulaCard(question.prompt)
+            val prompt = question.prompt.resolve()
+            if (prompt.readsAsNotation()) {
+                LearnFormulaCard(prompt)
             } else {
                 LearnText(
-                    text = question.prompt,
+                    text = prompt,
                     style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.widthIn(max = LearnContentWidth),
                 )
             }
             Spacer(Modifier.height(20.dp))
-            question.options.forEachIndexed { index, option ->
+            question.options.map { it.resolve() }.forEachIndexed { index, option ->
                 // Every option stays IDLE: answers are revealed only at the end of a test, so
                 // nothing here may hint at which one was right.
                 LearnOptionTile(
@@ -276,14 +281,22 @@ private fun ReviewCard(
     modifier: Modifier = Modifier,
 ) {
     val isCorrect = givenIndex == question.correctIndex
-    val (face, ink) = learnContainerColors(isCorrect)
+    // The miss is the card the learner opened the review to find, so it is the one called out.
+    // This used to be the other way round: the questions they got right took the loud container
+    // and the single wrong one was left in the plain surface tone, which is the quietest card on
+    // a screen whose whole purpose is the wrong answer.
+    val (face, ink) = if (isCorrect) {
+        MaterialTheme.colorScheme.surfaceVariant to MaterialTheme.colorScheme.onSurfaceVariant
+    } else {
+        LearnWrongContainer to OnLearnWrongContainer
+    }
     PrismCard(
         face = face,
         modifier = modifier,
     ) {
         Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             LearnText(
-                text = question.prompt,
+                text = question.prompt.resolve(),
                 style = MaterialTheme.typography.titleSmall,
                 color = ink,
                 roleColors = true,
@@ -293,10 +306,12 @@ private fun ReviewCard(
                 Text(
                     text = stringResource(
                         Res.string.learn_quiz_your_answer,
-                        question.options.getOrElse(givenIndex) { "—" },
+                        question.options.getOrNull(givenIndex)?.resolve() ?: "-",
                     ),
                     style = MaterialTheme.typography.bodySmall,
-                    color = MaterialTheme.colorScheme.error,
+                    // Pinned with the card it sits on: colorScheme.error is a pale pink under
+                    // Material You and this container is paler still.
+                    color = LearnWrongFace,
                 )
             }
             // Green whether or not they got it: green means "the answer" everywhere in the section,
@@ -305,14 +320,16 @@ private fun ReviewCard(
             Text(
                 text = stringResource(
                     Res.string.learn_quiz_correct_answer,
-                    question.options[question.correctIndex],
+                    question.options[question.correctIndex].resolve(),
                 ),
                 style = MaterialTheme.typography.bodySmall,
-                color = SuccessGreen,
+                // Green means "the answer" everywhere in the section. On the pale miss card the
+                // full-strength tone washes out, so that one takes the darkened sibling.
+                color = if (isCorrect) SuccessGreen else SuccessGreenOnContainer,
             )
             Spacer(Modifier.height(4.dp))
             LearnText(
-                text = question.explanation,
+                text = question.explanation.resolve(),
                 style = MaterialTheme.typography.bodySmall,
                 color = ink.copy(alpha = 0.85f),
             )

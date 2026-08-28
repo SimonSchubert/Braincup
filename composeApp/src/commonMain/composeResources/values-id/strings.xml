@@ -16,6 +16,7 @@
     <string name="button_done">Selesai</string>
 
     <string name="achievements_button">Pencapaian (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">Hapus angka terakhir</string>
 
     <string name="quit_game_title">Keluar dari permainan?</string>
     <string name="quit_game_message">Kemajuanmu di permainan ini tidak akan disimpan.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s menunjuk %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">kolom %1$d dan baris %2$d</string>
+    <string name="hint_remember">Ingat %1$d</string>
     <string name="solution_left">Kiri</string>
     <string name="solution_right">Kanan</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">%1$d / %2$d sertifikat</string>
     <string name="learn_title">Belajar Matematika</string>
     <string name="learn_unit_progress">%1$d / %2$d sertifikat</string>
-    <string name="learn_topic_intro">Turuni daftarnya. Setiap langkah dibangun di atas langkah sebelumnya.</string>
+    <string name="learn_topic_intro">Kerjakan berurutan. Setiap langkah bertumpu pada yang sebelumnya.</string>
     <string name="learn_topic_certificates">%1$d dari %2$d bersertifikat</string>
     <string name="learn_ages">Usia %1$s</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">Bilangan &amp; operasi</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Sudut, segitiga &amp; lingkaran</string>
+
+    <string name="learn_shape_guide_title">Panduan bangun</string>
+    <string name="learn_shape_guide_intro">%1$d bangun, tergambar dan bernama. Ketuk salah satu untuk melihatnya digambar lagi.</string>
+    <string name="learn_rules_guide_title">Panduan aturan</string>
+    <string name="learn_rules_guide_intro">%1$d aturan dan kesepakatan tanda, dasar-dasarnya di satu tempat.</string>
 
     <string name="learn_lessons_header">Pelajaran</string>
     <string name="learn_lesson_progress">%1$d / %2$d pelajaran</string>
@@ -877,5 +884,50 @@
     <string name="achievement_learn_topic_certificates_desc">Raih semua sertifikat dalam satu topik Belajar Matematika.</string>
     <string name="achievement_learn_all_certificates">Cendekiawan Matematika</string>
     <string name="achievement_learn_all_certificates_desc">Raih sertifikat di setiap subtopik Belajar Matematika.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="other">%1$d sisi, %1$d sudut</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="other">%1$d sisi,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="other">%1$d sudut</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">kubus</string>
+    <string name="learn_fig_solid_sphere">bola</string>
+    <string name="learn_fig_solid_cylinder">tabung</string>
+    <string name="learn_fig_solid_cone">kerucut</string>
+    <string name="learn_fig_solid_prism">prisma</string>
+    <string name="learn_fig_solid_triangular_prism">prisma segitiga</string>
+    <string name="learn_fig_solid_pyramid">limas</string>
+    <string name="learn_fig_solid_cube_counts">6 sisi · 12 rusuk · 8 titik sudut</string>
+    <string name="learn_fig_solid_sphere_counts">tidak ada sisi datar, tidak ada rusuk</string>
+    <string name="learn_fig_solid_cylinder_counts">2 sisi datar · 1 lengkung</string>
+    <string name="learn_fig_solid_cone_counts">1 sisi datar · 1 titik puncak</string>
+    <string name="learn_fig_solid_prism_counts">penampang sama di sepanjangnya</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 sisi · 9 rusuk · 6 titik sudut</string>
+    <string name="learn_fig_solid_pyramid_counts">5 sisi · 8 rusuk · 5 titik sudut</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="other">%1$d sumbu simetri</item>
+    </plurals>
+    <string name="learn_fig_area">luas = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">keliling = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">kurangi %1$d di kedua ruas</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="other">%1$d baris</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d lagi</string>
+    <string name="learn_fig_in_each">%1$d di tiap baris</string>
+    <string name="learn_fig_percent_of">%1$s% dari %2$s</string>
+    <string name="learn_fig_gradient">kemiringan %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">rata-rata %1$s</string>
+    <string name="learn_fig_mean">rata-rata</string>
+    <string name="learn_fig_standard_deviations">%1$s sb</string>
+    <string name="learn_fig_symbol_key">1 simbol = %1$d</string>
 
 </resources>

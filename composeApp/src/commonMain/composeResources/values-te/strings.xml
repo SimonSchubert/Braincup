@@ -23,6 +23,7 @@
     <string name="title_master">నిపుణుడు</string>
     <string name="title_grandmaster">మహా నిపుణుడు</string>
     <string name="achievements_button">సాధనలు (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">చివరి అంకెను తొలగించు</string>
     <string name="normal_sudoku_button">సాధారణ సుడోకు (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">సుడోకు</string>
     <string name="normal_sudoku_difficulty_beginner">ప్రారంభ స్థాయి</string>
@@ -390,6 +391,7 @@
     <string name="solution_pointing">%3$s చూపే %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">నిలువు వరుస %1$d, వరుస %2$d</string>
+    <string name="hint_remember">%1$d గుర్తుంచుకో</string>
     <string name="solution_left">ఎడమ</string>
     <string name="solution_right">కుడి</string>
 
@@ -812,7 +814,7 @@
     <string name="learn_section_certificates">%1$d / %2$d ధ్రువపత్రాలు</string>
     <string name="learn_title">గణితం నేర్చుకో</string>
     <string name="learn_unit_progress">%1$d / %2$d ధ్రువపత్రాలు</string>
-    <string name="learn_topic_intro">జాబితాలో కిందికి సాగండి. ప్రతి అడుగు దాని పైదాని మీద నిర్మించబడుతుంది.</string>
+    <string name="learn_topic_intro">వీటిని వరుసగా పూర్తి చేయి. ప్రతి అడుగు ముందుదానిపై నిలుస్తుంది.</string>
     <string name="learn_topic_certificates">%2$d లో %1$d ధ్రువీకరించబడ్డాయి</string>
     <string name="learn_ages">వయస్సు %1$s</string>
 
@@ -831,6 +833,11 @@
     <string name="learn_topic_arithmetic_subtitle">సంఖ్యలు &amp; పరిక్రియలు</string>
     <string name="learn_topic_geometry">జ్యామితి</string>
     <string name="learn_topic_geometry_subtitle">కోణాలు, త్రిభుజాలు &amp; వృత్తాలు</string>
+
+    <string name="learn_shape_guide_title">ఆకార మార్గదర్శి</string>
+    <string name="learn_shape_guide_intro">%1$d ఆకారాలు, గీసినవి మరియు పేరు పెట్టినవి. ఒకదాన్ని తాకి మళ్లీ గీయడం చూడు.</string>
+    <string name="learn_rules_guide_title">నియమ మార్గదర్శి</string>
+    <string name="learn_rules_guide_intro">%1$d నియమాలు మరియు గుర్తు సంప్రదాయాలు, ప్రాథమికాలు ఒకే చోట.</string>
 
     <string name="learn_lessons_header">పాఠాలు</string>
     <string name="learn_lesson_progress">%1$d / %2$d పాఠాలు</string>
@@ -876,5 +883,55 @@
     <string name="achievement_learn_topic_certificates_desc">ఒక గణితం నేర్చుకో అంశంలోని ప్రతి ధ్రువపత్రాన్ని సంపాదించండి.</string>
     <string name="achievement_learn_all_certificates">గణిత విద్వాంసుడు</string>
     <string name="achievement_learn_all_certificates_desc">ప్రతి గణితం నేర్చుకో ఉప అంశంలో ధ్రువపత్రం సంపాదించండి.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d భుజం, %1$d శీర్షం</item>
+        <item quantity="other">%1$d భుజాలు, %1$d శీర్షాలు</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d భుజం,</item>
+        <item quantity="other">%1$d భుజాలు,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d శీర్షం</item>
+        <item quantity="other">%1$d శీర్షాలు</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">ఘనం</string>
+    <string name="learn_fig_solid_sphere">గోళం</string>
+    <string name="learn_fig_solid_cylinder">స్థూపం</string>
+    <string name="learn_fig_solid_cone">శంకువు</string>
+    <string name="learn_fig_solid_prism">ప్రిజం</string>
+    <string name="learn_fig_solid_triangular_prism">త్రిభుజ ప్రిజం</string>
+    <string name="learn_fig_solid_pyramid">పిరమిడ్</string>
+    <string name="learn_fig_solid_cube_counts">6 ముఖాలు · 12 అంచులు · 8 శీర్షాలు</string>
+    <string name="learn_fig_solid_sphere_counts">చదునైన ముఖాలు లేవు, అంచులు లేవు</string>
+    <string name="learn_fig_solid_cylinder_counts">2 చదునైన ముఖాలు · 1 వంపు</string>
+    <string name="learn_fig_solid_cone_counts">1 చదునైన ముఖం · 1 కొన</string>
+    <string name="learn_fig_solid_prism_counts">పొడవునా ఒకే మధ్యచ్ఛేదం</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 ముఖాలు · 9 అంచులు · 6 శీర్షాలు</string>
+    <string name="learn_fig_solid_pyramid_counts">5 ముఖాలు · 8 అంచులు · 5 శీర్షాలు</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d సౌష్ఠవ రేఖ</item>
+        <item quantity="other">%1$d సౌష్ఠవ రేఖలు</item>
+    </plurals>
+    <string name="learn_fig_area">వైశాల్యం = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">చుట్టుకొలత = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">రెండు వైపులా %1$d తీసివేయి</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d వరుస</item>
+        <item quantity="other">%1$d వరుసలు</item>
+    </plurals>
+    <string name="learn_fig_more">మరో %1$d</string>
+    <string name="learn_fig_in_each">ప్రతిదానిలో %1$d</string>
+    <string name="learn_fig_percent_of">%2$s లో %1$s%</string>
+    <string name="learn_fig_gradient">వాలు %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">సగటు %1$s</string>
+    <string name="learn_fig_mean">సగటు</string>
+    <string name="learn_fig_standard_deviations">%1$s ప్ర. వి.</string>
+    <string name="learn_fig_symbol_key">1 గుర్తు = %1$d</string>
 
 </resources>

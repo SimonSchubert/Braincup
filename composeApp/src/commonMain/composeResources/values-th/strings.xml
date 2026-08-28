@@ -16,6 +16,7 @@
     <string name="button_done">เสร็จ</string>
 
     <string name="achievements_button">ความสำเร็จ (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">ลบตัวเลขสุดท้าย</string>
 
     <string name="quit_game_title">ออกจากเกม?</string>
     <string name="quit_game_message">ความคืบหน้าในเกมนี้จะไม่ถูกบันทึก</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s ชี้ไปทาง%3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">คอลัมน์ %1$d และแถว %2$d</string>
+    <string name="hint_remember">จำ %1$d ไว้</string>
     <string name="solution_left">ซ้าย</string>
     <string name="solution_right">ขวา</string>
 
@@ -813,7 +815,7 @@
     <string name="learn_section_certificates">ใบรับรอง %1$d / %2$d</string>
     <string name="learn_title">เรียนคณิตศาสตร์</string>
     <string name="learn_unit_progress">ใบรับรอง %1$d / %2$d</string>
-    <string name="learn_topic_intro">ไล่ลงมาตามรายการ แต่ละขั้นต่อยอดจากขั้นก่อนหน้า</string>
+    <string name="learn_topic_intro">ทำไปตามลำดับ แต่ละขั้นต่อยอดจากขั้นก่อนหน้า</string>
     <string name="learn_topic_certificates">ผ่านการรับรองแล้ว %1$d จาก %2$d</string>
     <string name="learn_ages">อายุ %1$s</string>
 
@@ -832,6 +834,11 @@
     <string name="learn_topic_arithmetic_subtitle">จำนวนและการดำเนินการ</string>
     <string name="learn_topic_geometry">เรขาคณิต</string>
     <string name="learn_topic_geometry_subtitle">มุม สามเหลี่ยม และวงกลม</string>
+
+    <string name="learn_shape_guide_title">คู่มือรูปทรง</string>
+    <string name="learn_shape_guide_intro">%1$d รูป วาดไว้พร้อมชื่อ แตะรูปหนึ่งเพื่อดูวาดใหม่อีกครั้ง</string>
+    <string name="learn_rules_guide_title">คู่มือกฎ</string>
+    <string name="learn_rules_guide_intro">%1$d กฎและข้อตกลงเรื่องเครื่องหมาย พื้นฐานทั้งหมดในที่เดียว</string>
 
     <string name="learn_lessons_header">บทเรียน</string>
     <string name="learn_lesson_progress">%1$d / %2$d บทเรียน</string>
@@ -877,5 +884,50 @@
     <string name="achievement_learn_topic_certificates_desc">รับใบรับรองครบทุกใบในหัวข้อหนึ่งของเรียนคณิตศาสตร์</string>
     <string name="achievement_learn_all_certificates">ผู้รู้คณิตศาสตร์</string>
     <string name="achievement_learn_all_certificates_desc">รับใบรับรองในทุกหัวข้อย่อยของเรียนคณิตศาสตร์</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="other">%1$d ด้าน, %1$d มุม</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="other">%1$d ด้าน,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="other">%1$d มุม</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">ลูกบาศก์</string>
+    <string name="learn_fig_solid_sphere">ทรงกลม</string>
+    <string name="learn_fig_solid_cylinder">ทรงกระบอก</string>
+    <string name="learn_fig_solid_cone">กรวย</string>
+    <string name="learn_fig_solid_prism">ปริซึม</string>
+    <string name="learn_fig_solid_triangular_prism">ปริซึมสามเหลี่ยม</string>
+    <string name="learn_fig_solid_pyramid">พีระมิด</string>
+    <string name="learn_fig_solid_cube_counts">6 หน้า · 12 ขอบ · 8 มุม</string>
+    <string name="learn_fig_solid_sphere_counts">ไม่มีหน้าแบน ไม่มีขอบ</string>
+    <string name="learn_fig_solid_cylinder_counts">2 หน้าแบน · 1 หน้าโค้ง</string>
+    <string name="learn_fig_solid_cone_counts">1 หน้าแบน · 1 ยอด</string>
+    <string name="learn_fig_solid_prism_counts">หน้าตัดเหมือนกันตลอด</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 หน้า · 9 ขอบ · 6 มุม</string>
+    <string name="learn_fig_solid_pyramid_counts">5 หน้า · 8 ขอบ · 5 มุม</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="other">%1$d เส้นสมมาตร</item>
+    </plurals>
+    <string name="learn_fig_area">พื้นที่ = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">เส้นรอบรูป = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">ลบ %1$d ออกจากทั้งสองข้าง</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="other">%1$d แถว</item>
+    </plurals>
+    <string name="learn_fig_more">อีก %1$d</string>
+    <string name="learn_fig_in_each">แถวละ %1$d</string>
+    <string name="learn_fig_percent_of">%1$s% ของ %2$s</string>
+    <string name="learn_fig_gradient">ความชัน %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">ค่าเฉลี่ย %1$s</string>
+    <string name="learn_fig_mean">ค่าเฉลี่ย</string>
+    <string name="learn_fig_standard_deviations">%1$s ส่วนเบี่ยงเบน</string>
+    <string name="learn_fig_symbol_key">1 สัญลักษณ์ = %1$d</string>
 
 </resources>

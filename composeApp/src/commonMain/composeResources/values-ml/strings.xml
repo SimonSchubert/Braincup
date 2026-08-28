@@ -23,6 +23,7 @@
     <string name="title_master">നിപുണൻ</string>
     <string name="title_grandmaster">മഹാനിപുണൻ</string>
     <string name="achievements_button">നേട്ടങ്ങൾ (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">അവസാന അക്കം മായ്ക്കുക</string>
     <string name="normal_sudoku_button">സാധാരണ സുഡോകു (%1$d/%2$d)</string>
     <string name="normal_sudoku_title">സുഡോകു</string>
     <string name="normal_sudoku_difficulty_beginner">തുടക്കം</string>
@@ -390,6 +391,7 @@
     <string name="solution_pointing">%3$s ചൂണ്ടുന്ന %1$s %2$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">നെടുനിര %1$d ഉം നിര %2$d ഉം</string>
+    <string name="hint_remember">%1$d ഓർത്തുവയ്ക്കുക</string>
     <string name="solution_left">ഇടത്</string>
     <string name="solution_right">വലത്</string>
 
@@ -812,7 +814,7 @@
     <string name="learn_section_certificates">%1$d / %2$d സർട്ടിഫിക്കറ്റുകൾ</string>
     <string name="learn_title">ഗണിതം പഠിക്കൂ</string>
     <string name="learn_unit_progress">%1$d / %2$d സർട്ടിഫിക്കറ്റുകൾ</string>
-    <string name="learn_topic_intro">പട്ടികയിൽ താഴേക്ക് പോകുക. ഓരോ പടിയും അതിന് മുകളിലുള്ളതിന്മേൽ പണിതിരിക്കുന്നു.</string>
+    <string name="learn_topic_intro">ഇവ ക്രമത്തിൽ ചെയ്യുക. ഓരോ ചുവടും മുൻപത്തേതിന്മേൽ നിൽക്കുന്നു.</string>
     <string name="learn_topic_certificates">%2$d ൽ %1$d സാക്ഷ്യപ്പെടുത്തി</string>
     <string name="learn_ages">വയസ്സ് %1$s</string>
 
@@ -831,6 +833,11 @@
     <string name="learn_topic_arithmetic_subtitle">സംഖ്യ &amp; ക്രിയകൾ</string>
     <string name="learn_topic_geometry">ജ്യാമിതി</string>
     <string name="learn_topic_geometry_subtitle">കോണുകൾ, ത്രികോണങ്ങൾ &amp; വൃത്തങ്ങൾ</string>
+
+    <string name="learn_shape_guide_title">രൂപ സഹായി</string>
+    <string name="learn_shape_guide_intro">%1$d രൂപങ്ങൾ, വരച്ചതും പേരിട്ടതും. ഒന്നിൽ തൊട്ട് വീണ്ടും വരയ്ക്കുന്നത് കാണുക.</string>
+    <string name="learn_rules_guide_title">നിയമ സഹായി</string>
+    <string name="learn_rules_guide_intro">%1$d നിയമങ്ങളും ചിഹ്ന രീതികളും, അടിസ്ഥാനങ്ങൾ ഒരിടത്ത്.</string>
 
     <string name="learn_lessons_header">പാഠങ്ങൾ</string>
     <string name="learn_lesson_progress">%1$d / %2$d പാഠങ്ങൾ</string>
@@ -876,5 +883,55 @@
     <string name="achievement_learn_topic_certificates_desc">ഒരു ഗണിതം പഠിക്കൂ വിഷയത്തിലെ എല്ലാ സർട്ടിഫിക്കറ്റും നേടുക.</string>
     <string name="achievement_learn_all_certificates">ഗണിത പണ്ഡിതൻ</string>
     <string name="achievement_learn_all_certificates_desc">എല്ലാ ഗണിതം പഠിക്കൂ ഉപവിഷയത്തിലും സർട്ടിഫിക്കറ്റ് നേടുക.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="one">%1$d വശം, %1$d മൂല</item>
+        <item quantity="other">%1$d വശങ്ങൾ, %1$d മൂലകൾ</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="one">%1$d വശം,</item>
+        <item quantity="other">%1$d വശങ്ങൾ,</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="one">%1$d മൂല</item>
+        <item quantity="other">%1$d മൂലകൾ</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">ഘനം</string>
+    <string name="learn_fig_solid_sphere">ഗോളം</string>
+    <string name="learn_fig_solid_cylinder">സിലിണ്ടർ</string>
+    <string name="learn_fig_solid_cone">കോൺ</string>
+    <string name="learn_fig_solid_prism">പ്രിസം</string>
+    <string name="learn_fig_solid_triangular_prism">ത്രികോണ പ്രിസം</string>
+    <string name="learn_fig_solid_pyramid">പിരമിഡ്</string>
+    <string name="learn_fig_solid_cube_counts">6 പ്രതലങ്ങൾ · 12 അരികുകൾ · 8 മൂലകൾ</string>
+    <string name="learn_fig_solid_sphere_counts">പരന്ന പ്രതലങ്ങളില്ല, അരികുകളില്ല</string>
+    <string name="learn_fig_solid_cylinder_counts">2 പരന്ന പ്രതലങ്ങൾ · 1 വളഞ്ഞത്</string>
+    <string name="learn_fig_solid_cone_counts">1 പരന്ന പ്രതലം · 1 അഗ്രം</string>
+    <string name="learn_fig_solid_prism_counts">നീളത്തിലുടനീളം ഒരേ ഛേദം</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 പ്രതലങ്ങൾ · 9 അരികുകൾ · 6 മൂലകൾ</string>
+    <string name="learn_fig_solid_pyramid_counts">5 പ്രതലങ്ങൾ · 8 അരികുകൾ · 5 മൂലകൾ</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="one">%1$d സമമിതി രേഖ</item>
+        <item quantity="other">%1$d സമമിതി രേഖകൾ</item>
+    </plurals>
+    <string name="learn_fig_area">വിസ്തീർണം = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">ചുറ്റളവ് = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">ഇരു വശത്തുനിന്നും %1$d കുറയ്ക്കുക</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="one">%1$d നിര</item>
+        <item quantity="other">%1$d നിരകൾ</item>
+    </plurals>
+    <string name="learn_fig_more">വേറെ %1$d</string>
+    <string name="learn_fig_in_each">ഓരോന്നിലും %1$d</string>
+    <string name="learn_fig_percent_of">%2$s ന്റെ %1$s%</string>
+    <string name="learn_fig_gradient">ചരിവ് %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">ശരാശരി %1$s</string>
+    <string name="learn_fig_mean">ശരാശരി</string>
+    <string name="learn_fig_standard_deviations">%1$s സ്റ്റാ. ഡെ.</string>
+    <string name="learn_fig_symbol_key">1 ചിഹ്നം = %1$d</string>
 
 </resources>

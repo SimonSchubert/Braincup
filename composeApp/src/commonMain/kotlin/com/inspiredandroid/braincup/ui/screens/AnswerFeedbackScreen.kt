@@ -75,6 +75,7 @@ private fun FeedbackMessage.toLocalizedString(): String = when (this) {
         val side = if (isLeft) stringResource(Res.string.solution_left) else stringResource(Res.string.solution_right)
         "$side ($count)"
     }
+    is FeedbackMessage.Remember -> stringResource(Res.string.hint_remember, number)
 }
 
 @DevicePreviews

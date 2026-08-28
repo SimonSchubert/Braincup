@@ -16,6 +16,7 @@
     <string name="button_done">تم</string>
 
     <string name="achievements_button">الإنجازات (%1$d/%2$d)</string>
+    <string name="number_pad_backspace">احذف آخر رقم</string>
 
     <string name="quit_game_title">الخروج من اللعبة؟</string>
     <string name="quit_game_message">لن يتم حفظ تقدمك في هذه اللعبة.</string>
@@ -175,6 +176,7 @@
     <string name="solution_pointing">%1$s %2$s يشير %3$s</string>
     <string name="solution_figure">%1$s %2$s</string>
     <string name="solution_column_row">العمود %1$d والصف %2$d</string>
+    <string name="hint_remember">تذكّر %1$d</string>
     <string name="solution_left">يسار</string>
     <string name="solution_right">يمين</string>
 
@@ -814,7 +816,7 @@
     <string name="learn_section_certificates">%1$d / %2$d شهادات</string>
     <string name="learn_title">تعلم الرياضيات</string>
     <string name="learn_unit_progress">%1$d / %2$d شهادات</string>
-    <string name="learn_topic_intro">تقدّم في القائمة من أعلى إلى أسفل. كل خطوة تبني على التي قبلها.</string>
+    <string name="learn_topic_intro">اعبرها بالترتيب. كل خطوة تبني على التي قبلها.</string>
     <string name="learn_topic_certificates">%1$d من %2$d معتمدة</string>
     <string name="learn_ages">الأعمار %1$s</string>
 
@@ -833,6 +835,11 @@
     <string name="learn_topic_arithmetic_subtitle">الأعداد &amp; العمليات</string>
     <string name="learn_topic_geometry">الهندسة</string>
     <string name="learn_topic_geometry_subtitle">الزوايا &amp; المثلثات &amp; الدوائر</string>
+
+    <string name="learn_shape_guide_title">دليل الأشكال</string>
+    <string name="learn_shape_guide_intro">%1$d شكلاً مرسومة ومسماة. اضغط على أحدها لتراه يُرسم من جديد.</string>
+    <string name="learn_rules_guide_title">دليل القواعد</string>
+    <string name="learn_rules_guide_intro">%1$d قاعدة واصطلاحات الإشارة، الأساسيات في مكان واحد.</string>
 
     <string name="learn_lessons_header">الدروس</string>
     <string name="learn_lesson_progress">%1$d / %2$d دروس</string>
@@ -878,5 +885,75 @@
     <string name="achievement_learn_topic_certificates_desc">احصل على كل شهادات موضوع واحد في تعلّم الرياضيات.</string>
     <string name="achievement_learn_all_certificates">عالم رياضيات</string>
     <string name="achievement_learn_all_certificates_desc">احصل على شهادة في كل موضوع فرعي في تعلّم الرياضيات.</string>
+
+    <!-- Learn figures: the words a diagram writes on itself. -->
+    <plurals name="learn_fig_sides_corners">
+        <item quantity="zero">%1$d ضلع، %1$d زاوية</item>
+        <item quantity="one">%1$d ضلع، %1$d زاوية</item>
+        <item quantity="two">%1$d ضلعان، %1$d زاويتان</item>
+        <item quantity="few">%1$d أضلاع، %1$d زوايا</item>
+        <item quantity="many">%1$d ضلعًا، %1$d زاوية</item>
+        <item quantity="other">%1$d ضلع، %1$d زاوية</item>
+    </plurals>
+    <plurals name="learn_fig_sides">
+        <item quantity="zero">%1$d ضلع،</item>
+        <item quantity="one">%1$d ضلع،</item>
+        <item quantity="two">%1$d ضلعان،</item>
+        <item quantity="few">%1$d أضلاع،</item>
+        <item quantity="many">%1$d ضلعًا،</item>
+        <item quantity="other">%1$d ضلع،</item>
+    </plurals>
+    <plurals name="learn_fig_corners">
+        <item quantity="zero">%1$d زاوية</item>
+        <item quantity="one">%1$d زاوية</item>
+        <item quantity="two">%1$d زاويتان</item>
+        <item quantity="few">%1$d زوايا</item>
+        <item quantity="many">%1$d زاوية</item>
+        <item quantity="other">%1$d زاوية</item>
+    </plurals>
+    <string name="learn_fig_solid_cube">مكعب</string>
+    <string name="learn_fig_solid_sphere">كرة</string>
+    <string name="learn_fig_solid_cylinder">أسطوانة</string>
+    <string name="learn_fig_solid_cone">مخروط</string>
+    <string name="learn_fig_solid_prism">موشور</string>
+    <string name="learn_fig_solid_triangular_prism">موشور ثلاثي</string>
+    <string name="learn_fig_solid_pyramid">هرم</string>
+    <string name="learn_fig_solid_cube_counts">6 أوجه · 12 حرفًا · 8 رؤوس</string>
+    <string name="learn_fig_solid_sphere_counts">لا أوجه مستوية، لا حروف</string>
+    <string name="learn_fig_solid_cylinder_counts">2 وجه مستو · 1 منحن</string>
+    <string name="learn_fig_solid_cone_counts">1 وجه مستو · 1 رأس</string>
+    <string name="learn_fig_solid_prism_counts">المقطع نفسه على الطول</string>
+    <string name="learn_fig_solid_triangular_prism_counts">5 أوجه · 9 حروف · 6 رؤوس</string>
+    <string name="learn_fig_solid_pyramid_counts">5 أوجه · 8 حروف · 5 رؤوس</string>
+    <plurals name="learn_fig_symmetry_lines">
+        <item quantity="zero">%1$d محور تماثل</item>
+        <item quantity="one">%1$d محور تماثل</item>
+        <item quantity="two">%1$d محورا تماثل</item>
+        <item quantity="few">%1$d محاور تماثل</item>
+        <item quantity="many">%1$d محور تماثل</item>
+        <item quantity="other">%1$d محور تماثل</item>
+    </plurals>
+    <string name="learn_fig_area">المساحة = %1$d %2$s²</string>
+    <string name="learn_fig_perimeter">المحيط = %1$d %2$s</string>
+    <string name="learn_fig_take_from_both_sides">اطرح %1$d من الطرفين</string>
+    <plurals name="learn_fig_rows">
+        <item quantity="zero">%1$d صف</item>
+        <item quantity="one">%1$d صف</item>
+        <item quantity="two">%1$d صفان</item>
+        <item quantity="few">%1$d صفوف</item>
+        <item quantity="many">%1$d صفًا</item>
+        <item quantity="other">%1$d صف</item>
+    </plurals>
+    <string name="learn_fig_more">%1$d أخرى</string>
+    <string name="learn_fig_in_each">%1$d في كل</string>
+    <string name="learn_fig_percent_of">%1$s% من %2$s</string>
+    <string name="learn_fig_gradient">الميل %1$s</string>
+    <string name="learn_fig_cos">cos = %1$s</string>
+    <string name="learn_fig_sin">sin = %1$s</string>
+    <string name="learn_fig_degrees">%1$d°</string>
+    <string name="learn_fig_mean_value">المتوسط %1$s</string>
+    <string name="learn_fig_mean">المتوسط</string>
+    <string name="learn_fig_standard_deviations">%1$s ع.م</string>
+    <string name="learn_fig_symbol_key">1 رمز = %1$d</string>
 
 </resources>

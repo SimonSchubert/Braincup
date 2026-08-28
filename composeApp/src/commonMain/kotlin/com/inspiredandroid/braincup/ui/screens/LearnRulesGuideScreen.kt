@@ -17,9 +17,11 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.learn_rules_guide_intro
 import braincup.composeapp.generated.resources.learn_rules_guide_title
 import com.inspiredandroid.braincup.learn.RulesGuide
+import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.PrismCard
+import com.inspiredandroid.braincup.ui.components.learn.LearnText
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -84,14 +86,14 @@ fun LearnRulesGuideScreen(onBack: () -> Unit) {
 private fun SectionHeader(section: RulesGuide.Section) {
     Column(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
         Text(
-            text = section.title,
+            text = stringResource(section.title),
             style = MaterialTheme.typography.titleSmall,
             color = Primary,
             fontWeight = FontWeight.Bold,
         )
         Spacer(Modifier.height(2.dp))
         Text(
-            text = section.blurb,
+            text = stringResource(section.blurb),
             style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -108,9 +110,11 @@ private fun RuleCell(rule: RulesGuide.Entry) {
             modifier = Modifier.fillMaxWidth().padding(horizontal = 14.dp, vertical = 12.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            // The rule itself is written in letters - "a - (-b) = a + b" - so there are no values
+            // in it for the colour code to speak about, and it keeps the one flat accent.
             MathText(
-                text = rule.rule,
-                style = MaterialTheme.typography.titleMedium,
+                text = rule.rule.resolve(),
+                style = MaterialTheme.typography.titleSmall,
                 color = Primary,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
@@ -118,21 +122,25 @@ private fun RuleCell(rule: RulesGuide.Entry) {
             )
             Spacer(Modifier.height(6.dp))
             Text(
-                text = rule.meaning,
+                text = stringResource(rule.meaning),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurface,
                 textAlign = TextAlign.Center,
                 modifier = Modifier.fillMaxWidth(),
             )
             rule.example?.let { example ->
-                Spacer(Modifier.height(4.dp))
-                MathText(
-                    text = example,
-                    style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                Spacer(Modifier.height(8.dp))
+                // The worked example is the half of the card a learner actually reads, so it leads
+                // on size and it carries the same three-role colouring as a lesson's formula card:
+                // "5 - (-3) = 8" reads given, structure, working, structure, answer here exactly as
+                // it would in the lesson that teaches it. Set flat, the guide was the one surface in
+                // the section where a formula's colours meant nothing.
+                LearnText(
+                    text = example.resolve(),
+                    style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
-                    fractionSlash = true,
+                    roleColors = true,
                 )
             }
         }
