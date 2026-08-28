@@ -13,11 +13,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.ic_pencil_notes
 import braincup.composeapp.generated.resources.normal_sudoku_erase
@@ -41,6 +42,7 @@ import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.isLargeFontScale
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
@@ -57,6 +59,15 @@ import org.jetbrains.compose.resources.stringResource
 private const val GRID = 9
 private const val BLOCK = 3
 private val CellSeparator = 1.dp
+
+/**
+ * A text size pinned to a box that is measured in dp. The board's cells and the digit tiles under
+ * it are laid out in dp, so a glyph asked for in sp grows straight past its own square as soon as
+ * the user raises the system font size - which sliced every digit on the grid in half. Converting
+ * the dp back to sp keeps the digit inside the square it belongs to.
+ */
+@Composable
+private fun boxedTextSize(box: Dp, fraction: Float): TextUnit = with(LocalDensity.current) { (box * fraction).toSp() }
 private val PadGap = 6.dp
 
 @Composable
@@ -225,7 +236,10 @@ fun NormalSudokuPlayScreen(
             } else {
                 val boardSize = minOf(
                     maxWidth - screenPadding * 2,
-                    maxHeight * 0.62f,
+                    // The pad under the board carries a mode label and an erase button, and both
+                    // grow with the font scale. Leaving the board its usual share of the column
+                    // squeezed the digit tiles down to slivers, so it gives some back.
+                    maxHeight * if (isLargeFontScale()) 0.5f else 0.62f,
                 )
                 Column(
                     modifier = Modifier
@@ -297,12 +311,17 @@ private fun NotesModeToggle(
                 colorFilter = ColorFilter.tint(contentColor),
                 modifier = Modifier.size(18.dp),
             )
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.SemiBold,
-                color = contentColor,
-            )
+            // The toggle shares the top bar with the screen's title, and at a large font scale
+            // there is not room for both words. The pencil and the tile's selected state already
+            // carry the mode, so the word goes and the title gets the width.
+            if (!isLargeFontScale()) {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.labelLarge,
+                    fontWeight = FontWeight.SemiBold,
+                    color = contentColor,
+                )
+            }
         }
     }
 }
@@ -414,7 +433,8 @@ private fun SudokuCell(
             committedValue != 0 -> {
                 Text(
                     text = committedValue.toString(),
-                    fontSize = (cellSize.value * 0.5f).sp,
+                    fontSize = boxedTextSize(cellSize, 0.5f),
+                    lineHeight = boxedTextSize(cellSize, 1f),
                     fontFamily = numberFontFamily(),
                     fontWeight = if (isClue) FontWeight.Bold else FontWeight.SemiBold,
                     color = textColor,
@@ -441,7 +461,7 @@ private fun CellNotesText(
     val noteColor = if (isSelected) OnPrimaryContainer else Primary
     val noteCount = noteMaskToText(noteMask).length
     val scale = if (noteCount > 6) 0.22f else 0.3f
-    val fontSize = (cellSize.value * scale).sp
+    val fontSize = boxedTextSize(cellSize, scale)
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -541,7 +561,8 @@ private fun DigitTile(
         ) {
             Text(
                 text = label,
-                fontSize = (size.value * 0.5f).sp,
+                fontSize = boxedTextSize(size, 0.5f),
+                lineHeight = boxedTextSize(size, 1f),
                 fontFamily = numberFontFamily(),
                 fontWeight = FontWeight.Bold,
                 color = OnPrimaryContainer,

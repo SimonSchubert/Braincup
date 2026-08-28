@@ -6,6 +6,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -15,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.PlayGamesBridge
@@ -55,6 +57,9 @@ import kotlinx.collections.immutable.toImmutableMap
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 import androidx.compose.ui.text.intl.Locale as ComposeLocale
+
+/** Width the settings button occupies in the header, kept clear so the title cannot run under it. */
+private val SettingsIconClearance = 56.dp
 
 @Composable
 fun MainMenuScreen(
@@ -239,6 +244,18 @@ fun MainMenuScreenContent(
                             text = stringResource(Res.string.app_name),
                             style = MaterialTheme.typography.headlineLarge,
                             color = Primary,
+                            textAlign = TextAlign.Center,
+                            // The name is a wordmark, so it shrinks to fit rather than wrapping:
+                            // at a large font scale it no longer fits the line, and "Brainc" over
+                            // "up" reads as damage rather than as a logo. The padding keeps it
+                            // clear of the settings button pinned to the same box, which it had
+                            // grown wide enough to run underneath.
+                            maxLines = 1,
+                            autoSize = TextAutoSize.StepBased(
+                                minFontSize = 16.sp,
+                                maxFontSize = MaterialTheme.typography.headlineLarge.fontSize,
+                            ),
+                            modifier = Modifier.padding(horizontal = SettingsIconClearance),
                         )
                         Spacer(Modifier.height(12.dp))
                         Image(
@@ -396,12 +413,16 @@ fun MainMenuScreenContent(
                     face = Primary,
                     modifier = Modifier
                         .hoverHand()
-                        .height(56.dp),
+                        // A minimum rather than a fixed height: the label carries the medal count,
+                        // and at a large font scale a fixed 56dp cut it off mid-glyph and took the
+                        // count with it.
+                        .defaultMinSize(minHeight = 56.dp),
                     onClick = onAchievements,
                 ) {
                     Row(
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
-                        modifier = Modifier.padding(horizontal = 12.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
                     ) {
                         PrismTrophy(
                             tint = MedalGold,
@@ -411,6 +432,8 @@ fun MainMenuScreenContent(
                         Text(
                             stringResource(Res.string.achievements_button, unlockedCount, UserStorage.Achievements.entries.size),
                             color = Color.White,
+                            textAlign = TextAlign.Center,
+                            modifier = Modifier.weight(1f, fill = false),
                         )
                         PrismTrophy(
                             tint = MedalGold,

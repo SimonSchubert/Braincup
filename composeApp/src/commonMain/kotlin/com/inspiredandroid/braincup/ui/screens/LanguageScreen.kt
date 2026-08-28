@@ -8,6 +8,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
@@ -118,6 +119,11 @@ private fun LanguageRow(
                         text = "✓",
                         color = Primary,
                         style = MaterialTheme.typography.titleMedium,
+                        // Pinned to the slot rather than to the text size. The slot is a fixed
+                        // square by design, so a tick that grew with the font scale was simply
+                        // clipped by it and rendered as half a stroke.
+                        fontSize = with(LocalDensity.current) { (CheckmarkSize * 0.85f).toSp() },
+                        lineHeight = with(LocalDensity.current) { CheckmarkSize.toSp() },
                     )
                 }
             }

@@ -22,6 +22,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.PrismToggle
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.components.isLargeFontScale
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -124,6 +125,7 @@ fun SettingsScreen(
     }
 }
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun SettingsAccountRow(
     account: PlayerAccount,
@@ -161,25 +163,34 @@ private fun SettingsAccountRow(
             )
             Spacer(Modifier.width(16.dp))
             Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                // The switch label is measured before the text column and keeps its full width, so
+                // at a large font scale it used to leave the description a four-glyph gutter and
+                // break words mid-syllable. Flowed beside the name it drops to a line of its own
+                // once the two stop fitting, and the description keeps the whole width either way.
+                FlowRow(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.spacedBy(12.dp),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
+                ) {
+                    Text(
+                        text = title,
+                        style = MaterialTheme.typography.titleMedium,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    Text(
+                        text = stringResource(Res.string.settings_play_games_profile_switch),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Primary,
+                    )
+                }
                 Text(
                     text = description,
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            Spacer(Modifier.width(16.dp))
-            Text(
-                text = stringResource(Res.string.settings_play_games_profile_switch),
-                style = MaterialTheme.typography.labelLarge,
-                color = Primary,
-            )
         }
     }
 }
@@ -217,7 +228,10 @@ private fun SettingsThemeSelector(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            ThemeMode.entries.toList().chunked(2).forEach { rowModes ->
+            // Two to a line normally; one when the labels have outgrown half the card and would
+            // otherwise be split across lines mid-word ("Syste" / "m").
+            val modesPerRow = if (isLargeFontScale()) 1 else 2
+            ThemeMode.entries.toList().chunked(modesPerRow).forEach { rowModes ->
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.spacedBy(12.dp),

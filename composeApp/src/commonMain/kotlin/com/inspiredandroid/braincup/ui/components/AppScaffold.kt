@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -14,11 +15,17 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.layout
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_back
 import org.jetbrains.compose.resources.stringResource
+import kotlin.math.roundToInt
 
 internal val LocalIsCompactHeight = staticCompositionLocalOf { false }
 
@@ -40,6 +47,36 @@ internal val gridCellMaxSize: Dp
 internal val LocalScaffoldBodyHeight = staticCompositionLocalOf<Dp?> { null }
 
 private val CompactHeightThreshold = 480.dp
+
+/**
+ * Share of the bar an action may take before it starts eating the title. [TopAppBar] measures its
+ * actions at their natural width and hands the title whatever is left over, so an action that grew
+ * with the font scale can leave the title a few pixels - and a title with a few pixels wraps a line
+ * per letter until the bar has swallowed the screen.
+ */
+private const val ActionsMaxWidthFraction = 0.45f
+
+/** Floor for a bar title that has shrunk to share its bar with an action. */
+private val MinSharedBarTitleSize = 12.sp
+
+/**
+ * True once the user's text is large enough that two labels stop fitting beside each other. The
+ * layouts that read this stack instead of splitting a row they can no longer share.
+ */
+@Composable
+@ReadOnlyComposable
+internal fun isLargeFontScale(): Boolean = LocalDensity.current.fontScale >= 1.3f
+
+/** Caps a child at [fraction] of the width it is offered, leaving the remainder to its siblings. */
+private fun Modifier.widthFractionAtMost(fraction: Float): Modifier = layout { measurable, constraints ->
+    val cap = if (constraints.maxWidth == Constraints.Infinity) {
+        constraints.maxWidth
+    } else {
+        (constraints.maxWidth * fraction).roundToInt()
+    }
+    val placeable = measurable.measure(constraints.copy(minWidth = 0, maxWidth = cap))
+    layout(placeable.width, placeable.height) { placeable.place(0, 0) }
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -64,7 +101,24 @@ fun AppScaffold(
             TopAppBar(
                 title = {
                     if (title != null) {
-                        Text(title)
+                        if (actions == null) {
+                            // The whole bar to itself: two lines, then an ellipsis, so a long title
+                            // can never grow the bar a line at a time.
+                            Text(title, maxLines = 2, overflow = TextOverflow.Ellipsis)
+                        } else {
+                            // Sharing the bar with an action, the title shrinks to hold its single
+                            // line instead of splitting a word across two - "Arit" over "hmetic"
+                            // reads as breakage, where a smaller whole word just reads as a title.
+                            Text(
+                                title,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                autoSize = TextAutoSize.StepBased(
+                                    minFontSize = MinSharedBarTitleSize,
+                                    maxFontSize = MaterialTheme.typography.titleLarge.fontSize,
+                                ),
+                            )
+                        }
                     }
                 },
                 navigationIcon = {
@@ -78,7 +132,13 @@ fun AppScaffold(
                     }
                 },
                 actions = {
-                    actions?.invoke(this)
+                    if (actions != null) {
+                        Row(
+                            modifier = Modifier.widthFractionAtMost(ActionsMaxWidthFraction),
+                            verticalAlignment = Alignment.CenterVertically,
+                            content = actions,
+                        )
+                    }
                 },
                 // Transparent so the bar shows the Scaffold background (same value as surface) and
                 // changes in lockstep with the rest of the screen on a theme switch. A fixed
@@ -227,9 +287,21 @@ fun GameScaffold(
                         if (fillContent) {
                             body()
                         } else {
-                            Spacer(Modifier.weight(1f))
-                            body()
-                            Spacer(Modifier.weight(1f))
+                            // Centred by arrangement in a column of its own rather than by a pair
+                            // of weighted spacers around it. The spacers were siblings of whatever
+                            // the body put in this column, so a game that weights one of its own
+                            // parts - a board told to yield height to the button under it - was
+                            // splitting the free space three ways with the centring instead of
+                            // taking what its siblings had left.
+                            Column(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .fillMaxWidth(),
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center,
+                            ) {
+                                body()
+                            }
                         }
                     }
                 }

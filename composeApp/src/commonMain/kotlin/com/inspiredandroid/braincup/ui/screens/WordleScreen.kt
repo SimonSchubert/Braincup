@@ -18,10 +18,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.isFinite
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.button_play_again
 import braincup.composeapp.generated.resources.session_continue
@@ -57,6 +60,14 @@ private val MaxTileSize = 52.dp
 private val CompactMaxTileSize = 36.dp
 private val KeyHeight = 46.dp
 private val CompactKeyHeight = 34.dp
+
+/**
+ * A text size pinned to a box measured in dp. Both the board tiles and the keyboard caps are sized
+ * to fit a fixed number across the screen, so they cannot grow with the font scale - a letter asked
+ * for in sp simply spilled out over its own cap and over its neighbours.
+ */
+@Composable
+private fun boxedTextSize(box: Dp, fraction: Float): TextUnit = with(LocalDensity.current) { (box * fraction).toSp() }
 
 @Composable
 internal fun ColumnScope.WordleContent(
@@ -121,7 +132,13 @@ internal fun ColumnScope.WordleContent(
         WordleBoard(
             uiState = uiState,
             onTileClear = onTileClear,
-            modifier = Modifier.align(Alignment.CenterHorizontally),
+            // The board takes what is left rather than its natural size. The keyboard and the
+            // give-up button below it are measured first, so when the status line and the button
+            // label grew with the font scale it was the board that gave way - before, it kept its
+            // full height and the button was cut to a sliver at the bottom of the screen.
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .weight(1f, fill = false),
         )
         Spacer(Modifier.height(8.dp))
         WordleStatusLine(
@@ -166,7 +183,13 @@ private fun WordleBoard(
         contentAlignment = Alignment.Center,
     ) {
         val n = uiState.wordLength
-        val tile = ((maxWidth - tileSpacing * (n - 1)) / n)
+        val rowCount = uiState.rows.size
+        val tileByHeight = if (maxHeight.isFinite) {
+            (maxHeight - tileSpacing * (rowCount - 1)) / rowCount
+        } else {
+            maxTileSize
+        }
+        val tile = minOf((maxWidth - tileSpacing * (n - 1)) / n, tileByHeight)
             .coerceAtMost(maxTileSize)
             .coerceAtLeast(24.dp)
         val currentRowIndex = uiState.rows.indexOfFirst { row ->
@@ -208,6 +231,7 @@ private fun WordleTile(
                 text = letter.char.toString(),
                 color = letter.state.tileTextColor(),
                 style = MaterialTheme.typography.headlineSmall,
+                fontSize = boxedTextSize(size, 0.5f),
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
             )
@@ -310,6 +334,7 @@ private fun LetterKey(
             } else {
                 MaterialTheme.typography.titleMedium
             },
+            fontSize = boxedTextSize(minOf(width, height), 0.55f),
             fontWeight = FontWeight.Bold,
             maxLines = 1,
         )

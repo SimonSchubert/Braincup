@@ -8,6 +8,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -104,11 +106,16 @@ private fun GuideButton(
     modifier: Modifier = Modifier,
     glyphs: @Composable () -> Unit,
 ) {
+    // The button shares the top bar with the topic's title, and at a large font scale there is no
+    // room for both labels: the glyphs already say which guide this is, so the word is dropped and
+    // handed to the screen reader instead of being ellipsised down to a single letter.
+    val labelFits = !isLargeFontScale()
     PrismTile(
         face = Primary,
         modifier = modifier
             .padding(end = 8.dp)
             .defaultMinSize(minHeight = 36.dp)
+            .semantics { contentDescription = label }
             .hoverHand(),
         onClick = onClick,
     ) {
@@ -118,13 +125,15 @@ private fun GuideButton(
             horizontalArrangement = Arrangement.spacedBy(6.dp),
         ) {
             glyphs()
-            Text(
-                text = label,
-                style = MaterialTheme.typography.labelMedium,
-                color = Color.White,
-                maxLines = 1,
-                overflow = TextOverflow.Ellipsis,
-            )
+            if (labelFits) {
+                Text(
+                    text = label,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = Color.White,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+            }
         }
     }
 }
@@ -176,7 +185,9 @@ fun LearnSubTopicRow(
                     text = stringResource(unit.title),
                     style = MaterialTheme.typography.titleSmall,
                     color = MaterialTheme.colorScheme.onSurface,
-                    maxLines = 2,
+                    // Two lines hold the longest name at the default size; at a large one they hold
+                    // about half of it, so the cap rises with the text rather than truncating it.
+                    maxLines = if (isLargeFontScale()) 4 else 2,
                     overflow = TextOverflow.Ellipsis,
                 )
                 Spacer(Modifier.height(2.dp))
@@ -260,6 +271,7 @@ private fun LearnTileBody(
 }
 
 /** Section heading used above the Learn tiles on the main menu. */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun LearnSectionHeader(
     title: String,
@@ -268,16 +280,20 @@ fun LearnSectionHeader(
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier.fillMaxWidth()) {
-        Row(
+        // A flow rather than a row, because the certificate count is measured before the title and
+        // takes its full width: on a narrow screen at a large font scale that left the title a
+        // column four glyphs wide, which it then spelled out one letter to a line. Here the count
+        // drops to its own line instead, and the title keeps the width.
+        FlowRow(
             modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalArrangement = Arrangement.spacedBy(2.dp),
         ) {
             Text(
                 text = title,
                 style = MaterialTheme.typography.titleMedium,
                 color = Primary,
                 fontWeight = FontWeight.Bold,
-                modifier = Modifier.weight(1f),
             )
             if (trailing != null) {
                 Text(

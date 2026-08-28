@@ -116,7 +116,12 @@ fun PrismDialogShell(
     }
 }
 
-/** The cancel/confirm pair that closes a prism dialog, sized to split the card evenly. */
+/**
+ * The cancel/confirm pair that closes a prism dialog, sized to split the card evenly - or stacked,
+ * once half a card has stopped being enough for a label. At a large font scale the split row was
+ * breaking four-letter answers across two lines mid-word ("Sta" / "y"), which reads as damage
+ * rather than as a button.
+ */
 @Composable
 fun PrismDialogButtonRow(
     primaryLabel: String,
@@ -125,24 +130,40 @@ fun PrismDialogButtonRow(
     onSecondary: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Row(
-        modifier = modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
+    val primary: @Composable (Modifier) -> Unit = { buttonModifier ->
         PrismDialogButton(
             label = primaryLabel,
             onClick = onPrimary,
             face = MaterialTheme.colorScheme.surfaceVariant,
             textColor = MaterialTheme.colorScheme.onSurfaceVariant,
-            modifier = Modifier.weight(1f),
+            modifier = buttonModifier,
         )
+    }
+    val secondary: @Composable (Modifier) -> Unit = { buttonModifier ->
         PrismDialogButton(
             label = secondaryLabel,
             face = Primary,
             textColor = Color.White,
             onClick = onSecondary,
-            modifier = Modifier.weight(1f),
+            modifier = buttonModifier,
         )
+    }
+    if (isLargeFontScale()) {
+        Column(
+            modifier = modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            primary(Modifier)
+            secondary(Modifier)
+        }
+    } else {
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            primary(Modifier.weight(1f))
+            secondary(Modifier.weight(1f))
+        }
     }
 }
 

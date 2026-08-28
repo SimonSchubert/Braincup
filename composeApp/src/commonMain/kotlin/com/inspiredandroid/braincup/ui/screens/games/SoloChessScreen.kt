@@ -2,6 +2,8 @@ package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -18,6 +20,7 @@ import kotlinx.collections.immutable.persistentMapOf
 import kotlinx.collections.immutable.persistentSetOf
 import org.jetbrains.compose.resources.stringResource
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun ColumnScope.SoloChessContent(
     uiState: SoloChessUiState,
@@ -101,7 +104,14 @@ internal fun ColumnScope.SoloChessContent(
     val isError = uiState.stuck
 
     val actions: @Composable () -> Unit = {
-        Row(horizontalArrangement = Arrangement.spacedBy(12.dp), verticalAlignment = Alignment.CenterVertically) {
+        // A flow rather than a row: at a large font scale the two labels together outrun a narrow
+        // screen, and a plain row ran off both edges with "Give up" split down the middle.
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterHorizontally),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            itemVerticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(horizontal = 16.dp),
+        ) {
             DefaultButton(
                 onClick = { onAnswer(BoardCommand.RESTART) },
                 value = stringResource(Res.string.solo_chess_restart),

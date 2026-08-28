@@ -13,7 +13,8 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
-import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -76,6 +77,7 @@ private data class VisualTile(
     val popping: Boolean = false,
 )
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 internal fun ColumnScope.PrismClearContent(
     uiState: PrismClearUiState,
@@ -280,9 +282,14 @@ internal fun ColumnScope.PrismClearContent(
     }
 
     val actions: @Composable () -> Unit = {
-        Row(
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalAlignment = Alignment.CenterVertically,
+        // A flow rather than a row: at a large font scale the two labels together are wider than a
+        // narrow screen, and a plain row simply ran off the edge with "Restart" split down the
+        // middle. Flowed, the second button drops to a line of its own.
+        FlowRow(
+            horizontalArrangement = Arrangement.spacedBy(12.dp, Alignment.CenterHorizontally),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+            itemVerticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.padding(horizontal = 16.dp),
         ) {
             DefaultButton(
                 // Stay visually enabled for the whole turn once a move exists; only the first

@@ -1,6 +1,8 @@
 package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -272,12 +274,34 @@ internal fun ColumnScope.LevelPuzzleLayout(
             }
         }
     } else {
-        LevelHeader(level, Modifier.align(Alignment.CenterHorizontally))
-        Spacer(Modifier.height(headerGap))
-        status(false)
-        Spacer(Modifier.height(16.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { board() }
-        Spacer(Modifier.height(16.dp))
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { actions() }
+        // Centred while it fits, scrolling once it does not. The heading, the status line and the
+        // buttons all grow with the font scale while the boards are built from fixed cell sizes,
+        // so on a narrow screen at a large one the parts no longer share the height between them.
+        // Without the scroll it was whatever came last that went - the give-up button, cut off at
+        // the bottom edge of a column that had no more room to give.
+        BoxWithConstraints(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth(),
+        ) {
+            val viewport = maxHeight
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+                    .heightIn(min = viewport),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center,
+            ) {
+                LevelHeader(level)
+                Spacer(Modifier.height(headerGap))
+                status(false)
+                Spacer(Modifier.height(16.dp))
+                // The padding keeps a board's raised edge on screen on a narrow window.
+                Box(modifier = Modifier.padding(horizontal = 16.dp)) { board() }
+                Spacer(Modifier.height(16.dp))
+                actions()
+            }
+        }
     }
 }
