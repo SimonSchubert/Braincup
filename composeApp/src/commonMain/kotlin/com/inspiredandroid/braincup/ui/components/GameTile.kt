@@ -34,11 +34,14 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
+import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioShape
+import com.inspiredandroid.braincup.games.mirror
+import com.inspiredandroid.braincup.games.toProjection
 import com.inspiredandroid.braincup.games.tools.Animal
 import com.inspiredandroid.braincup.games.tools.Direction
 import com.inspiredandroid.braincup.games.tools.Figure
@@ -687,6 +690,7 @@ private fun GamePreview(gameType: GameType) {
         GameType.WORDLE -> WordlePreview()
         GameType.BULLS_AND_COWS -> BullsAndCowsPreview()
         GameType.TRIO -> TrioPreview()
+        GameType.MENTAL_ROTATIONS -> MentalRotationsPreview()
     }
 }
 
@@ -2278,4 +2282,27 @@ private fun TrioPreview() {
             )
         }
     }
+}
+
+/** A chiral 3-arm staircase and its mirror, the shape of one round in miniature. */
+private val MentalRotationsPreviewFigure = listOf(
+    Cube(0, 0, 0),
+    Cube(1, 0, 0),
+    Cube(2, 0, 0),
+    Cube(2, 1, 0),
+    Cube(2, 2, 0),
+    Cube(2, 2, 1),
+)
+
+@Composable
+private fun MentalRotationsPreview() {
+    MentalRotationsPair(
+        reference = MentalRotationsPreviewFigure.toProjection(),
+        candidate = mirror(MentalRotationsPreviewFigure).toProjection(),
+        modifier = Modifier
+            .fillMaxHeight()
+            .aspectRatio(1f)
+            .padding(8.dp),
+        spacing = 6.dp,
+    )
 }

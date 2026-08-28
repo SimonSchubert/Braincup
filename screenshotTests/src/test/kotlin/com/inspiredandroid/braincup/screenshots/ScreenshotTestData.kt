@@ -319,6 +319,12 @@ fun createTrioUiState(): GameUiState = TrioGame(Random(42L)).apply {
     tap(1)
 }.toUiState()
 
+// A fixed seed so the pair of figures, and therefore the snapshot, never drifts.
+fun createMentalRotationsUiState(): GameUiState = MentalRotationsGame(Random(9L)).apply {
+    round = 6
+    nextRound()
+}.toUiState()
+
 fun createFlashCrowdUiState(): FlashCrowdUiState = FlashCrowdUiState(
     roundKey = 1,
     leftDots = listOf(

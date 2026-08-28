@@ -71,3 +71,10 @@ val FlashCrowdBlueBottom = FlashCrowdBlue.darken(0.5f)
 // Yellow needs a lighter darken than the prism default (0.7/0.5) so the facets read on a light hue.
 val FlashCrowdYellowSide = FlashCrowdYellow.darken(0.85f)
 val FlashCrowdYellowBottom = FlashCrowdYellow.darken(0.7f)
+
+// Mental Rotations cube facets. One hue in three values so the three visible faces of a cube read
+// as lighting, not as colour information: the task must stay answerable without colour vision.
+val MentalRotationsCubeTop = Color(0xFF8B9DC3)
+val MentalRotationsCubeLeft = MentalRotationsCubeTop.darken(0.72f)
+val MentalRotationsCubeRight = MentalRotationsCubeTop.darken(0.52f)
+val MentalRotationsCubeEdge = Color(0xFF2B3245)

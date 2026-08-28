@@ -451,6 +451,9 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.PRISM_CLEAR -> R.string.achievementCrystalClarity
     GameType.BULLS_AND_COWS -> R.string.achievementCodeCracker
     GameType.TRIO -> R.string.achievementTripleVision
+    // Play Console has no achievement for this game yet. The `when` is exhaustive, so the entry has
+    // to exist; null simply means nothing is pushed to Play until an id is created there.
+    GameType.MENTAL_ROTATIONS -> null
 }
 
 /**

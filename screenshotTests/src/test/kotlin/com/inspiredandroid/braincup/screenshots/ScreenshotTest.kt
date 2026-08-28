@@ -690,6 +690,19 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameMentalRotations() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createMentalRotationsUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameGhostGrid() {
         paparazzi.snap {
             GameScreen(
@@ -864,6 +877,19 @@ class ScreenshotTest {
         paparazzi.snap(colorScheme = OledColorScheme) {
             GameScreen(
                 gameUiState = createTrioUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameMentalRotationsOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            GameScreen(
+                gameUiState = createMentalRotationsUiState(),
                 timeRemaining = 45_000L,
                 onAnswer = {},
                 onGiveUp = {},

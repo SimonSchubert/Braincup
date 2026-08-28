@@ -42,6 +42,7 @@ enum GameCenterIds {
         "MISSING_OPERATORS":     "achievement.operator_master",
         "BULLS_AND_COWS":        "achievement.code_cracker",
         "TRIO":                  "achievement.triple_vision",
+        // MENTAL_ROTATIONS has no App Store Connect achievement yet; add it here once created.
     ]
 
     private static let leaderboardsByGameName: [String: String] = [

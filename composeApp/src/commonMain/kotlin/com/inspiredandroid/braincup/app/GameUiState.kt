@@ -417,6 +417,30 @@ data class FlashCrowdUiState(
 }
 
 @Immutable
+data class MentalRotationsUiState(
+    val roundKey: Int,
+    val reference: Figure,
+    val candidate: Figure,
+    val answers: ImmutableList<AnswerButton>,
+) : GameUiState {
+    /**
+     * A figure already flattened to the screen plane by the game, in arbitrary units: the screen
+     * scales [width] x [height] to fit and draws [cubes] in the order given, which is back to
+     * front, so later cubes paint over the ones they hide.
+     */
+    @Immutable
+    data class Figure(
+        val cubes: ImmutableList<ProjectedCube>,
+        val width: Float,
+        val height: Float,
+    )
+
+    /** Top-centre of a unit cube's top face, in the same units as [Figure.width]. */
+    @Immutable
+    data class ProjectedCube(val x: Float, val y: Float)
+}
+
+@Immutable
 data class FlagsUiState(
     val countrySlug: String,
     val possibleAnswers: ImmutableList<AnswerButton>,

@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Missing Operators</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mental Rotations</string>
 
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
     <string name="game_mental_calculation_desc">Follow the mathematical expressions. Use the result as the base for the next calculation.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
     <string name="game_bulls_and_cows_desc">Guess the secret 4-digit number with unique digits. Bulls = correct digit in correct position. Cows = correct digit in wrong position.</string>
     <string name="game_trio_desc">Find three cards that share a shape, a count or a fill.</string>
+    <string name="game_mental_rotations_desc">Decide whether the second block is the first one turned, or its mirror image.</string>
+    <string name="game_mental_rotations_question">Same block, or mirror image?</string>
+    <string name="game_mental_rotations_same">Same</string>
+    <string name="game_mental_rotations_mirrored">Mirrored</string>
     <string name="game_trio_howto">Tap three cards that share a trait.</string>
     <string name="trio_demo_title">Find a set of three</string>
     <string name="trio_demo_rule">They share a trait. Nothing else is mixed.</string>
     <string name="trio_demo_correct">That's a set.</string>
+    <string name="mental_rotations_demo_title">Turn it in your head</string>
+    <string name="mental_rotations_demo_turn">Rotate the right block onto the left one.</string>
+    <string name="mental_rotations_demo_same">It lines up. Same block.</string>
+    <string name="mental_rotations_demo_mirrored">It never lines up. Mirror image.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">The secret was %1$s</string>
@@ -428,6 +437,7 @@
     <string name="achievement_gold_missing_operators">Operator Master</string>
     <string name="achievement_gold_bulls_and_cows">Code Cracker</string>
     <string name="achievement_gold_trio">Triple Vision</string>
+    <string name="achievement_gold_mental_rotations">Spin Doctor</string>
     <string name="achievement_gold_path_finder">Trailblazer</string>
     <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
     <string name="achievement_gold_colored_shapes">Shape Shifter</string>
@@ -464,6 +474,7 @@
     <string name="achievement_gold_missing_operators_desc">Win gold medal in Missing Operators</string>
     <string name="achievement_gold_bulls_and_cows_desc">Win gold medal in Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Win gold medal in Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Win gold medal in Mental Rotations</string>
     <string name="achievement_gold_path_finder_desc">Win gold medal in Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win gold medal in Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Win gold medal in Colored Shapes</string>

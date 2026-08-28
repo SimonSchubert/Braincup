@@ -465,6 +465,7 @@ class GameController(
             is SpotTheNewGame -> handleSpotTheNewAnswer(game, answer.trim())
             is BullsAndCowsGame -> handleBullsAndCowsAnswer(currentState, game, answer)
             is TrioGame -> handleTrioAnswer(currentState, game, answer.trim())
+            is MentalRotationsGame -> handleMentalRotationsAnswer(currentState, game, answer.trim())
             else -> submitGenericAnswer(currentState, game, answer)
         }
     }
@@ -841,6 +842,7 @@ class GameController(
         GameType.ORBIT_TRACKER -> OrbitTrackerGame()
         GameType.BUBBLE_SUM -> BubbleSumGame()
         GameType.FLASH_CROWD -> FlashCrowdGame()
+        GameType.MENTAL_ROTATIONS -> MentalRotationsGame()
         GameType.MINI_CHESS -> MiniChessGame()
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
@@ -1011,6 +1013,20 @@ class GameController(
             answers = ui.answers.withFeedbackStates(
                 wrongIndex = selectedIndex,
                 correctIndex = game.resultIndex,
+            ),
+        )
+    }
+
+    private fun handleMentalRotationsAnswer(
+        currentState: GameState.Active,
+        game: MentalRotationsGame,
+        input: String,
+    ) = handleAnswerWithBoardFeedback<MentalRotationsUiState>(currentState, game, input) { ui ->
+        if (input !in MentalRotationsGame.ANSWERS) return@handleAnswerWithBoardFeedback null
+        ui.copy(
+            answers = ui.answers.withFeedbackStates(
+                wrongValue = input,
+                correctValue = game.solution(),
             ),
         )
     }

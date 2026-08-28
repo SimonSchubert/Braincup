@@ -47,6 +47,7 @@ import com.inspiredandroid.braincup.ui.components.GhostGridDemo
 import com.inspiredandroid.braincup.ui.components.KnotDemo
 import com.inspiredandroid.braincup.ui.components.LightsOutDemo
 import com.inspiredandroid.braincup.ui.components.MentalCalculationDemo
+import com.inspiredandroid.braincup.ui.components.MentalRotationsDemo
 import com.inspiredandroid.braincup.ui.components.MiniSudokuDemo
 import com.inspiredandroid.braincup.ui.components.MissingOperatorsDemo
 import com.inspiredandroid.braincup.ui.components.NBackDemo
@@ -154,6 +155,7 @@ fun InstructionsScreen(
                 GameType.SHERLOCK_CALCULATION -> SherlockCalculationDemo(modifier = demoModifier)
                 GameType.VALUE_COMPARISON -> ValueComparisonDemo(modifier = demoModifier)
                 GameType.TRIO -> TrioDemo(modifier = demoModifier)
+                GameType.MENTAL_ROTATIONS -> MentalRotationsDemo(modifier = demoModifier)
             }
 
             if (gameType == GameType.WORDLE) {

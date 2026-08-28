@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.app.GhostGridUiState
 import com.inspiredandroid.braincup.app.KnotUiState
 import com.inspiredandroid.braincup.app.LightsOutUiState
 import com.inspiredandroid.braincup.app.MentalCalculationUiState
+import com.inspiredandroid.braincup.app.MentalRotationsUiState
 import com.inspiredandroid.braincup.app.MiniChessUiState
 import com.inspiredandroid.braincup.app.MiniSudokuUiState
 import com.inspiredandroid.braincup.app.MissingOperatorsUiState
@@ -72,6 +73,7 @@ import com.inspiredandroid.braincup.ui.screens.games.KnotContent
 import com.inspiredandroid.braincup.ui.screens.games.LightsOutContent
 import com.inspiredandroid.braincup.ui.screens.games.MemorizeTimeProgressBar
 import com.inspiredandroid.braincup.ui.screens.games.MentalCalculationContent
+import com.inspiredandroid.braincup.ui.screens.games.MentalRotationsContent
 import com.inspiredandroid.braincup.ui.screens.games.MiniChessContent
 import com.inspiredandroid.braincup.ui.screens.games.MiniSudokuContent
 import com.inspiredandroid.braincup.ui.screens.games.MissingOperatorsContent
@@ -197,6 +199,7 @@ fun GameScreen(
                     onAnswer = onAnswer,
                 )
                 is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
+                is MentalRotationsUiState -> MentalRotationsContent(gameUiState, onAnswer)
                 is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
                 is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
                 is DigitMemoryUiState -> DigitMemoryContent(gameUiState, onAnswer)

@@ -383,6 +383,17 @@ enum class GameType(
         bronzeScore = 12,
         usesTriesLabel = true,
     ),
+    MENTAL_ROTATIONS(
+        displayNameRes = Res.string.game_mental_rotations,
+        id = "39",
+        // Score = pairs judged correctly in 60s. A round is one look-and-decide with no reveal
+        // phase, so the pace is close to Flash Crowd's; its thresholds are borrowed as a starting
+        // point. Tune after playtest.
+        goldScore = 14,
+        silverScore = 7,
+        descriptionRes = Res.string.game_mental_rotations_desc,
+        category = GameCategory.LOGIC,
+    ),
     TRIO(
         displayNameRes = Res.string.game_trio,
         id = "38",
