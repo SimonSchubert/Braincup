@@ -871,6 +871,8 @@
     <string name="learn_try_again_hint">Not quite. Have another look and try again.</string>
     <string name="learn_answer_label">Answer</string>
     <string name="learn_correct">Correct!</string>
+    <string name="learn_revealed_answer">Here is the answer</string>
+    <string name="learn_show_answer">Show me the answer</string>
     <string name="learn_incorrect">Not quite</string>
     <string name="learn_your_answer">Your answer</string>
 
@@ -968,6 +970,12 @@
     <!-- Short for standard deviation, on the tick marks either side of a bell curve's mean. -->
     <string name="learn_fig_standard_deviations">%1$s sd</string>
     <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
+    <!-- The words under the bars of a chart: what a quantity was, and what it became. -->
+    <string name="learn_fig_bar_before">before</string>
+    <string name="learn_fig_bar_after">after</string>
+    <!-- A part of a whole and the whole it is part of, under the two bars of a chart. -->
+    <string name="learn_fig_bar_score">score</string>
+    <string name="learn_fig_bar_total">total</string>
 
     <!--
         ================================================================================

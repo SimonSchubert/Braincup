@@ -3,6 +3,10 @@ package com.inspiredandroid.braincup.ui.components.learn
 import androidx.compose.runtime.Composable
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.learn_fig_area
+import braincup.composeapp.generated.resources.learn_fig_bar_after
+import braincup.composeapp.generated.resources.learn_fig_bar_before
+import braincup.composeapp.generated.resources.learn_fig_bar_score
+import braincup.composeapp.generated.resources.learn_fig_bar_total
 import braincup.composeapp.generated.resources.learn_fig_corners
 import braincup.composeapp.generated.resources.learn_fig_cos
 import braincup.composeapp.generated.resources.learn_fig_degrees
@@ -35,6 +39,7 @@ import braincup.composeapp.generated.resources.learn_fig_standard_deviations
 import braincup.composeapp.generated.resources.learn_fig_symbol_key
 import braincup.composeapp.generated.resources.learn_fig_symmetry_lines
 import braincup.composeapp.generated.resources.learn_fig_take_from_both_sides
+import com.inspiredandroid.braincup.learn.BarLabel
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.SolidKind
 import org.jetbrains.compose.resources.pluralStringResource
@@ -81,6 +86,8 @@ internal class LearnVisualStrings(
     val cosTemplate: String,
     val sinTemplate: String,
     val degreesTemplate: String,
+    /** What each bar of a chart stands for, in the words under it. */
+    val barLabels: Map<BarLabel, String>,
     /** The mean with its reading, for the chip parked on a chart's mean line. */
     val meanValueTemplate: String,
     /** The word alone, for the curve that marks its centre without giving a number. */
@@ -138,6 +145,12 @@ internal fun learnVisualStrings(visual: LearnVisual): LearnVisualStrings {
         cosTemplate = stringResource(Res.string.learn_fig_cos),
         sinTemplate = stringResource(Res.string.learn_fig_sin),
         degreesTemplate = stringResource(Res.string.learn_fig_degrees),
+        barLabels = mapOf(
+            BarLabel.BEFORE to stringResource(Res.string.learn_fig_bar_before),
+            BarLabel.AFTER to stringResource(Res.string.learn_fig_bar_after),
+            BarLabel.SCORE to stringResource(Res.string.learn_fig_bar_score),
+            BarLabel.TOTAL to stringResource(Res.string.learn_fig_bar_total),
+        ),
         meanValueTemplate = stringResource(Res.string.learn_fig_mean_value),
         mean = stringResource(Res.string.learn_fig_mean),
         standardDeviationsTemplate = stringResource(Res.string.learn_fig_standard_deviations),

@@ -100,8 +100,16 @@ multiplication passes, which are the ones to copy.
    steps into that thing, not three different subjects sharing a grade band.
 2. **Shape.** 3 lessons x 6 steps, and a test of at least 6 questions.
    *Enforced by `everyTopicHasSubTopicsWithLessonsAndATest`.*
-3. **Every step and question carries a figure.**
-   *Enforced by `everyStepAndQuestionHasAVisual`.*
+3. **A figure on every step that has one to draw, and none on the steps that do not.**
+   A figure has to be *of* the question. Drawn to fill a slot instead, it points at whatever
+   number is within reach, and on a question the only numbers within reach are the wrong
+   answers: an 8 by 8 grid under "which of these roots never finishes?" is √64, one of the
+   options it is asking the learner to rule out. Thirteen such figures were removed on
+   2026-08-28, twelve of them from surds, where every question is about a number that is not
+   a square and the only figure that fits a root is one.
+   *Ratcheted by `almostEveryStepTeachesWithAFigure`; the judgement itself is not testable,
+   because a distractor is often the drawn shape's other measurement on purpose - the area of
+   the rectangle whose perimeter is being asked for, the square factor before its root.*
 4. **No spoiler figures.** No question figure captions the answer it is asking for
    (`reveal = false` on every question figure).
    *Enforced strictly once the unit id is listed in `reworkedUnits`.*
@@ -545,7 +553,8 @@ saw 72 and 23 and let both through. The guard now reads the row count too.
 `NumberLine(from = -10, to = 5, reveal = false)` had no `start`, no `jump` and no `hopSteps`, so it
 rendered a bare axis labelled -10, -5, 0 and 5. The step asks which of -10, -6, -1 and 0 is the
 largest; the figure marked none of them, and -6 and -1 were not even numbered.
-`everyStepAndQuestionHasAVisual` passed because the visual is non-null.
+`everyStepAndQuestionHasAVisual` (since replaced by `almostEveryStepTeachesWithAFigure`) passed
+because the visual is non-null.
 
 `LearnVisual.NumberLine` now takes a `compare` list: the values a question is choosing between,
 each given a tall tick, a dot on the axis and a number in the called-out size, whatever the fit

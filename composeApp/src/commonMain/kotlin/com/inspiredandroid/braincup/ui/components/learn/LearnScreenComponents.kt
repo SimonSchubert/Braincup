@@ -68,7 +68,7 @@ internal enum class LearnOptionState { IDLE, CORRECT, WRONG, MUTED }
  * in Rubik, "Which number is smaller, 62 or 26?" is a sentence and belongs in the display face the
  * rest of the section's teaching prose is set in. Routing all of them through [MathText] set the
  * sentences in the number face as well, so the same wording read one way in a lesson and another
- * in a test. See [readsAsNotation].
+ * in a test.
  */
 @Composable
 internal fun LearnText(
@@ -83,8 +83,15 @@ internal fun LearnText(
      * an answer option, which is a choice rather than a given and says what it is by turning green.
      */
     roleColors: Boolean = false,
+    /**
+     * Which face this run takes. A caller holding the [CatalogText][com.inspiredandroid.braincup
+     * .learn.CatalogText] it came from passes `isNotation`, which is what the catalog declared;
+     * [readsAsNotation] is the fallback for a run that arrives as a bare string, and it can only
+     * go on the characters, so a hyphen in "cross-section x length" reads to it as a minus sign.
+     */
+    notation: Boolean = text.readsAsNotation(),
 ) {
-    if (roleColors && text.readsAsNotation()) {
+    if (roleColors && notation) {
         Text(
             text = text.formatMathSymbols(fractionSlash = true)
                 .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant),
@@ -92,7 +99,7 @@ internal fun LearnText(
             modifier = modifier,
             textAlign = textAlign,
         )
-    } else if (text.readsAsNotation()) {
+    } else if (notation) {
         MathText(
             text = text,
             style = style,
@@ -178,6 +185,8 @@ internal fun LearnOptionTile(
     label: String,
     state: LearnOptionState,
     onClick: () -> Unit,
+    /** See [LearnText]: whether the label is notation, as the catalog declared it. */
+    notation: Boolean = label.readsAsNotation(),
 ) {
     // Both answered faces are brand-pinned: left on the scheme's roles they are resolved from the
     // wallpaper by Material You, and a wrong answer was landing on a pale pink that carries white
@@ -206,6 +215,7 @@ internal fun LearnOptionTile(
             style = MaterialTheme.typography.bodyLarge,
             color = if (state == LearnOptionState.MUTED) contentColor.copy(alpha = 0.6f) else contentColor,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
+            notation = notation,
         )
     }
 }

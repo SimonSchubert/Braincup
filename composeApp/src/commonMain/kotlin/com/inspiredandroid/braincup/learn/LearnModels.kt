@@ -91,6 +91,18 @@ sealed interface CatalogText {
     data class Formatted(val res: StringResource, val args: List<String>) : CatalogText
 }
 
+/**
+ * Whether the run is notation rather than a sentence, which is what decides how it is set: an
+ * equation leads on a card of its own in the number face, a sentence is set in the display face
+ * the rest of the section's prose reads in.
+ *
+ * The catalog already knows which it is, so this reads it off the type rather than off the
+ * characters. A heuristic over the characters cannot tell them apart: a hyphen and a per-cent
+ * sign look exactly like operators, so "A 3-4-5 triangle is enlarged by 4" and "A 90 euro coat is
+ * 30% off" both came out set as equations on a formula card.
+ */
+val CatalogText.isNotation: Boolean get() = this is CatalogText.Value
+
 /** Notation, written where it is read: `math("3/4")`. */
 fun math(text: String): CatalogText.Value = CatalogText.Value(text)
 

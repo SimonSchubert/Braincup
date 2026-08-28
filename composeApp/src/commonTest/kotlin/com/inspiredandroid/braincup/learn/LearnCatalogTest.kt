@@ -7,6 +7,14 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertNull
 import kotlin.test.assertTrue
 
+/**
+ * How many steps and test questions may go without a figure.
+ *
+ * A ratchet, not a budget: it only ever goes down. Adding a fourteenth means arguing for it here.
+ * See [LearnCatalogTest.almostEveryStepTeachesWithAFigure].
+ */
+private const val MaxStepsWithoutAFigure = 13
+
 class LearnCatalogTest {
 
     @Test
@@ -74,25 +82,43 @@ class LearnCatalogTest {
         }
     }
 
-    /** The section is meant to teach by picture, so a step without a figure is a content bug. */
+    /**
+     * The section teaches by picture, and the handful of steps that cannot are counted.
+     *
+     * This used to demand a figure on every single step, which is what put an 8 by 8 grid under
+     * "which of these roots never finishes?". The step had to have one, the only figure that fits
+     * a root is a square, and the whole point of that question is a number which is not one - so
+     * the grid was drawn from the nearest number within reach, √64, one of the wrong options.
+     * Eleven more across the surds unit were arbitrary the same way: a 3 by 3 grid beside
+     * "√7 x √7 = ?", a 2 by 2 beside the step explaining that √2 never finishes. Two elsewhere
+     * drew a different shape from the one their question described.
+     *
+     * A figure drawn to satisfy a test rather than to teach is worse than no figure at all,
+     * because it points somewhere, and the only places it can point are the wrong ones. So the
+     * requirement is a ratchet: the section stays overwhelmingly visual, and a new bare step has
+     * to be argued for rather than papered over with whatever happens to fit.
+     */
     @Test
-    fun everyStepAndQuestionHasAVisual() {
-        LearnCatalog.allLessons.forEach { lesson ->
-            lesson.steps.forEachIndexed { index, step ->
+    fun almostEveryStepTeachesWithAFigure() {
+        val bare = LearnCatalog.allLessons.flatMap { lesson ->
+            lesson.steps.mapIndexedNotNull { index, step ->
                 val visual = when (step) {
                     is LessonStep.Concept -> step.visual
                     is LessonStep.Worked -> step.visual
                     is LessonStep.Choice -> step.visual
                     is LessonStep.Numeric -> step.visual
                 }
-                assertNotNull(visual, "${lesson.id} step $index has no visual")
+                if (visual == null) "${lesson.id} step $index" else null
+            }
+        } + LearnCatalog.allUnits.flatMap { unit ->
+            unit.quiz.questions.mapIndexedNotNull { index, question ->
+                if (question.visual == null) "${unit.id} test question $index" else null
             }
         }
-        LearnCatalog.allUnits.forEach { unit ->
-            unit.quiz.questions.forEach { question ->
-                assertNotNull(question.visual, "${unit.id}: no visual for ${question.prompt}")
-            }
-        }
+        assertTrue(
+            bare.size <= MaxStepsWithoutAFigure,
+            "${bare.size} steps have no figure, over the ratchet of $MaxStepsWithoutAFigure: $bare",
+        )
     }
 
     /**

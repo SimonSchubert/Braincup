@@ -21,21 +21,26 @@ import braincup.composeapp.generated.resources.learn_lesson_complete_title
 import braincup.composeapp.generated.resources.learn_lesson_score
 import braincup.composeapp.generated.resources.learn_next_lesson
 import braincup.composeapp.generated.resources.learn_next_line
+import braincup.composeapp.generated.resources.learn_revealed_answer
+import braincup.composeapp.generated.resources.learn_show_answer
 import braincup.composeapp.generated.resources.learn_take_test
 import braincup.composeapp.generated.resources.learn_test_intro
 import braincup.composeapp.generated.resources.learn_try_again
 import braincup.composeapp.generated.resources.learn_try_again_hint
 import braincup.composeapp.generated.resources.learn_your_answer
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.learn.CatalogText
 import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnLesson
 import com.inspiredandroid.braincup.learn.LessonStep
+import com.inspiredandroid.braincup.learn.isNotation
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
+import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.learn.LearnAnswerCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
@@ -45,6 +50,7 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnOptionState
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
+import com.inspiredandroid.braincup.ui.components.learn.LearnText
 import com.inspiredandroid.braincup.ui.components.learn.VisualAnswer
 import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
@@ -58,9 +64,13 @@ import org.jetbrains.compose.resources.stringResource
  * How far the learner has got with the question on screen.
  *
  * A wrong answer is not an end state: the step stays open, the miss is marked, and they try again.
- * Nothing moves on until [Correct], so a lesson can never be walked past without understanding it.
  * [Missed] carries every option already ruled out so they all stay struck through, and [firstTry]
  * remembers whether the first attempt landed, which is what the lesson score counts.
+ *
+ * Nothing moves on until the answer is on the screen, so a lesson cannot be walked through
+ * without ever meeting one - but after [RevealAfterMisses] misses it can arrive as [Revealed]
+ * rather than [Correct], because a learner who cannot get there has to be able to read the answer
+ * and carry on.
  */
 sealed interface LessonAnswer {
     data object Unanswered : LessonAnswer
@@ -69,7 +79,42 @@ sealed interface LessonAnswer {
     data class Missed(val attempts: List<String>) : LessonAnswer
 
     data class Correct(val firstTry: Boolean) : LessonAnswer
+
+    /**
+     * The learner asked for the answer instead of finding it. [attempts] is what they had already
+     * ruled out, so those stay struck through beside the one that turns out to be right.
+     *
+     * The step then reads exactly as a solved one - the sum finishes, the figure marks the value,
+     * the explanation opens - because that is the teaching. It only does not count: the score
+     * counts answers that landed first time, and this one did not land at all.
+     */
+    data class Revealed(val attempts: List<String>) : LessonAnswer
 }
+
+/**
+ * Whether the answer is on the screen, however it got there. What follows from it is the same
+ * either way: the sum resolves, the options settle, the explanation opens and Continue appears.
+ */
+val LessonAnswer.isResolved: Boolean
+    get() = this is LessonAnswer.Correct || this is LessonAnswer.Revealed
+
+/** Whatever this answer has already ruled out, so a miss stays struck through after a reveal. */
+private val LessonAnswer.ruledOut: List<String>
+    get() = when (this) {
+        is LessonAnswer.Missed -> attempts
+        is LessonAnswer.Revealed -> attempts
+        else -> emptyList()
+    }
+
+/**
+ * How many misses on one question before the way out appears.
+ *
+ * A step stays open until it is answered, which is what stops a lesson being walked through with
+ * nothing worked out. On the number pad that had no floor under it: a learner who cannot get there
+ * has ten thousand things to type and no way forward but the back arrow, which drops the lesson.
+ * Two misses is where trying again has stopped being trying.
+ */
+private const val RevealAfterMisses = 2
 
 /**
  * Where a lesson opens.
@@ -163,6 +208,11 @@ fun LearnLessonScreenContent(
         }
     }
 
+    /** Hands the answer over. Never scored: the question was not worked out, it was read. */
+    fun reveal() {
+        answer = LessonAnswer.Revealed((answer as? LessonAnswer.Missed)?.attempts.orEmpty())
+    }
+
     AppScaffold(
         title = stringResource(lesson.title),
         onBack = onBack,
@@ -202,7 +252,7 @@ fun LearnLessonScreenContent(
                         options = options,
                         answer = answer,
                         onSelect = { index ->
-                            if (answer !is LessonAnswer.Correct) {
+                            if (!answer.isResolved) {
                                 submit(options[index], index == step.correctIndex)
                             }
                         },
@@ -234,6 +284,11 @@ fun LearnLessonScreenContent(
                 submit(typedAnswer, correct)
             },
             onContinue = advance,
+            // Offered once trying again has stopped being trying. Nothing before that: a first
+            // miss is a slip, and a way out on the screen from the start is a way past the step.
+            onReveal = { reveal() }.takeIf {
+                (answer as? LessonAnswer.Missed)?.attempts?.size?.let { it >= RevealAfterMisses } == true
+            },
         )
     }
 }
@@ -247,17 +302,19 @@ private fun ColumnScope.LessonActionBar(
     onRevealLine: () -> Unit,
     onCheckNumeric: () -> Unit,
     onContinue: () -> Unit,
+    /** Non-null once the step has been missed often enough to offer the answer. */
+    onReveal: (() -> Unit)? = null,
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     // The bar spans the window, the button inside it does not: stretched edge to edge on a desktop
     // window it stops reading as a button at all.
     val button = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth()
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp)
             .padding(bottom = 16.dp + bottomInset, top = 8.dp),
-        contentAlignment = Alignment.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         when {
             step is LessonStep.Worked && revealedLines < step.lines.size -> PrimaryActionButton(
@@ -266,9 +323,9 @@ private fun ColumnScope.LessonActionBar(
                 modifier = button,
             )
 
-            // Continue appears only once the question is right. Until then the step stays open, so
-            // a lesson cannot be walked through without ever working an answer out.
-            step is LessonStep.Numeric && answer !is LessonAnswer.Correct -> PrimaryActionButton(
+            // Continue appears only once the answer is on the screen. Until then the step stays
+            // open, so a lesson cannot be walked through without ever meeting one.
+            step is LessonStep.Numeric && !answer.isResolved -> PrimaryActionButton(
                 onClick = { if (typedAnswer.isNotBlank()) onCheckNumeric() },
                 value = stringResource(
                     if (answer is LessonAnswer.Missed) Res.string.learn_try_again else Res.string.learn_check,
@@ -277,12 +334,22 @@ private fun ColumnScope.LessonActionBar(
             )
 
             // A choice step is answered by tapping an option, so it shows no button of its own.
-            step is LessonStep.Choice && answer !is LessonAnswer.Correct -> Unit
+            step is LessonStep.Choice && !answer.isResolved -> Unit
 
             else -> PrimaryActionButton(
                 onClick = onContinue,
                 value = stringResource(Res.string.learn_continue),
                 modifier = button,
+            )
+        }
+
+        if (onReveal != null) {
+            // Under the primary action and in the quiet face the rest of the app gives up in, not
+            // beside it: this is the way out of a step, not one of two things being chosen between.
+            Spacer(Modifier.height(8.dp))
+            TextPrismButton(
+                onClick = onReveal,
+                value = stringResource(Res.string.learn_show_answer),
             )
         }
     }
@@ -294,7 +361,11 @@ private fun ColumnScope.LessonActionBar(
  */
 private fun LessonAnswer.visualAnswer(correctValue: String): VisualAnswer? = when (this) {
     LessonAnswer.Unanswered -> null
-    is LessonAnswer.Correct -> correctValue.trim().toIntOrNull()?.let { VisualAnswer(it, correct = true) }
+    // A revealed answer is still the answer, so the figure marks it the way it marks a found one.
+    // What was guessed on the way there is no longer what the picture is about.
+    is LessonAnswer.Correct, is LessonAnswer.Revealed ->
+        correctValue.trim().toIntOrNull()?.let { VisualAnswer(it, correct = true) }
+
     is LessonAnswer.Missed -> attempts.last().trim().toIntOrNull()?.let { VisualAnswer(it, correct = false) }
 }
 
@@ -344,7 +415,7 @@ private const val WorkedFigureOpening = 0.45f
 private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
     val problem = step.problem.resolve()
     val result = step.result.resolve()
-    val lines = step.lines.map { it.resolve() }
+    val lines = step.lines
     val worked = revealedLines >= lines.size
     // A problem asked as an equation finishes where it was asked: the answer lands on the question
     // mark, exactly as it does on a question step, rather than being restated underneath. A problem
@@ -375,14 +446,17 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
             face = MaterialTheme.colorScheme.surfaceVariant,
             modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth().padding(vertical = 4.dp),
         ) {
-            LessonText(
-                text = line,
+            LearnText(
+                text = line.resolve(),
                 // The same measure a Concept step's prose reads at. A worked line is teaching text
                 // doing the same job, and the display face is heavy enough that a step down in
-                // size reads as a footnote rather than as the explanation.
+                // size reads as a footnote rather than as the explanation. A line that is an
+                // equation rather than a sentence takes the number face, like every other equation
+                // in the section.
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.fillMaxWidth().padding(12.dp),
+                notation = line.isNotation,
             )
         }
     }
@@ -409,32 +483,57 @@ private fun ColumnScope.ChoiceStep(
             answer = answer.visualAnswer(correct),
         )
     }
+    val (formula, prose) = questionHeadingParts(step.formula, step.question)
     QuestionHeading(
-        formula = step.formula?.resolve(),
-        question = step.question.resolve(),
-        solved = (answer as? LessonAnswer.Correct)?.let { correct },
+        formula = formula,
+        question = prose,
+        solved = correct.takeIf { answer.isResolved },
     )
     Spacer(Modifier.height(16.dp))
 
-    val missed = (answer as? LessonAnswer.Missed)?.attempts.orEmpty()
+    val missed = answer.ruledOut
     options.forEachIndexed { index, option ->
         LearnOptionTile(
             label = option,
             state = when {
-                answer is LessonAnswer.Correct && index == step.correctIndex -> LearnOptionState.CORRECT
+                answer.isResolved && index == step.correctIndex -> LearnOptionState.CORRECT
                 option in missed -> LearnOptionState.WRONG
-                answer is LessonAnswer.Correct -> LearnOptionState.MUTED
+                answer.isResolved -> LearnOptionState.MUTED
                 else -> LearnOptionState.IDLE
             },
             onClick = { onSelect(index) },
+            notation = step.options[index].isNotation,
         )
         Spacer(Modifier.height(8.dp))
     }
     when (answer) {
-        is LessonAnswer.Correct -> FeedbackCard(step.explanation.resolve())
+        is LessonAnswer.Correct -> FeedbackCard(step.explanation.resolve(), revealed = false)
+        is LessonAnswer.Revealed -> FeedbackCard(step.explanation.resolve(), revealed = true)
         is LessonAnswer.Missed -> RetryNote()
         LessonAnswer.Unanswered -> Unit
     }
+}
+
+/**
+ * How a question step's heading splits: the equation that leads on the formula card, and the prose
+ * underneath saying how to read the picture.
+ *
+ * A step usually carries both. Some carry only a question, and when that question is itself
+ * notation - "√7 x √7 = ?" - it is the sum being asked, not a caption on the figure above it, so
+ * it takes the card and leaves no prose behind. Set as loose text it came out in the display face
+ * at the supporting size: an equation in Bungee, smaller than every equation around it.
+ *
+ * Which is which comes off the catalog's own types, never off the characters. See
+ * [isNotation][com.inspiredandroid.braincup.learn.isNotation].
+ */
+@Composable
+private fun questionHeadingParts(
+    formula: CatalogText?,
+    question: CatalogText,
+): Pair<String?, String?> = if (formula == null && question.isNotation) {
+    question.resolve() to null
+} else {
+    formula?.resolve() to question.resolve()
 }
 
 /**
@@ -447,28 +546,31 @@ private fun ColumnScope.ChoiceStep(
  * figure marks the value in, so one number reads the same in all three places.
  */
 @Composable
-private fun QuestionHeading(formula: String?, question: String, solved: String? = null) {
+private fun QuestionHeading(formula: String?, question: String?, solved: String? = null) {
     Column(
         modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (formula != null) {
             LearnFormulaCard(if (solved == null) formula else formula.replace("?", "{c:$solved}"))
-            Spacer(Modifier.height(10.dp))
+            if (question != null) Spacer(Modifier.height(10.dp))
         }
-        LessonText(
-            text = question,
-            // With a formula above it the prose is a supporting line; without one it is the
-            // question. Both read at one measure and it is the colour that demotes the supporting
-            // one, because shrinking the display face as well left it too small to read comfortably.
-            style = MaterialTheme.typography.titleMedium,
-            color = if (formula == null) {
-                MaterialTheme.colorScheme.onSurface
-            } else {
-                MaterialTheme.colorScheme.onSurfaceVariant
-            },
-            textAlign = TextAlign.Center,
-        )
+        if (question != null) {
+            LessonText(
+                text = question,
+                // With a formula above it the prose is a supporting line; without one it is the
+                // question. Both read at one measure and it is the colour that demotes the
+                // supporting one, because shrinking the display face as well left it too small to
+                // read comfortably.
+                style = MaterialTheme.typography.titleMedium,
+                color = if (formula == null) {
+                    MaterialTheme.colorScheme.onSurface
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                },
+                textAlign = TextAlign.Center,
+            )
+        }
     }
 }
 
@@ -500,22 +602,30 @@ private fun NumericStep(
             answer = answer.visualAnswer(step.answer),
         )
     }
-    val formula = step.formula?.resolve()
+    val (formula, prose) = questionHeadingParts(step.formula, step.question)
+    val revealed = answer is LessonAnswer.Revealed
     QuestionHeading(
         formula = formula,
-        question = step.question.resolve(),
-        solved = (answer as? LessonAnswer.Correct)?.let { step.answer },
+        question = prose,
+        solved = step.answer.takeIf { answer.isResolved },
     )
-    if (answer is LessonAnswer.Correct) {
+    if (answer.isResolved) {
         // Only when the question had nowhere to resolve. A formula ending in "= ?" already
         // finishes in front of the learner, in the answer green, so reading the same number back
         // to them underneath it is the number twice and the card stack once too often.
         if (formula?.trimEnd()?.endsWith("= ?") != true) {
             Spacer(Modifier.height(12.dp))
-            LearnAnswerCard(stringResource(Res.string.learn_your_answer), typedAnswer)
+            // After a reveal there is no answer of theirs to read back: the pad holds whatever
+            // they last got wrong, so the card carries the answer itself.
+            LearnAnswerCard(
+                label = stringResource(
+                    if (revealed) Res.string.learn_answer_label else Res.string.learn_your_answer,
+                ),
+                value = if (revealed) step.answer else typedAnswer,
+            )
         }
         Spacer(Modifier.height(8.dp))
-        FeedbackCard(step.explanation.resolve())
+        FeedbackCard(step.explanation.resolve(), revealed = revealed)
     } else {
         // Keyed so the pad's buffer starts empty on a new question, and again after a miss so the
         // rejected number is cleared rather than needing backspacing away.
@@ -531,8 +641,10 @@ private fun NumericStep(
 }
 
 /**
- * Shown once the learner gets there. There is no wrong-answer variant any more: a miss leaves the
- * step open and shows [RetryNote] instead, so this card only ever confirms and explains.
+ * Shown once the answer is on the screen. There is no wrong-answer variant: a miss leaves the step
+ * open and shows [RetryNote] instead, so this card only ever explains an answer the learner is
+ * now looking at - one they found, or, after [RevealAfterMisses] misses, one they asked for. Only
+ * the heading tells those apart, because the explanation is the same teaching either way.
  *
  * Face and ink are both brand-pinned rather than taken from the scheme. Material You resolves
  * `primaryContainer` to whatever the device wallpaper suggests, which on some phones is a pale
@@ -540,20 +652,23 @@ private fun NumericStep(
  * pale grey. Pinning both halves of the pair keeps them legible on every device and theme.
  */
 @Composable
-private fun FeedbackCard(explanation: String) {
+private fun FeedbackCard(explanation: String, revealed: Boolean) {
     PrismCard(
         face = PrimaryContainer,
         modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth().padding(top = 8.dp),
     ) {
         Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             Text(
-                text = stringResource(Res.string.learn_correct),
+                text = stringResource(
+                    if (revealed) Res.string.learn_revealed_answer else Res.string.learn_correct,
+                ),
                 style = MaterialTheme.typography.titleSmall,
                 fontWeight = FontWeight.Bold,
                 // Green, because green means "the answer" everywhere else in the section: the tile
                 // that was just tapped, the value the figure marks, the `{c:}` the formula
                 // resolves to. Saying "Correct!" in the card's own purple made this the one place
-                // correctness had a colour of its own.
+                // correctness had a colour of its own. A revealed answer is still the answer, so
+                // it keeps the colour and only changes what the heading claims.
                 color = SuccessGreenOnContainer,
             )
             Spacer(Modifier.height(4.dp))

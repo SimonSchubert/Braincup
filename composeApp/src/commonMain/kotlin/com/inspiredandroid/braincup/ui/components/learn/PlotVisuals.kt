@@ -25,12 +25,23 @@ private fun Curve.valueAt(x: Float): Float? = when (this) {
     Curve.Logarithm -> if (x <= 0f) null else ln(x.toDouble()).toFloat()
 }
 
+/** The radius a plotted point is marked with, in hairlines, and the size its name is set at. */
+private const val MarkerRadius = 2f
+
+private const val MarkerLabelFactor = 0.085f
+
 /**
  * A curve on axes, plus whatever the step is really about: the points it names, the tangent whose
  * gradient is the derivative, or the area the integral accumulates.
  */
 internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
-    val rect = frame(left = 0.12f, top = 0.1f, right = 0.94f, bottom = 0.86f)
+    // Every name on this figure is set off its own marker rather than off the panel, so the plate
+    // it sits on clears the disc it belongs to.
+    val markerGap = MarkerRadius * stroke + labelGap * 0.4f
+    // Symmetric margins: the axes are the middle of the frame, so the frame has to be the middle
+    // of the panel. Reaching further right than left put the whole grid off centre by a margin's
+    // worth for the sake of an axis letter that sits inside it anyway.
+    val rect = frame(left = 0.09f, top = 0.12f, right = 0.91f, bottom = 0.88f)
     fun px(x: Float) = rect.left + rect.width * (x - X_MIN) / (X_MAX - X_MIN)
     fun py(y: Float) = rect.bottom - rect.height * (y - Y_MIN) / (Y_MAX - Y_MIN)
 
@@ -121,13 +132,15 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
                 listOf((-quadratic.b - sqrt) / (2 * quadratic.a), (-quadratic.b + sqrt) / (2 * quadratic.a))
                     .filter { it in X_MIN..X_MAX }
                     .forEach { root ->
-                        dot(Offset(px(root), py(0f)), stroke * 2f, Accent2, alpha = revealBeat)
-                        chipLabel(
+                        dot(Offset(px(root), py(0f)), MarkerRadius * stroke, Accent2, alpha = revealBeat)
+                        chipOutside(
                             text = formatDecimal(root.toDouble()),
-                            center = Offset(px(root), py(0f) + height * 0.08f),
+                            at = Offset(px(root), py(0f)),
+                            outward = Offset(0f, 1f),
                             color = Accent2,
-                            factor = 0.085f,
+                            factor = MarkerLabelFactor,
                             alpha = revealBeat,
+                            gap = markerGap,
                         )
                     }
             }
@@ -141,13 +154,15 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
             // Computed directly: a quadratic always has a value, unlike the nullable log curve.
             val vy = quadratic.a * vx * vx + quadratic.b * vx + quadratic.c
             if (vx in X_MIN..X_MAX && vy in Y_MIN..Y_MAX) {
-                dot(Offset(px(vx), py(vy)), stroke * 2f, Accent2, alpha = revealBeat)
-                chipLabel(
+                dot(Offset(px(vx), py(vy)), MarkerRadius * stroke, Accent2, alpha = revealBeat)
+                chipOutside(
                     text = "(${formatDecimal(vx.toDouble())}, ${formatDecimal(vy.toDouble())})",
-                    center = Offset(px(vx), py(vy) + height * 0.09f),
+                    at = Offset(px(vx), py(vy)),
+                    outward = Offset(0f, 1f),
                     color = Accent2,
-                    factor = 0.085f,
+                    factor = MarkerLabelFactor,
                     alpha = revealBeat,
+                    gap = markerGap,
                 )
             }
         }
@@ -155,9 +170,10 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
 
     visual.points.forEach { point ->
         val alpha = revealBeat
-        dot(Offset(px(point.x), py(point.y)), stroke * 2f, Accent2, alpha = alpha)
+        val at = Offset(px(point.x), py(point.y))
+        dot(at, MarkerRadius * stroke, Accent2, alpha = alpha)
         point.label?.let {
-            chipLabel(it, Offset(px(point.x), py(point.y) - height * 0.08f), Accent2, 0.085f, alpha = alpha)
+            chipOutside(it, at, Offset(0f, -1f), Accent2, MarkerLabelFactor, alpha, markerGap)
         }
     }
 }

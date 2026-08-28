@@ -7,31 +7,46 @@ import com.inspiredandroid.braincup.learn.LearnVisual
 import kotlin.math.exp
 import kotlin.math.roundToInt
 
+/** The size a bar chart's scale readings are set at, and the size a bar's own value takes. */
+private const val GridLabelFactor = 0.075f
+
+private const val BarValueFactor = 0.085f
+
 /** Bars growing to their values, with the mean sliding in afterwards when it is the point. */
 internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
     val values = visual.values
     if (values.isEmpty()) return
     val maxValue = values.max().coerceAtLeast(1)
-    val baseline = height * 0.78f
-    val chartTop = height * 0.14f
+    // The chart is what is left once the values over the bars and the names under them have their
+    // room. Pinned to 0.78 and 0.14 of the panel, the strip under the baseline was half again the
+    // strip over the tallest bar, and the whole chart sat high in its panel because of it.
+    val baseline = height - if (visual.labels.isEmpty()) 0f else labelBand(GridLabelFactor)
+    val chartTop = if (visual.reveal) labelBand(BarValueFactor) else 0f
     val chartHeight = baseline - chartTop
-    val slot = width * 0.84f / values.size
+    // The scale numbers get a gutter of their own width. Centred on a fixed 0.035 of the panel,
+    // "250" ran straight into the grid line it was reading, and off the left edge behind it.
+    val scale = if (visual.gridStep > 0) {
+        (visual.gridStep..maxValue step visual.gridStep).map { it }
+    } else {
+        emptyList()
+    }
+    val gutter = scale.maxOfOrNull { labelBand(it.toString(), GridLabelFactor, bold = false) } ?: 0f
+    val plotLeft = width * 0.02f + gutter
+    val plotRight = width * 0.98f
+    val slot = (plotRight - plotLeft) * 0.94f / values.size
     val barWidth = slot * 0.58f
+    val barsLeft = plotLeft + (plotRight - plotLeft) * 0.03f
 
-    if (visual.gridStep > 0) {
-        var g = visual.gridStep
-        while (g <= maxValue) {
-            val y = baseline - chartHeight * g / maxValue
-            line(Offset(width * 0.06f, y), Offset(width * 0.94f, y), faint, stroke * 0.5f)
-            label(g.toString(), Offset(width * 0.035f, y), faint, 0.075f, bold = false)
-            g += visual.gridStep
-        }
+    scale.forEach { g ->
+        val y = baseline - chartHeight * g / maxValue
+        line(Offset(plotLeft, y), Offset(plotRight, y), faint, stroke * 0.5f)
+        labelLeftOf(g.toString(), Offset(plotLeft, y), faint, GridLabelFactor, bold = false)
     }
 
     values.forEachIndexed { index, value ->
         val t = item(index, values.size)
         val barHeight = chartHeight * value / maxValue * t
-        val x = width * 0.08f + slot * index + (slot - barWidth) / 2f
+        val x = barsLeft + slot * index + (slot - barWidth) / 2f
         val highlighted = index in visual.highlight
         box(
             topLeft = Offset(x, baseline - barHeight),
@@ -40,28 +55,30 @@ internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
             outline = null,
         )
         if (visual.reveal) {
-            label(
+            labelAbove(
                 text = value.toString(),
-                center = Offset(x + barWidth / 2f, baseline - barHeight - height * 0.06f),
+                at = Offset(x + barWidth / 2f, baseline - barHeight),
                 color = if (highlighted) Accent2 else Accent,
-                factor = 0.085f,
+                factor = BarValueFactor,
                 alpha = t,
             )
         }
-        visual.labels.getOrNull(index)?.let {
-            label(it, Offset(x + barWidth / 2f, baseline + height * 0.08f), faint, 0.075f, bold = false)
+        visual.labels.getOrNull(index)?.let { name ->
+            strings.barLabels[name]?.let {
+                labelBelow(it, Offset(x + barWidth / 2f, baseline), faint, GridLabelFactor, bold = false)
+            }
         }
     }
 
-    line(Offset(width * 0.06f, baseline), Offset(width * 0.94f, baseline), ink, stroke)
+    line(Offset(plotLeft, baseline), Offset(plotRight, baseline), ink, stroke)
 
     if (visual.showMean) {
         val mean = values.sum().toFloat() / values.size
         val y = baseline - chartHeight * mean / maxValue
         val reveal = revealBeat
         line(
-            Offset(width * 0.06f, y),
-            Offset(width * 0.06f + (width * 0.88f) * reveal, y),
+            Offset(plotLeft, y),
+            Offset(plotLeft + (plotRight - plotLeft) * reveal, y),
             Accent2,
             stroke * 1.3f,
             dashed = true,
@@ -72,7 +89,7 @@ internal fun VisualScope.drawBarChart(visual: LearnVisual.BarChart) {
         val shortest = values.indices.minByOrNull { values[it] } ?: 0
         chipLabel(
             text = strings.meanValueTemplate.fillIn(formatDecimal(mean.toDouble())),
-            center = Offset(width * 0.08f + slot * shortest + slot / 2f, y - height * 0.09f),
+            center = Offset(barsLeft + slot * shortest + slot / 2f, y - height * 0.09f),
             color = Accent2,
             factor = 0.09f,
             alpha = reveal,

@@ -108,7 +108,9 @@ class LearnUnitRenderTest(
      *
      * A miss renders only on the first question of each kind in the lesson: the struck-through
      * option and the retry note are a layout to check once, while every correct answer carries a
-     * different explanation and so is rendered in full.
+     * different explanation and so is rendered in full. The miss is rendered at two attempts,
+     * because that is where "Show me the answer" joins the retry note, and the reveal it leads to
+     * gets a frame of its own.
      */
     private fun renderLesson(lessonIndex: Int) {
         val lesson = unit.lessons.getOrNull(lessonIndex) ?: return
@@ -139,12 +141,21 @@ class LearnUnitRenderTest(
                     snapLesson(lesson, prefix, LessonScreenState(stepIndex = stepIndex))
                     if (!choiceMissShown) {
                         choiceMissShown = true
+                        val missed = step.wrongOptions(2)
                         snapLesson(
                             lesson,
                             "${prefix}_missed",
                             LessonScreenState(
                                 stepIndex = stepIndex,
-                                answer = LessonAnswer.Missed(listOf(step.wrongOption())),
+                                answer = LessonAnswer.Missed(missed),
+                            ),
+                        )
+                        snapLesson(
+                            lesson,
+                            "${prefix}_revealed",
+                            LessonScreenState(
+                                stepIndex = stepIndex,
+                                answer = LessonAnswer.Revealed(missed),
                             ),
                         )
                     }
@@ -162,12 +173,21 @@ class LearnUnitRenderTest(
                     snapLesson(lesson, prefix, LessonScreenState(stepIndex = stepIndex))
                     if (!numericMissShown) {
                         numericMissShown = true
+                        val missed = step.wrongTypedTwice()
                         snapLesson(
                             lesson,
                             "${prefix}_missed",
                             LessonScreenState(
                                 stepIndex = stepIndex,
-                                answer = LessonAnswer.Missed(listOf(step.wrongTyped())),
+                                answer = LessonAnswer.Missed(missed),
+                            ),
+                        )
+                        snapLesson(
+                            lesson,
+                            "${prefix}_revealed",
+                            LessonScreenState(
+                                stepIndex = stepIndex,
+                                answer = LessonAnswer.Revealed(missed),
                             ),
                         )
                     }

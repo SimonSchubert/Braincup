@@ -523,7 +523,7 @@ internal object GeometryContent {
                         question = words(Res.string.learn_g35_geometry_angles_s6_question),
                         answer = "90",
                         explanation = words(Res.string.learn_g35_geometry_angles_s6_explanation),
-                        visual = AngleFigure(degrees = 90, reveal = false),
+                        visual = AngleFigure(degrees = 90, labels = false, reveal = false),
                     ),
                 ),
             ),
@@ -599,7 +599,7 @@ internal object GeometryContent {
                     Concept(
                         body = words(Res.string.learn_geometry_angles_turns_s5_body),
                         formula = math("360 - 170 = 190"),
-                        visual = AngleFigure(degrees = 170),
+                        visual = AngleFigure(degrees = 170, wholeTurn = true),
                     ),
                     Choice(
                         question = words(Res.string.learn_geometry_angles_turns_s6_question),
@@ -607,7 +607,7 @@ internal object GeometryContent {
                         options = mathOptions("10", "100", "190", "350"),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_geometry_angles_turns_s6_explanation),
-                        visual = AngleFigure(degrees = 170, reveal = false),
+                        visual = AngleFigure(degrees = 170, wholeTurn = true, reveal = false),
                     ),
                 ),
             ),
@@ -1106,7 +1106,6 @@ internal object GeometryContent {
                         ),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_g35_measurement_perimeter_s5_explanation),
-                        visual = AreaGrid(cols = 6, rows = 4, showArea = false, reveal = false),
                     ),
                     Concept(
                         body = words(Res.string.learn_g35_measurement_perimeter_s6_body),
@@ -1269,7 +1268,6 @@ internal object GeometryContent {
                 ),
                 correctIndex = 2,
                 explanation = filled(Res.string.learn_t_squares_squares, "12", "4"),
-                visual = AreaGrid(cols = 4, rows = 3, reveal = false),
             ),
         ),
     )

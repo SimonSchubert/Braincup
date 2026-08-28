@@ -317,10 +317,32 @@ sealed interface LearnVisual {
         override val reveal: Boolean = true,
     ) : LearnVisual
 
-    /** An angle sweeping open to [degrees], optionally with its partner on a straight line. */
+    /**
+     * An angle sweeping open to [degrees], optionally with the partner that completes it.
+     *
+     * [supplement] draws the partner that makes a straight line and [wholeTurn] the one that makes
+     * a full turn. Both arrive on [reveal], because on a question the partner is the answer.
+     */
     data class AngleFigure(
         val degrees: Int,
         val supplement: Boolean = false,
+        /**
+         * Draw the turn the angle is part of as a complete circle behind it.
+         *
+         * A step asking what is left of a full turn has to show the whole turn. With only the
+         * angle's own arc on the panel there is nothing on the screen for "the rest of it" to be
+         * the rest of, and a 170 degree sweep looks like a half circle that has overshot.
+         */
+        val wholeTurn: Boolean = false,
+        /**
+         * Whether the angle writes its own reading beside itself.
+         *
+         * Off for a question that asks for exactly that number. "How many degrees is a right
+         * angle?" was printing its own answer on the figure above the number pad: the reading is
+         * a given on every other step, so no [reveal] setting could tell the two apart. The angle
+         * is still drawn to its true size, which is the part the learner reads it off.
+         */
+        val labels: Boolean = true,
         override val reveal: Boolean = true,
     ) : LearnVisual
 
@@ -332,7 +354,7 @@ sealed interface LearnVisual {
     /** Bars that grow to their values, with an optional mean line. */
     data class BarChart(
         val values: List<Int>,
-        val labels: List<String> = emptyList(),
+        val labels: List<BarLabel> = emptyList(),
         val highlight: Set<Int> = emptySet(),
         val showMean: Boolean = false,
         val gridStep: Int = 0,
@@ -426,6 +448,15 @@ enum class SolidKind { CUBE, SPHERE, CYLINDER, CONE, PRISM, TRIANGULAR_PRISM, PY
 
 /** The flat shapes a [LearnVisual.FlatShape] can draw. */
 enum class FlatShapeKind { OVAL, SEMICIRCLE, STAR }
+
+/**
+ * What a bar on a [LearnVisual.BarChart] stands for.
+ *
+ * Named rather than written out, because the word under a bar is a word the app prints in its own
+ * voice on a screen whose every other label is translated - so it comes out of the same table the
+ * rest of the figure captions do rather than being authored in English on the figure.
+ */
+enum class BarLabel { BEFORE, AFTER, SCORE, TOTAL }
 
 /** Which side of a right triangle a step is solving for. */
 enum class Side { A, B, HYPOTENUSE }

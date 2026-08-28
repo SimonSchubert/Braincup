@@ -17,6 +17,7 @@ import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.learn_rules_guide_intro
 import braincup.composeapp.generated.resources.learn_rules_guide_title
 import com.inspiredandroid.braincup.learn.RulesGuide
+import com.inspiredandroid.braincup.learn.isNotation
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.MathText
@@ -141,6 +142,7 @@ private fun RuleCell(rule: RulesGuide.Entry) {
                     textAlign = TextAlign.Center,
                     modifier = Modifier.fillMaxWidth(),
                     roleColors = true,
+                    notation = example.isNotation,
                 )
             }
         }

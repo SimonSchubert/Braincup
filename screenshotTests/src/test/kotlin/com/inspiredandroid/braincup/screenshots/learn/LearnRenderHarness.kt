@@ -127,6 +127,13 @@ fun LessonStep.kindTag(): String = when (this) {
 fun LessonStep.Choice.wrongOption(): String =
     options.filterIndexed { index, _ -> index != correctIndex }.first().render()
 
+/**
+ * Every option this step rejects, up to [count]. Two of them is what the reveal is offered after,
+ * so it is the state the "Show me the answer" button has to be rendered in.
+ */
+fun LessonStep.Choice.wrongOptions(count: Int): List<String> =
+    options.filterIndexed { index, _ -> index != correctIndex }.take(count).map { it.render() }
+
 /** A catalog run in the render locale, outside composition. */
 fun CatalogText.render(): String = when (this) {
     is CatalogText.Value -> text
@@ -151,3 +158,6 @@ fun LessonStep.Numeric.wrongTyped(): String {
     val candidate = answer.trim() + "1"
     return if (LearnCatalog.matchesNumericAnswer(candidate, answer)) answer.trim() + "7" else candidate
 }
+
+/** Two rejected numbers, which is what the reveal is offered after. */
+fun LessonStep.Numeric.wrongTypedTwice(): List<String> = listOf(wrongTyped(), wrongTyped() + "3")

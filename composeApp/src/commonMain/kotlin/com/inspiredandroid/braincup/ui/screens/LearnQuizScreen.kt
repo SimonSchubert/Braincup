@@ -27,6 +27,7 @@ import com.inspiredandroid.braincup.learn.LearnCatalog
 import com.inspiredandroid.braincup.learn.LearnQuiz
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.QuizQuestion
+import com.inspiredandroid.braincup.learn.isNotation
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
@@ -43,7 +44,6 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
-import com.inspiredandroid.braincup.ui.components.readsAsNotation
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.LearnWrongContainer
@@ -161,8 +161,13 @@ fun LearnQuizScreenContent(
             // Notation goes in a card, exactly as a lesson step's formula does; a prose question
             // stays plain text, exactly as a lesson step's question does. The test was printing
             // both as loose text, so an equation read as a caption on the figure above it.
+            //
+            // Which is which comes off the catalog's own types. Deciding it from the characters
+            // put "A 3-4-5 triangle is enlarged by 4" and "A 90 euro coat is 30% off" on the
+            // formula card in the number face, because a hyphen and a per-cent sign look like
+            // operators to a reader that has only the string.
             val prompt = question.prompt.resolve()
-            if (prompt.readsAsNotation()) {
+            if (question.prompt.isNotation) {
                 LearnFormulaCard(prompt)
             } else {
                 LearnText(
@@ -170,6 +175,7 @@ fun LearnQuizScreenContent(
                     style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.widthIn(max = LearnContentWidth),
+                    notation = false,
                 )
             }
             Spacer(Modifier.height(20.dp))
@@ -183,6 +189,7 @@ fun LearnQuizScreenContent(
                         answers[questionIndex] = index
                         questionIndex++
                     },
+                    notation = question.options[index].isNotation,
                 )
                 Spacer(Modifier.height(8.dp))
             }
@@ -300,6 +307,7 @@ private fun ReviewCard(
                 style = MaterialTheme.typography.titleSmall,
                 color = ink,
                 roleColors = true,
+                notation = question.prompt.isNotation,
             )
             Spacer(Modifier.height(6.dp))
             if (!isCorrect) {
@@ -332,6 +340,7 @@ private fun ReviewCard(
                 text = question.explanation.resolve(),
                 style = MaterialTheme.typography.bodySmall,
                 color = ink.copy(alpha = 0.85f),
+                notation = question.explanation.isNotation,
             )
         }
     }

@@ -49,6 +49,7 @@ import com.inspiredandroid.braincup.ui.theme.displayFontFamily
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import kotlinx.coroutines.delay
 import kotlin.math.PI
+import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.hypot
 import kotlin.math.sin
@@ -350,6 +351,192 @@ internal class VisualScope(
         )
     }
 
+    /**
+     * The clear space a label keeps from whatever it names.
+     *
+     * One measure, whichever side of the figure the label is on. A panel is two and a half times
+     * wider than it is tall, so a count set `height * 0.09` above a grid and its partner set
+     * `width * 0.09` beside it are nowhere near the same distance out - the side one lands three
+     * times further away, and the pair stops reading as two labels on one figure.
+     */
+    val labelGap: Float get() = size.minDimension * 0.05f
+
+    /**
+     * How tall the glyphs in a label of [factor] actually stand.
+     *
+     * A text layout is taller than its ink: the line box carries the room a descender needs under
+     * the baseline and an accent needs over the cap, and a figure's labels are digits and capitals
+     * that use neither. Spacing against the box instead of the ink is what left a number sitting
+     * above a shape looking further from it than the same number beside it.
+     */
+    fun capHeight(factor: Float): Float = size.minDimension * factor * 0.72f
+
+    /**
+     * How much room a label of [factor] needs above or below the thing it names, [gap] included.
+     * A figure adds this to its own extent so the block it centres is the drawing *and* its
+     * labels, not the drawing on its own with the labels hanging off an edge.
+     */
+    fun labelBand(factor: Float = 0.1f, gap: Float = labelGap): Float = gap + capHeight(factor)
+
+    /** The same, for a label set beside what it names: [gap] plus how wide the words run. */
+    fun labelBand(text: String, factor: Float = 0.1f, bold: Boolean = true, gap: Float = labelGap): Float = gap + measure(text, labelStyle(ink, factor, bold)).size.width
+
+    /**
+     * Draw [text] just outside [at], pushed along the unit vector [outward] until its glyphs
+     * stand [gap] clear of the point.
+     *
+     * The push is the label's own half-extent in that direction, so a number set beside a sloping
+     * side keeps exactly the clear space a number set square above a flat one does. Its ink is
+     * centred across the direction too, rather than its line box, which is what keeps a label
+     * beside a figure level with the thing it names.
+     */
+    fun labelOutside(
+        text: String,
+        at: Offset,
+        outward: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        gap: Float = labelGap,
+        bold: Boolean = true,
+    ) {
+        if (alpha <= 0.01f || text.isEmpty()) return
+        val measured = measure(text, labelStyle(color, factor, bold))
+        val cap = capHeight(factor)
+        val push = gap + abs(outward.x) * measured.size.width / 2f + abs(outward.y) * cap / 2f
+        // [label] centres the line box; the glyphs sit high in it, so this puts the ink where the
+        // caller asked for it instead.
+        val inkShift = measured.size.height / 2f - measured.firstBaseline + cap / 2f
+        label(
+            text = text,
+            center = Offset(at.x + outward.x * push, at.y + outward.y * push + inkShift),
+            color = color,
+            factor = factor,
+            alpha = alpha,
+            bold = bold,
+        )
+    }
+
+    /** Draw [text] centred over [at], its glyphs standing [gap] clear of it. */
+    fun labelAbove(
+        text: String,
+        at: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        gap: Float = labelGap,
+        bold: Boolean = true,
+    ) = labelOutside(text, at, Offset(0f, -1f), color, factor, alpha, gap, bold)
+
+    /** Draw [text] centred under [at], its glyphs standing [gap] clear of it. */
+    fun labelBelow(
+        text: String,
+        at: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        gap: Float = labelGap,
+        bold: Boolean = true,
+    ) = labelOutside(text, at, Offset(0f, 1f), color, factor, alpha, gap, bold)
+
+    /** Draw [text] to the left of [at], its right edge [gap] clear of it. */
+    fun labelLeftOf(
+        text: String,
+        at: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        gap: Float = labelGap,
+        bold: Boolean = true,
+    ) = labelOutside(text, at, Offset(-1f, 0f), color, factor, alpha, gap, bold)
+
+    /** Draw [text] to the right of [at], its left edge [gap] clear of it. */
+    fun labelRightOf(
+        text: String,
+        at: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        gap: Float = labelGap,
+        bold: Boolean = true,
+    ) = labelOutside(text, at, Offset(1f, 0f), color, factor, alpha, gap, bold)
+
+    /**
+     * The strip at the foot of the canvas a figure prints its own captions in, and the room that
+     * leaves the drawing above them.
+     *
+     * Every family used to pin its caption to a fraction of the height of its own choosing - 0.86,
+     * 0.88, 0.9, 0.93, 0.94 - and centre its shape on another one. Two things followed. The same
+     * shape sat somewhere else depending on whether the step let it caption itself, and every
+     * uncaptioned figure left the band it would have used as empty panel underneath. Measuring the
+     * strip up from the bottom instead means a captioned figure and a bare one are the same
+     * drawing in the same place, and the shape has the rest of the canvas to be centred in.
+     */
+    fun captions(lines: Int, factor: Float = CaptionFactor): CaptionStrip {
+        if (lines <= 0) return CaptionStrip(height, 0f, height)
+        val strip = captionMetrics(lines, factor)
+        val top = height - labelGap - strip.block
+        return CaptionStrip(top - labelGap, strip.step, top + strip.firstOffset)
+    }
+
+    /**
+     * The same, for a figure whose drawing is [shapeHeight] tall however much room it is given.
+     *
+     * Those are laid out the other way round: the drawing, a gap and the caption lines make one
+     * block, centred on the panel together. A shape drawn at a fixed share of the panel and then
+     * centred in the room above a foot-pinned caption ends up sitting high, with the caption
+     * stranded at the bottom and the space between them wider than either margin.
+     *
+     * Deliberately not an overload of [captions]. `captions(1, spanY)` would have bound `spanY` to
+     * that one's `factor` - both take `(Int, Float)` once the default is applied, and the shorter
+     * signature wins - which set a caption at a hundred times its size and left the whole figure
+     * off the panel. The compiler has nothing to warn about; the name is the only guard.
+     */
+    fun captionsUnder(lines: Int, shapeHeight: Float, factor: Float = CaptionFactor): CaptionStrip {
+        if (lines <= 0) return CaptionStrip(height, 0f, height)
+        val strip = captionMetrics(lines, factor)
+        val top = (height - (shapeHeight + labelGap + strip.block)) / 2f + shapeHeight + labelGap
+        return CaptionStrip(top - labelGap, strip.step, top + strip.firstOffset, shapeHeight)
+    }
+
+    /**
+     * How tall a block of [lines] captions at [factor] is, and how to place one whose ink starts
+     * at a given y.
+     *
+     * Measured in ink rather than in line boxes. A line box carries a descender's worth of room
+     * under the baseline that a caption in capitals never uses, so a strip sized by line boxes
+     * reserved half again what it drew and left every captioned figure sitting high by the
+     * difference.
+     */
+    private fun captionMetrics(lines: Int, factor: Float): CaptionMetrics {
+        val cap = capHeight(factor)
+        val leading = labelGap * 0.5f
+        // The line box's own metrics, which are the font's and so the same whatever the words are.
+        val sample = measure("0", labelStyle(ink, factor))
+        val inkShift = sample.size.height / 2f - sample.firstBaseline + cap / 2f
+        return CaptionMetrics(
+            block = lines * cap + (lines - 1) * leading,
+            step = cap + leading,
+            firstOffset = cap / 2f - inkShift,
+        )
+    }
+
+    /**
+     * How far a shape spanning [points] has to move for its own extent - grown by [pad] for
+     * whatever is drawn around it - to sit in the middle of the room [room] leaves.
+     *
+     * A shape is not its circumcircle. A triangle drawn point-up on a circle of radius r reaches r
+     * above that circle's middle and only half of r below it, so centring the circle leaves the
+     * triangle itself a quarter of its own height high on the panel.
+     */
+    fun placeShape(points: List<Offset>, room: CaptionStrip, pad: Float = 0f): Offset {
+        val minX = points.minOf { it.x } - pad
+        val maxX = points.maxOf { it.x } + pad
+        val minY = points.minOf { it.y } - pad
+        val maxY = points.maxOf { it.y } + pad
+        return Offset(width / 2f - (minX + maxX) / 2f, room.centerY - (minY + maxY) / 2f)
+    }
+
     /** Draw [text] with its left edge at [start], vertically centred. */
     fun labelStart(
         text: String,
@@ -369,6 +556,34 @@ internal class VisualScope(
     }
 
     /**
+     * Draw [text] on its own patch of panel, standing [gap] clear of [at] on the side [outward]
+     * points to.
+     *
+     * [chipLabel] centres its plate on the point, so a chip nudged off a marker by a fixed
+     * fraction of the panel still laid part of that plate over the marker - every plotted point
+     * came out as a half disc with its own name sitting on the missing half. Here the offset is
+     * the plate's own half-extent, so the two never overlap whatever size either is.
+     */
+    fun chipOutside(
+        text: String,
+        at: Offset,
+        outward: Offset,
+        color: Color = ink,
+        factor: Float = 0.1f,
+        alpha: Float = 1f,
+        gap: Float = labelGap,
+        bold: Boolean = true,
+    ) {
+        if (alpha <= 0.01f || text.isEmpty()) return
+        val measured = measure(text, labelStyle(color, factor, bold))
+        val padding = measured.size.height * ChipPadding
+        val push = gap +
+            abs(outward.x) * (measured.size.width / 2f + padding) +
+            abs(outward.y) * (measured.size.height / 2f + padding)
+        chipLabel(text, Offset(at.x + outward.x * push, at.y + outward.y * push), color, factor, alpha, bold)
+    }
+
+    /**
      * Draw [text] centred on [center], on a patch of the panel's own colour.
      *
      * For the annotations that are anchored to the figure's geometry rather than placed in clear
@@ -385,7 +600,7 @@ internal class VisualScope(
     ) {
         if (alpha <= 0.01f || text.isEmpty()) return
         val measured = measure(text, labelStyle(color, factor, bold))
-        val padding = measured.size.height * 0.16f
+        val padding = measured.size.height * ChipPadding
         val left = insideCanvas(center.x - measured.size.width / 2f, measured.size.width)
         box(
             topLeft = Offset(left - padding, center.y - measured.size.height / 2f - padding),
@@ -554,8 +769,55 @@ internal class VisualScope(
     ) = Rect(width * left, height * top, width * right, height * bottom)
 }
 
+/** The size a figure's own caption is set at, unless the family asks for another. */
+internal const val CaptionFactor = 0.095f
+
+/** How much panel a chip keeps round its text, as a share of the text's own height. */
+private const val ChipPadding = 0.16f
+
+/**
+ * The shape of a caption block before it is told where to start: how tall it stands, how far
+ * apart its lines are, and where the first line's centre falls relative to the top of its ink.
+ */
+private class CaptionMetrics(val block: Float, val step: Float, val firstOffset: Float)
+
+/**
+ * Where a figure's captions go, and where the drawing above them has to stop.
+ *
+ * Built by [VisualScope.captions]. A figure centres its shape on `figureBottom / 2` and prints
+ * line `i` at `y(i)`, so the whole thing - shape and captions together - sits centred on the
+ * panel however many lines the step allows it.
+ */
+internal class CaptionStrip(
+    /** The lowest a figure may draw: the top of the caption block, less its clearance. */
+    val figureBottom: Float,
+    private val lineHeight: Float,
+    private val firstY: Float,
+    /** Set only by the overload that lays the drawing and its captions out as one block. */
+    private val shapeHeight: Float? = null,
+) {
+    /** Where the [index]th caption line is centred. */
+    fun y(index: Int): Float = firstY + lineHeight * index
+
+    /**
+     * Where the middle of the drawing goes: the middle of its own band when the figure has said
+     * how tall it is, and the middle of the whole room when it will fill whatever it is given.
+     */
+    val centerY: Float get() = shapeHeight?.let { figureBottom - it / 2f } ?: (figureBottom / 2f)
+}
+
 internal val Accent: Color get() = Primary
 internal val Accent2: Color get() = WorkingBlue
+
+/**
+ * What a figure's own arithmetic comes to, for the figures that write their sum out.
+ *
+ * The same green the solved formula prints its `{c:}` in and the correct option tile turns, so a
+ * value reads as the answer in the picture and in the words beside it rather than only in one of
+ * them. [VisualScope.resultColor] is the other half of this: that one colours a value the learner
+ * put forward, this one a total the figure works out itself.
+ */
+internal val AnswerInk: Color get() = SuccessGreen
 
 private fun VisualScope.draw(visual: LearnVisual) {
     when (visual) {

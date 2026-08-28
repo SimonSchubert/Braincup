@@ -95,8 +95,11 @@ private val VisualScope.marksAlpha: Float get() = ((progress - 0.75f) * 4f).coer
  */
 internal fun VisualScope.drawTriangle(visual: LearnVisual.Triangle) {
     val scale = size.minDimension * 0.34f
-    val center = Offset(width / 2f, height * 0.47f)
-    val points = trianglePoints(visual.kind).map { Offset(center.x + it.x * scale, center.y + it.y * scale) }
+    // None of the three sits square on its box - the isosceles reaches 0.95 up and 0.55 down - so
+    // the shape is centred on what it actually spans rather than on the box it is drawn in.
+    val raw = trianglePoints(visual.kind).map { Offset(it.x * scale, it.y * scale) }
+    val shift = placeShape(raw, captions(0))
+    val points = raw.map { it + shift }
 
     ghostOutline(points)
     drawSidesInTurn(points)
@@ -150,8 +153,9 @@ private fun parallelSideGroups(kind: QuadKind): List<List<Int>> = when (kind) {
  */
 internal fun VisualScope.drawQuadrilateral(visual: LearnVisual.Quadrilateral) {
     val scale = size.minDimension * 0.33f
-    val center = Offset(width / 2f, height * 0.47f)
-    val points = quadPoints(visual.kind).map { Offset(center.x + it.x * scale, center.y + it.y * scale) }
+    val raw = quadPoints(visual.kind).map { Offset(it.x * scale, it.y * scale) }
+    val shift = placeShape(raw, captions(0))
+    val points = raw.map { it + shift }
 
     ghostOutline(points)
     drawSidesInTurn(points)
@@ -229,7 +233,7 @@ private val CyclicQuadCorners = listOf(200f, 268f, 32f, 150f)
  */
 internal fun VisualScope.drawCyclicQuad(visual: LearnVisual.CyclicQuad) {
     val radius = size.minDimension * 0.36f
-    val center = Offset(width / 2f, height * 0.47f)
+    val center = Offset(width / 2f, height / 2f)
     val points = CyclicQuadCorners.map { deg -> polar(center, radius, deg, flipY = false) }
 
     circle(center, radius, outline = faint)
@@ -257,6 +261,16 @@ internal fun VisualScope.drawCyclicQuad(visual: LearnVisual.CyclicQuad) {
     }
 }
 
+/** How far past a corner its number stands, as a share of the polygon's radius. */
+private const val CornerLabelReach = 0.26f
+
+private const val CornerLabelFactor = 0.09f
+
+/** The size a polygon's and a solid's own captions are set at: a shade over the standard. */
+private const val PolygonCaptionFactor = 0.1f
+
+private const val SolidCaptionFactor = 0.1f
+
 /**
  * A real polygon of the size the question asks about, drawn one side at a time with its corners
  * numbered as they arrive — so "how many sides does a pentagon have" answers itself.
@@ -264,8 +278,23 @@ internal fun VisualScope.drawCyclicQuad(visual: LearnVisual.CyclicQuad) {
 internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
     val sides = visual.drawnSides
     val radius = size.minDimension * 0.34f
-    val center = Offset(width / 2f, height * 0.46f)
-    val points = polygonPoints(sides, center, radius)
+    // A polygon with an odd number of sides stands on an edge and points up, so it reaches a full
+    // radius over the middle of its circle and about half of one under it. The numbered corners
+    // stand outside the shape again. Both are part of what gets centred.
+    val raw = polygonPoints(sides, Offset.Zero, radius)
+    val half = capHeight(CornerLabelFactor) / 2f
+    val extent = if (visual.countCorners) {
+        raw + raw.flatMap {
+            val mark = it * (1f + CornerLabelReach)
+            listOf(Offset(mark.x, mark.y - half), Offset(mark.x, mark.y + half))
+        }
+    } else {
+        raw
+    }
+    val spanY = extent.maxOf { it.y } - extent.minOf { it.y }
+    val room = captionsUnder(if (visual.reveal) 1 else 0, spanY, PolygonCaptionFactor)
+    val center = placeShape(extent, room)
+    val points = raw.map { it + center }
 
     ghostOutline(points)
     drawSidesInTurn(points)
@@ -280,39 +309,63 @@ internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
             val outward = Offset(from.x - center.x, from.y - center.y)
             val length = hypot(outward.x, outward.y).coerceAtLeast(1f)
             val at = Offset(
-                from.x + outward.x / length * radius * 0.26f,
-                from.y + outward.y / length * radius * 0.26f,
+                from.x + outward.x / length * radius * CornerLabelReach,
+                from.y + outward.y / length * radius * CornerLabelReach,
             )
             dot(from, stroke * 1.6f, Accent2, alpha = cornerAlpha)
-            label("${i + 1}", at, Accent2, 0.09f, alpha = cornerAlpha)
+            label("${i + 1}", at, Accent2, CornerLabelFactor, alpha = cornerAlpha)
         }
     }
 
     if (!visual.reveal) return
     val caption = revealBeat
-    val captionY = height * 0.93f
+    val captionY = room.y(0)
     // Each count is written in the colour of the thing it counts: the sides in the accent the shape
     // is drawn in, the corners in the green their dots are marked with. One colour across the whole
     // line leaves the reader working out for themselves which half names which part of the figure.
     if (!visual.countCorners) {
-        label(strings.sidesAndCorners, Offset(width / 2f, captionY), Accent, 0.1f, alpha = caption)
+        label(strings.sidesAndCorners, Offset(width / 2f, captionY), Accent, PolygonCaptionFactor, alpha = caption)
         return
     }
     val sidesText = strings.sides
     val cornersText = strings.corners
-    val captionStyle = labelStyle(ink, 0.1f)
+    val captionStyle = labelStyle(ink, PolygonCaptionFactor)
     val sidesWidth = measure(sidesText, captionStyle).size.width.toFloat()
     val cornersWidth = measure(cornersText, captionStyle).size.width.toFloat()
     val space = size.minDimension * 0.03f
     val captionLeft = width / 2f - (sidesWidth + space + cornersWidth) / 2f
-    labelStart(sidesText, Offset(captionLeft, captionY), Accent, 0.1f, alpha = caption)
-    labelStart(cornersText, Offset(captionLeft + sidesWidth + space, captionY), Accent2, 0.1f, alpha = caption)
+    labelStart(sidesText, Offset(captionLeft, captionY), Accent, PolygonCaptionFactor, alpha = caption)
+    labelStart(
+        text = cornersText,
+        start = Offset(captionLeft + sidesWidth + space, captionY),
+        color = Accent2,
+        factor = PolygonCaptionFactor,
+        alpha = caption,
+    )
+}
+
+/**
+ * How far each solid reaches above and below the point it is drawn around, in units of its size.
+ *
+ * Only the first three are drawn symmetrically about that point. A triangular prism is set back
+ * and up from it by half its size, so centring the point rather than the solid leaves the prism
+ * sitting a third of its own height high while the caption stays at the foot of the panel.
+ */
+private fun solidSpan(kind: SolidKind): Pair<Float, Float> = when (kind) {
+    SolidKind.CUBE, SolidKind.PRISM -> -0.71f to 0.71f
+    SolidKind.SPHERE -> -0.9f to 0.9f
+    SolidKind.CYLINDER -> -0.85f to 0.85f
+    SolidKind.CONE -> -0.9f to 0.8f
+    SolidKind.TRIANGULAR_PRISM -> -1.375f to 0.375f
+    SolidKind.PYRAMID -> -0.95f to 0.7f
 }
 
 /** One solid, drawn in the way that makes its faces and edges countable. */
 internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
     val s = size.minDimension * 0.34f
-    val center = Offset(width / 2f, height * 0.48f)
+    val (up, down) = solidSpan(visual.kind)
+    val room = captionsUnder(if (visual.reveal) 1 else 0, (down - up) * s, SolidCaptionFactor)
+    val center = Offset(width / 2f, room.centerY - (up + down) / 2f * s)
     val depth = s * 0.42f
     val outline = ink.copy(alpha = progress)
     // Every solid is tinted the same, so a cube and a cylinder read as the same kind of object.
@@ -439,9 +492,9 @@ internal fun VisualScope.drawSolid(visual: LearnVisual.Solid) {
     if (visual.reveal) {
         label(
             text = table.getValue(visual.kind),
-            center = Offset(width / 2f, height * 0.93f),
+            center = Offset(width / 2f, room.y(0)),
             color = Accent,
-            factor = 0.1f,
+            factor = SolidCaptionFactor,
             alpha = revealBeat,
         )
     }
@@ -465,7 +518,7 @@ private fun starPoints(center: Offset, radius: Float, points: Int): List<Offset>
  * it was cut along, and the star one point at a time.
  */
 internal fun VisualScope.drawFlatShape(visual: LearnVisual.FlatShape) {
-    val center = Offset(width / 2f, height * 0.5f)
+    val center = Offset(width / 2f, height / 2f)
     val radius = size.minDimension * 0.36f
 
     when (visual.kind) {
@@ -517,10 +570,23 @@ internal fun VisualScope.drawFlatShape(visual: LearnVisual.FlatShape) {
     }
 }
 
+/** How far past the shape a fold line runs, as a share of its radius. */
+private const val FoldLineReach = 1.12f
+
 /** A shape with its fold lines swinging in one at a time. */
 internal fun VisualScope.drawSymmetry(visual: LearnVisual.Symmetry) {
-    val center = Offset(width / 2f, height * 0.46f)
     val radius = size.minDimension * 0.33f
+    // The fold lines run out past a polygon, so they are what the figure actually spans; a
+    // rectangle's stop on its own edges. Either way the shape and the count under it make one
+    // block, centred together.
+    val spanY = if (visual.rectangle) {
+        radius * 1.05f
+    } else {
+        val corners = polygonPoints(visual.sides.coerceAtLeast(3), Offset.Zero, radius)
+        maxOf(corners.maxOf { it.y } - corners.minOf { it.y }, radius * 2f * FoldLineReach)
+    }
+    val room = captionsUnder(if (visual.reveal) 1 else 0, spanY)
+    val center = Offset(width / 2f, room.centerY)
 
     if (visual.rectangle) {
         val w = radius * 1.7f
@@ -541,12 +607,12 @@ internal fun VisualScope.drawSymmetry(visual: LearnVisual.Symmetry) {
         repeat(visual.lines) { i ->
             val angle = -PI / 2 + i * PI / visual.lines
             val from = Offset(
-                center.x - (radius * 1.12f * cos(angle)).toFloat(),
-                center.y - (radius * 1.12f * sin(angle)).toFloat(),
+                center.x - (radius * FoldLineReach * cos(angle)).toFloat(),
+                center.y - (radius * FoldLineReach * sin(angle)).toFloat(),
             )
             val to = Offset(
-                center.x + (radius * 1.12f * cos(angle)).toFloat(),
-                center.y + (radius * 1.12f * sin(angle)).toFloat(),
+                center.x + (radius * FoldLineReach * cos(angle)).toFloat(),
+                center.y + (radius * FoldLineReach * sin(angle)).toFloat(),
             )
             line(from, to, Accent2, stroke * 1.1f, dashed = true, alpha = item(i, visual.lines))
         }
@@ -555,20 +621,44 @@ internal fun VisualScope.drawSymmetry(visual: LearnVisual.Symmetry) {
     if (!visual.reveal) return
     label(
         text = strings.symmetryLines,
-        center = Offset(width / 2f, height * 0.93f),
+        center = Offset(width / 2f, room.y(0)),
         color = Accent2,
-        factor = 0.1f,
+        factor = CaptionFactor,
         alpha = revealBeat,
     )
 }
 
-/** Unit squares filling a rectangle, labelled with area, perimeter, or both. */
+/** The size the two counts on an area grid's sides are set at. */
+private const val AreaCountFactor = 0.09f
+
+/**
+ * Unit squares filling a rectangle, labelled with area, perimeter, or both.
+ *
+ * The two counts are the same annotation on two sides of one figure, so they keep the same clear
+ * space from it, and the grid is centred with them rather than on its own - the count down the
+ * side is part of the drawing, not something hanging off its left edge.
+ */
 internal fun VisualScope.drawAreaGrid(visual: LearnVisual.AreaGrid) {
     val cols = visual.cols.coerceAtLeast(1)
     val rows = visual.rows.coerceAtLeast(1)
-    val cell = min(width * 0.66f / cols, height * 0.56f / rows)
-    val left = width / 2f - cell * cols / 2f
-    val top = height * 0.44f - cell * rows / 2f
+    val texts = buildList {
+        if (visual.reveal && visual.showArea) add(strings.areaTemplate.fillIn(cols * rows, visual.unit))
+        if (visual.reveal && visual.showPerimeter) add(strings.perimeterTemplate.fillIn(2 * (cols + rows), visual.unit))
+    }
+    val room = captions(texts.size)
+
+    val colText = "$cols ${visual.unit}".trim()
+    val rowText = "$rows ${visual.unit}".trim()
+    val sideBand = labelBand(rowText, AreaCountFactor)
+    val topBand = labelBand(AreaCountFactor)
+
+    val cell = min((width * 0.94f - sideBand) / cols, (room.figureBottom * 0.92f - topBand) / rows)
+    val gridWidth = cell * cols
+    val gridHeight = cell * rows
+    // Both counts belong to the block that gets centred: one adds its width across, the other its
+    // height down, and the grid takes what is left.
+    val left = (width - sideBand - gridWidth) / 2f + sideBand
+    val top = room.centerY - (topBand + gridHeight) / 2f + topBand
 
     repeat(rows) { r ->
         repeat(cols) { c ->
@@ -582,32 +672,44 @@ internal fun VisualScope.drawAreaGrid(visual: LearnVisual.AreaGrid) {
         }
     }
     // The outline is the perimeter, so it takes the colour of the caption that measures it.
-    box(Offset(left, top), Size(cell * cols, cell * rows), null, if (visual.showPerimeter) Accent2 else ink)
+    box(Offset(left, top), Size(gridWidth, gridHeight), null, if (visual.showPerimeter) Accent2 else ink)
 
-    label("$cols ${visual.unit}", Offset(left + cell * cols / 2f, top - height * 0.09f), ink, 0.09f)
-    label("$rows ${visual.unit}", Offset(left - width * 0.09f, top + cell * rows / 2f), ink, 0.09f)
+    labelAbove(colText, Offset(left + gridWidth / 2f, top), ink, AreaCountFactor)
+    labelLeftOf(rowText, Offset(left, top + gridHeight / 2f), ink, AreaCountFactor)
 
-    if (!visual.reveal) return
-    val texts = buildList {
-        if (visual.showArea) add(strings.areaTemplate.fillIn(cols * rows, visual.unit))
-        if (visual.showPerimeter) add(strings.perimeterTemplate.fillIn(2 * (cols + rows), visual.unit))
-    }
     texts.forEachIndexed { i, text ->
         label(
             text = text,
-            center = Offset(width / 2f, height * (0.88f + i * 0.09f)),
+            center = Offset(width / 2f, room.y(i)),
             color = if (i == 0 && visual.showArea) Accent else Accent2,
-            factor = 0.095f,
+            factor = CaptionFactor,
             alpha = revealBeat,
         )
     }
 }
+
+/** The size a right triangle's side readings are set at. */
+private const val SideLabelFactor = 0.1f
 
 /** A right triangle to scale, optionally with the three squares of Pythagoras growing off it. */
 internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
     val a = visual.a.coerceAtLeast(1).toFloat()
     val b = visual.b.coerceAtLeast(1).toFloat()
     val c = hypot(a, b)
+    val hypLabel = if (visual.unknown == Side.HYPOTENUSE) "?" else formatDecimal(c.toDouble())
+    val aLabel = if (visual.unknown == Side.A) "?" else visual.a.toString()
+    val bLabel = if (visual.unknown == Side.B) "?" else visual.b.toString()
+    // Without the squares a side label sits outside the triangle, which is where there is room.
+    // With them, outside is the middle of a square that carries its own number, so the labels move
+    // inside the triangle instead - the one part of the figure that is always empty - and the
+    // shape gets the whole panel.
+    val outside = visual.labels && !visual.showSquares
+    val under = if (outside) labelBand(SideLabelFactor) else 0f
+    val beside = if (outside) labelBand(bLabel, SideLabelFactor) else 0f
+    // The hypotenuse reading stands off the slope, so on a flat triangle it reaches above the apex
+    // and on a steep one past the far corner. A band each way is what keeps it on the panel.
+    val over = if (outside) labelBand(SideLabelFactor) else 0f
+    val alongside = if (outside) labelBand(hypLabel, SideLabelFactor) else 0f
     // With the squares drawn, the figure reaches legB to the left of the corner and legA below it,
     // so the whole thing spans (a + b) units in both directions. Reserving (a + a) across and
     // (b + b) down measured a shape that is not this one: a 12-9 triangle came out at 40% of the
@@ -616,15 +718,31 @@ internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
     val unit = if (visual.showSquares) {
         min(width, height) * 0.86f / (a + b)
     } else {
-        min(width * 0.62f / a, height * 0.62f / b)
+        min((width * 0.94f - beside - alongside) / a, (height * 0.94f - under - over) / b)
     }
     val legA = a * unit
     val legB = b * unit
+    // Where the hypotenuse reading actually lands. The allowance above sized the triangle, but
+    // centring on the allowance rather than the reading left the figure low and off to the left by
+    // the difference. Both are measured out from the right-angle corner.
+    val slope = hypot(legA, legB).coerceAtLeast(1f)
+    val outward = Offset(legB / slope, -legA / slope)
+    val hypWide = if (outside) alongside - labelGap else 0f
+    val hypCap = capHeight(SideLabelFactor)
+    val hypPush = if (outside) labelGap + outward.x * hypWide / 2f - outward.y * hypCap / 2f else 0f
+    val reachRight = maxOf(legA, legA / 2f + outward.x * hypPush + hypWide / 2f)
+    val reachUp = maxOf(legB, legB / 2f - outward.y * hypPush + hypCap / 2f)
     val corner = if (visual.showSquares) {
         // Centre the whole span - square, triangle, square - rather than the triangle alone.
         Offset(width / 2f - (legA - legB) / 2f, height / 2f - (legA - legB) / 2f)
     } else {
-        Offset(width / 2f - legA / 2f, height * 0.62f + legB / 2f)
+        // Centre what is actually drawn: the triangle *and* the readings standing off its sides.
+        // Hanging the labels off a centred triangle is what pushed the base label past the foot of
+        // the panel while a third of the panel sat empty above the apex.
+        Offset(
+            (width - beside - reachRight) / 2f + beside,
+            (height - reachUp - under) / 2f + reachUp,
+        )
     }
     val right = Offset(corner.x + legA, corner.y)
     val top = Offset(corner.x, corner.y - legB)
@@ -673,21 +791,27 @@ internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
     box(Offset(corner.x, corner.y - marker), Size(marker, marker), null, Accent2)
 
     if (visual.labels) {
-        val hypLabel = if (visual.unknown == Side.HYPOTENUSE) "?" else formatDecimal(c.toDouble())
-        val aLabel = if (visual.unknown == Side.A) "?" else visual.a.toString()
-        val bLabel = if (visual.unknown == Side.B) "?" else visual.b.toString()
-        // Without the squares a side label sits outside the triangle, which is where there is room.
-        // With them, outside is the middle of a square that carries its own number, so the labels
-        // move inside the triangle instead - the one part of the figure that is always empty.
-        val alongA = if (visual.showSquares) -height * 0.07f else height * 0.07f
-        val alongB = if (visual.showSquares) width * 0.03f else -width * 0.05f
-        label(aLabel, Offset(corner.x + legA / 2f, corner.y + alongA), ink, 0.1f)
-        label(bLabel, Offset(corner.x + alongB, corner.y - legB / 2f), ink, 0.1f)
-        label(
+        // The interior is above the base and to the right of the upright, so the same two calls
+        // read a side from inside the triangle or from outside it depending on which side of it
+        // there is room on. Both keep the one clear space every label on a figure keeps.
+        val onBase = Offset(corner.x + legA / 2f, corner.y)
+        val onUpright = Offset(corner.x, corner.y - legB / 2f)
+        if (outside) {
+            labelBelow(aLabel, onBase, ink, SideLabelFactor)
+            labelLeftOf(bLabel, onUpright, ink, SideLabelFactor)
+        } else {
+            labelAbove(aLabel, onBase, ink, SideLabelFactor)
+            labelRightOf(bLabel, onUpright, ink, SideLabelFactor)
+        }
+        // The hypotenuse reading stands off the slope itself, on the empty side of it, so it keeps
+        // its distance whatever shape the triangle is - a fixed nudge up and to the right had it
+        // touching the slope on a steep triangle and adrift from it on a flat one.
+        labelOutside(
             text = hypLabel,
-            center = Offset((right.x + top.x) / 2f + width * 0.045f, (right.y + top.y) / 2f - height * 0.03f),
+            at = Offset((right.x + top.x) / 2f, (right.y + top.y) / 2f),
+            outward = outward,
             color = Accent,
-            factor = 0.1f,
+            factor = SideLabelFactor,
             alpha = revealBeat,
         )
     }
@@ -695,14 +819,28 @@ internal fun VisualScope.drawRightTriangle(visual: LearnVisual.RightTriangle) {
     visual.angle?.let { degrees ->
         val sweep = degrees.toFloat() * progress
         val arcRadius = min(legA, legB) * 0.42f
+        // The wedge at the far end of the base, between the base running back to the right angle
+        // and the hypotenuse climbing away from it. Canvas angles start at three o'clock and grow
+        // clockwise on a downward y-axis, so the base is 180 and the hypotenuse is 180 + degrees:
+        // the sweep is positive. Negative swept the same wedge below the base instead, drawing the
+        // angle outside the triangle it belongs to - and left the reading where it had always
+        // been, because that was already placed up the bisector of the wedge drawn the right way.
         arc(
             center = right,
             radius = arcRadius,
             startAngle = 180f,
-            sweepAngle = -sweep,
+            sweepAngle = sweep,
             outline = Accent2,
         )
-        label("$degrees", Offset(right.x - arcRadius * 1.5f, right.y - arcRadius * 0.5f), Accent2, 0.09f)
+        // Up the bisector of that same wedge, so the reading stays inside the angle it names
+        // however wide the angle opens. A fixed nudge back along the base only ever pointed at
+        // one shape of triangle.
+        label(
+            text = "$degrees",
+            center = polar(right, arcRadius * 1.7f, 180f + degrees / 2f, flipY = false),
+            color = Accent2,
+            factor = 0.09f,
+        )
     }
 }
 
@@ -747,7 +885,7 @@ private fun VisualScope.angleReading(
 
 internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
     val radius = size.minDimension * 0.36f
-    val center = Offset(width / 2f, height * 0.47f)
+    val center = Offset(width / 2f, height / 2f)
 
     if (visual.fillArea) {
         circle(center, radius * progress, fill = Accent.copy(alpha = 0.3f * progress), outline = null)
@@ -772,13 +910,13 @@ internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
             stroke * 1.4f,
         )
         visual.radius?.let {
-            label("d = ${it * 2}", Offset(center.x, center.y + height * 0.1f), Accent2, 0.1f, alpha = revealBeat)
+            labelBelow("d = ${it * 2}", center, Accent2, 0.1f, alpha = revealBeat)
         }
     }
     if (visual.showRadius && !visual.showDiameter) {
         line(center, Offset(center.x + radius * progress, center.y), Accent, stroke * 1.4f)
         visual.radius?.let {
-            label("r = $it", Offset(center.x + radius / 2f, center.y - height * 0.08f), Accent, 0.1f)
+            labelAbove("r = $it", Offset(center.x + radius / 2f, center.y), Accent, 0.1f)
         }
     }
     visual.centreAngle?.let { degrees ->
@@ -844,11 +982,46 @@ internal fun VisualScope.drawCircleFigure(visual: LearnVisual.CircleFigure) {
     dot(center, stroke * 1.4f, ink)
 }
 
-/** An angle sweeping open to its size, with its partner on the straight line when asked for. */
+/** How far out along its bisector a wedge's reading sits, as a share of the arm. */
+private const val WedgeLabelReach = 0.3f * 1.6f
+
+/** An angle sweeping open to its size, with the partner that completes it when asked for. */
 internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
-    val origin = Offset(width * 0.5f, height * 0.74f)
     val arm = size.minDimension * 0.62f
     val degrees = visual.degrees.coerceIn(1, 179)
+    // What the angle is a part of: a straight line, or the whole turn about the point.
+    val whole = if (visual.wholeTurn) 360f else 180f
+    val partner = (visual.supplement || visual.wholeTurn) && visual.reveal
+    val sweepRadius = arm * WedgeLabelReach / 1.6f
+
+    // Everything an angle draws stands on its baseline, so the baseline is placed from how far
+    // above it the figure actually reaches - which is the arm on a sharp angle and, once the arm
+    // has swung most of the way round, the reading sitting up the bisector instead. Pinning the
+    // baseline to 0.74 of the height left every one of these with a quarter of the panel empty
+    // underneath it.
+    val radians = degrees * PI.toFloat() / 180f
+    // The reading's own half-height: what it needs over the arm's tip is half a line of it,
+    // not a whole label band. A band put a fifth of the panel of nothing above a wide angle.
+    val readingBand = capHeight(WedgeFactor) / 2f
+    val rise = maxOf(
+        arm * sin(radians),
+        arm * WedgeLabelReach * sin(radians / 2f) + readingBand,
+        if (partner) arm * WedgeLabelReach * cos(radians / 2f) + readingBand else 0f,
+    )
+    // Nothing reaches below the baseline except a whole turn: its circle closes underneath, and
+    // the reading for the part of the turn that is left sits down there with it. Every other
+    // figure leaves this at zero and the placement is the one it always was.
+    val drop = if (visual.wholeTurn) {
+        maxOf(sweepRadius, if (partner) arm * WedgeLabelReach + readingBand else 0f)
+    } else {
+        0f
+    }
+    // The drawing is as tall as it reaches either side of its baseline, and the sum under it goes
+    // directly below that: centred on the panel as one block, rather than the figure centred in
+    // the room above a caption pinned to the foot, which left a sharp angle high and the sum
+    // stranded under a band of empty panel.
+    val room = captionsUnder(if (partner) 1 else 0, rise + drop)
+    val origin = Offset(width * 0.5f, room.centerY + (rise - drop) / 2f)
 
     line(Offset(origin.x - arm, origin.y), Offset(origin.x + arm, origin.y), ink, stroke * 1.2f)
 
@@ -859,9 +1032,15 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
     // Both parts of a straight line are drawn on one radius, so together they read as the single
     // half turn the caption adds them up to. Two radii made the pair look like two unrelated
     // angles that happened to share an arm.
-    val sweepRadius = arm * 0.3f
-    val supplement = visual.supplement && visual.reveal
-    val otherSweep = (180f - swept).coerceAtLeast(0f)
+    val otherSweep = (whole - swept).coerceAtLeast(0f)
+
+    // The turn itself, before anything is measured off it. A step asking what is left of a full
+    // turn needs the whole turn on the panel: with only the angle's own arc drawn there is
+    // nothing on the screen for "the rest of it" to be the rest of, and a 170 degree sweep just
+    // reads as a half circle that has overshot.
+    if (visual.wholeTurn) {
+        arc(center = origin, radius = sweepRadius, startAngle = 0f, sweepAngle = 360f, outline = faint)
+    }
 
     arc(
         center = origin,
@@ -870,7 +1049,7 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
         sweepAngle = swept,
         outline = Accent,
     )
-    if (supplement) {
+    if (partner) {
         arc(
             center = origin,
             radius = sweepRadius,
@@ -884,10 +1063,15 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
     // drawn first it had the arc end blending into it instead of stopping cleanly against it.
     line(origin, tip, Accent, stroke * 1.4f)
 
-    labelWedge("$degrees", origin, 180f, swept, sweepRadius * 1.6f, Accent, stage(1, 3))
+    // The angle's own reading is a given on every step but one - on "the angle is 130, what is
+    // the other one?" it is the 130 - so it does not follow `reveal`. The single step that asks
+    // for this number itself turns it off in the catalog instead. See `AngleFigure.labels`.
+    if (visual.labels) {
+        labelWedge("$degrees", origin, 180f, swept, sweepRadius * 1.6f, Accent, stage(1, 3))
+    }
 
-    if (supplement) {
-        val other = 180 - degrees
+    if (partner) {
+        val other = whole.toInt() - degrees
         labelWedge(
             text = "$other",
             origin = origin,
@@ -903,15 +1087,23 @@ internal fun VisualScope.drawAngleFigure(visual: LearnVisual.AngleFigure) {
                 "$degrees" to Accent,
                 " + " to null,
                 "$other" to Accent2,
-                " = 180" to null,
+                " = " to null,
+                // What the sum comes to, in the answer green - the same green the "a + b = 180"
+                // card under this figure prints its 180 in. Left in the structure ink, the one
+                // number the two halves are being added up to was the only value on the step
+                // whose colour said nothing.
+                "${whole.toInt()}" to AnswerInk,
             ),
-            center = Offset(width / 2f, height * 0.94f),
+            center = Offset(width / 2f, room.y(0)),
             color = ink,
-            factor = 0.095f,
+            factor = CaptionFactor,
             alpha = revealBeat,
         )
     }
 }
+
+/** The size an angle figure's readings are set at. */
+private const val WedgeFactor = 0.1f
 
 /**
  * An angle's number, set on the bisector of its wedge and far enough out that both arms have
@@ -935,7 +1127,7 @@ private fun VisualScope.labelWedge(
             origin.y + (radius * sin(middle)).toFloat(),
         ),
         color = color,
-        factor = 0.1f,
+        factor = WedgeFactor,
         alpha = alpha,
     )
 }

@@ -2,6 +2,7 @@ package com.inspiredandroid.braincup.learn.content
 
 import braincup.composeapp.generated.resources.*
 import braincup.composeapp.generated.resources.Res
+import com.inspiredandroid.braincup.learn.BarLabel
 import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.LearnVisual.AreaGrid
@@ -1382,7 +1383,7 @@ internal object ArithmeticContent {
                     Concept(
                         body = words(Res.string.learn_arithmetic_percent_finding_s1_body),
                         formula = math("{b:15} / {a:50} x 100 = 30"),
-                        visual = BarChart(values = listOf(50, 65), labels = listOf("before", "after"), gridStep = 10),
+                        visual = BarChart(values = listOf(50, 65), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 10),
                     ),
                     Worked(
                         problem = words(Res.string.learn_arithmetic_percent_finding_s2_problem),
@@ -1393,32 +1394,32 @@ internal object ArithmeticContent {
                             math("x 100."),
                         ),
                         result = words(Res.string.learn_arithmetic_percent_finding_s2_result),
-                        visual = BarChart(values = listOf(50, 65), labels = listOf("before", "after"), gridStep = 10),
+                        visual = BarChart(values = listOf(50, 65), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 10),
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_percent_finding_s3_body),
-                        visual = BarChart(values = listOf(80, 60), labels = listOf("before", "after"), gridStep = 20),
+                        visual = BarChart(values = listOf(80, 60), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 20),
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_percent_finding_s4_question),
                         options = mathOptions("20%", "25%", "30%", "33%"),
                         correctIndex = 1,
                         explanation = words(Res.string.learn_arithmetic_percent_finding_s4_explanation),
-                        visual = BarChart(values = listOf(80, 60), labels = listOf("before", "after"), gridStep = 20, reveal = false),
+                        visual = BarChart(values = listOf(80, 60), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 20, reveal = false),
                     ),
                     Numeric(
                         question = words(Res.string.learn_arithmetic_percent_finding_s5_question),
                         formula = math("{a:18} / {b:24} x 100 = ?"),
                         answer = "75",
                         explanation = words(Res.string.learn_arithmetic_percent_finding_s5_explanation),
-                        visual = BarChart(values = listOf(18, 24), labels = listOf("score", "total"), gridStep = 6, reveal = false),
+                        visual = BarChart(values = listOf(18, 24), labels = listOf(BarLabel.SCORE, BarLabel.TOTAL), gridStep = 6, reveal = false),
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_percent_finding_s6_question),
                         options = mathOptions("20%", "25%", "50%", "80%"),
                         correctIndex = 1,
                         explanation = filled(Res.string.learn_t_change_against_original_quarter, "50", "50", "200"),
-                        visual = BarChart(values = listOf(200, 250), labels = listOf("before", "after"), gridStep = 50, reveal = false),
+                        visual = BarChart(values = listOf(200, 250), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 50, reveal = false),
                     ),
                 ),
             ),
@@ -1462,7 +1463,7 @@ internal object ArithmeticContent {
                 options = mathOptions("10%", "20%", "25%", "50%"),
                 correctIndex = 2,
                 explanation = filled(Res.string.learn_t_change_against_original_quarter, "10", "10", "40"),
-                visual = BarChart(values = listOf(40, 50), labels = listOf("before", "after"), gridStep = 10, reveal = false),
+                visual = BarChart(values = listOf(40, 50), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 10, reveal = false),
             ),
             QuizQuestion(
                 prompt = words(Res.string.learn_unit_arithmetic_percent_q6_prompt),
@@ -1705,12 +1706,10 @@ internal object ArithmeticContent {
                         options = mathOptions("√49", "√64", "√70", "√81"),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_arithmetic_surds_s3_explanation),
-                        visual = AreaGrid(cols = 8, rows = 8, showArea = false, unit = ""),
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_surds_s4_body),
                         formula = words(Res.string.learn_arithmetic_surds_s4_formula),
-                        visual = AreaGrid(cols = 2, rows = 2, showArea = false, unit = ""),
                     ),
                     Choice(
                         question = filled(Res.string.learn_t_between_whole_numbers_sit, "30"),
@@ -1728,7 +1727,6 @@ internal object ArithmeticContent {
                         question = math("√7 x √7 = ?"),
                         answer = "7",
                         explanation = words(Res.string.learn_arithmetic_surds_s6_explanation),
-                        visual = AreaGrid(cols = 3, rows = 3, showArea = false, unit = ""),
                     ),
                 ),
             ),
@@ -1740,7 +1738,6 @@ internal object ArithmeticContent {
                     Concept(
                         body = words(Res.string.learn_arithmetic_surds_simplify_s1_body),
                         formula = words(Res.string.learn_arithmetic_surds_simplify_s1_formula),
-                        visual = AreaGrid(cols = 4, rows = 4, showArea = false, unit = ""),
                     ),
                     Worked(
                         problem = math("√50 = ?"),
@@ -1789,7 +1786,6 @@ internal object ArithmeticContent {
                     Concept(
                         body = words(Res.string.learn_arithmetic_surds_arithmetic_s1_body),
                         formula = math("2√3 + 4√3 = 6√3"),
-                        visual = AreaGrid(cols = 3, rows = 3, showArea = false, unit = ""),
                     ),
                     Choice(
                         question = words(Res.string.learn_shared_roots_match_so_only_numbers),
@@ -1797,12 +1793,10 @@ internal object ArithmeticContent {
                         options = mathOptions("5√5", "5√10", "6√5", "5"),
                         correctIndex = 0,
                         explanation = words(Res.string.learn_arithmetic_surds_arithmetic_s2_explanation),
-                        visual = AreaGrid(cols = 5, rows = 5, showArea = false, unit = ""),
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_surds_arithmetic_s3_body),
                         formula = words(Res.string.learn_arithmetic_surds_arithmetic_s3_formula),
-                        visual = AreaGrid(cols = 3, rows = 2, showArea = false, unit = ""),
                     ),
                     Worked(
                         problem = math("√3 x √12 = ?"),
@@ -1825,7 +1819,6 @@ internal object ArithmeticContent {
                         options = mathOptions("7", "14", "49", "√7"),
                         correctIndex = 0,
                         explanation = words(Res.string.learn_arithmetic_surds_arithmetic_s6_explanation),
-                        visual = AreaGrid(cols = 7, rows = 7, showArea = false, unit = ""),
                     ),
                 ),
             ),
@@ -1836,7 +1829,6 @@ internal object ArithmeticContent {
                 options = mathOptions("√16", "√25", "√30", "√36"),
                 correctIndex = 2,
                 explanation = words(Res.string.learn_unit_arithmetic_surds_q1_explanation),
-                visual = AreaGrid(cols = 5, rows = 5, showArea = false, unit = ""),
             ),
             QuizQuestion(
                 prompt = filled(Res.string.learn_t_simplify, "32"),
@@ -1857,14 +1849,12 @@ internal object ArithmeticContent {
                 options = mathOptions("6", "12", "36", "√12"),
                 correctIndex = 0,
                 explanation = words(Res.string.learn_unit_arithmetic_surds_q4_explanation),
-                visual = AreaGrid(cols = 6, rows = 6, showArea = false, unit = ""),
             ),
             QuizQuestion(
                 prompt = math("5√2 + 3√2 = ?"),
                 options = mathOptions("8√2", "8√4", "15√2", "8"),
                 correctIndex = 0,
                 explanation = words(Res.string.learn_shared_roots_match_so_only_numbers),
-                visual = AreaGrid(cols = 2, rows = 2, showArea = false, unit = ""),
             ),
             QuizQuestion(
                 prompt = filled(Res.string.learn_t_between_whole_numbers_sit, "50"),

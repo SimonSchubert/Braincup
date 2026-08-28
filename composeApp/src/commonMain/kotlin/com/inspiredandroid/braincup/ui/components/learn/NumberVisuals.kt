@@ -103,15 +103,20 @@ internal fun VisualScope.drawCounters(visual: LearnVisual.Counters) {
     }
 }
 
+/** The size the sum a pair of ten-frames adds up to is set at. */
+private const val TenFrameSumFactor = 0.13f
+
 /** Ten-frames: fill the first to ten, then spill the rest into the second. */
 internal fun VisualScope.drawTenFrame(visual: LearnVisual.TenFrame) {
     val total = visual.filled + visual.added
-    val cell = minOf(width / 12.5f, height / 3.2f)
+    val sums = visual.added > 0 && visual.reveal
+    val room = captions(if (sums) 1 else 0, TenFrameSumFactor)
+    val cell = minOf(width / 12.5f, room.figureBottom / 3.2f)
     val frameWidth = cell * 5
     val frames = if (total > 10) 2 else 1
     // A lone frame is centred on its own rather than sitting where the left one of a pair would.
     val left = if (frames == 1) width / 2f - frameWidth / 2f else width / 2f - frameWidth - cell * 0.35f
-    val top = height / 2f - cell
+    val top = room.centerY - cell
 
     fun frameAt(frameIndex: Int): Offset = Offset(left + frameIndex * (frameWidth + cell * 0.7f), top)
 
@@ -149,12 +154,12 @@ internal fun VisualScope.drawTenFrame(visual: LearnVisual.TenFrame) {
 
     // Nothing was added, so there is no sum to state: a frame filled to seven captioning itself
     // "7 + 0 = 7" reads as a puzzle of its own rather than as the seven dots on show.
-    if (visual.added == 0 || !visual.reveal) return
+    if (!sums) return
     label(
         text = "${visual.filled} + ${visual.added} = $total",
-        center = Offset(width / 2f, height * 0.9f),
+        center = Offset(width / 2f, room.y(0)),
         color = Accent,
-        factor = 0.13f,
+        factor = TenFrameSumFactor,
         alpha = revealBeat,
     )
 }
@@ -224,7 +229,7 @@ private fun VisualScope.hopArc(
      */
     tipClearance: Float = 0f,
 ) {
-    val control = Offset((x0 + x1) / 2f, y - height * 0.34f)
+    val control = Offset((x0 + x1) / 2f, y - height * HopArcRise)
     val arc = Path().apply {
         moveTo(x0, y)
         quadraticTo(control.x, control.y, x1, y)
@@ -259,9 +264,17 @@ private fun VisualScope.hopArc(
         }
     }
     if (t > 0.9f) {
-        label(text, Offset(labelX, y - height * 0.26f), color, 0.1f)
+        label(text, Offset(labelX, y - height * HopLabelRise), color, HopLabelFactor)
     }
 }
+
+/** How far over its axis a hop's arc is pulled, and where the step it counts rides, as shares of
+ * the panel height. A figure that draws hops reserves both above its axis. */
+private const val HopArcRise = 0.34f
+
+private const val HopLabelRise = 0.26f
+
+private const val HopLabelFactor = 0.1f
 
 /** Font size of the in-between tick numbers, relative to the canvas, and the gap they need. */
 private const val MinorLabelFactor = 0.085f
@@ -281,10 +294,7 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     val axis = valueAxis(visual.from, visual.to)
     val left = axis.left
     val right = axis.right
-    val axisY = height * 0.62f
     fun xOf(value: Float): Float = axis.xOf(value)
-
-    line(Offset(left, axisY), Offset(right, axisY), ink, stroke)
 
     val step = visual.tickStep.coerceAtLeast(1)
     val ticks = (visual.from..visual.to step step).toList()
@@ -343,6 +353,48 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // and the tick height, which is what makes them readable on a line too crowded to number
     // every tick.
     val candidates = visual.compare.filter { it in visual.from..visual.to }.toSet()
+
+    // A candidate is set at the called-out size, and four of them on one line will not always
+    // clear each other: -1 and 0 are neighbouring ticks, and side by side they print as "-10".
+    // Each number takes the first row it fits in, left to right, so a crowded pair steps down a
+    // line instead of overprinting. Worked out before anything is drawn, because how many rows it
+    // comes to is part of how much room the figure needs under its axis.
+    val candidateStyle = labelStyle(ink, AccentLabelFactor, bold = true)
+    // A whole digit of clearance rather than the hairline [labelPadding] a plain label gets. Two
+    // candidates only need to *touch* to be misread: "-1" and "0" set a few pixels apart print as
+    // "-10", which is one of the other options on the very step this exists for.
+    val candidateGap = measure("0", candidateStyle).size.width.toFloat()
+    val candidateRows = mutableMapOf<Int, Int>()
+    run {
+        val rowRight = mutableListOf<Float>()
+        candidates.filter { roleColor(it) == null }.sorted().forEach { value ->
+            val x = xOf(value.toFloat())
+            val half = measure(value.toString(), candidateStyle).size.width / 2f
+            var row = rowRight.indexOfFirst { x - half > it + candidateGap }
+            if (row < 0) {
+                rowRight.add(0f)
+                row = rowRight.lastIndex
+            }
+            rowRight[row] = x + half
+            candidateRows[value] = row
+        }
+    }
+
+    // The axis sits where it has to for everything hung off it to be centred: hops and their step
+    // labels reach over it, tick numbers and any stacked candidates reach under it. Pinned to
+    // 0.62 of the height, a line with no hops on it drew itself entirely in the bottom half of
+    // the panel with a third of it empty above.
+    val hops = start != null && travel != 0
+    val overAxis = if (hops) {
+        height * HopLabelRise + capHeight(HopLabelFactor) / 2f
+    } else {
+        height * 0.06f
+    }
+    val underAxis = height * (0.16f + (candidateRows.values.maxOrNull() ?: 0) * 0.13f) +
+        capHeight(AccentLabelFactor) / 2f
+    val axisY = (height - overAxis - underAxis) / 2f + overAxis
+
+    line(Offset(left, axisY), Offset(right, axisY), ink, stroke)
 
     fun isAccented(value: Int) = roleColor(value) != null || value in candidates
 
@@ -424,28 +476,10 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
         dot(Offset(xOf(value.toFloat()), axisY), stroke * 1.5f, ink)
     }
 
-    // A candidate is set at the called-out size, and four of them on one line will not always
-    // clear each other: -1 and 0 are neighbouring ticks, and side by side they print as "-10".
-    // Each number takes the first row it fits in, left to right, so a crowded pair steps down a
-    // line instead of overprinting.
-    val candidateStyle = labelStyle(ink, AccentLabelFactor, bold = true)
-    // A whole digit of clearance rather than the hairline [labelPadding] a plain label gets. Two
-    // candidates only need to *touch* to be misread: "-1" and "0" set a few pixels apart print as
-    // "-10", which is one of the other options on the very step this exists for.
-    val candidateGap = measure("0", candidateStyle).size.width.toFloat()
-    val rowRight = mutableListOf<Float>()
-    candidates.filter { roleColor(it) == null }.sorted().forEach { value ->
-        val x = xOf(value.toFloat())
-        val half = measure(value.toString(), candidateStyle).size.width / 2f
-        var row = rowRight.indexOfFirst { x - half > it + candidateGap }
-        if (row < 0) {
-            rowRight.add(0f)
-            row = rowRight.lastIndex
-        }
-        rowRight[row] = x + half
+    candidateRows.forEach { (value, row) ->
         label(
             text = value.toString(),
-            center = Offset(x, axisY + height * (0.16f + row * 0.13f)),
+            center = Offset(xOf(value.toFloat()), axisY + height * (0.16f + row * 0.13f)),
             color = ink,
             factor = AccentLabelFactor,
         )
@@ -563,6 +597,8 @@ internal fun VisualScope.drawInequality(visual: LearnVisual.Inequality) {
  * the figure teaches nothing. The bottom strip is kept clear for the labels, so nothing is ever
  * captioned across the blocks.
  */
+private const val PlaceValueNameFactor = 0.12f
+
 internal fun VisualScope.drawPlaceValue(visual: LearnVisual.PlaceValue) {
     val second = visual.plus ?: visual.compare
     val numbers = listOfNotNull(visual.tens to visual.ones, second)
@@ -574,11 +610,20 @@ internal fun VisualScope.drawPlaceValue(visual: LearnVisual.PlaceValue) {
         return rods + (if (number.first > 0 && number.second > 0) RodsToOnesGap else 0f) + ones
     }
 
-    val labelBand = height * 0.24f
-    val blocksBottom = height - labelBand
+    // Only two numbers say what they are, so only two numbers need the strip to say it in. A
+    // lone number was reserving it anyway, which left a quarter of the panel empty under blocks
+    // that were never going to be captioned.
+    val named = numbers.size > 1
+    val strip = if (named) labelBand(PlaceValueNameFactor) else 0f
     val gaps = NumberGap * (numbers.size - 1)
-    val cell = minOf(width * 0.94f / (numbers.sumOf { widthInCells(it).toDouble() }.toFloat() + gaps), blocksBottom / 10f)
+    val cell = minOf(
+        width * 0.94f / (numbers.sumOf { widthInCells(it).toDouble() }.toFloat() + gaps),
+        (height * 0.96f - strip) / 10f,
+    )
     val rodHeight = cell * 10f
+    // Blocks and the strip under them are centred as one block, so a number too wide for full
+    // height rods sits in the middle of the panel instead of hanging off the bottom of it.
+    val blocksBottom = (height - rodHeight - strip) / 2f + rodHeight
 
     val widths = numbers.map { widthInCells(it) * cell }
     var cursor = width / 2f - (widths.sum() + gaps * cell) / 2f
@@ -621,12 +666,12 @@ internal fun VisualScope.drawPlaceValue(visual: LearnVisual.PlaceValue) {
         }
         // With two numbers on the panel each says what it is, right under its own blocks, so the
         // options can name them.
-        if (numbers.size > 1) {
-            label(
+        if (named) {
+            labelBelow(
                 text = (tens * 10 + ones).toString(),
-                center = Offset(left + widths[index] / 2f, blocksBottom + labelBand * 0.55f),
+                at = Offset(left + widths[index] / 2f, blocksBottom),
                 color = color,
-                factor = 0.12f,
+                factor = PlaceValueNameFactor,
                 alpha = revealBeat,
             )
         }
@@ -677,6 +722,10 @@ private const val NumberGap = 2.4f
  * a decimal", and on a comparison it hands over the reasoning the learner was asked to do; the
  * shading is what the figure is for, and that is always on show.
  */
+private const val DecimalOfFactor = 0.12f
+
+private const val DecimalNameFactor = 0.13f
+
 internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
     val second = visual.plus ?: visual.compare
     val sum = visual.plus?.takeIf { visual.reveal }?.let { visual.value + it }
@@ -684,14 +733,18 @@ internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
     // A percentage of an amount needs a band above the square for the amount it is taken of, so
     // the square gives some height back. On its own it keeps the room it always had.
     val ofAmount = visual.of?.takeIf { second == null }
-    val sharing = ofAmount != null
-    val gridSize = minOf(if (sharing) height * 0.56f else height * 0.72f, width / (values.size * 1.5f))
+    val named = visual.reveal
+    // What the square is a percentage of stands over it and what it works out to sits under it,
+    // so both come off the room the squares have before the squares are sized, and the three
+    // together are what gets centred.
+    val aboveBand = if (ofAmount != null) labelBand(DecimalOfFactor) else 0f
+    val belowBand = if (named) labelBand(DecimalNameFactor) else 0f
+    val gridSize = minOf(height * 0.96f - aboveBand - belowBand, width / (values.size * 1.5f))
     val cell = gridSize / 10f
     val gap = gridSize * 0.4f
     val totalWidth = values.size * gridSize + (values.size - 1) * gap
     var left = width / 2f - totalWidth / 2f
-    val top = (if (sharing) height * 0.52f else height * 0.44f) - gridSize / 2f
-    val named = visual.reveal
+    val top = (height - aboveBand - gridSize - belowBand) / 2f + aboveBand
 
     values.forEachIndexed { gridIndex, value ->
         val shaded = (value * 100).roundToInt().coerceIn(0, 100)
@@ -733,15 +786,15 @@ internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
         // What the square is a percentage of is part of the question, so it stands over the grid
         // whether or not the figure may give the answer away. The part it works out to waits.
         if (ofAmount != null) {
-            label(
+            labelAbove(
                 text = strings.percentOfTemplate.fillIn(formatDecimal(value * 100), ofAmount),
-                center = Offset(left + gridSize / 2f, top - height * 0.13f),
+                at = Offset(left + gridSize / 2f, top),
                 color = ink,
-                factor = 0.12f,
+                factor = DecimalOfFactor,
             )
         }
         if (named) {
-            label(
+            labelBelow(
                 text = when {
                     ofAmount != null -> "= " + formatDecimal(value * ofAmount)
                     // The step that says a percentage and a decimal are one number has to show
@@ -749,10 +802,10 @@ internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
                     visual.percent -> formatDecimal(value * 100) + "% = " + formatDecimal(value)
                     else -> formatDecimal(value)
                 },
-                center = Offset(left + gridSize / 2f, top + gridSize + height * 0.12f),
+                at = Offset(left + gridSize / 2f, top + gridSize),
                 color = color,
-                factor = 0.13f,
-                alpha = if (sharing) revealBeat else 1f,
+                factor = DecimalNameFactor,
+                alpha = if (ofAmount != null) revealBeat else 1f,
             )
         }
         // The sign sits in the gap the square just left behind it. A plus is part of what the step
@@ -939,6 +992,8 @@ private const val ArrayTick = 0.2f
  * to "how much is shaded", and on a comparison it does the comparing for the learner. What the
  * figure always shows is the amount, which is the part they are meant to read.
  */
+private const val FractionNameFactor = 0.12f
+
 internal fun VisualScope.drawFraction(visual: LearnVisual.Fraction) {
     val second = visual.plus ?: visual.compare
     // Only pieces of the same size add up, so a sum bar is drawn for a matching cut and no other.
@@ -947,8 +1002,16 @@ internal fun VisualScope.drawFraction(visual: LearnVisual.Fraction) {
         ?.let { (visual.numerator + it.first) to visual.denominator }
     val bars = listOfNotNull(visual.numerator to visual.denominator, second, sum)
 
+    val named = visual.reveal
     val signs = if (visual.plus != null) width * 0.08f else 0f
-    val names = width * 0.15f
+    // Reserved only when a bar is actually going to name itself, and only as wide as the widest
+    // name it will print. A flat sixth of the panel, held back on every figure, was blank space to
+    // the right of bars with nothing to say - and it pushed them off centre by half of that.
+    val names = if (named) {
+        bars.maxOf { (numerator, denominator) -> labelBand("$numerator/$denominator", FractionNameFactor) }
+    } else {
+        0f
+    }
     val barWidth = width * 0.94f - signs - names
     val left = width * 0.03f + signs
     val barHeight = height * if (bars.size > 2) {
@@ -960,7 +1023,6 @@ internal fun VisualScope.drawFraction(visual: LearnVisual.Fraction) {
     }
     val gap = height * if (bars.size > 2) 0.09f else 0.16f
     var top = height * 0.5f - (bars.size * barHeight + (bars.size - 1) * gap) / 2f
-    val named = visual.reveal
 
     bars.forEachIndexed { barIndex, (numerator, denominator) ->
         val parts = denominator.coerceAtLeast(1)
@@ -980,11 +1042,14 @@ internal fun VisualScope.drawFraction(visual: LearnVisual.Fraction) {
             )
         }
         if (named) {
-            label(
+            labelRightOf(
                 text = "$numerator/$denominator",
-                center = Offset(left + barWidth + names / 2f, top + barHeight / 2f),
-                color = color,
-                factor = 0.12f,
+                at = Offset(left + barWidth, top + barHeight / 2f),
+                // The bottom bar of a sum is what the two above it come to, so its name takes the
+                // answer green - the same green the "3/5 + 1/5 = 4/5" card under the figure prints
+                // its total in. In the accent it read as a third given rather than as the result.
+                color = if (barIndex == 2) AnswerInk else color,
+                factor = FractionNameFactor,
             )
         }
         // A sum reads down the page like a column addition, with its signs in a column of their own.
@@ -1009,6 +1074,8 @@ internal fun VisualScope.drawFraction(visual: LearnVisual.Fraction) {
  * the two group colours, and the counts sit over their own runs so the formula beside the figure
  * can be read straight off it.
  */
+private const val RatioCountFactor = 0.13f
+
 internal fun VisualScope.drawRatioBar(visual: LearnVisual.RatioBar) {
     val parts = visual.parts.filter { it > 0 }
     if (parts.isEmpty()) return
@@ -1018,7 +1085,14 @@ internal fun VisualScope.drawRatioBar(visual: LearnVisual.RatioBar) {
     val barWidth = width * 0.84f
     val left = width / 2f - barWidth / 2f
     val barHeight = height * 0.28f
-    val top = height * 0.5f - barHeight / 2f
+    // The counts over the runs and the amounts under them are the same annotation on two sides of
+    // one bar, so they take one size and one clear space, and the bar is centred with them rather
+    // than on its own. Set at 0.13 above and 0.12 below, 0.14 of the height up and 0.16 down, the
+    // pair sat at visibly different distances from the bar they both belong to.
+    val counted = visual.reveal
+    val aboveBand = if (counted) labelBand(RatioCountFactor) else 0f
+    val belowBand = if (counted && visual.total != null) labelBand(RatioCountFactor) else 0f
+    val top = (height - aboveBand - barHeight - belowBand) / 2f + aboveBand
     val cellWidth = barWidth / cells
 
     var placed = 0
@@ -1056,19 +1130,19 @@ internal fun VisualScope.drawRatioBar(visual: LearnVisual.RatioBar) {
     parts.forEachIndexed { index, part ->
         val color = if (index % 2 == 0) Accent else Accent2
         val centreX = left + cellWidth * (seen + part / 2f)
-        label(
+        labelAbove(
             text = (part * scale).toString(),
-            center = Offset(centreX, top - height * 0.14f),
+            at = Offset(centreX, top),
             color = color,
-            factor = 0.13f,
+            factor = RatioCountFactor,
             alpha = stage(1, 2),
         )
         visual.total?.let { total ->
-            label(
+            labelBelow(
                 text = (total * part / cells).toString(),
-                center = Offset(centreX, top + barHeight + height * 0.16f),
+                at = Offset(centreX, top + barHeight),
                 color = color,
-                factor = 0.12f,
+                factor = RatioCountFactor,
                 alpha = stage(1, 2),
             )
         }
@@ -1184,6 +1258,9 @@ internal fun VisualScope.drawClock(visual: LearnVisual.Clock) {
     dot(center, stroke * 1.6f, ink)
 }
 
+/** The size a sequence's terms are set at. */
+private const val StepTermFactor = 0.11f
+
 /** Terms of a sequence with the step between them called out. */
 internal fun VisualScope.drawSteps(visual: LearnVisual.Steps) {
     val terms = visual.terms
@@ -1192,7 +1269,11 @@ internal fun VisualScope.drawSteps(visual: LearnVisual.Steps) {
     // draws terms as discs taller than the figure itself.
     val slot = minOf(width * 0.86f / terms.size, height * 0.62f)
     val left = width / 2f - slot * (terms.size - 1) / 2f
-    val y = height * 0.62f
+    // Hops and their steps reach over the line, the terms sit under it: the line goes wherever
+    // centres the two. See [drawNumberLine], which is the same figure at a shorter stride.
+    val overLine = height * HopLabelRise + capHeight(HopLabelFactor) / 2f
+    val underLine = height * 0.17f + capHeight(StepTermFactor) / 2f
+    val y = (height - overLine - underLine) / 2f + overLine
 
     // Drawn in the number line's own language, because it is the same idea at a longer stride: the
     // terms sit on a line and the jumps arc over it. Translucent discs behind the numbers turned
@@ -1210,7 +1291,7 @@ internal fun VisualScope.drawSteps(visual: LearnVisual.Steps) {
             stroke * 0.8f,
             alpha = alpha,
         )
-        label(term.toString(), Offset(x, y + height * 0.17f), ink, 0.11f, alpha = alpha, bold = false)
+        label(term.toString(), Offset(x, y + height * 0.17f), ink, StepTermFactor, alpha = alpha, bold = false)
 
         if (index < terms.lastIndex) {
             val next = terms[index + 1]
