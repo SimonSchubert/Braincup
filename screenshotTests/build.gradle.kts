@@ -452,4 +452,8 @@ dependencies {
     testImplementation(libs.compose.ui)
     testImplementation(libs.compose.components.resources)
     testImplementation(libs.kotlinx.collections.immutable)
+    // MapSettings (and the Settings interface it implements), so a snapshot can build a
+    // UserStorage with scores already in it.
+    testImplementation(libs.multiplatform.settings)
+    testImplementation(libs.multiplatform.settings.test)
 }

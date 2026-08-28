@@ -75,6 +75,11 @@ private fun FeedbackMessage.toLocalizedString(): String = when (this) {
         val side = if (isLeft) stringResource(Res.string.solution_left) else stringResource(Res.string.solution_right)
         "$side ($count)"
     }
+    is FeedbackMessage.MirrorAnswer -> if (isMirrored) {
+        stringResource(Res.string.game_mental_rotations_mirrored)
+    } else {
+        stringResource(Res.string.game_mental_rotations_same)
+    }
     is FeedbackMessage.Remember -> stringResource(Res.string.hint_remember, number)
 }
 

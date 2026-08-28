@@ -24,6 +24,8 @@ import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.MedalBronze
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.MedalSilver
+import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
+import com.inspiredandroid.braincup.ui.theme.PrimaryContainer
 import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
 
@@ -48,8 +50,12 @@ fun ScoreboardScreen(
     ) {
         Spacer(Modifier.height(16.dp))
 
+        // Face and ink are both brand-pinned rather than taken from the scheme, for the same reason
+        // as LearnLessonScreen's FeedbackCard: Material You resolves `primaryContainer` to whatever
+        // the device wallpaper suggests, which on some phones is a pale grey, and the text was
+        // inheriting the ambient near-white content colour: white on pale grey.
         PrismCard(
-            face = MaterialTheme.colorScheme.primaryContainer,
+            face = PrimaryContainer,
             modifier = Modifier
                 .widthIn(max = ContentMaxWidth)
                 .fillMaxWidth()
@@ -69,10 +75,12 @@ fun ScoreboardScreen(
                 Text(
                     text = stringResource(highscoreLabelRes),
                     style = MaterialTheme.typography.labelLarge,
+                    color = OnPrimaryContainer,
                 )
                 Text(
                     text = if (highscore > 0) gameType.formattedScore(highscore) else "—",
                     style = MaterialTheme.typography.headlineLarge,
+                    color = OnPrimaryContainer,
                 )
             }
         }

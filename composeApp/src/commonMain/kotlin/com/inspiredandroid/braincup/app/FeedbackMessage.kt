@@ -15,6 +15,9 @@ sealed interface FeedbackMessage {
     data class GridPosition(val column: Int, val row: Int) : FeedbackMessage
     data class SideCount(val isLeft: Boolean, val count: Int) : FeedbackMessage
 
+    /** Mental Rotations' answer: whether the candidate was the mirror image or the same solid. */
+    data class MirrorAnswer(val isMirrored: Boolean) : FeedbackMessage
+
     /** "Remember 7", the running total Mental Calculation asks the player to hold on to. */
     data class Remember(val number: Int) : FeedbackMessage
 }

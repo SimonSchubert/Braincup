@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.games
 
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -187,6 +188,29 @@ class MentalRotationsGameTest {
         // Bottom cube's lowest drawn point sits on the box's bottom edge.
         val lowest = column.cubes.maxOf { it.y } + CUBE_TOP_HEIGHT + CUBE_SIDE_HEIGHT
         assertEquals(column.height, lowest, 0.001f)
+    }
+
+    @Test
+    fun `the shown answer is a localizable message, never the raw wire token`() {
+        val game = MentalRotationsGame(Random(555))
+        repeat(20) {
+            game.nextRound()
+            val message = game.solutionMessage()
+            // Plain would put the English token "same"/"mirrored" straight on the feedback screen.
+            assertTrue(
+                message is FeedbackMessage.MirrorAnswer,
+                "solutionMessage must resolve against strings.xml, got $message",
+            )
+            assertEquals(game.isMirrored, message.isMirrored)
+        }
+    }
+
+    @Test
+    fun `the game contributes no hint text of its own`() {
+        val game = MentalRotationsGame(Random(556))
+        game.nextRound()
+        assertEquals(null, game.hint())
+        assertEquals(null, game.hintMessage())
     }
 
     @Test

@@ -15,6 +15,7 @@ import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.GameScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
+import com.inspiredandroid.braincup.ui.screens.ScoreboardScreen
 import com.inspiredandroid.braincup.ui.screens.SessionCompleteScreen
 import com.inspiredandroid.braincup.ui.screens.SessionInterstitialScreen
 import com.inspiredandroid.braincup.ui.screens.iqtest.IqTestIntroScreen
@@ -684,6 +685,31 @@ class ScreenshotTest {
                 timeRemaining = 45_000L,
                 onAnswer = {},
                 onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    // The high-score card pins its own face and ink. Material You can resolve `primaryContainer` to
+    // a pale grey, and the card's text used to inherit the ambient near-white: white on pale grey.
+    // Snapshotting it in both schemes is what keeps that from coming back a third time.
+    @Test
+    fun scoreboard() {
+        paparazzi.snap {
+            ScoreboardScreen(
+                gameType = GameType.MENTAL_ROTATIONS,
+                storage = scoreboardStorage(),
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun scoreboardOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            ScoreboardScreen(
+                gameType = GameType.MENTAL_ROTATIONS,
+                storage = scoreboardStorage(),
                 onBack = {},
             )
         }

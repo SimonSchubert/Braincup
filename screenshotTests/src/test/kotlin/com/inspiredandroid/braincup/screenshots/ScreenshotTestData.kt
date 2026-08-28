@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.screenshots
 
 import com.inspiredandroid.braincup.api.UserStorage
+import com.russhwolf.settings.MapSettings
 import com.inspiredandroid.braincup.app.DigitMemoryUiState
 import com.inspiredandroid.braincup.app.IqTestPlayUiState
 import com.inspiredandroid.braincup.app.IqTestResultUiState
@@ -318,6 +319,11 @@ fun createTrioUiState(): GameUiState = TrioGame(Random(42L)).apply {
     tap(0)
     tap(1)
 }.toUiState()
+
+/** A storage holding one banked run, so the scoreboard has both a high score and a history row. */
+fun scoreboardStorage(): UserStorage = UserStorage(MapSettings()).apply {
+    putScore(GameType.MENTAL_ROTATIONS.id, 11)
+}
 
 // A fixed seed so the pair of figures, and therefore the snapshot, never drifts.
 fun createMentalRotationsUiState(): GameUiState = MentalRotationsGame(Random(9L)).apply {

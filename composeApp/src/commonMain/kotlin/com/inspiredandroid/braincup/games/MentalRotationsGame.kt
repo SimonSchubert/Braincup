@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.AnswerButton
+import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.MentalRotationsUiState
 import kotlinx.collections.immutable.persistentListOf
 import kotlinx.collections.immutable.toImmutableList
@@ -206,7 +207,15 @@ class MentalRotationsGame(
 
     override fun isCorrect(input: String): Boolean = input == if (isMirrored) ANSWER_MIRRORED else ANSWER_SAME
 
+    /** The raw answer token, for the controller's board feedback. Never shown: see [solutionMessage]. */
     override fun solution(): String = if (isMirrored) ANSWER_MIRRORED else ANSWER_SAME
+
+    /**
+     * [ANSWER_SAME] and [ANSWER_MIRRORED] are wire tokens on the `onAnswer(String)` channel, not
+     * English the player should ever read, so the feedback screen resolves the answer against
+     * `strings.xml` instead of echoing [solution].
+     */
+    override fun solutionMessage(): FeedbackMessage = FeedbackMessage.MirrorAnswer(isMirrored)
 
     override fun hint(): String? = null
 
