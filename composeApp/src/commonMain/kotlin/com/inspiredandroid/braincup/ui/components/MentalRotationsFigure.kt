@@ -46,8 +46,8 @@ fun MentalRotationsPair(
         verticalAlignment = Alignment.CenterVertically,
     ) {
         val panel = Modifier.weight(1f).fillMaxHeight()
-        MentalRotationsFigure(reference, boxWidth, boxHeight, panel)
-        MentalRotationsFigure(candidate, boxWidth, boxHeight, panel)
+        MentalRotationsFigure(reference, panel, boxWidth, boxHeight)
+        MentalRotationsFigure(candidate, panel, boxWidth, boxHeight)
     }
 }
 
@@ -65,9 +65,9 @@ fun MentalRotationsPair(
 @Composable
 fun MentalRotationsFigure(
     figure: MentalRotationsUiState.Figure,
+    modifier: Modifier = Modifier,
     boxWidth: Float = figure.width,
     boxHeight: Float = figure.height,
-    modifier: Modifier = Modifier,
 ) {
     Canvas(modifier = modifier) {
         drawIsometricFigure(figure, boxWidth, boxHeight)
