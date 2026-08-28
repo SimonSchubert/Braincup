@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Create the Learn Math certificate achievements on Google Play Games and Apple Game Center.
+# Create Braincup achievements on Google Play Games and Apple Game Center.
+#
+# Two sets, selected with --set: the Learn Math sub-topic certificates and the per-game gold
+# medals. Both are idempotent, so the default runs both and prints what is already there.
 #
 # fastlane cannot do this: it has no achievement support for either store (checked against
 # 2.238.0). Both stores do have an API, and this uses the credentials fastlane already relies on:
@@ -21,8 +24,8 @@
 # Safe to re-run either way; anything already on a store is skipped, matched by its immutable id
 # (Apple) or its en-US title (Google, which assigns ids itself and has nothing else stable).
 #
-# After creating on Google it rewrites the blank achievementCert* placeholders in play_games.xml
-# with the console-assigned ids. That paste-back step is the one documented way this silently
+# After creating on Google it rewrites the blank achievement* placeholders in play_games.xml with
+# the console-assigned ids. That paste-back step is the one documented way this silently
 # half-lands: a blank id compiles and no-ops, so the medal simply never unlocks.
 
 require "json"
@@ -42,7 +45,10 @@ ASC_BUNDLE_ID = "com.inspiredandroid.braincup"
 # 400 to spare. Play Games has no cap, but it does reject any pointValue that is not a multiple of
 # five, so 5 is the floor there (0, 1 and 2 all come back 400 "not within range or is not a
 # multiple of five").
-GAME_CENTER_POINTS = 10
+CERTIFICATE_GC_POINTS = 10
+# Every per-game medal added since the 2026 rebalance sits at 5 on Game Center; matching them keeps
+# the family consistent and the cap far away.
+GAME_MEDAL_GC_POINTS = 5
 PLAY_GAMES_XP = 5
 
 # Highest sortRank live on Play Games as of 2026-08-26 (Triple Vision). New rows continue past it.
@@ -82,6 +88,26 @@ CERTIFICATES = [
     vendor_id: "achievement.cert_#{unit_id.tr('-', '_')}",
     xml_key: "achievementCert" + unit_id.tr("-", "_").split("_").map(&:capitalize).join,
     icon: File.join(ROOT, "media/achievements/png/#{icon}.png"),
+    gc_points: CERTIFICATE_GC_POINTS,
+  }
+end
+
+# Per-game gold medals. Only the ones still to create live here: the 37 shipped before them are
+# already on both stores, and listing them would make every run try to "repair" their point values
+# to this file's idea of them. GameType name, game display name, medal title, icon basename; the
+# Game Center id and the play_games.xml key follow from the title, as they always have.
+GAME_MEDALS = [
+  ["MENTAL_ROTATIONS", "Mental Rotations", "Spin Doctor", "71_logic_mental_rotations"],
+].map do |game_type, game_name, title, icon|
+  {
+    game_type: game_type,
+    title: title,
+    before: "Win gold medal in #{game_name}",
+    after: "Won gold medal in #{game_name}!",
+    vendor_id: "achievement.#{title.downcase.gsub(/[^a-z0-9]+/, '_')}",
+    xml_key: "achievement" + title.split(/[^A-Za-z0-9]+/).map(&:capitalize).join,
+    icon: File.join(ROOT, "media/achievements/png/#{icon}.png"),
+    gc_points: GAME_MEDAL_GC_POINTS,
   }
 end
 
@@ -101,8 +127,27 @@ def verify_against_kotlin
         "  only here:      #{(mine - kotlin).inspect}")
 end
 
-def verify_icons
-  missing = CERTIFICATES.reject { |c| File.exist?(c[:icon]) }
+# Same idea for the game medals: the app fires on GameType, and the medal is stored under a
+# UserStorage.Achievements entry, so a typo in either name creates a store row nothing unlocks.
+# The play_games.xml key has to exist too, or the id paste-back silently drops on the floor.
+def verify_game_medals_against_kotlin
+  game_types = File.read(File.join(ROOT, "composeApp/src/commonMain/kotlin/com/inspiredandroid/braincup/games/GameType.kt"))
+  achievements = File.read(File.join(ROOT, "composeApp/src/commonMain/kotlin/com/inspiredandroid/braincup/api/UserStorage.kt"))
+  xml = File.read(File.join(ROOT, "androidApp/src/playStore/res/values/play_games.xml"))
+  problems = GAME_MEDALS.flat_map do |m|
+    [
+      ("  #{m[:game_type]} is not a GameType" unless game_types.match?(/^\s{4}#{m[:game_type]}\(/)),
+      ("  GOLD_#{m[:game_type]} is not a UserStorage.Achievements entry" unless achievements.include?("GOLD_#{m[:game_type]}(")),
+      ("  #{m[:xml_key]} is missing from play_games.xml" unless xml.include?(%(name="#{m[:xml_key]}"))),
+    ].compact
+  end
+  return if problems.empty?
+
+  abort("GAME_MEDALS has drifted from the app\n" + problems.join("\n"))
+end
+
+def verify_icons(items)
+  missing = items.reject { |c| File.exist?(c[:icon]) }
   return if missing.empty?
 
   abort("missing icons (run: python3 media/achievements/generate.py)\n" +
@@ -188,7 +233,7 @@ class GameCenter
         attributes: {
           referenceName: cert[:title],
           vendorIdentifier: cert[:vendor_id],
-          points: GAME_CENTER_POINTS,
+          points: cert[:gc_points],
           showBeforeEarned: true,
           repeatable: false,
         },
@@ -347,37 +392,48 @@ end
 
 # --- Main ------------------------------------------------------------------
 
-options = { execute: false, store: "both" }
+options = { execute: false, store: "both", set: "both" }
 OptionParser.new do |o|
   o.banner = "Usage: ruby scripts/store_achievements.rb [options]"
   o.on("--execute", "Actually create them. Without this, nothing is written.") { options[:execute] = true }
   o.on("--store STORE", %w[apple google both], "apple, google or both (default both)") { |v| options[:store] = v }
+  o.on("--set SET", %w[certificates games both], "certificates, games or both (default both)") { |v| options[:set] = v }
 end.parse!
 
-verify_against_kotlin
-verify_icons
+items = []
+if %w[certificates both].include?(options[:set])
+  verify_against_kotlin
+  items += CERTIFICATES
+end
+if %w[games both].include?(options[:set])
+  verify_game_medals_against_kotlin
+  items += GAME_MEDALS
+end
+verify_icons(items)
+abort("nothing to do for --set #{options[:set]}") if items.empty?
 
 mode = options[:execute] ? "EXECUTE" : "DRY RUN"
-puts "#{mode}  store=#{options[:store]}  #{CERTIFICATES.size} certificates"
+puts "#{mode}  store=#{options[:store]}  set=#{options[:set]}  #{items.size} achievements"
 puts
 
 if %w[apple both].include?(options[:store])
   apple = GameCenter.new
   have = apple.existing
-  todo = CERTIFICATES.reject { |c| have.key?(c[:vendor_id]) }
+  todo = items.reject { |c| have.key?(c[:vendor_id]) }
   used = apple.points_used
+  adding = todo.sum { |c| c[:gc_points] }
   puts "Apple Game Center (detail #{apple.detail_id})"
-  puts "  live: #{have.size}   points: #{used}/1000   after this run: #{used + todo.size * GAME_CENTER_POINTS}/1000"
-  puts "  already present, skipping: #{CERTIFICATES.size - todo.size}" if todo.size < CERTIFICATES.size
-  if (used + todo.size * GAME_CENTER_POINTS) > 1000
-    abort("  would exceed the 1000-point cap; lower GAME_CENTER_POINTS")
+  puts "  live: #{have.size}   points: #{used}/1000   after this run: #{used + adding}/1000"
+  puts "  already present, skipping: #{items.size - todo.size}" if todo.size < items.size
+  if (used + adding) > 1000
+    abort("  would exceed the 1000-point cap; lower the per-item gc_points")
   end
   todo.each do |c|
     if options[:execute]
       id = apple.create(c)
       puts "  created #{c[:vendor_id]}  (#{id})  #{c[:title]}"
     else
-      puts "  would create #{c[:vendor_id]}  #{GAME_CENTER_POINTS}pt  #{c[:title].inspect}  #{c[:before].inspect}  icon=#{File.basename(c[:icon])}"
+      puts "  would create #{c[:vendor_id]}  #{c[:gc_points]}pt  #{c[:title].inspect}  #{c[:before].inspect}  icon=#{File.basename(c[:icon])}"
     end
   end
   puts
@@ -386,13 +442,13 @@ end
 if %w[google both].include?(options[:store])
   google = PlayGames.new
   have = google.existing_by_title
-  missing = CERTIFICATES.reject { |c| have.key?(c[:title]) }
+  missing = items.reject { |c| have.key?(c[:title]) }
   rank = google.next_sort_rank
   assigned = {}
   puts "Google Play Games (app #{PLAY_APP_ID})"
   puts "  live: #{google.all.size}   sortRank continues at #{rank}"
-  puts "  already present: #{CERTIFICATES.size - missing.size}   to create: #{missing.size}"
-  CERTIFICATES.each_with_index do |c, i|
+  puts "  already present: #{items.size - missing.size}   to create: #{missing.size}"
+  items.each_with_index do |c, i|
     if options[:execute]
       id, actions = google.ensure(c, rank + i)
       assigned[c[:xml_key]] = id
@@ -407,7 +463,7 @@ if %w[google both].include?(options[:store])
     write_xml_ids(assigned)
     puts "  wrote #{assigned.size} ids into play_games.xml"
   else
-    puts "  would then write #{CERTIFICATES.size} ids into play_games.xml"
+    puts "  would then write #{items.size} ids into play_games.xml"
   end
   puts
 end

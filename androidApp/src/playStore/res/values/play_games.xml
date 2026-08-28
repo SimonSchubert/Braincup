@@ -50,6 +50,8 @@
     <string name="achievementCodeCracker" translatable="false">CgkIuZrirtIVEAIQMA</string>
     <!-- achievement Triple Vision (Trio) -->
     <string name="achievementTripleVision" translatable="false">CgkIuZrirtIVEAIQMQ</string>
+    <!-- achievement Spin Doctor (Mental Rotations) -->
+    <string name="achievementSpinDoctor" translatable="false">CgkIuZrirtIVEAIQSA</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->
