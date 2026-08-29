@@ -390,7 +390,7 @@ enum class GameType(
         // phase, so the pace started from Flash Crowd's 18/12. Playtest brought it down: rotating a
         // 4-arm figure mentally takes far longer than counting dots, so the dot-comparison pace was
         // out of reach.
-        goldScore = 14,
+        goldScore = 16,
         silverScore = 7,
         descriptionRes = Res.string.game_mental_rotations_desc,
         category = GameCategory.LOGIC,

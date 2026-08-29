@@ -49,8 +49,8 @@ class AdaptiveDifficultyResumeTest {
                 nextRound()
             }.referenceCubes.size
 
-        // Arms grow at rounds 3, 6 and 10, and each arm adds 2 or 3 cubes, so a resumed run must
-        // come back bigger than a fresh one rather than restarting at the two-arm size.
+        // Arms grow at rounds 6 and 10, and each arm adds 2 or 3 cubes, so a resumed run must come
+        // back bigger than a fresh one rather than restarting at the three-arm size.
         assertEquals(true, cubesAtStartRound(0) < cubesAtStartRound(6))
         assertEquals(true, cubesAtStartRound(6) < cubesAtStartRound(20))
     }

@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.FeedbackMessage
+import com.inspiredandroid.braincup.app.MentalRotationsUiState
 import kotlin.random.Random
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -145,6 +146,128 @@ class MentalRotationsGameTest {
     }
 
     @Test
+    fun `a cube one view step in front of another hides it completely`() {
+        // Both project onto the same hexagon, so the far one draws nothing at all.
+        assertFalse(allCubesVisible(listOf(Cube(0, 0, 0), Cube(1, 1, 1))))
+        assertFalse(allCubesVisible(listOf(Cube(0, 0, 0), Cube(2, 2, 2))))
+        // One step off that diagonal and both are in sight.
+        assertTrue(allCubesVisible(listOf(Cube(0, 0, 0), Cube(1, 1, 0))))
+        assertTrue(allCubesVisible(listOf(Cube(0, 0, 0), Cube(1, 0, 1))))
+    }
+
+    @Test
+    fun `a cube walled in by its three front neighbours is not drawn either`() {
+        val walled = listOf(Cube(0, 0, 0), Cube(1, 0, 0), Cube(0, 1, 0), Cube(0, 0, 1))
+        assertFalse(allCubesVisible(walled))
+        // Drop any one wall and the buried cube shows a face again.
+        assertTrue(allCubesVisible(walled - Cube(0, 0, 1)))
+        assertTrue(allCubesVisible(walled - Cube(1, 0, 0)))
+        assertTrue(allCubesVisible(walled - Cube(0, 1, 0)))
+    }
+
+    @Test
+    fun `a face covered by two diagonal neighbours counts as covered`() {
+        // Neither cube sits directly on top, but between them they cover both halves of the top
+        // face, and the two side faces are covered outright.
+        val buried = listOf(
+            Cube(0, 0, 0),
+            Cube(1, 0, 0),
+            Cube(0, 1, 0),
+            Cube(1, 0, 1),
+            Cube(0, 1, 1),
+        )
+        assertFalse(allCubesVisible(buried))
+        assertTrue(allCubesVisible(buried - Cube(1, 0, 1)))
+    }
+
+    @Test
+    fun `a straight bar and a flat plate hide nothing`() {
+        assertTrue(allCubesVisible(listOf(Cube(0, 0, 0), Cube(1, 0, 0), Cube(2, 0, 0))))
+        assertTrue(
+            allCubesVisible(
+                listOf(Cube(0, 0, 0), Cube(1, 0, 0), Cube(0, 1, 0), Cube(1, 1, 0)),
+            ),
+        )
+    }
+
+    @Test
+    fun `every round draws every cube it is made of`() {
+        // The bug this guards: an isometric view looks down (1,1,1), so a cube exactly that far in
+        // front of another erases it, and the two panels then show solids of different sizes.
+        val game = MentalRotationsGame(Random(864213))
+        repeat(400) {
+            game.nextRound()
+            assertTrue(
+                allCubesVisible(game.referenceCubes),
+                "the reference hid one of its own cubes: ${game.referenceCubes}",
+            )
+            assertTrue(
+                allCubesVisible(game.candidateCubes),
+                "the candidate hid one of its own cubes: ${game.candidateCubes}",
+            )
+        }
+    }
+
+    @Test
+    fun `both panels always show the same number of cubes on screen`() {
+        val game = MentalRotationsGame(Random(5150))
+        repeat(400) {
+            game.nextRound()
+            assertEquals(
+                game.referenceCubes.size,
+                game.reference().drawnPositions(),
+                "the reference drew fewer cubes than the solid has",
+            )
+            assertEquals(
+                game.reference().drawnPositions(),
+                game.candidate().drawnPositions(),
+                "the two drawings disagree on how many cubes the solid has",
+            )
+        }
+    }
+
+    @Test
+    fun `mirrored rounds start from round one, without falling back to a fixed figure`() {
+        // Two perpendicular arms are always planar and so always achiral, which used to send every
+        // mirrored opening round to the fallback staircase.
+        val game = MentalRotationsGame(Random(1301))
+        val mirroredShapes = mutableSetOf<Set<Cube>>()
+        repeat(60) {
+            game.round = 0
+            game.nextRound()
+            if (game.isMirrored) mirroredShapes.add(normalize(game.referenceCubes))
+        }
+        assertTrue(
+            mirroredShapes.size > 10,
+            "opening mirrored rounds only produced ${mirroredShapes.size} distinct figures",
+        )
+    }
+
+    @Test
+    fun `the fallback figure is usable for either answer`() {
+        // generateRound leans on this: it turns the fallback at random and never re-checks.
+        val fallback = listOf(
+            Cube(0, 0, 0),
+            Cube(1, 0, 0),
+            Cube(2, 0, 0),
+            Cube(2, 0, 1),
+            Cube(2, 0, 2),
+            Cube(2, 0, 3),
+            Cube(2, 1, 3),
+            Cube(2, 2, 3),
+        )
+        assertFalse(sameShape(fallback, mirror(fallback)), "the fallback figure is not chiral")
+        LatticeRotation.all.forEach { rotation ->
+            listOf(fallback, mirror(fallback)).forEach { base ->
+                assertTrue(
+                    allCubesVisible(base.map(rotation::apply)),
+                    "a rotation of the fallback hid one of its cubes",
+                )
+            }
+        }
+    }
+
+    @Test
     fun `a lone cube projects to a regular hexagon`() {
         // Width 2*sqrt(3)/2 and height 2 for a unit edge. Anything else and the cube is stretched.
         val box = listOf(Cube(0, 0, 0)).toProjection()
@@ -230,7 +353,14 @@ class MentalRotationsGameTest {
         assertTrue(projected.cubes.isEmpty())
     }
 
-    /** A chiral 3-arm staircase, the same shape the game falls back to. */
+    private fun MentalRotationsGame.reference() = (toUiState() as MentalRotationsUiState).reference
+
+    private fun MentalRotationsGame.candidate() = (toUiState() as MentalRotationsUiState).candidate
+
+    /** How many cubes the drawing actually shows: coincident ones land on one another. */
+    private fun MentalRotationsUiState.Figure.drawnPositions() = cubes.mapTo(mutableSetOf()) { it.x to it.y }.size
+
+    /** A chiral 3-arm staircase. */
     private fun staircase() = listOf(
         Cube(0, 0, 0),
         Cube(1, 0, 0),

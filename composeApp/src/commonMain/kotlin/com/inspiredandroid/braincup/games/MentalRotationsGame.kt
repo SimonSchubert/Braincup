@@ -182,27 +182,43 @@ class MentalRotationsGame(
 
         repeat(GENERATE_ATTEMPTS) {
             val figure = generateFigure(armCount, ARM_LENGTH, random) ?: return@repeat
-            val base = if (mirrored) mirror(figure) else figure
-            val rotation = LatticeRotation.all.random(random)
-            val candidate = base.map(rotation::apply)
-
-            if (!isFairPair(figure, candidate, expectMirrored = mirrored)) return@repeat
-
-            referenceCubes = figure
-            candidateCubes = candidate
-            isMirrored = mirrored
-            roundKey++
+            val candidate = turnedCandidate(figure, mirrored) ?: return@repeat
+            show(figure, candidate, mirrored)
             return
         }
 
-        // Every attempt was rejected (a boxed-in chain, or an achiral figure whose mirror is just a
-        // rotation). Fall back to a known-chiral figure so a round always exists.
-        val figure = FALLBACK_FIGURE
-        val base = if (mirrored) mirror(figure) else figure
+        // Every attempt was rejected: a boxed-in chain, an achiral figure whose mirror is just a
+        // rotation, or a figure that hid one of its own cubes. FALLBACK_FIGURE is chiral and stays
+        // fully in sight under all 24 rotations, so this path always has a round to show. Should
+        // even that turn up nothing, the untouched figure is still a correct round, only an easy
+        // one, which beats leaving the screen empty.
+        val base = if (mirrored) mirror(FALLBACK_FIGURE) else FALLBACK_FIGURE
+        show(FALLBACK_FIGURE, turnedCandidate(FALLBACK_FIGURE, mirrored) ?: base, mirrored)
+    }
+
+    private fun show(figure: List<Cube>, candidate: List<Cube>, mirrored: Boolean) {
         referenceCubes = figure
-        candidateCubes = base.map(LatticeRotation.all.random(random)::apply)
+        candidateCubes = candidate
         isMirrored = mirrored
         roundKey++
+    }
+
+    /**
+     * A turned copy of [figure], or of its mirror, that is fair to ask; null when no turn is.
+     *
+     * Both panels must also show every cube they contain, or the pair reads as two different
+     * solids rather than one solid turned: see [allCubesVisible]. Rotations are tried in random
+     * order so the candidate's orientation stays unpredictable instead of settling on whichever
+     * rotation happens to come first in the list.
+     */
+    private fun turnedCandidate(figure: List<Cube>, mirrored: Boolean): List<Cube>? {
+        if (!allCubesVisible(figure)) return null
+        val base = if (mirrored) mirror(figure) else figure
+        return LatticeRotation.all.shuffled(random).firstNotNullOfOrNull { rotation ->
+            base.map(rotation::apply).takeIf {
+                allCubesVisible(it) && isFairPair(figure, it, expectMirrored = mirrored)
+            }
+        }
     }
 
     override fun isCorrect(input: String): Boolean = input == if (isMirrored) ANSWER_MIRRORED else ANSWER_SAME
@@ -226,9 +242,13 @@ class MentalRotationsGame(
         answers = ANSWERS.map { AnswerButton(it) }.toImmutableList(),
     )
 
-    /** Arm count grows with the ramp, then holds: past 5 arms the figure stops fitting a phone. */
+    /**
+     * Arm count grows with the ramp, then holds: past 5 arms the figure stops fitting a phone.
+     *
+     * Three arms is the floor, not two. Two perpendicular arms always lie in one plane, and a
+     * planar figure is its own mirror image, so a two-arm round could never be a mirrored one.
+     */
     private fun armCountForRound(): Int = when {
-        round <= 2 -> 2
         round <= 5 -> 3
         round <= 9 -> 4
         else -> 5
@@ -242,18 +262,73 @@ class MentalRotationsGame(
         private val ARM_LENGTH = 2..3
         private const val GENERATE_ATTEMPTS = 60
 
-        /** A chiral 3-arm staircase, used only when generation keeps failing. */
+        /**
+         * A chiral 3-arm staircase, used only when generation keeps failing. Chosen so that every
+         * one of the 24 rotations leaves all 8 cubes in sight, for the figure and for its mirror
+         * alike, which makes the fallback safe to turn at random.
+         */
         private val FALLBACK_FIGURE = listOf(
             Cube(0, 0, 0),
             Cube(1, 0, 0),
             Cube(2, 0, 0),
-            Cube(2, 1, 0),
-            Cube(2, 2, 0),
-            Cube(2, 2, 1),
-            Cube(2, 2, 2),
+            Cube(2, 0, 1),
+            Cube(2, 0, 2),
+            Cube(2, 0, 3),
+            Cube(2, 1, 3),
+            Cube(2, 2, 3),
         )
     }
 }
+
+/**
+ * True when every cube of [cubes] paints at least one pixel of the isometric view.
+ *
+ * The camera looks down the (1,1,1) diagonal, so a cube exactly one such step in front of another
+ * projects onto the very same hexagon and hides it outright. Less obviously, a cube can also be
+ * lost when its three viewer-facing faces are each covered by other cubes. Either way the drawing
+ * holds fewer cubes than the figure does, and the two panels then read as two different solids
+ * instead of one solid turned, which is the one thing the game must never show.
+ *
+ * The test is exact rather than a rasterisation, because on the lattice the blockers of a face are
+ * a short fixed list, read straight off the projection: the cube sharing that face covers it
+ * whole, and the two cubes sitting diagonally in front of it cover half each. Any blocker may sit
+ * any number of (1,1,1) steps further forward and still land on the same place on screen, so each
+ * one is followed along the view axis until it leaves the figure.
+ */
+fun allCubesVisible(cubes: List<Cube>): Boolean {
+    if (cubes.size < 2) return true
+    val occupied = cubes.toSet()
+    // Far enough that a blocker walked this many steps is guaranteed to be outside the figure.
+    val reach = maxOf(
+        cubes.maxOf { it.x } - cubes.minOf { it.x },
+        cubes.maxOf { it.y } - cubes.minOf { it.y },
+        cubes.maxOf { it.z } - cubes.minOf { it.z },
+    ) + 1
+
+    fun blocked(cube: Cube, offset: Cube) = (0..reach).any { step ->
+        Cube(cube.x + offset.x + step, cube.y + offset.y + step, cube.z + offset.z + step) in occupied
+    }
+
+    return cubes.none { cube ->
+        blocked(cube, VIEW_STEP) ||
+            FACE_BLOCKERS.all { (whole, half, otherHalf) ->
+                blocked(cube, whole) || (blocked(cube, half) && blocked(cube, otherHalf))
+            }
+    }
+}
+
+/** One step towards the viewer. A cube here covers the one behind it exactly. */
+private val VIEW_STEP = Cube(1, 1, 1)
+
+/**
+ * Per viewer-facing face, the neighbour that covers it whole and the two that cover half each.
+ * Listed for the top (+z), right (+x) and left (+y) faces, which are the only three a cube shows.
+ */
+private val FACE_BLOCKERS = listOf(
+    Triple(Cube(0, 0, 1), Cube(0, 1, 1), Cube(1, 0, 1)),
+    Triple(Cube(1, 0, 0), Cube(1, 0, 1), Cube(1, 1, 0)),
+    Triple(Cube(0, 1, 0), Cube(0, 1, 1), Cube(1, 1, 0)),
+)
 
 /**
  * Project the lattice onto the screen for drawing.
