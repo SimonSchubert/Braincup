@@ -232,6 +232,7 @@
     <string name="game_missing_operators">غائب عامل</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ٹریو</string>
+    <string name="game_mental_rotations">ذہنی گردش</string>
 
     <string name="game_anomaly_puzzle_desc">وہ شکل تلاش کریں جو الگ ہو۔ ہر شکل کے رنگ اور صورت دونوں دیکھیں۔</string>
     <string name="game_mental_calculation_desc">ریاضی کی عبارتیں فالو کریں۔ نتیجہ اگلے حساب کی بنیاد بنائیں۔</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">مساوات درست کرنے کے لیے عامل منتخب کریں۔ عام ریاضی کی ترتیب سے حساب ہوتا ہے۔</string>
     <string name="game_bulls_and_cows_desc">منفرد ہندسوں والا خفیہ 4 ہندسی عدد اندازہ لگائیں۔ Bulls = درست ہندسہ درست جگہ۔ Cows = درست ہندسہ غلط جگہ۔</string>
     <string name="game_trio_desc">تین کارڈ تلاش کریں جو شکل، تعداد یا بھرنے میں مشترک ہوں۔</string>
+    <string name="game_mental_rotations_desc">فیصلہ کریں کہ دوسرا بلاک پہلے کو گھما کر بنایا گیا ہے یا اس کا آئینی عکس ہے۔</string>
+    <string name="game_mental_rotations_question">وہی بلاک یا آئینی عکس؟</string>
+    <string name="game_mental_rotations_same">وہی</string>
+    <string name="game_mental_rotations_mirrored">عکس</string>
     <string name="game_trio_howto">مشترک خصوصیت والے تین کارڈ دبائیں۔</string>
     <string name="trio_demo_title">تین کا سیٹ تلاش کریں</string>
     <string name="trio_demo_rule">ان میں ایک خصوصیت مشترک ہے۔ باقی ملا جلا نہیں۔</string>
     <string name="trio_demo_correct">یہ سیٹ ہے۔</string>
+    <string name="mental_rotations_demo_title">اسے ذہن میں گھمائیں</string>
+    <string name="mental_rotations_demo_turn">دائیں بلاک کو گھما کر بائیں پر رکھیں۔</string>
+    <string name="mental_rotations_demo_same">بالکل مل جاتا ہے۔ وہی بلاک۔</string>
+    <string name="mental_rotations_demo_mirrored">کبھی نہیں ملتا۔ آئینی عکس۔</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">خفیہ عدد %1$s تھا</string>
@@ -427,6 +436,7 @@
     <string name="achievement_gold_missing_operators">عامل ماسٹر</string>
     <string name="achievement_gold_bulls_and_cows">کوڈ توڑنے والا</string>
     <string name="achievement_gold_trio">سہ گنا نظر</string>
+    <string name="achievement_gold_mental_rotations">گردش کا ماہر</string>
     <string name="achievement_gold_path_finder">راستہ کھولنے والا</string>
     <string name="achievement_gold_anomaly_puzzle">الگ پہچان</string>
     <string name="achievement_gold_colored_shapes">شکل بدلنے والا</string>
@@ -463,6 +473,7 @@
     <string name="achievement_gold_missing_operators_desc">غائب عامل میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_trio_desc">ٹریو میں طلائی تمغہ جیتیں</string>
+    <string name="achievement_gold_mental_rotations_desc">ذہنی گردش میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_path_finder_desc">راستہ تلاش میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_anomaly_puzzle_desc">انوکھی پہیلی میں طلائی تمغہ جیتیں</string>
     <string name="achievement_gold_colored_shapes_desc">رنگین شکلیں میں طلائی تمغہ جیتیں</string>
@@ -870,6 +881,8 @@
     <string name="learn_try_again_hint">بالکل درست نہیں۔ ایک بار پھر دیکھیں اور دوبارہ کوشش کریں۔</string>
     <string name="learn_answer_label">جواب</string>
     <string name="learn_correct">درست!</string>
+    <string name="learn_revealed_answer">یہ رہا جواب</string>
+    <string name="learn_show_answer">مجھے جواب دکھائیں</string>
     <string name="learn_incorrect">ابھی نہیں</string>
     <string name="learn_your_answer">آپ کا جواب</string>
 
@@ -950,5 +963,9 @@
     <string name="learn_fig_mean">اوسط</string>
     <string name="learn_fig_standard_deviations">%1$s معیاری انحراف</string>
     <string name="learn_fig_symbol_key">1 علامت = %1$d</string>
+    <string name="learn_fig_bar_before">پہلے</string>
+    <string name="learn_fig_bar_after">بعد</string>
+    <string name="learn_fig_bar_score">اسکور</string>
+    <string name="learn_fig_bar_total">کل</string>
 
 </resources>

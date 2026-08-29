@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Chybějící operátory</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mentální rotace</string>
 
     <string name="game_anomaly_puzzle_desc">Najdi figurku, která vyčnívá. Sleduj barvu i tvar každé figurky.</string>
     <string name="game_mental_calculation_desc">Sleduj matematické výrazy. Výsledek použij jako základ dalšího výpočtu.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Vyber operátory, aby rovnice seděla. Operátory se počítají podle běžné priority.</string>
     <string name="game_bulls_and_cows_desc">Hádej tajné 4místné číslo s unikátními číslicemi. Bulls = správná číslice na správném místě. Cows = správná číslice na špatném místě.</string>
     <string name="game_trio_desc">Najdi tři karty, které sdílejí tvar, počet nebo výplň.</string>
+    <string name="game_mental_rotations_desc">Rozhodni, jestli je druhý blok ten první otočený, nebo jeho zrcadlový obraz.</string>
+    <string name="game_mental_rotations_question">Stejný blok, nebo zrcadlový obraz?</string>
+    <string name="game_mental_rotations_same">Stejný</string>
+    <string name="game_mental_rotations_mirrored">Zrcadlový</string>
     <string name="game_trio_howto">Klepni na tři karty, které sdílejí vlastnost.</string>
     <string name="trio_demo_title">Najdi trojici</string>
     <string name="trio_demo_rule">Sdílejí vlastnost. Nic jiného se nemíchá.</string>
     <string name="trio_demo_correct">To je trojice.</string>
+    <string name="mental_rotations_demo_title">Otoč si to v hlavě</string>
+    <string name="mental_rotations_demo_turn">Otoč pravý blok na ten levý.</string>
+    <string name="mental_rotations_demo_same">Sedí to. Stejný blok.</string>
+    <string name="mental_rotations_demo_mirrored">Nikdy to nesedí. Zrcadlový obraz.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Tajné číslo bylo %1$s</string>
@@ -429,6 +438,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_missing_operators">Mistr operátorů</string>
     <string name="achievement_gold_bulls_and_cows">Luštitel kódů</string>
     <string name="achievement_gold_trio">Trojité vidění</string>
+    <string name="achievement_gold_mental_rotations">Mistr otáčení</string>
     <string name="achievement_gold_path_finder">Průkopník</string>
     <string name="achievement_gold_anomaly_puzzle">Výjimka odhalena</string>
     <string name="achievement_gold_colored_shapes">Měňavec</string>
@@ -465,6 +475,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Získej zlatou medaili v Chybějící operátory</string>
     <string name="achievement_gold_bulls_and_cows_desc">Získej zlatou medaili v Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Získej zlatou medaili v Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Získej zlatou medaili v Mentální rotaci</string>
     <string name="achievement_gold_path_finder_desc">Získej zlatou medaili v Hledač cesty</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Získej zlatou medaili v Hádanka anomálie</string>
     <string name="achievement_gold_colored_shapes_desc">Získej zlatou medaili v Barevné tvary</string>
@@ -872,6 +883,8 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_try_again_hint">Ne tak úplně. Podívej se ještě jednou a zkus to znovu.</string>
     <string name="learn_answer_label">Odpověď</string>
     <string name="learn_correct">Správně!</string>
+    <string name="learn_revealed_answer">Tady je odpověď</string>
+    <string name="learn_show_answer">Ukaž mi odpověď</string>
     <string name="learn_incorrect">Ještě ne</string>
     <string name="learn_your_answer">Tvoje odpověď</string>
 
@@ -957,5 +970,9 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_fig_mean">průměr</string>
     <string name="learn_fig_standard_deviations">%1$s sm. odch.</string>
     <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
+    <string name="learn_fig_bar_before">před</string>
+    <string name="learn_fig_bar_after">po</string>
+    <string name="learn_fig_bar_score">body</string>
+    <string name="learn_fig_bar_total">celkem</string>
 
 </resources>

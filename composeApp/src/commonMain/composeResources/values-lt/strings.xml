@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Trūkstami operatoriai</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mintinis sukimas</string>
 
     <string name="game_anomaly_puzzle_desc">Rask figūrą, kuri išsiskiria. Stebėk ir spalvą, ir formą kiekvienos figūros.</string>
     <string name="game_mental_calculation_desc">Sek matematinius reiškinius. Rezultatą naudok kaip kito skaičiavimo pagrindą.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Pasirink operatorius, kad lygtis būtų teisinga. Operatoriai skaičiuojami įprasta tvarka.</string>
     <string name="game_bulls_and_cows_desc">Atspėk slaptą 4 skaitmenų skaičių su unikaliais skaitmenimis. Bulls = teisingas skaitmuo teisingoje vietoje. Cows = teisingas skaitmuo neteisingoje vietoje.</string>
     <string name="game_trio_desc">Rask tris kortas, kurios dalijasi forma, skaičiumi arba užpildu.</string>
+    <string name="game_mental_rotations_desc">Nuspręsk, ar antrasis blokas yra pirmasis pasuktas, ar jo veidrodinis atvaizdas.</string>
+    <string name="game_mental_rotations_question">Tas pats blokas ar veidrodinis atvaizdas?</string>
+    <string name="game_mental_rotations_same">Tas pats</string>
+    <string name="game_mental_rotations_mirrored">Veidrodinis</string>
     <string name="game_trio_howto">Paliesk tris kortas, kurios dalijasi savybe.</string>
     <string name="trio_demo_title">Rask trejetą</string>
     <string name="trio_demo_rule">Dalijasi savybe. Nieko kito nemaišoma.</string>
     <string name="trio_demo_correct">Tai trejetas.</string>
+    <string name="mental_rotations_demo_title">Pasuk mintyse</string>
+    <string name="mental_rotations_demo_turn">Pasuk dešinįjį bloką ant kairiojo.</string>
+    <string name="mental_rotations_demo_same">Sutampa. Tas pats blokas.</string>
+    <string name="mental_rotations_demo_mirrored">Niekada nesutampa. Veidrodinis atvaizdas.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Slaptasis skaičius buvo %1$s</string>
@@ -429,6 +438,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_missing_operators">Operatorių meistras</string>
     <string name="achievement_gold_bulls_and_cows">Kodų laužytojas</string>
     <string name="achievement_gold_trio">Triguba rega</string>
+    <string name="achievement_gold_mental_rotations">Sukimo meistras</string>
     <string name="achievement_gold_path_finder">Pionierius</string>
     <string name="achievement_gold_anomaly_puzzle">Išimtis atskleista</string>
     <string name="achievement_gold_colored_shapes">Formų keitėjas</string>
@@ -465,6 +475,7 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Laimėk aukso medalį Trūkstamuose operatoriuose</string>
     <string name="achievement_gold_bulls_and_cows_desc">Laimėk aukso medalį Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Laimėk aukso medalį Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Laimėk aukso medalį Mintiniame sukime</string>
     <string name="achievement_gold_path_finder_desc">Laimėk aukso medalį Kelio ieškotojuje</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Laimėk aukso medalį Anomalijos galvosūkyje</string>
     <string name="achievement_gold_colored_shapes_desc">Laimėk aukso medalį Spalvotose figūrose</string>
@@ -872,6 +883,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_try_again_hint">Ne visai. Pažiūrėk dar kartą ir bandyk vėl.</string>
     <string name="learn_answer_label">Atsakymas</string>
     <string name="learn_correct">Teisingai!</string>
+    <string name="learn_revealed_answer">Štai atsakymas</string>
+    <string name="learn_show_answer">Parodyk atsakymą</string>
     <string name="learn_incorrect">Dar ne</string>
     <string name="learn_your_answer">Tavo atsakymas</string>
 
@@ -957,5 +970,9 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_fig_mean">vidurkis</string>
     <string name="learn_fig_standard_deviations">%1$s st. nuok.</string>
     <string name="learn_fig_symbol_key">1 simbolis = %1$d</string>
+    <string name="learn_fig_bar_before">prieš</string>
+    <string name="learn_fig_bar_after">po</string>
+    <string name="learn_fig_bar_score">taškai</string>
+    <string name="learn_fig_bar_total">iš viso</string>
 
 </resources>

@@ -216,6 +216,7 @@
     <string name="game_missing_operators">விடுபட்ட செயற்குறிகள்</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">மூவர்</string>
+    <string name="game_mental_rotations">மனச் சுழற்சி</string>
 
     <string name="game_anomaly_puzzle_desc">தனித்து நிற்கும் உருவத்தைக் கண்டுபிடியுங்கள். ஒவ்வொரு உருவத்தின் நிறத்தையும் வடிவத்தையும் கவனியுங்கள்.</string>
     <string name="game_mental_calculation_desc">கணிதக் கோவைகளைப் பின்பற்றுங்கள். அடுத்த கணக்கீட்டுக்கு முடிவை அடிப்படையாகப் பயன்படுத்துங்கள்.</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">சமன்பாட்டை உண்மையாக்கச் செயற்குறிகளைத் தேர்வுசெய்யுங்கள். செயற்குறிகள் நிலையான கணித முன்னுரிமைப்படி மதிப்பிடப்படுகின்றன.</string>
     <string name="game_bulls_and_cows_desc">தனித்த இலக்கங்களைக் கொண்ட ரகசிய 4 இலக்க எண்ணை யூகியுங்கள். Bulls = சரியான இடத்தில் சரியான இலக்கம். Cows = தவறான இடத்தில் சரியான இலக்கம்.</string>
     <string name="game_trio_desc">ஒரே வடிவம், எண்ணிக்கை அல்லது நிரப்புதலைப் பகிரும் மூன்று அட்டைகளைக் கண்டுபிடியுங்கள்.</string>
+    <string name="game_mental_rotations_desc">இரண்டாவது தொகுதி முதலாவதைச் சுழற்றியதா அல்லது அதன் கண்ணாடிப் பிம்பமா என்பதை முடிவு செய்யுங்கள்.</string>
+    <string name="game_mental_rotations_question">அதே தொகுதியா, கண்ணாடிப் பிம்பமா?</string>
+    <string name="game_mental_rotations_same">அதுவே</string>
+    <string name="game_mental_rotations_mirrored">பிம்பம்</string>
     <string name="game_trio_howto">ஒரே பண்பைப் பகிரும் மூன்று அட்டைகளைத் தட்டுங்கள்.</string>
     <string name="trio_demo_title">மூன்றின் தொகுப்பைக் கண்டுபிடியுங்கள்</string>
     <string name="trio_demo_rule">அவை ஒரே பண்பைப் பகிர்கின்றன. வேறெதுவும் கலக்கவில்லை.</string>
     <string name="trio_demo_correct">அதுதான் ஒரு தொகுப்பு.</string>
+    <string name="mental_rotations_demo_title">மனதில் சுழற்றுங்கள்</string>
+    <string name="mental_rotations_demo_turn">வலது தொகுதியைச் சுழற்றி இடதின் மேல் பொருத்துங்கள்.</string>
+    <string name="mental_rotations_demo_same">சரியாகப் பொருந்துகிறது. அதே தொகுதி.</string>
+    <string name="mental_rotations_demo_mirrored">எப்போதும் பொருந்தாது. கண்ணாடிப் பிம்பம்.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">ரகசியம் %1$s ஆக இருந்தது</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">செயற்குறி நிபுணர்</string>
     <string name="achievement_gold_bulls_and_cows">குறியீடு உடைப்பவர்</string>
     <string name="achievement_gold_trio">மூன்று கண்பார்வை</string>
+    <string name="achievement_gold_mental_rotations">சுழற்சி வல்லுநர்</string>
     <string name="achievement_gold_path_finder">பாதை வகுப்பவர்</string>
     <string name="achievement_gold_anomaly_puzzle">வித்தியாசம் கண்டறியப்பட்டது</string>
     <string name="achievement_gold_colored_shapes">வடிவம் மாற்றுபவர்</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">விடுபட்ட செயற்குறிகளில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows இல் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_trio_desc">மூவரில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
+    <string name="achievement_gold_mental_rotations_desc">மனச் சுழற்சியில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_path_finder_desc">பாதை கண்டுபிடிப்பானில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_anomaly_puzzle_desc">முரண்பாட்டுப் புதிரில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="achievement_gold_colored_shapes_desc">வண்ண வடிவங்களில் தங்கப் பதக்கம் வெல்லுங்கள்</string>
@@ -853,6 +864,8 @@
     <string name="learn_try_again_hint">சரியாக இல்லை. மீண்டும் பார்த்து முயற்சியுங்கள்.</string>
     <string name="learn_answer_label">விடை</string>
     <string name="learn_correct">சரி!</string>
+    <string name="learn_revealed_answer">இதோ விடை</string>
+    <string name="learn_show_answer">விடையைக் காட்டு</string>
     <string name="learn_incorrect">சரியாக இல்லை</string>
     <string name="learn_your_answer">உங்கள் விடை</string>
 
@@ -933,5 +946,9 @@
     <string name="learn_fig_mean">சராசரி</string>
     <string name="learn_fig_standard_deviations">%1$s நி. வி.</string>
     <string name="learn_fig_symbol_key">1 குறியீடு = %1$d</string>
+    <string name="learn_fig_bar_before">முன்</string>
+    <string name="learn_fig_bar_after">பின்</string>
+    <string name="learn_fig_bar_score">மதிப்பெண்</string>
+    <string name="learn_fig_bar_total">மொத்தம்</string>
 
 </resources>

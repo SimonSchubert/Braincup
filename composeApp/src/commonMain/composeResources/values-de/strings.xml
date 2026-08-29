@@ -757,13 +757,24 @@
     <string name="finish_new_best_tries">Neuer Bestwert!</string>
 
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mentale Rotation</string>
     <string name="game_trio_desc">Finde drei Karten, die sich eine Form, eine Anzahl oder eine Füllung teilen.</string>
+    <string name="game_mental_rotations_desc">Entscheide, ob der zweite Block der erste gedreht ist oder sein Spiegelbild.</string>
+    <string name="game_mental_rotations_question">Gleicher Block oder Spiegelbild?</string>
+    <string name="game_mental_rotations_same">Gleich</string>
+    <string name="game_mental_rotations_mirrored">Gespiegelt</string>
     <string name="game_trio_howto">Tippe drei Karten an, die ein Merkmal teilen.</string>
     <string name="trio_demo_title">Finde ein Set aus drei</string>
     <string name="trio_demo_rule">Sie teilen ein Merkmal. Sonst nichts Gemischtes.</string>
     <string name="trio_demo_correct">Das ist ein Set.</string>
+    <string name="mental_rotations_demo_title">Dreh ihn im Kopf</string>
+    <string name="mental_rotations_demo_turn">Drehe den rechten Block auf den linken.</string>
+    <string name="mental_rotations_demo_same">Er passt genau. Gleicher Block.</string>
+    <string name="mental_rotations_demo_mirrored">Er passt nie. Spiegelbild.</string>
     <string name="achievement_gold_trio">Dreifachblick</string>
+    <string name="achievement_gold_mental_rotations">Drehmeister</string>
     <string name="achievement_gold_trio_desc">Gewinne die Goldmedaille in Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Gewinne die Goldmedaille in Mentale Rotation</string>
 
     <string name="iq_test_button">IQ-Test</string>
     <string name="iq_test_title">IQ-Test</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">Noch nicht ganz. Schau noch einmal hin und versuch es erneut.</string>
     <string name="learn_answer_label">Antwort</string>
     <string name="learn_correct">Richtig!</string>
+    <string name="learn_revealed_answer">Hier ist die Antwort</string>
+    <string name="learn_show_answer">Zeig mir die Antwort</string>
     <string name="learn_incorrect">Nicht ganz</string>
     <string name="learn_your_answer">Deine Antwort</string>
 

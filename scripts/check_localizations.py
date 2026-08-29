@@ -58,6 +58,66 @@ def numbers_in(text: str) -> list[str]:
     return sorted(NUMBER_PATTERN.findall(text))
 
 
+# A format slot is the lesson handing the sentence a value. Losing one drops the value silently and
+# gaining one crashes the format call, so the multiset has to survive translation everywhere, not
+# just in the catalog.
+PLACEHOLDER_PATTERN = re.compile(r'%(?:\d+\$)?[sdf]')
+
+
+def placeholders_in(text: str) -> list[str]:
+    return sorted(PLACEHOLDER_PATTERN.findall(text))
+
+
+# `{a:6}` and `{b:3}` colour a run orange (the given) or blue (the working) to match the figure
+# beside it. The contents get translated - `{a:six}` becomes `{a:sechs}` - so only the markers
+# themselves are compared: same number of each letter in, same number out. A dropped brace leaves
+# the colour code lying about which number came from where, and nothing else would catch it.
+MARKER_PATTERN = re.compile(r"\{([abc]):")
+
+
+def markers_in(text: str) -> list[str]:
+    return sorted(MARKER_PATTERN.findall(text))
+
+
+# The grammar a locale needs is its own business, but `other` is the form ICU falls back to, and a
+# quantity outside this set is a typo that silently never matches.
+PLURAL_QUANTITIES = frozenset({"zero", "one", "two", "few", "many", "other"})
+
+PLURAL_BLOCK_PATTERN = re.compile(r'<plurals\s+name="([^"]+)"\s*>(.*?)</plurals>', re.S)
+PLURAL_ITEM_PATTERN = re.compile(r'<item\s+quantity="([^"]+)"\s*>(.*?)</item>', re.S)
+
+
+def extract_plurals(path: Path) -> dict[str, dict[str, str]]:
+    text = path.read_text(encoding="utf-8")
+    return {
+        name: dict(PLURAL_ITEM_PATTERN.findall(body))
+        for name, body in PLURAL_BLOCK_PATTERN.findall(text)
+    }
+
+
+def broken_plurals(
+    locale_plurals: dict[str, dict[str, str]],
+    base_plurals: dict[str, dict[str, str]],
+) -> list[str]:
+    """Plural sets ICU cannot use: no `other`, an invented quantity, or a form that lost its slot."""
+    problems: list[str] = []
+    for name, forms in sorted(locale_plurals.items()):
+        if "other" not in forms:
+            problems.append(f"{name}: no `other` form")
+        for quantity in sorted(set(forms) - PLURAL_QUANTITIES):
+            problems.append(f"{name}: unknown quantity `{quantity}`")
+        base_form = base_plurals.get(name, {}).get("other")
+        if base_form is None:
+            continue
+        wanted = placeholders_in(base_form)
+        for quantity, form in sorted(forms.items()):
+            if not form.strip():
+                problems.append(f"{name}: `{quantity}` is empty")
+            elif placeholders_in(form) != wanted:
+                problems.append(f"{name}: `{quantity}` does not carry {' '.join(wanted) or 'no slots'}")
+    return problems
+
+
 # An answer option is never a sentence a translator should meet with a number already baked into
 # it. "enlargement by 2" and "enlargement by 3" are one sentence and two numbers: the sentence
 # belongs here, the numbers belong in `learn/content` beside the figure that draws them. This has
@@ -125,6 +185,9 @@ class LocaleReport:
     extra_keys: list[str] = field(default_factory=list)
     pending_keys: list[str] = field(default_factory=list)
     changed_numbers: list[str] = field(default_factory=list)
+    changed_placeholders: list[str] = field(default_factory=list)
+    changed_markers: list[str] = field(default_factory=list)
+    broken_plurals: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -145,6 +208,8 @@ class CheckResult:
         count += len(self.missing_locale_files)
         for report in self.locale_reports:
             count += len(report.missing_keys) + len(report.extra_keys) + len(report.changed_numbers)
+            count += len(report.changed_placeholders) + len(report.changed_markers)
+            count += len(report.broken_plurals)
         count += len(self.numbered_options) + len(self.repeated_sentences) + len(self.repeated_texts)
         return count
 
@@ -234,6 +299,7 @@ def check_localizations(
 
     base_keys = extract_string_keys(base_file)
     base_values = extract_values(base_file)
+    base_plurals = extract_plurals(base_file)
     all_locale_keys: set[str] = set()
     locale_reports: list[LocaleReport] = []
     missing_locale_files: list[str] = []
@@ -263,6 +329,18 @@ def check_localizations(
             for key, value in locale_values.items()
             if is_pending(key) and key in base_values and numbers_in(value) != numbers_in(base_values[key])
         )
+        # Slots and colour markers are not the catalog's alone, and unlike a number they are never
+        # something a locale may legitimately reword, so these two apply to every key.
+        changed_placeholders = sorted(
+            key
+            for key, value in locale_values.items()
+            if key in base_values and placeholders_in(value) != placeholders_in(base_values[key])
+        )
+        changed_markers = sorted(
+            key
+            for key, value in locale_values.items()
+            if key in base_values and markers_in(value) != markers_in(base_values[key])
+        )
         locale_reports.append(
             LocaleReport(
                 locale=locale,
@@ -273,6 +351,9 @@ def check_localizations(
                 extra_keys=sorted(locale_keys - base_keys),
                 pending_keys=sorted(k for k in absent if is_pending(k)),
                 changed_numbers=changed_numbers,
+                changed_placeholders=changed_placeholders,
+                changed_markers=changed_markers,
+                broken_plurals=broken_plurals(extract_plurals(path), base_plurals),
             ),
         )
 
@@ -289,7 +370,12 @@ def check_localizations(
         and not missing_locale_files
         and not missing_keys_in_base
         and all(
-            not report.missing_keys and not report.extra_keys and not report.changed_numbers
+            not report.missing_keys
+            and not report.extra_keys
+            and not report.changed_numbers
+            and not report.changed_placeholders
+            and not report.changed_markers
+            and not report.broken_plurals
             for report in locale_reports
         )
     )
@@ -363,6 +449,12 @@ def print_human_report(result: CheckResult, quiet: bool) -> None:
             issues.append(f"{len(report.extra_keys)} extra")
         if report.changed_numbers:
             issues.append(f"{len(report.changed_numbers)} with changed numbers")
+        if report.changed_placeholders:
+            issues.append(f"{len(report.changed_placeholders)} with changed slots")
+        if report.changed_markers:
+            issues.append(f"{len(report.changed_markers)} with changed colour markers")
+        if report.broken_plurals:
+            issues.append(f"{len(report.broken_plurals)} broken plural(s)")
 
         if not issues:
             if not quiet:
@@ -377,6 +469,12 @@ def print_human_report(result: CheckResult, quiet: bool) -> None:
             print(f"  - extra: {key}")
         for key in report.changed_numbers:
             print(f"  - numbers changed: {key}")
+        for key in report.changed_placeholders:
+            print(f"  - format slots changed: {key}")
+        for key in report.changed_markers:
+            print(f"  - colour markers changed: {key}")
+        for problem in report.broken_plurals:
+            print(f"  - plural: {problem}")
         print()
 
     pending = sum(len(r.pending_keys) for r in result.locale_reports)
@@ -409,6 +507,11 @@ def print_json_report(result: CheckResult) -> None:
                 "key_count": report.key_count,
                 "missing_keys": report.missing_keys,
                 "extra_keys": report.extra_keys,
+                "pending_keys": report.pending_keys,
+                "changed_numbers": report.changed_numbers,
+                "changed_placeholders": report.changed_placeholders,
+                "changed_markers": report.changed_markers,
+                "broken_plurals": report.broken_plurals,
             }
             for report in result.locale_reports
         ],

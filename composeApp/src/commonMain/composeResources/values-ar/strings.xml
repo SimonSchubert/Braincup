@@ -757,13 +757,24 @@
     <string name="finish_new_best_tries">رقم قياسي جديد!</string>
 
     <string name="game_trio">ثلاثي</string>
+    <string name="game_mental_rotations">التدوير الذهني</string>
     <string name="game_trio_desc">اعثر على ثلاث بطاقات تشترك في الشكل أو العدد أو التعبئة.</string>
+    <string name="game_mental_rotations_desc">قرّر ما إذا كانت الكتلة الثانية هي الأولى بعد تدويرها، أم صورتها في المرآة.</string>
+    <string name="game_mental_rotations_question">نفس الكتلة أم صورة معكوسة؟</string>
+    <string name="game_mental_rotations_same">نفسها</string>
+    <string name="game_mental_rotations_mirrored">معكوسة</string>
     <string name="game_trio_howto">المس ثلاث بطاقات تشترك في سمة.</string>
     <string name="trio_demo_title">اعثر على مجموعة من ثلاث</string>
     <string name="trio_demo_rule">تشترك في سمة. لا شيء آخر مختلط.</string>
     <string name="trio_demo_correct">هذه مجموعة.</string>
+    <string name="mental_rotations_demo_title">أدرها في ذهنك</string>
+    <string name="mental_rotations_demo_turn">أدر الكتلة اليمنى لتنطبق على اليسرى.</string>
+    <string name="mental_rotations_demo_same">تنطبق تمامًا. نفس الكتلة.</string>
+    <string name="mental_rotations_demo_mirrored">لا تنطبق أبدًا. صورة معكوسة.</string>
     <string name="achievement_gold_trio">الرؤية الثلاثية</string>
+    <string name="achievement_gold_mental_rotations">بارع التدوير</string>
     <string name="achievement_gold_trio_desc">اربح الميدالية الذهبية في Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">اربح الميدالية الذهبية في التدوير الذهني</string>
 
     <string name="iq_test_button">اختبار الذكاء</string>
     <string name="iq_test_title">اختبار الذكاء</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">ليس تمامًا. ألقِ نظرة أخرى وحاول مجددًا.</string>
     <string name="learn_answer_label">الإجابة</string>
     <string name="learn_correct">صحيح!</string>
+    <string name="learn_revealed_answer">إليك الإجابة</string>
+    <string name="learn_show_answer">أرني الإجابة</string>
     <string name="learn_incorrect">ليس تمامًا</string>
     <string name="learn_your_answer">إجابتك</string>
 
@@ -955,5 +968,9 @@
     <string name="learn_fig_mean">المتوسط</string>
     <string name="learn_fig_standard_deviations">%1$s ع.م</string>
     <string name="learn_fig_symbol_key">1 رمز = %1$d</string>
+    <string name="learn_fig_bar_before">قبل</string>
+    <string name="learn_fig_bar_after">بعد</string>
+    <string name="learn_fig_bar_score">النتيجة</string>
+    <string name="learn_fig_bar_total">الإجمالي</string>
 
 </resources>

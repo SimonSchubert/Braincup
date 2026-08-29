@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Chýbajúce operátory</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mentálne rotácie</string>
 
     <string name="game_anomaly_puzzle_desc">Nájdi figúrku, ktorá vyčnieva. Sleduj farbu aj tvar každej figúrky.</string>
     <string name="game_mental_calculation_desc">Sleduj matematické výrazy. Výsledok použi ako základ ďalšieho výpočtu.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Vyber operátory, aby rovnica sedela. Operátory sa počítajú podľa bežnej priority.</string>
     <string name="game_bulls_and_cows_desc">Hádaj tajné 4-miestne číslo s unikátnymi číslicami. Bulls = správna číslica na správnom mieste. Cows = správna číslica na zlom mieste.</string>
     <string name="game_trio_desc">Nájdi tri karty, ktoré zdieľajú tvar, počet alebo výplň.</string>
+    <string name="game_mental_rotations_desc">Rozhodni, či je druhý blok ten prvý otočený, alebo jeho zrkadlový obraz.</string>
+    <string name="game_mental_rotations_question">Rovnaký blok, alebo zrkadlový obraz?</string>
+    <string name="game_mental_rotations_same">Rovnaký</string>
+    <string name="game_mental_rotations_mirrored">Zrkadlový</string>
     <string name="game_trio_howto">Ťukni na tri karty, ktoré zdieľajú vlastnosť.</string>
     <string name="trio_demo_title">Nájdi trojicu</string>
     <string name="trio_demo_rule">Zdieľajú vlastnosť. Nič iné sa nemieša.</string>
     <string name="trio_demo_correct">To je trojica.</string>
+    <string name="mental_rotations_demo_title">Otoč si ho v hlave</string>
+    <string name="mental_rotations_demo_turn">Otoč pravý blok na ten ľavý.</string>
+    <string name="mental_rotations_demo_same">Sadne presne. Rovnaký blok.</string>
+    <string name="mental_rotations_demo_mirrored">Nikdy nesadne. Zrkadlový obraz.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Tajné číslo bolo %1$s</string>
@@ -429,6 +438,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_gold_missing_operators">Majster operátorov</string>
     <string name="achievement_gold_bulls_and_cows">Lúštiteľ kódov</string>
     <string name="achievement_gold_trio">Trojité videnie</string>
+    <string name="achievement_gold_mental_rotations">Majster otáčania</string>
     <string name="achievement_gold_path_finder">Priekopník</string>
     <string name="achievement_gold_anomaly_puzzle">Výnimka odhalená</string>
     <string name="achievement_gold_colored_shapes">Menič tvarov</string>
@@ -465,6 +475,7 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Získaj zlatú medailu v Chýbajúcich operátoroch</string>
     <string name="achievement_gold_bulls_and_cows_desc">Získaj zlatú medailu v Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Získaj zlatú medailu v Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Získaj zlatú medailu v Mentálnych rotáciách</string>
     <string name="achievement_gold_path_finder_desc">Získaj zlatú medailu v Hľadači cesty</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Získaj zlatú medailu v Hádanke anomálie</string>
     <string name="achievement_gold_colored_shapes_desc">Získaj zlatú medailu vo Farebných tvaroch</string>
@@ -872,6 +883,8 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="learn_try_again_hint">Nie celkom. Pozri sa ešte raz a skús to znova.</string>
     <string name="learn_answer_label">Odpoveď</string>
     <string name="learn_correct">Správne!</string>
+    <string name="learn_revealed_answer">Tu je odpoveď</string>
+    <string name="learn_show_answer">Ukáž mi odpoveď</string>
     <string name="learn_incorrect">Ešte nie</string>
     <string name="learn_your_answer">Tvoja odpoveď</string>
 
@@ -957,5 +970,9 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="learn_fig_mean">priemer</string>
     <string name="learn_fig_standard_deviations">%1$s sm. odch.</string>
     <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
+    <string name="learn_fig_bar_before">pred</string>
+    <string name="learn_fig_bar_after">po</string>
+    <string name="learn_fig_bar_score">body</string>
+    <string name="learn_fig_bar_total">spolu</string>
 
 </resources>

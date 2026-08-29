@@ -756,13 +756,24 @@
     <string name="finish_new_best_tries">สถิติใหม่!</string>
 
     <string name="game_trio">ทริโอ</string>
+    <string name="game_mental_rotations">หมุนภาพในใจ</string>
     <string name="game_trio_desc">หาไพ่สามใบที่รูป จำนวน หรือการเติมเหมือนกัน</string>
+    <string name="game_mental_rotations_desc">ตัดสินว่าบล็อกที่สองคือบล็อกแรกที่ถูกหมุน หรือเป็นภาพในกระจก</string>
+    <string name="game_mental_rotations_question">บล็อกเดียวกัน หรือภาพในกระจก?</string>
+    <string name="game_mental_rotations_same">เหมือนกัน</string>
+    <string name="game_mental_rotations_mirrored">ภาพกระจก</string>
     <string name="game_trio_howto">แตะไพ่สามใบที่มีลักษณะร่วมกัน</string>
     <string name="trio_demo_title">หาชุดสามใบ</string>
     <string name="trio_demo_rule">มีลักษณะร่วมกัน ส่วนอื่นไม่ปะปน</string>
     <string name="trio_demo_correct">นั่นคือหนึ่งชุด</string>
+    <string name="mental_rotations_demo_title">หมุนมันในหัว</string>
+    <string name="mental_rotations_demo_turn">หมุนบล็อกขวาให้ทับกับบล็อกซ้าย</string>
+    <string name="mental_rotations_demo_same">ทับกันพอดี บล็อกเดียวกัน</string>
+    <string name="mental_rotations_demo_mirrored">ไม่มีทางทับกันได้ ภาพในกระจก</string>
     <string name="achievement_gold_trio">สายตาสามเท่า</string>
+    <string name="achievement_gold_mental_rotations">เซียนหมุนภาพ</string>
     <string name="achievement_gold_trio_desc">ชนะเหรียญทองใน Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">ชนะเหรียญทองในหมุนภาพในใจ</string>
 
     <string name="iq_test_button">แบบทดสอบไอคิว</string>
     <string name="iq_test_title">แบบทดสอบไอคิว</string>
@@ -854,6 +865,8 @@
     <string name="learn_try_again_hint">ยังไม่ใช่ ลองดูอีกครั้งแล้วลองใหม่</string>
     <string name="learn_answer_label">คำตอบ</string>
     <string name="learn_correct">ถูกต้อง!</string>
+    <string name="learn_revealed_answer">นี่คือคำตอบ</string>
+    <string name="learn_show_answer">ขอดูคำตอบ</string>
     <string name="learn_incorrect">ยังไม่ใช่</string>
     <string name="learn_your_answer">คำตอบของคุณ</string>
 
@@ -929,5 +942,9 @@
     <string name="learn_fig_mean">ค่าเฉลี่ย</string>
     <string name="learn_fig_standard_deviations">%1$s ส่วนเบี่ยงเบน</string>
     <string name="learn_fig_symbol_key">1 สัญลักษณ์ = %1$d</string>
+    <string name="learn_fig_bar_before">ก่อน</string>
+    <string name="learn_fig_bar_after">หลัง</string>
+    <string name="learn_fig_bar_score">คะแนน</string>
+    <string name="learn_fig_bar_total">รวม</string>
 
 </resources>

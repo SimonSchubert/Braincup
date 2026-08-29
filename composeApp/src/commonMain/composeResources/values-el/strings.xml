@@ -757,13 +757,24 @@
     <string name="finish_new_best_tries">Νέο ρεκόρ!</string>
 
     <string name="game_trio">Τριάδα</string>
+    <string name="game_mental_rotations">Νοερές περιστροφές</string>
     <string name="game_trio_desc">Βρες τρεις κάρτες που μοιράζονται σχήμα, πλήθος ή γέμισμα.</string>
+    <string name="game_mental_rotations_desc">Αποφάσισε αν το δεύτερο μπλοκ είναι το πρώτο γυρισμένο ή το κατοπτρικό του είδωλο.</string>
+    <string name="game_mental_rotations_question">Ίδιο μπλοκ ή κατοπτρικό είδωλο;</string>
+    <string name="game_mental_rotations_same">Ίδιο</string>
+    <string name="game_mental_rotations_mirrored">Κατοπτρικό</string>
     <string name="game_trio_howto">Πάτα τρεις κάρτες που μοιράζονται ένα γνώρισμα.</string>
     <string name="trio_demo_title">Βρες ένα σύνολο των τριών</string>
     <string name="trio_demo_rule">Μοιράζονται ένα γνώρισμα. Τίποτα άλλο δεν είναι ανάμεικτο.</string>
     <string name="trio_demo_correct">Αυτό είναι σύνολο.</string>
+    <string name="mental_rotations_demo_title">Γύρισέ το στο μυαλό σου</string>
+    <string name="mental_rotations_demo_turn">Περίστρεψε το δεξί μπλοκ πάνω στο αριστερό.</string>
+    <string name="mental_rotations_demo_same">Ταιριάζει. Ίδιο μπλοκ.</string>
+    <string name="mental_rotations_demo_mirrored">Δεν ταιριάζει ποτέ. Κατοπτρικό είδωλο.</string>
     <string name="achievement_gold_trio">Τριπλή όραση</string>
+    <string name="achievement_gold_mental_rotations">Μάστορας της περιστροφής</string>
     <string name="achievement_gold_trio_desc">Κέρδισε το χρυσό μετάλλιο στο Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Κερδίστε χρυσό μετάλλιο στο παιχνίδι Νοερές περιστροφές</string>
 
     <string name="iq_test_button">Τεστ IQ</string>
     <string name="iq_test_title">Τεστ IQ</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">Όχι ακριβώς. Ρίξε άλλη μια ματιά και δοκίμασε ξανά.</string>
     <string name="learn_answer_label">Απάντηση</string>
     <string name="learn_correct">Σωστά!</string>
+    <string name="learn_revealed_answer">Ορίστε η απάντηση</string>
+    <string name="learn_show_answer">Δείξε μου την απάντηση</string>
     <string name="learn_incorrect">Όχι ακριβώς</string>
     <string name="learn_your_answer">Η απάντησή σου</string>
 
@@ -935,5 +948,9 @@
     <string name="learn_fig_mean">μέσος όρος</string>
     <string name="learn_fig_standard_deviations">%1$s τ.α.</string>
     <string name="learn_fig_symbol_key">1 σύμβολο = %1$d</string>
+    <string name="learn_fig_bar_before">πριν</string>
+    <string name="learn_fig_bar_after">μετά</string>
+    <string name="learn_fig_bar_score">βαθμοί</string>
+    <string name="learn_fig_bar_total">σύνολο</string>
 
 </resources>

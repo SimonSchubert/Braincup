@@ -216,6 +216,7 @@
     <string name="game_missing_operators">ਗੁੰਮ ਚਿੰਨ੍ਹ</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ਤਿੱਕੜੀ</string>
+    <string name="game_mental_rotations">ਮਾਨਸਿਕ ਘੁਮਾਅ</string>
 
     <string name="game_anomaly_puzzle_desc">ਵੱਖਰੀ ਦਿਸਦੀ ਆਕ੍ਰਿਤੀ ਲੱਭੋ। ਹਰ ਆਕ੍ਰਿਤੀ ਦਾ ਰੰਗ ਅਤੇ ਆਕਾਰ ਦੋਵੇਂ ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ।</string>
     <string name="game_mental_calculation_desc">ਗਣਿਤ ਦੇ ਸਮੀਕਰਨਾਂ ਦਾ ਪਾਲਣ ਕਰੋ। ਨਤੀਜੇ ਨੂੰ ਅਗਲੇ ਹਿਸਾਬ ਦਾ ਆਧਾਰ ਬਣਾਓ।</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">ਸਮੀਕਰਨ ਨੂੰ ਸਹੀ ਬਣਾਉਣ ਲਈ ਚਿੰਨ੍ਹ ਚੁਣੋ। ਚਿੰਨ੍ਹਾਂ ਦਾ ਮੁੱਲਾਂਕਣ ਆਮ ਗਣਿਤ ਤਰਜੀਹ ਅਨੁਸਾਰ ਹੁੰਦਾ ਹੈ।</string>
     <string name="game_bulls_and_cows_desc">ਵੱਖ-ਵੱਖ ਅੰਕਾਂ ਵਾਲੇ ਗੁਪਤ 4 ਅੰਕਾਂ ਦੇ ਨੰਬਰ ਦਾ ਅਨੁਮਾਨ ਲਾਓ। Bulls = ਸਹੀ ਥਾਂ ਉੱਤੇ ਸਹੀ ਅੰਕ। Cows = ਗਲਤ ਥਾਂ ਉੱਤੇ ਸਹੀ ਅੰਕ।</string>
     <string name="game_trio_desc">ਇੱਕੋ ਆਕਾਰ, ਗਿਣਤੀ ਜਾਂ ਭਰਾਈ ਵਾਲੇ ਤਿੰਨ ਪੱਤੇ ਲੱਭੋ।</string>
+    <string name="game_mental_rotations_desc">ਤੈਅ ਕਰੋ ਕਿ ਦੂਜਾ ਬਲਾਕ ਪਹਿਲੇ ਨੂੰ ਘੁਮਾ ਕੇ ਬਣਿਆ ਹੈ ਜਾਂ ਉਸ ਦਾ ਸ਼ੀਸ਼ਾ-ਪ੍ਰਤੀਬਿੰਬ ਹੈ।</string>
+    <string name="game_mental_rotations_question">ਉਹੀ ਬਲਾਕ ਜਾਂ ਸ਼ੀਸ਼ਾ-ਪ੍ਰਤੀਬਿੰਬ?</string>
+    <string name="game_mental_rotations_same">ਉਹੀ</string>
+    <string name="game_mental_rotations_mirrored">ਪ੍ਰਤੀਬਿੰਬ</string>
     <string name="game_trio_howto">ਇੱਕੋ ਗੁਣ ਵਾਲੇ ਤਿੰਨ ਪੱਤਿਆਂ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="trio_demo_title">ਤਿੰਨਾਂ ਦਾ ਸਮੂਹ ਲੱਭੋ</string>
     <string name="trio_demo_rule">ਇਨ੍ਹਾਂ ਦਾ ਇੱਕ ਗੁਣ ਸਾਂਝਾ ਹੈ। ਹੋਰ ਕੁਝ ਰਲਿਆ ਨਹੀਂ।</string>
     <string name="trio_demo_correct">ਇਹੀ ਇੱਕ ਸਮੂਹ ਹੈ।</string>
+    <string name="mental_rotations_demo_title">ਮਨ ਵਿੱਚ ਘੁਮਾਓ</string>
+    <string name="mental_rotations_demo_turn">ਸੱਜੇ ਬਲਾਕ ਨੂੰ ਘੁਮਾ ਕੇ ਖੱਬੇ ਉੱਤੇ ਬਿਠਾਓ।</string>
+    <string name="mental_rotations_demo_same">ਇਹ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿਲਦਾ ਹੈ। ਉਹੀ ਬਲਾਕ।</string>
+    <string name="mental_rotations_demo_mirrored">ਇਹ ਕਦੇ ਨਹੀਂ ਮਿਲਦਾ। ਸ਼ੀਸ਼ਾ-ਪ੍ਰਤੀਬਿੰਬ।</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">ਗੁਪਤ ਨੰਬਰ %1$s ਸੀ</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">ਚਿੰਨ੍ਹ ਨਿਪੁੰਨ</string>
     <string name="achievement_gold_bulls_and_cows">ਕੋਡ ਤੋੜਨ ਵਾਲਾ</string>
     <string name="achievement_gold_trio">ਤੀਹਰੀ ਨਜ਼ਰ</string>
+    <string name="achievement_gold_mental_rotations">ਘੁਮਾਉਣ ਦਾ ਮਾਹਿਰ</string>
     <string name="achievement_gold_path_finder">ਪਹਿਲਾ ਰਾਹੀ</string>
     <string name="achievement_gold_anomaly_puzzle">ਵੱਖਰਾ ਲੱਭ ਲਿਆ</string>
     <string name="achievement_gold_colored_shapes">ਆਕਾਰ ਬਦਲਣ ਵਾਲਾ</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">ਗੁੰਮ ਚਿੰਨ੍ਹਾਂ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_trio_desc">ਤਿੱਕੜੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
+    <string name="achievement_gold_mental_rotations_desc">ਮਾਨਸਿਕ ਘੁਮਾਅ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_path_finder_desc">ਰਾਹ ਖੋਜੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ਵੱਖਰਾਪਣ ਬੁਝਾਰਤ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_colored_shapes_desc">ਰੰਗਦਾਰ ਆਕਾਰਾਂ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
@@ -853,6 +864,8 @@
     <string name="learn_try_again_hint">ਬਿਲਕੁਲ ਸਹੀ ਨਹੀਂ। ਮੁੜ ਵੇਖੋ ਅਤੇ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="learn_answer_label">ਜਵਾਬ</string>
     <string name="learn_correct">ਸਹੀ!</string>
+    <string name="learn_revealed_answer">ਇਹ ਰਿਹਾ ਜਵਾਬ</string>
+    <string name="learn_show_answer">ਮੈਨੂੰ ਜਵਾਬ ਦਿਖਾਓ</string>
     <string name="learn_incorrect">ਬਿਲਕੁਲ ਸਹੀ ਨਹੀਂ</string>
     <string name="learn_your_answer">ਤੁਹਾਡਾ ਜਵਾਬ</string>
 
@@ -933,5 +946,9 @@
     <string name="learn_fig_mean">ਔਸਤ</string>
     <string name="learn_fig_standard_deviations">%1$s ਮਿ. ਵਿ.</string>
     <string name="learn_fig_symbol_key">1 ਚਿੰਨ੍ਹ = %1$d</string>
+    <string name="learn_fig_bar_before">ਪਹਿਲਾਂ</string>
+    <string name="learn_fig_bar_after">ਬਾਅਦ</string>
+    <string name="learn_fig_bar_score">ਅੰਕ</string>
+    <string name="learn_fig_bar_total">ਕੁੱਲ</string>
 
 </resources>

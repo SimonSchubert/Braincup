@@ -756,13 +756,24 @@
     <string name="finish_new_best_tries">Yeni rekor!</string>
 
     <string name="game_trio">Üçlü</string>
+    <string name="game_mental_rotations">Zihinsel Döndürme</string>
     <string name="game_trio_desc">Şekil, sayı veya dolgusu ortak olan üç kart bulun.</string>
+    <string name="game_mental_rotations_desc">İkinci bloğun birincinin döndürülmüş hali mi, yoksa ayna görüntüsü mü olduğuna karar ver.</string>
+    <string name="game_mental_rotations_question">Aynı blok mu, ayna görüntüsü mü?</string>
+    <string name="game_mental_rotations_same">Aynı</string>
+    <string name="game_mental_rotations_mirrored">Ayna</string>
     <string name="game_trio_howto">Bir özelliği paylaşan üç karta dokunun.</string>
     <string name="trio_demo_title">Üçlü bir set bulun</string>
     <string name="trio_demo_rule">Bir özelliği paylaşırlar. Gerisi karışık değil.</string>
     <string name="trio_demo_correct">Bu bir set.</string>
+    <string name="mental_rotations_demo_title">Zihninde döndür</string>
+    <string name="mental_rotations_demo_turn">Sağdaki bloğu döndürüp soldakinin üzerine oturt.</string>
+    <string name="mental_rotations_demo_same">Tam oturuyor. Aynı blok.</string>
+    <string name="mental_rotations_demo_mirrored">Asla oturmuyor. Ayna görüntüsü.</string>
     <string name="achievement_gold_trio">Üçlü görüş</string>
+    <string name="achievement_gold_mental_rotations">Döndürme Ustası</string>
     <string name="achievement_gold_trio_desc">Trio'da altın madalya kazanın</string>
+    <string name="achievement_gold_mental_rotations_desc">Zihinsel Döndürme oyununda altın madalya kazan</string>
 
     <string name="iq_test_button">IQ Testi</string>
     <string name="iq_test_title">IQ Testi</string>
@@ -854,6 +865,8 @@
     <string name="learn_try_again_hint">Tam değil. Bir daha bak ve tekrar dene.</string>
     <string name="learn_answer_label">Cevap</string>
     <string name="learn_correct">Doğru!</string>
+    <string name="learn_revealed_answer">İşte cevap</string>
+    <string name="learn_show_answer">Cevabı göster</string>
     <string name="learn_incorrect">Tam değil</string>
     <string name="learn_your_answer">Cevabın</string>
 
@@ -934,5 +947,9 @@
     <string name="learn_fig_mean">ortalama</string>
     <string name="learn_fig_standard_deviations">%1$s ss</string>
     <string name="learn_fig_symbol_key">1 sembol = %1$d</string>
+    <string name="learn_fig_bar_before">önce</string>
+    <string name="learn_fig_bar_after">sonra</string>
+    <string name="learn_fig_bar_score">puan</string>
+    <string name="learn_fig_bar_total">toplam</string>
 
 </resources>

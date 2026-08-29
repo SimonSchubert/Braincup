@@ -757,13 +757,24 @@
     <string name="finish_new_best_tries">নতুন রেকর্ড!</string>
 
     <string name="game_trio">ত্রয়ী</string>
+    <string name="game_mental_rotations">মানসিক আবর্তন</string>
     <string name="game_trio_desc">এমন তিনটি তাস খুঁজুন যাদের আকৃতি, সংখ্যা বা ভরাট এক।</string>
+    <string name="game_mental_rotations_desc">দ্বিতীয় ব্লকটি প্রথমটিরই ঘোরানো রূপ, নাকি তার আয়না-প্রতিবিম্ব, তা ঠিক করুন।</string>
+    <string name="game_mental_rotations_question">একই ব্লক, নাকি আয়না-প্রতিবিম্ব?</string>
+    <string name="game_mental_rotations_same">একই</string>
+    <string name="game_mental_rotations_mirrored">প্রতিবিম্ব</string>
     <string name="game_trio_howto">একটি বৈশিষ্ট্য ভাগ করে এমন তিনটি তাসে ট্যাপ করুন।</string>
     <string name="trio_demo_title">তিনটির একটি সেট খুঁজুন</string>
     <string name="trio_demo_rule">তারা একটি বৈশিষ্ট্য ভাগ করে। বাকি মেশানো নয়।</string>
     <string name="trio_demo_correct">এটি একটি সেট।</string>
+    <string name="mental_rotations_demo_title">মনে মনে ঘোরান</string>
+    <string name="mental_rotations_demo_turn">ডানের ব্লকটি ঘুরিয়ে বাঁয়েরটির উপর বসান।</string>
+    <string name="mental_rotations_demo_same">মিলে যায়। একই ব্লক।</string>
+    <string name="mental_rotations_demo_mirrored">কখনোই মেলে না। আয়না-প্রতিবিম্ব।</string>
     <string name="achievement_gold_trio">ত্রিগুণ দৃষ্টি</string>
+    <string name="achievement_gold_mental_rotations">ঘূর্ণন গুরু</string>
     <string name="achievement_gold_trio_desc">Trio-তে স্বর্ণপদক জিতুন</string>
+    <string name="achievement_gold_mental_rotations_desc">মানসিক আবর্তন-এ স্বর্ণপদক জিতুন</string>
 
     <string name="iq_test_button">আইকিউ টেস্ট</string>
     <string name="iq_test_title">আইকিউ টেস্ট</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">ঠিক হয়নি। আরেকবার দেখে আবার চেষ্টা করুন।</string>
     <string name="learn_answer_label">উত্তর</string>
     <string name="learn_correct">সঠিক!</string>
+    <string name="learn_revealed_answer">এই যে উত্তর</string>
+    <string name="learn_show_answer">উত্তর দেখান</string>
     <string name="learn_incorrect">ঠিক হলো না</string>
     <string name="learn_your_answer">তোমার উত্তর</string>
 
@@ -935,5 +948,9 @@
     <string name="learn_fig_mean">গড়</string>
     <string name="learn_fig_standard_deviations">%1$s পরি. বিচ্যুতি</string>
     <string name="learn_fig_symbol_key">1 প্রতীক = %1$d</string>
+    <string name="learn_fig_bar_before">আগে</string>
+    <string name="learn_fig_bar_after">পরে</string>
+    <string name="learn_fig_bar_score">স্কোর</string>
+    <string name="learn_fig_bar_total">মোট</string>
 
 </resources>

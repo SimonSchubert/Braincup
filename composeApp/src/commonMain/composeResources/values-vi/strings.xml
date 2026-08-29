@@ -756,13 +756,24 @@
     <string name="finish_new_best_tries">Kỷ lục mới!</string>
 
     <string name="game_trio">Bộ ba</string>
+    <string name="game_mental_rotations">Xoay Hình Trong Đầu</string>
     <string name="game_trio_desc">Tìm ba lá bài chung hình, số lượng hoặc phần tô.</string>
+    <string name="game_mental_rotations_desc">Quyết định xem khối thứ hai là khối đầu tiên được xoay, hay là ảnh trong gương của nó.</string>
+    <string name="game_mental_rotations_question">Cùng một khối, hay ảnh gương?</string>
+    <string name="game_mental_rotations_same">Giống nhau</string>
+    <string name="game_mental_rotations_mirrored">Ảnh gương</string>
     <string name="game_trio_howto">Chạm ba lá có chung một đặc điểm.</string>
     <string name="trio_demo_title">Tìm một bộ ba lá</string>
     <string name="trio_demo_rule">Chúng chung một đặc điểm. Phần còn lại không bị lẫn.</string>
     <string name="trio_demo_correct">Đó là một bộ.</string>
+    <string name="mental_rotations_demo_title">Xoay nó trong đầu</string>
+    <string name="mental_rotations_demo_turn">Xoay khối bên phải cho khớp với khối bên trái.</string>
+    <string name="mental_rotations_demo_same">Nó khớp. Cùng một khối.</string>
+    <string name="mental_rotations_demo_mirrored">Không bao giờ khớp. Ảnh trong gương.</string>
     <string name="achievement_gold_trio">Tầm nhìn ba</string>
+    <string name="achievement_gold_mental_rotations">Bậc thầy xoay hình</string>
     <string name="achievement_gold_trio_desc">Giành huy chương vàng trong Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Giành huy chương vàng trong Xoay Hình Trong Đầu</string>
 
     <string name="iq_test_button">Bài kiểm tra IQ</string>
     <string name="iq_test_title">Bài kiểm tra IQ</string>
@@ -854,6 +865,8 @@
     <string name="learn_try_again_hint">Chưa đúng. Nhìn lại một lần nữa rồi thử lại.</string>
     <string name="learn_answer_label">Đáp án</string>
     <string name="learn_correct">Chính xác!</string>
+    <string name="learn_revealed_answer">Đây là đáp án</string>
+    <string name="learn_show_answer">Cho tôi xem đáp án</string>
     <string name="learn_incorrect">Chưa đúng lắm</string>
     <string name="learn_your_answer">Câu trả lời của bạn</string>
 
@@ -929,5 +942,9 @@
     <string name="learn_fig_mean">trung bình</string>
     <string name="learn_fig_standard_deviations">%1$s độ lệch</string>
     <string name="learn_fig_symbol_key">1 ký hiệu = %1$d</string>
+    <string name="learn_fig_bar_before">trước</string>
+    <string name="learn_fig_bar_after">sau</string>
+    <string name="learn_fig_bar_score">điểm</string>
+    <string name="learn_fig_bar_total">tổng</string>
 
 </resources>

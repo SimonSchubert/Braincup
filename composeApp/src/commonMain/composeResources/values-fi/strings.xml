@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Puuttuvat operaattorit</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mielikuvakierrot</string>
 
     <string name="game_anomaly_puzzle_desc">Löydä hahmo, joka erottuu. Katso sekä väriä että muotoa.</string>
     <string name="game_mental_calculation_desc">Seuraa matemaattisia lausekkeita. Käytä tulosta seuraavan laskun pohjana.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Valitse merkit, jotta yhtälö täsmää. Operaattorit lasketaan tavanomaisella laskujärjestyksellä.</string>
     <string name="game_bulls_and_cows_desc">Arvaa salainen 4-numeroinen luku eri numeroilla. Bulls = oikea numero oikeassa paikassa. Cows = oikea numero väärässä paikassa.</string>
     <string name="game_trio_desc">Löydä kolme korttia, jotka jakavat muodon, määrän tai täytön.</string>
+    <string name="game_mental_rotations_desc">Päätä, onko toinen palikka ensimmäinen käännettynä vai sen peilikuva.</string>
+    <string name="game_mental_rotations_question">Sama palikka vai peilikuva?</string>
+    <string name="game_mental_rotations_same">Sama</string>
+    <string name="game_mental_rotations_mirrored">Peilikuva</string>
     <string name="game_trio_howto">Napauta kolmea korttia, jotka jakavat ominaisuuden.</string>
     <string name="trio_demo_title">Löydä kolmen setti</string>
     <string name="trio_demo_rule">Ne jakavat ominaisuuden. Mikään muu ei sekoitu.</string>
     <string name="trio_demo_correct">Se on setti.</string>
+    <string name="mental_rotations_demo_title">Käännä se mielessäsi</string>
+    <string name="mental_rotations_demo_turn">Pyöritä oikeanpuoleinen palikka vasemmanpuoleisen päälle.</string>
+    <string name="mental_rotations_demo_same">Se osuu kohdalleen. Sama palikka.</string>
+    <string name="mental_rotations_demo_mirrored">Se ei osu koskaan. Peilikuva.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Salaisuus oli %1$s</string>
@@ -429,6 +438,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_gold_missing_operators">Operaattorimestari</string>
     <string name="achievement_gold_bulls_and_cows">Koodinmurtaja</string>
     <string name="achievement_gold_trio">Kolmoinäkö</string>
+    <string name="achievement_gold_mental_rotations">Kääntömestari</string>
     <string name="achievement_gold_path_finder">Polunraivaaja</string>
     <string name="achievement_gold_anomaly_puzzle">Poikkeama löytyi</string>
     <string name="achievement_gold_colored_shapes">Muodonmuuttaja</string>
@@ -465,6 +475,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Voita kultamitali Puuttuvat operaattorit -pelissä</string>
     <string name="achievement_gold_bulls_and_cows_desc">Voita kultamitali Bulls &amp; Cows -pelissä</string>
     <string name="achievement_gold_trio_desc">Voita kultamitali Triossa</string>
+    <string name="achievement_gold_mental_rotations_desc">Voita kultamitali Mielikuvakierroissa</string>
     <string name="achievement_gold_path_finder_desc">Voita kultamitali Polunetsijässä</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Voita kultamitali Poikkeamatehtävässä</string>
     <string name="achievement_gold_colored_shapes_desc">Voita kultamitali Värilliset muodot -pelissä</string>
@@ -872,6 +883,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_try_again_hint">Ei aivan. Katso vielä kerran ja yritä uudelleen.</string>
     <string name="learn_answer_label">Vastaus</string>
     <string name="learn_correct">Oikein!</string>
+    <string name="learn_revealed_answer">Tässä on vastaus</string>
+    <string name="learn_show_answer">Näytä vastaus</string>
     <string name="learn_incorrect">Ei ihan</string>
     <string name="learn_your_answer">Vastauksesi</string>
 
@@ -952,5 +965,9 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_fig_mean">keskiarvo</string>
     <string name="learn_fig_standard_deviations">%1$s kh</string>
     <string name="learn_fig_symbol_key">1 symboli = %1$d</string>
+    <string name="learn_fig_bar_before">ennen</string>
+    <string name="learn_fig_bar_after">jälkeen</string>
+    <string name="learn_fig_bar_score">pisteet</string>
+    <string name="learn_fig_bar_total">yhteensä</string>
 
 </resources>

@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Manglende operatorer</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mentale rotationer</string>
 
     <string name="game_anomaly_puzzle_desc">Find figuren, der skiller sig ud. Se både på farve og form.</string>
     <string name="game_mental_calculation_desc">Følg de matematiske udtryk. Brug resultatet som grundlag for næste beregning.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Vælg operatorerne, så ligningen stemmer. Operatorer evalueres med almindelig matematisk prioritet.</string>
     <string name="game_bulls_and_cows_desc">Gæt det hemmelige 4-cifrede tal med unikke cifre. Bulls = rigtigt ciffer på rigtig plads. Cows = rigtigt ciffer på forkert plads.</string>
     <string name="game_trio_desc">Find tre kort, der deler form, antal eller udfyldning.</string>
+    <string name="game_mental_rotations_desc">Afgør, om den anden klods er den første drejet rundt eller dens spejlbillede.</string>
+    <string name="game_mental_rotations_question">Samme klods eller spejlbillede?</string>
+    <string name="game_mental_rotations_same">Samme</string>
+    <string name="game_mental_rotations_mirrored">Spejlvendt</string>
     <string name="game_trio_howto">Tryk på tre kort, der deler en egenskab.</string>
     <string name="trio_demo_title">Find et sæt af tre</string>
     <string name="trio_demo_rule">De deler en egenskab. Intet andet er blandet.</string>
     <string name="trio_demo_correct">Det er et sæt.</string>
+    <string name="mental_rotations_demo_title">Drej den i hovedet</string>
+    <string name="mental_rotations_demo_turn">Drej den højre klods over på den venstre.</string>
+    <string name="mental_rotations_demo_same">Den passer. Samme klods.</string>
+    <string name="mental_rotations_demo_mirrored">Den passer aldrig. Spejlbillede.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Hemmeligheden var %1$s</string>
@@ -429,6 +438,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_gold_missing_operators">Operatørmester</string>
     <string name="achievement_gold_bulls_and_cows">Kodeknækker</string>
     <string name="achievement_gold_trio">Trippelsyn</string>
+    <string name="achievement_gold_mental_rotations">Drejemester</string>
     <string name="achievement_gold_path_finder">Stifinder</string>
     <string name="achievement_gold_anomaly_puzzle">Afvigeren fundet</string>
     <string name="achievement_gold_colored_shapes">Formskifter</string>
@@ -465,6 +475,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Vind guldmedaljen i Manglende operatorer</string>
     <string name="achievement_gold_bulls_and_cows_desc">Vind guldmedaljen i Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Vind guldmedaljen i Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Vind guldmedaljen i Mentale rotationer</string>
     <string name="achievement_gold_path_finder_desc">Vind guldmedaljen i Stifinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Vind guldmedaljen i Afvigelsespuslespil</string>
     <string name="achievement_gold_colored_shapes_desc">Vind guldmedaljen i Farvede former</string>
@@ -872,6 +883,8 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="learn_try_again_hint">Ikke helt. Kig en gang til, og prøv igen.</string>
     <string name="learn_answer_label">Svar</string>
     <string name="learn_correct">Rigtigt!</string>
+    <string name="learn_revealed_answer">Her er svaret</string>
+    <string name="learn_show_answer">Vis mig svaret</string>
     <string name="learn_incorrect">Ikke helt</string>
     <string name="learn_your_answer">Dit svar</string>
 
@@ -952,5 +965,9 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="learn_fig_mean">gennemsnit</string>
     <string name="learn_fig_standard_deviations">%1$s sd</string>
     <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
+    <string name="learn_fig_bar_before">før</string>
+    <string name="learn_fig_bar_after">efter</string>
+    <string name="learn_fig_bar_score">point</string>
+    <string name="learn_fig_bar_total">i alt</string>
 
 </resources>

@@ -216,6 +216,7 @@
     <string name="game_missing_operators">عملگرهای گمشده</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">تریو</string>
+    <string name="game_mental_rotations">چرخش ذهنی</string>
 
     <string name="game_anomaly_puzzle_desc">شکلی را پیدا کن که با بقیه فرق دارد. به رنگ و شکل هر کدام دقت کن.</string>
     <string name="game_mental_calculation_desc">عبارت‌های ریاضی را دنبال کن. نتیجه هر مرحله پایه محاسبه بعدی است.</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">عملگرها را طوری انتخاب کن که معادله درست شود. عملگرها با تقدم استاندارد ریاضی محاسبه می‌شوند.</string>
     <string name="game_bulls_and_cows_desc">عدد چهاررقمی مخفی با ارقام غیرتکراری را حدس بزن. Bull = رقم درست در جای درست. Cow = رقم درست در جای نادرست.</string>
     <string name="game_trio_desc">سه کارت پیدا کن که در شکل، تعداد یا نوع پرشدگی مشترک‌اند.</string>
+    <string name="game_mental_rotations_desc">تصمیم بگیر که بلوک دوم همان اولی است که چرخانده شده یا تصویر آینه‌ای آن.</string>
+    <string name="game_mental_rotations_question">همان بلوک یا تصویر آینه‌ای؟</string>
+    <string name="game_mental_rotations_same">همان</string>
+    <string name="game_mental_rotations_mirrored">آینه‌ای</string>
     <string name="game_trio_howto">روی سه کارت با یک ویژگی مشترک بزن.</string>
     <string name="trio_demo_title">یک دسته سه‌تایی پیدا کن</string>
     <string name="trio_demo_rule">یک ویژگی مشترک دارند. چیز دیگری قاطی نیست.</string>
     <string name="trio_demo_correct">این یک دسته است.</string>
+    <string name="mental_rotations_demo_title">در ذهنت بچرخانش</string>
+    <string name="mental_rotations_demo_turn">بلوک راست را بچرخان تا روی چپی بیفتد.</string>
+    <string name="mental_rotations_demo_same">منطبق می‌شود. همان بلوک.</string>
+    <string name="mental_rotations_demo_mirrored">هرگز منطبق نمی‌شود. تصویر آینه‌ای.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">عدد مخفی %1$s بود</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">استاد عملگر</string>
     <string name="achievement_gold_bulls_and_cows">شکننده کد</string>
     <string name="achievement_gold_trio">دید سه‌گانه</string>
+    <string name="achievement_gold_mental_rotations">استاد چرخش</string>
     <string name="achievement_gold_path_finder">راه‌گشا</string>
     <string name="achievement_gold_anomaly_puzzle">چشم تیزبین</string>
     <string name="achievement_gold_colored_shapes">شکل‌گردان</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">مدال طلای عملگرهای گمشده را بگیر</string>
     <string name="achievement_gold_bulls_and_cows_desc">مدال طلای Bulls &amp; Cows را بگیر</string>
     <string name="achievement_gold_trio_desc">مدال طلای تریو را بگیر</string>
+    <string name="achievement_gold_mental_rotations_desc">مدال طلای چرخش ذهنی را بگیر</string>
     <string name="achievement_gold_path_finder_desc">مدال طلای مسیریاب را بگیر</string>
     <string name="achievement_gold_anomaly_puzzle_desc">مدال طلای معمای ناهمگون را بگیر</string>
     <string name="achievement_gold_colored_shapes_desc">مدال طلای شکل‌های رنگی را بگیر</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">کاملاً درست نیست. یک بار دیگر نگاه کن و دوباره امتحان کن.</string>
     <string name="learn_answer_label">پاسخ</string>
     <string name="learn_correct">درست!</string>
+    <string name="learn_revealed_answer">پاسخ این است</string>
+    <string name="learn_show_answer">پاسخ را نشانم بده</string>
     <string name="learn_incorrect">نه دقیقاً</string>
     <string name="learn_your_answer">پاسخ تو</string>
 
@@ -935,5 +948,9 @@
     <string name="learn_fig_mean">میانگین</string>
     <string name="learn_fig_standard_deviations">%1$s ا.م</string>
     <string name="learn_fig_symbol_key">1 نماد = %1$d</string>
+    <string name="learn_fig_bar_before">قبل</string>
+    <string name="learn_fig_bar_after">بعد</string>
+    <string name="learn_fig_bar_score">امتیاز</string>
+    <string name="learn_fig_bar_total">کل</string>
 
 </resources>

@@ -232,6 +232,7 @@
     <string name="game_missing_operators">אופרטורים חסרים</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">טריו</string>
+    <string name="game_mental_rotations">סיבובים מנטליים</string>
 
     <string name="game_anomaly_puzzle_desc">מצא את הצורה ששונה. שים לב גם לצבע וגם לצורה של כל דמות.</string>
     <string name="game_mental_calculation_desc">עקוב אחר הביטויים המתמטיים. השתמש בתוצאה כבסיס לחישוב הבא.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">בחר את האופרטורים כדי שהמשוואה תהיה נכונה. האופרטורים מחושבים לפי סדר פעולות רגיל.</string>
     <string name="game_bulls_and_cows_desc">נחש את המספר הסודי בן 4 הספרות עם ספרות ייחודיות. Bulls = ספרה נכונה במקום הנכון. Cows = ספרה נכונה במקום הלא נכון.</string>
     <string name="game_trio_desc">מצא שלושה קלפים שחולקים צורה, כמות או מילוי.</string>
+    <string name="game_mental_rotations_desc">החליטו אם הגוש השני הוא הראשון מסובב, או תמונת הראי שלו.</string>
+    <string name="game_mental_rotations_question">אותו גוש או תמונת ראי?</string>
+    <string name="game_mental_rotations_same">אותו גוש</string>
+    <string name="game_mental_rotations_mirrored">הפוך</string>
     <string name="game_trio_howto">הקש על שלושה קלפים שחולקים תכונה.</string>
     <string name="trio_demo_title">מצא שלישייה</string>
     <string name="trio_demo_rule">הם חולקים תכונה. שום דבר אחר לא מעורבב.</string>
     <string name="trio_demo_correct">זו שלישייה.</string>
+    <string name="mental_rotations_demo_title">סובבו אותו בראש</string>
+    <string name="mental_rotations_demo_turn">סובבו את הגוש הימני עד שיתלכד עם השמאלי.</string>
+    <string name="mental_rotations_demo_same">הוא מתלכד. אותו גוש.</string>
+    <string name="mental_rotations_demo_mirrored">הוא לעולם לא מתלכד. תמונת ראי.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">הסוד היה %1$s</string>
@@ -429,6 +438,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="achievement_gold_missing_operators">אמן האופרטורים</string>
     <string name="achievement_gold_bulls_and_cows">פורץ הקוד</string>
     <string name="achievement_gold_trio">ראייה משולשת</string>
+    <string name="achievement_gold_mental_rotations">אלוף הסיבוב</string>
     <string name="achievement_gold_path_finder">סולל דרך</string>
     <string name="achievement_gold_anomaly_puzzle">החריג זוהה</string>
     <string name="achievement_gold_colored_shapes">משנה צורה</string>
@@ -465,6 +475,7 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="achievement_gold_missing_operators_desc">זכה במדליית זהב באופרטורים חסרים</string>
     <string name="achievement_gold_bulls_and_cows_desc">זכה במדליית זהב ב-Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">זכה במדליית זהב בטריו</string>
+    <string name="achievement_gold_mental_rotations_desc">זכה במדליית זהב בסיבובים מנטליים</string>
     <string name="achievement_gold_path_finder_desc">זכה במדליית זהב במוצא הדרך</string>
     <string name="achievement_gold_anomaly_puzzle_desc">זכה במדליית זהב בחידת החריג</string>
     <string name="achievement_gold_colored_shapes_desc">זכה במדליית זהב בצורות צבעוניות</string>
@@ -872,6 +883,8 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_try_again_hint">לא בדיוק. תסתכל שוב ונסה עוד פעם.</string>
     <string name="learn_answer_label">תשובה</string>
     <string name="learn_correct">נכון!</string>
+    <string name="learn_revealed_answer">הנה התשובה</string>
+    <string name="learn_show_answer">הראה לי את התשובה</string>
     <string name="learn_incorrect">עוד לא</string>
     <string name="learn_your_answer">התשובה שלך</string>
 
@@ -957,5 +970,9 @@ Cow = ספרה נכונה, מקום לא נכון.</string>
     <string name="learn_fig_mean">ממוצע</string>
     <string name="learn_fig_standard_deviations">%1$s ס.ת</string>
     <string name="learn_fig_symbol_key">1 סמל = %1$d</string>
+    <string name="learn_fig_bar_before">לפני</string>
+    <string name="learn_fig_bar_after">אחרי</string>
+    <string name="learn_fig_bar_score">ניקוד</string>
+    <string name="learn_fig_bar_total">סך הכל</string>
 
 </resources>

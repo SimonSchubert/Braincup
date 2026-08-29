@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Липсващи оператори</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Мислено въртене</string>
 
     <string name="game_anomaly_puzzle_desc">Намери фигурата, която изпъква. Следи и цвета, и формата на всяка фигура.</string>
     <string name="game_mental_calculation_desc">Следи математическите изрази. Използвай резултата като основа за следващото смятане.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Избери операторите, за да е вярно уравнението. Операторите се смятат по обичайния ред.</string>
     <string name="game_bulls_and_cows_desc">Познай тайното 4-цифрено число с уникални цифри. Bulls = вярна цифра на вярно място. Cows = вярна цифра на грешно място.</string>
     <string name="game_trio_desc">Намери три карти, които споделят форма, брой или запълване.</string>
+    <string name="game_mental_rotations_desc">Реши дали вторият блок е първият, но завъртян, или огледалният му образ.</string>
+    <string name="game_mental_rotations_question">Същият блок или огледален образ?</string>
+    <string name="game_mental_rotations_same">Същият</string>
+    <string name="game_mental_rotations_mirrored">Огледален</string>
     <string name="game_trio_howto">Докосни три карти, които споделят свойство.</string>
     <string name="trio_demo_title">Намери тройка</string>
     <string name="trio_demo_rule">Споделят свойство. Нищо друго не се смесва.</string>
     <string name="trio_demo_correct">Това е тройка.</string>
+    <string name="mental_rotations_demo_title">Завърти го наум</string>
+    <string name="mental_rotations_demo_turn">Завърти десния блок върху левия.</string>
+    <string name="mental_rotations_demo_same">Съвпада. Същият блок.</string>
+    <string name="mental_rotations_demo_mirrored">Никога не съвпада. Огледален образ.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Тайното число беше %1$s</string>
@@ -429,6 +438,7 @@ Cow = вярна цифра, грешно място.</string>
     <string name="achievement_gold_missing_operators">Майстор на операторите</string>
     <string name="achievement_gold_bulls_and_cows">Разбивач на кодове</string>
     <string name="achievement_gold_trio">Тройно зрение</string>
+    <string name="achievement_gold_mental_rotations">Майстор на въртенето</string>
     <string name="achievement_gold_path_finder">Следотърсач</string>
     <string name="achievement_gold_anomaly_puzzle">Аномалията е разкрита</string>
     <string name="achievement_gold_colored_shapes">Сменяч на форми</string>
@@ -465,6 +475,7 @@ Cow = вярна цифра, грешно място.</string>
     <string name="achievement_gold_missing_operators_desc">Спечели златен медал в Липсващи оператори</string>
     <string name="achievement_gold_bulls_and_cows_desc">Спечели златен медал в Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Спечели златен медал в Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Спечели златен медал в Мислено въртене</string>
     <string name="achievement_gold_path_finder_desc">Спечели златен медал в Търсач на път</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Спечели златен медал в Загадка с аномалия</string>
     <string name="achievement_gold_colored_shapes_desc">Спечели златен медал в Цветни фигури</string>
@@ -872,6 +883,8 @@ Cow = вярна цифра, грешно място.</string>
     <string name="learn_try_again_hint">Не съвсем. Погледни пак и опитай отново.</string>
     <string name="learn_answer_label">Отговор</string>
     <string name="learn_correct">Вярно!</string>
+    <string name="learn_revealed_answer">Ето отговора</string>
+    <string name="learn_show_answer">Покажи ми отговора</string>
     <string name="learn_incorrect">Още не</string>
     <string name="learn_your_answer">Твоят отговор</string>
 
@@ -952,5 +965,9 @@ Cow = вярна цифра, грешно място.</string>
     <string name="learn_fig_mean">средно</string>
     <string name="learn_fig_standard_deviations">%1$s ст. откл.</string>
     <string name="learn_fig_symbol_key">1 символ = %1$d</string>
+    <string name="learn_fig_bar_before">преди</string>
+    <string name="learn_fig_bar_after">след</string>
+    <string name="learn_fig_bar_score">точки</string>
+    <string name="learn_fig_bar_total">общо</string>
 
 </resources>

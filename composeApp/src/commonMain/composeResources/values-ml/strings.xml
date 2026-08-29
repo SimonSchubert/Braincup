@@ -216,6 +216,7 @@
     <string name="game_missing_operators">നഷ്ടപ്പെട്ട ചിഹ്നങ്ങൾ</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ത്രയം</string>
+    <string name="game_mental_rotations">മാനസിക ഭ്രമണം</string>
 
     <string name="game_anomaly_puzzle_desc">വേറിട്ടു നിൽക്കുന്ന രൂപം കണ്ടെത്തുക. ഓരോ രൂപത്തിന്റെയും നിറവും ആകൃതിയും ശ്രദ്ധിക്കുക.</string>
     <string name="game_mental_calculation_desc">ഗണിത വാക്യങ്ങൾ പിന്തുടരുക. ഫലം അടുത്ത കണക്കിന്റെ അടിസ്ഥാനമായി ഉപയോഗിക്കുക.</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">സമവാക്യം ശരിയാക്കാൻ ചിഹ്നങ്ങൾ തിരഞ്ഞെടുക്കുക. ചിഹ്നങ്ങൾ സാധാരണ ഗണിത മുൻഗണനാക്രമത്തിലാണ് കണക്കാക്കുന്നത്.</string>
     <string name="game_bulls_and_cows_desc">വ്യത്യസ്ത അക്കങ്ങളുള്ള രഹസ്യ 4 അക്ക സംഖ്യ ഊഹിക്കുക. Bulls = ശരിയായ സ്ഥാനത്ത് ശരിയായ അക്കം. Cows = തെറ്റായ സ്ഥാനത്ത് ശരിയായ അക്കം.</string>
     <string name="game_trio_desc">ഒരേ ആകൃതിയോ എണ്ണമോ നിറപ്പകർച്ചയോ ഉള്ള മൂന്ന് ചീട്ടുകൾ കണ്ടെത്തുക.</string>
+    <string name="game_mental_rotations_desc">രണ്ടാമത്തെ ബ്ലോക്ക് ആദ്യത്തേത് തിരിച്ചതാണോ അതോ അതിന്റെ കണ്ണാടിപ്രതിബിംബമാണോ എന്ന് തീരുമാനിക്കുക.</string>
+    <string name="game_mental_rotations_question">അതേ ബ്ലോക്കോ, കണ്ണാടിപ്രതിബിംബമോ?</string>
+    <string name="game_mental_rotations_same">അതേ</string>
+    <string name="game_mental_rotations_mirrored">പ്രതിബിംബം</string>
     <string name="game_trio_howto">ഒരേ ഗുണമുള്ള മൂന്ന് ചീട്ടുകളിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="trio_demo_title">മൂന്നിന്റെ കൂട്ടം കണ്ടെത്തുക</string>
     <string name="trio_demo_rule">അവയ്ക്ക് ഒരു ഗുണം പൊതുവായുണ്ട്. മറ്റൊന്നും കൂടിക്കലർന്നിട്ടില്ല.</string>
     <string name="trio_demo_correct">അതാണൊരു കൂട്ടം.</string>
+    <string name="mental_rotations_demo_title">മനസ്സിൽ തിരിക്കുക</string>
+    <string name="mental_rotations_demo_turn">വലത്തെ ബ്ലോക്ക് തിരിച്ച് ഇടത്തേതിന് മുകളിൽ വയ്ക്കുക.</string>
+    <string name="mental_rotations_demo_same">കൃത്യമായി ചേരുന്നു. അതേ ബ്ലോക്ക്.</string>
+    <string name="mental_rotations_demo_mirrored">ഒരിക്കലും ചേരില്ല. കണ്ണാടിപ്രതിബിംബം.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">രഹസ്യ സംഖ്യ %1$s ആയിരുന്നു</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">ചിഹ്ന നിപുണൻ</string>
     <string name="achievement_gold_bulls_and_cows">കോഡ് പൊളിക്കുന്നവൻ</string>
     <string name="achievement_gold_trio">മുക്കണ്ണൻ കാഴ്ച</string>
+    <string name="achievement_gold_mental_rotations">ഭ്രമണ വിദഗ്ധൻ</string>
     <string name="achievement_gold_path_finder">വഴിവെട്ടുന്നവൻ</string>
     <string name="achievement_gold_anomaly_puzzle">വേറിട്ടത് കണ്ടെത്തി</string>
     <string name="achievement_gold_colored_shapes">രൂപം മാറ്റുന്നവൻ</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">നഷ്ടപ്പെട്ട ചിഹ്നങ്ങളിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows ൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_trio_desc">ത്രയത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
+    <string name="achievement_gold_mental_rotations_desc">മാനസിക ഭ്രമണത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_path_finder_desc">വഴി കണ്ടെത്തലിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_anomaly_puzzle_desc">വ്യത്യാസ കടങ്കഥയിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_colored_shapes_desc">നിറമുള്ള രൂപങ്ങളിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
@@ -853,6 +864,8 @@
     <string name="learn_try_again_hint">ശരിയല്ല. ഒന്നുകൂടി നോക്കി ശ്രമിക്കുക.</string>
     <string name="learn_answer_label">ഉത്തരം</string>
     <string name="learn_correct">ശരി!</string>
+    <string name="learn_revealed_answer">ഇതാ ഉത്തരം</string>
+    <string name="learn_show_answer">ഉത്തരം കാണിക്കൂ</string>
     <string name="learn_incorrect">ശരിയല്ല</string>
     <string name="learn_your_answer">നിങ്ങളുടെ ഉത്തരം</string>
 
@@ -933,5 +946,9 @@
     <string name="learn_fig_mean">ശരാശരി</string>
     <string name="learn_fig_standard_deviations">%1$s സ്റ്റാ. ഡെ.</string>
     <string name="learn_fig_symbol_key">1 ചിഹ്നം = %1$d</string>
+    <string name="learn_fig_bar_before">മുമ്പ്</string>
+    <string name="learn_fig_bar_after">ശേഷം</string>
+    <string name="learn_fig_bar_score">സ്കോർ</string>
+    <string name="learn_fig_bar_total">ആകെ</string>
 
 </resources>

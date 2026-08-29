@@ -216,6 +216,7 @@
     <string name="game_missing_operators">ખૂટતાં ચિહ્નો</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ત્રિપુટી</string>
+    <string name="game_mental_rotations">માનસિક ઘૂર્ણન</string>
 
     <string name="game_anomaly_puzzle_desc">અલગ તરી આવતી આકૃતિ શોધો. દરેક આકૃતિનો રંગ અને આકાર બંને ધ્યાનમાં લો.</string>
     <string name="game_mental_calculation_desc">ગણિતની પદાવલિઓ અનુસરો. પરિણામને આગળની ગણતરીના આધાર તરીકે વાપરો.</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">સમીકરણ સાચું બનાવવા ચિહ્નો પસંદ કરો. ચિહ્નોનું મૂલ્યાંકન પ્રમાણભૂત ગણિતના અગ્રતાક્રમ પ્રમાણે થાય છે.</string>
     <string name="game_bulls_and_cows_desc">અલગ અલગ અંકોવાળી ગુપ્ત 4 અંકની સંખ્યાનું અનુમાન કરો. Bulls = સાચી જગ્યાએ સાચો અંક. Cows = ખોટી જગ્યાએ સાચો અંક.</string>
     <string name="game_trio_desc">એક જ આકાર, સંખ્યા કે ભરણી ધરાવતાં ત્રણ પત્તાં શોધો.</string>
+    <string name="game_mental_rotations_desc">નક્કી કરો કે બીજો બ્લોક પહેલો જ ફેરવેલો છે કે તેનું અરીસા-પ્રતિબિંબ.</string>
+    <string name="game_mental_rotations_question">એ જ બ્લોક કે અરીસા-પ્રતિબિંબ?</string>
+    <string name="game_mental_rotations_same">એ જ</string>
+    <string name="game_mental_rotations_mirrored">પ્રતિબિંબ</string>
     <string name="game_trio_howto">એક જ લક્ષણ ધરાવતાં ત્રણ પત્તાં પર ટેપ કરો.</string>
     <string name="trio_demo_title">ત્રણનો સમૂહ શોધો</string>
     <string name="trio_demo_rule">તેમનું એક લક્ષણ સરખું છે. બીજું કંઈ ભળેલું નથી.</string>
     <string name="trio_demo_correct">આ જ એક સમૂહ છે.</string>
+    <string name="mental_rotations_demo_title">મનમાં ફેરવો</string>
+    <string name="mental_rotations_demo_turn">જમણા બ્લોકને ફેરવીને ડાબા પર ગોઠવો.</string>
+    <string name="mental_rotations_demo_same">બરાબર બેસે છે. એ જ બ્લોક.</string>
+    <string name="mental_rotations_demo_mirrored">ક્યારેય બેસતો નથી. અરીસા-પ્રતિબિંબ.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">ગુપ્ત સંખ્યા %1$s હતી</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">ચિહ્ન નિપુણ</string>
     <string name="achievement_gold_bulls_and_cows">સંકેત ઉકેલનાર</string>
     <string name="achievement_gold_trio">ત્રિવિધ દૃષ્ટિ</string>
+    <string name="achievement_gold_mental_rotations">ઘૂર્ણન ગુરુ</string>
     <string name="achievement_gold_path_finder">કેડી કંડારનાર</string>
     <string name="achievement_gold_anomaly_puzzle">અલગ પડતું પકડાયું</string>
     <string name="achievement_gold_colored_shapes">આકાર બદલનાર</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">ખૂટતાં ચિહ્નોમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows માં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_trio_desc">ત્રિપુટીમાં સુવર્ણ ચંદ્રક જીતો</string>
+    <string name="achievement_gold_mental_rotations_desc">માનસિક ઘૂર્ણનમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_path_finder_desc">માર્ગ શોધકમાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_anomaly_puzzle_desc">વિસંગતિ કોયડામાં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="achievement_gold_colored_shapes_desc">રંગીન આકારોમાં સુવર્ણ ચંદ્રક જીતો</string>
@@ -853,6 +864,8 @@
     <string name="learn_try_again_hint">બરાબર નથી. ફરી જુઓ અને પ્રયાસ કરો.</string>
     <string name="learn_answer_label">જવાબ</string>
     <string name="learn_correct">સાચું!</string>
+    <string name="learn_revealed_answer">આ રહ્યો જવાબ</string>
+    <string name="learn_show_answer">મને જવાબ બતાવો</string>
     <string name="learn_incorrect">બરાબર નથી</string>
     <string name="learn_your_answer">તમારો જવાબ</string>
 
@@ -933,5 +946,9 @@
     <string name="learn_fig_mean">સરેરાશ</string>
     <string name="learn_fig_standard_deviations">%1$s પ્રમા. વિ.</string>
     <string name="learn_fig_symbol_key">1 પ્રતીક = %1$d</string>
+    <string name="learn_fig_bar_before">પહેલાં</string>
+    <string name="learn_fig_bar_after">પછી</string>
+    <string name="learn_fig_bar_score">સ્કોર</string>
+    <string name="learn_fig_bar_total">કુલ</string>
 
 </resources>

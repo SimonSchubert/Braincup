@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Trūkstošie operatori</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Domu rotācijas</string>
 
     <string name="game_anomaly_puzzle_desc">Atrodi figūru, kas izceļas. Skaties gan krāsu, gan formu katrai figūrai.</string>
     <string name="game_mental_calculation_desc">Seko matemātiskajām izteiksmēm. Izmanto rezultātu kā pamatu nākamajam aprēķinam.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Izvēlies operatorus, lai vienādojums būtu pareizs. Operatorus skaita parastajā kārtībā.</string>
     <string name="game_bulls_and_cows_desc">Uzmini slepeno 4 ciparu skaitli ar unikāliem cipariem. Bulls = pareizs cipars pareizajā vietā. Cows = pareizs cipars nepareizajā vietā.</string>
     <string name="game_trio_desc">Atrodi trīs kārtis, kas dala formu, skaitu vai aizpildījumu.</string>
+    <string name="game_mental_rotations_desc">Izlem, vai otrs bloks ir pirmais pagriezts vai tā spoguļattēls.</string>
+    <string name="game_mental_rotations_question">Tas pats bloks vai spoguļattēls?</string>
+    <string name="game_mental_rotations_same">Tas pats</string>
+    <string name="game_mental_rotations_mirrored">Spoguļattēls</string>
     <string name="game_trio_howto">Pieskaries trim kārtīm, kas dala īpašību.</string>
     <string name="trio_demo_title">Atrodi trijnieku</string>
     <string name="trio_demo_rule">Tās dala īpašību. Nekas cits nesajaucas.</string>
     <string name="trio_demo_correct">Tas ir trijnieks.</string>
+    <string name="mental_rotations_demo_title">Pagriez to prātā</string>
+    <string name="mental_rotations_demo_turn">Pagriez labo bloku uz kreiso.</string>
+    <string name="mental_rotations_demo_same">Tas sakrīt. Tas pats bloks.</string>
+    <string name="mental_rotations_demo_mirrored">Tas nekad nesakrīt. Spoguļattēls.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Slepenais skaitlis bija %1$s</string>
@@ -429,6 +438,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_missing_operators">Operatoru meistars</string>
     <string name="achievement_gold_bulls_and_cows">Kodu lauzējs</string>
     <string name="achievement_gold_trio">Trīskāršs redzējums</string>
+    <string name="achievement_gold_mental_rotations">Griešanas meistars</string>
     <string name="achievement_gold_path_finder">Pionieris</string>
     <string name="achievement_gold_anomaly_puzzle">Izņēmums atklāts</string>
     <string name="achievement_gold_colored_shapes">Formu mainītājs</string>
@@ -465,6 +475,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Iegūsti zelta medaļu Trūkstošajos operatoros</string>
     <string name="achievement_gold_bulls_and_cows_desc">Iegūsti zelta medaļu Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Iegūsti zelta medaļu Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Iegūsti zelta medaļu Domu rotācijās</string>
     <string name="achievement_gold_path_finder_desc">Iegūsti zelta medaļu Ceļa meklētājā</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Iegūsti zelta medaļu Anomālijas mīklā</string>
     <string name="achievement_gold_colored_shapes_desc">Iegūsti zelta medaļu Krāsainajās figūrās</string>
@@ -872,6 +883,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_try_again_hint">Ne gluži. Paskaties vēlreiz un mēģini vēlreiz.</string>
     <string name="learn_answer_label">Atbilde</string>
     <string name="learn_correct">Pareizi!</string>
+    <string name="learn_revealed_answer">Lūk, atbilde</string>
+    <string name="learn_show_answer">Parādi atbildi</string>
     <string name="learn_incorrect">Vēl nē</string>
     <string name="learn_your_answer">Tava atbilde</string>
 
@@ -957,5 +970,9 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="learn_fig_mean">vidējais</string>
     <string name="learn_fig_standard_deviations">%1$s st. nov.</string>
     <string name="learn_fig_symbol_key">1 simbols = %1$d</string>
+    <string name="learn_fig_bar_before">pirms</string>
+    <string name="learn_fig_bar_after">pēc</string>
+    <string name="learn_fig_bar_score">punkti</string>
+    <string name="learn_fig_bar_total">kopā</string>
 
 </resources>

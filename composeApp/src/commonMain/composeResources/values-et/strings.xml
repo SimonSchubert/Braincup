@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Puuduvad tehtemärgid</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mõttelised pöörded</string>
 
     <string name="game_anomaly_puzzle_desc">Leia kujund, mis eristub. Vaata nii värvi kui kuju.</string>
     <string name="game_mental_calculation_desc">Jälgi matemaatilisi avaldisi. Kasuta tulemust järgmise arvutuse alusena.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Vali märgid, et võrrand klapiks. Tehtemärke arvestatakse tavalise järjekorraga.</string>
     <string name="game_bulls_and_cows_desc">Arva salajane 4-kohaline arv erinevate numbritega. Bulls = õige number õiges kohas. Cows = õige number vales kohas.</string>
     <string name="game_trio_desc">Leia kolm kaarti, mis jagavad kuju, arvu või täidet.</string>
+    <string name="game_mental_rotations_desc">Otsusta, kas teine plokk on esimene pööratuna või selle peegelpilt.</string>
+    <string name="game_mental_rotations_question">Sama plokk või peegelpilt?</string>
+    <string name="game_mental_rotations_same">Sama</string>
+    <string name="game_mental_rotations_mirrored">Peegelpilt</string>
     <string name="game_trio_howto">Puuduta kolme kaarti, mis jagavad omadust.</string>
     <string name="trio_demo_title">Leia kolmik</string>
     <string name="trio_demo_rule">Need jagavad omadust. Midagi muud ei segune.</string>
     <string name="trio_demo_correct">See on kolmik.</string>
+    <string name="mental_rotations_demo_title">Pööra seda peas</string>
+    <string name="mental_rotations_demo_turn">Pööra parempoolne plokk vasakpoolse peale.</string>
+    <string name="mental_rotations_demo_same">Klapib. Sama plokk.</string>
+    <string name="mental_rotations_demo_mirrored">Ei klapi kunagi. Peegelpilt.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Saladus oli %1$s</string>
@@ -429,6 +438,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_missing_operators">Tehtemärkide meister</string>
     <string name="achievement_gold_bulls_and_cows">Koodimurdja</string>
     <string name="achievement_gold_trio">Kolmiknägemine</string>
+    <string name="achievement_gold_mental_rotations">Pöördemeister</string>
     <string name="achievement_gold_path_finder">Rajaleidja</string>
     <string name="achievement_gold_anomaly_puzzle">Anomaalia leitud</string>
     <string name="achievement_gold_colored_shapes">Kujumuutja</string>
@@ -465,6 +475,7 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Võida kuldmedal mängus Puuduvad tehtemärgid</string>
     <string name="achievement_gold_bulls_and_cows_desc">Võida kuldmedal Bulls &amp; Cows mängus</string>
     <string name="achievement_gold_trio_desc">Võida kuldmedal Trios</string>
+    <string name="achievement_gold_mental_rotations_desc">Võida kuldmedal Mõttelistes pööretes</string>
     <string name="achievement_gold_path_finder_desc">Võida kuldmedal Teeotsijas</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Võida kuldmedal Anomaalia mõistatuses</string>
     <string name="achievement_gold_colored_shapes_desc">Võida kuldmedal Värvilistes kujundites</string>
@@ -872,6 +883,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_try_again_hint">Päris mitte. Vaata veel kord ja proovi uuesti.</string>
     <string name="learn_answer_label">Vastus</string>
     <string name="learn_correct">Õige!</string>
+    <string name="learn_revealed_answer">Siin on vastus</string>
+    <string name="learn_show_answer">Näita mulle vastust</string>
     <string name="learn_incorrect">Veel mitte</string>
     <string name="learn_your_answer">Sinu vastus</string>
 
@@ -952,5 +965,9 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="learn_fig_mean">keskmine</string>
     <string name="learn_fig_standard_deviations">%1$s sh</string>
     <string name="learn_fig_symbol_key">1 sümbol = %1$d</string>
+    <string name="learn_fig_bar_before">enne</string>
+    <string name="learn_fig_bar_after">pärast</string>
+    <string name="learn_fig_bar_score">punktid</string>
+    <string name="learn_fig_bar_total">kokku</string>
 
 </resources>

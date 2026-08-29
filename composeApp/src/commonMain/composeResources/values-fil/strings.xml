@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Kulang na Operators</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Pag-ikot sa Isip</string>
 
     <string name="game_anomaly_puzzle_desc">Hanapin ang figure na kakaiba. Tingnan ang kulay at hugis ng bawat isa.</string>
     <string name="game_mental_calculation_desc">Sundin ang mga mathematical expression. Gamitin ang resulta bilang base ng susunod na kalkulasyon.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Piliin ang operators para maging tama ang equation. Sinusunod ng operators ang standard mathematical precedence.</string>
     <string name="game_bulls_and_cows_desc">Hulaan ang secret na 4-digit na numero na walang umuulit na digit. Bulls = tamang digit sa tamang puwesto. Cows = tamang digit sa maling puwesto.</string>
     <string name="game_trio_desc">Maghanap ng tatlong card na may parehong hugis, bilang, o fill.</string>
+    <string name="game_mental_rotations_desc">Tukuyin kung ang ikalawang bloke ay ang una na iniikot, o ang salamin nito.</string>
+    <string name="game_mental_rotations_question">Parehong bloke, o salamin na imahe?</string>
+    <string name="game_mental_rotations_same">Pareho</string>
+    <string name="game_mental_rotations_mirrored">Salamin</string>
     <string name="game_trio_howto">I-tap ang tatlong card na may iisang katangian.</string>
     <string name="trio_demo_title">Maghanap ng set ng tatlo</string>
     <string name="trio_demo_rule">May iisang katangian sila. Walang halo-halo.</string>
     <string name="trio_demo_correct">Iyan ay set.</string>
+    <string name="mental_rotations_demo_title">Iikot mo sa isip</string>
+    <string name="mental_rotations_demo_turn">Iikot ang kanang bloke papunta sa kaliwa.</string>
+    <string name="mental_rotations_demo_same">Magkatugma. Parehong bloke.</string>
+    <string name="mental_rotations_demo_mirrored">Hindi kailanman magkatugma. Salamin na imahe.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Ang secret ay %1$s</string>
@@ -427,6 +436,7 @@
     <string name="achievement_gold_missing_operators">Dalubhasa sa Operator</string>
     <string name="achievement_gold_bulls_and_cows">Tagalutas ng Code</string>
     <string name="achievement_gold_trio">Tatlong Paningin</string>
+    <string name="achievement_gold_mental_rotations">Bihasa sa Pag-ikot</string>
     <string name="achievement_gold_path_finder">Tagapagbukas ng Landas</string>
     <string name="achievement_gold_anomaly_puzzle">Natukoy ang Kaiba</string>
     <string name="achievement_gold_colored_shapes">Palit-Hugis</string>
@@ -463,6 +473,7 @@
     <string name="achievement_gold_missing_operators_desc">Manalo ng gold medal sa Kulang na Operators</string>
     <string name="achievement_gold_bulls_and_cows_desc">Manalo ng gold medal sa Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Manalo ng gold medal sa Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Manalo ng gold medal sa Pag-ikot sa Isip</string>
     <string name="achievement_gold_path_finder_desc">Manalo ng gold medal sa Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Manalo ng gold medal sa Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Manalo ng gold medal sa Mga Kulay na Hugis</string>
@@ -870,6 +881,8 @@
     <string name="learn_try_again_hint">Hindi pa tama. Tingnan ulit at subukan muli.</string>
     <string name="learn_answer_label">Sagot</string>
     <string name="learn_correct">Tama!</string>
+    <string name="learn_revealed_answer">Narito ang sagot</string>
+    <string name="learn_show_answer">Ipakita ang sagot</string>
     <string name="learn_incorrect">Hindi pa</string>
     <string name="learn_your_answer">Sagot mo</string>
 
@@ -950,5 +963,9 @@
     <string name="learn_fig_mean">mean</string>
     <string name="learn_fig_standard_deviations">%1$s sd</string>
     <string name="learn_fig_symbol_key">1 simbolo = %1$d</string>
+    <string name="learn_fig_bar_before">bago</string>
+    <string name="learn_fig_bar_after">pagkatapos</string>
+    <string name="learn_fig_bar_score">iskor</string>
+    <string name="learn_fig_bar_total">kabuuan</string>
 
 </resources>

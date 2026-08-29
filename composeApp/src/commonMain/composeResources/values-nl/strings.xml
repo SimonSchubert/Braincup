@@ -757,13 +757,24 @@
     <string name="finish_new_best_tries">Nieuw record!</string>
 
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mentale rotatie</string>
     <string name="game_trio_desc">Zoek drie kaarten die een vorm, aantal of vulling delen.</string>
+    <string name="game_mental_rotations_desc">Bepaal of het tweede blok het eerste is, maar gedraaid, of het spiegelbeeld ervan.</string>
+    <string name="game_mental_rotations_question">Hetzelfde blok of een spiegelbeeld?</string>
+    <string name="game_mental_rotations_same">Hetzelfde</string>
+    <string name="game_mental_rotations_mirrored">Gespiegeld</string>
     <string name="game_trio_howto">Tik drie kaarten aan die een kenmerk delen.</string>
     <string name="trio_demo_title">Vind een set van drie</string>
     <string name="trio_demo_rule">Ze delen een kenmerk. Verder niets gemengd.</string>
     <string name="trio_demo_correct">Dat is een set.</string>
+    <string name="mental_rotations_demo_title">Draai het in je hoofd</string>
+    <string name="mental_rotations_demo_turn">Draai het rechterblok op het linker.</string>
+    <string name="mental_rotations_demo_same">Het valt samen. Hetzelfde blok.</string>
+    <string name="mental_rotations_demo_mirrored">Het valt nooit samen. Spiegelbeeld.</string>
     <string name="achievement_gold_trio">Drievoudig zicht</string>
+    <string name="achievement_gold_mental_rotations">Draaimeester</string>
     <string name="achievement_gold_trio_desc">Win de gouden medaille in Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Win de gouden medaille in Mentale rotatie</string>
 
     <string name="iq_test_button">IQ-test</string>
     <string name="iq_test_title">IQ-test</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">Nog niet. Kijk nog eens goed en probeer het opnieuw.</string>
     <string name="learn_answer_label">Antwoord</string>
     <string name="learn_correct">Goed!</string>
+    <string name="learn_revealed_answer">Dit is het antwoord</string>
+    <string name="learn_show_answer">Laat het antwoord zien</string>
     <string name="learn_incorrect">Net niet</string>
     <string name="learn_your_answer">Jouw antwoord</string>
 
@@ -935,5 +948,9 @@
     <string name="learn_fig_mean">gemiddelde</string>
     <string name="learn_fig_standard_deviations">%1$s sd</string>
     <string name="learn_fig_symbol_key">1 symbool = %1$d</string>
+    <string name="learn_fig_bar_before">voor</string>
+    <string name="learn_fig_bar_after">na</string>
+    <string name="learn_fig_bar_score">score</string>
+    <string name="learn_fig_bar_total">totaal</string>
 
 </resources>

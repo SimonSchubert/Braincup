@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Hiányzó műveleti jelek</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Gondolati forgatás</string>
 
     <string name="game_anomaly_puzzle_desc">Találd meg az alakzatot, amely kilóg. Nézd meg minden alakzat színét és formáját.</string>
     <string name="game_mental_calculation_desc">Kövesd a matematikai kifejezéseket. Az eredmény legyen a következő számolás alapja.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Válaszd a jeleket, hogy igazzá tedd az egyenletet. A műveletek a szokásos matematikai precedencia szerint értékelődnek.</string>
     <string name="game_bulls_and_cows_desc">Találd ki a titkos 4 jegyű számot, csupa különböző jeggyel. Bulls = helyes jegy a helyes helyen. Cows = helyes jegy rossz helyen.</string>
     <string name="game_trio_desc">Találj három kártyát, amelyek alakban, számban vagy kitöltésben megegyeznek.</string>
+    <string name="game_mental_rotations_desc">Döntsd el, hogy a második test az első elforgatva, vagy a tükörképe.</string>
+    <string name="game_mental_rotations_question">Ugyanaz a test, vagy tükörkép?</string>
+    <string name="game_mental_rotations_same">Ugyanaz</string>
+    <string name="game_mental_rotations_mirrored">Tükrözött</string>
     <string name="game_trio_howto">Koppints három kártyára, amelyek egy tulajdonságon osztoznak.</string>
     <string name="trio_demo_title">Találj egy hármas szettet</string>
     <string name="trio_demo_rule">Egy tulajdonságon osztoznak. Semmi más nem keveredik.</string>
     <string name="trio_demo_correct">Ez egy szett.</string>
+    <string name="mental_rotations_demo_title">Forgasd el fejben</string>
+    <string name="mental_rotations_demo_turn">Forgasd a jobb oldali testet a bal oldalira.</string>
+    <string name="mental_rotations_demo_same">Pontosan illeszkedik. Ugyanaz a test.</string>
+    <string name="mental_rotations_demo_mirrored">Soha nem illeszkedik. Tükörkép.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">A titok ez volt: %1$s</string>
@@ -429,6 +438,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_gold_missing_operators">Műveletmester</string>
     <string name="achievement_gold_bulls_and_cows">Kódtörő</string>
     <string name="achievement_gold_trio">Hármas látás</string>
+    <string name="achievement_gold_mental_rotations">Forgatómester</string>
     <string name="achievement_gold_path_finder">Úttörő</string>
     <string name="achievement_gold_anomaly_puzzle">Megvan a kakukktojás</string>
     <string name="achievement_gold_colored_shapes">Alakváltó</string>
@@ -465,6 +475,7 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="achievement_gold_missing_operators_desc">Nyerj aranyérmet Hiányzó műveleti jelek játékban</string>
     <string name="achievement_gold_bulls_and_cows_desc">Nyerj aranyérmet Bulls &amp; Cows játékban</string>
     <string name="achievement_gold_trio_desc">Nyerj aranyérmet Trio játékban</string>
+    <string name="achievement_gold_mental_rotations_desc">Nyerj aranyérmet Gondolati forgatás játékban</string>
     <string name="achievement_gold_path_finder_desc">Nyerj aranyérmet Útkereső játékban</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Nyerj aranyérmet Anomália-rejtvény játékban</string>
     <string name="achievement_gold_colored_shapes_desc">Nyerj aranyérmet Színes alakzatok játékban</string>
@@ -872,6 +883,8 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_try_again_hint">Nem egészen. Nézd meg még egyszer, és próbáld újra.</string>
     <string name="learn_answer_label">Válasz</string>
     <string name="learn_correct">Helyes!</string>
+    <string name="learn_revealed_answer">Íme a válasz</string>
+    <string name="learn_show_answer">Mutasd a választ</string>
     <string name="learn_incorrect">Még nem</string>
     <string name="learn_your_answer">A válaszod</string>
 
@@ -952,5 +965,9 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="learn_fig_mean">átlag</string>
     <string name="learn_fig_standard_deviations">%1$s szórás</string>
     <string name="learn_fig_symbol_key">1 szimbólum = %1$d</string>
+    <string name="learn_fig_bar_before">előtte</string>
+    <string name="learn_fig_bar_after">utána</string>
+    <string name="learn_fig_bar_score">pont</string>
+    <string name="learn_fig_bar_total">összesen</string>
 
 </resources>

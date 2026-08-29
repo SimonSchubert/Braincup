@@ -216,6 +216,7 @@
     <string name="game_missing_operators">ಕಾಣೆಯಾದ ಚಿಹ್ನೆಗಳು</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ತ್ರಿವಳಿ</string>
+    <string name="game_mental_rotations">ಮಾನಸಿಕ ತಿರುಗುವಿಕೆ</string>
 
     <string name="game_anomaly_puzzle_desc">ಬೇರೆಯಾಗಿ ಕಾಣುವ ಆಕೃತಿಯನ್ನು ಹುಡುಕಿ. ಪ್ರತಿ ಆಕೃತಿಯ ಬಣ್ಣ ಮತ್ತು ಆಕಾರ ಎರಡನ್ನೂ ಗಮನಿಸಿ.</string>
     <string name="game_mental_calculation_desc">ಗಣಿತದ ಪದಪುಂಜಗಳನ್ನು ಅನುಸರಿಸಿ. ಫಲಿತಾಂಶವನ್ನು ಮುಂದಿನ ಗಣನೆಗೆ ಆಧಾರವಾಗಿ ಬಳಸಿ.</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">ಸಮೀಕರಣವನ್ನು ಸರಿಯಾಗಿಸಲು ಚಿಹ್ನೆಗಳನ್ನು ಆರಿಸಿ. ಚಿಹ್ನೆಗಳನ್ನು ಪ್ರಮಾಣಿತ ಗಣಿತದ ಆದ್ಯತೆಯ ಪ್ರಕಾರ ಲೆಕ್ಕಿಸಲಾಗುತ್ತದೆ.</string>
     <string name="game_bulls_and_cows_desc">ಬೇರೆ ಬೇರೆ ಅಂಕಿಗಳಿರುವ ಗುಪ್ತ 4 ಅಂಕಿಯ ಸಂಖ್ಯೆಯನ್ನು ಊಹಿಸಿ. Bulls = ಸರಿಯಾದ ಸ್ಥಳದಲ್ಲಿ ಸರಿಯಾದ ಅಂಕಿ. Cows = ತಪ್ಪಾದ ಸ್ಥಳದಲ್ಲಿ ಸರಿಯಾದ ಅಂಕಿ.</string>
     <string name="game_trio_desc">ಒಂದೇ ಆಕಾರ, ಎಣಿಕೆ ಅಥವಾ ತುಂಬುವಿಕೆ ಹೊಂದಿರುವ ಮೂರು ಇಸ್ಪೀಟೆಲೆಗಳನ್ನು ಹುಡುಕಿ.</string>
+    <string name="game_mental_rotations_desc">ಎರಡನೇ ಬ್ಲಾಕ್ ಮೊದಲನೆಯದನ್ನು ತಿರುಗಿಸಿದ್ದೋ ಅಥವಾ ಅದರ ಕನ್ನಡಿ ಪ್ರತಿಬಿಂಬವೋ ಎಂದು ನಿರ್ಧರಿಸಿ.</string>
+    <string name="game_mental_rotations_question">ಅದೇ ಬ್ಲಾಕ್ ಅಥವಾ ಕನ್ನಡಿ ಪ್ರತಿಬಿಂಬವೇ?</string>
+    <string name="game_mental_rotations_same">ಅದೇ</string>
+    <string name="game_mental_rotations_mirrored">ಪ್ರತಿಬಿಂಬ</string>
     <string name="game_trio_howto">ಒಂದೇ ಗುಣ ಹೊಂದಿರುವ ಮೂರು ಎಲೆಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="trio_demo_title">ಮೂರರ ಗುಂಪನ್ನು ಹುಡುಕಿ</string>
     <string name="trio_demo_rule">ಅವು ಒಂದೇ ಗುಣವನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ. ಬೇರೇನೂ ಬೆರೆತಿಲ್ಲ.</string>
     <string name="trio_demo_correct">ಅದೇ ಒಂದು ಗುಂಪು.</string>
+    <string name="mental_rotations_demo_title">ಮನಸ್ಸಿನಲ್ಲಿ ತಿರುಗಿಸಿ</string>
+    <string name="mental_rotations_demo_turn">ಬಲಗಡೆಯ ಬ್ಲಾಕ್ ಅನ್ನು ತಿರುಗಿಸಿ ಎಡಗಡೆಯದರ ಮೇಲೆ ಕೂರಿಸಿ.</string>
+    <string name="mental_rotations_demo_same">ಸರಿಯಾಗಿ ಹೊಂದುತ್ತದೆ. ಅದೇ ಬ್ಲಾಕ್.</string>
+    <string name="mental_rotations_demo_mirrored">ಎಂದಿಗೂ ಹೊಂದುವುದಿಲ್ಲ. ಕನ್ನಡಿ ಪ್ರತಿಬಿಂಬ.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">ಗುಪ್ತ ಸಂಖ್ಯೆ %1$s ಆಗಿತ್ತು</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">ಚಿಹ್ನೆ ನಿಪುಣ</string>
     <string name="achievement_gold_bulls_and_cows">ಸಂಕೇತ ಭೇದಕ</string>
     <string name="achievement_gold_trio">ಮೂರು ಕಣ್ಣಿನ ನೋಟ</string>
+    <string name="achievement_gold_mental_rotations">ತಿರುಗಿಸುವ ನಿಪುಣ</string>
     <string name="achievement_gold_path_finder">ದಾರಿ ಮಾಡಿದವ</string>
     <string name="achievement_gold_anomaly_puzzle">ಬೇರೆಯಾದದ್ದು ಸಿಕ್ಕಿತು</string>
     <string name="achievement_gold_colored_shapes">ಆಕಾರ ಬದಲಿಸುವವ</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">ಕಾಣೆಯಾದ ಚಿಹ್ನೆಗಳಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows ನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_trio_desc">ತ್ರಿವಳಿಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
+    <string name="achievement_gold_mental_rotations_desc">ಮಾನಸಿಕ ತಿರುಗುವಿಕೆಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_path_finder_desc">ದಾರಿ ಶೋಧಕದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ವ್ಯತ್ಯಾಸ ಒಗಟಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_colored_shapes_desc">ಬಣ್ಣದ ಆಕಾರಗಳಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
@@ -853,6 +864,8 @@
     <string name="learn_try_again_hint">ಸರಿಯಾಗಿಲ್ಲ. ಮತ್ತೊಮ್ಮೆ ನೋಡಿ ಪ್ರಯತ್ನಿಸಿ.</string>
     <string name="learn_answer_label">ಉತ್ತರ</string>
     <string name="learn_correct">ಸರಿ!</string>
+    <string name="learn_revealed_answer">ಇಲ್ಲಿದೆ ಉತ್ತರ</string>
+    <string name="learn_show_answer">ಉತ್ತರ ತೋರಿಸಿ</string>
     <string name="learn_incorrect">ಸರಿಯಾಗಿಲ್ಲ</string>
     <string name="learn_your_answer">ನಿಮ್ಮ ಉತ್ತರ</string>
 
@@ -933,5 +946,9 @@
     <string name="learn_fig_mean">ಸರಾಸರಿ</string>
     <string name="learn_fig_standard_deviations">%1$s ಪ್ರ. ವಿ.</string>
     <string name="learn_fig_symbol_key">1 ಚಿಹ್ನೆ = %1$d</string>
+    <string name="learn_fig_bar_before">ಮೊದಲು</string>
+    <string name="learn_fig_bar_after">ನಂತರ</string>
+    <string name="learn_fig_bar_score">ಅಂಕ</string>
+    <string name="learn_fig_bar_total">ಒಟ್ಟು</string>
 
 </resources>

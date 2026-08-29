@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Oibreoirí ar iarraidh</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Rothluithe intinne</string>
 
     <string name="game_anomaly_puzzle_desc">Faigh an figiúr atá difriúil. Féach ar dhath agus ar chruth gach figiúir.</string>
     <string name="game_mental_calculation_desc">Lean slonnanna matamaitice. Úsáid an toradh mar bhonn don chéad áireamh eile.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Roghnaigh na comharthaí ionas go n-oireann an chothromóid. Ríomhtar oibreoirí de réir an ghnáthordaithe.</string>
     <string name="game_bulls_and_cows_desc">Buille faoi thuairim an uimhir rúnda 4 dhigit le digití uathúla. Bulls = digit cheart san áit cheart. Cows = digit cheart san áit mhícheart.</string>
     <string name="game_trio_desc">Faigh trí chárta a roinneann cruth, líon nó líonadh.</string>
+    <string name="game_mental_rotations_desc">Cinn an é an dara bloc an chéad cheann casta, nó a scátháníomhá.</string>
+    <string name="game_mental_rotations_question">An bloc céanna, nó scátháníomhá?</string>
+    <string name="game_mental_rotations_same">Mar an gcéanna</string>
+    <string name="game_mental_rotations_mirrored">Scáthánaithe</string>
     <string name="game_trio_howto">Tapáil trí chárta a roinneann tréith.</string>
     <string name="trio_demo_title">Faigh tríréad</string>
     <string name="trio_demo_rule">Roinntear tréith. Ní mheascann aon ní eile.</string>
     <string name="trio_demo_correct">Sin tríréad.</string>
+    <string name="mental_rotations_demo_title">Cas i d'intinn é</string>
+    <string name="mental_rotations_demo_turn">Cas an bloc ar dheis anuas ar an gceann ar chlé.</string>
+    <string name="mental_rotations_demo_same">Luíonn sé isteach. An bloc céanna.</string>
+    <string name="mental_rotations_demo_mirrored">Ní luíonn sé isteach riamh. Scátháníomhá.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Ba é %1$s an rún</string>
@@ -429,6 +438,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_missing_operators">Máistir oibreoirí</string>
     <string name="achievement_gold_bulls_and_cows">Briseadh cóid</string>
     <string name="achievement_gold_trio">Radharc tríréad</string>
+    <string name="achievement_gold_mental_rotations">Máistir an chasta</string>
     <string name="achievement_gold_path_finder">Ceannródaí</string>
     <string name="achievement_gold_anomaly_puzzle">Eisceacht aimsithe</string>
     <string name="achievement_gold_colored_shapes">Athraitheoir crutha</string>
@@ -465,6 +475,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_missing_operators_desc">Bain bonn óir amach in Oibreoirí ar iarraidh</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bain bonn óir amach i Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Bain bonn óir amach i Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Bain bonn óir amach i Rothluithe intinne</string>
     <string name="achievement_gold_path_finder_desc">Bain bonn óir amach in Aimsitheoir slí</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Bain bonn óir amach i dTomhas aimhrialtachta</string>
     <string name="achievement_gold_colored_shapes_desc">Bain bonn óir amach i gCruthanna daite</string>
@@ -872,6 +883,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_try_again_hint">Ní go baileach. Féach arís agus bain triail eile as.</string>
     <string name="learn_answer_label">Freagra</string>
     <string name="learn_correct">Ceart!</string>
+    <string name="learn_revealed_answer">Seo é an freagra</string>
+    <string name="learn_show_answer">Taispeáin an freagra dom</string>
     <string name="learn_incorrect">Ní go díreach</string>
     <string name="learn_your_answer">Do fhreagra</string>
 
@@ -967,5 +980,9 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_fig_mean">meán</string>
     <string name="learn_fig_standard_deviations">%1$s dc</string>
     <string name="learn_fig_symbol_key">1 siombail = %1$d</string>
+    <string name="learn_fig_bar_before">roimhe</string>
+    <string name="learn_fig_bar_after">ina dhiaidh</string>
+    <string name="learn_fig_bar_score">scór</string>
+    <string name="learn_fig_bar_total">iomlán</string>
 
 </resources>

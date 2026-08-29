@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Operatori lipsă</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Rotații mentale</string>
 
     <string name="game_anomaly_puzzle_desc">Găsește figura care iese în evidență. Uită-te la culoarea și forma fiecărei figuri.</string>
     <string name="game_mental_calculation_desc">Urmărește expresiile matematice. Folosește rezultatul ca bază pentru calculul următor.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Alege operatorii ca să faci ecuația adevărată. Operatorii se evaluează după precedența matematică obișnuită.</string>
     <string name="game_bulls_and_cows_desc">Ghicește numărul secret de 4 cifre cu cifre unice. Bulls = cifră corectă pe poziția corectă. Cows = cifră corectă pe poziția greșită.</string>
     <string name="game_trio_desc">Găsește trei cărți care împart o formă, un număr sau o umplere.</string>
+    <string name="game_mental_rotations_desc">Decide dacă al doilea bloc este primul rotit sau imaginea lui în oglindă.</string>
+    <string name="game_mental_rotations_question">Același bloc sau imagine în oglindă?</string>
+    <string name="game_mental_rotations_same">Același</string>
+    <string name="game_mental_rotations_mirrored">Oglindit</string>
     <string name="game_trio_howto">Apasă trei cărți care împart o trăsătură.</string>
     <string name="trio_demo_title">Găsește un set de trei</string>
     <string name="trio_demo_rule">Împart o trăsătură. Nimic altceva nu e amestecat.</string>
     <string name="trio_demo_correct">Ăsta e un set.</string>
+    <string name="mental_rotations_demo_title">Rotește-l în minte</string>
+    <string name="mental_rotations_demo_turn">Rotește blocul din dreapta peste cel din stânga.</string>
+    <string name="mental_rotations_demo_same">Se suprapune. Același bloc.</string>
+    <string name="mental_rotations_demo_mirrored">Nu se suprapune niciodată. Imagine în oglindă.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Secretul a fost %1$s</string>
@@ -429,6 +438,7 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_gold_missing_operators">Maestru al operatorilor</string>
     <string name="achievement_gold_bulls_and_cows">Spargător de coduri</string>
     <string name="achievement_gold_trio">Viziune triplă</string>
+    <string name="achievement_gold_mental_rotations">Maestrul rotației</string>
     <string name="achievement_gold_path_finder">Deschizător de drum</string>
     <string name="achievement_gold_anomaly_puzzle">Anomalia găsită</string>
     <string name="achievement_gold_colored_shapes">Schimbător de forme</string>
@@ -465,6 +475,7 @@ Mută Cow — devine Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Câștigă medalia de aur la Operatori lipsă</string>
     <string name="achievement_gold_bulls_and_cows_desc">Câștigă medalia de aur la Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Câștigă medalia de aur la Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Câștigă medalia de aur la Rotații mentale</string>
     <string name="achievement_gold_path_finder_desc">Câștigă medalia de aur la Căutător de cale</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Câștigă medalia de aur la Puzzle-ul anomaliei</string>
     <string name="achievement_gold_colored_shapes_desc">Câștigă medalia de aur la Forme colorate</string>
@@ -872,6 +883,8 @@ Mută Cow — devine Bull.</string>
     <string name="learn_try_again_hint">Nu chiar. Mai uită-te o dată și încearcă din nou.</string>
     <string name="learn_answer_label">Răspuns</string>
     <string name="learn_correct">Corect!</string>
+    <string name="learn_revealed_answer">Iată răspunsul</string>
+    <string name="learn_show_answer">Arată-mi răspunsul</string>
     <string name="learn_incorrect">Nu chiar</string>
     <string name="learn_your_answer">Răspunsul tău</string>
 
@@ -957,5 +970,9 @@ Mută Cow — devine Bull.</string>
     <string name="learn_fig_mean">media</string>
     <string name="learn_fig_standard_deviations">%1$s ab. std.</string>
     <string name="learn_fig_symbol_key">1 simbol = %1$d</string>
+    <string name="learn_fig_bar_before">înainte</string>
+    <string name="learn_fig_bar_after">după</string>
+    <string name="learn_fig_bar_score">punctaj</string>
+    <string name="learn_fig_bar_total">total</string>
 
 </resources>

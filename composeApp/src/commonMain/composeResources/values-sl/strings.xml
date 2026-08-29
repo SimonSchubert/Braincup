@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Manjkajoči operatorji</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Miselno vrtenje</string>
 
     <string name="game_anomaly_puzzle_desc">Najdi lik, ki izstopa. Spremljaj barvo in obliko vsakega lika.</string>
     <string name="game_mental_calculation_desc">Spremljaj matematične izraze. Rezultat uporabi kot osnovo naslednjega izračuna.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Izberi operatorje, da bo enačba pravilna. Operatorji se računajo po običajnem vrstnem redu.</string>
     <string name="game_bulls_and_cows_desc">Ugani tajno 4-mestno število z enkratnimi števkami. Bulls = pravilna števka na pravem mestu. Cows = pravilna števka na napačnem mestu.</string>
     <string name="game_trio_desc">Najdi tri karte, ki si delijo obliko, število ali polnilo.</string>
+    <string name="game_mental_rotations_desc">Odloči se, ali je drugi blok prvi, samo zavrten, ali njegova zrcalna slika.</string>
+    <string name="game_mental_rotations_question">Isti blok ali zrcalna slika?</string>
+    <string name="game_mental_rotations_same">Isti</string>
+    <string name="game_mental_rotations_mirrored">Zrcalno</string>
     <string name="game_trio_howto">Dotakni se treh kart, ki si delijo lastnost.</string>
     <string name="trio_demo_title">Najdi trojico</string>
     <string name="trio_demo_rule">Delijo si lastnost. Nič drugega se ne meša.</string>
     <string name="trio_demo_correct">To je trojica.</string>
+    <string name="mental_rotations_demo_title">Zavrti ga v glavi</string>
+    <string name="mental_rotations_demo_turn">Zavrti desni blok na levega.</string>
+    <string name="mental_rotations_demo_same">Se ujema. Isti blok.</string>
+    <string name="mental_rotations_demo_mirrored">Nikoli se ne ujema. Zrcalna slika.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Tajno število je bilo %1$s</string>
@@ -429,6 +438,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_gold_missing_operators">Mojster operatorjev</string>
     <string name="achievement_gold_bulls_and_cows">Razbijalec kod</string>
     <string name="achievement_gold_trio">Trojni vid</string>
+    <string name="achievement_gold_mental_rotations">Mojster vrtenja</string>
     <string name="achievement_gold_path_finder">Pionir</string>
     <string name="achievement_gold_anomaly_puzzle">Izjema odkrita</string>
     <string name="achievement_gold_colored_shapes">Menjalec oblik</string>
@@ -465,6 +475,7 @@ Premakni Cow — postal bo Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Osvoji zlato medaljo v Manjkajočih operatorjih</string>
     <string name="achievement_gold_bulls_and_cows_desc">Osvoji zlato medaljo v Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Osvoji zlato medaljo v Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Osvoji zlato medaljo v Miselnem vrtenju</string>
     <string name="achievement_gold_path_finder_desc">Osvoji zlato medaljo v Iskalcu poti</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Osvoji zlato medaljo v Uganki anomalije</string>
     <string name="achievement_gold_colored_shapes_desc">Osvoji zlato medaljo v Barvnih likih</string>
@@ -872,6 +883,8 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_try_again_hint">Ne čisto. Poglej še enkrat in poskusi znova.</string>
     <string name="learn_answer_label">Odgovor</string>
     <string name="learn_correct">Pravilno!</string>
+    <string name="learn_revealed_answer">Tukaj je odgovor</string>
+    <string name="learn_show_answer">Pokaži mi odgovor</string>
     <string name="learn_incorrect">Še ne</string>
     <string name="learn_your_answer">Tvoj odgovor</string>
 
@@ -962,5 +975,9 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_fig_mean">povprečje</string>
     <string name="learn_fig_standard_deviations">%1$s st. odkl.</string>
     <string name="learn_fig_symbol_key">1 simbol = %1$d</string>
+    <string name="learn_fig_bar_before">prej</string>
+    <string name="learn_fig_bar_after">potem</string>
+    <string name="learn_fig_bar_score">točke</string>
+    <string name="learn_fig_bar_total">skupaj</string>
 
 </resources>

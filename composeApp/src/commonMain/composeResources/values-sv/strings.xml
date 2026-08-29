@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Saknade operatorer</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Mentala rotationer</string>
 
     <string name="game_anomaly_puzzle_desc">Hitta figuren som sticker ut. Titta på både färg och form.</string>
     <string name="game_mental_calculation_desc">Följ de matematiska uttrycken. Använd resultatet som bas för nästa räkning.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Välj operatorerna så att ekvationen stämmer. Operatorer utvärderas med vanlig matematisk prioritet.</string>
     <string name="game_bulls_and_cows_desc">Gissa det hemliga fyrsiffriga talet med unika siffror. Bulls = rätt siffra på rätt plats. Cows = rätt siffra på fel plats.</string>
     <string name="game_trio_desc">Hitta tre kort som delar form, antal eller fyllning.</string>
+    <string name="game_mental_rotations_desc">Avgör om det andra blocket är det första vridet, eller dess spegelbild.</string>
+    <string name="game_mental_rotations_question">Samma block eller spegelbild?</string>
+    <string name="game_mental_rotations_same">Samma</string>
+    <string name="game_mental_rotations_mirrored">Speglat</string>
     <string name="game_trio_howto">Tryck på tre kort som delar en egenskap.</string>
     <string name="trio_demo_title">Hitta en tregrupp</string>
     <string name="trio_demo_rule">De delar en egenskap. Inget annat är blandat.</string>
     <string name="trio_demo_correct">Det är en grupp.</string>
+    <string name="mental_rotations_demo_title">Vrid det i huvudet</string>
+    <string name="mental_rotations_demo_turn">Rotera det högra blocket ovanpå det vänstra.</string>
+    <string name="mental_rotations_demo_same">Det passar. Samma block.</string>
+    <string name="mental_rotations_demo_mirrored">Det passar aldrig. Spegelbild.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">Hemligheten var %1$s</string>
@@ -427,6 +436,7 @@
     <string name="achievement_gold_missing_operators">Operatörsmästare</string>
     <string name="achievement_gold_bulls_and_cows">Kodknäckare</string>
     <string name="achievement_gold_trio">Trippelseende</string>
+    <string name="achievement_gold_mental_rotations">Rotationsmästare</string>
     <string name="achievement_gold_path_finder">Stigfinnare</string>
     <string name="achievement_gold_anomaly_puzzle">Udda en upptäckt</string>
     <string name="achievement_gold_colored_shapes">Formskiftare</string>
@@ -463,6 +473,7 @@
     <string name="achievement_gold_missing_operators_desc">Vinn guldmedalj i Saknade operatorer</string>
     <string name="achievement_gold_bulls_and_cows_desc">Vinn guldmedalj i Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Vinn guldmedalj i Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Vinn guldmedalj i Mentala rotationer</string>
     <string name="achievement_gold_path_finder_desc">Vinn guldmedalj i Vägvisare</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Vinn guldmedalj i Avvikelsepussel</string>
     <string name="achievement_gold_colored_shapes_desc">Vinn guldmedalj i Färgade former</string>
@@ -870,6 +881,8 @@
     <string name="learn_try_again_hint">Inte riktigt. Titta en gång till och försök igen.</string>
     <string name="learn_answer_label">Svar</string>
     <string name="learn_correct">Rätt!</string>
+    <string name="learn_revealed_answer">Här är svaret</string>
+    <string name="learn_show_answer">Visa mig svaret</string>
     <string name="learn_incorrect">Inte riktigt</string>
     <string name="learn_your_answer">Ditt svar</string>
 
@@ -950,5 +963,9 @@
     <string name="learn_fig_mean">medelvärde</string>
     <string name="learn_fig_standard_deviations">%1$s sd</string>
     <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
+    <string name="learn_fig_bar_before">före</string>
+    <string name="learn_fig_bar_after">efter</string>
+    <string name="learn_fig_bar_score">poäng</string>
+    <string name="learn_fig_bar_total">totalt</string>
 
 </resources>

@@ -757,13 +757,24 @@
     <string name="finish_new_best_tries">Nowy rekord!</string>
 
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Rotacje w wyobraźni</string>
     <string name="game_trio_desc">Znajdź trzy karty, które mają wspólny kształt, liczbę albo wypełnienie.</string>
+    <string name="game_mental_rotations_desc">Zdecyduj, czy drugi klocek to ten pierwszy obrócony, czy jego lustrzane odbicie.</string>
+    <string name="game_mental_rotations_question">Ten sam klocek czy lustrzane odbicie?</string>
+    <string name="game_mental_rotations_same">Ten sam</string>
+    <string name="game_mental_rotations_mirrored">Odbicie</string>
     <string name="game_trio_howto">Dotknij trzech kart ze wspólną cechą.</string>
     <string name="trio_demo_title">Znajdź zestaw trzech</string>
     <string name="trio_demo_rule">Łączy je jedna cecha. Reszta nie jest pomieszana.</string>
     <string name="trio_demo_correct">To jest zestaw.</string>
+    <string name="mental_rotations_demo_title">Obróć go w głowie</string>
+    <string name="mental_rotations_demo_turn">Obróć prawy klocek tak, by pokrył się z lewym.</string>
+    <string name="mental_rotations_demo_same">Pokrywa się. Ten sam klocek.</string>
+    <string name="mental_rotations_demo_mirrored">Nigdy się nie pokrywa. Lustrzane odbicie.</string>
     <string name="achievement_gold_trio">Potrójne widzenie</string>
+    <string name="achievement_gold_mental_rotations">Mistrz obrotu</string>
     <string name="achievement_gold_trio_desc">Wygraj złoty medal w Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Zdobądź złoty medal w Rotacjach w wyobraźni</string>
 
     <string name="iq_test_button">Test IQ</string>
     <string name="iq_test_title">Test IQ</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">Jeszcze nie. Spójrz jeszcze raz i spróbuj ponownie.</string>
     <string name="learn_answer_label">Odpowiedź</string>
     <string name="learn_correct">Poprawnie!</string>
+    <string name="learn_revealed_answer">Oto odpowiedź</string>
+    <string name="learn_show_answer">Pokaż mi odpowiedź</string>
     <string name="learn_incorrect">Niezupełnie</string>
     <string name="learn_your_answer">Twoja odpowiedź</string>
 
@@ -945,5 +958,9 @@
     <string name="learn_fig_mean">średnia</string>
     <string name="learn_fig_standard_deviations">%1$s odch. std.</string>
     <string name="learn_fig_symbol_key">1 symbol = %1$d</string>
+    <string name="learn_fig_bar_before">przed</string>
+    <string name="learn_fig_bar_after">po</string>
+    <string name="learn_fig_bar_score">punkty</string>
+    <string name="learn_fig_bar_total">razem</string>
 
 </resources>

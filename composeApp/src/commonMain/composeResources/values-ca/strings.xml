@@ -232,6 +232,7 @@
     <string name="game_missing_operators">Operadors que falten</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
+    <string name="game_mental_rotations">Rotacions mentals</string>
 
     <string name="game_anomaly_puzzle_desc">Troba la figura que destaca. Mira tant el color com la forma de cada figura.</string>
     <string name="game_mental_calculation_desc">Segueix les expressions matemàtiques. Fes servir el resultat com a base del càlcul següent.</string>
@@ -284,10 +285,18 @@
     <string name="missing_operators_demo_desc">Tria els signes perquè l'equació quadri. Els operadors es calculen amb l'ordre habitual.</string>
     <string name="game_bulls_and_cows_desc">Endevina el número secret de 4 dígits amb dígits únics. Bulls = dígit correcte al lloc correcte. Cows = dígit correcte al lloc incorrecte.</string>
     <string name="game_trio_desc">Troba tres cartes que comparteixin forma, quantitat o farciment.</string>
+    <string name="game_mental_rotations_desc">Decideix si el segon bloc és el primer girat o la seva imatge especular.</string>
+    <string name="game_mental_rotations_question">El mateix bloc o imatge especular?</string>
+    <string name="game_mental_rotations_same">El mateix</string>
+    <string name="game_mental_rotations_mirrored">Especular</string>
     <string name="game_trio_howto">Toca tres cartes que comparteixin una propietat.</string>
     <string name="trio_demo_title">Troba un trio</string>
     <string name="trio_demo_rule">Comparteixen una propietat. Res més es barreja.</string>
     <string name="trio_demo_correct">Aquest és un trio.</string>
+    <string name="mental_rotations_demo_title">Gira'l al cap</string>
+    <string name="mental_rotations_demo_turn">Fes girar el bloc de la dreta fins al de l'esquerra.</string>
+    <string name="mental_rotations_demo_same">Encaixa. El mateix bloc.</string>
+    <string name="mental_rotations_demo_mirrored">No encaixa mai. Imatge especular.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">El secret era %1$s</string>
@@ -429,6 +438,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_gold_missing_operators">Mestre d'operadors</string>
     <string name="achievement_gold_bulls_and_cows">Trencacodis</string>
     <string name="achievement_gold_trio">Visió triple</string>
+    <string name="achievement_gold_mental_rotations">Mestre del gir</string>
     <string name="achievement_gold_path_finder">Pioner</string>
     <string name="achievement_gold_anomaly_puzzle">Excepció trobada</string>
     <string name="achievement_gold_colored_shapes">Canviaformes</string>
@@ -465,6 +475,7 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_gold_missing_operators_desc">Guanya la medalla d'or a Operadors que falten</string>
     <string name="achievement_gold_bulls_and_cows_desc">Guanya la medalla d'or a Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Guanya la medalla d'or al Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Guanya la medalla d'or a Rotacions mentals</string>
     <string name="achievement_gold_path_finder_desc">Guanya la medalla d'or al Cercador de camins</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Guanya la medalla d'or a l'Enigma de l'anomalia</string>
     <string name="achievement_gold_colored_shapes_desc">Guanya la medalla d'or a Figures de colors</string>
@@ -872,6 +883,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_try_again_hint">No ben bé. Torna-hi a mirar i prova-ho un altre cop.</string>
     <string name="learn_answer_label">Resposta</string>
     <string name="learn_correct">Correcte!</string>
+    <string name="learn_revealed_answer">Aquesta és la resposta</string>
+    <string name="learn_show_answer">Mostra'm la resposta</string>
     <string name="learn_incorrect">Encara no</string>
     <string name="learn_your_answer">La teva resposta</string>
 
@@ -952,5 +965,9 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_fig_mean">mitjana</string>
     <string name="learn_fig_standard_deviations">%1$s DE</string>
     <string name="learn_fig_symbol_key">1 símbol = %1$d</string>
+    <string name="learn_fig_bar_before">abans</string>
+    <string name="learn_fig_bar_after">després</string>
+    <string name="learn_fig_bar_score">punts</string>
+    <string name="learn_fig_bar_total">total</string>
 
 </resources>

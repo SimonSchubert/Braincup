@@ -757,13 +757,24 @@
     <string name="finish_new_best_tries">Новий рекорд!</string>
 
     <string name="game_trio">Тріо</string>
+    <string name="game_mental_rotations">Уявне обертання</string>
     <string name="game_trio_desc">Знайдіть три карти зі спільною формою, кількістю або заливкою.</string>
+    <string name="game_mental_rotations_desc">Визнач, чи другий блок це повернутий перший, чи його дзеркальне відображення.</string>
+    <string name="game_mental_rotations_question">Той самий блок чи дзеркальне відображення?</string>
+    <string name="game_mental_rotations_same">Той самий</string>
+    <string name="game_mental_rotations_mirrored">Дзеркальний</string>
     <string name="game_trio_howto">Торкніться трьох карт зі спільною ознакою.</string>
     <string name="trio_demo_title">Знайдіть набір із трьох</string>
     <string name="trio_demo_rule">У них спільна ознака. Решта не змішана.</string>
     <string name="trio_demo_correct">Це набір.</string>
+    <string name="mental_rotations_demo_title">Поверни його подумки</string>
+    <string name="mental_rotations_demo_turn">Оберни правий блок так, щоб він збігся з лівим.</string>
+    <string name="mental_rotations_demo_same">Збігається. Той самий блок.</string>
+    <string name="mental_rotations_demo_mirrored">Ніколи не збігається. Дзеркальне відображення.</string>
     <string name="achievement_gold_trio">Потрійний зір</string>
+    <string name="achievement_gold_mental_rotations">Майстер обертання</string>
     <string name="achievement_gold_trio_desc">Виграйте золоту медаль у Trio</string>
+    <string name="achievement_gold_mental_rotations_desc">Здобудь золоту медаль в Уявному обертанні</string>
 
     <string name="iq_test_button">Тест IQ</string>
     <string name="iq_test_title">Тест IQ</string>
@@ -855,6 +866,8 @@
     <string name="learn_try_again_hint">Не зовсім. Поглянь іще раз і спробуй знову.</string>
     <string name="learn_answer_label">Відповідь</string>
     <string name="learn_correct">Правильно!</string>
+    <string name="learn_revealed_answer">Ось відповідь</string>
+    <string name="learn_show_answer">Покажи відповідь</string>
     <string name="learn_incorrect">Не зовсім</string>
     <string name="learn_your_answer">Твоя відповідь</string>
 
@@ -945,5 +958,9 @@
     <string name="learn_fig_mean">середнє</string>
     <string name="learn_fig_standard_deviations">%1$s σ</string>
     <string name="learn_fig_symbol_key">1 символ = %1$d</string>
+    <string name="learn_fig_bar_before">до</string>
+    <string name="learn_fig_bar_after">після</string>
+    <string name="learn_fig_bar_score">бали</string>
+    <string name="learn_fig_bar_total">усього</string>
 
 </resources>

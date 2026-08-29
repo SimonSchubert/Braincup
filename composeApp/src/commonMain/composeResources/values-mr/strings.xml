@@ -216,6 +216,7 @@
     <string name="game_missing_operators">हरवलेली चिन्हे</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">त्रिकूट</string>
+    <string name="game_mental_rotations">मानसिक परिभ्रमण</string>
 
     <string name="game_anomaly_puzzle_desc">वेगळी उठून दिसणारी आकृती शोधा. प्रत्येक आकृतीचा रंग आणि आकार दोन्ही लक्षात घ्या.</string>
     <string name="game_mental_calculation_desc">गणिती पदावल्यांचे अनुसरण करा. निकाल पुढच्या गणनेचा आधार म्हणून वापरा.</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">समीकरण खरे करण्यासाठी चिन्हे निवडा. चिन्हांचे मूल्यमापन प्रमाणित गणिती प्राधान्यक्रमाने होते.</string>
     <string name="game_bulls_and_cows_desc">वेगवेगळे अंक असलेल्या गुप्त 4 अंकी संख्येचा अंदाज लावा. Bulls = बरोबर जागी बरोबर अंक. Cows = चुकीच्या जागी बरोबर अंक.</string>
     <string name="game_trio_desc">एकच आकार, संख्या किंवा भरणी असलेली तीन पत्ते शोधा.</string>
+    <string name="game_mental_rotations_desc">दुसरा ठोकळा हा पहिलाच फिरवलेला आहे की त्याचे आरशातील प्रतिबिंब, हे ठरवा.</string>
+    <string name="game_mental_rotations_question">तोच ठोकळा की आरशातील प्रतिबिंब?</string>
+    <string name="game_mental_rotations_same">तोच</string>
+    <string name="game_mental_rotations_mirrored">प्रतिबिंब</string>
     <string name="game_trio_howto">एकच गुणधर्म असलेल्या तीन पत्त्यांवर टॅप करा.</string>
     <string name="trio_demo_title">तिघांचा संच शोधा</string>
     <string name="trio_demo_rule">त्यांच्यात एक गुणधर्म समान आहे. बाकी काहीही मिसळलेले नाही.</string>
     <string name="trio_demo_correct">हाच एक संच आहे.</string>
+    <string name="mental_rotations_demo_title">मनातल्या मनात फिरवा</string>
+    <string name="mental_rotations_demo_turn">उजवा ठोकळा फिरवून डाव्यावर बसवा.</string>
+    <string name="mental_rotations_demo_same">तंतोतंत जुळतो. तोच ठोकळा.</string>
+    <string name="mental_rotations_demo_mirrored">कधीच जुळत नाही. आरशातील प्रतिबिंब.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">गुप्त संख्या %1$s होती</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">चिन्ह निपुण</string>
     <string name="achievement_gold_bulls_and_cows">सांकेतिक क्रमांक उलगडणारा</string>
     <string name="achievement_gold_trio">तिहेरी नजर</string>
+    <string name="achievement_gold_mental_rotations">फिरवण्याचा उस्ताद</string>
     <string name="achievement_gold_path_finder">वाटाड्या</string>
     <string name="achievement_gold_anomaly_puzzle">वेगळे ओळखले</string>
     <string name="achievement_gold_colored_shapes">आकार बदलणारा</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">हरवलेल्या चिन्हांमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows मध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_trio_desc">त्रिकूटमध्ये सुवर्णपदक जिंका</string>
+    <string name="achievement_gold_mental_rotations_desc">मानसिक परिभ्रमणमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_path_finder_desc">वाट शोधकमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_anomaly_puzzle_desc">विसंगती कोड्यात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_colored_shapes_desc">रंगीत आकारांमध्ये सुवर्णपदक जिंका</string>
@@ -853,6 +864,8 @@
     <string name="learn_try_again_hint">अगदी बरोबर नाही. पुन्हा पहा आणि प्रयत्न करा.</string>
     <string name="learn_answer_label">उत्तर</string>
     <string name="learn_correct">बरोबर!</string>
+    <string name="learn_revealed_answer">हे आहे उत्तर</string>
+    <string name="learn_show_answer">मला उत्तर दाखवा</string>
     <string name="learn_incorrect">अगदी बरोबर नाही</string>
     <string name="learn_your_answer">तुमचे उत्तर</string>
 
@@ -933,5 +946,9 @@
     <string name="learn_fig_mean">सरासरी</string>
     <string name="learn_fig_standard_deviations">%1$s प्र. वि.</string>
     <string name="learn_fig_symbol_key">1 चिन्ह = %1$d</string>
+    <string name="learn_fig_bar_before">आधी</string>
+    <string name="learn_fig_bar_after">नंतर</string>
+    <string name="learn_fig_bar_score">गुण</string>
+    <string name="learn_fig_bar_total">एकूण</string>
 
 </resources>

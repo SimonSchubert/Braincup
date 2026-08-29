@@ -216,6 +216,7 @@
     <string name="game_missing_operators">తప్పిపోయిన ఆపరేటర్లు</string>
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">త్రయం</string>
+    <string name="game_mental_rotations">మానసిక భ్రమణం</string>
 
     <string name="game_anomaly_puzzle_desc">వేరుగా కనిపించే ఆకృతిని కనుగొనండి. ప్రతి ఆకృతి రంగు, ఆకారం రెండింటినీ పరిగణించండి.</string>
     <string name="game_mental_calculation_desc">గణిత వ్యక్తీకరణలను అనుసరించండి. ఫలితాన్ని తర్వాతి గణనకు ఆధారంగా వాడండి.</string>
@@ -268,10 +269,18 @@
     <string name="missing_operators_demo_desc">సమీకరణాన్ని నిజం చేయడానికి ఆపరేటర్లను ఎంచుకోండి. ఆపరేటర్లు ప్రామాణిక గణిత ప్రాధాన్యత ప్రకారం లెక్కించబడతాయి.</string>
     <string name="game_bulls_and_cows_desc">ప్రత్యేక అంకెలున్న రహస్య 4 అంకెల సంఖ్యను ఊహించండి. Bulls = సరైన స్థానంలో సరైన అంకె. Cows = తప్పు స్థానంలో సరైన అంకె.</string>
     <string name="game_trio_desc">ఒకే ఆకారం, సంఖ్య లేదా నింపు పంచుకునే మూడు కార్డులను కనుగొనండి.</string>
+    <string name="game_mental_rotations_desc">రెండో బ్లాక్ మొదటిదాన్ని తిప్పినదా లేక దాని అద్దపు ప్రతిబింబమా అని నిర్ణయించండి.</string>
+    <string name="game_mental_rotations_question">అదే బ్లాకా, అద్దపు ప్రతిబింబమా?</string>
+    <string name="game_mental_rotations_same">అదే</string>
+    <string name="game_mental_rotations_mirrored">ప్రతిబింబం</string>
     <string name="game_trio_howto">ఒకే లక్షణం పంచుకునే మూడు కార్డులను నొక్కండి.</string>
     <string name="trio_demo_title">మూడింటి సమూహాన్ని కనుగొనండి</string>
     <string name="trio_demo_rule">అవి ఒకే లక్షణాన్ని పంచుకుంటాయి. మరేదీ కలగలిసి లేదు.</string>
     <string name="trio_demo_correct">అదే ఒక సమూహం.</string>
+    <string name="mental_rotations_demo_title">మనసులో తిప్పండి</string>
+    <string name="mental_rotations_demo_turn">కుడి బ్లాక్‌ను తిప్పి ఎడమదానిపై కూర్చోబెట్టండి.</string>
+    <string name="mental_rotations_demo_same">సరిగ్గా సరిపోతుంది. అదే బ్లాక్.</string>
+    <string name="mental_rotations_demo_mirrored">ఎప్పటికీ సరిపోదు. అద్దపు ప్రతిబింబం.</string>
     <string name="bulls_and_cows_bulls">Bulls: %1$d</string>
     <string name="bulls_and_cows_cows">Cows: %1$d</string>
     <string name="bulls_and_cows_secret_was">రహస్యం %1$s</string>
@@ -411,6 +420,7 @@
     <string name="achievement_gold_missing_operators">ఆపరేటర్ నిపుణుడు</string>
     <string name="achievement_gold_bulls_and_cows">కోడ్ ఛేదకుడు</string>
     <string name="achievement_gold_trio">త్రి నేత్ర దృష్టి</string>
+    <string name="achievement_gold_mental_rotations">భ్రమణ నిపుణుడు</string>
     <string name="achievement_gold_path_finder">బాట వేసినవాడు</string>
     <string name="achievement_gold_anomaly_puzzle">వేరుగా ఉన్నది దొరికింది</string>
     <string name="achievement_gold_colored_shapes">ఆకార మార్పరి</string>
@@ -447,6 +457,7 @@
     <string name="achievement_gold_missing_operators_desc">తప్పిపోయిన ఆపరేటర్లలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows లో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_trio_desc">త్రయంలో బంగారు పతకం గెలవండి</string>
+    <string name="achievement_gold_mental_rotations_desc">మానసిక భ్రమణంలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_path_finder_desc">మార్గ అన్వేషిలో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_anomaly_puzzle_desc">అసంగత పజిల్‌లో బంగారు పతకం గెలవండి</string>
     <string name="achievement_gold_colored_shapes_desc">రంగుల ఆకారాలలో బంగారు పతకం గెలవండి</string>
@@ -853,6 +864,8 @@
     <string name="learn_try_again_hint">సరిగ్గా లేదు. మరోసారి చూసి ప్రయత్నించండి.</string>
     <string name="learn_answer_label">సమాధానం</string>
     <string name="learn_correct">సరైనది!</string>
+    <string name="learn_revealed_answer">ఇదిగో సమాధానం</string>
+    <string name="learn_show_answer">సమాధానం చూపించు</string>
     <string name="learn_incorrect">సరిగ్గా లేదు</string>
     <string name="learn_your_answer">మీ సమాధానం</string>
 
@@ -933,5 +946,9 @@
     <string name="learn_fig_mean">సగటు</string>
     <string name="learn_fig_standard_deviations">%1$s ప్ర. వి.</string>
     <string name="learn_fig_symbol_key">1 గుర్తు = %1$d</string>
+    <string name="learn_fig_bar_before">ముందు</string>
+    <string name="learn_fig_bar_after">తర్వాత</string>
+    <string name="learn_fig_bar_score">స్కోరు</string>
+    <string name="learn_fig_bar_total">మొత్తం</string>
 
 </resources>
