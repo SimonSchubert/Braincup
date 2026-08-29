@@ -31,7 +31,6 @@ import com.inspiredandroid.braincup.learn.isNotation
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
-import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
@@ -41,6 +40,7 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnFigurePanel
 import com.inspiredandroid.braincup.ui.components.learn.LearnFormulaCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionState
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
+import com.inspiredandroid.braincup.ui.components.learn.LearnPrimaryButton
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
@@ -280,17 +280,15 @@ private fun QuizResultContent(
 
         Spacer(Modifier.height(24.dp))
         if (earnedCertificate) {
-            PrimaryActionButton(
+            LearnPrimaryButton(
                 onClick = onViewCertificate,
                 value = stringResource(Res.string.learn_certificate_view),
-                modifier = Modifier.fillMaxWidth(),
             )
             Spacer(Modifier.height(8.dp))
         }
-        PrimaryActionButton(
+        LearnPrimaryButton(
             onClick = onDone,
             value = stringResource(Res.string.learn_lesson_finish),
-            modifier = Modifier.fillMaxWidth(),
         )
         Spacer(Modifier.height(24.dp))
     }

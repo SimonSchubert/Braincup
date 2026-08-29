@@ -25,6 +25,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.ui.components.MathText
+import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.formatMathSymbols
@@ -52,6 +53,28 @@ import com.inspiredandroid.braincup.ui.theme.numeric
 internal val LearnContentWidth = 480.dp
 internal val LearnFigureWidth = 420.dp
 internal val LearnFigureHeight = 180.dp
+
+/**
+ * The Learn section's primary action, on the section's own [LearnContentWidth] measure.
+ *
+ * The bar or column around it spans the window, the button inside it does not: stretched edge to
+ * edge on a desktop window it stops reading as a button at all. Filled rather than wrapped so a
+ * CTA lines up with the option tiles, formula cards and review cards stacked above it, which all
+ * read at the same width.
+ */
+@Composable
+internal fun LearnPrimaryButton(
+    onClick: () -> Unit,
+    value: String,
+    modifier: Modifier = Modifier,
+) {
+    PrimaryActionButton(
+        onClick = onClick,
+        value = value,
+        maxWidth = LearnContentWidth,
+        modifier = Modifier.fillMaxWidth().then(modifier),
+    )
+}
 
 /**
  * How an answer option is standing at the moment it is drawn.

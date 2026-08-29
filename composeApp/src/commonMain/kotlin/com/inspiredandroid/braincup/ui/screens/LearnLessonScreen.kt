@@ -35,7 +35,6 @@ import com.inspiredandroid.braincup.learn.isNotation
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.NumberPadWithInput
-import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
@@ -47,6 +46,7 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnFigurePanel
 import com.inspiredandroid.braincup.ui.components.learn.LearnFormulaCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionState
 import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
+import com.inspiredandroid.braincup.ui.components.learn.LearnPrimaryButton
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
@@ -310,9 +310,6 @@ private fun ColumnScope.LessonActionBar(
     onReveal: (() -> Unit)? = null,
 ) {
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
-    // The bar spans the window, the button inside it does not: stretched edge to edge on a desktop
-    // window it stops reading as a button at all.
-    val button = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth()
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -321,29 +318,26 @@ private fun ColumnScope.LessonActionBar(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         when {
-            step is LessonStep.Worked && revealedLines < step.lines.size -> PrimaryActionButton(
+            step is LessonStep.Worked && revealedLines < step.lines.size -> LearnPrimaryButton(
                 onClick = onRevealLine,
                 value = stringResource(Res.string.learn_next_line),
-                modifier = button,
             )
 
             // Continue appears only once the answer is on the screen. Until then the step stays
             // open, so a lesson cannot be walked through without ever meeting one.
-            step is LessonStep.Numeric && !answer.isResolved -> PrimaryActionButton(
+            step is LessonStep.Numeric && !answer.isResolved -> LearnPrimaryButton(
                 onClick = { if (typedAnswer.isNotBlank()) onCheckNumeric() },
                 value = stringResource(
                     if (answer is LessonAnswer.Missed) Res.string.learn_try_again else Res.string.learn_check,
                 ),
-                modifier = button,
             )
 
             // A choice step is answered by tapping an option, so it shows no button of its own.
             step is LessonStep.Choice && !answer.isResolved -> Unit
 
-            else -> PrimaryActionButton(
+            else -> LearnPrimaryButton(
                 onClick = onContinue,
                 value = stringResource(Res.string.learn_continue),
-                modifier = button,
             )
         }
 
@@ -693,10 +687,9 @@ private fun LessonCompleteContent(
         }
         if (nextLessonId != null) {
             Spacer(Modifier.height(24.dp))
-            PrimaryActionButton(
+            LearnPrimaryButton(
                 onClick = { onNextLesson(nextLessonId) },
                 value = stringResource(Res.string.learn_next_lesson),
-                modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
             )
         } else if (quiz != null && onTakeTest != null) {
             // The last lesson of a sub-topic ends where the sub-topic itself does: at its test.
@@ -710,10 +703,9 @@ private fun LessonCompleteContent(
                 textAlign = TextAlign.Center,
             )
             Spacer(Modifier.height(8.dp))
-            PrimaryActionButton(
+            LearnPrimaryButton(
                 onClick = onTakeTest,
                 value = stringResource(Res.string.learn_take_test),
-                modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
             )
         }
     }

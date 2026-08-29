@@ -32,11 +32,11 @@ import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.CertificateMedal
 import com.inspiredandroid.braincup.ui.components.ChunkyCheck
-import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
+import com.inspiredandroid.braincup.ui.components.learn.LearnPrimaryButton
 import com.inspiredandroid.braincup.ui.components.learn.learnContainerColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -185,10 +185,9 @@ fun LearnUnitScreenContent(
                     // thing on the screen and the one action a learner arriving here should not
                     // take; the lesson they are up to is the one that carries that weight now.
                     if (nextLesson == null) {
-                        PrimaryActionButton(
+                        LearnPrimaryButton(
                             onClick = onTakeTest,
                             value = testLabel,
-                            modifier = Modifier.fillMaxWidth(),
                         )
                     } else {
                         TextPrismButton(onClick = onTakeTest, value = testLabel)
