@@ -722,11 +722,16 @@ fun App(
                                 val onTakeTest = remember(controller, unit) {
                                     { controller.navigateToLearnTest(unit) }
                                 }
+                                val hapticSuccess = rememberHapticSuccess()
+                                val onCorrectAnswer = remember(hapticSuccess, hapticEnabled) {
+                                    { if (hapticEnabled) hapticSuccess() }
+                                }
                                 LearnLessonScreen(
                                     lessonId = lesson.id,
                                     storage = controller.storage,
                                     onNextLesson = onNextLesson,
                                     onTakeTest = onTakeTest,
+                                    onCorrectAnswer = onCorrectAnswer,
                                     onBack = popUnit,
                                 )
                             }
@@ -738,12 +743,17 @@ fun App(
                             if (unit != null) {
                                 val popUnit = remember(controller, unit) { { controller.popToLearnUnit(unit) } }
                                 val onViewCertificate = remember(controller, unit) {
-                                    { controller.navigateToLearnCertificate(unit) }
+                                    { controller.navigateToLearnCertificate(unit, fromTest = true) }
+                                }
+                                val hapticSuccess = rememberHapticSuccess()
+                                val onPassed = remember(hapticSuccess, hapticEnabled) {
+                                    { if (hapticEnabled) hapticSuccess() }
                                 }
                                 LearnQuizScreen(
                                     unit = unit,
                                     storage = controller.storage,
                                     onViewCertificate = onViewCertificate,
+                                    onPassed = onPassed,
                                     onDone = popUnit,
                                     onBack = popUnit,
                                 )

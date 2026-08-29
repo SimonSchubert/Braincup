@@ -63,7 +63,7 @@ internal fun VisualScope.drawCounters(visual: LearnVisual.Counters) {
 
     groups.forEachIndexed { groupIndex, count ->
         val startX = cursor
-        val color = if (groupIndex % 2 == 0) Accent else Accent2
+        val color = groupColor(groupIndex)
         repeat(count) { inGroup ->
             val from = Offset(startX + inGroup * gap, rowY)
             val to = mergedSlot(index)
@@ -94,10 +94,11 @@ internal fun VisualScope.drawCounters(visual: LearnVisual.Counters) {
     }
 
     if (visual.merge && visual.reveal) {
-        label(
-            text = "= $total",
+        // What the groups came to, in the answer green. The equals sign holding it up is
+        // structure and stays chrome, the same split the formula card beside it draws.
+        labelRuns(
+            runs = listOf("= " to null, "$total" to AnswerInk),
             center = Offset(width / 2f, height * 0.85f),
-            color = Accent,
             factor = 0.16f,
             alpha = totalIn,
         )
@@ -156,10 +157,18 @@ internal fun VisualScope.drawTenFrame(visual: LearnVisual.TenFrame) {
     // Nothing was added, so there is no sum to state: a frame filled to seven captioning itself
     // "7 + 0 = 7" reads as a puzzle of its own rather than as the seven dots on show.
     if (!sums) return
-    label(
-        text = "${visual.filled} + ${visual.added} = $total",
+    // Each number in the colour of the dots it counts: the frame it started with, the dots that
+    // arrived, and what they came to. Printed as one orange run this said the total was another
+    // given, while the formula card above it had already turned the same number green.
+    labelRuns(
+        runs = listOf(
+            "${visual.filled}" to Accent,
+            " + " to null,
+            "${visual.added}" to Accent2,
+            " = " to null,
+            "$total" to AnswerInk,
+        ),
         center = Offset(width / 2f, room.y(0)),
-        color = Accent,
         factor = TenFrameSumFactor,
         alpha = revealBeat,
     )
@@ -334,18 +343,24 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // actually sits is the correction.
     val marked = answer?.value?.takeIf { it in visual.from..visual.to }
 
+    // The same map the line of text under the figure colours itself from, so the two cannot drift:
+    // if the figure marks -4 green then "-4 is 4 left of 0" prints its -4 green as well.
+    val figureRoles = visual.roles()
+
     /**
      * What a value on the axis is, in colour: a given the question hands you, or the answer. Null
      * for an ordinary tick.
      *
      * A value a hop touches down on along the way is deliberately not coloured. The working is the
      * movement - the arcs and what they are labelled - and calling out every place the movement
-     * pauses turns a three-colour code back into a scatter of highlights.
+     * pauses turns a three-colour code back into a scatter of highlights. That is why this asks
+     * [FigureRoles] only about the two roles the axis carries: the hops are the working, and they
+     * are drawn on the arcs rather than on the scale.
      */
     fun roleColor(value: Int): Color? = when {
         value == marked && value != start -> resultColor
         value == start -> Accent
-        value == landed -> SuccessGreen
+        figureRoles.roleOf(value.toString()) == FigureRole.ANSWER && value == landed -> SuccessGreen
         else -> null
     }
 
@@ -735,6 +750,7 @@ internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
     // the square gives some height back. On its own it keeps the room it always had.
     val ofAmount = visual.of?.takeIf { second == null }
     val named = visual.reveal
+    val comparePlaces = visual.compareDecimals?.takeIf { visual.compare != null }
     // What the square is a percentage of stands over it and what it works out to sits under it,
     // so both come off the room the squares have before the squares are sized, and the three
     // together are what gets centred.
@@ -801,10 +817,21 @@ internal fun VisualScope.drawDecimalGrid(visual: LearnVisual.DecimalGrid) {
                     // The step that says a percentage and a decimal are one number has to show
                     // both of them, or it is only ever showing one of the two.
                     visual.percent -> formatDecimal(value * 100) + "% = " + formatDecimal(value)
+                    // The step about a nought on the end has to caption the square with the nought
+                    // on the end, or the picture contradicts the line of notation under it.
+                    gridIndex == 1 && comparePlaces != null -> formatPlaces(value, comparePlaces)
                     else -> formatDecimal(value)
                 },
                 at = Offset(left + gridSize / 2f, top + gridSize),
-                color = color,
+                // A caption the figure worked out for itself takes the answer green, exactly as
+                // the bottom bar of a fraction sum does: the third square of a sum, and the "= 16"
+                // a percentage comes to. In the accent these read as another given, while the
+                // "0.4 + 0.35 = 0.75" card above had already printed the same number green.
+                color = if (gridIndex == 2 && visual.plus != null || ofAmount != null) {
+                    AnswerInk
+                } else {
+                    color
+                },
                 factor = DecimalNameFactor,
                 alpha = if (ofAmount != null) revealBeat else 1f,
             )
@@ -1071,9 +1098,12 @@ internal fun VisualScope.drawFraction(visual: LearnVisual.Fraction) {
  *
  * Deliberately not a fraction bar. Nothing here is shaded against an unshaded remainder, because
  * the mistake this figure exists to head off is reading 2 : 3 as two fifths: a fraction bar
- * captions itself "2/5" and teaches exactly the wrong thing. The two runs are equal partners in
- * the two group colours, and the counts sit over their own runs so the formula beside the figure
- * can be read straight off it.
+ * captions itself "2/5" and teaches exactly the wrong thing. The runs are equal partners, each in
+ * its own [groupColor], and the counts sit over their own runs so the formula beside the figure can
+ * be read straight off it.
+ *
+ * Equal partners is why the third run is a third colour rather than the answer green: 3 : 2 : 1 has
+ * no answer in it, and every part of the split is the same kind of thing as the other two.
  */
 private const val RatioCountFactor = 0.13f
 
@@ -1098,7 +1128,7 @@ internal fun VisualScope.drawRatioBar(visual: LearnVisual.RatioBar) {
 
     var placed = 0
     parts.forEachIndexed { index, part ->
-        val color = if (index % 2 == 0) Accent else Accent2
+        val color = groupColor(index)
         repeat(part) {
             val cell = placed++
             box(
@@ -1129,7 +1159,7 @@ internal fun VisualScope.drawRatioBar(visual: LearnVisual.RatioBar) {
     // is sharing an amount out rather than naming a ratio.
     var seen = 0
     parts.forEachIndexed { index, part ->
-        val color = if (index % 2 == 0) Accent else Accent2
+        val color = groupColor(index)
         val centreX = left + cellWidth * (seen + part / 2f)
         labelAbove(
             text = (part * scale).toString(),
@@ -1358,6 +1388,20 @@ internal fun VisualScope.drawTally(visual: LearnVisual.Tally) {
 }
 
 /** Trim a double to the shortest sensible label: 2.0 -> "2", 0.25 -> "0.25". */
+/**
+ * The value written to a fixed number of places, trailing noughts and all. [formatDecimal] drops
+ * them, which is right everywhere except the one step whose point is that 0.4 and 0.40 are the
+ * same number written twice.
+ */
+internal fun formatPlaces(value: Double, places: Int): String {
+    if (places <= 0) return value.roundToLong().toString()
+    var scale = 1L
+    repeat(places) { scale *= 10 }
+    val scaled = (abs(value) * scale).roundToLong()
+    val sign = if (value < 0 && scaled != 0L) "-" else ""
+    return sign + (scaled / scale) + "." + (scaled % scale).toString().padStart(places, '0')
+}
+
 internal fun formatDecimal(value: Double): String {
     // Whole values answer first, because a term can be far larger than a ratio: 52000 scaled by
     // the hundred the rounding below works in is still an Int, but it does not have to be.

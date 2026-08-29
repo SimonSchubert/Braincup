@@ -44,6 +44,7 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnOptionTile
 import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
+import com.inspiredandroid.braincup.ui.components.learn.roles
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.LearnWrongContainer
@@ -58,6 +59,7 @@ fun LearnQuizScreen(
     unit: LearnUnit,
     storage: UserStorage,
     onViewCertificate: () -> Unit,
+    onPassed: () -> Unit,
     onDone: () -> Unit,
     onBack: () -> Unit,
 ) {
@@ -68,6 +70,7 @@ fun LearnQuizScreen(
         result = result,
         onSubmit = { correct -> result = storage.recordLearnQuizResult(unit, correct, unit.quiz.total) },
         onViewCertificate = onViewCertificate,
+        onPassed = onPassed,
         onDone = onDone,
         onBack = onBack,
     )
@@ -102,6 +105,12 @@ fun LearnQuizScreenContent(
     onViewCertificate: () -> Unit,
     onDone: () -> Unit,
     onBack: () -> Unit,
+    /**
+     * Fired once, when a finished test turns out to have earned its certificate. A test never
+     * says which answer was right while it is being taken, so this is the only moment in it that
+     * the device has anything to confirm.
+     */
+    onPassed: () -> Unit = {},
     initialState: QuizScreenState = QuizScreenState.Start,
 ) {
     val quiz = unit.quiz
@@ -118,7 +127,9 @@ fun LearnQuizScreenContent(
 
     // The result is recorded once, when the last question is answered.
     LaunchedEffect(unit.id, submitted) {
-        if (submitted) onSubmit(correctCount)
+        if (!submitted) return@LaunchedEffect
+        onSubmit(correctCount)
+        if (Certificate.isEarnedBy(correctCount, quiz.total)) onPassed()
     }
 
     AppScaffold(
@@ -168,7 +179,11 @@ fun LearnQuizScreenContent(
             // operators to a reader that has only the string.
             val prompt = question.prompt.resolve()
             if (question.prompt.isNotation) {
-                LearnFormulaCard(prompt)
+                // The figure is on the screen directly above, so the prompt takes its roles from
+                // it. A test figure is drawn with `reveal = false`, which leaves its answer set
+                // empty, so this can colour the given and the working without ever handing over
+                // the number being asked for.
+                LearnFormulaCard(prompt, roles = question.visual?.roles())
             } else {
                 LearnText(
                     text = prompt,

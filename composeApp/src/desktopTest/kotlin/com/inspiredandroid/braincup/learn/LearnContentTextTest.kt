@@ -2,8 +2,14 @@ package com.inspiredandroid.braincup.learn
 
 import androidx.compose.ui.graphics.Color
 import com.inspiredandroid.braincup.ui.components.formatMathSymbols
+import com.inspiredandroid.braincup.ui.components.learn.FigureRole
+import com.inspiredandroid.braincup.ui.components.learn.FigureRoles
+import com.inspiredandroid.braincup.ui.components.learn.roles
+import com.inspiredandroid.braincup.ui.components.statesItsResult
 import com.inspiredandroid.braincup.ui.components.withFormulaColors
+import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.WorkingBlue
 import kotlinx.coroutines.runBlocking
 import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.getPluralString
@@ -213,21 +219,23 @@ class LearnContentTextTest {
     fun noCatalogFormulaPrintsItsResultAsAGiven() {
         val offenders = LearnCatalog.allLessons.flatMap { lesson ->
             lesson.steps.mapIndexedNotNull { index, step ->
-                val formula = when (step) {
-                    is LessonStep.Concept -> step.formula
-                    is LessonStep.Choice -> step.formula
-                    is LessonStep.Numeric -> step.formula
-                    is LessonStep.Worked -> null
-                }?.text() ?: return@mapIndexedNotNull null
-                if (formula.contains('?')) return@mapIndexedNotNull null
-                val runs = formula.runColors().filter { it.first.isNotBlank() }
+                // A worked step states its problem in the same card a teaching step states its
+                // formula in, so it is held to the same rule. It was skipped here while the only
+                // thing that could colour a result was the punctuation, and a worked problem
+                // almost always ends in "= ?" - which this test passes over anyway.
+                val (formula, visual) = when (step) {
+                    is LessonStep.Concept -> step.formula to step.visual
+                    is LessonStep.Choice -> step.formula to step.visual
+                    is LessonStep.Numeric -> step.formula to step.visual
+                    is LessonStep.Worked -> step.problem to step.visual
+                }
+                val text = formula?.text() ?: return@mapIndexedNotNull null
+                if (text.contains('?')) return@mapIndexedNotNull null
+                val runs = text.runColors(visual?.roles()).filter { it.first.isNotBlank() }
                 val last = runs.lastOrNull { it.first.any(Char::isDigit) } ?: return@mapIndexedNotNull null
-                val statesAResult = formula.count { it == '=' } == 1 &&
-                    formula.substringAfterLast('=').trim().let { tail ->
-                        tail.isNotEmpty() && tail.all { it.isDigit() || it in ".,/%" }
-                    }
+                val statesAResult = text.formatMathSymbols(fractionSlash = true).statesItsResult()
                 if (statesAResult && last.second != SuccessGreen) {
-                    "${lesson.id} step $index: '$formula' ends '${last.first}' in ${last.second}"
+                    "${lesson.id} step $index: '$text' ends '${last.first}' in ${last.second}"
                 } else {
                     null
                 }
@@ -279,9 +287,105 @@ class LearnContentTextTest {
         }
     }
 
+    /**
+     * Every number a figure names is printed in that figure's colour by the text beside it.
+     *
+     * This is the general form of [fractionTextMatchesTheBarItNames], and it exists because the
+     * two halves of the colour code were built separately and quietly disagreed. A formula card
+     * infers roles from punctuation, so a line with no equals sign in it - "-4 is 4 left of 0",
+     * "0.5 euro = 50 cents", and 35 more that are translated prose rather than notation - had every
+     * number fall through to the given colour while the figure above was drawing them in three.
+     * Nothing failed; the screen was just wrong.
+     *
+     * `LearnVisual.roles()` closed it by making the figure the source of truth, and this holds it
+     * closed: a new lesson whose text contradicts its own picture fails here rather than shipping.
+     *
+     * A figure that returns an empty [FigureRoles] is skipped, which is what makes the map safe to
+     * extend one family at a time.
+     */
+    @Test
+    fun textTakesItsColoursFromTheFigureBesideIt() {
+        val expected = mapOf(
+            FigureRole.GIVEN to Primary,
+            FigureRole.WORKING to WorkingBlue,
+            FigureRole.ANSWER to SuccessGreen,
+        )
+        val offenders = mutableListOf<String>()
+
+        fun check(where: String, visual: LearnVisual?, texts: List<String>) {
+            val roles = visual?.roles() ?: return
+            if (roles.isEmpty) return
+            texts.forEach { text ->
+                // A line that states its own result is out of scope, and deliberately so: it names
+                // its answer itself, [withFormulaColors] gives it the green, and the figure is not
+                // allowed to name a second one. That matters for the handful of steps that teach an
+                // inverse - "0.75 - 0.4 = 0.35" is drawn by the figure for 0.35 + 0.4 - where the
+                // picture and the line genuinely disagree about which number is the answer, and the
+                // line is the one that wins. `noCatalogFormulaPrintsItsResultAsAGiven` holds those.
+                if (text.formatMathSymbols(fractionSlash = true).statesItsResult()) return@forEach
+                // Rendered exactly as the screen renders it, roles and all, so this compares the
+                // real output rather than a second opinion about what it should be.
+                text.runColors(roles).forEach { (run, color) ->
+                    val role = roles.roleOf(run.trim()) ?: return@forEach
+                    val want = expected.getValue(role)
+                    if (color != want) {
+                        offenders += "$where: '$text' prints '$run' in $color, " +
+                            "but the figure draws it as ${role.name.lowercase()} ($want)"
+                    }
+                }
+            }
+        }
+
+        LearnCatalog.allLessons.forEach { lesson ->
+            lesson.steps.forEachIndexed { index, step ->
+                val where = "${lesson.id} step $index"
+                when (step) {
+                    is LessonStep.Concept -> check(where, step.visual, listOfNotNull(step.formula?.text()))
+                    is LessonStep.Worked -> check(where, step.visual, listOf(step.problem.text()))
+                    is LessonStep.Choice -> check(where, step.visual, listOfNotNull(step.formula?.text()))
+                    is LessonStep.Numeric -> check(where, step.visual, listOfNotNull(step.formula?.text()))
+                }
+            }
+        }
+        LearnCatalog.allUnits.forEach { unit ->
+            unit.quiz.questions.forEach { question ->
+                val prompt = question.prompt.text()
+                if (question.prompt.isNotation) check("${unit.id}: '$prompt'", question.visual, listOf(prompt))
+            }
+        }
+        assertTrue(offenders.isEmpty(), "text disagreeing with its figure:\n" + offenders.joinToString("\n"))
+    }
+
+    /**
+     * A figure that works a value out marks it in the answer green, never the given orange.
+     *
+     * The companion to the test above, from the figure's side: it catches the family whose caption
+     * states its own sum. Three of them printed the total in the accent - the ten frame's
+     * "6 + 7 = 13", the counters' "= 13", the decimal grids' third square - so the picture called
+     * its answer a given while the card above it had already turned the same number green.
+     */
+    @Test
+    fun figuresMarkWhatTheyWorkOutAsTheAnswer() {
+        val offenders = LearnCatalog.allLessons.flatMap { lesson ->
+            lesson.steps.mapIndexedNotNull { index, step ->
+                val visual = when (step) {
+                    is LessonStep.Concept -> step.visual
+                    is LessonStep.Worked -> step.visual
+                    is LessonStep.Choice -> step.visual
+                    is LessonStep.Numeric -> step.visual
+                } ?: return@mapIndexedNotNull null
+                val roles = visual.roles()
+                val clash = roles.answer.filter { it in roles.given }
+                if (clash.isEmpty()) null else "${lesson.id} step $index: $visual calls $clash both"
+            }
+        }
+        assertTrue(offenders.isEmpty(), "figures with a value in two roles:\n" + offenders.joinToString("\n"))
+    }
+
     /** The colour each run of a formula card is printed in, in order. */
-    private fun String.runColors(): List<Pair<String, Color>> {
-        val colored = formatMathSymbols(fractionSlash = true).withFormulaColors(structure = STRUCTURE)
+    private fun String.runColors(roles: FigureRoles? = null): List<Pair<String, Color>> {
+        val colored = formatMathSymbols(fractionSlash = true)
+            .withFormulaColors(structure = STRUCTURE, roles = roles)
         return colored.spanStyles.map { colored.text.substring(it.start, it.end) to it.item.color }
     }
 

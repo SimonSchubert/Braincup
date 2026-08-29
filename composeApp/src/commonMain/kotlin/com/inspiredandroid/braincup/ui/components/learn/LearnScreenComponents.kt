@@ -83,6 +83,8 @@ internal fun LearnText(
      * an answer option, which is a choice rather than a given and says what it is by turning green.
      */
     roleColors: Boolean = false,
+    /** The figure beside this run, whose values say which role each number carries. */
+    roles: FigureRoles? = null,
     /**
      * Which face this run takes. A caller holding the [CatalogText][com.inspiredandroid.braincup
      * .learn.CatalogText] it came from passes `isNotation`, which is what the catalog declared;
@@ -94,7 +96,7 @@ internal fun LearnText(
     if (roleColors && notation) {
         Text(
             text = text.formatMathSymbols(fractionSlash = true)
-                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant),
+                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles),
             style = style.numeric(),
             modifier = modifier,
             textAlign = textAlign,
@@ -132,14 +134,14 @@ internal fun LearnText(
  * so a colour on this card always means something.
  */
 @Composable
-internal fun LearnFormulaCard(formula: String) {
+internal fun LearnFormulaCard(formula: String, roles: FigureRoles? = null) {
     PrismCard(
         face = MaterialTheme.colorScheme.surfaceVariant,
         modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
     ) {
         Text(
             text = formula.formatMathSymbols(fractionSlash = true)
-                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant),
+                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles),
             style = MaterialTheme.typography.titleLarge.numeric(),
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth().padding(16.dp),
@@ -229,8 +231,6 @@ internal fun LearnFigurePanel(
     visual: LearnVisual,
     modifier: Modifier = Modifier,
     answer: VisualAnswer? = null,
-    /** See [LearnVisualCanvas]: set by a worked example so its diagram keeps pace with its lines. */
-    drivenProgress: Float? = null,
 ) {
     PrismCard(
         face = MaterialTheme.colorScheme.surfaceVariant,
@@ -241,7 +241,6 @@ internal fun LearnFigurePanel(
     ) {
         LearnVisualCanvas(
             visual = visual,
-            drivenProgress = drivenProgress,
             modifier = Modifier.fillMaxSize().padding(12.dp),
             answer = answer,
         )

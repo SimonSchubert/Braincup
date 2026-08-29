@@ -42,6 +42,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.ProgressDots
 import com.inspiredandroid.braincup.ui.components.TextPrismButton
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
+import com.inspiredandroid.braincup.ui.components.learn.FigureRoles
 import com.inspiredandroid.braincup.ui.components.learn.LearnAnswerCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnContentWidth
 import com.inspiredandroid.braincup.ui.components.learn.LearnFigurePanel
@@ -52,6 +53,7 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnResultColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
 import com.inspiredandroid.braincup.ui.components.learn.VisualAnswer
+import com.inspiredandroid.braincup.ui.components.learn.roles
 import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
@@ -146,6 +148,7 @@ fun LearnLessonScreen(
     storage: UserStorage,
     onNextLesson: (lessonId: String) -> Unit,
     onTakeTest: () -> Unit,
+    onCorrectAnswer: () -> Unit,
     onBack: () -> Unit,
 ) {
     val lesson = remember(lessonId) { LearnCatalog.lessonById(lessonId) } ?: return
@@ -162,6 +165,7 @@ fun LearnLessonScreen(
         onLessonCompleted = { xpGained = storage.completeLearnLesson(lesson.id).xpGained },
         onNextLesson = onNextLesson,
         onTakeTest = onTakeTest,
+        onCorrectAnswer = onCorrectAnswer,
         onBack = onBack,
     )
 }
@@ -175,6 +179,8 @@ fun LearnLessonScreenContent(
     onNextLesson: (lessonId: String) -> Unit,
     onBack: () -> Unit,
     onTakeTest: (() -> Unit)? = null,
+    /** Fired the moment an answer lands, so the device confirms it the way a game does. */
+    onCorrectAnswer: () -> Unit = {},
     initialState: LessonScreenState = LessonScreenState.Start,
 ) {
     var stepIndex by remember(lesson.id) { mutableIntStateOf(initialState.stepIndex) }
@@ -202,6 +208,7 @@ fun LearnLessonScreenContent(
         val previous = (answer as? LessonAnswer.Missed)?.attempts.orEmpty()
         answer = if (isCorrect) {
             if (previous.isEmpty()) correctCount++
+            onCorrectAnswer()
             LessonAnswer.Correct(firstTry = previous.isEmpty())
         } else {
             LessonAnswer.Missed(previous + attempt)
@@ -382,7 +389,7 @@ private fun ConceptStep(step: LessonStep.Concept) {
     )
     step.formula?.let { formula ->
         Spacer(Modifier.height(16.dp))
-        LearnFormulaCard(formula.resolve())
+        LearnFormulaCard(formula.resolve(), roles = step.visual?.roles())
     }
 }
 
@@ -408,9 +415,6 @@ private fun LessonText(
     )
 }
 
-/** How much of a worked example's figure is already drawn before the first line is turned over. */
-private const val WorkedFigureOpening = 0.45f
-
 @Composable
 private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) {
     val problem = step.problem.resolve()
@@ -425,21 +429,11 @@ private fun ColumnScope.WorkedStep(step: LessonStep.Worked, revealedLines: Int) 
     // it is the thing being worked out, and the diagram under it is the picture of that sum.
     LearnFormulaCard(
         if (worked && finishesInPlace) problem.replace("?", "{c:$result}") else problem,
+        roles = step.visual?.roles(),
     )
     Spacer(Modifier.height(16.dp))
     step.visual?.let {
-        LearnFigurePanel(
-            visual = it,
-            modifier = Modifier.padding(bottom = 16.dp),
-            // The diagram keeps pace with the working rather than arriving finished. It opens
-            // mostly drawn - the setup the problem hands you is not a spoiler, and a near-empty
-            // panel under a question is worse than a full one - and completes on the last line.
-            drivenProgress = if (lines.isEmpty()) {
-                null
-            } else {
-                WorkedFigureOpening + (1f - WorkedFigureOpening) * (revealedLines / lines.size.toFloat())
-            },
-        )
+        LearnFigurePanel(it, modifier = Modifier.padding(bottom = 16.dp))
     }
     lines.take(revealedLines).forEach { line ->
         PrismCard(
@@ -488,6 +482,7 @@ private fun ColumnScope.ChoiceStep(
         formula = formula,
         question = prose,
         solved = correct.takeIf { answer.isResolved },
+        roles = step.visual?.roles(),
     )
     Spacer(Modifier.height(16.dp))
 
@@ -546,13 +541,21 @@ private fun questionHeadingParts(
  * figure marks the value in, so one number reads the same in all three places.
  */
 @Composable
-private fun QuestionHeading(formula: String?, question: String?, solved: String? = null) {
+private fun QuestionHeading(
+    formula: String?,
+    question: String?,
+    solved: String? = null,
+    roles: FigureRoles? = null,
+) {
     Column(
         modifier = Modifier.widthIn(max = LearnContentWidth).fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         if (formula != null) {
-            LearnFormulaCard(if (solved == null) formula else formula.replace("?", "{c:$solved}"))
+            LearnFormulaCard(
+                if (solved == null) formula else formula.replace("?", "{c:$solved}"),
+                roles = roles,
+            )
             if (question != null) Spacer(Modifier.height(10.dp))
         }
         if (question != null) {
@@ -608,6 +611,7 @@ private fun NumericStep(
         formula = formula,
         question = prose,
         solved = step.answer.takeIf { answer.isResolved },
+        roles = step.visual?.roles(),
     )
     if (answer.isResolved) {
         // Only when the question had nowhere to resolve. A formula ending in "= ?" already

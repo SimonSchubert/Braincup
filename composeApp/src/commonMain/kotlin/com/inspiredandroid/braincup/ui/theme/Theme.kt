@@ -59,6 +59,34 @@ val ErrorRed = Color(0xFFB00020)
  */
 val WorkingBlue = Color(0xFF4478C2)
 
+/**
+ * The third teaching colour in the Learn section: a third group, where a figure has one.
+ *
+ * Only a handful of figures cut their subject into more than two runs - a 3 : 2 : 1 ratio bar is the
+ * shape that needs it - and until this existed they wrapped back round to [Primary], so the third
+ * run and the first were painted the same colour and the picture said they were the same thing.
+ *
+ * Not green, deliberately. [SuccessGreen] means "correct" everywhere in the section, and a group
+ * nobody has answered anything about is not correct; that is the same reason the working is blue
+ * rather than green. So the third group is a plum, which is the one remaining hue with room between
+ * it and both accents.
+ *
+ * Measured on the `surfaceVariant` panel a figure is actually drawn on, in each of the three
+ * schemes: **3.65:1 light `#F5F5F5`, 3.73:1 warm dark `#2E2622`, 4.55:1 OLED `#161616`**. That floor
+ * of 3.65 is the highest in the teaching palette - [WorkingBlue] bottoms out at 3.33 on the same
+ * panels, [SuccessGreen] at 3.52 and [Primary] at 2.68.
+ *
+ * Worth being straight about the colour blindness, because the orange-against-blue claim does not
+ * extend to a third hue for free: simulated as a dichromat would see it, this sits 25 CIELAB units
+ * from [WorkingBlue] at its worst (protanopia) and further from everything else. That is comfortably
+ * the *best*-separated colour in the palette rather than a weak link - the existing orange against
+ * [SuccessGreen] is 9 units under protanopia - but it is separation by lightness and saturation
+ * rather than by hue, which is all a dichromat has left once the red-green and blue-yellow axes are
+ * spent. The figures that use it back the colour up: the runs are adjacent, sized differently, and
+ * each one is numbered above and below.
+ */
+val GroupPlum = Color(0xFFB0679E)
+
 // ErrorRed is a light-theme red: on the near-black dark/OLED backgrounds it only reaches 2.3:1,
 // so error text ("delete", "stuck", wrong-answer marks) is barely legible. The dark schemes use a
 // lighter red instead, which clears 5.6:1 on warm dark and 6.6:1 on OLED. Boards that stay light

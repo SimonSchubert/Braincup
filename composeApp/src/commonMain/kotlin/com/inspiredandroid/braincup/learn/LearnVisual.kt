@@ -94,10 +94,15 @@ sealed interface LearnVisual {
      * and grow the answer out of the shaded squares, instead of leaving the grid to illustrate the
      * percentage and say nothing about the question. [percent] captions the square "35% = 0.35"
      * rather than "0.35", for the step whose whole point is that those are one number twice.
+     *
+     * [compareDecimals] writes the comparison's caption to that many places, so the square the step
+     * calls 0.40 is captioned 0.40 and not 0.4. A Double cannot carry the nought that the step
+     * about noughts on the end is entirely about, so the figure has to be told to keep it.
      */
     data class DecimalGrid(
         val value: Double,
         val compare: Double? = null,
+        val compareDecimals: Int? = null,
         val plus: Double? = null,
         val of: Int? = null,
         val percent: Boolean = false,

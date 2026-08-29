@@ -540,7 +540,7 @@ internal object GeometryContent {
                     Numeric(
                         question = words(Res.string.learn_geometry_angles_adding_s2_question),
                         answer = "50",
-                        explanation = math("180 - {a:130}."),
+                        explanation = math("180 - {a:130}"),
                         visual = AngleFigure(degrees = 130, supplement = true, reveal = false),
                     ),
                     Choice(
@@ -565,7 +565,7 @@ internal object GeometryContent {
                         question = words(Res.string.learn_geometry_angles_adding_s6_question),
                         options = mathOptions("55", "65", "75", "105"),
                         correctIndex = 1,
-                        explanation = math("180 - 40 - 75."),
+                        explanation = math("180 - 40 - 75"),
                         visual = Triangle(kind = TriKind.SCALENE),
                     ),
                 ),
@@ -643,7 +643,7 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_angles_q4_prompt),
                 options = mathOptions("45", "55", "65", "125"),
                 correctIndex = 1,
-                explanation = math("180 - 125."),
+                explanation = math("180 - 125"),
                 visual = RightTriangle(a = 7, b = 5, labels = false),
             ),
             QuizQuestion(
@@ -711,7 +711,7 @@ internal object GeometryContent {
                         formula = math("90 + 90 + 100 + ? = 360"),
                         options = mathOptions("70", "80", "90", "100"),
                         correctIndex = 1,
-                        explanation = math("360 - 280."),
+                        explanation = math("360 - 280"),
                         visual = Polygon(sides = 4, reveal = false),
                     ),
                 ),
@@ -1082,9 +1082,9 @@ internal object GeometryContent {
                     Worked(
                         problem = words(Res.string.learn_g35_measurement_perimeter_s3_problem),
                         lines = listOf(
-                            math("8 + 5 = 13."),
+                            math("8 + 5 = 13"),
                             words(Res.string.learn_g35_measurement_perimeter_s3_l2),
-                            math("13 x 2 = 26."),
+                            math("13 x 2 = 26"),
                         ),
                         result = words(Res.string.learn_g35_measurement_perimeter_s3_result),
                         visual = AreaGrid(cols = 8, rows = 5, showArea = false, showPerimeter = true),
@@ -1178,9 +1178,9 @@ internal object GeometryContent {
                         problem = words(Res.string.learn_geometry_area_compound_s3_problem),
                         lines = listOf(
                             words(Res.string.learn_geometry_area_compound_s3_l1),
-                            math("5 x 2 = 10."),
-                            math("3 x 2 = 6."),
-                            math("10 + 6."),
+                            math("5 x 2 = 10"),
+                            math("3 x 2 = 6"),
+                            math("10 + 6"),
                         ),
                         result = words(Res.string.learn_geometry_area_compound_s3_result),
                         visual = AreaGrid(cols = 5, rows = 2),
@@ -1297,7 +1297,7 @@ internal object GeometryContent {
                         problem = words(Res.string.learn_g68_geometry_pythagoras_s3_problem),
                         lines = listOf(
                             words(Res.string.learn_g68_geometry_pythagoras_s3_l1),
-                            math("{b:9} + 16 = 25."),
+                            math("{b:9} + 16 = 25"),
                             words(Res.string.learn_shared_take_square_root),
                         ),
                         result = math("c = 5"),
@@ -1306,7 +1306,7 @@ internal object GeometryContent {
                     Numeric(
                         question = words(Res.string.learn_shared_how_long_hypotenuse),
                         answer = "10",
-                        explanation = math("36 + 64 = 100."),
+                        explanation = math("36 + 64 = 100"),
                         visual = RightTriangle(a = 8, b = 6, unknown = Side.HYPOTENUSE),
                     ),
                     Concept(
@@ -1335,14 +1335,14 @@ internal object GeometryContent {
                     Numeric(
                         question = words(Res.string.learn_geometry_pythagoras_finding_s2_question),
                         answer = "8",
-                        explanation = math("100 - 36 = 64."),
+                        explanation = math("100 - 36 = 64"),
                         visual = RightTriangle(a = 6, b = 8, unknown = Side.B),
                     ),
                     Choice(
                         question = words(Res.string.learn_geometry_pythagoras_finding_s3_question),
                         options = mathOptions("8 m", "10 m", "12 m", "14 m"),
                         correctIndex = 2,
-                        explanation = math("169 - 25 = 144."),
+                        explanation = math("169 - 25 = 144"),
                         visual = RightTriangle(a = 5, b = 12, unknown = Side.B),
                     ),
                     Concept(
@@ -1359,7 +1359,7 @@ internal object GeometryContent {
                     Numeric(
                         question = filled(Res.string.learn_t_hypotenuse_short_side_long, "17", "8"),
                         answer = "15",
-                        explanation = math("289 - 64 = 225."),
+                        explanation = math("289 - 64 = 225"),
                         visual = RightTriangle(a = 8, b = 15, unknown = Side.B),
                     ),
                 ),
@@ -1378,7 +1378,7 @@ internal object GeometryContent {
                         lines = listOf(
                             words(Res.string.learn_geometry_pythagoras_using_s2_l1),
                             words(Res.string.learn_geometry_pythagoras_using_s2_l2),
-                            math("144 + {b:81} = 225."),
+                            math("144 + {b:81} = 225"),
                             words(Res.string.learn_shared_take_square_root),
                         ),
                         result = math("15 cm"),
@@ -1411,7 +1411,7 @@ internal object GeometryContent {
                     Numeric(
                         question = words(Res.string.learn_geometry_pythagoras_using_s6_question),
                         answer = "20",
-                        explanation = math("256 + 144 = 400."),
+                        explanation = math("256 + 144 = 400"),
                         visual = RightTriangle(a = 16, b = 12, unknown = Side.HYPOTENUSE),
                     ),
                 ),
@@ -1422,28 +1422,28 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_shared_how_long_hypotenuse),
                 options = mathOptions("13", "14", "15", "17"),
                 correctIndex = 0,
-                explanation = math("25 + 144 = 169."),
+                explanation = math("25 + 144 = 169"),
                 visual = RightTriangle(a = 12, b = 5, unknown = Side.HYPOTENUSE),
             ),
             QuizQuestion(
                 prompt = words(Res.string.learn_unit_geometry_pythagoras_q2_prompt),
                 options = mathOptions("6", "8", "10", "12"),
                 correctIndex = 1,
-                explanation = math("100 - 36 = 64."),
+                explanation = math("100 - 36 = 64"),
                 visual = RightTriangle(a = 6, b = 8, unknown = Side.B),
             ),
             QuizQuestion(
                 prompt = words(Res.string.learn_shared_which_these_could_be_three),
                 options = mathOptions("2, 3, 4", "6, 8, 10", "4, 5, 6", "1, 2, 3"),
                 correctIndex = 1,
-                explanation = math("36 + 64 = 100."),
+                explanation = math("36 + 64 = 100"),
                 visual = RightTriangle(a = 8, b = 6, labels = false),
             ),
             QuizQuestion(
                 prompt = filled(Res.string.learn_t_rectangle_cm_cm_long, "12", "9"),
                 options = mathOptions("13 cm", "15 cm", "21 cm", "144 cm"),
                 correctIndex = 1,
-                explanation = math("144 + 81 = 225."),
+                explanation = math("144 + 81 = 225"),
                 visual = RightTriangle(a = 12, b = 9, unknown = Side.HYPOTENUSE),
             ),
             QuizQuestion(
@@ -1462,7 +1462,7 @@ internal object GeometryContent {
                 prompt = filled(Res.string.learn_t_hypotenuse_short_side_long, "26", "10"),
                 options = mathOptions("16", "20", "24", "28"),
                 correctIndex = 2,
-                explanation = math("676 - 100 = 576."),
+                explanation = math("676 - 100 = 576"),
                 visual = RightTriangle(a = 10, b = 24, unknown = Side.B),
             ),
         ),
@@ -1505,7 +1505,7 @@ internal object GeometryContent {
                         question = words(Res.string.learn_g68_geometry_circles_s5_question),
                         options = mathOptions("78.5 cm", "157 cm", "250 cm", "314 cm"),
                         correctIndex = 1,
-                        explanation = math("3.14 x 50."),
+                        explanation = math("3.14 x 50"),
                         visual = CircleFigure(sweepCircumference = true, reveal = false),
                     ),
                     Numeric(
@@ -1536,7 +1536,7 @@ internal object GeometryContent {
                         question = words(Res.string.learn_geometry_circles_area_s3_question),
                         options = mathOptions("31.4", "62.8", "314", "628"),
                         correctIndex = 2,
-                        explanation = math("3.14 x 100."),
+                        explanation = math("3.14 x 100"),
                         visual = CircleFigure(fillArea = true, reveal = false),
                     ),
                     Choice(
@@ -1615,14 +1615,14 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_circles_q2_prompt),
                 options = mathOptions("15.7 cm", "31.4 cm", "78.5 cm", "314 cm"),
                 correctIndex = 1,
-                explanation = math("pi x d."),
+                explanation = math("pi x d"),
                 visual = CircleFigure(sweepCircumference = true, reveal = false),
             ),
             QuizQuestion(
                 prompt = words(Res.string.learn_unit_geometry_circles_q3_prompt),
                 options = mathOptions("12.56", "25.12", "50.24", "100.48"),
                 correctIndex = 2,
-                explanation = math("3.14 x 16."),
+                explanation = math("3.14 x 16"),
                 visual = CircleFigure(fillArea = true, reveal = false),
             ),
             QuizQuestion(
@@ -1682,7 +1682,7 @@ internal object GeometryContent {
                         lines = listOf(
                             words(Res.string.learn_g68_geometry_volume_s4_l1),
                             words(Res.string.learn_g68_geometry_volume_s4_l2),
-                            math("6 x 9."),
+                            math("6 x 9"),
                         ),
                         result = math("V = 54 cm³"),
                         visual = Solid(kind = SolidKind.PRISM),
@@ -1797,7 +1797,7 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_volume_q1_prompt),
                 options = mathOptions("12", "20", "47", "60"),
                 correctIndex = 3,
-                explanation = math("5 x 4 x 3."),
+                explanation = math("5 x 4 x 3"),
                 visual = Solid(kind = SolidKind.PRISM, reveal = false),
             ),
             QuizQuestion(
@@ -1816,7 +1816,7 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_volume_q3_prompt),
                 options = mathOptions("4", "6", "8", "12"),
                 correctIndex = 2,
-                explanation = math("2 x 2 x 2."),
+                explanation = math("2 x 2 x 2"),
                 visual = Solid(kind = SolidKind.CUBE, reveal = false),
             ),
             QuizQuestion(
@@ -1873,13 +1873,13 @@ internal object GeometryContent {
                         question = filled(Res.string.learn_t_matching_sides_cm_cm, "4", "10"),
                         options = mathOptions("0.4", "2.5", "6", "14"),
                         correctIndex = 1,
-                        explanation = math("10 / 4."),
+                        explanation = math("10 / 4"),
                         visual = RightTriangle(a = 10, b = 6, labels = false),
                     ),
                     Numeric(
                         question = words(Res.string.learn_g910_geometry_similarity_s4_question),
                         answer = "15",
-                        explanation = math("5 x 3."),
+                        explanation = math("5 x 3"),
                         visual = RightTriangle(a = 4, b = 3, unknown = Side.HYPOTENUSE),
                     ),
                     Concept(
@@ -1999,7 +1999,7 @@ internal object GeometryContent {
                 prompt = filled(Res.string.learn_t_matching_sides_cm_cm, "4", "10"),
                 options = mathOptions("0.4", "2.5", "6", "14"),
                 correctIndex = 1,
-                explanation = math("10 / 4."),
+                explanation = math("10 / 4"),
                 visual = RightTriangle(a = 10, b = 6, labels = false),
             ),
             QuizQuestion(
@@ -2032,7 +2032,7 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_similarity_q6_prompt),
                 options = mathOptions("9", "15", "20", "25"),
                 correctIndex = 2,
-                explanation = math("5 x 4."),
+                explanation = math("5 x 4"),
                 visual = RightTriangle(a = 4, b = 3, labels = false),
             ),
         ),
@@ -2227,7 +2227,7 @@ internal object GeometryContent {
                 prompt = filled(Res.string.learn_t_translate_point_land, "2", "-3"),
                 options = mathOptions("(3, -1)", "(3, 5)", "(-1, -1)", "(2, 6)"),
                 correctIndex = 0,
-                explanation = math("(1 + 2, 2 - 3)."),
+                explanation = math("(1 + 2, 2 - 3)"),
                 visual = Plot(
                     points = listOf(PlotPoint(x = 1f, y = 2f, label = "(1, 2)")),
                 ),
@@ -2358,7 +2358,7 @@ internal object GeometryContent {
                     Numeric(
                         question = words(Res.string.learn_geometry_circle_theorems_cyclic_s3_question),
                         answer = "70",
-                        explanation = math("180 - 110."),
+                        explanation = math("180 - 110"),
                         visual = CyclicQuad(angles = listOf("110", "", "?", ""), highlightPair = 0),
                     ),
                     Choice(

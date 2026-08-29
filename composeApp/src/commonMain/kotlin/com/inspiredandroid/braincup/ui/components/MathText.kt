@@ -17,6 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import com.inspiredandroid.braincup.ui.components.learn.FigureRole
+import com.inspiredandroid.braincup.ui.components.learn.FigureRoles
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.WorkingBlue
@@ -120,9 +122,18 @@ fun String.withGroupColors(
  * A minus is part of the number when it signs one and structure when it subtracts, which is the
  * same distinction [spaceSubtraction] draws: after [formatMathSymbols] a subtracting minus always
  * has space around it and a sign never does.
+ *
+ * [roles] is the figure beside the line, and it is consulted before anything is inferred. Left to
+ * itself this function can only read a role off the punctuation - [answerTailStart] wants a lone
+ * `=` with a bare number after it - and every number it cannot place falls through to [given].
+ * That is silent and it is wrong often: "-4 is 4 left of 0" has no equals sign to key on, so all
+ * three of its numbers printed orange under a number line drawing the -4 in green. When the figure
+ * has said what its values are, it is simply right, and it is right in every language, which
+ * matters for the 37 of these lines that are translated prose rather than notation.
  */
 fun String.withFormulaColors(
     structure: Color,
+    roles: FigureRoles? = null,
     given: Color = Primary,
     working: Color = WorkingBlue,
     answer: Color = SuccessGreen,
@@ -144,10 +155,32 @@ fun String.withFormulaColors(
                 if (run[i] == '-') i++
                 while (i < run.length && (run[i].isDigit() || run[i] == '.' || run[i] == ',')) i++
                 if (i < run.length && run[i] == '%') i++
-                val role = if (answerStart != null && base + start >= answerStart) answer else given
-                withStyle(SpanStyle(color = role, fontWeight = FontWeight.Bold)) {
-                    append(run.substring(start, i))
+                // A fraction is one value with a slash in the middle of it, and the figure names it
+                // that way - "3/5", not a 3 and a 5. Only taken when the figure actually says so,
+                // so a division keeps reading as two numbers around an operator.
+                if (i + 1 < run.length && run[i] == '/' && run[i + 1].isDigit()) {
+                    var j = i + 1
+                    while (j < run.length && run[j].isDigit()) j++
+                    if (roles?.roleOf(run.substring(start, j)) != null) i = j
                 }
+                val text = run.substring(start, i)
+                // A card that states its own result settles its own answer, and the figure only
+                // fills in the rest of the roles. Both were allowed to name an answer at first and
+                // an inverse step printed two greens: "0.75 - 0.4 = 0.35" is drawn by the addition
+                // figure, so the figure called 0.75 the answer while the line ended in 0.35. Only
+                // one thing on a card is the answer, and when the line says which, it is that one.
+                val figureRole = roles?.roleOf(text)
+                val role = when {
+                    answerStart != null -> when {
+                        base + start >= answerStart -> answer
+                        figureRole == FigureRole.WORKING -> working
+                        else -> given
+                    }
+                    figureRole == FigureRole.ANSWER -> answer
+                    figureRole == FigureRole.WORKING -> working
+                    else -> given
+                }
+                withStyle(SpanStyle(color = role, fontWeight = FontWeight.Bold)) { append(text) }
             } else {
                 val start = i
                 while (i < run.length &&
@@ -199,6 +232,17 @@ private val AnswerValue = Regex("""[-+]?\d+(?:[.,]\d+)?(?:/\d+)?[%\u00B2\u00B3]?
  *   alone. A tight-slash fraction counts as one value: "3/5 + 1/5 = 4/5" answers with 4/5.
  * - **An already-tagged tail is left to its tag**, which is how a resolved `{c:}` keeps working.
  */
+/**
+ * Whether this line works something out and says what it comes to, as opposed to asking, restating
+ * or relating two things.
+ *
+ * The public face of [answerTailStart], for the callers that only need to know *that* a line
+ * settles its own answer: [withFormulaColors] hands such a line the green itself and stops the
+ * figure beside it naming a second one, and the content tests need the same question answered the
+ * same way rather than each re-deriving it from the punctuation.
+ */
+fun String.statesItsResult(): Boolean = answerTailStart() != null
+
 private fun String.answerTailStart(): Int? {
     if (contains('?')) return null
     val equals = indexOf('=')

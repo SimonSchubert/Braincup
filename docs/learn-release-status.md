@@ -429,7 +429,8 @@ Three roles now, and nothing else:
 | **Given** - what the question hands you | `Primary` `#ED7354` | the start value on a figure, a formula's first operand, `{a:}` in prose |
 | **Structure** - the scaffolding | `onSurfaceVariant` | a formula's operators and `=`, ordinary axis labels |
 | **Working** - the step you take | `WorkingBlue` `#4478C2` | hop arcs and their labels, the second group in a two-accent figure, `{b:}` in prose and in a formula's second operand |
-| **Answer** - and nothing else | `SuccessGreen` `#5C8E58` | the value a figure marks once it is right, the resolved `{c:}` in a solved formula, the correct option tile |
+| **Answer** - and nothing else | `SuccessGreen` `#5C8E58` | the value a figure marks once it is right, the resolved `{c:}` in a solved formula, the correct option tile, a total a figure works out for itself |
+| **A third group** - where a figure has one | `GroupPlum` `#B0679E` | the third run of a ratio bar, and any future figure with more than two groups |
 
 The working is the *movement*, not the places it pauses. A value a hop touches down on - the 10 in
 `15 - 9`, reached by hopping back 5 - stays an ordinary axis label. Colouring it too turned a
@@ -507,10 +508,84 @@ thing:
   first of them and the arc end was blending into it rather than stopping against it. Its caption
   uses the new `VisualScope.labelRuns`, so "130 + 50 = 180" prints each number in the colour of the
   arc it counts.
-* Two-accent figures - `TenFrame`, `Fraction`, `RatioBar`, a split `ArrayDots` - use orange and
-  blue for "the two quantities", which is the same pair meaning "given and working" one level up.
-  Blue is a clear gain here over the green these used to draw: an equivalence pair like 1/2 over
-  4/8 no longer looks like one of the two is the correct one.
+* Group figures - `TenFrame`, `Fraction`, `RatioBar`, `Counters`, a split `ArrayDots` - use orange
+  and blue for "the two quantities", which is the same pair meaning "given and working" one level
+  up. Blue is a clear gain here over the green these used to draw: an equivalence pair like 1/2
+  over 4/8 no longer looks like one of the two is the correct one.
+* A **third** group takes `GroupPlum`, not green. Each of these figures had written its own
+  `if (index % 2 == 0) Accent else Accent2`, which was true enough while nothing in the catalog had
+  three groups; the day a 3 : 2 : 1 ratio bar arrived, its third run wrapped back round to orange
+  and the picture said the third part was the same thing as the first. They now share
+  `groupColor(index)`, so the next three-group figure is right without anyone remembering this.
+  Green was not an option: it means "correct" everywhere in the section and a ratio has no answer
+  among its parts, which is the same reason the working is blue. The plum is measured on the
+  `surfaceVariant` panel figures are drawn on - 3.65:1 light, 3.73:1 warm dark, 4.55:1 OLED - the
+  highest floor of the four teaching colours, and it is the best separated of them under simulated
+  colour blindness (25 CIELAB units from its nearest neighbour at worst, against 9 for orange
+  against green).
+
+### The figure says, and the text reads it off
+
+Two systems were applying the colour code and they had no way of agreeing. A formula card infers a
+role from punctuation: `answerTailStart` wants exactly one `=` with a bare number after it and no
+`?`, and **every number it cannot place falls through to the given colour**. Nothing fails when the
+guess misses, so the screen is simply wrong and stays wrong. 37 of these lines are `words(...)`
+prose rather than notation - "-4 is 4 left of 0", "300 / 4 = 75 each", "0.5 euro = 50 cents" - and
+not one of them can ever satisfy that test. The number line beside the first of those was already
+drawing its -4 green, its hop blue and its 0 orange while the line under it printed all three
+orange.
+
+`LearnVisual.roles()` (`LearnVisualRoles.kt`) closes it. A figure returns the values it paints, as
+the text it paints them in, split into given, working and answer; `withFormulaColors` takes that
+map and consults it before it infers anything. This is the tie-break the section already documented
+for when a figure and a formula disagree, applied before they get the chance to. It needs no content
+edit, so it is right in every language the section is translated into - which is the point, because
+those 37 lines are exactly the ones that are translated.
+
+Rules that fell out of building it, each paid for by a wrong screen:
+
+* **A card that states its own result settles its own answer.** Both the figure and the tail were
+  allowed to name one at first, and an inverse step printed two greens: `0.75 - 0.4 = 0.35` is drawn
+  by the *addition* figure, so the figure called 0.75 the answer while the line ended in 0.35. When
+  the line says which number is the answer, it is that one, and the figure fills in the rest.
+* **A value in two roles is only resolved when the roles agree about what it is.** Working beats
+  given is not a rule, it is a bug: `0.4 = 0.40` is two squares whose captions differ by a nought
+  the figure was told to keep, and letting the working win turned the first square's own number
+  blue. Given against working now stays silent. Working against answer does resolve, to answer - a
+  hop of -4 landing on -4 is one number named twice, and green is the thing the reader cannot get
+  from anywhere else.
+* **A figure that cannot say cleanly, says nothing.** `RatioBar`'s runs are equal partners with no
+  answer among them; `ArrayDots` serves multiplication and division from the same picture, so its
+  4 rows are the given of `4 x 7` and the answer of `28 / 7`; `Steps` has no given to step from.
+  These return an empty map, the text keeps its own judgement, and the guard test skips the pair.
+  Guessing would tint a number to mean something the picture never said.
+* **A fraction is one value with a slash in it.** The figure names the bar "3/5", so the card takes
+  the whole run rather than a 3 and a 5 around an operator - but only when the figure has actually
+  said so, or a division would stop reading as two numbers.
+
+`textTakesItsColoursFromTheFigureBesideIt` holds it closed: any step whose text contradicts its own
+picture fails rather than shipping. It found three on its first run, all in the percent lessons,
+where the map was overreaching rather than the content being wrong.
+
+### Figures that called their own total a given
+
+The same defect from the figure's side, and the reason `AnswerInk` was already there and unused in
+three places. A figure that works something out was printing it in the accent, so the picture called
+its answer a given while the card above it had already turned the same number green:
+
+* the ten frame's caption `6 + 7 = 13`, drawn as one orange run - now per-number through
+  `labelRuns`, orange, blue, green
+* the counters' `= 13`
+* the third square of a decimal sum, and the `= 16` a percentage comes to - `drawFraction` had had
+  this right since the colour code landed, and `drawDecimalGrid` is the same three-panel figure
+
+Left alone: a pictogram's per-row `= 12`. Those are readings of a chart rather than an answer to
+anything, and three greens down the side would say the opposite of what green means.
+
+Worth knowing which of these were actually visible: only the decimal ones. No `TenFrame` in the
+catalog is authored with both `added > 0` and `reveal`, and there are no `Counters` at all, so
+those two captions are unreachable today and the render is unchanged by them. They were fixed
+anyway, because the next figure to reach them should not have to rediscover this.
 
 ### Test figures that drew their own answer
 

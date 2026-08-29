@@ -366,8 +366,16 @@ class GameController(
         navController.navigate(LearnTest(unit.id))
     }
 
-    fun navigateToLearnCertificate(unit: LearnUnit) {
-        navController.navigate(LearnCertificate(unit.id))
+    /**
+     * Open a unit's certificate. [fromTest] clears the test - and the lesson it may have been
+     * started from - off the back stack on the way, so system back out of the certificate lands
+     * on the unit screen. Left on the stack, it put the learner back into the test they had just
+     * passed, restarted at question one.
+     */
+    fun navigateToLearnCertificate(unit: LearnUnit, fromTest: Boolean = false) {
+        navController.navigate(LearnCertificate(unit.id)) {
+            if (fromTest) popUpTo(LearnUnitDetail(unit.id)) { inclusive = false }
+        }
     }
 
     fun startGame(gameType: GameType) {

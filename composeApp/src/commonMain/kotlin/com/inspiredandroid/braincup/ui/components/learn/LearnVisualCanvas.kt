@@ -42,6 +42,7 @@ import androidx.compose.ui.unit.TextUnit
 import com.inspiredandroid.braincup.learn.LearnVisual
 import com.inspiredandroid.braincup.learn.phaseCount
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.theme.GroupPlum
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.WorkingBlue
@@ -90,15 +91,6 @@ fun LearnVisualCanvas(
     answer: VisualAnswer? = null,
     paper: Color = MaterialTheme.colorScheme.surfaceVariant,
     inspectionPhase: Int = 0,
-    /**
-     * How far drawn the figure should be, when something other than the clock decides.
-     *
-     * A worked example turns its explanation over a line at a time, and the diagram beside it was
-     * finished before the first line was read - so the picture answered the question the card was
-     * still asking. Handing the reveal in here draws the figure out alongside the working instead.
-     * Null everywhere else, where the entrance animation runs on its own.
-     */
-    drivenProgress: Float? = null,
 ) {
     // Previews and screenshot tests never advance the clock, so an entrance that starts at zero
     // renders them as an empty panel. Under inspection the figure starts finished instead.
@@ -110,8 +102,8 @@ fun LearnVisualCanvas(
     var replayKey by remember(visual) { mutableIntStateOf(0) }
     val phaseCount = visual.phaseCount
 
-    LaunchedEffect(visual, inspecting, replayKey, drivenProgress != null) {
-        if (inspecting || drivenProgress != null) return@LaunchedEffect
+    LaunchedEffect(visual, inspecting, replayKey) {
+        if (inspecting) return@LaunchedEffect
         phase = 0
         while (true) {
             progress.snapTo(0f)
@@ -120,12 +112,6 @@ fun LearnVisualCanvas(
             delay(PhaseHoldMillis)
             phase = (phase + 1) % phaseCount
         }
-    }
-
-    // Driven figures still ease between readings, so a line turning over grows the picture rather
-    // than snapping it to a new size.
-    if (drivenProgress != null) {
-        LaunchedEffect(visual, drivenProgress) { progress.animateTo(drivenProgress, EntranceSpec) }
     }
 
     val measurer = rememberTextMeasurer()
@@ -808,6 +794,18 @@ internal class CaptionStrip(
 
 internal val Accent: Color get() = Primary
 internal val Accent2: Color get() = WorkingBlue
+internal val Accent3: Color get() = GroupPlum
+
+/**
+ * The colour of the [index]th group in a figure that draws its subject as several runs.
+ *
+ * One list rather than a parity test in each figure. Every one of these was written as
+ * `if (index % 2 == 0) Accent else Accent2` back when nothing in the catalog had a third group, so
+ * the day one arrived it was painted the same colour as the first and nothing complained.
+ */
+internal fun groupColor(index: Int): Color = GroupColors[index % GroupColors.size]
+
+private val GroupColors: List<Color> get() = listOf(Accent, Accent2, Accent3)
 
 /**
  * What a figure's own arithmetic comes to, for the figures that write their sum out.
