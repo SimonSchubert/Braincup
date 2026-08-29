@@ -11,16 +11,16 @@ worked references for anything this brief leaves open.
 
 | | |
 |---|---|
-| Complete | `de`, `es`, `fr` |
+| Complete | `de`, `es`, `fr`, `nl` |
 | Partly done, 36% to 52% | `it` `ru` `pt` `zh` `zh-TW` `id` `hi` `ja` `ko` |
-| Not started | the remaining 39 locales |
+| Not started | the remaining 38 locales |
 
 A run of ten agents stopped mid-catalog on an account spend limit, which is why nine locales are
-still half done; `fr` was finished on 2026-08-29 by resuming that loop. **Nothing is broken by
-that.** A key that never arrived falls back to English at runtime,
-`check_localizations.py` counts it as pending rather than failing, and `pending` reports exactly
-what is left. Resuming is just running the loop below again for a locale; no cleanup, no
-reverting, no re-doing what already landed.
+still half done; `fr` was finished on 2026-08-29 by resuming that loop, and `nl` was taken from
+nothing to complete the same day. **Nothing is broken by that.** A key that never arrived falls
+back to English at runtime, `check_localizations.py` counts it as pending rather than failing,
+and `pending` reports exactly what is left. Resuming is just running the loop below again for a
+locale; no cleanup, no reverting, no re-doing what already landed.
 
 Cost is the real constraint on this job, not correctness. One locale took roughly 30 minutes and
 350k tokens end to end. Budget accordingly before starting a wave, and prefer a small wave that
