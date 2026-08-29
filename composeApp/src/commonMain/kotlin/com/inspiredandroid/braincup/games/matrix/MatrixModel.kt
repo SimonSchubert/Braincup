@@ -95,7 +95,7 @@ data class MatrixPanel(
 
 @Immutable
 data class MatrixProblem(
-    /** Nine panels in reading order. Index 8 is the answer and is never shown on the board. */
+    /** Nine panels in reading order. [ANSWER_INDEX] is the answer and is never shown on the board. */
     val matrix: ImmutableList<MatrixPanel>,
     val options: ImmutableList<MatrixPanel>,
     val correctOptionIndex: Int,
@@ -104,7 +104,12 @@ data class MatrixProblem(
     val rules: ImmutableMap<MatrixAttribute, MatrixRule>,
     val ruleSummary: String,
 ) {
-    val answer: MatrixPanel get() = matrix[8]
+    val answer: MatrixPanel get() = matrix[ANSWER_INDEX]
 
     val governedAttributes: Set<MatrixAttribute> get() = rules.keys
+
+    companion object {
+        /** The slot in the nine-panel matrix the learner has to supply. */
+        const val ANSWER_INDEX = 8
+    }
 }

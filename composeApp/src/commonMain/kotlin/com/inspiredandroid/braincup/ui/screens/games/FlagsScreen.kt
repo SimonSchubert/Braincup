@@ -144,20 +144,20 @@ private fun FlagAnswerButton(
 ) {
     val label = stringResource(countryNameRes(button.value))
     val face = when (button.state) {
-        AnswerButtonState.NORMAL, AnswerButtonState.DIMMED -> Primary
-        AnswerButtonState.WRONG -> MaterialTheme.colorScheme.errorContainer
-        AnswerButtonState.CORRECT -> SuccessGreen
+        AnswerFeedbackState.NORMAL, AnswerFeedbackState.DIMMED -> Primary
+        AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        AnswerFeedbackState.CORRECT -> SuccessGreen
     }
     val textColor = when (button.state) {
-        AnswerButtonState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
+        AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
         else -> Color.White
     }
-    val isClickable = button.state == AnswerButtonState.NORMAL
+    val isClickable = button.state == AnswerFeedbackState.NORMAL
     val containerModifier = Modifier
         .fillMaxWidth()
         .defaultMinSize(minHeight = 52.dp)
         .hoverHand(isClickable)
-        .alpha(if (button.state == AnswerButtonState.DIMMED) 0.4f else 1f)
+        .alpha(if (button.state == AnswerFeedbackState.DIMMED) 0.4f else 1f)
 
     PrismTile(
         face = face,

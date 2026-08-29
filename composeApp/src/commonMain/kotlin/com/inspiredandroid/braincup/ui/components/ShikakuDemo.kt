@@ -25,7 +25,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
@@ -33,6 +32,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_shikaku_desc
 import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
+import com.inspiredandroid.braincup.ui.screens.games.drawTextCentered
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.PrismFacet
@@ -187,10 +187,7 @@ fun ShikakuDemo(modifier: Modifier = Modifier) {
                     val measured = clueLayouts.getValue(rect.area)
                     val centerX = rect.clueCol * cellW + cellW / 2f
                     val centerY = rect.clueRow * cellH + cellH / 2f
-                    drawText(
-                        measured,
-                        topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                    )
+                    drawTextCentered(measured, centerX, centerY)
                 }
             }
         }

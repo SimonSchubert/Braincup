@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.learn
 
 import braincup.composeapp.generated.resources.*
-import braincup.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.StringResource
 
 /**
@@ -33,18 +32,11 @@ object RulesGuide {
         val example: CatalogText? = null,
     )
 
-    data class Section(
-        val id: String,
-        val title: StringResource,
-        val blurb: StringResource,
-        val rules: List<Entry>,
-    )
-
-    private val signs = Section(
+    private val signs = GuideSection(
         id = "signs",
         title = Res.string.learn_rulesguide_signs_title,
         blurb = Res.string.learn_rulesguide_signs_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(
                 id = "minus-of-minus",
                 rule = math("-(-a) = a"),
@@ -96,11 +88,11 @@ object RulesGuide {
         ),
     )
 
-    private val order = Section(
+    private val order = GuideSection(
         id = "order",
         title = Res.string.learn_rulesguide_order_title,
         blurb = Res.string.learn_rulesguide_order_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(
                 id = "times-before-plus",
                 rule = math("2 + 3 x 4 = 14"),
@@ -128,11 +120,11 @@ object RulesGuide {
         ),
     )
 
-    private val zeroAndOne = Section(
+    private val zeroAndOne = GuideSection(
         id = "zero-and-one",
         title = Res.string.learn_rulesguide_zero_and_one_title,
         blurb = Res.string.learn_rulesguide_zero_and_one_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(id = "add-zero", rule = math("a + 0 = a"), meaning = Res.string.learn_rule_add_zero_meaning, example = math("9 + {b:0} = 9")),
             Entry(id = "times-one", rule = math("a x 1 = a"), meaning = Res.string.learn_rule_times_one_meaning, example = math("9 x {b:1} = 9")),
             Entry(id = "times-zero", rule = math("a x 0 = 0"), meaning = Res.string.learn_rule_times_zero_meaning, example = math("9 x {b:0} = 0")),
@@ -152,11 +144,11 @@ object RulesGuide {
         ),
     )
 
-    private val rearranging = Section(
+    private val rearranging = GuideSection(
         id = "rearranging",
         title = Res.string.learn_rulesguide_rearranging_title,
         blurb = Res.string.learn_rulesguide_rearranging_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(
                 id = "swap-add",
                 rule = math("a + b = b + a"),
@@ -190,11 +182,11 @@ object RulesGuide {
         ),
     )
 
-    private val fractions = Section(
+    private val fractions = GuideSection(
         id = "fractions",
         title = Res.string.learn_rulesguide_fractions_title,
         blurb = Res.string.learn_rulesguide_fractions_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(
                 id = "add-fractions",
                 rule = math("a/c + b/c = (a + b)/c"),
@@ -228,11 +220,11 @@ object RulesGuide {
         ),
     )
 
-    private val decimals = Section(
+    private val decimals = GuideSection(
         id = "decimals",
         title = Res.string.learn_rulesguide_decimals_title,
         blurb = Res.string.learn_rulesguide_decimals_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(
                 id = "three-ways",
                 rule = math("1/2 = 0.5 = 50%"),
@@ -260,11 +252,11 @@ object RulesGuide {
         ),
     )
 
-    private val powers = Section(
+    private val powers = GuideSection(
         id = "powers",
         title = Res.string.learn_rulesguide_powers_title,
         blurb = Res.string.learn_rulesguide_powers_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(id = "square", rule = math("a² = a x a"), meaning = Res.string.learn_rule_square_meaning, example = math("5² = 25")),
             Entry(id = "cube", rule = math("a³ = a x a x a"), meaning = Res.string.learn_rule_cube_meaning, example = math("2³ = 8")),
             Entry(
@@ -288,11 +280,11 @@ object RulesGuide {
         ),
     )
 
-    private val rounding = Section(
+    private val rounding = GuideSection(
         id = "rounding",
         title = Res.string.learn_rulesguide_rounding_title,
         blurb = Res.string.learn_rulesguide_rounding_blurb,
-        rules = listOf(
+        entries = listOf(
             Entry(
                 id = "round-half-up",
                 rule = math("3.5 → 4"),
@@ -314,7 +306,7 @@ object RulesGuide {
         ),
     )
 
-    val sections: List<Section> = listOf(signs, order, zeroAndOne, rearranging, fractions, decimals, powers, rounding)
+    val sections: List<GuideSection<Entry>> = listOf(signs, order, zeroAndOne, rearranging, fractions, decimals, powers, rounding)
 
-    val ruleCount: Int = sections.sumOf { it.rules.size }
+    val ruleCount: Int = sections.sumOf { it.entries.size }
 }

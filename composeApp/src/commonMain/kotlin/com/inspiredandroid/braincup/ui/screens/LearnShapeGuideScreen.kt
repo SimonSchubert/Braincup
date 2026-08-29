@@ -10,7 +10,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -20,11 +19,11 @@ import braincup.composeapp.generated.resources.learn_shape_guide_title
 import com.inspiredandroid.braincup.learn.ShapeGuide
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.GuideSectionHeader
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnVisualCanvas
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
-import com.inspiredandroid.braincup.ui.theme.Primary
 import org.jetbrains.compose.resources.stringResource
 
 /**
@@ -75,10 +74,10 @@ fun LearnShapeGuideScreen(onBack: () -> Unit) {
 
             ShapeGuide.sections.forEach { section ->
                 item(key = section.id, span = { GridItemSpan(maxLineSpan) }, contentType = "section") {
-                    SectionHeader(section)
+                    GuideSectionHeader(section)
                 }
                 items(
-                    items = section.shapes,
+                    items = section.entries,
                     key = { it.id },
                     contentType = { "shape" },
                 ) { shape ->
@@ -86,24 +85,6 @@ fun LearnShapeGuideScreen(onBack: () -> Unit) {
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun SectionHeader(section: ShapeGuide.Section) {
-    Column(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
-        Text(
-            text = stringResource(section.title),
-            style = MaterialTheme.typography.titleSmall,
-            color = Primary,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(2.dp))
-        Text(
-            text = stringResource(section.blurb),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
     }
 }
 

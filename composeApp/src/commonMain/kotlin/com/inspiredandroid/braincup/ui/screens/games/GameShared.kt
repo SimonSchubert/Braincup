@@ -11,11 +11,14 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.DrawScope
+import androidx.compose.ui.text.TextLayoutResult
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.tools.composeColor
@@ -32,17 +35,17 @@ internal fun PathFinderCell(
     modifier: Modifier = Modifier,
 ) {
     val face = when (cell.state) {
-        FigureCellState.WRONG -> MaterialTheme.colorScheme.errorContainer
-        FigureCellState.CORRECT -> SuccessGreenSoft
+        AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        AnswerFeedbackState.CORRECT -> SuccessGreenSoft
         else -> cell.figure.color.composeColor()
     }
-    val isClickable = cell.state == FigureCellState.NORMAL
-    val cellModifier = if (cell.state == FigureCellState.DIMMED) modifier.alpha(0.3f) else modifier
+    val isClickable = cell.state == AnswerFeedbackState.NORMAL
+    val cellModifier = if (cell.state == AnswerFeedbackState.DIMMED) modifier.alpha(0.3f) else modifier
     PrismTile(
         face = face,
         modifier = cellModifier,
         isClickable = isClickable,
-        isSelected = cell.state == FigureCellState.DIMMED,
+        isSelected = cell.state == AnswerFeedbackState.DIMMED,
         onClick = onClick,
     ) {}
 }
@@ -56,12 +59,12 @@ internal fun FigureCellContent(
     // Every state draws the same figure on the same tile; only the tile's face and whether it still
     // responds to touch change, so they are picked here rather than repeated per branch.
     val face = when (cell.state) {
-        FigureCellState.WRONG -> MaterialTheme.colorScheme.errorContainer
-        FigureCellState.CORRECT -> SuccessGreenSoft
+        AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        AnswerFeedbackState.CORRECT -> SuccessGreenSoft
         else -> MaterialTheme.colorScheme.surfaceContainer
     }
-    val isNormal = cell.state == FigureCellState.NORMAL
-    val isDimmed = cell.state == FigureCellState.DIMMED
+    val isNormal = cell.state == AnswerFeedbackState.NORMAL
+    val isDimmed = cell.state == AnswerFeedbackState.DIMMED
     PrismTile(
         face = face,
         modifier = if (isDimmed) modifier.alpha(0.3f) else modifier,
@@ -212,6 +215,20 @@ internal fun squareTileSize(gridSize: Int, compact: Boolean): Dp = when {
     else -> 52.dp
 }
 
+/** Draws [measured] centred on ([centerX], [centerY]). */
+internal fun DrawScope.drawTextCentered(
+    measured: TextLayoutResult,
+    centerX: Float,
+    centerY: Float,
+    color: Color = Color.Unspecified,
+) {
+    drawText(
+        measured,
+        color = color,
+        topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
+    )
+}
+
 /** Draws the cell separators of a [rows] x [cols] board filling the whole canvas. */
 internal fun DrawScope.drawPuzzleGridLines(rows: Int, cols: Int, color: Color, strokeWidth: Float) {
     val cellW = size.width / cols
@@ -304,4 +321,15 @@ internal fun ColumnScope.LevelPuzzleLayout(
             }
         }
     }
+}
+
+/** The small spaced caption naming the phase a timed round is in. */
+@Composable
+internal fun PhaseLabel(text: String, accent: Color) {
+    Text(
+        text = text,
+        style = MaterialTheme.typography.labelLarge,
+        color = accent,
+        letterSpacing = 3.sp,
+    )
 }

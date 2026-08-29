@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import com.inspiredandroid.braincup.app.FigureCellState
+import com.inspiredandroid.braincup.app.AnswerFeedbackState
 import com.inspiredandroid.braincup.app.MatrixOptionCell
 import com.inspiredandroid.braincup.games.matrix.MatrixPanel
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
@@ -147,8 +147,8 @@ private fun MatrixOptionTile(
     modifier: Modifier = Modifier,
 ) {
     val face = when {
-        cell.state == FigureCellState.WRONG -> MaterialTheme.colorScheme.errorContainer
-        cell.state == FigureCellState.CORRECT -> SuccessGreenSoft
+        cell.state == AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        cell.state == AnswerFeedbackState.CORRECT -> SuccessGreenSoft
         isSelected -> PrimaryContainer
         else -> MaterialTheme.colorScheme.surfaceContainer
     }
@@ -158,9 +158,9 @@ private fun MatrixOptionTile(
         // grey. Pinning the side to the face keeps it recognisably the colour of the empty slot it
         // is destined for, while the tile still presses in.
         side = if (isSelected) face else null,
-        modifier = if (cell.state == FigureCellState.DIMMED) modifier.alpha(0.3f) else modifier,
-        isClickable = cell.state == FigureCellState.NORMAL,
-        isSelected = cell.state == FigureCellState.DIMMED || isSelected,
+        modifier = if (cell.state == AnswerFeedbackState.DIMMED) modifier.alpha(0.3f) else modifier,
+        isClickable = cell.state == AnswerFeedbackState.NORMAL,
+        isSelected = cell.state == AnswerFeedbackState.DIMMED || isSelected,
         onClick = onClick,
     ) {
         MatrixPanelCanvas(panel = cell.panel, modifier = Modifier.fillMaxSize().padding(OptionPanelInset))

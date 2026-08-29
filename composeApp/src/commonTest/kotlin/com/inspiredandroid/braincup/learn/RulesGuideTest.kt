@@ -6,12 +6,12 @@ import kotlin.test.assertTrue
 
 class RulesGuideTest {
 
-    private val entries = RulesGuide.sections.flatMap { it.rules }
+    private val entries = RulesGuide.sections.flatMap { it.entries }
 
     @Test
     fun everySectionHasRules() {
         RulesGuide.sections.forEach { section ->
-            assertTrue(section.rules.isNotEmpty(), "${section.id} has no rules")
+            assertTrue(section.entries.isNotEmpty(), "${section.id} has no rules")
         }
     }
 
@@ -24,6 +24,6 @@ class RulesGuideTest {
 
     @Test
     fun ruleCountMatchesTheSections() {
-        assertEquals(RulesGuide.sections.sumOf { it.rules.size }, RulesGuide.ruleCount)
+        assertEquals(RulesGuide.sections.sumOf { it.entries.size }, RulesGuide.ruleCount)
     }
 }

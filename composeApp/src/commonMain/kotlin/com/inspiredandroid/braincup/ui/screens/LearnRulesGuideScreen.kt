@@ -10,7 +10,6 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -21,6 +20,7 @@ import com.inspiredandroid.braincup.learn.RulesGuide
 import com.inspiredandroid.braincup.learn.isNotation
 import com.inspiredandroid.braincup.learn.resolve
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.GuideSectionHeader
 import com.inspiredandroid.braincup.ui.components.MathText
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
@@ -81,10 +81,10 @@ fun LearnRulesGuideScreen(onBack: () -> Unit) {
 
             RulesGuide.sections.forEach { section ->
                 item(key = section.id, span = { GridItemSpan(maxLineSpan) }, contentType = "section") {
-                    SectionHeader(section)
+                    GuideSectionHeader(section)
                 }
                 items(
-                    items = section.rules,
+                    items = section.entries,
                     key = { it.id },
                     contentType = { "rule" },
                 ) { rule ->
@@ -92,24 +92,6 @@ fun LearnRulesGuideScreen(onBack: () -> Unit) {
                 }
             }
         }
-    }
-}
-
-@Composable
-private fun SectionHeader(section: RulesGuide.Section) {
-    Column(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
-        Text(
-            text = stringResource(section.title),
-            style = MaterialTheme.typography.titleSmall,
-            color = Primary,
-            fontWeight = FontWeight.Bold,
-        )
-        Spacer(Modifier.height(2.dp))
-        Text(
-            text = stringResource(section.blurb),
-            style = MaterialTheme.typography.labelSmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
     }
 }
 

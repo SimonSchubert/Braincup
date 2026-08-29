@@ -199,12 +199,12 @@ class QuickSumGameTest {
         val game = QuickSumGame()
         game.nextRound()
         assertTrue(game.submitSum(game.targetSum().toString()))
-        assertEquals(QuickSumGame.AnswerResult.CORRECT, game.answerResult)
+        assertEquals(RevealResult.CORRECT, game.answerResult)
         assertTrue(game.answeredAllCorrect)
 
         game.nextRound()
         assertFalse(game.submitSum("-1"))
-        assertEquals(QuickSumGame.AnswerResult.WRONG, game.answerResult)
+        assertEquals(RevealResult.WRONG, game.answerResult)
         assertFalse(game.answeredAllCorrect, "a wrong total should end the flawless run")
     }
 
@@ -261,6 +261,6 @@ class QuickSumGameTest {
         game.submitSum(game.targetSum().toString())
         val revealed = game.toUiState()
         assertEquals(game.targetSum().toString(), revealed.revealedSum)
-        assertEquals(QuickSumGame.AnswerResult.CORRECT, revealed.answerResult)
+        assertEquals(RevealResult.CORRECT, revealed.answerResult)
     }
 }

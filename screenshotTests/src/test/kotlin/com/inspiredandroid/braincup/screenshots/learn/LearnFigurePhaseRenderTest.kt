@@ -78,7 +78,7 @@ class LearnFigurePhaseRenderTest {
     private fun multiPhaseFigures(): List<Pair<String, LearnVisual>> = buildList {
         LearnCatalog.allLessons.forEach { lesson ->
             lesson.steps.forEachIndexed { stepIndex, step ->
-                step.visual()
+                step.visual
                     ?.takeIf { it.phaseCount > 1 }
                     ?.let { add("${lesson.id}_s${stepIndex + 1}" to it) }
             }
@@ -90,13 +90,6 @@ class LearnFigurePhaseRenderTest {
                     ?.let { add("${unit.id}_q${index + 1}" to it) }
             }
         }
-    }
-
-    private fun LessonStep.visual(): LearnVisual? = when (this) {
-        is LessonStep.Concept -> visual
-        is LessonStep.Worked -> visual
-        is LessonStep.Choice -> visual
-        is LessonStep.Numeric -> visual
     }
 
     private fun Int.pad(): String = toString().padStart(2, '0')

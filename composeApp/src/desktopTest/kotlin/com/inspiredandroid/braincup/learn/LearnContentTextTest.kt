@@ -223,12 +223,13 @@ class LearnContentTextTest {
                 // formula in, so it is held to the same rule. It was skipped here while the only
                 // thing that could colour a result was the punctuation, and a worked problem
                 // almost always ends in "= ?" - which this test passes over anyway.
-                val (formula, visual) = when (step) {
-                    is LessonStep.Concept -> step.formula to step.visual
-                    is LessonStep.Choice -> step.formula to step.visual
-                    is LessonStep.Numeric -> step.formula to step.visual
-                    is LessonStep.Worked -> step.problem to step.visual
+                val formula = when (step) {
+                    is LessonStep.Concept -> step.formula
+                    is LessonStep.Choice -> step.formula
+                    is LessonStep.Numeric -> step.formula
+                    is LessonStep.Worked -> step.problem
                 }
+                val visual = step.visual
                 val text = formula?.text() ?: return@mapIndexedNotNull null
                 if (text.contains('?')) return@mapIndexedNotNull null
                 val runs = text.runColors(visual?.roles()).filter { it.first.isNotBlank() }
@@ -249,7 +250,7 @@ class LearnContentTextTest {
         ShapeGuide.sections.forEach { section ->
             assertTrue(section.title.text().isNotBlank(), "${section.id} has no title")
             assertTrue(section.blurb.text().isNotBlank(), "${section.id} has no blurb")
-            section.shapes.forEach { shape ->
+            section.entries.forEach { shape ->
                 assertTrue(shape.name.text().isNotBlank(), "${shape.id} has no name")
                 assertTrue(shape.fact.text().isNotBlank(), "${shape.id} has no fact")
             }
@@ -261,7 +262,7 @@ class LearnContentTextTest {
         RulesGuide.sections.forEach { section ->
             assertTrue(section.title.text().isNotBlank(), "${section.id} has no title")
             assertTrue(section.blurb.text().isNotBlank(), "${section.id} has no blurb")
-            section.rules.forEach { rule ->
+            section.entries.forEach { rule ->
                 assertTrue(rule.rule.text().isNotBlank(), "${rule.id} has no rule")
                 assertTrue(rule.meaning.text().isNotBlank(), "${rule.id} has no meaning")
                 assertTrue(rule.example?.text()?.isBlank() != true, "${rule.id} has an empty example")
@@ -277,7 +278,7 @@ class LearnContentTextTest {
     @Test
     fun negativesAfterMultiplyAreBracketed() {
         val loose = Regex("""x\s+-[0-9a-zA-Z]""")
-        RulesGuide.sections.flatMap { it.rules }.forEach { rule ->
+        RulesGuide.sections.flatMap { it.entries }.forEach { rule ->
             listOfNotNull(rule.rule.text(), rule.example?.text()).forEach { text ->
                 assertTrue(
                     !loose.containsMatchIn(text),
@@ -368,12 +369,7 @@ class LearnContentTextTest {
     fun figuresMarkWhatTheyWorkOutAsTheAnswer() {
         val offenders = LearnCatalog.allLessons.flatMap { lesson ->
             lesson.steps.mapIndexedNotNull { index, step ->
-                val visual = when (step) {
-                    is LessonStep.Concept -> step.visual
-                    is LessonStep.Worked -> step.visual
-                    is LessonStep.Choice -> step.visual
-                    is LessonStep.Numeric -> step.visual
-                } ?: return@mapIndexedNotNull null
+                val visual = step.visual ?: return@mapIndexedNotNull null
                 val roles = visual.roles()
                 val clash = roles.answer.filter { it in roles.given }
                 if (clash.isEmpty()) null else "${lesson.id} step $index: $visual calls $clash both"

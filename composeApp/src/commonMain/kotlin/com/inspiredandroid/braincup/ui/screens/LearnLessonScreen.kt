@@ -7,8 +7,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -54,7 +52,6 @@ import com.inspiredandroid.braincup.ui.components.learn.LearnStepColumn
 import com.inspiredandroid.braincup.ui.components.learn.LearnText
 import com.inspiredandroid.braincup.ui.components.learn.VisualAnswer
 import com.inspiredandroid.braincup.ui.components.learn.roles
-import com.inspiredandroid.braincup.ui.components.withGroupColors
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
@@ -381,7 +378,8 @@ private fun ConceptStep(step: LessonStep.Concept) {
     step.visual?.let {
         LearnFigurePanel(it, modifier = Modifier.padding(bottom = 16.dp))
     }
-    LessonText(
+    LearnText(
+        notation = false,
         text = step.body.resolve(),
         style = MaterialTheme.typography.bodyLarge,
         textAlign = TextAlign.Center,
@@ -391,28 +389,6 @@ private fun ConceptStep(step: LessonStep.Concept) {
         Spacer(Modifier.height(16.dp))
         LearnFormulaCard(formula.resolve(), roles = step.visual?.roles())
     }
-}
-
-/**
- * Lesson prose, with any `{a:...}` and `{b:...}` numbers tinted to match the dots they name in the
- * figure above: the "6" of "6 needs 4 more" is the same orange as the six dots already in the
- * frame, and the "4" the same green as the ones arriving. Untagged text renders as plain [Text].
- */
-@Composable
-private fun LessonText(
-    text: String,
-    style: TextStyle,
-    modifier: Modifier = Modifier,
-    color: Color = Color.Unspecified,
-    textAlign: TextAlign? = null,
-) {
-    Text(
-        text = text.withGroupColors(),
-        modifier = modifier,
-        style = style,
-        color = color,
-        textAlign = textAlign,
-    )
 }
 
 @Composable
@@ -493,8 +469,8 @@ private fun ColumnScope.ChoiceStep(
             state = when {
                 answer.isResolved && index == step.correctIndex -> LearnOptionState.CORRECT
                 option in missed -> LearnOptionState.WRONG
-                answer.isResolved -> LearnOptionState.MUTED
-                else -> LearnOptionState.IDLE
+                answer.isResolved -> LearnOptionState.DIMMED
+                else -> LearnOptionState.NORMAL
             },
             onClick = { onSelect(index) },
             notation = step.options[index].isNotation,
@@ -559,7 +535,8 @@ private fun QuestionHeading(
             if (question != null) Spacer(Modifier.height(10.dp))
         }
         if (question != null) {
-            LessonText(
+            LearnText(
+                notation = false,
                 text = question,
                 // With a formula above it the prose is a supporting line; without one it is the
                 // question. Both read at one measure and it is the colour that demotes the
@@ -676,7 +653,8 @@ private fun FeedbackCard(explanation: String, revealed: Boolean) {
                 color = SuccessGreenOnContainer,
             )
             Spacer(Modifier.height(4.dp))
-            LessonText(
+            LearnText(
+                notation = false,
                 text = explanation,
                 style = MaterialTheme.typography.bodyLarge,
                 color = OnPrimaryContainer,

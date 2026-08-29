@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.learn
 
 import braincup.composeapp.generated.resources.*
-import braincup.composeapp.generated.resources.Res
 import org.jetbrains.compose.resources.StringResource
 
 /**
@@ -28,14 +27,6 @@ object ShapeGuide {
         val visual: LearnVisual,
     )
 
-    /** A run of shapes that belong together, with the line that says what they have in common. */
-    data class Section(
-        val id: String,
-        val title: StringResource,
-        val blurb: StringResource,
-        val shapes: List<Entry>,
-    )
-
     /**
      * Polygons named for their side count.
      *
@@ -44,11 +35,11 @@ object ShapeGuide {
      * shows only the regular one without saying it is showing the special case teaches a
      * half-truth the quadrilateral section then has to undo.
      */
-    private val polygons = Section(
+    private val polygons = GuideSection(
         id = "polygons",
         title = Res.string.learn_shapeguide_polygons_title,
         blurb = Res.string.learn_shapeguide_polygons_blurb,
-        shapes = listOf(
+        entries = listOf(
             polygon("triangle", Res.string.learn_shape_triangle_name, 3),
             polygon("quadrilateral", Res.string.learn_shape_quadrilateral_name, 4),
             polygon("pentagon", Res.string.learn_shape_pentagon_name, 5),
@@ -62,11 +53,11 @@ object ShapeGuide {
         ),
     )
 
-    private val triangles = Section(
+    private val triangles = GuideSection(
         id = "triangles",
         title = Res.string.learn_shapeguide_triangles_title,
         blurb = Res.string.learn_shapeguide_triangles_blurb,
-        shapes = listOf(
+        entries = listOf(
             Entry(
                 id = "equilateral",
                 name = Res.string.learn_shape_equilateral_name,
@@ -96,11 +87,11 @@ object ShapeGuide {
         ),
     )
 
-    private val quadrilaterals = Section(
+    private val quadrilaterals = GuideSection(
         id = "quadrilaterals",
         title = Res.string.learn_shapeguide_quadrilaterals_title,
         blurb = Res.string.learn_shapeguide_quadrilaterals_blurb,
-        shapes = listOf(
+        entries = listOf(
             quad("square", Res.string.learn_shape_square_name, words(Res.string.learn_shape_square_fact), QuadKind.SQUARE),
             quad("rectangle", Res.string.learn_shape_rectangle_name, words(Res.string.learn_shape_rectangle_fact), QuadKind.RECTANGLE),
             quad("rhombus", Res.string.learn_shape_rhombus_name, words(Res.string.learn_shape_rhombus_fact), QuadKind.RHOMBUS),
@@ -110,11 +101,11 @@ object ShapeGuide {
         ),
     )
 
-    private val curves = Section(
+    private val curves = GuideSection(
         id = "curves",
         title = Res.string.learn_shapeguide_curves_title,
         blurb = Res.string.learn_shapeguide_curves_blurb,
-        shapes = listOf(
+        entries = listOf(
             Entry(
                 id = "circle",
                 name = Res.string.learn_shape_circle_name,
@@ -149,11 +140,11 @@ object ShapeGuide {
      * prism. A cuboid is one, so the figure is honest; the triangular prism beside it is the one
      * that shows why the family is called that.
      */
-    private val solids = Section(
+    private val solids = GuideSection(
         id = "solids",
         title = Res.string.learn_shapeguide_solids_title,
         blurb = Res.string.learn_shapeguide_solids_blurb,
-        shapes = listOf(
+        entries = listOf(
             solid("cube", Res.string.learn_shape_cube_name, words(Res.string.learn_shape_cube_fact), SolidKind.CUBE),
             solid("cuboid", Res.string.learn_shape_cuboid_name, words(Res.string.learn_shape_cuboid_fact), SolidKind.PRISM),
             solid(
@@ -169,9 +160,9 @@ object ShapeGuide {
         ),
     )
 
-    val sections: List<Section> = listOf(polygons, triangles, quadrilaterals, curves, solids)
+    val sections: List<GuideSection<Entry>> = listOf(polygons, triangles, quadrilaterals, curves, solids)
 
-    val shapeCount: Int = sections.sumOf { it.shapes.size }
+    val shapeCount: Int = sections.sumOf { it.entries.size }
 
     /**
      * A polygon cell. The corner numbering the lessons use is off here: at cell size the numbers

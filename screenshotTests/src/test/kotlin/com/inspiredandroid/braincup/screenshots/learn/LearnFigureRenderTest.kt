@@ -47,7 +47,7 @@ class LearnFigureRenderTest(
             val seen = LinkedHashMap<LearnVisual, String>()
             LearnCatalog.allLessons.forEach { lesson ->
                 lesson.steps.forEachIndexed { index, step ->
-                    step.visual()?.let { seen.putIfAbsent(it, "${lesson.id}_s${index + 1}") }
+                    step.visual?.let { seen.putIfAbsent(it, "${lesson.id}_s${index + 1}") }
                 }
             }
             LearnCatalog.allUnits.forEach { unit ->
@@ -64,12 +64,6 @@ class LearnFigureRenderTest(
         @Parameterized.Parameters(name = "{0}")
         fun families(): List<Array<Any>> = catalog.keys.sorted().map { arrayOf<Any>(it) }
 
-        private fun LessonStep.visual(): LearnVisual? = when (this) {
-            is LessonStep.Concept -> visual
-            is LessonStep.Worked -> visual
-            is LessonStep.Choice -> visual
-            is LessonStep.Numeric -> visual
-        }
     }
 
     @get:Rule

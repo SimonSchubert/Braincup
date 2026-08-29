@@ -11,7 +11,7 @@ import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
 class PathFinderGame : Game() {
-    override val adaptiveDifficulty = false
+    override val adaptiveDifficulty: Boolean = false
     val directions = mutableListOf<Direction>()
     val gridSize = 4
     var lastDirection = Direction.UP

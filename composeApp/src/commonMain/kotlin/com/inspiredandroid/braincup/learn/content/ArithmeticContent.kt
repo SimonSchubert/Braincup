@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.learn.content
 
 import braincup.composeapp.generated.resources.*
-import braincup.composeapp.generated.resources.Res
 import com.inspiredandroid.braincup.learn.BarLabel
 import com.inspiredandroid.braincup.learn.GradeLevel
 import com.inspiredandroid.braincup.learn.LearnUnit

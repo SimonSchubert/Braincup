@@ -22,7 +22,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextAlign
@@ -30,6 +29,7 @@ import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.game_nurikabe_desc
 import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
+import com.inspiredandroid.braincup.ui.screens.games.drawTextCentered
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
@@ -184,11 +184,7 @@ fun NurikabeDemo(modifier: Modifier = Modifier) {
                     val measured = clueLayouts.getValue(value)
                     val centerX = (index % NurikabeCols) * cellW + cellW / 2f
                     val centerY = (index / NurikabeCols) * cellH + cellH / 2f
-                    drawText(
-                        measured,
-                        color = color,
-                        topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                    )
+                    drawTextCentered(measured, centerX, centerY, color)
                 }
             }
         }

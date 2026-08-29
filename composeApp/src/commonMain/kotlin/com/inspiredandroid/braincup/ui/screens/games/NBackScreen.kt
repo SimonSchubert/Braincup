@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.em
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.NBackUiState
 import com.inspiredandroid.braincup.games.NBackGame
+import com.inspiredandroid.braincup.games.RevealResult
 import com.inspiredandroid.braincup.games.tools.Shape
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
@@ -159,7 +160,7 @@ private fun NBackPalette(
                     val state = when {
                         !revealed -> OptionState.NORMAL
                         shape == uiState.revealAnswer -> OptionState.CORRECT
-                        shape == tapped && uiState.recallResult == NBackGame.RecallResult.WRONG -> OptionState.WRONG
+                        shape == tapped && uiState.recallResult == RevealResult.WRONG -> OptionState.WRONG
                         else -> OptionState.DIMMED
                     }
                     NBackOption(

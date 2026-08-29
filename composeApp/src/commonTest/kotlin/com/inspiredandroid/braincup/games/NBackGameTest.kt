@@ -67,13 +67,13 @@ class NBackGameTest {
         val game = NBackGame()
         game.nextRound()
         assertTrue(game.submitRecall(game.answerShape().name))
-        assertEquals(NBackGame.RecallResult.CORRECT, game.recallResult)
+        assertEquals(RevealResult.CORRECT, game.recallResult)
         assertTrue(game.answeredAllCorrect)
 
         game.nextRound()
         val wrong = NBackGame.PALETTE.first { it != game.answerShape() }
         assertFalse(game.submitRecall(wrong.name))
-        assertEquals(NBackGame.RecallResult.WRONG, game.recallResult)
+        assertEquals(RevealResult.WRONG, game.recallResult)
         assertFalse(game.answeredAllCorrect, "a wrong tap ends the flawless run")
     }
 
@@ -93,7 +93,7 @@ class NBackGameTest {
         game.nextRound()
         val length = game.sequenceLength
         game.submitRecall("nonsense")
-        assertEquals(NBackGame.RecallResult.WRONG, game.recallResult)
+        assertEquals(RevealResult.WRONG, game.recallResult)
 
         game.repeatRound()
 
@@ -127,6 +127,6 @@ class NBackGameTest {
         game.submitRecall(answer.name)
         val revealed = game.toUiState()
         assertEquals(answer, revealed.revealAnswer)
-        assertEquals(NBackGame.RecallResult.CORRECT, revealed.recallResult)
+        assertEquals(RevealResult.CORRECT, revealed.recallResult)
     }
 }

@@ -19,11 +19,9 @@ import com.inspiredandroid.braincup.ui.components.XpAndLevelDisplay
 import com.inspiredandroid.braincup.ui.components.sectionWidth
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
-import com.inspiredandroid.braincup.ui.theme.MedalBronze
-import com.inspiredandroid.braincup.ui.theme.MedalGold
-import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.OnPrimaryContainer
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.medalTint
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -57,12 +55,7 @@ fun FinishScreen(
         title = stringResource(gameType.displayNameRes),
         onBack = onMenu,
     ) {
-        val medalTint = when {
-            gameType.meetsScore(score, gameType.goldScore) -> MedalGold
-            gameType.meetsScore(score, gameType.silverScore) -> MedalSilver
-            gameType.meetsScore(score, gameType.bronzeScore) -> MedalBronze
-            else -> null
-        }
+        val medalTint = gameType.medalTint(score)
 
         if (medalTint != null) {
             PrismTrophy(

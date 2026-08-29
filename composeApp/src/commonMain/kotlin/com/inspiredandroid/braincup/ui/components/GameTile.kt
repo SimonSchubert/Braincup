@@ -51,6 +51,7 @@ import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.screens.games.drawTextCentered
 import com.inspiredandroid.braincup.ui.theme.BubbleSumBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
@@ -69,9 +70,6 @@ import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.MatchstickColors
-import com.inspiredandroid.braincup.ui.theme.MedalBronze
-import com.inspiredandroid.braincup.ui.theme.MedalGold
-import com.inspiredandroid.braincup.ui.theme.MedalSilver
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
@@ -89,6 +87,7 @@ import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.WordlePresent
+import com.inspiredandroid.braincup.ui.theme.medalTint
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import com.inspiredandroid.braincup.ui.theme.tileFace
 import com.inspiredandroid.braincup.ui.theme.tileTextColor
@@ -461,12 +460,7 @@ fun GameTile(
         onClick = { onPlay(gameType) },
         preview = { GamePreview(gameType) },
     ) {
-        val medalTint = when {
-            gameType.meetsScore(highscore, gameType.goldScore) -> MedalGold
-            gameType.meetsScore(highscore, gameType.silverScore) -> MedalSilver
-            gameType.meetsScore(highscore, gameType.bronzeScore) -> MedalBronze
-            else -> null
-        }
+        val medalTint = gameType.medalTint(highscore)
         if (medalTint != null) {
             Spacer(Modifier.width(4.dp))
             PrismTrophy(
@@ -1209,10 +1203,7 @@ private fun NormalSudokuPreview() {
                 val measured = textMeasurer.measure(AnnotatedString(digit.toString()), style = style)
                 val centerX = col * cell + cell / 2f
                 val centerY = row * cell + cell / 2f
-                drawText(
-                    measured,
-                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                )
+                drawTextCentered(measured, centerX, centerY)
             }
         }
     }
@@ -1481,10 +1472,7 @@ private fun ShikakuPreview() {
                 val measured = textMeasurer.measure(AnnotatedString(rect.clue.toString()), style = clueStyle)
                 val centerX = rect.clueCol * cellW + cellW / 2f
                 val centerY = rect.clueRow * cellH + cellH / 2f
-                drawText(
-                    measured,
-                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                )
+                drawTextCentered(measured, centerX, centerY)
             }
         }
     }
@@ -1534,10 +1522,7 @@ private fun NurikabePreview() {
                 val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
                 val centerX = (index % n) * cellW + cellW / 2f
                 val centerY = (index / n) * cellH + cellH / 2f
-                drawText(
-                    measured,
-                    topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                )
+                drawTextCentered(measured, centerX, centerY)
             }
         }
     }

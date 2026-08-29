@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.BubbleSumUiState
+import com.inspiredandroid.braincup.games.tools.currentTimeMillis
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -447,6 +448,4 @@ class BubbleSumGame :
         answerLength = answerLength(),
         roundKey = roundKey,
     )
-
-    private fun currentTimeMillis(): Long = kotlin.time.Clock.System.now().toEpochMilliseconds()
 }

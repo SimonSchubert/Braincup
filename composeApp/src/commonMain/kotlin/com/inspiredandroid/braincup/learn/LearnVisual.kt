@@ -296,8 +296,8 @@ sealed interface LearnVisual {
 
     /** Unit-square grid, labelled with its area, its perimeter, or both. */
     data class AreaGrid(
-        val cols: Int,
         val rows: Int,
+        val cols: Int,
         val showArea: Boolean = true,
         val showPerimeter: Boolean = false,
         val unit: String = "cm",

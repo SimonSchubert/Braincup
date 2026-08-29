@@ -15,7 +15,6 @@ import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.unit.dp
@@ -180,10 +179,7 @@ internal fun ColumnScope.NurikabeContent(
                     val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = style)
                     val centerX = (index % cols) * cellW + cellW / 2f
                     val centerY = (index / cols) * cellH + cellH / 2f
-                    drawText(
-                        measured,
-                        topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
-                    )
+                    drawTextCentered(measured, centerX, centerY)
                 }
             }
         }

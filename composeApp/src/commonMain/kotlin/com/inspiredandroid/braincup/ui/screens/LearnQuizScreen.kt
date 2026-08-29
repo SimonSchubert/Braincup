@@ -199,7 +199,7 @@ fun LearnQuizScreenContent(
                 // nothing here may hint at which one was right.
                 LearnOptionTile(
                     label = option,
-                    state = LearnOptionState.IDLE,
+                    state = LearnOptionState.NORMAL,
                     onClick = {
                         answers[questionIndex] = index
                         questionIndex++

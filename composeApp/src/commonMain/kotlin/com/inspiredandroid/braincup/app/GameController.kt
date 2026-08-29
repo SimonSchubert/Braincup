@@ -1988,9 +1988,9 @@ class GameController(
             val flatIndex = y * columnsPerRow + x
             cell.withState(
                 when (flatIndex) {
-                    wrongIndex -> FigureCellState.WRONG
-                    correctIndex -> FigureCellState.CORRECT
-                    else -> FigureCellState.DIMMED
+                    wrongIndex -> AnswerFeedbackState.WRONG
+                    correctIndex -> AnswerFeedbackState.CORRECT
+                    else -> AnswerFeedbackState.DIMMED
                 },
             )
         }.toImmutableList()
@@ -2002,9 +2002,9 @@ class GameController(
     ): ImmutableList<AnswerButton> = mapIndexed { index, button ->
         button.copy(
             state = when (index) {
-                wrongIndex -> AnswerButtonState.WRONG
-                correctIndex -> AnswerButtonState.CORRECT
-                else -> AnswerButtonState.DIMMED
+                wrongIndex -> AnswerFeedbackState.WRONG
+                correctIndex -> AnswerFeedbackState.CORRECT
+                else -> AnswerFeedbackState.DIMMED
             },
         )
     }.toImmutableList()
@@ -2019,9 +2019,9 @@ class GameController(
     ): ImmutableList<AnswerButton> = map { button ->
         button.copy(
             state = when (button.value) {
-                correctValue -> AnswerButtonState.CORRECT
-                wrongValue -> AnswerButtonState.WRONG
-                else -> AnswerButtonState.DIMMED
+                correctValue -> AnswerFeedbackState.CORRECT
+                wrongValue -> AnswerFeedbackState.WRONG
+                else -> AnswerFeedbackState.DIMMED
             },
         )
     }.toImmutableList()

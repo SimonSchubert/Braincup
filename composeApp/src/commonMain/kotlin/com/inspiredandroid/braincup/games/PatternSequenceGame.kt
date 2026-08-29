@@ -31,7 +31,7 @@ class PatternSequenceGame(random: Random = Random.Default) : Game() {
 
     override fun toUiState() = PatternSequenceUiState(
         matrix = problem.matrix
-            .mapIndexed { index, panel -> panel.takeIf { index != ANSWER_INDEX } }
+            .mapIndexed { index, panel -> panel.takeIf { index != MatrixProblem.ANSWER_INDEX } }
             .toImmutableList(),
         optionRows = problem.options
             .map { MatrixOptionCell(it) }
@@ -42,7 +42,6 @@ class PatternSequenceGame(random: Random = Random.Default) : Game() {
     )
 
     companion object {
-        private const val ANSWER_INDEX = 8
 
         /**
          * Derived from the round instead of stepped on exact round values, so a player resuming

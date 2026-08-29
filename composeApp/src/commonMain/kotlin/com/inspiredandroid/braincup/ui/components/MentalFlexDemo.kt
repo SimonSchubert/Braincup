@@ -23,8 +23,8 @@ import braincup.composeapp.generated.resources.game_mental_flex_desc
 import braincup.composeapp.generated.resources.game_mental_flex_rule_color
 import braincup.composeapp.generated.resources.game_mental_flex_rule_shape
 import braincup.composeapp.generated.resources.mental_flex_demo_title
+import com.inspiredandroid.braincup.app.AnswerFeedbackState
 import com.inspiredandroid.braincup.app.FigureCell
-import com.inspiredandroid.braincup.app.FigureCellState
 import com.inspiredandroid.braincup.games.MentalFlexGame
 import com.inspiredandroid.braincup.games.tools.Figure
 import com.inspiredandroid.braincup.games.tools.GameColor
@@ -136,9 +136,9 @@ fun MentalFlexDemo(modifier: Modifier = Modifier) {
         Row {
             DemoCandidates.forEachIndexed { index, figure ->
                 val state = when (answerIndex) {
-                    null -> FigureCellState.NORMAL
-                    index -> FigureCellState.CORRECT
-                    else -> FigureCellState.DIMMED
+                    null -> AnswerFeedbackState.NORMAL
+                    index -> AnswerFeedbackState.CORRECT
+                    else -> AnswerFeedbackState.DIMMED
                 }
                 FigureCellContent(
                     cell = FigureCell(figure, state),

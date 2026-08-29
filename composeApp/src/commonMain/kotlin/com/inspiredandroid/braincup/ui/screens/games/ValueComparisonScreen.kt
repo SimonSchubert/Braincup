@@ -30,15 +30,15 @@ internal fun ColumnScope.ValueComparisonContent(
 
     uiState.answers.forEachIndexed { index, button ->
         val faceColor = when (button.state) {
-            AnswerButtonState.WRONG -> MaterialTheme.colorScheme.errorContainer
-            AnswerButtonState.CORRECT -> SuccessGreen
+            AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
+            AnswerFeedbackState.CORRECT -> SuccessGreen
             else -> Primary
         }
         val contentColor = when (button.state) {
-            AnswerButtonState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
+            AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
             else -> Color.White
         }
-        val isInteractive = button.state == AnswerButtonState.NORMAL
+        val isInteractive = button.state == AnswerFeedbackState.NORMAL
         PrismTile(
             face = faceColor,
             isClickable = isInteractive,
@@ -46,7 +46,7 @@ internal fun ColumnScope.ValueComparisonContent(
             modifier = Modifier
                 .padding(4.dp)
                 .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
-                .then(if (button.state == AnswerButtonState.DIMMED) Modifier.alpha(0.3f) else Modifier)
+                .then(if (button.state == AnswerFeedbackState.DIMMED) Modifier.alpha(0.3f) else Modifier)
                 .then(if (isInteractive) Modifier.hoverHand() else Modifier),
         ) {
             if (button.value.contains("/")) {

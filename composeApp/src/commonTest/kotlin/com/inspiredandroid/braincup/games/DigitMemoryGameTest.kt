@@ -78,7 +78,7 @@ class DigitMemoryGameTest {
         game.nextRound()
         game.advanceToRecall()
         assertTrue(game.submitRecall(game.sequence))
-        assertEquals(DigitMemoryGame.RecallResult.CORRECT, game.recallResult)
+        assertEquals(RevealResult.CORRECT, game.recallResult)
         assertTrue(game.answeredAllCorrect)
     }
 
@@ -88,7 +88,7 @@ class DigitMemoryGameTest {
         game.nextRound()
         game.advanceToRecall()
         assertFalse(game.submitRecall(game.sequence + "9"))
-        assertEquals(DigitMemoryGame.RecallResult.WRONG, game.recallResult)
+        assertEquals(RevealResult.WRONG, game.recallResult)
         assertFalse(game.answeredAllCorrect)
     }
 

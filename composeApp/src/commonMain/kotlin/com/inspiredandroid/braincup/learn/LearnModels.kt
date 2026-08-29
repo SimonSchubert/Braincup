@@ -135,11 +135,13 @@ fun CatalogText.resolve(): String = when (this) {
  * the learner has to answer ([Choice], [Numeric]) so understanding is checked as it is built.
  */
 sealed interface LessonStep {
+    val visual: LearnVisual?
+
     /** Plain teaching step: an idea, optionally with the formula that captures it and a diagram. */
     data class Concept(
         val body: CatalogText,
         val formula: CatalogText? = null,
-        val visual: LearnVisual? = null,
+        override val visual: LearnVisual? = null,
     ) : LessonStep
 
     /**
@@ -154,7 +156,7 @@ sealed interface LessonStep {
         val problem: CatalogText,
         val lines: List<CatalogText>,
         val result: CatalogText,
-        val visual: LearnVisual? = null,
+        override val visual: LearnVisual? = null,
     ) : LessonStep
 
     /**
@@ -170,7 +172,7 @@ sealed interface LessonStep {
         val correctIndex: Int,
         val explanation: CatalogText,
         val formula: CatalogText? = null,
-        val visual: LearnVisual? = null,
+        override val visual: LearnVisual? = null,
     ) : LessonStep {
         init {
             require(correctIndex in options.indices) { "correctIndex out of bounds for $question" }
@@ -184,7 +186,7 @@ sealed interface LessonStep {
         val answer: String,
         val explanation: CatalogText,
         val formula: CatalogText? = null,
-        val visual: LearnVisual? = null,
+        override val visual: LearnVisual? = null,
     ) : LessonStep
 }
 

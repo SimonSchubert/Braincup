@@ -18,6 +18,7 @@ import braincup.composeapp.generated.resources.learn_ages
 import braincup.composeapp.generated.resources.learn_rules_guide_title
 import braincup.composeapp.generated.resources.learn_shape_guide_title
 import braincup.composeapp.generated.resources.learn_unit_progress
+import com.inspiredandroid.braincup.learn.GuideSection
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.ui.components.learn.RulesGuideGlyphs
@@ -307,6 +308,25 @@ fun LearnSectionHeader(
         Text(
             text = subtitle,
             style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+    }
+}
+
+/** The heading over a run of guide entries, shared by the shape guide and the rules guide. */
+@Composable
+fun GuideSectionHeader(section: GuideSection<*>) {
+    Column(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
+        Text(
+            text = stringResource(section.title),
+            style = MaterialTheme.typography.titleSmall,
+            color = Primary,
+            fontWeight = FontWeight.Bold,
+        )
+        Spacer(Modifier.height(2.dp))
+        Text(
+            text = stringResource(section.blurb),
+            style = MaterialTheme.typography.labelSmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
     }

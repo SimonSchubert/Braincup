@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.OrbitTrackerUiState
+import com.inspiredandroid.braincup.games.tools.currentTimeMillis
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -298,6 +299,4 @@ class OrbitTrackerGame :
             selectedCount = selectedIndices.size,
         )
     }
-
-    private fun currentTimeMillis(): Long = kotlin.time.Clock.System.now().toEpochMilliseconds()
 }

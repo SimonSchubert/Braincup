@@ -11,10 +11,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.QuickSumGame
+import com.inspiredandroid.braincup.games.RevealResult
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import org.jetbrains.compose.resources.stringResource
@@ -36,22 +36,12 @@ internal fun ColumnScope.QuickSumContent(
 }
 
 @Composable
-private fun QuickSumPhaseLabel(text: String, accent: Color) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.labelLarge,
-        color = accent,
-        letterSpacing = 3.sp,
-    )
-}
-
-@Composable
 private fun QuickSumFlashingContent(uiState: QuickSumUiState) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        QuickSumPhaseLabel(
+        PhaseLabel(
             text = stringResource(Res.string.quick_sum_watch),
             accent = MaterialTheme.colorScheme.primary,
         )
@@ -96,8 +86,8 @@ private fun QuickSumAnswerContent(
 ) {
     val reveal = uiState.revealedSum
     val revealColor = when (uiState.answerResult) {
-        QuickSumGame.AnswerResult.CORRECT -> SuccessGreen
-        QuickSumGame.AnswerResult.WRONG -> MaterialTheme.colorScheme.error
+        RevealResult.CORRECT -> SuccessGreen
+        RevealResult.WRONG -> MaterialTheme.colorScheme.error
         null -> Color.Unspecified
     }
     val onInputChange: (String) -> Unit = { typed ->
@@ -107,7 +97,7 @@ private fun QuickSumAnswerContent(
     if (LocalIsCompactHeight.current) {
         CompactGameRow {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                QuickSumPhaseLabel(
+                PhaseLabel(
                     text = stringResource(Res.string.quick_sum_instruction),
                     accent = MaterialTheme.colorScheme.tertiary,
                 )
@@ -129,7 +119,7 @@ private fun QuickSumAnswerContent(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            QuickSumPhaseLabel(
+            PhaseLabel(
                 text = stringResource(Res.string.quick_sum_instruction),
                 accent = MaterialTheme.colorScheme.tertiary,
             )

@@ -31,8 +31,6 @@ class QuickSumGame :
 
     enum class Phase { FLASHING, ANSWER }
 
-    enum class AnswerResult { CORRECT, WRONG }
-
     var phase: Phase = Phase.FLASHING
         private set
 
@@ -51,7 +49,7 @@ class QuickSumGame :
         private set
 
     /** Non-null while revealing the total after a submission (drives the green/red reveal). */
-    var answerResult: AnswerResult? = null
+    var answerResult: RevealResult? = null
         private set
 
     private var flashJob: Job? = null
@@ -190,7 +188,7 @@ class QuickSumGame :
     /** Submit the total. Returns whether it matched; exposes [answerResult] for the reveal. */
     fun submitSum(input: String): Boolean {
         val ok = isCorrect(input)
-        answerResult = if (ok) AnswerResult.CORRECT else AnswerResult.WRONG
+        answerResult = if (ok) RevealResult.CORRECT else RevealResult.WRONG
         if (!ok) answeredAllCorrect = false
         return ok
     }

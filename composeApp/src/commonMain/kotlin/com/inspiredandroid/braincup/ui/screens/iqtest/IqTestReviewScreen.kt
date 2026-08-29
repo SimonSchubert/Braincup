@@ -9,7 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
-import com.inspiredandroid.braincup.app.FigureCellState
+import com.inspiredandroid.braincup.app.AnswerFeedbackState
 import com.inspiredandroid.braincup.app.IqTestReviewItemUiState
 import com.inspiredandroid.braincup.app.MatrixOptionCell
 import com.inspiredandroid.braincup.games.iqtest.IqTest
@@ -40,9 +40,9 @@ fun IqTestReviewScreen(
                 val index = row * uiState.optionColumns + column
                 cell.withState(
                     when (index) {
-                        uiState.correctOption -> FigureCellState.CORRECT
-                        uiState.pickedOption -> FigureCellState.WRONG
-                        else -> FigureCellState.DIMMED
+                        uiState.correctOption -> AnswerFeedbackState.CORRECT
+                        uiState.pickedOption -> AnswerFeedbackState.WRONG
+                        else -> AnswerFeedbackState.DIMMED
                     },
                 )
             }.toImmutableList()

@@ -18,11 +18,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.isFinite
 import braincup.composeapp.generated.resources.Res
@@ -40,6 +38,7 @@ import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.PrimaryActionButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismTile
+import com.inspiredandroid.braincup.ui.components.boxedTextSize
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.GamePreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
@@ -60,14 +59,6 @@ private val MaxTileSize = 52.dp
 private val CompactMaxTileSize = 36.dp
 private val KeyHeight = 46.dp
 private val CompactKeyHeight = 34.dp
-
-/**
- * A text size pinned to a box measured in dp. Both the board tiles and the keyboard caps are sized
- * to fit a fixed number across the screen, so they cannot grow with the font scale - a letter asked
- * for in sp simply spilled out over its own cap and over its neighbours.
- */
-@Composable
-private fun boxedTextSize(box: Dp, fraction: Float): TextUnit = with(LocalDensity.current) { (box * fraction).toSp() }
 
 @Composable
 internal fun ColumnScope.WordleContent(

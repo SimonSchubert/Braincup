@@ -9,6 +9,7 @@ import com.inspiredandroid.braincup.games.MentalFlexGame
 import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.QuickSumGame
+import com.inspiredandroid.braincup.games.RevealResult
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.TrioFill
@@ -26,16 +27,15 @@ import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.ImmutableSet
 import kotlinx.collections.immutable.persistentSetOf
 
-enum class FigureCellState { NORMAL, WRONG, CORRECT, DIMMED }
-
-enum class AnswerButtonState { NORMAL, WRONG, CORRECT, DIMMED }
+/** How an answer reveal marked a board cell or an answer button. */
+enum class AnswerFeedbackState { NORMAL, WRONG, CORRECT, DIMMED }
 
 enum class SequenceCellType { INACTIVE, ACTIVE, TAPPED, WRONG, MISSED }
 
 @Immutable
 data class AnswerButton(
     val value: String,
-    val state: AnswerButtonState = AnswerButtonState.NORMAL,
+    val state: AnswerFeedbackState = AnswerFeedbackState.NORMAL,
 )
 
 /**
@@ -44,17 +44,17 @@ data class AnswerButton(
  */
 @Immutable
 sealed interface FeedbackCell<T : FeedbackCell<T>> {
-    val state: FigureCellState
+    val state: AnswerFeedbackState
 
-    fun withState(state: FigureCellState): T
+    fun withState(state: AnswerFeedbackState): T
 }
 
 @Immutable
 data class FigureCell(
     val figure: Figure,
-    override val state: FigureCellState = FigureCellState.NORMAL,
+    override val state: AnswerFeedbackState = AnswerFeedbackState.NORMAL,
 ) : FeedbackCell<FigureCell> {
-    override fun withState(state: FigureCellState) = copy(state = state)
+    override fun withState(state: AnswerFeedbackState) = copy(state = state)
 }
 
 @Immutable
@@ -106,7 +106,7 @@ data class QuickSumUiState(
     val termCount: Int,
     val answerLength: Int,
     val revealedSum: String?,
-    val answerResult: QuickSumGame.AnswerResult?,
+    val answerResult: RevealResult?,
 ) : GameUiState
 
 @Immutable
@@ -118,7 +118,7 @@ data class NBackUiState(
     val askIndex: Int,
     val options: ImmutableList<Shape>,
     val revealAnswer: Shape?,
-    val recallResult: NBackGame.RecallResult?,
+    val recallResult: RevealResult?,
 ) : GameUiState
 
 @Immutable
@@ -328,9 +328,9 @@ data class PrismClearUiState(
 @Immutable
 data class MatrixOptionCell(
     val panel: MatrixPanel,
-    override val state: FigureCellState = FigureCellState.NORMAL,
+    override val state: AnswerFeedbackState = AnswerFeedbackState.NORMAL,
 ) : FeedbackCell<MatrixOptionCell> {
-    override fun withState(state: FigureCellState) = copy(state = state)
+    override fun withState(state: AnswerFeedbackState) = copy(state = state)
 }
 
 @Immutable
@@ -521,7 +521,7 @@ data class DigitMemoryUiState(
     val problem: String,
     val answerLength: Int,
     val revealedMathAnswer: String?,
-    val recallResult: DigitMemoryGame.RecallResult?,
+    val recallResult: RevealResult?,
 ) : GameUiState
 
 enum class WordleLetterState {

@@ -31,8 +31,6 @@ class DigitMemoryGame :
 
     enum class Phase { SHOWING, SOLVING, RECALL }
 
-    enum class RecallResult { CORRECT, WRONG }
-
     var phase: Phase = Phase.SHOWING
         private set
 
@@ -55,7 +53,7 @@ class DigitMemoryGame :
         private set
 
     /** Non-null while revealing the recall result (drives the green/red reveal). */
-    var recallResult: RecallResult? = null
+    var recallResult: RevealResult? = null
         private set
 
     private var showJob: Job? = null
@@ -169,7 +167,7 @@ class DigitMemoryGame :
     /** Submit the recalled sequence. Returns whether it matched; exposes [recallResult] for reveal. */
     fun submitRecall(input: String): Boolean {
         val ok = input == sequence
-        recallResult = if (ok) RecallResult.CORRECT else RecallResult.WRONG
+        recallResult = if (ok) RevealResult.CORRECT else RevealResult.WRONG
         if (!ok) answeredAllCorrect = false
         return ok
     }

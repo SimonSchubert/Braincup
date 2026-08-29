@@ -9,14 +9,14 @@ class ShapeGuideTest {
     @Test
     fun everySectionHasShapes() {
         ShapeGuide.sections.forEach { section ->
-            assertTrue(section.shapes.isNotEmpty(), "${section.id} has no shapes")
+            assertTrue(section.entries.isNotEmpty(), "${section.id} has no shapes")
         }
     }
 
     /** Ids key the grid cells, so a duplicate would silently drop a shape off the screen. */
     @Test
     fun shapeIdsAreUnique() {
-        val ids = ShapeGuide.sections.flatMap { it.shapes }.map { it.id }
+        val ids = ShapeGuide.sections.flatMap { it.entries }.map { it.id }
         assertEquals(ids.size, ids.toSet().size, "duplicate shape ids: $ids")
     }
 
@@ -26,7 +26,7 @@ class ShapeGuideTest {
      */
     @Test
     fun figuresDoNotNameThemselves() {
-        ShapeGuide.sections.flatMap { it.shapes }.forEach { shape ->
+        ShapeGuide.sections.flatMap { it.entries }.forEach { shape ->
             val captions = when (val visual = shape.visual) {
                 is LearnVisual.Polygon -> visual.reveal
                 is LearnVisual.Solid -> visual.reveal
@@ -39,6 +39,6 @@ class ShapeGuideTest {
 
     @Test
     fun shapeCountMatchesTheSections() {
-        assertEquals(ShapeGuide.sections.sumOf { it.shapes.size }, ShapeGuide.shapeCount)
+        assertEquals(ShapeGuide.sections.sumOf { it.entries.size }, ShapeGuide.shapeCount)
     }
 }

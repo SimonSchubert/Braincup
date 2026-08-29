@@ -50,11 +50,11 @@ internal fun ColumnScope.ColoredShapesContent(
     @Composable
     fun answerButton(button: AnswerButton) {
         when (button.state) {
-            AnswerButtonState.NORMAL -> CircleButton(
+            AnswerFeedbackState.NORMAL -> CircleButton(
                 onClick = { onAnswer(button.value) },
                 value = button.value,
             )
-            AnswerButtonState.WRONG -> PrismTile(
+            AnswerFeedbackState.WRONG -> PrismTile(
                 face = MaterialTheme.colorScheme.errorContainer,
                 modifier = Modifier.size(56.dp),
                 isClickable = false,
@@ -66,7 +66,7 @@ internal fun ColumnScope.ColoredShapesContent(
                     color = MaterialTheme.colorScheme.onErrorContainer,
                 )
             }
-            AnswerButtonState.CORRECT -> PrismTile(
+            AnswerFeedbackState.CORRECT -> PrismTile(
                 face = SuccessGreen,
                 modifier = Modifier.size(56.dp),
                 isClickable = false,
@@ -78,7 +78,7 @@ internal fun ColumnScope.ColoredShapesContent(
                     color = Color.White,
                 )
             }
-            AnswerButtonState.DIMMED -> Box(
+            AnswerFeedbackState.DIMMED -> Box(
                 modifier = Modifier.size(56.dp).alpha(0.3f),
                 contentAlignment = Alignment.Center,
             ) {

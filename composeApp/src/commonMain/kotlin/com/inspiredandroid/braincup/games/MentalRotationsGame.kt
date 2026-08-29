@@ -180,7 +180,7 @@ class MentalRotationsGame(
         val armCount = armCountForRound()
         val mirrored = random.nextBoolean()
 
-        repeat(GENERATE_ATTEMPTS) {
+        repeat(MAX_GENERATION_ATTEMPTS) {
             val figure = generateFigure(armCount, ARM_LENGTH, random) ?: return@repeat
             val candidate = turnedCandidate(figure, mirrored) ?: return@repeat
             show(figure, candidate, mirrored)
@@ -260,7 +260,7 @@ class MentalRotationsGame(
         val ANSWERS = listOf(ANSWER_SAME, ANSWER_MIRRORED)
 
         private val ARM_LENGTH = 2..3
-        private const val GENERATE_ATTEMPTS = 60
+        private const val MAX_GENERATION_ATTEMPTS = 60
 
         /**
          * A chiral 3-arm staircase, used only when generation keeps failing. Chosen so that every

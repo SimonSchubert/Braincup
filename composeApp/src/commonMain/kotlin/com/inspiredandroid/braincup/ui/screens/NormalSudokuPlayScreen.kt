@@ -13,11 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
 import braincup.composeapp.generated.resources.ic_pencil_notes
@@ -29,6 +27,7 @@ import braincup.composeapp.generated.resources.normal_sudoku_pen_mode
 import braincup.composeapp.generated.resources.normal_sudoku_solved
 import braincup.composeapp.generated.resources.normal_sudoku_title
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.games.tools.currentTimeMillis
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.normalsudoku.NoteMask
 import com.inspiredandroid.braincup.normalsudoku.autoEliminateNote
@@ -41,6 +40,7 @@ import com.inspiredandroid.braincup.normalsudoku.noteMaskToggle
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
+import com.inspiredandroid.braincup.ui.components.boxedTextSize
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.isLargeFontScale
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
@@ -60,14 +60,6 @@ private const val GRID = 9
 private const val BLOCK = 3
 private val CellSeparator = 1.dp
 
-/**
- * A text size pinned to a box that is measured in dp. The board's cells and the digit tiles under
- * it are laid out in dp, so a glyph asked for in sp grows straight past its own square as soon as
- * the user raises the system font size - which sliced every digit on the grid in half. Converting
- * the dp back to sp keeps the digit inside the square it belongs to.
- */
-@Composable
-private fun boxedTextSize(box: Dp, fraction: Float): TextUnit = with(LocalDensity.current) { (box * fraction).toSp() }
 private val PadGap = 6.dp
 
 @Composable
@@ -646,8 +638,6 @@ private fun nextEmpty(from: Int, board: List<Int>, clueDigits: List<Int>): Int {
     }
     return from
 }
-
-private fun currentTimeMillis(): Long = kotlin.time.Clock.System.now().toEpochMilliseconds()
 
 @DevicePreviews
 @Composable

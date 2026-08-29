@@ -56,15 +56,15 @@ internal fun ColumnScope.MentalRotationsContent(
                 else -> stringResource(Res.string.game_mental_rotations_mirrored)
             }
             val face = when (button.state) {
-                AnswerButtonState.WRONG -> MaterialTheme.colorScheme.errorContainer
-                AnswerButtonState.CORRECT -> SuccessGreen
+                AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
+                AnswerFeedbackState.CORRECT -> SuccessGreen
                 else -> Primary
             }
             val contentColor = when (button.state) {
-                AnswerButtonState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
+                AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
                 else -> Color.White
             }
-            val isInteractive = button.state == AnswerButtonState.NORMAL
+            val isInteractive = button.state == AnswerFeedbackState.NORMAL
             PrismTile(
                 face = face,
                 isClickable = isInteractive,
@@ -72,7 +72,7 @@ internal fun ColumnScope.MentalRotationsContent(
                 modifier = Modifier
                     .weight(1f)
                     .height(72.dp)
-                    .then(if (button.state == AnswerButtonState.DIMMED) Modifier.alpha(0.3f) else Modifier)
+                    .then(if (button.state == AnswerFeedbackState.DIMMED) Modifier.alpha(0.3f) else Modifier)
                     .then(if (isInteractive) Modifier.hoverHand() else Modifier),
             ) {
                 Text(

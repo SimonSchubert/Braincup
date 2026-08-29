@@ -102,13 +102,7 @@ class LearnCatalogTest {
     fun almostEveryStepTeachesWithAFigure() {
         val bare = LearnCatalog.allLessons.flatMap { lesson ->
             lesson.steps.mapIndexedNotNull { index, step ->
-                val visual = when (step) {
-                    is LessonStep.Concept -> step.visual
-                    is LessonStep.Worked -> step.visual
-                    is LessonStep.Choice -> step.visual
-                    is LessonStep.Numeric -> step.visual
-                }
-                if (visual == null) "${lesson.id} step $index" else null
+                if (step.visual == null) "${lesson.id} step $index" else null
             }
         } + LearnCatalog.allUnits.flatMap { unit ->
             unit.quiz.questions.mapIndexedNotNull { index, question ->

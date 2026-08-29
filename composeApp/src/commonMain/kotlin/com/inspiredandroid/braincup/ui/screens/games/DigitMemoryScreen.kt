@@ -9,10 +9,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.DigitMemoryGame
+import com.inspiredandroid.braincup.games.RevealResult
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
@@ -31,7 +31,7 @@ internal fun ColumnScope.DigitMemoryContent(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
-                DigitMemoryPhaseLabel(
+                PhaseLabel(
                     text = stringResource(Res.string.digit_memory_memorize),
                     accent = MaterialTheme.colorScheme.primary,
                 )
@@ -51,8 +51,8 @@ internal fun ColumnScope.DigitMemoryContent(
         DigitMemoryGame.Phase.RECALL -> {
             val result = uiState.recallResult
             val revealColor = when (result) {
-                DigitMemoryGame.RecallResult.CORRECT -> SuccessGreen
-                DigitMemoryGame.RecallResult.WRONG -> MaterialTheme.colorScheme.error
+                RevealResult.CORRECT -> SuccessGreen
+                RevealResult.WRONG -> MaterialTheme.colorScheme.error
                 null -> null
             }
             DigitMemoryInputArea(
@@ -84,16 +84,6 @@ internal fun ColumnScope.DigitMemoryContent(
 }
 
 @Composable
-private fun DigitMemoryPhaseLabel(text: String, accent: Color) {
-    Text(
-        text = text,
-        style = MaterialTheme.typography.labelLarge,
-        color = accent,
-        letterSpacing = 3.sp,
-    )
-}
-
-@Composable
 private fun DigitMemorySolvingContent(
     uiState: DigitMemoryUiState,
     onAnswer: (String) -> Unit,
@@ -105,7 +95,7 @@ private fun DigitMemorySolvingContent(
     if (LocalIsCompactHeight.current) {
         CompactGameRow {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                DigitMemoryPhaseLabel(
+                PhaseLabel(
                     text = stringResource(Res.string.digit_memory_solve),
                     accent = MaterialTheme.colorScheme.tertiary,
                 )
@@ -121,7 +111,7 @@ private fun DigitMemorySolvingContent(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            DigitMemoryPhaseLabel(
+            PhaseLabel(
                 text = stringResource(Res.string.digit_memory_solve),
                 accent = MaterialTheme.colorScheme.tertiary,
             )
@@ -185,7 +175,7 @@ private fun DigitMemoryInputArea(
     if (LocalIsCompactHeight.current) {
         CompactGameRow {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                DigitMemoryPhaseLabel(label, accent)
+                PhaseLabel(label, accent)
                 Spacer(Modifier.height(12.dp))
                 display(typed, onRemoveAt)
             }
@@ -200,7 +190,7 @@ private fun DigitMemoryInputArea(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            DigitMemoryPhaseLabel(label, accent)
+            PhaseLabel(label, accent)
             Spacer(Modifier.height(20.dp))
             display(typed, onRemoveAt)
             if (!revealed) {

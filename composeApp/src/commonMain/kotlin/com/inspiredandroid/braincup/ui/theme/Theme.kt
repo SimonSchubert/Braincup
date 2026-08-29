@@ -418,7 +418,7 @@ fun TextStyle.numeric(): TextStyle = copy(fontFamily = numberFontFamily())
  * texts) lose their capitalization and become a wall of shouting.
  */
 @Composable
-fun TextStyle.readable(): TextStyle = copy(fontFamily = numberFontFamily())
+fun TextStyle.readable(): TextStyle = numeric()
 
 /**
  * Render only the digit runs of [text] in the readable number font, leaving words and other

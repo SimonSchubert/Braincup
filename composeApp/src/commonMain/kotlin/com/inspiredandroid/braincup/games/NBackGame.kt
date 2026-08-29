@@ -33,8 +33,6 @@ class NBackGame :
 
     enum class Phase { MEMORIZE, RECALL }
 
-    enum class RecallResult { CORRECT, WRONG }
-
     var phase: Phase = Phase.MEMORIZE
         private set
 
@@ -57,7 +55,7 @@ class NBackGame :
         private set
 
     /** Non-null while revealing the answer after a tap (drives the green/red reveal). */
-    var recallResult: RecallResult? = null
+    var recallResult: RevealResult? = null
         private set
 
     private var showJob: Job? = null
@@ -159,7 +157,7 @@ class NBackGame :
 
     fun submitRecall(input: String): Boolean {
         val correct = input == answerShape().name
-        recallResult = if (correct) RecallResult.CORRECT else RecallResult.WRONG
+        recallResult = if (correct) RevealResult.CORRECT else RevealResult.WRONG
         if (!correct) answeredAllCorrect = false
         return correct
     }

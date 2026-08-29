@@ -56,10 +56,10 @@ internal val LearnFigureHeight = 180.dp
 /**
  * How an answer option is standing at the moment it is drawn.
  *
- * A test leaves every option [IDLE] from first to last: answers are revealed only at the end, so
+ * A test leaves every option [NORMAL] from first to last: answers are revealed only at the end, so
  * nothing on the screen may hint at which one was right.
  */
-internal enum class LearnOptionState { IDLE, CORRECT, WRONG, MUTED }
+internal enum class LearnOptionState { NORMAL, CORRECT, WRONG, DIMMED }
 
 /**
  * Notation in the number face, prose in the display face.
@@ -194,10 +194,10 @@ internal fun LearnOptionTile(
     // wallpaper by Material You, and a wrong answer was landing on a pale pink that carries white
     // text at 1.71:1. See LearnCorrectFace / LearnWrongFace.
     val face = when (state) {
-        LearnOptionState.IDLE -> MaterialTheme.colorScheme.surfaceVariant
+        LearnOptionState.NORMAL -> MaterialTheme.colorScheme.surfaceVariant
         LearnOptionState.CORRECT -> LearnCorrectFace
         LearnOptionState.WRONG -> LearnWrongFace
-        LearnOptionState.MUTED -> MaterialTheme.colorScheme.surfaceVariant
+        LearnOptionState.DIMMED -> MaterialTheme.colorScheme.surfaceVariant
     }
     val contentColor = when (state) {
         LearnOptionState.CORRECT, LearnOptionState.WRONG -> Color.White
@@ -205,17 +205,17 @@ internal fun LearnOptionTile(
     }
     PrismTile(
         face = face,
-        isClickable = state == LearnOptionState.IDLE,
+        isClickable = state == LearnOptionState.NORMAL,
         modifier = Modifier
             .widthIn(max = LearnContentWidth)
             .fillMaxWidth()
-            .hoverHand(state == LearnOptionState.IDLE),
-        onClick = { if (state == LearnOptionState.IDLE) onClick() },
+            .hoverHand(state == LearnOptionState.NORMAL),
+        onClick = { if (state == LearnOptionState.NORMAL) onClick() },
     ) {
         LearnText(
             text = label,
             style = MaterialTheme.typography.bodyLarge,
-            color = if (state == LearnOptionState.MUTED) contentColor.copy(alpha = 0.6f) else contentColor,
+            color = if (state == LearnOptionState.DIMMED) contentColor.copy(alpha = 0.6f) else contentColor,
             modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 14.dp),
             notation = notation,
         )

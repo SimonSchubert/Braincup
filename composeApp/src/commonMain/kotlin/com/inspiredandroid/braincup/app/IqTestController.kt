@@ -238,10 +238,8 @@ class IqTestController(
         private val TIMER_TICK = 100.milliseconds
         private val AUTO_ADVANCE_DELAY = 350.milliseconds
 
-        private const val ANSWER_INDEX = 8
-
         private fun MatrixProblem.blankedMatrix() = matrix
-            .mapIndexed { index, panel -> panel.takeIf { index != ANSWER_INDEX } }
+            .mapIndexed { index, panel -> panel.takeIf { index != MatrixProblem.ANSWER_INDEX } }
             .toImmutableList()
 
         private fun MatrixProblem.optionRows() = options
