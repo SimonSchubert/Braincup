@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.3.0" date="2026-08-30">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.3.0</url>
+      <description>
+        <ul>
+          <li>Add Mental Rotations game</li>
+          <li>Add Mental Flex game</li>
+          <li>Add an in-app language picker in Settings</li>
+          <li>Add seven Indian languages</li>
+          <li>Add guides for Geometry shapes and Arithmetic rules</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.2.0" date="2026-08-27">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.2.0</url>
       <description>
@@ -154,18 +166,6 @@
           <li>Fix web crash on nested routes</li>
           <li>Fix chess grid colors</li>
           <li>Fix French localization display</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.27.0" date="2026-07-11">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.27.0</url>
-      <description>
-        <ul>
-          <li>Achievements now respect difficulty level</li>
-          <li>Fix Wordle and session landscape layouts</li>
-          <li>Fix Sherlock calculation landscape layout</li>
-          <li>Improve overall performance</li>
-          <li>Cleaner game screens</li>
         </ul>
       </description>
     </release>

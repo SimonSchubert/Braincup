@@ -1,16 +1,26 @@
-## Unreleased
+## v3.3.0 — 2026-08-30
 
 ### Features
+- Add Mental Rotations game
+- Add Mental Flex game
 - Add an in-app language picker to Settings, independent of the device language
-- Add Tamil language support
-- Add Telugu language support
-- Add Marathi language support
-- Add Gujarati language support
-- Add Kannada language support
-- Add Malayalam language support
-- Add Punjabi language support
-- Add Play store listings for es-US, fr-CA, pt-PT and zh-HK
-- Add regional English Play store listings for en-AU, en-CA, en-GB, en-IN, en-SG and en-ZA
+- Add seven Indian languages: Tamil, Telugu, Marathi, Gujarati, Kannada, Malayalam and Punjabi
+- Add a shape guide for Geometry and a rules guide for Arithmetic in Learn Math
+- Translate the Learn Math catalog into French and Dutch
+- Add Play store listings for es-US, fr-CA, pt-PT, zh-HK and six regional English locales
+
+### Fixes
+- Stop Learn test figures from giving away their own answers
+- Fix Learn screen rendering issues found by rendering every screen
+
+### Improvements
+- Move the Learn catalog into strings.xml so it can be localized
+- Give Learn's figures the app fonts and its prose a readable line measure
+- Colour values consistently between prose and figures
+- Improve large text accessibility
+- Speed up the menu and game screens
+- Unify shared game abstractions
+- Upgrade dependencies
 
 ## v3.2.0 — 2026-08-27
 
