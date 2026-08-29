@@ -61,6 +61,14 @@ private val EntranceSpec = tween<Float>(durationMillis = 1100, easing = FastOutS
 private const val PhaseHoldMillis = 3000L
 
 /**
+ * How many laid-out labels one figure's measurer keeps.
+ *
+ * The default is eight, and a figure routinely draws more than that - a number line labels every
+ * tick - so the labels evicted each other and every frame of the entrance re-laid all of them.
+ */
+private const val LabelCacheSize = 64
+
+/**
  * A value the learner has just put forward, so a figure drawn on a scale can point at it.
  *
  * Deliberately not part of [LearnVisual]: which numbers a figure is about is content, but what the
@@ -114,13 +122,19 @@ fun LearnVisualCanvas(
         }
     }
 
-    val measurer = rememberTextMeasurer()
+    val measurer = rememberTextMeasurer(cacheSize = LabelCacheSize)
     val wrongColor = MaterialTheme.colorScheme.error
     val interactions = remember { MutableInteractionSource() }
     // Resolved out here because all three are @Composable and the draw block is not.
     val numberFont = numberFontFamily()
     val displayFont = displayFontFamily()
     val strings = learnVisualStrings(visual)
+    // A figure draws the same handful of labels on every frame, and splitting one into its word
+    // and notation runs is a scan plus a builder each time. Cached per figure, so the split is
+    // paid once per distinct string rather than once per label per frame.
+    val annotations = remember(visual, numberFont) { mutableMapOf<String, AnnotatedString>() }
+    // Three sets built from the figure, and the figure does not change between frames.
+    val figureRoles = remember(visual) { visual.roles() }
 
     Box(
         modifier = modifier
@@ -136,6 +150,8 @@ fun LearnVisualCanvas(
                 measurer = measurer,
                 numberFont = numberFont,
                 displayFont = displayFont,
+                annotations = annotations,
+                figureRoles = figureRoles,
                 paper = paper,
                 strings = strings,
                 answer = answer,
@@ -160,6 +176,10 @@ internal class VisualScope(
     val numberFont: FontFamily,
     /** The face words take, so a caption matches the lesson prose printed under the figure. */
     val displayFont: FontFamily,
+    /** Memoised [annotate] results, so a repeated label is split once rather than once a frame. */
+    private val annotations: MutableMap<String, AnnotatedString>,
+    /** Which values this figure treats as given, working and answer. Built once per figure. */
+    val figureRoles: FigureRoles,
     /** The panel the figure is drawn on, for [chipLabel] to lay a caption over its own marks. */
     val paper: Color,
     /** The words a figure captions itself with, looked up before the canvas opened. */
@@ -219,12 +239,21 @@ internal class VisualScope(
 
     fun fontSize(factor: Float = 0.1f): TextUnit = with(draw) { (size.minDimension * factor).toSp() }
 
+    /**
+     * The style a label is *measured* in, which is deliberately not the colour it is drawn in.
+     *
+     * Colour used to be baked in here, and the entrance fades a label up by multiplying its alpha
+     * every frame, so the style differed on every frame and the measurer's cache could never hit:
+     * each label paid a full paragraph layout, sixty times a second, for the whole 1100ms entrance.
+     * The colour is handed to `drawText` instead, which resolves it as
+     * `color.takeOrElse { style.color }.modulate(alpha)` - exactly what baking it in produced - so
+     * the ink is unchanged while the layout is now the same object every frame.
+     */
     fun labelStyle(
-        color: Color = ink,
         factor: Float = 0.1f,
         bold: Boolean = true,
     ) = TextStyle(
-        color = color,
+        color = ink,
         fontSize = fontSize(factor),
         fontWeight = if (bold) FontWeight.Bold else FontWeight.Normal,
         // Text drawn onto a Canvas inherits nothing from MaterialTheme, so without this every
@@ -243,7 +272,9 @@ internal class VisualScope(
      * makes for "Level 4", done here against explicit families because the canvas has none to
      * inherit.
      */
-    fun annotate(text: String): AnnotatedString {
+    fun annotate(text: String): AnnotatedString = annotations.getOrPut(text) { buildAnnotation(text) }
+
+    private fun buildAnnotation(text: String): AnnotatedString {
         val isWord = BooleanArray(text.length)
         var i = 0
         while (i < text.length) {
@@ -299,7 +330,10 @@ internal class VisualScope(
         bold: Boolean = true,
     ) {
         if (alpha <= 0.01f || runs.isEmpty()) return
-        val style = labelStyle(color.copy(alpha = color.alpha * alpha), factor, bold)
+        // The one label kind whose fade cannot move to `drawText`: each run carries its own colour
+        // as a span, and drawText's alpha only reaches the base colour, not the spans. Three call
+        // sites, so it keeps baking the fade into the string and stays a per-frame layout.
+        val style = labelStyle(factor, bold)
         val text = buildAnnotatedString {
             runs.forEach { (piece, tint) ->
                 val resolved = (tint ?: color).let { it.copy(alpha = it.alpha * alpha) }
@@ -326,10 +360,11 @@ internal class VisualScope(
         bold: Boolean = true,
     ) {
         if (alpha <= 0.01f || text.isEmpty()) return
-        val style = labelStyle(color.copy(alpha = color.alpha * alpha), factor, bold)
-        val measured = measure(text, style)
+        val measured = measure(text, labelStyle(factor, bold))
         draw.drawText(
             measured,
+            color = color,
+            alpha = alpha,
             topLeft = Offset(
                 insideCanvas(center.x - measured.size.width / 2f, measured.size.width),
                 center.y - measured.size.height / 2f,
@@ -365,7 +400,7 @@ internal class VisualScope(
     fun labelBand(factor: Float = 0.1f, gap: Float = labelGap): Float = gap + capHeight(factor)
 
     /** The same, for a label set beside what it names: [gap] plus how wide the words run. */
-    fun labelBand(text: String, factor: Float = 0.1f, bold: Boolean = true, gap: Float = labelGap): Float = gap + measure(text, labelStyle(ink, factor, bold)).size.width
+    fun labelBand(text: String, factor: Float = 0.1f, bold: Boolean = true, gap: Float = labelGap): Float = gap + measure(text, labelStyle(factor, bold)).size.width
 
     /**
      * Draw [text] just outside [at], pushed along the unit vector [outward] until its glyphs
@@ -387,7 +422,7 @@ internal class VisualScope(
         bold: Boolean = true,
     ) {
         if (alpha <= 0.01f || text.isEmpty()) return
-        val measured = measure(text, labelStyle(color, factor, bold))
+        val measured = measure(text, labelStyle(factor, bold))
         val cap = capHeight(factor)
         val push = gap + abs(outward.x) * measured.size.width / 2f + abs(outward.y) * cap / 2f
         // [label] centres the line box; the glyphs sit high in it, so this puts the ink where the
@@ -498,7 +533,7 @@ internal class VisualScope(
         val cap = capHeight(factor)
         val leading = labelGap * 0.5f
         // The line box's own metrics, which are the font's and so the same whatever the words are.
-        val sample = measure("0", labelStyle(ink, factor))
+        val sample = measure("0", labelStyle(factor))
         val inkShift = sample.size.height / 2f - sample.firstBaseline + cap / 2f
         return CaptionMetrics(
             block = lines * cap + (lines - 1) * leading,
@@ -533,10 +568,11 @@ internal class VisualScope(
         bold: Boolean = true,
     ) {
         if (alpha <= 0.01f || text.isEmpty()) return
-        val style = labelStyle(color.copy(alpha = color.alpha * alpha), factor, bold)
-        val measured = measure(text, style)
+        val measured = measure(text, labelStyle(factor, bold))
         draw.drawText(
             measured,
+            color = color,
+            alpha = alpha,
             topLeft = Offset(insideCanvas(start.x, measured.size.width), start.y - measured.size.height / 2f),
         )
     }
@@ -561,7 +597,7 @@ internal class VisualScope(
         bold: Boolean = true,
     ) {
         if (alpha <= 0.01f || text.isEmpty()) return
-        val measured = measure(text, labelStyle(color, factor, bold))
+        val measured = measure(text, labelStyle(factor, bold))
         val padding = measured.size.height * ChipPadding
         val push = gap +
             abs(outward.x) * (measured.size.width / 2f + padding) +
@@ -585,7 +621,7 @@ internal class VisualScope(
         bold: Boolean = true,
     ) {
         if (alpha <= 0.01f || text.isEmpty()) return
-        val measured = measure(text, labelStyle(color, factor, bold))
+        val measured = measure(text, labelStyle(factor, bold))
         val padding = measured.size.height * ChipPadding
         val left = insideCanvas(center.x - measured.size.width / 2f, measured.size.width)
         box(

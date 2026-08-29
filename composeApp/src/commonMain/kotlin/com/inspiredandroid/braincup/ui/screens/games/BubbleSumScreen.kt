@@ -253,8 +253,11 @@ private fun BubbleSumArena(
     modifier: Modifier = Modifier,
 ) {
     val emptyFrames = remember { MutableStateFlow(emptyList<BubbleSumGame.BubbleFrame>()) }
-    val live by (liveFrames ?: emptyFrames).collectAsStateWithLifecycle()
-    val textMeasurer = rememberTextMeasurer()
+    // Kept as State and read inside the Canvas below. Read here with `by`, the physics loop's
+    // ~62 frames a second each recomposed this whole arena, rebuilding both digit styles every
+    // time; read in the draw phase a frame costs one repaint.
+    val liveState = (liveFrames ?: emptyFrames).collectAsStateWithLifecycle()
+    val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
     val outlineColor = MaterialTheme.colorScheme.outline
     val mutedFace = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.45f)
     val visibleFace = Primary
@@ -267,13 +270,13 @@ private fun BubbleSumArena(
     )
     val warningDigitStyle = digitStyle.copy(color = PuzzleGridInk)
 
-    val hasLiveFrames = live.isNotEmpty()
-
     Canvas(
         modifier = modifier.onSizeChanged {
             onArenaSize(it.width.toFloat(), it.height.toFloat())
         },
     ) {
+        val live = liveState.value
+        val hasLiveFrames = live.isNotEmpty()
         // Positions come in short-edge units, so scaling every axis by the short edge fills the
         // arena whatever its shape and keeps bubbles round.
         val shortEdge = min(size.width, size.height)
@@ -289,6 +292,13 @@ private fun BubbleSumArena(
             style = Stroke(width = strokeWidth),
         )
         val radiusPx = BubbleSumGame.BALL_RADIUS * shortEdge
+        // The digit tracks the bubble: the arena fills the screen, so a fixed ceiling would leave
+        // a big-screen bubble carrying a tiny digit. Only the floor stays, to keep numbers legible
+        // when a short body squeezes the arena. Every bubble is the same size, so the two sized
+        // styles are built once per draw rather than once per bubble.
+        val digitFontSize = (radiusPx * 0.9f).coerceAtLeast(12.dp.toPx()).toSp()
+        val sizedDigitStyle = digitStyle.copy(fontSize = digitFontSize)
+        val sizedWarningDigitStyle = warningDigitStyle.copy(fontSize = digitFontSize)
         uiState.bubbles.forEachIndexed { index, bubble ->
             val frame = live.getOrNull(index)
             if (hasLiveFrames && frame == null) return@forEachIndexed
@@ -321,20 +331,13 @@ private fun BubbleSumArena(
                 face = face,
             )
             if (phase != BubbleSumGame.VisibilityPhase.HIDDEN) {
-                // Track the bubble: the arena fills the screen, so a fixed ceiling would leave a
-                // big-screen bubble carrying a tiny digit. Only the floor stays, to keep numbers
-                // legible when a short body squeezes the arena.
-                val fontSize = (radiusPx * 0.9f).coerceAtLeast(12.dp.toPx())
-                val baseStyle =
-                    if (phase == BubbleSumGame.VisibilityPhase.WARNING) {
-                        warningDigitStyle
-                    } else {
-                        digitStyle
-                    }
-                val style = baseStyle.copy(fontSize = fontSize.toSp())
                 val measured = textMeasurer.measure(
                     text = bubble.value.toString(),
-                    style = style,
+                    style = if (phase == BubbleSumGame.VisibilityPhase.WARNING) {
+                        sizedWarningDigitStyle
+                    } else {
+                        sizedDigitStyle
+                    },
                 )
                 drawText(
                     textLayoutResult = measured,

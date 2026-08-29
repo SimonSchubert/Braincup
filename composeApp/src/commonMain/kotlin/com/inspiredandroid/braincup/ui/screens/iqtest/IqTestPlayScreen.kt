@@ -3,10 +3,13 @@ package com.inspiredandroid.braincup.ui.screens.iqtest
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.IqTestPlayUiState
 import com.inspiredandroid.braincup.app.MatrixOptionCell
@@ -20,12 +23,63 @@ import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.numeric
 import kotlinx.collections.immutable.toImmutableList
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The clock, collected here so the ten-a-second tick cannot reach the rest of the screen.
+ *
+ * Held as a flow all the way down for the same reason [com.inspiredandroid.braincup.ui.screens.GameScreen]
+ * does it: read as a plain `Long` parameter the tick recomposed the whole route, and with it six
+ * string lookups, the matrix, the option board and the two content lambdas that let those skip.
+ */
+@Composable
+private fun IqTestClock(timeRemaining: StateFlow<Long>) {
+    val remaining by timeRemaining.collectAsStateWithLifecycle()
+    Text(
+        text = formatDuration((remaining / 1000).toInt()),
+        style = MaterialTheme.typography.titleMedium.numeric(),
+        color = if (remaining <= LowTimeMillis) {
+            MaterialTheme.colorScheme.error
+        } else {
+            MaterialTheme.colorScheme.onSurfaceVariant
+        },
+        modifier = Modifier.padding(end = 16.dp),
+    )
+}
+
+/**
+ * Preview/screenshot overload with a fixed clock reading. Wraps it in a remembered flow so the
+ * production path always isolates the tick to [IqTestClock].
+ */
 @Composable
 fun IqTestPlayScreen(
     uiState: IqTestPlayUiState,
     timeRemainingMillis: Long,
+    onSelect: (Int) -> Unit,
+    onPrevious: () -> Unit,
+    onNext: () -> Unit,
+    onFinish: () -> Unit,
+    onRequestQuit: () -> Unit,
+) {
+    val timeFlow = remember { MutableStateFlow(timeRemainingMillis) }
+    LaunchedEffect(timeRemainingMillis) { timeFlow.value = timeRemainingMillis }
+    IqTestPlayScreen(
+        uiState = uiState,
+        timeRemaining = timeFlow,
+        onSelect = onSelect,
+        onPrevious = onPrevious,
+        onNext = onNext,
+        onFinish = onFinish,
+        onRequestQuit = onRequestQuit,
+    )
+}
+
+@Composable
+fun IqTestPlayScreen(
+    uiState: IqTestPlayUiState,
+    timeRemaining: StateFlow<Long>,
     onSelect: (Int) -> Unit,
     onPrevious: () -> Unit,
     onNext: () -> Unit,
@@ -37,18 +91,7 @@ fun IqTestPlayScreen(
         onBack = onRequestQuit,
         scrollable = true,
         provideCompactHeight = true,
-        actions = {
-            Text(
-                text = formatDuration((timeRemainingMillis / 1000).toInt()),
-                style = MaterialTheme.typography.titleMedium.numeric(),
-                color = if (timeRemainingMillis <= LowTimeMillis) {
-                    MaterialTheme.colorScheme.error
-                } else {
-                    MaterialTheme.colorScheme.onSurfaceVariant
-                },
-                modifier = Modifier.padding(end = 16.dp),
-            )
-        },
+        actions = { IqTestClock(timeRemaining) },
     ) {
         // Read inside the scaffold body: AppScaffold only provides this around its content.
         val compact = LocalIsCompactHeight.current
@@ -67,7 +110,7 @@ fun IqTestPlayScreen(
         Spacer(Modifier.height(8.dp))
 
         PrismProgressBar(
-            progress = (uiState.itemIndex + 1) / uiState.itemCount.toFloat(),
+            progress = { (uiState.itemIndex + 1) / uiState.itemCount.toFloat() },
             trackColor = MaterialTheme.colorScheme.surfaceVariant,
             fillColor = Primary,
             modifier = Modifier

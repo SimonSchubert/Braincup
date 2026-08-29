@@ -163,18 +163,22 @@ fun ColorPrismCell(
  * Horizontal progress bar whose silhouette matches [PrismShape] — chamfered top-right
  * and bottom-left corners — so it sits visually next to other prism-styled surfaces.
  *
- * Uses [drawWithCache] so the chamfer path is rebuilt only when size/facet change; the fill
- * width still redraws every progress tick.
+ * [progress] is a lambda rather than a value so a ticking bar costs a redraw and nothing else.
+ * Taken by value it was read during composition, which both recomposed every caller on the way
+ * down and handed [drawWithCache] a new lambda each tick - so the chamfer path this caches was
+ * rebuilt on every frame, which is the opposite of what the cache is for. Read inside
+ * [onDrawBehind] the read lands in the draw phase, so the path survives and composition and
+ * layout are skipped entirely. Callers must therefore pass a lambda that reads state
+ * (`{ someState.value }`), not one closing over an already-read value.
  */
 @Composable
 fun PrismProgressBar(
-    progress: Float,
+    progress: () -> Float,
     trackColor: Color,
     fillColor: Color,
     modifier: Modifier = Modifier,
     facet: Dp = PrismFacet.Card,
 ) {
-    val clamped = progress.coerceIn(0f, 1f)
     // Keep the chamfered prism silhouette and left-to-right fill aligned regardless of the
     // system layout direction, so the bar matches every other PrismCard's bevel orientation.
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
@@ -195,7 +199,7 @@ fun PrismProgressBar(
                 onDrawBehind {
                     clipPath(barPath) {
                         drawRect(color = trackColor, size = size)
-                        val filledWidth = w * clamped
+                        val filledWidth = w * progress().coerceIn(0f, 1f)
                         if (filledWidth > 0f) {
                             drawRect(color = fillColor, size = Size(filledWidth, h))
                         }

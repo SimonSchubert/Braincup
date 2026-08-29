@@ -329,7 +329,7 @@ internal fun VisualScope.drawPolygon(visual: LearnVisual.Polygon) {
     }
     val sidesText = strings.sides
     val cornersText = strings.corners
-    val captionStyle = labelStyle(ink, PolygonCaptionFactor)
+    val captionStyle = labelStyle(PolygonCaptionFactor)
     val sidesWidth = measure(sidesText, captionStyle).size.width.toFloat()
     val cornersWidth = measure(cornersText, captionStyle).size.width.toFloat()
     val space = size.minDimension * 0.03f
@@ -872,7 +872,7 @@ private fun VisualScope.angleReading(
     color: Color,
     alpha: Float,
 ) {
-    val measured = measure(text, labelStyle(ink, AngleLabelFactor, bold = true))
+    val measured = measure(text, labelStyle(AngleLabelFactor, bold = true))
     val opening = sin(halfAngle * PI.toFloat() / 180f).coerceAtLeast(0.05f)
     val needed = (measured.size.width / 2f + measured.size.height * 0.45f) / opening
     val at = Offset(vertex.x, vertex.y - needed.coerceIn(arcRadius + measured.size.height * 0.7f, limit))

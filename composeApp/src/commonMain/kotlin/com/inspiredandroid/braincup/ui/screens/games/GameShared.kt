@@ -78,7 +78,7 @@ internal fun FigureCellContent(
 
 @Composable
 internal fun TimeProgressIndicator(
-    progress: Float,
+    progress: () -> Float,
     modifier: Modifier = Modifier,
 ) {
     PrismProgressBar(
@@ -96,12 +96,14 @@ internal fun MemorizeTimeProgressBar(
     modifier: Modifier = Modifier,
     restartKey: Any? = Unit,
 ) {
-    var progress by remember(restartKey) { mutableFloatStateOf(1f) }
+    // Held as state rather than read into a local: the bar reads it in its draw phase, so the
+    // countdown costs one repaint a frame instead of recomposing this and everything under it.
+    val progress = remember(restartKey) { mutableFloatStateOf(1f) }
     val paused by rememberUpdatedState(isTimerPaused)
     LaunchedEffect(restartKey) {
         val startNanos = withFrameNanos { it }
         var pausedAccumulationNanos = 0L
-        while (progress > 0f) {
+        while (progress.floatValue > 0f) {
             if (paused) {
                 val pauseStart = withFrameNanos { it }
                 while (paused) {
@@ -112,11 +114,10 @@ internal fun MemorizeTimeProgressBar(
             }
             val nowNanos = withFrameNanos { it }
             val elapsedMillis = (nowNanos - startNanos - pausedAccumulationNanos) / 1_000_000f
-            progress = (1f - elapsedMillis / totalMillis).coerceAtLeast(0f)
-            withFrameNanos { it }
+            progress.floatValue = (1f - elapsedMillis / totalMillis).coerceAtLeast(0f)
         }
     }
-    TimeProgressIndicator(progress = progress, modifier = modifier)
+    TimeProgressIndicator(progress = { progress.floatValue }, modifier = modifier)
 }
 
 @Composable
@@ -132,6 +133,14 @@ internal fun StopwatchDisplay(elapsedMillis: Long, modifier: Modifier = Modifier
         modifier = modifier.wrapContentWidth(Alignment.CenterHorizontally),
     )
 }
+
+/**
+ * How many laid-out clue glyphs a puzzle board's measurer keeps.
+ *
+ * The default is eight and a board carries more clues than that, so they evicted each other and
+ * every redraw - which for these boards means every pointer move of a drag - re-laid all of them.
+ */
+internal const val PuzzleClueCacheSize = 32
 
 internal fun cellAt(offset: Offset, width: Int, height: Int, rows: Int, cols: Int): Pair<Int, Int> {
     val col = (offset.x / width * cols).toInt().coerceIn(0, cols - 1)

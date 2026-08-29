@@ -827,7 +827,6 @@ fun App(
 
                         composable<IqTestPlay> {
                             val playState by iqTestController.playState.collectAsStateWithLifecycle()
-                            val timeRemaining by iqTestController.timeRemaining.collectAsStateWithLifecycle()
                             val current = playState
                             if (current != null) {
                                 var showIqQuitDialog by remember { mutableStateOf(false) }
@@ -844,7 +843,7 @@ fun App(
 
                                 IqTestPlayScreen(
                                     uiState = current,
-                                    timeRemainingMillis = timeRemaining,
+                                    timeRemaining = iqTestController.timeRemaining,
                                     onSelect = remember(iqTestController) { { index: Int -> iqTestController.select(index) } },
                                     onPrevious = remember(iqTestController) { { iqTestController.goToPrevious() } },
                                     onNext = remember(iqTestController) { { iqTestController.goToNext() } },

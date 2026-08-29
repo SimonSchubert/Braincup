@@ -57,7 +57,7 @@ internal fun ColumnScope.NurikabeContent(
     val invalidColor = ErrorRed
     val poolColor = ErrorRed.copy(alpha = 0.55f)
     val numberFont = numberFontFamily()
-    val textMeasurer = rememberTextMeasurer()
+    val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
 
     // Drag paints a whole stroke at once; only the committed cells are sent on release so the
     // gesture (keyed on uiState) is never cancelled mid-stroke. The first touched cell fixes the
@@ -163,23 +163,29 @@ internal fun ColumnScope.NurikabeContent(
 
                 drawPuzzleGridLines(rows, cols, gridLineColor, strokeWidth = 1.5.dp.toPx())
 
-                val clueFontSize = (cellH * 0.42f).toSp()
+                // One layout per distinct clue value, and no colour in the style. The board
+                // redraws on every pointer move of a drag, and a clue's colour changes as its
+                // island becomes satisfied or invalid, so colouring the style made the same digit
+                // up to three separate layouts and pushed the measurer's cache over its capacity.
+                // The colour goes to drawTextCentered instead, which resolves it identically.
+                // Same trick NurikabeDemo already uses.
+                val clueStyle = TextStyle(
+                    fontSize = (cellH * 0.42f).toSp(),
+                    fontFamily = numberFont,
+                    fontWeight = FontWeight.Bold,
+                )
+                val clueLayouts = uiState.clueByCellIndex.values.distinct().associateWith { value ->
+                    textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
+                }
                 uiState.clueByCellIndex.forEach { (index, value) ->
                     val color = when (index) {
                         in uiState.satisfiedCells -> satisfiedColor
                         in uiState.invalidCells -> invalidColor
                         else -> clueColor
                     }
-                    val style = TextStyle(
-                        color = color,
-                        fontSize = clueFontSize,
-                        fontFamily = numberFont,
-                        fontWeight = FontWeight.Bold,
-                    )
-                    val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = style)
                     val centerX = (index % cols) * cellW + cellW / 2f
                     val centerY = (index / cols) * cellH + cellH / 2f
-                    drawTextCentered(measured, centerX, centerY)
+                    drawTextCentered(clueLayouts.getValue(value), centerX, centerY, color = color)
                 }
             }
         }

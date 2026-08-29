@@ -294,16 +294,18 @@ private fun GameProgressBar(
             StopwatchDisplay(elapsedMillis = elapsed, modifier = modifier)
         }
         gameUiState is FlagsUiState -> {
-            val remaining by timeRemaining.collectAsStateWithLifecycle()
+            // Kept as State and read in the bar's draw phase, so a tick repaints the bar without
+            // recomposing even this wrapper.
+            val remaining = timeRemaining.collectAsStateWithLifecycle()
             TimeProgressIndicator(
-                progress = remaining / GameController.FLAGS_ROUND_TIME_MILLIS.toFloat(),
+                progress = { remaining.value / GameController.FLAGS_ROUND_TIME_MILLIS.toFloat() },
                 modifier = modifier,
             )
         }
         else -> {
-            val remaining by timeRemaining.collectAsStateWithLifecycle()
+            val remaining = timeRemaining.collectAsStateWithLifecycle()
             TimeProgressIndicator(
-                progress = remaining / 60_000f,
+                progress = { remaining.value / 60_000f },
                 modifier = modifier,
             )
         }

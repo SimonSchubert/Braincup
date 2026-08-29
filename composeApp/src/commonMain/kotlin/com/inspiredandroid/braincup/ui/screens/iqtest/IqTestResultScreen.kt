@@ -183,7 +183,7 @@ private fun TierRow(tier: TierResult) {
             modifier = Modifier.width(72.dp),
         )
         PrismProgressBar(
-            progress = tier.correct / tier.total.toFloat(),
+            progress = { tier.correct / tier.total.toFloat() },
             trackColor = MaterialTheme.colorScheme.surfaceVariant,
             fillColor = Primary,
             modifier = Modifier.weight(1f).height(10.dp),

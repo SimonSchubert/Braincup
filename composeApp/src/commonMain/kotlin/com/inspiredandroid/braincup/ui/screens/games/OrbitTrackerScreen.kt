@@ -98,12 +98,13 @@ private fun OrbitTrackerArena(
     onAnswer: (String) -> Unit,
 ) {
     val emptyPositions = remember { MutableStateFlow(emptyList<Pair<Float, Float>>()) }
-    val live by (livePositions ?: emptyPositions).collectAsStateWithLifecycle()
+    // Kept as State and read in the draw phase and in the tap handler, never in composition. The
+    // motion loop pushes a frame every 16ms, and collecting it into the body recomposed the whole
+    // arena on each one; read at draw time a frame costs one repaint.
+    val liveState = (livePositions ?: emptyPositions).collectAsStateWithLifecycle()
     val staticPositions = remember(uiState.balls) { uiState.balls.map { it.x to it.y } }
-    // Prefer live frame positions during MOVING; fall back to uiState for other phases / previews.
-    val positions: List<Pair<Float, Float>> =
-        if (isMoving && live.isNotEmpty()) live else staticPositions
-    val positionsForTap by rememberUpdatedState(positions)
+    val staticForTap by rememberUpdatedState(staticPositions)
+    val movingForTap by rememberUpdatedState(isMoving)
     val onAnswerState by rememberUpdatedState(onAnswer)
 
     Canvas(
@@ -124,6 +125,11 @@ private fun OrbitTrackerArena(
 
                             var closestIndex = -1
                             var closestDist = Float.MAX_VALUE
+                            // Prefer live frame positions during MOVING; fall back to uiState for
+                            // other phases / previews.
+                            val liveNow = liveState.value
+                            val positionsForTap =
+                                if (movingForTap && liveNow.isNotEmpty()) liveNow else staticForTap
                             positionsForTap.forEachIndexed { index, (bx, by) ->
                                 val dx = bx - normalizedX
                                 val dy = by - normalizedY
@@ -148,6 +154,9 @@ private fun OrbitTrackerArena(
 
         val ballRadiusPx = 0.04f * size.width
         val isGameOver = uiState.phase == OrbitTrackerGame.Phase.GAME_OVER
+        // Prefer live frame positions during MOVING; fall back to uiState for other phases.
+        val live = liveState.value
+        val positions = if (isMoving && live.isNotEmpty()) live else staticPositions
 
         uiState.balls.forEachIndexed { index, ball ->
             val (px, py) = positions.getOrElse(index) { ball.x to ball.y }

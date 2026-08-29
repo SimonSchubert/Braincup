@@ -52,7 +52,7 @@ internal fun ColumnScope.ShikakuContent(
     val previewColor = Primary
     val clueColor = PuzzleGridInk
     val numberFont = numberFontFamily()
-    val textMeasurer = rememberTextMeasurer()
+    val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
 
     // Drag state in grid coordinates; only the committed rectangle is sent to the game.
     var dragStart by remember(uiState) { mutableStateOf<Pair<Int, Int>?>(null) }
@@ -165,13 +165,18 @@ internal fun ColumnScope.ShikakuContent(
                     fontFamily = numberFont,
                     fontWeight = FontWeight.Bold,
                 )
+                // One layout per distinct clue rather than one per clue: a board carries more
+                // clues than the measurer's default cache holds, so a drag re-laid every digit on
+                // every pointer move.
+                val clueLayouts = uiState.clueByCellIndex.values.distinct().associateWith { value ->
+                    textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
+                }
                 uiState.clueByCellIndex.forEach { (index, value) ->
                     val r = index / cols
                     val c = index % cols
-                    val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
                     val centerX = c * cellW + cellW / 2f
                     val centerY = r * cellH + cellH / 2f
-                    drawTextCentered(measured, centerX, centerY)
+                    drawTextCentered(clueLayouts.getValue(value), centerX, centerY)
                 }
             }
         }

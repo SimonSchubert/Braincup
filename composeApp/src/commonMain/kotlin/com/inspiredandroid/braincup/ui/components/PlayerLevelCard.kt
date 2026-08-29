@@ -118,7 +118,7 @@ fun XpProgressBar(
     modifier: Modifier = Modifier,
 ) {
     PrismProgressBar(
-        progress = progress,
+        progress = { progress },
         trackColor = OnPrimaryContainerSubtle,
         fillColor = Primary,
         modifier = modifier,

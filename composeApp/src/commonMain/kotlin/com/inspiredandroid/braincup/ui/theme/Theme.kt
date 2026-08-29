@@ -7,7 +7,10 @@ import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
 import androidx.compose.ui.text.AnnotatedString
@@ -279,121 +282,145 @@ private val nonLatinDisplayLanguages =
  * from and has to name its face itself.
  */
 @Composable
-fun displayFontFamily(): FontFamily = if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
-    FontFamily(Font(Res.font.tektur))
-} else {
-    FontFamily(Font(Res.font.bungee))
-}
+fun displayFontFamily(): FontFamily = LocalDisplayFontFamily.current ?: rememberDisplayFontFamily()
 
 @Composable
-private fun appTypography(): Typography {
-    val display = displayFontFamily()
-    return Typography(
-        displayLarge = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W100,
-            fontSize = 57.sp,
-            lineHeight = 64.sp,
-        ),
-        displayMedium = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W100,
-            fontSize = 45.sp,
-            lineHeight = 52.sp,
-        ),
-        displaySmall = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W500,
-            fontSize = 36.sp,
-            lineHeight = 44.sp,
-        ),
-        headlineLarge = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W700,
-            fontSize = 32.sp,
-            lineHeight = 40.sp,
-        ),
-        headlineMedium = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W700,
-            fontSize = 28.sp,
-            lineHeight = 36.sp,
-        ),
-        headlineSmall = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W700,
-            fontSize = 24.sp,
-            lineHeight = 32.sp,
-        ),
-        titleLarge = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W700,
-            fontSize = 22.sp,
-            lineHeight = 28.sp,
-        ),
-        titleMedium = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W500,
-            fontSize = 16.sp,
-            lineHeight = 24.sp,
-        ),
-        titleSmall = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W500,
-            fontSize = 14.sp,
-            lineHeight = 20.sp,
-        ),
-        bodyLarge = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W700,
-            fontSize = 16.sp,
-            lineHeight = 24.sp,
-        ),
-        bodyMedium = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W200,
-            fontSize = 14.sp,
-            lineHeight = 20.sp,
-        ),
-        bodySmall = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W500,
-            fontSize = 12.sp,
-            lineHeight = 16.sp,
-        ),
-        labelLarge = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W800,
-            fontSize = 14.sp,
-            lineHeight = 20.sp,
-        ),
-        labelMedium = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W500,
-            fontSize = 12.sp,
-            lineHeight = 16.sp,
-        ),
-        labelSmall = TextStyle(
-            fontFamily = display,
-            fontWeight = FontWeight.W500,
-            fontSize = 11.sp,
-            lineHeight = 16.sp,
-        ),
-    )
+private fun rememberDisplayFontFamily(): FontFamily {
+    val font = if (ComposeLocale.current.language in nonLatinDisplayLanguages) {
+        Font(Res.font.tektur)
+    } else {
+        Font(Res.font.bungee)
+    }
+    return remember(font) { FontFamily(font) }
 }
+
+private fun appTypography(display: FontFamily): Typography = Typography(
+    displayLarge = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W100,
+        fontSize = 57.sp,
+        lineHeight = 64.sp,
+    ),
+    displayMedium = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W100,
+        fontSize = 45.sp,
+        lineHeight = 52.sp,
+    ),
+    displaySmall = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W500,
+        fontSize = 36.sp,
+        lineHeight = 44.sp,
+    ),
+    headlineLarge = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W700,
+        fontSize = 32.sp,
+        lineHeight = 40.sp,
+    ),
+    headlineMedium = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W700,
+        fontSize = 28.sp,
+        lineHeight = 36.sp,
+    ),
+    headlineSmall = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W700,
+        fontSize = 24.sp,
+        lineHeight = 32.sp,
+    ),
+    titleLarge = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W700,
+        fontSize = 22.sp,
+        lineHeight = 28.sp,
+    ),
+    titleMedium = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W500,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+    ),
+    titleSmall = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W500,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W700,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W200,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+    ),
+    bodySmall = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W500,
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
+    ),
+    labelLarge = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W800,
+        fontSize = 14.sp,
+        lineHeight = 20.sp,
+    ),
+    labelMedium = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W500,
+        fontSize = 12.sp,
+        lineHeight = 16.sp,
+    ),
+    labelSmall = TextStyle(
+        fontFamily = display,
+        fontWeight = FontWeight.W500,
+        fontSize = 11.sp,
+        lineHeight = 16.sp,
+    ),
+)
 
 @Composable
 fun BraincupTheme(
     colorScheme: ColorScheme = if (isSystemInDarkTheme()) DarkColorScheme else LightColorScheme,
     content: @Composable () -> Unit,
 ) {
-    MaterialTheme(
-        colorScheme = colorScheme,
-        typography = appTypography(),
-        shapes = PrismShapes,
-        content = content,
-    )
+    val displayFont = rememberDisplayFontFamily()
+    val numberFont = rememberNumberFontFamily()
+    // Rebuilt only when the display face changes (i.e. the locale switches script). Left
+    // unmemoized this allocated sixteen TextStyles and a Typography on every recomposition of the
+    // app root, which is every navigation.
+    val typography = remember(displayFont) { appTypography(displayFont) }
+    CompositionLocalProvider(
+        LocalDisplayFontFamily provides displayFont,
+        LocalNumberFontFamily provides numberFont,
+    ) {
+        MaterialTheme(
+            colorScheme = colorScheme,
+            typography = typography,
+            shapes = PrismShapes,
+            content = content,
+        )
+    }
 }
+
+/**
+ * The two brand faces, resolved once by [BraincupTheme] instead of per caller.
+ *
+ * [numberFontFamily] has 60-odd call sites, a good few of them inside per-cell loops and
+ * composables that recompose on a timer, and each call built a fresh [FontFamily] out of four
+ * [Font] lookups. Null means "no theme above me": previews and any other caller outside
+ * [BraincupTheme] fall back to building the family themselves, exactly as before.
+ */
+private val LocalDisplayFontFamily = staticCompositionLocalOf<FontFamily?> { null }
+private val LocalNumberFontFamily = staticCompositionLocalOf<FontFamily?> { null }
 
 /**
  * Rubik: a geometric sans used for number-heavy gameplay content (math problems, grids,
@@ -402,12 +429,18 @@ fun BraincupTheme(
  * resolve correctly.
  */
 @Composable
-fun numberFontFamily(): FontFamily = FontFamily(
-    Font(Res.font.rubik_regular, FontWeight.W400),
-    Font(Res.font.rubik_medium, FontWeight.W500),
-    Font(Res.font.rubik_semibold, FontWeight.W600),
-    Font(Res.font.rubik_bold, FontWeight.W700),
-)
+fun numberFontFamily(): FontFamily = LocalNumberFontFamily.current ?: rememberNumberFontFamily()
+
+@Composable
+private fun rememberNumberFontFamily(): FontFamily {
+    val regular = Font(Res.font.rubik_regular, FontWeight.W400)
+    val medium = Font(Res.font.rubik_medium, FontWeight.W500)
+    val semibold = Font(Res.font.rubik_semibold, FontWeight.W600)
+    val bold = Font(Res.font.rubik_bold, FontWeight.W700)
+    return remember(regular, medium, semibold, bold) {
+        FontFamily(regular, medium, semibold, bold)
+    }
+}
 
 /** Swap a theme TextStyle's font to the readable number font for gameplay numbers. */
 @Composable

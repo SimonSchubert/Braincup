@@ -315,7 +315,7 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // Measured at the widest label the line can actually draw, not the narrowest. A called-out
     // value is set at [AccentLabelFactor] and bold, so measuring the minor style let crowded lines
     // through the test and then ran "14" into "15", and "-20" into "-18".
-    val widestStyle = labelStyle(ink, AccentLabelFactor, bold = true)
+    val widestStyle = labelStyle(AccentLabelFactor, bold = true)
     val widest = ticks.maxOfOrNull { measure(it.toString(), widestStyle).size.width } ?: 0
     val spacing = if (ticks.size > 1) (right - left) / (ticks.size - 1) else right - left
     val labelEveryTick = widest * MinorLabelGap <= spacing
@@ -345,7 +345,7 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
 
     // The same map the line of text under the figure colours itself from, so the two cannot drift:
     // if the figure marks -4 green then "-4 is 4 left of 0" prints its -4 green as well.
-    val figureRoles = visual.roles()
+    // Built once per figure by the canvas; this runs inside the draw block.
 
     /**
      * What a value on the axis is, in colour: a given the question hands you, or the answer. Null
@@ -375,7 +375,7 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
     // Each number takes the first row it fits in, left to right, so a crowded pair steps down a
     // line instead of overprinting. Worked out before anything is drawn, because how many rows it
     // comes to is part of how much room the figure needs under its axis.
-    val candidateStyle = labelStyle(ink, AccentLabelFactor, bold = true)
+    val candidateStyle = labelStyle(AccentLabelFactor, bold = true)
     // A whole digit of clearance rather than the hairline [labelPadding] a plain label gets. Two
     // candidates only need to *touch* to be misread: "-1" and "0" set a few pixels apart print as
     // "-10", which is one of the other options on the very step this exists for.
@@ -465,14 +465,14 @@ internal fun VisualScope.drawNumberLine(visual: LearnVisual.NumberLine) {
             value in candidates -> Unit
 
             major -> {
-                val majorStyle = labelStyle(ink, MajorLabelFactor, bold = false)
+                val majorStyle = labelStyle(MajorLabelFactor, bold = false)
                 if (clearOfAccents(x, measure(value.toString(), majorStyle).size.width)) {
                     label(value.toString(), Offset(x, axisY + height * 0.16f), ink, MajorLabelFactor, bold = false)
                 }
             }
 
             labelEveryTick -> {
-                val style = labelStyle(ink, MinorLabelFactor, bold = false)
+                val style = labelStyle(MinorLabelFactor, bold = false)
                 if (clearOfAccents(x, measure(value.toString(), style).size.width)) {
                     label(
                         text = value.toString(),
@@ -883,7 +883,7 @@ internal fun VisualScope.drawArrayDots(visual: LearnVisual.ArrayDots) {
     val split = visual.bandSplit
     val lane = if (split != null) 0.6f else 0f
 
-    val style = labelStyle(ink, RowLabelFactor)
+    val style = labelStyle(RowLabelFactor)
     val bands = if (split != null) {
         listOf(
             RowBand(strings.rows, 0, split - 1, Accent),

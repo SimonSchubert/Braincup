@@ -51,6 +51,7 @@ import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
+import com.inspiredandroid.braincup.ui.screens.games.PuzzleClueCacheSize
 import com.inspiredandroid.braincup.ui.screens.games.drawTextCentered
 import com.inspiredandroid.braincup.ui.theme.BubbleSumBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
@@ -1168,7 +1169,7 @@ private val NormalSudokuGivens: Map<Pair<Int, Int>, Int> = mapOf(
 @Composable
 private fun NormalSudokuPreview() {
     val numberFont = numberFontFamily()
-    val textMeasurer = rememberTextMeasurer()
+    val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
     val cellColor = LightColorScheme.surface
     val thinLine = PreviewTextColor.copy(alpha = 0.2f)
     val boldLine = PreviewTextColor
@@ -1198,12 +1199,15 @@ private fun NormalSudokuPreview() {
                 fontFamily = numberFont,
                 fontWeight = FontWeight.Bold,
             )
+            // Twenty-one givens over nine distinct digits: measure each digit once.
+            val digitLayouts = NormalSudokuGivens.values.distinct().associateWith { digit ->
+                textMeasurer.measure(AnnotatedString(digit.toString()), style = style)
+            }
             NormalSudokuGivens.forEach { (pos, digit) ->
                 val (row, col) = pos
-                val measured = textMeasurer.measure(AnnotatedString(digit.toString()), style = style)
                 val centerX = col * cell + cell / 2f
                 val centerY = row * cell + cell / 2f
-                drawTextCentered(measured, centerX, centerY)
+                drawTextCentered(digitLayouts.getValue(digit), centerX, centerY)
             }
         }
     }
@@ -1418,7 +1422,7 @@ private fun ShikakuPreview() {
     val gridLineColor = PreviewTextColor.copy(alpha = 0.15f)
     val borderColor = PreviewTextColor
     val numberFont = numberFontFamily()
-    val textMeasurer = rememberTextMeasurer()
+    val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
     val n = ShikakuPreviewSize
     PrismCard(
         face = ShikakuBoardFrame,
@@ -1468,11 +1472,13 @@ private fun ShikakuPreview() {
                 fontFamily = numberFont,
                 fontWeight = FontWeight.Bold,
             )
+            val clueLayouts = ShikakuPreviewRects.map { it.clue }.distinct().associateWith { clue ->
+                textMeasurer.measure(AnnotatedString(clue.toString()), style = clueStyle)
+            }
             ShikakuPreviewRects.forEach { rect ->
-                val measured = textMeasurer.measure(AnnotatedString(rect.clue.toString()), style = clueStyle)
                 val centerX = rect.clueCol * cellW + cellW / 2f
                 val centerY = rect.clueRow * cellH + cellH / 2f
-                drawTextCentered(measured, centerX, centerY)
+                drawTextCentered(clueLayouts.getValue(rect.clue), centerX, centerY)
             }
         }
     }
@@ -1482,7 +1488,7 @@ private fun ShikakuPreview() {
 private fun NurikabePreview() {
     val gridLineColor = PreviewTextColor.copy(alpha = 0.5f)
     val numberFont = numberFontFamily()
-    val textMeasurer = rememberTextMeasurer()
+    val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
     val n = NurikabePreviewSize
     PrismCard(
         face = NurikabeBoardFrame,
@@ -1518,11 +1524,13 @@ private fun NurikabePreview() {
                 fontFamily = numberFont,
                 fontWeight = FontWeight.Bold,
             )
+            val clueLayouts = NurikabePreviewClues.values.distinct().associateWith { value ->
+                textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
+            }
             NurikabePreviewClues.forEach { (index, value) ->
-                val measured = textMeasurer.measure(AnnotatedString(value.toString()), style = clueStyle)
                 val centerX = (index % n) * cellW + cellW / 2f
                 val centerY = (index / n) * cellH + cellH / 2f
-                drawTextCentered(measured, centerX, centerY)
+                drawTextCentered(clueLayouts.getValue(value), centerX, centerY)
             }
         }
     }
@@ -1926,7 +1934,7 @@ private fun BubbleSumPreview() {
     val primaryColor = MaterialTheme.colorScheme.primary
     val primarySide = remember(primaryColor) { primaryColor.darken(0.7f) }
     val primaryBottom = remember(primaryColor) { primaryColor.darken(0.5f) }
-    val textMeasurer = rememberTextMeasurer()
+    val textMeasurer = rememberTextMeasurer(cacheSize = PuzzleClueCacheSize)
     val digitStyle = MaterialTheme.typography.labelSmall.copy(
         color = androidx.compose.ui.graphics.Color.White,
         fontWeight = FontWeight.Bold,
