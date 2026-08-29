@@ -217,6 +217,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ਤਿੱਕੜੀ</string>
     <string name="game_mental_rotations">ਮਾਨਸਿਕ ਘੁਮਾਅ</string>
+    <string name="game_mental_flex">ਮਾਨਸਿਕ ਲਚਕ</string>
 
     <string name="game_anomaly_puzzle_desc">ਵੱਖਰੀ ਦਿਸਦੀ ਆਕ੍ਰਿਤੀ ਲੱਭੋ। ਹਰ ਆਕ੍ਰਿਤੀ ਦਾ ਰੰਗ ਅਤੇ ਆਕਾਰ ਦੋਵੇਂ ਧਿਆਨ ਵਿੱਚ ਰੱਖੋ।</string>
     <string name="game_mental_calculation_desc">ਗਣਿਤ ਦੇ ਸਮੀਕਰਨਾਂ ਦਾ ਪਾਲਣ ਕਰੋ। ਨਤੀਜੇ ਨੂੰ ਅਗਲੇ ਹਿਸਾਬ ਦਾ ਆਧਾਰ ਬਣਾਓ।</string>
@@ -274,6 +275,10 @@
     <string name="game_mental_rotations_same">ਉਹੀ</string>
     <string name="game_mental_rotations_mirrored">ਪ੍ਰਤੀਬਿੰਬ</string>
     <string name="game_trio_howto">ਇੱਕੋ ਗੁਣ ਵਾਲੇ ਤਿੰਨ ਪੱਤਿਆਂ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="game_mental_flex_desc">ਉੱਪਰਲੀਆਂ ਦੋ ਆਕ੍ਰਿਤੀਆਂ ਦਾ ਇੱਕ ਗੁਣ ਸਾਂਝਾ ਹੈ, ਆਕਾਰ ਜਾਂ ਰੰਗ। ਉਸੇ ਗੁਣ ਵਿੱਚ ਨਿਸ਼ਾਨੇ ਨਾਲ ਮਿਲਦੇ ਖਾਨੇ ਉੱਤੇ ਟੈਪ ਕਰੋ। ਇੱਕ ਖਾਨਾ ਹਮੇਸ਼ਾ ਦੂਜੇ ਗੁਣ ਵਿੱਚ ਮਿਲਦਾ ਹੈ।</string>
+    <string name="game_mental_flex_rule_shape">ਆਕਾਰ</string>
+    <string name="game_mental_flex_rule_color">ਰੰਗ</string>
+    <string name="game_mental_flex_howto">ਜੋੜੇ ਵਿੱਚ ਕੀ ਸਾਂਝਾ ਹੈ, ਪਛਾਣੋ।</string>
     <string name="trio_demo_title">ਤਿੰਨਾਂ ਦਾ ਸਮੂਹ ਲੱਭੋ</string>
     <string name="trio_demo_rule">ਇਨ੍ਹਾਂ ਦਾ ਇੱਕ ਗੁਣ ਸਾਂਝਾ ਹੈ। ਹੋਰ ਕੁਝ ਰਲਿਆ ਨਹੀਂ।</string>
     <string name="trio_demo_correct">ਇਹੀ ਇੱਕ ਸਮੂਹ ਹੈ।</string>
@@ -361,6 +366,7 @@
     <string name="fraction_calculation_demo_title">ਭਿੰਨਾਂ ਦਾ ਗੁਣਾ ਕਰੋ</string>
     <string name="sherlock_calculation_demo_title">ਟੀਚਾ ਨੰਬਰ ਤੱਕ ਪਹੁੰਚੋ</string>
     <string name="value_comparison_demo_title">ਸਭ ਤੋਂ ਵੱਡਾ ਮੁੱਲ ਚੁਣੋ</string>
+    <string name="mental_flex_demo_title">ਜੋੜਾ ਨਿਯਮ ਤੈਅ ਕਰਦਾ ਹੈ</string>
     <string name="pattern_sequence_prompt">ਕਿਹੜਾ ਟੁਕੜਾ ਮੈਟ੍ਰਿਕਸ ਪੂਰਾ ਕਰਦਾ ਹੈ?</string>
     <string name="game_tap_original_targets">ਅਸਲ ਨਿਸ਼ਾਨਿਆਂ ਉੱਤੇ ਟੈਪ ਕਰੋ</string>
     <string name="game_remember_targets">ਨਿਸ਼ਾਨੇ ਯਾਦ ਰੱਖੋ</string>
@@ -421,6 +427,7 @@
     <string name="achievement_gold_bulls_and_cows">ਕੋਡ ਤੋੜਨ ਵਾਲਾ</string>
     <string name="achievement_gold_trio">ਤੀਹਰੀ ਨਜ਼ਰ</string>
     <string name="achievement_gold_mental_rotations">ਘੁਮਾਉਣ ਦਾ ਮਾਹਿਰ</string>
+    <string name="achievement_gold_mental_flex">ਤੇਜ਼ ਬਦਲਾਅ</string>
     <string name="achievement_gold_path_finder">ਪਹਿਲਾ ਰਾਹੀ</string>
     <string name="achievement_gold_anomaly_puzzle">ਵੱਖਰਾ ਲੱਭ ਲਿਆ</string>
     <string name="achievement_gold_colored_shapes">ਆਕਾਰ ਬਦਲਣ ਵਾਲਾ</string>
@@ -458,6 +465,7 @@
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_trio_desc">ਤਿੱਕੜੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_mental_rotations_desc">ਮਾਨਸਿਕ ਘੁਮਾਅ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
+    <string name="achievement_gold_mental_flex_desc">ਮਾਨਸਿਕ ਲਚਕ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_path_finder_desc">ਰਾਹ ਖੋਜੀ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ਵੱਖਰਾਪਣ ਬੁਝਾਰਤ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="achievement_gold_colored_shapes_desc">ਰੰਗਦਾਰ ਆਕਾਰਾਂ ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>

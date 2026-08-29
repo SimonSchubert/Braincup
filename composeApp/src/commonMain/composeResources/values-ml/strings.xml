@@ -217,6 +217,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ത്രയം</string>
     <string name="game_mental_rotations">മാനസിക ഭ്രമണം</string>
+    <string name="game_mental_flex">മാനസിക വഴക്കം</string>
 
     <string name="game_anomaly_puzzle_desc">വേറിട്ടു നിൽക്കുന്ന രൂപം കണ്ടെത്തുക. ഓരോ രൂപത്തിന്റെയും നിറവും ആകൃതിയും ശ്രദ്ധിക്കുക.</string>
     <string name="game_mental_calculation_desc">ഗണിത വാക്യങ്ങൾ പിന്തുടരുക. ഫലം അടുത്ത കണക്കിന്റെ അടിസ്ഥാനമായി ഉപയോഗിക്കുക.</string>
@@ -274,6 +275,10 @@
     <string name="game_mental_rotations_same">അതേ</string>
     <string name="game_mental_rotations_mirrored">പ്രതിബിംബം</string>
     <string name="game_trio_howto">ഒരേ ഗുണമുള്ള മൂന്ന് ചീട്ടുകളിൽ ടാപ്പ് ചെയ്യുക.</string>
+    <string name="game_mental_flex_desc">മുകളിലെ രണ്ട് രൂപങ്ങൾക്ക് ഒരു ഗുണം പൊതുവായുണ്ട്, ആകൃതി അല്ലെങ്കിൽ നിറം. അതേ ഗുണത്തിൽ ലക്ഷ്യവുമായി യോജിക്കുന്ന കള്ളിയിൽ ടാപ്പ് ചെയ്യുക. ഒരു കള്ളി എപ്പോഴും മറ്റേ ഗുണത്തിൽ യോജിക്കും.</string>
+    <string name="game_mental_flex_rule_shape">ആകൃതി</string>
+    <string name="game_mental_flex_rule_color">നിറം</string>
+    <string name="game_mental_flex_howto">ജോഡിക്ക് പൊതുവായുള്ളത് കണ്ടെത്തുക.</string>
     <string name="trio_demo_title">മൂന്നിന്റെ കൂട്ടം കണ്ടെത്തുക</string>
     <string name="trio_demo_rule">അവയ്ക്ക് ഒരു ഗുണം പൊതുവായുണ്ട്. മറ്റൊന്നും കൂടിക്കലർന്നിട്ടില്ല.</string>
     <string name="trio_demo_correct">അതാണൊരു കൂട്ടം.</string>
@@ -361,6 +366,7 @@
     <string name="fraction_calculation_demo_title">ഭിന്നസംഖ്യകൾ ഗുണിക്കുക</string>
     <string name="sherlock_calculation_demo_title">ലക്ഷ്യ സംഖ്യയിലെത്തുക</string>
     <string name="value_comparison_demo_title">ഏറ്റവും വലിയ മൂല്യം തിരഞ്ഞെടുക്കുക</string>
+    <string name="mental_flex_demo_title">ജോഡിയാണ് നിയമം നിശ്ചയിക്കുന്നത്</string>
     <string name="pattern_sequence_prompt">ഏത് കഷണമാണ് മാട്രിക്സ് പൂർത്തിയാക്കുന്നത്?</string>
     <string name="game_tap_original_targets">യഥാർത്ഥ ലക്ഷ്യങ്ങളിൽ ടാപ്പ് ചെയ്യുക</string>
     <string name="game_remember_targets">ലക്ഷ്യങ്ങൾ ഓർത്തുവയ്ക്കുക</string>
@@ -421,6 +427,7 @@
     <string name="achievement_gold_bulls_and_cows">കോഡ് പൊളിക്കുന്നവൻ</string>
     <string name="achievement_gold_trio">മുക്കണ്ണൻ കാഴ്ച</string>
     <string name="achievement_gold_mental_rotations">ഭ്രമണ വിദഗ്ധൻ</string>
+    <string name="achievement_gold_mental_flex">പെട്ടെന്നുള്ള മാറ്റം</string>
     <string name="achievement_gold_path_finder">വഴിവെട്ടുന്നവൻ</string>
     <string name="achievement_gold_anomaly_puzzle">വേറിട്ടത് കണ്ടെത്തി</string>
     <string name="achievement_gold_colored_shapes">രൂപം മാറ്റുന്നവൻ</string>
@@ -458,6 +465,7 @@
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows ൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_trio_desc">ത്രയത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_mental_rotations_desc">മാനസിക ഭ്രമണത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
+    <string name="achievement_gold_mental_flex_desc">മാനസിക വഴക്കത്തിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_path_finder_desc">വഴി കണ്ടെത്തലിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_anomaly_puzzle_desc">വ്യത്യാസ കടങ്കഥയിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="achievement_gold_colored_shapes_desc">നിറമുള്ള രൂപങ്ങളിൽ സ്വർണ്ണ മെഡൽ നേടുക</string>

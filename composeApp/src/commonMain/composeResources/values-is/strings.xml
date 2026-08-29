@@ -233,6 +233,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Hugarsnúningar</string>
+    <string name="game_mental_flex">Hugarsveigjanleiki</string>
 
     <string name="game_anomaly_puzzle_desc">Finndu myndina sem sker sig úr. Fylgstu bæði með lit og formi hverrar myndar.</string>
     <string name="game_mental_calculation_desc">Fylgstu með stærðfræðistæðum. Notaðu niðurstöðuna sem grunn næsta útreiknings.</string>
@@ -290,6 +291,10 @@
     <string name="game_mental_rotations_same">Sami</string>
     <string name="game_mental_rotations_mirrored">Speglað</string>
     <string name="game_trio_howto">Ýttu á þrjú spil sem deila eiginleika.</string>
+    <string name="game_mental_flex_desc">Myndirnar tvær efst deila einum eiginleika, formi eða lit. Ýttu á flísina sem passar við markið í sama eiginleika. Ein flís passar alltaf við hinn eiginleikann.</string>
+    <string name="game_mental_flex_rule_shape">Form</string>
+    <string name="game_mental_flex_rule_color">Litur</string>
+    <string name="game_mental_flex_howto">Finndu hvað parið á sameiginlegt.</string>
     <string name="trio_demo_title">Finndu þrennu</string>
     <string name="trio_demo_rule">Þau deila eiginleika. Ekkert annað blandast.</string>
     <string name="trio_demo_correct">Þetta er þrenna.</string>
@@ -379,6 +384,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="fraction_calculation_demo_title">Margfaldaðu brotin</string>
     <string name="sherlock_calculation_demo_title">Náðu markmiðstölunni</string>
     <string name="value_comparison_demo_title">Veldu hæsta gildið</string>
+    <string name="mental_flex_demo_title">Parið setur regluna</string>
     <string name="pattern_sequence_prompt">Hvaða biti lýkur fylkinu?</string>
     <string name="game_tap_original_targets">Ýttu á upphaflegu skotmörkin</string>
     <string name="game_remember_targets">Mundu skotmörkin</string>
@@ -439,6 +445,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Kóðabrjótur</string>
     <string name="achievement_gold_trio">Þreföld sjón</string>
     <string name="achievement_gold_mental_rotations">Snúningsmeistari</string>
+    <string name="achievement_gold_mental_flex">Snögg skipting</string>
     <string name="achievement_gold_path_finder">Frumkvöðull</string>
     <string name="achievement_gold_anomaly_puzzle">Frávik fundið</string>
     <string name="achievement_gold_colored_shapes">Formskiptir</string>
@@ -476,6 +483,7 @@ Færðu Cow — hann verður Bull.</string>
     <string name="achievement_gold_bulls_and_cows_desc">Vinnu gullverðlaun í Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Vinnu gullverðlaun í Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Vinnu gullverðlaun í Hugarsnúningum</string>
+    <string name="achievement_gold_mental_flex_desc">Vinnu gullverðlaun í Hugarsveigjanleika</string>
     <string name="achievement_gold_path_finder_desc">Vinnu gullverðlaun í Leiðarleitanda</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Vinnu gullverðlaun í Fráviksgátu</string>
     <string name="achievement_gold_colored_shapes_desc">Vinnu gullverðlaun í Lituðum myndum</string>

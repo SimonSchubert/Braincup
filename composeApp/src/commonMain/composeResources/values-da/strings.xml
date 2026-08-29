@@ -233,6 +233,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mentale rotationer</string>
+    <string name="game_mental_flex">Mental fleksibilitet</string>
 
     <string name="game_anomaly_puzzle_desc">Find figuren, der skiller sig ud. Se både på farve og form.</string>
     <string name="game_mental_calculation_desc">Følg de matematiske udtryk. Brug resultatet som grundlag for næste beregning.</string>
@@ -290,6 +291,10 @@
     <string name="game_mental_rotations_same">Samme</string>
     <string name="game_mental_rotations_mirrored">Spejlvendt</string>
     <string name="game_trio_howto">Tryk på tre kort, der deler en egenskab.</string>
+    <string name="game_mental_flex_desc">De to figurer øverst deler én egenskab, form eller farve. Tryk på den brik, der matcher målet på netop den egenskab. Én brik matcher altid den anden egenskab i stedet.</string>
+    <string name="game_mental_flex_rule_shape">Form</string>
+    <string name="game_mental_flex_rule_color">Farve</string>
+    <string name="game_mental_flex_howto">Find ud af, hvad parret har til fælles.</string>
     <string name="trio_demo_title">Find et sæt af tre</string>
     <string name="trio_demo_rule">De deler en egenskab. Intet andet er blandet.</string>
     <string name="trio_demo_correct">Det er et sæt.</string>
@@ -379,6 +384,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="fraction_calculation_demo_title">Gang brøkerne</string>
     <string name="sherlock_calculation_demo_title">Nå måletallet</string>
     <string name="value_comparison_demo_title">Vælg den største værdi</string>
+    <string name="mental_flex_demo_title">Parret sætter reglen</string>
     <string name="pattern_sequence_prompt">Hvilken brik fuldender matricen?</string>
     <string name="game_tap_original_targets">Tryk på de oprindelige mål</string>
     <string name="game_remember_targets">Husk målene</string>
@@ -439,6 +445,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Kodeknækker</string>
     <string name="achievement_gold_trio">Trippelsyn</string>
     <string name="achievement_gold_mental_rotations">Drejemester</string>
+    <string name="achievement_gold_mental_flex">Hurtigt skift</string>
     <string name="achievement_gold_path_finder">Stifinder</string>
     <string name="achievement_gold_anomaly_puzzle">Afvigeren fundet</string>
     <string name="achievement_gold_colored_shapes">Formskifter</string>
@@ -476,6 +483,7 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="achievement_gold_bulls_and_cows_desc">Vind guldmedaljen i Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Vind guldmedaljen i Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Vind guldmedaljen i Mentale rotationer</string>
+    <string name="achievement_gold_mental_flex_desc">Vind guldmedaljen i Mental fleksibilitet</string>
     <string name="achievement_gold_path_finder_desc">Vind guldmedaljen i Stifinder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Vind guldmedaljen i Afvigelsespuslespil</string>
     <string name="achievement_gold_colored_shapes_desc">Vind guldmedaljen i Farvede former</string>

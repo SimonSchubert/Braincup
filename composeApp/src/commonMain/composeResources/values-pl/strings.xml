@@ -720,6 +720,7 @@
     <string name="fraction_calculation_demo_title">Mnóż ułamki</string>
     <string name="sherlock_calculation_demo_title">Osiągnij docelową liczbę</string>
     <string name="value_comparison_demo_title">Wybierz największą wartość</string>
+    <string name="mental_flex_demo_title">Para wyznacza regułę</string>
     <string name="spot_the_new_demo_title">Znajdź nowy</string>
     <string name="spot_the_new_demo_seen_label">Dotychczas widziane</string>
     <string name="spot_the_new_demo_new">Dotknij zwierzęcia, którego wcześniej nie widziałeś.</string>
@@ -758,12 +759,17 @@
 
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Rotacje w wyobraźni</string>
+    <string name="game_mental_flex">Elastyczność myślenia</string>
     <string name="game_trio_desc">Znajdź trzy karty, które mają wspólny kształt, liczbę albo wypełnienie.</string>
     <string name="game_mental_rotations_desc">Zdecyduj, czy drugi klocek to ten pierwszy obrócony, czy jego lustrzane odbicie.</string>
     <string name="game_mental_rotations_question">Ten sam klocek czy lustrzane odbicie?</string>
     <string name="game_mental_rotations_same">Ten sam</string>
     <string name="game_mental_rotations_mirrored">Odbicie</string>
     <string name="game_trio_howto">Dotknij trzech kart ze wspólną cechą.</string>
+    <string name="game_mental_flex_desc">Dwie figury u góry mają wspólną jedną cechę, kształt albo kolor. Dotknij kafelka, który zgadza się z celem w tej samej cesze. Jeden kafelek zawsze zgadza się w tej drugiej cesze.</string>
+    <string name="game_mental_flex_rule_shape">Kształt</string>
+    <string name="game_mental_flex_rule_color">Kolor</string>
+    <string name="game_mental_flex_howto">Zauważ, co łączy tę parę.</string>
     <string name="trio_demo_title">Znajdź zestaw trzech</string>
     <string name="trio_demo_rule">Łączy je jedna cecha. Reszta nie jest pomieszana.</string>
     <string name="trio_demo_correct">To jest zestaw.</string>
@@ -773,8 +779,10 @@
     <string name="mental_rotations_demo_mirrored">Nigdy się nie pokrywa. Lustrzane odbicie.</string>
     <string name="achievement_gold_trio">Potrójne widzenie</string>
     <string name="achievement_gold_mental_rotations">Mistrz obrotu</string>
+    <string name="achievement_gold_mental_flex">Szybka zmiana</string>
     <string name="achievement_gold_trio_desc">Wygraj złoty medal w Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Zdobądź złoty medal w Rotacjach w wyobraźni</string>
+    <string name="achievement_gold_mental_flex_desc">Zdobądź złoty medal w Elastyczności myślenia</string>
 
     <string name="iq_test_button">Test IQ</string>
     <string name="iq_test_title">Test IQ</string>

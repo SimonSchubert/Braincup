@@ -719,6 +719,7 @@
     <string name="fraction_calculation_demo_title">分数を掛ける</string>
     <string name="sherlock_calculation_demo_title">目標の数字に到達する</string>
     <string name="value_comparison_demo_title">最も大きい値を選ぶ</string>
+    <string name="mental_flex_demo_title">ペアがルールを決める</string>
     <string name="spot_the_new_demo_title">新しいものを見つける</string>
     <string name="spot_the_new_demo_seen_label">これまでに見たもの</string>
     <string name="spot_the_new_demo_new">まだ見ていない動物をタップしてください。</string>
@@ -757,12 +758,17 @@
 
     <string name="game_trio">トリオ</string>
     <string name="game_mental_rotations">メンタルローテーション</string>
+    <string name="game_mental_flex">思考の切り替え</string>
     <string name="game_trio_desc">形・枚数・塗りのどれかを共有する3枚を見つけてください。</string>
     <string name="game_mental_rotations_desc">2つ目の立体が1つ目を回したものか、鏡像かを見分けよう。</string>
     <string name="game_mental_rotations_question">同じ立体？それとも鏡像？</string>
     <string name="game_mental_rotations_same">同じ</string>
     <string name="game_mental_rotations_mirrored">鏡像</string>
     <string name="game_trio_howto">特徴を共有する3枚をタップします。</string>
+    <string name="game_mental_flex_desc">上の2つの図形は、形か色のどちらか1つの特徴を共有しています。その同じ特徴で見本と一致するタイルをタップしてください。1枚のタイルは必ずもう一方の特徴で一致します。</string>
+    <string name="game_mental_flex_rule_shape">形</string>
+    <string name="game_mental_flex_rule_color">色</string>
+    <string name="game_mental_flex_howto">2つに共通するものを見つけよう。</string>
     <string name="trio_demo_title">3枚のセットを見つける</string>
     <string name="trio_demo_rule">ひとつの特徴を共有。ほかは混ざっていません。</string>
     <string name="trio_demo_correct">それがセットです。</string>
@@ -772,8 +778,10 @@
     <string name="mental_rotations_demo_mirrored">どう回しても重ならない。鏡像。</string>
     <string name="achievement_gold_trio">トリプルビジョン</string>
     <string name="achievement_gold_mental_rotations">回転の達人</string>
+    <string name="achievement_gold_mental_flex">早変わり</string>
     <string name="achievement_gold_trio_desc">Trioで金メダルを獲得する</string>
     <string name="achievement_gold_mental_rotations_desc">メンタルローテーションで金メダルを獲得</string>
+    <string name="achievement_gold_mental_flex_desc">思考の切り替えで金メダルを獲得</string>
 
     <string name="iq_test_button">IQテスト</string>
     <string name="iq_test_title">IQテスト</string>

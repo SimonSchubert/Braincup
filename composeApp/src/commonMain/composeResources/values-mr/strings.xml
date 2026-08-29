@@ -217,6 +217,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">त्रिकूट</string>
     <string name="game_mental_rotations">मानसिक परिभ्रमण</string>
+    <string name="game_mental_flex">मानसिक लवचिकता</string>
 
     <string name="game_anomaly_puzzle_desc">वेगळी उठून दिसणारी आकृती शोधा. प्रत्येक आकृतीचा रंग आणि आकार दोन्ही लक्षात घ्या.</string>
     <string name="game_mental_calculation_desc">गणिती पदावल्यांचे अनुसरण करा. निकाल पुढच्या गणनेचा आधार म्हणून वापरा.</string>
@@ -274,6 +275,10 @@
     <string name="game_mental_rotations_same">तोच</string>
     <string name="game_mental_rotations_mirrored">प्रतिबिंब</string>
     <string name="game_trio_howto">एकच गुणधर्म असलेल्या तीन पत्त्यांवर टॅप करा.</string>
+    <string name="game_mental_flex_desc">वरच्या दोन आकृतींचा एक गुणधर्म समान आहे, आकार किंवा रंग. त्याच गुणधर्मात लक्ष्याशी जुळणाऱ्या चौकटीवर टॅप करा. एक चौकट नेहमी दुसऱ्या गुणधर्मात जुळते.</string>
+    <string name="game_mental_flex_rule_shape">आकार</string>
+    <string name="game_mental_flex_rule_color">रंग</string>
+    <string name="game_mental_flex_howto">जोडीत काय समान आहे ते ओळखा.</string>
     <string name="trio_demo_title">तिघांचा संच शोधा</string>
     <string name="trio_demo_rule">त्यांच्यात एक गुणधर्म समान आहे. बाकी काहीही मिसळलेले नाही.</string>
     <string name="trio_demo_correct">हाच एक संच आहे.</string>
@@ -361,6 +366,7 @@
     <string name="fraction_calculation_demo_title">अपूर्णांकांचा गुणाकार करा</string>
     <string name="sherlock_calculation_demo_title">ध्येय संख्येपर्यंत पोहोचा</string>
     <string name="value_comparison_demo_title">सर्वात मोठे मूल्य निवडा</string>
+    <string name="mental_flex_demo_title">जोडी नियम ठरवते</string>
     <string name="pattern_sequence_prompt">कोणता तुकडा मॅट्रिक्स पूर्ण करतो?</string>
     <string name="game_tap_original_targets">मूळ लक्ष्यांवर टॅप करा</string>
     <string name="game_remember_targets">लक्ष्ये लक्षात ठेवा</string>
@@ -421,6 +427,7 @@
     <string name="achievement_gold_bulls_and_cows">सांकेतिक क्रमांक उलगडणारा</string>
     <string name="achievement_gold_trio">तिहेरी नजर</string>
     <string name="achievement_gold_mental_rotations">फिरवण्याचा उस्ताद</string>
+    <string name="achievement_gold_mental_flex">झटपट बदल</string>
     <string name="achievement_gold_path_finder">वाटाड्या</string>
     <string name="achievement_gold_anomaly_puzzle">वेगळे ओळखले</string>
     <string name="achievement_gold_colored_shapes">आकार बदलणारा</string>
@@ -458,6 +465,7 @@
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows मध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_trio_desc">त्रिकूटमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_mental_rotations_desc">मानसिक परिभ्रमणमध्ये सुवर्णपदक जिंका</string>
+    <string name="achievement_gold_mental_flex_desc">मानसिक लवचिकतामध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_path_finder_desc">वाट शोधकमध्ये सुवर्णपदक जिंका</string>
     <string name="achievement_gold_anomaly_puzzle_desc">विसंगती कोड्यात सुवर्णपदक जिंका</string>
     <string name="achievement_gold_colored_shapes_desc">रंगीत आकारांमध्ये सुवर्णपदक जिंका</string>

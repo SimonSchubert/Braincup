@@ -719,6 +719,7 @@
     <string name="fraction_calculation_demo_title">Перемножь дроби</string>
     <string name="sherlock_calculation_demo_title">Достигни нужного числа</string>
     <string name="value_comparison_demo_title">Выбери наибольшее значение</string>
+    <string name="mental_flex_demo_title">Пара задаёт правило</string>
     <string name="spot_the_new_demo_title">Найди новое</string>
     <string name="spot_the_new_demo_seen_label">Уже видел</string>
     <string name="spot_the_new_demo_new">Нажми на животное, которое ты ещё не видел.</string>
@@ -757,12 +758,17 @@
 
     <string name="game_trio">Трио</string>
     <string name="game_mental_rotations">Мысленное вращение</string>
+    <string name="game_mental_flex">Гибкость мышления</string>
     <string name="game_trio_desc">Найдите три карты с общей формой, числом или заливкой.</string>
     <string name="game_mental_rotations_desc">Определи, является ли второй блок повёрнутым первым или его зеркальным отражением.</string>
     <string name="game_mental_rotations_question">Тот же блок или зеркальное отражение?</string>
     <string name="game_mental_rotations_same">Тот же</string>
     <string name="game_mental_rotations_mirrored">Зеркальный</string>
     <string name="game_trio_howto">Нажмите три карты с общим признаком.</string>
+    <string name="game_mental_flex_desc">Две фигуры сверху имеют один общий признак, форму или цвет. Нажмите плитку, которая совпадает с целью по этому же признаку. Одна плитка всегда совпадает по другому признаку.</string>
+    <string name="game_mental_flex_rule_shape">Форма</string>
+    <string name="game_mental_flex_rule_color">Цвет</string>
+    <string name="game_mental_flex_howto">Заметьте, что общего у этой пары.</string>
     <string name="trio_demo_title">Найдите набор из трёх</string>
     <string name="trio_demo_rule">У них общий признак. Остальное не смешано.</string>
     <string name="trio_demo_correct">Это набор.</string>
@@ -772,8 +778,10 @@
     <string name="mental_rotations_demo_mirrored">Никогда не совпадает. Зеркальное отражение.</string>
     <string name="achievement_gold_trio">Тройное зрение</string>
     <string name="achievement_gold_mental_rotations">Мастер вращения</string>
+    <string name="achievement_gold_mental_flex">Быстрая смена</string>
     <string name="achievement_gold_trio_desc">Выиграйте золотую медаль в Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Получи золотую медаль в Мысленном вращении</string>
+    <string name="achievement_gold_mental_flex_desc">Получи золотую медаль в Гибкости мышления</string>
 
     <string name="iq_test_button">Тест IQ</string>
     <string name="iq_test_title">Тест IQ</string>

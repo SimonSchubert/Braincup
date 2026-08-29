@@ -233,6 +233,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mentální rotace</string>
+    <string name="game_mental_flex">Mentální flexibilita</string>
 
     <string name="game_anomaly_puzzle_desc">Najdi figurku, která vyčnívá. Sleduj barvu i tvar každé figurky.</string>
     <string name="game_mental_calculation_desc">Sleduj matematické výrazy. Výsledek použij jako základ dalšího výpočtu.</string>
@@ -290,6 +291,10 @@
     <string name="game_mental_rotations_same">Stejný</string>
     <string name="game_mental_rotations_mirrored">Zrcadlový</string>
     <string name="game_trio_howto">Klepni na tři karty, které sdílejí vlastnost.</string>
+    <string name="game_mental_flex_desc">Dvě figurky nahoře sdílejí jednu vlastnost, tvar nebo barvu. Klepni na dlaždici, která se s cílem shoduje v téže vlastnosti. Jedna dlaždice se vždy shoduje v té druhé vlastnosti.</string>
+    <string name="game_mental_flex_rule_shape">Tvar</string>
+    <string name="game_mental_flex_rule_color">Barva</string>
+    <string name="game_mental_flex_howto">Odhal, co má dvojice společné.</string>
     <string name="trio_demo_title">Najdi trojici</string>
     <string name="trio_demo_rule">Sdílejí vlastnost. Nic jiného se nemíchá.</string>
     <string name="trio_demo_correct">To je trojice.</string>
@@ -379,6 +384,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="fraction_calculation_demo_title">Vynásob zlomky</string>
     <string name="sherlock_calculation_demo_title">Dosáhni cílového čísla</string>
     <string name="value_comparison_demo_title">Vyber největší hodnotu</string>
+    <string name="mental_flex_demo_title">Dvojice určuje pravidlo</string>
     <string name="pattern_sequence_prompt">Který dílek doplní matici?</string>
     <string name="game_tap_original_targets">Klepni na původní cíle</string>
     <string name="game_remember_targets">Zapamatuj si cíle</string>
@@ -439,6 +445,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Luštitel kódů</string>
     <string name="achievement_gold_trio">Trojité vidění</string>
     <string name="achievement_gold_mental_rotations">Mistr otáčení</string>
+    <string name="achievement_gold_mental_flex">Rychlá změna</string>
     <string name="achievement_gold_path_finder">Průkopník</string>
     <string name="achievement_gold_anomaly_puzzle">Výjimka odhalena</string>
     <string name="achievement_gold_colored_shapes">Měňavec</string>
@@ -476,6 +483,7 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="achievement_gold_bulls_and_cows_desc">Získej zlatou medaili v Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Získej zlatou medaili v Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Získej zlatou medaili v Mentální rotaci</string>
+    <string name="achievement_gold_mental_flex_desc">Získej zlatou medaili v Mentální flexibilitě</string>
     <string name="achievement_gold_path_finder_desc">Získej zlatou medaili v Hledač cesty</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Získej zlatou medaili v Hádanka anomálie</string>
     <string name="achievement_gold_colored_shapes_desc">Získej zlatou medaili v Barevné tvary</string>

@@ -720,6 +720,7 @@
     <string name="fraction_calculation_demo_title">Multiplie les fractions</string>
     <string name="sherlock_calculation_demo_title">Atteins le nombre cible</string>
     <string name="value_comparison_demo_title">Choisis la valeur la plus grande</string>
+    <string name="mental_flex_demo_title">La paire fixe la règle</string>
     <string name="spot_the_new_demo_title">Repère le nouveau</string>
     <string name="spot_the_new_demo_seen_label">Vus jusqu'ici</string>
     <string name="spot_the_new_demo_new">Touche l'animal que tu n'as pas encore vu.</string>
@@ -758,12 +759,17 @@
 
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Rotations mentales</string>
+    <string name="game_mental_flex">Flexibilité mentale</string>
     <string name="game_trio_desc">Trouve trois cartes qui partagent une forme, un nombre ou un remplissage.</string>
     <string name="game_mental_rotations_desc">Détermine si le second bloc est le premier pivoté ou son image miroir.</string>
     <string name="game_mental_rotations_question">Même bloc ou image miroir ?</string>
     <string name="game_mental_rotations_same">Identique</string>
     <string name="game_mental_rotations_mirrored">Miroir</string>
     <string name="game_trio_howto">Touche trois cartes qui partagent un trait.</string>
+    <string name="game_mental_flex_desc">Les deux figures du haut partagent un trait, la forme ou la couleur. Touchez la case qui correspond à la cible sur ce même trait. Une case correspond toujours à l'autre trait.</string>
+    <string name="game_mental_flex_rule_shape">Forme</string>
+    <string name="game_mental_flex_rule_color">Couleur</string>
+    <string name="game_mental_flex_howto">Repère ce que la paire a en commun.</string>
     <string name="trio_demo_title">Trouve un ensemble de trois</string>
     <string name="trio_demo_rule">Elles partagent un trait. Rien d'autre n'est mélangé.</string>
     <string name="trio_demo_correct">C'est un ensemble.</string>
@@ -773,8 +779,10 @@
     <string name="mental_rotations_demo_mirrored">Il ne se superpose jamais. Image miroir.</string>
     <string name="achievement_gold_trio">Triple vision</string>
     <string name="achievement_gold_mental_rotations">Maître de la rotation</string>
+    <string name="achievement_gold_mental_flex">Changement rapide</string>
     <string name="achievement_gold_trio_desc">Gagne la médaille d'or à Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Gagne la médaille d'or en Rotations mentales</string>
+    <string name="achievement_gold_mental_flex_desc">Gagne la médaille d'or en Flexibilité mentale</string>
 
     <string name="iq_test_button">Test de QI</string>
     <string name="iq_test_title">Test de QI</string>

@@ -233,6 +233,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Domu rotācijas</string>
+    <string name="game_mental_flex">Domu elastība</string>
 
     <string name="game_anomaly_puzzle_desc">Atrodi figūru, kas izceļas. Skaties gan krāsu, gan formu katrai figūrai.</string>
     <string name="game_mental_calculation_desc">Seko matemātiskajām izteiksmēm. Izmanto rezultātu kā pamatu nākamajam aprēķinam.</string>
@@ -290,6 +291,10 @@
     <string name="game_mental_rotations_same">Tas pats</string>
     <string name="game_mental_rotations_mirrored">Spoguļattēls</string>
     <string name="game_trio_howto">Pieskaries trim kārtīm, kas dala īpašību.</string>
+    <string name="game_mental_flex_desc">Divas figūras augšā dala vienu īpašību, formu vai krāsu. Pieskaries flīzei, kas sakrīt ar mērķi tieši šajā īpašībā. Viena flīze vienmēr sakrīt otrā īpašībā.</string>
+    <string name="game_mental_flex_rule_shape">Forma</string>
+    <string name="game_mental_flex_rule_color">Krāsa</string>
+    <string name="game_mental_flex_howto">Pamani, kas pārim ir kopīgs.</string>
     <string name="trio_demo_title">Atrodi trijnieku</string>
     <string name="trio_demo_rule">Tās dala īpašību. Nekas cits nesajaucas.</string>
     <string name="trio_demo_correct">Tas ir trijnieks.</string>
@@ -379,6 +384,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="fraction_calculation_demo_title">Reizini daļskaitļus</string>
     <string name="sherlock_calculation_demo_title">Sasniedz mērķa skaitli</string>
     <string name="value_comparison_demo_title">Izvēlies vislielāko vērtību</string>
+    <string name="mental_flex_demo_title">Pāris nosaka likumu</string>
     <string name="pattern_sequence_prompt">Kurš gabals papildina matricu?</string>
     <string name="game_tap_original_targets">Pieskaries sākotnējiem mērķiem</string>
     <string name="game_remember_targets">Atceries mērķus</string>
@@ -439,6 +445,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Kodu lauzējs</string>
     <string name="achievement_gold_trio">Trīskāršs redzējums</string>
     <string name="achievement_gold_mental_rotations">Griešanas meistars</string>
+    <string name="achievement_gold_mental_flex">Ātra maiņa</string>
     <string name="achievement_gold_path_finder">Pionieris</string>
     <string name="achievement_gold_anomaly_puzzle">Izņēmums atklāts</string>
     <string name="achievement_gold_colored_shapes">Formu mainītājs</string>
@@ -476,6 +483,7 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="achievement_gold_bulls_and_cows_desc">Iegūsti zelta medaļu Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Iegūsti zelta medaļu Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Iegūsti zelta medaļu Domu rotācijās</string>
+    <string name="achievement_gold_mental_flex_desc">Iegūsti zelta medaļu Domu elastībā</string>
     <string name="achievement_gold_path_finder_desc">Iegūsti zelta medaļu Ceļa meklētājā</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Iegūsti zelta medaļu Anomālijas mīklā</string>
     <string name="achievement_gold_colored_shapes_desc">Iegūsti zelta medaļu Krāsainajās figūrās</string>

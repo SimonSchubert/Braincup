@@ -217,6 +217,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">ತ್ರಿವಳಿ</string>
     <string name="game_mental_rotations">ಮಾನಸಿಕ ತಿರುಗುವಿಕೆ</string>
+    <string name="game_mental_flex">ಮಾನಸಿಕ ನಮ್ಯತೆ</string>
 
     <string name="game_anomaly_puzzle_desc">ಬೇರೆಯಾಗಿ ಕಾಣುವ ಆಕೃತಿಯನ್ನು ಹುಡುಕಿ. ಪ್ರತಿ ಆಕೃತಿಯ ಬಣ್ಣ ಮತ್ತು ಆಕಾರ ಎರಡನ್ನೂ ಗಮನಿಸಿ.</string>
     <string name="game_mental_calculation_desc">ಗಣಿತದ ಪದಪುಂಜಗಳನ್ನು ಅನುಸರಿಸಿ. ಫಲಿತಾಂಶವನ್ನು ಮುಂದಿನ ಗಣನೆಗೆ ಆಧಾರವಾಗಿ ಬಳಸಿ.</string>
@@ -274,6 +275,10 @@
     <string name="game_mental_rotations_same">ಅದೇ</string>
     <string name="game_mental_rotations_mirrored">ಪ್ರತಿಬಿಂಬ</string>
     <string name="game_trio_howto">ಒಂದೇ ಗುಣ ಹೊಂದಿರುವ ಮೂರು ಎಲೆಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
+    <string name="game_mental_flex_desc">ಮೇಲಿನ ಎರಡು ಆಕೃತಿಗಳು ಒಂದೇ ಗುಣವನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ, ಆಕಾರ ಅಥವಾ ಬಣ್ಣ. ಅದೇ ಗುಣದಲ್ಲಿ ಗುರಿಗೆ ಹೊಂದುವ ಚೌಕವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ. ಒಂದು ಚೌಕ ಯಾವಾಗಲೂ ಇನ್ನೊಂದು ಗುಣದಲ್ಲಿ ಹೊಂದುತ್ತದೆ.</string>
+    <string name="game_mental_flex_rule_shape">ಆಕಾರ</string>
+    <string name="game_mental_flex_rule_color">ಬಣ್ಣ</string>
+    <string name="game_mental_flex_howto">ಜೋಡಿಯಲ್ಲಿ ಸಾಮಾನ್ಯವಾದದ್ದನ್ನು ಗುರುತಿಸಿ.</string>
     <string name="trio_demo_title">ಮೂರರ ಗುಂಪನ್ನು ಹುಡುಕಿ</string>
     <string name="trio_demo_rule">ಅವು ಒಂದೇ ಗುಣವನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ. ಬೇರೇನೂ ಬೆರೆತಿಲ್ಲ.</string>
     <string name="trio_demo_correct">ಅದೇ ಒಂದು ಗುಂಪು.</string>
@@ -361,6 +366,7 @@
     <string name="fraction_calculation_demo_title">ಭಿನ್ನರಾಶಿಗಳನ್ನು ಗುಣಿಸಿ</string>
     <string name="sherlock_calculation_demo_title">ಗುರಿ ಸಂಖ್ಯೆಯನ್ನು ತಲುಪಿ</string>
     <string name="value_comparison_demo_title">ಅತಿ ದೊಡ್ಡ ಮೌಲ್ಯವನ್ನು ಆರಿಸಿ</string>
+    <string name="mental_flex_demo_title">ಜೋಡಿ ನಿಯಮವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ</string>
     <string name="pattern_sequence_prompt">ಯಾವ ತುಂಡು ಮ್ಯಾಟ್ರಿಕ್ಸ್ ಪೂರ್ಣಗೊಳಿಸುತ್ತದೆ?</string>
     <string name="game_tap_original_targets">ಮೂಲ ಗುರಿಗಳನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ</string>
     <string name="game_remember_targets">ಗುರಿಗಳನ್ನು ನೆನಪಿಡಿ</string>
@@ -421,6 +427,7 @@
     <string name="achievement_gold_bulls_and_cows">ಸಂಕೇತ ಭೇದಕ</string>
     <string name="achievement_gold_trio">ಮೂರು ಕಣ್ಣಿನ ನೋಟ</string>
     <string name="achievement_gold_mental_rotations">ತಿರುಗಿಸುವ ನಿಪುಣ</string>
+    <string name="achievement_gold_mental_flex">ತ್ವರಿತ ಬದಲಾವಣೆ</string>
     <string name="achievement_gold_path_finder">ದಾರಿ ಮಾಡಿದವ</string>
     <string name="achievement_gold_anomaly_puzzle">ಬೇರೆಯಾದದ್ದು ಸಿಕ್ಕಿತು</string>
     <string name="achievement_gold_colored_shapes">ಆಕಾರ ಬದಲಿಸುವವ</string>
@@ -458,6 +465,7 @@
     <string name="achievement_gold_bulls_and_cows_desc">Bulls &amp; Cows ನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_trio_desc">ತ್ರಿವಳಿಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_mental_rotations_desc">ಮಾನಸಿಕ ತಿರುಗುವಿಕೆಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
+    <string name="achievement_gold_mental_flex_desc">ಮಾನಸಿಕ ನಮ್ಯತೆಯಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_path_finder_desc">ದಾರಿ ಶೋಧಕದಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_anomaly_puzzle_desc">ವ್ಯತ್ಯಾಸ ಒಗಟಿನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="achievement_gold_colored_shapes_desc">ಬಣ್ಣದ ಆಕಾರಗಳಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>

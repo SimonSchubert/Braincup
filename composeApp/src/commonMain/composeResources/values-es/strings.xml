@@ -719,6 +719,7 @@
     <string name="fraction_calculation_demo_title">Multiplica las fracciones</string>
     <string name="sherlock_calculation_demo_title">Alcanza el número objetivo</string>
     <string name="value_comparison_demo_title">Elige el valor más grande</string>
+    <string name="mental_flex_demo_title">La pareja marca la regla</string>
     <string name="spot_the_new_demo_title">Detecta el nuevo</string>
     <string name="spot_the_new_demo_seen_label">Vistos hasta ahora</string>
     <string name="spot_the_new_demo_new">Toca el animal que no has visto antes.</string>
@@ -757,12 +758,17 @@
 
     <string name="game_trio">Trío</string>
     <string name="game_mental_rotations">Rotaciones mentales</string>
+    <string name="game_mental_flex">Flexibilidad mental</string>
     <string name="game_trio_desc">Encuentra tres cartas que compartan forma, cantidad o relleno.</string>
     <string name="game_mental_rotations_desc">Decide si el segundo bloque es el primero girado o su imagen especular.</string>
     <string name="game_mental_rotations_question">¿Mismo bloque o imagen especular?</string>
     <string name="game_mental_rotations_same">El mismo</string>
     <string name="game_mental_rotations_mirrored">Espejo</string>
     <string name="game_trio_howto">Toca tres cartas que compartan un rasgo.</string>
+    <string name="game_mental_flex_desc">Las dos figuras de arriba comparten un rasgo, forma o color. Toca la casilla que coincide con el objetivo en ese mismo rasgo. Una casilla siempre coincide en el otro rasgo.</string>
+    <string name="game_mental_flex_rule_shape">Forma</string>
+    <string name="game_mental_flex_rule_color">Color</string>
+    <string name="game_mental_flex_howto">Descubre qué comparte la pareja.</string>
     <string name="trio_demo_title">Encuentra un conjunto de tres</string>
     <string name="trio_demo_rule">Comparten un rasgo. Nada más está mezclado.</string>
     <string name="trio_demo_correct">Ese es un conjunto.</string>
@@ -772,8 +778,10 @@
     <string name="mental_rotations_demo_mirrored">No encaja nunca. Imagen especular.</string>
     <string name="achievement_gold_trio">Triple visión</string>
     <string name="achievement_gold_mental_rotations">Maestro del giro</string>
+    <string name="achievement_gold_mental_flex">Cambio rápido</string>
     <string name="achievement_gold_trio_desc">Gana la medalla de oro en Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Gana la medalla de oro en Rotaciones mentales</string>
+    <string name="achievement_gold_mental_flex_desc">Gana la medalla de oro en Flexibilidad mental</string>
 
     <string name="iq_test_button">Test de CI</string>
     <string name="iq_test_title">Test de CI</string>

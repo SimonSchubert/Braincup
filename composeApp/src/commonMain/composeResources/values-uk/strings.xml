@@ -720,6 +720,7 @@
     <string name="fraction_calculation_demo_title">Перемнож дроби</string>
     <string name="sherlock_calculation_demo_title">Досягни потрібного числа</string>
     <string name="value_comparison_demo_title">Вибери найбільше значення</string>
+    <string name="mental_flex_demo_title">Пара задає правило</string>
     <string name="spot_the_new_demo_title">Знайди нове</string>
     <string name="spot_the_new_demo_seen_label">Вже бачено</string>
     <string name="spot_the_new_demo_new">Натисни на тварину, яку ти ще не бачив.</string>
@@ -758,12 +759,17 @@
 
     <string name="game_trio">Тріо</string>
     <string name="game_mental_rotations">Уявне обертання</string>
+    <string name="game_mental_flex">Гнучкість мислення</string>
     <string name="game_trio_desc">Знайдіть три карти зі спільною формою, кількістю або заливкою.</string>
     <string name="game_mental_rotations_desc">Визнач, чи другий блок це повернутий перший, чи його дзеркальне відображення.</string>
     <string name="game_mental_rotations_question">Той самий блок чи дзеркальне відображення?</string>
     <string name="game_mental_rotations_same">Той самий</string>
     <string name="game_mental_rotations_mirrored">Дзеркальний</string>
     <string name="game_trio_howto">Торкніться трьох карт зі спільною ознакою.</string>
+    <string name="game_mental_flex_desc">Дві фігури вгорі мають одну спільну ознаку, форму або колір. Натисніть плитку, яка збігається з ціллю за цією самою ознакою. Одна плитка завжди збігається за іншою ознакою.</string>
+    <string name="game_mental_flex_rule_shape">Форма</string>
+    <string name="game_mental_flex_rule_color">Колір</string>
+    <string name="game_mental_flex_howto">Помітьте, що спільного в цієї пари.</string>
     <string name="trio_demo_title">Знайдіть набір із трьох</string>
     <string name="trio_demo_rule">У них спільна ознака. Решта не змішана.</string>
     <string name="trio_demo_correct">Це набір.</string>
@@ -773,8 +779,10 @@
     <string name="mental_rotations_demo_mirrored">Ніколи не збігається. Дзеркальне відображення.</string>
     <string name="achievement_gold_trio">Потрійний зір</string>
     <string name="achievement_gold_mental_rotations">Майстер обертання</string>
+    <string name="achievement_gold_mental_flex">Швидка зміна</string>
     <string name="achievement_gold_trio_desc">Виграйте золоту медаль у Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Здобудь золоту медаль в Уявному обертанні</string>
+    <string name="achievement_gold_mental_flex_desc">Здобудь золоту медаль у Гнучкості мислення</string>
 
     <string name="iq_test_button">Тест IQ</string>
     <string name="iq_test_title">Тест IQ</string>

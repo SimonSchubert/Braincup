@@ -233,6 +233,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mielikuvakierrot</string>
+    <string name="game_mental_flex">Ajattelun joustavuus</string>
 
     <string name="game_anomaly_puzzle_desc">Löydä hahmo, joka erottuu. Katso sekä väriä että muotoa.</string>
     <string name="game_mental_calculation_desc">Seuraa matemaattisia lausekkeita. Käytä tulosta seuraavan laskun pohjana.</string>
@@ -290,6 +291,10 @@
     <string name="game_mental_rotations_same">Sama</string>
     <string name="game_mental_rotations_mirrored">Peilikuva</string>
     <string name="game_trio_howto">Napauta kolmea korttia, jotka jakavat ominaisuuden.</string>
+    <string name="game_mental_flex_desc">Kaksi ylintä hahmoa jakavat yhden ominaisuuden, muodon tai värin. Napauta ruutua, joka vastaa kohdetta juuri siinä ominaisuudessa. Yksi ruutu vastaa aina toista ominaisuutta.</string>
+    <string name="game_mental_flex_rule_shape">Muoto</string>
+    <string name="game_mental_flex_rule_color">Väri</string>
+    <string name="game_mental_flex_howto">Huomaa, mikä parilla on yhteistä.</string>
     <string name="trio_demo_title">Löydä kolmen setti</string>
     <string name="trio_demo_rule">Ne jakavat ominaisuuden. Mikään muu ei sekoitu.</string>
     <string name="trio_demo_correct">Se on setti.</string>
@@ -379,6 +384,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="fraction_calculation_demo_title">Kerro murtoluvut</string>
     <string name="sherlock_calculation_demo_title">Saavuta tavoiteluku</string>
     <string name="value_comparison_demo_title">Valitse suurin arvo</string>
+    <string name="mental_flex_demo_title">Pari määrää säännön</string>
     <string name="pattern_sequence_prompt">Mikä pala täydentää matriisin?</string>
     <string name="game_tap_original_targets">Napauta alkuperäisiä kohteita</string>
     <string name="game_remember_targets">Muista kohteet</string>
@@ -439,6 +445,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Koodinmurtaja</string>
     <string name="achievement_gold_trio">Kolmoinäkö</string>
     <string name="achievement_gold_mental_rotations">Kääntömestari</string>
+    <string name="achievement_gold_mental_flex">Nopea vaihto</string>
     <string name="achievement_gold_path_finder">Polunraivaaja</string>
     <string name="achievement_gold_anomaly_puzzle">Poikkeama löytyi</string>
     <string name="achievement_gold_colored_shapes">Muodonmuuttaja</string>
@@ -476,6 +483,7 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="achievement_gold_bulls_and_cows_desc">Voita kultamitali Bulls &amp; Cows -pelissä</string>
     <string name="achievement_gold_trio_desc">Voita kultamitali Triossa</string>
     <string name="achievement_gold_mental_rotations_desc">Voita kultamitali Mielikuvakierroissa</string>
+    <string name="achievement_gold_mental_flex_desc">Voita kultamitali Ajattelun joustavuudessa</string>
     <string name="achievement_gold_path_finder_desc">Voita kultamitali Polunetsijässä</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Voita kultamitali Poikkeamatehtävässä</string>
     <string name="achievement_gold_colored_shapes_desc">Voita kultamitali Värilliset muodot -pelissä</string>

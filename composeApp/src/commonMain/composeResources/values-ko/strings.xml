@@ -719,6 +719,7 @@
     <string name="fraction_calculation_demo_title">분수 곱하기</string>
     <string name="sherlock_calculation_demo_title">목표 숫자에 도달하기</string>
     <string name="value_comparison_demo_title">가장 큰 값 고르기</string>
+    <string name="mental_flex_demo_title">짝이 규칙을 정합니다</string>
     <string name="spot_the_new_demo_title">새로운 것 찾기</string>
     <string name="spot_the_new_demo_seen_label">지금까지 본 것</string>
     <string name="spot_the_new_demo_new">아직 보지 못한 동물을 탭하세요.</string>
@@ -757,12 +758,17 @@
 
     <string name="game_trio">트리오</string>
     <string name="game_mental_rotations">심적 회전</string>
+    <string name="game_mental_flex">심적 유연성</string>
     <string name="game_trio_desc">모양, 개수, 채우기 중 하나를 공유하는 카드 세 장을 찾으세요.</string>
     <string name="game_mental_rotations_desc">두 번째 블록이 첫 번째를 돌린 것인지, 거울상인지 판단하세요.</string>
     <string name="game_mental_rotations_question">같은 블록일까요, 거울상일까요?</string>
     <string name="game_mental_rotations_same">같음</string>
     <string name="game_mental_rotations_mirrored">거울상</string>
     <string name="game_trio_howto">특징을 공유하는 카드 세 장을 탭하세요.</string>
+    <string name="game_mental_flex_desc">위쪽 두 도형은 모양이나 색상 중 한 가지 특징을 공유합니다. 같은 특징으로 목표와 일치하는 타일을 탭하세요. 한 타일은 항상 다른 특징으로 일치합니다.</string>
+    <string name="game_mental_flex_rule_shape">모양</string>
+    <string name="game_mental_flex_rule_color">색상</string>
+    <string name="game_mental_flex_howto">두 도형의 공통점을 찾으세요.</string>
     <string name="trio_demo_title">세 장의 세트 찾기</string>
     <string name="trio_demo_rule">특징 하나를 공유합니다. 나머지는 섞이지 않습니다.</string>
     <string name="trio_demo_correct">그게 세트입니다.</string>
@@ -772,8 +778,10 @@
     <string name="mental_rotations_demo_mirrored">아무리 돌려도 겹치지 않습니다. 거울상.</string>
     <string name="achievement_gold_trio">트리플 비전</string>
     <string name="achievement_gold_mental_rotations">회전의 달인</string>
+    <string name="achievement_gold_mental_flex">빠른 전환</string>
     <string name="achievement_gold_trio_desc">Trio에서 금메달을 획득하세요</string>
     <string name="achievement_gold_mental_rotations_desc">심적 회전에서 금메달 획득</string>
+    <string name="achievement_gold_mental_flex_desc">심적 유연성에서 금메달 획득</string>
 
     <string name="iq_test_button">IQ 테스트</string>
     <string name="iq_test_title">IQ 테스트</string>

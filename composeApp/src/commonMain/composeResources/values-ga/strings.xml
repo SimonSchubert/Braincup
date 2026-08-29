@@ -233,6 +233,7 @@
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Rothluithe intinne</string>
+    <string name="game_mental_flex">Solúbthacht intinne</string>
 
     <string name="game_anomaly_puzzle_desc">Faigh an figiúr atá difriúil. Féach ar dhath agus ar chruth gach figiúir.</string>
     <string name="game_mental_calculation_desc">Lean slonnanna matamaitice. Úsáid an toradh mar bhonn don chéad áireamh eile.</string>
@@ -290,6 +291,10 @@
     <string name="game_mental_rotations_same">Mar an gcéanna</string>
     <string name="game_mental_rotations_mirrored">Scáthánaithe</string>
     <string name="game_trio_howto">Tapáil trí chárta a roinneann tréith.</string>
+    <string name="game_mental_flex_desc">Roinneann an dá fhigiúr ag barr tréith amháin, cruth nó dath. Tapáil an tíl a mheaitseálann an sprioc sa tréith chéanna. Meaitseálann tíl amháin an tréith eile i gcónaí.</string>
+    <string name="game_mental_flex_rule_shape">Cruth</string>
+    <string name="game_mental_flex_rule_color">Dath</string>
+    <string name="game_mental_flex_howto">Aimsigh cad atá i gcoiteann ag an bpéire.</string>
     <string name="trio_demo_title">Faigh tríréad</string>
     <string name="trio_demo_rule">Roinntear tréith. Ní mheascann aon ní eile.</string>
     <string name="trio_demo_correct">Sin tríréad.</string>
@@ -379,6 +384,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="fraction_calculation_demo_title">Iolraigh na codáin</string>
     <string name="sherlock_calculation_demo_title">Sroich an uimhir sprice</string>
     <string name="value_comparison_demo_title">Roghnaigh an luach is mó</string>
+    <string name="mental_flex_demo_title">Socraíonn an péire an riail</string>
     <string name="pattern_sequence_prompt">Cén píosa a chomhlánaíonn an mhaitrís?</string>
     <string name="game_tap_original_targets">Tapáil na spriceanna bunaidh</string>
     <string name="game_remember_targets">Meabhraigh na spriceanna</string>
@@ -439,6 +445,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_bulls_and_cows">Briseadh cóid</string>
     <string name="achievement_gold_trio">Radharc tríréad</string>
     <string name="achievement_gold_mental_rotations">Máistir an chasta</string>
+    <string name="achievement_gold_mental_flex">Athrú tapa</string>
     <string name="achievement_gold_path_finder">Ceannródaí</string>
     <string name="achievement_gold_anomaly_puzzle">Eisceacht aimsithe</string>
     <string name="achievement_gold_colored_shapes">Athraitheoir crutha</string>
@@ -476,6 +483,7 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="achievement_gold_bulls_and_cows_desc">Bain bonn óir amach i Bulls &amp; Cows</string>
     <string name="achievement_gold_trio_desc">Bain bonn óir amach i Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Bain bonn óir amach i Rothluithe intinne</string>
+    <string name="achievement_gold_mental_flex_desc">Bain bonn óir amach i Solúbthacht intinne</string>
     <string name="achievement_gold_path_finder_desc">Bain bonn óir amach in Aimsitheoir slí</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Bain bonn óir amach i dTomhas aimhrialtachta</string>
     <string name="achievement_gold_colored_shapes_desc">Bain bonn óir amach i gCruthanna daite</string>
