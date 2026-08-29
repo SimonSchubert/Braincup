@@ -5,6 +5,7 @@ import com.inspiredandroid.braincup.chess.PieceType
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
+import com.inspiredandroid.braincup.games.MentalFlexGame
 import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.QuickSumGame
@@ -168,6 +169,21 @@ data class ValueComparisonUiState(
 
 @Immutable
 data class AnomalyPuzzleUiState(
+    val rows: ImmutableList<ImmutableList<FigureCell>>,
+    val columnsPerRow: Int,
+) : GameUiState
+
+/**
+ * Task switching. [rows] is the single row of candidate tiles, carried as rows plus
+ * [columnsPerRow] so `GameController.withFeedbackStates` can colour it like any other figure
+ * board. Deliberately not an [UntimedUiState]: the run is scored over 60 seconds.
+ */
+@Immutable
+data class MentalFlexUiState(
+    val rule: MentalFlexGame.Rule,
+    /** The two figures forming the rule cue; see [MentalFlexGame.cueExemplar]. */
+    val cueExemplar: ImmutableList<Figure>,
+    val target: Figure,
     val rows: ImmutableList<ImmutableList<FigureCell>>,
     val columnsPerRow: Int,
 ) : GameUiState

@@ -98,6 +98,7 @@ end
 # Game Center id and the play_games.xml key follow from the title, as they always have.
 GAME_MEDALS = [
   ["MENTAL_ROTATIONS", "Mental Rotations", "Spin Doctor", "71_logic_mental_rotations"],
+  ["MENTAL_FLEX", "Mental Flex", "Quick Change", "72_perception_mental_flex"],
 ].map do |game_type, game_name, title, icon|
   {
     game_type: game_type,

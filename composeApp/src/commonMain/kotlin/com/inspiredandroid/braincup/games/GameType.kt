@@ -395,6 +395,18 @@ enum class GameType(
         descriptionRes = Res.string.game_mental_rotations_desc,
         category = GameCategory.LOGIC,
     ),
+    MENTAL_FLEX(
+        displayNameRes = Res.string.game_mental_flex,
+        id = "40",
+        // Score = correct answers in 60s. A round is: read the cue pair, work out which trait it
+        // holds constant, then find that match among six tiles. The 1s feedback beat after every
+        // correct answer puts a hard ceiling near 21 rounds on a 60s run, so gold sits just under
+        // it and is meant to need a strong run rather than a first one. Tune after playtest.
+        goldScore = 20,
+        silverScore = 12,
+        descriptionRes = Res.string.game_mental_flex_desc,
+        category = GameCategory.PERCEPTION,
+    ),
     TRIO(
         displayNameRes = Res.string.game_trio,
         id = "38",

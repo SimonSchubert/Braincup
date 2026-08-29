@@ -61,6 +61,7 @@ class UserStorage(
         GOLD_BULLS_AND_COWS(Res.string.achievement_gold_bulls_and_cows, Res.string.achievement_gold_bulls_and_cows_desc),
         GOLD_TRIO(Res.string.achievement_gold_trio, Res.string.achievement_gold_trio_desc),
         GOLD_MENTAL_ROTATIONS(Res.string.achievement_gold_mental_rotations, Res.string.achievement_gold_mental_rotations_desc),
+        GOLD_MENTAL_FLEX(Res.string.achievement_gold_mental_flex, Res.string.achievement_gold_mental_flex_desc),
         GOLD_TOWER_OF_HANOI(Res.string.achievement_gold_tower_of_hanoi, Res.string.achievement_gold_tower_of_hanoi_desc),
         GOLD_PATH_FINDER(Res.string.achievement_gold_path_finder, Res.string.achievement_gold_path_finder_desc),
         GOLD_ANOMALY_PUZZLE(Res.string.achievement_gold_anomaly_puzzle, Res.string.achievement_gold_anomaly_puzzle_desc),

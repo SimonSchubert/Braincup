@@ -1,4 +1,4 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 42 brain training exercises designed to sharpen your mind and improve concentration.
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 44 brain training exercises designed to sharpen your mind and improve concentration.
 
 <b>Mental Calculation</b>:
 Follow the mathematical expressions. Use the result as the base for the next calculation.
@@ -28,7 +28,7 @@ Find the figure that stands out.
 Work out the rule running along each row of the grid, then pick the piece that completes it.
 
 <b>Path Finder</b>:
-Start at the marked position and follow the arrow instructions to find the destination.
+Start at the marked cell and follow the arrows to the destination.
 
 <b>Visual Memory</b>:
 Memorize the shapes on the grid, then identify the hidden shape after the timer ends.
@@ -64,7 +64,7 @@ Turn off every light. Each tap toggles the cell and its four neighbours.
 Slide tiles into the empty space to put them back in order.
 
 <b>Shikaku</b>:
-Divide the whole grid into rectangles. Each rectangle holds exactly one number, equal to its area.
+Divide the grid into rectangles, each holding one number equal to its area.
 
 <b>Nurikabe</b>:
 Paint cells to build the sea around numbered islands without forming any 2x2 block.
@@ -118,13 +118,19 @@ Find the missing operators (+, -, *, /) that make the equation true.
 Guess the secret 4-digit number with unique digits.
 
 <b>Simon Says</b>:
-Each round lights up one new pad. Tap the whole sequence back from the start, earlier pads included.
+Each round adds one pad. Tap the whole sequence back from the start.
 
 <b>Prism Clear</b>:
 Swap matching tiles to clear lines of three or more. Empty the whole board to win.
 
 <b>Trio</b>:
 Find three cards that share a shape, a count or a fill.
+
+<b>Mental Rotations</b>:
+Is the second block the first one turned, or mirrored?
+
+<b>Mental Flex</b>:
+The pair at the top says which trait counts: shape or color.
 
 The game has several <b>achievements</b> and each exercise has <b>medals</b> to keep you motivated.
 

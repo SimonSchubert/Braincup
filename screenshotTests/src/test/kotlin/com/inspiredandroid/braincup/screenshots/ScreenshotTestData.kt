@@ -320,6 +320,13 @@ fun createTrioUiState(): GameUiState = TrioGame(Random(42L)).apply {
     tap(1)
 }.toUiState()
 
+// A fixed seed so the rule cue, the target and the tile order never drift between runs.
+fun createMentalFlexUiState(): GameUiState = MentalFlexGame(Random(3L)).apply {
+    // Past the one step, so the snapshot covers the full six-tile board rather than a starter one.
+    round = 4
+    nextRound()
+}.toUiState()
+
 /** A storage holding one banked run, so the scoreboard has both a high score and a history row. */
 fun scoreboardStorage(): UserStorage = UserStorage(MapSettings()).apply {
     putScore(GameType.MENTAL_ROTATIONS.id, 11)

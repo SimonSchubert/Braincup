@@ -11,9 +11,11 @@ import app.cash.paparazzi.DeviceConfig
 import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.api.UserStorage
+import com.russhwolf.settings.MapSettings
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.GameScreen
+import com.inspiredandroid.braincup.ui.screens.InstructionsScreen
 import com.inspiredandroid.braincup.ui.screens.MainMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.ScoreboardScreen
 import com.inspiredandroid.braincup.ui.screens.SessionCompleteScreen
@@ -690,6 +692,19 @@ class ScreenshotTest {
         }
     }
 
+    @Test
+    fun gameMentalFlex() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createMentalFlexUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
     // The high-score card pins its own face and ink. Material You can resolve `primaryContainer` to
     // a pale grey, and the card's text used to inherit the ambient near-white: white on pale grey.
     // Snapshotting it in both schemes is what keeps that from coming back a third time.
@@ -903,6 +918,34 @@ class ScreenshotTest {
         paparazzi.snap(colorScheme = OledColorScheme) {
             GameScreen(
                 gameUiState = createTrioUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    // The animated tutorials have no other coverage at all, so this pins at least one of them:
+    // a demo that throws on composition (a missing CompositionLocal, a bad resource id) shows up
+    // here rather than the first time someone opens the instructions on a device.
+    @Test
+    fun instructionsMentalFlex() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.MENTAL_FLEX,
+                storage = UserStorage(MapSettings()),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameMentalFlexOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            GameScreen(
+                gameUiState = createMentalFlexUiState(),
                 timeRemaining = 45_000L,
                 onAnswer = {},
                 onGiveUp = {},

@@ -466,6 +466,7 @@ class GameController(
             is BullsAndCowsGame -> handleBullsAndCowsAnswer(currentState, game, answer)
             is TrioGame -> handleTrioAnswer(currentState, game, answer.trim())
             is MentalRotationsGame -> handleMentalRotationsAnswer(currentState, game, answer.trim())
+            is MentalFlexGame -> handleMentalFlexAnswer(currentState, game, answer.trim())
             else -> submitGenericAnswer(currentState, game, answer)
         }
     }
@@ -851,6 +852,7 @@ class GameController(
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
         GameType.BULLS_AND_COWS -> BullsAndCowsGame()
         GameType.TRIO -> TrioGame()
+        GameType.MENTAL_FLEX -> MentalFlexGame()
         // Wordle needs an async-loaded, locale-specific word list, so it is built in startWordleGame.
         GameType.WORDLE -> error("WordleGame is created in startWordleGame")
     }
@@ -957,6 +959,20 @@ class GameController(
             rows = ui.rows.withFeedbackStates(
                 wrongIndex = input.toIntOrNull()?.minus(1),
                 correctIndex = game.resultIndex,
+                columnsPerRow = ui.columnsPerRow,
+            ),
+        )
+    }
+
+    private fun handleMentalFlexAnswer(
+        currentState: GameState.Active,
+        game: MentalFlexGame,
+        input: String,
+    ) = handleAnswerWithBoardFeedback<MentalFlexUiState>(currentState, game, input) { ui ->
+        ui.copy(
+            rows = ui.rows.withFeedbackStates(
+                wrongIndex = input.toIntOrNull()?.minus(1),
+                correctIndex = game.correctIndex,
                 columnsPerRow = ui.columnsPerRow,
             ),
         )

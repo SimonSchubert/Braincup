@@ -691,10 +691,43 @@ private fun GamePreview(gameType: GameType) {
         GameType.BULLS_AND_COWS -> BullsAndCowsPreview()
         GameType.TRIO -> TrioPreview()
         GameType.MENTAL_ROTATIONS -> MentalRotationsPreview()
+        GameType.MENTAL_FLEX -> MentalFlexPreview()
     }
 }
 
 // --- Preview Composables ---
+
+private val MentalFlexPreviewTarget = Figure(Shape.STAR, GameColor.BLUE)
+
+// One match on shape, one on color, one on neither: the choice the rule cue resolves.
+private val MentalFlexPreviewCandidates = listOf(
+    Figure(Shape.STAR, GameColor.RED),
+    Figure(Shape.CIRCLE, GameColor.BLUE),
+    Figure(Shape.HEART, GameColor.GREEN),
+)
+
+@Composable
+private fun MentalFlexPreview() {
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        ShapeCanvas(
+            figure = MentalFlexPreviewTarget,
+            modifier = Modifier.weight(1f).aspectRatio(1f),
+        )
+        Spacer(Modifier.height(6.dp))
+        Row(modifier = Modifier.fillMaxWidth()) {
+            MentalFlexPreviewCandidates.forEach { figure ->
+                ShapeCanvas(
+                    figure = figure,
+                    modifier = Modifier.weight(1f).aspectRatio(1f).padding(3.dp),
+                )
+            }
+        }
+    }
+}
 
 @Composable
 private fun AnomalyPuzzlePreview() {
