@@ -315,8 +315,11 @@ fun LearnSectionHeader(
 
 /** The heading over a run of guide entries, shared by the shape guide and the rules guide. */
 @Composable
-fun GuideSectionHeader(section: GuideSection<*>) {
-    Column(modifier = Modifier.fillMaxWidth().padding(top = 8.dp)) {
+fun GuideSectionHeader(
+    section: GuideSection<*>,
+    modifier: Modifier = Modifier,
+) {
+    Column(modifier = modifier.fillMaxWidth().padding(top = 8.dp)) {
         Text(
             text = stringResource(section.title),
             style = MaterialTheme.typography.titleSmall,
