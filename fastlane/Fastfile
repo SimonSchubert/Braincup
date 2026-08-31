@@ -113,13 +113,14 @@ platform :ios do
     app = Deliver.cache[:app]
     version = app.get_latest_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS)
     # release_notes.txt describes the release being prepared, which /release writes and the deploy
-    # lane reads. Downloading would replace it with the notes of the version already on sale.
-    notes_path = File.join(options[:metadata_path], "en-US", "release_notes.txt")
-    pending_notes = File.exist?(notes_path) ? File.read(notes_path) : nil
+    # lane reads. Downloading would replace it with the notes of the version already on sale, in
+    # every locale, so all of them are saved and restored.
+    pending_notes = Dir.glob(File.join(options[:metadata_path], "*", "release_notes.txt"))
+                       .to_h { |path| [path, File.read(path)] }
 
     Deliver::Setup.new.generate_metadata_files(app, version, options[:metadata_path], options)
 
-    File.write(notes_path, pending_notes) unless pending_notes.nil?
+    pending_notes.each { |path, text| File.write(path, text) }
 
     # The download also writes the App Store review contact (name, email, phone number) and demo
     # credentials. This repository is public, so those are dropped again straight away. deliver
@@ -138,6 +139,10 @@ platform :ios do
       key_filepath: File.expand_path("~/.appstoreconnect/private_keys/AuthKey_#{ENV.fetch('ASC_KEY_ID')}.p8"),
       in_house: false,
     )
+    metadata_path = File.expand_path("metadata/ios", __dir__)
+    release_notes = collect_release_notes(metadata_path)
+    verify_every_store_locale_has_release_notes(release_notes)
+
     build_app(
       project: "iosApp/iosApp.xcodeproj",
       scheme: "iosApp",
@@ -148,20 +153,16 @@ platform :ios do
       clean: true,
       xcargs: "-allowProvisioningUpdates",
     )
-    notes_path = File.expand_path("metadata/ios/en-US/release_notes.txt", __dir__)
-    unless File.exist?(notes_path)
-      UI.user_error!("Release notes file missing: #{notes_path}. Run /release first (it writes this file), or create it manually with the 'What's New' text.")
-    end
-    release_notes = File.read(notes_path).strip
     upload_to_testflight(
-      changelog: release_notes,
+      # TestFlight has a single changelog, so testers get the default language.
+      changelog: release_notes.fetch("en-US"),
       skip_submission: true,
       skip_waiting_for_build_processing: false,
     )
     upload_to_app_store(
-      metadata_path: File.expand_path("metadata/ios", __dir__),
+      metadata_path: metadata_path,
       screenshots_path: File.expand_path("screenshots", __dir__),
-      release_notes: { "en-US" => release_notes },
+      release_notes: release_notes,
       skip_binary_upload: true,
       # A new App Store version inherits the previous one's screenshots, so every release replaces
       # the whole set rather than adding to it.
@@ -179,4 +180,41 @@ platform :ios do
       },
     )
   end
+end
+
+# "What's New" for every App Store language, keyed by locale. Only release_notes.txt is tracked in
+# git under fastlane/metadata/ios - the rest of the listing lives in App Store Connect - so the
+# locale folders present here are exactly the ones with notes.
+def collect_release_notes(metadata_path)
+  notes = Dir.glob(File.join(metadata_path, "*", "release_notes.txt")).sort.to_h do |path|
+    text = File.read(path).strip
+    if text.empty?
+      UI.user_error!("Release notes are empty: #{path}. Run /release (it writes every locale), or fill the file in by hand.")
+    end
+    [File.basename(File.dirname(path)), text]
+  end
+
+  unless notes.key?("en-US")
+    UI.user_error!("Release notes missing: #{File.join(metadata_path, 'en-US', 'release_notes.txt')}. Run /release first (it writes this file), or create it manually with the 'What's New' text.")
+  end
+  notes
+end
+
+# App Store Connect rejects an update whose localizations do not all have "What's New", and a
+# language added in the web UI arrives here with no release_notes.txt at all. Catch that before the
+# archive rather than half an hour later at submission.
+def verify_every_store_locale_has_release_notes(release_notes)
+  app = Spaceship::ConnectAPI::App.find(CredentialsManager::AppfileConfig.try_fetch_value(:app_identifier))
+  version = app&.get_edit_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS) ||
+            app&.get_live_app_store_version(platform: Spaceship::ConnectAPI::Platform::IOS)
+  if version.nil?
+    UI.important("Could not read the App Store localizations; skipping the release notes coverage check.")
+    return
+  end
+
+  missing = version.get_app_store_version_localizations.map(&:locale) - release_notes.keys
+  unless missing.empty?
+    UI.user_error!("App Store Connect has localizations with no release notes: #{missing.join(', ')}. Add fastlane/metadata/ios/<locale>/release_notes.txt for each, then re-run.")
+  end
+  UI.success("Release notes ready for #{release_notes.keys.join(', ')}.")
 end
