@@ -1,9 +1,6 @@
-Neues Spiel: Mentale Rotation
-Neues Spiel: Mentale Flexibilität
-Sprachauswahl direkt in den Einstellungen
-Sieben indische Sprachen ergänzt
-Anleitungen für Geometrie-Formen und Rechenregeln
-Mathe lernen jetzt auf Französisch und Niederländisch
-Bessere Lesbarkeit und Unterstützung großer Schrift in Mathe lernen
-Schnellere Menü- und Spielbildschirme
-Abhängigkeiten aktualisiert
+Hauptmenü in farblich sortierte Bereiche gegliedert
+Neuer Bereich „Lass dir Zeit“ für IQ-Test, Schach, Sudoku und andere ruhige Rätsel
+Fortschritt direkt auf den Kacheln der ruhigen Spiele
+Hinweis auf die kognitive Aufgabe hinter acht Spielen in der Anleitung
+Blitzmenge lässt sich nicht mehr über die Punktgröße statt der Anzahl gewinnen
+Bessere deutsche und französische Übersetzungen

@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.4.0" date="2026-09-01">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.4.0</url>
+      <description>
+        <ul>
+          <li>Group the main menu into colour-coded sections</li>
+          <li>Add a Take Your Time section for the IQ test, Chess, Sudoku and other slow puzzles</li>
+          <li>Show progress right on the untimed game tiles</li>
+          <li>Cite the cognitive task behind eight games in their instructions</li>
+          <li>Fix Flash Crowd being winnable on dot size instead of count</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.3.0" date="2026-08-30">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.3.0</url>
       <description>
@@ -154,18 +166,6 @@
           <li>Add Bubble Sum game</li>
           <li>Add Peg Solitaire game</li>
           <li>Add Quick Sum game</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.28.0" date="2026-07-14">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.28.0</url>
-      <description>
-        <ul>
-          <li>Add Tower of Hanoi game</li>
-          <li>Chess draws by threefold repetition</li>
-          <li>Fix web crash on nested routes</li>
-          <li>Fix chess grid colors</li>
-          <li>Fix French localization display</li>
         </ul>
       </description>
     </release>

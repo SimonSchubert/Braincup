@@ -1,3 +1,18 @@
+## v3.4.0 — 2026-09-01
+
+### Features
+- Group the main menu into sections with sticky, colour-coded headings
+- Add a "Take Your Time" section for the IQ test, Chess, Sudoku, Matchstick Riddles, Peg Solitaire and Flags, with progress shown on the tile
+- Cite the cognitive-psychology task behind eight games on their instructions screen
+
+### Fixes
+- Stop Flash Crowd being winnable on cumulative dot area instead of number
+
+### Improvements
+- Give the untimed and Learn sections their own accents
+- Drop the trailing count from section headings
+- Improve German and French translations, and fill the remaining gaps
+
 ## v3.3.0 — 2026-08-30
 
 ### Features
