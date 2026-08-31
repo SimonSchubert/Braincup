@@ -300,6 +300,8 @@
     <string name="instructions_best_score">Beste Punktzahl: %1$s</string>
     <string name="instructions_leaderboard">Bestenliste anzeigen</string>
     <string name="science_note_based_on">Basiert auf %1$s</string>
+    <string name="science_flash_crowd_paradigm">Nicht-symbolischer Zahlenvergleich</string>
+    <string name="science_flash_crowd_summary">Ein Standardmaß für den ungefähren Zahlensinn: zu schnell zum Zählen entscheiden, welche Gruppe größer ist, wobei das Verhältnis zwischen beiden die Schwierigkeit bestimmt.</string>
     <string name="science_ghost_grid_paradigm">Corsi-Block-Tapping-Test</string>
     <string name="science_ghost_grid_summary">Ein Standardmaß für die visuelle Merkspanne: die längste Folge von Positionen, die du in der richtigen Reihenfolge wiedergeben kannst.</string>
     <string name="science_orbit_tracker_paradigm">Multiple Object Tracking</string>
