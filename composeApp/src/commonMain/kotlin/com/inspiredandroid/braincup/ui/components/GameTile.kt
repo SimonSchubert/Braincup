@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
@@ -38,11 +37,11 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.GameType
-import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioShape
+import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.games.mirror
 import com.inspiredandroid.braincup.games.toProjection
 import com.inspiredandroid.braincup.games.tools.Animal
