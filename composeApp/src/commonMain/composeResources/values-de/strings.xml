@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">Braincup</string>
-    <string name="app_tagline">Trainiere deine Mathematik, dein Gedächtnis und deine Konzentration.</string>
+    <string name="app_tagline">Trainiere Mathe, Gedächtnis und Konzentration.</string>
 
     <string name="button_start">Starten</string>
     <string name="button_back">Zurück</string>
@@ -23,14 +23,14 @@
     <string name="game_goal_label">Ziel</string>
     <string name="game_follow_directions">Folge den Anweisungen:</string>
     <string name="game_highest_value">Welches hat den höchsten Wert?</string>
-    <string name="game_sudoku_instruction">Fülle das Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Ziffer einmal enthält</string>
-    <string name="game_tap_numbers">Tippe auf Zahlen, um einen Ausdruck zu erstellen</string>
+    <string name="game_sudoku_instruction">Fülle das Gitter so, dass jede Zeile, jede Spalte und jeder Block jede Ziffer genau einmal enthält.</string>
+    <string name="game_tap_numbers">Tippe Zahlen an, um einen Ausdruck zu bauen</string>
     <string name="format_seconds">%1$ss</string>
 
     <string name="finish_score">Punktzahl: %1$s</string>
     <string name="finish_difficulty_bonus">Schwierigkeitsbonus: +%1$s</string>
     <string name="finish_level">Level: %1$s</string>
-    <string name="finish_bonus_point">Du hast 1 Extrapunkt für fehlerfreies Spielen erhalten!</string>
+    <string name="finish_bonus_point">Du hast 1 Extrapunkt bekommen, weil du keine Fehler gemacht hast!</string>
     <string name="finish_new_highscore">Neuer Highscore!</string>
     <string name="finish_highscore">Highscore: %1$s</string>
 
@@ -58,13 +58,13 @@
     <string name="game_color_confusion">Farbverwirrung</string>
     <string name="game_orbit_tracker">Orbit-Tracker</string>
     <string name="game_bubble_sum">Blasensumme</string>
-    <string name="game_bubble_sum_desc">Addiere die Zahlen auf den schwebenden Blasen. Später blinken die Zahlen — merke sie dir.</string>
+    <string name="game_bubble_sum_desc">Addiere die Zahlen auf den schwebenden Blasen. Später blinken Zahlen weg - merk sie dir.</string>
     <string name="bubble_sum_instruction">Was ist die Summe?</string>
     <string name="bubble_sum_demo_title">Addiere die schwebenden Zahlen</string>
-    <string name="bubble_sum_demo_blink">Merke dir die Werte, wenn sie verschwinden.</string>
+    <string name="bubble_sum_demo_blink">Merk dir die Werte, wenn sie verschwinden.</string>
     <string name="bubble_sum_demo_correct">Das ist die Summe.</string>
     <string name="achievement_gold_bubble_sum">Blasenbuchhalter</string>
-    <string name="achievement_gold_bubble_sum_desc">Goldmedaille in Blasensumme gewinnen</string>
+    <string name="achievement_gold_bubble_sum_desc">Gewinne die Goldmedaille in Blasensumme</string>
     <string name="game_quick_sum">Blitzsumme</string>
     <string name="game_quick_sum_desc">Zahlen blitzen nacheinander auf. Addiere sie und gib die Summe ein.</string>
     <string name="quick_sum_instruction">Wie lautet die Summe?</string>
@@ -73,7 +73,7 @@
     <string name="quick_sum_demo_flash">Zähle im Kopf mit.</string>
     <string name="quick_sum_demo_total">Gib die Summe ein.</string>
     <string name="achievement_gold_quick_sum">Blitzrechner</string>
-    <string name="achievement_gold_quick_sum_desc">Goldmedaille in Blitzsumme gewinnen</string>
+    <string name="achievement_gold_quick_sum_desc">Gewinne die Goldmedaille in Blitzsumme</string>
     <string name="game_flash_crowd">Blitzmenge</string>
     <string name="game_schulte_table">Schulte-Tabelle</string>
     <string name="game_mini_chess">Mini-Schach</string>
@@ -86,26 +86,26 @@
     <string name="game_knot">Knoten</string>
     <string name="game_solo_chess">Solo-Schach</string>
 
-    <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Beachte sowohl Farbe als auch Form jeder Figur.</string>
-    <string name="game_mental_calculation_desc">Folge den mathematischen Ausdrücken. Verwende das Ergebnis als Grundlage für die nächste Berechnung.</string>
+    <string name="game_anomaly_puzzle_desc">Finde die Figur, die heraussticht. Achte auf Farbe und Form.</string>
+    <string name="game_mental_calculation_desc">Folge den Rechnungen. Nimm das Ergebnis als Start für die nächste.</string>
     <string name="game_colored_shapes_desc">Addiere die Punkte der richtigen Aussagen.</string>
     <string name="game_sherlock_calculation_desc">Finde heraus, wie du das Ziel nur mit den gegebenen Zahlen und diesen Operatoren erreichst: + - * / ( ).</string>
-    <string name="game_chain_calculation_desc">Folge den mathematischen Ausdrücken.</string>
+    <string name="game_chain_calculation_desc">Folge den Rechnungen.</string>
     <string name="game_fraction_calculation_desc">Löse die Brüche.</string>
     <string name="game_value_comparison_desc">Wähle den Ausdruck mit dem höchsten Wert.</string>
-    <string name="game_path_finder_desc">Beginne an der markierten Position und folge den Pfeilen, um das Ziel zu finden.</string>
-    <string name="game_mini_sudoku_desc">Fülle das kleine Gitter so aus, dass jede Zeile, Spalte und jeder Block jede Zahl genau einmal enthält.</string>
-    <string name="game_visual_memory_desc">Merke dir die Formen im Gitter und identifiziere die versteckte Form nach Ablauf des Timers.</string>
-    <string name="game_pattern_sequence_desc">Finde die Regel, die durch jede Zeile des Gitters läuft, und wähle dann das Teil, das sie vervollständigt.</string>
-    <string name="game_ghost_grid_desc">Beobachte, wie die Felder nacheinander aufleuchten, und tippe sie in der gleichen Reihenfolge an.</string>
-    <string name="game_color_confusion_desc">Tippe alle Felder an, bei denen das Wort mit seiner Schriftfarbe übereinstimmt, und drücke dann Fertig.</string>
-    <string name="game_orbit_tracker_desc">Beobachte die markierten Kugeln und verfolge sie während der Bewegung. Wähle die ursprünglichen Ziele nach dem Stillstand aus.</string>
+    <string name="game_path_finder_desc">Start auf dem markierten Feld und folge den Pfeilen zum Ziel.</string>
+    <string name="game_mini_sudoku_desc">Fülle das kleine Gitter so, dass jede Zeile, jede Spalte und jeder Block jede Zahl genau einmal enthält.</string>
+    <string name="game_visual_memory_desc">Merk dir die Formen im Gitter. Wenn die Zeit um ist, tippe auf die versteckte Form.</string>
+    <string name="game_pattern_sequence_desc">Finde die Regel in jeder Zeile und wähle das Teil, das sie vervollständigt.</string>
+    <string name="game_ghost_grid_desc">Schau, wie die Felder nacheinander aufleuchten, und tippe sie in derselben Reihenfolge nach.</string>
+    <string name="game_color_confusion_desc">Tippe alle Felder an, bei denen das Wort zu seiner Farbe passt, und dann auf Fertig.</string>
+    <string name="game_orbit_tracker_desc">Merk dir die markierten Kugeln und verfolge sie, während sie sich bewegen. Wenn sie stehen, tippe die ursprünglichen Ziele an.</string>
     <string name="game_flash_crowd_desc">Punkte blinken kurz auf jeder Seite auf. Tippe auf die Seite mit mehr Punkten. Zähle nicht — vertraue deinem Instinkt!</string>
-    <string name="game_schulte_table_desc">Tippe die Zahlen so schnell wie möglich der Reihe nach von 1 aufwärts an.</string>
+    <string name="game_schulte_table_desc">Tippe die Zahlen so schnell du kannst der Reihe nach an, von 1 aufwärts.</string>
     <string name="game_schulte_instruction">Tippe die Zahlen der Reihe nach: 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Beende das Schachszenario als Weiß. Setze die CPU schachmatt, bevor sie dich mattsetzt.</string>
-    <string name="game_lights_out_desc">Schalte alle Lichter aus. Jeder Tipp schaltet die Zelle und ihre vier Nachbarn um.</string>
-    <string name="game_sliding_puzzle_desc">Schiebe Kacheln in den leeren Raum, um sie in die richtige Reihenfolge zu bringen.</string>
+    <string name="game_lights_out_desc">Schalte alle Lichter aus. Jedes Tippen schaltet das Feld und seine vier Nachbarn um.</string>
+    <string name="game_sliding_puzzle_desc">Schiebe die Kacheln in die Lücke, bis sie in der richtigen Reihenfolge liegen.</string>
     <string name="game_tower_of_hanoi_desc">Verschiebe den ganzen Stapel auf den rechten Stab. Nur eine Scheibe auf einmal und nie eine größere auf eine kleinere.</string>
     <string name="game_shikaku_desc">Teile das gesamte Gitter in Rechtecke. Jedes Rechteck muss genau eine Zahl enthalten, die seiner Fläche entspricht.</string>
     <string name="game_shikaku_howto">Ziehe, um ein Rechteck zu zeichnen. Tippe auf ein Rechteck, um es zu entfernen.</string>
@@ -119,7 +119,7 @@
     <string name="game_solo_chess_howto">Tippe auf eine Figur, dann auf eine, die sie schlagen kann. Der König kann nicht geschlagen werden und muss als letzte Figur übrig bleiben.</string>
     <string name="solo_chess_pieces_left">Verbleibend: %1$d</string>
     <string name="solo_chess_restart">Neustart</string>
-    <string name="solo_chess_stuck">Keine Schläge mehr möglich. Tippe auf Neustart, um dieses Level erneut zu versuchen.</string>
+    <string name="solo_chess_stuck">Keine Schläge mehr. Tippe auf Neustart, um das Level nochmal zu versuchen.</string>
     <string name="cat_queens_error_row">Nur eine Katze pro Zeile</string>
     <string name="cat_queens_error_column">Nur eine Katze pro Spalte</string>
     <string name="cat_queens_error_zone">Nur eine Katze pro Farbzone</string>
@@ -140,7 +140,7 @@
     <string name="mini_chess_draw_warning">= Patt (Unentschieden, kein Sieg)</string>
     <string name="pattern_sequence_prompt">Welches Teil vervollständigt die Matrix?</string>
     <string name="game_tap_original_targets">Tippe die ursprünglichen Ziele an</string>
-    <string name="game_remember_targets">Merke dir die Ziele</string>
+    <string name="game_remember_targets">Merk dir die Ziele</string>
     <string name="game_flash_crowd_which_more">Welche Seite hatte mehr?</string>
     <string name="game_flash_crowd_blue">Blau</string>
     <string name="game_flash_crowd_yellow">Gelb</string>
@@ -187,7 +187,7 @@
     <string name="daily_challenge_subtitle_start_no_streak">Spiele %1$d Spiele, um deine Serie zu starten</string>
     <string name="daily_challenge_subtitle_progress">Läuft · %1$d von %2$d</string>
     <string name="daily_challenge_subtitle_done">Für heute erledigt. Komm morgen wieder!</string>
-    <string name="daily_challenge_streak_label">Tage Serie</string>
+    <string name="daily_challenge_streak_label">Tage in Folge</string>
     <string name="daily_challenge_button_start">Starten</string>
     <string name="daily_challenge_button_resume">Fortsetzen</string>
     <string name="daily_challenge_button_done">Heute abgeschlossen</string>
@@ -196,7 +196,7 @@
     <string name="session_next_up">Als Nächstes</string>
     <string name="session_continue">Weiter</string>
     <string name="session_done">Zurück zum Menü</string>
-    <string name="session_complete_title">Sitzung abgeschlossen</string>
+    <string name="session_complete_title">Durchgang abgeschlossen</string>
     <string name="session_total_score">Gesamt: %1$d</string>
     <string name="session_streak_increased">Tage-Serie: %1$d</string>
     <string name="session_streak_current">Aktuelle Serie: %1$d Tage</string>
@@ -246,7 +246,7 @@
     <string name="achievement_gold_mini_chess_desc">Gewinne die Goldmedaille in Mini-Schach</string>
     <string name="achievement_gold_lights_out_desc">Gewinne die Goldmedaille in Lichter aus</string>
     <string name="achievement_gold_sliding_puzzle_desc">Gewinne die Goldmedaille in Schiebepuzzle</string>
-    <string name="achievement_gold_tower_of_hanoi_desc">Gewinne die Goldmedaille bei Türme von Hanoi</string>
+    <string name="achievement_gold_tower_of_hanoi_desc">Gewinne die Goldmedaille in Türme von Hanoi</string>
     <string name="achievement_gold_shikaku_desc">Gewinne die Goldmedaille in Shikaku</string>
     <string name="achievement_gold_nurikabe_desc">Gewinne die Goldmedaille in Nurikabe</string>
     <string name="achievement_gold_cat_queens_desc">Gewinne die Goldmedaille in Katzen-Damen</string>
@@ -283,7 +283,7 @@
     <string name="achievement_sudoku_expert">Sudoku-Souverän</string>
     <string name="achievement_sudoku_expert_desc">Löse alle 10 Rätsel der Stufe Experte</string>
     <string name="game_flags">Flaggen</string>
-    <string name="game_flags_desc">Erkenne das Land an seiner Flagge. Jede Runde bringt mehr Optionen und die Uhr tickt.</string>
+    <string name="game_flags_desc">Erkenne das Land an der Flagge. Jede Runde gibt es mehr Auswahl, und die Zeit läuft.</string>
     <string name="game_flags_score">Punkte: %1$d</string>
     <string name="game_flags_best">Beste: %1$d</string>
     <string name="game_digit_memory">Zifferngedächtnis</string>
@@ -299,10 +299,25 @@
     <string name="achievement_gold_spot_the_new_desc">Gewinne die Goldmedaille in Finde das Neue</string>
     <string name="instructions_best_score">Beste Punktzahl: %1$s</string>
     <string name="instructions_leaderboard">Bestenliste anzeigen</string>
+    <string name="science_note_based_on">Basiert auf %1$s</string>
+    <string name="science_ghost_grid_paradigm">Corsi-Block-Tapping-Test</string>
+    <string name="science_ghost_grid_summary">Ein Standardmaß für die visuelle Merkspanne: die längste Folge von Positionen, die du in der richtigen Reihenfolge wiedergeben kannst.</string>
+    <string name="science_orbit_tracker_paradigm">Multiple Object Tracking</string>
+    <string name="science_orbit_tracker_summary">Ein Standardmaß für anhaltend geteilte Aufmerksamkeit: wie viele bewegte Ziele du zwischen gleichen Ablenkern im Blick behältst.</string>
+    <string name="science_mental_rotations_paradigm">Mentale Rotation</string>
+    <string name="science_mental_rotations_summary">Ein Standardmaß für räumliches Vorstellungsvermögen: ob zwei Figuren derselbe Körper nur gedreht sind oder Spiegelbilder, die keine Drehung zur Deckung bringen.</string>
+    <string name="science_digit_memory_paradigm">Brown-Peterson-Paradigma</string>
+    <string name="science_digit_memory_summary">Ein Standardmaß für das Arbeitsgedächtnis: eine Folge halten, während eine andere Aufgabe denselben mentalen Platz belegt.</string>
+    <string name="science_pattern_sequence_paradigm">Matrizenaufgaben</string>
+    <string name="science_pattern_sequence_summary">Das Aufgabenformat hinter Ravens Progressiven Matrizen, dem am weitesten verbreiteten Test für abstraktes Schlussfolgern.</string>
+    <string name="science_mental_flex_paradigm">Aufgabenwechsel-Paradigma</string>
+    <string name="science_mental_flex_summary">Ein Standardmaß für kognitive Flexibilität: was es kostet, die alte Regel fallen zu lassen und eine neue anzuwenden.</string>
+    <string name="science_tower_of_hanoi_paradigm">Turm von Hanoi</string>
+    <string name="science_tower_of_hanoi_summary">Ein Standardmaß für Planung: das Puzzle braucht Züge, die den Fortschritt erst einmal rückgängig machen, bevor das Ziel erreichbar ist.</string>
     <string name="brain_cup_button">Brain Cup Bestenliste</string>
     <string name="sponsors_title">Sponsoren</string>
     <string name="sponsors_subtitle">Unterstütze kostenlose Bildung für alle</string>
-<string name="sponsors_become">Sponsor werden</string>
+    <string name="sponsors_become">Sponsor werden</string>
     <string name="country_afghanistan">Afghanistan</string>
     <string name="country_aland_islands">Ålandinseln</string>
     <string name="country_albania">Albanien</string>
@@ -540,8 +555,8 @@
     <string name="settings_open">Einstellungen öffnen</string>
     <string name="settings_sound">Ton</string>
     <string name="settings_sound_desc">Musik und Soundeffekte abspielen.</string>
-    <string name="settings_colorblind">Farbenblind-freundliche Farben</string>
-    <string name="settings_colorblind_desc">Verwendet eine Palette, die für die häufigsten Formen der Farbenblindheit unterscheidbar bleibt.</string>
+    <string name="settings_colorblind">Farbenblindenfreundliche Farben</string>
+    <string name="settings_colorblind_desc">Eine Palette, die bei den häufigsten Formen von Farbenblindheit unterscheidbar bleibt.</string>
     <string name="settings_haptic">Haptisches Feedback</string>
     <string name="settings_haptic_desc">Vibriert kurz bei richtigen Antworten.</string>
     <string name="settings_keypad">Telefon-Ziffernblock</string>
@@ -573,7 +588,7 @@
     <string name="accounts_edit_title">Konto bearbeiten</string>
     <string name="accounts_delete">Löschen</string>
     <string name="accounts_delete_title">Konto löschen</string>
-    <string name="accounts_delete_confirm">%1$s löschen? Punkte und Erfolge dieses Kontos bleiben auf dem Gerät und gehen verloren.</string>
+    <string name="accounts_delete_confirm">%1$s löschen? Punkte und Erfolge dieses Kontos liegen nur auf diesem Gerät und sind danach weg.</string>
     <string name="accounts_save">Speichern</string>
     <string name="accounts_name_label">Name</string>
     <string name="accounts_play_desc">In Play Games gespeichert</string>
@@ -625,9 +640,9 @@
 
     <string name="matchstick_riddles_button">Streichholz-Rätsel (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Streichholz-Rätsel</string>
-    <string name="matchstick_riddle_prompt_move_one">Verschiebe 1 Streichholz, um die Gleichung zu korrigieren.</string>
-    <string name="matchstick_riddle_prompt_move_two">Verschiebe 2 Streichhölzer, um die Gleichung zu korrigieren.</string>
-    <string name="matchstick_riddle_prompt_move_three">Verschiebe 3 Streichhölzer, um die Gleichung zu korrigieren.</string>
+    <string name="matchstick_riddle_prompt_move_one">Verschiebe 1 Streichholz, damit die Gleichung stimmt.</string>
+    <string name="matchstick_riddle_prompt_move_two">Verschiebe 2 Streichhölzer, damit die Gleichung stimmt.</string>
+    <string name="matchstick_riddle_prompt_move_three">Verschiebe 3 Streichhölzer, damit die Gleichung stimmt.</string>
     <string name="matchstick_riddles_solved">Gelöst!</string>
     <string name="matchstick_riddles_reset">Zurücksetzen</string>
     <string name="achievement_matchstick_master">Streichholz-Meister</string>
@@ -647,7 +662,7 @@
     <string name="game_wordle">Wordle</string>
     <string name="game_wordle_desc">Errate das versteckte Fünf-Buchstaben-Wort in sechs Versuchen. Die Lösung ist immer ein Substantiv.</string>
     <string name="achievement_gold_wordle">Wortkünstler</string>
-    <string name="achievement_gold_wordle_desc">Gewinne eine Goldmedaille in Wordle</string>
+    <string name="achievement_gold_wordle_desc">Gewinne die Goldmedaille in Wordle</string>
     <string name="wordle_not_enough_letters">Nicht genug Buchstaben</string>
     <string name="wordle_not_in_word_list">Nicht in der Wortliste</string>
     <string name="wordle_answer_was">Das Wort war %1$s</string>
@@ -656,19 +671,19 @@
     <string name="wordle_legend_present">Richtiger Buchstabe, falsche Stelle</string>
     <string name="wordle_legend_absent">Nicht im Wort</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Sieh dir die Formen an, dann tippe auf die an der gefragten Position.</string>
+    <string name="game_n_back_desc">Schau, wie die Formen aufblitzen, und tippe dann auf die an der gefragten Position.</string>
     <string name="n_back_prompt">Welche Form war an Position %1$d?</string>
-    <string name="n_back_demo_stream">Sieh dir die Formen an, wie sie aufblitzen.</string>
+    <string name="n_back_demo_stream">Schau, wie die Formen aufblitzen.</string>
     <string name="n_back_demo_recall">Tippe auf die Form an Position 1.</string>
     <string name="achievement_gold_n_back">Rollendes Gedächtnis</string>
-    <string name="achievement_gold_n_back_desc">Gewinne eine Goldmedaille in N-Back</string>
+    <string name="achievement_gold_n_back_desc">Gewinne die Goldmedaille in N-Back</string>
     <string name="game_simon_says">Simon sagt</string>
-    <string name="game_simon_says_desc">Jede Runde leuchtet ein neues Feld auf. Tippe die ganze Sequenz von vorne ein, samt der Felder aus den Runden davor.</string>
-    <string name="simon_says_demo_title">Beobachten, dann wiederholen</string>
+    <string name="game_simon_says_desc">Jede Runde leuchtet ein neues Feld auf. Tippe die ganze Folge von vorne nach, inklusive der Felder aus den Runden davor.</string>
+    <string name="simon_says_demo_title">Schauen, dann nachtippen</string>
     <string name="simon_says_demo_watch">Jede Runde leuchtet nur das neue Feld auf.</string>
-    <string name="simon_says_demo_repeat">Tippe jetzt die ganze Sequenz ein, vom allerersten Feld an.</string>
+    <string name="simon_says_demo_repeat">Tippe jetzt die ganze Folge nach, vom allerersten Feld an.</string>
     <string name="achievement_gold_simon_says">Musterhüter</string>
-    <string name="achievement_gold_simon_says_desc">Gewinne eine Goldmedaille in Simon Says</string>
+    <string name="achievement_gold_simon_says_desc">Gewinne die Goldmedaille in Simon sagt</string>
 
     <string name="mini_chess_moves_title">So ziehen die Figuren</string>
     <string name="chess_piece_king">König</string>
@@ -683,22 +698,22 @@
     <string name="chess_move_bishop">Zieht beliebig viele Felder diagonal.</string>
     <string name="chess_move_knight">Springt in einem L: zwei Felder geradeaus, dann eins zur Seite.</string>
     <string name="chess_move_pawn">Zieht vorwärts, schlägt diagonal und wird am Ende zur Dame.</string>
-    <string name="ghost_grid_demo_title">Beobachten, dann wiederholen</string>
-    <string name="ghost_grid_demo_watch">Beobachte die Reihenfolge, in der die Felder aufleuchten.</string>
-    <string name="ghost_grid_demo_repeat">Tippe sie jetzt in der gleichen Reihenfolge an.</string>
+    <string name="ghost_grid_demo_title">Schauen, dann nachtippen</string>
+    <string name="ghost_grid_demo_watch">Schau, in welcher Reihenfolge die Felder aufleuchten.</string>
+    <string name="ghost_grid_demo_repeat">Tippe sie jetzt in derselben Reihenfolge nach.</string>
     <string name="path_finder_demo_title">Folge den Pfeilen</string>
     <string name="path_finder_demo_caption">Starte auf dem orangen Feld und folge den Pfeilen zum Ziel.</string>
     <string name="schulte_demo_title">Tippe sie der Reihe nach an</string>
     <string name="lights_out_demo_title">Alle ausschalten</string>
-    <string name="orbit_tracker_demo_title">Verfolge die bewegten Ziele</string>
+    <string name="orbit_tracker_demo_title">Verfolge die Ziele</string>
     <string name="orbit_tracker_demo_watch">Behalte sie im Blick, während sie sich bewegen.</string>
     <string name="orbit_tracker_demo_correct">Du hast alle Ziele gefunden.</string>
     <string name="flash_crowd_demo_title">Erkenne die größere Menge</string>
     <string name="flash_crowd_demo_glance">Auf jeder Seite blinken Punkte auf.</string>
     <string name="flash_crowd_demo_answer">Gelb hatte mehr.</string>
     <string name="anomaly_demo_title">Finde das Besondere</string>
-    <string name="anomaly_demo_color">Diese teilen eine Form. Tippe auf die mit einer anderen Farbe.</string>
-    <string name="anomaly_demo_shape">Diese teilen eine Farbe. Tippe auf die mit einer anderen Form.</string>
+    <string name="anomaly_demo_color">Die haben dieselbe Form. Tippe auf die mit einer anderen Farbe.</string>
+    <string name="anomaly_demo_shape">Die haben dieselbe Farbe. Tippe auf die mit einer anderen Form.</string>
     <string name="anomaly_demo_correct">Richtig. Das ist die Anomalie.</string>
     <string name="sliding_puzzle_demo_title">Schiebe sie in die richtige Reihenfolge</string>
     <string name="tower_of_hanoi_invalid_move">Größere Scheiben dürfen nicht auf kleinere</string>
@@ -709,7 +724,7 @@
     <string name="mini_sudoku_demo_box">Dieser Block enthält ebenfalls 1 bis 4.</string>
     <string name="colored_shapes_demo_title">Addiere die richtigen Aussagen</string>
     <string name="wordle_demo_title">Errate das versteckte Wort</string>
-    <string name="visual_memory_demo_title">Merke dir, was wohin gehört</string>
+    <string name="visual_memory_demo_title">Merk dir, was wohin gehört</string>
     <string name="digit_memory_demo_title">Einprägen, ablenken lassen, erinnern</string>
     <string name="pattern_sequence_demo_rule">Jede Zeile nutzt dieselben drei Formen in verschobener Reihenfolge.</string>
     <string name="color_confusion_demo_title">Tippe auf die passenden Wörter</string>
@@ -720,7 +735,7 @@
     <string name="fraction_calculation_demo_title">Brüche multiplizieren</string>
     <string name="sherlock_calculation_demo_title">Erreiche die Zielzahl</string>
     <string name="value_comparison_demo_title">Wähle den größten Wert</string>
-    <string name="mental_flex_demo_title">Das Paar setzt die Regel</string>
+    <string name="mental_flex_demo_title">Das Paar bestimmt die Regel</string>
     <string name="spot_the_new_demo_title">Finde das Neue</string>
     <string name="spot_the_new_demo_seen_label">Bisher gesehen</string>
     <string name="spot_the_new_demo_new">Tippe auf das Tier, das du noch nicht gesehen hast.</string>
@@ -731,14 +746,14 @@
     <string name="prism_clear_restart">Neustart</string>
     <string name="prism_clear_stuck">Keine Züge mehr. Mache einen Zug rückgängig oder starte das Level neu.</string>
     <string name="achievement_gold_prism_clear">Kristallklare Sicht</string>
-    <string name="achievement_gold_prism_clear_desc">Gewinne die Goldmedaille in Prism Clear</string>
+    <string name="achievement_gold_prism_clear_desc">Gewinne die Goldmedaille in Prisma räumen</string>
     <string name="prism_clear_undo">Rückgängig</string>
     <string name="game_missing_operators">Fehlende Operatoren</string>
-    <string name="game_missing_operators_desc">Finde die fehlenden Operatoren (+, -, *, /), die die Gleichung wahr machen.</string>
+    <string name="game_missing_operators_desc">Finde die fehlenden Operatoren (+, -, *, /), mit denen die Gleichung stimmt.</string>
     <string name="missing_operators_demo_title">Finde die fehlenden Operatoren</string>
-    <string name="missing_operators_demo_desc">Wähle die Operatoren, die die Gleichung wahr machen. Operatoren werden mit der üblichen mathematischen Rangfolge ausgewertet.</string>
+    <string name="missing_operators_demo_desc">Wähle die Operatoren, mit denen die Gleichung stimmt. Punktrechnung vor Strichrechnung.</string>
     <string name="achievement_gold_missing_operators">Operatoren-Meister</string>
-    <string name="achievement_gold_missing_operators_desc">Gewinne die Goldmedaille in Missing Operators</string>
+    <string name="achievement_gold_missing_operators_desc">Gewinne die Goldmedaille in Fehlende Operatoren</string>
 
     <string name="game_bulls_and_cows">Bulls &amp; Cows</string>
     <string name="game_bulls_and_cows_desc">Errate die geheime 4-stellige Zahl mit eindeutigen Ziffern. Bulls = richtige Ziffer an der richtigen Stelle. Cows = richtige Ziffer an der falschen Stelle.</string>
@@ -760,18 +775,18 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mentale Rotation</string>
     <string name="game_mental_flex">Mentale Flexibilität</string>
-    <string name="game_trio_desc">Finde drei Karten, die sich eine Form, eine Anzahl oder eine Füllung teilen.</string>
-    <string name="game_mental_rotations_desc">Entscheide, ob der zweite Block der erste gedreht ist oder sein Spiegelbild.</string>
+    <string name="game_trio_desc">Finde drei Karten, die Form, Anzahl oder Füllung gemeinsam haben.</string>
+    <string name="game_mental_rotations_desc">Ist der zweite Block derselbe, nur gedreht, oder ein Spiegelbild?</string>
     <string name="game_mental_rotations_question">Gleicher Block oder Spiegelbild?</string>
     <string name="game_mental_rotations_same">Gleich</string>
     <string name="game_mental_rotations_mirrored">Gespiegelt</string>
     <string name="game_trio_howto">Tippe drei Karten an, die ein Merkmal teilen.</string>
-    <string name="game_mental_flex_desc">Die zwei Figuren oben teilen ein Merkmal, Form oder Farbe. Tippe das Feld an, das dem Ziel in genau diesem Merkmal gleicht. Ein Feld passt immer zum anderen Merkmal.</string>
+    <string name="game_mental_flex_desc">Die zwei Figuren oben haben ein Merkmal gemeinsam: Form oder Farbe. Tippe das Feld an, das dem Ziel in genau diesem Merkmal gleicht. Ein Feld passt immer zum anderen Merkmal.</string>
     <string name="game_mental_flex_rule_shape">Form</string>
     <string name="game_mental_flex_rule_color">Farbe</string>
     <string name="game_mental_flex_howto">Erkenne, was das Paar gemeinsam hat.</string>
     <string name="trio_demo_title">Finde ein Set aus drei</string>
-    <string name="trio_demo_rule">Sie teilen ein Merkmal. Sonst nichts Gemischtes.</string>
+    <string name="trio_demo_rule">Sie haben ein Merkmal gemeinsam. Sonst nichts Gemischtes.</string>
     <string name="trio_demo_correct">Das ist ein Set.</string>
     <string name="mental_rotations_demo_title">Dreh ihn im Kopf</string>
     <string name="mental_rotations_demo_turn">Drehe den rechten Block auf den linken.</string>
@@ -786,7 +801,7 @@
 
     <string name="iq_test_button">IQ-Test</string>
     <string name="iq_test_title">IQ-Test</string>
-    <string name="iq_test_intro_headline">Test zum Matrizen-Denken</string>
+    <string name="iq_test_intro_headline">Matrizentest</string>
     <string name="iq_test_intro_body">%1$d Aufgaben, %2$d Minuten. Jede Aufgabe ist ein 3x3-Raster, in dem ein Feld fehlt. Finde die Regel entlang der Zeilen und wähle das Feld, das in die leere Ecke gehört. Die Aufgaben werden nach und nach schwerer.</string>
     <string name="iq_test_intro_pacing">Für einzelne Aufgaben gibt es kein Zeitlimit. Du kannst zurückgehen, überspringen und deine Antworten ändern, bis die Zeit abläuft.</string>
     <string name="iq_test_disclaimer">Das ist eine Schätzung auf Basis einer einzigen Art von Denkaufgabe, gedacht zum Spaß. Es ist keine klinische oder diagnostische Beurteilung, und kein Ergebnis hier sagt etwas über deinen Wert oder deine Fähigkeiten aus.</string>
@@ -819,12 +834,12 @@
     <string name="iq_test_review_skipped">Diese hast du übersprungen</string>
     <string name="iq_test_done">Zurück zum Menü</string>
     <string name="iq_band_below_average">Unterdurchschnittlich</string>
-    <string name="iq_band_low_average">Untere Mitte</string>
+    <string name="iq_band_low_average">Unterer Durchschnitt</string>
     <string name="iq_band_average">Durchschnittlich</string>
-    <string name="iq_band_high_average">Obere Mitte</string>
+    <string name="iq_band_high_average">Oberer Durchschnitt</string>
     <string name="iq_band_superior">Überdurchschnittlich</string>
     <string name="iq_band_very_superior">Weit überdurchschnittlich</string>
-    <string name="achievement_iq_test_completed">Vermessener Verstand</string>
+    <string name="achievement_iq_test_completed">Gemessener Verstand</string>
     <string name="achievement_iq_test_completed_desc">Schließe einen kompletten IQ-Test ab</string>
     <string name="achievement_iq_test_high">Muster-Genie</string>
     <string name="achievement_iq_test_high_desc">Erreiche einen geschätzten IQ von 130 oder mehr</string>
@@ -836,14 +851,14 @@
     <string name="menu_iq_untaken">Noch nicht gemacht</string>
     <string name="menu_not_played">Noch nicht gespielt</string>
     <string name="menu_chess_caption">Gegen CPU</string>
-    <string name="menu_peg_caption">Lass einen Stein übrig</string>
+    <string name="menu_peg_caption">Lass einen Stift übrig</string>
     <string name="category_memory">Gedächtnis</string>
     <string name="category_logic">Logik</string>
     <string name="category_perception">Wahrnehmung</string>
     <string name="category_math">Mathe</string>
     <!-- Learn section -->
     <string name="learn_section_title">Mathe lernen</string>
-    <string name="learn_section_subtitle">Noch in der Beta. Neue Themen und Verbesserungen sind unterwegs.</string>
+    <string name="learn_section_subtitle">Noch in der Beta. Neue Themen und Verbesserungen kommen bald.</string>
     <string name="learn_section_certificates">%1$d / %2$d Zertifikate</string>
     <string name="learn_title">Mathe lernen</string>
     <string name="learn_unit_progress">%1$d / %2$d Zertifikate</string>

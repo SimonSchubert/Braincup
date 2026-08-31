@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
     <string name="app_name">Braincup</string>
-    <string name="app_tagline">Entraînez vos compétences en mathématiques, votre mémoire et votre concentration.</string>
+    <string name="app_tagline">Entraîne tes maths, ta mémoire et ta concentration.</string>
 
     <string name="button_start">Commencer</string>
     <string name="button_back">Retour</string>
     <string name="button_play_again">Rejouer</string>
     <string name="button_play_next_level">Niveau suivant</string>
-    <string name="finish_max_level_reached">Niveau maximum atteint. Attendez du nouveau contenu.</string>
+    <string name="finish_max_level_reached">Niveau maximum atteint. Attends du nouveau contenu.</string>
     <string name="button_play_random">Jeu aléatoire</string>
     <string name="button_give_up">Abandonner</string>
     <string name="button_stay">Rester</string>
@@ -21,16 +21,16 @@
     <string name="quit_game_title">Quitter la partie ?</string>
     <string name="quit_game_message">Ta progression dans cette partie ne sera pas enregistrée.</string>
     <string name="game_goal_label">Objectif</string>
-    <string name="game_follow_directions">Suivez les instructions :</string>
+    <string name="game_follow_directions">Suis les instructions :</string>
     <string name="game_highest_value">Lequel a la valeur la plus élevée ?</string>
     <string name="game_sudoku_instruction">Remplis la grille pour que chaque ligne, colonne et bloc contienne chaque chiffre une fois</string>
-    <string name="game_tap_numbers">Appuyez sur les nombres pour construire une expression</string>
+    <string name="game_tap_numbers">Appuie sur les nombres pour construire une expression</string>
     <string name="format_seconds">%1$ss</string>
 
     <string name="finish_score">Score : %1$s</string>
     <string name="finish_difficulty_bonus">Bonus de difficulté : +%1$s</string>
     <string name="finish_level">Niveau : %1$s</string>
-    <string name="finish_bonus_point">Vous avez gagné 1 point bonus pour n'avoir fait aucune erreur !</string>
+    <string name="finish_bonus_point">Tu as gagné 1 point bonus pour n'avoir fait aucune erreur !</string>
     <string name="finish_new_highscore">Nouveau meilleur score !</string>
     <string name="finish_highscore">Meilleur score : %1$s</string>
 
@@ -86,31 +86,31 @@
     <string name="game_knot">Nœud</string>
     <string name="game_solo_chess">Échecs solo</string>
 
-    <string name="game_anomaly_puzzle_desc">Trouvez la figure qui se démarque. Considérez à la fois la couleur et la forme de chaque figure.</string>
-    <string name="game_mental_calculation_desc">Suivez les expressions mathématiques. Utilisez le résultat comme base pour le calcul suivant.</string>
-    <string name="game_colored_shapes_desc">Additionnez les points des affirmations correctes.</string>
-    <string name="game_sherlock_calculation_desc">Trouvez comment atteindre l'objectif en utilisant uniquement les nombres donnés et ces opérateurs : + - * / ( ).</string>
-    <string name="game_chain_calculation_desc">Suivez les expressions mathématiques.</string>
-    <string name="game_fraction_calculation_desc">Résolvez les fractions.</string>
-    <string name="game_value_comparison_desc">Sélectionnez l'expression ayant la valeur la plus élevée.</string>
-    <string name="game_path_finder_desc">Commencez à la position marquée et suivez les flèches pour trouver la destination.</string>
+    <string name="game_anomaly_puzzle_desc">Trouve la figure qui se démarque. Regarde la couleur et la forme de chaque figure.</string>
+    <string name="game_mental_calculation_desc">Suis les calculs. Prends le résultat comme départ pour le suivant.</string>
+    <string name="game_colored_shapes_desc">Additionne les points des affirmations correctes.</string>
+    <string name="game_sherlock_calculation_desc">Trouve comment atteindre l'objectif avec seulement les nombres donnés et ces opérateurs : + - * / ( ).</string>
+    <string name="game_chain_calculation_desc">Suis les calculs.</string>
+    <string name="game_fraction_calculation_desc">Résous les fractions.</string>
+    <string name="game_value_comparison_desc">Choisis l'expression qui a la plus grande valeur.</string>
+    <string name="game_path_finder_desc">Pars de la case marquée et suis les flèches jusqu'à l'arrivée.</string>
     <string name="game_mini_sudoku_desc">Remplis la petite grille pour que chaque ligne, colonne et bloc contienne chaque chiffre exactement une fois.</string>
-    <string name="game_visual_memory_desc">Mémorisez les formes sur la grille, puis identifiez la forme cachée après la fin du chronomètre.</string>
-    <string name="game_pattern_sequence_desc">Trouvez la règle qui parcourt chaque ligne de la grille, puis choisissez la pièce qui la complète.</string>
-    <string name="game_ghost_grid_desc">Regardez les cases s'allumer une par une, puis touchez-les dans le même ordre.</string>
-    <string name="game_color_confusion_desc">Touchez toutes les cellules où le mot correspond à la couleur de la police, puis appuyez sur Terminé.</string>
-    <string name="game_orbit_tracker_desc">Observez les balles en surbrillance, puis suivez-les pendant leur déplacement. Sélectionnez les cibles originales après l'arrêt.</string>
-    <string name="game_flash_crowd_desc">Des points clignotent brièvement de chaque côté. Touchez le côté qui avait plus de points. Ne comptez pas — fiez-vous à votre instinct !</string>
+    <string name="game_visual_memory_desc">Mémorise les formes sur la grille, puis repère la forme cachée une fois le chrono terminé.</string>
+    <string name="game_pattern_sequence_desc">Trouve la règle de chaque ligne, puis choisis la pièce qui la complète.</string>
+    <string name="game_ghost_grid_desc">Regarde les cases s'allumer une par une, puis touche-les dans le même ordre.</string>
+    <string name="game_color_confusion_desc">Touche toutes les cases où le mot correspond à sa couleur, puis appuie sur Terminé.</string>
+    <string name="game_orbit_tracker_desc">Repère les balles en surbrillance, puis suis-les pendant qu'elles bougent. Quand elles s'arrêtent, touche les cibles de départ.</string>
+    <string name="game_flash_crowd_desc">Des points clignotent brièvement de chaque côté. Touche le côté qui en avait plus. Ne compte pas - fie-toi à ton instinct !</string>
     <string name="game_schulte_table_desc">Touche les chiffres dans l'ordre à partir de 1 le plus vite possible.</string>
     <string name="game_schulte_instruction">Touche les chiffres dans l'ordre : 1, 2, 3...</string>
     <string name="game_mini_chess_desc">Termine le scénario d'échecs avec les blancs. Mets la CPU échec et mat avant qu'elle ne te mette.</string>
     <string name="game_lights_out_desc">Éteins toutes les lumières. Chaque tap inverse la cellule et ses quatre voisines.</string>
     <string name="game_sliding_puzzle_desc">Glisse les tuiles dans l'espace vide pour les mettre en ordre.</string>
-    <string name="game_tower_of_hanoi_desc">Déplacez toute la pile vers le plot de droite. Une seule pièce à la fois, et jamais une plus grande sur une plus petite.</string>
+    <string name="game_tower_of_hanoi_desc">Déplace toute la pile vers le plot de droite. Une seule pièce à la fois, et jamais une plus grande sur une plus petite.</string>
     <string name="game_shikaku_desc">Divise toute la grille en rectangles. Chaque rectangle doit contenir exactement un nombre, égal à son aire.</string>
     <string name="game_shikaku_howto">Fais glisser pour dessiner un rectangle. Touche un rectangle pour le supprimer.</string>
-    <string name="game_nurikabe_desc">Peignez des cases pour former la mer autour des îles numérotées. Chaque île doit avoir autant de cases connectées que son nombre, la mer doit être connectée et ne contenir aucun bloc de 2x2.</string>
-    <string name="game_nurikabe_howto">Touchez ou glissez pour peindre la mer. Touchez une case peinte pour l'effacer.</string>
+    <string name="game_nurikabe_desc">Peins des cases pour former la mer autour des îles numérotées. Chaque île doit avoir autant de cases connectées que son nombre, la mer doit être connectée et ne contenir aucun bloc de 2x2.</string>
+    <string name="game_nurikabe_howto">Touche ou glisse pour peindre la mer. Touche une case peinte pour l'effacer.</string>
     <string name="game_cat_queens_desc">Place un chat dans chaque ligne, chaque colonne et chaque zone de couleur. Deux chats ne peuvent pas se toucher, même en diagonale.</string>
     <string name="game_cat_queens_howto">Touche une case pour placer ou retirer un chat.</string>
     <string name="game_knot_desc">Relie chaque paire de points colorés par un chemin. Les chemins ne peuvent pas se croiser et doivent ensemble couvrir chaque case.</string>
@@ -139,8 +139,8 @@
     <string name="mini_chess_move_counter">Coup %1$d / %2$d</string>
     <string name="mini_chess_draw_warning">= pat (nul, pas une victoire)</string>
     <string name="pattern_sequence_prompt">Quelle pièce complète la matrice ?</string>
-    <string name="game_tap_original_targets">Touchez les cibles originales</string>
-    <string name="game_remember_targets">Mémorisez les cibles</string>
+    <string name="game_tap_original_targets">Touche les cibles de départ</string>
+    <string name="game_remember_targets">Mémorise les cibles</string>
     <string name="game_flash_crowd_which_more">Quel côté en avait plus ?</string>
     <string name="game_flash_crowd_blue">Bleu</string>
     <string name="game_flash_crowd_yellow">Jaune</string>
@@ -287,14 +287,14 @@
     <string name="game_flags_score">Score : %1$d</string>
     <string name="game_flags_best">Meilleur : %1$d</string>
     <string name="game_digit_memory">Mémoire des Chiffres</string>
-    <string name="game_digit_memory_desc">Mémorisez une séquence de chiffres, résolvez un problème mathématique rapide, puis rappelez les chiffres.</string>
+    <string name="game_digit_memory_desc">Mémorise une suite de chiffres, résous un calcul rapide, puis redis les chiffres.</string>
     <string name="digit_memory_memorize">Mémoriser</string>
     <string name="digit_memory_solve">Résoudre</string>
     <string name="digit_memory_recall">Rappeler</string>
     <string name="achievement_gold_digit_memory">Chasseur de Codes</string>
     <string name="achievement_gold_digit_memory_desc">Gagnez la médaille d'or en Mémoire des Chiffres</string>
     <string name="game_spot_the_new">Repère le Nouveau</string>
-    <string name="game_spot_the_new_desc">Touchez l'animal que vous n'avez jamais vu. Une erreur met fin au jeu.</string>
+    <string name="game_spot_the_new_desc">Touche l'animal que tu n'as jamais vu. Une erreur met fin au jeu.</string>
     <string name="achievement_gold_spot_the_new">Œil Neuf</string>
     <string name="achievement_gold_spot_the_new_desc">Gagnez la médaille d'or en Repère le Nouveau</string>
     <string name="instructions_best_score">Meilleur score : %1$s</string>
@@ -625,9 +625,9 @@
 
     <string name="matchstick_riddles_button">Énigmes d'allumettes (%1$d/%2$d)</string>
     <string name="matchstick_riddles_title">Énigmes d'allumettes</string>
-    <string name="matchstick_riddle_prompt_move_one">Déplacez 1 allumette pour corriger l'équation.</string>
-    <string name="matchstick_riddle_prompt_move_two">Déplacez 2 allumettes pour corriger l'équation.</string>
-    <string name="matchstick_riddle_prompt_move_three">Déplacez 3 allumettes pour corriger l'équation.</string>
+    <string name="matchstick_riddle_prompt_move_one">Déplace 1 allumette pour que l'équation soit juste.</string>
+    <string name="matchstick_riddle_prompt_move_two">Déplace 2 allumettes pour que l'équation soit juste.</string>
+    <string name="matchstick_riddle_prompt_move_three">Déplace 3 allumettes pour que l'équation soit juste.</string>
     <string name="matchstick_riddles_solved">Résolu !</string>
     <string name="matchstick_riddles_reset">Réinitialiser</string>
     <string name="achievement_matchstick_master">Maître des allumettes</string>
@@ -659,7 +659,7 @@
     <string name="game_n_back_desc">Regardez défiler les formes, puis touchez celle à la position demandée.</string>
     <string name="n_back_prompt">Quelle forme était à la position %1$d ?</string>
     <string name="n_back_demo_stream">Regardez les formes défiler.</string>
-    <string name="n_back_demo_recall">Touchez la forme à la position 1.</string>
+    <string name="n_back_demo_recall">Touche la forme à la position 1.</string>
     <string name="achievement_gold_n_back">Mémoire glissante</string>
     <string name="achievement_gold_n_back_desc">Gagnez une médaille d'or à N-Back</string>
     <string name="game_simon_says">Jacques a dit</string>
@@ -734,9 +734,9 @@
     <string name="achievement_gold_prism_clear_desc">Gagne la médaille d'or en Prism Clear</string>
     <string name="prism_clear_undo">Annuler</string>
     <string name="game_missing_operators">Opérateurs manquants</string>
-    <string name="game_missing_operators_desc">Trouvez les opérateurs manquants (+, -, *, /) qui rendent l'équation vraie.</string>
-    <string name="missing_operators_demo_title">Trouvez les opérateurs manquants</string>
-    <string name="missing_operators_demo_desc">Sélectionnez les opérateurs pour rendre l'équation vraie. Les opérateurs sont évalués avec la priorité mathématique standard.</string>
+    <string name="game_missing_operators_desc">Trouve les opérateurs manquants (+, -, *, /) qui rendent l'équation juste.</string>
+    <string name="missing_operators_demo_title">Trouve les opérateurs manquants</string>
+    <string name="missing_operators_demo_desc">Choisis les opérateurs pour que l'équation soit juste. Multiplication et division d'abord.</string>
     <string name="achievement_gold_missing_operators">Maître des opérateurs</string>
     <string name="achievement_gold_missing_operators_desc">Gagne la médaille d'or en Missing Operators</string>
 
@@ -750,7 +750,7 @@
     <string name="bulls_and_cows_demo_cow">Cow</string>
     <string name="bulls_and_cows_demo_miss">Raté</string>
     <string name="bulls_and_cows_demo_step2">Bull = bonne place.\nCow = bon chiffre, mauvaise place.</string>
-    <string name="bulls_and_cows_demo_step3">Gardez le Bull.\nDéplacez la Cow — elle devient un Bull.</string>
+    <string name="bulls_and_cows_demo_step3">Garde le Bull.\nDéplace la Cow - elle devient un Bull.</string>
     <string name="achievement_gold_bulls_and_cows">Casseur de code</string>
     <string name="achievement_gold_bulls_and_cows_desc">Gagne la médaille d'or en Bulls &amp; Cows</string>
     <string name="finish_tries">Essais : %1$s</string>
@@ -766,7 +766,7 @@
     <string name="game_mental_rotations_same">Identique</string>
     <string name="game_mental_rotations_mirrored">Miroir</string>
     <string name="game_trio_howto">Touche trois cartes qui partagent un trait.</string>
-    <string name="game_mental_flex_desc">Les deux figures du haut partagent un trait, la forme ou la couleur. Touchez la case qui correspond à la cible sur ce même trait. Une case correspond toujours à l'autre trait.</string>
+    <string name="game_mental_flex_desc">Les deux figures du haut ont un trait en commun : forme ou couleur. Touche la case qui correspond à la cible sur ce même trait. Une case correspond toujours à l'autre trait.</string>
     <string name="game_mental_flex_rule_shape">Forme</string>
     <string name="game_mental_flex_rule_color">Couleur</string>
     <string name="game_mental_flex_howto">Repère ce que la paire a en commun.</string>
@@ -787,10 +787,10 @@
     <string name="iq_test_button">Test de QI</string>
     <string name="iq_test_title">Test de QI</string>
     <string name="iq_test_intro_headline">Test de raisonnement matriciel</string>
-    <string name="iq_test_intro_body">%1$d énigmes, %2$d minutes. Chaque énigme est une grille 3x3 dont un panneau manque. Trouvez la règle qui court le long des lignes, puis choisissez le panneau qui va dans le coin vide. Les énigmes deviennent plus difficiles au fil du test.</string>
-    <string name="iq_test_intro_pacing">Aucune limite de temps par énigme. Vous pouvez revenir en arrière, passer une question et changer vos réponses jusqu'à la fin du chronomètre.</string>
-    <string name="iq_test_disclaimer">Ceci est une estimation fondée sur un seul type d'énigme de raisonnement, conçue pour le plaisir. Ce n'est ni une évaluation clinique ni un diagnostic, et aucun score ici ne dit quoi que ce soit sur votre valeur ou vos capacités.</string>
-    <string name="iq_test_retake_note">Les scores montent souvent lors d'une reprise parce que vous connaissez déjà ce type d'énigme. Considérez votre premier résultat comme le plus honnête.</string>
+    <string name="iq_test_intro_body">%1$d énigmes, %2$d minutes. Chaque énigme est une grille 3x3 dont un panneau manque. Trouve la règle le long des lignes, puis choisis le panneau qui va dans le coin vide. Les énigmes deviennent plus difficiles au fil du test.</string>
+    <string name="iq_test_intro_pacing">Aucune limite de temps par énigme. Tu peux revenir en arrière, passer une question et changer tes réponses jusqu'à la fin du chrono.</string>
+    <string name="iq_test_disclaimer">C'est une estimation basée sur un seul type d'énigme de raisonnement, pour le plaisir. Ce n'est ni un test clinique ni un diagnostic, et aucun score ici ne dit quoi que ce soit sur ta valeur ou tes capacités.</string>
+    <string name="iq_test_retake_note">Les scores montent souvent lors d'une reprise parce que tu connais déjà ce type d'énigme. Prends ton premier résultat comme le plus honnête.</string>
     <string name="iq_test_start">Commencer le test</string>
     <string name="iq_test_history_title">Résultats précédents</string>
     <string name="iq_test_item_counter">Énigme %1$d sur %2$d</string>
