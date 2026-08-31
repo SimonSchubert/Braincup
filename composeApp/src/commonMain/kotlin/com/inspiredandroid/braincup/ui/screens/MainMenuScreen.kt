@@ -50,7 +50,8 @@ import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.MedalGold
-import com.inspiredandroid.braincup.ui.theme.MenuSectionAccent
+import com.inspiredandroid.braincup.ui.theme.LearnSectionAccentArgb
+import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccentArgb
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
@@ -413,7 +414,7 @@ fun MainMenuScreenContent(
             stickyHeader(key = "header-untimed", contentType = "section_header") {
                 MenuSectionHeader(
                     title = stringResource(Res.string.menu_untimed_title),
-                    accentColor = MenuSectionAccent,
+                    accentColor = Color(UntimedSectionAccentArgb),
                 )
             }
             item(contentType = "untimed_tile") {
@@ -457,7 +458,7 @@ fun MainMenuScreenContent(
                 stickyHeader(key = "header-learn", contentType = "section_header") {
                     MenuSectionHeader(
                         title = stringResource(Res.string.learn_section_title),
-                        accentColor = MenuSectionAccent,
+                        accentColor = Color(LearnSectionAccentArgb),
                         subtitle = stringResource(Res.string.learn_section_subtitle),
                         trailing = stringResource(
                             Res.string.learn_section_certificates,

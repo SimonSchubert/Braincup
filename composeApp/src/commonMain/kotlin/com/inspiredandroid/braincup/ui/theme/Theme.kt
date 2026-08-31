@@ -42,6 +42,20 @@ val Primary = Color(0xFFED7354)
  * `surfaceVariant` here made a muddy dark block of it in the dark theme.
  */
 val MenuSectionAccent = Color(0xFFF0EAE2)
+
+/**
+ * Tile accents for the two main-menu sections that are not a [GameCategory].
+ *
+ * Their own hues rather than borrowed ones: every tile in these sections used to wear whichever
+ * accent its game happened to carry, so the untimed row was Logic's lavender three times, two
+ * browns and Perception's peach, and a Learn topic was indistinguishable from a Math mini game.
+ * Rose and cyan are gaps left by the four skill colours (mint, lavender, peach, blue), so a
+ * section still reads as one thing without colliding with any of them. Learn is the cool one on
+ * purpose: its glyphs are drawn in the primary orange, and on the amber this started as they went
+ * warm on warm.
+ */
+const val UntimedSectionAccentArgb = 0xFFFCE7F3L
+const val LearnSectionAccentArgb = 0xFFCFFAFEL
 private val OnPrimary = Color.White
 private val Secondary = Color(0xFFC45C44)
 private val OnSecondary = Color.White
