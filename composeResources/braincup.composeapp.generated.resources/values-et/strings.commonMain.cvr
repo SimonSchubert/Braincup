@@ -159,6 +159,10 @@ string|cat_queens_error_column|QWludWx0IMO8a3Mga2FzcyB2ZWVydSBrb2h0YQ==
 string|cat_queens_error_row|QWludWx0IMO8a3Mga2FzcyByZWEga29odGE=
 string|cat_queens_error_touch|MiBrYXNzaSBlaSB0b2hpIHB1dXR1ZGE=
 string|cat_queens_error_zone|QWludWx0IMO8a3Mga2FzcyB2w6Rydml0c29vbmkga29odGE=
+string|category_logic|TG9vZ2lrYQ==
+string|category_math|TWF0ZW1hYXRpa2E=
+string|category_memory|TcOkbHU=
+string|category_perception|VGFqdQ==
 string|chain_calculation_demo_title|SsOkbGdpIHRlaGV0ZSBqw6RyamVrb3JkYQ==
 string|chess_move_bishop|TGlpZ3ViIG1pcyB0YWhlcyBhcnZ1IHJ1dXRlIGRpYWdvbmFhbGlzLg==
 string|chess_move_king|TGlpZ3ViIMO8aGUgcnV1ZHUgbWlzIHRhaGVzIHN1dW5hcy4=
@@ -722,6 +726,13 @@ string|mental_rotations_demo_mirrored|RWkga2xhcGkga3VuYWdpLiBQZWVnZWxwaWx0Lg==
 string|mental_rotations_demo_same|S2xhcGliLiBTYW1hIHBsb2trLg==
 string|mental_rotations_demo_title|UMO2w7ZyYSBzZWRhIHBlYXM=
 string|mental_rotations_demo_turn|UMO2w7ZyYSBwYXJlbXBvb2xuZSBwbG9rayB2YXNha3Bvb2xzZSBwZWFsZS4=
+string|menu_best_score|UGFyaW0gJTEkcw==
+string|menu_chess_caption|Q1BVIHZhc3R1
+string|menu_iq_untaken|VmVlbCB0ZWdlbWF0YQ==
+string|menu_not_played|VmVlbCBtw6RuZ2ltYXRh
+string|menu_peg_caption|SsOkdGEgw7xrcyBudXBw
+string|menu_progress_fraction|JTEkZCAvICUyJGQ=
+string|menu_untimed_title|VsO1dGEgYWVnYQ==
 string|mini_chess_difficulty_easy|S2VyZ2U=
 string|mini_chess_difficulty_hard|UmFza2U=
 string|mini_chess_difficulty_medium|S2Vza21pbmU=

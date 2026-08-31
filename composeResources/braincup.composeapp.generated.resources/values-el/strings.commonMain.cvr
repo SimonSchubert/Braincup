@@ -159,6 +159,10 @@ string|cat_queens_error_column|zpzPjM69zr8gzrzOr86xIM6zzqzPhM6xIM6xzr3OrCDPg8+Ez
 string|cat_queens_error_row|zpzPjM69zr8gzrzOr86xIM6zzqzPhM6xIM6xzr3OrCDOs8+BzrHOvM68zq4=
 string|cat_queens_error_touch|MiDOs86sz4TOtc+CIM60zrXOvSDOvM+Azr/Pgc6/z43OvSDOvc6xIM6xzrPOs86vzrbOv869z4TOsc65
 string|cat_queens_error_zone|zpzPjM69zr8gzrzOr86xIM6zzqzPhM6xIM6xzr3OrCDPh8+Bz4nOvM6xz4TOuc66zq4gzrbPjs69zrc=
+string|category_logic|zpvOv86zzrnOus6u
+string|category_math|zpzOsc64zrfOvM6xz4TOuc66zqw=
+string|category_memory|zpzOvc6uzrzOtw==
+string|category_perception|zpHOvc+Ezq/Ou863z4jOtw==
 string|chain_calculation_demo_title|zqDPgc6/z4POv8+Hzq4gz4PPhM63IM+DzrXOuc+Bzqwgz4TPic69IM+Az4HOrM6+zrXPic69
 string|chess_move_bishop|zprOuc69zrXOr8+EzrHOuSDPjM+DzrEgz4TOtc+Ez4HOrM6zz4nOvc6xIM64zq3Ou861zrkgzrTOuc6xzrPPjs69zrnOsS4=
 string|chess_move_king|zprOuc69zrXOr8+EzrHOuSDOrc69zrEgz4TOtc+Ez4HOrM6zz4nOvc6/IM+Az4HOv8+CIM6/z4DOv865zrHOtM6uz4DOv8+EzrUgzrrOsc+EzrXPjc64z4XOvc+Dzrcu
@@ -722,6 +726,13 @@ string|mental_rotations_demo_mirrored|zpTOtc69IM+EzrHOuc+BzrnOrM62zrXOuSDPgM6/z4
 string|mental_rotations_demo_same|zqTOsc65z4HOuc6szrbOtc65LiDOis60zrnOvyDOvM+AzrvOv866Lg==
 string|mental_rotations_demo_title|zpPPjc+BzrnPg86tIM+Ezr8gz4PPhM6/IM68z4XOsc67z4wgz4POv8+F
 string|mental_rotations_demo_turn|zqDOtc+Bzq/Pg8+Ez4HOtc+IzrUgz4TOvyDOtM61zr7OryDOvM+AzrvOv866IM+AzqzOvc+JIM+Dz4TOvyDOsc+BzrnPg8+EzrXPgc+MLg==
+string|menu_best_score|zprOsc67z43PhM61z4HOvyAlMSRz
+string|menu_chess_caption|zpXOvc6xzr3PhM6vzr/OvSBDUFU=
+string|menu_iq_untaken|zpTOtc69IM6tzrPOuc69zrUgzrHOus+MzrzOtw==
+string|menu_not_played|zpTOtc69IM+AzrHOr8+Hz4TOt866zrUgzrHOus+MzrzOtw==
+string|menu_peg_caption|zobPhs63z4POtSDOrc69zrHOvSDPgM61zq/Pgc6/
+string|menu_progress_fraction|JTEkZCAvICUyJGQ=
+string|menu_untimed_title|zpzOtSDPhM63zr0gzrfPg8+Fz4fOr86xIM+Dzr/PhQ==
 string|mini_chess_difficulty_easy|zpXPjc66zr/Ou86/
 string|mini_chess_difficulty_hard|zpTPjc+DzrrOv867zr8=
 string|mini_chess_difficulty_medium|zpzOrc+Ez4HOuc6/
