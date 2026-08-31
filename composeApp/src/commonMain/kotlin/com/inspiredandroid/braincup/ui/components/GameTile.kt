@@ -74,7 +74,7 @@ import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.MatchstickColors
-import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccentArgb
+import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccent
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
@@ -483,7 +483,7 @@ fun GameTile(
     if (untimedStyle) {
         NormalGameTile(
             label = stringResource(gameType.displayNameRes),
-            accentColor = UntimedSectionAccentArgb,
+            accentColor = UntimedSectionAccent,
             onClick = { onPlay(gameType) },
             modifier = modifier,
             caption = if (highscore > 0) {
@@ -499,7 +499,9 @@ fun GameTile(
 
     GameTileShell(
         label = stringResource(gameType.displayNameRes),
-        accentColor = gameType.accentColor,
+        // The one conversion: GameCategory keeps its accent as an ARGB Long so the enum does not
+        // drag a Compose dependency into the games package.
+        accentColor = Color(gameType.accentColor),
         labelMaxLines = 1,
         modifier = modifier,
         onClick = { onPlay(gameType) },
@@ -513,7 +515,7 @@ fun GameTile(
 fun NormalSudokuTile(completedCount: Int, onClick: () -> Unit, total: Int = 50) {
     NormalGameTile(
         label = stringResource(Res.string.normal_sudoku_title),
-        accentColor = UntimedSectionAccentArgb,
+        accentColor = UntimedSectionAccent,
         onClick = onClick,
         caption = stringResource(Res.string.menu_progress_fraction, completedCount, total),
         progress = if (total > 0) completedCount.toFloat() / total else 0f,
@@ -525,7 +527,7 @@ fun NormalSudokuTile(completedCount: Int, onClick: () -> Unit, total: Int = 50) 
 fun NormalChessTile(onClick: () -> Unit) {
     NormalGameTile(
         label = stringResource(Res.string.normal_chess_button),
-        accentColor = UntimedSectionAccentArgb,
+        accentColor = UntimedSectionAccent,
         onClick = onClick,
         caption = stringResource(Res.string.menu_chess_caption),
     ) { NormalChessPreview() }
@@ -536,7 +538,7 @@ fun NormalChessTile(onClick: () -> Unit) {
 fun MatchstickRiddlesTile(solvedCount: Int, total: Int, onClick: () -> Unit) {
     NormalGameTile(
         label = stringResource(Res.string.matchstick_riddles_title),
-        accentColor = UntimedSectionAccentArgb,
+        accentColor = UntimedSectionAccent,
         onClick = onClick,
         caption = stringResource(Res.string.menu_progress_fraction, solvedCount, total),
         progress = if (total > 0) solvedCount.toFloat() / total else 0f,
@@ -553,7 +555,7 @@ fun MatchstickRiddlesTile(solvedCount: Int, total: Int, onClick: () -> Unit) {
 fun IqTestTile(bestIq: Int?, onClick: () -> Unit) {
     NormalGameTile(
         label = stringResource(Res.string.iq_test_button),
-        accentColor = UntimedSectionAccentArgb,
+        accentColor = UntimedSectionAccent,
         onClick = onClick,
         caption = if (bestIq != null) {
             stringResource(Res.string.menu_best_score, bestIq.toString())
@@ -568,7 +570,7 @@ fun IqTestTile(bestIq: Int?, onClick: () -> Unit) {
 fun PegSolitaireTile(onClick: () -> Unit) {
     NormalGameTile(
         label = stringResource(Res.string.peg_solitaire_button),
-        accentColor = UntimedSectionAccentArgb,
+        accentColor = UntimedSectionAccent,
         onClick = onClick,
         caption = stringResource(Res.string.menu_peg_caption),
     ) { PegSolitairePreview() }
@@ -626,7 +628,7 @@ private const val IqTestPreviewSpread = 4.4f
 @Composable
 private fun NormalGameTile(
     label: String,
-    accentColor: Long,
+    accentColor: Color,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     caption: String? = null,
@@ -644,7 +646,7 @@ private fun NormalGameTile(
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(1f)
-                    .background(Color(accentColor)),
+                    .background(accentColor),
                 contentAlignment = Alignment.Center,
             ) {
                 MaterialTheme(colorScheme = LightColorScheme) {
@@ -704,7 +706,7 @@ private fun NormalGameTile(
 @Composable
 private fun GameTileShell(
     label: String,
-    accentColor: Long,
+    accentColor: Color,
     labelMaxLines: Int,
     onClick: () -> Unit,
     preview: @Composable () -> Unit,
@@ -723,7 +725,7 @@ private fun GameTileShell(
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
-                    .background(Color(accentColor)),
+                    .background(accentColor),
                 contentAlignment = Alignment.Center,
             ) {
                 MaterialTheme(colorScheme = LightColorScheme) {

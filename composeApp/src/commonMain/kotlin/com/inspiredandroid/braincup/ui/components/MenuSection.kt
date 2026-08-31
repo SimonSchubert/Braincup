@@ -1,10 +1,7 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.ExperimentalLayoutApi
-import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -12,7 +9,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.luminance
@@ -32,17 +28,16 @@ import com.inspiredandroid.braincup.ui.theme.PrismFacet
  * one piece of chrome on the menu looking like plain text.
  *
  * Paints its own background because these are pinned as sticky headers: without it the tiles
- * scrolling underneath show straight through the title. Kept to a single line for the same
- * reason — it is on screen for the whole length of its section. [subtitle] is for the rare
- * section that has a real warning to carry.
+ * scrolling underneath show straight through the title. Kept to the name alone for the same
+ * reason — it is on screen for the whole length of its section, and every count a heading used to
+ * carry is already on the tiles underneath it. [subtitle] is for the rare section that has a real
+ * warning to carry.
  */
-@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun MenuSectionHeader(
     title: String,
     accentColor: Color,
     modifier: Modifier = Modifier,
-    trailing: String? = null,
     subtitle: String? = null,
 ) {
     // The chip picks its own ink rather than making every caller state it. Every accent in use is
@@ -64,34 +59,16 @@ fun MenuSectionHeader(
             // the chip's bevel.
             .padding(top = 6.dp, bottom = 4.dp),
     ) {
-        // A flow rather than a row, because a trailing count is measured before the title and takes
-        // its full width: on a narrow screen at a large font scale that left the title a column
-        // four glyphs wide, which it then spelled out one letter to a line. Here the count drops to
-        // its own line instead, and the title keeps the width.
-        FlowRow(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-            itemVerticalAlignment = Alignment.CenterVertically,
-        ) {
-            PrismCard(face = accentColor, facet = PrismFacet.Preview) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = onAccent,
-                    fontWeight = FontWeight.Bold,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
-                )
-            }
-            if (trailing != null) {
-                Text(
-                    text = trailing,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
+        PrismCard(face = accentColor, facet = PrismFacet.Preview) {
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleMedium,
+                color = onAccent,
+                fontWeight = FontWeight.Bold,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.padding(horizontal = 12.dp, vertical = 5.dp),
+            )
         }
         if (subtitle != null) {
             Spacer(Modifier.height(4.dp))

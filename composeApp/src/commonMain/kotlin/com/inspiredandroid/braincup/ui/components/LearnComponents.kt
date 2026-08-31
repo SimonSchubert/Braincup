@@ -25,7 +25,7 @@ import com.inspiredandroid.braincup.ui.components.learn.RulesGuideGlyphs
 import com.inspiredandroid.braincup.ui.components.learn.ShapeGuideGlyphs
 import com.inspiredandroid.braincup.ui.components.learn.SubTopicRowPreview
 import com.inspiredandroid.braincup.ui.components.learn.TopicTilePreview
-import com.inspiredandroid.braincup.ui.theme.LearnSectionAccentArgb
+import com.inspiredandroid.braincup.ui.theme.LearnSectionAccent
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.MedalGold
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -56,7 +56,7 @@ fun LearnTopicTile(
     LearnTileBody(
         // The section's accent, not the topic's: on the menu these sit under one heading, and
         // Arithmetic wearing the Math category's blue read as a Math mini game.
-        accentColor = LearnSectionAccentArgb,
+        accentColor = LearnSectionAccent,
         preview = { TopicTilePreview(topic) },
         title = stringResource(topic.titleRes),
         caption = stringResource(Res.string.learn_unit_progress, certificates, unitsTotal),
@@ -214,7 +214,7 @@ fun LearnSubTopicRow(
 
 @Composable
 private fun LearnTileBody(
-    accentColor: Long,
+    accentColor: Color,
     preview: @Composable () -> Unit,
     title: String,
     caption: String,
@@ -235,7 +235,7 @@ private fun LearnTileBody(
                 modifier = Modifier
                     .fillMaxWidth()
                     .aspectRatio(1f)
-                    .background(Color(accentColor)),
+                    .background(accentColor),
                 contentAlignment = Alignment.Center,
             ) {
                 MaterialTheme(colorScheme = LightColorScheme) {

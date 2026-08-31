@@ -54,8 +54,8 @@ val MenuSectionAccent = Color(0xFFF0EAE2)
  * purpose: its glyphs are drawn in the primary orange, and on the amber this started as they went
  * warm on warm.
  */
-const val UntimedSectionAccentArgb = 0xFFFCE7F3L
-const val LearnSectionAccentArgb = 0xFFCFFAFEL
+val UntimedSectionAccent = Color(0xFFFCE7F3)
+val LearnSectionAccent = Color(0xFFCFFAFE)
 private val OnPrimary = Color.White
 private val Secondary = Color(0xFFC45C44)
 private val OnSecondary = Color.White
