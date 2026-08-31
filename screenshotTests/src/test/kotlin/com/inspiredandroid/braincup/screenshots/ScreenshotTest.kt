@@ -941,6 +941,35 @@ class ScreenshotTest {
         }
     }
 
+    // Flash Crowd carries the longest paradigm name and the longest citation of the seven, so this
+    // is the snapshot that catches the research note's text wrapping; instructionsGhostGrid holds
+    // the short end of the same range.
+    @Test
+    fun instructionsFlashCrowd() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.FLASH_CROWD,
+                storage = UserStorage(MapSettings()),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    // The research note (see GameScience) in a second game's layout, so a change to the card is
+    // caught in more than the one screen that happened to already have coverage.
+    @Test
+    fun instructionsGhostGrid() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.GHOST_GRID,
+                storage = UserStorage(MapSettings()),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
     @Test
     fun gameMentalFlexOled() {
         paparazzi.snap(colorScheme = OledColorScheme) {

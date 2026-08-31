@@ -29,6 +29,7 @@ import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismClearLevels
 import com.inspiredandroid.braincup.games.formattedScore
+import com.inspiredandroid.braincup.games.science
 import com.inspiredandroid.braincup.ui.components.AnomalyPuzzleDemo
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BubbleSumDemo
@@ -61,6 +62,7 @@ import com.inspiredandroid.braincup.ui.components.PrismClearDemo
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.QuickSumDemo
 import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
+import com.inspiredandroid.braincup.ui.components.ScienceNoteCard
 import com.inspiredandroid.braincup.ui.components.SherlockCalculationDemo
 import com.inspiredandroid.braincup.ui.components.ShikakuDemo
 import com.inspiredandroid.braincup.ui.components.SimonSaysDemo
@@ -158,6 +160,17 @@ fun InstructionsScreen(
                 GameType.TRIO -> TrioDemo(modifier = demoModifier)
                 GameType.MENTAL_FLEX -> MentalFlexDemo(modifier = demoModifier)
                 GameType.MENTAL_ROTATIONS -> MentalRotationsDemo(modifier = demoModifier)
+            }
+
+            // Directly under the demo: the player has just seen what the task looks like, which is
+            // the moment "this is a real cognitive test" means something. Only the games that
+            // implement one have a note; see [GameScience].
+            gameType.science?.let { science ->
+                Spacer(Modifier.height(24.dp))
+                ScienceNoteCard(
+                    science = science,
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                )
             }
 
             if (gameType == GameType.WORDLE) {

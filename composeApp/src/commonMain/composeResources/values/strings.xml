@@ -186,6 +186,23 @@
     <string name="achievements_title">Achievements</string>
 
     <!--
+        Address the player informally. English has no T–V distinction, so this is easy to miss
+        when translating:
+
+          de: du     fr: tu     es: tú     nl: je     it: tu     pt: tu
+          ru: ты     pl: ty     sv: du     da: du     nb: du     uk: ти
+
+        Imperatives use that form (Tippe, Touche, Toca, Tik), never Sie / vous / usted / Вы.
+        Do not mix formal and informal in one locale.
+
+        Do not follow English word order. A hanging German separable prefix is the usual tell:
+        "Tippe sie jetzt in der gleichen Reihenfolge an" is a calque of "tap them now in the
+        same order". Native: "Tippe sie jetzt in derselben Reihenfolge nach."
+
+        Longer notes: docs/ui-translation-brief.md. The Learn catalog has its own brief.
+    -->
+
+    <!--
         Game names follow three tiers. Keep a new game consistent with the tier it belongs to,
         and localize it in every values-*/strings.xml, not just this file.
 
@@ -562,6 +579,31 @@
     <string name="achievement_gold_simon_says_desc">Win gold medal in Simon Says</string>
     <string name="instructions_best_score">Best score: %1$s</string>
     <string name="instructions_leaderboard">View leaderboard</string>
+
+    <!--
+      The research note on the instructions screen, shown only for the games that implement a
+      published cognitive-psychology task closely enough that the task's own name applies.
+      Paradigm names are the names researchers use; translate them the way the field does in
+      your language, and leave the citation line (author surnames and years) untranslated.
+    -->
+    <!-- Heads the note: "Based on Corsi Block-Tapping Task". %1$s is the paradigm name below. -->
+    <string name="science_note_based_on">Based on %1$s</string>
+    <string name="science_flash_crowd_paradigm">Non-Symbolic Number Comparison</string>
+    <string name="science_flash_crowd_summary">A standard measure of the approximate number sense: judging which group is larger too fast to count, where the difficulty is the ratio between them.</string>
+    <string name="science_ghost_grid_paradigm">Corsi Block-Tapping Task</string>
+    <string name="science_ghost_grid_summary">A standard measure of visual short-term memory span: the longest sequence of positions you can reproduce in order.</string>
+    <string name="science_orbit_tracker_paradigm">Multiple Object Tracking</string>
+    <string name="science_orbit_tracker_summary">A standard measure of sustained divided attention: how many moving targets you can keep hold of among identical distractors.</string>
+    <string name="science_mental_rotations_paradigm">Mental Rotation Task</string>
+    <string name="science_mental_rotations_summary">A standard measure of spatial ability: deciding whether two figures are the same solid turned, or mirror images that no rotation can match.</string>
+    <string name="science_digit_memory_paradigm">Brown-Peterson Task</string>
+    <string name="science_digit_memory_summary">A standard measure of working memory: holding a sequence while an unrelated task occupies the same mental workspace.</string>
+    <string name="science_pattern_sequence_paradigm">Matrix Reasoning</string>
+    <string name="science_pattern_sequence_summary">The item format behind Raven's Progressive Matrices, the most widely used test of abstract reasoning.</string>
+    <string name="science_mental_flex_paradigm">Task-Switching Paradigm</string>
+    <string name="science_mental_flex_summary">A standard measure of cognitive flexibility: the cost of dropping the rule you were just using and applying a different one.</string>
+    <string name="science_tower_of_hanoi_paradigm">Tower of Hanoi</string>
+    <string name="science_tower_of_hanoi_summary">A standard measure of planning: the puzzle needs moves that undo progress before the goal can be reached.</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>
     <string name="sponsors_title">Sponsors</string>
     <string name="sponsors_subtitle">Support free education for everyone</string>
