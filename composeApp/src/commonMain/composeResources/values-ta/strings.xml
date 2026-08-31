@@ -959,4 +959,16 @@
     <string name="learn_fig_bar_score">மதிப்பெண்</string>
     <string name="learn_fig_bar_total">மொத்தம்</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">நிதானமாக விளையாடு</string>
+    <string name="menu_best_score">சிறந்தது %1$s</string>
+    <string name="menu_iq_untaken">இன்னும் எடுக்கவில்லை</string>
+    <string name="menu_not_played">இன்னும் விளையாடவில்லை</string>
+    <string name="menu_chess_caption">CPU உடன்</string>
+    <string name="menu_peg_caption">ஒரே காயை விடு</string>
+    <string name="category_memory">நினைவாற்றல்</string>
+    <string name="category_logic">தர்க்கம்</string>
+    <string name="category_perception">உணர்திறன்</string>
+    <string name="category_math">கணிதம்</string>
 </resources>

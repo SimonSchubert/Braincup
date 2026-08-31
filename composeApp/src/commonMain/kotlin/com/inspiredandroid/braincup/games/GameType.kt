@@ -43,6 +43,15 @@ enum class GameType(
     val requiresColorVision: Boolean = false,
     /** Whether this game has a Play Games leaderboard wired up. */
     val hasLeaderboard: Boolean = false,
+    /**
+     * Listed under the menu's untimed heading instead of under [category].
+     *
+     * Menu placement only: [category] still decides the accent colour, the medal wiring and which
+     * slot the game can fill in a daily session. It is for the games that are a body of content to
+     * work through rather than a sixty second drill, and so read as out of place in a category
+     * grid full of them.
+     */
+    val listedAsUntimed: Boolean = false,
 ) {
     MINI_SUDOKU(
         displayNameRes = Res.string.game_mini_sudoku,
@@ -299,6 +308,7 @@ enum class GameType(
         descriptionRes = Res.string.game_flags_desc,
         category = GameCategory.PERCEPTION,
         hasLeaderboard = true,
+        listedAsUntimed = true,
     ),
     DIGIT_MEMORY(
         displayNameRes = Res.string.game_digit_memory,

@@ -959,4 +959,16 @@
     <string name="learn_fig_bar_score">गुण</string>
     <string name="learn_fig_bar_total">एकूण</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">निवांत खेळा</string>
+    <string name="menu_best_score">सर्वोत्तम %1$s</string>
+    <string name="menu_iq_untaken">अद्याप दिलेली नाही</string>
+    <string name="menu_not_played">अद्याप खेळले नाही</string>
+    <string name="menu_chess_caption">CPU विरुद्ध</string>
+    <string name="menu_peg_caption">एकच सोंगटी ठेवा</string>
+    <string name="category_memory">स्मरण</string>
+    <string name="category_logic">तर्क</string>
+    <string name="category_perception">आकलन</string>
+    <string name="category_math">गणित</string>
 </resources>

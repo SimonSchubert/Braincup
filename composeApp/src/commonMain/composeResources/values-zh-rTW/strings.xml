@@ -828,6 +828,18 @@
     <string name="achievement_iq_test_high">規律高手</string>
     <string name="achievement_iq_test_high_desc">估算智商達到 130 或以上</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">慢慢來</string>
+    <string name="menu_best_score">最佳 %1$s</string>
+    <string name="menu_iq_untaken">尚未測驗</string>
+    <string name="menu_not_played">尚未遊玩</string>
+    <string name="menu_chess_caption">對戰電腦</string>
+    <string name="menu_peg_caption">只留一顆棋子</string>
+    <string name="category_memory">記憶</string>
+    <string name="category_logic">邏輯</string>
+    <string name="category_perception">感知</string>
+    <string name="category_math">數學</string>
     <!-- Learn section -->
     <string name="learn_section_title">數學學習</string>
     <string name="learn_section_subtitle">仍為測試版。新主題與改進即將推出。</string>

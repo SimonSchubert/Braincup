@@ -4,7 +4,9 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
+import androidx.compose.foundation.lazy.grid.LazyGridState
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material3.*
@@ -22,6 +24,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.PlayGamesBridge
 import com.inspiredandroid.braincup.api.UserStorage
 import com.inspiredandroid.braincup.app.GameController
+import com.inspiredandroid.braincup.games.GameCategory
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.iqtest.IqScoring
 import com.inspiredandroid.braincup.games.wordle.WordleLanguages
@@ -32,9 +35,9 @@ import com.inspiredandroid.braincup.rememberMainMenuSponsorsSection
 import com.inspiredandroid.braincup.ui.components.DailyChallengeCard
 import com.inspiredandroid.braincup.ui.components.GameTile
 import com.inspiredandroid.braincup.ui.components.IqTestTile
-import com.inspiredandroid.braincup.ui.components.LearnSectionHeader
 import com.inspiredandroid.braincup.ui.components.LearnTopicTile
 import com.inspiredandroid.braincup.ui.components.MatchstickRiddlesTile
+import com.inspiredandroid.braincup.ui.components.MenuSectionHeader
 import com.inspiredandroid.braincup.ui.components.NormalChessTile
 import com.inspiredandroid.braincup.ui.components.NormalSudokuTile
 import com.inspiredandroid.braincup.ui.components.PegSolitaireTile
@@ -47,6 +50,7 @@ import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.MedalGold
+import com.inspiredandroid.braincup.ui.theme.MenuSectionAccent
 import com.inspiredandroid.braincup.ui.theme.Primary
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
@@ -60,6 +64,11 @@ import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 /** Width the settings button occupies in the header, kept clear so the title cannot run under it. */
 private val SettingsIconClearance = 56.dp
+
+/** Grid metrics, shared by the layout and by the column count the collapsed sections are sized in. */
+private val MenuMinTileSize = 150.dp
+private val MenuTileSpacing = 12.dp
+private val MenuHorizontalPadding = 16.dp
 
 @Composable
 fun MainMenuScreen(
@@ -176,6 +185,8 @@ fun MainMenuScreenContent(
     onLearnTopic: (MathTopic) -> Unit = {},
     onShowBrainCup: (() -> Unit)? = null,
     useBuiltInSponsors: Boolean = false,
+    /** Hoisted so the caller can restore or drive the scroll position. */
+    gridState: LazyGridState = rememberLazyGridState(),
 ) {
     val builtInSponsorsSection = if (useBuiltInSponsors) rememberMainMenuSponsorsSection() else null
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
@@ -189,15 +200,28 @@ fun MainMenuScreenContent(
                 (it == GameType.WORDLE && !wordleAvailable)
         }
     }
+
+    val untimedGames = remember(visibleGameTypes) {
+        visibleGameTypes.filter { it.listedAsUntimed }
+    }
+    val gamesByCategory = remember(visibleGameTypes) {
+        GameCategory.entries
+            .map { category ->
+                category to visibleGameTypes.filter { it.category == category && !it.listedAsUntimed }
+            }
+            .filter { (_, games) -> games.isNotEmpty() }
+    }
+
     LazyVerticalGrid(
-        columns = GridCells.Adaptive(minSize = 150.dp),
+        columns = GridCells.Adaptive(minSize = MenuMinTileSize),
+        state = gridState,
         modifier = Modifier
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.statusBars)
-            .padding(horizontal = 16.dp),
+            .padding(horizontal = MenuHorizontalPadding),
         contentPadding = PaddingValues(top = 0.dp, bottom = 16.dp + bottomInset),
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
+        horizontalArrangement = Arrangement.spacedBy(MenuTileSpacing),
+        verticalArrangement = Arrangement.spacedBy(MenuTileSpacing),
     ) {
         // Header — full hero layout for first-run, compact for returning users
         item(span = { GridItemSpan(maxLineSpan) }, contentType = "header") {
@@ -313,94 +337,147 @@ fun MainMenuScreenContent(
             }
         }
 
-        // Game tiles, grouped by category
-        items(
-            visibleGameTypes,
-            key = { it.id },
-            contentType = { "game_tile" },
-        ) { gameType ->
-            // Pass stable parent lambdas of type (GameType) -> Unit so tiles skip when only
-            // unrelated menu state changes (identity-stable callbacks).
-            GameTile(
-                gameType = gameType,
-                highscore = highscores[gameType.id] ?: 0,
-                onPlay = onPlay,
-                onViewScore = onViewScore,
-            )
-        }
+        if (gameTypes != null) {
+            // Store screenshots hand-pick a short lineup and want it flat: filter chips and
+            // section headings would push the chosen tiles off the frame.
+            items(
+                visibleGameTypes,
+                key = { it.id },
+                contentType = { "game_tile" },
+            ) { gameType ->
+                GameTile(
+                    gameType = gameType,
+                    highscore = highscores[gameType.id] ?: 0,
+                    onPlay = onPlay,
+                    onViewScore = onViewScore,
+                )
+            }
 
-        // Divider separating the mini games from the full-size "normal" games below.
-        item(span = { GridItemSpan(maxLineSpan) }, contentType = "normal_divider") {
-            HorizontalDivider(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
-                thickness = 2.dp,
-                color = Primary.copy(alpha = 0.5f),
-            )
-        }
-
-        // Full-size "normal" game entries, shown as square tiles alongside the mini games.
-        // The IQ test leads the section: it is the longest-form mode here, and burying it behind
-        // the whole mini-game grid would leave it undiscovered.
-        item(contentType = "iq_test") {
-            IqTestTile(bestIq = bestIq, onClick = onIqTest)
-        }
-        item(contentType = "normal_sudoku") {
-            NormalSudokuTile(
-                completedCount = normalSudokuCompleted,
-                onClick = onNormalSudoku,
-            )
-        }
-        item(contentType = "normal_chess") {
-            NormalChessTile(onClick = onNormalChess)
-        }
-        item(contentType = "matchstick_riddles") {
-            MatchstickRiddlesTile(
-                solvedCount = matchstickRiddlesSolved,
-                total = matchstickRiddlesTotal,
-                onClick = onMatchstickRiddles,
-            )
-        }
-        item(contentType = "peg_solitaire") {
-            PegSolitaireTile(onClick = onPegSolitaire)
-        }
-
-        // Learn section — one tile per school-grade band, each holding that band's topics.
-        if (learnProgress.isNotEmpty()) {
-            item(span = { GridItemSpan(maxLineSpan) }, contentType = "learn_header") {
-                Column(modifier = Modifier.fillMaxWidth()) {
-                    HorizontalDivider(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 8.dp),
-                        thickness = 2.dp,
-                        color = Primary.copy(alpha = 0.5f),
+            item(span = { GridItemSpan(maxLineSpan) }, contentType = "normal_divider") {
+                HorizontalDivider(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    thickness = 2.dp,
+                    color = Primary.copy(alpha = 0.5f),
+                )
+            }
+            item(contentType = "iq_test") {
+                IqTestTile(bestIq = bestIq, onClick = onIqTest)
+            }
+            item(contentType = "normal_chess") {
+                NormalChessTile(onClick = onNormalChess)
+            }
+            item(contentType = "normal_sudoku") {
+                NormalSudokuTile(completedCount = normalSudokuCompleted, onClick = onNormalSudoku)
+            }
+            item(contentType = "matchstick_riddles") {
+                MatchstickRiddlesTile(
+                    solvedCount = matchstickRiddlesSolved,
+                    total = matchstickRiddlesTotal,
+                    onClick = onMatchstickRiddles,
+                )
+            }
+            item(contentType = "peg_solitaire") {
+                PegSolitaireTile(onClick = onPegSolitaire)
+            }
+        } else {
+            // One section per skill, every game in it on screen. The categories already drove the
+            // ordering here; naming them and pinning the name is what turns a run of 39 tiles into
+            // something you can keep your place in.
+            gamesByCategory.forEach { (category, games) ->
+                stickyHeader(key = "header-${category.name}", contentType = "section_header") {
+                    MenuSectionHeader(
+                        title = stringResource(category.displayNameRes),
+                        accentColor = Color(category.accentColor),
                     )
-                    LearnSectionHeader(
+                }
+                items(
+                    games,
+                    key = { it.id },
+                    contentType = { "game_tile" },
+                ) { gameType ->
+                    GameTile(
+                        gameType = gameType,
+                        highscore = highscores[gameType.id] ?: 0,
+                        onPlay = onPlay,
+                        onViewScore = onViewScore,
+                    )
+                }
+            }
+
+            // The untimed games, under their own heading rather than behind a bare divider. What
+            // they share is not size but pace: a body of content to work through, at whatever
+            // speed, rather than a sixty second drill. The IQ test in particular was going
+            // undiscovered at the bottom of the mini-game grid.
+            stickyHeader(key = "header-untimed", contentType = "section_header") {
+                MenuSectionHeader(
+                    title = stringResource(Res.string.menu_untimed_title),
+                    accentColor = MenuSectionAccent,
+                )
+            }
+            item(contentType = "untimed_tile") {
+                IqTestTile(bestIq = bestIq, onClick = onIqTest)
+            }
+            item(contentType = "untimed_tile") {
+                NormalChessTile(onClick = onNormalChess)
+            }
+            item(contentType = "untimed_tile") {
+                NormalSudokuTile(completedCount = normalSudokuCompleted, onClick = onNormalSudoku)
+            }
+            item(contentType = "untimed_tile") {
+                MatchstickRiddlesTile(
+                    solvedCount = matchstickRiddlesSolved,
+                    total = matchstickRiddlesTotal,
+                    onClick = onMatchstickRiddles,
+                )
+            }
+            item(contentType = "untimed_tile") {
+                PegSolitaireTile(onClick = onPegSolitaire)
+            }
+            // Real [GameType]s that belong here by pace rather than by skill. They keep their
+            // medal and highscore, and take this section's taller tile so the row stays even.
+            items(
+                untimedGames,
+                key = { it.id },
+                contentType = { "untimed_tile" },
+            ) { gameType ->
+                GameTile(
+                    gameType = gameType,
+                    highscore = highscores[gameType.id] ?: 0,
+                    onPlay = onPlay,
+                    onViewScore = onViewScore,
+                    untimedStyle = true,
+                )
+            }
+
+            // Learn keeps the beta note in its subtitle: that is a warning about the content, not
+            // a caption, so it is the one heading here that still carries one.
+            if (learnProgress.isNotEmpty()) {
+                stickyHeader(key = "header-learn", contentType = "section_header") {
+                    MenuSectionHeader(
                         title = stringResource(Res.string.learn_section_title),
+                        accentColor = MenuSectionAccent,
                         subtitle = stringResource(Res.string.learn_section_subtitle),
                         trailing = stringResource(
                             Res.string.learn_section_certificates,
                             learnProgress.sumOf { it.certificates },
                             learnProgress.sumOf { it.unitsTotal },
                         ),
-                        modifier = Modifier.padding(bottom = 4.dp),
                     )
                 }
-            }
-
-            items(
-                learnProgress,
-                key = { "learn-${it.topic.id}" },
-                contentType = { "learn_topic" },
-            ) { topicProgress ->
-                LearnTopicTile(
-                    topic = topicProgress.topic,
-                    certificates = topicProgress.certificates,
-                    unitsTotal = topicProgress.unitsTotal,
-                    onClick = onLearnTopic,
-                )
+                items(
+                    learnProgress,
+                    key = { "learn-${it.topic.id}" },
+                    contentType = { "learn_tile" },
+                ) { topicProgress ->
+                    LearnTopicTile(
+                        topic = topicProgress.topic,
+                        certificates = topicProgress.certificates,
+                        unitsTotal = topicProgress.unitsTotal,
+                        onClick = onLearnTopic,
+                    )
+                }
             }
         }
 

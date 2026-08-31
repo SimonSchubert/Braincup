@@ -829,6 +829,18 @@
     <string name="achievement_iq_test_high">Геній закономірностей</string>
     <string name="achievement_iq_test_high_desc">Досягніть орієнтовного IQ 130 або вище</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">Без поспіху</string>
+    <string name="menu_best_score">Найкращий %1$s</string>
+    <string name="menu_iq_untaken">Ще не пройдено</string>
+    <string name="menu_not_played">Ще не зіграно</string>
+    <string name="menu_chess_caption">Проти комп'ютера</string>
+    <string name="menu_peg_caption">Залиште одну фішку</string>
+    <string name="category_memory">Пам'ять</string>
+    <string name="category_logic">Логіка</string>
+    <string name="category_perception">Сприйняття</string>
+    <string name="category_math">Математика</string>
     <!-- Learn section -->
     <string name="learn_section_title">Вчити математику</string>
     <string name="learn_section_subtitle">Ще в бета-версії. Нові теми та покращення вже в дорозі.</string>

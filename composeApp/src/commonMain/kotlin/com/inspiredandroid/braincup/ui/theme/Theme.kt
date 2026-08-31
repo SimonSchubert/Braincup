@@ -32,6 +32,16 @@ import org.jetbrains.compose.resources.Font
 import androidx.compose.ui.text.intl.Locale as ComposeLocale
 
 val Primary = Color(0xFFED7354)
+
+/**
+ * Heading chip colour for the main-menu sections that are not a [GameCategory] — the untimed
+ * games, Learn and Sponsors.
+ *
+ * A warm neutral rather than a fifth hue, so the four skill colours stay the only coloured
+ * headings, and fixed across themes like the category accents are: taking the theme's own
+ * `surfaceVariant` here made a muddy dark block of it in the dark theme.
+ */
+val MenuSectionAccent = Color(0xFFF0EAE2)
 private val OnPrimary = Color.White
 private val Secondary = Color(0xFFC45C44)
 private val OnSecondary = Color.White

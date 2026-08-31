@@ -829,6 +829,18 @@
     <string name="achievement_iq_test_high">Ιδιοφυΐα Μοτίβων</string>
     <string name="achievement_iq_test_high_desc">Φτάσε σε εκτιμώμενο IQ 130 ή παραπάνω</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">Με την ησυχία σου</string>
+    <string name="menu_best_score">Καλύτερο %1$s</string>
+    <string name="menu_iq_untaken">Δεν έγινε ακόμη</string>
+    <string name="menu_not_played">Δεν παίχτηκε ακόμη</string>
+    <string name="menu_chess_caption">Εναντίον CPU</string>
+    <string name="menu_peg_caption">Άφησε έναν πείρο</string>
+    <string name="category_memory">Μνήμη</string>
+    <string name="category_logic">Λογική</string>
+    <string name="category_perception">Αντίληψη</string>
+    <string name="category_math">Μαθηματικά</string>
     <!-- Learn section -->
     <string name="learn_section_title">Μάθε μαθηματικά</string>
     <string name="learn_section_subtitle">Ακόμη σε beta. Έρχονται νέα θέματα και βελτιώσεις.</string>

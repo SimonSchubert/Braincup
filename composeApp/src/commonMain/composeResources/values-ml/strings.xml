@@ -959,4 +959,16 @@
     <string name="learn_fig_bar_score">സ്കോർ</string>
     <string name="learn_fig_bar_total">ആകെ</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">സാവധാനം കളിക്കൂ</string>
+    <string name="menu_best_score">മികച്ചത് %1$s</string>
+    <string name="menu_iq_untaken">ഇതുവരെ ചെയ്തിട്ടില്ല</string>
+    <string name="menu_not_played">ഇതുവരെ കളിച്ചിട്ടില്ല</string>
+    <string name="menu_chess_caption">CPU യ്ക്കെതിരെ</string>
+    <string name="menu_peg_caption">ഒരു കായ് മാത്രം ബാക്കിയാക്കൂ</string>
+    <string name="category_memory">ഓർമ</string>
+    <string name="category_logic">യുക്തി</string>
+    <string name="category_perception">ഗ്രഹണം</string>
+    <string name="category_math">ഗണിതം</string>
 </resources>

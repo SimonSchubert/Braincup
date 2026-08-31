@@ -13,6 +13,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.clipToBounds
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
@@ -36,6 +38,7 @@ import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.GameType
+import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.games.PrismTileType
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.TrioFill
@@ -452,15 +455,15 @@ fun GameTile(
     onPlay: (GameType) -> Unit,
     onViewScore: (GameType) -> Unit,
     modifier: Modifier = Modifier,
+    /**
+     * Wear the untimed section's taller tile, with the personal best under the name.
+     *
+     * A property of where the tile is being drawn rather than of the game: the same game is a
+     * plain square in Continue, where it sits among mini games and has to line up with them.
+     */
+    untimedStyle: Boolean = false,
 ) {
-    GameTileShell(
-        label = stringResource(gameType.displayNameRes),
-        accentColor = gameType.accentColor,
-        labelMaxLines = 1,
-        modifier = modifier,
-        onClick = { onPlay(gameType) },
-        preview = { GamePreview(gameType) },
-    ) {
+    val medal: @Composable RowScope.() -> Unit = {
         val medalTint = gameType.medalTint(highscore)
         if (medalTint != null) {
             Spacer(Modifier.width(4.dp))
@@ -473,51 +476,104 @@ fun GameTile(
             )
         }
     }
+
+    // Lines up with the entries beside it instead of ending the row half a tile short. It keeps
+    // its medal either way.
+    if (untimedStyle) {
+        NormalGameTile(
+            label = stringResource(gameType.displayNameRes),
+            accentColor = gameType.accentColor,
+            onClick = { onPlay(gameType) },
+            modifier = modifier,
+            caption = if (highscore > 0) {
+                stringResource(Res.string.menu_best_score, gameType.formattedScore(highscore))
+            } else {
+                stringResource(Res.string.menu_not_played)
+            },
+            trailing = medal,
+            preview = { GamePreview(gameType) },
+        )
+        return
+    }
+
+    GameTileShell(
+        label = stringResource(gameType.displayNameRes),
+        accentColor = gameType.accentColor,
+        labelMaxLines = 1,
+        modifier = modifier,
+        onClick = { onPlay(gameType) },
+        preview = { GamePreview(gameType) },
+        trailing = medal,
+    )
 }
 
-/** The full-size 9x9 Sudoku entry, shown as a square tile alongside the mini games. */
+/** The full-size 9x9 Sudoku entry, with how much of the 50 puzzle book is done. */
 @Composable
-fun NormalSudokuTile(completedCount: Int, onClick: () -> Unit) {
+fun NormalSudokuTile(completedCount: Int, onClick: () -> Unit, total: Int = 50) {
     NormalGameTile(
-        label = stringResource(Res.string.normal_sudoku_button, completedCount, 50),
+        label = stringResource(Res.string.normal_sudoku_title),
         accentColor = GameType.MINI_SUDOKU.accentColor,
         onClick = onClick,
+        caption = stringResource(Res.string.menu_progress_fraction, completedCount, total),
+        progress = if (total > 0) completedCount.toFloat() / total else 0f,
     ) { NormalSudokuPreview() }
 }
 
-/** The full-size 8x8 Chess entry, shown as a square tile alongside the mini games. */
+/** The full-size 8x8 Chess entry. Endless play, so it carries a description, not progress. */
 @Composable
 fun NormalChessTile(onClick: () -> Unit) {
     NormalGameTile(
         label = stringResource(Res.string.normal_chess_button),
         accentColor = GameType.MINI_CHESS.accentColor,
         onClick = onClick,
+        caption = stringResource(Res.string.menu_chess_caption),
     ) { NormalChessPreview() }
 }
 
-/** The Matchstick Riddles entry, shown as a square tile alongside the mini games. */
+/** The Matchstick Riddles entry, with how many of the riddles are solved. */
 @Composable
 fun MatchstickRiddlesTile(solvedCount: Int, total: Int, onClick: () -> Unit) {
     NormalGameTile(
-        label = stringResource(Res.string.matchstick_riddles_button, solvedCount, total),
+        label = stringResource(Res.string.matchstick_riddles_title),
         accentColor = MatchstickColors.TileAccentArgb,
         onClick = onClick,
+        caption = stringResource(Res.string.menu_progress_fraction, solvedCount, total),
+        progress = if (total > 0) solvedCount.toFloat() / total else 0f,
     ) { MatchstickRiddlesPreview() }
 }
 
-/** The standalone matrix-reasoning IQ test, under the full-size games divider. */
+/**
+ * The standalone matrix-reasoning IQ test.
+ *
+ * Carries the personal best rather than a progress bar: it is one sitting that ends in a score,
+ * not a collection to work through.
+ */
 @Composable
 fun IqTestTile(bestIq: Int?, onClick: () -> Unit) {
     NormalGameTile(
-        label = if (bestIq != null) {
-            stringResource(Res.string.iq_test_button) + " ($bestIq)"
-        } else {
-            stringResource(Res.string.iq_test_button)
-        },
+        label = stringResource(Res.string.iq_test_button),
         accentColor = GameType.PATTERN_SEQUENCE.accentColor,
         onClick = onClick,
+        caption = if (bestIq != null) {
+            stringResource(Res.string.menu_best_score, bestIq.toString())
+        } else {
+            stringResource(Res.string.menu_iq_untaken)
+        },
     ) { IqTestPreview() }
 }
+
+/** English peg solitaire. One board, so a description rather than progress. */
+@Composable
+fun PegSolitaireTile(onClick: () -> Unit) {
+    NormalGameTile(
+        label = stringResource(Res.string.peg_solitaire_button),
+        accentColor = PegSolitaireTileAccentArgb,
+        onClick = onClick,
+        caption = stringResource(Res.string.menu_peg_caption),
+    ) { PegSolitairePreview() }
+}
+
+private const val PegSolitaireTileAccentArgb = 0xFF8D6E63L
 
 /**
  * A miniature of the result screen's bell curve rather than another matrix, so the tile reads as
@@ -557,37 +613,88 @@ private const val IqTestPreviewBarsBelow = 6
 /** Half-width of the sampled z-range: wide enough to fall off, tight enough to keep edge bars visible. */
 private const val IqTestPreviewSpread = 4.4f
 
-/** English peg solitaire entry under the full-size games divider. */
-@Composable
-fun PegSolitaireTile(onClick: () -> Unit) {
-    NormalGameTile(
-        label = stringResource(Res.string.peg_solitaire_button),
-        accentColor = PegSolitaireTileAccentArgb,
-        onClick = onClick,
-    ) { PegSolitairePreview() }
-}
-
-private const val PegSolitaireTileAccentArgb = 0xFF8D6E63L
-
 /**
- * A square tile for the "normal" (full-size) game entries that are not real [GameType]s and have
- * no per-game highscore or medal. Two label lines are allowed so a longer label with a progress
- * count (e.g. "Normal Sudoku (0/50)") stays readable at tile width instead of truncating.
+ * A tile for the untimed entries that are not real [GameType]s and have no per-game highscore
+ * or medal: the IQ test, full-size Chess and Sudoku, Matchstick Riddles and Peg Solitaire.
+ *
+ * Unlike a mini game these have no clock, and what they do have is progress that accumulates over
+ * many sittings. So the tile is not locked to a square: the preview keeps the
+ * full square the mini games give theirs, and the label block below it grows to hold a bar and a
+ * count. Cramming the count into the label instead ("Sudoku (12/50)") buried the one number that
+ * matters and truncated it at tile width.
  */
 @Composable
 private fun NormalGameTile(
     label: String,
     accentColor: Long,
     onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    caption: String? = null,
+    progress: Float? = null,
+    trailing: @Composable RowScope.() -> Unit = {},
     preview: @Composable () -> Unit,
 ) {
-    GameTileShell(
-        label = label,
-        accentColor = accentColor,
-        labelMaxLines = 2,
+    PrismTile(
+        face = Primary,
+        modifier = modifier.hoverHand(),
         onClick = onClick,
-        preview = preview,
-    )
+    ) {
+        Column(modifier = Modifier.fillMaxWidth()) {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .aspectRatio(1f)
+                    .background(Color(accentColor)),
+                contentAlignment = Alignment.Center,
+            ) {
+                MaterialTheme(colorScheme = LightColorScheme) {
+                    preview()
+                }
+            }
+
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(start = 8.dp, top = 6.dp, bottom = 8.dp, end = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(5.dp),
+            ) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        text = label,
+                        style = MaterialTheme.typography.labelLarge,
+                        color = Color.White,
+                        // Always two lines: the names in this section run from "Sudoku" to
+                        // "Matchstick Riddles", and letting the block shrink to the short ones left
+                        // the row visibly ragged, with the tall tile hanging below its neighbours.
+                        minLines = 2,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.weight(1f),
+                    )
+                    trailing()
+                }
+                if (progress != null) {
+                    // White on the tile's own face rather than the accent: the accent is a pale
+                    // tile background, and at bar size on orange it read as an empty track.
+                    PrismProgressBar(
+                        progress = { progress },
+                        trackColor = Color.Black.copy(alpha = 0.22f),
+                        fillColor = Color.White,
+                        modifier = Modifier.fillMaxWidth().height(8.dp),
+                    )
+                }
+                if (caption != null) {
+                    Text(
+                        text = caption,
+                        style = MaterialTheme.typography.labelSmall,
+                        color = Color.White.copy(alpha = 0.85f),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+        }
+    }
 }
 
 /**

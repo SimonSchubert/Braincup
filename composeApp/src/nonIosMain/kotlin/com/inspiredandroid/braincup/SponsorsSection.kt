@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,7 +26,9 @@ import coil3.compose.AsyncImage
 import coil3.compose.setSingletonImageLoaderFactory
 import coil3.network.ktor3.KtorNetworkFetcherFactory
 import com.inspiredandroid.braincup.ui.components.DefaultButton
+import com.inspiredandroid.braincup.ui.components.MenuSectionHeader
 import com.inspiredandroid.braincup.ui.components.hoverHand
+import com.inspiredandroid.braincup.ui.theme.MenuSectionAccent
 import com.inspiredandroid.braincup.ui.theme.PrismSlot
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
@@ -71,22 +72,20 @@ internal fun EnsureSponsorsImageLoader() {
 internal fun SponsorsSectionContent(sponsors: Sponsors) {
     val uriHandler = LocalUriHandler.current
 
-    Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp)) {
-        Spacer(Modifier.height(24.dp))
-        Text(
-            text = stringResource(Res.string.sponsors_title),
-            style = MaterialTheme.typography.titleMedium,
-        )
-        Spacer(Modifier.height(4.dp))
-        Text(
-            text = stringResource(Res.string.sponsors_subtitle),
-            style = MaterialTheme.typography.bodyMedium,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
+    // No horizontal padding of its own: this is drawn as an item inside the main menu's grid,
+    // which already insets its content, and the extra 16dp left the heading indented past every
+    // other heading on the screen.
+    Column(modifier = Modifier.fillMaxWidth()) {
+        Spacer(Modifier.height(12.dp))
+        MenuSectionHeader(
+            title = stringResource(Res.string.sponsors_title),
+            accentColor = MenuSectionAccent,
+            subtitle = stringResource(Res.string.sponsors_subtitle),
         )
 
         val allSponsors = sponsors.current + sponsors.past
         if (allSponsors.isNotEmpty()) {
-            Spacer(Modifier.height(12.dp))
+            Spacer(Modifier.height(4.dp))
             FlowRow(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),

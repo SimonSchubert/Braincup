@@ -829,6 +829,18 @@
     <string name="achievement_iq_test_high">প্যাটার্ন বিশারদ</string>
     <string name="achievement_iq_test_high_desc">আনুমানিক আইকিউ ১৩০ বা তার বেশি পান</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">সময় নিন</string>
+    <string name="menu_best_score">সেরা %1$s</string>
+    <string name="menu_iq_untaken">এখনও দেওয়া হয়নি</string>
+    <string name="menu_not_played">এখনও খেলা হয়নি</string>
+    <string name="menu_chess_caption">CPU-এর বিরুদ্ধে</string>
+    <string name="menu_peg_caption">একটি গুটি বাকি রাখুন</string>
+    <string name="category_memory">স্মৃতি</string>
+    <string name="category_logic">যুক্তি</string>
+    <string name="category_perception">উপলব্ধি</string>
+    <string name="category_math">গণিত</string>
     <!-- Learn section -->
     <string name="learn_section_title">গণিত শেখো</string>
     <string name="learn_section_subtitle">এখনও বিটা সংস্করণ। নতুন বিষয় ও উন্নতি আসছে।</string>

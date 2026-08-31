@@ -846,6 +846,18 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="achievement_iq_test_completed_desc">Acaba un test d'IQ sencer</string>
     <string name="achievement_iq_test_high">Geni de patrons</string>
     <string name="achievement_iq_test_high_desc">Arriba a un IQ estimat de 130 o més</string>
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">Sense pressa</string>
+    <string name="menu_best_score">Millor %1$s</string>
+    <string name="menu_iq_untaken">Encara no fet</string>
+    <string name="menu_not_played">Encara no jugat</string>
+    <string name="menu_chess_caption">Contra la CPU</string>
+    <string name="menu_peg_caption">Deixa només una fitxa</string>
+    <string name="category_memory">Memòria</string>
+    <string name="category_logic">Lògica</string>
+    <string name="category_perception">Percepció</string>
+    <string name="category_math">Matemàtiques</string>
     <!-- Learn section -->
     <string name="learn_section_title">Aprèn matemàtiques</string>
     <string name="learn_section_subtitle">Encara en fase beta. Aviat hi haurà temes nous i millores.</string>

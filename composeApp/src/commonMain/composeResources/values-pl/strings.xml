@@ -829,6 +829,18 @@
     <string name="achievement_iq_test_high">Geniusz wzorów</string>
     <string name="achievement_iq_test_high_desc">Osiągnij szacowane IQ 130 lub wyżej</string>
 
+    <!-- Main menu sections -->
+    <string name="menu_progress_fraction">%1$d / %2$d</string>
+    <string name="menu_untimed_title">Bez pośpiechu</string>
+    <string name="menu_best_score">Najlepszy %1$s</string>
+    <string name="menu_iq_untaken">Jeszcze nie wykonany</string>
+    <string name="menu_not_played">Jeszcze nie grane</string>
+    <string name="menu_chess_caption">Przeciw komputerowi</string>
+    <string name="menu_peg_caption">Zostaw jeden pionek</string>
+    <string name="category_memory">Pamięć</string>
+    <string name="category_logic">Logika</string>
+    <string name="category_perception">Percepcja</string>
+    <string name="category_math">Matematyka</string>
     <!-- Learn section -->
     <string name="learn_section_title">Nauka matematyki</string>
     <string name="learn_section_subtitle">Wciąż w wersji beta. Nowe tematy i ulepszenia są w drodze.</string>

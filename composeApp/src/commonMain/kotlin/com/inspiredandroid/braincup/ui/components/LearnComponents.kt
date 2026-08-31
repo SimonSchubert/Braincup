@@ -57,6 +57,7 @@ fun LearnTopicTile(
         preview = { TopicTilePreview(topic) },
         title = stringResource(topic.titleRes),
         caption = stringResource(Res.string.learn_unit_progress, certificates, unitsTotal),
+        progress = if (unitsTotal > 0) certificates.toFloat() / unitsTotal else 0f,
         // The trophy marks a finished topic, so it waits for the last sub-topic's certificate.
         showMedal = unitsTotal > 0 && certificates >= unitsTotal,
         onClick = { onClick(topic) },
@@ -217,19 +218,20 @@ private fun LearnTileBody(
     showMedal: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    progress: Float? = null,
 ) {
+    // Not locked to a square, and the preview keeps a full one: a topic sits beside the untimed
+    // games on the menu and is the same kind of thing, so it carries its progress the same way.
     PrismTile(
         face = Primary,
-        modifier = modifier
-            .aspectRatio(1f)
-            .hoverHand(),
+        modifier = modifier.hoverHand(),
         onClick = onClick,
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
+        Column(modifier = Modifier.fillMaxWidth()) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(1f)
+                    .aspectRatio(1f)
                     .background(Color(accentColor)),
                 contentAlignment = Alignment.Center,
             ) {
@@ -249,9 +251,8 @@ private fun LearnTileBody(
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(min = 48.dp)
-                    .padding(start = 8.dp, top = 6.dp, bottom = 6.dp, end = 6.dp),
-                verticalArrangement = Arrangement.Center,
+                    .padding(start = 8.dp, top = 6.dp, bottom = 8.dp, end = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(5.dp),
             ) {
                 Text(
                     text = title,
@@ -260,6 +261,14 @@ private fun LearnTileBody(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
+                if (progress != null) {
+                    PrismProgressBar(
+                        progress = { progress },
+                        trackColor = Color.Black.copy(alpha = 0.22f),
+                        fillColor = Color.White,
+                        modifier = Modifier.fillMaxWidth().height(8.dp),
+                    )
+                }
                 Text(
                     text = caption,
                     style = MaterialTheme.typography.labelSmall,
@@ -268,48 +277,6 @@ private fun LearnTileBody(
                 )
             }
         }
-    }
-}
-
-/** Section heading used above the Learn tiles on the main menu. */
-@OptIn(ExperimentalLayoutApi::class)
-@Composable
-fun LearnSectionHeader(
-    title: String,
-    subtitle: String,
-    trailing: String?,
-    modifier: Modifier = Modifier,
-) {
-    Column(modifier = modifier.fillMaxWidth()) {
-        // A flow rather than a row, because the certificate count is measured before the title and
-        // takes its full width: on a narrow screen at a large font scale that left the title a
-        // column four glyphs wide, which it then spelled out one letter to a line. Here the count
-        // drops to its own line instead, and the title keeps the width.
-        FlowRow(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,
-            verticalArrangement = Arrangement.spacedBy(2.dp),
-        ) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleMedium,
-                color = Primary,
-                fontWeight = FontWeight.Bold,
-            )
-            if (trailing != null) {
-                Text(
-                    text = trailing,
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
-                )
-            }
-        }
-        Spacer(Modifier.height(2.dp))
-        Text(
-            text = subtitle,
-            style = MaterialTheme.typography.bodySmall,
-            color = MaterialTheme.colorScheme.onSurfaceVariant,
-        )
     }
 }
 
