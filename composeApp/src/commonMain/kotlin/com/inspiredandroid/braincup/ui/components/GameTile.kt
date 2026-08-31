@@ -73,7 +73,6 @@ import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightsOutOffColor
 import com.inspiredandroid.braincup.ui.theme.LightsOutOnColor
 import com.inspiredandroid.braincup.ui.theme.MatchstickColors
-import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccent
 import com.inspiredandroid.braincup.ui.theme.NurikabeBoardFrame
 import com.inspiredandroid.braincup.ui.theme.NurikabeIslandColor
 import com.inspiredandroid.braincup.ui.theme.NurikabeSeaColor
@@ -89,6 +88,7 @@ import com.inspiredandroid.braincup.ui.theme.PuzzleGridInk
 import com.inspiredandroid.braincup.ui.theme.ShikakuBoardFrame
 import com.inspiredandroid.braincup.ui.theme.SpotTheNewColors
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
+import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccent
 import com.inspiredandroid.braincup.ui.theme.WordleAbsent
 import com.inspiredandroid.braincup.ui.theme.WordlePresent
 import com.inspiredandroid.braincup.ui.theme.medalTint
@@ -574,7 +574,6 @@ fun PegSolitaireTile(onClick: () -> Unit) {
         caption = stringResource(Res.string.menu_peg_caption),
     ) { PegSolitairePreview() }
 }
-
 
 /**
  * A miniature of the result screen's bell curve rather than another matrix, so the tile reads as

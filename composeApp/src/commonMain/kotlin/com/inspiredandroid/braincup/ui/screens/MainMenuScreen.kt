@@ -48,11 +48,11 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.screens.games.DevicePreviews
 import com.inspiredandroid.braincup.ui.screens.games.ScreenPreviewHost
 import com.inspiredandroid.braincup.ui.theme.ContentMaxWidth
+import com.inspiredandroid.braincup.ui.theme.LearnSectionAccent
 import com.inspiredandroid.braincup.ui.theme.LocalAccessiblePalette
 import com.inspiredandroid.braincup.ui.theme.MedalGold
-import com.inspiredandroid.braincup.ui.theme.LearnSectionAccent
-import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccent
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.UntimedSectionAccent
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.ImmutableMap
 import kotlinx.collections.immutable.persistentListOf
