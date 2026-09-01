@@ -300,6 +300,11 @@ internal fun ColumnScope.LearnStepColumn(content: @Composable ColumnScope.() -> 
 /**
  * The screen a lesson or a test ends on: what was finished, how it went, and whatever each has to
  * offer next. Both scroll, because a result can grow a review list or a certificate under it.
+ *
+ * Centred in the space it is given, exactly as [LearnStepColumn] is. A result is a handful of
+ * lines and two buttons, and stacked at the top it left the bottom half of the screen empty. A
+ * result that outgrows the viewport, such as a test with its review list unfolded, is taller than
+ * the space it is centred in and so keeps scrolling from the top exactly as it did.
  */
 @Composable
 internal fun LearnResultColumn(
@@ -307,7 +312,6 @@ internal fun LearnResultColumn(
     score: String,
     scoreStyle: TextStyle,
     modifier: Modifier = Modifier,
-    verticalArrangement: Arrangement.Vertical = Arrangement.Top,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     Column(
@@ -316,7 +320,7 @@ internal fun LearnResultColumn(
             .verticalScroll(rememberScrollState())
             .padding(horizontal = 24.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = verticalArrangement,
+        verticalArrangement = Arrangement.Center,
     ) {
         Text(
             text = title,

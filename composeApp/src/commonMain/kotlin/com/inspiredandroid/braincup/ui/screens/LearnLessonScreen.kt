@@ -672,9 +672,6 @@ private fun LessonCompleteContent(
         score = stringResource(Res.string.learn_lesson_score, correctCount, lesson.questionCount),
         scoreStyle = MaterialTheme.typography.bodyLarge,
         modifier = modifier,
-        // A lesson result is short enough to sit in the middle of the screen; a test result is
-        // not, because the review list unfolds under it.
-        verticalArrangement = Arrangement.Center,
     ) {
         if (xpGained > 0) {
             Spacer(Modifier.height(16.dp))
