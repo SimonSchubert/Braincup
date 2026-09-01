@@ -19,12 +19,16 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.button_cancel
 import braincup.composeapp.generated.resources.ic_pencil_notes
 import braincup.composeapp.generated.resources.normal_sudoku_erase
 import braincup.composeapp.generated.resources.normal_sudoku_not_solved
 import braincup.composeapp.generated.resources.normal_sudoku_notes_mode
 import braincup.composeapp.generated.resources.normal_sudoku_notes_toggle
 import braincup.composeapp.generated.resources.normal_sudoku_pen_mode
+import braincup.composeapp.generated.resources.normal_sudoku_reset
+import braincup.composeapp.generated.resources.normal_sudoku_reset_message
+import braincup.composeapp.generated.resources.normal_sudoku_reset_title
 import braincup.composeapp.generated.resources.normal_sudoku_solved
 import braincup.composeapp.generated.resources.normal_sudoku_title
 import com.inspiredandroid.braincup.api.UserStorage
@@ -40,6 +44,7 @@ import com.inspiredandroid.braincup.normalsudoku.noteMaskToText
 import com.inspiredandroid.braincup.normalsudoku.noteMaskToggle
 import com.inspiredandroid.braincup.ui.components.AppScaffold
 import com.inspiredandroid.braincup.ui.components.BoxedGlyphLineHeight
+import com.inspiredandroid.braincup.ui.components.PrismDialog
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.boxedTextSize
@@ -98,6 +103,7 @@ fun NormalSudokuPlayScreen(
     var lastWrongFlash by remember(puzzle) { mutableLongStateOf(0L) }
     var solved by remember(puzzle) { mutableStateOf(false) }
     var xpGained by remember(puzzle) { mutableIntStateOf(0) }
+    var confirmingReset by remember(puzzle) { mutableStateOf(false) }
 
     fun persist() {
         if (solved) return
@@ -136,6 +142,19 @@ fun NormalSudokuPlayScreen(
 
     fun applyDigit(digit: Int) {
         if (notesMode) toggleNote(selectedIndex, digit) else placeDigit(selectedIndex, digit)
+    }
+
+    fun resetBoard() {
+        if (solved) return
+        for (i in board.indices) {
+            board[i] = clueDigits[i]
+            notes[i] = 0
+        }
+        selectedIndex = clueDigits.indexOfFirst { it == 0 }.takeIf { it != -1 } ?: 0
+        // Drop the saved game rather than storing the clue grid back: with no entry the load path
+        // already falls back to the puzzle's clues, so the two ways of starting over agree.
+        storage.clearNormalSudokuProgress(puzzle.id)
+        storage.clearNormalSudokuNotes(puzzle.id)
     }
 
     fun applyErase() {
@@ -184,10 +203,15 @@ fun NormalSudokuPlayScreen(
             }
             val onDigit = remember { { digit: Int -> applyDigit(digit) } }
             val onErase = remember { { applyErase() } }
+            val onReset = remember { { confirmingReset = true } }
             // Snapshot mutable board/notes into stable lists so the board and pad can skip when
             // only selection or notes-mode changes (strong skipping still equals-checks content).
             val boardSnapshot = board.toImmutableList()
             val notesSnapshot = notes.toImmutableList()
+            // Nothing entered yet means nothing to reset, so the tile greys out instead of
+            // opening a dialog whose answer cannot change anything.
+            val canReset = !solved &&
+                (boardSnapshot.indices.any { boardSnapshot[it] != clueDigits[it] } || notesSnapshot.any { it != 0 })
 
             if (landscape) {
                 val boardSize = minOf(
@@ -222,9 +246,11 @@ fun NormalSudokuPlayScreen(
                         notesMode = notesMode,
                         selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
+                        canReset = canReset,
                         modifier = Modifier.width(padWidth),
                         onDigit = onDigit,
                         onErase = onErase,
+                        onReset = onReset,
                     )
                 }
             } else {
@@ -259,15 +285,32 @@ fun NormalSudokuPlayScreen(
                         notesMode = notesMode,
                         selectedNotes = notes.getOrElse(selectedIndex) { 0 },
                         enabled = !solved,
+                        canReset = canReset,
                         modifier = Modifier.width(boardSize),
                         onDigit = onDigit,
                         onErase = onErase,
+                        onReset = onReset,
                     )
                 }
             }
         }
 
         StatusBanner(solved = solved, wrongFlashKey = lastWrongFlash, xpGained = xpGained)
+
+        if (confirmingReset) {
+            PrismDialog(
+                onDismissRequest = { confirmingReset = false },
+                title = stringResource(Res.string.normal_sudoku_reset_title),
+                message = stringResource(Res.string.normal_sudoku_reset_message),
+                primaryLabel = stringResource(Res.string.button_cancel),
+                onPrimary = { confirmingReset = false },
+                secondaryLabel = stringResource(Res.string.normal_sudoku_reset),
+                onSecondary = {
+                    confirmingReset = false
+                    resetBoard()
+                },
+            )
+        }
     }
 }
 
@@ -482,8 +525,10 @@ private fun DigitPad(
     notesMode: Boolean,
     selectedNotes: NoteMask,
     enabled: Boolean,
+    canReset: Boolean,
     onDigit: (Int) -> Unit,
     onErase: () -> Unit,
+    onReset: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val digitCounts = IntArray(10)
@@ -526,11 +571,59 @@ private fun DigitPad(
                 }
             }
         }
-        EraseTile(
-            enabled = enabled,
-            onClick = onErase,
-            modifier = Modifier.fillMaxWidth(0.7f),
+        PadActions(
+            eraseEnabled = enabled,
+            resetEnabled = canReset,
+            onErase = onErase,
+            onReset = onReset,
         )
+    }
+}
+
+/**
+ * Erase and Reset, side by side under the digits - stacked once the font scale has grown the two
+ * labels past half a pad each, the same way the prism dialogs give up on splitting their button row.
+ */
+@Composable
+private fun PadActions(
+    eraseEnabled: Boolean,
+    resetEnabled: Boolean,
+    onErase: () -> Unit,
+    onReset: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    val erase: @Composable (Modifier) -> Unit = { tileModifier ->
+        PadActionTile(
+            label = stringResource(Res.string.normal_sudoku_erase),
+            enabled = eraseEnabled,
+            onClick = onErase,
+            modifier = tileModifier,
+        )
+    }
+    val reset: @Composable (Modifier) -> Unit = { tileModifier ->
+        PadActionTile(
+            label = stringResource(Res.string.normal_sudoku_reset),
+            enabled = resetEnabled,
+            onClick = onReset,
+            modifier = tileModifier,
+        )
+    }
+    if (isLargeFontScale()) {
+        Column(
+            modifier = modifier.fillMaxWidth(),
+            verticalArrangement = Arrangement.spacedBy(PadGap),
+        ) {
+            erase(Modifier.fillMaxWidth())
+            reset(Modifier.fillMaxWidth())
+        }
+    } else {
+        Row(
+            modifier = modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(PadGap),
+        ) {
+            erase(Modifier.weight(1f))
+            reset(Modifier.weight(1f))
+        }
     }
 }
 
@@ -568,7 +661,8 @@ private fun DigitTile(
 }
 
 @Composable
-private fun EraseTile(
+private fun PadActionTile(
+    label: String,
     enabled: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -582,17 +676,15 @@ private fun EraseTile(
         isClickable = enabled,
         onClick = onClick,
     ) {
-        Row(
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(6.dp),
-            modifier = Modifier.padding(horizontal = 12.dp, vertical = 8.dp),
-        ) {
-            Text(
-                text = stringResource(Res.string.normal_sudoku_erase),
-                style = MaterialTheme.typography.bodyMedium,
-                color = MaterialTheme.colorScheme.onSurface,
-            )
-        }
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurface,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 12.dp, vertical = 8.dp),
+        )
     }
 }
 

@@ -9,6 +9,7 @@
     <string name="button_play_random">Play Random Game</string>
     <string name="button_give_up">Give Up</string>
     <string name="button_stay">Stay</string>
+    <string name="button_cancel">Cancel</string>
     <string name="button_quit_game">Quit</string>
     <string name="button_backspace">Backspace</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Notes</string>
     <string name="normal_sudoku_pen_mode">Pen</string>
     <string name="normal_sudoku_notes_toggle">Toggle notes mode</string>
+    <string name="normal_sudoku_reset">Reset</string>
+    <string name="normal_sudoku_reset_title">Reset board?</string>
+    <string name="normal_sudoku_reset_message">Every digit and note you entered is cleared. The puzzle's given clues stay.</string>
 
     <string name="normal_chess_button">Normal Chess</string>
     <string name="normal_chess_title">Chess</string>
