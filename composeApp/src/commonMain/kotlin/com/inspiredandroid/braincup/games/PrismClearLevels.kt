@@ -1,11 +1,16 @@
 package com.inspiredandroid.braincup.games
 
 /**
- * Hand-authored Prism Clear catalog (15 levels).
+ * Prism Clear catalog (20 levels).
  *
  * Curve: L1 teaches cascade/order (not a free one-swap), mid levels tighten budget,
  * L9+ are dense “planning” boards where many legal swaps exist but only careful lines clear.
- * Levels beyond [COUNT] clamp to the last board.
+ * L16+ deal a tile to every cell, so nothing clears out of order and most of the openings on
+ * offer strand a colour. Levels beyond [COUNT] clamp to the last board.
+ *
+ * L1–L15 are hand-authored. A packed board cannot be: those are built backwards from an empty
+ * grid by scripts/generate_prism_clear_levels.py, which also proves the line recorded here
+ * empties them.
  *
  * Board chars (whitespace ignored): `R` ruby, `G` emerald, `B` sapphire, `P` amethyst,
  * `O` topaz, `.` empty. Solutions are flat cell-index pairs for unit tests only.
@@ -38,7 +43,7 @@ data class PrismClearLevel(
 }
 
 object PrismClearLevels {
-    const val COUNT: Int = 15
+    const val COUNT: Int = 20
 
     val all: List<PrismClearLevel> = listOf(
         // L1 — cascade teach: clear blues first, then the dual-seed bottom line
@@ -292,6 +297,92 @@ object PrismClearLevels {
                 44 to 45,
                 47 to 48,
             ),
+        ),
+        // L16 — first packed board: every cell dealt, so nothing can be cleared out of order
+        level(
+            16,
+            6,
+            7,
+            11,
+            """
+            RPRGBPO
+            RGRBROO
+            POGPBPR
+            OBBPBBG
+            BOPGRGG
+            RBRPGGP
+            """,
+            listOf(21 to 22, 23 to 24, 19 to 20, 16 to 17, 31 to 38, 40 to 41, 35 to 36, 35 to 36, 30 to 37, 36 to 37, 38 to 39),
+        ),
+        // L17 — one lone emerald triple in a crowded board; most openings strand it
+        level(
+            17,
+            7,
+            6,
+            12,
+            """
+            GPPGPB
+            PBRPBO
+            OPPOBO
+            PRPBOB
+            POBOBR
+            BOBBRB
+            RGOPPR
+            """,
+            listOf(0 to 6, 4 to 5, 12 to 13, 13 to 19, 22 to 23, 26 to 27, 26 to 27, 25 to 31, 30 to 36, 38 to 39, 34 to 35, 38 to 39),
+        ),
+        // L18 — tallest grid in the catalog, filled to the top row
+        level(
+            18,
+            8,
+            6,
+            14,
+            """
+            RGBPPG
+            RGBORP
+            OBPOGG
+            GGBGRG
+            GPRROP
+            PGPOOP
+            ROPOPR
+            BPORGB
+            """,
+            listOf(13 to 19, 14 to 20, 15 to 21, 11 to 17, 20 to 26, 21 to 22, 30 to 31, 30 to 36, 38 to 39, 33 to 39, 40 to 41, 46 to 47, 45 to 46, 44 to 45),
+        ),
+        // L19 — 48 of 49 cells: the single gap is the only slack on the board
+        level(
+            19,
+            7,
+            7,
+            15,
+            """
+            .OBBOOP
+            GGBGORO
+            OBGGRPR
+            GRGBRRG
+            GGOBORB
+            RGOGPOO
+            RPPBOBP
+            """,
+            listOf(5 to 12, 7 to 14, 9 to 10, 10 to 17, 15 to 22, 39 to 46, 45 to 46, 28 to 29, 22 to 29, 38 to 39, 39 to 40, 26 to 27, 41 to 48, 41 to 48, 45 to 46),
+        ),
+        // L20 — finale: a full board and the longest plan, with no greedy line that survives
+        level(
+            20,
+            8,
+            6,
+            15,
+            """
+            RPBPBB
+            PORPBR
+            RPRBOR
+            PBOBOG
+            ROBPRO
+            GOOGGP
+            OGBGGB
+            BGGRBP
+            """,
+            listOf(2 to 3, 0 to 6, 9 to 10, 18 to 24, 28 to 29, 23 to 29, 28 to 29, 30 to 31, 25 to 26, 41 to 47, 42 to 43, 25 to 31, 44 to 45, 38 to 44, 44 to 45),
         ),
     )
 

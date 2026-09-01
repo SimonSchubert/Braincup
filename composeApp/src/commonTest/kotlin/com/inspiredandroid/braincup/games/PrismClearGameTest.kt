@@ -22,9 +22,9 @@ class PrismClearGameTest {
     }
 
     @Test
-    fun catalogHasFifteenLevels() {
-        assertEquals(15, PrismClearLevels.COUNT)
-        assertEquals(15, PrismClearLevels.all.size)
+    fun catalogHasTwentyLevels() {
+        assertEquals(20, PrismClearLevels.COUNT)
+        assertEquals(20, PrismClearLevels.all.size)
     }
 
     @Test
@@ -33,12 +33,31 @@ class PrismClearGameTest {
         val l5 = PrismClearLevels.forLevel(5)
         val l10 = PrismClearLevels.forLevel(10)
         val l15 = PrismClearLevels.forLevel(15)
+        val l16 = PrismClearLevels.forLevel(16)
+        val l20 = PrismClearLevels.forLevel(20)
         assertEquals(2, l1.solution.size)
         assertTrue(l1.occupiedCells() < l5.occupiedCells())
         assertTrue(l5.occupiedCells() < l10.occupiedCells())
         assertTrue(l10.occupiedCells() <= l15.occupiedCells())
+        assertTrue(l15.occupiedCells() < l16.occupiedCells())
+        assertTrue(l16.occupiedCells() <= l20.occupiedCells())
         assertTrue(l10.solution.size >= 6)
         assertTrue(l15.solution.size >= 8)
+        assertTrue(l20.solution.size >= 10)
+    }
+
+    @Test
+    fun packedLevelsFillTheBoardAndDealClean() {
+        for (def in PrismClearLevels.all.filter { it.id >= 16 }) {
+            val cells = def.parseCells()
+            assertTrue(cells.count { it == null } <= 1, "L${'$'}{def.id} leaves more than one gap")
+            // generateRound does not settle the deal, so a standing match would just sit there.
+            assertTrue(
+                findMatches(cells, def.rows, def.cols).isEmpty(),
+                "L${'$'}{def.id} deals a standing match",
+            )
+            assertTrue(def.solution.size >= 10, "L${'$'}{def.id} solution is too short")
+        }
     }
 
     @Test

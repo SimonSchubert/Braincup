@@ -576,7 +576,11 @@ private fun cellSizeFor(rows: Int, cols: Int, compact: Boolean): Dp {
         longest <= 4 -> 64.dp
         longest <= 5 -> 56.dp
         longest <= 6 -> 48.dp
-        else -> 40.dp
+        longest <= 7 -> 40.dp
+        // The body of a tall screen does not scroll, so an eight-row board at 40.dp would push
+        // undo and restart off the bottom. 34.dp keeps it just inside the height a seven-row
+        // board already takes.
+        else -> 34.dp
     }
 }
 
