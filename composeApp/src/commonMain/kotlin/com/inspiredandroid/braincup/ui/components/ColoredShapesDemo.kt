@@ -1,9 +1,11 @@
 package com.inspiredandroid.braincup.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -131,6 +133,9 @@ fun ColoredShapesDemo(modifier: Modifier = Modifier) {
     }
 }
 
+/** The tick/cross slot is always laid out, so judging a statement cannot reflow the row. */
+private val MarkSize = 16.dp
+
 @Composable
 private fun StatementRow(text: String, textColor: Color, counts: Boolean?) {
     Row(verticalAlignment = Alignment.CenterVertically) {
@@ -142,16 +147,15 @@ private fun StatementRow(text: String, textColor: Color, counts: Boolean?) {
             modifier = Modifier.alpha(if (counts == false) 0.4f else 1f),
         )
         Spacer(Modifier.width(10.dp))
-        // A tick once a statement is judged to count, a cross once it is judged not to.
-        Text(
-            text = when (counts) {
-                true -> "✓"
-                false -> "✗"
-                null -> ""
-            },
-            style = MaterialTheme.typography.titleMedium,
-            fontWeight = FontWeight.Bold,
-            color = if (counts == true) SuccessGreen else MaterialTheme.colorScheme.error,
-        )
+        // A tick once a statement is judged to count, a cross once it is judged not to. Drawn
+        // rather than typed: the Unicode glyphs come from the platform's fallback face, so they
+        // rendered as thin system marks next to the chunky brand type.
+        Box(modifier = Modifier.size(MarkSize), contentAlignment = Alignment.Center) {
+            when (counts) {
+                true -> ChunkyCheck(SuccessGreen, Modifier.fillMaxSize())
+                false -> ChunkyCross(MaterialTheme.colorScheme.error, Modifier.fillMaxSize())
+                null -> Unit
+            }
+        }
     }
 }

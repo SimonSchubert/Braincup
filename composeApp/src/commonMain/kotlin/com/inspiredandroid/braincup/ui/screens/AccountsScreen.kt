@@ -49,6 +49,7 @@ import com.inspiredandroid.braincup.api.PlayerAccount
 import com.inspiredandroid.braincup.api.StorePlayerProfile
 import com.inspiredandroid.braincup.ui.components.AccountAvatar
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.ChunkyCheck
 import com.inspiredandroid.braincup.ui.components.DefaultButton
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismDialog
@@ -196,11 +197,9 @@ private fun AccountRow(
                     )
                 }
                 if (selected) {
-                    Text(
-                        text = "✓",
-                        color = Primary,
-                        style = MaterialTheme.typography.titleLarge,
-                    )
+                    // Drawn rather than typed: the Unicode tick falls back to the platform face
+                    // and reads as a thin system mark next to the brand type.
+                    ChunkyCheck(color = Primary, modifier = Modifier.size(20.dp))
                 }
             }
             if (onEdit != null || onDelete != null) {

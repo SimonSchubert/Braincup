@@ -8,12 +8,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.locale.supportedAppLanguages
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.ChunkyCheck
 import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.noRippleClickable
@@ -115,16 +115,11 @@ private fun LanguageRow(
                 contentAlignment = Alignment.Center,
             ) {
                 if (selected) {
-                    Text(
-                        text = "✓",
-                        color = Primary,
-                        style = MaterialTheme.typography.titleMedium,
-                        // Pinned to the slot rather than to the text size. The slot is a fixed
-                        // square by design, so a tick that grew with the font scale was simply
-                        // clipped by it and rendered as half a stroke.
-                        fontSize = with(LocalDensity.current) { (CheckmarkSize * 0.85f).toSp() },
-                        lineHeight = with(LocalDensity.current) { CheckmarkSize.toSp() },
-                    )
+                    // Drawn, not typed: the Unicode tick comes from the platform's fallback face
+                    // and reads as a thin system mark beside the brand type. Drawing it also keeps
+                    // the stroke pinned to the fixed slot rather than to a font scale that clipped
+                    // it at large sizes.
+                    ChunkyCheck(color = Primary, modifier = Modifier.fillMaxSize())
                 }
             }
         }

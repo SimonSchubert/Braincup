@@ -65,3 +65,19 @@ fun ChunkyLock(color: Color, modifier: Modifier = Modifier) {
         )
     }
 }
+
+/** The cross that pairs with [ChunkyCheck]: same weight, same round caps. */
+@Composable
+fun ChunkyCross(color: Color, modifier: Modifier = Modifier) {
+    Canvas(modifier) {
+        val w = size.width
+        val h = size.height
+        val stroke = minOf(w, h) * 0.22f
+        val left = w * 0.16f
+        val right = w * 0.84f
+        val top = h * 0.16f
+        val bottom = h * 0.84f
+        drawLine(color, Offset(left, top), Offset(right, bottom), strokeWidth = stroke, cap = StrokeCap.Round)
+        drawLine(color, Offset(right, top), Offset(left, bottom), strokeWidth = stroke, cap = StrokeCap.Round)
+    }
+}
