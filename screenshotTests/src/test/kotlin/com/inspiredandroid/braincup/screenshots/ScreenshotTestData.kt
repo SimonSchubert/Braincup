@@ -110,16 +110,14 @@ fun createQuickSumUiState(): GameUiState = QuickSumUiState(
     answerResult = null,
 )
 
-// Built directly rather than from a game: the sequence is random, and a snapshot needs a fixed one.
+// Built directly rather than from a game: the stream is random, and a snapshot needs a fixed frame.
 fun createNBackUiState(): GameUiState = NBackUiState(
-    phase = NBackGame.Phase.RECALL,
-    currentShape = null,
-    showIndex = 3,
-    sequenceLength = 4,
-    askIndex = 2,
-    options = NBackGame.PALETTE.toImmutableList(),
-    revealAnswer = null,
-    recallResult = null,
+    level = 3,
+    phase = NBackGame.Phase.STREAM,
+    currentShape = Shape.STAR,
+    blockProgress = 0.4f,
+    responded = false,
+    lastResponse = null,
 )
 
 fun createSherlockCalculationGame(): SherlockCalculationGame {

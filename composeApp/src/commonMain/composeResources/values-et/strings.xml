@@ -547,10 +547,6 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="wordle_legend_present">Õige täht, vale koht</string>
     <string name="wordle_legend_absent">Pole sõnas</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Vaata kujundeid vilksatamas ja puuduta seda, mis oli nõutud kohas.</string>
-    <string name="n_back_prompt">Milline kujund oli kohas %1$d?</string>
-    <string name="n_back_demo_stream">Vaata kujundeid vilksatamas.</string>
-    <string name="n_back_demo_recall">Puuduta kujundit, mis oli kohas 1.</string>
     <string name="achievement_gold_n_back">Veerev mälu</string>
     <string name="achievement_gold_n_back_desc">Võida kuldmedal N-Backis</string>
     <string name="game_simon_says">Simon Says</string>

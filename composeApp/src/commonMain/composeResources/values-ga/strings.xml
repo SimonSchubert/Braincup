@@ -547,10 +547,6 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="wordle_legend_present">Litir cheart, áit mhícheart</string>
     <string name="wordle_legend_absent">Níl san fhocal</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Féach ar chruthanna ag splancadh thart agus tapáil an ceann a bhí sa suíomh iarrtha.</string>
-    <string name="n_back_prompt">Cén cruth a bhí ag suíomh %1$d?</string>
-    <string name="n_back_demo_stream">Féach ar chruthanna ag splancadh thart.</string>
-    <string name="n_back_demo_recall">Tapáil an cruth a bhí ag suíomh 1.</string>
     <string name="achievement_gold_n_back">Cuimhne rollach</string>
     <string name="achievement_gold_n_back_desc">Bain bonn óir amach in N-Back</string>
     <string name="game_simon_says">Simon Says</string>

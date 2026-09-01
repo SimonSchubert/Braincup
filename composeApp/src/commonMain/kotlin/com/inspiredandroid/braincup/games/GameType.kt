@@ -331,15 +331,16 @@ enum class GameType(
     N_BACK(
         displayNameRes = Res.string.game_n_back,
         id = "33",
-        // Score = correct recalls in 60s, plus the flawless-run bonus point.
-        // The ramp bounds this hard: a round costs 500ms lead-in + length x 1050ms of flashing
-        // + a 900ms reveal hold, and lengths run 3,4,5,6 then stay at 6. Even with an
-        // instantaneous tap only 9 rounds start inside the 60s, so gold has to sit below that
-        // ceiling to be reachable at human reaction times (see issue #53).
-        goldScore = 8,
-        silverScore = 5,
-        descriptionRes = Res.string.game_n_back_desc,
+        // Score = highest n cleared, which is what the n-back literature reports as its outcome
+        // measure. A level is one block at that n, and the level label reads "Level 3" for 3-back.
+        // Bronze = any clear, silver = 3-back, gold = 5-back: on a single-modality n-back most
+        // people manage 2-back comfortably and 3-back with effort, so 5 is a real bar without
+        // being the superhuman one that 10 would be.
+        goldScore = 5,
+        silverScore = 3,
+        descriptionRes = Res.string.game_n_back_match_desc,
         category = GameCategory.MEMORY,
+        usesLevelLabel = true,
     ),
     WORDLE(
         displayNameRes = Res.string.game_wordle,

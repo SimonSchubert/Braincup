@@ -111,15 +111,17 @@ data class QuickSumUiState(
 
 @Immutable
 data class NBackUiState(
+    /** The level is n: level 3 is 3-back. */
+    override val level: Int,
     val phase: NBackGame.Phase,
+    /** Null during the blank between two items, and outside the stream. */
     val currentShape: Shape?,
-    val showIndex: Int,
-    val sequenceLength: Int,
-    val askIndex: Int,
-    val options: ImmutableList<Shape>,
-    val revealAnswer: Shape?,
-    val recallResult: RevealResult?,
-) : GameUiState
+    /** How far the block has run. The only progress signal, since there is no clock. */
+    val blockProgress: Float,
+    val responded: Boolean,
+    /** This trial's tap, marked on the Match button until the trial closes. */
+    val lastResponse: NBackGame.Response?,
+) : LevelUiState
 
 @Immutable
 data class ChainCalculationUiState(

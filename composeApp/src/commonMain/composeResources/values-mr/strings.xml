@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">बरोबर अक्षर, चुकीची जागा</string>
     <string name="wordle_legend_absent">शब्दात नाही</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">आकार चमकत जाताना पहा, मग विचारलेल्या जागी असलेल्यावर टॅप करा.</string>
-    <string name="n_back_prompt">%1$d व्या जागी कोणता आकार होता?</string>
-    <string name="n_back_demo_stream">आकार चमकत जाताना पहा.</string>
-    <string name="n_back_demo_recall">1 ल्या जागी असलेल्या आकारावर टॅप करा.</string>
     <string name="achievement_gold_n_back">फिरती स्मृती</string>
     <string name="achievement_gold_n_back_desc">N-Back मध्ये सुवर्णपदक जिंका</string>
     <string name="game_simon_says">सायमन म्हणतो</string>

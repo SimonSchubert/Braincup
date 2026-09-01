@@ -547,10 +547,6 @@ Presuň Cow — stane sa z neho Bull.</string>
     <string name="wordle_legend_present">Správne písmeno, zlé miesto</string>
     <string name="wordle_legend_absent">V slove nie je</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Sleduj tvary, ako prelietavajú, a ťukni na ten na požadovanej pozícii.</string>
-    <string name="n_back_prompt">Ktorý tvar bol na pozícii %1$d?</string>
-    <string name="n_back_demo_stream">Sleduj tvary, ako prelietavajú.</string>
-    <string name="n_back_demo_recall">Ťukni na tvar, ktorý bol na pozícii 1.</string>
     <string name="achievement_gold_n_back">Valiaca sa pamäť</string>
     <string name="achievement_gold_n_back_desc">Získaj zlatú medailu v N-Back</string>
     <string name="game_simon_says">Simon Says</string>

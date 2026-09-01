@@ -547,10 +547,6 @@ Premjesti Cow — postat će Bull.</string>
     <string name="wordle_legend_present">Točno slovo, krivo mjesto</string>
     <string name="wordle_legend_absent">Nije u riječi</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Prati oblike kako prolaze i dodirni onaj na traženom mjestu.</string>
-    <string name="n_back_prompt">Koji je oblik bio na poziciji %1$d?</string>
-    <string name="n_back_demo_stream">Prati oblike kako prolaze.</string>
-    <string name="n_back_demo_recall">Dodirni oblik koji je bio na poziciji 1.</string>
     <string name="achievement_gold_n_back">Kotrljajuće pamćenje</string>
     <string name="achievement_gold_n_back_desc">Osvoji zlatnu medalju u N-Backu</string>
     <string name="game_simon_says">Simon Says</string>

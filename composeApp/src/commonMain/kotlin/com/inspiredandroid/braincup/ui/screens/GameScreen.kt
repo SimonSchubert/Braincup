@@ -133,6 +133,10 @@ fun GameScreen(
     val needsProgressBar = when (gameUiState) {
         is VisualMemoryUiState -> gameUiState.phase == VisualMemoryGame.Phase.MEMORIZING
         is SpotTheNewUiState -> gameUiState.phase == SpotTheNewGame.Phase.MEMORIZING
+        // A level with no clock, but its block is a paced stream that runs past a minute, so the
+        // bar tracks the block instead of a countdown. Kept for every phase, empty at the lead-in
+        // and full at the result, so the arena never jumps as the block starts and ends.
+        is NBackUiState -> true
         is UntimedUiState -> false
         else -> true
     }
@@ -288,6 +292,9 @@ private fun GameProgressBar(
                 isTimerPaused = isTimerPaused,
                 modifier = modifier,
             )
+        }
+        gameUiState is NBackUiState -> {
+            TimeProgressIndicator(progress = { gameUiState.blockProgress }, modifier = modifier)
         }
         gameUiState is SchulteTableUiState -> {
             val elapsed by elapsedTime.collectAsStateWithLifecycle()

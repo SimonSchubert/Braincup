@@ -309,10 +309,6 @@
     <string name="wordle_legend_present">Doğru harf, yanlış yer</string>
     <string name="wordle_legend_absent">Kelimede yok</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Şekilleri izle, sonra istenen konumdakine dokun.</string>
-    <string name="n_back_prompt">%1$d. konumdaki şekil hangisiydi?</string>
-    <string name="n_back_demo_stream">Şekillerin parlamasını izle.</string>
-    <string name="n_back_demo_recall">1. konumdaki şekle dokun.</string>
     <string name="achievement_gold_n_back">Akan Hafıza</string>
     <string name="achievement_gold_n_back_desc">N-Back oyununda altın madalya kazan</string>
     <string name="game_simon_says">Simon Diyor ki</string>

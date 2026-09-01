@@ -11,6 +11,8 @@ import braincup.composeapp.generated.resources.science_mental_flex_paradigm
 import braincup.composeapp.generated.resources.science_mental_flex_summary
 import braincup.composeapp.generated.resources.science_mental_rotations_paradigm
 import braincup.composeapp.generated.resources.science_mental_rotations_summary
+import braincup.composeapp.generated.resources.science_n_back_paradigm
+import braincup.composeapp.generated.resources.science_n_back_summary
 import braincup.composeapp.generated.resources.science_orbit_tracker_paradigm
 import braincup.composeapp.generated.resources.science_orbit_tracker_summary
 import braincup.composeapp.generated.resources.science_pattern_sequence_paradigm
@@ -30,8 +32,6 @@ import org.jetbrains.compose.resources.StringResource
  *
  * Games that merely evoke a paradigm deliberately have none, and the card is a claim, so the
  * omissions are load bearing:
- *  - N_BACK probes a single serial position rather than running a continuous match-n-back stream,
- *    so it is a span task wearing the name of a different one.
  *  - COLOR_CONFUSION makes congruent cells the targets, so there is no prepotent reading response
  *    to override and no Stroop interference to measure.
  *  - SCHULTE_TABLE has a thin peer-reviewed base; the validated equivalent is Trail Making.
@@ -68,6 +68,11 @@ val GameType.science: GameScience?
             paradigmRes = Res.string.science_orbit_tracker_paradigm,
             summaryRes = Res.string.science_orbit_tracker_summary,
             citation = "Pylyshyn & Storm, 1988",
+        )
+        GameType.N_BACK -> GameScience(
+            paradigmRes = Res.string.science_n_back_paradigm,
+            summaryRes = Res.string.science_n_back_summary,
+            citation = "Kirchner, 1958; Jaeggi et al., 2008",
         )
         GameType.MENTAL_ROTATIONS -> GameScience(
             paradigmRes = Res.string.science_mental_rotations_paradigm,

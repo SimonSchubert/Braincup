@@ -673,10 +673,6 @@
     <string name="wordle_legend_present">Richtiger Buchstabe, falsche Stelle</string>
     <string name="wordle_legend_absent">Nicht im Wort</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Schau, wie die Formen aufblitzen, und tippe dann auf die an der gefragten Position.</string>
-    <string name="n_back_prompt">Welche Form war an Position %1$d?</string>
-    <string name="n_back_demo_stream">Schau, wie die Formen aufblitzen.</string>
-    <string name="n_back_demo_recall">Tippe auf die Form an Position 1.</string>
     <string name="achievement_gold_n_back">Rollendes Gedächtnis</string>
     <string name="achievement_gold_n_back_desc">Gewinne die Goldmedaille in N-Back</string>
     <string name="game_simon_says">Simon sagt</string>

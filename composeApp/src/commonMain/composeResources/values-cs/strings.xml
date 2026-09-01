@@ -547,10 +547,6 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="wordle_legend_present">Správné písmeno, špatné místo</string>
     <string name="wordle_legend_absent">Ve slově není</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Sleduj tvary, jak prolétají, a klepni na ten na požadované pozici.</string>
-    <string name="n_back_prompt">Který tvar byl na pozici %1$d?</string>
-    <string name="n_back_demo_stream">Sleduj tvary, jak prolétají.</string>
-    <string name="n_back_demo_recall">Klepni na tvar, který byl na pozici 1.</string>
     <string name="achievement_gold_n_back">Valící se paměť</string>
     <string name="achievement_gold_n_back_desc">Získej zlatou medaili v N-Back</string>
     <string name="game_simon_says">Simon Says</string>

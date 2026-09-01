@@ -545,10 +545,6 @@
     <string name="wordle_legend_present">Tamang letra, maling puwesto</string>
     <string name="wordle_legend_absent">Wala sa salita</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Panoorin ang mga hugis na dumadaan, tapos i-tap ang nasa tinanong na posisyon.</string>
-    <string name="n_back_prompt">Aling hugis ang nasa posisyon %1$d?</string>
-    <string name="n_back_demo_stream">Panoorin ang mga hugis na dumadaan.</string>
-    <string name="n_back_demo_recall">I-tap ang hugis na nasa posisyon 1.</string>
     <string name="achievement_gold_n_back">Gumugulong na Alaala</string>
     <string name="achievement_gold_n_back_desc">Manalo ng gold medal sa N-Back</string>
     <string name="game_simon_says">Simon Says</string>

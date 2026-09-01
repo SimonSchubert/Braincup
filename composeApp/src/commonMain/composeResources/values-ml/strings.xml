@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">ശരിയായ അക്ഷരം, തെറ്റായ സ്ഥാനം</string>
     <string name="wordle_legend_absent">വാക്കിലില്ല</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">രൂപങ്ങൾ മിന്നിപ്പോകുന്നത് കാണുക, പിന്നെ ചോദിച്ച സ്ഥാനത്തുണ്ടായിരുന്നതിൽ ടാപ്പ് ചെയ്യുക.</string>
-    <string name="n_back_prompt">%1$d ാം സ്ഥാനത്ത് ഏത് രൂപമായിരുന്നു?</string>
-    <string name="n_back_demo_stream">രൂപങ്ങൾ മിന്നിപ്പോകുന്നത് കാണുക.</string>
-    <string name="n_back_demo_recall">1 ാം സ്ഥാനത്തുണ്ടായിരുന്ന രൂപത്തിൽ ടാപ്പ് ചെയ്യുക.</string>
     <string name="achievement_gold_n_back">ഉരുളുന്ന ഓർമ്മ</string>
     <string name="achievement_gold_n_back_desc">N-Back ൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="game_simon_says">സൈമൺ പറയുന്നു</string>

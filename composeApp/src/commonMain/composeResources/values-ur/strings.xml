@@ -545,10 +545,6 @@
     <string name="wordle_legend_present">درست حرف، غلط جگہ</string>
     <string name="wordle_legend_absent">لفظ میں نہیں</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">شکلیں چمکتے دیکھیں، پھر پوچھی گئی جگہ والی دبائیں۔</string>
-    <string name="n_back_prompt">جگہ %1$d پر کون سی شکل تھی؟</string>
-    <string name="n_back_demo_stream">شکلیں چمکتے دیکھیں۔</string>
-    <string name="n_back_demo_recall">جگہ 1 والی شکل دبائیں۔</string>
     <string name="achievement_gold_n_back">چلتی یادداشت</string>
     <string name="achievement_gold_n_back_desc">N-Back میں طلائی تمغہ جیتیں</string>
     <string name="game_simon_says">سائمن کہتا ہے</string>

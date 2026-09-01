@@ -547,10 +547,6 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="wordle_legend_present">Jó betű, rossz hely</string>
     <string name="wordle_legend_absent">Nincs a szóban</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Figyeld az alakzatokat, ahogy villannak, majd koppints arra, amelyik a kért helyen volt.</string>
-    <string name="n_back_prompt">Melyik alakzat volt a(z) %1$d. helyen?</string>
-    <string name="n_back_demo_stream">Figyeld az alakzatokat, ahogy villannak.</string>
-    <string name="n_back_demo_recall">Koppints az alakzatra, amelyik az 1. helyen volt.</string>
     <string name="achievement_gold_n_back">Görgő emlékezet</string>
     <string name="achievement_gold_n_back_desc">Nyerj aranyérmet N-Back játékban</string>
     <string name="game_simon_says">Simon Says</string>

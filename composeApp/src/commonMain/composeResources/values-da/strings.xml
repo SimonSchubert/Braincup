@@ -547,10 +547,6 @@ Flyt Cow — den bliver en Bull.</string>
     <string name="wordle_legend_present">Rigtigt bogstav, forkert plads</string>
     <string name="wordle_legend_absent">Ikke i ordet</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Se formene blinke forbi, og tryk så på den på den efterspurgte position.</string>
-    <string name="n_back_prompt">Hvilken form var på position %1$d?</string>
-    <string name="n_back_demo_stream">Se formene blinke forbi.</string>
-    <string name="n_back_demo_recall">Tryk på formen, der var på position 1.</string>
     <string name="achievement_gold_n_back">Rullende hukommelse</string>
     <string name="achievement_gold_n_back_desc">Vind guldmedaljen i N-Back</string>
     <string name="game_simon_says">Simon Says</string>

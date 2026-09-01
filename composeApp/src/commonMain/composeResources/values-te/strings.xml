@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">సరైన అక్షరం, తప్పు స్థానం</string>
     <string name="wordle_legend_absent">పదంలో లేదు</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">ఆకారాలు మెరిసిపోవడం చూడండి, తర్వాత అడిగిన స్థానంలో ఉన్నదాన్ని నొక్కండి.</string>
-    <string name="n_back_prompt">%1$d వ స్థానంలో ఏ ఆకారం ఉంది?</string>
-    <string name="n_back_demo_stream">ఆకారాలు మెరిసిపోవడం చూడండి.</string>
-    <string name="n_back_demo_recall">1 వ స్థానంలో ఉన్న ఆకారాన్ని నొక్కండి.</string>
     <string name="achievement_gold_n_back">కదిలే జ్ఞాపకం</string>
     <string name="achievement_gold_n_back_desc">N-Back లో బంగారు పతకం గెలవండి</string>
     <string name="game_simon_says">సైమన్ చెబుతున్నాడు</string>

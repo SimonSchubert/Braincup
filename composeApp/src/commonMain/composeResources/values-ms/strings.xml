@@ -545,10 +545,6 @@
     <string name="wordle_legend_present">Huruf betul, tempat salah</string>
     <string name="wordle_legend_absent">Tiada dalam perkataan</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Tonton bentuk berkelip, kemudian ketik yang berada di kedudukan yang ditanya.</string>
-    <string name="n_back_prompt">Bentuk manakah di kedudukan %1$d?</string>
-    <string name="n_back_demo_stream">Tonton bentuk berkelip.</string>
-    <string name="n_back_demo_recall">Ketik bentuk yang berada di kedudukan 1.</string>
     <string name="achievement_gold_n_back">Ingatan Bergolek</string>
     <string name="achievement_gold_n_back_desc">Menangi pingat emas dalam N-Back</string>
     <string name="game_simon_says">Simon Says</string>

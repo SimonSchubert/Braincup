@@ -309,10 +309,6 @@
     <string name="wordle_legend_present">ตัวอักษรถูก ตำแหน่งผิด</string>
     <string name="wordle_legend_absent">ไม่มีในคำ</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">ดูรูปทรง แล้วแตะรูปที่อยู่ในตำแหน่งที่ถาม</string>
-    <string name="n_back_prompt">รูปทรงใดอยู่ในตำแหน่งที่ %1$d?</string>
-    <string name="n_back_demo_stream">ดูรูปทรงกะพริบผ่านไป</string>
-    <string name="n_back_demo_recall">แตะรูปทรงที่อยู่ในตำแหน่งที่ 1</string>
     <string name="achievement_gold_n_back">ความจำหมุนเวียน</string>
     <string name="achievement_gold_n_back_desc">ชนะเหรียญทองใน N-Back</string>
     <string name="game_simon_says">ไซมอนบอก</string>

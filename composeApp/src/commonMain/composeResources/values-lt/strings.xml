@@ -547,10 +547,6 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="wordle_legend_present">Teisinga raidė, neteisinga vieta</string>
     <string name="wordle_legend_absent">Nėra žodyje</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Stebėk formas, kaip jos praskrenda, ir paliesk tą reikiamoje vietoje.</string>
-    <string name="n_back_prompt">Kuri forma buvo pozicijoje %1$d?</string>
-    <string name="n_back_demo_stream">Stebėk formas, kaip jos praskrenda.</string>
-    <string name="n_back_demo_recall">Paliesk formą, kuri buvo pozicijoje 1.</string>
     <string name="achievement_gold_n_back">Riedanti atmintis</string>
     <string name="achievement_gold_n_back_desc">Laimėk aukso medalį N-Back</string>
     <string name="game_simon_says">Simon Says</string>

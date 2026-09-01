@@ -573,10 +573,11 @@
     <string name="wordle_legend_present">Right letter, wrong spot</string>
     <string name="wordle_legend_absent">Not in the word</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Watch the shapes flash by, then tap the one at the position asked.</string>
-    <string name="n_back_prompt">Which shape was at position %1$d?</string>
-    <string name="n_back_demo_stream">Watch the shapes flash by.</string>
-    <string name="n_back_demo_recall">Tap the shape that was in position 1.</string>
+    <string name="game_n_back_match_desc">Shapes stream past one at a time. Tap Match when the shape repeats the one N steps back.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Match</string>
+    <string name="n_back_demo_watch">Shapes appear one at a time.</string>
+    <string name="n_back_demo_match">Tap Match when a shape repeats the one 2 back.</string>
     <string name="achievement_gold_n_back">Rolling Recall</string>
     <string name="achievement_gold_n_back_desc">Win gold medal in N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -611,6 +612,8 @@
     <string name="science_pattern_sequence_summary">The item format behind Raven's Progressive Matrices, the most widely used test of abstract reasoning.</string>
     <string name="science_mental_flex_paradigm">Task-Switching Paradigm</string>
     <string name="science_mental_flex_summary">A standard measure of cognitive flexibility: the cost of dropping the rule you were just using and applying a different one.</string>
+    <string name="science_n_back_paradigm">N-Back Task</string>
+    <string name="science_n_back_summary">A standard measure of working memory updating: keeping a running window of the last few items current, and judging against it while it keeps moving.</string>
     <string name="science_tower_of_hanoi_paradigm">Tower of Hanoi</string>
     <string name="science_tower_of_hanoi_summary">A standard measure of planning: the puzzle needs moves that undo progress before the goal can be reached.</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>

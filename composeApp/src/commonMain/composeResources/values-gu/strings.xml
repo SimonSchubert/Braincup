@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">સાચો અક્ષર, ખોટી જગ્યા</string>
     <string name="wordle_legend_absent">શબ્દમાં નથી</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">આકારો ઝબકતા જાય તે જુઓ, પછી પૂછેલી જગ્યાએ હતો તેના પર ટેપ કરો.</string>
-    <string name="n_back_prompt">%1$d મી જગ્યાએ કયો આકાર હતો?</string>
-    <string name="n_back_demo_stream">આકારો ઝબકતા જાય તે જુઓ.</string>
-    <string name="n_back_demo_recall">1 લી જગ્યાએ હતો તે આકાર પર ટેપ કરો.</string>
     <string name="achievement_gold_n_back">ફરતી સ્મૃતિ</string>
     <string name="achievement_gold_n_back_desc">N-Back માં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="game_simon_says">સાયમન કહે છે</string>

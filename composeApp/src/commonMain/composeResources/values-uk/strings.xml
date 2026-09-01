@@ -309,10 +309,6 @@
     <string name="wordle_legend_present">Правильна літера, неправильна позиція</string>
     <string name="wordle_legend_absent">Немає в слові</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Дивись на фігури, потім натисни ту, що була на потрібній позиції.</string>
-    <string name="n_back_prompt">Яка фігура була на позиції %1$d?</string>
-    <string name="n_back_demo_stream">Стеж за спалахами фігур.</string>
-    <string name="n_back_demo_recall">Натисни на фігуру на позиції 1.</string>
     <string name="achievement_gold_n_back">Рухомий слід</string>
     <string name="achievement_gold_n_back_desc">Здобудь золоту медаль у N-Back</string>
     <string name="game_simon_says">Саймон каже</string>

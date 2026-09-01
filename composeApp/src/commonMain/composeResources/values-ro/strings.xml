@@ -547,10 +547,6 @@ Mută Cow — devine Bull.</string>
     <string name="wordle_legend_present">Litera corectă, locul greșit</string>
     <string name="wordle_legend_absent">Nu e în cuvânt</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Urmărește formele care apar, apoi apasă-o pe cea de la poziția cerută.</string>
-    <string name="n_back_prompt">Care formă a fost la poziția %1$d?</string>
-    <string name="n_back_demo_stream">Urmărește formele care apar.</string>
-    <string name="n_back_demo_recall">Apasă forma care a fost la poziția 1.</string>
     <string name="achievement_gold_n_back">Memorie rulantă</string>
     <string name="achievement_gold_n_back_desc">Câștigă medalia de aur la N-Back</string>
     <string name="game_simon_says">Simon Says</string>

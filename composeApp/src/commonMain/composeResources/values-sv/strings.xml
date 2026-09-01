@@ -545,10 +545,6 @@
     <string name="wordle_legend_present">Rätt bokstav, fel plats</string>
     <string name="wordle_legend_absent">Finns inte i ordet</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Se formerna blinka förbi och tryck sedan på den på den efterfrågade positionen.</string>
-    <string name="n_back_prompt">Vilken form fanns på position %1$d?</string>
-    <string name="n_back_demo_stream">Se formerna blinka förbi.</string>
-    <string name="n_back_demo_recall">Tryck på formen som fanns på position 1.</string>
     <string name="achievement_gold_n_back">Rullande minne</string>
     <string name="achievement_gold_n_back_desc">Vinn guldmedalj i N-Back</string>
     <string name="game_simon_says">Simon Says</string>

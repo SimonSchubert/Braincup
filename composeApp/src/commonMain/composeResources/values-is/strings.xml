@@ -547,10 +547,6 @@ Færðu Cow — hann verður Bull.</string>
     <string name="wordle_legend_present">Réttur stafur, rangur staður</string>
     <string name="wordle_legend_absent">Ekki í orðinu</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Horfðu á form fljúga fram hjá og ýttu á það sem var á umbeðnum stað.</string>
-    <string name="n_back_prompt">Hvaða form var á stað %1$d?</string>
-    <string name="n_back_demo_stream">Horfðu á form fljúga fram hjá.</string>
-    <string name="n_back_demo_recall">Ýttu á formið sem var á stað 1.</string>
     <string name="achievement_gold_n_back">Rúllandi minni</string>
     <string name="achievement_gold_n_back_desc">Vinnu gullverðlaun í N-Back</string>
     <string name="game_simon_says">Simon Says</string>

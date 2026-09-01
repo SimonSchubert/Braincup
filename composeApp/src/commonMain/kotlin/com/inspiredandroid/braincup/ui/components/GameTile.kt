@@ -1064,26 +1064,26 @@ private fun DigitMemoryPreview() {
 
 @Composable
 private fun NBackPreview() {
-    // Mirrors the arena: one shape lit, the rest of the stream still to come.
-    Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
+    // The task in one line: the newest item, on the right, repeats the one two back.
+    Row(
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
-        ShapeCanvas(
-            figure = Figure(Shape.STAR, GameColor.BLUE),
-            modifier = Modifier.size(44.dp),
+        PrismPolygon(
+            points = Shape.STAR.paths,
+            face = PreviewTextColor.copy(alpha = 0.3f),
+            modifier = Modifier.size(26.dp),
         )
-        Spacer(Modifier.height(10.dp))
-        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            repeat(4) { i ->
-                Box(
-                    modifier = Modifier
-                        .size(5.dp)
-                        .clip(CircleShape)
-                        .background(PreviewTextColor.copy(alpha = if (i <= 1) 1f else 0.25f)),
-                )
-            }
-        }
+        PrismPolygon(
+            points = Shape.CIRCLE.paths,
+            face = PreviewTextColor.copy(alpha = 0.3f),
+            modifier = Modifier.size(26.dp),
+        )
+        PrismPolygon(
+            points = Shape.STAR.paths,
+            face = PreviewTextColor,
+            modifier = Modifier.size(38.dp),
+        )
     }
 }
 

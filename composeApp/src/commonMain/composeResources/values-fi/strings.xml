@@ -547,10 +547,6 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="wordle_legend_present">Oikea kirjain, väärä paikka</string>
     <string name="wordle_legend_absent">Ei ole sanassa</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Katso muotojen vilkkuvan ohi ja napauta sitten sitä, joka oli pyydetyssä kohdassa.</string>
-    <string name="n_back_prompt">Mikä muoto oli kohdassa %1$d?</string>
-    <string name="n_back_demo_stream">Katso muotojen vilkkuvan ohi.</string>
-    <string name="n_back_demo_recall">Napauta muotoa, joka oli kohdassa 1.</string>
     <string name="achievement_gold_n_back">Rullaava muisti</string>
     <string name="achievement_gold_n_back_desc">Voita kultamitali N-Backissä</string>
     <string name="game_simon_says">Simon Says</string>

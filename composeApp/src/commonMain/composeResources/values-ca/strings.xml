@@ -547,10 +547,6 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="wordle_legend_present">Lletra correcta, lloc incorrecte</string>
     <string name="wordle_legend_absent">No és a la paraula</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Mira les formes com passen i toca la que era a la posició demanada.</string>
-    <string name="n_back_prompt">Quina forma hi havia a la posició %1$d?</string>
-    <string name="n_back_demo_stream">Mira les formes com passen.</string>
-    <string name="n_back_demo_recall">Toca la forma que hi havia a la posició 1.</string>
     <string name="achievement_gold_n_back">Memòria rodant</string>
     <string name="achievement_gold_n_back_desc">Guanya la medalla d'or a N-Back</string>
     <string name="game_simon_says">Simon Says</string>

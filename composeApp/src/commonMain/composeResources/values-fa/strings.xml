@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">حرف درست، جای نادرست</string>
     <string name="wordle_legend_absent">در واژه نیست</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">ببین شکل‌ها چطور رد می‌شوند، بعد روی شکلی بزن که در جایگاه خواسته‌شده بود.</string>
-    <string name="n_back_prompt">کدام شکل در جایگاه %1$d بود؟</string>
-    <string name="n_back_demo_stream">ببین شکل‌ها چطور رد می‌شوند.</string>
-    <string name="n_back_demo_recall">روی شکلی بزن که در جایگاه 1 بود.</string>
     <string name="achievement_gold_n_back">حافظه چرخان</string>
     <string name="achievement_gold_n_back_desc">مدال طلای N-Back را بگیر</string>
     <string name="game_simon_says">سایمون می‌گوید</string>

@@ -547,10 +547,6 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="wordle_legend_present">Pareizs burts, nepareizā vieta</string>
     <string name="wordle_legend_absent">Nav vārdā</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Skaties formas, kā tās palido garām, un pieskaries tai vajadzīgajā vietā.</string>
-    <string name="n_back_prompt">Kura forma bija pozīcijā %1$d?</string>
-    <string name="n_back_demo_stream">Skaties formas, kā tās palido garām.</string>
-    <string name="n_back_demo_recall">Pieskaries formai, kas bija pozīcijā 1.</string>
     <string name="achievement_gold_n_back">Ritošā atmiņa</string>
     <string name="achievement_gold_n_back_desc">Iegūsti zelta medaļu N-Back</string>
     <string name="game_simon_says">Simon Says</string>

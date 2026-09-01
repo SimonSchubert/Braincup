@@ -547,10 +547,6 @@ Premakni Cow — postal bo Bull.</string>
     <string name="wordle_legend_present">Pravilna črka, napačno mesto</string>
     <string name="wordle_legend_absent">Ni v besedi</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">Spremljaj like, kako letijo mimo, in se dotakni tistega na zahtevanem mestu.</string>
-    <string name="n_back_prompt">Kateri lik je bil na položaju %1$d?</string>
-    <string name="n_back_demo_stream">Spremljaj like, kako letijo mimo.</string>
-    <string name="n_back_demo_recall">Dotakni se lika, ki je bil na položaju 1.</string>
     <string name="achievement_gold_n_back">Kotaleči se spomin</string>
     <string name="achievement_gold_n_back_desc">Osvoji zlato medaljo v N-Backu</string>
     <string name="game_simon_says">Simon Says</string>

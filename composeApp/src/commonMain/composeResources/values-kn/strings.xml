@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">ಸರಿಯಾದ ಅಕ್ಷರ, ತಪ್ಪಾದ ಸ್ಥಳ</string>
     <string name="wordle_legend_absent">ಪದದಲ್ಲಿ ಇಲ್ಲ</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">ಆಕಾರಗಳು ಮಿಂಚಿ ಹೋಗುವುದನ್ನು ನೋಡಿ, ನಂತರ ಕೇಳಿದ ಸ್ಥಾನದಲ್ಲಿದ್ದದ್ದನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
-    <string name="n_back_prompt">%1$d ನೇ ಸ್ಥಾನದಲ್ಲಿ ಯಾವ ಆಕಾರ ಇತ್ತು?</string>
-    <string name="n_back_demo_stream">ಆಕಾರಗಳು ಮಿಂಚಿ ಹೋಗುವುದನ್ನು ನೋಡಿ.</string>
-    <string name="n_back_demo_recall">1 ನೇ ಸ್ಥಾನದಲ್ಲಿದ್ದ ಆಕಾರವನ್ನು ಟ್ಯಾಪ್ ಮಾಡಿ.</string>
     <string name="achievement_gold_n_back">ಚಲಿಸುವ ನೆನಪು</string>
     <string name="achievement_gold_n_back_desc">N-Back ನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="game_simon_says">ಸೈಮನ್ ಹೇಳುತ್ತಾನೆ</string>

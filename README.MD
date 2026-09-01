@@ -83,7 +83,7 @@ Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 - **Orbit Tracker** — Track highlighted balls as they move
 - **Digit Memory** — Memorize digits, solve a quick math problem, recall
 - **Spot the New** — Tap the animal you have not seen before
-- **N-Back** — Watch shapes flash; tap the one at the asked position
+- **N-Back** — Tap Match when a shape repeats the one N steps back; the level is N
 - **Simon Says** — Tap back the growing pad sequence each round
 
 ### Perception

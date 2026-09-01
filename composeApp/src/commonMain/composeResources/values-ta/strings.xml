@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">சரியான எழுத்து, தவறான இடம்</string>
     <string name="wordle_legend_absent">சொல்லில் இல்லை</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">வடிவங்கள் மின்னிச் செல்வதைப் பாருங்கள், பிறகு கேட்கப்பட்ட இடத்தில் இருந்ததைத் தட்டுங்கள்.</string>
-    <string name="n_back_prompt">%1$d ஆவது இடத்தில் எந்த வடிவம் இருந்தது?</string>
-    <string name="n_back_demo_stream">வடிவங்கள் மின்னிச் செல்வதைப் பாருங்கள்.</string>
-    <string name="n_back_demo_recall">1 ஆவது இடத்தில் இருந்த வடிவத்தைத் தட்டுங்கள்.</string>
     <string name="achievement_gold_n_back">உருளும் நினைவு</string>
     <string name="achievement_gold_n_back_desc">N-Back இல் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="game_simon_says">சைமன் சொல்கிறார்</string>

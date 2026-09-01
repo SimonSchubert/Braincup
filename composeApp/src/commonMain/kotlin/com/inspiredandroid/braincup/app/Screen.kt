@@ -23,6 +23,13 @@ data class Finish(
     val totalXpAfter: Int,
     val adaptiveStartRoundCredit: Int = 0,
     val isFinalCatalogLevel: Boolean = false,
+    /**
+     * The block summary for games scored out of hitting a set of targets, so the result and the
+     * buttons that act on it are the same screen. -1 when the game has no such summary.
+     */
+    val targetsFound: Int = -1,
+    val targetsTotal: Int = -1,
+    val mistakes: Int = -1,
 )
 
 @Serializable

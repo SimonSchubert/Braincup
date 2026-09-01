@@ -529,10 +529,6 @@
     <string name="wordle_legend_present">ਸਹੀ ਅੱਖਰ, ਗਲਤ ਥਾਂ</string>
     <string name="wordle_legend_absent">ਸ਼ਬਦ ਵਿੱਚ ਨਹੀਂ</string>
     <string name="game_n_back">N-Back</string>
-    <string name="game_n_back_desc">ਆਕਾਰ ਲਿਸ਼ਕਦੇ ਲੰਘਦੇ ਵੇਖੋ, ਫਿਰ ਪੁੱਛੀ ਥਾਂ ਵਾਲੇ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
-    <string name="n_back_prompt">%1$d ਵੀਂ ਥਾਂ ਉੱਤੇ ਕਿਹੜਾ ਆਕਾਰ ਸੀ?</string>
-    <string name="n_back_demo_stream">ਆਕਾਰ ਲਿਸ਼ਕਦੇ ਲੰਘਦੇ ਵੇਖੋ।</string>
-    <string name="n_back_demo_recall">1 ਲੀ ਥਾਂ ਵਾਲੇ ਆਕਾਰ ਉੱਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="achievement_gold_n_back">ਘੁੰਮਦੀ ਯਾਦ</string>
     <string name="achievement_gold_n_back_desc">N-Back ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="game_simon_says">ਸਾਈਮਨ ਕਹਿੰਦਾ ਹੈ</string>

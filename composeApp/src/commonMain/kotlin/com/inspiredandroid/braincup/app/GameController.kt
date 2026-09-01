@@ -157,9 +157,6 @@ class GameController(
         const val GAME_TIME_MILLIS = 60 * 1_000L
         const val FLAGS_ROUND_TIME_MILLIS = FlagsGame.ROUND_TIME_MILLIS
 
-        /** How long the correct shape stays revealed after a recall before the next trial. */
-        private const val NBACK_REVEAL_HOLD_MILLIS = 900L
-
         /** Pause with wrong operator slots marked red before the first correct reveal. */
         private const val MISSING_OPS_FEEDBACK_INITIAL_MS = 700L
 
@@ -425,7 +422,6 @@ class GameController(
             GameType.FLAGS -> startFlagsGame(gameType)
             GameType.DIGIT_MEMORY,
             GameType.QUICK_SUM,
-            GameType.N_BACK,
             -> startRevealRoundGame(gameType)
             GameType.BUBBLE_SUM -> startBubbleSumGame(gameType)
             GameType.SPOT_THE_NEW -> startSpotTheNewGame(gameType)
@@ -494,7 +490,7 @@ class GameController(
             is FlagsGame -> handleFlagsAnswer(currentState, game, answer.trim())
             is DigitMemoryGame -> handleDigitMemoryAnswer(currentState, game, answer.trim())
             is QuickSumGame -> handleQuickSumAnswer(currentState, game, answer.trim())
-            is NBackGame -> handleNBackAnswer(currentState, game, answer.trim())
+            is NBackGame -> handleNBackAnswer(game, answer.trim())
             is SpotTheNewGame -> handleSpotTheNewAnswer(game, answer.trim())
             is BullsAndCowsGame -> handleBullsAndCowsAnswer(currentState, game, answer)
             is TrioGame -> handleTrioAnswer(currentState, game, answer.trim())
@@ -871,6 +867,7 @@ class GameController(
         GameType.KNOT,
         GameType.SOLO_CHESS,
         GameType.PRISM_CLEAR,
+        GameType.N_BACK,
         -> createLevelGame(gameType, level = 1)
         GameType.SCHULTE_TABLE -> SchulteTableGame()
         GameType.VISUAL_MEMORY -> VisualMemoryGame()
@@ -886,7 +883,6 @@ class GameController(
         GameType.FLAGS -> FlagsGame()
         GameType.DIGIT_MEMORY -> DigitMemoryGame()
         GameType.QUICK_SUM -> QuickSumGame()
-        GameType.N_BACK -> NBackGame()
         GameType.SPOT_THE_NEW -> SpotTheNewGame()
         GameType.BULLS_AND_COWS -> BullsAndCowsGame()
         GameType.TRIO -> TrioGame()
@@ -906,6 +902,7 @@ class GameController(
         GameType.KNOT -> KnotGame(level = level)
         GameType.SOLO_CHESS -> SoloChessGame(level = level)
         GameType.PRISM_CLEAR -> PrismClearGame(level = level)
+        GameType.N_BACK -> NBackGame(level = level)
         else -> error("${gameType.name} is not a level game")
     }
 
@@ -1321,6 +1318,29 @@ class GameController(
         emitUiState(game)
         if (navigate) {
             navController.navigate(Playing(gameType.id))
+        }
+        // The only level game whose board runs itself: N-Back's block is a paced stream, so the
+        // level plays out on a clock of its own and reports whether it was cleared.
+        if (game is NBackGame) {
+            game.startStream(
+                scope = scope,
+                onChange = { emitUiState(game) },
+                onFinished = { finishNBackBlock(gameType, game) },
+            )
+        }
+    }
+
+    /**
+     * A block ends the level either way: cleared unlocks the next one, missed leaves the stored
+     * level where it was so the same n is replayed.
+     */
+    private fun finishNBackBlock(gameType: GameType, game: NBackGame) {
+        val state = _gameState.value as? GameState.Active ?: return
+        if (game.blockCleared) {
+            onLevelSolved(state, game)
+        } else {
+            points = 0
+            finishCurrentGame(gameType, game)
         }
     }
 
@@ -1849,6 +1869,10 @@ class GameController(
             points > 0 &&
             game.level >= PrismClearLevels.COUNT
 
+        // N-Back's block result belongs next to the buttons that act on it, not on a screen of its
+        // own that disappears before the player can read it.
+        val nBack = game as? NBackGame
+
         navController.navigate(
             Finish(
                 gameTypeId = gameType.id,
@@ -1860,6 +1884,9 @@ class GameController(
                 totalXpAfter = storage.getTotalXp(),
                 adaptiveStartRoundCredit = difficultyBonus,
                 isFinalCatalogLevel = maxLevelReached,
+                targetsFound = nBack?.hits ?: -1,
+                targetsTotal = nBack?.let { NBackGame.TARGETS_PER_BLOCK } ?: -1,
+                mistakes = nBack?.errors ?: -1,
             ),
         ) {
             popUpTo(MainMenu)
@@ -1990,20 +2017,17 @@ class GameController(
         }
     }
 
-    private fun handleNBackAnswer(currentState: GameState.Active, game: NBackGame, input: String) {
-        // Only a tap during recall counts; ignore anything while shapes are still flashing or revealing.
-        if (game.phase != NBackGame.Phase.RECALL || game.recallResult != null) return
-
-        val correct = game.submitRecall(input)
-        if (correct) {
-            points++
-            _intermediateCorrectEvents.tryEmit(Unit)
-        }
+    /**
+     * The Match tap. The stream is machine paced, so this only scores the open trial and repaints:
+     * nothing is delayed, nothing is advanced, and a tap that lands outside a trial is dropped by
+     * the game rather than filtered here.
+     */
+    private fun handleNBackAnswer(game: NBackGame, input: String) {
+        if (input != BoardCommand.SUBMIT) return
+        val response = game.respond()
+        if (response == NBackGame.Response.IGNORED) return
+        if (response == NBackGame.Response.HIT) _intermediateCorrectEvents.tryEmit(Unit)
         emitUiState(game)
-        scope.launch {
-            delay(NBACK_REVEAL_HOLD_MILLIS)
-            advanceRevealRound(currentState.gameType, game, advanceDifficulty = correct)
-        }
     }
 
     // Marking up a board after an answer: the picked cell/button goes red, the right one green,

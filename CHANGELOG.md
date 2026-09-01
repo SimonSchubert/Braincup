@@ -1,3 +1,15 @@
+## Unreleased
+
+### Improvements
+- Rebuild N-Back as the real task, at the published numbers: a continuous stream of shapes with a
+  Match response on every item, 6 matches in 20 trials, a controlled rate of near-miss lures, and a
+  block cleared on fewer than 3 errors. It now shows the research card.
+- N-Back is now level based, and the level is n: Level 3 is 3-back. Clearing a block unlocks the
+  next one and your level carries between plays. This is what makes the full-length block possible,
+  since one runs past the 60 seconds a timed game gets. Scores are now the highest n reached, so an
+  old N-Back high score no longer compares and the medal on its tile will re-earn on your next
+  clear. Like every level game, it no longer appears in the daily challenge.
+
 ## v3.4.0 — 2026-09-01
 
 ### Features
