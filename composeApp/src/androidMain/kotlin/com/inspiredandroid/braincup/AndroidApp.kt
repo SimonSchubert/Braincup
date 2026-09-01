@@ -10,12 +10,14 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 import com.inspiredandroid.braincup.games.wordle.WordleAppContext
+import com.inspiredandroid.braincup.navigation.ExternalRouteRequests
 import com.inspiredandroid.braincup.ui.theme.DarkColorScheme
 import com.inspiredandroid.braincup.ui.theme.LightColorScheme
 
 @Composable
 fun AndroidApp(
     useBuiltInSponsors: Boolean = false,
+    externalRoutes: ExternalRouteRequests = ExternalRouteRequests.None,
 ) {
     val dynamicColor = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
     val context = LocalContext.current
@@ -47,5 +49,6 @@ fun AndroidApp(
             }
         },
         useBuiltInSponsors = useBuiltInSponsors,
+        externalRoutes = externalRoutes,
     )
 }

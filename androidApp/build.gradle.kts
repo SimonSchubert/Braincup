@@ -102,8 +102,10 @@ android {
 dependencies {
     implementation(projects.composeApp)
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.core)
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.compose.runtime)
+    implementation(libs.kotlinx.coroutines.core)
     "playStoreImplementation"(libs.play.review)
     "playStoreImplementation"(libs.play.games)
     lintChecks(libs.compose.lint.checks)

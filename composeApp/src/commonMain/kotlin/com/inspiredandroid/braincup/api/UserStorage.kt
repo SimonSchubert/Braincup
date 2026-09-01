@@ -172,6 +172,7 @@ class UserStorage(
         const val KEY_SESSION_SCORES = "session_scores"
         const val KEY_SESSION_INDEX = "session_index"
         const val KEY_LAST_COMPLETED_SESSION_DAY = "last_completed_session_day"
+        const val KEY_RECENT_GAMES = "recent_games"
 
         // Per-category shuffle bags: the games not yet drawn in the current rotation cycle,
         // encoded as "CATEGORY=id,id;CATEGORY2=id,id". See drawDailySessionGameIds.
@@ -197,6 +198,9 @@ class UserStorage(
         const val KEY_LEARN_CERTIFICATES = "learn_certificates"
         const val SESSION_GAME_COUNT = 4 // one game per GameCategory (MEMORY, LOGIC, PERCEPTION, MATH)
         const val SESSION_COMPLETION_XP = 50
+
+        // Kept above MAX_RECENT_SHORTCUTS so retiring one game does not shrink the launcher list.
+        const val RECENT_GAMES_LIMIT = 5
 
         const val IQ_TEST_COMPLETION_XP = 60
 
@@ -613,6 +617,20 @@ class UserStorage(
         store.putBoolean(KEY_PEG_SOLITAIRE_PERFECT, true)
         notifyStore { PlayGamesBridge.onPegSolitairePerfect?.invoke() }
         unlockAchievement(Achievements.PEG_SOLITAIRE_PERFECT)
+    }
+
+    /** Route path suffixes of the games the player started, most recent first. */
+    fun getRecentGames(): List<String> = store
+        .getStringOrNull(KEY_RECENT_GAMES)
+        ?.split(",")
+        ?.filter { it.isNotEmpty() }
+        ?: emptyList()
+
+    fun putRecentGame(pathSuffix: String) {
+        if (pathSuffix.isEmpty()) return
+        val updated = (listOf(pathSuffix) + getRecentGames().filterNot { it == pathSuffix })
+            .take(RECENT_GAMES_LIMIT)
+        store.putString(KEY_RECENT_GAMES, updated.joinToString(","))
     }
 
     private fun normalSudokuProgressKey(id: String): String = "normal_sudoku_progress_$id"

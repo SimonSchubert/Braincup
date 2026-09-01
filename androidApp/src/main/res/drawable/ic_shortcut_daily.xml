@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Daily challenge: a calendar with today marked. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="#ED7354"
+        android:pathData="M3,24 A21,21 0 1,1 45,24 A21,21 0 1,1 3,24 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18,12 h2 v5 h-2 z M28,12 h2 v5 h-2 z M14,15 h20 v19 h-20 z" />
+    <path
+        android:fillColor="#ED7354"
+        android:pathData="M16,21 h16 v11 h-16 z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M21,24 h6 v5 h-6 z" />
+</vector>

@@ -42,6 +42,7 @@ import com.inspiredandroid.braincup.locale.LocalAppLanguage
 import com.inspiredandroid.braincup.locale.appLanguageForTag
 import com.inspiredandroid.braincup.locale.isRightToLeftLanguage
 import com.inspiredandroid.braincup.navigation.AppNavHost
+import com.inspiredandroid.braincup.navigation.ExternalRouteRequests
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import com.inspiredandroid.braincup.ui.components.LocalNumberPadAscending
@@ -69,6 +70,7 @@ fun App(
     systemColorSchemeProvider: ((dark: Boolean) -> ColorScheme)? = null,
     systemBarAppearance: @Composable (darkTheme: Boolean) -> Unit = {},
     useBuiltInSponsors: Boolean = false,
+    externalRoutes: ExternalRouteRequests = ExternalRouteRequests.None,
     onNavHostReady: suspend (NavController) -> Unit = {},
 ) {
     val navController = rememberNavController()
@@ -905,6 +907,17 @@ fun App(
 
     LaunchedEffect(navController) {
         onNavHostReady(navController)
+    }
+
+    val pendingExternalRoute by externalRoutes.pending.collectAsStateWithLifecycle()
+    LaunchedEffect(pendingExternalRoute) {
+        val pathSuffix = pendingExternalRoute ?: return@LaunchedEffect
+        externalRoutes.consume()
+        // The IQ test runs on its own controller, whose timer stops nowhere else.
+        if (currentEntry?.destination?.hasRoute<IqTestPlay>() == true) {
+            iqTestController.abandon()
+        }
+        controller.openExternalRoute(pathSuffix)
     }
 }
 

@@ -6,6 +6,7 @@ import com.inspiredandroid.braincup.games.iqtest.IqScoring
 import com.inspiredandroid.braincup.games.iqtest.IqTest
 import com.inspiredandroid.braincup.games.iqtest.IqTestBlueprint
 import com.inspiredandroid.braincup.games.matrix.MatrixProblem
+import com.inspiredandroid.braincup.navigation.navRouteToPathSuffix
 import kotlinx.collections.immutable.ImmutableList
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
@@ -82,6 +83,7 @@ class IqTestController(
     }
 
     fun start() {
+        storage.putRecentGame(navRouteToPathSuffix(IqTestIntro))
         val fresh = IqTest(seed = random.nextLong())
         test = fresh
         scored = false

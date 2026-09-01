@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Logic: a puzzle grid with one cell solved. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="48dp"
+    android:height="48dp"
+    android:viewportWidth="48"
+    android:viewportHeight="48">
+    <path
+        android:fillColor="#EDE9FE"
+        android:pathData="M3,24 A21,21 0 1,1 45,24 A21,21 0 1,1 3,24 Z" />
+    <path
+        android:fillColor="#21005D"
+        android:pathData="M14,14 h20 v20 h-20 z" />
+    <path
+        android:fillColor="#EDE9FE"
+        android:pathData="M17,17 h14 v14 h-14 z" />
+    <path
+        android:fillColor="#21005D"
+        android:pathData="M23,17 h2 v14 h-2 z M17,23 h14 v2 h-14 z M17,17 h6 v6 h-6 z" />
+</vector>

@@ -17,6 +17,8 @@ import com.inspiredandroid.braincup.games.wordle.WordleLanguages
 import com.inspiredandroid.braincup.learn.LearnUnit
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.locale.AppLocale
+import com.inspiredandroid.braincup.navigation.navRouteToPathSuffix
+import com.inspiredandroid.braincup.navigation.pathSuffixToNavRoute
 import com.inspiredandroid.braincup.normalchess.NormalChessDifficulty
 import com.inspiredandroid.braincup.normalchess.NormalChessMode
 import kotlinx.collections.immutable.ImmutableList
@@ -248,6 +250,23 @@ class GameController(
         startGame(gameType)
     }
 
+    /**
+     * Open a route asked for from outside the app, such as a launcher shortcut. Whatever is running
+     * is torn down first: [startGame] leaves the previous game's timers and pending jobs firing
+     * otherwise, under whatever screen the shortcut opened.
+     */
+    fun openExternalRoute(pathSuffix: String) {
+        val route = pathSuffixToNavRoute(pathSuffix) ?: return
+        navigateToMainMenu()
+        when (route) {
+            SessionInterstitial -> startDailySession()
+            // Peg Solitaire has no menu in front of it, so opening it is already playing it.
+            PegSolitaire -> navigateToPegSolitaire()
+            is Instructions -> getGameTypeById(route.gameTypeId)?.let { navigateToInstructions(it) }
+            else -> navController.navigate(route)
+        }
+    }
+
     fun navigateToInstructions(gameType: GameType) {
         navController.navigate(Instructions(gameType.id))
     }
@@ -300,6 +319,7 @@ class GameController(
     }
 
     fun navigateToNormalSudokuPlay(puzzleId: String) {
+        storage.putRecentGame(navRouteToPathSuffix(NormalSudokuMenu))
         navController.navigate(NormalSudokuPlay(puzzleId))
     }
 
@@ -308,6 +328,7 @@ class GameController(
     }
 
     fun navigateToNormalChessPlay(mode: NormalChessMode, difficulty: NormalChessDifficulty) {
+        storage.putRecentGame(navRouteToPathSuffix(NormalChessMenu))
         navController.navigate(NormalChessPlay(mode = mode.name, difficulty = difficulty.name))
     }
 
@@ -316,10 +337,12 @@ class GameController(
     }
 
     fun navigateToMatchstickRiddlesPlay(riddleId: String) {
+        storage.putRecentGame(navRouteToPathSuffix(MatchstickRiddlesMenu))
         navController.navigate(MatchstickRiddlesPlay(riddleId))
     }
 
     fun navigateToPegSolitaire() {
+        storage.putRecentGame(navRouteToPathSuffix(PegSolitaire))
         navController.navigate(PegSolitaire)
     }
 
@@ -379,6 +402,8 @@ class GameController(
     }
 
     fun startGame(gameType: GameType) {
+        // Daily games are drawn by the shuffle bag, not chosen, and the challenge has its own shortcut.
+        if (!inSessionMode) storage.putRecentGame(navRouteToPathSuffix(Instructions(gameType.id)))
         points = 0
         sessionStartRound = 0
 
