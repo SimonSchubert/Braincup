@@ -29,7 +29,7 @@ jobs:
       # a proprietary component whose use means accepting gradle.com's Terms of Use. v5 is
       # the last MIT release and already runs on Node 24, which is all this pin needs to do.
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Decode Keystore
         env:
@@ -69,7 +69,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build DMG
         run: ./gradlew :composeApp:packageDmg
@@ -101,7 +101,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build MSI
         run: ./gradlew :composeApp:packageMsi
@@ -135,7 +135,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build DEB
         run: ./gradlew :composeApp:packageDeb
@@ -167,7 +167,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Install RPM tools
         run: sudo apt-get $APT_OPTS install -y rpm
@@ -203,7 +203,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       # No apt install here on purpose: appimagetool runs with
       # --appimage-extract-and-run below, so libfuse2 is never used, and file is
@@ -283,7 +283,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build application distribution
         run: ./gradlew :composeApp:createDistributable
@@ -358,7 +358,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v4
