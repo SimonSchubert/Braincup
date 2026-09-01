@@ -9,6 +9,7 @@
     <string name="button_play_random">રેન્ડમ રમત રમો</string>
     <string name="button_give_up">છોડી દો</string>
     <string name="button_stay">રહો</string>
+    <string name="button_cancel">રદ કરો</string>
     <string name="button_quit_game">બહાર નીકળો</string>
     <string name="button_backspace">બેકસ્પેસ</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">નોંધ</string>
     <string name="normal_sudoku_pen_mode">પેન</string>
     <string name="normal_sudoku_notes_toggle">નોંધ મોડ બદલો</string>
+    <string name="normal_sudoku_reset">રીસેટ</string>
+    <string name="normal_sudoku_reset_title">બોર્ડ રીસેટ કરવું?</string>
+    <string name="normal_sudoku_reset_message">તમે ભરેલા બધા અંક અને નોંધ ભૂંસાઈ જશે. શરૂઆતમાં આપેલા અંક રહેશે.</string>
 
     <string name="normal_chess_button">સામાન્ય ચેસ</string>
     <string name="normal_chess_title">ચેસ</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">જોડીમાં શું સરખું છે તે શોધો.</string>
     <string name="trio_demo_title">ત્રણનો સમૂહ શોધો</string>
     <string name="trio_demo_rule">તેમનું એક લક્ષણ સરખું છે. બીજું કંઈ ભળેલું નથી.</string>
+    <string name="trio_trait_shape">આકાર</string>
+    <string name="trio_trait_count">કેટલા</string>
+    <string name="trio_trait_fill">ભરાવ</string>
+    <string name="trio_demo_traits">દરેક કાર્ડને ત્રણ લક્ષણ હોય છે</string>
+    <string name="trio_legend_same">બધા સરખા</string>
+    <string name="trio_legend_different">દરેકનું એક</string>
+    <string name="trio_demo_group_set">સમૂહ</string>
+    <string name="trio_demo_group_not_set">સમૂહ નથી</string>
+    <string name="trio_demo_reason_mixed">બે કાર્ડનો આકાર સરખો છે, ત્રીજાનો નહીં.</string>
+    <string name="trio_demo_reason_nothing_same">ત્રણેયમાં કંઈ સરખું નથી.</string>
     <string name="mental_rotations_demo_title">મનમાં ફેરવો</string>
     <string name="mental_rotations_demo_turn">જમણા બ્લોકને ફેરવીને ડાબા પર ગોઠવો.</string>
     <string name="mental_rotations_demo_same">બરાબર બેસે છે. એ જ બ્લોક.</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">સાચો અક્ષર, ખોટી જગ્યા</string>
     <string name="wordle_legend_absent">શબ્દમાં નથી</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">આકારો એક પછી એક પસાર થાય છે. જ્યારે આકાર N પગલાં પહેલાંના આકારને દોહરાવે ત્યારે મેચ પર ટેપ કરો.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">મેચ</string>
+    <string name="n_back_demo_watch">આકારો એક પછી એક દેખાય છે.</string>
+    <string name="n_back_demo_match">જ્યારે કોઈ આકાર 2 પગલાં પહેલાંના આકારને દોહરાવે ત્યારે મેચ પર ટેપ કરો.</string>
     <string name="achievement_gold_n_back">ફરતી સ્મૃતિ</string>
     <string name="achievement_gold_n_back_desc">N-Back માં સુવર્ણ ચંદ્રક જીતો</string>
     <string name="game_simon_says">સાયમન કહે છે</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">રેવન પ્રોગ્રેસિવ મેટ્રિસિસનું પ્રશ્નસ્વરૂપ, જે અમૂર્ત તર્કની સૌથી વ્યાપક કસોટી છે.</string>
     <string name="science_mental_flex_paradigm">કાર્ય-પરિવર્તન પ્રતિમાન</string>
     <string name="science_mental_flex_summary">બોધાત્મક લવચીકતાનું પ્રમાણભૂત માપ: હમણાં જ વાપરેલો નિયમ છોડીને બીજો લાગુ કરવાની કિંમત.</string>
+    <string name="science_n_back_paradigm">N-Back કાર્ય</string>
+    <string name="science_n_back_summary">કાર્યકારી સ્મૃતિના અદ્યતનીકરણનું પ્રમાણભૂત માપ: છેલ્લી થોડી વસ્તુઓની ચાલતી બારીને તાજી રાખવી, અને એ સરકતી રહે ત્યારે જ તેની સામે નિર્ણય કરવો.</string>
     <string name="science_tower_of_hanoi_paradigm">હનોઈનો મિનારો</string>
     <string name="science_tower_of_hanoi_summary">આયોજનનું પ્રમાણભૂત માપ: લક્ષ્ય સુધી પહોંચતા પહેલાં પ્રગતિ પાછી લઈ જતી ચાલ આ કોયડામાં જરૂરી બને છે.</string>
     <string name="brain_cup_button">Brain Cup ગુણતાલિકા</string>

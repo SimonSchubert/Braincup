@@ -9,6 +9,7 @@
     <string name="button_play_random">Spill et tilfeldig spill</string>
     <string name="button_give_up">Gi opp</string>
     <string name="button_stay">Bli</string>
+    <string name="button_cancel">Avbryt</string>
     <string name="button_quit_game">Avslutt</string>
     <string name="button_backspace">Slett</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Notater</string>
     <string name="normal_sudoku_pen_mode">Penn</string>
     <string name="normal_sudoku_notes_toggle">Bytt notatmodus</string>
+    <string name="normal_sudoku_reset">Nullstill</string>
+    <string name="normal_sudoku_reset_title">Nullstille brettet?</string>
+    <string name="normal_sudoku_reset_message">Alle tall og notater du har skrevet, blir slettet. De oppgitte tallene blir stående.</string>
 
     <string name="normal_chess_button">Klassisk sjakk</string>
     <string name="normal_chess_title">Sjakk</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Finn ut hva paret har til felles.</string>
     <string name="trio_demo_title">Finn et sett av tre</string>
     <string name="trio_demo_rule">De deler en egenskap. Ingenting annet er blandet.</string>
+    <string name="trio_trait_shape">Form</string>
+    <string name="trio_trait_count">Hvor mange</string>
+    <string name="trio_trait_fill">Fyll</string>
+    <string name="trio_demo_traits">Hvert kort har tre egenskaper</string>
+    <string name="trio_legend_same">Alle like</string>
+    <string name="trio_legend_different">Én av hver</string>
+    <string name="trio_demo_group_set">Sett</string>
+    <string name="trio_demo_group_not_set">Ikke et sett</string>
+    <string name="trio_demo_reason_mixed">To kort deler form, det tredje gjør det ikke.</string>
+    <string name="trio_demo_reason_nothing_same">Ingenting er likt på alle tre.</string>
     <string name="mental_rotations_demo_title">Snu den i hodet</string>
     <string name="mental_rotations_demo_turn">Roter den høyre klossen over på den venstre.</string>
     <string name="mental_rotations_demo_same">Den passer. Samme kloss.</string>
@@ -547,6 +561,11 @@ Flytt Cow — den blir en Bull.</string>
     <string name="wordle_legend_present">Riktig bokstav, feil plass</string>
     <string name="wordle_legend_absent">Ikke i ordet</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Figurene kommer forbi én om gangen. Trykk Treff når figuren gjentar den N steg tilbake.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Treff</string>
+    <string name="n_back_demo_watch">Figurene dukker opp én om gangen.</string>
+    <string name="n_back_demo_match">Trykk Treff når en figur gjentar den 2 tilbake.</string>
     <string name="achievement_gold_n_back">Rullende minne</string>
     <string name="achievement_gold_n_back_desc">Vinn gullmedaljen i N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Flytt Cow — den blir en Bull.</string>
     <string name="science_pattern_sequence_summary">Oppgaveformatet bak Ravens progressive matriser, den mest brukte testen på abstrakt resonnering.</string>
     <string name="science_mental_flex_paradigm">Oppgaveskifte-paradigmet</string>
     <string name="science_mental_flex_summary">Et standardmål for kognitiv fleksibilitet: hva det koster å slippe regelen du nettopp brukte og bruke en annen.</string>
+    <string name="science_n_back_paradigm">N-Back-oppgaven</string>
+    <string name="science_n_back_summary">Et standardmål for oppdatering av arbeidsminnet: å holde et glidende vindu over de siste elementene à jour og vurdere ut fra det mens det stadig flytter seg.</string>
     <string name="science_tower_of_hanoi_paradigm">Tårnet i Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Et standardmål for planlegging: puslespillet krever trekk som først reverserer fremgangen før målet kan nås.</string>
     <string name="brain_cup_button">Brain Cup-rangering</string>

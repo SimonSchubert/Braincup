@@ -9,6 +9,7 @@
     <string name="button_play_random">Random na laro</string>
     <string name="button_give_up">Suko</string>
     <string name="button_stay">Manatili</string>
+    <string name="button_cancel">Kanselahin</string>
     <string name="button_quit_game">Lumabas</string>
     <string name="button_backspace">Burahin</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Mga Note</string>
     <string name="normal_sudoku_pen_mode">Panulat</string>
     <string name="normal_sudoku_notes_toggle">I-toggle ang notes mode</string>
+    <string name="normal_sudoku_reset">I-reset</string>
+    <string name="normal_sudoku_reset_title">I-reset ang board?</string>
+    <string name="normal_sudoku_reset_message">Mabubura ang bawat numero at note na inilagay mo. Mananatili ang mga ibinigay na numero ng puzzle.</string>
 
     <string name="normal_chess_button">Normal na Chess</string>
     <string name="normal_chess_title">Ahedres</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Tuklasin kung ano ang pareho sa dalawa.</string>
     <string name="trio_demo_title">Maghanap ng set ng tatlo</string>
     <string name="trio_demo_rule">May iisang katangian sila. Walang halo-halo.</string>
+    <string name="trio_trait_shape">Hugis</string>
+    <string name="trio_trait_count">Ilan</string>
+    <string name="trio_trait_fill">Fill</string>
+    <string name="trio_demo_traits">May tatlong katangian ang bawat card</string>
+    <string name="trio_legend_same">Pare-pareho</string>
+    <string name="trio_legend_different">Tig-isa sa bawat isa</string>
+    <string name="trio_demo_group_set">Set</string>
+    <string name="trio_demo_group_not_set">Hindi set</string>
+    <string name="trio_demo_reason_mixed">Pareho ang hugis ng dalawang card, ang pangatlo hindi.</string>
+    <string name="trio_demo_reason_nothing_same">Walang pareho sa lahat ng tatlo.</string>
     <string name="mental_rotations_demo_title">Iikot mo sa isip</string>
     <string name="mental_rotations_demo_turn">Iikot ang kanang bloke papunta sa kaliwa.</string>
     <string name="mental_rotations_demo_same">Magkatugma. Parehong bloke.</string>
@@ -545,6 +559,11 @@
     <string name="wordle_legend_present">Tamang letra, maling puwesto</string>
     <string name="wordle_legend_absent">Wala sa salita</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Isa-isang dumadaan ang mga hugis. I-tap ang Match kapag inuulit ng hugis ang nasa N hakbang na nakaraan.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Match</string>
+    <string name="n_back_demo_watch">Isa-isang lumilitaw ang mga hugis.</string>
+    <string name="n_back_demo_match">I-tap ang Match kapag inuulit ng hugis ang nasa 2 hakbang na nakaraan.</string>
     <string name="achievement_gold_n_back">Gumugulong na Alaala</string>
     <string name="achievement_gold_n_back_desc">Manalo ng gold medal sa N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -571,6 +590,8 @@
     <string name="science_pattern_sequence_summary">Ang anyo ng aytem sa likod ng Raven's Progressive Matrices, ang pinakalaganap na pagsusulit sa abstraktong pangangatwiran.</string>
     <string name="science_mental_flex_paradigm">Task-Switching Paradigm</string>
     <string name="science_mental_flex_summary">Karaniwang sukatan ng cognitive flexibility: ang halagang kailangan para bitawan ang panuntunang kagagamit mo lang at gumamit ng iba.</string>
+    <string name="science_n_back_paradigm">N-Back Task</string>
+    <string name="science_n_back_summary">Karaniwang sukatan ng pag-update ng working memory: panatilihing sariwa ang gumagalaw na bintana ng huling ilang bagay, at humatol laban dito habang patuloy itong gumagalaw.</string>
     <string name="science_tower_of_hanoi_paradigm">Tore ng Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Karaniwang sukatan ng pagpaplano: hinihingi ng palaisipan ang mga galaw na nagpapaurong muna sa progreso bago maabot ang layunin.</string>
     <string name="brain_cup_button">Leaderboard ng Brain Cup</string>

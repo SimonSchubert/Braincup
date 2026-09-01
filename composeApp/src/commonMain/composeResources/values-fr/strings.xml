@@ -11,6 +11,7 @@
     <string name="button_play_random">Jeu aléatoire</string>
     <string name="button_give_up">Abandonner</string>
     <string name="button_stay">Rester</string>
+    <string name="button_cancel">Annuler</string>
     <string name="button_quit_game">Quitter</string>
     <string name="button_backspace">Retour arrière</string>
     <string name="button_done">Terminé</string>
@@ -314,6 +315,8 @@
     <string name="science_pattern_sequence_summary">Le format des items des matrices progressives de Raven, le test de raisonnement abstrait le plus utilisé.</string>
     <string name="science_mental_flex_paradigm">Paradigme de changement de tâche</string>
     <string name="science_mental_flex_summary">Une mesure standard de la flexibilité cognitive : ce qu'il en coûte d'abandonner la règle qu'on vient d'appliquer pour en suivre une autre.</string>
+    <string name="science_n_back_paradigm">Tâche N-Back</string>
+    <string name="science_n_back_summary">Une mesure standard de la mise à jour de la mémoire de travail : garder à jour une fenêtre glissante des derniers éléments et juger par rapport à elle pendant qu'elle continue d'avancer.</string>
     <string name="science_tower_of_hanoi_paradigm">Tours de Hanoï</string>
     <string name="science_tower_of_hanoi_summary">Une mesure standard de la planification : le casse-tête exige des coups qui défont les progrès avant que le but puisse être atteint.</string>
     <string name="brain_cup_button">Classement Brain Cup</string>
@@ -606,6 +609,9 @@
     <string name="normal_sudoku_notes_mode">Notes</string>
     <string name="normal_sudoku_pen_mode">Stylo</string>
     <string name="normal_sudoku_notes_toggle">Activer le mode notes</string>
+    <string name="normal_sudoku_reset">Réinitialiser</string>
+    <string name="normal_sudoku_reset_title">Réinitialiser la grille ?</string>
+    <string name="normal_sudoku_reset_message">Tous les chiffres et notes que tu as saisis sont effacés. Les chiffres donnés au départ restent.</string>
     <string name="normal_sudoku_not_solved">Pas tout à fait</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
@@ -673,6 +679,11 @@
     <string name="wordle_legend_present">Bonne lettre, mauvaise place</string>
     <string name="wordle_legend_absent">Absente du mot</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Les formes défilent une par une. Touche Correspond quand la forme répète celle d'il y a N étapes.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Correspond</string>
+    <string name="n_back_demo_watch">Les formes apparaissent une par une.</string>
+    <string name="n_back_demo_match">Touche Correspond quand une forme répète celle d'il y a 2 étapes.</string>
     <string name="achievement_gold_n_back">Mémoire glissante</string>
     <string name="achievement_gold_n_back_desc">Gagnez une médaille d'or à N-Back</string>
     <string name="game_simon_says">Jacques a dit</string>
@@ -785,6 +796,16 @@
     <string name="game_mental_flex_howto">Repère ce que la paire a en commun.</string>
     <string name="trio_demo_title">Trouve un ensemble de trois</string>
     <string name="trio_demo_rule">Elles partagent un trait. Rien d'autre n'est mélangé.</string>
+    <string name="trio_trait_shape">Forme</string>
+    <string name="trio_trait_count">Combien</string>
+    <string name="trio_trait_fill">Remplissage</string>
+    <string name="trio_demo_traits">Chaque carte a trois traits</string>
+    <string name="trio_legend_same">Toutes pareilles</string>
+    <string name="trio_legend_different">Une de chaque</string>
+    <string name="trio_demo_group_set">Ensemble</string>
+    <string name="trio_demo_group_not_set">Pas un ensemble</string>
+    <string name="trio_demo_reason_mixed">Deux cartes partagent la forme, la troisième non.</string>
+    <string name="trio_demo_reason_nothing_same">Rien n'est pareil sur les trois.</string>
     <string name="mental_rotations_demo_title">Fais-le tourner dans ta tête</string>
     <string name="mental_rotations_demo_turn">Fais pivoter le bloc de droite sur celui de gauche.</string>
     <string name="mental_rotations_demo_same">Il se superpose. Même bloc.</string>

@@ -11,6 +11,7 @@
     <string name="button_play_random">Trò chơi ngẫu nhiên</string>
     <string name="button_give_up">Bỏ cuộc</string>
     <string name="button_stay">Ở lại</string>
+    <string name="button_cancel">Hủy</string>
     <string name="button_quit_game">Thoát</string>
     <string name="button_backspace">Xóa</string>
     <string name="button_done">Xong</string>
@@ -309,6 +310,11 @@
     <string name="wordle_legend_present">Đúng chữ, sai vị trí</string>
     <string name="wordle_legend_absent">Không có trong từ</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Các hình trôi qua từng cái một. Chạm Trùng khớp khi hình lặp lại hình của N bước trước.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Trùng khớp</string>
+    <string name="n_back_demo_watch">Các hình xuất hiện từng cái một.</string>
+    <string name="n_back_demo_match">Chạm Trùng khớp khi một hình lặp lại hình của 2 bước trước.</string>
     <string name="achievement_gold_n_back">Trí Nhớ Cuộn</string>
     <string name="achievement_gold_n_back_desc">Giành huy chương vàng trong N-Back</string>
     <string name="game_simon_says">Simon nói</string>
@@ -335,6 +341,8 @@
     <string name="science_pattern_sequence_summary">Dạng câu hỏi đứng sau Ma trận Tiến triển Raven, bài kiểm tra suy luận trừu tượng được dùng rộng rãi nhất.</string>
     <string name="science_mental_flex_paradigm">Mô hình chuyển đổi nhiệm vụ</string>
     <string name="science_mental_flex_summary">Thước đo chuẩn cho sự linh hoạt nhận thức: cái giá của việc buông quy tắc vừa dùng và áp dụng một quy tắc khác.</string>
+    <string name="science_n_back_paradigm">Nhiệm vụ N-Back</string>
+    <string name="science_n_back_summary">Thước đo chuẩn cho việc cập nhật trí nhớ làm việc: giữ cho cửa sổ trượt gồm vài mục gần nhất luôn mới, và phán đoán dựa vào nó trong khi nó vẫn tiếp tục dịch chuyển.</string>
     <string name="science_tower_of_hanoi_paradigm">Tháp Hà Nội</string>
     <string name="science_tower_of_hanoi_summary">Thước đo chuẩn cho khả năng lập kế hoạch: câu đố đòi hỏi những nước đi làm mất tiến độ trước khi có thể đạt mục tiêu.</string>
     <string name="brain_cup_button">Bảng xếp hạng Brain Cup</string>
@@ -627,6 +635,9 @@
     <string name="normal_sudoku_notes_mode">Ghi chú</string>
     <string name="normal_sudoku_pen_mode">Bút</string>
     <string name="normal_sudoku_notes_toggle">Bật/tắt chế độ ghi chú</string>
+    <string name="normal_sudoku_reset">Đặt lại</string>
+    <string name="normal_sudoku_reset_title">Đặt lại bảng?</string>
+    <string name="normal_sudoku_reset_message">Mọi chữ số và ghi chú bạn đã nhập sẽ bị xóa. Các chữ số cho sẵn ban đầu vẫn giữ nguyên.</string>
     <string name="normal_sudoku_not_solved">Chưa đúng</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
@@ -784,6 +795,16 @@
     <string name="game_mental_flex_howto">Nhận ra điểm chung của cặp hình.</string>
     <string name="trio_demo_title">Tìm một bộ ba lá</string>
     <string name="trio_demo_rule">Chúng chung một đặc điểm. Phần còn lại không bị lẫn.</string>
+    <string name="trio_trait_shape">Hình dạng</string>
+    <string name="trio_trait_count">Bao nhiêu</string>
+    <string name="trio_trait_fill">Tô</string>
+    <string name="trio_demo_traits">Mỗi lá có ba đặc điểm</string>
+    <string name="trio_legend_same">Tất cả giống nhau</string>
+    <string name="trio_legend_different">Mỗi loại một cái</string>
+    <string name="trio_demo_group_set">Bộ</string>
+    <string name="trio_demo_group_not_set">Không phải một bộ</string>
+    <string name="trio_demo_reason_mixed">Hai lá chung hình dạng, lá thứ ba thì không.</string>
+    <string name="trio_demo_reason_nothing_same">Không có gì giống nhau ở cả ba.</string>
     <string name="mental_rotations_demo_title">Xoay nó trong đầu</string>
     <string name="mental_rotations_demo_turn">Xoay khối bên phải cho khớp với khối bên trái.</string>
     <string name="mental_rotations_demo_same">Nó khớp. Cùng một khối.</string>

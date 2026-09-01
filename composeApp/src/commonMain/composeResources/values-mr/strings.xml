@@ -9,6 +9,7 @@
     <string name="button_play_random">यादृच्छिक खेळ खेळा</string>
     <string name="button_give_up">सोडून द्या</string>
     <string name="button_stay">थांबा</string>
+    <string name="button_cancel">रद्द करा</string>
     <string name="button_quit_game">बाहेर पडा</string>
     <string name="button_backspace">बॅकस्पेस</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">टिपा</string>
     <string name="normal_sudoku_pen_mode">पेन</string>
     <string name="normal_sudoku_notes_toggle">टिपा मोड बदला</string>
+    <string name="normal_sudoku_reset">पुन्हा सुरू</string>
+    <string name="normal_sudoku_reset_title">फळा रिकामा करायचा?</string>
+    <string name="normal_sudoku_reset_message">तुम्ही भरलेले सर्व अंक आणि टिपा पुसल्या जातील. सुरुवातीला दिलेले अंक तसेच राहतील.</string>
 
     <string name="normal_chess_button">सामान्य बुद्धिबळ</string>
     <string name="normal_chess_title">बुद्धिबळ</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">जोडीत काय समान आहे ते ओळखा.</string>
     <string name="trio_demo_title">तिघांचा संच शोधा</string>
     <string name="trio_demo_rule">त्यांच्यात एक गुणधर्म समान आहे. बाकी काहीही मिसळलेले नाही.</string>
+    <string name="trio_trait_shape">आकार</string>
+    <string name="trio_trait_count">किती</string>
+    <string name="trio_trait_fill">भरणी</string>
+    <string name="trio_demo_traits">प्रत्येक पत्त्याला तीन गुणधर्म असतात</string>
+    <string name="trio_legend_same">सर्व सारखे</string>
+    <string name="trio_legend_different">प्रत्येकाचा एक</string>
+    <string name="trio_demo_group_set">संच</string>
+    <string name="trio_demo_group_not_set">संच नाही</string>
+    <string name="trio_demo_reason_mixed">दोन पत्त्यांचा आकार सारखा आहे, तिसऱ्याचा नाही.</string>
+    <string name="trio_demo_reason_nothing_same">तिन्हींमध्ये काहीच सारखे नाही.</string>
     <string name="mental_rotations_demo_title">मनातल्या मनात फिरवा</string>
     <string name="mental_rotations_demo_turn">उजवा ठोकळा फिरवून डाव्यावर बसवा.</string>
     <string name="mental_rotations_demo_same">तंतोतंत जुळतो. तोच ठोकळा.</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">बरोबर अक्षर, चुकीची जागा</string>
     <string name="wordle_legend_absent">शब्दात नाही</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">आकार एकामागून एक सरकतात. एखादा आकार N पावले आधीच्या आकाराची पुनरावृत्ती करतो तेव्हा जुळणी दाबा.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">जुळणी</string>
+    <string name="n_back_demo_watch">आकार एकामागून एक येतात.</string>
+    <string name="n_back_demo_match">एखादा आकार 2 पावले आधीच्या आकाराची पुनरावृत्ती करतो तेव्हा जुळणी दाबा.</string>
     <string name="achievement_gold_n_back">फिरती स्मृती</string>
     <string name="achievement_gold_n_back_desc">N-Back मध्ये सुवर्णपदक जिंका</string>
     <string name="game_simon_says">सायमन म्हणतो</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">रेवन प्रोग्रेसिव्ह मॅट्रिसेसचा प्रश्नप्रकार, अमूर्त तर्काची सर्वाधिक वापरली जाणारी चाचणी.</string>
     <string name="science_mental_flex_paradigm">कार्यबदल प्रतिमान</string>
     <string name="science_mental_flex_summary">बोधात्मक लवचिकतेचे प्रमाणित माप: आत्ताच वापरलेला नियम सोडून दुसरा लावण्याची किंमत.</string>
+    <string name="science_n_back_paradigm">N-Back कार्य</string>
+    <string name="science_n_back_summary">कार्यकारी स्मृती अद्ययावत ठेवण्याचे प्रमाणित माप: शेवटच्या काही गोष्टींची सरकती खिडकी ताजी ठेवणे, आणि ती सरकत असतानाच तिच्याशी ताडून निर्णय घेणे.</string>
     <string name="science_tower_of_hanoi_paradigm">हनोईचा मनोरा</string>
     <string name="science_tower_of_hanoi_summary">नियोजनाचे प्रमाणित माप: ध्येयापर्यंत पोहोचण्याआधी प्रगती मागे नेणाऱ्या चाली या कोड्यात कराव्या लागतात.</string>
     <string name="brain_cup_button">Brain Cup गुणतालिका</string>

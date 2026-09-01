@@ -9,6 +9,7 @@
     <string name="button_play_random">Hrát náhodnou hru</string>
     <string name="button_give_up">Vzdát se</string>
     <string name="button_stay">Zůstat</string>
+    <string name="button_cancel">Zrušit</string>
     <string name="button_quit_game">Konec</string>
     <string name="button_backspace">Smazat</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Poznámky</string>
     <string name="normal_sudoku_pen_mode">Pero</string>
     <string name="normal_sudoku_notes_toggle">Přepnout režim poznámek</string>
+    <string name="normal_sudoku_reset">Resetovat</string>
+    <string name="normal_sudoku_reset_title">Resetovat desku?</string>
+    <string name="normal_sudoku_reset_message">Každá číslice a poznámka, kterou jsi zadal, se smaže. Výchozí zadaná čísla zůstanou.</string>
 
     <string name="normal_chess_button">Klasické šachy</string>
     <string name="normal_chess_title">Šachy</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Odhal, co má dvojice společné.</string>
     <string name="trio_demo_title">Najdi trojici</string>
     <string name="trio_demo_rule">Sdílejí vlastnost. Nic jiného se nemíchá.</string>
+    <string name="trio_trait_shape">Tvar</string>
+    <string name="trio_trait_count">Kolik</string>
+    <string name="trio_trait_fill">Výplň</string>
+    <string name="trio_demo_traits">Každá karta má tři vlastnosti</string>
+    <string name="trio_legend_same">Všechny stejné</string>
+    <string name="trio_legend_different">Od každé jedna</string>
+    <string name="trio_demo_group_set">Trojice</string>
+    <string name="trio_demo_group_not_set">Není trojice</string>
+    <string name="trio_demo_reason_mixed">Dvě karty mají stejný tvar, třetí ne.</string>
+    <string name="trio_demo_reason_nothing_same">Nic není stejné u všech tří.</string>
     <string name="mental_rotations_demo_title">Otoč si to v hlavě</string>
     <string name="mental_rotations_demo_turn">Otoč pravý blok na ten levý.</string>
     <string name="mental_rotations_demo_same">Sedí to. Stejný blok.</string>
@@ -547,6 +561,11 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="wordle_legend_present">Správné písmeno, špatné místo</string>
     <string name="wordle_legend_absent">Ve slově není</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Tvary plynou kolem jeden po druhém. Klepni na Shoda, když tvar zopakuje ten o N kroků zpět.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Shoda</string>
+    <string name="n_back_demo_watch">Tvary se objevují jeden po druhém.</string>
+    <string name="n_back_demo_match">Klepni na Shoda, když tvar zopakuje ten o 2 zpět.</string>
     <string name="achievement_gold_n_back">Valící se paměť</string>
     <string name="achievement_gold_n_back_desc">Získej zlatou medaili v N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="science_pattern_sequence_summary">Formát úloh Ravenových progresivních matic, nejrozšířenějšího testu abstraktního usuzování.</string>
     <string name="science_mental_flex_paradigm">Paradigma přepínání úloh</string>
     <string name="science_mental_flex_summary">Standardní míra kognitivní flexibility: kolik stojí opustit právě používané pravidlo a použít jiné.</string>
+    <string name="science_n_back_paradigm">Úloha N-Back</string>
+    <string name="science_n_back_summary">Standardní míra aktualizace pracovní paměti: udržovat aktuální pohyblivé okno posledních několika položek a posuzovat podle něj, zatímco se dál posouvá.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojská věž</string>
     <string name="science_tower_of_hanoi_summary">Standardní míra plánování: hlavolam vyžaduje tahy, které pokrok nejdřív vrátí zpět, než se dá dosáhnout cíle.</string>
     <string name="brain_cup_button">Žebříček Brain Cup</string>

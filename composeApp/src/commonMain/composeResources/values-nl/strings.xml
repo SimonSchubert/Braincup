@@ -11,6 +11,7 @@
     <string name="button_play_random">Willekeurig spel</string>
     <string name="button_give_up">Opgeven</string>
     <string name="button_stay">Blijven</string>
+    <string name="button_cancel">Annuleren</string>
     <string name="button_quit_game">Stoppen</string>
     <string name="button_backspace">Wissen</string>
     <string name="button_done">Klaar</string>
@@ -314,6 +315,8 @@
     <string name="science_pattern_sequence_summary">Het itemformaat achter Ravens progressieve matrijzen, de meest gebruikte test voor abstract redeneren.</string>
     <string name="science_mental_flex_paradigm">Taakwisselparadigma</string>
     <string name="science_mental_flex_summary">Een standaardmaat voor cognitieve flexibiliteit: wat het kost om de regel die je net gebruikte los te laten en een andere toe te passen.</string>
+    <string name="science_n_back_paradigm">N-Back-taak</string>
+    <string name="science_n_back_summary">Een standaardmaat voor het bijwerken van het werkgeheugen: een schuivend venster met de laatste items actueel houden en daaraan toetsen terwijl het blijft opschuiven.</string>
     <string name="science_tower_of_hanoi_paradigm">Torens van Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Een standaardmaat voor plannen: de puzzel vraagt zetten die de voortgang eerst ongedaan maken voordat het doel bereikbaar is.</string>
     <string name="brain_cup_button">Brain Cup klassement</string>
@@ -606,6 +609,9 @@
     <string name="normal_sudoku_notes_mode">Notities</string>
     <string name="normal_sudoku_pen_mode">Pen</string>
     <string name="normal_sudoku_notes_toggle">Notitiemodus wisselen</string>
+    <string name="normal_sudoku_reset">Herstellen</string>
+    <string name="normal_sudoku_reset_title">Bord herstellen?</string>
+    <string name="normal_sudoku_reset_message">Alle cijfers en notities die je hebt ingevuld, worden gewist. De gegeven cijfers blijven staan.</string>
     <string name="normal_sudoku_not_solved">Nog niet helemaal goed</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
@@ -673,6 +679,11 @@
     <string name="wordle_legend_present">Juiste letter, verkeerde plek</string>
     <string name="wordle_legend_absent">Niet in het woord</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">De vormen komen één voor één voorbij. Tik op Match wanneer de vorm die van N stappen terug herhaalt.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Match</string>
+    <string name="n_back_demo_watch">De vormen verschijnen één voor één.</string>
+    <string name="n_back_demo_match">Tik op Match wanneer een vorm die van 2 terug herhaalt.</string>
     <string name="achievement_gold_n_back">Rollend geheugen</string>
     <string name="achievement_gold_n_back_desc">Win een gouden medaille in N-Back</string>
     <string name="game_simon_says">Simon zegt</string>
@@ -785,6 +796,16 @@
     <string name="game_mental_flex_howto">Zie wat het paar gemeen heeft.</string>
     <string name="trio_demo_title">Vind een set van drie</string>
     <string name="trio_demo_rule">Ze delen een kenmerk. Verder niets gemengd.</string>
+    <string name="trio_trait_shape">Vorm</string>
+    <string name="trio_trait_count">Hoeveel</string>
+    <string name="trio_trait_fill">Vulling</string>
+    <string name="trio_demo_traits">Elke kaart heeft drie kenmerken</string>
+    <string name="trio_legend_same">Allemaal hetzelfde</string>
+    <string name="trio_legend_different">Van elk één</string>
+    <string name="trio_demo_group_set">Set</string>
+    <string name="trio_demo_group_not_set">Geen set</string>
+    <string name="trio_demo_reason_mixed">Twee kaarten delen een vorm, de derde niet.</string>
+    <string name="trio_demo_reason_nothing_same">Niets is hetzelfde op alle drie.</string>
     <string name="mental_rotations_demo_title">Draai het in je hoofd</string>
     <string name="mental_rotations_demo_turn">Draai het rechterblok op het linker.</string>
     <string name="mental_rotations_demo_same">Het valt samen. Hetzelfde blok.</string>

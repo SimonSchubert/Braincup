@@ -11,6 +11,7 @@
     <string name="button_play_random">لعبة عشوائية</string>
     <string name="button_give_up">استسلام</string>
     <string name="button_stay">ابق</string>
+    <string name="button_cancel">إلغاء</string>
     <string name="button_quit_game">خروج</string>
     <string name="button_backspace">مسح</string>
     <string name="button_done">تم</string>
@@ -314,6 +315,8 @@
     <string name="science_pattern_sequence_summary">صيغة الأسئلة وراء مصفوفات رافن المتتابعة، أكثر اختبارات الاستدلال المجرد استخدامًا.</string>
     <string name="science_mental_flex_paradigm">نموذج تبديل المهام</string>
     <string name="science_mental_flex_summary">مقياس قياسي للمرونة المعرفية: كلفة ترك القاعدة التي كنت تستخدمها للتو وتطبيق قاعدة أخرى.</string>
+    <string name="science_n_back_paradigm">مهمة N-Back</string>
+    <string name="science_n_back_summary">مقياس قياسي لتحديث الذاكرة العاملة: إبقاء نافذة متحركة من آخر العناصر محدَّثة، والحكم بالاستناد إليها بينما تواصل التحرك.</string>
     <string name="science_tower_of_hanoi_paradigm">أبراج هانوي</string>
     <string name="science_tower_of_hanoi_summary">مقياس قياسي للتخطيط: يتطلب اللغز نقلات تُرجع التقدم إلى الوراء قبل أن يصبح الهدف قابلًا للبلوغ.</string>
     <string name="brain_cup_button">لوحة متصدري Brain Cup</string>
@@ -606,6 +609,9 @@
     <string name="normal_sudoku_notes_mode">ملاحظات</string>
     <string name="normal_sudoku_pen_mode">قلم</string>
     <string name="normal_sudoku_notes_toggle">تبديل وضع الملاحظات</string>
+    <string name="normal_sudoku_reset">إعادة تعيين</string>
+    <string name="normal_sudoku_reset_title">إعادة تعيين اللوحة؟</string>
+    <string name="normal_sudoku_reset_message">سيتم مسح كل رقم وملاحظة أدخلتها. تبقى الأرقام المعطاة في البداية.</string>
     <string name="normal_sudoku_not_solved">ليس صحيحاً تماماً</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
@@ -673,6 +679,11 @@
     <string name="wordle_legend_present">الحرف صحيح والمكان خاطئ</string>
     <string name="wordle_legend_absent">غير موجود في الكلمة</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">تمر الأشكال واحدًا تلو الآخر. اضغط على تطابق عندما يكرر الشكل ذاك الذي ظهر قبل N خطوات.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">تطابق</string>
+    <string name="n_back_demo_watch">تظهر الأشكال واحدًا تلو الآخر.</string>
+    <string name="n_back_demo_match">اضغط على تطابق عندما يكرر شكل ذاك الذي ظهر قبل خطوتين.</string>
     <string name="achievement_gold_n_back">ذاكرة متجددة</string>
     <string name="achievement_gold_n_back_desc">اربح الميدالية الذهبية في N-Back</string>
     <string name="game_simon_says">سيمون يقول</string>
@@ -785,6 +796,16 @@
     <string name="game_mental_flex_howto">اكتشف ما يشترك فيه الشكلان.</string>
     <string name="trio_demo_title">اعثر على مجموعة من ثلاث</string>
     <string name="trio_demo_rule">تشترك في سمة. لا شيء آخر مختلط.</string>
+    <string name="trio_trait_shape">الشكل</string>
+    <string name="trio_trait_count">العدد</string>
+    <string name="trio_trait_fill">التعبئة</string>
+    <string name="trio_demo_traits">لكل بطاقة ثلاث سمات</string>
+    <string name="trio_legend_same">كلها متشابهة</string>
+    <string name="trio_legend_different">واحدة من كل</string>
+    <string name="trio_demo_group_set">مجموعة</string>
+    <string name="trio_demo_group_not_set">ليست مجموعة</string>
+    <string name="trio_demo_reason_mixed">بطاقتان تشتركان في الشكل، والثالثة لا.</string>
+    <string name="trio_demo_reason_nothing_same">لا شيء متشابه في الثلاث.</string>
     <string name="mental_rotations_demo_title">أدرها في ذهنك</string>
     <string name="mental_rotations_demo_turn">أدر الكتلة اليمنى لتنطبق على اليسرى.</string>
     <string name="mental_rotations_demo_same">تنطبق تمامًا. نفس الكتلة.</string>

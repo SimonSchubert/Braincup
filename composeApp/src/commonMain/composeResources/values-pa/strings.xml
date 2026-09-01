@@ -9,6 +9,7 @@
     <string name="button_play_random">ਬੇਤਰਤੀਬ ਖੇਡ ਖੇਡੋ</string>
     <string name="button_give_up">ਛੱਡ ਦਿਓ</string>
     <string name="button_stay">ਰੁਕੋ</string>
+    <string name="button_cancel">ਰੱਦ ਕਰੋ</string>
     <string name="button_quit_game">ਬਾਹਰ ਨਿਕਲੋ</string>
     <string name="button_backspace">ਬੈਕਸਪੇਸ</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">ਨੋਟ</string>
     <string name="normal_sudoku_pen_mode">ਪੈੱਨ</string>
     <string name="normal_sudoku_notes_toggle">ਨੋਟ ਮੋਡ ਬਦਲੋ</string>
+    <string name="normal_sudoku_reset">ਮੁੜ-ਸੈੱਟ</string>
+    <string name="normal_sudoku_reset_title">ਬੋਰਡ ਮੁੜ-ਸੈੱਟ ਕਰਨਾ?</string>
+    <string name="normal_sudoku_reset_message">ਤੁਹਾਡੇ ਭਰੇ ਸਾਰੇ ਅੰਕ ਅਤੇ ਨੋਟ ਮਿਟ ਜਾਣਗੇ। ਸ਼ੁਰੂ ਵਿੱਚ ਦਿੱਤੇ ਅੰਕ ਰਹਿਣਗੇ।</string>
 
     <string name="normal_chess_button">ਆਮ ਸ਼ਤਰੰਜ</string>
     <string name="normal_chess_title">ਸ਼ਤਰੰਜ</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">ਜੋੜੇ ਵਿੱਚ ਕੀ ਸਾਂਝਾ ਹੈ, ਪਛਾਣੋ।</string>
     <string name="trio_demo_title">ਤਿੰਨਾਂ ਦਾ ਸਮੂਹ ਲੱਭੋ</string>
     <string name="trio_demo_rule">ਇਨ੍ਹਾਂ ਦਾ ਇੱਕ ਗੁਣ ਸਾਂਝਾ ਹੈ। ਹੋਰ ਕੁਝ ਰਲਿਆ ਨਹੀਂ।</string>
+    <string name="trio_trait_shape">ਆਕਾਰ</string>
+    <string name="trio_trait_count">ਕਿੰਨੇ</string>
+    <string name="trio_trait_fill">ਭਰਾਈ</string>
+    <string name="trio_demo_traits">ਹਰ ਪੱਤੇ ਦੇ ਤਿੰਨ ਗੁਣ ਹੁੰਦੇ ਹਨ</string>
+    <string name="trio_legend_same">ਸਾਰੇ ਇੱਕੋ ਜਿਹੇ</string>
+    <string name="trio_legend_different">ਹਰੇਕ ਦਾ ਇੱਕ</string>
+    <string name="trio_demo_group_set">ਸਮੂਹ</string>
+    <string name="trio_demo_group_not_set">ਸਮੂਹ ਨਹੀਂ</string>
+    <string name="trio_demo_reason_mixed">ਦੋ ਪੱਤਿਆਂ ਦਾ ਆਕਾਰ ਇੱਕੋ ਹੈ, ਤੀਜੇ ਦਾ ਨਹੀਂ।</string>
+    <string name="trio_demo_reason_nothing_same">ਤਿੰਨਾਂ ਵਿੱਚ ਕੁਝ ਵੀ ਇੱਕੋ ਜਿਹਾ ਨਹੀਂ।</string>
     <string name="mental_rotations_demo_title">ਮਨ ਵਿੱਚ ਘੁਮਾਓ</string>
     <string name="mental_rotations_demo_turn">ਸੱਜੇ ਬਲਾਕ ਨੂੰ ਘੁਮਾ ਕੇ ਖੱਬੇ ਉੱਤੇ ਬਿਠਾਓ।</string>
     <string name="mental_rotations_demo_same">ਇਹ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿਲਦਾ ਹੈ। ਉਹੀ ਬਲਾਕ।</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">ਸਹੀ ਅੱਖਰ, ਗਲਤ ਥਾਂ</string>
     <string name="wordle_legend_absent">ਸ਼ਬਦ ਵਿੱਚ ਨਹੀਂ</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">ਆਕਾਰ ਇੱਕ-ਇੱਕ ਕਰ ਕੇ ਲੰਘਦੇ ਹਨ। ਜਦੋਂ ਕੋਈ ਆਕਾਰ N ਕਦਮ ਪਹਿਲਾਂ ਵਾਲੇ ਨੂੰ ਦੁਹਰਾਵੇ, ਤਾਂ ਮੇਲ ਦਬਾਓ।</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">ਮੇਲ</string>
+    <string name="n_back_demo_watch">ਆਕਾਰ ਇੱਕ-ਇੱਕ ਕਰ ਕੇ ਆਉਂਦੇ ਹਨ।</string>
+    <string name="n_back_demo_match">ਜਦੋਂ ਕੋਈ ਆਕਾਰ 2 ਕਦਮ ਪਹਿਲਾਂ ਵਾਲੇ ਨੂੰ ਦੁਹਰਾਵੇ, ਤਾਂ ਮੇਲ ਦਬਾਓ।</string>
     <string name="achievement_gold_n_back">ਘੁੰਮਦੀ ਯਾਦ</string>
     <string name="achievement_gold_n_back_desc">N-Back ਵਿੱਚ ਸੋਨ ਤਮਗਾ ਜਿੱਤੋ</string>
     <string name="game_simon_says">ਸਾਈਮਨ ਕਹਿੰਦਾ ਹੈ</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">ਰੇਵਨ ਪ੍ਰੋਗਰੈਸਿਵ ਮੈਟ੍ਰਿਸੀਜ਼ ਦਾ ਸਵਾਲ-ਰੂਪ, ਜੋ ਅਮੂਰਤ ਤਰਕ ਦੀ ਸਭ ਤੋਂ ਵੱਧ ਵਰਤੀ ਜਾਂਦੀ ਪਰਖ ਹੈ।</string>
     <string name="science_mental_flex_paradigm">ਕਾਰਜ-ਬਦਲੀ ਪ੍ਰਤੀਮਾਨ</string>
     <string name="science_mental_flex_summary">ਬੋਧਾਤਮਕ ਲਚਕ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਹੁਣੇ ਵਰਤੇ ਨਿਯਮ ਨੂੰ ਛੱਡ ਕੇ ਦੂਜਾ ਲਾਗੂ ਕਰਨ ਦੀ ਕੀਮਤ।</string>
+    <string name="science_n_back_paradigm">N-Back ਕਾਰਜ</string>
+    <string name="science_n_back_summary">ਕਾਰਜਸ਼ੀਲ ਯਾਦਦਾਸ਼ਤ ਨੂੰ ਤਾਜ਼ਾ ਰੱਖਣ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਪਿਛਲੀਆਂ ਕੁਝ ਚੀਜ਼ਾਂ ਦੀ ਸਰਕਦੀ ਖਿੜਕੀ ਨੂੰ ਤਾਜ਼ਾ ਰੱਖਣਾ, ਅਤੇ ਉਹ ਸਰਕਦੀ ਰਹਿੰਦਿਆਂ ਹੀ ਉਸ ਨਾਲ ਮਿਲਾ ਕੇ ਫ਼ੈਸਲਾ ਕਰਨਾ।</string>
     <string name="science_tower_of_hanoi_paradigm">ਹਨੋਈ ਦਾ ਮੀਨਾਰ</string>
     <string name="science_tower_of_hanoi_summary">ਯੋਜਨਾਬੰਦੀ ਦਾ ਮਿਆਰੀ ਮਾਪ: ਟੀਚੇ ਤੱਕ ਪਹੁੰਚਣ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਬੁਝਾਰਤ ਵਿੱਚ ਅਜਿਹੀਆਂ ਚਾਲਾਂ ਲੋੜੀਂਦੀਆਂ ਹਨ ਜੋ ਤਰੱਕੀ ਪਿੱਛੇ ਲੈ ਜਾਂਦੀਆਂ ਹਨ।</string>
     <string name="brain_cup_button">Brain Cup ਲੀਡਰਬੋਰਡ</string>

@@ -9,6 +9,7 @@
     <string name="button_play_random">Igraj nasumičnu igru</string>
     <string name="button_give_up">Odustani</string>
     <string name="button_stay">Ostani</string>
+    <string name="button_cancel">Odustani</string>
     <string name="button_quit_game">Kraj</string>
     <string name="button_backspace">Obriši</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Bilješke</string>
     <string name="normal_sudoku_pen_mode">Olovka</string>
     <string name="normal_sudoku_notes_toggle">Uključi/isključi bilješke</string>
+    <string name="normal_sudoku_reset">Poništi</string>
+    <string name="normal_sudoku_reset_title">Poništiti ploču?</string>
+    <string name="normal_sudoku_reset_message">Sve znamenke i bilješke koje si unio bit će obrisane. Početno zadane znamenke ostaju.</string>
 
     <string name="normal_chess_button">Klasični šah</string>
     <string name="normal_chess_title">Šah</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Uoči što par ima zajedničko.</string>
     <string name="trio_demo_title">Pronađi trojku</string>
     <string name="trio_demo_rule">Dijele svojstvo. Ništa se drugo ne miješa.</string>
+    <string name="trio_trait_shape">Oblik</string>
+    <string name="trio_trait_count">Koliko</string>
+    <string name="trio_trait_fill">Ispuna</string>
+    <string name="trio_demo_traits">Svaka karta ima tri svojstva</string>
+    <string name="trio_legend_same">Sve isto</string>
+    <string name="trio_legend_different">Od svakog po jedno</string>
+    <string name="trio_demo_group_set">Trojka</string>
+    <string name="trio_demo_group_not_set">Nije trojka</string>
+    <string name="trio_demo_reason_mixed">Dvije karte dijele oblik, treća ne.</string>
+    <string name="trio_demo_reason_nothing_same">Ništa nije isto na sve tri.</string>
     <string name="mental_rotations_demo_title">Okreni ga u glavi</string>
     <string name="mental_rotations_demo_turn">Zakreni desni blok na lijevi.</string>
     <string name="mental_rotations_demo_same">Poklapa se. Isti blok.</string>
@@ -547,6 +561,11 @@ Premjesti Cow — postat će Bull.</string>
     <string name="wordle_legend_present">Točno slovo, krivo mjesto</string>
     <string name="wordle_legend_absent">Nije u riječi</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Oblici promiču jedan po jedan. Dodirni Podudaranje kad oblik ponovi onaj od prije N koraka.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Podudaranje</string>
+    <string name="n_back_demo_watch">Oblici se pojavljuju jedan po jedan.</string>
+    <string name="n_back_demo_match">Dodirni Podudaranje kad oblik ponovi onaj od prije 2 koraka.</string>
     <string name="achievement_gold_n_back">Kotrljajuće pamćenje</string>
     <string name="achievement_gold_n_back_desc">Osvoji zlatnu medalju u N-Backu</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Premjesti Cow — postat će Bull.</string>
     <string name="science_pattern_sequence_summary">Oblik zadataka Ravenovih progresivnih matrica, najraširenijeg testa apstraktnog zaključivanja.</string>
     <string name="science_mental_flex_paradigm">Paradigma promjene zadatka</string>
     <string name="science_mental_flex_summary">Standardna mjera kognitivne fleksibilnosti: koliko stoji napustiti upravo primjenjivano pravilo i primijeniti drugo.</string>
+    <string name="science_n_back_paradigm">Zadatak N-Back</string>
+    <string name="science_n_back_summary">Standardna mjera osvježavanja radnog pamćenja: držati pomični prozor posljednjih nekoliko stavki ažurnim i prosuđivati prema njemu dok se on i dalje pomiče.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojski toranj</string>
     <string name="science_tower_of_hanoi_summary">Standardna mjera planiranja: slagalica traži poteze koji napredak najprije ponište prije nego što se cilj može dosegnuti.</string>
     <string name="brain_cup_button">Ljestvica Brain Cup</string>

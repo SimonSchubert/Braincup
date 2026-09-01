@@ -9,6 +9,7 @@
     <string name="button_play_random">Juga una partida a l'atzar</string>
     <string name="button_give_up">Rendició</string>
     <string name="button_stay">Queda-t'hi</string>
+    <string name="button_cancel">Cancel·la</string>
     <string name="button_quit_game">Surt</string>
     <string name="button_backspace">Esborra</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Notes</string>
     <string name="normal_sudoku_pen_mode">Llapis</string>
     <string name="normal_sudoku_notes_toggle">Commuta les notes</string>
+    <string name="normal_sudoku_reset">Reinicia</string>
+    <string name="normal_sudoku_reset_title">Vols reiniciar el tauler?</string>
+    <string name="normal_sudoku_reset_message">S'esborren totes les xifres i notes que has escrit. Les pistes inicials es mantenen.</string>
 
     <string name="normal_chess_button">Escacs clàssics</string>
     <string name="normal_chess_title">Escacs</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Descobreix què comparteix la parella.</string>
     <string name="trio_demo_title">Troba un trio</string>
     <string name="trio_demo_rule">Comparteixen una propietat. Res més es barreja.</string>
+    <string name="trio_trait_shape">Forma</string>
+    <string name="trio_trait_count">Quantes</string>
+    <string name="trio_trait_fill">Farciment</string>
+    <string name="trio_demo_traits">Cada carta té tres propietats</string>
+    <string name="trio_legend_same">Totes iguals</string>
+    <string name="trio_legend_different">Una de cada</string>
+    <string name="trio_demo_group_set">Trio</string>
+    <string name="trio_demo_group_not_set">No és un trio</string>
+    <string name="trio_demo_reason_mixed">Dues cartes comparteixen la forma, la tercera no.</string>
+    <string name="trio_demo_reason_nothing_same">Res no és igual a les tres.</string>
     <string name="mental_rotations_demo_title">Gira'l al cap</string>
     <string name="mental_rotations_demo_turn">Fes girar el bloc de la dreta fins al de l'esquerra.</string>
     <string name="mental_rotations_demo_same">Encaixa. El mateix bloc.</string>
@@ -547,6 +561,11 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="wordle_legend_present">Lletra correcta, lloc incorrecte</string>
     <string name="wordle_legend_absent">No és a la paraula</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Les formes passen una a una. Toca Coincideix quan la forma repeteixi la d'N passos enrere.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Coincideix</string>
+    <string name="n_back_demo_watch">Les formes apareixen una a una.</string>
+    <string name="n_back_demo_match">Toca Coincideix quan una forma repeteixi la de 2 passos enrere.</string>
     <string name="achievement_gold_n_back">Memòria rodant</string>
     <string name="achievement_gold_n_back_desc">Guanya la medalla d'or a N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="science_pattern_sequence_summary">El format d'ítem de les Matrius Progressives de Raven, la prova de raonament abstracte més utilitzada.</string>
     <string name="science_mental_flex_paradigm">Paradigma de canvi de tasca</string>
     <string name="science_mental_flex_summary">Una mesura estàndard de la flexibilitat cognitiva: el cost d'abandonar la regla que acabes de fer servir i aplicar-ne una altra.</string>
+    <string name="science_n_back_paradigm">Tasca N-Back</string>
+    <string name="science_n_back_summary">Una mesura estàndard de l'actualització de la memòria de treball: mantenir al dia una finestra mòbil dels últims elements i jutjar-hi mentre continua movent-se.</string>
     <string name="science_tower_of_hanoi_paradigm">Torre de Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Una mesura estàndard de la planificació: el trencaclosques demana moviments que desfan el progrés abans no es pugui arribar a la meta.</string>
     <string name="brain_cup_button">Classificació Brain Cup</string>

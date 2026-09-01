@@ -9,6 +9,7 @@
     <string name="button_play_random">Žaisti atsitiktinį žaidimą</string>
     <string name="button_give_up">Pasiduoti</string>
     <string name="button_stay">Likti</string>
+    <string name="button_cancel">Atšaukti</string>
     <string name="button_quit_game">Baigti</string>
     <string name="button_backspace">Ištrinti</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Pastabos</string>
     <string name="normal_sudoku_pen_mode">Rašiklis</string>
     <string name="normal_sudoku_notes_toggle">Perjungti pastabas</string>
+    <string name="normal_sudoku_reset">Atstatyti</string>
+    <string name="normal_sudoku_reset_title">Atstatyti lentą?</string>
+    <string name="normal_sudoku_reset_message">Visi tavo įrašyti skaitmenys ir pastabos bus ištrinti. Iš pradžių duoti skaitmenys liks.</string>
 
     <string name="normal_chess_button">Klasikiniai šachmatai</string>
     <string name="normal_chess_title">Šachmatai</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Pastebėk, kas poroje bendra.</string>
     <string name="trio_demo_title">Rask trejetą</string>
     <string name="trio_demo_rule">Dalijasi savybe. Nieko kito nemaišoma.</string>
+    <string name="trio_trait_shape">Forma</string>
+    <string name="trio_trait_count">Kiek</string>
+    <string name="trio_trait_fill">Užpildas</string>
+    <string name="trio_demo_traits">Kiekviena kortelė turi tris savybes</string>
+    <string name="trio_legend_same">Visos vienodos</string>
+    <string name="trio_legend_different">Po vieną kiekvienos</string>
+    <string name="trio_demo_group_set">Trejetas</string>
+    <string name="trio_demo_group_not_set">Ne trejetas</string>
+    <string name="trio_demo_reason_mixed">Dvi kortelės turi tą pačią formą, trečia ne.</string>
+    <string name="trio_demo_reason_nothing_same">Nė vienas dalykas nesutampa visose trijose.</string>
     <string name="mental_rotations_demo_title">Pasuk mintyse</string>
     <string name="mental_rotations_demo_turn">Pasuk dešinįjį bloką ant kairiojo.</string>
     <string name="mental_rotations_demo_same">Sutampa. Tas pats blokas.</string>
@@ -547,6 +561,11 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="wordle_legend_present">Teisinga raidė, neteisinga vieta</string>
     <string name="wordle_legend_absent">Nėra žodyje</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Figūros slenka pro šalį po vieną. Palies Sutampa, kai figūra pakartoja tą, kuri buvo prieš N žingsnių.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Sutampa</string>
+    <string name="n_back_demo_watch">Figūros pasirodo po vieną.</string>
+    <string name="n_back_demo_match">Palies Sutampa, kai figūra pakartoja tą, kuri buvo prieš 2 žingsnius.</string>
     <string name="achievement_gold_n_back">Riedanti atmintis</string>
     <string name="achievement_gold_n_back_desc">Laimėk aukso medalį N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="science_pattern_sequence_summary">Raveno progresyviųjų matricų, plačiausiai naudojamo abstraktaus mąstymo testo, užduočių formatas.</string>
     <string name="science_mental_flex_paradigm">Užduočių perjungimo paradigma</string>
     <string name="science_mental_flex_summary">Standartinis kognityvinio lankstumo matas: kiek kainuoja atsisakyti ką tik taikytos taisyklės ir taikyti kitą.</string>
+    <string name="science_n_back_paradigm">N-Back užduotis</string>
+    <string name="science_n_back_summary">Standartinis darbinės atminties atnaujinimo matas: išlaikyti šviežią slenkantį kelių paskutinių elementų langą ir sprendžiant lyginti su juo, kol jis vis slenka toliau.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojaus bokštas</string>
     <string name="science_tower_of_hanoi_summary">Standartinis planavimo matas: dėlionė reikalauja ėjimų, kurie pirma atšaukia pažangą, kol tikslas tampa pasiekiamas.</string>
     <string name="brain_cup_button">Brain Cup rezultatų lenta</string>

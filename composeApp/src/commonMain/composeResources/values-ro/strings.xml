@@ -9,6 +9,7 @@
     <string name="button_play_random">Joacă un joc aleatoriu</string>
     <string name="button_give_up">Renunță</string>
     <string name="button_stay">Rămâi</string>
+    <string name="button_cancel">Anulează</string>
     <string name="button_quit_game">Ieși</string>
     <string name="button_backspace">Șterge</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Note</string>
     <string name="normal_sudoku_pen_mode">Pix</string>
     <string name="normal_sudoku_notes_toggle">Comută modul note</string>
+    <string name="normal_sudoku_reset">Resetează</string>
+    <string name="normal_sudoku_reset_title">Resetezi tabla?</string>
+    <string name="normal_sudoku_reset_message">Toate cifrele și notele pe care le-ai scris se șterg. Cifrele date la început rămân.</string>
 
     <string name="normal_chess_button">Șah clasic</string>
     <string name="normal_chess_title">Șah</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Observă ce au în comun cele două.</string>
     <string name="trio_demo_title">Găsește un set de trei</string>
     <string name="trio_demo_rule">Împart o trăsătură. Nimic altceva nu e amestecat.</string>
+    <string name="trio_trait_shape">Formă</string>
+    <string name="trio_trait_count">Câte</string>
+    <string name="trio_trait_fill">Umplere</string>
+    <string name="trio_demo_traits">Fiecare carte are trei trăsături</string>
+    <string name="trio_legend_same">Toate la fel</string>
+    <string name="trio_legend_different">Câte una din fiecare</string>
+    <string name="trio_demo_group_set">Set</string>
+    <string name="trio_demo_group_not_set">Nu e un set</string>
+    <string name="trio_demo_reason_mixed">Două cărți au aceeași formă, a treia nu.</string>
+    <string name="trio_demo_reason_nothing_same">Nimic nu e la fel la toate trei.</string>
     <string name="mental_rotations_demo_title">Rotește-l în minte</string>
     <string name="mental_rotations_demo_turn">Rotește blocul din dreapta peste cel din stânga.</string>
     <string name="mental_rotations_demo_same">Se suprapune. Același bloc.</string>
@@ -547,6 +561,11 @@ Mută Cow — devine Bull.</string>
     <string name="wordle_legend_present">Litera corectă, locul greșit</string>
     <string name="wordle_legend_absent">Nu e în cuvânt</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Formele trec una câte una. Apasă Potrivire când forma o repetă pe cea de acum N pași.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Potrivire</string>
+    <string name="n_back_demo_watch">Formele apar una câte una.</string>
+    <string name="n_back_demo_match">Apasă Potrivire când o formă o repetă pe cea de acum 2 pași.</string>
     <string name="achievement_gold_n_back">Memorie rulantă</string>
     <string name="achievement_gold_n_back_desc">Câștigă medalia de aur la N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Mută Cow — devine Bull.</string>
     <string name="science_pattern_sequence_summary">Formatul itemilor din Matricile Progresive Raven, cel mai utilizat test de raționament abstract.</string>
     <string name="science_mental_flex_paradigm">Paradigma comutării sarcinilor</string>
     <string name="science_mental_flex_summary">O măsură standard a flexibilității cognitive: cât costă să renunți la regula tocmai folosită și să aplici alta.</string>
+    <string name="science_n_back_paradigm">Sarcina N-Back</string>
+    <string name="science_n_back_summary">O măsură standard a actualizării memoriei de lucru: a ține la zi o fereastră mobilă a ultimelor elemente și a judeca prin raportare la ea în timp ce ea continuă să înainteze.</string>
     <string name="science_tower_of_hanoi_paradigm">Turnul din Hanoi</string>
     <string name="science_tower_of_hanoi_summary">O măsură standard a planificării: puzzle-ul cere mutări care desfac progresul înainte ca ținta să poată fi atinsă.</string>
     <string name="brain_cup_button">Clasament Brain Cup</string>

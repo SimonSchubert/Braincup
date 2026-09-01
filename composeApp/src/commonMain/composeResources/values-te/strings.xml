@@ -9,6 +9,7 @@
     <string name="button_play_random">యాదృచ్ఛిక ఆటను ఆడు</string>
     <string name="button_give_up">వదిలేయ్</string>
     <string name="button_stay">ఉండు</string>
+    <string name="button_cancel">రద్దు</string>
     <string name="button_quit_game">నిష్క్రమించు</string>
     <string name="button_backspace">బ్యాక్‌స్పేస్</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">గమనికలు</string>
     <string name="normal_sudoku_pen_mode">పెన్ను</string>
     <string name="normal_sudoku_notes_toggle">గమనికల మోడ్‌ను మార్చు</string>
+    <string name="normal_sudoku_reset">రీసెట్</string>
+    <string name="normal_sudoku_reset_title">బోర్డును రీసెట్ చేయాలా?</string>
+    <string name="normal_sudoku_reset_message">మీరు నింపిన ప్రతి అంకె, గమనిక తుడిచిపెట్టుకుపోతాయి. మొదట ఇచ్చిన అంకెలు అలాగే ఉంటాయి.</string>
 
     <string name="normal_chess_button">సాధారణ చదరంగం</string>
     <string name="normal_chess_title">చదరంగం</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">జతలో ఏది ఉమ్మడిగా ఉందో గుర్తించండి.</string>
     <string name="trio_demo_title">మూడింటి సమూహాన్ని కనుగొనండి</string>
     <string name="trio_demo_rule">అవి ఒకే లక్షణాన్ని పంచుకుంటాయి. మరేదీ కలగలిసి లేదు.</string>
+    <string name="trio_trait_shape">ఆకారం</string>
+    <string name="trio_trait_count">ఎన్ని</string>
+    <string name="trio_trait_fill">నింపు</string>
+    <string name="trio_demo_traits">ప్రతి కార్డుకు మూడు లక్షణాలు ఉంటాయి</string>
+    <string name="trio_legend_same">అన్నీ ఒకటే</string>
+    <string name="trio_legend_different">ఒక్కోదానికి ఒకటి</string>
+    <string name="trio_demo_group_set">సమూహం</string>
+    <string name="trio_demo_group_not_set">సమూహం కాదు</string>
+    <string name="trio_demo_reason_mixed">రెండు కార్డుల ఆకారం ఒకటే, మూడోదానిది కాదు.</string>
+    <string name="trio_demo_reason_nothing_same">మూడింటిలోనూ ఒకటిగా ఉన్నది ఏదీ లేదు.</string>
     <string name="mental_rotations_demo_title">మనసులో తిప్పండి</string>
     <string name="mental_rotations_demo_turn">కుడి బ్లాక్‌ను తిప్పి ఎడమదానిపై కూర్చోబెట్టండి.</string>
     <string name="mental_rotations_demo_same">సరిగ్గా సరిపోతుంది. అదే బ్లాక్.</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">సరైన అక్షరం, తప్పు స్థానం</string>
     <string name="wordle_legend_absent">పదంలో లేదు</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">ఆకారాలు ఒక్కొక్కటిగా సాగిపోతాయి. ఒక ఆకారం N అడుగుల ముందటిదాన్ని పునరావృతం చేసినప్పుడు సరిపోలిక నొక్కండి.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">సరిపోలిక</string>
+    <string name="n_back_demo_watch">ఆకారాలు ఒక్కొక్కటిగా కనిపిస్తాయి.</string>
+    <string name="n_back_demo_match">ఒక ఆకారం 2 అడుగుల ముందటిదాన్ని పునరావృతం చేసినప్పుడు సరిపోలిక నొక్కండి.</string>
     <string name="achievement_gold_n_back">కదిలే జ్ఞాపకం</string>
     <string name="achievement_gold_n_back_desc">N-Back లో బంగారు పతకం గెలవండి</string>
     <string name="game_simon_says">సైమన్ చెబుతున్నాడు</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">నైరూప్య తర్కానికి అత్యంత విస్తృతంగా వాడే పరీక్ష అయిన రేవెన్ ప్రోగ్రెసివ్ మ్యాట్రిసెస్ ప్రశ్నా రూపం.</string>
     <string name="science_mental_flex_paradigm">పని మార్పిడి నమూనా</string>
     <string name="science_mental_flex_summary">జ్ఞానాత్మక సరళత్వానికి ప్రామాణిక కొలత: ఇప్పుడే వాడిన నియమాన్ని వదిలి మరొకటి వర్తింపజేయడానికి అయ్యే ఖరీదు.</string>
+    <string name="science_n_back_paradigm">N-Back పని</string>
+    <string name="science_n_back_summary">పని జ్ఞాపకశక్తిని తాజాగా ఉంచడానికి ప్రామాణిక కొలత: చివరి కొన్ని అంశాల కదిలే కిటికీని తాజాగా ఉంచడం, అది కదులుతూ ఉండగానే దానితో సరిపోల్చి నిర్ణయించడం.</string>
     <string name="science_tower_of_hanoi_paradigm">హనోయి గోపురం</string>
     <string name="science_tower_of_hanoi_summary">ప్రణాళికకు ప్రామాణిక కొలత: లక్ష్యాన్ని చేరకముందు పురోగతిని వెనక్కి తీసుకెళ్లే ఎత్తుగడలు ఈ పజిల్‌లో అవసరమవుతాయి.</string>
     <string name="brain_cup_button">Brain Cup లీడర్‌బోర్డు</string>

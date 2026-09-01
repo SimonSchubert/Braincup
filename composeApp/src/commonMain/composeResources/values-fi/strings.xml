@@ -9,6 +9,7 @@
     <string name="button_play_random">Pelaa satunnainen peli</string>
     <string name="button_give_up">Luovuta</string>
     <string name="button_stay">Jää</string>
+    <string name="button_cancel">Peruuta</string>
     <string name="button_quit_game">Lopeta</string>
     <string name="button_backspace">Poista</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Muistiinpanot</string>
     <string name="normal_sudoku_pen_mode">Kynä</string>
     <string name="normal_sudoku_notes_toggle">Vaihda muistiinpanotila</string>
+    <string name="normal_sudoku_reset">Nollaa</string>
+    <string name="normal_sudoku_reset_title">Nollataanko ruudukko?</string>
+    <string name="normal_sudoku_reset_message">Kaikki syöttämäsi numerot ja muistiinpanot pyyhitään. Valmiiksi annetut numerot jäävät.</string>
 
     <string name="normal_chess_button">Klassinen shakki</string>
     <string name="normal_chess_title">Shakki</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Huomaa, mikä parilla on yhteistä.</string>
     <string name="trio_demo_title">Löydä kolmen setti</string>
     <string name="trio_demo_rule">Ne jakavat ominaisuuden. Mikään muu ei sekoitu.</string>
+    <string name="trio_trait_shape">Muoto</string>
+    <string name="trio_trait_count">Montako</string>
+    <string name="trio_trait_fill">Täyttö</string>
+    <string name="trio_demo_traits">Jokaisella kortilla on kolme ominaisuutta</string>
+    <string name="trio_legend_same">Kaikki samaa</string>
+    <string name="trio_legend_different">Yksi kutakin</string>
+    <string name="trio_demo_group_set">Setti</string>
+    <string name="trio_demo_group_not_set">Ei setti</string>
+    <string name="trio_demo_reason_mixed">Kahdella kortilla on sama muoto, kolmannella ei.</string>
+    <string name="trio_demo_reason_nothing_same">Mikään ei ole sama kaikissa kolmessa.</string>
     <string name="mental_rotations_demo_title">Käännä se mielessäsi</string>
     <string name="mental_rotations_demo_turn">Pyöritä oikeanpuoleinen palikka vasemmanpuoleisen päälle.</string>
     <string name="mental_rotations_demo_same">Se osuu kohdalleen. Sama palikka.</string>
@@ -547,6 +561,11 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="wordle_legend_present">Oikea kirjain, väärä paikka</string>
     <string name="wordle_legend_absent">Ei ole sanassa</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Kuviot virtaavat ohi yksi kerrallaan. Napauta Osuma, kun kuvio toistaa sen, joka oli N askelta sitten.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Osuma</string>
+    <string name="n_back_demo_watch">Kuviot ilmestyvät yksi kerrallaan.</string>
+    <string name="n_back_demo_match">Napauta Osuma, kun kuvio toistaa sen, joka oli 2 askelta sitten.</string>
     <string name="achievement_gold_n_back">Rullaava muisti</string>
     <string name="achievement_gold_n_back_desc">Voita kultamitali N-Backissä</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="science_pattern_sequence_summary">Tehtävämuoto Ravenin progressiivisten matriisien takana, käytetyimmän abstraktin päättelyn testin.</string>
     <string name="science_mental_flex_paradigm">Tehtävänvaihtoasetelma</string>
     <string name="science_mental_flex_summary">Vakiomittari kognitiiviselle joustavuudelle: mitä maksaa luopua juuri käytetystä säännöstä ja soveltaa toista.</string>
+    <string name="science_n_back_paradigm">N-Back-tehtävä</string>
+    <string name="science_n_back_summary">Vakiomittari työmuistin päivittämiselle: pitää viimeisten kohteiden liukuva ikkuna ajan tasalla ja arvioida sitä vasten samalla, kun se liikkuu eteenpäin.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoin torni</string>
     <string name="science_tower_of_hanoi_summary">Vakiomittari suunnittelulle: pulma vaatii siirtoja, jotka purkavat edistystä ennen kuin maaliin pääsee.</string>
     <string name="brain_cup_button">Brain Cup -tulostaulukko</string>

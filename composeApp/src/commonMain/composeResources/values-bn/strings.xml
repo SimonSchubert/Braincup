@@ -11,6 +11,7 @@
     <string name="button_play_random">র‍্যান্ডম গেম খেলুন</string>
     <string name="button_give_up">হাল ছাড়ুন</string>
     <string name="button_stay">থাকুন</string>
+    <string name="button_cancel">বাতিল</string>
     <string name="button_quit_game">প্রস্থান</string>
     <string name="button_backspace">ব্যাকস্পেস</string>
     <string name="button_done">সম্পন্ন</string>
@@ -314,6 +315,8 @@
     <string name="science_pattern_sequence_summary">রেভেন প্রোগ্রেসিভ ম্যাট্রিসেস-এর প্রশ্নরূপ, যা বিমূর্ত যুক্তির সবচেয়ে ব্যাপকভাবে ব্যবহৃত পরীক্ষা।</string>
     <string name="science_mental_flex_paradigm">কাজ বদলের প্যারাডাইম</string>
     <string name="science_mental_flex_summary">জ্ঞানীয় নমনীয়তার প্রমিত পরিমাপ: এইমাত্র ব্যবহার করা নিয়ম ছেড়ে অন্য নিয়ম প্রয়োগ করার খরচ।</string>
+    <string name="science_n_back_paradigm">N-Back টাস্ক</string>
+    <string name="science_n_back_summary">কার্যকরী স্মৃতি হালনাগাদের প্রমিত পরিমাপ: শেষ কয়েকটি উপাদানের একটি চলমান জানালা হালনাগাদ রাখা, আর সেটি চলতে থাকা অবস্থাতেই তার সঙ্গে মিলিয়ে বিচার করা।</string>
     <string name="science_tower_of_hanoi_paradigm">হ্যানয়ের টাওয়ার</string>
     <string name="science_tower_of_hanoi_summary">পরিকল্পনার প্রমিত পরিমাপ: লক্ষ্যে পৌঁছানোর আগে এই ধাঁধায় এমন চাল দরকার যা অগ্রগতিকে পিছিয়ে দেয়।</string>
     <string name="brain_cup_button">Brain Cup লিডারবোর্ড</string>
@@ -606,6 +609,9 @@
     <string name="normal_sudoku_notes_mode">নোট</string>
     <string name="normal_sudoku_pen_mode">কলম</string>
     <string name="normal_sudoku_notes_toggle">নোট মোড টগল করুন</string>
+    <string name="normal_sudoku_reset">রিসেট</string>
+    <string name="normal_sudoku_reset_title">বোর্ড রিসেট করবেন?</string>
+    <string name="normal_sudoku_reset_message">আপনার লেখা প্রতিটি সংখ্যা ও নোট মুছে যাবে। শুরুতে দেওয়া সংখ্যাগুলো থাকবে।</string>
     <string name="normal_sudoku_not_solved">পুরোপুরি সঠিক নয়</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
@@ -673,6 +679,11 @@
     <string name="wordle_legend_present">সঠিক অক্ষর, ভুল স্থান</string>
     <string name="wordle_legend_absent">শব্দে নেই</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">আকৃতিগুলো একে একে ভেসে যায়। কোনো আকৃতি N ধাপ আগেরটির পুনরাবৃত্তি হলে মিল চাপুন।</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">মিল</string>
+    <string name="n_back_demo_watch">আকৃতিগুলো একে একে আসে।</string>
+    <string name="n_back_demo_match">কোনো আকৃতি ২ ধাপ আগেরটির পুনরাবৃত্তি হলে মিল চাপুন।</string>
     <string name="achievement_gold_n_back">চলমান স্মৃতি</string>
     <string name="achievement_gold_n_back_desc">N-Back-এ স্বর্ণপদক জিতুন</string>
     <string name="game_simon_says">সাইমন বলে</string>
@@ -785,6 +796,16 @@
     <string name="game_mental_flex_howto">জোড়াটির মধ্যে কী মিল আছে খুঁজুন।</string>
     <string name="trio_demo_title">তিনটির একটি সেট খুঁজুন</string>
     <string name="trio_demo_rule">তারা একটি বৈশিষ্ট্য ভাগ করে। বাকি মেশানো নয়।</string>
+    <string name="trio_trait_shape">আকৃতি</string>
+    <string name="trio_trait_count">কতগুলো</string>
+    <string name="trio_trait_fill">ভরাট</string>
+    <string name="trio_demo_traits">প্রতিটি কার্ডের তিনটি বৈশিষ্ট্য আছে</string>
+    <string name="trio_legend_same">সবগুলো একই</string>
+    <string name="trio_legend_different">প্রত্যেকটির একটি করে</string>
+    <string name="trio_demo_group_set">সেট</string>
+    <string name="trio_demo_group_not_set">সেট নয়</string>
+    <string name="trio_demo_reason_mixed">দুটি কার্ডের আকৃতি এক, তৃতীয়টির নয়।</string>
+    <string name="trio_demo_reason_nothing_same">তিনটিতেই এক এমন কিছু নেই।</string>
     <string name="mental_rotations_demo_title">মনে মনে ঘোরান</string>
     <string name="mental_rotations_demo_turn">ডানের ব্লকটি ঘুরিয়ে বাঁয়েরটির উপর বসান।</string>
     <string name="mental_rotations_demo_same">মিলে যায়। একই ব্লক।</string>

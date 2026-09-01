@@ -9,6 +9,7 @@
     <string name="button_play_random">Spela slumpmässigt spel</string>
     <string name="button_give_up">Ge upp</string>
     <string name="button_stay">Stanna</string>
+    <string name="button_cancel">Avbryt</string>
     <string name="button_quit_game">Avsluta</string>
     <string name="button_backspace">Backsteg</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Anteckningar</string>
     <string name="normal_sudoku_pen_mode">Penna</string>
     <string name="normal_sudoku_notes_toggle">Växla anteckningsläge</string>
+    <string name="normal_sudoku_reset">Nollställ</string>
+    <string name="normal_sudoku_reset_title">Nollställa brädet?</string>
+    <string name="normal_sudoku_reset_message">Alla siffror och anteckningar du har skrivit rensas. De givna siffrorna blir kvar.</string>
 
     <string name="normal_chess_button">Vanligt schack</string>
     <string name="normal_chess_title">Schack</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Se vad paret har gemensamt.</string>
     <string name="trio_demo_title">Hitta en tregrupp</string>
     <string name="trio_demo_rule">De delar en egenskap. Inget annat är blandat.</string>
+    <string name="trio_trait_shape">Form</string>
+    <string name="trio_trait_count">Hur många</string>
+    <string name="trio_trait_fill">Fyllning</string>
+    <string name="trio_demo_traits">Varje kort har tre egenskaper</string>
+    <string name="trio_legend_same">Alla lika</string>
+    <string name="trio_legend_different">En av varje</string>
+    <string name="trio_demo_group_set">Tregrupp</string>
+    <string name="trio_demo_group_not_set">Ingen tregrupp</string>
+    <string name="trio_demo_reason_mixed">Två kort delar form, det tredje gör det inte.</string>
+    <string name="trio_demo_reason_nothing_same">Inget är lika på alla tre.</string>
     <string name="mental_rotations_demo_title">Vrid det i huvudet</string>
     <string name="mental_rotations_demo_turn">Rotera det högra blocket ovanpå det vänstra.</string>
     <string name="mental_rotations_demo_same">Det passar. Samma block.</string>
@@ -545,6 +559,11 @@
     <string name="wordle_legend_present">Rätt bokstav, fel plats</string>
     <string name="wordle_legend_absent">Finns inte i ordet</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Figurerna passerar en i taget. Tryck Träff när figuren upprepar den N steg tillbaka.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Träff</string>
+    <string name="n_back_demo_watch">Figurerna dyker upp en i taget.</string>
+    <string name="n_back_demo_match">Tryck Träff när en figur upprepar den 2 tillbaka.</string>
     <string name="achievement_gold_n_back">Rullande minne</string>
     <string name="achievement_gold_n_back_desc">Vinn guldmedalj i N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -571,6 +590,8 @@
     <string name="science_pattern_sequence_summary">Uppgiftsformatet bakom Ravens progressiva matriser, det mest använda testet på abstrakt resonemang.</string>
     <string name="science_mental_flex_paradigm">Uppgiftsväxlingsparadigmet</string>
     <string name="science_mental_flex_summary">Ett standardmått på kognitiv flexibilitet: vad det kostar att släppa regeln du nyss använde och tillämpa en annan.</string>
+    <string name="science_n_back_paradigm">N-Back-uppgiften</string>
+    <string name="science_n_back_summary">Ett standardmått på uppdatering av arbetsminnet: att hålla ett glidande fönster över de senaste objekten aktuellt och bedöma mot det medan det fortsätter att flytta sig.</string>
     <string name="science_tower_of_hanoi_paradigm">Tornet i Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ett standardmått på planering: pusslet kräver drag som först river upp framstegen innan målet kan nås.</string>
     <string name="brain_cup_button">Brain Cup-topplista</string>

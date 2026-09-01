@@ -9,6 +9,7 @@
     <string name="button_play_random">Imir cluiche randamach</string>
     <string name="button_give_up">Tabhair suas</string>
     <string name="button_stay">Fan</string>
+    <string name="button_cancel">Cealaigh</string>
     <string name="button_quit_game">Scoir</string>
     <string name="button_backspace">Scrios</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Nótaí</string>
     <string name="normal_sudoku_pen_mode">Peann</string>
     <string name="normal_sudoku_notes_toggle">Scoránaigh nótaí</string>
+    <string name="normal_sudoku_reset">Athshocraigh</string>
+    <string name="normal_sudoku_reset_title">Athshocraigh an clár?</string>
+    <string name="normal_sudoku_reset_message">Glantar gach digit agus nóta a chuir tú isteach. Fanann na digití tosaigh a tugadh.</string>
 
     <string name="normal_chess_button">Ficheall chlasaiceach</string>
     <string name="normal_chess_title">Ficheall</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Aimsigh cad atá i gcoiteann ag an bpéire.</string>
     <string name="trio_demo_title">Faigh tríréad</string>
     <string name="trio_demo_rule">Roinntear tréith. Ní mheascann aon ní eile.</string>
+    <string name="trio_trait_shape">Cruth</string>
+    <string name="trio_trait_count">Cé mhéad</string>
+    <string name="trio_trait_fill">Líonadh</string>
+    <string name="trio_demo_traits">Tá trí thréith ag gach cárta</string>
+    <string name="trio_legend_same">Mar a chéile</string>
+    <string name="trio_legend_different">Ceann de gach ceann</string>
+    <string name="trio_demo_group_set">Tríréad</string>
+    <string name="trio_demo_group_not_set">Ní tríréad é</string>
+    <string name="trio_demo_reason_mixed">Tá an cruth céanna ag dhá chárta, níl ag an tríú ceann.</string>
+    <string name="trio_demo_reason_nothing_same">Níl aon rud mar a chéile ar na trí cinn.</string>
     <string name="mental_rotations_demo_title">Cas i d'intinn é</string>
     <string name="mental_rotations_demo_turn">Cas an bloc ar dheis anuas ar an gceann ar chlé.</string>
     <string name="mental_rotations_demo_same">Luíonn sé isteach. An bloc céanna.</string>
@@ -547,6 +561,11 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="wordle_legend_present">Litir cheart, áit mhícheart</string>
     <string name="wordle_legend_absent">Níl san fhocal</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Sruthaíonn na cruthanna thart ceann ar cheann. Tapáil Meaitseáil nuair a athdhéanann an cruth an ceann N céim siar.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Meaitseáil</string>
+    <string name="n_back_demo_watch">Tagann na cruthanna ceann ar cheann.</string>
+    <string name="n_back_demo_match">Tapáil Meaitseáil nuair a athdhéanann cruth an ceann 2 chéim siar.</string>
     <string name="achievement_gold_n_back">Cuimhne rollach</string>
     <string name="achievement_gold_n_back_desc">Bain bonn óir amach in N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="science_pattern_sequence_summary">Formáid na míreanna atá taobh thiar de Mhaitrísí Forchéimnitheacha Raven, an tástáil réasúnaíochta teibí is mó a úsáidtear.</string>
     <string name="science_mental_flex_paradigm">Paraidím Aistrithe Tascanna</string>
     <string name="science_mental_flex_summary">Gnáthbheart ar an tsolúbthacht chognaíoch: an costas a bhaineann le riail a bhí á húsáid agat a ligean uait agus ceann eile a chur i bhfeidhm.</string>
+    <string name="science_n_back_paradigm">Tasc N-Back</string>
+    <string name="science_n_back_summary">Gnáthbheart ar nuashonrú na cuimhne oibre: fuinneog reatha na míreanna is déanaí a choinneáil cothrom le dáta, agus breith a thabhairt ina coinne agus í ag bogadh ar aghaidh.</string>
     <string name="science_tower_of_hanoi_paradigm">Túr Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Gnáthbheart ar an bpleanáil: éilíonn an puzal bearta a chuireann an dul chun cinn ar gcúl sular féidir an sprioc a bhaint amach.</string>
     <string name="brain_cup_button">Clár scóir Brain Cup</string>

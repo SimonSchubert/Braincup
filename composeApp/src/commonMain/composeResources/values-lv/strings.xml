@@ -9,6 +9,7 @@
     <string name="button_play_random">Spēlēt nejaušu spēli</string>
     <string name="button_give_up">Padoties</string>
     <string name="button_stay">Palikt</string>
+    <string name="button_cancel">Atcelt</string>
     <string name="button_quit_game">Beigt</string>
     <string name="button_backspace">Dzēst</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Piezīmes</string>
     <string name="normal_sudoku_pen_mode">Pildspalva</string>
     <string name="normal_sudoku_notes_toggle">Pārslēgt piezīmes</string>
+    <string name="normal_sudoku_reset">Atiestatīt</string>
+    <string name="normal_sudoku_reset_title">Atiestatīt laukumu?</string>
+    <string name="normal_sudoku_reset_message">Visi tavi ievadītie cipari un piezīmes tiks dzēsti. Sākotnēji dotie cipari paliks.</string>
 
     <string name="normal_chess_button">Klasiskais šahs</string>
     <string name="normal_chess_title">Šahs</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Pamani, kas pārim ir kopīgs.</string>
     <string name="trio_demo_title">Atrodi trijnieku</string>
     <string name="trio_demo_rule">Tās dala īpašību. Nekas cits nesajaucas.</string>
+    <string name="trio_trait_shape">Forma</string>
+    <string name="trio_trait_count">Cik daudz</string>
+    <string name="trio_trait_fill">Pildījums</string>
+    <string name="trio_demo_traits">Katrai kārtij ir trīs īpašības</string>
+    <string name="trio_legend_same">Visas vienādas</string>
+    <string name="trio_legend_different">No katras pa vienai</string>
+    <string name="trio_demo_group_set">Trijnieks</string>
+    <string name="trio_demo_group_not_set">Nav trijnieks</string>
+    <string name="trio_demo_reason_mixed">Divām kārtīm ir viena forma, trešajai nav.</string>
+    <string name="trio_demo_reason_nothing_same">Nekas nav vienāds visām trim.</string>
     <string name="mental_rotations_demo_title">Pagriez to prātā</string>
     <string name="mental_rotations_demo_turn">Pagriez labo bloku uz kreiso.</string>
     <string name="mental_rotations_demo_same">Tas sakrīt. Tas pats bloks.</string>
@@ -547,6 +561,11 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="wordle_legend_present">Pareizs burts, nepareizā vieta</string>
     <string name="wordle_legend_absent">Nav vārdā</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Figūras slīd garām pa vienai. Pieskaries Sakrīt, kad figūra atkārto to, kas bija N soļus atpakaļ.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Sakrīt</string>
+    <string name="n_back_demo_watch">Figūras parādās pa vienai.</string>
+    <string name="n_back_demo_match">Pieskaries Sakrīt, kad figūra atkārto to, kas bija 2 soļus atpakaļ.</string>
     <string name="achievement_gold_n_back">Ritošā atmiņa</string>
     <string name="achievement_gold_n_back_desc">Iegūsti zelta medaļu N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Pārvieto Cow — tas kļūs par Bull.</string>
     <string name="science_pattern_sequence_summary">Reivena progresīvo matricu, visplašāk lietotā abstraktās spriešanas testa, uzdevumu formāts.</string>
     <string name="science_mental_flex_paradigm">Uzdevumu maiņas paradigma</string>
     <string name="science_mental_flex_summary">Standarta mērs kognitīvajai elastībai: cik maksā atmest tikko lietoto likumu un piemērot citu.</string>
+    <string name="science_n_back_paradigm">N-Back uzdevums</string>
+    <string name="science_n_back_summary">Standarta mērs darba atmiņas atjaunināšanai: uzturēt aktuālu slīdošu logu ar pēdējiem elementiem un spriest pēc tā, kamēr tas turpina virzīties.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanojas tornis</string>
     <string name="science_tower_of_hanoi_summary">Standarta mērs plānošanai: mīkla prasa gājienus, kas vispirms atceļ progresu, pirms mērķis kļūst sasniedzams.</string>
     <string name="brain_cup_button">Brain Cup rezultātu tabula</string>

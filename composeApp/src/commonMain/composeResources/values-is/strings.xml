@@ -9,6 +9,7 @@
     <string name="button_play_random">Spila handahófskenndan leik</string>
     <string name="button_give_up">Gefast upp</string>
     <string name="button_stay">Spila áfram</string>
+    <string name="button_cancel">Hætta við</string>
     <string name="button_quit_game">Hætta</string>
     <string name="button_backspace">Eyða</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Minnispunktar</string>
     <string name="normal_sudoku_pen_mode">Penni</string>
     <string name="normal_sudoku_notes_toggle">Skipta um minnispunkta</string>
+    <string name="normal_sudoku_reset">Endurstilla</string>
+    <string name="normal_sudoku_reset_title">Endurstilla borðið?</string>
+    <string name="normal_sudoku_reset_message">Allar tölur og minnispunktar sem þú slóst inn hverfa. Uppgefnu tölurnar í þrautinni verða áfram.</string>
 
     <string name="normal_chess_button">Klassísk skák</string>
     <string name="normal_chess_title">Skák</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Finndu hvað parið á sameiginlegt.</string>
     <string name="trio_demo_title">Finndu þrennu</string>
     <string name="trio_demo_rule">Þau deila eiginleika. Ekkert annað blandast.</string>
+    <string name="trio_trait_shape">Form</string>
+    <string name="trio_trait_count">Fjöldi</string>
+    <string name="trio_trait_fill">Fylling</string>
+    <string name="trio_demo_traits">Hvert spil hefur þrjá eiginleika</string>
+    <string name="trio_legend_same">Allt eins</string>
+    <string name="trio_legend_different">Eitt af hverju</string>
+    <string name="trio_demo_group_set">Þrenna</string>
+    <string name="trio_demo_group_not_set">Ekki þrenna</string>
+    <string name="trio_demo_reason_mixed">Tvö spil deila formi, það þriðja ekki.</string>
+    <string name="trio_demo_reason_nothing_same">Ekkert er eins á öllum þremur.</string>
     <string name="mental_rotations_demo_title">Snúðu honum í huganum</string>
     <string name="mental_rotations_demo_turn">Snúðu hægri kubbnum yfir á þann vinstri.</string>
     <string name="mental_rotations_demo_same">Hann fellur saman. Sami kubbur.</string>
@@ -547,6 +561,11 @@ Færðu Cow — hann verður Bull.</string>
     <string name="wordle_legend_present">Réttur stafur, rangur staður</string>
     <string name="wordle_legend_absent">Ekki í orðinu</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Formin líða hjá eitt af öðru. Ýttu á Samsvörun þegar formið endurtekur það sem kom N skrefum fyrr.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Samsvörun</string>
+    <string name="n_back_demo_watch">Formin birtast eitt af öðru.</string>
+    <string name="n_back_demo_match">Ýttu á Samsvörun þegar form endurtekur það sem kom 2 skrefum fyrr.</string>
     <string name="achievement_gold_n_back">Rúllandi minni</string>
     <string name="achievement_gold_n_back_desc">Vinnu gullverðlaun í N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Færðu Cow — hann verður Bull.</string>
     <string name="science_pattern_sequence_summary">Verkefnasniðið að baki framsæknum fylkjum Ravens, útbreiddasta prófinu á óhlutbundna rökhugsun.</string>
     <string name="science_mental_flex_paradigm">Verkefnaskiptaverklag</string>
     <string name="science_mental_flex_summary">Staðlað mat á hugrænum sveigjanleika: hvað það kostar að sleppa reglunni sem þú varst að nota og beita annarri.</string>
+    <string name="science_n_back_paradigm">N-Back-verkefnið</string>
+    <string name="science_n_back_summary">Staðlað mat á uppfærslu vinnsluminnis: að halda hlaupandi glugga yfir síðustu atriði réttum og dæma út frá honum meðan hann heldur áfram að færast.</string>
     <string name="science_tower_of_hanoi_paradigm">Turninn í Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Staðlað mat á áætlanagerð: þrautin krefst leikja sem vinda ofan af framvindunni áður en markinu verður náð.</string>
     <string name="brain_cup_button">Stigatafla Brain Cup</string>

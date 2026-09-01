@@ -9,6 +9,7 @@
     <string name="button_play_random">ಯಾದೃಚ್ಛಿಕ ಆಟ ಆಡಿ</string>
     <string name="button_give_up">ಬಿಟ್ಟುಬಿಡಿ</string>
     <string name="button_stay">ಇರಿ</string>
+    <string name="button_cancel">ರದ್ದುಮಾಡಿ</string>
     <string name="button_quit_game">ನಿರ್ಗಮಿಸಿ</string>
     <string name="button_backspace">ಬ್ಯಾಕ್‌ಸ್ಪೇಸ್</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">ಟಿಪ್ಪಣಿ</string>
     <string name="normal_sudoku_pen_mode">ಪೆನ್ನು</string>
     <string name="normal_sudoku_notes_toggle">ಟಿಪ್ಪಣಿ ಮೋಡ್ ಬದಲಿಸಿ</string>
+    <string name="normal_sudoku_reset">ಮರುಹೊಂದಿಸಿ</string>
+    <string name="normal_sudoku_reset_title">ಫಲಕವನ್ನು ಮರುಹೊಂದಿಸುವುದೇ?</string>
+    <string name="normal_sudoku_reset_message">ನೀವು ತುಂಬಿದ ಪ್ರತಿ ಅಂಕಿ ಮತ್ತು ಟಿಪ್ಪಣಿ ಅಳಿಸಿಹೋಗುತ್ತದೆ. ಆರಂಭದಲ್ಲಿ ನೀಡಿದ ಅಂಕಿಗಳು ಉಳಿಯುತ್ತವೆ.</string>
 
     <string name="normal_chess_button">ಸಾಮಾನ್ಯ ಚದುರಂಗ</string>
     <string name="normal_chess_title">ಚದುರಂಗ</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">ಜೋಡಿಯಲ್ಲಿ ಸಾಮಾನ್ಯವಾದದ್ದನ್ನು ಗುರುತಿಸಿ.</string>
     <string name="trio_demo_title">ಮೂರರ ಗುಂಪನ್ನು ಹುಡುಕಿ</string>
     <string name="trio_demo_rule">ಅವು ಒಂದೇ ಗುಣವನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ. ಬೇರೇನೂ ಬೆರೆತಿಲ್ಲ.</string>
+    <string name="trio_trait_shape">ಆಕಾರ</string>
+    <string name="trio_trait_count">ಎಷ್ಟು</string>
+    <string name="trio_trait_fill">ತುಂಬುವಿಕೆ</string>
+    <string name="trio_demo_traits">ಪ್ರತಿ ಕಾರ್ಡಿಗೆ ಮೂರು ಗುಣಗಳಿವೆ</string>
+    <string name="trio_legend_same">ಎಲ್ಲವೂ ಒಂದೇ</string>
+    <string name="trio_legend_different">ಪ್ರತಿಯೊಂದರಲ್ಲಿ ಒಂದು</string>
+    <string name="trio_demo_group_set">ಗುಂಪು</string>
+    <string name="trio_demo_group_not_set">ಗುಂಪಲ್ಲ</string>
+    <string name="trio_demo_reason_mixed">ಎರಡು ಕಾರ್ಡುಗಳ ಆಕಾರ ಒಂದೇ, ಮೂರನೆಯದ್ದು ಅಲ್ಲ.</string>
+    <string name="trio_demo_reason_nothing_same">ಮೂರರಲ್ಲೂ ಒಂದೇ ಆಗಿರುವುದು ಯಾವುದೂ ಇಲ್ಲ.</string>
     <string name="mental_rotations_demo_title">ಮನಸ್ಸಿನಲ್ಲಿ ತಿರುಗಿಸಿ</string>
     <string name="mental_rotations_demo_turn">ಬಲಗಡೆಯ ಬ್ಲಾಕ್ ಅನ್ನು ತಿರುಗಿಸಿ ಎಡಗಡೆಯದರ ಮೇಲೆ ಕೂರಿಸಿ.</string>
     <string name="mental_rotations_demo_same">ಸರಿಯಾಗಿ ಹೊಂದುತ್ತದೆ. ಅದೇ ಬ್ಲಾಕ್.</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">ಸರಿಯಾದ ಅಕ್ಷರ, ತಪ್ಪಾದ ಸ್ಥಳ</string>
     <string name="wordle_legend_absent">ಪದದಲ್ಲಿ ಇಲ್ಲ</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">ಆಕಾರಗಳು ಒಂದೊಂದಾಗಿ ಸಾಗುತ್ತವೆ. ಆಕಾರವು N ಹೆಜ್ಜೆ ಹಿಂದಿನದನ್ನು ಪುನರಾವರ್ತಿಸಿದಾಗ ಹೊಂದಿಕೆ ಒತ್ತಿ.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">ಹೊಂದಿಕೆ</string>
+    <string name="n_back_demo_watch">ಆಕಾರಗಳು ಒಂದೊಂದಾಗಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.</string>
+    <string name="n_back_demo_match">ಆಕಾರವು 2 ಹೆಜ್ಜೆ ಹಿಂದಿನದನ್ನು ಪುನರಾವರ್ತಿಸಿದಾಗ ಹೊಂದಿಕೆ ಒತ್ತಿ.</string>
     <string name="achievement_gold_n_back">ಚಲಿಸುವ ನೆನಪು</string>
     <string name="achievement_gold_n_back_desc">N-Back ನಲ್ಲಿ ಚಿನ್ನದ ಪದಕ ಗೆಲ್ಲಿ</string>
     <string name="game_simon_says">ಸೈಮನ್ ಹೇಳುತ್ತಾನೆ</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">ಅಮೂರ್ತ ತರ್ಕದ ಅತಿ ವ್ಯಾಪಕವಾಗಿ ಬಳಸುವ ಪರೀಕ್ಷೆಯಾದ ರೇವನ್ ಪ್ರೋಗ್ರೆಸಿವ್ ಮ್ಯಾಟ್ರಿಸಸ್‌ನ ಪ್ರಶ್ನಾ ರೂಪ.</string>
     <string name="science_mental_flex_paradigm">ಕಾರ್ಯ ಬದಲಾವಣೆ ಮಾದರಿ</string>
     <string name="science_mental_flex_summary">ಅರಿವಿನ ನಮ್ಯತೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಈಗಷ್ಟೇ ಬಳಸಿದ ನಿಯಮವನ್ನು ಬಿಟ್ಟು ಬೇರೊಂದನ್ನು ಅನ್ವಯಿಸುವ ಬೆಲೆ.</string>
+    <string name="science_n_back_paradigm">N-Back ಕಾರ್ಯ</string>
+    <string name="science_n_back_summary">ಕಾರ್ಯ ಸ್ಮರಣೆಯ ನವೀಕರಣದ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಕೊನೆಯ ಕೆಲವು ಅಂಶಗಳ ಚಲಿಸುವ ಕಿಟಕಿಯನ್ನು ತಾಜಾವಾಗಿ ಇಟ್ಟುಕೊಳ್ಳುವುದು, ಮತ್ತು ಅದು ಚಲಿಸುತ್ತಲೇ ಇರುವಾಗ ಅದರೊಂದಿಗೆ ಹೋಲಿಸಿ ತೀರ್ಮಾನಿಸುವುದು.</string>
     <string name="science_tower_of_hanoi_paradigm">ಹನೋಯಿ ಗೋಪುರ</string>
     <string name="science_tower_of_hanoi_summary">ಯೋಜನೆಯ ಪ್ರಮಾಣಿತ ಅಳತೆ: ಗುರಿ ತಲುಪುವ ಮೊದಲು ಪ್ರಗತಿಯನ್ನು ಹಿಂದಕ್ಕೆ ಒಯ್ಯುವ ನಡೆಗಳು ಈ ಒಗಟಿನಲ್ಲಿ ಬೇಕಾಗುತ್ತವೆ.</string>
     <string name="brain_cup_button">Brain Cup ಅಗ್ರಪಟ್ಟಿ</string>

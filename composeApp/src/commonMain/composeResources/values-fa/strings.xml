@@ -9,6 +9,7 @@
     <string name="button_play_random">بازی تصادفی</string>
     <string name="button_give_up">تسلیم</string>
     <string name="button_stay">می‌مانم</string>
+    <string name="button_cancel">لغو</string>
     <string name="button_quit_game">خروج</string>
     <string name="button_backspace">حذف</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">یادداشت</string>
     <string name="normal_sudoku_pen_mode">قلم</string>
     <string name="normal_sudoku_notes_toggle">تغییر حالت یادداشت</string>
+    <string name="normal_sudoku_reset">بازنشانی</string>
+    <string name="normal_sudoku_reset_title">جدول بازنشانی شود؟</string>
+    <string name="normal_sudoku_reset_message">هر رقم و یادداشتی که وارد کرده‌ای پاک می‌شود. ارقام داده‌شدهٔ اولیه می‌مانند.</string>
 
     <string name="normal_chess_button">شطرنج معمولی</string>
     <string name="normal_chess_title">شطرنج</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">پیدا کن این دو چه چیزی مشترک دارند.</string>
     <string name="trio_demo_title">یک دسته سه‌تایی پیدا کن</string>
     <string name="trio_demo_rule">یک ویژگی مشترک دارند. چیز دیگری قاطی نیست.</string>
+    <string name="trio_trait_shape">شکل</string>
+    <string name="trio_trait_count">چندتا</string>
+    <string name="trio_trait_fill">پرشدگی</string>
+    <string name="trio_demo_traits">هر کارت سه ویژگی دارد</string>
+    <string name="trio_legend_same">همه یکسان</string>
+    <string name="trio_legend_different">از هرکدام یکی</string>
+    <string name="trio_demo_group_set">دسته</string>
+    <string name="trio_demo_group_not_set">دسته نیست</string>
+    <string name="trio_demo_reason_mixed">دو کارت شکل مشترک دارند، سومی ندارد.</string>
+    <string name="trio_demo_reason_nothing_same">هیچ چیز در هر سه یکسان نیست.</string>
     <string name="mental_rotations_demo_title">در ذهنت بچرخانش</string>
     <string name="mental_rotations_demo_turn">بلوک راست را بچرخان تا روی چپی بیفتد.</string>
     <string name="mental_rotations_demo_same">منطبق می‌شود. همان بلوک.</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">حرف درست، جای نادرست</string>
     <string name="wordle_legend_absent">در واژه نیست</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">شکل‌ها یکی‌یکی رد می‌شوند. وقتی شکلی همان شکل N گام قبل بود، روی تطابق بزن.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">تطابق</string>
+    <string name="n_back_demo_watch">شکل‌ها یکی‌یکی ظاهر می‌شوند.</string>
+    <string name="n_back_demo_match">وقتی شکلی همان شکل ۲ گام قبل بود، روی تطابق بزن.</string>
     <string name="achievement_gold_n_back">حافظه چرخان</string>
     <string name="achievement_gold_n_back_desc">مدال طلای N-Back را بگیر</string>
     <string name="game_simon_says">سایمون می‌گوید</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">قالب پرسش‌های ماتریس‌های پیشروندهٔ ریون، پرکاربردترین آزمون استدلال انتزاعی.</string>
     <string name="science_mental_flex_paradigm">الگوی تعویض تکلیف</string>
     <string name="science_mental_flex_summary">سنجه‌ای استاندارد برای انعطاف‌پذیری شناختی: هزینهٔ رها کردن قاعده‌ای که همین حالا به کار می‌بردی و به‌کارگیری قاعده‌ای دیگر.</string>
+    <string name="science_n_back_paradigm">تکلیف N-Back</string>
+    <string name="science_n_back_summary">سنجه‌ای استاندارد برای به‌روزرسانی حافظهٔ کاری: به‌روز نگه‌داشتن پنجره‌ای متحرک از چند مورد آخر و داوری بر پایهٔ آن، در حالی که همچنان پیش می‌رود.</string>
     <string name="science_tower_of_hanoi_paradigm">برج هانوی</string>
     <string name="science_tower_of_hanoi_summary">سنجه‌ای استاندارد برای برنامه‌ریزی: این معما حرکت‌هایی می‌طلبد که پیشرفت را پس می‌برند تا بتوان به هدف رسید.</string>
     <string name="brain_cup_button">جدول رده‌بندی Brain Cup</string>

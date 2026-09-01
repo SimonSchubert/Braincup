@@ -9,6 +9,7 @@
     <string name="button_play_random">சீரற்ற விளையாட்டை விளையாடு</string>
     <string name="button_give_up">விட்டுவிடு</string>
     <string name="button_stay">இரு</string>
+    <string name="button_cancel">ரத்து</string>
     <string name="button_quit_game">வெளியேறு</string>
     <string name="button_backspace">பின்னழி</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">குறிப்புகள்</string>
     <string name="normal_sudoku_pen_mode">பேனா</string>
     <string name="normal_sudoku_notes_toggle">குறிப்பு முறையை மாற்று</string>
+    <string name="normal_sudoku_reset">மீட்டமை</string>
+    <string name="normal_sudoku_reset_title">பலகையை மீட்டமைக்கவா?</string>
+    <string name="normal_sudoku_reset_message">நீங்கள் நிரப்பிய ஒவ்வொரு இலக்கமும் குறிப்பும் அழிக்கப்படும். தொடக்கத்தில் தரப்பட்ட இலக்கங்கள் இருக்கும்.</string>
 
     <string name="normal_chess_button">சாதாரண சதுரங்கம்</string>
     <string name="normal_chess_title">சதுரங்கம்</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">இந்த இணை எதைப் பகிர்கிறது என்பதைக் கண்டறியுங்கள்.</string>
     <string name="trio_demo_title">மூன்றின் தொகுப்பைக் கண்டுபிடியுங்கள்</string>
     <string name="trio_demo_rule">அவை ஒரே பண்பைப் பகிர்கின்றன. வேறெதுவும் கலக்கவில்லை.</string>
+    <string name="trio_trait_shape">வடிவம்</string>
+    <string name="trio_trait_count">எத்தனை</string>
+    <string name="trio_trait_fill">நிரப்பல்</string>
+    <string name="trio_demo_traits">ஒவ்வொரு அட்டைக்கும் மூன்று பண்புகள் உண்டு</string>
+    <string name="trio_legend_same">எல்லாம் ஒன்றே</string>
+    <string name="trio_legend_different">ஒவ்வொன்றும் ஒன்று</string>
+    <string name="trio_demo_group_set">தொகுப்பு</string>
+    <string name="trio_demo_group_not_set">தொகுப்பு அல்ல</string>
+    <string name="trio_demo_reason_mixed">இரண்டு அட்டைகளின் வடிவம் ஒன்றே, மூன்றாவதற்கு இல்லை.</string>
+    <string name="trio_demo_reason_nothing_same">மூன்றிலும் ஒரே மாதிரி எதுவும் இல்லை.</string>
     <string name="mental_rotations_demo_title">மனதில் சுழற்றுங்கள்</string>
     <string name="mental_rotations_demo_turn">வலது தொகுதியைச் சுழற்றி இடதின் மேல் பொருத்துங்கள்.</string>
     <string name="mental_rotations_demo_same">சரியாகப் பொருந்துகிறது. அதே தொகுதி.</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">சரியான எழுத்து, தவறான இடம்</string>
     <string name="wordle_legend_absent">சொல்லில் இல்லை</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">வடிவங்கள் ஒவ்வொன்றாகக் கடந்து செல்கின்றன. ஒரு வடிவம் N படிகளுக்கு முந்தையதை மீண்டும் காட்டும்போது பொருத்தம் என்பதைத் தட்டுங்கள்.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">பொருத்தம்</string>
+    <string name="n_back_demo_watch">வடிவங்கள் ஒவ்வொன்றாகத் தோன்றும்.</string>
+    <string name="n_back_demo_match">ஒரு வடிவம் 2 படிகளுக்கு முந்தையதை மீண்டும் காட்டும்போது பொருத்தம் என்பதைத் தட்டுங்கள்.</string>
     <string name="achievement_gold_n_back">உருளும் நினைவு</string>
     <string name="achievement_gold_n_back_desc">N-Back இல் தங்கப் பதக்கம் வெல்லுங்கள்</string>
     <string name="game_simon_says">சைமன் சொல்கிறார்</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">சுருக்கப் பகுத்தறிவுக்கான மிகப் பரவலான தேர்வான ரேவன் முற்போக்கு அணிகளின் வினா வடிவம்.</string>
     <string name="science_mental_flex_paradigm">பணி மாற்ற முன்மாதிரி</string>
     <string name="science_mental_flex_summary">அறிவாற்றல் நெகிழ்வின் நியமமான அளவீடு: இப்போதுதான் பயன்படுத்திய விதியை விட்டுவிட்டு வேறொன்றைப் பயன்படுத்துவதற்கான விலை.</string>
+    <string name="science_n_back_paradigm">N-Back பணி</string>
+    <string name="science_n_back_summary">செயல் நினைவைப் புதுப்பிப்பதற்கான நியமமான அளவீடு: கடைசி சில உருப்படிகளின் நகரும் சாளரத்தைப் புதுப்பித்து வைத்திருப்பது, அது நகர்ந்துகொண்டே இருக்கும்போதே அதனுடன் ஒப்பிட்டு முடிவெடுப்பது.</string>
     <string name="science_tower_of_hanoi_paradigm">ஹனோய் கோபுரம்</string>
     <string name="science_tower_of_hanoi_summary">திட்டமிடலின் நியமமான அளவீடு: இலக்கை அடைவதற்கு முன் முன்னேற்றத்தைப் பின்னுக்குத் தள்ளும் நகர்வுகள் இந்தப் புதிரில் தேவைப்படுகின்றன.</string>
     <string name="brain_cup_button">Brain Cup தலைவர் பலகை</string>

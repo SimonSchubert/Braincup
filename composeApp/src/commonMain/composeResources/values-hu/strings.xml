@@ -9,6 +9,7 @@
     <string name="button_play_random">Véletlen játék</string>
     <string name="button_give_up">Feladom</string>
     <string name="button_stay">Maradok</string>
+    <string name="button_cancel">Mégse</string>
     <string name="button_quit_game">Kilépés</string>
     <string name="button_backspace">Törlés</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Jegyzetek</string>
     <string name="normal_sudoku_pen_mode">Toll</string>
     <string name="normal_sudoku_notes_toggle">Jegyzetmód váltása</string>
+    <string name="normal_sudoku_reset">Visszaállítás</string>
+    <string name="normal_sudoku_reset_title">Visszaállítod a táblát?</string>
+    <string name="normal_sudoku_reset_message">Minden beírt számjegy és jegyzet törlődik. A feladvány eredetileg adott számai megmaradnak.</string>
 
     <string name="normal_chess_button">Klasszikus sakk</string>
     <string name="normal_chess_title">Sakk</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Vedd észre, mi közös a párban.</string>
     <string name="trio_demo_title">Találj egy hármas szettet</string>
     <string name="trio_demo_rule">Egy tulajdonságon osztoznak. Semmi más nem keveredik.</string>
+    <string name="trio_trait_shape">Alak</string>
+    <string name="trio_trait_count">Hány</string>
+    <string name="trio_trait_fill">Kitöltés</string>
+    <string name="trio_demo_traits">Minden lapnak három tulajdonsága van</string>
+    <string name="trio_legend_same">Mind ugyanaz</string>
+    <string name="trio_legend_different">Mindegyikből egy</string>
+    <string name="trio_demo_group_set">Szett</string>
+    <string name="trio_demo_group_not_set">Nem szett</string>
+    <string name="trio_demo_reason_mixed">Két lap alakja megegyezik, a harmadiké nem.</string>
+    <string name="trio_demo_reason_nothing_same">Semmi sem egyezik mind a háromban.</string>
     <string name="mental_rotations_demo_title">Forgasd el fejben</string>
     <string name="mental_rotations_demo_turn">Forgasd a jobb oldali testet a bal oldalira.</string>
     <string name="mental_rotations_demo_same">Pontosan illeszkedik. Ugyanaz a test.</string>
@@ -547,6 +561,11 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="wordle_legend_present">Jó betű, rossz hely</string>
     <string name="wordle_legend_absent">Nincs a szóban</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Az alakzatok egyesével vonulnak el. Koppints az Egyezésre, ha az alakzat megismétli az N lépéssel korábbit.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Egyezés</string>
+    <string name="n_back_demo_watch">Az alakzatok egyesével jelennek meg.</string>
+    <string name="n_back_demo_match">Koppints az Egyezésre, ha egy alakzat megismétli a 2 lépéssel korábbit.</string>
     <string name="achievement_gold_n_back">Görgő emlékezet</string>
     <string name="achievement_gold_n_back_desc">Nyerj aranyérmet N-Back játékban</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Mozgasd a Cowt — Bull lesz belőle.</string>
     <string name="science_pattern_sequence_summary">A Raven-féle progresszív mátrixok, az absztrakt gondolkodás legelterjedtebb tesztjének feladattípusa.</string>
     <string name="science_mental_flex_paradigm">Feladatváltási paradigma</string>
     <string name="science_mental_flex_summary">A kognitív rugalmasság bevett mérőszáma: mibe kerül elengedni az imént használt szabályt, és másikat alkalmazni.</string>
+    <string name="science_n_back_paradigm">N-Back feladat</string>
+    <string name="science_n_back_summary">A munkamemória frissítésének bevett mérőszáma: az utolsó néhány elem mozgó ablakát naprakészen tartani, és ehhez mérni, miközben az tovább halad.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoi tornya</string>
     <string name="science_tower_of_hanoi_summary">A tervezés bevett mérőszáma: a fejtörő olyan lépéseket kíván, amelyek előbb visszavonják az addigi haladást, mire a cél elérhetővé válik.</string>
     <string name="brain_cup_button">Brain Cup ranglista</string>

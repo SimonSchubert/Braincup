@@ -11,6 +11,7 @@
     <string name="button_play_random">Zufälliges Spiel</string>
     <string name="button_give_up">Aufgeben</string>
     <string name="button_stay">Bleiben</string>
+    <string name="button_cancel">Abbrechen</string>
     <string name="button_quit_game">Beenden</string>
     <string name="button_backspace">Löschen</string>
     <string name="button_done">Fertig</string>
@@ -314,6 +315,8 @@
     <string name="science_pattern_sequence_summary">Das Aufgabenformat hinter Ravens Progressiven Matrizen, dem am weitesten verbreiteten Test für abstraktes Schlussfolgern.</string>
     <string name="science_mental_flex_paradigm">Aufgabenwechsel-Paradigma</string>
     <string name="science_mental_flex_summary">Ein Standardmaß für kognitive Flexibilität: was es kostet, die alte Regel fallen zu lassen und eine neue anzuwenden.</string>
+    <string name="science_n_back_paradigm">N-Back-Aufgabe</string>
+    <string name="science_n_back_summary">Ein Standardmaß für das Aktualisieren des Arbeitsgedächtnisses: ein laufendes Fenster der letzten Elemente aktuell halten und daran prüfen, während es weiterwandert.</string>
     <string name="science_tower_of_hanoi_paradigm">Turm von Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ein Standardmaß für Planung: das Puzzle braucht Züge, die den Fortschritt erst einmal rückgängig machen, bevor das Ziel erreichbar ist.</string>
     <string name="brain_cup_button">Brain Cup Bestenliste</string>
@@ -606,6 +609,9 @@
     <string name="normal_sudoku_notes_mode">Notizen</string>
     <string name="normal_sudoku_pen_mode">Stift</string>
     <string name="normal_sudoku_notes_toggle">Notizenmodus umschalten</string>
+    <string name="normal_sudoku_reset">Zurücksetzen</string>
+    <string name="normal_sudoku_reset_title">Feld zurücksetzen?</string>
+    <string name="normal_sudoku_reset_message">Alle von dir eingetragenen Ziffern und Notizen werden gelöscht. Die vorgegebenen Zahlen bleiben.</string>
     <string name="normal_sudoku_not_solved">Noch nicht ganz richtig</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
@@ -673,6 +679,11 @@
     <string name="wordle_legend_present">Richtiger Buchstabe, falsche Stelle</string>
     <string name="wordle_legend_absent">Nicht im Wort</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Formen ziehen einzeln vorbei. Tippe auf Treffer, wenn die Form die von vor N Schritten wiederholt.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Treffer</string>
+    <string name="n_back_demo_watch">Die Formen erscheinen einzeln.</string>
+    <string name="n_back_demo_match">Tippe auf Treffer, wenn eine Form die von vor 2 Schritten wiederholt.</string>
     <string name="achievement_gold_n_back">Rollendes Gedächtnis</string>
     <string name="achievement_gold_n_back_desc">Gewinne die Goldmedaille in N-Back</string>
     <string name="game_simon_says">Simon sagt</string>
@@ -785,6 +796,16 @@
     <string name="game_mental_flex_howto">Erkenne, was das Paar gemeinsam hat.</string>
     <string name="trio_demo_title">Finde ein Set aus drei</string>
     <string name="trio_demo_rule">Sie haben ein Merkmal gemeinsam. Sonst nichts Gemischtes.</string>
+    <string name="trio_trait_shape">Form</string>
+    <string name="trio_trait_count">Wie viele</string>
+    <string name="trio_trait_fill">Füllung</string>
+    <string name="trio_demo_traits">Jede Karte hat drei Merkmale</string>
+    <string name="trio_legend_same">Alle gleich</string>
+    <string name="trio_legend_different">Von jedem eins</string>
+    <string name="trio_demo_group_set">Set</string>
+    <string name="trio_demo_group_not_set">Kein Set</string>
+    <string name="trio_demo_reason_mixed">Zwei Karten teilen eine Form, die dritte nicht.</string>
+    <string name="trio_demo_reason_nothing_same">Nichts ist bei allen dreien gleich.</string>
     <string name="mental_rotations_demo_title">Dreh ihn im Kopf</string>
     <string name="mental_rotations_demo_turn">Drehe den rechten Block auf den linken.</string>
     <string name="mental_rotations_demo_same">Er passt genau. Gleicher Block.</string>

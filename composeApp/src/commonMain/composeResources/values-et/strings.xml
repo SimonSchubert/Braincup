@@ -9,6 +9,7 @@
     <string name="button_play_random">Mängi juhuslikku mängu</string>
     <string name="button_give_up">Loobu</string>
     <string name="button_stay">Jää</string>
+    <string name="button_cancel">Loobu</string>
     <string name="button_quit_game">Lõpeta</string>
     <string name="button_backspace">Kustuta</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Märkmed</string>
     <string name="normal_sudoku_pen_mode">Pliiats</string>
     <string name="normal_sudoku_notes_toggle">Lülita märkmed</string>
+    <string name="normal_sudoku_reset">Lähtesta</string>
+    <string name="normal_sudoku_reset_title">Kas lähtestada laud?</string>
+    <string name="normal_sudoku_reset_message">Kõik sinu sisestatud numbrid ja märkmed kustutatakse. Algselt antud numbrid jäävad alles.</string>
 
     <string name="normal_chess_button">Klassikaline male</string>
     <string name="normal_chess_title">Male</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Leia, mis on paaril ühist.</string>
     <string name="trio_demo_title">Leia kolmik</string>
     <string name="trio_demo_rule">Need jagavad omadust. Midagi muud ei segune.</string>
+    <string name="trio_trait_shape">Kuju</string>
+    <string name="trio_trait_count">Mitu</string>
+    <string name="trio_trait_fill">Täide</string>
+    <string name="trio_demo_traits">Igal kaardil on kolm omadust</string>
+    <string name="trio_legend_same">Kõik ühesugused</string>
+    <string name="trio_legend_different">Igaüht üks</string>
+    <string name="trio_demo_group_set">Kolmik</string>
+    <string name="trio_demo_group_not_set">Pole kolmik</string>
+    <string name="trio_demo_reason_mixed">Kahel kaardil on sama kuju, kolmandal mitte.</string>
+    <string name="trio_demo_reason_nothing_same">Miski pole kõigil kolmel ühesugune.</string>
     <string name="mental_rotations_demo_title">Pööra seda peas</string>
     <string name="mental_rotations_demo_turn">Pööra parempoolne plokk vasakpoolse peale.</string>
     <string name="mental_rotations_demo_same">Klapib. Sama plokk.</string>
@@ -547,6 +561,11 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="wordle_legend_present">Õige täht, vale koht</string>
     <string name="wordle_legend_absent">Pole sõnas</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Kujundid libisevad mööda ükshaaval. Puuduta Sobib, kui kujund kordab seda, mis oli N sammu tagasi.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Sobib</string>
+    <string name="n_back_demo_watch">Kujundid ilmuvad ükshaaval.</string>
+    <string name="n_back_demo_match">Puuduta Sobib, kui kujund kordab seda, mis oli 2 sammu tagasi.</string>
     <string name="achievement_gold_n_back">Veerev mälu</string>
     <string name="achievement_gold_n_back_desc">Võida kuldmedal N-Backis</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Liiguta Cow — sellest saab Bull.</string>
     <string name="science_pattern_sequence_summary">Raveni progressiivsete maatriksite ülesandevorm, kõige laiemalt kasutatav abstraktse arutlemise test.</string>
     <string name="science_mental_flex_paradigm">Ülesandevahetuse paradigma</string>
     <string name="science_mental_flex_summary">Kognitiivse paindlikkuse standardmõõt: kui palju maksab loobuda just kasutatud reeglist ja rakendada teist.</string>
+    <string name="science_n_back_paradigm">N-Back ülesanne</string>
+    <string name="science_n_back_summary">Töömälu uuendamise standardmõõt: viimaste elementide liikuva akna värskena hoidmine ja selle järgi otsustamine ajal, mil see aina edasi liigub.</string>
     <string name="science_tower_of_hanoi_paradigm">Hanoi torn</string>
     <string name="science_tower_of_hanoi_summary">Planeerimise standardmõõt: mõistatus nõuab käike, mis tühistavad edasimineku, enne kui eesmärgini jõuab.</string>
     <string name="brain_cup_button">Brain Cupi edetabel</string>

@@ -9,6 +9,7 @@
     <string name="button_play_random">Παίξτε τυχαίο παιχνίδι</string>
     <string name="button_give_up">Παραίτηση</string>
     <string name="button_stay">Παραμονή</string>
+    <string name="button_cancel">Άκυρο</string>
     <string name="button_quit_game">Έξοδος</string>
     <string name="button_backspace">Επιστροφή</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Σημειώσεις</string>
     <string name="normal_sudoku_pen_mode">Στυλό</string>
     <string name="normal_sudoku_notes_toggle">Εναλλαγή λειτουργίας σημειώσεων</string>
+    <string name="normal_sudoku_reset">Επαναφορά</string>
+    <string name="normal_sudoku_reset_title">Επαναφορά ταμπλό;</string>
+    <string name="normal_sudoku_reset_message">Κάθε ψηφίο και σημείωση που καταχωρίσατε διαγράφεται. Τα αρχικά δοσμένα ψηφία παραμένουν.</string>
 
     <string name="normal_chess_button">Κανονικό Σκάκι</string>
     <string name="normal_chess_title">Σκάκι</string>
@@ -474,6 +478,11 @@
     <string name="wordle_legend_present">Σωστό γράμμα, λάθος θέση</string>
     <string name="wordle_legend_absent">Δεν υπάρχει στη λέξη</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Τα σχήματα περνούν ένα-ένα. Πατήστε Ταίριασμα όταν το σχήμα επαναλαμβάνει αυτό N βήματα πριν.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Ταίριασμα</string>
+    <string name="n_back_demo_watch">Τα σχήματα εμφανίζονται ένα-ένα.</string>
+    <string name="n_back_demo_match">Πατήστε Ταίριασμα όταν ένα σχήμα επαναλαμβάνει αυτό 2 βήματα πριν.</string>
     <string name="achievement_gold_n_back">Κυλιόμενη μνήμη</string>
     <string name="achievement_gold_n_back_desc">Κέρδισε χρυσό μετάλλιο στο N-Back</string>
     <string name="game_simon_says">Ο Σάιμον λέει</string>
@@ -500,6 +509,8 @@
     <string name="science_pattern_sequence_summary">Ο τύπος έργου πίσω από τις Προοδευτικές Μήτρες του Raven, το πιο διαδεδομένο τεστ αφηρημένης συλλογιστικής.</string>
     <string name="science_mental_flex_paradigm">Παράδειγμα εναλλαγής έργου</string>
     <string name="science_mental_flex_summary">Τυπικό μέτρο της γνωστικής ευελιξίας: το κόστος του να αφήσεις τον κανόνα που μόλις χρησιμοποιούσες και να εφαρμόσεις άλλον.</string>
+    <string name="science_n_back_paradigm">Δοκιμασία N-Back</string>
+    <string name="science_n_back_summary">Τυπικό μέτρο της ενημέρωσης της εργαζόμενης μνήμης: να κρατάτε ενήμερο ένα κυλιόμενο παράθυρο των τελευταίων στοιχείων και να κρίνετε ως προς αυτό ενώ συνεχίζει να κινείται.</string>
     <string name="science_tower_of_hanoi_paradigm">Πύργοι του Ανόι</string>
     <string name="science_tower_of_hanoi_summary">Τυπικό μέτρο του σχεδιασμού: ο γρίφος απαιτεί κινήσεις που αναιρούν την πρόοδο πριν γίνει εφικτός ο στόχος.</string>
     <string name="brain_cup_button">Πίνακας Brain Cup</string>
@@ -785,6 +796,16 @@
     <string name="game_mental_flex_howto">Βρες τι έχει κοινό το ζευγάρι.</string>
     <string name="trio_demo_title">Βρες ένα σύνολο των τριών</string>
     <string name="trio_demo_rule">Μοιράζονται ένα γνώρισμα. Τίποτα άλλο δεν είναι ανάμεικτο.</string>
+    <string name="trio_trait_shape">Σχήμα</string>
+    <string name="trio_trait_count">Πόσα</string>
+    <string name="trio_trait_fill">Γέμισμα</string>
+    <string name="trio_demo_traits">Κάθε κάρτα έχει τρία γνωρίσματα</string>
+    <string name="trio_legend_same">Όλα ίδια</string>
+    <string name="trio_legend_different">Ένα από κάθε</string>
+    <string name="trio_demo_group_set">Σύνολο</string>
+    <string name="trio_demo_group_not_set">Δεν είναι σύνολο</string>
+    <string name="trio_demo_reason_mixed">Δύο κάρτες έχουν το ίδιο σχήμα, η τρίτη όχι.</string>
+    <string name="trio_demo_reason_nothing_same">Τίποτα δεν είναι ίδιο και στις τρεις.</string>
     <string name="mental_rotations_demo_title">Γύρισέ το στο μυαλό σου</string>
     <string name="mental_rotations_demo_turn">Περίστρεψε το δεξί μπλοκ πάνω στο αριστερό.</string>
     <string name="mental_rotations_demo_same">Ταιριάζει. Ίδιο μπλοκ.</string>

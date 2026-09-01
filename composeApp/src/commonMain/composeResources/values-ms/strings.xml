@@ -9,6 +9,7 @@
     <string name="button_play_random">Main Permainan Rawak</string>
     <string name="button_give_up">Menyerah</string>
     <string name="button_stay">Kekal</string>
+    <string name="button_cancel">Batal</string>
     <string name="button_quit_game">Keluar</string>
     <string name="button_backspace">Padam</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Nota</string>
     <string name="normal_sudoku_pen_mode">Pen</string>
     <string name="normal_sudoku_notes_toggle">Togol mod nota</string>
+    <string name="normal_sudoku_reset">Set semula</string>
+    <string name="normal_sudoku_reset_title">Set semula papan?</string>
+    <string name="normal_sudoku_reset_message">Setiap digit dan nota yang anda masukkan akan dipadam. Digit yang diberi pada mulanya kekal.</string>
 
     <string name="normal_chess_button">Catur Biasa</string>
     <string name="normal_chess_title">Catur</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Kenal pasti apa yang dikongsi pasangan itu.</string>
     <string name="trio_demo_title">Cari set tiga</string>
     <string name="trio_demo_rule">Mereka berkongsi satu ciri. Tiada yang lain bercampur.</string>
+    <string name="trio_trait_shape">Bentuk</string>
+    <string name="trio_trait_count">Berapa</string>
+    <string name="trio_trait_fill">Isian</string>
+    <string name="trio_demo_traits">Setiap kad ada tiga ciri</string>
+    <string name="trio_legend_same">Semua sama</string>
+    <string name="trio_legend_different">Satu bagi setiap satu</string>
+    <string name="trio_demo_group_set">Set</string>
+    <string name="trio_demo_group_not_set">Bukan set</string>
+    <string name="trio_demo_reason_mixed">Dua kad berkongsi bentuk, yang ketiga tidak.</string>
+    <string name="trio_demo_reason_nothing_same">Tiada apa-apa yang sama pada ketiga-tiganya.</string>
     <string name="mental_rotations_demo_title">Putarkan dalam fikiran</string>
     <string name="mental_rotations_demo_turn">Putarkan blok kanan supaya bertindih dengan blok kiri.</string>
     <string name="mental_rotations_demo_same">Ia bertindih. Blok yang sama.</string>
@@ -545,6 +559,11 @@
     <string name="wordle_legend_present">Huruf betul, tempat salah</string>
     <string name="wordle_legend_absent">Tiada dalam perkataan</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Bentuk-bentuk lalu satu demi satu. Ketik Padan apabila bentuk itu mengulang yang N langkah sebelumnya.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Padan</string>
+    <string name="n_back_demo_watch">Bentuk muncul satu demi satu.</string>
+    <string name="n_back_demo_match">Ketik Padan apabila sesuatu bentuk mengulang yang 2 langkah sebelumnya.</string>
     <string name="achievement_gold_n_back">Ingatan Bergolek</string>
     <string name="achievement_gold_n_back_desc">Menangi pingat emas dalam N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -571,6 +590,8 @@
     <string name="science_pattern_sequence_summary">Format item di sebalik Matriks Progresif Raven, ujian penaakulan abstrak yang paling meluas digunakan.</string>
     <string name="science_mental_flex_paradigm">Paradigma Pertukaran Tugas</string>
     <string name="science_mental_flex_summary">Ukuran piawai bagi fleksibiliti kognitif: kos melepaskan peraturan yang baru anda gunakan dan menerapkan yang lain.</string>
+    <string name="science_n_back_paradigm">Tugas N-Back</string>
+    <string name="science_n_back_summary">Ukuran piawai bagi pengemaskinian ingatan bekerja: mengekalkan tetingkap bergerak berisi beberapa item terakhir supaya sentiasa terkini, dan menilainya sementara ia terus bergerak.</string>
     <string name="science_tower_of_hanoi_paradigm">Menara Hanoi</string>
     <string name="science_tower_of_hanoi_summary">Ukuran piawai bagi perancangan: teka-teki ini memerlukan langkah yang membatalkan kemajuan sebelum matlamat dapat dicapai.</string>
     <string name="brain_cup_button">Papan pendahulu Brain Cup</string>

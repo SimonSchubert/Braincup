@@ -11,6 +11,7 @@
     <string name="button_play_random">Випадкова гра</string>
     <string name="button_give_up">Здатися</string>
     <string name="button_stay">Залишитися</string>
+    <string name="button_cancel">Скасувати</string>
     <string name="button_quit_game">Вийти</string>
     <string name="button_backspace">Видалити</string>
     <string name="button_done">Готово</string>
@@ -309,6 +310,11 @@
     <string name="wordle_legend_present">Правильна літера, неправильна позиція</string>
     <string name="wordle_legend_absent">Немає в слові</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Фігури пропливають по одній. Натисніть Збіг, коли фігура повторює ту, що була N кроків тому.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Збіг</string>
+    <string name="n_back_demo_watch">Фігури з'являються по одній.</string>
+    <string name="n_back_demo_match">Натисніть Збіг, коли фігура повторює ту, що була 2 кроки тому.</string>
     <string name="achievement_gold_n_back">Рухомий слід</string>
     <string name="achievement_gold_n_back_desc">Здобудь золоту медаль у N-Back</string>
     <string name="game_simon_says">Саймон каже</string>
@@ -335,6 +341,8 @@
     <string name="science_pattern_sequence_summary">Формат завдань прогресивних матриць Равена, найпоширенішого тесту абстрактного мислення.</string>
     <string name="science_mental_flex_paradigm">Парадигма перемикання завдань</string>
     <string name="science_mental_flex_summary">Стандартна міра когнітивної гнучкості: скільки коштує відпустити щойно застосоване правило й застосувати інше.</string>
+    <string name="science_n_back_paradigm">Завдання N-Back</string>
+    <string name="science_n_back_summary">Стандартна міра оновлення робочої пам'яті: тримати актуальним рухоме вікно з кількох останніх елементів і звірятися з ним, поки воно й далі зміщується.</string>
     <string name="science_tower_of_hanoi_paradigm">Ханойські вежі</string>
     <string name="science_tower_of_hanoi_summary">Стандартна міра планування: головоломка вимагає ходів, які спершу скасовують поступ, перш ніж мети можна досягти.</string>
     <string name="brain_cup_button">Таблиця лідерів Brain Cup</string>
@@ -628,6 +636,9 @@
     <string name="normal_sudoku_notes_mode">Нотатки</string>
     <string name="normal_sudoku_pen_mode">Ручка</string>
     <string name="normal_sudoku_notes_toggle">Перемкнути режим нотаток</string>
+    <string name="normal_sudoku_reset">Скинути</string>
+    <string name="normal_sudoku_reset_title">Скинути поле?</string>
+    <string name="normal_sudoku_reset_message">Усі введені вами цифри та нотатки буде стерто. Початково задані цифри залишаться.</string>
     <string name="normal_sudoku_not_solved">Не зовсім правильно</string>
     <string name="normal_sudoku_puzzle_label">%1$d</string>
     <string name="normal_sudoku_section_progress">%1$d / %2$d</string>
@@ -785,6 +796,16 @@
     <string name="game_mental_flex_howto">Помітьте, що спільного в цієї пари.</string>
     <string name="trio_demo_title">Знайдіть набір із трьох</string>
     <string name="trio_demo_rule">У них спільна ознака. Решта не змішана.</string>
+    <string name="trio_trait_shape">Форма</string>
+    <string name="trio_trait_count">Скільки</string>
+    <string name="trio_trait_fill">Заливка</string>
+    <string name="trio_demo_traits">Кожна картка має три ознаки</string>
+    <string name="trio_legend_same">Усі однакові</string>
+    <string name="trio_legend_different">По одній кожної</string>
+    <string name="trio_demo_group_set">Набір</string>
+    <string name="trio_demo_group_not_set">Не набір</string>
+    <string name="trio_demo_reason_mixed">У двох карток форма спільна, у третьої ні.</string>
+    <string name="trio_demo_reason_nothing_same">Ніщо не однакове в усіх трьох.</string>
     <string name="mental_rotations_demo_title">Поверни його подумки</string>
     <string name="mental_rotations_demo_turn">Оберни правий блок так, щоб він збігся з лівим.</string>
     <string name="mental_rotations_demo_same">Збігається. Той самий блок.</string>

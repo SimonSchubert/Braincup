@@ -9,6 +9,7 @@
     <string name="button_play_random">Играй случайна игра</string>
     <string name="button_give_up">Откажи се</string>
     <string name="button_stay">Остани</string>
+    <string name="button_cancel">Отказ</string>
     <string name="button_quit_game">Край</string>
     <string name="button_backspace">Изтрий</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">Бележки</string>
     <string name="normal_sudoku_pen_mode">Химикал</string>
     <string name="normal_sudoku_notes_toggle">Превключи бележките</string>
+    <string name="normal_sudoku_reset">Нулирай</string>
+    <string name="normal_sudoku_reset_title">Нулиране на дъската?</string>
+    <string name="normal_sudoku_reset_message">Всяка въведена от теб цифра и бележка се изтрива. Първоначално дадените числа остават.</string>
 
     <string name="normal_chess_button">Класически шах</string>
     <string name="normal_chess_title">Шах</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">Открий какво е общото на двойката.</string>
     <string name="trio_demo_title">Намери тройка</string>
     <string name="trio_demo_rule">Споделят свойство. Нищо друго не се смесва.</string>
+    <string name="trio_trait_shape">Форма</string>
+    <string name="trio_trait_count">Колко</string>
+    <string name="trio_trait_fill">Запълване</string>
+    <string name="trio_demo_traits">Всяка карта има три свойства</string>
+    <string name="trio_legend_same">Всички еднакви</string>
+    <string name="trio_legend_different">По едно от всяко</string>
+    <string name="trio_demo_group_set">Тройка</string>
+    <string name="trio_demo_group_not_set">Не е тройка</string>
+    <string name="trio_demo_reason_mixed">Две карти имат обща форма, третата не.</string>
+    <string name="trio_demo_reason_nothing_same">Нищо не е еднакво и при трите.</string>
     <string name="mental_rotations_demo_title">Завърти го наум</string>
     <string name="mental_rotations_demo_turn">Завърти десния блок върху левия.</string>
     <string name="mental_rotations_demo_same">Съвпада. Същият блок.</string>
@@ -547,6 +561,11 @@ Cow = вярна цифра, грешно място.</string>
     <string name="wordle_legend_present">Вярна буква, грешно място</string>
     <string name="wordle_legend_absent">Не е в думата</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">Фигурите минават една по една. Докосни Съвпадение, когато фигурата повтори тази отпреди N стъпки.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">Съвпадение</string>
+    <string name="n_back_demo_watch">Фигурите се появяват една по една.</string>
+    <string name="n_back_demo_match">Докосни Съвпадение, когато фигура повтори тази отпреди 2 стъпки.</string>
     <string name="achievement_gold_n_back">Плъзгаща се памет</string>
     <string name="achievement_gold_n_back_desc">Спечели златен медал в N-Back</string>
     <string name="game_simon_says">Simon Says</string>
@@ -573,6 +592,8 @@ Cow = вярна цифра, грешно място.</string>
     <string name="science_pattern_sequence_summary">Форматът на задачите от прогресивните матрици на Рейвън, най-широко използвания тест за абстрактно мислене.</string>
     <string name="science_mental_flex_paradigm">Парадигма на смяна на задачата</string>
     <string name="science_mental_flex_summary">Стандартна мярка за когнитивна гъвкавост: колко струва да изоставиш току-що използваното правило и да приложиш друго.</string>
+    <string name="science_n_back_paradigm">Задача N-Back</string>
+    <string name="science_n_back_summary">Стандартна мярка за обновяването на работната памет: поддържане на плъзгащ прозорец от последните няколко елемента и преценка спрямо него, докато той продължава да се движи.</string>
     <string name="science_tower_of_hanoi_paradigm">Ханойска кула</string>
     <string name="science_tower_of_hanoi_summary">Стандартна мярка за планиране: пъзелът изисква ходове, които първо връщат напредъка назад, преди целта да стане достижима.</string>
     <string name="brain_cup_button">Класиране Brain Cup</string>

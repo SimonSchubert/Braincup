@@ -9,6 +9,7 @@
     <string name="button_play_random">بے ترتیب کھیل</string>
     <string name="button_give_up">ہار مان لیں</string>
     <string name="button_stay">رہیں</string>
+    <string name="button_cancel">منسوخ کریں</string>
     <string name="button_quit_game">بند کریں</string>
     <string name="button_backspace">بیک اسپیس</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">نوٹس</string>
     <string name="normal_sudoku_pen_mode">قلم</string>
     <string name="normal_sudoku_notes_toggle">نوٹس موڈ تبدیل کریں</string>
+    <string name="normal_sudoku_reset">دوبارہ ترتیب</string>
+    <string name="normal_sudoku_reset_title">بورڈ دوبارہ ترتیب دیں؟</string>
+    <string name="normal_sudoku_reset_message">آپ کے بھرے ہوئے تمام ہندسے اور نوٹس مٹ جائیں گے۔ شروع میں دیے گئے ہندسے رہیں گے۔</string>
 
     <string name="normal_chess_button">عام شطرنج</string>
     <string name="normal_chess_title">شطرنج</string>
@@ -297,6 +301,16 @@
     <string name="game_mental_flex_howto">پہچانیں کہ جوڑے میں کیا مشترک ہے۔</string>
     <string name="trio_demo_title">تین کا سیٹ تلاش کریں</string>
     <string name="trio_demo_rule">ان میں ایک خصوصیت مشترک ہے۔ باقی ملا جلا نہیں۔</string>
+    <string name="trio_trait_shape">شکل</string>
+    <string name="trio_trait_count">کتنے</string>
+    <string name="trio_trait_fill">بھراؤ</string>
+    <string name="trio_demo_traits">ہر کارڈ کی تین خصوصیات ہوتی ہیں</string>
+    <string name="trio_legend_same">سب ایک جیسے</string>
+    <string name="trio_legend_different">ہر ایک کا ایک</string>
+    <string name="trio_demo_group_set">سیٹ</string>
+    <string name="trio_demo_group_not_set">سیٹ نہیں</string>
+    <string name="trio_demo_reason_mixed">دو کارڈوں کی شکل ایک جیسی ہے، تیسرے کی نہیں۔</string>
+    <string name="trio_demo_reason_nothing_same">تینوں میں کچھ بھی ایک جیسا نہیں۔</string>
     <string name="mental_rotations_demo_title">اسے ذہن میں گھمائیں</string>
     <string name="mental_rotations_demo_turn">دائیں بلاک کو گھما کر بائیں پر رکھیں۔</string>
     <string name="mental_rotations_demo_same">بالکل مل جاتا ہے۔ وہی بلاک۔</string>
@@ -545,6 +559,11 @@
     <string name="wordle_legend_present">درست حرف، غلط جگہ</string>
     <string name="wordle_legend_absent">لفظ میں نہیں</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">شکلیں ایک ایک کر کے گزرتی ہیں۔ جب کوئی شکل N قدم پہلے والی کو دہرائے تو مماثلت دبائیں۔</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">مماثلت</string>
+    <string name="n_back_demo_watch">شکلیں ایک ایک کر کے آتی ہیں۔</string>
+    <string name="n_back_demo_match">جب کوئی شکل 2 قدم پہلے والی کو دہرائے تو مماثلت دبائیں۔</string>
     <string name="achievement_gold_n_back">چلتی یادداشت</string>
     <string name="achievement_gold_n_back_desc">N-Back میں طلائی تمغہ جیتیں</string>
     <string name="game_simon_says">سائمن کہتا ہے</string>
@@ -571,6 +590,8 @@
     <string name="science_pattern_sequence_summary">ریوَن پروگریسو میٹریسز کا سوالی سانچہ، جو تجریدی استدلال کا سب سے زیادہ استعمال ہونے والا امتحان ہے۔</string>
     <string name="science_mental_flex_paradigm">کام بدلنے کا نمونہ</string>
     <string name="science_mental_flex_summary">ادراکی لچک کا معیاری پیمانہ: ابھی استعمال کیے گئے اصول کو چھوڑ کر دوسرا لاگو کرنے کی قیمت۔</string>
+    <string name="science_n_back_paradigm">N-Back ٹاسک</string>
+    <string name="science_n_back_summary">کارگر یادداشت کی تازہ کاری کا معیاری پیمانہ: آخری چند اشیاء کی کھسکتی کھڑکی کو تازہ رکھنا، اور اسی کھسکتے رہنے کے دوران اس سے ملا کر فیصلہ کرنا۔</string>
     <string name="science_tower_of_hanoi_paradigm">ہنوئی کا مینار</string>
     <string name="science_tower_of_hanoi_summary">منصوبہ بندی کا معیاری پیمانہ: منزل تک پہنچنے سے پہلے اس پہیلی میں ایسی چالیں درکار ہوتی ہیں جو پیش رفت کو پیچھے لے جاتی ہیں۔</string>
     <string name="brain_cup_button">Brain Cup لیڈر بورڈ</string>

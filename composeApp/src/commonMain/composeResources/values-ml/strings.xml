@@ -9,6 +9,7 @@
     <string name="button_play_random">ക്രമരഹിത കളി കളിക്കുക</string>
     <string name="button_give_up">ഉപേക്ഷിക്കുക</string>
     <string name="button_stay">തുടരുക</string>
+    <string name="button_cancel">റദ്ദാക്കുക</string>
     <string name="button_quit_game">പുറത്തുകടക്കുക</string>
     <string name="button_backspace">ബാക്ക്‌സ്പേസ്</string>
 
@@ -39,6 +40,9 @@
     <string name="normal_sudoku_notes_mode">കുറിപ്പുകൾ</string>
     <string name="normal_sudoku_pen_mode">പേന</string>
     <string name="normal_sudoku_notes_toggle">കുറിപ്പ് മോഡ് മാറ്റുക</string>
+    <string name="normal_sudoku_reset">പുനഃസജ്ജമാക്കുക</string>
+    <string name="normal_sudoku_reset_title">ബോർഡ് പുനഃസജ്ജമാക്കണോ?</string>
+    <string name="normal_sudoku_reset_message">നിങ്ങൾ എഴുതിയ എല്ലാ അക്കങ്ങളും കുറിപ്പുകളും മായ്ക്കപ്പെടും. തുടക്കത്തിൽ നൽകിയ അക്കങ്ങൾ അവശേഷിക്കും.</string>
 
     <string name="normal_chess_button">സാധാരണ ചെസ്സ്</string>
     <string name="normal_chess_title">ചെസ്സ്</string>
@@ -281,6 +285,16 @@
     <string name="game_mental_flex_howto">ജോഡിക്ക് പൊതുവായുള്ളത് കണ്ടെത്തുക.</string>
     <string name="trio_demo_title">മൂന്നിന്റെ കൂട്ടം കണ്ടെത്തുക</string>
     <string name="trio_demo_rule">അവയ്ക്ക് ഒരു ഗുണം പൊതുവായുണ്ട്. മറ്റൊന്നും കൂടിക്കലർന്നിട്ടില്ല.</string>
+    <string name="trio_trait_shape">രൂപം</string>
+    <string name="trio_trait_count">എത്ര</string>
+    <string name="trio_trait_fill">നിറയ്ക്കൽ</string>
+    <string name="trio_demo_traits">ഓരോ കാർഡിനും മൂന്ന് ഗുണങ്ങളുണ്ട്</string>
+    <string name="trio_legend_same">എല്ലാം ഒരുപോലെ</string>
+    <string name="trio_legend_different">ഓരോന്നിൽ ഒന്ന്</string>
+    <string name="trio_demo_group_set">കൂട്ടം</string>
+    <string name="trio_demo_group_not_set">കൂട്ടമല്ല</string>
+    <string name="trio_demo_reason_mixed">രണ്ട് കാർഡുകൾക്ക് ഒരേ രൂപം, മൂന്നാമത്തേതിന് ഇല്ല.</string>
+    <string name="trio_demo_reason_nothing_same">മൂന്നിലും ഒരുപോലെയുള്ളത് ഒന്നുമില്ല.</string>
     <string name="mental_rotations_demo_title">മനസ്സിൽ തിരിക്കുക</string>
     <string name="mental_rotations_demo_turn">വലത്തെ ബ്ലോക്ക് തിരിച്ച് ഇടത്തേതിന് മുകളിൽ വയ്ക്കുക.</string>
     <string name="mental_rotations_demo_same">കൃത്യമായി ചേരുന്നു. അതേ ബ്ലോക്ക്.</string>
@@ -529,6 +543,11 @@
     <string name="wordle_legend_present">ശരിയായ അക്ഷരം, തെറ്റായ സ്ഥാനം</string>
     <string name="wordle_legend_absent">വാക്കിലില്ല</string>
     <string name="game_n_back">N-Back</string>
+    <string name="game_n_back_match_desc">രൂപങ്ങൾ ഒന്നൊന്നായി കടന്നുപോകുന്നു. N ഘട്ടം മുൻപത്തെ രൂപം ആവർത്തിക്കുമ്പോൾ പൊരുത്തം ടാപ്പ് ചെയ്യുക.</string>
+    <string name="n_back_level">%1$d-BACK</string>
+    <string name="n_back_match">പൊരുത്തം</string>
+    <string name="n_back_demo_watch">രൂപങ്ങൾ ഒന്നൊന്നായി പ്രത്യക്ഷപ്പെടുന്നു.</string>
+    <string name="n_back_demo_match">2 ഘട്ടം മുൻപത്തെ രൂപം ആവർത്തിക്കുമ്പോൾ പൊരുത്തം ടാപ്പ് ചെയ്യുക.</string>
     <string name="achievement_gold_n_back">ഉരുളുന്ന ഓർമ്മ</string>
     <string name="achievement_gold_n_back_desc">N-Back ൽ സ്വർണ്ണ മെഡൽ നേടുക</string>
     <string name="game_simon_says">സൈമൺ പറയുന്നു</string>
@@ -555,6 +574,8 @@
     <string name="science_pattern_sequence_summary">അമൂർത്ത യുക്തിയുടെ ഏറ്റവും വ്യാപകമായി ഉപയോഗിക്കുന്ന പരീക്ഷയായ റേവൻ പ്രോഗ്രസീവ് മാട്രിസസിന്റെ ചോദ്യരൂപം.</string>
     <string name="science_mental_flex_paradigm">ടാസ്ക് മാറ്റ മാതൃക</string>
     <string name="science_mental_flex_summary">വൈജ്ഞാനിക വഴക്കത്തിന്റെ മാനക അളവ്: ഇപ്പോൾ ഉപയോഗിച്ച നിയമം വിട്ട് മറ്റൊന്ന് പ്രയോഗിക്കാനുള്ള വില.</string>
+    <string name="science_n_back_paradigm">N-Back ടാസ്ക്</string>
+    <string name="science_n_back_summary">പ്രവർത്തന ഓർമ പുതുക്കുന്നതിന്റെ മാനക അളവ്: അവസാനത്തെ ചില ഇനങ്ങളുടെ ചലിക്കുന്ന ജാലകം പുതുക്കി നിർത്തുക, അത് നീങ്ങിക്കൊണ്ടിരിക്കുമ്പോൾ തന്നെ അതുമായി തട്ടിച്ചുനോക്കി വിധിക്കുക.</string>
     <string name="science_tower_of_hanoi_paradigm">ഹനോയ് ഗോപുരം</string>
     <string name="science_tower_of_hanoi_summary">ആസൂത്രണത്തിന്റെ മാനക അളവ്: ലക്ഷ്യത്തിലെത്തും മുമ്പ് പുരോഗതി പിന്നോട്ടാക്കുന്ന നീക്കങ്ങൾ ഈ കടങ്കഥയിൽ വേണ്ടിവരുന്നു.</string>
     <string name="brain_cup_button">Brain Cup ലീഡർബോർഡ്</string>
