@@ -46,7 +46,23 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
           git commit -m "Auto-fix: spotlessApply and updateScreenshots [skip ci]"
-          git push
+          # This job renders every screenshot before it gets here, which takes long enough that
+          # master has often moved underneath it. A bare push then loses the race and fails the
+          # whole run over a rebasable conflict. Rebase and retry, the same way flatpak.yml does.
+          # A real content conflict between two generated trees aborts instead of retrying, so it
+          # surfaces as a legible failure rather than a job stuck mid-rebase.
+          for attempt in 1 2 3; do
+            if ! git pull --rebase origin "${GITHUB_REF_NAME}"; then
+              git rebase --abort || true
+              echo "Rebase against ${GITHUB_REF_NAME} conflicted; not retrying."
+              exit 1
+            fi
+            git push && exit 0
+            echo "Push rejected (attempt ${attempt}); refetching and retrying."
+            sleep 5
+          done
+          echo "Push still rejected after 3 attempts."
+          exit 1
       # Runs after the auto-commit so the images it just laid out count. What is left is the part
       # no task can generate: a language with no supply folder, no listing copy, or copy that Play
       # would reject. Catching that here is what keeps a shipped language from sitting on an

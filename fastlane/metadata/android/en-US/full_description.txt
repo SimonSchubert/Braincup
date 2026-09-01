@@ -91,7 +91,7 @@ Memorize a digit sequence, solve a quick math problem, then recall the digits.
 Tap the animal you have not seen before.
 
 <b>N-Back</b>:
-Shapes stream past one at a time. Tap Match when the shape repeats the one N steps back.
+Tap Match when the shape repeats the one N steps back.
 
 <b>Wordle</b>:
 Guess the hidden five-letter word in six tries.
