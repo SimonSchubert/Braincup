@@ -916,6 +916,8 @@ Perkelk Cow — jis taps Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Skaičiai ir veiksmai</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Kampai, trikampiai ir apskritimai</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Reiškiniai ir lygtys</string>
 
     <string name="learn_shape_guide_title">Figūrų vadovas</string>
     <string name="learn_shape_guide_intro">%1$d figūrų, nupieštų ir įvardytų. Bakstelėk vieną, kad pamatytum ją piešiamą iš naujo.</string>

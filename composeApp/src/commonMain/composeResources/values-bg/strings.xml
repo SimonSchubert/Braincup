@@ -916,6 +916,8 @@ Cow = вярна цифра, грешно място.</string>
     <string name="learn_topic_arithmetic_subtitle">Числа и операции</string>
     <string name="learn_topic_geometry">Геометрия</string>
     <string name="learn_topic_geometry_subtitle">Ъгли, триъгълници и окръжности</string>
+    <string name="learn_topic_algebra">Алгебра</string>
+    <string name="learn_topic_algebra_subtitle">Изрази и уравнения</string>
 
     <string name="learn_shape_guide_title">Справочник на фигурите</string>
     <string name="learn_shape_guide_intro">%1$d фигури, нарисувани и назовани. Докоснете една, за да я видите нарисувана отново.</string>

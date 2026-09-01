@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">الأعداد &amp; العمليات</string>
     <string name="learn_topic_geometry">الهندسة</string>
     <string name="learn_topic_geometry_subtitle">الزوايا &amp; المثلثات &amp; الدوائر</string>
+    <string name="learn_topic_algebra">الجبر</string>
+    <string name="learn_topic_algebra_subtitle">العبارات &amp; المعادلات</string>
 
     <string name="learn_shape_guide_title">دليل الأشكال</string>
     <string name="learn_shape_guide_intro">%1$d شكلاً مرسومة ومسماة. اضغط على أحدها لتراه يُرسم من جديد.</string>

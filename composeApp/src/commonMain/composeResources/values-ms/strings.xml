@@ -914,6 +914,8 @@
     <string name="learn_topic_arithmetic_subtitle">Nombor &amp; operasi</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Sudut, segi tiga &amp; bulatan</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Ungkapan &amp; persamaan</string>
 
     <string name="learn_shape_guide_title">Panduan bentuk</string>
     <string name="learn_shape_guide_intro">%1$d bentuk, dilukis dan dinamakan. Ketik satu untuk melihatnya dilukis semula.</string>

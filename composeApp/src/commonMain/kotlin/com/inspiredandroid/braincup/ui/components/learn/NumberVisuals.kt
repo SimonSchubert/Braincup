@@ -32,7 +32,24 @@ internal fun VisualScope.drawCounters(visual: LearnVisual.Counters) {
     val totalIn = if (visual.merge) revealBeat else 0f
 
     val perRow = max(5, (total + 1) / 2)
-    val radius = minOf(width / (perRow * 3f), height * 0.11f)
+    val groupGap = width * 0.1f
+    val stacksTwoRows = visual.merge && total > perRow
+
+    // Sized off the two layouts the figure actually draws, measured end to end. `width / (perRow
+    // * 3)` counted neither the gaps between groups nor the radius sticking out at each end, so a
+    // six-dot figure ran off both sides of the panel; and holding a one-row figure to the two-row
+    // height cap drew it at a fifth of the panel, the same defect as the right triangle that
+    // reserved a square on each axis. A dot spans 2.6 radii to the next, plus one radius each end.
+    fun radiusForRow(dots: Int, gaps: Float) =
+        (width * 0.92f - gaps) / (2f + 2.6f * (dots - 1).coerceAtLeast(1))
+
+    val apart = radiusForRow(total, (groups.size - 1) * groupGap)
+    val merged = if (!visual.merge) {
+        apart
+    } else {
+        radiusForRow(if (stacksTwoRows) (total + 1) / 2 else total, 0f)
+    }
+    val radius = minOf(apart, merged, height * if (stacksTwoRows) 0.11f else 0.16f)
     val gap = radius * 2.6f
     val rowY = height * if (visual.merge) 0.44f else 0.5f
 
@@ -55,9 +72,12 @@ internal fun VisualScope.drawCounters(visual: LearnVisual.Counters) {
         )
     }
 
-    val groupGap = width * 0.1f
     val groupWidths = groups.map { (it - 1) * gap }
-    val totalWidth = groupWidths.sum() + groupGap * (groups.size - 1)
+    // `groupWidths` measures first dot centre to last dot centre, so the step from one group's
+    // first dot to the next group's is its width plus a dot's spacing plus the gap between groups.
+    // Leaving the dot spacing out of the total shifted the whole figure half a spacing off centre.
+    val stride = gap + groupGap
+    val totalWidth = groupWidths.sum() + stride * (groups.size - 1)
     var cursor = width / 2f - totalWidth / 2f
     var index = 0
 
@@ -80,12 +100,15 @@ internal fun VisualScope.drawCounters(visual: LearnVisual.Counters) {
             factor = 0.11f,
             alpha = (1f - slide).coerceIn(0f, 1f) * appear,
         )
-        cursor += groupWidths[groupIndex] + gap + groupGap
+        cursor += groupWidths[groupIndex] + stride
 
         if (groupIndex < groups.lastIndex) {
             label(
                 text = "+",
-                center = Offset(cursor - gap - groupGap / 2f, rowY),
+                // Halfway between this group's last dot and the next group's first. Measuring it
+                // from the group gap alone put the sign a half-spacing left, on top of the dot it
+                // was meant to sit beside - which a group of one made unmissable.
+                center = Offset(cursor - stride / 2f, rowY),
                 color = ink,
                 factor = 0.12f,
                 alpha = (1f - slide).coerceIn(0f, 1f) * appear,

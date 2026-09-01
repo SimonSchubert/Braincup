@@ -128,6 +128,10 @@ class LearnCatalogTest {
         is LearnVisual.AngleFigure, is LearnVisual.BarChart, is LearnVisual.PieChart,
         is LearnVisual.Pictogram, is LearnVisual.Tally, is LearnVisual.UnitCircleFigure,
         is LearnVisual.Inequality, is LearnVisual.Fraction, is LearnVisual.RatioBar,
+        // An algebra rectangle names the two brackets down its sides and their product in its
+        // cells, so whichever way a question is asked - expand this, or factorise that - one of
+        // the two readings is the answer.
+        is LearnVisual.AlgebraRect,
         -> true
         // An area grid captions itself only when it was asked for a total.
         is LearnVisual.AreaGrid -> showArea || showPerimeter
@@ -135,6 +139,10 @@ class LearnCatalogTest {
         // unknown; `unknown` already replaces the side being asked for with a question mark. It
         // has no `reveal` of its own, so these two are the whole of its answer-hiding.
         is LearnVisual.RightTriangle -> labels && unknown == null
+        // A plot only gives something away when it names it. Roots, a turning point and a point
+        // printed with its coordinates are all values a question can ask the learner to find; the
+        // curve and the unnumbered grid on their own are the situation, not the answer.
+        is LearnVisual.Plot -> namesAValue
         else -> false
     }
 

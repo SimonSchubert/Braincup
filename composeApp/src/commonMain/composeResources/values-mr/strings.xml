@@ -885,6 +885,8 @@
     <string name="learn_topic_arithmetic_subtitle">संख्या &amp; क्रिया</string>
     <string name="learn_topic_geometry">भूमिती</string>
     <string name="learn_topic_geometry_subtitle">कोन, त्रिकोण &amp; वर्तुळे</string>
+    <string name="learn_topic_algebra">बीजगणित</string>
+    <string name="learn_topic_algebra_subtitle">पदावली &amp; समीकरणे</string>
 
     <string name="learn_shape_guide_title">आकार मार्गदर्शक</string>
     <string name="learn_shape_guide_intro">%1$d आकार, काढलेले आणि नाव दिलेले. एकाला स्पर्श कर आणि तो पुन्हा काढताना बघ.</string>

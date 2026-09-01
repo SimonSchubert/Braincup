@@ -916,6 +916,8 @@ Mută Cow — devine Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Numere și operații</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Unghiuri, triunghiuri și cercuri</string>
+    <string name="learn_topic_algebra">Algebră</string>
+    <string name="learn_topic_algebra_subtitle">Expresii și ecuații</string>
 
     <string name="learn_shape_guide_title">Ghidul formelor</string>
     <string name="learn_shape_guide_intro">%1$d forme, desenate și denumite. Atinge una ca să o vezi desenată din nou.</string>

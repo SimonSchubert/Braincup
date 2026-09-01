@@ -914,6 +914,8 @@
     <string name="learn_topic_arithmetic_subtitle">عدد اور اعمال</string>
     <string name="learn_topic_geometry">ہندسیہ</string>
     <string name="learn_topic_geometry_subtitle">زاویے، مثلثیں اور دائرے</string>
+    <string name="learn_topic_algebra">الجبرا</string>
+    <string name="learn_topic_algebra_subtitle">عبارتیں اور مساوات</string>
 
     <string name="learn_shape_guide_title">شکلوں کی رہنمائی</string>
     <string name="learn_shape_guide_intro">%1$d شکلیں، بنی ہوئی اور نام کے ساتھ۔ کسی ایک کو چھوؤ تاکہ دوبارہ بنتی ہوئی دیکھو۔</string>

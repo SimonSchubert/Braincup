@@ -914,6 +914,8 @@
     <string name="learn_topic_arithmetic_subtitle">Tal &amp; räknesätt</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Vinklar, trianglar &amp; cirklar</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Uttryck &amp; ekvationer</string>
 
     <string name="learn_shape_guide_title">Formguide</string>
     <string name="learn_shape_guide_intro">%1$d former, ritade och namngivna. Tryck på en för att se den ritas igen.</string>

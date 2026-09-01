@@ -129,6 +129,14 @@
     <string name="achievementCertGeometryTransformations" translatable="false">CgkIuZrirtIVEAIQRg</string>
     <!-- Full Circle -->
     <string name="achievementCertGeometryCircleTheorems" translatable="false">CgkIuZrirtIVEAIQRw</string>
+    <!-- Algebra. Blank until created in Play Console; store_achievements.rb writes the id back. -->
+    <string name="achievementCertAlgebraExpressions" translatable="false">CgkIuZrirtIVEAIQSg</string>
+    <string name="achievementCertAlgebraLinearEquations" translatable="false">CgkIuZrirtIVEAIQSw</string>
+    <string name="achievementCertAlgebraStraightLineGraphs" translatable="false">CgkIuZrirtIVEAIQTA</string>
+    <string name="achievementCertAlgebraInequalities" translatable="false">CgkIuZrirtIVEAIQTQ</string>
+    <string name="achievementCertAlgebraSimultaneousEquations" translatable="false">CgkIuZrirtIVEAIQTg</string>
+    <string name="achievementCertAlgebraQuadratics" translatable="false">CgkIuZrirtIVEAIQTw</string>
+    <string name="achievementCertAlgebraPowersAndRoots" translatable="false">CgkIuZrirtIVEAIQUA</string>
 
     <!-- Leaderboards -->
     <string name="leaderboardFlagMaster" translatable="false">CgkIuZrirtIVEAIQFw</string>

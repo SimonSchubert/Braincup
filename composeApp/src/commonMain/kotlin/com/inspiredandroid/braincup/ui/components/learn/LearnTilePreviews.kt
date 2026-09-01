@@ -2,6 +2,8 @@ package com.inspiredandroid.braincup.ui.components.learn
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -40,6 +42,7 @@ internal fun TopicTilePreview(topic: MathTopic) {
     when (topic) {
         MathTopic.ARITHMETIC -> OperatorGridPreview()
         MathTopic.GEOMETRY -> PentagonPreview()
+        MathTopic.ALGEBRA -> UnknownSlotPreview()
     }
 }
 
@@ -118,6 +121,29 @@ private fun OperatorGridPreview() {
                     }
                 }
             }
+        }
+    }
+}
+
+/**
+ * The unknown, on a card of its own.
+ *
+ * One letter rather than a grid of them: what separates algebra from the arithmetic tile beside it
+ * is not that it has more symbols but that one of them stands for a number you have not been told.
+ */
+@Composable
+private fun UnknownSlotPreview() {
+    PreviewBox(padding = 22.dp) {
+        PrismCard(
+            face = Primary,
+            facet = PrismFacet.Cell,
+            modifier = Modifier.fillMaxSize(0.78f),
+        ) {
+            Text(
+                text = "x",
+                style = MaterialTheme.typography.displaySmall,
+                color = Color.White,
+            )
         }
     }
 }

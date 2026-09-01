@@ -1133,60 +1133,207 @@ private fun VisualScope.labelWedge(
 }
 
 /** An equation as a balance, with the same blocks lifted off both pans. */
+/** The size an algebra rectangle's side and cell readings are set at. */
+private const val AlgebraLabelFactor = 0.095f
+
+/**
+ * How much longer x is drawn than a one.
+ *
+ * Not to scale, and deliberately not a whole number of ones: the length of x is the thing the
+ * figure must not claim to know, and a side drawn exactly three squares long says it is 3.
+ */
+private const val AlgebraXLength = 2.6f
+
+internal fun VisualScope.drawAlgebraRect(visual: LearnVisual.AlgebraRect) {
+    val leftX = visual.leftX.coerceAtLeast(0)
+    val leftOnes = visual.leftOnes.coerceAtLeast(0)
+    val topX = visual.topX.coerceAtLeast(0)
+    val topOnes = visual.topOnes.coerceAtLeast(0)
+    if ((leftX + leftOnes) == 0 || (topX + topOnes) == 0) return
+
+    // A band is one run of a side: its length, and whether that length is x-es or ones. Each is
+    // pure, so a cell is always exactly one kind of term - x², an x-term, or a number.
+    class Band(val span: Float, val xs: Int, val ones: Int) {
+        val label: String get() = when {
+            ones > 0 -> ones.toString()
+            xs == 1 -> "x"
+            else -> "${xs}x"
+        }
+    }
+
+    val cols = buildList {
+        if (topX > 0) add(Band(topX * AlgebraXLength, topX, 0))
+        if (topOnes > 0) add(Band(topOnes.toFloat(), 0, topOnes))
+    }
+    val rows = buildList {
+        if (leftX > 0) add(Band(leftX * AlgebraXLength, leftX, 0))
+        if (leftOnes > 0) add(Band(leftOnes.toFloat(), 0, leftOnes))
+    }
+
+    val totalW = cols.sumOf { it.span.toDouble() }.toFloat()
+    val totalH = rows.sumOf { it.span.toDouble() }.toFloat()
+    val sideBand = labelBand(rows.maxOf { it.label }, AlgebraLabelFactor)
+    val topBand = labelBand(AlgebraLabelFactor)
+    val scale = min((width * 0.9f - sideBand) / totalW, (height * 0.84f - topBand) / totalH)
+    val w = totalW * scale
+    val h = totalH * scale
+    val left = (width - sideBand - w) / 2f + sideBand
+    val top = (height - topBand - h) / 2f + topBand
+
+    var y = top
+    rows.forEachIndexed { r, row ->
+        var x = left
+        val rowHeight = row.span * scale
+        cols.forEachIndexed { c, col ->
+            val colWidth = col.span * scale
+            // Three kinds of term, three tints, so the picture shows at a glance that the middle
+            // cells of a quadratic are the same kind of thing as each other and not as the corners.
+            val tint = when {
+                row.xs > 0 && col.xs > 0 -> Accent
+                row.xs > 0 || col.xs > 0 -> Accent2
+                else -> Accent3
+            }
+            box(
+                topLeft = Offset(x, y),
+                size = Size(colWidth, rowHeight),
+                fill = tint.copy(alpha = 0.18f),
+                outline = faint,
+                alpha = item(r * cols.size + c, rows.size * cols.size),
+            )
+            val text = when {
+                row.xs > 0 && col.xs > 0 -> (row.xs * col.xs).let { if (it == 1) "x²" else "${it}x²" }
+                row.xs > 0 -> (row.xs * col.ones).let { if (it == 1) "x" else "${it}x" }
+                col.xs > 0 -> (row.ones * col.xs).let { if (it == 1) "x" else "${it}x" }
+                else -> (row.ones * col.ones).toString()
+            }
+            // What each piece comes to is worked out by the figure, so it is the answer green -
+            // and on a question figure it is simply not said, leaving the split to be multiplied.
+            label(
+                text = text,
+                center = Offset(x + colWidth / 2f, y + rowHeight / 2f),
+                color = AnswerInk,
+                factor = AlgebraLabelFactor,
+                alpha = if (visual.reveal) revealBeat else 0f,
+            )
+            x += colWidth
+        }
+        y += rowHeight
+    }
+
+    box(Offset(left, top), Size(w, h), null, ink)
+
+    // The sides are what the question hands over, so they carry the given colour - and on a
+    // question figure they are withheld with everything else, because for a factorising question
+    // the sides *are* the answer.
+    if (!visual.reveal) return
+    var cx = left
+    cols.forEach {
+        labelAbove(it.label, Offset(cx + it.span * scale / 2f, top), Accent, AlgebraLabelFactor)
+        cx += it.span * scale
+    }
+    var cy = top
+    rows.forEach {
+        labelLeftOf(it.label, Offset(left, cy + it.span * scale / 2f), Accent, AlgebraLabelFactor)
+        cy += it.span * scale
+    }
+}
+
 internal fun VisualScope.drawBalance(visual: LearnVisual.Balance) {
-    val center = Offset(width / 2f, height * 0.3f)
-    val beam = width * 0.33f
+    // How many of each kind fit across a pan, and where counting them out stops being a picture
+    // of a number and becomes a worse way of writing one.
+    val xPerRow = 4
+    val onesPerRow = 5
+    val maxCountedOnes = onesPerRow * 3
+
+    fun rowsFor(xs: Int, ones: Int): Int {
+        val xRows = (xs + xPerRow - 1) / xPerRow
+        val oneRows = if (ones > maxCountedOnes) 1 else (ones + onesPerRow - 1) / onesPerRow
+        return (xRows + oneRows).coerceAtLeast(1)
+    }
+
+    val center = Offset(width / 2f, height * 0.17f)
+    val beam = width * 0.32f
+    val panY = center.y + height * 0.50f
+    val rows = maxOf(rowsFor(visual.leftX, visual.leftOnes), rowsFor(visual.rightX, visual.rightOnes))
+
+    // Sized so the widest row stays inside its pan and the tallest stack still clears the beam.
+    // Laying a pan out and hoping is what put nine blocks through the beam and off the panel.
+    val byWidth = width * 0.28f / (onesPerRow * 1.2f)
+    val byHeight = (panY - center.y - labelGap) / (rows * 1.55f)
+    val blockSize = min(min(byWidth, byHeight), height * 0.13f)
+    val removeProgress = revealBeat
+    val plate = blockSize * (onesPerRow * 1.2f) / 2f + blockSize * 0.2f
+
     line(Offset(center.x - beam, center.y), Offset(center.x + beam, center.y), ink, stroke * 1.6f)
-    line(center, Offset(center.x, height * 0.8f), ink, stroke * 1.6f)
+    line(center, Offset(center.x, height * 0.88f), ink, stroke * 1.6f)
     line(
-        Offset(center.x - beam * 0.35f, height * 0.83f),
-        Offset(center.x + beam * 0.35f, height * 0.83f),
+        Offset(center.x - beam * 0.35f, height * 0.9f),
+        Offset(center.x + beam * 0.35f, height * 0.9f),
         ink,
         stroke * 1.6f,
     )
 
-    val blockSize = min(width * 0.055f, height * 0.14f)
-    val removeProgress = revealBeat
-
-    fun drawPan(cx: Float, xBlocks: Int, ones: Int, removed: Int) {
-        val panY = center.y + height * 0.1f
+    fun drawPan(cx: Float, xBlocks: Int, ones: Int, removed: Int, removedX: Int) {
         line(Offset(cx, center.y), Offset(cx, panY), ink, stroke)
-        line(Offset(cx - blockSize * 2.4f, panY), Offset(cx + blockSize * 2.4f, panY), ink, stroke * 1.3f)
+        line(Offset(cx - plate, panY), Offset(cx + plate, panY), ink, stroke * 1.3f)
 
-        var x = cx - (xBlocks + ones) * blockSize * 0.65f
-        repeat(xBlocks) {
+        // Rows stack upward off the pan, the x-blocks underneath because they are the taller piece.
+        val xRows = (xBlocks + xPerRow - 1) / xPerRow
+        repeat(xBlocks) { i ->
+            val row = i / xPerRow
+            val inRow = i % xPerRow
+            val n = if (row == xRows - 1) xBlocks - row * xPerRow else xPerRow
+            val rowWidth = n * blockSize * 1.3f - blockSize * 0.2f
+            val fading = i >= xBlocks - removedX
+            val alpha = if (fading) 1f - removeProgress else 1f
+            val left = cx - rowWidth / 2f + inRow * blockSize * 1.3f
+            val top = panY - blockSize * 1.4f - row * blockSize * 1.55f
+            box(Offset(left, top), Size(blockSize * 1.1f, blockSize * 1.4f), Accent.copy(alpha = 0.6f), ink, alpha)
+            label("x", Offset(left + blockSize * 0.55f, top + blockSize * 0.7f), ink, 0.07f, alpha)
+        }
+
+        val onesBase = panY - xRows * blockSize * 1.55f
+        if (ones > maxCountedOnes) {
+            // A pan holding forty-two ones is a number, not a picture of one.
+            val w = blockSize * (onesPerRow * 1.2f) * 0.8f
             box(
-                topLeft = Offset(x, panY - blockSize * 1.5f),
-                size = Size(blockSize * 1.1f, blockSize * 1.4f),
-                fill = Accent.copy(alpha = 0.6f),
+                topLeft = Offset(cx - w / 2f, onesBase - blockSize * 1.2f),
+                size = Size(w, blockSize * 1.2f),
+                fill = Accent2.copy(alpha = 0.55f),
                 outline = ink,
             )
-            label("x", Offset(x + blockSize * 0.55f, panY - blockSize * 0.8f), ink, 0.075f)
-            x += blockSize * 1.3f
+            label(ones.toString(), Offset(cx, onesBase - blockSize * 0.6f), ink, 0.08f)
+            return
         }
+        val oneRows = (ones + onesPerRow - 1) / onesPerRow
         repeat(ones) { i ->
-            // Blocks being taken from both sides fade out together.
+            val row = i / onesPerRow
+            val inRow = i % onesPerRow
+            val n = if (row == oneRows - 1) ones - row * onesPerRow else onesPerRow
+            val rowWidth = n * blockSize * 1.2f - blockSize * 0.2f
             val fading = i >= ones - removed
             box(
-                topLeft = Offset(x, panY - blockSize * 1.2f),
+                topLeft = Offset(
+                    cx - rowWidth / 2f + inRow * blockSize * 1.2f,
+                    onesBase - blockSize - row * blockSize * 1.2f,
+                ),
                 size = Size(blockSize, blockSize),
                 fill = Accent2.copy(alpha = 0.55f),
                 outline = ink,
                 alpha = if (fading) 1f - removeProgress else 1f,
             )
-            x += blockSize * 1.2f
         }
     }
 
-    drawPan(center.x - beam, visual.leftX, visual.leftOnes, visual.remove)
-    drawPan(center.x + beam, 0, visual.rightOnes, visual.remove)
+    drawPan(center.x - beam, visual.leftX, visual.leftOnes, visual.remove, visual.removeX)
+    drawPan(center.x + beam, visual.rightX, visual.rightOnes, visual.remove, visual.removeX)
 
     if (visual.remove > 0) {
         label(
             text = strings.takeFromBothSidesTemplate.fillIn(visual.remove),
-            center = Offset(width / 2f, height * 0.94f),
+            center = Offset(width / 2f, height * 0.97f),
             color = Accent2,
-            factor = 0.085f,
+            factor = 0.08f,
             alpha = removeProgress,
         )
     }

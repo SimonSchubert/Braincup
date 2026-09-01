@@ -885,6 +885,8 @@
     <string name="learn_topic_arithmetic_subtitle">સંખ્યા &amp; ક્રિયાઓ</string>
     <string name="learn_topic_geometry">ભૂમિતિ</string>
     <string name="learn_topic_geometry_subtitle">ખૂણા, ત્રિકોણ &amp; વર્તુળ</string>
+    <string name="learn_topic_algebra">બીજગણિત</string>
+    <string name="learn_topic_algebra_subtitle">પદાવલિ &amp; સમીકરણ</string>
 
     <string name="learn_shape_guide_title">આકાર માર્ગદર્શિકા</string>
     <string name="learn_shape_guide_intro">%1$d આકારો, દોરેલા અને નામ સાથે. એકને સ્પર્શ કરો અને ફરી દોરાતો જુઓ.</string>

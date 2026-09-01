@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">Số &amp; phép tính</string>
     <string name="learn_topic_geometry">Hình học</string>
     <string name="learn_topic_geometry_subtitle">Góc, tam giác &amp; đường tròn</string>
+    <string name="learn_topic_algebra">Đại số</string>
+    <string name="learn_topic_algebra_subtitle">Biểu thức &amp; phương trình</string>
 
     <string name="learn_shape_guide_title">Sổ tay hình</string>
     <string name="learn_shape_guide_intro">%1$d hình, được vẽ và gọi tên. Chạm vào một hình để xem vẽ lại.</string>

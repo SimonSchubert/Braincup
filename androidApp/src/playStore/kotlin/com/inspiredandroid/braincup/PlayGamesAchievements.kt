@@ -461,6 +461,13 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
  * is what catches it.
  */
 private fun learnCertificateResIdFor(unitId: String): Int? = when (unitId) {
+    "algebra-expressions" -> R.string.achievementCertAlgebraExpressions
+    "algebra-linear-equations" -> R.string.achievementCertAlgebraLinearEquations
+    "algebra-straight-line-graphs" -> R.string.achievementCertAlgebraStraightLineGraphs
+    "algebra-inequalities" -> R.string.achievementCertAlgebraInequalities
+    "algebra-simultaneous-equations" -> R.string.achievementCertAlgebraSimultaneousEquations
+    "algebra-quadratics" -> R.string.achievementCertAlgebraQuadratics
+    "algebra-powers-and-roots" -> R.string.achievementCertAlgebraPowersAndRoots
     "arithmetic-counting"        -> R.string.achievementCertArithmeticCounting
     "arithmetic-multiplication"  -> R.string.achievementCertArithmeticMultiplication
     "arithmetic-fractions"       -> R.string.achievementCertArithmeticFractions

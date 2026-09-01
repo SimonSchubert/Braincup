@@ -916,6 +916,8 @@ Bog Cow — éireoidh Bull de.</string>
     <string name="learn_topic_arithmetic_subtitle">Uimhreacha agus oibríochtaí</string>
     <string name="learn_topic_geometry">Céimseata</string>
     <string name="learn_topic_geometry_subtitle">Uillinneacha, triantáin agus ciorcail</string>
+    <string name="learn_topic_algebra">Ailgéabar</string>
+    <string name="learn_topic_algebra_subtitle">Slonnanna agus cothromóidí</string>
 
     <string name="learn_shape_guide_title">Treoir na gcruthanna</string>
     <string name="learn_shape_guide_intro">%1$d cruth, tarraingthe agus ainmnithe. Tapáil ceann acu le hé a fheiceáil á tharraingt arís.</string>

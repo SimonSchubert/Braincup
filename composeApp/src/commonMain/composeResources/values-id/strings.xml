@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">Bilangan &amp; operasi</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Sudut, segitiga &amp; lingkaran</string>
+    <string name="learn_topic_algebra">Aljabar</string>
+    <string name="learn_topic_algebra_subtitle">Bentuk aljabar &amp; persamaan</string>
 
     <string name="learn_shape_guide_title">Panduan bangun</string>
     <string name="learn_shape_guide_intro">%1$d bangun, tergambar dan bernama. Ketuk salah satu untuk melihatnya digambar lagi.</string>

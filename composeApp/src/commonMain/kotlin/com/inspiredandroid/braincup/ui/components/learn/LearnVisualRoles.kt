@@ -165,6 +165,23 @@ fun LearnVisual.roles(): FigureRoles = when (this) {
         )
     }
 
+    // Two piles and what they come to, which is the same shape as a ten-frame. Three or more
+    // groups are equal partners with no answer among them - the ratio-bar case - so they abstain.
+    //
+    // A balance is deliberately not here even though it looks similar. Its numbers do not divide:
+    // in "3x + 4 = 19" every number is part of the equation the question hands over, the 4 is both
+    // a term on the pan and the amount taken off both sides, and the x-blocks are not a number at
+    // all. Naming any of them would tint a value to mean something the picture never said.
+    is LearnVisual.Counters -> if (groups.size == 2) {
+        FigureRoles(
+            given = setOf(groups[0].toString()),
+            working = setOf(groups[1].toString()),
+            answer = if (merge && reveal) setOf(groups.sum().toString()) else emptySet(),
+        )
+    } else {
+        FigureRoles()
+    }
+
     // Everything else says nothing. See the doc above: silence is the safe answer.
     else -> FigureRoles()
 }

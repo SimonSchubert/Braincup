@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">Sayılar &amp; işlemler</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Açılar, üçgenler &amp; çemberler</string>
+    <string name="learn_topic_algebra">Cebir</string>
+    <string name="learn_topic_algebra_subtitle">İfadeler &amp; denklemler</string>
 
     <string name="learn_shape_guide_title">Şekil rehberi</string>
     <string name="learn_shape_guide_intro">%1$d şekil, çizilmiş ve adlandırılmış. Birine dokun, yeniden çizilsin.</string>

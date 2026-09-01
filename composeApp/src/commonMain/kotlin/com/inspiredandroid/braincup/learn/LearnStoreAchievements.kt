@@ -47,6 +47,13 @@ object LearnStoreAchievements {
         "geometry-similarity",
         "geometry-transformations",
         "geometry-circle-theorems",
+        "algebra-expressions",
+        "algebra-linear-equations",
+        "algebra-straight-line-graphs",
+        "algebra-inequalities",
+        "algebra-simultaneous-equations",
+        "algebra-quadratics",
+        "algebra-powers-and-roots",
     )
 
     /** The shared part of both stores' ids, e.g. "arithmetic-surds" -> "cert_arithmetic_surds". */

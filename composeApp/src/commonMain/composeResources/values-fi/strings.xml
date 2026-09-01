@@ -916,6 +916,8 @@ Siirrä Cow — siitä tulee Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Luvut ja laskutoimitukset</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Kulmat, kolmiot ja ympyrät</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Lausekkeet ja yhtälöt</string>
 
     <string name="learn_shape_guide_title">Muoto-opas</string>
     <string name="learn_shape_guide_intro">%1$d muotoa piirrettynä ja nimettynä. Napauta yhtä, niin näet sen piirtyvän uudelleen.</string>

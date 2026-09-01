@@ -885,6 +885,8 @@
     <string name="learn_topic_arithmetic_subtitle">സംഖ്യ &amp; ക്രിയകൾ</string>
     <string name="learn_topic_geometry">ജ്യാമിതി</string>
     <string name="learn_topic_geometry_subtitle">കോണുകൾ, ത്രികോണങ്ങൾ &amp; വൃത്തങ്ങൾ</string>
+    <string name="learn_topic_algebra">ബീജഗണിതം</string>
+    <string name="learn_topic_algebra_subtitle">വ്യഞ്ജകങ്ങൾ &amp; സമവാക്യങ്ങൾ</string>
 
     <string name="learn_shape_guide_title">രൂപ സഹായി</string>
     <string name="learn_shape_guide_intro">%1$d രൂപങ്ങൾ, വരച്ചതും പേരിട്ടതും. ഒന്നിൽ തൊട്ട് വീണ്ടും വരയ്ക്കുന്നത് കാണുക.</string>

@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">數與運算</string>
     <string name="learn_topic_geometry">幾何</string>
     <string name="learn_topic_geometry_subtitle">角度、三角形與圓</string>
+    <string name="learn_topic_algebra">代數</string>
+    <string name="learn_topic_algebra_subtitle">運算式與方程式</string>
 
     <string name="learn_shape_guide_title">圖形指南</string>
     <string name="learn_shape_guide_intro">%1$d 個圖形，畫出來並標上名字。點一下，再看它畫一遍。</string>

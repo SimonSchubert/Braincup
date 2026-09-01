@@ -916,6 +916,8 @@ Premakni Cow — postal bo Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Števila in operacije</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Koti, trikotniki in krožnice</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Izrazi in enačbe</string>
 
     <string name="learn_shape_guide_title">Vodnik po likih</string>
     <string name="learn_shape_guide_intro">%1$d likov, narisanih in poimenovanih. Dotakni se enega, da ga vidiš narisanega znova.</string>

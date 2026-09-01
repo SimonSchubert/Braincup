@@ -916,6 +916,8 @@ Cow = тачна цифра, погрешно место.</string>
     <string name="learn_topic_arithmetic_subtitle">Бројеви и операције</string>
     <string name="learn_topic_geometry">Геометрија</string>
     <string name="learn_topic_geometry_subtitle">Углови, троуглови и кругови</string>
+    <string name="learn_topic_algebra">Алгебра</string>
+    <string name="learn_topic_algebra_subtitle">Изрази и једначине</string>
 
     <string name="learn_shape_guide_title">Водич кроз облике</string>
     <string name="learn_shape_guide_intro">%1$d облика, нацртаних и именованих. Додирни један да га видиш поново нацртаног.</string>

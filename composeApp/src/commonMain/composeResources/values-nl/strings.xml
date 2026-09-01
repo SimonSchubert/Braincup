@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">Getallen &amp; bewerkingen</string>
     <string name="learn_topic_geometry">Meetkunde</string>
     <string name="learn_topic_geometry_subtitle">Hoeken, driehoeken &amp; cirkels</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Uitdrukkingen &amp; vergelijkingen</string>
 
     <string name="learn_shape_guide_title">Vormengids</string>
     <string name="learn_shape_guide_intro">%1$d vormen, getekend en benoemd. Tik er een aan om hem opnieuw te tekenen.</string>

@@ -360,7 +360,9 @@ class GameController(
         navController.navigate(
             when (topic) {
                 MathTopic.GEOMETRY -> LearnShapeGuide
-                MathTopic.ARITHMETIC -> LearnRulesGuide
+                // Algebra reads the same rules guide: it is written in letters already -
+                // a + b = b + a, a x (b + c) = a x b + a x c - so it is the algebra reference too.
+                MathTopic.ARITHMETIC, MathTopic.ALGEBRA -> LearnRulesGuide
             },
         )
     }

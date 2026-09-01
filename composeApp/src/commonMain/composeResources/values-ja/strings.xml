@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">数と計算</string>
     <string name="learn_topic_geometry">図形</string>
     <string name="learn_topic_geometry_subtitle">角、三角形、円</string>
+    <string name="learn_topic_algebra">代数</string>
+    <string name="learn_topic_algebra_subtitle">式と方程式</string>
 
     <string name="learn_shape_guide_title">図形ガイド</string>
     <string name="learn_shape_guide_intro">%1$d 個の図形を描いて名前をつけたもの。タップするともう一度描かれる。</string>

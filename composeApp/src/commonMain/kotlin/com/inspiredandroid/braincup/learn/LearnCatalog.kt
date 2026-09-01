@@ -1,5 +1,6 @@
 package com.inspiredandroid.braincup.learn
 
+import com.inspiredandroid.braincup.learn.content.AlgebraContent
 import com.inspiredandroid.braincup.learn.content.ArithmeticContent
 import com.inspiredandroid.braincup.learn.content.GeometryContent
 
@@ -15,6 +16,7 @@ object LearnCatalog {
     private val byTopic: Map<MathTopic, List<LearnUnit>> = mapOf(
         MathTopic.ARITHMETIC to ArithmeticContent.units,
         MathTopic.GEOMETRY to GeometryContent.units,
+        MathTopic.ALGEBRA to AlgebraContent.units,
     )
 
     /** Every sub-topic, in menu order: topic by topic, easiest first inside each. */

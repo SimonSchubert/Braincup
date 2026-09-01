@@ -29,7 +29,11 @@ import xml.etree.ElementTree as ET
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 LEARN = ROOT / "composeApp/src/commonMain/kotlin/com/inspiredandroid/braincup/learn"
 STRINGS = ROOT / "composeApp/src/commonMain/composeResources/values/strings.xml"
-CONTENT = [LEARN / "content/ArithmeticContent.kt", LEARN / "content/GeometryContent.kt"]
+CONTENT = [
+    LEARN / "content/AlgebraContent.kt",
+    LEARN / "content/ArithmeticContent.kt",
+    LEARN / "content/GeometryContent.kt",
+]
 
 STEP_START = re.compile(r"^\s*(Concept|Worked|Choice|Numeric|QuizQuestion)\(")
 LESSON_ID = re.compile(r'^\s*id = "([^"]+)",$')

@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">اعداد &amp; عملیات</string>
     <string name="learn_topic_geometry">هندسه</string>
     <string name="learn_topic_geometry_subtitle">زاویه‌ها، مثلث‌ها &amp; دایره‌ها</string>
+    <string name="learn_topic_algebra">جبر</string>
+    <string name="learn_topic_algebra_subtitle">عبارت‌ها &amp; معادله‌ها</string>
 
     <string name="learn_shape_guide_title">راهنمای شکل‌ها</string>
     <string name="learn_shape_guide_intro">%1$d شکل، رسم‌شده و نام‌گذاری‌شده. روی یکی بزن تا دوباره رسم شود.</string>

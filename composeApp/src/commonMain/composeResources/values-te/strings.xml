@@ -885,6 +885,8 @@
     <string name="learn_topic_arithmetic_subtitle">సంఖ్యలు &amp; పరిక్రియలు</string>
     <string name="learn_topic_geometry">జ్యామితి</string>
     <string name="learn_topic_geometry_subtitle">కోణాలు, త్రిభుజాలు &amp; వృత్తాలు</string>
+    <string name="learn_topic_algebra">బీజగణితం</string>
+    <string name="learn_topic_algebra_subtitle">వ్యంజకాలు &amp; సమీకరణాలు</string>
 
     <string name="learn_shape_guide_title">ఆకార మార్గదర్శి</string>
     <string name="learn_shape_guide_intro">%1$d ఆకారాలు, గీసినవి మరియు పేరు పెట్టినవి. ఒకదాన్ని తాకి మళ్లీ గీయడం చూడు.</string>

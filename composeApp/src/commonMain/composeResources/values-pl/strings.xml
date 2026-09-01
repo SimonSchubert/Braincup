@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">Liczby &amp; działania</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Kąty, trójkąty &amp; okręgi</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Wyrażenia &amp; równania</string>
 
     <string name="learn_shape_guide_title">Przewodnik po figurach</string>
     <string name="learn_shape_guide_intro">%1$d figur, narysowanych i nazwanych. Dotknij jednej, aby zobaczyć ją rysowaną od nowa.</string>

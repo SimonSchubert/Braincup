@@ -916,6 +916,8 @@ Premjesti Cow — postat će Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Brojevi i operacije</string>
     <string name="learn_topic_geometry">Geometrija</string>
     <string name="learn_topic_geometry_subtitle">Kutovi, trokuti i kružnice</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Izrazi i jednadžbe</string>
 
     <string name="learn_shape_guide_title">Vodič kroz oblike</string>
     <string name="learn_shape_guide_intro">%1$d oblika, nacrtanih i imenovanih. Dodirni jedan da ga vidiš ponovno nacrtanog.</string>

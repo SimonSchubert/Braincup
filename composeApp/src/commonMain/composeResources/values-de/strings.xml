@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">Zahlen &amp; Rechenarten</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Winkel, Dreiecke &amp; Kreise</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Terme &amp; Gleichungen</string>
 
     <string name="learn_shape_guide_title">Formen-Übersicht</string>
     <string name="learn_shape_guide_intro">%1$d Formen, gezeichnet und benannt. Tippe eine an, um sie erneut zu zeichnen.</string>

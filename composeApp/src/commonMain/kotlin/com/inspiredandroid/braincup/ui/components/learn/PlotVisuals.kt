@@ -38,6 +38,10 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
     // Every name on this figure is set off its own marker rather than off the panel, so the plate
     // it sits on clears the disc it belongs to.
     val markerGap = MarkerRadius * stroke + labelGap * 0.4f
+    // What a marker is allowed to print. A root, a turning point and a point's coordinates are
+    // values the learner is asked to read off, so on a question figure they animate in as usual
+    // and then say nothing. The curve, the grid and the discs themselves are the situation.
+    val named = if (visual.reveal) revealBeat else 0f
     // Symmetric margins: the axes are the middle of the frame, so the frame has to be the middle
     // of the panel. Reaching further right than left put the whole grid off centre by a margin's
     // worth for the sake of an axis letter that sits inside it anyway.
@@ -132,14 +136,14 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
                 listOf((-quadratic.b - sqrt) / (2 * quadratic.a), (-quadratic.b + sqrt) / (2 * quadratic.a))
                     .filter { it in X_MIN..X_MAX }
                     .forEach { root ->
-                        dot(Offset(px(root), py(0f)), MarkerRadius * stroke, Accent2, alpha = revealBeat)
+                        dot(Offset(px(root), py(0f)), MarkerRadius * stroke, Accent2, alpha = named)
                         chipOutside(
                             text = formatDecimal(root.toDouble()),
                             at = Offset(px(root), py(0f)),
                             outward = Offset(0f, 1f),
                             color = Accent2,
                             factor = MarkerLabelFactor,
-                            alpha = revealBeat,
+                            alpha = named,
                             gap = markerGap,
                         )
                     }
@@ -154,14 +158,14 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
             // Computed directly: a quadratic always has a value, unlike the nullable log curve.
             val vy = quadratic.a * vx * vx + quadratic.b * vx + quadratic.c
             if (vx in X_MIN..X_MAX && vy in Y_MIN..Y_MAX) {
-                dot(Offset(px(vx), py(vy)), MarkerRadius * stroke, Accent2, alpha = revealBeat)
+                dot(Offset(px(vx), py(vy)), MarkerRadius * stroke, Accent2, alpha = named)
                 chipOutside(
                     text = "(${formatDecimal(vx.toDouble())}, ${formatDecimal(vy.toDouble())})",
                     at = Offset(px(vx), py(vy)),
                     outward = Offset(0f, 1f),
                     color = Accent2,
                     factor = MarkerLabelFactor,
-                    alpha = revealBeat,
+                    alpha = named,
                     gap = markerGap,
                 )
             }
@@ -169,11 +173,12 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
     }
 
     visual.points.forEach { point ->
-        val alpha = revealBeat
         val at = Offset(px(point.x), py(point.y))
-        dot(at, MarkerRadius * stroke, Accent2, alpha = alpha)
+        // The disc marks a place the question points at, so it is drawn either way; only its
+        // name is withheld, because a printed coordinate is the answer to "where is this?".
+        dot(at, MarkerRadius * stroke, Accent2, alpha = revealBeat)
         point.label?.let {
-            chipOutside(it, at, Offset(0f, -1f), Accent2, MarkerLabelFactor, alpha, markerGap)
+            chipOutside(it, at, Offset(0f, -1f), Accent2, MarkerLabelFactor, named, markerGap)
         }
     }
 }

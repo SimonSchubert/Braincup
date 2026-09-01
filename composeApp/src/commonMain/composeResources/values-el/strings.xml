@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">Αριθμοί &amp; πράξεις</string>
     <string name="learn_topic_geometry">Γεωμετρία</string>
     <string name="learn_topic_geometry_subtitle">Γωνίες, τρίγωνα &amp; κύκλοι</string>
+    <string name="learn_topic_algebra">Άλγεβρα</string>
+    <string name="learn_topic_algebra_subtitle">Παραστάσεις &amp; εξισώσεις</string>
 
     <string name="learn_shape_guide_title">Οδηγός σχημάτων</string>
     <string name="learn_shape_guide_intro">%1$d σχήματα, σχεδιασμένα και ονομασμένα. Πάτησε ένα για να το δεις να σχεδιάζεται ξανά.</string>

@@ -3,13 +3,14 @@
 Working document for the Learn Math section's first release. It survives between Claude
 sessions: read it before touching anything under `learn/`, and update it as work lands.
 
-Last updated: 2026-08-27 (render check closed out; see section 7)
+Last updated: 2026-09-01 (Algebra being unparked; see section 10)
 
 ---
 
 ## 1. Release scope
 
-The first release ships **two topics**: Arithmetic and Geometry. The other six are parked.
+The first release shipped **two topics**: Arithmetic and Geometry. **Algebra is being unparked
+on top of that** (section 10); the other five stay parked.
 
 | Topic | v1 | Sub-topics | State |
 |---|---|---|---|
@@ -17,7 +18,7 @@ The first release ships **two topics**: Arithmetic and Geometry. The other six a
 | Geometry | **ships** | 12 | all ready bar the render check |
 | Measurement | parked | 0 | perimeter + area moved into Geometry, rest cut |
 | Data & Probability | parked | 3 | grade slices |
-| Algebra | parked | 7 | fully reworked, parked anyway |
+| Algebra | **shipping** | 7 | unparking in progress, section 10 |
 | Trigonometry | parked | 2 | grade slices |
 | Pre-calculus | parked | 2 | grade slices |
 | Calculus | parked | 1 | grade slices |
@@ -697,3 +698,98 @@ open bar the two rows above, both of which are decisions rather than defects.
 | 2026-08-26 | Readiness pass: `arithmetic-multiplication`, `arithmetic-fractions` and `arithmetic-decimals` reviewed and marked ready, four more defects fixed. 4 of 6 Arithmetic sub-topics done; units 5 and 6 are blocked on open decision 1. |
 | 2026-08-26 | Readiness pass started. `arithmetic-counting` reviewed and marked ready: four defects fixed (see section 4). Corrected a wrong lead in this document: low Tinted / Formula-led counts are a property of the figures a unit uses, not a sign of unfinished work. |
 | 2026-08-26 | Restructure committed as `b2a56c22`; `learn-parked` branched there. Parking executed: 6 content files, 6 `MathTopic` entries, 6 tile sketches and 540 locale strings removed; perimeter and area moved into Geometry as `geometry-perimeter-and-area`; previews and tests repointed at shipped topics; `RATCHET` 50 -> 15 and verified tight at exactly 15. `desktopTest` green apart from the by-design `NurikabeMeasureTest.measure`. Geometry rework not started. |
+
+---
+
+## 10. Algebra (unparking, 2026-09-01)
+
+Decided 2026-09-01: Algebra is the third topic. Not because the draft was ready - it was not -
+but because the app already promises it. `learn_level_g68_subtitle` reads "Ages 11-14 · ratio,
+percent and first algebra" in all 51 locales, and until now that named content that did not exist.
+
+**The parked draft is a curriculum skeleton, not a checkout.** It predates the strings.xml
+migration, the explanation house style, the colour code and `roles()`, and its figures were drawn
+to fill slots rather than to pose questions - a 3x4 dot array under "3n is short for n + n + n", a
+number line drawing 4 + 5 under a question about a letter. The ladder of seven subjects and the
+lesson ids are kept; the content is authored fresh to the bar in section 3.
+
+### Figure work done first (section 3, items 3 and 7)
+
+| What | Why |
+|---|---|
+| **`LearnVisual.Plot` gained `reveal`** | It gated its root, vertex and point chips on `revealBeat`, an animation stage, so a question plot always printed its own answer. `namesAValue` now feeds `canCaptionItsResult()`, so the spoiler guard covers plots at last. A point *name* ("A", "A'") is not a value; a label carrying a digit is. |
+| **`drawBalance` lays its blocks in rows** | It laid every unit block in one row at 1.2 pitch inside a pan 4.8 wide, so past about six the pan overran and the two pans collided. Now four per row, and past twelve a single plate carrying the numeral: forty-two ones is a number, not a picture of one. |
+| **New `LearnVisual.AlgebraRect`** | The area model of a product. `AreaGrid` counts unit squares and captions itself in cm², and a side of length x has no unit-square count - the same reason `RatioBar` exists rather than a `Fraction` captioning 1 : 4 as "1/5". It carries expanding and factorising, and a 2x2 split carries quadratics. |
+| **`roles()` for `Counters`** | Two piles and their total, the same shape as a ten-frame, so `textTakesItsColoursFromTheFigureBesideIt` actually checks the tinting instead of passing vacuously. **`Balance` deliberately abstains**: in "3x + 4 = 19" every number is part of the given equation, the 4 is both a term and the amount removed, and the x-blocks are not a number at all. |
+
+**The ratchet has no headroom.** `MaxStepsWithoutAFigure = 13` and the shipped catalog sits at
+exactly 13 of 528. Every one of Algebra's steps must carry a figure, which is what makes
+`AlgebraRect` mandatory rather than a nicety.
+
+### Registration, and what the compiler finds for you
+
+Adding `MathTopic.ALGEBRA` breaks **three** exhaustive `when`s at once - `navigateToLearnGuide`,
+`LearnGuideButton` and `TopicTilePreview`. Both guides point at `LearnRulesGuide`, which needed no
+new content: it is written in letters already (`a + b = b + a`, `a x (b + c) = a x b + a x c`).
+
+Not found by the compiler, and each one a silent failure:
+
+* `learn_algebra_` added to the pending-translation prefix list, which is **duplicated across
+  three scripts** (`check_localizations.py`, `learn_translate.py`, `learn_text_fit.py`). Without
+  it every Algebra key counts as *missing* rather than *pending* and the check fails.
+* `AlgebraContent.kt` added to `CONTENT` in `learn_number_coupling.py`, or Algebra is ignored.
+* `algebra-` added to `group_of()` and `GROUP_ORDER` in `learn_render_index.py`, or its frames
+  land under "Other".
+* `LearnStoreAchievementsTest` asserted `assertNull(...cert_algebra_linear_equations)`; repointed
+  at a still-parked topic.
+* `learn_topic_algebra` and `_subtitle` are **not** a pending prefix, so they are hard failures in
+  all 51 locales. 44 restored from `learn-parked`; the seven Indic locales added after the
+  snapshot (gu, kn, ml, mr, pa, ta, te) were written fresh.
+
+### Status
+
+| # | Unit id | Title | Level | Status |
+|---|---|---|---|---|
+| 1 | `algebra-expressions` | Expressions and variables | g68 | **authored** |
+| 2 | `algebra-linear-equations` | Linear equations | g68 | **authored** |
+| 3 | `algebra-straight-line-graphs` | Straight-line graphs | g68 | **authored** |
+| 4 | `algebra-inequalities` | Inequalities | g68 | **authored** |
+| 5 | `algebra-simultaneous-equations` | Simultaneous equations | g910 | **authored** |
+| 6 | `algebra-quadratics` | Quadratics | g910 | **authored** |
+| 7 | `algebra-powers-and-roots` | Powers and roots | g910 | **authored** |
+
+21 lessons, 126 steps, 42 test questions, 168 figures - one on every step, because the ratchet
+has none to spare. Every answer was checked by hand and the correct option spread evenly across
+all four slots; it had clustered at the first, which is a pattern a learner can ride without
+reading the maths.
+
+**Readiness items 1 to 8 hold. Item 9, the render check, is outstanding for the whole topic** -
+this is the one thing between here and a release candidate, exactly as it was for the other two.
+
+Two figure limits found while authoring, both worth knowing before adding a unit:
+
+* **`Plot` draws x and y over -3..3 only.** A curve, root or vertex outside is silently not
+  drawn, and a figure that renders empty passes every test. `y = x² - 4` has its vertex a whole
+  unit below the floor and comes out as two disconnected arms. Every curve here is chosen to fit.
+* **A `Steps` ladder must ascend.** It lays its terms out in list order at even spacing and the
+  hop arrows always point right, so a descending ladder draws right-pointing arrows over falling
+  numbers.
+
+Translation is deferred to release time, as everywhere else in this section: a missing catalog key
+falls back to English and the check counts it as pending.
+
+### Store achievements
+
+All seven are wired in code: `certifiedUnitIds`, seven new shapes and `MANIFEST` rows in
+`generate.py` (icons **73-79** - `media/achievements/README.md` says the block continues at 72,
+which is stale, because 72 is already Mental Flex), `CERTIFICATES` in `store_achievements.rb`,
+seven blank ids in `play_games.xml` and seven arms in `learnCertificateResIdFor`.
+
+**Outstanding, and manual:** run `ruby scripts/store_achievements.rb --set certificates --execute`
+to create them in both stores, then **attach the seven Play Games icons by hand in Play Console** -
+the Games Configuration API has no image upload method, so the script flags those rows rather than
+filling them. Game Center takes its icons through the script. Points go 670 of 1000.
+
+Three shapes were drawn and thrown away before the set worked, all for the same reason - one
+closed outline cannot hold two separate rings: a bracket *pair* came out as an annulus, nested
+squares as a spiral, and a level beam on a fulcrum rendered as the same tilted T as `BALANCE`.

@@ -357,8 +357,53 @@ sealed interface LearnVisual {
         override val reveal: Boolean = true,
     ) : LearnVisual
 
-    /** An equation as a balance: [leftX] x-blocks plus [leftOnes] against [rightOnes]. */
-    data class Balance(val leftX: Int, val leftOnes: Int, val rightOnes: Int, val remove: Int = 0) : LearnVisual
+    /**
+     * The area model of a product: a rectangle whose two sides are each written as some number of
+     * x plus some ones, split into the parts the product multiplies out to.
+     *
+     * `3(x + 4)` is a side of 3 against a side of x + 4, and the two cells it splits into are 3x
+     * and 12 - the expansion, drawn. `(x + 2)(x + 3)` splits into four, and the two middle cells
+     * are the 5x a learner meeting quadratics keeps losing.
+     *
+     * This exists rather than borrowing [AreaGrid] because an area grid counts unit squares and
+     * captions itself in cm². A side of length x has no unit-square count, and pretending it does
+     * is the exact confusion an algebra area model is there to clear up - the same reason
+     * [RatioBar] exists rather than a [Fraction] captioning 1 : 4 as "1/5".
+     */
+    data class AlgebraRect(
+        val leftX: Int = 0,
+        val leftOnes: Int = 1,
+        val topX: Int = 1,
+        val topOnes: Int = 0,
+        /**
+         * Whether the figure prints any of its numbers.
+         *
+         * It covers the side labels as well as the cell products, because the two are the same
+         * product read the other way round: a factorising question whose figure still labelled
+         * its sides "x", "2" and "4" had spelled out `(x + 2)(x + 4)` while hiding only the
+         * pieces. A question figure draws the split and says nothing.
+         */
+        override val reveal: Boolean = true,
+    ) : LearnVisual
+
+    /**
+     * An equation as a balance: [leftX] x-blocks plus [leftOnes] against [rightX] plus [rightOnes].
+     *
+     * [rightX] is what makes "letters on both sides" drawable. Without it the figure could only
+     * show an equation that had already been collected onto one pan, which is the step the lesson
+     * is about rather than something it can assume.
+     *
+     * [remove] fades the same number of unit blocks off both pans; [removeX] does the same for the
+     * x-blocks, which is the move that collects the letters.
+     */
+    data class Balance(
+        val leftX: Int,
+        val leftOnes: Int,
+        val rightOnes: Int,
+        val rightX: Int = 0,
+        val remove: Int = 0,
+        val removeX: Int = 0,
+    ) : LearnVisual
 
     // --- Data -----------------------------------------------------------------------------
 
@@ -418,7 +463,25 @@ sealed interface LearnVisual {
         val areaTo: Float? = null,
         val markRoots: Boolean = false,
         val markVertex: Boolean = false,
-    ) : LearnVisual
+        override val reveal: Boolean = true,
+    ) : LearnVisual {
+        /**
+         * Whether this plot names a value the learner is meant to work out for themselves.
+         *
+         * Only the two markers the figure *derives* count. A root and a turning point are read off
+         * the curve, so printing them answers the question; the curve and the unnumbered grid on
+         * their own are the situation, not the answer.
+         *
+         * A **point label is not counted**, even one carrying coordinates. It is usually how the
+         * question says which point it means - "translate the point (2, 1) by (1, -2)" has to draw
+         * that point and name it - and a rule that flagged those would call every question that
+         * states its own starting point a spoiler. Withholding one is still available through
+         * [reveal], which hides every name on the figure; it is a judgement for the author rather
+         * than something the shape of the data can settle.
+         */
+        val namesAValue: Boolean
+            get() = markRoots || markVertex
+    }
 
     /** Unit circle with the radius at [degrees] and its sine and cosine legs. */
     data class UnitCircleFigure(

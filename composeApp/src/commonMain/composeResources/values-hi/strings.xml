@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">संख्याएँ &amp; संक्रियाएँ</string>
     <string name="learn_topic_geometry">ज्यामिति</string>
     <string name="learn_topic_geometry_subtitle">कोण, त्रिभुज &amp; वृत्त</string>
+    <string name="learn_topic_algebra">बीजगणित</string>
+    <string name="learn_topic_algebra_subtitle">व्यंजक &amp; समीकरण</string>
 
     <string name="learn_shape_guide_title">आकृति गाइड</string>
     <string name="learn_shape_guide_intro">%1$d आकृतियाँ, बनी हुई और नाम के साथ। किसी एक को छुओ और उसे फिर से बनते देखो।</string>

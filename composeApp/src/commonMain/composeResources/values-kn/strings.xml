@@ -885,6 +885,8 @@
     <string name="learn_topic_arithmetic_subtitle">ಸಂಖ್ಯೆ &amp; ಕ್ರಿಯೆಗಳು</string>
     <string name="learn_topic_geometry">ರೇಖಾಗಣಿತ</string>
     <string name="learn_topic_geometry_subtitle">ಕೋನ, ತ್ರಿಕೋನ &amp; ವೃತ್ತ</string>
+    <string name="learn_topic_algebra">ಬೀಜಗಣಿತ</string>
+    <string name="learn_topic_algebra_subtitle">ಬೀಜೋಕ್ತಿ &amp; ಸಮೀಕರಣ</string>
 
     <string name="learn_shape_guide_title">ಆಕಾರ ಮಾರ್ಗದರ್ಶಿ</string>
     <string name="learn_shape_guide_intro">%1$d ಆಕಾರಗಳು, ಬಿಡಿಸಿ ಹೆಸರಿಸಲಾಗಿದೆ. ಒಂದನ್ನು ಮುಟ್ಟಿ ಮತ್ತೆ ಬಿಡಿಸುವುದನ್ನು ನೋಡು.</string>

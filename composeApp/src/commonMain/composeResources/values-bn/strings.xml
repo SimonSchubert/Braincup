@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">সংখ্যা &amp; প্রক্রিয়া</string>
     <string name="learn_topic_geometry">জ্যামিতি</string>
     <string name="learn_topic_geometry_subtitle">কোণ, ত্রিভুজ &amp; বৃত্ত</string>
+    <string name="learn_topic_algebra">বীজগণিত</string>
+    <string name="learn_topic_algebra_subtitle">রাশিমালা &amp; সমীকরণ</string>
 
     <string name="learn_shape_guide_title">আকৃতির নির্দেশিকা</string>
     <string name="learn_shape_guide_intro">%1$d আকৃতি, আঁকা এবং নাম দেওয়া। একটিতে চাপ দাও, আবার আঁকা দেখো।</string>

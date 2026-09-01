@@ -916,6 +916,8 @@ Flytt Cow — den blir en Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Tall og regnearter</string>
     <string name="learn_topic_geometry">Geometri</string>
     <string name="learn_topic_geometry_subtitle">Vinkler, trekanter og sirkler</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Uttrykk og likninger</string>
 
     <string name="learn_shape_guide_title">Formguide</string>
     <string name="learn_shape_guide_intro">%1$d former, tegnet og navngitt. Trykk på en for å se den tegnet på nytt.</string>

@@ -899,6 +899,8 @@
     <string name="learn_topic_arithmetic_subtitle">Nombres &amp; opérations</string>
     <string name="learn_topic_geometry">Géométrie</string>
     <string name="learn_topic_geometry_subtitle">Angles, triangles &amp; cercles</string>
+    <string name="learn_topic_algebra">Algèbre</string>
+    <string name="learn_topic_algebra_subtitle">Expressions &amp; équations</string>
 
     <string name="learn_shape_guide_title">Guide des formes</string>
     <string name="learn_shape_guide_intro">%1$d formes, dessinées et nommées. Touches-en une pour la revoir se dessiner.</string>

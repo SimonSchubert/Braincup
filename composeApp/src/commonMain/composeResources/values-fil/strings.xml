@@ -914,6 +914,8 @@
     <string name="learn_topic_arithmetic_subtitle">Numero at operations</string>
     <string name="learn_topic_geometry">Heometriya</string>
     <string name="learn_topic_geometry_subtitle">Anggulo, tatsulok, at bilog</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Mga expression at equation</string>
 
     <string name="learn_shape_guide_title">Gabay sa mga hugis</string>
     <string name="learn_shape_guide_intro">%1$d hugis, iginuhit at pinangalanan. Pindutin ang isa para makitang iguhit muli.</string>

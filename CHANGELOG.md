@@ -1,5 +1,9 @@
 ## Unreleased
 
+### Features
+- Add Algebra to Learn Math: seven sub-topics from expressions and variables through to powers and
+  roots, with 21 lessons and a certificate for each
+
 ### Improvements
 - Rebuild N-Back as the real task, at the published numbers: a continuous stream of shapes with a
   Match response on every item, 6 matches in 20 trials, a controlled rate of near-miss lures, and a

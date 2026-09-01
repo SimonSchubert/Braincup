@@ -79,6 +79,13 @@ CERTIFICATES = [
   ["geometry-similarity",         "Similarity and scale",         "Scaled Up",          "68_learn_geometry_similarity"],
   ["geometry-transformations",    "Transformations",              "Slide, Flip, Turn",  "69_learn_geometry_transformations"],
   ["geometry-circle-theorems",    "Circle theorems",              "Full Circle",        "70_learn_geometry_circle_theorems"],
+  ["algebra-expressions",         "Expressions and variables",    "Know the Unknown",   "73_learn_algebra_expressions"],
+  ["algebra-linear-equations",    "Linear equations",             "Both Sides Now",     "74_learn_algebra_linear_equations"],
+  ["algebra-straight-line-graphs", "Straight-line graphs",        "On the Up",          "75_learn_algebra_straight_line_graphs"],
+  ["algebra-inequalities",        "Inequalities",                 "Within Range",       "76_learn_algebra_inequalities"],
+  ["algebra-simultaneous-equations", "Simultaneous equations",    "Where They Meet",    "77_learn_algebra_simultaneous_equations"],
+  ["algebra-quadratics",          "Quadratics",                   "Two Roots",          "78_learn_algebra_quadratics"],
+  ["algebra-powers-and-roots",    "Powers and roots",             "Power Up",           "79_learn_algebra_powers_and_roots"],
 ].map do |unit_id, sub_topic, title, icon|
   {
     unit_id: unit_id,

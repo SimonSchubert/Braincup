@@ -879,6 +879,7 @@ private fun VisualScope.draw(visual: LearnVisual) {
         is LearnVisual.RightTriangle -> drawRightTriangle(visual)
         is LearnVisual.CircleFigure -> drawCircleFigure(visual)
         is LearnVisual.AngleFigure -> drawAngleFigure(visual)
+        is LearnVisual.AlgebraRect -> drawAlgebraRect(visual)
         is LearnVisual.Balance -> drawBalance(visual)
         is LearnVisual.BarChart -> drawBarChart(visual)
         is LearnVisual.PieChart -> drawPieChart(visual)

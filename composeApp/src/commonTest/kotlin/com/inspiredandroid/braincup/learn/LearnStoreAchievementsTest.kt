@@ -40,7 +40,7 @@ class LearnStoreAchievementsTest {
     @Test
     fun anUnknownGameCenterIdMapsToNothing() {
         assertNull(LearnStoreAchievements.unitIdForGameCenterId("achievement.sudoku_sage"))
-        assertNull(LearnStoreAchievements.unitIdForGameCenterId("achievement.cert_algebra_linear_equations"))
+        assertNull(LearnStoreAchievements.unitIdForGameCenterId("achievement.cert_calculus_limits"))
     }
 
     /** Ids reach the stores as text, so no unit may carry a character the scheme cannot encode. */

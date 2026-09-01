@@ -36,6 +36,8 @@ def group_of(folder: str) -> str:
         return "Figures"
     if folder.endswith(("-dark", "-oled")):
         return "Themes"
+    if folder.startswith("algebra-"):
+        return "Algebra"
     if folder.startswith("arithmetic-"):
         return "Arithmetic"
     if folder.startswith("geometry-"):
@@ -43,7 +45,7 @@ def group_of(folder: str) -> str:
     return "Other"
 
 
-GROUP_ORDER = ["Section", "Arithmetic", "Geometry", "Themes", "Figures", "Other"]
+GROUP_ORDER = ["Section", "Arithmetic", "Geometry", "Algebra", "Themes", "Figures", "Other"]
 
 # Frame names are ordered so a sub-topic reads as a walkthrough; these turn the prefix into a
 # heading a human can scan.

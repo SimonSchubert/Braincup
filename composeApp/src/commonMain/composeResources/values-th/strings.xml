@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">จำนวนและการดำเนินการ</string>
     <string name="learn_topic_geometry">เรขาคณิต</string>
     <string name="learn_topic_geometry_subtitle">มุม สามเหลี่ยม และวงกลม</string>
+    <string name="learn_topic_algebra">พีชคณิต</string>
+    <string name="learn_topic_algebra_subtitle">นิพจน์และสมการ</string>
 
     <string name="learn_shape_guide_title">คู่มือรูปทรง</string>
     <string name="learn_shape_guide_intro">%1$d รูป วาดไว้พร้อมชื่อ แตะรูปหนึ่งเพื่อดูวาดใหม่อีกครั้ง</string>

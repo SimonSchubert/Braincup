@@ -32,7 +32,7 @@ STRING_NAME_PATTERN = re.compile(r'<string\s+name="([^"]+)"')
 PENDING_TRANSLATION_PREFIXES = (
     'learn_unit_',
     'learn_g12_', 'learn_g35_', 'learn_g68_', 'learn_g910_', 'learn_g1112_',
-    'learn_arithmetic_', 'learn_geometry_',
+    'learn_algebra_', 'learn_arithmetic_', 'learn_geometry_',
     'learn_shape_', 'learn_shapeguide_',
     'learn_rule_', 'learn_rulesguide_',
     'learn_opt_',

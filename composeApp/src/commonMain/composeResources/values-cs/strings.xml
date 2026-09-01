@@ -916,6 +916,8 @@ Přesuň Cow — stane se z něj Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Čísla a operace</string>
     <string name="learn_topic_geometry">Geometrie</string>
     <string name="learn_topic_geometry_subtitle">Úhly, trojúhelníky a kružnice</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Výrazy a rovnice</string>
 
     <string name="learn_shape_guide_title">Průvodce tvary</string>
     <string name="learn_shape_guide_intro">%1$d tvarů, nakreslených a pojmenovaných. Klepni na některý a uvidíš ho nakreslit znovu.</string>

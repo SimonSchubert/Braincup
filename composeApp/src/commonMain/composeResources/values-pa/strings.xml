@@ -885,6 +885,8 @@
     <string name="learn_topic_arithmetic_subtitle">ਸੰਖਿਆ &amp; ਕਿਰਿਆਵਾਂ</string>
     <string name="learn_topic_geometry">ਰੇਖਾ ਗਣਿਤ</string>
     <string name="learn_topic_geometry_subtitle">ਕੋਣ, ਤਿਕੋਣ &amp; ਚੱਕਰ</string>
+    <string name="learn_topic_algebra">ਬੀਜਗਣਿਤ</string>
+    <string name="learn_topic_algebra_subtitle">ਵਿਅੰਜਕ &amp; ਸਮੀਕਰਨ</string>
 
     <string name="learn_shape_guide_title">ਆਕਾਰ ਗਾਈਡ</string>
     <string name="learn_shape_guide_intro">%1$d ਆਕਾਰ, ਬਣਾਏ ਅਤੇ ਨਾਮ ਦਿੱਤੇ। ਕਿਸੇ ਇੱਕ ਨੂੰ ਛੂਹੋ ਅਤੇ ਦੁਬਾਰਾ ਬਣਦਾ ਵੇਖੋ।</string>

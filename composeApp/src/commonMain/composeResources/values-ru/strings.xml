@@ -898,6 +898,8 @@
     <string name="learn_topic_arithmetic_subtitle">Числа &amp; действия</string>
     <string name="learn_topic_geometry">Геометрия</string>
     <string name="learn_topic_geometry_subtitle">Углы, треугольники &amp; окружности</string>
+    <string name="learn_topic_algebra">Алгебра</string>
+    <string name="learn_topic_algebra_subtitle">Выражения &amp; уравнения</string>
 
     <string name="learn_shape_guide_title">Справочник фигур</string>
     <string name="learn_shape_guide_intro">%1$d фигур, нарисованных и названных. Нажми на любую, чтобы увидеть её снова.</string>

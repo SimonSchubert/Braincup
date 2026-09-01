@@ -2406,4 +2406,370 @@
     <string name="learn_shared_you_cannot_tell">You cannot tell</string>
     <string name="learn_shared_you_cannot_tell_2">you cannot tell</string>
 
+
+    <!-- Algebra -->
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Expressions &amp; equations</string>
+
+    <!-- Algebra: expressions and variables -->
+    <string name="learn_unit_algebra_expressions_title">Expressions and variables</string>
+    <string name="learn_unit_algebra_expressions_summary">Letters that stand for numbers, and how to tidy them up.</string>
+
+    <string name="learn_algebra_expressions_letters_title">Letters for numbers</string>
+    <string name="learn_algebra_expressions_letters_summary">What a letter is doing in a sum.</string>
+    <string name="learn_algebra_expressions_letters_s1_body">A letter stands for a number nobody has told you yet. This scale balances, so whatever x is, it and 3 together weigh what 8 weighs.</string>
+    <string name="learn_algebra_expressions_letters_s2_body">3x is short for three copies of x. The number in front counts the copies, so it is never 3 and x stuck together.</string>
+    <string name="learn_algebra_expressions_letters_s3_question">Which of these means five more than n?</string>
+    <string name="learn_algebra_expressions_letters_s3_explanation">More than adds on, so the 5 joins n rather than multiplying it.</string>
+    <string name="learn_algebra_expressions_letters_s4_body">Substituting swaps the letter back for a number. Once x is 4, three copies of x are three fours.</string>
+    <string name="learn_algebra_expressions_letters_s5_question">y is 5. What is 2y + 7?</string>
+    <string name="learn_algebra_expressions_letters_s5_explanation">The 2 multiplies only the y, so double first and add the 7 after.</string>
+    <string name="learn_algebra_expressions_letters_s6_question">a is 6. What is a squared minus a?</string>
+    <string name="learn_algebra_expressions_letters_s6_explanation">a squared is six sixes, and taking one six away leaves five of them.</string>
+
+    <string name="learn_algebra_expressions_collecting_title">Collecting like terms</string>
+    <string name="learn_algebra_expressions_collecting_summary">Only matching letters add up.</string>
+    <string name="learn_algebra_expressions_collecting_s1_body">Terms match when they carry the same letter, and matching terms collect. Three x and five x are eight x.</string>
+    <string name="learn_algebra_expressions_collecting_s2_body">a and b are different things, so 3a and 2b have nothing to collect. The expression is already as short as it goes.</string>
+    <string name="learn_algebra_expressions_collecting_s3_question">Simplify 4x + 3 + 2x - 1</string>
+    <string name="learn_algebra_expressions_collecting_s3_explanation">The x terms collect to 6x and the plain numbers to 2; the two kinds never mix.</string>
+    <string name="learn_algebra_expressions_collecting_s4_body">A minus belongs to the term after it. In 7x - 2x the second term is negative two x, so five x are left.</string>
+    <string name="learn_algebra_expressions_collecting_s5_question">Collect 9y - 4y. How many y are left?</string>
+    <string name="learn_algebra_expressions_collecting_s5_explanation">Nine of something take away four of it leaves five, and the something is still y.</string>
+    <string name="learn_algebra_expressions_collecting_s6_question">Which expression cannot be made any shorter?</string>
+    <string name="learn_algebra_expressions_collecting_s6_explanation">Its two terms carry different letters, and only matching letters collect.</string>
+
+    <string name="learn_algebra_expressions_brackets_title">Expanding and factorising</string>
+    <string name="learn_algebra_expressions_brackets_summary">Multiply the bracket out, or put it back.</string>
+    <string name="learn_algebra_expressions_brackets_s1_body">A bracket multiplies everything inside it. Read the rectangle: a side of 3 against a side of x + 4 splits into two pieces.</string>
+    <string name="learn_algebra_expressions_brackets_s2_body">Every term inside gets the multiplier, not just the first. Missing the second piece is the mistake this picture is here to stop.</string>
+    <string name="learn_algebra_expressions_brackets_s3_question">Expand 2(x + 5)</string>
+    <string name="learn_algebra_expressions_brackets_s3_explanation">Both terms are doubled, so the 5 becomes 10 as well as the x becoming 2x.</string>
+    <string name="learn_algebra_expressions_brackets_s4_body">Factorising runs the same picture backwards: find what both terms share, and write it outside the bracket.</string>
+    <string name="learn_algebra_expressions_brackets_s5_question">6x + 15 factorises to 3(2x + ?). What replaces the question mark?</string>
+    <string name="learn_algebra_expressions_brackets_s5_explanation">15 shared into 3 equal parts is 5, and 3 times 5 puts the 15 back.</string>
+    <string name="learn_algebra_expressions_brackets_s6_question">What is the biggest number that divides both terms of 8x + 12?</string>
+    <string name="learn_algebra_expressions_brackets_s6_explanation">4 divides both, and nothing larger divides 12 as well as 8.</string>
+
+    <string name="learn_unit_algebra_expressions_q1_prompt">Which expression means three less than m?</string>
+    <string name="learn_unit_algebra_expressions_q1_explanation">Less than subtracts from m, so the 3 comes off rather than dividing.</string>
+    <string name="learn_unit_algebra_expressions_q2_explanation">Only the x terms collect, and 5x with 3x more is 8x.</string>
+    <string name="learn_unit_algebra_expressions_q3_question">k is 7. What is 3k - 4?</string>
+    <string name="learn_unit_algebra_expressions_q3_explanation">Three sevens are 21, and the 4 comes off after the multiplying.</string>
+    <string name="learn_unit_algebra_expressions_q4_explanation">The 4 reaches both terms, so the 3 becomes 12 as well.</string>
+    <string name="learn_unit_algebra_expressions_q5_prompt">Which of these is already fully simplified?</string>
+    <string name="learn_unit_algebra_expressions_q5_explanation">Its terms carry different letters, so there is nothing left to collect.</string>
+    <string name="learn_unit_algebra_expressions_q6_prompt">What goes outside the bracket when 10x + 25 is factorised?</string>
+    <string name="learn_unit_algebra_expressions_q6_explanation">5 is the largest number dividing both 10 and 25.</string>
+
+    <!-- Algebra: linear equations -->
+    <string name="learn_unit_algebra_linear_equations_title">Linear equations</string>
+    <string name="learn_unit_algebra_linear_equations_summary">Undo what was done to x, one step at a time.</string>
+
+    <string name="learn_algebra_equations_balance_title">Keeping the scale level</string>
+    <string name="learn_algebra_equations_balance_summary">Whatever comes off one pan comes off the other.</string>
+    <string name="learn_algebra_equations_balance_s1_body">An equation is a scale that balances. The left pan holds x and 4 ones, the right holds 9, and whatever x weighs the two sides match.</string>
+    <string name="learn_algebra_equations_balance_s2_body">Take 4 off both pans and it still balances. Now x stands alone, and the other pan says what it weighs.</string>
+    <string name="learn_algebra_equations_balance_s3_question">x + 6 = 10. What comes off both pans to leave x by itself?</string>
+    <string name="learn_algebra_equations_balance_s3_explanation">The 6 is what x shares its pan with, so the 6 is what goes.</string>
+    <string name="learn_algebra_equations_balance_s4_body">Multiplying is undone by dividing. Three equal x balance 12, so one of them balances a third of it.</string>
+    <string name="learn_algebra_equations_balance_s5_explanation">The 12 shares equally between the three x, so each one is worth 4.</string>
+    <string name="learn_algebra_equations_balance_s6_explanation">Take the 3 off first; the 8 left over then splits between the two x.</string>
+
+    <string name="learn_algebra_equations_twostep_title">Two steps, in order</string>
+    <string name="learn_algebra_equations_twostep_summary">Undo the adding before the multiplying.</string>
+    <string name="learn_algebra_equations_twostep_s1_body">When two things have been done to x, undo them in reverse order. The adding comes off first and the multiplying last.</string>
+    <string name="learn_algebra_equations_twostep_s2_body">Five off both pans, and four x balance 12. What is left is a one-step equation.</string>
+    <string name="learn_algebra_equations_twostep_s3_explanation">The 12 splits four ways, so each x is worth 3.</string>
+    <string name="learn_algebra_equations_twostep_s4_body">Dividing first would divide the 5 as well, and the 5 was never multiplied by anything. That is why the adding is undone first.</string>
+    <string name="learn_algebra_equations_twostep_s5_explanation">Two off leaves 20, and 20 shared between five x is 4 each.</string>
+    <string name="learn_algebra_equations_twostep_s6_explanation">Three x-blocks and two ones sit on the left, and fourteen on the right.</string>
+
+    <string name="learn_algebra_equations_bothsides_title">Letters on both sides</string>
+    <string name="learn_algebra_equations_bothsides_summary">Collect the x onto one pan first.</string>
+    <string name="learn_algebra_equations_bothsides_s1_body">When x sits on both pans, take the smaller number of x off both. Two come off here, leaving three on the left.</string>
+    <string name="learn_algebra_equations_bothsides_s2_body">With the x collected onto one pan, it is an ordinary two-step equation again.</string>
+    <string name="learn_algebra_equations_bothsides_s3_explanation">Two off leaves 15, and 15 shared between three x is 5 each.</string>
+    <string name="learn_algebra_equations_bothsides_s4_body">Take the x off whichever pan has fewer of them, and the number of x left is never negative.</string>
+    <string name="learn_algebra_equations_bothsides_s5_question">2x + 9 = 5x. What is x?</string>
+    <string name="learn_algebra_equations_bothsides_s5_explanation">Two x off both pans leaves 9 balancing three x, so each is 3.</string>
+    <string name="learn_algebra_equations_bothsides_s6_explanation">Three x off both pans leaves four x balancing 16.</string>
+
+    <string name="learn_unit_algebra_linear_equations_q1_prompt">x + 8 = 15. What is x?</string>
+    <string name="learn_unit_algebra_linear_equations_q1_explanation">The 8 comes off both sides, and 15 less 8 is what x was worth.</string>
+    <string name="learn_unit_algebra_linear_equations_q2_explanation">Four equal x share the 20 between them.</string>
+    <string name="learn_unit_algebra_linear_equations_q3_explanation">Four off leaves 15, which three x share equally.</string>
+    <string name="learn_unit_algebra_linear_equations_q4_explanation">Two x-blocks and five ones balance thirteen.</string>
+    <string name="learn_unit_algebra_linear_equations_q5_prompt">6x + 1 = 4x + 9. What is x?</string>
+    <string name="learn_unit_algebra_linear_equations_q5_explanation">Four x off both sides leaves two x balancing 8.</string>
+    <string name="learn_unit_algebra_linear_equations_q6_explanation">Two x off both sides leaves three x balancing 12.</string>
+
+    <!-- Algebra: straight-line graphs -->
+    <string name="learn_unit_algebra_straight_line_graphs_title">Straight-line graphs</string>
+    <string name="learn_unit_algebra_straight_line_graphs_summary">Where a line starts, and how steeply it climbs.</string>
+
+    <string name="learn_algebra_graphs_coordinates_title">Points and lines</string>
+    <string name="learn_algebra_graphs_coordinates_summary">Reading a position off the grid.</string>
+    <string name="learn_algebra_graphs_coordinates_s1_body">A point is named by how far across it sits, then how far up. Across always comes first.</string>
+    <string name="learn_algebra_graphs_coordinates_s2_body">Every point on this line follows one rule: the height is always the same as the distance across.</string>
+    <string name="learn_algebra_graphs_coordinates_s3_question">Which of these points sits on the line y = x?</string>
+    <string name="learn_algebra_graphs_coordinates_s3_explanation">On this line the two numbers always match, and only one pair does.</string>
+    <string name="learn_algebra_graphs_coordinates_s4_body">Adding 2 to the rule lifts the whole line by 2, without changing how steeply it climbs.</string>
+    <string name="learn_algebra_graphs_coordinates_s5_question">The line is y = x + 2. What is y when x is 1?</string>
+    <string name="learn_algebra_graphs_coordinates_s5_explanation">Put the 1 in place of x and the rule does the rest.</string>
+    <string name="learn_algebra_graphs_coordinates_s6_question">Where does the line y = x + 2 cross the y-axis?</string>
+    <string name="learn_algebra_graphs_coordinates_s6_explanation">The y-axis is where x is nothing, so only the added 2 is left.</string>
+
+    <string name="learn_algebra_graphs_gradient_title">Gradient and intercept</string>
+    <string name="learn_algebra_graphs_gradient_summary">The two numbers that fix a line.</string>
+    <string name="learn_algebra_graphs_gradient_s1_body">Every straight line is written the same way. One number says how steeply it climbs, the other says where it starts.</string>
+    <string name="learn_algebra_graphs_gradient_s2_body">Gradient is how far up the line goes for each one across. This one climbs 2 every time it moves 1 to the right.</string>
+    <string name="learn_algebra_graphs_gradient_s3_question">How far does this line climb for each 1 across?</string>
+    <string name="learn_algebra_graphs_gradient_s3_explanation">Step one square right and count the squares up: that count is the gradient.</string>
+    <string name="learn_algebra_graphs_gradient_s4_body">The intercept is where the line meets the y-axis, which is its height when x is nothing at all.</string>
+    <string name="learn_algebra_graphs_gradient_s5_explanation">Double the 1 first, then add the 1 that the line starts from.</string>
+    <string name="learn_algebra_graphs_gradient_s6_question">Which line climbs 2 for every 1 across and starts one below the origin?</string>
+    <string name="learn_algebra_graphs_gradient_s6_explanation">The 2 in front of x is the climb, and the number after it is the start.</string>
+
+    <string name="learn_algebra_graphs_writing_title">Writing the equation</string>
+    <string name="learn_algebra_graphs_writing_summary">From a picture back to the rule.</string>
+    <string name="learn_algebra_graphs_writing_s1_body">Read the start off the y-axis, count the climb, and the equation writes itself.</string>
+    <string name="learn_algebra_graphs_writing_s2_body">A line that falls has a negative gradient. Every step across takes it down instead of up.</string>
+    <string name="learn_algebra_graphs_writing_s3_explanation">It drops one square for every square across, and dropping makes it negative.</string>
+    <string name="learn_algebra_graphs_writing_s4_body">A gradient of nothing is a flat line: however far across you go, the height never changes.</string>
+    <string name="learn_algebra_graphs_writing_s5_question">Which equation does this line have?</string>
+    <string name="learn_algebra_graphs_writing_s5_explanation">It starts one above the origin and climbs one for one.</string>
+    <string name="learn_algebra_graphs_writing_s6_question">A line climbs 3 for every 1 across and passes through the origin. What is y when x is 1?</string>
+    <string name="learn_algebra_graphs_writing_s6_explanation">From the origin, one step across is one climb of the gradient.</string>
+
+    <string name="learn_unit_algebra_straight_line_graphs_q1_prompt">What are the coordinates of the marked point?</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q1_explanation">Across first, then up; swapping them names a different point entirely.</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q2_prompt">What is the gradient of the line y = 2x - 1?</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q2_explanation">The gradient is the number multiplying x, not the one added on.</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q3_prompt">Where does the line y = x - 2 cross the y-axis?</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q3_explanation">On the y-axis x is nothing, so the height is whatever is added on.</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q4_prompt">Which of these lines is flat?</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q4_explanation">With no x in the rule, the height cannot change as you move across.</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q5_explanation">It falls two squares for every one across, so the gradient is negative.</string>
+    <string name="learn_unit_algebra_straight_line_graphs_q6_explanation">Double the 2 first, then take off the 1 the line starts from.</string>
+
+    <!-- Algebra: inequalities -->
+    <string name="learn_unit_algebra_inequalities_title">Inequalities</string>
+    <string name="learn_unit_algebra_inequalities_summary">Not one answer but a range of them.</string>
+
+    <string name="learn_algebra_inequalities_reading_title">Reading an inequality</string>
+    <string name="learn_algebra_inequalities_reading_summary">Which way the sign points, and whether the end is in.</string>
+    <string name="learn_algebra_inequalities_reading_s1_body">The sign always opens towards the bigger side. This one says x is anywhere above 3, however far.</string>
+    <string name="learn_algebra_inequalities_reading_s2_body">A line under the sign lets the number itself in. Without it the circle stays hollow and 3 is left out.</string>
+    <string name="learn_algebra_inequalities_reading_s3_explanation">The shading runs left of the circle, and the circle is hollow.</string>
+    <string name="learn_algebra_inequalities_reading_s4_body">Turned the other way, the sign covers everything below the number instead of above it.</string>
+    <string name="learn_algebra_inequalities_reading_s5_question">x is at least 4. Which of these values is allowed?</string>
+    <string name="learn_algebra_inequalities_reading_s5_explanation">At least means the number itself counts, so 4 is in the range.</string>
+    <string name="learn_algebra_inequalities_reading_s6_question">x is greater than 6. What is the smallest whole number x can be?</string>
+    <string name="learn_algebra_inequalities_reading_s6_explanation">6 itself is shut out, so the first whole number that fits is the next one up.</string>
+
+    <string name="learn_algebra_inequalities_solving_title">Solving inequalities</string>
+    <string name="learn_algebra_inequalities_solving_summary">The same moves as an equation.</string>
+    <string name="learn_algebra_inequalities_solving_s1_body">An inequality is solved the way an equation is: undo what was done to x, one step at a time.</string>
+    <string name="learn_algebra_inequalities_solving_s2_body">Taking the same amount off both sides leaves the sign exactly where it was.</string>
+    <string name="learn_algebra_inequalities_solving_s3_question">x + 5 is less than 12. What must x be less than?</string>
+    <string name="learn_algebra_inequalities_solving_s3_explanation">Five comes off both sides, and what is left is the limit on x.</string>
+    <string name="learn_algebra_inequalities_solving_s4_body">Dividing both sides by a positive number is just as safe. The sign still does not move.</string>
+    <string name="learn_algebra_inequalities_solving_s5_question">3x is at least 12. What is x?</string>
+    <string name="learn_algebra_inequalities_solving_s5_explanation">Divide both sides by 3, and at least stays at least.</string>
+    <string name="learn_algebra_inequalities_solving_s6_question">x - 2 is greater than 1. What must x be greater than?</string>
+    <string name="learn_algebra_inequalities_solving_s6_explanation">Adding 2 to both sides moves the limit up with it.</string>
+
+    <string name="learn_algebra_inequalities_flipping_title">Flipping the sign</string>
+    <string name="learn_algebra_inequalities_flipping_summary">The one move that turns it round.</string>
+    <string name="learn_algebra_inequalities_flipping_s1_body">Start with two numbers in order. Negative 2 sits to the left of 3, so it is the smaller of them.</string>
+    <string name="learn_algebra_inequalities_flipping_s2_body">Multiply both by negative 1 and they swap places on the line. The order has turned right round.</string>
+    <string name="learn_algebra_inequalities_flipping_s3_body">That is why dividing an inequality by a negative flips the sign. It is not a rule to memorise, it is what the line does.</string>
+    <string name="learn_algebra_inequalities_flipping_s4_explanation">Dividing by -3 turns greater than into less than.</string>
+    <string name="learn_algebra_inequalities_flipping_s5_question">-x is less than 4. What is x?</string>
+    <string name="learn_algebra_inequalities_flipping_s5_explanation">Multiplying both sides by -1 flips less than into greater than.</string>
+    <string name="learn_algebra_inequalities_flipping_s6_question">2x is at most 8. What is the largest whole number x can be?</string>
+    <string name="learn_algebra_inequalities_flipping_s6_explanation">Dividing by a positive keeps the sign, and at most lets the end count.</string>
+
+    <string name="learn_unit_algebra_inequalities_q1_explanation">A hollow circle leaves its number out, and the shading runs upwards.</string>
+    <string name="learn_unit_algebra_inequalities_q2_prompt">x + 4 is greater than 9. What must x be greater than?</string>
+    <string name="learn_unit_algebra_inequalities_q2_explanation">Four off both sides leaves the limit that x has to beat.</string>
+    <string name="learn_unit_algebra_inequalities_q3_prompt">3x is at most 15. What is x?</string>
+    <string name="learn_unit_algebra_inequalities_q3_explanation">Dividing by a positive 3 keeps the sign pointing the same way.</string>
+    <string name="learn_unit_algebra_inequalities_q4_explanation">The divisor is negative, so greater than turns into less than.</string>
+    <string name="learn_unit_algebra_inequalities_q5_prompt">x is at least 5. Which of these values is not allowed?</string>
+    <string name="learn_unit_algebra_inequalities_q5_explanation">At least 5 admits 5 itself, but nothing below it.</string>
+    <string name="learn_unit_algebra_inequalities_q6_prompt">x is less than 3. What is the largest whole number x can be?</string>
+    <string name="learn_unit_algebra_inequalities_q6_explanation">3 is shut out, so the largest that fits is the one below it.</string>
+
+    <!-- Algebra: simultaneous equations -->
+    <string name="learn_unit_algebra_simultaneous_equations_title">Simultaneous equations</string>
+    <string name="learn_unit_algebra_simultaneous_equations_summary">Two rules at once, and the one pair that fits both.</string>
+
+    <string name="learn_algebra_systems_crossing_title">Two lines, one crossing</string>
+    <string name="learn_algebra_systems_crossing_summary">Where both rules are true together.</string>
+    <string name="learn_algebra_systems_crossing_s1_body">One equation with two unknowns has no single answer. Every point along this line fits it.</string>
+    <string name="learn_algebra_systems_crossing_s2_body">Draw the second rule and only one point sits on both lines at once. That pair is the solution.</string>
+    <string name="learn_algebra_systems_crossing_s3_explanation">Read across first and then up, at the one point both lines pass through.</string>
+    <string name="learn_algebra_systems_crossing_s4_body">Lines with the same steepness never meet, so a pair like this has no solution at all.</string>
+    <string name="learn_algebra_systems_crossing_s5_question">The lines y = x and y = 2 - x cross. What is x there?</string>
+    <string name="learn_algebra_systems_crossing_s5_explanation">Both rules give the same height only where the climbing line meets the falling one.</string>
+    <string name="learn_algebra_systems_crossing_s6_question">Which pair fits both x + y = 3 and x - y = 1?</string>
+    <string name="learn_algebra_systems_crossing_s6_explanation">Only one pair satisfies both rules; the others each break one of them.</string>
+
+    <string name="learn_algebra_systems_elimination_title">Elimination</string>
+    <string name="learn_algebra_systems_elimination_summary">Add or subtract until one letter disappears.</string>
+    <string name="learn_algebra_systems_elimination_s1_body">Drawing is slow and imprecise. If one letter appears the same number of times in both rules, it can be removed instead.</string>
+    <string name="learn_algebra_systems_elimination_s2_body">Subtract the second rule from the first and the y cancels, leaving a single equation in x alone.</string>
+    <string name="learn_algebra_systems_elimination_s3_explanation">Subtracting removes the y and leaves one x on its own.</string>
+    <string name="learn_algebra_systems_elimination_s4_body">With one letter known, put it back into either rule to find the other.</string>
+    <string name="learn_algebra_systems_elimination_s5_explanation">Substituting the 3 leaves a one-step equation for y.</string>
+    <string name="learn_algebra_systems_elimination_s6_question">When the two rules have the same number of y with opposite signs, what should you do?</string>
+    <string name="learn_algebra_systems_elimination_s6_explanation">Opposite signs cancel on adding; matching signs cancel on subtracting.</string>
+
+    <string name="learn_algebra_systems_substitution_title">Substitution</string>
+    <string name="learn_algebra_systems_substitution_summary">Write one letter in terms of the other.</string>
+    <string name="learn_algebra_systems_substitution_s1_body">When one rule already says what y is, that whole expression can go into the other rule in place of y.</string>
+    <string name="learn_algebra_systems_substitution_s2_body">Now there is only one letter left, and it solves the way any linear equation does.</string>
+    <string name="learn_algebra_systems_substitution_s3_question">y = x + 1 and x + y = 3. What is x?</string>
+    <string name="learn_algebra_systems_substitution_s3_explanation">Replacing y with x + 1 turns the second rule into one about x alone.</string>
+    <string name="learn_algebra_systems_substitution_s4_body">Substitution suits a pair where one rule is already arranged for a single letter; elimination suits one where neither is.</string>
+    <string name="learn_algebra_systems_substitution_s5_explanation">The second rule becomes three x, because y is worth two of them.</string>
+    <string name="learn_algebra_systems_substitution_s6_question">x = 2 and y = x + 1. What is y?</string>
+    <string name="learn_algebra_systems_substitution_s6_explanation">With x known, the second rule is a single addition.</string>
+
+    <string name="learn_unit_algebra_simultaneous_equations_q1_explanation">Across first, then up, at the single shared point.</string>
+    <string name="learn_unit_algebra_simultaneous_equations_q2_explanation">Subtracting leaves two x balancing 4.</string>
+    <string name="learn_unit_algebra_simultaneous_equations_q3_explanation">Putting 3x in place of y makes the second rule four x.</string>
+    <string name="learn_unit_algebra_simultaneous_equations_q4_prompt">Two lines have the same gradient but different intercepts. How many solutions are there?</string>
+    <string name="learn_unit_algebra_simultaneous_equations_q4_explanation">Equally steep lines stay the same distance apart forever.</string>
+    <string name="learn_unit_algebra_simultaneous_equations_q5_prompt">x + y = 5 and x - y = 1. What is x?</string>
+    <string name="learn_unit_algebra_simultaneous_equations_q5_explanation">Adding the two rules cancels the y and leaves two x balancing 6.</string>
+    <string name="learn_unit_algebra_simultaneous_equations_q6_explanation">One value known turns the pair into a single addition.</string>
+
+    <!-- Algebra: shared word options. Prose, so they cannot be mathOptions; kept free of digits
+         because check_localizations rejects an option carrying a number. -->
+    <string name="learn_opt_add_the_two_rules">Add the two rules together</string>
+    <string name="learn_opt_subtract_the_two_rules">Subtract one rule from the other</string>
+    <string name="learn_opt_multiply_the_two_rules">Multiply the two rules together</string>
+    <string name="learn_opt_divide_the_two_rules">Divide one rule by the other</string>
+    <string name="learn_opt_no_solutions">None at all</string>
+    <string name="learn_opt_one_solution">Exactly one</string>
+    <string name="learn_opt_two_solutions">Exactly two</string>
+    <string name="learn_opt_infinitely_many">Infinitely many</string>
+
+    <!-- Algebra: quadratics -->
+    <string name="learn_unit_algebra_quadratics_title">Quadratics</string>
+    <string name="learn_unit_algebra_quadratics_summary">A squared term bends the line, and gives it two roots.</string>
+
+    <string name="learn_algebra_quadratics_parabola_title">The parabola</string>
+    <string name="learn_algebra_quadratics_parabola_summary">What a squared term does to the shape.</string>
+    <string name="learn_algebra_quadratics_parabola_s1_body">A squared term bends the graph. Instead of a straight line you get a symmetrical curve.</string>
+    <string name="learn_algebra_quadratics_parabola_s2_body">The turning point at the bottom is the vertex, and the curve is a mirror image either side of it.</string>
+    <string name="learn_algebra_quadratics_parabola_s3_question">How many times does this curve cross the x-axis?</string>
+    <string name="learn_algebra_quadratics_parabola_s3_explanation">A curve dipping below the axis and back up has to cross it twice.</string>
+    <string name="learn_algebra_quadratics_parabola_s4_body">Where the curve meets the x-axis the height is nothing. Those two places are called the roots.</string>
+    <string name="learn_algebra_quadratics_parabola_s5_question">This curve crosses the x-axis twice. What is the positive crossing?</string>
+    <string name="learn_algebra_quadratics_parabola_s6_question">Which rule gives a curve that opens downwards?</string>
+    <string name="learn_algebra_quadratics_parabola_s6_explanation">A minus in front of the squared term turns the whole curve over.</string>
+
+    <string name="learn_algebra_quadratics_factorising_title">Factorising quadratics</string>
+    <string name="learn_algebra_quadratics_factorising_summary">Two brackets that multiply back.</string>
+    <string name="learn_algebra_quadratics_factorising_s1_body">Two brackets multiply into four pieces. The two middle ones are both x terms, so they collect into one.</string>
+    <string name="learn_algebra_quadratics_factorising_s2_body">That is where the pattern comes from: the middle number is the two added, and the last is the two multiplied.</string>
+    <string name="learn_algebra_quadratics_factorising_s3_explanation">Both conditions have to hold at once, and only one pair manages it.</string>
+    <string name="learn_algebra_quadratics_factorising_s4_body">Factorising runs it backwards: hunt for the pair that adds to the middle number and multiplies to the last one.</string>
+    <string name="learn_algebra_quadratics_factorising_s5_explanation">The pair has to add to 6 and multiply to 8, which rules out every other option.</string>
+    <string name="learn_algebra_quadratics_factorising_s6_question">x squared plus 9x plus 20 factorises into (x + 4)(x + ?). What replaces the question mark?</string>
+    <string name="learn_algebra_quadratics_factorising_s6_explanation">It has to multiply with 4 to give 20, and add with it to give 9.</string>
+
+    <string name="learn_algebra_quadratics_solving_title">Solving by factorising</string>
+    <string name="learn_algebra_quadratics_solving_summary">If two things multiply to nothing, one of them is nothing.</string>
+    <string name="learn_algebra_quadratics_solving_s1_body">If two numbers multiply to nothing, at least one of them must itself be nothing. That single fact is what solves a quadratic.</string>
+    <string name="learn_algebra_quadratics_solving_s2_body">So set each bracket to nothing in turn. Each one gives a value of x, and those are the two roots.</string>
+    <string name="learn_algebra_quadratics_solving_s3_explanation">Each bracket is nothing at the value that cancels it, and the signs swap over.</string>
+    <string name="learn_algebra_quadratics_solving_s4_body">The graph agrees: the roots are exactly where the curve crosses the axis.</string>
+    <string name="learn_algebra_quadratics_solving_s5_question">This curve has two roots. What is the positive one?</string>
+    <string name="learn_algebra_quadratics_solving_s5_explanation">The curve returns through the axis to the right of its lowest point.</string>
+    <string name="learn_algebra_quadratics_solving_s6_question">What are the roots of x squared minus 1?</string>
+    <string name="learn_algebra_quadratics_solving_s6_explanation">It factorises into two brackets that differ only in sign.</string>
+
+    <string name="learn_unit_algebra_quadratics_q1_prompt">How many roots does this curve have?</string>
+    <string name="learn_unit_algebra_quadratics_q1_explanation">Each crossing of the x-axis is one root, and this curve makes two.</string>
+    <string name="learn_unit_algebra_quadratics_q2_explanation">The pair must add to 5 and multiply to 6.</string>
+    <string name="learn_unit_algebra_quadratics_q3_explanation">Each bracket vanishes at the value that cancels it, sign reversed.</string>
+    <string name="learn_unit_algebra_quadratics_q4_prompt">What does a minus in front of the squared term do to the curve?</string>
+    <string name="learn_unit_algebra_quadratics_q4_explanation">Every height changes sign, so the whole curve turns over.</string>
+    <string name="learn_unit_algebra_quadratics_q5_explanation">Both conditions have to hold together, and only one pair does.</string>
+    <string name="learn_unit_algebra_quadratics_q6_prompt">This curve crosses the axis at two places. What is the positive one?</string>
+
+    <string name="learn_opt_turns_it_over">It turns the curve upside down</string>
+    <string name="learn_opt_makes_it_steeper">It makes the curve steeper</string>
+    <string name="learn_opt_moves_it_up">It moves the curve upwards</string>
+    <string name="learn_opt_moves_it_right">It moves the curve to the right</string>
+
+    <!-- Algebra: powers and roots -->
+    <string name="learn_unit_algebra_powers_and_roots_title">Powers and roots</string>
+    <string name="learn_unit_algebra_powers_and_roots_summary">Counting copies, and the rules that follow from it.</string>
+
+    <string name="learn_algebra_indices_notation_title">Powers</string>
+    <string name="learn_algebra_indices_notation_summary">Shorthand for multiplying something by itself.</string>
+    <string name="learn_algebra_indices_notation_s1_body">A power counts how many copies are multiplied together. The small number is a count, not something to multiply by.</string>
+    <string name="learn_algebra_indices_notation_s2_body">The power of two is called squaring, and it is exactly the area of a square with that side.</string>
+    <string name="learn_algebra_indices_notation_s3_question">What is 3 to the power of 2?</string>
+    <string name="learn_algebra_indices_notation_s3_explanation">Two copies of 3 multiplied, which is the square drawn beside it.</string>
+    <string name="learn_algebra_indices_notation_s4_body">Multiplying two powers of the same thing adds the counts, because all you are doing is counting copies.</string>
+    <string name="learn_algebra_indices_notation_s5_question">Simplify x to the fourth times x cubed.</string>
+    <string name="learn_algebra_indices_notation_s5_explanation">Four copies beside three copies is seven copies in all.</string>
+    <string name="learn_algebra_indices_notation_s6_question">Simplify y to the seventh divided by y to the fourth.</string>
+
+    <string name="learn_algebra_indices_special_title">Zero and negative powers</string>
+    <string name="learn_algebra_indices_special_summary">Where the ladder goes below the power of one.</string>
+    <string name="learn_algebra_indices_special_s1_body">Each step down this ladder halves what came before. The pattern does not stop when it reaches the power of one.</string>
+    <string name="learn_algebra_indices_special_s2_body">One more step down lands on 1, which is why anything to the power of nothing is 1.</string>
+    <string name="learn_algebra_indices_special_s3_explanation">Every ladder lands on the same rung there, whatever it was climbing by.</string>
+    <string name="learn_algebra_indices_special_s4_body">Below zero the halving carries on, so a negative power is one over the matching positive one.</string>
+    <string name="learn_algebra_indices_special_s5_explanation">A negative power is a reciprocal, never a negative number.</string>
+    <string name="learn_algebra_indices_special_s6_explanation">The rung below the power of one is always 1.</string>
+
+    <string name="learn_algebra_indices_roots_title">Roots</string>
+    <string name="learn_algebra_indices_roots_summary">Undoing a power.</string>
+    <string name="learn_algebra_indices_roots_s1_body">A square root asks which side gives this area. Sixteen squares make a square of side 4.</string>
+    <string name="learn_algebra_indices_roots_s2_body">Squaring and rooting undo one another, the way multiplying and dividing do.</string>
+    <string name="learn_algebra_indices_roots_s3_explanation">It is the side of the square this many small squares would fill.</string>
+    <string name="learn_algebra_indices_roots_s4_body">A cube root asks the same question of a cube: which side, taken three times, fills it.</string>
+    <string name="learn_algebra_indices_roots_s5_explanation">Seven sevens make 49, and no other whole number does.</string>
+    <string name="learn_algebra_indices_roots_s6_explanation">Halving 36 gives 18, which is a common wrong turn; the root is the side, not the half.</string>
+
+    <string name="learn_unit_algebra_powers_and_roots_q1_explanation">Three copies beside four copies is seven copies.</string>
+    <string name="learn_unit_algebra_powers_and_roots_q2_explanation">Every ladder lands on 1 at the power of nothing.</string>
+    <string name="learn_unit_algebra_powers_and_roots_q4_explanation">It is the side of the square, not half of the area.</string>
+    <string name="learn_unit_algebra_powers_and_roots_q5_explanation">A negative power gives a reciprocal, never a negative value.</string>
+    <string name="learn_unit_algebra_powers_and_roots_q6_explanation">Ten tens make a hundred, so ten is the side.</string>
+
+    <!-- Algebra: sentences the catalog asks more than once, filled with the numbers at the
+         call site so a translator writes each one once and the values stay beside their figure. -->
+    <string name="learn_t_solve_ax_plus_b">%1$sx + %2$s = %3$s. What is x?</string>
+    <string name="learn_t_solve_ax">%1$sx = %2$s. What is x?</string>
+    <string name="learn_t_solve_both_sides">%1$sx = %2$sx + %3$s. What is x?</string>
+    <string name="learn_t_eliminate">%1$sx + y = %2$s and x + y = %3$s. What is x?</string>
+    <string name="learn_t_substitute_x">y = %1$sx and x + y = %2$s. What is x?</string>
+    <string name="learn_t_substitute_y">x is %1$s and x + y = %2$s. What is y?</string>
+    <string name="learn_t_solve_ineq_gt">%1$sx is greater than %2$s. What is x?</string>
+    <string name="learn_t_roots_of_brackets">(x - %1$s)(x + %2$s) = 0. What are the two roots?</string>
+    <string name="learn_t_factorise">Factorise x squared plus %1$sx plus %2$s.</string>
+    <string name="learn_t_add_and_multiply">Which two numbers add to %1$s and multiply to %2$s?</string>
+    <string name="learn_t_zero_power">What is %1$s to the power of zero?</string>
+    <string name="learn_t_negative_power">What is %1$s to the power of negative %2$s?</string>
+    <string name="learn_t_square_root">What is the square root of %1$s?</string>
+    <string name="learn_t_line_value">y = %1$sx + %2$s. What is y when x is %3$s?</string>
+    <string name="learn_t_line_value_minus">y = %1$sx - %2$s. What is y when x is %3$s?</string>
+
+    <!-- Algebra: a sentence a lesson and its test both ask, held once. -->
+    <string name="learn_shared_dividing_subtracts_counts">Dividing cancels copies in pairs, so the counts subtract.</string>
+    <string name="learn_shared_crossings_either_side">The two crossings sit the same distance either side of the middle.</string>
+    <string name="learn_shared_gradient_of_this_line">What is the gradient of this line?</string>
+    <string name="learn_shared_where_lines_cross">Where do these two lines cross?</string>
+    <string name="learn_shared_which_equation_scale">Which equation does this scale show?</string>
+    <string name="learn_shared_which_inequality_line">Which inequality does this line show?</string>
 </resources>

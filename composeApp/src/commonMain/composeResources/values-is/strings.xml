@@ -916,6 +916,8 @@ Færðu Cow — hann verður Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Tölur og aðgerðir</string>
     <string name="learn_topic_geometry">Rúmfræði</string>
     <string name="learn_topic_geometry_subtitle">Horn, þríhyrningar og hringir</string>
+    <string name="learn_topic_algebra">Algebra</string>
+    <string name="learn_topic_algebra_subtitle">Stæður og jöfnur</string>
 
     <string name="learn_shape_guide_title">Formahandbók</string>
     <string name="learn_shape_guide_intro">%1$d form, teiknuð og nefnd. Ýttu á eitt til að sjá það teiknað aftur.</string>

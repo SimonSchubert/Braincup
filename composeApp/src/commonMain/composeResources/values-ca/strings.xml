@@ -916,6 +916,8 @@ Mou el Cow: es convertirà en Bull.</string>
     <string name="learn_topic_arithmetic_subtitle">Nombres i operacions</string>
     <string name="learn_topic_geometry">Geometria</string>
     <string name="learn_topic_geometry_subtitle">Angles, triangles i cercles</string>
+    <string name="learn_topic_algebra">Àlgebra</string>
+    <string name="learn_topic_algebra_subtitle">Expressions i equacions</string>
 
     <string name="learn_shape_guide_title">Guia de formes</string>
     <string name="learn_shape_guide_intro">%1$d formes, dibuixades i amb nom. Toca'n una per veure-la dibuixar de nou.</string>
