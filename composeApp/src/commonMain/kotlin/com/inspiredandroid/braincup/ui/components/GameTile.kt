@@ -1062,28 +1062,49 @@ private fun DigitMemoryPreview() {
     )
 }
 
+/**
+ * A 2-back stream, and the whole task in one row: the newest item, on the right, repeats the one
+ * two back. Both ends of that pair wear the green a caught match lights up in, so the tile states
+ * the rule without needing a caption.
+ */
+private val NBackPreviewStream = listOf(
+    Shape.STAR to true,
+    Shape.CIRCLE to false,
+    Shape.STAR to true,
+)
+
 @Composable
 private fun NBackPreview() {
-    // The task in one line: the newest item, on the right, repeats the one two back.
+    // Slots rather than loose shapes: a stream is a run of positions, and the slot row is the
+    // idiom the rest of the tile set already reads in. The shapes take the game's own colours -
+    // near-black at 0.3 alpha went muddy against the pale MEMORY accent.
     Row(
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
+        // Full tile width rather than the square box the grid previews use: three slots across a
+        // square would leave the shapes too small to name at a glance.
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        PrismPolygon(
-            points = Shape.STAR.paths,
-            face = PreviewTextColor.copy(alpha = 0.3f),
-            modifier = Modifier.size(26.dp),
-        )
-        PrismPolygon(
-            points = Shape.CIRCLE.paths,
-            face = PreviewTextColor.copy(alpha = 0.3f),
-            modifier = Modifier.size(26.dp),
-        )
-        PrismPolygon(
-            points = Shape.STAR.paths,
-            face = PreviewTextColor,
-            modifier = Modifier.size(38.dp),
-        )
+        NBackPreviewStream.forEach { (shape, isMatch) ->
+            PrismCard(
+                face = MaterialTheme.colorScheme.surfaceContainer,
+                facet = PrismFacet.Cell,
+                modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(1f)
+                    .padding(2.dp),
+            ) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    PrismPolygon(
+                        points = shape.paths,
+                        face = if (isMatch) SuccessGreen else Primary,
+                        modifier = Modifier.fillMaxSize().padding(5.dp),
+                    )
+                }
+            }
+        }
     }
 }
 
