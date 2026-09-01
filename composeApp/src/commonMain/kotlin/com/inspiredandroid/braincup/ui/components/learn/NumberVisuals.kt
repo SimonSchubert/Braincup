@@ -40,8 +40,7 @@ internal fun VisualScope.drawCounters(visual: LearnVisual.Counters) {
     // six-dot figure ran off both sides of the panel; and holding a one-row figure to the two-row
     // height cap drew it at a fifth of the panel, the same defect as the right triangle that
     // reserved a square on each axis. A dot spans 2.6 radii to the next, plus one radius each end.
-    fun radiusForRow(dots: Int, gaps: Float) =
-        (width * 0.92f - gaps) / (2f + 2.6f * (dots - 1).coerceAtLeast(1))
+    fun radiusForRow(dots: Int, gaps: Float) = (width * 0.92f - gaps) / (2f + 2.6f * (dots - 1).coerceAtLeast(1))
 
     val apart = radiusForRow(total, (groups.size - 1) * groupGap)
     val merged = if (!visual.merge) {
