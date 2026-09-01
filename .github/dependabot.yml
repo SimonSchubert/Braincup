@@ -10,3 +10,10 @@ updates:
     groups:
       actions:
         patterns: ["*"]
+    ignore:
+      # setup-gradle stays on the MIT v5 line on purpose: v6 moved caching into
+      # gradle-actions-caching, a proprietary component whose use means accepting
+      # gradle.com's Terms of Use. Without this, a monthly PR would quietly undo that
+      # call. Revisit deliberately, not by merging a green bot PR.
+      - dependency-name: "gradle/actions*"
+        update-types: ["version-update:semver-major"]
