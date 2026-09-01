@@ -29,17 +29,27 @@ fun AchievementsScreen(
     val unlockedAchievements = storage.getUnlockedAchievements()
     val allAchievements = UserStorage.Achievements.displayOrder
 
+    // The list runs under the gesture/navigation bar, as on the home screen, and holds the last
+    // card clear of it with content padding.
+    val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+
     AppScaffold(
         title = stringResource(Res.string.achievements_title),
         onBack = onBack,
         scrollable = false,
+        drawUnderNavigationBar = true,
     ) {
         LazyColumn(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            contentPadding = PaddingValues(
+                start = 16.dp,
+                end = 16.dp,
+                top = 8.dp,
+                bottom = 8.dp + bottomInset,
+            ),
         ) {
             items(allAchievements, key = { it.name }) { achievement ->
                 val isUnlocked = unlockedAchievements.contains(achievement)

@@ -67,6 +67,10 @@ fun LearnTopicScreenContent(
     // them a rung sits at rather than how far down the list it happens to be.
     val bands = remember(progress) { progress.map { it.unit.level }.distinct() }
 
+    // The ladder runs under the gesture/navigation bar, as on the home screen, and holds the last
+    // rung clear of it with content padding.
+    val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+
     AppScaffold(
         title = stringResource(topic.titleRes),
         onBack = onBack,
@@ -74,6 +78,7 @@ fun LearnTopicScreenContent(
         // The topic's reference guide belongs in the bar rather than among the rows: it is not a
         // rung - nothing is taught by it and no certificate comes out of it.
         actions = { LearnGuideButton(topic = topic, onClick = onGuide) },
+        drawUnderNavigationBar = true,
     ) {
         LazyVerticalGrid(
             // A ladder still reads in order when it wraps, and a wide window fits three rungs to a
@@ -82,7 +87,12 @@ fun LearnTopicScreenContent(
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            contentPadding = PaddingValues(
+                start = 16.dp,
+                end = 16.dp,
+                top = 8.dp,
+                bottom = 8.dp + bottomInset,
+            ),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {

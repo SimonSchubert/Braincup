@@ -51,17 +51,27 @@ fun LearnMenuScreenContent(
     val certificateCount = remember(progress) { progress.sumOf { it.certificates } }
     val certificateTotal = remember(progress) { progress.sumOf { it.unitsTotal } }
 
+    // The grid runs under the gesture/navigation bar, as on the home screen, and holds the last
+    // row clear of it with content padding.
+    val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+
     AppScaffold(
         title = stringResource(Res.string.learn_title),
         onBack = onBack,
         scrollable = false,
+        drawUnderNavigationBar = true,
     ) {
         LazyVerticalGrid(
             columns = GridCells.Adaptive(minSize = 150.dp),
             modifier = Modifier
                 .weight(1f)
                 .fillMaxWidth(),
-            contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+            contentPadding = PaddingValues(
+                start = 16.dp,
+                end = 16.dp,
+                top = 8.dp,
+                bottom = 8.dp + bottomInset,
+            ),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {

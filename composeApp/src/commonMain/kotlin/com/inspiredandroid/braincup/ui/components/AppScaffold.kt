@@ -88,6 +88,13 @@ fun AppScaffold(
     bottomBar: (@Composable () -> Unit)? = null,
     provideCompactHeight: Boolean = false,
     actions: (@Composable RowScope.() -> Unit)? = null,
+    /**
+     * Lets the body run to the bottom edge, behind the gesture bar, the way the home screen does,
+     * so a list scrolls under it instead of stopping short of it. The content then owns that
+     * safe area: whatever sits last has to add [WindowInsets.navigationBars] to its own bottom
+     * padding, or the gesture bar covers it.
+     */
+    drawUnderNavigationBar: Boolean = false,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     // The compact and regular branches below put the body in different Columns. Handing the slot
@@ -153,6 +160,12 @@ fun AppScaffold(
             )
         },
         bottomBar = { bottomBar?.invoke() },
+        contentWindowInsets = if (drawUnderNavigationBar) {
+            ScaffoldDefaults.contentWindowInsets
+                .only(WindowInsetsSides.Horizontal + WindowInsetsSides.Top)
+        } else {
+            ScaffoldDefaults.contentWindowInsets
+        },
     ) { paddingValues ->
         if (provideCompactHeight) {
             // Measure the body viewport (Scaffold already subtracts the top/bottom bars from

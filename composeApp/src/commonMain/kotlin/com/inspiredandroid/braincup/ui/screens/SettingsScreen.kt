@@ -53,12 +53,13 @@ fun SettingsScreen(
     languageName: String? = null,
     onOpenLicenses: (() -> Unit)? = null,
 ) {
-    // Same bottom safe padding as the home screen: the last row has to clear the gesture/
-    // navigation bar, which the scaffold body does not reserve on its own.
+    // Same bottom safe padding as the home screen: the list runs under the gesture/navigation bar
+    // and the last row clears it with padding of its own.
     val bottomInset = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     AppScaffold(
         title = stringResource(Res.string.settings_title),
         onBack = onBack,
+        drawUnderNavigationBar = true,
     ) {
         Column(
             modifier = Modifier
