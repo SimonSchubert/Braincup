@@ -788,9 +788,6 @@
     <string name="game_mental_flex_howto">Çiftin ortak yanını bulun.</string>
     <string name="trio_demo_title">Üçlü bir set bulun</string>
     <string name="trio_demo_rule">Bir özelliği paylaşırlar. Gerisi karışık değil.</string>
-    <string name="trio_demo_two_match">İki özellik aynı, üçüncüsü her kartta farklı.</string>
-    <string name="trio_demo_one_match">Bir özellik aynı, diğer ikisi her kartta farklı.</string>
-    <string name="trio_demo_no_match">Set değil: hiçbir özellik aynı değil.</string>
     <string name="mental_rotations_demo_title">Zihninde döndür</string>
     <string name="mental_rotations_demo_turn">Sağdaki bloğu döndürüp soldakinin üzerine oturt.</string>
     <string name="mental_rotations_demo_same">Tam oturuyor. Aynı blok.</string>

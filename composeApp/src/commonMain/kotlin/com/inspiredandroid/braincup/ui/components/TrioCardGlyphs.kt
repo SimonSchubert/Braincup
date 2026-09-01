@@ -5,6 +5,7 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -37,6 +38,13 @@ import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
 import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
 import kotlin.math.min
 
+/**
+ * The marks on a card: [count] copies of [shape] in [fill].
+ *
+ * [padding] is the inset from whatever slot the glyphs are given. It defaults to the breathing room
+ * a playing-board tile wants; the instructions key draws the same glyphs in a flat chip barely
+ * taller than a mark, and needs the inset out of the way.
+ */
 @Composable
 fun TrioCardGlyphs(
     shape: TrioShape,
@@ -44,9 +52,10 @@ fun TrioCardGlyphs(
     fill: TrioFill,
     color: Color,
     modifier: Modifier = Modifier,
+    padding: PaddingValues = PaddingValues(horizontal = 6.dp, vertical = 8.dp),
 ) {
     val n = count.coerceIn(1, 3)
-    BoxWithConstraints(modifier.padding(horizontal = 6.dp, vertical = 8.dp)) {
+    BoxWithConstraints(modifier.padding(padding)) {
         val gap = 3.dp
         val glyph = minOf(maxHeight, (maxWidth - gap * (n - 1)) / n)
         Row(

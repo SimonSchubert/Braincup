@@ -7,6 +7,7 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.drawscope.DrawScope
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.graphics.graphicsLayer
 
@@ -81,3 +82,38 @@ fun ChunkyCross(color: Color, modifier: Modifier = Modifier) {
         drawLine(color, Offset(right, top), Offset(left, bottom), strokeWidth = stroke, cap = StrokeCap.Round)
     }
 }
+
+/** Two stacked bars, drawn rather than typed for the same reason [ChunkyCross] is. */
+@Composable
+fun ChunkyEquals(color: Color, modifier: Modifier = Modifier) {
+    Canvas(modifier) { drawEqualsBars(color) }
+}
+
+/** [ChunkyEquals] struck through: not equal. */
+@Composable
+fun ChunkyNotEquals(color: Color, modifier: Modifier = Modifier) {
+    Canvas(modifier) {
+        drawEqualsBars(color)
+        drawLine(
+            color,
+            Offset(size.width * 0.70f, size.height * 0.10f),
+            Offset(size.width * 0.30f, size.height * 0.90f),
+            strokeWidth = equalsStroke(size),
+            cap = StrokeCap.Round,
+        )
+    }
+}
+
+private fun DrawScope.drawEqualsBars(color: Color) {
+    listOf(0.34f, 0.66f).forEach { y ->
+        drawLine(
+            color,
+            Offset(size.width * 0.10f, size.height * y),
+            Offset(size.width * 0.90f, size.height * y),
+            strokeWidth = equalsStroke(size),
+            cap = StrokeCap.Round,
+        )
+    }
+}
+
+private fun equalsStroke(size: Size): Float = minOf(size.width, size.height) * 0.16f

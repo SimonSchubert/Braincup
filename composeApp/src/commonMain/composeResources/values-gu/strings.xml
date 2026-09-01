@@ -281,9 +281,6 @@
     <string name="game_mental_flex_howto">જોડીમાં શું સરખું છે તે શોધો.</string>
     <string name="trio_demo_title">ત્રણનો સમૂહ શોધો</string>
     <string name="trio_demo_rule">તેમનું એક લક્ષણ સરખું છે. બીજું કંઈ ભળેલું નથી.</string>
-    <string name="trio_demo_two_match">બે લક્ષણ સરખાં, ત્રીજું દરેક કાર્ડમાં જુદું.</string>
-    <string name="trio_demo_one_match">એક લક્ષણ સરખું, બાકીનાં બે દરેક કાર્ડમાં જુદાં.</string>
-    <string name="trio_demo_no_match">સમૂહ નથી: એકેય લક્ષણ સરખું નથી.</string>
     <string name="mental_rotations_demo_title">મનમાં ફેરવો</string>
     <string name="mental_rotations_demo_turn">જમણા બ્લોકને ફેરવીને ડાબા પર ગોઠવો.</string>
     <string name="mental_rotations_demo_same">બરાબર બેસે છે. એ જ બ્લોક.</string>

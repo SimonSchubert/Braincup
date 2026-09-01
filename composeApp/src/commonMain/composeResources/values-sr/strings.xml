@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Уочи шта пар има заједничко.</string>
     <string name="trio_demo_title">Нађи тројку</string>
     <string name="trio_demo_rule">Деле особину. Ништа друго се не меша.</string>
-    <string name="trio_demo_two_match">Две особине су исте, трећа је свуда другачија.</string>
-    <string name="trio_demo_one_match">Једна особина је иста, друге две су свуда другачије.</string>
-    <string name="trio_demo_no_match">Није тројка: ниједна особина није иста.</string>
     <string name="mental_rotations_demo_title">Окрени га у глави</string>
     <string name="mental_rotations_demo_turn">Заокрени десни блок на леви.</string>
     <string name="mental_rotations_demo_same">Поклапа се. Исти блок.</string>

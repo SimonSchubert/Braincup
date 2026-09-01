@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">זהה מה משותף לזוג.</string>
     <string name="trio_demo_title">מצא שלישייה</string>
     <string name="trio_demo_rule">הם חולקים תכונה. שום דבר אחר לא מעורבב.</string>
-    <string name="trio_demo_two_match">שתי תכונות זהות, השלישית שונה בכל קלף.</string>
-    <string name="trio_demo_one_match">תכונה אחת זהה, שתי האחרות שונות בכל קלף.</string>
-    <string name="trio_demo_no_match">לא שלישייה: אף תכונה לא זהה.</string>
     <string name="mental_rotations_demo_title">סובבו אותו בראש</string>
     <string name="mental_rotations_demo_turn">סובבו את הגוש הימני עד שיתלכד עם השמאלי.</string>
     <string name="mental_rotations_demo_same">הוא מתלכד. אותו גוש.</string>

@@ -789,9 +789,6 @@
     <string name="game_mental_flex_howto">Βρες τι έχει κοινό το ζευγάρι.</string>
     <string name="trio_demo_title">Βρες ένα σύνολο των τριών</string>
     <string name="trio_demo_rule">Μοιράζονται ένα γνώρισμα. Τίποτα άλλο δεν είναι ανάμεικτο.</string>
-    <string name="trio_demo_two_match">Δύο γνωρίσματα ταιριάζουν, το τρίτο είναι παντού διαφορετικό.</string>
-    <string name="trio_demo_one_match">Ένα γνώρισμα ταιριάζει, τα άλλα δύο είναι παντού διαφορετικά.</string>
-    <string name="trio_demo_no_match">Δεν είναι σύνολο: κανένα γνώρισμα δεν ταιριάζει.</string>
     <string name="mental_rotations_demo_title">Γύρισέ το στο μυαλό σου</string>
     <string name="mental_rotations_demo_turn">Περίστρεψε το δεξί μπλοκ πάνω στο αριστερό.</string>
     <string name="mental_rotations_demo_same">Ταιριάζει. Ίδιο μπλοκ.</string>

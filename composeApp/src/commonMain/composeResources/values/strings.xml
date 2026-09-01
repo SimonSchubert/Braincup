@@ -302,7 +302,7 @@
     <string name="missing_operators_demo_title">Find the missing operators</string>
     <string name="missing_operators_demo_desc">Select the operators to make the equation true. Operators are evaluated using standard mathematical precedence.</string>
     <string name="game_bulls_and_cows_desc">Guess the secret 4-digit number with unique digits. Bulls = correct digit in correct position. Cows = correct digit in wrong position.</string>
-    <string name="game_trio_desc">Find three cards that share a shape, a count or a fill.</string>
+    <string name="game_trio_desc">Find three cards that share a shape, a fill or how many marks they carry.</string>
     <string name="game_mental_rotations_desc">Decide whether the second block is the first one turned, or its mirror image.</string>
     <string name="game_mental_rotations_question">Same block, or mirror image?</string>
     <string name="game_mental_rotations_same">Same</string>
@@ -314,9 +314,16 @@
     <string name="game_mental_flex_howto">Spot what the pair has in common.</string>
     <string name="trio_demo_title">Find a set of three</string>
     <string name="trio_demo_rule">They share a trait. Nothing else is mixed.</string>
-    <string name="trio_demo_two_match">Two traits match, the third is all different.</string>
-    <string name="trio_demo_one_match">One trait matches, the other two are all different.</string>
-    <string name="trio_demo_no_match">Not a set: no trait matches.</string>
+    <string name="trio_trait_shape">Shape</string>
+    <string name="trio_trait_count">How many</string>
+    <string name="trio_trait_fill">Fill</string>
+    <string name="trio_demo_traits">Each card has three traits</string>
+    <string name="trio_legend_same">All the same</string>
+    <string name="trio_legend_different">One of each</string>
+    <string name="trio_demo_group_set">Set</string>
+    <string name="trio_demo_group_not_set">Not a set</string>
+    <string name="trio_demo_reason_mixed">Two cards share a shape, the third does not.</string>
+    <string name="trio_demo_reason_nothing_same">Nothing is the same on all three.</string>
     <string name="mental_rotations_demo_title">Turn it in your head</string>
     <string name="mental_rotations_demo_turn">Rotate the right block onto the left one.</string>
     <string name="mental_rotations_demo_same">It lines up. Same block.</string>

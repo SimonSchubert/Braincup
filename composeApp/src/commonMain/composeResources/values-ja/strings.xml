@@ -788,9 +788,6 @@
     <string name="game_mental_flex_howto">2つに共通するものを見つけよう。</string>
     <string name="trio_demo_title">3枚のセットを見つける</string>
     <string name="trio_demo_rule">ひとつの特徴を共有。ほかは混ざっていません。</string>
-    <string name="trio_demo_two_match">特徴が2つそろい、残る1つは3枚とも別。</string>
-    <string name="trio_demo_one_match">特徴が1つそろい、残る2つは3枚とも別。</string>
-    <string name="trio_demo_no_match">セットではありません。そろう特徴がありません。</string>
     <string name="mental_rotations_demo_title">頭の中で回そう</string>
     <string name="mental_rotations_demo_turn">右の立体を回して左に重ねよう。</string>
     <string name="mental_rotations_demo_same">ぴったり重なる。同じ立体。</string>

@@ -789,9 +789,6 @@
     <string name="game_mental_flex_howto">Erkenne, was das Paar gemeinsam hat.</string>
     <string name="trio_demo_title">Finde ein Set aus drei</string>
     <string name="trio_demo_rule">Sie haben ein Merkmal gemeinsam. Sonst nichts Gemischtes.</string>
-    <string name="trio_demo_two_match">Zwei Merkmale sind gleich, das dritte überall anders.</string>
-    <string name="trio_demo_one_match">Ein Merkmal ist gleich, die beiden anderen überall anders.</string>
-    <string name="trio_demo_no_match">Kein Set: kein Merkmal ist gleich.</string>
     <string name="mental_rotations_demo_title">Dreh ihn im Kopf</string>
     <string name="mental_rotations_demo_turn">Drehe den rechten Block auf den linken.</string>
     <string name="mental_rotations_demo_same">Er passt genau. Gleicher Block.</string>

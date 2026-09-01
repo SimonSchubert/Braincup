@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Huomaa, mikä parilla on yhteistä.</string>
     <string name="trio_demo_title">Löydä kolmen setti</string>
     <string name="trio_demo_rule">Ne jakavat ominaisuuden. Mikään muu ei sekoitu.</string>
-    <string name="trio_demo_two_match">Kaksi ominaisuutta on samat, kolmas joka kortissa eri.</string>
-    <string name="trio_demo_one_match">Yksi ominaisuus on sama, kaksi muuta joka kortissa eri.</string>
-    <string name="trio_demo_no_match">Ei setti: mikään ominaisuus ei ole sama.</string>
     <string name="mental_rotations_demo_title">Käännä se mielessäsi</string>
     <string name="mental_rotations_demo_turn">Pyöritä oikeanpuoleinen palikka vasemmanpuoleisen päälle.</string>
     <string name="mental_rotations_demo_same">Se osuu kohdalleen. Sama palikka.</string>

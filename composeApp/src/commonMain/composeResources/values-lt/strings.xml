@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Pastebėk, kas poroje bendra.</string>
     <string name="trio_demo_title">Rask trejetą</string>
     <string name="trio_demo_rule">Dalijasi savybe. Nieko kito nemaišoma.</string>
-    <string name="trio_demo_two_match">Dvi savybės sutampa, trečioji visur skirtinga.</string>
-    <string name="trio_demo_one_match">Viena savybė sutampa, kitos dvi visur skirtingos.</string>
-    <string name="trio_demo_no_match">Ne trejetas: nesutampa nė viena savybė.</string>
     <string name="mental_rotations_demo_title">Pasuk mintyse</string>
     <string name="mental_rotations_demo_turn">Pasuk dešinįjį bloką ant kairiojo.</string>
     <string name="mental_rotations_demo_same">Sutampa. Tas pats blokas.</string>

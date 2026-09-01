@@ -788,9 +788,6 @@
     <string name="game_mental_flex_howto">두 도형의 공통점을 찾으세요.</string>
     <string name="trio_demo_title">세 장의 세트 찾기</string>
     <string name="trio_demo_rule">특징 하나를 공유합니다. 나머지는 섞이지 않습니다.</string>
-    <string name="trio_demo_two_match">특징 두 개가 같고, 나머지 하나는 셋 다 다릅니다.</string>
-    <string name="trio_demo_one_match">특징 하나가 같고, 나머지 둘은 셋 다 다릅니다.</string>
-    <string name="trio_demo_no_match">세트가 아닙니다. 같은 특징이 없습니다.</string>
     <string name="mental_rotations_demo_title">머릿속으로 돌려보세요</string>
     <string name="mental_rotations_demo_turn">오른쪽 블록을 돌려 왼쪽에 겹쳐 보세요.</string>
     <string name="mental_rotations_demo_same">딱 겹칩니다. 같은 블록.</string>

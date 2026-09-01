@@ -789,9 +789,6 @@
     <string name="game_mental_flex_howto">Individua cosa ha in comune la coppia.</string>
     <string name="trio_demo_title">Trova un insieme di tre</string>
     <string name="trio_demo_rule">Condividono un tratto. Nient'altro è mescolato.</string>
-    <string name="trio_demo_two_match">Due tratti uguali, il terzo tutto diverso.</string>
-    <string name="trio_demo_one_match">Un tratto uguale, gli altri due tutti diversi.</string>
-    <string name="trio_demo_no_match">Non è un insieme: nessun tratto uguale.</string>
     <string name="mental_rotations_demo_title">Giralo con la mente</string>
     <string name="mental_rotations_demo_turn">Ruota il blocco di destra su quello di sinistra.</string>
     <string name="mental_rotations_demo_same">Combacia. Stesso blocco.</string>

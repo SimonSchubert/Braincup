@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Tuklasin kung ano ang pareho sa dalawa.</string>
     <string name="trio_demo_title">Maghanap ng set ng tatlo</string>
     <string name="trio_demo_rule">May iisang katangian sila. Walang halo-halo.</string>
-    <string name="trio_demo_two_match">Dalawang katangian ang pareho, iba-iba ang pangatlo.</string>
-    <string name="trio_demo_one_match">Isang katangian ang pareho, iba-iba ang dalawa pa.</string>
-    <string name="trio_demo_no_match">Hindi set: walang katangiang pareho.</string>
     <string name="mental_rotations_demo_title">Iikot mo sa isip</string>
     <string name="mental_rotations_demo_turn">Iikot ang kanang bloke papunta sa kaliwa.</string>
     <string name="mental_rotations_demo_same">Magkatugma. Parehong bloke.</string>

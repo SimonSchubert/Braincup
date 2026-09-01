@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Uoči što par ima zajedničko.</string>
     <string name="trio_demo_title">Pronađi trojku</string>
     <string name="trio_demo_rule">Dijele svojstvo. Ništa se drugo ne miješa.</string>
-    <string name="trio_demo_two_match">Dva svojstva su ista, treće je svaki put drugo.</string>
-    <string name="trio_demo_one_match">Jedno svojstvo je isto, druga dva su svaki put druga.</string>
-    <string name="trio_demo_no_match">Nije trojka: nijedno svojstvo nije isto.</string>
     <string name="mental_rotations_demo_title">Okreni ga u glavi</string>
     <string name="mental_rotations_demo_turn">Zakreni desni blok na lijevi.</string>
     <string name="mental_rotations_demo_same">Poklapa se. Isti blok.</string>

@@ -788,9 +788,6 @@
     <string name="game_mental_flex_howto">Descubre qué comparte la pareja.</string>
     <string name="trio_demo_title">Encuentra un conjunto de tres</string>
     <string name="trio_demo_rule">Comparten un rasgo. Nada más está mezclado.</string>
-    <string name="trio_demo_two_match">Dos rasgos coinciden, el tercero es todo distinto.</string>
-    <string name="trio_demo_one_match">Un rasgo coincide, los otros dos son todo distintos.</string>
-    <string name="trio_demo_no_match">No es un conjunto: ningún rasgo coincide.</string>
     <string name="mental_rotations_demo_title">Gíralo en tu mente</string>
     <string name="mental_rotations_demo_turn">Gira el bloque de la derecha sobre el de la izquierda.</string>
     <string name="mental_rotations_demo_same">Encaja. El mismo bloque.</string>

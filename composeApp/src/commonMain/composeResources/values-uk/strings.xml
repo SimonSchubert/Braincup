@@ -789,9 +789,6 @@
     <string name="game_mental_flex_howto">Помітьте, що спільного в цієї пари.</string>
     <string name="trio_demo_title">Знайдіть набір із трьох</string>
     <string name="trio_demo_rule">У них спільна ознака. Решта не змішана.</string>
-    <string name="trio_demo_two_match">Дві ознаки збігаються, третя скрізь різна.</string>
-    <string name="trio_demo_one_match">Одна ознака збігається, дві інші скрізь різні.</string>
-    <string name="trio_demo_no_match">Не набір: жодна ознака не збігається.</string>
     <string name="mental_rotations_demo_title">Поверни його подумки</string>
     <string name="mental_rotations_demo_turn">Оберни правий блок так, щоб він збігся з лівим.</string>
     <string name="mental_rotations_demo_same">Збігається. Той самий блок.</string>

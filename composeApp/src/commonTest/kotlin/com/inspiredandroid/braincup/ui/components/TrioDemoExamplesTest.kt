@@ -1,49 +1,42 @@
 package com.inspiredandroid.braincup.ui.components
 
-import com.inspiredandroid.braincup.games.TrioCard
 import com.inspiredandroid.braincup.games.isTrioSet
-import com.inspiredandroid.braincup.games.trioSetHardness
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class TrioDemoExamplesTest {
 
+    /** A row captioned as rejected must be one the game rejects, and vice versa. */
     @Test
-    fun everyValidExampleIsASet() {
-        (TrioTwoMatchExamples + TrioOneMatchExamples).forEach { row ->
-            assertEquals(3, row.size)
-            assertTrue(isTrioSet(row[0], row[1], row[2]), "not a set: $row")
+    fun everyExampleIsJudgedTheWayItIsPresented() {
+        TrioExamples.forEach { example ->
+            assertEquals(3, example.cards.toSet().size, "not three distinct cards: ${example.cards}")
+            val (a, b, c) = example.cards
+            assertEquals(example.whyNot == null, isTrioSet(a, b, c), "misfiled: ${example.cards}")
         }
     }
 
+    /** Each trait gets to be the shared one, so no reader concludes only shape or only fill can be. */
     @Test
-    fun theCounterexampleIsNotASet() {
-        assertEquals(3, TrioNoMatchExample.size)
-        val (a, b, c) = TrioNoMatchExample
-        assertFalse(isTrioSet(a, b, c))
-        assertEquals(3, trioSetHardness(a, b, c))
+    fun theAcceptedExamplesShareEachTraitAtLeastOnce() {
+        val shared = TrioExamples.filter { it.whyNot == null }.flatMap { example ->
+            traitVerdicts(example.cards).filter { it.second == TraitVerdict.SAME }.map { it.first }
+        }
+        assertEquals(3, shared.toSet().size, "not every trait is shared somewhere: $shared")
     }
 
+    /**
+     * The rejections carry captions naming why, so the rows have to break the rule where the
+     * captions say: shape alone on the first, nothing shared at all on the second.
+     */
     @Test
-    fun eachGroupHoldsTheNumberOfTraitsItsHeadingClaims() {
-        TrioTwoMatchExamples.forEach { assertEquals(2, it.matchingTraits(), "$it") }
-        TrioOneMatchExamples.forEach { assertEquals(1, it.matchingTraits(), "$it") }
+    fun theCaptionsMatchTheRowsTheySitUnder() {
+        val rejected = TrioExamples.filter { it.whyNot != null }
+        assertEquals(
+            listOf(TraitVerdict.MIXED, TraitVerdict.DIFFERENT, TraitVerdict.SAME),
+            traitVerdicts(rejected[0].cards).map { it.second },
+        )
+        assertTrue(traitVerdicts(rejected[1].cards).none { it.second == TraitVerdict.SAME })
     }
-
-    @Test
-    fun theSixRowsCoverEveryValidPatternExactlyOnce() {
-        val patterns = (TrioTwoMatchExamples + TrioOneMatchExamples).map { it.matchPattern() }
-        assertEquals(6, patterns.size)
-        assertEquals(6, patterns.toSet().size, "duplicate pattern in $patterns")
-    }
-
-    private fun List<TrioCard>.matchPattern(): List<Boolean> = listOf(
-        all { it.shape == this[0].shape },
-        all { it.count == this[0].count },
-        all { it.fill == this[0].fill },
-    )
-
-    private fun List<TrioCard>.matchingTraits(): Int = matchPattern().count { it }
 }

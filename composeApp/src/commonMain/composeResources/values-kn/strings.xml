@@ -281,9 +281,6 @@
     <string name="game_mental_flex_howto">ಜೋಡಿಯಲ್ಲಿ ಸಾಮಾನ್ಯವಾದದ್ದನ್ನು ಗುರುತಿಸಿ.</string>
     <string name="trio_demo_title">ಮೂರರ ಗುಂಪನ್ನು ಹುಡುಕಿ</string>
     <string name="trio_demo_rule">ಅವು ಒಂದೇ ಗುಣವನ್ನು ಹಂಚಿಕೊಳ್ಳುತ್ತವೆ. ಬೇರೇನೂ ಬೆರೆತಿಲ್ಲ.</string>
-    <string name="trio_demo_two_match">ಎರಡು ಗುಣ ಒಂದೇ, ಮೂರನೆಯದು ಪ್ರತಿ ಕಾರ್ಡ್‌ನಲ್ಲೂ ಬೇರೆ.</string>
-    <string name="trio_demo_one_match">ಒಂದು ಗುಣ ಒಂದೇ, ಉಳಿದೆರಡು ಪ್ರತಿ ಕಾರ್ಡ್‌ನಲ್ಲೂ ಬೇರೆ.</string>
-    <string name="trio_demo_no_match">ಗುಂಪಲ್ಲ: ಯಾವ ಗುಣವೂ ಒಂದೇ ಅಲ್ಲ.</string>
     <string name="mental_rotations_demo_title">ಮನಸ್ಸಿನಲ್ಲಿ ತಿರುಗಿಸಿ</string>
     <string name="mental_rotations_demo_turn">ಬಲಗಡೆಯ ಬ್ಲಾಕ್ ಅನ್ನು ತಿರುಗಿಸಿ ಎಡಗಡೆಯದರ ಮೇಲೆ ಕೂರಿಸಿ.</string>
     <string name="mental_rotations_demo_same">ಸರಿಯಾಗಿ ಹೊಂದುತ್ತದೆ. ಅದೇ ಬ್ಲಾಕ್.</string>

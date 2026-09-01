@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Vedd észre, mi közös a párban.</string>
     <string name="trio_demo_title">Találj egy hármas szettet</string>
     <string name="trio_demo_rule">Egy tulajdonságon osztoznak. Semmi más nem keveredik.</string>
-    <string name="trio_demo_two_match">Két tulajdonság egyezik, a harmadik mindenhol más.</string>
-    <string name="trio_demo_one_match">Egy tulajdonság egyezik, a másik kettő mindenhol más.</string>
-    <string name="trio_demo_no_match">Nem szett: egyik tulajdonság sem egyezik.</string>
     <string name="mental_rotations_demo_title">Forgasd el fejben</string>
     <string name="mental_rotations_demo_turn">Forgasd a jobb oldali testet a bal oldalira.</string>
     <string name="mental_rotations_demo_same">Pontosan illeszkedik. Ugyanaz a test.</string>

@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Kenal pasti apa yang dikongsi pasangan itu.</string>
     <string name="trio_demo_title">Cari set tiga</string>
     <string name="trio_demo_rule">Mereka berkongsi satu ciri. Tiada yang lain bercampur.</string>
-    <string name="trio_demo_two_match">Dua ciri sama, yang ketiga berbeza semua.</string>
-    <string name="trio_demo_one_match">Satu ciri sama, dua yang lain berbeza semua.</string>
-    <string name="trio_demo_no_match">Bukan set: tiada ciri yang sama.</string>
     <string name="mental_rotations_demo_title">Putarkan dalam fikiran</string>
     <string name="mental_rotations_demo_turn">Putarkan blok kanan supaya bertindih dengan blok kiri.</string>
     <string name="mental_rotations_demo_same">Ia bertindih. Blok yang sama.</string>

@@ -281,9 +281,6 @@
     <string name="game_mental_flex_howto">ਜੋੜੇ ਵਿੱਚ ਕੀ ਸਾਂਝਾ ਹੈ, ਪਛਾਣੋ।</string>
     <string name="trio_demo_title">ਤਿੰਨਾਂ ਦਾ ਸਮੂਹ ਲੱਭੋ</string>
     <string name="trio_demo_rule">ਇਨ੍ਹਾਂ ਦਾ ਇੱਕ ਗੁਣ ਸਾਂਝਾ ਹੈ। ਹੋਰ ਕੁਝ ਰਲਿਆ ਨਹੀਂ।</string>
-    <string name="trio_demo_two_match">ਦੋ ਗੁਣ ਇੱਕੋ ਜਿਹੇ, ਤੀਜਾ ਹਰ ਕਾਰਡ ਉੱਤੇ ਵੱਖਰਾ।</string>
-    <string name="trio_demo_one_match">ਇੱਕ ਗੁਣ ਇੱਕੋ ਜਿਹਾ, ਬਾਕੀ ਦੋ ਹਰ ਕਾਰਡ ਉੱਤੇ ਵੱਖਰੇ।</string>
-    <string name="trio_demo_no_match">ਸਮੂਹ ਨਹੀਂ: ਕੋਈ ਵੀ ਗੁਣ ਇੱਕੋ ਜਿਹਾ ਨਹੀਂ।</string>
     <string name="mental_rotations_demo_title">ਮਨ ਵਿੱਚ ਘੁਮਾਓ</string>
     <string name="mental_rotations_demo_turn">ਸੱਜੇ ਬਲਾਕ ਨੂੰ ਘੁਮਾ ਕੇ ਖੱਬੇ ਉੱਤੇ ਬਿਠਾਓ।</string>
     <string name="mental_rotations_demo_same">ਇਹ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਿਲਦਾ ਹੈ। ਉਹੀ ਬਲਾਕ।</string>

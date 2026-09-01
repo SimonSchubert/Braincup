@@ -789,9 +789,6 @@
     <string name="game_mental_flex_howto">জোড়াটির মধ্যে কী মিল আছে খুঁজুন।</string>
     <string name="trio_demo_title">তিনটির একটি সেট খুঁজুন</string>
     <string name="trio_demo_rule">তারা একটি বৈশিষ্ট্য ভাগ করে। বাকি মেশানো নয়।</string>
-    <string name="trio_demo_two_match">দুটি বৈশিষ্ট্য মেলে, তৃতীয়টি সম্পূর্ণ আলাদা।</string>
-    <string name="trio_demo_one_match">একটি বৈশিষ্ট্য মেলে, বাকি দুটি সম্পূর্ণ আলাদা।</string>
-    <string name="trio_demo_no_match">সেট নয়: কোনো বৈশিষ্ট্যই মেলে না।</string>
     <string name="mental_rotations_demo_title">মনে মনে ঘোরান</string>
     <string name="mental_rotations_demo_turn">ডানের ব্লকটি ঘুরিয়ে বাঁয়েরটির উপর বসান।</string>
     <string name="mental_rotations_demo_same">মিলে যায়। একই ব্লক।</string>

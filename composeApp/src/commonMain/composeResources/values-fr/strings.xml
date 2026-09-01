@@ -789,9 +789,6 @@
     <string name="game_mental_flex_howto">Repère ce que la paire a en commun.</string>
     <string name="trio_demo_title">Trouve un ensemble de trois</string>
     <string name="trio_demo_rule">Elles partagent un trait. Rien d'autre n'est mélangé.</string>
-    <string name="trio_demo_two_match">Deux traits sont identiques, le troisième change à chaque fois.</string>
-    <string name="trio_demo_one_match">Un trait est identique, les deux autres changent à chaque fois.</string>
-    <string name="trio_demo_no_match">Pas un ensemble : aucun trait identique.</string>
     <string name="mental_rotations_demo_title">Fais-le tourner dans ta tête</string>
     <string name="mental_rotations_demo_turn">Fais pivoter le bloc de droite sur celui de gauche.</string>
     <string name="mental_rotations_demo_same">Il se superpose. Même bloc.</string>

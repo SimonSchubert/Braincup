@@ -281,9 +281,6 @@
     <string name="game_mental_flex_howto">జతలో ఏది ఉమ్మడిగా ఉందో గుర్తించండి.</string>
     <string name="trio_demo_title">మూడింటి సమూహాన్ని కనుగొనండి</string>
     <string name="trio_demo_rule">అవి ఒకే లక్షణాన్ని పంచుకుంటాయి. మరేదీ కలగలిసి లేదు.</string>
-    <string name="trio_demo_two_match">రెండు లక్షణాలు ఒకేలా, మూడోది ప్రతిదానిలోనూ వేరు.</string>
-    <string name="trio_demo_one_match">ఒక లక్షణం ఒకేలా, మిగతా రెండూ ప్రతిదానిలోనూ వేరు.</string>
-    <string name="trio_demo_no_match">సమూహం కాదు: ఏ లక్షణమూ ఒకేలా లేదు.</string>
     <string name="mental_rotations_demo_title">మనసులో తిప్పండి</string>
     <string name="mental_rotations_demo_turn">కుడి బ్లాక్‌ను తిప్పి ఎడమదానిపై కూర్చోబెట్టండి.</string>
     <string name="mental_rotations_demo_same">సరిగ్గా సరిపోతుంది. అదే బ్లాక్.</string>

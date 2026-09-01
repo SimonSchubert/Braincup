@@ -297,9 +297,6 @@
     <string name="game_mental_flex_howto">Observă ce au în comun cele două.</string>
     <string name="trio_demo_title">Găsește un set de trei</string>
     <string name="trio_demo_rule">Împart o trăsătură. Nimic altceva nu e amestecat.</string>
-    <string name="trio_demo_two_match">Două trăsături la fel, a treia diferită peste tot.</string>
-    <string name="trio_demo_one_match">O trăsătură la fel, celelalte două diferite peste tot.</string>
-    <string name="trio_demo_no_match">Nu e set: nicio trăsătură la fel.</string>
     <string name="mental_rotations_demo_title">Rotește-l în minte</string>
     <string name="mental_rotations_demo_turn">Rotește blocul din dreapta peste cel din stânga.</string>
     <string name="mental_rotations_demo_same">Se suprapune. Același bloc.</string>

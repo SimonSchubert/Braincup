@@ -788,9 +788,6 @@
     <string name="game_mental_flex_howto">Temukan apa yang sama dari pasangan itu.</string>
     <string name="trio_demo_title">Temukan set dari tiga</string>
     <string name="trio_demo_rule">Mereka berbagi satu sifat. Yang lain tidak tercampur.</string>
-    <string name="trio_demo_two_match">Dua sifat sama, yang ketiga beda semua.</string>
-    <string name="trio_demo_one_match">Satu sifat sama, dua sisanya beda semua.</string>
-    <string name="trio_demo_no_match">Bukan set: tidak ada sifat yang sama.</string>
     <string name="mental_rotations_demo_title">Putar di kepalamu</string>
     <string name="mental_rotations_demo_turn">Putar balok kanan sampai pas ke balok kiri.</string>
     <string name="mental_rotations_demo_same">Pas. Balok yang sama.</string>
