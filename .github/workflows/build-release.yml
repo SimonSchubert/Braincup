@@ -17,16 +17,19 @@ jobs:
   apk:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
+      # Deliberately v5, not v6. v6 moved the caching layer into gradle-actions-caching,
+      # a proprietary component whose use means accepting gradle.com's Terms of Use. v5 is
+      # the last MIT release and already runs on Node 24, which is all this pin needs to do.
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Decode Keystore
         env:
@@ -49,7 +52,7 @@ jobs:
              Braincup-${{ steps.version.outputs.version }}-android.apk
 
       - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: android-apk
           path: Braincup-${{ steps.version.outputs.version }}-android.apk
@@ -57,16 +60,16 @@ jobs:
   dmg:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build DMG
         run: ./gradlew :composeApp:packageDmg
@@ -81,7 +84,7 @@ jobs:
              Braincup-${{ steps.version.outputs.version }}-macos.dmg
 
       - name: Upload DMG artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: macos-dmg
           path: Braincup-${{ steps.version.outputs.version }}-macos.dmg
@@ -89,16 +92,16 @@ jobs:
   msi:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build MSI
         run: ./gradlew :composeApp:packageMsi
@@ -115,7 +118,7 @@ jobs:
              Braincup-${{ steps.version.outputs.version }}-windows.msi
 
       - name: Upload MSI artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: windows-msi
           path: Braincup-${{ steps.version.outputs.version }}-windows.msi
@@ -123,16 +126,16 @@ jobs:
   deb:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build DEB
         run: ./gradlew :composeApp:packageDeb
@@ -147,7 +150,7 @@ jobs:
              Braincup-${{ steps.version.outputs.version }}-linux.deb
 
       - name: Upload DEB artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-deb
           path: Braincup-${{ steps.version.outputs.version }}-linux.deb
@@ -155,16 +158,16 @@ jobs:
   rpm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Install RPM tools
         run: sudo apt-get $APT_OPTS install -y rpm
@@ -182,7 +185,7 @@ jobs:
              Braincup-${{ steps.version.outputs.version }}-linux.rpm
 
       - name: Upload RPM artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-rpm
           path: Braincup-${{ steps.version.outputs.version }}-linux.rpm
@@ -191,16 +194,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       # No apt install here on purpose: appimagetool runs with
       # --appimage-extract-and-run below, so libfuse2 is never used, and file is
@@ -262,7 +265,7 @@ jobs:
             Braincup-${{ steps.version.outputs.version }}-linux.AppImage
 
       - name: Upload AppImage artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-appimage
           path: Braincup-${{ steps.version.outputs.version }}-linux.AppImage
@@ -271,16 +274,16 @@ jobs:
     name: Generate Linux Tarball
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Build application distribution
         run: ./gradlew :composeApp:createDistributable
@@ -295,7 +298,7 @@ jobs:
           tar czf "$GITHUB_WORKSPACE/Braincup-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz" Braincup
 
       - name: Upload Tarball artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-tar
           path: Braincup-${{ steps.version.outputs.version }}-linux-x86_64.tar.gz
@@ -305,14 +308,14 @@ jobs:
     needs: [linux-tar]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Get version from tag
         id: version
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Download Linux Tarball
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: linux-tar
 
@@ -337,7 +340,7 @@ jobs:
           flatpak build-bundle repo "$GITHUB_WORKSPACE/Braincup-${VERSION}-linux.flatpak" io.github.simonschubert.Braincup
 
       - name: Upload Flatpak artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: linux-flatpak
           path: Braincup-${{ steps.version.outputs.version }}-linux.flatpak
@@ -346,19 +349,19 @@ jobs:
     name: Upload AAB to Play Store
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v6
         with:
           java-version: '21'
           distribution: 'temurin'
 
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
 
       - name: Setup Android SDK
-        uses: android-actions/setup-android@v3
+        uses: android-actions/setup-android@v4
 
       - name: Decode Play Store keystore
         run: echo "${{ secrets.PLAY_STORE_KEYSTORE_B64 }}" | base64 --decode > /tmp/keystore.jks
@@ -392,7 +395,7 @@ jobs:
       contents: write
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -401,7 +404,7 @@ jobs:
         run: echo "version=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - name: Download all artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           path: artifacts
 
@@ -421,7 +424,7 @@ jobs:
           fi
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: Braincup v${{ steps.version.outputs.version }}
           body_path: changelog.txt

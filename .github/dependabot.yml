@@ -1,0 +1,12 @@
+# Nothing watched these pins, so every action drifted a major or three behind and CI
+# started warning that the node20 runtime was deprecated. Monthly and grouped: one PR
+# to review rather than ten, and slow enough that it never competes with real work.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]

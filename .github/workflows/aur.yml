@@ -19,7 +19,7 @@ jobs:
     container: archlinux:base-devel
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup build user
         run: |
@@ -47,7 +47,7 @@ jobs:
     container: archlinux:base-devel
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup build user
         run: |
