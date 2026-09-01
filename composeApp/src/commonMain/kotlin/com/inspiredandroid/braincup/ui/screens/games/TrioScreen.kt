@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
@@ -20,6 +21,7 @@ import com.inspiredandroid.braincup.app.TrioUiState
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioGame
 import com.inspiredandroid.braincup.games.TrioShape
+import com.inspiredandroid.braincup.ui.components.GiveUpButton
 import com.inspiredandroid.braincup.ui.components.LocalIsCompactHeight
 import com.inspiredandroid.braincup.ui.components.TrioCardTile
 import com.inspiredandroid.braincup.ui.components.gridCellMaxSize
@@ -30,6 +32,7 @@ import org.jetbrains.compose.resources.stringResource
 internal fun TrioContent(
     uiState: TrioUiState,
     onAnswer: (String) -> Unit,
+    onGiveUp: () -> Unit,
 ) {
     val compact = LocalIsCompactHeight.current
     val cellMax = gridCellMaxSize
@@ -71,6 +74,15 @@ internal fun TrioContent(
                 }
             }
         }
+
+        Spacer(Modifier.height(if (compact) 8.dp else 16.dp))
+        // Held in the layout rather than removed while the board is locked, so the twelve cards do
+        // not shift up for the second the solved trio is on screen.
+        GiveUpButton(
+            onGiveUp = onGiveUp,
+            modifier = Modifier.alpha(if (locked) 0f else 1f),
+            isClickable = !locked,
+        )
     }
 }
 
@@ -97,6 +109,7 @@ private fun TrioContentPreview() {
                 columns = 3,
             ),
             onAnswer = {},
+            onGiveUp = {},
         )
     }
 }

@@ -788,7 +788,9 @@
     <string name="game_mental_flex_howto">看出这一对的共同点。</string>
     <string name="trio_demo_title">找出三张一组</string>
     <string name="trio_demo_rule">它们共享一项特征。其余没有混杂。</string>
-    <string name="trio_demo_correct">这就是一组。</string>
+    <string name="trio_demo_two_match">两项特征相同，第三项三张都不同。</string>
+    <string name="trio_demo_one_match">一项特征相同，另外两项三张都不同。</string>
+    <string name="trio_demo_no_match">不是一组：没有相同的特征。</string>
     <string name="mental_rotations_demo_title">在脑中转一转</string>
     <string name="mental_rotations_demo_turn">把右边的方块转到和左边重合。</string>
     <string name="mental_rotations_demo_same">完全重合。同一个方块。</string>

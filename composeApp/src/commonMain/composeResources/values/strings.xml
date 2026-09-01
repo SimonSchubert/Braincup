@@ -314,7 +314,9 @@
     <string name="game_mental_flex_howto">Spot what the pair has in common.</string>
     <string name="trio_demo_title">Find a set of three</string>
     <string name="trio_demo_rule">They share a trait. Nothing else is mixed.</string>
-    <string name="trio_demo_correct">That's a set.</string>
+    <string name="trio_demo_two_match">Two traits match, the third is all different.</string>
+    <string name="trio_demo_one_match">One trait matches, the other two are all different.</string>
+    <string name="trio_demo_no_match">Not a set: no trait matches.</string>
     <string name="mental_rotations_demo_title">Turn it in your head</string>
     <string name="mental_rotations_demo_turn">Rotate the right block onto the left one.</string>
     <string name="mental_rotations_demo_same">It lines up. Same block.</string>

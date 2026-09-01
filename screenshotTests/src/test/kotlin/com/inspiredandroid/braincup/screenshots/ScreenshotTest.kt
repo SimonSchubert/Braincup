@@ -970,6 +970,20 @@ class ScreenshotTest {
         }
     }
 
+    // The one instructions screen that is a list rather than a demo: seven rows of cards and three
+    // headings, which is also the tallest body any game puts in that slot.
+    @Test
+    fun instructionsTrio() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.TRIO,
+                storage = UserStorage(MapSettings()),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
     @Test
     fun gameMentalFlexOled() {
         paparazzi.snap(colorScheme = OledColorScheme) {

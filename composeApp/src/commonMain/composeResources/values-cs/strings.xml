@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Odhal, co má dvojice společné.</string>
     <string name="trio_demo_title">Najdi trojici</string>
     <string name="trio_demo_rule">Sdílejí vlastnost. Nic jiného se nemíchá.</string>
-    <string name="trio_demo_correct">To je trojice.</string>
+    <string name="trio_demo_two_match">Dvě vlastnosti se shodují, třetí je pokaždé jiná.</string>
+    <string name="trio_demo_one_match">Jedna vlastnost se shoduje, zbylé dvě jsou pokaždé jiné.</string>
+    <string name="trio_demo_no_match">Není trojice: neshoduje se žádná vlastnost.</string>
     <string name="mental_rotations_demo_title">Otoč si to v hlavě</string>
     <string name="mental_rotations_demo_turn">Otoč pravý blok na ten levý.</string>
     <string name="mental_rotations_demo_same">Sedí to. Stejný blok.</string>

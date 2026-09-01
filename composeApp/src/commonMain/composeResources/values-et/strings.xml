@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Leia, mis on paaril ühist.</string>
     <string name="trio_demo_title">Leia kolmik</string>
     <string name="trio_demo_rule">Need jagavad omadust. Midagi muud ei segune.</string>
-    <string name="trio_demo_correct">See on kolmik.</string>
+    <string name="trio_demo_two_match">Kaks omadust langevad kokku, kolmas on igal kaardil erinev.</string>
+    <string name="trio_demo_one_match">Üks omadus langeb kokku, ülejäänud kaks on igal kaardil erinevad.</string>
+    <string name="trio_demo_no_match">Pole kolmik: ükski omadus ei lange kokku.</string>
     <string name="mental_rotations_demo_title">Pööra seda peas</string>
     <string name="mental_rotations_demo_turn">Pööra parempoolne plokk vasakpoolse peale.</string>
     <string name="mental_rotations_demo_same">Klapib. Sama plokk.</string>

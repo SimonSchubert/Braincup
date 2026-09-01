@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Se vad paret har gemensamt.</string>
     <string name="trio_demo_title">Hitta en tregrupp</string>
     <string name="trio_demo_rule">De delar en egenskap. Inget annat är blandat.</string>
-    <string name="trio_demo_correct">Det är en grupp.</string>
+    <string name="trio_demo_two_match">Två egenskaper är lika, den tredje olika på alla.</string>
+    <string name="trio_demo_one_match">En egenskap är lika, de andra två olika på alla.</string>
+    <string name="trio_demo_no_match">Ingen grupp: ingen egenskap är lika.</string>
     <string name="mental_rotations_demo_title">Vrid det i huvudet</string>
     <string name="mental_rotations_demo_turn">Rotera det högra blocket ovanpå det vänstra.</string>
     <string name="mental_rotations_demo_same">Det passar. Samma block.</string>

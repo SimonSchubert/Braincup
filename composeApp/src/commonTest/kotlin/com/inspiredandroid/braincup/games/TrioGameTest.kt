@@ -136,6 +136,30 @@ class TrioGameTest {
         assertEquals(TrioGame.BOARD_SIZE, game.cards.size)
     }
 
+    @Test
+    fun revealSolutionMarksASetTheBoardHolds() {
+        val game = gameWithKnownSet()
+        assertTrue(game.revealSolution())
+        assertEquals(TrioGame.CardFeedback.CORRECT, game.feedback)
+        assertEquals(3, game.selected.size)
+        val picks = game.selected.toList()
+        assertTrue(isTrioSet(game.cards[picks[0]], game.cards[picks[1]], game.cards[picks[2]]))
+    }
+
+    @Test
+    fun revealSolutionIsIgnoredWhileFeedbackIsUp() {
+        val game = gameWithKnownSet()
+        assertTrue(game.revealSolution())
+        assertFalse(game.revealSolution())
+
+        val wrong = gameWithKnownSet()
+        wrong.tap(0)
+        wrong.tap(1)
+        wrong.tap(3)
+        assertEquals(TrioGame.CardFeedback.WRONG, wrong.feedback)
+        assertFalse(wrong.revealSolution())
+    }
+
     private fun gameWithKnownSet(): TrioGame {
         val a = TrioCard(TrioShape.CIRCLE, 1, TrioFill.SOLID)
         val b = TrioCard(TrioShape.CIRCLE, 2, TrioFill.SOLID)

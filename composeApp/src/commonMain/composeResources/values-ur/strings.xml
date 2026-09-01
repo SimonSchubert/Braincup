@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">پہچانیں کہ جوڑے میں کیا مشترک ہے۔</string>
     <string name="trio_demo_title">تین کا سیٹ تلاش کریں</string>
     <string name="trio_demo_rule">ان میں ایک خصوصیت مشترک ہے۔ باقی ملا جلا نہیں۔</string>
-    <string name="trio_demo_correct">یہ سیٹ ہے۔</string>
+    <string name="trio_demo_two_match">دو خصوصیات ایک جیسی، تیسری ہر کارڈ پر مختلف۔</string>
+    <string name="trio_demo_one_match">ایک خصوصیت ایک جیسی، باقی دو ہر کارڈ پر مختلف۔</string>
+    <string name="trio_demo_no_match">سیٹ نہیں: کوئی خصوصیت ایک جیسی نہیں۔</string>
     <string name="mental_rotations_demo_title">اسے ذہن میں گھمائیں</string>
     <string name="mental_rotations_demo_turn">دائیں بلاک کو گھما کر بائیں پر رکھیں۔</string>
     <string name="mental_rotations_demo_same">بالکل مل جاتا ہے۔ وہی بلاک۔</string>

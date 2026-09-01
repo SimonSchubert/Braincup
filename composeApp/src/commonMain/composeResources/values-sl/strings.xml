@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Opazi, kaj imata skupnega.</string>
     <string name="trio_demo_title">Najdi trojico</string>
     <string name="trio_demo_rule">Delijo si lastnost. Nič drugega se ne meša.</string>
-    <string name="trio_demo_correct">To je trojica.</string>
+    <string name="trio_demo_two_match">Dve lastnosti sta enaki, tretja je pri vsaki drugačna.</string>
+    <string name="trio_demo_one_match">Ena lastnost je enaka, drugi dve sta pri vsaki drugačni.</string>
+    <string name="trio_demo_no_match">Ni trojica: nobena lastnost ni enaka.</string>
     <string name="mental_rotations_demo_title">Zavrti ga v glavi</string>
     <string name="mental_rotations_demo_turn">Zavrti desni blok na levega.</string>
     <string name="mental_rotations_demo_same">Se ujema. Isti blok.</string>

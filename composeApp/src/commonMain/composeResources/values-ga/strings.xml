@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Aimsigh cad atá i gcoiteann ag an bpéire.</string>
     <string name="trio_demo_title">Faigh tríréad</string>
     <string name="trio_demo_rule">Roinntear tréith. Ní mheascann aon ní eile.</string>
-    <string name="trio_demo_correct">Sin tríréad.</string>
+    <string name="trio_demo_two_match">Dhá thréith mar a chéile, an tríú ceann difriúil gach uair.</string>
+    <string name="trio_demo_one_match">Tréith amháin mar a chéile, an dá cheann eile difriúil gach uair.</string>
+    <string name="trio_demo_no_match">Ní tríréad é: níl aon tréith mar a chéile.</string>
     <string name="mental_rotations_demo_title">Cas i d'intinn é</string>
     <string name="mental_rotations_demo_turn">Cas an bloc ar dheis anuas ar an gceann ar chlé.</string>
     <string name="mental_rotations_demo_same">Luíonn sé isteach. An bloc céanna.</string>

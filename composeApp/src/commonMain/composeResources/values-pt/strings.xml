@@ -789,7 +789,9 @@
     <string name="game_mental_flex_howto">Perceba o que o par tem em comum.</string>
     <string name="trio_demo_title">Encontre um conjunto de três</string>
     <string name="trio_demo_rule">Elas compartilham um traço. Nada mais está misturado.</string>
-    <string name="trio_demo_correct">Esse é um conjunto.</string>
+    <string name="trio_demo_two_match">Dois traços iguais, o terceiro todo diferente.</string>
+    <string name="trio_demo_one_match">Um traço igual, os outros dois todos diferentes.</string>
+    <string name="trio_demo_no_match">Não é conjunto: nenhum traço igual.</string>
     <string name="mental_rotations_demo_title">Roda-o na tua cabeça</string>
     <string name="mental_rotations_demo_turn">Roda o bloco da direita até assentar no da esquerda.</string>
     <string name="mental_rotations_demo_same">Encaixa. É o mesmo bloco.</string>

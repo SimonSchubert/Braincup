@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Find ud af, hvad parret har til fælles.</string>
     <string name="trio_demo_title">Find et sæt af tre</string>
     <string name="trio_demo_rule">De deler en egenskab. Intet andet er blandet.</string>
-    <string name="trio_demo_correct">Det er et sæt.</string>
+    <string name="trio_demo_two_match">To egenskaber er ens, den tredje er helt forskellig.</string>
+    <string name="trio_demo_one_match">Én egenskab er ens, de to andre er helt forskellige.</string>
+    <string name="trio_demo_no_match">Ikke et sæt: ingen egenskab er ens.</string>
     <string name="mental_rotations_demo_title">Drej den i hovedet</string>
     <string name="mental_rotations_demo_turn">Drej den højre klods over på den venstre.</string>
     <string name="mental_rotations_demo_same">Den passer. Samme klods.</string>

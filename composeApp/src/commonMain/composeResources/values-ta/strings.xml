@@ -281,7 +281,9 @@
     <string name="game_mental_flex_howto">இந்த இணை எதைப் பகிர்கிறது என்பதைக் கண்டறியுங்கள்.</string>
     <string name="trio_demo_title">மூன்றின் தொகுப்பைக் கண்டுபிடியுங்கள்</string>
     <string name="trio_demo_rule">அவை ஒரே பண்பைப் பகிர்கின்றன. வேறெதுவும் கலக்கவில்லை.</string>
-    <string name="trio_demo_correct">அதுதான் ஒரு தொகுப்பு.</string>
+    <string name="trio_demo_two_match">இரண்டு பண்புகள் ஒரே மாதிரி, மூன்றாவது ஒவ்வொன்றிலும் வேறு.</string>
+    <string name="trio_demo_one_match">ஒரு பண்பு ஒரே மாதிரி, மற்ற இரண்டும் ஒவ்வொன்றிலும் வேறு.</string>
+    <string name="trio_demo_no_match">தொகுப்பு அல்ல: எந்தப் பண்பும் ஒரே மாதிரி இல்லை.</string>
     <string name="mental_rotations_demo_title">மனதில் சுழற்றுங்கள்</string>
     <string name="mental_rotations_demo_turn">வலது தொகுதியைச் சுழற்றி இடதின் மேல் பொருத்துங்கள்.</string>
     <string name="mental_rotations_demo_same">சரியாகப் பொருந்துகிறது. அதே தொகுதி.</string>

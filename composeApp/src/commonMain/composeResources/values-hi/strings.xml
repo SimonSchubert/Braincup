@@ -788,7 +788,9 @@
     <string name="game_mental_flex_howto">पहचानें कि जोड़ी में क्या समान है।</string>
     <string name="trio_demo_title">तीन का सेट खोजें</string>
     <string name="trio_demo_rule">वे एक गुण साझा करते हैं। बाकी मिलाया नहीं गया।</string>
-    <string name="trio_demo_correct">यह एक सेट है।</string>
+    <string name="trio_demo_two_match">दो गुण एक जैसे, तीसरा हर कार्ड पर अलग।</string>
+    <string name="trio_demo_one_match">एक गुण एक जैसा, बाकी दो हर कार्ड पर अलग।</string>
+    <string name="trio_demo_no_match">सेट नहीं: कोई गुण एक जैसा नहीं।</string>
     <string name="mental_rotations_demo_title">इसे मन में घुमाएं</string>
     <string name="mental_rotations_demo_turn">दाएं ब्लॉक को घुमाकर बाएं पर बैठाएं।</string>
     <string name="mental_rotations_demo_same">यह मिल जाता है। वही ब्लॉक।</string>

@@ -789,7 +789,9 @@
     <string name="game_mental_flex_howto">Zie wat het paar gemeen heeft.</string>
     <string name="trio_demo_title">Vind een set van drie</string>
     <string name="trio_demo_rule">Ze delen een kenmerk. Verder niets gemengd.</string>
-    <string name="trio_demo_correct">Dat is een set.</string>
+    <string name="trio_demo_two_match">Twee kenmerken zijn gelijk, het derde overal anders.</string>
+    <string name="trio_demo_one_match">Eén kenmerk is gelijk, de andere twee overal anders.</string>
+    <string name="trio_demo_no_match">Geen set: geen enkel kenmerk is gelijk.</string>
     <string name="mental_rotations_demo_title">Draai het in je hoofd</string>
     <string name="mental_rotations_demo_turn">Draai het rechterblok op het linker.</string>
     <string name="mental_rotations_demo_same">Het valt samen. Hetzelfde blok.</string>

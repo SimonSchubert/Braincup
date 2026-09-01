@@ -281,7 +281,9 @@
     <string name="game_mental_flex_howto">जोडीत काय समान आहे ते ओळखा.</string>
     <string name="trio_demo_title">तिघांचा संच शोधा</string>
     <string name="trio_demo_rule">त्यांच्यात एक गुणधर्म समान आहे. बाकी काहीही मिसळलेले नाही.</string>
-    <string name="trio_demo_correct">हाच एक संच आहे.</string>
+    <string name="trio_demo_two_match">दोन गुणधर्म सारखे, तिसरा प्रत्येक कार्डावर वेगळा.</string>
+    <string name="trio_demo_one_match">एक गुणधर्म सारखा, उरलेले दोन प्रत्येक कार्डावर वेगळे.</string>
+    <string name="trio_demo_no_match">संच नाही: एकही गुणधर्म सारखा नाही.</string>
     <string name="mental_rotations_demo_title">मनातल्या मनात फिरवा</string>
     <string name="mental_rotations_demo_turn">उजवा ठोकळा फिरवून डाव्यावर बसवा.</string>
     <string name="mental_rotations_demo_same">तंतोतंत जुळतो. तोच ठोकळा.</string>

@@ -194,7 +194,7 @@ fun GameScreen(
                 is GhostGridUiState -> GhostGridContent(gameUiState, onAnswer)
                 is SimonSaysUiState -> SimonSaysContent(gameUiState, onAnswer)
                 is ColorConfusionUiState -> ColorConfusionContent(gameUiState, onAnswer)
-                is TrioUiState -> TrioContent(gameUiState, onAnswer)
+                is TrioUiState -> TrioContent(gameUiState, onAnswer, onGiveUp)
                 is OrbitTrackerUiState -> OrbitTrackerContent(
                     uiState = gameUiState,
                     livePositions = orbitBallPositions,

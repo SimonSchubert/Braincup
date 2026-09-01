@@ -788,7 +788,9 @@
     <string name="game_mental_flex_howto">Nhận ra điểm chung của cặp hình.</string>
     <string name="trio_demo_title">Tìm một bộ ba lá</string>
     <string name="trio_demo_rule">Chúng chung một đặc điểm. Phần còn lại không bị lẫn.</string>
-    <string name="trio_demo_correct">Đó là một bộ.</string>
+    <string name="trio_demo_two_match">Hai đặc điểm giống nhau, đặc điểm còn lại khác nhau cả ba.</string>
+    <string name="trio_demo_one_match">Một đặc điểm giống nhau, hai đặc điểm còn lại khác nhau cả ba.</string>
+    <string name="trio_demo_no_match">Không phải một bộ: không đặc điểm nào giống nhau.</string>
     <string name="mental_rotations_demo_title">Xoay nó trong đầu</string>
     <string name="mental_rotations_demo_turn">Xoay khối bên phải cho khớp với khối bên trái.</string>
     <string name="mental_rotations_demo_same">Nó khớp. Cùng một khối.</string>

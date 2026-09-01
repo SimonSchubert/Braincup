@@ -788,7 +788,9 @@
     <string name="game_mental_flex_howto">Заметьте, что общего у этой пары.</string>
     <string name="trio_demo_title">Найдите набор из трёх</string>
     <string name="trio_demo_rule">У них общий признак. Остальное не смешано.</string>
-    <string name="trio_demo_correct">Это набор.</string>
+    <string name="trio_demo_two_match">Два признака совпадают, третий везде разный.</string>
+    <string name="trio_demo_one_match">Один признак совпадает, два других везде разные.</string>
+    <string name="trio_demo_no_match">Не набор: ни один признак не совпадает.</string>
     <string name="mental_rotations_demo_title">Поверни его в уме</string>
     <string name="mental_rotations_demo_turn">Поверни правый блок так, чтобы он совпал с левым.</string>
     <string name="mental_rotations_demo_same">Совпадает. Тот же блок.</string>

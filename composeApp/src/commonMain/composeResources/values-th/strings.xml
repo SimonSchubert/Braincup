@@ -788,7 +788,9 @@
     <string name="game_mental_flex_howto">สังเกตว่าคู่นี้มีอะไรเหมือนกัน</string>
     <string name="trio_demo_title">หาชุดสามใบ</string>
     <string name="trio_demo_rule">มีลักษณะร่วมกัน ส่วนอื่นไม่ปะปน</string>
-    <string name="trio_demo_correct">นั่นคือหนึ่งชุด</string>
+    <string name="trio_demo_two_match">ลักษณะสองอย่างเหมือนกัน อย่างที่สามต่างกันทั้งสามใบ</string>
+    <string name="trio_demo_one_match">ลักษณะหนึ่งอย่างเหมือนกัน อีกสองอย่างต่างกันทั้งสามใบ</string>
+    <string name="trio_demo_no_match">ไม่ใช่ชุด ไม่มีลักษณะใดเหมือนกันเลย</string>
     <string name="mental_rotations_demo_title">หมุนมันในหัว</string>
     <string name="mental_rotations_demo_turn">หมุนบล็อกขวาให้ทับกับบล็อกซ้าย</string>
     <string name="mental_rotations_demo_same">ทับกันพอดี บล็อกเดียวกัน</string>

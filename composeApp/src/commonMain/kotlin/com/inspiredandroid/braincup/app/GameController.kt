@@ -618,6 +618,11 @@ class GameController(
                 recordBullsAndCowsScore(gameType)
             }
             // Games that reveal the solution on their own board before the next round.
+            is TrioGame -> {
+                if (!game.revealSolution()) return
+                emitUiState(game)
+                scheduleNextRound(gameType, game, after = 1.seconds)
+            }
             is SherlockCalculationGame -> {
                 val ui = _gameUiState.value as? SherlockCalculationUiState ?: return
                 _gameUiState.value = ui.copy(solutionTokens = game.solutionTokens.toImmutableList())

@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Finn ut hva paret har til felles.</string>
     <string name="trio_demo_title">Finn et sett av tre</string>
     <string name="trio_demo_rule">De deler en egenskap. Ingenting annet er blandet.</string>
-    <string name="trio_demo_correct">Det er et sett.</string>
+    <string name="trio_demo_two_match">To egenskaper er like, den tredje er ulik på alle.</string>
+    <string name="trio_demo_one_match">Én egenskap er lik, de to andre er ulike på alle.</string>
+    <string name="trio_demo_no_match">Ikke et sett: ingen egenskap er lik.</string>
     <string name="mental_rotations_demo_title">Snu den i hodet</string>
     <string name="mental_rotations_demo_turn">Roter den høyre klossen over på den venstre.</string>
     <string name="mental_rotations_demo_same">Den passer. Samme kloss.</string>

@@ -134,6 +134,15 @@ class TrioGame(
         feedback = CardFeedback.NONE
     }
 
+    /** Marks a set the board holds. Reached from give up, which awards no point for it. */
+    fun revealSolution(): Boolean {
+        if (feedback == CardFeedback.CORRECT || feedback == CardFeedback.WRONG) return false
+        val set = findTrioSets(cards).firstOrNull() ?: return false
+        selected = LinkedHashSet(set)
+        feedback = CardFeedback.CORRECT
+        return true
+    }
+
     internal fun loadBoard(board: List<TrioCard>) {
         require(board.size == BOARD_SIZE)
         selected = linkedSetOf()

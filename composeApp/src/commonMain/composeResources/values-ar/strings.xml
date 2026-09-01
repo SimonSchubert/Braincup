@@ -789,7 +789,9 @@
     <string name="game_mental_flex_howto">اكتشف ما يشترك فيه الشكلان.</string>
     <string name="trio_demo_title">اعثر على مجموعة من ثلاث</string>
     <string name="trio_demo_rule">تشترك في سمة. لا شيء آخر مختلط.</string>
-    <string name="trio_demo_correct">هذه مجموعة.</string>
+    <string name="trio_demo_two_match">سمتان متطابقتان، والثالثة مختلفة تمامًا.</string>
+    <string name="trio_demo_one_match">سمة واحدة متطابقة، والأخريان مختلفتان تمامًا.</string>
+    <string name="trio_demo_no_match">ليست مجموعة: لا توجد سمة متطابقة.</string>
     <string name="mental_rotations_demo_title">أدرها في ذهنك</string>
     <string name="mental_rotations_demo_turn">أدر الكتلة اليمنى لتنطبق على اليسرى.</string>
     <string name="mental_rotations_demo_same">تنطبق تمامًا. نفس الكتلة.</string>

@@ -281,7 +281,9 @@
     <string name="game_mental_flex_howto">پیدا کن این دو چه چیزی مشترک دارند.</string>
     <string name="trio_demo_title">یک دسته سه‌تایی پیدا کن</string>
     <string name="trio_demo_rule">یک ویژگی مشترک دارند. چیز دیگری قاطی نیست.</string>
-    <string name="trio_demo_correct">این یک دسته است.</string>
+    <string name="trio_demo_two_match">دو ویژگی یکسان‌اند و سومی همه‌جا متفاوت.</string>
+    <string name="trio_demo_one_match">یک ویژگی یکسان است و دو تای دیگر همه‌جا متفاوت.</string>
+    <string name="trio_demo_no_match">دسته نیست: هیچ ویژگی یکسانی ندارند.</string>
     <string name="mental_rotations_demo_title">در ذهنت بچرخانش</string>
     <string name="mental_rotations_demo_turn">بلوک راست را بچرخان تا روی چپی بیفتد.</string>
     <string name="mental_rotations_demo_same">منطبق می‌شود. همان بلوک.</string>

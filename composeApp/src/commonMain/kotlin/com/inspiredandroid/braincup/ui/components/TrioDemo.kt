@@ -1,143 +1,140 @@
 package com.inspiredandroid.braincup.ui.components
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.Res
-import braincup.composeapp.generated.resources.trio_demo_correct
+import braincup.composeapp.generated.resources.trio_demo_no_match
+import braincup.composeapp.generated.resources.trio_demo_one_match
 import braincup.composeapp.generated.resources.trio_demo_rule
 import braincup.composeapp.generated.resources.trio_demo_title
+import braincup.composeapp.generated.resources.trio_demo_two_match
 import com.inspiredandroid.braincup.app.TrioUiState
+import com.inspiredandroid.braincup.games.TrioCard
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioGame
 import com.inspiredandroid.braincup.games.TrioShape
-import kotlinx.collections.immutable.persistentListOf
-import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.StringResource
 import org.jetbrains.compose.resources.stringResource
 
-private data class TrioDemoRound(
-    val cards: List<TrioUiState.Card>,
-)
-
-private val Rounds = listOf(
-    TrioDemoRound(
-        cards = listOf(
-            TrioUiState.Card(TrioShape.CIRCLE, 1, TrioFill.SOLID, TrioGame.CardFeedback.NONE),
-            TrioUiState.Card(TrioShape.CIRCLE, 2, TrioFill.SOLID, TrioGame.CardFeedback.NONE),
-            TrioUiState.Card(TrioShape.CIRCLE, 3, TrioFill.SOLID, TrioGame.CardFeedback.NONE),
-        ),
+/**
+ * Every trio the rule accepts, one row each: a trait is all-same or all-different across the three
+ * cards, and at least one is all-same. All-same everywhere cannot be dealt from a deck of unique
+ * cards, so what is left is three rows holding two traits and three holding one.
+ *
+ * TrioDemoExamplesTest checks these against [com.inspiredandroid.braincup.games.isTrioSet], so an
+ * edit here cannot quietly teach a trio the game would reject.
+ */
+internal val TrioTwoMatchExamples = listOf(
+    listOf(
+        TrioCard(TrioShape.CIRCLE, 1, TrioFill.SOLID),
+        TrioCard(TrioShape.CIRCLE, 2, TrioFill.SOLID),
+        TrioCard(TrioShape.CIRCLE, 3, TrioFill.SOLID),
     ),
-    TrioDemoRound(
-        cards = listOf(
-            TrioUiState.Card(TrioShape.SQUARE, 2, TrioFill.OUTLINE, TrioGame.CardFeedback.NONE),
-            TrioUiState.Card(TrioShape.SQUARE, 2, TrioFill.STRIPED, TrioGame.CardFeedback.NONE),
-            TrioUiState.Card(TrioShape.SQUARE, 2, TrioFill.SOLID, TrioGame.CardFeedback.NONE),
-        ),
+    listOf(
+        TrioCard(TrioShape.SQUARE, 2, TrioFill.SOLID),
+        TrioCard(TrioShape.SQUARE, 2, TrioFill.STRIPED),
+        TrioCard(TrioShape.SQUARE, 2, TrioFill.OUTLINE),
     ),
-    TrioDemoRound(
-        cards = listOf(
-            TrioUiState.Card(TrioShape.CIRCLE, 2, TrioFill.SOLID, TrioGame.CardFeedback.NONE),
-            TrioUiState.Card(TrioShape.SQUARE, 2, TrioFill.SOLID, TrioGame.CardFeedback.NONE),
-            TrioUiState.Card(TrioShape.TRIANGLE, 2, TrioFill.SOLID, TrioGame.CardFeedback.NONE),
-        ),
+    listOf(
+        TrioCard(TrioShape.CIRCLE, 3, TrioFill.OUTLINE),
+        TrioCard(TrioShape.SQUARE, 3, TrioFill.OUTLINE),
+        TrioCard(TrioShape.TRIANGLE, 3, TrioFill.OUTLINE),
     ),
 )
 
-private val DemoCaptions = persistentListOf(
-    Res.string.trio_demo_rule,
-    Res.string.trio_demo_correct,
+internal val TrioOneMatchExamples = listOf(
+    listOf(
+        TrioCard(TrioShape.TRIANGLE, 1, TrioFill.SOLID),
+        TrioCard(TrioShape.TRIANGLE, 2, TrioFill.STRIPED),
+        TrioCard(TrioShape.TRIANGLE, 3, TrioFill.OUTLINE),
+    ),
+    listOf(
+        TrioCard(TrioShape.CIRCLE, 2, TrioFill.SOLID),
+        TrioCard(TrioShape.SQUARE, 2, TrioFill.STRIPED),
+        TrioCard(TrioShape.TRIANGLE, 2, TrioFill.OUTLINE),
+    ),
+    listOf(
+        TrioCard(TrioShape.CIRCLE, 1, TrioFill.STRIPED),
+        TrioCard(TrioShape.SQUARE, 2, TrioFill.STRIPED),
+        TrioCard(TrioShape.TRIANGLE, 3, TrioFill.STRIPED),
+    ),
 )
 
-private const val ScanMillis = 1600L
-private const val SelectStaggerMillis = 450L
-private const val SolvedHoldMillis = 1400L
-private const val RoundRestMillis = 350L
-private const val LoopEndHoldMillis = 700L
+/**
+ * The trap: this is a set in the card game Trio is modelled on, but not here, because nothing is
+ * held constant. Shown deliberately, since the rule is otherwise only learnt by losing a guess.
+ */
+internal val TrioNoMatchExample = listOf(
+    TrioCard(TrioShape.CIRCLE, 1, TrioFill.SOLID),
+    TrioCard(TrioShape.SQUARE, 2, TrioFill.STRIPED),
+    TrioCard(TrioShape.TRIANGLE, 3, TrioFill.OUTLINE),
+)
 
 @Composable
 fun TrioDemo(modifier: Modifier = Modifier) {
-    var roundIndex by remember { mutableIntStateOf(0) }
-    var selected by remember { mutableStateOf(emptySet<Int>()) }
-    var solved by remember { mutableStateOf(false) }
-    var captionRes by remember { mutableStateOf(Res.string.trio_demo_rule) }
-
-    LaunchedEffect(Unit) {
-        while (true) {
-            for (index in Rounds.indices) {
-                val round = Rounds[index]
-                roundIndex = index
-                selected = emptySet()
-                solved = false
-                captionRes = Res.string.trio_demo_rule
-                delay(ScanMillis)
-
-                for (cardIndex in round.cards.indices) {
-                    selected = selected + cardIndex
-                    delay(SelectStaggerMillis)
-                }
-
-                solved = true
-                captionRes = Res.string.trio_demo_correct
-                delay(SolvedHoldMillis)
-                delay(RoundRestMillis)
-            }
-            delay(LoopEndHoldMillis)
-        }
+    DemoScaffold(
+        title = Res.string.trio_demo_title,
+        modifier = modifier,
+        description = Res.string.trio_demo_rule,
+    ) {
+        ExampleGroup(labelRes = Res.string.trio_demo_two_match, rows = TrioTwoMatchExamples)
+        Spacer(Modifier.height(16.dp))
+        ExampleGroup(labelRes = Res.string.trio_demo_one_match, rows = TrioOneMatchExamples)
+        Spacer(Modifier.height(16.dp))
+        ExampleGroup(
+            labelRes = Res.string.trio_demo_no_match,
+            rows = listOf(TrioNoMatchExample),
+            feedback = TrioGame.CardFeedback.DIMMED,
+        )
     }
+}
 
-    val cards = Rounds[roundIndex].cards
-    val cellMax = gridCellMaxSize
+@Composable
+private fun ExampleGroup(
+    labelRes: StringResource,
+    rows: List<List<TrioCard>>,
+    modifier: Modifier = Modifier,
+    feedback: TrioGame.CardFeedback = TrioGame.CardFeedback.NONE,
+) {
+    // Sized here rather than from gridCellMaxSize: seven rows of a playing-board cell would push
+    // the Start button off even a tall screen.
+    val cardSize = if (LocalIsCompactHeight.current) 36.dp else 44.dp
     Column(
         modifier = modifier,
         horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(6.dp),
     ) {
         Text(
-            text = stringResource(Res.string.trio_demo_title),
-            style = MaterialTheme.typography.titleMedium,
+            text = stringResource(labelRes),
+            style = MaterialTheme.typography.titleSmall,
             fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
+            modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp),
         )
-        Spacer(Modifier.height(16.dp))
-
-        Row(
-            modifier = Modifier.widthIn(max = cellMax * cards.size),
-        ) {
-            cards.forEachIndexed { index, card ->
-                val feedback = when {
-                    solved -> TrioGame.CardFeedback.CORRECT
-                    index in selected -> TrioGame.CardFeedback.SELECTED
-                    else -> TrioGame.CardFeedback.NONE
+        rows.forEach { cards ->
+            Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                cards.forEach { card ->
+                    TrioCardTile(
+                        card = TrioUiState.Card(card.shape, card.count, card.fill, feedback),
+                        locked = true,
+                        onClick = {},
+                        modifier = Modifier.size(cardSize),
+                    )
                 }
-                TrioCardTile(
-                    card = card.copy(feedback = feedback),
-                    locked = true,
-                    onClick = {},
-                    modifier = Modifier
-                        .weight(1f)
-                        .aspectRatio(1f)
-                        .padding(4.dp),
-                )
             }
         }
-        Spacer(Modifier.height(16.dp))
-        DemoCaption(current = captionRes, all = DemoCaptions)
     }
 }

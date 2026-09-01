@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Открий какво е общото на двойката.</string>
     <string name="trio_demo_title">Намери тройка</string>
     <string name="trio_demo_rule">Споделят свойство. Нищо друго не се смесва.</string>
-    <string name="trio_demo_correct">Това е тройка.</string>
+    <string name="trio_demo_two_match">Две свойства съвпадат, третото е напълно различно.</string>
+    <string name="trio_demo_one_match">Едно свойство съвпада, другите две са напълно различни.</string>
+    <string name="trio_demo_no_match">Не е тройка: нито едно свойство не съвпада.</string>
     <string name="mental_rotations_demo_title">Завърти го наум</string>
     <string name="mental_rotations_demo_turn">Завърти десния блок върху левия.</string>
     <string name="mental_rotations_demo_same">Съвпада. Същият блок.</string>

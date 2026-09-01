@@ -281,7 +281,9 @@
     <string name="game_mental_flex_howto">ജോഡിക്ക് പൊതുവായുള്ളത് കണ്ടെത്തുക.</string>
     <string name="trio_demo_title">മൂന്നിന്റെ കൂട്ടം കണ്ടെത്തുക</string>
     <string name="trio_demo_rule">അവയ്ക്ക് ഒരു ഗുണം പൊതുവായുണ്ട്. മറ്റൊന്നും കൂടിക്കലർന്നിട്ടില്ല.</string>
-    <string name="trio_demo_correct">അതാണൊരു കൂട്ടം.</string>
+    <string name="trio_demo_two_match">രണ്ട് ഗുണം ഒരുപോലെ, മൂന്നാമത്തേത് ഓരോന്നിലും വേറെ.</string>
+    <string name="trio_demo_one_match">ഒരു ഗുണം ഒരുപോലെ, ബാക്കി രണ്ടും ഓരോന്നിലും വേറെ.</string>
+    <string name="trio_demo_no_match">കൂട്ടമല്ല: ഒരു ഗുണവും ഒരുപോലെയല്ല.</string>
     <string name="mental_rotations_demo_title">മനസ്സിൽ തിരിക്കുക</string>
     <string name="mental_rotations_demo_turn">വലത്തെ ബ്ലോക്ക് തിരിച്ച് ഇടത്തേതിന് മുകളിൽ വയ്ക്കുക.</string>
     <string name="mental_rotations_demo_same">കൃത്യമായി ചേരുന്നു. അതേ ബ്ലോക്ക്.</string>

@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Descobreix què comparteix la parella.</string>
     <string name="trio_demo_title">Troba un trio</string>
     <string name="trio_demo_rule">Comparteixen una propietat. Res més es barreja.</string>
-    <string name="trio_demo_correct">Aquest és un trio.</string>
+    <string name="trio_demo_two_match">Dues propietats coincideixen, la tercera és tota diferent.</string>
+    <string name="trio_demo_one_match">Una propietat coincideix, les altres dues són totes diferents.</string>
+    <string name="trio_demo_no_match">No és un trio: cap propietat no coincideix.</string>
     <string name="mental_rotations_demo_title">Gira'l al cap</string>
     <string name="mental_rotations_demo_turn">Fes girar el bloc de la dreta fins al de l'esquerra.</string>
     <string name="mental_rotations_demo_same">Encaixa. El mateix bloc.</string>

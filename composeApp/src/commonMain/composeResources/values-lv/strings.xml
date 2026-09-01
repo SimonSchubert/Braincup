@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Pamani, kas pārim ir kopīgs.</string>
     <string name="trio_demo_title">Atrodi trijnieku</string>
     <string name="trio_demo_rule">Tās dala īpašību. Nekas cits nesajaucas.</string>
-    <string name="trio_demo_correct">Tas ir trijnieks.</string>
+    <string name="trio_demo_two_match">Divas īpašības sakrīt, trešā visur atšķiras.</string>
+    <string name="trio_demo_one_match">Viena īpašība sakrīt, pārējās divas visur atšķiras.</string>
+    <string name="trio_demo_no_match">Nav trijnieks: nesakrīt neviena īpašība.</string>
     <string name="mental_rotations_demo_title">Pagriez to prātā</string>
     <string name="mental_rotations_demo_turn">Pagriez labo bloku uz kreiso.</string>
     <string name="mental_rotations_demo_same">Tas sakrīt. Tas pats bloks.</string>

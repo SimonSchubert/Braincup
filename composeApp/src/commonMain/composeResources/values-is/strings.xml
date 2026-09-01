@@ -297,7 +297,9 @@
     <string name="game_mental_flex_howto">Finndu hvað parið á sameiginlegt.</string>
     <string name="trio_demo_title">Finndu þrennu</string>
     <string name="trio_demo_rule">Þau deila eiginleika. Ekkert annað blandast.</string>
-    <string name="trio_demo_correct">Þetta er þrenna.</string>
+    <string name="trio_demo_two_match">Tveir eiginleikar eru eins, sá þriðji ólíkur á öllum.</string>
+    <string name="trio_demo_one_match">Einn eiginleiki er eins, hinir tveir ólíkir á öllum.</string>
+    <string name="trio_demo_no_match">Ekki þrenna: enginn eiginleiki er eins.</string>
     <string name="mental_rotations_demo_title">Snúðu honum í huganum</string>
     <string name="mental_rotations_demo_turn">Snúðu hægri kubbnum yfir á þann vinstri.</string>
     <string name="mental_rotations_demo_same">Hann fellur saman. Sami kubbur.</string>
