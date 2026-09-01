@@ -3,6 +3,7 @@ package com.inspiredandroid.braincup.ui.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.LocalTextStyle
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -38,6 +39,7 @@ import com.inspiredandroid.braincup.normalsudoku.noteMaskHas
 import com.inspiredandroid.braincup.normalsudoku.noteMaskToText
 import com.inspiredandroid.braincup.normalsudoku.noteMaskToggle
 import com.inspiredandroid.braincup.ui.components.AppScaffold
+import com.inspiredandroid.braincup.ui.components.BoxedGlyphLineHeight
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.XpGainedChip
 import com.inspiredandroid.braincup.ui.components.boxedTextSize
@@ -426,7 +428,8 @@ private fun SudokuCell(
                 Text(
                     text = committedValue.toString(),
                     fontSize = boxedTextSize(cellSize, 0.5f),
-                    lineHeight = boxedTextSize(cellSize, 1f),
+                    lineHeight = boxedTextSize(cellSize, 0.5f),
+                    style = LocalTextStyle.current.copy(lineHeightStyle = BoxedGlyphLineHeight),
                     fontFamily = numberFontFamily(),
                     fontWeight = if (isClue) FontWeight.Bold else FontWeight.SemiBold,
                     color = textColor,
@@ -554,7 +557,8 @@ private fun DigitTile(
             Text(
                 text = label,
                 fontSize = boxedTextSize(size, 0.5f),
-                lineHeight = boxedTextSize(size, 1f),
+                lineHeight = boxedTextSize(size, 0.5f),
+                style = LocalTextStyle.current.copy(lineHeightStyle = BoxedGlyphLineHeight),
                 fontFamily = numberFontFamily(),
                 fontWeight = FontWeight.Bold,
                 color = OnPrimaryContainer,
