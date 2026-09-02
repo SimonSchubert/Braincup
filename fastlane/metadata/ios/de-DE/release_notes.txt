@@ -1,6 +1,8 @@
-Hauptmenü in farblich sortierte Bereiche gegliedert
-Neuer Bereich „Lass dir Zeit“ für IQ-Test, Schach, Sudoku und andere ruhige Rätsel
-Fortschritt direkt auf den Kacheln der ruhigen Spiele
-Hinweis auf die kognitive Aufgabe hinter acht Spielen in der Anleitung
-Blitzmenge lässt sich nicht mehr über die Punktgröße statt der Anzahl gewinnen
-Bessere deutsche und französische Übersetzungen
+Neu: Regelwechsel, Karten sortieren nach einer Regel, die niemand nennt
+Neu: Algebra in Mathe lernen, 21 Lektionen mit je einem Zertifikat
+Farbverwirrung als echte Stroop-Aufgabe neu gebaut, mit Kongruenzkosten
+N-Back als echte Aufgabe neu gebaut, jetzt eine Leiter, deren Level das n ist
+Startsymbol-Kurzbefehle für die Tagesaufgabe und zuletzt gespielte Spiele
+Fünf weitere Level für Prisma räumen
+Sudoku bekommt Zurücksetzen, Trio bekommt Aufgeben
+Alle neuen Texte in alle 51 Sprachen übersetzt

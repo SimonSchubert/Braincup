@@ -59,6 +59,18 @@
   </supports>
 
   <releases>
+    <release version="3.5.0" date="2026-09-02">
+      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.5.0</url>
+      <description>
+        <ul>
+          <li>Add Rule Shift, sorting cards against a rule nobody tells you</li>
+          <li>Add Algebra to Learn Math, 21 lessons with a certificate for each</li>
+          <li>Rebuild Color Confusion as the real Stroop task, with a congruency cost</li>
+          <li>Rebuild N-Back as the real task, now a level ladder where the level is n</li>
+          <li>Add five more Prism Clear levels, a Sudoku Reset button and a Trio Give Up button</li>
+        </ul>
+      </description>
+    </release>
     <release version="3.4.0" date="2026-09-01">
       <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v3.4.0</url>
       <description>
@@ -156,16 +168,6 @@
           <li>Add N-Shapes game</li>
           <li>Adjust gold medal scoring logic</li>
           <li>Improve Tower of Hanoi</li>
-        </ul>
-      </description>
-    </release>
-    <release version="2.29.0" date="2026-07-17">
-      <url type="details">https://github.com/SimonSchubert/Braincup/releases/tag/v2.29.0</url>
-      <description>
-        <ul>
-          <li>Add Bubble Sum game</li>
-          <li>Add Peg Solitaire game</li>
-          <li>Add Quick Sum game</li>
         </ul>
       </description>
     </release>

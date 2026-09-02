@@ -1,4 +1,4 @@
-## Unreleased
+## v3.5.0 - 2026-09-02
 
 ### Features
 - Add Algebra to Learn Math: seven sub-topics from expressions and variables through to powers and
@@ -8,6 +8,10 @@
   it silently changes. Untimed, like the test it comes from: the run ends after 36 cards or six
   completed categories, and your score is the categories. It shows the research card, based on the
   Wisconsin Card Sorting Test.
+- Add launcher shortcuts for the daily challenge and the games you played most recently
+- Add five more packed Prism Clear levels, L16 to L20
+- Give the Sudoku board a Reset button
+- Give Trio a Give Up button, and list every valid trio in its instructions
 
 ### Improvements
 - Rebuild Color Confusion as the real Stroop task. Instead of picking matching words out of a grid,
@@ -25,6 +29,17 @@
   since one runs past the 60 seconds a timed game gets. Scores are now the highest n reached, so an
   old N-Back high score no longer compares and the medal on its tile will re-earn on your next
   clear. Like every level game, it no longer appears in the daily challenge.
+- Rewrite the Trio instructions around a trait key and per-trait badges, so the rule is legible
+  before the first round rather than after it
+- Run the settings, achievement and Learn lists under the gesture bar
+- Centre the Sudoku digits inside their tiles, and centre a Learn result in the space it is given
+- Draw the tick and cross instead of typing them, so they render the same on every platform
+- Translate every new string into all 51 locales
+- Upgrade dependencies
+
+### Fixes
+- Stop the memorize timer bar asking for a frame every vsync while the quit dialog is open, which
+  kept the screen animating and the frame clock awake for as long as the dialog stayed up
 
 ## v3.4.0 — 2026-09-01
 
