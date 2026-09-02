@@ -255,6 +255,7 @@
     <string name="game_trio">Trio</string>
     <string name="game_mental_rotations">Mental Rotations</string>
     <string name="game_mental_flex">Mental Flex</string>
+    <string name="game_rule_shift">Rule Shift</string>
 
     <string name="game_anomaly_puzzle_desc">Find the figure that stands out. Consider both the color and shape of each figure.</string>
     <string name="game_mental_calculation_desc">Follow the mathematical expressions. Use the result as the base for the next calculation.</string>
@@ -316,6 +317,9 @@
     <string name="game_mental_flex_rule_shape">Shape</string>
     <string name="game_mental_flex_rule_color">Color</string>
     <string name="game_mental_flex_howto">Spot what the pair has in common.</string>
+    <string name="game_rule_shift_desc">Sort each card onto one of the four key cards. Nobody tells you the rule, and it changes once you have it.</string>
+    <string name="game_rule_shift_howto">Which key card does it belong with?</string>
+    <string name="game_rule_shift_cards_left">Cards left: %1$d</string>
     <string name="trio_demo_title">Find a set of three</string>
     <string name="trio_demo_rule">They share a trait. Nothing else is mixed.</string>
     <string name="trio_trait_shape">Shape</string>
@@ -413,6 +417,11 @@
     <string name="sherlock_calculation_demo_title">Reach the goal number</string>
     <string name="value_comparison_demo_title">Pick the biggest value</string>
     <string name="mental_flex_demo_title">The pair sets the rule</string>
+    <string name="rule_shift_demo_title">The rule is never stated</string>
+    <string name="rule_shift_demo_caption_match">Put the card with the key card it matches.</string>
+    <string name="rule_shift_demo_caption_rule_works">Blue with blue, red with red. Both right.</string>
+    <string name="rule_shift_demo_caption_rule_moved">Green with green. Wrong, and no reason given.</string>
+    <string name="rule_shift_demo_caption_new_rule">One symbol, first key. It wants the count now.</string>
     <string name="pattern_sequence_prompt">Which piece completes the matrix?</string>
     <string name="game_tap_original_targets">Tap the original targets</string>
     <string name="game_remember_targets">Remember the targets</string>
@@ -438,6 +447,7 @@
     <string name="shape_circle">Circle</string>
     <string name="shape_heart">Heart</string>
     <string name="shape_star">Star</string>
+    <string name="shape_cross">Cross</string>
     <string name="shape_t_shape">T Shape</string>
     <string name="shape_l_shape">L Shape</string>
     <string name="shape_diamond">Diamond</string>
@@ -475,6 +485,7 @@
     <string name="achievement_gold_trio">Triple Vision</string>
     <string name="achievement_gold_mental_rotations">Spin Doctor</string>
     <string name="achievement_gold_mental_flex">Quick Change</string>
+    <string name="achievement_gold_rule_shift">Rule Breaker</string>
     <string name="achievement_gold_path_finder">Trailblazer</string>
     <string name="achievement_gold_anomaly_puzzle">Odd One Spotted</string>
     <string name="achievement_gold_colored_shapes">Shape Shifter</string>
@@ -513,6 +524,7 @@
     <string name="achievement_gold_trio_desc">Win gold medal in Trio</string>
     <string name="achievement_gold_mental_rotations_desc">Win gold medal in Mental Rotations</string>
     <string name="achievement_gold_mental_flex_desc">Win gold medal in Mental Flex</string>
+    <string name="achievement_gold_rule_shift_desc">Win gold medal in Rule Shift</string>
     <string name="achievement_gold_path_finder_desc">Win gold medal in Path Finder</string>
     <string name="achievement_gold_anomaly_puzzle_desc">Win gold medal in Anomaly Puzzle</string>
     <string name="achievement_gold_colored_shapes_desc">Win gold medal in Colored Shapes</string>
@@ -618,6 +630,8 @@
     <string name="science_mental_flex_summary">A standard measure of cognitive flexibility: the cost of dropping the rule you were just using and applying a different one.</string>
     <string name="science_n_back_paradigm">N-Back Task</string>
     <string name="science_n_back_summary">A standard measure of working memory updating: keeping a running window of the last few items current, and judging against it while it keeps moving.</string>
+    <string name="science_rule_shift_paradigm">Wisconsin Card Sorting Test</string>
+    <string name="science_rule_shift_summary">A standard measure of concept formation: finding the sorting rule from nothing but right-or-wrong feedback, then noticing when it silently changes.</string>
     <string name="science_tower_of_hanoi_paradigm">Tower of Hanoi</string>
     <string name="science_tower_of_hanoi_summary">A standard measure of planning: the puzzle needs moves that undo progress before the goal can be reached.</string>
     <string name="brain_cup_button">Brain Cup leaderboard</string>

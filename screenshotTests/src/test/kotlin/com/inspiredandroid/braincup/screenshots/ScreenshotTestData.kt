@@ -325,6 +325,12 @@ fun createMentalFlexUiState(): GameUiState = MentalFlexGame(Random(3L)).apply {
     nextRound()
 }.toUiState()
 
+// A fixed seed so the dealt card never drifts between runs. Left un-sorted: the key cards carry no
+// feedback colour in this state, which is what the board looks like for all but 400ms of a trial.
+fun createRuleShiftUiState(): GameUiState = RuleShiftGame(Random(9L)).apply {
+    nextRound()
+}.toUiState()
+
 /** A storage holding one banked run, so the scoreboard has both a high score and a history row. */
 fun scoreboardStorage(): UserStorage = UserStorage(MapSettings()).apply {
     putScore(GameType.MENTAL_ROTATIONS.id, 11)

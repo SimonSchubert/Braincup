@@ -17,6 +17,8 @@ import braincup.composeapp.generated.resources.science_orbit_tracker_paradigm
 import braincup.composeapp.generated.resources.science_orbit_tracker_summary
 import braincup.composeapp.generated.resources.science_pattern_sequence_paradigm
 import braincup.composeapp.generated.resources.science_pattern_sequence_summary
+import braincup.composeapp.generated.resources.science_rule_shift_paradigm
+import braincup.composeapp.generated.resources.science_rule_shift_summary
 import braincup.composeapp.generated.resources.science_tower_of_hanoi_paradigm
 import braincup.composeapp.generated.resources.science_tower_of_hanoi_summary
 import org.jetbrains.compose.resources.StringResource
@@ -28,7 +30,9 @@ import org.jetbrains.compose.resources.StringResource
  * manipulation, so that what the cited literature says about the task is actually true of the
  * game. Ghost Grid is Corsi because it is a forward spatial span; Mental Flex is task-switching
  * because every board carries a competing answer on the inactive dimension, which is the whole
- * point of the paradigm.
+ * point of the paradigm. Rule Shift sits beside it without duplicating it: Mental Flex hands the
+ * player the rule every round, where Rule Shift never states it and moves it once they have it,
+ * so what it measures is induction from a single bit of feedback.
  *
  * Games that merely evoke a paradigm deliberately have none, and the card is a claim, so the
  * omissions are load bearing:
@@ -93,6 +97,11 @@ val GameType.science: GameScience?
             paradigmRes = Res.string.science_mental_flex_paradigm,
             summaryRes = Res.string.science_mental_flex_summary,
             citation = "Rogers & Monsell, 1995",
+        )
+        GameType.RULE_SHIFT -> GameScience(
+            paradigmRes = Res.string.science_rule_shift_paradigm,
+            summaryRes = Res.string.science_rule_shift_summary,
+            citation = "Grant & Berg, 1948",
         )
         GameType.TOWER_OF_HANOI -> GameScience(
             paradigmRes = Res.string.science_tower_of_hanoi_paradigm,

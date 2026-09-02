@@ -41,6 +41,7 @@ import com.inspiredandroid.braincup.app.PathFinderUiState
 import com.inspiredandroid.braincup.app.PatternSequenceUiState
 import com.inspiredandroid.braincup.app.PrismClearUiState
 import com.inspiredandroid.braincup.app.QuickSumUiState
+import com.inspiredandroid.braincup.app.RuleShiftUiState
 import com.inspiredandroid.braincup.app.SchulteTableUiState
 import com.inspiredandroid.braincup.app.SherlockCalculationUiState
 import com.inspiredandroid.braincup.app.ShikakuUiState
@@ -86,6 +87,7 @@ import com.inspiredandroid.braincup.ui.screens.games.PathFinderContent
 import com.inspiredandroid.braincup.ui.screens.games.PatternSequenceContent
 import com.inspiredandroid.braincup.ui.screens.games.PrismClearContent
 import com.inspiredandroid.braincup.ui.screens.games.QuickSumContent
+import com.inspiredandroid.braincup.ui.screens.games.RuleShiftContent
 import com.inspiredandroid.braincup.ui.screens.games.SchulteTableContent
 import com.inspiredandroid.braincup.ui.screens.games.SherlockCalculationContent
 import com.inspiredandroid.braincup.ui.screens.games.ShikakuContent
@@ -207,6 +209,7 @@ fun GameScreen(
                 is FlashCrowdUiState -> FlashCrowdContent(gameUiState, onAnswer)
                 is MentalRotationsUiState -> MentalRotationsContent(gameUiState, onAnswer)
                 is MentalFlexUiState -> MentalFlexContent(gameUiState, onAnswer)
+                is RuleShiftUiState -> RuleShiftContent(gameUiState, onAnswer)
                 is MiniChessUiState -> MiniChessContent(gameUiState, onAnswer)
                 is FlagsUiState -> FlagsContent(gameUiState, onAnswer)
                 is DigitMemoryUiState -> DigitMemoryContent(gameUiState, onAnswer)

@@ -106,6 +106,7 @@ end
 GAME_MEDALS = [
   ["MENTAL_ROTATIONS", "Mental Rotations", "Spin Doctor", "71_logic_mental_rotations"],
   ["MENTAL_FLEX", "Mental Flex", "Quick Change", "72_perception_mental_flex"],
+  ["RULE_SHIFT", "Rule Shift", "Rule Breaker", "80_logic_rule_shift"],
 ].map do |game_type, game_name, title, icon|
   {
     game_type: game_type,

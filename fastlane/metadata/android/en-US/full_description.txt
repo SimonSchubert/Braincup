@@ -1,4 +1,4 @@
-Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 44 brain training exercises designed to sharpen your mind and improve concentration.
+Train your brain with fun mini games that challenge your memory, focus, logic and math skills. Braincup offers 45 brain training exercises designed to sharpen your mind and improve concentration.
 
 <b>Mental Calculation</b>:
 Follow the mathematical expressions. Use the result as the base for the next calculation.
@@ -131,6 +131,9 @@ Is the second block the first one turned, or mirrored?
 
 <b>Mental Flex</b>:
 The pair at the top says which trait counts: shape or color.
+
+<b>Rule Shift</b>:
+Sort each card onto a key card. Nobody tells you the rule, and it changes once you have it.
 
 The game has several <b>achievements</b> and each exercise has <b>medals</b> to keep you motivated.
 

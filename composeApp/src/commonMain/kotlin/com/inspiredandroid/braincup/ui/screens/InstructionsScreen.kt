@@ -61,6 +61,7 @@ import com.inspiredandroid.braincup.ui.components.PrismCard
 import com.inspiredandroid.braincup.ui.components.PrismClearDemo
 import com.inspiredandroid.braincup.ui.components.PrismTile
 import com.inspiredandroid.braincup.ui.components.QuickSumDemo
+import com.inspiredandroid.braincup.ui.components.RuleShiftDemo
 import com.inspiredandroid.braincup.ui.components.SchulteTableDemo
 import com.inspiredandroid.braincup.ui.components.ScienceNoteCard
 import com.inspiredandroid.braincup.ui.components.SherlockCalculationDemo
@@ -122,6 +123,7 @@ fun InstructionsScreen(
             val demoModifier = Modifier.padding(horizontal = 16.dp)
             when (gameType) {
                 GameType.MINI_CHESS -> ChessMoveDemo(modifier = demoModifier)
+                GameType.RULE_SHIFT -> RuleShiftDemo(modifier = demoModifier)
                 GameType.GHOST_GRID -> GhostGridDemo(modifier = demoModifier)
                 GameType.SIMON_SAYS -> SimonSaysDemo(modifier = demoModifier)
                 GameType.LIGHTS_OUT -> LightsOutDemo(modifier = demoModifier)

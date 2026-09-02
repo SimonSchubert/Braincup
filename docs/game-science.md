@@ -21,6 +21,7 @@ is meant to avoid.
 | Digit Memory | Brown-Peterson Task | Brown, 1958; Peterson & Peterson, 1959 | Encode, then an unrelated task genuinely occupying the same workspace, then recall. |
 | Pattern Sequence | Matrix Reasoning | Raven, 1938 | The Raven's item format: read the rule along the rows, pick the completing panel. |
 | Mental Flex | Task-Switching Paradigm | Rogers & Monsell, 1995 | Cue-based rule switch with a competing answer on the inactive dimension on every board, so a player still running the old rule lands on the other match rather than at random. Real switch and repeat trials. |
+| Rule Shift | Wisconsin Card Sorting Test | Grant & Berg, 1948 | Sorting rule never stated and never cued, learned from a single bit of feedback, and moved silently once the player demonstrates it. Untimed, and shortened so the shifts stay frequent: 36 cards, six categories, four-correct criterion. See below. |
 | Tower of Hanoi | Tower of Hanoi | Simon, 1975 | Standard planning measure; the puzzle requires moves that undo progress. |
 
 ## Does not show the card, and why
@@ -107,6 +108,52 @@ act on it: a result the player reads and then loses before they can respond to i
 
 Misses and wrong taps are counted together as mistakes, because that is what the clearing rule
 counts. Reporting only wrong taps would tell a player who let a match go by that they made none.
+
+## Rule Shift's three departures
+
+Worth its own note, because all three are administration parameters rather than the manipulation,
+and a reader who knows the test will notice them.
+
+It is **untimed**, which is worth stating plainly because every other non-puzzle game in this app is
+not. The WCST has no clock in any published administration; speed is not what it measures, and a
+timed version would pay for fast guessing over working the rule out. An earlier draft ran on the
+app's standard sixty-second timer, which was an unstated deviation and the one most damaging to the
+card, since it changed what the score rewards. The deck ends the run instead.
+
+**A category is four consecutive correct over a 36-card run, not ten over 64.** This is the one
+deviation made for the game rather than for the measure, and it is the largest. At the standard
+criterion roughly nine trials in ten only confirm a rule the player is already holding: the run
+takes over two minutes and almost all of it is filler. The shifts are what the paradigm is about, so
+the run is sized to pack them in - six categories inside 36 cards puts a rule change roughly every
+six taps. Four consecutive correct still demonstrates the rule rather than luck, since guessing a
+category is under 1% per attempt. A draft did run the validated WCST-64 (Kongs, Thompson, Iverson &
+Heaton, 2000) at the standard ten-correct criterion, and it was accurate and dull.
+
+**The deck holds only 24 of the 64 distinct cards.** Key card `i` carries count `i`, colour `i` and
+shape `i`, so a stimulus points at one key card by number, one by colour and one by form. Only the
+cards whose three indices are all different are dealt, and they repeat to fill the run. On the rest,
+two rules agree, the trial's feedback cannot separate them, and an error cannot be classified as
+perseverative or not. The standard deck includes those cards and absorbs them in scoring.
+
+**The next rule is drawn at random from the two not in force**, rather than cycling
+colour -> form -> number. The fixed order is how the test is administered, not what it measures, and
+a player who learns it stops having to probe at all, which is the part being measured.
+
+Nothing on screen counts the streak or the categories. Both are derivable from the feedback, but
+rendering either would light up on the exact trial the rule moves and announce it, and being
+surprised is the task. The cards left are shown, since the shrinking deck is visible in the real
+test.
+
+The card still stands: the manipulation is intact - the rule is never stated, is learned from one
+bit of feedback, and moves silently once held, with perseverative errors countable. What changed is
+how many trials that takes, which is a parameter, not the thing being claimed.
+
+One framing point, because it decides how the game is described rather than how it is built: on
+Miyake et al. (2000) the WCST loads most strongly on *shifting*, which is what Mental Flex already
+covers. Rule Shift is not a second Mental Flex, and the difference is not flexibility but where the
+rule comes from - Mental Flex hands it over every round, Rule Shift never states it. What is
+untouched elsewhere in the app is induction from one bit of feedback, so that is what the card
+claims.
 
 ## Flash Crowd's dot sizing
 

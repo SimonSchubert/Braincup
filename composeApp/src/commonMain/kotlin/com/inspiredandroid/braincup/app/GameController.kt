@@ -429,11 +429,22 @@ class GameController(
             GameType.SPOT_THE_NEW -> startSpotTheNewGame(gameType)
             GameType.WORDLE -> startWordleGame(gameType)
             GameType.BULLS_AND_COWS -> startBullsAndCowsGame(gameType)
+            GameType.RULE_SHIFT -> startRuleShiftGame(gameType)
             else -> startTimedRoundGame(gameType)
         }
     }
 
     /** The default flow: a fixed-length timed run of generated rounds. */
+    /** No timer and no clock: the run ends when the deck does. */
+    private fun startRuleShiftGame(gameType: GameType) {
+        val game = RuleShiftGame()
+        game.nextRound()
+
+        _gameState.value = GameState.Active(gameType, game)
+        emitUiState(game)
+        navController.navigate(Playing(gameType.id))
+    }
+
     private fun startTimedRoundGame(gameType: GameType) {
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -498,6 +509,7 @@ class GameController(
             is TrioGame -> handleTrioAnswer(currentState, game, answer.trim())
             is MentalRotationsGame -> handleMentalRotationsAnswer(currentState, game, answer.trim())
             is MentalFlexGame -> handleMentalFlexAnswer(currentState, game, answer.trim())
+            is RuleShiftGame -> handleRuleShiftAnswer(currentState, game, answer.trim())
             else -> submitGenericAnswer(currentState, game, answer)
         }
     }
@@ -889,6 +901,7 @@ class GameController(
         GameType.BULLS_AND_COWS -> BullsAndCowsGame()
         GameType.TRIO -> TrioGame()
         GameType.MENTAL_FLEX -> MentalFlexGame()
+        GameType.RULE_SHIFT -> RuleShiftGame()
         // Wordle needs an async-loaded, locale-specific word list, so it is built in startWordleGame.
         GameType.WORDLE -> error("WordleGame is created in startWordleGame")
     }
@@ -1013,6 +1026,37 @@ class GameController(
                 columnsPerRow = ui.columnsPerRow,
             ),
         )
+    }
+
+    /**
+     * Not [handleAnswerWithBoardFeedback], which routes a correct answer through the full-screen
+     * feedback beat: ten correct sorts have to fit inside one category, so the reveal here is a
+     * short flash on the key card the player chose. Both outcomes deal the next card, the way the
+     * task does - a wrong sort costs the trial, never the run.
+     *
+     * Scored on categories completed rather than on correct sorts, and ended by the deck rather
+     * than by [scheduleNextRound]'s sixty-second check, which is why it does not use it.
+     */
+    private fun handleRuleShiftAnswer(
+        currentState: GameState.Active,
+        game: RuleShiftGame,
+        input: String,
+    ) {
+        val slot = input.toIntOrNull() ?: return
+        game.sort(slot) ?: return
+        points = game.categoriesCompleted
+        emitUiState(game)
+
+        scope.launch {
+            delay(400.milliseconds)
+            if (_gameState.value !is GameState.Active) return@launch
+            if (game.isOver) {
+                finishCurrentGame(currentState.gameType, game)
+            } else {
+                game.nextRound()
+                emitUiState(game)
+            }
+        }
     }
 
     private fun handlePatternSequenceAnswer(

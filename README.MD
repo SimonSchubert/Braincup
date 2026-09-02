@@ -60,6 +60,7 @@ Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 
 ### Logic
 - **Anomaly Puzzle** — Find the figure that stands out by color and shape
+- **Rule Shift** — Sort cards by a hidden rule that changes once you find it
 - **Path Finder** — Follow arrow instructions from a marked start
 - **Colored Shapes** — Add points from correct statements
 - **Mini Sudoku** — Small grid: each row, column and block once per digit

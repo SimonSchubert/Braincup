@@ -3,6 +3,11 @@
 ### Features
 - Add Algebra to Learn Math: seven sub-topics from expressions and variables through to powers and
   roots, with 21 lessons and a certificate for each
+- Add Rule Shift, card sorting against a rule nobody tells you. Sort each card onto one of four key
+  cards by colour, shape or count; the only feedback is right or wrong, and once you have the rule
+  it silently changes. Untimed, like the test it comes from: the run ends after 36 cards or six
+  completed categories, and your score is the categories. It shows the research card, based on the
+  Wisconsin Card Sorting Test.
 
 ### Improvements
 - Rebuild N-Back as the real task, at the published numbers: a continuous stream of shapes with a

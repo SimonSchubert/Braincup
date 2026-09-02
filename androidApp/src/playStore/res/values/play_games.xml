@@ -55,6 +55,7 @@
     <!-- achievement Quick Change (Mental Flex). Blank until store_achievements.rb creates the
          Play Console row and pastes its generated id back here. -->
     <string name="achievementQuickChange" translatable="false">CgkIuZrirtIVEAIQSQ</string>
+    <string name="achievementRuleBreaker" translatable="false"></string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->

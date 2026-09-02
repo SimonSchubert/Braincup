@@ -453,6 +453,7 @@ private fun achievementResIdFor(gameType: GameType): Int? = when (gameType) {
     GameType.TRIO -> R.string.achievementTripleVision
     GameType.MENTAL_ROTATIONS -> R.string.achievementSpinDoctor
     GameType.MENTAL_FLEX -> R.string.achievementQuickChange
+    GameType.RULE_SHIFT -> R.string.achievementRuleBreaker
 }
 
 /**

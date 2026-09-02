@@ -34,6 +34,7 @@ fun Shape.localizedName(): String = when (this) {
     Shape.CIRCLE -> stringResource(Res.string.shape_circle)
     Shape.HEART -> stringResource(Res.string.shape_heart)
     Shape.STAR -> stringResource(Res.string.shape_star)
+    Shape.CROSS -> stringResource(Res.string.shape_cross)
     Shape.T -> stringResource(Res.string.shape_t_shape)
     Shape.L -> stringResource(Res.string.shape_l_shape)
     Shape.DIAMOND -> stringResource(Res.string.shape_diamond)

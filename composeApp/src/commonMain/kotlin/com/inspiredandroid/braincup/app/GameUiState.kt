@@ -10,6 +10,7 @@ import com.inspiredandroid.braincup.games.NBackGame
 import com.inspiredandroid.braincup.games.OrbitTrackerGame
 import com.inspiredandroid.braincup.games.QuickSumGame
 import com.inspiredandroid.braincup.games.RevealResult
+import com.inspiredandroid.braincup.games.RuleShiftCard
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.SpotTheNewGame
 import com.inspiredandroid.braincup.games.TrioFill
@@ -54,6 +55,14 @@ data class FigureCell(
     val figure: Figure,
     override val state: AnswerFeedbackState = AnswerFeedbackState.NORMAL,
 ) : FeedbackCell<FigureCell> {
+    override fun withState(state: AnswerFeedbackState) = copy(state = state)
+}
+
+@Immutable
+data class RuleShiftKeyCell(
+    val card: RuleShiftCard,
+    override val state: AnswerFeedbackState = AnswerFeedbackState.NORMAL,
+) : FeedbackCell<RuleShiftKeyCell> {
     override fun withState(state: AnswerFeedbackState) = copy(state = state)
 }
 
@@ -189,6 +198,25 @@ data class MentalFlexUiState(
     val rows: ImmutableList<ImmutableList<FigureCell>>,
     val columnsPerRow: Int,
 ) : GameUiState
+
+/**
+ * Card sorting against an undisclosed rule. [keyCards] never change during a run; only the tapped
+ * one is recoloured, for the feedback beat that is the player's sole source of information.
+ *
+ * Carries no streak or category counter on purpose: either would announce the silent rule change a
+ * trial early. [cardsRemaining] is safe and stands in for the shrinking deck of the real test.
+ *
+ * An [UntimedUiState]: the run ends on the deck, not on a clock, because the task is not a measure
+ * of speed.
+ */
+@Immutable
+data class RuleShiftUiState(
+    val keyCards: ImmutableList<RuleShiftKeyCell>,
+    val stimulus: RuleShiftCard,
+    /** True while the feedback beat is up, so the board can stop taking taps. */
+    val isAwaitingNextCard: Boolean,
+    val cardsRemaining: Int,
+) : UntimedUiState
 
 @Immutable
 data class PathFinderUiState(

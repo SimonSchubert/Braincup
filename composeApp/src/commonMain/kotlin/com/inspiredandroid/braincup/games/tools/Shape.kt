@@ -16,6 +16,7 @@ enum class Shape(
     CIRCLE(displayName = "circle", paths = circlePath),
     HEART(displayName = "heart", paths = heartPath),
     STAR(displayName = "star", paths = starPath),
+    CROSS(displayName = "cross", paths = crossPath),
     T(displayName = "T shape", paths = tPath),
     L(displayName = "L shape", paths = lPath),
     DIAMOND(displayName = "diamond", paths = diamondPath),
@@ -82,6 +83,23 @@ private val circlePath by lazy {
         path.add(Pair(x.toFloat(), y.toFloat()))
     }
     path.toImmutableList()
+}
+
+private val crossPath by lazy {
+    persistentListOf(
+        0.33f to 0f,
+        0.67f to 0f,
+        0.67f to 0.33f,
+        1f to 0.33f,
+        1f to 0.67f,
+        0.67f to 0.67f,
+        0.67f to 1f,
+        0.33f to 1f,
+        0.33f to 0.67f,
+        0f to 0.67f,
+        0f to 0.33f,
+        0.33f to 0.33f,
+    )
 }
 
 private val starPath by lazy {

@@ -693,6 +693,34 @@ class ScreenshotTest {
     }
 
     @Test
+    fun gameRuleShift() {
+        paparazzi.snap {
+            GameScreen(
+                gameUiState = createRuleShiftUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    // Rule Shift is not gated by requiresColorVision: sorting only ever needs "same colour or not",
+    // never a colour named. This snapshot is what backs that claim.
+    @Test
+    fun gameRuleShiftColorblind() {
+        paparazzi.snap(accessiblePalette = true) {
+            GameScreen(
+                gameUiState = createRuleShiftUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun gameMentalFlex() {
         paparazzi.snap {
             GameScreen(
@@ -930,6 +958,18 @@ class ScreenshotTest {
     // a demo that throws on composition (a missing CompositionLocal, a bad resource id) shows up
     // here rather than the first time someone opens the instructions on a device.
     @Test
+    fun instructionsRuleShift() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.RULE_SHIFT,
+                storage = UserStorage(MapSettings()),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun instructionsMentalFlex() {
         paparazzi.snap {
             InstructionsScreen(
@@ -979,6 +1019,19 @@ class ScreenshotTest {
                 gameType = GameType.TRIO,
                 storage = UserStorage(MapSettings()),
                 onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameRuleShiftOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            GameScreen(
+                gameUiState = createRuleShiftUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
                 onBack = {},
             )
         }

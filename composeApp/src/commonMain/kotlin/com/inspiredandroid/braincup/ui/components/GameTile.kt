@@ -38,6 +38,7 @@ import com.inspiredandroid.braincup.app.WordleLetterState
 import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
+import com.inspiredandroid.braincup.games.RuleShiftGame
 import com.inspiredandroid.braincup.games.SimonSaysGame
 import com.inspiredandroid.braincup.games.TrioFill
 import com.inspiredandroid.braincup.games.TrioShape
@@ -794,12 +795,40 @@ private fun GamePreview(gameType: GameType) {
         GameType.TRIO -> TrioPreview()
         GameType.MENTAL_ROTATIONS -> MentalRotationsPreview()
         GameType.MENTAL_FLEX -> MentalFlexPreview()
+        GameType.RULE_SHIFT -> RuleShiftPreview()
     }
 }
 
 // --- Preview Composables ---
 
 private val MentalFlexPreviewTarget = Figure(Shape.STAR, GameColor.BLUE)
+
+// The four key cards, one symbol each: the tile has to read as a row of sorting targets, and the
+// real counts would be unreadable at this size.
+private val RuleShiftPreviewKeys = RuleShiftGame.keyCards.map { Figure(it.shape, it.color) }
+
+@Composable
+private fun RuleShiftPreview() {
+    Column(
+        modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center,
+    ) {
+        Row(modifier = Modifier.fillMaxWidth()) {
+            RuleShiftPreviewKeys.forEach { figure ->
+                ShapeCanvas(
+                    figure = figure,
+                    modifier = Modifier.weight(1f).aspectRatio(1f).padding(3.dp),
+                )
+            }
+        }
+        Spacer(Modifier.height(10.dp))
+        ShapeCanvas(
+            figure = Figure(Shape.CROSS, GameColor.BLUE),
+            modifier = Modifier.weight(1f).aspectRatio(1f),
+        )
+    }
+}
 
 // One match on shape, one on color, one on neither: the choice the rule cue resolves.
 private val MentalFlexPreviewCandidates = listOf(

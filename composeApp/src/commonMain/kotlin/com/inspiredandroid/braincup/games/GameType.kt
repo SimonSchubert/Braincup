@@ -394,6 +394,18 @@ enum class GameType(
         bronzeScore = 12,
         usesTriesLabel = true,
     ),
+    RULE_SHIFT(
+        displayNameRes = Res.string.game_rule_shift,
+        id = "41",
+        // Score = categories completed, the test's own measure, out of a possible 6. A run is 36
+        // cards on a criterion of 4, so all six categories needs 24 correct sorts and leaves about
+        // a dozen cards for the probes that find each new rule. Untimed on purpose, and the short
+        // criterion is what keeps the shifts frequent enough to be worth playing; see RuleShiftGame.
+        goldScore = 5,
+        silverScore = 3,
+        descriptionRes = Res.string.game_rule_shift_desc,
+        category = GameCategory.LOGIC,
+    ),
     MENTAL_ROTATIONS(
         displayNameRes = Res.string.game_mental_rotations,
         id = "39",
