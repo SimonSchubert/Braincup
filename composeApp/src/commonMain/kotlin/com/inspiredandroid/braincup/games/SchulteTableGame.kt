@@ -47,8 +47,6 @@ class SchulteTableGame : Game() {
 
     override fun solution(): String = ""
 
-    override fun hint(): String? = null
-
     override fun toUiState(): SchulteTableUiState {
         val cells = numbers.mapIndexed { index, value ->
             val type = when {

@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.CatQueensUiState
+import com.inspiredandroid.braincup.games.tools.OrthogonalNeighborTable
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.collections.immutable.toImmutableSet
 import kotlin.math.abs
@@ -118,13 +119,7 @@ class CatQueensGame(
 
     /** Solved when all [size] cats are placed and none breaks a rule: with no shared row/column,
      *  that forces exactly one per row and column, and the zone check forces one per zone. */
-    private fun isSolved(): Boolean = cats.size == size && conflicts().cells.isEmpty()
-
-    override fun isCorrect(input: String): Boolean = isSolved()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
+    override fun isSolved(): Boolean = cats.size == size && conflicts().cells.isEmpty()
 
     override fun toUiState(): CatQueensUiState {
         val conflicts = conflicts()
@@ -165,6 +160,13 @@ class CatQueensGame(
     }
 
     /**
+     * Neighbour lookup for the region grower, which walks every cell for up to
+     * [MAX_GENERATION_ATTEMPTS] boards per round, so the cached table earns its keep over a fresh
+     * list per cell.
+     */
+    private val neighbors = OrthogonalNeighborTable()
+
+    /**
      * Grows [n] connected color regions outward from the [placement] cats via randomized
      * multi-source flood fill, so every region is connected and contains exactly one cat. The
      * region id for the cat in row r is r.
@@ -175,23 +177,11 @@ class CatQueensGame(
         val frontierRegion = ArrayList<Int>()
 
         fun addNeighbors(cell: Int, reg: Int) {
-            val r = cell / n
-            val c = cell % n
-            if (r > 0 && region[cell - n] == -1) {
-                frontierCell.add(cell - n)
-                frontierRegion.add(reg)
-            }
-            if (r < n - 1 && region[cell + n] == -1) {
-                frontierCell.add(cell + n)
-                frontierRegion.add(reg)
-            }
-            if (c > 0 && region[cell - 1] == -1) {
-                frontierCell.add(cell - 1)
-                frontierRegion.add(reg)
-            }
-            if (c < n - 1 && region[cell + 1] == -1) {
-                frontierCell.add(cell + 1)
-                frontierRegion.add(reg)
+            for (next in neighbors[cell, n, n]) {
+                if (region[next] == -1) {
+                    frontierCell.add(next)
+                    frontierRegion.add(reg)
+                }
             }
         }
 

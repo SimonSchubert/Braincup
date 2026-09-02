@@ -91,13 +91,7 @@ class TowerOfHanoiGame(
         return target.isEmpty() || target.last() > moving
     }
 
-    fun isSolved(): Boolean = pegs[GOAL_PEG].size == diskCount
-
-    override fun isCorrect(input: String): Boolean = isSolved()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
+    override fun isSolved(): Boolean = pegs[GOAL_PEG].size == diskCount
 
     override fun toUiState(): TowerOfHanoiUiState = TowerOfHanoiUiState(
         diskCount = diskCount,

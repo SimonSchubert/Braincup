@@ -90,9 +90,7 @@ class MentalCalculationGame : Game() {
     override fun solution(): String = number.toString()
 
     // The only hint in the app that says anything, so it goes through hintMessage() to be
-    // translated; the plain channel stays empty rather than holding an English copy of it.
-    override fun hint(): String? = null
-
+    // translated; the plain hint() channel stays empty rather than holding an English copy of it.
     override fun hintMessage(): FeedbackMessage? = if (round == 1) FeedbackMessage.Remember(number) else null
 
     private fun reset() {

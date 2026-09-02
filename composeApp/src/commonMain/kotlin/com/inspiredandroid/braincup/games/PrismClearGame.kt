@@ -186,11 +186,7 @@ class PrismClearGame(
 
     fun boardIsEmpty(): Boolean = cells.all { it == null }
 
-    override fun isCorrect(input: String): Boolean = boardIsEmpty()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
+    override fun isSolved(): Boolean = boardIsEmpty()
 
     override fun toUiState(): PrismClearUiState = PrismClearUiState(
         rows = rows,

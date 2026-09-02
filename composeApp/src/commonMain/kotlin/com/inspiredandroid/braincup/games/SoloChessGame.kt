@@ -307,16 +307,10 @@ class SoloChessGame(
     }
 
     /** Solved when one piece remains; since the king can never be captured, that piece is the king. */
-    private fun isSolved(): Boolean = pieces.size == 1
+    override fun isSolved(): Boolean = pieces.size == 1
 
     /** True when the board is unsolved yet no piece has any legal capture, so only a restart helps. */
     private fun isStuck(): Boolean = pieces.size > 1 && pieces.keys.none { captureTargets(it).isNotEmpty() }
-
-    override fun isCorrect(input: String): Boolean = isSolved()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
 
     override fun toUiState(): SoloChessUiState {
         val sel = selected

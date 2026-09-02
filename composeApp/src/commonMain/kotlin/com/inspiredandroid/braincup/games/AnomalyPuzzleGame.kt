@@ -371,8 +371,6 @@ class AnomalyPuzzleGame : Game() {
         return FeedbackMessage.FigureDescription(figure.color, figure.shape, degrees)
     }
 
-    override fun hint(): String? = null
-
     override fun toUiState(): AnomalyPuzzleUiState {
         val columnsPerRow = when {
             figures.size >= 16 -> 4

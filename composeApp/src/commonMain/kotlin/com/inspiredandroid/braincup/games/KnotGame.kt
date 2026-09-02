@@ -313,7 +313,7 @@ class KnotGame(
     }
 
     /** Solved when every pair is connected by a valid path, no two paths overlap, and all cells are filled. */
-    private fun isSolved(): Boolean {
+    override fun isSolved(): Boolean {
         if (paths.size != endpoints.size) return false
         val covered = BooleanArray(rows * cols)
         for ((color, endpointPair) in endpoints) {
@@ -438,12 +438,6 @@ class KnotGame(
         allowance.remaining -= granted - budget.coerceAtLeast(0)
         return count
     }
-
-    override fun isCorrect(input: String): Boolean = isSolved()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
 
     override fun toUiState(): KnotUiState = KnotUiState(
         rows = rows,

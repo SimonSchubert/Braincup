@@ -163,7 +163,7 @@ class ShikakuGame(
         return isSolved()
     }
 
-    private fun isSolved(): Boolean {
+    override fun isSolved(): Boolean {
         if (rectangles.sumOf { it.area } != rows * cols) return false
         val covered = BooleanArray(rows * cols)
         for (rect in rectangles) {
@@ -263,12 +263,6 @@ class ShikakuGame(
         }
         return true
     }
-
-    override fun isCorrect(input: String): Boolean = isSolved()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
 
     override fun toUiState(): ShikakuUiState = ShikakuUiState(
         rows = rows,

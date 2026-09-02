@@ -121,8 +121,6 @@ class WordleGame(
 
     override fun solution(): String = target
 
-    override fun hint(): String? = null
-
     override fun toUiState(): GameUiState {
         val rows = ArrayList<List<WordleLetter>>(MAX_GUESSES)
         rows.addAll(submitted)

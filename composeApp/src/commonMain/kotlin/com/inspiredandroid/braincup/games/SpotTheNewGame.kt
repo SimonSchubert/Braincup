@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.games
 
-import com.inspiredandroid.braincup.app.FeedbackMessage
 import com.inspiredandroid.braincup.app.SpotTheNewUiState
 import com.inspiredandroid.braincup.games.tools.Animal
 import kotlinx.collections.immutable.toImmutableList
@@ -182,10 +181,6 @@ class SpotTheNewGame :
     }
 
     override fun solution(): String = newAnimal?.displayName ?: ""
-
-    override fun solutionMessage(): FeedbackMessage = FeedbackMessage.Plain(solution())
-
-    override fun hint(): String? = null
 
     override fun toUiState(): SpotTheNewUiState {
         val cells = displayed.mapIndexed { index, animal ->

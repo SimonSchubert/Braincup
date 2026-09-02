@@ -176,8 +176,6 @@ class DigitMemoryGame :
 
     override fun solution(): String = sequence
 
-    override fun hint(): String? = null
-
     override fun toUiState(): DigitMemoryUiState = DigitMemoryUiState(
         phase = phase,
         sequence = sequence,

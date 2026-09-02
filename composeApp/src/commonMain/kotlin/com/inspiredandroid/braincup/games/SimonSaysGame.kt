@@ -103,8 +103,6 @@ class SimonSaysGame(private val random: Random = Random.Default) :
 
     override fun solution(): String = sequence.joinToString(", ") { it.displayName }
 
-    override fun hint(): String? = null
-
     override fun toUiState(): SimonSaysUiState {
         val pads = PADS.map { color ->
             val type = when {

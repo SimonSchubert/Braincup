@@ -157,8 +157,6 @@ class MissingOperatorsGame : Game() {
         return sb.toString()
     }
 
-    override fun hint(): String? = null
-
     override fun toUiState(): GameUiState = MissingOperatorsUiState(
         numbers = numbers.toImmutableList(),
         targetResult = targetResult,

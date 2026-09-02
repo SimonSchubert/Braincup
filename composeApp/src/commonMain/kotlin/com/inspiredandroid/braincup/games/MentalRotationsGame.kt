@@ -233,8 +233,6 @@ class MentalRotationsGame(
      */
     override fun solutionMessage(): FeedbackMessage = FeedbackMessage.MirrorAnswer(isMirrored)
 
-    override fun hint(): String? = null
-
     override fun toUiState() = MentalRotationsUiState(
         roundKey = roundKey,
         reference = referenceCubes.toProjection(),

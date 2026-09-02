@@ -86,8 +86,6 @@ class FlashCrowdGame(private val random: Random = Random.Default) : Game() {
         return FeedbackMessage.SideCount(isLeft = moreSide == Side.LEFT, count = count)
     }
 
-    override fun hint(): String? = null
-
     override fun toUiState() = FlashCrowdUiState(
         roundKey = roundKey,
         leftDots = leftDots.map { FlashCrowdUiState.Dot(it.x, it.y, it.radius) }.toImmutableList(),

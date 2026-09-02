@@ -39,8 +39,6 @@ class FlagsGame : Game() {
 
     override fun solution(): String = correctCountry
 
-    override fun hint(): String? = null
-
     override fun toUiState(): GameUiState = FlagsUiState(
         countrySlug = correctCountry,
         possibleAnswers = possibleAnswers.map { AnswerButton(it) }.toImmutableList(),

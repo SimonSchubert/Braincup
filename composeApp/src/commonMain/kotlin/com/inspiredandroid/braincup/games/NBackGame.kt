@@ -334,11 +334,9 @@ class NBackGame(level: Int) :
     // -- Game --
 
     /** Not a per-round answer game: the only judgement is whether the item on screen is a target. */
-    override fun isCorrect(input: String): Boolean = currentIsTarget
+    override fun isSolved(): Boolean = currentIsTarget
 
     override fun solution(): String = n.toString()
-
-    override fun hint(): String? = null
 
     override fun toUiState(): NBackUiState = NBackUiState(
         level = level,

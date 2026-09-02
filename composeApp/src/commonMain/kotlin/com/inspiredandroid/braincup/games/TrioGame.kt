@@ -163,8 +163,6 @@ class TrioGame(
         return set.joinToString(", ") { (it + 1).toString() }
     }
 
-    override fun hint(): String? = null
-
     override fun toUiState() = TrioUiState(
         cards = cards.mapIndexed { index, card ->
             val isSelected = index in selected

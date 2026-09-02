@@ -126,8 +126,6 @@ class BullsAndCowsGame : Game() {
 
     override fun solution(): String = secret
 
-    override fun hint(): String? = null
-
     override fun toUiState(): GameUiState = BullsAndCowsUiState(
         guesses = guesses.toImmutableList(),
         currentGuess = currentGuess,

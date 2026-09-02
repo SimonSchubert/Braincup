@@ -197,8 +197,6 @@ class QuickSumGame :
 
     override fun solution(): String = targetSum().toString()
 
-    override fun hint(): String? = null
-
     override fun toUiState(): QuickSumUiState = QuickSumUiState(
         phase = phase,
         currentTerm = if (phase == Phase.FLASHING && showingTerm) terms.getOrNull(currentIndex) else null,

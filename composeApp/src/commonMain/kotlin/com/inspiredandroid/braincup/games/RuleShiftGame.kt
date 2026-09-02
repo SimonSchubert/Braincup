@@ -144,8 +144,6 @@ class RuleShiftGame(
 
     override fun solution(): String = (correctIndex() + 1).toString()
 
-    override fun hint(): String? = null
-
     override fun toUiState(): RuleShiftUiState {
         val marked = feedbackSlot
         val state = if (feedbackWasCorrect) AnswerFeedbackState.CORRECT else AnswerFeedbackState.WRONG

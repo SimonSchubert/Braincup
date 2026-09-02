@@ -1,14 +1,16 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.OrbitTrackerUiState
+import com.inspiredandroid.braincup.games.tools.MovingBall
 import com.inspiredandroid.braincup.games.tools.currentTimeMillis
+import com.inspiredandroid.braincup.games.tools.spawnPosition
+import com.inspiredandroid.braincup.games.tools.stepBalls
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.PI
-import kotlin.math.sqrt
 import kotlin.random.Random
 import kotlin.time.Duration.Companion.milliseconds
 import kotlin.time.Duration.Companion.seconds
@@ -24,12 +26,12 @@ class OrbitTrackerGame :
     }
 
     data class Ball(
-        var x: Float,
-        var y: Float,
-        var vx: Float,
-        var vy: Float,
+        override var x: Float,
+        override var y: Float,
+        override var vx: Float,
+        override var vy: Float,
         val isTarget: Boolean,
-    )
+    ) : MovingBall
 
     var phase: Phase = Phase.HIGHLIGHTING
         private set
@@ -83,24 +85,10 @@ class OrbitTrackerGame :
     override fun generateRound() {
         val config = difficultyForRound(round)
         val newBalls = mutableListOf<Ball>()
-        val margin = BALL_RADIUS * 2
 
         for (i in 0 until config.totalBalls) {
             val isTarget = i < config.targets
-            var x: Float
-            var y: Float
-            var attempts = 0
-            do {
-                x = margin + (Random.nextFloat() * (1f - 2 * margin))
-                y = margin + (Random.nextFloat() * (1f - 2 * margin))
-                attempts++
-            } while (attempts < 100 &&
-                newBalls.any { existing ->
-                    val dx = existing.x - x
-                    val dy = existing.y - y
-                    sqrt(dx * dx + dy * dy) < BALL_RADIUS * 3
-                }
-            )
+            val (x, y) = spawnPosition(newBalls, BALL_RADIUS, width = 1f, height = 1f)
 
             val angle = Random.nextFloat() * 2 * PI.toFloat()
             val vx = kotlin.math.cos(angle) * config.speed
@@ -201,77 +189,7 @@ class OrbitTrackerGame :
 
     fun updateBallPositions(deltaSeconds: Float) {
         val config = difficultyForRound(round)
-
-        // Move balls
-        for (ball in balls) {
-            ball.x += ball.vx * deltaSeconds
-            ball.y += ball.vy * deltaSeconds
-
-            // Wall collisions
-            if (ball.x - BALL_RADIUS < 0f) {
-                ball.x = BALL_RADIUS
-                ball.vx = -ball.vx
-            }
-            if (ball.x + BALL_RADIUS > 1f) {
-                ball.x = 1f - BALL_RADIUS
-                ball.vx = -ball.vx
-            }
-            if (ball.y - BALL_RADIUS < 0f) {
-                ball.y = BALL_RADIUS
-                ball.vy = -ball.vy
-            }
-            if (ball.y + BALL_RADIUS > 1f) {
-                ball.y = 1f - BALL_RADIUS
-                ball.vy = -ball.vy
-            }
-        }
-
-        // Ball-ball collisions
-        for (i in balls.indices) {
-            for (j in i + 1 until balls.size) {
-                val a = balls[i]
-                val b = balls[j]
-                val dx = b.x - a.x
-                val dy = b.y - a.y
-                val dist = sqrt(dx * dx + dy * dy)
-                val minDist = BALL_RADIUS * 2
-
-                if (dist < minDist && dist > 0.0001f) {
-                    // Normalize collision vector
-                    val nx = dx / dist
-                    val ny = dy / dist
-
-                    // Relative velocity
-                    val dvx = a.vx - b.vx
-                    val dvy = a.vy - b.vy
-                    val dvDotN = dvx * nx + dvy * ny
-
-                    // Only resolve if balls are approaching
-                    if (dvDotN > 0) {
-                        a.vx -= dvDotN * nx
-                        a.vy -= dvDotN * ny
-                        b.vx += dvDotN * nx
-                        b.vy += dvDotN * ny
-                    }
-
-                    // Separate overlapping balls
-                    val overlap = (minDist - dist) / 2f
-                    a.x -= overlap * nx
-                    a.y -= overlap * ny
-                    b.x += overlap * nx
-                    b.y += overlap * ny
-                }
-            }
-        }
-
-        // Re-normalize speeds to prevent drift
-        for (ball in balls) {
-            val speed = sqrt(ball.vx * ball.vx + ball.vy * ball.vy)
-            if (speed > 0.0001f) {
-                ball.vx = ball.vx / speed * config.speed
-                ball.vy = ball.vy / speed * config.speed
-            }
-        }
+        stepBalls(balls, deltaSeconds, BALL_RADIUS, width = 1f, height = 1f, speed = config.speed)
     }
 
     override fun isCorrect(input: String): Boolean = false
@@ -279,8 +197,6 @@ class OrbitTrackerGame :
     override fun solution(): String = balls.mapIndexedNotNull { index, ball ->
         if (ball.isTarget) index.toString() else null
     }.joinToString(", ")
-
-    override fun hint(): String? = null
 
     override fun toUiState(): OrbitTrackerUiState {
         val targetCount = balls.count { it.isTarget }

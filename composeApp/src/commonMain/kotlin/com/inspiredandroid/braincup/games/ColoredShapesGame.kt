@@ -73,8 +73,6 @@ class ColoredShapesGame : Game() {
 
     override fun solution(): String = points()
 
-    override fun hint(): String? = null
-
     override fun toUiState() = com.inspiredandroid.braincup.app.ColoredShapesUiState(
         displayedFigure = com.inspiredandroid.braincup.games.tools.Figure(displayedShape, displayedColor),
         answerShape = answerShape,

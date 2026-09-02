@@ -31,7 +31,13 @@ abstract class Game {
 
     open fun solutionMessage(): FeedbackMessage = FeedbackMessage.Plain(solution())
 
-    abstract fun hint(): String?
+    /**
+     * A nudge shown with the feedback screen, or null when the game has none.
+     *
+     * Almost every game has none, so this defaults to null rather than making all forty restate it.
+     * A hint that has to be said in the player's language overrides [hintMessage] instead.
+     */
+    open fun hint(): String? = null
 
     /**
      * The hint as the feedback screen shows it, which is where a hint carrying words belongs.

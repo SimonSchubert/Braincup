@@ -107,8 +107,6 @@ class GhostGridGame(private val random: Random = Random.Default) :
 
     override fun solution(): String = sequence.joinToString(", ")
 
-    override fun hint(): String? = null
-
     override fun toUiState(): GhostGridUiState {
         val totalCells = gridSize * gridSize
         val tappedPositions = if (phase == Phase.ANSWERING || phase == Phase.GAME_OVER) {

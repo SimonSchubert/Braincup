@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.LightsOutUiState
+import com.inspiredandroid.braincup.games.tools.orthogonalNeighbors
 import kotlinx.collections.immutable.toImmutableList
 import kotlin.random.Random
 
@@ -37,23 +38,14 @@ class LightsOutGame(
 
     private fun applyPress(index: Int) {
         toggle(index)
-        val r = index / gridSize
-        val c = index % gridSize
-        if (r > 0) toggle(index - gridSize)
-        if (r < gridSize - 1) toggle(index + gridSize)
-        if (c > 0) toggle(index - 1)
-        if (c < gridSize - 1) toggle(index + 1)
+        orthogonalNeighbors(index, gridSize, gridSize).forEach { toggle(it) }
     }
 
     private fun toggle(i: Int) {
         cells[i] = !cells[i]
     }
 
-    override fun isCorrect(input: String): Boolean = cells.all { !it }
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
+    override fun isSolved(): Boolean = cells.all { !it }
 
     override fun toUiState(): LightsOutUiState = LightsOutUiState(
         gridSize = gridSize,

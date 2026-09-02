@@ -68,8 +68,6 @@ class ValueComparisonGame : Game() {
 
     override fun solution(): String = answers[resultIndex]
 
-    override fun hint(): String? = null
-
     override fun toUiState() = com.inspiredandroid.braincup.app.ValueComparisonUiState(
         answers = answers.map { com.inspiredandroid.braincup.app.AnswerButton(value = it) }.toImmutableList(),
     )

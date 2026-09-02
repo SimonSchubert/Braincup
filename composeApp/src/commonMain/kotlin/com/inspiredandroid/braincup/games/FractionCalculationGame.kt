@@ -51,8 +51,6 @@ class FractionCalculationGame : Game() {
 
     override fun solution(): String = result.toString()
 
-    override fun hint(): String? = null
-
     override fun toUiState() = com.inspiredandroid.braincup.app.FractionCalculationUiState(
         calculation = calculation,
         answerString = result.toString(),

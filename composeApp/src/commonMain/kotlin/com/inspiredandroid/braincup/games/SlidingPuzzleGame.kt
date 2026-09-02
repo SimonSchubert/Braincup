@@ -58,17 +58,11 @@ class SlidingPuzzleGame(
 
     private fun neighborsOf(i: Int): List<Int> = orthogonalNeighbors(i, gridSize, gridSize)
 
-    private fun isSolved(): Boolean {
+    override fun isSolved(): Boolean {
         val n = tiles.size
         for (i in 0 until n - 1) if (tiles[i] != i + 1) return false
         return tiles[n - 1] == 0
     }
-
-    override fun isCorrect(input: String): Boolean = isSolved()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
 
     override fun toUiState(): SlidingPuzzleUiState = SlidingPuzzleUiState(
         gridSize = gridSize,

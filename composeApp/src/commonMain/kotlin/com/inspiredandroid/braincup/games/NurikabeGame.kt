@@ -192,7 +192,50 @@ class NurikabeGame(
         return false
     }
 
-    /** Connected components of the non-sea (white) cells; each becomes one island. */
+    /**
+     * Connected components of the cells in [candidates] that satisfy [inRegion].
+     *
+     * The board is walked three different ways (the painted sea, the solved check, the
+     * connectivity check) and they only differ in which cells count as inside, so they share one
+     * fill rather than three copies of the same stack loop. [whiteComponents] says why the
+     * generator keeps its own.
+     */
+    private fun componentsOf(candidates: Iterable<Int>, inRegion: (Int) -> Boolean): List<Set<Int>> {
+        // Every cell index is in 0 until rows * cols, so the visited set is a flat array rather
+        // than a HashSet: the generator runs this per attempt and the boxing showed up in
+        // NurikabeMeasureTest.
+        val visited = BooleanArray(rows * cols)
+        val components = ArrayList<Set<Int>>()
+        for (start in candidates) {
+            if (!inRegion(start) || visited[start]) continue
+            visited[start] = true
+            val component = HashSet<Int>()
+            val stack = ArrayDeque<Int>()
+            stack.addLast(start)
+            component.add(start)
+            while (stack.isNotEmpty()) {
+                val cell = stack.removeLast()
+                for (n in neighbors(cell)) {
+                    if (inRegion(n) && !visited[n]) {
+                        visited[n] = true
+                        component.add(n)
+                        stack.addLast(n)
+                    }
+                }
+            }
+            components.add(component)
+        }
+        return components
+    }
+
+    /**
+     * Connected components of the non-sea (white) cells; each becomes one island.
+     *
+     * Deliberately not [componentsOf]: this is the one fill the generator runs, once per rejected
+     * board, and paying a lambda call per neighbour there costs about 10% of generation time on the
+     * larger levels (measured with NurikabeMeasureTest). The other three walks are cold enough to
+     * share.
+     */
     private fun whiteComponents(isSea: BooleanArray): List<Set<Int>> {
         val total = rows * cols
         val visited = BooleanArray(total)
@@ -278,35 +321,14 @@ class NurikabeGame(
         return isSolved()
     }
 
-    private fun isSolved(): Boolean {
+    override fun isSolved(): Boolean {
         val total = rows * cols
         if (clues.keys.any { it in walls }) return false
 
         // Every white (non-sea) component must hold exactly one clue equal to its cell count.
-        val visited = BooleanArray(total)
-        for (start in 0 until total) {
-            if (start in walls || visited[start]) continue
-            var size = 0
-            var clueCount = 0
-            var clueValue = -1
-            val stack = ArrayDeque<Int>()
-            stack.addLast(start)
-            visited[start] = true
-            while (stack.isNotEmpty()) {
-                val cell = stack.removeLast()
-                size++
-                clues[cell]?.let {
-                    clueCount++
-                    clueValue = it
-                }
-                for (n in neighbors(cell)) {
-                    if (n !in walls && !visited[n]) {
-                        visited[n] = true
-                        stack.addLast(n)
-                    }
-                }
-            }
-            if (clueCount != 1 || clueValue != size) return false
+        for (component in componentsOf(0 until total) { it !in walls }) {
+            val componentClues = component.mapNotNull { clues[it] }
+            if (componentClues.size != 1 || componentClues.first() != component.size) return false
         }
 
         if (!isConnected(walls)) return false
@@ -315,21 +337,7 @@ class NurikabeGame(
     }
 
     /** True when [cells] form a single orthogonally-connected region (empty counts as connected). */
-    private fun isConnected(cells: Set<Int>): Boolean {
-        if (cells.isEmpty()) return true
-        val start = cells.first()
-        val seen = HashSet<Int>(cells.size)
-        val stack = ArrayDeque<Int>()
-        stack.addLast(start)
-        seen.add(start)
-        while (stack.isNotEmpty()) {
-            val cell = stack.removeLast()
-            for (n in neighbors(cell)) {
-                if (n in cells && seen.add(n)) stack.addLast(n)
-            }
-        }
-        return seen.size == cells.size
-    }
+    private fun isConnected(cells: Set<Int>): Boolean = componentsOf(cells) { it in cells }.size <= 1
 
     /** True when [sea] fully covers any 2x2 block, which Nurikabe forbids. */
     private fun hasSeaPool(sea: Set<Int>): Boolean {
@@ -537,12 +545,6 @@ class NurikabeGame(
         return restComplete
     }
 
-    override fun isCorrect(input: String): Boolean = isSolved()
-
-    override fun solution(): String = ""
-
-    override fun hint(): String? = null
-
     override fun toUiState(): NurikabeUiState {
         val satisfied = HashSet<Int>()
         val invalid = HashSet<Int>()
@@ -627,28 +629,7 @@ class NurikabeGame(
     }
 
     /** Connected components of the painted sea ([walls]); used to flag a disconnected sea. */
-    private fun wallComponents(): List<Set<Int>> {
-        val visited = HashSet<Int>(walls.size)
-        val components = ArrayList<Set<Int>>()
-        for (start in walls) {
-            if (!visited.add(start)) continue
-            val component = HashSet<Int>()
-            val stack = ArrayDeque<Int>()
-            stack.addLast(start)
-            component.add(start)
-            while (stack.isNotEmpty()) {
-                val cell = stack.removeLast()
-                for (n in neighbors(cell)) {
-                    if (n in walls && visited.add(n)) {
-                        component.add(n)
-                        stack.addLast(n)
-                    }
-                }
-            }
-            components.add(component)
-        }
-        return components
-    }
+    private fun wallComponents(): List<Set<Int>> = componentsOf(walls) { it in walls }
 
     companion object {
         private const val UNASSIGNED = -1

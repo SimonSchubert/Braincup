@@ -112,8 +112,6 @@ class ColorConfusionGame(
 
     override fun solution(): String = (RESPONSE_COLORS.indexOf(trial.ink) + 1).toString()
 
-    override fun hint(): String? = null
-
     override fun toUiState(): ColorConfusionUiState {
         val marked = feedbackIndex
         val state = if (feedbackWasCorrect) AnswerFeedbackState.CORRECT else AnswerFeedbackState.WRONG

@@ -1,7 +1,10 @@
 package com.inspiredandroid.braincup.games
 
 import com.inspiredandroid.braincup.app.BubbleSumUiState
+import com.inspiredandroid.braincup.games.tools.MovingBall
 import com.inspiredandroid.braincup.games.tools.currentTimeMillis
+import com.inspiredandroid.braincup.games.tools.spawnPosition
+import com.inspiredandroid.braincup.games.tools.stepBalls
 import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -12,7 +15,6 @@ import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.min
 import kotlin.math.sin
-import kotlin.math.sqrt
 import kotlin.random.Random
 import kotlin.time.Duration.Companion.milliseconds
 
@@ -39,14 +41,14 @@ class BubbleSumGame :
     }
 
     data class Bubble(
-        var x: Float,
-        var y: Float,
-        var vx: Float,
-        var vy: Float,
+        override var x: Float,
+        override var y: Float,
+        override var vx: Float,
+        override var vy: Float,
         val value: Int,
         val blinkPhaseOffsetMs: Long,
         var phase: VisibilityPhase = VisibilityPhase.VISIBLE,
-    ) {
+    ) : MovingBall {
         val showsNumber: Boolean get() = phase != VisibilityPhase.HIDDEN
     }
 
@@ -209,25 +211,10 @@ class BubbleSumGame :
         val config = difficultyForRound(round)
         val values = generateValues(config)
         val newBubbles = mutableListOf<Bubble>()
-        val margin = BALL_RADIUS * 2
         val cycle = blinkCycleMs(config)
 
         for (i in values.indices) {
-            var x: Float
-            var y: Float
-            var attempts = 0
-            do {
-                x = margin + (Random.nextFloat() * (arenaWidth - 2 * margin))
-                y = margin + (Random.nextFloat() * (arenaHeight - 2 * margin))
-                attempts++
-            } while (
-                attempts < 100 &&
-                newBubbles.any { existing ->
-                    val dx = existing.x - x
-                    val dy = existing.y - y
-                    sqrt(dx * dx + dy * dy) < BALL_RADIUS * 3
-                }
-            )
+            val (x, y) = spawnPosition(newBubbles, BALL_RADIUS, arenaWidth, arenaHeight)
 
             val angle = Random.nextFloat() * 2 * PI.toFloat()
             // Spread phase offsets evenly around the blink cycle so at most a subset is hidden
@@ -312,66 +299,7 @@ class BubbleSumGame :
 
     fun updateBallPositions(deltaSeconds: Float) {
         val config = difficultyForRound(round.coerceAtLeast(1) - 1)
-
-        for (bubble in bubbles) {
-            bubble.x += bubble.vx * deltaSeconds
-            bubble.y += bubble.vy * deltaSeconds
-
-            if (bubble.x - BALL_RADIUS < 0f) {
-                bubble.x = BALL_RADIUS
-                bubble.vx = -bubble.vx
-            }
-            if (bubble.x + BALL_RADIUS > arenaWidth) {
-                bubble.x = arenaWidth - BALL_RADIUS
-                bubble.vx = -bubble.vx
-            }
-            if (bubble.y - BALL_RADIUS < 0f) {
-                bubble.y = BALL_RADIUS
-                bubble.vy = -bubble.vy
-            }
-            if (bubble.y + BALL_RADIUS > arenaHeight) {
-                bubble.y = arenaHeight - BALL_RADIUS
-                bubble.vy = -bubble.vy
-            }
-        }
-
-        for (i in bubbles.indices) {
-            for (j in i + 1 until bubbles.size) {
-                val a = bubbles[i]
-                val b = bubbles[j]
-                val dx = b.x - a.x
-                val dy = b.y - a.y
-                val dist = sqrt(dx * dx + dy * dy)
-                val minDist = BALL_RADIUS * 2
-
-                if (dist < minDist && dist > 0.0001f) {
-                    val nx = dx / dist
-                    val ny = dy / dist
-                    val dvx = a.vx - b.vx
-                    val dvy = a.vy - b.vy
-                    val dvDotN = dvx * nx + dvy * ny
-                    if (dvDotN > 0) {
-                        a.vx -= dvDotN * nx
-                        a.vy -= dvDotN * ny
-                        b.vx += dvDotN * nx
-                        b.vy += dvDotN * ny
-                    }
-                    val overlap = (minDist - dist) / 2f
-                    a.x -= overlap * nx
-                    a.y -= overlap * ny
-                    b.x += overlap * nx
-                    b.y += overlap * ny
-                }
-            }
-        }
-
-        for (bubble in bubbles) {
-            val speed = sqrt(bubble.vx * bubble.vx + bubble.vy * bubble.vy)
-            if (speed > 0.0001f) {
-                bubble.vx = bubble.vx / speed * config.speed
-                bubble.vy = bubble.vy / speed * config.speed
-            }
-        }
+        stepBalls(bubbles, deltaSeconds, BALL_RADIUS, arenaWidth, arenaHeight, config.speed)
     }
 
     fun updateVisibility(nowMs: Long) {
@@ -440,8 +368,6 @@ class BubbleSumGame :
     override fun isCorrect(input: String): Boolean = input.trim() == targetSum().toString()
 
     override fun solution(): String = targetSum().toString()
-
-    override fun hint(): String? = null
 
     override fun toUiState(): BubbleSumUiState = BubbleSumUiState(
         bubbles = bubbles.map { BubbleSumUiState.BubbleState(it.value) }.toImmutableList(),

@@ -82,8 +82,6 @@ class SherlockCalculationGame : Game() {
 
     override fun solution(): String = calculation
 
-    override fun hint(): String? = null
-
     override fun toUiState() = com.inspiredandroid.braincup.app.SherlockCalculationUiState(
         result = result,
         numbers = numbers.toImmutableList(),

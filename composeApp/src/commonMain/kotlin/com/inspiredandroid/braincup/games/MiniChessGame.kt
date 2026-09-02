@@ -144,8 +144,6 @@ class MiniChessGame(
 
     override fun solution(): String = "" // not user-facing for chess
 
-    override fun hint(): String? = null
-
     override fun toUiState(): GameUiState {
         val snapshot = board.snapshot()
         val cells = snapshot.map { piece ->

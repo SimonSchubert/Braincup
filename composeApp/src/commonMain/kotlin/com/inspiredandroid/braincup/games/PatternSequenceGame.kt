@@ -27,8 +27,6 @@ class PatternSequenceGame(random: Random = Random.Default) : Game() {
 
     override fun solution(): String = problem.ruleSummary
 
-    override fun hint(): String? = null
-
     override fun toUiState() = PatternSequenceUiState(
         matrix = problem.matrix
             .mapIndexed { index, panel -> panel.takeIf { index != MatrixProblem.ANSWER_INDEX } }

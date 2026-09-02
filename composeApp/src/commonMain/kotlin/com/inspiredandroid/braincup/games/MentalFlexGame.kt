@@ -156,8 +156,6 @@ class MentalFlexGame(
         return FeedbackMessage.FigureDescription(figure.color, figure.shape, null)
     }
 
-    override fun hint(): String? = null
-
     override fun toUiState(): MentalFlexUiState {
         val columns = columnsPerRow()
         return MentalFlexUiState(

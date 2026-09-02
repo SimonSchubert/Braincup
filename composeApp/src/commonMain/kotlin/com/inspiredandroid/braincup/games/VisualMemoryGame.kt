@@ -241,8 +241,6 @@ class VisualMemoryGame :
         return FeedbackMessage.FigureDescription(target.color, target.shape, null)
     }
 
-    override fun hint(): String? = null
-
     fun isGameComplete(): Boolean = round >= GRID_SIZE
 
     /**
