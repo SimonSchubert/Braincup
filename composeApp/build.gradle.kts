@@ -134,6 +134,31 @@ kotlin {
     }
 }
 
+// Compose compiler metrics and reports, opt-in via -Pbraincup.composeReports.
+// Unset destinations emit no compiler argument at all, so a normal build is untouched.
+//
+// Three things that are easy to get wrong, all observed rather than assumed:
+//
+// 1. The property alone does NOT make the compile task out of date - these options are not
+//    tracked as task inputs - so the run needs --rerun-tasks or it reports UP-TO-DATE and
+//    writes nothing.
+// 2. The plugin appends a <target>/<compilation> subdirectory to metricsDestination but NOT to
+//    reportsDestination, so a run covering two targets overwrites its own .txt reports.
+//    Compile one target per invocation.
+// 3. The Android task is compileAndroidMain, not compileKotlinAndroid: AGP's KMP library
+//    plugin renames it.
+//
+//   ./gradlew :composeApp:compileAndroidMain             -Pbraincup.composeReports=on --rerun-tasks
+//   ./gradlew :composeApp:compileKotlinIosSimulatorArm64 -Pbraincup.composeReports=on --rerun-tasks
+//
+// Use the -module.json as a regression guard: skippableComposables and memoizedLambdas should
+// not fall, and knownUnstableArguments should not rise, relative to totalComposables.
+composeCompiler {
+    val reportsRequested = providers.gradleProperty("braincup.composeReports")
+    metricsDestination.set(reportsRequested.flatMap { layout.buildDirectory.dir("compose-metrics") })
+    reportsDestination.set(reportsRequested.flatMap { layout.buildDirectory.dir("compose-reports") })
+}
+
 compose.desktop {
     application {
         mainClass = "com.inspiredandroid.braincup.MainKt"
