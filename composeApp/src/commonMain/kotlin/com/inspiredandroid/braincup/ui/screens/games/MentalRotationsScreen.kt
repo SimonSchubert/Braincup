@@ -5,8 +5,6 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
@@ -55,30 +53,20 @@ internal fun ColumnScope.MentalRotationsContent(
                 MentalRotationsGame.ANSWER_SAME -> stringResource(Res.string.game_mental_rotations_same)
                 else -> stringResource(Res.string.game_mental_rotations_mirrored)
             }
-            val face = when (button.state) {
-                AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
-                AnswerFeedbackState.CORRECT -> SuccessGreen
-                else -> Primary
-            }
-            val contentColor = when (button.state) {
-                AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
-                else -> Color.White
-            }
-            val isInteractive = button.state == AnswerFeedbackState.NORMAL
+            val colors = answerTileColors(button.state)
             PrismTile(
-                face = face,
-                isClickable = isInteractive,
+                face = colors.face,
+                isClickable = colors.isInteractive,
                 onClick = { onAnswer(button.value) },
                 modifier = Modifier
                     .weight(1f)
                     .height(72.dp)
-                    .then(if (button.state == AnswerFeedbackState.DIMMED) Modifier.alpha(0.3f) else Modifier)
-                    .then(if (isInteractive) Modifier.hoverHand() else Modifier),
+                    .answerTileState(button.state),
             ) {
                 Text(
                     text = label,
                     style = MaterialTheme.typography.titleMedium,
-                    color = contentColor,
+                    color = colors.content,
                 )
             }
         }

@@ -56,6 +56,8 @@ import com.inspiredandroid.braincup.games.wordle.WordlePreviewPuzzles
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.localizedName
 import com.inspiredandroid.braincup.ui.screens.games.PuzzleClueCacheSize
+import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
+import com.inspiredandroid.braincup.ui.screens.games.drawRegionBorders
 import com.inspiredandroid.braincup.ui.screens.games.drawTextCentered
 import com.inspiredandroid.braincup.ui.theme.BubbleSumBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
@@ -1339,10 +1341,7 @@ private fun NormalSudokuPreview() {
         Canvas(modifier = Modifier.fillMaxSize().background(cellColor)) {
             val n = 9
             val cell = size.width / n
-            for (i in 0..n) {
-                drawLine(thinLine, Offset(i * cell, 0f), Offset(i * cell, size.height), strokeWidth = 1.dp.toPx())
-                drawLine(thinLine, Offset(0f, i * cell), Offset(size.width, i * cell), strokeWidth = 1.dp.toPx())
-            }
+            drawPuzzleGridLines(rows = n, cols = n, color = thinLine, strokeWidth = 1.dp.toPx())
             val bold = 2.dp.toPx()
             for (i in 0..n step 3) {
                 drawLine(boldLine, Offset(i * cell, 0f), Offset(i * cell, size.height), strokeWidth = bold)
@@ -1603,10 +1602,7 @@ private fun ShikakuPreview() {
             }
 
             // Thin grid lines over the fills.
-            for (i in 0..n) {
-                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
-                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
-            }
+            drawPuzzleGridLines(rows = n, cols = n, color = gridLineColor, strokeWidth = 1.dp.toPx())
 
             // Bold dark border around each rectangle (like Cat Queens region borders).
             val bold = 3.dp.toPx()
@@ -1668,10 +1664,7 @@ private fun NurikabePreview() {
             }
 
             // Dark grid lines, slightly thicker than the sea preview to match Shikaku / Cat Queens.
-            for (i in 0..n) {
-                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.5.dp.toPx())
-                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.5.dp.toPx())
-            }
+            drawPuzzleGridLines(rows = n, cols = n, color = gridLineColor, strokeWidth = 1.5.dp.toPx())
 
             val clueStyle = TextStyle(
                 color = PreviewTextColor,
@@ -1718,34 +1711,15 @@ private fun CatQueensPreview() {
                 drawRect(color = color, topLeft = topLeft(index), size = cellSize)
             }
 
-            for (i in 0..n) {
-                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
-                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
-            }
+            drawPuzzleGridLines(rows = n, cols = n, color = gridLineColor, strokeWidth = 1.dp.toPx())
 
-            val bold = 2.5f.dp.toPx()
-            for (r in 0 until n) {
-                for (c in 0 until n) {
-                    val index = r * n + c
-                    val region = CatQueensPreviewRegions[index]
-                    val x0 = c * cellW
-                    val y0 = r * cellH
-                    val x1 = x0 + cellW
-                    val y1 = y0 + cellH
-                    if (r == 0 || CatQueensPreviewRegions[index - n] != region) {
-                        drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
-                    }
-                    if (r == n - 1 || CatQueensPreviewRegions[index + n] != region) {
-                        drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
-                    }
-                    if (c == 0 || CatQueensPreviewRegions[index - 1] != region) {
-                        drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
-                    }
-                    if (c == n - 1 || CatQueensPreviewRegions[index + 1] != region) {
-                        drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
-                    }
-                }
-            }
+            drawRegionBorders(
+                regionIdByCellIndex = CatQueensPreviewRegions,
+                rows = n,
+                cols = n,
+                color = borderColor,
+                strokeWidth = 2.5f.dp.toPx(),
+            )
 
             val pad = cellW * 0.14f
             val catSize = Size(cellW - 2 * pad, cellH - 2 * pad)
@@ -1777,10 +1751,7 @@ private fun KnotPreview() {
             fun center(cell: Int) = Offset((cell % n + 0.5f) * cellW, (cell / n + 0.5f) * cellH)
 
             drawRect(color = KnotCellColor)
-            for (i in 0..n) {
-                drawLine(gridLineColor, Offset(i * cellW, 0f), Offset(i * cellW, size.height), strokeWidth = 1.dp.toPx())
-                drawLine(gridLineColor, Offset(0f, i * cellH), Offset(size.width, i * cellH), strokeWidth = 1.dp.toPx())
-            }
+            drawPuzzleGridLines(rows = n, cols = n, color = gridLineColor, strokeWidth = 1.dp.toPx())
 
             val stroke = minOf(cellW, cellH) * 0.34f
             val dotRadius = minOf(cellW, cellH) * 0.30f

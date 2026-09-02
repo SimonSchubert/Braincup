@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.ui.screens.games
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -22,26 +21,15 @@ internal fun ColumnScope.LightsOutContent(
     onAnswer: (String) -> Unit,
     onGiveUp: () -> Unit,
 ) {
-    val n = uiState.gridSize
     val compact = LocalIsCompactHeight.current
-    val cellSize = squareTileSize(n, compact)
 
     val board: @Composable () -> Unit = {
-        Column(
-            verticalArrangement = Arrangement.spacedBy(4.dp),
-        ) {
-            for (row in 0 until n) {
-                Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-                    for (col in 0 until n) {
-                        val index = row * n + col
-                        LightsOutCell(
-                            on = uiState.cells[index],
-                            size = cellSize,
-                            onClick = { onAnswer(index.toString()) },
-                        )
-                    }
-                }
-            }
+        SquareTileBoard(uiState.gridSize, compact) { index, cellSize ->
+            LightsOutCell(
+                on = uiState.cells[index],
+                size = cellSize,
+                onClick = { onAnswer(index.toString()) },
+            )
         }
     }
 

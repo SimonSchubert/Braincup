@@ -27,6 +27,7 @@ import braincup.composeapp.generated.resources.cat_queens_error_touch
 import braincup.composeapp.generated.resources.game_cat_queens_desc
 import com.inspiredandroid.braincup.ui.icons.CatFace
 import com.inspiredandroid.braincup.ui.screens.games.drawPuzzleGridLines
+import com.inspiredandroid.braincup.ui.screens.games.drawRegionBorders
 import com.inspiredandroid.braincup.ui.theme.CatQueensBoardFrame
 import com.inspiredandroid.braincup.ui.theme.CatRegionColors
 import com.inspiredandroid.braincup.ui.theme.ErrorRed
@@ -49,7 +50,7 @@ private const val CatQueensDemoSize = 4
 //   3 3 1 2
 //   3 3 2 2
 //
-private val CatQueensDemoRegions = intArrayOf(
+private val CatQueensDemoRegions: List<Int> = listOf(
     0, 0, 1, 1,
     0, 1, 1, 2,
     3, 3, 1, 2,
@@ -209,29 +210,13 @@ fun CatQueensDemo(modifier: Modifier = Modifier) {
                 // read clearly even when two neighbouring hues are hard to tell apart.
                 drawPuzzleGridLines(n, n, gridLineColor, 1.dp.toPx())
 
-                val bold = 3.dp.toPx()
-                for (r in 0 until n) {
-                    for (c in 0 until n) {
-                        val index = r * n + c
-                        val region = CatQueensDemoRegions[index]
-                        val x0 = c * cellW
-                        val y0 = r * cellH
-                        val x1 = x0 + cellW
-                        val y1 = y0 + cellH
-                        if (r == 0 || CatQueensDemoRegions[index - n] != region) {
-                            drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
-                        }
-                        if (r == n - 1 || CatQueensDemoRegions[index + n] != region) {
-                            drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
-                        }
-                        if (c == 0 || CatQueensDemoRegions[index - 1] != region) {
-                            drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
-                        }
-                        if (c == n - 1 || CatQueensDemoRegions[index + 1] != region) {
-                            drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
-                        }
-                    }
-                }
+                drawRegionBorders(
+                    regionIdByCellIndex = CatQueensDemoRegions,
+                    rows = n,
+                    cols = n,
+                    color = borderColor,
+                    strokeWidth = 3.dp.toPx(),
+                )
 
                 // Line indicator (outline): a bold border around the lit strip makes the line pop above
                 // the grid, drawn after the cell borders so it stays visible.

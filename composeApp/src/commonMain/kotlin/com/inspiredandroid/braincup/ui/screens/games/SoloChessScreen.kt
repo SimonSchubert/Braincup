@@ -126,21 +126,11 @@ internal fun ColumnScope.SoloChessContent(
         board = board,
         actions = actions,
     ) { compactLayout ->
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { progress() }
-        Spacer(Modifier.height(6.dp))
-        BoardInstructionLine(
-            text = instruction,
+        LevelBoardStatus(
+            compactLayout = compactLayout,
+            instruction = instruction,
             isError = isError,
-            style = if (compactLayout) {
-                MaterialTheme.typography.labelMedium
-            } else {
-                MaterialTheme.typography.bodyMedium
-            },
-            modifier = if (compactLayout) {
-                Modifier
-            } else {
-                Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp)
-            },
+            progress = progress,
         )
     }
 }

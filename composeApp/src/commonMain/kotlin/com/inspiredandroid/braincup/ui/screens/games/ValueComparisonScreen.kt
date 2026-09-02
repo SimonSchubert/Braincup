@@ -5,14 +5,10 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.ui.components.*
-import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import kotlinx.collections.immutable.persistentListOf
 import org.jetbrains.compose.resources.stringResource
 
@@ -29,25 +25,16 @@ internal fun ColumnScope.ValueComparisonContent(
     Spacer(Modifier.height(16.dp))
 
     uiState.answers.forEachIndexed { index, button ->
-        val faceColor = when (button.state) {
-            AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
-            AnswerFeedbackState.CORRECT -> SuccessGreen
-            else -> Primary
-        }
-        val contentColor = when (button.state) {
-            AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
-            else -> Color.White
-        }
-        val isInteractive = button.state == AnswerFeedbackState.NORMAL
+        val colors = answerTileColors(button.state)
+        val contentColor = colors.content
         PrismTile(
-            face = faceColor,
-            isClickable = isInteractive,
+            face = colors.face,
+            isClickable = colors.isInteractive,
             onClick = { onAnswer((index + 1).toString()) },
             modifier = Modifier
                 .padding(4.dp)
                 .defaultMinSize(minWidth = 48.dp, minHeight = 48.dp)
-                .then(if (button.state == AnswerFeedbackState.DIMMED) Modifier.alpha(0.3f) else Modifier)
-                .then(if (isInteractive) Modifier.hoverHand() else Modifier),
+                .answerTileState(button.state),
         ) {
             if (button.value.contains("/")) {
                 val parts = button.value.split("/")

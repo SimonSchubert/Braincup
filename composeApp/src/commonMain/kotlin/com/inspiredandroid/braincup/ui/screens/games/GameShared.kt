@@ -24,6 +24,7 @@ import com.inspiredandroid.braincup.app.*
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.theme.Primary
+import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
 import org.jetbrains.compose.resources.stringResource
@@ -198,6 +199,53 @@ internal fun BoardInstructionLine(
 }
 
 /**
+ * [BoardInstructionLine] as the level puzzles show it, styled for the layout it lands in.
+ *
+ * All five level boards made the same two choices by hand: the compact sidebar has no room for body
+ * text and no column to centre in, the tall layout has both. Taking the layout rather than a style
+ * and a modifier keeps that pairing in one place.
+ */
+@Composable
+internal fun ColumnScope.LevelBoardInstructionLine(
+    text: String,
+    isError: Boolean,
+    compactLayout: Boolean,
+) {
+    BoardInstructionLine(
+        text = text,
+        isError = isError,
+        style = if (compactLayout) {
+            MaterialTheme.typography.labelMedium
+        } else {
+            MaterialTheme.typography.bodyMedium
+        },
+        modifier = if (compactLayout) {
+            Modifier
+        } else {
+            Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp)
+        },
+    )
+}
+
+/**
+ * The status block of a level board that shows a progress counter above its how-to line.
+ *
+ * Cat Queens and Solo Chess both count something down while you play (regions filled, pieces left)
+ * and both put it directly above the instruction, with the same gap.
+ */
+@Composable
+internal fun ColumnScope.LevelBoardStatus(
+    compactLayout: Boolean,
+    instruction: String,
+    isError: Boolean,
+    progress: @Composable () -> Unit,
+) {
+    Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { progress() }
+    Spacer(Modifier.height(6.dp))
+    LevelBoardInstructionLine(text = instruction, isError = isError, compactLayout = compactLayout)
+}
+
+/**
  * Compact-height layout shell: the board and its side panel sit next to each other on one
  * centered row, because there is no vertical room to stack them.
  */
@@ -214,6 +262,60 @@ internal fun CompactGameRow(
         verticalAlignment = Alignment.CenterVertically,
         content = content,
     )
+}
+
+/**
+ * Face and content colours for an answer tile, plus the modifier that dims and un-clicks it.
+ *
+ * Value Comparison and Mental Rotations both show the same kind of answer tile: correct turns
+ * green, wrong turns to the error container, and the options that are no longer live fade back.
+ * The tiles themselves differ (one holds a fraction, the other a word) so only the colouring is
+ * shared. Flags deliberately keeps its own, which fades further and tints its dimmed state.
+ */
+internal data class AnswerTileColors(val face: Color, val content: Color, val isInteractive: Boolean)
+
+@Composable
+internal fun answerTileColors(state: AnswerFeedbackState): AnswerTileColors = AnswerTileColors(
+    face = when (state) {
+        AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.errorContainer
+        AnswerFeedbackState.CORRECT -> SuccessGreen
+        else -> Primary
+    },
+    content = when (state) {
+        AnswerFeedbackState.WRONG -> MaterialTheme.colorScheme.onErrorContainer
+        else -> Color.White
+    },
+    isInteractive = state == AnswerFeedbackState.NORMAL,
+)
+
+/** Dims an answer tile that is no longer live, and gives a live one the pointer cursor. */
+internal fun Modifier.answerTileState(state: AnswerFeedbackState): Modifier = this
+    .then(if (state == AnswerFeedbackState.DIMMED) Modifier.alpha(0.3f) else Modifier)
+    .then(if (state == AnswerFeedbackState.NORMAL) Modifier.hoverHand() else Modifier)
+
+/**
+ * A square [gridSize] x [gridSize] board of equally sized cells, laid out row by row.
+ *
+ * Lights Out and Sliding Puzzle are the same board with a different cell drawn in it, so the loop,
+ * the 4.dp gaps and the [squareTileSize] call live here. [cell] is handed the flat index and the
+ * size its tile has to fit.
+ */
+@Composable
+internal fun SquareTileBoard(
+    gridSize: Int,
+    compact: Boolean,
+    cell: @Composable (index: Int, size: Dp) -> Unit,
+) {
+    val cellSize = squareTileSize(gridSize, compact)
+    Column(verticalArrangement = Arrangement.spacedBy(4.dp)) {
+        for (row in 0 until gridSize) {
+            Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
+                for (col in 0 until gridSize) {
+                    cell(row * gridSize + col, cellSize)
+                }
+            }
+        }
+    }
 }
 
 /** Tile size for a square n x n board of [PrismTile]s, shrunk when vertical room is tight. */
@@ -236,6 +338,46 @@ internal fun DrawScope.drawTextCentered(
         color = color,
         topLeft = Offset(centerX - measured.size.width / 2f, centerY - measured.size.height / 2f),
     )
+}
+
+/**
+ * The bold outline around each region of a board whose cells are grouped by [regionIdByCellIndex].
+ *
+ * An edge is drawn only where the neighbouring cell belongs to a different region, or where the
+ * board ends. Cat Queens draws this three times over (on the board, in its tutorial and on its menu
+ * tile) and the three have to agree, because the regions are the rule the puzzle is played by.
+ */
+internal fun DrawScope.drawRegionBorders(
+    regionIdByCellIndex: List<Int>,
+    rows: Int,
+    cols: Int,
+    color: Color,
+    strokeWidth: Float,
+) {
+    val cellW = size.width / cols
+    val cellH = size.height / rows
+    for (r in 0 until rows) {
+        for (c in 0 until cols) {
+            val index = r * cols + c
+            val region = regionIdByCellIndex[index]
+            val x0 = c * cellW
+            val y0 = r * cellH
+            val x1 = x0 + cellW
+            val y1 = y0 + cellH
+            if (r == 0 || regionIdByCellIndex[index - cols] != region) {
+                drawLine(color, Offset(x0, y0), Offset(x1, y0), strokeWidth = strokeWidth)
+            }
+            if (r == rows - 1 || regionIdByCellIndex[index + cols] != region) {
+                drawLine(color, Offset(x0, y1), Offset(x1, y1), strokeWidth = strokeWidth)
+            }
+            if (c == 0 || regionIdByCellIndex[index - 1] != region) {
+                drawLine(color, Offset(x0, y0), Offset(x0, y1), strokeWidth = strokeWidth)
+            }
+            if (c == cols - 1 || regionIdByCellIndex[index + 1] != region) {
+                drawLine(color, Offset(x1, y0), Offset(x1, y1), strokeWidth = strokeWidth)
+            }
+        }
+    }
 }
 
 /** Draws the cell separators of a [rows] x [cols] board filling the whole canvas. */

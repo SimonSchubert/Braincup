@@ -78,29 +78,13 @@ internal fun ColumnScope.CatQueensContent(
                 // read clearly even when two neighbouring hues are hard to tell apart.
                 drawPuzzleGridLines(n, n, gridLineColor, 1.dp.toPx())
 
-                val bold = 3.dp.toPx()
-                for (r in 0 until n) {
-                    for (c in 0 until n) {
-                        val index = r * n + c
-                        val region = uiState.regionIdByCellIndex[index]
-                        val x0 = c * cellW
-                        val y0 = r * cellH
-                        val x1 = x0 + cellW
-                        val y1 = y0 + cellH
-                        if (r == 0 || uiState.regionIdByCellIndex[index - n] != region) {
-                            drawLine(borderColor, Offset(x0, y0), Offset(x1, y0), strokeWidth = bold)
-                        }
-                        if (r == n - 1 || uiState.regionIdByCellIndex[index + n] != region) {
-                            drawLine(borderColor, Offset(x0, y1), Offset(x1, y1), strokeWidth = bold)
-                        }
-                        if (c == 0 || uiState.regionIdByCellIndex[index - 1] != region) {
-                            drawLine(borderColor, Offset(x0, y0), Offset(x0, y1), strokeWidth = bold)
-                        }
-                        if (c == n - 1 || uiState.regionIdByCellIndex[index + 1] != region) {
-                            drawLine(borderColor, Offset(x1, y0), Offset(x1, y1), strokeWidth = bold)
-                        }
-                    }
-                }
+                drawRegionBorders(
+                    regionIdByCellIndex = uiState.regionIdByCellIndex,
+                    rows = n,
+                    cols = n,
+                    color = borderColor,
+                    strokeWidth = 3.dp.toPx(),
+                )
 
                 // Each cat shows live correctness: a green ring while it breaks no rule, a red ring
                 // and tint the moment it clashes with another cat (row, column, zone or touching).
@@ -160,21 +144,11 @@ internal fun ColumnScope.CatQueensContent(
         board = board,
         actions = { GiveUpButton(onGiveUp = onGiveUp) },
     ) { compactLayout ->
-        Box(modifier = Modifier.align(Alignment.CenterHorizontally)) { progress() }
-        Spacer(Modifier.height(6.dp))
-        BoardInstructionLine(
-            text = instruction,
+        LevelBoardStatus(
+            compactLayout = compactLayout,
+            instruction = instruction,
             isError = isError,
-            style = if (compactLayout) {
-                MaterialTheme.typography.labelMedium
-            } else {
-                MaterialTheme.typography.bodyMedium
-            },
-            modifier = if (compactLayout) {
-                Modifier
-            } else {
-                Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp)
-            },
+            progress = progress,
         )
     }
 }

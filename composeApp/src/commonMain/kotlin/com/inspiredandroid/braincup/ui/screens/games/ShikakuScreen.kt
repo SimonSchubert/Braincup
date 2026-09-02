@@ -6,7 +6,6 @@ import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.geometry.Offset
@@ -188,19 +187,10 @@ internal fun ColumnScope.ShikakuContent(
         board = board,
         actions = { GiveUpButton(onGiveUp = onGiveUp) },
     ) { compactLayout ->
-        BoardInstructionLine(
+        LevelBoardInstructionLine(
             text = stringResource(Res.string.game_shikaku_howto),
             isError = false,
-            style = if (compactLayout) {
-                MaterialTheme.typography.labelMedium
-            } else {
-                MaterialTheme.typography.bodyMedium
-            },
-            modifier = if (compactLayout) {
-                Modifier
-            } else {
-                Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp)
-            },
+            compactLayout = compactLayout,
         )
     }
 }
