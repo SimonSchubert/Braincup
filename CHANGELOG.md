@@ -10,6 +10,13 @@
   Wisconsin Card Sorting Test.
 
 ### Improvements
+- Rebuild Color Confusion as the real Stroop task. Instead of picking matching words out of a grid,
+  one colour word now appears at a time and you tap the colour of the ink it is printed in, with the
+  word usually naming a different one. It shows the research card, based on the Stroop task, and the
+  finish screen reports your congruency cost: how much longer you took when the word disagreed with
+  the ink. The old grid had congruent cells as the targets, so there was nothing to override and
+  nothing to measure. Scores are on a new scale, since a trial is one tap where a grid took several
+  seconds, so an old high score no longer compares and the medal will re-earn on your next good run.
 - Rebuild N-Back as the real task, at the published numbers: a continuous stream of shapes with a
   Match response on every item, 6 matches in 20 trials, a controlled rate of near-miss lures, and a
   block cleared on fewer than 3 errors. It now shows the research card.

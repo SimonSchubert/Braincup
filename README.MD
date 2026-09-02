@@ -46,7 +46,7 @@ Train your math skills, memory and focus.
 
 ## Games
 
-Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
+Braincup includes **45** activities: **40** scored mini-games plus **5** extras.
 
 ### Math
 - **Mental Calculation** — Follow expressions; use each result as the base for the next
@@ -61,6 +61,7 @@ Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 ### Logic
 - **Anomaly Puzzle** — Find the figure that stands out by color and shape
 - **Rule Shift** — Sort cards by a hidden rule that changes once you find it
+- **Mental Rotations** — Decide whether the second block is the first one turned or mirrored
 - **Path Finder** — Follow arrow instructions from a marked start
 - **Colored Shapes** — Add points from correct statements
 - **Mini Sudoku** — Small grid: each row, column and block once per digit
@@ -88,7 +89,8 @@ Braincup includes **41** activities: **37** scored mini-games plus **4** extras.
 - **Simon Says** — Tap back the growing pad sequence each round
 
 ### Perception
-- **Color Confusion** — Tap cells where the word matches its font color
+- **Color Confusion** — Tap the color a word is printed in, not the color it names
+- **Mental Flex** — A cue pair sets the rule each round; match the target on that trait
 - **Flash Crowd** — Tap the side that flashed more dots
 - **Schulte Table** — Tap numbers in order as fast as you can
 - **Flags** — Identify countries by their flags against the clock

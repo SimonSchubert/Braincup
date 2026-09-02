@@ -13,6 +13,7 @@ is meant to avoid.
 
 | Game | Paradigm | Citation | Why it qualifies |
 |---|---|---|---|
+| Color Confusion | Stroop Task | Stroop, 1935; MacLeod, 1991 | One word per trial, answered on its ink from a fixed colour row, against a scheduled mix of congruent and incongruent trials. The congruency cost is measured and reported. See below. |
 | Flash Crowd | Non-Symbolic Number Comparison | Halberda, Mazzocco & Feigenson, 2008 | Ratio-driven difficulty, with dot area and dot size both controlled against count. See below. |
 | Ghost Grid | Corsi Block-Tapping Task | Corsi, 1972 | Forward spatial span, reproduced in order. Standard. |
 | Orbit Tracker | Multiple Object Tracking | Pylyshyn & Storm, 1988 | Textbook structure: cue targets, identical distractors, independent motion, select all. |
@@ -25,11 +26,6 @@ is meant to avoid.
 | Tower of Hanoi | Tower of Hanoi | Simon, 1975 | Standard planning measure; the puzzle requires moves that undo progress. |
 
 ## Does not show the card, and why
-
-**Color Confusion** is not Stroop. Congruent cells are the targets, so nothing has to override the
-prepotent reading response and there is no interference to measure. A faithful version shows one
-word, asks for the ink colour from a colour-button row, mixes congruent and incongruent trials, and
-scores the interference cost.
 
 **Schulte Table** is popular in Russian-language attention literature but has a thin peer-reviewed
 base. The validated equivalent is Trail Making (TMT-A, TMT-B, B minus A as the executive index); the
@@ -154,6 +150,64 @@ covers. Rule Shift is not a second Mental Flex, and the difference is not flexib
 rule comes from - Mental Flex hands it over every round, Rule Shift never states it. What is
 untouched elsewhere in the app is induction from one bit of feedback, so that is what the card
 claims.
+
+## Color Confusion's rebuild, and the three things it does not do
+
+Worth its own note, because the game that used to carry this name was the app's clearest case of
+naming a paradigm it did not run.
+
+The old mechanic laid nine colour words out in a grid and asked for every cell whose word matched
+its ink. That makes the *congruent* cells the targets. Nothing has to be overridden to find them,
+since reading the word and reading the ink point at the same answer, and a task with no conflict in
+it has no interference to measure. It was a visual search, and a decent one; it was not Stroop. It
+now shows one word at a time and asks for its ink from a fixed row of four colour swatches, which is
+the manual form the task is usually run in.
+
+**The clock is not a deviation here**, which is worth saying because the section above argues the
+opposite for Rule Shift. The Stroop is administered timed and scored as items completed - Golden's
+(1978) version allows 45 seconds a card - so a sixty-second run whose score is correct answers is the
+procedure rather than the app's format imposed on it. Speed is the measure in one of these tasks and
+the enemy of it in the other.
+
+Three things it does not do, and all three make the number it reports *smaller* than the ones in the
+literature rather than larger:
+
+**Responses are manual, not spoken.** Naming the colour aloud is what Stroop did and what most of
+the literature reports. Tapping a swatch keyed to a colour is the standard computerised substitute
+and reliably yields a smaller effect (MacLeod, 1991). Nothing about a phone can fix that.
+
+**The list is mixed, not blocked.** Golden's version is three uniform cards: words, colour patches,
+incongruent items. Interleaving the conditions shrinks the effect, but a blocked design cannot
+produce a within-run comparison at all, and one run is all a player gives the game.
+
+**There is no neutral condition,** so the reported number is a *congruency cost* and not
+interference. Interference proper is incongruent minus neutral, and congruent trials are themselves
+faster than neutral ones, so incongruent minus congruent bundles that speed-up in with the cost. A
+neutral condition would need either a row of Xs, which reads as filler and gets answered differently,
+or colour-unrelated words, which would need a word list in all 44 locales; and a sixty-second run has
+too few trials to divide three ways in any case. The finish screen calls it a congruency cost, which
+is what it is.
+
+### The congruency schedule
+
+Congruency is dealt from a shuffled bag of five holding two congruent trials, rather than drawn per
+trial. Over the forty-odd trials a minute holds, an independent draw would make the mix an accident
+of the run, and would let one condition come out in a streak long enough to be most of one side of
+the comparison. The bag makes the ratio exact but for the part-dealt bag at the end, and
+`ColorConfusionGameTest` asserts it bag by bag rather than in aggregate, which is the stronger claim.
+
+Two in five rather than half is a trade, not a free choice: the effect grows with the share of
+congruent trials, so an even split would report a slightly larger number. The incongruent condition
+is the one the task is about, and a run this short has trials to spare on one side only.
+
+The ink also never repeats on consecutive trials. A repeat would let a player hold one swatch and
+collect points without reading anything, and response repetitions carry a speed-up of their own that
+would land unevenly across the two conditions.
+
+Only correct trials contribute a time, since an error time is a time to the wrong decision and not
+the quantity the effect is defined over. The medians are taken rather than the means, so one
+distracted trial cannot move the reading, and the effect is withheld entirely until each condition
+has five correct trials behind it.
 
 ## Flash Crowd's dot sizing
 

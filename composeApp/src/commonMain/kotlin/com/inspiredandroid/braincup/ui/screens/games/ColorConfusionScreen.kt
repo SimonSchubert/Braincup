@@ -1,132 +1,109 @@
 package com.inspiredandroid.braincup.ui.screens.games
 
-import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import braincup.composeapp.generated.resources.*
-import com.inspiredandroid.braincup.app.*
+import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.game_color_confusion_howto
+import com.inspiredandroid.braincup.app.AnswerFeedbackState
+import com.inspiredandroid.braincup.app.ColorConfusionUiState
+import com.inspiredandroid.braincup.app.ColorSwatchCell
 import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.tools.GameColor
 import com.inspiredandroid.braincup.games.tools.composeColor
 import com.inspiredandroid.braincup.ui.components.*
 import com.inspiredandroid.braincup.ui.localizedName
-import com.inspiredandroid.braincup.ui.theme.Primary
-import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceDark
-import com.inspiredandroid.braincup.ui.theme.SelectedTileFaceLight
-import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
-import com.inspiredandroid.braincup.ui.theme.UnselectedTileFaceDark
-import com.inspiredandroid.braincup.ui.theme.isDarkColorScheme
-import kotlinx.collections.immutable.persistentListOf
+import kotlinx.collections.immutable.toImmutableList
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * The word alone above a fixed row of ink swatches. Nothing else is on screen: the task is over in
+ * under a second, and anything else to look at would be measured as part of it.
+ */
 @Composable
 internal fun ColumnScope.ColorConfusionContent(
     uiState: ColorConfusionUiState,
     onAnswer: (String) -> Unit,
 ) {
     val compact = LocalIsCompactHeight.current
-    val cellMax = if (compact) 72.dp else 100.dp
 
-    // 3x3 Grid
-    Column(
+    // Big, because the ink is the signal and a large glyph carries more of it. Uppercase is how
+    // the task is printed, and it also keeps every word the same visual weight.
+    Text(
+        text = uiState.word.localizedName().uppercase(),
+        style = if (compact) MaterialTheme.typography.displaySmall else MaterialTheme.typography.displayMedium,
+        fontWeight = FontWeight.Bold,
+        color = uiState.ink.composeColor(),
         modifier = Modifier
-            .padding(horizontal = 24.dp)
-            .widthIn(max = cellMax * 3)
+            .align(Alignment.CenterHorizontally)
+            .padding(horizontal = 24.dp),
+    )
+
+    Spacer(Modifier.height(if (compact) 24.dp else 40.dp))
+
+    Row(
+        modifier = Modifier
+            .padding(horizontal = 16.dp)
+            .widthIn(max = 84.dp * uiState.swatches.size)
             .align(Alignment.CenterHorizontally),
-        horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        uiState.cells.chunked(3).forEachIndexed { y, rowCells ->
-            Row {
-                rowCells.forEachIndexed { x, cell ->
-                    val index = y * 3 + x
-                    ColorConfusionCell(
-                        cell = cell,
-                        onClick = {
-                            if (!uiState.isSubmitted) {
-                                onAnswer(index.toString())
-                            }
-                        },
-                        modifier = Modifier
-                            .weight(1f)
-                            .aspectRatio(1f)
-                            .padding(4.dp),
-                    )
-                }
-            }
+        uiState.swatches.forEachIndexed { index, swatch ->
+            ColorSwatchTile(
+                swatch = swatch,
+                markSize = if (compact) 22.dp else 28.dp,
+                // The whole row stops taking taps for the feedback beat, not just the swatch that
+                // was tapped: the trial is already decided and the game ignores the input anyway.
+                isEnabled = !uiState.isAwaitingNextTrial,
+                onClick = { onAnswer("${index + 1}") },
+                modifier = Modifier.weight(1f).aspectRatio(1f).padding(4.dp),
+            )
         }
     }
 
-    Spacer(Modifier.height(if (compact) 8.dp else 16.dp))
+    Spacer(Modifier.height(if (compact) 16.dp else 26.dp))
 
-    PrismTile(
-        face = Primary,
-        isClickable = !uiState.isSubmitted,
-        onClick = { onAnswer(BoardCommand.SUBMIT) },
-        modifier = Modifier
-            .align(Alignment.CenterHorizontally)
-            .defaultMinSize(minWidth = 96.dp, minHeight = 48.dp)
-            .alpha(if (uiState.isSubmitted) 0f else 1f)
-            .hoverHand(),
-    ) {
-        Text(
-            stringResource(Res.string.button_done),
-            color = Color.White,
-        )
-    }
+    BoardInstructionLine(
+        text = stringResource(Res.string.game_color_confusion_howto),
+        isError = false,
+        modifier = Modifier.align(Alignment.CenterHorizontally).padding(horizontal = 24.dp),
+    )
 }
 
+/**
+ * A swatch keeps its own colour whatever happened, because the colour is what it means: recolouring
+ * the tapped one green or red would make the row briefly lie about which answer is which. The
+ * verdict is a tick or a cross drawn over it instead.
+ */
 @Composable
-private fun ColorConfusionCell(
-    cell: ColorConfusionUiState.Cell,
+private fun ColorSwatchTile(
+    swatch: ColorSwatchCell,
+    markSize: Dp,
+    isEnabled: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val isDark = isDarkColorScheme
-    val selectedFace = if (isDark) SelectedTileFaceDark else SelectedTileFaceLight
-    val unselectedFace = if (isDark) UnselectedTileFaceDark else MaterialTheme.colorScheme.surfaceContainer
-    val targetContainerColor = when {
-        cell.feedback == ColorConfusionGame.CellFeedback.CORRECT_SELECTED -> SuccessGreenSoft
-        cell.feedback == ColorConfusionGame.CellFeedback.WRONG_SELECTED -> MaterialTheme.colorScheme.errorContainer
-        cell.feedback == ColorConfusionGame.CellFeedback.MISSED -> MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.5f)
-        cell.isSelected -> selectedFace
-        else -> unselectedFace
-    }
-    val containerColor by animateColorAsState(
-        targetValue = targetContainerColor,
-        animationSpec = tween(250),
-        label = "colorConfusionContainer",
-    )
-
-    val isInteractive = cell.feedback == ColorConfusionGame.CellFeedback.NONE
-    // Only sink the tile for finalized feedback states. Sinking the mid-play selection would dim
-    // the bright selected face to its side color and erase the very contrast that distinguishes
-    // selected from unselected in bright sunlight.
-    val isLockedIn = cell.feedback == ColorConfusionGame.CellFeedback.CORRECT_SELECTED ||
-        cell.feedback == ColorConfusionGame.CellFeedback.WRONG_SELECTED
     PrismTile(
-        face = containerColor,
-        modifier = modifier.hoverHand(isInteractive),
-        isClickable = isInteractive,
-        isSelected = isLockedIn,
-        onClick = onClick,
+        face = swatch.color.composeColor(),
+        isClickable = isEnabled,
+        isSelected = swatch.state != AnswerFeedbackState.NORMAL,
+        onClick = if (isEnabled) onClick else ({}),
+        modifier = modifier.hoverHand(isEnabled),
     ) {
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier.fillMaxSize(),
         ) {
-            Text(
-                text = cell.word.localizedName(),
-                style = MaterialTheme.typography.titleMedium,
-                color = cell.fontColor.composeColor(),
-            )
+            when (swatch.state) {
+                AnswerFeedbackState.CORRECT -> ChunkyCheck(Color.White, Modifier.size(markSize))
+                AnswerFeedbackState.WRONG -> ChunkyCross(Color.White, Modifier.size(markSize))
+                else -> Unit
+            }
         }
     }
 }
@@ -137,18 +114,12 @@ private fun ColorConfusionContentPreview() {
     GamePreviewHost {
         ColorConfusionContent(
             uiState = ColorConfusionUiState(
-                cells = persistentListOf(
-                    ColorConfusionUiState.Cell(GameColor.RED, GameColor.BLUE, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.GREEN, GameColor.GREEN, true, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.YELLOW, GameColor.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.YELLOW, GameColor.YELLOW, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                    ColorConfusionUiState.Cell(GameColor.BLUE, GameColor.RED, false, ColorConfusionGame.CellFeedback.NONE),
-                ),
-                isSubmitted = false,
+                word = GameColor.GREEN,
+                ink = GameColor.RED,
+                swatches = ColorConfusionGame.RESPONSE_COLORS
+                    .map { ColorSwatchCell(it) }
+                    .toImmutableList(),
+                isAwaitingNextTrial = false,
             ),
             onAnswer = {},
         )

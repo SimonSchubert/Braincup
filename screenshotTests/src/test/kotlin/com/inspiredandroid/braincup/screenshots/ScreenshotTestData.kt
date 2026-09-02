@@ -196,25 +196,6 @@ fun createMiniSudokuGame(): MiniSudokuGame {
     return game
 }
 
-fun createColorConfusionGame(): ColorConfusionGame {
-    val game = ColorConfusionGame()
-    game.cells = listOf(
-        ColorConfusionGame.Cell(word = GameColor.RED, fontColor = GameColor.RED),
-        ColorConfusionGame.Cell(word = GameColor.BLUE, fontColor = GameColor.GREEN),
-        ColorConfusionGame.Cell(word = GameColor.GREEN, fontColor = GameColor.GREEN),
-        ColorConfusionGame.Cell(word = GameColor.PURPLE, fontColor = GameColor.YELLOW),
-        ColorConfusionGame.Cell(word = GameColor.ORANGE, fontColor = GameColor.ORANGE),
-        ColorConfusionGame.Cell(word = GameColor.YELLOW, fontColor = GameColor.BLUE),
-        ColorConfusionGame.Cell(word = GameColor.RED, fontColor = GameColor.PURPLE),
-        ColorConfusionGame.Cell(word = GameColor.BLUE, fontColor = GameColor.BLUE),
-        ColorConfusionGame.Cell(word = GameColor.GREEN, fontColor = GameColor.RED),
-    )
-    game.selectedIndices = mutableSetOf(0, 2, 4)
-    game.feedbackState = List(9) { ColorConfusionGame.CellFeedback.NONE }
-    game.isSubmitted = false
-    return game
-}
-
 fun createGhostGridGame(): GhostGridGame {
     val game = GhostGridGame(random = Random(42L))
     game.nextRound()
@@ -310,7 +291,11 @@ fun createPatternSequenceUiState(): GameUiState = PatternSequenceGame(Random(42L
         nextRound()
     }.toUiState()
 
-fun createColorConfusionUiState(): GameUiState = createColorConfusionGame().toUiState()
+// Seeded so the snapshot lands on an incongruent trial, which is the state worth looking at: a
+// congruent one hides whether the ink is being drawn from the right field.
+fun createColorConfusionUiState(): GameUiState = ColorConfusionGame(Random(4L)).apply {
+    nextRound()
+}.toUiState()
 
 fun createTrioUiState(): GameUiState = TrioGame(Random(42L)).apply {
     nextRound()

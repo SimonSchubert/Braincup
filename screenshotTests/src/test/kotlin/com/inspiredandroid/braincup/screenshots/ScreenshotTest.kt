@@ -419,6 +419,28 @@ class ScreenshotTest {
         }
     }
 
+    // The one piece of finish-screen UI that only one game reaches, so nothing else would catch it
+    // breaking. A negative value is the interesting case: it must render as a reading, not as an
+    // absent one.
+    @Test
+    fun finishCongruencyEffect() {
+        paparazzi.snap {
+            FinishScreen(
+                gameType = GameType.COLOR_CONFUSION,
+                score = 45,
+                isNewHighscore = true,
+                answeredAllCorrect = false,
+                highscore = 45,
+                xpGained = 45,
+                totalXpAfter = 205,
+                congruencyEffectMs = 184,
+                onPlayRandom = {},
+                onPlayAgain = {},
+                onMenu = {},
+            )
+        }
+    }
+
     @Test
     fun gameMentalCalculation() {
         paparazzi.snap(darkTheme = true) {
@@ -958,6 +980,18 @@ class ScreenshotTest {
     // a demo that throws on composition (a missing CompositionLocal, a bad resource id) shows up
     // here rather than the first time someone opens the instructions on a device.
     @Test
+    fun instructionsColorConfusion() {
+        paparazzi.snap {
+            InstructionsScreen(
+                gameType = GameType.COLOR_CONFUSION,
+                storage = UserStorage(MapSettings()),
+                onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
     fun instructionsRuleShift() {
         paparazzi.snap {
             InstructionsScreen(
@@ -1019,6 +1053,19 @@ class ScreenshotTest {
                 gameType = GameType.TRIO,
                 storage = UserStorage(MapSettings()),
                 onStart = {},
+                onBack = {},
+            )
+        }
+    }
+
+    @Test
+    fun gameColorConfusionOled() {
+        paparazzi.snap(colorScheme = OledColorScheme) {
+            GameScreen(
+                gameUiState = createColorConfusionUiState(),
+                timeRemaining = 45_000L,
+                onAnswer = {},
+                onGiveUp = {},
                 onBack = {},
             )
         }

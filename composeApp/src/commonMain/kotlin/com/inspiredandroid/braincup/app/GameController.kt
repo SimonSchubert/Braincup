@@ -434,7 +434,6 @@ class GameController(
         }
     }
 
-    /** The default flow: a fixed-length timed run of generated rounds. */
     /** No timer and no clock: the run ends when the deck does. */
     private fun startRuleShiftGame(gameType: GameType) {
         val game = RuleShiftGame()
@@ -445,6 +444,7 @@ class GameController(
         navController.navigate(Playing(gameType.id))
     }
 
+    /** The default flow: a fixed-length timed run of generated rounds. */
     private fun startTimedRoundGame(gameType: GameType) {
         startTime = Clock.System.now().toEpochMilliseconds()
         _timeRemaining.value = GAME_TIME_MILLIS
@@ -1030,9 +1030,9 @@ class GameController(
 
     /**
      * Not [handleAnswerWithBoardFeedback], which routes a correct answer through the full-screen
-     * feedback beat: ten correct sorts have to fit inside one category, so the reveal here is a
-     * short flash on the key card the player chose. Both outcomes deal the next card, the way the
-     * task does - a wrong sort costs the trial, never the run.
+     * feedback beat: [RuleShiftGame.CATEGORY_CRITERION] correct sorts have to fit inside one
+     * category, so the reveal here is a short flash on the key card the player chose. Both outcomes
+     * deal the next card, the way the task does - a wrong sort costs the trial, never the run.
      *
      * Scored on categories completed rather than on correct sorts, and ended by the deck rather
      * than by [scheduleNextRound]'s sixty-second check, which is why it does not use it.
@@ -1214,23 +1214,28 @@ class GameController(
         }
     }
 
+    /**
+     * One Stroop trial: mark the tapped swatch, bank the point, move on. This deliberately skips
+     * the shared [onCorrectAnswer] path, which puts a one-second feedback screen between rounds.
+     * At that pace a sixty-second run holds barely twenty trials, too few to take a median
+     * response time per condition from, and the congruency effect is the point of the game.
+     */
     private fun handleColorConfusionAnswer(
         currentState: GameState.Active,
         game: ColorConfusionGame,
         input: String,
     ) {
-        if (input == BoardCommand.SUBMIT) {
-            val correct = game.submit()
-            emitUiState(game)
-            if (correct) {
-                points++
-            }
-            scheduleNextRound(currentState.gameType, game, after = 1.seconds)
+        val slot = input.toIntOrNull() ?: return
+        val isCorrect = game.answer(slot) ?: return
+        if (isCorrect) points++
+        emitUiState(game)
+
+        val hold = if (isCorrect) {
+            ColorConfusionGame.CORRECT_FEEDBACK_MILLIS
         } else {
-            val index = input.toIntOrNull() ?: return
-            game.toggleCell(index)
-            emitUiState(game)
+            ColorConfusionGame.WRONG_FEEDBACK_MILLIS
         }
+        scheduleNextRound(currentState.gameType, game, after = hold.milliseconds)
     }
 
     private fun handleMiniSudokuAnswer(
@@ -1919,6 +1924,10 @@ class GameController(
         // own that disappears before the player can read it.
         val nBack = game as? NBackGame
 
+        // Color Confusion's congruency effect belongs here for the same reason: it is the reading
+        // the run produced, and it is gone the moment the player leaves this screen.
+        val stroop = game as? ColorConfusionGame
+
         navController.navigate(
             Finish(
                 gameTypeId = gameType.id,
@@ -1933,6 +1942,7 @@ class GameController(
                 targetsFound = nBack?.hits ?: -1,
                 targetsTotal = nBack?.let { NBackGame.TARGETS_PER_BLOCK } ?: -1,
                 mistakes = nBack?.errors ?: -1,
+                congruencyEffectMs = stroop?.congruencyEffectMillis() ?: NO_CONGRUENCY_EFFECT,
             ),
         ) {
             popUpTo(MainMenu)

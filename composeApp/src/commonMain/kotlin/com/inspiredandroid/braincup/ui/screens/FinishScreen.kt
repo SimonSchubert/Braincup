@@ -14,6 +14,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.api.UserStorage
+import com.inspiredandroid.braincup.app.NO_CONGRUENCY_EFFECT
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.formattedScore
 import com.inspiredandroid.braincup.ui.components.AppScaffold
@@ -49,6 +50,7 @@ fun FinishScreen(
     targetsFound: Int = -1,
     targetsTotal: Int = -1,
     mistakes: Int = -1,
+    congruencyEffectMs: Int = NO_CONGRUENCY_EFFECT,
 ) {
     val levelAfter = UserStorage.levelForXp(totalXpAfter)
     val levelBefore = UserStorage.levelForXp(totalXpAfter - xpGained)
@@ -116,6 +118,11 @@ fun FinishScreen(
                 mistakes = mistakes,
                 modifier = Modifier.align(Alignment.CenterHorizontally),
             )
+            Spacer(Modifier.height(16.dp))
+        }
+
+        if (congruencyEffectMs != NO_CONGRUENCY_EFFECT) {
+            CongruencyEffectCard(millis = congruencyEffectMs)
             Spacer(Modifier.height(16.dp))
         }
 
@@ -201,6 +208,43 @@ fun FinishScreen(
                 value = stringResource(playAgainLabelRes),
             )
         }
+    }
+}
+
+/**
+ * The reading a Stroop run produces, which the score does not carry: how much longer the trials
+ * whose word disagreed with the ink took than the ones where the two agreed.
+ *
+ * Shown with a sign, and negative values are shown as they are rather than floored at zero. A run
+ * can genuinely come out that way, and rounding it up to "no cost" would be inventing a result.
+ */
+@Composable
+private fun ColumnScope.CongruencyEffectCard(millis: Int) {
+    BrandedCard(
+        modifier = sectionWidth(),
+        contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            text = stringResource(Res.string.finish_congruency_effect_title),
+            style = MaterialTheme.typography.labelLarge,
+            color = OnPrimaryContainer.copy(alpha = 0.7f),
+        )
+        Text(
+            text = stringResource(
+                Res.string.finish_congruency_effect_value,
+                if (millis > 0) "+$millis" else "$millis",
+            ),
+            style = MaterialTheme.typography.headlineSmall,
+            fontWeight = FontWeight.Bold,
+            color = OnPrimaryContainer,
+        )
+        Text(
+            text = stringResource(Res.string.finish_congruency_effect_explainer),
+            style = MaterialTheme.typography.bodySmall,
+            textAlign = TextAlign.Center,
+            color = OnPrimaryContainer.copy(alpha = 0.7f),
+        )
     }
 }
 

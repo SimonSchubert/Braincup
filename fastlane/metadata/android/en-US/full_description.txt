@@ -37,7 +37,7 @@ Memorize the shapes on the grid, then identify the hidden shape after the timer 
 Watch the tiles light up one by one, then tap them back in the same order.
 
 <b>Color Confusion</b>:
-Tap all cells where the word matches its font color.
+Tap the color a word is printed in, not the color the word names.
 
 <b>Colored Shapes</b>:
 Add up the points from the correct statements.

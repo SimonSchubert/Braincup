@@ -503,6 +503,7 @@ fun App(
                                     targetsFound = route.targetsFound,
                                     targetsTotal = route.targetsTotal,
                                     mistakes = route.mistakes,
+                                    congruencyEffectMs = route.congruencyEffectMs,
                                     onPlayRandom = onPlayRandom,
                                     onPlayAgain = onPlayAgain,
                                     onMenu = onMenu,

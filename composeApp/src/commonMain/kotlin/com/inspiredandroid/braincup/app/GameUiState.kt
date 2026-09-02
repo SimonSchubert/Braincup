@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.app
 
 import androidx.compose.runtime.Immutable
 import com.inspiredandroid.braincup.chess.PieceType
-import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.DigitMemoryGame
 import com.inspiredandroid.braincup.games.GhostGridGame
 import com.inspiredandroid.braincup.games.MentalFlexGame
@@ -55,6 +54,14 @@ data class FigureCell(
     val figure: Figure,
     override val state: AnswerFeedbackState = AnswerFeedbackState.NORMAL,
 ) : FeedbackCell<FigureCell> {
+    override fun withState(state: AnswerFeedbackState) = copy(state = state)
+}
+
+@Immutable
+data class ColorSwatchCell(
+    val color: GameColor,
+    override val state: AnswerFeedbackState = AnswerFeedbackState.NORMAL,
+) : FeedbackCell<ColorSwatchCell> {
     override fun withState(state: AnswerFeedbackState) = copy(state = state)
 }
 
@@ -409,17 +416,14 @@ data class SchulteTableUiState(
 
 @Immutable
 data class ColorConfusionUiState(
-    val cells: ImmutableList<Cell>,
-    val isSubmitted: Boolean,
-) : GameUiState {
-    @Immutable
-    data class Cell(
-        val word: GameColor,
-        val fontColor: GameColor,
-        val isSelected: Boolean,
-        val feedback: ColorConfusionGame.CellFeedback,
-    )
-}
+    /** The word on screen, which names a colour and is the distractor. */
+    val word: GameColor,
+    /** The colour the word is printed in, which is the answer. */
+    val ink: GameColor,
+    val swatches: ImmutableList<ColorSwatchCell>,
+    /** True while the feedback beat is up, so the row can stop taking taps. */
+    val isAwaitingNextTrial: Boolean,
+) : GameUiState
 
 @Immutable
 data class TrioUiState(

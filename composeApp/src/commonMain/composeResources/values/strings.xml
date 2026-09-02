@@ -179,6 +179,9 @@
     <string name="finish_best_tries">Best: %1$s tries</string>
     <string name="button_play_next_level">Play next level</string>
     <string name="finish_max_level_reached">Max level reached. Wait for new content.</string>
+    <string name="finish_congruency_effect_title">Congruency cost</string>
+    <string name="finish_congruency_effect_value">%1$s ms</string>
+    <string name="finish_congruency_effect_explainer">How much longer you took when the word disagreed with the ink</string>
 
     <string name="feedback_solution">Solution: %1$s</string>
 
@@ -269,7 +272,7 @@
     <string name="game_visual_memory_desc">Memorize the shapes on the grid, then identify the hidden shape after the timer ends.</string>
     <string name="game_pattern_sequence_desc">Work out the rule running along each row of the grid, then pick the piece that completes it.</string>
     <string name="game_ghost_grid_desc">Watch the tiles light up one by one, then tap them back in the same order.</string>
-    <string name="game_color_confusion_desc">Tap all cells where the word matches its font color, then press Done.</string>
+    <string name="game_color_confusion_desc">A color word appears in colored ink. Tap the color of the ink, not the color the word names.</string>
     <string name="game_orbit_tracker_desc">Watch the highlighted balls, then track them as they move. Select the original targets after they stop.</string>
     <string name="game_bubble_sum_desc">Add the numbers on the floating bubbles. Later, numbers blink — remember them.</string>
     <string name="bubble_sum_instruction">What is the sum?</string>
@@ -320,6 +323,7 @@
     <string name="game_rule_shift_desc">Sort each card onto one of the four key cards. Nobody tells you the rule, and it changes once you have it.</string>
     <string name="game_rule_shift_howto">Which key card does it belong with?</string>
     <string name="game_rule_shift_cards_left">Cards left: %1$d</string>
+    <string name="game_color_confusion_howto">Tap the color of the ink.</string>
     <string name="trio_demo_title">Find a set of three</string>
     <string name="trio_demo_rule">They share a trait. Nothing else is mixed.</string>
     <string name="trio_trait_shape">Shape</string>
@@ -408,7 +412,7 @@
     <string name="visual_memory_demo_title">Remember what goes where</string>
     <string name="digit_memory_demo_title">Memorize, get distracted, recall</string>
     <string name="pattern_sequence_demo_rule">Every row uses the same three shapes in a shifted order.</string>
-    <string name="color_confusion_demo_title">Tap the matching words</string>
+    <string name="color_confusion_demo_title">Answer the ink, not the word</string>
     <string name="flags_demo_title">Name the country</string>
     <string name="mental_calculation_demo_title">Carry the result forward</string>
     <string name="mental_calculation_demo_keep">%1$d carries over from the previous result.</string>
@@ -422,6 +426,10 @@
     <string name="rule_shift_demo_caption_rule_works">Blue with blue, red with red. Both right.</string>
     <string name="rule_shift_demo_caption_rule_moved">Green with green. Wrong, and no reason given.</string>
     <string name="rule_shift_demo_caption_new_rule">One symbol, first key. It wants the count now.</string>
+    <string name="color_confusion_demo_caption_ink">The word says one color. The ink says another.</string>
+    <string name="color_confusion_demo_caption_agree">Sometimes the two agree.</string>
+    <string name="color_confusion_demo_caption_trap">Reading the word is the trap.</string>
+    <string name="color_confusion_demo_caption_recover">The ink is always the answer.</string>
     <string name="pattern_sequence_prompt">Which piece completes the matrix?</string>
     <string name="game_tap_original_targets">Tap the original targets</string>
     <string name="game_remember_targets">Remember the targets</string>
@@ -622,6 +630,8 @@
     <string name="science_orbit_tracker_summary">A standard measure of sustained divided attention: how many moving targets you can keep hold of among identical distractors.</string>
     <string name="science_mental_rotations_paradigm">Mental Rotation Task</string>
     <string name="science_mental_rotations_summary">A standard measure of spatial ability: deciding whether two figures are the same solid turned, or mirror images that no rotation can match.</string>
+    <string name="science_color_confusion_paradigm">Stroop Task</string>
+    <string name="science_color_confusion_summary">A standard measure of inhibition: naming the color a word is printed in, while reading the word itself supplies a faster, competing answer.</string>
     <string name="science_digit_memory_paradigm">Brown-Peterson Task</string>
     <string name="science_digit_memory_summary">A standard measure of working memory: holding a sequence while an unrelated task occupies the same mental workspace.</string>
     <string name="science_pattern_sequence_paradigm">Matrix Reasoning</string>

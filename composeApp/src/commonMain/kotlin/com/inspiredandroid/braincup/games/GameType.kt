@@ -265,8 +265,15 @@ enum class GameType(
     COLOR_CONFUSION(
         displayNameRes = Res.string.game_color_confusion,
         id = "13",
-        goldScore = 11,
-        silverScore = 6,
+        // Rebuilt from a nine-cell grid into single Stroop trials, so the old 11/6 means nothing:
+        // a grid took several seconds to fill in and submit, where a trial is one tap. A trial
+        // costs the answer plus the 250ms the tapped swatch stays marked, so the run holds
+        // 60 / (RT + 0.25) of them: about 55 at an 850ms answer, about 44 at 1.1s. Gold sits near
+        // three quarters of the good-player end, as Mental Flex and Flash Crowd do against theirs.
+        // A scripted player that reads the ink off the framebuffer and never hesitates managed 104,
+        // which bounds the mechanic rather than the task - it has no reading response to override.
+        goldScore = 40,
+        silverScore = 25,
         descriptionRes = Res.string.game_color_confusion_desc,
         category = GameCategory.PERCEPTION,
         requiresColorVision = true,

@@ -35,6 +35,7 @@ import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import braincup.composeapp.generated.resources.*
 import com.inspiredandroid.braincup.app.WordleLetterState
+import com.inspiredandroid.braincup.games.ColorConfusionGame
 import com.inspiredandroid.braincup.games.Cube
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.games.PrismTileType
@@ -336,14 +337,11 @@ private val OrbitTrackerPreviewBalls = listOf(
 )
 
 /**
- * word -> ink. One matching pair and one mismatched pair is the whole rule (tap the words whose ink
- * matches their meaning), and two full-width rows leave each word four times the space a 2x2 grid
- * did — enough to stay readable on the grid's narrowest tile and in locales with long color names.
+ * word -> ink, printed in a colour it does not name, over the swatch row it is answered from. The
+ * mismatch is the whole rule in one picture, and putting the word's own ink on the row below says
+ * where the answer is without a word of explanation.
  */
-private val ColorConfusionPreviewWords = listOf(
-    GameColor.RED to GameColor.RED,
-    GameColor.PURPLE to GameColor.YELLOW,
-)
+private val ColorConfusionPreviewWord = GameColor.GREEN to GameColor.RED
 
 private val FlashCrowdPreviewLeftDots = listOf(
     Triple(0.2f, 0.2f, 0.06f),
@@ -2148,37 +2146,42 @@ private fun BubbleSumPreview() {
 
 @Composable
 private fun ColorConfusionPreview() {
-    val labels = ColorConfusionPreviewWords.map { it.first.localizedName() }
-    // Both words share one size (the longest one drives it) so the two cards match.
-    val fitter = rememberPreviewTextFitter(labels, MaterialTheme.typography.labelSmall)
+    val (word, ink) = ColorConfusionPreviewWord
+    val label = word.localizedName()
+    val fitter = rememberPreviewTextFitter(listOf(label), MaterialTheme.typography.labelSmall)
     Column(
         modifier = Modifier.fillMaxHeight().aspectRatio(1f).padding(20.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center,
     ) {
-        ColorConfusionPreviewWords.forEach { (wordColor, fontColor) ->
-            PrismCard(
-                face = MaterialTheme.colorScheme.surface,
-                facet = PrismFacet.Cell,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .weight(1f)
-                    .padding(2.dp),
-            ) {
-                BoxWithConstraints(contentAlignment = Alignment.Center) {
-                    val style = fitter.fitTo(
-                        cellWidth = (maxWidth - 4.dp).coerceAtLeast(0.dp),
-                        cellHeight = maxHeight,
-                    )
-                    Text(
-                        text = wordColor.localizedName(),
-                        style = style,
-                        color = fontColor.composeColor(),
-                        textAlign = TextAlign.Center,
-                        maxLines = 1,
-                        softWrap = false,
-                    )
-                }
+        BoxWithConstraints(
+            contentAlignment = Alignment.Center,
+            modifier = Modifier.fillMaxWidth().weight(1.6f),
+        ) {
+            val style = fitter.fitTo(
+                cellWidth = (maxWidth - 4.dp).coerceAtLeast(0.dp),
+                cellHeight = maxHeight,
+            )
+            Text(
+                text = label,
+                style = style,
+                color = ink.composeColor(),
+                textAlign = TextAlign.Center,
+                maxLines = 1,
+                softWrap = false,
+            )
+        }
+        Spacer(Modifier.height(4.dp))
+        Row(
+            modifier = Modifier.fillMaxWidth().weight(1f),
+            horizontalArrangement = Arrangement.spacedBy(3.dp),
+        ) {
+            ColorConfusionGame.RESPONSE_COLORS.forEach { swatch ->
+                PrismCard(
+                    face = swatch.composeColor(),
+                    facet = PrismFacet.Cell,
+                    modifier = Modifier.weight(1f).fillMaxHeight(),
+                )
             }
         }
     }

@@ -1,6 +1,8 @@
 package com.inspiredandroid.braincup.games
 
 import braincup.composeapp.generated.resources.Res
+import braincup.composeapp.generated.resources.science_color_confusion_paradigm
+import braincup.composeapp.generated.resources.science_color_confusion_summary
 import braincup.composeapp.generated.resources.science_digit_memory_paradigm
 import braincup.composeapp.generated.resources.science_digit_memory_summary
 import braincup.composeapp.generated.resources.science_flash_crowd_paradigm
@@ -36,9 +38,14 @@ import org.jetbrains.compose.resources.StringResource
  *
  * Games that merely evoke a paradigm deliberately have none, and the card is a claim, so the
  * omissions are load bearing:
- *  - COLOR_CONFUSION makes congruent cells the targets, so there is no prepotent reading response
- *    to override and no Stroop interference to measure.
  *  - SCHULTE_TABLE has a thin peer-reviewed base; the validated equivalent is Trail Making.
+ *  - VISUAL_MEMORY is object-location binding, adjacent to visual paired-associate tasks but not
+ *    one of them.
+ *
+ * COLOR_CONFUSION was on that list until it was rebuilt. It used to lay nine words out in a grid
+ * and ask for the ones whose word matched its ink, which makes the congruent cells the targets and
+ * leaves no prepotent response to override; it now runs single trials against a fixed response row
+ * and measures the congruency cost, which is the task.
  *
  * See `docs/game-science.md` for the full audit, including the games that were considered and
  * left out.
@@ -62,6 +69,11 @@ val GameType.science: GameScience?
             paradigmRes = Res.string.science_flash_crowd_paradigm,
             summaryRes = Res.string.science_flash_crowd_summary,
             citation = "Halberda, Mazzocco & Feigenson, 2008",
+        )
+        GameType.COLOR_CONFUSION -> GameScience(
+            paradigmRes = Res.string.science_color_confusion_paradigm,
+            summaryRes = Res.string.science_color_confusion_summary,
+            citation = "Stroop, 1935; MacLeod, 1991",
         )
         GameType.GHOST_GRID -> GameScience(
             paradigmRes = Res.string.science_ghost_grid_paradigm,

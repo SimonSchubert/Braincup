@@ -30,7 +30,17 @@ data class Finish(
     val targetsFound: Int = -1,
     val targetsTotal: Int = -1,
     val mistakes: Int = -1,
+    /**
+     * Color Confusion's congruency effect in milliseconds, or [NO_CONGRUENCY_EFFECT] when the run
+     * held too few correct trials of either kind to take a median from. The absent value cannot be
+     * -1 like the fields above: a real effect can come out negative, and a run that came out that
+     * way should say so rather than be hidden.
+     */
+    val congruencyEffectMs: Int = NO_CONGRUENCY_EFFECT,
 )
+
+/** [Finish.congruencyEffectMs] when the game did not measure one. */
+const val NO_CONGRUENCY_EFFECT = Int.MIN_VALUE
 
 @Serializable
 data class Scoreboard(val gameTypeId: String)
