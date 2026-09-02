@@ -12,6 +12,7 @@ import com.inspiredandroid.braincup.learn.LearnVisual.Counters
 import com.inspiredandroid.braincup.learn.LearnVisual.Inequality
 import com.inspiredandroid.braincup.learn.LearnVisual.NumberLine
 import com.inspiredandroid.braincup.learn.LearnVisual.Plot
+import com.inspiredandroid.braincup.learn.LearnVisual.Solid
 import com.inspiredandroid.braincup.learn.LearnVisual.Steps
 import com.inspiredandroid.braincup.learn.LessonSpec
 import com.inspiredandroid.braincup.learn.LessonStep.Choice
@@ -20,6 +21,7 @@ import com.inspiredandroid.braincup.learn.LessonStep.Numeric
 import com.inspiredandroid.braincup.learn.MathTopic
 import com.inspiredandroid.braincup.learn.PlotPoint
 import com.inspiredandroid.braincup.learn.QuizQuestion
+import com.inspiredandroid.braincup.learn.SolidKind
 import com.inspiredandroid.braincup.learn.filled
 import com.inspiredandroid.braincup.learn.learnUnit
 import com.inspiredandroid.braincup.learn.math
@@ -70,12 +72,12 @@ internal object AlgebraContent {
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_expressions_letters_s4_body),
-                        formula = math("3 x 4 = 12"),
+                        formula = math("3 * 4 = 12"),
                         visual = ArrayDots(rows = 3, cols = 4),
                     ),
                     Numeric(
                         question = words(Res.string.learn_algebra_expressions_letters_s5_question),
-                        formula = math("2 x {b:5} + 7 = ?"),
+                        formula = math("2 * {b:5} + 7 = ?"),
                         answer = "17",
                         explanation = words(Res.string.learn_algebra_expressions_letters_s5_explanation),
                         visual = ArrayDots(rows = 2, cols = 5),
@@ -154,7 +156,7 @@ internal object AlgebraContent {
                         options = mathOptions("2x + 5", "x + 10", "2x + 10", "2x + 7"),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_algebra_expressions_brackets_s3_explanation),
-                        visual = AlgebraRect(leftOnes = 2, topX = 1, topOnes = 5, reveal = false),
+                        visual = AlgebraRect(leftOnes = 2, topX = 1, topOnes = 5, reveal = false, revealSides = true),
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_expressions_brackets_s4_body),
@@ -207,7 +209,7 @@ internal object AlgebraContent {
                 options = mathOptions("4x + 3", "4x + 12", "x + 12", "4x + 7"),
                 correctIndex = 1,
                 explanation = words(Res.string.learn_unit_algebra_expressions_q4_explanation),
-                visual = AlgebraRect(leftOnes = 4, topX = 1, topOnes = 3, reveal = false),
+                visual = AlgebraRect(leftOnes = 4, topX = 1, topOnes = 3, reveal = false, revealSides = true),
             ),
             QuizQuestion(
                 prompt = words(Res.string.learn_unit_algebra_expressions_q5_prompt),
@@ -512,7 +514,7 @@ internal object AlgebraContent {
                     ),
                     Numeric(
                         question = filled(Res.string.learn_t_line_value, "2", "1", "1"),
-                        formula = math("2 x 1 + 1 = ?"),
+                        formula = math("2 * 1 + 1 = ?"),
                         answer = "3",
                         explanation = words(Res.string.learn_algebra_graphs_gradient_s5_explanation),
                         visual = Plot(
@@ -885,30 +887,33 @@ internal object AlgebraContent {
                     Concept(
                         body = words(Res.string.learn_algebra_systems_elimination_s1_body),
                         formula = math("2x + y = 7"),
-                        visual = Balance(leftX = 2, leftOnes = 1, rightOnes = 7),
+                        visual = Balance(leftX = 2, leftY = 1, rightOnes = 7),
                     ),
+                    // The second rule, drawn. The step after this one asks the learner to subtract
+                    // it from the first, and it used to arrive for the first time in that
+                    // question's own wording - a subtraction of something never put on screen.
                     Concept(
                         body = words(Res.string.learn_algebra_systems_elimination_s2_body),
-                        formula = math("x = 3"),
-                        visual = Balance(leftX = 1, leftOnes = 0, rightOnes = 3),
+                        formula = math("x + y = 4"),
+                        visual = Balance(leftX = 1, leftY = 1, rightOnes = 4),
                     ),
                     Numeric(
                         question = filled(Res.string.learn_t_eliminate, "2", "7", "4"),
                         answer = "3",
                         explanation = words(Res.string.learn_algebra_systems_elimination_s3_explanation),
-                        visual = Balance(leftX = 2, leftOnes = 1, rightOnes = 7),
+                        visual = Balance(leftX = 2, leftY = 1, rightOnes = 7),
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_systems_elimination_s4_body),
                         formula = math("3 + y = 4"),
-                        visual = Balance(leftX = 1, leftOnes = 3, rightOnes = 4),
+                        visual = Balance(leftX = 0, leftY = 1, leftOnes = 3, rightOnes = 4),
                     ),
                     Numeric(
                         question = filled(Res.string.learn_t_substitute_y, "3", "4"),
                         formula = math("4 - 3 = ?"),
                         answer = "1",
                         explanation = words(Res.string.learn_algebra_systems_elimination_s5_explanation),
-                        visual = Balance(leftX = 1, leftOnes = 3, rightOnes = 4),
+                        visual = Balance(leftX = 0, leftY = 1, leftOnes = 3, rightOnes = 4),
                     ),
                     Choice(
                         question = words(Res.string.learn_algebra_systems_elimination_s6_question),
@@ -920,7 +925,9 @@ internal object AlgebraContent {
                         ),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_algebra_systems_elimination_s6_explanation),
-                        visual = Balance(leftX = 3, leftOnes = 0, rightOnes = 6),
+                        // No figure: the step asks which move to make, and a scale showing the
+                        // equation that move would leave was answering a question nobody asked.
+                        visual = null,
                     ),
                 ),
             ),
@@ -989,14 +996,14 @@ internal object AlgebraContent {
                 options = mathOptions("2", "4", "6", "3"),
                 correctIndex = 0,
                 explanation = words(Res.string.learn_unit_algebra_simultaneous_equations_q2_explanation),
-                visual = Balance(leftX = 2, leftOnes = 0, rightOnes = 4),
+                visual = Balance(leftX = 3, leftY = 1, rightOnes = 10),
             ),
             QuizQuestion(
                 prompt = filled(Res.string.learn_t_substitute_x, "3", "8"),
                 options = mathOptions("2", "4", "6", "8"),
                 correctIndex = 0,
                 explanation = words(Res.string.learn_unit_algebra_simultaneous_equations_q3_explanation),
-                visual = Balance(leftX = 4, leftOnes = 0, rightOnes = 8),
+                visual = Balance(leftX = 1, leftY = 1, rightOnes = 8),
             ),
             QuizQuestion(
                 prompt = words(Res.string.learn_unit_algebra_simultaneous_equations_q4_prompt),
@@ -1019,14 +1026,14 @@ internal object AlgebraContent {
                 options = mathOptions("2", "5", "1", "3"),
                 correctIndex = 3,
                 explanation = words(Res.string.learn_unit_algebra_simultaneous_equations_q5_explanation),
-                visual = Balance(leftX = 2, leftOnes = 0, rightOnes = 6),
+                visual = Balance(leftX = 1, leftY = 1, rightOnes = 5),
             ),
             QuizQuestion(
                 prompt = filled(Res.string.learn_t_substitute_y, "4", "7"),
                 options = mathOptions("4", "3", "7", "11"),
                 correctIndex = 1,
                 explanation = words(Res.string.learn_unit_algebra_simultaneous_equations_q6_explanation),
-                visual = Balance(leftX = 1, leftOnes = 4, rightOnes = 7),
+                visual = Balance(leftX = 0, leftY = 1, leftOnes = 4, rightOnes = 7),
             ),
         ),
     )
@@ -1245,7 +1252,7 @@ internal object AlgebraContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_algebra_indices_notation_s1_body),
-                        formula = math("2^4 = 2 x 2 x 2 x 2"),
+                        formula = math("2^4 = 2 * 2 * 2 * 2"),
                         // Ascending, because a Steps ladder lays its terms out in list order and
                         // the hop arrows point right whichever way the numbers go.
                         visual = Steps(terms = listOf(2, 4, 8, 16), multiply = true),
@@ -1257,19 +1264,19 @@ internal object AlgebraContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_algebra_indices_notation_s3_question),
-                        formula = math("3 x 3 = ?"),
+                        formula = math("3 * 3 = ?"),
                         answer = "9",
                         explanation = words(Res.string.learn_algebra_indices_notation_s3_explanation),
                         visual = AreaGrid(cols = 3, rows = 3, showArea = false, unit = ""),
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_indices_notation_s4_body),
-                        formula = math("x^2 x x^3 = x^5"),
+                        formula = math("x^2 * x^3 = x^5"),
                         visual = Steps(terms = listOf(2, 4, 8, 16, 32), multiply = true),
                     ),
                     Choice(
                         question = words(Res.string.learn_algebra_indices_notation_s5_question),
-                        formula = math("x^4 x x^3 = ?"),
+                        formula = math("x^4 * x^3 = ?"),
                         options = mathOptions("x^12", "x^1", "x^43", "x^7"),
                         correctIndex = 3,
                         explanation = words(Res.string.learn_algebra_indices_notation_s5_explanation),
@@ -1293,37 +1300,39 @@ internal object AlgebraContent {
                     Concept(
                         body = words(Res.string.learn_algebra_indices_special_s1_body),
                         formula = math("2^3 = 8"),
-                        visual = Steps(terms = listOf(1, 2, 4, 8), multiply = true),
+                        // Descending, because every sentence in this lesson is about stepping *down*
+                        // the ladder. The same terms climbing told the learner the opposite.
+                        visual = Steps(terms = listOf(8, 4, 2), multiply = true),
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_indices_special_s2_body),
                         formula = math("2^0 = 1"),
-                        visual = Steps(terms = listOf(1, 2, 4, 8), multiply = true),
+                        visual = Steps(terms = listOf(8, 4, 2, 1), multiply = true),
                     ),
                     Choice(
                         question = filled(Res.string.learn_t_zero_power, "7"),
                         options = mathOptions("0", "7", "1", "70"),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_algebra_indices_special_s3_explanation),
-                        visual = Steps(terms = listOf(1, 7, 49), multiply = true),
+                        visual = Steps(terms = listOf(343, 49, 7), multiply = true),
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_indices_special_s4_body),
                         formula = math("2^-1 = 1/2"),
-                        visual = Steps(terms = listOf(1, 2, 4, 8), multiply = true),
+                        visual = Steps(terms = listOf<Number>(4, 2, 1, 0.5), multiply = true),
                     ),
                     Choice(
                         question = filled(Res.string.learn_t_negative_power, "2", "3"),
                         options = mathOptions("1/8", "-8", "-6", "8"),
                         correctIndex = 0,
                         explanation = words(Res.string.learn_algebra_indices_special_s5_explanation),
-                        visual = Steps(terms = listOf(1, 2, 4, 8), multiply = true),
+                        visual = Steps(terms = listOf<Number>(2, 1, 0.5, 0.25), multiply = true),
                     ),
                     Numeric(
                         question = filled(Res.string.learn_t_zero_power, "5"),
                         answer = "1",
                         explanation = words(Res.string.learn_algebra_indices_special_s6_explanation),
-                        visual = Steps(terms = listOf(1, 5, 25), multiply = true),
+                        visual = Steps(terms = listOf(125, 25, 5), multiply = true),
                     ),
                 ),
             ),
@@ -1346,35 +1355,37 @@ internal object AlgebraContent {
                         question = filled(Res.string.learn_t_square_root, "25"),
                         answer = "5",
                         explanation = words(Res.string.learn_algebra_indices_roots_s3_explanation),
-                        visual = AreaGrid(cols = 5, rows = 5, showArea = false, unit = ""),
+                        visual = AreaGrid(cols = 5, rows = 5, showArea = false, unit = "", showSides = false),
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_indices_roots_s4_body),
                         formula = math("3^3 = 27"),
-                        visual = Steps(terms = listOf(1, 3, 9, 27), multiply = true),
+                        // The sentence is about a cube, so the figure is one. A power ladder said
+                        // nothing about the shape the word "cube root" is named after.
+                        visual = Solid(kind = SolidKind.CUBE),
                     ),
                     Choice(
                         question = filled(Res.string.learn_t_square_root, "49"),
                         options = mathOptions("24.5", "7", "98", "6"),
                         correctIndex = 1,
                         explanation = words(Res.string.learn_algebra_indices_roots_s5_explanation),
-                        visual = AreaGrid(cols = 7, rows = 7, showArea = false, unit = ""),
+                        visual = AreaGrid(cols = 7, rows = 7, showArea = false, unit = "", showSides = false),
                     ),
                     Choice(
                         question = filled(Res.string.learn_t_square_root, "36"),
                         options = mathOptions("18", "72", "9", "6"),
                         correctIndex = 3,
                         explanation = words(Res.string.learn_algebra_indices_roots_s6_explanation),
-                        visual = AreaGrid(cols = 6, rows = 6, showArea = false, unit = ""),
+                        visual = AreaGrid(cols = 6, rows = 6, showArea = false, unit = "", showSides = false),
                     ),
                 ),
             ),
         ),
         questions = listOf(
             QuizQuestion(
-                prompt = math("x^3 x x^4 = ?"),
-                options = mathOptions("x^12", "x^1", "x^34", "x^7"),
-                correctIndex = 3,
+                prompt = math("a^5 * a^4 = ?"),
+                options = mathOptions("a^20", "a^9", "a^54", "a^1"),
+                correctIndex = 1,
                 explanation = words(Res.string.learn_unit_algebra_powers_and_roots_q1_explanation),
                 visual = Steps(terms = listOf(2, 4, 8, 16), multiply = true),
             ),
@@ -1397,7 +1408,7 @@ internal object AlgebraContent {
                 options = mathOptions("32", "16", "8", "6"),
                 correctIndex = 2,
                 explanation = words(Res.string.learn_unit_algebra_powers_and_roots_q4_explanation),
-                visual = AreaGrid(cols = 8, rows = 8, showArea = false, unit = ""),
+                visual = AreaGrid(cols = 8, rows = 8, showArea = false, unit = "", showSides = false),
             ),
             QuizQuestion(
                 prompt = filled(Res.string.learn_t_negative_power, "3", "2"),
@@ -1411,7 +1422,7 @@ internal object AlgebraContent {
                 options = mathOptions("50", "1000", "20", "10"),
                 correctIndex = 3,
                 explanation = words(Res.string.learn_unit_algebra_powers_and_roots_q6_explanation),
-                visual = AreaGrid(cols = 10, rows = 10, showArea = false, unit = ""),
+                visual = AreaGrid(cols = 10, rows = 10, showArea = false, unit = "", showSides = false),
             ),
         ),
     )

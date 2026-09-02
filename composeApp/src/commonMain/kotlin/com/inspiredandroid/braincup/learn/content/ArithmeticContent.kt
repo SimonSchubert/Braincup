@@ -268,17 +268,17 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_g35_arithmetic_multiplication_s1_body),
-                        formula = math("4 x {b:6} = 24"),
+                        formula = math("4 * {b:6} = 24"),
                         visual = ArrayDots(rows = 4, cols = 6),
                     ),
                     Concept(
                         body = words(Res.string.learn_g35_arithmetic_multiplication_s2_body),
-                        formula = math("{a:6} x {b:4} = {b:4} x {a:6}"),
+                        formula = math("{a:6} * {b:4} = {b:4} * {a:6}"),
                         visual = ArrayDots(rows = 6, cols = 4),
                     ),
                     Choice(
                         question = words(Res.string.learn_g35_arithmetic_multiplication_s3_question),
-                        formula = math("7 x {b:3} = ?"),
+                        formula = math("7 * {b:3} = ?"),
                         options = mathOptions("18", "21", "24", "27"),
                         correctIndex = 1,
                         explanation = words(Res.string.learn_g35_arithmetic_multiplication_s3_explanation),
@@ -296,7 +296,7 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_g35_arithmetic_multiplication_s6_question),
-                        formula = math("4 x {b:7} = ?"),
+                        formula = math("4 * {b:7} = ?"),
                         answer = "28",
                         explanation = words(Res.string.learn_g35_arithmetic_multiplication_s6_explanation),
                         visual = ArrayDots(rows = 4, cols = 7),
@@ -310,14 +310,14 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_arithmetic_multiplication_facts_s1_body),
-                        formula = math("7 x 4 = {a:5} x 4 + {b:2} x 4"),
+                        formula = math("7 * 4 = {a:5} * 4 + {b:2} * 4"),
                         visual = ArrayDots(rows = 7, cols = 4, split = 5),
                     ),
                     Worked(
-                        problem = math("{a:6} x 8 = ?"),
+                        problem = math("{a:6} * 8 = ?"),
                         lines = listOf(
                             words(Res.string.learn_arithmetic_multiplication_facts_s2_l1),
-                            math("{a:5} x 8 = 40"),
+                            math("{a:5} * 8 = 40"),
                             words(Res.string.learn_arithmetic_multiplication_facts_s2_l3),
                             math("40 + {b:8}"),
                         ),
@@ -326,12 +326,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_multiplication_facts_s3_body),
-                        formula = math("10 x {b:6} = 60"),
+                        formula = math("10 * {b:6} = 60"),
                         visual = ArrayDots(rows = 10, cols = 6),
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_multiplication_facts_s4_question),
-                        formula = math("9 x {b:6} = ?"),
+                        formula = math("9 * {b:6} = ?"),
                         options = mathOptions("45", "48", "54", "56"),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_arithmetic_multiplication_facts_s4_explanation),
@@ -339,14 +339,14 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_arithmetic_multiplication_facts_s5_question),
-                        formula = math("7 x {b:8} = ?"),
+                        formula = math("7 * {b:8} = ?"),
                         answer = "56",
                         explanation = words(Res.string.learn_arithmetic_multiplication_facts_s5_explanation),
                         visual = ArrayDots(rows = 7, cols = 8, split = 5),
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_multiplication_facts_s6_question),
-                        formula = math("4 x {b:9} = ?"),
+                        formula = math("4 * {b:9} = ?"),
                         options = mathOptions("13", "18", "27", "36"),
                         correctIndex = 3,
                         explanation = words(Res.string.learn_arithmetic_multiplication_facts_s6_explanation),
@@ -410,7 +410,7 @@ internal object ArithmeticContent {
                 visual = ArrayDots(rows = 8, cols = 7),
             ),
             QuizQuestion(
-                prompt = math("6 x {b:9} = ?"),
+                prompt = math("6 * {b:9} = ?"),
                 options = mathOptions("45", "54", "56", "63"),
                 correctIndex = 1,
                 explanation = words(Res.string.learn_unit_arithmetic_multiplication_q2_explanation),
@@ -977,12 +977,12 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_arithmetic_negatives_multiply_s1_body),
-                        formula = math("3 x {b:(-5)} = -15"),
+                        formula = math("3 * {b:(-5)} = -15"),
                         visual = Steps(terms = listOf(-15, -10, -5, 0)),
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_negatives_multiply_s2_question),
-                        formula = math("3 x {b:(-6)} = ?"),
+                        formula = math("3 * {b:(-6)} = ?"),
                         options = mathOptions("-18", "-9", "9", "18"),
                         correctIndex = 0,
                         explanation = words(Res.string.learn_arithmetic_negatives_multiply_s2_explanation),
@@ -990,12 +990,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_negatives_multiply_s3_body),
-                        formula = math("{a:-3} x (-4) = {b:12}"),
+                        formula = math("{a:-3} * (-4) = {b:12}"),
                         visual = Steps(terms = listOf(-12, -8, -4, 0, 4, 8, 12)),
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_negatives_multiply_s4_body),
-                        formula = math("(-4) x {b:(-5)} = 20"),
+                        formula = math("(-4) * {b:(-5)} = 20"),
                         visual = Steps(terms = listOf(-10, -5, 0, 5, 10, 15, 20)),
                     ),
                     Choice(
@@ -1047,7 +1047,7 @@ internal object ArithmeticContent {
                 visual = NumberLine(from = -2, to = 14, start = 7, reveal = false),
             ),
             QuizQuestion(
-                prompt = math("(-4) x (-5) = ?"),
+                prompt = math("(-4) * (-5) = ?"),
                 options = mathOptions("-20", "-9", "9", "20"),
                 correctIndex = 3,
                 explanation = words(Res.string.learn_unit_arithmetic_negatives_q5_explanation),
@@ -1150,7 +1150,7 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_arithmetic_ratio_sharing_s5_question),
-                        formula = math("180 / 6 x {a:3} = ?"),
+                        formula = math("180 / 6 * {a:3} = ?"),
                         answer = "90",
                         explanation = words(Res.string.learn_arithmetic_ratio_sharing_s5_explanation),
                         visual = RatioBar(parts = listOf(3, 2, 1), total = 180, reveal = false),
@@ -1206,7 +1206,7 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_arithmetic_ratio_scaling_s5_question),
-                        formula = math("{a:4} cm x {b:50000} = ? cm"),
+                        formula = math("{a:4} cm * {b:50000} = ? cm"),
                         answer = "200000",
                         explanation = words(Res.string.learn_arithmetic_ratio_scaling_s5_explanation),
                         visual = Steps(terms = listOf(1, 50000), multiply = true),
@@ -1345,12 +1345,12 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_percent_change_s3_body),
-                        formula = math("x 0.8"),
+                        formula = math("* 0.8"),
                         visual = DecimalGrid(value = 0.8, of = 40),
                     ),
                     Numeric(
                         question = words(Res.string.learn_arithmetic_percent_change_s4_question),
-                        formula = math("{a:60} x {b:1.15} = ?"),
+                        formula = math("{a:60} * {b:1.15} = ?"),
                         answer = "69",
                         explanation = words(Res.string.learn_arithmetic_percent_change_s4_explanation),
                         visual = DecimalGrid(value = 0.15, of = 60, reveal = false),
@@ -1369,7 +1369,7 @@ internal object ArithmeticContent {
                     ),
                     Concept(
                         body = words(Res.string.learn_arithmetic_percent_change_s6_body),
-                        formula = math("110 x {b:0.9} = 99"),
+                        formula = math("110 * {b:0.9} = 99"),
                         visual = DecimalGrid(value = 0.1, of = 110),
                     ),
                 ),
@@ -1381,7 +1381,7 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_arithmetic_percent_finding_s1_body),
-                        formula = math("{b:15} / {a:50} x 100 = 30"),
+                        formula = math("{b:15} / {a:50} * 100 = 30"),
                         visual = BarChart(values = listOf(50, 65), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 10),
                     ),
                     Worked(
@@ -1390,7 +1390,7 @@ internal object ArithmeticContent {
                             words(Res.string.learn_arithmetic_percent_finding_s2_l1),
                             words(Res.string.learn_arithmetic_percent_finding_s2_l2),
                             math("{b:15} / {a:50} = 0.3"),
-                            math("x 100"),
+                            math("* 100"),
                         ),
                         result = words(Res.string.learn_arithmetic_percent_finding_s2_result),
                         visual = BarChart(values = listOf(50, 65), labels = listOf(BarLabel.BEFORE, BarLabel.AFTER), gridStep = 10),
@@ -1408,7 +1408,7 @@ internal object ArithmeticContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_arithmetic_percent_finding_s5_question),
-                        formula = math("{a:18} / {b:24} x 100 = ?"),
+                        formula = math("{a:18} / {b:24} * 100 = ?"),
                         answer = "75",
                         explanation = words(Res.string.learn_arithmetic_percent_finding_s5_explanation),
                         visual = BarChart(values = listOf(18, 24), labels = listOf(BarLabel.SCORE, BarLabel.TOTAL), gridStep = 6, reveal = false),
@@ -1582,7 +1582,7 @@ internal object ArithmeticContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_arithmetic_standard_form_calculating_s1_body),
-                        formula = math("10^4 x 10^3 = 10^7"),
+                        formula = math("10^4 * 10^3 = 10^7"),
                         visual = Steps(terms = listOf(10, 100, 1000, 10000), multiply = true),
                     ),
                     Worked(
@@ -1611,7 +1611,7 @@ internal object ArithmeticContent {
                     ),
                     Choice(
                         question = words(Res.string.learn_arithmetic_standard_form_calculating_s5_question),
-                        formula = math("(5 * 10^3) x (4 * 10^2) = ?"),
+                        formula = math("(5 * 10^3) * (4 * 10^2) = ?"),
                         options = mathOptions("20 * 10^5", "2 * 10^6", "2 * 10^5", "9 * 10^5"),
                         correctIndex = 1,
                         explanation = words(Res.string.learn_arithmetic_standard_form_calculating_s5_explanation),
@@ -1650,7 +1650,7 @@ internal object ArithmeticContent {
                 visual = Steps(terms = listOf(4000, 400, 40, 4), multiply = true),
             ),
             QuizQuestion(
-                prompt = math("(2 x 10^5) x (4 x 10^2) = ?"),
+                prompt = math("(2 * 10^5) * (4 * 10^2) = ?"),
                 options = mathOptions("8 * 10^7", "8 * 10^10", "6 * 10^7", "8 * 10^3"),
                 correctIndex = 0,
                 explanation = words(Res.string.learn_unit_arithmetic_standard_form_q4_explanation),
@@ -1723,7 +1723,7 @@ internal object ArithmeticContent {
                         visual = AreaGrid(cols = 5, rows = 5, showArea = false, unit = ""),
                     ),
                     Numeric(
-                        question = math("√7 x √7 = ?"),
+                        question = math("√7 * √7 = ?"),
                         answer = "7",
                         explanation = words(Res.string.learn_arithmetic_surds_s6_explanation),
                     ),
@@ -1798,17 +1798,17 @@ internal object ArithmeticContent {
                         formula = words(Res.string.learn_arithmetic_surds_arithmetic_s3_formula),
                     ),
                     Worked(
-                        problem = math("√3 x √12 = ?"),
+                        problem = math("√3 * √12 = ?"),
                         lines = listOf(
                             words(Res.string.learn_arithmetic_surds_arithmetic_s4_l1),
-                            math("√3 x √12 = √36"),
+                            math("√3 * √12 = √36"),
                             words(Res.string.learn_arithmetic_surds_arithmetic_s4_l3),
                         ),
                         result = math("6"),
                         visual = AreaGrid(cols = 6, rows = 6, showArea = false, unit = ""),
                     ),
                     Numeric(
-                        question = math("√5 x √20 = ?"),
+                        question = math("√5 * √20 = ?"),
                         answer = "10",
                         explanation = words(Res.string.learn_arithmetic_surds_arithmetic_s5_explanation),
                         visual = AreaGrid(cols = 10, rows = 10, showArea = false, unit = ""),
@@ -1844,7 +1844,7 @@ internal object ArithmeticContent {
                 visual = AreaGrid(cols = 3, rows = 3, showArea = false, unit = ""),
             ),
             QuizQuestion(
-                prompt = math("√6 x √6 = ?"),
+                prompt = math("√6 * √6 = ?"),
                 options = mathOptions("6", "12", "36", "√12"),
                 correctIndex = 0,
                 explanation = words(Res.string.learn_unit_arithmetic_surds_q4_explanation),

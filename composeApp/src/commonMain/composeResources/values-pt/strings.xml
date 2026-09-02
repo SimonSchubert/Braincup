@@ -1065,7 +1065,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - sete grupos de três, contados de três em três.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Ir contando as linhas é contar aos saltos: uma linha de três, depois duas linhas, depois três.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Põe {a:3} linhas duas vezes e o total duplica, porque o segundo bloco é uma cópia do primeiro.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, por isso 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, por isso 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">Um tabuleiro tem {a:4} linhas de {b:7} bolos.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Quatro} linhas de {b:sete}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Produtos que já sabes</string>
@@ -1084,7 +1084,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">A divisão desfaz a multiplicação e às vezes deixa alguma coisa de fora.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">A divisão volta a partir o total em linhas iguais. É a mesma grelha, lida ao contrário.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Cada multiplicação oferece-te duas divisões, porque a grelha pode ser cortada nos dois sentidos.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, por isso 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, por isso 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">Quantas linhas de oito são precisas?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Oito setes são 56, por isso 56 parte-se exatamente em sete linhas de oito.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">Nem todos os totais se repartem de forma certa. O que não chega para encher outra linha é o resto.</string>
@@ -1098,7 +1098,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">Quantos pontos há aqui?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Oito linhas de sete, e oito setes são 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Cinco noves são 45, e mais um nove faz 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Qual tem o mesmo total que 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Qual tem o mesmo total que 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Virar a grelha de lado não muda nada.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">Contando de nove em nove chega-se a 72 em exatamente oito saltos.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">Contando de quatro em quatro chega-se a 20 em cinco saltos, e sobra 3.</string>
@@ -1357,16 +1357,16 @@
     <string name="learn_arithmetic_surds_simplify_summary">Separa o maior fator quadrado.</string>
     <string name="learn_arithmetic_surds_simplify_s1_body">As raízes multiplicam-se diretamente. É isso que permite partir uma raiz feia: separa o maior fator quadrado e tira-lhe a raiz exata.</string>
     <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
-    <string name="learn_arithmetic_surds_simplify_s2_l1">Procura um fator quadrado: 50 é 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Procura um fator quadrado: 50 é 25 × 2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l2">A raiz parte-se em duas: √25 x √2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l3">√25 é exatamente 5.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l4">2 já não tem nenhum fator quadrado, por isso fica debaixo da raiz.</string>
     <string name="learn_arithmetic_surds_simplify_s3_question">Procura primeiro o fator quadrado.</string>
     <string name="learn_arithmetic_surds_simplify_s4_body">Escolhe o maior fator quadrado que encontrares. Partir √72 por 4 deixa 2√18, que ainda dá trabalho; por 36 fica resolvido num só passo.</string>
     <string name="learn_arithmetic_surds_simplify_s5_question">√12 simplifica-se para a√3. Quanto vale a?</string>
-    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 é 4 x 3, e √4 é exatamente 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 é 4 × 3, e √4 é exatamente 2.</string>
     <string name="learn_arithmetic_surds_simplify_s6_question">Três destas ainda escondem um fator quadrado.</string>
-    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 e 20 dividem-se todos por 4. 15 é 3 x 5, e nenhum dos dois é um quadrado.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 e 20 dividem-se todos por 4. 15 é 3 × 5, e nenhum dos dois é um quadrado.</string>
     <string name="learn_arithmetic_surds_arithmetic_title">Somar e multiplicar radicais</string>
     <string name="learn_arithmetic_surds_arithmetic_summary">Raízes iguais juntam-se; as diferentes não.</string>
     <string name="learn_arithmetic_surds_arithmetic_s1_body">Raízes iguais juntam-se tal como se juntam unidades iguais. Três metros e quatro metros dão sete metros, e o metro nunca muda.</string>
@@ -1467,7 +1467,7 @@
     <string name="learn_rule_order_negatives_meaning">Quanto mais à esquerda na reta, menor é o número</string>
     <string name="learn_rule_move_on_the_line_meaning">Somar anda para a direita na reta, subtrair anda para a esquerda</string>
     <string name="learn_rule_times_before_plus_meaning">Multiplicar e dividir fazem-se antes de somar e subtrair</string>
-    <string name="learn_rule_times_before_plus_example">não 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">não 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Os parênteses vêm antes de tudo o resto</string>
     <string name="learn_rule_left_to_right_meaning">Mesmo nível: trabalha da esquerda para a direita</string>
     <string name="learn_rule_left_to_right_example">não 20 / 10</string>

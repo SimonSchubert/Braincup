@@ -14,9 +14,11 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.BaselineShift
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.em
 import com.inspiredandroid.braincup.ui.components.learn.FigureRole
 import com.inspiredandroid.braincup.ui.components.learn.FigureRoles
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -293,7 +295,7 @@ fun MathText(
     fractionSlash: Boolean = false,
 ) {
     Text(
-        text = text.formatMathSymbols(fractionSlash).withGroupColors(),
+        text = text.formatMathSymbols(fractionSlash).withGroupColors().withRaisedExponents(),
         modifier = modifier,
         style = style.numeric(),
         textAlign = textAlign,
@@ -341,5 +343,35 @@ fun FractionText(
             color = color,
             maxLines = 1,
         )
+    }
+}
+
+/** An index as an author types it: a caret, then the digits, with a minus allowed for a negative. */
+private val ExponentRun = Regex("""\^(-?\d+)""")
+
+/**
+ * Sets `x^4` as x with a raised 4, and `2^-1` as 2 with a raised -1.
+ *
+ * A caret is not what an index looks like, and the catalog was printing both faces of the same
+ * thing: `x²` as a literal superscript in one step and `x^2` two steps later in the same lesson.
+ * Unicode's superscript digits cannot close that gap - Rubik carries ¹ ² and ³ and none of the
+ * rest - which is exactly why the caret was there. Raising the run instead needs no glyph the
+ * font does not already have, and it raises a minus and a two-digit index just as happily.
+ *
+ * Applied to the annotated string rather than the raw text so it composes with the colouring that
+ * has already run: the slices keep the spans they arrived with, and the raise is laid over them.
+ */
+fun AnnotatedString.withRaisedExponents(): AnnotatedString {
+    if (!text.contains('^')) return this
+    return buildAnnotatedString {
+        var cursor = 0
+        ExponentRun.findAll(text).forEach { match ->
+            append(subSequence(cursor, match.range.first))
+            withStyle(SpanStyle(baselineShift = BaselineShift.Superscript, fontSize = 0.7.em)) {
+                append(subSequence(match.range.first + 1, match.range.last + 1))
+            }
+            cursor = match.range.last + 1
+        }
+        append(subSequence(cursor, text.length))
     }
 }

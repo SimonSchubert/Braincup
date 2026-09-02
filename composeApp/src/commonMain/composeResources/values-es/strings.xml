@@ -1064,7 +1064,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - siete treses contados de tres en tres.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Ir contando las filas es contar a saltos: una fila de tres, luego dos filas, luego tres.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Pon {a:3} filas dos veces y el total se duplica, porque el segundo bloque es una copia del primero.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, así que 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, así que 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">Una bandeja tiene {a:4} filas de {b:7} pasteles.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Cuatro} filas de {b:siete}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Productos que ya te sabes</string>
@@ -1083,7 +1083,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">La división deshace la multiplicación y a veces deja algo suelto.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">La división vuelve a partir el total en filas iguales. Es la misma cuadrícula, leída al revés.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Cada multiplicación te regala dos divisiones, porque la cuadrícula se puede cortar en los dos sentidos.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, así que 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, así que 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">¿Cuántas filas de ocho hacen falta?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Ocho sietes son 56, así que 56 se parte en exactamente siete filas de ocho.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">No todos los totales se reparten justos. Lo que no llega a llenar otra fila es el resto.</string>
@@ -1097,7 +1097,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">¿Cuántos puntos hay aquí?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Ocho filas de siete, y ocho sietes son 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Cinco nueves son 45, y un nueve más hace 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">¿Cuál da el mismo total que 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">¿Cuál da el mismo total que 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Girar la cuadrícula de lado no cambia nada.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">Contando de nueve en nueve se llega a 72 en exactamente ocho saltos.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">Contando de cuatro en cuatro se llega a 20 en cinco saltos, y sobra 3.</string>
@@ -1368,8 +1368,8 @@
     <string name="learn_arithmetic_standard_form_calculating_summary">Los números de delante se multiplican, los exponentes se suman.</string>
     <string name="learn_arithmetic_standard_form_calculating_s1_body">Las dos mitades viajan por separado. Los números de delante se multiplican entre sí y las potencias de diez se suman.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l1">Las dos mitades viajan por separado.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Los números de delante se multiplican: 3 x 2 = 6.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Las potencias de diez se suman: 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Los números de delante se multiplican: 3 × 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Las potencias de diez se suman: 10^4 × 10^3 = 10^7.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l4">Vuelve a juntar las dos mitades.</string>
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Dividir lo hace al revés: los números de delante se dividen y los exponentes se restan.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">El número de delante puede salir de la multiplicación demasiado grande para el intervalo, y entonces hay que devolverlo dentro.</string>
@@ -1403,16 +1403,16 @@
     <string name="learn_arithmetic_surds_simplify_summary">Separa el mayor factor cuadrado.</string>
     <string name="learn_arithmetic_surds_simplify_s1_body">Las raíces se multiplican directamente. Eso es lo que permite partir una raíz fea: separa el mayor factor cuadrado y saca su raíz exacta.</string>
     <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
-    <string name="learn_arithmetic_surds_simplify_s2_l1">Busca un factor cuadrado: 50 es 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Busca un factor cuadrado: 50 es 25 × 2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l2">La raíz se parte en dos: √25 x √2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l3">√25 es exactamente 5.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l4">A 2 no le queda ningún factor cuadrado, así que se queda bajo la raíz.</string>
     <string name="learn_arithmetic_surds_simplify_s3_question">Busca primero el factor cuadrado.</string>
     <string name="learn_arithmetic_surds_simplify_s4_body">Coge el mayor factor cuadrado que encuentres. Partir √72 por 4 deja 2√18, que todavía da trabajo; por 36 se acaba de un solo paso.</string>
     <string name="learn_arithmetic_surds_simplify_s5_question">√12 se simplifica como a√3. ¿Cuánto vale a?</string>
-    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 es 4 x 3, y √4 es exactamente 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 es 4 × 3, y √4 es exactamente 2.</string>
     <string name="learn_arithmetic_surds_simplify_s6_question">Tres de estas todavía esconden un factor cuadrado.</string>
-    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 y 20 se dividen todos entre 4. 15 es 3 x 5, y ninguno de los dos es un cuadrado.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 y 20 se dividen todos entre 4. 15 es 3 × 5, y ninguno de los dos es un cuadrado.</string>
     <string name="learn_arithmetic_surds_arithmetic_title">Sumar y multiplicar radicales</string>
     <string name="learn_arithmetic_surds_arithmetic_summary">Las raíces iguales se juntan; las distintas no.</string>
     <string name="learn_arithmetic_surds_arithmetic_s1_body">Las raíces iguales se juntan igual que se juntan las unidades iguales. Tres metros y cuatro metros son siete metros, y el metro no cambia nunca.</string>
@@ -1588,7 +1588,7 @@
     <string name="learn_geometry_angles_turns_summary">Cuartos de vuelta, medias vueltas, vueltas completas y lo que sobra.</string>
     <string name="learn_geometry_angles_turns_s1_body">Una vuelta completa te devuelve al punto de partida. Son cuatro ángulos rectos, o 360 grados.</string>
     <string name="learn_geometry_angles_turns_s2_question">¿Cuántos ángulos rectos forman una vuelta completa?</string>
-    <string name="learn_geometry_angles_turns_s2_explanation">Cuatro cuartos de vuelta, y 4 x 90 = 360.</string>
+    <string name="learn_geometry_angles_turns_s2_explanation">Cuatro cuartos de vuelta, y 4 × 90 = 360.</string>
     <string name="learn_geometry_angles_turns_s3_body">Media vuelta son dos ángulos rectos seguidos, y por eso el 180 no deja de aparecer.</string>
     <string name="learn_geometry_angles_turns_s4_question">¿Cuántos grados hay en tres cuartos de vuelta?</string>
     <string name="learn_geometry_angles_turns_s4_explanation">Tres veces 90.</string>
@@ -1707,7 +1707,7 @@
     <string name="learn_g35_measurement_perimeter_summary">El paseo alrededor de toda la forma.</string>
     <string name="learn_g35_measurement_perimeter_s1_body">El perímetro es la distancia que rodea la forma por fuera.</string>
     <string name="learn_g35_measurement_perimeter_s2_body">Los lados opuestos son iguales, así que suma uno de cada y multiplica por dos.</string>
-    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 x (largo + ancho)</string>
+    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 × (largo + ancho)</string>
     <string name="learn_g35_measurement_perimeter_s3_problem">Un rectángulo mide 8 cm por 5 cm.</string>
     <string name="learn_g35_measurement_perimeter_s3_l2">Cada lado tiene una pareja igual.</string>
     <string name="learn_g35_measurement_perimeter_s3_result">Perímetro = 26 cm</string>
@@ -1715,7 +1715,7 @@
     <string name="learn_g35_measurement_perimeter_s4_explanation">Cuatro lados de 9.</string>
     <string name="learn_g35_measurement_perimeter_s5_question">¿Qué forma tiene 20 cm de perímetro?</string>
     <string name="learn_g35_measurement_perimeter_s5_o4">Ninguna</string>
-    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 por dos es 20, y 4 x 5 también es 20.</string>
+    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 por dos es 20, y 4 × 5 también es 20.</string>
     <string name="learn_g35_measurement_perimeter_s6_body">El perímetro es una longitud, así que nunca se mide en unidades cuadradas.</string>
     <string name="learn_g35_measurement_area_title">Área de rectángulos</string>
     <string name="learn_g35_measurement_area_summary">Cuenta los cuadrados o, mejor, multiplica.</string>
@@ -1737,7 +1737,7 @@
     <string name="learn_geometry_area_compound_s3_l1">Divídela en rectángulos que conozcas.</string>
     <string name="learn_geometry_area_compound_s3_result">Área = 16 cm²</string>
     <string name="learn_geometry_area_compound_s4_question">A un rectángulo de 5 por 4 se le recorta una esquina de 2 por 2. ¿Qué área queda, en cm cuadrados?</string>
-    <string name="learn_geometry_area_compound_s4_explanation">5 x 4 = 20, y la esquina que falta quita 2 x 2 = 4.</string>
+    <string name="learn_geometry_area_compound_s4_explanation">5 × 4 = 20, y la esquina que falta quita 2 × 2 = 4.</string>
     <string name="learn_geometry_area_compound_s5_question">Un rectángulo de 3 por 2 y otro de 4 por 2 se unen lado con lado. ¿Cuál es el área total?</string>
     <string name="learn_geometry_area_compound_s6_body">Divide la forma como te resulte más fácil: el total sale igual de las dos maneras.</string>
     <string name="learn_unit_geometry_perimeter_and_area_q1_prompt">¿Cuál es el perímetro de este rectángulo?</string>
@@ -2110,7 +2110,7 @@
     <string name="learn_rule_order_negatives_meaning">Cuanto más a la izquierda en la recta, menor es el número</string>
     <string name="learn_rule_move_on_the_line_meaning">Sumar avanza a la derecha en la recta; restar, a la izquierda</string>
     <string name="learn_rule_times_before_plus_meaning">Multiplicar y dividir van antes que sumar y restar</string>
-    <string name="learn_rule_times_before_plus_example">no 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">no 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Los paréntesis van antes que todo lo demás</string>
     <string name="learn_rule_left_to_right_meaning">Mismo rango: se trabaja de izquierda a derecha</string>
     <string name="learn_rule_left_to_right_example">no 20 / 10</string>

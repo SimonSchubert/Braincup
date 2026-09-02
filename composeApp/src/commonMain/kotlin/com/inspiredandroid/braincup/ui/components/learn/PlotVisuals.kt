@@ -1,6 +1,7 @@
 package com.inspiredandroid.braincup.ui.components.learn
 
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Path
 import com.inspiredandroid.braincup.learn.Curve
 import com.inspiredandroid.braincup.learn.LearnVisual
@@ -8,6 +9,7 @@ import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.ln
+import kotlin.math.min
 import kotlin.math.pow
 import kotlin.math.roundToInt
 import kotlin.math.sin
@@ -30,6 +32,9 @@ private const val MarkerRadius = 2f
 
 private const val MarkerLabelFactor = 0.085f
 
+/** The size the numbers along the axes are set at. Smaller than a marker's name, which they defer to. */
+private const val AxisNumberFactor = 0.07f
+
 /**
  * A curve on axes, plus whatever the step is really about: the points it names, the tangent whose
  * gradient is the derivative, or the area the integral accumulates.
@@ -42,12 +47,24 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
     // values the learner is asked to read off, so on a question figure they animate in as usual
     // and then say nothing. The curve, the grid and the discs themselves are the situation.
     val named = if (visual.reveal) revealBeat else 0f
-    // Symmetric margins: the axes are the middle of the frame, so the frame has to be the middle
-    // of the panel. Reaching further right than left put the whole grid off centre by a margin's
-    // worth for the sake of an axis letter that sits inside it anyway.
-    val rect = frame(left = 0.09f, top = 0.12f, right = 0.91f, bottom = 0.88f)
-    fun px(x: Float) = rect.left + rect.width * (x - X_MIN) / (X_MAX - X_MIN)
-    fun py(y: Float) = rect.bottom - rect.height * (y - Y_MIN) / (Y_MAX - Y_MIN)
+    // One unit across has to measure one unit up, or the figure lies about every gradient it
+    // draws: on a panel two and a half times wider than it is tall, a line of gradient 1 came out
+    // at 22 degrees and a learner counting the picture rather than the squares read 2 as 1. So the
+    // grid takes the largest *square* six-by-six it can, centred, and the panel keeps the slack.
+    // Tighter insets than a figure that captions itself: the grid is square, so its size is the
+    // panel's height and every percent held back off the top and bottom is a percent off the
+    // drawing. What the labels need is side room, and the square leaves plenty of that.
+    val room = frame(left = 0.05f, top = 0.05f, right = 0.95f, bottom = 0.95f)
+    val span = min(room.width, room.height)
+    val rect = Rect(
+        left = room.center.x - span / 2f,
+        top = room.center.y - span / 2f,
+        right = room.center.x + span / 2f,
+        bottom = room.center.y + span / 2f,
+    )
+    val cell = span / (X_MAX - X_MIN)
+    fun px(x: Float) = rect.left + cell * (x - X_MIN)
+    fun py(y: Float) = rect.bottom - cell * (y - Y_MIN)
 
     // Grid and axes first, so the curve reads as drawn on top of them.
     var g = X_MIN
@@ -58,18 +75,34 @@ internal fun VisualScope.drawPlot(visual: LearnVisual.Plot) {
     }
     line(Offset(rect.left, py(0f)), Offset(rect.right, py(0f)), ink, stroke)
     line(Offset(px(0f), rect.top), Offset(px(0f), rect.bottom), ink, stroke)
-    label("x", Offset(rect.right - width * 0.02f, py(0f) + height * 0.07f), faint, 0.075f, bold = false)
-    label("y", Offset(px(0f) - width * 0.04f, rect.top + height * 0.03f), faint, 0.075f, bold = false)
+
+    // Numbered, because "what are the coordinates of the marked point?" against a bare grid is a
+    // counting exercise before it is a reading one, and counting is not what the question is
+    // about. Zero is left off: it would sit in the corner both axes already meet at.
+    val numberOut = capHeight(AxisNumberFactor) * 0.9f + stroke
+    // Darker than the grid they sit against: these are meant to be read, not merely sensed, and
+    // the `faint` the gridlines take put them at the edge of legible on a phone.
+    val axisInk = ink.copy(alpha = 0.65f)
+    listOf(-3, -2, -1, 1, 2, 3).forEach { n ->
+        label(n.toString(), Offset(px(n.toFloat()), py(0f) + numberOut * 1.4f), axisInk, AxisNumberFactor, bold = false)
+        label(n.toString(), Offset(px(0f) - numberOut * 1.4f, py(n.toFloat())), axisInk, AxisNumberFactor, bold = false)
+    }
+    // The letters go where the numbers are not: x out in the side margin the square grid frees up,
+    // y on the far side of its own axis from its numbers.
+    label("x", Offset(rect.right + numberOut * 1.7f, py(0f)), axisInk, 0.075f, bold = false)
+    label("y", Offset(px(0f) + numberOut * 1.5f, rect.top - numberOut * 0.2f), axisInk, 0.075f, bold = false)
 
     fun pathFor(curve: Curve, upTo: Float): Path {
         val path = Path()
         var started = false
         var i = 0
-        val steps = 120
+        val steps = 240
+        // Clipped to the grid rather than a unit past it: a line left to run to y = 4 stopped in
+        // the margin above the squares, which reads as a segment that ends rather than a line.
         while (i <= (steps * upTo).toInt()) {
             val x = X_MIN + (X_MAX - X_MIN) * i / steps.toFloat()
             val y = curve.valueAt(x)
-            if (y == null || y < Y_MIN - 1f || y > Y_MAX + 1f) {
+            if (y == null || y < Y_MIN || y > Y_MAX) {
                 started = false
             } else {
                 val point = Offset(px(x), py(y))

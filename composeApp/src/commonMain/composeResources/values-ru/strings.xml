@@ -1074,7 +1074,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - семь раз по три.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Считать ряды - это счёт с шагом: один ряд по три, потом два ряда, потом три.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Положи {a:3} ряда дважды - и всего станет вдвое больше, ведь второй блок точная копия первого.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, значит 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, значит 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">На противне {a:4} ряда по {b:7} пирожных.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Четыре} ряда по {b:семь}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Примеры, которые ты уже знаешь</string>
@@ -1093,7 +1093,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">Деление обращает умножение, а иногда оставляет остаток.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">Деление разбирает целое обратно на равные ряды. Это та же таблица, только прочитанная наоборот.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Каждый пример на умножение даёт два примера на деление, ведь таблицу можно разрезать в обе стороны.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, значит 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, значит 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">Сколько нужно рядов по восемь?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Восемь раз по семь - это 56, значит 56 делится ровно на семь рядов по восемь.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">Не всё делится нацело. То, что не заполняет ещё один ряд, и есть остаток.</string>
@@ -1107,7 +1107,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">Сколько здесь точек?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Восемь рядов по семь, а восемь раз по семь - это 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Пять девяток - это 45, и ещё одна девятка даёт 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">У чего столько же, сколько у 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">У чего столько же, сколько у 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Если повернуть таблицу набок, ничего не меняется.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">Счёт девятками доходит до 72 ровно за восемь прыжков.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">Счёт четвёрками доходит до 20 за пять прыжков, и 3 остаётся.</string>
@@ -1378,8 +1378,8 @@
     <string name="learn_arithmetic_standard_form_calculating_summary">Числа впереди умножаются, степени складываются.</string>
     <string name="learn_arithmetic_standard_form_calculating_s1_body">Две половины идут отдельно. Числа впереди перемножаются между собой, а степени десяти складываются.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l1">Две половины идут отдельно.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Числа впереди перемножаются: 3 x 2 = 6.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Степени десяти складываются: 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Числа впереди перемножаются: 3 × 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Степени десяти складываются: 10^4 × 10^3 = 10^7.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l4">Собери две половины обратно.</string>
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Деление идёт наоборот: числа впереди делятся, а степени вычитаются.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">После умножения число впереди может оказаться слишком большим для окна, и тогда его надо вернуть обратно.</string>
@@ -1482,7 +1482,7 @@
     <string name="learn_rule_order_negatives_meaning">Чем левее на прямой, тем число меньше</string>
     <string name="learn_rule_move_on_the_line_meaning">Сложение двигает вправо по прямой, вычитание - влево</string>
     <string name="learn_rule_times_before_plus_meaning">Умножение и деление делают раньше сложения и вычитания</string>
-    <string name="learn_rule_times_before_plus_example">а не 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">а не 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Скобки идут раньше всего остального</string>
     <string name="learn_rule_left_to_right_meaning">Действия одного уровня: считай слева направо</string>
     <string name="learn_rule_left_to_right_example">а не 20 / 10</string>

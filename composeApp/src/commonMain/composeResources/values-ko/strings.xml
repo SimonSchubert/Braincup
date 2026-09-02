@@ -1174,7 +1174,7 @@
     <string name="learn_g68_geometry_volume_s1_body">부피는 단위 정육면체를 세는 것이라 단위가 세제곱이에요.</string>
     <string name="learn_g68_geometry_volume_s2_body">각기둥은 어디를 잘라도 단면이 같아요. 그래서 한 조각을 되풀이한 것이 전부예요.</string>
     <string name="learn_g68_geometry_volume_s2_formula">V = 밑넓이 x 길이</string>
-    <string name="learn_g68_geometry_volume_s3_question">상자가 4 x 3 x 2 cm예요. 부피는 몇 cm³인가요?</string>
+    <string name="learn_g68_geometry_volume_s3_question">상자가 4 × 3 × 2 cm예요. 부피는 몇 cm³인가요?</string>
     <string name="learn_g68_geometry_volume_s3_explanation">정육면체 12개짜리 층이 두 겹이에요.</string>
     <string name="learn_g68_geometry_volume_s4_problem">삼각기둥, 단면 6 cm², 길이 9 cm.</string>
     <string name="learn_g68_geometry_volume_s4_l1">어디서나 같은 삼각형이에요.</string>
@@ -1189,7 +1189,7 @@
     <string name="learn_geometry_volume_surface_s2_body">직육면체에는 똑같은 면이 세 쌍 있어요. 그러니 셋만 구해서 합을 두 배 하면 돼요.</string>
     <string name="learn_geometry_volume_surface_s2_formula">겉넓이 = 2(lw + lh + wh)</string>
     <string name="learn_geometry_volume_surface_s3_explanation">면이 여섯 개, 하나가 9 cm²예요.</string>
-    <string name="learn_geometry_volume_surface_s4_question">상자가 5 x 4 x 2 cm예요. 겉넓이는 몇 cm²인가요?</string>
+    <string name="learn_geometry_volume_surface_s4_question">상자가 5 × 4 × 2 cm예요. 겉넓이는 몇 cm²인가요?</string>
     <string name="learn_geometry_volume_surface_s4_explanation">서로 다른 세 면이 20, 10, 8이고, 그것을 두 배 해요.</string>
     <string name="learn_geometry_volume_surface_s5_body">부피와 겉넓이가 같이 커지지는 않아요. 길고 얇은 상자는 담기는 양이 아주 적은데도 포장은 많이 필요해요.</string>
     <string name="learn_geometry_volume_surface_s6_question">둘 중에서 세제곱 단위가 아니라 제곱 단위로 재는 것은 어느 것인가요?</string>
@@ -1204,12 +1204,12 @@
     <string name="learn_geometry_volume_cylinders_s2_explanation">같은 20 cm²가 여섯 겹이에요.</string>
     <string name="learn_geometry_volume_cylinders_s3_body">들이는 부피를 안쪽에서 본 것이에요. 리터는 정확히 천 세제곱센티미터, 곧 10 cm짜리 정육면체예요.</string>
     <string name="learn_geometry_volume_cylinders_s3_formula">1리터 = 1000 cm³</string>
-    <string name="learn_geometry_volume_cylinders_s4_question">물통이 10 x 10 x 10 cm예요. 몇 리터가 들어가나요?</string>
+    <string name="learn_geometry_volume_cylinders_s4_question">물통이 10 × 10 × 10 cm예요. 몇 리터가 들어가나요?</string>
     <string name="learn_geometry_volume_cylinders_s4_explanation">1000 cm³, 정확히 한 리터예요.</string>
     <string name="learn_geometry_volume_cylinders_s5_body">원기둥의 반지름을 두 배로 하면 부피는 네 배가 돼요. 반지름이 제곱되기 때문이에요. 높이를 두 배로 하면 부피도 두 배일 뿐이에요.</string>
     <string name="learn_geometry_volume_cylinders_s6_question">원기둥의 높이를 두 배로 하고 반지름은 그대로 둬요. 부피는 몇 배가 될까요...</string>
     <string name="learn_geometry_volume_cylinders_s6_explanation">식에 높이가 한 번 나오니, 답도 한 번만 달라져요.</string>
-    <string name="learn_unit_geometry_volume_q1_prompt">5 x 4 x 3 cm인 상자의 부피는 얼마인가요?</string>
+    <string name="learn_unit_geometry_volume_q1_prompt">5 × 4 × 3 cm인 상자의 부피는 얼마인가요?</string>
     <string name="learn_unit_geometry_volume_q2_prompt">어떤 기둥에서든 부피를 주는 것은 어느 것인가요?</string>
     <string name="learn_unit_geometry_volume_q2_o1">둘레 x 높이</string>
     <string name="learn_unit_geometry_volume_q2_o2">단면 x 길이</string>
@@ -1309,7 +1309,7 @@
     <string name="learn_rule_order_negatives_meaning">수직선에서 왼쪽에 있을수록 작은 수예요</string>
     <string name="learn_rule_move_on_the_line_meaning">더하면 수직선에서 오른쪽으로, 빼면 왼쪽으로 움직여요</string>
     <string name="learn_rule_times_before_plus_meaning">곱셈과 나눗셈을 덧셈과 뺄셈보다 먼저 해요</string>
-    <string name="learn_rule_times_before_plus_example">5 x 4가 아니에요</string>
+    <string name="learn_rule_times_before_plus_example">5 × 4가 아니에요</string>
     <string name="learn_rule_brackets_first_meaning">괄호를 무엇보다 먼저 계산해요</string>
     <string name="learn_rule_left_to_right_meaning">순위가 같으면 왼쪽에서 오른쪽으로 계산해요</string>
     <string name="learn_rule_left_to_right_example">20 / 10이 아니에요</string>

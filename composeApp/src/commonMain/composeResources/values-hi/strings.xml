@@ -1064,7 +1064,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - सात बार तीन आगे गिने।</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">पंक्तियाँ आगे गिनना ही छलांग लगाकर गिनना है: तीन की एक पंक्ति, फिर दो पंक्तियाँ, फिर तीन।</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">{a:3} पंक्तियाँ दो बार रख दें तो कुल दोगुना हो जाता है, क्योंकि दूसरा गुच्छा पहले की नक़ल है।</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, इसलिए 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, इसलिए 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">एक बेकिंग ट्रे में {b:7} केक की {a:4} पंक्तियाँ आती हैं।</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{b:सात} की {a:चार} पंक्तियाँ: 7, 14, 21, 28।</string>
     <string name="learn_arithmetic_multiplication_facts_title">जो तथ्य आप पहले से जानते हैं</string>
@@ -1083,7 +1083,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">भाग गुणा को उलट देता है, और कभी-कभी कुछ बचा भी देता है।</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">भाग कुल को वापस बराबर पंक्तियों में बाँट देता है। वही सरणी है, बस उल्टी तरफ़ से पढ़ी हुई।</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">हर गुणा तथ्य से दो भाग तथ्य मिल जाते हैं, क्योंकि सरणी दोनों तरफ़ से काटी जा सकती है।</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, इसलिए 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, इसलिए 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">आठ की कितनी पंक्तियाँ लगेंगी?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">सात बार आठ यानी 56, इसलिए 56 आठ की ठीक सात पंक्तियों में बँट जाता है।</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">हर कुल बराबर नहीं बँटता। जो बचकर दूसरी पंक्ति नहीं भर पाता, वही शेषफल है।</string>
@@ -1097,7 +1097,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">यहाँ कितने बिंदु हैं?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">सात की आठ पंक्तियाँ, और आठ बार सात यानी 56।</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">पाँच बार नौ यानी 45, और एक नौ और मिलाकर 54।</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">किसका कुल 7 x 4 के बराबर है?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">किसका कुल 7 × 4 के बराबर है?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">सरणी को बगल से घुमाने से कुछ नहीं बदलता।</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">नौ-नौ करके गिनने पर ठीक आठ छलांगों में 72 आ जाता है।</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">चार-चार करके गिनने पर पाँच छलांगों में 20 आता है, और 3 बच जाते हैं।</string>
@@ -1381,7 +1381,7 @@
     <string name="learn_rule_order_negatives_meaning">रेखा पर जितना बाईं ओर, संख्या उतनी ही छोटी</string>
     <string name="learn_rule_move_on_the_line_meaning">जोड़ने पर रेखा पर दाईं ओर बढ़ते हैं, घटाने पर बाईं ओर</string>
     <string name="learn_rule_times_before_plus_meaning">गुणा और भाग, जोड़ और घटाव से पहले होते हैं</string>
-    <string name="learn_rule_times_before_plus_example">5 x 4 नहीं</string>
+    <string name="learn_rule_times_before_plus_example">5 × 4 नहीं</string>
     <string name="learn_rule_brackets_first_meaning">कोष्ठक सबसे पहले आते हैं</string>
     <string name="learn_rule_left_to_right_meaning">बराबर दर्जा हो तो बाएँ से दाएँ चलें</string>
     <string name="learn_rule_left_to_right_example">20 / 10 नहीं</string>

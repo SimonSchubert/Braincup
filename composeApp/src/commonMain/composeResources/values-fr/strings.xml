@@ -1065,7 +1065,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - sept fois trois, comptés de trois en trois.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Compter les rangées, c'est compter par sauts : une rangée de trois, puis deux rangées, puis trois.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Pose {a:3} rangées deux fois et le total double, parce que le deuxième bloc est une copie du premier.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, donc 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, donc 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">Une plaque de cuisson porte {a:4} rangées de {b:7} gâteaux.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Quatre} rangées de {b:sept} : 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Les résultats que tu connais déjà</string>
@@ -1084,7 +1084,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">La division annule la multiplication, et laisse parfois un reste.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">La division redécoupe le total en rangées égales. C'est le même tableau, lu dans l'autre sens.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Chaque résultat de multiplication t'en donne deux de division, parce que le tableau peut être coupé dans les deux sens.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, donc 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, donc 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">Combien faut-il de rangées de huit ?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Huit fois sept font 56, donc 56 se découpe en exactement sept rangées de huit.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">Tous les totaux ne se partagent pas également. Ce qui ne remplit pas une rangée de plus est le reste.</string>
@@ -1098,7 +1098,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">Combien y a-t-il de points ici ?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Huit rangées de sept, et huit fois sept font 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Cinq fois neuf font 45, et un neuf de plus donne 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Lequel a le même total que 7 x 4 ?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Lequel a le même total que 7 × 4 ?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Faire pivoter le tableau ne change rien.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">En comptant de neuf en neuf, on atteint 72 en exactement huit bonds.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">En comptant de quatre en quatre, on atteint 20 en cinq bonds, et il reste 3.</string>
@@ -1369,8 +1369,8 @@
     <string name="learn_arithmetic_standard_form_calculating_summary">Les nombres de devant se multiplient, les exposants s'additionnent.</string>
     <string name="learn_arithmetic_standard_form_calculating_s1_body">Les deux moitiés voyagent séparément. Les nombres de devant se multiplient entre eux, et les puissances de dix s'additionnent.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l1">Les deux moitiés voyagent séparément.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Les nombres de devant se multiplient : 3 x 2 = 6.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Les puissances de dix s'additionnent : 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Les nombres de devant se multiplient : 3 × 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Les puissances de dix s'additionnent : 10^4 × 10^3 = 10^7.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l4">Remets les deux moitiés ensemble.</string>
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Diviser fait l'inverse : les nombres de devant se divisent et les exposants se soustraient.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Le nombre de devant peut sortir de la multiplication trop grand pour la fenêtre, et il faut alors le ramener dedans.</string>
@@ -1404,16 +1404,16 @@
     <string name="learn_arithmetic_surds_simplify_summary">Sors le plus grand facteur carré.</string>
     <string name="learn_arithmetic_surds_simplify_s1_body">Les racines se multiplient directement entre elles. C'est ce qui permet de casser une racine encombrante : sors le plus grand facteur carré et prends sa racine exactement.</string>
     <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
-    <string name="learn_arithmetic_surds_simplify_s2_l1">Cherche un facteur carré : 50 vaut 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Cherche un facteur carré : 50 vaut 25 × 2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l2">La racine se coupe en deux : √25 x √2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l3">√25 vaut exactement 5.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l4">2 n'a plus de facteur carré, donc il reste sous la racine.</string>
     <string name="learn_arithmetic_surds_simplify_s3_question">Trouve d'abord le facteur carré.</string>
     <string name="learn_arithmetic_surds_simplify_s4_body">Prends le plus grand facteur carré que tu trouves. Casser √72 par 4 laisse 2√18, qui demande encore du travail ; par 36, c'est fini en une seule étape.</string>
     <string name="learn_arithmetic_surds_simplify_s5_question">√12 se simplifie en a√3. Combien vaut a ?</string>
-    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 vaut 4 x 3, et √4 vaut exactement 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 vaut 4 × 3, et √4 vaut exactement 2.</string>
     <string name="learn_arithmetic_surds_simplify_s6_question">Trois d'entre eux cachent encore un facteur carré.</string>
-    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 et 20 se divisent tous par 4. 15 vaut 3 x 5, et aucun des deux n'est un carré.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 et 20 se divisent tous par 4. 15 vaut 3 × 5, et aucun des deux n'est un carré.</string>
     <string name="learn_arithmetic_surds_arithmetic_title">Additionner et multiplier des radicaux</string>
     <string name="learn_arithmetic_surds_arithmetic_summary">Les racines identiques se regroupent ; les différentes non.</string>
     <string name="learn_arithmetic_surds_arithmetic_s1_body">Les racines identiques se regroupent comme des unités identiques. Trois mètres et quatre mètres font sept mètres, et le mètre ne change jamais.</string>
@@ -1589,7 +1589,7 @@
     <string name="learn_geometry_angles_turns_summary">Quarts de tour, demi-tours, tours complets, et ce qui reste.</string>
     <string name="learn_geometry_angles_turns_s1_body">Un tour complet te ramène à ton point de départ. Cela fait quatre angles droits, soit 360 degrés.</string>
     <string name="learn_geometry_angles_turns_s2_question">Combien d'angles droits font un tour complet ?</string>
-    <string name="learn_geometry_angles_turns_s2_explanation">Quatre quarts de tour, et 4 x 90 = 360.</string>
+    <string name="learn_geometry_angles_turns_s2_explanation">Quatre quarts de tour, et 4 × 90 = 360.</string>
     <string name="learn_geometry_angles_turns_s3_body">Un demi-tour, ce sont deux angles droits bout à bout : voilà pourquoi 180 revient sans cesse.</string>
     <string name="learn_geometry_angles_turns_s4_question">Combien de degrés y a-t-il dans trois quarts de tour ?</string>
     <string name="learn_geometry_angles_turns_s4_explanation">Trois fois 90.</string>
@@ -1708,7 +1708,7 @@
     <string name="learn_g35_measurement_perimeter_summary">Le tour complet.</string>
     <string name="learn_g35_measurement_perimeter_s1_body">Le périmètre est la distance tout autour.</string>
     <string name="learn_g35_measurement_perimeter_s2_body">Les côtés opposés sont égaux : ajoute-en un de chaque, puis double.</string>
-    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 x (longueur + largeur)</string>
+    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 × (longueur + largeur)</string>
     <string name="learn_g35_measurement_perimeter_s3_problem">Un rectangle mesure 8 cm sur 5 cm.</string>
     <string name="learn_g35_measurement_perimeter_s3_l2">Chaque côté a un côté égal en face.</string>
     <string name="learn_g35_measurement_perimeter_s3_result">Périmètre = 26 cm</string>
@@ -1716,7 +1716,7 @@
     <string name="learn_g35_measurement_perimeter_s4_explanation">Quatre côtés de 9.</string>
     <string name="learn_g35_measurement_perimeter_s5_question">Quelle forme a un périmètre de 20 cm ?</string>
     <string name="learn_g35_measurement_perimeter_s5_o4">Aucune des deux</string>
-    <string name="learn_g35_measurement_perimeter_s5_explanation">Le double de 6 + 4 fait 20, et 4 x 5 fait 20 aussi.</string>
+    <string name="learn_g35_measurement_perimeter_s5_explanation">Le double de 6 + 4 fait 20, et 4 × 5 fait 20 aussi.</string>
     <string name="learn_g35_measurement_perimeter_s6_body">Le périmètre est une longueur : il ne se mesure jamais en unités carrées.</string>
     <string name="learn_g35_measurement_area_title">Aire des rectangles</string>
     <string name="learn_g35_measurement_area_summary">Compte les carrés, ou multiplie.</string>
@@ -1738,7 +1738,7 @@
     <string name="learn_geometry_area_compound_s3_l1">Découpe-la en rectangles que tu connais.</string>
     <string name="learn_geometry_area_compound_s3_result">Aire = 16 cm²</string>
     <string name="learn_geometry_area_compound_s4_question">Un rectangle de 5 sur 4 a un coin de 2 sur 2 découpé. Quelle aire reste-t-il, en cm² ?</string>
-    <string name="learn_geometry_area_compound_s4_explanation">5 x 4 = 20, et le coin manquant en enlève 2 x 2 = 4.</string>
+    <string name="learn_geometry_area_compound_s4_explanation">5 × 4 = 20, et le coin manquant en enlève 2 × 2 = 4.</string>
     <string name="learn_geometry_area_compound_s5_question">Un rectangle de 3 sur 2 et un rectangle de 4 sur 2 sont collés côté contre côté. Quelle est l'aire de l'ensemble ?</string>
     <string name="learn_geometry_area_compound_s6_body">Découpe la forme comme tu veux : le total est le même dans tous les cas.</string>
     <string name="learn_unit_geometry_perimeter_and_area_q1_prompt">Quel est le périmètre de ce rectangle ?</string>
@@ -2111,7 +2111,7 @@
     <string name="learn_rule_order_negatives_meaning">Plus on va vers la gauche sur la droite graduée, plus le nombre est petit</string>
     <string name="learn_rule_move_on_the_line_meaning">Ajouter fait avancer vers la droite, soustraire fait reculer vers la gauche</string>
     <string name="learn_rule_times_before_plus_meaning">La multiplication et la division passent avant l'addition et la soustraction</string>
-    <string name="learn_rule_times_before_plus_example">pas 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">pas 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Les parenthèses passent avant tout le reste</string>
     <string name="learn_rule_left_to_right_meaning">Même rang : on calcule de gauche à droite</string>
     <string name="learn_rule_left_to_right_example">pas 20 / 10</string>

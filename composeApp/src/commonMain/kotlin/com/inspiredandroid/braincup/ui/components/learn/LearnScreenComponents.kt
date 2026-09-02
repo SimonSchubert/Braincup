@@ -33,6 +33,7 @@ import com.inspiredandroid.braincup.ui.components.hoverHand
 import com.inspiredandroid.braincup.ui.components.readsAsNotation
 import com.inspiredandroid.braincup.ui.components.withFormulaColors
 import com.inspiredandroid.braincup.ui.components.withGroupColors
+import com.inspiredandroid.braincup.ui.components.withRaisedExponents
 import com.inspiredandroid.braincup.ui.theme.LearnCorrectFace
 import com.inspiredandroid.braincup.ui.theme.LearnWrongFace
 import com.inspiredandroid.braincup.ui.theme.Primary
@@ -53,6 +54,16 @@ import com.inspiredandroid.braincup.ui.theme.numeric
 internal val LearnContentWidth = 480.dp
 internal val LearnFigureWidth = 420.dp
 internal val LearnFigureHeight = 180.dp
+
+/**
+ * The deeper panel a graph gets.
+ *
+ * A plot's squares have to *be* square or it draws every gradient wrong, and a square six-by-six
+ * inside a panel this wide is only ever as big as the panel is tall. On the shared height that
+ * left a grid taking a third of its own card, with the numbers along the axes down at the size of
+ * the margin. Graphs are what three of Algebra's seven sub-topics are about, so they get the room.
+ */
+internal val LearnPlotHeight = 260.dp
 
 /**
  * The Learn section's primary action, on the section's own [LearnContentWidth] measure.
@@ -119,7 +130,8 @@ internal fun LearnText(
     if (roleColors && notation) {
         Text(
             text = text.formatMathSymbols(fractionSlash = true)
-                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles),
+                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles)
+                .withRaisedExponents(),
             style = style.numeric(),
             modifier = modifier,
             textAlign = textAlign,
@@ -135,7 +147,9 @@ internal fun LearnText(
         )
     } else {
         Text(
-            text = text.withGroupColors(),
+            // Prose raises its indices too: a sentence quoting "10^4" beside a card printing 10\u2074
+            // is the same split between a caret and a superscript, one line further down.
+            text = text.withGroupColors().withRaisedExponents(),
             style = style,
             modifier = modifier,
             color = color,
@@ -164,7 +178,8 @@ internal fun LearnFormulaCard(formula: String, roles: FigureRoles? = null) {
     ) {
         Text(
             text = formula.formatMathSymbols(fractionSlash = true)
-                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles),
+                .withFormulaColors(structure = MaterialTheme.colorScheme.onSurfaceVariant, roles = roles)
+                .withRaisedExponents(),
             style = MaterialTheme.typography.titleLarge.numeric(),
             textAlign = TextAlign.Center,
             modifier = Modifier.fillMaxWidth().padding(16.dp),
@@ -260,7 +275,7 @@ internal fun LearnFigurePanel(
         modifier = modifier
             .widthIn(max = LearnFigureWidth)
             .fillMaxWidth()
-            .height(LearnFigureHeight),
+            .height(if (visual is LearnVisual.Plot) LearnPlotHeight else LearnFigureHeight),
     ) {
         LearnVisualCanvas(
             visual = visual,

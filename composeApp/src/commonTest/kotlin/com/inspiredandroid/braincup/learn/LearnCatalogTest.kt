@@ -10,10 +10,17 @@ import kotlin.test.assertTrue
 /**
  * How many steps and test questions may go without a figure.
  *
- * A ratchet, not a budget: it only ever goes down. Adding a fourteenth means arguing for it here.
+ * A ratchet, not a budget: it only ever goes down. Adding a fifteenth means arguing for it here.
  * See [LearnCatalogTest.almostEveryStepTeachesWithAFigure].
+ *
+ * The fourteenth is `algebra-systems-elimination` step 5, which asks *which move to make* - add
+ * the two rules or subtract them - when their y-terms carry opposite signs. It had a scale on it
+ * showing `3x = 6`, which is the equation that move leaves: a picture of the answer to a question
+ * about method. Nothing in the library draws the thing the step is actually about, because a
+ * balance has no way to show a negative y, and the case this file already makes applies exactly:
+ * a figure drawn to satisfy this test rather than to teach is worse than no figure at all.
  */
-private const val MaxStepsWithoutAFigure = 13
+private const val MaxStepsWithoutAFigure = 14
 
 class LearnCatalogTest {
 

@@ -674,8 +674,10 @@ internal fun VisualScope.drawAreaGrid(visual: LearnVisual.AreaGrid) {
     // The outline is the perimeter, so it takes the colour of the caption that measures it.
     box(Offset(left, top), Size(gridWidth, gridHeight), null, if (visual.showPerimeter) Accent2 else ink)
 
-    labelAbove(colText, Offset(left + gridWidth / 2f, top), ink, AreaCountFactor)
-    labelLeftOf(rowText, Offset(left, top + gridHeight / 2f), ink, AreaCountFactor)
+    if (visual.showSides) {
+        labelAbove(colText, Offset(left + gridWidth / 2f, top), ink, AreaCountFactor)
+        labelLeftOf(rowText, Offset(left, top + gridHeight / 2f), ink, AreaCountFactor)
+    }
 
     texts.forEachIndexed { i, text ->
         label(
@@ -1222,10 +1224,9 @@ internal fun VisualScope.drawAlgebraRect(visual: LearnVisual.AlgebraRect) {
 
     box(Offset(left, top), Size(w, h), null, ink)
 
-    // The sides are what the question hands over, so they carry the given colour - and on a
-    // question figure they are withheld with everything else, because for a factorising question
-    // the sides *are* the answer.
-    if (!visual.reveal) return
+    // The sides are what the question hands over, so they carry the given colour - unless the
+    // question is asking for them, which is what factorising asks.
+    if (!visual.revealSides) return
     var cx = left
     cols.forEach {
         labelAbove(it.label, Offset(cx + it.span * scale / 2f, top), Accent, AlgebraLabelFactor)
@@ -1251,10 +1252,16 @@ internal fun VisualScope.drawBalance(visual: LearnVisual.Balance) {
         return (xRows + oneRows).coerceAtLeast(1)
     }
 
+    // The letters on a pan, in the order they are written: the x-es first, then the y-es. Both are
+    // the same kind of piece - a block standing for a number nobody has said yet - so they stack
+    // together and are told apart by tint and by the letter written on them.
+    val leftLetters = List(visual.leftX.coerceAtLeast(0)) { "x" } + List(visual.leftY.coerceAtLeast(0)) { "y" }
+    val rightLetters = List(visual.rightX.coerceAtLeast(0)) { "x" } + List(visual.rightY.coerceAtLeast(0)) { "y" }
+
     val center = Offset(width / 2f, height * 0.17f)
     val beam = width * 0.32f
     val panY = center.y + height * 0.50f
-    val rows = maxOf(rowsFor(visual.leftX, visual.leftOnes), rowsFor(visual.rightX, visual.rightOnes))
+    val rows = maxOf(rowsFor(leftLetters.size, visual.leftOnes), rowsFor(rightLetters.size, visual.rightOnes))
 
     // Sized so the widest row stays inside its pan and the tallest stack still clears the beam.
     // Laying a pan out and hoping is what put nine blocks through the beam and off the panel.
@@ -1273,28 +1280,32 @@ internal fun VisualScope.drawBalance(visual: LearnVisual.Balance) {
         stroke * 1.6f,
     )
 
-    fun drawPan(cx: Float, xBlocks: Int, ones: Int, removed: Int, removedX: Int) {
+    fun drawPan(cx: Float, letters: List<String>, ones: Int, removed: Int, removedX: Int) {
         line(Offset(cx, center.y), Offset(cx, panY), ink, stroke)
         line(Offset(cx - plate, panY), Offset(cx + plate, panY), ink, stroke * 1.3f)
 
-        // Rows stack upward off the pan, the x-blocks underneath because they are the taller piece.
-        val xRows = (xBlocks + xPerRow - 1) / xPerRow
-        repeat(xBlocks) { i ->
+        // Rows stack upward off the pan, the letter blocks underneath because they are the taller
+        // piece. A y takes the third group colour, so the two unknowns never read as one kind.
+        val xRows = (letters.size + xPerRow - 1) / xPerRow
+        letters.forEachIndexed { i, letter ->
             val row = i / xPerRow
             val inRow = i % xPerRow
-            val n = if (row == xRows - 1) xBlocks - row * xPerRow else xPerRow
+            val n = if (row == xRows - 1) letters.size - row * xPerRow else xPerRow
             val rowWidth = n * blockSize * 1.3f - blockSize * 0.2f
-            val fading = i >= xBlocks - removedX
+            val fading = i >= letters.size - removedX
             val alpha = if (fading) 1f - removeProgress else 1f
             val left = cx - rowWidth / 2f + inRow * blockSize * 1.3f
             val top = panY - blockSize * 1.4f - row * blockSize * 1.55f
-            box(Offset(left, top), Size(blockSize * 1.1f, blockSize * 1.4f), Accent.copy(alpha = 0.6f), ink, alpha)
-            label("x", Offset(left + blockSize * 0.55f, top + blockSize * 0.7f), ink, 0.07f, alpha)
+            val tint = if (letter == "y") Accent3 else Accent
+            box(Offset(left, top), Size(blockSize * 1.1f, blockSize * 1.4f), tint.copy(alpha = 0.6f), ink, alpha)
+            label(letter, Offset(left + blockSize * 0.55f, top + blockSize * 0.7f), ink, 0.07f, alpha)
         }
 
         val onesBase = panY - xRows * blockSize * 1.55f
         if (ones > maxCountedOnes) {
-            // A pan holding forty-two ones is a number, not a picture of one.
+            // A pan holding forty-two ones is a number, not a picture of one. It still has to obey
+            // `remove`: a tile left reading 17 under a caption saying "take 5 from both sides" was
+            // taking five off one pan in front of the learner and none off the other.
             val w = blockSize * (onesPerRow * 1.2f) * 0.8f
             box(
                 topLeft = Offset(cx - w / 2f, onesBase - blockSize * 1.2f),
@@ -1302,7 +1313,13 @@ internal fun VisualScope.drawBalance(visual: LearnVisual.Balance) {
                 fill = Accent2.copy(alpha = 0.55f),
                 outline = ink,
             )
-            label(ones.toString(), Offset(cx, onesBase - blockSize * 0.6f), ink, 0.08f)
+            val tileCenter = Offset(cx, onesBase - blockSize * 0.6f)
+            if (removed > 0) {
+                label(ones.toString(), tileCenter, ink, 0.08f, alpha = 1f - removeProgress)
+                label((ones - removed).toString(), tileCenter, ink, 0.08f, alpha = removeProgress)
+            } else {
+                label(ones.toString(), tileCenter, ink, 0.08f)
+            }
             return
         }
         val oneRows = (ones + onesPerRow - 1) / onesPerRow
@@ -1325,8 +1342,8 @@ internal fun VisualScope.drawBalance(visual: LearnVisual.Balance) {
         }
     }
 
-    drawPan(center.x - beam, visual.leftX, visual.leftOnes, visual.remove, visual.removeX)
-    drawPan(center.x + beam, visual.rightX, visual.rightOnes, visual.remove, visual.removeX)
+    drawPan(center.x - beam, leftLetters, visual.leftOnes, visual.remove, visual.removeX)
+    drawPan(center.x + beam, rightLetters, visual.rightOnes, visual.remove, visual.removeX)
 
     if (visual.remove > 0) {
         label(

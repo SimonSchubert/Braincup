@@ -1352,7 +1352,18 @@ internal fun VisualScope.drawSteps(visual: LearnVisual.Steps) {
             val t = item(index, terms.size)
             if (t <= 0f) return@forEachIndexed
             val stepLabel = if (visual.multiply) {
-                "x" + formatDecimal(next / value)
+                // A multiplication sign, not the letter x. Algebra prints these hops beside
+                // formulas where x is the unknown, and a ladder captioned "x3" next to a card
+                // reading "3^3" gave the same character two meanings on one screen.
+                val ratio = next / value
+                val inverse = value / next
+                // A shrinking ladder is a division, and saying so is the point of the one lesson
+                // that walks a power ladder downwards past 1.
+                if (ratio < 1.0 && abs(inverse - inverse.roundToInt()) < 0.001) {
+                    "÷" + formatDecimal(inverse)
+                } else {
+                    "×" + formatDecimal(ratio)
+                }
             } else {
                 (if (next - value >= 0) "+" else "") + formatDecimal(next - value)
             }

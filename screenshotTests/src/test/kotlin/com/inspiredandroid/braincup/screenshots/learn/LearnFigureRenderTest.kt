@@ -42,6 +42,9 @@ class LearnFigureRenderTest(
         private val FigureWidth = 420.dp
         private val FigureHeight = 180.dp
 
+        /** A graph gets the deeper panel it gets in a lesson, so a panel here is what a learner sees. */
+        private val PlotHeight = 260.dp
+
         /** Every figure in the catalog, first use wins, grouped by the variant that draws it. */
         private val catalog: Map<String, List<Pair<String, LearnVisual>>> by lazy {
             val seen = LinkedHashMap<LearnVisual, String>()
@@ -87,7 +90,8 @@ class LearnFigureRenderTest(
                 ) {
                     PrismCard(
                         face = MaterialTheme.colorScheme.surfaceVariant,
-                        modifier = Modifier.widthIn(max = FigureWidth).fillMaxWidth().height(FigureHeight),
+                        modifier = Modifier.widthIn(max = FigureWidth).fillMaxWidth()
+                            .height(if (visual is LearnVisual.Plot) PlotHeight else FigureHeight),
                     ) {
                         LearnVisualCanvas(
                             visual = visual,

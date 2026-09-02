@@ -1065,7 +1065,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - zeven keer drie, doorgeteld.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">De rijen doortellen is sprongsgewijs tellen: één rij van drie, dan twee rijen, dan drie.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Leg {a:3} rijen twee keer neer en het totaal verdubbelt, want het tweede blok is een kopie van het eerste.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, dus 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, dus 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">Op een bakplaat liggen {a:4} rijen van {b:7} cakejes.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Vier} rijen van {b:zeven}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Sommen die je al kent</string>
@@ -1084,7 +1084,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">Delen draait vermenigvuldigen terug, en soms blijft er iets over.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">Delen haalt het totaal weer uit elkaar in gelijke rijen. Het is hetzelfde rooster, andersom gelezen.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Elke tafelsom geeft je twee deelsommen, want het rooster kan op twee manieren doorgesneden worden.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, dus 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, dus 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">Hoeveel rijen van acht heb je nodig?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Acht keer zeven is 56, dus 56 valt precies uiteen in zeven rijen van acht.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">Niet elk totaal is eerlijk te verdelen. Wat geen volle rij meer vult, is de rest.</string>
@@ -1098,7 +1098,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">Hoeveel stippen zijn er hier?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Acht rijen van zeven, en acht keer zeven is 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Vijf keer negen is 45, en nog een negen maakt 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Wat heeft hetzelfde totaal als 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Wat heeft hetzelfde totaal als 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Het rooster een kwartslag draaien verandert niets.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">Doortellen met negen bereikt 72 in precies acht sprongen.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">Doortellen met vier bereikt 20 in vijf sprongen, en 3 blijft over.</string>
@@ -1369,8 +1369,8 @@
     <string name="learn_arithmetic_standard_form_calculating_summary">Voorste getallen vermenigvuldigen, machten optellen.</string>
     <string name="learn_arithmetic_standard_form_calculating_s1_body">De twee helften reizen apart. De voorste getallen vermenigvuldig je met elkaar, en de machten van tien tel je op.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l1">De twee helften reizen apart.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l2">De voorste getallen vermenigvuldigen: 3 x 2 = 6.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l3">De machten van tien tellen op: 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">De voorste getallen vermenigvuldigen: 3 × 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">De machten van tien tellen op: 10^4 × 10^3 = 10^7.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l4">Zet de twee helften weer bij elkaar.</string>
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Delen draait het om: de voorste getallen deel je en de machten trek je af.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Het voorste getal kan uit de vermenigvuldiging te groot voor het venster komen, en dan moet het er weer in gelopen worden.</string>
@@ -1404,16 +1404,16 @@
     <string name="learn_arithmetic_surds_simplify_summary">Haal de grootste kwadraatfactor eruit.</string>
     <string name="learn_arithmetic_surds_simplify_s1_body">Wortels vermenigvuldig je recht door elkaar. Daardoor kun je een lastige wortel opbreken: haal de grootste kwadraatfactor eruit en neem daar de wortel precies van.</string>
     <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
-    <string name="learn_arithmetic_surds_simplify_s2_l1">Zoek een kwadraatfactor: 50 is 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Zoek een kwadraatfactor: 50 is 25 × 2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l2">De wortel splitst in tweeën: √25 x √2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l3">√25 is precies 5.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l4">2 heeft geen kwadraatfactor meer, dus die blijft onder de wortel.</string>
     <string name="learn_arithmetic_surds_simplify_s3_question">Zoek eerst de kwadraatfactor.</string>
     <string name="learn_arithmetic_surds_simplify_s4_body">Neem de grootste kwadraatfactor die je kunt vinden. √72 splitsen via 4 laat 2√18 over, waar nog werk in zit; via 36 is het in één stap klaar.</string>
     <string name="learn_arithmetic_surds_simplify_s5_question">√12 vereenvoudigt tot a√3. Wat is a?</string>
-    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 is 4 x 3, en √4 is precies 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 is 4 × 3, en √4 is precies 2.</string>
     <string name="learn_arithmetic_surds_simplify_s6_question">In drie hiervan zit nog een kwadraatfactor verstopt.</string>
-    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 en 20 zijn allemaal deelbaar door 4. 15 is 3 x 5, en geen van beide is een kwadraat.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 en 20 zijn allemaal deelbaar door 4. 15 is 3 × 5, en geen van beide is een kwadraat.</string>
     <string name="learn_arithmetic_surds_arithmetic_title">Wortelvormen optellen en vermenigvuldigen</string>
     <string name="learn_arithmetic_surds_arithmetic_summary">Gelijke wortels tel je samen; verschillende niet.</string>
     <string name="learn_arithmetic_surds_arithmetic_s1_body">Gelijke wortels tel je samen zoals gelijke eenheden. Drie meter en vier meter maken zeven meter, en de meter verandert nooit.</string>
@@ -1589,7 +1589,7 @@
     <string name="learn_geometry_angles_turns_summary">Kwartslagen, halve slagen en hele slagen, en wat er overblijft.</string>
     <string name="learn_geometry_angles_turns_s1_body">Een hele slag brengt je terug waar je begon. Dat zijn vier rechte hoeken, oftewel 360 graden.</string>
     <string name="learn_geometry_angles_turns_s2_question">Hoeveel rechte hoeken maken een hele slag?</string>
-    <string name="learn_geometry_angles_turns_s2_explanation">Vier kwartslagen, en 4 x 90 = 360.</string>
+    <string name="learn_geometry_angles_turns_s2_explanation">Vier kwartslagen, en 4 × 90 = 360.</string>
     <string name="learn_geometry_angles_turns_s3_body">Een halve slag is twee rechte hoeken achter elkaar, en daarom duikt 180 steeds op.</string>
     <string name="learn_geometry_angles_turns_s4_question">Hoeveel graden zitten er in driekwart slag?</string>
     <string name="learn_geometry_angles_turns_s4_explanation">Drie keer 90.</string>
@@ -1708,7 +1708,7 @@
     <string name="learn_g35_measurement_perimeter_summary">De wandeling helemaal rondom.</string>
     <string name="learn_g35_measurement_perimeter_s1_body">De omtrek is de afstand rondom de buitenkant.</string>
     <string name="learn_g35_measurement_perimeter_s2_body">Overstaande zijden zijn gelijk, dus tel er één van elk op en verdubbel dat.</string>
-    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 x (lengte + breedte)</string>
+    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 × (lengte + breedte)</string>
     <string name="learn_g35_measurement_perimeter_s3_problem">Een rechthoek is 8 cm bij 5 cm.</string>
     <string name="learn_g35_measurement_perimeter_s3_l2">Elke zijde heeft een gelijke tegenhanger.</string>
     <string name="learn_g35_measurement_perimeter_s3_result">Omtrek = 26 cm</string>
@@ -1716,7 +1716,7 @@
     <string name="learn_g35_measurement_perimeter_s4_explanation">Vier zijden van 9.</string>
     <string name="learn_g35_measurement_perimeter_s5_question">Welke vorm heeft een omtrek van 20 cm?</string>
     <string name="learn_g35_measurement_perimeter_s5_o4">Geen van beide</string>
-    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 verdubbeld is 20, en 4 x 5 is ook 20.</string>
+    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 verdubbeld is 20, en 4 × 5 is ook 20.</string>
     <string name="learn_g35_measurement_perimeter_s6_body">De omtrek is een lengte, dus je meet hem nooit in vierkante eenheden.</string>
     <string name="learn_g35_measurement_area_title">Oppervlakte van rechthoeken</string>
     <string name="learn_g35_measurement_area_summary">Tel de vierkantjes, of vermenigvuldig gewoon.</string>
@@ -1738,7 +1738,7 @@
     <string name="learn_geometry_area_compound_s3_l1">Verdeel hem in rechthoeken die je kent.</string>
     <string name="learn_geometry_area_compound_s3_result">Oppervlakte = 16 cm²</string>
     <string name="learn_geometry_area_compound_s4_question">Uit een rechthoek van 5 bij 4 is een hoek van 2 bij 2 geknipt. Welke oppervlakte blijft over, in cm²?</string>
-    <string name="learn_geometry_area_compound_s4_explanation">5 x 4 = 20, en de ontbrekende hoek haalt er 2 x 2 = 4 af.</string>
+    <string name="learn_geometry_area_compound_s4_explanation">5 × 4 = 20, en de ontbrekende hoek haalt er 2 × 2 = 4 af.</string>
     <string name="learn_geometry_area_compound_s5_question">Een rechthoek van 3 bij 2 en een van 4 bij 2 worden zijde aan zijde gelegd. Wat is de oppervlakte samen?</string>
     <string name="learn_geometry_area_compound_s6_body">Verdeel de vorm zoals het jou het makkelijkst uitkomt: het totaal komt hoe dan ook hetzelfde uit.</string>
     <string name="learn_unit_geometry_perimeter_and_area_q1_prompt">Wat is de omtrek van deze rechthoek?</string>
@@ -2111,7 +2111,7 @@
     <string name="learn_rule_order_negatives_meaning">Hoe verder naar links op de lijn, hoe kleiner het getal</string>
     <string name="learn_rule_move_on_the_line_meaning">Optellen gaat naar rechts op de lijn, aftrekken naar links</string>
     <string name="learn_rule_times_before_plus_meaning">Keer en delen gaan voor plus en min</string>
-    <string name="learn_rule_times_before_plus_example">niet 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">niet 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Haakjes gaan voor al het andere</string>
     <string name="learn_rule_left_to_right_meaning">Zelfde rang: werk van links naar rechts</string>
     <string name="learn_rule_left_to_right_example">niet 20 / 10</string>

@@ -1059,7 +1059,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3、6、9、12、15、18、21 - 七個三，一路數上去。</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">一列一列往上數就是跳數：一列三個，兩列，再三列。</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">把 {a:3} 列擺兩次，總數就變成兩倍，因為第二塊和第一塊一模一樣。</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18，所以 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18，所以 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">一個烤盤上有 {a:4} 列，每列 {b:7} 個蛋糕。</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:四} 列，每列 {b:七} 個：7、14、21、28。</string>
     <string name="learn_arithmetic_multiplication_facts_title">你早就會的算式</string>
@@ -1078,7 +1078,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">除法把乘法還原，有時候還會剩下一點。</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">除法把總數拆回一樣多的列。還是同一個點陣，只是換個方向讀。</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">每個乘法算式都送你兩個除法算式，因為點陣可以往兩個方向切。</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30，所以 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30，所以 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">需要幾列，每列八個？</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">八個七是 56，所以 56 剛好分成七列，每列八個。</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">不是每個總數都分得剛剛好。填不滿下一列的，就是餘數。</string>
@@ -1092,7 +1092,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">這裡有幾個點？</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">八列，每列七個，八個七是 56。</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">五個九是 45，再多一個九就是 54。</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">哪一個和 7 x 4 的總數一樣？</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">哪一個和 7 × 4 的總數一樣？</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">把點陣轉個方向，什麼都沒變。</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">九個九個往上數，剛好跳八次到 72。</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">四個四個往上數，跳五次到 20，還剩下 3。</string>
@@ -1420,7 +1420,7 @@
     <string name="learn_rule_order_negatives_meaning">在數線上越靠左邊的數越小</string>
     <string name="learn_rule_move_on_the_line_meaning">加就沿著數線往右走，減就往左走</string>
     <string name="learn_rule_times_before_plus_meaning">先乘除，後加減</string>
-    <string name="learn_rule_times_before_plus_example">不是 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">不是 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">括號永遠最先算</string>
     <string name="learn_rule_left_to_right_meaning">同一級的運算，從左算到右</string>
     <string name="learn_rule_left_to_right_example">不是 20 / 10</string>

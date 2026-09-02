@@ -1059,7 +1059,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - tujuh kali tiga dihitung maju.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Menghitung baris demi baris adalah membilang loncat: satu baris berisi tiga, lalu dua baris, lalu tiga.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Susun {a:3} baris dua kali dan totalnya menjadi dua kali lipat, karena blok kedua adalah salinan blok pertama.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, jadi 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, jadi 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">Sebuah loyang memuat {a:4} baris berisi {b:7} kue.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Empat} baris berisi {b:tujuh}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Fakta yang sudah kamu tahu</string>
@@ -1078,7 +1078,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">Pembagian membatalkan perkalian, dan kadang menyisakan sedikit.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">Pembagian menguraikan total kembali menjadi baris yang sama banyak. Susunannya sama, hanya dibaca dari arah yang lain.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Setiap fakta perkalian memberi dua fakta pembagian, karena susunannya bisa dipotong dari dua arah.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, jadi 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, jadi 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">Berapa baris berisi delapan yang dibutuhkan?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Delapan kali tujuh adalah 56, jadi 56 terbagi tepat menjadi tujuh baris berisi delapan.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">Tidak setiap total terbagi habis. Yang tidak cukup untuk mengisi baris berikutnya adalah sisanya.</string>
@@ -1092,7 +1092,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">Ada berapa titik di sini?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Delapan baris berisi tujuh, dan delapan kali tujuh adalah 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Lima kali sembilan adalah 45, dan satu sembilan lagi menjadi 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Mana yang totalnya sama dengan 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Mana yang totalnya sama dengan 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Memutar susunan ke samping tidak mengubah apa pun.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">Membilang loncat sembilan-sembilan sampai di 72 tepat dalam delapan lompatan.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">Membilang loncat empat-empat sampai di 20 dalam lima lompatan, dan sisa 3.</string>
@@ -1420,7 +1420,7 @@
     <string name="learn_rule_order_negatives_meaning">Makin ke kiri pada garis bilangan, makin kecil bilangannya</string>
     <string name="learn_rule_move_on_the_line_meaning">Menambah bergerak ke kanan pada garis, mengurangi ke kiri</string>
     <string name="learn_rule_times_before_plus_meaning">Kali dan bagi dikerjakan sebelum tambah dan kurang</string>
-    <string name="learn_rule_times_before_plus_example">bukan 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">bukan 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Tanda kurung didahulukan dari yang lain</string>
     <string name="learn_rule_left_to_right_meaning">Tingkat sama: kerjakan dari kiri ke kanan</string>
     <string name="learn_rule_left_to_right_example">bukan 20 / 10</string>

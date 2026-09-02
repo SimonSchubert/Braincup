@@ -302,6 +302,15 @@ sealed interface LearnVisual {
         val showPerimeter: Boolean = false,
         val unit: String = "cm",
         override val reveal: Boolean = true,
+        /**
+         * Whether the two side counts are printed.
+         *
+         * Separate from [reveal] because the sides play opposite roles in the two questions this
+         * grid is asked. An area question hands them over - they are the given, and hiding them
+         * leaves nothing to multiply - while a square root question is *asking* for one, and an
+         * 8 by 8 grid captioned 8 and 8 answered itself.
+         */
+        val showSides: Boolean = true,
     ) : LearnVisual
 
     /**
@@ -376,14 +385,22 @@ sealed interface LearnVisual {
         val topX: Int = 1,
         val topOnes: Int = 0,
         /**
-         * Whether the figure prints any of its numbers.
+         * Whether the figure prints what each cell comes to.
          *
-         * It covers the side labels as well as the cell products, because the two are the same
-         * product read the other way round: a factorising question whose figure still labelled
-         * its sides "x", "2" and "4" had spelled out `(x + 2)(x + 4)` while hiding only the
-         * pieces. A question figure draws the split and says nothing.
+         * A factorising question that still labelled its pieces has spelled out its own answer,
+         * so a question figure draws the split and leaves the products off.
          */
         override val reveal: Boolean = true,
+        /**
+         * Whether the figure prints the two side lengths, which defaults to following [reveal].
+         *
+         * The two questions this figure is asked want opposite things of the sides. A factorising
+         * question is *asking* for them - one still labelled "x", "2" and "4" had spelled out
+         * `(x + 2)(x + 4)` while hiding only the pieces - but an expanding question hands them
+         * over in its own wording, and hiding them there left four blank rectangles that said
+         * nothing at all about `2(x + 5)`.
+         */
+        val revealSides: Boolean = reveal,
     ) : LearnVisual
 
     /**
@@ -393,16 +410,23 @@ sealed interface LearnVisual {
      * show an equation that had already been collected onto one pan, which is the step the lesson
      * is about rather than something it can assume.
      *
+     * [leftY] and [rightY] are the second unknown, and simultaneous equations cannot be drawn
+     * without them. Standing in for a y with one unit block made the picture say `2x + 1 = 7`
+     * when the card under it said `2x + y = 7`, and standing in with an x-block put the letter
+     * `x` on the very piece the step was calling y.
+     *
      * [remove] fades the same number of unit blocks off both pans; [removeX] does the same for the
      * x-blocks, which is the move that collects the letters.
      */
     data class Balance(
         val leftX: Int,
-        val leftOnes: Int,
-        val rightOnes: Int,
+        val leftOnes: Int = 0,
+        val rightOnes: Int = 0,
         val rightX: Int = 0,
         val remove: Int = 0,
         val removeX: Int = 0,
+        val leftY: Int = 0,
+        val rightY: Int = 0,
     ) : LearnVisual
 
     // --- Data -----------------------------------------------------------------------------

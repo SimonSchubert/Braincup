@@ -1083,14 +1083,14 @@ internal object GeometryContent {
                         lines = listOf(
                             math("8 + 5 = 13"),
                             words(Res.string.learn_g35_measurement_perimeter_s3_l2),
-                            math("13 x 2 = 26"),
+                            math("13 * 2 = 26"),
                         ),
                         result = words(Res.string.learn_g35_measurement_perimeter_s3_result),
                         visual = AreaGrid(cols = 8, rows = 5, showArea = false, showPerimeter = true),
                     ),
                     Numeric(
                         question = words(Res.string.learn_g35_measurement_perimeter_s4_question),
-                        formula = math("4 x {b:9} = ?"),
+                        formula = math("4 * {b:9} = ?"),
                         answer = "36",
                         explanation = words(Res.string.learn_g35_measurement_perimeter_s4_explanation),
                         visual = AreaGrid(cols = 9, rows = 9, showArea = false, showPerimeter = true, reveal = false),
@@ -1128,7 +1128,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_g35_measurement_area_s3_question),
-                        formula = math("6 x {b:3} = ?"),
+                        formula = math("6 * {b:3} = ?"),
                         answer = "18",
                         explanation = filled(Res.string.learn_t_rows, "3", "6"),
                         visual = AreaGrid(cols = 6, rows = 3, reveal = false),
@@ -1177,8 +1177,8 @@ internal object GeometryContent {
                         problem = words(Res.string.learn_geometry_area_compound_s3_problem),
                         lines = listOf(
                             words(Res.string.learn_geometry_area_compound_s3_l1),
-                            math("5 x 2 = 10"),
-                            math("3 x 2 = 6"),
+                            math("5 * 2 = 10"),
+                            math("3 * 2 = 6"),
                             math("10 + 6"),
                         ),
                         result = words(Res.string.learn_geometry_area_compound_s3_result),
@@ -1186,14 +1186,14 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_geometry_area_compound_s4_question),
-                        formula = math("5 x 4 - 2 x 2 = ?"),
+                        formula = math("5 * 4 - 2 * 2 = ?"),
                         answer = "16",
                         explanation = words(Res.string.learn_geometry_area_compound_s4_explanation),
                         visual = AreaGrid(cols = 5, rows = 4, reveal = false),
                     ),
                     Choice(
                         question = words(Res.string.learn_geometry_area_compound_s5_question),
-                        formula = math("3 x 2 + 4 x 2 = ?"),
+                        formula = math("3 * 2 + 4 * 2 = ?"),
                         options = listOf(
                             counted(Res.plurals.learn_opt_square_cm, 12),
                             counted(Res.plurals.learn_opt_square_cm, 14),
@@ -1486,14 +1486,14 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_g68_geometry_circles_s2_question),
-                        formula = math("2 x 5 = ?"),
+                        formula = math("2 * 5 = ?"),
                         answer = "10",
                         explanation = words(Res.string.learn_g68_geometry_circles_s2_explanation),
                         visual = CircleFigure(radius = 5, reveal = false),
                     ),
                     Concept(
                         body = words(Res.string.learn_g68_geometry_circles_s3_body),
-                        formula = math("C = pi x d"),
+                        formula = math("C = pi * d"),
                         visual = CircleFigure(radius = 5, sweepCircumference = true),
                     ),
                     Concept(
@@ -1504,7 +1504,7 @@ internal object GeometryContent {
                         question = words(Res.string.learn_g68_geometry_circles_s5_question),
                         options = mathOptions("78.5 cm", "157 cm", "250 cm", "314 cm"),
                         correctIndex = 1,
-                        explanation = math("3.14 x 50"),
+                        explanation = math("3.14 * 50"),
                         visual = CircleFigure(sweepCircumference = true, reveal = false),
                     ),
                     Numeric(
@@ -1523,24 +1523,24 @@ internal object GeometryContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_geometry_circles_area_s1_body),
-                        formula = math("A = pi x r²"),
+                        formula = math("A = pi * r²"),
                         visual = CircleFigure(radius = 10, fillArea = true),
                     ),
                     Concept(
                         body = words(Res.string.learn_geometry_circles_area_s2_body),
-                        formula = math("A = pi x (r x r)"),
+                        formula = math("A = pi * (r * r)"),
                         visual = CircleFigure(radius = 4, fillArea = true),
                     ),
                     Choice(
                         question = words(Res.string.learn_geometry_circles_area_s3_question),
                         options = mathOptions("31.4", "62.8", "314", "628"),
                         correctIndex = 2,
-                        explanation = math("3.14 x 100"),
+                        explanation = math("3.14 * 100"),
                         visual = CircleFigure(fillArea = true, reveal = false),
                     ),
                     Choice(
                         question = words(Res.string.learn_geometry_circles_area_s4_question),
-                        formula = math("3.14 x 4 x 4 = ?"),
+                        formula = math("3.14 * 4 * 4 = ?"),
                         options = mathOptions("12.56", "25.12", "50.24", "200.96"),
                         correctIndex = 2,
                         explanation = words(Res.string.learn_geometry_circles_area_s4_explanation),
@@ -1614,14 +1614,14 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_circles_q2_prompt),
                 options = mathOptions("15.7 cm", "31.4 cm", "78.5 cm", "314 cm"),
                 correctIndex = 1,
-                explanation = math("pi x d"),
+                explanation = math("pi * d"),
                 visual = CircleFigure(sweepCircumference = true, reveal = false),
             ),
             QuizQuestion(
                 prompt = words(Res.string.learn_unit_geometry_circles_q3_prompt),
                 options = mathOptions("12.56", "25.12", "50.24", "100.48"),
                 correctIndex = 2,
-                explanation = math("3.14 x 16"),
+                explanation = math("3.14 * 16"),
                 visual = CircleFigure(fillArea = true, reveal = false),
             ),
             QuizQuestion(
@@ -1671,7 +1671,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_g68_geometry_volume_s3_question),
-                        formula = math("4 x 3 x 2 = ?"),
+                        formula = math("4 * 3 * 2 = ?"),
                         answer = "24",
                         explanation = words(Res.string.learn_g68_geometry_volume_s3_explanation),
                         visual = Solid(kind = SolidKind.PRISM, reveal = false),
@@ -1681,7 +1681,7 @@ internal object GeometryContent {
                         lines = listOf(
                             words(Res.string.learn_g68_geometry_volume_s4_l1),
                             words(Res.string.learn_g68_geometry_volume_s4_l2),
-                            math("6 x 9"),
+                            math("6 * 9"),
                         ),
                         result = math("V = 54 cm³"),
                         visual = Solid(kind = SolidKind.PRISM),
@@ -1718,7 +1718,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = filled(Res.string.learn_t_cube_edges_cm_surface, "3"),
-                        formula = math("6 x 3 x 3 = ?"),
+                        formula = math("6 * 3 * 3 = ?"),
                         answer = "54",
                         explanation = words(Res.string.learn_geometry_volume_surface_s3_explanation),
                         visual = Solid(kind = SolidKind.CUBE, reveal = false),
@@ -1755,12 +1755,12 @@ internal object GeometryContent {
                 steps = listOf(
                     Concept(
                         body = words(Res.string.learn_geometry_volume_cylinders_s1_body),
-                        formula = math("V = pi x r² x h"),
+                        formula = math("V = pi * r² * h"),
                         visual = Solid(kind = SolidKind.CYLINDER, counts = true),
                     ),
                     Numeric(
                         question = words(Res.string.learn_geometry_volume_cylinders_s2_question),
-                        formula = math("20 x {b:6} = ?"),
+                        formula = math("20 * {b:6} = ?"),
                         answer = "120",
                         explanation = words(Res.string.learn_geometry_volume_cylinders_s2_explanation),
                         visual = Solid(kind = SolidKind.CYLINDER, reveal = false),
@@ -1796,7 +1796,7 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_volume_q1_prompt),
                 options = mathOptions("12", "20", "47", "60"),
                 correctIndex = 3,
-                explanation = math("5 x 4 x 3"),
+                explanation = math("5 * 4 * 3"),
                 visual = Solid(kind = SolidKind.PRISM, reveal = false),
             ),
             QuizQuestion(
@@ -1804,8 +1804,8 @@ internal object GeometryContent {
                 options = listOf(
                     words(Res.string.learn_unit_geometry_volume_q2_o1),
                     words(Res.string.learn_unit_geometry_volume_q2_o2),
-                    math("pi x r²"),
-                    math("2 x pi x r"),
+                    math("pi * r²"),
+                    math("2 * pi * r"),
                 ),
                 correctIndex = 1,
                 explanation = words(Res.string.learn_unit_geometry_volume_q2_explanation),
@@ -1815,7 +1815,7 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_volume_q3_prompt),
                 options = mathOptions("4", "6", "8", "12"),
                 correctIndex = 2,
-                explanation = math("2 x 2 x 2"),
+                explanation = math("2 * 2 * 2"),
                 visual = Solid(kind = SolidKind.CUBE, reveal = false),
             ),
             QuizQuestion(
@@ -1878,7 +1878,7 @@ internal object GeometryContent {
                     Numeric(
                         question = words(Res.string.learn_g910_geometry_similarity_s4_question),
                         answer = "15",
-                        explanation = math("5 x 3"),
+                        explanation = math("5 * 3"),
                         visual = RightTriangle(a = 4, b = 3, unknown = Side.HYPOTENUSE),
                     ),
                     Concept(
@@ -1923,7 +1923,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_geometry_similarity_area_s4_question),
-                        formula = math("3 x 3 x 3 = ?"),
+                        formula = math("3 * 3 * 3 = ?"),
                         answer = "27",
                         explanation = words(Res.string.learn_geometry_similarity_area_s4_explanation),
                         visual = Solid(kind = SolidKind.CUBE, reveal = false),
@@ -1964,7 +1964,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_geometry_similarity_using_s4_question),
-                        formula = math("30 / {b:3} x {b:2} = ?"),
+                        formula = math("30 / {b:3} * {b:2} = ?"),
                         answer = "20",
                         explanation = words(Res.string.learn_geometry_similarity_using_s4_explanation),
                         visual = RightTriangle(a = 3, b = 2, labels = false),
@@ -2031,7 +2031,7 @@ internal object GeometryContent {
                 prompt = words(Res.string.learn_unit_geometry_similarity_q6_prompt),
                 options = mathOptions("9", "15", "20", "25"),
                 correctIndex = 2,
-                explanation = math("5 x 4"),
+                explanation = math("5 * 4"),
                 visual = RightTriangle(a = 4, b = 3, labels = false),
             ),
         ),
@@ -2201,7 +2201,7 @@ internal object GeometryContent {
                     ),
                     Numeric(
                         question = words(Res.string.learn_geometry_transformations_enlargements_s5_question),
-                        formula = math("3 x {b:4} = ?"),
+                        formula = math("3 * {b:4} = ?"),
                         answer = "12",
                         explanation = words(Res.string.learn_geometry_transformations_enlargements_s5_explanation),
                         visual = AreaGrid(cols = 3, rows = 2, showArea = false, reveal = false),

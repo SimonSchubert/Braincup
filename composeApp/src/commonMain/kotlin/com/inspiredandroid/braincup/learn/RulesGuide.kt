@@ -57,15 +57,15 @@ object RulesGuide {
             ),
             Entry(
                 id = "times-two-negatives",
-                rule = math("- x - = +"),
+                rule = math("- * - = +"),
                 meaning = Res.string.learn_rule_times_two_negatives_meaning,
-                example = math("(-4) x {b:(-3)} = 12"),
+                example = math("(-4) * {b:(-3)} = 12"),
             ),
             Entry(
                 id = "times-one-negative",
-                rule = math("- x + = -"),
+                rule = math("- * + = -"),
                 meaning = Res.string.learn_rule_times_one_negative_meaning,
-                example = math("(-4) x {b:3} = -12"),
+                example = math("(-4) * {b:3} = -12"),
             ),
             Entry(
                 id = "divide-negatives",
@@ -95,25 +95,25 @@ object RulesGuide {
         entries = listOf(
             Entry(
                 id = "times-before-plus",
-                rule = math("2 + 3 x 4 = 14"),
+                rule = math("2 + 3 * 4 = 14"),
                 meaning = Res.string.learn_rule_times_before_plus_meaning,
                 example = words(Res.string.learn_rule_times_before_plus_example),
             ),
             Entry(
                 id = "brackets-first",
-                rule = math("3 x (4 + 2) = 18"),
+                rule = math("3 * (4 + 2) = 18"),
                 meaning = Res.string.learn_rule_brackets_first_meaning,
-                example = math("3 x {b:6} = 18"),
+                example = math("3 * {b:6} = 18"),
             ),
             Entry(
                 id = "left-to-right",
-                rule = math("20 / 5 x 2 = 8"),
+                rule = math("20 / 5 * 2 = 8"),
                 meaning = Res.string.learn_rule_left_to_right_meaning,
                 example = words(Res.string.learn_rule_left_to_right_example),
             ),
             Entry(
                 id = "powers-before-times",
-                rule = math("3 x 4² = 48"),
+                rule = math("3 * 4² = 48"),
                 meaning = Res.string.learn_rule_powers_before_times_meaning,
                 example = words(Res.string.learn_rule_powers_before_times_example),
             ),
@@ -126,8 +126,8 @@ object RulesGuide {
         blurb = Res.string.learn_rulesguide_zero_and_one_blurb,
         entries = listOf(
             Entry(id = "add-zero", rule = math("a + 0 = a"), meaning = Res.string.learn_rule_add_zero_meaning, example = math("9 + {b:0} = 9")),
-            Entry(id = "times-one", rule = math("a x 1 = a"), meaning = Res.string.learn_rule_times_one_meaning, example = math("9 x {b:1} = 9")),
-            Entry(id = "times-zero", rule = math("a x 0 = 0"), meaning = Res.string.learn_rule_times_zero_meaning, example = math("9 x {b:0} = 0")),
+            Entry(id = "times-one", rule = math("a * 1 = a"), meaning = Res.string.learn_rule_times_one_meaning, example = math("9 * {b:1} = 9")),
+            Entry(id = "times-zero", rule = math("a * 0 = 0"), meaning = Res.string.learn_rule_times_zero_meaning, example = math("9 * {b:0} = 0")),
             Entry(
                 id = "divide-by-itself",
                 rule = math("a / a = 1"),
@@ -157,9 +157,9 @@ object RulesGuide {
             ),
             Entry(
                 id = "swap-times",
-                rule = math("a x b = b x a"),
+                rule = math("a * b = b * a"),
                 meaning = Res.string.learn_rule_swap_times_meaning,
-                example = math("3 x 8 = 8 x 3"),
+                example = math("3 * 8 = 8 * 3"),
             ),
             Entry(
                 id = "no-swap",
@@ -175,9 +175,9 @@ object RulesGuide {
             ),
             Entry(
                 id = "split-the-times",
-                rule = math("a x (b + c) = a x b + a x c"),
+                rule = math("a * (b + c) = a * b + a * c"),
                 meaning = Res.string.learn_rule_split_the_times_meaning,
-                example = math("4 x 23 = 4 x 20 + 4 x 3"),
+                example = math("4 * 23 = 4 * 20 + 4 * 3"),
             ),
         ),
     )
@@ -195,19 +195,19 @@ object RulesGuide {
             ),
             Entry(
                 id = "equivalent",
-                rule = math("a/b = (a x k)/(b x k)"),
+                rule = math("a/b = (a * k)/(b * k)"),
                 meaning = Res.string.learn_rule_equivalent_meaning,
                 example = math("1/2 = 3/6"),
             ),
             Entry(
                 id = "times-fractions",
-                rule = math("a/b x c/d = (a x c)/(b x d)"),
+                rule = math("a/b * c/d = (a * c)/(b * d)"),
                 meaning = Res.string.learn_rule_times_fractions_meaning,
-                example = math("2/3 x 3/4 = 6/12 = 1/2"),
+                example = math("2/3 * 3/4 = 6/12 = 1/2"),
             ),
             Entry(
                 id = "divide-fractions",
-                rule = math("a/b / (c/d) = a/b x d/c"),
+                rule = math("a/b / (c/d) = a/b * d/c"),
                 meaning = Res.string.learn_rule_divide_fractions_meaning,
                 example = math("1/2 / {b:(1/4)} = 2"),
             ),
@@ -215,7 +215,7 @@ object RulesGuide {
                 id = "mixed-number",
                 rule = math("2 1/3 = 7/3"),
                 meaning = Res.string.learn_rule_mixed_number_meaning,
-                example = math("2 x 3 + 1 = 7"),
+                example = math("2 * 3 + 1 = 7"),
             ),
         ),
     )
@@ -245,7 +245,7 @@ object RulesGuide {
             ),
             Entry(
                 id = "times-ten",
-                rule = math("3.7 x 10 = 37"),
+                rule = math("3.7 * 10 = 37"),
                 meaning = Res.string.learn_rule_times_ten_meaning,
                 example = math("3.7 / {b:10} = 0.37"),
             ),
@@ -257,8 +257,8 @@ object RulesGuide {
         title = Res.string.learn_rulesguide_powers_title,
         blurb = Res.string.learn_rulesguide_powers_blurb,
         entries = listOf(
-            Entry(id = "square", rule = math("a² = a x a"), meaning = Res.string.learn_rule_square_meaning, example = math("5² = 25")),
-            Entry(id = "cube", rule = math("a³ = a x a x a"), meaning = Res.string.learn_rule_cube_meaning, example = math("2³ = 8")),
+            Entry(id = "square", rule = math("a² = a * a"), meaning = Res.string.learn_rule_square_meaning, example = math("5² = 25")),
+            Entry(id = "cube", rule = math("a³ = a * a * a"), meaning = Res.string.learn_rule_cube_meaning, example = math("2³ = 8")),
             Entry(
                 id = "power-zero",
                 rule = math("a¹ = a, a⁰ = 1"),
@@ -269,7 +269,7 @@ object RulesGuide {
                 id = "root",
                 rule = math("√25 = 5"),
                 meaning = Res.string.learn_rule_root_meaning,
-                example = math("5 x {b:5} = 25"),
+                example = math("5 * {b:5} = 25"),
             ),
             Entry(
                 id = "powers-of-ten",

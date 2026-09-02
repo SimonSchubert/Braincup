@@ -1065,7 +1065,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - sette volte tre, contando in avanti.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Contare le righe in avanti è contare a salti: una riga da tre, poi due righe, poi tre.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Metti giù {a:3} righe due volte e il totale raddoppia, perché il secondo blocco è una copia del primo.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, quindi 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, quindi 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">Una teglia contiene {a:4} righe da {b:7} dolcetti.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Quattro} righe da {b:sette}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Prodotti che sai già</string>
@@ -1084,7 +1084,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">La divisione annulla la moltiplicazione, e a volte lascia qualcosa che avanza.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">La divisione riporta il totale a righe uguali. È lo stesso schieramento, letto al contrario.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Ogni moltiplicazione ti regala due divisioni, perché lo schieramento si può tagliare nei due sensi.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, quindi 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, quindi 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">Quante righe da otto ci vogliono?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Otto volte sette fa 56, quindi 56 si divide in esattamente sette righe da otto.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">Non tutti i totali si dividono in parti esatte. Quello che non riempie un'altra riga è il resto.</string>
@@ -1098,7 +1098,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">Quanti punti ci sono qui?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Otto righe da sette, e otto volte sette fa 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Cinque volte nove fa 45, e un nove in più fa 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Quale dà lo stesso totale di 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Quale dà lo stesso totale di 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Girare lo schieramento di lato non cambia niente.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">Contando di nove in nove si arriva a 72 in esattamente otto salti.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">Contando di quattro in quattro si arriva a 20 in cinque salti, e avanza 3.</string>
@@ -1369,8 +1369,8 @@
     <string name="learn_arithmetic_standard_form_calculating_summary">I numeri davanti si moltiplicano, gli esponenti si sommano.</string>
     <string name="learn_arithmetic_standard_form_calculating_s1_body">Le due metà viaggiano separate. I numeri davanti si moltiplicano fra loro, e le potenze di dieci si sommano.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l1">Le due metà viaggiano separate.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l2">I numeri davanti si moltiplicano: 3 x 2 = 6.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Le potenze di dieci si sommano: 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">I numeri davanti si moltiplicano: 3 × 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Le potenze di dieci si sommano: 10^4 × 10^3 = 10^7.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l4">Rimetti insieme le due metà.</string>
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Dividere fa tutto al contrario: i numeri davanti si dividono e gli esponenti si sottraggono.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Il numero davanti può uscire dalla moltiplicazione troppo grande per l'intervallo, e allora va riportato dentro.</string>
@@ -1404,16 +1404,16 @@
     <string name="learn_arithmetic_surds_simplify_summary">Stacca il fattore quadrato più grande.</string>
     <string name="learn_arithmetic_surds_simplify_s1_body">Le radici si moltiplicano direttamente fra loro. È questo che permette di spezzare una radice scomoda: stacca il fattore quadrato più grande e calcolane la radice esatta.</string>
     <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
-    <string name="learn_arithmetic_surds_simplify_s2_l1">Cerca un fattore quadrato: 50 è 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Cerca un fattore quadrato: 50 è 25 × 2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l2">La radice si divide in due: √25 x √2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l3">√25 è esattamente 5.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l4">A 2 non resta nessun fattore quadrato, quindi rimane sotto radice.</string>
     <string name="learn_arithmetic_surds_simplify_s3_question">Trova prima il fattore quadrato.</string>
     <string name="learn_arithmetic_surds_simplify_s4_body">Prendi il fattore quadrato più grande che trovi. Spezzare √72 con 4 lascia 2√18, che dà ancora da lavorare; con 36 finisce in un solo passo.</string>
     <string name="learn_arithmetic_surds_simplify_s5_question">√12 si semplifica in a√3. Quanto vale a?</string>
-    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 è 4 x 3, e √4 è esattamente 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 è 4 × 3, e √4 è esattamente 2.</string>
     <string name="learn_arithmetic_surds_simplify_s6_question">In tre di questi si nasconde ancora un fattore quadrato.</string>
-    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 e 20 si dividono tutti per 4. 15 è 3 x 5, e nessuno dei due è un quadrato.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 e 20 si dividono tutti per 4. 15 è 3 × 5, e nessuno dei due è un quadrato.</string>
     <string name="learn_arithmetic_surds_arithmetic_title">Sommare e moltiplicare radicali</string>
     <string name="learn_arithmetic_surds_arithmetic_summary">Le radici uguali si raccolgono; quelle diverse no.</string>
     <string name="learn_arithmetic_surds_arithmetic_s1_body">Le radici uguali si raccolgono come si raccolgono le unità di misura uguali. Tre metri e quattro metri fanno sette metri, e il metro non cambia mai.</string>
@@ -1514,7 +1514,7 @@
     <string name="learn_rule_order_negatives_meaning">Più a sinistra sulla retta, più piccolo è il numero</string>
     <string name="learn_rule_move_on_the_line_meaning">Sommare sposta a destra sulla retta, sottrarre sposta a sinistra</string>
     <string name="learn_rule_times_before_plus_meaning">Moltiplicare e dividere vengono prima di sommare e sottrarre</string>
-    <string name="learn_rule_times_before_plus_example">non 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">non 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Le parentesi vengono prima di tutto il resto</string>
     <string name="learn_rule_left_to_right_meaning">Stesso livello: si procede da sinistra a destra</string>
     <string name="learn_rule_left_to_right_example">non 20 / 10</string>

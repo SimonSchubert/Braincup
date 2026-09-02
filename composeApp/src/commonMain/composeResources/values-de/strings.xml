@@ -1068,7 +1068,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - sieben Dreier weitergezählt.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Die Reihen weiterzuzählen ist Sprungzählen: eine Reihe mit drei, dann zwei Reihen, dann drei.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Leg {a:3} Reihen zweimal hin und die Gesamtzahl verdoppelt sich, denn der zweite Block ist eine Kopie des ersten.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, also 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, also 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">Ein Backblech fasst {a:4} Reihen mit je {b:7} Kuchen.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Vier} Reihen mit je {b:sieben}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Aufgaben, die du schon kennst</string>
@@ -1087,7 +1087,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">Division macht die Multiplikation rückgängig und lässt manchmal etwas übrig.</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">Division zerlegt die Gesamtzahl wieder in gleiche Reihen. Es ist dasselbe Feld, nur andersherum gelesen.</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">Jede Malaufgabe schenkt dir zwei Divisionsaufgaben, denn das Feld lässt sich in beide Richtungen schneiden.</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30, also 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30, also 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">Wie viele Reihen mit acht braucht es?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">Acht Siebener sind 56, also teilt sich 56 in genau sieben Reihen mit acht.</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">Nicht jede Gesamtzahl geht glatt auf. Was keine weitere Reihe mehr füllt, ist der Rest.</string>
@@ -1101,7 +1101,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">Wie viele Punkte sind hier?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Acht Reihen mit sieben, und acht Siebener sind 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Fünf Neuner sind 45, und ein Neuner mehr macht 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Was ergibt dasselbe wie 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Was ergibt dasselbe wie 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Das Feld auf die Seite zu drehen ändert nichts.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">In Neunerschritten weiterzuzählen erreicht 72 in genau acht Hüpfern.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">In Viererschritten weiterzuzählen erreicht 20 in fünf Hüpfern, und 3 bleibt übrig.</string>
@@ -1372,8 +1372,8 @@
     <string name="learn_arithmetic_standard_form_calculating_summary">Die vorderen Zahlen werden multipliziert, die Exponenten addiert.</string>
     <string name="learn_arithmetic_standard_form_calculating_s1_body">Die zwei Hälften reisen getrennt. Die vorderen Zahlen werden miteinander multipliziert, und die Zehnerpotenzen werden addiert.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l1">Die zwei Hälften reisen getrennt.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Die vorderen Zahlen multiplizieren sich: 3 x 2 = 6.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Die Zehnerpotenzen addieren sich: 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">Die vorderen Zahlen multiplizieren sich: 3 × 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">Die Zehnerpotenzen addieren sich: 10^4 × 10^3 = 10^7.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l4">Setz die zwei Hälften wieder zusammen.</string>
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Dividieren läuft rückwärts: Die vorderen Zahlen werden geteilt und die Exponenten subtrahiert.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">Die vordere Zahl kann aus der Multiplikation zu groß für das Fenster herauskommen, und dann muss sie wieder hineingeholt werden.</string>
@@ -1407,16 +1407,16 @@
     <string name="learn_arithmetic_surds_simplify_summary">Spalte den größten quadratischen Faktor ab.</string>
     <string name="learn_arithmetic_surds_simplify_s1_body">Wurzeln multiplizieren sich direkt durch. Genau das erlaubt es, eine unhandliche Wurzel zu zerlegen: Spalte den größten quadratischen Faktor ab und zieh seine Wurzel exakt.</string>
     <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
-    <string name="learn_arithmetic_surds_simplify_s2_l1">Such einen quadratischen Faktor: 50 ist 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Such einen quadratischen Faktor: 50 ist 25 × 2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l2">Die Wurzel teilt sich in zwei: √25 x √2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l3">√25 ist genau 5.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l4">2 hat keinen quadratischen Faktor mehr, also bleibt sie unter der Wurzel.</string>
     <string name="learn_arithmetic_surds_simplify_s3_question">Finde zuerst den quadratischen Faktor.</string>
     <string name="learn_arithmetic_surds_simplify_s4_body">Nimm den größten quadratischen Faktor, den du findest. √72 über 4 zu zerlegen lässt 2√18 übrig, da steckt noch Arbeit drin; über 36 ist es in einem Schritt fertig.</string>
     <string name="learn_arithmetic_surds_simplify_s5_question">√12 vereinfacht sich zu a√3. Was ist a?</string>
-    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 ist 4 x 3, und √4 ist genau 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 ist 4 × 3, und √4 ist genau 2.</string>
     <string name="learn_arithmetic_surds_simplify_s6_question">In dreien davon steckt noch ein quadratischer Faktor.</string>
-    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 und 20 lassen sich alle durch 4 teilen. 15 ist 3 x 5, und keines davon ist eine Quadratzahl.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 und 20 lassen sich alle durch 4 teilen. 15 ist 3 × 5, und keines davon ist eine Quadratzahl.</string>
     <string name="learn_arithmetic_surds_arithmetic_title">Wurzeln addieren und multiplizieren</string>
     <string name="learn_arithmetic_surds_arithmetic_summary">Gleiche Wurzeln lassen sich zusammenfassen; verschiedene nicht.</string>
     <string name="learn_arithmetic_surds_arithmetic_s1_body">Gleiche Wurzeln fasst man zusammen wie gleiche Einheiten. Drei Meter und vier Meter ergeben sieben Meter, und der Meter ändert sich nie.</string>
@@ -1592,7 +1592,7 @@
     <string name="learn_geometry_angles_turns_summary">Viertel-, Halb- und volle Drehungen, und was übrig bleibt.</string>
     <string name="learn_geometry_angles_turns_s1_body">Eine volle Drehung bringt dich dorthin zurück, wo du angefangen hast. Das sind vier rechte Winkel oder 360 Grad.</string>
     <string name="learn_geometry_angles_turns_s2_question">Wie viele rechte Winkel ergeben eine volle Drehung?</string>
-    <string name="learn_geometry_angles_turns_s2_explanation">Vier Vierteldrehungen, und 4 x 90 = 360.</string>
+    <string name="learn_geometry_angles_turns_s2_explanation">Vier Vierteldrehungen, und 4 × 90 = 360.</string>
     <string name="learn_geometry_angles_turns_s3_body">Eine halbe Drehung sind zwei rechte Winkel hintereinander, und deshalb taucht die 180 immer wieder auf.</string>
     <string name="learn_geometry_angles_turns_s4_question">Wie viel Grad hat eine Dreivierteldrehung?</string>
     <string name="learn_geometry_angles_turns_s4_explanation">Dreimal 90.</string>
@@ -1711,7 +1711,7 @@
     <string name="learn_g35_measurement_perimeter_summary">Der Weg einmal ganz herum.</string>
     <string name="learn_g35_measurement_perimeter_s1_body">Der Umfang ist die Strecke außen herum.</string>
     <string name="learn_g35_measurement_perimeter_s2_body">Gegenüberliegende Seiten sind gleich, also addiere je eine und verdopple das.</string>
-    <string name="learn_g35_measurement_perimeter_s2_formula">{b:U} = 2 x (Länge + Breite)</string>
+    <string name="learn_g35_measurement_perimeter_s2_formula">{b:U} = 2 × (Länge + Breite)</string>
     <string name="learn_g35_measurement_perimeter_s3_problem">Ein Rechteck ist 8 cm mal 5 cm.</string>
     <string name="learn_g35_measurement_perimeter_s3_l2">Jede Seite hat einen gleich langen Partner.</string>
     <string name="learn_g35_measurement_perimeter_s3_result">Umfang = 26 cm</string>
@@ -1719,7 +1719,7 @@
     <string name="learn_g35_measurement_perimeter_s4_explanation">Vier Seiten zu 9.</string>
     <string name="learn_g35_measurement_perimeter_s5_question">Welche Form hat einen Umfang von 20 cm?</string>
     <string name="learn_g35_measurement_perimeter_s5_o4">Keine von beiden</string>
-    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 verdoppelt ist 20, und 4 x 5 ist ebenfalls 20.</string>
+    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 verdoppelt ist 20, und 4 × 5 ist ebenfalls 20.</string>
     <string name="learn_g35_measurement_perimeter_s6_body">Der Umfang ist eine Länge, also wird er nie in Quadrateinheiten gemessen.</string>
     <string name="learn_g35_measurement_area_title">Fläche von Rechtecken</string>
     <string name="learn_g35_measurement_area_summary">Zähl die Quadrate, oder multipliziere stattdessen.</string>
@@ -1741,7 +1741,7 @@
     <string name="learn_geometry_area_compound_s3_l1">Zerleg sie in Rechtecke, die du kennst.</string>
     <string name="learn_geometry_area_compound_s3_result">Fläche = 16 Quadratzentimeter</string>
     <string name="learn_geometry_area_compound_s4_question">Aus einem Rechteck 5 mal 4 ist eine Ecke 2 mal 2 herausgeschnitten. Welche Fläche bleibt, in Quadratzentimetern?</string>
-    <string name="learn_geometry_area_compound_s4_explanation">5 x 4 = 20, und die fehlende Ecke nimmt 2 x 2 = 4 weg.</string>
+    <string name="learn_geometry_area_compound_s4_explanation">5 × 4 = 20, und die fehlende Ecke nimmt 2 × 2 = 4 weg.</string>
     <string name="learn_geometry_area_compound_s5_question">Ein Rechteck 3 mal 2 und ein Rechteck 4 mal 2 werden Kante an Kante gefügt. Wie groß ist die Gesamtfläche?</string>
     <string name="learn_geometry_area_compound_s6_body">Zerleg die Form so, wie es am einfachsten ist: Die Summe kommt so oder so gleich heraus.</string>
     <string name="learn_unit_geometry_perimeter_and_area_q1_prompt">Wie groß ist der Umfang dieses Rechtecks?</string>
@@ -2118,7 +2118,7 @@
     <string name="learn_rule_order_negatives_meaning">Je weiter links auf dem Strahl, desto kleiner die Zahl</string>
     <string name="learn_rule_move_on_the_line_meaning">Addieren geht auf dem Strahl nach rechts, Subtrahieren nach links</string>
     <string name="learn_rule_times_before_plus_meaning">Mal und geteilt kommen vor plus und minus</string>
-    <string name="learn_rule_times_before_plus_example">nicht 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">nicht 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Klammern kommen vor allem anderen</string>
     <string name="learn_rule_left_to_right_meaning">Gleicher Rang: von links nach rechts arbeiten</string>
     <string name="learn_rule_left_to_right_example">nicht 20 / 10</string>

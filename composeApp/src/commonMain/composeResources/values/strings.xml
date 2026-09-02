@@ -1185,7 +1185,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3, 6, 9, 12, 15, 18, 21 - seven threes counted on.</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">Counting the rows on is skip counting: one row of three, then two rows, then three.</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">Lay {a:3} rows down twice and the total doubles, because the second block is a copy of the first.</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18, so 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18, so 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">A baking tray holds {a:4} rows of {b:7} cakes.</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{a:Four} rows of {b:seven}: 7, 14, 21, 28.</string>
     <string name="learn_arithmetic_multiplication_facts_title">Facts you already know</string>
@@ -1218,7 +1218,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">How many dots are here?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">Eight rows of seven, and eight sevens are 56.</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">Five nines is 45, and one more nine makes 54.</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Which has the same total as 7 x 4?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">Which has the same total as 7 × 4?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">Turning the array on its side changes nothing.</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">Counting on in nines reaches 72 in exactly eight hops.</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">Counting on in fours reaches 20 in five hops, and 3 is left over.</string>
@@ -1489,8 +1489,8 @@
     <string name="learn_arithmetic_standard_form_calculating_summary">Front numbers multiply, powers add.</string>
     <string name="learn_arithmetic_standard_form_calculating_s1_body">The two halves travel separately. The front numbers multiply with each other, and the powers of ten add.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l1">The two halves travel separately.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l2">The front numbers multiply: 3 x 2 = 6.</string>
-    <string name="learn_arithmetic_standard_form_calculating_s2_l3">The powers of ten add: 10^4 x 10^3 = 10^7.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l2">The front numbers multiply: 3 × 2 = 6.</string>
+    <string name="learn_arithmetic_standard_form_calculating_s2_l3">The powers of ten add: 10^4 × 10^3 = 10^7.</string>
     <string name="learn_arithmetic_standard_form_calculating_s2_l4">Put the two halves back together.</string>
     <string name="learn_arithmetic_standard_form_calculating_s3_question">Dividing runs it backwards: the front numbers divide and the powers subtract.</string>
     <string name="learn_arithmetic_standard_form_calculating_s4_body">The front number can come out of the multiplication too big for the window, and then it has to be walked back in.</string>
@@ -1524,16 +1524,16 @@
     <string name="learn_arithmetic_surds_simplify_summary">Split off the largest square factor.</string>
     <string name="learn_arithmetic_surds_simplify_s1_body">Roots multiply straight across. That is what lets an untidy root be broken up: split off the largest square factor and take its root exactly.</string>
     <string name="learn_arithmetic_surds_simplify_s1_formula">√a * √b = √(ab)</string>
-    <string name="learn_arithmetic_surds_simplify_s2_l1">Look for a square factor: 50 is 25 x 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s2_l1">Look for a square factor: 50 is 25 × 2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l2">The root splits in two: √25 x √2.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l3">√25 is exactly 5.</string>
     <string name="learn_arithmetic_surds_simplify_s2_l4">2 has no square factor left, so it stays under the root.</string>
     <string name="learn_arithmetic_surds_simplify_s3_question">Find the square factor first.</string>
     <string name="learn_arithmetic_surds_simplify_s4_body">Take the largest square factor you can find. Splitting √72 through 4 leaves 2√18, which still has work left in it; through 36 it finishes in one step.</string>
     <string name="learn_arithmetic_surds_simplify_s5_question">√12 simplifies to a√3. What is a?</string>
-    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 is 4 x 3, and √4 is exactly 2.</string>
+    <string name="learn_arithmetic_surds_simplify_s5_explanation">12 is 4 × 3, and √4 is exactly 2.</string>
     <string name="learn_arithmetic_surds_simplify_s6_question">Three of these still have a square factor hiding in them.</string>
-    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 and 20 all divide by 4. 15 is 3 x 5, and neither is a square.</string>
+    <string name="learn_arithmetic_surds_simplify_s6_explanation">8, 12 and 20 all divide by 4. 15 is 3 × 5, and neither is a square.</string>
     <string name="learn_arithmetic_surds_arithmetic_title">Adding and multiplying surds</string>
     <string name="learn_arithmetic_surds_arithmetic_summary">Matching roots collect; different ones do not.</string>
     <string name="learn_arithmetic_surds_arithmetic_s1_body">Matching roots collect the way matching units do. Three metres and four metres make seven metres, and the metre never changes.</string>
@@ -1709,7 +1709,7 @@
     <string name="learn_geometry_angles_turns_summary">Quarter, half and full turns, and what is left over.</string>
     <string name="learn_geometry_angles_turns_s1_body">A full turn brings you back where you started. That is four right angles, or 360 degrees.</string>
     <string name="learn_geometry_angles_turns_s2_question">How many right angles make a full turn?</string>
-    <string name="learn_geometry_angles_turns_s2_explanation">Four quarter turns, and 4 x 90 = 360.</string>
+    <string name="learn_geometry_angles_turns_s2_explanation">Four quarter turns, and 4 × 90 = 360.</string>
     <string name="learn_geometry_angles_turns_s3_body">Half a turn is two right angles laid end to end, which is why 180 keeps appearing.</string>
     <string name="learn_geometry_angles_turns_s4_question">How many degrees are in three quarters of a turn?</string>
     <string name="learn_geometry_angles_turns_s4_explanation">Three lots of 90.</string>
@@ -1828,7 +1828,7 @@
     <string name="learn_g35_measurement_perimeter_summary">The walk all the way around.</string>
     <string name="learn_g35_measurement_perimeter_s1_body">Perimeter is the distance around the outside.</string>
     <string name="learn_g35_measurement_perimeter_s2_body">Opposite sides match, so add one of each and double it.</string>
-    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 x (length + width)</string>
+    <string name="learn_g35_measurement_perimeter_s2_formula">{b:P} = 2 × (length + width)</string>
     <string name="learn_g35_measurement_perimeter_s3_problem">A rectangle is 8 cm by 5 cm.</string>
     <string name="learn_g35_measurement_perimeter_s3_l2">Every side has an equal partner.</string>
     <string name="learn_g35_measurement_perimeter_s3_result">Perimeter = 26 cm</string>
@@ -1836,7 +1836,7 @@
     <string name="learn_g35_measurement_perimeter_s4_explanation">Four sides of 9.</string>
     <string name="learn_g35_measurement_perimeter_s5_question">Which shape has a perimeter of 20 cm?</string>
     <string name="learn_g35_measurement_perimeter_s5_o4">Neither</string>
-    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 doubled is 20, and 4 x 5 is 20 as well.</string>
+    <string name="learn_g35_measurement_perimeter_s5_explanation">6 + 4 doubled is 20, and 4 × 5 is 20 as well.</string>
     <string name="learn_g35_measurement_perimeter_s6_body">Perimeter is a length, so it is never measured in square units.</string>
     <string name="learn_g35_measurement_area_title">Area of rectangles</string>
     <string name="learn_g35_measurement_area_summary">Count the squares, or multiply instead.</string>
@@ -1858,7 +1858,7 @@
     <string name="learn_geometry_area_compound_s3_l1">Split it into rectangles you know.</string>
     <string name="learn_geometry_area_compound_s3_result">Area = 16 square cm</string>
     <string name="learn_geometry_area_compound_s4_question">A 5 by 4 rectangle has a 2 by 2 corner cut out. What area is left, in square cm?</string>
-    <string name="learn_geometry_area_compound_s4_explanation">5 x 4 = 20, and the missing corner takes 2 x 2 = 4 away.</string>
+    <string name="learn_geometry_area_compound_s4_explanation">5 × 4 = 20, and the missing corner takes 2 × 2 = 4 away.</string>
     <string name="learn_geometry_area_compound_s5_question">A 3 by 2 rectangle and a 4 by 2 rectangle are joined edge to edge. What is the total area?</string>
     <string name="learn_geometry_area_compound_s6_body">Split the shape whichever way is easiest: the total comes out the same either way.</string>
     <string name="learn_unit_geometry_perimeter_and_area_q1_prompt">What is the perimeter of this rectangle?</string>
@@ -2235,7 +2235,7 @@
     <string name="learn_rule_order_negatives_meaning">The further left on the line, the smaller the number</string>
     <string name="learn_rule_move_on_the_line_meaning">Adding moves right along the line, subtracting moves left</string>
     <string name="learn_rule_times_before_plus_meaning">Times and divide are done before plus and minus</string>
-    <string name="learn_rule_times_before_plus_example">not 5 x 4</string>
+    <string name="learn_rule_times_before_plus_example">not 5 × 4</string>
     <string name="learn_rule_brackets_first_meaning">Brackets come before everything else</string>
     <string name="learn_rule_left_to_right_meaning">Same rank: work from left to right</string>
     <string name="learn_rule_left_to_right_example">not 20 / 10</string>
@@ -2432,7 +2432,7 @@
     <string name="learn_algebra_expressions_letters_title">Letters for numbers</string>
     <string name="learn_algebra_expressions_letters_summary">What a letter is doing in a sum.</string>
     <string name="learn_algebra_expressions_letters_s1_body">A letter stands for a number nobody has told you yet. This scale balances, so whatever x is, it and 3 together weigh what 8 weighs.</string>
-    <string name="learn_algebra_expressions_letters_s2_body">3x is short for three copies of x. The number in front counts the copies, so it is never 3 and x stuck together.</string>
+    <string name="learn_algebra_expressions_letters_s2_body">3x is short for three copies of x: a strip of length x, taken 3 times. The number in front counts the copies, not a digit written beside the letter.</string>
     <string name="learn_algebra_expressions_letters_s3_question">Which of these means five more than n?</string>
     <string name="learn_algebra_expressions_letters_s3_explanation">More than adds on, so the 5 joins n rather than multiplying it.</string>
     <string name="learn_algebra_expressions_letters_s4_body">Substituting swaps the letter back for a number. Once x is 4, three copies of x are three fours.</string>
@@ -2633,8 +2633,8 @@
 
     <string name="learn_algebra_systems_elimination_title">Elimination</string>
     <string name="learn_algebra_systems_elimination_summary">Add or subtract until one letter disappears.</string>
-    <string name="learn_algebra_systems_elimination_s1_body">Drawing is slow and imprecise. If one letter appears the same number of times in both rules, it can be removed instead.</string>
-    <string name="learn_algebra_systems_elimination_s2_body">Subtract the second rule from the first and the y cancels, leaving a single equation in x alone.</string>
+    <string name="learn_algebra_systems_elimination_s1_body">Drawing is slow and imprecise. Here is the first rule as a scale: two x and a y balance 7.</string>
+    <string name="learn_algebra_systems_elimination_s2_body">The second rule carries the same single y. Subtract it from the first and that y cancels, leaving one equation in x alone.</string>
     <string name="learn_algebra_systems_elimination_s3_explanation">Subtracting removes the y and leaves one x on its own.</string>
     <string name="learn_algebra_systems_elimination_s4_body">With one letter known, put it back into either rule to find the other.</string>
     <string name="learn_algebra_systems_elimination_s5_explanation">Substituting the 3 leaves a one-step equation for y.</string>
@@ -2740,8 +2740,8 @@
     <string name="learn_algebra_indices_special_title">Zero and negative powers</string>
     <string name="learn_algebra_indices_special_summary">Where the ladder goes below the power of one.</string>
     <string name="learn_algebra_indices_special_s1_body">Each step down this ladder halves what came before. The pattern does not stop when it reaches the power of one.</string>
-    <string name="learn_algebra_indices_special_s2_body">One more step down lands on 1, which is why anything to the power of nothing is 1.</string>
-    <string name="learn_algebra_indices_special_s3_explanation">Every ladder lands on the same rung there, whatever it was climbing by.</string>
+    <string name="learn_algebra_indices_special_s2_body">The step below the power of one lands on 1, which is why anything to the power of nothing is 1.</string>
+    <string name="learn_algebra_indices_special_s3_explanation">Every ladder lands on the same rung there, whatever it was stepping by.</string>
     <string name="learn_algebra_indices_special_s4_body">Below zero the halving carries on, so a negative power is one over the matching positive one.</string>
     <string name="learn_algebra_indices_special_s5_explanation">A negative power is a reciprocal, never a negative number.</string>
     <string name="learn_algebra_indices_special_s6_explanation">The rung below the power of one is always 1.</string>

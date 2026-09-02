@@ -1059,7 +1059,7 @@
     <string name="learn_g35_arithmetic_multiplication_s3_explanation">3、6、9、12、15、18、21 - 三を七つ分かぞえ足した。</string>
     <string name="learn_g35_arithmetic_multiplication_s4_body">行をかぞえ足すのはとび数え: 三の行が一つ、次に二つ、次に三つ。</string>
     <string name="learn_g35_arithmetic_multiplication_s5_body">{a:3} 行を二回置くと合計は二倍になる。二つ目のかたまりは一つ目の写しだから。</string>
-    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} x 6 = 18 なので 6 x 6 = 36</string>
+    <string name="learn_g35_arithmetic_multiplication_s5_formula">{a:3} × 6 = 18 なので 6 × 6 = 36</string>
     <string name="learn_g35_arithmetic_multiplication_s6_question">天板にケーキが {a:4} 行、各行 {b:7} 個ならぶ。</string>
     <string name="learn_g35_arithmetic_multiplication_s6_explanation">{b:七} の {a:四} 行分: 7、14、21、28。</string>
     <string name="learn_arithmetic_multiplication_facts_title">もう知っている九九</string>
@@ -1078,7 +1078,7 @@
     <string name="learn_arithmetic_multiplication_division_summary">わり算はかけ算の打ち消し。ときどきあまりが出る。</string>
     <string name="learn_arithmetic_multiplication_division_s1_body">わり算は合計を同じ数ずつの行に分け直す。同じ並びを逆から読んでいるだけ。</string>
     <string name="learn_arithmetic_multiplication_division_s2_body">かけ算一つから、わり算が二つ出てくる。並びはどちらの向きにも切れるから。</string>
-    <string name="learn_arithmetic_multiplication_division_s2_formula">6 x {b:5} = 30 なので 30 / {b:5} = 6</string>
+    <string name="learn_arithmetic_multiplication_division_s2_formula">6 × {b:5} = 30 なので 30 / {b:5} = 6</string>
     <string name="learn_arithmetic_multiplication_division_s3_question">八の行はいくつ必要?</string>
     <string name="learn_arithmetic_multiplication_division_s3_explanation">七が八つで 56。だから 56 は八の行ちょうど七つに分かれる。</string>
     <string name="learn_arithmetic_multiplication_division_s4_body">どの合計もきれいに分けられるとはかぎらない。次の行をうめられない分があまり。</string>
@@ -1092,7 +1092,7 @@
     <string name="learn_unit_arithmetic_multiplication_q1_prompt">点はいくつある?</string>
     <string name="learn_unit_arithmetic_multiplication_q1_explanation">七の行が八つ。七が八つで 56。</string>
     <string name="learn_unit_arithmetic_multiplication_q2_explanation">九が五つで 45、もう一つ九をたして 54。</string>
-    <string name="learn_unit_arithmetic_multiplication_q3_prompt">7 x 4 と同じ合計になるのはどれ?</string>
+    <string name="learn_unit_arithmetic_multiplication_q3_prompt">7 × 4 と同じ合計になるのはどれ?</string>
     <string name="learn_unit_arithmetic_multiplication_q3_explanation">並びを横に倒しても何も変わらない。</string>
     <string name="learn_unit_arithmetic_multiplication_q4_explanation">九ずつかぞえ足すと、ちょうど八回のジャンプで 72 に着く。</string>
     <string name="learn_unit_arithmetic_multiplication_q5_explanation">四ずつかぞえ足すと五回のジャンプで 20 に着き、3 があまる。</string>
@@ -1314,7 +1314,7 @@
     <string name="learn_rule_order_negatives_meaning">数直線で左にあるほど小さい数</string>
     <string name="learn_rule_move_on_the_line_meaning">数直線でたし算は右へ、ひき算は左へ動く</string>
     <string name="learn_rule_times_before_plus_meaning">かけ算とわり算はたし算とひき算より先</string>
-    <string name="learn_rule_times_before_plus_example">5 x 4 ではない</string>
+    <string name="learn_rule_times_before_plus_example">5 × 4 ではない</string>
     <string name="learn_rule_brackets_first_meaning">かっこの中が何よりも先</string>
     <string name="learn_rule_left_to_right_meaning">同じ強さなら左から右へ計算する</string>
     <string name="learn_rule_left_to_right_example">20 / 10 ではない</string>
