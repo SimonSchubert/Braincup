@@ -2,7 +2,6 @@ package com.inspiredandroid.braincup.api
 
 import com.inspiredandroid.braincup.normalsudoku.NormalSudokuPuzzles
 import com.inspiredandroid.braincup.normalsudoku.SudokuDifficulty
-import com.russhwolf.settings.MapSettings
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -39,7 +38,7 @@ class UserStorageSudokuAchievementsTest {
 
     @Test
     fun reportsRisingProgressAndUnlocksAtTarget() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         val reported = mutableListOf<Pair<SudokuDifficulty, Int>>()
         PlayGamesBridge.onSudokuTierProgress = { difficulty, count -> reported += difficulty to count }
 
@@ -57,7 +56,7 @@ class UserStorageSudokuAchievementsTest {
 
     @Test
     fun doesNotUnlockBeforeTarget() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         tierIds(SudokuDifficulty.EASY).take(UserStorage.SUDOKU_TIER_TARGET - 1).forEach {
             storage.markNormalSudokuCompleted(it, SudokuDifficulty.EASY)
         }
@@ -66,7 +65,7 @@ class UserStorageSudokuAchievementsTest {
 
     @Test
     fun reMarkingSamePuzzleDoesNotDoubleCount() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         val id = tierIds(SudokuDifficulty.MEDIUM).first()
         storage.markNormalSudokuCompleted(id, SudokuDifficulty.MEDIUM)
         storage.markNormalSudokuCompleted(id, SudokuDifficulty.MEDIUM)
@@ -75,7 +74,7 @@ class UserStorageSudokuAchievementsTest {
 
     @Test
     fun restoreSeedsCompletedSetAndIsIdempotent() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
 
         assertTrue(storage.restoreSudokuTierProgressIfHigher(SudokuDifficulty.EXPERT, 4))
         assertEquals(4, solvedInTier(storage, SudokuDifficulty.EXPERT))
@@ -95,7 +94,7 @@ class UserStorageSudokuAchievementsTest {
 
     @Test
     fun restoreToFullTierUnlocksAchievement() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         assertTrue(storage.restoreSudokuTierProgressIfHigher(SudokuDifficulty.HARD, UserStorage.SUDOKU_TIER_TARGET))
         assertTrue(storage.getUnlockedAchievements().contains(UserStorage.Achievements.SUDOKU_HARD))
     }

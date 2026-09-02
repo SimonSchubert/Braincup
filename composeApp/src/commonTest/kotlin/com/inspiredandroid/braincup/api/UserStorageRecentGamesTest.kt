@@ -1,6 +1,5 @@
 package com.inspiredandroid.braincup.api
 
-import com.russhwolf.settings.MapSettings
 import kotlin.test.AfterTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -16,7 +15,7 @@ class UserStorageRecentGamesTest {
         PlayGamesBridge.hasPlayStoreAccount = false
     }
 
-    private fun storage() = UserStorage(MapSettings())
+    private fun storage() = testStorage()
 
     @Test
     fun freshStorageHasNoRecents() {

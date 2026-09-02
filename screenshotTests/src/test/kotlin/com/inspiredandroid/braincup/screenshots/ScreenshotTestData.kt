@@ -317,7 +317,15 @@ fun createRuleShiftUiState(): GameUiState = RuleShiftGame(Random(9L)).apply {
 }.toUiState()
 
 /** A storage holding one banked run, so the scoreboard has both a high score and a history row. */
-fun scoreboardStorage(): UserStorage = UserStorage(MapSettings()).apply {
+/**
+ * A [UserStorage] backed by settings that live only for the render.
+ *
+ * Always constructed with explicit [MapSettings]: the no-argument constructor reaches for the
+ * platform's real settings, which do not exist under Paparazzi and NPE there.
+ */
+fun screenshotStorage(): UserStorage = UserStorage(MapSettings())
+
+fun scoreboardStorage(): UserStorage = screenshotStorage().apply {
     putScore(GameType.MENTAL_ROTATIONS.id, 11)
 }
 

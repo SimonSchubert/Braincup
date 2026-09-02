@@ -1,7 +1,6 @@
 package com.inspiredandroid.braincup.api
 
 import com.inspiredandroid.braincup.matchstickriddles.MatchstickRiddles
-import com.russhwolf.settings.MapSettings
 import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
@@ -35,7 +34,7 @@ class UserStorageMatchstickAchievementsTest {
 
     @Test
     fun reportsRisingProgressAndUnlocksWhenAllSolved() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         val reported = mutableListOf<Int>()
         PlayGamesBridge.onMatchstickRiddlesProgress = { count -> reported += count }
 
@@ -49,14 +48,14 @@ class UserStorageMatchstickAchievementsTest {
 
     @Test
     fun doesNotUnlockBeforeEveryRiddleIsSolved() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         allIds.dropLast(1).forEach { storage.markMatchstickRiddleSolved(it) }
         assertFalse(storage.getUnlockedAchievements().contains(UserStorage.Achievements.MATCHSTICK_MASTER))
     }
 
     @Test
     fun reMarkingSameRiddleDoesNotDoubleCountOrReReport() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         val reported = mutableListOf<Int>()
         PlayGamesBridge.onMatchstickRiddlesProgress = { count -> reported += count }
 
@@ -69,7 +68,7 @@ class UserStorageMatchstickAchievementsTest {
 
     @Test
     fun restoreSeedsSolvedSetAndIsIdempotent() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
 
         assertTrue(storage.restoreMatchstickRiddlesProgressIfHigher(4))
         assertEquals(4, solvedCount(storage))
@@ -85,14 +84,14 @@ class UserStorageMatchstickAchievementsTest {
 
     @Test
     fun restoreToFullSetUnlocksAchievement() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         assertTrue(storage.restoreMatchstickRiddlesProgressIfHigher(MatchstickRiddles.count))
         assertTrue(storage.getUnlockedAchievements().contains(UserStorage.Achievements.MATCHSTICK_MASTER))
     }
 
     @Test
     fun restoreClampsACountLargerThanTheCatalog() {
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         // A store total left over from a larger past catalog must not overshoot the current riddles.
         assertTrue(storage.restoreMatchstickRiddlesProgressIfHigher(MatchstickRiddles.count + 5))
         assertEquals(MatchstickRiddles.count, solvedCount(storage))

@@ -10,7 +10,7 @@ import kotlin.test.assertTrue
 
 class UserStorageIqTestTest {
 
-    private fun storage() = UserStorage(MapSettings())
+    private fun storage() = testStorage()
 
     @Test
     fun historyStartsEmpty() {
@@ -119,7 +119,7 @@ class UserStorageIqTestTest {
     @Test
     fun bestFallsBackToHistoryWhenTheKeyIsAbsent() {
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         storage.putIqTestResult(seed = 1L, rawScore = 19, durationSeconds = 60)
         settings.remove(settings.keys.first { it.endsWith(UserStorage.KEY_IQ_TEST_BEST_RAW) })
 
@@ -130,7 +130,7 @@ class UserStorageIqTestTest {
     @Test
     fun recordsWithAnAppendedFieldStillParse() {
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         storage.putIqTestResult(seed = 1L, rawScore = 12, durationSeconds = 60)
         val key = settings.keys.first { it.endsWith(UserStorage.KEY_IQ_TEST_RESULTS) }
         settings.putString(key, "1755000000000/7/22/640/somethingnew,1754000000000/8/18/720")
@@ -145,7 +145,7 @@ class UserStorageIqTestTest {
     @Test
     fun recordsMissingAFieldAreStillSkipped() {
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         storage.putIqTestResult(seed = 1L, rawScore = 12, durationSeconds = 60)
         val key = settings.keys.first { it.endsWith(UserStorage.KEY_IQ_TEST_RESULTS) }
         settings.putString(key, "1755000000000/7/22,1754000000000/8/18/720")
@@ -156,7 +156,7 @@ class UserStorageIqTestTest {
     @Test
     fun garbledHistoryIsSkippedRatherThanCrashing() {
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         storage.putIqTestResult(seed = 1L, rawScore = 12, durationSeconds = 60)
         val key = settings.keys.first { it.endsWith(UserStorage.KEY_IQ_TEST_RESULTS) }
         settings.putString(key, "not-a-record,1/2/3/4,also/bad")

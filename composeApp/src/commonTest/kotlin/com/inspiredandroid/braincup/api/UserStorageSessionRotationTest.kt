@@ -13,7 +13,7 @@ import kotlin.test.assertTrue
  */
 class UserStorageSessionRotationTest {
 
-    private fun storage() = UserStorage(MapSettings())
+    private fun storage() = testStorage()
 
     @Test
     fun drawsOneGamePerCategoryInOrder() {
@@ -62,7 +62,7 @@ class UserStorageSessionRotationTest {
 
         // Draw across separate UserStorage instances backed by the same settings; the bag must
         // persist so the full pool is still covered exactly once before repeating.
-        val drawn = (1..3).map { UserStorage(settings).drawDailySessionGameIds(eligible).single() }
+        val drawn = (1..3).map { testStorage(settings).drawDailySessionGameIds(eligible).single() }
         assertEquals(setOf("a", "b", "c"), drawn.toSet())
     }
 }

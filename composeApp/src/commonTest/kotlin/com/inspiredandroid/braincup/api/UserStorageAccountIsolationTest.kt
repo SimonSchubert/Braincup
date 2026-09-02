@@ -25,7 +25,7 @@ class UserStorageAccountIsolationTest {
     fun localAccountDoesNotShareXpOrHighScores() {
         PlayGamesBridge.hasPlayStoreAccount = false
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         storage.putScore(GameType.MENTAL_CALCULATION.id, 12)
         val defaultXp = storage.getTotalXp()
         assertTrue(defaultXp > 0)
@@ -47,7 +47,7 @@ class UserStorageAccountIsolationTest {
     fun playRestoreDoesNotTouchLocalPrefix() {
         PlayGamesBridge.hasPlayStoreAccount = true
         val settings = MapSettings()
-        val live = UserStorage(settings)
+        val live = testStorage(settings)
         live.accounts.createLocal("Offline", AccountIcon.WHALE)
         live.putScore(GameType.FLAGS.id, 4)
 
@@ -64,7 +64,7 @@ class UserStorageAccountIsolationTest {
     @Test
     fun fossDefaultDoesNotNotifyPlayGames() {
         PlayGamesBridge.hasPlayStoreAccount = false
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         val medals = mutableListOf<GameType>()
         PlayGamesBridge.onGoldMedal = { medals += it }
         storage.putScore(GameType.MENTAL_CALCULATION.id, GameType.MENTAL_CALCULATION.goldScore)
@@ -74,7 +74,7 @@ class UserStorageAccountIsolationTest {
     @Test
     fun localPlayDoesNotNotifyPlayGames() {
         PlayGamesBridge.hasPlayStoreAccount = true
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         val medals = mutableListOf<GameType>()
         PlayGamesBridge.onGoldMedal = { medals += it }
         storage.accounts.createLocal("Offline", AccountIcon.CRAB)
@@ -89,7 +89,7 @@ class UserStorageAccountIsolationTest {
     @Test
     fun unlockedGoldSeedsHighScoreForTileMedal() {
         PlayGamesBridge.hasPlayStoreAccount = true
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         storage.restoreUnlockedAchievements(setOf(UserStorage.Achievements.GOLD_MENTAL_CALCULATION))
         assertTrue(GameType.MENTAL_CALCULATION.meetsScore(storage.getHighScore(GameType.MENTAL_CALCULATION.id), GameType.MENTAL_CALCULATION.goldScore))
         storage.accounts.createLocal("Kid", AccountIcon.SEAL)
@@ -107,7 +107,7 @@ class UserStorageAccountIsolationTest {
         val settings = MapSettings()
         settings.putInt("game_${GameType.N_BACK.id}_highscore", GameType.N_BACK.goldScore)
         settings.putInt("game_${GameType.DIGIT_MEMORY.id}_highscore", GameType.DIGIT_MEMORY.goldScore - 1)
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         assertTrue(UserStorage.Achievements.GOLD_N_BACK !in storage.getUnlockedAchievements())
 
         storage.unlockGoldForQualifyingHighScores()
@@ -119,7 +119,7 @@ class UserStorageAccountIsolationTest {
     @Test
     fun deviceThemeIsSharedAcrossAccounts() {
         PlayGamesBridge.hasPlayStoreAccount = false
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         storage.setAudioMuted(true)
         storage.accounts.createLocal("B", AccountIcon.FISH)
         assertTrue(storage.isAudioMuted())
@@ -130,13 +130,13 @@ class UserStorageAccountIsolationTest {
     fun fossDefaultOwnsExistingUnprefixedProgressWhenLocalsAlreadyExist() {
         PlayGamesBridge.hasPlayStoreAccount = true
         val settings = MapSettings()
-        val play = UserStorage(settings)
+        val play = testStorage(settings)
         play.putScore(GameType.MENTAL_CALCULATION.id, 15)
         val playXp = play.getTotalXp()
         play.accounts.createLocal("Kid", AccountIcon.SEAL)
 
         PlayGamesBridge.hasPlayStoreAccount = false
-        val foss = UserStorage(settings)
+        val foss = testStorage(settings)
         assertEquals(0, foss.getHighScore(GameType.MENTAL_CALCULATION.id))
         foss.accounts.switchTo(AccountStore.DEFAULT_LOCAL_ID)
         assertEquals(15, foss.getHighScore(GameType.MENTAL_CALCULATION.id))
@@ -147,7 +147,7 @@ class UserStorageAccountIsolationTest {
     fun deleteLocalRemovesPrefixedKeys() {
         PlayGamesBridge.hasPlayStoreAccount = false
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         val extra = storage.accounts.createLocal("Kid", AccountIcon.SEAL)
         storage.putScore(GameType.MENTAL_CALCULATION.id, 8)
         val prefix = "a_${extra!!.id}."
@@ -160,7 +160,7 @@ class UserStorageAccountIsolationTest {
     @Test
     fun achievementsStayIsolatedAcrossAccounts() {
         PlayGamesBridge.hasPlayStoreAccount = false
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         storage.putScore(GameType.MENTAL_CALCULATION.id, GameType.MENTAL_CALCULATION.goldScore)
         assertTrue(UserStorage.Achievements.GOLD_MENTAL_CALCULATION in storage.getUnlockedAchievements())
 
@@ -175,7 +175,7 @@ class UserStorageAccountIsolationTest {
     fun storePlayerChangeDoesNotMergeXp() {
         PlayGamesBridge.hasPlayStoreAccount = true
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         storage.accounts.bindStorePlayer("player-a")
         storage.putScore(GameType.MENTAL_CALCULATION.id, 12)
         val playerAXp = storage.getTotalXp()
@@ -197,7 +197,7 @@ class UserStorageAccountIsolationTest {
     @Test
     fun secondStorePlayerStillNotifiesPlayGames() {
         PlayGamesBridge.hasPlayStoreAccount = true
-        val storage = UserStorage(MapSettings())
+        val storage = testStorage()
         storage.accounts.bindStorePlayer("player-a")
         storage.accounts.bindStorePlayer("player-b")
         assertTrue(storage.accounts.isPlayAccountActive())
@@ -217,7 +217,7 @@ class UserStorageAccountIsolationTest {
     fun learnProgressStaysIsolatedAcrossAccounts() {
         PlayGamesBridge.hasPlayStoreAccount = false
         val settings = MapSettings()
-        val storage = UserStorage(settings)
+        val storage = testStorage(settings)
         val unit = LearnCatalog.allUnits.first()
         val lessonId = unit.lessons.first().id
         storage.completeLearnLesson(lessonId)
@@ -240,7 +240,7 @@ class UserStorageAccountIsolationTest {
     fun learnCertificateRestoreDoesNotTouchLocalPrefix() {
         PlayGamesBridge.hasPlayStoreAccount = true
         val settings = MapSettings()
-        val live = UserStorage(settings)
+        val live = testStorage(settings)
         live.accounts.createLocal("Offline", AccountIcon.WHALE)
         val unit = LearnCatalog.allUnits.first()
 

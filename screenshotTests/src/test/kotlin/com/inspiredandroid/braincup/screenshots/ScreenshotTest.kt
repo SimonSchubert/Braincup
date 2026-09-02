@@ -12,7 +12,6 @@ import app.cash.paparazzi.Paparazzi
 import com.inspiredandroid.braincup.app.GameUiState
 import com.inspiredandroid.braincup.games.GameType
 import com.inspiredandroid.braincup.api.UserStorage
-import com.russhwolf.settings.MapSettings
 import com.inspiredandroid.braincup.ui.screens.FinishScreen
 import com.inspiredandroid.braincup.ui.screens.MatchstickRiddlesMenuScreenContent
 import com.inspiredandroid.braincup.ui.screens.GameScreen
@@ -661,7 +660,7 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.COLOR_CONFUSION,
-                storage = UserStorage(MapSettings()),
+                storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},
             )
@@ -673,7 +672,7 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.RULE_SHIFT,
-                storage = UserStorage(MapSettings()),
+                storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},
             )
@@ -685,7 +684,7 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.MENTAL_FLEX,
-                storage = UserStorage(MapSettings()),
+                storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},
             )
@@ -700,7 +699,7 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.FLASH_CROWD,
-                storage = UserStorage(MapSettings()),
+                storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},
             )
@@ -714,7 +713,7 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.GHOST_GRID,
-                storage = UserStorage(MapSettings()),
+                storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},
             )
@@ -728,7 +727,7 @@ class ScreenshotTest {
         paparazzi.snap {
             InstructionsScreen(
                 gameType = GameType.TRIO,
-                storage = UserStorage(MapSettings()),
+                storage = screenshotStorage(),
                 onStart = {},
                 onBack = {},
             )

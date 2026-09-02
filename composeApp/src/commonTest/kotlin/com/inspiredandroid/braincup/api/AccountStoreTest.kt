@@ -21,7 +21,7 @@ class AccountStoreTest {
     @Test
     fun fossStartsWithDefaultLocalAccount() {
         PlayGamesBridge.hasPlayStoreAccount = false
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         val accounts = store.list()
         assertEquals(1, accounts.size)
         assertEquals(AccountStore.DEFAULT_LOCAL_ID, accounts.single().id)
@@ -34,7 +34,7 @@ class AccountStoreTest {
     @Test
     fun playStoreListsPlaySlotWithoutSeedingDefault() {
         PlayGamesBridge.hasPlayStoreAccount = true
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         val accounts = store.list()
         assertEquals(listOf(AccountStore.PLAY_ID), accounts.map { it.id })
         assertEquals(AccountKind.PLAY, accounts.single().kind)
@@ -45,7 +45,7 @@ class AccountStoreTest {
     @Test
     fun createAndSwitchLocalUsesPrefixedProgress() {
         PlayGamesBridge.hasPlayStoreAccount = false
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         val created = store.createLocal("Sam", AccountIcon.CRAB)
         assertEquals("Sam", created?.name)
         assertEquals(AccountIcon.CRAB, created?.icon)
@@ -59,7 +59,7 @@ class AccountStoreTest {
     @Test
     fun cannotDeleteDefaultOrLastLocalOnFoss() {
         PlayGamesBridge.hasPlayStoreAccount = false
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         assertFalse(store.deleteLocal(AccountStore.DEFAULT_LOCAL_ID))
         val extra = store.createLocal("Other", AccountIcon.FISH)
         assertFalse(store.deleteLocal(AccountStore.DEFAULT_LOCAL_ID))
@@ -70,7 +70,7 @@ class AccountStoreTest {
     @Test
     fun cannotCreateBeyondCap() {
         PlayGamesBridge.hasPlayStoreAccount = false
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         repeat(AccountStore.MAX_LOCAL_ACCOUNTS - 1) { index ->
             assertTrue(store.createLocal("P$index", AccountIcon.TUNA) != null)
         }
@@ -81,7 +81,7 @@ class AccountStoreTest {
     @Test
     fun playAndLocalCanCoexist() {
         PlayGamesBridge.hasPlayStoreAccount = true
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         val local = store.createLocal("Offline", AccountIcon.OCTOPUS)
         assertEquals(2, store.list().size)
         assertEquals(local!!.id, store.activeId())
@@ -94,7 +94,7 @@ class AccountStoreTest {
     @Test
     fun firstStorePlayerKeepsUnprefixedKeys() {
         PlayGamesBridge.hasPlayStoreAccount = true
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         assertFalse(store.bindStorePlayer("player-a"))
         assertEquals("", store.progressPrefix(AccountStore.PLAY_ID))
         assertFalse(store.bindStorePlayer("player-a"))
@@ -103,7 +103,7 @@ class AccountStoreTest {
     @Test
     fun laterStorePlayerUsesOwnPrefixAndCanSwitchBack() {
         PlayGamesBridge.hasPlayStoreAccount = true
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         store.bindStorePlayer("player-a")
         assertTrue(store.bindStorePlayer("player-b"))
         val secondPrefix = store.progressPrefix(AccountStore.PLAY_ID)
@@ -116,12 +116,12 @@ class AccountStoreTest {
     fun fossInsertsDefaultNextToExistingLocals() {
         PlayGamesBridge.hasPlayStoreAccount = true
         val settings = MapSettings()
-        val play = AccountStore(settings)
+        val play = testAccountStore(settings)
         val extra = play.createLocal("Kid", AccountIcon.SEAL)
         assertEquals(listOf(AccountStore.PLAY_ID, extra!!.id), play.list().map { it.id })
 
         PlayGamesBridge.hasPlayStoreAccount = false
-        val foss = AccountStore(settings)
+        val foss = testAccountStore(settings)
         assertEquals(
             listOf(AccountStore.DEFAULT_LOCAL_ID, extra.id),
             foss.list().map { it.id },
@@ -135,9 +135,9 @@ class AccountStoreTest {
     fun foldsDefaultLocalIntoPlayOnStoreBuild() {
         PlayGamesBridge.hasPlayStoreAccount = false
         val settings = MapSettings()
-        AccountStore(settings)
+        testAccountStore(settings)
         PlayGamesBridge.hasPlayStoreAccount = true
-        val store = AccountStore(settings)
+        val store = testAccountStore(settings)
         assertEquals(listOf(AccountStore.PLAY_ID), store.list().map { it.id })
         assertEquals(AccountStore.PLAY_ID, store.activeId())
     }
@@ -146,7 +146,7 @@ class AccountStoreTest {
     fun gameCenterSlotUsesGameCenterKind() {
         PlayGamesBridge.hasPlayStoreAccount = true
         PlayGamesBridge.isGameCenterAccount = true
-        val store = AccountStore(MapSettings())
+        val store = testAccountStore()
         assertEquals(AccountKind.GAME_CENTER, store.list().single().kind)
         assertTrue(store.list().single().isStoreAccount)
     }
