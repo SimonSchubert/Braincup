@@ -52,10 +52,10 @@
     <string name="achievementTripleVision" translatable="false">CgkIuZrirtIVEAIQMQ</string>
     <!-- achievement Spin Doctor (Mental Rotations) -->
     <string name="achievementSpinDoctor" translatable="false">CgkIuZrirtIVEAIQSA</string>
-    <!-- achievement Quick Change (Mental Flex). Blank until store_achievements.rb creates the
-         Play Console row and pastes its generated id back here. -->
+    <!-- achievement Quick Change (Mental Flex) -->
     <string name="achievementQuickChange" translatable="false">CgkIuZrirtIVEAIQSQ</string>
-    <string name="achievementRuleBreaker" translatable="false"></string>
+    <!-- achievement Rule Breaker (Rule Shift) -->
+    <string name="achievementRuleBreaker" translatable="false">CgkIuZrirtIVEAIQUQ</string>
 
     <!-- Cross-game milestones -->
     <!-- Incremental, max steps = 10000 -->
