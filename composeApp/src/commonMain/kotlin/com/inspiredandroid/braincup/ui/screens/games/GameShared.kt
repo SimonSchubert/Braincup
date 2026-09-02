@@ -27,6 +27,7 @@ import com.inspiredandroid.braincup.ui.theme.Primary
 import com.inspiredandroid.braincup.ui.theme.SuccessGreen
 import com.inspiredandroid.braincup.ui.theme.SuccessGreenSoft
 import com.inspiredandroid.braincup.ui.theme.numberFontFamily
+import kotlinx.coroutines.flow.first
 import org.jetbrains.compose.resources.stringResource
 
 @Composable
@@ -107,9 +108,10 @@ internal fun MemorizeTimeProgressBar(
         while (progress.floatValue > 0f) {
             if (paused) {
                 val pauseStart = withFrameNanos { it }
-                while (paused) {
-                    withFrameNanos { it }
-                }
+                // Suspend until the pause lifts rather than asking for a frame per vsync: the
+                // pause lasts as long as the quit dialog is open, and spinning on withFrameNanos
+                // kept the choreographer awake - and this composable animating - the whole time.
+                snapshotFlow { paused }.first { !it }
                 pausedAccumulationNanos += withFrameNanos { it } - pauseStart
                 continue
             }
