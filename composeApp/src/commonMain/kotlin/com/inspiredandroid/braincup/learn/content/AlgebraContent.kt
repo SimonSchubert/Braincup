@@ -1259,7 +1259,7 @@ internal object AlgebraContent {
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_indices_notation_s2_body),
-                        formula = math("x²"),
+                        formula = math("x^2"),
                         visual = AlgebraRect(leftX = 1, leftOnes = 0, topX = 1, topOnes = 0),
                     ),
                     Numeric(
@@ -1348,7 +1348,7 @@ internal object AlgebraContent {
                     ),
                     Concept(
                         body = words(Res.string.learn_algebra_indices_roots_s2_body),
-                        formula = math("√(x²) = x"),
+                        formula = math("√(x^2) = x"),
                         visual = AlgebraRect(leftX = 1, leftOnes = 0, topX = 1, topOnes = 0),
                     ),
                     Numeric(
